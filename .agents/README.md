@@ -29,10 +29,9 @@ Which links are actually required is untested. Codex needs none; Cursor document
 
 ## What is installed
 
-Bootstrap slice [01-0010.0020](../docs/tickets/01-0010.0020-live-alignment-across-hosts.md):
-`align` (with its ADR, ARCH, EDGE and GLOSSARY format shelf) and `impact`, from Meteoscape with the
-deltas accepted in the [source selection](../docs/tickets/01-0010-dev-harness-shared-and-local.md#bootstrap-corpus-selection).
-`align/EDGE-FORMAT.md` cites `../to-tickets/TICKET-FORMAT.md`, which is not installed yet; the link
-dangles until `/ticket` lands.
+Bootstrap slices [01-0010.0020](../docs/tickets/01-0010.0020-live-alignment-across-hosts.md) and
+[01-0010.0030](../docs/tickets/01-0010.0030-install-ticket.md): `align` (with its ADR, ARCH, EDGE
+and GLOSSARY format shelf), `impact`, and `ticket` (with `TICKET-FORMAT.md`), from Meteoscape with
+the deltas accepted in the [source selection](../docs/tickets/01-0010-dev-harness-shared-and-local.md#bootstrap-corpus-selection).
 
 The pre-audit July corpus is kept under [`legacy/skills`](../legacy/skills/) as evidence only. Nothing loads it.

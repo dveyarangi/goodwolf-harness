@@ -54,7 +54,5 @@ ticket under docs/tickets/. Detailed rules: docs/process.md. Terms: glossary.md.
 
 commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report
 
-<temporary until="/ticket is installed" ticket="docs/tickets/01-0010.0030-install-ticket.md">
-Only /align and /impact are installed today.
-</temporary>
+Installed: /align, /impact, /ticket.
 </project-local>

@@ -10,7 +10,7 @@ The user requested on 2026-09-05 that this harness be developed using its own ti
 
 The loop itself, its stages, skills and human checkpoints, the autonomy switches and the `<temporary>` convention are owned by [AGENTS.md](../AGENTS.md), the session entry file every host loads at start. This section holds the detail behind it.
 
-- Substantial new work, including this harness, uses a spec before implementation decomposition. `/to-spec` develops the brief through `/align`, records agreed scope, behavior, architectural boundaries and testing decisions, then hands off to `/to-tickets`. Small, bounded work can start directly as a ticket. The spec is a document, not a separately queued work item.
+- Substantial new work, including this harness, uses a spec before implementation decomposition. `/spec` develops the brief through `/align`, records agreed scope, behavior, architectural boundaries and testing decisions, then hands off to `/ticket`. Small, bounded work can start directly as a ticket. The spec is a document, not a separately queued work item.
 - A ticket owns the intended outcome, acceptance criteria and unresolved decisions. The [queue](tickets/README.md) owns ordering and delivery status.
 - `/align` resolves decisions against evidence and records them in the owning ticket. Accepted architecture belongs in `architecture.md`, created when a design is settled.
 - An implementation RFC belongs to a ticket, under `docs/rfc/` with the same basename. It follows agreement on the boundaries it implements; a research finding or an unsettled proposal is not an accepted implementation plan.
@@ -18,11 +18,12 @@ The loop itself, its stages, skills and human checkpoints, the autonomy switches
 - `/maintain` owns tree maintenance as defined below, including all responsibilities of `/denoise` and `/sync-arch`, and archiving. Its invocation triggers and implementation remain under alignment.
 - Sessions preserve the handoff; `/recall` checks maintained documents and current files rather than treating session history as delivery state.
 
-The accepted bootstrap selection uses `/ticket`, `/plan`, `/spec` and `/verify` for the former `/to-tickets`, `/plan-impl`, `/to-spec` and `/review-impl`, and consolidates `/denoise` and `/sync-arch` under `/maintain`. Renames happen at install; `/align` and `/impact` are installed under their own names.
+The accepted bootstrap selection uses `/ticket`, `/plan`, `/spec` and `/verify` for the former `/to-tickets`, `/plan-impl`, `/to-spec` and `/review-impl`, and consolidates `/denoise` and `/sync-arch` under `/maintain`. `/align`, `/impact` and `/ticket` are installed under those names.
 
 ## Naming
 
-Provisional working convention, following the existing dev suite: ticket names use `01-NNNN-slug.md`, with four-digit positions stepping by ten. A child adds a four-digit position, such as `01-0010.0010-slug.md`. A related RFC uses the same basename. Completed records move to their corresponding `done/` directory only when their own criteria are satisfied, with links repaired.
+Ticket names, `done/` moves, citation, and the queue table:
+[TICKET-FORMAT.md](../.agents/skills/ticket/TICKET-FORMAT.md).
 
 ## Autonomy and repair
 
