@@ -91,3 +91,12 @@ An artifact or behavior produced or maintained under a governing rule or contrac
 
 **Reconciliation**:
 Resolving differences between independently evolved states against their origins and governing agreements, retaining unresolved differences until they have a disposition.
+
+**Entry contract**:
+The instructions every host supplies at session start, versioned, and announced verbatim by the session's first reply as evidence of delivery.
+
+**Autonomy switch**:
+A named setting a project gives a value to, deciding whether an action proceeds or waits for a human; skills defer to it.
+
+**Temporary statement**:
+An instruction that names the condition on which it expires. Followed until the condition is visibly met, then reported as stale rather than obeyed.

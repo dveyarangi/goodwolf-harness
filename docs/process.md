@@ -4,6 +4,8 @@ The user requested on 2026-09-05 that this harness be developed using its own ti
 
 ## Work and documents
 
+The loop itself, its stages, skills and human checkpoints, the autonomy switches and the `<temporary>` convention are owned by [AGENTS.md](../AGENTS.md), the session entry file every host loads at start. This section holds the detail behind it.
+
 - Substantial new work, including this harness, uses a spec before implementation decomposition. `/to-spec` develops the brief through `/align`, records agreed scope, behavior, architectural boundaries and testing decisions, then hands off to `/to-tickets`. Small, bounded work can start directly as a ticket. The spec is a document, not a separately queued work item.
 - A ticket owns the intended outcome, acceptance criteria and unresolved decisions. The [queue](tickets/README.md) owns ordering and delivery status.
 - `/align` resolves decisions against evidence and records them in the owning ticket. Accepted architecture belongs in `architecture.md`, created when a design is settled.
@@ -12,7 +14,7 @@ The user requested on 2026-09-05 that this harness be developed using its own ti
 - `/maintain` owns tree maintenance as defined below, including all responsibilities of `/denoise` and `/sync-arch`, and archiving. Its invocation triggers and implementation remain under alignment.
 - Sessions preserve the handoff; `/recall` checks maintained documents and current files rather than treating session history as delivery state.
 
-The current work uses the existing Meteoscape ticket/align conventions directly by file reference. The accepted bootstrap selection uses `/ticket` and `/plan` for the former `/to-tickets` and `/plan-impl`, and consolidates `/denoise` and `/sync-arch` under `/maintain`. `/review-impl` and `/to-spec` retain their names. No skill has yet been installed or renamed in this project.
+The accepted bootstrap selection uses `/ticket`, `/plan`, `/spec` and `/verify` for the former `/to-tickets`, `/plan-impl`, `/to-spec` and `/review-impl`, and consolidates `/denoise` and `/sync-arch` under `/maintain`. Renames happen at install; `/align` and `/impact` are installed under their own names.
 
 ## Naming
 

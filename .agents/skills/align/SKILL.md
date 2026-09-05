@@ -138,5 +138,8 @@ If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](
 </supporting-info>
 
 <project-local>
-Glossary is `glossary.md` at the repository root. Architecture, ADRs, Edge records and `docs/concerns.md` do not exist yet: create each lazily on first need, and skip the Edge challenge until `docs/edge/` exists. Current rules are `docs/process.md`; decisions land in the owning ticket under `docs/tickets/`, named per `docs/process.md#naming`; the queue is `docs/tickets/README.md`.
+Glossary is `glossary.md` at the repository root. Current rules are `docs/process.md`; the loop and autonomy switches are `AGENTS.md`; decisions land in the owning ticket under `docs/tickets/`, named per `docs/process.md#naming`; the queue is `docs/tickets/README.md`. Architecture, ADRs and `docs/concerns.md` do not exist yet: create each lazily on first need.
+<temporary until="docs/edge/ exists">
+There are no Edge records yet; skip the Edge challenge.
+</temporary>
 </project-local>

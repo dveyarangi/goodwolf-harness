@@ -69,12 +69,12 @@ M = `D:/Dev/AI/meteoscape/.agents/skills`; F = `D:/Dev/DriftSense/workspace/fore
 | `plan-impl` | `/plan` | F core, including explicit repeated validation through the same skill; rename as agreed. Do not import the collector's local `Pass` ownership or Cursor loop configuration. |
 | `recall` | `/recall` | F core: retain priority for landed-but-unchecked work. Use this project's delivery records locally. |
 | `review-architecture` | `/review-architecture` | M and its `REFERENCE.md`; equivalent shared content. Update calls to the current workflow. |
-| `review-impl` | `/review-impl` | M review body, reconciled directly with agreed repair-and-report. F contains both "do not make changes until requested" and an unconditional amendment direction, so neither body is suitable unchanged. Keep this name until a `/verify` rename is actually selected. |
+| `review-impl` | `/verify` | M review body, reconciled directly with agreed repair-and-report. F contains both "do not make changes until requested" and an unconditional amendment direction, so neither body is suitable unchanged. **2026-09-05, user: renamed `/verify`.** |
 | `setup-devops` | `/setup-devops` | M; equivalent to A/F and correctly named. Do not use H's mismatched `setup-project` metadata. |
 | `skill-up` | `/skill-up` | M/F core as source. Adapt to inline local instructions initially and explicit file ownership; blanket appendix preservation cannot remain. Leave unresolved override policy explicit. |
 | `sync-arch` | `/maintain` | M responsibilities absorbed in maintenance, as agreed: architecture/code consistency in both directions and reconstruction of load-bearing contracts. |
 | `tdd` | `/tdd` | M with all five identical supporting documents. Retain the existing rule that an agreed RFC can satisfy its planning gate. |
-| `to-spec` | `/to-spec` | M/F ordinary-spec body. Align lifecycle with maintained homes and `/maintain` archival. Do not import A's initiative/Notion branch. A `/spec` rename remains undecided. |
+| `to-spec` | `/spec` | M/F ordinary-spec body. Align lifecycle with maintained homes and `/maintain` archival. Do not import A's initiative/Notion branch. **2026-09-05, user: renamed `/spec`.** |
 | `to-tickets` | `/ticket` | M body plus F's impact assessment of proposed slices; rename as agreed. Use local Markdown tracking for this project. Do not transfer decomposition to a proposed pacer yet. |
 
 This retains all 21 source capabilities while consolidating `denoise` and `sync-arch` into one `/maintain` entrypoint: **20 selected working commands**. Legacy command compatibility is an installation-design question; all maintained internal references must use the selected names. No `/pacer`, `/step`, `/decompose` or wholesale Life `/mechanism` import is selected.
@@ -93,6 +93,16 @@ This retains all 21 source capabilities while consolidating `denoise` and `sync-
 ~~Adopt the M-based source selection and listed F deltas as the bootstrap foundation?~~ **Accepted, 2026-09-05:** the user agreed to the presented selection, subject to the already-agreed repairs. This selects inputs and intended capabilities; it does not approve an unreviewed rewrite, installation layout or every provisional design in the harness spec.
 
 **Still open after source selection:** exact composed maintenance/skill-update instructions, this project's required local validation facts, host installation and activation behavior, and the unselected command aliases. General queue, pacer, initiative and local-override mechanisms remain in their existing design backlog. An ambiguity that actually blocks safe assembly must be brought back as a concrete case rather than silently chosen.
+
+### Core changes owed by later installs
+
+Decided in [01-0010.0020](./01-0010.0020-live-alignment-across-hosts.md) on 2026-09-05; each lands with the skill it names.
+
+- `/impact` gains a shape recommendation in its output: spec, ticket or RFC, or re-slice. The root entry file already states this intent.
+- `/commit`, and any skill that gates on permission, reads the autonomy switches from the entry file's local block instead of carrying its own absolute rule.
+- `/skill-up` documents `<temporary until="...">` alongside `<project-local>`.
+- `/maintain` enumerates `<temporary>` statements in scope and removes the ones whose condition holds.
+- `/ticket` and `/plan` call `/impact` where the entry file says they do.
 
 ## First bootstrap delivery ticket — proposed breakdown
 
