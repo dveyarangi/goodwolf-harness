@@ -1,6 +1,8 @@
 # Session entry
 
-Entry contract: v1, 2026-09-05. Open your first reply of every session with this line, verbatim.
+Entry contract: v2, 2026-09-06.
+
+Open your first reply of every session with the line above, verbatim.
 
 ## The loop
 
@@ -37,11 +39,13 @@ The project sets each switch in its local block below; skills defer to those val
 
 ## Temporary statements
 
-A statement that expires is wrapped in `<temporary until="condition">`, anywhere: in a local block,
-a skill body, a doc. The condition is testable: a file exists, a skill is installed, a ticket is
-done. Follow it like any rule until you can see the condition is met; then act on reality, report
-the stale block, and do not treat the contradiction as a violation. /maintain enumerates every
-`<temporary>` in scope and removes the ones whose condition holds.
+A statement that expires is wrapped in `<temporary until="condition" ticket="path">`, anywhere: in
+a local block, a skill body, a doc. The condition is testable: a file exists, a skill is installed,
+a ticket is done. The ticket is the one whose work meets the condition, as a path from the
+repository root; a block with no ticket is an unbound expiry, which /maintain reports. Follow the
+block like any rule until you can see the condition is met; then act on reality, report the stale
+block, and do not treat the contradiction as a violation. /maintain enumerates every `<temporary>`
+in scope and removes the ones whose condition holds.
 
 <project-local>
 This repository develops the shared dev harness using its own loop. The queue,
@@ -50,7 +54,7 @@ ticket under docs/tickets/. Detailed rules: docs/process.md. Terms: glossary.md.
 
 commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report
 
-<temporary until="/ticket is installed">
+<temporary until="/ticket is installed" ticket="docs/tickets/01-0010.0030-install-ticket.md">
 Only /align and /impact are installed today.
 </temporary>
 </project-local>

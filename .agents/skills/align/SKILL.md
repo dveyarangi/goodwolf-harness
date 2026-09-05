@@ -139,7 +139,7 @@ If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](
 
 <project-local>
 Glossary is `glossary.md` at the repository root. Current rules are `docs/process.md`; the loop and autonomy switches are `AGENTS.md`; decisions land in the owning ticket under `docs/tickets/`, named per `docs/process.md#naming`; the queue is `docs/tickets/README.md`. Architecture, ADRs and `docs/concerns.md` do not exist yet: create each lazily on first need.
-<temporary until="docs/edge/ exists">
-There are no Edge records yet; skip the Edge challenge.
+<temporary until="/edge is installed" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">
+There are no Edge records and no `/edge` to make one; skip the Edge challenge.
 </temporary>
 </project-local>

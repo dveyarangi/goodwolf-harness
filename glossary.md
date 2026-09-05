@@ -44,8 +44,11 @@ Which authorized work proceeds now, pauses, or awaits a decision. Pace is distin
 **Unit of work — proposed definition**:
 Work with an explicit scale, owner, outcome and completion evidence; a milestone and a ticket can both be units at different scales. The term alone does not specify an agent-sized step; see the [pacer hypothesis](docs/pacer.md#scales-and-steps--revised-hypothesis).
 
-**Execution step — proposed definition**:
-A bounded operation or pass on selected work with an input state, immediate purpose, expected result and reassessment boundary. A step may be one skill invocation or a smaller stage within it, and need not complete its owning ticket.
+**Execution step**:
+The execution of a single skill. It has an input state, an immediate purpose, an expected result and a reassessment boundary at its end, and need not complete its owning ticket.
+
+**Turn**:
+One agent reply, from the user's message to the reply's end. A turn holds at most one execution step; a step may span turns.
 
 **Archived record**:
 A historical account retained after its active role ends, with its disposition explicit. Current work should be understandable from maintained sources without requiring that record; historical investigation and mechanical maintenance may still reach it.

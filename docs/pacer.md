@@ -6,7 +6,19 @@
 
 The project owner and agent need to interpret requests such as "let's do the next thing" against the current work, its uncertainty and authorization. The artifact currently holding an issue may not represent its eventual scope: an undecomposed HITL ticket can reveal a spec and multiple delivery tickets, and an RFC can expose a missing upstream agreement.
 
+**2026-09-06, user:** resume state is the pacer's concern: what a session writes down at `/conclude` so the next `/recall` can resume the delivery ring at the stage it stopped, rather than waking into `/align` by rule. Until the pacer exists the wake goes to `/align` as drawn.
+
 The pacer must represent work at multiple scales and select execution steps small enough for an agent to handle controllably. It must explain when evidence requires expansion, decomposition, a repeated pass, a return to an earlier stage, or a human decision. Preserve the original issue, valid decisions and completed work through such changes.
+
+## Core rules — under alignment
+
+The pacer's core rules are Tier 1: they say what the agent does after `/recall` and what one turn's reply is scoped to. A **turn** is one agent reply, from the user's message to the reply's end. Resolved rules are recorded here until the pacer is installed and carries them.
+
+- ~~What is a turn scoped to?~~ **2026-09-06, user: a turn holds at most one execution step.** A step may span turns; a turn never spans steps. The reply ends at the step's reassessment boundary. Chaining steps inside one turn up to the next human checkpoint is the intended later shape, to arrive as a stated allowance when principles settle, not as the default. Evidence: the first observed wake, whose reply was about to run `/recall` into `/align` by rule. **Same day, user: a step is the execution of a single skill**; the glossary's earlier "or a smaller stage within it" is dropped.
+- ~~When the user's message names no step, how is the step chosen?~~ **2026-09-06, user: a session that starts with "what's next" starts with `/recall`, which finds the next probable move; if nothing is active, `/align` on what's next.** The precedence recall uses, accepted as "ok for now, a bit muddy": landed-but-unverified work first; then a decision parked at `/align` on the active ticket; then the active ticket's current stage, continued; then, nothing active, `/align` on what comes next, which is the `next-cycle` checkpoint. A tie at one rank is presented, not resolved.
+- **2026-09-06, user: bootstrap the pacer on the `<temporary>` blocks.** Each block's `until` condition is bound to a real ticket, so the conditions become the queue the pacer paces, and "what's next" can be answered from them for the current work here.
+
+Until the pacer is installed, the wake lands on `/align`; the pacer then reads state, resumes the ring at the next step, and stops only for a HITL escalation.
 
 ## Scales and steps — revised hypothesis
 

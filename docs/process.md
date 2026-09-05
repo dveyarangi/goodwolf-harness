@@ -1,5 +1,9 @@
 # Development process
 
+<temporary until="/pacer is installed" ticket="docs/tickets/01-0010.0040-pacer.md">
+This document is a suggestion of sequence, not a rulebook. The sequence and the scoping of work are the [pacer's](pacer.md) concern, and the pacer owns this document once it exists. Each step's rules belong in the step's own skill and move there as the skill is installed. Where the installed skills or the [entry file](../AGENTS.md) differ from what follows, they are right.
+</temporary>
+
 The user requested on 2026-09-05 that this harness be developed using its own tickets, RFCs and development loop. Their [loop sketch](../dev-skills.png) is the discussion input; its command names and exact transitions remain under alignment.
 
 ## Work and documents
