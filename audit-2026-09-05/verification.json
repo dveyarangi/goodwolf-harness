@@ -1,0 +1,45 @@
+{
+  "changed_since_snapshot": [],
+  "missing_prose_links_primary": [
+    [
+      "H",
+      "align/SKILL.md",
+      "./docs/concerns.md"
+    ]
+  ],
+  "missing_required_frontmatter_primary": [],
+  "counts": {
+    "H": {
+      "skills": 13,
+      "files": 22
+    },
+    "M": {
+      "skills": 21,
+      "files": 33
+    },
+    "A": {
+      "skills": 21,
+      "files": 36
+    },
+    "F": {
+      "skills": 19,
+      "files": 30
+    },
+    "L": {
+      "skills": 24,
+      "files": 41
+    },
+    "L2": {
+      "skills": 19,
+      "files": 31
+    },
+    "W": {
+      "skills": 7,
+      "files": 16
+    },
+    "S": {
+      "skills": 29,
+      "files": 61
+    }
+  }
+}

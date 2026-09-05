@@ -1,0 +1,789 @@
+### advise/SKILL.md [missing]
+--- W/advise/SKILL.md
++++ H/advise/SKILL.md
+@@ -0,0 +1,16 @@
++---
++name: advise
++description: >-
++  Advise me on current project by answering strategical questions
++---
++
++Please advise me on current project/regarded aspect. 
++Tell me:
++- What is great? 
++- What is good enough? 
++- What is questionable/missing?
++- What is redundant? 
++- What is out of balance? 
++- What would make my life easier?
++- What else?
++- What next?
+
+### align/SKILL.md [core/appendix]
+--- W/align/SKILL.md
++++ H/align/SKILL.md
+@@ -5,14 +5,13 @@
+ 
+ <what-to-do>
+ 
+-Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
++Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer. If there are alternatives, show pros/cons/tradeoffs between them.
+ 
+-Ask the questions one at a time, waiting for feedback on each question before continuing.
++Ask the questions one at a time, waiting for feedback on each question before continuing. Asking multiple questions at once is bewildering. Do not use platform (Cursor/Claude Code) question format, output plain md.
+ 
+-If a question can be answered by exploring the codebase, explore the codebase instead.
++If a *fact* can be foundby exploring the codebase, look it up rather than asking me. The *decisions*, though, are mine - put each one to me and wait for my answer.
+ 
+-Do not use Cursor question format, use plain md.
+-
++Do not enact the plan until I confirm we have reached a shared understanding.
+ </what-to-do>
+ 
+ <supporting-info>
+@@ -31,7 +30,7 @@
+ │   └── adr/
+ │       ├── 0001-event-sourced-orders.md
+ │       └── 0002-postgres-for-write-model.md
+-├────── architure.md
++├────── architecture.md
+ ├────── product.md
+ ├────── glossary.md
+ └── src/
+
+### denoise/SKILL.md [core/appendix]
+--- W/denoise/SKILL.md
++++ H/denoise/SKILL.md
+@@ -7,9 +7,14 @@
+ 
+ # Denoise
+ 
+-User-named paths only. Learn where this repo already treats each fact as
++The topic in context or entire codebase, on user request. Learn where this repo already treats each fact as
+ authoritative; follow that layering — do not invent one. Out of scope: code
+ structure, contradictory passages, reorganizing where facts live.
++Always explore `architecture.md`, `glossary.md` and relevant ADRs too.
++
++**Unwrinkle.** Cross-explore for contradictions, under or overstatements, redundancies or other misalignments between docs, make sure different architecture docs are aligned with each-other. 
++In case of load-bearing or rippling contradiction, ask user about resolution, explaining the context and providing ways to amend with recommendation. Use `/align` skill if decision is multi-step.
++Exclude previous sessions and RFC - they are historical records, not architectural statements. All truth statement should live in architecture, adrs or code.
+ 
+ **Deduplicate.** A fact is explained once, at its canonical home; elsewhere
+ replace the restatement with `→ [<label>: <hint>](<path>#<anchor>)` — one
+@@ -21,11 +26,18 @@
+ you got here. Remove superseded paths, unchosen alternatives, completed
+ migration notes. Keep a rejection only when it is load-bearing (structural
+ constraint or guardrail). Delete evolution prose; do not link it.
++Note that future development/planned extension prose can stay in docs/code where is relevant. But session/ticket references should not appear in code docstrings.
+ 
+ **Inline code docs.** Docstrings describe what *this unit* does — not pasted
+ domain definitions.
++
++**Session, tickets and RFCs** are allowed to carry duplicate relevant architectural context; those docs are not core architecture, but historical records or current work digests. Their corresponding `README.md` files should be pure, though.
++Core architecture docs must not reference sessions, tickets or RFCs.
+ 
+ **Workflow.** Scan → inventory **Safe** / **Needs you** → apply safe items
+ (obvious dupes, non-load-bearing evolution, link normalization) → pause on
+ ambiguous homes, cross-layer moves, large deletions, or contradictions →
+ verify links → summarize.
++
++**Completion**
++Make sure fully resolved tickets and RFCs are moved to their corresponding /docs/../done folder, references to them updated.
+### implement/SKILL.md [missing]
+--- W/implement/SKILL.md
++++ H/implement/SKILL.md
+@@ -0,0 +1,23 @@
++---
++name: implement
++description: Implement a piece of work based on a spec or set of tickets.
++---
++
++Implement the code described by relevant architecture decisions (spec/ticket/prior discussion).
++
++Make sure to investigate the relevant specs, tickets and RFCs in /docs folder.
++
++Use very slight alchemical cyber/steampunk laboratory inclination when picking names entities.
++Do not use implementation-shaped names or parameters, instead make them oriented at function meaning toward client.
++
++Use /tdd where possible, at pre-agreed seams. Make sure implementation, even in dummy/degenerate form, fully follows contract surfaces in the docs.
++
++Make methods behind main architectural boundaries clear - they should read almost as a story explaining the boundary logic, with separate concerns extracted to properly named sub-methods. Also, in general, prefer to split submethods by responsibility. 
++
++Run typechecking and single tests files regularly, and the full test suite once in the end.
++
++
++
++Once done, use /sync-arch to review the work.
++
++Do not commit your work until requested.
+### improve-comments/SKILL.md [missing]
+--- W/improve-comments/SKILL.md
++++ H/improve-comments/SKILL.md
+@@ -0,0 +1,210 @@
++---
++name: improve-comments
++description: Write or improve code base comments
++---
++
++
++# Comment Guide for LLM-Generated Code
++
++## Core Rule
++
++Comments should explain **intent, constraints, and danger**.
++
++They should not translate code into English.
++
++A good comment answers questions the code cannot answer clearly by itself:
++
++* Why does this exist?
++* Why was this approach chosen?
++* Why was an obvious alternative rejected?
++* What domain rule is being enforced?
++* What invariant must remain true?
++* What external constraint shapes this code?
++* What danger should future maintainers notice?
++
++## First Prefer Clear Code
++
++Before adding a comment, check whether the idea can be expressed better through:
++
++* a clearer name
++* a smaller function
++* a stronger type
++* a better module boundary
++* a more explicit interface
++* a simpler control flow
++
++If the code can be clarified directly, improve the code instead of adding a comment.
++
++## Good Comments Explain Why
++
++Good comments explain reasoning, not mechanics.
++
++```python
++# We prefer freshness over provider priority here because stale frost data is dangerous.
++```
++
++```python
++# Invariant: all ranges in a Coverage share the same geometry.
++```
++
++```python
++# Visual Crossing reports some hourly values in local time; normalize before merging.
++```
++
++## Bad Comments Repeat the Code
++
++Avoid comments that simply narrate what the next line already says.
++
++```python
++# Increment i
++i += 1
++```
++
++```python
++# Loop over providers
++for provider in providers:
++    ...
++```
++
++```python
++# Check if provider can answer the request
++if provider.can_answer(selection):
++    ...
++```
++
++These comments add noise without adding understanding.
++
++## Comment Stable Knowledge
++
++Prefer comments about things that are unlikely to change accidentally:
++
++* domain rules
++* invariants
++* protocol contracts
++* vendor quirks
++* non-local consequences
++* safety assumptions
++* ordering requirements
++* rejected design alternatives
++
++Avoid comments that describe tiny implementation details likely to rot.
++
++## Comment Where Wrong Assumptions Are Likely
++
++Use comments when a future reader may make a plausible but wrong assumption.
++
++```python
++# Do not reorder these rules: later checks assume rain risk was already classified.
++```
++
++```python
++# We do not cache raw vendor JSON here: cache readers need canonical Coverage semantics.
++```
++
++```python
++# This module normalizes vendor weather semantics.
++# It must not perform provider selection or fallback.
++```
++
++## Public API Comments
++
++Public API comments should explain correct usage, expectations, and contract boundaries.
++
++They should describe:
++
++* what the caller may assume
++* what the caller must provide
++* what errors mean
++* what is intentionally not guaranteed
++
++Example:
++
++```python
++# Returns canonical Coverage in the provider's native geometry.
++# If the selection specifies a lattice, the provider may homogenize onto that lattice.
++```
++
++## Internal Comments
++
++Internal comments should explain why the implementation has this shape.
++
++They are useful for:
++
++* tricky domain logic
++* external API weirdness
++* performance-sensitive choices
++* surprising ordering
++* compatibility constraints
++* intentionally ugly but necessary code
++
++## TODO Comments
++
++A TODO must name a concrete missing action.
++
++Bad:
++
++```python
++# TODO: clean this horrible mess later
++```
++
++Good:
++
++```python
++# TODO: split provider normalization from HTTP retry policy.
++```
++
++Good TODOs should be actionable, specific, and easy to search.
++
++## Avoid Comment Apologies
++
++Do not use comments to excuse unclear code.
++
++Bad:
++
++```python
++# Sorry, this is ugly but it works.
++```
++
++Better:
++
++```python
++# Provider returns mixed local/UTC timestamps; keep this branch until upstream fixes export format.
++```
++
++## Preferred Comment Targets
++
++Prefer comments above:
++
++* modules
++* classes
++* functions
++* public APIs
++* tricky blocks
++* invariants
++* dangerous assumptions
++
++Avoid dense line-by-line comments.
++
++## Final Checklist
++
++Before keeping a comment, ask:
++
++1. Does it explain something the code cannot express clearly?
++2. Will it still be true after small implementation changes?
++3. Does it prevent a plausible future mistake?
++4. Does it explain intent, constraint, or danger?
++5. Is it more useful than improving the code itself?
++
++If yes, keep it.
++
++If not, remove it.
++
++## Summary
++
++Good comments preserve design intent.
++
++Bad comments narrate syntax.
++
++Write comments for the maintainer who understands the language, but does not yet understand the context.
++
++If architecture entry/decision/description already exists, prefer link to docs instead of restating it.
+### plan-impl/SKILL.md [missing]
+--- W/plan-impl/SKILL.md
++++ H/plan-impl/SKILL.md
+@@ -0,0 +1,25 @@
++---
++name: plan-impl
++description: Plan implementation for ticket/task at hand
++---
++
++- Explore documentation in depth, follow links in it to find all decisions relevant to current task. 
++
++- Establish implementation scope, pinpoint and mention affected boundaries, contracts, ownership. Present main code shapes - especially ones that represent documented boundaries. Present code flows.
++
++- Detect open concern and use /align skill to resolve them with user.
++
++- Major goal of this planning is to find inconsistencies in the pre-planned architecture. Do this diligently. If such inconsistency found, do not stick blindly for architectural decision - instead raise concern with user to resolve it - either in code or in arch docs
++
++- Describe the implementation stages; allocate them accordind to /tdd rules.
++
++- Cover migrations, compatibility, rollout, failure handling, and observability when relevant.
++
++
++- Map out scope-specific limitation, follow-ups and related out-of-scope concerns.
++
++- Do not leave implementation ambiguities or optionalities, no matter how small - either resolve them or consult with user.
++
++- Record the plan into markdown file in /docs/rfc. Theile should be using naming pattern `docs/rfc/0001-<YYYYMMDD>-<name>.md`, keeping constantly incrementing enumeration.
++
++- DO NOT CHANGE THE CODE!
+### setup-devops/SKILL.md [missing]
+--- W/setup-devops/SKILL.md
++++ H/setup-devops/SKILL.md
+@@ -0,0 +1,40 @@
++---
++name: setup-project
++description: Programming project setup, including language, package manager, containerization/deployment form, CICD pipeline, dependencies roster, observability frameworks 
++---
++
++# Programming project setup
++
++## Init
++
++Scan existing repository to find out setup aspects already evident/decided upon;
++If not found, suggest options with pros, cons and tradeoffs explained.
++
++## Language
++
++## Package manager
++Look up for best stable option on web
++
++## Deployment form
++For backend app, wrap with docker compose
++
++## CICD pipeline
++Setup initial GitHub/chosen provider repository if missing; Set up provider CICD script/configuration for build; to not attach deployment configuration, it is out of scope
++
++## Dependencies
++Repare roster of selected package management type; only populate it if there is dependency data in project sources/docs
++
++## Observability
++For backend app, attach Sentry.io dependency
++
++## Generate DevOps doc
++
++Record all decisions and setup form into docs/cicd.md
++
++## README.md
++
++If docs are sufficient, generate repository README.md with logo (if found), version/code/licence (MIT) tags;
++With sections:
++- What it is
++- Setup
++- Requirements
+
+### sync-arch/SKILL.md [missing]
+--- W/sync-arch/SKILL.md
++++ H/sync-arch/SKILL.md
+@@ -0,0 +1,17 @@
++---
++name: sync-arch
++description: Synchronize architecture docs with high-level code shape.
++---
++
++I need you to run a bit all-around check, and make sure that architecture documentation (./docs/architecture.md, ./docs/adrs, ./docs/glossary.md) properly represent the intent of recently modified code. 
++
++The ultimate goal for this skill is to make sure architecture docs can be converted to the existing code contract shape in one crystal clear way.
++
++So the question you should answer first is will it be possible to recreate exact same implementation contract shape from the arch docs, or there are load-bearing contract details, hidden assumptions/decisions that are in code by not in docs.
++
++Look for places where architecture misrepresents, contradicts or is blurry about the aspect represented in code. Look for code that encodes important architectural decisions, but underrepresented in the documentation.
++There is no need to add low level details, instead look for architectural seams - interfaces, contracts, boundaries, intents and representations.
++
++Do not add any implementation details to architecture, unless are critical for non-trivial solution record.
++
++If there is a tradeoff or doubt about the task, or if the code is out of sync with architecture in a major way, use /align skill to sync align user.
+### to-issues/SKILL.md [missing]
+--- W/to-issues/SKILL.md
++++ H/to-issues/SKILL.md
+@@ -1,93 +0,0 @@
+----
+-name: prd-to-issues
+-description: Break a PRD into independently-workable issues and write each as a local markdown file in issues/. Use when the user wants to turn a PRD into a list of concrete tasks.
+----
+-
+-# PRD to Issues
+-
+-Break a PRD into independently-grabbable issues using vertical slices (tracer bullets), written as local markdown files.
+-
+-## Process
+-
+-### 1. Locate the PRD
+-
+-Ask the user for the PRD file path (e.g. `issues/<YYYYMMDD>_<name>/prd.md`).
+-
+-If the PRD is not already in your context window, read it from the file.
+-
+-### 2. Explore the codebase (optional)
+-
+-If you have not already explored the codebase, do so to understand the current state of the code.
+-
+-### 3. Draft vertical slices
+-
+-Break the PRD into **tracer bullet** issues. Each issue is a thin vertical slice that cuts through ALL integration layers end-to-end, NOT a horizontal slice of one layer.
+-
+-Slices may be 'HITL' or 'AFK'. HITL slices require human interaction, such as an architectural decision or a design review. AFK slices can be implemented and merged without human interaction. Prefer AFK over HITL where possible.
+-
+-<vertical-slice-rules>
+-- The goal is to break down into small deliverables that can be tested by user, before the entire schema/service/UI is built. Vertical step-by-step.
+-- Each slice delivers a narrow but COMPLETE path through every layer (schema, API, UI, tests)
+-- A completed slice is demoable or verifiable on its own
+-- Prefer many thin slices over few thick ones
+-</vertical-slice-rules>
+-
+-### 4. Quiz the user
+-
+-Present the proposed breakdown as a numbered list. For each slice, show:
+-
+-- **Title**: short descriptive name
+-- **Type**: HITL / AFK
+-- **Blocked by**: which other slices (if any) must complete first
+-- **User stories covered**: which user stories from the PRD this addresses
+-
+-Ask the user:
+-
+-- Does the granularity feel right? (too coarse / too fine)
+-- Are the dependency relationships correct?
+-- Should any slices be merged or split further?
+-- Are the correct slices marked as HITL and AFK?
+-
+-Iterate until the user approves the breakdown.
+-
+-### 5. Create the issue files
+-
+-For each approved slice, write a markdown file in `issues/<YYYYMMDD>_<name>/` using the naming pattern `issues/<YYYYMMDD>_<name>/NNN-short-title.md` (e.g. `issues/20260513_user_login/001-add-user-auth.md`).
+-
+-Number issues starting from the next available number (check what files already exist in `issues/<YYYYMMDD>_<name>/`).
+-
+-Create files in dependency order (blockers first) so you can reference real filenames in the "Blocked by" field.
+-
+-Do NOT use `gh issue create` or any GitHub CLI commands. Do NOT reference GitHub issue numbers. Use local filenames for all cross-references.
+-
+-<issue-template>
+-## Parent PRD
+-
+-`issues/<YYYYMMDD>_<name>/prd.md` (or whichever PRD file was used)
+-
+-## What to build
+-
+-A concise description of this vertical slice. Describe the end-to-end behavior, not layer-by-layer implementation. Reference specific sections of the parent PRD rather than duplicating content.
+-
+-## Acceptance criteria
+-
+-- [ ] Criterion 1
+-- [ ] Criterion 2
+-- [ ] Criterion 3
+-
+-## Blocked by
+-
+-- Blocked by `issues/<YYYYMMDD>_<name>/NNN-title.md` (if any)
+-
+-Or "None - can start immediately" if no blockers.
+-
+-## User stories addressed
+-
+-Reference by number from the parent PRD:
+-
+-- User story 3
+-- User story 7
+-
+-</issue-template>
+-
+-Do NOT close or modify the parent PRD file.
+
+### to-spec/SKILL.md [missing]
+--- W/to-spec/SKILL.md
++++ H/to-spec/SKILL.md
+@@ -0,0 +1,74 @@
++---
++name: to-spec
++description: Generate a specification from the client brief and write it as a local markdown file in issues/<YYYYMMDD>_<name>/prd.md. Use when the user wants to turn a client request into a structured PRD.
++---
++
++This skill will be invoked when the user wants to create a PRD. You may skip steps if you don't consider them necessary.
++
++1. Ask the user for a long, detailed description of the problem they want to solve and any potential ideas for solutions.
++
++2. Explore the repo to verify their assertions and understand the current state of the codebase.
++
++3. Interview the user relentlessly about every aspect of this plan until you reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one.
++
++4. Sketch out the major modules you will need to build or modify to complete the implementation. Actively look for opportunities to extract deep modules that can be tested in isolation.
++
++A deep module (as opposed to a shallow module) is one which encapsulates a lot of functionality in a simple, testable interface which rarely changes.
++
++Check with the user that these modules match their expectations. Check with the user which modules they want tests written for.
++
++5. Once you have a complete understanding of the problem and solution, use the template below to write the spec. The spec should be written as a local markdown file at `session/<YYYYMMDD>_<name>/spec.md`. Create the `session/<YYYYMMDD>_<name>/` directory if it doesn't exist. Do NOT submit a GitHub issue or call any external service.
++
++<prd-template>
++
++## Problem Statement
++
++The problem that the user is facing, from the user's perspective.
++
++## Solution
++
++The solution to the problem, from the user's perspective.
++
++## User Stories
++
++A LONG, numbered list of user stories. Each user story should be in the format of:
++
++1. As an <actor>, I want a <feature>, so that <benefit>
++
++<user-story-example>
++1. As a mobile bank customer, I want to see balance on my accounts, so that I can make better informed decisions about my spending
++</user-story-example>
++
++This list of user stories should be extremely extensive and cover all aspects of the feature.
++
++## Implementation Decisions
++
++A list of implementation decisions that were made. This can include:
++
++- The modules that will be built/modified
++- The interfaces of those modules that will be modified
++- Technical clarifications from the developer
++- Architectural decisions
++- Schema changes
++- API contracts
++- Specific interactions
++
++Do NOT include specific file paths or code snippets. They may end up being outdated very quickly.
++
++## Testing Decisions
++
++A list of testing decisions that were made. Include:
++
++- A description of what makes a good test (only test external behavior, not implementation details)
++- Which modules will be tested
++- Prior art for the tests (i.e. similar types of tests in the codebase)
++
++## Out of Scope
++
++A description of the things that are out of scope for this PRD.
++
++## Further Notes
++
++Any further notes about the feature.
++
++</prd-template>
+### to-tickets/SKILL.md [missing]
+--- W/to-tickets/SKILL.md
++++ H/to-tickets/SKILL.md
+@@ -0,0 +1,103 @@
++---
++name: to-tickets
++description: Break a Spec into independently-workable tickets and write each as a local markdown file in docs/tickets/. Use when the user wants to turn a Spec into a list of concrete tasks.
++---
++
++# Soec to Tickets
++
++Break a Spec into independently-grabbable tickets using vertical slices (tracer bullets), written as local markdown files under `docs/tickets/`.
++
++## Layout
++
++- **Active tickets** live flat in `docs/tickets/NNN-short-title.md`.
++- **Completed tickets** move to `docs/tickets/done/NNN-short-title.md` (all acceptance boxes checked). Keep the filename; only the folder changes.
++- The **Spec** is referenced by its own path (e.g. `docs/spec/0001-v1-requirements.md`); tickets do not duplicate it.
++
++## Process
++
++### 1. Locate the Spec
++
++Ask the user for the Spec file path (e.g. `docs/spec/0001-v1-requirements.md`).
++
++If the Spec is not already in your context window, read it from the file.
++
++### 2. Explore the codebase (optional)
++
++If you have not already explored the codebase, do so to understand the current state of the code.
++
++### 3. Draft vertical slices
++
++Break the Spec into **tracer bullet** tickets. Each ticket is a thin vertical slice that cuts through ALL integration layers end-to-end, NOT a horizontal slice of one layer.
++
++Slices may be 'HITL' or 'AFK'. HITL slices require human interaction, such as an architectural decision or a design review. AFK slices can be implemented and merged without human interaction. Prefer AFK over HITL where possible.
++
++<vertical-slice-rules>
++- The goal is to break down into small deliverables that can be tested by user, before the entire schema/service/UI is built. Vertical step-by-step.
++- Each slice delivers a narrow but COMPLETE path through every layer (schema, API, UI, tests)
++- A completed slice is demoable or verifiable on its own
++- Prefer many thin slices over few thick ones
++</vertical-slice-rules>
++
++### 4. Quiz the user
++
++Present the proposed breakdown as a numbered list. For each slice, show:
++
++- **Title**: short descriptive name
++- **Type**: HITL / AFK
++- **Blocked by**: which other slices (if any) must complete first
++- **User stories covered**: which user stories from the Spec this addresses
++
++Ask the user:
++
++- Does the granularity feel right? (too coarse / too fine)
++- Are the dependency relationships correct?
++- Should any slices be merged or split further?
++- Are the correct slices marked as HITL and AFK?
++
++Iterate until the user approves the breakdown.
++
++### 5. Create the ticket files
++
++For each approved slice, write a markdown file at `docs/tickets/NNN-short-title.md` (e.g. `docs/tickets/003-add-user-auth.md`).
++
++Number tickets starting from the next available number (check what files already exist in `docs/tickets/` **and** `docs/tickets/done/`).
++
++Create files in dependency order (blockers first) so you can reference real filenames in the "Blocked by" field. A blocker that is already complete lives in `docs/tickets/done/` — reference it there.
++
++Do NOT use `gh issue create` or any GitHub CLI commands. Do NOT reference GitHub issue numbers. Use local filenames for all cross-references.
++
++<ticket-template>
++## Parent Spec
++
++`docs/specs/<spec-file>.md` (whichever Spec file was used)
++
++## What to build
++
++A concise description of this vertical slice. Describe the end-to-end behavior, not layer-by-layer implementation. Reference specific sections of the parent Spec rather than duplicating content.
++
++## Acceptance criteria
++
++- [ ] Criterion 1
++- [ ] Criterion 2
++- [ ] Criterion 3
++
++## Blocked by
++
++- Blocked by `docs/tickets/NNN-title.md` (active) or `docs/tickets/done/NNN-title.md` (already complete)
++
++Or "None - can start immediately" if no blockers.
++
++## User stories addressed
++
++Reference by number from the parent Spec:
++
++- User story 3
++- User story 7
++
++</ticket-template>
++
++### 6. Completing a ticket
++
++When every acceptance box is checked, `git mv` the file from `docs/tickets/` to `docs/tickets/done/`. Fix any "Blocked by" references that pointed at it (they gain the `done/` segment).
++
++Do NOT close or modify the parent Spec file.
+
+### write-prd/SKILL.md [missing]
+--- W/write-prd/SKILL.md
++++ H/write-prd/SKILL.md
+@@ -1,74 +0,0 @@
+----
+-name: write-prd
+-description: Generate a PRD from the client brief and write it as a local markdown file in issues/<YYYYMMDD>_<name>/prd.md. Use when the user wants to turn a client request into a structured PRD.
+----
+-
+-This skill will be invoked when the user wants to create a PRD. You may skip steps if you don't consider them necessary.
+-
+-1. Ask the user for a long, detailed description of the problem they want to solve and any potential ideas for solutions.
+-
+-2. Explore the repo to verify their assertions and understand the current state of the codebase.
+-
+-3. Interview the user relentlessly about every aspect of this plan until you reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one.
+-
+-4. Sketch out the major modules you will need to build or modify to complete the implementation. Actively look for opportunities to extract deep modules that can be tested in isolation.
+-
+-A deep module (as opposed to a shallow module) is one which encapsulates a lot of functionality in a simple, testable interface which rarely changes.
+-
+-Check with the user that these modules match their expectations. Check with the user which modules they want tests written for.
+-
+-5. Once you have a complete understanding of the problem and solution, use the template below to write the PRD. The PRD should be written as a local markdown file at `issues/<YYYYMMDD>_<name>/prd.md`. Create the `issues/<YYYYMMDD>_<name>/` directory if it doesn't exist. Do NOT submit a GitHub issue or call any external service.
+-
+-<prd-template>
+-
+-## Problem Statement
+-
+-The problem that the user is facing, from the user's perspective.
+-
+-## Solution
+-
+-The solution to the problem, from the user's perspective.
+-
+-## User Stories
+-
+-A LONG, numbered list of user stories. Each user story should be in the format of:
+-
+-1. As an <actor>, I want a <feature>, so that <benefit>
+-
+-<user-story-example>
+-1. As a mobile bank customer, I want to see balance on my accounts, so that I can make better informed decisions about my spending
+-</user-story-example>
+-
+-This list of user stories should be extremely extensive and cover all aspects of the feature.
+-
+-## Implementation Decisions
+-
+-A list of implementation decisions that were made. This can include:
+-
+-- The modules that will be built/modified
+-- The interfaces of those modules that will be modified
+-- Technical clarifications from the developer
+-- Architectural decisions
+-- Schema changes
+-- API contracts
+-- Specific interactions
+-
+-Do NOT include specific file paths or code snippets. They may end up being outdated very quickly.
+-
+-## Testing Decisions
+-
+-A list of testing decisions that were made. Include:
+-
+-- A description of what makes a good test (only test external behavior, not implementation details)
+-- Which modules will be tested
+-- Prior art for the tests (i.e. similar types of tests in the codebase)
+-
+-## Out of Scope
+-
+-A description of the things that are out of scope for this PRD.
+-
+-## Further Notes
+-
+-Any further notes about the feature.
+-
+-</prd-template>

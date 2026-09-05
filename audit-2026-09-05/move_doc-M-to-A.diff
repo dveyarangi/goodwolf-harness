@@ -1,0 +1,57 @@
+--- M/move_doc.py
++++ A/move_doc.py
+@@ -1,6 +1,6 @@
+-"""Mechanical record mover (docs/cicd.md § CI pipeline).
++"""Mechanical record mover.
+ 
+-    uv run python .agents/scripts/move_doc.py SRC DST [SRC DST ...]
++    python scripts/move_doc.py SRC DST [SRC DST ...]
+ 
+ Git-moves each markdown record, re-depths the moved files' own links, and rewrites inbound
+ references in live documents. Historical records are left as written. A paired close — ticket and
+@@ -9,8 +9,8 @@
+ Judgment stays with the caller: no boxes, no statuses, no prose. The doc-integrity guards are the
+ proof of a move:
+ 
+-    uv run pytest tests/deterministic/test_docs_integrity_guard.py \\
+-                  tests/deterministic/test_docs_conventions_guard.py
++    python -m pytest scripts/test_docs_integrity_guard.py \\
++                     scripts/test_docs_conventions_guard.py
+ """
+ 
+ from __future__ import annotations
+@@ -22,10 +22,7 @@
+ from collections.abc import Callable, Sequence
+ from pathlib import Path
+ 
+-REPO_ROOT = Path(__file__).resolve().parents[2]
+-sys.path.insert(0, str(REPO_ROOT / "tests" / "deterministic"))
+-
+-from docs_corpus import live, resolve_name, universe  # noqa: E402  (repo path set just above)
++from docs_corpus import REPO_ROOT, live, resolve_name, universe
+ 
+ _LINK = re.compile(r'(!?\[[^\]]*\]\()([^)\s]+)((?:\s+"[^"]*")?\))')
+ _FENCE = re.compile(r"^\s*(```|~~~)")
+@@ -33,8 +30,8 @@
+ _UNMOVED = ("http://", "https://", "mailto:", "#")
+ 
+ _VERIFY = (
+-    "uv run pytest tests/deterministic/test_docs_integrity_guard.py "
+-    "tests/deterministic/test_docs_conventions_guard.py"
++    "python -m pytest scripts/test_docs_integrity_guard.py "
++    "scripts/test_docs_conventions_guard.py"
+ )
+ 
+ 
+@@ -166,7 +163,10 @@
+ def _git_move(root: Path, source: str, destination: str) -> None:
+     (root / destination).parent.mkdir(parents=True, exist_ok=True)
+     tracked = subprocess.run(
+-        ["git", "ls-files", "--cached", "-z", "--", source], cwd=root, capture_output=True
++        ["git", "ls-files", "--cached", "-z", "--", source],
++        cwd=root,
++        capture_output=True,
++        check=False,
+     ).stdout
+     if tracked:
+         subprocess.run(["git", "mv", source, destination], cwd=root, check=True)

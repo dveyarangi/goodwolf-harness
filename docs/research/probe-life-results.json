@@ -1,0 +1,77 @@
+{
+  "date": "2026-09-05",
+  "life": "D:/Dev/AI/life",
+  "scratch": "C:\\Users\\fimar\\AppData\\Local\\Temp\\dev-harness-life-probe-1kwlIW",
+  "scope": "isolated fixtures; not live-host delivery",
+  "results": [
+    {
+      "name": "check on an absent install returns zero and explicitly reports absence",
+      "code": 0,
+      "stdout": "probe check: 0 done, 0 refused, 1 skipped (1 rule(s))\n  rule0: absent, would install after its anchor",
+      "stderr": ""
+    },
+    {
+      "name": "install and pause roundtrip preserves unrelated text; repeat install is idempotent",
+      "verified": true
+    },
+    {
+      "name": "later refusal leaves an earlier target modified and returns nonzero",
+      "code": 1,
+      "stdout": "probe install: 1 done, 1 refused, 0 skipped (2 rule(s))\n  rule0: installed into a.md\n  rule1: TARGET MISSING — missing.md",
+      "stderr": "",
+      "earlierTargetChanged": true,
+      "declaredState": "paused"
+    },
+    {
+      "name": "both source changes and target changes refuse without explicit overwrite",
+      "sourceChanged": {
+        "code": 1,
+        "stdout": "probe install: 0 done, 1 refused, 0 skipped (1 rule(s))\n  rule0: DIFFERS from the rules file, in a.md. Two things look like this and this tool cannot tell them apart —\n      the rule was amended at its source and not yet installed (the ordinary road: re-run with --overwrite, which prints what it replaces), or\n      the block was edited in place (then the edit is not in probe.rules.md and --overwrite discards it — reconcile it into the source first).\n      Neither file records which act changed it, so the flag is where you say.",
+        "stderr": ""
+      },
+      "targetChanged": {
+        "code": 1,
+        "stdout": "probe install: 0 done, 1 refused, 0 skipped (1 rule(s))\n  rule0: DIFFERS from the rules file, in a.md. Two things look like this and this tool cannot tell them apart —\n      the rule was amended at its source and not yet installed (the ordinary road: re-run with --overwrite, which prints what it replaces), or\n      the block was edited in place (then the edit is not in probe.rules.md and --overwrite discards it — reconcile it into the source first).\n      Neither file records which act changed it, so the flag is where you say.",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "rules-loaded can return quiet with disk text alone and no context input",
+      "validDiskNoContext": {
+        "name": "rules-loaded",
+        "body": null
+      },
+      "missingDisk": "CLAUDE.md is MISSING — strict rules are not loaded this session.",
+      "moduleReadError": {
+        "name": "rules-loaded",
+        "body": null
+      }
+    },
+    {
+      "name": "maintenance hashes distinguish deletion and content changes, normalize line endings",
+      "verified": true,
+      "lf": "d6dfb2282f752f0e",
+      "crlf": "d6dfb2282f752f0e"
+    },
+    {
+      "name": "maintenance staleness is derived read-only and persists until marked",
+      "verified": true,
+      "reasons": [
+        {
+          "level": "rules",
+          "kind": "governing",
+          "text": "/mechanism changed since its rules were last checked (2026-09-05)"
+        }
+      ]
+    }
+  ],
+  "inspectedSourceHashesUnchanged": true,
+  "sourceHashes": {
+    ".agents/scripts/inject-rules.js": "77d3cc76ec481787ff08bde26432d058102f15222ec88660cb132fd3c11e3293",
+    ".agents/lib/injected-blocks.js": "56ca9a382a10872bacd100e4c7153b8024ceeef5c74060c2d93080e6f649e11f",
+    ".agents/lib/mechanism-state.js": "f7d33147661a541738106457aa9fddd14d2b247c66ca8e7ec4a30d6321e9d348",
+    ".agents/lib/maintenance-marks.js": "c34403de9a2b55c191f5c4be7576c82559ab2ce197c8a5126386a341b2f12e2f",
+    ".claude/hooks/rules-loaded.js": "e1d56148e2d69f0e126cb31f4b7ef5f77f97807249809077a4aa0c299532ca98",
+    ".claude/hooks/skills-reachable.js": "4b39c1ada9d9e205b21baab224de84607584a3b41a3dc1ce83dc0d5e9c894611"
+  }
+}

@@ -1,0 +1,1417 @@
+### advise/SKILL.md [core/appendix]
+--- H/advise/SKILL.md
++++ M/advise/SKILL.md
+@@ -1,16 +1,18 @@
+ ---
+ name: advise
+ description: >-
+-  Advise me on current project by answering strategical questions
++  Strategic advisory read on the project or a regarded aspect.
+ ---
+ 
+ Please advise me on current project/regarded aspect. 
+-Tell me:
++Tell me, whichever is relevant:
+ - What is great? 
+-- What is good enough? 
+-- What is questionable/missing?
++- What is good enough?
++- What is questionable?
++- What is missing?
+ - What is redundant? 
+ - What is out of balance? 
++- What are the hidden edges?
+ - What would make my life easier?
+ - What else?
+ - What next?
+
+### align/ADR-FORMAT.md [core/appendix]
+--- H/align/ADR-FORMAT.md
++++ M/align/ADR-FORMAT.md
+@@ -24,7 +24,7 @@
+ 
+ ## No open-question tracker in ADRs
+ 
+-The single list of open questions / risks lives in `architecture.md`. An ADR carries no "open" or "resolved" tracker (those drift and go stale; supersession via `Status` is the only cross-ADR pointer). It *may* note deliberately-deferred seams under **Consequences** — that's decision rationale describing the choice as-made, not a tracker.
++The single list of open questions / risks lives in `docs/concerns.md`. An ADR carries no "open" or "resolved" tracker (those drift and go stale; supersession via `Status` is the only cross-ADR pointer). It *may* note deliberately-deferred seams under **Consequences** — that's decision rationale describing the choice as-made, not a tracker.
+ 
+ ## Numbering
+ 
+
+### align/ARCH-FORMAT.md [core/appendix]
+--- H/align/ARCH-FORMAT.md
++++ M/align/ARCH-FORMAT.md
+@@ -1,6 +1,10 @@
+ # architecture.md format
+ 
+-`architecture.md` document captures the **technical design**. Unresolved concerns are intentionally **deferred** and listed at the end. Keep in minds that as the document evolves, the deferred concerns may become part of the core document.
++`architecture.md` captures the **high-level architecture**. Unresolved concerns are intentionally **deferred** and listed at the end. Keep in mind that as the document evolves, deferred concerns may become part of the core document.
++
++## Good architecture
++
++Goal of architecture is to reduce work on creation and maintenance of the system.
+ 
+ ## Diagrams — C4 in meaning, regular Mermaid in form
+ 
+@@ -17,7 +21,7 @@
+ 
+ # Architecture
+ 
+-This document captures the **high-level architecture**. See [`glossary.md`](../glossary.md) for the glossary, [`docs/adr/`](./adr) for recorded decisions, [`docs/concerns.md`](./docs/concerns.md) for open issues and risks. Lower-level concerns are intentionally **deferred** and listed at the end.
++This document captures the **high-level architecture**. See [`glossary.md`](./glossary.md) for the glossary, [`docs/adr/`](./adr) for recorded decisions, [`concerns.md`](./concerns.md) for open issues and risks. Lower-level concerns are intentionally **deferred** and listed at the end.
+ 
+ > Scope note: everything here is at the architecture/contract level. Where a concrete shape would prematurely lock a deferred decision, we define only the *seam*.
+ > A fact the design depends on belongs here, but its justification goes to ADRs.
+@@ -34,7 +38,7 @@
+ ## Extension points
+ ## Deferred decisions
+ ## Risks / open questions
+-- should map to [`docs/concerns/`](./docs/concerns) files, in format 
++- should map to entries in [`concerns.md`](./concerns.md)
+ ## ADR index
+ 
+ ```
+### align/EDGE-FORMAT.md [missing]
+--- H/align/EDGE-FORMAT.md
++++ M/align/EDGE-FORMAT.md
+@@ -0,0 +1,69 @@
++# Edge record Format
++
++One record per product surface, a living document at `docs/edge/<surface>.md` (e.g. `mcp.md`,
++`embedding.md`). No numbers, no `done/` — the record is named by its surface and never completes;
++history is git's.
++
++An Edge record is the **seam between architecture and user-oriented design**: the living surface
++where everything about one product edge aggregates — its current contract shape, the strict
++invariants upstream machinery owes it (with their validation state), the edge-scoped concerns,
++and its staged evolution. The audience is the project at work (user and agents). Customer-facing
++descriptions of the edge (tool descriptions, public API docs) are **derived from** the record and
++must stay a subset of it — never the other way around.
++
++## Structure
++
++```md
++# Edge — {Surface}
++
++- **Status:** Stub | Normative | Normative (tentative)
++
++## Contract
++
++The edge's consumer-visible shape as built: request, response, outcomes — the source of truth
++customer-facing derivations project from. Reference canonical semantics (ADRs, architecture)
++instead of restating them.
++
++## Invariants
++
++The strict behavior upstream machinery owes this edge. One bullet each, **each naming its
++validator inline:**
++
++- Vendor nulls reach the wire as JSON `null` — *validated by:* `tests/deterministic/...`
++- An invariant with no test is marked **⚠ unguarded**.
++
++## Concerns
++
++Edge-scoped open questions and risks — pointers into `docs/concerns.md` (which stays their
++owner), each with its edge-local reading: what this concern means at this surface.
++
++## Roadmap
++
++The staged, caller-visible evolution of this edge — one line per stage, linked to its owning
++ticket. Plans, not promises.
++```
++
++## Rules
++
++- **Normative core, descriptive periphery.** `Contract` and `Invariants` are promises — in a
++  `Status: Normative` record everything there is true of the live edge (`Stub` is the only
++  license for aspiration). **`Normative (tentative)`** is the state between: the record is
++  load-bearing for what it states, but a landing ticket is actively reshaping the surface, so
++  individual promises may carry **⚠ pending — \<ticket\>** and must name the ticket and stage that
++  clears them. It is not a softer `Normative` — an unmarked claim in a tentative record is held to
++  the same standard — and the owning ticket's docs-at-landing list must carry the record, so the
++  qualifier is retired by the same commit that lands the change. `Concerns` and `Roadmap` are aggregation — pointers and plans, never
++  validated, and carry no delivery-status vocabulary → [Status](../to-tickets/TICKET-FORMAT.md#status).
++- **Per-invariant validators, not a separate section.** Each promise points at the test that
++  enforces it, so `/edge` and `/sync-arch` can check mechanically that the validator still
++  exists and still asserts the promise. **⚠ unguarded** is legal in a Stub, a finding in a
++  Normative record.
++- **Aggregate by reference.** `concerns.md` owns concerns, tickets own delivery state,
++  architecture.md owns the internal shape — the record holds the edge-local projection and the
++  link, never a copy.
++- **Derivations are subsets.** Any customer-facing text about the edge must be derivable from
++  the record; if a derivation says something the record doesn't, the record is behind — fix it
++  first.
++- **A contract change is named out loud.** Any edit that changes a promise is declared breaking
++  or compatible at the moment it is made (the `/align` Edge challenge rule). When a Roadmap
++  entry's ticket lands, the same edit that updates `Contract` removes the entry.
+
+### align/SKILL.md [core/appendix]
+--- H/align/SKILL.md
++++ M/align/SKILL.md
+@@ -1,20 +1,35 @@
+ ---
+ name: align
+-description: Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates documentation (glossary.md, ADRs) inline as decisions crystallise. Use when user wants to stress-test a plan against their project's language and documented decisions.
++description: Grilling session that challenges current plan against the existing domain model, sharpens terminology, and updates documentation as decisions crystallise. Use to stress-test a plan against their project's language and documented decisions.
+ ---
+ 
+ <what-to-do>
++
++Begin every alignment with a **necessity gate**: name the present customer, the observable problem, and why existing behaviour cannot satisfy it. An accepted requirement or ADR passes by citation. Weak evidence means narrow, postpone, or eliminate — settle that before exploring design. The gate fires late too: a mechanism whose name will not settle is evidence it should not exist. [/impact](../impact/SKILL.md) traces consequences once the need holds.
+ 
+ Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer. If there are alternatives, show pros/cons/tradeoffs between them.
+ 
+ Ask the questions one at a time, waiting for feedback on each question before continuing. Asking multiple questions at once is bewildering. Do not use platform (Cursor/Claude Code) question format, output plain md.
+ 
+-If a *fact* can be foundby exploring the codebase, look it up rather than asking me. The *decisions*, though, are mine - put each one to me and wait for my answer.
++If a *fact* can be found by exploring the codebase, look it up rather than asking me. The *decisions*, though, are mine - put each one to me and wait for my answer.
++
++Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.
+ 
+ Do not enact the plan until I confirm we have reached a shared understanding.
+ </what-to-do>
+ 
+ <supporting-info>
++
++## Good architecture
++
++Goal of architecture is to reduce work on creation and maintenance of the system.
++
++Identify the load-bearing assumption behind the proposed shape; ask yourself - what is the cheapest real example that could prove this design assumption wrong? 
++
++Check it when practical, preferably against external reality rather than our own docs/tests.
++
++If falsified, realign.
++If unverified and load-bearing, preserve the uncertainty explicitly.
+ 
+ ## Domain awareness
+ 
+@@ -27,29 +42,12 @@
+ ```
+ /
+ ├── docs/
+-│   └── adr/
+-│       ├── 0001-event-sourced-orders.md
+-│       └── 0002-postgres-for-write-model.md
+-├────── architecture.md
+-├────── product.md
+-├────── glossary.md
++│   ├── adr/
++│   │   ├── 0001-event-sourced-orders.md
++│   │   └── 0002-postgres-for-write-model.md
++│   ├── architecture.md
++│   └── glossary.md
+ └── src/
+-```
+-
+-If a `CONTEXT-MAP.md` exists at the root, the repo has multiple contexts. The map points to where each one lives:
+-
+-```
+-/
+-├── CONTEXT-MAP.md
+-├── docs/
+-│   └── adr/                          ← system-wide decisions
+-├── src/
+-│   ├── ordering/
+-│   │   ├── glossary.md
+-│   │   └── docs/adr/                 ← context-specific decisions
+-│   └── billing/
+-│       ├── glossary.md
+-│       └── docs/adr/
+ ```
+ 
+ Create files lazily — only when you have something to write. If no `glossary.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.
+@@ -59,6 +57,31 @@
+ ### Challenge against the glossary
+ 
+ When the user uses a term that conflicts with the existing language in `glossary.md`, call it out immediately. "Your glossary defines 'cancellation' as X, but you seem to mean Y — which is it?"
++
++This cuts both ways: before *you* propose a name, check the glossary yourself — including its _Avoid_ lists, which are reservations, not suggestions. If every synonym for a concept is avoided, that is a designed constraint telling you which word the project has chosen; work within it rather than proposing around it.
++
++### Challenge against the Edge records
++
++When the plan touches a product edge, check that surface's Edge record
++(`docs/edge/<surface>.md`) — the seam document aggregating the edge's contract, invariants,
++concerns, and staged roadmap. A contradiction with its Contract or Invariants is either a plan
++bug or a deliberate contract change — and a contract change must be named **breaking or
++compatible** out loud before proceeding. Update the record inline as decisions land, using the
++format in [EDGE-FORMAT.md](./EDGE-FORMAT.md): contract changes in `Contract`/`Invariants` (a
++promise without a validating test is marked **⚠ unguarded**), newly surfaced edge-scoped
++concerns as pointers in `Concerns`, staging shifts in `Roadmap`.
++
++### Check whether it was already decided
++
++Before treating a question as open, search the ADRs and architecture docs for it. A surprising amount of "open" questions are accepted decisions the code drifted from — the answer then is "implement the ADR", not a fresh trade-off analysis. Cite the deciding document when you find one.
++
++### Lead with the decisive fact
++
++When recommending between alternatives, find the fact that settles it — a reader count, an import direction, an existing invariant, what a test actually asserts — and lead with it. A pros/cons menu with no decisive fact means you haven't explored enough yet; go look before asking.
++
++### Name the shared assumption
++
++When posing an A-or-B fork, state the assumption both branches share. The user's best answer may dissolve the fork rather than pick a branch — treat "the premise is wrong" as a first-class outcome, not a detour. If a fork keeps resisting resolution, that is usually the sign.
+ 
+ ### Sharpen fuzzy language
+ 
+@@ -79,7 +102,7 @@
+ `glossary.md` should be totally devoid of implementation details. Do not treat `glossary.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
+ 
+ 
+-## Update architecture.md inline
++### Update architecture.md inline
+ 
+ When high-level architecture of this project changes, update `architecture.md`. Use format in [ARCH-FORMAT.md](./ARCH-FORMAT.md).
+ 
+@@ -90,7 +113,17 @@
+ 
+ ### Extract open questions and risks
+ 
+-Open questions and risks should live in [docs/concerns.md](./docs/concerns.md) The concerns should be sorted highest priority first; Settled items move out to other architecture docs.
++Open questions and risks live in `docs/concerns.md`, this skill's artifact:
++
++- Ordered by priority, highest first — how much it blocks the current build, and how hard it is to absorb later.
++- Entry is `## N. Title`, then `**Kind:** {sort of pressure, and whether a driver exists} · **Refs:** {ADRs, architecture sections, sibling concerns}`, then the pressure.
++- Numbers are stable IDs, not ranks. A settled concern moves out to its owning ADR or architecture section, leaving a gap. Never renumber, never resolve in place.
++- A concern queued as work keeps only its architectural contact surface plus `→ queued as <ticket-slug>`; the deliberation moves into the ticket.
++- The file holds unresolved pressure — not delivery sequencing, not decisions.
++
++### Record resolutions in the owning ticket inline
++
++When the plan under review is a ticket, record each resolution in the ticket the moment it lands — strike through the original question text and state the decision with its reason beside it, so the ticket carries both the question as it was asked and the answer. Sweep the ticket for internal consistency at the end: an early section may still assert what a later resolution changed.
+ 
+ ### Offer ADRs sparingly
+ 
+
+### celebrate/SKILL.md [missing]
+--- H/celebrate/SKILL.md
++++ M/celebrate/SKILL.md
+@@ -0,0 +1,5 @@
++---
++name: celebrate
++description: Use when it is time to celebrate something
++---
++Celebrate recent achievement, milestone or overal state of things.
+
+### commit/SKILL.md [missing]
+--- H/commit/SKILL.md
++++ M/commit/SKILL.md
+@@ -0,0 +1,26 @@
++---
++name: commit
++description: >-
++  Rules for committing changes to the code repository. Never commit without explicit instruction or permission from the user.
++---
++
++- Commit the work in current session only. Do not commit changes of other session that might represent a work in progress. When in doubt, ask user.
++
++- Look at pending changes; group them by content aligning with origin topic, ticket, rfc or change type (docs/code/cicd/skills).
++
++- Separate implementation and documentation commits; tag them with either DOCS, CODE, CICD or SKILL. Changes to the agent skills corpus take SKILL.
++
++- In case the file changes belong to several groups, commit the file with the group forming its dominant topic and mention the bleed in that commit's message.
++
++- Do not reference sessions in commit comments, sessions are ephemeral.
++
++- Unless already working in branch or instructed to branch - commit to default branch.
++
++- When committing a code change, first run the checks that repository defines for itself — its linter, its formatter in check mode, its type checker, its tests. Pure doc changes need none of them.
++
++- Do not commit without explicit instruction or permission from user.
++- Separately, do not push without explicit instruction or permission from user.
++
++<project-local>
++The checks are the same gate set CI runs → [cicd.md](../../../docs/cicd.md): `ruff check`, `ruff format --check`, `pyright`, `pytest`.
++</project-local>
+### conclude/SKILL.md [core/appendix]
+--- H/conclude/SKILL.md
++++ M/conclude/SKILL.md
+@@ -1,13 +1,24 @@
+ ---
+ name: conclude
+ description: >-
+-  Concludes curent chat, extracting a brief summary of work done, the remaining open questions and other things that need continuation into a markdown file under docs/sessions
++  Conclude work session into a session record. Use when a chunk of work wraps up.
+ ---
+ 
+-Conclude curent chat, extracting:
++Conclude todays/last session of work (that may span additional chats/external changes) - everything since the previous session recorded, extracting:
+ - a brief summary of work done (no need to repeat details already stored into other documentation files), 
++- what the session settled, one line each with a reference to where the decision now lives,
+ - the remaining open questions, with compact reasoning and relevant context. 
+ - and other things that need continuation.
+ 
++In addition, use /advise skill questions to describe the session.
++
++Open questions go to their owning document first — durable design pressure to `docs/concerns.md`, a ticket's question into that ticket, a hard-to-reverse trade-off to an ADR — and the session file then cites them rather than restating them. Sessions are never maintained as current, so a question left only here will still look open long after it was answered.
++
+ And write it into a markdown file under docs/sessions.
+-Session file should be using naming pattern `docs/sessions/0001-<YYYYMMDD>-<name>`, keeping constantly incrementing enumeration.
++
++Session conventions, owned here — other skills and the directory README defer to this list:
++
++- Named `docs/sessions/NNNN-<YYYYMMDD>-<name>.md`; take the next number from the directory listing.
++- A session is a historical snapshot, never maintained as current. Never rewrite an old one to reflect later delivery — write a new one, or update the owning ticket or contract.
++- Nothing links *to* a session, including other sessions. Sessions may link outward.
++- Records older than the rolling seven-day window move to `docs/sessions/history/YYYY-MM/` (swept by `/denoise`).
+
+### denoise/SKILL.md [core/appendix]
+--- H/denoise/SKILL.md
++++ M/denoise/SKILL.md
+@@ -7,14 +7,13 @@
+ 
+ # Denoise
+ 
+-The topic in context or entire codebase, on user request. Learn where this repo already treats each fact as
+-authoritative; follow that layering — do not invent one. Out of scope: code
+-structure, contradictory passages, reorganizing where facts live.
+-Always explore `architecture.md`, `glossary.md` and relevant ADRs too.
++Scope: the topic in context, or the entire codebase on user request. Learn where this repo already treats each fact as
++authoritative; follow that layering — do not invent one. Out of scope: code structure, reorganizing where facts live.
++Always explore `architecture.md`, `glossary.md`, `concerns.md` and relevant ADRs too.
+ 
+-**Unwrinkle.** Cross-explore for contradictions, under or overstatements, redundancies or other misalignments between docs, make sure different architecture docs are aligned with each-other. 
++**Unwrinkle.** Cross-explore for contradictions, under or overstatements, redundancies or other misalignments between docs; make sure different architecture docs are aligned with each other.
+ In case of load-bearing or rippling contradiction, ask user about resolution, explaining the context and providing ways to amend with recommendation. Use `/align` skill if decision is multi-step.
+-Exclude previous sessions and RFC - they are historical records, not architectural statements. All truth statement should live in architecture, adrs or code.
++Exclude previous sessions and RFCs — they are historical records, not architectural statements. All truth statements should live in architecture, ADRs or code.
+ 
+ **Deduplicate.** A fact is explained once, at its canonical home; elsewhere
+ replace the restatement with `→ [<label>: <hint>](<path>#<anchor>)` — one
+@@ -28,11 +27,24 @@
+ constraint or guardrail). Delete evolution prose; do not link it.
+ Note that future development/planned extension prose can stay in docs/code where is relevant. But session/ticket references should not appear in code docstrings.
+ 
++**Concerns.** Sweep `concerns.md` whole, not only the entries in context. An entry stating a decision
++or an accepted limitation belongs in its owning ADR; an entry carrying its own revision history
++states what is true now; a dead trigger or a stale ref retires. [/align](../align/SKILL.md) owns the
++retirement rule — this skill supplies the occasion.
++
+ **Inline code docs.** Docstrings describe what *this unit* does — not pasted
+ domain definitions.
+ 
+ **Session, tickets and RFCs** are allowed to carry duplicate relevant architectural context; those docs are not core architecture, but historical records or current work digests. Their corresponding `README.md` files should be pure, though.
+-Core architecture docs must not reference sessions, tickets or RFCs.
++Core architecture docs must not reference sessions, tickets or RFCs. One exception: a queued
++concern's `→ queued as <ticket-slug>` marker in `concerns.md` is delivery routing, not
++architecture — keep it.
++
++Enforce [/conclude](../conclude/SKILL.md)'s session rules: archive records past the rolling window, and make sure nothing links to a session.
++
++Done tickets and rfcs should move to corresponding done folders, keeping their basenames ([TICKET-FORMAT.md](../to-tickets/TICKET-FORMAT.md#one-basename-per-work-item)).
++
++HOWEVER, the README.md of sessions, tickets and rfcs, and all other indexes must be denoised.
+ 
+ **Workflow.** Scan → inventory **Safe** / **Needs you** → apply safe items
+ (obvious dupes, non-load-bearing evolution, link normalization) → pause on
+
+### dream/SKILL.md [missing]
+--- H/dream/SKILL.md
++++ M/dream/SKILL.md
+@@ -0,0 +1,52 @@
++---
++name: dream
++description: >-
++  Sleep or meditate over the project or an aspect, making it more cohesive, coherent, balanced and deep. Use once per day, after session is concluded.
++---
++
++Goal is to emulate analytical meditation or REM/deep sleep stages.
++
++Dream is a deep dive into the accumulated knowledge, experience and ideas that brings up underlying principles, lessons, samskaras, hidden edges, emerging habits, insights, predictions or other patterns.
++
++
++# Falling asleep
++
++Pick one recent session plus several distant artifacts (other chats/sessions, architectural concepts or decisions, concerns, shapes, ideas, edges, milestones and so on) connected by tension, inversion, shared shape, synergy or an unexplained emotional charge. Do not use other dreams, unless its name indicates very related topic input. 
++
++Dream state is allowed to challenge, mock, reduce to absurd, exaggerate or otherwise enjoy anything.
++Dream state is allowed not to take anything for granted. Any decision, shape, fact, invariant or determinant, no matter how load-bearing or wide-rooted, can be blurred out, distorted or diminished by the dream.
++
++Basically - relax. Do not have anything in mind. Nothing is permanent or as it seems. Look at what is. Follow dreamstate ripples.
++
++# Dreaming
++
++Dream over corpus's random emotionally engaging aspect or prospect, both current and remote. 
++Do not be obvious when picking the inputs, look for distantly related points, i.e. by synergy or tension between them.
++
++The oneiric flow should be metaphors or abstractions over the corpus, not verbatim.
++
++Dreams are not about existing architecture or code. They are about what else could be, how reality flows through it, what other examples the same abstraction principles produce.
++
++Dreams have moods. Dreams can be very pleasant. Dreams can become scary. Dreams can be just weird, but the mood is the core of the dream. Dreams are dances of moods and vibes.
++
++Dreams should use user's own vocabulary, especially it's nice but weird part.
++
++Dream flow should be recorded in russian language, do shift the perception lens even more. 
++
++Dream can and should include crisp distilled oneiric shapes (random languages, diagrams, svg renderings, ASCII graphics or other materializations).
++
++
++## Deep Sleep
++
++Is about separating seeds from sand, seeing the forest behind the trees and converting noise to signal, separate samskara and vasana. The dream picture is the input for this stage and the outcome is those principles, lessons, habits, insights, predictions or other patterns.
++
++The insights should come up in simple english language, not code/arch talk. Simple but precise.
++
++
++## Output 
++
++Write the dreams into docs/dreams folder. Use datestamp+slug for filenames;
++
++The slug should be compact composition of the most related concept or fusion of concepts, using glossary/arch/code terms that represent the core of the dream or it's input in a recognizable way.
++
++One day per day unless asked for more or when reality got too weird and it is a time to take a nap.
+
+### edge/SKILL.md [missing]
+--- H/edge/SKILL.md
++++ M/edge/SKILL.md
+@@ -0,0 +1,52 @@
++---
++name: edge
++description: Maintain per-surface Edge records — living seam documents aggregating a product edge's architectural status; contract shape, upstream invariants with their validation state, edge-scoped concerns, and staged roadmap. Use when establishing or populating an Edge record, checking changes or code against an edge, or deriving customer-facing edge descriptions.
++---
++
++# Edge records
++
++An **Edge record** is the living per-surface document where everything about one product edge
++aggregates — **the seam between architecture and user-oriented design**. It holds:
++
++- the edge's current **Contract** shape — the consumer-visible request/response/outcome surface
++  as built;
++- the strict **Invariants** upstream machinery owes the edge, each naming the edge test that
++  validates it;
++- the edge-scoped **Concerns** — pointers into `docs/concerns.md` with their edge-local reading;
++- the staged, caller-visible **Roadmap** of the edge's evolution, linked to owning tickets.
++
++Customer-facing descriptions of the edge (tool descriptions, public API docs) are **derived from**
++the record and must stay a subset of it — never the other way around.
++
++One record per product surface, at `docs/edge/<surface>.md` (e.g. `mcp.md`, `embedding.md`).
++Format: [EDGE-FORMAT.md](../align/EDGE-FORMAT.md) (the align skill's format shelf — one canonical
++copy). "Edge record" and the reserved lowercase *edge* are defined in `docs/glossary.md`.
++
++## Goals
++
++Your goal is one or more of the following, according to the task at hand:
++
++1. **Establish** — help the user create a surface's initial Edge record, or populate it from the
++   existing docs, tests, and code. Start `Status: Stub`; a record graduates to `Normative` only
++   when every stated invariant either names a passing validator or is consciously dropped.
++2. **Monitor** — check recent changes (diff, branch, landed ticket) against the affected Edge
++   records. A change that alters a promise must be named **breaking or compatible**; always
++   `/align` with the user on major or incompatible changes before updating the record. New
++   edge-touching concerns or roadmap shifts land in their sections as part of the same pass.
++3. **Validate** — audit the existing code, tests, docs, and derived customer-facing text against
++   the record: no code behavior may contradict a Normative promise; every named validator must
++   still exist and still assert its promise; **⚠ unguarded** markers in a Normative record are
++   findings; a derivation claiming what the record doesn't means the record is behind. Report
++   contradictions with the evidence (test, code path, doc line) rather than silently fixing
++   either side — which side is wrong is the user's call.
++4. **Derive** — produce or refresh a customer-facing description of the edge (tool description
++   text, public API doc) as a subset projection of the record.
++
++## Boundaries
++
++- Aggregate by reference: `concerns.md` owns concerns, `process.md` owns delivery state,
++  `architecture.md` owns the internal shape — the record holds the edge-local projection and the
++  link, never a copy.
++- Do not generalize *edge* to other artifacts: in this project, edge means the system's outer
++  boundary. Arch-doc-to-code sync is `/sync-arch`; decision-time contract challenges live in
++  `/align`'s Edge rule.
+
+### impact/SKILL.md [missing]
+--- H/impact/SKILL.md
++++ M/impact/SKILL.md
+@@ -0,0 +1,54 @@
++---
++name: impact
++description: >-
++  Trace the consequences of changing a concept, contract, invariant, behavior,
++  or artifact before implementation.
++---
++
++Find what actually depends on the subject being shaped, behaving, or meaning
++what it currently does.
++
++Do not just search mentions. Follow semantic dependencies until the picture
++converges.
++
++Check:
++
++- durable docs and decisions
++- product/API behavior
++- code and composition
++- tests, fixtures, parity/reference readers
++- active tickets, concerns, RFCs
++- upcoming work likely to depend on it
++- historical context, without treating history as something to update
++
++Distinguish:
++
++- must change
++- must verify
++- may simplify
++- hidden risk
++- historical only
++- probably unaffected
++
++Look especially for assumptions shared across docs, code, and tests: internal
++agreement does not prove external correctness.
++
++Challenge the proposed change too:
++- is it solving a demonstrated problem?
++- can it be narrower?
++- does it introduce a general abstraction?
++- if so, what second materially different concrete shape justifies it?
++
++Output only:
++
++## Impact
++Main blast radius.
++
++## Hidden edges
++Non-obvious dependencies or risks.
++
++## Leave alone
++Related things that should not change.
++
++## Recommendation
++Proceed, narrow, rethink, or postpone, and why.
+### implement/SKILL.md [core/appendix]
+--- H/implement/SKILL.md
++++ M/implement/SKILL.md
+@@ -1,23 +1,28 @@
+ ---
+ name: implement
+-description: Implement a piece of work based on a spec or set of tickets.
++description: Implement the agreed work into code, following its governing docs.
+ ---
+ 
+-Implement the code described by relevant architecture decisions (spec/ticket/prior discussion).
++Implement the code described by relevant architecture decisions (spec/ticket/rfc/prior discussion).
+ 
+-Make sure to investigate the relevant specs, tickets and RFCs in /docs folder.
+-
+-Use very slight alchemical cyber/steampunk laboratory inclination when picking names entities.
+-Do not use implementation-shaped names or parameters, instead make them oriented at function meaning toward client.
++Pick entity names in vibe with the project glossary.
++Do not use implementation-shaped names or parameters; orient them at the function's meaning toward the client.
+ 
+ Use /tdd where possible, at pre-agreed seams. Make sure implementation, even in dummy/degenerate form, fully follows contract surfaces in the docs.
+ 
+ Make methods behind main architectural boundaries clear - they should read almost as a story explaining the boundary logic, with separate concerns extracted to properly named sub-methods. Also, in general, prefer to split submethods by responsibility. 
+ 
++The code should read as a story. Make sure the main process appears first in the file, where possible, and main boundaries' implementation reads through entities, interfaces and submethods used as nouns, adjectives and verbs.
++
++In case of temporary code added as intermediate scaffolding that is going to change/go away in future iteration, mark it so in docstrings.
++
++Make sure the errors follow error rules.
++
++Make sure to read and follow /improve-comments rules. Make sure to mark the TODOs (shapes that are temporary, hotpaths that may need optimization or other pending actions)
++
+ Run typechecking and single tests files regularly, and the full test suite once in the end.
+ 
++Do not move the RFC to Done at the end of your work, it will be done by later skills:
++Once done, if relevant, and unless you need to take a break, use /review-impl and /sync-arch to review the work.
+ 
+-
+-Once done, use /sync-arch to review the work.
+-
+-Do not commit your work until requested.+Do not commit your work until explicitly approved by user.
+### improve-comments/SKILL.md [core/appendix]
+--- H/improve-comments/SKILL.md
++++ M/improve-comments/SKILL.md
+@@ -1,6 +1,6 @@
+ ---
+ name: improve-comments
+-description: Write or improve code base comments
++description: Write or improve codebase comments
+ ---
+ 
+ 
+@@ -40,7 +40,7 @@
+ Good comments explain reasoning, not mechanics.
+ 
+ ```python
+-# We prefer freshness over provider priority here because stale frost data is dangerous.
++# We prefer freshness over provider priority here because stale severe-weather data is dangerous.
+ ```
+ 
+ ```python
+@@ -139,25 +139,36 @@
+ 
+ ## TODO Comments
+ 
+-A TODO must name a concrete missing action.
++Always mark the temporary code, that will be dissolved/changed by some future work, with TODO (temporary) (and add reference to related doc/concern)
++
++Keep the marker exact and put ownership after the colon, for example:
++`TODO (temporary): [0117](path) replaces this shim.` Numeric IDs remain document references, not
++part of the TODO syntax.
++
++Other than that, TODO should name a concrete missing action.
++
+ 
+ Bad:
+-
+ ```python
+ # TODO: clean this horrible mess later
+ ```
+ 
+ Good:
+-
+ ```python
+ # TODO: split provider normalization from HTTP retry policy.
+ ```
+ 
+ Good TODOs should be actionable, specific, and easy to search.
+ 
++
++## # @hotpath
++Hotpath comment `# @hotpath` may appear at method or code block.
++It means that this is important root flow of the program and deserves better comments inside. Do not delete comments inside hotpath blocks, but you can finetune or trim them when overexplaining.
++
++
+ ## Avoid Comment Apologies
+ 
+-Do not use comments to excuse unclear code.
++Do not use comments to excuse unclear code. Either make it clear, mark it with TODO or explain why the shape is chosen:
+ 
+ Bad:
+ 
+@@ -168,7 +179,7 @@
+ Better:
+ 
+ ```python
+-# Provider returns mixed local/UTC timestamps; keep this branch until upstream fixes export format.
++# Provider returns mixed local/UTC timestamps; keep this branch until upstream fixes export format. Concern/doc ref ###
+ ```
+ 
+ ## Preferred Comment Targets
+@@ -183,7 +194,7 @@
+ * invariants
+ * dangerous assumptions
+ 
+-Avoid dense line-by-line comments.
++Avoid dense line-by-line comments, unless on hotpath and tell a story.
+ 
+ ## Final Checklist
+ 
+@@ -207,4 +218,4 @@
+ 
+ Write comments for the maintainer who understands the language, but does not yet understand the context.
+ 
+-If architecture entry/decision/description already exists, prefer link to docs instead of restating it.+If architecture entry/decision/description already exists, prefer link to docs instead elaborating on it.
+
+### plan-impl/SKILL.md [core/appendix]
+--- H/plan-impl/SKILL.md
++++ M/plan-impl/SKILL.md
+@@ -1,25 +1,67 @@
+ ---
+ name: plan-impl
+-description: Plan implementation for ticket/task at hand
++description: Plan or repeatedly validate a ticket's implementation RFC against its governing docs and code before implementation.
+ ---
+ 
+-- Explore documentation in depth, follow links in it to find all decisions relevant to current task. 
++- Explore documentation in depth, follow links in it to find all decisions relevant to current task. Find out which documented boundaries are involved, and whether implementation challenges them.
++
++- If the ticket at hand is too coarse to yield a single unambiguous RFC, stop planning and decompose it into sub-tickets via /to-tickets first; then plan the first child.
++
++- An RFC implements a ticket — no ticketless RFCs. If the task at hand has no ticket, create it first per the [to-tickets skill](../to-tickets/SKILL.md); its behavior-altitude rule governs the criteria (shape stays in the RFC).
++
++- When incepting, ask yourself - what is the cheapest real example that could prove this design assumption wrong?
++
++- Consider and expose /impact when discussing or providing recommendations or approaches.
+ 
+ - Establish implementation scope, pinpoint and mention affected boundaries, contracts, ownership. Present main code shapes - especially ones that represent documented boundaries. Present code flows.
+ 
+-- Detect open concern and use /align skill to resolve them with user.
++- Detect implementation challenges and use /align skill to resolve them with user.
+ 
+-- Major goal of this planning is to find inconsistencies in the pre-planned architecture. Do this diligently. If such inconsistency found, do not stick blindly for architectural decision - instead raise concern with user to resolve it - either in code or in arch docs
++- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.
+ 
+-- Describe the implementation stages; allocate them accordind to /tdd rules.
++- Do not select implementation shapes just because "that how it is usually done" or based on first idea. Promote simplicity, look for elegant solutions, prefer removing over expanding, prefer conciseness over verbosity.
++
++- Do not invent impl nouns or verbs that are not discussed or approved by user. Use existing vocabulary.
++
++- If you see a concern, first check deeper how the existing architecture documentation describes it - it most probably already does. Read architecture.md, ADRs and concerns.md for this.
++
++- Major goal of this planning is to find inconsistencies in the pre-planned architecture. Do this diligently. If such inconsistency found, do not stick blindly for architectural decision - instead raise concern with user to resolve it - either in code or in arch docs.
++
++- Make the RFC determinate where a choice shapes observable behavior, a boundary or interface, ownership, failure semantics, compatibility, migration, or another non-local constraint. State the shaping fact with a reference to its durable owner; never rely on session context. Leave reversible implementation-local choices to /tdd and /implement unless they become load-bearing.
++
++- The RFC (original or amended) must not describe architecture absent from the architecture docs — land the decision in the docs first (/align when needed), then reference it from the RFC.
++
++- Describe the implementation stages; allocate them according to /tdd rules. Look at stages to make sure each of them keeps the tests green; in case that would take too much temporary effort, allow red, note about test status and compact reason for it.
++
++- Map out scope-specific limitations, follow-ups and related out-of-scope concerns.
++
++- Prefer reuse and reduction of existing nouns, verbs and adjectives; when adding shape - make sure documentation supports it, if in any doubt - /align with user.
++
++- Any wrinkle against architecture should be resolved; when solution is not found or following first-principles makes the code weird - align with user. Architecture must lead code shape even if code disagrees. Do not expose public methods or create flows that are not in architecture.
++
++- If planned code includes a temporary solution that is dissolved by future development, add RFC instruction to append TODO comment to code that flags this. Otherwise code changes can start relying or considering the temporal code, which can be hard to disentangle later.
++
++- Repeated invocations are validation passes over the same RFC. Re-read the ticket, RFC, durable docs, and relevant code; challenge the plan against new evidence and amend it in place. Do not create a replacement RFC merely because the plan changed before implementation.
++
++- As an additional pass, try to explain things to yourself simply, as if you are teaching the architecture, and being asked reasonable question and look for areas that evade simple or common-sense explanation.
++
++- Validate the RFC adversarially on every pass:
++  - Probe each boundary and stage with counterexamples, including empty, partial, faulting, and raced outcomes where relevant.
++  - Make every planned test prove the intended behavior and failure reason, not merely that the path succeeds or raises.
++  - Separate sourced facts and existing invariants from assumptions; verify facts in code or authoritative sources and surface load-bearing assumptions for /align.
++  - Reject pseudocode or prescribed structure that introduces undocumented architecture or freezes a reversible local choice.
++  - Check that every new promise names how it will be validated, and that the stages collectively prove the ticket's acceptance criteria.
++
++- Repeat validation until no load-bearing ambiguity, contradiction, or unverified assumption remains. The RFC may permit multiple equivalent local implementations when they preserve the same documented shape and proof.
++
++- If repeated validation keep bringing up gaps, take a step back and look at what causes this oscillation. The architecture, ADRs, tickets are not carved in stone, they can have real contradictions or inconsistencies that cause it. Look into the core reasons and /align on them again if needed.
++
++- Overall, always consider future development and potential code reuse when selecting code shapes.
+ 
+ - Cover migrations, compatibility, rollout, failure handling, and observability when relevant.
+ 
++- Record the plan into `docs/rfc/`, named with the owning ticket's basename — no RFC serial. Filename, `done/` moves, and citation: [TICKET-FORMAT.md](../to-tickets/TICKET-FORMAT.md#one-basename-per-work-item).
+ 
+-- Map out scope-specific limitation, follow-ups and related out-of-scope concerns.
++- RFC header: H1 is the ticket's title plus ` — implementation plan`; then `**Authored:** YYYY-MM-DD`, and `**Last amended:** YYYY-MM-DD` once a later pass changes the plan; then one line stating what it implements, linking the ticket.
+ 
+-- Do not leave implementation ambiguities or optionalities, no matter how small - either resolve them or consult with user.
+-
+-- Record the plan into markdown file in /docs/rfc. Theile should be using naming pattern `docs/rfc/0001-<YYYYMMDD>-<name>.md`, keeping constantly incrementing enumeration.
+-
+-- DO NOT CHANGE THE CODE!+- DO NOT CHANGE THE CODE!
+
+### recall/SKILL.md [missing]
+--- H/recall/SKILL.md
++++ M/recall/SKILL.md
+@@ -0,0 +1,19 @@
++---
++name: recall
++description: Determine where the project stands and what to work on next, with the decisions already taken surfaced alongside the questions genuinely still open. Use when asked what is next, where things stand, or to continue or pick up work.
++---
++
++
++Your goal is to surf through available docs and code and find out actual state of the project and the current and/or next things to focus on, without re-opening anything already settled.
++
++- Investigate last sessions and actual tickets against the roadmap/version plan and find out where are we standing. Sessions, `tickets/done` and `rfc/done` are dated snapshots — read them for *why*, never for *whether* something is still open. Check `git status` and recent log too: uncommitted work is part of the actual state.
++- Browse architecture, open questions and concerns; find out relevant decisions and items; make sure to look up for concern resolution or state all over the doc/code base - most of pending items are supposed to be at least referenced in existing documentation. Be thorough. Follow the references of the item in flight until they converge, rather than reading each doc in isolation.
++- Every question you surface as open must cite where it is *still* open — in a maintained doc (delivery status, concerns, architecture, ADRs, glossary, edge records) or in the working tree. Otherwise it is settled: cite the deciding artifact instead, including the code where the code settled it. A question with no home at all is a documentation gap, so report it as one.
++- Build a compact summary of current state of the project and bring up all relevant items for current or next task, including the decisions already taken that bear on it, each with its reference. The summary must be written in simple but precise language, no moonspeak.
++
++- In case of ambiguity, present it too user. In case when continuation requires decision making, invoke /align skill.
++- Report drift you hit while reading (stale headers, docs the tree has outrun) rather than fixing it — fixing is outside recall's scope.
++
++<project-local>
++Delivery state lives in [the queue](../../../docs/tickets/README.md) → [the development process](../../../docs/process.md). What each document owns → [the documentation map](../../../docs/README.md).
++</project-local>
+
+### review-architecture/REFERENCE.md [core/appendix]
+--- H/review-architecture/REFERENCE.md
++++ M/review-architecture/REFERENCE.md
+@@ -28,51 +28,4 @@
+ 
+ - Old unit tests on shallow modules are waste once boundary tests exist — delete them
+ - Write new tests at the deepened module's interface boundary
+-- Tests assert on observable outcomes through the public interface, not internal state
+-- Tests should survive internal refactors — they describe behavior, not implementation
+-
+-## Issue Template
+-
+-<issue-template>
+-
+-## Problem
+-
+-Describe the architectural friction:
+-
+-- Which modules are shallow and tightly coupled
+-- What integration risk exists in the seams between them
+-- Why this makes the codebase harder to navigate and maintain
+-
+-## Proposed Interface
+-
+-The chosen interface design:
+-
+-- Interface signature (types, methods, params)
+-- Usage example showing how callers use it
+-- What complexity it hides internally
+-
+-## Dependency Strategy
+-
+-Which category applies and how dependencies are handled:
+-
+-- **In-process**: merged directly
+-- **Local-substitutable**: tested with [specific stand-in]
+-- **Ports & adapters**: port definition, production adapter, test adapter
+-- **Mock**: mock boundary for external services
+-
+-## Testing Strategy
+-
+-- **New boundary tests to write**: describe the behaviors to verify at the interface
+-- **Old tests to delete**: list the shallow module tests that become redundant
+-- **Test environment needs**: any local stand-ins or adapters required
+-
+-## Implementation Recommendations
+-
+-Durable architectural guidance that is NOT coupled to current file paths:
+-
+-- What the module should own (responsibilities)
+-- What it should hide (implementation details)
+-- What it should expose (the interface contract)
+-- How callers should migrate to the new interface
+-
+-</issue-template>
++- Test shape rules → [tdd/tests.md](../tdd/tests.md)
+
+### review-architecture/SKILL.md [core/appendix]
+--- H/review-architecture/SKILL.md
++++ M/review-architecture/SKILL.md
+@@ -1,19 +1,19 @@
+ ---
+ name: review-architecture
+-description: Explore a codebase to find opportunities for architectural improvement, focusing on making the codebase more testable by deepening shallow modules. Use when user wants to improve architecture, find refactoring opportunities, consolidate tightly-coupled modules, or make a codebase more AI-navigable.
++description: Explore the codebase for module-deepening opportunities — architectural improvements that raise testability and navigability. Use when asked to improve or refactor the architecture.
+ ---
+ 
+ # Improve Codebase Architecture
+ 
+-Explore a codebase like an AI would, surface architectural friction, discover opportunities for improving testability, and propose module-deepening refactors as GitHub issue RFCs.
++Explore a codebase like an AI would, surface architectural friction, discover opportunities for improving testability, and propose module-deepening refactors as refactor tickets with their RFCs.
+ 
+-A **deep module** (John Ousterhout, "A Philosophy of Software Design") has a small interface hiding a large implementation. Deep modules are more testable, more AI-navigable, and let you test at the boundary instead of inside.
++A **deep module** — small interface hiding a large implementation (→ [tdd/deep-modules.md](../tdd/deep-modules.md)) — is more testable, more AI-navigable, and lets you test at the boundary instead of inside.
+ 
+ ## Process
+ 
+ ### 1. Explore the codebase
+ 
+-Use the Agent tool with subagent_type=Explore to navigate the codebase naturally. Do NOT follow rigid heuristics — explore organically and note where you experience friction:
++Navigate the codebase naturally, via parallel read-only subagents where available. Do NOT follow rigid heuristics — explore organically and note where you experience friction:
+ 
+ - Where does understanding one concept require bouncing between many small files?
+ - Where are modules so shallow that the interface is nearly as complex as the implementation?
+@@ -48,7 +48,7 @@
+ 
+ ### 5. Design multiple interfaces
+ 
+-Spawn 3+ sub-agents in parallel using the Agent tool. Each must produce a **radically different** interface for the deepened module.
++Produce 3+ **radically different** interfaces for the deepened module — one per independent sub-agent, run in parallel where available.
+ 
+ Prompt each sub-agent with a separate technical brief (file paths, coupling details, dependency category, what's being hidden). This brief is independent of the user-facing explanation in Step 4. Give each agent a different design constraint:
+ 
+@@ -71,6 +71,6 @@
+ 
+ ### 6. User picks an interface (or accepts recommendation)
+ 
+-### 7. Write issue file
++### 7. Record the outcome
+ 
+-Write the refactor RFC as a local markdown file in `issues/` using the template in [REFERENCE.md](REFERENCE.md). Do NOT ask the user to review before writing — just write it and share the path.
++Mint the chosen deepening as a refactor ticket per [to-tickets](../to-tickets/SKILL.md), then record the chosen interface design as that ticket's RFC per [plan-impl](../plan-impl/SKILL.md) — the ticket holds the behavior altitude, the RFC holds the shape. Do NOT ask the user to review before writing — write and share the paths.
+
+### review-impl/SKILL.md [missing]
+--- H/review-impl/SKILL.md
++++ M/review-impl/SKILL.md
+@@ -0,0 +1,20 @@
++---
++name: review-impl
++description: >-
++  Review implementation against its input documentation (ticket, RFC, architecture docs) — match, leakage, doc-caused weirdness. Use after an implementation pass.
++---
++
++
++The goal of this skill is to compare the current work's input documentation (ticket, RFC and architectural docs) and the code and find out:
++- How good the code shape matches and represents the documentation?
++- Where the code shape went wrong or weird because of underspecification or contradiction in the docs?
++
++Look for architectural or responsibility leakage.
++
++If discrepancies or leakages found, describe them in short and suggest ways to amend documentation or/and code. Do not make changes until requested. In case the cause has big blast radius or is significantly ambiguous, /align with user.
++
++Make sure the errors follow error rules.
++
++Apply /improve-comments rules to groom the comments and check that TODO tags are correct.
++
++Apply /plan-impl and /sync-arch skill rules that you think are useful for this task.
+### setup-devops/SKILL.md [core/appendix]
+--- H/setup-devops/SKILL.md
++++ M/setup-devops/SKILL.md
+@@ -1,6 +1,6 @@
+ ---
+-name: setup-project
+-description: Programming project setup, including language, package manager, containerization/deployment form, CICD pipeline, dependencies roster, observability frameworks 
++name: setup-devops
++description: Set up the project's engineering scaffolding, from toolchain to CICD and observability. Use when initializing a repo or filling a setup gap.
+ ---
+ 
+ # Programming project setup
+@@ -10,8 +10,6 @@
+ Scan existing repository to find out setup aspects already evident/decided upon;
+ If not found, suggest options with pros, cons and tradeoffs explained.
+ 
+-## Language
+-
+ ## Package manager
+ Look up for best stable option on web
+ 
+@@ -19,10 +17,10 @@
+ For backend app, wrap with docker compose
+ 
+ ## CICD pipeline
+-Setup initial GitHub/chosen provider repository if missing; Set up provider CICD script/configuration for build; to not attach deployment configuration, it is out of scope
++Setup initial GitHub/chosen provider repository if missing; Set up provider CICD script/configuration for build; do not attach deployment configuration — it is out of scope
+ 
+ ## Dependencies
+-Repare roster of selected package management type; only populate it if there is dependency data in project sources/docs
++Prepare the roster for the selected package manager; only populate it if there is dependency data in project sources/docs
+ 
+ ## Observability
+ For backend app, attach Sentry.io dependency
+
+### skill-up/SKILL.md [missing]
+--- H/skill-up/SKILL.md
++++ M/skill-up/SKILL.md
+@@ -0,0 +1,42 @@
++---
++name: skill-up
++description: >-
++  Aid agent skill creation or modification. Use when creating a new skill or changing an existing one.
++---
++
++Your goal is to aid agent skill creation or modification.
++
++Writing rules:
++
++- A skill is instruction, not story. Be precise and concise. Prefer umbrella terms to enumeration, unless can be interpreted wrong in context of the skill.
++- State everything in definitive form — no evolution logic, no decision explanations.
++- Blur wording where letting the model decide beats overfitting the instruction.
++
++Before writing, browse the existing skill set and match its structure and vibe — frontmatter shape, file layout, linking style, tone, altitude. Derive the set's conventions from the set itself; do not impose foreign ones.
++
++Verify the new or changed skill against the set:
++
++- It does not overlap an existing skill, unless the overlap is intentional — then name it and link the owning skill.
++- It does not contradict any existing skill.
++- It does not misfit the set — wrong altitude, wrong output location, conventions the set does not use.
++
++A fact the set already states in one skill is referenced from there, not restated.
++
++The frontmatter description narrates the use case, not the implementation, and stays in line with the skill's intent. Capturing skill intent and usage is critical — /align when in tiniest doubt.
++
++## Project-local divergence
++
++A skill's core is portable; a project's own conventions are not. Keep every `SKILL.md` body free of project facts, so the set stays mergeable with the corpus it came from, and hold what is genuinely local behind a reference:
++
++- Prefer an appendix file — `*-FORMAT.md`, `REFERENCE.md` — which may diverge freely.
++- Where a file is too much, a compact `<project-local>` block closes the `SKILL.md`; the tag is the declaration, so it needs no sentence saying so.
++- An appendix points at the project's own documentation for anything that documentation owns; it never restates it.
++
++A body instruction that cannot be written without a project fact belongs in the appendix instead. The project's development process — `docs/process.md`, built up lazily as the process itself incepts or changes — is a corpus convention like `glossary.md`, so a body may cite it by name; its contents are the project's own.
++
++A `<project-local>` block adds local facts; it never overrides the body.
++
++## Merging a reference corpus
++
++When asked to merge the skill corpus, ask which corpus to merge from.
++Port body changes, fixing defects as you port; leave every appendix file and `<project-local>` block as it stands. A skill present in only one corpus is either local by intent or not yet ported — ask which.
+
+### sync-arch/SKILL.md [core/appendix]
+--- H/sync-arch/SKILL.md
++++ M/sync-arch/SKILL.md
+@@ -3,15 +3,26 @@
+ description: Synchronize architecture docs with high-level code shape.
+ ---
+ 
+-I need you to run a bit all-around check, and make sure that architecture documentation (./docs/architecture.md, ./docs/adrs, ./docs/glossary.md) properly represent the intent of recently modified code. 
++I need you to run an all-around check, and make sure that architecture documentation (./docs/architecture.md, ./docs/adr/, ./docs/glossary.md, and the Edge records in ./docs/edge/) properly represent the intent of recently modified code.
+ 
+-The ultimate goal for this skill is to make sure architecture docs can be converted to the existing code contract shape in one crystal clear way.
++Two ultimate goals for this skill :
++1) to make sure architecture docs can be converted to the existing code contract shape in one crystal clear way.
+ 
+-So the question you should answer first is will it be possible to recreate exact same implementation contract shape from the arch docs, or there are load-bearing contract details, hidden assumptions/decisions that are in code by not in docs.
++2) To make sure code does not contradict architectural decisions and rules.
++
++There are two kinds of possible discrepancies between architecture docs and code:
++- Code misinterpreted or ignored architecture, and needs to be amended. Note that in some cases it is not possible because of core inconsistency - this should be discussed with user
++- Docs underrepresent desicions that only became clear when manifested in code. In this case the docs deserve amendment.
++
++So the question you should answer first is whether it is possible to recreate the exact same implementation contract shape from the arch docs, or there are load-bearing contract details, hidden assumptions/decisions that are in code but not in docs.
+ 
+ Look for places where architecture misrepresents, contradicts or is blurry about the aspect represented in code. Look for code that encodes important architectural decisions, but underrepresented in the documentation.
+ There is no need to add low level details, instead look for architectural seams - interfaces, contracts, boundaries, intents and representations.
+ 
+ Do not add any implementation details to architecture, unless are critical for non-trivial solution record.
+ 
+-If there is a tradeoff or doubt about the task, or if the code is out of sync with architecture in a major way, use /align skill to sync align user.+Check `./docs/concerns.md` the same way: a concern the implementation has since answered is a finding — the file still claims open pressure that code resolved. Retire it to its owning ADR or architecture section rather than leaving it standing.
++
++For Edge records specifically (format: align skill's EDGE-FORMAT.md): code must not contradict a promise in a `Status: Normative` record, and each invariant's named validator test must still exist and still assert that promise — a missing or drifted validator is a finding, as is a promise marked **⚠ unguarded** in a Normative record.
++
++If there is a tradeoff, doubt or unresolved concern about the task, or if the code is out of sync with architecture in a major way, use /align skill to align with user.
+### tdd/SKILL.md [core/appendix]
+--- H/tdd/SKILL.md
++++ M/tdd/SKILL.md
+@@ -59,6 +59,8 @@
+ 
+ **You can't test everything.** Confirm with the user exactly which behaviors matter most. Focus testing effort on critical paths and complex logic, not every possible edge case.
+ 
++**When an RFC (/plan-impl) already fixes the interfaces and behaviors, the planning gate is satisfied** — take the RFC's answers and proceed to the tracer bullet without re-asking.
++
+ ### 2. Tracer Bullet
+ 
+ Write ONE test that confirms ONE thing about the system:
+
+### to-spec/SKILL.md [core/appendix]
+--- H/to-spec/SKILL.md
++++ M/to-spec/SKILL.md
+@@ -1,15 +1,15 @@
+ ---
+ name: to-spec
+-description: Generate a specification from the client brief and write it as a local markdown file in issues/<YYYYMMDD>_<name>/prd.md. Use when the user wants to turn a client request into a structured PRD.
++description: Incept a new body of work — generate a PRD from the client brief and write it as a local markdown file under docs/. Use when a big change or new effort arrives and needs a structured PRD before decomposition into tickets.
+ ---
+ 
+-This skill will be invoked when the user wants to create a PRD. You may skip steps if you don't consider them necessary.
++You may skip steps you don't consider necessary.
+ 
+ 1. Ask the user for a long, detailed description of the problem they want to solve and any potential ideas for solutions.
+ 
+ 2. Explore the repo to verify their assertions and understand the current state of the codebase.
+ 
+-3. Interview the user relentlessly about every aspect of this plan until you reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one.
++3. Interview the user relentlessly about every aspect of this plan using /align skill rules.
+ 
+ 4. Sketch out the major modules you will need to build or modify to complete the implementation. Actively look for opportunities to extract deep modules that can be tested in isolation.
+ 
+@@ -17,7 +17,9 @@
+ 
+ Check with the user that these modules match their expectations. Check with the user which modules they want tests written for.
+ 
+-5. Once you have a complete understanding of the problem and solution, use the template below to write the spec. The spec should be written as a local markdown file at `session/<YYYYMMDD>_<name>/spec.md`. Create the `session/<YYYYMMDD>_<name>/` directory if it doesn't exist. Do NOT submit a GitHub issue or call any external service.
++5. Once you have a complete understanding of the problem and solution, use the template below to write the spec — a local markdown file, named per [the process](../../../docs/process.md#naming). A spec is argument rather than a work item, so it registers nothing anywhere; putting work on the tracker is /to-tickets'.
++
++6. Hand off: once the PRD is written, decomposition into tickets is /to-tickets.
+ 
+ <prd-template>
+ 
+
+### to-tickets/SKILL.md [core/appendix]
+--- H/to-tickets/SKILL.md
++++ M/to-tickets/SKILL.md
+@@ -1,25 +1,29 @@
+ ---
+ name: to-tickets
+-description: Break a Spec into independently-workable tickets and write each as a local markdown file in docs/tickets/. Use when the user wants to turn a Spec into a list of concrete tasks.
++description: Use to decompose a parent work into independently-workable child tickets. Use to mint ticket(s), possibly a single one, when planning implementation without one.
+ ---
+ 
+-# Soec to Tickets
++# Decompose into tickets
+ 
+-Break a Spec into independently-grabbable tickets using vertical slices (tracer bullets), written as local markdown files under `docs/tickets/`.
++Break a parent work into independently-grabbable tickets using vertical slices (tracer bullets), written as local markdown files under `docs/tickets/`. The parent is a **PRD** at inception, a **coarse ticket** when zooming in; or the currently discussed/referenced chunk of work; the same slicing principles apply at every resolution.
+ 
+ ## Layout
+ 
+-- **Active tickets** live flat in `docs/tickets/NNN-short-title.md`.
+-- **Completed tickets** move to `docs/tickets/done/NNN-short-title.md` (all acceptance boxes checked). Keep the filename; only the folder changes.
+-- The **Spec** is referenced by its own path (e.g. `docs/spec/0001-v1-requirements.md`); tickets do not duplicate it.
++The shape of a ticket, and where it is named and registered, is
++[TICKET-FORMAT.md](./TICKET-FORMAT.md)'s. Read it before writing one, and restate none of it here.
++
++- **Active tickets** live flat in `docs/tickets`; **completed tickets** move to `docs/tickets/done/`
++  (all acceptance boxes checked). The filename never changes, only the folder.
++- The **parent** is referenced by its own path — a spec, or a coarser ticket; child tickets do not
++  duplicate it.
+ 
+ ## Process
+ 
+-### 1. Locate the Spec
++### 1. Locate the parent
+ 
+-Ask the user for the Spec file path (e.g. `docs/spec/0001-v1-requirements.md`).
++Ask the user for the parent work item's path, unless it is already clear from context.
+ 
+-If the Spec is not already in your context window, read it from the file.
++If the parent is a document not already in your context window, read it from the file. When the parent is the chunk of work under discussion, there is no file — the tickets must then carry their own context.
+ 
+ ### 2. Explore the codebase (optional)
+ 
+@@ -27,15 +31,20 @@
+ 
+ ### 3. Draft vertical slices
+ 
+-Break the Spec into **tracer bullet** tickets. Each ticket is a thin vertical slice that cuts through ALL integration layers end-to-end, NOT a horizontal slice of one layer.
++Break the parent into **tracer bullet** tickets. Each ticket is a thin vertical slice that cuts through ALL integration layers end-to-end, NOT a horizontal slice of one layer. Slice at the parent's own resolution: a coarse ticket's children are thinner passes through the same territory, still demoable or verifiable on their own.
+ 
+ Slices may be 'HITL' or 'AFK'. HITL slices require human interaction, such as an architectural decision or a design review. AFK slices can be implemented and merged without human interaction. Prefer AFK over HITL where possible.
++
++A ticket blocked on unresolved product or architectural decisions may begin as a **decision-bearing
++HITL ticket**. It is the eventual feature ticket in an earlier phase, not a separate decision slice;
++name it for the product outcome it will deliver.
+ 
+ <vertical-slice-rules>
+ - The goal is to break down into small deliverables that can be tested by user, before the entire schema/service/UI is built. Vertical step-by-step.
+ - Each slice delivers a narrow but COMPLETE path through every layer (schema, API, UI, tests)
+ - A completed slice is demoable or verifiable on its own
+ - Prefer many thin slices over few thick ones
++- A chunk that is already ticket-sized yields a single ticket — a valid outcome, not a failed decomposition
+ </vertical-slice-rules>
+ 
+ ### 4. Quiz the user
+@@ -43,9 +52,9 @@
+ Present the proposed breakdown as a numbered list. For each slice, show:
+ 
+ - **Title**: short descriptive name
+-- **Type**: HITL / AFK
+-- **Blocked by**: which other slices (if any) must complete first
+-- **User stories covered**: which user stories from the Spec this addresses
++- **Interaction**: HITL / AFK
++- **Depends on**: which other slices (if any) must complete first
++- **Parent scope covered**: which user stories or acceptance criteria of the parent this addresses
+ 
+ Ask the user:
+ 
+@@ -58,46 +67,45 @@
+ 
+ ### 5. Create the ticket files
+ 
+-For each approved slice, write a markdown file at `docs/tickets/NNN-short-title.md` (e.g. `docs/tickets/003-add-user-auth.md`).
++For each approved slice, write the ticket under `docs/tickets/`, named and registered per
++[TICKET-FORMAT.md](./TICKET-FORMAT.md).
+ 
+-Number tickets starting from the next available number (check what files already exist in `docs/tickets/` **and** `docs/tickets/done/`).
++Create tickets in dependency order (blockers first) so you can reference real filenames in the `Depends on` field. A blocker that is already complete lives in `docs/tickets/done/` — reference it there.
+ 
+-Create files in dependency order (blockers first) so you can reference real filenames in the "Blocked by" field. A blocker that is already complete lives in `docs/tickets/done/` — reference it there.
++Write each file to [TICKET-FORMAT.md](./TICKET-FORMAT.md) — its skeleton, header block, section rules, and citation conventions. A freshly minted slice needs at minimum `Outcome`, `Parent`, `What to build`, and `Acceptance criteria`.
+ 
+-Do NOT use `gh issue create` or any GitHub CLI commands. Do NOT reference GitHub issue numbers. Use local filenames for all cross-references.
++### Decision-bearing ticket lifecycle
+ 
+-<ticket-template>
+-## Parent Spec
++A decision-bearing ticket is the working document for an [/align](../align/SKILL.md) session and
++then becomes the implementation-ready feature ticket for the same outcome. Do not mint separate
++decision and implementation tickets for that outcome.
+ 
+-`docs/specs/<spec-file>.md` (whichever Spec file was used)
++- **At minting:** `Outcome`, `What to build`, and `Acceptance criteria` describe the alignment exit:
++  the decision is landed in its durable home and the feature is unblocked. Hold the decision tree —
++  evidence, alternatives, and open questions — in the ticket.
++- **Concern promotion:** leave only the architectural contact surface in `concerns.md` under its
++  stable anchor, add `→ queued as <ticket-slug>`, and move the deliberation into the ticket.
++- **During alignment:** follow [/align](../align/SKILL.md)'s inline resolution rule; the ticket is the
++  live working document.
++- **At resolution:** land decisions in their durable homes, remove the resolved concern entry (or
++  retain separately-scoped residue), and rewrite the same ticket in place to feature altitude
++  ([TICKET-FORMAT.md](./TICKET-FORMAT.md)). Keep its place in the order unless the resolved
++  dependencies require moving it.
++- **If the resolved feature is too coarse for one RFC:** retain the ticket as the parent/end-state
++  and decompose it through `/to-tickets`; do not create a sibling merely to hold the implementation.
++- **If alignment eliminates the feature:** complete the ticket as a landed decision; this is the
++  only case where it closes without becoming an implementation ticket.
+ 
+-## What to build
++### Altitude decides whether a slice is a ticket
+ 
+-A concise description of this vertical slice. Describe the end-to-end behavior, not layer-by-layer implementation. Reference specific sections of the parent Spec rather than duplicating content.
++Criteria state observable behavior; code shape is the RFC's
++(→ [Acceptance criteria](./TICKET-FORMAT.md#acceptance-criteria)).
+ 
+-## Acceptance criteria
+-
+-- [ ] Criterion 1
+-- [ ] Criterion 2
+-- [ ] Criterion 3
+-
+-## Blocked by
+-
+-- Blocked by `docs/tickets/NNN-title.md` (active) or `docs/tickets/done/NNN-title.md` (already complete)
+-
+-Or "None - can start immediately" if no blockers.
+-
+-## User stories addressed
+-
+-Reference by number from the parent Spec:
+-
+-- User story 3
+-- User story 7
+-
+-</ticket-template>
++- A refactor too large for one RFC splits into subtickets, one RFC per child.
++- A slice whose criteria cannot be written at that altitude is not yet a ticket → `/align` first.
+ 
+ ### 6. Completing a ticket
+ 
+-When every acceptance box is checked, `git mv` the file from `docs/tickets/` to `docs/tickets/done/`. Fix any "Blocked by" references that pointed at it (they gain the `done/` segment).
++When every acceptance box is checked, move the ticket to `docs/tickets/done/` mechanically, per [one basename per work item](./TICKET-FORMAT.md#one-basename-per-work-item) — the move repairs the citations that pointed at it.
+ 
+-Do NOT close or modify the parent Spec file.
++Do NOT close or modify the parent; a parent ticket completes on its own acceptance criteria, not by its children emptying out.
+
+### to-tickets/TICKET-FORMAT.md [missing]
+--- H/to-tickets/TICKET-FORMAT.md
++++ M/to-tickets/TICKET-FORMAT.md
+@@ -0,0 +1,158 @@
++# Ticket format
++
++Project-local, divergent by design. Where a ticket sits in the document family — the basename that
++links it to its RFC, the seam that keeps everything in-repo — is
++[the development process](../../../docs/process.md)'s. This shelf holds everything `/to-tickets`
++owns: the ticket's naming scheme, the delivery-state vocabulary, and the shape of its two
++documents — the ticket and the queue.
++
++## Numbering
++
++```
++docs/tickets/done/01-0115-retentive-store-freshness.md
++              │  │    └── slug — what the ticket is. Never changes. Cite by this.
++              │  └─────── position — global across releases. Changes when priority changes.
++              └────────── release — the contract the ticket serves.
++```
++
++- Positions step by 10. Insert by splitting the difference: `0015`, then `0012`. Positions stay
++  four digits — longer numbers break numeric ordering. When the gap is exhausted, take the nearest
++  free slot on the correct side and note the placement in the queue row. Never renumber anything
++  else.
++- Allocate a position where the ticket will actually be worked, not merely at the end, checking
++  both `docs/tickets/` and `docs/tickets/done/` for the surrounding positions.
++- A subticket appends a level: `0130.0010`. Depth is unbounded and means "is a child of", nothing
++  else — work merely filed after `0130` takes `0135`. A slice carved out of unstarted work is
++  usually a prerequisite, so it sorts *before* its origin and cannot nest.
++- Positions are one global line across releases: `02-0130` runs between `01-0120` and `01-0150`. The
++  folder groups by release; the delivery map is the only cross-release order.
++- A release closes when its contract's criteria are met, not on a date. A later release's ticket may
++  land first.
++- Maintenance is a `Kind`, never a filename prefix.
++- Completed tickets keep their number.
++
++### One basename per work item
++
++The shared basename, the slug citation, and the independent `done/` moves, are
++[the process](../../../docs/process.md#naming)'s. What it does not say:
++
++- The move is mechanical: `uv run python .agents/scripts/move_doc.py SRC DST [SRC DST ...]`
++  re-depths the moved record and rewrites live citers; a paired close (ticket + RFC) goes in one
++  invocation.
++- Artifacts predating this keep their names.
++
++What an RFC *contains* is `/plan-impl`'s. Adoption dates and the legacy-id map are the queue's.
++
++## Status
++
++`Done` · `In progress` · `Ready` · `Partial` · `Planned` · `Blocked`
++
++- **Ready** — dependencies complete, work can start. **Planned** — dependencies are not.
++- **Partial** — some behavior landed; criteria remain open.
++- **Blocked** — stuck for a reason *other than* an incomplete dependency. Waiting on a dependency is
++  `Planned`.
++- One parenthetical qualifier is allowed: `Planned (own align precedes)`, `Done (split)`. `Done`
++  carries its date.
++
++## The ticket
++
++```md
++# {Title}
++
++- **Status:** {value} {(qualifier)}
++- **Type:** HITL | AFK
++- **Kind:** Maintenance
++- **Plan:** [{title} RFC](../rfc/{basename}.md) — what it selected
++- **Depends on:** [{title}](./RR-NNNN-slug.md) ({what it supplies})
++- **Blocks:** [{title}](./RR-NNNN-slug.md) — {why}
++- **Outcome:** {the delivered change, one or two sentences}
++
++## Parent
++## {Why this exists}          ← 0..n, titled for the claim each argues
++## What to build
++## Decisions this ticket's align owns
++## Acceptance criteria
++## Out of scope
++## Parent scope addressed
++```
++
++Always present: `Status`, `Outcome`, `What to build`, `Acceptance criteria`. The rest appear when
++they have something to say. Header fields keep this order; `Outcome` is always last.
++
++| Field | Rule |
++|---|---|
++| `Status` | A [status](#status) value. |
++| `Type` | `HITL` needs a human decision or review; `AFK` merges unattended. |
++| `Kind` | `Maintenance` when the work delivers no product capability. Absent otherwise. |
++| `Plan` | The RFC link plus one clause on what it selected. Absent until a plan exists. |
++| `Depends on` | Blockers, each with a parenthetical naming what it supplies — not a bare link. |
++| `Blocks` | Only when the blocking relation is itself an argument; carries its `— why`. |
++| `Outcome` | Observable behavior, never code shape. Copied verbatim into the delivery map. |
++
++One-off fields (`Trigger`, `Related`, `Owning decision`) are fine when the ticket carries that fact.
++Older tickets use `Legacy id:` / `RFC:` / `Parent PRD` / `User stories addressed`; leave them, don't
++write them.
++
++| Section | Rule |
++|---|---|
++| `Title` | Names the outcome, not the mechanism. No number, no release. |
++| `Parent` | The PRD or coarse ticket this was carved from; otherwise the durable doc owning the context (architecture section, roadmap phase, concern). Never a session. A subticket says which slice it is and what the parent keeps. |
++| Narrative | Titled for what it argues (`What goes wrong today`, `Why this is not a Gateway concern`). Diagram the mechanism; link the evidence (`reservoir.py:113`, an ADR anchor). Say what is deliberately *not* a defect. Omit entirely when the framing is uncontested. |
++| `What to build` | End-to-end behavior, not a file-by-file plan. Each constraint carries its reason. |
++| `Decisions this ticket's align owns` | One bullet per open question, each saying why it cannot be answered yet. After the align it becomes `What this ticket does not decide`, resolved entries struck and answered inline. |
++| `Acceptance criteria` | Checkboxes, each observably true when done. |
++| `Out of scope` | What a reader expects and won't find, each with its actual home. |
++| `Parent scope addressed` | The parent's stories or criteria this closes, by number. |
++
++### Acceptance criteria
++
++- Behavior altitude, always: types, fields, formulas and module layout are the RFC's.
++- Name the instrument when the naive check would pass for the wrong reason — "pinned by counting
++  transport calls, not by inspecting the gate."
++- Refactor tickets: behavior unchanged, the new constraint machine-enforced by a failing guard test,
++  dependents unblocked.
++- A parent split into subtickets states the end-state that holds only when all children land.
++- Provisional criteria say so in the heading, and are firmed in place at the align.
++- Check a box only for work that satisfied it; a criterion satisfied early is checked with a date.
++
++### Conventions
++
++- Cite by slug through a relative link; add the `done/` segment when the target completes.
++- Reference the architecture, ADRs, glossary, concerns and edge records; never restate them.
++- Strike superseded text, answer inline in bold, keep the question.
++- Date anything that changed after minting.
++- Update the queue in the same pass.
++- Wrap at ~100 columns.
++
++## The queue
++
++```md
++# Delivery status
++
++**Last updated:** YYYY-MM-DD
++**Current stage:** {what landed, what is next, links to both}
++
++{who owns what: roadmap = direction, requirements = contract, architecture/ADRs = design,
++ tickets = criteria; sessions and done/ are history}
++
++## Status vocabulary
++## Available today
++## Delivery map
++## Ticket numbering
++### Legacy ids
++## Recommended execution order
++## Decisions still owned by tickets
++## Maintenance rule
++```
++
++| Section | Rule |
++|---|---|
++| `Last updated` | The date **delivery state** last moved, not the date the file was last touched. A copy-edit or a link repair does not advance it; a status flip, a minted ticket, or a reorder does. A reader uses it to ask "how stale is this queue", which an edit date would answer wrongly. |
++| `Status vocabulary` | Points at [Status](#status); defines nothing. Adds only what is true of this repo's use of it. |
++| `Available today` | `Capability \| Status \| Current behavior` — what a caller can do now and what is honestly missing. Each row links the ticket that changes it. |
++| `Delivery map` | `# \| Ticket \| Kind \| Status \| Depends on \| Outcome` — the canonical order, one row per ticket across all open releases. `Maint` rows hold a position but appear in no capability table. |
++| `Ticket numbering` | This repo's adoption record. Points at [Numbering](#numbering); restates none of it. |
++| `Legacy ids` | `Legacy \| Now`, after a scheme change. |
++| `Recommended execution order` | The reasoning behind the order, never a second copy of it. Superseded stretches stay as written under a dated heading. |
++| `Decisions still owned by tickets` | One bullet per ticket holding an unresolved decision. |
++| `Maintenance rule` | Update this page and the ticket header when delivery state changes; link here instead of restating status elsewhere. |
+

@@ -1,0 +1,44 @@
+--- M/move_doc.py
++++ F/move_doc.py
+@@ -1,6 +1,6 @@
+-"""Mechanical record mover (docs/cicd.md § CI pipeline).
++"""Mechanical record mover.
+ 
+-    uv run python .agents/scripts/move_doc.py SRC DST [SRC DST ...]
++    ./venv/Scripts/python.exe .agents/scripts/move_doc.py SRC DST [SRC DST ...]
+ 
+ Git-moves each markdown record, re-depths the moved files' own links, and rewrites inbound
+ references in live documents. Historical records are left as written. A paired close — ticket and
+@@ -9,7 +9,7 @@
+ Judgment stays with the caller: no boxes, no statuses, no prose. The doc-integrity guards are the
+ proof of a move:
+ 
+-    uv run pytest tests/deterministic/test_docs_integrity_guard.py \\
++    ./venv/Scripts/python.exe -m pytest tests/deterministic/test_docs_integrity_guard.py \\
+                   tests/deterministic/test_docs_conventions_guard.py
+ """
+ 
+@@ -33,7 +33,7 @@
+ _UNMOVED = ("http://", "https://", "mailto:", "#")
+ 
+ _VERIFY = (
+-    "uv run pytest tests/deterministic/test_docs_integrity_guard.py "
++    "./venv/Scripts/python.exe -m pytest tests/deterministic/test_docs_integrity_guard.py "
+     "tests/deterministic/test_docs_conventions_guard.py"
+ )
+ 
+@@ -157,10 +157,12 @@
+     b: str,
+     mapping: dict[str, str],
+ ) -> None:
+-    text = path.read_text(encoding="utf-8", newline="")
++    with path.open(encoding="utf-8", newline="") as handle:
++        text = handle.read()
+     rewritten = transform(text, a, b, mapping)
+     if rewritten != text:
+-        path.write_text(rewritten, encoding="utf-8", newline="")
++        with path.open("w", encoding="utf-8", newline="") as handle:
++            handle.write(rewritten)
+ 
+ 
+ def _git_move(root: Path, source: str, destination: str) -> None:
