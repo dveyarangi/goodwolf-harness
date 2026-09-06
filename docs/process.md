@@ -71,6 +71,14 @@ Adopting this concept does not install Life's machinery. Mechanism boundaries, d
 
 A pass declares its scope: the whole tree, a project, or work associated with a particular RFC. Derive every applicable mechanism and its obligations within that scope, including the consumers and dependencies needed to verify them. A narrower pass uses the same governing rules and reports its coverage; it cannot certify the rest of the tree. Findings beyond the covered scope remain visible with an owner rather than disappearing from the result.
 
+Use one integrated procedure, with scope determining which checks apply:
+
+1. Identify applicable rules, artifacts and dependencies.
+2. Check contracts and consistency; repair clear violations under the repair policy and
+   route unresolved decisions to `/align`.
+3. Clean up prose and records, resolve expired temporary statements, then perform eligible
+   archive moves and verify references.
+
 Archive decisions and mechanical archive operations belong to `/maintain`. Before archiving a spec, establish that surviving agreements have maintained homes, its obligations have explicit dispositions, unresolved issues retain active owners, and moves/indexes/references are consistent. Record delivery, transfer, withdrawal and supersession accurately. Current work must not require archived specs to reconstruct its governing contracts; historical investigation and mechanical maintenance may still use them.
 
 Repair and verification follow the policies in this document. Derive and fix mechanically where possible, write missing maintenance scripts, and keep incomplete checks or repairs visible. Ambiguities that require a new decision return to `/align`.

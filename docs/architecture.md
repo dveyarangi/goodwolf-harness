@@ -1,0 +1,96 @@
+# Harness architecture
+
+This document records the agreed maintenance boundaries. It does not define the remaining
+cross-project distribution system. Terms belong in [the glossary](glossary.md); maintenance
+policy belongs in [the process](process.md#tree-maintenance).
+
+## Current and agreed target
+
+The installed skills currently support delivery through `/verify`; `/maintain` and its
+supporting scripts are not installed. Skill bodies have one physical home under
+`.agents/skills`, with host access described in [the installed harness](../.agents/README.md).
+
+The agreed target is one maintenance mechanism. Its skill directs an integrated procedure
+over a declared scope, while supporting scripts perform mechanically derivable work.
+The first live scope is recorded in the owning ticket; scope does not exempt relevant
+dependencies or affected references from maintenance.
+
+## Responsibilities
+
+- `/maintain` identifies applicable governing rules, artifacts and dependencies; checks
+  contracts and consistency; applies the repair policy; cleans up prose and records; handles
+  temporary statements; and determines eligibility for archive operations.
+- Supporting scripts enumerate artifacts and perform mechanical transformations. They do
+  not invent completion evidence, decide architectural questions, or turn an arbitrary
+  expiry condition into authority to execute code.
+- `/align` owns unresolved decisions. `/verify` owns verification of delivered work against
+  its ticket, RFC, governing documents and the project's verification set.
+- The queue owns current delivery state. Tickets and RFCs retain work decisions and evidence;
+  the mechanism's [evidence record](research/maintenance-findings.md) retains observations
+  that inform maintenance of the mechanism itself.
+
+## Contract surfaces
+
+### Scope and coverage
+
+The maintenance caller declares the work being maintained. Applicable obligations and their
+dependencies determine the covered artifacts; a filename-only selection cannot establish
+semantic completeness. A narrow close can require reference repairs across the repository
+without certifying architecture or unrelated work across that repository.
+
+### Paired record close
+
+[Ticket format](../.agents/skills/ticket/TICKET-FORMAT.md#one-basename-per-work-item)
+governs eligibility and destinations. The caller determines that the criteria, including
+verification, are met before submitting the ticket and RFC together for movement.
+
+The mechanical operation preserves basenames, repairs the moved records' outgoing and mutual
+references, and repairs incoming references. Historical records participate: repairs preserve
+their recorded facts, evidence and decisions. Moving a record does not itself establish that
+its work was verified, and a failed operation is unfinished maintenance.
+
+Reference identity depends on its resolved target. A local absolute reference to a selected
+record follows that record just as a relative reference does; references outside the move's
+mapping retain their targets. A reference rewrite preserves bytes outside the changed target.
+
+### Interruption and recovery
+
+Before writing, the mover validates the complete selection and derives the required moves
+and reference changes. A preflight refusal changes no files. The operation does not alter
+the Git index; staging and commit remain caller actions under the project's autonomy rules.
+
+If an I/O error occurs after mutation starts, stop, return failure and report completed
+operations, pending operations and the failed path. Do not automatically roll back.
+The maintainer inspects actual files and recovers under the existing repair policy before
+reporting completion. Emit operation progress as it occurs; after abrupt termination the
+last attempted operation can be uncertain and must be checked against the filesystem.
+
+This contract does not promise atomic multi-file writes, persisted transaction recovery or
+safe simultaneous writers. Recheck expected file contents and destination absence before
+applying changes; detected interference is a failure, not authority to overwrite it.
+
+The writing technique belongs to helper implementation. Git is a recovery fallback for
+committed or staged content; it does not generally recover overwritten unstaged edits.
+Recovery must account for the actual working state and preserve unrelated changes. This
+install adds no separate recovery mechanism.
+
+### Temporary statements
+
+[The entry contract](../AGENTS.md#temporary-statements) owns temporary-statement syntax,
+ticket binding and expiry. Enumeration provides source locations and the written condition
+and owner; the maintainer establishes whether the condition holds from evidence. Unknown
+conditions remain unresolved. Mechanical removal follows that disposition and preserves
+surviving agreements. Examples describing the syntax are distinct from operative statements.
+
+A removal request identifies an entire obsolete statement; the mechanical tool does not
+decide whether nested statements have also expired. Reject an outer-block removal while it
+contains nested blocks. The maintainer disposes of children first and rescans before another
+removal; active children and enduring agreements require preservation before the outer
+statement can be removed.
+
+## Deferred decisions
+
+- The pacer owns session resumption and turn progression. This maintenance install does not
+  define a scheduler, session retention window or automatic next cycle.
+- Cross-project distribution, generalized local overrides and dependency tracking retain
+  their existing owners in the shared-harness work.
