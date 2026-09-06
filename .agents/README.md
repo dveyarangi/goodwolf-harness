@@ -48,6 +48,13 @@ which records only what was taken from Meteoscape, Forecast Collector and DriftS
 its authority. It is used the way `impact` is — run it, use what comes back in the work at hand —
 and files nothing.
 
+[01-0010.0100](../docs/tickets/01-0010.0100-remaining-named-corpus.md) adds `advise`,
+`celebrate`, `commit` and `skill-up`, brought in by the user on 2026-09-07 ahead of that
+ticket's align because they are useful as they stand. They are installed and listed here; what
+the ticket still owes for them is on the ticket, and `/edge` — its fifth — has not arrived.
+`commit`'s `<project-local>` block arrived carrying another project's gate set and was replaced
+with this project's on landing.
+
 The pre-audit July corpus is kept under [`legacy/skills`](../legacy/skills/) as evidence only. Nothing loads it.
 
 ## Mechanical support
