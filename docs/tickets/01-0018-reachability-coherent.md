@@ -4,6 +4,10 @@
 - **Type:** HITL
 - **Depends on:** [Each skill owns its own responsibility](./01-0016-responsibility-coherent.md)
   (a rule must be correctly owned before its arrival can be checked)
+- **Related:** [01-0010.0120](./01-0010.0120-host-delivery-surfaces.md) — **surfaced 2026-09-07:**
+  this ticket's *where it cannot be, the gap is named* assumes an answer about what the hosts can
+  deliver that nobody has established. That ticket establishes it; this one decides what to do
+  with the gaps that remain.
 - **Outcome:** A rule or skill that applies at an occasion is actually in front of the agent at that
   occasion, and where it cannot be, the gap is named rather than assumed away.
 
