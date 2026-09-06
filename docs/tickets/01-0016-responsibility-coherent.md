@@ -73,8 +73,14 @@ left unhosted.
 
 ## Decisions this ticket's align owns
 
-- Whether responsibility is owned per skill, per mechanism, or per rule. `docs/process.md` defines
-  a mechanism as spanning several skills, so "one skill owns one rule" may not hold.
+- ~~Whether responsibility is owned per skill, per mechanism, or per rule. `docs/process.md`
+  defines a mechanism as spanning several skills, so "one skill owns one rule" may not hold.~~
+  **The premise died 2026-09-07.** [The glossary](../glossary.md) now says a mechanism has
+  **exactly one instruction file**, and the `process.md` sentence this rested on is deleted by
+  [01-0011.0010](./01-0011.0010-mechanism-declared.md). Responsibility is owned **per mechanism**,
+  and a mechanism's one instruction file is where its rules are read; rules it needs in skills it
+  does not own arrive by injection, which is [.0020](./01-0011.0020-rules-one-home.md)'s. The
+  question that remains is not the unit but the elected owner in each contested case.
 - Whether `docs/process.md` survives this pass as a rule home or becomes policy-only — its
   `<temporary>` block already promises the sequence to [the pacer](./01-0020-pacer.md).
 - Whether "update the glossary/architecture inline" is `/align`'s or `/maintain`'s.
@@ -89,6 +95,20 @@ left unhosted.
 **2026-09-06:** `/align` now states that decomposing work during an align belongs to `/ticket`,
 which calls `/impact`, and that the chain's output is presented as a suggestion without minting.
 Landed early at the user's direction; the rest of `/align`'s de-noising is this ticket's.
+
+**2026-09-07, the user:** the docstring-and-TODO rule moved out of `/maintain` and into `/verify`.
+Both skills carried a comment-grooming instruction pointing at `/improve-comments`; `/maintain`'s
+was the fuller one and `/verify`'s a thinner restatement of it. The fuller text now sits in
+`/verify` alone and `/maintain`'s bullet is gone — one home, no link left behind, which is this
+ticket's rule applied by hand to one case.
+
+It is worth recording **why this one was cheap and the outstanding ones are not.** Nothing else
+cited either bullet, so the move elected an owner without leaving callers. Repair-and-report is
+the opposite case and is still open: three skills touch it, two restate it, and moving it needs
+either duplication or an elected owner with the others as callers. That is the consequence this
+ticket still owes, and one hand-move does not discharge it. Once
+[.0020](./01-0011.0020-rules-one-home.md)'s injector exists, a move like this one is an install
+rather than an edit, and the drift a hand-move can introduce stops being possible.
 
 ## Acceptance criteria
 

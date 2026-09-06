@@ -29,25 +29,7 @@ not by a menu: a narrow close still uses every governing rule that reaches it.
   that their derived work is current.
 - Read the [glossary](../../../docs/glossary.md) before renaming anything.
 
-## Check and repair
 
-- Cross-check documents against each other and against code, in both directions.
-  Ask whether the implementation contract could be reconstructed from the architecture
-  alone; a load-bearing decision visible only in code is a documentation finding.
-- Code that contradicts an accepted decision is a code finding. Do not settle a
-  contradiction by weakening the rule.
-- Check named validators still exist and still assert the promise they were named for.
-  A missing or drifted validator is a finding, as is an unguarded normative promise.
-- Sweep the concern index for entries in scope: a concern the implementation has since
-  answered belongs in its owning record, and a dead trigger retires.
-- Apply [repair-and-report](../../../docs/process.md#autonomy-and-repair) where it holds:
-  make the repair, verify it, and record the violated rule, the change, the verification
-  result and any remaining uncertainty in the owning work item.
-- Everything else goes to [/align](../align/SKILL.md): a missing, ambiguous or
-  contradictory rule, a new foundational decision, or work beyond the authorization.
-  Pause that change; independently authorized work continues.
-- Anything that can be maintained mechanically must be. If the script is missing, write
-  it — a missing script is work to do, not an excuse to leave the repair outstanding.
 
 ## Clean up prose and records
 
@@ -57,9 +39,6 @@ not by a menu: a narrow close still uses every governing rule that reaches it.
   completed migration notes; keep a rejection only when it is load-bearing.
 - Tickets, RFCs and sessions are historical records and may carry duplicate context.
   Their indexes may not. Core documents do not cite them for architecture.
-- Docstrings say what their own unit does. Apply
-  [/improve-comments](../improve-comments/SKILL.md) to comments in scope and check
-  that TODO tags still describe something pending.
 - Historical repairs preserve the facts being recorded. Never invent a past fact, and
   never imply a newly introduced requirement was met at the time.
 
