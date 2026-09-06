@@ -52,8 +52,13 @@ and files nothing.
 `celebrate`, `commit` and `skill-up`, brought in by the user on 2026-09-07 ahead of that
 ticket's align because they are useful as they stand. They are installed and listed here; what
 the ticket still owes for them is on the ticket, and `/edge` — its fifth — has not arrived.
-`commit`'s `<project-local>` block arrived carrying another project's gate set and was replaced
-with this project's on landing.
+`commit`'s `<project-local>` block arrived carrying another project's gate set; it was deleted
+rather than rewritten, because only global practice belongs in a core skill.
+
+`dream` arrived the same day. It is not one of `01-0010.0100`'s five — it comes from the parent's
+own backlog, beside `/recall`, `/conclude`, `/review-architecture` and `/setup-devops`, of which
+the other four have not arrived. [AGENTS.md](../AGENTS.md) already describes it: optional, runs
+after `/conclude`, writes dreams that `/maintain` and `/align` may pick up, never amends rules.
 
 The pre-audit July corpus is kept under [`legacy/skills`](../legacy/skills/) as evidence only. Nothing loads it.
 

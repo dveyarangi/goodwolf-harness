@@ -12,7 +12,7 @@ description: >-
 
 - Prefix the subject with the loop step that produced the work, uppercase, then a colon:
   `ALIGN`, `SPEC`, `TICKET`, `PLAN`, `IMPLEMENT`, `VERIFY`, `MAINTAIN`, `DISCOVER`, `RECALL`,
-  `CONCLUDE`. Two sit outside the ring: `FIX` for a repair taken on its own, and `HARNESS` for
+  `CONCLUDE`. Two sit outside the ring: `FIX` for a repair taken on its own, and `EQUIP` for
   a change to the harness's own installation. One prefix per commit — where the work spans two
   steps, take the dominant one and name the bleed in the message. The prefix says which step
   produced the work, never which files it touched: what changed is visible in the diff, and
