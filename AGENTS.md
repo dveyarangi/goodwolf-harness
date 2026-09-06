@@ -106,8 +106,4 @@ repository root. Follow the block like any other rule until you can see the cond
 
 <project-local>
 commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report
-
-Installed: /align, /impact, /discover, /ticket, /spec, /plan, /implement, /tdd,
-/improve-comments, /verify, /maintain, /advise, /celebrate, /commit, /skill-up, /dream. Named
-above but not installed here: /recall, /conclude, /edge.
 </project-local>
