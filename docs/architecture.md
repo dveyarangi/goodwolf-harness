@@ -7,7 +7,7 @@ policy belongs in [the process](process.md#tree-maintenance).
 ## Current and agreed target
 
 The installed skills support the whole delivery ring. `/maintain` and its supporting scripts
-landed 2026-09-06 under [01-0010.0070](tickets/01-0010.0070-install-maintain.md); one criterion,
+landed 2026-09-06 under [01-0010.0070](tickets/done/01-0010.0070-install-maintain.md); one criterion,
 a fresh-session discovery observation, is still open. Skill bodies have one physical home under
 `.agents/skills`, with host access described in [the installed harness](../.agents/README.md).
 

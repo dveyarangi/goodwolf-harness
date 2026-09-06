@@ -45,7 +45,7 @@ reviewed them. Deciding tickets vary by change and are named below.
   The sentences describing what `/maintain` does with the blocks — enumerate in scope, report
   unbound expiries, remove the ones whose condition holds — moved into
   [the skill](../../.agents/skills/maintain/SKILL.md), landed by
-  [01-0010.0070](../tickets/01-0010.0070-install-maintain.md).
+  [01-0010.0070](../tickets/done/01-0010.0070-install-maintain.md).
 - **Installed list:** `/maintain` and `/discover` added; a line names what the file mentions but does
   not install — `/recall`, `/conclude`, `/dream`, `/edge`. `/discover`'s standing is
   [01-0010.0090](../tickets/01-0010.0090-install-discover.md)'s.

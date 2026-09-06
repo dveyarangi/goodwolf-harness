@@ -2,7 +2,7 @@
 
 Evidence and evolution record for the maintenance mechanism. Current boundaries live in
 [architecture](../architecture.md); decisions belong to
-[Install /maintain](../tickets/01-0010.0070-install-maintain.md).
+[Install /maintain](../tickets/done/01-0010.0070-install-maintain.md).
 
 ## 2026-09-06 — Selected mover inspected before adaptation
 
@@ -26,7 +26,7 @@ These observations concern the source at inspection time, not an installed harne
 - `docs_corpus` depends on Git discovery, and its resolver silently clamps `..` at the root.
   Reuse needs explicit root/path handling and removal of the source archive exemptions.
 
-The [implementation RFC](../rfc/01-0010.0070-install-maintain.md) owns the resulting plan
+The [implementation RFC](../rfc/done/01-0010.0070-install-maintain.md) owns the resulting plan
 and its verification cases. These probes are planning evidence, not `/verify` of an install.
 
 ## 2026-09-06 — Content rewrite failure

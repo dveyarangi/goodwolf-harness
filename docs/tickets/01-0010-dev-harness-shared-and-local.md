@@ -188,7 +188,7 @@ still failed to reach an in-progress `/align` on 2026-09-06, which is why respon
 reachability are separate refactors rather than one.
 
 **Leave alone.** [01-0020](./01-0020-pacer.md) and its `<temporary>` block. The
-[01-0010.0070](./01-0010.0070-install-maintain.md) close, which needs only its fresh-session
+[01-0010.0070](./done/01-0010.0070-install-maintain.md) close, which needs only its fresh-session
 observation. The audit corpus and `legacy/skills`. The five selected commands nobody named —
 `/conclude`, `/recall`, `/dream`, `/review-architecture`, `/setup-devops` — which stay in this
 ticket's backlog. The selection's 21 rows; `0090` questions membership, not their contents.

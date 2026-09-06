@@ -20,7 +20,7 @@ First live use closed the [01-0010.0040](../tickets/done/01-0010.0040-install-pl
 
 ## Open, with owners
 
-- Fresh-session discovery of `/maintain`, the only unchecked criterion on [01-0010.0070](../tickets/01-0010.0070-install-maintain.md).
+- Fresh-session discovery of `/maintain`, the only unchecked criterion on [01-0010.0070](../tickets/done/01-0010.0070-install-maintain.md).
 - `docs/glossary.md`'s pacer link resolves nowhere → [01-0020](../tickets/01-0020-pacer.md).
 - `/dream`'s standing, and whether an uninstalled skill belongs in the entry file → [the parent](../tickets/01-0010-dev-harness-shared-and-local.md#adoption-shortlist--recommendations-awaiting-alignment).
 - `/verify`'s body lost a line that [the process](../process.md#verification) still carries → [01-0016](../tickets/01-0016-responsibility-coherent.md).

@@ -35,7 +35,7 @@ Bootstrap slices [01-0010.0020](../docs/tickets/01-0010.0020-live-alignment-acro
 [01-0010.0040](../docs/tickets/done/01-0010.0040-install-plan.md),
 [01-0010.0050](../docs/tickets/01-0010.0050-install-implement.md),
 [01-0010.0060](../docs/tickets/01-0010.0060-install-verify.md), and
-[01-0010.0070](../docs/tickets/01-0010.0070-install-maintain.md): `align` (with its ADR, ARCH, EDGE
+[01-0010.0070](../docs/tickets/done/01-0010.0070-install-maintain.md): `align` (with its ADR, ARCH, EDGE
 and GLOSSARY format shelf), `impact`, `ticket` (with `TICKET-FORMAT.md`), `spec`, `plan`,
 `implement`, `tdd` (with its five files), `improve-comments`, `verify`, and `maintain`, from
 Meteoscape with the Forecast Collector `/plan` body, per the
