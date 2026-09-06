@@ -23,6 +23,22 @@ nothing about being load-bearing — an implementation method is a shape too. �
 
 - Recency for evidence, longevity for principles.
 
+## Core and instance
+
+`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with
+its own. This repository develops the harness using itself, so its own architecture and progress
+live in `docs/` like any other project's — that is the instance half doing its job, not a leak.
+
+What core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,
+or rely on one for its instruction or for any separable part of its own functioning. Naming a path
+convention the harness imposes — `docs/tickets/`, `docs/glossary.md` — is not a reference to a
+file; pointing at a document only this project has is. A `<temporary>` block is exempt: it is bound
+to a ticket and expires.
+
+Where a reference is genuinely unavoidable — a mechanism's evidence sidecar is the case that forces
+it, since a sidecar cites this project's own records — it goes inside a `<project-local>` block.
+That block is the part a recipient replaces, so the reference does not travel.
+
 ## Document load-bearing, code&comment the rest
 
 Core docs and ADRs are the home for:

@@ -5,7 +5,14 @@ decomposed by `/ticket` into [01-0011.0010](../tickets/01-0011.0010-mechanism-de
 [.0050](../tickets/01-0011.0050-shape-checked.md), with
 [01-0017](../tickets/01-0017-io-graph-coherent.md) re-parented here as the generalisation step.
 
-Acceptance covers the three properties, the three homes, injection, the derived index and the
+**Amended 2026-09-06** during [01-0011.0010](../tickets/01-0011.0010-mechanism-declared.md)'s
+`/align`, on the user's decision, after Life's own mechanism apparatus was read in detail. Four
+changes, each recorded in its section below: a mechanism has **one instruction file**; the shape
+is read **in the skill**, not in the doc; the three properties are **not three co-equal states**
+but three rules at different altitudes; and the **first mechanism declared is `/mechanism`
+itself**, then `/maintain`, then `/ticket`. The problem statement and its evidence are unchanged.
+
+Acceptance covers the shape, the three homes, injection, the derived index and the
 one-mechanism scope of the first build. It does not settle whether the queue's rendered table is
 committed — that reasoning was taken from a tree with wake hooks this harness lacks, and the
 question is [01-0011.0040](../tickets/01-0011.0040-queue-derived-index.md)'s align to answer.
@@ -50,38 +57,77 @@ all day and one lost five tickets:
 | result | correct on three passes | five records lost |
 
 **Both are duplicated**, so duplication is not what broke the second one. The two differences that
-separate them are *delivery* and *listing*. That gives three independent properties, and the day's
-failures sort onto them cleanly:
+separate them are *delivery* and *listing*, and the day's failures sort onto three concerns:
 
-1. **Delivered** — the duty reaches the occasion it governs. The archive duty did not.
-2. **Indexed** — the mechanism declares a compact view of its own records, derived from them and
-   asked for when a session needs it. Nothing could list eligible-but-unarchived records.
-3. **Singly authored** — the rules have exactly one home, and copies are installed rather than
+1. **Delivery** — the duty reaches the occasion it governs. The archive duty did not.
+2. **Listing** — what a mechanism currently owes can be asked for and derived. Nothing could list
+   eligible-but-unarchived records.
+3. **Single authorship** — the rules have exactly one home, and copies are installed rather than
    written. This is what produced the three-skill and four-place restatements.
 
 Failures 1 and 2 lose work. Failure 3 produces drift. They do not substitute for each other, and
 injection — the fix for 3 — would not have saved the five tickets.
+
+**They are not three co-equal states, and an earlier draft of this spec made them one.** Amended
+2026-09-06: each lands at a different altitude, and forcing them into one per-mechanism verdict
+asks the question at the wrong granularity.
+
+| concern | where it lives | assessed |
+|---|---|---|
+| delivery | the mechanism's **moments table** — one row per occasion at which a person acts on it | per row, each carrying its instruction or its kind of none |
+| single authorship | `/mechanism`'s injection rule — a rule's only home is its mechanism's rules file | **not assessed** — structural; a hand-written copy is drift, not an opinion |
+| listing | the **record contract** — a register declares its own index in its own file | per register, and only mechanisms that accumulate records owe one |
+
+The decisive case against the verdict form is Life's, which tried it and abandoned it: *"Does it
+have an instruction file is the wrong question — M03 answered `none` while one of its four moments
+was instructed and three were not."* A per-mechanism *delivered: yes* would have passed paired
+close on 2026-09-06 — `/maintain` is on the ring and `/ticket` is invoked — while the one moment
+that mattered, *a ticket's boxes are checked and it sits in the active folder*, was instructed by
+nobody. A moments table would have forced that row to exist on the day it was declared.
 
 ## Solution
 
 `/mechanism` owns what a mechanism is, what it is made of, and where each of its parts lives.
 `/maintain` applies those rules and re-checks work when they change; it does not own them.
 
-A mechanism reaches its shape when all three properties hold. A property that does not hold is
-declared as a named gap with a ticket, never left absent — an undeclared gap is what the five
-tickets were.
+**One mechanism, one instruction file** (the user, 2026-09-06). A mechanism's own instruction file
+is one skill. Rules it needs in skills it does not own are **injected pointers**, not second
+instruction files. `/maintain` is therefore not a part of any mechanism it maintains: it is the
+mechanism for maintaining mechanisms, and it acts on the others from outside.
+
+A mechanism reaches its shape when every moment it has is instructed, or carries a declared kind of
+absence. An absence that is a genuine gap names a ticket, never left silent — an undeclared gap is
+what the five tickets were.
 
 **Three homes, one axis, no fourth:**
 
 | home | holds | reaches a session |
 |---|---|---|
 | `AGENTS.md` | meta and strict rules | at start, every session |
-| `.agents/skills/<name>/` | how to use the thing, at the moment of use | when the skill is invoked |
-| `.agents/mechanisms/<slug>/` | how it works: its parts, its moments, its rules' single home | when installing, amending or debugging |
+| `.agents/skills/<name>/` | the act, and every rule read *in the work it governs* | when the skill is invoked |
+| `.agents/mechanisms/<slug>/` | why the instruction is what it is: the mechanism's parts, its moments, its rules' single home | when installing, amending or debugging |
 
-A skill holds *use*; a mechanism doc holds *mechanics*. This is the cut most of `docs/process.md`
-is waiting for, and it is not the cut this project previously assumed — an earlier decision this
-session sent skill rules to the skill and stopped there, which leaves no home for how a thing works.
+**The cut is *when is this read*, not use-versus-mechanics** — amended 2026-09-06, correcting an
+earlier draft of this spec. The shape rules are read while incepting or amending a mechanism, and
+that is the work the skill governs, so they live in `/mechanism`'s body and nowhere else. Life
+reached the same placement and states it as a rule: *"Meta-rule 10 routes here and states none of
+this; this is its only home."* A doc holding rules that govern other mechanisms puts them where
+nobody reads them at the moment of use.
+
+**The chain** (the user, 2026-09-06):
+
+> The doc is the instruction's *why*. The evidence is the doc's *why*.
+
+So evidence belongs to a doc, never to an instruction file, and there is one per mechanism. Life
+left *may a doc and an instruction file share a sidecar* open and flagged it for its operator; this
+chain dissolves the question rather than answering it. It also reclassifies what Life files as a
+sidecar: evidence is *why*, so a mechanism's accumulated **records** are not evidence and are
+governed by the record contract instead. *Sidecar* is retired as a name here — it says where a
+file sits and nothing about what is in it.
+
+This is the cut most of `docs/process.md` is waiting for, and it is not the cut this project
+previously assumed — an earlier decision this session sent skill rules to the skill and stopped
+there, which leaves no home for why a thing is the way it is.
 
 **Injection.** A mechanism's rules live in one file in its directory, one section per rule, each
 naming its target. A generic installer writes delimited, visibly owned blocks into the targets. A
@@ -89,16 +135,35 @@ copy in a target is installed, never authored. Injection is mechanical in both d
 not injection: what can be written can be removed, and a hand-edited block is detectable drift
 rather than a second opinion.
 
+**Records have a declared shape, and it is enforced.** A mechanism that has records says what a
+record is — its fields, what a row means, its tier, and what removes an entry when it is finished
+with. This is not optional and does not wait for a record that happens to look structured: a
+record with no declared shape is one nothing can check, and *format never content* is exactly the
+part a script can hold. A mechanism with no records owes none of this.
+
 **Index.** A register declares its own index in its own file, and the index is derived from the
-records on request — never a second copy kept beside them. The queue is the first: `Status`, `Type`
+records on request — never a second copy kept beside them. The index is the reader over the
+declared shape, not a separate feature to opt into. The queue is the first: `Status`, `Type`
 and `Outcome` stop being transcribed into a table and are read from the ticket headers that own
 them. A hand-maintained index is a copy, and this one demonstrably drifted — two rows carried
 paraphrased outcomes on 2026-09-06 and were repaired by hand.
 
-**Scope of the first build.** One mechanism proves all three properties: **paired close**, which
-already spans `/ticket`, `/maintain`, `move_doc.py`, `docs_corpus.py` and five test files, and whose
-span is exactly where it broke. The second mechanism is what proves the shape generalises; nothing
-is built for a third.
+**Scope of the first build** — revised 2026-09-06 (the user). Three mechanisms, in order, and the
+order is a bootstrap rather than a preference:
+
+1. **`/mechanism`** — the mechanism that decides what counts as one, declared by its own shape.
+   Always on: nothing can install or uninstall the thing that defines what installing means, so it
+   takes no lifecycle scripts, and that absence is a declared property rather than a gap.
+2. **`/maintain`** — declared by *running* `/mechanism`. It is the mechanism for maintaining
+   mechanisms, so declaring it second gives the third one a maintainer that has been through the
+   shape.
+3. **`/ticket`** — whose paired close is the behavior that broke on 2026-09-06 and whose span is
+   exactly where it broke.
+
+*Paired close* is a **behavior of `/ticket`**, not a mechanism: it is not a skill, and under one
+instruction file per mechanism it cannot be one. The earlier draft named it as the first mechanism
+and its span as `/ticket` + `/maintain`; that span was the multi-skill reading this amendment
+removes. Nothing is built for a fourth mechanism.
 
 ## Impact — 2026-09-06
 
@@ -159,15 +224,16 @@ delivery question.
 14. As a maintainer, I want a mechanism to name the parts it relies on but does not own, so that a
     shared script has exactly one claimant and an uninstall cannot remove what another mechanism
     needs.
-15. As a maintainer, I want each of the three properties to carry a state, so that a mechanism that
-    has not reached its shape says which part is missing.
-16. As a maintainer, I want a missing property to name a ticket, so that a declared gap is work
+15. As a maintainer, I want a mechanism to list every moment at which a person acts on it and what
+    instructs them there, so that a mechanism that has not reached its shape says which occasion is
+    uncovered — not whether it is covered overall.
+16. As a maintainer, I want an uninstructed moment to name a ticket, so that a declared gap is work
     rather than a permanent excuse.
-17. As a maintainer, I want the reason a property is absent to be distinguishable — instructed
+17. As a maintainer, I want the reason a moment is uninstructed to be distinguishable — instructed
     elsewhere, embedded in the wrong home, deliberately unowned, or genuinely not yet — so that a
     thing that looks like a gap and is not stops being re-investigated.
-18. As a maintainer, I want a mechanism's story kept in a sidecar and out of its doc, so that the
-    doc says what is true now and the history stays available.
+18. As a maintainer, I want a mechanism's story kept in its evidence file and out of its doc, so
+    that the doc says what is true now and the history stays available.
 19. As `/maintain`, I want to re-check a mechanism when what governs it has changed, so that a
     governing edit does not leave built work quietly stale.
 20. As `/maintain`, I want to apply mechanism rules without owning them, so that a rule has one
@@ -189,34 +255,98 @@ delivery question.
   instructions or behavior? A mechanism is a system, never a file — one spans skills, scripts,
   records and rules injected into skills it did not write. Writing an *entry* into a record is not
   mechanism work; it belongs to the skill that owns the entry.
-- **Three properties, each with a state.** Delivered, indexed, singly authored. A property that does
-  not hold carries which kind of absence it is and, when it is a genuine gap, the ticket that will
-  close it. The taxonomy distinguishes *elsewhere* (instructed by another mechanism, which is named)
-  from *embedded* (instructed, but from the wrong home) from *unowned by design* from *not yet*.
-  The first two are the ones that get misread, and they pull in opposite directions.
-- **Directory.** `.agents/mechanisms/<slug>/` holds the doc, the rules file and the evidence
-  sidecar. Working parts stay where the harness needs them: skills in `.agents/skills/`, scripts in
+- **One instruction file per mechanism** *(the user, 2026-09-06)*. A mechanism's own instruction
+  file is one skill. Rules it needs in skills it does not own are injected pointers back to that
+  skill, never second instruction files. Life's register lists several surfaces per mechanism and
+  its own docs make the same distinction in prose — *"`/maintain` is this mechanism's own
+  instruction file"*, beside two injected pointers — so this states as a rule what that practice
+  already separates.
+- **Moments, each with a kind.** A mechanism's doc lists every moment at which a person acts on it
+  and what instructs them there. A moment with no instruction file carries which kind of absence it
+  is: *elsewhere* (instructed by another mechanism, which is named), *embedded* (instructed, but
+  from the wrong home), *unowned by design*, or *not yet* — the only genuine gap, and it names a
+  ticket. The first two are the ones that get misread, and they pull in opposite directions. There
+  is no *none needed*: if nobody acts, it is not a moment and the row does not exist.
+- **Directory.** `.agents/mechanisms/<slug>/` holds the doc and the rules file. Working parts stay where the harness needs them: skills in `.agents/skills/`, scripts in
   `.agents/scripts/`, tests in `tests/`. `.agents/` is the unit recipient projects receive, so a
   mechanism travels by construction. Filenames repeat the slug.
-- **Doc and instruction file are never the same file.** The doc says how it works; the skill says
-  how to use it. Enforced by the shape check, not by convention.
-- **Rules file.** One section per rule, each naming its target and anchor. That file is the rule's
-  only home. A generic installer reads it; there are no per-mechanism installers holding rule text,
-  because that shape puts the rules in two places and makes the doc assert the wrong one.
-- **Index.** A register declares its own index inside its own file, naming the shape and the fields.
-  A renderer derives it from the records on request. Rendered output is not committed — an index
-  kept beside its records is a copy. The queue's table is removed; its marker and its pacing prose
-  remain.
+- **Doc and instruction file are never the same file.** The skill carries the act and every rule
+  read in the work it governs; the doc carries why that instruction is what it is; the evidence
+  carries why the doc is what it is. Enforced by the shape check, not by convention.
+- **The third shape is called evidence, not a sidecar** *(the user, 2026-09-06)*. *Sidecar*
+  describes where a file sits and says nothing about what is in it, and this spec used it for six
+  sections without ever saying. **Evidence** holds why the doc is what it is: what was tried, what
+  was refuted, what it cost, what it used to be. Evolution belongs there. **Provenance does not** —
+  the `(the user, 2026-09-06)` on a rule stays inline, because attribution at the moment of reading
+  is what makes a rule challengeable, and a name inviting it into the evidence file would license
+  moving it out.
+- **Evidence belongs to a doc, not to an instruction file.** One per mechanism. A skill's
+  `EVIDENCE.md` written before its mechanism was declared is an unsorted mixture, not a second
+  evidence file: doc material goes to the doc, the doc's own why to the evidence.
+  `.agents/skills/discover/EVIDENCE.md` and `docs/research/maintenance-findings.md` are both in
+  that state and are sorted when their mechanisms are declared.
+- **Evidence lives in `docs/`, at `docs/mechanisms/<slug>.evidence.md`** *(the user,
+  2026-09-06)*. It is the one part of a mechanism that cannot be made instance-neutral — it cites
+  this project's tickets, sessions and dates — so shipping it inside `.agents/` would send our
+  records into a recipient's tree as dangling links. The decisive fact is who reads one and when:
+  evidence is read at *amend* time, and amendment happens at the canonical source, where `docs/`
+  is this project's. A recipient receives a mechanism and does not amend one. The doc names its
+  evidence from inside a `<project-local>` block, per `AGENTS.md`'s *Core and instance* rule, so
+  the chain stays navigable here and is replaced there. Filename carries the slug, so the tie is
+  visible without opening the file.
+  Refuted rather than weighed: folding the story into the doc. Life measured what that licence
+  produces — its two heaviest docs reached 2,644 and 2,059 words of dated narrative before the
+  rule was corrected.
+- **Rules file.** One section per rule, each naming its **target**, its **anchor** and its
+  **tier**. That file is the rule's only home, and a rule states its authority — who may change it,
+  at what strength — inline.
+- **The injector is one generic core script, never per-mechanism.** It reads any mechanism's rules
+  file and writes delimited, visibly owned blocks into the targets. Life built per-mechanism
+  installers and reverted: *"M23 shipped with its rule bodies in a per-mechanism `.js` while
+  `/mechanism` asserted the doc held them: two homes, and the skill claimed the one that was
+  false... Twenty-three bespoke installers would have been a larger corpus than the thing they
+  install."* Two details taken whole from that reversal: **there is no default mode** — install and
+  retract are not points on a spectrum with an obvious middle, so a bare invocation refuses; and it
+  **refuses rather than guesses** on a missing target, a missing anchor, an already-present block,
+  or a block whose body has drifted. A partial install reporting success is what this whole
+  mechanism exists to make impossible.
+- **A record-bearing mechanism has a maintainer script**, carrying the slug in its filename and
+  checking its records against their declared shape. **Format never content, live rows only**;
+  archived history is exempt. Whether a row should have been written, or is any good, is judgment
+  and not the script's. `/maintain` is instructed to run it, and where one is missing, *writing it
+  is the maintenance* rather than reading the rows by hand.
+- **Every part declares its tier**, and tier is reachability rather than importance or read
+  frequency: forced into context mechanically, asked for, or reachable only by someone who already
+  knows it exists — the third a diagnosis rather than a tier. Here tier 1 is `AGENTS.md` and every
+  skill description, so a skill file spans two tiers, which is the case the heuristic breaks on.
+  The placement rule itself is `01-0018`'s.
+- **Inception aligns on the mechanism's shape before anything is built.** `/align`, every incepted
+  mechanism, no exceptions, opening with what the mechanism is in plain terms. The agenda is its
+  moments, its authority, its record shape, its index, the tier of each part, and what retires it.
+  A mechanism nobody can describe is one whose doc will describe the wrong thing.
+- **Index, and the record shape under it.** A mechanism that has records declares their shape —
+  fields, what a row means, its tier, what removes a finished entry — inside the record's own file,
+  and that shape is **enforced mechanically rather than left optional for records that happen to
+  look unstructured** *(the user, 2026-09-07)*. A renderer derives the index from the records on
+  request; the index is the reader over the declared shape, not a feature to opt into. Rendered
+  output is not committed — an index kept beside its records is a copy. The queue's table is
+  removed; its marker and its pacing prose remain. A mechanism with no records owes none of this,
+  and that absence is a property rather than a gap.
 - **`TICKET-FORMAT` loses its queue section.** Nothing is copied, so *"Outcome copied verbatim"*,
   the `done/` segment instruction and *"do not add columns"* have nothing to govern. `/ticket` no
   longer amends a table.
-- **Ownership of shared parts.** A part may be claimed by several mechanisms; several users, exactly
-  one claimant. A doc *should* name a part it relies on but does not own, marked as relied-on with
-  its owner. What may not name it is anything that installs, removes or extracts.
+- **Ownership of shared parts — the constraint is on the scripts, not on the doc.** A part may be
+  claimed by several mechanisms; a system shares parts, and asserting uniqueness fails the tree on
+  every legitimate sharing. A doc *should* name a part it relies on but does not own, marked as
+  relied-on with its owner. What may not name it is anything that installs, removes or extracts,
+  and where that bites, the claimant is the always-on mechanism, because it is the one that cannot
+  leave. This harness has no install, uninstall or extract script and none in scope, so ownership
+  of `docs_corpus.py` and `tests/harness.py` is **not a live question**: both are declared
+  relied-on and named by every doc that leans on them.
 - **Allowlist.** A skill or file belonging to no mechanism is listed with its reason. An allowlist
   is how a gap stays declared rather than becoming invisible.
 - **Re-check on governing change.** `/maintain` re-checks a mechanism when what governs it has moved
-  since the last check. Comparison normalises line endings first, excludes evidence sidecars — story
+  since the last check. Comparison normalises line endings first, excludes evidence — story
   does not govern, so story cannot go stale — and excludes installed rule blocks, which are policed
   as injection drift rather than as content.
 - **`/maintain` applies, `/mechanism` owns.** `/maintain` keeps its own maintenance rules in its own
@@ -224,9 +354,17 @@ delivery question.
   their home.
 - **`/skill-up` is not this.** It governs how a skill's text is written; `/mechanism` governs the
   system and its lifecycle. Both exist. `/skill-up` remains owed by `01-0010.0100`.
-- **First build is paired close only.** Its rules move to one home and are injected into `/ticket`
-  and `/maintain`; its index is the queue; its listing is eligible-but-unarchived records. Nothing
-  is generalised until a second mechanism needs the same part.
+- **The register is `.agents/README.md`** *(the user, 2026-09-06)*. It already lists installs
+  against their authorising slices and was named in this spec as the register in embryo; making it
+  the register means marking the seam it already straddles — the shared shape travels, and this
+  project's rows sit in a `<project-local>` block, the convention this harness already uses for
+  exactly this split. It is not moved to `docs/`: a reader routed to a mechanism's doc is
+  installing, amending or debugging it, and splitting the apparatus across two trees costs more
+  than the clean-copy problem the move would solve.
+- **First build is `/mechanism`, then `/maintain`, then `/ticket`.** `/mechanism` is declared by
+  its own shape; `/maintain` is declared by running it; `/ticket` carries paired close, whose rules
+  move to one home and are injected into `/maintain`, and whose listing is eligible-but-unarchived
+  records. Nothing is generalised until a second mechanism needs the same part.
 
 ## Testing Decisions
 
@@ -239,8 +377,8 @@ refusals proved to change no byte and no Git index.
 Four modules, all to be tested — **agreed with the user 2026-09-06**:
 
 - **The rules installer** — installs a block into a target, removes it, is idempotent, refuses an
-  unknown target, refuses a missing anchor, and reports a hand-edited block as drift rather than
-  overwriting it. Round-trip is the load-bearing case: what it writes, it removes, leaving the
+  unknown target, refuses a missing anchor, **refuses a bare invocation carrying no mode**, and
+  reports a hand-edited block as drift rather than overwriting it. Round-trip is the load-bearing case: what it writes, it removes, leaving the
   target byte-identical to before.
 - **The index renderer** — derives fields from records, reflects a record edit on the next render,
   reports a record it cannot parse rather than omitting it silently, and never reads a committed
@@ -248,9 +386,12 @@ Four modules, all to be tested — **agreed with the user 2026-09-06**:
 - **The eligibility lister** — reports records whose work is finished and whose folder does not say
   so; distinguishes eligible from ineligible on the acceptance boxes; holds a ratchet count and is
   silent at or below the mark.
-- **The shape check** — reports, per mechanism, which of the three properties hold and which gap
-  each declares; fails on a doc and instruction file that are the same file; fails on a declared gap
-  with no ticket.
+- **A record maintainer** — reports a row that violates its record's declared shape, leaves a
+  conforming record byte-identical, and touches no archived history. Format only: it never judges
+  whether a row should have been written.
+- **The shape check** — reports, per mechanism, every moments row and the kind of absence it
+  declares; fails on a doc and instruction file that are the same file; fails on a `not yet` row
+  naming no ticket, or naming one that does not exist; fails on a named part that is absent.
 
 Not unit-tested: the mechanism docs themselves, which are prose, and the taxonomy of absences, which
 is a judgment the check records rather than derives.
@@ -259,11 +400,20 @@ is a judgment the check records rather than derives.
 
 Hooks and wake-time delivery: this harness has none, and Tier 1 delivery here means `AGENTS.md`.
 Per-mechanism install, uninstall and extract scripts, which Life's own evidence warns against
-building per concept before a second one needs them. A mechanism register as a separate artifact —
-`.agents/README.md` already lists installs against their authorising slices and is the register in
-embryo. `/edge` and `docs/edge/`, owned by `01-0010.0100`. The pacer, and `docs/process.md`'s final
-disposition, owned by `01-0020`. Migrating every existing mechanism: this spec builds one and states
-what the second must prove.
+building per concept before a second one needs them — and which this harness has none of, so the
+shared-part ownership rule is stated and not yet enforced. A register as a *separate* artifact,
+which is a different thing from the register itself: `.agents/README.md` is that register, in
+scope, and a fourth file listing mechanisms is a second home for what it already knows. `/edge`
+and `docs/edge/`, owned by `01-0010.0100`. The pacer, and `docs/process.md`'s final disposition,
+owned by `01-0020`. Migrating every existing mechanism: this spec builds three and states what
+the next must prove.
+
+Also out of scope, and surfaced by this spec's own align on 2026-09-06: the references from core
+into this project's own documents, which `AGENTS.md`'s *Core and instance* rule makes a violation
+rather than an untidiness. Measured that day — `docs/process.md` from `/maintain`, `/implement` and
+`/impact`; `docs/architecture.md` from `/maintain`; `docs/research/maintenance-findings.md` from
+`/maintain`; and one ticket of this project from `/discover`'s evidence file. A path convention the
+harness imposes is not one of these. The repairs belong to their owning tickets, not here.
 
 ## Further Notes
 
@@ -283,6 +433,29 @@ doc answers about its own parts. It should be re-parented here or folded in, and
 dependency chain re-linked accordingly.
 
 The ordering question this spec raises and does not settle: `01-0016` asks which skill owns which
-rule, and its own text records that the answer stalled because repair-and-report is applied by three
-skills. Injection dissolves that — one home, three installed copies — which suggests this work runs
-before the rule refactors rather than after them.
+rule, and its own text records that the answer stalled because repair-and-report is applied by
+several skills. Counted 2026-09-06: **five** — `/impact`, `/implement`, `/maintain`, `/ticket` and
+`/verify` — plus the switch in `AGENTS.md`. Injection dissolves that — one home, five installed
+copies — which suggests this work runs before the rule refactors rather than after them.
+
+**Where this amendment's evidence came from.** Life's `/mechanism` skill, its `mechanism-shape`
+doc and register, `evidence-sidecars`, `maintenance` (doc and rules file) and `/mechanism`'s
+`EVIDENCE.md`, read in full on 2026-09-06 at the user's instruction. Three things this spec had
+reasoned to independently and got wrong, and one it had right:
+
+- **The skill/doc split was inverted here.** Corrected above.
+- **The absence taxonomy attaches to moments, not to a whole-mechanism verdict.** Life tried the
+  verdict form and abandoned it for a stated reason. Corrected above.
+- **Indexing is the record contract's, not the shape's.** Life's `register-index.js` records the
+  operator asking *why is this a new mechanism?* and the answer — the declaration place already
+  existed, so the contract owns only the form of the declaration and the reader, and *"there is
+  deliberately no central list of registers."*
+- **The queue-index defect is real and larger than measured here.** Life's hand-maintained queue
+  index was 41% wrong or unverifiable across 94 tickets: 24 statuses outside the vocabulary, 14
+  legal contradictions, 34 of 78 `Outcome` cells differing from the ticket's own field, and one
+  ticket with no row. This spec cited two paraphrased rows. Same defect, far more evidence, and it
+  strengthens `01-0011.0040` without settling its delivery question.
+
+Two things Life leaves open that this spec now closes on the user's decision: one instruction file
+per mechanism, and whether a doc and an instruction file may share a sidecar — closed by the chain
+*doc is the instruction's why, evidence is the doc's why*, which makes it not a question.

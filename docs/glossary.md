@@ -8,10 +8,34 @@ The shared development method and the system that delivers, evolves and maintain
 The development instructions and supporting mechanisms through which projects define, implement, verify and maintain software, including the harness itself.
 
 **Mechanism**:
-A behavior on which other work relies, together with its instructions, producers, consumers, checks and records. A mechanism can span several skills and files.
+A behavior on which other work relies, together with its instructions, producers, consumers, checks and records. It has exactly one instruction file and may span many other files.
 
 **Skill**:
-An invocable instruction part of a mechanism, identified by its purpose and conditions of use.
+A mechanism's own instruction file, invocable and identified by its purpose and conditions of use. A skill may also host rules installed into it by mechanisms that do not own it.
+
+**Moment**:
+An occasion at which a person acts on a mechanism. Each is either instructed, or carries a stated kind of absence. If nobody acts, it is not a moment.
+
+**Doc**:
+The record of why a mechanism's instruction is what it is. Never the same file as the instruction.
+_Avoid_: manual, reference, spec as a name for this.
+
+**Evidence**:
+The record of why a doc is what it is: what was tried, what was refuted, what it cost, what it used to be. One per mechanism. Evolution belongs here; provenance does not.
+_Avoid_: sidecar, notes, history, appendix. *Sidecar* describes a file's position, never its contents.
+
+**Provenance**:
+Who decided a rule and when, carried inline on the rule itself. It is not evidence and does not move to the evidence file: attribution at the moment of reading is what makes a rule challengeable.
+
+**Authority**:
+Who may change a rule, and at what strength. Stated on the rule, inline.
+
+**Tier**:
+How a thing reaches a session — forced into context, asked for, or reachable only by someone who already knows it exists. Reachability, never importance or read-frequency.
+
+**Index**:
+A compact list of a register's records, derived from them on request rather than kept beside them. Enough per record to decide whether to open it, and never a second home for what the record already says.
+_Avoid_: digest, summary, table of contents.
 
 **Core**:
 The accepted shared method and supporting assets governed at their canonical source.
