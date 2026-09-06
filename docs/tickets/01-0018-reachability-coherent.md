@@ -1,17 +1,19 @@
 # Rules reach the occasion they are for
 
-- **Status:** Planned (responsibility precedes)
+- **Status:** Planned (the I/O graph precedes)
 - **Type:** HITL
-- **Depends on:** [Each skill owns its own responsibility](./01-0016-responsibility-coherent.md)
-  (a rule must be correctly owned before its arrival can be checked)
+- **Depends on:** [Every skill and document has named producers and consumers](./01-0017-io-graph-coherent.md)
+  (a rule must be correctly owned, and its consumers named, before its arrival can be checked;
+  `01-0017` carries the ownership dependency on
+  [01-0016](./01-0016-responsibility-coherent.md) forward)
 - **Outcome:** A rule or skill that applies at an occasion is actually in front of the agent at that
   occasion, and where it cannot be, the gap is named rather than assumed away.
 
 ## Parent
 
 [AGENTS.md](../../AGENTS.md). Sibling of [01-0012](./01-0012-hierarchy-coherent.md),
-[01-0014](./01-0014-scope-coherent.md) and [01-0016](./01-0016-responsibility-coherent.md), the
-fourth rule refactor.
+[01-0014](./01-0014-scope-coherent.md), [01-0016](./01-0016-responsibility-coherent.md) and
+[01-0017](./01-0017-io-graph-coherent.md), the last of the rule refactors.
 
 ## Impact
 

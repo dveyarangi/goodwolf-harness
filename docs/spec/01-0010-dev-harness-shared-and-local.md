@@ -140,7 +140,7 @@ Parent of this `/ticket` pass: the agreed loop-completion requirement (story 11 
 
 1. **Title:** Install `/plan`.
    **Interaction:** HITL.
-   **Depends on:** [01-0010.0035](../tickets/01-0010.0035-install-spec.md) (the spec and `/spec`).
+   **Depends on:** [01-0010.0035](../tickets/done/01-0010.0035-install-spec.md) (the spec and `/spec`).
    **Parent scope covered:** story 11; selection `/plan`; `/plan` calls `/impact`.
    **Basename:** `01-0010.0040-install-plan.md`.
 
@@ -152,7 +152,7 @@ Parent of this `/ticket` pass: the agreed loop-completion requirement (story 11 
 
 3. **Title:** Install `/verify`.
    **Interaction:** HITL.
-   **Depends on:** landed work to review ([01-0010.0035](../tickets/01-0010.0035-install-spec.md) or an earlier landed slice); not slice 2.
+   **Depends on:** landed work to review ([01-0010.0035](../tickets/done/01-0010.0035-install-spec.md) or an earlier landed slice); not slice 2.
    **Parent scope covered:** story 11; selection `/verify`; repair-and-report.
    **Basename:** `01-0010.0060-install-verify.md`.
 

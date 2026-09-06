@@ -102,7 +102,7 @@ This retains all 21 source capabilities while consolidating `denoise` and `sync-
 
 ### Core changes owed by later installs
 
-Decided in [01-0010.0020](./01-0010.0020-live-alignment-across-hosts.md) on 2026-09-05; each lands with the skill it names.
+Decided in [01-0010.0020](./done/01-0010.0020-live-alignment-across-hosts.md) on 2026-09-05; each lands with the skill it names.
 
 - `/impact` gains a shape recommendation in its output: spec, ticket or RFC, or re-slice. The root entry file already states this intent.
 - `/commit`, and any skill that gates on permission, reads the autonomy switches from the entry file's local block instead of carrying its own absolute rule.
@@ -113,7 +113,7 @@ Decided in [01-0010.0020](./01-0010.0020-live-alignment-across-hosts.md) on 2026
 
 ## First bootstrap delivery ticket — proposed breakdown
 
-**Status:** ~~Proposed for the user's granularity review.~~ **Accepted and minted 2026-09-05 as [01-0010.0020](./01-0010.0020-live-alignment-across-hosts.md); its root decision is resolved there.** This is the output of the requested `/ticket` pass, using M's selected ticket skill and format plus F's impact step.
+**Status:** ~~Proposed for the user's granularity review.~~ **Accepted and minted 2026-09-05 as [01-0010.0020](./done/01-0010.0020-live-alignment-across-hosts.md); its root decision is resolved there.** This is the output of the requested `/ticket` pass, using M's selected ticket skill and format plus F's impact step.
 
 1. **Title:** Align on harness work in Codex, Cursor and Claude Code.
    **Interaction:** HITL — initial project entry/delivery boundaries still require agreement.
@@ -145,7 +145,7 @@ Decided in [01-0010.0020](./01-0010.0020-live-alignment-across-hosts.md) on 2026
 
 ## Second bootstrap delivery — 2026-09-06
 
-**Status:** ~~Five-slice ring-then-spec, awaiting approval.~~ **Minted as [01-0010.0035](./01-0010.0035-install-spec.md).** Spec-first and loop completion are one path; `/plan` is planned by reading `/plan`.
+**Status:** ~~Five-slice ring-then-spec, awaiting approval.~~ **Minted as [01-0010.0035](./done/01-0010.0035-install-spec.md).** Spec-first and loop completion are one path; `/plan` is planned by reading `/plan`.
 
 ### Impact
 
@@ -159,7 +159,7 @@ Decided in [01-0010.0020](./01-0010.0020-live-alignment-across-hosts.md) on 2026
 
 1. **Title:** Install `/spec`.
    **Interaction:** HITL.
-   **Depends on:** [01-0010.0030](./01-0010.0030-install-ticket.md) minting this breakdown; [01-0010.0020](./01-0010.0020-live-alignment-across-hosts.md) for the entry path.
+   **Depends on:** [01-0010.0030](./done/01-0010.0030-install-ticket.md) minting this breakdown; [01-0010.0020](./done/01-0010.0020-live-alignment-across-hosts.md) for the entry path.
    **Parent scope covered:** `/spec` from the selection table; spec-first; loop completion as spec content.
    **Basename:** `01-0010.0035-install-spec.md`.
 

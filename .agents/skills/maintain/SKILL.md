@@ -90,10 +90,18 @@ not by a menu: a narrow close still uses every governing rule that reaches it.
 
 ## Archive what is finished
 
+- **Archiving is not scope-limited.** Whatever scope the pass declared, look at the whole
+  tree for records whose work is finished and whose folder does not say so. This does not
+  widen the pass: a narrow pass still cannot certify work it did not examine, but a finished
+  record sitting in the active folder is a fact about the folder, not a judgment about that
+  work — so it does not wait for a pass that happens to name it. Report every one. Move the
+  ones whose eligibility you have established.
 - Eligibility is yours, not the script's. A ticket moves only when every acceptance box
   is checked, including `/verify`, per
   [TICKET-FORMAT](../ticket/TICKET-FORMAT.md#one-basename-per-work-item). A ticket and
-  its RFC close together, in one invocation, so each cites the other's final home.
+  its RFC close together, in one invocation, so each cites the other's final home. When more
+  than one pair is eligible, close them all in one invocation so their citations resolve
+  against the same tree.
 - Before archiving a spec, establish that its surviving agreements have maintained homes,
   its obligations have explicit dispositions, and its unresolved issues keep active owners.
 - Preview, then close:

@@ -25,16 +25,16 @@ would track it as a directory.
 
 Which links are actually required is untested. Codex needs none; Cursor documents reading
 `.agents/skills` directly; Claude Code may too. The host trials in
-[01-0010.0020](../docs/tickets/01-0010.0020-live-alignment-across-hosts.md) settle it.
+[01-0010.0020](../docs/tickets/done/01-0010.0020-live-alignment-across-hosts.md) settle it.
 
 ## What is installed
 
-Bootstrap slices [01-0010.0020](../docs/tickets/01-0010.0020-live-alignment-across-hosts.md),
-[01-0010.0030](../docs/tickets/01-0010.0030-install-ticket.md),
-[01-0010.0035](../docs/tickets/01-0010.0035-install-spec.md),
+Bootstrap slices [01-0010.0020](../docs/tickets/done/01-0010.0020-live-alignment-across-hosts.md),
+[01-0010.0030](../docs/tickets/done/01-0010.0030-install-ticket.md),
+[01-0010.0035](../docs/tickets/done/01-0010.0035-install-spec.md),
 [01-0010.0040](../docs/tickets/done/01-0010.0040-install-plan.md),
-[01-0010.0050](../docs/tickets/01-0010.0050-install-implement.md),
-[01-0010.0060](../docs/tickets/01-0010.0060-install-verify.md), and
+[01-0010.0050](../docs/tickets/done/01-0010.0050-install-implement.md),
+[01-0010.0060](../docs/tickets/done/01-0010.0060-install-verify.md), and
 [01-0010.0070](../docs/tickets/done/01-0010.0070-install-maintain.md): `align` (with its ADR, ARCH, EDGE
 and GLOSSARY format shelf), `impact`, `ticket` (with `TICKET-FORMAT.md`), `spec`, `plan`,
 `implement`, `tdd` (with its five files), `improve-comments`, `verify`, and `maintain`, from

@@ -13,7 +13,7 @@ without a bump.
 
 The first entry file. Announce line, the two-ring loop, the autonomy switch roster, and
 `<temporary until="condition">` as an expiring statement followed until visibly met. Written in
-[01-0010.0020](../tickets/01-0010.0020-live-alignment-across-hosts.md); the session that produced it
+[01-0010.0020](../tickets/done/01-0010.0020-live-alignment-across-hosts.md); the session that produced it
 is [0002](../sessions/0002-20260905-the-harness-gets-a-home-and-an-entry.md).
 
 ## v2 — 2026-09-06
@@ -21,7 +21,7 @@ is [0002](../sessions/0002-20260905-the-harness-gets-a-home-and-an-entry.md).
 **One core change:** every `<temporary>` block also names the ticket whose work meets its condition,
 as a path from the repository root; an unbound block is reported rather than followed silently.
 Decided by the user, recorded in
-[01-0010.0020](../tickets/01-0010.0020-live-alignment-across-hosts.md#what-this-ticket-does-not-decide).
+[01-0010.0020](../tickets/done/01-0010.0020-live-alignment-across-hosts.md#what-this-ticket-does-not-decide).
 The three blocks then live were bound the same day.
 
 ## v3 — 2026-09-06

@@ -5,7 +5,8 @@
 - **Depends on:** [Scope reads the same everywhere](./01-0014-scope-coherent.md) (settled
   vocabulary for what a responsibility covers), [/impact recommends the work's
   shape](./01-0010.0080-impact-work-shape.md) (so this pass sees a finished `/impact`)
-- **Blocks:** [Rules reach the occasion they are for](./01-0018-reachability-coherent.md)
+- **Blocks:** [Every skill and document has named producers and consumers](./01-0017-io-graph-coherent.md)
+  — a declaration says who writes a thing only once ownership is settled
 - **Outcome:** Every skill states only what it owns and links for the rest; a rule appears once, in
   the skill responsible for it; contradictions between skills are resolved rather than coexisting.
 
