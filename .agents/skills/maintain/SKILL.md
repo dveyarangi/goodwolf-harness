@@ -21,7 +21,7 @@ not by a menu: a narrow close still uses every governing rule that reaches it.
 
 ## Identify
 
-- Derive the applicable rules, artifacts and dependencies from
+- Derive the applicable rules , artifacts and dependencies from AGENT.md/CLAUDE.md, 
   [the process](../../../docs/process.md#tree-maintenance) and
   [the architecture](../../../docs/architecture.md), not from memory.
 - List the mechanisms in scope: instructions, producers, consumers, checks and records.

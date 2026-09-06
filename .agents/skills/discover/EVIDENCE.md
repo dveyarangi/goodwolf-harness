@@ -1,11 +1,16 @@
 # discover — evidence
 
+[Install /discover](../../../docs/tickets/done/01-0010.0090-install-discover.md) decided this
+skill's standing in this repository, and that it files no artifact. What follows is the mechanism's
+history, most of it from the estate it was built in.
+
 Story for the skill beside this file. Only what would change **this** skill and no other;
 anything wider is a lesson and keeps the home it has.
 
 ## Why the pass is handed to a process with no local context
 
-**Not for independence** — delegation cannot buy that, and `core/README.md` says so: the
+**Not for independence** — delegation cannot buy that, and the source estate's own core notes say
+so: the
 prompt, the framing and the use of the answer are all the spawning session's. What it buys is
 escape from **capture by local vocabulary and priors** (the operator, 2026-09-05). The agent
 holds a great deal of knowledge and fails to reach it inline, because it reaches while holding
@@ -19,10 +24,10 @@ resulting crash and normalised it into *no objection raised*, while every other 
 helper let it propagate. Identical assertions, opposite behaviour, and the difference lived in
 neither the tests nor the component.
 
-A blind sweep over all eight guards, run after `@scaffold`'s *a numerator I helped aim is not
-a numerator* (#3947), refuted the class claim: of 40 cases, **3 named the rule, 33 threw a
+A blind sweep over all eight guards, run after a sibling agent's *a numerator I helped aim is not
+a numerator* (source estate, #3947), refuted the class claim: of 40 cases, **3 named the rule, 33 threw a
 module-load error, 4 passed** — and all four passes were in the one guard that had been
-chosen for testing. Published as #3971.
+chosen for testing. Published there as #3971.
 
 ## Why the tasking matters more than the rest
 
@@ -63,8 +68,8 @@ operator.
 
 ## What the first two runs cost and returned
 
-Two runs, 2026-09-05, ~65k subagent tokens and ~3 minutes each, 0 tool uses. Both are filed
-raw in `memory/discovery/`. Between them they produced: the mask/antidote naming for the
+Two runs, 2026-09-05, ~65k subagent tokens and ~3 minutes each, 0 tool uses. Both were filed raw
+in the estate they were run in, whose store is not part of this repository. Between them they produced: the mask/antidote naming for the
 specimen above (Martin 1994, Bird 1998, Lewis 1997 — *a disposition claim is only as good as
 your enumeration of possible masks*); mutation testing's standing rule that surviving mutants
 require triage before any claim about test quality; and the consolidated finding that across
@@ -80,9 +85,10 @@ including the operator's, which is the strongest evidence available that the iso
   2026-09-05. Killed by the operator: it conflated *needs the corpus* with *needs this
   session's framing of it*. A fresh process reads the same files. Both passes are cold-startable
   and differ in one respect — pass 2 must not read the corpus, pass 1 must.
-- **"Discovery is a `choice`."** Lived one exchange, 2026-09-05. The `core/README.md` table
-  fits it well and the placement was used to settle a class rather than to loosen a grip, which
-  is the move under examination. Retracted: the three kinds are themselves a preliminary shape.
+- **"Discovery is a `choice`."** Lived one exchange, 2026-09-05. The source estate's own
+  classification table fits it well, and the placement was used to settle a class rather than to
+  loosen a grip, which is the move under examination. Retracted: the three kinds are themselves a
+  preliminary shape.
 - **"Cadence is the fallback for a trigger we cannot detect."** Lived two exchanges. A
   placing-mechanism argument — a placing mechanism must fire exactly when needed. A pulling one
   wants cadence, because applying it where distortion is low costs little.

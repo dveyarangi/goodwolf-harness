@@ -15,7 +15,7 @@ First live use closed the [01-0010.0040](../tickets/done/01-0010.0040-install-pl
 - **Hierarchy** is from what heights we look at things; it and **scope** each get a consolidation ticket, and **responsibility** and **reachability** are two more → [01-0012](../tickets/01-0012-hierarchy-coherent.md), [01-0014](../tickets/01-0014-scope-coherent.md), [01-0016](../tickets/01-0016-responsibility-coherent.md), [01-0018](../tickets/01-0018-reachability-coherent.md). The four refactors run before [the pacer](../tickets/01-0020-pacer.md).
 - Repair-and-report **moves inside the skill**; the consequence for three calling skills is 01-0016's → [01-0016](../tickets/01-0016-responsibility-coherent.md).
 - Decomposing during an `/align` runs `/ticket` → `/impact` and presents a suggestion without minting → landed in [`/align`](../../.agents/skills/align/SKILL.md).
-- `/discover` is not experimental here; `/impact` is pass 1 and reads the corpus, `/discover` is pass 2 and must not → [the skill](../../.agents/skills/discover/SKILL.md), standing owned by [01-0010.0090](../tickets/01-0010.0090-install-discover.md).
+- `/discover` is not experimental here; `/impact` is pass 1 and reads the corpus, `/discover` is pass 2 and must not → [the skill](../../.agents/skills/discover/SKILL.md), standing owned by [01-0010.0090](../tickets/done/01-0010.0090-install-discover.md).
 - Maintenance owns correct transformations and failure reporting; per-file writing technique is implementation's, with Git as the recovery fallback → [architecture](../architecture.md#interruption-and-recovery).
 
 ## Open, with owners

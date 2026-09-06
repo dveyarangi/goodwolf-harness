@@ -42,6 +42,12 @@ Meteoscape with the Forecast Collector `/plan` body, per the
 [source selection](../docs/tickets/01-0010-dev-harness-shared-and-local.md#bootstrap-corpus-selection).
 `maintain` composes the selected `denoise` and `sync-arch` and adds the `<temporary>` enumerator.
 
+[01-0010.0090](../docs/tickets/done/01-0010.0090-install-discover.md) adds `discover` (with its
+`EVIDENCE.md`). It came from a different estate and so is not in the audited source selection above,
+which records only what was taken from Meteoscape, Forecast Collector and DriftSense; that ticket is
+its authority. It is used the way `impact` is — run it, use what comes back in the work at hand —
+and files nothing.
+
 The pre-audit July corpus is kept under [`legacy/skills`](../legacy/skills/) as evidence only. Nothing loads it.
 
 ## Mechanical support

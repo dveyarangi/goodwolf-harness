@@ -48,7 +48,7 @@ reviewed them. Deciding tickets vary by change and are named below.
   [01-0010.0070](../tickets/done/01-0010.0070-install-maintain.md).
 - **Installed list:** `/maintain` and `/discover` added; a line names what the file mentions but does
   not install — `/recall`, `/conclude`, `/dream`, `/edge`. `/discover`'s standing is
-  [01-0010.0090](../tickets/01-0010.0090-install-discover.md)'s.
+  [01-0010.0090](../tickets/done/01-0010.0090-install-discover.md)'s.
 
 **Not a bump:** typo repairs, the counter-test's polarity fix, and the section heading change from
 "'Load-bearing' quantified" to "What makes a thing load-bearing" — corrections to statements whose

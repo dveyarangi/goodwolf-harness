@@ -177,8 +177,11 @@ statements that live inside this ticket's corpus but answer to a different contr
 the method's own concepts, not distribution of a canonical harness across projects. They sit at
 root on [the pacer's](./01-0020-pacer.md) precedent.
 
-**Hidden edges.** `/discover` is installed and named in the entry file while sitting outside this
-ticket's accepted 21-capability selection; that inconsistency is live now, not after `0090`.
+**Hidden edges.** `/discover` was installed and named in the entry file while sitting outside this
+ticket's accepted 21-capability selection, and that inconsistency was live from the moment it
+appeared. `0090` settled it on 2026-09-06: the selection records what was taken from the three
+audited estates and is not the roster of what is installed, so `/discover` was never a missing
+22nd row. It is installed on `0090`'s own authority and listed in the catalog.
 `/impact` is touched twice — `0080` lands its owed output, and the responsibility refactor may later
 move investigation rules into it — so `0080` runs first. Hierarchy and scope share eight of nine
 files and must run sequentially. `/maintain`'s Edge-record and concern-index checks reference

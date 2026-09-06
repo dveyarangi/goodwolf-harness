@@ -73,42 +73,17 @@ whose mapping cannot be stated.
 
 **Stop where no further grounds appear.** Depth is a consequence of that, never a parameter.
 
-## File it before you use it
-
-**The return is stored raw, unedited, before anything is drawn from it.** A summary is your
-reading of the pass, which is the contamination the pass exists to escape — and a return that
-lives only in a session's context is lost when the context is.
-
-Then, separately and afterwards, record **what you actually did** as a result: amendments,
-retractions, decisions reversed, acts dropped. Facts a stranger can check. **Never whether it
-counted** — that is a judgment and it belongs to someone who was not here.
-
-**A pass that returned nothing useful is filed the same way.** It is a result, and the
-practice is measured on whether anything ever moves.
-
-**Declining is recorded too.** A shape came up and no pass was run: log that, with the reason.
-A register of passes with no register of not-passes measures enthusiasm, and the reasons are
-where the practice's real trigger becomes visible.
-
-## What retires it
-
-Passes that change nothing, run after run. Not one — most nudges land nowhere, and a single
-unmoved pass is the expected case. **A run of them is a practice with no gradient**, which is
-the one thing observable from inside: you cannot verify that a distortion was removed, you can
-see that nothing ever moves.
-
-It also retires if what the passes move is systematically *more work* rather than *less
-distortion*. That reads identically to success in a count of how often something changed, so
-counting alone will not catch it.
-
 ## How to run it
 
 **Spawn a separate process** — a general-purpose subagent — and tell it not to read this
 repository. Reading it re-contaminates, which is the one thing the separate process buys.
 
-**File the return** under the project's research area, one dated file per run,
-`YYYYMMDD-<slug>.md`. **Never as input to a later pass**: a pass that reads its own history
-retrieves what it already said.
+**Never feed one pass into the next.** A pass given an earlier pass's output retrieves what it
+already said, and the second isolation buys nothing.
+
+**Put the material into the work as it came back.** A summary written before you use it is your
+reading of the pass, which is the contamination the pass exists to escape. It goes into the ticket,
+spec or align that prompted it, the way `/impact`'s does.
 
 ## Neighbours
 
@@ -119,3 +94,17 @@ Running both means two processes with opposite permissions, which is the point o
 
 [/align](../align/SKILL.md) stress-tests a shape with a person in the room; this runs without
 one. A third pass, where a shape wants to go, is not built.
+
+Output only:
+
+## Families
+Each an alternative account of the shape — not a slice of one. For each: where this sits on that
+family's own ladder, what the family already knows about how this goes wrong, and confidence per
+claim.
+
+## What the tasking smuggled in
+The framing the pass could see in how it was asked.
+
+## Nothing to take
+Families refused for want of a statable mapping, and — when it applies — that the pass returned no
+usable material. That is a result, not a failed run.
