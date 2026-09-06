@@ -8,7 +8,15 @@ description: >-
 
 - Look at pending changes; group them by content aligning with origin topic, ticket, rfc or change type (docs/code/cicd/skills).
 
-- Separate implementation and documentation commits; tag them with either DOCS, CODE, CICD or SKILL. Changes to the agent skills corpus take SKILL.
+- Separate implementation and documentation commits.
+
+- Prefix the subject with the loop step that produced the work, uppercase, then a colon:
+  `ALIGN`, `SPEC`, `TICKET`, `PLAN`, `IMPLEMENT`, `VERIFY`, `MAINTAIN`, `DISCOVER`, `RECALL`,
+  `CONCLUDE`. Two sit outside the ring: `FIX` for a repair taken on its own, and `HARNESS` for
+  a change to the harness's own installation. One prefix per commit — where the work spans two
+  steps, take the dominant one and name the bleed in the message. The prefix says which step
+  produced the work, never which files it touched: what changed is visible in the diff, and
+  which step produced it is not.
 
 - In case the file changes belong to several groups, commit the file with the group forming its dominant topic and mention the bleed in that commit's message.
 
@@ -16,16 +24,11 @@ description: >-
 
 - Unless already working in branch or instructed to branch - commit to default branch.
 
-- When committing a code change, first run the checks that repository defines for itself — its linter, its formatter in check mode, its type checker, its tests. Pure doc changes need none of them.
+- When committing a code change, first run the checks the repository defines for itself — its
+  linter, its formatter in check mode, its type checker, its tests. Pure doc changes need none
+  of them. **Read them from where the project states them; never carry them here.** A commit
+  skill holding a project's commands is a second home for them, and it is wrong for every
+  project but the one it was written in.
 
 - Do not commit without explicit instruction or permission from user.
 - Separately, do not push without explicit instruction or permission from user.
-
-<project-local>
-This project has no linter, formatter or type checker. Its gate set is the
-[verification set](../../../docs/process.md#verification): the maintenance scripts'
-behavioral tests. Commit prefixes here are the loop's stage — `ALIGN`, `SPEC`, `TICKET`,
-`PLAN`, `IMPLEMENT`, `VERIFY`, `MAINTAIN`, `FIX` — not the `DOCS`/`CODE`/`CICD`/`SKILL`
-tags in the body above. Reconciling the two is
-[01-0010.0100](../../../docs/tickets/01-0010.0100-remaining-named-corpus.md)'s.
-</project-local>
