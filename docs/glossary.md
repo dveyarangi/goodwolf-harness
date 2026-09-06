@@ -62,6 +62,16 @@ A ticket whose progress requires a human decision or interaction. Its scope may 
 **RFC**:
 An implementation proposal or agreed plan for an owning ticket, grounded in the governing architecture and contracts. Its existence alone does not mean its proposal has been accepted.
 
+**Shape**:
+Whatever is currently under consideration, held between an idea and a thing: it has taken enough form to have a context and a structure, and is not yet exhausted by any one realization. A concept, contract, invariant, behavior, rule, method or artifact can each be held as a shape.
+
+- Idea — "historical forecasts should stay comparable." No form yet; `/align` owns it.
+- Shape — "historical forecast issues must remain independently addressable by (location, valid_time, issue_time)."
+- Thing — "forecasts are stored in the `forecast_hourly` collection." One realization.
+
+Being a shape says nothing about being load-bearing. An implementation method is a shape, and can be a rich one that repays `/impact` and `/discover`, while remaining local to the code it lives in.
+_Avoid_: form, construct, entity.
+
 **Seam**:
 A boundary across which a producer supplies behavior, information or an artifact that a consumer relies upon.
 

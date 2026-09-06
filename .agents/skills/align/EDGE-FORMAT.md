@@ -55,7 +55,7 @@ ticket. Plans, not promises.
   qualifier is retired by the same commit that lands the change. `Concerns` and `Roadmap` are aggregation — pointers and plans, never
   validated, and carry no delivery-status vocabulary → [Status](../ticket/TICKET-FORMAT.md#status).
 - **Per-invariant validators, not a separate section.** Each promise points at the test that
-  enforces it, so `/edge` and `/sync-arch` can check mechanically that the validator still
+  enforces it, so `/edge` and `/maintain` can check mechanically that the validator still
   exists and still asserts the promise. **⚠ unguarded** is legal in a Stub, a finding in a
   Normative record.
 - **Aggregate by reference.** `concerns.md` owns concerns, tickets own delivery state,

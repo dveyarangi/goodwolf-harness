@@ -1,6 +1,6 @@
 # Development process
 
-<temporary until="/pacer is installed" ticket="docs/tickets/01-0020-pacer.md">
+<temporary until="01-0020 is done" ticket="docs/tickets/01-0020-pacer.md">
 This document is a suggestion of sequence, not a rulebook. The sequence and the scoping of work are the [pacer's](pacer.md) concern, and the pacer owns this document once it exists. Each step's rules belong in the step's own skill and move there as the skill is installed. Where the installed skills or the [entry file](../AGENTS.md) differ from what follows, they are right.
 </temporary>
 
@@ -18,10 +18,10 @@ The loop itself, its stages, skills and human checkpoints, the autonomy switches
   verification of landed work, not only documentation or shape review. The
   project's check set lives in [Verification](#verification); skills link it,
   they do not inline commands.
-- `/maintain` owns tree maintenance as defined below, including all responsibilities of `/denoise` and `/sync-arch`, and archiving. Its invocation triggers and implementation remain under alignment.
+- `/maintain` owns tree maintenance as defined below, including all responsibilities of `/denoise` and `/sync-arch`, and archiving. It is installed, with its mechanical support under `.agents/scripts/`.
 - Sessions preserve the handoff; `/recall` checks maintained documents and current files rather than treating session history as delivery state.
 
-The accepted bootstrap selection uses `/ticket`, `/plan`, `/spec` and `/verify` for the former `/to-tickets`, `/plan-impl`, `/to-spec` and `/review-impl`, and consolidates `/denoise` and `/sync-arch` under `/maintain`. `/align`, `/impact`, `/ticket`, `/spec`, `/plan`, `/implement`, `/tdd`, `/improve-comments` and `/verify` are installed under those names.
+The accepted bootstrap selection uses `/ticket`, `/plan`, `/spec` and `/verify` for the former `/to-tickets`, `/plan-impl`, `/to-spec` and `/review-impl`, and consolidates `/denoise` and `/sync-arch` under `/maintain`. `/align`, `/impact`, `/ticket`, `/spec`, `/plan`, `/implement`, `/tdd`, `/improve-comments`, `/verify` and `/maintain` are installed under those names.
 
 ## Naming
 
@@ -55,7 +55,13 @@ This section owns the current policy. Its decision record is in the [shared-harn
 
 The verification set is this project's typechecker, tests, and any other commands required of landed work. `/implement` and `/verify` link here. They do not inline those commands. `/implement` may run named checks during the work; that run is not `/verify`. `/tdd` still owns red-green.
 
-**This project:** no typechecker and no test suite. The set is empty. `/verify` uses the ticket, RFC (if any), governing docs, and the work.
+**This project:** no typechecker. The set is the maintenance scripts' behavioral tests:
+
+```
+uv run --offline --no-project python -m unittest discover -s tests -p "test_*.py"
+```
+
+Discovery reporting success with zero tests is not verification; the run must show a positive count. Alongside it, `/verify` uses the ticket, RFC (if any), governing docs, and the work.
 
 ## Mechanisms and skills
 
@@ -67,17 +73,11 @@ Adopting this concept does not install Life's machinery. Mechanism boundaries, d
 
 ## Tree maintenance
 
-`/maintain` owns ensuring that all mechanisms are applied correctly according to their actual governing rules across the maintained tree. This includes the full responsibilities currently assigned to `/denoise` and `/sync-arch`: architecture/code consistency in both directions, reconstruction of load-bearing contract shape, document consistency and canonical ownership, prose and inline-comment cleanup, concern disposition, records, indexes, links and archive lifecycle. It also covers instruction delivery, supporting checks and derived work; maintenance is not limited to prose cleanup or recently edited files.
+`/maintain` owns ensuring that all mechanisms are applied correctly according to their actual governing rules across the maintained tree. This includes the full responsibilities the selected `/denoise` and `/sync-arch` carried: architecture/code consistency in both directions, reconstruction of load-bearing contract shape, document consistency and canonical ownership, prose and inline-comment cleanup, concern disposition, records, indexes, links and archive lifecycle. It also covers instruction delivery, supporting checks and derived work; maintenance is not limited to prose cleanup or recently edited files.
 
 A pass declares its scope: the whole tree, a project, or work associated with a particular RFC. Derive every applicable mechanism and its obligations within that scope, including the consumers and dependencies needed to verify them. A narrower pass uses the same governing rules and reports its coverage; it cannot certify the rest of the tree. Findings beyond the covered scope remain visible with an owner rather than disappearing from the result.
 
-Use one integrated procedure, with scope determining which checks apply:
-
-1. Identify applicable rules, artifacts and dependencies.
-2. Check contracts and consistency; repair clear violations under the repair policy and
-   route unresolved decisions to `/align`.
-3. Clean up prose and records, resolve expired temporary statements, then perform eligible
-   archive moves and verify references.
+A pass uses one integrated procedure — identify, check and repair, clean up, resolve temporary statements, archive and verify references — with the scope deciding which checks apply. The steps belong to [the skill](../.agents/skills/maintain/SKILL.md); this document owns the policy they follow.
 
 Archive decisions and mechanical archive operations belong to `/maintain`. Before archiving a spec, establish that surviving agreements have maintained homes, its obligations have explicit dispositions, unresolved issues retain active owners, and moves/indexes/references are consistent. Record delivery, transfer, withdrawal and supersession accurately. Current work must not require archived specs to reconstruct its governing contracts; historical investigation and mechanical maintenance may still use them.
 

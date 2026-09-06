@@ -6,12 +6,13 @@ policy belongs in [the process](process.md#tree-maintenance).
 
 ## Current and agreed target
 
-The installed skills currently support delivery through `/verify`; `/maintain` and its
-supporting scripts are not installed. Skill bodies have one physical home under
+The installed skills support the whole delivery ring. `/maintain` and its supporting scripts
+landed 2026-09-06 under [01-0010.0070](tickets/01-0010.0070-install-maintain.md); one criterion,
+a fresh-session discovery observation, is still open. Skill bodies have one physical home under
 `.agents/skills`, with host access described in [the installed harness](../.agents/README.md).
 
-The agreed target is one maintenance mechanism. Its skill directs an integrated procedure
-over a declared scope, while supporting scripts perform mechanically derivable work.
+The mechanism is one maintenance skill directing an integrated procedure over a declared scope,
+with supporting scripts under `.agents/scripts/` performing mechanically derivable work.
 The first live scope is recorded in the owning ticket; scope does not exempt relevant
 dependencies or affected references from maintenance.
 

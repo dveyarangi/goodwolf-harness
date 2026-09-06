@@ -163,6 +163,51 @@ Decided in [01-0010.0020](./01-0010.0020-live-alignment-across-hosts.md) on 2026
    **Parent scope covered:** `/spec` from the selection table; spec-first; loop completion as spec content.
    **Basename:** `01-0010.0035-install-spec.md`.
 
+## Third bootstrap delivery — 2026-09-06
+
+**Status:** Approved by the user and minted. Three children here; four sibling rule refactors were
+minted at root, outside this ticket, and are not its children.
+
+### Impact
+
+**Main blast radius.** Three children of this ticket — `/impact`'s owed shape recommendation
+(`0080`), `/discover`'s standing and install (`0090`), and the five named remaining commands
+(`0100`). The four rule refactors — hierarchy, scope, responsibility, reachability — consolidate
+statements that live inside this ticket's corpus but answer to a different contract: coherence of
+the method's own concepts, not distribution of a canonical harness across projects. They sit at
+root on [the pacer's](./01-0020-pacer.md) precedent.
+
+**Hidden edges.** `/discover` is installed and named in the entry file while sitting outside this
+ticket's accepted 21-capability selection; that inconsistency is live now, not after `0090`.
+`/impact` is touched twice — `0080` lands its owed output, and the responsibility refactor may later
+move investigation rules into it — so `0080` runs first. Hierarchy and scope share eight of nine
+files and must run sequentially. `/maintain`'s Edge-record and concern-index checks reference
+`docs/edge/` and `docs/concerns.md`, neither of which exists here; that is `0100`'s to settle.
+Correct ownership does not produce arrival: the `/ticket`→`/impact` chain was correctly owned and
+still failed to reach an in-progress `/align` on 2026-09-06, which is why responsibility and
+reachability are separate refactors rather than one.
+
+**Leave alone.** [01-0020](./01-0020-pacer.md) and its `<temporary>` block. The
+[01-0010.0070](./01-0010.0070-install-maintain.md) close, which needs only its fresh-session
+observation. The audit corpus and `legacy/skills`. The five selected commands nobody named —
+`/conclude`, `/recall`, `/dream`, `/review-architecture`, `/setup-devops` — which stay in this
+ticket's backlog. The selection's 21 rows; `0090` questions membership, not their contents.
+
+**Recommendation.** Proceed. Seven slices, none too thick to verify alone, none a horizontal layer.
+Re-ordered from the draft: `0080` first; hierarchy then scope, strictly sequential; the earlier
+"wire the two passes into shape-handling skills" slice dissolved into reachability.
+
+1. **Title:** `/impact` recommends the work's shape. **Interaction:** HITL.
+   **Depends on:** nothing. **Parent scope covered:** first owed core change.
+   **Basename:** `01-0010.0080-impact-work-shape.md`.
+2. **Title:** Install `/discover`. **Interaction:** HITL, decision-bearing.
+   **Depends on:** nothing. **Parent scope covered:** corpus membership and installation.
+   **Basename:** `01-0010.0090-install-discover.md`.
+3. **Title:** The remaining named corpus arrives. **Interaction:** HITL, decision-bearing.
+   **Depends on:** the responsibility refactor. **Parent scope covered:** five of ten remaining
+   commands; three of six owed core changes.
+   **Basename:** `01-0010.0100-remaining-named-corpus.md`.
+
 ## Adoption shortlist — recommendations awaiting alignment
 
 This is the compact decision surface extracted from the [Life research](../research/life-harness-findings.md). Rows marked agreed link to the current policy; the other recommendations remain undecided. Resolve one question at a time.
@@ -176,6 +221,14 @@ This is the compact decision surface extracted from the [Life research](../resea
 | 4 | Should tickets, RFCs, specs, concerns and ideas all be queues? | Share a minimal lifecycle contract for actual queues: entry, owner/consumer, disposition, exit and maintenance. Decide which artifacts really need queues; specs and RFCs can be documents attached to work without independent backlogs. |
 | 5 | Which queue machinery should be adopted? | Start with file/index consistency, explicit unresolved decisions, actionable stale/unknown state and evidence-based closure. Consider strikes as recurrence evidence on the affected work item; do not copy Life's entire counters, quotas or scheduling policy. |
 | 6 | How should delivery and drift be maintained? | **Agreed:** [mechanical maintenance](../process.md#mechanical-maintenance), including history, missing repair scripts and mechanisms designed for derivation. **Remaining design:** dependency representation, change tracking, scheduling and verification across projects and hosts. Separate installation freshness from derived-work correctness and live instruction delivery. |
+
+**Open, 2026-09-06 — `/dream`'s standing.** The entry file names `/dream` in its Helpers list and
+describes it as experimental, while the [selection table](#bootstrap-corpus-selection) says to
+retain it for deliberate use with its daily scheduling trigger treated as a source policy to
+review. It is not installed. Nothing has decided whether "experimental" is this project's position,
+whether an uninstalled skill belongs in the entry file at all, or which ticket installs it. It stays
+here with `/conclude`, `/recall`, `/review-architecture` and `/setup-devops` — the selected commands
+[01-0010.0100](./01-0010.0100-remaining-named-corpus.md) does not cover.
 
 The autonomy/repair policy, mechanism concept, current/history separation and mechanical maintenance principle are agreed. Queue design (items 4–5) and the concrete maintenance design remain open. The spec as a whole and any implementation RFC remain unapproved; accepted decisions and command names are recorded above.
 

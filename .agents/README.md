@@ -32,12 +32,22 @@ Which links are actually required is untested. Codex needs none; Cursor document
 Bootstrap slices [01-0010.0020](../docs/tickets/01-0010.0020-live-alignment-across-hosts.md),
 [01-0010.0030](../docs/tickets/01-0010.0030-install-ticket.md),
 [01-0010.0035](../docs/tickets/01-0010.0035-install-spec.md),
-[01-0010.0040](../docs/tickets/01-0010.0040-install-plan.md),
-[01-0010.0050](../docs/tickets/01-0010.0050-install-implement.md), and
-[01-0010.0060](../docs/tickets/01-0010.0060-install-verify.md): `align` (with its ADR, ARCH, EDGE
+[01-0010.0040](../docs/tickets/done/01-0010.0040-install-plan.md),
+[01-0010.0050](../docs/tickets/01-0010.0050-install-implement.md),
+[01-0010.0060](../docs/tickets/01-0010.0060-install-verify.md), and
+[01-0010.0070](../docs/tickets/01-0010.0070-install-maintain.md): `align` (with its ADR, ARCH, EDGE
 and GLOSSARY format shelf), `impact`, `ticket` (with `TICKET-FORMAT.md`), `spec`, `plan`,
-`implement`, `tdd` (with its five files), `improve-comments`, and `verify`, from Meteoscape
-with the Forecast Collector `/plan` body, per the
+`implement`, `tdd` (with its five files), `improve-comments`, `verify`, and `maintain`, from
+Meteoscape with the Forecast Collector `/plan` body, per the
 [source selection](../docs/tickets/01-0010-dev-harness-shared-and-local.md#bootstrap-corpus-selection).
+`maintain` composes the selected `denoise` and `sync-arch` and adds the `<temporary>` enumerator.
 
 The pre-audit July corpus is kept under [`legacy/skills`](../legacy/skills/) as evidence only. Nothing loads it.
+
+## Mechanical support
+
+[`scripts/`](./scripts/) holds what `/maintain` derives and repairs mechanically: `move_doc.py`
+closes a ticket and its RFC together and repairs the citations, `temporary_statements.py` reads
+and retires expiring statements, and `docs_corpus.py` is the one view of the tree they share.
+They run on the standard library alone. Their behavioral tests are in [`tests/`](../tests/) and
+are part of the project's [verification set](../docs/process.md#verification).

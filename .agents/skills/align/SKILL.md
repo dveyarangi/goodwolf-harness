@@ -7,15 +7,20 @@ description: Grilling session that challenges current plan against the existing 
 
 Begin every alignment with a **necessity gate**: name the present customer, the observable problem, and why existing behaviour cannot satisfy it. An accepted requirement or ADR passes by citation. Weak evidence means narrow, postpone, or eliminate — settle that before exploring design. The gate fires late too: a mechanism whose name will not settle is evidence it should not exist. [/impact](../impact/SKILL.md) traces consequences once the need holds.
 
-Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer. If there are alternatives, show pros/cons/tradeoffs between them.
+Interview me relentlessly about every aspect of current work until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer. If there are alternatives, show pros/cons/tradeoffs between them.
 
 Ask the questions one at a time, waiting for feedback on each question before continuing. Asking multiple questions at once is bewildering. Do not use platform (Cursor/Claude Code) question format, output plain md.
 
-If a *fact* can be found by exploring the codebase, look it up rather than asking me. The *decisions*, though, are mine - put each one to me and wait for my answer.
+If a *fact* can be found by exploring the doc corpus or codebase, look it up rather than asking me. The *decisions*, though, are mine - put each one to me and wait for my answer.
 
-Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.
+Decomposing the work during an align is [/ticket](../ticket/SKILL.md)'s, and it calls
+[/impact](../impact/SKILL.md) on the draft split. Run that chain and present what it returns as a
+suggestion; do not mint. A breakdown reached by unaided grouping is not that chain's output,
+however ticket-shaped it looks.
 
-Do not enact the plan until I confirm we have reached a shared understanding.
+Do not enact the plan before I confirm we have reached a shared understanding.
+
+
 </what-to-do>
 
 <supporting-info>

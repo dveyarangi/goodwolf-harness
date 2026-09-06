@@ -6,9 +6,6 @@ description: >-
   project's verification set. Repair-and-report where that policy holds.
 ---
 
-`/verify` is the verification of landed work, not only documentation or shape
-review.
-
 Compare the work to its ticket, RFC if any, governing docs, and every check
 in the project's [verification set](../../../docs/process.md#verification).
 Find out:

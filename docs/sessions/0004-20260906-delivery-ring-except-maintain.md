@@ -5,13 +5,13 @@
 
 ## Work completed
 
-Installed the implementation mechanism ([01-0010.0050](../tickets/01-0010.0050-install-implement.md)): `/implement`, `/tdd` with its five files, and `/improve-comments`. First use of `/implement` was that install. `/verify` on 0050 and on [01-0010.0040](../tickets/01-0010.0040-install-plan.md). Both tickets Done; records stay in `docs/tickets/` until 0070. `/maintain` was not installed. An `/align` on 0070 was opened and then stopped at the user's request; 0070 is Ready again. No commit or push in the working session; this record is written at conclude.
+Installed the implementation mechanism ([01-0010.0050](../tickets/01-0010.0050-install-implement.md)): `/implement`, `/tdd` with its five files, and `/improve-comments`. First use of `/implement` was that install. `/verify` on 0050 and on [01-0010.0040](../tickets/done/01-0010.0040-install-plan.md). Both tickets Done; records stay in `docs/tickets/` until 0070. `/maintain` was not installed. An `/align` on 0070 was opened and then stopped at the user's request; 0070 is Ready again. No commit or push in the working session; this record is written at conclude.
 
 ## Settled decisions and their owners
 
 - 0050 installs the implementation mechanism, not `/implement` alone → [01-0010.0050](../tickets/01-0010.0050-install-implement.md) and the parent.
 - `/verify` is the verification of landed work; the check set is linked from [Verification](../process.md#verification), not inlined → parent and [01-0010.0060](../tickets/01-0010.0060-install-verify.md).
-- A skill carries `<project-local>` only when it has a project-specific fact → parent. `/plan`'s RFC dropped a restated local block on `/verify` of 0040 → [01-0010.0040](../tickets/01-0010.0040-install-plan.md).
+- A skill carries `<project-local>` only when it has a project-specific fact → parent. `/plan`'s RFC dropped a restated local block on `/verify` of 0040 → [01-0010.0040](../tickets/done/01-0010.0040-install-plan.md).
 - Ticket not Done until `/verify`; paired `done/` close waits on `/maintain` → TICKET-FORMAT and [01-0010.0070](../tickets/01-0010.0070-install-maintain.md).
 
 ## Open, with owners

@@ -38,9 +38,18 @@ changes, only the folder.
 
 When every acceptance box is checked, including `/verify`, move the ticket to
 `docs/tickets/done/` and its RFC to `docs/rfc/done/`, and repair the
-citations that pointed at them. A paired close (ticket + RFC) is one pass.
-There is no mover script yet; do the move and the citation repair together
-by hand. `/maintain` implements that mover.
+citations that pointed at them. A paired close (ticket + RFC) is one pass —
+one invocation, so each moved record cites the other's final home:
+
+```
+uv run --offline --no-project python .agents/scripts/move_doc.py \
+    docs/tickets/RR-NNNN-slug.md docs/tickets/done/RR-NNNN-slug.md \
+    docs/rfc/RR-NNNN-slug.md docs/rfc/done/RR-NNNN-slug.md
+```
+
+The mover repairs citations and touches nothing else — no checkbox, no
+status, no date, no Git index. Eligibility, the ticket header and the queue
+row are yours. [/maintain](../maintain/SKILL.md) owns the surrounding pass.
 
 Artifacts predating this keep their names.
 
