@@ -1,29 +1,34 @@
 # Every skill and document has named producers and consumers
 
-- **Status:** Planned (responsibility precedes)
+- **Status:** Planned (the first mechanism precedes)
 - **Type:** HITL
-- **Depends on:** [Each skill owns its own responsibility](./01-0016-responsibility-coherent.md)
-  (settled ownership, so a declaration says who writes a thing rather than who happens to touch it)
-- **Blocks:** [Rules reach the occasion they are for](./01-0018-reachability-coherent.md) — arrival
-  cannot be checked until the consumers are named
-- **Outcome:** Every installed skill declares what it reads and what it produces, every harness
-  document names its writers and readers, a rule requires those declarations to compose, and
-  `/maintain` checks that they still do.
+- **Depends on:** [The shape is checked mechanically](./01-0011.0050-shape-checked.md) (a proven
+  shape and a working check, so applying it to the rest is application rather than design)
+- **Outcome:** Every mechanism in this tree is declared to the shape paired close proved, every
+  installed skill is named by one or allowlisted with its reason, and the documents four skills
+  transact against either exist with an owner or stop being referenced.
 
 ## Parent
 
-[AGENTS.md](../../AGENTS.md). Sibling of [01-0012](./01-0012-hierarchy-coherent.md),
-[01-0014](./01-0014-scope-coherent.md), [01-0016](./01-0016-responsibility-coherent.md) and
-[01-0018](./01-0018-reachability-coherent.md), inserted as the fifth rule refactor.
+[A mechanism has one home for its rules, and a derived index](../spec/01-0011-mechanism-shape.md).
+
+**Re-parented 2026-09-06.** This was minted earlier the same day as a fifth rule refactor, before
+the mechanism spec existed. Its questions — who produces a thing, who consumes it, what verifies it
+— are the ones a mechanism doc answers about its own parts, so this is the spec's generalisation
+step rather than a sibling of the rule refactors. It is not `Done (split)`: nothing was split, and
+the work survives whole. What changed is its vocabulary and its place in the order.
 
 ## Impact
 
-**2026-09-06.** Assessed before minting. Touches all eleven `SKILL.md` files — none of which
-declares a source or target today, their frontmatter carrying only `name` and `description` — plus
-`docs/README.md`, the three `align/*-FORMAT.md` shelves that name documents, and `AGENTS.md` if the
-convention is Tier 1. Verdict: **proceed, narrowed** — exclude `/edge`, and make the graph check
-mechanical rather than prose. The narrowing is recorded in `Out of scope` below; the two
-shapes that forced the concept are in `Why this exists`.
+**2026-09-06, at minting.** Touches all eleven `SKILL.md` files — none of which declares a source or
+target today — plus `docs/README.md`, the three `align/*-FORMAT.md` shelves that name documents, and
+`AGENTS.md` if the convention is Tier 1. Verdict: **proceed, narrowed** — exclude `/edge`, and make
+the check mechanical rather than prose.
+
+**2026-09-06, on the mechanism split.** Re-assessed as part of
+[that breakdown](../spec/01-0011-mechanism-shape.md#impact--2026-09-06). The declaration this ticket
+wanted is a mechanism doc; the composing rule is the shape check; the enforcement is
+`/mechanism`'s. What remains here is applying both to the tree once one mechanism has proved them.
 
 ## Why this exists
 
@@ -54,58 +59,53 @@ The other direction is unwatched too: `docs/pacer.md` and two of the three
 
 ## What to build
 
-- A source and target declaration for each installed skill: what it reads to do its work, and what
-  it produces. Not a file list — the artifacts it is responsible for, in the vocabulary the graph
-  is checked in.
-- A writer and reader declaration for each harness document. A document with no writer or no reader
-  is a finding, not a fact to record.
-- **A rule that the declarations must compose**, placed by the tier it belongs to: a skill declaring
-  a source nothing produces is a defect, and so is a document nobody writes or reads. This is the
-  enforcing rule the ticket exists to add, not a description of good practice.
-- **`/maintain` instructed to check it**, in the skill's own body, so the check survives
-  distribution to a project that has neither `docs/process.md` nor `docs/architecture.md`.
-- The check itself, mechanical where it can be —
-  [mechanical maintenance](../process.md#mechanical-maintenance) makes a missing script work to do,
-  not a reason to leave the repair outstanding. A declaration nothing sweeps decays the way the
-  archive duty did.
-- Dispositions for `docs/concerns.md` and `docs/adr/`, which the check surfaces on its first run:
-  created and owned, or their references removed.
+- Every remaining mechanism in this tree declared to the shape
+  [paired close](./01-0011.0010-mechanism-declared.md) proved: its parts named with their owners,
+  its three property states stated, each absence carrying its kind and, where it is a gap, a ticket.
+- Every installed skill named by a mechanism or placed in the allowlist with its reason. Eleven are
+  installed; the allowlist rows are as much the deliverable as the declarations, because a skill
+  nothing knows about is where an injected rule goes to hide.
+- Documents brought into the mechanisms that own them. A document no mechanism writes or reads is a
+  finding, not a fact to record — `docs/pacer.md` and two of the three `docs/research/*-findings.md`
+  are named by no skill file today.
+- Dispositions for `docs/concerns.md` and `docs/adr/`: created with an owning mechanism, or their
+  references removed from `/align`, `/plan`, `/ticket` and `/maintain`. The check surfaces these on
+  its first run over a tree that declares more than one mechanism.
 
 ## Decisions this ticket's align owns
 
-- Where the declarations live: skill frontmatter, a section in each body, or one derived index. Only
-  the first two travel with a distributed skill.
-- Which tier the composition rule sits at. It governs every skill, which argues `AGENTS.md`; it is
-  checked by one, which argues `/maintain`. Those give different answers about who owns it.
-- What a "document" is for this graph — whether tickets, RFCs and session records participate, or
-  only durable documents. They have writers and readers too, but their lifecycle is archival.
+- Where the mechanism boundaries actually fall. The delivery ring, the entry contract, the autonomy
+  switches and the verification set are all candidates, and drawing them wrong produces a register
+  that groups subjects while missing the action that spans them.
+- Whether tickets, RFCs and session records are parts of a mechanism or only records it accumulates.
+  They have writers and readers, but their lifecycle is archival.
 - Whether `docs/concerns.md` and `docs/adr/` are created or their references removed. Four skills
   assume the first; nothing in this project has ever needed it.
 
 ## Acceptance criteria
 
-- [ ] Every installed skill declares its source and its target, in a place that travels with the
-  skill to a project that has no `docs/process.md` or `docs/architecture.md`.
-- [ ] Every harness document names its writers and its readers.
-- [ ] A rule states that the declarations must compose, and names what a violation is.
-- [ ] `/maintain`'s own body instructs it to check the graph; the instruction does not depend on a
-  project-local document.
-- [ ] The check runs mechanically and reports: a declared source nothing produces, a document with
-  no writer, a document with no reader.
+- [ ] Every mechanism this tree has is declared, with its parts, owners and three property states.
+- [ ] Every installed skill is named by a mechanism or allowlisted with a written reason; none is
+  silent.
+- [ ] Every durable document is named by the mechanism that writes it and by the ones that read it,
+  or is listed with its reason.
 - [ ] `docs/concerns.md` and `docs/adr/` each have a disposition, and no skill references an
   artifact without one.
-- [ ] The check is run once and its output is clean or its findings have owners.
+- [ ] The shape check runs over the whole tree and its output is clean or every finding has an
+  owner.
 - [ ] `/verify` has been run on this ticket against its ticket, RFC, and governing docs.
 
 ## Out of scope
 
 `/edge` and `docs/edge/` — [01-0010.0100](./01-0010.0100-remaining-named-corpus.md) owns the Edge
 half, down to whether `/maintain`'s Edge-record check has records to check. What each skill *owns*
-is [01-0016](./01-0016-responsibility-coherent.md)'s; this is what each skill reads and writes.
+is [01-0016](./01-0016-responsibility-coherent.md)'s; this is what each mechanism is made of.
 Whether a rule *arrives* at its occasion is [01-0018](./01-0018-reachability-coherent.md)'s.
+Building the shape and proving it on one mechanism is
+[01-0011](../spec/01-0011-mechanism-shape.md)'s children; this applies what they proved.
 Relocating `docs/architecture.md`'s script contracts, which moves for a different reason.
 
 ## Parent scope addressed
 
-The entry file's rule that a shape's context and relationships are explored rather than assumed,
-applied to the harness's own artifacts.
+The spec's generalisation step: stories 13, 14, 21, 22, and the second mechanism that proves the
+shape holds beyond the one it was built on.

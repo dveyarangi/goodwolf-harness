@@ -93,6 +93,33 @@ already spans `/ticket`, `/maintain`, `move_doc.py`, `docs_corpus.py` and five t
 span is exactly where it broke. The second mechanism is what proves the shape generalises; nothing
 is built for a third.
 
+## Impact — 2026-09-06
+
+Assessed on the draft split before minting. Verdict: **narrow**, and the split was revised before
+presentation.
+
+Blast radius is `TICKET-FORMAT` in four places rather than one section, `/ticket`'s amend rule,
+`/maintain`'s queue-row rule, `docs/process.md`'s pointer, and five session records that cite the
+old table as history and keep their facts.
+
+Four findings changed the breakdown:
+
+- **The index has no delivery path here.** [AGENTS.md](../../AGENTS.md) routes every session to the
+  queue as the thing that owns current state. Life can leave its table uncommitted because wake
+  hooks inject state; this spec puts hooks out of scope. Taking the uncommitted decision on Life's
+  precedent imports a constraint we do not share, so the queue slice became decision-bearing rather
+  than settled.
+- **A declaration slice with no check is horizontal**, and asserting an unverified shape is the
+  defect this spec exists to stop. The first slice now ships the check that its own declaration is
+  true.
+- **The skill allowlist and the absent-artifact dispositions exceed one mechanism**, which is the
+  scope this spec set. They moved out of the first build.
+- **`Done (split)` was wrong for `01-0017`.** Its work is not split across children; it is
+  superseded in framing and survives whole as *apply the shape to the remaining mechanisms*.
+
+The backlog listing was also moved ahead of the queue index: it is the live defect and carries no
+delivery question.
+
 ## User Stories
 
 1. As a maintainer, I want one stated test for what counts as a mechanism, so that I can tell
