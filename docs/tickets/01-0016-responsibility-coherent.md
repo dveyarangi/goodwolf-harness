@@ -30,6 +30,16 @@ runs after the vocabulary tickets and before reachability.
 directly it should link to the skills that cover those responsibilities, and the responsibilities
 should be well defined. `/impact` can host the whole section about investigating what exists.
 
+**Measured 2026-09-07, during [01-0011.0010](./01-0011.0010-mechanism-declared.md)'s align.**
+The stall assumed an election between several appliers. There are **three skills touching
+repair-and-report and only two restating it**: `/verify` (which states and links it) and `/maintain`
+(the same), while `/implement` names only the `repair` switch and points at `AGENTS.md`, which is
+correct as it stands. `/ticket`, `TICKET-FORMAT` and `/impact` use *repair* in the mover's sense —
+repairing citations — and are not appliers at all. With injection available, one home and one
+installed copy replaces the election; the home is this ticket's to name, and the evidence now
+points at `/verify`, whose pass is *what to do with a discrepancy against an explicit rule* and
+which [the process](../process.md#verification) already routes discrepancies to.
+
 The same restatement happens elsewhere: `/verify` restates repair-and-report that
 [the process](../process.md#autonomy-and-repair) owns; `/maintain` restates archive eligibility that
 `TICKET-FORMAT` owns; `/plan` and `/ticket` both carry slicing rules. Restatement is how two sites

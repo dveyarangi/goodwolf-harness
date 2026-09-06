@@ -192,6 +192,30 @@ Four findings changed the breakdown:
 The backlog listing was also moved ahead of the queue index: it is the live defect and carries no
 delivery question.
 
+## Impact — 2026-09-07
+
+Assessed on the re-slice draft after this spec's amendment, before minting. Verdict: **narrow**,
+and the draft was revised on both findings before presentation.
+
+Blast radius is `docs/process.md`'s *Tree maintenance* and *Mechanical maintenance* sections,
+`TICKET-FORMAT`'s four queue citations, and `.agents/README.md`, which three consecutive slices
+write to.
+
+Two findings changed the split:
+
+- **`/maintain` has no records, so declaring it exercises neither injection nor the record rule.**
+  `temporary_statements.py` reads `<temporary>` blocks in place; there is no marks file and nothing
+  accumulates. The slice was kept, but its justification was rewritten from *proves the shape
+  generalises* to *falsifies it cheaply, before three slices depend on it*, and its record
+  obligation is stated as `none` by property rather than deferred.
+- **The shape check's dependencies were drawn for the superseded framing.** It was blocked on a
+  listing and an index because the three properties needed something to observe. Moments need only
+  a declaration, so its blockers narrow to the three declaration slices.
+
+Also surfaced and left alone: `docs/process.md`'s *Autonomy and repair*, *Verification* and
+*Mechanisms and skills* belong to mechanisms nobody has declared, and moving them now is the
+accretion this spec exists to stop.
+
 ## User Stories
 
 1. As a maintainer, I want one stated test for what counts as a mechanism, so that I can tell
@@ -434,9 +458,12 @@ dependency chain re-linked accordingly.
 
 The ordering question this spec raises and does not settle: `01-0016` asks which skill owns which
 rule, and its own text records that the answer stalled because repair-and-report is applied by
-several skills. Counted 2026-09-06: **five** — `/impact`, `/implement`, `/maintain`, `/ticket` and
-`/verify` — plus the switch in `AGENTS.md`. Injection dissolves that — one home, five installed
-copies — which suggests this work runs before the rule refactors rather than after them.
+several skills. **Re-counted 2026-09-07, correcting a wrong figure of five taken the day before:**
+three skills touch the policy and only **two restate it** — `/verify` and `/maintain`, while
+`/implement` names only the `repair` switch and points at `AGENTS.md`, which is correct as it
+stands. The earlier count matched `/ticket`, `TICKET-FORMAT` and `/impact` on a different sense of
+the word: the mover *repairing citations*. Injection dissolves the stall — one home, one installed
+copy — which suggests this work runs before the rule refactors rather than after them.
 
 **Where this amendment's evidence came from.** Life's `/mechanism` skill, its `mechanism-shape`
 doc and register, `evidence-sidecars`, `maintenance` (doc and rules file) and `/mechanism`'s
