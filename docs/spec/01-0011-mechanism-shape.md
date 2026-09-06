@@ -1,7 +1,14 @@
 # A mechanism has one home for its rules, and a derived index
 
-**Status:** Draft, 2026-09-06. Not accepted. Developed through `/spec` → `/align`; decomposition is
-`/ticket`'s.
+**Status:** **Accepted by the user, 2026-09-06.** Developed through `/spec` → `/align`;
+decomposed by `/ticket` into [01-0011.0010](../tickets/01-0011.0010-mechanism-declared.md) …
+[.0050](../tickets/01-0011.0050-shape-checked.md), with
+[01-0017](../tickets/01-0017-io-graph-coherent.md) re-parented here as the generalisation step.
+
+Acceptance covers the three properties, the three homes, injection, the derived index and the
+one-mechanism scope of the first build. It does not settle whether the queue's rendered table is
+committed — that reasoning was taken from a tree with wake hooks this harness lacks, and the
+question is [01-0011.0040](../tickets/01-0011.0040-queue-derived-index.md)'s align to answer.
 
 ## Problem Statement
 
