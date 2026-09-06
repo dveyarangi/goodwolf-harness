@@ -35,6 +35,14 @@ The same restatement happens elsewhere: `/verify` restates repair-and-report tha
 `TICKET-FORMAT` owns; `/plan` and `/ticket` both carry slicing rules. Restatement is how two sites
 drift apart without either being edited.
 
+**2026-09-06, `/maintain` — observed drift.** The queue's `Current stage` line asserted "entry
+contract at v2" and told the next session to check its first line said v2, while
+[AGENTS.md](../../AGENTS.md), which owns the entry contract and its version, was already at v3. Both
+the restatement and the bump landed in `0538387`, so the copy was wrong from the commit that made
+it: no edit drifted them apart, the second home was never true. Repaired by deleting the assertion
+and pointing at the owner; the resume instruction keeps its function without naming a version. This
+is the class of defect this ticket exists for, caught in a record rather than a skill.
+
 This ticket also hosts the canonical accounts that
 [01-0012](./01-0012-hierarchy-coherent.md) and [01-0014](./01-0014-scope-coherent.md) deliberately
 left unhosted.

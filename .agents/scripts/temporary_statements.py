@@ -98,10 +98,17 @@ def main(argv: list[str], root: Path | None = None) -> int:
     root = root or Path(__file__).resolve().parents[2]
     if argv[:1] == ["--remove"]:
         return _removal(root, argv[1:])
-    if not argv:
+    if argv[:1] in (["--help"], ["-h"]):
+        print(_USAGE)
+        return 0
+    if not argv or any(operand.startswith("-") for operand in argv):
         print(_USAGE)
         return 2
-    surveyed = survey(root, argv)
+    try:
+        surveyed = survey(root, argv)
+    except Refused as refusal:
+        print(f"refused, nothing surveyed: {refusal}")
+        return 2
     print(json.dumps(surveyed.as_record(), indent=2))
     return 1 if surveyed.diagnostics else 0
 
@@ -243,7 +250,11 @@ def _attribute_problems(root: Path, statements: list[Statement]) -> list[Diagnos
 
 
 def _records_in(root: Path, paths: list[str]) -> list[str]:
-    """The markdown records a declared scope covers, in a stable order."""
+    """The markdown records a declared scope covers, in a stable order.
+
+    A path naming nothing is refused rather than contributing no records: a scope the caller
+    believes it declared and this tool silently dropped would report as a clean, complete scan.
+    """
     found: list[str] = []
     for path in paths:
         selected = root / path
@@ -255,6 +266,8 @@ def _records_in(root: Path, paths: list[str]) -> list[str]:
             ]
         elif selected.is_file():
             found.append(selected.relative_to(root).as_posix())
+        else:
+            raise Refused(f"{path} is not a record or directory of this repository")
     return sorted(set(found))
 
 

@@ -228,6 +228,34 @@ class CommandLine(RepositoryCase):
         self.assertEqual(1, status)
         self.assertEqual("unbound", json.loads(said)["diagnostics"][0]["problem"])
 
+    def test_a_scope_naming_something_that_is_not_there_is_refused_not_reported_clean(self) -> None:
+        status, said = self.run_tool("docs", "docs/typo")
+
+        self.assertEqual(2, status)
+        self.assertIn("refused", said)
+        self.assertIn("docs/typo", said)
+
+    def test_a_refused_scope_reports_no_survey_at_all(self) -> None:
+        """A partial scope must not surface as a result a maintainer could read as complete."""
+        status, said = self.run_tool("docs/typo")
+
+        self.assertEqual(2, status)
+        self.assertNotIn('"statements"', said)
+
+    def test_asking_for_usage_is_answered_not_scanned_as_a_scope(self) -> None:
+        status, said = self.run_tool("--help")
+
+        self.assertEqual(0, status)
+        self.assertIn("usage", said)
+        self.assertNotIn('"scanned"', said)
+
+    def test_an_unknown_flag_is_a_usage_error_rather_than_an_empty_scan(self) -> None:
+        status, said = self.run_tool("--recurse")
+
+        self.assertEqual(2, status)
+        self.assertIn("usage", said)
+        self.assertNotIn('"scanned"', said)
+
     def test_a_removal_names_its_line_after_the_final_colon_so_drive_letters_survive(self) -> None:
         digest = "sha256:" + hashlib.sha256((self.root / "docs/process.md").read_bytes()).hexdigest()
 
