@@ -50,9 +50,9 @@ in scope and removes the ones whose condition holds.
 <project-local>
 This repository develops the shared dev harness using its own loop. The queue,
 docs/tickets/README.md, owns current state and says where to resume. Decisions live in the owning
-ticket under docs/tickets/. Detailed rules: docs/process.md. Terms: glossary.md.
+ticket under docs/tickets/. Detailed rules: docs/process.md. Terms: docs/glossary.md.
 
 commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report
 
-Installed: /align, /impact, /ticket.
+Installed: /align, /impact, /ticket, /spec, /plan, /implement, /tdd, /improve-comments, /verify.
 </project-local>

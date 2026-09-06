@@ -21,8 +21,8 @@ The shape of a ticket, and where it is named and registered, is
 restate none of it here.
 
 - **Active tickets** live flat in `docs/tickets`; **completed tickets** move to
-  `docs/tickets/done/` (all acceptance boxes checked). The filename never
-  changes, only the folder.
+  `docs/tickets/done/` (all acceptance boxes checked, including `/verify`). The
+  filename never changes, only the folder.
 - The **parent** is referenced by its own path — a spec, or a coarser ticket;
   child tickets do not duplicate it.
 
@@ -161,16 +161,10 @@ Criteria state observable behavior; code shape is the RFC's
 
 ### 6. Completing a ticket
 
-When every acceptance box is checked, move the ticket to `docs/tickets/done/`
-mechanically, per [one basename per work item](./TICKET-FORMAT.md#one-basename-per-work-item)
-— the move repairs the citations that pointed at it.
+When every acceptance box is checked, including `/verify`, move the ticket to
+`docs/tickets/done/` mechanically, per [one basename per work item](./TICKET-FORMAT.md#one-basename-per-work-item)
+— the move repairs the citations that pointed at it. Do not close without that
+run.
 
 Do NOT close or modify the parent; a parent ticket completes on its own
 acceptance criteria, not by its children emptying out.
-
-<project-local>
-Tickets live under `docs/tickets/`; the queue is `docs/tickets/README.md`.
-Naming, status, ticket shape, and how to amend the queue table:
-[TICKET-FORMAT.md](./TICKET-FORMAT.md). The `breakdown` switch is in
-`AGENTS.md`'s `<project-local>` block.
-</project-local>

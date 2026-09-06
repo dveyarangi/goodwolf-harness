@@ -1,6 +1,6 @@
 # Development process
 
-<temporary until="/pacer is installed" ticket="docs/tickets/01-0010.0040-pacer.md">
+<temporary until="/pacer is installed" ticket="docs/tickets/01-0020-pacer.md">
 This document is a suggestion of sequence, not a rulebook. The sequence and the scoping of work are the [pacer's](pacer.md) concern, and the pacer owns this document once it exists. Each step's rules belong in the step's own skill and move there as the skill is installed. Where the installed skills or the [entry file](../AGENTS.md) differ from what follows, they are right.
 </temporary>
 
@@ -14,11 +14,14 @@ The loop itself, its stages, skills and human checkpoints, the autonomy switches
 - A ticket owns the intended outcome, acceptance criteria and unresolved decisions. The [queue](tickets/README.md) owns ordering and delivery status.
 - `/align` resolves decisions against evidence and records them in the owning ticket. Accepted architecture belongs in `architecture.md`, created when a design is settled.
 - An implementation RFC belongs to a ticket, under `docs/rfc/` with the same basename. It follows agreement on the boundaries it implements; a research finding or an unsettled proposal is not an accepted implementation plan.
-- Implementation follows the RFC when the work needs one. Verification tests the ticket's observable criteria and returns discrepancies for repair or alignment.
+- Implementation follows the RFC when the work needs one. `/verify` is the
+  verification of landed work, not only documentation or shape review. The
+  project's check set lives in [Verification](#verification); skills link it,
+  they do not inline commands.
 - `/maintain` owns tree maintenance as defined below, including all responsibilities of `/denoise` and `/sync-arch`, and archiving. Its invocation triggers and implementation remain under alignment.
 - Sessions preserve the handoff; `/recall` checks maintained documents and current files rather than treating session history as delivery state.
 
-The accepted bootstrap selection uses `/ticket`, `/plan`, `/spec` and `/verify` for the former `/to-tickets`, `/plan-impl`, `/to-spec` and `/review-impl`, and consolidates `/denoise` and `/sync-arch` under `/maintain`. `/align`, `/impact` and `/ticket` are installed under those names.
+The accepted bootstrap selection uses `/ticket`, `/plan`, `/spec` and `/verify` for the former `/to-tickets`, `/plan-impl`, `/to-spec` and `/review-impl`, and consolidates `/denoise` and `/sync-arch` under `/maintain`. `/align`, `/impact`, `/ticket`, `/spec`, `/plan`, `/implement`, `/tdd`, `/improve-comments` and `/verify` are installed under those names.
 
 ## Naming
 
@@ -45,6 +48,14 @@ Do not rewrite a governing rule, weaken a validator or relax acceptance criteria
 Example: restoring a dependency direction explicitly required by the architecture can be repair-and-report. Deciding that two modules should exchange responsibilities changes their boundary and requires alignment.
 
 This section owns the current policy. Its decision record is in the [shared-harness ticket](tickets/01-0010-dev-harness-shared-and-local.md#resolutions-and-constraints). Routing the policy through installed skills and checking its delivery across hosts remain implementation work.
+
+## Verification
+
+`/verify` is the verification of landed work: the ticket's observable criteria, the RFC if any, governing docs, and every check in this project's verification set. Match, leakage and doc-caused weirdness stay in that pass. A failed check remains unfinished work. Discrepancies follow [autonomy and repair](#autonomy-and-repair).
+
+The verification set is this project's typechecker, tests, and any other commands required of landed work. `/implement` and `/verify` link here. They do not inline those commands. `/implement` may run named checks during the work; that run is not `/verify`. `/tdd` still owns red-green.
+
+**This project:** no typechecker and no test suite. The set is empty. `/verify` uses the ticket, RFC (if any), governing docs, and the work.
 
 ## Mechanisms and skills
 

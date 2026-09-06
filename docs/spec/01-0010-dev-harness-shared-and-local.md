@@ -15,7 +15,7 @@ The [comparison](../../audit-2026-09-05/REPORT.md) also found dependencies outsi
 
 Maintain one accepted shared dev harness. Projects can contribute shared improvements to core and pull accepted revisions while preserving their project-local content. Begin with shared and local instructions in one installed skill file. Treat skills as instruction parts of mechanisms whose consumers, checks and records are maintained together.
 
-Use the harness's own development loop to evolve it. `/align` remains the entry, reentry and human-decision procedure at any stage. The wheel uses `/ticket` and `/plan`; migration from the existing skill names is part of the work. This effort develops a spec before implementation decomposition. General routing through `/impact` is under alignment; the recent impact assessment supports spec development for this effort because update behavior in existing conflict cases is still undefined.
+Use the harness's own development loop to evolve it. `/align` remains the entry, reentry and human-decision procedure at any stage. This effort develops a spec before implementation decomposition. This harness is itself developed that way: `/spec` develops this spec, then `/ticket` slices the remaining work, including the delivery-ring skills, from it.
 
 ## User Stories
 
@@ -29,10 +29,11 @@ Use the harness's own development loop to evolve it. `/align` remains the entry,
 8. As an agent following a skill, I want current instructions separated from evolution records, so I can act on current rules and follow evidence when maintaining or challenging them.
 9. As a developer, I want governing principles and sufficiently specified load-bearing seams, so I can implement the harness or a consuming system without inventing missing architectural decisions.
 10. As a project owner, I want the relevant rule slices deliberately selected and their delivery and application observable, so expected rules do not silently disappear from the development process.
+11. As a harness owner, I want work on this harness to complete the delivery ring — `/plan`, `/implement`, `/verify`, `/maintain` — and move a ticket whose criteria are met, including `/verify`, to `done/`, so finished work is not left in the active queue.
 
 ## Governing principles — for alignment
 
-The user requires governing principles to apply both to harness development and to software developed using it. The qualities below are requested; their operational definitions are proposed for alignment. The [glossary](../../glossary.md) owns terminology, including the proposed definition of a load-bearing seam.
+The user requires governing principles to apply both to harness development and to software developed using it. The qualities below are requested; their operational definitions are proposed for alignment. The [glossary](../glossary.md) owns terminology, including the proposed definition of a load-bearing seam.
 
 | Principle | Proposed obligation and evidence |
 |---|---|
@@ -63,6 +64,12 @@ The applicable rule set and the current slices must be deliberately selected and
 Authority and delivery are separate: putting text in Tier 1 does not grant it new authority. Occasion-specific generated data must remain distinguishable from governing instructions. If a host cannot expose a required observation, report that limitation and the resulting verification gap; do not declare equivalent rule application from filesystem checks.
 
 ## Implementation Decisions
+
+### Harness loop on itself — agreed 2026-09-06
+
+Spec-first and completing the delivery ring are one path. `/spec` develops this spec in place. `/ticket` then slices remaining work from it, including `/plan`, `/implement`, `/verify` and `/maintain`. Each slice is planned, implemented, verified, and maintained; a ticket whose criteria are met, including `/verify`, moves to `done/` as part of that close. `/plan` is planned by reading `/plan`. Ring-skill tickets are not minted before this spec says they are the work.
+
+Until `/maintain` is installed, the `done/` move follows the ticket format, and only after `/verify` has been run on that ticket.
 
 ### Spec lifecycle and issue routing — proposals under alignment
 
@@ -107,6 +114,7 @@ Verification must demonstrate observable behavior. The following are draft accep
 | A required rule slice is omitted, stale or emitted but not delivered | The relevant observation identifies the discrepancy or explicitly leaves delivery unknown; the run is not certified compliant solely from a successful hook or existing file. |
 | Maintenance is requested for an RFC rather than the whole tree | Every mechanism applicable to the declared scope is assessed under its actual rules, relevant dependencies are accounted for, and the report does not certify unchecked parts of the tree. |
 | A captured HITL ticket proves to require a spec and several tickets | The original issue and decisions remain traceable through the change of shape; scope transfer is not reported as completed delivery. Exact transition mechanics remain open. |
+| A ticket's acceptance criteria are all checked, including `/verify` | The ticket is in `docs/tickets/done/` with citations repaired. `done/` without that run is a failed close. |
 
 Prior evidence includes the audit and [isolated Life probes](../research/life-harness-findings.md). Those probes expose useful failure cases; they do not verify a dev-harness implementation. The selected seams, checks and live-host verification procedure remain to be agreed.
 
@@ -114,6 +122,42 @@ Prior evidence includes the audit and [isolated Life probes](../research/life-ha
 
 Wholesale adoption of Life's operating policies, unrelated changes to consuming products, and general queue machinery without a demonstrated need in this harness. Queue requirements may enter scope when concrete cases justify them.
 
-## Further Notes
-
 The [queue](../tickets/README.md) owns the current step. Bootstrap suite membership and source variants are accepted in the owning ticket. Broader open design includes operational principle definitions, load-bearing seams, observable rule delivery, local exceptions, detailed ownership, proposal and pull behavior, activation in sessions, maintenance representation and canonical layout. The glossary distinguishes unresolved issues from the documents that hold or resolve them. This draft does not resolve them by implication.
+
+## Delivery-ring breakdown — 2026-09-06
+
+Parent of this `/ticket` pass: the agreed loop-completion requirement (story 11 and [Harness loop on itself](#harness-loop-on-itself--agreed-2026-09-06)), not the unaccepted rest of this draft. [01-0020](../tickets/01-0020-pacer.md) is a different contract. **Minted 2026-09-06.**
+
+### Impact
+
+**Main blast radius.** Four children of [01-0010](../tickets/01-0010-dev-harness-shared-and-local.md). `/verify` is installed when there is landed work to review; it does not wait on `/implement`. A ticket is not moved to `done/` until `/verify` has been run. Catalog, `AGENTS.md` installed-list, and renamed callers change per slice. `/plan` must call `/impact`. `/maintain` enumerates `<temporary>` blocks.
+
+**Hidden edges.** `/maintain` has no source file (denoise + sync-arch plus the `<temporary>` enumerator); composition is still open on 0010. `/implement` and `/verify` still name `/tdd`, `/improve-comments`, `/review-impl`, `/sync-arch`; adapt per slice. The rest of this draft (principles, distribution, local overrides) is not accepted and is not sliced here.
+
+**Leave alone.** [01-0020](../tickets/01-0020-pacer.md), `/edge`, `/recall`, the remaining selected corpus, spec acceptance.
+
+**Recommendation.** Proceed, narrowed to the four ring skills.
+
+1. **Title:** Install `/plan`.
+   **Interaction:** HITL.
+   **Depends on:** [01-0010.0035](../tickets/01-0010.0035-install-spec.md) (the spec and `/spec`).
+   **Parent scope covered:** story 11; selection `/plan`; `/plan` calls `/impact`.
+   **Basename:** `01-0010.0040-install-plan.md`.
+
+2. **Title:** Install `/implement`.
+   **Interaction:** HITL.
+   **Depends on:** slice 1 (an RFC from `/plan`'s first use).
+   **Parent scope covered:** story 11; selection `/implement`.
+   **Basename:** `01-0010.0050-install-implement.md`.
+
+3. **Title:** Install `/verify`.
+   **Interaction:** HITL.
+   **Depends on:** landed work to review ([01-0010.0035](../tickets/01-0010.0035-install-spec.md) or an earlier landed slice); not slice 2.
+   **Parent scope covered:** story 11; selection `/verify`; repair-and-report.
+   **Basename:** `01-0010.0060-install-verify.md`.
+
+4. **Title:** Install `/maintain`.
+   **Interaction:** HITL — decision-bearing: compose denoise + sync-arch and the `<temporary>` enumerator; first use is a paired close, not a whole-tree sync.
+   **Depends on:** slice 3.
+   **Parent scope covered:** stories 7 and 11; selection `denoise`/`sync-arch`; paired ticket+RFC close (RFC → `docs/rfc/done/`).
+   **Basename:** `01-0010.0070-install-maintain.md`.

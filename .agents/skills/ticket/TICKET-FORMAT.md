@@ -36,10 +36,11 @@ A ticket and its RFC share a basename. Cite by slug through a relative link;
 add the `done/` segment when the target completes. The filename never
 changes, only the folder.
 
-When every acceptance box is checked, move the ticket to
-`docs/tickets/done/` and repair the citations that pointed at it. A paired
-close (ticket + RFC) is one pass. There is no mover script yet; do the move
-and the citation repair together by hand.
+When every acceptance box is checked, including `/verify`, move the ticket to
+`docs/tickets/done/` and its RFC to `docs/rfc/done/`, and repair the
+citations that pointed at them. A paired close (ticket + RFC) is one pass.
+There is no mover script yet; do the move and the citation repair together
+by hand. `/maintain` implements that mover.
 
 Artifacts predating this keep their names.
 
@@ -119,6 +120,8 @@ ticket carries that fact. Older tickets use `Legacy id:` / `RFC:` /
   align.
 - Check a box only for work that satisfied it; a criterion satisfied early is
   checked with a date.
+- Every ticket includes a `/verify` criterion. A ticket is not Done until
+  `/verify` has been run against it. Do not move to `done/` without it.
 
 ### Conventions
 

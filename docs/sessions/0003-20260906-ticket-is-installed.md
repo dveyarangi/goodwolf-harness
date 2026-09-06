@@ -18,7 +18,7 @@ Opened in Cursor; the entry contract arrived at v2. Confirmed `/align` and `/imp
 - One real slice minted through `/ticket`, with `/impact` on the split and breakdown approved → [01-0010.0030](../tickets/01-0010.0030-install-ticket.md).
 - Natural-language route to `/align` (a request to discuss an unresolved harness decision without naming the skill) → [01-0010.0020](../tickets/01-0010.0020-live-alignment-across-hosts.md).
 - `/impact` does not yet recommend spec / ticket / RFC / re-slice → parent, core change owed with `/impact`.
-- Remaining bootstrap (spec/plan/implement/verify/maintain and the rest of the selected corpus), the pacer, `/edge` → parent and [01-0010.0040](../tickets/01-0010.0040-pacer.md).
+- Remaining bootstrap (spec/plan/implement/verify/maintain and the rest of the selected corpus), `/edge` → parent. The pacer → [01-0020](../tickets/01-0020-pacer.md).
 
 ## Session through the advise questions
 

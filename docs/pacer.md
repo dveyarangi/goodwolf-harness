@@ -84,4 +84,4 @@ Different parts of one project can have different maturity. A new subsystem in a
 
 ## Context
 
-[Harness spec](spec/01-0010-dev-harness-shared-and-local.md), [glossary](../glossary.md), [development process](process.md), and [owning harness work](tickets/01-0010-dev-harness-shared-and-local.md).
+[Harness spec](spec/01-0010-dev-harness-shared-and-local.md), [glossary](glossary.md), [development process](process.md), and [owning harness work](tickets/01-0010-dev-harness-shared-and-local.md).

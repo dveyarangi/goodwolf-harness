@@ -50,13 +50,13 @@ Most repos have a single context:
 └── src/
 ```
 
-Create files lazily — only when you have something to write. If no `glossary.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.
+Create files lazily — only when you have something to write. If no `docs/glossary.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.
 
 ## During the session
 
 ### Challenge against the glossary
 
-When the user uses a term that conflicts with the existing language in `glossary.md`, call it out immediately. "Your glossary defines 'cancellation' as X, but you seem to mean Y — which is it?"
+When the user uses a term that conflicts with the existing language in `docs/glossary.md`, call it out immediately. "Your glossary defines 'cancellation' as X, but you seem to mean Y — which is it?"
 
 This cuts both ways: before *you* propose a name, check the glossary yourself — including its _Avoid_ lists, which are reservations, not suggestions. If every synonym for a concept is avoided, that is a designed constraint telling you which word the project has chosen; work within it rather than proposing around it.
 
@@ -97,10 +97,9 @@ When the user states how something works, check whether the code agrees. If you 
 
 ### Update glossary.md inline
 
-When a term is resolved, update `glossary.md` right there. Don't batch these up — capture them as they happen. Use the format in [GLOSSARY-FORMAT.md](./GLOSSARY-FORMAT.md).
+When a term is resolved, update `docs/glossary.md` right there. Don't batch these up — capture them as they happen. Use the format in [GLOSSARY-FORMAT.md](./GLOSSARY-FORMAT.md).
 
-`glossary.md` should be totally devoid of implementation details. Do not treat `glossary.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
-
+`docs/glossary.md` should be totally devoid of implementation details. Do not treat it as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
 
 ### Update architecture.md inline
 
@@ -136,10 +135,3 @@ Only offer to create an ADR when all three are true:
 If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](./ADR-FORMAT.md).
 
 </supporting-info>
-
-<project-local>
-Glossary is `glossary.md` at the repository root. Current rules are `docs/process.md`; the loop and autonomy switches are `AGENTS.md`; decisions land in the owning ticket under `docs/tickets/`, named per `docs/process.md#naming`; the queue is `docs/tickets/README.md`. Architecture, ADRs and `docs/concerns.md` do not exist yet: create each lazily on first need.
-<temporary until="/edge is installed" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">
-There are no Edge records and no `/edge` to make one; skip the Edge challenge.
-</temporary>
-</project-local>

@@ -3,7 +3,7 @@
 This project is being developed through the same ticket, alignment, RFC, implementation and verification loop it provides to consuming projects.
 
 - [Development process](process.md): the working loop and document ownership.
-- [Harness glossary](../glossary.md): working vocabulary for the harness and its development process.
+- [Harness glossary](glossary.md): working vocabulary for the harness and its development process.
 - [Harness spec — draft](spec/01-0010-dev-harness-shared-and-local.md): intended behavior and concrete cases under alignment.
 - [Pacer — idea](pacer.md): units of work, progression and the live corpus-bootstrap hypothesis.
 - [Delivery queue](tickets/README.md): current work and decisions still open.

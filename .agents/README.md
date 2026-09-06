@@ -29,9 +29,15 @@ Which links are actually required is untested. Codex needs none; Cursor document
 
 ## What is installed
 
-Bootstrap slices [01-0010.0020](../docs/tickets/01-0010.0020-live-alignment-across-hosts.md) and
-[01-0010.0030](../docs/tickets/01-0010.0030-install-ticket.md): `align` (with its ADR, ARCH, EDGE
-and GLOSSARY format shelf), `impact`, and `ticket` (with `TICKET-FORMAT.md`), from Meteoscape with
-the deltas accepted in the [source selection](../docs/tickets/01-0010-dev-harness-shared-and-local.md#bootstrap-corpus-selection).
+Bootstrap slices [01-0010.0020](../docs/tickets/01-0010.0020-live-alignment-across-hosts.md),
+[01-0010.0030](../docs/tickets/01-0010.0030-install-ticket.md),
+[01-0010.0035](../docs/tickets/01-0010.0035-install-spec.md),
+[01-0010.0040](../docs/tickets/01-0010.0040-install-plan.md),
+[01-0010.0050](../docs/tickets/01-0010.0050-install-implement.md), and
+[01-0010.0060](../docs/tickets/01-0010.0060-install-verify.md): `align` (with its ADR, ARCH, EDGE
+and GLOSSARY format shelf), `impact`, `ticket` (with `TICKET-FORMAT.md`), `spec`, `plan`,
+`implement`, `tdd` (with its five files), `improve-comments`, and `verify`, from Meteoscape
+with the Forecast Collector `/plan` body, per the
+[source selection](../docs/tickets/01-0010-dev-harness-shared-and-local.md#bootstrap-corpus-selection).
 
 The pre-audit July corpus is kept under [`legacy/skills`](../legacy/skills/) as evidence only. Nothing loads it.

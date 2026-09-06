@@ -28,11 +28,17 @@ Consolidate the existing dev skill family into the requested canonical home, aft
 - **2026-09-05, user:** anything that can be done mechanically should be fixed mechanically, including history. Maintainers can write maintenance scripts, and mechanisms must encourage mechanical derivation and fixes from inception. This supersedes the assistant's proposed blanket exemption for frozen historical records and does not adopt Life's archive exemption. The current rule is in [mechanical maintenance](../process.md#mechanical-maintenance).
 - **2026-09-05, user:** spec first; review the existing skills before proceeding. This reaffirms the earlier spec decision and makes spec development the next step, ahead of further queue design. Source review: Meteoscape and Forecast Collector `/to-spec` explicitly cover substantial inception before ticket decomposition and do not queue the spec itself; `/to-tickets` also accepts bounded discussed work without a spec; `/plan-impl` requires an owning ticket for an RFC. The current workspace's older `/to-tickets` assumes a spec, while its `/to-spec` has conflicting output paths. The existing research/alignment tickets remain valid; implementation decomposition follows the harness spec.
 - **2026-09-05, user:** accepted the first bootstrap slice as proposed and decided the root: the harness is the git repository `D:\Dev\AI\agents`, with the installed corpus under `.agents/skills`. `/align` and `/impact` are installed from Meteoscape with the accepted deltas; nothing else is installed or renamed yet.
+- **2026-09-06, user:** mint Install `/spec`. Spec-first and loop completion do not contradict: install `/spec`, use it to develop the spec for completing the delivery ring on this harness, then take the natural course. `/plan` is planned by reading `/plan`. A ticket whose criteria are met moves to `done/` as part of that close. Ring-skill tickets are not pre-minted.
+- **2026-09-06, user:** the pacer is not a child of this ticket. It is [01-0020](./01-0020-pacer.md), parented on [pacer.md](../pacer.md).
+- **2026-09-06, user:** do not close a ticket until `/verify` has been run on it; reviewing is an acceptance criterion. 0020, 0030 and 0035 were reopened; they stay `Partial` until that box is checked.
+- **2026-09-06, user:** 0050 installs the implementation mechanism — `/implement`, `/tdd` (with its files), `/improve-comments` — not the `/implement` skill alone. `/verify` and `/maintain` stay later ring mechanisms.
+- **2026-09-06, user:** `/verify` is the verification of landed work, not only documentation or shape review. `/implement`'s typecheck/suite line is generalized and links the [verification set](../process.md#verification); commands are not inlined in the skill.
+- **2026-09-06, user:** a skill carries `<project-local>` only when it has a fact that would differ in another project using this harness. Harness layout (`docs/tickets/`, `docs/rfc/`, `docs/spec/`, `docs/glossary.md`, the queue, naming) is shared; how to read an autonomy switch from `AGENTS.md` is shared. `/ticket`, `/spec`, `/plan`, `/verify`, and `/align` had none of those local facts; their blocks are removed. The `Pass` line was Forecast Collector's, not imported.
 
 ## Decisions this ticket's align owns
 
 - Spec lifecycle: enduring decisions move to maintained governing documents, specs eventually become history. ~~Who owns maintenance and archiving?~~ **2026-09-05, user: `/maintain` owns all tree maintenance, all `/denoise` and `/sync-arch` responsibilities, and archiving.** It checks all mechanisms against their actual rules and can run at whole-tree, project or RFC scope. Current policy: [tree maintenance](../process.md#tree-maintenance). Exact lifecycle state and implementation design remain open.
-- Issue capture, routing, decomposition and pace: define Tier 1 natural-language triggers, an owner for initially unowned issues, and feedback to earlier stages. The user's `/step` and `/decompose` examples are alternatives to assess, not selected new skills. **2026-09-06, user:** the loop's sequence and the scoping of work are the pacer's concern; [`docs/process.md`](../process.md) is marked preliminary and the pacer is expected to own it; each step's rules move into the step's skill as it is installed. The pacer's core rules are Tier 1: they say what the agent does after `/recall` and what one turn's reply is scoped to. Their content is under alignment in [pacer.md](../pacer.md).
+- Issue capture, routing, decomposition and pace: define Tier 1 natural-language triggers, an owner for initially unowned issues, and feedback to earlier stages. The user's `/step` and `/decompose` examples are alternatives to assess, not selected new skills. **2026-09-06, user:** the loop's sequence and the scoping of work are the pacer's concern; [`docs/process.md`](../process.md) is marked preliminary and the pacer is expected to own it; each step's rules move into the step's skill as it is installed. The pacer's core rules are Tier 1: they say what the agent does after `/recall` and what one turn's reply is scoped to. Their content is under alignment in [pacer.md](../pacer.md); the ticket is [01-0020](./01-0020-pacer.md).
 - Governing principles for the harness and its use in software development; operational definitions and a robust load-bearing-seam test are now the alignment priority. [Draft principles](../spec/01-0010-dev-harness-shared-and-local.md#governing-principles--for-alignment).
 - Observable selection and delivery of rule slices: the user directs Tier 1 strict/meta rules and skill descriptions, Tier 2 routed detail, and occasion-specific generated context supplied by hooks. Cross-host delivery and evidence contracts remain to be defined.
 - ~~Bootstrap suite membership and source variants.~~ **2026-09-05, user: accepted the [bootstrap source selection](#bootstrap-corpus-selection).** Exact instruction adaptations and installation remain to be planned.
@@ -103,6 +109,7 @@ Decided in [01-0010.0020](./01-0010.0020-live-alignment-across-hosts.md) on 2026
 - `/skill-up` documents `<temporary until="...">` alongside `<project-local>`.
 - `/maintain` enumerates `<temporary>` statements in scope and removes the ones whose condition holds.
 - `/ticket` and `/plan` call `/impact` where the entry file says they do.
+- A skill install omits `<project-local>` unless that skill has a project-specific fact. Do not restate harness paths or switch lookups there.
 
 ## First bootstrap delivery ticket — proposed breakdown
 
@@ -136,6 +143,26 @@ Decided in [01-0010.0020](./01-0010.0020-live-alignment-across-hosts.md) on 2026
 
 **Remaining bootstrap scope:** subsequent tickets can extend the same proven entry/delivery boundary to spec/ticket/planning, implementation/review, maintenance, and the remaining selected capabilities. This pass does not claim to have decomposed or approved those later tickets. If the first slice's delivery decisions reveal materially separate contracts, refine this proposed ticket before its RFC rather than silently broadening it.
 
+## Second bootstrap delivery — 2026-09-06
+
+**Status:** ~~Five-slice ring-then-spec, awaiting approval.~~ **Minted as [01-0010.0035](./01-0010.0035-install-spec.md).** Spec-first and loop completion are one path; `/plan` is planned by reading `/plan`.
+
+### Impact
+
+**Main blast radius.** One child: install `/spec` and use it once on the existing harness spec so that spec requires completing the delivery ring here. Catalog, `AGENTS.md` installed-list, and `.agents/README.md` change when that ticket is implemented. `/ticket` → `/plan` → `/implement` → `/verify` → `/maintain` for the ring skills are sliced from that spec, not from this pass.
+
+**Hidden edges.** The draft at `docs/spec/01-0010-dev-harness-shared-and-local.md` already exists; first use develops it, it does not start a second spec. Source `to-spec` still says `/to-tickets` and `docs/` — those names are this install's adaptations. [01-0020](./01-0020-pacer.md) stays Planned.
+
+**Leave alone.** `/plan`, `/implement`, `/verify`, `/maintain` files; pacer runtime; `/edge`; local-override mechanism; `/impact`'s still-owed shape recommendation; source projects.
+
+**Recommendation.** Proceed. One slice, position `0035`.
+
+1. **Title:** Install `/spec`.
+   **Interaction:** HITL.
+   **Depends on:** [01-0010.0030](./01-0010.0030-install-ticket.md) minting this breakdown; [01-0010.0020](./01-0010.0020-live-alignment-across-hosts.md) for the entry path.
+   **Parent scope covered:** `/spec` from the selection table; spec-first; loop completion as spec content.
+   **Basename:** `01-0010.0035-install-spec.md`.
+
 ## Adoption shortlist — recommendations awaiting alignment
 
 This is the compact decision surface extracted from the [Life research](../research/life-harness-findings.md). Rows marked agreed link to the current policy; the other recommendations remain undecided. Resolve one question at a time.
@@ -154,7 +181,7 @@ The autonomy/repair policy, mechanism concept, current/history separation and me
 
 ## Idea — pacer
 
-→ [Pacer](../pacer.md). Moved to its own document at the user's request, 2026-09-05. It now includes the required unit-of-work definition and a hypothesis for the current bootstrap step; neither a pacer skill nor the hypothesis is adopted by this move.
+→ [Pacer](../pacer.md). Moved to its own document at the user's request, 2026-09-05. The delivery ticket is [01-0020](./01-0020-pacer.md), not a child of this one.
 
 ## Derived work — Life basis and scope decision
 
