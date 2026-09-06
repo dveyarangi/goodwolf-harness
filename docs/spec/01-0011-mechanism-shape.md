@@ -12,6 +12,15 @@ is read **in the skill**, not in the doc; the three properties are **not three c
 but three rules at different altitudes; and the **first mechanism declared is `/mechanism`
 itself**, then `/maintain`, then `/ticket`. The problem statement and its evidence are unchanged.
 
+**Amended again 2026-09-07** during that ticket's `/plan`, on the user's decision, after Life was
+read directly rather than through this spec's summary of it. One change: **the register is derived
+and no file holds it**, superseding *the register is `.agents/README.md`*. Two corrections of fact
+also land here — Life's `/mechanism` says an instruction file is *"usually a skill, and there may
+be several"*, so one-instruction-file-per-mechanism is this project's tightening rather than
+Life's practice restated; and Life keeps `skills` as a **separate mechanism** with `/skill-up` as
+its instruction file, which confirms this spec's *`/skill-up` is not this* from the other estate's
+own structure rather than by assertion.
+
 Acceptance covers the shape, the three homes, injection, the derived index and the
 one-mechanism scope of the first build. It does not settle whether the queue's rendered table is
 committed — that reasoning was taken from a tree with wake hooks this harness lacks, and the
@@ -281,10 +290,12 @@ accretion this spec exists to stop.
   mechanism work; it belongs to the skill that owns the entry.
 - **One instruction file per mechanism** *(the user, 2026-09-06)*. A mechanism's own instruction
   file is one skill. Rules it needs in skills it does not own are injected pointers back to that
-  skill, never second instruction files. Life's register lists several surfaces per mechanism and
-  its own docs make the same distinction in prose — *"`/maintain` is this mechanism's own
-  instruction file"*, beside two injected pointers — so this states as a rule what that practice
-  already separates.
+  skill, never second instruction files. **Corrected 2026-09-07 on a direct read:** Life's
+  `/mechanism` states the opposite — *"usually a skill, and there may be several"* — and its
+  register lists several surfaces per mechanism. This is therefore a tightening this project took,
+  not a rule Life's practice already separated, and it stands on the user's decision alone. What
+  Life does supply is the consequence we adopted: a mechanism reaches skills it does not own by
+  **injection**, not by a second instruction file.
 - **Moments, each with a kind.** A mechanism's doc lists every moment at which a person acts on it
   and what instructs them there. A moment with no instruction file carries which kind of absence it
   is: *elsewhere* (instructed by another mechanism, which is named), *embedded* (instructed, but
@@ -378,13 +389,22 @@ accretion this spec exists to stop.
   their home.
 - **`/skill-up` is not this.** It governs how a skill's text is written; `/mechanism` governs the
   system and its lifecycle. Both exist. `/skill-up` remains owed by `01-0010.0100`.
-- **The register is `.agents/README.md`** *(the user, 2026-09-06)*. It already lists installs
-  against their authorising slices and was named in this spec as the register in embryo; making it
-  the register means marking the seam it already straddles — the shared shape travels, and this
-  project's rows sit in a `<project-local>` block, the convention this harness already uses for
-  exactly this split. It is not moved to `docs/`: a reader routed to a mechanism's doc is
-  installing, amending or debugging it, and splitting the apparatus across two trees costs more
-  than the clean-copy problem the move would solve.
+- ~~**The register is `.agents/README.md`** *(the user, 2026-09-06)*.~~ **Superseded 2026-09-07 by
+  the user: the register is derived, and no file holds it.** The mechanism directories are the
+  records; a register is their index; and this spec's own index rule says an index is derived on
+  request and never committed beside its records. Committing one would be
+  [01-0011.0040](../tickets/01-0011.0040-queue-derived-index.md)'s defect one level up, shipped by
+  the slice whose job is to establish the rule against it.
+  **The new evidence is Life's own.** Its register is hand-written because it is a *migration
+  ledger* — twenty-three mechanisms, roughly four with directories, and rows exist for mechanisms
+  that have no folder to walk (`M01 | doc: —`). Life records the writer it declined and the
+  condition that reverses the decline: *"roughly half the rows having folders."* This tree has no
+  such backlog — every mechanism gets its directory in the slice that declares it — so that
+  condition is met at 100% on day one, and the enumeration is `.agents/mechanisms/*/` itself.
+  Consequence: `.agents/README.md` keeps loaders, layout and symlink recovery, all of which
+  travel, and needs **no `<project-local>` block**. Its install narrative was a copy of the queue
+  and the tickets, and its roster a second home to `AGENTS.md`'s `Installed:` line — which is
+  deleted in the same pass, the host listing the skill set every session.
 - **First build is `/mechanism`, then `/maintain`, then `/ticket`.** `/mechanism` is declared by
   its own shape; `/maintain` is declared by running it; `/ticket` carries paired close, whose rules
   move to one home and are injected into `/maintain`, and whose listing is eligible-but-unarchived
@@ -426,8 +446,8 @@ Hooks and wake-time delivery: this harness has none, and Tier 1 delivery here me
 Per-mechanism install, uninstall and extract scripts, which Life's own evidence warns against
 building per concept before a second one needs them — and which this harness has none of, so the
 shared-part ownership rule is stated and not yet enforced. A register as a *separate* artifact,
-which is a different thing from the register itself: `.agents/README.md` is that register, in
-scope, and a fourth file listing mechanisms is a second home for what it already knows. `/edge`
+which is now moot: **no file holds the register at all**, and a renderer derives it from the
+mechanism directories on request — see *Implementation Decisions*, amended 2026-09-07. `/edge`
 and `docs/edge/`, owned by `01-0010.0100`. The pacer, and `docs/process.md`'s final disposition,
 owned by `01-0020`. Migrating every existing mechanism: this spec builds three and states what
 the next must prove.
