@@ -64,6 +64,21 @@ rather than a footnote — with the first one **corrected by the user**: what th
 follows from the matrix and is not fixed ahead of it. Announcements are the evidence case, not the
 thing being built.
 
+**Fifth pass, and a decision it turned into** *(the user, 2026-09-07)*: **the glossary splits.**
+`.agents/glossary.md` takes the method's vocabulary and travels with core; `docs/glossary.md`
+keeps this project's own domain, which a recipient owns outright. The pass found that core skills
+are written in a vocabulary living in the instance half — a recipient replaces `docs/` whole — and
+that **the corpus already assumed the split**: `/align`, `/tdd`, `/implement` and
+`GLOSSARY-FORMAT` all mean the *domain* glossary, while only `/maintain` and `AGENTS.md` meant the
+harness's own. One file has been playing both roles unnoticed, because this project's domain *is*
+the harness. The placement was never argued either — `911b5b1` moved the file from root into
+`docs/` in one clause of an install commit, a day before *Core and instance* existed. Taken inside
+[01-0011.0010](01-0011.0010-mechanism-declared.md) rather than deferred, because its stage 1 adds
+**Part** and a new core term landing in the instance half would be the defect committed while
+describing it. What it does not fix — every other core skill's reliance on instance-half
+documents — stays [01-0017](01-0017-io-graph-coherent.md)'s, which now carries the glossary as a
+worked example rather than a precedent.
+
 **How this queue is ordered** *(the user, 2026-09-07)*: the harness is self-building, so the governing consideration is which slice hands the next one a tool that makes the harness work better — not dependency order alone, and not size. A slice that only describes something ranks below one that gives the next slice a script, a check or a rule it can lean on. The pacer owns this once it exists ([01-0020](01-0020-pacer.md)); until then it is stated here and applied by hand. Open idea, unowned: `/impact` could name the *error classes that stay uncaught* if a slice is not built, and the queue could rank by which noise is loudest — a candidate extension of [01-0010.0080](01-0010.0080-impact-work-shape.md), not yet its scope.
 
 **Working documents:** [Harness spec — draft](../spec/01-0010-dev-harness-shared-and-local.md), [working glossary](../glossary.md), and [pacer.md](../pacer.md), which holds the pacer's core rules resolved so far until [01-0020](01-0020-pacer.md) carries them. `docs/process.md` is preliminary under a `<temporary>` block; the pacer owns it once it exists. Local overrides are no longer deferred: [01-0010.0110](01-0010.0110-project-facets-injected.md) owns them. The spec is not accepted; [01-0010.0035](done/01-0010.0035-install-spec.md)'s RFC is [the install plan](../rfc/done/01-0010.0035-install-spec.md).

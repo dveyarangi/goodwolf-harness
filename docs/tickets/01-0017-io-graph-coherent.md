@@ -18,6 +18,37 @@ the mechanism spec existed. Its questions — who produces a thing, who consumes
 step rather than a sibling of the rule refactors. It is not `Done (split)`: nothing was split, and
 the work survives whole. What changed is its vocabulary and its place in the order.
 
+## A recipient receives skills written in a vocabulary they do not receive
+
+**Surfaced 2026-09-07** during [01-0011.0010](./01-0011.0010-mechanism-declared.md)'s fifth
+planning pass, and it belongs here by subject rather than by where it was found.
+
+`/mechanism` will use **Mechanism**, **Moment**, **Doc**, **Evidence**, **Part** and **Tier**
+without defining any of them, which is correct: [the glossary](../glossary.md) owns them,
+[`/skill-up`](../../.agents/skills/skill-up/SKILL.md) says a fact one skill states is referenced
+rather than restated, and [AGENTS.md](../../AGENTS.md) explicitly permits core to name
+`docs/glossary.md` as a path convention.
+
+But the same rule says a recipient replaces `docs/` **whole**. So a recipient receives a core skill
+written in a vocabulary their glossary does not contain. The naming-a-convention exemption does not
+cover it: what is exempt is naming the path; what is missing is the content behind it.
+
+**Resolved for the glossary, and only for the glossary** *(the user, 2026-09-07)*, in
+[01-0011.0010](./01-0011.0010-mechanism-declared.md) — because that slice adds **Part**, and a new
+core term landing in the instance half would be the same defect committed while describing it.
+`.agents/glossary.md` takes the method's vocabulary and travels; `docs/glossary.md` keeps the
+project's domain. The corpus already assumed that split: `/align`, `/tdd`, `/implement` and
+`GLOSSARY-FORMAT` all mean the domain glossary, and only `/maintain` and `AGENTS.md` meant the
+harness's. Life keeps the same split by construction.
+
+**What remains here is the general case, and it is most of it.** Every other core skill still
+leans on instance-half documents: `/maintain` cites `docs/process.md`, `docs/architecture.md` and
+`docs/research/maintenance-findings.md`; `/implement` and `/impact` cite the process. Each is
+owned by its own ticket as a repair, but *what core may lean on at all* — and whether the answer
+is a travelling counterpart, a local block, or an accepted limit stated out loud — is this
+ticket's align to weigh. The glossary is now the worked example of one answer, not a precedent
+that settles the rest.
+
 ## Impact
 
 **2026-09-06, at minting.** Touches all eleven `SKILL.md` files — none of which declares a source or
