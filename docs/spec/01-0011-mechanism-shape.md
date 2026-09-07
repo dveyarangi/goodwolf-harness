@@ -21,6 +21,13 @@ Life's practice restated; and Life keeps `skills` as a **separate mechanism** wi
 its instruction file, which confirms this spec's *`/skill-up` is not this* from the other estate's
 own structure rather than by assertion.
 
+**Amended a third time 2026-09-07** during that ticket's `/implement`, on the user's decision, on
+reading the installed skill back. One change: **the membership test names its subject** — a
+mechanism is part of how the work gets done, never what the project produces. The question that
+found it was what the tier-1 trigger would do in a recipient project asked to build a feature.
+Recorded in *Implementation Decisions* below; the glossary's **Mechanism** carries it too, since
+the leak was in the definition rather than in the skill.
+
 Acceptance covers the shape, the three homes, injection, the derived index and the
 one-mechanism scope of the first build. It does not settle whether the queue's rendered table is
 committed — that reasoning was taken from a tree with wake hooks this harness lacks, and the
@@ -48,7 +55,7 @@ different clothes:
   maintenance triggers and automation are still to be specified."* The concept was adopted and its
   owner deferred, so its rules accreted where the adoption note was.
 
-The concept is not missing. [The glossary](../glossary.md) defines **Mechanism** — a behavior on
+The concept is not missing. [The glossary](../../.agents/glossary.md) defines **Mechanism** — a behavior on
 which other work relies, together with its instructions, producers, consumers, checks and records —
 and **Skill** as an invocable instruction part of one. Nothing owns the definition, so nothing
 applies it.
@@ -284,10 +291,16 @@ accretion this spec exists to stop.
 
 ## Implementation Decisions
 
-- **Membership test.** Reliance, not code: does something else depend on this as a source of
-  instructions or behavior? A mechanism is a system, never a file — one spans skills, scripts,
+- **Membership test.** A mechanism is part of **how the work gets done** — the development method
+  and its machinery. What the project produces is not one, however much depends on it. Within that
+  subject the test is reliance, not code: does other work depend on this as a source of instruction
+  or behavior about how to work? A mechanism is a system, never a file — one spans skills, scripts,
   records and rules injected into skills it did not write. Writing an *entry* into a record is not
   mechanism work; it belongs to the skill that owns the entry.
+  **Narrowed 2026-09-07** *(the user)*: the earlier wording — *"does something else depend on this
+  as a source of instructions or behavior?"* — was scoped by *reliance, not code* alone, which the
+  tier-1 trigger does not carry to the occasion. In a recipient project it would fire on ordinary
+  product behavior that other code relies on. The subject is now stated ahead of the test.
 - **One instruction file per mechanism** *(the user, 2026-09-06)*. A mechanism's own instruction
   file is one skill. Rules it needs in skills it does not own are injected pointers back to that
   skill, never second instruction files. **Corrected 2026-09-07 on a direct read:** Life's
