@@ -12,7 +12,16 @@ how one is incepted, amended or retired, is [/mechanism](./SKILL.md)'s.
     <slug>.rules.md    the rules file — only if the mechanism injects
 ```
 
-The slug is the directory name, lowercase and hyphenated; every filename repeats it.
+The slug is the directory name, lowercase and hyphenated; every filename repeats it. **No bullet
+declares the rules file** — it is found by that name, so a second statement of it could only
+disagree with the directory.
+
+**The directory holds these two files and nothing else.** Working parts live where the harness
+needs them: skills in `.agents/skills/`, scripts in `.agents/scripts/`, tests in `tests/`. A file
+put here was put here to be read, and nothing reads it, so the check reports it.
+
+The rules file is machine input, read by the installer alone and never at session time. What its
+sections contain is the installer's seam, specified with it.
 
 ## The doc
 
@@ -21,7 +30,6 @@ The slug is the directory name, lowercase and hyphenated; every filename repeats
 
 - **instruction** `<path>` — what it holds
 - **state** always on
-- **rules** `<path>`
 <project-local>
 - **evidence** `<path>`
 - **declared by** `<ticket path>`
@@ -50,9 +58,9 @@ grader has been labelled, not declared.
 
 - **instruction** — backticked repo-relative path to the mechanism's one skill.
   Required, and never the doc itself.
-- **state** — `always on` or `installed`. `always on` means nothing can install or
-  uninstall it, so it has no lifecycle scripts and that absence is a property.
-- **rules** — the rules file. Omitted by a mechanism that injects nothing.
+- **state** — `always on` or `installed`, and nothing else. `always on` means nothing can install
+  or uninstall it, so it has no lifecycle scripts and that absence is a property. It is what tells
+  a reader which way to read the parts table.
 - **evidence** and **declared by** sit in the `<project-local>` block, which a
   recipient replaces, and **both are optional**. An absent **declared by** disables the
   diagnostic that reads it, and the check reports that skip rather than passing

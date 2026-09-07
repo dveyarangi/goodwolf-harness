@@ -70,10 +70,10 @@ the mechanism's own migration ticket. The verdict is per moment, never per mecha
 
 ## Rules, injection and retraction
 
-A rule lives in one file — the mechanism's rules file — one section per rule, each
-naming its target, its anchor, its tier and its authority. A generic core installer,
-never a per-mechanism one, writes delimited and visibly owned blocks into the targets.
-A copy in a target is **installed, never authored**.
+A rule lives in one file — `<slug>.rules.md`, in the mechanism's own directory. Nothing
+reads it at session time: a generic core installer, never a per-mechanism one, writes
+its rules into the targets as delimited and visibly owned blocks, and that is the only
+form in which they reach anyone. A copy in a target is **installed, never authored**.
 
 - Removable as written: retraction leaves the target byte-identical.
 - **No default mode.** A bare invocation refuses.
