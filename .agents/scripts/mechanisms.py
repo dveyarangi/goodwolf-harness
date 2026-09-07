@@ -276,6 +276,7 @@ def _header_problems(root: Path, declared: Declaration) -> list[Diagnostic]:
     return (
         _instruction_problems(root, declared)
         + _state_problems(declared)
+        + _evidence_problems(root, declared)
         + _directory_problems(root, declared)
     )
 
@@ -297,6 +298,13 @@ def _state_problems(declared: Declaration) -> list[Diagnostic]:
         return []
     said = declared.state or "nothing"
     return [Diagnostic(declared.slug, f"the state is {said}, not one of {' or '.join(STATES)}")]
+
+
+def _evidence_problems(root: Path, declared: Declaration) -> list[Diagnostic]:
+    """A mechanism may have no evidence yet; one that names a file must be able to be read back."""
+    if declared.evidence and not (root / declared.evidence).is_file():
+        return [Diagnostic(declared.slug, f"{declared.evidence} does not resolve")]
+    return []
 
 
 def _directory_problems(root: Path, declared: Declaration) -> list[Diagnostic]:

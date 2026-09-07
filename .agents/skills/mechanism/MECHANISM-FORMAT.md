@@ -62,8 +62,9 @@ grader has been labelled, not declared.
   or uninstall it, so it has no lifecycle scripts and that absence is a property. It is what tells
   a reader which way to read the parts table.
 - **evidence** and **declared by** sit in the `<project-local>` block, which a
-  recipient replaces, and **both are optional**. An absent **declared by** disables the
-  diagnostic that reads it, and the check reports that skip rather than passing
+  recipient replaces, and **both are optional** — a mechanism with no evidence yet, or none
+  declared by a ticket, is a legitimate state. Named, each must resolve. An absent **declared by**
+  disables the diagnostic that reads it, and the check reports that skip rather than passing
   quietly.
 
 ## Moments

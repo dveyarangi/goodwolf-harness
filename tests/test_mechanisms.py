@@ -80,8 +80,17 @@ class Declared(RepositoryCase):
             f"{written['grading']}"
         )
 
+    def header(self, bullets: str) -> str:
+        """A header bending only the bullet under test; the rest stays well-formed."""
+        if "**state**" not in bullets:
+            bullets += "- **state** always on\n"
+        return f"# {SLUG} — one line saying what it is\n\n{bullets}"
+
     def checked(self):
         return mechanisms.check(self.root)
+
+    def problems(self) -> list[str]:
+        return [note.problem for note in self.checked().diagnostics]
 
 
 class AWellFormedDeclaration(Declared):
@@ -166,12 +175,6 @@ class TheDeclaringTicket(Declared):
 
 
 class TheInstruction(Declared):
-    def header(self, bullets: str) -> str:
-        """A header bending only the bullet under test; the rest stays well-formed."""
-        if "**state**" not in bullets:
-            bullets += "- **state** always on\n"
-        return f"# {SLUG} — one line saying what it is\n\n{bullets}"
-
     def test_may_not_be_the_doc_itself(self) -> None:
         self.write(DOC, self.doc(header=self.header(f"- **instruction** `{DOC}` — the act\n")))
 
@@ -203,9 +206,6 @@ class AMomentsRow(Declared):
     def moments(self, *rows: str) -> str:
         header = "| moment | instructed by | kind, and why |\n|---|---|---|\n"
         return header + "".join(rows)
-
-    def problems(self) -> list[str]:
-        return [note.problem for note in self.checked().diagnostics]
 
     def test_saying_not_yet_must_name_a_ticket(self) -> None:
         self.write(
@@ -328,9 +328,6 @@ class AMomentsRow(Declared):
 
 
 class TheHeader(Declared):
-    def problems(self) -> list[str]:
-        return [note.problem for note in self.checked().diagnostics]
-
     def test_ends_at_the_first_section_so_prose_cannot_restate_a_bullet(self) -> None:
         hijacked = "- **instruction** `.agents/skills/hijacked/SKILL.md` — in prose\n"
         self.write(DOC, self.doc().replace("Prose nothing parses.", hijacked))
@@ -339,6 +336,24 @@ class TheHeader(Declared):
 
         self.assertEqual(INSTRUCTION, checked.declarations[0].instruction)
         self.assertEqual([], checked.diagnostics)
+
+    def test_names_an_evidence_file_that_exists_when_it_names_one(self) -> None:
+        self.write(
+            DOC,
+            self.doc().replace(
+                "docs/mechanisms/sample-shape.evidence.md", "docs/mechanisms/never-written.md"
+            ),
+        )
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems))
+        self.assertIn("docs/mechanisms/never-written.md", problems[0])
+
+    def test_may_name_no_evidence_at_all(self) -> None:
+        self.write(DOC, self.doc(header=self.header(f"- **instruction** `{INSTRUCTION}`\n")))
+
+        self.assertEqual([], self.checked().diagnostics)
 
     def test_states_one_of_the_two_states_a_mechanism_can_be_in(self) -> None:
         self.write(DOC, self.doc().replace("- **state** always on", "- **state** occasionally on"))
@@ -350,9 +365,6 @@ class TheHeader(Declared):
 
 
 class TheRulesFile(Declared):
-    def problems(self) -> list[str]:
-        return [note.problem for note in self.checked().diagnostics]
-
     def test_is_found_by_its_name_rather_than_by_a_bullet_declaring_it(self) -> None:
         self.write(f"{MECHANISMS}/{SLUG}/{SLUG}.rules.md", "# The rules, one section each\n")
 
@@ -377,9 +389,6 @@ class TheRulesFile(Declared):
 
 
 class TheDoc(Declared):
-    def problems(self) -> list[str]:
-        return [note.problem for note in self.checked().diagnostics]
-
     def test_is_required_by_the_directory_that_should_hold_it(self) -> None:
         (self.root / MECHANISMS / "orphan").mkdir(parents=True)
 
@@ -536,3 +545,4 @@ class TheIndex(Declared):
 
 if __name__ == "__main__":
     unittest.main()
+
