@@ -43,6 +43,8 @@ sections contain is the installer's seam, specified with it.
 
 ## Relies on, and does not own
 
+## What it produces, and who reads it
+
 ## Not yet at the shape
 
 ## What retires this
@@ -50,9 +52,13 @@ sections contain is the installer's seam, specified with it.
 ## What would show it working, graded by someone who did not build it
 ```
 
-Sections appear in this order. All but the two tables are prose and are never parsed —
-but a doc missing the grading section is a diagnostic: a mechanism that names no
-grader has been labelled, not declared.
+Sections appear in this order. All but the two tables are prose and are never parsed — but two
+absences are diagnostics. A doc missing the **grading** section names no grader, and has been
+labelled rather than declared. A doc missing **What it produces, and who reads it** leaves its
+outputs unaccounted: every artifact a mechanism emits or ships names its reader there — a person
+at a stated moment, another mechanism, a script — or the section says why nobody reads it. Who the
+reader is, and whether they are enough, is judgment and never the check's; that the question was
+answered at all is not.
 
 ### Header bullets
 
@@ -63,9 +69,10 @@ grader has been labelled, not declared.
   a reader which way to read the parts table.
 - **evidence** and **declared by** sit in the `<project-local>` block, which a
   recipient replaces, and **both are optional** — a mechanism with no evidence yet, or none
-  declared by a ticket, is a legitimate state. Named, each must resolve. An absent **declared by**
-  disables the diagnostic that reads it, and the check reports that skip rather than passing
-  quietly.
+  declared by a ticket, is a legitimate state. Named, each must resolve; **declared by** especially,
+  because the rule that a `not yet` row may not name this mechanism's own migration ticket compares
+  against it, and an unresolvable one makes that comparison match nothing. An absent **declared
+  by** disables that diagnostic, and the check reports the skip rather than passing quietly.
 
 ## Moments
 

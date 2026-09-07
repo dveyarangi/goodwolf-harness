@@ -66,8 +66,6 @@ Discovery reporting success with zero tests is not verification; the run must sh
 
 ## Mechanisms and skills
 
-What a mechanism is, and what one is made of, is [`/mechanism`](../.agents/skills/mechanism/SKILL.md)'s; the terms are the [glossary](../.agents/glossary.md)'s.
-
 <temporary until="01-0011.0022 is done" ticket="docs/tickets/01-0011.0022-shape-survives-second-mechanism.md">
 Maintenance covers the whole mechanism: whether its instructions still express the agreed behavior, its consumers receive and use them, its checks detect the intended failures, and its records remain consistent with their governing rules. Repair follows the autonomy and repair policy above.
 </temporary>

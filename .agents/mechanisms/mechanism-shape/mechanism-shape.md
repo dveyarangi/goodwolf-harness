@@ -35,7 +35,8 @@ absence is honestly classified, are judgements it records and never makes.
 | retracting them | — | not yet — one installer owns both directions or neither is mechanical, [.0020](../../../docs/tickets/01-0011.0020-rules-one-home.md) |
 | re-checking a mechanism when what governs it has moved | — | elsewhere — re-checking derived work against a changed source is maintenance, `.agents/skills/maintain/SKILL.md` |
 | writing or changing a skill's text | — | elsewhere — a sibling mechanism's subject, and both apply when a skill is an instruction file, `.agents/skills/skill-up/SKILL.md` |
-| finding a mechanism's doc for lifecycle work | — | unowned by design — the directory is a routing table, and looking a path up needs no rule |
+| recording that an installed skill belongs to no mechanism | — | not yet — the shape requires an allowlist and this tree has none, so a skill nothing claims is silent rather than declared, [.0050](../../../docs/tickets/01-0011.0050-shape-checked.md) |
+| finding a mechanism's doc, or asking what is declared at all | — | unowned by design — the directory is a routing table and the index renders it on request; looking something up needs no rule |
 
 ## Install adds, uninstall removes
 
@@ -55,6 +56,22 @@ absence is honestly classified, are judgements it records and never makes.
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 | citation reader | `.agents/scripts/docs_corpus.py` | nobody removable |
 | test harness | `tests/harness.py` | nobody removable |
+
+## What it produces, and who reads it
+
+- **This declaration** — read by whoever amends a mechanism or debugs one, and parsed by the check
+  on every `/verify`.
+- **[The evidence](../../../docs/mechanisms/mechanism-shape.evidence.md)** — read at amend time,
+  by whoever is about to change this doc and needs to know what was already refuted. Never read
+  during ordinary work, which is why it lives outside `.agents/` and is excluded from re-checks.
+- **`--check`'s report** — read by `/verify` through the verification set, and by anyone who runs
+  it. Its exit status is what the set consumes; its JSON is for the person reading a failure.
+- **`--index`'s render** — read on request by someone asking what is declared. **Nothing runs it
+  unasked**, and nothing consumes its output: it exists so the register never becomes a file, and
+  a register nobody asks for is a register nobody needed.
+
+Nothing else is emitted. This mechanism injects no rules, so it has no rules file, and it writes
+no records beyond the mechanism directories that are its records.
 
 ## Not yet at the shape
 

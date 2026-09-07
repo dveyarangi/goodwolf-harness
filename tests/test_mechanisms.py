@@ -65,7 +65,9 @@ class Declared(RepositoryCase):
             "moments": MOMENTS,
             "parts": PARTS,
             "relied_on": RELIED_ON,
-            "grading": "## What would show it working, graded by someone who did not build it\n\n"
+            "produces": "## What it produces, and who reads it\n\n"
+            "The declaration, read by whoever amends this. Nothing else is emitted.\n",
+            "grading":"## What would show it working, graded by someone who did not build it\n\n"
             "The next mechanism declared passes unedited, or the check changes to admit it.\n",
             **replaced,
         }
@@ -75,6 +77,7 @@ class Declared(RepositoryCase):
             f"## Moments\n\n{written['moments']}\n"
             f"## Install adds, uninstall removes\n\n{written['parts']}\n"
             f"## Relies on, and does not own\n\n{written['relied_on']}\n"
+            f"{written['produces']}\n"
             "## Not yet at the shape\n\nThe honest gaps.\n\n"
             "## What retires this\n\nA better shape.\n\n"
             f"{written['grading']}"
@@ -152,6 +155,19 @@ class TheDeclaringTicket(Declared):
         self.assertEqual(1, len(problems))
         self.assertIn("docs/tickets/01-0001-sample.md", problems[0])
         self.assertIn("declared by", problems[0])
+
+    def test_must_resolve_or_the_diagnostic_that_reads_it_silently_never_fires(self) -> None:
+        self.write(
+            DOC,
+            self.doc().replace(
+                "docs/tickets/01-0001-sample.md", "docs/tickets/01-0001-misspelled.md"
+            ),
+        )
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems))
+        self.assertIn("docs/tickets/01-0001-misspelled.md", problems[0])
 
     def test_when_absent_disables_that_check_and_the_skip_is_reported(self) -> None:
         self.write(
@@ -404,6 +420,14 @@ class TheDoc(Declared):
 
         self.assertEqual(1, len(problems))
         self.assertIn("show it working", problems[0])
+
+    def test_must_account_for_what_the_mechanism_produces(self) -> None:
+        self.write(DOC, self.doc(produces=""))
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems))
+        self.assertIn("produces", problems[0])
 
     def test_must_carry_a_moments_table(self) -> None:
         self.write(DOC, self.doc(moments="Every moment here is instructed.\n"))

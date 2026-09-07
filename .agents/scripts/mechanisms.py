@@ -26,6 +26,7 @@ from docs_corpus import cited_record, citations, target_of  # noqa: E402  (path 
 MECHANISMS = ".agents/mechanisms"
 KINDS = ("elsewhere", "embedded", "unowned by design", "not yet")
 GRADING = "## What would show it working"
+PRODUCES = "## What it produces, and who reads it"
 STATES = ("always on", "installed")
 MOMENTS_TABLE = "## Moments"
 PARTS_TABLE = "## Install adds, uninstall removes"
@@ -220,6 +221,10 @@ def _problems(root: Path, declared: Declaration, text: str) -> list[Diagnostic]:
     notes = []
     if GRADING not in text:
         notes.append(Diagnostic(declared.slug, "the doc does not say what would show it working"))
+    if PRODUCES not in text:
+        notes.append(
+            Diagnostic(declared.slug, "the doc does not say what it produces, or who reads it")
+        )
     malformed = _table_problems(declared.slug, text)
     notes += [note for group in malformed.values() for note in group]
     notes += _header_problems(root, declared)
@@ -276,7 +281,7 @@ def _header_problems(root: Path, declared: Declaration) -> list[Diagnostic]:
     return (
         _instruction_problems(root, declared)
         + _state_problems(declared)
-        + _evidence_problems(root, declared)
+        + _project_local_problems(root, declared)
         + _directory_problems(root, declared)
     )
 
@@ -300,11 +305,18 @@ def _state_problems(declared: Declaration) -> list[Diagnostic]:
     return [Diagnostic(declared.slug, f"the state is {said}, not one of {' or '.join(STATES)}")]
 
 
-def _evidence_problems(root: Path, declared: Declaration) -> list[Diagnostic]:
-    """A mechanism may have no evidence yet; one that names a file must be able to be read back."""
-    if declared.evidence and not (root / declared.evidence).is_file():
-        return [Diagnostic(declared.slug, f"{declared.evidence} does not resolve")]
-    return []
+def _project_local_problems(root: Path, declared: Declaration) -> list[Diagnostic]:
+    """The two optional records. Absent is a state; named and unresolvable is a defect.
+
+    `declared by` is read by the rule that a `not yet` row may not name this mechanism's own
+    migration ticket. An unresolvable one makes that comparison match nothing, so the diagnostic
+    stops firing without ever saying it stopped.
+    """
+    return [
+        Diagnostic(declared.slug, f"{named} does not resolve")
+        for named in (declared.evidence, declared.declared_by)
+        if named and not (root / named).is_file()
+    ]
 
 
 def _directory_problems(root: Path, declared: Declaration) -> list[Diagnostic]:

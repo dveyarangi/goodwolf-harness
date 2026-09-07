@@ -82,6 +82,16 @@ form in which they reach anyone. A copy in a target is **installed, never author
 
 A mechanism that injects nothing has no rules file.
 
+## What it produces
+
+**Everything a mechanism produces is read by someone, or the doc says why nobody does**
+*(the user, 2026-09-07)*. Name each artifact and its reader: a person at a stated moment, another
+mechanism, a script, a check. An output with no reader is either dead weight or a missing reader,
+and which of the two it is only becomes answerable once it is written down.
+
+This covers what the mechanism emits as well as what it ships — a report nobody opens, a record
+nothing indexes, a file dropped where nothing looks.
+
 ## Records
 
 A mechanism with records declares what a record is — its fields, what a row means, its
