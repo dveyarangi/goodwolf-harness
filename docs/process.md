@@ -55,21 +55,22 @@ This section owns the current policy. Its decision record is in the [shared-harn
 
 The verification set is this project's typechecker, tests, and any other commands required of landed work. `/implement` and `/verify` link here. They do not inline those commands. `/implement` may run named checks during the work; that run is not `/verify`. `/tdd` still owns red-green.
 
-**This project:** no typechecker. The set is the maintenance scripts' behavioral tests:
+**This project:** no typechecker. The set is the maintenance scripts' behavioral tests and the mechanism check:
 
 ```
 uv run --offline --no-project python -m unittest discover -s tests -p "test_*.py"
+uv run --offline --no-project python .agents/scripts/mechanisms.py --check
 ```
 
-Discovery reporting success with zero tests is not verification; the run must show a positive count. Alongside it, `/verify` uses the ticket, RFC (if any), governing docs, and the work.
+Discovery reporting success with zero tests is not verification; the run must show a positive count. The mechanism check reports the checks it skipped, and a skip is not a pass; a clean run means nothing was caught, never that the tree obeys. Alongside them, `/verify` uses the ticket, RFC (if any), governing docs, and the work.
 
 ## Mechanisms and skills
 
-A skill is an instruction part of a mechanism. The mechanism includes the behavior those instructions provide, their consumers, supporting checks and records. A mechanism may involve several skills; each skill does not require a separate mechanism.
+What a mechanism is, and what one is made of, is [`/mechanism`](../.agents/skills/mechanism/SKILL.md)'s; the terms are the [glossary](../.agents/glossary.md)'s.
 
+<temporary until="01-0011.0022 is done" ticket="docs/tickets/01-0011.0022-shape-survives-second-mechanism.md">
 Maintenance covers the whole mechanism: whether its instructions still express the agreed behavior, its consumers receive and use them, its checks detect the intended failures, and its records remain consistent with their governing rules. Repair follows the autonomy and repair policy above.
-
-Adopting this concept does not install Life's machinery. Mechanism boundaries, document layout, maintenance triggers and automation are still to be specified.
+</temporary>
 
 ## Tree maintenance
 
@@ -101,6 +102,3 @@ Each mechanism has one evidence/evolution record, created when there is material
 
 This evidence/evolution record is distinct from the work and operational records produced under the mechanism's instructions.
 
-## Current constraint
-
-Research and documentation are authorized. Canonical extraction, skill changes, synchronization and framework installation await the relevant alignment decisions. There is no authorization here to commit or publish changes.

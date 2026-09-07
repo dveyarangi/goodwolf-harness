@@ -11,7 +11,7 @@
 
 ## Parent
 
-[AGENTS.md](../../AGENTS.md) and [the process](../process.md#mechanisms-and-skills), which already
+[AGENTS.md](../../AGENTS.md) and [the glossary](../../.agents/glossary.md), which already
 says a mechanism is maintained whole but does not say which skill owns which rule.
 
 ## Impact

@@ -15,7 +15,7 @@ Evidence: [audit and exact file identities](../../audit-2026-09-05/REPORT.md), [
 - Substantial inception includes a spec; this harness has a [draft spec](../spec/01-0010-dev-harness-shared-and-local.md). The general spec gate and exact lifecycle states remain unsettled.
 - Begin with shared and project-local instructions in one installed skill file; projects propose shared improvements to core and recipients pull accepted revisions. [Owning decisions](../tickets/01-0010-dev-harness-shared-and-local.md#resolutions-and-constraints).
 - Autonomy is bounded by established agreements and authorized scope. Clear compliant repairs use repair-and-report; consequential unresolved choices return to `/align`. [Policy](../process.md#autonomy-and-repair).
-- Skills are instruction parts of mechanisms; maintenance includes their consumers, checks and records. [Definition](../process.md#mechanisms-and-skills).
+- Skills are instruction parts of mechanisms; maintenance includes their consumers, checks and records. [Definition](../../.agents/glossary.md).
 - `/maintain` owns all tree maintenance, all `/denoise` and `/sync-arch` responsibilities and archiving, with whole-tree or declared narrower scope. [Policy](../process.md#tree-maintenance).
 - Mechanisms must support mechanical derivation and repair from inception; missing scripts are maintenance work; history is included without inventing past facts. [Policy](../process.md#mechanical-maintenance).
 - Current instructions, work decisions and per-mechanism evidence/evolution have distinct homes. [Ownership](../process.md#current-documents-and-evidence).
