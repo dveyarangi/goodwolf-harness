@@ -33,7 +33,7 @@ Use the harness's own development loop to evolve it. `/align` remains the entry,
 
 ## Governing principles — for alignment
 
-The user requires governing principles to apply both to harness development and to software developed using it. The qualities below are requested; their operational definitions are proposed for alignment. The [glossary](../glossary.md) owns terminology, including the proposed definition of a load-bearing seam.
+The user requires governing principles to apply both to harness development and to software developed using it. The qualities below are requested; their operational definitions are proposed for alignment. The [glossary](../../.agents/glossary.md) owns terminology, including the proposed definition of a load-bearing seam.
 
 | Principle | Proposed obligation and evidence |
 |---|---|

@@ -7,7 +7,8 @@ Open your first reply of every session with the line above, verbatim.
 <project-local>
 This repository develops the shared dev harness using its own loop. The queue,
 docs/tickets/README.md, owns current state and says where to resume. Decisions live in the owning
-ticket under docs/tickets/. Detailed rules: docs/process.md. Terms: docs/glossary.md.
+ticket under docs/tickets/. Detailed rules: docs/process.md. Terms: docs/glossary.md, this
+project's own; the method's are .agents/glossary.md's.
 What each version of this contract changed: docs/research/entry-contract-findings.md.
 </project-local>
 
@@ -15,11 +16,13 @@ What each version of this contract changed: docs/research/entry-contract-finding
 
 A **shape** is whatever is under consideration, held between an idea and a thing: formed enough
 to have a context and a structure, not yet exhausted by any one realization. Being a shape says
-nothing about being load-bearing — an implementation method is a shape too. → [glossary](docs/glossary.md).
+nothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).
 
 - Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.
 - Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?
 - Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?
+
+- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.
 
 - Recency for evidence, longevity for principles.
 

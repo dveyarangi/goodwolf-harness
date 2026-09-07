@@ -1,0 +1,129 @@
+---
+name: mechanism
+description: >-
+  Use before building or amending a mechanism — a part of how the work is done
+  here: a skill, a check, a record, the loop itself. Owns what counts as one,
+  what it is made of, where each part lives, and how one is incepted, declared,
+  checked and retired. Not for what the project produces.
+---
+
+# Build and amend mechanisms
+
+The only home of the shape. A rule carrying a name and date is that person's to amend.
+
+## Is it a mechanism
+
+A mechanism is part of **how the work gets done** — the development method and its
+machinery. What the project produces is not one, however much depends on it.
+
+Test: does other work rely on this as a source of instruction or behavior *about how
+to work*? Then it is a mechanism and owes a declaration.
+
+- A system, never a file. One spans skills, scripts, records, and rules injected into
+  skills it did not write.
+- **One mechanism, one instruction file — a skill** *(the user, 2026-09-06)*. Rules it
+  needs elsewhere are injected pointers, never second instruction files.
+- Writing an entry into a record is not mechanism work. It belongs to the skill that
+  owns the entry.
+
+A skill belonging to no mechanism goes in the allowlist, with its reason.
+
+## Three homes, and the chain
+
+| home | holds | reaches a session |
+|---|---|---|
+| `AGENTS.md` | meta and strict rules | at start, every session |
+| `.agents/skills/<name>/` | the act, and every rule read *in the work it governs* | when the skill is invoked |
+| `.agents/mechanisms/<slug>/` | why the instruction is what it is: parts, moments, and the mechanism's rules in their single home | when installing, amending or debugging |
+
+The cut is **when is this read**. There is no fourth home.
+
+> The doc is the instruction's *why*. The evidence is the doc's *why*.
+> *(the user, 2026-09-06)*
+
+- Doc and instruction file are never the same file.
+- One evidence per mechanism, belonging to its doc. It lives **outside `.agents/`**, in
+  the project's own document tree, filename carrying the slug *(the user,
+  2026-09-06)* — it cites records that cannot travel — and the doc names its path from
+  inside a `<project-local>` block.
+- A skill's `EVIDENCE.md` predating its declaration is an unsorted mixture: doc
+  material to the doc, the doc's own why to the evidence.
+
+Working parts stay where the harness needs them — skills, scripts, tests. Directory,
+doc sections and what a script parses are
+[MECHANISM-FORMAT.md](./MECHANISM-FORMAT.md)'s; restate none of it here.
+
+## Moments
+
+A moment is an occasion at which a person acts on the mechanism. Every one carries an
+instruction or a stated kind of absence, and either way a clause saying why.
+
+| kind | means | carries |
+|---|---|---|
+| `elsewhere` | instructed, by another mechanism | the instruction file that does it |
+| `embedded` | instructed, from the wrong home | where the instruction sits |
+| `unowned by design` | no rule warranted | its reason, nothing else |
+| `not yet` | a genuine gap | a ticket that exists |
+
+There is no *none needed*: if nobody acts, it is not a moment. A `not yet` never names
+the mechanism's own migration ticket. The verdict is per moment, never per mechanism.
+
+## Rules, injection and retraction
+
+A rule lives in one file — the mechanism's rules file — one section per rule, each
+naming its target, its anchor, its tier and its authority. A generic core installer,
+never a per-mechanism one, writes delimited and visibly owned blocks into the targets.
+A copy in a target is **installed, never authored**.
+
+- Removable as written: retraction leaves the target byte-identical.
+- **No default mode.** A bare invocation refuses.
+- **Refuse rather than guess** — missing target, missing anchor, block already present,
+  block drifted. A hand-edited block is drift to report, not a second opinion.
+
+A mechanism that injects nothing has no rules file.
+
+## Records
+
+A mechanism with records declares what a record is — its fields, what a row means, its
+tier, what removes a finished entry — inside the record's own file, enforced by a
+script *(the user, 2026-09-07)*. Format never content, live rows only; archived history
+is exempt.
+
+A register's index is derived on request and never committed beside its records. Where
+a record-bearing mechanism has no maintainer script, **writing it is the maintenance**.
+
+## Incept
+
+1. **`/align` first**, on what the mechanism is in plain terms: its moments, its
+   authority, its record shape, its index, the tier of each part, what retires it.
+2. Write the doc to [MECHANISM-FORMAT.md](./MECHANISM-FORMAT.md), naming the parts it
+   owns and the parts it relies on with their owners.
+3. **Write the check before the thing it checks**, watching every diagnostic fail in
+   both polarities.
+4. **Run it over what already exists** and record the count of prior violations — or
+   state that there was no prior corpus, rather than a manufactured zero.
+5. Name what retires it.
+6. **Name what would show it working, graded by someone who did not build it.**
+   Pre-register it so a later session can answer without asking what was meant.
+
+Absence is not clearance: a clean run means nothing was caught, never that the tree
+obeys.
+
+## Amend and retire
+
+Editing a skill that is an instruction file is amending its mechanism — run the steps
+still live, aligning again when the shape itself moves. `/maintain` re-checks a
+mechanism when what governs it has moved, normalising line endings and excluding
+evidence and installed blocks.
+
+Retiring removes the mechanism's parts, its directory and the rules it injected, its
+own trigger among them. An always-on mechanism cannot be retired.
+
+## Siblings
+
+- [`/skill-up`](../skill-up/SKILL.md) writes a skill's text; this governs the system it
+  belongs to. Both apply when a skill is an instruction file.
+- [`/impact`](../impact/SKILL.md) traces a change's consequences; this asks whether a
+  mechanism is sound at both ends.
+- [`/maintain`](../maintain/SKILL.md) applies mechanism rules and owns none.
+- [`/align`](../align/SKILL.md) is called by incept, before anything is built.

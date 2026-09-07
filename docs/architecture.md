@@ -1,7 +1,8 @@
 # Harness architecture
 
 This document records the agreed maintenance boundaries. It does not define the remaining
-cross-project distribution system. Terms belong in [the glossary](glossary.md); maintenance
+cross-project distribution system. Terms belong in a glossary — the method's in
+[`.agents/glossary.md`](../.agents/glossary.md), this project's own in [`docs/glossary.md`](glossary.md); maintenance
 policy belongs in [the process](process.md#tree-maintenance).
 
 ## Current and agreed target

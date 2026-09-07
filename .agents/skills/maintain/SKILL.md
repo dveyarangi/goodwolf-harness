@@ -27,7 +27,7 @@ not by a menu: a narrow close still uses every governing rule that reaches it.
 - List the mechanisms in scope: instructions, producers, consumers, checks and records.
   A mechanism is maintained whole — installing updated instructions does not establish
   that their derived work is current.
-- Read the [glossary](../../../docs/glossary.md) before renaming anything.
+- Read the [glossary](../../glossary.md) before renaming anything.
 
 
 
