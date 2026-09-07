@@ -205,7 +205,7 @@ Located and read the dev-family align rules, with the other variants compared:
 - [Meteoscape align](D:/Dev/AI/meteoscape/.agents/skills/align/SKILL.md): full general method, Aug 24 `777caa1`.
 - [DriftSense agents align](D:/Dev/DriftSense/workspace/agents/skills/align/SKILL.md): same general method with concerns format extracted, Aug 24 `384d318`; read with [CONCERNS-FORMAT.md](D:/Dev/DriftSense/workspace/agents/skills/align/CONCERNS-FORMAT.md).
 - [Forecast Collector align](D:/Dev/DriftSense/workspace/forecast_collector/.agents/skills/align/SKILL.md): M core plus collector-specific exceptions.
-- [Current H align](../legacy/skills/align/SKILL.md): older; not the best version for the upcoming discussion.
+- [Current H align](../../../legacy/skills/align/SKILL.md): older; not the best version for the upcoming discussion.
 
 The future alignment should settle the target path spelling, canonical suite membership, the six F changes, A's concerns/initiative contributions, and what counts as local—including exceptions and full appendices—before choosing update mechanics. The current evidence supports using M as a comparison baseline, not declaring its entire folder canonical unchanged.
 

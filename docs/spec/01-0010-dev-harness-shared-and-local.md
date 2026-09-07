@@ -9,7 +9,7 @@ This draft gathers agreed requirements and exposes unresolved behavior. The tick
 
 Developers and agents use divergent copies of the same development skills across projects. A useful improvement in one copy does not reliably reach the others. Whole-folder copying cannot distinguish shared improvements from project conventions, and identical instruction files do not establish equivalent behavior in Claude Code, Codex and Cursor.
 
-The [comparison](../../audit-2026-09-05/REPORT.md) also found dependencies outside skill bodies, local exceptions that conflict with shared instructions, and host-specific automation. The harness needs to maintain both its instructions and the work derived from them.
+The [comparison](../research/audit-2026-09-05/REPORT.md) also found dependencies outside skill bodies, local exceptions that conflict with shared instructions, and host-specific automation. The harness needs to maintain both its instructions and the work derived from them.
 
 ## Solution
 

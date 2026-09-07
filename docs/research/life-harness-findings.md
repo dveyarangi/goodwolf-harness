@@ -2,7 +2,7 @@
 
 Research snapshot: 2026-09-05. **Proposal for alignment, not an adopted architecture.**
 
-Owned by [the completed research ticket](../tickets/done/01-0010.0010-life-informs-dev-harness.md), within [the shared-harness work](../tickets/01-0010-dev-harness-shared-and-local.md). The earlier [copy and discrepancy audit](../../audit-2026-09-05/REPORT.md) remains the source for existing skill variants. Subsequent accepted policy is in [the process](../process.md); this dated research proposal is not the current policy, including where it suggests exempting historical records.
+Owned by [the completed research ticket](../tickets/done/01-0010.0010-life-informs-dev-harness.md), within [the shared-harness work](../tickets/01-0010-dev-harness-shared-and-local.md). The earlier [copy and discrepancy audit](audit-2026-09-05/REPORT.md) remains the source for existing skill variants. Subsequent accepted policy is in [the process](../process.md); this dated research proposal is not the current policy, including where it suggests exempting historical records.
 
 ## Recommendation
 

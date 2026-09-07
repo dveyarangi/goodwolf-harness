@@ -18,10 +18,10 @@ The loop itself, its stages, skills and human checkpoints, the autonomy switches
   verification of landed work, not only documentation or shape review. The
   project's check set lives in [Verification](#verification); skills link it,
   they do not inline commands.
-- `/maintain` owns tree maintenance as defined below, including all responsibilities of `/denoise` and `/sync-arch`, and archiving. It is installed, with its mechanical support under `.agents/scripts/`.
+- `/maintain` owns tree maintenance as defined below, including all responsibilities of `/denoise` and `/sync-arch`, and archiving. Its mechanical support is under `.agents/scripts/`.
 - Sessions preserve the handoff; `/recall` checks maintained documents and current files rather than treating session history as delivery state.
 
-The accepted bootstrap selection uses `/ticket`, `/plan`, `/spec` and `/verify` for the former `/to-tickets`, `/plan-impl`, `/to-spec` and `/review-impl`, and consolidates `/denoise` and `/sync-arch` under `/maintain`. `/align`, `/impact`, `/ticket`, `/spec`, `/plan`, `/implement`, `/tdd`, `/improve-comments`, `/verify` and `/maintain` are installed under those names.
+The accepted bootstrap selection uses `/ticket`, `/plan`, `/spec` and `/verify` for the former `/to-tickets`, `/plan-impl`, `/to-spec` and `/review-impl`, and consolidates `/denoise` and `/sync-arch` under `/maintain`.
 
 ## Naming
 

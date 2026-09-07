@@ -11,7 +11,7 @@ Consolidate the existing dev skill family into the requested canonical home, aft
 ## Evidence
 
 - [Harness spec — draft](../spec/01-0010-dev-harness-shared-and-local.md): agreed requirements and unresolved acceptance scenarios, under alignment before implementation decomposition.
-- [Initial comparison](../../audit-2026-09-05/REPORT.md): independent physical copies, local loader aliases, divergent bodies, appendices and script dependencies.
+- [Initial comparison](../research/audit-2026-09-05/REPORT.md): independent physical copies, local loader aliases, divergent bodies, appendices and script dependencies.
 - [Life investigation](done/01-0010.0010-life-informs-dev-harness.md): completed research on rule delivery, mechanisms, maintenance and their applicability to the dev harness.
 
 ## Resolutions and constraints
@@ -53,7 +53,7 @@ Consolidate the existing dev skill family into the requested canonical home, aft
 
 **Status:** Accepted by the user, 2026-09-05. This completes the source-selection `/align` pass on this ticket. It does not complete the bootstrap milestone or approve an unwritten implementation RFC.
 
-**Evidence rechecked 2026-09-05:** all 99 audited files across M, A and F still match the audit's SHA-256 values. Source repository heads observed: M `6320d3c805dffe63d7bccd86d5874c624a78de38`, F `dd847b5f1720c36d695d287f8a67630f09bbfa20`, A `810edb2692ba59672d9e4ebacd7f5504648ffed0`. The [inventory](../../audit-2026-09-05/inventory.json) owns exact per-file identities. A has an unrelated untracked script document; it is not part of this selection.
+**Evidence rechecked 2026-09-05:** all 99 audited files across M, A and F still match the audit's SHA-256 values. Source repository heads observed: M `6320d3c805dffe63d7bccd86d5874c624a78de38`, F `dd847b5f1720c36d695d287f8a67630f09bbfa20`, A `810edb2692ba59672d9e4ebacd7f5504648ffed0`. The [inventory](../research/audit-2026-09-05/inventory.json) owns exact per-file identities. A has an unrelated untracked script document; it is not part of this selection.
 
 **Accepted selection:** use Meteoscape (M) as the base for the full audited development suite. Take the specific Forecast Collector (F) improvements below. Keep DriftSense's (A) initiative and Notion integration out of this project's bootstrap; their source files remain intact for later project integration. The older corpus in this workspace is evidence, not the selected source. Life contributes maintenance design already discussed, not a wholesale imported corpus.
 

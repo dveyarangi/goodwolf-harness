@@ -7,7 +7,7 @@
 
 Compared the dev-skill corpora and loader aliases; investigated Life's mechanism, maintenance and rule-delivery design and implementation; ran seven isolated research probes; developed a draft harness spec and working glossary; captured the pacer idea and corrected its scale model; selected the bootstrap sources; and proposed the first delivery slice after reading the selected ticket skill and its format.
 
-Evidence: [audit and exact file identities](../../audit-2026-09-05/REPORT.md), [Life research and scope limits](../research/life-harness-findings.md), [probe results](../research/probe-life-results.json). The final source-selection check found all 99 audited M/A/F files unchanged. No live three-host discovery or behavior test has been performed.
+Evidence: [audit and exact file identities](../research/audit-2026-09-05/REPORT.md), [Life research and scope limits](../research/life-harness-findings.md), [probe results](../research/probe-life-results.json). The final source-selection check found all 99 audited M/A/F files unchanged. No live three-host discovery or behavior test has been performed.
 
 ## Settled decisions and their owners
 
