@@ -103,6 +103,26 @@ The other direction is unwatched too: `docs/pacer.md` and two of the three
   references removed from `/align`, `/plan`, `/ticket` and `/maintain`. The check surfaces these on
   its first run over a tree that declares more than one mechanism.
 
+## Routed here at `01-0011.0022`'s align, 2026-09-07
+
+Two findings outside that slice's scope, captured under `/maintain`'s rule that a finding is
+routed to the record owning its subject after the open issues are searched; neither was already
+held anywhere.
+
+- **A whole-tree link check has no instruction and no script.** The only link check in the tree
+  is `move_doc.py`'s dangling-reference note over records a close rewrote; session nine's *zero
+  broken links* was counted by hand. `/maintain`'s moments table carries *checking links outside a
+  close* as `not yet` naming this ticket, whose outcome already says documents referenced either
+  exist or stop being referenced — widened by this sentence to *and every citation resolves*,
+  mechanically, rather than minting a ticket for forty lines over `docs_corpus.py`.
+- **`/verify` restates a meta-rule.** [verify/SKILL.md:38](../../.agents/skills/verify/SKILL.md),
+  *anything that can be maintained mechanically must be*, is `/mechanism`'s meta-rule, D1 of
+  `/maintain`'s aligned rules, and meta-rules are never injected *(the user, 2026-09-07)*: a skill
+  applying one reads it in `/mechanism` or the entry file. The copy is this ticket's to remove with
+  the rest of the corpus sweep. `/implement:38`, *do not move the RFC to `done/`; `/maintain` does
+  that*, was raised in the same breath and **not ruled on** — the user is unsure it is the same
+  defect.
+
 ## Decisions this ticket's align owns
 
 - Where the mechanism boundaries actually fall. The delivery ring, the entry contract, the autonomy

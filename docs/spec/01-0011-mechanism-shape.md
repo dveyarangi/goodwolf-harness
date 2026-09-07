@@ -232,6 +232,30 @@ Also surfaced and left alone: `docs/process.md`'s *Autonomy and repair*, *Verifi
 *Mechanisms and skills* belong to mechanisms nobody has declared, and moving them now is the
 accretion this spec exists to stop.
 
+## Impact — 2026-09-07, the clock
+
+Assessed at [01-0011.0022](../tickets/01-0011.0022-shape-survives-second-mechanism.md)'s
+`/align` on the draft of [01-0011.0060](../tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md),
+before minting. Verdict: **proceed**, as a single HITL ticket after `.0050` and before
+[01-0017](../tickets/01-0017-io-graph-coherent.md).
+
+The problem is demonstrated: the re-check rule is stated three times in this tree as prose —
+`/mechanism`'s *Amend and retire*, this spec's *Re-check on governing change*,
+`docs/process.md:91` — and nothing gives *since* a meaning. Life's `maintenance` mechanism, read
+directly, is record-bearing by design: marks moved only by a maintenance, dueness derived at every
+wake. That reading falsified `.0022`'s *record obligation `none` by property* before anything was
+built, which is what that slice was placed to do.
+
+Blast radius when it lands: `/maintain`'s body and doc, `mechanism-shape`'s *Not yet at the shape*,
+the verification set, and [01-0010.0120](../tickets/01-0010.0120-host-delivery-surfaces.md),
+which must name the clock as a consumer of its surface decision. Hidden edges recorded on the
+ticket as its align's questions: whether Git is the clock, narrower by three parts; the churn unit,
+since this tree has no session identity at wake; the entry file in the governing surface at the
+cost of a parser; where the marks live; and whether `.0030`'s ratchet shares the announcement. It
+depends on `.0020` too, for the delimiter the hash strips. No new abstraction: Life's two levels
+taken whole, and the second concrete shape is this tree's own split of a doc from its instruction
+file, which Life's single-surface hash never had to separate.
+
 ## User Stories
 
 1. As a maintainer, I want one stated test for what counts as a mechanism, so that I can tell

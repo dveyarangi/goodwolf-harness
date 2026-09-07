@@ -83,12 +83,25 @@ worked example rather than a precedent.
 **How this queue is ordered** *(the user, 2026-09-07)*: the harness is self-building, so the governing consideration is which slice hands the next one a tool that makes the harness work better — not dependency order alone, and not size. A slice that only describes something ranks below one that gives the next slice a script, a check or a rule it can lean on. The pacer owns this once it exists ([01-0020](01-0020-pacer.md)); until then it is stated here and applied by hand. Open idea, unowned: `/impact` could name the *error classes that stay uncaught* if a slice is not built, and the queue could rank by which noise is loudest — a candidate extension of [01-0010.0080](01-0010.0080-impact-work-shape.md), not yet its scope.
 
 **Working documents:** [Harness spec — draft](../spec/01-0010-dev-harness-shared-and-local.md), [working glossary](../glossary.md), and [pacer.md](../pacer.md), which holds the pacer's core rules resolved so far until [01-0020](01-0020-pacer.md) carries them. `docs/process.md` is preliminary under a `<temporary>` block; the pacer owns it once it exists. Local overrides are no longer deferred: [01-0010.0110](01-0010.0110-project-facets-injected.md) owns them. The spec is not accepted; [01-0010.0035](done/01-0010.0035-install-spec.md)'s RFC is [the install plan](../rfc/done/01-0010.0035-install-spec.md).
-**Current stage:** [01-0011.0010](01-0011.0010-mechanism-declared.md) is **implemented** — all five
-stages of [its RFC](../rfc/01-0011.0010-mechanism-declared.md) landed 2026-09-07 and are committed.
-`/mechanism` is installed, the glossary has split, `mechanism-shape` is declared and the check
-reports it true, `.agents/README.md`'s copies are gone, and `docs/process.md` has shed what this
-slice gave an owner. It **awaits `/verify`**, then `/maintain` for the paired close. Wake still
-lands on `/align` until the pacer exists. Resume by opening a fresh session here, confirming its
+**Current stage:** [01-0011.0022](01-0011.0022-shape-survives-second-mechanism.md) is **aligned**,
+2026-09-07, and **awaits `/plan`**. [01-0011.0010](01-0011.0010-mechanism-declared.md) was
+implemented, verified three times and maintained once the same day, and stays `Partial` by
+decision until `.0022` builds the second mechanism. The align read Life's `maintenance` mechanism
+directly and falsified `.0022`'s premise before anything was built: a maintenance mechanism is
+record-bearing — its marks — so `/maintain`'s record obligation is `not yet`, and the clock is
+its own ticket, [01-0011.0060](01-0011.0060-mechanism-rechecked-when-governing-moves.md), minted
+after `/impact` returned proceed. Decisions landed on `.0022`: `installed`; the moments table
+with two `embedded` rows; *three subjects* superseded by **four things `/maintain` holds in
+agreement**, with landing-time agreement `/verify`'s and the facet on
+[01-0010.0110](01-0010.0110-project-facets-injected.md) restated as the project's
+documentation-to-implementation pairs; rules grouped A1–E3 with two strengths, strict and
+working; D1 and D2 are `/mechanism`'s meta-rules, never injected; the shape is amended twice —
+installed text, not pointers, and no assumed-absent record — with the seven rules of
+`mechanism-shape.rules.md` recorded as [.0020](01-0011.0020-rules-one-home.md)'s input; a skill
+structure with addressable rules recorded as `/skill-up`'s owed change on
+[01-0010.0100](01-0010.0100-remaining-named-corpus.md); two graders pre-registered. Two findings
+routed to [01-0017](01-0017-io-graph-coherent.md). Wake still lands on `/align` until the pacer
+exists. Resume by opening a fresh session here, confirming its
 first line is the entry contract [AGENTS.md](../../AGENTS.md) declares, and taking the current pass
 above. The prose in this queue is a chronological record of passes and still carries superseded
 statements from earlier ones; consolidating it is `/maintain`'s at close.
@@ -107,11 +120,12 @@ statements from earlier ones; consolidating it is `/maintain`'s at close.
 | [Install /discover](done/01-0010.0090-install-discover.md) | Done (2026-09-06) | HITL | `/discover` is recorded as installed on this slice's authority, used the way `/impact` is and filing nothing, discoverable, and free of references to the estate it came from. |
 | [A mechanism says what it is made of](01-0011.0010-mechanism-declared.md) | Partial (unused until a second mechanism is built with it) | HITL | `/mechanism` is installed carrying the shape, `/mechanism` itself is declared in its own directory with every part named and every moment carrying an instruction or a kind of absence, and a check says whether the declaration is true. |
 | [A rule has one home and is installed, not copied](01-0011.0020-rules-one-home.md) | Planned (the declaration precedes) | AFK | A mechanism's rules live in one file and a single generic installer writes them as visibly owned blocks into skills the mechanism does not own, removes them leaving each target byte-identical, refuses rather than guesses, and reports a hand-edited block as drift rather than accepting it as a second opinion. |
-| [A second mechanism is declared, and the shape holds or is amended](01-0011.0022-shape-survives-second-mechanism.md) | Planned (the injector precedes) | HITL | `/maintain` is declared through the shape with its parts, its moments and its record obligation each carrying a state, the declaration passes the check `01-0011.0010` shipped, and what the second application breaks is amended in the shape rather than worked around in the declaration. |
+| [A second mechanism is declared, and the shape holds or is amended](01-0011.0022-shape-survives-second-mechanism.md) | Ready (aligned 2026-09-07; the injector's rule has no subject here, so it does not precede) | HITL | `/maintain` is declared through the shape with its parts, its moments and its record obligation each carrying a state, the declaration passes the check `01-0011.0010` shipped, and what the second application breaks is amended in the shape rather than worked around in the declaration. |
 | [The archive duty reaches the skill that archives](01-0011.0025-archive-duty-reaches-maintain.md) | Planned (the second mechanism precedes) | HITL | `/ticket` is declared through the shape, paired close's rules live in one file and are installed into `/maintain` so it carries the archive duty rather than only the permission form, and `/ticket`'s records declare a shape that a script enforces. |
 | [Finished work that is not archived is listed](01-0011.0030-archive-backlog-listed.md) | Planned (the record shape precedes) | AFK | A command lists records whose work is finished and whose folder does not say so, and the standing count is held as a ratchet — silent at or below its mark, loud when it rises. |
 | [The queue is read from the tickets](01-0011.0040-queue-derived-index.md) | Planned (the record shape precedes) | HITL | The queue's status, type and outcome are derived from the ticket headers that own them, so the queue cannot contradict a ticket, and the pacing prose stays hand-written. |
 | [A mechanism's shape is observed, not asserted](01-0011.0050-shape-checked.md) | Planned (three declarations precede) | AFK | A check reports, across every declared mechanism, each moment's instruction or its kind of absence, and every installed skill is either named by a mechanism or sits in an allowlist with its reason. |
+| [A mechanism is re-checked when what governs it moves](01-0011.0060-mechanism-rechecked-when-governing-moves.md) | Planned (own align precedes; three dependencies open) | HITL | `/maintain` reads which mechanisms are due from a derivation over the tree rather than inferring it: a mechanism's doc is due when the meta-rules moved since it was last checked, its records are due when its own surfaces moved or its records churned, the last check is a mark that only the closing step of a maintenance can move, and dueness is derived at every look and never stored. |
 | [Hierarchy reads the same everywhere](01-0012-hierarchy-coherent.md) | Ready | HITL | Hierarchy — from what height a thing is looked at — has one account, and every statement about height across the entry file, process, glossary and skills either is that account or points at it. |
 | [Scope reads the same everywhere](01-0014-scope-coherent.md) | Planned (hierarchy precedes) | HITL | Scope — the extent of what a pass, a ticket or a document covers — has one account, and every scope statement across the harness either is that account or points at it. |
 | [Each skill owns its own responsibility](01-0016-responsibility-coherent.md) | Planned (hierarchy and scope precede) | HITL | Every skill states only what it owns and links for the rest; a rule appears once, in the skill responsible for it; contradictions between skills are resolved rather than coexisting. |
