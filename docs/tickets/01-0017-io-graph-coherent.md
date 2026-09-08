@@ -124,6 +124,12 @@ held anywhere.
   breath and not ruled on~~ — **ruled 2026-09-07 at `.0022`'s `/plan`** *(the user)*:
   `/implement` should not mention `/maintain` at all; the sentences are an artefact of the era
   when `/sync-arch` was held separately, and they go in this sweep.
+- **A mechanism doc's `not yet` rows link specific tickets under `docs/`** — observed at
+  `.0022`'s `/verify`, 2026-09-07. The format requires the link and the check enforces it, both
+  decided before *Core and instance* existed; that rule exempts naming the `docs/tickets/`
+  convention, not pointing at one document. Whether a doc's ticket links fall under the
+  exemption, or belong in a `<project-local>` block the check reads, is this ticket's question
+  about what core may lean on. Two declarations carry such rows today.
 - **The map of missing instructions has homes here** *(the user, 2026-09-07)*. Every `not yet`
   and `embedded` row a declaration carries is maintenance owed to a skill not yet through
   `/mechanism`'s inception. [.0050](./01-0011.0050-shape-checked.md)'s report is the map; this

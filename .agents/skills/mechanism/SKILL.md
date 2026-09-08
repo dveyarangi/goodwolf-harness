@@ -116,8 +116,12 @@ script *(the user, 2026-09-07)*. Format never content, live rows only; archived 
 is exempt.
 
 A register's index is derived on request and never committed beside its records. Where
-a record-bearing mechanism has no maintainer script, **writing it is the maintenance** — in
-this body until the rules file takes it at `01-0011.0020`.
+a record-bearing mechanism has no maintainer script, **writing it is the maintenance**.
+
+<temporary until="01-0011.0020 is done" ticket="docs/tickets/01-0011.0020-rules-one-home.md">
+The two paragraphs above are authored here until the rules file takes them; then they reach
+this body, and the skill that maintains records, as installed blocks.
+</temporary>
 
 ## Incept
 
@@ -139,9 +143,8 @@ obeys.
 ## Amend and retire
 
 Editing a skill that is an instruction file is amending its mechanism — run the steps
-still live, aligning again when the shape itself moves. `/maintain` re-checks a
-mechanism when what governs it has moved, normalising line endings and excluding
-evidence and installed blocks.
+still live, aligning again when the shape itself moves. A mechanism is re-checked when
+what governs it has moved; which skill does that is its doc's row, not this body's sentence.
 
 Retiring removes the mechanism's parts, its directory and the rules it injected, its
 own trigger among them. An always-on mechanism cannot be retired.

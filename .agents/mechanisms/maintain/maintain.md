@@ -49,7 +49,8 @@ repair-and-report, recording the cause in the evidence.
 |---|---|
 | A1, A2, A4 | the user, 2026-09-07 |
 | B1, D4 | the user, 2026-09-06 |
-| C1 | the user, 2026-09-06 — a ticket closes only after `/verify` ran |
+| C1 | the user, 2026-09-06 — eligibility is the maintainer's, never the script's |
+| P1 | the user, 2026-09-06 — a ticket closes only after its verification box is checked |
 | A3, B2, D3 | drafted into the process document 2026-09-05, never separately decided |
 | B3 | a maintenance pass, 2026-09-07, from `TICKET-FORMAT` stating the duty unconditionally |
 | C2, C3 | the install RFC of 2026-09-06 |
