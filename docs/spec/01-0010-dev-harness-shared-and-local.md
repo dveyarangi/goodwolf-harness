@@ -73,7 +73,7 @@ Until `/maintain` is installed, the `done/` move follows the ticket format, and 
 
 ### Spec lifecycle and issue routing — proposals under alignment
 
-The user directs that enduring spec content land in architecture and the spec eventually become history. `/maintain` ownership of tree maintenance, all `/sync-arch` and `/denoise` responsibilities, and archiving is now agreed in [the process](../process.md#tree-maintenance). The remaining lifecycle states and routing allocation below are proposals, not installed skill behavior.
+The user directs that enduring spec content land in architecture and the spec eventually become history. `/maintain` ownership of tree maintenance, all `/sync-arch` and `/denoise` responsibilities, and archiving is now agreed in [the process](../../.agents/mechanisms/maintain/maintain.md). The remaining lifecycle states and routing allocation below are proposals, not installed skill behavior.
 
 **Spec lifecycle:** draft → accepted → in delivery → reconciled → archived. Acceptance supplies governing decisions before dependent implementation planning; it does not claim those decisions are already implemented. Maintained architecture must distinguish agreed target from current behavior. Enduring capability requirements, terminology and contracts belong in their appropriate maintained homes rather than every detail being copied into architecture.
 
@@ -81,7 +81,7 @@ As decisions land, update those homes and let the spec reference them. At reconc
 
 Current development must be reconstructable without fetching archived specs. Historical investigation and mechanical history repair remain valid consumers. Archive movement, reference repair and structural coverage checks should be scripted; semantic completeness must not be inferred solely from a successful move or all boxes being checked.
 
-**Agreed maintenance ownership:** [Tree maintenance](../process.md#tree-maintenance) governs whole-tree and narrower project/RFC passes, complete mechanism coverage in scope, repair and archiving. Remaining implementation design includes how supporting routines are exposed and how coverage is derived and demonstrated. Source gaps: current `/denoise` treats RFCs as historical without consistently separating active plans, and current Life `/maintain` exempts archives from scripted repair; neither exception is adopted here.
+**Agreed maintenance ownership:** [Tree maintenance](../../.agents/mechanisms/maintain/maintain.md) governs whole-tree and narrower project/RFC passes, complete mechanism coverage in scope, repair and archiving. Remaining implementation design includes how supporting routines are exposed and how coverage is derived and demonstrated. Source gaps: current `/denoise` treats RFCs as historical without consistently separating active plans, and current Life `/maintain` exempts archives from scripted repair; neither exception is adopted here.
 
 **Capture and routing:** requests such as "open an issue", "record this problem" and "keep this for later" first preserve the issue and its relevant context. Reuse an existing owner when identifiable; a genuinely unowned issue needs a visible intake home, whose representation remains open. Do not fabricate a spec, implementation RFC or full decomposition simply to record an issue. Capture alone does not authorize further work.
 

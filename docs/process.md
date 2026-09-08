@@ -18,7 +18,7 @@ The loop itself, its stages, skills and human checkpoints, the autonomy switches
   verification of landed work, not only documentation or shape review. The
   project's check set lives in [Verification](#verification); skills link it,
   they do not inline commands.
-- `/maintain` owns tree maintenance as defined below, including all responsibilities of `/denoise` and `/sync-arch`, and archiving. Its mechanical support is under `.agents/scripts/`.
+- `/maintain` is declared at [`.agents/mechanisms/maintain/`](../.agents/mechanisms/maintain/maintain.md); its rules are its body's, and its mechanical support is under `.agents/scripts/`.
 - Sessions preserve the handoff; `/recall` checks maintained documents and current files rather than treating session history as delivery state.
 
 The accepted bootstrap selection uses `/ticket`, `/plan`, `/spec` and `/verify` for the former `/to-tickets`, `/plan-impl`, `/to-spec` and `/review-impl`, and consolidates `/denoise` and `/sync-arch` under `/maintain`.
@@ -64,39 +64,4 @@ uv run --offline --no-project python .agents/scripts/mechanisms.py --check
 
 Discovery reporting success with zero tests is not verification; the run must show a positive count. The mechanism check reports the checks it skipped, and a skip is not a pass; a clean run means nothing was caught, never that the tree obeys. Alongside them, `/verify` uses the ticket, RFC (if any), governing docs, and the work.
 
-## Mechanisms and skills
-
-<temporary until="01-0011.0022 is done" ticket="docs/tickets/01-0011.0022-shape-survives-second-mechanism.md">
-Maintenance covers the whole mechanism: whether its instructions still express the agreed behavior, its consumers receive and use them, its checks detect the intended failures, and its records remain consistent with their governing rules. Repair follows the autonomy and repair policy above.
-</temporary>
-
-## Tree maintenance
-
-`/maintain` owns ensuring that all mechanisms are applied correctly according to their actual governing rules across the maintained tree. This includes the full responsibilities the selected `/denoise` and `/sync-arch` carried: architecture/code consistency in both directions, reconstruction of load-bearing contract shape, document consistency and canonical ownership, prose and inline-comment cleanup, concern disposition, records, indexes, links and archive lifecycle. It also covers instruction delivery, supporting checks and derived work; maintenance is not limited to prose cleanup or recently edited files.
-
-A pass declares its scope: the whole tree, a project, or work associated with a particular RFC. Derive every applicable mechanism and its obligations within that scope, including the consumers and dependencies needed to verify them. A narrower pass uses the same governing rules and reports its coverage; it cannot certify the rest of the tree. Findings beyond the covered scope remain visible with an owner rather than disappearing from the result.
-
-A pass uses one integrated procedure — identify, check and repair, clean up, resolve temporary statements, archive and verify references — with the scope deciding which checks apply. The steps belong to [the skill](../.agents/skills/maintain/SKILL.md); this document owns the policy they follow.
-
-Archive decisions and mechanical archive operations belong to `/maintain`. Before archiving a spec, establish that surviving agreements have maintained homes, its obligations have explicit dispositions, unresolved issues retain active owners, and moves/indexes/references are consistent. Record delivery, transfer, withdrawal and supersession accurately. Current work must not require archived specs to reconstruct its governing contracts; historical investigation and mechanical maintenance may still use them.
-
-Repair and verification follow the policies in this document. Derive and fix mechanically where possible, write missing maintenance scripts, and keep incomplete checks or repairs visible. Ambiguities that require a new decision return to `/align`.
-
-## Mechanical maintenance
-
-Mechanisms must be designed from inception to support mechanical derivation, checking and repair. Their identities, governing sources, dependencies and record contracts must be explicit enough for tooling to enumerate affected artifacts and derive required changes. Derive inventories, indexes and other computable views from their owning sources rather than maintaining duplicate facts by hand. The concrete representation and tooling remain implementation design.
-
-Anything that can be maintained mechanically must be maintained mechanically. The maintainer writes or extends missing maintenance scripts as part of the repair; a missing script is work to do, not a reason to leave a mechanical repair outstanding. This includes historical records, which have no blanket exemption.
-
-When a governing skill or rule changes, derive its affected consumers and artifacts, repair governing surfaces before their derived work, and verify the affected scope. Installing updated instructions alone does not establish that their derived work is current. Keep unresolved effects visible; mark only what has actually been checked and repaired or established as unaffected. Semantic decisions that cannot be derived from established rules follow `/align` under the repair policy.
-
-Mechanical history repairs preserve the facts and decisions being recorded, with traceable transformations. They must not invent unknown past facts or imply that a newly introduced requirement was satisfied at the time. Current instructions remain separate from historical decision and evidence records even when both are mechanically maintained.
-
-## Current documents and evidence
-
-Core documents and skills state current behavior, instructions and compact examples, with references to their sources. Tickets and RFCs retain deliberation and decisions about their work.
-
-Each mechanism has one evidence/evolution record, created when there is material to preserve. It holds observations, failed approaches and lessons across changes, linking to the deciding tickets/RFCs without duplicating their arguments. Following a skill does not require reading its history; maintaining or challenging the mechanism follows the relevant evidence references.
-
-This evidence/evolution record is distinct from the work and operational records produced under the mechanism's instructions.
 

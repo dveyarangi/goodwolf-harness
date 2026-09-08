@@ -68,7 +68,7 @@ Two failures of the same kind, in opposite directions, neither caught by anythin
 **A duty whose worklist nothing produces.** "When every acceptance box is checked, move the ticket
 to `done/`" is written only in `/ticket`'s files — [SKILL.md](../../.agents/skills/ticket/SKILL.md)
 and [TICKET-FORMAT.md](../../.agents/skills/ticket/TICKET-FORMAT.md) — while
-[the process](../process.md#tree-maintenance) assigns archive operations to `/maintain`, whose body
+[the process](../../.agents/mechanisms/maintain/maintain.md) assigns archive operations to `/maintain`, whose body
 carries only the gate form. On 2026-09-06 five tickets were eligible and unarchived
 (`01-0010.0020`, `.0030`, `.0035`, `.0050`, `.0060`), three with unarchived RFCs. No skill's
 declared output is "the records that should have moved", so the backlog was invisible rather than

@@ -59,6 +59,6 @@ intent did not change.
 - Nothing checks that a session's announced version matches the file. The announce line is the
   contract's [delivery evidence](../glossary.md), and it is currently self-reported.
 - Where this record belongs is provisional. It follows
-  [one evidence record per mechanism](../process.md#current-documents-and-evidence), but a version
+  [one evidence record per mechanism](../../.agents/skills/mechanism/SKILL.md#three-homes-and-the-chain), but a version
   delta is closer to an operational record than to a lesson.
   [01-0016](../tickets/01-0016-responsibility-coherent.md) owns the placement.

@@ -3,14 +3,15 @@
 This document records the agreed maintenance boundaries. It does not define the remaining
 cross-project distribution system. Terms belong in a glossary — the method's in
 [`.agents/glossary.md`](../.agents/glossary.md), this project's own in [`docs/glossary.md`](glossary.md); maintenance
-policy belongs in [the process](process.md#tree-maintenance).
+policy is `/maintain`'s body, declared at [`.agents/mechanisms/maintain/`](../.agents/mechanisms/maintain/maintain.md).
 
 ## Current and agreed target
 
 The installed skills support the whole delivery ring. `/maintain` and its supporting scripts
-landed 2026-09-06 under [01-0010.0070](tickets/done/01-0010.0070-install-maintain.md); one criterion,
-a fresh-session discovery observation, is still open. Skill bodies have one physical home under
-`.agents/skills`, with host access described in [the installed harness](../.agents/README.md).
+landed 2026-09-06 under [01-0010.0070](tickets/done/01-0010.0070-install-maintain.md), closed the
+same day, and `/maintain` was declared through the mechanism shape on 2026-09-07. Skill bodies
+have one physical home under `.agents/skills`, with host access described in
+[the installed harness](../.agents/README.md).
 
 The mechanism is one maintenance skill directing an integrated procedure over a declared scope,
 with supporting scripts under `.agents/scripts/` performing mechanically derivable work.
@@ -19,16 +20,17 @@ dependencies or affected references from maintenance.
 
 ## Responsibilities
 
-- `/maintain` identifies applicable governing rules, artifacts and dependencies; checks
-  contracts and consistency; applies the repair policy; cleans up prose and records; handles
-  temporary statements; and determines eligibility for archive operations.
+- `/maintain` holds four things in agreement at drift scope — docs to the meta-rules, docs to
+  their implementation both ways, live records to their format, every fact to one home — and
+  repairs under the repair policy; it handles temporary statements and determines eligibility
+  for archive operations. Agreement over a landed slice is `/verify`'s.
 - Supporting scripts enumerate artifacts and perform mechanical transformations. They do
   not invent completion evidence, decide architectural questions, or turn an arbitrary
   expiry condition into authority to execute code.
 - `/align` owns unresolved decisions. `/verify` owns verification of delivered work against
   its ticket, RFC, governing documents and the project's verification set.
 - The queue owns current delivery state. Tickets and RFCs retain work decisions and evidence;
-  the mechanism's [evidence record](research/maintenance-findings.md) retains observations
+  the mechanism's [evidence record](mechanisms/maintain.evidence.md) retains observations
   that inform maintenance of the mechanism itself.
 
 ## Contract surfaces
