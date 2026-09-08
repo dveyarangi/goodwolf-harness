@@ -122,6 +122,9 @@ check still green. Interim, until injection ships.
   misparse.
 - Every path is backticked and repo-relative, **except** a `not yet` referent, which is
   a markdown link so moving its ticket repairs it.
+- An absence cell's referent is its link, else its **first** code span. So the cell
+  carries exactly one code span, the referent, and names other skills in words — a
+  backticked skill name before the path is read as the referent and reported.
 - Prose, the taxonomy's correctness, and whether a moment should exist are judgment. A
   script records them and rules on none of them.
 

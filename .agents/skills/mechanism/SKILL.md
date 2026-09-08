@@ -90,6 +90,14 @@ reaches a session through its own description, strengthened at tier 1 where warr
 principle that resonates through the whole harness may land in `AGENTS.md` — that mechanism's
 decision, rare, and investigated first.
 
+## Mechanical by construction
+
+A mechanism is designed from inception for mechanical derivation, checking and repair: its
+identity, governing sources, dependencies and record contracts are explicit enough for a script
+to enumerate what a change affects. Anything that can be maintained mechanically is; a missing
+script is written as part of the repair; archived records are not exempt *(the user,
+2026-09-05)*.
+
 ## What it produces
 
 **Everything a mechanism produces is read by someone, or the doc says why nobody does**
@@ -108,7 +116,8 @@ script *(the user, 2026-09-07)*. Format never content, live rows only; archived 
 is exempt.
 
 A register's index is derived on request and never committed beside its records. Where
-a record-bearing mechanism has no maintainer script, **writing it is the maintenance**.
+a record-bearing mechanism has no maintainer script, **writing it is the maintenance** — in
+this body until the rules file takes it at `01-0011.0020`.
 
 ## Incept
 

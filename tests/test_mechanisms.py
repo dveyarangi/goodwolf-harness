@@ -278,6 +278,38 @@ class AMomentsRow(Declared):
         self.assertEqual(1, len(problems))
         self.assertIn(".agents/skills/gone/SKILL.md", problems[0])
 
+    def test_saying_embedded_names_the_body_the_instruction_sits_in(self) -> None:
+        sitting_here = f"| archiving | — | embedded — another mechanism's rule, here until installed, `{INSTRUCTION}` |\n"
+        self.write(DOC, self.doc(moments=self.moments(sitting_here)))
+        self.assertEqual([], self.checked().diagnostics)
+
+        sitting_nowhere = sitting_here.replace(INSTRUCTION, ".agents/skills/gone/SKILL.md")
+        self.write(DOC, self.doc(moments=self.moments(sitting_nowhere)))
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems))
+        self.assertIn(".agents/skills/gone/SKILL.md", problems[0])
+        self.assertIn("does not resolve", problems[0])
+
+    def test_takes_the_first_code_span_as_the_referent(self) -> None:
+        # The format's rule: one code span per absence cell. A skill named in backticks before
+        # the path is what the check resolves, and it is reported rather than skipped over.
+        self.write(
+            DOC,
+            self.doc(
+                moments=self.moments(
+                    f"| archiving | — | elsewhere — `/other` owns it, `{INSTRUCTION}` |\n"
+                )
+            ),
+        )
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems))
+        self.assertIn("names /other", problems[0])
+        self.assertIn("does not resolve", problems[0])
+
     def test_declaring_a_kind_outside_the_vocabulary_is_reported_as_that(self) -> None:
         self.write(
             DOC, self.doc(moments=self.moments("| sweeping | — | someday — we will get to it |\n"))
@@ -378,6 +410,14 @@ class TheHeader(Declared):
 
         self.assertEqual(1, len(problems))
         self.assertIn("occasionally on", problems[0])
+
+    def test_accepts_installed_as_the_other_state(self) -> None:
+        self.write(DOC, self.doc().replace("- **state** always on", "- **state** installed"))
+
+        checked = self.checked()
+
+        self.assertEqual([], checked.diagnostics)
+        self.assertEqual("installed", checked.declarations[0].state)
 
 
 class TheRulesFile(Declared):

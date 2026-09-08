@@ -29,6 +29,7 @@ absence is honestly classified, are judgements it records and never makes.
 |---|---|---|
 | deciding whether a thing is a mechanism | `.agents/skills/mechanism/SKILL.md` | |
 | incepting one | `.agents/skills/mechanism/SKILL.md` | |
+| telling an inceptor what to hand `/maintain` | — | not yet — the sentence is the maintenance mechanism's rule, authored in its rules file with this skill's *Incept* as target, and no installer carries it here, [.0020](../../../docs/tickets/01-0011.0020-rules-one-home.md) |
 | amending a declared one, editing a skill that is an instruction file included | `.agents/skills/mechanism/SKILL.md` | |
 | checking that a declaration is true | `.agents/scripts/mechanisms.py` | |
 | installing a mechanism's rules into skills it does not own | — | not yet — no installer exists, and every rule reaching another skill is hand-copied until one does, [.0020](../../../docs/tickets/01-0011.0020-rules-one-home.md) |
@@ -54,8 +55,8 @@ absence is honestly classified, are judgements it records and never makes.
 | part | where | owner |
 |---|---|---|
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
-| citation reader | `.agents/scripts/docs_corpus.py` | nobody removable |
-| test harness | `tests/harness.py` | nobody removable |
+| citation reader | `.agents/scripts/docs_corpus.py` | the ticket mechanism, from `01-0011.0025`; a declared gap until then, and not a live question while nothing installs or extracts |
+| test harness | `tests/harness.py` | same |
 
 ## What it produces, and who reads it
 
@@ -88,8 +89,9 @@ mechanism, so there is no prior corpus to sweep — not a corpus swept and found
 first real application is [.0050](../../../docs/tickets/01-0011.0050-shape-checked.md), whose
 sweep meets every skill installed before the shape existed.
 
-**One declared mechanism is weak evidence for a shape.** It has been applied once, by the pass
-that wrote it, to itself.
+**Two declared mechanisms are still thin evidence for a shape.** The second application, at
+`01-0011.0022`, forced three amendments and found two rows the check would have failed; the third
+application is the first that meets a record-bearing mechanism.
 
 ## What retires this
 

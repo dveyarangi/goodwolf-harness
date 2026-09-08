@@ -1,4 +1,4 @@
-"""Mechanical record mover — the archive half of `/maintain`.
+"""Mechanical record mover — `/ticket`'s paired close, run from `/maintain`'s pass.
 
     uv run --offline --no-project python .agents/scripts/move_doc.py SRC DST [SRC DST ...]
     uv run --offline --no-project python .agents/scripts/move_doc.py --dry-run SRC DST

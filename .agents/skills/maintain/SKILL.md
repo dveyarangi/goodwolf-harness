@@ -1,118 +1,113 @@
 ---
 name: maintain
 description: >-
-  Use to maintain a declared scope of the tree — its rules, contracts, records,
-  links and comments — and to complete a paired ticket+RFC close once its work
-  is verified. Enumerates `<temporary>` statements and archives finished records.
+  Use to hold a declared scope of the tree in agreement — docs to the
+  meta-rules, docs to their implementation, records to their format, every
+  fact to one home — and to repair the drift; also to retire an expired
+  temporary statement or archive a finished record. Drift only: a landed slice
+  is verified, not maintained.
 ---
 
-One integrated pass over a declared scope. Which checks apply is decided by the scope,
-not by a menu: a narrow close still uses every governing rule that reaches it.
+One pass over a declared scope. The scope decides which rules apply.
 
-## Declare the scope first
+## Hold
 
-- Say what is being maintained: the whole tree, a project, or the work owned by one
-  ticket and RFC. Write the declared scope into the pass's report.
-- A scope is the work and its dependencies, not a list of filenames. Pull in the
-  consumers and governing documents needed to check the obligations you found.
-- A narrow pass cannot certify the rest of the tree. Findings outside the scope stay
-  visible with an owner; they do not disappear and they do not silently widen the pass.
-- Do not start a whole-tree pass because a narrow one was asked for.
+- **A1** Hold four things in agreement: docs to the meta-rules and their format; docs to their
+  implementation, both ways; live records to their declared format; every fact to one home.
+- **A2** Maintain drift only: a governing side that moved with no landing behind it, or clean
+  landings that no longer agree. A landed slice is verified, not maintained.
+- **A3** When a governing side moves, re-check what it governs, upper link first: the mechanism
+  shape, then a mechanism's doc and rules, then its records. Do not stop at the link you were
+  sent for.
+- **A4** Read dueness from the clock. Do not infer it.
 
-## Identify
+<temporary until="01-0011.0060 is done" ticket="docs/tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md">
+There is no clock. Treat every declared mechanism in the scope as due at every pass: re-read its
+doc against the shape, its instruction file against its doc, its records against their format.
+</temporary>
 
-- Derive the applicable rules, artifacts and dependencies from AGENTS.md/CLAUDE.md,
-  [the process](../../../docs/process.md#tree-maintenance) and
-  [the architecture](../../../docs/architecture.md), not from memory.
-- List the mechanisms in scope: instructions, producers, consumers, checks and records.
-  A mechanism is maintained whole — installing updated instructions does not establish
-  that their derived work is current.
-- Read the [glossary](../../glossary.md) before renaming anything.
+## Scope
 
+- **B1** Declare the scope first — the tree, a project, or one work item with its consumers and
+  governing docs — and write it into the report.
+- **B2** Certify only what you examined; mark nothing checked that was not. Route a finding
+  outside the scope to the record that owns its subject — the open issue that already holds it,
+  else the owning work item, else `/align` — after searching the open issues, so a finding
+  already held is cited, not rewritten.
+- **B3** Archive every finished record, whatever scope you declared. The record's format says
+  what finished means and where it goes.
 
+## Judge
 
-## Clean up prose and records
+- **C1** Decide that a record is finished yourself; scripts move and check form, never decide.
+- **C2** Decide whether a temporary statement's condition holds from observable evidence. The
+  tool never interprets an `until`; report an unresolved condition as unresolved.
+- **C3** Before removing a temporary statement, rehome what outlives it, children before parent.
+  Write what is then true where the block was.
 
-- One canonical home per fact. Elsewhere, replace the restatement with a pointer.
-  A higher-level summary that points at deeper detail is not a duplicate.
-- After a decision settles, state what is true now. Remove superseded paths and
-  completed migration notes; keep a rejection only when it is load-bearing.
-- Tickets, RFCs and sessions are historical records and may carry duplicate context.
-  Their indexes may not. Core documents do not cite them for architecture.
-- Historical repairs preserve the facts being recorded. Never invent a past fact, and
-  never imply a newly introduced requirement was met at the time.
+## Repair
 
-## Resolve temporary statements
+- **D3** Preserve the facts an archived record records. Never invent a past fact; never imply a
+  later requirement was met at the time.
+- **D4** Treat a mechanical repair that stopped partway as unfinished: inspect the files against
+  what it reported done and pending, finish under the repair policy, and never report a repair
+  that did not finish.
 
-- Enumerate them; do not grep by eye:
+## One home per fact
 
-  ```
-  uv run --offline --no-project python .agents/scripts/temporary_statements.py docs AGENTS.md
-  ```
+- **E1** Replace a restatement with a pointer. A summary that points deeper is not a duplicate.
+- **E2** Let live records carry duplicate context; their indexes may not.
+- **E3** Do not cite a record for architecture in a core document.
 
-- The tool reports each block's condition and owning ticket as written, plus diagnostics
-  for a statement bound to no ticket, carrying no condition, naming an owner that is not
-  there, or malformed. Any diagnostic fails the run. Zero statements is a clean result.
-- You decide whether a condition holds, from observable evidence — the tool never
-  interprets an `until` phrase and never executes one. An unresolved condition stays
-  unresolved and is reported.
-- Before removing a statement, rehome anything inside it that outlives it. Then:
+## Temporary statements
 
-  ```
-  uv run --offline --no-project python .agents/scripts/temporary_statements.py \
-      --remove docs/process.md:3 --expect sha256:...
-  ```
+- **T1** Enumerate with `temporary_statements.py docs AGENTS.md .agents`. Any diagnostic fails
+  the run; zero statements is clean.
+- **T2** Remove one you have judged obsolete with `--remove FILE:LINE --expect <fingerprint>`.
+  A statement holding a nested one is refused: dispose of the children, scan again.
 
-- A statement holding a nested statement is refused. Dispose of the children first and
-  scan again — the earlier fingerprint authorizes nothing after a change.
-- Removing the block leaves a hole. Write what is then true in its place.
+## Installed from other mechanisms
 
-## Archive what is finished
+<temporary until="01-0011.0020 is done" ticket="docs/tickets/01-0011.0020-rules-one-home.md">
+The mechanism shape's rules, copied here by hand until its installer writes them; the IDs are
+its rules file's:
 
-- **Archiving is not scope-limited.** Whatever scope the pass declared, look at the whole
-  tree for records whose work is finished and whose folder does not say so. This does not
-  widen the pass: a narrow pass still cannot certify work it did not examine, but a finished
-  record sitting in the active folder is a fact about the folder, not a judgment about that
-  work — so it does not wait for a pass that happens to name it. Report every one. Move the
-  ones whose eligibility you have established.
-- Eligibility is yours, not the script's. A ticket moves only when every acceptance box
-  is checked, including `/verify`, per
-  [TICKET-FORMAT](../ticket/TICKET-FORMAT.md#one-basename-per-work-item). A ticket and
-  its RFC close together, in one invocation, so each cites the other's final home. When more
-  than one pair is eligible, close them all in one invocation so their citations resolve
-  against the same tree.
-- Before archiving a spec, establish that its surviving agreements have maintained homes,
-  its obligations have explicit dispositions, and its unresolved issues keep active owners.
-- Preview, then close:
+- **R1** Check a record-bearing mechanism's records with its maintainer script — format never
+  content, live rows only. Where the script is missing, write it: that is the maintenance.
+- **R2** Compare a mechanism against what governs it with line endings normalised, its evidence
+  excluded, and installed blocks excluded.
+- **R3** Move story out of a doc into its evidence.
+- **R4** Render an index on request; never commit one beside its records.
+- **R5** Never edit an installed block by hand; report drift to its owner.
+</temporary>
 
-  ```
-  uv run --offline --no-project python .agents/scripts/move_doc.py --dry-run \
-      docs/tickets/RR-NNNN-slug.md docs/tickets/done/RR-NNNN-slug.md \
-      docs/rfc/RR-NNNN-slug.md docs/rfc/done/RR-NNNN-slug.md
-  ```
+<temporary until="01-0011.0025 is done" ticket="docs/tickets/01-0011.0025-archive-duty-reaches-maintain.md">
+The ticket mechanism's rules, copied here by hand until its rules file installs them; the IDs
+are the ones that file will carry:
 
-- The mover repairs citations, including those in historical records, and leaves the Git
-  index alone. It changes no checkbox, status, date or prose — you update the ticket
-  header and the queue row yourself, in the same pass.
-- A refusal is a finding: read it, fix the cause, run again. Nothing was written.
-- A run that stops partway leaves the tree half-changed on purpose. Inspect the actual
-  files against the reported completed and pending operations and finish the close under
-  the repair policy; after an abrupt termination check the failed operation on disk too.
-  Git recovers committed or staged content only. Do not report a close you did not finish.
-- Mentions the mover reports but cannot rewrite — an HTML `href`, a bare filename in
-  prose — are yours to repair or to leave deliberately, and to say which.
+- **P1** A ticket is finished when every acceptance box is checked, the verification box
+  included.
+- **P2** Close a ticket and its RFC together, in one invocation, and every eligible pair in the
+  same invocation: `move_doc.py [--dry-run] SRC DST [SRC DST ...]`, into `docs/tickets/done/`
+  and `docs/rfc/done/`.
+- **P3** Update the ticket header and the queue row yourself; the mover changes no checkbox,
+  status, date or prose and leaves the Git index alone. Treat a refusal as a finding. Repair or
+  deliberately leave what it reports it cannot rewrite, and say which. Git recovers committed or
+  staged content only.
+- **P4** Before archiving a spec, confirm its surviving agreements have homes, its obligations
+  have dispositions, and its open issues keep owners.
+</temporary>
 
 ## Finish
 
-- Run the checks in the project's
-  [verification set](../../../docs/process.md#verification) that the scope touched.
-- Report: the declared scope, what was checked, what was repaired and against which rule,
-  what moved, what remains open and who owns it. Say what you did not cover.
-- Read `commit` and `push` in [AGENTS.md](../../../AGENTS.md) before staging anything.
-  A maintenance pass is not a commit permission.
-- `/maintain` is not `/verify`. Verification of landed work is
-  [/verify](../verify/SKILL.md)'s pass, and a close needs it to have already happened.
+- **F1** Run the checks in the project's verification set that the scope touched.
+- **F2** Report: the declared scope, what was checked, what was repaired and against which
+  rule, what moved, what remains open and who owns it, and what you did not cover.
+- **F3** Do not verify landed work; a close needs verification to have already happened.
 
-The mechanism's own history is in
-[maintenance evidence](../../../docs/research/maintenance-findings.md); ordinary use does
-not need it.
+<project-local>
+The verification set: [Verification](../../../docs/process.md#verification). The mover's
+failure contract and the temporary-statement contract:
+[architecture](../../../docs/architecture.md#interruption-and-recovery),
+[architecture](../../../docs/architecture.md#temporary-statements).
+</project-local>

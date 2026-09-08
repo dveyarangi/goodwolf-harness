@@ -27,8 +27,20 @@ _Avoid_: component, piece, asset.
 An occasion at which a person acts on a mechanism. Each is either instructed, or carries a stated kind of absence. If nobody acts, it is not a moment.
 
 **Doc**:
-The record of why a mechanism's instruction is what it is. Never the same file as the instruction.
+The record of why a mechanism's instruction is what it is — the documentation of a mechanism. Never the same file as the instruction.
 _Avoid_: manual, reference, spec as a name for this.
+
+**Documentation**:
+The role a doc plays for an implementation: what it must do and why. A mechanism's doc for its skill and scripts; a project's architecture for its code.
+_Avoid_: spec, manual.
+
+**Implementation**:
+What a documentation describes and must agree with: a mechanism's instruction file and scripts; a project's code.
+_Avoid_: source; product as a synonym.
+
+**Record**:
+What a mechanism writes and keeps under a declared format, live until archived: a ticket, an RFC, a session record, the marks. An entry is one row of a record that holds many.
+_Avoid_: log.
 
 **Evidence**:
 The record of why a doc is what it is: what was tried, what was refuted, what it cost, what it used to be. One per mechanism. Evolution belongs here; provenance does not.

@@ -1,8 +1,40 @@
-# Maintenance evidence
+# maintain — evidence
 
-Evidence and evolution record for the maintenance mechanism. Current boundaries live in
-[architecture](../architecture.md); decisions belong to
-[Install /maintain](../tickets/done/01-0010.0070-install-maintain.md).
+Why [the doc](../../.agents/mechanisms/maintain/maintain.md) is what it is: what was tried, what
+was refuted, what it cost, and what it used to be. Provenance stays inline on each rule in the
+body. The mover's contract and the temporary-statement contract live in
+[architecture](../architecture.md); the install decisions belong to
+[Install /maintain](../tickets/done/01-0010.0070-install-maintain.md), the declaration's to
+[01-0011.0022](../tickets/01-0011.0022-shape-survives-second-mechanism.md).
+
+Declared by [01-0011.0022](../tickets/01-0011.0022-shape-survives-second-mechanism.md),
+2026-09-07. Until then this file was `docs/research/maintenance-findings.md`, holding the two
+probe records below and nothing else.
+
+## What the 2026-09-07 align refuted
+
+**`none` by property.** The ticket was minted saying `/maintain` has no records, so its record
+obligation is `none` and not deferred. Life's `maintenance` mechanism, read directly, is
+record-bearing by design: marks moved only by a maintenance, dueness derived from them at every
+wake. The obligation is `not yet`; the clock is
+[01-0011.0060](../tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md).
+
+**Three subjects.** Mechanism, documentation and code were one activity seen from three sides:
+`/sync-arch` in general form is *hold an implementation to its documentation*, and this
+repository's implementation is `.agents/`. The doc now states four things held in agreement, per
+documentation-and-implementation pair, and the pairs a project has are a facet.
+
+**Nine responsibilities, three instructed.** `docs/process.md:75` assigned nine and the body
+instructed roughly three; a pass following the body faithfully on 2026-09-07 still missed a
+stale roster. Each responsibility now has a disposition on the ticket — instructed, `elsewhere`,
+`embedded` or `not yet` — and the body is written as addressable rules, one per line, so the
+next such miss names the rule it missed.
+
+**Committing and comment cleanup were never this mechanism's.** A pass acts on the repository
+when it commits, not on this mechanism; inline comments are `/verify`'s at landing. Both left
+the body.
+
+## 2026-09-06 — Selected mover inspected before adaptation
 
 ## 2026-09-06 — Selected mover inspected before adaptation
 
