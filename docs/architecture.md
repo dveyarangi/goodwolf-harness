@@ -92,6 +92,29 @@ contains nested blocks. The maintainer disposes of children first and rescans be
 removal; active children and enduring agreements require preservation before the outer
 statement can be removed.
 
+### Installed blocks
+
+[The shape](../.agents/skills/mechanism/SKILL.md#rules-injection-and-retraction) owns what a
+rule is and where it lives; [the format shelf](../.agents/skills/mechanism/MECHANISM-FORMAT.md)
+owns the rules file's grammar. A rule's only authored home is its mechanism's rules file. It
+reaches a skill as an `<installed by="<slug>">` block written by one generic installer: one
+block per mechanism per target, holding every rule that mechanism sends there in its rules
+file's order, each opening with its id, and nothing else, after the anchor line the rules file
+names for that target. A mechanism has one place in a target. The entry file owns the
+prohibition on editing a block in place.
+
+The installer has a named mode or refuses. It validates every target of a file before writing
+anything — target present, anchor matching exactly one line, block absent or matching — and a
+refusal changes no file. Retraction removes exactly what installation added, leaving the target
+byte-identical. A block that differs from its source is drift: the tool cannot tell an amended
+source from an edited copy, so it refuses unless the caller says to overwrite, and then it
+replaces the block whole and reports what it replaced. A mid-write failure follows
+[interruption and recovery](#interruption-and-recovery).
+
+A rules file's block is installed in every target it names, or the tree's check fails: an
+absent block, a drifted block, and a block whose owner has no rules file are each a diagnostic.
+The installer writes no doc and decides nothing about a mechanism's state.
+
 ## Deferred decisions
 
 - The pacer owns session resumption and turn progression. This maintenance install does not
