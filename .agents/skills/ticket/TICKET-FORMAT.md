@@ -193,12 +193,13 @@ do not replace it with another skeleton.
 | Field | Rule |
 |---|---|
 | `Last updated` | The date **delivery state** last moved, not the date the file was last touched. A copy-edit or a link repair does not advance it; a status flip, a minted ticket, or a reorder does. |
-| `Ticket` | Relative link to the ticket. Add the `done/` segment when it completes. The row stays. |
+| `Ticket` | Relative link to the ticket. The row is deleted when the ticket closes: `done/` enumerates finished work, and the queue is delivery status. |
 | `Status` | A [status](#status) value, including an allowed qualifier. |
 | `Type` | `HITL` or `AFK`. |
 | `Outcome` | Copied verbatim from the ticket header. |
 
 When minting, add a row where the ticket will actually be worked. When
-status, type, or outcome changes, update the row. When completing, set
-status to `Done (date)` and add `done/` to the link. Do not add columns.
+status, type, or outcome changes, update the row. When completing, delete the
+row; the closing pass carries that duty as an installed rule. Do not add
+columns.
 </straw-dog>

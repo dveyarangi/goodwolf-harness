@@ -32,8 +32,8 @@ an installer adds and an uninstaller removes.
 
 <straw-dog until="01-0011.0040 is done" ticket="docs/tickets/01-0011.0040-queue-derived-index.md">
 The queue's table is still a copy of the ticket headers, amended by hand at every mint, flip and
-close, and the shelf's queue section says how. When the queue is derived from the tickets, that
-section and the moment that reads it both go.
+close, and the shelf's queue section says how. When the queue is derived, that section and the
+moment that reads it both go, along with P8, which is wrapped at its own home in the rules file.
 </straw-dog>
 
 **Who decided each rule.** The skill and the shelf carry their rules with no attribution; this doc
@@ -46,6 +46,7 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | P5 — the records are checked by `tickets.py` | the user, 2026-09-08, owed to `/maintain`'s M1 |
 | P6 — an RFC is named by its ticket | the user, 2026-09-08 |
 | P7 — a resolved decision leaves the ticket for its durable home | the user, 2026-09-08 |
+| P8 — a closed ticket leaves the queue | the user, 2026-09-09 |
 | the record's shape — one header form, `Type` required, `Kind` gone, `Outcome` one sentence, the stage read from the plan, the sections a stage admits | the user, 2026-09-08 |
 | the status vocabulary, numbering and one basename per work item | with the selected skills, 2026-09-06 |
 | check-only, and nothing retires this | the user, 2026-09-08 |
@@ -149,7 +150,7 @@ done, which never arrives. This section states that so nobody re-investigates it
 ## What would show it working, graded by someone who did not build it
 
 Two graders, two questions, pre-registered at
-[01-0011.0025](../../../docs/tickets/01-0011.0025-archive-duty-reaches-maintain.md)'s align and
+[01-0011.0025](../../../docs/tickets/done/01-0011.0025-archive-duty-reaches-maintain.md)'s align and
 `/plan`.
 
 **The session that declares `/plan`**, under [01-0017](../../../docs/tickets/01-0017-io-graph-coherent.md),

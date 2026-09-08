@@ -209,6 +209,14 @@ def _body_problems(rule_id: str, body: str) -> None:
         raise Refused(f"rule {rule_id}'s body holds a heading line")
     if "<installed" in body or INSTALLED_CLOSING in body:
         raise Refused(f"rule {rule_id}'s body holds the installed tag")
+    # A body is copied into every target, and the listing blanks an installed block before it
+    # scans: a straw dog written here would be invisible in every place it landed. An expiring
+    # rule is wrapped around its section instead, where the rule is authored and the listing looks.
+    if "<straw-dog" in body or "</straw-dog>" in body:
+        raise Refused(
+            f"rule {rule_id}'s body holds a straw dog; wrap the section, not the body, so the "
+            "listing sees it where the rule is authored"
+        )
 
 
 # --- the target -----------------------------------------------------------------------------

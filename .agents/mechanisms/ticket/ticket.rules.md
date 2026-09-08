@@ -50,6 +50,19 @@ Check the ticket records with `tickets.py --check` — format never content, liv
 diagnostic is a finding; repair it under the repair policy.
 </rule>
 
+<straw-dog until="01-0011.0040 is done" ticket="docs/tickets/01-0011.0040-queue-derived-index.md">
+## P8 — a closed ticket leaves the queue
+
+- **target** `.agents/skills/maintain/SKILL.md`
+- **authority** the user, 2026-09-09
+
+<rule>
+Delete the ticket's row from the queue when you close it. The queue is delivery status, and
+`docs/tickets/done/` is where finished work is enumerated; a row for an archived ticket is a
+second home for what that folder already says.
+</rule>
+</straw-dog>
+
 ## P6 — an RFC is named by its ticket
 
 - **target** `.agents/skills/plan/SKILL.md`

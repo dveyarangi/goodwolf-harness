@@ -168,7 +168,7 @@ obligation moving from *none by property* to *not yet*: did the shape change bec
 hand-fixed until the check went quiet reads identically to success.
 
 **The session that declares the ticket mechanism**, at
-[.0025](../../../docs/tickets/01-0011.0025-archive-duty-reaches-maintain.md), grades this
+[.0025](../../../docs/tickets/done/01-0011.0025-archive-duty-reaches-maintain.md), grades this
 declaration as the first to lean on it: it takes the mover and the citation reader as its own,
 installs the paired-close block into the body, and retires the two `embedded` rows. Did those
 land against this doc as written, or did the doc have to be rewritten to receive them? **Graded

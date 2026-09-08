@@ -3,8 +3,8 @@
 Why [the doc](../../.agents/mechanisms/ticket/ticket.md) is what it is: what was tried, what was
 refuted, what it cost, and what it used to be. Provenance stays inline on each rule. The mover's
 contract lives in [architecture](../architecture.md#paired-record-close); the declaration's
-decisions belong to [01-0011.0025](../tickets/01-0011.0025-archive-duty-reaches-maintain.md) and
-its [RFC](../rfc/01-0011.0025-archive-duty-reaches-maintain.md).
+decisions belong to [01-0011.0025](../tickets/done/01-0011.0025-archive-duty-reaches-maintain.md) and
+its [RFC](../rfc/done/01-0011.0025-archive-duty-reaches-maintain.md).
 
 ## What the 2026-09-08 align refuted
 

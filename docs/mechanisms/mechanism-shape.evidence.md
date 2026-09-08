@@ -183,7 +183,7 @@ watched failing is not a check, and a mutation not watched applying is not a mut
 
 ## Refuted by the third application, 2026-09-08
 
-Two amendments, both found at [.0025](../tickets/01-0011.0025-archive-duty-reaches-maintain.md)'s
+Two amendments, both found at [.0025](../tickets/done/01-0011.0025-archive-duty-reaches-maintain.md)'s
 align before the third doc was written, and both landed in the shelf and the check before it was.
 
 **`declared by` is gone** *(the user, 2026-09-09)*. It was a path, and after the first close under
@@ -221,7 +221,7 @@ parts now, and the two docs name it as owner.
 Three mechanisms have been declared. The second passed the check unedited and amended the shape in
 prose three times, recorded above; whether that is the shape fitting or the declaration bent to fit
 it is the grade the doc pre-registers for the user, and it has not been given. The third, at
-[.0025](../tickets/01-0011.0025-archive-duty-reaches-maintain.md), was the first record-bearing
+[.0025](../tickets/done/01-0011.0025-archive-duty-reaches-maintain.md), was the first record-bearing
 one and amended the shape twice more, both times by removing or adding a row rather than by
 bending the doc; that is one data point for the shape fitting, and a hand-fixed declaration would
 still read the same in the check's output.

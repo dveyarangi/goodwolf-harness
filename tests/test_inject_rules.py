@@ -252,6 +252,29 @@ class Refusing(RepositoryCase):
         self.write(RULES, rules_file().replace("Move story out", "## Move story out"))
         self.assert_refused(1, "heading line", SLUG, "--install")
 
+    def test_a_body_holding_a_straw_dog_tag_refuses(self) -> None:
+        wrapped = rules_file().replace(
+            "Move story out",
+            '<straw-dog until="01-0002 is done" ticket="docs/tickets/01-0002-sweep.md">\nMove story out',
+        ).replace("into its evidence.", "into its evidence.\n</straw-dog>")
+        self.write(RULES, wrapped)
+
+        self.assert_refused(1, "straw dog", SLUG, "--install")
+
+    def test_a_section_wrapped_in_a_straw_dog_installs_the_rule_and_not_the_tag(self) -> None:
+        marked = rules_file().replace(
+            "## R2 — story leaves the doc",
+            '<straw-dog until="01-0002 is done" ticket="docs/tickets/01-0002-sweep.md">\n'
+            "## R2 — story leaves the doc",
+        ).replace("</rule>\n", "</rule>\n</straw-dog>\n", 2)
+        self.write(RULES, marked)
+
+        self.assertEqual(0, self.run_installer(SLUG, "--install")[0])
+
+        written = self.read(TARGET)
+        self.assertIn("**R2** Move story out of a doc into its evidence.", written)
+        self.assertNotIn("straw-dog", written)
+
     # the target's blocks
 
     def test_two_blocks_of_one_slug_in_one_file_refuse(self) -> None:

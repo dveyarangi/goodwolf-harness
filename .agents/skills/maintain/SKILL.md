@@ -83,6 +83,10 @@ reports it cannot rewrite, and say which. Git recovers committed or staged conte
 
 **P5** Check the ticket records with `tickets.py --check` — format never content, live rows only. A
 diagnostic is a finding; repair it under the repair policy.
+
+**P8** Delete the ticket's row from the queue when you close it. The queue is delivery status, and
+`docs/tickets/done/` is where finished work is enumerated; a row for an archived ticket is a
+second home for what that folder already says.
 </installed>
 
 <installed by="mechanism-shape">

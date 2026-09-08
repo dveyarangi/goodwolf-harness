@@ -52,7 +52,7 @@ All on the closed tickets. The ones that reshaped more than their slice:
 ## Open, with owners
 
 - **Next cycle needs a nod** (`next-cycle=ask`). The queue names
-  [.0025](../tickets/01-0011.0025-archive-duty-reaches-maintain.md): the ticket mechanism, the
+  [.0025](../tickets/done/01-0011.0025-archive-duty-reaches-maintain.md): the ticket mechanism, the
   first record shape with a maintainer script, and the first slice to use the injector without
   having built it — the grader `/maintain`'s doc pre-registers.
 - **The user's grade on the shape** is still not given: did the shape change because `/maintain`
@@ -99,7 +99,7 @@ prepared against the old text fails. Both cheap, both worth knowing.
 **Easier:** the queue's current-stage paragraph is rewritten by hand at every close; .0040
 derives the table, and the paragraph could be shorter once it does.
 
-**Next:** [.0025](../tickets/01-0011.0025-archive-duty-reaches-maintain.md), on the user's nod.
+**Next:** [.0025](../tickets/done/01-0011.0025-archive-duty-reaches-maintain.md), on the user's nod.
 
 ## Housekeeping
 

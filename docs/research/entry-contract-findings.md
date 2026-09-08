@@ -24,6 +24,24 @@ Decided by the user, recorded in
 [01-0010.0020](../tickets/done/01-0010.0020-live-alignment-across-hosts.md#what-this-ticket-does-not-decide).
 The three blocks then live were bound the same day.
 
+## v6 — 2026-09-09
+
+**One core change:** a straw dog is wrapped at its authored home, never where the harness installs
+or derives it; what lands there takes the content and not the tag. The wording went through the
+user twice: *wrap what is authored* named the act and left the reader to infer the thing, and its
+first draft called an installed block a *copy*, which the glossary reserves against for exactly
+that noun. The section was also cut from 152
+words to 114 at the user's instruction in the same pass — the reasoning left the entry file for
+this record, since a tier-1 rule pays its cost every session. Decided by the user at
+[01-0011.0025](../tickets/done/01-0011.0025-archive-duty-reaches-maintain.md)'s `/maintain`, from
+a concrete miss in that same pass. P8 was minted as an expiring rule, and its marking was put in
+the mechanism's doc rather than on the rule, on my wrong claim that a rules file could not hold
+the tag. Two probes settled it: the installer parses a wrapped section and renders a byte-identical
+block, and the listing finds a straw dog written in a rules file. The rule now has one wrapper at
+its authored home instead of a note two files away. The refusal that enforces it is
+`inject_rules.py`'s — a `<straw-dog>` inside a rule body, which would be copied into every target
+and then blanked by the listing, is refused — and the grammar is the format shelf's.
+
 ## v5 — 2026-09-08
 
 **One core change, in two parts.** The `<temporary>` convention is renamed to `<straw-dog>`,

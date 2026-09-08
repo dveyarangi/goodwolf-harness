@@ -55,8 +55,11 @@ Prose before the table is the file's own preamble and is not read.
 - **The body** is the span between a line that is exactly `<rule>` and a line that is exactly
   `</rule>`, installed byte for byte. It holds no markdown citation — the mover rewrites a
   relative link per the file it sits in, so one body in two directories would drift apart — no
-  heading line, and no `<installed` or `</installed>`. A section with two spans, or none, is
-  refused.
+  heading line, no `<installed` or `</installed>`, and no `<straw-dog>`. A section with two spans,
+  or none, is refused.
+- **A rule that expires is wrapped around its section**: the tag opens before the heading and
+  closes after `</rule>`, outside the body, so a target receives the rule and never the wrapper.
+  A tag inside a body is refused.
 
 **What the installer writes**, per target: one block holding every rule of the file that names
 it, in file order, each a paragraph opening with its id, after the anchor line:

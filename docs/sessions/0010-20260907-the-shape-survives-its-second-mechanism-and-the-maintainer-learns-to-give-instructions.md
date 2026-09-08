@@ -64,7 +64,7 @@ All on the closed ticket unless named. The ones that reshaped more than this sli
   check; `/verify:38` and `/implement:38–40` naming rules or skills that are not theirs; and a
   mechanism doc's `not yet` rows linking specific tickets under `docs/`, which *Core and
   instance* may or may not exempt.
-- **The mover does not rewrite a backticked path** → [.0025](../tickets/01-0011.0025-archive-duty-reaches-maintain.md),
+- **The mover does not rewrite a backticked path** → [.0025](../tickets/done/01-0011.0025-archive-duty-reaches-maintain.md),
   found when both docs' `declared by` bullets dangled after the close.
 - **The clock's five align questions** on `.0060`, the first being whether Git is the clock.
 

@@ -1,6 +1,6 @@
 # Session entry
 
-Entry contract: v5, 2026-09-08.
+Entry contract: v6, 2026-09-09.
 
 Open your first reply of every session with the line above, verbatim.
 
@@ -102,14 +102,14 @@ The project sets each switch in its local block below; skills defer to those val
 
 ## Straw dogs
 
-Anything you write that serves only until a named ticket replaces it is a straw dog. Wrap it,
-when you write it, in `<straw-dog until="condition" ticket="path">`, anywhere: a local block, a
-skill body, a doc; in code, as a `TODO` naming the ticket. The condition is testable: the ticket
-is done, or the condition is fulfilled. The ticket is the one whose work meets the condition, as a
-path from the repository root. What has no named successor is a claim and is not wrapped.
+What you write to serve only until a named ticket replaces it is a straw dog. Wrap it as you
+write it, wherever it sits: `<straw-dog until="condition" ticket="path">`, or in code a `TODO`
+naming the ticket. Wrap it at its authored home, never where the harness installs or derives it:
+what lands there takes the content, not the tag. The condition is testable and the ticket path is
+from the repository root. What has no named successor is a claim, and is not wrapped.
 
-Follow a straw dog like any other rule until you can see its condition is met; then act on
-reality, report the stale block, and do not treat the contradiction as a violation.
+Follow a straw dog like any other rule until its condition is visibly met; then act on reality,
+report the stale block, and do not treat the contradiction as a violation.
 
 <project-local>
 commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report
