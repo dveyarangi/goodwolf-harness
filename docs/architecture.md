@@ -78,12 +78,12 @@ committed or staged content; it does not generally recover overwritten unstaged 
 Recovery must account for the actual working state and preserve unrelated changes. This
 install adds no separate recovery mechanism.
 
-### Temporary statements
+### Straw dogs
 
-[The entry contract](../AGENTS.md#temporary-statements) owns temporary-statement syntax,
-ticket binding and expiry. Enumeration provides source locations and the written condition
-and owner; the maintainer establishes whether the condition holds from evidence. Unknown
-conditions remain unresolved. Mechanical removal follows that disposition and preserves
+[The entry contract](../AGENTS.md#temporary-statements) owns the `<straw-dog>` syntax, ticket binding,
+expiry, and the duty to wrap when writing. Listing provides source locations and the written
+condition and owner; the maintainer establishes whether the condition holds from evidence.
+Unknown conditions remain unresolved. Mechanical removal follows that disposition and preserves
 surviving agreements. Examples describing the syntax are distinct from operative statements.
 
 A removal request identifies an entire obsolete statement; the mechanical tool does not
@@ -91,6 +91,10 @@ decide whether nested statements have also expired. Reject an outer-block remova
 contains nested blocks. The maintainer disposes of children first and rescans before another
 removal; active children and enduring agreements require preservation before the outer
 statement can be removed.
+
+The listing tool may also guess, from the words a sentence carries, where a straw dog stands
+unwrapped. A guess is a finding for the maintainer, never a diagnostic, and never moves the
+run's status; what has no named successor is a claim and is left as written.
 
 ### Installed blocks
 
