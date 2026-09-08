@@ -84,6 +84,13 @@ left unhosted.
 - Whether `docs/process.md` survives this pass as a rule home or becomes policy-only — its
   `<temporary>` block already promises the sequence to [the pacer](./01-0020-pacer.md).
 - Whether "update the glossary/architecture inline" is `/align`'s or `/maintain`'s.
+- **Which mechanism is responsible for straw dogs** *(raised 2026-09-08 at
+  [01-0011.0070](./01-0011.0070-straw-dogs-marked-and-found.md)'s align, the user)*. The duty to
+  wrap one is the entry file's, a meta-rule; the enumerator that lists and retires them is the
+  maintenance mechanism's part; the review that marks them at landing is `/verify`'s own
+  sentence, written as a straw dog bound to this ticket. Nothing owns the concept end to end, and
+  three mechanisms each hold a piece. The elected owner is this pass's to settle; `/verify`'s
+  wrapper retires with the answer.
 - A live instance to settle: on 2026-09-06 `/verify`'s skill body lost its opening line — "`/verify`
   is the verification of landed work, not only documentation or shape review" — while
   [the process](../process.md#verification) still says it. The skill and its governing document now
