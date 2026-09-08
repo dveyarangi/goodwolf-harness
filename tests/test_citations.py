@@ -231,8 +231,8 @@ if __name__ == "__main__":
     unittest.main()
 
 
-class TemporaryStatementOwners(RepositoryCase):
-    """The `ticket=` binding of an operative temporary statement is a citation too."""
+class StrawDogOwners(RepositoryCase):
+    """The `ticket=` binding of an operative straw dog is a citation too."""
 
     def setUp(self) -> None:
         super().setUp()
@@ -245,8 +245,8 @@ class TemporaryStatementOwners(RepositoryCase):
         self.write(
             "docs/process.md",
             "# Process\n\n"
-            '<temporary until="/plan is installed" ticket="docs/tickets/01-0010.0040-install-plan.md">\n'
-            "Preliminary.\n</temporary>\n",
+            '<straw-dog until="/plan is installed" ticket="docs/tickets/01-0010.0040-install-plan.md">\n'
+            "Preliminary.\n</straw-dog>\n",
         )
         self.commit()
 
@@ -254,8 +254,8 @@ class TemporaryStatementOwners(RepositoryCase):
 
         self.assertEqual(
             "# Process\n\n"
-            '<temporary until="/plan is installed" ticket="docs/tickets/done/01-0010.0040-install-plan.md">\n'
-            "Preliminary.\n</temporary>\n",
+            '<straw-dog until="/plan is installed" ticket="docs/tickets/done/01-0010.0040-install-plan.md">\n'
+            "Preliminary.\n</straw-dog>\n",
             self.read("docs/process.md"),
         )
 
@@ -264,9 +264,9 @@ class TemporaryStatementOwners(RepositoryCase):
         self.write(
             entry,
             "# Entry\n\n"
-            'Wrapped in `<temporary until="c" ticket="docs/tickets/01-0010.0040-install-plan.md">`.\n\n'
+            'Wrapped in `<straw-dog until="c" ticket="docs/tickets/01-0010.0040-install-plan.md">`.\n\n'
             "```md\n"
-            '<temporary until="c" ticket="docs/tickets/01-0010.0040-install-plan.md">rule</temporary>\n'
+            '<straw-dog until="c" ticket="docs/tickets/01-0010.0040-install-plan.md">rule</straw-dog>\n'
             "```\n",
         )
         self.commit()

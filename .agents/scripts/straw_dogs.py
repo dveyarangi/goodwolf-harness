@@ -1,12 +1,15 @@
-"""The statements that expire, and the one mechanical edit that retires them.
+"""The straw dogs — what serves until a named ticket replaces it — and the one edit that retires one.
 
-    uv run --offline --no-project python .agents/scripts/temporary_statements.py PATH [PATH ...]
-    uv run --offline --no-project python .agents/scripts/temporary_statements.py \
+    uv run --offline --no-project python .agents/scripts/straw_dogs.py PATH [PATH ...]
+    uv run --offline --no-project python .agents/scripts/straw_dogs.py --guess PATH [PATH ...]
+    uv run --offline --no-project python .agents/scripts/straw_dogs.py \
         --remove FILE:LINE --expect sha256:...
 
-Reading a scope reports every operative `<temporary>` block in it as JSON, with the condition and
-owning ticket as written and a diagnostic for anything a maintainer must look at. Removing takes
-out one block a maintainer has already judged obsolete.
+Reading a scope reports every operative `<straw-dog>` block in it — and, in code, every `TODO`
+naming its ticket — as JSON, with the condition and owning ticket as written and a diagnostic for
+anything a maintainer must look at. Guessing reports where a straw dog probably stands unwrapped,
+from the words a sentence carries; a guess is for a person to judge and never fails the run.
+Removing takes out one block a maintainer has already judged obsolete.
 
 This tool never decides that a condition holds — it does not interpret an `until` phrase, and it
 certainly does not execute one. Judgement is `/maintain`'s; the entry contract owns the syntax.
@@ -23,11 +26,31 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from docs_corpus import without_code  # noqa: E402  (path set just above)
+from docs_corpus import INSTALLED_CLOSING, INSTALLED_OPENING, without_code  # noqa: E402  (path set just above)
+from mechanisms import KINDS  # noqa: E402  (the shape's moment kinds, whose table rows are not guesses)
 
-_TAG = re.compile(r"<temporary\b[^<>]*>|</temporary\s*>|<temporary\b|</temporary\b", re.S)
+_TAG = re.compile(r"<straw-dog\b[^<>]*>|</straw-dog\s*>|<straw-dog\b|</straw-dog\b", re.S)
+# The tag was `<temporary>` until 2026-09-08. One written from habit would be no straw dog at all —
+# the defect this tool exists to end, produced by its own rename — so the old name is a diagnostic.
+_RETIRED = re.compile(r"</?temporary\b")
 _ATTRIBUTE = re.compile(r'\b(until|ticket)\s*=\s*"([^"]*)"', re.S)
-_USAGE = "usage: temporary_statements.py PATH [PATH ...] | --remove FILE:LINE --expect HASH"
+_USAGE = "usage: straw_dogs.py PATH [PATH ...] | --guess PATH [PATH ...] | --remove FILE:LINE --expect HASH"
+
+# In code the marking is a comment line beginning with TODO; one naming its ticket is a straw dog,
+# one naming none is a guess. A sentence merely mentioning the word is neither.
+_TODO = re.compile(r"^\s*#\s*TODO\b")
+_TICKET_PATH = re.compile(r"docs/tickets/[\w./-]+\.md")
+# The record folders the harness itself imposes: provisional by status, or history, never a
+# surface read as truth, so never guessed over. A project's own folders are its own to judge.
+_WORKING_RECORDS = ("docs/tickets/", "docs/rfc/", "docs/spec/", "docs/sessions/")
+# The tells. Small on purpose: every sentence the demonstration rested on carried one of these,
+# and anything cleverer would be guessing about guessing.
+_TELLS = re.compile(
+    r"\b(until|for now|does not exist yet|no (?:[\w-]+ ){1,3}exists|by hand|once (?:[\w-]+ ){1,3}lands"
+    r"|interim|placeholder|nothing (?:installs|reads|runs))\b",
+    re.I,
+)
+_KIND_ROW = re.compile(r"^\|.*\b(?:" + "|".join(re.escape(kind) for kind in KINDS) + r") — ")
 
 
 class Refused(Exception):
@@ -35,8 +58,8 @@ class Refused(Exception):
 
 
 @dataclass(frozen=True)
-class Statement:
-    """One operative temporary statement, as written.
+class StrawDog:
+    """One operative straw dog, as written.
 
     `until` and `ticket` are the author's words, not a verdict: an unresolved condition stays
     unresolved here. `fingerprint` covers the whole file's bytes, so a removal can prove it is
@@ -83,7 +106,7 @@ class Surveyed:
     """What one reading of a declared scope found. Empty statements and no diagnostics is a result."""
 
     scanned: list[str]
-    statements: list[Statement]
+    statements: list[StrawDog]
     diagnostics: list[Diagnostic]
 
     def as_record(self) -> dict:
@@ -94,10 +117,39 @@ class Surveyed:
         }
 
 
+@dataclass(frozen=True)
+class Candidate:
+    """A sentence that probably serves until something replaces it, and was not wrapped to say so."""
+
+    path: str
+    line: int
+    word: str
+    text: str
+
+    def as_record(self) -> dict:
+        return {"path": self.path, "line": self.line, "word": self.word, "text": self.text}
+
+
+@dataclass(frozen=True)
+class Guessed:
+    """What one guess over a declared scope turned up. A guess is judged, never acted on."""
+
+    scanned: list[str]
+    candidates: list[Candidate]
+
+    def as_record(self) -> dict:
+        return {
+            "scanned": self.scanned,
+            "candidates": [candidate.as_record() for candidate in self.candidates],
+        }
+
+
 def main(argv: list[str], root: Path | None = None) -> int:
     root = root or Path(__file__).resolve().parents[2]
     if argv[:1] == ["--remove"]:
         return _removal(root, argv[1:])
+    if argv[:1] == ["--guess"]:
+        return _guessing(root, argv[1:])
     if argv[:1] in (["--help"], ["-h"]):
         print(_USAGE)
         return 0
@@ -113,6 +165,19 @@ def main(argv: list[str], root: Path | None = None) -> int:
     return 1 if surveyed.diagnostics else 0
 
 
+def _guessing(root: Path, argv: list[str]) -> int:
+    if not argv or any(operand.startswith("-") for operand in argv):
+        print(_USAGE)
+        return 2
+    try:
+        guessed = guess(root, argv)
+    except Refused as refusal:
+        print(f"refused, nothing guessed: {refusal}")
+        return 2
+    print(json.dumps(guessed.as_record(), indent=2))
+    return 0
+
+
 def _removal(root: Path, argv: list[str]) -> int:
     if len(argv) != 3 or argv[1] != "--expect":
         print(_USAGE)
@@ -123,16 +188,16 @@ def _removal(root: Path, argv: list[str]) -> int:
         print(_USAGE)
         return 2
     try:
-        remove_statement(root, path, int(line), expected)
+        remove_straw_dog(root, path, int(line), expected)
     except Refused as refusal:
         print(f"refused, nothing written: {refusal}")
         return 2
-    print(f"removed the temporary statement at {path}:{line}")
+    print(f"removed the straw dog at {path}:{line}")
     return 0
 
 
 def survey(root: Path, paths: list[str]) -> Surveyed:
-    """Every operative temporary statement in a declared scope, with what is wrong alongside it."""
+    """Every operative straw dog in a declared scope, with what is wrong alongside it."""
     scanned: list[str] = []
     statements: list[Statement] = []
     diagnostics: list[Diagnostic] = []
@@ -143,13 +208,70 @@ def survey(root: Path, paths: list[str]) -> Surveyed:
         except (OSError, UnicodeDecodeError):
             diagnostics.append(Diagnostic(name, 0, "unreadable"))
             continue
-        found, notes = _statements_in(root, name, text)
+        found, notes = _straw_dogs_in(root, name, text)
         statements += found
         diagnostics += notes
     return Surveyed(scanned, statements, diagnostics)
 
 
-def remove_statement(root: Path, path: str, line: int, expect: str) -> None:
+def guess(root: Path, paths: list[str]) -> Guessed:
+    """Every unwrapped sentence in a declared scope that carries a tell, for a person to judge."""
+    scanned: list[str] = []
+    candidates: list[Candidate] = []
+    for name in _records_in(root, paths):
+        if name.startswith(_WORKING_RECORDS):
+            continue
+        scanned.append(name)
+        try:
+            text = _read(root / name)
+        except (OSError, UnicodeDecodeError):
+            continue
+        candidates += _candidates_in(root, name, text)
+    return Guessed(scanned, candidates)
+
+
+def _candidates_in(root: Path, name: str, text: str) -> list[Candidate]:
+    if name.endswith(".py"):
+        return [
+            Candidate(name, number, "TODO", line.strip())
+            for number, line in enumerate(text.splitlines(), start=1)
+            if _TODO.search(line) and not _TICKET_PATH.search(line)
+        ]
+    # What is already wrapped says what it is; what sits in an installed block is not this file's
+    # to edit, so a candidate there could not be acted on in place. Both are blanked, positions kept.
+    prose = without_code(text)
+    wrapped, _ = _tags_in(root, name, text)
+    prose = _blanked(prose, [straw_dog.span for straw_dog in wrapped] + _installed_spans(prose))
+    candidates = []
+    offset = 0
+    for number, line in enumerate(prose.splitlines(keepends=True), start=1):
+        if not _KIND_ROW.match(line):
+            tell = _TELLS.search(line)
+            if tell:
+                original = text[offset : offset + len(line)].strip()
+                candidates.append(Candidate(name, number, tell.group(1).lower(), original))
+        offset += len(line)
+    return candidates
+
+
+def _installed_spans(prose: str) -> list[tuple[int, int]]:
+    spans = []
+    for opening in INSTALLED_OPENING.finditer(prose):
+        close = prose.find(INSTALLED_CLOSING, opening.end())
+        spans.append((opening.start(), len(prose) if close == -1 else close + len(INSTALLED_CLOSING)))
+    return spans
+
+
+def _blanked(prose: str, spans: list[tuple[int, int]]) -> str:
+    kept = list(prose)
+    for start, end in spans:
+        for at in range(start, end):
+            if kept[at] not in "\r\n":
+                kept[at] = " "
+    return "".join(kept)
+
+
+def remove_straw_dog(root: Path, path: str, line: int, expect: str) -> None:
     """Take out the one obsolete statement opening at `path:line`, and nothing else.
 
     Refuses unless the file still hashes to `expect` and the block holds no nested statement: this
@@ -161,13 +283,15 @@ def remove_statement(root: Path, path: str, line: int, expect: str) -> None:
         raise Refused(f"{path} resolves outside the repository")
     if not record.is_file():
         raise Refused(f"{path} is not a record of this repository")
+    if path.endswith(".py"):
+        raise Refused("a TODO leaves with the code it marks; this tool removes tags, not lines of code")
     if _fingerprint(record) != expect:
         raise Refused(f"{path} has changed since it was read; scan it again and reselect")
     text = _read(record)
-    statements, _ = _statements_in(root, path, text)
+    statements, _ = _straw_dogs_in(root, path, text)
     opening = [statement for statement in statements if statement.opens == line]
     if not opening:
-        raise Refused(f"no temporary statement opens at {path}:{line}")
+        raise Refused(f"no straw dog opens at {path}:{line}")
     statement = opening[0]
     if statement.contains:
         raise Refused(
@@ -178,8 +302,40 @@ def remove_statement(root: Path, path: str, line: int, expect: str) -> None:
     _replace_content(record, text[:start] + text[end:])
 
 
-def _statements_in(root: Path, name: str, text: str) -> tuple[list[Statement], list[Diagnostic]]:
-    """Read one record's tags into statements, keeping every tag that does not make sense visible."""
+def _straw_dogs_in(root: Path, name: str, text: str) -> tuple[list[StrawDog], list[Diagnostic]]:
+    """One record's straw dogs: tags in a document, TODOs naming their ticket in code."""
+    if name.endswith(".py"):
+        return _todos_in(root, name, text)
+    return _tags_in(root, name, text)
+
+
+def _todos_in(root: Path, name: str, text: str) -> tuple[list[StrawDog], list[Diagnostic]]:
+    """A TODO that names its ticket is a straw dog; the ticket is its condition, so no `until`."""
+    fingerprint = _fingerprint(root / name)
+    found = []
+    offset = 0
+    for number, line in enumerate(text.splitlines(keepends=True), start=1):
+        named = _TICKET_PATH.search(line) if _TODO.search(line) else None
+        if named:
+            found.append(
+                StrawDog(
+                    path=name,
+                    opens=number,
+                    closes=number,
+                    until="the ticket is done",
+                    ticket=named.group(0),
+                    depth=0,
+                    contains=0,
+                    fingerprint=fingerprint,
+                    span=(offset, offset + len(line)),
+                )
+            )
+        offset += len(line)
+    return found, _attribute_problems(root, found)
+
+
+def _tags_in(root: Path, name: str, text: str) -> tuple[list[StrawDog], list[Diagnostic]]:
+    """Read one document's tags into straw dogs, keeping every tag that does not make sense visible."""
     fingerprint = _fingerprint(root / name)
     prose = without_code(text)
     open_tags: list[tuple[int, re.Match[str]]] = []
@@ -201,14 +357,19 @@ def _statements_in(root: Path, name: str, text: str) -> tuple[list[Statement], l
     diagnostics += [
         Diagnostic(name, _line_of(text, opened.start()), "never closed") for _, opened in open_tags
     ]
+    diagnostics += [
+        Diagnostic(name, _line_of(text, old.start()), "retired tag name: <temporary> became <straw-dog>")
+        for old in _RETIRED.finditer(prose)
+        if not old.group(0).startswith("</")
+    ]
     statements = _nested(name, text, fingerprint, sorted(spans))
     return statements, diagnostics + _attribute_problems(root, statements)
 
 
 def _nested(
     name: str, text: str, fingerprint: str, spans: list[tuple[int, int, str]]
-) -> list[Statement]:
-    """Turn raw spans into statements that know their depth and how many children they hold."""
+) -> list[StrawDog]:
+    """Turn raw spans into straw dogs that know their depth and how many children they hold."""
     statements = []
     for start, end, written in spans:
         attributes = dict(_ATTRIBUTE.findall(written))
@@ -216,7 +377,7 @@ def _nested(
         children = [other for other in spans if _holds((start, end), other)]
         direct = [child for child in children if not any(_holds(kin, child) for kin in children)]
         statements.append(
-            Statement(
+            StrawDog(
                 path=name,
                 opens=_line_of(text, start),
                 closes=_line_of(text, end - 1),
@@ -236,7 +397,7 @@ def _holds(outer, inner) -> bool:
     return outer[0] < inner[0] and inner[1] <= outer[1]
 
 
-def _attribute_problems(root: Path, statements: list[Statement]) -> list[Diagnostic]:
+def _attribute_problems(root: Path, statements: list[StrawDog]) -> list[Diagnostic]:
     """An expiry nobody owns, or one nobody can test, is a finding — never a silent pass."""
     problems = []
     for statement in statements:
@@ -250,7 +411,7 @@ def _attribute_problems(root: Path, statements: list[Statement]) -> list[Diagnos
 
 
 def _records_in(root: Path, paths: list[str]) -> list[str]:
-    """The markdown records a declared scope covers, in a stable order.
+    """The markdown records and the code a declared scope covers, in a stable order.
 
     A path naming nothing is refused rather than contributing no records: a scope the caller
     believes it declared and this tool silently dropped would report as a clean, complete scan.
@@ -261,8 +422,8 @@ def _records_in(root: Path, paths: list[str]) -> list[str]:
         if selected.is_dir():
             found += [
                 record.relative_to(root).as_posix()
-                for record in selected.rglob("*.md")
-                if ".git" not in record.relative_to(root).parts
+                for record in selected.rglob("*")
+                if record.suffix in (".md", ".py") and ".git" not in record.relative_to(root).parts
             ]
         elif selected.is_file():
             found.append(selected.relative_to(root).as_posix())

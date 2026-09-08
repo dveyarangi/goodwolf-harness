@@ -17,7 +17,10 @@ from urllib.parse import quote, unquote
 
 _INLINE = re.compile(r'(!?\[[^\]]*\]\(\s*)(<[^>]*>|[^)\s]+)((?:\s+(?:"[^"]*"|\'[^\']*\'|\([^)]*\)))?\s*\))', re.S)
 _DEFINITION = re.compile(r'(^[ ]{0,3}\[[^\]]+\]:[ \t]*)(<[^>]*>|\S+)((?:[ \t]+(?:"[^"]*"|\'[^\']*\'|\([^)]*\)))?[ \t]*$)', re.M)
-_BINDING = re.compile(r'(<temporary\b[^<>]*?\bticket\s*=\s*")([^"]*)(")', re.S)
+_BINDING = re.compile(r'(<straw-dog\b[^<>]*?\bticket\s*=\s*")([^"]*)(")', re.S)
+# The installed block's tag, shared with the injector that writes it and the listing that skips it.
+INSTALLED_OPENING = re.compile(r'<installed by="([^"]+)">')
+INSTALLED_CLOSING = "</installed>"
 _FENCE = re.compile(r"^\s*(```|~~~)")
 _CODE_SPAN = re.compile(r"`[^`]*`")
 _ELSEWHERE = re.compile(r"^(?:https?|mailto|ftps?|tel|data|news|irc):|^//|^#")
@@ -120,9 +123,9 @@ def with_citations_retargeted(text: str, retarget) -> str:
 
 
 def with_owner_bindings_retargeted(text: str, retarget) -> str:
-    """Every operative `<temporary ticket="…">` binding re-aimed by `retarget`.
+    """Every operative `<straw-dog ticket="…">` binding re-aimed by `retarget`.
 
-    A binding is a root-relative path to the ticket whose work retires the statement, so it follows
+    A binding is a root-relative path to the ticket whose work retires the straw dog, so it follows
     that ticket into `done/` exactly as a link would. `retarget` is given and returns a root-relative
     name; an illustration of the syntax binds nothing and is left alone.
     """

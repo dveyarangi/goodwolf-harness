@@ -22,7 +22,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from docs_corpus import citations, corpus, without_code  # noqa: E402  (path set just above)
+from docs_corpus import (  # noqa: E402  (path set just above)
+    INSTALLED_CLOSING,
+    INSTALLED_OPENING,
+    citations,
+    corpus,
+    without_code,
+)
 
 MECHANISMS = ".agents/mechanisms"
 MODES = ("--install", "--retract", "--check")
@@ -32,8 +38,6 @@ _TABLE_ROW = re.compile(r"^\|\s*`([^`]+)`\s*\|\s*`([^`]+)`\s*\|\s*$")
 _TARGET = re.compile(r"^- \*\*target\*\* `([^`]+)`\s*$")
 _AUTHORITY = re.compile(r"^- \*\*authority\*\* (.+?)\s*$")
 _SPAN_EDGE = re.compile(r"^</?rule>\r?\n?$")
-_OPENING = re.compile(r'<installed by="([^"]+)">')
-_CLOSING = "</installed>"
 
 
 class Refused(Exception):
@@ -60,7 +64,7 @@ class RulesFile:
     def block(self, target: str) -> str:
         """What the target must hold: every rule naming it, file order, ids from the headings."""
         paragraphs = [f"**{rule.id}** {rule.body}" for rule in self.rules if target in rule.targets]
-        return f'<installed by="{self.slug}">\n' + "\n\n".join(paragraphs) + f"\n{_CLOSING}"
+        return f'<installed by="{self.slug}">\n' + "\n\n".join(paragraphs) + f"\n{INSTALLED_CLOSING}"
 
 
 @dataclass(frozen=True)
@@ -203,7 +207,7 @@ def _body_problems(rule_id: str, body: str) -> None:
         raise Refused(f"rule {rule_id}'s body carries a citation; name paths in words or backticks")
     if _HEADING.search(body):
         raise Refused(f"rule {rule_id}'s body holds a heading line")
-    if "<installed" in body or _CLOSING in body:
+    if "<installed" in body or INSTALLED_CLOSING in body:
         raise Refused(f"rule {rule_id}'s body holds the installed tag")
 
 
@@ -213,16 +217,16 @@ def _body_problems(rule_id: str, body: str) -> None:
 def locate(text: str, slug: str) -> Located | None:
     """The block by its tag — never by its body, which an edit would hide from us."""
     seen = without_code(text)
-    openings = [m for m in _OPENING.finditer(seen) if m.group(1) == slug]
+    openings = [m for m in INSTALLED_OPENING.finditer(seen) if m.group(1) == slug]
     if not openings:
         return None
     if len(openings) > 1:
         raise Refused(f"two blocks of {slug} in one file")
     start = openings[0].start()
-    close = seen.find(_CLOSING, start)
+    close = seen.find(INSTALLED_CLOSING, start)
     if close == -1:
         return Located(start, -1, None)
-    end = close + len(_CLOSING)
+    end = close + len(INSTALLED_CLOSING)
     return Located(start, end, text[start:end])
 
 
@@ -403,7 +407,7 @@ def _orphans(root: Path, files: dict[str, RulesFile | None]) -> list[tuple[str, 
         if not name.endswith(".md"):
             continue
         seen = without_code(_read(root / name))
-        for opening in _OPENING.finditer(seen):
+        for opening in INSTALLED_OPENING.finditer(seen):
             slug = opening.group(1)
             rules = files.get(slug)
             if slug not in files or (rules is not None and name not in rules.anchors):
