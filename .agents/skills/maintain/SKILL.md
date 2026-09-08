@@ -108,5 +108,5 @@ are the ones that file will carry:
 The verification set: [Verification](../../../docs/process.md#verification). The mover's
 failure contract and the temporary-statement contract:
 [architecture](../../../docs/architecture.md#interruption-and-recovery),
-[architecture](../../../docs/architecture.md#temporary-statements).
+[architecture](../../../docs/architecture.md#straw-dogs).
 </project-local>
