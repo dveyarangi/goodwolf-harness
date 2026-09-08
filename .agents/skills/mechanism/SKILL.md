@@ -78,8 +78,13 @@ form in which they reach anyone. A copy in a target is **installed, never author
 
 - Removable as written: retraction leaves the target byte-identical.
 - **No default mode.** A bare invocation refuses.
-- **Refuse rather than guess** — missing target, missing anchor, block already present,
-  block drifted. A hand-edited block is drift to report, not a second opinion.
+- **Refuse rather than guess** — missing target, missing anchor, block present and differing.
+  A hand-edited block is drift to report, not a second opinion.
+- A rules file's block is installed in every target it names, or the check fails.
+
+The installer is `inject_rules.py`: `<slug> --install`, with `--overwrite` when the source has
+moved; `<slug> --retract`; `--check` over the tree, in the verification set. Grammar and block
+form: [MECHANISM-FORMAT.md](./MECHANISM-FORMAT.md#the-rules-file).
 
 A mechanism that injects nothing has no rules file.
 
@@ -110,25 +115,34 @@ nothing indexes, a file dropped where nothing looks.
 
 ## Records
 
-A mechanism with records declares what a record is — its fields, what a row means, its
-tier, what removes a finished entry — inside the record's own file, enforced by a
-script *(the user, 2026-09-07)*. Format never content, live rows only; archived history
-is exempt.
+<installed by="mechanism-shape">
+**R1** Check a record-bearing mechanism's records with its maintainer script — format never
+content, live rows only. Where the script is missing, write it: that is the maintenance.
 
-A register's index is derived on request and never committed beside its records. Where
-a record-bearing mechanism has no maintainer script, **writing it is the maintenance**.
+**R4** Render an index on request; never commit one beside its records.
+</installed>
+
+A mechanism with records declares what a record is — its fields, what a row means, its
+tier, what removes a finished entry — inside the record's own file *(the user, 2026-09-07)*.
 
 <temporary until="01-0011.0020 is done" ticket="docs/tickets/01-0011.0020-rules-one-home.md">
-The two paragraphs above are authored here until the rules file takes them; then they reach
-this body, and the skill that maintains records, as installed blocks.
+The two paragraphs this wrapper replaced are installed above, from this mechanism's own rules
+file; this wrapper retires with the ticket.
 </temporary>
 
 ## Incept
 
+<installed by="maintain">
+**M1** Name what `/maintain` must do for this mechanism — a maintainer script to run, records to
+re-check when its surfaces move — as rules in its rules file targeting `/maintain`. Nothing is
+written into `/maintain` by hand.
+</installed>
+
 1. **`/align` first**, on what the mechanism is in plain terms: its moments, its
    authority, its record shape, its index, the tier of each part, what retires it.
 2. Write the doc to [MECHANISM-FORMAT.md](./MECHANISM-FORMAT.md), naming the parts it
-   owns and the parts it relies on with their owners.
+   owns and the parts it relies on with their owners; and its rules file, installed before
+   the doc is checked.
 3. **Write the check before the thing it checks**, watching every diagnostic fail in
    both polarities.
 4. **Run it over what already exists** and record the count of prior violations — or
@@ -143,10 +157,12 @@ obeys.
 ## Amend and retire
 
 Editing a skill that is an instruction file is amending its mechanism — run the steps
-still live, aligning again when the shape itself moves. A mechanism is re-checked when
-what governs it has moved; which skill does that is its doc's row, not this body's sentence.
+still live, aligning again when the shape itself moves. Amend a rule in its rules file, then
+install it with overwrite; the block in a target is never the place. A mechanism is re-checked
+when what governs it has moved; which skill does that is its doc's row, not this body's
+sentence.
 
-Retiring removes the mechanism's parts, its directory and the rules it injected, its
+Retiring runs `--retract` first, then removes the mechanism's parts and its directory, its
 own trigger among them. An always-on mechanism cannot be retired.
 
 ## Siblings

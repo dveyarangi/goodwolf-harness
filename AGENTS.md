@@ -1,6 +1,6 @@
 # Session entry
 
-Entry contract: v3, 2026-09-06.
+Entry contract: v4, 2026-09-08.
 
 Open your first reply of every session with the line above, verbatim.
 
@@ -23,6 +23,8 @@ nothing about being load-bearing — an implementation method is a shape too. �
 - Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?
 
 - Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.
+
+- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.
 
 - Recency for evidence, longevity for principles.
 

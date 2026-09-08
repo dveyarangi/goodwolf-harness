@@ -20,8 +20,68 @@ disagree with the directory.
 needs them: skills in `.agents/skills/`, scripts in `.agents/scripts/`, tests in `tests/`. A file
 put here was put here to be read, and nothing reads it, so the check reports it.
 
-The rules file is machine input, read by the installer alone and never at session time. What its
-sections contain is the installer's seam, specified with it.
+The rules file is machine input, read by the installer alone and never at session time. Its
+grammar is [The rules file](#the-rules-file) below.
+
+## The rules file
+
+```md
+# <slug> — rules installed into skills this mechanism does not own
+
+| target | anchor |
+|---|---|
+| `.agents/skills/maintain/SKILL.md` | `## Installed from other mechanisms` |
+
+## R1 — <title>
+
+- **target** `.agents/skills/maintain/SKILL.md`
+- **authority** the user, 2026-09-07
+
+<rule>
+Check a record-bearing mechanism's records with its maintainer script — format never
+content, live rows only. Where the script is missing, write it: that is the maintenance.
+</rule>
+```
+
+Prose before the table is the file's own preamble and is not read.
+
+- **The anchor table** names every target the file installs into, one row each: the target a
+  backticked repo-relative path, the anchor a backticked line that occurs exactly once in the
+  target, whole and newline-terminated. **A mechanism has one place in a target**: a target
+  named twice is refused.
+- **One `## ` section per rule.** The heading's first token, before ` — `, is the rule's id,
+  unique in the file. **target** repeats, one path per bullet, each a row of the table.
+  **authority** is who decided the rule and when, read and reported, never interpreted.
+- **The body** is the span between a line that is exactly `<rule>` and a line that is exactly
+  `</rule>`, installed byte for byte. It holds no markdown citation — the mover rewrites a
+  relative link per the file it sits in, so one body in two directories would drift apart — no
+  heading line, and no `<installed` or `</installed>`. A section with two spans, or none, is
+  refused.
+
+**What the installer writes**, per target: one block holding every rule of the file that names
+it, in file order, each a paragraph opening with its id, after the anchor line:
+
+```md
+<installed by="mechanism-shape">
+**R1** Check a record-bearing mechanism's records with its maintainer script — format never
+content, live rows only. Where the script is missing, write it: that is the maintenance.
+
+**R2** Compare a mechanism against what governs it with line endings normalised, its evidence
+excluded, and installed blocks excluded.
+</installed>
+```
+
+The block is found by its tag, never by its body, and compared whole against what the rules
+file renders. **A rules file's block is installed in every target it names, or the check
+fails**: an absent block, a drifted one, and a block whose slug has no rules file are each a
+diagnostic. Every example of the tag or an anchor in a doc sits in a code span or fence, on one
+line; the installer looks through code and never takes an example for the thing.
+
+The installer: `inject_rules.py <slug> --install [--overwrite]`, `<slug> --retract`, `--check`.
+A named mode or a refusal; every target validated before anything is written; retraction
+leaves the target byte-identical; a differing block refuses until the caller says overwrite,
+and then the block is replaced whole and the report carries what it replaced. The contract is
+the architecture's; the entry file owns the prohibition on editing a block in place.
 
 ## The doc
 

@@ -24,6 +24,14 @@ Decided by the user, recorded in
 [01-0010.0020](../tickets/done/01-0010.0020-live-alignment-across-hosts.md#what-this-ticket-does-not-decide).
 The three blocks then live were bound the same day.
 
+## v4 — 2026-09-08
+
+**One core change:** a general rule that an `<installed>` block in a file is not that file's to
+edit — change the rule in the rules file of the mechanism named on the block, and re-install.
+It replaces a rule the mechanism shape would otherwise have installed into two skills, and the
+per-block notice Life's injector writes, with one sentence every session reads. Decided by the
+user at [01-0011.0020](../tickets/01-0011.0020-rules-one-home.md)'s align.
+
 ## v3 — 2026-09-06
 
 Several core changes, landed together after the user added a body of general rules and the agent

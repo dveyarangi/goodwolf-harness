@@ -75,3 +75,15 @@ second validation pass adds failed-rewrite preservation and corresponding behavi
 The subsequent user clarification keeps this probe as implementation evidence. Per-file
 writing technique belongs to the helper; it does not establish a new maintenance architecture
 or recovery mechanism. The owning ticket records the clarification and the RFC reflects it.
+
+## The installer arrives, 2026-09-08
+
+At [.0020](../tickets/01-0011.0020-rules-one-home.md), the body received the mechanism shape's
+rules as an installed block — R1 to R4 — after the *Installed from other mechanisms* heading and
+before the two hand-copied wrappers, which stay until their tickets close. R5, *never edit an
+installed block by hand*, did not arrive: the user moved it to the entry file, so it reaches every
+session rather than this body. The rules file this mechanism authored a day ahead of its reader
+was rewritten to the shelf's grammar — its one rule now `M1`, its anchor a table row — and
+installed into `/mechanism`'s *Incept*; nothing had read it until then. The doc's `embedded`
+row for records checking became instructed, and three such rows became two, both the ticket
+mechanism's.

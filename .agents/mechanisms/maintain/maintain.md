@@ -28,12 +28,11 @@ exists, the body carries an interim rule inside a temporary statement: every dec
 in a pass's scope is due at every pass. That rule is loud in the enumerator and retires with the
 clock's ticket.
 
-Three rows below read `embedded`: the body carries, inside two temporary statements, hand copies
-of the rules two other mechanisms will install — the mechanism shape's, on records and re-checks,
-and the ticket mechanism's, on paired close. Each copy is one block per owner, bound to the ticket
-that replaces it with an installed block, so the enumerator lists both until then. That is the
-honest state of a duty that was written in one skill's files while another skill had to act on
-it.
+Two rows below read `embedded`: the body carries, inside a temporary statement, a hand copy of
+the ticket mechanism's rules on paired close, bound to the ticket that replaces it with an
+installed block, so the enumerator lists it until then. The mechanism shape's rules on records
+and re-checks reach the body as an installed block. That is the honest state of a duty that was
+written in one skill's files while another skill had to act on it.
 
 The body names no other skill except `/align`. What is not this mechanism's is stated as what it
 does not do — a landed slice is verified, not maintained — never as who does it instead; this
@@ -55,7 +54,8 @@ repair-and-report, recording the cause in the evidence.
 | B3 | a maintenance pass, 2026-09-07, from `TICKET-FORMAT` stating the duty unconditionally |
 | C2, C3 | the install RFC of 2026-09-06 |
 | E1–E3 | `/denoise` as selected, 2026-09-05 |
-| the two installed blocks | the mechanism shape's and the ticket mechanism's, copied by hand until `01-0011.0020` and `01-0011.0025` install them |
+| the mechanism shape's block, R1–R4 | the user, 2026-09-07, in the shape's rules file; installed here |
+| the ticket mechanism's rules, P1–P4 | copied by hand until `01-0011.0025` installs them |
 
 ## Moments
 
@@ -69,7 +69,7 @@ repair-and-report, recording the cause in the evidence.
 | cleaning prose and records to one home per fact | `.agents/skills/maintain/SKILL.md` | |
 | closing a finished ticket with its RFC | — | embedded — the ticket mechanism's paired close, sitting in this body until its rules file installs it, `.agents/skills/maintain/SKILL.md` |
 | updating the header and queue row at close | — | embedded — the ticket mechanism's record shape, same home, same repair, `.agents/skills/maintain/SKILL.md` |
-| checking a mechanism's records against their declared format | — | embedded — the mechanism shape's rule, copied into this body by hand inside a temporary statement until its installer writes it, `.agents/skills/maintain/SKILL.md` |
+| checking a mechanism's records against their declared format | `.agents/skills/maintain/SKILL.md` | |
 | repairing mechanically, history included | — | elsewhere — a meta-rule, read where it lives, `.agents/skills/mechanism/SKILL.md` |
 | disposing of a concern | — | not yet — the concern index has never existed, [01-0017](../../../docs/tickets/01-0017-io-graph-coherent.md) |
 | checking links outside a close | — | not yet — the only link check is the mover's note over records a close rewrote, [01-0017](../../../docs/tickets/01-0017-io-graph-coherent.md) |
@@ -112,9 +112,8 @@ repair-and-report, recording the cause in the evidence.
 - **Moved records** — read through their repaired citations; the mover reports what it
   rewrote and what it could not.
 - **A retired temporary statement's replacement sentence** — read where the block was.
-- **The rules file** — one rule targeting `/mechanism`'s *Incept*, read by the installer alone.
-  **No installer exists, so today nothing reads it**; it is authored ahead of its reader, and
-  that reader is [.0020](../../../docs/tickets/01-0011.0020-rules-one-home.md)'s.
+- **The rules file** — one rule, M1, targeting `/mechanism`'s *Incept*, read by the installer
+  alone and installed there as this mechanism's block.
 
 Nothing else. No record until the marks; no index.
 
@@ -124,8 +123,8 @@ Nothing else. No record until the marks; no index.
 Dueness is inferred, which the body forbids in the same breath as it permits it, inside a
 temporary statement.
 
-**Three `embedded` rows.** Two mechanisms' rules are instructed from the wrong home, inside
-temporary statements the enumerator lists, and the body says so.
+**Two `embedded` rows.** The ticket mechanism's rules are instructed from the wrong home, inside
+a temporary statement the enumerator lists, and the body says so.
 
 **Four `not yet` rows**, each naming a ticket that exists.
 

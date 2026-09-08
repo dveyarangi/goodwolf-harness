@@ -60,8 +60,9 @@ The verification set is this project's typechecker, tests, and any other command
 ```
 uv run --offline --no-project python -m unittest discover -s tests -p "test_*.py"
 uv run --offline --no-project python .agents/scripts/mechanisms.py --check
+uv run --offline --no-project python .agents/scripts/inject_rules.py --check
 ```
 
-Discovery reporting success with zero tests is not verification; the run must show a positive count. The mechanism check reports the checks it skipped, and a skip is not a pass; a clean run means nothing was caught, never that the tree obeys. Alongside them, `/verify` uses the ticket, RFC (if any), governing docs, and the work.
+Discovery reporting success with zero tests is not verification; the run must show a positive count. The mechanism check reports the checks it skipped, and a skip is not a pass; a clean run means nothing was caught, never that the tree obeys. The installer's check fails on a block absent from a target its rules file names, on a block that differs from its source, and on a block nothing owns. Alongside them, `/verify` uses the ticket, RFC (if any), governing docs, and the work.
 
 

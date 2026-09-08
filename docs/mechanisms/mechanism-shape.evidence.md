@@ -142,6 +142,45 @@ arrived, and the moments table never carried the row. Not drift by the letter �
 but a doc and its instruction file disagreeing, which is the same agreement `/maintain` holds.
 Added as instructed.
 
+## The installer arrives, 2026-09-08
+
+Built at [.0020](../tickets/01-0011.0020-rules-one-home.md). What that slice found, in the order
+it found it.
+
+**The prior corpus.** `--check` over the live tree before anything was installed: two rules files,
+three blocks `absent`, no orphan, no parse refusal. Then install, check clean, retract both slugs,
+the two targets byte-equal to copies taken before, install again. The always-on mechanism took a
+block from itself and one from `/maintain`, and gave both back.
+
+**One block per mechanism per target, not one per rule.** The align of the same morning decided a
+per-rule tag carrying the rule id, on the argument that Life's slug-only locator fails once one
+mechanism sends several rules to one host. The user reopened it at `/plan`: batch them, re-install
+the batch whole when the source moves, and the id in the tag has no work left to do. The argument
+for the id only held for per-rule blocks. What the batch cost: a mechanism has one place in a
+target, and drift is per batch. What it dissolved: the tag attribute, an ordering rule for blocks
+sharing an anchor, and the anchor as a per-rule field — it is the target's, in a table.
+
+**R5 is gone.** *Never edit an installed block by hand* was to be installed into `/maintain` and
+`/skill-up`. The user put it in the entry file instead, two sentences every session reads, which
+makes it a meta-rule, and meta-rules are never injected. Its second half — the installer reports
+drift — is the tool's contract, not a rule anyone reads.
+
+**What the tests caught that the shelf had not said.** The parser searched the code-blanked view
+for backticked values, and blanking is what a code span gets; the kind of a line is decided on the
+blanked view and its value read from the raw line. A heading inside a body was read as a new
+section before the body check could see it, so the refusal came with the wrong reason; sections
+are now split with the span in view. And the first CRLF tests only wrote a CRLF *target*: a
+one-sided normalisation of the found side passes them, because the rules file was LF. Life's
+defect was a CRLF *source*. That test exists now, and it is the one that catches the mutation.
+
+**Most refusals were written before their tests.** The core was written from the plan's list,
+and 23 of 24 refusal tests passed on their first run. Watching each fail was replaced by breaking
+the script deliberately — one-sided normalisation, absent not a diagnostic, no preflight — and
+watching the suite catch each break; the first attempt at the first break never applied, because a
+double-quoted shell pattern turned the escapes into a real carriage return, and a passing suite
+was read as a caught mutation until the line was looked at. Record it as what it is: a check not
+watched failing is not a check, and a mutation not watched applying is not a mutation.
+
 ## What is still true only by assertion
 
 Two mechanisms have been declared. The second passed the check unedited and amended the shape in

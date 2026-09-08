@@ -29,5 +29,7 @@ Which links are actually required is untested. Codex needs none; Cursor document
 closes a ticket and its RFC together and repairs the citations that pointed at them,
 `temporary_statements.py` reads and retires expiring statements, `mechanisms.py` says whether a
 mechanism's declaration is true and renders the register from
-[`mechanisms/`](./mechanisms/), and `docs_corpus.py` is the one view of the tree they share. They
+[`mechanisms/`](./mechanisms/), `inject_rules.py` installs a mechanism's rules into the skills
+its rules file names and takes them out again, and `docs_corpus.py` is the one view of the
+tree they share. They
 run on the standard library alone, and their behavioral tests are in [`tests/`](../tests/).

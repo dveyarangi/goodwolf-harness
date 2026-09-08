@@ -68,6 +68,18 @@ doc against the shape, its instruction file against its doc, its records against
 
 ## Installed from other mechanisms
 
+<installed by="mechanism-shape">
+**R1** Check a record-bearing mechanism's records with its maintainer script — format never
+content, live rows only. Where the script is missing, write it: that is the maintenance.
+
+**R2** Compare a mechanism against what governs it with line endings normalised, its evidence
+excluded, and installed blocks excluded.
+
+**R3** Move story out of a doc into its evidence.
+
+**R4** Render an index on request; never commit one beside its records.
+</installed>
+
 <temporary until="01-0011.0020 is done" ticket="docs/tickets/01-0011.0020-rules-one-home.md">
 The mechanism shape's rules, copied here by hand until its installer writes them; the IDs are
 its rules file's:

@@ -29,12 +29,12 @@ absence is honestly classified, are judgements it records and never makes.
 |---|---|---|
 | deciding whether a thing is a mechanism | `.agents/skills/mechanism/SKILL.md` | |
 | incepting one | `.agents/skills/mechanism/SKILL.md` | |
-| telling an inceptor what to hand `/maintain` | — | not yet — the sentence is the maintenance mechanism's rule, authored in its rules file with this skill's *Incept* as target, and no installer carries it here, [.0020](../../../docs/tickets/01-0011.0020-rules-one-home.md) |
+| telling an inceptor what to hand `/maintain` | `.agents/skills/mechanism/SKILL.md` | |
 | amending a declared one, editing a skill that is an instruction file included | `.agents/skills/mechanism/SKILL.md` | |
 | retiring a declared one | `.agents/skills/mechanism/SKILL.md` | |
 | checking that a declaration is true | `.agents/scripts/mechanisms.py` | |
-| installing a mechanism's rules into skills it does not own | — | not yet — no installer exists, and every rule reaching another skill is hand-copied until one does, [.0020](../../../docs/tickets/01-0011.0020-rules-one-home.md) |
-| retracting them | — | not yet — one installer owns both directions or neither is mechanical, [.0020](../../../docs/tickets/01-0011.0020-rules-one-home.md) |
+| installing a mechanism's rules into skills it does not own | `.agents/scripts/inject_rules.py` | |
+| retracting them | `.agents/scripts/inject_rules.py` | |
 | re-checking a mechanism when what governs it has moved | — | elsewhere — re-checking derived work against a changed source is maintenance, `.agents/skills/maintain/SKILL.md` |
 | writing or changing a skill's text | — | elsewhere — a sibling mechanism's subject, and both apply when a skill is an instruction file, `.agents/skills/skill-up/SKILL.md` |
 | recording that an installed skill belongs to no mechanism | — | not yet — the shape requires an allowlist and this tree has none, so a skill nothing claims is silent rather than declared, [.0050](../../../docs/tickets/01-0011.0050-shape-checked.md) |
@@ -47,9 +47,13 @@ absence is honestly classified, are judgements it records and never makes.
 | instruction file | `.agents/skills/mechanism/SKILL.md` |
 | format shelf | `.agents/skills/mechanism/MECHANISM-FORMAT.md` |
 | trigger | `AGENTS.md` → "is mechanism work: use" |
+| the hand-edit rule | `AGENTS.md` → "is not that file's to edit" |
 | this doc | `.agents/mechanisms/mechanism-shape/mechanism-shape.md` |
+| its rules file | `.agents/mechanisms/mechanism-shape/mechanism-shape.rules.md` |
 | the check | `.agents/scripts/mechanisms.py` |
 | the check's tests | `tests/test_mechanisms.py` |
+| the installer | `.agents/scripts/inject_rules.py` |
+| the installer's tests | `tests/test_inject_rules.py` |
 
 ## Relies on, and does not own
 
@@ -72,10 +76,12 @@ absence is honestly classified, are judgements it records and never makes.
   unasked**, and nothing consumes its output: it exists so the register never becomes a file, and
   a register nobody asks for is a register nobody needed.
 
-- **Its rules file** — `mechanism-shape.rules.md`, read by the installer alone, targeting
-  `/maintain` and `/skill-up`. **It does not exist yet.** Which rules it holds and where each
-  lands is [.0020](../../../docs/tickets/01-0011.0020-rules-one-home.md)'s input, and that slice
-  writes it with the installer that reads it.
+- **Its rules file** — `mechanism-shape.rules.md`, read by the installer alone, and by whoever
+  amends a rule of the shape that other skills read. Its block is installed in `/maintain` and in
+  this mechanism's own skill, which reads R1 and R4 at incept.
+- **The installer's `--check` report** — read by `/verify` through the verification set, and by
+  anyone who runs it. Its exit status is what the set consumes; a block absent, drifted or
+  owned by nothing is what it fails on.
 
 Nothing else is emitted. It writes no records beyond the mechanism directories that are its
 records.
@@ -89,11 +95,11 @@ because nobody started it is indistinguishable from one that passed.
 
 **Absence is not clearance.** A clean run means nothing was caught. It never means the tree obeys.
 
-**Its own rules reach their readers by hand.** The five rules `/maintain` reads sit in that body
-as a hand copy inside a temporary statement, and the two under the instruction file's *Records*
-are authored there; both are bound to
-[.0020](../../../docs/tickets/01-0011.0020-rules-one-home.md), which replaces them with installed
-blocks. Until then the shape's own central claim — a rule has one home — is one it does not meet.
+**Nothing refuses to retract the shape's own block from its own skill.** R1 and R4 are installed
+into this mechanism's instruction file by the same tool that retracts them, and an always-on
+mechanism cannot be retired. The shape's block absent from `/mechanism` under `--check` is the
+signal that the always-on mechanism has lost what it installed into itself, and the check is
+what says it happened.
 
 **Run it over what already exists has no bite here, and this is not a zero.** That rule exists so
 a check landing today cannot claim a clean history it never looked at. This is the first
