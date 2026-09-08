@@ -33,7 +33,7 @@ A skill belonging to no mechanism goes in the allowlist, with its reason.
 
 | home | holds | reaches a session |
 |---|---|---|
-| `AGENTS.md` | meta and strict rules | at start, every session |
+| `AGENTS.md` | meta-rules and general rules | at start, every session |
 | `.agents/skills/<name>/` | the act, and every rule read *in the work it governs* | when the skill is invoked |
 | `.agents/mechanisms/<slug>/` | why the instruction is what it is: parts, moments, and the mechanism's rules in their single home | when installing, amending or debugging |
 

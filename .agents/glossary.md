@@ -50,7 +50,8 @@ _Avoid_: sidecar, notes, history, appendix. *Sidecar* describes a file's positio
 Who decided a rule and when, carried inline on the rule itself. It is not evidence and does not move to the evidence file: attribution at the moment of reading is what makes a rule challengeable.
 
 **Authority**:
-Who may change a rule, and at what strength. Stated on the rule, inline.
+Who may establish, amend or waive a rule. Stated on the rule, inline, as its provenance; the repair policy says what a maintainer may do with the rest. Separate from delivery tier and from evidence of effectiveness.
+_Avoid_: strict rule, working rule, rule strength.
 
 **Tier**:
 How a thing reaches a session — forced into context, asked for, or reachable only by someone who already knows it exists. Reachability, never importance or read-frequency.
@@ -120,12 +121,6 @@ A boundary across which a producer supplies behavior, information or an artifact
 
 **Load-bearing seam — proposed definition**:
 A seam across distinct responsibilities whose contract determines a promised outcome, authority, data meaning or integrity, compatibility, or recovery beyond either side's implementation-local choices. A change that appears valid at one end can invalidate the other end or their shared guarantee.
-
-**Rule authority**:
-The standing of a rule, including who may establish, amend or waive it. Authority is separate from delivery tier and evidence of effectiveness.
-
-**Strict rule**:
-A rule designated as protected by an explicit authority; its amendment or waiver belongs to that authority.
 
 **Meta-rule**:
 A rule governing how other rules or mechanisms are created, changed, checked or maintained.
