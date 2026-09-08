@@ -1,6 +1,6 @@
 # maintain — holds documentation, implementation and records in agreement, and repairs the drift
 
-- **instruction** `.agents/skills/maintain/SKILL.md` — the pass: scope, the four things, temporary statements, archiving, finish
+- **instruction** `.agents/skills/maintain/SKILL.md` — the pass: scope, the four things, straw dogs, archiving, finish
 - **state** installed
 <project-local>
 - **evidence** `docs/mechanisms/maintain.evidence.md`
@@ -34,9 +34,12 @@ the listing and retires with the clock's ticket.
 </straw-dog>
 
 The ticket mechanism's rules on paired close and on its records, and the mechanism shape's rules
-on records and re-checks, reach the body as installed blocks. One rule sits in the body by hand
-inside a straw dog: a spec's agreements before archiving it, which is `/spec`'s and waits for
-`/spec` to be declared.
+on records and re-checks, reach the body as installed blocks.
+
+<straw-dog until="01-0017 is done" ticket="docs/tickets/01-0017-io-graph-coherent.md">
+One rule sits in the body by hand inside a straw dog: a spec's agreements before archiving it,
+which is `/spec`'s and waits for `/spec` to be declared.
+</straw-dog>
 
 The body names no other skill except `/align`. What is not this mechanism's is stated as what it
 does not do — a landed slice is verified, not maintained — never as who does it instead; this
@@ -74,8 +77,7 @@ repair-and-report, recording the cause in the evidence.
 | cleaning prose and records to one home per fact | `.agents/skills/maintain/SKILL.md` | |
 | closing a finished ticket with its RFC | `.agents/skills/maintain/SKILL.md` | |
 | updating the header at close | `.agents/skills/maintain/SKILL.md` | |
-| checking the ticket records with their maintainer | `.agents/skills/maintain/SKILL.md` | |
-| checking a mechanism's records against their declared format | `.agents/skills/maintain/SKILL.md` | |
+| checking a mechanism's records against their declared format, the ticket records among them | `.agents/skills/maintain/SKILL.md` | |
 | repairing mechanically, history included | — | elsewhere — a meta-rule, read where it lives, `.agents/skills/mechanism/SKILL.md` |
 | disposing of a concern | — | not yet — the concern index has never existed, [01-0017](../../../docs/tickets/01-0017-io-graph-coherent.md) |
 | checking links outside a close | — | not yet — the only link check is the mover's note over records a close rewrote, [01-0017](../../../docs/tickets/01-0017-io-graph-coherent.md) |
@@ -134,11 +136,13 @@ No record until the marks.
 ## Not yet at the shape
 
 **The marks.** A maintenance mechanism is record-bearing by design, and this one has no record.
-Dueness is inferred, which the body forbids in the same breath as it permits it, inside a
-temporary statement.
+Dueness is inferred, which the body forbids in the same breath as it permits it, inside a straw
+dog.
 
+<straw-dog until="01-0017 is done" ticket="docs/tickets/01-0017-io-graph-coherent.md">
 **One rule held by hand.** P4 is `/spec`'s, and `/spec` is undeclared, so the body carries it
 inside a straw dog bound to the ticket that declares the rest of the corpus.
+</straw-dog>
 
 **Four `not yet` rows**, each naming a ticket that exists.
 

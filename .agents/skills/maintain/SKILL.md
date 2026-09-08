@@ -3,9 +3,9 @@ name: maintain
 description: >-
   Use to hold a declared scope of the tree in agreement — docs to the
   meta-rules, docs to their implementation, records to their format, every
-  fact to one home — and to repair the drift; also to retire an expired
-  temporary statement or archive a finished record. Drift only: a landed slice
-  is verified, not maintained.
+  fact to one home — and to repair the drift; also to retire an expired straw
+  dog or archive a finished record. Drift only: a landed slice is verified,
+  not maintained.
 ---
 
 One pass over a declared scope. The scope decides which rules apply.

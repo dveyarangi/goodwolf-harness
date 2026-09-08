@@ -218,8 +218,10 @@ parts now, and the two docs name it as owner.
 
 ## What is still true only by assertion
 
-Two mechanisms have been declared. The second passed the check unedited and amended the shape in
+Three mechanisms have been declared. The second passed the check unedited and amended the shape in
 prose three times, recorded above; whether that is the shape fitting or the declaration bent to fit
-it is the grade the doc pre-registers for the user, and it has not been given. The third
-application, at [.0025](../tickets/01-0011.0025-archive-duty-reaches-maintain.md), is the first to
-meet a record-bearing mechanism.
+it is the grade the doc pre-registers for the user, and it has not been given. The third, at
+[.0025](../tickets/01-0011.0025-archive-duty-reaches-maintain.md), was the first record-bearing
+one and amended the shape twice more, both times by removing or adding a row rather than by
+bending the doc; that is one data point for the shape fitting, and a hand-fixed declaration would
+still read the same in the check's output.

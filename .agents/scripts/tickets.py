@@ -33,7 +33,7 @@ STATUSES = ("Done", "In progress", "Ready", "Partial", "Planned", "Blocked")
 TYPES = ("HITL", "AFK")
 ORDERED = ("Status", "Type", "Plan", "Depends on", "Blocks", "Outcome")
 REQUIRED = ("Status", "Type", "Outcome")
-RETIRED = ("Kind",)
+RETIRED = ("Kind", "Legacy id", "RFC", "Parent PRD", "User stories addressed")
 NAMED_SECTIONS = (
     "Parent",
     "What to build",

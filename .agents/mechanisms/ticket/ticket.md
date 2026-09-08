@@ -107,8 +107,10 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 - **The tickets** — read by `/plan` for what to build, by `/implement` for the same, by `/verify`
   for the criteria, by `/maintain` for whether each is finished, and through citations from every
   record that cites work by its slug.
+<straw-dog until="01-0011.0040 is done" ticket="docs/tickets/01-0011.0040-queue-derived-index.md">
 - **The queue's table** — read at wake by whoever resumes, as the entry file routes them; a copy
-  until [.0040](../../../docs/tickets/01-0011.0040-queue-derived-index.md) derives it.
+  until the queue is derived from the tickets.
+</straw-dog>
 - **The maintainer's report** — read by `/verify` through the verification set and by `/maintain`
   under P5. Its exit status is what the set consumes; its JSON is for the person reading a
   failure. It writes nothing.

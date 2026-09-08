@@ -22,7 +22,7 @@ dependencies or affected references from maintenance.
 
 - `/maintain` holds four things in agreement at drift scope — docs to the meta-rules, docs to
   their implementation both ways, live records to their format, every fact to one home — and
-  repairs under the repair policy; it handles temporary statements and determines eligibility
+  repairs under the repair policy; it handles straw dogs and determines eligibility
   for archive operations. Agreement over a landed slice is `/verify`'s.
 - Supporting scripts enumerate artifacts and perform mechanical transformations. They do
   not invent completion evidence, decide architectural questions, or turn an arbitrary

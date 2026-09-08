@@ -15,9 +15,10 @@ a `TODO` naming its ticket as one, and `/verify` reads landed work against the p
 a sentence that is itself a straw dog bound to [01-0016](01-0016-responsibility-coherent.md),
 which now owns the question of which mechanism is responsible for the concept. The first guess
 over the whole tree wrapped six and repaired two; the maintain mechanism's evidence records every
-judgment. Every decision of both aligns is on the closed tickets. **The nod was given
-2026-09-08 and [.0025](01-0011.0025-archive-duty-reaches-maintain.md) is aligned**; eleven
-decisions sit on it, `/plan` is next. It was the candidate by the ordering rule below: it declares
+judgment. Every decision of both aligns is on the closed tickets. **[.0025](01-0011.0025-archive-duty-reaches-maintain.md)
+is verified 2026-09-09 and awaits its close**: the ticket mechanism is declared, its six rules
+reach `/maintain`, `/plan` and `/align` as installed blocks, and `tickets.py --check` holds every
+live ticket to the shape the format shelf now declares. It was the candidate by the ordering rule below: it declares
 the ticket mechanism, hands
 the tree its first record shape with a maintainer script, and is the first slice to use the
 injector without having built it — the grader `/maintain`'s doc pre-registers. R6 waits on

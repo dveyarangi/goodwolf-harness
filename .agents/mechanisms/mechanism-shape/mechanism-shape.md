@@ -114,9 +114,12 @@ mechanism, so there is no prior corpus to sweep — not a corpus swept and found
 first real application is [.0050](../../../docs/tickets/01-0011.0050-shape-checked.md), whose
 sweep meets every skill installed before the shape existed.
 
-**Two declared mechanisms are still thin evidence for a shape.** The second application, at
-`01-0011.0022`, forced three amendments and found two rows the check would have failed; the third
-application is the first that meets a record-bearing mechanism.
+**Three declared mechanisms are still thin evidence for a shape.** The second application, at
+`01-0011.0022`, forced three amendments and found two rows the check would have failed; the third,
+at `01-0011.0025`, met the first record-bearing mechanism and forced two more — one moment the
+shape had no row for, and one header bullet that turned out to feed a check nothing needed. The
+fourth is [01-0017](../../../docs/tickets/01-0017-io-graph-coherent.md)'s, and it meets the rest of
+the corpus at once.
 
 ## What retires this
 

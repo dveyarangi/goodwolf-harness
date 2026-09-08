@@ -110,11 +110,12 @@ Create tickets in dependency order (blockers first) so you can reference real
 filenames in the `Depends on` field. A blocker that is already complete lives
 in `docs/tickets/done/` — reference it there.
 
-Write each file to [TICKET-FORMAT.md](./TICKET-FORMAT.md) — its skeleton,
-header block, section rules, and citation conventions. A freshly minted slice
-needs at minimum `Outcome`, `Parent`, `What to build`, and
-`Acceptance criteria`. Each child carries a one-line pointer to the parent's
-recorded `/impact` assessment.
+Write each file to [The record](./TICKET-FORMAT.md#the-record) — the header,
+its fields, the sections the stage admits, and the citation conventions. A
+freshly minted slice is incepted: it needs `Status`, `Type`, `Outcome`,
+`What to build` and `Acceptance criteria`, and may host whatever else it has.
+Each child carries a one-line pointer to the parent's recorded `/impact`
+assessment.
 
 ### Decision-bearing ticket lifecycle
 
