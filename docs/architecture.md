@@ -112,7 +112,8 @@ replaces the block whole and reports what it replaced. A mid-write failure follo
 [interruption and recovery](#interruption-and-recovery).
 
 A rules file's block is installed in every target it names, or the tree's check fails: an
-absent block, a drifted block, and a block whose owner has no rules file are each a diagnostic.
+absent block, a drifted block, and a block nothing owns — its owner has no rules file, or that
+file does not name the file the block sits in — are each a diagnostic.
 The installer writes no doc and decides nothing about a mechanism's state.
 
 ## Deferred decisions

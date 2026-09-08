@@ -19,6 +19,13 @@ A part of how the work gets done â€” the development method and its machinery â€
 **Skill**:
 A mechanism's own instruction file, invocable and identified by its purpose and conditions of use. A skill may also host rules installed into it by mechanisms that do not own it.
 
+**Rules file**:
+The one authored home of the rules a mechanism sends into skills it does not own: `<slug>.rules.md` in its own directory, machine input for the installer, read by nobody at session time.
+
+**Installed block**:
+A mechanism's rules as they reach a skill: one `<installed>` block per mechanism per target, written by the installer from the rules file and compared against it, never edited where it sits.
+_Avoid_: injected pointer, copy.
+
 **Part**:
 A file or asset a mechanism owns: installing the mechanism adds it, uninstalling removes it. What a mechanism leans on but would not take with it is relied-on, named with its owner, and not one of its parts.
 _Avoid_: component, piece, asset.

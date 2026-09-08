@@ -73,8 +73,8 @@ excluded, and installed blocks excluded.
 
 The block is found by its tag, never by its body, and compared whole against what the rules
 file renders. **A rules file's block is installed in every target it names, or the check
-fails**: an absent block, a drifted one, and a block whose slug has no rules file are each a
-diagnostic. Every example of the tag or an anchor in a doc sits in a code span or fence, on one
+fails**: an absent block, a drifted one, and a block nothing owns — its slug has no rules file,
+or that file does not name the file the block sits in — are each a diagnostic. Every example of the tag or an anchor in a doc sits in a code span or fence, on one
 line; the installer looks through code and never takes an example for the thing.
 
 The installer: `inject_rules.py <slug> --install [--overwrite]`, `<slug> --retract`, `--check`.

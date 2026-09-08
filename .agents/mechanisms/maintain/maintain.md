@@ -98,7 +98,7 @@ repair-and-report, recording the cause in the evidence.
 | the mover's tests | `tests/test_citations.py` | same |
 | the mover's tests | `tests/test_command_line.py` | same |
 | the mover's tests | `tests/test_failure_contract.py` | same |
-| citation reader | `.agents/scripts/docs_corpus.py` | same gap; `01-0011.0025` claims it, and it is not a live question while nothing installs or extracts |
+| citation reader | `.agents/scripts/docs_corpus.py` | same gap; `01-0011.0025` claims it, and the installer now leans on it too |
 | test harness | `tests/harness.py` | same |
 | the shape check | `.agents/scripts/mechanisms.py` | `mechanism-shape` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |

@@ -60,7 +60,7 @@ absence is honestly classified, are judgements it records and never makes.
 | part | where | owner |
 |---|---|---|
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
-| citation reader | `.agents/scripts/docs_corpus.py` | the ticket mechanism, from `01-0011.0025`; a declared gap until then, and not a live question while nothing installs or extracts |
+| citation reader | `.agents/scripts/docs_corpus.py` | the ticket mechanism, from `01-0011.0025`; a declared gap until then, and a live one now that the installer reads bodies, anchors and the corpus through it |
 | test harness | `tests/harness.py` | same |
 
 ## What it produces, and who reads it

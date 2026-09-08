@@ -171,5 +171,6 @@ own trigger among them. An always-on mechanism cannot be retired.
   belongs to. Both apply when a skill is an instruction file.
 - [`/impact`](../impact/SKILL.md) traces a change's consequences; this asks whether a
   mechanism is sound at both ends.
-- [`/maintain`](../maintain/SKILL.md) applies mechanism rules and owns none.
+- [`/maintain`](../maintain/SKILL.md) applies the shape's rules and owns none of them; what it
+  asks of an inceptor is its own rule, installed above.
 - [`/align`](../align/SKILL.md) is called by incept, before anything is built.

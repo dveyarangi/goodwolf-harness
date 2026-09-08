@@ -81,8 +81,9 @@ excluded, and installed blocks excluded.
 </installed>
 
 <temporary until="01-0011.0020 is done" ticket="docs/tickets/01-0011.0020-rules-one-home.md">
-The mechanism shape's rules, copied here by hand until its installer writes them; the IDs are
-its rules file's:
+The mechanism shape's rules, copied here by hand before its installer existed; the installer
+has since written them above, and this wrapper retires with the ticket. The IDs are its rules
+file's:
 
 - **R1** Check a record-bearing mechanism's records with its maintainer script — format never
   content, live rows only. Where the script is missing, write it: that is the maintenance.

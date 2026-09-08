@@ -5,6 +5,8 @@ from __future__ import annotations
 import contextlib
 import io
 import json
+import os
+import stat
 import unittest
 
 from harness import RepositoryCase
@@ -89,6 +91,15 @@ class Installing(RepositoryCase):
 
         self.assertEqual(0, self.run_installer(SLUG, "--install")[0])
         self.assertNotEqual(before, self.snapshot())
+        self.assertEqual(0, self.run_installer(SLUG, "--retract")[0])
+
+        self.assertEqual(before, self.snapshot())
+
+    def test_a_crlf_target_round_trips_byte_identical_too(self) -> None:
+        self.write(TARGET, TARGET_TEXT.replace("\n", "\r\n"))
+        before = self.snapshot()
+
+        self.assertEqual(0, self.run_installer(SLUG, "--install")[0])
         self.assertEqual(0, self.run_installer(SLUG, "--retract")[0])
 
         self.assertEqual(before, self.snapshot())
@@ -244,13 +255,11 @@ class Refusing(RepositoryCase):
     def test_preflight_is_all_or_nothing(self) -> None:
         other = ".agents/skills/other/SKILL.md"
         table = "| target | anchor |\n|---|---|\n" f"| `{TARGET}` | `{ANCHOR}` |\n| `{other}` | `{ANCHOR}` |\n"
-        sections = rules_file().split("| `")[0]  # unused; the sections are rebuilt below
         two_targets = rules_file(table=table).replace(
             f"- **target** `{TARGET}`\n- **authority** the user, 2026-09-07\n\n<rule>\nCheck",
             f"- **target** `{TARGET}`\n- **target** `{other}`\n- **authority** the user, 2026-09-07\n\n<rule>\nCheck",
         )
         self.write(RULES, two_targets)
-        self.assertNotEqual(sections, "")
         self.assert_refused(1, "target missing", SLUG, "--install")
 
 
@@ -363,6 +372,38 @@ class Drifting(RepositoryCase):
 
         self.assertEqual(0, status)
         self.assertEqual("absent", report["targets"][0]["state"])
+
+
+class FailingMidWrite(RepositoryCase):
+    """Preflight passed, the first target was written, the second cannot be: say so, roll nothing back."""
+
+    OTHER = ".agents/skills/other/SKILL.md"
+
+    def setUp(self) -> None:
+        super().setUp()
+        table = "| target | anchor |\n|---|---|\n" f"| `{TARGET}` | `{ANCHOR}` |\n| `{self.OTHER}` | `{ANCHOR}` |\n"
+        self.write(RULES, rules_file(table=table).replace(
+            f"- **target** `{TARGET}`\n- **authority** the user, 2026-09-07\n\n<rule>\nCheck",
+            f"- **target** `{TARGET}`\n- **target** `{self.OTHER}`\n- **authority** the user, 2026-09-07\n\n<rule>\nCheck",
+        ))
+        self.write(TARGET, TARGET_TEXT)
+        self.write(self.OTHER, TARGET_TEXT)
+        self.commit()
+        os.chmod(self.root / self.OTHER, stat.S_IREAD)
+        self.addCleanup(os.chmod, self.root / self.OTHER, stat.S_IWRITE | stat.S_IREAD)
+
+    def test_a_target_that_cannot_be_written_is_reported_with_what_landed_and_what_did_not(self) -> None:
+        said = io.StringIO()
+        with contextlib.redirect_stdout(said):
+            status = inject_rules.main([SLUG, "--install"], root=self.root)
+        report = json.loads(said.getvalue())
+
+        self.assertEqual(1, status)
+        self.assertEqual([TARGET], report["done"])
+        self.assertEqual([], report["pending"])
+        self.assertIn(self.OTHER, report["refusals"][0])
+        self.assertIn(f'<installed by="{SLUG}">', self.read(TARGET))
+        self.assertEqual(TARGET_TEXT, self.read(self.OTHER))
 
 
 class Checking(RepositoryCase):
