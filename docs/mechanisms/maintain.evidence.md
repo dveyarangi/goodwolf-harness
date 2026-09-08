@@ -5,9 +5,9 @@ was refuted, what it cost, and what it used to be. Provenance stays inline on ea
 body. The mover's contract and the temporary-statement contract live in
 [architecture](../architecture.md); the install decisions belong to
 [Install /maintain](../tickets/done/01-0010.0070-install-maintain.md), the declaration's to
-[01-0011.0022](../tickets/01-0011.0022-shape-survives-second-mechanism.md).
+[01-0011.0022](../tickets/done/01-0011.0022-shape-survives-second-mechanism.md).
 
-Declared by [01-0011.0022](../tickets/01-0011.0022-shape-survives-second-mechanism.md),
+Declared by [01-0011.0022](../tickets/done/01-0011.0022-shape-survives-second-mechanism.md),
 2026-09-07. Until then this file was `docs/research/maintenance-findings.md`, holding the two
 probe records below and nothing else.
 

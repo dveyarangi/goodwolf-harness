@@ -4,7 +4,7 @@ Why [the doc](../../.agents/mechanisms/mechanism-shape/mechanism-shape.md) is wh
 tried, what was refuted, what it cost, and what it used to be. Provenance does not live here — a
 rule's attribution stays inline on the rule, where it can be challenged at the moment of reading.
 
-Declared by [01-0011.0010](../tickets/01-0011.0010-mechanism-declared.md), 2026-09-07.
+Declared by [01-0011.0010](../tickets/done/01-0011.0010-mechanism-declared.md), 2026-09-07.
 
 ## Refuted before the doc was written
 
@@ -23,7 +23,7 @@ the answer rather than an optional neighbour.
 **`elsewhere` resolving against a declared mechanism.** Requiring a named mechanism would have
 been stricter and would have failed this doc on the day it was written: the re-check moment is
 instructed by `/maintain`, which is not declared until
-[.0022](../tickets/01-0011.0022-shape-survives-second-mechanism.md). Under one instruction file
+[.0022](../tickets/done/01-0011.0022-shape-survives-second-mechanism.md). Under one instruction file
 per mechanism, naming the mechanism and naming its skill are the same act, so `elsewhere` resolves
 against the instruction file.
 
@@ -95,7 +95,7 @@ deriving tests from a plan rather than from the contract the plan produced, and 
 
 ## Refuted by the second application, 2026-09-07
 
-Found at [.0022](../tickets/01-0011.0022-shape-survives-second-mechanism.md)'s `/align` and
+Found at [.0022](../tickets/done/01-0011.0022-shape-survives-second-mechanism.md)'s `/align` and
 `/plan`, before its declaration was written. Two of the three amendments landed in the body at
 `/plan` on the user's instruction; the third is that slice's.
 

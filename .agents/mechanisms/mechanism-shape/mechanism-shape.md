@@ -4,7 +4,7 @@
 - **state** always on
 <project-local>
 - **evidence** `docs/mechanisms/mechanism-shape.evidence.md`
-- **declared by** `docs/tickets/01-0011.0010-mechanism-declared.md`
+- **declared by** `docs/tickets/done/01-0011.0010-mechanism-declared.md`
 </project-local>
 
 ## How it works
@@ -103,7 +103,7 @@ part, so retracting the mechanism takes its own entry point with it.
 ## What would show it working, graded by someone who did not build it
 
 The next mechanism declared — `/maintain`, at
-[.0022](../../../docs/tickets/01-0011.0022-shape-survives-second-mechanism.md) — either passes
+[.0022](../../../docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md) — either passes
 this check unedited, or the check has to change to admit it. Which of those happens is the shape's
 first real test, and the session that runs it is not this one.
 

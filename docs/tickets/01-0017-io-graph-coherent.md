@@ -20,7 +20,7 @@ the work survives whole. What changed is its vocabulary and its place in the ord
 
 ## A recipient receives skills written in a vocabulary they do not receive
 
-**Surfaced 2026-09-07** during [01-0011.0010](./01-0011.0010-mechanism-declared.md)'s fifth
+**Surfaced 2026-09-07** during [01-0011.0010](./done/01-0011.0010-mechanism-declared.md)'s fifth
 planning pass, and it belongs here by subject rather than by where it was found.
 
 `/mechanism` will use **Mechanism**, **Moment**, **Doc**, **Evidence**, **Part** and **Tier**
@@ -34,7 +34,7 @@ written in a vocabulary their glossary does not contain. The naming-a-convention
 cover it: what is exempt is naming the path; what is missing is the content behind it.
 
 **Resolved for the glossary, and only for the glossary** *(the user, 2026-09-07)*, in
-[01-0011.0010](./01-0011.0010-mechanism-declared.md) — because that slice adds **Part**, and a new
+[01-0011.0010](./done/01-0011.0010-mechanism-declared.md) — because that slice adds **Part**, and a new
 core term landing in the instance half would be the same defect committed while describing it.
 `.agents/glossary.md` takes the method's vocabulary and travels; `docs/glossary.md` keeps the
 project's domain. The corpus already assumed that split: `/align`, `/tdd`, `/implement` and
@@ -91,7 +91,7 @@ The other direction is unwatched too: `docs/pacer.md` and two of the three
 ## What to build
 
 - Every remaining mechanism in this tree declared to the shape
-  [paired close](./01-0011.0010-mechanism-declared.md) proved: its parts named with their owners,
+  [paired close](./done/01-0011.0010-mechanism-declared.md) proved: its parts named with their owners,
   its three property states stated, each absence carrying its kind and, where it is a gap, a ticket.
 - Every installed skill named by a mechanism or placed in the allowlist with its reason. Eleven are
   installed; the allowlist rows are as much the deliverable as the declarations, because a skill

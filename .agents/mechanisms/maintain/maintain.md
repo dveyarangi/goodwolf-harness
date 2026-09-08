@@ -4,7 +4,7 @@
 - **state** installed
 <project-local>
 - **evidence** `docs/mechanisms/maintain.evidence.md`
-- **declared by** `docs/tickets/01-0011.0022-shape-survives-second-mechanism.md`
+- **declared by** `docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md`
 </project-local>
 
 ## How it works
@@ -142,7 +142,7 @@ parts.
 ## What would show it working, graded by someone who did not build it
 
 Two graders, two questions, pre-registered at
-[01-0011.0022](../../../docs/tickets/01-0011.0022-shape-survives-second-mechanism.md)'s align.
+[01-0011.0022](../../../docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md)'s align.
 
 **The user** grades the shape amendments this declaration forced — installed text replacing
 injected pointers, a sentence about another mechanism being that mechanism's, and the record

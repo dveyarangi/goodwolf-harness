@@ -1,11 +1,11 @@
 # A mechanism has one home for its rules, and a derived index
 
 **Status:** **Accepted by the user, 2026-09-06.** Developed through `/spec` → `/align`;
-decomposed by `/ticket` into [01-0011.0010](../tickets/01-0011.0010-mechanism-declared.md) …
+decomposed by `/ticket` into [01-0011.0010](../tickets/done/01-0011.0010-mechanism-declared.md) …
 [.0050](../tickets/01-0011.0050-shape-checked.md), with
 [01-0017](../tickets/01-0017-io-graph-coherent.md) re-parented here as the generalisation step.
 
-**Amended 2026-09-06** during [01-0011.0010](../tickets/01-0011.0010-mechanism-declared.md)'s
+**Amended 2026-09-06** during [01-0011.0010](../tickets/done/01-0011.0010-mechanism-declared.md)'s
 `/align`, on the user's decision, after Life's own mechanism apparatus was read in detail. Four
 changes, each recorded in its section below: a mechanism has **one instruction file**; the shape
 is read **in the skill**, not in the doc; the three properties are **not three co-equal states**
@@ -234,7 +234,7 @@ accretion this spec exists to stop.
 
 ## Impact — 2026-09-07, the clock
 
-Assessed at [01-0011.0022](../tickets/01-0011.0022-shape-survives-second-mechanism.md)'s
+Assessed at [01-0011.0022](../tickets/done/01-0011.0022-shape-survives-second-mechanism.md)'s
 `/align` on the draft of [01-0011.0060](../tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md),
 before minting. Verdict: **proceed**, as a single HITL ticket after `.0050` and before
 [01-0017](../tickets/01-0017-io-graph-coherent.md).

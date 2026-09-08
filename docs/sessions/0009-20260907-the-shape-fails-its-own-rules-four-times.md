@@ -9,8 +9,8 @@ that can use it, and this record is the last hand-written one.
 
 ## Work completed
 
-- **[01-0011.0010](../tickets/01-0011.0010-mechanism-declared.md) implemented across all five
-  stages of [its RFC](../rfc/01-0011.0010-mechanism-declared.md)**, in five commits.
+- **[01-0011.0010](../tickets/done/01-0011.0010-mechanism-declared.md) implemented across all five
+  stages of [its RFC](../rfc/done/01-0011.0010-mechanism-declared.md)**, in five commits.
   `/mechanism` and `MECHANISM-FORMAT` installed; the glossary split, with `.agents/glossary.md`
   travelling and `docs/glossary.md` reduced to this project's own domain; `mechanisms.py` and 36
   tests; `mechanism-shape` declared and reported true; `.agents/README.md`'s narrative and roster
@@ -20,7 +20,7 @@ that can use it, and this record is the last hand-written one.
 - **The shape gained a rule** *(the user)*: everything a mechanism produces is read by someone, or
   the doc says why nobody does. Landed in all three homes — skill, format shelf, check — with the
   check written before the section that answers it.
-- **[01-0011.0022](../tickets/01-0011.0022-shape-survives-second-mechanism.md) amended** to carry
+- **[01-0011.0022](../tickets/done/01-0011.0022-shape-survives-second-mechanism.md) amended** to carry
   what it needs to consolidate, and **[01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md)**
   gained a facet.
 
@@ -100,7 +100,7 @@ the format shelf, written the same day, made claims that list never mentioned.
 **Easier:** a `/maintain` that enumerates its obligations the way `temporary_statements.py`
 enumerates blocks.
 
-**Next:** [.0022](../tickets/01-0011.0022-shape-survives-second-mechanism.md) — declare `/maintain`,
+**Next:** [.0022](../tickets/done/01-0011.0022-shape-survives-second-mechanism.md) — declare `/maintain`,
 and find out whether the shape survives an application it was not written against.
 
 ## Housekeeping

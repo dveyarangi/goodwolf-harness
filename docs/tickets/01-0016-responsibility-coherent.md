@@ -30,7 +30,7 @@ runs after the vocabulary tickets and before reachability.
 directly it should link to the skills that cover those responsibilities, and the responsibilities
 should be well defined. `/impact` can host the whole section about investigating what exists.
 
-**Measured 2026-09-07, during [01-0011.0010](./01-0011.0010-mechanism-declared.md)'s align.**
+**Measured 2026-09-07, during [01-0011.0010](./done/01-0011.0010-mechanism-declared.md)'s align.**
 The stall assumed an election between several appliers. There are **three skills touching
 repair-and-report and only two restating it**: `/verify` (which states and links it) and `/maintain`
 (the same), while `/implement` names only the `repair` switch and points at `AGENTS.md`, which is
@@ -77,7 +77,7 @@ left unhosted.
   defines a mechanism as spanning several skills, so "one skill owns one rule" may not hold.~~
   **The premise died 2026-09-07.** [The glossary](../glossary.md) now says a mechanism has
   **exactly one instruction file**, and the `process.md` sentence this rested on is deleted by
-  [01-0011.0010](./01-0011.0010-mechanism-declared.md). Responsibility is owned **per mechanism**,
+  [01-0011.0010](./done/01-0011.0010-mechanism-declared.md). Responsibility is owned **per mechanism**,
   and a mechanism's one instruction file is where its rules are read; rules it needs in skills it
   does not own arrive by injection, which is [.0020](./01-0011.0020-rules-one-home.md)'s. The
   question that remains is not the unit but the elected owner in each contested case.

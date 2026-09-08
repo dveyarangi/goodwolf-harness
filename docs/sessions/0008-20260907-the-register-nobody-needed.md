@@ -11,8 +11,8 @@ installed; this was written by hand at the user's request.
   second lobe produces work and no prefix named the step that produced it, so the first dream could
   only have been committed under a prefix claiming a different producer.
 - **The first dream committed**, from session seven.
-- **`/plan` on [01-0011.0010](../tickets/01-0011.0010-mechanism-declared.md)** — its
-  [RFC](../rfc/01-0011.0010-mechanism-declared.md) written and then validated three times.
+- **`/plan` on [01-0011.0010](../tickets/done/01-0011.0010-mechanism-declared.md)** — its
+  [RFC](../rfc/done/01-0011.0010-mechanism-declared.md) written and then validated three times.
 - **[01-0010.0120](../tickets/01-0010.0120-host-delivery-surfaces.md) minted**: what each host can
   place in front of an agent without being asked.
 - **`docs/process.md` measured section by section**, and `AGENTS.md`'s `Installed:` line deleted.
@@ -66,7 +66,7 @@ day old and already broken once. **Hidden edges:** a designated place for local 
 container problem but a question problem — twice this session, a block existed with nothing that
 belonged in it. **Easier:** a session where `.agents/mechanisms/` exists, so the seam has both ends
 written down and a fifth pass has nothing left to find. **Next:** `/implement` stage 1 on
-[01-0011.0010](../tickets/01-0011.0010-mechanism-declared.md), under `next-cycle=ask`.
+[01-0011.0010](../tickets/done/01-0011.0010-mechanism-declared.md), under `next-cycle=ask`.
 
 ## Housekeeping
 
