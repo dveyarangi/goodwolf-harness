@@ -119,9 +119,19 @@ held anywhere.
   *anything that can be maintained mechanically must be*, is `/mechanism`'s meta-rule, D1 of
   `/maintain`'s aligned rules, and meta-rules are never injected *(the user, 2026-09-07)*: a skill
   applying one reads it in `/mechanism` or the entry file. The copy is this ticket's to remove with
-  the rest of the corpus sweep. `/implement:38`, *do not move the RFC to `done/`; `/maintain` does
-  that*, was raised in the same breath and **not ruled on** — the user is unsure it is the same
-  defect.
+  the rest of the corpus sweep. `/implement:38–40`, *do not move the RFC to `done/`; `/maintain`
+  does that* and *use `/verify` and `/maintain` to review the work*, ~~was raised in the same
+  breath and not ruled on~~ — **ruled 2026-09-07 at `.0022`'s `/plan`** *(the user)*:
+  `/implement` should not mention `/maintain` at all; the sentences are an artefact of the era
+  when `/sync-arch` was held separately, and they go in this sweep.
+- **The map of missing instructions has homes here** *(the user, 2026-09-07)*. Every `not yet`
+  and `embedded` row a declaration carries is maintenance owed to a skill not yet through
+  `/mechanism`'s inception. [.0050](./01-0011.0050-shape-checked.md)'s report is the map; this
+  ticket gives each row a home — an inception ticket for the mechanism that owns the missing
+  rule, or an injection into a target once its owner is declared. An absence should say which fix
+  it wants: **a rule injected from a mechanism not yet declared**, **a rule that cannot be
+  injected** — a meta-rule, or judgment — **and needs a body**, or **a genuine gap** with no rule
+  anywhere.
 
 ## Decisions this ticket's align owns
 
