@@ -127,7 +127,12 @@ Open questions and risks live in `docs/concerns.md`, this skill's artifact:
 
 ### Record resolutions in the owning ticket inline
 
-When the plan under review is a ticket, record each resolution in the ticket the moment it lands — strike through the original question text and state the decision with its reason beside it, so the ticket carries both the question as it was asked and the answer. Sweep the ticket for internal consistency at the end: an early section may still assert what a later resolution changed.
+<installed by="ticket">
+**P7** Land a resolved decision in its durable home with its provenance, and rewrite the ticket in
+place to what is now true; list under `Open issues` only what stays unresolved.
+</installed>
+
+When the plan under review is a ticket, record each resolution the moment it lands, as the block below says; sweep the ticket for internal consistency at the end, since an early section may still assert what a later resolution changed.
 
 ### Offer ADRs sparingly
 

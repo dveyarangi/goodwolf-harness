@@ -4,7 +4,6 @@
 - **state** installed
 <project-local>
 - **evidence** `docs/mechanisms/maintain.evidence.md`
-- **declared by** `docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md`
 </project-local>
 
 ## How it works
@@ -34,13 +33,10 @@ straw dog: every declared mechanism in a pass's scope is due at every pass. That
 the listing and retires with the clock's ticket.
 </straw-dog>
 
-<straw-dog until="01-0011.0025 is done" ticket="docs/tickets/01-0011.0025-archive-duty-reaches-maintain.md">
-Two rows below read `embedded`: the body carries, inside a straw dog, a hand copy of the ticket
-mechanism's rules on paired close, bound to the ticket that replaces it with an installed block,
-so the listing shows it until then. The mechanism shape's rules on records and re-checks reach
-the body as an installed block. That is the honest state of a duty that was written in one
-skill's files while another skill had to act on it.
-</straw-dog>
+The ticket mechanism's rules on paired close and on its records, and the mechanism shape's rules
+on records and re-checks, reach the body as installed blocks. One rule sits in the body by hand
+inside a straw dog: a spec's agreements before archiving it, which is `/spec`'s and waits for
+`/spec` to be declared.
 
 The body names no other skill except `/align`. What is not this mechanism's is stated as what it
 does not do — a landed slice is verified, not maintained — never as who does it instead; this
@@ -57,13 +53,13 @@ repair-and-report, recording the cause in the evidence.
 | A1, A2, A4 | the user, 2026-09-07 |
 | B1, D4 | the user, 2026-09-06 |
 | C1 | the user, 2026-09-06 — eligibility is the maintainer's, never the script's |
-| P1 | the user, 2026-09-06 — a ticket closes only after its verification box is checked |
 | A3, B2, D3 | drafted into the process document 2026-09-05, never separately decided |
 | B3 | a maintenance pass, 2026-09-07, from `TICKET-FORMAT` stating the duty unconditionally |
 | C2, C3 | the install RFC of 2026-09-06 |
 | E1–E3 | `/denoise` as selected, 2026-09-05 |
 | the mechanism shape's block, R1–R4 | the user, 2026-09-07, in the shape's rules file; installed here |
-| the ticket mechanism's rules, P1–P4 | copied by hand until `01-0011.0025` installs them |
+| the ticket mechanism's block, P1, P2, P3, P5 | in the ticket mechanism's rules file, where each rule carries its own authority; installed here from `01-0011.0025` |
+| P4 | drafted into the process document 2026-09-05 as a spec rule; held here by hand for `/spec`, undeclared |
 
 ## Moments
 
@@ -76,8 +72,9 @@ repair-and-report, recording the cause in the evidence.
 | deciding whether a straw dog's condition holds, and retiring the block | `.agents/skills/maintain/SKILL.md` | |
 | guessing where a straw dog nobody wrapped stands, and judging each guess | `.agents/scripts/straw_dogs.py` | |
 | cleaning prose and records to one home per fact | `.agents/skills/maintain/SKILL.md` | |
-| closing a finished ticket with its RFC | — | embedded — the ticket mechanism's paired close, sitting in this body until its rules file installs it, `.agents/skills/maintain/SKILL.md` |
-| updating the header and queue row at close | — | embedded — the ticket mechanism's record shape, same home, same repair, `.agents/skills/maintain/SKILL.md` |
+| closing a finished ticket with its RFC | `.agents/skills/maintain/SKILL.md` | |
+| updating the header at close | `.agents/skills/maintain/SKILL.md` | |
+| checking the ticket records with their maintainer | `.agents/skills/maintain/SKILL.md` | |
 | checking a mechanism's records against their declared format | `.agents/skills/maintain/SKILL.md` | |
 | repairing mechanically, history included | — | elsewhere — a meta-rule, read where it lives, `.agents/skills/mechanism/SKILL.md` |
 | disposing of a concern | — | not yet — the concern index has never existed, [01-0017](../../../docs/tickets/01-0017-io-graph-coherent.md) |
@@ -101,14 +98,15 @@ repair-and-report, recording the cause in the evidence.
 
 | part | where | owner |
 |---|---|---|
-| the mover | `.agents/scripts/move_doc.py` | the ticket mechanism, from `01-0011.0025`; a declared gap until then |
-| the mover's tests | `tests/test_paired_close.py` | same |
-| the mover's tests | `tests/test_refusals.py` | same |
-| the mover's tests | `tests/test_citations.py` | same |
-| the mover's tests | `tests/test_command_line.py` | same |
-| the mover's tests | `tests/test_failure_contract.py` | same |
-| citation reader | `.agents/scripts/docs_corpus.py` | same gap; `01-0011.0025` claims it, and the installer now leans on it too |
-| test harness | `tests/harness.py` | same |
+| the mover | `.agents/scripts/move_doc.py` | `ticket` |
+| the mover's tests | `tests/test_paired_close.py` | `ticket` |
+| the mover's tests | `tests/test_refusals.py` | `ticket` |
+| the mover's tests | `tests/test_citations.py` | `ticket` |
+| the mover's tests | `tests/test_command_line.py` | `ticket` |
+| the mover's tests | `tests/test_failure_contract.py` | `ticket` |
+| the ticket maintainer | `.agents/scripts/tickets.py` | `ticket` |
+| citation reader | `.agents/scripts/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |
+| test harness | `tests/harness.py` | `mechanism-shape` |
 | the shape check | `.agents/scripts/mechanisms.py` | `mechanism-shape` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 
@@ -139,8 +137,8 @@ No record until the marks.
 Dueness is inferred, which the body forbids in the same breath as it permits it, inside a
 temporary statement.
 
-**Two `embedded` rows.** The ticket mechanism's rules are instructed from the wrong home, inside
-a temporary statement the enumerator lists, and the body says so.
+**One rule held by hand.** P4 is `/spec`'s, and `/spec` is undeclared, so the body carries it
+inside a straw dog bound to the ticket that declares the rest of the corpus.
 
 **Four `not yet` rows**, each naming a ticket that exists.
 
@@ -169,4 +167,5 @@ hand-fixed until the check went quiet reads identically to success.
 [.0025](../../../docs/tickets/01-0011.0025-archive-duty-reaches-maintain.md), grades this
 declaration as the first to lean on it: it takes the mover and the citation reader as its own,
 installs the paired-close block into the body, and retires the two `embedded` rows. Did those
-land against this doc as written, or did the doc have to be rewritten to receive them?
+land against this doc as written, or did the doc have to be rewritten to receive them? **Graded
+2026-09-09**; the answer is in [the evidence](../../../docs/mechanisms/maintain.evidence.md).

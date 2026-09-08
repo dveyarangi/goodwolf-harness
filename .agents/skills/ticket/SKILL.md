@@ -16,15 +16,9 @@ at every resolution.
 
 ## Layout
 
-The shape of a ticket, and where it is named and registered, is
-[TICKET-FORMAT.md](./TICKET-FORMAT.md)'s. Read it before writing one, and
-restate none of it here.
-
-- **Active tickets** live flat in `docs/tickets`; **completed tickets** move to
-  `docs/tickets/done/` (all acceptance boxes checked, including `/verify`). The
-  filename never changes, only the folder.
-- The **parent** is referenced by its own path — a spec, or a coarser ticket;
-  child tickets do not duplicate it.
+The shape of a ticket — its name, its folders, its header and sections, what
+finishes it and what removes it — is [TICKET-FORMAT.md](./TICKET-FORMAT.md)'s,
+under *The record*. Read it before writing one, and restate none of it here.
 
 ## Process
 
@@ -161,10 +155,7 @@ Criteria state observable behavior; code shape is the RFC's
 
 ### 6. Completing a ticket
 
-When every acceptance box is checked, including `/verify`, move the ticket to
-`docs/tickets/done/` mechanically, per [one basename per work item](./TICKET-FORMAT.md#one-basename-per-work-item)
-— the move repairs the citations that pointed at it. Do not close without that
-run.
-
-Do NOT close or modify the parent; a parent ticket completes on its own
-acceptance criteria, not by its children emptying out.
+A ticket is finished and closed per the shelf's [The record](./TICKET-FORMAT.md#the-record);
+`/maintain` carries the duty. Do NOT close or modify the parent; a parent
+ticket completes on its own acceptance criteria, not by its children emptying
+out.

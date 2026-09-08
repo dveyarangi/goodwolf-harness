@@ -121,9 +121,7 @@ description: >-
 - Cover migrations, compatibility, rollout, failure handling, and observability
   when relevant.
 
-- Record the plan into `docs/rfc/`, named with the owning ticket's basename —
-  no RFC serial. Filename, `done/` moves, and citation:
-  [TICKET-FORMAT.md](../ticket/TICKET-FORMAT.md#one-basename-per-work-item).
+- Record the plan as an RFC; its name and home are installed below.
 
 - RFC header: H1 is the ticket's title plus ` — implementation plan`; then
   `**Authored:** YYYY-MM-DD`, and `**Last amended:** YYYY-MM-DD` once a later
@@ -131,3 +129,10 @@ description: >-
   ticket.
 
 - DO NOT CHANGE THE CODE!
+
+## Installed from other mechanisms
+
+<installed by="ticket">
+**P6** Name the RFC by the owning ticket's basename, under `docs/rfc/`, with no serial of its own; it
+moves to `docs/rfc/done/` with the ticket.
+</installed>

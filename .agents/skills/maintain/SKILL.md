@@ -70,6 +70,21 @@ doc against the shape, its instruction file against its doc, its records against
 
 ## Installed from other mechanisms
 
+<installed by="ticket">
+**P1** A ticket is finished when every acceptance box is checked, the verification box included.
+
+**P2** Close a ticket and its RFC together, in one invocation, and every eligible pair in the same
+invocation: `move_doc.py [--dry-run] SRC DST [SRC DST ...]`, into `docs/tickets/done/` and
+`docs/rfc/done/`.
+
+**P3** Update the ticket header yourself; the mover changes no checkbox, status, date or prose and
+leaves the Git index alone. Treat a refusal as a finding. Repair or deliberately leave what it
+reports it cannot rewrite, and say which. Git recovers committed or staged content only.
+
+**P5** Check the ticket records with `tickets.py --check` — format never content, live rows only. A
+diagnostic is a finding; repair it under the repair policy.
+</installed>
+
 <installed by="mechanism-shape">
 **R1** Check a record-bearing mechanism's records with its maintainer script — format never
 content, live rows only. Where the script is missing, write it: that is the maintenance.
@@ -82,19 +97,9 @@ excluded, and installed blocks excluded.
 **R4** Render an index on request; never commit one beside its records.
 </installed>
 
-<straw-dog until="01-0011.0025 is done" ticket="docs/tickets/01-0011.0025-archive-duty-reaches-maintain.md">
-The ticket mechanism's rules, copied here by hand until its rules file installs them; the IDs
-are the ones that file will carry:
+<straw-dog until="01-0017 is done" ticket="docs/tickets/01-0017-io-graph-coherent.md">
+One rule of `/spec`'s, held here by hand until that mechanism is declared and installs it:
 
-- **P1** A ticket is finished when every acceptance box is checked, the verification box
-  included.
-- **P2** Close a ticket and its RFC together, in one invocation, and every eligible pair in the
-  same invocation: `move_doc.py [--dry-run] SRC DST [SRC DST ...]`, into `docs/tickets/done/`
-  and `docs/rfc/done/`.
-- **P3** Update the ticket header and the queue row yourself; the mover changes no checkbox,
-  status, date or prose and leaves the Git index alone. Treat a refusal as a finding. Repair or
-  deliberately leave what it reports it cannot rewrite, and say which. Git recovers committed or
-  staged content only.
 - **P4** Before archiving a spec, confirm its surviving agreements have homes, its obligations
   have dispositions, and its open issues keep owners.
 </straw-dog>

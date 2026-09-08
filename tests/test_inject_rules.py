@@ -112,6 +112,26 @@ class Installing(RepositoryCase):
             self.read(TARGET),
         )
 
+    def test_an_anchor_that_is_a_subheading_inside_a_tagged_span_takes_the_block_and_gives_it_back(self) -> None:
+        anchor = "### Record resolutions inline"
+        target_text = (
+            "# Advisor\n\n<what-to-do>\nInterview me.\n</what-to-do>\n\n"
+            f"<supporting-info>\n\n## During the session\n\n{anchor}\n\n"
+            "Strike the question and answer beside it.\n\n### Offer ADRs sparingly\n\n"
+            "Rarely.\n\n</supporting-info>\n"
+        )
+        self.write(TARGET, target_text)
+        self.write(RULES, rules_file(table=f"| target | anchor |\n|---|---|\n| `{TARGET}` | `{anchor}` |\n"))
+        self.commit()
+        before = self.snapshot()
+
+        self.assertEqual(0, self.run_installer(SLUG, "--install")[0])
+        installed = self.read(TARGET)
+        self.assertEqual(0, self.run_installer(SLUG, "--retract")[0])
+
+        self.assertEqual(target_text.replace(f"{anchor}\n", f"{anchor}\n\n{INSTALLED}\n"), installed)
+        self.assertEqual(before, self.snapshot())
+
     def test_installing_twice_changes_nothing_and_reports_the_block_present(self) -> None:
         self.run_installer(SLUG, "--install")
         once = self.snapshot()

@@ -46,7 +46,9 @@ without certifying architecture or unrelated work across that repository.
 
 [Ticket format](../.agents/skills/ticket/TICKET-FORMAT.md#one-basename-per-work-item)
 governs eligibility and destinations. The caller determines that the criteria, including
-verification, are met before submitting the ticket and RFC together for movement.
+verification, are met before submitting the ticket and RFC together for movement. The ticket
+maintainer holds every live ticket to the shape the format declares and reports a pair whose
+halves sit in different folder states; it decides nothing about eligibility.
 
 The mechanical operation preserves basenames, repairs the moved records' outgoing and mutual
 references, and repairs incoming references. Historical records participate: repairs preserve

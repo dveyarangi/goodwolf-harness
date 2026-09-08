@@ -88,6 +88,33 @@ installed into `/mechanism`'s *Incept*; nothing had read it until then. The doc'
 row for records checking became instructed, and three such rows became two, both the ticket
 mechanism's.
 
+## The third declaration grades this one, 2026-09-09
+
+Pre-registered on the doc at [.0022](../tickets/done/01-0011.0022-shape-survives-second-mechanism.md)'s
+align: the session that declares the ticket mechanism takes the mover and the citation reader as
+its own, installs the paired-close block into the body, and retires the two `embedded` rows — did
+those land against this doc as written, or did the doc have to be rewritten to receive them?
+
+**The block landed as written.** The anchor the doc's rules file named for the shape's block took
+the ticket's block beside it with no edit; the hand copy's P1–P3 came out as the installed P1–P3
+with one clause fewer, *and the queue row*, which was a straw-dog phrase no rule body may carry;
+the two `embedded` rows became instructed by naming the body, which is what the rows had said
+would happen. That half graded clean.
+
+**The ownership did not land as written, and the doc was right to have been wrong.** The doc had
+forward-declared the ticket mechanism as the claimant of the citation reader and the test harness.
+The align applied the spec's own ownership decision instead — the claimant where a shared part's
+claim bites is the always-on mechanism — and both docs' owner columns were rewritten to
+`mechanism-shape`. So the doc was rewritten, but to what the spec had said all along; the
+forward-declaration was the error, not the reception. The mover and its five test files went to
+the ticket mechanism as declared.
+
+**One rule the pre-registration did not foresee stayed behind.** P4, a spec's agreements before
+archiving it, was in the hand copy as a ticket rule and is `/spec`'s. It sits in the body inside
+its own straw dog now, bound to the ticket that declares the rest of the corpus. A grader counting
+`embedded` rows would have called the doc clean; the rule that was never the ticket mechanism's
+was found by asking who owned each sentence, not by the check.
+
 ## The straw dog gets its name, and the listing learns to guess, 2026-09-08
 
 At [.0070](../tickets/done/01-0011.0070-straw-dogs-marked-and-found.md). The enumerator became
