@@ -92,9 +92,13 @@ contains nested blocks. The maintainer disposes of children first and rescans be
 removal; active children and enduring agreements require preservation before the outer
 statement can be removed.
 
-The listing tool may also guess, from the words a sentence carries, where a straw dog stands
-unwrapped. A guess is a finding for the maintainer, never a diagnostic, and never moves the
-run's status; what has no named successor is a claim and is left as written.
+In code the marking is a comment line beginning `TODO`: one naming its ticket is listed as a
+straw dog with that owner, and leaves with the code rather than through the tool.
+
+The listing tool may also guess, from the words a sentence carries or a `TODO` that names no
+ticket, where a straw dog stands unwrapped. A guess is a finding for the maintainer, never a
+diagnostic, and never moves the run's status; what has no named successor is a claim and is
+left as written.
 
 ### Installed blocks
 
