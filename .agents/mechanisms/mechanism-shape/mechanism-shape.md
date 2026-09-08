@@ -1,6 +1,6 @@
 # mechanism-shape — what counts as a mechanism, what one is made of, and where each part lives
 
-- **instruction** `.agents/skills/mechanism/SKILL.md` — the shape: membership, the three homes, moments, injection, incept and amend
+- **instruction** `.agents/skills/mechanism/SKILL.md` — the shape: membership, the three homes, moments, injection, records, incept, amend and retire
 - **state** always on
 <project-local>
 - **evidence** `docs/mechanisms/mechanism-shape.evidence.md`
@@ -31,6 +31,7 @@ absence is honestly classified, are judgements it records and never makes.
 | incepting one | `.agents/skills/mechanism/SKILL.md` | |
 | telling an inceptor what to hand `/maintain` | — | not yet — the sentence is the maintenance mechanism's rule, authored in its rules file with this skill's *Incept* as target, and no installer carries it here, [.0020](../../../docs/tickets/01-0011.0020-rules-one-home.md) |
 | amending a declared one, editing a skill that is an instruction file included | `.agents/skills/mechanism/SKILL.md` | |
+| retiring a declared one | `.agents/skills/mechanism/SKILL.md` | |
 | checking that a declaration is true | `.agents/scripts/mechanisms.py` | |
 | installing a mechanism's rules into skills it does not own | — | not yet — no installer exists, and every rule reaching another skill is hand-copied until one does, [.0020](../../../docs/tickets/01-0011.0020-rules-one-home.md) |
 | retracting them | — | not yet — one installer owns both directions or neither is mechanical, [.0020](../../../docs/tickets/01-0011.0020-rules-one-home.md) |
@@ -71,8 +72,13 @@ absence is honestly classified, are judgements it records and never makes.
   unasked**, and nothing consumes its output: it exists so the register never becomes a file, and
   a register nobody asks for is a register nobody needed.
 
-Nothing else is emitted. This mechanism injects no rules, so it has no rules file, and it writes
-no records beyond the mechanism directories that are its records.
+- **Its rules file** — `mechanism-shape.rules.md`, read by the installer alone, targeting
+  `/maintain` and `/skill-up`. **It does not exist yet.** Which rules it holds and where each
+  lands is [.0020](../../../docs/tickets/01-0011.0020-rules-one-home.md)'s input, and that slice
+  writes it with the installer that reads it.
+
+Nothing else is emitted. It writes no records beyond the mechanism directories that are its
+records.
 
 ## Not yet at the shape
 
@@ -82,6 +88,12 @@ than a mechanism that speaks at wake; this tree has no hook to speak from. A run
 because nobody started it is indistinguishable from one that passed.
 
 **Absence is not clearance.** A clean run means nothing was caught. It never means the tree obeys.
+
+**Its own rules reach their readers by hand.** The five rules `/maintain` reads sit in that body
+as a hand copy inside a temporary statement, and the two under the instruction file's *Records*
+are authored there; both are bound to
+[.0020](../../../docs/tickets/01-0011.0020-rules-one-home.md), which replaces them with installed
+blocks. Until then the shape's own central claim — a rule has one home — is one it does not meet.
 
 **Run it over what already exists has no bite here, and this is not a zero.** That rule exists so
 a check landing today cannot claim a clean history it never looked at. This is the first

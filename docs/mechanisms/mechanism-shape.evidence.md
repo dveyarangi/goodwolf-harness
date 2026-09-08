@@ -123,7 +123,29 @@ marks — so the obligation is `not yet`, and the clock is
 to the shape, which never said otherwise; recorded here because the shape's first application
 let the assumption pass unexamined.
 
+## Repaired at maintenance, 2026-09-08
+
+The first `/maintain` pass scoped to this mechanism, run under the interim rule that every declared
+mechanism is due at every pass. The check was clean; the drift was in what the check does not rule
+on.
+
+**"This mechanism injects no rules, so it has no rules file."** Written on 2026-09-07 during the
+first declaration, and false since the same evening: `.0022`'s align decided the rules file this
+mechanism will hold and its two targets, `/maintain`'s body has carried five of those rules as a
+hand copy since then, and the instruction file's own *Records* section says its two paragraphs move
+to the rules file. The doc now names the rules file as an output that does not exist yet, and
+carries the hand copies under *Not yet at the shape*, where `/maintain`'s doc carries its three
+`embedded` rows.
+
+**No moment for retiring a mechanism.** The instruction file has instructed retirement since it
+arrived, and the moments table never carried the row. Not drift by the letter — nothing moved —
+but a doc and its instruction file disagreeing, which is the same agreement `/maintain` holds.
+Added as instructed.
+
 ## What is still true only by assertion
 
-One mechanism has been declared, by the pass that wrote the shape, against itself. The doc's
-grading section names the test and the grader, and neither is this session.
+Two mechanisms have been declared. The second passed the check unedited and amended the shape in
+prose three times, recorded above; whether that is the shape fitting or the declaration bent to fit
+it is the grade the doc pre-registers for the user, and it has not been given. The third
+application, at [.0025](../tickets/01-0011.0025-archive-duty-reaches-maintain.md), is the first to
+meet a record-bearing mechanism.
