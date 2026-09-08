@@ -52,7 +52,7 @@ with the directory. That is the register argument one level down.
 **The stray-file diagnostic changed authority without changing behavior.** It was first reasoned
 from the installer's lookup — a rules file under another name is one the installer will not find.
 That is the installer's own *refuse rather than guess* contract, owned by
-[.0020](../tickets/01-0011.0020-rules-one-home.md), and underwriting it a second time here is the
+[.0020](../tickets/done/01-0011.0020-rules-one-home.md), and underwriting it a second time here is the
 duplication this mechanism exists to stop. It reasons, besides, from a script that does not exist.
 The rule stands instead on the spec's *working parts stay where the harness needs them*, and on
 the plainer statement of the same thing: a file dropped in a mechanism's directory was dropped
@@ -60,7 +60,7 @@ there to be read, and nothing reads it.
 
 **The rules file's field grammar left the skill body.** *One section per rule, each naming its
 target, its anchor and its tier* was written into `/mechanism` while nothing parsed it, and
-[.0020](../tickets/01-0011.0020-rules-one-home.md) already stated it verbatim. A grammar specified
+[.0020](../tickets/done/01-0011.0020-rules-one-home.md) already stated it verbatim. A grammar specified
 where there is no parser, duplicated by the slice that will build one, is the doc/check seam's
 failure repeated one file over.
 
@@ -144,7 +144,7 @@ Added as instructed.
 
 ## The installer arrives, 2026-09-08
 
-Built at [.0020](../tickets/01-0011.0020-rules-one-home.md). What that slice found, in the order
+Built at [.0020](../tickets/done/01-0011.0020-rules-one-home.md). What that slice found, in the order
 it found it.
 
 **The prior corpus.** `--check` over the live tree before anything was installed: two rules files,

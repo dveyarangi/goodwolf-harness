@@ -39,7 +39,7 @@ that can use it, and this record is the last hand-written one.
 - **A rules file is machine input, read by the installer alone** *(the user)*. The stray-file
   diagnostic keeps its behavior and loses its justification: it stands on the spec's *working parts
   stay where the harness needs them*, not on the installer's lookup, which is
-  [.0020](../tickets/01-0011.0020-rules-one-home.md)'s own contract.
+  [.0020](../tickets/done/01-0011.0020-rules-one-home.md)'s own contract.
 - **Everything a mechanism produces names its reader** *(the user)*. The second shape that forced
   the concept the stray-file case had only hinted at.
 - **This ticket does not close until the shape builds a mechanism other than itself** *(the user)*.

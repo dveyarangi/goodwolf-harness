@@ -125,11 +125,6 @@ content, live rows only. Where the script is missing, write it: that is the main
 A mechanism with records declares what a record is — its fields, what a row means, its
 tier, what removes a finished entry — inside the record's own file *(the user, 2026-09-07)*.
 
-<temporary until="01-0011.0020 is done" ticket="docs/tickets/01-0011.0020-rules-one-home.md">
-The two paragraphs this wrapper replaced are installed above, from this mechanism's own rules
-file; this wrapper retires with the ticket.
-</temporary>
-
 ## Incept
 
 <installed by="maintain">

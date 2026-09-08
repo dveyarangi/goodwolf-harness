@@ -258,7 +258,7 @@ file, which Life's single-surface hash never had to separate.
 
 ## Impact — 2026-09-08, straw dogs
 
-Assessed at [01-0011.0020](../tickets/01-0011.0020-rules-one-home.md)'s `/verify` on the draft of
+Assessed at [01-0011.0020](../tickets/done/01-0011.0020-rules-one-home.md)'s `/verify` on the draft of
 [01-0011.0070](../tickets/01-0011.0070-straw-dogs-marked-and-found.md), before minting. Verdict:
 **proceed**, as one decision-bearing HITL ticket, own align preceding.
 

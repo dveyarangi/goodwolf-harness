@@ -30,7 +30,7 @@ The three blocks then live were bound the same day.
 edit — change the rule in the rules file of the mechanism named on the block, and re-install.
 It replaces a rule the mechanism shape would otherwise have installed into two skills, and the
 per-block notice Life's injector writes, with one sentence every session reads. Decided by the
-user at [01-0011.0020](../tickets/01-0011.0020-rules-one-home.md)'s align.
+user at [01-0011.0020](../tickets/done/01-0011.0020-rules-one-home.md)'s align.
 
 ## v3 — 2026-09-06
 

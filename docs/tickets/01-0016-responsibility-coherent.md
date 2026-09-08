@@ -79,7 +79,7 @@ left unhosted.
   **exactly one instruction file**, and the `process.md` sentence this rested on is deleted by
   [01-0011.0010](./done/01-0011.0010-mechanism-declared.md). Responsibility is owned **per mechanism**,
   and a mechanism's one instruction file is where its rules are read; rules it needs in skills it
-  does not own arrive by injection, which is [.0020](./01-0011.0020-rules-one-home.md)'s. The
+  does not own arrive by injection, which is [.0020](./done/01-0011.0020-rules-one-home.md)'s. The
   question that remains is not the unit but the elected owner in each contested case.
 - Whether `docs/process.md` survives this pass as a rule home or becomes policy-only — its
   `<temporary>` block already promises the sequence to [the pacer](./01-0020-pacer.md).
@@ -107,7 +107,7 @@ cited either bullet, so the move elected an owner without leaving callers. Repai
 the opposite case and is still open: three skills touch it, two restate it, and moving it needs
 either duplication or an elected owner with the others as callers. That is the consequence this
 ticket still owes, and one hand-move does not discharge it. Once
-[.0020](./01-0011.0020-rules-one-home.md)'s injector exists, a move like this one is an install
+[.0020](./done/01-0011.0020-rules-one-home.md)'s injector exists, a move like this one is an install
 rather than an edit, and the drift a hand-move can introduce stops being possible.
 
 ## Acceptance criteria

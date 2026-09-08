@@ -45,14 +45,14 @@ All on the closed ticket unless named. The ones that reshaped more than this sli
 - **Strict versus working rule was withdrawn** the same evening it was adopted: strength serves
   the maintainer at amend time, and the repair policy already decides who may amend what.
 - **The seven rules of `mechanism-shape.rules.md` and their two targets** are
-  [.0020](../tickets/01-0011.0020-rules-one-home.md)'s input; `maintain.rules.md` exists
+  [.0020](../tickets/done/01-0011.0020-rules-one-home.md)'s input; `maintain.rules.md` exists
   already, one rule targeting `/mechanism`'s *Incept*.
 - **Anchor repairs by hand, reported** — twenty-three citations in eight records.
 
 ## Open, with owners
 
 - **Next cycle needs a nod** (`next-cycle=ask`). The queue names
-  [.0020](../tickets/01-0011.0020-rules-one-home.md): both declarations carry hand copies
+  [.0020](../tickets/done/01-0011.0020-rules-one-home.md): both declarations carry hand copies
   waiting for the injector.
 - **Two graders, two questions**, pre-registered on the closed ticket's doc: the user grades
   whether the shape changed because `/maintain` did not fit it or the declaration was bent;
@@ -101,7 +101,7 @@ had to change.
 **Easier:** a `--check` that renders a moments count by kind, so a record's *five instructed,
 four not yet* is read rather than counted by hand and corrected at `/verify`.
 
-**Next:** [.0020](../tickets/01-0011.0020-rules-one-home.md), on the user's nod.
+**Next:** [.0020](../tickets/done/01-0011.0020-rules-one-home.md), on the user's nod.
 
 ## Housekeeping
 

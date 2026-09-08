@@ -78,7 +78,7 @@ or recovery mechanism. The owning ticket records the clarification and the RFC r
 
 ## The installer arrives, 2026-09-08
 
-At [.0020](../tickets/01-0011.0020-rules-one-home.md), the body received the mechanism shape's
+At [.0020](../tickets/done/01-0011.0020-rules-one-home.md), the body received the mechanism shape's
 rules as an installed block — R1 to R4 — after the *Installed from other mechanisms* heading and
 before the two hand-copied wrappers, which stay until their tickets close. R5, *never edit an
 installed block by hand*, did not arrive: the user moved it to the entry file, so it reaches every
