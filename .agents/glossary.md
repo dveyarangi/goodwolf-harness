@@ -112,7 +112,7 @@ A historical account retained after its active role ends, with its disposition e
 A tracked unit of work with an intended outcome and observable completion criteria. It may own unresolved decisions before implementation is ready.
 
 **Ticket stage**:
-What a ticket holds, read from its status. Incepted — Planned or Ready, before its align — it hosts chunks: routed inputs, ideas, open questions. Shaped — In progress or Partial — it keeps only what is actual: the work, its criteria, and what is still open. A resolved decision lives in its durable home and in the session record, not in the ticket.
+What a ticket holds, read from whether it has a plan. Incepted — no plan yet — it hosts chunks: routed inputs, ideas, open questions. Shaped — its plan exists — it keeps only what is actual: the work, its criteria, and what is still open. A resolved decision lives in its durable home and in the session record, not in the ticket.
 _Avoid_: dossier, decision log, history as names for a ticket's contents.
 
 **HITL ticket**:
