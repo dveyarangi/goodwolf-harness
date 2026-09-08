@@ -85,7 +85,7 @@ left unhosted.
   `<temporary>` block already promises the sequence to [the pacer](./01-0020-pacer.md).
 - Whether "update the glossary/architecture inline" is `/align`'s or `/maintain`'s.
 - **Which mechanism is responsible for straw dogs** *(raised 2026-09-08 at
-  [01-0011.0070](./01-0011.0070-straw-dogs-marked-and-found.md)'s align, the user)*. The duty to
+  [01-0011.0070](./done/01-0011.0070-straw-dogs-marked-and-found.md)'s align, the user)*. The duty to
   wrap one is the entry file's, a meta-rule; the enumerator that lists and retires them is the
   maintenance mechanism's part; the review that marks them at landing is `/verify`'s own
   sentence, written as a straw dog bound to this ticket. Nothing owns the concept end to end, and

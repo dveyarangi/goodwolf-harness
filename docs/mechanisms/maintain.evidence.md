@@ -2,7 +2,7 @@
 
 Why [the doc](../../.agents/mechanisms/maintain/maintain.md) is what it is: what was tried, what
 was refuted, what it cost, and what it used to be. Provenance stays inline on each rule in the
-body. The mover's contract and the temporary-statement contract live in
+body. The mover's contract and the straw-dog contract live in
 [architecture](../architecture.md); the install decisions belong to
 [Install /maintain](../tickets/done/01-0010.0070-install-maintain.md), the declaration's to
 [01-0011.0022](../tickets/done/01-0011.0022-shape-survives-second-mechanism.md).
@@ -90,7 +90,7 @@ mechanism's.
 
 ## The straw dog gets its name, and the listing learns to guess, 2026-09-08
 
-At [.0070](../tickets/01-0011.0070-straw-dogs-marked-and-found.md). The enumerator became
+At [.0070](../tickets/done/01-0011.0070-straw-dogs-marked-and-found.md). The enumerator became
 `straw_dogs.py`, its tag `<straw-dog>`, after the user named the concept; four operative blocks
 were renamed and no record of history touched, since every other mention already sat in a code
 span. A `<temporary>` written from habit is now a diagnostic rather than an invisible statement.

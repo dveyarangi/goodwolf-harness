@@ -108,7 +108,7 @@ are the ones that file will carry:
 
 <project-local>
 The verification set: [Verification](../../../docs/process.md#verification). The mover's
-failure contract and the temporary-statement contract:
+failure contract and the straw-dog contract:
 [architecture](../../../docs/architecture.md#interruption-and-recovery),
 [architecture](../../../docs/architecture.md#straw-dogs).
 </project-local>

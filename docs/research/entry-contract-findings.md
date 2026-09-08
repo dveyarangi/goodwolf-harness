@@ -6,8 +6,8 @@ supplies at session start, announced verbatim by the session's first reply. The 
 announcing a version can find out what it announced.
 
 The version covers the **core** part only: the announce line, the general rules, the loop, the
-switch roster with its meanings, and the `<temporary>` convention. `<project-local>` values change
-without a bump.
+switch roster with its meanings, and the `<straw-dog>` convention — `<temporary>` until v5.
+`<project-local>` values change without a bump.
 
 ## v1 — 2026-09-05
 
@@ -31,7 +31,7 @@ attributes unchanged, after the user named the concept: a thing made to serve un
 arrives and then be discarded. And the section that described the convention now instructs the
 writer — wrap it when you write it, anywhere, and in code as a `TODO` naming the ticket — with one
 line drawn against wrapping everything: what has no named successor is a claim. Decided by the
-user at [01-0011.0070](../tickets/01-0011.0070-straw-dogs-marked-and-found.md)'s align; the
+user at [01-0011.0070](../tickets/done/01-0011.0070-straw-dogs-marked-and-found.md)'s align; the
 evidence was four unwrapped expiries the injector's verify found the day before.
 
 ## v4 — 2026-09-08

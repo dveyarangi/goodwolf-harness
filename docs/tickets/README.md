@@ -2,27 +2,25 @@
 
 **Last updated:** 2026-09-08
 
-**Completed step:** `/maintain` on [01-0011.0020](done/01-0011.0020-rules-one-home.md), 2026-09-08 — the paired close of the injector's ticket and RFC, and the retirement of the two `<temporary>` blocks bound to it through the enumerator, what they held having reached its homes as installed blocks and the entry file's sentence. What every earlier pass decided is on the tickets that own it and in the session records under `docs/sessions/`; the chronological paragraphs this queue carried until 2026-09-08 restated them and are gone. The spec's ordering after the mechanism slices is unchanged: the four rule refactors, then [01-0020](01-0020-pacer.md), which wants the Tier 1 placement rule that [01-0018](01-0018-reachability-coherent.md) settles; [01-0010.0080](01-0010.0080-impact-work-shape.md) stays Ready beside them. The verification set is 160 behavioral tests over the maintenance scripts, `mechanisms.py --check` over the declared mechanisms, and `inject_rules.py --check` over the rules files and their blocks; operative `<temporary>` blocks are what `temporary_statements.py docs AGENTS.md .agents` reports, four on 2026-09-08, all bound, no condition met.
+**Completed step:** `/maintain` on [01-0011.0070](done/01-0011.0070-straw-dogs-marked-and-found.md), 2026-09-08 — the paired close of the straw-dog ticket and RFC, the second ring run in one day after [.0020](done/01-0011.0020-rules-one-home.md)'s. What every earlier pass decided is on the tickets that own it and in the session records under `docs/sessions/`. The spec's ordering after the mechanism slices is unchanged: the four rule refactors, then [01-0020](01-0020-pacer.md), which wants the Tier 1 placement rule that [01-0018](01-0018-reachability-coherent.md) settles; [01-0010.0080](01-0010.0080-impact-work-shape.md) stays Ready beside them. The verification set is 173 behavioral tests over the maintenance scripts, `mechanisms.py --check` over the declared mechanisms, and `inject_rules.py --check` over the rules files and their blocks; the straw dogs are what `straw_dogs.py docs AGENTS.md .agents tests` lists, eleven on 2026-09-08, all bound, no condition met.
 
 **How this queue is ordered** *(the user, 2026-09-07)*: the harness is self-building, so the governing consideration is which slice hands the next one a tool that makes the harness work better — not dependency order alone, and not size. A slice that only describes something ranks below one that gives the next slice a script, a check or a rule it can lean on. The pacer owns this once it exists ([01-0020](01-0020-pacer.md)); until then it is stated here and applied by hand. Open idea, unowned: `/impact` could name the *error classes that stay uncaught* if a slice is not built, and the queue could rank by which noise is loudest — a candidate extension of [01-0010.0080](01-0010.0080-impact-work-shape.md), not yet its scope.
 
-**Working documents:** [Harness spec — draft](../spec/01-0010-dev-harness-shared-and-local.md), [working glossary](../glossary.md), and [pacer.md](../pacer.md), which holds the pacer's core rules resolved so far until [01-0020](01-0020-pacer.md) carries them. `docs/process.md` is preliminary under a `<temporary>` block; the pacer owns it once it exists. Local overrides are no longer deferred: [01-0010.0110](01-0010.0110-project-facets-injected.md) owns them. The spec is not accepted; [01-0010.0035](done/01-0010.0035-install-spec.md)'s RFC is [the install plan](../rfc/done/01-0010.0035-install-spec.md).
-**Current stage:** [01-0011.0020](done/01-0011.0020-rules-one-home.md), the injector, is
-**Done, 2026-09-08**: one generic installer, two rules files, three installed blocks in `/maintain`
-and `/mechanism`, the entry contract at v4 with the hand-edit sentence, and `--check` in the
-verification set. Every decision of its align, the batch that superseded the per-rule tag, what
-three `/verify` passes repaired, and the run against real drift are on
-[the closed ticket](done/01-0011.0020-rules-one-home.md); the evidence of both mechanisms records
-the day. Minted from its verify at the user's question:
-[01-0011.0070](01-0011.0070-straw-dogs-marked-and-found.md), straw dogs marked when written and
-found when not, own align preceding. **Next cycle needs a nod** (`next-cycle=ask`). By the
-ordering rule below the candidates are two: [.0025](01-0011.0025-archive-duty-reaches-maintain.md),
-which declares the ticket mechanism, hands the tree its first record shape with a maintainer
-script, and is the first slice to use the injector without having built it — the grader
-`/maintain`'s doc pre-registers; and [.0070](01-0011.0070-straw-dogs-marked-and-found.md), which
-hands every later slice the lint that finds an unmarked straw dog and whose demonstration is a day
-old. R6 waits on [.0050](01-0011.0050-shape-checked.md). Wake still lands on `/align` until the
-pacer exists. Resume by opening a fresh session here, confirming its first line is the entry
+**Working documents:** [Harness spec — draft](../spec/01-0010-dev-harness-shared-and-local.md), [working glossary](../glossary.md), and [pacer.md](../pacer.md), which holds the pacer's core rules resolved so far until [01-0020](01-0020-pacer.md) carries them. `docs/process.md` is preliminary under a `<straw-dog>` block; the pacer owns it once it exists. Local overrides are no longer deferred: [01-0010.0110](01-0010.0110-project-facets-injected.md) owns them. The spec is not accepted; [01-0010.0035](done/01-0010.0035-install-spec.md)'s RFC is [the install plan](../rfc/done/01-0010.0035-install-spec.md).
+**Current stage:** [01-0011.0070](done/01-0011.0070-straw-dogs-marked-and-found.md), the straw
+dogs, is **Done, 2026-09-08**, an hour after [.0020](done/01-0011.0020-rules-one-home.md), the
+injector: the tag is `<straw-dog>` and the listing script `straw_dogs.py`, the entry contract is
+v5 with the duty to wrap when writing, the script guesses where an unwrapped one stands and reads
+a `TODO` naming its ticket as one, and `/verify` reads landed work against the pending tickets in
+a sentence that is itself a straw dog bound to [01-0016](01-0016-responsibility-coherent.md),
+which now owns the question of which mechanism is responsible for the concept. The first guess
+over the whole tree wrapped six and repaired two; the maintain mechanism's evidence records every
+judgment. Every decision of both aligns is on the closed tickets. **Next cycle needs a nod**
+(`next-cycle=ask`). By the ordering rule below the candidate is
+[.0025](01-0011.0025-archive-duty-reaches-maintain.md): it declares the ticket mechanism, hands
+the tree its first record shape with a maintainer script, and is the first slice to use the
+injector without having built it — the grader `/maintain`'s doc pre-registers. R6 waits on
+[.0050](01-0011.0050-shape-checked.md). Wake still lands on `/align` until the pacer exists. Resume by opening a fresh session here, confirming its first line is the entry
 contract [AGENTS.md](../../AGENTS.md) declares, and taking the current pass above.
 
 | Ticket | Status | Type | Outcome |
@@ -45,7 +43,7 @@ contract [AGENTS.md](../../AGENTS.md) declares, and taking the current pass abov
 | [The queue is read from the tickets](01-0011.0040-queue-derived-index.md) | Planned (the record shape precedes) | HITL | The queue's status, type and outcome are derived from the ticket headers that own them, so the queue cannot contradict a ticket, and the pacing prose stays hand-written. |
 | [A mechanism's shape is observed, not asserted](01-0011.0050-shape-checked.md) | Planned (three declarations precede) | AFK | A check reports, across every declared mechanism, each moment's instruction or its kind of absence, and every installed skill is either named by a mechanism or sits in an allowlist with its reason. |
 | [A mechanism is re-checked when what governs it moves](01-0011.0060-mechanism-rechecked-when-governing-moves.md) | Planned (own align precedes; three dependencies open) | HITL | `/maintain` reads which mechanisms are due from a derivation over the tree rather than inferring it: a mechanism's doc is due when the meta-rules moved since it was last checked, its records are due when its own surfaces moved or its records churned, the last check is a mark that only the closing step of a maintenance can move, and dueness is derived at every look and never stored. |
-| [A straw dog is marked when it is written, and found when it was not](01-0011.0070-straw-dogs-marked-and-found.md) | Ready (aligned 2026-09-08) | HITL | A straw dog — anything written to serve until a named ticket replaces it — is wrapped in `<straw-dog>` bound to that ticket when it is written, by the entry file's instruction; the listing script reports likely unwrapped ones as candidates a person judges; and at every landing, `/verify` reads the landed work against the pending tickets and wraps what they will replace, so an expiry the script cannot see stops depending on a person rereading the file by luck. |
+| [A straw dog is marked when it is written, and found when it was not](done/01-0011.0070-straw-dogs-marked-and-found.md) | Done (2026-09-08) | HITL | A straw dog — anything written to serve until a named ticket replaces it — is wrapped in `<straw-dog>` bound to that ticket when it is written, by the entry file's instruction; the listing script reports likely unwrapped ones as candidates a person judges; and at every landing, `/verify` reads the landed work against the pending tickets and wraps what they will replace, so an expiry the script cannot see stops depending on a person rereading the file by luck. |
 | [Hierarchy reads the same everywhere](01-0012-hierarchy-coherent.md) | Ready | HITL | Hierarchy — from what height a thing is looked at — has one account, and every statement about height across the entry file, process, glossary and skills either is that account or points at it. |
 | [Scope reads the same everywhere](01-0014-scope-coherent.md) | Planned (hierarchy precedes) | HITL | Scope — the extent of what a pass, a ticket or a document covers — has one account, and every scope statement across the harness either is that account or points at it. |
 | [Each skill owns its own responsibility](01-0016-responsibility-coherent.md) | Planned (hierarchy and scope precede) | HITL | Every skill states only what it owns and links for the rest; a rule appears once, in the skill responsible for it; contradictions between skills are resolved rather than coexisting. |
