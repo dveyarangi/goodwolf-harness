@@ -1,9 +1,8 @@
 # Ticket format
 
 This shelf owns ticket naming, delivery-state vocabulary, the shape of a
-ticket, and how to amend the queue table in `docs/tickets/README.md`.
-[The development process](../../../docs/process.md#naming) points here.
-What an RFC *contains* is `/plan`'s.
+ticket as a record, and how to amend the queue table in
+`docs/tickets/README.md`. What an RFC *contains* is `/plan`'s.
 
 ## Numbering
 
@@ -27,7 +26,6 @@ docs/tickets/done/01-0010.0010-life-informs-dev-harness.md
   takes `0020`.
 - A release closes when its contract's criteria are met, not on a date. A
   later release's ticket may land first.
-- Maintenance is a `Kind`, never a filename prefix.
 - Completed tickets keep their number.
 
 ### One basename per work item
@@ -63,58 +61,89 @@ Artifacts predating this keep their names.
 - **Blocked** — stuck for a reason *other than* an incomplete dependency.
   Waiting on a dependency is `Planned`.
 - One parenthetical qualifier is allowed: `Planned (own align precedes)`,
-  `Done (split)`. `Done` carries its date.
+  `Ready (aligned 2026-09-08)`. `Done`'s parenthetical opens with its date;
+  words may follow after a comma: `Done (2026-09-08, split)`.
 
-## The ticket
+## The record
+
+A ticket is a record of the ticket mechanism, and this section is its
+declared shape — what `tickets.py --check` holds every live ticket to, format
+never content *(the user, 2026-09-08)*.
+
+- **A record** is one ticket file under `docs/tickets/`, live until paired
+  close moves it to `done/`. **Tier 2**: read when the ticket is planned,
+  implemented or verified, or through a citation. **What removes an entry**:
+  paired close, when every acceptance box is checked, the `/verify` box
+  included. Archived records are matched by name for pairing and exempt from
+  everything else; older fields in them are left, and a live record carries
+  none.
+- **The stage** is read from the `Plan` bullet. *Incepted*, before its plan
+  exists, a ticket hosts chunks: routed inputs, ideas, open questions, any
+  section. *Shaped*, once its plan exists, it keeps only what is actual. A
+  resolved decision lands in its durable home with its provenance and
+  rewrites `What to build` in place; `Open issues` holds only what is
+  unresolved; the session record holds the align. A checked box with its date
+  is the whole verification record — no delivery log, no verification
+  narrative.
+
+### The header
+
+The bullet list at the first non-blank line after the title, one form,
+ending at the first line that is neither a bullet nor an indented
+continuation. Known fields in this order, a one-off field anywhere before
+`Outcome`, `Outcome` last:
 
 ```md
 # {Title}
 
 - **Status:** {value} {(qualifier)}
 - **Type:** HITL | AFK
-- **Kind:** Maintenance
 - **Plan:** [{title} RFC](../rfc/{basename}.md) — what it selected
 - **Depends on:** [{title}](./RR-NNNN-slug.md) ({what it supplies})
 - **Blocks:** [{title}](./RR-NNNN-slug.md) — {why}
-- **Outcome:** {the delivered change, one or two sentences}
-
-## Parent
-## {Why this exists}          ← 0..n, titled for the claim each argues
-## What to build
-## Decisions this ticket's align owns
-## Acceptance criteria
-## Out of scope
-## Parent scope addressed
+- **Outcome:** {the delivered change, one sentence}
 ```
 
-Always present: `Status`, `Outcome`, `What to build`, `Acceptance criteria`.
-The rest appear when they have something to say. Header fields keep this
-order; `Outcome` is always last.
+| Field | Presence | Checked | Written |
+|---|---|---|---|
+| `Status` | required | a [status](#status) value with at most one parenthetical; `Done`'s opens with the date | |
+| `Type` | required | `HITL` or `AFK` | `HITL` needs a human decision or review; `AFK` merges unattended. |
+| `Plan` | exactly when an RFC with the ticket's basename exists under `docs/rfc/` or its `done/` | its link resolves to that RFC | plus one clause on what it selected |
+| `Depends on` | optional | every link resolves | blockers, each with a parenthetical naming what it supplies — not a bare link |
+| `Blocks` | optional | every link resolves | only when the blocking relation is itself an argument; carries its `— why` |
+| one-off fields | optional | every link resolves | `Trigger`, `Related`, `Owning decision` and the like, when the ticket carries that fact |
+| `Outcome` | required, last | one sentence | observable behavior, never code shape |
 
-| Field | Rule |
-|---|---|
-| `Status` | A [status](#status) value. |
-| `Type` | `HITL` needs a human decision or review; `AFK` merges unattended. |
-| `Kind` | `Maintenance` when the work delivers no product capability. Absent otherwise. |
-| `Plan` | The RFC link plus one clause on what it selected. Absent until a plan exists. |
-| `Depends on` | Blockers, each with a parenthetical naming what it supplies — not a bare link. |
-| `Blocks` | Only when the blocking relation is itself an argument; carries its `— why`. |
-| `Outcome` | Observable behavior, never code shape. Copied verbatim into the queue table. |
+`Kind` is not a field. Older tickets use `Legacy id:` / `RFC:` / `Parent PRD`
+/ `User stories addressed`; they are archived, leave them.
 
-One-off fields (`Trigger`, `Related`, `Owning decision`) are fine when the
-ticket carries that fact. Older tickets use `Legacy id:` / `RFC:` /
-`Parent PRD` / `User stories addressed`; leave them, don't write them.
+### The sections
 
-| Section | Rule |
-|---|---|
-| `Title` | Names the outcome, not the mechanism. No number, no release. |
-| `Parent` | The PRD or coarse ticket this was carved from; otherwise the durable doc owning the context (architecture section, roadmap phase, concern). Never a session. A subticket says which slice it is and what the parent keeps. |
-| Narrative | Titled for what it argues. Diagram the mechanism; link the evidence. Say what is deliberately *not* a defect. Omit entirely when the framing is uncontested. |
-| `What to build` | End-to-end behavior, not a file-by-file plan. Each constraint carries its reason. |
-| `Decisions this ticket's align owns` | One bullet per open question, each saying why it cannot be answered yet. After the align it becomes `What this ticket does not decide`, resolved entries struck and answered inline. |
-| `Acceptance criteria` | Checkboxes, each observably true when done. |
-| `Out of scope` | What a reader expects and won't find, each with its actual home. |
-| `Parent scope addressed` | The parent's stories or criteria this closes, by number. |
+- `Title` — names the outcome, not the mechanism. No number, no release.
+- `Parent` — the spec or coarse ticket this was carved from; otherwise the
+  durable doc owning the context. Never a session. A subticket says which
+  slice it is and what the parent keeps.
+- One narrative section — titled for the claim it argues. Diagram the
+  mechanism; link the evidence. Say what is deliberately *not* a defect. Omit
+  when the framing is uncontested.
+- `What to build` — **required**. End-to-end behavior, not a file-by-file
+  plan. Each constraint carries its reason. Rewritten in place as decisions
+  land.
+- `Open issues` — the unresolved decisions and HITL forks, one bullet each,
+  saying why it cannot be answered yet. Nothing resolved stays here.
+- `Acceptance criteria` — **required**. Checkboxes, each observably true when
+  done; one names `/verify`. Provisional criteria say so in the heading, after
+  a dash, and are firmed in place at the align.
+- `Out of scope` — what a reader expects and won't find, each with its actual
+  home.
+- `Parent scope addressed` — the parent's stories or criteria this closes, by
+  number. The record of the split the user approved; nothing derives coverage
+  from it yet.
+
+An incepted ticket may hold any section besides the two required. A shaped
+ticket holds the six named above and at most one narrative, nothing else;
+its `Acceptance criteria` holds checkbox lines, their continuations and blank
+lines, nothing else.
 
 ### Acceptance criteria
 
@@ -125,12 +154,16 @@ ticket carries that fact. Older tickets use `Legacy id:` / `RFC:` /
   by a failing guard test, dependents unblocked.
 - A parent split into subtickets states the end-state that holds only when
   all children land.
-- Provisional criteria say so in the heading, and are firmed in place at the
-  align.
 - Check a box only for work that satisfied it; a criterion satisfied early is
   checked with a date.
 - Every ticket includes a `/verify` criterion. A ticket is not Done until
   `/verify` has been run against it. Do not move to `done/` without it.
+
+### Pairing
+
+For every file under `docs/rfc/` or `docs/rfc/done/`, a ticket with the
+same basename exists under `docs/tickets/` or `docs/tickets/done/`, and both
+sit in the same folder state. Only names are read; nothing inside an RFC is.
 
 ### Conventions
 
@@ -138,11 +171,11 @@ ticket carries that fact. Older tickets use `Legacy id:` / `RFC:` /
   target completes.
 - Reference the architecture, ADRs, glossary, concerns and edge records;
   never restate them.
-- Strike superseded text, answer inline in bold, keep the question.
-- Date anything that changed after minting.
+- Date a criterion checked early and a status flip; nothing else accretes.
 - Update the queue in the same pass.
 - Wrap at ~100 columns.
 
+<straw-dog until="01-0011.0040 is done" ticket="docs/tickets/01-0011.0040-queue-derived-index.md">
 ## The queue
 
 The queue is `docs/tickets/README.md`. `/ticket` amends **the table** in the
@@ -168,3 +201,4 @@ do not replace it with another skeleton.
 When minting, add a row where the ticket will actually be worked. When
 status, type, or outcome changes, update the row. When completing, set
 status to `Done (date)` and add `done/` to the link. Do not add columns.
+</straw-dog>

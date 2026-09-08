@@ -1,8 +1,8 @@
 # A shared dev harness improves without losing project conventions
 
-**Status:** In progress
-**Type:** HITL
-**Outcome:** Projects share a canonical development method, contribute improvements to it, and receive accepted changes mechanically while preserving project-specific behavior across Claude Code, Codex and Cursor.
+- **Status:** In progress
+- **Type:** HITL
+- **Outcome:** Projects share a canonical development method, contribute improvements to it, and receive accepted changes mechanically while preserving project-specific behavior across Claude Code, Codex and Cursor.
 
 ## What to build
 
@@ -275,6 +275,9 @@ The ticket text also describes AFK slices as implementable/mergeable without hum
 - [ ] Concurrent shared edits, malformed local markers and unknown installation baselines are detected and surfaced rather than silently overwritten.
 - [ ] Discovery and invocation of representative installed skills are verified separately in the three frameworks; unavailable checks remain explicitly unverified.
 - [ ] Maintenance can identify drift and failed delivery without treating silence as success.
+- [ ] `/verify` has been run on this ticket against its ticket, RFC, and governing docs.
+  *(Added 2026-09-09 under repair-and-report: the shelf requires the box of every ticket, and
+  this one was minted before the rule.)*
 
 ## Out of scope
 

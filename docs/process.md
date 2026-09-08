@@ -13,7 +13,7 @@ The loop itself, its stages, skills and human checkpoints, the autonomy switches
 - Substantial new work, including this harness, uses a spec before implementation decomposition. `/spec` develops the brief through `/align`, records agreed scope, behavior, architectural boundaries and testing decisions, then hands off to `/ticket`. Small, bounded work can start directly as a ticket. The spec is a document, not a separately queued work item.
 - A ticket owns the intended outcome, acceptance criteria and unresolved decisions. The [queue](tickets/README.md) owns ordering and delivery status.
 - `/align` resolves decisions against evidence and records them in the owning ticket. Accepted architecture belongs in `architecture.md`, created when a design is settled.
-- An implementation RFC belongs to a ticket, under `docs/rfc/` with the same basename. It follows agreement on the boundaries it implements; a research finding or an unsettled proposal is not an accepted implementation plan.
+- An implementation RFC belongs to a ticket and is named by it, per [the ticket format](../.agents/skills/ticket/TICKET-FORMAT.md#one-basename-per-work-item). It follows agreement on the boundaries it implements; a research finding or an unsettled proposal is not an accepted implementation plan.
 - Implementation follows the RFC when the work needs one. `/verify` is the
   verification of landed work, not only documentation or shape review. The
   project's check set lives in [Verification](#verification); skills link it,
@@ -55,14 +55,15 @@ This section owns the current policy. Its decision record is in the [shared-harn
 
 The verification set is this project's typechecker, tests, and any other commands required of landed work. `/implement` and `/verify` link here. They do not inline those commands. `/implement` may run named checks during the work; that run is not `/verify`. `/tdd` still owns red-green.
 
-**This project:** no typechecker. The set is the maintenance scripts' behavioral tests and the mechanism check:
+**This project:** no typechecker. The set is the maintenance scripts' behavioral tests, the mechanism check, the installer's check and the ticket maintainer:
 
 ```
 uv run --offline --no-project python -m unittest discover -s tests -p "test_*.py"
 uv run --offline --no-project python .agents/scripts/mechanisms.py --check
 uv run --offline --no-project python .agents/scripts/inject_rules.py --check
+uv run --offline --no-project python .agents/scripts/tickets.py --check
 ```
 
-Discovery reporting success with zero tests is not verification; the run must show a positive count. The mechanism check reports the checks it skipped, and a skip is not a pass; a clean run means nothing was caught, never that the tree obeys. The installer's check fails on a block absent from a target its rules file names, on a block that differs from its source, and on a block nothing owns. Alongside them, `/verify` uses the ticket, RFC (if any), governing docs, and the work.
+Discovery reporting success with zero tests is not verification; the run must show a positive count. A clean run means nothing was caught, never that the tree obeys. The installer's check fails on a block absent from a target its rules file names, on a block that differs from its source, and on a block nothing owns. The ticket maintainer fails on a live ticket whose header, sections or acceptance boxes depart from the shape the ticket format shelf declares, on an RFC whose ticket is missing or sits in the other folder state, and on a record it could not read, which it reports as skipped, and a skip is not a pass; its diagnostic names the file, the line and the rule, and it never judges content. Alongside them, `/verify` uses the ticket, RFC (if any), governing docs, and the work.
 
 
