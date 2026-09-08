@@ -59,7 +59,6 @@ class Declared(RepositoryCase):
                 "- **state** always on\n"
                 "<project-local>\n"
                 "- **evidence** `docs/mechanisms/sample-shape.evidence.md`\n"
-                "- **declared by** `docs/tickets/01-0001-sample.md`\n"
                 "</project-local>\n"
             ),
             "moments": MOMENTS,
@@ -140,54 +139,44 @@ class ANamedPart(Declared):
         self.assertIn("AGENTS.md", problems[0])
 
 
-class TheDeclaringTicket(Declared):
+class ANotYetReferent(Declared):
     def moments_naming(self, ticket: str) -> str:
         return (
             "| moment | instructed by | kind, and why |\n|---|---|---|\n"
             f"| sweeping | — | not yet — nobody sweeps yet, [t](../../../{ticket}) |\n"
         )
 
-    def test_may_not_be_what_a_not_yet_row_names(self) -> None:
-        self.write(DOC, self.doc(moments=self.moments_naming("docs/tickets/01-0001-sample.md")))
-
-        problems = [note.problem for note in self.checked().diagnostics]
-
-        self.assertEqual(1, len(problems))
-        self.assertIn("docs/tickets/01-0001-sample.md", problems[0])
-        self.assertIn("declared by", problems[0])
-
-    def test_must_resolve_or_the_diagnostic_that_reads_it_silently_never_fires(self) -> None:
-        self.write(
-            DOC,
-            self.doc().replace(
-                "docs/tickets/01-0001-sample.md", "docs/tickets/01-0001-misspelled.md"
-            ),
-        )
+    def test_may_not_be_an_archived_ticket_since_closed_work_fills_no_gap(self) -> None:
+        self.write("docs/tickets/done/01-0001-sample.md", "# Sample, closed\n")
+        self.write(DOC, self.doc(moments=self.moments_naming("docs/tickets/done/01-0001-sample.md")))
 
         problems = self.problems()
 
         self.assertEqual(1, len(problems))
-        self.assertIn("docs/tickets/01-0001-misspelled.md", problems[0])
+        self.assertIn("docs/tickets/done/01-0001-sample.md", problems[0])
+        self.assertIn("archived", problems[0])
 
-    def test_when_absent_disables_that_check_and_the_skip_is_reported(self) -> None:
-        self.write(
-            DOC,
-            self.doc(
-                header=(
-                    f"# {SLUG} — one line saying what it is\n\n"
-                    f"- **instruction** `{INSTRUCTION}` — the act\n"
-                    "- **state** always on\n"
-                ),
-                moments=self.moments_naming("docs/tickets/01-0001-sample.md"),
-            ),
-        )
+    def test_follows_the_ticket_when_a_close_moves_it_and_is_then_reported(self) -> None:
+        import move_doc
 
-        checked = self.checked()
+        self.write(DOC, self.doc(moments=self.moments_naming("docs/tickets/01-0002-sweep.md")))
+        self.commit()
+        self.assertEqual([], self.problems())
 
-        self.assertEqual([], checked.diagnostics)
-        self.assertEqual(1, len(checked.skipped))
-        self.assertIn("declared by", checked.skipped[0].why)
-        self.assertIn("skipped", checked.as_record())
+        with contextlib.redirect_stdout(io.StringIO()):
+            status = move_doc.main(
+                ["docs/tickets/01-0002-sweep.md", "docs/tickets/done/01-0002-sweep.md"],
+                self.root,
+            )
+
+        self.assertEqual(0, status)
+        problems = self.problems()
+        self.assertEqual(1, len(problems))
+        self.assertIn("docs/tickets/done/01-0002-sweep.md", problems[0])
+        self.assertIn("archived", problems[0])
+
+    def test_reports_nothing_skipped_since_every_check_can_always_run(self) -> None:
+        self.assertNotIn("skipped", self.checked().as_record())
 
 
 class TheInstruction(Declared):

@@ -92,7 +92,6 @@ the architecture's; the entry file owns the prohibition on editing a block in pl
 - **state** always on
 <project-local>
 - **evidence** `<path>`
-- **declared by** `<ticket path>`
 </project-local>
 
 ## How it works
@@ -127,12 +126,12 @@ answered at all is not.
 - **state** — `always on` or `installed`, and nothing else. `always on` means nothing can install
   or uninstall it, so it has no lifecycle scripts and that absence is a property. It is what tells
   a reader which way to read the parts table.
-- **evidence** and **declared by** sit in the `<project-local>` block, which a
-  recipient replaces, and **both are optional** — a mechanism with no evidence yet, or none
-  declared by a ticket, is a legitimate state. Named, each must resolve; **declared by** especially,
-  because the rule that a `not yet` row may not name this mechanism's own migration ticket compares
-  against it, and an unresolvable one makes that comparison match nothing. An absent **declared
-  by** disables that diagnostic, and the check reports the skip rather than passing quietly.
+- **evidence** sits in the `<project-local>` block, which a recipient replaces, and is
+  **optional** — a mechanism with no evidence yet is a legitimate state. Named, it must resolve.
+  It is a backticked path; evidence never moves. Which ticket declared the mechanism is the
+  evidence's first paragraph, not a header bullet *(the user, 2026-09-09)*: the one check that
+  read such a bullet is replaced by the rule that a `not yet` row may not name an archived
+  ticket, which needs no field.
 
 ## Moments
 
@@ -147,8 +146,9 @@ answered at all is not.
   `unowned by design` — its referent.
 
 A row carries an instruction or an absence, never both and never neither. A `not yet`
-referent is a **markdown link** to a ticket that exists, and never the ticket the
-doc's **declared by** names.
+referent is a **markdown link** to a ticket that exists and is not archived: a gap is a
+promise of future work, and closed work fills no gap. The ticket that declares the
+mechanism is the wrong referent for the same reason, one day later.
 
 ## The two tables
 

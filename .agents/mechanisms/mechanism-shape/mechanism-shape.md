@@ -4,7 +4,6 @@
 - **state** always on
 <project-local>
 - **evidence** `docs/mechanisms/mechanism-shape.evidence.md`
-- **declared by** `docs/tickets/done/01-0011.0010-mechanism-declared.md`
 </project-local>
 
 ## How it works
@@ -32,6 +31,7 @@ absence is honestly classified, are judgements it records and never makes.
 | telling an inceptor what to hand `/maintain` | `.agents/skills/mechanism/SKILL.md` | |
 | amending a declared one, editing a skill that is an instruction file included | `.agents/skills/mechanism/SKILL.md` | |
 | retiring a declared one | `.agents/skills/mechanism/SKILL.md` | |
+| installing a declared mechanism into a tree, and removing it | — | not yet — the parts table says what an install adds and nothing says how; no installer exists, [01-0010](../../../docs/tickets/01-0010-dev-harness-shared-and-local.md) |
 | checking that a declaration is true | `.agents/scripts/mechanisms.py` | |
 | installing a mechanism's rules into skills it does not own | `.agents/scripts/inject_rules.py` | |
 | retracting them | `.agents/scripts/inject_rules.py` | |
@@ -54,14 +54,19 @@ absence is honestly classified, are judgements it records and never makes.
 | the check's tests | `tests/test_mechanisms.py` |
 | the installer | `.agents/scripts/inject_rules.py` |
 | the installer's tests | `tests/test_inject_rules.py` |
+| citation reader | `.agents/scripts/docs_corpus.py` |
+| test harness | `tests/harness.py` |
+
+The last two are shared by every script in the tree and claimed here because this mechanism is
+the one that cannot leave: where a shared part's ownership bites, the claimant is the always-on
+mechanism, so no uninstall can remove what another mechanism needs *(the user, 2026-09-08,
+applying the spec's ownership decision)*.
 
 ## Relies on, and does not own
 
 | part | where | owner |
 |---|---|---|
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
-| citation reader | `.agents/scripts/docs_corpus.py` | the ticket mechanism, from `01-0011.0025`; a declared gap until then, and a live one now that the installer reads bodies, anchors and the corpus through it |
-| test harness | `tests/harness.py` | same |
 
 ## What it produces, and who reads it
 

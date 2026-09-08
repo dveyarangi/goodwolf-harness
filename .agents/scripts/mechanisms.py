@@ -85,7 +85,6 @@ class Declaration:
     state: str | None
     rules: str | None
     evidence: str | None
-    declared_by: str | None
     moments: list[Moment]
     parts: list[Part]
     relied_on: list[Part]
@@ -98,7 +97,6 @@ class Declaration:
             "state": self.state,
             "rules": self.rules,
             "evidence": self.evidence,
-            "declared by": self.declared_by,
             "moments": [moment.as_record() for moment in self.moments],
             "parts": [part.as_record() for part in self.parts],
             "relies on": [part.as_record() for part in self.relied_on],
@@ -117,30 +115,16 @@ class Diagnostic:
 
 
 @dataclass(frozen=True)
-class Skipped:
-    """A check that could not run. Reporting it is what stops a skip from reading as a pass."""
-
-    mechanism: str
-    check: str
-    why: str
-
-    def as_record(self) -> dict:
-        return {"mechanism": self.mechanism, "check": self.check, "why": self.why}
-
-
-@dataclass(frozen=True)
 class Checked:
-    """What one reading of every declaration found, including what it could not look at."""
+    """What one reading of every declaration found. Every check here can always run."""
 
     declarations: list[Declaration]
     diagnostics: list[Diagnostic]
-    skipped: list[Skipped]
 
     def as_record(self) -> dict:
         return {
             "declarations": [declared.as_record() for declared in self.declarations],
             "diagnostics": [note.as_record() for note in self.diagnostics],
-            "skipped": [passed_over.as_record() for passed_over in self.skipped],
         }
 
 
@@ -200,20 +184,7 @@ def check(root: Path) -> Checked:
         declared = _declaration(root, directory, text)
         declarations.append(declared)
         diagnostics += _problems(root, declared, text)
-    return Checked(declarations, diagnostics, _skipped(declarations))
-
-
-def _skipped(declarations: list[Declaration]) -> list[Skipped]:
-    """The checks a legitimately absent field disables, named so a quiet run is not read as clean."""
-    return [
-        Skipped(
-            declared.slug,
-            "a not yet row may not name the ticket that declares this mechanism",
-            "the doc states no declared by",
-        )
-        for declared in declarations
-        if not declared.declared_by
-    ]
+    return Checked(declarations, diagnostics)
 
 
 def _problems(root: Path, declared: Declaration, text: str) -> list[Diagnostic]:
@@ -259,18 +230,15 @@ def _declaration(root: Path, directory: Path, text: str) -> Declaration:
     slug = directory.name
     doc = directory / f"{slug}.md"
     bullets = _bullets(text)
+    citing = doc.relative_to(root).as_posix()
     return Declaration(
         slug=slug,
-        doc=doc.relative_to(root).as_posix(),
+        doc=citing,
         instruction=bullets.get("instruction"),
         state=bullets.get("state"),
         rules=_rules_file(root, directory),
         evidence=bullets.get("evidence"),
-        declared_by=bullets.get("declared by"),
-        moments=[
-            _moment(root, doc.relative_to(root).as_posix(), row)
-            for row in _rows(text, "## Moments")
-        ],
+        moments=[_moment(root, citing, row) for row in _rows(text, "## Moments")],
         parts=[_part(row) for row in _rows(text, "## Install adds, uninstall removes")],
         relied_on=[_part(row) for row in _rows(text, "## Relies on, and does not own")],
     )
@@ -306,17 +274,10 @@ def _state_problems(declared: Declaration) -> list[Diagnostic]:
 
 
 def _project_local_problems(root: Path, declared: Declaration) -> list[Diagnostic]:
-    """The two optional records. Absent is a state; named and unresolvable is a defect.
-
-    `declared by` is read by the rule that a `not yet` row may not name this mechanism's own
-    migration ticket. An unresolvable one makes that comparison match nothing, so the diagnostic
-    stops firing without ever saying it stopped.
-    """
-    return [
-        Diagnostic(declared.slug, f"{named} does not resolve")
-        for named in (declared.evidence, declared.declared_by)
-        if named and not (root / named).is_file()
-    ]
+    """The one optional record, the evidence. Absent is a state; named and unresolvable is a defect."""
+    if declared.evidence and not (root / declared.evidence).is_file():
+        return [Diagnostic(declared.slug, f"{declared.evidence} does not resolve")]
+    return []
 
 
 def _directory_problems(root: Path, declared: Declaration) -> list[Diagnostic]:
@@ -380,12 +341,14 @@ def _moment_problems(root: Path, declared: Declaration) -> list[Diagnostic]:
             notes.append(
                 Diagnostic(declared.slug, f"'{moment.occasion}' names {named}, which does not resolve")
             )
-        elif moment.kind == "not yet" and named == declared.declared_by:
+        elif moment.kind == "not yet" and "/done/" in f"/{named}":
+            # A gap is a promise of future work, and a closed ticket does no future work: the row
+            # looks assigned and is assigned to nothing. This is also where a row that named the
+            # ticket declaring its own mechanism ends up the day after that ticket closes.
             notes.append(
                 Diagnostic(
                     declared.slug,
-                    f"'{moment.occasion}' names {named}, the ticket this doc is declared by; "
-                    "that ticket closes when the mechanism reaches the shape",
+                    f"'{moment.occasion}' names {named}, an archived ticket; closed work fills no gap",
                 )
             )
     return notes

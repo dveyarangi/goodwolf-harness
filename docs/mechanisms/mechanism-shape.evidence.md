@@ -181,6 +181,41 @@ double-quoted shell pattern turned the escapes into a real carriage return, and 
 was read as a caught mutation until the line was looked at. Record it as what it is: a check not
 watched failing is not a check, and a mutation not watched applying is not a mutation.
 
+## Refuted by the third application, 2026-09-08
+
+Two amendments, both found at [.0025](../tickets/01-0011.0025-archive-duty-reaches-maintain.md)'s
+align before the third doc was written, and both landed in the shelf and the check before it was.
+
+**`declared by` is gone** *(the user, 2026-09-09)*. It was a path, and after the first close under
+the declared `/maintain` both docs' bullets dangled until repaired by hand. The align settled on
+making it a link, on the reasoning that a code span is a mention the mover never rewrites, and
+that was built. Then the user asked what the bullet was for. The honest answer: one check, that a
+`not yet` row may not name the ticket that declared the mechanism, which had never fired across
+three mechanisms; and provenance, which the evidence file already carries in its first paragraph.
+A permanent line in every doc, feeding one never-fired guard, that a folder lookup replaces: a
+`not yet` row may not name a ticket under `done/`, because closed work fills no gap. That rule
+catches the original mistake the day after the declaring ticket closes, and every other stale gap
+too, and needs no field. The bullet left the shelf, the three docs and the check; the check's
+skip list left with it, since nothing it does can be disabled by an absent field any more. Two
+tests replace three: an archived referent is reported, and a referent a close moves into `done/`
+is reported after the move.
+
+**The shape had no moment for installing a declared mechanism into a tree.** Both declared docs
+carried *installing this mechanism into a tree, and removing it* as their own `not yet`, one fact
+in two homes and about to be three. The act is `/mechanism`'s — it defines what installing means
+and instructs retiring — and its table listed incept, amend, retire, check, inject and retract,
+never install. The row is added here as `not yet` on the parent, and each mechanism's row stays
+`not yet` on the same ticket because `elsewhere` means instructed and nothing instructs it; they
+flip when an installer exists.
+
+**Ownership of the two shared files was decided the way the spec said, against what the docs
+said.** Both docs' relied-on tables forward-declared the ticket mechanism as the claimant of the
+citation reader and the test harness from `.0025`. The spec's own ownership decision says where a
+shared part's claim bites, the claimant is the always-on mechanism, because it cannot leave; the
+check and the installer import the reader. Listing it as a `/ticket` part would have said that
+uninstalling `/ticket` removes what the shape's own scripts need. Both files are this mechanism's
+parts now, and the two docs name it as owner.
+
 ## What is still true only by assertion
 
 Two mechanisms have been declared. The second passed the check unedited and amended the shape in
