@@ -15,9 +15,10 @@ a `TODO` naming its ticket as one, and `/verify` reads landed work against the p
 a sentence that is itself a straw dog bound to [01-0016](01-0016-responsibility-coherent.md),
 which now owns the question of which mechanism is responsible for the concept. The first guess
 over the whole tree wrapped six and repaired two; the maintain mechanism's evidence records every
-judgment. Every decision of both aligns is on the closed tickets. **Next cycle needs a nod**
-(`next-cycle=ask`). By the ordering rule below the candidate is
-[.0025](01-0011.0025-archive-duty-reaches-maintain.md): it declares the ticket mechanism, hands
+judgment. Every decision of both aligns is on the closed tickets. **The nod was given
+2026-09-08 and [.0025](01-0011.0025-archive-duty-reaches-maintain.md) is aligned**; eleven
+decisions sit on it, `/plan` is next. It was the candidate by the ordering rule below: it declares
+the ticket mechanism, hands
 the tree its first record shape with a maintainer script, and is the first slice to use the
 injector without having built it — the grader `/maintain`'s doc pre-registers. R6 waits on
 [.0050](01-0011.0050-shape-checked.md). Wake still lands on `/align` until the pacer exists. Resume by opening a fresh session here, confirming its first line is the entry
@@ -38,7 +39,7 @@ contract [AGENTS.md](../../AGENTS.md) declares, and taking the current pass abov
 | [A mechanism says what it is made of](done/01-0011.0010-mechanism-declared.md) | Done (2026-09-07) | HITL | `/mechanism` is installed carrying the shape, `/mechanism` itself is declared in its own directory with every part named and every moment carrying an instruction or a kind of absence, and a check says whether the declaration is true. |
 | [A rule has one home and is installed, not copied](done/01-0011.0020-rules-one-home.md) | Done (2026-09-08) | AFK | A mechanism's rules live in one file and a single generic installer writes them as visibly owned blocks into skills the mechanism does not own, removes them leaving each target byte-identical, refuses rather than guesses, and reports a hand-edited block as drift rather than accepting it as a second opinion. |
 | [A second mechanism is declared, and the shape holds or is amended](done/01-0011.0022-shape-survives-second-mechanism.md) | Done (2026-09-07) | HITL | `/maintain` is declared through the shape with its parts, its moments and its record obligation each carrying a state, the declaration passes the check `01-0011.0010` shipped, and what the second application breaks is amended in the shape rather than worked around in the declaration. |
-| [The archive duty reaches the skill that archives](01-0011.0025-archive-duty-reaches-maintain.md) | Planned (the second mechanism precedes) | HITL | `/ticket` is declared through the shape, paired close's rules live in one file and are installed into `/maintain` so it carries the archive duty rather than only the permission form, and `/ticket`'s records declare a shape that a script enforces. |
+| [The archive duty reaches the skill that archives](01-0011.0025-archive-duty-reaches-maintain.md) | Ready (aligned 2026-09-08) | HITL | `/ticket` is declared through the shape, paired close's rules live in one file and are installed into `/maintain` so it carries the archive duty rather than only the permission form, and `/ticket`'s records declare a shape that a script enforces. |
 | [Finished work that is not archived is listed](01-0011.0030-archive-backlog-listed.md) | Planned (the record shape precedes) | AFK | A command lists records whose work is finished and whose folder does not say so, and the standing count is held as a ratchet — silent at or below its mark, loud when it rises. |
 | [The queue is read from the tickets](01-0011.0040-queue-derived-index.md) | Planned (the record shape precedes) | HITL | The queue's status, type and outcome are derived from the ticket headers that own them, so the queue cannot contradict a ticket, and the pacing prose stays hand-written. |
 | [A mechanism's shape is observed, not asserted](01-0011.0050-shape-checked.md) | Planned (three declarations precede) | AFK | A check reports, across every declared mechanism, each moment's instruction or its kind of absence, and every installed skill is either named by a mechanism or sits in an allowlist with its reason. |
