@@ -93,6 +93,36 @@ session — made claims that list never mentioned, and nothing checked them. Tha
 deriving tests from a plan rather than from the contract the plan produced, and it is the reason
 *run it over what already exists* is worth more than the sentence it takes to state.
 
+## Refuted by the second application, 2026-09-07
+
+Found at [.0022](../tickets/01-0011.0022-shape-survives-second-mechanism.md)'s `/align` and
+`/plan`, before its declaration was written. Two of the three amendments landed in the body at
+`/plan` on the user's instruction; the third is that slice's.
+
+**Injected pointers.** The body said both *injected pointers* and *writes its rules into the
+targets*. A pointer is the third tier with a delimiter around it — a link the reading skill can
+miss, which is the reason injection exists at all — so the second sentence holds: a rule's only
+authored home is its rules file, every reader carries the text as an installed block, the owning
+skill included when it reads its own rule in its own work, and no body restates one. The user's
+question that forced it: *those mechanism-shape rules are still duplicated in the mechanism
+skill, no?* They were.
+
+**Sentences about other mechanisms, authored where they sit.** The plan's first draft wrote a
+sentence about `/maintain` into *Incept*: name what `/maintain` must do for you. The user's rule:
+a sentence about another mechanism that shapes how mechanisms are built around it is that
+mechanism's rule, installed here and never authored here — Life's own arrangement, where
+`maintenance` installs its block into `/mechanism`'s amend step. A mechanism's core function is
+not injected anywhere: it reaches a session through the mechanism's own description, strengthened
+at tier 1 where warranted. So the sentence about `/maintain` is `maintain.rules.md`'s, targeting
+this skill's *Incept*, and the general rule is the only thing authored here.
+
+**A maintenance mechanism assumed to have no records.** `.0022` was minted with `/maintain`'s
+record obligation as `none` *by property*. Life's `maintenance` is record-bearing by design — the
+marks — so the obligation is `not yet`, and the clock is
+[.0060](../tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md). Not an amendment
+to the shape, which never said otherwise; recorded here because the shape's first application
+let the assumption pass unexamined.
+
 ## What is still true only by assertion
 
 One mechanism has been declared, by the pass that wrote the shape, against itself. The doc's

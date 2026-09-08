@@ -22,7 +22,8 @@ to work*? Then it is a mechanism and owes a declaration.
 - A system, never a file. One spans skills, scripts, records, and rules injected into
   skills it did not write.
 - **One mechanism, one instruction file — a skill** *(the user, 2026-09-06)*. Rules it
-  needs elsewhere are injected pointers, never second instruction files.
+  needs elsewhere are installed as text from its rules file, never second instruction
+  files, and no body restates one *(the user, 2026-09-07)*.
 - Writing an entry into a record is not mechanism work. It belongs to the skill that
   owns the entry.
 
@@ -81,6 +82,13 @@ form in which they reach anyone. A copy in a target is **installed, never author
   block drifted. A hand-edited block is drift to report, not a second opinion.
 
 A mechanism that injects nothing has no rules file.
+
+**A sentence about another mechanism is that mechanism's** *(the user, 2026-09-07)*. What
+shapes how mechanisms are built around it — what `/maintain` must be handed at inception, for
+one — is a rule in its rules file, installed here, never authored here. Its core function
+reaches a session through its own description, strengthened at tier 1 where warranted; a
+principle that resonates through the whole harness may land in `AGENTS.md` — that mechanism's
+decision, rare, and investigated first.
 
 ## What it produces
 
