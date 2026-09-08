@@ -256,6 +256,28 @@ depends on `.0020` too, for the delimiter the hash strips. No new abstraction: L
 taken whole, and the second concrete shape is this tree's own split of a doc from its instruction
 file, which Life's single-surface hash never had to separate.
 
+## Impact — 2026-09-08, straw dogs
+
+Assessed at [01-0011.0020](../tickets/01-0011.0020-rules-one-home.md)'s `/verify` on the draft of
+[01-0011.0070](../tickets/01-0011.0070-straw-dogs-marked-and-found.md), before minting. Verdict:
+**proceed**, as one decision-bearing HITL ticket, own align preceding.
+
+The problem is demonstrated by the injector's own verify: three live sentences and one doc
+paragraph that were temporary in substance and unwrapped, each bound to a ticket in fact and none
+in form, found by a person rereading the files. The enumerator finds only what is wrapped.
+
+Blast radius when it lands: the entry file at v5; the enumerator and its tests, with `/maintain`'s
+T1 and its doc's moments table; one skill's body and declaration for the review at landing, most
+likely reached as an installed block from `maintain.rules.md` — the injector's first
+amend-at-source use by another slice; the glossary, which took **Straw dog** the same day. Hidden
+edges on the ticket as its align's questions: the review cannot be mechanical, since ticket prose
+names targets in words, so the lint is the mechanical half and the duty the human half; every
+sentence the demonstration caught would have been found by a small word list, which argues against
+anything cleverer; Life's practice is unread; wrapping changes the file, which `.0060`'s clock reads
+as the mechanism's own surface moving; and a wrapper goes around an installed block, never inside
+it. Not narrower: the sentence without the lint leaves detection to luck, the lint without the duty
+leaves marking to luck.
+
 ## User Stories
 
 1. As a maintainer, I want one stated test for what counts as a mechanism, so that I can tell
