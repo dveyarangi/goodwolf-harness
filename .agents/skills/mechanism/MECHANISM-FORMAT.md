@@ -173,7 +173,8 @@ optionally with an anchor:
 
 The phrase after `→` is checked as a verbatim substring of the file named. Use one
 wherever the part is a line inside a shared file, or the line is deletable with the
-check still green. Interim, until injection ships.
+check still green. Injection does not replace it: a meta-rule is never injected, and a
+line in the entry file is exactly what an anchor is for.
 
 ## Parsing
 

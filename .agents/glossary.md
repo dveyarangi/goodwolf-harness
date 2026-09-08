@@ -160,5 +160,3 @@ The instructions every host supplies at session start, versioned, and announced 
 **Autonomy switch**:
 A named setting a project gives a value to, deciding whether an action proceeds or waits for a human; skills defer to it.
 
-**Temporary statement**:
-An instruction that names the condition on which it expires. Followed until the condition is visibly met, then reported as stale rather than obeyed.

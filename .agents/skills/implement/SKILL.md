@@ -22,14 +22,16 @@ The code should read as a story. Make sure the main process appears first in
 the file, where possible, and main boundaries' implementation reads through
 entities, interfaces and submethods used as nouns, adjectives and verbs.
 
-In case of temporary code added as intermediate scaffolding that is going to
-change or go away in a future iteration, mark it so in docstrings.
+Code written to serve until a named ticket replaces it is a straw dog: mark it
+with a comment line beginning `TODO` that names the ticket, per the entry file,
+and say so in the docstring.
 
 Make sure the errors follow error rules.
 
-Make sure to read and follow `/improve-comments` rules. Mark TODOs (shapes
-that are temporary, hotpaths that may need optimization, or other pending
-actions).
+Make sure to read and follow `/improve-comments` rules. Mark other pending
+actions — hotpaths that may need optimization, work with no named successor —
+as `TODO` too; without a ticket they are notes, and the listing script reports
+them as guesses.
 
 During the work, run the checks named in
 [Verification](../../../docs/process.md#verification). `/verify` is the

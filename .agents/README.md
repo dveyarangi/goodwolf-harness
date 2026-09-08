@@ -27,7 +27,8 @@ Which links are actually required is untested. Codex needs none; Cursor document
 
 [`scripts/`](./scripts/) holds what the harness derives and repairs mechanically: `move_doc.py`
 closes a ticket and its RFC together and repairs the citations that pointed at them,
-`temporary_statements.py` reads and retires expiring statements, `mechanisms.py` says whether a
+`straw_dogs.py` lists and retires straw dogs and guesses where an unwrapped one stands,
+`mechanisms.py` says whether a
 mechanism's declaration is true and renders the register from
 [`mechanisms/`](./mechanisms/), `inject_rules.py` installs a mechanism's rules into the skills
 its rules file names and takes them out again, and `docs_corpus.py` is the one view of the

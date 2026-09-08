@@ -17,22 +17,30 @@ clean landings that no longer agrees. Agreement over a landed slice is verificat
 `/verify`, and this mechanism does not repeat it.
 
 It is **installed**. A tree without it still runs its ring, unmaintained; the parts table below is
-what an installer adds and an uninstaller removes, and no installer exists yet — that moment is
-declared, not assumed away. It is reached from the ring in the entry file and from `/verify`
-naming it. Nothing in the entry file is its part: the ring belongs to the loop, and this
-mechanism sits on it.
+what an installer adds and an uninstaller removes. It is reached from the ring in the entry file
+and from `/verify` naming it. Nothing in the entry file is its part: the ring belongs to the loop,
+and this mechanism sits on it.
+
+<straw-dog until="01-0010 is done" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">
+No installer exists yet; that moment is declared below, not assumed away.
+</straw-dog>
 
 Its record is the marks — one row per mechanism per level, moved only by the closing step of a
-maintenance, from which dueness is derived. **It does not have them yet.** Until the clock
-exists, the body carries an interim rule inside a temporary statement: every declared mechanism
-in a pass's scope is due at every pass. That rule is loud in the enumerator and retires with the
-clock's ticket.
+maintenance, from which dueness is derived.
 
-Two rows below read `embedded`: the body carries, inside a temporary statement, a hand copy of
-the ticket mechanism's rules on paired close, bound to the ticket that replaces it with an
-installed block, so the enumerator lists it until then. The mechanism shape's rules on records
-and re-checks reach the body as an installed block. That is the honest state of a duty that was
-written in one skill's files while another skill had to act on it.
+<straw-dog until="01-0011.0060 is done" ticket="docs/tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md">
+**It does not have them yet.** Until the clock exists, the body carries an interim rule inside a
+straw dog: every declared mechanism in a pass's scope is due at every pass. That rule is loud in
+the listing and retires with the clock's ticket.
+</straw-dog>
+
+<straw-dog until="01-0011.0025 is done" ticket="docs/tickets/01-0011.0025-archive-duty-reaches-maintain.md">
+Two rows below read `embedded`: the body carries, inside a straw dog, a hand copy of the ticket
+mechanism's rules on paired close, bound to the ticket that replaces it with an installed block,
+so the listing shows it until then. The mechanism shape's rules on records and re-checks reach
+the body as an installed block. That is the honest state of a duty that was written in one
+skill's files while another skill had to act on it.
+</straw-dog>
 
 The body names no other skill except `/align`. What is not this mechanism's is stated as what it
 does not do — a landed slice is verified, not maintained — never as who does it instead; this
@@ -65,7 +73,8 @@ repair-and-report, recording the cause in the evidence.
 | re-checking derived work when what governs it moved — a doc against the meta-rules, an implementation against its doc, records against their format | `.agents/skills/maintain/SKILL.md` | |
 | holding a landed slice to its governing docs, both ways | — | elsewhere — landing-time agreement is verification, `.agents/skills/verify/SKILL.md` |
 | knowing a re-check is due | — | not yet — nothing gives *since* a meaning until the marks exist, [.0060](../../../docs/tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md) |
-| deciding whether a temporary statement's condition holds, and retiring the block | `.agents/skills/maintain/SKILL.md` | |
+| deciding whether a straw dog's condition holds, and retiring the block | `.agents/skills/maintain/SKILL.md` | |
+| guessing where a straw dog nobody wrapped stands, and judging each guess | `.agents/scripts/straw_dogs.py` | |
 | cleaning prose and records to one home per fact | `.agents/skills/maintain/SKILL.md` | |
 | closing a finished ticket with its RFC | — | embedded — the ticket mechanism's paired close, sitting in this body until its rules file installs it, `.agents/skills/maintain/SKILL.md` |
 | updating the header and queue row at close | — | embedded — the ticket mechanism's record shape, same home, same repair, `.agents/skills/maintain/SKILL.md` |
@@ -85,8 +94,8 @@ repair-and-report, recording the cause in the evidence.
 | instruction file | `.agents/skills/maintain/SKILL.md` |
 | this doc | `.agents/mechanisms/maintain/maintain.md` |
 | its rules file | `.agents/mechanisms/maintain/maintain.rules.md` |
-| the enumerator | `.agents/scripts/temporary_statements.py` |
-| its tests | `tests/test_temporary_statements.py` |
+| the listing script | `.agents/scripts/straw_dogs.py` |
+| its tests | `tests/test_straw_dogs.py` |
 
 ## Relies on, and does not own
 
@@ -111,11 +120,18 @@ repair-and-report, recording the cause in the evidence.
   rule it restored.
 - **Moved records** — read through their repaired citations; the mover reports what it
   rewrote and what it could not.
-- **A retired temporary statement's replacement sentence** — read where the block was.
+- **A retired straw dog's replacement sentence** — read where the block was.
+- **The listing script's guesses** — read by the maintainer at T3 over a declared scope, and by
+  `/verify` over the files a slice touched; never by a check, since a guess is judged and never
+  fails a run.
 - **The rules file** — one rule, M1, targeting `/mechanism`'s *Incept*, read by the installer
   alone and installed there as this mechanism's block.
 
-Nothing else. No record until the marks; no index.
+Nothing else; no index.
+
+<straw-dog until="01-0011.0060 is done" ticket="docs/tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md">
+No record until the marks.
+</straw-dog>
 
 ## Not yet at the shape
 

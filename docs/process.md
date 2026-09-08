@@ -1,14 +1,14 @@
 # Development process
 
-<temporary until="01-0020 is done" ticket="docs/tickets/01-0020-pacer.md">
+<straw-dog until="01-0020 is done" ticket="docs/tickets/01-0020-pacer.md">
 This document is a suggestion of sequence, not a rulebook. The sequence and the scoping of work are the [pacer's](pacer.md) concern, and the pacer owns this document once it exists. Each step's rules belong in the step's own skill and move there as the skill is installed. Where the installed skills or the [entry file](../AGENTS.md) differ from what follows, they are right.
-</temporary>
+</straw-dog>
 
 The user requested on 2026-09-05 that this harness be developed using its own tickets, RFCs and development loop. Their [loop sketch](../dev-skills.png) is the discussion input; its command names and exact transitions remain under alignment.
 
 ## Work and documents
 
-The loop itself, its stages, skills and human checkpoints, the autonomy switches and the `<temporary>` convention are owned by [AGENTS.md](../AGENTS.md), the session entry file every host loads at start. This section holds the detail behind it.
+The loop itself, its stages, skills and human checkpoints, the autonomy switches and the `<straw-dog>` convention are owned by [AGENTS.md](../AGENTS.md), the session entry file every host loads at start. This section holds the detail behind it.
 
 - Substantial new work, including this harness, uses a spec before implementation decomposition. `/spec` develops the brief through `/align`, records agreed scope, behavior, architectural boundaries and testing decisions, then hands off to `/ticket`. Small, bounded work can start directly as a ticket. The spec is a document, not a separately queued work item.
 - A ticket owns the intended outcome, acceptance criteria and unresolved decisions. The [queue](tickets/README.md) owns ordering and delivery status.

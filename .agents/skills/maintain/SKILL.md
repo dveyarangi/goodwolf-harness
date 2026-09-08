@@ -21,10 +21,10 @@ One pass over a declared scope. The scope decides which rules apply.
   sent for.
 - **A4** Read dueness from the clock. Do not infer it.
 
-<temporary until="01-0011.0060 is done" ticket="docs/tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md">
+<straw-dog until="01-0011.0060 is done" ticket="docs/tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md">
 There is no clock. Treat every declared mechanism in the scope as due at every pass: re-read its
 doc against the shape, its instruction file against its doc, its records against their format.
-</temporary>
+</straw-dog>
 
 ## Scope
 
@@ -40,10 +40,10 @@ doc against the shape, its instruction file against its doc, its records against
 ## Judge
 
 - **C1** Decide that a record is finished yourself; scripts move and check form, never decide.
-- **C2** Decide whether a temporary statement's condition holds from observable evidence. The
-  tool never interprets an `until`; report an unresolved condition as unresolved.
-- **C3** Before removing a temporary statement, rehome what outlives it, children before parent.
-  Write what is then true where the block was.
+- **C2** Decide whether a straw dog's condition holds from observable evidence. The tool never
+  interprets an `until`; report an unresolved condition as unresolved.
+- **C3** Before removing a straw dog, rehome what outlives it, children before parent. Write
+  what is then true where the block was.
 
 ## Repair
 
@@ -59,12 +59,14 @@ doc against the shape, its instruction file against its doc, its records against
 - **E2** Let live records carry duplicate context; their indexes may not.
 - **E3** Do not cite a record for architecture in a core document.
 
-## Temporary statements
+## Straw dogs
 
-- **T1** Enumerate with `temporary_statements.py docs AGENTS.md .agents`. Any diagnostic fails
-  the run; zero statements is clean.
+- **T1** List with `straw_dogs.py docs AGENTS.md .agents tests`. Any diagnostic fails the run;
+  zero straw dogs is clean.
 - **T2** Remove one you have judged obsolete with `--remove FILE:LINE --expect <fingerprint>`.
-  A statement holding a nested one is refused: dispose of the children, scan again.
+  A straw dog holding a nested one is refused: dispose of the children, scan again.
+- **T3** Guess with `--guess` over the scope you declared, and judge each candidate: wrap and
+  bind it, or leave the claim it is.
 
 ## Installed from other mechanisms
 
@@ -80,7 +82,7 @@ excluded, and installed blocks excluded.
 **R4** Render an index on request; never commit one beside its records.
 </installed>
 
-<temporary until="01-0011.0025 is done" ticket="docs/tickets/01-0011.0025-archive-duty-reaches-maintain.md">
+<straw-dog until="01-0011.0025 is done" ticket="docs/tickets/01-0011.0025-archive-duty-reaches-maintain.md">
 The ticket mechanism's rules, copied here by hand until its rules file installs them; the IDs
 are the ones that file will carry:
 
@@ -95,7 +97,7 @@ are the ones that file will carry:
   staged content only.
 - **P4** Before archiving a spec, confirm its surviving agreements have homes, its obligations
   have dispositions, and its open issues keep owners.
-</temporary>
+</straw-dog>
 
 ## Finish
 

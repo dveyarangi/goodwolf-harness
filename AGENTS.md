@@ -1,6 +1,6 @@
 # Session entry
 
-Entry contract: v4, 2026-09-08.
+Entry contract: v5, 2026-09-08.
 
 Open your first reply of every session with the line above, verbatim.
 
@@ -37,7 +37,7 @@ live in `docs/` like any other project's — that is the instance half doing its
 What core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,
 or rely on one for its instruction or for any separable part of its own functioning. Naming a path
 convention the harness imposes — `docs/tickets/`, `docs/glossary.md` — is not a reference to a
-file; pointing at a document only this project has is. A `<temporary>` block is exempt: it is bound
+file; pointing at a document only this project has is. A `<straw-dog>` block is exempt: it is bound
 to a ticket and expires.
 
 Where a reference is genuinely unavoidable — a mechanism's evidence sidecar is the case that forces
@@ -51,13 +51,13 @@ Core docs and ADRs are the home for:
 - Structure — service boundaries, data ownership, event/data flows, extension seams
 - Load-bearing — see the definition below
 
-<temporary until="01-0012 is done" ticket="docs/tickets/01-0012-hierarchy-coherent.md">
+<straw-dog until="01-0012 is done" ticket="docs/tickets/01-0012-hierarchy-coherent.md">
 Bad architectural documentation:
 - Forecasts are stored in MongoDB collection forecast_hourly.
 
 Better:
 - Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.
-</temporary>
+</straw-dog>
 
 ## What makes a thing "load-bearing"
 
@@ -100,14 +100,16 @@ The project sets each switch in its local block below; skills defer to those val
 | breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |
 | repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |
 
-## Temporary statements
+## Straw dogs
 
-A statement that expires or temporary placeholders is wrapped in `<temporary until="condition" ticket="path">`, anywhere: in
-a local block, a skill body, a doc. The condition is testable: the ticket is done, or the condition
-is fulfilled.
+Anything you write that serves only until a named ticket replaces it is a straw dog. Wrap it,
+when you write it, in `<straw-dog until="condition" ticket="path">`, anywhere: a local block, a
+skill body, a doc; in code, as a `TODO` naming the ticket. The condition is testable: the ticket
+is done, or the condition is fulfilled. The ticket is the one whose work meets the condition, as a
+path from the repository root. What has no named successor is a claim and is not wrapped.
 
-The ticket is the one whose work meets the condition, as a path from the
-repository root. Follow the block like any other rule until you can see the condition is met; then act on reality, report the stale block, and do not treat the contradiction as a violation.
+Follow a straw dog like any other rule until you can see its condition is met; then act on
+reality, report the stale block, and do not treat the contradiction as a violation.
 
 <project-local>
 commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report

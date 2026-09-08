@@ -88,10 +88,12 @@ records.
 
 ## Not yet at the shape
 
+<straw-dog until="01-0010.0120 is done" ticket="docs/tickets/01-0010.0120-host-delivery-surfaces.md">
 **Nothing runs the check unasked.** It runs when a person types it, or when the project's
 verification set is run, which happens at `/verify`. That is better than remembering and weaker
 than a mechanism that speaks at wake; this tree has no hook to speak from. A run that stays quiet
 because nobody started it is indistinguishable from one that passed.
+</straw-dog>
 
 **Absence is not clearance.** A clean run means nothing was caught. It never means the tree obeys.
 

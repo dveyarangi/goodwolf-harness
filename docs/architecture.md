@@ -80,7 +80,7 @@ install adds no separate recovery mechanism.
 
 ### Straw dogs
 
-[The entry contract](../AGENTS.md#temporary-statements) owns the `<straw-dog>` syntax, ticket binding,
+[The entry contract](../AGENTS.md#straw-dogs) owns the `<straw-dog>` syntax, ticket binding,
 expiry, and the duty to wrap when writing. Listing provides source locations and the written
 condition and owner; the maintainer establishes whether the condition holds from evidence.
 Unknown conditions remain unresolved. Mechanical removal follows that disposition and preserves

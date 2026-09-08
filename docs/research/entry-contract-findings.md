@@ -24,6 +24,16 @@ Decided by the user, recorded in
 [01-0010.0020](../tickets/done/01-0010.0020-live-alignment-across-hosts.md#what-this-ticket-does-not-decide).
 The three blocks then live were bound the same day.
 
+## v5 — 2026-09-08
+
+**One core change, in two parts.** The `<temporary>` convention is renamed to `<straw-dog>`,
+attributes unchanged, after the user named the concept: a thing made to serve until the real one
+arrives and then be discarded. And the section that described the convention now instructs the
+writer — wrap it when you write it, anywhere, and in code as a `TODO` naming the ticket — with one
+line drawn against wrapping everything: what has no named successor is a claim. Decided by the
+user at [01-0011.0070](../tickets/01-0011.0070-straw-dogs-marked-and-found.md)'s align; the
+evidence was four unwrapped expiries the injector's verify found the day before.
+
 ## v4 — 2026-09-08
 
 **One core change:** a general rule that an `<installed>` block in a file is not that file's to

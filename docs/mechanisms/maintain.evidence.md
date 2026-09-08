@@ -87,3 +87,32 @@ was rewritten to the shelf's grammar — its one rule now `M1`, its anchor a tab
 installed into `/mechanism`'s *Incept*; nothing had read it until then. The doc's `embedded`
 row for records checking became instructed, and three such rows became two, both the ticket
 mechanism's.
+
+## The straw dog gets its name, and the listing learns to guess, 2026-09-08
+
+At [.0070](../tickets/01-0011.0070-straw-dogs-marked-and-found.md). The enumerator became
+`straw_dogs.py`, its tag `<straw-dog>`, after the user named the concept; four operative blocks
+were renamed and no record of history touched, since every other mention already sat in a code
+span. A `<temporary>` written from habit is now a diagnostic rather than an invisible statement.
+
+**The first guess over the whole tree** — `docs AGENTS.md .agents tests`, before anything was
+wrapped — returned 67 candidates. Ten were the script and its tests talking *about* the TODO
+convention, which is what made a marking a comment line beginning `TODO` rather than the word
+anywhere; 58 remained. Judged one by one: **six straw dogs**, wrapped and bound — this doc's *no
+installer exists yet* to 01-0010, its *until the clock exists* and *no record until the marks* to
+.0060, its *two rows read embedded* to .0025, the shape doc's *nothing runs the check unasked* to
+01-0010.0120, and the pacer document's *until the pacer is installed* to 01-0020. **Two stale
+expiries**, found by the guess and repaired: the format shelf said anchored parts were *interim,
+until injection ships*, and injection had shipped the day before without retiring the sentence;
+and the glossary still carried a **Temporary statement** entry beside the one that had replaced
+it. **Two bound in words but not wrappable**: table cells in this doc and the shape's, whose
+owner column says *a declared gap until .0025*; a tag cannot sit in a cell, and the ticket is
+named in the cell. The other 48 are claims: process language in the skills — *iterate until the
+user approves* — definitions, history in the evidence and research, and rationale.
+
+**What the guess cannot find** is on the ticket: a claim that became false with no tell in its
+wording. Three of the four sentences the injector's verify caught carry one; *owns none* does
+not. A tell is where a word list stops and a person starts.
+
+**No TODO existed in the tree** when the code side landed, so there was no prior corpus to
+sweep and none is claimed.

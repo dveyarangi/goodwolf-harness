@@ -38,6 +38,13 @@ Look for architectural or responsibility leakage.
 - Anything that can be maintained mechanically must be. If the script is missing, write
   it — a missing script is work to do, not an excuse to leave the repair outstanding.
 
+<straw-dog until="the mechanism responsible for straw dogs is elected" ticket="docs/tickets/01-0016-responsibility-coherent.md">
+- Read the landed work against the pending tickets. What one of them will replace is a straw
+  dog: wrap it and bind it to that ticket, per the entry file, and leave what has no named
+  successor alone. Run `straw_dogs.py --guess` over the files the slice touched and judge its
+  candidates.
+</straw-dog>
+
 Discrepancies:
 
 - If [repair-and-report](../../../docs/process.md#autonomy-and-repair) holds,
