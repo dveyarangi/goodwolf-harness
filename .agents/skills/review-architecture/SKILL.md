@@ -1,19 +1,19 @@
 ---
 name: review-architecture
-description: Explore a codebase to find opportunities for architectural improvement, focusing on making the codebase more testable by deepening shallow modules. Use when user wants to improve architecture, find refactoring opportunities, consolidate tightly-coupled modules, or make a codebase more AI-navigable.
+description: Explore the codebase for module-deepening opportunities — architectural improvements that raise testability and navigability. Use when asked to improve or refactor the architecture.
 ---
 
 # Improve Codebase Architecture
 
-Explore a codebase like an AI would, surface architectural friction, discover opportunities for improving testability, and propose module-deepening refactors as GitHub issue RFCs.
+Explore a codebase like an AI would, surface architectural friction, discover opportunities for improving testability, and propose module-deepening refactors as refactor tickets with their RFCs.
 
-A **deep module** (John Ousterhout, "A Philosophy of Software Design") has a small interface hiding a large implementation. Deep modules are more testable, more AI-navigable, and let you test at the boundary instead of inside.
+A **deep module** — small interface hiding a large implementation (→ [tdd/deep-modules.md](../tdd/deep-modules.md)) — is more testable, more AI-navigable, and lets you test at the boundary instead of inside.
 
 ## Process
 
 ### 1. Explore the codebase
 
-Use the Agent tool with subagent_type=Explore to navigate the codebase naturally. Do NOT follow rigid heuristics — explore organically and note where you experience friction:
+Navigate the codebase naturally, via parallel read-only subagents where available. Do NOT follow rigid heuristics — explore organically and note where you experience friction:
 
 - Where does understanding one concept require bouncing between many small files?
 - Where are modules so shallow that the interface is nearly as complex as the implementation?
@@ -48,7 +48,7 @@ Show this to the user, then immediately proceed to Step 5. The user reads and th
 
 ### 5. Design multiple interfaces
 
-Spawn 3+ sub-agents in parallel using the Agent tool. Each must produce a **radically different** interface for the deepened module.
+Produce 3+ **radically different** interfaces for the deepened module — one per independent sub-agent, run in parallel where available.
 
 Prompt each sub-agent with a separate technical brief (file paths, coupling details, dependency category, what's being hidden). This brief is independent of the user-facing explanation in Step 4. Give each agent a different design constraint:
 
@@ -71,6 +71,6 @@ After comparing, give your own recommendation: which design you think is stronge
 
 ### 6. User picks an interface (or accepts recommendation)
 
-### 7. Write issue file
+### 7. Record the outcome
 
-Write the refactor RFC as a local markdown file in `issues/` using the template in [REFERENCE.md](REFERENCE.md). Do NOT ask the user to review before writing — just write it and share the path.
+Mint the chosen deepening as a refactor ticket per [`/ticket`](../ticket/SKILL.md), then record the chosen interface design as that ticket's RFC per [`/plan`](../plan/SKILL.md) — the ticket holds the behavior altitude, the RFC holds the shape. Do NOT ask the user to review before writing — write and share the paths.
