@@ -217,6 +217,53 @@ Re-ordered from the draft: `0080` first; hierarchy then scope, strictly sequenti
    commands; three of six owed core changes.
    **Basename:** `01-0010.0100-remaining-named-corpus.md`.
 
+## Separation delivery — 2026-09-09
+
+**Status:** Approved by the user and minted as
+[01-0010.0130](./01-0010.0130-harness-installs-into-another-tree.md). One decision-bearing child,
+aligned together with [01-0010.0110](./01-0010.0110-project-facets-injected.md) on the user's
+direction.
+
+### Impact — 2026-09-09
+
+**Main blast radius.** `AGENTS.md`'s *Core and instance*, whose `<straw-dog>` exemption is granted
+because a dog "is bound to a ticket and expires" — true here, false in every recipient, and tier 1
+either way. [MECHANISM-FORMAT](../../.agents/skills/mechanism/MECHANISM-FORMAT.md)'s mandated
+`not yet` markdown link and the `mechanisms.py` that enforces it.
+[TICKET-FORMAT](../../.agents/skills/ticket/TICKET-FORMAT.md) and `tickets.py`, which demand
+`Status`, `Type` and a `/verify` box in-file and so require a recipient to keep delivery state
+twice. Every script's `root = parents[2]` with no CLI override. `docs/architecture.md`'s *Deferred
+decisions*, which parks cross-project distribution with "existing owners". **Must verify:** every
+bare `docs/` reference in a core skill — `/verify` ×3, `/implement` ×1, `/align`, `/edge`, `/spec`,
+`/setup-devops`, `/skill-up`.
+
+**Hidden edges.** `docs/concerns.md` does not exist in this tree, yet `/align` calls it "this
+skill's artifact" and `/edge` points into it — core referencing a missing instance document *at
+home*, not only in a recipient. [01-0010.0120](./01-0010.0120-host-delivery-surfaces.md) is the
+loader seam from the other side and blocks three tickets, so link and surface must be cut apart or
+two tickets decide one thing. The `.0050` dependency is partial: the allowlist gates *what ships*
+and nothing else, so it constrains one question rather than the ticket. The entry contract has no
+installer and no declared home, which puts the retirement of its hand-bumped version inside this
+scope rather than beside it. And this tree cannot grade any of it — it is the configuration that
+hid all 28 defects for twelve sessions.
+
+**Leave alone.** The injector contract in [architecture.md](../architecture.md#installed-blocks),
+the one part that made the trip intact. The tests-ship decision and the suite's location, settled
+2026-09-09. The symlink-or-stop rule, already binding. `docs/`-substituted-whole: ADR-0001 and
+ADR-0002 were stressed by the probe and held — what failed was enforcement, not the rule.
+
+**Recommendation.** Narrow, not split — adopted. One decision-bearing slice at position `0130`,
+with the loader *surface* cut out to `.0120`, `.0050` recorded as a constraint on the manifest
+question rather than as a blocker, and the align forbidden from settling whether "install" is one
+mechanism or three until a second tree supplies the shape.
+
+1. **Title:** The harness installs into a tree that is not its own.
+   **Interaction:** HITL, decision-bearing.
+   **Depends on:** nothing blocking; co-aligned with `01-0010.0110`, constrained by `01-0011.0050`.
+   **Parent scope covered:** cross-project distribution, and the install constraints recorded at
+   [Resolutions and constraints](#resolutions-and-constraints), 2026-09-09.
+   **Basename:** `01-0010.0130-harness-installs-into-another-tree.md`.
+
 ## Adoption shortlist — recommendations awaiting alignment
 
 This is the compact decision surface extracted from the [Life research](../research/life-harness-findings.md). Rows marked agreed link to the current policy; the other recommendations remain undecided. Resolve one question at a time.
