@@ -564,6 +564,63 @@ re-reads it each session. H is the nearest and it is a few years old. Anything I
 combination specifically is extrapolation from neighbouring families, and should be weighted
 accordingly.
 
+## Hermetic core delivery — 2026-09-10
+
+**Status:** Minted as [01-0010.0140](./01-0010.0140-core-stands-alone.md) on the user's direction,
+after `/advise` recommended the check and the probe below showed it is not a simple addition. One
+decision-bearing child.
+
+### Impact — 2026-09-10
+
+Assessed inline from the probe rather than through a `/impact` pass, because the probe *is* the
+blast-radius evidence: it enumerates every affected reference by file, line and class. Recorded
+here so the child can point at it.
+
+**Probe, 2026-09-10.** Over all 41 markdown files under `.agents/`, masking `<project-local>` and
+`<straw-dog>` blocks: **74 references reach the instance half, of which 22 are the defect.** The
+other 52 are inline path conventions — `docs/tickets/`, `docs/rfc/`, `docs/glossary.md`,
+`docs/adr/`, `docs/sessions/`, `docs/spec/` — which *Core and instance* explicitly permits ("naming
+a path convention the harness imposes is not a reference to a file"). The 22 are markdown links
+that resolve to a *particular* document: **13** `not yet` and `unowned` referents in the three
+mechanisms' parts tables, **5** prose links in mechanism grading paragraphs citing tickets and
+evidence, **3** in `/verify` and **1** in `/implement` to `docs/process.md`, and **1** in
+`/discover`'s evidence shelf.
+
+**Main blast radius.** `AGENTS.md`'s *Core and instance* and
+[ADR-0002](../adr/0002-core-may-not-depend-on-the-instance-half.md), which state the prohibition
+this makes observable. [MECHANISM-FORMAT](../../.agents/skills/mechanism/MECHANISM-FORMAT.md),
+which *mandates* the markdown-link form for a `not yet` referent and so mandates 13 of the 22 —
+two core documents in direct contradiction, which is the finding, not a side effect. The project's
+[verification set](../process.md#verification), which the check joins.
+
+**Hidden edges.** The green half and the reporting half are separable and only the reporting half
+is workable today: 13 findings wait on [01-0011.0050](./01-0011.0050-shape-checked.md)'s align,
+which owns the referent's form, and the 5 grading links are candidates for `/maintain`'s R3 rather
+than for this check. A naive rule — *nothing under `.agents/` may name a document under `docs/`* —
+would fail a rule the mechanism format states on purpose: **evidence is instance-side by design**,
+which is why the format puts the `evidence` bullet inside the `<project-local>` block. So the check
+cannot be written before the exemption vocabulary exists, and no ticket owns that vocabulary today.
+Running the scripts themselves in an `.agents`-only tree has the same shape: `mechanisms.py` cannot
+pass there, and its failure would be reporting the intended design.
+
+**Leave alone.** The 52 path conventions. The `<project-local>` and `<straw-dog>` exemptions
+themselves, which are [01-0010.0110](./01-0010.0110-project-facets-injected.md)'s and
+[01-0010.0130](./01-0010.0130-harness-installs-into-another-tree.md)'s. The four
+`docs/process.md` links are repairable today by `/maintain`'s own precedent — it wraps its three in
+a `<project-local>` block — but they are left for this ticket so the check and its repairs land
+together and the check is what proves the repair.
+
+**Recommendation.** Narrow, one ticket, no split. Splitting the exemption decision from its only
+enforcement would leave the decision with nothing that observes it, which is the exact failure the
+ticket exists to end.
+
+1. **Title:** Core stands alone, and a check says so at home.
+   **Interaction:** HITL, decision-bearing — the exemption vocabulary is a decision.
+   **Depends on:** nothing blocking; constrained by `01-0011.0050` on 13 of the 22 findings.
+   **Parent scope covered:** acceptance criterion 7, maintenance identifying drift without
+   treating silence as success.
+   **Basename:** `01-0010.0140-core-stands-alone.md`.
+
 ## Adoption shortlist — recommendations awaiting alignment
 
 This is the compact decision surface extracted from the [Life research](../research/life-harness-findings.md). Rows marked agreed link to the current policy; the other recommendations remain undecided. Resolve one question at a time.
