@@ -13,6 +13,18 @@ file, a doc saying why that instruction is what it is, and evidence saying why t
 mechanism is that rule, and it is declared by its own shape — the first application, and the one
 that would be worthless if the shape could not carry it.
 
+The three homes cut on **when the thing is read** — session start, the work a rule governs, or
+changing the mechanism itself. There is no fourth home because there is no fourth occasion, and any
+other cut — by subject, by author, by importance — puts a rule where its reader is not.
+
+**One instruction file**, so that naming a mechanism and naming its skill are one act. A second
+would make every reference ambiguous at the moment it is needed most, and it is what lets a moment
+instructed `elsewhere` resolve against a file rather than against a declaration that may not exist
+yet.
+
+**Mechanical by construction**, because a mechanism whose parts a script cannot enumerate cannot be
+checked, and an unchecked declaration is exactly the label this shape exists to prevent.
+
 It is **always on**. Nothing can install or uninstall the thing that defines what installing
 means, so it has no lifecycle scripts, and the parts table below is what a person moving this
 between trees takes rather than what an installer adds.
@@ -51,11 +63,11 @@ absence is honestly classified, are judgements it records and never makes.
 | this doc | `.agents/mechanisms/mechanism-shape/mechanism-shape.md` |
 | its rules file | `.agents/mechanisms/mechanism-shape/mechanism-shape.rules.md` |
 | the check | `.agents/scripts/mechanisms.py` |
-| the check's tests | `tests/test_mechanisms.py` |
+| the check's tests | `.agents/scripts/test/test_mechanisms.py` |
 | the installer | `.agents/scripts/inject_rules.py` |
-| the installer's tests | `tests/test_inject_rules.py` |
+| the installer's tests | `.agents/scripts/test/test_inject_rules.py` |
 | citation reader | `.agents/scripts/docs_corpus.py` |
-| test harness | `tests/harness.py` |
+| test harness | `.agents/scripts/test/harness.py` |
 
 The last two are shared by every script in the tree and claimed here because this mechanism is
 the one that cannot leave: where a shared part's ownership bites, the claimant is the always-on

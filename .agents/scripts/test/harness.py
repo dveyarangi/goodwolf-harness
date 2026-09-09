@@ -7,14 +7,46 @@ one. Nothing here may be imported by runtime code.
 
 from __future__ import annotations
 
+import atexit
+import shutil
 import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(REPO_ROOT / ".agents" / "scripts"))
+SCRIPTS = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(SCRIPTS))
+
+_TEMPLATE: Path | None = None
+
+
+def _template() -> Path:
+    """The `.git` every case is stamped from, built once per process.
+
+    `git init` and its two identity settings are three process spawns — some 320ms on Windows —
+    and every case paid them, which was most of the suite's wall clock. Copying this directory
+    gives the same repository for a twenty-fifth of that. Git builds it, with an empty init
+    template so no sample hook joins the copy, so a case still receives a real repository rather
+    than a hand-rolled imitation of one.
+    """
+    global _TEMPLATE
+    if _TEMPLATE is None:
+        workspace = tempfile.TemporaryDirectory()
+        atexit.register(workspace.cleanup)
+        no_hooks = Path(workspace.name) / "no-hooks"
+        no_hooks.mkdir()
+        seed = Path(workspace.name) / "seed"
+        subprocess.run(
+            ["git", "init", "--initial-branch", "main", "--template", str(no_hooks), str(seed)],
+            capture_output=True,
+            encoding="utf-8",
+            check=True,
+        )
+        with (seed / ".git" / "config").open("a", encoding="utf-8") as handle:
+            handle.write("[user]\n\temail = harness@example.invalid\n\tname = Harness\n")
+        _TEMPLATE = seed / ".git"
+    return _TEMPLATE
 
 
 class RepositoryCase(unittest.TestCase):
@@ -24,9 +56,7 @@ class RepositoryCase(unittest.TestCase):
         self._workspace = tempfile.TemporaryDirectory()
         self.addCleanup(self._workspace.cleanup)
         self.root = Path(self._workspace.name).resolve()
-        self.git("init", "--initial-branch", "main")
-        self.git("config", "user.email", "harness@example.invalid")
-        self.git("config", "user.name", "Harness")
+        shutil.copytree(_template(), self.root / ".git")
 
     def git(self, *arguments: str) -> str:
         done = subprocess.run(

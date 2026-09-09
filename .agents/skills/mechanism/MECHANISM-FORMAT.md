@@ -17,7 +17,8 @@ declares the rules file** — it is found by that name, so a second statement of
 disagree with the directory.
 
 **The directory holds these two files and nothing else.** Working parts live where the harness
-needs them: skills in `.agents/skills/`, scripts in `.agents/scripts/`, tests in `tests/`. A file
+needs them: skills in `.agents/skills/`, scripts in `.agents/scripts/`, tests in
+`.agents/scripts/test/`. A file
 put here was put here to be read, and nothing reads it, so the check reports it.
 
 The rules file is machine input, read by the installer alone and never at session time. Its

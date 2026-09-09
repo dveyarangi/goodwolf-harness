@@ -94,21 +94,21 @@ repair-and-report, recording the cause in the evidence.
 | this doc | `.agents/mechanisms/maintain/maintain.md` |
 | its rules file | `.agents/mechanisms/maintain/maintain.rules.md` |
 | the listing script | `.agents/scripts/straw_dogs.py` |
-| its tests | `tests/test_straw_dogs.py` |
+| its tests | `.agents/scripts/test/test_straw_dogs.py` |
 
 ## Relies on, and does not own
 
 | part | where | owner |
 |---|---|---|
 | the mover | `.agents/scripts/move_doc.py` | `ticket` |
-| the mover's tests | `tests/test_paired_close.py` | `ticket` |
-| the mover's tests | `tests/test_refusals.py` | `ticket` |
-| the mover's tests | `tests/test_citations.py` | `ticket` |
-| the mover's tests | `tests/test_command_line.py` | `ticket` |
-| the mover's tests | `tests/test_failure_contract.py` | `ticket` |
+| the mover's tests | `.agents/scripts/test/test_paired_close.py` | `ticket` |
+| the mover's tests | `.agents/scripts/test/test_refusals.py` | `ticket` |
+| the mover's tests | `.agents/scripts/test/test_citations.py` | `ticket` |
+| the mover's tests | `.agents/scripts/test/test_command_line.py` | `ticket` |
+| the mover's tests | `.agents/scripts/test/test_failure_contract.py` | `ticket` |
 | the ticket maintainer | `.agents/scripts/tickets.py` | `ticket` |
 | citation reader | `.agents/scripts/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |
-| test harness | `tests/harness.py` | `mechanism-shape` |
+| test harness | `.agents/scripts/test/harness.py` | `mechanism-shape` |
 | the shape check | `.agents/scripts/mechanisms.py` | `mechanism-shape` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 

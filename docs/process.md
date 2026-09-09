@@ -58,7 +58,7 @@ The verification set is this project's typechecker, tests, and any other command
 **This project:** no typechecker. The set is the maintenance scripts' behavioral tests, the mechanism check, the installer's check and the ticket maintainer:
 
 ```
-uv run --offline --no-project python -m unittest discover -s tests -p "test_*.py"
+uv run --offline --no-project python -m unittest discover -s .agents/scripts/test -p "test_*.py"
 uv run --offline --no-project python .agents/scripts/mechanisms.py --check
 uv run --offline --no-project python .agents/scripts/inject_rules.py --check
 uv run --offline --no-project python .agents/scripts/tickets.py --check

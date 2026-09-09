@@ -34,4 +34,6 @@ mechanism's declaration is true and renders the register from
 its rules file names and takes them out again, `tickets.py` holds every live ticket to the shape
 the ticket format shelf declares, and `docs_corpus.py` is the one view of the
 tree they share. They
-run on the standard library alone, and their behavioral tests are in [`tests/`](../tests/).
+run on the standard library alone, and their behavioral tests are in
+[`scripts/test/`](./scripts/test/) — inside `.agents/` because they are core: a recipient's first
+run of them is how it learns the scripts arrived intact.

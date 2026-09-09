@@ -86,20 +86,20 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | this doc | `.agents/mechanisms/ticket/ticket.md` |
 | its rules file | `.agents/mechanisms/ticket/ticket.rules.md` |
 | the mover | `.agents/scripts/move_doc.py` |
-| the mover's tests | `tests/test_paired_close.py` |
-| the mover's tests | `tests/test_refusals.py` |
-| the mover's tests | `tests/test_citations.py` |
-| the mover's tests | `tests/test_command_line.py` |
-| the mover's tests | `tests/test_failure_contract.py` |
+| the mover's tests | `.agents/scripts/test/test_paired_close.py` |
+| the mover's tests | `.agents/scripts/test/test_refusals.py` |
+| the mover's tests | `.agents/scripts/test/test_citations.py` |
+| the mover's tests | `.agents/scripts/test/test_command_line.py` |
+| the mover's tests | `.agents/scripts/test/test_failure_contract.py` |
 | the maintainer | `.agents/scripts/tickets.py` |
-| the maintainer's tests | `tests/test_tickets.py` |
+| the maintainer's tests | `.agents/scripts/test/test_tickets.py` |
 
 ## Relies on, and does not own
 
 | part | where | owner |
 |---|---|---|
 | citation reader | `.agents/scripts/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |
-| test harness | `tests/harness.py` | `mechanism-shape` |
+| test harness | `.agents/scripts/test/harness.py` | `mechanism-shape` |
 | the installer | `.agents/scripts/inject_rules.py` | `mechanism-shape` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 
