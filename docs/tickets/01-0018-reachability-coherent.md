@@ -37,6 +37,21 @@ agent was standing.
 
 That is the whole subject: a rule can be well written, well owned, and never reach the occasion.
 
+**2026-09-09, a second instance, and this one was manufactured while tidying.** Two edits in one
+session removed the queue's path from tier 1: `/recall`'s pointer block went, because the layout it
+named is shared rather than local, and the entry file's opening block lost the same pointer for the
+same reason. Both edits were right by the rule they applied. The queue is still declared in core —
+in [`TICKET-FORMAT`](../../.agents/skills/ticket/TICKET-FORMAT.md)'s queue section, which is itself
+inside a straw dog bound to [01-0011.0040](./01-0011.0040-queue-derived-index.md) — but a waking
+session now meets it nowhere, and wake still lands on `/align` by the pacer's straw dog rather than
+on the `/recall` installed the same day.
+
+What makes it this ticket's rather than a repair: **correctness at the statement level subtracted
+reachability, and nothing noticed.** Each edit removed a restatement, which is `/maintain`'s E1
+working exactly as written; the sum removed the only tier-1 copy. A rule for *what belongs at Tier 1
+versus Tier 2* — already this ticket's third build item — has to answer whether a shared fact may be
+restated at tier 1 precisely because it is needed there, which E1 currently reads as a duplicate.
+
 ## What to build
 
 - An account of reachability: what it means for a rule or skill to reach an occasion, and what

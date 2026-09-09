@@ -24,6 +24,104 @@ Decided by the user, recorded in
 [01-0010.0020](../tickets/done/01-0010.0020-live-alignment-across-hosts.md#what-this-ticket-does-not-decide).
 The three blocks then live were bound the same day.
 
+## v8 — 2026-09-09
+
+**Three core changes, from an `/align` the user opened on a contradiction I had reported in v7's
+own pass.** v7 was never announced by a session; both versions land in one uncommitted change, and
+they are kept apart because v8's decisions were taken after v7's were written and would otherwise
+be back-dated into them.
+
+**The load-bearing section names real homes.** `Core docs and ADRs are the home for` became
+`A project's architecture, ADRs and glossary`. The word was the defect: [the
+glossary](../../.agents/glossary.md) reserves **Core** for the accepted shared method at its
+canonical source — `.agents/` — so the section, read against this project's own vocabulary,
+instructed the reader to put architecture into core. It worked: during the align I recommended a
+new `.agents/architecture.md` and argued for it twice before the user refuted it, on the ground
+that core is what is useful at runtime while architecture is for construction, and a recipient
+needs the harness's output rather than the record of its building. That layering is now
+[ADR-0001](../adr/0001-agents-is-runtime-docs-is-construction.md), written because two exchanges
+were spent on a decision nothing recorded.
+
+A sentence follows the list: **a decision forms in its owning ticket and lands in one of these when
+it is ready; a decision about a mechanism lands in that mechanism's doc, and what was refuted in its
+evidence.** The user's rule — *tickets can carry decisions until they are ready, then the
+architecture should move to stable docs*. **P7** already fires at `/align` and says *land a resolved
+decision in its durable home*; it never named the homes, and the measured cost of that gap was
+`mechanism-shape`'s doc asserting rules whose why had stayed in the instruction file. Repaired in
+the same session's `/maintain`.
+
+**`<project-local>` gains a multiplicity rule**, nine words: *one block per local fact, beside the
+rule it answers.* Written because I collapsed blocks into one per document three times in one
+session and produced a justification each time only after the merge — the tag is a marker on a
+statement, not a region of a file. It was first recorded as a note about my own habit and moved
+here on the user's correction: a rule every agent in this tree needs, and one that must travel, is
+not a private memory.
+
+**The opening block sheds four shared statements** — the queue's path, *decisions live in the owning
+ticket* (now stated properly in core above), and `docs/process.md`. Each is harness layout, which
+*Core and instance* already says is not a reference and needs no block. Three stay: self-hosting;
+the contract-change record; and **the glossary split, which is local** — no estate has
+`.agents/glossary.md`, so the two-glossary arrangement is this project's answer to a collision only
+this project has, its domain being the method.
+
+**ADRs were not removed, and the reason is worth keeping.** The align opened with my recommendation
+to delete `docs/adr/` and its four references as an unexercised convention, on the evidence that
+this project had written none in twelve sessions. The user refused: the harness redeploys into
+estates that already run on them. Meteoscape holds 7 ADRs, Forecast Collector 5, and
+`docs/concerns.md` — which I had called a painted door with five transactors — exists in all four
+audited estates, 1264 lines of it in Meteoscape. Both of my errors that day were the same error in
+opposite directions: this project's emptiness assumed to generalise, and this project's structure
+assumed to generalise. Neither took ten seconds to check. What survives is narrower and is
+[01-0017](../tickets/01-0017-io-graph-coherent.md)'s: nothing distinguishes a convention an instance
+has not populated from a reference that is simply broken.
+
+**A cost, recorded rather than repaired.** Removing the queue's path here and `/recall`'s pointer
+block in the same session left a waking session meeting the queue nowhere at tier 1. Each removal
+was correct by `/maintain`'s E1; the sum was not. On
+[01-0018](../tickets/01-0018-reachability-coherent.md) as its second observed instance, and the
+first anyone manufactured while tidying.
+
+## v7 — 2026-09-09
+
+**Four core changes, all from the user reading the file straight through.**
+
+The title became `Entry contract`. It had been `Session entry`, which names the occasion rather
+than the thing; the announce line on line 3, the glossary term, this record, and every downstream
+mention already said *entry contract*, so the title was the only holdout. The announce instruction
+now names that line — `the Entry contract: line above` — instead of pointing at "the line above",
+which was a positional reference in the one rule whose whole job is being unambiguous evidence.
+
+`<project-local>` got its own section. It had none: the marker was used twice in the file and
+explained only in passing inside **Core and instance**. Two rules, one of them reaching tier 1
+for the first time — a block is carried *only* for a fact that would differ in another project,
+which had lived since 2026-09-06 in
+[01-0010](../tickets/01-0010-dev-harness-shared-and-local.md#resolutions-and-constraints)'s
+resolutions and nowhere a session would meet it. It was applied by hand to `/recall` in this same
+pass, from the ticket, which is what showed it had no reachable home. The section was drafted at 90
+words and cut to 40 on the user's *write for a capable model*: the glossary's definition, the
+forcing example, the sentence saying what the rule implies, and finally the pointer to `/skill-up`
+all came out. `/skill-up` already carries that as a rule — *a skill is instruction, not story* —
+so the padding was a violation rather than a style choice.
+
+**Core and instance** lost its self-hosting paragraph as prose and kept it as a block. My first
+attempt merged it into the file's opening `<project-local>` block, on the reasoning that *develops
+the harness using its own loop* already said it. The user asked what had forced that, and nothing
+had: the two are different facts. One is how work is done here; the other is a reading instruction
+for the core/instance rule, and its reader is someone inside that section. It went back there as
+its own block. The reference rule left as a paragraph and came back as a clause in the exemption
+sentence: 45 words became 26, and the forcing case it named went to the new section.
+
+The word *sidecar* left the entry file. The glossary reserves against it for **Evidence** —
+*sidecar describes a file's position, never its contents* — and the removed paragraph used it
+twice, so the one file every session reads was teaching the noun the glossary forbids.
+
+**Reported in the same pass and not changed, because each needs a decision:** `Core docs and ADRs
+are the home for` names a home this project has never created while the file's own block routes
+decisions to tickets; and this record's statement of what a version covers — the announce line,
+general rules, loop, switch roster, straw-dog convention — does not name **Core and instance**,
+either load-bearing section, or **Helpers**, so four sections of the contract sit outside the
+scope the version claims to cover.
+
 ## v6 — 2026-09-09
 
 **One core change:** a straw dog is wrapped at its authored home, never where the harness installs

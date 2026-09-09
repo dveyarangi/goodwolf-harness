@@ -1,13 +1,11 @@
-# Session entry
+# Entry contract
 
-Entry contract: v6, 2026-09-09.
+Entry contract: v8, 2026-09-09.
 
-Open your first reply of every session with the line above, verbatim.
+Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
 <project-local>
-This repository develops the shared dev harness using its own loop. The queue,
-docs/tickets/README.md, owns current state and says where to resume. Decisions live in the owning
-ticket under docs/tickets/. Detailed rules: docs/process.md. Terms: docs/glossary.md, this
+This repository develops the shared dev harness using its own loop. Terms: docs/glossary.md, this
 project's own; the method's are .agents/glossary.md's.
 What each version of this contract changed: docs/research/entry-contract-findings.md.
 </project-local>
@@ -31,25 +29,28 @@ nothing about being load-bearing — an implementation method is a shape too. �
 ## Core and instance
 
 `docs/` is substituted whole in a harness instance: a recipient project replaces its contents with
-its own. This repository develops the harness using itself, so its own architecture and progress
-live in `docs/` like any other project's — that is the instance half doing its job, not a leak.
+its own.
+
+<project-local>
+This repository's own architecture and progress live in docs/ like any other project's — the
+instance half doing its job, not a leak.
+</project-local>
 
 What core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,
 or rely on one for its instruction or for any separable part of its own functioning. Naming a path
 convention the harness imposes — `docs/tickets/`, `docs/glossary.md` — is not a reference to a
-file; pointing at a document only this project has is. A `<straw-dog>` block is exempt: it is bound
-to a ticket and expires.
-
-Where a reference is genuinely unavoidable — a mechanism's evidence sidecar is the case that forces
-it, since a sidecar cites this project's own records — it goes inside a `<project-local>` block.
-That block is the part a recipient replaces, so the reference does not travel.
+file; pointing at a document only this project has is. Two blocks are exempt: a `<straw-dog>`,
+bound to a ticket and expiring, and a [`<project-local>`](#project-local).
 
 ## Document load-bearing, code&comment the rest
 
-Core docs and ADRs are the home for:
+A project's architecture, ADRs and glossary are the home for:
 - Constitution — identity semantics, consistency model, source-of-truth rules
 - Structure — service boundaries, data ownership, event/data flows, extension seams
 - Load-bearing — see the definition below
+
+A decision forms in its owning ticket and lands in one of these when it is ready. A decision about a
+mechanism lands in that mechanism's doc, and what was refuted in its evidence.
 
 <straw-dog until="01-0012 is done" ticket="docs/tickets/01-0012-hierarchy-coherent.md">
 Bad architectural documentation:
@@ -99,6 +100,15 @@ The project sets each switch in its local block below; skills defer to those val
 | next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |
 | breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |
 | repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |
+
+## Project-local
+
+A recipient replaces every `<project-local>` block with its own → [glossary](.agents/glossary.md).
+
+- Carry one only for a fact that would differ in another project. Harness layout and the switch
+  lookup are shared.
+- One block per local fact, beside the rule it answers.
+- An unavoidable core reference into `docs/` goes in one, so it does not travel.
 
 ## Straw dogs
 
