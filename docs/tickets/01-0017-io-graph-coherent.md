@@ -76,10 +76,22 @@ ignored.
 
 **A declared producer that has never produced.** [`/align`](../../.agents/skills/align/SKILL.md)
 says open questions and risks live in `docs/concerns.md`, *this skill's artifact*. That file does
-not exist and never has. `/plan` reads it, `/ticket` writes concern promotions into it, `/maintain`
-sweeps it as the concern index. Four skills transact against an absent document, one of them
-claiming to own it, across every `/align` this project has run. `docs/adr/` is the same story from
-`/plan` and `ARCH-FORMAT.md`.
+not exist **here** and never has. `/plan` reads it, `/ticket` writes concern promotions into it,
+`/maintain` sweeps it as the concern index, and since 2026-09-09 `/edge` points into it. Five skills
+transact against a document this tree does not have.
+
+**Corrected 2026-09-09, against the estates rather than against this tree.** The earlier reading —
+*a declared producer that has never produced* — was drawn from this repository alone, and the second
+shape refutes half of it. `docs/concerns.md` exists in all four estates the audit drew from:
+1264 lines in Meteoscape, 427 in DriftSense, 152 in Life, 127 in Forecast Collector. `docs/adr/`
+holds 7 and 5 in the two that use it; `docs/edge/` holds 3 in each of two. **These are conventions
+every recipient populates, and core is right to name them.** What is true is narrower and more
+useful: *this* project populates none of them, because it builds method rather than software, and
+**nothing distinguishes a convention an instance has not populated from a reference that is simply
+broken.** A reader here finds four absent documents and cannot tell which kind they are; so did I,
+twice, on 2026-09-09 — once in `/advise` and once by writing the wrong finding into this paragraph.
+That distinction is what this ticket's disposition must produce, and it is the rule a link check
+needs before it can be written at all.
 
 The two are materially different — a missing producer versus an absent artifact with a named owner
 — and force the same concept, which is what [the entry file](../../AGENTS.md) requires before
@@ -93,9 +105,11 @@ The other direction is unwatched too: `docs/pacer.md` and two of the three
 - Every remaining mechanism in this tree declared to the shape
   [paired close](./done/01-0011.0010-mechanism-declared.md) proved: its parts named with their owners,
   its three property states stated, each absence carrying its kind and, where it is a gap, a ticket.
-- Every installed skill named by a mechanism or placed in the allowlist with its reason. Eleven are
-  installed; the allowlist rows are as much the deliverable as the declarations, because a skill
-  nothing knows about is where an injected rule goes to hide.
+- Every installed skill named by a mechanism or placed in the allowlist with its reason. ~~Eleven
+  are installed~~ — **twenty-two, as of 2026-09-09**, when `/recall`, `/edge`,
+  `/review-architecture` and `/setup-devops` completed the selection; three are named by a
+  mechanism, so nineteen rows are owed. The allowlist rows are as much the deliverable as the
+  declarations, because a skill nothing knows about is where an injected rule goes to hide.
 - Documents brought into the mechanisms that own them. A document no mechanism writes or reads is a
   finding, not a fact to record — `docs/pacer.md` and two of the three `docs/research/*-findings.md`
   are named by no skill file today.
@@ -146,8 +160,12 @@ held anywhere.
   that groups subjects while missing the action that spans them.
 - Whether tickets, RFCs and session records are parts of a mechanism or only records it accumulates.
   They have writers and readers, but their lifecycle is archival.
-- Whether `docs/concerns.md` and `docs/adr/` are created or their references removed. Four skills
-  assume the first; nothing in this project has ever needed it.
+- ~~Whether `docs/concerns.md` and `docs/adr/` are created or their references removed.~~
+  **Narrowed 2026-09-09:** removal is off the table — the estates this harness redeploys into
+  already run on both, and Meteoscape's `concerns.md` is 1264 lines. What is open is how an
+  instance declares which harness-imposed conventions it populates, so an unpopulated one reads as
+  a stated absence rather than as a dangling reference. Until that exists, every reader of this
+  tree has to rediscover it.
 
 ## Acceptance criteria
 
@@ -156,8 +174,9 @@ held anywhere.
   silent.
 - [ ] Every durable document is named by the mechanism that writes it and by the ones that read it,
   or is listed with its reason.
-- [ ] `docs/concerns.md` and `docs/adr/` each have a disposition, and no skill references an
-  artifact without one.
+- [ ] `docs/concerns.md`, `docs/adr/` and `docs/edge/` each have a disposition **as conventions this
+  instance does or does not populate**, stated where a reader meets the absence, and no skill
+  references an artifact without one.
 - [ ] The shape check runs over the whole tree and its output is clean or every finding has an
   owner.
 - [ ] `/verify` has been run on this ticket against its ticket, RFC, and governing docs.
