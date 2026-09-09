@@ -264,6 +264,306 @@ mechanism or three until a second tree supplies the shape.
    [Resolutions and constraints](#resolutions-and-constraints), 2026-09-09.
    **Basename:** `01-0010.0130-harness-installs-into-another-tree.md`.
 
+## Discover — the premise, 2026-09-10
+
+Run on the user's direction over the whole repository premise, not over one slice. Filed as it came
+back, per [`/discover`](../../.agents/skills/discover/SKILL.md): material, never a verdict, and
+never the reason to change something. What it names is a candidate for this case, not a finding
+about it.
+
+**Isolation was imperfect and the material must be read knowing it.** The pass was tasked not to
+read this repository and read no file, but it opened its reply with this project's entry-contract
+line — so the project instructions reached it automatically, as they reach any subagent here.
+`/discover`'s method assumes a separate process is an uncontaminated one; in this harness it is not.
+The pass also caught the smuggling from the other side, unprompted, at *"the epistemic sorting rule
+was supplied with the question"*.
+
+**What was transmitted**, stated as the skill requires: the shape was described functionally in
+eight properties with no house vocabulary — no file names, no rule ids, no local record names. The
+framing that could not be withheld: that the port's defect batch was *"nearly all of one kind"*, and
+that nothing had detected it because references resolve at origin. The pass names both as smuggled,
+below.
+
+### Families
+
+#### A. Software product lines: core asset base and product derivation
+
+**Mapping.** Canonical location = core asset base. Recipient codebases = products. Locally-adapted
+blocks = variation points bound at instantiation. Copying out = product derivation (here manual).
+Origin story (distilled from a few projects) = *extractive/reactive* adoption — harvesting a
+platform out of existing products rather than designing one up front. Defect batch = variation
+points that were never made explicit, silently binding to the origin's values.
+
+**Ladder.** (0) independent projects → (1) clone-and-own → (2) extracted platform with informal
+conventions → (3) explicit variability model plus derivation tooling → (4) automated derivation with
+round-trip. **Placement: 2, one derivation attempted.** Confidence: high that this ladder is the
+family's own; high on placement given the description.
+
+**Known failures** [general / living tradition]:
+- Extractive adoption stalls at the *second* product, because the variability the second product
+  reveals is structural, not parametric — it can't be absorbed by parameters or flags. Confidence:
+  high.
+- The asset base drifts toward the union of everything any product needed (the "150 % problem"):
+  every recipient carries what no recipient wants. Confidence: high.
+- Clone-and-own is genuinely cheaper than a platform at n=2 and becomes lethal somewhere around
+  n=4–6; the crossover is real, the number is folklore. Confidence: high on the shape, low on the
+  number.
+
+**What this family predicts about the recent port.** The batch is the mechanism working, not
+failing. The error would be to fix the 35 items; the move is to read a variability model out of them
+— each defect names a thing that must become a declared, bindable point.
+
+#### B. Vendoring and fork management: upstream, downstream, patch queue
+
+**Mapping.** Canonical = upstream. Recipient = a vendored copy. Local adaptation = a patch queue.
+"Receive later changes without losing local parts" = rebase or three-way merge of upstream changes
+over recorded local diffs. "Send improvements back" = upstreaming.
+
+**Ladder.** (0) copy-paste → (1) copy plus a *recorded* local diff → (2) template with a recorded
+answers/adaptation file and a machine update path → (3) a real dependency with extension points and
+no local edits at all. **Placement: 1, aiming at 2.** Confidence: high.
+
+**What works** [recent, comparable substrate — text-and-config templates copied into unrelated
+repos]: the working shape in this space is a template plus a per-recipient *answers file* plus an
+`update` command that three-way-merges upstream changes over local edits (copier is the clearest
+instance; cookiecutter, with no update path, is the standard cautionary case; subtree/submodule
+solve a different problem — whole-tree, no local edits). The transferable move is making the
+recipient's adaptations a first-class artifact *separate from the copied text*, so an update is a
+merge of two known things rather than an archaeology of one. Confidence: medium-high, and this is
+the most directly liftable item in the pass.
+
+**Known failures** [general / living]:
+- Patch rot: local modifications decay against upstream drift, discovered only at update time.
+  Confidence: high.
+- "We'll upstream it later" does not happen unless unupstreamed local patches are tracked as debt
+  with an owner. Confidence: high (Debian, Chromium, every long-lived vendoring shop).
+- Asymmetry: upstream cannot see downstream's breakage, so upstream's confidence about portability
+  is structurally unfounded. Confidence: high.
+
+**Disagrees with A**: says do not build a platform at n=2; put the investment into the merge path and
+let the forks diverge.
+
+#### C. Modules, linkage, and hermetic inputs
+
+**Mapping.** The portable body = a compilation unit. References that resolve only at origin =
+dynamically-scoped names, or undeclared build inputs. Layered loading = lazy loading.
+Authored-once fragments copied in = macro expansion, with the copy-checker as a hygiene/staleness
+check. The port's defect batch = link errors deferred until the first environment that lacks the
+ambient definitions.
+
+**Two rungs, two remedies, in tension.** (i) Declare an interface and fail closed when a name is
+unresolved — lexical scope, explicit imports, strict-deps. (ii) Remove ambient resolution so the
+*origin* cannot resolve them either — sandbox, chroot, hermetic build. **Placement: below both.**
+What exists is a prohibition ("the portable half may not reference the instance half") with no
+environment in which violating it is visible. Confidence: high, given property 8 as described.
+
+**Known failures** [general / living]:
+- A prohibition the origin environment cannot violate *visibly* is not enforced by review; the class
+  recurs at every new recipient. Confidence: high.
+- The fix is not a better linter but a build where origin equals recipient: copy the portable half
+  alone into an empty tree and run every checker there. Anything that resolves only because the
+  neighbouring tree was present now fails at home, on every change, not on every port. Confidence:
+  high — this is the single most actionable claim in this pass.
+- Dynamic scoping was abandoned for precisely this failure mode, and that abandonment is one of the
+  more settled results in language design. Confidence: high.
+
+#### D. Structured authoring and single-sourcing
+
+**Mapping.** Fragments authored once and mechanically placed = content references (DITA `conref`,
+Antora partials, Sphinx includes), with an integrity check that refuses to build on a broken or
+stale reference. Temporary content bound to a replacement condition = a status attribute with a
+review trigger. Local adaptation without forking = specialization. Layered instruction =
+progressive disclosure in help systems.
+
+**Ladder.** copy-paste prose → marked includes plus a link/staleness checker → keyed references and
+conditional profiling → specialization with round-trip. **Placement: 2.** Confidence: high.
+
+**Known failures** [general / living]:
+- A byte-equality check proves the copy *matches*; it never proves the fragment is *right where it
+  landed*. Context-dependent fragments break silently at the point of use, and the check reports
+  green. Confidence: high — this is the standard critique of aggressive conref.
+- Reuse pressure pushes fragments toward context-free phrasing, which makes them abstract, hedged,
+  and less usable at every site. The trade is real and not avoidable by tooling. Confidence:
+  medium-high.
+- Over-reuse yields prose that cannot be read at the source (it is a skeleton) and cannot be edited
+  at the destination (it is not yours). Confidence: high.
+- "Removable without trace" is a property of the marker, not of the content; the markers themselves
+  become merge conflict sites in every recipient. Confidence: medium.
+
+**Disagrees with H**: this family wants copies minimized; H says the copy at the point of use is the
+only reason the reader complies.
+
+#### E. Standards bodies: normative core, deviations, conformance
+
+**Mapping.** Canonical body = normative text. Recipients = implementations/adoptions carrying
+declared deviations. Local blocks = national deviations or profiles. Automated checkers = a
+conformance suite. Self-hosting = the amendment procedure living inside the standard. Temporary
+content with a replacement condition = a sunset or deprecation clause naming a successor.
+
+**Ladder.** guidance → normative text → normative plus conformance suite → advancement gated on
+independent interoperable implementations. **Placement: 2 going on 3.** Confidence: medium-high.
+
+**Key claim** [general / living, high confidence]: the IETF has long gated a specification's
+advancement on *two independent, interoperable implementations* (the RFC 2026 lineage), for exactly
+the reason at issue here — one implementation cannot distinguish the specification from its own
+accidents. This shape has just produced its second implementation and discovered 35 accidents. The
+institutional form of that lesson is a rule: nothing enters the portable core until two unrelated
+recipients have exercised it.
+
+**Known failures**: without a suite, dialects form and "compliant" stops meaning anything (high);
+profiles proliferate until the core is a shell (medium-high); the reference implementation quietly
+becomes the real specification and the text becomes commentary (high).
+
+#### F. Methodology definition and tailoring
+
+**Mapping.** Canonical body = an organizational standard process. Recipient's copy = the project's
+defined process. Local blocks = tailoring guidelines. Checkers = audit/appraisal. "Distilled from
+how a few projects actually worked" = best-practice harvesting.
+
+**Ladder.** This family's ladder is literally a maturity model: ad hoc → project-defined →
+organization-standard with tailoring → *measured* → optimizing. **Placement: 3, with no measurement
+rung anywhere in the description** — nothing described observes whether following the procedure
+improves any outcome. Confidence: high on placement, since the shape is described entirely by its
+internal structure.
+
+**Known failures** [general / living]:
+- Documented process diverges from enacted process; audits inspect the document. Confidence: high.
+- Process work is self-sustaining, because producing procedure is easier to evidence than producing
+  outcomes. Confidence: high, and property 5 (self-hosting) is an accelerant, not a safeguard.
+- Harvested practices don't transfer, because what carried them was the people and the situation,
+  not the text; the argument that methodology is necessarily per-team and varies with team size and
+  criticality (Cockburn's) remains cited and, to my knowledge, unrefuted. Confidence: medium-high.
+
+**This family disagrees with the whole enterprise.** It predicts ceremonial adoption or quiet
+abandonment in recipients, and says the portable artifact should be the *tailoring conversation*,
+not the procedure text. One honest weakening: its central failure ("nobody reads the manual") is
+substantially defused when the executing reader is an agent that actually re-reads the text every
+session. That is a real disanalogy and it lowers my confidence in this family's prediction to
+medium.
+
+#### G. Constitutions: self-amendment, entrenchment, transplants
+
+**Mapping.** Self-hosting = self-amendment; rules about rules are the family's *secondary rules*,
+and the always-loaded entry text is a rule of recognition (which text is binding, and how you know).
+Local blocks = reserved powers. Temporary content bound to a condition = a sunset clause. Structural
+checkers = constitutional review. Distribution to unrelated codebases = a legal transplant.
+
+**Ladder.** custom → written rules → written rules with an amendment procedure → plus a review body
+→ plus entrenched provisions the amendment procedure cannot reach. **Placement: 3–4, with zero
+entrenchment**: everything, including the procedure for changing procedure, is amendable by the same
+route it governs. Confidence: high, since property 5 states this as design.
+
+**Known** [general / living]:
+- Self-amendment's paradox (Suber's treatment is the standard reference) is that a self-amending
+  rule can be used to lower the bar for amending itself; the near-universal mitigation is
+  entrenchment plus a higher bar on the amendment clause specifically. Confidence: high that this is
+  the family's settled answer; medium that it bites at this scale.
+- **The transplant effect**: transplanted codes perform poorly when adopted without local adaptation
+  or local demand, and *receptivity of the recipient* predicts effectiveness better than the quality
+  of the origin text (Watson's transplants literature; Berkowitz/Pistor/Richard's counter-result).
+  Confidence: high that this is a real, cited finding. Applied here: the 35 defects are the shallow
+  problem. The deep one is that a recipient with no demand for the imported procedure keeps it as
+  dead text — and the remedy (adaptation *by the recipient*, on its own terms) is in direct tension
+  with a canonical upstream that expects improvements sent home.
+
+#### H. Context engineering for agent instruction
+
+The only family here with recent evidence on comparable substrate.
+
+**Mapping.** Layered loading by when-needed = progressive disclosure under a context budget.
+Fragments copied to the point of use = restating a rule where the action happens, because the
+reader's attention is positional rather than indexical. Structural checkers = the syntactic half of
+an eval suite. The person's checkpoints = human-in-the-loop gates.
+
+**Ladder.** one long prompt → sectioned → loaded on demand by activity → *adherence measured against
+a suite* → text edited on that evidence, including deletions. **Placement: 3, with nothing described
+at rung 4.** Confidence: high on placement.
+
+**What works** [recent, comparable substrate; my knowledge runs to mid-2026 and this area moves
+fast]: on-demand loading keyed to activity is the current mainstream design and is the right call.
+Adherence degrades as the always-loaded body grows, rules that never fire still cost attention, and
+a rule stated once far from its point of use is followed less reliably than the same rule restated
+where it applies. Confidence: medium-high on the phenomena, low on any magnitude. This family is the
+one that *endorses* the duplication in property 4, and for a reason the DRY families cannot offer:
+the copy exists for the reader's attention, not the author's convenience — which means the checker
+should be verifying that the copy still *fits its site*, not only that it still matches.
+
+**Known failures** [general, medium confidence — this family is young and I am not going to pretend
+otherwise]:
+- These bodies grow monotonically: every incident adds a rule, nothing removes one, and the
+  always-loaded portion crowds out the task. Without a deletion mechanism tied to evidence, entropy
+  wins.
+- Conflicting rules do not raise errors; they are arbitrated silently by salience and recency. The
+  structural checkers described catch a declared-but-missing part and a duplicated authority claim —
+  syntactic conflicts. They cannot catch two rules that are individually satisfiable and jointly
+  steer behavior somewhere neither intended.
+
+### What the tasking smuggled in
+
+- **The failure is pre-diagnosed as a detection gap.** "Nothing had detected this, because in the
+  original location those references resolve" invites me to supply a detector. Families C and A both
+  say the diagnosis is upstream of detection: C says the origin's environment is wrong (make it fail
+  at home), A says the separation was never designed (the references aren't defects, they're
+  undeclared variability). You get a linter if you take the framing at face value.
+- **"Maturity ladder" presupposes the shape is on a path.** Asking each family to place the shape on
+  a ladder makes every family answer "immature, here's the next rung" — and structurally excludes
+  the answer "this genus does not work; do something else." F and G give versions of that answer
+  only because I forced them to.
+- **The provenance is doing legitimating work that the description never audits.** "Distilled from
+  how a few particular projects actually worked" is presented as a strength. It is n≈3, no
+  counterfactual, no control, and total survivorship: you saw the projects that worked. Every family
+  that knows about harvesting (A, F) treats that exact origin as the risk, not the credential.
+- **"Nearly all of one kind"** invites treating 35 defects as one solvable class. Batches described
+  that way usually decompose on inspection into three or four classes with different fixes, and the
+  single-class framing gets you one fix that closes 60 % of them and a false sense that the port
+  problem is solved.
+- **The no-reading rule cuts both ways.** It protects the outside view, and it also means I cannot
+  verify a single one of the eight properties. I am reasoning about a *self-description* — the same
+  class of artifact whose accuracy just failed empirically in the port. My families are fitted to
+  the author's already-translated vocabulary, which is the author's model of the shape, not the
+  shape.
+- **The epistemic sorting rule was supplied with the question.** "Recent for what works, longevity
+  for how things behave" is this project's own principle handed to me as an output constraint. Even
+  the outside view arrives pre-shaped by the inside, and I sorted my claims into bins I did not
+  choose.
+- **Absent entirely, which is itself the finding**: who reads this and how many of them; what it
+  costs to maintain; whether any recipient asked for it; and any measure of whether following the
+  procedure improves outcomes. The shape is described exclusively in terms of internal structure.
+  Combined with property 5 (the procedure maintains itself), that is the standard signature of a
+  system whose primary output has become more of itself. Family F names this as its central failure
+  and I do not think the description gives grounds to rule it out.
+- **The substrate is mentioned once and then dropped.** "An autonomous agent working alongside a
+  person" appears in the first sentence; all eight properties afterward are about documents. If the
+  determining fact is that the reader has no persistent memory and re-reads text every session, then
+  the document-engineering families (A–E) are borrowed clothes and H is the only one talking about
+  the actual machine. I cannot tell from here which it is, and neither the description nor the
+  tasking treats it as an open question.
+
+### Nothing to take
+
+Refused for want of a statable mapping:
+
+- **Knowledge management / organizational learning** (tacit-to-explicit conversion, communities of
+  practice). Subject-matter neighbour with no correspondent for the copy-checker, the derivation
+  step, or the port defects. Refused.
+- **Memetics and biological replication** (canonical genome, copies, mutation, fidelity). The words
+  map; nothing about the mapping constrains any decision here. Refused.
+- **Open-source project governance** (CONTRIBUTING, RFC processes, maintainership). Thin: it shares
+  the contribution-flow half but has no core/instance distribution structure and nothing
+  corresponding to properties 3, 4, or 7. Folded what was usable into B and E rather than listing
+  it.
+- **Canon-and-commentary traditions** (a fixed canonical text with local interpretive traditions).
+  Tempting for property 2, but I cannot state what corresponds to the automated checkers or to the
+  port defect batch without inventing it. Refused.
+- **Internal developer platforms / golden-path templates** — not refused, but it is not an
+  independent account; it is B's substrate with a different vocabulary, and I folded it in there.
+
+And one genuine gap: I know of no body of work that studies the *combination* at issue — a
+self-hosting procedural corpus, transcluded, ported between codebases, executed by an agent that
+re-reads it each session. H is the nearest and it is a few years old. Anything I said about that
+combination specifically is extrapolation from neighbouring families, and should be weighted
+accordingly.
+
 ## Adoption shortlist — recommendations awaiting alignment
 
 This is the compact decision surface extracted from the [Life research](../research/life-harness-findings.md). Rows marked agreed link to the current policy; the other recommendations remain undecided. Resolve one question at a time.
