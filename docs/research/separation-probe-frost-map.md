@@ -24,8 +24,15 @@ additions, nothing modified or deleted; the probe is removable with one `rm`.
 
 ## What broke — 35 diagnostics on day one
 
-**28 of the 35 are one defect in three costumes: core references the instance half, and does not
-survive the trip.** Two of the three were mechanisms the harness already believed were safe.
+**One defect in three costumes — core references the instance half, and does not survive the
+trip — accounts for 28 instances, 14 of them among the 35 diagnostics.** Two of the three were
+mechanisms the harness already believed were safe.
+
+*Corrected 2026-09-11, re-measured in frost_map.* The 35 are `mechanisms.py`'s 14 (11 `not yet`
+links, 3 evidence bullets) plus `tickets.py`'s 21. The 14 straw dogs are what `straw_dogs.py`
+*lists*, dangling by a person's judgment, and are not diagnostics; the first draft added them to
+the 14 and called the sum 28 of 35. The four bare `docs/process.md` links in `/verify` and
+`/implement` are in neither count — nothing checked them.
 
 ### Every straw dog in core is an unexpirable rule in a recipient
 
