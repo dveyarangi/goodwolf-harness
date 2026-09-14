@@ -6,8 +6,10 @@
 - Claude Code — `.claude/skills` → `../.agents/skills`
 - Cursor — `.cursor/skills` → `../.agents/skills`
 
-The links are tracked as symlinks (mode 120000). Git for Windows writes `core.symlinks=false` on
-clone, so they check out as text files. After clone:
+The links are tracked as symlinks (mode 120000).
+
+<straw-dog until="01-0010.0130 is done" ticket="docs/tickets/01-0010.0130-harness-installs-into-another-tree.md">
+Git for Windows writes `core.symlinks=false` on clone, so they check out as text files. After clone:
 
 ```
 git config --local core.symlinks true
@@ -19,9 +21,12 @@ a directory symlink. If checkout still yields a file, delete it and run
 `mklink /D .claude\skills ..\.agents\skills` (likewise for `.cursor\skills`). Creating these links
 is part of the installer's job once it exists; a junction is not an acceptable substitute, git
 would track it as a directory.
+</straw-dog>
 
+<straw-dog until="01-0010.0120 is done" ticket="docs/tickets/01-0010.0120-host-delivery-surfaces.md">
 Which links are actually required is untested. Codex needs none; Cursor documents reading
 `.agents/skills` directly; Claude Code may too.
+</straw-dog>
 
 ## Mechanical support
 
