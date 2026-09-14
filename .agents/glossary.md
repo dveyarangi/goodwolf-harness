@@ -20,7 +20,7 @@ A part of how the work gets done â€” the development method and its machinery â€
 A mechanism's own instruction file, invocable and identified by its purpose and conditions of use. A skill may also host rules installed into it by mechanisms that do not own it.
 
 **Straw dog**:
-A statement or part written to serve until a named ticket replaces it, and discarded then. It is wrapped in a `<straw-dog>` bound to that ticket at the moment it is written; unwrapped, it is drift the enumerator cannot see and a person finds by luck. What has no named successor is a claim, not a straw dog.
+Text or code a live ticket will change, wrapped in a `<straw-dog>` bound to that ticket at the moment it is written. Unwrapped, it is drift the enumerator cannot see. What no ticket would change is a claim.
 _Avoid_: temporary statement, temporary, placeholder, stub, interim, hack.
 
 **Rules file**:

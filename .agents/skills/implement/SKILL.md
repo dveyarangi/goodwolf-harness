@@ -22,9 +22,9 @@ The code should read as a story. Make sure the main process appears first in
 the file, where possible, and main boundaries' implementation reads through
 entities, interfaces and submethods used as nouns, adjectives and verbs.
 
-Code written to serve until a named ticket replaces it is a straw dog: mark it
-with a comment line beginning `TODO` that names the ticket, per the entry file,
-and say so in the docstring.
+Mark code a live ticket will change with a comment line beginning `TODO` that
+names the ticket, per the entry file's straw-dog rule, and say so in the
+docstring.
 
 Make sure the errors follow error rules.
 

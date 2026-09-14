@@ -89,6 +89,13 @@ Do not reopen an accepted decision without new evidence.
 - /discover to investigate hidden complexity, by detecting what else the shape is.
 - /dream is an experimental second "lobe" of the harness, aiming to reassess load-bearingness. It is optional, runs after /conclude, and writes dreams that /maintain and /align may pick up; it never amends rules.
 
+## Self-improvement
+
+<straw-dog until="01-0019 is done" ticket="docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md">
+- The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)
+- Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.
+</straw-dog>
+
 ## Autonomy
 
 The project sets each switch in its local block below; skills defer to those values.
@@ -112,11 +119,12 @@ A recipient replaces every `<project-local>` block with its own → [glossary](.
 
 ## Straw dogs
 
-What you write to serve only until a named ticket replaces it is a straw dog. Wrap it as you
-write it, wherever it sits: `<straw-dog until="condition" ticket="path">`, or in code a `TODO`
-naming the ticket. Wrap it at its authored home, never where the harness installs or derives it:
-what lands there takes the content, not the tag. The condition is testable and the ticket path is
-from the repository root. What has no named successor is a claim, and is not wrapped.
+Wrap anything a live ticket will change, as you write it:
+`<straw-dog until="condition" ticket="path">`, or in code a `TODO` naming the ticket. Treat *not
+yet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find
+the ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.
+Make the condition testable and the ticket path repository-relative. Leave what no ticket would
+change unwrapped.
 
 Follow a straw dog like any other rule until its condition is visibly met; then act on reality,
 report the stale block, and do not treat the contradiction as a violation.
