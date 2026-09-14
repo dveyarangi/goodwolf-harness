@@ -17,6 +17,15 @@ The three homes cut on **when the thing is read** — session start, the work a 
 changing the mechanism itself. There is no fourth home because there is no fourth occasion, and any
 other cut — by subject, by author, by importance — puts a rule where its reader is not.
 
+**A format shelf declares form; why a form is what it is belongs here.** The shelf is read while
+writing to the form, and a reason at that moment is text between the reader and the thing they
+came for. The cut is the same one the three homes make, applied inside a mechanism's own parts.
+
+**A mechanism declares its own records** because no other mechanism can say when someone else's
+record is finished. A maintainer's duty to archive finished records is a duty to read that
+declaration, so a record that carries none is a duty that cannot be discharged rather than a duty
+nobody has.
+
 **One instruction file**, so that naming a mechanism and naming its skill are one act. A second
 would make every reference ambiguous at the moment it is needed most, and it is what lets a moment
 instructed `elsewhere` resolve against a file rather than against a declaration that may not exist

@@ -216,6 +216,44 @@ check and the installer import the reader. Listing it as a `/ticket` part would 
 uninstalling `/ticket` removes what the shape's own scripts need. Both files are this mechanism's
 parts now, and the two docs name it as owner.
 
+## The records requirement, and the rationale that tried to ride in with it — 2026-09-10
+
+**What forced it.** `/maintain`'s B3 delegates its own trigger: *"Archive every finished record…
+the record's format says what finished means and where it goes."* Two formats supply that —
+`TICKET-FORMAT` and `MECHANISM-FORMAT`, each with the same three fields and neither required to.
+Nothing else does. Measured in this tree the same day: sessions 14 files / 958 lines, dreams 2 /
+481, research 6 / 2,854 — **4,293 lines B3 structurally cannot reach**, including the largest file
+in the repository, whose comparison is complete and which no rule can retire. The requirement is
+not a new form; it makes an observed one binding.
+
+**Refuted on the way in** *(the user, 2026-09-10)*. The first draft closed with *"the declaration
+is the mechanism's and never the maintainer's: the duty to archive finished records reads it, and
+cannot fire over a record that does not carry it."* That is the paragraph above — **how the
+requirement was arrived at, written into the requirement itself.** The user's questions were
+*declares how? says so and why — how? what does the maintainer have to do with it — is that
+reasoning evolution sneaking in?* Four clauses died: the maintainer sentence and the B3 clause as
+rationale, *the way a moment states its kind of absence* as teaching, and *the declaration is the
+mechanism's* as already said by the shape. What survived was the part that had been missing
+entirely — **where the declaration lives** — which the draft never stated while spending twenty
+words on why it mattered.
+
+The general form of the lesson, in the doc rather than here: a format shelf declares form, and the
+reason a form is what it is belongs to the doc.
+
+**One data point for the shape fitting.** Applied to the three declared mechanisms, none needed
+editing. `/ticket` and `/mechanism` already carry all three fields in their shelves. `/maintain`
+writes no records yet and says so twice — *"No record until the marks"* and *"A maintenance
+mechanism is record-bearing by design, and this one has no record"* — both bound to
+[.0060](../tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md). The honest absence
+was already recorded in vocabulary the shape already had, which is the outcome a bent declaration
+could not have produced without someone noticing.
+
+**Not enforceable yet.** The second diagnostic — a mechanism that writes records and declares none
+— needs `record-bearing` to be a declared field, which is
+[01-0017.0010](../tickets/01-0017.0010-terms-defined-before-they-land.md)'s. The rule lands now and
+its check lands there. The RFC is the case waiting: it is a record by the glossary's own list, and
+its owner `/plan` is undeclared, so nothing is owed until that declaration.
+
 ## What is still true only by assertion
 
 Three mechanisms have been declared. The second passed the check unedited and amended the shape in

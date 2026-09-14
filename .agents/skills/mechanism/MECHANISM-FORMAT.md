@@ -180,6 +180,25 @@ wherever the part is a line inside a shared file, or the line is deletable with 
 check still green. Injection does not replace it: a meta-rule is never injected, and a
 line in the entry file is exactly what an anchor is for.
 
+## Records
+
+A mechanism that writes records declares each one where that record's format is declared — its
+format shelf, or its doc where it has no shelf. Three fields:
+
+- **what a record is** — one file, one directory, or one row of a file that holds many.
+- **tier** — when it is read.
+- **what removes an entry** — the condition; `kept by design` where nothing does; or `not yet` as
+  a markdown link to its ticket.
+
+A record declared without all three is a diagnostic, and so is a mechanism that writes records and
+declares none.
+
+<straw-dog until="01-0017.0010 is done" ticket="docs/tickets/01-0017.0010-terms-defined-before-they-land.md">
+Neither diagnostic is emitted yet: finding a mechanism that owes a record declaration needs
+`record-bearing` to be a declared field, which that ticket promotes. Until then the two sentences
+above are a rule with no check behind them.
+</straw-dog>
+
 ## Parsing
 
 - Cells split on unescaped `|`; a literal pipe is `\|`.
