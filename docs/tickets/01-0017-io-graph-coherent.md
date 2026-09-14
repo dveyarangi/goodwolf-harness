@@ -61,6 +61,31 @@ the check mechanical rather than prose.
 wanted is a mechanism doc; the composing rule is the shape check; the enforcement is
 `/mechanism`'s. What remains here is applying both to the tree once one mechanism has proved them.
 
+**2026-09-10, on carving out the first conversion.** Assessed inline during the align that produced
+it rather than through an `/impact` pass, and no split was drafted: one ticket,
+[01-0017.0010](./01-0017.0010-terms-defined-before-they-land.md).
+
+*Blast radius.* Six current homes for glossary rules — `/align`'s two sections, `GLOSSARY-FORMAT.md`
+on `/align`'s shelf, the two glossaries' preambles, one-liners in `/implement`, `/tdd`, `/dream`,
+`/edge`, `/skill-up`, `/recall` and `TICKET-FORMAT`, and a relied-on row in all three mechanism
+docs. Plus `AGENTS.md`, which would take **the first installed block any mechanism has written into
+tier 1**; every rules file today targets a `SKILL.md`.
+
+*Hidden edges.* The tier-1 line and the injected block may be one fact in two homes, which is
+[01-0018](./01-0018-reachability-coherent.md)'s unsettled rule and must not be settled here. Group
+targets now have three shapes wanting them and cannot resolve while nineteen skills belong to no
+mechanism, so the interim is explicit targets plus a new maintenance duty when a target skill
+appears. `AGENTS.md` has no installer, which makes
+[01-0010.0130](./01-0010.0130-harness-installs-into-another-tree.md) a dependency rather than a
+neighbour.
+
+*Leave alone.* The glossary records, their format, and the method-versus-project collision rule —
+all held. The defect is that no rule fires at the moment a word is used.
+
+*Recommendation.* One decision-bearing ticket, not a split: the mechanism's declaration, its
+tier-1 rule and the six-home consolidation are one act, and separating them would land a rule with
+no authored home or a home with no rule.
+
 ## Why this exists
 
 Two failures of the same kind, in opposite directions, neither caught by anything:
