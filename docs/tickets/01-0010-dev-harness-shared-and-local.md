@@ -577,19 +577,21 @@ blast-radius evidence: it enumerates every affected reference by file, line and 
 here so the child can point at it.
 
 **Probe, 2026-09-10.** Over all 41 markdown files under `.agents/`, masking `<project-local>` and
-`<straw-dog>` blocks: **74 references reach the instance half, of which 22 are the defect.** The
-other 52 are inline path conventions — `docs/tickets/`, `docs/rfc/`, `docs/glossary.md`,
+`<straw-dog>` blocks: **74 references reach the instance half, of which 27 are the defect.** The
+other 47 are inline path conventions — `docs/tickets/`, `docs/rfc/`, `docs/glossary.md`,
 `docs/adr/`, `docs/sessions/`, `docs/spec/` — which *Core and instance* explicitly permits ("naming
-a path convention the harness imposes is not a reference to a file"). The 22 are markdown links
-that resolve to a *particular* document: **13** `not yet` and `unowned` referents in the three
-mechanisms' parts tables, **5** prose links in mechanism grading paragraphs citing tickets and
-evidence, **3** in `/verify` and **1** in `/implement` to `docs/process.md`, and **1** in
-`/discover`'s evidence shelf.
+a path convention the harness imposes is not a reference to a file"). The 27 are markdown links
+that resolve to a *particular* document: **11** `not yet` referents in the three mechanisms'
+parts tables, **11** prose links in the same three docs citing tickets and evidence, **3** in
+`/verify` and **1** in `/implement` to `docs/process.md`, and **1** in `/discover`'s evidence
+shelf. *(Corrected 2026-09-14: the first read-out said 22 of 74 with 13 and 5; the probe's own
+output, re-run at the align commit and today, says 27 with 11 and 11. The total was right, the
+split was misread.)*
 
 **Main blast radius.** `AGENTS.md`'s *Core and instance* and
 [ADR-0002](../adr/0002-core-may-not-depend-on-the-instance-half.md), which state the prohibition
 this makes observable. [MECHANISM-FORMAT](../../.agents/skills/mechanism/MECHANISM-FORMAT.md),
-which *mandates* the markdown-link form for a `not yet` referent and so mandates 13 of the 22 —
+which *mandates* the markdown-link form for a `not yet` referent and so mandates 11 of the 27 —
 two core documents in direct contradiction, which is the finding, not a side effect. The project's
 [verification set](../process.md#verification), which the check joins.
 
@@ -603,7 +605,7 @@ cannot be written before the exemption vocabulary exists, and no ticket owns tha
 Running the scripts themselves in an `.agents`-only tree has the same shape: `mechanisms.py` cannot
 pass there, and its failure would be reporting the intended design.
 
-**Leave alone.** The 52 path conventions. The `<project-local>` and `<straw-dog>` exemptions
+**Leave alone.** The 47 path conventions. The `<project-local>` and `<straw-dog>` exemptions
 themselves, which are [01-0010.0110](./01-0010.0110-project-facets-injected.md)'s and
 [01-0010.0130](./01-0010.0130-harness-installs-into-another-tree.md)'s. The four
 `docs/process.md` links are repairable today by `/maintain`'s own precedent — it wraps its three in
@@ -616,7 +618,7 @@ ticket exists to end.
 
 1. **Title:** Core stands alone, and a check says so at home.
    **Interaction:** HITL, decision-bearing — the exemption vocabulary is a decision.
-   **Depends on:** nothing blocking; constrained by `01-0011.0050` on 13 of the 22 findings.
+   **Depends on:** nothing blocking; constrained by `01-0011.0050` on 11 of the 27 findings.
    **Parent scope covered:** acceptance criterion 7, maintenance identifying drift without
    treating silence as success.
    **Basename:** `01-0010.0140-core-stands-alone.md`.
