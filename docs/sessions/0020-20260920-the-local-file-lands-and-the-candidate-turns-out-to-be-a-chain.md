@@ -6,7 +6,8 @@ word, spent three questions on how the queue's candidate had been chosen, parked
 the pacer ticket, and then took [01-0010.0110](../tickets/done/01-0010.0110-project-facets-injected.md)
 through the whole ring — three `/plan` passes, `/implement`, `/verify`, `/maintain` — the third
 ticket to run it whole in a day. Commits of mine: `MAINTAIN`, `ALIGN`, `PLAN`, `IMPLEMENT`,
-`VERIFY`, `MAINTAIN`; this record is uncommitted at writing (`commit=ask`); nothing pushed.
+`VERIFY`, `MAINTAIN`, and this record. I pushed nothing; the first two reached `origin/main`
+during the usage-limit break, by a hand that was not mine.
 
 ## Work completed
 
@@ -81,7 +82,7 @@ Details are on the records named.
 
 ## Housekeeping
 
-Six commits of mine on `main` today, `5090231` the last; this record uncommitted; six commits
-ahead of `origin/main`, unpushed (`push=ask`). Verification set green: 257 tests, three checks
+Seven commits of mine on `main` today, this record the last; five ahead of `origin/main` at
+writing, unpushed by me (`push=ask`). Verification set green: 257 tests, three checks
 clean; 63 straw dogs at the close, all bound, no condition met. Entry contract v13. The tree
 holds one local rules file and twelve installed blocks from four sources.
