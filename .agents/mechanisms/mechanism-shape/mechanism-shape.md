@@ -49,7 +49,8 @@ absence is honestly classified, are judgements it records and never makes.
 | telling an inceptor what to hand `/maintain` | `.agents/skills/mechanism/SKILL.md` | |
 | amending a declared one, editing a skill that is an instruction file included | `.agents/skills/mechanism/SKILL.md` | |
 | retiring a declared one | `.agents/skills/mechanism/SKILL.md` | |
-| installing a declared mechanism into a tree, and removing it | — | <straw-dog until="an installer exists; the parts table says what an install adds and nothing says how" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
+| installing a declared mechanism into a tree, with the rest of core | `.agents/scripts/harness.py` | |
+| removing one declared mechanism from a tree | — | <straw-dog until="the parts table says what goes and something says how" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
 | checking that a declaration is true | `.agents/scripts/mechanisms.py` | |
 | installing a mechanism's rules into skills, its own included, and the project's local file after every mechanism's | `.agents/scripts/inject_rules.py` | |
 | retracting them | `.agents/scripts/inject_rules.py` | |
@@ -77,7 +78,7 @@ absence is honestly classified, are judgements it records and never makes.
 | the installer | `.agents/scripts/inject_rules.py` |
 | the installer's tests | `.agents/scripts/test/test_inject_rules.py` |
 | citation reader | `.agents/scripts/docs_corpus.py` |
-| test harness | `.agents/scripts/test/harness.py` |
+| test harness | `.agents/scripts/test/repository.py` |
 
 The last two are shared by every script in the tree and claimed here because this mechanism is
 the one that cannot leave: where a shared part's ownership bites, the claimant is the always-on

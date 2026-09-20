@@ -7,7 +7,7 @@ import io
 import json
 import unittest
 
-from harness import RepositoryCase
+from repository import RepositoryCase
 
 import tickets
 

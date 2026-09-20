@@ -77,12 +77,12 @@ The accepted shared method and supporting assets governed at their canonical sou
 **Project-local**:
 A project's own answers and overrides, authored once in its local rules file beside the entry file and reaching core files only as the local block the installer writes there, after every mechanism's. An override names the rule it overrides and is what the reader follows.
 
-**Deploy**:
-Placing a ref of core into a tree that is not core's own repository, from a fresh clone of that repository and never from a working tree: install into an empty tree, update over a previous deploy, or check a copy against the ref its entry file announces.
-_Avoid_: sync, distribute, port.
+**Install** *(of core)*:
+Placing a ref of core into a tree that is not core's own repository, from a fresh clone of that repository and never from a working tree; an update is the same over a tree that already holds one, and a check compares a copy against the ref its entry file announces. The mechanism that does all three is `harness`.
+_Avoid_: deploy, sync, distribute, port.
 
 **Recipient**:
-A tree that received core by deploy. Its entry file's announce line names the repository and the ref it came from, `<repository>@<ref>`; the one tree whose line carries no `@` is core's own repository, the origin, and is never deployed into.
+A tree that received core by install. Its entry file's announce line names the repository and the ref it came from, `<repository>@<ref>`; the one tree whose line carries no `@` is core's own repository, the origin, and is never installed into.
 _Avoid_: instance as a name for the tree, consumer.
 
 **Painted door**:

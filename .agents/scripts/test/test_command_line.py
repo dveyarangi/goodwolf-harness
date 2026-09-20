@@ -6,7 +6,7 @@ import contextlib
 import io
 import unittest
 
-from harness import RepositoryCase
+from repository import RepositoryCase
 
 import move_doc
 

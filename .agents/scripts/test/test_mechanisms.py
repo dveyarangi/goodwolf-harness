@@ -7,7 +7,7 @@ import io
 import json
 import unittest
 
-from harness import RepositoryCase
+from repository import RepositoryCase
 
 import mechanisms
 
@@ -839,3 +839,51 @@ class CoreStandsAlone(Declared):
 if __name__ == "__main__":
     unittest.main()
 
+
+
+class InARecipient(Declared):
+    """A tree whose entry file announces `<repository>@<ref>` received core by install: the shear
+    stripped every binding and reason on the way, so an unbound `not yet` there is upstream's gap."""
+
+    STAMPED = "Entry contract: goodwolf-harness@d441bed, 2026-09-20.\n\n"
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.write("AGENTS.md", self.STAMPED + f"- Doing it {TRIGGER} /sample.\n")
+
+    def sheared_row(self) -> str:
+        return "| moment | instructed by | kind, and why |\n|---|---|---|\n| sweeping | — | not yet |\n"
+
+    def test_an_unbound_not_yet_row_draws_nothing(self) -> None:
+        self.write(DOC, self.doc(moments=self.sheared_row()))
+
+        checked = self.checked()
+
+        self.assertEqual([], checked.diagnostics)
+        self.assertEqual(("not yet", "", None), tuple(
+            (row.kind, row.why, row.referent) for row in checked.declarations[0].moments
+        )[0])
+
+    def test_an_unbound_claim_draws_nothing(self) -> None:
+        self.write(STRAY, FRONTMATTER + "Mechanism: not yet\n")
+
+        self.assertEqual([], self.checked().diagnostics)
+
+    def test_the_origin_line_keeps_both_diagnostics(self) -> None:
+        self.write("AGENTS.md", "Entry contract: v14, 2026-09-20.\n\n" + f"- Doing it {TRIGGER} /sample.\n")
+        self.write(DOC, self.doc(moments=self.sheared_row()))
+
+        problems = self.problems()
+
+        self.assertEqual(2, len(problems))
+        self.assertTrue(any("unbound" in problem for problem in problems))
+        self.assertTrue(any("does not say why" in problem for problem in problems))
+
+    def test_a_recipients_own_leak_and_silent_skill_still_fail(self) -> None:
+        self.write(STRAY, FRONTMATTER + "# Stray\n\nSee docs/tickets/01-0002-sweep.md.\n")
+
+        problems = self.problems()
+
+        self.assertEqual(2, len(problems))
+        self.assertTrue(any("claims nothing" in problem for problem in problems))
+        self.assertTrue(any("only the instance has" in problem for problem in problems))

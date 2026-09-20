@@ -28,7 +28,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from docs_corpus import INSTALLED_CLOSING, INSTALLED_OPENING, without_code  # noqa: E402  (path set just above)
 
-_TAG = re.compile(r"<straw-dog\b[^<>]*>|</straw-dog\s*>|<straw-dog\b|</straw-dog\b", re.S)
+TAG = re.compile(r"<straw-dog\b[^<>]*>|</straw-dog\s*>|<straw-dog\b|</straw-dog\b", re.S)
 # The tag was `<temporary>` until 2026-09-08. One written from habit would be no straw dog at all —
 # the defect this tool exists to end, produced by its own rename — so the old name is a diagnostic.
 _RETIRED = re.compile(r"</?temporary\b")
@@ -38,7 +38,7 @@ _USAGE = "usage: straw_dogs.py PATH [PATH ...] | --guess PATH [PATH ...] | --rem
 # In code the marking is a comment line beginning with TODO; one naming its ticket is a straw dog,
 # one naming none is a guess. A sentence merely mentioning the word is neither.
 _TODO = re.compile(r"^\s*#\s*TODO\b")
-_TICKET_PATH = re.compile(r"docs/tickets/[\w./-]+\.md")
+TICKET_PATH = re.compile(r"docs/tickets/[\w./-]+\.md")
 # The record folders the harness itself imposes: provisional by status, or history, never a
 # surface read as truth, so never guessed over. A project's own folders are its own to judge.
 _WORKING_RECORDS = ("docs/tickets/", "docs/rfc/", "docs/spec/", "docs/sessions/")
@@ -233,7 +233,7 @@ def _candidates_in(root: Path, name: str, text: str) -> list[Candidate]:
         return [
             Candidate(name, number, "TODO", line.strip())
             for number, line in enumerate(text.splitlines(), start=1)
-            if _TODO.search(line) and not _TICKET_PATH.search(line)
+            if _TODO.search(line) and not TICKET_PATH.search(line)
         ]
     # What is already wrapped says what it is; what sits in an installed block is not this file's
     # to edit, so a candidate there could not be acted on in place. Both are blanked, positions kept.
@@ -312,7 +312,7 @@ def _todos_in(root: Path, name: str, text: str) -> tuple[list[StrawDog], list[Di
     found = []
     offset = 0
     for number, line in enumerate(text.splitlines(keepends=True), start=1):
-        named = _TICKET_PATH.search(line) if _TODO.search(line) else None
+        named = TICKET_PATH.search(line) if _TODO.search(line) else None
         if named:
             found.append(
                 StrawDog(
@@ -338,7 +338,7 @@ def _tags_in(root: Path, name: str, text: str) -> tuple[list[StrawDog], list[Dia
     open_tags: list[tuple[int, re.Match[str]]] = []
     spans: list[tuple[int, int, str]] = []
     diagnostics: list[Diagnostic] = []
-    for tag in _TAG.finditer(prose):
+    for tag in TAG.finditer(prose):
         written = tag.group(0)
         if not written.endswith(">"):
             diagnostics.append(Diagnostic(name, _line_of(text, tag.start()), "malformed"))

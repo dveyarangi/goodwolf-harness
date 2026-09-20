@@ -8,8 +8,11 @@ and what does not hold; then it asks the reverse question — is every installed
 declaration, or does it say on its own first line that none does yet — and reports each skill
 with who claims it; then it holds core to citing only what its mechanisms declare — every path
 under `docs/` a core file names is a painted door, is skipped inside an instance-owned block, or
-is a leak that fails the run, per AGENTS.md § Core and instance. `--index` renders the register
-from the same directories; no file holds it, and none is written.
+is a leak that fails the run, per AGENTS.md § Core and instance. In a recipient — a tree whose
+entry file announces `<repository>@<ref>` — a `not yet` with no binding is upstream's gap, since
+the harness mechanism sheared the binding and the reason on the way, and draws nothing; at the origin it
+fails. `--index` renders the register from the same directories; no file holds it, and none is
+written.
 
 The script rules on form alone. Whether a moment should exist, whether an absence is honestly
 classified, and whether the prose is any good are judgements it records and never makes.
@@ -28,6 +31,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from docs_corpus import (  # noqa: E402  (path set just above)
     RETIRED_TAG,
     UnreadableCode,
+    announced,
     corpus,
     docs_mentioned,
     docs_mentioned_in_code,
@@ -278,6 +282,7 @@ def check(root: Path) -> Checked:
     the other way, every installed skill with who claims it."""
     declarations: list[Declaration] = []
     diagnostics: list[Diagnostic] = []
+    recipient = announced(root) is not None
     for directory in _directories(root):
         doc = directory / f"{directory.name}.md"
         if not doc.is_file():
@@ -286,9 +291,9 @@ def check(root: Path) -> Checked:
         text = doc.read_text(encoding="utf-8")
         declared = _declaration(root, directory, text)
         declarations.append(declared)
-        diagnostics += _problems(root, declared, text)
+        diagnostics += _problems(root, declared, text, recipient)
     skills = _skills(root, declarations)
-    diagnostics += _skill_problems(root, skills)
+    diagnostics += _skill_problems(root, skills, recipient)
     cites, unreadable = _core_cites(root)
     diagnostics += unreadable + _leaks(cites) + _retired_tags(root)
     return Checked(declarations, skills, cites, diagnostics)
@@ -362,7 +367,7 @@ def _leaks(cites: list[Citation]) -> list[Diagnostic]:
     ]
 
 
-def _problems(root: Path, declared: Declaration, text: str) -> list[Diagnostic]:
+def _problems(root: Path, declared: Declaration, text: str, recipient: bool) -> list[Diagnostic]:
     """Everything about one declaration that the tree, or the doc's own shape, contradicts."""
     notes = []
     if GRADING not in text:
@@ -377,7 +382,7 @@ def _problems(root: Path, declared: Declaration, text: str) -> list[Diagnostic]:
     # A table whose shape is wrong has already been reported as that. Judging the rows it was
     # misread into would dress a parse failure up as a verdict about the mechanism.
     if not malformed[MOMENTS_TABLE]:
-        notes += _moment_problems(root, declared)
+        notes += _moment_problems(root, declared, recipient)
         notes += [
             Diagnostic(
                 declared.slug,
@@ -498,23 +503,26 @@ def _table_problems(slug: str, text: str) -> dict[str, list[Diagnostic]]:
     return found
 
 
-def _moment_problems(root: Path, declared: Declaration) -> list[Diagnostic]:
+def _moment_problems(root: Path, declared: Declaration, recipient: bool) -> list[Diagnostic]:
     """What each row leaves unsettled: a missing referent, or one the tree does not have."""
     return [
-        note for moment in declared.moments for note in _absence_problems(root, declared.slug, moment)
+        note
+        for moment in declared.moments
+        for note in _absence_problems(root, declared.slug, moment, recipient)
     ]
 
 
-def _absence_problems(root: Path, slug: str, moment: Moment) -> list[Diagnostic]:
-    """One absence row's problems — a moment's, or an allowlist row's read through the same grammar."""
+def _absence_problems(root: Path, slug: str, moment: Moment, recipient: bool) -> list[Diagnostic]:
+    """One absence row's problems — a moment's, or a skill's claim read through the same grammar."""
+    if recipient and moment.kind == "not yet" and not moment.referent:
+        # The harness mechanism sheared the binding and the reason on the way in: the gap is upstream's, and
+        # the recipient can neither see its ticket nor fill it.
+        return []
     notes = _row_problems(slug, moment)
     if moment.kind not in ("elsewhere", "embedded", "not yet"):
         return notes
     if not moment.referent:
         # A `not yet` names its ticket in a straw-dog binding; without one the gap is nobody's.
-        # TODO docs/tickets/01-0010.0130-harness-installs-into-another-tree.md: the shear strips
-        # the binding on install, so in a recipient an unbound `not yet` is upstream's gap and
-        # must pass; which tree is the origin is the fact that ticket records.
         problem = "unbound: no <straw-dog ticket=…> binding" if moment.kind == "not yet" else "names nothing"
         return notes + [Diagnostic(slug, f"'{moment.occasion}' is {moment.kind} and {problem}")]
     named = moment.referent
@@ -573,7 +581,7 @@ def _after_frontmatter(lines: list[str]) -> str:
     return next((line for line in lines[start:] if line.strip()), "")
 
 
-def _skill_problems(root: Path, skills: list[Skill]) -> list[Diagnostic]:
+def _skill_problems(root: Path, skills: list[Skill], recipient: bool) -> list[Diagnostic]:
     """A skill is one mechanism's instruction file, or says so itself — never both, never neither."""
     notes = []
     for skill in skills:
@@ -590,7 +598,8 @@ def _skill_problems(root: Path, skills: list[Skill]) -> list[Diagnostic]:
             notes.append(Diagnostic(where, f"claims {skill.claim.kind}; a claim says nothing owns the skill"))
             continue
         claim = skill.claim
-        notes += _absence_problems(root, where, Moment(f"{CLAIM} line", None, claim.kind, claim.why, claim.referent))
+        claimed = Moment(f"{CLAIM} line", None, claim.kind, claim.why, claim.referent)
+        notes += _absence_problems(root, where, claimed, recipient)
     return notes
 
 

@@ -58,6 +58,15 @@ class RepositoryCase(unittest.TestCase):
         self.root = Path(self._workspace.name).resolve()
         shutil.copytree(_template(), self.root / ".git")
 
+    def another_repository(self) -> Path:
+        """A second fresh repository beside `self.root`, for a case whose subject acts across two
+        trees — an install of core from one into the other. Cleaned up with the case."""
+        workspace = tempfile.TemporaryDirectory()
+        self.addCleanup(workspace.cleanup)
+        other = Path(workspace.name).resolve()
+        shutil.copytree(_template(), other / ".git")
+        return other
+
     def git(self, *arguments: str) -> str:
         done = subprocess.run(
             ["git", *arguments], cwd=self.root, capture_output=True, encoding="utf-8", check=True

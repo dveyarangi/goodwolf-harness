@@ -1,0 +1,114 @@
+# harness — places a ref of the repository into a tree that is not its own, and checks the copy against it
+
+- **instruction** `.agents/skills/harness/SKILL.md` — the commands, each refusal and what the person does, the first install's last step
+- **state** installed
+
+## How it works
+
+Core reaches a tree from a fresh clone of its repository at a ref and never from a working tree,
+so what a recipient holds is what a commit holds. The manifest is everything under the core
+directory plus the entry file and the host stub; the project's local file is never in it, which
+is what lets a redeploy overwrite core's content and nothing of the project's. What ships is
+transformed before a byte is written: the origin's local blocks removed, every straw-dog wrapper
+and every `TODO`'s ticket binding sheared with the content kept, the announce line stamped, and
+the whole held to the leak rule the origin's check applies.
+
+**The announce line is the revision.** A recipient's entry file reads
+`Entry contract: <repository>@<ref>, <date>.`; every session there announces it, the check reads
+it, and the shape check reads its `@` to know it stands in a recipient — where an unbound
+`not yet` is upstream's gap and draws nothing. No record file: integrity is asked of the source,
+by cloning the announced ref again and comparing. A change to the transformation therefore reads
+as an edit in every recipient installed before it, until it updates.
+
+**Every refusal writes nothing**, and the loader links are the one step a person may finish by
+hand: where the platform refuses to create a symlink, the run finishes everything else and ends
+with the exact elevated command. Nothing is substituted for a link; a junction is refused by name.
+
+**The gate is the check.** Arrival and any later day's question are one function: the copy
+against the ref, the injector's check, the shape check, the links, the shipped suite — the
+target's own scripts, run as subprocesses, so what is checked is what arrived.
+
+It is **installed**; a tree without it holds no core at all. The repository's root `README.md`
+is the way in for an agent handed the link — clone, read the skill, run the install — and is
+not a part: it never ships, and a recipient has its own.
+
+## Moments
+
+| moment | instructed by | kind, and why |
+|---|---|---|
+| installing a ref into an empty tree | `.agents/scripts/harness.py` | |
+| updating a tree that has a copy | `.agents/scripts/harness.py` | |
+| checking a copy against the ref it announces | `.agents/scripts/harness.py` | |
+| making a loader link, or handing the person the command | `.agents/scripts/harness.py` | |
+| reading a refusal and resuming | `.agents/skills/harness/SKILL.md` | |
+| populating the local file after the first install | `.agents/skills/harness/SKILL.md` | |
+| knowing an update is available | — | unowned by design — a person asks for one; nothing polls the repository |
+| verifying that a host reads the loader link | — | <straw-dog until="a host's delivery is observed rather than assumed" ticket="docs/tickets/01-0010.0120-host-delivery-surfaces.md">not yet</straw-dog> |
+| creating a fresh tree's painted doors | — | <straw-dog until="a declaration parses its records, so the doors can be read rather than guessed" ticket="docs/tickets/01-0017.0010-terms-defined-before-they-land.md">not yet</straw-dog> |
+| removing one mechanism from a tree | — | <straw-dog until="the parts tables say what goes and something says how" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
+| sending a change back to the repository | — | <straw-dog until="contribution back has a shape" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
+
+## Install adds, uninstall removes
+
+| part | where |
+|---|---|
+| instruction file | `.agents/skills/harness/SKILL.md` |
+| this doc | `.agents/mechanisms/harness/harness.md` |
+| the script | `.agents/scripts/harness.py` |
+| its tests | `.agents/scripts/test/test_harness.py` |
+| the entry file | `AGENTS.md` |
+| the host stub | `CLAUDE.md` |
+| a loader link | `.claude/skills` |
+| a loader link | `.cursor/skills` |
+
+The entry file is this mechanism's whole file; two lines inside it are the shape's anchored
+parts, and nothing asks about the overlap.
+
+## Relies on, and does not own
+
+| part | where | owner |
+|---|---|---|
+| the installer | `.agents/scripts/inject_rules.py` | `mechanism-shape` |
+| citation reader | `.agents/scripts/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |
+| the shape check | `.agents/scripts/mechanisms.py` | `mechanism-shape` |
+| test harness | `.agents/scripts/test/repository.py` | `mechanism-shape` |
+| the listing script | `.agents/scripts/straw_dogs.py` | `maintain` |
+| the method's vocabulary | `.agents/glossary.md` | nobody removable |
+
+## What it produces, and who reads it
+
+- **The recipient's core** — read by its every session, through the loader links its hosts
+  follow.
+- **The stamped announce line** — announced by the recipient's first reply; read by `--check` and
+  `--update` to know what was installed, and by the shape check to know it stands in a recipient.
+- **The report** — read by whoever ran the script, and by the recipient's `/verify` where its
+  verification set names the check. Its `pending` lines are read by the person who runs them.
+- **The pending command** — read by a person, once, in an elevated prompt.
+
+No record. The line is the tree's, and nothing else is kept.
+
+## Not yet at the shape
+
+**Painted doors are not created.** The glossary says installing a mechanism creates them; no
+declaration parses its records yet, so a fresh tree receives core and no `docs/` at all.
+
+**The transformation is unguarded.** A change to the shear, the stamp or the local-block strip
+reaches every recipient as a reported edit; nothing checks a change against the recipients that
+exist.
+
+## What retires this
+
+A host that reads a repository directly at a ref, so that nothing need be copied and the ref is
+the tree's by construction. Until then a copy is the only way core reaches a tree, and the copy
+needs a revision and a check.
+
+## What would show it working, graded by someone who did not build it
+
+**The user, in frost_map.** That tree took the harness by hand on 2026-09-09 at a version its
+entry file still announces, refused one core check rather than duplicate its own state, and has
+built on the copy since. It writes its answers into a local file, takes an update from the
+repository, and the user grades: its local file survives byte-identical and its blocks are
+restored last; its `docs/` is untouched; its links resolve; its announce line names the ref; the
+gate passes, or says which of the five did not. An install that had to be hand-finished to reach
+`arrived: true` reads identically to success in the report, and only the grader can say which it
+was.

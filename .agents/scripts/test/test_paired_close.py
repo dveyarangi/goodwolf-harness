@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import unittest
 
-from harness import RepositoryCase
+from repository import RepositoryCase
 
 import move_doc
 

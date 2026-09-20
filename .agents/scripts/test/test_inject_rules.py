@@ -9,7 +9,7 @@ import os
 import stat
 import unittest
 
-from harness import RepositoryCase
+from repository import RepositoryCase
 
 import inject_rules
 

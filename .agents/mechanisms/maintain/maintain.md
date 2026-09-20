@@ -15,11 +15,8 @@ clean landings that no longer agrees. Agreement over a landed slice is verificat
 It is **installed**. A tree without it still runs its ring, unmaintained; the parts table below is
 what an installer adds and an uninstaller removes. It is reached from the ring in the entry file
 and from `/verify` naming it. Nothing in the entry file is its part: the ring belongs to the loop,
-and this mechanism sits on it.
-
-<straw-dog until="01-0010 is done" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">
-No installer exists yet; that moment is declared below, not assumed away.
-</straw-dog>
+and this mechanism sits on it. The harness mechanism places it in a tree with the rest of core;
+removing it alone is declared below as a gap, not assumed away.
 
 Its record is the marks — one row per mechanism per level, moved only by the closing step of a
 maintenance, from which dueness is derived.
@@ -80,7 +77,8 @@ repair-and-report, recording the cause in the evidence.
 | checking links outside a close | — | <straw-dog until="a link check runs outside a close, not only the mover's note over records a close rewrote" ticket="docs/tickets/01-0017-io-graph-coherent.md">not yet</straw-dog> |
 | cleaning inline comments in scope | — | elsewhere — verification applies the comment skill to landed work, `.agents/skills/verify/SKILL.md` |
 | running the verification set the scope touched | `.agents/skills/maintain/SKILL.md` | |
-| installing this mechanism into a tree, and removing it | — | <straw-dog until="an installer exists" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
+| installing this mechanism into a tree, with the rest of core | `.agents/scripts/harness.py` | |
+| removing this mechanism from a tree | — | <straw-dog until="the parts table says what goes and something says how" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
 | picking up a dream | — | unowned by design — the entry file says *may*, a permission and not a duty, while the dream skill is experimental |
 
 ## Install adds, uninstall removes
@@ -105,7 +103,7 @@ repair-and-report, recording the cause in the evidence.
 | the mover's tests | `.agents/scripts/test/test_failure_contract.py` | `ticket` |
 | the ticket maintainer | `.agents/scripts/tickets.py` | `ticket` |
 | citation reader | `.agents/scripts/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |
-| test harness | `.agents/scripts/test/harness.py` | `mechanism-shape` |
+| test harness | `.agents/scripts/test/repository.py` | `mechanism-shape` |
 | the shape check | `.agents/scripts/mechanisms.py` | `mechanism-shape` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 

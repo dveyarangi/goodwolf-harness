@@ -42,6 +42,11 @@ _TRAILING_PUNCTUATION = ".,;:"
 _INSTANCE_OWNED = re.compile(r"<installed by=\"local\">.*?</installed>", re.S)
 RETIRED_TAG = "<project-local>"
 _WRAPPER_OPENING = re.compile(r"<straw-dog\b[^<>]*>")
+# The entry file's announce line, which every session repeats. At the origin it carries a
+# hand-bumped version; in a recipient the harness mechanism stamps it `<repository>@<ref>`, and that `@` is
+# the one mark that tells the two trees apart — no record file, the line is the revision.
+ANNOUNCE = re.compile(r"^Entry contract: (?P<revision>[^,\r\n]+), (?P<date>\d{4}-\d{2}-\d{2})\.[ \t]*\r?$", re.M)
+ENTRY_FILE = "AGENTS.md"
 _TODO_BINDING = re.compile(r"^#\s*TODO\b.*docs/tickets/[\w./-]+\.md")
 _CODE_TOKENS = {tokenize.STRING, tokenize.COMMENT} | (
     {tokenize.FSTRING_MIDDLE} if hasattr(tokenize, "FSTRING_MIDDLE") else set()
@@ -264,6 +269,27 @@ def _prose_retargeted(text: str, retarget) -> str:
         return match.group(1) + (f"<{final}>" if bracketed else final) + match.group(3)
 
     return _DEFINITION.sub(rewritten, _INLINE.sub(rewritten, text))
+
+
+@dataclass(frozen=True)
+class Announced:
+    """What a recipient's entry file says it received: the repository's name and the ref."""
+
+    repository: str
+    ref: str
+
+
+def announced(root: Path) -> Announced | None:
+    """The `<repository>@<ref>` a tree's entry file announces, or `None` at the origin — whose
+    line carries a version and no `@` — and where there is no entry file or no line at all."""
+    entry = root / ENTRY_FILE
+    if not entry.is_file():
+        return None
+    line = ANNOUNCE.search(entry.read_text(encoding="utf-8"))
+    if line is None or "@" not in line.group("revision"):
+        return None
+    repository, _, ref = line.group("revision").partition("@")
+    return Announced(repository.strip(), ref.strip())
 
 
 @dataclass(frozen=True)

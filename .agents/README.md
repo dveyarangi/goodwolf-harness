@@ -6,29 +6,17 @@
 - Claude Code — `.claude/skills` → `../.agents/skills`
 - Cursor — `.cursor/skills` → `../.agents/skills`
 
-The links are tracked as symlinks (mode 120000).
-
-<straw-dog until="01-0010.0130 is done" ticket="docs/tickets/01-0010.0130-harness-installs-into-another-tree.md">
-Git for Windows writes `core.symlinks=false` on clone, so they check out as text files. After clone:
-
-```
-git config --local core.symlinks true
-git checkout -- .claude/skills .cursor/skills
-```
-
-Windows needs Developer Mode (Settings → System → For developers) or an elevated prompt to create
-a directory symlink. If checkout still yields a file, delete it and run
-`mklink /D .claude\skills ..\.agents\skills` (likewise for `.cursor\skills`). Creating these links
-is part of the installer's job once it exists; a junction is not an acceptable substitute, git
-would track it as a directory.
-</straw-dog>
-
-Both links are required: Claude Code and Cursor read only their own directory; Codex reads
-`.agents/skills` natively and needs none.
+The links are tracked as symlinks (mode 120000). Both are required: Claude Code and Cursor read
+only their own directory; Codex reads `.agents/skills` natively and needs none. `/harness` makes
+them, or hands the person the exact elevated command where the platform refuses to create one; a
+junction is never a substitute, since nothing sees through it. Git for Windows writes
+`core.symlinks=false` on clone, so a fresh clone checks the links out as text files until
+`git config --local core.symlinks true` and a re-checkout.
 
 ## Mechanical support
 
-[`scripts/`](./scripts/) holds what the harness derives and repairs mechanically: `move_doc.py`
+[`scripts/`](./scripts/) holds what the harness derives and repairs mechanically: `harness.py`
+places a ref of the repository into a tree, updates it and checks the copy, `move_doc.py`
 closes a ticket and its RFC together and repairs the citations that pointed at them,
 `straw_dogs.py` lists and retires straw dogs and guesses where an unwrapped one stands,
 `mechanisms.py` says whether a

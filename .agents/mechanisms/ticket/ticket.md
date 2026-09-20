@@ -71,7 +71,8 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | promoting a concern into a ticket | `.agents/skills/ticket/SKILL.md` | |
 | verifying a ticket's criteria against landed work | — | elsewhere — landing-time agreement is verification, `.agents/skills/verify/SKILL.md` |
 | writing an RFC's contents | — | elsewhere — what an RFC holds is planning's, `.agents/skills/plan/SKILL.md` |
-| installing this mechanism into a tree, and removing it | — | <straw-dog until="an installer exists" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
+| installing this mechanism into a tree, with the rest of core | `.agents/scripts/harness.py` | |
+| removing this mechanism from a tree | — | <straw-dog until="the parts table says what goes and something says how" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
 | reading how a shaped ticket reached its decisions | — | unowned by design — the durable home carries the decision with its provenance and the session record the align; looking it up needs no rule |
 
 ## Install adds, uninstall removes
@@ -96,7 +97,7 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | part | where | owner |
 |---|---|---|
 | citation reader | `.agents/scripts/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |
-| test harness | `.agents/scripts/test/harness.py` | `mechanism-shape` |
+| test harness | `.agents/scripts/test/repository.py` | `mechanism-shape` |
 | the installer | `.agents/scripts/inject_rules.py` | `mechanism-shape` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 
