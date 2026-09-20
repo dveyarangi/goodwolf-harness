@@ -10,7 +10,7 @@ Details are on the records named; this is the index.
 
 - **`/advise`** on the state of the project: no remote, no measurement rung, the record-to-harness
   ratio, and the hermetic-core check — which became
-  [01-0010.0140](../tickets/01-0010.0140-core-stands-alone.md) when a probe showed 22 core→instance
+  [01-0010.0140](../tickets/done/01-0010.0140-core-stands-alone.md) when a probe showed 22 core→instance
   links, 19 owned elsewhere.
 - **The separation align opened**, and its two blocking open issues settled from the recipient
   tree rather than from memory: both accounts of frost_map were true about different things; the

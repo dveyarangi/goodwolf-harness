@@ -148,7 +148,8 @@ done, which never arrives. This section states that so nobody re-investigates it
 
 ## What would show it working, graded by someone who did not build it
 
-<straw-dog until="R3 moves this story to the evidence" ticket="docs/tickets/done/01-0011.0025-archive-duty-reaches-maintain.md">Two graders, two questions, pre-registered at the align that declared this mechanism and its `/plan`.</straw-dog>
+Two graders, two questions, pre-registered at the align that declared this mechanism and its
+`/plan`.
 
 <straw-dog until="01-0017 is done" ticket="docs/tickets/01-0017-io-graph-coherent.md">**The session that declares `/plan`**</straw-dog>
 grades the pairing rule and the `Plan` bullet: did they hold against `/plan`'s own record shape,

@@ -566,7 +566,7 @@ accordingly.
 
 ## Hermetic core delivery — 2026-09-10
 
-**Status:** Minted as [01-0010.0140](./01-0010.0140-core-stands-alone.md) on the user's direction,
+**Status:** Minted as [01-0010.0140](./done/01-0010.0140-core-stands-alone.md) on the user's direction,
 after `/advise` recommended the check and the probe below showed it is not a simple addition. One
 decision-bearing child.
 

@@ -31,7 +31,7 @@ The three blocks then live were bound the same day.
 straw-dog rule says what a body is: *written to stand on its own, it is what a recipient receives
 once the wrapper is stripped, so it reads whole without the condition and names no ticket*.
 Decided by the user at [01-0011.0050](../tickets/done/01-0011.0050-shape-checked.md)'s align and
-twice re-stated at [01-0010.0140](../tickets/01-0010.0140-core-stands-alone.md)'s `/implement`:
+twice re-stated at [01-0010.0140](../tickets/done/01-0010.0140-core-stands-alone.md)'s `/implement`:
 first when six closed tickets had been written as bare ids, then when the repair put the ids
 back inside the wrappers — *consider what remains when the rule is migrated to another project
 without the ticket referenced; it should still make sense as it is*. The occasion is
@@ -42,7 +42,7 @@ and `/verify`'s sentence about it are wrapped on
 
 ## v11 — 2026-09-20
 
-**Two core changes, one occasion:** [01-0010.0140](../tickets/01-0010.0140-core-stands-alone.md)'s
+**Two core changes, one occasion:** [01-0010.0140](../tickets/done/01-0010.0140-core-stands-alone.md)'s
 implementation. The `repair` switch gains its four conditions as a paragraph under the table —
 the policy that `docs/process.md` had held since 2026-09-05, now in the file core reads — and
 *Core and instance* names *a ticket's own file* in words where it had illustrated with a ticket's
@@ -57,7 +57,7 @@ ticket will change, as you write it*; it now adds *or, for text already written,
 mints the ticket or decides that it will change it*. The occasion is
 [rule failure 3](../rule-failures.md#3-the-straw-dog-rule-sat-at-tier-1-and-three-straw-dogs-went-unwrapped--2026-09-14)'s
 second strike: sixteen bare links from core into `docs/` were counted as violations at
-[01-0010.0140](../tickets/01-0010.0140-core-stands-alone.md)'s align on 2026-09-20 and left
+[01-0010.0140](../tickets/done/01-0010.0140-core-stands-alone.md)'s align on 2026-09-20 and left
 unwrapped, because the rule binds to writing and nobody was writing them — they were written
 before the ticket existed and became provisional the day it was minted. Wrapped at the ticket's
 `/plan` the same day, with the amendment. **Same pass, one word:** *Core and instance* said

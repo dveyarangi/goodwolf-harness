@@ -158,7 +158,7 @@ parts.
 
 ## What would show it working, graded by someone who did not build it
 
-<straw-dog until="R3 moves this story to the evidence" ticket="docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md">Two graders, two questions, pre-registered at the align that declared this mechanism.</straw-dog>
+Two graders, two questions, pre-registered at the align that declared this mechanism.
 
 **The user** grades the shape amendments this declaration forced — installed text replacing
 injected pointers, a sentence about another mechanism being that mechanism's, and the record
@@ -166,7 +166,7 @@ obligation moving from *none by property* to *not yet*: did the shape change bec
 `/maintain` did not fit it, or was this declaration bent to fit the shape? A declaration
 hand-fixed until the check went quiet reads identically to success.
 
-<straw-dog until="R3 moves this story to the evidence" ticket="docs/tickets/done/01-0011.0025-archive-duty-reaches-maintain.md">**The session that declares the ticket mechanism**</straw-dog> grades this
+**The session that declares the ticket mechanism** grades this
 declaration as the first to lean on it: it takes the mover and the citation reader as its own,
 installs the paired-close block into the body, and retires the two `embedded` rows. Did those
 land against this doc as written, or did the doc have to be rewritten to receive them? **Graded

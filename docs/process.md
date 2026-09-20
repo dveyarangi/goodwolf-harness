@@ -32,7 +32,7 @@ Ticket names, `done/` moves, citation, and the queue table:
 
 The policy is the entry file's: the `repair` switch and its four conditions in
 [AGENTS.md § Autonomy](../AGENTS.md#autonomy), moved there on 2026-09-20 under
-[01-0010.0140](tickets/01-0010.0140-core-stands-alone.md) so that core carries what core reads. Its
+[01-0010.0140](tickets/done/01-0010.0140-core-stands-alone.md) so that core carries what core reads. Its
 decision record is in the [shared-harness ticket](tickets/01-0010-dev-harness-shared-and-local.md#resolutions-and-constraints).
 
 ## Verification

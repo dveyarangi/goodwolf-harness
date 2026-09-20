@@ -39,10 +39,7 @@ During the work, run the checks in the project's verification set, as
 [`/verify`](../verify/SKILL.md#the-verification-set) defines it. `/verify` is the
 verification of landed work; a local run of a subset is not that pass.
 
-Do not move the RFC to `done/` at the end of your work; `/maintain` does that.
-Once done, if relevant, and unless you need to take a break, use `/verify`
-and `/maintain` to review the work. Do not start a whole-tree maintenance
-pass.
+Once done, and unless you need to take a break, use `/verify`.
 
 Read `commit` from `AGENTS.md`. Do not commit until that switch allows it.
 Repair during the work follows the `repair` switch; it is not a substitute

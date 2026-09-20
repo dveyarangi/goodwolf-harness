@@ -11,7 +11,7 @@ whole delivery ring in a single session. Five commits of mine — `ALIGN`, `ALIG
 
 Details are on the records named.
 
-- **`.0140`'s align** ([the ticket](../tickets/01-0010.0140-core-stands-alone.md)). A **leak**
+- **`.0140`'s align** ([the ticket](../tickets/done/01-0010.0140-core-stands-alone.md)). A **leak**
   — a citation from core to a document only the instance has — is now a method-glossary term.
   No exemption list: instance-owned blocks are skipped mechanically, a `<straw-dog>` exempts
   nothing that ships, and a path under `docs/` is legitimate only as a **place** — a record some

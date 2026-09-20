@@ -6,9 +6,21 @@ rule's attribution stays inline on the rule, where it can be challenged at the m
 
 Declared by [01-0011.0010](../tickets/done/01-0011.0010-mechanism-declared.md), 2026-09-07.
 
+## Where the doc's story went, 2026-09-20
+
+The doc names its graders and its applications without naming the tickets, so that what a
+recipient reads stands on its own. The tickets are these: the second application of the shape
+was [01-0011.0022](../tickets/done/01-0011.0022-shape-survives-second-mechanism.md), which
+forced three amendments and found two rows the check would have failed; the third was
+[01-0011.0025](../tickets/done/01-0011.0025-archive-duty-reaches-maintain.md), the first
+record-bearing mechanism, which forced two more — one moment the shape had no row for, and one
+header bullet that fed a check nothing needed; the *run it over what already exists* rule's first
+real application was [01-0011.0050](../tickets/done/01-0011.0050-shape-checked.md)'s sweep; and
+the grader pre-registered for `/maintain` was named at `.0022`'s align.
+
 ## The leak check, 2026-09-20
 
-Added under [01-0010.0140](../tickets/01-0010.0140-core-stands-alone.md) as this mechanism's part:
+Added under [01-0010.0140](../tickets/done/01-0010.0140-core-stands-alone.md) as this mechanism's part:
 one more question of the register the check already walks. **Run over what already existed
 before any repair: 17 leaks and 8 skipped**, over 77 mentions of painted doors — sixteen leaks
 under `.agents/` (five citations of `docs/process.md`, two evidence links, six closed-ticket story

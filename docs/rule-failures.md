@@ -16,7 +16,7 @@ Whether this register and its rules become their own mechanism is
 **Rules in play:** [01-0011.0050](tickets/done/01-0011.0050-shape-checked.md)'s align, *Related* —
 core names a ticket in a binding, never a link, and *a bare ticket id was refused: it ships an
 origin id a recipient cannot verify and might collide with*; and
-[01-0010.0140](tickets/01-0010.0140-core-stands-alone.md)'s *What to build* — *the 34
+[01-0010.0140](tickets/done/01-0010.0140-core-stands-alone.md)'s *What to build* — *the 34
 ticket-naming links carry `.0050`'s form*. Both read at `/plan` the same day.
 
 **What happened.** The RFC carved the six links to *closed* tickets out of the rule — *the ticket
@@ -175,7 +175,7 @@ say what the practice was. Graded by the next mechanism rule written into the en
 on its ticket, or this strike counts twice.
 
 **Struck again, 2026-09-20 — a third cause.** At
-[01-0010.0140](tickets/01-0010.0140-core-stands-alone.md)'s align the same morning, sixteen bare
+[01-0010.0140](tickets/done/01-0010.0140-core-stands-alone.md)'s align the same morning, sixteen bare
 links from core into `docs/` were counted as violations, sequenced for the ticket's `/plan`, and
 left unwrapped; at `.0050`'s `/verify` the hunt found them again and the user asked why they were
 still bare. The rule was read at session start both times. **It binds to writing** — *as you write

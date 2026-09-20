@@ -7,11 +7,9 @@ policy is `/maintain`'s body, declared at [`.agents/mechanisms/maintain/`](../.a
 
 ## Current and agreed target
 
-The installed skills support the whole delivery ring. `/maintain` and its supporting scripts
-landed 2026-09-06 under [01-0010.0070](tickets/done/01-0010.0070-install-maintain.md), closed the
-same day, and `/maintain` was declared through the mechanism shape on 2026-09-07. Skill bodies
-have one physical home under `.agents/skills`, with host access described in
-[the installed harness](../.agents/README.md).
+The installed skills support the whole delivery ring, and `/maintain` is declared through the
+mechanism shape. Skill bodies have one physical home under `.agents/skills`, with host access
+described in [the installed harness](../.agents/README.md).
 
 The mechanism is one maintenance skill directing an integrated procedure over a declared scope,
 with supporting scripts under `.agents/scripts/` performing mechanically derivable work.

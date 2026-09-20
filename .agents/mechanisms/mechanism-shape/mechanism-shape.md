@@ -149,12 +149,10 @@ what says it happened.
 **Run it over what already exists has no bite here, and this is not a zero.** That rule exists so
 a check landing today cannot claim a clean history it never looked at. This is the first
 mechanism, so there is no prior corpus to sweep — not a corpus swept and found clean. The rule's
-first real application is <straw-dog until="R3 moves this story to the evidence" ticket="docs/tickets/done/01-0011.0050-shape-checked.md">the sweep that meets every skill installed before the shape existed</straw-dog>.
+first real application is the sweep that meets every skill installed before the shape existed.
 
-**Three declared mechanisms are still thin evidence for a shape.** The second application, at
-`01-0011.0022`, forced three amendments and found two rows the check would have failed; the third,
-at `01-0011.0025`, met the first record-bearing mechanism and forced two more — one moment the
-shape had no row for, and one header bullet that turned out to feed a check nothing needed. The
+**Three declared mechanisms are still thin evidence for a shape.** Each application so far forced
+amendments to it — what each one forced is in the evidence — and the
 <straw-dog until="01-0017 is done" ticket="docs/tickets/01-0017-io-graph-coherent.md">fourth meets the rest of the corpus at once</straw-dog>.
 
 ## What retires this
@@ -166,7 +164,7 @@ part, so retracting the mechanism takes its own entry point with it.
 
 ## What would show it working, graded by someone who did not build it
 
-The next mechanism declared — <straw-dog until="R3 moves this story to the evidence" ticket="docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md">`/maintain`</straw-dog> — either passes
+The next mechanism declared — `/maintain` — either passes
 this check unedited, or the check has to change to admit it. Which of those happens is the shape's
 first real test, and the session that runs it is not this one.
 

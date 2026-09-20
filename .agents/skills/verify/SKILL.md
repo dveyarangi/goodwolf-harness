@@ -45,8 +45,6 @@ named checks during the work; that run is not this pass.
 - Everything else goes to [/align](../align/SKILL.md): a missing, ambiguous or
   contradictory rule, a new foundational decision, or work beyond the authorization.
   Pause that change; independently authorized work continues.
-- Anything that can be maintained mechanically must be. If the script is missing, write
-  it — a missing script is work to do, not an excuse to leave the repair outstanding.
 
 <straw-dog until="the mechanism responsible for straw dogs is elected" ticket="docs/tickets/01-0016-responsibility-coherent.md">
 - Read the landed work against the pending tickets. What one of them will replace is a straw
