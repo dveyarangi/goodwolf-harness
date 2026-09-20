@@ -7,9 +7,11 @@ corpus in a temporary directory runs through the exact code the live tree runs t
 
 from __future__ import annotations
 
+import io
 import posixpath
 import re
 import subprocess
+import tokenize
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable
@@ -29,6 +31,18 @@ _FENCE = re.compile(r"^\s*(```|~~~)")
 _CODE_SPAN = re.compile(r"`[^`]*`")
 _ELSEWHERE = re.compile(r"^(?:https?|mailto|ftps?|tel|data|news|irc):|^//|^#")
 _DRIVE = re.compile(r"^[A-Za-z]:/")
+# What core may name under `docs/` is AGENTS.md § Core and instance; this module reads the mentions
+# and `mechanisms.py` rules on them. A path is a token from `docs/` over path characters, so a
+# sentence ending in one keeps its full stop and `docs/` followed by an ellipsis is no path at all.
+PATH_LITERAL = re.compile(r"docs/\w[\w./-]*")
+_TRAILING_PUNCTUATION = ".,;:"
+# Instance-owned blocks: the tag an author writes today, and the injected one that replaces it.
+_INSTANCE_OWNED = re.compile(r"<project-local>.*?</project-local>|<installed by=\"local\">.*?</installed>", re.S)
+_WRAPPER_OPENING = re.compile(r"<straw-dog\b[^<>]*>")
+_TODO_BINDING = re.compile(r"^#\s*TODO\b.*docs/tickets/[\w./-]+\.md")
+_CODE_TOKENS = {tokenize.STRING, tokenize.COMMENT} | (
+    {tokenize.FSTRING_MIDDLE} if hasattr(tokenize, "FSTRING_MIDDLE") else set()
+)
 
 
 @dataclass(frozen=True)
@@ -247,3 +261,103 @@ def _prose_retargeted(text: str, retarget) -> str:
         return match.group(1) + (f"<{final}>" if bracketed else final) + match.group(3)
 
     return _DEFINITION.sub(rewritten, _INLINE.sub(rewritten, text))
+
+
+@dataclass(frozen=True)
+class Mention:
+    """One path under `docs/` a core file names — by citation or as a bare literal — and whether an
+    instance-owned block holds it, which is the only thing that excuses it."""
+
+    line: int
+    path: str
+    instance_owned: bool
+
+
+class UnreadableCode(Exception):
+    """A script the tokenizer could not read. The caller reports it: a skip is not a pass."""
+
+
+def docs_mentioned(root: Path, citing: str, text: str) -> list[Mention]:
+    """Every path under `docs/` a document names, in document order.
+
+    Two readings of one text, positions shared. Tags are found through `without_code`, so a tag
+    written in a code span is an illustration and never a block. Paths are found with fences
+    blanked, so a path in a code span is the claim this corpus writes it as. A straw dog's opening
+    tag is blanked — its binding is not a citation — and what it wraps is read, because the shear
+    ships it. A citation resolving outside `docs/` is not this reading's business.
+    """
+    tagged = without_code(text)
+    owned = [span.span() for span in _INSTANCE_OWNED.finditer(tagged)]
+    openings = [span.span() for span in _WRAPPER_OPENING.finditer(tagged)]
+    readable = _blanked_spans(_without_fences(text), openings)
+    found: list[tuple[int, int, str]] = []
+    for start, target in _citations_at(readable):
+        record = cited_record(root, citing, target_of(target))
+        if record and record.startswith("docs/"):
+            found.append((start, start + len(target), record))
+    for token in PATH_LITERAL.finditer(_blanked_spans(readable, [(start, end) for start, end, _ in found])):
+        found.append((token.start(), token.end(), token.group(0).rstrip(_TRAILING_PUNCTUATION)))
+    return [
+        Mention(_line_at(text, start), path, any(begin <= start < end for begin, end in owned))
+        for start, _, path in sorted(found)
+    ]
+
+
+def docs_mentioned_in_code(text: str) -> list[Mention]:
+    """Every path under `docs/` a script names in a string or a comment.
+
+    A comment line beginning `TODO` that names its ticket is the code form of a straw dog, and its
+    path is its binding rather than a citation. Raises `UnreadableCode` where the tokenizer fails.
+    """
+    try:
+        tokens = list(tokenize.generate_tokens(io.StringIO(text).readline))
+    except (tokenize.TokenError, SyntaxError) as error:
+        raise UnreadableCode(str(error)) from error
+    found = []
+    for token in tokens:
+        if token.type == tokenize.COMMENT and _TODO_BINDING.match(token.string):
+            continue
+        if token.type in _CODE_TOKENS:
+            for literal in PATH_LITERAL.finditer(token.string):
+                found.append(Mention(token.start[0], literal.group(0).rstrip(_TRAILING_PUNCTUATION), False))
+    return found
+
+
+def _citations_at(text: str) -> list[tuple[int, str]]:
+    """Where each citation's destination starts, and what it says — outside code spans, as the rewriter reads."""
+    code_spans = [span.span() for span in _CODE_SPAN.finditer(text)]
+    found = []
+    for pattern in (_INLINE, _DEFINITION):
+        for match in pattern.finditer(text):
+            if any(start <= match.start(2) < end for start, end in code_spans):
+                continue
+            target = match.group(2)
+            bracketed = target.startswith("<") and target.endswith(">")
+            found.append((match.start(2) + (1 if bracketed else 0), target[1:-1] if bracketed else target))
+    return found
+
+
+def _without_fences(text: str) -> str:
+    """The same text, positions preserved, with fenced blocks blanked and code spans kept."""
+    kept: list[str] = []
+    inside_fence = False
+    for line in text.splitlines(keepends=True):
+        if _FENCE.match(line):
+            inside_fence = not inside_fence
+            kept.append(_blanked(line))
+        else:
+            kept.append(_blanked(line) if inside_fence else line)
+    return "".join(kept)
+
+
+def _blanked_spans(text: str, spans: list[tuple[int, int]]) -> str:
+    kept = list(text)
+    for start, end in spans:
+        for at in range(start, end):
+            if kept[at] not in "\r\n":
+                kept[at] = " "
+    return "".join(kept)
+
+
+def _line_at(text: str, offset: int) -> int:
+    return text.count("\n", 0, offset) + 1

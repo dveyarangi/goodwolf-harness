@@ -6,8 +6,10 @@
 `--check` reads every declaration under `.agents/mechanisms/` and reports its parts, its moments
 and what does not hold; then it asks the reverse question — is every installed skill named by a
 declaration, or does it say on its own first line that none does yet — and reports each skill
-with who claims it. `--index` renders the register from the same directories; no file holds it,
-and none is written.
+with who claims it; then it holds core to citing only what its mechanisms declare — every path
+under `docs/` a core file names is a painted door, is skipped inside an instance-owned block, or
+is a leak that fails the run, per AGENTS.md § Core and instance. `--index` renders the register
+from the same directories; no file holds it, and none is written.
 
 The script rules on form alone. Whether a moment should exist, whether an absence is honestly
 classified, and whether the prose is any good are judgements it records and never makes.
@@ -23,10 +25,49 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from docs_corpus import wrapper_of  # noqa: E402  (path set just above)
+from docs_corpus import (  # noqa: E402  (path set just above)
+    UnreadableCode,
+    corpus,
+    docs_mentioned,
+    docs_mentioned_in_code,
+    wrapper_of,
+)
 
 MECHANISMS = ".agents/mechanisms"
 SKILLS = ".agents/skills"
+CORE = ".agents/"
+ENTRY_FILE = "AGENTS.md"
+TESTS = ".agents/scripts/test/"
+RULE = "AGENTS.md § Core and instance"
+# What core may name under `docs/`: a painted door — a record some mechanism declares, the directory
+# or the one file — and never a particular record behind it. Held here by hand until each owner's
+# declaration parses; a row leaves with the ticket that makes it readable, and when the last is
+# gone the check reads declarations alone.
+PAINTED_DOORS = frozenset(
+    (
+        # TODO docs/tickets/01-0017.0010-terms-defined-before-they-land.md: the ticket mechanism's
+        # records are declared in prose; these rows go when `record-bearing` parses.
+        "docs/tickets/",
+        "docs/tickets/done/",
+        "docs/tickets/README.md",
+        # TODO docs/tickets/01-0017-io-graph-coherent.md: /align, /plan, /spec, /conclude, /dream
+        # and /setup-devops are undeclared; each row goes with its owner's declaration.
+        "docs/glossary.md",
+        "docs/architecture.md",
+        "docs/concerns.md",
+        "docs/adr/",
+        "docs/rfc/",
+        "docs/rfc/done/",
+        "docs/spec/",
+        "docs/sessions/",
+        "docs/dreams/",
+        "docs/cicd.md",
+        # TODO docs/tickets/01-0010.0100-remaining-named-corpus.md: /edge's record.
+        "docs/edge/",
+        # TODO docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md: the register.
+        "docs/rule-failures.md",
+    )
+)
 KINDS = ("elsewhere", "embedded", "unowned by design", "not yet")
 # A skill's own claim says nothing owns it; a kind that points at what does is not that claim.
 CLAIM = "Mechanism:"
@@ -149,17 +190,40 @@ class Skill:
 
 
 @dataclass(frozen=True)
+class Citation:
+    """One path under `docs/` a core file names, and where it stands: a painted door, skipped
+    inside an instance-owned block, or a leak."""
+
+    file: str
+    line: int
+    cites: str
+    standing: str
+
+    def as_record(self) -> dict:
+        return {"file": self.file, "line": self.line, "cites": self.cites}
+
+
+STANDINGS = {"painted door": "painted doors", "skipped": "skipped", "leak": "leaks"}
+
+
+@dataclass(frozen=True)
 class Checked:
     """What one reading of every declaration found. Every check here can always run."""
 
     declarations: list[Declaration]
     skills: list[Skill]
+    cites: list[Citation]
     diagnostics: list[Diagnostic]
 
     def as_record(self) -> dict:
+        # Three classes and never a total: an exclusion nobody can see is the review this replaces.
         return {
             "declarations": [declared.as_record() for declared in self.declarations],
             "skills": [skill.as_record() for skill in self.skills],
+            "core cites": {
+                key: [cite.as_record() for cite in self.cites if cite.standing == standing]
+                for standing, key in STANDINGS.items()
+            },
             "diagnostics": [note.as_record() for note in self.diagnostics],
         }
 
@@ -223,7 +287,55 @@ def check(root: Path) -> Checked:
         diagnostics += _problems(root, declared, text)
     skills = _skills(root, declarations)
     diagnostics += _skill_problems(root, skills)
-    return Checked(declarations, skills, diagnostics)
+    cites, unreadable = _core_cites(root)
+    diagnostics += unreadable + _leaks(cites)
+    return Checked(declarations, skills, cites, diagnostics)
+
+
+def _core_cites(root: Path) -> tuple[list[Citation], list[Diagnostic]]:
+    """Every path under `docs/` a core file names, with its standing; and the scripts that could
+    not be read, which are diagnostics rather than passes."""
+    cites: list[Citation] = []
+    unreadable: list[Diagnostic] = []
+    for name in _core_files(root):
+        text = (root / name).read_text(encoding="utf-8")
+        if name.endswith(".md"):
+            mentions = docs_mentioned(root, name, text)
+        else:
+            try:
+                mentions = docs_mentioned_in_code(text)
+            except UnreadableCode as error:
+                unreadable.append(Diagnostic(name, f"{name} could not be read for citations: {error}"))
+                continue
+        cites += [Citation(name, seen.line, seen.path, _standing(seen)) for seen in mentions]
+    return cites, unreadable
+
+
+def _core_files(root: Path) -> list[str]:
+    """What ships and is read: every `.md` and every non-test `.py` under `.agents/`, and the entry
+    file. A test's `docs/` literal is fixture data for a tree the test builds."""
+    return [
+        name
+        for name in corpus(root)
+        if name == ENTRY_FILE
+        or (name.startswith(CORE) and (name.endswith(".md") or (name.endswith(".py") and not name.startswith(TESTS))))
+    ]
+
+
+def _standing(seen) -> str:
+    if seen.instance_owned:
+        return "skipped"
+    if seen.path in PAINTED_DOORS or seen.path + "/" in PAINTED_DOORS:
+        return "painted door"
+    return "leak"
+
+
+def _leaks(cites: list[Citation]) -> list[Diagnostic]:
+    return [
+        Diagnostic(cite.file, f"{cite.file}:{cite.line} cites {cite.cites}, a document only the instance has — {RULE}")
+        for cite in cites
+        if cite.standing == "leak"
+    ]
 
 
 def _problems(root: Path, declared: Declaration, text: str) -> list[Diagnostic]:

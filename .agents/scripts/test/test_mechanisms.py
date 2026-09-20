@@ -729,6 +729,129 @@ class TheReversePass(Declared):
         )
 
 
+DOCUMENT = "docs/tickets/01-0001-sample.md"
+CITING = ".agents/skills/sample/NOTES.md"
+
+
+class CoreStandsAlone(Declared):
+    """Core may name a painted door under `docs/` and nothing else — AGENTS.md § Core and instance."""
+
+    def leaks(self) -> list[tuple[str, int, str]]:
+        return [(c.file, c.line, c.cites) for c in self.checked().cites if c.standing == "leak"]
+
+    def standing(self, standing: str, file: str = CITING) -> list[str]:
+        """What one file's mentions stand as; the fixture's own doc carries a skipped evidence bullet."""
+        return [c.cites for c in self.checked().cites if c.standing == standing and c.file == file]
+
+    def cites_from(self, file: str) -> list[str]:
+        return [c.cites for c in self.checked().cites if c.file == file]
+
+    def test_a_link_to_a_particular_document_fails_the_run_naming_the_line_and_the_rule(self) -> None:
+        self.write(CITING, f"# Notes\n\nSee [the ticket](../../../{DOCUMENT}).\n")
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems))
+        self.assertIn(f"{CITING}:3 cites {DOCUMENT}", problems[0])
+        self.assertIn("Core and instance", problems[0])
+        self.assertEqual([(CITING, 3, DOCUMENT)], self.leaks())
+
+    def test_a_painted_door_passes_and_is_reported_as_one(self) -> None:
+        self.write(CITING, "# Notes\n\nThe queue is `docs/tickets/README.md`, under docs/tickets.\n")
+
+        self.assertEqual([], self.problems())
+        self.assertEqual(["docs/tickets/README.md", "docs/tickets"], self.standing("painted door"))
+
+    def test_a_directory_row_covers_itself_and_not_a_path_beneath_it(self) -> None:
+        self.write(CITING, f"# Notes\n\n`docs/tickets/` holds `{DOCUMENT}`.\n")
+
+        self.assertEqual([(CITING, 3, DOCUMENT)], self.leaks())
+        self.assertEqual(["docs/tickets/"], self.standing("painted door"))
+
+    def test_a_citation_inside_an_instance_owned_block_is_skipped_and_reported(self) -> None:
+        self.write(
+            CITING,
+            "# Notes\n\n<project-local>\nEvidence: `docs/mechanisms/sample.evidence.md`\n</project-local>\n\n"
+            f'<installed by="local">\nSee [it](../../../{DOCUMENT}).\n</installed>\n',
+        )
+
+        self.assertEqual([], self.problems())
+        self.assertEqual(["docs/mechanisms/sample.evidence.md", DOCUMENT], self.standing("skipped"))
+
+    def test_a_citation_inside_a_straw_dog_is_a_leak_and_its_binding_is_not(self) -> None:
+        self.write(
+            CITING,
+            f'# Notes\n\n<straw-dog until="x" ticket="docs/tickets/01-0002-sweep.md">\n'
+            f"See [it](../../../{DOCUMENT}).\n</straw-dog>\n",
+        )
+
+        self.assertEqual([(CITING, 4, DOCUMENT)], self.leaks())
+
+    def test_a_fence_is_an_illustration_and_a_code_span_is_a_claim(self) -> None:
+        self.write(CITING, f"# Notes\n\n```\n[x](../../../{DOCUMENT})\n```\n\nBut `{DOCUMENT}` is.\n")
+
+        self.assertEqual([(CITING, 7, DOCUMENT)], self.leaks())
+
+    def test_a_tag_written_in_a_code_span_is_not_a_block(self) -> None:
+        self.write(CITING, f"# Notes\n\nEvery `<project-local>` block.\n\nSee [it](../../../{DOCUMENT}).\n")
+
+        self.assertEqual([(CITING, 5, DOCUMENT)], self.leaks())
+
+    def test_a_trailing_full_stop_is_not_part_of_the_path(self) -> None:
+        self.write(CITING, "# Notes\n\nWrite it under docs/sessions.\n")
+
+        self.assertEqual([], self.problems())
+        self.assertEqual(["docs/sessions"], self.standing("painted door"))
+
+    def test_a_citation_outside_docs_is_not_this_checks_business(self) -> None:
+        self.write(CITING, "# Notes\n\nSee [the skill](./SKILL.md) and [the entry file](../../../AGENTS.md).\n")
+
+        self.assertEqual([], self.problems())
+        self.assertEqual([], self.cites_from(CITING))
+
+    def test_a_todo_naming_its_ticket_in_code_is_a_binding(self) -> None:
+        self.write(".agents/scripts/later.py", "# TODO docs/tickets/01-0002-sweep.md: the shear strips this\nX = 1\n")
+
+        self.assertEqual([], self.problems())
+        self.assertEqual([], self.cites_from(".agents/scripts/later.py"))
+
+    def test_a_string_literal_in_code_naming_a_document_fails(self) -> None:
+        self.write(".agents/scripts/later.py", f'# a note\nNAME = "{DOCUMENT}"\n')
+
+        self.assertEqual([(".agents/scripts/later.py", 2, DOCUMENT)], self.leaks())
+
+    def test_a_test_file_is_fixture_data_and_is_not_read(self) -> None:
+        self.write(".agents/scripts/test/test_later.py", f'NAME = "{DOCUMENT}"\n')
+
+        self.assertEqual([], self.problems())
+
+    def test_a_python_file_that_cannot_be_read_is_a_diagnostic_not_a_pass(self) -> None:
+        self.write(".agents/scripts/later.py", 'X = """never closed\n')
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems))
+        self.assertIn(".agents/scripts/later.py could not be read", problems[0])
+
+    def test_the_entry_file_is_core_and_is_read(self) -> None:
+        self.write("AGENTS.md", f"- Doing it {TRIGGER} /sample; see [it](./{DOCUMENT}).\n")
+
+        self.assertEqual([("AGENTS.md", 1, DOCUMENT)], self.leaks())
+
+    def test_the_report_carries_the_three_classes_and_no_total(self) -> None:
+        self.write(CITING, f"# Notes\n\n<project-local>\n`{DOCUMENT}`\n</project-local>\n`docs/adr/` and `{DOCUMENT}`.\n")
+
+        report = self.checked().as_record()["core cites"]
+
+        self.assertEqual({"painted doors", "skipped", "leaks"}, set(report))
+        self.assertEqual(
+            [{"file": CITING, "line": 4, "cites": DOCUMENT}],
+            [entry for entry in report["skipped"] if entry["file"] == CITING],
+        )
+        self.assertEqual([{"file": CITING, "line": 6, "cites": "docs/adr/"}], report["painted doors"])
+        self.assertEqual([{"file": CITING, "line": 6, "cites": DOCUMENT}], report["leaks"])
+
+
 if __name__ == "__main__":
     unittest.main()
 

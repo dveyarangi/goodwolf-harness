@@ -6,6 +6,32 @@ rule's attribution stays inline on the rule, where it can be challenged at the m
 
 Declared by [01-0011.0010](../tickets/done/01-0011.0010-mechanism-declared.md), 2026-09-07.
 
+## The leak check, 2026-09-20
+
+Added under [01-0010.0140](../tickets/01-0010.0140-core-stands-alone.md) as this mechanism's part:
+one more question of the register the check already walks. **Run over what already existed
+before any repair: 17 leaks and 8 skipped**, over 77 mentions of painted doors — sixteen leaks
+under `.agents/` (five citations of `docs/process.md`, two evidence links, six closed-ticket story
+links, three prose tokens that only looked like paths) and one in the entry file, its own
+illustration of a ticket's path. The 2026-09-10 probe had counted 27 from a text search; the
+difference is what a resolver finds that a search does not, and what `.0050` had already turned
+into bindings.
+
+**What was refuted.** A file of the painted doors — tried on 2026-09-20 under `.0050` and refused
+as an index committed beside its records, [rule failure 5](../rule-failures.md); the list is the
+check's own data under a `TODO` per ticket that removes its rows. An exemption for a `<straw-dog>`
+— the shear ships what it wraps, so the exemption only moved the failure to the port. Reading tags
+on the raw text — the entry file's own sentence *a recipient replaces every `<project-local>`
+block* would have been read as a block and swallowed ninety lines; tags are read through the
+corpus's code-blanked view, paths through the fence-blanked one. A code span as an illustration —
+the format shelf backticks every path, so a code span is how this corpus writes a claim; fences
+stay illustrations.
+
+**What it cost.** The verification set's definition moved out of the instance half into
+`/verify`, the repair policy's four conditions under the `repair` switch, and this project's
+commands into the entry file's local block, because `docs/process.md` is the pacer's straw dog
+whole and core had been reading rules from a file a recipient replaces.
+
 ## Refuted before the doc was written
 
 **The whole-mechanism verdict.** The first design gave each mechanism one answer about how
