@@ -121,7 +121,7 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
   that another skill reads. Its blocks sit in `/maintain`, `/plan` and `/align`.
 
 Nothing else; no index of its own. The register of tickets is the queue, and it is
-[.0040](../../../docs/tickets/01-0011.0040-queue-derived-index.md)'s to derive.
+<straw-dog until="01-0011.0040 is done" ticket="docs/tickets/01-0011.0040-queue-derived-index.md">.0040</straw-dog>'s to derive.
 
 ## Not yet at the shape
 
@@ -150,15 +150,15 @@ done, which never arrives. This section states that so nobody re-investigates it
 ## What would show it working, graded by someone who did not build it
 
 Two graders, two questions, pre-registered at
-[01-0011.0025](../../../docs/tickets/done/01-0011.0025-archive-duty-reaches-maintain.md)'s align and
+<straw-dog until="01-0010.0140 is done" ticket="docs/tickets/01-0010.0140-core-stands-alone.md">[01-0011.0025](../../../docs/tickets/done/01-0011.0025-archive-duty-reaches-maintain.md)</straw-dog>'s align and
 `/plan`.
 
-**The session that declares `/plan`**, under [01-0017](../../../docs/tickets/01-0017-io-graph-coherent.md),
+**The session that declares `/plan`**, under <straw-dog until="01-0017 is done" ticket="docs/tickets/01-0017-io-graph-coherent.md">01-0017</straw-dog>,
 grades the pairing rule and the `Plan` bullet: did they hold against `/plan`'s own record shape,
 or did this doc claim of an RFC what `/plan`'s declaration had to take back? A pairing check that
 had to be moved out of `tickets.py` is this doc having claimed too much.
 
-**The session that lands [.0030](../../../docs/tickets/01-0011.0030-archive-backlog-listed.md)**
+**The session that lands <straw-dog until="01-0011.0030 is done" ticket="docs/tickets/01-0011.0030-archive-backlog-listed.md">.0030</straw-dog>**
 grades the record declaration as the first reader that was written for: was the shelf's *The
 record* enough to read eligibility from — the boxes, the `/verify` box, the folder — or did the
 shape have to be amended to make the listing possible? A shape amended by its first reader was

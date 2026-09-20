@@ -77,8 +77,12 @@ The accepted shared method and supporting assets governed at their canonical sou
 **Project-local**:
 Instructions or assets owned by a consuming project for its particular circumstances. Local ownership alone does not settle precedence when they conflict with core.
 
+**Painted door**:
+A path under `docs/` that a mechanism declares as where its records live — the directory, or the one file that is a record — which every recipient has because installing the mechanism creates it. A particular record inside one is a document, not a painted door.
+_Avoid_: place, path convention.
+
 **Leak**:
-A citation from core to a document only the instance has. A place a mechanism declares for its records is not one; a particular record inside that place is.
+A citation from core to a document only the instance has. A painted door is not one; a particular record behind it is.
 _Avoid_: reach, dangling link, cross-reference as names for this.
 
 **Open issue**:

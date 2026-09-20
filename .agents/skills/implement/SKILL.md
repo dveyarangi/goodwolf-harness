@@ -36,7 +36,7 @@ as `TODO` too; without a ticket they are notes, and the listing script reports
 them as guesses.
 
 During the work, run the checks named in
-[Verification](../../../docs/process.md#verification). `/verify` is the
+<straw-dog until="01-0010.0140 is done" ticket="docs/tickets/01-0010.0140-core-stands-alone.md">[Verification](../../../docs/process.md#verification)</straw-dog>. `/verify` is the
 verification of landed work; a local run of a subset is not that pass.
 
 Do not move the RFC to `done/` at the end of your work; `/maintain` does that.

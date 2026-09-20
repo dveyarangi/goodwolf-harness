@@ -24,6 +24,20 @@ Decided by the user, recorded in
 [01-0010.0020](../tickets/done/01-0010.0020-live-alignment-across-hosts.md#what-this-ticket-does-not-decide).
 The three blocks then live were bound the same day.
 
+## v10 — 2026-09-20
+
+**One core change:** the straw-dog rule gains a second occasion. It read *wrap anything a live
+ticket will change, as you write it*; it now adds *or, for text already written, in the pass that
+mints the ticket or decides that it will change it*. The occasion is
+[rule failure 3](../rule-failures.md#3-the-straw-dog-rule-sat-at-tier-1-and-three-straw-dogs-went-unwrapped--2026-09-14)'s
+second strike: sixteen bare links from core into `docs/` were counted as violations at
+[01-0010.0140](../tickets/01-0010.0140-core-stands-alone.md)'s align on 2026-09-20 and left
+unwrapped, because the rule binds to writing and nobody was writing them — they were written
+before the ticket existed and became provisional the day it was minted. Wrapped at the ticket's
+`/plan` the same day, with the amendment. **Same pass, one word:** *Core and instance* said
+*places* for what core may name under `docs/`; the user chose the install spec's word, and the
+method glossary now defines **painted door**, with *place* and *path convention* under *Avoid*.
+
 ## v9 — 2026-09-20
 
 **One core change:** the announce sentence now also says *start every session by running

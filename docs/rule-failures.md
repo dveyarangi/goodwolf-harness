@@ -138,6 +138,21 @@ occasions read is installed everywhere it is read, the owner's own skill include
 say what the practice was. Graded by the next mechanism rule written into the entry file: wrapped
 on its ticket, or this strike counts twice.
 
+**Struck again, 2026-09-20 — a third cause.** At
+[01-0010.0140](tickets/01-0010.0140-core-stands-alone.md)'s align the same morning, sixteen bare
+links from core into `docs/` were counted as violations, sequenced for the ticket's `/plan`, and
+left unwrapped; at `.0050`'s `/verify` the hunt found them again and the user asked why they were
+still bare. The rule was read at session start both times. **It binds to writing** — *as you write
+it* — and nobody was writing them: every one was written before `.0140` existed, on 2026-09-10,
+and became text a live ticket will change the day the ticket was minted. Minting is the occasion,
+and the rule had no sentence for it; the reading-side rule that does exist is `/verify`'s hunt,
+wrapped on 01-0016, which fires at a close and not at a decision.
+
+**Amendment, landed the same day.** The tier-1 sentence gains the second occasion: *or, for text
+already written, in the pass that mints the ticket or decides that it will change it* — entry
+contract v10. The sixteen are wrapped at `.0140`'s `/plan`. Graded by the next ticket minted
+against existing text: wrapped in the minting pass, or this entry counts three times.
+
 ## 2. A partial sweep was reported as a settled count — 2026-09-10
 
 **Rule in play:** [`/maintain`](../.agents/skills/maintain/SKILL.md) — **B1** *"Declare the scope

@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v9, 2026-09-20.
+Entry contract: v10, 2026-09-20.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -44,7 +44,7 @@ What core may not do is **depend** on it. Nothing under `.agents/` may reference
 or rely on one for its instruction or for any separable part of its own functioning. A core file
 may name a path under `docs/` only when that path is a record a mechanism declares — the directory
 that holds a kind of record, or a file that is one — never a particular record inside such a
-directory: `docs/tickets/` and `docs/glossary.md` are places, `docs/tickets/01-0020-pacer.md` is a
+directory: `docs/tickets/` and `docs/glossary.md` are painted doors, `docs/tickets/01-0020-pacer.md` is a
 document only this project has. Content inside a
 [`<project-local>`](#project-local) block is the instance's, not core's. A `<straw-dog>` exempts
 nothing: its wrapper is stripped on install and whatever it wrapped ships.
@@ -126,7 +126,8 @@ A recipient replaces every `<project-local>` block with its own → [glossary](.
 
 ## Straw dogs
 
-Wrap anything a live ticket will change, as you write it:
+Wrap anything a live ticket will change, as you write it — or, for text already written, in the
+pass that mints the ticket or decides that it will change it:
 `<straw-dog until="condition" ticket="path">`, or in code a `TODO` naming the ticket. Treat *not
 yet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find
 the ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.

@@ -95,7 +95,7 @@ applying the spec's ownership decision)*.
 
 - **This declaration** — read by whoever amends a mechanism or debugs one, and parsed by the check
   on every `/verify`.
-- **[The evidence](../../../docs/mechanisms/mechanism-shape.evidence.md)** — read at amend time,
+- **<straw-dog until="01-0010.0140 is done" ticket="docs/tickets/01-0010.0140-core-stands-alone.md">[The evidence](../../../docs/mechanisms/mechanism-shape.evidence.md)</straw-dog>** — read at amend time,
   by whoever is about to change this doc and needs to know what was already refuted. Never read
   during ordinary work, which is why it lives outside `.agents/` and is excluded from re-checks.
 - **`--check`'s report** — read by `/verify` through the verification set, and by anyone who runs
@@ -144,14 +144,14 @@ what says it happened.
 **Run it over what already exists has no bite here, and this is not a zero.** That rule exists so
 a check landing today cannot claim a clean history it never looked at. This is the first
 mechanism, so there is no prior corpus to sweep — not a corpus swept and found clean. The rule's
-first real application is [.0050](../../../docs/tickets/done/01-0011.0050-shape-checked.md), whose
+first real application is <straw-dog until="01-0010.0140 is done" ticket="docs/tickets/01-0010.0140-core-stands-alone.md">[.0050](../../../docs/tickets/done/01-0011.0050-shape-checked.md)</straw-dog>, whose
 sweep meets every skill installed before the shape existed.
 
 **Three declared mechanisms are still thin evidence for a shape.** The second application, at
 `01-0011.0022`, forced three amendments and found two rows the check would have failed; the third,
 at `01-0011.0025`, met the first record-bearing mechanism and forced two more — one moment the
 shape had no row for, and one header bullet that turned out to feed a check nothing needed. The
-fourth is [01-0017](../../../docs/tickets/01-0017-io-graph-coherent.md)'s, and it meets the rest of
+fourth is <straw-dog until="01-0017 is done" ticket="docs/tickets/01-0017-io-graph-coherent.md">01-0017</straw-dog>'s, and it meets the rest of
 the corpus at once.
 
 ## What retires this
@@ -164,7 +164,7 @@ part, so retracting the mechanism takes its own entry point with it.
 ## What would show it working, graded by someone who did not build it
 
 The next mechanism declared — `/maintain`, at
-[.0022](../../../docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md) — either passes
+<straw-dog until="01-0010.0140 is done" ticket="docs/tickets/01-0010.0140-core-stands-alone.md">[.0022](../../../docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md)</straw-dog> — either passes
 this check unedited, or the check has to change to admit it. Which of those happens is the shape's
 first real test, and the session that runs it is not this one.
 
