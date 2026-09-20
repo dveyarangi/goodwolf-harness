@@ -1,6 +1,6 @@
 # Delivery status
 
-**Last updated:** 2026-09-10
+**Last updated:** 2026-09-20
 
 **Completed step:** `/discover` over the repository premise, 2026-09-10, filed on [01-0010](01-0010-dev-harness-shared-and-local.md#discover--the-premise-2026-09-10). The delivery ring's last step is still `/maintain` on [01-0011.0025](done/01-0011.0025-archive-duty-reaches-maintain.md), 2026-09-09 — the paired close of the ticket mechanism's slice, the first close the installed archive duty governed rather than a hand copy. What every earlier pass decided is on the tickets that own it and in the session records under `docs/sessions/`. **Separation now precedes the coherence chain** *(the user, 2026-09-09, on [the frost_map probe](../research/separation-probe-frost-map.md))*: [01-0010.0130](01-0010.0130-harness-installs-into-another-tree.md) takes its `/align` jointly with [01-0010.0110](01-0010.0110-project-facets-injected.md)'s. Behind them the spec's ordering is unchanged: the four rule refactors, then [01-0020](01-0020-pacer.md), which wants the Tier 1 placement rule that [01-0018](01-0018-reachability-coherent.md) settles; [01-0010.0080](01-0010.0080-impact-work-shape.md) stays Ready beside them. The verification set is 216 behavioral tests over the maintenance scripts, `mechanisms.py --check` over the declared mechanisms, `inject_rules.py --check` over the rules files and their blocks, and `tickets.py --check` over the live ticket records; the straw dogs are what `straw_dogs.py docs AGENTS.md .agents` lists, sixteen on 2026-09-09, all bound, no condition met — `tests` left that list on 2026-09-09 when the suite moved to `.agents/scripts/test/`, inside the scope `.agents` already covers. The suite runs in well under a minute since 2026-09-09 — 69s measured that day, 37.6s on 2026-09-10 — down from 118s: `setUp` was `git init` plus two `git config`, three process spawns and 59% of the wall clock, and each case now stamps a copy of one template `.git` that Git builds once per process.
 
@@ -31,10 +31,14 @@ fits one RFC. The chain is now [01-0010.0140](01-0010.0140-core-stands-alone.md)
 [01-0010.0110](01-0010.0110-project-facets-injected.md) → [01-0010.0130](01-0010.0130-harness-installs-into-another-tree.md),
 with `.0130` also waiting on `.0050` for the manifest — so `.0050` is on the critical path again, as
 the one AFK slice that unblocks the installer. **The candidate is `.0140`'s align, and `.0050` beside
-it.** **Next cycle needs a nod**
+it.** [01-0020](01-0020-pacer.md)'s align opened 2026-09-20 on the wake rule alone — every
+session runs `/recall` first, at entry contract v9, wrapped on the ticket until the pacer is
+declared and installs it — and its remaining decisions stay open; the candidate is unchanged.
+**Next cycle needs a nod**
 (`next-cycle=ask`). Resume by opening a fresh session here, confirming its first line is the entry
-contract [AGENTS.md](../../AGENTS.md) declares, and taking the current pass above; where the wake
-lands until the pacer exists is [pacer.md](../pacer.md#core-rules--under-alignment)'s.
+contract [AGENTS.md](../../AGENTS.md) declares and its first act is `/recall`, and taking the
+current pass above; what follows the wake until the pacer exists is
+[pacer.md](../pacer.md#core-rules--under-alignment)'s.
 
 **Outside the ring, 2026-09-09, on the user's direction.** `/recall`, `/edge`, `/review-architecture`
 and `/setup-devops` were installed from their accepted sources, which **completes the selection's
@@ -73,7 +77,7 @@ version covers, which today names five of its nine sections.
 | [What each host can say without being asked](01-0010.0120-host-delivery-surfaces.md) | Ready | HITL | The harness knows, from observation rather than assumption, what Claude Code, Codex and Cursor each place in front of an agent without being asked; that capability is recorded with what cannot be confirmed about it; and the decision of whether this harness takes a dynamic tier-1 surface at all is landed in its durable home, unblocking the slices that assume one. |
 | [The remaining named corpus arrives](01-0010.0100-remaining-named-corpus.md) | Partial (all five installed by 2026-09-09; nothing else met) | HITL | `/advise`, `/skill-up`, `/commit`, `/celebrate` and `/edge` are installed from the accepted selection, discoverable, each used once, and the core changes they owe are landed with them. |
 | [The harness changes its own rules by stated meta-rules](01-0019-harness-amends-itself-by-explicit-meta-rules.md) | Blocked (accumulating evidence) | HITL | Amending the harness's own rules follows stated meta-rules — how a failure is registered, when a rule is reworded, what counts as evidence that it did not work — instead of a judgement made afresh each time; and whether that is its own mechanism is answered from strikes rather than from argument. |
-| [Pacer](01-0020-pacer.md) | Planned (own align precedes) | HITL | The agent knows, on every turn, what it does after `/recall` and what the turn's reply is scoped to, from Tier 1 rules in the entry file; and after a session break the next session resumes the delivery ring at the step it stopped, stopping only for a HITL escalation. |
+| [Pacer](01-0020-pacer.md) | In progress (align underway; first core rule landed 2026-09-20) | HITL | The agent knows, on every turn, what it does after `/recall` and what the turn's reply is scoped to, from Tier 1 rules in the entry file; and after a session break the next session resumes the delivery ring at the step it stopped, stopping only for a HITL escalation. |
 
 The [initial comparison](../research/audit-2026-09-05/REPORT.md) is complete. Decisions, rather than missing comparison evidence, now gate extraction.
 

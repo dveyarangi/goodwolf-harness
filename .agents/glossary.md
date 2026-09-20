@@ -24,7 +24,7 @@ Text or code a live ticket will change, wrapped in a `<straw-dog>` bound to that
 _Avoid_: temporary statement, temporary, placeholder, stub, interim, hack.
 
 **Rules file**:
-The one authored home of the rules a mechanism sends into skills it does not own: `<slug>.rules.md` in its own directory, machine input for the installer, read by nobody at session time.
+The one authored home of the rules a mechanism installs into skills, its own included: `<slug>.rules.md` in its own directory, machine input for the installer, read by nobody at session time.
 
 **Installed block**:
 A mechanism's rules as they reach a skill: one `<installed>` block per mechanism per target, written by the installer from the rules file and compared against it, never edited where it sits.
