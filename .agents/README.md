@@ -34,7 +34,8 @@ Which links are actually required is untested. Codex needs none; Cursor document
 closes a ticket and its RFC together and repairs the citations that pointed at them,
 `straw_dogs.py` lists and retires straw dogs and guesses where an unwrapped one stands,
 `mechanisms.py` says whether a
-mechanism's declaration is true and renders the register from
+mechanism's declaration is true, holds core to citing only the painted doors its mechanisms
+declare, and renders the register from
 [`mechanisms/`](./mechanisms/), `inject_rules.py` installs a mechanism's rules into the skills
 its rules file names and takes them out again, `tickets.py` holds every live ticket to the shape
 the ticket format shelf declares, and `docs_corpus.py` is the one view of the
