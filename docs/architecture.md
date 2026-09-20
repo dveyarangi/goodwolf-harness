@@ -151,15 +151,17 @@ an entry file still carrying a retired `<project-local>` block, whose content is
 Every refusal changes no file. A loader link is a symlink resolving to the skills directory; a
 junction, a directory or a file in its place is refused by name; a link that already resolves is
 left alone; and where the platform refuses to create one, the run finishes everything else,
-reports the link as pending with the exact elevated command for that tree, and arrival stays
-false until the link resolves. Nothing is substituted for a link.
+reports the link as pending with the exact elevated command for that tree. Nothing is
+substituted for a link, and a link never decides arrival: the links are reported beside the
+verdict, resolving or not.
 
-Arrival is the check: the announced ref compared, the injector's check clean with the local block
-last, the shape check clean, each loader link resolving to a directory of skill files, and the
-shipped suite green with a positive count, run as the target's own scripts. Whether a host reads
-the link is not observable from inside a tree and is reported as unverified. A mid-run failure
-follows [interruption and recovery](#interruption-and-recovery). The project's verification set
-is the project's; core checks itself through this check, which a recipient may list in its set.
+Arrival is the check, and it takes seconds: the announced ref compared, the injector's check
+clean with the local block last, the shape check clean — run as the target's own scripts. The
+shipped suite is not part of it; a recipient that wants it names it in its own verification set.
+Whether a host reads the link is not observable from inside a tree and is reported as
+unverified. A mid-run failure follows [interruption and recovery](#interruption-and-recovery).
+The project's verification set is the project's; core checks itself through this check, which a
+recipient may list in its set.
 
 ## Deferred decisions
 
