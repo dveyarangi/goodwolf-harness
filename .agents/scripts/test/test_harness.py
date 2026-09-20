@@ -210,7 +210,7 @@ class TheSource(TwoTrees):
     def test_the_manifest_at_a_ref_is_core_plus_the_two_root_files_and_nothing_else(self) -> None:
         with harness.Source(str(self.source)) as source:
             ref = source.resolve("HEAD")
-            manifest = source.manifest(ref)
+            manifest = list(source.files(ref))
 
         self.assertIn("AGENTS.md", manifest)
         self.assertIn("CLAUDE.md", manifest)
@@ -374,37 +374,41 @@ class AnInstall(TwoTrees):
                 self.assertNotIn("<straw-dog", self.target_text(name), name)
         self.assertEqual("@AGENTS.md\n", self.target_text("CLAUDE.md"))
 
-    def test_arrives_when_the_platform_makes_links_and_is_pending_with_the_command_when_it_does_not(self) -> None:
+    def test_arrives_on_three_gates_and_reports_the_links_made_or_pending_with_the_command(self) -> None:
         status, report = self.run_harness("--install")
 
-        gates = report["gates"]
-        self.assertTrue(gates["ref"]["passed"], gates["ref"])
-        self.assertTrue(gates["injector"]["passed"], gates["injector"])
-        self.assertTrue(gates["shape"]["passed"], gates["shape"])
-        self.assertTrue(gates["suite"]["passed"], gates["suite"])
-        self.assertEqual(1, gates["suite"]["tests"])
+        self.assertEqual(["ref", "injector", "shape"], list(report["gates"]))
+        for name, gate in report["gates"].items():
+            self.assertTrue(gate["passed"], (name, gate))
+        self.assertTrue(report["arrived"])
+        self.assertEqual(0, status)
         if platform_makes_symlinks():
             self.assertEqual(["made", "made"], [link["state"] for link in report["links"]])
-            self.assertTrue(gates["links"]["passed"], gates["links"])
-            self.assertTrue(report["arrived"])
-            self.assertEqual(0, status)
+            self.assertEqual({".claude/skills": True, ".cursor/skills": True}, report["links_resolve"])
         else:
             self.assertEqual(["pending", "pending"], [link["state"] for link in report["links"]])
             self.assertEqual(2, len(report["pending"]))
             self.assertIn(str(self.target / ".claude" / "skills"), report["pending"][0])
             self.assertIn("mklink /D" if os.name == "nt" else "ln -s", report["pending"][0])
-            self.assertFalse(gates["links"]["passed"])
-            self.assertFalse(report["arrived"])
-            self.assertEqual(1, status)
+            self.assertEqual({".claude/skills": False, ".cursor/skills": False}, report["links_resolve"])
         self.assertFalse(any("__pycache__" in path.parts for path in self.target.rglob("*")))
 
-    def test_a_failing_shipped_suite_leaves_arrival_false_naming_the_gate(self) -> None:
+    def test_the_shipped_suite_is_not_run_by_the_gate(self) -> None:
         self.write(".agents/scripts/test/test_arrival.py", ARRIVAL_TEST.replace("assertTrue(True)", "assertTrue(False)"))
         self.commit("a broken suite")
 
         status, report = self.run_harness("--install")
 
-        self.assertFalse(report["gates"]["suite"]["passed"])
+        self.assertNotIn("suite", report["gates"])
+        self.assertTrue(report["arrived"])
+
+    def test_a_shape_diagnostic_in_the_recipient_leaves_arrival_false_naming_the_gate(self) -> None:
+        self.write(".agents/skills/silent/SKILL.md", "# Silent\n\nNamed by nothing, claiming nothing.\n")
+        self.commit("a silent skill")
+
+        status, report = self.run_harness("--install")
+
+        self.assertFalse(report["gates"]["shape"]["passed"])
         self.assertFalse(report["arrived"])
         self.assertEqual(1, status)
 

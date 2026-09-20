@@ -26,9 +26,11 @@ blocks removed and every straw-dog wrapper sheared so the rule stays and the con
 stamps the entry file's announce line `<repository>@<ref>, <date>`, which is the tree's only
 revision record and what every session there announces; makes the loader links; installs every
 mechanism's rules and then the project's local file last; and runs the gate — the copy compared
-against the ref, the injector's check, the shape check, the links, the shipped suite. The report
-ends `arrived: true` only when all five hold. Whether a host reads the link is not observable from
-inside a tree; the first session announcing the stamped line is the evidence a person reads.
+against the ref, the injector's check, the shape check, in seconds. The report ends
+`arrived: true` only when all three hold, and says beside it whether each loader link resolves.
+The shipped suite is not run; a project that wants it runs it from its own verification set.
+Whether a host reads the link is not observable from inside a tree; the first session announcing
+the stamped line is the evidence a person reads.
 
 ## Refusals, and what to do
 

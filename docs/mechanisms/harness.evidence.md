@@ -43,6 +43,26 @@ refuted, what it cost. Declared by
   "harness", simple as that.* The word *deploy* is reserved against in the glossary; *install*,
   *update* and *check* name the modes; *release* stays free for the mechanism that will cut one.
 
+## Refuted at the live run, 2026-09-21
+
+The first install from the pushed repository into an empty tree took six minutes and reported
+`arrived: false`. Four things were wrong with the design, none with the copy:
+
+- **The shipped suite in the gate.** It was the arrival proof the spec asked for, and it was
+  the six minutes: 304 tests, each spawning git. The user: an install is seconds. The suite
+  left the gate; a recipient runs it from its own verification set if it wants it.
+- **The loader links as parts and as a gate.** A link the platform refused failed the shape check
+  through the declaration's parts table and the link gate alike — two reports of the one fact
+  the report had already turned into a command. The links left the parts table and the verdict,
+  and are reported beside it.
+- **One `cat-file` per shipped file.** Sixty-five spawns, seven seconds, more than the clone.
+  One `git archive` of the ref reads them all.
+- **`git archive` smudges.** With `core.autocrlf` on, the archive carried carriage returns the
+  `cat-file` read never had, and the local-block strip refused the first file it met. The
+  archive is read with conversion off.
+
+After the four: five seconds, 65 files, three gates.
+
 ## The prior corpus
 
 One copy of core existed outside this repository before the mechanism did: frost_map, installed
@@ -53,7 +73,7 @@ update will produce; that update, by the user, is the grade.
 
 ## What it cost
 
-The shipped suite runs inside the gate, so an install or a check takes the suite's minute and a
-half in the recipient; and the test suite here runs three real gates per install case, which
-made its tests the slowest module by an order of magnitude. Accepted: a gate that does not
-run the shipped scripts proves nothing about them.
+The test module here runs a real clone and two real checks per install case, which makes it the
+slowest module in the suite by an order of magnitude — about three minutes of the suite's six.
+Accepted: a gate that does not run the shipped scripts proves nothing about them. The install
+itself is five seconds, two of them the clone.

@@ -24,9 +24,13 @@ as an edit in every recipient installed before it, until it updates.
 hand: where the platform refuses to create a symlink, the run finishes everything else and ends
 with the exact elevated command. Nothing is substituted for a link; a junction is refused by name.
 
-**The gate is the check.** Arrival and any later day's question are one function: the copy
-against the ref, the injector's check, the shape check, the links, the shipped suite — the
-target's own scripts, run as subprocesses, so what is checked is what arrived.
+**The gate is the check, and it takes seconds.** Arrival and any later day's question are one
+function: the copy against the ref, the injector's check, the shape check — the target's own
+scripts, run as subprocesses, so what is checked is what arrived. The loader links are reported
+beside the verdict and never decide it: a link the platform refused is the person's one
+remaining step, and its command is already in the report. The shipped suite is not run here —
+it costs minutes, and an install is seconds — a recipient that wants it names it in its own
+verification set *(the user, 2026-09-21)*.
 
 It is **installed**; a tree without it holds no core at all. The repository's root `README.md`
 is the way in for an agent handed the link — clone, read the skill, run the install — and is
@@ -58,11 +62,11 @@ not a part: it never ships, and a recipient has its own.
 | its tests | `.agents/scripts/test/test_harness.py` |
 | the entry file | `AGENTS.md` |
 | the host stub | `CLAUDE.md` |
-| a loader link | `.claude/skills` |
-| a loader link | `.cursor/skills` |
 
 The entry file is this mechanism's whole file; two lines inside it are the shape's anchored
-parts, and nothing asks about the overlap.
+parts, and nothing asks about the overlap. The loader links are made by this mechanism and are
+not its parts: they are the host's way in, never shipped, and a link a platform has refused
+would otherwise fail the shape check for the same absence the report already names.
 
 ## Relies on, and does not own
 
@@ -109,6 +113,6 @@ entry file still announces, refused one core check rather than duplicate its own
 built on the copy since. It writes its answers into a local file, takes an update from the
 repository, and the user grades: its local file survives byte-identical and its blocks are
 restored last; its `docs/` is untouched; its links resolve; its announce line names the ref; the
-gate passes, or says which of the five did not. An install that had to be hand-finished to reach
+gate passes, or says which of the three did not. An install that had to be hand-finished to reach
 `arrived: true` reads identically to success in the report, and only the grader can say which it
 was.

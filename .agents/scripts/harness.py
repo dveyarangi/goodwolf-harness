@@ -22,12 +22,14 @@ import sys
 
 sys.dont_write_bytecode = True  # a run from inside a recipient leaves nothing beside its scripts
 
+import io  # noqa: E402
 import json  # noqa: E402
 import os  # noqa: E402
 import re  # noqa: E402
 import shutil  # noqa: E402
 import stat  # noqa: E402
 import subprocess  # noqa: E402
+import tarfile  # noqa: E402
 import tempfile  # noqa: E402
 from dataclasses import dataclass, field  # noqa: E402
 from pathlib import Path  # noqa: E402
@@ -62,8 +64,6 @@ _USAGE = (
     "       harness.py <target> --update [--overwrite] [--from REPOSITORY] [--at REF]\n"
     "       harness.py <target> --check [--from REPOSITORY]"
 )
-_RAN = re.compile(r"^Ran (\d+) tests?", re.M)
-_SUITE = ["-m", "unittest", "discover", "-s", ".agents/scripts/test", "-p", "test_*.py"]
 
 
 class Refused(Exception):
@@ -103,6 +103,7 @@ class Report:
     pending: list[str] = field(default_factory=list)
     injected: list[dict] = field(default_factory=list)
     gates: dict = field(default_factory=dict)
+    links_resolve: dict = field(default_factory=dict)
     notes: list[str] = field(default_factory=list)
     refusals: list[str] = field(default_factory=list)
     arrived: bool = False
@@ -225,20 +226,26 @@ class Source:
         date = self._git("log", "-1", "--format=%cs", commit) or ""
         return Ref(self.name, commit, tag or short, date)
 
-    def manifest(self, ref: Ref) -> list[str]:
-        """Every path under the core directory at the commit, plus the entry file and the host
-        stub: nothing else travels — not the root README, not the local file, not `docs/`."""
-        listed = self._git("ls-tree", "-r", "--name-only", ref.commit, "--", CORE.rstrip("/"), ENTRY_FILE, HOST_STUB)
-        return [] if listed is None else [line for line in listed.splitlines() if line]
-
-    def read(self, ref: Ref, path: str) -> bytes:
-        blob = subprocess.run(
-            ["git", "-C", str(self._clone), "cat-file", "blob", f"{ref.commit}:{path}"],
+    def files(self, ref: Ref) -> dict[str, bytes]:
+        """Every file under the core directory at the commit, plus the entry file and the host
+        stub, as the commit holds them: nothing else travels — not the root README, not the local
+        file, not `docs/`. One archive of the ref, one process: reading sixty files one `cat-file`
+        at a time cost more than the clone."""
+        # `archive` smudges like a checkout would — `core.autocrlf` on Windows turns every line
+        # ending — so conversion is switched off for this one command and the bytes are the commit's.
+        archived = subprocess.run(
+            ["git", "-C", str(self._clone), "-c", "core.autocrlf=false", "-c", "core.eol=lf", "archive",
+             "--format=tar", ref.commit, "--", CORE.rstrip("/"), ENTRY_FILE, HOST_STUB],
             capture_output=True,
         )
-        if blob.returncode != 0:
-            raise Refused(f"read: {path} is not in {self.repository} at {ref.announced}")
-        return blob.stdout
+        if archived.returncode != 0:
+            raise Refused(f"read: {self.repository} at {ref.announced} could not be archived — {archived.stderr.decode(errors='replace').strip()}")
+        files: dict[str, bytes] = {}
+        with tarfile.open(fileobj=io.BytesIO(archived.stdout)) as archive:
+            for member in archive.getmembers():
+                if member.isfile():
+                    files[member.name] = archive.extractfile(member).read()
+        return files
 
     def _git(self, *arguments: str) -> str | None:
         done = subprocess.run(
@@ -273,8 +280,7 @@ class Shipment:
     @classmethod
     def at(cls, source: Source, ref: Ref) -> Shipment:
         files: dict[str, str] = {}
-        for path in source.manifest(ref):
-            raw = source.read(ref, path)
+        for path, raw in source.files(ref).items():
             try:
                 text = raw.decode("utf-8")
             except UnicodeDecodeError as error:
@@ -590,16 +596,18 @@ def _inject(target: Path, report: Report) -> None:
 
 def _gate(target: Path, shipment: Shipment, report: Report) -> None:
     """Arrival, and any later day's question, are one function: the ref compared, the injector's
-    check, the shape check, the links, the shipped suite — the target's own scripts, run as
-    subprocesses, so what is checked is what arrived."""
+    check, the shape check — the target's own scripts, run as subprocesses, so what is checked
+    is what arrived, in seconds. The loader links are reported beside the verdict, resolving or
+    not, and never decide it: a link the platform refused is the person's one remaining step,
+    and the command for it is already in the report. The shipped suite is not run here; a
+    recipient that wants it names it in its own verification set."""
     gates = {
         "ref": _ref_gate(target, shipment),
         "injector": _script_gate(target, "inject_rules.py"),
         "shape": _script_gate(target, "mechanisms.py"),
-        "links": _links_gate(target),
-        "suite": _suite_gate(target),
     }
     report.gates = gates
+    report.links_resolve = _links_resolve(target)
     report.arrived = all(gate["passed"] for gate in gates.values())
     report.notes.append("whether a host reads the loader link is not observable from inside a tree")
 
@@ -615,20 +623,12 @@ def _script_gate(target: Path, script: str) -> dict:
     return {"passed": done.returncode == 0, "exit": done.returncode, "said": _last_lines(done.stdout or done.stderr)}
 
 
-def _links_gate(target: Path) -> dict:
-    states = {}
-    for link in LINKS:
-        path = target / link
-        states[link] = path.is_symlink() and path.is_dir() and any(path.glob("*/SKILL.md"))
-    return {"passed": all(states.values()), "resolves": states}
-
-
-def _suite_gate(target: Path) -> dict:
-    done = _python(target, _SUITE)
-    ran = _RAN.search(done.stderr or "")
-    count = int(ran.group(1)) if ran else 0
-    return {"passed": done.returncode == 0 and count > 0, "exit": done.returncode, "tests": count,
-            "said": _last_lines(done.stderr)}
+def _links_resolve(target: Path) -> dict[str, bool]:
+    """Per loader link, whether a symlink stands there and reaches a directory of skill files."""
+    return {
+        link: (target / link).is_symlink() and (target / link).is_dir() and any((target / link).glob("*/SKILL.md"))
+        for link in LINKS
+    }
 
 
 def _python(target: Path, arguments: list[str]) -> subprocess.CompletedProcess:
