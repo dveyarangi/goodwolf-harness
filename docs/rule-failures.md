@@ -71,7 +71,8 @@ the announce sentence as a trailing clause; the user caught that as the failure-
 reproduced in the fix, and it became its own sentence opening with the verb. The diagram stays.
 
 **Disposition:** amendment landed. Graded by the next session's first reply: it runs `/recall`
-before anything else, or this entry is struck.
+before anything else, or this entry is struck. **Graded 2026-09-20:** the next session opened
+with "good morning" and its first reply ran `/recall`. The rule fired.
 
 ## 3. The straw-dog rule sat at tier 1 and three straw dogs went unwrapped — 2026-09-14
 
