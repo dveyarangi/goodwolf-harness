@@ -54,8 +54,9 @@ absence is honestly classified, are judgements it records and never makes.
 | retiring a declared one | `.agents/skills/mechanism/SKILL.md` | |
 | installing a declared mechanism into a tree, and removing it | — | not yet — the parts table says what an install adds and nothing says how; no installer exists, [01-0010](../../../docs/tickets/01-0010-dev-harness-shared-and-local.md) |
 | checking that a declaration is true | `.agents/scripts/mechanisms.py` | |
-| installing a mechanism's rules into skills it does not own | `.agents/scripts/inject_rules.py` | |
+| installing a mechanism's rules into skills, its own included | `.agents/scripts/inject_rules.py` | |
 | retracting them | `.agents/scripts/inject_rules.py` | |
+| writing a mechanism's rule where a session reads it, the entry file included, at `/align` or here | `.agents/skills/mechanism/SKILL.md` | |
 | re-checking a mechanism when what governs it has moved | — | elsewhere — re-checking derived work against a changed source is maintenance, `.agents/skills/maintain/SKILL.md` |
 | writing or changing a skill's text | — | elsewhere — a sibling mechanism's subject, and both apply when a skill is an instruction file, `.agents/skills/skill-up/SKILL.md` |
 | recording that an installed skill belongs to no mechanism | — | not yet — the shape requires an allowlist and this tree has none, so a skill nothing claims is silent rather than declared, [.0050](../../../docs/tickets/01-0011.0050-shape-checked.md) |
@@ -103,8 +104,13 @@ applying the spec's ownership decision)*.
   a register nobody asks for is a register nobody needed.
 
 - **Its rules file** — `mechanism-shape.rules.md`, read by the installer alone, and by whoever
-  amends a rule of the shape that other skills read. Its block is installed in `/maintain` and in
-  this mechanism's own skill, which reads R1 and R4 at incept.
+  amends a rule of the shape that other skills read. Its block is installed in `/maintain`, in
+  `/align`, and in this mechanism's own skill, which reads R1 and R4 at incept and R5 when a rule
+  is written. **A rule two occasions read is installed everywhere it is read, the owner's own
+  skill included** *(the user, 2026-09-20)*: the rules file is read by nobody at session time and
+  no body restates a rule, so installation is the only path such a rule has into its owner's body.
+  The alternative — authored in the owner, installed elsewhere — puts one rule in two files and
+  leaves the check nothing to compare the authored copy against.
 - **The installer's `--check` report** — read by `/verify` through the verification set, and by
   anyone who runs it. Its exit status is what the set consumes; a block absent, drifted or
   owned by nothing is what it fails on.

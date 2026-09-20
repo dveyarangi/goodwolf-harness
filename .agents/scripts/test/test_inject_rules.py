@@ -1,4 +1,4 @@
-"""Installing a mechanism's rules into skills it does not own, and taking them out again."""
+"""Installing a mechanism's rules into skills, its own included, and taking them out again."""
 
 from __future__ import annotations
 

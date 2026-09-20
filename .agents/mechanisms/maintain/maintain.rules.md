@@ -1,4 +1,4 @@
-# maintain — rules installed into skills this mechanism does not own
+# maintain — rules installed into skills
 
 Machine input for the installer, read by nobody at session time. Amend a rule here, then
 install it with overwrite; the block in a target is never the place.

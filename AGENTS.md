@@ -1,8 +1,12 @@
 # Entry contract
 
-Entry contract: v8, 2026-09-09.
+Entry contract: v9, 2026-09-20.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
+
+<straw-dog until="01-0020 is done" ticket="docs/tickets/01-0020-pacer.md">
+Run /recall first in every session, whatever the first message says.
+</straw-dog>
 
 <project-local>
 This repository develops the shared dev harness using its own loop. Terms: docs/glossary.md, this

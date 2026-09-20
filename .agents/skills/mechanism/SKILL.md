@@ -33,7 +33,7 @@ A skill belonging to no mechanism goes in the allowlist, with its reason.
 
 | home | holds | reaches a session |
 |---|---|---|
-| `AGENTS.md` | meta-rules and general rules | at start, every session |
+| `AGENTS.md` | meta-rules, and a mechanism's rules only as installed blocks | at start, every session |
 | `.agents/skills/<name>/` | the act, and every rule read *in the work it governs* | when the skill is invoked |
 | `.agents/mechanisms/<slug>/` | why the instruction is what it is: parts, moments, and the mechanism's rules in their single home | when installing, amending or debugging |
 
@@ -75,6 +75,10 @@ A rule lives in one file — `<slug>.rules.md`, in the mechanism's own directory
 reads it at session time: a generic core installer, never a per-mechanism one, writes
 its rules into the targets as delimited and visibly owned blocks, and that is the only
 form in which they reach anyone. A copy in a target is **installed, never authored**.
+
+Author a rule in the skill's body when only that skill's act reads it. Put a rule that two
+occasions read in the rules file and install it everywhere it is read, the owner's own skill
+included *(the user, 2026-09-20)*.
 
 - Removable as written: retraction leaves the target byte-identical.
 - **No default mode.** A bare invocation refuses.
@@ -120,6 +124,10 @@ nothing indexes, a file dropped where nothing looks.
 content, live rows only. Where the script is missing, write it: that is the maintenance.
 
 **R4** Render an index on request; never commit one beside its records.
+
+**R5** Land a mechanism's rule in AGENTS.md only as an installed block from its rules file. While the
+mechanism is undeclared, write the rule by hand and wrap it as a straw dog on the inception
+ticket as you write it.
 </installed>
 
 A mechanism with records declares what a record is — its fields, what a row means, its

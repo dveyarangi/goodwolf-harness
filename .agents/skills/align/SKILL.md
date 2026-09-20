@@ -127,6 +127,12 @@ Open questions and risks live in `docs/concerns.md`, this skill's artifact:
 
 ### Record resolutions in the owning ticket inline
 
+<installed by="mechanism-shape">
+**R5** Land a mechanism's rule in AGENTS.md only as an installed block from its rules file. While the
+mechanism is undeclared, write the rule by hand and wrap it as a straw dog on the inception
+ticket as you write it.
+</installed>
+
 <installed by="ticket">
 **P7** Land a resolved decision in its durable home with its provenance, and rewrite the ticket in
 place to what is now true; list under `Open issues` only what stays unresolved.

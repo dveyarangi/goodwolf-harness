@@ -11,6 +11,37 @@ deleting a rule: occurrences accumulate and what to do about a rule that keeps f
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 4. The wake rule sat in a diagram, and a greeting was answered with a greeting — 2026-09-20
+
+**Rule in play:** [`AGENTS.md` — The loop](../AGENTS.md#the-loop), read at the start of every
+session, whose picture has read `session: wake with /recall → /align → /conclude` since v1. Behind
+it, [pacer.md](pacer.md#core-rules--under-alignment)'s 2026-09-06 rule that a session starting
+with "what's next" starts with `/recall`.
+
+**What happened.** The session of 2026-09-15 opened with "good evening". The first reply announced
+the contract, reported the tree clean and *offered* `/recall` — "say `/recall` when you want to
+pick up where that left off". The user then invoked it by hand, with the question of how to make
+it the default. Twelve earlier sessions had taken the wake by hand too, which
+[01-0020](tickets/01-0020-pacer.md) already recorded on 2026-09-09 without treating it as a
+failure.
+
+**Why it did not fire.** The instruction lived in a diagram — a noun-phrase picture of the loop,
+not a sentence addressed to the agent — and the only sentence-form rule was scoped to a message
+that says "what's next", which a greeting does not. Same shape as
+[failure 3](#3-the-straw-dog-rule-sat-at-tier-1-and-three-straw-dogs-went-unwrapped--2026-09-14):
+present, descriptive, with no verb at the occasion. And the same shape as failures 1 and 2 in the
+other direction: the occasion is *every first turn*, and the one sentence every first turn provably
+reads — the announce rule, whose line is the evidence — said nothing about it.
+
+**Amendment, landed the same day** *(the user: "any session wake should start with recall", no
+specifics)*: a second sentence beside the announce rule, *Run /recall first in every session,
+whatever the first message says*, with the contract bumped to v9. A first draft appended it to
+the announce sentence as a trailing clause; the user caught that as the failure-3 shape
+reproduced in the fix, and it became its own sentence opening with the verb. The diagram stays.
+
+**Disposition:** amendment landed. Graded by the next session's first reply: it runs `/recall`
+before anything else, or this entry is struck.
+
 ## 3. The straw-dog rule sat at tier 1 and three straw dogs went unwrapped — 2026-09-14
 
 **Rule in play:** [`AGENTS.md` — Straw dogs](../AGENTS.md#straw-dogs), read at the start of every
@@ -41,6 +72,39 @@ line.
 
 **Disposition:** amendment landed; the five found were wrapped. Whether the rephrasing fires is
 graded by the next unwrapped straw dog a hunt finds, or the absence of one.
+
+**Struck, 2026-09-20 — one repeat, and the grade is in.** The amended rule was read at session
+start, `/mechanism` was loaded in the same turn, and the new wake rule
+([failure 4](#4-the-wake-rule-sat-in-a-diagram-and-a-greeting-was-answered-with-a-greeting--2026-09-20))
+went into `AGENTS.md` unwrapped. The user asked who owned it. Three causes, none of them the
+2026-09-14 one:
+
+- **The sentence carried no tell.** It was written as permanent — *Run /recall first in every
+  session* — because its content and location are final. What a live ticket will change is its
+  *form*: hand-authored where the mechanism shape says installed from a rules file. The amended
+  rule binds recognition to the writer's provisional vocabulary, and a rule provisional by
+  ownership rather than by wording produces none.
+- **The governing ticket said "placed".** 01-0020's What-to-build bullet, written 2026-09-06,
+  described the core rules as *placed in `AGENTS.md`* — one day before the mechanism shape fixed
+  *installed, never authored* — and was never re-read against it. The first trigger, *will a live
+  ticket change this*, was asked and answered no on the ticket's own word. A ticket is not a
+  mechanism, so nothing re-checks it when what governs it moves.
+- **Two satisfiable rules in `/mechanism`, and salience won** — failure 1's shape. Its three-homes
+  table names `AGENTS.md` as the home of *meta-rules and general rules*, which the sentence looked
+  like; *a sentence about another mechanism is that mechanism's* sits three sections later. No
+  check discriminates: the installer sees only blocks, the guesser only tells.
+
+**Amendment, landed the same day** *(the user)* — not to the straw-dog rule, whose tells were never
+the cause, but at the moment of the act. The three-homes table in `/mechanism` no longer admits
+"general rules" to the entry file: meta-rules, and a mechanism's rules only as installed blocks.
+The instruction for the undeclared case is mechanism-shape's **R5**, installed into `/align` and
+into `/mechanism` itself: land a mechanism's rule in `AGENTS.md` only as an installed block, and
+while the mechanism is undeclared write it by hand and wrap it on the inception ticket as you write
+it. Landing R5 surfaced that the shape installed rules into its own skill without saying so and
+titled every rules file to say the opposite; the policy is now in `/mechanism` — a rule two
+occasions read is installed everywhere it is read, the owner's own skill included — and the titles
+say what the practice was. Graded by the next mechanism rule written into the entry file: wrapped
+on its ticket, or this strike counts twice.
 
 ## 2. A partial sweep was reported as a settled count — 2026-09-10
 

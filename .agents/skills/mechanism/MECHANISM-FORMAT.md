@@ -27,7 +27,7 @@ grammar is [The rules file](#the-rules-file) below.
 ## The rules file
 
 ```md
-# <slug> — rules installed into skills this mechanism does not own
+# <slug> — rules installed into skills
 
 | target | anchor |
 |---|---|

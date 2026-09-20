@@ -24,6 +24,22 @@ Decided by the user, recorded in
 [01-0010.0020](../tickets/done/01-0010.0020-live-alignment-across-hosts.md#what-this-ticket-does-not-decide).
 The three blocks then live were bound the same day.
 
+## v9 — 2026-09-20
+
+**One core change:** the announce sentence now also says *start every session by running
+`/recall`, whatever the first message says*. Decided by the user on 2026-09-20 at
+[01-0020](../tickets/01-0020-pacer.md)'s align, and the first of the pacer's core rules to land in
+the entry file. The occasion is
+[rule failure 4](../rule-failures.md#4-the-wake-rule-sat-in-a-diagram-and-a-greeting-was-answered-with-a-greeting--2026-09-20):
+the loop diagram had said *wake with `/recall`* since v1, and on 2026-09-15 a session opened with
+"good evening" was answered with a greeting. The sentence sits beside the announce line rather
+than in the loop section because it is the one line every session provably reads first — the
+announce line is the evidence — and it opens with the verb, as
+[failure 3](../rule-failures.md#3-the-straw-dog-rule-sat-at-tier-1-and-three-straw-dogs-went-unwrapped--2026-09-14)'s
+amendment taught. The diagram's *wake with `/recall`* stays as the picture of the same rule. The
+user refused a carve-out for a first message that names a skill or a task; how that sits with
+*one turn, one step* is the pacer's chaining question, still open on the ticket.
+
 ## v8 — 2026-09-09
 
 **Three core changes, from an `/align` the user opened on a contradiction I had reported in v7's
