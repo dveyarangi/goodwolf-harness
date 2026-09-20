@@ -3,9 +3,17 @@
 A recipient replaces `docs/` whole, so anything under `.agents/` that references a file there
 dangles on arrival. Core may name a path convention the harness imposes — `docs/tickets/`,
 `docs/glossary.md` — but may not point at a document only one project has, and may not rely on one
-for its instruction or for any separable part of its functioning. Two blocks are exempt: a
-`<straw-dog>`, which is bound to a ticket and expires, and a `<project-local>`, which is the part a
-recipient replaces.
+for its instruction or for any separable part of its functioning. Content inside a
+`<project-local>` block is the recipient's, not core's — and the same holds for the
+`<installed by="local">` block that [01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md)
+replaces it with. A `<straw-dog>` exempts nothing.
+
+**Amended 2026-09-20** *(the user, at [01-0010.0140](../tickets/01-0010.0140-core-stands-alone.md)'s
+align)*: until then this ADR and the entry file exempted a `<straw-dog>` on the grounds that it is
+bound to a ticket and expires. It expires only here. The install spec's shear strips the wrapper
+and ships what it wrapped, so a `docs/` link inside a straw dog dangled in every recipient and was
+refused at install — the exemption had moved the failure to the port, not removed it. Instance
+ownership is the only exclusion, and it is read mechanically from the enclosing block.
 
 Landed in [AGENTS.md](../../AGENTS.md) on 2026-09-07 — and, being one of the four sections the entry
 contract's version record does not cover, with no version entry of its own.

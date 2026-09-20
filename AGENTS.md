@@ -41,10 +41,13 @@ instance half doing its job, not a leak.
 </project-local>
 
 What core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,
-or rely on one for its instruction or for any separable part of its own functioning. Naming a path
-convention the harness imposes — `docs/tickets/`, `docs/glossary.md` — is not a reference to a
-file; pointing at a document only this project has is. Two blocks are exempt: a `<straw-dog>`,
-bound to a ticket and expiring, and a [`<project-local>`](#project-local).
+or rely on one for its instruction or for any separable part of its own functioning. A core file
+may name a path under `docs/` only when that path is a record a mechanism declares — the directory
+that holds a kind of record, or a file that is one — never a particular record inside such a
+directory: `docs/tickets/` and `docs/glossary.md` are places, `docs/tickets/01-0020-pacer.md` is a
+document only this project has. Content inside a
+[`<project-local>`](#project-local) block is the instance's, not core's. A `<straw-dog>` exempts
+nothing: its wrapper is stripped on install and whatever it wrapped ships.
 
 ## Document load-bearing, code&comment the rest
 

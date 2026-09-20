@@ -77,6 +77,10 @@ The accepted shared method and supporting assets governed at their canonical sou
 **Project-local**:
 Instructions or assets owned by a consuming project for its particular circumstances. Local ownership alone does not settle precedence when they conflict with core.
 
+**Leak**:
+A citation from core to a document only the instance has. A place a mechanism declares for its records is not one; a particular record inside that place is.
+_Avoid_: reach, dangling link, cross-reference as names for this.
+
 **Open issue**:
 An unresolved problem, question or risk that needs a disposition. It is unresolved subject matter, not a synonym for a spec, ticket or RFC; its current owning record holds it.
 _Avoid_: issue as a generic name for every development document.
