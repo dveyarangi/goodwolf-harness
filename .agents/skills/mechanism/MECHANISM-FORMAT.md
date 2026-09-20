@@ -53,6 +53,11 @@ Prose before the table is the file's own preamble and is not read.
 - **One `## ` section per rule.** The heading's first token, before ` — `, is the rule's id,
   unique in the file. **target** repeats, one path per bullet, each a row of the table.
   **authority** is who decided the rule and when, read and reported, never interpreted.
+  **overrides**, at most once, names the core rule this one replaces as `` `<slug>/<id>` ``: the
+  slug must have a rules file, the id must be in it, and that rule must name every target this
+  section names — read from its declared targets, never from whether its block is present — or
+  the section is refused naming this rule. The citation is rendered into the block, after the
+  id, as `*(overrides <slug>/<id>)*`, so a reader meets the disagreement where they meet the rule.
 - **The body** is the span between a line that is exactly `<rule>` and a line that is exactly
   `</rule>`, installed byte for byte. It holds no markdown citation — the mover rewrites a
   relative link per the file it sits in, so one body in two directories would drift apart — no
@@ -86,6 +91,15 @@ A named mode or a refusal; every target validated before anything is written; re
 leaves the target byte-identical; a differing block refuses until the caller says overwrite,
 and then the block is replaced whole and the report carries what it replaced. The contract is
 the architecture's; the entry file owns the prohibition on editing a block in place.
+
+**The project's own rules file is one more source.** `local.rules.md` sits beside the entry
+file, outside the core directory, in this same grammar, and is read as the slug `local` — a
+mechanism directory of that name is refused. Its block is placed after every installed block at
+its anchor rather than directly after the anchor line, and it must sit after every mechanism's
+block anywhere in the same file: an install that would not leave it last is refused naming the
+block that would follow, and `--check` reports a local block another block follows as `not
+last`. Blocks of different mechanisms at one anchor stand in install order, which nothing
+depends on.
 
 ## The doc
 

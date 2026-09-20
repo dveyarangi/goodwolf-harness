@@ -73,7 +73,11 @@ what is present, not an authored document that mechanisms write into.
 Why it is not idle: the harness already has the machinery. Rules have one authored home, the
 installer writes them into targets it does not own, and `inject_rules.py --check` can tell an
 installed block from a hand-edited one. What is missing is the inversion — today the composition is
-implicit and `AGENTS.md` is written by hand.
+implicit and `AGENTS.md` is written by hand. *(Observed 2026-09-20, at
+[01-0010.0110](tickets/01-0010.0110-project-facets-injected.md)'s `/verify`: one section of the
+entry file, *Project-local*, is now installed blocks alone — the shape's R7 and the project's own
+— and nobody hand-writes it. The rest is still authored. Evidence that the inversion is reachable
+a section at a time, not a driver.)*
 
 Why it is not queued: nothing forces it. Every ticket that would touch it has an ordinary reading
 that works, and adopting the composite reading would reopen the entry contract, tier 1 and the

@@ -248,6 +248,7 @@ def overrides_resolve(root: Path, rules: RulesFile) -> None:
 
 
 def override_problems(root: Path, rules: RulesFile) -> list[str]:
+    """Each override that names no rule the tree installs where the override goes, in file order."""
     problems = []
     for rule in rules.rules:
         if rule.overrides is None:
