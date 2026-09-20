@@ -1,14 +1,23 @@
 # Dev harness documentation
 
-This project is being developed through the same ticket, alignment, RFC, implementation and verification loop it provides to consuming projects.
+The harness under [`.agents/`](../.agents/README.md) is built here with its own loop; [AGENTS.md](../AGENTS.md) is the entry file and owns that loop. This directory is the instance half — what this repository decided, records and still owes — and a recipient replaces it whole.
 
-- [Development process](process.md): the working loop and document ownership.
-- [Harness architecture](architecture.md): current and agreed maintenance boundaries.
-- [Project glossary](glossary.md): this project's own domain terms. The method's vocabulary travels with core, in [`.agents/glossary.md`](../.agents/glossary.md).
+- [Harness architecture](architecture.md): agreed boundaries and their rationale. [ADRs](adr/) hold the decisions that reached one.
+- [Project glossary](glossary.md): this project's own terms. The method's are [`.agents/glossary.md`](../.agents/glossary.md).
+- [Delivery queue](tickets/README.md): current work, its order and what is still open. [Concerns](concerns.md) hold the pressure no ticket owns yet.
+- [Install spec](spec/01-0010.0130-harness-installs-into-another-tree.md): how the harness reaches a tree that is not its own, accepted 2026-09-14.
+- [Sessions](sessions/): dated handoffs, read for why, never for whether something is still open.
+- [Mechanism evidence](mechanisms/): why each declared mechanism's doc is what it is.
+- [Initial skills comparison](research/audit-2026-09-05/REPORT.md) and [life findings](research/life-harness-findings.md): the evidence the harness was selected and shaped from.
+
+<straw-dog until="01-0010 is done" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">
 - [Harness spec — draft](spec/01-0010-dev-harness-shared-and-local.md): intended behavior and concrete cases under alignment.
-- [Pacer — idea](pacer.md): units of work, progression and the live corpus-bootstrap hypothesis.
-- [Delivery queue](tickets/README.md): current work and decisions still open.
-- [Initial skills comparison](research/audit-2026-09-05/REPORT.md): verified discrepancies between existing copies.
-- [Life findings and propagation proposal](research/life-harness-findings.md): rule delivery, maintenance, the development loop and a proposed shared-change flow.
+</straw-dog>
 
-Since 2026-09-05 the harness lives at `D:\Dev\AI\agents`, this repository; the earlier working home `D:\Dev\AI\.agents` is retired. The installed skills are under [`.agents/skills`](../.agents/skills/). The pre-audit corpus was kept beside them under `legacy/skills` until 2026-09-09, when the user removed it: its two capabilities the harness had not installed were both superseded variants, its bytes remain in this repository's history, and [`file-matrix.csv`](research/audit-2026-09-05/file-matrix.csv) retains all 22 files' hashes as corpus `H`.
+<straw-dog until="01-0020 is done" ticket="docs/tickets/01-0020-pacer.md">
+- [Development process](process.md) and [pacer](pacer.md): the sequence of work and its progression, held here until the pacer is a mechanism and carries them.
+</straw-dog>
+
+<straw-dog until="01-0019 is done" ticket="docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md">
+- [Rule failures](rule-failures.md): the register of rules that were present and did not fire.
+</straw-dog>
