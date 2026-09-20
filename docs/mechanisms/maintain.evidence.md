@@ -143,3 +143,22 @@ not. A tell is where a word list stops and a person starts.
 
 **No TODO existed in the tree** when the code side landed, so there was no prior corpus to
 sweep and none is claimed.
+
+## A row overtaken, and a claim time refuted — 2026-09-20
+
+A whole-tree pass found the *disposing of a concern* row still `not yet`, bound to the ticket that
+would create the concern index. The row was declared so on 2026-09-07 because `docs/concerns.md`
+did not exist, not because nothing instructed the act: `/align` has carried the disposal rule
+since the skill was installed on 2026-09-05 — a settled concern moves out to its owning ADR or
+architecture section, a queued one keeps its contact surface and a *queued as* pointer — and the
+index, created 2026-09-10, already holds one concern disposed that way. The `until` was met on
+evidence; the row is `elsewhere` at `/align`, and the moment was never this mechanism's to
+instruct. Both retirements were by hand: the remover deletes whole lines, and a row's wrapper
+sits inside its cell.
+
+The same pass struck *this mechanism has never been run against a mechanism other than the one
+that wrote the shape* from the doc. It had run against the ticket mechanism at that mechanism's
+close on 2026-09-09 and over all three declared mechanisms on 2026-09-20, twice. The sentence was
+story by then, and the fact it carried — that the first declaration named `/maintain` as
+instructing re-checks while the body held one sentence — is *nine responsibilities, three
+instructed* above.

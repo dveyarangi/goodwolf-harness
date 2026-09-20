@@ -336,3 +336,11 @@ it is the grade the doc pre-registers for the user, and it has not been given. T
 one and amended the shape twice more, both times by removing or adding a row rather than by
 bending the doc; that is one data point for the shape fitting, and a hand-fixed declaration would
 still read the same in the check's output.
+
+## The sweep leaves *not yet at the shape* — 2026-09-20
+
+A whole-tree pass struck *run it over what already exists has no bite here* from the doc. The
+paragraph said the rule's first real application would be the sweep meeting every skill installed
+before the shape existed. That sweep landed under [.0050](../tickets/done/01-0011.0050-shape-checked.md),
+recorded above, and found nineteen of twenty-two installed skills unclaimed. A not-yet that has
+happened is story, and the story was already here.

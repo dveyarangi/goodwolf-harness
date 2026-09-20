@@ -71,7 +71,7 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | listing finished records not yet moved | — | <straw-dog until="a listing exists" ticket="docs/tickets/01-0011.0030-archive-backlog-listed.md">not yet</straw-dog> |
 | rendering the queue from the tickets | — | <straw-dog until="the table is derived rather than copied by hand" ticket="docs/tickets/01-0011.0040-queue-derived-index.md">not yet</straw-dog> |
 | ordering the queue and writing its pacing prose | — | <straw-dog until="the pacer owns both" ticket="docs/tickets/01-0020-pacer.md">not yet</straw-dog> |
-| promoting a concern into a ticket | — | <straw-dog until="a skill instructs promoting a concern into a ticket" ticket="docs/tickets/01-0017-io-graph-coherent.md">not yet</straw-dog> |
+| promoting a concern into a ticket | `.agents/skills/ticket/SKILL.md` | |
 | verifying a ticket's criteria against landed work | — | elsewhere — landing-time agreement is verification, `.agents/skills/verify/SKILL.md` |
 | writing an RFC's contents | — | elsewhere — what an RFC holds is planning's, `.agents/skills/plan/SKILL.md` |
 | installing this mechanism into a tree, and removing it | — | <straw-dog until="an installer exists" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
@@ -124,16 +124,11 @@ Nothing else; no index of its own. The register of tickets is the queue, <straw-
 
 ## Not yet at the shape
 
-**Five `not yet` rows**, each naming a ticket that exists: the archive listing, the derived
-queue, the pacer, the concern index, the installer.
+**Four `not yet` rows**, each naming a ticket that exists: the archive listing, the derived
+queue, the pacer, the installer.
 
 **The queue's table is still a copy.** The shelf's queue section instructs the copy inside a
 straw dog, and the maintainer does not read the queue at all.
-
-**One shaped ticket in the tree.** The stage rule has been applied once, to the ticket that
-declared this mechanism, and the tickets minted before it are incepted by the same rule. Whether
-the shaped form is enough for `/plan` and `/verify` to work from is the first grader's question
-below.
 
 **The maintainer reads names in `done/` and nothing else there.** A half-closed pair is caught by
 name; an archived record written under an older shelf is never reported, and that is the

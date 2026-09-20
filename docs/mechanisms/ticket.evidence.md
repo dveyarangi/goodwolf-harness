@@ -56,3 +56,20 @@ Sixteen live records, nine diagnostics, nothing skipped, before any repair:
 So the prior corpus, read honestly, held three violations of the shelf as it stood before this
 slice: one header form and two missing boxes. The rest was the new rule meeting the record that
 had been written under the old one, and a reader that had not read the shelf closely enough.
+
+## A row overtaken, and a count the tree outran — 2026-09-20
+
+A whole-tree pass found the *promoting a concern into a ticket* row still `not yet`, bound to the
+ticket that would create the concern index. `/ticket` has instructed the promotion since it was
+installed on 2026-09-06 — leave the contact surface under its anchor, add the *queued as* pointer,
+move the deliberation into the ticket — and the row was declared `not yet` on 2026-09-08 because
+`docs/concerns.md` did not exist, not because the instruction was missing. The index exists since
+2026-09-10 and one concern in it carries the pointer. The row is instructed by the skill; the
+wrapper was retired by hand, since the remover deletes whole lines and a row's sits inside its
+cell.
+
+*One shaped ticket in the tree* left the doc the same day. The shelf has not changed since
+2026-09-09, and two more tickets have since been shaped and closed on it through `/plan` and
+`/verify` — one of them through three `/plan` passes — without the shaped form being amended.
+Whether the form is enough for `/plan` remains the first grader's question, pre-registered on
+the doc; the count was a fact of one date and is not.

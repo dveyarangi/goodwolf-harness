@@ -79,7 +79,7 @@ repair-and-report, recording the cause in the evidence.
 | updating the header at close | `.agents/skills/maintain/SKILL.md` | |
 | checking a mechanism's records against their declared format, the ticket records among them | `.agents/skills/maintain/SKILL.md` | |
 | repairing mechanically, history included | — | elsewhere — a meta-rule, read where it lives, `.agents/skills/mechanism/SKILL.md` |
-| disposing of a concern | — | <straw-dog until="a skill instructs disposing of a concern" ticket="docs/tickets/01-0017-io-graph-coherent.md">not yet</straw-dog> |
+| disposing of a concern | — | elsewhere — a settled concern leaves the concern index for the ADR or architecture section that owns its answer, and a queued one keeps its contact surface, `.agents/skills/align/SKILL.md` |
 | checking links outside a close | — | <straw-dog until="a link check runs outside a close, not only the mover's note over records a close rewrote" ticket="docs/tickets/01-0017-io-graph-coherent.md">not yet</straw-dog> |
 | cleaning inline comments in scope | — | elsewhere — verification applies the comment skill to landed work, `.agents/skills/verify/SKILL.md` |
 | running the verification set the scope touched | `.agents/skills/maintain/SKILL.md` | |
@@ -144,11 +144,7 @@ dog.
 inside a straw dog bound to the ticket that declares the rest of the corpus.
 </straw-dog>
 
-**Four `not yet` rows**, each naming a ticket that exists.
-
-**This mechanism has never been run against a mechanism other than the one that wrote the
-shape.** The first declaration named `/maintain` as instructing re-checks while the body carried
-one sentence; this declaration is where the body first honours it.
+**Three `not yet` rows**, each naming a ticket that exists.
 
 ## What retires this
 

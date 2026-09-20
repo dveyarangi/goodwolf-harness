@@ -146,11 +146,6 @@ mechanism cannot be retired. The shape's block absent from `/mechanism` under `-
 signal that the always-on mechanism has lost what it installed into itself, and the check is
 what says it happened.
 
-**Run it over what already exists has no bite here, and this is not a zero.** That rule exists so
-a check landing today cannot claim a clean history it never looked at. This is the first
-mechanism, so there is no prior corpus to sweep — not a corpus swept and found clean. The rule's
-first real application is the sweep that meets every skill installed before the shape existed.
-
 **Three declared mechanisms are still thin evidence for a shape.** Each application so far forced
 amendments to it — what each one forced is in the evidence — and the
 <straw-dog until="01-0017 is done" ticket="docs/tickets/01-0017-io-graph-coherent.md">fourth meets the rest of the corpus at once</straw-dog>.
