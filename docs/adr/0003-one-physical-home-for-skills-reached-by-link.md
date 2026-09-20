@@ -34,11 +34,11 @@ The links are the most fragile thing a recipient touches. Git for Windows writes
 `core.symlinks=false` on clone, so they arrive as text files needing `git config --local
 core.symlinks true` and a re-checkout; creating one needs Developer Mode or an elevated prompt.
 [`.agents/README.md`](../../.agents/README.md) carries the recovery steps, and creating the links
-becomes the installer's job once one exists.
+is `/harness`'s job since 2026-09-21.
 
 **Both links are required — observed 2026-09-21** *(the user, in a probe tree holding one skill
 under `.agents/skills/` and no link)*: neither Claude Code nor Cursor listed the skill or loaded
 it. Codex reads `.agents/skills` natively and needs none. So the links stay, and since Windows
 gates creating one on a privilege whatever tool asks — copying a link is creating one — the
-deploy makes each link where it can and otherwise hands the person the exact elevated `mklink`
+harness mechanism makes each link where it can and otherwise hands the person the exact elevated `mklink`
 command for that tree; Developer Mode is not asked of anyone *(the user, 2026-09-21)*.

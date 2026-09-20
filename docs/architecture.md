@@ -126,10 +126,10 @@ absent block, a drifted block, and a block nothing owns — its owner has no rul
 file does not name the file the block sits in — are each a diagnostic.
 The installer writes no doc and decides nothing about a mechanism's state.
 
-### Deploying
+### Installing
 
 [The install spec](spec/01-0010.0130-harness-installs-into-another-tree.md) owns the decisions;
-this is the contract a recipient holds the deploy mechanism to. The source is a repository at a
+this is the contract a recipient holds the harness mechanism to. The source is a repository at a
 ref — cloned fresh on every run, read through git rather than a checkout, never a working tree —
 so what a recipient receives is always what a commit holds, and the harness's own repository is
 the default. The manifest is every file under the core directory at that ref plus the entry file

@@ -9,12 +9,18 @@ The version covers the **core** part only: the announce line, the general rules,
 switch roster with its meanings, and the `<straw-dog>` convention — `<temporary>` until v5.
 The local block's values change without a bump.
 
+**A recipient's line is not a version.** Since 2026-09-21 the harness mechanism stamps a
+recipient's announce line `<repository>@<ref>, <date>` — the tag where the commit has one, the
+short commit otherwise — so a recipient announces which core it holds and the check reads it
+back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
+this record keeps recording what each bump changed.
+
 ## v14 — 2026-09-20
 
 **One core change:** a general rule — *clarity and simplicity first, Occam's razor: take the shape
 with the fewest parts that does the job, and remove before you add*. Decided by the user at
 [01-0010.0130](../tickets/01-0010.0130-harness-installs-into-another-tree.md)'s second align, on
-the question of whether a deploy needs releases and a record file; the answer to both was the
+the question of whether an install needs releases and a record file; the answer to both was the
 principle, so it went to tier 1 rather than into one mechanism's rules.
 
 ## v13 — 2026-09-20
