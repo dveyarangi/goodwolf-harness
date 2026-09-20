@@ -57,7 +57,7 @@ that can use it, and this record is the last hand-written one.
 - **`.0022` is the next slice** and now carries the consolidation, the nine responsibilities, the
   concern gap and the code/documentation/mechanism distinction.
 - **Three format promises have no validator** — section order, slug shape, and the backticked-path
-  rule → [.0050](../tickets/01-0011.0050-shape-checked.md).
+  rule → [.0050](../tickets/done/01-0011.0050-shape-checked.md).
 - **An unknown header bullet is ignored in silence.** Raised twice, never ruled on.
 - **`docs/concerns.md` has never existed** while six skills transact against it, and `/maintain`'s
   body mentions concerns zero times → [01-0017](../tickets/01-0017-io-graph-coherent.md).

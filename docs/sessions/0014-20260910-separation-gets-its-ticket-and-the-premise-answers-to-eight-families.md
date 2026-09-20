@@ -94,7 +94,7 @@ material and left.
 - **The queue's pacing prose still orders by the coherence chain** and names `.0050` the candidate
   on the old ordering. That separation moved ahead of it, on the user's call at session thirteen,
   lives only in that session record.
-- **[.0050](../tickets/01-0011.0050-shape-checked.md) says "fifteen are installed as of
+- **[.0050](../tickets/done/01-0011.0050-shape-checked.md) says "fifteen are installed as of
   2026-09-07"**; it is twenty-two.
 
 ## Housekeeping

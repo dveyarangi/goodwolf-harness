@@ -2,7 +2,7 @@
 
 - **Status:** Planned (the first mechanism precedes)
 - **Type:** HITL
-- **Depends on:** [The shape is checked mechanically](./01-0011.0050-shape-checked.md) (a proven
+- **Depends on:** [The shape is checked mechanically](./done/01-0011.0050-shape-checked.md) (a proven
   shape and a working check, so applying it to the rest is application rather than design)
 - **Outcome:** Every mechanism in this tree is declared to the shape paired close proved, every
   installed skill is named by one or allowlisted with its reason, and the documents four skills
@@ -164,14 +164,15 @@ held anywhere.
   `/implement` should not mention `/maintain` at all; the sentences are an artefact of the era
   when `/sync-arch` was held separately, and they go in this sweep.
 - **A mechanism doc's `not yet` rows link specific tickets under `docs/`** — observed at
-  `.0022`'s `/verify`, 2026-09-07. The format requires the link and the check enforces it, both
+  `.0022`'s `/verify`, 2026-09-07. **Resolved by `.0050`, 2026-09-20:** a `not yet` row is a
+  straw dog and its ticket is the binding, which the shear strips; no cell carries a link. The format requires the link and the check enforces it, both
   decided before *Core and instance* existed; that rule exempts naming the `docs/tickets/`
   convention, not pointing at one document. Whether a doc's ticket links fall under the
   exemption, or belong in a `<project-local>` block the check reads, is this ticket's question
   about what core may lean on. Two declarations carry such rows today.
 - **The map of missing instructions has homes here** *(the user, 2026-09-07)*. Every `not yet`
   and `embedded` row a declaration carries is maintenance owed to a skill not yet through
-  `/mechanism`'s inception. [.0050](./01-0011.0050-shape-checked.md)'s report is the map; this
+  `/mechanism`'s inception. [.0050](./done/01-0011.0050-shape-checked.md)'s report is the map; this
   ticket gives each row a home — an inception ticket for the mechanism that owns the missing
   rule, or an injection into a target once its owner is declared. An absence should say which fix
   it wants: **a rule injected from a mechanism not yet declared**, **a rule that cannot be

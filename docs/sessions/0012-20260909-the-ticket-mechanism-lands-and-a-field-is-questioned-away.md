@@ -43,13 +43,13 @@ passes, because the text was well-formed and internally consistent every time.
 ## Open, with owners
 
 - **Next cycle needs a nod** (`next-cycle=ask`). By the ordering rule the candidate is
-  [.0050](../tickets/01-0011.0050-shape-checked.md), the shape check: the only Ready slice that
+  [.0050](../tickets/done/01-0011.0050-shape-checked.md), the shape check: the only Ready slice that
   hands the next one a check, and AFK. [.0030](../tickets/01-0011.0030-archive-backlog-listed.md)
   and [.0040](../tickets/01-0011.0040-queue-derived-index.md) are Ready beside it.
 - **The `not yet` links are a live violation of the core rule.** Every referent is a markdown link
   from `.agents/` into `docs/tickets/`, outside any `<project-local>` or `<straw-dog>` block, and
   the format mandates the form. It travels into a recipient as a dangling link. Routed to
-  [.0050](../tickets/01-0011.0050-shape-checked.md) with the ticket-number form as one candidate;
+  [.0050](../tickets/done/01-0011.0050-shape-checked.md) with the ticket-number form as one candidate;
   that align decides. Surfaced by the same question that removed `declared by`, and not fixed in
   this slice because the format is the shape's to change.
 - **The user's grade on the shape** is still not given, pre-registered on both mechanism docs

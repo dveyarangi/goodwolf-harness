@@ -23,7 +23,7 @@ first time. No delivery-ring slice was taken; the queue's candidate `.0050` is u
 ## What the probe changed about priority
 
 Separation is now ahead of the coherence chain, on the user's call and the probe's evidence. Two
-things reordered underneath it. [.0050](../tickets/01-0011.0050-shape-checked.md)'s allowlist turns
+things reordered underneath it. [.0050](../tickets/done/01-0011.0050-shape-checked.md)'s allowlist turns
 out to be the gate on the install script — a parts-derived manifest ships 3 skills of 22 today, so
 *what ships* and *which skill is claimed* are one question. And the entry contract's hand-bumped
 version is scaffolding: the user named its successor, a core revision derived from the manifest's

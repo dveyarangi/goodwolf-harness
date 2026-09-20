@@ -2,7 +2,7 @@
 
 **Status:** **Accepted by the user, 2026-09-06.** Developed through `/spec` → `/align`;
 decomposed by `/ticket` into [01-0011.0010](../tickets/done/01-0011.0010-mechanism-declared.md) …
-[.0050](../tickets/01-0011.0050-shape-checked.md), with
+[.0050](../tickets/done/01-0011.0050-shape-checked.md), with
 [01-0017](../tickets/01-0017-io-graph-coherent.md) re-parented here as the generalisation step.
 
 **Amended 2026-09-06** during [01-0011.0010](../tickets/done/01-0011.0010-mechanism-declared.md)'s

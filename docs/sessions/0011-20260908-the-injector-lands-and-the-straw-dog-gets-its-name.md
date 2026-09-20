@@ -58,7 +58,7 @@ All on the closed tickets. The ones that reshaped more than their slice:
 - **The user's grade on the shape** is still not given: did the shape change because `/maintain`
   did not fit it, or was the declaration bent? Pre-registered on both mechanism docs since
   yesterday.
-- **R6** waits on [.0050](../tickets/01-0011.0050-shape-checked.md), which creates the
+- **R6** waits on [.0050](../tickets/done/01-0011.0050-shape-checked.md), which creates the
   allowlist it names.
 - **Two candidates the guess cannot wrap**: table cells bound in their own words. And what it
   cannot find at all: a claim that became false with no tell — *owns none* — which is the limit

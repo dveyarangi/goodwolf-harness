@@ -11,7 +11,7 @@ that the default. Everything else followed from answering it. Two commits of min
 Details are on the records named.
 
 - **`/recall`** found the queue as record sixteen left it: the chain `.0140 → .0110 → .0130`, with
-  `.0140`'s align the candidate and [01-0011.0050](../tickets/01-0011.0050-shape-checked.md) the
+  `.0140`'s align the candidate and [01-0011.0050](../tickets/done/01-0011.0050-shape-checked.md) the
   one AFK slice on the critical path. Nothing in that reading changed by the close; the candidate
   is unchanged.
 - **The pacer's first core rule landed** at entry contract **v9**: run `/recall` first in every

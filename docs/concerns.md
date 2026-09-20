@@ -28,7 +28,7 @@ deliberately not adopted. The deliberation is on the ticket.
 
 **Kind:** design gap in a shape three mechanisms want; blocked, no owner ·
 **Refs:** [01-0017.0010](tickets/01-0017.0010-terms-defined-before-they-land.md),
-[01-0011.0050](tickets/01-0011.0050-shape-checked.md),
+[01-0011.0050](tickets/done/01-0011.0050-shape-checked.md),
 [architecture — installed blocks](architecture.md#installed-blocks)
 
 *(the user, 2026-09-10)*
@@ -45,10 +45,10 @@ its own instance, that belonging to this group means *this file and this anchor 
 second half a group target cannot resolve to a write, and the installer's guarantee that a refusal
 changes no file cannot hold.
 
-**Also blocked on membership.** A group over mechanisms reaches three skills of twenty-two today —
-a transition state rather than a ceiling, but until
-[01-0011.0050](tickets/01-0011.0050-shape-checked.md) closes membership a group is not a set anyone
-can enumerate.
+**Membership is enumerable since 2026-09-20** — [01-0011.0050](tickets/done/01-0011.0050-shape-checked.md)
+landed: `mechanisms.py --check` reports every installed skill as named by a mechanism or
+claiming `not yet` on its own first line, three named of twenty-two. A group over mechanisms
+still reaches those three; the transition state is now counted rather than guessed.
 
 Kept out of [01-0017.0010](tickets/01-0017.0010-terms-defined-before-they-land.md) deliberately: it
 is broader than the glossary, and the glossary ships on explicit targets without it.

@@ -49,7 +49,7 @@ other one.
 **11** diagnostics. A mechanism doc's `not yet` moment must name its ticket as a markdown link —
 [MECHANISM-FORMAT](../../.agents/skills/mechanism/MECHANISM-FORMAT.md) mandates the form and
 `mechanisms.py` enforces it. Every one points into `docs/tickets/`. Surfaced at session twelve as a
-rule violation and routed to [.0050](../tickets/01-0011.0050-shape-checked.md); the probe raises it
+rule violation and routed to [.0050](../tickets/done/01-0011.0050-shape-checked.md); the probe raises it
 from a style question to a check that fails on arrival.
 
 ### `<project-local>` protects nothing without an installer
@@ -102,7 +102,7 @@ of *its* loop, in a project that has its own.
   frost_map is the only reason anyone knows the scripts survived the trip.** A recipient's first run
   of them is its arrival check. Roughly 70 seconds is the price of that signal.
 - **A parts-derived manifest would ship 3 skills of 22.** Only `/mechanism`, `/maintain` and
-  `/ticket` are named by a parts table. [.0050](../tickets/01-0011.0050-shape-checked.md)'s
+  `/ticket` are named by a parts table. [.0050](../tickets/done/01-0011.0050-shape-checked.md)'s
   allowlist is not hygiene: it is the question *what ships*, and it gates the manifest.
 - **A commit tag cannot be the revision.** One commit routinely touches both halves. The identity is
   a content hash over the manifest; a tag is a label for it.
