@@ -9,6 +9,8 @@ install it with overwrite; the block in a target is never the place.
 | `.agents/skills/mechanism/SKILL.md` | `## Records` |
 | `.agents/skills/align/SKILL.md` | `### Record resolutions in the owning ticket inline` |
 | `.agents/skills/skill-up/SKILL.md` | `## Installed from other mechanisms` |
+| `AGENTS.md` | `## Project-local` |
+| `.agents/skills/verify/SKILL.md` | `## The verification set` |
 
 ## R1 — records are checked by their maintainer script
 
@@ -74,4 +76,21 @@ ticket as you write it.
 A skill is a mechanism's one instruction file, or says so on its first body line: `Mechanism:`
 then `not yet`, wrapped as a straw dog bound to the ticket that declares its mechanism, or
 `unowned by design` with its reason. Write the line as you add the skill; no list holds it.
+</rule>
+
+## R7 — a project's answers live in its local file
+
+- **target** `AGENTS.md`
+- **target** `.agents/skills/verify/SKILL.md`
+- **authority** the user, 2026-09-10
+
+<rule>
+A project's own answers and overrides are authored in one file beside the entry file,
+`local.rules.md`, in the rules-file format, and reach a file only as the local block — the
+installed block whose owner is `local` — which the installer writes after every mechanism's block
+there, so the project's answer is what a reader meets after core's rule. An override names the rule it
+overrides. A local change to a rule is written in the local file, never into a skill or the entry
+file: `inject_rules.py --check` fails on a block that differs from its source and on a block
+nothing owns, and the repair is the local file, re-installed. The local block is the project's,
+not core's, and a redeploy preserves it.
 </rule>

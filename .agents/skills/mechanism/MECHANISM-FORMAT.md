@@ -94,9 +94,6 @@ the architecture's; the entry file owns the prohibition on editing a block in pl
 
 - **instruction** `<path>` — what it holds
 - **state** always on
-<project-local>
-- **evidence** `<path>`
-</project-local>
 
 ## How it works
 
@@ -130,12 +127,11 @@ answered at all is not.
 - **state** — `always on` or `installed`, and nothing else. `always on` means nothing can install
   or uninstall it, so it has no lifecycle scripts and that absence is a property. It is what tells
   a reader which way to read the parts table.
-- **evidence** sits in the `<project-local>` block, which a recipient replaces, and is
-  **optional** — a mechanism with no evidence yet is a legitimate state. Named, it must resolve.
-  It is a backticked path; evidence never moves. Which ticket declared the mechanism is the
-  evidence's first paragraph, not a header bullet *(the user, 2026-09-09)*: the one check that
-  read such a bullet is replaced by the rule that a `not yet` row may not name an archived
-  ticket, which needs no field.
+- There is no evidence bullet. The evidence is a record declared under [Records](#the-evidence-is-a-record-of-the-shape)
+  below and found by the slug; the doc never names it, since it is the instance's and a recipient
+  does not have it. Which ticket declared the mechanism is the evidence's first paragraph *(the
+  user, 2026-09-09)*: the one check that read such a bullet is replaced by the rule that a
+  `not yet` row may not name an archived ticket, which needs no field.
 
 ## Moments
 
@@ -229,6 +225,13 @@ the frontmatter:
 `Mechanism:` then the moments grammar, `not yet` or `unowned by design` only. The line is a
 straw dog like a `not yet` row; it goes when a declaration names the skill. Named and claiming,
 or neither, is a diagnostic. No list holds these: each is a straw dog at its authored home.
+
+## The evidence is a record of the shape
+
+- **A record** is one file per mechanism, `docs/mechanisms/<slug>.evidence.md`, in the instance
+  half: why the doc is what it is. A mechanism with none yet is a legitimate state.
+- **Tier 2** — read at amend time, by whoever is about to change the doc.
+- **What removes an entry**: the mechanism being retired. The file never moves.
 
 ## The mechanism set is its own register
 

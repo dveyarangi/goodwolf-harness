@@ -36,8 +36,11 @@ _DRIVE = re.compile(r"^[A-Za-z]:/")
 # sentence ending in one keeps its full stop and `docs/` followed by an ellipsis is no path at all.
 PATH_LITERAL = re.compile(r"docs/\w[\w./-]*")
 _TRAILING_PUNCTUATION = ".,;:"
-# Instance-owned blocks: the tag an author writes today, and the injected one that replaces it.
-_INSTANCE_OWNED = re.compile(r"<project-local>.*?</project-local>|<installed by=\"local\">.*?</installed>", re.S)
+# The instance-owned block: the project's rules as the installer writes them from its local file.
+# The `<project-local>` tag an author once wrote is retired and excuses nothing; `mechanisms.py`
+# reports one left in core.
+_INSTANCE_OWNED = re.compile(r"<installed by=\"local\">.*?</installed>", re.S)
+RETIRED_TAG = "<project-local>"
 _WRAPPER_OPENING = re.compile(r"<straw-dog\b[^<>]*>")
 _TODO_BINDING = re.compile(r"^#\s*TODO\b.*docs/tickets/[\w./-]+\.md")
 _CODE_TOKENS = {tokenize.STRING, tokenize.COMMENT} | (

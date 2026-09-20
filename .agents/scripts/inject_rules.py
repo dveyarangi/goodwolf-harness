@@ -4,10 +4,13 @@
     uv run --offline --no-project python .agents/scripts/inject_rules.py <slug> --retract
     uv run --offline --no-project python .agents/scripts/inject_rules.py --check
 
-One block per mechanism per target, holding every rule the mechanism sends there. The grammar
-of the rules file is the format shelf's, `MECHANISM-FORMAT.md`; the contract — a named mode or
-a refusal, every target validated before anything is written, retraction byte-identical, a
-differing block refused until the caller says overwrite — is the architecture's.
+One block per source per target, holding every rule the source sends there. A source is a
+mechanism's rules file, or the project's own — `local.rules.md` beside the entry file, the slug
+`local` — whose block lands after every mechanism's in a target and whose rules may name the
+core rule each overrides. The grammar of the rules file is the format shelf's,
+`MECHANISM-FORMAT.md`; the contract — a named mode or a refusal, every target validated before
+anything is written, retraction byte-identical, a differing block refused until the caller says
+overwrite — is the architecture's.
 
 The script never decides what a rule means and never writes a doc.
 """
@@ -31,11 +34,16 @@ from docs_corpus import (  # noqa: E402  (path set just above)
 )
 
 MECHANISMS = ".agents/mechanisms"
+# The project's own rules file: beside the entry file, outside core, so a redeploy that replaces
+# the core directory cannot delete it. Its slug is the block tag the leak check already skips.
+LOCAL = "local"
+LOCAL_FILE = "local.rules.md"
 MODES = ("--install", "--retract", "--check")
 _USAGE = "usage: inject_rules.py <slug> --install [--overwrite] | <slug> --retract | --check"
 _HEADING = re.compile(r"^(#{1,6}) (.*)$", re.M)
 _TABLE_ROW = re.compile(r"^\|\s*`([^`]+)`\s*\|\s*`([^`]+)`\s*\|\s*$")
 _TARGET = re.compile(r"^- \*\*target\*\* `([^`]+)`\s*$")
+_OVERRIDES = re.compile(r"^- \*\*overrides\*\* `([^`/]+)/([^`/]+)`\s*$")
 _AUTHORITY = re.compile(r"^- \*\*authority\*\* (.+?)\s*$")
 _SPAN_EDGE = re.compile(r"^</?rule>\r?\n?$")
 
@@ -51,6 +59,15 @@ class Rule:
     targets: tuple[str, ...]
     authority: str
     body: str
+    overrides: tuple[str, str] | None = None
+    """The core rule this one replaces, as (slug, id) — a project's override names its rule."""
+
+    @property
+    def paragraph(self) -> str:
+        """As installed: the id, the rule it overrides where it does, so a reader sees the
+        disagreement where they meet it, and the body unreshaped."""
+        cited = f" *(overrides {'/'.join(self.overrides)})*" if self.overrides else ""
+        return f"**{self.id}**{cited} {self.body}"
 
 
 @dataclass(frozen=True)
@@ -63,7 +80,7 @@ class RulesFile:
 
     def block(self, target: str) -> str:
         """What the target must hold: every rule naming it, file order, ids from the headings."""
-        paragraphs = [f"**{rule.id}** {rule.body}" for rule in self.rules if target in rule.targets]
+        paragraphs = [rule.paragraph for rule in self.rules if target in rule.targets]
         return f'<installed by="{self.slug}">\n' + "\n\n".join(paragraphs) + f"\n{INSTALLED_CLOSING}"
 
 
@@ -88,6 +105,8 @@ def main(argv: list[str], root: Path | None = None) -> int:
         return 1 if report["diagnostics"] else 0
     try:
         rules = read_rules_file(root, slug)
+        if mode == "--install":
+            overrides_resolve(root, rules)
     except Refused as refusal:
         print(json.dumps({"slug": slug, "mode": mode[2:], "refusals": [str(refusal)]}, indent=2))
         return 1
@@ -116,10 +135,22 @@ def _parsed(argv: list[str]) -> tuple[str | None, str | None, bool, bool]:
 
 
 def read_rules_file(root: Path, slug: str) -> RulesFile:
-    path = root / MECHANISMS / slug / f"{slug}.rules.md"
+    if slug == LOCAL and (root / MECHANISMS / LOCAL).is_dir():
+        raise Refused(_COLLISION)
+    path = _rules_path(root, slug)
     if not path.is_file():
         raise Refused(f"no rules file at {path.relative_to(root).as_posix()}")
     return parse_rules_file(slug, _read(path))
+
+
+def _rules_path(root: Path, slug: str) -> Path:
+    """A mechanism's file sits in its directory; the project's sits beside the entry file."""
+    if slug == LOCAL:
+        return root / LOCAL_FILE
+    return root / MECHANISMS / slug / f"{slug}.rules.md"
+
+
+_COLLISION = f"a mechanism directory named {LOCAL} collides with the local file {LOCAL_FILE}"
 
 
 def parse_rules_file(slug: str, text: str) -> RulesFile:
@@ -177,11 +208,14 @@ def _rule(section: list[tuple[str, str]], anchors: dict[str, str]) -> Rule:
     rule_id, _, title = heading.partition(" — ")
     rule_id = rule_id.strip()
     targets: list[str] = []
+    overrides: list[tuple[str, str]] = []
     authorities: list[str] = []
     edges: list[int] = []
     for index, (raw, seen) in enumerate(section[1:], start=1):
         if seen.startswith("- **target**") and (match := _TARGET.match(raw)):
             targets.append(match.group(1))
+        elif seen.startswith("- **overrides**") and (match := _OVERRIDES.match(raw)):
+            overrides.append((match.group(1), match.group(2)))
         elif seen.startswith("- **authority**") and (match := _AUTHORITY.match(raw)):
             authorities.append(match.group(1))
         elif _SPAN_EDGE.match(seen):
@@ -191,13 +225,50 @@ def _rule(section: list[tuple[str, str]], anchors: dict[str, str]) -> Rule:
     for target in targets:
         if target not in anchors:
             raise Refused(f"rule {rule_id} targets {target}, which has no row in the anchor table")
+    if len(overrides) > 1:
+        raise Refused(f"rule {rule_id} states overrides more than once")
     if len(authorities) != 1:
         raise Refused(f"rule {rule_id} must state its authority exactly once")
     if len(edges) != 2 or [section[i][1].rstrip("\r\n") for i in edges] != ["<rule>", "</rule>"]:
         raise Refused(f"rule {rule_id} needs exactly one <rule> … </rule> span")
     body = "".join(raw for raw, _ in section[edges[0] + 1 : edges[1]]).rstrip("\r\n")
     _body_problems(rule_id, body)
-    return Rule(rule_id, title.strip(), tuple(targets), authorities[0], body)
+    return Rule(rule_id, title.strip(), tuple(targets), authorities[0], body, overrides[0] if overrides else None)
+
+
+def overrides_resolve(root: Path, rules: RulesFile) -> None:
+    """Every override names a rule that exists and is sent to every target the override names.
+
+    Read from the cited rules file's declared targets, never from whether its block is present:
+    an absent mechanism block is that mechanism's diagnostic, and the override's refusal names
+    the local entry so the author knows which one to fix.
+    """
+    for problem in override_problems(root, rules):
+        raise Refused(problem)
+
+
+def override_problems(root: Path, rules: RulesFile) -> list[str]:
+    problems = []
+    for rule in rules.rules:
+        if rule.overrides is None:
+            continue
+        slug, cited_id = rule.overrides
+        said = f"{rule.id} overrides {slug}/{cited_id}"
+        try:
+            cited = read_rules_file(root, slug)
+        except Refused as refusal:
+            problems.append(f"{said}, but {refusal}")
+            continue
+        found = next((one for one in cited.rules if one.id == cited_id), None)
+        if found is None:
+            problems.append(f"{said}, which {slug}'s rules file does not define")
+            continue
+        problems += [
+            f"{said}, which is not installed in {target}"
+            for target in rule.targets
+            if target not in found.targets
+        ]
+    return problems
 
 
 def _body_problems(rule_id: str, body: str) -> None:
@@ -262,8 +333,32 @@ def after_anchor(text: str, anchor: str) -> int:
     return hits[0]
 
 
-def with_block(text: str, anchor: str, block: str) -> str:
+def insertion_point(text: str, anchor: str, slug: str) -> int:
+    """Directly after the anchor line — or, for the local block, after the run of installed blocks
+    already there, so the project's answer is what a reader meets after core's rules."""
     at = after_anchor(text, anchor)
+    if slug != LOCAL:
+        return at
+    seen = without_code(text)
+    while INSTALLED_OPENING.match(seen[at:].lstrip("\r\n")):
+        close = seen.find(INSTALLED_CLOSING, at)
+        if close == -1:
+            return at  # an unclosed block is refused before anything is written
+        newline = seen.find("\n", close)
+        at = len(seen) if newline == -1 else newline + 1
+    return at
+
+
+def following_block(text: str, offset: int) -> tuple[str, int] | None:
+    """The first installed block opening at or after `offset`: its slug and line, or None."""
+    seen = without_code(text)
+    for opening in INSTALLED_OPENING.finditer(seen):
+        if opening.start() >= offset:
+            return opening.group(1), text.count("\n", 0, opening.start()) + 1
+    return None
+
+
+def with_block(text: str, at: int, block: str) -> str:
     return text[:at] + "\n" + block + "\n" + text[at:]
 
 
@@ -319,7 +414,13 @@ def _planned(
     rendered = rules.block(target)
     if mode == "install":
         if found is None:
-            return {"target": target, "state": "installed"}, with_block(text, anchor, rendered)
+            at = insertion_point(text, anchor, rules.slug)
+            if rules.slug == LOCAL and (follows := following_block(text, at)):
+                raise Refused(
+                    f"the local block would not be last: a block of {follows[0]} at line {follows[1]} "
+                    "would follow it; anchor the local rule after every mechanism's block"
+                )
+            return {"target": target, "state": "installed"}, with_block(text, at, rendered)
         if matches(found.text, rendered):
             return {"target": target, "state": "present"}, None
         if not overwrite:
@@ -363,6 +464,9 @@ def check(root: Path) -> dict:
     diagnostics: list[str] = []
     for directory in sorted((root / MECHANISMS).glob("*/")) if (root / MECHANISMS).is_dir() else []:
         slug = directory.name
+        if slug == LOCAL:
+            diagnostics.append(f"{slug}: {_COLLISION}")
+            continue
         if not (directory / f"{slug}.rules.md").is_file():
             continue
         try:
@@ -370,9 +474,16 @@ def check(root: Path) -> dict:
         except Refused as refusal:
             files[slug] = None
             diagnostics.append(f"{slug}: {refusal}")
+    if (root / LOCAL_FILE).is_file():
+        try:
+            files[LOCAL] = read_rules_file(root, LOCAL)
+        except Refused as refusal:
+            files[LOCAL] = None
+            diagnostics.append(f"{LOCAL}: {refusal}")
     for slug, rules in files.items():
         if rules is None:
             continue
+        diagnostics.extend(f"{slug}: {problem}" for problem in override_problems(root, rules))
         for target, anchor in rules.anchors.items():
             state = _state(root, rules, target, anchor)
             blocks.append({"slug": slug, "target": target, "state": state})
@@ -405,7 +516,11 @@ def _state(root: Path, rules: RulesFile, target: str, anchor: str) -> str:
         return "absent"
     if found.text is None:
         return "the block opens and never closes"
-    return "present" if matches(found.text, rules.block(target)) else "drifted"
+    if not matches(found.text, rules.block(target)):
+        return "drifted"
+    if rules.slug == LOCAL and following_block(text, found.end):
+        return "not last"
+    return "present"
 
 
 def _orphans(root: Path, files: dict[str, RulesFile | None]) -> list[tuple[str, str]]:

@@ -7,7 +7,20 @@ announcing a version can find out what it announced.
 
 The version covers the **core** part only: the announce line, the general rules, the loop, the
 switch roster with its meanings, and the `<straw-dog>` convention — `<temporary>` until v5.
-`<project-local>` values change without a bump.
+The local block's values change without a bump.
+
+## v13 — 2026-09-20
+
+**Three core changes, one occasion:** [01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md)'s
+implementation. *Project-local* is the first section of this file made of installed blocks alone:
+the shape's R7, describing the local rules file instead of a tag an author writes — one file beside
+the entry file, installed last as the local block, an override naming the rule it overrides, and
+the rule that a local change to a rule is written there — and after it the project's own block.
+*(Written by hand first; the user had it injected the same day.)* *Core and instance*
+names the local block where it named the tag. *Autonomy* points at the local block under
+*Project-local*, where the switches now sit as an installed rule. This project's own four blocks
+left the file for `local.rules.md` the same day, which the version does not cover. Decided by the
+user at the joint align of 2026-09-10 → 11, accepted on the install spec 2026-09-14.
 
 ## v1 — 2026-09-05
 

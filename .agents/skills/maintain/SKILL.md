@@ -61,7 +61,7 @@ doc against the shape, its instruction file against its doc, its records against
 
 ## Straw dogs
 
-- **T1** List with `straw_dogs.py docs AGENTS.md .agents`. Any diagnostic fails the run;
+- **T1** List with `straw_dogs.py docs AGENTS.md local.rules.md .agents`. Any diagnostic fails the run;
   zero straw dogs is clean.
 - **T2** Remove one you have judged obsolete with `--remove FILE:LINE --expect <fingerprint>`.
   A straw dog holding a nested one is refused: dispose of the children, scan again.
@@ -116,9 +116,3 @@ One rule of `/spec`'s, held here by hand until that mechanism is declared and in
 - **F2** Report: the declared scope, what was checked, what was repaired and against which
   rule, what moved, what remains open and who owns it, and what you did not cover.
 - **F3** Do not verify landed work; a close needs verification to have already happened.
-
-<project-local>
-The mover's failure contract and the straw-dog contract:
-[architecture](../../../docs/architecture.md#interruption-and-recovery),
-[architecture](../../../docs/architecture.md#straw-dogs).
-</project-local>

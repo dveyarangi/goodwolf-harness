@@ -21,8 +21,31 @@ Look for architectural or responsibility leakage.
 
 ## The verification set
 
+<installed by="mechanism-shape">
+**R7** A project's own answers and overrides are authored in one file beside the entry file,
+`local.rules.md`, in the rules-file format, and reach a file only as the local block — the
+installed block whose owner is `local` — which the installer writes after every mechanism's block
+there, so the project's answer is what a reader meets after core's rule. An override names the rule it
+overrides. A local change to a rule is written in the local file, never into a skill or the entry
+file: `inject_rules.py --check` fails on a block that differs from its source and on a block
+nothing owns, and the repair is the local file, re-installed. The local block is the project's,
+not core's, and a redeploy preserves it.
+</installed>
+
+<installed by="local">
+**L3** The verification set:
+
+```
+uv run --offline --no-project python -m unittest discover -s .agents/scripts/test -p "test_*.py"
+uv run --offline --no-project python .agents/scripts/mechanisms.py --check
+uv run --offline --no-project python .agents/scripts/inject_rules.py --check
+uv run --offline --no-project python .agents/scripts/tickets.py --check
+```
+</installed>
+
 The project's verification set is its typechecker, its tests and every other command required
-of landed work, <straw-dog until="01-0010.0110 is done" ticket="docs/tickets/01-0010.0110-project-facets-injected.md">named in the entry file's local block</straw-dog>. A failed check is unfinished work.
+of landed work, named in the project's local rules file and installed here as the local block. A
+failed check is unfinished work.
 Discovery reporting success with zero tests is not verification; the run must show a positive
 count. A clean run means nothing was caught, never that the tree obeys. `/implement` may run
 named checks during the work; that run is not this pass.

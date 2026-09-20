@@ -37,7 +37,7 @@ closes a ticket and its RFC together and repairs the citations that pointed at t
 mechanism's declaration is true, holds core to citing only the painted doors its mechanisms
 declare, and renders the register from
 [`mechanisms/`](./mechanisms/), `inject_rules.py` installs a mechanism's rules into the skills
-its rules file names and takes them out again, `tickets.py` holds every live ticket to the shape
+its rules file names, and the project's local file last, and takes them out again, `tickets.py` holds every live ticket to the shape
 the ticket format shelf declares, and `docs_corpus.py` is the one view of the
 tree they share. They
 run on the standard library alone, and their behavioral tests are in

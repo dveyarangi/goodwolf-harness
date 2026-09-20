@@ -109,7 +109,9 @@ reaches a skill as an `<installed by="<slug>">` block written by one generic ins
 block per mechanism per target, holding every rule that mechanism sends there in its rules
 file's order, each opening with its id, and nothing else, after the anchor line the rules file
 names for that target. A mechanism has one place in a target. The entry file owns the
-prohibition on editing a block in place.
+prohibition on editing a block in place. The project's own rules file, `local.rules.md` beside
+the entry file, is one more source: its block lands after every mechanism's in a target, and a
+rule in it may name the core rule it overrides, which is rendered where the reader meets it.
 
 The installer has a named mode or refuses. It validates every target of a file before writing
 anything — target present, anchor matching exactly one line, block absent or matching — and a

@@ -1,18 +1,12 @@
 # Entry contract
 
-Entry contract: v12, 2026-09-20.
+Entry contract: v13, 2026-09-20.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
 <straw-dog until="01-0020 is done" ticket="docs/tickets/01-0020-pacer.md">
 Run /recall first in every session, whatever the first message says.
 </straw-dog>
-
-<project-local>
-This repository develops the shared dev harness using its own loop. Terms: docs/glossary.md, this
-project's own; the method's are .agents/glossary.md's.
-What each version of this contract changed: docs/research/entry-contract-findings.md.
-</project-local>
 
 ## General rules
 
@@ -35,18 +29,13 @@ nothing about being load-bearing — an implementation method is a shape too. �
 `docs/` is substituted whole in a harness instance: a recipient project replaces its contents with
 its own.
 
-<project-local>
-This repository's own architecture and progress live in docs/ like any other project's — the
-instance half doing its job, not a leak.
-</project-local>
-
 What core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,
 or rely on one for its instruction or for any separable part of its own functioning. A core file
 may name a path under `docs/` only when that path is a record a mechanism declares — the directory
 that holds a kind of record, or a file that is one — never a particular record inside such a
 directory: `docs/tickets/` and `docs/glossary.md` are painted doors; one particular ticket inside
-`docs/tickets/` is a document only this project has. Content inside a
-[`<project-local>`](#project-local) block is the instance's, not core's. A `<straw-dog>` exempts
+`docs/tickets/` is a document only this project has. Content inside the
+[local block](#project-local) is the instance's, not core's. A `<straw-dog>` exempts
 nothing: its wrapper is stripped on install and whatever it wrapped ships. Core names a ticket
 only in a straw dog's binding — never in a link, never as a bare id in prose — since a recipient
 can resolve neither.
@@ -107,7 +96,7 @@ Do not reopen an accepted decision without new evidence.
 
 ## Autonomy
 
-The project sets each switch in its local block below; skills defer to those values.
+The project sets each switch in its local block, under *Project-local*; skills defer to those values.
 
 | Switch | Meaning |
 |---|---|
@@ -122,27 +111,27 @@ repair restores compliance inside the authorized work and keeps every other agre
 affected behaviour is understood well enough to say so; the result is verifiable against the
 rule. Otherwise `/align`. *(the user, 2026-09-05)*
 
-<straw-dog until="01-0010.0110 is done" ticket="docs/tickets/01-0010.0110-project-facets-injected.md">
-<project-local>
-The verification set:
-
-```
-uv run --offline --no-project python -m unittest discover -s .agents/scripts/test -p "test_*.py"
-uv run --offline --no-project python .agents/scripts/mechanisms.py --check
-uv run --offline --no-project python .agents/scripts/inject_rules.py --check
-uv run --offline --no-project python .agents/scripts/tickets.py --check
-```
-</project-local>
-</straw-dog>
-
 ## Project-local
 
-A recipient replaces every `<project-local>` block with its own → [glossary](.agents/glossary.md).
+<installed by="mechanism-shape">
+**R7** A project's own answers and overrides are authored in one file beside the entry file,
+`local.rules.md`, in the rules-file format, and reach a file only as the local block — the
+installed block whose owner is `local` — which the installer writes after every mechanism's block
+there, so the project's answer is what a reader meets after core's rule. An override names the rule it
+overrides. A local change to a rule is written in the local file, never into a skill or the entry
+file: `inject_rules.py --check` fails on a block that differs from its source and on a block
+nothing owns, and the repair is the local file, re-installed. The local block is the project's,
+not core's, and a redeploy preserves it.
+</installed>
 
-- Carry one only for a fact that would differ in another project. Harness layout and the switch
-  lookup are shared.
-- One block per local fact, beside the rule it answers.
-- An unavoidable core reference into `docs/` goes in one, so it does not travel.
+<installed by="local">
+**L1** This repository develops the shared dev harness using its own loop; its own architecture and
+progress live in docs/ like any other project's — the instance half doing its job, not a leak.
+Terms: docs/glossary.md, this project's own; the method's are .agents/glossary.md's. What each
+version of the entry contract changed: docs/research/entry-contract-findings.md.
+
+**L2** commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report
+</installed>
 
 ## Straw dogs
 
@@ -158,7 +147,3 @@ unwrapped.
 
 Follow a straw dog like any other rule until its condition is visibly met; then act on reality,
 report the stale block, and do not treat the contradiction as a violation.
-
-<project-local>
-commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report
-</project-local>

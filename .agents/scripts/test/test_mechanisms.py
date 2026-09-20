@@ -47,7 +47,6 @@ class Declared(RepositoryCase):
         self.write(".agents/scripts/docs_corpus.py", "# shared\n")
         self.write("docs/tickets/01-0002-sweep.md", "# Sweep\n")
         self.write("docs/tickets/01-0001-sample.md", "# Sample\n")
-        self.write("docs/mechanisms/sample-shape.evidence.md", "# Evidence\n")
         self.write(DOC, self.doc())
 
     def doc(self, **replaced: str) -> str:
@@ -57,9 +56,6 @@ class Declared(RepositoryCase):
                 f"# {SLUG} — one line saying what it is\n\n"
                 f"- **instruction** `{INSTRUCTION}` — the act\n"
                 "- **state** always on\n"
-                "<project-local>\n"
-                "- **evidence** `docs/mechanisms/sample-shape.evidence.md`\n"
-                "</project-local>\n"
             ),
             "moments": MOMENTS,
             "parts": PARTS,
@@ -418,24 +414,6 @@ class TheHeader(Declared):
         self.assertEqual(INSTRUCTION, checked.declarations[0].instruction)
         self.assertEqual([], checked.diagnostics)
 
-    def test_names_an_evidence_file_that_exists_when_it_names_one(self) -> None:
-        self.write(
-            DOC,
-            self.doc().replace(
-                "docs/mechanisms/sample-shape.evidence.md", "docs/mechanisms/never-written.md"
-            ),
-        )
-
-        problems = self.problems()
-
-        self.assertEqual(1, len(problems))
-        self.assertIn("docs/mechanisms/never-written.md", problems[0])
-
-    def test_may_name_no_evidence_at_all(self) -> None:
-        self.write(DOC, self.doc(header=self.header(f"- **instruction** `{INSTRUCTION}`\n")))
-
-        self.assertEqual([], self.checked().diagnostics)
-
     def test_states_one_of_the_two_states_a_mechanism_can_be_in(self) -> None:
         self.write(DOC, self.doc().replace("- **state** always on", "- **state** occasionally on"))
 
@@ -740,7 +718,7 @@ class CoreStandsAlone(Declared):
         return [(c.file, c.line, c.cites) for c in self.checked().cites if c.standing == "leak"]
 
     def standing(self, standing: str, file: str = CITING) -> list[str]:
-        """What one file's mentions stand as; the fixture's own doc carries a skipped evidence bullet."""
+        """What one file's mentions stand as."""
         return [c.cites for c in self.checked().cites if c.standing == standing and c.file == file]
 
     def cites_from(self, file: str) -> list[str]:
@@ -768,15 +746,20 @@ class CoreStandsAlone(Declared):
         self.assertEqual([(CITING, 3, DOCUMENT)], self.leaks())
         self.assertEqual(["docs/tickets/"], self.standing("painted door"))
 
-    def test_a_citation_inside_an_instance_owned_block_is_skipped_and_reported(self) -> None:
-        self.write(
-            CITING,
-            "# Notes\n\n<project-local>\nEvidence: `docs/mechanisms/sample.evidence.md`\n</project-local>\n\n"
-            f'<installed by="local">\nSee [it](../../../{DOCUMENT}).\n</installed>\n',
-        )
+    def test_a_citation_inside_the_local_block_is_skipped_and_reported(self) -> None:
+        self.write(CITING, f'# Notes\n\n<installed by="local">\nSee [it](../../../{DOCUMENT}).\n</installed>\n')
 
         self.assertEqual([], self.problems())
-        self.assertEqual(["docs/mechanisms/sample.evidence.md", DOCUMENT], self.standing("skipped"))
+        self.assertEqual([DOCUMENT], self.standing("skipped"))
+
+    def test_a_project_local_block_is_a_retired_tag_and_excuses_nothing(self) -> None:
+        self.write(CITING, f"# Notes\n\n<project-local>\n`{DOCUMENT}`\n</project-local>\n")
+
+        problems = self.problems()
+
+        self.assertEqual(2, len(problems), problems)
+        self.assertTrue(any(f"{CITING}:3 writes a <project-local> block" in note for note in problems), problems)
+        self.assertEqual([(CITING, 4, DOCUMENT)], self.leaks())
 
     def test_a_citation_inside_a_straw_dog_is_a_leak_and_its_binding_is_not(self) -> None:
         self.write(
@@ -792,10 +775,11 @@ class CoreStandsAlone(Declared):
 
         self.assertEqual([(CITING, 7, DOCUMENT)], self.leaks())
 
-    def test_a_tag_written_in_a_code_span_is_not_a_block(self) -> None:
+    def test_a_tag_written_in_a_code_span_is_neither_a_block_nor_a_retired_tag(self) -> None:
         self.write(CITING, f"# Notes\n\nEvery `<project-local>` block.\n\nSee [it](../../../{DOCUMENT}).\n")
 
         self.assertEqual([(CITING, 5, DOCUMENT)], self.leaks())
+        self.assertEqual(1, len(self.problems()))
 
     def test_a_trailing_full_stop_is_not_part_of_the_path(self) -> None:
         self.write(CITING, "# Notes\n\nWrite it under docs/sessions.\n")
@@ -839,7 +823,7 @@ class CoreStandsAlone(Declared):
         self.assertEqual([("AGENTS.md", 1, DOCUMENT)], self.leaks())
 
     def test_the_report_carries_the_three_classes_and_no_total(self) -> None:
-        self.write(CITING, f"# Notes\n\n<project-local>\n`{DOCUMENT}`\n</project-local>\n`docs/adr/` and `{DOCUMENT}`.\n")
+        self.write(CITING, f'# Notes\n\n<installed by="local">\n`{DOCUMENT}`\n</installed>\n`docs/adr/` and `{DOCUMENT}`.\n')
 
         report = self.checked().as_record()["core cites"]
 

@@ -2,9 +2,6 @@
 
 - **instruction** `.agents/skills/maintain/SKILL.md` — the pass: scope, the four things, straw dogs, archiving, finish
 - **state** installed
-<project-local>
-- **evidence** `docs/mechanisms/maintain.evidence.md`
-</project-local>
 
 ## How it works
 
@@ -166,4 +163,4 @@ hand-fixed until the check went quiet reads identically to success.
 declaration as the first to lean on it: it takes the mover and the citation reader as its own,
 installs the paired-close block into the body, and retires the two `embedded` rows. Did those
 land against this doc as written, or did the doc have to be rewritten to receive them? **Graded
-2026-09-09**; the answer is in the evidence, at the header's `evidence` bullet.
+2026-09-09**; the answer is in the evidence.

@@ -2,9 +2,6 @@
 
 - **instruction** `.agents/skills/ticket/SKILL.md` — the act: sizing, slicing, impacting the split, presenting the breakdown, minting
 - **state** installed
-<project-local>
-- **evidence** `docs/mechanisms/ticket.evidence.md`
-</project-local>
 
 ## How it works
 

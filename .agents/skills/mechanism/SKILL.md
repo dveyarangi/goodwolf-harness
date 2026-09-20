@@ -41,10 +41,9 @@ The cut is **when is this read**. There is no fourth home.
 > *(the user, 2026-09-06)*
 
 - Doc and instruction file are never the same file.
-- One evidence per mechanism, belonging to its doc. It lives **outside `.agents/`**, in
-  the project's own document tree, filename carrying the slug *(the user,
-  2026-09-06)* — it cites records that cannot travel — and the doc names its path from
-  inside a `<project-local>` block.
+- One evidence per mechanism, belonging to its doc. It lives **outside `.agents/`**, under
+  `docs/mechanisms/`, named by the slug *(the user, 2026-09-06)* — it cites records that
+  cannot travel, so the doc never names it; the shelf declares the record.
 - A skill's `EVIDENCE.md` predating its declaration is an unsorted mixture: doc
   material to the doc, the doc's own why to the evidence.
 

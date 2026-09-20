@@ -344,3 +344,50 @@ paragraph said the rule's first real application would be the sweep meeting ever
 before the shape existed. That sweep landed under [.0050](../tickets/done/01-0011.0050-shape-checked.md),
 recorded above, and found nineteen of twenty-two installed skills unclaimed. A not-yet that has
 happened is story, and the story was already here.
+
+## The local source, and the evidence bullet that could not be injected — 2026-09-20
+
+Under [01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md), the installer took the
+project's own rules file as a second source: `local.rules.md` beside the entry file, the slug
+`local` that `.0140` had already reserved for the block the leak check skips, placed after every
+mechanism's block in a target and refused where it would not be, with an `overrides` bullet that
+names the core rule an entry replaces and is rendered where the reader meets it. Nothing in the
+installer distinguishes the entry file; the first block ever installed there is this project's
+local one, under the section heading, which is the anchor convention the glossary ticket reuses.
+
+**What was refuted.** Injecting the evidence bullet. The spec's wording had the three docs' `evidence`
+bullets converting like the other blocks, but the declaration reader takes `- **` lines before the
+first heading and an installed paragraph opens with an id, so an injected bullet parses as nothing.
+Rather than teach the check a second way to read a header, the bullet left the format: the evidence
+is a record of the shape, declared on the shelf with its three fields, found under
+`docs/mechanisms/` by the slug, and `docs/mechanisms/` is a painted door for that reason — the
+row leaves with the ticket-records rows, when `record-bearing` parses. Three of the nine blocks
+went with no injection at all.
+
+**What went with the tag.** `<project-local>` excuses nothing now: the corpus grammar reads the
+local block alone as instance-owned, and the check reports a tag left in core as a diagnostic
+naming the file and line. `/maintain`'s block of two architecture links — not a rule, and not
+among the ticket's seven — was deleted rather than converted; the body's own C2, C3 and D4 carry
+the judgment half, and the contracts stay in this project's architecture doc. The format shelf's
+template line was a mis-tag and is gone.
+
+**Refuted the same day: the tier-1 rule as a hand-authored part line.** The plan had put the rule
+that a local change is written in the local file beside the hand-edit rule, as an anchored line
+the parts table names, on the argument that a meta-rule in the entry file is what the anchor form
+is for. The user overruled it: *of course it needs to be injected — otherwise you make it tier 3*.
+The rule is the shape's, since the shape owns the injector, and R5 says a mechanism's rule reaches
+the entry file only installed; a hand-written paragraph is exactly the copy the check cannot
+compare. It is R7, installed in the entry file and in `/verify` — the occasion where a drifted
+block is found and would otherwise be edited in place — which is the first mechanism block in the
+entry file and sets the anchor convention there: the heading of the section the rule belongs to.
+
+**What it cost.** The lister's fixed scope never read the root, so `/maintain`'s T1 names the
+local file. The version record's *values change without a bump* clause names the local block.
+
+**Moved the same day, on the user's question.** The verification set had been converted where
+it sat, in the entry file, and the user asked why it was injected there and not into `/verify`.
+No reason existed: the switches belong at tier 1 because four skills read them at four
+occasions, but the set is read by `/verify`, which defines it, and by `/implement` and
+`/maintain`, which already point at `/verify` for it — so L3 targets `/verify` under its own
+heading, and the entry file's local block holds the two facts every session reads. The ticket had
+reserved the placement for the plan, and the plan had not decided it.

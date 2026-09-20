@@ -143,6 +143,243 @@ class Installing(RepositoryCase):
         self.assertEqual("present", report["targets"][0]["state"])
 
 
+LOCAL = "local"
+LOCAL_FILE = "local.rules.md"
+
+LOCAL_INSTALLED = (
+    f'<installed by="{LOCAL}">\n'
+    "**L1** Commit only on explicit permission.\n"
+    "</installed>"
+)
+
+
+def local_file(
+    table: str | None = None,
+    sections: str | None = None,
+) -> str:
+    """The project's own rules file, beside the entry file, in the grammar a mechanism's uses."""
+    table = (
+        table
+        if table is not None
+        else "| target | anchor |\n|---|---|\n" f"| `{TARGET}` | `{ANCHOR}` |\n"
+    )
+    sections = (
+        sections
+        if sections is not None
+        else (
+            "## L1 — commit is asked\n\n"
+            f"- **target** `{TARGET}`\n"
+            "- **authority** the user, 2026-09-05\n\n"
+            "<rule>\n"
+            "Commit only on explicit permission.\n"
+            "</rule>\n"
+        )
+    )
+    return f"# {LOCAL} — this project's rules\n\nRead by the installer alone.\n\n{table}\n{sections}"
+
+
+class LocalSource(RepositoryCase):
+    """A project's own rules file beside the entry file, read as one more source."""
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.write(RULES, rules_file())
+        self.write(TARGET, TARGET_TEXT)
+        self.write(LOCAL_FILE, local_file())
+        self.commit()
+
+    def run_installer(self, *operands: str) -> tuple[int, dict]:
+        said = io.StringIO()
+        with contextlib.redirect_stdout(said), contextlib.redirect_stderr(said):
+            status = inject_rules.main(list(operands), root=self.root)
+        text = said.getvalue()
+        try:
+            return status, json.loads(text)
+        except json.JSONDecodeError:
+            return status, {"said": text}
+
+    def test_the_local_file_installs_from_the_root_and_the_check_reports_its_block(self) -> None:
+        self.run_installer(SLUG, "--install")
+
+        status, report = self.run_installer(LOCAL, "--install")
+
+        self.assertEqual(0, status, report)
+        self.assertIn(LOCAL_INSTALLED, self.read(TARGET))
+        status, report = self.run_installer("--check")
+        self.assertEqual(0, status, report)
+        self.assertEqual(2, report["rules files"])
+        self.assertIn({"slug": LOCAL, "target": TARGET, "state": "present"}, report["blocks"])
+
+    # local last
+
+    def test_the_local_block_lands_after_every_block_at_its_anchor(self) -> None:
+        self.run_installer(SLUG, "--install")
+
+        self.assertEqual(0, self.run_installer(LOCAL, "--install")[0])
+
+        written = self.read(TARGET)
+        self.assertLess(written.index(INSTALLED), written.index(LOCAL_INSTALLED))
+        self.assertIn(f"{INSTALLED}\n\n{LOCAL_INSTALLED}\n\n## Finish", written)
+        self.assertEqual(0, self.run_installer(LOCAL, "--retract")[0])
+        self.assertEqual(TARGET_TEXT.replace(f"{ANCHOR}\n", f"{ANCHOR}\n\n{INSTALLED}\n"), self.read(TARGET))
+
+    def test_a_mechanism_installed_after_the_local_block_still_lands_before_it(self) -> None:
+        self.run_installer(LOCAL, "--install")
+
+        self.assertEqual(0, self.run_installer(SLUG, "--install")[0])
+
+        written = self.read(TARGET)
+        self.assertLess(written.index(INSTALLED), written.index(LOCAL_INSTALLED))
+        self.assertEqual(0, self.run_installer("--check")[0])
+
+    def test_a_local_anchor_ahead_of_a_mechanism_block_is_refused_naming_that_block(self) -> None:
+        self.write(TARGET, TARGET_TEXT.replace("- **A1** Keep things.\n", "- **A1** Keep things.\n\n## Local\n"))
+        self.write(LOCAL_FILE, local_file(table="| target | anchor |\n|---|---|\n" f"| `{TARGET}` | `## Local` |\n"))
+        self.run_installer(SLUG, "--install")
+        untouched = self.snapshot()
+
+        status, report = self.run_installer(LOCAL, "--install")
+
+        self.assertEqual(1, status)
+        self.assertIn("not be last", report["refusals"][0])
+        self.assertIn(SLUG, report["refusals"][0])
+        self.assertEqual(untouched, self.snapshot())
+
+    # overrides
+
+    def overriding(self, cited: str, targets: str = f"- **target** `{TARGET}`\n") -> str:
+        return local_file(sections=(
+            "## L1 — the pair need not close together here\n\n"
+            f"{targets}"
+            f"- **overrides** `{cited}`\n"
+            "- **authority** the user, 2026-09-21\n\n"
+            "<rule>\nClose the ticket alone.\n</rule>\n"
+        ))
+
+    def test_an_override_names_the_rule_where_the_reader_meets_it_and_lands_after_it(self) -> None:
+        self.write(LOCAL_FILE, self.overriding(f"{SLUG}/R2"))
+        self.run_installer(SLUG, "--install")
+
+        status, report = self.run_installer(LOCAL, "--install")
+
+        self.assertEqual(0, status, report)
+        written = self.read(TARGET)
+        self.assertIn(f'<installed by="{LOCAL}">\n**L1** *(overrides {SLUG}/R2)* Close the ticket alone.\n</installed>', written)
+        self.assertLess(written.index("**R2**"), written.index("**L1**"))
+        self.assertEqual(0, self.run_installer("--check")[0])
+
+    def test_an_override_of_a_slug_with_no_rules_file_is_refused_naming_the_entry(self) -> None:
+        self.write(LOCAL_FILE, self.overriding("nobody/R2"))
+        untouched = self.snapshot()
+
+        status, report = self.run_installer(LOCAL, "--install")
+
+        self.assertEqual(1, status)
+        self.assertIn("L1 overrides nobody/R2", report["refusals"][0])
+        self.assertIn("no rules file", report["refusals"][0])
+        self.assertEqual(untouched, self.snapshot())
+
+    def test_an_override_of_an_id_the_rules_file_does_not_define_is_refused(self) -> None:
+        self.write(LOCAL_FILE, self.overriding(f"{SLUG}/R9"))
+
+        status, report = self.run_installer(LOCAL, "--install")
+
+        self.assertEqual(1, status)
+        self.assertIn("does not define", report["refusals"][0])
+        self.assertIn("L1", report["refusals"][0])
+
+    def test_an_override_of_a_rule_not_installed_in_that_target_is_refused(self) -> None:
+        elsewhere = ".agents/skills/other/SKILL.md"
+        self.write(elsewhere, TARGET_TEXT)
+        self.write(LOCAL_FILE, self.overriding(f"{SLUG}/R2", targets=f"- **target** `{elsewhere}`\n").replace(
+            f"| `{TARGET}` | `{ANCHOR}` |", f"| `{elsewhere}` | `{ANCHOR}` |"
+        ))
+
+        status, report = self.run_installer(LOCAL, "--install")
+
+        self.assertEqual(1, status)
+        self.assertIn(f"not installed in {elsewhere}", report["refusals"][0])
+
+    def test_two_overrides_bullets_refuse(self) -> None:
+        doubled = self.overriding(f"{SLUG}/R2").replace(
+            f"- **overrides** `{SLUG}/R2`\n", f"- **overrides** `{SLUG}/R2`\n- **overrides** `{SLUG}/R1`\n"
+        )
+        self.write(LOCAL_FILE, doubled)
+
+        status, report = self.run_installer(LOCAL, "--install")
+
+        self.assertEqual(1, status)
+        self.assertIn("overrides more than once", report["refusals"][0])
+
+    def test_a_drifted_override_is_refused_at_check_the_same_as_any_rule(self) -> None:
+        self.write(LOCAL_FILE, self.overriding(f"{SLUG}/R2"))
+        self.run_installer(SLUG, "--install")
+        self.run_installer(LOCAL, "--install")
+        self.write(LOCAL_FILE, self.overriding(f"{SLUG}/R9"))
+
+        status, report = self.run_installer("--check")
+
+        self.assertEqual(1, status)
+        self.assertTrue(any("does not define" in note for note in report["diagnostics"]), report)
+
+    # the entry file as a target
+
+    def test_the_entry_file_takes_the_block_under_its_section_heading_and_gives_it_back(self) -> None:
+        entry = "# Entry contract\n\n## Autonomy\n\nSwitches.\n\n## Project-local\n\nOne file beside this one.\n"
+        self.write("AGENTS.md", entry)
+        self.write(LOCAL_FILE, local_file(table="| target | anchor |\n|---|---|\n| `AGENTS.md` | `## Project-local` |\n").replace(
+            f"- **target** `{TARGET}`", "- **target** `AGENTS.md`"
+        ))
+        self.run_installer(SLUG, "--install")
+        self.commit()
+        before = self.snapshot()
+
+        self.assertEqual(0, self.run_installer(LOCAL, "--install")[0])
+        self.assertEqual(entry.replace("## Project-local\n", f"## Project-local\n\n{LOCAL_INSTALLED}\n"), self.read("AGENTS.md"))
+        self.assertEqual(0, self.run_installer("--check")[0])
+        self.assertEqual(0, self.run_installer(LOCAL, "--retract")[0])
+
+        self.assertEqual(before, self.snapshot())
+
+    def test_a_local_block_written_ahead_of_a_mechanism_block_is_not_last(self) -> None:
+        self.write(TARGET, TARGET_TEXT.replace(f"{ANCHOR}\n", f"{ANCHOR}\n\n{LOCAL_INSTALLED}\n\n{INSTALLED}\n"))
+
+        status, report = self.run_installer("--check")
+
+        self.assertEqual(1, status)
+        self.assertIn({"slug": LOCAL, "target": TARGET, "state": "not last"}, report["blocks"])
+
+    def test_local_retract_leaves_the_tree_byte_identical(self) -> None:
+        before = self.snapshot()
+
+        self.run_installer(LOCAL, "--install")
+        self.assertEqual(0, self.run_installer(LOCAL, "--retract")[0])
+
+        self.assertEqual(before, self.snapshot())
+
+    def test_a_mechanism_directory_named_local_is_refused_and_a_diagnostic(self) -> None:
+        self.write(f".agents/mechanisms/{LOCAL}/{LOCAL}.rules.md", rules_file())
+        untouched = self.snapshot()
+
+        status, report = self.run_installer(LOCAL, "--install")
+        self.assertEqual(1, status)
+        self.assertIn("collides", report["refusals"][0])
+        self.assertEqual(untouched, self.snapshot())
+
+        status, report = self.run_installer("--check")
+        self.assertEqual(1, status)
+        self.assertTrue(any("collides" in note for note in report["diagnostics"]), report)
+
+    def test_a_local_block_with_no_local_file_is_an_orphan(self) -> None:
+        self.run_installer(LOCAL, "--install")
+        (self.root / LOCAL_FILE).unlink()
+
+        status, report = self.run_installer("--check")
+
+        self.assertEqual(1, status)
+        self.assertEqual([{"slug": LOCAL, "file": TARGET}], report["orphans"])
+
+
 class Refusing(RepositoryCase):
     """Every refusal writes nothing and says why. Each test bends the fixture in one way."""
 

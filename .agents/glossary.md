@@ -75,7 +75,7 @@ _Avoid_: digest, summary, table of contents.
 The accepted shared method and supporting assets governed at their canonical source.
 
 **Project-local**:
-Instructions or assets owned by a consuming project for its particular circumstances. Local ownership alone does not settle precedence when they conflict with core.
+A project's own answers and overrides, authored once in its local rules file beside the entry file and reaching core files only as the local block the installer writes there, after every mechanism's. An override names the rule it overrides and is what the reader follows.
 
 **Painted door**:
 A path under `docs/` that a mechanism declares as where its records live — the directory, or the one file that is a record — which every recipient has because installing the mechanism creates it. A particular record inside one is a document, not a painted door.

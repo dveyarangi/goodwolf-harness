@@ -26,10 +26,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from docs_corpus import (  # noqa: E402  (path set just above)
+    RETIRED_TAG,
     UnreadableCode,
     corpus,
     docs_mentioned,
     docs_mentioned_in_code,
+    without_code,
     wrapper_of,
 )
 
@@ -46,10 +48,12 @@ RULE = "AGENTS.md § Core and instance"
 PAINTED_DOORS = frozenset(
     (
         # TODO docs/tickets/01-0017.0010-terms-defined-before-they-land.md: the ticket mechanism's
-        # records are declared in prose; these rows go when `record-bearing` parses.
+        # records and the shape's evidence are declared in prose; these rows go when
+        # `record-bearing` parses.
         "docs/tickets/",
         "docs/tickets/done/",
         "docs/tickets/README.md",
+        "docs/mechanisms/",
         # TODO docs/tickets/01-0017-io-graph-coherent.md: /align, /plan, /spec, /conclude, /dream
         # and /setup-devops are undeclared; each row goes with its owner's declaration.
         "docs/glossary.md",
@@ -131,7 +135,6 @@ class Declaration:
     instruction: str | None
     state: str | None
     rules: str | None
-    evidence: str | None
     moments: list[Moment]
     parts: list[Part]
     relied_on: list[Part]
@@ -143,7 +146,6 @@ class Declaration:
             "instruction": self.instruction,
             "state": self.state,
             "rules": self.rules,
-            "evidence": self.evidence,
             "moments": [moment.as_record() for moment in self.moments],
             "parts": [part.as_record() for part in self.parts],
             "relies on": [part.as_record() for part in self.relied_on],
@@ -288,7 +290,7 @@ def check(root: Path) -> Checked:
     skills = _skills(root, declarations)
     diagnostics += _skill_problems(root, skills)
     cites, unreadable = _core_cites(root)
-    diagnostics += unreadable + _leaks(cites)
+    diagnostics += unreadable + _leaks(cites) + _retired_tags(root)
     return Checked(declarations, skills, cites, diagnostics)
 
 
@@ -328,6 +330,28 @@ def _standing(seen) -> str:
     if seen.path in PAINTED_DOORS or seen.path + "/" in PAINTED_DOORS:
         return "painted door"
     return "leak"
+
+
+def _retired_tags(root: Path) -> list[Diagnostic]:
+    """A `<project-local>` block left in core: the tag is retired, and a local fact is written in
+    the local file. Read through the code-blanked text, so an illustration is not a block."""
+    found = []
+    for name in _core_files(root):
+        if not name.endswith(".md"):
+            continue
+        seen = without_code((root / name).read_text(encoding="utf-8"))
+        at = seen.find(RETIRED_TAG)
+        while at != -1:
+            line = seen.count("\n", 0, at) + 1
+            found.append(
+                Diagnostic(
+                    name,
+                    f"{name}:{line} writes a {RETIRED_TAG} block; the tag is retired, and a local fact "
+                    "is written in the local file — AGENTS.md § Project-local",
+                )
+            )
+            at = seen.find(RETIRED_TAG, at + 1)
+    return found
 
 
 def _leaks(cites: list[Citation]) -> list[Diagnostic]:
@@ -396,7 +420,6 @@ def _declaration(root: Path, directory: Path, text: str) -> Declaration:
         instruction=bullets.get("instruction"),
         state=bullets.get("state"),
         rules=_rules_file(root, directory),
-        evidence=bullets.get("evidence"),
         moments=[_moment(row) for row in _rows(text, "## Moments")],
         parts=[_part(row) for row in _rows(text, "## Install adds, uninstall removes")],
         relied_on=[_part(row) for row in _rows(text, "## Relies on, and does not own")],
@@ -408,7 +431,6 @@ def _header_problems(root: Path, declared: Declaration) -> list[Diagnostic]:
     return (
         _instruction_problems(root, declared)
         + _state_problems(declared)
-        + _project_local_problems(root, declared)
         + _directory_problems(root, declared)
     )
 
@@ -430,13 +452,6 @@ def _state_problems(declared: Declaration) -> list[Diagnostic]:
         return []
     said = declared.state or "nothing"
     return [Diagnostic(declared.slug, f"the state is {said}, not one of {' or '.join(STATES)}")]
-
-
-def _project_local_problems(root: Path, declared: Declaration) -> list[Diagnostic]:
-    """The one optional record, the evidence. Absent is a state; named and unresolvable is a defect."""
-    if declared.evidence and not (root / declared.evidence).is_file():
-        return [Diagnostic(declared.slug, f"{declared.evidence} does not resolve")]
-    return []
 
 
 def _directory_problems(root: Path, declared: Declaration) -> list[Diagnostic]:

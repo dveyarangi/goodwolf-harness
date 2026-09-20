@@ -94,7 +94,7 @@ Ask the user:
 - Should any slices be merged or split further?
 - Are the correct slices marked as HITL and AFK?
 
-Read `breakdown` from `AGENTS.md`'s `<project-local>` block. When it is `ask`,
+Read `breakdown` from `AGENTS.md`'s local block. When it is `ask`,
 do not mint until the user approves this presentation. That approval is what
 gets minted. Ask again only if a later `/impact` would change membership,
 granularity, or dependencies. Recording the impact text, or copy-edits, is

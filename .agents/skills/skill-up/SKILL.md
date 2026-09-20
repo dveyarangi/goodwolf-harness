@@ -31,17 +31,17 @@ The frontmatter description narrates the use case, not the implementation, and s
 A skill's core is portable; a project's own conventions are not. Keep every `SKILL.md` body free of project facts, so the set stays mergeable with the corpus it came from, and hold what is genuinely local behind a reference:
 
 - Prefer an appendix file — `*-FORMAT.md`, `REFERENCE.md` — which may diverge freely.
-- Where a file is too much, a compact `<project-local>` block closes the `SKILL.md`; the tag is the declaration, so it needs no sentence saying so.
+- A project fact that must reach the body reaches it only as a rule in the project's local file, installed; the body never carries it.
 - An appendix points at the project's own documentation for anything that documentation owns; it never restates it.
 
 A body instruction that cannot be written without a project fact belongs in the appendix instead.
 
-A `<project-local>` block adds local facts; it never overrides the body.
+A local rule adds a fact or overrides the rule it names; it never rewrites the body.
 
 ## Merging a reference corpus
 
 When asked to merge the skill corpus, ask which corpus to merge from.
-Port body changes, fixing defects as you port; leave every appendix file and `<project-local>` block as it stands. A skill present in only one corpus is either local by intent or not yet ported — ask which.
+Port body changes, fixing defects as you port; leave every appendix file and installed block as it stands. A skill present in only one corpus is either local by intent or not yet ported — ask which.
 
 ## Installed from other mechanisms
 
