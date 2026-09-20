@@ -36,6 +36,9 @@ core.symlinks true` and a re-checkout; creating one needs Developer Mode or an e
 [`.agents/README.md`](../../.agents/README.md) carries the recovery steps, and creating the links
 becomes the installer's job once one exists.
 
-**Which links are actually required is untested.** Codex needs none, Cursor documents reading
-`.agents/skills` directly, and Claude Code may too — so some of this fragility may be unnecessary
-and nobody has checked.
+**Both links are required — observed 2026-09-21** *(the user, in a probe tree holding one skill
+under `.agents/skills/` and no link)*: neither Claude Code nor Cursor listed the skill or loaded
+it. Codex reads `.agents/skills` natively and needs none. So the links stay, and since Windows
+gates creating one on a privilege whatever tool asks — copying a link is creating one — the
+deploy makes each link where it can and otherwise hands the person the exact elevated `mklink`
+command for that tree; Developer Mode is not asked of anyone *(the user, 2026-09-21)*.

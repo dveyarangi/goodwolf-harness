@@ -23,10 +23,8 @@ is part of the installer's job once it exists; a junction is not an acceptable s
 would track it as a directory.
 </straw-dog>
 
-<straw-dog until="01-0010.0120 is done" ticket="docs/tickets/01-0010.0120-host-delivery-surfaces.md">
-Which links are actually required is untested. Codex needs none; Cursor documents reading
-`.agents/skills` directly; Claude Code may too.
-</straw-dog>
+Both links are required: Claude Code and Cursor read only their own directory; Codex reads
+`.agents/skills` natively and needs none.
 
 ## Mechanical support
 

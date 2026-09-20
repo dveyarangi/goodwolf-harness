@@ -9,6 +9,14 @@ The version covers the **core** part only: the announce line, the general rules,
 switch roster with its meanings, and the `<straw-dog>` convention — `<temporary>` until v5.
 The local block's values change without a bump.
 
+## v14 — 2026-09-20
+
+**One core change:** a general rule — *clarity and simplicity first, Occam's razor: take the shape
+with the fewest parts that does the job, and remove before you add*. Decided by the user at
+[01-0010.0130](../tickets/01-0010.0130-harness-installs-into-another-tree.md)'s second align, on
+the question of whether a deploy needs releases and a record file; the answer to both was the
+principle, so it went to tier 1 rather than into one mechanism's rules.
+
 ## v13 — 2026-09-20
 
 **Three core changes, one occasion:** [01-0010.0110](../tickets/done/01-0010.0110-project-facets-injected.md)'s

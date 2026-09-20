@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v13, 2026-09-20.
+Entry contract: v14, 2026-09-20.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -23,6 +23,8 @@ nothing about being load-bearing — an implementation method is a shape too. �
 - An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.
 
 - Recency for evidence, longevity for principles.
+
+- Clarity and simplicity first — Occam's razor: take the shape with the fewest parts that does the job, and remove before you add.
 
 ## Core and instance
 

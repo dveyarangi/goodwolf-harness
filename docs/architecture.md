@@ -126,6 +126,41 @@ absent block, a drifted block, and a block nothing owns — its owner has no rul
 file does not name the file the block sits in — are each a diagnostic.
 The installer writes no doc and decides nothing about a mechanism's state.
 
+### Deploying
+
+[The install spec](spec/01-0010.0130-harness-installs-into-another-tree.md) owns the decisions;
+this is the contract a recipient holds the deploy mechanism to. The source is a repository at a
+ref — cloned fresh on every run, read through git rather than a checkout, never a working tree —
+so what a recipient receives is always what a commit holds, and the harness's own repository is
+the default. The manifest is every file under the core directory at that ref plus the entry file
+and the host stub, and nothing else; the project's local rules file is never in it and never
+written.
+
+What ships is transformed before it is written: the origin's own local blocks removed, every
+straw-dog wrapper and every `TODO`'s ticket binding sheared with its content kept, the entry
+file's announce line stamped `<repository>@<ref>, <date>`, and the result held to the same leak
+rule the origin's check applies. A tree whose announce line carries the `@` is a recipient; the
+line is its only revision record, and integrity is asked of the source: a check clones the
+announced ref and compares file by file, line endings normalised and local blocks removed.
+
+An install refuses a target that is not the top level of a git work tree, that already holds any
+manifest path, or that is the source itself. An update refuses over a core file the recipient
+edited unless told to overwrite, and then reports what it replaced; it never touches a file under
+the core directory the manifest does not name, and reports it as the recipient's own; it refuses
+an entry file still carrying a retired `<project-local>` block, whose content is the project's.
+Every refusal changes no file. A loader link is a symlink resolving to the skills directory; a
+junction, a directory or a file in its place is refused by name; a link that already resolves is
+left alone; and where the platform refuses to create one, the run finishes everything else,
+reports the link as pending with the exact elevated command for that tree, and arrival stays
+false until the link resolves. Nothing is substituted for a link.
+
+Arrival is the check: the announced ref compared, the injector's check clean with the local block
+last, the shape check clean, each loader link resolving to a directory of skill files, and the
+shipped suite green with a positive count, run as the target's own scripts. Whether a host reads
+the link is not observable from inside a tree and is reported as unverified. A mid-run failure
+follows [interruption and recovery](#interruption-and-recovery). The project's verification set
+is the project's; core checks itself through this check, which a recipient may list in its set.
+
 ## Deferred decisions
 
 - The pacer owns session resumption and turn progression. This maintenance install does not
