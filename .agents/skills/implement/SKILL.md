@@ -35,8 +35,8 @@ actions â€” hotpaths that may need optimization, work with no named successor â€
 as `TODO` too; without a ticket they are notes, and the listing script reports
 them as guesses.
 
-During the work, run the checks named in
-<straw-dog until="01-0010.0140 is done" ticket="docs/tickets/01-0010.0140-core-stands-alone.md">[Verification](../../../docs/process.md#verification)</straw-dog>. `/verify` is the
+During the work, run the checks in the project's verification set, as
+[`/verify`](../verify/SKILL.md#the-verification-set) defines it. `/verify` is the
 verification of landed work; a local run of a subset is not that pass.
 
 Do not move the RFC to `done/` at the end of your work; `/maintain` does that.

@@ -8,7 +8,7 @@ description: >-
 
 - Commit the work in current session only. Do not commit changes of other session that might represent a work in progress. When in doubt, ask user.
 
-- Look at pending changes; group them by content aligning with origin topic, ticket, rfc or change type (docs/code/cicd/skills).
+- Look at pending changes; group them by content aligning with origin topic, ticket, rfc or change type (documentation, code, CI, skills).
 
 - Separate implementation and documentation commits.
 

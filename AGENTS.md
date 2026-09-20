@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v10, 2026-09-20.
+Entry contract: v12, 2026-09-20.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -44,10 +44,12 @@ What core may not do is **depend** on it. Nothing under `.agents/` may reference
 or rely on one for its instruction or for any separable part of its own functioning. A core file
 may name a path under `docs/` only when that path is a record a mechanism declares — the directory
 that holds a kind of record, or a file that is one — never a particular record inside such a
-directory: `docs/tickets/` and `docs/glossary.md` are painted doors, `docs/tickets/01-0020-pacer.md` is a
-document only this project has. Content inside a
+directory: `docs/tickets/` and `docs/glossary.md` are painted doors; one particular ticket inside
+`docs/tickets/` is a document only this project has. Content inside a
 [`<project-local>`](#project-local) block is the instance's, not core's. A `<straw-dog>` exempts
-nothing: its wrapper is stripped on install and whatever it wrapped ships.
+nothing: its wrapper is stripped on install and whatever it wrapped ships. Core names a ticket
+only in a straw dog's binding — never in a link, never as a bare id in prose — since a recipient
+can resolve neither.
 
 ## Document load-bearing, code&comment the rest
 
@@ -115,6 +117,24 @@ The project sets each switch in its local block below; skills defer to those val
 | breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |
 | repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |
 
+`repair=report` holds only when all four are true: the governing rule is explicit, and cited; the
+repair restores compliance inside the authorized work and keeps every other agreed contract; the
+affected behaviour is understood well enough to say so; the result is verifiable against the
+rule. Otherwise `/align`. *(the user, 2026-09-05)*
+
+<straw-dog until="01-0010.0110 is done" ticket="docs/tickets/01-0010.0110-project-facets-injected.md">
+<project-local>
+The verification set:
+
+```
+uv run --offline --no-project python -m unittest discover -s .agents/scripts/test -p "test_*.py"
+uv run --offline --no-project python .agents/scripts/mechanisms.py --check
+uv run --offline --no-project python .agents/scripts/inject_rules.py --check
+uv run --offline --no-project python .agents/scripts/tickets.py --check
+```
+</project-local>
+</straw-dog>
+
 ## Project-local
 
 A recipient replaces every `<project-local>` block with its own → [glossary](.agents/glossary.md).
@@ -131,8 +151,10 @@ pass that mints the ticket or decides that it will change it:
 `<straw-dog until="condition" ticket="path">`, or in code a `TODO` naming the ticket. Treat *not
 yet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find
 the ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.
-Make the condition testable and the ticket path repository-relative. Leave what no ticket would
-change unwrapped.
+Make the condition testable and the ticket path repository-relative. Write the body to stand on
+its own: it is what a recipient receives once the wrapper is stripped, so it reads whole without
+the condition and names no ticket — the binding does. Leave what no ticket would change
+unwrapped.
 
 Follow a straw dog like any other rule until its condition is visibly met; then act on reality,
 report the stale block, and do not treat the contradiction as a violation.

@@ -11,6 +11,42 @@ deleting a rule: occurrences accumulate and what to do about a rule that keeps f
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 6. The binding form lived on two tickets, and six closed tickets got a bare id — 2026-09-20
+
+**Rules in play:** [01-0011.0050](tickets/done/01-0011.0050-shape-checked.md)'s align, *Related* —
+core names a ticket in a binding, never a link, and *a bare ticket id was refused: it ships an
+origin id a recipient cannot verify and might collide with*; and
+[01-0010.0140](tickets/01-0010.0140-core-stands-alone.md)'s *What to build* — *the 34
+ticket-naming links carry `.0050`'s form*. Both read at `/plan` the same day.
+
+**What happened.** The RFC carved the six links to *closed* tickets out of the rule — *the ticket
+named in words, no binding: closed work changes nothing* — put it to the user as a choice, read
+the user's *I do not understand how it is relevant* as assent, and `/implement` wrote six bare
+ids into three mechanism docs and the discover evidence. The user: *keeping the ticket link in
+the straw-dog attribute is the valid thing, we already decided this; it is more proper than
+adding a ticket id into non-straw-dog text.*
+
+**Why it did not fire.** The decision had no home in core. It sat on a closed ticket's *Related*
+bullet and on a live ticket's build list — records, read once at `/plan` — and no sentence in the
+entry file, the glossary or a skill said *core names a ticket only through a binding*. With no
+standing rule, the question looked open enough to re-derive, and the re-derivation found a
+reason (*closed work changes nothing*) the refused form never depended on: the refusal was about
+what ships, not about whether the ticket is live.
+
+**Amendment, landed the same day — in two steps, because the first was wrong.** The first cut put
+the sentence in *Core and instance* as *the path in the binding, the id in words in the body*,
+and rewrote the six as `<straw-dog …>01-0011.0022</straw-dog>'s align`. The user: *you are still
+messing with straw dogs — consider what happens to what remains when the rule is migrated to
+another project without the ticket referenced; it should still make sense as it is.* A body that
+names the ticket ships the bare id the refusal was about. So the rule is about the **body**: it
+is what a recipient receives, it reads whole without the condition, and it names no ticket — the
+binding does. Landed at entry contract v12 in *Core and instance* (*core names a ticket only in a
+straw dog's binding — never in a link, never as a bare id in prose*) and in the straw-dog rule
+(*write the body to stand on its own*). The ten wrappers touched today are rewritten so each
+body is a sentence a recipient can read — *Two graders, two questions, pre-registered at the
+align that declared this mechanism* — with the ticket only in the attribute. Graded by the next
+core sentence that names a ticket: bound, with a body that stands alone, or this entry is struck.
+
 ## 5. The rule said "allowlist", so a list was built — 2026-09-20
 
 **Rules in play:** mechanism-shape's **R4** — *render an index on request; never commit one

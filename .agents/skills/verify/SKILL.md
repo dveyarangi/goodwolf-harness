@@ -9,7 +9,7 @@ description: >-
 <straw-dog until="01-0017 declares the verify mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
 
 Compare the work to its ticket, RFC if any, governing docs, and every check
-in the project's <straw-dog until="01-0010.0140 is done" ticket="docs/tickets/01-0010.0140-core-stands-alone.md">[verification set](../../../docs/process.md#verification)</straw-dog>.
+in the project's [verification set](#the-verification-set).
 Find out:
 
 - How well the work matches and represents the documentation
@@ -18,6 +18,14 @@ Find out:
 - Whether the verification set's checks hold
 
 Look for architectural or responsibility leakage.
+
+## The verification set
+
+The project's verification set is its typechecker, its tests and every other command required
+of landed work, <straw-dog until="01-0010.0110 is done" ticket="docs/tickets/01-0010.0110-project-facets-injected.md">named in the entry file's local block</straw-dog>. A failed check is unfinished work.
+Discovery reporting success with zero tests is not verification; the run must show a positive
+count. A clean run means nothing was caught, never that the tree obeys. `/implement` may run
+named checks during the work; that run is not this pass.
 
 
 ## Check and repair
@@ -31,7 +39,7 @@ Look for architectural or responsibility leakage.
   A missing or drifted validator is a finding, as is an unguarded normative promise.
 - Sweep the concern index for entries in scope: a concern the implementation has since
   answered belongs in its owning record, and a dead trigger retires.
-- Apply <straw-dog until="01-0010.0140 is done" ticket="docs/tickets/01-0010.0140-core-stands-alone.md">[repair-and-report](../../../docs/process.md#autonomy-and-repair)</straw-dog> where it holds:
+- Apply repair-and-report — the entry file's `repair` switch — where it holds:
   make the repair, verify it, and record the violated rule, the change, the verification
   result and any remaining uncertainty in the owning work item.
 - Everything else goes to [/align](../align/SKILL.md): a missing, ambiguous or
@@ -49,7 +57,7 @@ Look for architectural or responsibility leakage.
 
 Discrepancies:
 
-- If <straw-dog until="01-0010.0140 is done" ticket="docs/tickets/01-0010.0140-core-stands-alone.md">[repair-and-report](../../../docs/process.md#autonomy-and-repair)</straw-dog> holds,
+- If repair-and-report holds — the four conditions under the entry file's `repair` switch —
   make the repair, verify it, and report in the owning work item. Cite the
   violated rule, what changed, the verification result and any remaining
   uncertainty. The `repair` switch is in `AGENTS.md`.

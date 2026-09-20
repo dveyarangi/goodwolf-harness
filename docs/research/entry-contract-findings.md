@@ -24,6 +24,32 @@ Decided by the user, recorded in
 [01-0010.0020](../tickets/done/01-0010.0020-live-alignment-across-hosts.md#what-this-ticket-does-not-decide).
 The three blocks then live were bound the same day.
 
+## v12 — 2026-09-20
+
+**Two core changes, one occasion.** *Core and instance* now says how core names a ticket —
+*only in a straw dog's binding, never in a link, never as a bare id in prose* — and the
+straw-dog rule says what a body is: *written to stand on its own, it is what a recipient receives
+once the wrapper is stripped, so it reads whole without the condition and names no ticket*.
+Decided by the user at [01-0011.0050](../tickets/done/01-0011.0050-shape-checked.md)'s align and
+twice re-stated at [01-0010.0140](../tickets/01-0010.0140-core-stands-alone.md)'s `/implement`:
+first when six closed tickets had been written as bare ids, then when the repair put the ids
+back inside the wrappers — *consider what remains when the rule is migrated to another project
+without the ticket referenced; it should still make sense as it is*. The occasion is
+[rule failure 6](../rule-failures.md#6-the-binding-form-lived-on-two-tickets-and-six-closed-tickets-got-a-bare-id--2026-09-20):
+the rule had lived on two tickets and nowhere core reads. Same pass: the verification-set block
+and `/verify`'s sentence about it are wrapped on
+[01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md), which converts the block.
+
+## v11 — 2026-09-20
+
+**Two core changes, one occasion:** [01-0010.0140](../tickets/01-0010.0140-core-stands-alone.md)'s
+implementation. The `repair` switch gains its four conditions as a paragraph under the table —
+the policy that `docs/process.md` had held since 2026-09-05, now in the file core reads — and
+*Core and instance* names *a ticket's own file* in words where it had illustrated with a ticket's
+path, which the new leak check would otherwise flag in the entry file itself. This project's
+four verification commands join the file inside a `<project-local>` block, which the version
+does not cover.
+
 ## v10 — 2026-09-20
 
 **One core change:** the straw-dog rule gains a second occasion. It read *wrap anything a live

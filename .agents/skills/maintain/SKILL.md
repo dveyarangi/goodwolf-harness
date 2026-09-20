@@ -118,8 +118,7 @@ One rule of `/spec`'s, held here by hand until that mechanism is declared and in
 - **F3** Do not verify landed work; a close needs verification to have already happened.
 
 <project-local>
-The verification set: [Verification](../../../docs/process.md#verification). The mover's
-failure contract and the straw-dog contract:
+The mover's failure contract and the straw-dog contract:
 [architecture](../../../docs/architecture.md#interruption-and-recovery),
 [architecture](../../../docs/architecture.md#straw-dogs).
 </project-local>

@@ -1,7 +1,7 @@
 # Core may not depend on the instance half
 
 A recipient replaces `docs/` whole, so anything under `.agents/` that references a file there
-dangles on arrival. Core may name a path convention the harness imposes — `docs/tickets/`,
+dangles on arrival. Core may name a painted door — `docs/tickets/`,
 `docs/glossary.md` — but may not point at a document only one project has, and may not rely on one
 for its instruction or for any separable part of its functioning. Content inside a
 `<project-local>` block is the recipient's, not core's — and the same holds for the
@@ -33,6 +33,9 @@ if it tried.
 The general case is open and is **not settled here**: what core may lean on at all — a travelling
 counterpart, a local block, or an accepted limit stated out loud — is
 [01-0017](../tickets/01-0017-io-graph-coherent.md)'s align to weigh. This ADR records the rule and
-its two exemptions, not the answer to that question. Live instances of the tension exist:
-`/verify` links `docs/process.md` three times outside any block, and a mechanism doc's `not yet`
-rows link tickets under `docs/` because the format requires a markdown link.
+its two exemptions, not the answer to that question. The live instances of the tension —
+`/verify`'s three links to `docs/process.md`, and the `not yet` rows linking tickets because the
+format required a link — ended on 2026-09-20 under
+[01-0011.0050](../tickets/done/01-0011.0050-shape-checked.md) and
+[01-0010.0140](../tickets/01-0010.0140-core-stands-alone.md); `mechanisms.py --check` now fails at
+home on any new one.

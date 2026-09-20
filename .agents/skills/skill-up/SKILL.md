@@ -34,7 +34,7 @@ A skill's core is portable; a project's own conventions are not. Keep every `SKI
 - Where a file is too much, a compact `<project-local>` block closes the `SKILL.md`; the tag is the declaration, so it needs no sentence saying so.
 - An appendix points at the project's own documentation for anything that documentation owns; it never restates it.
 
-A body instruction that cannot be written without a project fact belongs in the appendix instead. The project's development process — `docs/process.md`, built up lazily as the process itself incepts or changes — is a corpus convention like `glossary.md`, so a body may cite it by name; its contents are the project's own.
+A body instruction that cannot be written without a project fact belongs in the appendix instead.
 
 A `<project-local>` block adds local facts; it never overrides the body.
 

@@ -30,40 +30,15 @@ Ticket names, `done/` moves, citation, and the queue table:
 
 ## Autonomy and repair
 
-Autonomy is bounded by the authorized work and established principles, architectural decisions and contracts. New foundational choices and unresolved architectural questions go through `/align`. Project age, successful prior work and the absence of a prohibition do not themselves authorize a change.
-
-**Repair and report** when all of the following hold:
-
-- The governing rule is explicit and unambiguous; cite its source.
-- The repair restores compliance within the authorized work and preserves other agreed contracts and constraints.
-- The affected behavior and dependencies are understood well enough to justify that assessment.
-- The result can be verified against the rule with appropriate checks or direct evidence.
-
-Make the repair, verify it, and report the violated rule, what changed, the verification result and any remaining uncertainty. Record the finding and outcome in the owning work item; do not create a separate ticket for a repair already covered by it. A failed verification remains unfinished work.
-
-**Escalate through `/align`** when the rule is missing, ambiguous or contradictory; the repair requires a new foundational decision, an exception or a change to an agreed contract; consequential impact remains unresolved; or the work exceeds current authorization. Present the concrete discrepancy, affected constraints, recommended resolution and the decision needed. Pause the dependent change; independently authorized work may continue.
-
-Do not rewrite a governing rule, weaken a validator or relax acceptance criteria merely to make a violation disappear. Existing commit, push and other action-specific permissions still apply. Reuse decisions and permissions already supplied within their scope.
-
-Example: restoring a dependency direction explicitly required by the architecture can be repair-and-report. Deciding that two modules should exchange responsibilities changes their boundary and requires alignment.
-
-This section owns the current policy. Its decision record is in the [shared-harness ticket](tickets/01-0010-dev-harness-shared-and-local.md#resolutions-and-constraints). Routing the policy through installed skills and checking its delivery across hosts remain implementation work.
+The policy is the entry file's: the `repair` switch and its four conditions in
+[AGENTS.md § Autonomy](../AGENTS.md#autonomy), moved there on 2026-09-20 under
+[01-0010.0140](tickets/01-0010.0140-core-stands-alone.md) so that core carries what core reads. Its
+decision record is in the [shared-harness ticket](tickets/01-0010-dev-harness-shared-and-local.md#resolutions-and-constraints).
 
 ## Verification
 
-`/verify` is the verification of landed work: the ticket's observable criteria, the RFC if any, governing docs, and every check in this project's verification set. Match, leakage and doc-caused weirdness stay in that pass. A failed check remains unfinished work. Discrepancies follow [autonomy and repair](#autonomy-and-repair).
-
-The verification set is this project's typechecker, tests, and any other commands required of landed work. `/implement` and `/verify` link here. They do not inline those commands. `/implement` may run named checks during the work; that run is not `/verify`. `/tdd` still owns red-green.
-
-**This project:** no typechecker. The set is the maintenance scripts' behavioral tests, the mechanism check, the installer's check and the ticket maintainer:
-
-```
-uv run --offline --no-project python -m unittest discover -s .agents/scripts/test -p "test_*.py"
-uv run --offline --no-project python .agents/scripts/mechanisms.py --check
-uv run --offline --no-project python .agents/scripts/inject_rules.py --check
-uv run --offline --no-project python .agents/scripts/tickets.py --check
-```
-
-Discovery reporting success with zero tests is not verification; the run must show a positive count. A clean run means nothing was caught, never that the tree obeys. The installer's check fails on a block absent from a target its rules file names, on a block that differs from its source, and on a block nothing owns. The ticket maintainer fails on a live ticket whose header, sections or acceptance boxes depart from the shape the ticket format shelf declares, on an RFC whose ticket is missing or sits in the other folder state, and on a record it could not read, which it reports as skipped, and a skip is not a pass; its diagnostic names the file, the line and the rule, and it never judges content. Alongside them, `/verify` uses the ticket, RFC (if any), governing docs, and the work.
+The definition is [`/verify`'s](../.agents/skills/verify/SKILL.md#the-verification-set), moved
+there the same day under the same ticket; this project's four commands sit in the entry file's
+local block beside its switches. `/tdd` still owns red-green.
 
 

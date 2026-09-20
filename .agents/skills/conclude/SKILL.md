@@ -12,4 +12,4 @@ Conclude curent chat, extracting:
 - and other things that need continuation.
 
 And write it into a markdown file under docs/sessions.
-Session file should be using naming pattern `docs/sessions/0001-<YYYYMMDD>-<name>`, keeping constantly incrementing enumeration.
+Session files live under `docs/sessions/`, named `NNNN-<YYYYMMDD>-<name>` with a constantly incrementing number.

@@ -33,7 +33,7 @@ Goal of architecture is to reduce work on creation and maintenance of the system
 
 Identify the load-bearing assumption behind the proposed shape; ask yourself - what is the cheapest real example that could prove this design assumption wrong? 
 
-Check it when practical, preferably against external reality rather than our own docs/tests.
+Check it when practical, preferably against external reality rather than our own documents and tests.
 
 If falsified, realign.
 If unverified and load-bearing, preserve the uncertainty explicitly.
