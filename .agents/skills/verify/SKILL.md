@@ -6,6 +6,8 @@ description: >-
   project's verification set. Repair-and-report where that policy holds.
 ---
 
+<straw-dog until="01-0017 declares the verify mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+
 Compare the work to its ticket, RFC if any, governing docs, and every check
 in the project's [verification set](../../../docs/process.md#verification).
 Find out:

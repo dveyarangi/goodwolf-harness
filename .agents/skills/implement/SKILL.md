@@ -3,6 +3,8 @@ name: implement
 description: Implement the agreed work into code, following its governing docs.
 ---
 
+<straw-dog until="01-0017 declares the implement mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+
 Implement the work described by the relevant architecture decisions (spec,
 ticket, RFC, prior discussion).
 

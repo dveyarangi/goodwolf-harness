@@ -6,6 +6,8 @@ description: >-
   or artifact before implementation.
 ---
 
+<straw-dog until="01-0017 declares the impact mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+
 Find what actually depends on the subject being shaped, behaving, or meaning
 what it currently does.
 

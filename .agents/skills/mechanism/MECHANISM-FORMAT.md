@@ -149,10 +149,17 @@ answered at all is not.
   `embedded`, `unowned by design`, `not yet`, a clause saying why, and — for all but
   `unowned by design` — its referent.
 
-A row carries an instruction or an absence, never both and never neither. A `not yet`
-referent is a **markdown link** to a ticket that exists and is not archived: a gap is a
-promise of future work, and closed work fills no gap. The ticket that declares the
-mechanism is the wrong referent for the same reason, one day later.
+A row carries an instruction or an absence, never both and never neither.
+
+A `not yet` row is a straw dog *(the user, 2026-09-20)*:
+
+```md
+| ordering the queue | — | <straw-dog until="the pacer owns it" ticket="docs/tickets/01-0020-pacer.md">not yet</straw-dog> |
+```
+
+Body: the kind alone; the reason is `until`, the referent is `ticket` — a live, unarchived
+ticket, never the one declaring the mechanism. Unwrapped is unbound. The shear strips the
+wrapper, so no ticket path ships. The lister reports the row; this check rules on the gap.
 
 ## The two tables
 
@@ -204,13 +211,24 @@ above are a rule with no check behind them.
 - Cells split on unescaped `|`; a literal pipe is `\|`.
 - A row whose cell count differs from its header is a diagnostic, not a silent
   misparse.
-- Every path is backticked and repo-relative, **except** a `not yet` referent, which is
-  a markdown link so moving its ticket repairs it.
-- An absence cell's referent is its link, else its **first** code span. So the cell
-  carries exactly one code span, the referent, and names other skills in words — a
-  backticked skill name before the path is read as the referent and reported.
+- Every path is backticked and repo-relative; no cell carries a markdown link.
+- An absence cell's referent is its binding, else its **first** code span — so one code span
+  per cell, other skills named in words. A wrapper around any other kind is read for its body.
 - Prose, the taxonomy's correctness, and whether a moment should exist are judgment. A
   script records them and rules on none of them.
+
+## A skill's claim
+
+A skill no declaration names says so itself, on the first body line of its `SKILL.md`, after
+the frontmatter:
+
+```md
+<straw-dog until="01-0017 declares the align mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+```
+
+`Mechanism:` then the moments grammar, `not yet` or `unowned by design` only. The line is a
+straw dog like a `not yet` row; it goes when a declaration names the skill. Named and claiming,
+or neither, is a diagnostic. No list holds these: each is a straw dog at its authored home.
 
 ## The mechanism set is its own register
 

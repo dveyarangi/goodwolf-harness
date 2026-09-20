@@ -21,8 +21,8 @@ MOMENTS = (
     "| moment | instructed by | kind, and why |\n"
     "|---|---|---|\n"
     f"| doing the thing | `{INSTRUCTION}` | |\n"
-    "| sweeping afterwards | — | not yet — nobody sweeps yet, "
-    "[01-0002](../../../docs/tickets/01-0002-sweep.md) |\n"
+    '| sweeping afterwards | — | <straw-dog until="somebody sweeps" '
+    'ticket="docs/tickets/01-0002-sweep.md">not yet</straw-dog> |\n'
 )
 PARTS = (
     "| part | where |\n"
@@ -143,8 +143,48 @@ class ANotYetReferent(Declared):
     def moments_naming(self, ticket: str) -> str:
         return (
             "| moment | instructed by | kind, and why |\n|---|---|---|\n"
-            f"| sweeping | — | not yet — nobody sweeps yet, [t](../../../{ticket}) |\n"
+            f'| sweeping | — | <straw-dog until="somebody sweeps" ticket="{ticket}">not yet</straw-dog> |\n'
         )
+
+    def test_is_read_off_the_binding_with_the_condition_as_its_why(self) -> None:
+        checked = self.checked()
+
+        self.assertEqual([], checked.diagnostics)
+        row = checked.declarations[0].moments[1]
+        self.assertEqual(("not yet", "somebody sweeps", "docs/tickets/01-0002-sweep.md"),
+                         (row.kind, row.why, row.referent))
+
+    def test_saying_why_in_the_body_is_reported_since_the_reason_belongs_in_until(self) -> None:
+        self.write(
+            DOC,
+            self.doc(
+                moments="| moment | instructed by | kind, and why |\n|---|---|---|\n"
+                '| sweeping | — | <straw-dog until="somebody sweeps" '
+                'ticket="docs/tickets/01-0002-sweep.md">not yet — nobody sweeps</straw-dog> |\n'
+            ),
+        )
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems))
+        self.assertIn("`until`", problems[0])
+        self.assertIn("sweeping", problems[0])
+
+    def test_a_wrapper_around_another_kind_is_read_for_its_body(self) -> None:
+        self.write(
+            DOC,
+            self.doc(
+                moments="| moment | instructed by | kind, and why |\n|---|---|---|\n"
+                '| archiving | — | <straw-dog until="it moves" ticket="docs/tickets/01-0002-sweep.md">'
+                f"elsewhere — `{INSTRUCTION}` owns it for now</straw-dog> |\n"
+            ),
+        )
+
+        checked = self.checked()
+
+        self.assertEqual([], checked.diagnostics)
+        row = checked.declarations[0].moments[0]
+        self.assertEqual(("elsewhere", INSTRUCTION), (row.kind, row.referent))
 
     def test_may_not_be_an_archived_ticket_since_closed_work_fills_no_gap(self) -> None:
         self.write("docs/tickets/done/01-0001-sample.md", "# Sample, closed\n")
@@ -185,16 +225,19 @@ class TheInstruction(Declared):
 
         problems = [note.problem for note in self.checked().diagnostics]
 
-        self.assertEqual(1, len(problems))
+        # The declaration names no skill, so the sample skill is unclaimed too: two findings, one cause.
+        self.assertEqual(2, len(problems))
         self.assertIn("the doc", problems[0])
+        self.assertIn("claims nothing", problems[1])
 
     def test_is_required(self) -> None:
         self.write(DOC, self.doc(header=self.header("- **state** always on\n")))
 
         problems = [note.problem for note in self.checked().diagnostics]
 
-        self.assertEqual(1, len(problems))
+        self.assertEqual(2, len(problems))
         self.assertIn("instruction", problems[0])
+        self.assertIn("claims nothing", problems[1])
 
     def test_must_resolve(self) -> None:
         self.write(
@@ -203,8 +246,9 @@ class TheInstruction(Declared):
 
         problems = [note.problem for note in self.checked().diagnostics]
 
-        self.assertEqual(1, len(problems))
+        self.assertEqual(2, len(problems))
         self.assertIn(".agents/skills/gone/SKILL.md", problems[0])
+        self.assertIn("claims nothing", problems[1])
 
 
 class AMomentsRow(Declared):
@@ -221,7 +265,7 @@ class AMomentsRow(Declared):
         problems = self.problems()
 
         self.assertEqual(1, len(problems))
-        self.assertIn("not yet", problems[0])
+        self.assertIn("unbound", problems[0])
         self.assertIn("sweeping", problems[0])
 
     def test_saying_not_yet_must_name_a_ticket_that_exists(self) -> None:
@@ -229,8 +273,8 @@ class AMomentsRow(Declared):
             DOC,
             self.doc(
                 moments=self.moments(
-                    "| sweeping | — | not yet — nobody sweeps yet, "
-                    "[01-0009](../../../docs/tickets/01-0009-absent.md) |\n"
+                    '| sweeping | — | <straw-dog until="somebody sweeps" '
+                    'ticket="docs/tickets/01-0009-absent.md">not yet</straw-dog> |\n'
                 )
             ),
         )
@@ -314,8 +358,8 @@ class AMomentsRow(Declared):
             DOC,
             self.doc(
                 moments=self.moments(
-                    "| sweeping | — | not yet — "
-                    "[01-0002](../../../docs/tickets/01-0002-sweep.md) |\n"
+                    '| sweeping | — | <straw-dog ticket="docs/tickets/01-0002-sweep.md">'
+                    "not yet</straw-dog> |\n"
                 )
             ),
         )
@@ -594,6 +638,95 @@ class TheIndex(Declared):
         self.assertIn("unreadable", rendered)
         rows = [line for line in rendered.splitlines() if line.startswith("| ")]
         self.assertEqual(3, len(rows))
+
+
+STRAY = ".agents/skills/stray/SKILL.md"
+FRONTMATTER = "---\nname: stray\ndescription: a skill nothing names\n---\n\n"
+CLAIMING = (
+    '<straw-dog until="someone declares it" ticket="docs/tickets/01-0002-sweep.md">'
+    "Mechanism: not yet</straw-dog>\n\n# Stray\n"
+)
+
+
+class TheReversePass(Declared):
+    """Every installed skill is one mechanism's instruction file, or says on its first line that none is."""
+
+    def test_a_skill_nothing_names_that_claims_nothing_fails_the_run(self) -> None:
+        self.write(STRAY, FRONTMATTER + "# Stray\n")
+
+        problems = self.checked().diagnostics
+
+        self.assertEqual(1, len(problems))
+        self.assertEqual(".agents/skills/stray/", problems[0].mechanism)
+        self.assertIn("no mechanism names it and it claims nothing", problems[0].problem)
+
+    def test_a_skill_claiming_not_yet_passes_and_the_report_shows_the_claim(self) -> None:
+        self.write(STRAY, FRONTMATTER + CLAIMING)
+
+        checked = self.checked()
+
+        self.assertEqual([], checked.diagnostics)
+        stray = next(skill for skill in checked.skills if skill.directory == ".agents/skills/stray/")
+        self.assertEqual(([], "not yet", "someone declares it", "docs/tickets/01-0002-sweep.md"),
+                         (stray.named_by, stray.claim.kind, stray.claim.why, stray.claim.referent))
+        sample = next(skill for skill in checked.skills if skill.directory == ".agents/skills/sample/")
+        self.assertEqual(([SLUG], None), (sample.named_by, sample.claim))
+
+    def test_the_claim_is_read_past_the_frontmatter_and_without_one(self) -> None:
+        self.write(STRAY, CLAIMING)
+
+        self.assertEqual([], self.checked().diagnostics)
+
+    def test_a_skill_both_named_and_claiming_is_reported_as_two_claims(self) -> None:
+        self.write(INSTRUCTION, CLAIMING)
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems))
+        self.assertIn(f"named by {SLUG} and claims not yet", problems[0])
+
+    def test_a_skill_two_declarations_name_is_reported_with_both(self) -> None:
+        other = f"{MECHANISMS}/other-shape/other-shape.md"
+        self.write(other, self.doc().replace(SLUG, "other-shape", 1))
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems))
+        self.assertIn("named by other-shape and sample-shape", problems[0])
+
+    def test_a_claim_pointing_at_an_owner_is_not_a_claim(self) -> None:
+        self.write(STRAY, FRONTMATTER + f"Mechanism: elsewhere — `{INSTRUCTION}` owns it\n")
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems))
+        self.assertIn("claims elsewhere", problems[0])
+
+    def test_an_unbound_claim_is_reported_like_an_unbound_moment(self) -> None:
+        self.write(STRAY, FRONTMATTER + "Mechanism: not yet — someday\n")
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems))
+        self.assertIn("unbound", problems[0])
+
+    def test_unowned_by_design_is_a_claim_that_is_kept(self) -> None:
+        self.write(STRAY, FRONTMATTER + "Mechanism: unowned by design — a one-off nobody relies on\n")
+
+        self.assertEqual([], self.checked().diagnostics)
+
+    def test_the_claim_is_a_straw_dog_the_lister_reports(self) -> None:
+        import straw_dogs
+
+        self.write(STRAY, FRONTMATTER + CLAIMING)
+
+        surveyed = straw_dogs.survey(self.root, [STRAY])
+
+        self.assertEqual([], surveyed.diagnostics)
+        self.assertEqual(
+            [("someone declares it", "docs/tickets/01-0002-sweep.md", 6)],
+            [(dog.until, dog.ticket, dog.opens) for dog in surveyed.statements],
+        )
 
 
 if __name__ == "__main__":

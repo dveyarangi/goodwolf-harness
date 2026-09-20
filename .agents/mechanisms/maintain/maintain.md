@@ -71,7 +71,7 @@ repair-and-report, recording the cause in the evidence.
 | declaring a scope and running a pass over it | `.agents/skills/maintain/SKILL.md` | |
 | re-checking derived work when what governs it moved — a doc against the meta-rules, an implementation against its doc, records against their format | `.agents/skills/maintain/SKILL.md` | |
 | holding a landed slice to its governing docs, both ways | — | elsewhere — landing-time agreement is verification, `.agents/skills/verify/SKILL.md` |
-| knowing a re-check is due | — | not yet — nothing gives *since* a meaning until the marks exist, [.0060](../../../docs/tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md) |
+| knowing a re-check is due | — | <straw-dog until="the marks exist and give *since* a meaning" ticket="docs/tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md">not yet</straw-dog> |
 | deciding whether a straw dog's condition holds, and retiring the block | `.agents/skills/maintain/SKILL.md` | |
 | guessing where a straw dog nobody wrapped stands, and judging each guess | `.agents/scripts/straw_dogs.py` | |
 | cleaning prose and records to one home per fact | `.agents/skills/maintain/SKILL.md` | |
@@ -79,11 +79,11 @@ repair-and-report, recording the cause in the evidence.
 | updating the header at close | `.agents/skills/maintain/SKILL.md` | |
 | checking a mechanism's records against their declared format, the ticket records among them | `.agents/skills/maintain/SKILL.md` | |
 | repairing mechanically, history included | — | elsewhere — a meta-rule, read where it lives, `.agents/skills/mechanism/SKILL.md` |
-| disposing of a concern | — | not yet — the concern index has never existed, [01-0017](../../../docs/tickets/01-0017-io-graph-coherent.md) |
-| checking links outside a close | — | not yet — the only link check is the mover's note over records a close rewrote, [01-0017](../../../docs/tickets/01-0017-io-graph-coherent.md) |
+| disposing of a concern | — | <straw-dog until="a skill instructs disposing of a concern" ticket="docs/tickets/01-0017-io-graph-coherent.md">not yet</straw-dog> |
+| checking links outside a close | — | <straw-dog until="a link check runs outside a close, not only the mover's note over records a close rewrote" ticket="docs/tickets/01-0017-io-graph-coherent.md">not yet</straw-dog> |
 | cleaning inline comments in scope | — | elsewhere — verification applies the comment skill to landed work, `.agents/skills/verify/SKILL.md` |
 | running the verification set the scope touched | `.agents/skills/maintain/SKILL.md` | |
-| installing this mechanism into a tree, and removing it | — | not yet — no installer exists, [01-0010](../../../docs/tickets/01-0010-dev-harness-shared-and-local.md) |
+| installing this mechanism into a tree, and removing it | — | <straw-dog until="an installer exists" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
 | picking up a dream | — | unowned by design — the entry file says *may*, a permission and not a duty, while the dream skill is experimental |
 
 ## Install adds, uninstall removes

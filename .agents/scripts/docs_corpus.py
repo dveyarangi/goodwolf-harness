@@ -18,6 +18,10 @@ from urllib.parse import quote, unquote
 _INLINE = re.compile(r'(!?\[[^\]]*\]\(\s*)(<[^>]*>|[^)\s]+)((?:\s+(?:"[^"]*"|\'[^\']*\'|\([^)]*\)))?\s*\))', re.S)
 _DEFINITION = re.compile(r'(^[ ]{0,3}\[[^\]]+\]:[ \t]*)(<[^>]*>|\S+)((?:[ \t]+(?:"[^"]*"|\'[^\']*\'|\([^)]*\)))?[ \t]*$)', re.M)
 _BINDING = re.compile(r'(<straw-dog\b[^<>]*?\bticket\s*=\s*")([^"]*)(")', re.S)
+# A straw dog's two attributes, the author's words: the condition that ends it and the ticket whose
+# work does. One grammar for the lister and the mechanism check, so both read what the mover rewrites.
+ATTRIBUTE = re.compile(r'\b(until|ticket)\s*=\s*"([^"]*)"', re.S)
+_WRAPPED_WHOLE = re.compile(r"^<straw-dog\b([^<>]*)>(.*)</straw-dog\s*>$", re.S)
 # The installed block's tag, shared with the injector that writes it and the listing that skips it.
 INSTALLED_OPENING = re.compile(r'<installed by="([^"]+)">')
 INSTALLED_CLOSING = "</installed>"
@@ -120,6 +124,32 @@ def with_citations_retargeted(text: str, retarget) -> str:
     they are never rewritten.
     """
     return _outside_code(text, lambda prose: _prose_retargeted(prose, retarget))
+
+
+@dataclass(frozen=True)
+class Wrapper:
+    """One straw dog wrapped around a whole span of text — a table cell, typically.
+
+    `until` and `ticket` are as written, or `None` where the tag omits one; `body` is what the tag
+    wraps, and what survives the install spec's shear.
+    """
+
+    until: str | None
+    ticket: str | None
+    body: str
+
+
+def wrapper_of(text: str) -> Wrapper | None:
+    """The straw dog wrapping all of `text`, or `None` where the text is not wholly wrapped.
+
+    A tag that wraps part of a span is a straw dog on that part and is the lister's to walk; this
+    reads only the case where the wrapper *is* the span's form, as a `not yet` row's is.
+    """
+    found = _WRAPPED_WHOLE.match(text.strip())
+    if found is None:
+        return None
+    attributes = dict(ATTRIBUTE.findall(found.group(1)))
+    return Wrapper(attributes.get("until"), attributes.get("ticket"), found.group(2).strip())
 
 
 def with_owner_bindings_retargeted(text: str, retarget) -> str:

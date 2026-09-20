@@ -68,13 +68,13 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | closing a finished ticket with its RFC | `.agents/skills/maintain/SKILL.md` | |
 | repairing the citations a close breaks | `.agents/scripts/move_doc.py` | |
 | checking live records against the shape | `.agents/scripts/tickets.py` | |
-| listing finished records not yet moved | — | not yet — nothing lists them, [.0030](../../../docs/tickets/01-0011.0030-archive-backlog-listed.md) |
-| rendering the queue from the tickets | — | not yet — the table is still copied by hand, [.0040](../../../docs/tickets/01-0011.0040-queue-derived-index.md) |
-| ordering the queue and writing its pacing prose | — | not yet — the pacer owns both once it exists, [01-0020](../../../docs/tickets/01-0020-pacer.md) |
-| promoting a concern into a ticket | — | not yet — the concern index has never existed, [01-0017](../../../docs/tickets/01-0017-io-graph-coherent.md) |
+| listing finished records not yet moved | — | <straw-dog until="a listing exists" ticket="docs/tickets/01-0011.0030-archive-backlog-listed.md">not yet</straw-dog> |
+| rendering the queue from the tickets | — | <straw-dog until="the table is derived rather than copied by hand" ticket="docs/tickets/01-0011.0040-queue-derived-index.md">not yet</straw-dog> |
+| ordering the queue and writing its pacing prose | — | <straw-dog until="the pacer owns both" ticket="docs/tickets/01-0020-pacer.md">not yet</straw-dog> |
+| promoting a concern into a ticket | — | <straw-dog until="a skill instructs promoting a concern into a ticket" ticket="docs/tickets/01-0017-io-graph-coherent.md">not yet</straw-dog> |
 | verifying a ticket's criteria against landed work | — | elsewhere — landing-time agreement is verification, `.agents/skills/verify/SKILL.md` |
 | writing an RFC's contents | — | elsewhere — what an RFC holds is planning's, `.agents/skills/plan/SKILL.md` |
-| installing this mechanism into a tree, and removing it | — | not yet — no installer exists, [01-0010](../../../docs/tickets/01-0010-dev-harness-shared-and-local.md) |
+| installing this mechanism into a tree, and removing it | — | <straw-dog until="an installer exists" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
 | reading how a shaped ticket reached its decisions | — | unowned by design — the durable home carries the decision with its provenance and the session record the align; looking it up needs no rule |
 
 ## Install adds, uninstall removes

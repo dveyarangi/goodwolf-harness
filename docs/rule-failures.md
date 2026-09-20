@@ -11,6 +11,37 @@ deleting a rule: occurrences accumulate and what to do about a rule that keeps f
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 5. The rule said "allowlist", so a list was built — 2026-09-20
+
+**Rules in play:** mechanism-shape's **R4** — *render an index on request; never commit one
+beside its records* — installed in `/mechanism`, loaded; [`AGENTS.md` — Straw dogs](../AGENTS.md#straw-dogs)
+— *wrap at the authored home, never where the harness installs or derives it*; and the sentence
+in `/mechanism`'s body since 2026-09-08, *a skill belonging to no mechanism goes in the
+allowlist, with its reason*, with the spec's *listed with its reason* behind it.
+
+**What happened.** At [01-0011.0050](tickets/done/01-0011.0050-shape-checked.md)'s align the user
+accepted "one file" for the unclaimed skills and the `docs/` places; I built
+`.agents/mechanisms/allowlist.md` — nineteen rows, each a straw dog, declared as a record of the
+mechanism shape — and the user refused it on sight: the idea was to inline the straw dogs into
+their targets, since a binding's ticket path is allowed anywhere a tag strips on separation.
+
+**Why it did not fire.** The list was an index — every row said what the skill's own first line
+could say — and R4 forbids committing one. But R4 says *index*, and the rule that named the
+thing to build said *allowlist*: the noun in the rule was a list, so a list got built, declared
+as a record so it would not look like an index. The straw-dog rule's *authored home* did not
+fire either, because I was authoring a new record rather than deriving one, and nothing said
+that a record made of other files' claims is a derivation.
+
+**Amendment, landed the same day** *(the user: "amend the rules that caused that")*. R4 now
+names the shape: *a file listing what other files each say for themselves is an index, whatever
+it is called — an allowlist, a register, a manifest — and each entry belongs at its authored
+home, wrapped there if provisional.* R6 no longer says *allowlist*: a skill *says so on its
+first body line*. The body sentence is gone from `/mechanism`, R6 installed in its place. The
+spec and ticket vocabulary stay as history.
+
+**Disposition:** amendment landed; the file deleted; nineteen skills carry their own line.
+Graded by the next list anyone proposes for what files can say themselves.
+
 ## 4. The wake rule sat in a diagram, and a greeting was answered with a greeting — 2026-09-20
 
 **Rule in play:** [`AGENTS.md` — The loop](../AGENTS.md#the-loop), read at the start of every

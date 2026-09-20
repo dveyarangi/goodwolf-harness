@@ -3,6 +3,8 @@ name: review-architecture
 description: Explore the codebase for module-deepening opportunities — architectural improvements that raise testability and navigability. Use when asked to improve or refactor the architecture.
 ---
 
+<straw-dog until="01-0017 declares the review-architecture mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+
 # Improve Codebase Architecture
 
 Explore a codebase like an AI would, surface architectural friction, discover opportunities for improving testability, and propose module-deepening refactors as refactor tickets with their RFCs.

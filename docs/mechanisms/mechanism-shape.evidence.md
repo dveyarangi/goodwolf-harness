@@ -254,6 +254,41 @@ could not have produced without someone noticing.
 its check lands there. The RFC is the case waiting: it is a record by the glossary's own list, and
 its owner `/plan` is undeclared, so nothing is owed until that declaration.
 
+## The `not yet` referent stops being a link, and the allowlist arrives — 2026-09-20
+
+**What the link form cost.** From 2026-09-07 the format required a `not yet` referent to be a
+markdown link "so moving its ticket repairs it". Eleven such links pointed from `.agents/` into
+`docs/tickets/`, and in the first recipient ([the frost_map probe](../research/separation-probe-frost-map.md))
+all eleven dangled and failed the check on arrival. The repair the link bought was a case the
+check already forbade — an archived binding is a diagnostic, not something to follow — so the
+form's one benefit was empty.
+
+**Refused: a bare ticket id.** The 2026-09-09 candidate, `` `01-0020` `` in a code span. It
+ships an origin id a recipient cannot verify and might collide with, since recipients number
+their own tickets; the pointer serves only the origin's housekeeping.
+
+**Adopted: the row is a straw dog** *(the user, at [.0050](../tickets/done/01-0011.0050-shape-checked.md)'s
+align)*. The guesser had been exempting moment rows from the tell-hunt because they were
+"already bound" — in a second syntax. One concept, two grammars, and the second leaked. Now the
+body is the kind, the reason is `until`, the ticket is the binding; the lister, the mover and the
+shear all apply unchanged, and the guesser's special case went. A first draft put the reason in
+the body — `not yet — the pacer owns it` — and the user corrected it: the reason is the origin's,
+not the row's, so it belongs to the tag.
+
+**Refuted the same day: the allowlist as a file.** Built first as `.agents/mechanisms/allowlist.md`
+— one table of nineteen skill rows, declared as this mechanism's second record, with `.0140`'s
+`docs/` places folded in as "the same row". The user refused it: the idea had been to inline
+the straw dogs into their targets, since a binding's ticket path is allowed anywhere a tag
+strips on separation. The file was R4's own defect — an index committed beside its records,
+each row saying what the skill could say for itself — and neither R4 nor the entry file's
+*wrap at the authored home* fired, because the rule in `/mechanism`'s body and the spec both
+said *allowlist*, and a list got built ([rule failure 5](../rule-failures.md)). Now each
+unclaimed skill opens with `Mechanism: not yet`, wrapped and bound; R6 says so, R4 names a
+list of others' claims as an index, and the `docs/` places go back to `.0140` as its check's own
+data. R6, which had sat in `/mechanism`'s body since 2026-09-08 waiting for the thing it names,
+is installed in the same slice — into `/skill-up` and into `/mechanism`, by the self-install
+policy.
+
 ## What is still true only by assertion
 
 Three mechanisms have been declared. The second passed the check unedited and amended the shape in

@@ -3,6 +3,8 @@ name: setup-devops
 description: Set up the project's engineering scaffolding, from toolchain to CICD and observability. Use when initializing a repo or filling a setup gap.
 ---
 
+<straw-dog until="01-0017 declares the setup-devops mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+
 # Programming project setup
 
 ## Init

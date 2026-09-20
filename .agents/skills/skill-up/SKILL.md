@@ -4,6 +4,8 @@ description: >-
   Aid agent skill creation or modification. Use when creating a new skill or changing an existing one.
 ---
 
+<straw-dog until="01-0017 declares the skill-up mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+
 Your goal is to aid agent skill creation or modification.
 
 Writing rules:
@@ -40,3 +42,11 @@ A `<project-local>` block adds local facts; it never overrides the body.
 
 When asked to merge the skill corpus, ask which corpus to merge from.
 Port body changes, fixing defects as you port; leave every appendix file and `<project-local>` block as it stands. A skill present in only one corpus is either local by intent or not yet ported — ask which.
+
+## Installed from other mechanisms
+
+<installed by="mechanism-shape">
+**R6** A skill is a mechanism's one instruction file, or says so on its first body line: `Mechanism:`
+then `not yet`, wrapped as a straw dog bound to the ticket that declares its mechanism, or
+`unowned by design` with its reason. Write the line as you add the skill; no list holds it.
+</installed>

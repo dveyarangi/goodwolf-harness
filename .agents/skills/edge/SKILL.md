@@ -3,6 +3,8 @@ name: edge
 description: Maintain per-surface Edge records — living seam documents aggregating a product edge's architectural status; contract shape, upstream invariants with their validation state, edge-scoped concerns, and staged roadmap. Use when establishing or populating an Edge record, checking changes or code against an edge, or deriving customer-facing edge descriptions.
 ---
 
+<straw-dog until="01-0010.0100 declares the edge mechanism" ticket="docs/tickets/01-0010.0100-remaining-named-corpus.md">Mechanism: not yet</straw-dog>
+
 # Edge records
 
 An **Edge record** is the living per-surface document where everything about one product edge

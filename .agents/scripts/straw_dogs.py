@@ -27,7 +27,6 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from docs_corpus import INSTALLED_CLOSING, INSTALLED_OPENING, without_code  # noqa: E402  (path set just above)
-from mechanisms import KINDS  # noqa: E402  (the shape's moment kinds, whose table rows are not guesses)
 
 _TAG = re.compile(r"<straw-dog\b[^<>]*>|</straw-dog\s*>|<straw-dog\b|</straw-dog\b", re.S)
 # The tag was `<temporary>` until 2026-09-08. One written from habit would be no straw dog at all —
@@ -50,7 +49,6 @@ _TELLS = re.compile(
     r"|interim|placeholder|nothing (?:installs|reads|runs))\b",
     re.I,
 )
-_KIND_ROW = re.compile(r"^\|.*\b(?:" + "|".join(re.escape(kind) for kind in KINDS) + r") — ")
 
 
 class Refused(Exception):
@@ -245,11 +243,10 @@ def _candidates_in(root: Path, name: str, text: str) -> list[Candidate]:
     candidates = []
     offset = 0
     for number, line in enumerate(prose.splitlines(keepends=True), start=1):
-        if not _KIND_ROW.match(line):
-            tell = _TELLS.search(line)
-            if tell:
-                original = text[offset : offset + len(line)].strip()
-                candidates.append(Candidate(name, number, tell.group(1).lower(), original))
+        tell = _TELLS.search(line)
+        if tell:
+            original = text[offset : offset + len(line)].strip()
+            candidates.append(Candidate(name, number, tell.group(1).lower(), original))
         offset += len(line)
     return candidates
 

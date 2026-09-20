@@ -7,6 +7,8 @@ description: >-
   in place.
 ---
 
+<straw-dog until="01-0017 declares the spec mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+
 You may skip steps you don't consider necessary.
 
 1. Ask the user for a long, detailed description of the problem they want

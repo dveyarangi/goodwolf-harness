@@ -98,7 +98,9 @@ excluded, and installed blocks excluded.
 
 **R3** Move story out of a doc into its evidence.
 
-**R4** Render an index on request; never commit one beside its records.
+**R4** Render an index on request; never commit one beside its records. A file listing what other
+files each say for themselves is an index, whatever it is called — an allowlist, a register,
+a manifest — and each entry belongs at its authored home, wrapped there if provisional.
 </installed>
 
 <straw-dog until="01-0017 is done" ticket="docs/tickets/01-0017-io-graph-coherent.md">

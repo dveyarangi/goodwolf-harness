@@ -266,20 +266,25 @@ class Guessing(RepositoryCase):
 
         self.assertEqual([], self.guessed()[1]["candidates"])
 
-    def test_a_table_row_carrying_a_moment_kind_is_not_a_candidate_but_a_prose_row_is(self) -> None:
+    def test_an_unwrapped_not_yet_row_is_a_candidate_and_a_wrapped_one_is_not(self) -> None:
+        # A `not yet` row is a straw dog; unwrapped it is exactly an unwrapped straw dog, and its
+        # own tell finds it. Wrapped, it is blanked like every wrapped span.
         self.write(
             "docs/architecture.md",
             "# Arch\n\n"
             "| moment | instructed by | kind, and why |\n|---|---|---|\n"
-            "| sweeping | — | not yet — no sweeper exists, [t](../tickets/x.md) |\n\n"
+            "| sweeping | — | not yet — no sweeper exists |\n"
+            '| mowing | — | <straw-dog until="a mower exists" ticket="docs/tickets/x.md">not yet</straw-dog> |\n\n'
             "| part | where | owner |\n|---|---|---|\n"
             "| reader | `x.py` | the ticket mechanism; not a live question while nothing installs |\n",
         )
 
         found = self.guessed()[1]["candidates"]
 
-        self.assertEqual(1, len(found))
-        self.assertEqual(("nothing installs", 9), (found[0]["word"], found[0]["line"]))
+        self.assertEqual(
+            [("no sweeper exists", 5), ("nothing installs", 10)],
+            [(candidate["word"], candidate["line"]) for candidate in found],
+        )
 
     def test_the_folders_the_harness_imposes_are_skipped_whole_and_a_projects_own_is_read(self) -> None:
         for folder in ("tickets", "rfc", "spec", "sessions"):

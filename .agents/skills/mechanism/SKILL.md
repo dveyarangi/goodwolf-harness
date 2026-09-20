@@ -27,8 +27,6 @@ to work*? Then it is a mechanism and owes a declaration.
 - Writing an entry into a record is not mechanism work. It belongs to the skill that
   owns the entry.
 
-A skill belonging to no mechanism goes in the allowlist, with its reason.
-
 ## Three homes, and the chain
 
 | home | holds | reaches a session |
@@ -123,11 +121,17 @@ nothing indexes, a file dropped where nothing looks.
 **R1** Check a record-bearing mechanism's records with its maintainer script — format never
 content, live rows only. Where the script is missing, write it: that is the maintenance.
 
-**R4** Render an index on request; never commit one beside its records.
+**R4** Render an index on request; never commit one beside its records. A file listing what other
+files each say for themselves is an index, whatever it is called — an allowlist, a register,
+a manifest — and each entry belongs at its authored home, wrapped there if provisional.
 
 **R5** Land a mechanism's rule in AGENTS.md only as an installed block from its rules file. While the
 mechanism is undeclared, write the rule by hand and wrap it as a straw dog on the inception
 ticket as you write it.
+
+**R6** A skill is a mechanism's one instruction file, or says so on its first body line: `Mechanism:`
+then `not yet`, wrapped as a straw dog bound to the ticket that declares its mechanism, or
+`unowned by design` with its reason. Write the line as you add the skill; no list holds it.
 </installed>
 
 A mechanism with records declares what a record is — its fields, what a row means, its

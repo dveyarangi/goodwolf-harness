@@ -4,8 +4,10 @@
     uv run --offline --no-project python .agents/scripts/mechanisms.py --index
 
 `--check` reads every declaration under `.agents/mechanisms/` and reports its parts, its moments
-and what does not hold. `--index` renders the register from the same directories; no file holds
-it, and none is written.
+and what does not hold; then it asks the reverse question — is every installed skill named by a
+declaration, or does it say on its own first line that none does yet — and reports each skill
+with who claims it. `--index` renders the register from the same directories; no file holds it,
+and none is written.
 
 The script rules on form alone. Whether a moment should exist, whether an absence is honestly
 classified, and whether the prose is any good are judgements it records and never makes.
@@ -21,10 +23,14 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from docs_corpus import cited_record, citations, target_of  # noqa: E402  (path set just above)
+from docs_corpus import wrapper_of  # noqa: E402  (path set just above)
 
 MECHANISMS = ".agents/mechanisms"
+SKILLS = ".agents/skills"
 KINDS = ("elsewhere", "embedded", "unowned by design", "not yet")
+# A skill's own claim says nothing owns it; a kind that points at what does is not that claim.
+CLAIM = "Mechanism:"
+CLAIM_KINDS = ("not yet", "unowned by design")
 GRADING = "## What would show it working"
 PRODUCES = "## What it produces, and who reads it"
 STATES = ("always on", "installed")
@@ -115,15 +121,45 @@ class Diagnostic:
 
 
 @dataclass(frozen=True)
+class Claim:
+    """What a skill says about its mechanism on its own first line, when no declaration names it."""
+
+    kind: str | None
+    why: str
+    referent: str | None
+
+    def as_record(self) -> dict:
+        return {"kind": self.kind, "why": self.why, "referent": self.referent}
+
+
+@dataclass(frozen=True)
+class Skill:
+    """One installed skill and who claims it: a declaration's instruction bullet, or the skill itself."""
+
+    directory: str
+    named_by: list[str]
+    claim: Claim | None
+
+    def as_record(self) -> dict:
+        return {
+            "skill": self.directory,
+            "named by": self.named_by,
+            "claims": self.claim.as_record() if self.claim else None,
+        }
+
+
+@dataclass(frozen=True)
 class Checked:
     """What one reading of every declaration found. Every check here can always run."""
 
     declarations: list[Declaration]
+    skills: list[Skill]
     diagnostics: list[Diagnostic]
 
     def as_record(self) -> dict:
         return {
             "declarations": [declared.as_record() for declared in self.declarations],
+            "skills": [skill.as_record() for skill in self.skills],
             "diagnostics": [note.as_record() for note in self.diagnostics],
         }
 
@@ -172,7 +208,8 @@ def _summary(text: str) -> str | None:
 
 
 def check(root: Path) -> Checked:
-    """Every declaration under `.agents/mechanisms/`, with what does not hold about it."""
+    """Every declaration under `.agents/mechanisms/`, with what does not hold about it — and, read
+    the other way, every installed skill with who claims it."""
     declarations: list[Declaration] = []
     diagnostics: list[Diagnostic] = []
     for directory in _directories(root):
@@ -184,7 +221,9 @@ def check(root: Path) -> Checked:
         declared = _declaration(root, directory, text)
         declarations.append(declared)
         diagnostics += _problems(root, declared, text)
-    return Checked(declarations, diagnostics)
+    skills = _skills(root, declarations)
+    diagnostics += _skill_problems(root, skills)
+    return Checked(declarations, skills, diagnostics)
 
 
 def _problems(root: Path, declared: Declaration, text: str) -> list[Diagnostic]:
@@ -203,6 +242,14 @@ def _problems(root: Path, declared: Declaration, text: str) -> list[Diagnostic]:
     # misread into would dress a parse failure up as a verdict about the mechanism.
     if not malformed[MOMENTS_TABLE]:
         notes += _moment_problems(root, declared)
+        notes += [
+            Diagnostic(
+                declared.slug,
+                f"'{occasion}' is not yet and says why in its body; the reason belongs in `until`",
+            )
+            for occasion, _, absence in ((row + ["", "", ""])[:3] for row in _rows(text, MOMENTS_TABLE))
+            if _stray_reason(absence)
+        ]
     for heading, parts in ((PARTS_TABLE, declared.parts), (RELIED_ON_TABLE, declared.relied_on)):
         if not malformed[heading]:
             notes += _part_problems(root, declared.slug, parts)
@@ -238,7 +285,7 @@ def _declaration(root: Path, directory: Path, text: str) -> Declaration:
         state=bullets.get("state"),
         rules=_rules_file(root, directory),
         evidence=bullets.get("evidence"),
-        moments=[_moment(root, citing, row) for row in _rows(text, "## Moments")],
+        moments=[_moment(row) for row in _rows(text, "## Moments")],
         parts=[_part(row) for row in _rows(text, "## Install adds, uninstall removes")],
         relied_on=[_part(row) for row in _rows(text, "## Relies on, and does not own")],
     )
@@ -326,31 +373,97 @@ def _table_problems(slug: str, text: str) -> dict[str, list[Diagnostic]]:
 
 def _moment_problems(root: Path, declared: Declaration) -> list[Diagnostic]:
     """What each row leaves unsettled: a missing referent, or one the tree does not have."""
+    return [
+        note for moment in declared.moments for note in _absence_problems(root, declared.slug, moment)
+    ]
+
+
+def _absence_problems(root: Path, slug: str, moment: Moment) -> list[Diagnostic]:
+    """One absence row's problems — a moment's, or an allowlist row's read through the same grammar."""
+    notes = _row_problems(slug, moment)
+    if moment.kind not in ("elsewhere", "embedded", "not yet"):
+        return notes
+    if not moment.referent:
+        # A `not yet` names its ticket in a straw-dog binding; without one the gap is nobody's.
+        # TODO docs/tickets/01-0010.0130-harness-installs-into-another-tree.md: the shear strips
+        # the binding on install, so in a recipient an unbound `not yet` is upstream's gap and
+        # must pass; which tree is the origin is the fact that ticket records.
+        problem = "unbound: no <straw-dog ticket=…> binding" if moment.kind == "not yet" else "names nothing"
+        return notes + [Diagnostic(slug, f"'{moment.occasion}' is {moment.kind} and {problem}")]
+    named = moment.referent
+    if not (root / named).exists():
+        notes.append(Diagnostic(slug, f"'{moment.occasion}' names {named}, which does not resolve"))
+    elif moment.kind == "not yet" and "/done/" in f"/{named}":
+        # A gap is a promise of future work, and a closed ticket does no future work: the row
+        # looks assigned and is assigned to nothing. This is also where a row that named the
+        # ticket declaring its own mechanism ends up the day after that ticket closes.
+        notes.append(
+            Diagnostic(
+                slug, f"'{moment.occasion}' names {named}, an archived ticket; closed work fills no gap"
+            )
+        )
+    return notes
+
+
+def _skills(root: Path, declarations: list[Declaration]) -> list[Skill]:
+    """Every installed skill with who claims it: the declaration naming it, or the skill's own line."""
+    home = root / SKILLS
+    skills = []
+    for directory in sorted(path for path in home.glob("*") if path.is_dir()) if home.is_dir() else []:
+        named = f"{SKILLS}/{directory.name}/"
+        by = [declared.slug for declared in declarations if declared.instruction == f"{named}SKILL.md"]
+        skills.append(Skill(named, by, _claim(directory / "SKILL.md")))
+    return skills
+
+
+def _claim(instruction: Path) -> Claim | None:
+    """The `Mechanism:` line a skill opens its body with, if it makes one.
+
+    The body starts after the frontmatter, which hosts parse as YAML and which no tag may enter.
+    The line is a straw dog like a `not yet` row: the kind is its body, the ticket its binding.
+    """
+    if not instruction.is_file():
+        return None
+    lines = instruction.read_text(encoding="utf-8").splitlines()
+    first = _after_frontmatter(lines)
+    wrapper = wrapper_of(first)
+    said = (wrapper.body if wrapper else first).strip()
+    if not said.startswith(CLAIM):
+        return None
+    claimed = said[len(CLAIM) :].strip()
+    # Past the label, the line reads through the moments' absence grammar: a wrapped `not yet`
+    # keeps its wrapper and loses the label; anything else is the words after the label.
+    cell = first.replace(wrapper.body, claimed, 1) if wrapper else claimed
+    return Claim(*_absence(cell))
+
+
+def _after_frontmatter(lines: list[str]) -> str:
+    """The first non-blank line of the body, past a `---` frontmatter if the file opens with one."""
+    start = 0
+    if lines and lines[0].strip() == "---":
+        close = next((at for at, line in enumerate(lines[1:], start=1) if line.strip() == "---"), None)
+        start = close + 1 if close is not None else 0
+    return next((line for line in lines[start:] if line.strip()), "")
+
+
+def _skill_problems(root: Path, skills: list[Skill]) -> list[Diagnostic]:
+    """A skill is one mechanism's instruction file, or says so itself — never both, never neither."""
     notes = []
-    for moment in declared.moments:
-        notes += _row_problems(declared.slug, moment)
-        if moment.kind not in ("elsewhere", "embedded", "not yet"):
+    for skill in skills:
+        where = skill.directory
+        if len(skill.named_by) > 1:
+            notes.append(Diagnostic(where, f"named by {' and '.join(skill.named_by)}"))
+        if skill.claim is None:
+            if not skill.named_by:
+                notes.append(Diagnostic(where, "no mechanism names it and it claims nothing"))
             continue
-        if not moment.referent:
-            notes.append(
-                Diagnostic(declared.slug, f"'{moment.occasion}' is {moment.kind} and names nothing")
-            )
+        if skill.named_by:
+            notes.append(Diagnostic(where, f"named by {', '.join(skill.named_by)} and claims {skill.claim.kind}"))
+        if skill.claim.kind is not None and skill.claim.kind not in CLAIM_KINDS:
+            notes.append(Diagnostic(where, f"claims {skill.claim.kind}; a claim says nothing owns the skill"))
             continue
-        named = moment.referent
-        if not (root / named).exists():
-            notes.append(
-                Diagnostic(declared.slug, f"'{moment.occasion}' names {named}, which does not resolve")
-            )
-        elif moment.kind == "not yet" and "/done/" in f"/{named}":
-            # A gap is a promise of future work, and a closed ticket does no future work: the row
-            # looks assigned and is assigned to nothing. This is also where a row that named the
-            # ticket declaring its own mechanism ends up the day after that ticket closes.
-            notes.append(
-                Diagnostic(
-                    declared.slug,
-                    f"'{moment.occasion}' names {named}, an archived ticket; closed work fills no gap",
-                )
-            )
+        claim = skill.claim
+        notes += _absence_problems(root, where, Moment(f"{CLAIM} line", None, claim.kind, claim.why, claim.referent))
     return notes
 
 
@@ -429,28 +542,29 @@ def _cells(line: str) -> list[str]:
     return [cell.strip().replace("\\|", "|") for cell in _COLUMN.split(line.strip().strip("|"))]
 
 
-def _moment(root: Path, citing: str, row: list[str]) -> Moment:
+def _moment(row: list[str]) -> Moment:
     occasion, instructed, absence = (row + ["", "", ""])[:3]
-    kind, why, referent = _absence(root, citing, absence)
+    kind, why, referent = _absence(absence)
     return Moment(occasion, _backticked(instructed), kind, why, referent)
 
 
-def _absence(root: Path, citing: str, cell: str) -> tuple[str | None, str, str | None]:
+def _absence(cell: str) -> tuple[str | None, str, str | None]:
     """The kind an uninstructed row declares, the clause saying why, and what it points at.
 
-    A referent is written one of two ways and they resolve differently: a ticket arrives as a
-    markdown link, relative to the doc so that moving the ticket repairs it, and everything else
-    as a backticked path from the repository root.
+    A `not yet` row is a straw dog: its body is the kind, its reason is the wrapper's `until`,
+    and its referent is the wrapper's `ticket` — the binding the shear strips, so no ticket path
+    ships. Every other referent is a backticked path from the repository root. A wrapper around
+    one of the other kinds is an ordinary straw dog on the cell, read for its body.
     """
-    written = cell.strip()
-    kind = next((name for name in KINDS if written.startswith(name)), None)
+    wrapper = wrapper_of(cell)
+    body = wrapper.body if wrapper else cell.strip()
+    kind = next((name for name in KINDS if body.startswith(name)), None)
     if kind is None:
-        return None, written, None
-    cited = citations(written)
-    referent = (
-        cited_record(root, citing, target_of(cited[0])) if cited else _backticked(written)
-    )
-    return kind, _clause(written[len(kind) :]), referent
+        return None, body, None
+    if kind == "not yet" and wrapper:
+        return kind, (wrapper.until or "").strip(), wrapper.ticket
+    referent = None if kind == "not yet" else _backticked(body)
+    return kind, _clause(body[len(kind) :]), referent
 
 
 def _clause(rest: str) -> str:
@@ -458,6 +572,12 @@ def _clause(rest: str) -> str:
     words = _LINK.sub("", rest)
     words = _CODE.sub("", words)
     return words.strip(" —-,.;:").strip()
+
+
+def _stray_reason(cell: str) -> bool:
+    """Whether a wrapped `not yet` carries words after the kind, which belong in `until`."""
+    wrapper = wrapper_of(cell)
+    return wrapper is not None and wrapper.body.startswith("not yet") and wrapper.body != "not yet"
 
 
 def _part(row: list[str]) -> Part:

@@ -52,14 +52,15 @@ absence is honestly classified, are judgements it records and never makes.
 | telling an inceptor what to hand `/maintain` | `.agents/skills/mechanism/SKILL.md` | |
 | amending a declared one, editing a skill that is an instruction file included | `.agents/skills/mechanism/SKILL.md` | |
 | retiring a declared one | `.agents/skills/mechanism/SKILL.md` | |
-| installing a declared mechanism into a tree, and removing it | — | not yet — the parts table says what an install adds and nothing says how; no installer exists, [01-0010](../../../docs/tickets/01-0010-dev-harness-shared-and-local.md) |
+| installing a declared mechanism into a tree, and removing it | — | <straw-dog until="an installer exists; the parts table says what an install adds and nothing says how" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
 | checking that a declaration is true | `.agents/scripts/mechanisms.py` | |
 | installing a mechanism's rules into skills, its own included | `.agents/scripts/inject_rules.py` | |
 | retracting them | `.agents/scripts/inject_rules.py` | |
 | writing a mechanism's rule where a session reads it, the entry file included, at `/align` or here | `.agents/skills/mechanism/SKILL.md` | |
 | re-checking a mechanism when what governs it has moved | — | elsewhere — re-checking derived work against a changed source is maintenance, `.agents/skills/maintain/SKILL.md` |
 | writing or changing a skill's text | — | elsewhere — a sibling mechanism's subject, and both apply when a skill is an instruction file, `.agents/skills/skill-up/SKILL.md` |
-| recording that an installed skill belongs to no mechanism | — | not yet — the shape requires an allowlist and this tree has none, so a skill nothing claims is silent rather than declared, [.0050](../../../docs/tickets/01-0011.0050-shape-checked.md) |
+| recording that an installed skill belongs to no mechanism | `.agents/skills/skill-up/SKILL.md` | |
+| asking whether every installed skill is claimed | `.agents/scripts/mechanisms.py` | |
 | finding a mechanism's doc, or asking what is declared at all | — | unowned by design — the directory is a routing table and the index renders it on request; looking something up needs no rule |
 
 ## Install adds, uninstall removes
@@ -115,6 +116,11 @@ applying the spec's ownership decision)*.
   anyone who runs it. Its exit status is what the set consumes; a block absent, drifted or
   owned by nothing is what it fails on.
 
+- **A skill's claim** — the `Mechanism:` line a skill no declaration names opens with, a straw
+  dog at its authored home. Written by whoever adds the skill, through R6; read by `--check` on
+  every `/verify` for the reverse pass. Not a record of this mechanism: it is the skill's own
+  line, and no file lists them *(the user, 2026-09-20)*.
+
 Nothing else is emitted. It writes no records beyond the mechanism directories that are its
 records.
 
@@ -138,7 +144,7 @@ what says it happened.
 **Run it over what already exists has no bite here, and this is not a zero.** That rule exists so
 a check landing today cannot claim a clean history it never looked at. This is the first
 mechanism, so there is no prior corpus to sweep — not a corpus swept and found clean. The rule's
-first real application is [.0050](../../../docs/tickets/01-0011.0050-shape-checked.md), whose
+first real application is [.0050](../../../docs/tickets/done/01-0011.0050-shape-checked.md), whose
 sweep meets every skill installed before the shape existed.
 
 **Three declared mechanisms are still thin evidence for a shape.** The second application, at

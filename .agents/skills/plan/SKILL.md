@@ -6,6 +6,8 @@ description: >-
   needs an RFC, or an existing RFC needs another validation pass.
 ---
 
+<straw-dog until="01-0017 declares the plan mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+
 - Explore documentation in depth, follow links in it to find all decisions
   relevant to current task. Find out which documented boundaries are involved,
   and whether implementation challenges them.

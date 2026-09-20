@@ -4,6 +4,8 @@ description: >-
   Sleep or meditate over the project or an aspect, making it more cohesive, coherent, balanced and deep. Use once per day, after session is concluded.
 ---
 
+<straw-dog until="01-0017 declares the dream mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+
 Goal is to emulate analytical meditation or REM/deep sleep stages.
 
 Dream is a deep dive into the accumulated knowledge, experience and ideas that brings up underlying principles, lessons, samskaras, hidden edges, emerging habits, insights, predictions or other patterns.

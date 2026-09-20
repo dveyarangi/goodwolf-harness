@@ -8,6 +8,7 @@ install it with overwrite; the block in a target is never the place.
 | `.agents/skills/maintain/SKILL.md` | `## Installed from other mechanisms` |
 | `.agents/skills/mechanism/SKILL.md` | `## Records` |
 | `.agents/skills/align/SKILL.md` | `### Record resolutions in the owning ticket inline` |
+| `.agents/skills/skill-up/SKILL.md` | `## Installed from other mechanisms` |
 
 ## R1 — records are checked by their maintainer script
 
@@ -46,7 +47,9 @@ Move story out of a doc into its evidence.
 - **authority** the user, 2026-09-07
 
 <rule>
-Render an index on request; never commit one beside its records.
+Render an index on request; never commit one beside its records. A file listing what other
+files each say for themselves is an index, whatever it is called — an allowlist, a register,
+a manifest — and each entry belongs at its authored home, wrapped there if provisional.
 </rule>
 
 ## R5 — a mechanism's rule reaches the entry file installed
@@ -59,4 +62,16 @@ Render an index on request; never commit one beside its records.
 Land a mechanism's rule in AGENTS.md only as an installed block from its rules file. While the
 mechanism is undeclared, write the rule by hand and wrap it as a straw dog on the inception
 ticket as you write it.
+</rule>
+
+## R6 — a skill is claimed or listed
+
+- **target** `.agents/skills/skill-up/SKILL.md`
+- **target** `.agents/skills/mechanism/SKILL.md`
+- **authority** the user, 2026-09-08
+
+<rule>
+A skill is a mechanism's one instruction file, or says so on its first body line: `Mechanism:`
+then `not yet`, wrapped as a straw dog bound to the ticket that declares its mechanism, or
+`unowned by design` with its reason. Write the line as you add the skill; no list holds it.
 </rule>

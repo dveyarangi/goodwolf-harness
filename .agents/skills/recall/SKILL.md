@@ -3,6 +3,8 @@ name: recall
 description: Determine where the project stands and what to work on next, with the decisions already taken surfaced alongside the questions genuinely still open. Use when asked what is next, where things stand, or to continue or pick up work.
 ---
 
+<straw-dog until="01-0020 settles where /recall sits" ticket="docs/tickets/01-0020-pacer.md">Mechanism: not yet</straw-dog>
+
 
 Your goal is to surf through available docs and code and find out actual state of the project and the current and/or next things to focus on, without re-opening anything already settled.
 

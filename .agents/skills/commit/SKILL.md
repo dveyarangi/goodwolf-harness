@@ -4,6 +4,8 @@ description: >-
   Rules for committing changes to the code repository. Never commit without explicit instruction or permission from the user.
 ---
 
+<straw-dog until="01-0017 declares the commit mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+
 - Commit the work in current session only. Do not commit changes of other session that might represent a work in progress. When in doubt, ask user.
 
 - Look at pending changes; group them by content aligning with origin topic, ticket, rfc or change type (docs/code/cicd/skills).

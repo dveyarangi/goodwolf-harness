@@ -9,6 +9,8 @@ description: >-
   Returns material, never a verdict.
 ---
 
+<straw-dog until="01-0017 declares the discover mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+
 # Discover
 
 You are the worst-placed party to say what a thing you built is an instance of. Not for want

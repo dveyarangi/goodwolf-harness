@@ -3,6 +3,8 @@ name: improve-comments
 description: Write or improve codebase comments
 ---
 
+<straw-dog until="01-0017 declares the improve-comments mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+
 
 # Comment Guide for LLM-Generated Code
 
