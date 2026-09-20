@@ -64,7 +64,7 @@ All on the closed tickets. The ones that reshaped more than their slice:
   cannot find at all: a claim that became false with no tell — *owns none* — which is the limit
   `/verify`'s review exists for.
 - **A recipient's own word list** → a facet on
-  [01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md), if ever wanted.
+  [01-0010.0110](../tickets/done/01-0010.0110-project-facets-injected.md), if ever wanted.
 
 ## Session through the advise questions
 

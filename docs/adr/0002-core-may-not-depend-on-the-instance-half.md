@@ -7,7 +7,7 @@ for its instruction or for any separable part of its functioning. Content inside
 block — `<installed by="local">`, written by the installer from the recipient's own rules file —
 is the recipient's, not core's; the `<project-local>` tag an author once wrote for the same
 purpose was retired on 2026-09-20 under
-[01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md). A `<straw-dog>` exempts nothing.
+[01-0010.0110](../tickets/done/01-0010.0110-project-facets-injected.md). A `<straw-dog>` exempts nothing.
 
 **Amended 2026-09-20** *(the user, at [01-0010.0140](../tickets/done/01-0010.0140-core-stands-alone.md)'s
 align)*: until then this ADR and the entry file exempted a `<straw-dog>` on the grounds that it is

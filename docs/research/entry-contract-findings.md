@@ -11,7 +11,7 @@ The local block's values change without a bump.
 
 ## v13 — 2026-09-20
 
-**Three core changes, one occasion:** [01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md)'s
+**Three core changes, one occasion:** [01-0010.0110](../tickets/done/01-0010.0110-project-facets-injected.md)'s
 implementation. *Project-local* is the first section of this file made of installed blocks alone:
 the shape's R7, describing the local rules file instead of a tag an author writes — one file beside
 the entry file, installed last as the local block, an override naming the rule it overrides, and
@@ -51,7 +51,7 @@ without the ticket referenced; it should still make sense as it is*. The occasio
 [rule failure 6](../rule-failures.md#6-the-binding-form-lived-on-two-tickets-and-six-closed-tickets-got-a-bare-id--2026-09-20):
 the rule had lived on two tickets and nowhere core reads. Same pass: the verification-set block
 and `/verify`'s sentence about it are wrapped on
-[01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md), which converts the block.
+[01-0010.0110](../tickets/done/01-0010.0110-project-facets-injected.md), which converts the block.
 
 ## v11 — 2026-09-20
 

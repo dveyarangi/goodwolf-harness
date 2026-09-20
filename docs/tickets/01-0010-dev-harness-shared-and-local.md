@@ -221,7 +221,7 @@ Re-ordered from the draft: `0080` first; hierarchy then scope, strictly sequenti
 
 **Status:** Approved by the user and minted as
 [01-0010.0130](./01-0010.0130-harness-installs-into-another-tree.md). One decision-bearing child,
-aligned together with [01-0010.0110](./01-0010.0110-project-facets-injected.md) on the user's
+aligned together with [01-0010.0110](./done/01-0010.0110-project-facets-injected.md) on the user's
 direction.
 
 ### Impact — 2026-09-09
@@ -606,7 +606,7 @@ Running the scripts themselves in an `.agents`-only tree has the same shape: `me
 pass there, and its failure would be reporting the intended design.
 
 **Leave alone.** The 47 path conventions. The `<project-local>` and `<straw-dog>` exemptions
-themselves, which are [01-0010.0110](./01-0010.0110-project-facets-injected.md)'s and
+themselves, which are [01-0010.0110](./done/01-0010.0110-project-facets-injected.md)'s and
 [01-0010.0130](./01-0010.0130-harness-installs-into-another-tree.md)'s. The four
 `docs/process.md` links are repairable today by `/maintain`'s own precedent — it wraps its three in
 a `<project-local>` block — but they are left for this ticket so the check and its repairs land

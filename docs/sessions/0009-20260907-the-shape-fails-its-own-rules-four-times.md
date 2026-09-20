@@ -21,7 +21,7 @@ that can use it, and this record is the last hand-written one.
   the doc says why nobody does. Landed in all three homes — skill, format shelf, check — with the
   check written before the section that answers it.
 - **[01-0011.0022](../tickets/done/01-0011.0022-shape-survives-second-mechanism.md) amended** to carry
-  what it needs to consolidate, and **[01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md)**
+  what it needs to consolidate, and **[01-0010.0110](../tickets/done/01-0010.0110-project-facets-injected.md)**
   gained a facet.
 
 ## Settled decisions and their owners
@@ -50,7 +50,7 @@ that can use it, and this record is the last hand-written one.
   `AGENTS.md` — shared, and [01-0016](../tickets/01-0016-responsibility-coherent.md)'s.
 - **Mechanism, documentation and code are three maintenance subjects.** The distinction is core;
   which of them a project has is a facet, recorded on
-  [01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md).
+  [01-0010.0110](../tickets/done/01-0010.0110-project-facets-injected.md).
 
 ## Open, with owners
 

@@ -74,7 +74,7 @@ Why it is not idle: the harness already has the machinery. Rules have one author
 installer writes them into targets it does not own, and `inject_rules.py --check` can tell an
 installed block from a hand-edited one. What is missing is the inversion — today the composition is
 implicit and `AGENTS.md` is written by hand. *(Observed 2026-09-20, at
-[01-0010.0110](tickets/01-0010.0110-project-facets-injected.md)'s `/verify`: one section of the
+[01-0010.0110](tickets/done/01-0010.0110-project-facets-injected.md)'s `/verify`: one section of the
 entry file, *Project-local*, is now installed blocks alone — the shape's R7 and the project's own
 — and nobody hand-writes it. The rest is still authored. Evidence that the inversion is reachable
 a section at a time, not a driver.)*

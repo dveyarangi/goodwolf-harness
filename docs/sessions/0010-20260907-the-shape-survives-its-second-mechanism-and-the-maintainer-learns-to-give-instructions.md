@@ -36,7 +36,7 @@ All on the closed ticket unless named. The ones that reshaped more than this sli
 - **`/maintain` holds four things in agreement** — docs to the meta-rules, docs to their
   implementation both ways, live records to their format, every fact to one home — replacing
   *three subjects*. Landing-time agreement is `/verify`'s; `/maintain`'s occasion is drift. The
-  facet on [01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md) is now *which
+  facet on [01-0010.0110](../tickets/done/01-0010.0110-project-facets-injected.md) is now *which
   documentation-and-implementation pairs the project has*.
 - **Meta-rules are never injected**; they live in `/mechanism` or the entry file.
 - **A sentence about another mechanism is that mechanism's** — installed where it sits, never

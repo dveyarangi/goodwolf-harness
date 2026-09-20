@@ -16,7 +16,7 @@ installed; this was written by hand at the user's request.
 - **[01-0010.0120](../tickets/01-0010.0120-host-delivery-surfaces.md) minted**: what each host can
   place in front of an agent without being asked.
 - **`docs/process.md` measured section by section**, and `AGENTS.md`'s `Installed:` line deleted.
-- **[01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md) gained dream language** as a
+- **[01-0010.0110](../tickets/done/01-0010.0110-project-facets-injected.md) gained dream language** as a
   bootstrap facet — the first that is an expression choice rather than a command.
 
 ## Settled decisions and their owners

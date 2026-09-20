@@ -10,7 +10,7 @@ taken; the queue's candidate `.0050` is still untouched.
 
 - **[01-0010.0130](../tickets/01-0010.0130-harness-installs-into-another-tree.md) is minted** — the
   distribution work the queue has carried as a deferred line since inception. Decision-bearing,
-  `Ready`, its align to run **together with [01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md)'s**
+  `Ready`, its align to run **together with [01-0010.0110](../tickets/done/01-0010.0110-project-facets-injected.md)'s**
   on the user's direction. `/impact` recommended narrow rather than split and that was adopted: the
   loader *link* is this ticket's, the loader *surface* stays `.0120`'s, and `.0050` is recorded as
   constraining the manifest question rather than blocking the ticket. Its `/impact` is on the
@@ -89,7 +89,7 @@ material and left.
 
 `/recall` reports drift; repairing it is `/maintain`'s.
 
-- **[01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md) reads `Planned (the injector
+- **[01-0010.0110](../tickets/done/01-0010.0110-project-facets-injected.md) reads `Planned (the injector
   precedes)`** — the injector landed at `01-0011.0020`. It has been unblocked and nothing noticed.
 - **The queue's pacing prose still orders by the coherence chain** and names `.0050` the candidate
   on the old ordering. That separation moved ahead of it, on the user's call at session thirteen,

@@ -28,7 +28,7 @@ Five commits, `abf7e77` through this session's last.
 
 ## Open, with owners
 
-- Whether a `<project-local>` block may ever override rather than answer, and how a new project's facts reach the skills that need them → [01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md), which takes the *local overrides* issue the queue had carried as deferred since inception.
+- Whether a `<project-local>` block may ever override rather than answer, and how a new project's facts reach the skills that need them → [01-0010.0110](../tickets/done/01-0010.0110-project-facets-injected.md), which takes the *local overrides* issue the queue had carried as deferred since inception.
 - Where repair-and-report lives. Re-counted this session: **three skills touch it, two restate it** — not the five I claimed. The evidence now points at `/verify` → [01-0016](../tickets/01-0016-responsibility-coherent.md).
 - Whether the queue's rendered table is committed → [01-0011.0040](../tickets/01-0011.0040-queue-derived-index.md), unchanged.
 - Four references from core into this project's own documents, which the new rule makes violations → their owning tickets.

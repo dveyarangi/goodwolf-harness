@@ -347,7 +347,7 @@ happened is story, and the story was already here.
 
 ## The local source, and the evidence bullet that could not be injected — 2026-09-20
 
-Under [01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md), the installer took the
+Under [01-0010.0110](../tickets/done/01-0010.0110-project-facets-injected.md), the installer took the
 project's own rules file as a second source: `local.rules.md` beside the entry file, the slug
 `local` that `.0140` had already reserved for the block the leak check skips, placed after every
 mechanism's block in a target and refused where it would not be, with an `overrides` bullet that
