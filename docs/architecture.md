@@ -1,7 +1,8 @@
 # Harness architecture
 
-This document records the agreed maintenance boundaries. It does not define the remaining
-cross-project distribution system. Terms belong in a glossary — the method's in
+This document records the agreed maintenance boundaries and, since 2026-09-21, the contract by
+which core reaches another tree. It does not define contribution back or releases. Terms belong
+in a glossary — the method's in
 [`.agents/glossary.md`](../.agents/glossary.md), this project's own in [`docs/glossary.md`](glossary.md); maintenance
 policy is `/maintain`'s body, declared at [`.agents/mechanisms/maintain/`](../.agents/mechanisms/maintain/maintain.md).
 

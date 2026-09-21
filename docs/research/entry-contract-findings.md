@@ -19,7 +19,7 @@ this record keeps recording what each bump changed.
 
 **One core change:** a general rule — *clarity and simplicity first, Occam's razor: take the shape
 with the fewest parts that does the job, and remove before you add*. Decided by the user at
-[01-0010.0130](../tickets/01-0010.0130-harness-installs-into-another-tree.md)'s second align, on
+[01-0010.0130](../tickets/done/01-0010.0130-harness-installs-into-another-tree.md)'s second align, on
 the question of whether an install needs releases and a record file; the answer to both was the
 principle, so it went to tier 1 rather than into one mechanism's rules.
 

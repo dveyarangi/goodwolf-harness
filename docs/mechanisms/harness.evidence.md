@@ -2,7 +2,7 @@
 
 Why [the doc](../../.agents/mechanisms/harness/harness.md) is what it is: what was tried, what was
 refuted, what it cost. Declared by
-[01-0010.0130](../tickets/01-0010.0130-harness-installs-into-another-tree.md) on 2026-09-21, under
+[01-0010.0130](../tickets/done/01-0010.0130-harness-installs-into-another-tree.md) on 2026-09-21, under
 [the install spec](../spec/01-0010.0130-harness-installs-into-another-tree.md) accepted 2026-09-14.
 
 ## Refuted before a line was written

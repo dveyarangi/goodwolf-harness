@@ -391,3 +391,30 @@ occasions, but the set is read by `/verify`, which defines it, and by `/implemen
 `/maintain`, which already point at `/verify` for it — so L3 targets `/verify` under its own
 heading, and the entry file's local block holds the two facts every session reads. The ticket had
 reserved the placement for the plan, and the plan had not decided it.
+
+## The fourth application, and what a part is — 2026-09-21
+
+The harness mechanism — [01-0010.0130](../tickets/done/01-0010.0130-harness-installs-into-another-tree.md)
+— was declared against the shape as written and passed `mechanisms.py --check` unedited: the
+first declaration since `/maintain` that changed nothing about the check or the format shelf.
+The grader's question from the first declaration, *did the shape fit something it was not
+written against*, is answered yes for the fourth, with one word sharpened by it.
+
+**A part is what ships.** The parts table's title, *install adds, uninstall removes*, was read
+twice too widely at `/plan` and `/implement`. The repository's root README was planned as a part
+and is not: it never ships, and listed it would fail a recipient's check where the recipient has
+no README or pass against the recipient's own. The two loader links were declared as parts and
+left the table at the live run: the mechanism makes them but never ships them, and a link the
+platform had refused failed the shape check for the same absence the install's report had
+already turned into a command. Both are the same reading: a file the mechanism causes to exist
+is not thereby its part; a part travels with core and leaves with it.
+
+**What the shape gained without changing.** The check now reads one fact about the tree it runs
+in — whether the entry file announces `<repository>@<ref>` — and in a recipient lifts the
+diagnostics a sheared `not yet` would otherwise draw. That is a behaviour of the check keyed on
+the tree, not a change to what a declaration must say; every declaration that passed before
+passes after, in both trees.
+
+**Two mechanisms name the entry file.** The harness owns `AGENTS.md` whole; the shape anchors
+two lines in it. The check asks nothing about overlap, and the harness doc says so. The first
+case of a shared file with two claimants of different grain; recorded, not generalised.

@@ -20,7 +20,7 @@ Details are on the records named.
   my questions dissolved rather than being answered — the facet set, where answers live, the
   self-declaring header — because the user's design does not have the problems they were machinery
   for. On [.0110](../tickets/done/01-0010.0110-project-facets-injected.md) and
-  [.0130](../tickets/01-0010.0130-harness-installs-into-another-tree.md) as they stood at the
+  [.0130](../tickets/done/01-0010.0130-harness-installs-into-another-tree.md) as they stood at the
   `ALIGN` commit; now on the spec.
 - **[The spec](../spec/01-0010.0130-harness-installs-into-another-tree.md)**, written 2026-09-11
   as transcription, accepted 2026-09-14. Five modules sketched; testing decisions per module in the

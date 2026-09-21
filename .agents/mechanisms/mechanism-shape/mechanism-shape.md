@@ -148,9 +148,10 @@ mechanism cannot be retired. The shape's block absent from `/mechanism` under `-
 signal that the always-on mechanism has lost what it installed into itself, and the check is
 what says it happened.
 
-**Three declared mechanisms are still thin evidence for a shape.** Each application so far forced
-amendments to it — what each one forced is in the evidence — and the
-<straw-dog until="01-0017 is done" ticket="docs/tickets/01-0017-io-graph-coherent.md">fourth meets the rest of the corpus at once</straw-dog>.
+**Four declared mechanisms are still thin evidence for a shape.** The first three each forced
+amendments to it, the fourth passed its check unedited and sharpened one word — what each one
+forced is in the evidence — and
+<straw-dog until="01-0017 is done" ticket="docs/tickets/01-0017-io-graph-coherent.md">the rest of the corpus meets it at once</straw-dog>.
 
 ## What retires this
 

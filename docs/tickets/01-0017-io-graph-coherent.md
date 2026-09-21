@@ -76,7 +76,7 @@ tier 1**; every rules file today targets a `SKILL.md`.
 targets now have three shapes wanting them and cannot resolve while nineteen skills belong to no
 mechanism, so the interim is explicit targets plus a new maintenance duty when a target skill
 appears. `AGENTS.md` has no installer, which makes
-[01-0010.0130](./01-0010.0130-harness-installs-into-another-tree.md) a dependency rather than a
+[01-0010.0130](./done/01-0010.0130-harness-installs-into-another-tree.md) a dependency rather than a
 neighbour.
 
 *Leave alone.* The glossary records, their format, and the method-versus-project collision rule —

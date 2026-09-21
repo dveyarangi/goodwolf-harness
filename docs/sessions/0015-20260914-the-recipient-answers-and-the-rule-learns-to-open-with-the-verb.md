@@ -17,7 +17,7 @@ Details are on the records named; this is the index.
   probe is adopted on `main`, not parked on a branch; core is byte-identical there once line endings
   are normalised and differs everywhere without that; the recipient refused the ticket check on E1.
   Ownership is one axis, the user's; a second was adopted and retracted inside the hour. On
-  [.0130](../tickets/01-0010.0130-harness-installs-into-another-tree.md) and
+  [.0130](../tickets/done/01-0010.0130-harness-installs-into-another-tree.md) and
   [.0110](../tickets/done/01-0010.0110-project-facets-injected.md).
 - **A side branch minted three mechanism tickets** — glossary
   ([01-0017.0010](../tickets/01-0017.0010-terms-defined-before-they-land.md)), dev-method

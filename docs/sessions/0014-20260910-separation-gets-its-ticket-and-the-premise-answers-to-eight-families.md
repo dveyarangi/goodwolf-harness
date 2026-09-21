@@ -8,7 +8,7 @@ taken; the queue's candidate `.0050` is still untouched.
 
 ## Work completed
 
-- **[01-0010.0130](../tickets/01-0010.0130-harness-installs-into-another-tree.md) is minted** — the
+- **[01-0010.0130](../tickets/done/01-0010.0130-harness-installs-into-another-tree.md) is minted** — the
   distribution work the queue has carried as a deferred line since inception. Decision-bearing,
   `Ready`, its align to run **together with [01-0010.0110](../tickets/done/01-0010.0110-project-facets-injected.md)'s**
   on the user's direction. `/impact` recommended narrow rather than split and that was adopted: the
