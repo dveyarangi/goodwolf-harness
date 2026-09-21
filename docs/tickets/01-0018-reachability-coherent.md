@@ -61,8 +61,22 @@ restated at tier 1 precisely because it is needed there, which E1 currently read
   draft: every skill that operates on shapes should name [/impact](../../.agents/skills/impact/SKILL.md)
   and [/discover](../../.agents/skills/discover/SKILL.md) — investigate whether that is one rule in
   the entry file or a pointer in each skill, and land whichever the investigation says.
-- What belongs at Tier 1 versus Tier 2, stated as a rule rather than per-case judgement.
+- What belongs at Tier 1 versus Tier 2, stated as a rule rather than per-case judgement. **First
+  rule landed 2026-09-21, the user, under R5** — hand-written in [AGENTS.md](../../AGENTS.md)'s
+  general rules and wrapped on this ticket: *a skill's description is its tier-1 surface: name
+  there every occasion the skill serves, with the context that makes it fire, and nothing else;
+  write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for
+  by every session*. Entry contract v15. This ticket's declaration owes it a rules file and an
+  owner, and then installs it where rules are written — `/skill-up`, `/mechanism` at incept,
+  `/align` where a decision lands — or keeps it at tier 1 alone if every such occasion reads the
+  entry file anyway; which is this align's.
 - Known unreachable rules recorded as such, with owners.
+- **Handed 2026-09-21, from the user's three questions after `.0130` closed**, each answered no
+  from the tree: `/maintain` names no `/skill-up` pass, so no maintenance holds skill bodies to
+  `/skill-up`'s rules or descriptions to the tiering rule — a moment and a sentence for
+  `/maintain`, to land with the rule's owner or at any `/maintain` pass; `/skill-up` did not say
+  the description is tier-1 space until the rule above; and the tier definitions were glossary
+  entries with no owner, which this ticket now is.
 
 ## Decisions this ticket's align owns
 

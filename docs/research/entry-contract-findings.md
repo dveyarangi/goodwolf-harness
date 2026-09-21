@@ -15,6 +15,19 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v15 — 2026-09-21
+
+**One core change:** the tiering rule, in the general rules, wrapped on
+[01-0018](../tickets/01-0018-reachability-coherent.md) under R5 until that ticket declares the
+mechanism that owns it — *a skill's description is its tier-1 surface: name there every occasion
+the skill serves, with the context that makes it fire, and nothing else; write every rule at the
+tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session*.
+Decided by the user the evening [01-0010.0130](../tickets/done/01-0010.0130-harness-installs-into-another-tree.md)
+closed, on three questions answered no from the tree: no maintenance pass holds skills to
+`/skill-up`'s rules, `/skill-up` did not know the description is the whole of a skill's tier-1
+presence, and the tier definitions had no owner. It is a meta-rule about how rules are written,
+which is what the entry file holds, and every occasion that writes a rule reads it there.
+
 ## v14 — 2026-09-20
 
 **One core change:** a general rule — *clarity and simplicity first, Occam's razor: take the shape

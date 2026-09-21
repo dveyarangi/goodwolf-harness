@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v14, 2026-09-20.
+Entry contract: v15, 2026-09-21.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -25,6 +25,10 @@ nothing about being load-bearing — an implementation method is a shape too. �
 - Recency for evidence, longevity for principles.
 
 - Clarity and simplicity first — Occam's razor: take the shape with the fewest parts that does the job, and remove before you add.
+
+<straw-dog until="01-0018 declares the mechanism that owns tiering" ticket="docs/tickets/01-0018-reachability-coherent.md">
+- A skill's description is its tier-1 surface: name there every occasion the skill serves, with the context that makes it fire, and nothing else. Write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session.
+</straw-dog>
 
 ## Core and instance
 
