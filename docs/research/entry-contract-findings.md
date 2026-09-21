@@ -15,6 +15,17 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v16 — 2026-09-21
+
+**One core change:** the ticket mechanism's P9, the first block a mechanism installs into the
+general rules — *name a ticket by a link to its record; one that has no record yet, by a slug
+and its state word*. Decided by the user at
+[01-0010.0150](../tickets/01-0010.0150-harness-meets-a-tree-with-a-method.md)'s `/plan`, after
+a reply had named two tickets by ids like `.0145` before either existed. Tier 1 because the
+occasion — naming a ticket in a reply — is every session's; installed from
+`ticket.rules.md` rather than written by hand, so the tiering rule's owner and the injector both
+see it.
+
 ## v15 — 2026-09-21
 
 **One core change:** the tiering rule, in the general rules, wrapped on

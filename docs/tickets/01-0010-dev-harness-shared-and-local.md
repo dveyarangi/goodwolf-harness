@@ -646,6 +646,28 @@ inventory reports the four places the install already refuses on; the flow is in
 the judgment stays the agent's under it. A stranger harness is not a second design, it is the
 same refusal with more in the inventory.
 
+### Impact on the split — 2026-09-21, at `.0150`'s `/plan`
+
+Run by `/ticket` on the three-slice split the user directed the same day: **proceed, and narrow
+`.0150` by one seam.** [01-0010.0145](./01-0010.0145-core-scripts-under-one-directory.md) (AFK):
+core's scripts under one directory of their own — five root computations one level deeper, the
+gate's path, the parts tables, every live command and citation; archived records keep the old
+path. Hidden edge: it is the first edge change with a real recipient behind it — frost_map's
+local verification set names the old paths, and its `--update` will delete them and say nothing
+about the set — which is the first strike for
+[01-0010.0160](./01-0010.0160-harness-edge-changes-reach-an-update.md) (HITL, decision-bearing):
+a mechanism owning what the product is, what its installation edge is and how a change to it is
+extracted, whose collected changes an update reads as a migration; its first question is where
+a change lives so that it ships, since `docs/edge/` is the instance half's and a painted door
+nobody declares. [01-0010.0155](./01-0010.0155-a-tree-names-the-repository-its-core-comes-from.md)
+(AFK) carved out of `.0150`: the repository line has its own comparison rule, its own subprocess
+proof, and the stranger-tree grade does not exercise it. `.0150` keeps the inventory, the flow
+and the README, one HITL slice with one grade. Order: `.0145` → `.0150` → `.0155` any time after
+`.0145` → `.0160`, its align fed by `.0145`'s update into frost_map. Leave alone: the manifest,
+the shear, the stamp, the gate; the architecture's refusal sentence; the ticket mechanism's
+meet-block (its own align, on [01-0017.0020](./01-0017.0020-practice-swaps-in-one-edit.md)); the
+loop's switchability ([01-0020](./01-0020-pacer.md)).
+
 ## Adoption shortlist — recommendations awaiting alignment
 
 This is the compact decision surface extracted from the [Life research](../research/life-harness-findings.md). Rows marked agreed link to the current policy; the other recommendations remain undecided. Resolve one question at a time.

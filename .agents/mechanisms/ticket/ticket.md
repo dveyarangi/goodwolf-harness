@@ -44,6 +44,7 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | P6 — an RFC is named by its ticket | the user, 2026-09-08 |
 | P7 — a resolved decision leaves the ticket for its durable home | the user, 2026-09-08 |
 | P8 — a closed ticket leaves the queue | the user, 2026-09-09 |
+| P9 — a ticket is named by a link, or by a slug and its state | the user, 2026-09-21 |
 | the record's shape — one header form, `Type` required, `Kind` gone, `Outcome` one sentence, the stage read from the plan, the sections a stage admits | the user, 2026-09-08 |
 | the status vocabulary, numbering and one basename per work item | with the selected skills, 2026-09-06 |
 | check-only, and nothing retires this | the user, 2026-09-08 |
@@ -116,7 +117,8 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 - **The mover's report** — read by the maintainer who ran it: what moved, what was repaired, what
   it could not rewrite.
 - **The rules file** — read by the installer alone, and by whoever amends a rule of this mechanism
-  that another skill reads. Its blocks sit in `/maintain`, `/plan` and `/align`.
+  that another skill reads. Its blocks sit in `/maintain`, `/plan`, `/align` and the entry file's
+  general rules.
 
 Nothing else; no index of its own. The register of tickets is the queue, <straw-dog until="01-0011.0040 is done" ticket="docs/tickets/01-0011.0040-queue-derived-index.md">which is still copied by hand rather than derived</straw-dog>.
 

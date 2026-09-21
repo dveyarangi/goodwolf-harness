@@ -8,6 +8,7 @@ install it with overwrite; the block in a target is never the place.
 | `.agents/skills/maintain/SKILL.md` | `## Installed from other mechanisms` |
 | `.agents/skills/plan/SKILL.md` | `## Installed from other mechanisms` |
 | `.agents/skills/align/SKILL.md` | `### Record resolutions in the owning ticket inline` |
+| `AGENTS.md` | `## General rules` |
 
 ## P1 — finished is every box checked
 
@@ -81,4 +82,13 @@ moves to `docs/rfc/done/` with the ticket.
 <rule>
 Land a resolved decision in its durable home with its provenance, and rewrite the ticket in
 place to what is now true; list under `Open issues` only what stays unresolved.
+</rule>
+
+## P9 — a ticket is named by a link, or by a slug and its state
+
+- **target** `AGENTS.md`
+- **authority** the user, 2026-09-21
+
+<rule>
+Name a ticket by a link to its record; one that has no record yet, by a slug and its state word.
 </rule>

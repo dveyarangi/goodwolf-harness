@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v15, 2026-09-21.
+Entry contract: v16, 2026-09-21.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -9,6 +9,10 @@ Run /recall first in every session, whatever the first message says.
 </straw-dog>
 
 ## General rules
+
+<installed by="ticket">
+**P9** Name a ticket by a link to its record; one that has no record yet, by a slug and its state word.
+</installed>
 
 A **shape** is whatever is under consideration, held between an idea and a thing: formed enough
 to have a context and a structure, not yet exhausted by any one realization. Being a shape says
