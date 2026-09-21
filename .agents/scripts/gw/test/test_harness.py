@@ -45,7 +45,7 @@ SAMPLE_DOC = (
     "## Install adds, uninstall removes\n\n"
     f"| part | where |\n|---|---|\n| instruction file | `{KEEPER}` |\n\n"
     "## Relies on, and does not own\n\n"
-    "| part | where | owner |\n|---|---|---|\n| corpus reader | `.agents/scripts/docs_corpus.py` | nobody removable |\n\n"
+    "| part | where | owner |\n|---|---|---|\n| corpus reader | `.agents/scripts/gw/docs_corpus.py` | nobody removable |\n\n"
     "## What it produces, and who reads it\n\nThe declaration, read by whoever amends this.\n\n"
     "## Not yet at the shape\n\nThe honest gaps.\n\n"
     "## What retires this\n\nA better shape.\n\n"
@@ -90,8 +90,8 @@ class TwoTrees(RepositoryCase):
         self.write(".agents/README.md", "# Installed harness\n\nSkills live under `skills/`.\n")
         self.write(".agents/glossary.md", "# The development method\n\n**Recipient**: a tree that received core.\n")
         for script in SCRIPTS.glob("*.py"):
-            self.write(f".agents/scripts/{script.name}", script.read_text(encoding="utf-8"))
-        self.write(".agents/scripts/test/test_arrival.py", ARRIVAL_TEST)
+            self.write(f".agents/scripts/gw/{script.name}", script.read_text(encoding="utf-8"))
+        self.write(".agents/scripts/gw/test/test_arrival.py", ARRIVAL_TEST)
         self.write(TICKET, "# Sweep\n")
         self.write("README.md", "# The repository's front page, never shipped\n")
         self.write("local.rules.md", "# local — never shipped\n")
@@ -215,7 +215,7 @@ class TheSource(TwoTrees):
         self.assertIn("AGENTS.md", manifest)
         self.assertIn("CLAUDE.md", manifest)
         self.assertIn(KEEPER, manifest)
-        self.assertIn(".agents/scripts/test/test_arrival.py", manifest)
+        self.assertIn(".agents/scripts/gw/test/test_arrival.py", manifest)
         self.assertNotIn("README.md", manifest)
         self.assertNotIn("local.rules.md", manifest)
         self.assertNotIn(TICKET, manifest)
@@ -357,7 +357,7 @@ class AnInstall(TwoTrees):
         status, report = self.run_harness("--install")
 
         self.assertTrue((self.target / KEEPER).is_file())
-        self.assertTrue((self.target / ".agents/scripts/harness.py").is_file())
+        self.assertTrue((self.target / ".agents/scripts/gw/harness.py").is_file())
         self.assertFalse((self.target / "README.md").exists())
         self.assertFalse((self.target / "local.rules.md").exists())
         self.assertFalse((self.target / TICKET).exists())
@@ -394,7 +394,7 @@ class AnInstall(TwoTrees):
         self.assertFalse(any("__pycache__" in path.parts for path in self.target.rglob("*")))
 
     def test_the_shipped_suite_is_not_run_by_the_gate(self) -> None:
-        self.write(".agents/scripts/test/test_arrival.py", ARRIVAL_TEST.replace("assertTrue(True)", "assertTrue(False)"))
+        self.write(".agents/scripts/gw/test/test_arrival.py", ARRIVAL_TEST.replace("assertTrue(True)", "assertTrue(False)"))
         self.commit("a broken suite")
 
         status, report = self.run_harness("--install")
@@ -528,6 +528,37 @@ class AnUpdate(TwoTrees):
         self.assertIn("L1 overrides sample/P9", report["refusals"][0])
         self.assertIn("harness.py . --check", report["refusals"][0])
         self.assertIn("Keep things.", self.target_text(KEEPER))
+
+
+class AnUpdateAcrossTheScriptsMove(TwoTrees):
+    """A recipient holding core from before the scripts moved under `gw/` takes the ref after."""
+
+    def test_the_old_paths_leave_as_what_left_the_manifest_and_the_gate_runs_at_the_new_path(self) -> None:
+        old_paths = sorted(f".agents/scripts/{script.name}" for script in SCRIPTS.glob("*.py"))
+        old_paths.append(".agents/scripts/test/test_arrival.py")
+        self.git("mv", ".agents/scripts/gw/test", ".agents/scripts/test")
+        for script in SCRIPTS.glob("*.py"):
+            self.git("mv", f".agents/scripts/gw/{script.name}", f".agents/scripts/{script.name}")
+        self.commit("before the move")
+        before_the_move = self.short_head()
+        self.git("mv", ".agents/scripts/test", ".agents/scripts/gw/test")
+        for script in SCRIPTS.glob("*.py"):
+            self.git("mv", f".agents/scripts/{script.name}", f".agents/scripts/gw/{script.name}")
+        self.commit("the move")
+
+        installed, report = self.run_harness("--install", "--at", before_the_move)
+        self.assertEqual(1, installed, report)
+        self.assertFalse(report["gates"]["injector"]["passed"], "the gate looks under gw/, which the old ref lacks")
+        self.assertTrue((self.target / ".agents/scripts/harness.py").is_file())
+
+        updated, report = self.run_harness("--update")
+
+        self.assertEqual(0, updated, report)
+        self.assertEqual(sorted(old_paths), sorted(report["deleted"]))
+        self.assertFalse((self.target / ".agents/scripts/harness.py").exists())
+        self.assertFalse((self.target / ".agents/scripts/test").exists())
+        self.assertTrue((self.target / ".agents/scripts/gw/harness.py").is_file())
+        self.assertTrue(report["arrived"], report["gates"])
 
 
 class TheCommandLine(unittest.TestCase):

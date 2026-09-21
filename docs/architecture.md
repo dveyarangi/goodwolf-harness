@@ -13,7 +13,7 @@ mechanism shape. Skill bodies have one physical home under `.agents/skills`, wit
 described in [the installed harness](../.agents/README.md).
 
 The mechanism is one maintenance skill directing an integrated procedure over a declared scope,
-with supporting scripts under `.agents/scripts/` performing mechanically derivable work.
+with supporting scripts under `.agents/scripts/gw/` performing mechanically derivable work.
 The first live scope is recorded in the owning ticket; scope does not exempt relevant
 dependencies or affected references from maintenance.
 

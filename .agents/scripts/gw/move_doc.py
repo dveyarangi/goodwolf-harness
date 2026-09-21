@@ -1,7 +1,7 @@
 """Mechanical record mover — `/ticket`'s paired close, run from `/maintain`'s pass.
 
-    uv run --offline --no-project python .agents/scripts/move_doc.py SRC DST [SRC DST ...]
-    uv run --offline --no-project python .agents/scripts/move_doc.py --dry-run SRC DST
+    uv run --offline --no-project python .agents/scripts/gw/move_doc.py SRC DST [SRC DST ...]
+    uv run --offline --no-project python .agents/scripts/gw/move_doc.py --dry-run SRC DST
 
 Moves each markdown record, re-aims the moved records' own citations from their new homes, and
 repairs every citation elsewhere in the repository that pointed at them. A paired close — ticket
@@ -36,7 +36,7 @@ _USAGE = "usage: move_doc.py [--dry-run] SRC DST [SRC DST ...]"
 
 def main(argv: list[str], root: Path | None = None) -> int:
     """Preview or carry out a close, and say enough afterwards for the caller to trust the result."""
-    root = root or Path(__file__).resolve().parents[2]
+    root = root or Path(__file__).resolve().parents[3]
     previewing = bool(argv) and argv[0] == "--dry-run"
     operands = argv[1:] if previewing else argv
     if not operands or len(operands) % 2:

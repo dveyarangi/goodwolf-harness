@@ -18,7 +18,7 @@ this repository, and this page is written for that agent.
 3. From the project's root — the top level of its git work tree — run the install:
 
    ```
-   python <clone>/.agents/scripts/harness.py . --install
+   python <clone>/.agents/scripts/gw/harness.py . --install
    ```
 
    The report ends `arrived: true`, or names what is pending. A loader link the platform refused
@@ -28,8 +28,8 @@ this repository, and this page is written for that agent.
    `local.rules.md` beside the entry file, as the skill says, install them, and check:
 
    ```
-   python .agents/scripts/inject_rules.py local --install
-   python .agents/scripts/harness.py . --check
+   python .agents/scripts/gw/inject_rules.py local --install
+   python .agents/scripts/gw/harness.py . --check
    ```
 
 The scripts need only the standard library; `python` is any Python 3.12 or later.
@@ -37,8 +37,8 @@ The scripts need only the standard library; `python` is any Python 3.12 or later
 ## Update, and check
 
 ```
-python .agents/scripts/harness.py . --update
-python .agents/scripts/harness.py . --check
+python .agents/scripts/gw/harness.py . --update
+python .agents/scripts/gw/harness.py . --check
 ```
 
 An update takes the repository's current default branch, or `--at <tag or commit>`; the project's

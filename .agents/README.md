@@ -15,7 +15,7 @@ junction is never a substitute, since nothing sees through it. Git for Windows w
 
 ## Mechanical support
 
-[`scripts/`](./scripts/) holds what the harness derives and repairs mechanically: `harness.py`
+[`scripts/gw/`](./scripts/gw/) holds what the harness derives and repairs mechanically: `harness.py`
 places a ref of the repository into a tree, updates it and checks the copy, `move_doc.py`
 closes a ticket and its RFC together and repairs the citations that pointed at them,
 `straw_dogs.py` lists and retires straw dogs and guesses where an unwrapped one stands,
@@ -27,5 +27,5 @@ its rules file names, and the project's local file last, and takes them out agai
 the ticket format shelf declares, and `docs_corpus.py` is the one view of the
 tree they share. They
 run on the standard library alone, and their behavioral tests are in
-[`scripts/test/`](./scripts/test/) — inside `.agents/` because they are core: a recipient's first
+[`scripts/gw/test/`](./scripts/gw/test/) — inside `.agents/` because they are core: a recipient's first
 run of them is how it learns the scripts arrived intact.

@@ -1,8 +1,8 @@
 """A mechanism's rules reach other skills as installed blocks, from the one file that holds them.
 
-    uv run --offline --no-project python .agents/scripts/inject_rules.py <slug> --install [--overwrite]
-    uv run --offline --no-project python .agents/scripts/inject_rules.py <slug> --retract
-    uv run --offline --no-project python .agents/scripts/inject_rules.py --check
+    uv run --offline --no-project python .agents/scripts/gw/inject_rules.py <slug> --install [--overwrite]
+    uv run --offline --no-project python .agents/scripts/gw/inject_rules.py <slug> --retract
+    uv run --offline --no-project python .agents/scripts/gw/inject_rules.py --check
 
 One block per source per target, holding every rule the source sends there. A source is a
 mechanism's rules file, or the project's own — `local.rules.md` beside the entry file, the slug
@@ -94,7 +94,7 @@ class Located:
 
 
 def main(argv: list[str], root: Path | None = None) -> int:
-    root = root or Path(__file__).resolve().parents[2]
+    root = root or Path(__file__).resolve().parents[3]
     slug, mode, overwrite, usage = _parsed(argv)
     if usage:
         print(_USAGE)

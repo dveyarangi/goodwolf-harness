@@ -49,18 +49,18 @@ absence is honestly classified, are judgements it records and never makes.
 | telling an inceptor what to hand `/maintain` | `.agents/skills/mechanism/SKILL.md` | |
 | amending a declared one, editing a skill that is an instruction file included | `.agents/skills/mechanism/SKILL.md` | |
 | retiring a declared one | `.agents/skills/mechanism/SKILL.md` | |
-| installing a declared mechanism into a tree, with the rest of core | `.agents/scripts/harness.py` | |
+| installing a declared mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
 | removing one declared mechanism from a tree | — | <straw-dog until="the parts table says what goes and something says how" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
-| checking that a declaration is true | `.agents/scripts/mechanisms.py` | |
-| installing a mechanism's rules into skills, its own included, and the project's local file after every mechanism's | `.agents/scripts/inject_rules.py` | |
-| retracting them | `.agents/scripts/inject_rules.py` | |
-| reporting a retired tag left in core | `.agents/scripts/mechanisms.py` | |
+| checking that a declaration is true | `.agents/scripts/gw/mechanisms.py` | |
+| installing a mechanism's rules into skills, its own included, and the project's local file after every mechanism's | `.agents/scripts/gw/inject_rules.py` | |
+| retracting them | `.agents/scripts/gw/inject_rules.py` | |
+| reporting a retired tag left in core | `.agents/scripts/gw/mechanisms.py` | |
 | writing a mechanism's rule where a session reads it, the entry file included, at `/align` or here | `.agents/skills/mechanism/SKILL.md` | |
 | re-checking a mechanism when what governs it has moved | — | elsewhere — re-checking derived work against a changed source is maintenance, `.agents/skills/maintain/SKILL.md` |
 | writing or changing a skill's text | — | elsewhere — a sibling mechanism's subject, and both apply when a skill is an instruction file, `.agents/skills/skill-up/SKILL.md` |
 | recording that an installed skill belongs to no mechanism | `.agents/skills/skill-up/SKILL.md` | |
-| asking whether every installed skill is claimed | `.agents/scripts/mechanisms.py` | |
-| holding core to citing only what its mechanisms declare | `.agents/scripts/mechanisms.py` | |
+| asking whether every installed skill is claimed | `.agents/scripts/gw/mechanisms.py` | |
+| holding core to citing only what its mechanisms declare | `.agents/scripts/gw/mechanisms.py` | |
 | finding a mechanism's doc, or asking what is declared at all | — | unowned by design — the directory is a routing table and the index renders it on request; looking something up needs no rule |
 
 ## Install adds, uninstall removes
@@ -73,12 +73,12 @@ absence is honestly classified, are judgements it records and never makes.
 | the hand-edit rule | `AGENTS.md` → "is not that file's to edit" |
 | this doc | `.agents/mechanisms/mechanism-shape/mechanism-shape.md` |
 | its rules file | `.agents/mechanisms/mechanism-shape/mechanism-shape.rules.md` |
-| the check | `.agents/scripts/mechanisms.py` |
-| the check's tests | `.agents/scripts/test/test_mechanisms.py` |
-| the installer | `.agents/scripts/inject_rules.py` |
-| the installer's tests | `.agents/scripts/test/test_inject_rules.py` |
-| citation reader | `.agents/scripts/docs_corpus.py` |
-| test harness | `.agents/scripts/test/repository.py` |
+| the check | `.agents/scripts/gw/mechanisms.py` |
+| the check's tests | `.agents/scripts/gw/test/test_mechanisms.py` |
+| the installer | `.agents/scripts/gw/inject_rules.py` |
+| the installer's tests | `.agents/scripts/gw/test/test_inject_rules.py` |
+| citation reader | `.agents/scripts/gw/docs_corpus.py` |
+| test harness | `.agents/scripts/gw/test/repository.py` |
 
 The last two are shared by every script in the tree and claimed here because this mechanism is
 the one that cannot leave: where a shared part's ownership bites, the claimant is the always-on

@@ -40,7 +40,7 @@ citations that pointed at them. A paired close (ticket + RFC) is one pass —
 one invocation, so each moved record cites the other's final home:
 
 ```
-uv run --offline --no-project python .agents/scripts/move_doc.py \
+uv run --offline --no-project python .agents/scripts/gw/move_doc.py \
     docs/tickets/RR-NNNN-slug.md docs/tickets/done/RR-NNNN-slug.md \
     docs/rfc/RR-NNNN-slug.md docs/rfc/done/RR-NNNN-slug.md
 ```

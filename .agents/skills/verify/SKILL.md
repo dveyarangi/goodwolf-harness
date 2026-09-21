@@ -43,10 +43,10 @@ not core's, and a redeploy preserves it.
 **L3** The verification set:
 
 ```
-uv run --offline --no-project python -m unittest discover -s .agents/scripts/test -p "test_*.py"
-uv run --offline --no-project python .agents/scripts/mechanisms.py --check
-uv run --offline --no-project python .agents/scripts/inject_rules.py --check
-uv run --offline --no-project python .agents/scripts/tickets.py --check
+uv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/test -p "test_*.py"
+uv run --offline --no-project python .agents/scripts/gw/mechanisms.py --check
+uv run --offline --no-project python .agents/scripts/gw/inject_rules.py --check
+uv run --offline --no-project python .agents/scripts/gw/tickets.py --check
 ```
 </installed>
 

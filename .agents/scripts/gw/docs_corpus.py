@@ -47,6 +47,9 @@ _WRAPPER_OPENING = re.compile(r"<straw-dog\b[^<>]*>")
 # the one mark that tells the two trees apart — no record file, the line is the revision.
 ANNOUNCE = re.compile(r"^Entry contract: (?P<revision>[^,\r\n]+), (?P<date>\d{4}-\d{2}-\d{2})\.[ \t]*\r?$", re.M)
 ENTRY_FILE = "AGENTS.md"
+# Core's scripts sit under a directory of their own, so an install into a tree that already has
+# scripts beside them writes next to the project's and never over one.
+SCRIPTS = ".agents/scripts/gw/"
 _TODO_BINDING = re.compile(r"^#\s*TODO\b.*docs/tickets/[\w./-]+\.md")
 _CODE_TOKENS = {tokenize.STRING, tokenize.COMMENT} | (
     {tokenize.FSTRING_MIDDLE} if hasattr(tokenize, "FSTRING_MIDDLE") else set()

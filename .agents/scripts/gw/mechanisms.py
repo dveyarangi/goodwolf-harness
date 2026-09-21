@@ -1,7 +1,7 @@
 """What each mechanism declares itself to be made of, and whether the declaration is true.
 
-    uv run --offline --no-project python .agents/scripts/mechanisms.py --check
-    uv run --offline --no-project python .agents/scripts/mechanisms.py --index
+    uv run --offline --no-project python .agents/scripts/gw/mechanisms.py --check
+    uv run --offline --no-project python .agents/scripts/gw/mechanisms.py --index
 
 `--check` reads every declaration under `.agents/mechanisms/` and reports its parts, its moments
 and what does not hold; then it asks the reverse question — is every installed skill named by a
@@ -30,6 +30,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from docs_corpus import (  # noqa: E402  (path set just above)
     RETIRED_TAG,
+    SCRIPTS,
     UnreadableCode,
     announced,
     corpus,
@@ -43,7 +44,7 @@ MECHANISMS = ".agents/mechanisms"
 SKILLS = ".agents/skills"
 CORE = ".agents/"
 ENTRY_FILE = "AGENTS.md"
-TESTS = ".agents/scripts/test/"
+TESTS = SCRIPTS + "test/"
 RULE = "AGENTS.md § Core and instance"
 # What core may name under `docs/`: a painted door — a record some mechanism declares, the directory
 # or the one file — and never a particular record behind it. Held here by hand until each owner's
@@ -235,7 +236,7 @@ class Checked:
 
 
 def main(argv: list[str], root: Path | None = None) -> int:
-    root = root or Path(__file__).resolve().parents[2]
+    root = root or Path(__file__).resolve().parents[3]
     if argv == ["--check"]:
         checked = check(root)
         print(json.dumps(checked.as_record(), indent=2))

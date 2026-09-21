@@ -40,10 +40,10 @@ not a part: it never ships, and a recipient has its own.
 
 | moment | instructed by | kind, and why |
 |---|---|---|
-| installing a ref into an empty tree | `.agents/scripts/harness.py` | |
-| updating a tree that has a copy | `.agents/scripts/harness.py` | |
-| checking a copy against the ref it announces | `.agents/scripts/harness.py` | |
-| making a loader link, or handing the person the command | `.agents/scripts/harness.py` | |
+| installing a ref into an empty tree | `.agents/scripts/gw/harness.py` | |
+| updating a tree that has a copy | `.agents/scripts/gw/harness.py` | |
+| checking a copy against the ref it announces | `.agents/scripts/gw/harness.py` | |
+| making a loader link, or handing the person the command | `.agents/scripts/gw/harness.py` | |
 | reading a refusal and resuming | `.agents/skills/harness/SKILL.md` | |
 | populating the local file after the first install | `.agents/skills/harness/SKILL.md` | |
 | knowing an update is available | — | unowned by design — a person asks for one; nothing polls the repository |
@@ -58,8 +58,8 @@ not a part: it never ships, and a recipient has its own.
 |---|---|
 | instruction file | `.agents/skills/harness/SKILL.md` |
 | this doc | `.agents/mechanisms/harness/harness.md` |
-| the script | `.agents/scripts/harness.py` |
-| its tests | `.agents/scripts/test/test_harness.py` |
+| the script | `.agents/scripts/gw/harness.py` |
+| its tests | `.agents/scripts/gw/test/test_harness.py` |
 | the entry file | `AGENTS.md` |
 | the host stub | `CLAUDE.md` |
 
@@ -72,11 +72,11 @@ would otherwise fail the shape check for the same absence the report already nam
 
 | part | where | owner |
 |---|---|---|
-| the installer | `.agents/scripts/inject_rules.py` | `mechanism-shape` |
-| citation reader | `.agents/scripts/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |
-| the shape check | `.agents/scripts/mechanisms.py` | `mechanism-shape` |
-| test harness | `.agents/scripts/test/repository.py` | `mechanism-shape` |
-| the listing script | `.agents/scripts/straw_dogs.py` | `maintain` |
+| the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
+| citation reader | `.agents/scripts/gw/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |
+| the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |
+| test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |
+| the listing script | `.agents/scripts/gw/straw_dogs.py` | `maintain` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 
 ## What it produces, and who reads it

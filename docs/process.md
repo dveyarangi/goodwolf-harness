@@ -18,7 +18,7 @@ The loop itself, its stages, skills and human checkpoints, the autonomy switches
   verification of landed work, not only documentation or shape review. The
   project's check set lives in [Verification](#verification); skills link it,
   they do not inline commands.
-- `/maintain` is declared at [`.agents/mechanisms/maintain/`](../.agents/mechanisms/maintain/maintain.md); its rules are its body's, and its mechanical support is under `.agents/scripts/`.
+- `/maintain` is declared at [`.agents/mechanisms/maintain/`](../.agents/mechanisms/maintain/maintain.md); its rules are its body's, and its mechanical support is under `.agents/scripts/gw/`.
 - Sessions preserve the handoff; `/recall` checks maintained documents and current files rather than treating session history as delivery state.
 
 The accepted bootstrap selection uses `/ticket`, `/plan`, `/spec` and `/verify` for the former `/to-tickets`, `/plan-impl`, `/to-spec` and `/review-impl`, and consolidates `/denoise` and `/sync-arch` under `/maintain`.

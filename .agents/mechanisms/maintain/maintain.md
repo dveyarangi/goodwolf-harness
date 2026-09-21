@@ -67,7 +67,7 @@ repair-and-report, recording the cause in the evidence.
 | holding a landed slice to its governing docs, both ways | — | elsewhere — landing-time agreement is verification, `.agents/skills/verify/SKILL.md` |
 | knowing a re-check is due | — | <straw-dog until="the marks exist and give *since* a meaning" ticket="docs/tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md">not yet</straw-dog> |
 | deciding whether a straw dog's condition holds, and retiring the block | `.agents/skills/maintain/SKILL.md` | |
-| guessing where a straw dog nobody wrapped stands, and judging each guess | `.agents/scripts/straw_dogs.py` | |
+| guessing where a straw dog nobody wrapped stands, and judging each guess | `.agents/scripts/gw/straw_dogs.py` | |
 | cleaning prose and records to one home per fact | `.agents/skills/maintain/SKILL.md` | |
 | closing a finished ticket with its RFC | `.agents/skills/maintain/SKILL.md` | |
 | updating the header at close | `.agents/skills/maintain/SKILL.md` | |
@@ -77,7 +77,7 @@ repair-and-report, recording the cause in the evidence.
 | checking links outside a close | — | <straw-dog until="a link check runs outside a close, not only the mover's note over records a close rewrote" ticket="docs/tickets/01-0017-io-graph-coherent.md">not yet</straw-dog> |
 | cleaning inline comments in scope | — | elsewhere — verification applies the comment skill to landed work, `.agents/skills/verify/SKILL.md` |
 | running the verification set the scope touched | `.agents/skills/maintain/SKILL.md` | |
-| installing this mechanism into a tree, with the rest of core | `.agents/scripts/harness.py` | |
+| installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
 | removing this mechanism from a tree | — | <straw-dog until="the parts table says what goes and something says how" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
 | picking up a dream | — | unowned by design — the entry file says *may*, a permission and not a duty, while the dream skill is experimental |
 
@@ -88,23 +88,23 @@ repair-and-report, recording the cause in the evidence.
 | instruction file | `.agents/skills/maintain/SKILL.md` |
 | this doc | `.agents/mechanisms/maintain/maintain.md` |
 | its rules file | `.agents/mechanisms/maintain/maintain.rules.md` |
-| the listing script | `.agents/scripts/straw_dogs.py` |
-| its tests | `.agents/scripts/test/test_straw_dogs.py` |
+| the listing script | `.agents/scripts/gw/straw_dogs.py` |
+| its tests | `.agents/scripts/gw/test/test_straw_dogs.py` |
 
 ## Relies on, and does not own
 
 | part | where | owner |
 |---|---|---|
-| the mover | `.agents/scripts/move_doc.py` | `ticket` |
-| the mover's tests | `.agents/scripts/test/test_paired_close.py` | `ticket` |
-| the mover's tests | `.agents/scripts/test/test_refusals.py` | `ticket` |
-| the mover's tests | `.agents/scripts/test/test_citations.py` | `ticket` |
-| the mover's tests | `.agents/scripts/test/test_command_line.py` | `ticket` |
-| the mover's tests | `.agents/scripts/test/test_failure_contract.py` | `ticket` |
-| the ticket maintainer | `.agents/scripts/tickets.py` | `ticket` |
-| citation reader | `.agents/scripts/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |
-| test harness | `.agents/scripts/test/repository.py` | `mechanism-shape` |
-| the shape check | `.agents/scripts/mechanisms.py` | `mechanism-shape` |
+| the mover | `.agents/scripts/gw/move_doc.py` | `ticket` |
+| the mover's tests | `.agents/scripts/gw/test/test_paired_close.py` | `ticket` |
+| the mover's tests | `.agents/scripts/gw/test/test_refusals.py` | `ticket` |
+| the mover's tests | `.agents/scripts/gw/test/test_citations.py` | `ticket` |
+| the mover's tests | `.agents/scripts/gw/test/test_command_line.py` | `ticket` |
+| the mover's tests | `.agents/scripts/gw/test/test_failure_contract.py` | `ticket` |
+| the ticket maintainer | `.agents/scripts/gw/tickets.py` | `ticket` |
+| citation reader | `.agents/scripts/gw/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |
+| test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |
+| the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 
 ## What it produces, and who reads it

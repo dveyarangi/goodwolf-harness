@@ -1,6 +1,6 @@
 """What each live ticket declares in its header, and whether the record keeps its declared shape.
 
-    uv run --offline --no-project python .agents/scripts/tickets.py --check
+    uv run --offline --no-project python .agents/scripts/gw/tickets.py --check
 
 The shape is the ticket format shelf's, `TICKET-FORMAT.md`, under *The record*: the header's
 fields and their order, the sections a stage admits, the acceptance boxes, and the pairing of an
@@ -135,7 +135,7 @@ class Checked:
 
 
 def main(argv: list[str], root: Path | None = None) -> int:
-    root = root or Path(__file__).resolve().parents[2]
+    root = root or Path(__file__).resolve().parents[3]
     if argv != ["--check"]:
         print(_USAGE)
         return 2

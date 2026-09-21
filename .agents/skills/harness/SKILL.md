@@ -10,9 +10,9 @@ The source is always the repository, cloned fresh at a ref; a working tree is ne
 the script from any clone of the harness, or from the tree's own copy once it has one:
 
 ```
-python <clone>/.agents/scripts/harness.py <target> --install [--from REPOSITORY] [--at REF]
-python <target>/.agents/scripts/harness.py <target> --update [--overwrite] [--from REPOSITORY] [--at REF]
-python <target>/.agents/scripts/harness.py . --check [--from REPOSITORY]
+python <clone>/.agents/scripts/gw/harness.py <target> --install [--from REPOSITORY] [--at REF]
+python <target>/.agents/scripts/gw/harness.py <target> --update [--overwrite] [--from REPOSITORY] [--at REF]
+python <target>/.agents/scripts/gw/harness.py . --check [--from REPOSITORY]
 ```
 
 `--from` defaults to the harness's own repository; `--at` to its default branch's head, and takes

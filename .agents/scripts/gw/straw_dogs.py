@@ -1,8 +1,8 @@
 """The straw dogs — what serves until a named ticket replaces it — and the one edit that retires one.
 
-    uv run --offline --no-project python .agents/scripts/straw_dogs.py PATH [PATH ...]
-    uv run --offline --no-project python .agents/scripts/straw_dogs.py --guess PATH [PATH ...]
-    uv run --offline --no-project python .agents/scripts/straw_dogs.py \
+    uv run --offline --no-project python .agents/scripts/gw/straw_dogs.py PATH [PATH ...]
+    uv run --offline --no-project python .agents/scripts/gw/straw_dogs.py --guess PATH [PATH ...]
+    uv run --offline --no-project python .agents/scripts/gw/straw_dogs.py \
         --remove FILE:LINE --expect sha256:...
 
 Reading a scope reports every operative `<straw-dog>` block in it — and, in code, every `TODO`
@@ -143,7 +143,7 @@ class Guessed:
 
 
 def main(argv: list[str], root: Path | None = None) -> int:
-    root = root or Path(__file__).resolve().parents[2]
+    root = root or Path(__file__).resolve().parents[3]
     if argv[:1] == ["--remove"]:
         return _removal(root, argv[1:])
     if argv[:1] == ["--guess"]:

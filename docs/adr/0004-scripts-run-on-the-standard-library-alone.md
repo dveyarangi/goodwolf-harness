@@ -1,6 +1,6 @@
 # Scripts run on the standard library alone
 
-The maintenance scripts under `.agents/scripts/` import nothing outside Python's standard library,
+The maintenance scripts under `.agents/scripts/gw/` import nothing outside Python's standard library,
 and their tests use `unittest` rather than a framework. Decided in
 [01-0010.0070](../rfc/done/01-0010.0070-install-maintain.md#mechanical-support)'s RFC, 2026-09-06,
 when the runtime was observed as Python 3.14.6 through `uv run --offline --no-project python`.

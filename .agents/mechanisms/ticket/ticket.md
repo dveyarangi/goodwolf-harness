@@ -64,15 +64,15 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | naming an RFC for a ticket | `.agents/skills/plan/SKILL.md` | |
 | deciding a ticket is finished | `.agents/skills/maintain/SKILL.md` | |
 | closing a finished ticket with its RFC | `.agents/skills/maintain/SKILL.md` | |
-| repairing the citations a close breaks | `.agents/scripts/move_doc.py` | |
-| checking live records against the shape | `.agents/scripts/tickets.py` | |
+| repairing the citations a close breaks | `.agents/scripts/gw/move_doc.py` | |
+| checking live records against the shape | `.agents/scripts/gw/tickets.py` | |
 | listing finished records not yet moved | — | <straw-dog until="a listing exists" ticket="docs/tickets/01-0011.0030-archive-backlog-listed.md">not yet</straw-dog> |
 | rendering the queue from the tickets | — | <straw-dog until="the table is derived rather than copied by hand" ticket="docs/tickets/01-0011.0040-queue-derived-index.md">not yet</straw-dog> |
 | ordering the queue and writing its pacing prose | — | <straw-dog until="the pacer owns both" ticket="docs/tickets/01-0020-pacer.md">not yet</straw-dog> |
 | promoting a concern into a ticket | `.agents/skills/ticket/SKILL.md` | |
 | verifying a ticket's criteria against landed work | — | elsewhere — landing-time agreement is verification, `.agents/skills/verify/SKILL.md` |
 | writing an RFC's contents | — | elsewhere — what an RFC holds is planning's, `.agents/skills/plan/SKILL.md` |
-| installing this mechanism into a tree, with the rest of core | `.agents/scripts/harness.py` | |
+| installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
 | removing this mechanism from a tree | — | <straw-dog until="the parts table says what goes and something says how" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
 | reading how a shaped ticket reached its decisions | — | unowned by design — the durable home carries the decision with its provenance and the session record the align; looking it up needs no rule |
 
@@ -84,22 +84,22 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | format shelf | `.agents/skills/ticket/TICKET-FORMAT.md` |
 | this doc | `.agents/mechanisms/ticket/ticket.md` |
 | its rules file | `.agents/mechanisms/ticket/ticket.rules.md` |
-| the mover | `.agents/scripts/move_doc.py` |
-| the mover's tests | `.agents/scripts/test/test_paired_close.py` |
-| the mover's tests | `.agents/scripts/test/test_refusals.py` |
-| the mover's tests | `.agents/scripts/test/test_citations.py` |
-| the mover's tests | `.agents/scripts/test/test_command_line.py` |
-| the mover's tests | `.agents/scripts/test/test_failure_contract.py` |
-| the maintainer | `.agents/scripts/tickets.py` |
-| the maintainer's tests | `.agents/scripts/test/test_tickets.py` |
+| the mover | `.agents/scripts/gw/move_doc.py` |
+| the mover's tests | `.agents/scripts/gw/test/test_paired_close.py` |
+| the mover's tests | `.agents/scripts/gw/test/test_refusals.py` |
+| the mover's tests | `.agents/scripts/gw/test/test_citations.py` |
+| the mover's tests | `.agents/scripts/gw/test/test_command_line.py` |
+| the mover's tests | `.agents/scripts/gw/test/test_failure_contract.py` |
+| the maintainer | `.agents/scripts/gw/tickets.py` |
+| the maintainer's tests | `.agents/scripts/gw/test/test_tickets.py` |
 
 ## Relies on, and does not own
 
 | part | where | owner |
 |---|---|---|
-| citation reader | `.agents/scripts/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |
-| test harness | `.agents/scripts/test/repository.py` | `mechanism-shape` |
-| the installer | `.agents/scripts/inject_rules.py` | `mechanism-shape` |
+| citation reader | `.agents/scripts/gw/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |
+| test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |
+| the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 
 ## What it produces, and who reads it

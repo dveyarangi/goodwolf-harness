@@ -805,7 +805,7 @@ class CoreStandsAlone(Declared):
         self.assertEqual([(".agents/scripts/later.py", 2, DOCUMENT)], self.leaks())
 
     def test_a_test_file_is_fixture_data_and_is_not_read(self) -> None:
-        self.write(".agents/scripts/test/test_later.py", f'NAME = "{DOCUMENT}"\n')
+        self.write(".agents/scripts/gw/test/test_later.py", f'NAME = "{DOCUMENT}"\n')
 
         self.assertEqual([], self.problems())
 

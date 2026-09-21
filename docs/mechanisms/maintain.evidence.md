@@ -39,7 +39,7 @@ the body.
 ## 2026-09-06 — Selected mover inspected before adaptation
 
 Source: Forecast Collector's
-[move_doc.py](D:/Dev/DriftSense/workspace/forecast_collector/.agents/scripts/move_doc.py)
+[move_doc.py](D:/Dev/DriftSense/workspace/forecast_collector/.agents/scripts/gw/move_doc.py)
 and [docs_corpus.py](D:/Dev/DriftSense/workspace/forecast_collector/tests/deterministic/docs_corpus.py).
 These observations concern the source at inspection time, not an installed harness mover.
 
