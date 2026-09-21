@@ -362,7 +362,7 @@ leaves marking to luck.
   ticket. The first two are the ones that get misread, and they pull in opposite directions. There
   is no *none needed*: if nobody acts, it is not a moment and the row does not exist.
 - **Directory.** `.agents/mechanisms/<slug>/` holds the doc and the rules file. Working parts stay where the harness needs them: skills in `.agents/skills/`, scripts in
-  `.agents/scripts/`, tests in `tests/`. `.agents/` is the unit recipient projects receive, so a
+  `.agents/scripts/gw/`, tests in `test/` beneath them. `.agents/` is the unit recipient projects receive, so a
   mechanism travels by construction. Filenames repeat the slug.
 - **Doc and instruction file are never the same file.** The skill carries the act and every rule
   read in the work it governs; the doc carries why that instruction is what it is; the evidence
