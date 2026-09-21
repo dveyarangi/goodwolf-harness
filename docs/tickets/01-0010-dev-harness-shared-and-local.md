@@ -220,7 +220,7 @@ Re-ordered from the draft: `0080` first; hierarchy then scope, strictly sequenti
 ## Separation delivery — 2026-09-09
 
 **Status:** Approved by the user and minted as
-[01-0010.0130](./01-0010.0130-harness-installs-into-another-tree.md). One decision-bearing child,
+[01-0010.0130](./done/01-0010.0130-harness-installs-into-another-tree.md). One decision-bearing child,
 aligned together with [01-0010.0110](./done/01-0010.0110-project-facets-injected.md) on the user's
 direction.
 
@@ -607,7 +607,7 @@ pass there, and its failure would be reporting the intended design.
 
 **Leave alone.** The 47 path conventions. The `<project-local>` and `<straw-dog>` exemptions
 themselves, which are [01-0010.0110](./done/01-0010.0110-project-facets-injected.md)'s and
-[01-0010.0130](./01-0010.0130-harness-installs-into-another-tree.md)'s. The four
+[01-0010.0130](./done/01-0010.0130-harness-installs-into-another-tree.md)'s. The four
 `docs/process.md` links are repairable today by `/maintain`'s own precedent — it wraps its three in
 a `<project-local>` block — but they are left for this ticket so the check and its repairs land
 together and the check is what proves the repair.
@@ -622,6 +622,29 @@ ticket exists to end.
    **Parent scope covered:** acceptance criterion 7, maintenance identifying drift without
    treating silence as success.
    **Basename:** `01-0010.0140-core-stands-alone.md`.
+
+## Existing-tree delivery — 2026-09-21
+
+**Status:** Minted as [01-0010.0150](./01-0010.0150-harness-meets-a-tree-with-a-method.md) on the
+user's direction, the evening [01-0010.0130](./done/01-0010.0130-harness-installs-into-another-tree.md)
+closed on its frost_map grade. One slice.
+
+### Impact — 2026-09-21
+
+Run by `/ticket` on the one-slice draft: **proceed.** The install as landed knows how to refuse a
+tree that already has a method — its own entry file, a stub with content, skill directories, an
+`.agents/` of another convention — and not how to meet one: the refusal names the first thing in
+the way and nothing of what was found, the skill's flow ends at *populate the local file* with
+no step for what the tree already says, and the front page duplicates the skill's flow. Blast
+radius is `harness.py`'s refusals and one stamped line, the `/harness` skill, the root README,
+and the mechanism's doc; the scripts' contracts, the injector, the shear and the gate are
+untouched. Hidden edge: the repository's URL lives in the script alone and the skill does not
+name it, so an agent in a recipient cannot see where its core comes from without reading code —
+the slice moves the one home into the skill and has the script derive from it. Leave alone:
+what the install deletes, which stays nothing of the project's. No generalisation: the
+inventory reports the four places the install already refuses on; the flow is instruction, and
+the judgment stays the agent's under it. A stranger harness is not a second design, it is the
+same refusal with more in the inventory.
 
 ## Adoption shortlist — recommendations awaiting alignment
 
