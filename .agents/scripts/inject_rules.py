@@ -334,20 +334,41 @@ def after_anchor(text: str, anchor: str) -> int:
     return hits[0]
 
 
-def insertion_point(text: str, anchor: str, slug: str) -> int:
-    """Directly after the anchor line — or, for the local block, after the run of installed blocks
-    already there, so the project's answer is what a reader meets after core's rules."""
-    at = after_anchor(text, anchor)
-    if slug != LOCAL:
-        return at
+def section_end(text: str, anchor: str) -> int:
+    """The offset just past the last non-blank line of the anchor's section: the section runs
+    from the anchor line to the next heading of the anchor's level or higher, or to the end of
+    the text; a line that is not a heading is ended by any heading. Fences are not read."""
+    start = after_anchor(text, anchor)
     seen = without_code(text)
-    while INSTALLED_OPENING.match(seen[at:].lstrip("\r\n")):
-        close = seen.find(INSTALLED_CLOSING, at)
-        if close == -1:
-            return at  # an unclosed block is refused before anything is written
-        newline = seen.find("\n", close)
-        at = len(seen) if newline == -1 else newline + 1
-    return at
+    level = _heading_level(anchor)
+    end = start
+    offset = start
+    for line in seen[start:].splitlines(keepends=True):
+        heading = _heading_level(line.rstrip("\r\n"))
+        if heading is not None and heading <= (level if level is not None else 6):
+            break
+        offset += len(line)
+        if line.strip():
+            end = offset
+    return end
+
+
+def _heading_level(line: str) -> int | None:
+    match = _HEADING.match(line)
+    return len(match.group(1)) if match else None
+
+
+def insertion_point(text: str, anchor: str, slug: str) -> int:
+    """At the end of the anchor's section, so blocks stand in install order after the section's
+    own text — and, for a mechanism's block, before the local block if one is already there, so
+    the project's answer stays what a reader meets after core's rules."""
+    end = section_end(text, anchor)
+    if slug == LOCAL:
+        return end
+    local = locate(text, LOCAL)
+    if local is not None and after_anchor(text, anchor) <= local.start < end:
+        return local.start - 1
+    return end
 
 
 def following_block(text: str, offset: int) -> tuple[str, int] | None:

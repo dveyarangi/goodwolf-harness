@@ -21,6 +21,13 @@ Look for architectural or responsibility leakage.
 
 ## The verification set
 
+The project's verification set is its typechecker, its tests and every other command required
+of landed work, named in the project's local rules file and installed here as the local block. A
+failed check is unfinished work.
+Discovery reporting success with zero tests is not verification; the run must show a positive
+count. A clean run means nothing was caught, never that the tree obeys. `/implement` may run
+named checks during the work; that run is not this pass.
+
 <installed by="mechanism-shape">
 **R7** A project's own answers and overrides are authored in one file beside the entry file,
 `local.rules.md`, in the rules-file format, and reach a file only as the local block — the
@@ -42,13 +49,6 @@ uv run --offline --no-project python .agents/scripts/inject_rules.py --check
 uv run --offline --no-project python .agents/scripts/tickets.py --check
 ```
 </installed>
-
-The project's verification set is its typechecker, its tests and every other command required
-of landed work, named in the project's local rules file and installed here as the local block. A
-failed check is unfinished work.
-Discovery reporting success with zero tests is not verification; the run must show a positive
-count. A clean run means nothing was caught, never that the tree obeys. `/implement` may run
-named checks during the work; that run is not this pass.
 
 
 ## Check and repair

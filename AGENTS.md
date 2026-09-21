@@ -10,10 +10,6 @@ Run /recall first in every session, whatever the first message says.
 
 ## General rules
 
-<installed by="ticket">
-**P9** Name a ticket by a link to its record; one that has no record yet, by a slug and its state word.
-</installed>
-
 A **shape** is whatever is under consideration, held between an idea and a thing: formed enough
 to have a context and a structure, not yet exhausted by any one realization. Being a shape says
 nothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).
@@ -33,6 +29,10 @@ nothing about being load-bearing — an implementation method is a shape too. �
 <straw-dog until="01-0018 declares the mechanism that owns tiering" ticket="docs/tickets/01-0018-reachability-coherent.md">
 - A skill's description is its tier-1 surface: name there every occasion the skill serves, with the context that makes it fire, and nothing else. Write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session.
 </straw-dog>
+
+<installed by="ticket">
+**P9** Name a ticket by a link to its record; one that has no record yet, by a slug and its state word.
+</installed>
 
 ## Core and instance
 

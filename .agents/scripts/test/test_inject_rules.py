@@ -104,13 +104,68 @@ class Installing(RepositoryCase):
 
         self.assertEqual(before, self.snapshot())
 
-    def test_install_writes_one_block_after_the_anchor_in_file_order(self) -> None:
+    def test_install_writes_one_block_in_file_order_under_an_empty_anchor_section(self) -> None:
         self.run_installer(SLUG, "--install")
 
         self.assertEqual(
             TARGET_TEXT.replace(f"{ANCHOR}\n", f"{ANCHOR}\n\n{INSTALLED}\n"),
             self.read(TARGET),
         )
+
+    def test_a_block_lands_at_the_end_of_the_anchors_section_after_its_content(self) -> None:
+        text = TARGET_TEXT.replace(f"{ANCHOR}\n", f"{ANCHOR}\n\nThe section's own prose.\n\n- and a bullet\n")
+        self.write(TARGET, text)
+        self.commit()
+        before = self.snapshot()
+
+        self.assertEqual(0, self.run_installer(SLUG, "--install")[0])
+
+        self.assertEqual(text.replace("- and a bullet\n", f"- and a bullet\n\n{INSTALLED}\n"), self.read(TARGET))
+        self.assertEqual(0, self.run_installer(SLUG, "--retract")[0])
+        self.assertEqual(before, self.snapshot())
+
+    def test_a_section_ends_at_the_next_heading_of_its_own_level_or_higher_and_not_at_a_subheading(self) -> None:
+        text = TARGET_TEXT.replace(f"{ANCHOR}\n", f"{ANCHOR}\n\n### A subsection\n\nStill inside.\n")
+        self.write(TARGET, text)
+        self.commit()
+
+        self.assertEqual(0, self.run_installer(SLUG, "--install")[0])
+
+        self.assertEqual(text.replace("Still inside.\n", f"Still inside.\n\n{INSTALLED}\n"), self.read(TARGET))
+
+    def test_a_heading_drawn_in_a_fence_does_not_end_the_section(self) -> None:
+        text = TARGET_TEXT.replace(f"{ANCHOR}\n", f"{ANCHOR}\n\n```md\n## Not a heading\n```\n\nAfter the fence.\n")
+        self.write(TARGET, text)
+        self.commit()
+
+        self.assertEqual(0, self.run_installer(SLUG, "--install")[0])
+
+        self.assertEqual(text.replace("After the fence.\n", f"After the fence.\n\n{INSTALLED}\n"), self.read(TARGET))
+
+    def test_a_section_that_ends_the_file_takes_the_block_after_its_last_line(self) -> None:
+        text = "# Keeper\n\n" f"{ANCHOR}\n\nLast prose.\n"
+        self.write(TARGET, text)
+        self.commit()
+
+        self.assertEqual(0, self.run_installer(SLUG, "--install")[0])
+
+        self.assertEqual(f"{text}\n{INSTALLED}\n", self.read(TARGET))
+
+    def test_blocks_of_two_mechanisms_at_one_anchor_stand_in_install_order(self) -> None:
+        other = "other-shape"
+        self.write(
+            f".agents/mechanisms/{other}/{other}.rules.md",
+            rules_file().replace(SLUG, other),
+        )
+        self.commit()
+        self.run_installer(SLUG, "--install")
+
+        self.assertEqual(0, self.run_installer(other, "--install")[0])
+
+        written = self.read(TARGET)
+        self.assertLess(written.index(f'<installed by="{SLUG}">'), written.index(f'<installed by="{other}">'))
+        self.assertIn(f"</installed>\n\n<installed by=\"{other}\">", written)
+        self.assertEqual(0, self.run_installer("--check")[0])
 
     def test_an_anchor_that_is_a_subheading_inside_a_tagged_span_takes_the_block_and_gives_it_back(self) -> None:
         anchor = "### Record resolutions inline"
@@ -129,7 +184,9 @@ class Installing(RepositoryCase):
         installed = self.read(TARGET)
         self.assertEqual(0, self.run_installer(SLUG, "--retract")[0])
 
-        self.assertEqual(target_text.replace(f"{anchor}\n", f"{anchor}\n\n{INSTALLED}\n"), installed)
+        self.assertEqual(
+            target_text.replace("beside it.\n", f"beside it.\n\n{INSTALLED}\n"), installed
+        )
         self.assertEqual(before, self.snapshot())
 
     def test_installing_twice_changes_nothing_and_reports_the_block_present(self) -> None:
@@ -335,7 +392,7 @@ class LocalSource(RepositoryCase):
         before = self.snapshot()
 
         self.assertEqual(0, self.run_installer(LOCAL, "--install")[0])
-        self.assertEqual(entry.replace("## Project-local\n", f"## Project-local\n\n{LOCAL_INSTALLED}\n"), self.read("AGENTS.md"))
+        self.assertEqual(entry.replace("One file beside this one.\n", f"One file beside this one.\n\n{LOCAL_INSTALLED}\n"), self.read("AGENTS.md"))
         self.assertEqual(0, self.run_installer("--check")[0])
         self.assertEqual(0, self.run_installer(LOCAL, "--retract")[0])
 

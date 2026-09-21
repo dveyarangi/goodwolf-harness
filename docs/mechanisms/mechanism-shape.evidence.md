@@ -418,3 +418,31 @@ passes after, in both trees.
 **Two mechanisms name the entry file.** The harness owns `AGENTS.md` whole; the shape anchors
 two lines in it. The check asks nothing about overlap, and the harness doc says so. The first
 case of a shared file with two claimants of different grain; recorded, not generalised.
+
+## A block lands at the end of its section — 2026-09-21
+
+**Refuted: directly after the anchor line.** The installer wrote a mechanism's block just past
+the anchor, ahead of the section's own prose and ahead of every block already there — newest
+first — and only the local block was placed after the run of blocks. The first block installed
+into the entry file's general rules, P9, landed above the rules it joins, and the user read it
+there: *the installation should be to the end of the anchor section, not beginning.* The rule
+is now one for every source: a block lands at the end of the section the anchor heads — the
+section running to the next heading of the anchor's level or higher, fences unread — after its
+text and after every block there, so blocks stand in install order; a mechanism's block lands
+before the local block where one already sits, which keeps *local last* as it was.
+
+**Prior violations: five blocks in four files** stood above the prose of their section — the
+entry file's P9, `/align`'s and `/verify`'s mechanism-shape blocks, `/mechanism`'s records
+block — and `/maintain`'s pair stood in reverse install order. All re-placed by retracting and
+installing every source; `--check` had reported them all `present`, because position is not
+something the check reads, and it still is not: a block moved by hand would pass. One
+hand-written sentence in `/align` pointed *below* at a block that is now above it.
+
+**What was not changed.** The anchor is still a line that occurs exactly once; a heading is what
+every anchor is today, and a non-heading anchor's section ends at the next heading of any level
+rather than being refused. A recipient installed before this holds its blocks at the old
+positions; nothing flags that, and its next update installs only what is absent.
+<straw-dog until="01-0010.0160 declares the mechanism that collects edge changes" ticket="docs/tickets/01-0010.0160-harness-edge-changes-reach-an-update.md">
+An observation for that mechanism to collect: a placement rule is an edge change a recipient
+cannot see.
+</straw-dog>

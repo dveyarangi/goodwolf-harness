@@ -70,6 +70,27 @@ doc against the shape, its instruction file against its doc, its records against
 
 ## Installed from other mechanisms
 
+<straw-dog until="01-0017 is done" ticket="docs/tickets/01-0017-io-graph-coherent.md">
+One rule of `/spec`'s, held here by hand until that mechanism is declared and installs it:
+
+- **P4** Before archiving a spec, confirm its surviving agreements have homes, its obligations
+  have dispositions, and its open issues keep owners.
+</straw-dog>
+
+<installed by="mechanism-shape">
+**R1** Check a record-bearing mechanism's records with its maintainer script — format never
+content, live rows only. Where the script is missing, write it: that is the maintenance.
+
+**R2** Compare a mechanism against what governs it with line endings normalised, its evidence
+excluded, and installed blocks excluded.
+
+**R3** Move story out of a doc into its evidence.
+
+**R4** Render an index on request; never commit one beside its records. A file listing what other
+files each say for themselves is an index, whatever it is called — an allowlist, a register,
+a manifest — and each entry belongs at its authored home, wrapped there if provisional.
+</installed>
+
 <installed by="ticket">
 **P1** A ticket is finished when every acceptance box is checked, the verification box included.
 
@@ -88,27 +109,6 @@ diagnostic is a finding; repair it under the repair policy.
 `docs/tickets/done/` is where finished work is enumerated; a row for an archived ticket is a
 second home for what that folder already says.
 </installed>
-
-<installed by="mechanism-shape">
-**R1** Check a record-bearing mechanism's records with its maintainer script — format never
-content, live rows only. Where the script is missing, write it: that is the maintenance.
-
-**R2** Compare a mechanism against what governs it with line endings normalised, its evidence
-excluded, and installed blocks excluded.
-
-**R3** Move story out of a doc into its evidence.
-
-**R4** Render an index on request; never commit one beside its records. A file listing what other
-files each say for themselves is an index, whatever it is called — an allowlist, a register,
-a manifest — and each entry belongs at its authored home, wrapped there if provisional.
-</installed>
-
-<straw-dog until="01-0017 is done" ticket="docs/tickets/01-0017-io-graph-coherent.md">
-One rule of `/spec`'s, held here by hand until that mechanism is declared and installs it:
-
-- **P4** Before archiving a spec, confirm its surviving agreements have homes, its obligations
-  have dispositions, and its open issues keep owners.
-</straw-dog>
 
 ## Finish
 

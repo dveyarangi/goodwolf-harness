@@ -68,7 +68,7 @@ Prose before the table is the file's own preamble and is not read.
   A tag inside a body is refused.
 
 **What the installer writes**, per target: one block holding every rule of the file that names
-it, in file order, each a paragraph opening with its id, after the anchor line:
+it, in file order, each a paragraph opening with its id, into the section the anchor heads:
 
 ```md
 <installed by="mechanism-shape">
@@ -94,12 +94,8 @@ the architecture's; the entry file owns the prohibition on editing a block in pl
 
 **The project's own rules file is one more source.** `local.rules.md` sits beside the entry
 file, outside the core directory, in this same grammar, and is read as the slug `local` — a
-mechanism directory of that name is refused. Its block is placed after every installed block at
-its anchor rather than directly after the anchor line, and it must sit after every mechanism's
-block anywhere in the same file: an install that would not leave it last is refused naming the
-block that would follow, and `--check` reports a local block another block follows as `not
-last`. Blocks of different mechanisms at one anchor stand in install order, which nothing
-depends on.
+mechanism directory of that name is refused. Its block must be the last in its file, so anchor a
+local rule where every mechanism's block precedes it.
 
 ## The doc
 

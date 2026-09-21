@@ -118,6 +118,9 @@ nothing indexes, a file dropped where nothing looks.
 
 ## Records
 
+A mechanism with records declares what a record is — its fields, what a row means, its
+tier, what removes a finished entry — inside the record's own file *(the user, 2026-09-07)*.
+
 <installed by="mechanism-shape">
 **R1** Check a record-bearing mechanism's records with its maintainer script — format never
 content, live rows only. Where the script is missing, write it: that is the maintenance.
@@ -135,16 +138,7 @@ then `not yet`, wrapped as a straw dog bound to the ticket that declares its mec
 `unowned by design` with its reason. Write the line as you add the skill; no list holds it.
 </installed>
 
-A mechanism with records declares what a record is — its fields, what a row means, its
-tier, what removes a finished entry — inside the record's own file *(the user, 2026-09-07)*.
-
 ## Incept
-
-<installed by="maintain">
-**M1** Name what `/maintain` must do for this mechanism — a maintainer script to run, records to
-re-check when its surfaces move — as rules in its rules file targeting `/maintain`. Nothing is
-written into `/maintain` by hand.
-</installed>
 
 1. **`/align` first**, on what the mechanism is in plain terms: its moments, its
    authority, its record shape, its index, the tier of each part, what retires it.
@@ -161,6 +155,12 @@ written into `/maintain` by hand.
 
 Absence is not clearance: a clean run means nothing was caught, never that the tree
 obeys.
+
+<installed by="maintain">
+**M1** Name what `/maintain` must do for this mechanism — a maintainer script to run, records to
+re-check when its surfaces move — as rules in its rules file targeting `/maintain`. Nothing is
+written into `/maintain` by hand.
+</installed>
 
 ## Amend and retire
 
