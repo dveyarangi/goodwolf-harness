@@ -81,6 +81,14 @@ A project's own answers and overrides, authored once in its local rules file bes
 Placing a ref of core into a tree that is not core's own repository, from a fresh clone of that repository and never from a working tree; an update is the same over a tree that already holds one, and a check compares a copy against the ref its entry file announces. The mechanism that does all three is `harness`.
 _Avoid_: deploy, sync, distribute, port.
 
+**Installation edge**:
+Everything about the core–instance interaction an instance must know to integrate core, customise it and stay coherent across core changes: a rule id, a target and its anchor, a script's path and command, a skill's name, the announce form, and a behaviour a recipient's files rely on. What a recipient never meets — a skill's body, a declaration's prose, a script's internals — is not on it.
+_Avoid_: API, surface, interface as names for this.
+
+**Release**:
+One publish of core to its own repository, carrying a note written for an instance: what moved on the installation edge, from where to where, and what an instance amends. The note is derived at the publish from the edge's engineering record, which every edge change writes its line in as it is made. A recipient reads the notes standing between its ref and the latest before deciding to take them.
+_Avoid_: version, cut, ship, distribution.
+
 **Recipient**:
 A tree that received core by install. Its entry file's announce line names the repository and the ref it came from, `<repository>@<ref>`; the one tree whose line carries no `@` is core's own repository, the origin, and is never installed into.
 _Avoid_: instance as a name for the tree, consumer.

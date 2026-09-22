@@ -159,6 +159,21 @@ reports the link as pending with the exact elevated command for that tree. Nothi
 substituted for a link, and a link never decides arrival: the links are reported beside the
 verdict, resolving or not.
 
+**The edge, and what crosses it.** The core–instance interaction is everything an instance must
+know to integrate core, customise it and stay coherent across core changes: a rule id, a target
+and its anchor, a script's path and command, a skill's name, the announce form, and a behaviour a
+recipient's files rely on. Its engineering record is the origin's and does not ship; what a client
+meets is derived from it — the front page and the harness skill. A change to it is registered
+where it is made and reaches a recipient as a **release**: core published to a repository of its
+own, each publish carrying a note written for an instance — what moved, from where to where, what
+the instance amends. A recipient reads the notes standing between its ref and the latest before it
+takes them, and whether to take them is the installing agent's decision with its user, never the
+script's. *(The user, 2026-09-21.)*
+<straw-dog until="01-0010.0160 declares the releases mechanism" ticket="docs/tickets/01-0010.0160-harness-edge-changes-reach-an-update.md">
+Nothing does this yet: core is shared from the working tree and an update crosses an edge change
+in silence, leaving what a recipient must amend to whoever reads the manifest diff.
+</straw-dog>
+
 Arrival is the check, and it takes seconds: the announced ref compared, the injector's check
 clean with the local block last, the shape check clean — run as the target's own scripts. The
 shipped suite is not part of it; a recipient that wants it names it in its own verification set.
