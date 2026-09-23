@@ -18,7 +18,10 @@ the whole held to the leak rule the origin's check applies.
 it, and the shape check reads its `@` to know it stands in a recipient — where an unbound
 `not yet` is upstream's gap and draws nothing. No record file: integrity is asked of the source,
 by cloning the announced ref again and comparing. A change to the transformation therefore reads
-as an edit in every recipient installed before it, until it updates.
+as an edit in every recipient installed before it, until it updates. What the announced ref
+shipped is read under the transformation alone, never held to today's shipping refusals: those
+govern what may leave now, and a rule added after a ref shipped would otherwise strand every tree
+that took it.
 
 **The repository line is the source, as the announce line is the ref.** The harness skill carries
 `Repository: <url>`, the only authored home of where core comes from: the script keeps no

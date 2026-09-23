@@ -629,6 +629,60 @@ class AnUpdateAcrossTheScriptsMove(TwoTrees):
         self.assertTrue(report["arrived"], report["gates"])
 
 
+class ATreeInstalledUnderEarlierRules(TwoTrees):
+    """A recipient announcing a ref that today's shipping rules would refuse: no arrival shelf, a
+    harness skill with no Repository line, and a test outside `gw/test/` citing a record only the
+    origin has. frost_map and ai-game-1 are that shape. What such a ref shipped is read to compare
+    against and to know what left the manifest, and is never shipped again, so none of the three
+    may stop a check or an update.
+
+    The tree is made the way the earlier code left it rather than by the code under test: installed
+    from today's core, then given each difference by hand."""
+
+    OLD_TEST = ".agents/scripts/test/test_citations.py"
+    OLD_TEST_TEXT = 'CITED = "docs/tickets/01-0001-closed.md"\n'
+
+    def setUp(self) -> None:
+        super().setUp()
+        today = self.short_head()
+        self.run_harness("--install")
+        self.git("rm", "-q", QUEUE_ARRIVAL)
+        self.write(HARNESS_SKILL, harness.REPOSITORY.sub("", HARNESS_SKILL_TEXT, count=1))
+        self.write(self.OLD_TEST, self.OLD_TEST_TEXT)
+        self.commit("core as it stood under earlier rules")
+        self.earlier = self.short_head()
+        (self.target / QUEUE_ARRIVAL).unlink()
+        (self.target / DELIVERY_STATUS).unlink()
+        skill = self.target / HARNESS_SKILL
+        skill.write_text(harness.REPOSITORY.sub("", skill.read_text(encoding="utf-8"), count=1), encoding="utf-8")
+        (self.target / self.OLD_TEST).parent.mkdir(parents=True, exist_ok=True)
+        (self.target / self.OLD_TEST).write_text(self.OLD_TEST_TEXT, encoding="utf-8")
+        entry = self.target / "AGENTS.md"
+        entry.write_text(entry.read_text(encoding="utf-8").replace(f"@{today},", f"@{self.earlier},"), encoding="utf-8")
+        self.git("rm", "-q", self.OLD_TEST)
+        self.write(QUEUE_ARRIVAL, QUEUE_ARRIVAL_TEXT)
+        self.write(HARNESS_SKILL, HARNESS_SKILL_TEXT)
+        self.commit("today's rules")
+
+    def test_a_check_compares_against_what_the_earlier_ref_shipped(self) -> None:
+        _, report = self.run_harness("--check")
+
+        self.assertEqual([], report["refusals"])
+        self.assertTrue(report["gates"]["ref"]["passed"], report["gates"]["ref"])
+
+    def test_an_update_takes_today_and_gives_the_tree_what_it_lacked(self) -> None:
+        status, report = self.run_harness("--update")
+
+        self.assertEqual([], report["refusals"])
+        self.assertEqual([], report["replaced"], "nothing in the tree was edited in core")
+        self.assertIn(self.OLD_TEST, report["deleted"])
+        self.assertFalse((self.target / self.OLD_TEST).exists())
+        self.assertIn(DELIVERY_STATUS, report["written"])
+        self.assertIsNotNone(harness.REPOSITORY.search(self.target_text(HARNESS_SKILL)))
+        self.assertIn(f"@{self.short_head()}, ", self.target_text("AGENTS.md"))
+        self.assertEqual(0, status, report["gates"])
+
+
 # --- where core came from -------------------------------------------------------------------------
 
 

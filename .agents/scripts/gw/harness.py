@@ -140,7 +140,7 @@ def run(target: Path, mode: str, overwrite: bool, source: Source, ref: str | Non
     target = _work_tree_root(target, source)
     if mode == "--check":
         wanted = _announced_ref(target, source, required=True)
-        shipment = Shipment.at(source, wanted)
+        shipment = Shipment.earlier(source, wanted)
         report.ref = wanted.as_record()
         _gate(target, shipment, report)
         return
@@ -306,7 +306,8 @@ def _writable_then_retry(function, path, _excinfo) -> None:
 
 @dataclass(frozen=True)
 class Shipment:
-    """The manifest at one ref, transformed and held to the leak rule, before anything is written."""
+    """The manifest at one ref, transformed — and, when it is about to ship, held to the leak rule —
+    before anything is written."""
 
     ref: Ref
     files: dict[str, str]
@@ -314,37 +315,53 @@ class Shipment:
 
     @classmethod
     def at(cls, source: Source, ref: Ref) -> Shipment:
-        files: dict[str, str] = {}
-        told = resolved(source.repository)
-        for path, raw in source.files(ref).items():
-            try:
-                text = raw.decode("utf-8")
-            except UnicodeDecodeError as error:
-                raise Refused(f"ship: {path} at {ref.announced} is not UTF-8 — {error}") from error
-            files[path] = shipped(path, text, ref, told)
-        if ENTRY_FILE not in files:
-            raise Refused(f"ship: {ref.announced} has no {ENTRY_FILE}; this is not the harness")
+        files = _transformed(source, ref, held=True)
         if HARNESS_SKILL not in files:
             raise Refused(f"ship: {ref.announced} has no {HARNESS_SKILL}; this is not the harness")
         return cls(ref, files, arrival_state(files, ref))
 
+    @classmethod
+    def earlier(cls, source: Source, ref: Ref) -> Shipment:
+        """What a ref a recipient announces shipped, read to compare its copy against and to know
+        what has left the manifest since. It is never shipped again, so today's shipping rules —
+        the leak rule, the Repository line, the arrival shelf — do not hold it: a ref installed
+        before a rule existed would otherwise strand every tree that took it. It carries no
+        arrival state; only what is about to ship writes one."""
+        return cls(ref, _transformed(source, ref, held=False), "")
 
-def shipped(path: str, text: str, ref: Ref, told: str) -> str:
+
+def _transformed(source: Source, ref: Ref, held: bool) -> dict[str, str]:
+    files: dict[str, str] = {}
+    told = resolved(source.repository)
+    for path, raw in source.files(ref).items():
+        try:
+            text = raw.decode("utf-8")
+        except UnicodeDecodeError as error:
+            raise Refused(f"ship: {path} at {ref.announced} is not UTF-8 — {error}") from error
+        files[path] = shipped(path, text, ref, told, held)
+    if ENTRY_FILE not in files:
+        raise Refused(f"ship: {ref.announced} has no {ENTRY_FILE}; this is not the harness")
+    return files
+
+
+def shipped(path: str, text: str, ref: Ref, told: str, held: bool = True) -> str:
     """One file as a recipient receives it. The order matters: local blocks are found by their tag
     before the shear could touch a wrapper around them, and the leak rule reads the text a
     recipient will. A stamped source is not a citation, which `docs_corpus` settles for every
-    reader of it rather than each one blanking the line for itself."""
+    reader of it rather than each one blanking the line for itself. Unheld, the file is read as an
+    earlier ref shipped it: the same transformation, and none of today's refusals."""
     if path.endswith(".md"):
         text = without_local_blocks(path, text)
         text = sheared(path, text)
         if path == ENTRY_FILE:
             text = stamped(text, ref)
-        if path == HARNESS_SKILL:
+        if path == HARNESS_SKILL and (held or REPOSITORY.search(text)):
             text = repository_stamped(text, ref, told)
-        _refuse_leaks(path, [seen.path for seen in docs_mentioned(Path("."), path, text) if not seen.instance_owned])
+        if held:
+            _refuse_leaks(path, [seen.path for seen in docs_mentioned(Path("."), path, text) if not seen.instance_owned])
     elif path.endswith(".py"):
         text = todo_bindings_sheared(text)
-        if not path.startswith(TESTS):
+        if held and not path.startswith(TESTS):
             try:
                 _refuse_leaks(path, [seen.path for seen in docs_mentioned_in_code(text)])
             except UnreadableCode as error:
@@ -520,7 +537,7 @@ def _refuse_unless_updatable(
             raise Refused("update: the tree announces no ref to compare against; --overwrite is required")
         report.notes.append("the tree announced no ref: nothing is deleted, every core file is replaced")
         return None
-    previous = Shipment.at(source, announced_ref)
+    previous = Shipment.earlier(source, announced_ref)
     edited = [path for path in previous.files if _differs(target, path, previous.files[path])]
     if edited and not overwrite:
         raise Refused(
