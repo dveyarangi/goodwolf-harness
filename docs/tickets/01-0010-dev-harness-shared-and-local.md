@@ -668,6 +668,39 @@ the shear, the stamp, the gate; the architecture's refusal sentence; the ticket 
 meet-block (its own align, on [01-0017.0020](./01-0017.0020-practice-swaps-in-one-edit.md)); the
 loop's switchability ([01-0020](./01-0020-pacer.md)).
 
+## Arrival-to-ready — 2026-09-23
+
+**Status:** Minted as four slices, `.0165` → `.0170` → `.0175` → `.0180`, at the align of
+2026-09-23. The customer is ai-game-1, installed at `goodwolf-harness@47516ce`: one commit, no
+remote, six documents, no code. Its verification set came out holding core's own gates and
+nothing of the project's, its painted doors were never created, and the install's last step ran
+before the project had a toolchain to read. Nine decisions landed at that align — the sequence
+(install+gate → L1/L2 → setup → quicklook → L3 → inject → check); doors created by the install
+with `docs/tickets/README.md` carrying an arrival state; one fixed quicklook whose admission
+scales rather than its effort, with *unread* distinct from *deferred*; harness owning every
+moment, `setup-devops` relied-on; the local file's extraction split so the switches precede the
+step they authorise; `git init` a refusal bullet and a remote offered, never created; and L3 a
+pointer to `docs/cicd.md` with core's gates additive only.
+
+### Impact — 2026-09-23
+
+Run by `/ticket` on the four-slice draft: **proceed on 1, 2 and 4; narrow 3.** Blast radius is
+`harness.py`'s post-gate writes, the `/harness` skill's last step, the mechanism's doc — five
+Moments rows, a parts row, and *What it produces* — `ARCH-FORMAT` and `GLOSSARY-FORMAT`, and one
+clause of `setup-devops`. The manifest, the shear, the stamp, the announce line, the gate's three
+checks and `--check`'s comparison are untouched. Hidden edges: the painted-door list would gain a
+second home, since [mechanisms.py](../../.agents/scripts/gw/mechanisms.py) already holds it by
+hand for the leak check, and two copies is *every fact to one home* broken where neither copy can
+detect the drift; creating doors is a write, so it must follow the gate or *every refusal writes
+nothing* stops being true; and **unread** collides with `/maintain`'s *docs to their
+implementation, both ways*, since a skeletal record disagrees with the code by construction and
+the repair maintain would attempt is the quicklook itself. Narrowed for one shape: the
+quicklook's read-the-codebase recipe has **zero** cases — frost_map arrived already described and
+ai-game-1 has no code — so `.0175` takes only the prose-sourced half, which also defers the
+maintain collision. Leave alone: `setup-devops`'s declaration status, since pulling it in imports
+[01-0017](./01-0017-io-graph-coherent.md); collisions with a tree's existing `docs/`, which are
+[01-0010.0150](./01-0010.0150-harness-meets-a-tree-with-a-method.md)'s.
+
 ## Adoption shortlist — recommendations awaiting alignment
 
 This is the compact decision surface extracted from the [Life research](../research/life-harness-findings.md). Rows marked agreed link to the current policy; the other recommendations remain undecided. Resolve one question at a time.
