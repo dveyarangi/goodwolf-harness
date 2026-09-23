@@ -140,7 +140,11 @@ once, in its harness skill's `Repository:` line — the only authored home of it
 default when a run names no source, so a fork edits one line and everything it installs names the
 fork. The manifest is every file under the core directory at that ref plus the entry file
 and the host stub, and nothing else; the project's local rules file is never in it and never
-written.
+written. One file outside the manifest is written, and only when absent: the delivery status,
+which a fresh tree's first session reads before anything has been written into it. Its words are
+the ticket mechanism's, declared with the record's shape and carried in the shipment; the install
+places them and composes nothing. A tree that already has one keeps it untouched, overwrite
+included — from its first line that record is the instance's.
 
 What ships is transformed before it is written: the origin's own local blocks removed, every
 straw-dog wrapper and every `TODO`'s ticket binding sheared with its content kept, the entry
