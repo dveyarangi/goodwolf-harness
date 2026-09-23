@@ -60,6 +60,9 @@ uv run --offline --no-project python .agents/scripts/gw/tickets.py --check
   contradiction by weakening the rule.
 - Check named validators still exist and still assert the promise they were named for.
   A missing or drifted validator is a finding, as is an unguarded normative promise.
+  A promise about something that already exists — a recipient's tree, a stored record — is
+  asserted only by a fixture built the way that thing came to be: one the code under test
+  made cannot hold a shape that code now refuses.
 - Sweep the concern index for entries in scope: a concern the implementation has since
   answered belongs in its owning record, and a dead trigger retires.
 - Apply repair-and-report — the entry file's `repair` switch — where it holds:

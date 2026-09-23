@@ -11,6 +11,41 @@ deleting a rule: occurrences accumulate and what to do about a rule that keeps f
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 9. A fixture made by today's code stood for a tree made by yesterday's — 2026-09-24
+
+**Rules in play:** [`/verify`](../.agents/skills/verify/SKILL.md)'s *check named validators still
+exist and still assert the promise they were named for*; against
+[01-0010.0165](tickets/done/01-0010.0165-a-fresh-tree-has-a-delivery-status.md)'s criterion *an
+update of a tree that holds core and no delivery status writes one*, which its RFC wrote for
+*the trees already holding core*.
+
+**What happened.** The first real update after the slice landed — ai-game-1, at `47516ce` — was
+refused before writing anything, and so was every tree installed before `.0165`: an update
+rebuilt the announced ref's shipment through `Shipment.at`, the constructor for what is about to
+ship, so today's shipping refusals held a ref that had shipped long before they existed. Three
+tripped on `47516ce`: an old-path test citing a closed ticket, a harness skill with no
+Repository line, no arrival shelf. `--check` from a current script read the announced ref the
+same way. The test for the criterion, `test_an_update_gives_one_to_a_tree_that_received_core_without_it`,
+installed with today's code and deleted the record — a tree that took *today's* ref, which is
+not a tree that exists anywhere.
+
+**Why it did not fire.** The validator rule reads at the level of the assertion — does the test
+check that the record is written? It did. Nothing asked where the fixture's tree came from, and
+a fixture the code under test built can never hold a shape that code refuses, so the one
+difference that mattered was invisible by construction. The same pass is where the fault was
+made available: `.0155` and `.0165` each added a refusal to `Shipment.at` for what ships, and
+the one constructor also served what had shipped. A rule written for one occasion read at
+another is the shape session twenty-three counted four times; this is the fifth.
+
+**Amendment, landed the same day.** `/verify`'s validator bullet gains: *a promise about
+something that already exists — a recipient's tree, a stored record — is asserted only by a
+fixture built the way that thing came to be: one the code under test made cannot hold a shape
+that code now refuses.* The code is repaired as a `FIX`: `Shipment.earlier` reads what an
+announced ref shipped under the same transformation and none of today's refusals, for both the
+update's comparison and `--check`, with `ATreeInstalledUnderEarlierRules` building its tree by
+hand the way the earlier code left it. Graded by the next slice that adds a shipping refusal —
+an update from the ref before it passes in its tests, or this entry is struck.
+
 ## 8. A nested skill's output contract ended its caller's turn — 2026-09-23
 
 **Rules in play:** [`/ticket`](../.agents/skills/ticket/SKILL.md)'s *3.1* — *record its output on
