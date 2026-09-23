@@ -8,6 +8,7 @@ import json
 import os
 import shutil
 import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -17,6 +18,14 @@ from repository import SCRIPTS, RepositoryCase
 import harness
 
 KEEPER = ".agents/skills/keeper/SKILL.md"
+HARNESS_SKILL = ".agents/skills/harness/SKILL.md"
+HARNESS_SKILL_TEXT = (
+    "---\nname: harness\ndescription: places core\n---\n\n"
+    "Mechanism: unowned by design — this fixture's core declares only sample\n\n"
+    "Repository: https://github.com/example/placed-by-the-fixture.git\n\n"
+    "The claim line comes first because the shape check reads the body's first line; the\n"
+    "repository line sits below it, which is what core's own harness skill does.\n"
+)
 DOC = ".agents/mechanisms/sample/sample.md"
 TICKET = "docs/tickets/01-0002-sweep.md"
 WRAPPED_RULE = "Run the sweep first in every session."
@@ -84,6 +93,7 @@ class TwoTrees(RepositoryCase):
 
     def seed_source(self) -> None:
         self.write(KEEPER, "---\nname: keeper\ndescription: keeps\n---\n\n# Keeper\n\nKeep things.\n")
+        self.write(HARNESS_SKILL, HARNESS_SKILL_TEXT)
         self.write(DOC, SAMPLE_DOC)
         self.write("AGENTS.md", ENTRY)
         self.write("CLAUDE.md", "@AGENTS.md\n")
@@ -204,6 +214,49 @@ class TheStamp(unittest.TestCase):
             harness.stamped("# Something else\n", ref)
 
         self.assertIn("not the harness", str(refused.exception))
+
+
+class TheRepositoryLine(unittest.TestCase):
+    """The line naming where core comes from: read as a default, stamped, and set aside."""
+
+    def test_the_default_is_the_line_this_tree_authors(self) -> None:
+        skill = SCRIPTS.parents[1] / "skills/harness/SKILL.md"
+        authored = harness.REPOSITORY.search(skill.read_text(encoding="utf-8"))
+
+        self.assertIsNotNone(authored, "core's own harness skill must author the line")
+        self.assertEqual(authored.group("url"), harness.home())
+
+    def test_the_stamp_replaces_the_url_and_keeps_the_lines_ending(self) -> None:
+        ref = harness.Ref("goodwolf-harness", "a" * 40, "aaaaaaa", "2026-09-20")
+        text = "---\nname: harness\n---\r\n\r\nRepository: https://example.invalid/old.git\r\n\r\nProse.\r\n"
+
+        self.assertEqual(
+            "---\nname: harness\n---\r\n\r\nRepository: https://example.invalid/new.git\r\n\r\nProse.\r\n",
+            harness.repository_stamped(text, ref, "https://example.invalid/new.git"),
+        )
+
+    def test_a_skill_with_no_line_is_not_the_harness(self) -> None:
+        ref = harness.Ref("goodwolf-harness", "a" * 40, "aaaaaaa", "2026-09-20")
+
+        with self.assertRaises(harness.Refused) as refused:
+            harness.repository_stamped("---\nname: harness\n---\n\nProse.\n", ref, "https://example.invalid/x.git")
+
+        self.assertIn("not the harness", str(refused.exception))
+
+    def test_the_line_leaves_with_its_newline_and_only_from_the_harness_skill(self) -> None:
+        text = "A\n\nRepository: https://example.invalid/x.git\n\nB\n"
+
+        self.assertEqual("A\n\n\nB\n", harness.without_repository_line(HARNESS_SKILL, text))
+        self.assertEqual(text, harness.without_repository_line(KEEPER, text))
+
+    def test_a_line_with_anything_after_the_url_is_not_the_line(self) -> None:
+        self.assertIsNone(harness.REPOSITORY.search("Repository: https://example.invalid/x.git and more\n"))
+
+    def test_a_url_is_told_verbatim_and_a_path_absolutely(self) -> None:
+        self.assertEqual(
+            "https://github.com/x/y.git", harness.resolved("https://github.com/x/y.git")
+        )
+        self.assertEqual(Path(".").resolve().as_posix(), harness.resolved("."))
 
 
 class TheSource(TwoTrees):
@@ -559,6 +612,141 @@ class AnUpdateAcrossTheScriptsMove(TwoTrees):
         self.assertFalse((self.target / ".agents/scripts/test").exists())
         self.assertTrue((self.target / ".agents/scripts/gw/harness.py").is_file())
         self.assertTrue(report["arrived"], report["gates"])
+
+
+# --- where core came from -------------------------------------------------------------------------
+
+
+class TheSourceARecipientHolds(TwoTrees):
+    """The stamped line, what it survives, and what a recipient can do with no `--from`."""
+
+    def stamped_line(self) -> str:
+        found = harness.REPOSITORY.search(self.target_text(HARNESS_SKILL))
+        self.assertIsNotNone(found, "the recipient's harness skill must carry the line")
+        return found.group("url")
+
+    def test_a_path_from_is_stamped_resolved_so_it_does_not_depend_on_where_anyone_stood(self) -> None:
+        said = io.StringIO()
+        with contextlib.chdir(self.source.parent), contextlib.redirect_stdout(said):
+            status = harness.main([str(self.target), "--install", "--from", self.source.name])
+
+        self.assertEqual(0, status, said.getvalue())
+        self.assertEqual(self.source.resolve().as_posix(), self.stamped_line())
+
+    def test_a_url_from_is_stamped_verbatim(self) -> None:
+        # A `file://` URL is a real URL git can clone and a path that does not exist as one, so
+        # the stamp is exercised end to end without reaching the network.
+        url = self.source.resolve().as_uri()
+
+        said = io.StringIO()
+        with contextlib.redirect_stdout(said):
+            status = harness.main([str(self.target), "--install", "--from", url])
+
+        self.assertEqual(0, status, said.getvalue())
+        self.assertEqual(url, self.stamped_line())
+
+    def test_an_update_from_another_source_replaces_nothing_in_core(self) -> None:
+        self.run_harness("--install")
+        beside = self.another_repository() / self.source.name
+        subprocess.run(["git", "clone", "--quiet", str(self.source), str(beside)], check=True)
+
+        said = io.StringIO()
+        with contextlib.redirect_stdout(said):
+            status = harness.main([str(self.target), "--update", "--from", str(beside)])
+        report = json.loads(said.getvalue())
+
+        self.assertEqual([], report["refusals"])
+        self.assertEqual([], report["replaced"])
+        self.assertEqual(0, status, report["gates"])
+        self.assertEqual(beside.resolve().as_posix(), self.stamped_line())
+
+    def test_a_script_whose_skill_lost_the_line_refuses_naming_the_file_and_the_flag(self) -> None:
+        self.run_harness("--install")
+        skill = self.target / HARNESS_SKILL
+        skill.write_text(
+            harness.without_repository_line(HARNESS_SKILL, skill.read_text(encoding="utf-8")), encoding="utf-8"
+        )
+
+        done = subprocess.run(
+            [sys.executable, str(self.target / ".agents/scripts/gw/harness.py"), str(self.target), "--check"],
+            capture_output=True,
+            encoding="utf-8",
+        )
+        refusal = json.loads(done.stdout)["refusals"][0]
+
+        self.assertIn(HARNESS_SKILL, refusal)
+        self.assertIn("--from", refusal)
+        self.assertIn("no Repository line", refusal)
+
+    def test_a_ref_whose_harness_skill_has_no_line_is_refused_and_nothing_is_written(self) -> None:
+        self.write(HARNESS_SKILL, "---\nname: harness\ndescription: places core\n---\n\nNo line here.\n")
+        self.commit("the line goes")
+        before = self.target_snapshot()
+
+        status, report = self.run_harness("--install")
+
+        self.assertEqual(1, status)
+        self.assertIn("not the harness", report["refusals"][0])
+        self.assertEqual(before, self.target_snapshot())
+
+    def test_a_check_from_another_source_reads_no_edit_in_core_but_still_sees_a_real_one(self) -> None:
+        self.run_harness("--install")
+        # The same repository by name, at another path: the announce line still agrees, so what is
+        # under test is the skill's line alone and not the name comparison beside it.
+        beside = self.another_repository() / self.source.name
+        subprocess.run(["git", "clone", "--quiet", str(self.source), str(beside)], check=True)
+
+        said = io.StringIO()
+        with contextlib.redirect_stdout(said):
+            harness.main([str(self.target), "--check", "--from", str(beside)])
+        from_elsewhere = json.loads(said.getvalue())
+        self.assertEqual([], from_elsewhere["refusals"])
+
+        self.assertNotIn(HARNESS_SKILL, from_elsewhere["gates"]["ref"]["differs"])
+
+        skill = self.target / HARNESS_SKILL
+        skill.write_text(skill.read_text(encoding="utf-8") + "\nAn edit in core.\n", encoding="utf-8")
+        _, edited = self.run_harness("--check")
+
+        self.assertIn(HARNESS_SKILL, edited["gates"]["ref"]["differs"])
+
+    def test_a_recipients_own_script_checks_with_no_from(self) -> None:
+        self.run_harness("--install")
+
+        done = subprocess.run(
+            [sys.executable, str(self.target / ".agents/scripts/gw/harness.py"), str(self.target), "--check"],
+            capture_output=True,
+            encoding="utf-8",
+        )
+
+        self.assertEqual(self.source.resolve().as_posix(), json.loads(done.stdout)["repository"])
+        self.assertTrue(json.loads(done.stdout)["gates"]["ref"]["passed"], done.stdout)
+
+    def test_a_tree_whose_two_lines_name_different_repositories_is_refused(self) -> None:
+        self.run_harness("--install")
+        entry = self.target / "AGENTS.md"
+        entry.write_text(
+            entry.read_text(encoding="utf-8").replace(self.source.name, "somewhere-else", 1), encoding="utf-8"
+        )
+
+        said = io.StringIO()
+        with contextlib.redirect_stdout(said):
+            harness.main([str(self.target), "--check", "--from", str(self.source)])
+
+        self.assertIn("somewhere-else", json.loads(said.getvalue())["refusals"][0])
+
+    def test_a_source_path_holding_a_docs_segment_is_not_read_as_a_citation(self) -> None:
+        nested = self.another_repository() / "docs" / "core"
+        shutil.copytree(self.source, nested, ignore=shutil.ignore_patterns())
+
+        said = io.StringIO()
+        with contextlib.redirect_stdout(said):
+            status = harness.main([str(self.target), "--install", "--from", str(nested)])
+        report = json.loads(said.getvalue())
+
+        self.assertEqual([], report["refusals"])
+        self.assertIn("/docs/core", self.stamped_line())
+        self.assertEqual(0, status, report["gates"])
 
 
 class TheCommandLine(unittest.TestCase):

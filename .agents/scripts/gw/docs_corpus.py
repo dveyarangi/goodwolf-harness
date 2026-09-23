@@ -35,6 +35,11 @@ _DRIVE = re.compile(r"^[A-Za-z]:/")
 # and `mechanisms.py` rules on them. A path is a token from `docs/` over path characters, so a
 # sentence ending in one keeps its full stop and `docs/` followed by an ellipsis is no path at all.
 PATH_LITERAL = re.compile(r"docs/\w[\w./-]*")
+# The repository a tree's core came from, stamped into the harness skill at install. It is a
+# source, never a citation: a clone on disk under a `docs/` directory would otherwise be read as
+# a document only the origin has, and every recipient installed from such a path would fail its
+# own shape check.
+_STAMPED_SOURCE = re.compile(r"^Repository: \S+[ \t]*$", re.M)
 _TRAILING_PUNCTUATION = ".,;:"
 # The instance-owned block: the project's rules as the installer writes them from its local file.
 # The `<project-local>` tag an author once wrote is retired and excuses nothing; `mechanisms.py`
@@ -321,7 +326,8 @@ def docs_mentioned(root: Path, citing: str, text: str) -> list[Mention]:
     tagged = without_code(text)
     owned = [span.span() for span in _INSTANCE_OWNED.finditer(tagged)]
     openings = [span.span() for span in _WRAPPER_OPENING.finditer(tagged)]
-    readable = _blanked_spans(_without_fences(text), openings)
+    stamped = [span.span() for span in _STAMPED_SOURCE.finditer(tagged)]
+    readable = _blanked_spans(_without_fences(text), openings + stamped)
     found: list[tuple[int, int, str]] = []
     for start, target in _citations_at(readable):
         record = cited_record(root, citing, target_of(target))

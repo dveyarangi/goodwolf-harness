@@ -52,13 +52,14 @@ from docs_corpus import (  # noqa: E402
 from mechanisms import PAINTED_DOORS, TESTS  # noqa: E402
 from straw_dogs import TAG, TICKET_PATH  # noqa: E402
 
-HOME = "https://github.com/dveyarangi/goodwolf-harness.git"
 CORE = ".agents/"
 HOST_STUB = "CLAUDE.md"
 LOCAL_FILE = inject_rules.LOCAL_FILE
 LINKS = (".claude/skills", ".cursor/skills")
 LINK_TARGET = "../.agents/skills"
 SKILLS = ".agents/skills"
+HARNESS_SKILL = f"{SKILLS}/harness/SKILL.md"
+REPOSITORY = re.compile(r"^Repository: (?P<url>\S+)[ \t]*(?:\r?\n|\Z)", re.M)
 MODES = ("--install", "--update", "--check")
 _USAGE = (
     "usage: harness.py <target> --install [--from REPOSITORY] [--at REF]\n"
@@ -119,8 +120,10 @@ def main(argv: list[str]) -> int:
         print(_USAGE)
         return 2
     target, mode, overwrite, repository, ref = parsed
-    report = Report(target, mode[2:], repository)
+    report = Report(target, mode[2:], repository or "")
     try:
+        if repository is None:
+            repository = report.repository = home()
         with Source(repository) as source:
             run(Path(target), mode, overwrite, source, ref, report)
     except Refused as refusal:
@@ -153,12 +156,16 @@ def run(target: Path, mode: str, overwrite: bool, source: Source, ref: str | Non
     _gate(target, shipment, report)
 
 
-def _parsed(argv: list[str]) -> tuple[str, str, bool, str, str | None] | None:
-    """Exactly one target, one mode, and the options each mode admits; anything else is usage."""
+def _parsed(argv: list[str]) -> tuple[str, str, bool, str | None, str | None] | None:
+    """Exactly one target, one mode, and the options each mode admits; anything else is usage.
+
+    An absent `--from` stays absent rather than defaulting here: the default is read from the
+    harness skill, and a run that was given a repository must never need a skill to be there.
+    """
     words: list[str] = []
     modes: list[str] = []
     overwrite = False
-    repository = HOME
+    repository = None
     ref = None
     operands = list(argv)
     while operands:
@@ -188,6 +195,28 @@ def _parsed(argv: list[str]) -> tuple[str, str, bool, str, str | None] | None:
 
 
 # --- the source ------------------------------------------------------------------------------
+
+
+def home() -> str:
+    """Where core comes from, read from the one line that authors it — the harness skill beside
+    this script. No constant: the line is the only authored home, so a fork edits it once and
+    everything the fork installs names the fork."""
+    skill = Path(__file__).resolve().parents[3] / HARNESS_SKILL  # the tree this script sits in
+    if not skill.is_file():
+        raise Refused(f"source: {HARNESS_SKILL} is not beside this script; name the repository with --from")
+    named = REPOSITORY.findall(_read(skill))
+    if len(named) != 1:
+        found = "no Repository line" if not named else f"{len(named)} Repository lines"
+        raise Refused(f"source: {HARNESS_SKILL} holds {found}; name the repository with --from")
+    return named[0]
+
+
+def resolved(repository: str) -> str:
+    """What a recipient is told, from what this run was given: a URL verbatim, a path as an
+    absolute one, so a recipient installed from a clone on disk holds no path relative to where
+    somebody once stood."""
+    local = Path(repository)
+    return local.resolve().as_posix() if local.exists() else repository
 
 
 class Source:
@@ -281,26 +310,32 @@ class Shipment:
     @classmethod
     def at(cls, source: Source, ref: Ref) -> Shipment:
         files: dict[str, str] = {}
+        told = resolved(source.repository)
         for path, raw in source.files(ref).items():
             try:
                 text = raw.decode("utf-8")
             except UnicodeDecodeError as error:
                 raise Refused(f"ship: {path} at {ref.announced} is not UTF-8 — {error}") from error
-            files[path] = shipped(path, text, ref)
+            files[path] = shipped(path, text, ref, told)
         if ENTRY_FILE not in files:
             raise Refused(f"ship: {ref.announced} has no {ENTRY_FILE}; this is not the harness")
+        if HARNESS_SKILL not in files:
+            raise Refused(f"ship: {ref.announced} has no {HARNESS_SKILL}; this is not the harness")
         return cls(ref, files)
 
 
-def shipped(path: str, text: str, ref: Ref) -> str:
+def shipped(path: str, text: str, ref: Ref, told: str) -> str:
     """One file as a recipient receives it. The order matters: local blocks are found by their tag
     before the shear could touch a wrapper around them, and the leak rule reads the text a
-    recipient will."""
+    recipient will. A stamped source is not a citation, which `docs_corpus` settles for every
+    reader of it rather than each one blanking the line for itself."""
     if path.endswith(".md"):
         text = without_local_blocks(path, text)
         text = sheared(path, text)
         if path == ENTRY_FILE:
             text = stamped(text, ref)
+        if path == HARNESS_SKILL:
+            text = repository_stamped(text, ref, told)
         _refuse_leaks(path, [seen.path for seen in docs_mentioned(Path("."), path, text) if not seen.instance_owned])
     elif path.endswith(".py"):
         text = todo_bindings_sheared(text)
@@ -365,6 +400,26 @@ def stamped(text: str, ref: Ref) -> str:
         raise Refused(f"ship: {ENTRY_FILE} at {ref.announced} has no announce line; this is not the harness")
     end = line.end("date") + 1  # through the full stop, leaving the line's own ending alone
     return text[: line.start()] + ref.stamp + text[end:]
+
+
+def repository_stamped(text: str, ref: Ref, told: str) -> str:
+    """The harness skill names where this tree's core came from, as the announce line names which
+    commit of it. A ref whose skill carries no such line is not the harness, in the same words
+    and at the same moment as one whose entry file carries no announce line."""
+    line = REPOSITORY.search(text)
+    if line is None:
+        raise Refused(f"ship: {HARNESS_SKILL} at {ref.announced} has no Repository line; this is not the harness")
+    return text[: line.start("url")] + told + text[line.end("url") :]
+
+
+def without_repository_line(path: str, text: str) -> str:
+    """The recipient's own `--from`, set aside for the comparison. It is the recipient's fact
+    living in a core file, as the announce line is, so a check or an update run from another
+    source never reads it as an edit. The line leaves with its own newline, as a local block
+    does, so what is compared is the text either tree would hold without it."""
+    if path != HARNESS_SKILL:
+        return text
+    return REPOSITORY.sub("", text, count=1)
 
 
 def _refuse_leaks(path: str, cited: list[str]) -> None:
@@ -463,8 +518,10 @@ def _announced_ref(target: Path, source: Source, required: bool) -> Ref | None:
 
 
 def _differs(target: Path, path: str, shipped_text: str) -> bool:
-    """Whether the recipient's copy is what the ref shipped, its own local block set aside and
-    line endings normalised — the injector's and R2's rule for comparing what was installed."""
+    """Whether the recipient's copy is what the ref shipped, its own local block and its own
+    repository line set aside and line endings normalised — the injector's and R2's rule for
+    comparing what was installed. Both sides lose the line, so a check or an update run from
+    another `--from` reads no edit in core."""
     copy = target / path
     if not copy.is_file():
         return True
@@ -474,6 +531,8 @@ def _differs(target: Path, path: str, shipped_text: str) -> bool:
             text = without_local_blocks(path, text)
         except Refused:
             return True
+        text = without_repository_line(path, text)
+        shipped_text = without_repository_line(path, shipped_text)
     return _normalised(text) != _normalised(shipped_text)
 
 

@@ -734,6 +734,20 @@ class CoreStandsAlone(Declared):
         self.assertIn("Core and instance", problems[0])
         self.assertEqual([(CITING, 3, DOCUMENT)], self.leaks())
 
+    def test_a_stamped_source_is_not_a_citation_however_much_it_looks_like_one(self) -> None:
+        # A recipient installed from a clone kept under a `docs/` directory carries that path in
+        # its harness skill. Read as a citation it would be a document only the origin has, and
+        # the tree would fail its own shape check for as long as it held it.
+        self.write(CITING, "# Notes\n\nRepository: /srv/docs/goodwolf-harness\n")
+
+        self.assertEqual([], self.problems())
+        self.assertEqual([], self.cites_from(CITING))
+
+    def test_a_docs_path_on_a_line_that_only_looks_stamped_is_still_a_citation(self) -> None:
+        self.write(CITING, f"# Notes\n\nRepository: /srv/x and also {DOCUMENT}\n")
+
+        self.assertEqual([(CITING, 3, DOCUMENT)], self.leaks())
+
     def test_a_painted_door_passes_and_is_reported_as_one(self) -> None:
         self.write(CITING, "# Notes\n\nThe queue is `docs/tickets/README.md`, under docs/tickets.\n")
 

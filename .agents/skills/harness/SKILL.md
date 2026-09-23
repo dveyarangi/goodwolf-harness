@@ -6,8 +6,17 @@ description: >-
   project's own answers yet.
 ---
 
-The source is always the repository, cloned fresh at a ref; a working tree is never read. Run
-the script from any clone of the harness, or from the tree's own copy once it has one:
+The source is always the repository, cloned fresh at a ref; a working tree is never read. Where
+that repository is, this tree says once:
+
+Repository: https://github.com/dveyarangi/goodwolf-harness.git
+
+That is the only authored home of it. The script reads its default `--from` there, an install
+stamps a recipient's copy with the source the run actually read, and a fork edits the line once
+and everything it installs names the fork. A check or an update from another `--from` sets the
+line aside rather than reading an edit in core, as it does the local block.
+
+Run the script from any clone of the harness, or from the tree's own copy once it has one:
 
 ```
 python <clone>/.agents/scripts/gw/harness.py <target> --install [--from REPOSITORY] [--at REF]
@@ -52,6 +61,11 @@ Every refusal writes nothing and names its step.
   `--check`.
 - **A junction, a directory or a file where a link goes**: the project's own. Move it; a symlink
   goes there.
+- **No readable `Repository:` line beside the script**: with no `--from`, the script cannot tell
+  where core comes from. Pass `--from` this once, then restore the line — it is what every later
+  run reads.
+- **A ref whose harness skill carries no such line**: not the harness, in the same sense as an
+  entry file with no announce line. Check the ref, or the repository.
 - **The source itself as target**: the origin is never installed into.
 
 ## After the first install
