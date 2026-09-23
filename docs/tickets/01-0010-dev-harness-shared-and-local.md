@@ -649,7 +649,7 @@ same refusal with more in the inventory.
 ### Impact on the split — 2026-09-21, at `.0150`'s `/plan`
 
 Run by `/ticket` on the three-slice split the user directed the same day: **proceed, and narrow
-`.0150` by one seam.** [01-0010.0145](./01-0010.0145-core-scripts-under-one-directory.md) (AFK):
+`.0150` by one seam.** [01-0010.0145](./done/01-0010.0145-core-scripts-under-one-directory.md) (AFK):
 core's scripts under one directory of their own — five root computations one level deeper, the
 gate's path, the parts tables, every live command and citation; archived records keep the old
 path. Hidden edge: it is the first edge change with a real recipient behind it — frost_map's

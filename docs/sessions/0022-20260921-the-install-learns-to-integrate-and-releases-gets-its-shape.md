@@ -18,7 +18,7 @@ Details are on the records named.
   responsibility; a process of the project's own is met step by step; the flow's section is the
   anchor a mechanism's own meet-block installs under. The repository line left for its own slice.
 - **Three slices minted** and the fourth narrowed:
-  [01-0010.0145](../tickets/01-0010.0145-core-scripts-under-one-directory.md) (AFK, landed
+  [01-0010.0145](../tickets/done/01-0010.0145-core-scripts-under-one-directory.md) (AFK, landed
   below), [01-0010.0155](../tickets/done/01-0010.0155-a-tree-names-the-repository-its-core-comes-from.md)
   (AFK, the repository line), [01-0010.0160](../tickets/01-0010.0160-harness-edge-changes-reach-an-update.md)
   (HITL, aligned below). The `/impact` of the split is on the parent.
@@ -31,7 +31,7 @@ Details are on the records named.
   files were re-placed by retract-and-install; `--check` had called them all `present`, because
   position is not something it reads, and still is not. The format shelf lost the restatement —
   placement is the installer's behaviour, not the rules-file author's business.
-- **[01-0010.0145](../tickets/01-0010.0145-core-scripts-under-one-directory.md) landed and
+- **[01-0010.0145](../tickets/done/01-0010.0145-core-scripts-under-one-directory.md) landed and
   verified**: core's seven scripts and their tests under `.agents/scripts/gw/`, one constant
   `SCRIPTS` in `docs_corpus.py` from which the tests prefix and the harness's gate path derive,
   five roots one level deeper, ~20 live files' citations by hand. A new case proves the move as a
