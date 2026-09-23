@@ -659,7 +659,7 @@ about the set — which is the first strike for
 a mechanism owning what the product is, what its installation edge is and how a change to it is
 extracted, whose collected changes an update reads as a migration; its first question is where
 a change lives so that it ships, since `docs/edge/` is the instance half's and a painted door
-nobody declares. [01-0010.0155](./01-0010.0155-a-tree-names-the-repository-its-core-comes-from.md)
+nobody declares. [01-0010.0155](./done/01-0010.0155-a-tree-names-the-repository-its-core-comes-from.md)
 (AFK) carved out of `.0150`: the repository line has its own comparison rule, its own subprocess
 proof, and the stranger-tree grade does not exercise it. `.0150` keeps the inventory, the flow
 and the README, one HITL slice with one grade. Order: `.0145` → `.0150` → `.0155` any time after

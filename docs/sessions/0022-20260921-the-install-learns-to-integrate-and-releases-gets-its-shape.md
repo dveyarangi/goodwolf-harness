@@ -19,7 +19,7 @@ Details are on the records named.
   anchor a mechanism's own meet-block installs under. The repository line left for its own slice.
 - **Three slices minted** and the fourth narrowed:
   [01-0010.0145](../tickets/01-0010.0145-core-scripts-under-one-directory.md) (AFK, landed
-  below), [01-0010.0155](../tickets/01-0010.0155-a-tree-names-the-repository-its-core-comes-from.md)
+  below), [01-0010.0155](../tickets/done/01-0010.0155-a-tree-names-the-repository-its-core-comes-from.md)
   (AFK, the repository line), [01-0010.0160](../tickets/01-0010.0160-harness-edge-changes-reach-an-update.md)
   (HITL, aligned below). The `/impact` of the split is on the parent.
 - **P9, the first mechanism block in the entry file's general rules** — *name a ticket by a link

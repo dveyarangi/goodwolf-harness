@@ -20,9 +20,9 @@ minted four slices. A second `/ticket` pass decomposed
 [01-0010.0160](../tickets/01-0010.0160-harness-edge-changes-reach-an-update.md) into three.
 Then two slices went the whole ring — `/plan`, `/implement`, `/verify` — and landed:
 
-- **[01-0010.0155](../tickets/01-0010.0155-a-tree-names-the-repository-its-core-comes-from.md)**
+- **[01-0010.0155](../tickets/done/01-0010.0155-a-tree-names-the-repository-its-core-comes-from.md)**
   — a tree names the repository its core comes from, and the line is read, never compared.
-- **[01-0010.0165](../tickets/01-0010.0165-a-fresh-tree-has-a-delivery-status.md)** — a fresh
+- **[01-0010.0165](../tickets/done/01-0010.0165-a-fresh-tree-has-a-delivery-status.md)** — a fresh
   tree arrives with a delivery status to read.
 
 Both are `Done` with every box checked and eligible for `/maintain`'s paired close. 311 → 335
