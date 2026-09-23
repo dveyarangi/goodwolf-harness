@@ -1,9 +1,9 @@
 ---
 name: harness
 description: >-
-  Place a ref of the harness's repository into a tree that is not its own, update a tree that
-  already has one, or check a tree's copy against the ref its entry file announces. Use when asked
-  to install or update the harness in a project, or to confirm a copy is intact.
+  Use when asked to install the harness into a project, to update a tree that already holds it,
+  or to confirm a copy is intact; and in a freshly installed tree, which has core and none of the
+  project's own answers yet.
 ---
 
 The source is always the repository, cloned fresh at a ref; a working tree is never read. Run
