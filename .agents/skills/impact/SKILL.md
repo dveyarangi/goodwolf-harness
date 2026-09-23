@@ -42,7 +42,8 @@ Challenge the proposed change too:
 - does it introduce a general abstraction?
 - if so, what second materially different concrete shape justifies it?
 
-Output only:
+The assessment is these four sections and nothing else. That governs its shape, never the
+turn: called from another skill, hand them back and carry on with the step that called.
 
 ## Impact
 Main blast radius.

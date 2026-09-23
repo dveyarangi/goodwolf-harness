@@ -1,4 +1,4 @@
-# harness — places a ref of the repository into a tree that is not its own, and checks the copy against it
+# harness — a project that is not the origin holds core whole, at the ref it announces, and can take a later one
 
 - **instruction** `.agents/skills/harness/SKILL.md` — the commands, each refusal and what the person does, the first install's last step
 - **state** installed

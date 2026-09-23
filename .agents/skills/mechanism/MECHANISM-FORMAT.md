@@ -130,6 +130,11 @@ at a stated moment, another mechanism, a script — or the section says why nobo
 reader is, and whether they are enough, is judgment and never the check's; that the question was
 answered at all is not.
 
+**The title line names the job, not the procedure.** What the mechanism is for and holds true,
+never the steps its script runs — a declaration written beside its implementation takes the
+script's verbs, and a reader then cannot tell what the mechanism would still own if the
+implementation changed.
+
 ### Header bullets
 
 - **instruction** — backticked repo-relative path to the mechanism's one skill.

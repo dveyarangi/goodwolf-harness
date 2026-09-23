@@ -11,6 +11,69 @@ deleting a rule: occurrences accumulate and what to do about a rule that keeps f
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 8. A nested skill's output contract ended its caller's turn — 2026-09-23
+
+**Rules in play:** [`/ticket`](../.agents/skills/ticket/SKILL.md)'s *3.1* — *record its output on
+the parent* — and its *4* — *present the post-impact breakdown as a numbered list, plus the impact
+note*; against [`/impact`](../.agents/skills/impact/SKILL.md)'s closing *Output only:*.
+
+**What happened.** At the bootstrapping align's decomposition, `/ticket` 3.1 called `/impact` on a
+four-slice draft. The assessment came back and the turn stopped there: the split was never
+presented, the four quiz questions were never asked, and the assessment was never recorded on the
+parent. The user: *what are the slices, you did not name them.*
+
+**Why it did not fire.** `/impact`'s *Output only:* is an exclusive contract and it arrived last,
+so it read as ending the turn. That phrasing is right when a person invokes `/impact` directly and
+wrong at the one place `/ticket` mandates it, where the caller has two steps left. Nothing in
+either skill said which contract wins, and the nested one won by recency. `/ticket`'s steps 3.1
+and 4 were both lost to the same swallow, which is the tell: not a step skipped, a turn ended.
+
+**Amendment, landed the same day.** `/impact`'s closing line now reads *the assessment is these
+four sections and nothing else. That governs its shape, never the turn: called from another skill,
+hand them back and carry on with the step that called.* Graded by the next `/ticket` run that
+calls `/impact` — the breakdown presented in the same pass, or this entry is struck.
+
+## 7. A declaration named its script's verbs, and two arguments were built on it — 2026-09-23
+
+**Rules in play:** [`AGENTS.md` — Document load-bearing, code&comment the rest](../AGENTS.md#document-load-bearing-codecomment-the-rest),
+whose worked example refuses *Forecasts are stored in MongoDB collection forecast_hourly* in
+favour of the invariant; [MECHANISM-FORMAT](../.agents/skills/mechanism/MECHANISM-FORMAT.md)'s doc
+template, `# <slug> — <what it is, in one line>`; and `/maintain`'s scope, *docs to the
+meta-rules*.
+
+**What happened.** `harness.md` and `harness.py` were added in one commit, `07db3a1`, whose
+subject — *the harness mechanism places a ref of the repository into a tree* — is also the
+declaration's title line. The doc was written from the script upward and took its verbs. Three
+sibling declarations name their job (*holds documentation, implementation and records in
+agreement*; *what counts as a mechanism, what one is made of, and where each part lives*;
+*tracks a unit of work as a record with an outcome and observable criteria*); harness alone named
+its procedure. At an align on how a recipient is bootstrapped, that line was then read as the
+mechanism's scope and used to argue twice that harness could not own the moment of making a fresh
+tree ready — *the description stops being true*, and *it inverts the core–instance boundary*.
+Both arguments dissolved once the user asked how the description reached the declaration. The
+user: *harness is obviously the skill for setting up the harness, not for "placing refs" — this
+is implementation.*
+
+**Why it did not fire.** The implementation-versus-invariant rule is scoped to *a project's
+architecture, ADRs and glossary*, and a mechanism declaration is none of the three; it is also a
+straw dog on [01-0012](tickets/01-0012-hierarchy-coherent.md), so it reads as provisional.
+`MECHANISM-FORMAT` asked only for *what it is, in one line*, which a procedure satisfies — the
+loosest possible phrasing at the one place the rule was needed. `/maintain` holds *docs to the
+meta-rules* and so had the scope, but no meta-rule to apply, and harness has no rules file at
+all, so it tells `/maintain` nothing to re-check for it. Writing the doc in the same pass as the
+script is what made the failure available: at that moment the script's verbs are the only
+description in hand.
+
+**Amendment, landed the same day.** `MECHANISM-FORMAT` gains the clause — *the title line names
+the job, not the procedure… a declaration written beside its implementation takes the script's
+verbs, and a reader then cannot tell what the mechanism would still own if the implementation
+changed*. Harness's line is rewritten to its job: *a project that is not the origin holds core
+whole, at the ref it announces, and can take a later one*. What is **not** repaired: harness
+still has no rules file, so nothing it owns is named to `/maintain`; that is a gap this entry
+registers and the bootstrapping align will fill, since the moments it adds are what harness
+would ask `/maintain` to check. Graded by the next declaration written beside its implementation
+— named by its job, or this entry is struck.
+
 ## 6. The binding form lived on two tickets, and six closed tickets got a bare id — 2026-09-20
 
 **Rules in play:** [01-0011.0050](tickets/done/01-0011.0050-shape-checked.md)'s align, *Related* —
