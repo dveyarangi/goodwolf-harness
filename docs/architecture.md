@@ -135,17 +135,22 @@ The installer writes no doc and decides nothing about a mechanism's state.
 [The install spec](spec/01-0010.0130-harness-installs-into-another-tree.md) owns the decisions;
 this is the contract a recipient holds the harness mechanism to. The source is a repository at a
 ref — cloned fresh on every run, read through git rather than a checkout, never a working tree —
-so what a recipient receives is always what a commit holds, and the harness's own repository is
-the default. The manifest is every file under the core directory at that ref plus the entry file
+so what a recipient receives is always what a commit holds. Which repository that is, a tree says
+once, in its harness skill's `Repository:` line — the only authored home of it, read as the
+default when a run names no source, so a fork edits one line and everything it installs names the
+fork. The manifest is every file under the core directory at that ref plus the entry file
 and the host stub, and nothing else; the project's local rules file is never in it and never
 written.
 
 What ships is transformed before it is written: the origin's own local blocks removed, every
 straw-dog wrapper and every `TODO`'s ticket binding sheared with its content kept, the entry
-file's announce line stamped `<repository>@<ref>, <date>`, and the result held to the same leak
-rule the origin's check applies. A tree whose announce line carries the `@` is a recipient; the
-line is its only revision record, and integrity is asked of the source: a check clones the
-announced ref and compares file by file, line endings normalised and local blocks removed.
+file's announce line stamped `<repository>@<ref>, <date>`, the harness skill's repository line
+stamped with the source the run actually read, and the result held to the same leak rule the
+origin's check applies. A tree whose announce line carries the `@` is a recipient; the line is
+its only revision record, and integrity is asked of the source: a check clones the announced ref
+and compares file by file, line endings normalised, local blocks removed and the repository line
+set aside — it is the recipient's own fact living in a core file, as the announce line is, so a
+run from another source reads no edit in core.
 
 An install refuses a target that is not the top level of a git work tree, that already holds any
 manifest path, or that is the source itself. An update refuses over a core file the recipient

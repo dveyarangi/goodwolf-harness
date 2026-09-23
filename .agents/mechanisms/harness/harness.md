@@ -20,6 +20,16 @@ it, and the shape check reads its `@` to know it stands in a recipient — where
 by cloning the announced ref again and comparing. A change to the transformation therefore reads
 as an edit in every recipient installed before it, until it updates.
 
+**The repository line is the source, as the announce line is the ref.** The harness skill carries
+`Repository: <url>`, the only authored home of where core comes from: the script keeps no
+constant and reads its default there, an install stamps a recipient's copy with the source the
+run actually read — a URL verbatim, a path resolved absolute — and a fork edits the line once and
+everything it installs names the fork. Both lines are the recipient's own facts living in core
+files, so both are set aside when a copy is compared: a check or an update run from another
+`--from` reads no edit in core. A stamped source is never a citation either, which the citation
+reader settles for every reader of it, so a clone kept under a `docs/` directory does not make a
+recipient fail its own shape check.
+
 **Every refusal writes nothing**, and the loader links are the one step a person may finish by
 hand: where the platform refuses to create a symlink, the run finishes everything else and ends
 with the exact elevated command. Nothing is substituted for a link; a junction is refused by name.
@@ -46,6 +56,7 @@ not a part: it never ships, and a recipient has its own.
 | making a loader link, or handing the person the command | `.agents/scripts/gw/harness.py` | |
 | reading a refusal and resuming | `.agents/skills/harness/SKILL.md` | |
 | populating the local file after the first install | `.agents/skills/harness/SKILL.md` | |
+| pointing a tree at another core, as a fork does | `.agents/skills/harness/SKILL.md` | |
 | knowing an update is available | — | unowned by design — a person asks for one; nothing polls the repository |
 | verifying that a host reads the loader link | — | <straw-dog until="a host's delivery is observed rather than assumed" ticket="docs/tickets/01-0010.0120-host-delivery-surfaces.md">not yet</straw-dog> |
 | creating a fresh tree's painted doors | — | <straw-dog until="a declaration parses its records, so the doors can be read rather than guessed" ticket="docs/tickets/01-0017.0010-terms-defined-before-they-land.md">not yet</straw-dog> |
@@ -87,9 +98,12 @@ would otherwise fail the shape check for the same absence the report already nam
   `--update` to know what was installed, and by the shape check to know it stands in a recipient.
 - **The report** — read by whoever ran the script, and by the recipient's `/verify` where its
   verification set names the check. Its `pending` lines are read by the person who runs them.
+- **The stamped repository line** — read by the script whenever a run is given no `--from`,
+  including the recipient's own copy at its own `--check`; and by a person or a fork asking where
+  this tree's core comes from, or pointing it somewhere else.
 - **The pending command** — read by a person, once, in an elevated prompt.
 
-No record. The line is the tree's, and nothing else is kept.
+No record. The two stamped lines are the tree's, and nothing else is kept.
 
 ## Not yet at the shape
 
