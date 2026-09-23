@@ -82,6 +82,7 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 |---|---|
 | instruction file | `.agents/skills/ticket/SKILL.md` |
 | format shelf | `.agents/skills/ticket/TICKET-FORMAT.md` |
+| the queue's arrival state | `.agents/skills/ticket/QUEUE-ARRIVAL.md` |
 | this doc | `.agents/mechanisms/ticket/ticket.md` |
 | its rules file | `.agents/mechanisms/ticket/ticket.rules.md` |
 | the mover | `.agents/scripts/gw/move_doc.py` |

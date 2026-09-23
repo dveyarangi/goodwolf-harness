@@ -59,7 +59,7 @@ not a part: it never ships, and a recipient has its own.
 | pointing a tree at another core, as a fork does | `.agents/skills/harness/SKILL.md` | |
 | knowing an update is available | — | unowned by design — a person asks for one; nothing polls the repository |
 | verifying that a host reads the loader link | — | <straw-dog until="a host's delivery is observed rather than assumed" ticket="docs/tickets/01-0010.0120-host-delivery-surfaces.md">not yet</straw-dog> |
-| creating a fresh tree's painted doors | — | <straw-dog until="a declaration parses its records, so the doors can be read rather than guessed" ticket="docs/tickets/01-0017.0010-terms-defined-before-they-land.md">not yet</straw-dog> |
+| writing a fresh tree's delivery status | `.agents/scripts/gw/harness.py` | |
 | removing one mechanism from a tree | — | <straw-dog until="the parts tables say what goes and something says how" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
 | sending a change back to the repository | — | <straw-dog until="contribution back has a shape" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
 
@@ -85,6 +85,7 @@ would otherwise fail the shape check for the same absence the report already nam
 |---|---|---|
 | the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
 | citation reader | `.agents/scripts/gw/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |
+| the delivery status's arrival state | `.agents/skills/ticket/QUEUE-ARRIVAL.md` | `ticket`, which owns the record and words it |
 | the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |
 | test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |
 | the listing script | `.agents/scripts/gw/straw_dogs.py` | `maintain` |
@@ -98,6 +99,9 @@ would otherwise fail the shape check for the same absence the report already nam
   `--update` to know what was installed, and by the shape check to know it stands in a recipient.
 - **The report** — read by whoever ran the script, and by the recipient's `/verify` where its
   verification set names the check. Its `pending` lines are read by the person who runs them.
+- **A fresh tree's delivery status** — read by the first session's `/recall`, which runs before
+  anything has been written into the queue; worded by the `ticket` mechanism, placed here, and the
+  instance's from its first line.
 - **The stamped repository line** — read by the script whenever a run is given no `--from`,
   including the recipient's own copy at its own `--check`; and by a person or a fork asking where
   this tree's core comes from, or pointing it somewhere else.
@@ -106,9 +110,6 @@ would otherwise fail the shape check for the same absence the report already nam
 No record. The two stamped lines are the tree's, and nothing else is kept.
 
 ## Not yet at the shape
-
-**Painted doors are not created.** The glossary says installing a mechanism creates them; no
-declaration parses its records yet, so a fresh tree receives core and no `docs/` at all.
 
 **The transformation is unguarded.** A change to the shear, the stamp or the local-block strip
 reaches every recipient as a reported edit; nothing checks a change against the recipients that

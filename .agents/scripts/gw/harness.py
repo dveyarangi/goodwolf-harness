@@ -59,6 +59,9 @@ LINKS = (".claude/skills", ".cursor/skills")
 LINK_TARGET = "../.agents/skills"
 SKILLS = ".agents/skills"
 HARNESS_SKILL = f"{SKILLS}/harness/SKILL.md"
+QUEUE_ARRIVAL = f"{SKILLS}/ticket/QUEUE-ARRIVAL.md"
+DELIVERY_STATUS = "docs/tickets/README.md"
+ARRIVAL_STATE = re.compile(r"^```delivery-status[ \t]*\r?\n(?P<said>.*?)^```", re.M | re.S)
 REPOSITORY = re.compile(r"^Repository: (?P<url>\S+)[ \t]*(?:\r?\n|\Z)", re.M)
 MODES = ("--install", "--update", "--check")
 _USAGE = (
@@ -151,6 +154,7 @@ def run(target: Path, mode: str, overwrite: bool, source: Source, ref: str | Non
         previous = _refuse_unless_updatable(target, source, shipment, overwrite, report)
     plan = _link_plan(target)
     _write(target, shipment, previous, report)
+    _write_delivery_status(target, shipment, report)
     _make_links(target, plan, report)
     _inject(target, report)
     _gate(target, shipment, report)
@@ -306,6 +310,7 @@ class Shipment:
 
     ref: Ref
     files: dict[str, str]
+    arrival: str
 
     @classmethod
     def at(cls, source: Source, ref: Ref) -> Shipment:
@@ -321,7 +326,7 @@ class Shipment:
             raise Refused(f"ship: {ref.announced} has no {ENTRY_FILE}; this is not the harness")
         if HARNESS_SKILL not in files:
             raise Refused(f"ship: {ref.announced} has no {HARNESS_SKILL}; this is not the harness")
-        return cls(ref, files)
+        return cls(ref, files, arrival_state(files, ref))
 
 
 def shipped(path: str, text: str, ref: Ref, told: str) -> str:
@@ -410,6 +415,26 @@ def repository_stamped(text: str, ref: Ref, told: str) -> str:
     if line is None:
         raise Refused(f"ship: {HARNESS_SKILL} at {ref.announced} has no Repository line; this is not the harness")
     return text[: line.start("url")] + told + text[line.end("url") :]
+
+
+def arrival_state(files: dict[str, str], ref: Ref) -> str:
+    """What the queue says in a tree where core has arrived and nothing is in flight, from the
+    ref's own words rather than this tree's: the ticket mechanism owns the record and words it,
+    and the only substitution is the ref the recipient will announce.
+
+    Read while the shipment is built, so a ref that cannot say it is refused before anything is
+    written rather than partway through. It has a shelf of its own because it is read once, by
+    this script, and the format shelf beside it is read at every ticket a session writes. The
+    block is found by its info string and not by its position, so prose may be written around it;
+    and being fenced is what keeps the citation reader from taking a path inside it for a
+    document only the origin has."""
+    shelf = files.get(QUEUE_ARRIVAL)
+    if shelf is None:
+        raise Refused(f"ship: {ref.announced} has no {QUEUE_ARRIVAL}; this is not the harness")
+    said = ARRIVAL_STATE.search(shelf)
+    if said is None:
+        raise Refused(f"ship: {QUEUE_ARRIVAL} at {ref.announced} declares no arrival state")
+    return said.group("said").replace("{ref}", ref.announced)
 
 
 def without_repository_line(path: str, text: str) -> str:
@@ -568,6 +593,23 @@ def _write(target: Path, shipment: Shipment, previous: Shipment | None, report: 
     report.own = sorted(
         name for name in corpus(target) if name.startswith(CORE) and name not in shipment.files
     )
+
+
+def _write_delivery_status(target: Path, shipment: Shipment, report: Report) -> None:
+    """The one painted door that arrives with content: a fresh tree's first session reads the
+    queue before anything has been written into it, so it must already say something true.
+
+    Written whenever the path is absent — an update is how a tree that received core before this
+    acquires one. An existing record is the instance's from its first line: never merged, never
+    overwritten, and `--overwrite` does not reach it, since that flag is about core files."""
+    record = target / DELIVERY_STATUS
+    if record.exists():
+        report.notes.append(f"{DELIVERY_STATUS} is the project's: left as it stands")
+        return
+    record.parent.mkdir(parents=True, exist_ok=True)
+    with record.open("w", encoding="utf-8", newline="") as handle:
+        handle.write(shipment.arrival)
+    report.written.append(DELIVERY_STATUS)
 
 
 def _link_plan(target: Path) -> dict[str, str]:

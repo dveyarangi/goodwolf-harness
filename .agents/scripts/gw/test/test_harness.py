@@ -19,6 +19,19 @@ import harness
 
 KEEPER = ".agents/skills/keeper/SKILL.md"
 HARNESS_SKILL = ".agents/skills/harness/SKILL.md"
+TICKET_SKILL = ".agents/skills/ticket/SKILL.md"
+QUEUE_ARRIVAL = ".agents/skills/ticket/QUEUE-ARRIVAL.md"
+DELIVERY_STATUS = "docs/tickets/README.md"
+TICKET_SKILL_TEXT = (
+    "---\nname: ticket\ndescription: mints tickets\n---\n\n"
+    "Mechanism: unowned by design — this fixture's core declares only sample\n\n"
+    "Mint them.\n"
+)
+QUEUE_ARRIVAL_TEXT = (
+    "# What the queue says before anything has happened in it\n\n"
+    "Machine input for the install, read by nobody at session time.\n\n"
+    "```delivery-status\n# Delivery status\n\nCore arrived at `{ref}` and nothing is in flight.\n```\n"
+)
 HARNESS_SKILL_TEXT = (
     "---\nname: harness\ndescription: places core\n---\n\n"
     "Mechanism: unowned by design — this fixture's core declares only sample\n\n"
@@ -94,6 +107,8 @@ class TwoTrees(RepositoryCase):
     def seed_source(self) -> None:
         self.write(KEEPER, "---\nname: keeper\ndescription: keeps\n---\n\n# Keeper\n\nKeep things.\n")
         self.write(HARNESS_SKILL, HARNESS_SKILL_TEXT)
+        self.write(TICKET_SKILL, TICKET_SKILL_TEXT)
+        self.write(QUEUE_ARRIVAL, QUEUE_ARRIVAL_TEXT)
         self.write(DOC, SAMPLE_DOC)
         self.write("AGENTS.md", ENTRY)
         self.write("CLAUDE.md", "@AGENTS.md\n")
@@ -747,6 +762,101 @@ class TheSourceARecipientHolds(TwoTrees):
         self.assertEqual([], report["refusals"])
         self.assertIn("/docs/core", self.stamped_line())
         self.assertEqual(0, status, report["gates"])
+
+
+# --- the one door that arrives with content ---------------------------------------------------
+
+
+class TheDeliveryStatus(TwoTrees):
+    """A fresh tree's first session reads the queue before anything has been written into it."""
+
+    def test_an_install_writes_it_in_the_refs_own_words(self) -> None:
+        self.write(
+            QUEUE_ARRIVAL,
+            QUEUE_ARRIVAL_TEXT.replace("nothing is in flight", "the queue is empty, reworded"),
+        )
+        self.commit("the mechanism rewords its own record")
+
+        status, report = self.run_harness("--install")
+        written = self.target_text(DELIVERY_STATUS)
+
+        self.assertEqual(0, status, report)
+        self.assertIn("the queue is empty, reworded", written)
+        self.assertIn(report["ref"]["announced"], written)
+        self.assertNotIn("{ref}", written)
+        self.assertIn(DELIVERY_STATUS, report["written"])
+
+    def test_an_install_leaves_a_record_the_tree_brought_with_it(self) -> None:
+        # An install refuses only over manifest paths, and this is not one — so a tree that
+        # already keeps its own docs/ receives core beside them. ai-game-1 is that shape.
+        theirs = "# Материалы\n\nThe project's own queue, in its own words.\n"
+        record = self.target / DELIVERY_STATUS
+        record.parent.mkdir(parents=True, exist_ok=True)
+        record.write_text(theirs, encoding="utf-8", newline="")
+
+        status, report = self.run_harness("--install")
+
+        self.assertEqual(0, status, report["refusals"])
+        self.assertEqual(theirs, self.target_text(DELIVERY_STATUS))
+        self.assertNotIn(DELIVERY_STATUS, report["written"])
+        self.assertTrue(any(DELIVERY_STATUS in note for note in report["notes"]), report["notes"])
+
+    def test_a_record_that_already_exists_is_the_projects_and_overwrite_does_not_reach_it(self) -> None:
+        self.run_harness("--install")
+        theirs = "# Delivery status\n\nRows the project wrote.\n"
+        (self.target / DELIVERY_STATUS).write_text(theirs, encoding="utf-8", newline="")
+
+        _, report = self.run_harness("--update", "--overwrite")
+
+        self.assertEqual(theirs, self.target_text(DELIVERY_STATUS))
+        self.assertNotIn(DELIVERY_STATUS, report["written"])
+        self.assertTrue(any(DELIVERY_STATUS in note for note in report["notes"]), report["notes"])
+
+    def test_an_update_gives_one_to_a_tree_that_received_core_without_it(self) -> None:
+        self.run_harness("--install")
+        (self.target / DELIVERY_STATUS).unlink()
+
+        _, report = self.run_harness("--update")
+
+        self.assertIn(DELIVERY_STATUS, report["written"])
+        self.assertIn("Core arrived", self.target_text(DELIVERY_STATUS))
+
+    def test_a_ref_with_no_shelf_or_no_block_is_refused_and_nothing_is_written(self) -> None:
+        for spoil, reason in (
+            (lambda: (self.root / QUEUE_ARRIVAL).unlink(), "this is not the harness"),
+            (lambda: self.write(QUEUE_ARRIVAL, "# Arrival\n\nNo block.\n"), "declares no arrival state"),
+        ):
+            with self.subTest(reason=reason):
+                self.write(QUEUE_ARRIVAL, QUEUE_ARRIVAL_TEXT)
+                spoil()
+                self.commit("spoil the shelf")
+                before = self.target_snapshot()
+
+                status, report = self.run_harness("--install")
+
+                self.assertEqual(1, status)
+                self.assertIn(reason, report["refusals"][0])
+                self.assertEqual(before, self.target_snapshot())
+
+    def test_the_recipients_check_never_reports_the_record(self) -> None:
+        self.run_harness("--install")
+
+        _, report = self.run_harness("--check")
+
+        self.assertTrue(report["gates"]["ref"]["passed"], report["gates"])
+        self.assertNotIn(DELIVERY_STATUS, report["gates"]["ref"]["differs"])
+        self.assertNotIn(DELIVERY_STATUS, report["gates"]["ref"]["own"])
+
+    def test_an_arrival_state_naming_a_document_still_installs(self) -> None:
+        # The fence is blanked before the citation reader looks, so what the block names is not a
+        # citation. Without that, a path under docs/ here would refuse the whole install.
+        self.write(QUEUE_ARRIVAL, QUEUE_ARRIVAL_TEXT.replace("in flight.", "in flight; see docs/private/plan.md."))
+        self.commit("an arrival state that names a document")
+
+        status, report = self.run_harness("--install")
+
+        self.assertEqual(0, status, report["refusals"])
+        self.assertIn("docs/private/plan.md", self.target_text(DELIVERY_STATUS))
 
 
 class TheCommandLine(unittest.TestCase):

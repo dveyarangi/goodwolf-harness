@@ -94,7 +94,7 @@ A tree that received core by install. Its entry file's announce line names the r
 _Avoid_: instance as a name for the tree, consumer.
 
 **Painted door**:
-A path under `docs/` that a mechanism declares as where its records live — the directory, or the one file that is a record — which every recipient has because installing the mechanism creates it. A particular record inside one is a document, not a painted door.
+A path under `docs/` that a mechanism declares as where its records live — the directory, or the one file that is a record — and thereby reserves in every recipient: core may name it, and a record written there makes it. Some arrive with content, where the owning mechanism declares what the record says before anything has happened in it; the rest come into being when the first record is written. A particular record inside one is a document, not a painted door.
 _Avoid_: place, path convention.
 
 **Leak**:
