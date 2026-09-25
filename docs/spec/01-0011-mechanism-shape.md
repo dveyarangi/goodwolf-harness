@@ -501,7 +501,7 @@ is a judgment the check records rather than derives.
 
 ## Out of Scope
 
-Hooks and wake-time delivery: this harness has none, and Tier 1 delivery here means `AGENTS.md`.
+Hooks and wake-time delivery: <straw-dog until="01-0010.0125 is done" ticket="docs/tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md">this harness has none, and Tier 1 delivery here means `AGENTS.md`.</straw-dog>
 Per-mechanism install, uninstall and extract scripts, which Life's own evidence warns against
 building per concept before a second one needs them — and which this harness has none of, so the
 shared-part ownership rule is stated and not yet enforced. A register as a *separate* artifact,

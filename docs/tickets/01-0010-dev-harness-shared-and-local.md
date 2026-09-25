@@ -701,6 +701,41 @@ maintain collision. Leave alone: `setup-devops`'s declaration status, since pull
 [01-0017](./01-0017-io-graph-coherent.md); collisions with a tree's existing `docs/`, which are
 [01-0010.0150](./01-0010.0150-harness-meets-a-tree-with-a-method.md)'s.
 
+## Front page — 2026-09-26
+
+**Status:** Minted as three slices at the front-page align of 2026-09-26, on the user's approval:
+[`.0125`](./01-0010.0125-the-host-blocks-what-a-rule-forbids.md) (hooks),
+[`.0200`](./01-0010.0200-a-project-can-remove-the-harness.md) (uninstall) and
+[`.0167`](./01-0010.0167-the-front-page-says-what-the-harness-is.md) (the front page), whose
+license has one home at the repository root and is copied into every install *(the user)*. The page's content was settled there — title, the two opening
+paragraphs, *How it works*, *What holds it together*, *Where it stands* with its not-yet list
+wrapped as straw dogs, *Use it* — and tested on cold readers; the evidence is the
+[front-page review](../research/external-review-front-page.md) and the
+[discovery passes](../research/discover-what-this-is.md). Two of the not-yet items had no ticket
+behind them, and the user minted each: the host blocking an action a rule forbids, and removing
+the harness from a project.
+
+### Impact — 2026-09-26
+
+Run by `/ticket` on the three-slice draft: **proceed on all three, minted hooks → uninstall →
+front page**, because the page's straw dogs bind to the other two. Blast radius of the front page:
+the root README and a root LICENSE; [01-0010.0150](./01-0010.0150-harness-meets-a-tree-with-a-method.md)'s
+README bullet and its criterion, which this slice now owns; and `/maintain`'s **T1**, whose
+straw-dog listing names `docs AGENTS.md local.rules.md .agents` and not the root README — so the
+page's own claim that *a script lists every one* would be false of its own examples. Of hooks:
+[01-0010.0120](./01-0010.0120-host-delivery-surfaces.md) decides whether the harness takes a
+dynamic host surface at all, and a hook is one, so it depends on that decision; the hook's
+configuration lives in a file a project often already owns, the collision class `.0150` handles;
+and each host hooks differently. Of uninstall: a new `harness.py` mode whose removal set is what
+the announced ref shipped plus the loader links, leaving the local file and everything under
+`docs/`, and refusing over an edited core file as an update does. Hidden edges: statements that
+the harness has no hooks — the mechanism shape's doc and its spec — become text a live ticket will
+change and are wrapped in the minting pass; the root LICENSE and `.agents/LICENSE` are one text in
+two places with nothing checking they agree; the README quotes live facts (the switch line, an
+installed block) that no check reads; and an uninstall after `.0150` must undo what `.0150` carried
+into core, so whichever lands second owes the other a case. Leave alone: the harness doc's *the
+README is not a part*; `.0190`'s published front page; the manifest, which no root file joins.
+
 ## Adoption shortlist — recommendations awaiting alignment
 
 This is the compact decision surface extracted from the [Life research](../research/life-harness-findings.md). Rows marked agreed link to the current policy; the other recommendations remain undecided. Resolve one question at a time.
