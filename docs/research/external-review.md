@@ -7,6 +7,13 @@ scripts and their tests, the research reports and the session records, and ran t
 set. It is evidence about how the tree reads to someone who did not build it, not a decision
 about anything.
 
+> **Since this review (noted 2026-09-26).** Several of its findings no longer hold. The installer
+> exists — `harness.py` installs, updates and checks a copy, landed 2026-09-21 — and the harness
+> has since been installed into other projects, among them a large existing codebase with no agent
+> setup and a project with a smaller harness of its own. The repository has a front page and an MIT
+> license. Four of its twenty-three skills are now declared mechanisms. The review below is left as
+> it was written.
+
 ## What it is
 
 `goodwolf-harness` is a self-hosted development method for coding agents: 22 skills under

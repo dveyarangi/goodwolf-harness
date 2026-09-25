@@ -65,23 +65,31 @@ The loop and its rules are in [AGENTS.md](AGENTS.md), every skill under
 
 ## Where it stands
 
-**Works today:** the skills, for Claude Code, Codex and Cursor; installing into a project, updating
-it to a later version, and checking that the installed copy is intact, with your project's own
-rules applied last; one home per rule, with drift detection; checks on the harness's own records
-and declarations. The harness is developed with itself.
+**Works today**, in Claude Code, Codex and Cursor:
 
-**Not yet.** In the source of this page, each item below is wrapped as a *straw dog* —
-`<straw-dog until="…" ticket="…">` — naming the condition that retires it and the ticket that will.
-That is how the harness marks anything provisional, in its own rules as much as here; a script
-lists every one, so nothing provisional passes for settled.
+- Installing into a project, updating it, and checking the installed copy is intact, with your
+  project's own rules applied last.
+- Arriving in a project that already has something. The install never overwrites what is there;
+  the installing agent reads your existing agent instructions, skills and documents and works out
+  with you, at `/align`, where each belongs — your facts and overrides into the local file, your
+  own skills beside the shipped ones. It has come into a large existing codebase with no agent
+  setup this way, and into a project with a smaller harness of its own.
+- Describing an existing codebase as you go: its architecture, decisions and glossary are written
+  with you at `/align` as the work reaches them.
+- Small changes don't have to take the whole loop: a repair can land on its own, and every point
+  where you say yes is a switch.
+- One home per rule, with drift detection; checks on the harness's own records and declarations.
+  The harness is developed with itself.
 
-- <straw-dog until="01-0010.0150 is done" ticket="docs/tickets/01-0010.0150-harness-meets-a-tree-with-a-method.md">A project that already has its own agent instructions must move them aside before installing.</straw-dog>
+**Not yet** — each item wrapped in this page's source as a *straw dog*,
+`<straw-dog until="…" ticket="…">`, naming what retires it:
+
+- <straw-dog until="01-0010.0150 is done" ticket="docs/tickets/01-0010.0150-harness-meets-a-tree-with-a-method.md">Arrival is guided by instructions, not by tooling: the script doesn't take its own inventory of what a project already has.</straw-dog>
+- <straw-dog until="01-0010.0175 is done" ticket="docs/tickets/01-0010.0175-arrival-describes-what-it-finds.md">The script doesn't draft an architecture and glossary from a project's code and documents on arrival.</straw-dog>
+- <straw-dog until="01-0020 settles switchable ceremony" ticket="docs/tickets/01-0020-pacer.md">There's no declared lighter process for small work, or heavier one for large — the agent and you choose it each time.</straw-dog>
 - <straw-dog until="01-0010.0195 is done" ticket="docs/tickets/01-0010.0195-a-recipient-reads-before-it-takes.md">Updates don't say what changed.</straw-dog>
-- <straw-dog until="01-0020 settles switchable ceremony" ticket="docs/tickets/01-0020-pacer.md">Every change gets the same process: a one-line fix, a README rewrite and a new mechanism alike go through ticket, plan and verification, with no lighter path for small work and no heavier one for large; only the points where you say yes are configurable.</straw-dog>
-- <straw-dog until="01-0010.0175 is done" ticket="docs/tickets/01-0010.0175-arrival-describes-what-it-finds.md">Arriving in an existing project, it doesn't yet draft the architecture and glossary from the project's code and documents.</straw-dog>
-- <straw-dog until="01-0010.0120 is done" ticket="docs/tickets/01-0010.0120-host-delivery-surfaces.md">Rules reach the agent only through its instruction files; nothing yet supplies a rule at the moment it applies.</straw-dog>
-- <straw-dog until="01-0010.0125 is done" ticket="docs/tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md">The host doesn't block an action a rule forbids; the agent is trusted to keep it.</straw-dog>
 - <straw-dog until="01-0010.0200 is done" ticket="docs/tickets/01-0010.0200-a-project-can-remove-the-harness.md">There is no uninstall.</straw-dog>
+- <straw-dog until="01-0010.0125 is done" ticket="docs/tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md">The host doesn't block an action a rule forbids; the agent is trusted to keep it.</straw-dog>
 - <straw-dog until="a project's improvement reaches core by the harness's own path" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">Improvements a project makes to the harness stay in that project.</straw-dog>
 
 ## Use it

@@ -8,6 +8,9 @@ cold, as [the 2026-09-20 review](external-review.md) is about the tree; not a de
 anything. What was taken from it is the front-page align's, and the one gap it exposed in the
 publish is on [01-0010.0190](../tickets/01-0010.0190-core-is-published-as-a-release.md#open-issues).
 
+> **Since this review (noted 2026-09-26).** The front page it read was replaced the same day by
+> the one this review led to; the README it describes no longer exists.
+
 The review, in its own words; only its layout is tidied — headings run into paragraphs, the story's
 arrows aligned:
 
