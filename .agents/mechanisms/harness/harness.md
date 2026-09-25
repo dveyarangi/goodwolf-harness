@@ -46,8 +46,7 @@ it costs minutes, and an install is seconds — a recipient that wants it names 
 verification set *(the user, 2026-09-21)*.
 
 It is **installed**; a tree without it holds no core at all. The repository's root `README.md`
-is the way in for an agent handed the link — clone, read the skill, run the install — and is
-not a part: it never ships, and a recipient has its own.
+is not a part: it never ships, and a recipient has its own.
 
 ## Moments
 
