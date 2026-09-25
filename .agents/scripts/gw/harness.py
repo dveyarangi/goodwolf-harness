@@ -54,6 +54,8 @@ from straw_dogs import TAG, TICKET_PATH  # noqa: E402
 
 CORE = ".agents/"
 HOST_STUB = "CLAUDE.md"
+LICENSE = "LICENSE"
+INSTALLED_LICENSE = f"{CORE}LICENSE"
 LOCAL_FILE = inject_rules.LOCAL_FILE
 LINKS = (".claude/skills", ".cursor/skills")
 LINK_TARGET = "../.agents/skills"
@@ -261,10 +263,14 @@ class Source:
         return Ref(self.name, commit, tag or short, date)
 
     def files(self, ref: Ref) -> dict[str, bytes]:
-        """Every file under the core directory at the commit, plus the entry file and the host
-        stub, as the commit holds them: nothing else travels — not the root README, not the local
-        file, not `docs/`. One archive of the ref, one process: reading sixty files one `cat-file`
-        at a time cost more than the clone."""
+        """Every file under the core directory at the commit, plus the entry file, the host stub
+        and the license, as the commit holds them: nothing else travels — not the root README, not
+        the local file, not `docs/`. One archive of the ref, one process: reading sixty files one
+        `cat-file` at a time cost more than the clone.
+
+        The license is the source's root file and a recipient's `.agents/LICENSE`: its notice must
+        go with every copy, and a recipient's root is its own. It is read apart from the archive,
+        which refuses a path the commit lacks — and every ref before the license lacks it."""
         # `archive` smudges like a checkout would — `core.autocrlf` on Windows turns every line
         # ending — so conversion is switched off for this one command and the bytes are the commit's.
         archived = subprocess.run(
@@ -279,7 +285,18 @@ class Source:
             for member in archive.getmembers():
                 if member.isfile():
                     files[member.name] = archive.extractfile(member).read()
+        license = self._blob(ref, LICENSE)
+        if license is not None:
+            files[INSTALLED_LICENSE] = license
         return files
+
+    def _blob(self, ref: Ref, path: str) -> bytes | None:
+        """A file's bytes as the commit holds them — a blob is never smudged — or None when the
+        commit has no such file."""
+        read = subprocess.run(
+            ["git", "-C", str(self._clone), "cat-file", "blob", f"{ref.commit}:{path}"], capture_output=True
+        )
+        return read.stdout if read.returncode == 0 else None
 
     def _git(self, *arguments: str) -> str | None:
         done = subprocess.run(

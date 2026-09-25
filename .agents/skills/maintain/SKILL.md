@@ -61,7 +61,7 @@ doc against the shape, its instruction file against its doc, its records against
 
 ## Straw dogs
 
-- **T1** List with `straw_dogs.py docs AGENTS.md local.rules.md .agents`. Any diagnostic fails the run;
+- **T1** List with `straw_dogs.py docs AGENTS.md local.rules.md .agents README.md`. Any diagnostic fails the run;
   zero straw dogs is clean.
 - **T2** Remove one you have judged obsolete with `--remove FILE:LINE --expect <fingerprint>`.
   A straw dog holding a nested one is refused: dispose of the children, scan again.

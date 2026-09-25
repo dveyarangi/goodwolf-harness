@@ -30,8 +30,8 @@ a branch, a tag or a commit. To try a ref before it is pushed, pass a local clon
 
 ## What a run does
 
-Copies every file under `.agents/` plus `AGENTS.md` and `CLAUDE.md`, with the origin's local
-blocks removed and every straw-dog wrapper sheared so the rule stays and the condition does not;
+Copies every file under `.agents/` plus `AGENTS.md` and `CLAUDE.md`, and the source's root
+`LICENSE` as `.agents/LICENSE`, with the origin's local blocks removed and every straw-dog wrapper sheared so the rule stays and the condition does not;
 stamps the entry file's announce line `<repository>@<ref>, <date>`, which is the tree's only
 revision record and what every session there announces; makes the loader links; installs every
 mechanism's rules and then the project's local file last; and runs the gate — the copy compared

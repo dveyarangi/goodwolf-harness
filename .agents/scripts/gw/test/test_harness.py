@@ -80,6 +80,8 @@ ARRIVAL_TEST = (
     "    def test_the_scripts_arrived(self):\n"
     "        self.assertTrue(True)\n"
 )
+LICENSE_TEXT = "MIT License\n\nCopyright (c) 2026 the fixture's contributors\n"
+INSTALLED_LICENSE = ".agents/LICENSE"
 
 
 def platform_makes_symlinks() -> bool:
@@ -119,6 +121,7 @@ class TwoTrees(RepositoryCase):
         self.write(".agents/scripts/gw/test/test_arrival.py", ARRIVAL_TEST)
         self.write(TICKET, "# Sweep\n")
         self.write("README.md", "# The repository's front page, never shipped\n")
+        self.write("LICENSE", LICENSE_TEXT)
         self.write("local.rules.md", "# local — never shipped\n")
         self.commit("core")
 
@@ -275,7 +278,7 @@ class TheRepositoryLine(unittest.TestCase):
 
 
 class TheSource(TwoTrees):
-    def test_the_manifest_at_a_ref_is_core_plus_the_two_root_files_and_nothing_else(self) -> None:
+    def test_the_manifest_at_a_ref_is_core_the_two_root_files_and_the_license_and_nothing_else(self) -> None:
         with harness.Source(str(self.source)) as source:
             ref = source.resolve("HEAD")
             manifest = list(source.files(ref))
@@ -284,6 +287,8 @@ class TheSource(TwoTrees):
         self.assertIn("CLAUDE.md", manifest)
         self.assertIn(KEEPER, manifest)
         self.assertIn(".agents/scripts/gw/test/test_arrival.py", manifest)
+        self.assertIn(INSTALLED_LICENSE, manifest)
+        self.assertNotIn("LICENSE", manifest)
         self.assertNotIn("README.md", manifest)
         self.assertNotIn("local.rules.md", manifest)
         self.assertNotIn(TICKET, manifest)
@@ -646,13 +651,14 @@ class ATreeInstalledUnderEarlierRules(TwoTrees):
         super().setUp()
         today = self.short_head()
         self.run_harness("--install")
-        self.git("rm", "-q", QUEUE_ARRIVAL)
+        self.git("rm", "-q", QUEUE_ARRIVAL, "LICENSE")
         self.write(HARNESS_SKILL, harness.REPOSITORY.sub("", HARNESS_SKILL_TEXT, count=1))
         self.write(self.OLD_TEST, self.OLD_TEST_TEXT)
         self.commit("core as it stood under earlier rules")
         self.earlier = self.short_head()
         (self.target / QUEUE_ARRIVAL).unlink()
         (self.target / DELIVERY_STATUS).unlink()
+        (self.target / INSTALLED_LICENSE).unlink(missing_ok=True)
         skill = self.target / HARNESS_SKILL
         skill.write_text(harness.REPOSITORY.sub("", skill.read_text(encoding="utf-8"), count=1), encoding="utf-8")
         (self.target / self.OLD_TEST).parent.mkdir(parents=True, exist_ok=True)
@@ -662,6 +668,7 @@ class ATreeInstalledUnderEarlierRules(TwoTrees):
         self.git("rm", "-q", self.OLD_TEST)
         self.write(QUEUE_ARRIVAL, QUEUE_ARRIVAL_TEXT)
         self.write(HARNESS_SKILL, HARNESS_SKILL_TEXT)
+        self.write("LICENSE", LICENSE_TEXT)
         self.commit("today's rules")
 
     def test_a_check_compares_against_what_the_earlier_ref_shipped(self) -> None:
@@ -678,9 +685,70 @@ class ATreeInstalledUnderEarlierRules(TwoTrees):
         self.assertIn(self.OLD_TEST, report["deleted"])
         self.assertFalse((self.target / self.OLD_TEST).exists())
         self.assertIn(DELIVERY_STATUS, report["written"])
+        self.assertIn(INSTALLED_LICENSE, report["written"])
         self.assertIsNotNone(harness.REPOSITORY.search(self.target_text(HARNESS_SKILL)))
         self.assertIn(f"@{self.short_head()}, ", self.target_text("AGENTS.md"))
         self.assertEqual(0, status, report["gates"])
+
+
+# --- the license ----------------------------------------------------------------------------------
+
+
+class TheLicense(TwoTrees):
+    """The source's root license travels into every recipient as `.agents/LICENSE`: its notice must
+    go with every copy, and a recipient's root is its own."""
+
+    def test_an_install_places_it_under_core_and_leaves_the_projects_own_root_license(self) -> None:
+        theirs = "The project's own license\n"
+        (self.target / "LICENSE").write_text(theirs, encoding="utf-8", newline="")
+
+        status, report = self.run_harness("--install")
+
+        self.assertEqual(0, status, report["refusals"])
+        self.assertEqual((self.source / "LICENSE").read_bytes(), (self.target / INSTALLED_LICENSE).read_bytes())
+        self.assertEqual(theirs, self.target_text("LICENSE"))
+
+    def test_an_update_carries_a_changed_license(self) -> None:
+        self.run_harness("--install")
+        self.write("LICENSE", LICENSE_TEXT.replace("2026", "2027"))
+        self.commit("the license changes")
+
+        status, report = self.run_harness("--update")
+
+        self.assertEqual(0, status, report["refusals"])
+        self.assertIn("2027", self.target_text(INSTALLED_LICENSE))
+
+    def test_a_check_names_an_edited_license(self) -> None:
+        self.run_harness("--install")
+        (self.target / INSTALLED_LICENSE).write_text("Edited in the recipient\n", encoding="utf-8")
+
+        _, report = self.run_harness("--check")
+
+        self.assertFalse(report["gates"]["ref"]["passed"])
+        self.assertIn(INSTALLED_LICENSE, report["gates"]["ref"]["differs"])
+
+    def test_a_ref_without_a_license_installs_and_ships_none(self) -> None:
+        # A guard rather than a red case: the archive refuses a path the ref lacks, and every ref
+        # before the license existed lacks it.
+        self.git("rm", "-q", "LICENSE")
+        self.commit("no license")
+
+        status, report = self.run_harness("--install")
+
+        self.assertEqual(0, status, report["refusals"])
+        self.assertFalse((self.target / INSTALLED_LICENSE).exists())
+
+    def test_an_install_refuses_over_a_license_the_project_holds_under_core(self) -> None:
+        held = self.target / INSTALLED_LICENSE
+        held.parent.mkdir(parents=True, exist_ok=True)
+        held.write_text("The project's, under core\n", encoding="utf-8")
+        before = self.target_snapshot()
+
+        status, report = self.run_harness("--install")
+
+        self.assertEqual(1, status)
+        self.assertIn(INSTALLED_LICENSE, report["refusals"][0])
+        self.assertEqual(before, self.target_snapshot())
 
 
 # --- where core came from -------------------------------------------------------------------------
