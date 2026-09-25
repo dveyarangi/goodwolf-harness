@@ -69,15 +69,14 @@ The loop and its rules are in [AGENTS.md](AGENTS.md), every skill under
 
 - Installing into a project, updating it, and checking the installed copy is intact, with your
   project's own rules applied last.
-- Arriving in a project that already has something. The install never overwrites what is there;
-  the installing agent reads your existing agent instructions, skills and documents and works out
-  with you, at `/align`, where each belongs — your facts and overrides into the local file, your
-  own skills beside the shipped ones. It has come into a large existing codebase with no agent
-  setup this way, and into a project with a smaller harness of its own.
+- Arriving in a project that already has something. The install refuses to write over an existing
+  `CLAUDE.md` or `AGENTS.md`, so they are moved aside first; the installing agent then reads them,
+  with your skills and documents, and works out with you, at `/align`, where each piece belongs —
+  your facts and overrides into the local file, your own skills beside the shipped ones — and
+  `CLAUDE.md` becomes a one-line pointer to the entry file. It has come into a large existing
+  codebase with no agent setup this way, and into a project with a smaller harness of its own.
 - Describing an existing codebase as you go: its architecture, decisions and glossary are written
   with you at `/align` as the work reaches them.
-- Small changes don't have to take the whole loop: a repair can land on its own, and every point
-  where you say yes is a switch.
 - One home per rule, with drift detection; checks on the harness's own records and declarations.
   The harness is developed with itself.
 
@@ -103,5 +102,8 @@ From your project's root, have your coding agent read
 installs the harness, reports what arrived, and sets up your project's own rules with you — its
 checks and its switches. What it runs is one script,
 `python <clone>/.agents/scripts/gw/harness.py . --install`, which writes nothing if it refuses and
-says why. Updating to a later version and checking the installed copy are in the same skill.
+says why. Claude Code and Cursor reach the skills through directory links; where Windows refuses
+to create one without an elevated prompt, the install finishes everything else and prints the
+commands to run there, once. Updating to a later version and checking the installed copy are in the same
+skill.
 Python 3.12 or later, standard library only. [MIT licensed](LICENSE).

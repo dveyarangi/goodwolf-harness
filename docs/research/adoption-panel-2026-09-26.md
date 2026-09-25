@@ -175,3 +175,154 @@ takes the full process; the straw-dog markup is visible without explanation.
 [SDD tools 2026](https://www.marktechpost.com/2026/05/08/9-best-ai-tools-for-spec-driven-development-in-2026-kiro-bmad-gsd-and-more-compare/) ·
 [GSD](https://www.codecentric.de/en/knowledge-hub/blog/the-anatomy-of-claude-code-workflows-turning-slash-commands-into-an-ai-development-system) ·
 [Spec Kit vs OpenSpec](https://hiddedesmet.com/speckit-vs-openspec)
+
+---
+
+# Second run — 2026-09-26, at `7415581`
+
+The same five needs, after *Where it stands* was rebalanced to say what the agent-led install
+already does with a project that has something, and with one rule the first run lacked: each
+reader read only what the product ships — the README, `LICENSE`, `AGENTS.md`, `CLAUDE.md` and
+`.agents/` — never `docs/` *(the user)*. Two ran on a different model again.
+
+**Verdicts: one *no*, four *not yet* — unchanged.**
+
+## 1. Minimal ceremony — *no*
+
+- **It solves the problem with a methodology** — two loops, tickets, RFCs, ADRs, a glossary,
+  mechanisms, a rule-failure register: the process this reader is avoiding.
+- **The light path isn't there** — *not yet* says so, and `AGENTS.md` makes every session run
+  `/recall` first, *whatever the first message says*: a cost on every one of many daily changes.
+- **`CLAUDE.md` goes away** — the install refuses while one exists; afterwards it is `@AGENTS.md`,
+  and the facts move into `local.rules.md` in the harness's rule format; about 96 KB of skills and
+  3,900 lines of Python arrive.
+- **Heavy jargon; memory is plain prose** that no hook enforces.
+- **Credit:** honest about its gaps, MIT, standard-library Python, an ask/auto switch for commit
+  and push.
+
+Compared: **built-in auto memory plus `CLAUDE.md`** — the zero-process baseline. **claude-mem** —
+hooks capture automatically, not depending on the agent remembering `/conclude`; a better fit.
+**Superpowers** — skills that fire only when relevant, lighter. **Spec Kit, BMAD** — the same
+objection. **The cheapest fix for lost work** — frequent commits and a session-end hook writing a
+handoff note.
+
+Would change it: a declared small-change path; a memory-only install with a hook; installing
+beside an existing `CLAUDE.md`; enforcement through hooks; evidence from other teams.
+
+Front page: *the install never overwrites what is there* is true only as a refusal — the
+`CLAUDE.md` is still restructured. *Small changes don't have to take the whole loop* under *works
+today*, *no declared lighter process* under *not yet*, and a mandatory `/recall` in `AGENTS.md`
+do not agree. Missing: per-session cost, and one worked one-line fix through the loop.
+
+## 2. Existing instructions — *not yet*
+
+- **It takes over the entry file** — refuses while `CLAUDE.md` or `AGENTS.md` exists; the 200
+  lines move out, `CLAUDE.md` becomes `@AGENTS.md`, each fact re-authored as a rule. *Never
+  overwrites* is technically true and means *you migrate first* — the throw-away this reader will
+  not accept.
+- **Heavy for three developers** — 23 skills, ticket positions like `01-0010.0150`, RFCs, paired
+  closes, straw-dog tags, an announce line every session.
+- **Immature** — weeks old, no stars or forks, one author; no uninstall, updates that don't say
+  what changed.
+- **Windows friction** — loader links need an elevated prompt, and Git for Windows clones them as
+  text unless `core.symlinks` is set on every developer's machine.
+- **Name collisions** — generic skill names (`/commit`, `/plan`, `/verify`, `/tdd`) land in
+  `.claude/skills` and may shadow the team's four commands.
+- **Good:** decisions in ADRs, architecture and a glossary, open work in tickets and never in
+  session logs; local overrides applied last; drift checking. *The design thinking is real.*
+
+Compared: **status quo plus conventions** — zero migration, no drift checks. **Spec Kit** — adds
+`.specify/` beside the setup without replacing it; a spec per feature, not a queue of unfinished
+work. **claude-mem, Remember** — automatic and opaque. **zircote/adr** — a drop-in ADR lifecycle,
+no unfinished work. **Superpowers, BMAD** — mature, heavier.
+
+Would change it: **an additive install that leaves `CLAUDE.md` alone and adds one import line**; a
+lite mode of recall, conclude, ticket and ADR; an uninstall and a changelog; adoption beyond the
+author.
+
+Front page: *never overwrites* hides a hard refusal and a forced migration; silent that `CLAUDE.md`
+becomes a pointer, that every session opens with an announce line, and how many skills land; the
+Windows symlink requirement is only in `.agents/README.md`; no estimate of adoption effort.
+
+## 3. Large existing codebase — *not yet*
+
+- **It doesn't fix the main problem on day one** — no draft of the architecture from the code;
+  written *as the work reaches them*, agents re-discover the system for months.
+- **Built for one person, not fifteen** — global ticket positions in one queue table, one concerns
+  file, one running session sequence, `/align` asking one person every decision; collides with an
+  existing tracker.
+- **Too new to trust** — weeks old, one contributor, the entry contract already at v16.
+- **Heavy process and vocabulary** — `/recall` and a contract line every session, twenty-odd
+  skills, invented terms.
+- **Windows friction** — the loader links clone as text files until symlinks are enabled.
+- **Worth taking:** the load-bearing test, one home per rule with a drift check, recording and
+  rewording rules the agent did not follow.
+
+Compared: **hierarchical `AGENTS.md` plus ADRs by hand** — nearly free, per module, read by both
+hosts; no drift checks or loop. **OpenSpec** — specs only for what changes, suits brownfield;
+weaker whole-system memory. **Spec Kit** — community, maturity, a constitution; also per change.
+**BMAD** — struggles on legacy monoliths, token-heavy.
+
+Would change it: drafting the architecture from the code on arrival; many developers at once —
+per-branch-safe ticket IDs, or the existing tracker; a lighter process; an uninstall; evidence from
+other teams.
+
+Front page: *it has come into a large existing codebase* has no link, size or outcome; silent on
+the single-maintainer assumption, a team, an external tracker, per-session cost and the project's
+age; the clone ships the author's `docs/`, `.obsidian` and images, which a newcomer cannot tell
+from the product.
+
+## 4. Greenfield prototype — *not yet* (different model)
+
+- **Zero adoption** — weeks old, no stars, forks or watchers, one contributor.
+- **Real overhead** — an announce line every session, `/recall` before every message, human
+  checkpoints at every `/align`, commit, push and split, all `ask` by default; a dense vocabulary.
+- **Enforcement is aspirational** — *the agent is trusted to keep it* is the failure that burned
+  this founder; no uninstall.
+- **Genuinely good:** the right problem — tickets, ADRs, architecture and a glossary as durable
+  memory, with scripted drift checking so documents don't silently rot; MIT, standard library,
+  three hosts. *The diagnosis is right; the cure is unproven and heavy.*
+
+Compared: **Spec Kit** — lighter, larger adoption, less rigorous memory. **BMAD** — more mature,
+heavier. **Plain `CLAUDE.md` plus hand-written ADRs** — lowest overhead, no drift checking.
+
+Would change it: evidence from other projects; host-enforced rules and an uninstall; proof the
+ceremony survives a multi-week build.
+
+Front page: *works today* is confident with no hint of a brand-new, single-author project; no
+comparison to alternatives; no estimate of onboarding or token cost.
+
+## 5. Single host, Cursor on Windows — *not yet* (different model)
+
+- **Ceremony far beyond a solo freelancer's needs** — it reads as tooling for the author's own
+  meta-project. *(Its count of 30 skills disagrees with the 23 shipped.)*
+- **Scripts to trust blind** — the verification set runs the harness's Python tools, against this
+  reader's boundary.
+- **Windows and Cursor friction** — its fresh clone checked the loader links out as 17-byte text
+  files, the `core.symlinks` pitfall `.agents/README.md` describes; the front page does not warn.
+- **Admits its immaturity** — no uninstall, no update diff, no lighter path.
+- **Credit:** the plan, test and verify discipline — vertical slices, red-green TDD, `/recall`,
+  one rule one home — *better reasoned than most competitors*.
+
+Compared: **Cursor's rules and memories** — lighter, no forced loop. **BMAD** — similar weight, a
+bigger community, works in Cursor. **Memory Bank** — much lower ceremony. **Task Master AI** — a
+lighter PRD-to-tasks breakdown, popular with Cursor users.
+
+Would change it: a Windows install that doesn't depend on real symlinks or an external script; a
+lighter tier; a week of hands-on use showing the ceremony pays for itself.
+
+Front page: no Windows symlink warning; no word that `/verify` pulls in Python tooling even for a
+pure React repository; jargon in *What holds it together* with no inline glossary link; no
+screenshot of a ticket, RFC or output to gauge overhead.
+
+## Sources the second run cited
+
+[Claude Code memory](https://code.claude.com/docs/en/memory) ·
+[claude-mem](https://docs.claude-mem.ai/introduction) ·
+[methodologies ecosystem](https://claude-codex.fr/en/advanced/methodologies-ecosystem/) ·
+[Spec Kit vs Superpowers](https://dev.to/truongpx396/spec-kit-vs-superpowers-a-comprehensive-comparison-practical-guide-to-combining-both-52jj) ·
+[Spec Kit](https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/) ·
+[Remember](https://claude.com/plugins/remember) · [zircote/adr](https://github.com/zircote/adr) ·
+[DataCamp on Superpowers and BMAD](https://www.datacamp.com/tutorial/spec-driven-development-with-claude-code) ·
+[AGENTS.md for Java](https://dzone.com/articles/agents-md-java) ·
+[Agent READMEs study](https://arxiv.org/html/2511.12884v1)
