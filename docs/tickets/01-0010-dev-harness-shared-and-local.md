@@ -706,7 +706,7 @@ maintain collision. Leave alone: `setup-devops`'s declaration status, since pull
 **Status:** Minted as three slices at the front-page align of 2026-09-26, on the user's approval:
 [`.0125`](./01-0010.0125-the-host-blocks-what-a-rule-forbids.md) (hooks),
 [`.0200`](./01-0010.0200-a-project-can-remove-the-harness.md) (uninstall) and
-[`.0167`](./01-0010.0167-the-front-page-says-what-the-harness-is.md) (the front page), whose
+[`.0167`](./done/01-0010.0167-the-front-page-says-what-the-harness-is.md) (the front page), whose
 license has one home at the repository root and is copied into every install *(the user)*. The page's content was settled there — title, the two opening
 paragraphs, *How it works*, *What holds it together*, *Where it stands* with its not-yet list
 wrapped as straw dogs, *Use it* — and tested on cold readers; the evidence is the

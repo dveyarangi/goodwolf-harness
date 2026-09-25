@@ -19,7 +19,7 @@ locally without understanding the rest of the architecture, it is not load-beari
 [`/plan`](../.agents/skills/plan/SKILL.md)'s *the RFC must not describe architecture absent from
 the architecture docs — land the decision in the docs first*.
 
-**What happened.** Planning [01-0010.0167](tickets/01-0010.0167-the-front-page-says-what-the-harness-is.md),
+**What happened.** Planning [01-0010.0167](tickets/done/01-0010.0167-the-front-page-says-what-the-harness-is.md),
 the install was to copy the root license into every recipient. The architecture's install contract
 enumerated the manifest — the core directory, the entry file, the host stub, *and nothing else* —
 so adding a file read as an architecture change, and the plan landed two sentences on the license
