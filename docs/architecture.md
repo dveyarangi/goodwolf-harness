@@ -138,9 +138,8 @@ ref — cloned fresh on every run, read through git rather than a checkout, neve
 so what a recipient receives is always what a commit holds. Which repository that is, a tree says
 once, in its harness skill's `Repository:` line — the only authored home of it, read as the
 default when a run names no source, so a fork edits one line and everything it installs names the
-fork. The manifest is every file under the core directory at that ref plus the entry file
-and the host stub, and nothing else; the project's local rules file is never in it and never
-written. One file outside the manifest is written, and only when absent: the delivery status,
+fork. The manifest is core at that ref and nothing of the project's: the project's local rules
+file is never in it and never written. One file outside the manifest is written, and only when absent: the delivery status,
 which a fresh tree's first session reads before anything has been written into it. Its words are
 the ticket mechanism's, declared with the record's shape and carried in the shipment; the install
 places them and composes nothing. A tree that already has one keeps it untouched, overwrite

@@ -11,6 +11,32 @@ deleting a rule: occurrences accumulate and what to do about a rule that keeps f
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 11. A copy step was landed in the architecture because a sentence there listed its neighbours — 2026-09-26
+
+**Rules in play:** [`AGENTS.md`](../AGENTS.md#document-load-bearing-codecomment-the-rest) —
+*document load-bearing, code&comment the rest*, and its counter-test, *if it can be changed
+locally without understanding the rest of the architecture, it is not load-bearing*; against
+[`/plan`](../.agents/skills/plan/SKILL.md)'s *the RFC must not describe architecture absent from
+the architecture docs — land the decision in the docs first*.
+
+**What happened.** Planning [01-0010.0167](tickets/01-0010.0167-the-front-page-says-what-the-harness-is.md),
+the install was to copy the root license into every recipient. The architecture's install contract
+enumerated the manifest — the core directory, the entry file, the host stub, *and nothing else* —
+so adding a file read as an architecture change, and the plan landed two sentences on the license
+there before writing the RFC. The user: *will something build on it ever? why was it selected as
+load-bearing?*
+
+**Why it did not fire.** `/plan`'s rule says *architecture*, unqualified, and a sentence already
+in the architecture doc reads as architecture whatever its altitude; the load-bearing test lives in
+the entry file and nothing in `/plan` asks for it. The manifest sentence had itself drifted below
+its altitude by listing members, which is what made a copy step look like a contract change.
+
+**Amendment, landed the same day.** `/plan`'s rule reads *load-bearing architecture*, and adds that
+what fails the counter-test belongs in code and its comments however closely an architecture
+sentence already describes it. The manifest sentence is cut to its invariant — core, and nothing of
+the project's. Graded by the next plan whose change touches a sentence the architecture already
+holds: the counter-test is applied before the doc is edited, or this entry is struck.
+
 ## 10. A claim about what sets the harness apart was drafted from inside it — 2026-09-26
 
 **Rules in play:** [`/discover`](../.agents/skills/discover/SKILL.md)'s *for: you are about to say

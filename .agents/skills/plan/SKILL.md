@@ -59,9 +59,11 @@ description: >-
   reversible implementation-local choices to `/tdd` and `/implement` unless
   they become load-bearing.
 
-- The RFC (original or amended) must not describe architecture absent from the
-  architecture docs — land the decision in the docs first (`/align` when
-  needed), then reference it from the RFC.
+- The RFC (original or amended) must not describe load-bearing architecture
+  absent from the architecture docs — land the decision in the docs first
+  (`/align` when needed), then reference it from the RFC. What fails the entry
+  file's load-bearing counter-test belongs in code and its comments, however
+  closely an architecture sentence already describes it.
 
 - Describe the implementation stages; allocate them according to `/tdd`
   rules. Look at stages to make sure each of them keeps the tests green; in

@@ -7,8 +7,8 @@
 
 Core reaches a tree from a fresh clone of its repository at a ref and never from a working tree,
 so what a recipient holds is what a commit holds. The manifest is everything under the core
-directory plus the entry file and the host stub; the project's local file is never in it, which
-is what lets a redeploy overwrite core's content and nothing of the project's. What ships is
+directory plus the entry file, the host stub and the license; the project's local file is never
+in it, which is what lets a redeploy overwrite core's content and nothing of the project's. What ships is
 transformed before a byte is written: the origin's local blocks removed, every straw-dog wrapper
 and every `TODO`'s ticket binding sheared with the content kept, the announce line stamped, and
 the whole held to the leak rule the origin's check applies.
