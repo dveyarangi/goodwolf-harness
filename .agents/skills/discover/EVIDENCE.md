@@ -79,6 +79,13 @@ almost none to the pass itself.
 **Both runs also argued against decisions taken in the conversation that commissioned them**,
 including the operator's, which is the strongest evidence available that the isolation works.
 
+**The third run, 2026-09-26, reported its isolation breached by the host.** Asked what this
+repository is, it read a fresh clone — ~187k tokens, 41 tool uses, ~11 minutes — and said that
+before it read anything the host had loaded the working tree's entry file and the user's memory
+index into it, and its git status named the files the commissioning session had just changed. A
+subagent started in this working directory is not context-free, whatever its tasking says. It
+also named the tasking's own vocabulary as smuggled: the answer format is this skill's words.
+
 ## The graveyard
 
 - **"Pass 2 never reads the repository."** Lived until 2026-09-26. The first pass asked what
