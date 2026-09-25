@@ -81,6 +81,14 @@ including the operator's, which is the strongest evidence available that the iso
 
 ## The graveyard
 
+- **"Pass 2 never reads the repository."** Lived until 2026-09-26. The first pass asked what
+  this harness is, among its peers, and was forbidden the repository, so it was handed a
+  functional description instead — the author's own account of the thing, which is the capture
+  the pass exists to escape. Killed by the user: *in this specific case there is no evading
+  reading the repo to understand what it is*. The prohibition protects a shape from the frame
+  around it; when the shape is the repository, reading it is the subject, and the description is
+  the frame.
+
 - **"Pass 1 needs local context and so cannot be cold-started."** Lived a few hours,
   2026-09-05. Killed by the operator: it conflated *needs the corpus* with *needs this
   session's framing of it*. A fresh process reads the same files. Both passes are cold-startable

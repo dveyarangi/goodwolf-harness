@@ -3,9 +3,10 @@ name: discover
 description: >-
   Understand a thing better by asking what it is an instance of outside this
   estate — handed to a separate reasoning process that has none of your context,
-  so it answers in other people's vocabulary rather than yours. Use when a shape
-  is in front of you and your account of it is the only one you have; when about
-  to generalise from one case; or when asked to look at something properly.
+  so it answers in other people's vocabulary rather than yours. Use when about to
+  say what something is, how it compares with its peers, or what sets it apart;
+  when a shape is in front of you and your account of it is the only one you have;
+  when about to generalise from one case; or when asked to look at something properly.
   Returns material, never a verdict.
 ---
 
@@ -79,6 +80,9 @@ whose mapping cannot be stated.
 
 **Spawn a separate process** — a general-purpose subagent — and tell it not to read this
 repository. Reading it re-contaminates, which is the one thing the separate process buys.
+Unless the shape is the repository itself: then the repository is the subject, and your
+description of it is the frame. The pass reads it cold, from a fresh clone, and gets only the
+question.
 
 **Never feed one pass into the next.** A pass given an earlier pass's output retrieves what it
 already said, and the second isolation buys nothing.

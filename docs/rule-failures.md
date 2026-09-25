@@ -11,6 +11,32 @@ deleting a rule: occurrences accumulate and what to do about a rule that keeps f
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 10. A claim about what sets the harness apart was drafted from inside it — 2026-09-26
+
+**Rules in play:** [`/discover`](../.agents/skills/discover/SKILL.md)'s *for: you are about to say
+what a thing* is; [`/align`](../.agents/skills/align/SKILL.md)'s *identify the load-bearing
+assumption … check it, preferably against external reality rather than our own documents*; and
+[`AGENTS.md`](../AGENTS.md#general-rules)'s *explore shape context — what is the shape one of?*
+
+**What happened.** At the front-page align, the question was what the page's first paragraphs
+claim. The agent drafted the problem statement and then a paragraph on *what sets it apart* — a
+claim about the harness against its peers — from this tree's own files and two outside reviews,
+and put it to the user. The user: *I think we should run a discovery on this; I would expect
+discovery to trigger automatically on this type of question.*
+
+**Why it did not fire.** `/discover`'s sharpest occasion — *about to say what a thing is* — is in
+its body, and a skill is chosen by its description, which said only *a shape is in front of you
+and your account of it is the only one you have*: read as a design construct, not the project's
+place among its peers. `/align`'s external-reality rule was read as satisfied by the two reviews,
+but both were models that had read this repository, so they carried its frame; neither was an
+account of the class. The entry file's *what is the shape one of?* is general enough to apply
+everywhere and so fired nowhere in particular.
+
+**Amendment, landed the same day.** `/discover`'s description names the occasion first: *use
+when about to say what something is, how it compares with its peers, or what sets it apart*.
+Graded by the next time a claim about what something is or how it compares is drafted — the pass
+runs before the draft, or this entry is struck.
+
 ## 9. A fixture made by today's code stood for a tree made by yesterday's — 2026-09-24
 
 **Rules in play:** [`/verify`](../.agents/skills/verify/SKILL.md)'s *check named validators still
