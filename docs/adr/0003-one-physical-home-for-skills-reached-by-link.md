@@ -1,9 +1,18 @@
 # One physical home for skills, reached by link
 
 Skill bodies live once, under `.agents/skills/`. Each host reaches them through a directory symlink
-tracked as mode 120000 — `.claude/skills` and `.cursor/skills`; Codex reads `.agents/skills`
-natively. Decided 2026-09-05 with the repository's root, in
+— `.claude/skills` and `.cursor/skills`; Codex reads `.agents/skills` natively. Decided 2026-09-05
+with the repository's root, in
 [01-0010](../tickets/01-0010-dev-harness-shared-and-local.md#resolutions-and-constraints).
+
+**Amended 2026-09-26: the links are made in each clone and never committed** *(the user)*. They were
+tracked as mode 120000 when nothing else could give a clone its links. Since 2026-09-21 the harness
+makes them, and tracking them had become the harm: Git for Windows checks a tracked link out as a
+17-byte text file, which the harness then refuses as *a file where a link goes*, so a Windows
+teammate's clone met a refusal the tracking itself created — found by an adoption panel reader
+cloning this repository. Untracked, every clone on every platform behaves alike: it has no links
+until the harness makes them, by the light per-clone step
+[01-0010.0172](../tickets/01-0010.0172-a-first-install-says-what-stopped-it.md) adds.
 
 ## Considered options
 
@@ -30,9 +39,10 @@ needs no link.
 
 ## Consequences
 
-The links are the most fragile thing a recipient touches. Git for Windows writes
-`core.symlinks=false` on clone, so they arrive as text files needing `git config --local
-core.symlinks true` and a re-checkout; creating one needs Developer Mode or an elevated prompt.
+The links are the most fragile thing a recipient touches. While they were tracked, Git for Windows
+checked them out as text files, needing `git config --local core.symlinks true` and a re-checkout;
+untracked since 2026-09-26, that case is gone, and what remains is that creating one needs
+Developer Mode or an elevated prompt.
 [`.agents/README.md`](../../.agents/README.md) carries the recovery steps, and creating the links
 is `/harness`'s job since 2026-09-21.
 

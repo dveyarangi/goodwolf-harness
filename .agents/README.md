@@ -6,12 +6,11 @@
 - Claude Code — `.claude/skills` → `../.agents/skills`
 - Cursor — `.cursor/skills` → `../.agents/skills`
 
-The links are tracked as symlinks (mode 120000). Both are required: Claude Code and Cursor read
-only their own directory; Codex reads `.agents/skills` natively and needs none. `/harness` makes
-them, or hands the person the exact elevated command where the platform refuses to create one; a
-junction is never a substitute, since nothing sees through it. Git for Windows writes
-`core.symlinks=false` on clone, so a fresh clone checks the links out as text files until
-`git config --local core.symlinks true` and a re-checkout.
+The links belong to each clone and are never committed. Both are required: Claude Code and Cursor
+read only their own directory; Codex reads `.agents/skills` natively and needs none. `/harness`
+makes them, or hands the person the exact elevated command where the platform refuses to create
+one; a junction is never a substitute, since nothing sees through it.
+<straw-dog until="01-0010.0172 is done" ticket="docs/tickets/01-0010.0172-a-first-install-says-what-stopped-it.md">A fresh clone has no links until the harness's update runs in it.</straw-dog>
 
 ## Mechanical support
 

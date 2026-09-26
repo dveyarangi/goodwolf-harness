@@ -2,3 +2,7 @@
 __pycache__/
 *.pyc
 .pytest_cache/
+
+# Loader links: made by the harness in each clone, never committed (ADR-0003, amended 2026-09-26)
+.claude/skills
+.cursor/skills

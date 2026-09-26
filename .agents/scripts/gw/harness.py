@@ -688,6 +688,8 @@ def _make_links(target: Path, plan: dict[str, str], report: Report) -> None:
         report.links.append({"link": link, "state": "made" if action == "make" else "repointed"})
     if report.pending:
         report.notes.append("run the pending command(s) once in an elevated prompt, then `harness.py . --check`")
+    # TODO docs/tickets/01-0010.0172-a-first-install-says-what-stopped-it.md: this note assumes tracked
+    # links; untracked since 2026-09-26, a clone gets them from the link step, and the note goes.
     if _git_in(target, "config", "--get", "core.symlinks") == "false":
         report.notes.append("core.symlinks is false in the target: a fresh clone checks the links out as text")
 
