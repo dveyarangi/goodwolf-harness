@@ -779,6 +779,31 @@ trend read back from the first session measures sessions that ran under earlier 
 rules, which is the point, provided each point names the version it ran. Leave alone: the process
 itself — lowering the numbers is [01-0020](./01-0020-pacer.md)'s.
 
+## Outside review, second pass — 2026-09-27
+
+An outside agent installed the harness into a fresh tree, over an existing `CLAUDE.md`, updated
+it, tampered with it, ran the suite as root and as a plain user, and traced which skill reads each
+switch.
+
+**Decided** *(the user)*: the harness is personal memory — one person steering agents. Team memory
+is planned as the next step after the currently scheduled work; it has not been discussed and has
+no record yet (team-memory, unminted).
+
+**Fixed the same day:** `/commit` deferred to the `commit` and `push` switches instead of forbidding
+what `commit=auto` allows; an unset switch reads `ask` (entry contract v17); `/dream` left tier 1;
+`--update` reports only the files it changed; two tests that only passed on Windows or as a plain
+user; the front page's claim that arrival reads a project's existing instructions, which nothing
+does until [`.0150`](./01-0010.0150-harness-meets-a-tree-with-a-method.md) lands; the skill
+descriptions of `/implement`, `/improve-comments`, `/celebrate` and `/conclude`, cut to their use
+case.
+
+**Folded:** the recipient's loader links ignored by Git → [`.0172`](./01-0010.0172-a-first-install-says-what-stopped-it.md);
+a suite run on Linux and CI → [01-0011.0090 a-test-catches-what-its-name-promises](./01-0011.0090-a-test-catches-what-its-name-promises.md);
+what the method may cost and what it is for → [`.0168`](./01-0010.0168-the-harness-measures-what-it-costs-and-saves.md)'s
+align; a Claude Code hook ahead of the host survey → [`.0125`](./01-0010.0125-the-host-blocks-what-a-rule-forbids.md)'s
+align. The light path for small work is [01-0020](./01-0020-pacer.md)'s already; every panel run
+and both review passes named it.
+
 ## Adoption shortlist — recommendations awaiting alignment
 
 This is the compact decision surface extracted from the [Life research](../research/life-harness-findings.md). Rows marked agreed link to the current policy; the other recommendations remain undecided. Resolve one question at a time.
