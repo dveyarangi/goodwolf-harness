@@ -137,10 +137,8 @@ ticket as you write it.
 then `not yet`, wrapped as a straw dog bound to the ticket that declares its mechanism, or
 `unowned by design` with its reason. Write the line as you add the skill; no list holds it.
 
-**R8** The skill of a mechanism whose state is `installed` names no other skill: what it needs from
-another reaches it as an installed block.
-
-**R9** A skill whose first body line says `Mechanism: not yet` names no other skill either.
+**R8** Name no skill of a mechanism whose state is `installed` in another skill's own text: what it asks
+of that skill reaches it as an installed block from its rules file.
 </installed>
 
 ## Incept

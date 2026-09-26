@@ -26,9 +26,10 @@ in other skills, unless injected*.
 method and loop position passed as context. Nothing said a skill may not name another.
 
 **Amendment landed 2026-09-27.** The tiering rule reads *name there every use case the skill
-serves, and nothing else — never its method or how it is built*. The mechanism shape's R8 and R9,
-installed into `/skill-up` and `/mechanism`: a mechanism's skill, and a skill on its way to one,
-names no other skill; what it needs reaches it installed. Not yet replayed.
+serves, and nothing else — never its method or how it is built*. The mechanism shape's R8,
+installed into `/skill-up` and `/mechanism`: no skill's own text names the skill of an installed
+mechanism; what that mechanism asks of it arrives as an installed block. A skill still on its way to
+a mechanism may be named until it arrives *(the user)*. Not yet replayed.
 
 ## 12. A queue answer named tickets by their position alone — 2026-09-26
 

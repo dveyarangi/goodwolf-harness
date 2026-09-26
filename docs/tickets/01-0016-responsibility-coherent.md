@@ -6,8 +6,10 @@
   vocabulary for what a responsibility covers), [/impact recommends the work's
   shape](./01-0010.0080-impact-work-shape.md) (so this pass sees a finished `/impact`)
 - **Blocks:** [Rules reach the occasion they are for](./01-0018-reachability-coherent.md)
-- **Outcome:** Every skill states only what it owns and links for the rest; a rule appears once, in
-  the skill responsible for it; contradictions between skills are resolved rather than coexisting.
+- **Outcome:** Every skill states only what it owns; what an installed mechanism asks of it arrives
+  installed, and it names another skill only while that skill is on its way to a mechanism; a rule
+  appears once, in the skill responsible for it; contradictions between skills are resolved rather
+  than coexisting.
 
 ## Parent
 
@@ -70,6 +72,12 @@ left unhosted.
   the rule, so moving it into one of them either duplicates it or makes that skill its owner and the
   others its callers.
 - The investigation responsibility consolidated into `/impact`, per the user's example.
+- **Names of installed mechanisms' skills** *(the user, 2026-09-27; the mechanism shape's R8)*. A
+  skill still on its way to a mechanism may be named; once it is installed, what it asks of others
+  reaches them as installed blocks. Found by hand the day R8 landed, outside installed blocks:
+  `/align`, `/plan` and `/review-architecture` name `/ticket`; `/edge`, `/mechanism`, `/ticket` and
+  `/verify` name `/maintain`; `/spec` names both. Each becomes a block from the `ticket` or
+  `maintain` rules file, or goes.
 
 ## Decisions this ticket's align owns
 
@@ -123,6 +131,7 @@ rather than an edit, and the drift a hand-move can introduce stops being possibl
 - [ ] No rule appears in full in two skills; the check is mechanical enough to rerun.
 - [ ] `/align` carries no methodology it does not own, and links instead.
 - [ ] Repair-and-report has one home, cited by everything that applies it.
+- [ ] No skill's own text names the skill of an installed mechanism.
 - [ ] The canonical accounts deferred by 01-0012 and 01-0014 have hosts.
 - [ ] `/verify` has been run on this ticket against its ticket, RFC, and governing docs.
 
