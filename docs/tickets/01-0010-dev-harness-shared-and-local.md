@@ -761,6 +761,24 @@ mechanism's; and a repeat on a shared board must find the report it repeats. Lea
 recipient's register for its own local rules; contributing the amendment itself back, parked on the
 install spec.
 
+## Measuring what it costs — 2026-09-26
+
+**Status:** Minted as one slice on the user's request,
+[`.0168`](./01-0010.0168-the-harness-measures-what-it-costs-and-saves.md): tokens and human turns
+per unit of work, and what they buy, read from the hosts' own session records as a trend from the
+harness's first session forward.
+
+### Impact — 2026-09-26
+
+Run by `/ticket` on the single slice: **proceed**, decision-bearing. Blast radius is new: a script,
+a record and a statement, touching nothing that exists — which makes it a mechanism, declared
+through the shape with its reader named. Hidden edges: transcripts live in the person's profile,
+outside every tree, and are private, so only aggregates may leave; tool results share the `user`
+type with what the person typed and must be told apart; each host keeps its own format; and a
+trend read back from the first session measures sessions that ran under earlier versions of the
+rules, which is the point, provided each point names the version it ran. Leave alone: the process
+itself — lowering the numbers is [01-0020](./01-0020-pacer.md)'s.
+
 ## Adoption shortlist — recommendations awaiting alignment
 
 This is the compact decision surface extracted from the [Life research](../research/life-harness-findings.md). Rows marked agreed link to the current policy; the other recommendations remain undecided. Resolve one question at a time.

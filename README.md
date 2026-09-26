@@ -20,9 +20,9 @@ step or several, through as many pieces of work as the session holds — until `
 down what the next session needs. A piece of work moves `/ticket` → `/plan` → `/implement` →
 `/verify` → `/maintain`: it becomes a ticket with checkable acceptance criteria, gets a written
 plan, is built test-first where it can be, and is verified against its ticket, its plan and the
-project's own checks. Whenever a step needs a decision, it goes back to `/align`. `/maintain` is a
-separate step for drift: it checks that the repository's documents still agree with each other and
-with the code, and repairs what doesn't.
+project's own checks. Whenever a step needs a decision, it goes back to `/align`. `/verify` checks
+the change; `/maintain` keeps the system of knowledge — a separate step for drift, checking that the
+repository's documents still agree with each other and with the code, and repairing what doesn't.
 
 ![The session ring — /recall, /align, /conclude — joined at /align to the delivery ring — /ticket, /plan, /implement, /verify, /maintain — around the project's records: tickets, RFCs, architecture, the codebase](dev-skills-readme.png)
 
@@ -44,7 +44,9 @@ commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report
 stopped. Each step has an agent say what it will do and leave a record of what it did, so work can
 stop at any step and any agent can pick it up from the records, and the next agent, or you, can
 check the work instead of trusting it. You don't run the steps: the skills hand the work on to each
-other around the loop, so none needs calling by hand. What you gain is observability — what was
+other around the loop, so none needs calling by hand. The skills, the records and most of the
+vocabulary are the agent's working equipment, not a curriculum: you meet a few terms when it asks
+you to decide something, and the records when you choose to read them. What you gain is observability — what was
 decided, planned and verified, there to read when it matters. Every stop for your say is optional:
 a switch set to `auto` lets the loop run on, and `commit=auto` commits each piece of work once it
 is verified.
@@ -73,8 +75,9 @@ The loop and its rules are in [AGENTS.md](AGENTS.md), every skill under
 - **Every part of the method says what it is.** A skill that other work relies on is declared
   through `/mechanism`: its parts, the moments a person acts on it, what it produces and who reads
   that. A script checks the declaration is true.
-- **The checks travel.** An install ends by running them inside your project, and your project can
-  keep them in its own verification.
+- **The checks travel.** They are standard-library Python scripts with a test suite of their own.
+  An install ends by running them inside your project, and your project can keep them in its own
+  verification.
 
 ## Where it stands
 
@@ -118,6 +121,10 @@ checks and its switches. What it runs is one script,
 `python <clone>/.agents/scripts/gw/harness.py . --install`, which writes nothing if it refuses and
 says why. Claude Code and Cursor reach the skills through directory links; where Windows refuses
 to create one without an elevated prompt, the install finishes everything else and prints the
-commands to run there, once. Updating to a later version and checking the installed copy are in the same
-skill.
-Python 3.12 or later, standard library only. [MIT licensed](LICENSE).
+commands to run there, once. Updating to a later version and checking the installed copy are in
+the same skill. Python 3.12 or later, standard library only. [MIT licensed](LICENSE).
+
+To try it, install it into one project and watch three things over a few weeks: whether an agent
+arriving cold re-decides less of what was already settled, whether work survives the end of a
+session without you reconstructing it, and whether drift between documents and code falls rather
+than documents merely piling up.
