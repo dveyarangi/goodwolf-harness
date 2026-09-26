@@ -547,3 +547,53 @@ Spec Kit, lighter and easiest to trust; Memory Bank; Cursor's own rules and memo
 adoption, issue #1 fixed, a light mode, a plain walkthrough of what the install writes. Front page:
 no disclosure of a new single-author project; jargon before explanation; the loop diagram implies
 one ceremony size for everything.
+
+---
+
+# Fifth run — 2026-09-26, at `cc5087a`
+
+The same five needs and reading rule, the full question restored — a verdict on merit, **what
+would change it**, and apart, what the reader would need to trust it — after the page said that
+the skills and records are the agent's equipment, that the checks are tested tooling, how to trial
+it, and that it assumes one person steering. Two ran on a different model again.
+
+**Verdicts on merit: five *not for my case*.** What would change each answer, which is what this run
+was for, condensed:
+
+| Reader | What would change the answer |
+|---|---|
+| Minimal ceremony | an opt-in, tested light mode — recall, conclude and a decisions log, no tickets or RFCs for small changes, `CLAUDE.md` left alone; hook enforcement; an uninstall |
+| Existing instructions | ticket IDs safe on parallel branches, or GitHub Issues as the ticket store; an install that merges into an existing `CLAUDE.md`; a declared light path; **a plain-language entry file** |
+| Large existing codebase | multi-developer operation — branch-safe IDs, tickets in the team's tracker; a pass drafting architecture and glossary from the code on install; a light path; **a slim `AGENTS.md` without the method's own vocabulary and meta-rules** |
+| Greenfield prototype | the light mode landing, trivial changes skipping ticket, plan and verify while keeping the memory; evidence from other projects that re-deciding falls without slowing delivery |
+| Cursor on Windows | a light track; Cursor support not depending on Windows symlinks; **a quick start needing none of the coined terms** |
+
+What each would need to trust it: users beyond the author and months of stability (all five); an
+uninstall and changelogs (three); **the per-session token and time overhead measured** (three);
+**a before-and-after on the three signals the page itself proposes** (the large codebase); a
+multi-developer pilot; running the test suite and drift checks oneself.
+
+What each credited: the rule that `/recall` cites where each open question is still open; straw
+dogs binding *not yet* to a ticket; one source per rule with a standard-library drift check;
+rule failures written down and reworded; overrides in one local file; *"persistent decisions,
+architecture and glossary plus an explicit what's-still-open beats vibe-coded amnesia."*
+
+Front page, as they read it:
+
+- **The single-steering limit is buried** — seventh of eight in *not yet*, when for any team it is
+  the headline (existing instructions, large codebase).
+- **No cost figures** — per change, per session, for a one-line fix (four of five).
+- ***You meet a few terms* undersells it**, since the entry file every session loads carries the
+  method's vocabulary, and teammates reviewing what agents write meet it too (two); and the shipped
+  entry file carries the harness's own development rules into every recipient session (the large
+  codebase) — a finding about core, not the page.
+- **No example session** (two); **no comparison** to Spec Kit, BMAD or a plain `AGENTS.md`, so a
+  newcomer cannot place it (greenfield); which skills could be skipped (minimal ceremony).
+- **The `CLAUDE.md` takeover** still reads as an arrival feature (minimal ceremony).
+- The license's *contributors*, plural, reads as more than one author (greenfield).
+- Two readers on the other model again said the Windows link caveat lives only in
+  `.agents/README.md`; *Use it* carries it, and a third called it *mentioned only in passing*.
+
+Alternatives newly named in this run: **Backlog.md** — tasks, decisions and docs as markdown in git
+with a CLI, an MCP server and a board, additive to an existing `CLAUDE.md`; **claude-remember**;
+**Agent OS** again, for adapting to any tool.

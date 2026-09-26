@@ -20,7 +20,9 @@ step or several, through as many pieces of work as the session holds — until `
 down what the next session needs. A piece of work moves `/ticket` → `/plan` → `/implement` →
 `/verify` → `/maintain`: it becomes a ticket with checkable acceptance criteria, gets a written
 plan, is built test-first where it can be, and is verified against its ticket, its plan and the
-project's own checks. Whenever a step needs a decision, it goes back to `/align`. `/verify` checks
+project's own checks. Large work starts as a spec, aligned with you, and is split by `/ticket` into
+thin slices that each go round the loop; `/impact` checks what each slice touches before it is cut.
+Whenever a step needs a decision, it goes back to `/align`. `/verify` checks
 the change; `/maintain` keeps the system of knowledge — a separate step for drift, checking that the
 repository's documents still agree with each other and with the code, and repairing what doesn't.
 
@@ -69,6 +71,9 @@ The loop and its rules are in [AGENTS.md](AGENTS.md), every skill under
   skill that reads it — in [AGENTS.md](AGENTS.md) you can see such a copy, `<installed by="ticket">`,
   whose source is [`ticket.rules.md`](.agents/mechanisms/ticket/ticket.rules.md). A copy that drifts
   from its source, or that nothing owns, fails the check.
+- **Records stay current instead of piling up.** Each fact has one home; how a decision came about
+  is kept apart from the decision itself; finished tickets and plans are archived, and session notes
+  are history, never the authority — so what an agent reads is what is true now.
 - **Rules that fail get reworded.** When a rule was in place and the agent didn't follow it, the
   case is written down — which rules were in play, why this one didn't fire, how it is reworded —
   and the next time the situation comes up shows whether the rewording worked.
