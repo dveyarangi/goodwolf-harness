@@ -326,3 +326,143 @@ screenshot of a ticket, RFC or output to gauge overhead.
 [DataCamp on Superpowers and BMAD](https://www.datacamp.com/tutorial/spec-driven-development-with-claude-code) ·
 [AGENTS.md for Java](https://dzone.com/articles/agents-md-java) ·
 [Agent READMEs study](https://arxiv.org/html/2511.12884v1)
+
+---
+
+# Third run — 2026-09-26, at `ccb66b1`
+
+The same five needs and the same rule — only what the product ships, never `docs/` — after the
+page stopped saying *never overwrites* and dropped the small-changes line that contradicted its
+*not yet*, and *Use it* gained the Windows link step. Two ran on a different model again.
+
+**Verdicts: one *no*, four *not yet* — unchanged across all three runs.** No reader this time
+called anything on the page misleading about the product; one checked it against the code and
+found *everything else it documents accurate to what I found*.
+
+## 1. Minimal ceremony — *no*
+
+- **The process it is avoiding** — every change through the loop, and the page says the light
+  path is missing; twenty copy tweaks a day need no ticket number.
+- **Heavy** — about 16,600 words of skills and glossary, a coined vocabulary, and every session
+  opening with `/recall` and a version line, paid for in tokens.
+- **Takes over `CLAUDE.md`** — moved aside, replaced by a pointer, its rules folded into the local
+  file's format.
+- **The part it needs is small** — `/recall` and `/conclude` are the whole fix for forgetting, and
+  `/conclude` is about a hundred words.
+- **It doesn't address how work was lost** — uncommitted or overwritten changes; neither
+  `commit=ask` nor tickets prevent that.
+
+Compared: **built-in auto memory plus `CLAUDE.md`**; **claude-mem, Mem0** — automatic, a third-party
+data path; **Superpowers** — lighter per session; **Spec Kit, BMAD, OpenSpec** — the same class;
+**a home-made `/handoff` and frequent commits** — the least process, fixing both real failures.
+
+Would change it: the lighter mode landing as recall and conclude only; an install that leaves
+`CLAUDE.md` alone; an uninstall; evidence it prevents lost work, not only lost context.
+
+Front page: *institutional memory* undersells it — it is a full delivery methodology, memory a
+side effect; missing per-session cost and a worked one-line fix. *The not-yet list is honest.*
+
+## 2. Large existing codebase — *not yet*
+
+- **Too young and changing too fast for fifteen people** — one author, three weeks, the entry
+  contract at v16.
+- **Built for one person** — tickets, concerns, glossary and session records edited by every
+  session; with fifteen in parallel, merge conflicts and competing truths; nothing on concurrent
+  work or Jira.
+- **Heavy process** — twenty-odd skills, a vocabulary, `/recall` every session, `/align` one
+  question at a time, and no lighter path for routine fixes.
+- **The core idea is right for this problem** — decisions in architecture, ADRs and a glossary,
+  state rebuilt from records, settled decisions not reopened without evidence; building the
+  architecture up as work reaches each area suits 600k lines.
+- **No help mapping the existing code.**
+
+Compared: **plain `AGENTS.md` plus ADRs** — where this reader would start; **OpenSpec** — for
+existing codebases, no ADR or glossary discipline; **Spec Kit** — backed and at 1.0, weaker at
+keeping existing decisions in force; **BMAD** — heavier, trouble with legacy code; **Kiro** — IDE
+lock-in; **memory tools** — history, not curated decisions.
+
+Would change it: six months of stable rules and outside users; a documented way for many
+developers at once, ticket-system integration included; a lighter path; drafting the architecture
+from the code; a published brownfield case study.
+
+Front page: *a large existing codebase* with no evidence; silent on age, single author, the size of
+what arrives, the entry-contract ritual and per-session cost; the *not yet* items link to tickets
+under `docs/`, which a project replaces. *Unusually honest.*
+
+## 3. Existing instructions — *not yet*, closer to no
+
+- **Takes over the setup instead of sitting beside it** — `CLAUDE.md` moved aside and turned into
+  a pointer, its content rewritten as rules; shipped core cannot be edited, only overridden.
+- **Heavy ceremony** — `/recall` first *whatever the first message says*, the full loop, about 25
+  skills and 3,200 lines of method; no lighter path, and most of this team's work is small.
+- **Jargon** three people must learn.
+- **Immature and hard to leave** — one author, no uninstall, no changelog.
+- **Windows friction** — symlinks needing elevation and `core.symlinks` on every clone.
+- **Good:** tickets with checkable criteria, ADRs and a glossary in the repository, a drift check
+  on copied rules, standard-library Python, MIT, an honest README.
+
+Compared: **Beads** — a git-backed issue graph for agents, additive, targets unfinished work, not
+decisions; **OpenSpec** — the best fit for decision tracking with little overhead; **Spec Kit,
+BMAD** — heavier; **doing it myself**.
+
+Would change it: a lighter mode; an uninstall; an install leaving `CLAUDE.md` and
+`.claude/commands` alone; an answer on name clashes; changelogs; outside teams.
+
+Front page: silent that every session starts with `/recall` and a contract line, that core can be
+overridden but not edited, on the method's size and per-session cost, on existing
+`.claude/commands`, on the symlink step each teammate meets, and on the project's age and single
+author.
+
+## 4. Greenfield prototype — *not yet* (different model)
+
+- **No track record** — seventeen days, no stars, forks or watchers, one committer.
+- **Ceremony against week-one speed** — the loop, the entry contract every session, a vocabulary;
+  the page admits there is no fast mode yet.
+- **The core idea is genuinely good and concrete** — *not just "write good docs" advice*: an
+  installer, updater and checker, drift detection, and a mechanism for exactly the failure that
+  burned this founder. *More mechanism than most alternatives offer.*
+
+Compared: **Spec Kit** — far more proven, no memory, drift or postmortem layer; **BMAD** — more
+popular, role-play overhead, less focused on why; **plain `AGENTS.md` plus ADRs** — relies wholly
+on discipline.
+
+Would change it: evidence of outside use — even a handful of stars, forks or issues — or the
+lighter mode, whose ticket exists.
+
+Front page: the confident *works today* and the polished diagram give no hint of a seventeen-day
+solo project with no outside users.
+
+## 5. Single host, Cursor on Windows — *not yet* (different model)
+
+- **Zero adoption, brand new.**
+- **Disproportionate for a freelancer** — about 4,000 lines of markdown and 8,300 of Python into
+  every client repository: *a second codebase to maintain per client*.
+- **Runs tools this reader doesn't understand** — a script that rewrites files, manages links,
+  injects rule blocks.
+- **Heavy ceremony for solo work.**
+- **Cursor support is second-class** — reached through a link that may need elevation on Windows.
+
+Compared: **Cursor's rules and memories** — native, thin; **Cursor Memory Bank** — the same idea at
+a tenth of the surface, easy to remove; **Spec Kit** — official Cursor integration; **BMAD**;
+**claude-task-master** — task breakdown only.
+
+Would change it: real adoption and months of stability; a plain description of what the install
+script does before running it; an opt-in light mode.
+
+Front page: *works today in Claude Code, Codex and Cursor* reads as parity, and the Windows link
+caveat it calls buried in `.agents/README.md` — *(though* Use it *carries it since `ccb66b1`,
+which this reader read)*; no maturity disclosure. *Everything else it documents was accurate to the
+code.*
+
+## Sources the third run cited
+
+[Claude Code memory](https://code.claude.com/docs/en/memory) ·
+[claude-mem guide](https://www.datacamp.com/tutorial/claude-mem-guide) ·
+[Mem0 for Claude Code](https://mem0.ai/blog/claude-code-memory) ·
+[spec frameworks compared](https://docs.bswen.com/blog/2026-08-07-ai-spec-frameworks-compared/) ·
+[OpenSpec](https://github.com/Fission-AI/openspec) ·
+[OpenSpec for existing projects](https://github.com/Fission-AI/OpenSpec/blob/main/docs/existing-projects.md) ·
+[best SDD tools](https://www.augmentcode.com/tools/best-spec-driven-development-tools) ·
+[ADRs for agents](https://dev.to/naman_here/adrs-for-ai-coding-agents-how-to-make-every-agent-read-architecture-decisions-3he4) ·
+[Beads](https://github.com/steveyegge/beads) ·
+[OpenSpec vs Spec Kit](https://hashrocket.com/blog/posts/openspec-vs-spec-kit-choosing-the-right-ai-driven-development-workflow-for-your-team)

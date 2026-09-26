@@ -40,6 +40,19 @@ reported or shown to you first:
 commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report
 ```
 
+**Why a loop.** Agents need keeping in check — most of all when one picks up where another
+stopped. Each step has an agent say what it will do and leave a record of what it did, so work can
+stop at any step and any agent can pick it up from the records, and the next agent, or you, can
+check the work instead of trusting it. You don't run the steps: the skills hand the work on to each
+other around the loop, so none needs calling by hand. What you gain is observability — what was
+decided, planned and verified, there to read when it matters. Every stop for your say is optional:
+a switch set to `auto` lets the loop run on, and `commit=auto` commits each piece of work once it
+is verified.
+
+Every session opens the same way: it names the version of the rules it runs and reads where the
+work stands. A session you drive by hand and one started to take a chunk of work unattended begin
+from the same place.
+
 The loop and its rules are in [AGENTS.md](AGENTS.md), every skill under
 [`.agents/skills/`](.agents/skills/), and the harness's vocabulary in
 [`.agents/glossary.md`](.agents/glossary.md).
@@ -75,8 +88,9 @@ The loop and its rules are in [AGENTS.md](AGENTS.md), every skill under
   your facts and overrides into the local file, your own skills beside the shipped ones — and
   `CLAUDE.md` becomes a one-line pointer to the entry file. It has come into a large existing
   codebase with no agent setup this way, and into a project with a smaller harness of its own.
-- Describing an existing codebase as you go: its architecture, decisions and glossary are written
-  with you at `/align` as the work reaches them.
+- Describing an existing codebase: the first session after install aligns with you on what the
+  project is, and its architecture, decisions and glossary are written from there, deepening as
+  the work reaches each part.
 - One home per rule, with drift detection; checks on the harness's own records and declarations.
   The harness is developed with itself.
 
