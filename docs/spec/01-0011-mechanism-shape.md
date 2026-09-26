@@ -503,9 +503,15 @@ shape. Not narrower: `corpus()` alone saves about a fifth; the harness is the re
 
 A good test here asserts external behavior: what a command reports, what a file contains after an
 operation, what a refusal refuses. It does not assert how the code is arranged. The existing
-`tests/` suite is the prior art — 72 behavioral tests over the maintenance scripts, each building a
-real temporary repository through `tests/harness.py` rather than reaching into this one, with
-refusals proved to change no byte and no Git index.
+`tests/` suite is the prior art — 72 behavioral tests over the maintenance scripts, each working in a
+temporary tree rather than reaching into this one, with refusals proved to change no byte.
+
+**A test builds a real repository only when Git, or a child process, is what it proves; every
+other test runs in a plain folder, and a guard refuses it any process at all** *(the user,
+2026-09-27, replacing "every test a real repository" of 2026-09-06)*. The guard carries what the
+index snapshot used to: a test that can start no process cannot change the index. The measured
+reason — process starts were nine tenths of every test, for ~23 tests of 342 whose subject is Git —
+is on [01-0011.0080 a-test-pays-only-for-what-it-proves](../tickets/01-0011.0080-a-test-pays-only-for-what-it-proves.md).
 
 Four modules, all to be tested — **agreed with the user 2026-09-06**:
 
