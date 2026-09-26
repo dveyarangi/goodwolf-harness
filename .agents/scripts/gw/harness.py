@@ -621,12 +621,29 @@ def _normalised(text: str) -> str:
 # --- copy, links, inject ---------------------------------------------------------------------
 
 
+def _holds(target: Path, path: str, text: str) -> bool:
+    """Whether the copy already holds exactly what ships, its own local block set aside: such a
+    file is left alone and not reported written, so an update's report names only what changed."""
+    copy = target / path
+    if not copy.is_file():
+        return False
+    current = _read(copy)
+    if path.endswith(".md"):
+        try:
+            current = without_local_blocks(path, current)
+        except Refused:
+            return False
+    return current == text
+
+
 def _write(target: Path, shipment: Shipment, previous: Shipment | None, report: Report) -> None:
     """Every manifest file, then what left the manifest since the previous ref. A failure partway
     is reported in the mover's form — done, pending, the failed path — and nothing is rolled back."""
     planned = list(shipment.files.items())
     done: list[str] = []
     for path, text in planned:
+        if _holds(target, path, text):
+            continue
         try:
             _write_text(target / path, text)
         except OSError as failure:

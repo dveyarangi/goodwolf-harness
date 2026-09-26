@@ -120,8 +120,16 @@ class Escapes(RepositoryCase):
                 _winapi.CreateJunction(str(target), str(link))
             except OSError:
                 return False
-        self.addCleanup(link.rmdir)
+        self.addCleanup(self._remove_link, link)
         return True
+
+    @staticmethod
+    def _remove_link(link) -> None:
+        # A POSIX symlink goes through unlink; a junction or a Windows directory symlink through rmdir.
+        try:
+            link.unlink()
+        except OSError:
+            link.rmdir()
 
 
 if __name__ == "__main__":

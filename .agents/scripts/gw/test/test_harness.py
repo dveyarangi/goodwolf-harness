@@ -649,6 +649,16 @@ class AnUpdate(TwoTrees):
         self.assertTrue(report["gates"]["ref"]["passed"], report["gates"]["ref"])
         self.assertTrue(report["gates"]["injector"]["passed"], report["gates"]["injector"])
 
+    def test_reports_written_only_the_files_that_changed(self) -> None:
+        self.write(KEEPER, "# Keeper\n\nKeep more things.\n")
+        self.commit("core moved")
+
+        status, report = self.run_harness("--update")
+
+        self.assertIn(KEEPER, report["written"])
+        self.assertIn("AGENTS.md", report["written"], "the announce line names the new ref")
+        self.assertNotIn(".agents/glossary.md", report["written"])
+
     def test_deletes_what_left_the_manifest_and_the_directories_it_emptied_when_the_line_announces_a_ref(self) -> None:
         self.remove(".agents/glossary.md", ".agents/scripts/gw/test")
         self.commit("the glossary and the shipped tests leave")
@@ -719,7 +729,7 @@ class AnUpdate(TwoTrees):
 class ATreeInstalledUnderEarlierRules(TwoTrees):
     """A recipient announcing a ref that today's shipping rules would refuse: no arrival shelf, a
     harness skill with no Repository line, and a test outside `gw/test/` citing a record only the
-    origin has. frost_map and ai-game-1 are that shape. What such a ref shipped is read to compare
+    origin has. What such a ref shipped is read to compare
     against and to know what left the manifest, and is never shipped again, so none of the three
     may stop a check or an update.
 
@@ -887,7 +897,7 @@ class TheDeliveryStatus(TwoTrees):
 
     def test_an_install_leaves_a_record_the_tree_brought_with_it(self) -> None:
         # An install refuses only over manifest paths, and this is not one — so a tree that
-        # already keeps its own docs/ receives core beside them. ai-game-1 is that shape.
+        # already keeps its own docs/ receives core beside them.
         theirs = "# Материалы\n\nThe project's own queue, in its own words.\n"
         record = self.target / DELIVERY_STATUS
         record.parent.mkdir(parents=True, exist_ok=True)

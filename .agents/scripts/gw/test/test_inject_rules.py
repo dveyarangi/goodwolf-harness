@@ -659,6 +659,13 @@ class FailingMidWrite(RepositoryCase):
         self.write(self.OTHER, TARGET_TEXT)
         os.chmod(self.root / self.OTHER, stat.S_IREAD)
         self.addCleanup(os.chmod, self.root / self.OTHER, stat.S_IWRITE | stat.S_IREAD)
+        try:
+            with (self.root / self.OTHER).open("a", encoding="utf-8"):
+                pass
+        except PermissionError:
+            pass
+        else:
+            self.skipTest("this user may write a read-only file, as root may")
 
     def test_a_target_that_cannot_be_written_is_reported_with_what_landed_and_what_did_not(self) -> None:
         said = io.StringIO()
