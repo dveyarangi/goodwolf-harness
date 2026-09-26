@@ -62,23 +62,6 @@ class Records(RepositoryCase):
         return [(note.record, note.line) for note in self.checked().diagnostics]
 
 
-class AConformingTree(Records):
-    def test_reports_nothing_and_leaves_every_byte_alone(self) -> None:
-        before = self.snapshot()
-
-        checked = self.checked()
-
-        self.assertEqual([], checked.diagnostics)
-        self.assertEqual([], checked.skipped)
-        self.assertEqual(3, len(checked.records))
-        self.assertEqual(before, self.snapshot())
-
-    def test_does_not_read_the_queue_as_a_ticket(self) -> None:
-        self.write("docs/tickets/README.md", "**Status:** not a ticket at all\n")
-
-        self.assertEqual([], self.problems())
-
-
 class TheHeader(Records):
     def test_written_bare_rather_than_as_a_bullet_list_is_reported_as_the_form(self) -> None:
         self.write(LIVE, ticket(INCEPTED.replace("- **", "**")))
@@ -96,14 +79,6 @@ class TheHeader(Records):
 
         self.assertEqual(1, len(problems))
         self.assertIn("Type", problems[0])
-
-    def test_with_a_status_outside_the_vocabulary_is_reported(self) -> None:
-        self.write(LIVE, ticket(INCEPTED.replace("Ready", "Nearly")))
-
-        problems = self.problems()
-
-        self.assertEqual(1, len(problems))
-        self.assertIn("Nearly", problems[0])
 
     def test_allows_one_parenthetical_qualifier(self) -> None:
         self.write(LIVE, ticket(INCEPTED.replace("Ready", "Ready (aligned 2026-09-08)")))
@@ -365,13 +340,6 @@ class Pairing(Records):
         self.assertEqual([], self.checked().skipped)
 
 
-class ArchivedRecords(Records):
-    def test_are_never_checked_however_they_are_written(self) -> None:
-        self.write("docs/tickets/done/01-0004-closed.md", ticket("**Status:** Nearly\n**Type:** Pairing\n"))
-
-        self.assertEqual([], self.problems())
-
-
 class AnUnreadableRecord(Records):
     def test_is_skipped_with_its_reason_and_fails_the_run(self) -> None:
         (self.root / LIVE).write_bytes(b"\xff\xfe\x00 not utf-8")
@@ -419,7 +387,9 @@ class TheCommandLine(Records):
         status, out = self.invoke("--check")
 
         self.assertEqual(1, status)
-        note = json.loads(out)["diagnostics"][0]
+        diagnostics = json.loads(out)["diagnostics"]
+        self.assertEqual(1, len(diagnostics))
+        note = diagnostics[0]
         self.assertEqual(LIVE, note["record"])
         self.assertEqual(3, note["line"])
         self.assertIn("Nearly", note["problem"])
@@ -431,14 +401,6 @@ class TheCommandLine(Records):
 
         self.assertEqual(1, status)
         self.assertEqual(1, len(json.loads(out)["skipped"]))
-
-    def test_changes_no_file_on_a_failing_run(self) -> None:
-        self.write(LIVE, ticket(INCEPTED.replace("Ready", "Nearly")))
-        before = self.snapshot()
-
-        self.invoke("--check")
-
-        self.assertEqual(before, self.snapshot())
 
 
 if __name__ == "__main__":

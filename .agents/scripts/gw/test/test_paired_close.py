@@ -25,17 +25,13 @@ class PairedClose(RepositoryCase):
         )
         self.commit()
 
-    def test_the_pair_lands_in_done_citing_each_other_at_their_final_homes(self) -> None:
+    def test_the_pair_lands_in_done_citing_each_other_and_the_queue_follows(self) -> None:
         move_doc.perform(self.root, [(TICKET, CLOSED_TICKET), (RFC, CLOSED_RFC)])
 
         self.assertFalse((self.root / TICKET).exists())
         self.assertFalse((self.root / RFC).exists())
         self.assertIn("../../rfc/done/01-0010.0040-install-plan.md", self.read(CLOSED_TICKET))
         self.assertIn("../../tickets/done/01-0010.0040-install-plan.md", self.read(CLOSED_RFC))
-
-    def test_the_queue_follows_the_ticket_into_done_and_keeps_its_prose(self) -> None:
-        move_doc.perform(self.root, [(TICKET, CLOSED_TICKET), (RFC, CLOSED_RFC)])
-
         self.assertEqual(
             "# Delivery status\n\n| [Install /plan](done/01-0010.0040-install-plan.md) | Done |\n",
             self.read("docs/tickets/README.md"),

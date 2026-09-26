@@ -28,6 +28,7 @@ class InterruptedClose(RepositoryCase):
 
     def test_a_failure_on_the_second_record_stops_and_reports_both_halves(self) -> None:
         self.write("docs/rfc/done", "a file where the archive folder should be")
+        rfc_before, queue_before = self.read(RFC), self.read(QUEUE)
 
         with self.assertRaises(move_doc.CloseInterrupted) as stopped:
             move_doc.perform(self.root, self.pairs)
@@ -35,14 +36,6 @@ class InterruptedClose(RepositoryCase):
         self.assertEqual([f"{TICKET} -> {CLOSED_TICKET}"], stopped.exception.completed)
         self.assertIn(f"{RFC} -> {CLOSED_RFC}", stopped.exception.pending)
         self.assertEqual(CLOSED_RFC, stopped.exception.failed)
-
-    def test_the_records_the_failed_close_never_reached_are_untouched(self) -> None:
-        self.write("docs/rfc/done", "a file where the archive folder should be")
-        rfc_before, queue_before = self.read(RFC), self.read(QUEUE)
-
-        with self.assertRaises(move_doc.CloseInterrupted):
-            move_doc.perform(self.root, self.pairs)
-
         self.assertTrue((self.root / CLOSED_TICKET).exists(), "the first record did move")
         self.assertEqual(rfc_before, self.read(RFC))
         self.assertEqual(queue_before, self.read(QUEUE))
@@ -98,23 +91,6 @@ class InterruptedClose(RepositoryCase):
 
         self.assertEqual(edited, self.read(QUEUE))
         self.assertEqual(QUEUE, stopped.exception.failed)
-
-
-class Progress(RepositoryCase):
-    def setUp(self) -> None:
-        super().setUp()
-        self.write(TICKET, "# Install /plan\n")
-        self.write(QUEUE, "# Queue\n\n[plan](01-0010.0040-install-plan.md)\n")
-        self.commit()
-
-    def test_each_operation_is_announced_as_it_happens(self) -> None:
-        announced: list[str] = []
-
-        move_doc.perform(self.root, [(TICKET, CLOSED_TICKET)], announce=announced.append)
-
-        self.assertEqual(
-            [f"moved {TICKET} -> {CLOSED_TICKET}", f"repaired citations in {QUEUE}"], announced
-        )
 
 
 if __name__ == "__main__":

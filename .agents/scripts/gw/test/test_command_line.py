@@ -37,8 +37,8 @@ class CommandLine(RepositoryCase):
         status, said = self.run_mover("--dry-run", TICKET, CLOSED_TICKET, RFC, CLOSED_RFC)
 
         self.assertEqual(0, status)
-        self.assertIn(CLOSED_TICKET, said)
-        self.assertIn(QUEUE, said)
+        self.assertIn(f"would move {TICKET} -> {CLOSED_TICKET}", said)
+        self.assertIn(f"would repair citations in {QUEUE}", said)
         self.assertEqual(untouched, self.snapshot())
 
     def test_a_refused_selection_says_why_and_leaves_the_tree_alone(self) -> None:
@@ -61,7 +61,12 @@ class CommandLine(RepositoryCase):
 
         self.assertEqual(0, status)
         self.assertIn(f"moved {TICKET} -> {CLOSED_TICKET}", said)
-        self.assertIn(QUEUE, said)
+        self.assertIn(f"repaired citations in {QUEUE}", said)
+        self.assertLess(
+            said.index(f"moved {TICKET} -> {CLOSED_TICKET}"),
+            said.index(f"repaired citations in {QUEUE}"),
+            "each operation is announced in the order it happens",
+        )
         self.assertTrue((self.root / CLOSED_RFC).exists())
 
     def test_an_interrupted_close_reports_the_half_it_finished(self) -> None:
@@ -88,10 +93,6 @@ class CommandLine(RepositoryCase):
         self.assertIn("still names", said)
 
 
-if __name__ == "__main__":
-    unittest.main()
-
-
 class OutgoingReferences(RepositoryCase):
     def setUp(self) -> None:
         super().setUp()
@@ -112,3 +113,7 @@ class OutgoingReferences(RepositoryCase):
         self.assertEqual(0, status, "a defect that predates the close does not fail it")
         self.assertIn("../../spec/never-written.md", said)
         self.assertIn("leads nowhere", said)
+
+
+if __name__ == "__main__":
+    unittest.main()

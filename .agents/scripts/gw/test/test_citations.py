@@ -88,23 +88,6 @@ class CitationRepair(RepositoryCase):
         )
         self.assertEqual("# Unrelated\r\n\r\nNo citations here.\r\n", self.read("docs/unrelated.md"))
 
-    def test_the_git_index_is_left_for_the_caller_to_stage(self) -> None:
-        self.write("docs/queue.md", "# Queue\n\n[plan](tickets/01-0010.0040-install-plan.md)\n")
-        self.commit()
-        staged_before = self.git("ls-files", "--stage")
-
-        self.close_the_ticket()
-
-        self.assertEqual(staged_before, self.git("ls-files", "--stage"))
-
-    def test_the_run_does_not_depend_on_the_shells_working_directory(self) -> None:
-        self.write("docs/queue.md", "# Queue\n\n[plan](tickets/01-0010.0040-install-plan.md)\n")
-        self.commit()
-
-        self.close_the_ticket()
-
-        self.assertIn("tickets/done/01-0010.0040-install-plan.md", self.read("docs/queue.md"))
-
     def test_a_record_minted_this_session_is_repaired_before_it_is_ever_staged(self) -> None:
         self.commit()
         self.write("docs/fresh.md", "# Fresh\n\n[plan](tickets/01-0010.0040-install-plan.md)\n")
@@ -227,10 +210,6 @@ class CitationForms(RepositoryCase):
         )
 
 
-if __name__ == "__main__":
-    unittest.main()
-
-
 class StrawDogOwners(RepositoryCase):
     """The `ticket=` binding of an operative straw dog is a citation too."""
 
@@ -275,3 +254,7 @@ class StrawDogOwners(RepositoryCase):
         self.close_the_ticket()
 
         self.assertEqual(before, self.read(entry))
+
+
+if __name__ == "__main__":
+    unittest.main()

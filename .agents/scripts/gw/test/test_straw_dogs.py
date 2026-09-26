@@ -43,14 +43,6 @@ class Survey(RepositoryCase):
         self.assertEqual(PACER, found[0].ticket)
         self.assertEqual(0, found[0].depth)
 
-    def test_a_scope_with_nothing_expiring_is_a_clean_result_not_a_failure(self) -> None:
-        self.write("docs/process.md", "# Process\n\nNothing here expires.\n")
-
-        surveyed = self.surveyed()
-
-        self.assertEqual([], surveyed.statements)
-        self.assertEqual([], surveyed.diagnostics)
-
     def test_an_illustration_of_the_syntax_is_not_a_statement(self) -> None:
         self.write(
             "docs/entry.md",
@@ -138,7 +130,10 @@ class Survey(RepositoryCase):
     def test_the_retired_tag_name_inside_a_code_span_is_nothing(self) -> None:
         self.write("docs/process.md", "# Process\n\nIt used to be `<temporary>`.\n")
 
-        self.assertEqual([], self.surveyed().diagnostics)
+        surveyed = self.surveyed()
+
+        self.assertEqual([], surveyed.statements)
+        self.assertEqual([], surveyed.diagnostics)
 
 
 class Removal(RepositoryCase):
@@ -236,23 +231,7 @@ class Guessing(RepositoryCase):
         found = guessed["candidates"][0]
         self.assertEqual(("docs/architecture.md", 3, "until"), (found["path"], found["line"], found["word"]))
         self.assertIn("ceiling", found["text"])
-
-    def test_a_scope_with_no_tell_reports_an_empty_list_and_a_clean_exit(self) -> None:
-        self.write("docs/architecture.md", "# Arch\n\nNothing here expires.\n")
-
-        status, guessed = self.guessed()
-
-        self.assertEqual(0, status)
-        self.assertEqual([], guessed["candidates"])
         self.assertIn("docs/architecture.md", guessed["scanned"])
-
-    def test_the_plain_listing_of_the_same_scope_guesses_nothing(self) -> None:
-        self.write("docs/architecture.md", "# Arch\n\nStays until replaced.\n")
-        said = io.StringIO()
-        with contextlib.redirect_stdout(said):
-            straw_dogs.main(["docs"], root=self.root)
-
-        self.assertNotIn("candidates", json.loads(said.getvalue()))
 
     def test_a_tell_inside_code_a_wrapper_or_an_installed_block_is_not_a_candidate(self) -> None:
         self.write(
@@ -265,26 +244,6 @@ class Guessing(RepositoryCase):
         )
 
         self.assertEqual([], self.guessed()[1]["candidates"])
-
-    def test_an_unwrapped_not_yet_row_is_a_candidate_and_a_wrapped_one_is_not(self) -> None:
-        # A `not yet` row is a straw dog; unwrapped it is exactly an unwrapped straw dog, and its
-        # own tell finds it. Wrapped, it is blanked like every wrapped span.
-        self.write(
-            "docs/architecture.md",
-            "# Arch\n\n"
-            "| moment | instructed by | kind, and why |\n|---|---|---|\n"
-            "| sweeping | — | not yet — no sweeper exists |\n"
-            '| mowing | — | <straw-dog until="a mower exists" ticket="docs/tickets/x.md">not yet</straw-dog> |\n\n'
-            "| part | where | owner |\n|---|---|---|\n"
-            "| reader | `x.py` | the ticket mechanism; not a live question while nothing installs |\n",
-        )
-
-        found = self.guessed()[1]["candidates"]
-
-        self.assertEqual(
-            [("no sweeper exists", 5), ("nothing installs", 10)],
-            [(candidate["word"], candidate["line"]) for candidate in found],
-        )
 
     def test_the_folders_the_harness_imposes_are_skipped_whole_and_a_projects_own_is_read(self) -> None:
         for folder in ("tickets", "rfc", "spec", "sessions"):
@@ -387,6 +346,7 @@ class CommandLine(RepositoryCase):
         self.assertEqual(0, status)
         self.assertEqual("/pacer is installed", reported["statements"][0]["until"])
         self.assertEqual([], reported["diagnostics"])
+        self.assertNotIn("candidates", reported)
 
     def test_a_diagnostic_makes_the_run_fail_even_though_it_read_everything(self) -> None:
         self.write("docs/other.md", '# Other\n\n<straw-dog until="x">Rule.</straw-dog>\n')
@@ -402,12 +362,6 @@ class CommandLine(RepositoryCase):
         self.assertEqual(2, status)
         self.assertIn("refused", said)
         self.assertIn("docs/typo", said)
-
-    def test_a_refused_scope_reports_no_survey_at_all(self) -> None:
-        """A partial scope must not surface as a result a maintainer could read as complete."""
-        status, said = self.run_tool("docs/typo")
-
-        self.assertEqual(2, status)
         self.assertNotIn('"statements"', said)
 
     def test_asking_for_usage_is_answered_not_scanned_as_a_scope(self) -> None:

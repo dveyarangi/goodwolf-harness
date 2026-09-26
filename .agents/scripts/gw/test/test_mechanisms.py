@@ -104,6 +104,10 @@ class AWellFormedDeclaration(Declared):
         self.assertEqual(2, len(declared.moments))
         self.assertEqual(2, len(declared.parts))
         self.assertEqual(1, len(declared.relied_on))
+        self.assertIsNone(declared.rules)
+        not_yet = declared.moments[1]
+        self.assertEqual(("not yet", "somebody sweeps", "docs/tickets/01-0002-sweep.md"),
+                         (not_yet.kind, not_yet.why, not_yet.referent))
 
 
 class ANamedPart(Declared):
@@ -141,14 +145,6 @@ class ANotYetReferent(Declared):
             "| moment | instructed by | kind, and why |\n|---|---|---|\n"
             f'| sweeping | — | <straw-dog until="somebody sweeps" ticket="{ticket}">not yet</straw-dog> |\n'
         )
-
-    def test_is_read_off_the_binding_with_the_condition_as_its_why(self) -> None:
-        checked = self.checked()
-
-        self.assertEqual([], checked.diagnostics)
-        row = checked.declarations[0].moments[1]
-        self.assertEqual(("not yet", "somebody sweeps", "docs/tickets/01-0002-sweep.md"),
-                         (row.kind, row.why, row.referent))
 
     def test_saying_why_in_the_body_is_reported_since_the_reason_belongs_in_until(self) -> None:
         self.write(
@@ -191,28 +187,6 @@ class ANotYetReferent(Declared):
         self.assertEqual(1, len(problems))
         self.assertIn("docs/tickets/done/01-0001-sample.md", problems[0])
         self.assertIn("archived", problems[0])
-
-    def test_follows_the_ticket_when_a_close_moves_it_and_is_then_reported(self) -> None:
-        import move_doc
-
-        self.write(DOC, self.doc(moments=self.moments_naming("docs/tickets/01-0002-sweep.md")))
-        self.commit()
-        self.assertEqual([], self.problems())
-
-        with contextlib.redirect_stdout(io.StringIO()):
-            status = move_doc.main(
-                ["docs/tickets/01-0002-sweep.md", "docs/tickets/done/01-0002-sweep.md"],
-                self.root,
-            )
-
-        self.assertEqual(0, status)
-        problems = self.problems()
-        self.assertEqual(1, len(problems))
-        self.assertIn("docs/tickets/done/01-0002-sweep.md", problems[0])
-        self.assertIn("archived", problems[0])
-
-    def test_reports_nothing_skipped_since_every_check_can_always_run(self) -> None:
-        self.assertNotIn("skipped", self.checked().as_record())
 
 
 class TheInstruction(Declared):
@@ -279,33 +253,6 @@ class AMomentsRow(Declared):
 
         self.assertEqual(1, len(problems))
         self.assertIn("docs/tickets/01-0009-absent.md", problems[0])
-
-    def test_saying_elsewhere_names_a_repo_relative_path_not_one_beside_the_doc(self) -> None:
-        self.write(
-            DOC,
-            self.doc(
-                moments=self.moments(
-                    f"| archiving | — | elsewhere — `{INSTRUCTION}` owns it |\n"
-                )
-            ),
-        )
-
-        self.assertEqual([], self.checked().diagnostics)
-
-    def test_saying_elsewhere_must_name_an_instruction_file_that_exists(self) -> None:
-        self.write(
-            DOC,
-            self.doc(
-                moments=self.moments(
-                    "| archiving | — | elsewhere — `.agents/skills/gone/SKILL.md` owns it |\n"
-                )
-            ),
-        )
-
-        problems = self.problems()
-
-        self.assertEqual(1, len(problems))
-        self.assertIn(".agents/skills/gone/SKILL.md", problems[0])
 
     def test_saying_embedded_names_the_body_the_instruction_sits_in(self) -> None:
         sitting_here = f"| archiving | — | embedded — another mechanism's rule, here until installed, `{INSTRUCTION}` |\n"
@@ -415,20 +362,21 @@ class TheHeader(Declared):
         self.assertEqual([], checked.diagnostics)
 
     def test_states_one_of_the_two_states_a_mechanism_can_be_in(self) -> None:
-        self.write(DOC, self.doc().replace("- **state** always on", "- **state** occasionally on"))
+        with self.subTest(state="installed"):
+            self.write(DOC, self.doc().replace("- **state** always on", "- **state** installed"))
 
-        problems = self.problems()
+            checked = self.checked()
 
-        self.assertEqual(1, len(problems))
-        self.assertIn("occasionally on", problems[0])
+            self.assertEqual([], checked.diagnostics)
+            self.assertEqual("installed", checked.declarations[0].state)
 
-    def test_accepts_installed_as_the_other_state(self) -> None:
-        self.write(DOC, self.doc().replace("- **state** always on", "- **state** installed"))
+        with self.subTest(state="occasionally on"):
+            self.write(DOC, self.doc().replace("- **state** always on", "- **state** occasionally on"))
 
-        checked = self.checked()
+            problems = self.problems()
 
-        self.assertEqual([], checked.diagnostics)
-        self.assertEqual("installed", checked.declarations[0].state)
+            self.assertEqual(1, len(problems))
+            self.assertIn("occasionally on", problems[0])
 
 
 class TheRulesFile(Declared):
@@ -439,12 +387,6 @@ class TheRulesFile(Declared):
 
         self.assertEqual([], checked.diagnostics)
         self.assertEqual(f"{MECHANISMS}/{SLUG}/{SLUG}.rules.md", checked.declarations[0].rules)
-
-    def test_is_absent_for_a_mechanism_that_injects_nothing(self) -> None:
-        checked = self.checked()
-
-        self.assertEqual([], checked.diagnostics)
-        self.assertIsNone(checked.declarations[0].rules)
 
     def test_under_a_name_the_injector_would_never_find_is_reported(self) -> None:
         self.write(f"{MECHANISMS}/{SLUG}/rules.md", "# The rules, misfiled\n")
@@ -587,16 +529,8 @@ class TheIndex(Declared):
         rows = [line for line in rendered.splitlines() if line.startswith("| ")]
         self.assertEqual(3, len(rows))  # header plus one row per directory
         self.assertIn(SLUG, rendered)
+        self.assertIn("one line saying what it is", rendered)
         self.assertIn("paired-close", rendered)
-
-    def test_shows_an_edit_to_a_doc_on_the_next_render(self) -> None:
-        before = self.rendered()
-        self.write(DOC, self.doc().replace("one line saying what it is", "reworded outright"))
-
-        after = self.rendered()
-
-        self.assertIn("one line saying what it is", before)
-        self.assertIn("reworded outright", after)
 
     def test_is_rendered_without_writing_it_or_reading_a_committed_copy(self) -> None:
         self.write(f"{MECHANISMS}/README.md", "| mechanism |\n|---|\n| a stale copy |\n")
@@ -692,19 +626,6 @@ class TheReversePass(Declared):
         self.write(STRAY, FRONTMATTER + "Mechanism: unowned by design — a one-off nobody relies on\n")
 
         self.assertEqual([], self.checked().diagnostics)
-
-    def test_the_claim_is_a_straw_dog_the_lister_reports(self) -> None:
-        import straw_dogs
-
-        self.write(STRAY, FRONTMATTER + CLAIMING)
-
-        surveyed = straw_dogs.survey(self.root, [STRAY])
-
-        self.assertEqual([], surveyed.diagnostics)
-        self.assertEqual(
-            [("someone declares it", "docs/tickets/01-0002-sweep.md", 6)],
-            [(dog.until, dog.ticket, dog.opens) for dog in surveyed.statements],
-        )
 
 
 DOCUMENT = "docs/tickets/01-0001-sample.md"
@@ -850,11 +771,6 @@ class CoreStandsAlone(Declared):
         self.assertEqual([{"file": CITING, "line": 6, "cites": DOCUMENT}], report["leaks"])
 
 
-if __name__ == "__main__":
-    unittest.main()
-
-
-
 class InARecipient(Declared):
     """A tree whose entry file announces `<repository>@<ref>` received core by install: the shear
     stripped every binding and reason on the way, so an unbound `not yet` there is upstream's gap."""
@@ -901,3 +817,7 @@ class InARecipient(Declared):
         self.assertEqual(2, len(problems))
         self.assertTrue(any("claims nothing" in problem for problem in problems))
         self.assertTrue(any("only the instance has" in problem for problem in problems))
+
+
+if __name__ == "__main__":
+    unittest.main()

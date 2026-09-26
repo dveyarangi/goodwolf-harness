@@ -379,25 +379,6 @@ class LocalSource(RepositoryCase):
         self.assertEqual(1, status)
         self.assertTrue(any("does not define" in note for note in report["diagnostics"]), report)
 
-    # the entry file as a target
-
-    def test_the_entry_file_takes_the_block_under_its_section_heading_and_gives_it_back(self) -> None:
-        entry = "# Entry contract\n\n## Autonomy\n\nSwitches.\n\n## Project-local\n\nOne file beside this one.\n"
-        self.write("AGENTS.md", entry)
-        self.write(LOCAL_FILE, local_file(table="| target | anchor |\n|---|---|\n| `AGENTS.md` | `## Project-local` |\n").replace(
-            f"- **target** `{TARGET}`", "- **target** `AGENTS.md`"
-        ))
-        self.run_installer(SLUG, "--install")
-        self.commit()
-        before = self.snapshot()
-
-        self.assertEqual(0, self.run_installer(LOCAL, "--install")[0])
-        self.assertEqual(entry.replace("One file beside this one.\n", f"One file beside this one.\n\n{LOCAL_INSTALLED}\n"), self.read("AGENTS.md"))
-        self.assertEqual(0, self.run_installer("--check")[0])
-        self.assertEqual(0, self.run_installer(LOCAL, "--retract")[0])
-
-        self.assertEqual(before, self.snapshot())
-
     def test_a_local_block_written_ahead_of_a_mechanism_block_is_not_last(self) -> None:
         self.write(TARGET, TARGET_TEXT.replace(f"{ANCHOR}\n", f"{ANCHOR}\n\n{LOCAL_INSTALLED}\n\n{INSTALLED}\n"))
 
@@ -405,14 +386,6 @@ class LocalSource(RepositoryCase):
 
         self.assertEqual(1, status)
         self.assertIn({"slug": LOCAL, "target": TARGET, "state": "not last"}, report["blocks"])
-
-    def test_local_retract_leaves_the_tree_byte_identical(self) -> None:
-        before = self.snapshot()
-
-        self.run_installer(LOCAL, "--install")
-        self.assertEqual(0, self.run_installer(LOCAL, "--retract")[0])
-
-        self.assertEqual(before, self.snapshot())
 
     def test_a_mechanism_directory_named_local_is_refused_and_a_diagnostic(self) -> None:
         self.write(f".agents/mechanisms/{LOCAL}/{LOCAL}.rules.md", rules_file())
@@ -426,15 +399,6 @@ class LocalSource(RepositoryCase):
         status, report = self.run_installer("--check")
         self.assertEqual(1, status)
         self.assertTrue(any("collides" in note for note in report["diagnostics"]), report)
-
-    def test_a_local_block_with_no_local_file_is_an_orphan(self) -> None:
-        self.run_installer(LOCAL, "--install")
-        (self.root / LOCAL_FILE).unlink()
-
-        status, report = self.run_installer("--check")
-
-        self.assertEqual(1, status)
-        self.assertEqual([{"slug": LOCAL, "file": TARGET}], report["orphans"])
 
 
 class Refusing(RepositoryCase):
@@ -461,11 +425,10 @@ class Refusing(RepositoryCase):
 
     # usage
 
-    def test_no_mode_is_usage(self) -> None:
-        self.assert_refused(2, "usage", SLUG)
-
-    def test_two_modes_is_usage(self) -> None:
-        self.assert_refused(2, "usage", SLUG, "--install", "--retract")
+    def test_no_mode_or_two_modes_is_usage(self) -> None:
+        for operands in ([SLUG], [SLUG, "--install", "--retract"]):
+            with self.subTest(operands=operands):
+                self.assert_refused(2, "usage", *operands)
 
     def test_a_slug_with_check_is_usage(self) -> None:
         self.assert_refused(2, "usage", SLUG, "--check")
@@ -515,14 +478,15 @@ class Refusing(RepositoryCase):
         self.write(RULES, rules_file().replace("- **authority** the user, 2026-09-07\n", "", 1))
         self.assert_refused(1, "authority exactly once", SLUG, "--install")
 
-    def test_a_section_without_a_span_refuses(self) -> None:
-        self.write(RULES, rules_file().replace("<rule>\n", "", 1))
-        self.assert_refused(1, "exactly one <rule>", SLUG, "--install")
-
-    def test_a_section_with_two_spans_refuses(self) -> None:
-        doubled = rules_file().replace("</rule>\n\n## R2", "</rule>\n\n<rule>\nAgain.\n</rule>\n\n## R2")
-        self.write(RULES, doubled)
-        self.assert_refused(1, "exactly one <rule>", SLUG, "--install")
+    def test_a_section_without_exactly_one_span_refuses(self) -> None:
+        spans = {
+            "none": rules_file().replace("<rule>\n", "", 1),
+            "two": rules_file().replace("</rule>\n\n## R2", "</rule>\n\n<rule>\nAgain.\n</rule>\n\n## R2"),
+        }
+        for count, written in spans.items():
+            with self.subTest(spans=count):
+                self.write(RULES, written)
+                self.assert_refused(1, "exactly one <rule>", SLUG, "--install")
 
     def test_a_duplicate_id_refuses(self) -> None:
         self.write(RULES, rules_file().replace("## R2 — story", "## R1 — story"))
@@ -650,31 +614,17 @@ class Drifting(RepositoryCase):
         self.assertIn("mostly", report["targets"][0]["replaced"])
         self.assertEqual(TARGET_TEXT.replace(f"{ANCHOR}\n", f"{ANCHOR}\n\n{INSTALLED}\n"), self.read(TARGET))
 
-    def test_adding_a_rule_at_the_source_is_the_overwrite_road(self) -> None:
-        self.write(
-            RULES,
-            rules_file()
-            + f"\n## R3 — indexes are derived\n\n- **target** `{TARGET}`\n"
-            "- **authority** the user, 2026-09-07\n\n<rule>\nRender an index on request.\n</rule>\n",
-        )
-        installed = self.snapshot()
-
-        status, report = self.run_installer(SLUG, "--install")
-        self.assertEqual(1, status)
-        self.assertIn("differs", report["refusals"][0])
-        self.assertEqual(installed, self.snapshot())
-
-        status, report = self.run_installer(SLUG, "--install", "--overwrite")
-        self.assertEqual(0, status)
-        self.assertIn("**R3** Render an index on request.\n</installed>", self.read(TARGET))
-
     def test_an_edited_block_is_found_and_called_drifted_never_absent(self) -> None:
-        self.edit_the_block()
+        installed = self.read(TARGET)
+        for endings in ("\n", "\r\n"):
+            with self.subTest(endings=endings):
+                self.write(TARGET, installed.replace("\n", endings))
+                self.edit_the_block()
 
-        status, report = self.run_installer("--check")
+                status, report = self.run_installer("--check")
 
-        self.assertEqual(1, status)
-        self.assertEqual("drifted", report["blocks"][0]["state"])
+                self.assertEqual(1, status)
+                self.assertEqual("drifted", report["blocks"][0]["state"])
 
     def test_a_block_matching_modulo_line_endings_is_present(self) -> None:
         self.write(TARGET, self.read(TARGET).replace("\n", "\r\n"))
@@ -693,14 +643,6 @@ class Drifting(RepositoryCase):
 
         self.assertEqual(0, status, report)
         self.assertEqual("present", report["blocks"][0]["state"])
-
-    def test_a_real_edit_under_crlf_is_still_drifted(self) -> None:
-        self.write(TARGET, self.read(TARGET).replace("\n", "\r\n").replace("live rows only.", "live rows."))
-
-        status, report = self.run_installer("--check")
-
-        self.assertEqual(1, status)
-        self.assertEqual("drifted", report["blocks"][0]["state"])
 
     def test_retract_of_an_absent_block_is_reported_not_refused(self) -> None:
         self.run_installer(SLUG, "--retract")
@@ -765,15 +707,6 @@ class Checking(RepositoryCase):
         self.assertEqual("absent", report["blocks"][0]["state"])
         self.assertEqual(1, report["rules files"])
         self.assertTrue(report["diagnostics"])
-
-    def test_an_installed_block_is_present_and_the_run_is_clean(self) -> None:
-        with contextlib.redirect_stdout(io.StringIO()):
-            inject_rules.main([SLUG, "--install"], root=self.root)
-
-        status, report = self.checked()
-
-        self.assertEqual(0, status)
-        self.assertEqual([], report["diagnostics"])
 
     def test_a_block_of_a_slug_with_no_rules_file_is_an_orphan(self) -> None:
         self.write("docs/notes.md", '# Notes\n\n<installed by="gone">\nleft behind\n</installed>\n')

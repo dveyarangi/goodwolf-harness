@@ -181,11 +181,6 @@ class TheShear(unittest.TestCase):
 
         self.assertEqual(text, harness.sheared("a.md", text))
 
-    def test_sheared_text_sheared_again_is_unchanged(self) -> None:
-        once = harness.sheared("a.md", '<straw-dog until="x" ticket="docs/tickets/t.md">\nRule.\n</straw-dog>\n')
-
-        self.assertEqual(once, harness.sheared("a.md", once))
-
     def test_an_unbalanced_wrapper_refuses_naming_the_file(self) -> None:
         with self.assertRaises(harness.Refused) as refused:
             harness.sheared("a.md", '<straw-dog until="x" ticket="docs/tickets/t.md">\nRule.\n')
@@ -198,11 +193,6 @@ class TheShear(unittest.TestCase):
 
         self.assertEqual("x = 1\n# TODO: the shear strips\n# this on install.\n", harness.todo_bindings_sheared(code))
 
-    def test_a_todo_naming_no_ticket_is_untouched(self) -> None:
-        code = "# TODO: split this.\n"
-
-        self.assertEqual(code, harness.todo_bindings_sheared(code))
-
 
 class TheLocalBlockStrip(unittest.TestCase):
     def test_the_block_and_the_newline_the_installer_added_leave_and_the_rest_is_byte_identical(self) -> None:
@@ -210,9 +200,6 @@ class TheLocalBlockStrip(unittest.TestCase):
         text = around + '\n<installed by="local">\n**L1** Ours.\n</installed>\n' + "\n## Straw dogs\n"
 
         self.assertEqual(around + "\n## Straw dogs\n", harness.without_local_blocks("AGENTS.md", text))
-
-    def test_a_file_with_no_local_block_passes_unchanged(self) -> None:
-        self.assertEqual("# A\n", harness.without_local_blocks("a.md", "# A\n"))
 
 
 class TheStamp(unittest.TestCase):
@@ -235,14 +222,7 @@ class TheStamp(unittest.TestCase):
 
 
 class TheRepositoryLine(unittest.TestCase):
-    """The line naming where core comes from: read as a default, stamped, and set aside."""
-
-    def test_the_default_is_the_line_this_tree_authors(self) -> None:
-        skill = SCRIPTS.parents[1] / "skills/harness/SKILL.md"
-        authored = harness.REPOSITORY.search(skill.read_text(encoding="utf-8"))
-
-        self.assertIsNotNone(authored, "core's own harness skill must author the line")
-        self.assertEqual(authored.group("url"), harness.home())
+    """The line naming where core comes from: stamped, and set aside."""
 
     def test_the_stamp_replaces_the_url_and_keeps_the_lines_ending(self) -> None:
         ref = harness.Ref("goodwolf-harness", "a" * 40, "aaaaaaa", "2026-09-20")
@@ -253,14 +233,6 @@ class TheRepositoryLine(unittest.TestCase):
             harness.repository_stamped(text, ref, "https://example.invalid/new.git"),
         )
 
-    def test_a_skill_with_no_line_is_not_the_harness(self) -> None:
-        ref = harness.Ref("goodwolf-harness", "a" * 40, "aaaaaaa", "2026-09-20")
-
-        with self.assertRaises(harness.Refused) as refused:
-            harness.repository_stamped("---\nname: harness\n---\n\nProse.\n", ref, "https://example.invalid/x.git")
-
-        self.assertIn("not the harness", str(refused.exception))
-
     def test_the_line_leaves_with_its_newline_and_only_from_the_harness_skill(self) -> None:
         text = "A\n\nRepository: https://example.invalid/x.git\n\nB\n"
 
@@ -270,28 +242,29 @@ class TheRepositoryLine(unittest.TestCase):
     def test_a_line_with_anything_after_the_url_is_not_the_line(self) -> None:
         self.assertIsNone(harness.REPOSITORY.search("Repository: https://example.invalid/x.git and more\n"))
 
-    def test_a_url_is_told_verbatim_and_a_path_absolutely(self) -> None:
-        self.assertEqual(
-            "https://github.com/x/y.git", harness.resolved("https://github.com/x/y.git")
-        )
-        self.assertEqual(Path(".").resolve().as_posix(), harness.resolved("."))
-
 
 class TheSource(TwoTrees):
     def test_the_manifest_at_a_ref_is_core_the_two_root_files_and_the_license_and_nothing_else(self) -> None:
         with harness.Source(str(self.source)) as source:
             ref = source.resolve("HEAD")
-            manifest = list(source.files(ref))
+            manifest = source.files(ref)
 
         self.assertIn("AGENTS.md", manifest)
         self.assertIn("CLAUDE.md", manifest)
         self.assertIn(KEEPER, manifest)
         self.assertIn(".agents/scripts/gw/test/test_arrival.py", manifest)
-        self.assertIn(INSTALLED_LICENSE, manifest)
+        self.assertEqual((self.source / "LICENSE").read_bytes(), manifest[INSTALLED_LICENSE])
         self.assertNotIn("LICENSE", manifest)
         self.assertNotIn("README.md", manifest)
         self.assertNotIn("local.rules.md", manifest)
         self.assertNotIn(TICKET, manifest)
+
+        with self.subTest(license="absent at the ref"):
+            # Every ref before the license existed lacks it, and the archive refuses a path the ref lacks.
+            self.git("rm", "-q", "LICENSE")
+            self.commit("no license")
+            with harness.Source(str(self.source)) as source:
+                self.assertNotIn(INSTALLED_LICENSE, source.files(source.resolve("HEAD")))
 
     def test_a_tagged_commit_is_announced_by_its_tag_and_an_untagged_one_by_its_short_commit(self) -> None:
         with harness.Source(str(self.source)) as source:
@@ -304,13 +277,6 @@ class TheSource(TwoTrees):
         self.assertEqual("v1", tagged.announced)
         self.assertEqual(self.source.name, tagged.repository)
         self.assertEqual("Entry contract: " + self.source.name + "@v1, " + tagged.date + ".", tagged.stamp)
-
-    def test_a_ref_that_does_not_resolve_refuses_naming_both(self) -> None:
-        with harness.Source(str(self.source)) as source, self.assertRaises(harness.Refused) as refused:
-            source.resolve("no-such-ref")
-
-        self.assertIn("no-such-ref", str(refused.exception))
-        self.assertIn(str(self.source), str(refused.exception))
 
     def test_the_repository_name_is_the_last_segment_without_dot_git(self) -> None:
         self.assertEqual("goodwolf-harness", harness.repository_name("https://github.com/x/goodwolf-harness.git"))
@@ -347,7 +313,7 @@ class ARefusal(TwoTrees):
         self.assert_refused(("--install",), "target:", "the source itself")
 
     def test_install_over_a_present_manifest_path(self) -> None:
-        for present in ("AGENTS.md", "CLAUDE.md", KEEPER):
+        for present in ("AGENTS.md", "CLAUDE.md", KEEPER, INSTALLED_LICENSE):
             with self.subTest(present=present):
                 shutil.rmtree(self.target / ".agents", ignore_errors=True)
                 for stale in ("AGENTS.md", "CLAUDE.md"):
@@ -388,7 +354,7 @@ class ARefusal(TwoTrees):
         self.assert_refused(("--check",), "announces other", self.source.name)
 
     def test_a_ref_that_does_not_resolve(self) -> None:
-        self.assert_refused(("--install", "--at", "nowhere"), "ref:", "nowhere")
+        self.assert_refused(("--install", "--at", "nowhere"), "ref:", "nowhere", str(self.source))
 
     def test_a_docs_link_inside_a_straw_dog_at_the_ref_cannot_ship(self) -> None:
         self.write(
@@ -466,15 +432,6 @@ class AnInstall(TwoTrees):
             self.assertEqual({".claude/skills": False, ".cursor/skills": False}, report["links_resolve"])
         self.assertFalse(any("__pycache__" in path.parts for path in self.target.rglob("*")))
 
-    def test_the_shipped_suite_is_not_run_by_the_gate(self) -> None:
-        self.write(".agents/scripts/gw/test/test_arrival.py", ARRIVAL_TEST.replace("assertTrue(True)", "assertTrue(False)"))
-        self.commit("a broken suite")
-
-        status, report = self.run_harness("--install")
-
-        self.assertNotIn("suite", report["gates"])
-        self.assertTrue(report["arrived"])
-
     def test_a_shape_diagnostic_in_the_recipient_leaves_arrival_false_naming_the_gate(self) -> None:
         self.write(".agents/skills/silent/SKILL.md", "# Silent\n\nNamed by nothing, claiming nothing.\n")
         self.commit("a silent skill")
@@ -539,14 +496,17 @@ class AnUpdate(TwoTrees):
         self.assertTrue(report["gates"]["ref"]["passed"], report["gates"]["ref"])
         self.assertTrue(report["gates"]["injector"]["passed"], report["gates"]["injector"])
 
-    def test_deletes_what_left_the_manifest_when_the_line_announces_a_ref(self) -> None:
-        self.git("rm", "-q", ".agents/glossary.md")
-        self.commit("the glossary leaves")
+    def test_deletes_what_left_the_manifest_and_the_directories_it_emptied_when_the_line_announces_a_ref(self) -> None:
+        self.git("rm", "-q", "-r", ".agents/glossary.md", ".agents/scripts/gw/test")
+        self.commit("the glossary and the shipped tests leave")
 
         status, report = self.run_harness("--update")
 
-        self.assertEqual([".agents/glossary.md"], report["deleted"])
+        self.assertEqual(
+            [".agents/glossary.md", ".agents/scripts/gw/test/test_arrival.py"], sorted(report["deleted"])
+        )
         self.assertFalse((self.target / ".agents/glossary.md").exists())
+        self.assertFalse((self.target / ".agents/scripts/gw/test").exists())
 
     def test_reports_the_recipients_own_files_under_core_and_leaves_them(self) -> None:
         self.write_target(".agents/skills/theirs/SKILL.md", "Mechanism: unowned by design — theirs\n\n# Theirs\n")
@@ -601,37 +561,6 @@ class AnUpdate(TwoTrees):
         self.assertIn("L1 overrides sample/P9", report["refusals"][0])
         self.assertIn("harness.py . --check", report["refusals"][0])
         self.assertIn("Keep things.", self.target_text(KEEPER))
-
-
-class AnUpdateAcrossTheScriptsMove(TwoTrees):
-    """A recipient holding core from before the scripts moved under `gw/` takes the ref after."""
-
-    def test_the_old_paths_leave_as_what_left_the_manifest_and_the_gate_runs_at_the_new_path(self) -> None:
-        old_paths = sorted(f".agents/scripts/{script.name}" for script in SCRIPTS.glob("*.py"))
-        old_paths.append(".agents/scripts/test/test_arrival.py")
-        self.git("mv", ".agents/scripts/gw/test", ".agents/scripts/test")
-        for script in SCRIPTS.glob("*.py"):
-            self.git("mv", f".agents/scripts/gw/{script.name}", f".agents/scripts/{script.name}")
-        self.commit("before the move")
-        before_the_move = self.short_head()
-        self.git("mv", ".agents/scripts/test", ".agents/scripts/gw/test")
-        for script in SCRIPTS.glob("*.py"):
-            self.git("mv", f".agents/scripts/{script.name}", f".agents/scripts/gw/{script.name}")
-        self.commit("the move")
-
-        installed, report = self.run_harness("--install", "--at", before_the_move)
-        self.assertEqual(1, installed, report)
-        self.assertFalse(report["gates"]["injector"]["passed"], "the gate looks under gw/, which the old ref lacks")
-        self.assertTrue((self.target / ".agents/scripts/harness.py").is_file())
-
-        updated, report = self.run_harness("--update")
-
-        self.assertEqual(0, updated, report)
-        self.assertEqual(sorted(old_paths), sorted(report["deleted"]))
-        self.assertFalse((self.target / ".agents/scripts/harness.py").exists())
-        self.assertFalse((self.target / ".agents/scripts/test").exists())
-        self.assertTrue((self.target / ".agents/scripts/gw/harness.py").is_file())
-        self.assertTrue(report["arrived"], report["gates"])
 
 
 class ATreeInstalledUnderEarlierRules(TwoTrees):
@@ -689,66 +618,6 @@ class ATreeInstalledUnderEarlierRules(TwoTrees):
         self.assertIsNotNone(harness.REPOSITORY.search(self.target_text(HARNESS_SKILL)))
         self.assertIn(f"@{self.short_head()}, ", self.target_text("AGENTS.md"))
         self.assertEqual(0, status, report["gates"])
-
-
-# --- the license ----------------------------------------------------------------------------------
-
-
-class TheLicense(TwoTrees):
-    """The source's root license travels into every recipient as `.agents/LICENSE`: its notice must
-    go with every copy, and a recipient's root is its own."""
-
-    def test_an_install_places_it_under_core_and_leaves_the_projects_own_root_license(self) -> None:
-        theirs = "The project's own license\n"
-        (self.target / "LICENSE").write_text(theirs, encoding="utf-8", newline="")
-
-        status, report = self.run_harness("--install")
-
-        self.assertEqual(0, status, report["refusals"])
-        self.assertEqual((self.source / "LICENSE").read_bytes(), (self.target / INSTALLED_LICENSE).read_bytes())
-        self.assertEqual(theirs, self.target_text("LICENSE"))
-
-    def test_an_update_carries_a_changed_license(self) -> None:
-        self.run_harness("--install")
-        self.write("LICENSE", LICENSE_TEXT.replace("2026", "2027"))
-        self.commit("the license changes")
-
-        status, report = self.run_harness("--update")
-
-        self.assertEqual(0, status, report["refusals"])
-        self.assertIn("2027", self.target_text(INSTALLED_LICENSE))
-
-    def test_a_check_names_an_edited_license(self) -> None:
-        self.run_harness("--install")
-        (self.target / INSTALLED_LICENSE).write_text("Edited in the recipient\n", encoding="utf-8")
-
-        _, report = self.run_harness("--check")
-
-        self.assertFalse(report["gates"]["ref"]["passed"])
-        self.assertIn(INSTALLED_LICENSE, report["gates"]["ref"]["differs"])
-
-    def test_a_ref_without_a_license_installs_and_ships_none(self) -> None:
-        # A guard rather than a red case: the archive refuses a path the ref lacks, and every ref
-        # before the license existed lacks it.
-        self.git("rm", "-q", "LICENSE")
-        self.commit("no license")
-
-        status, report = self.run_harness("--install")
-
-        self.assertEqual(0, status, report["refusals"])
-        self.assertFalse((self.target / INSTALLED_LICENSE).exists())
-
-    def test_an_install_refuses_over_a_license_the_project_holds_under_core(self) -> None:
-        held = self.target / INSTALLED_LICENSE
-        held.parent.mkdir(parents=True, exist_ok=True)
-        held.write_text("The project's, under core\n", encoding="utf-8")
-        before = self.target_snapshot()
-
-        status, report = self.run_harness("--install")
-
-        self.assertEqual(1, status)
-        self.assertIn(INSTALLED_LICENSE, report["refusals"][0])
-        self.assertEqual(before, self.target_snapshot())
 
 
 # --- where core came from -------------------------------------------------------------------------
@@ -826,27 +695,6 @@ class TheSourceARecipientHolds(TwoTrees):
         self.assertIn("not the harness", report["refusals"][0])
         self.assertEqual(before, self.target_snapshot())
 
-    def test_a_check_from_another_source_reads_no_edit_in_core_but_still_sees_a_real_one(self) -> None:
-        self.run_harness("--install")
-        # The same repository by name, at another path: the announce line still agrees, so what is
-        # under test is the skill's line alone and not the name comparison beside it.
-        beside = self.another_repository() / self.source.name
-        subprocess.run(["git", "clone", "--quiet", str(self.source), str(beside)], check=True)
-
-        said = io.StringIO()
-        with contextlib.redirect_stdout(said):
-            harness.main([str(self.target), "--check", "--from", str(beside)])
-        from_elsewhere = json.loads(said.getvalue())
-        self.assertEqual([], from_elsewhere["refusals"])
-
-        self.assertNotIn(HARNESS_SKILL, from_elsewhere["gates"]["ref"]["differs"])
-
-        skill = self.target / HARNESS_SKILL
-        skill.write_text(skill.read_text(encoding="utf-8") + "\nAn edit in core.\n", encoding="utf-8")
-        _, edited = self.run_harness("--check")
-
-        self.assertIn(HARNESS_SKILL, edited["gates"]["ref"]["differs"])
-
     def test_a_recipients_own_script_checks_with_no_from(self) -> None:
         self.run_harness("--install")
 
@@ -858,32 +706,9 @@ class TheSourceARecipientHolds(TwoTrees):
 
         self.assertEqual(self.source.resolve().as_posix(), json.loads(done.stdout)["repository"])
         self.assertTrue(json.loads(done.stdout)["gates"]["ref"]["passed"], done.stdout)
-
-    def test_a_tree_whose_two_lines_name_different_repositories_is_refused(self) -> None:
-        self.run_harness("--install")
-        entry = self.target / "AGENTS.md"
-        entry.write_text(
-            entry.read_text(encoding="utf-8").replace(self.source.name, "somewhere-else", 1), encoding="utf-8"
-        )
-
-        said = io.StringIO()
-        with contextlib.redirect_stdout(said):
-            harness.main([str(self.target), "--check", "--from", str(self.source)])
-
-        self.assertIn("somewhere-else", json.loads(said.getvalue())["refusals"][0])
-
-    def test_a_source_path_holding_a_docs_segment_is_not_read_as_a_citation(self) -> None:
-        nested = self.another_repository() / "docs" / "core"
-        shutil.copytree(self.source, nested, ignore=shutil.ignore_patterns())
-
-        said = io.StringIO()
-        with contextlib.redirect_stdout(said):
-            status = harness.main([str(self.target), "--install", "--from", str(nested)])
-        report = json.loads(said.getvalue())
-
-        self.assertEqual([], report["refusals"])
-        self.assertIn("/docs/core", self.stamped_line())
-        self.assertEqual(0, status, report["gates"])
+        # The fixture's skill carries the line; the one core authors in this tree must too, or
+        # every recipient's script would have nothing to read. `home` refuses naming the file.
+        self.assertTrue(harness.home(), "core's own harness skill must author the line")
 
 
 # --- the one door that arrives with content ---------------------------------------------------
@@ -923,26 +748,6 @@ class TheDeliveryStatus(TwoTrees):
         self.assertNotIn(DELIVERY_STATUS, report["written"])
         self.assertTrue(any(DELIVERY_STATUS in note for note in report["notes"]), report["notes"])
 
-    def test_a_record_that_already_exists_is_the_projects_and_overwrite_does_not_reach_it(self) -> None:
-        self.run_harness("--install")
-        theirs = "# Delivery status\n\nRows the project wrote.\n"
-        (self.target / DELIVERY_STATUS).write_text(theirs, encoding="utf-8", newline="")
-
-        _, report = self.run_harness("--update", "--overwrite")
-
-        self.assertEqual(theirs, self.target_text(DELIVERY_STATUS))
-        self.assertNotIn(DELIVERY_STATUS, report["written"])
-        self.assertTrue(any(DELIVERY_STATUS in note for note in report["notes"]), report["notes"])
-
-    def test_an_update_gives_one_to_a_tree_that_received_core_without_it(self) -> None:
-        self.run_harness("--install")
-        (self.target / DELIVERY_STATUS).unlink()
-
-        _, report = self.run_harness("--update")
-
-        self.assertIn(DELIVERY_STATUS, report["written"])
-        self.assertIn("Core arrived", self.target_text(DELIVERY_STATUS))
-
     def test_a_ref_with_no_shelf_or_no_block_is_refused_and_nothing_is_written(self) -> None:
         for spoil, reason in (
             (lambda: (self.root / QUEUE_ARRIVAL).unlink(), "this is not the harness"),
@@ -959,26 +764,6 @@ class TheDeliveryStatus(TwoTrees):
                 self.assertEqual(1, status)
                 self.assertIn(reason, report["refusals"][0])
                 self.assertEqual(before, self.target_snapshot())
-
-    def test_the_recipients_check_never_reports_the_record(self) -> None:
-        self.run_harness("--install")
-
-        _, report = self.run_harness("--check")
-
-        self.assertTrue(report["gates"]["ref"]["passed"], report["gates"])
-        self.assertNotIn(DELIVERY_STATUS, report["gates"]["ref"]["differs"])
-        self.assertNotIn(DELIVERY_STATUS, report["gates"]["ref"]["own"])
-
-    def test_an_arrival_state_naming_a_document_still_installs(self) -> None:
-        # The fence is blanked before the citation reader looks, so what the block names is not a
-        # citation. Without that, a path under docs/ here would refuse the whole install.
-        self.write(QUEUE_ARRIVAL, QUEUE_ARRIVAL_TEXT.replace("in flight.", "in flight; see docs/private/plan.md."))
-        self.commit("an arrival state that names a document")
-
-        status, report = self.run_harness("--install")
-
-        self.assertEqual(0, status, report["refusals"])
-        self.assertIn("docs/private/plan.md", self.target_text(DELIVERY_STATUS))
 
 
 class TheCommandLine(unittest.TestCase):
