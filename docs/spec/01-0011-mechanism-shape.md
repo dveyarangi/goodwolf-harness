@@ -281,7 +281,7 @@ leaves marking to luck.
 ## Impact — 2026-09-26, the fast suite
 
 Assessed on the draft of
-[01-0011.0080 a-test-pays-only-for-what-it-proves](../tickets/01-0011.0080-a-test-pays-only-for-what-it-proves.md),
+[01-0011.0080 a-test-pays-only-for-what-it-proves](../tickets/done/01-0011.0080-a-test-pays-only-for-what-it-proves.md),
 before minting, on the user's request that the tests stop doing needless work. Verdict: **proceed
 as one ticket, narrowed** — which tests keep real Git is decided by what each test proves, not by
 speed.
@@ -511,7 +511,7 @@ other test runs in a plain folder, and a guard refuses it any process at all** *
 2026-09-27, replacing "every test a real repository" of 2026-09-06)*. The guard carries what the
 index snapshot used to: a test that can start no process cannot change the index. The measured
 reason — process starts were nine tenths of every test, for ~23 tests of 342 whose subject is Git —
-is on [01-0011.0080 a-test-pays-only-for-what-it-proves](../tickets/01-0011.0080-a-test-pays-only-for-what-it-proves.md).
+is on [01-0011.0080 a-test-pays-only-for-what-it-proves](../tickets/done/01-0011.0080-a-test-pays-only-for-what-it-proves.md).
 
 Four modules, all to be tested — **agreed with the user 2026-09-06**:
 
