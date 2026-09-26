@@ -736,6 +736,31 @@ installed block) that no check reads; and an uninstall after `.0150` must undo w
 into core, so whichever lands second owes the other a case. Leave alone: the harness doc's *the
 README is not a part*; `.0190`'s published front page; the manifest, which no root file joins.
 
+## Reports from recipients — 2026-09-26
+
+**Status:** Minted as two slices on the user's request:
+[`.0172`](./01-0010.0172-a-first-install-says-what-stopped-it.md), the Windows first-run
+failures of [issue #1](https://github.com/dveyarangi/goodwolf-harness/issues/1) that no ticket
+held, and [`.0205`](./01-0010.0205-a-recipient-reports-a-harness-failure-upstream.md), a core rule's
+failure found in a recipient reported to the harness's own board.
+
+### Impact — 2026-09-26
+
+Run by `/ticket` on the two-slice request: **proceed on both.** `.0172`'s blast radius is
+`harness.py`'s `_work_tree_root`, whose failed `rev-parse` reads every cause as a wrong shape, the
+report's ending, the harness skill's refusal list, and possibly the harness doc's *arrived is the
+three gates alone* — which the issue is evidence against, so its align decides whether that
+reopens. The empty non-Git folder in the same issue is
+[`.0170`](./01-0010.0170-arrival-becomes-a-sequence.md)'s already. `.0205`'s is the entry file's
+*Self-improvement* rule, core and already a straw dog on
+[01-0019](./01-0019-harness-amends-itself-by-explicit-meta-rules.md), the harness skill's
+`Repository:` line as the address, and an outward-facing act the person must approve. Hidden edges:
+a recipient may be private, so a report must carry the rule and never the project's content; which
+register a failure belongs to is decidable from an installed block's owner, `local` or a
+mechanism's; and a repeat on a shared board must find the report it repeats. Leave alone: the
+recipient's register for its own local rules; contributing the amendment itself back, parked on the
+install spec.
+
 ## Adoption shortlist — recommendations awaiting alignment
 
 This is the compact decision surface extracted from the [Life research](../research/life-harness-findings.md). Rows marked agreed link to the current policy; the other recommendations remain undecided. Resolve one question at a time.

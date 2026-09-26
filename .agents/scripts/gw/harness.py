@@ -506,6 +506,8 @@ def _work_tree_root(target: Path, source: Source) -> Path:
         raise Refused(f"target: {target} is not a directory")
     target = target.resolve()
     top = _git_in(target, "rev-parse", "--show-toplevel")
+    # TODO docs/tickets/01-0010.0172-a-first-install-says-what-stopped-it.md: a failed rev-parse is
+    # read here as a wrong shape, Git's dubious-ownership refusal included.
     if top is None or Path(top).resolve() != target:
         raise Refused(f"target: {target} is not the top level of a git work tree; a workspace of several is refused")
     origin = _git_in(target, "remote", "get-url", "origin")
