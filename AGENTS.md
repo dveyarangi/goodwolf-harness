@@ -31,7 +31,9 @@ nothing about being load-bearing — an implementation method is a shape too. �
 </straw-dog>
 
 <installed by="ticket">
-**P9** Name a ticket by a link to its record; one that has no record yet, by a slug and its state word.
+**P9** The first time a record or a reply names a ticket, name it by a link to its record whose text
+carries its slug — the id may lead it; later mentions may be the id alone. Name one that has no
+record yet by a slug and its state word.
 </installed>
 
 ## Core and instance

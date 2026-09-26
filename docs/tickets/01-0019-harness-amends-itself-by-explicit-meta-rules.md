@@ -45,6 +45,13 @@ Not yet determined; the align decides it. What is known to be in scope:
 
 - **The meta-rules themselves** — what registration requires, who may reword a rule and on what
   evidence, and what distinguishes a rule that was disobeyed from one that could not fire.
+- **How an amendment is tested** *(the user, 2026-09-26)*. A new session in this repository, with
+  the amended ruleset installed and not this session, receives the request that failed, word for
+  word, and is told nothing of the issue; the session that registered the failure grades its reply
+  against the rule. A reader asked how it parses the rule, or run in an empty folder, tests
+  comprehension, not firing. Record files that describe the failure are withheld. A control under the
+  old ruleset shows the failure still reproduces. First run on
+  [rule failure 12](../rule-failures.md) through the `claude` CLI, headless.
 - **The register's shape**, if it stays: today `rule-failures.md` has a written form and no
   declared format, which is the same gap
   [01-0017.0020](./01-0017.0020-practice-swaps-in-one-edit.md) found for sessions and dreams.
@@ -58,6 +65,9 @@ Not yet determined; the align decides it. What is known to be in scope:
   and salience decided. The wording lands with
   [01-0017.0010](./01-0017.0010-terms-defined-before-they-land.md), which is already rewriting
   `/align`'s neighbouring sections.
+- **What the replay's tester is kept from.** Withholding all of `docs/` *(the user, 2026-09-26)*
+  left a `/recall` with no queue to read, so it declined; withholding the register and `git diff`
+  left the amendment visible in git status and on this ticket. Undecided.
 - **One strike is not evidence.** Whatever this ticket concludes, it concludes from a register with
   more than one entry, or it concludes that the register was not worth keeping.
 

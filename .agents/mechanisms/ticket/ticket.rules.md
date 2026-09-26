@@ -87,8 +87,10 @@ place to what is now true; list under `Open issues` only what stays unresolved.
 ## P9 — a ticket is named by a link, or by a slug and its state
 
 - **target** `AGENTS.md`
-- **authority** the user, 2026-09-21
+- **authority** the user, 2026-09-21; the slug in the link text, 2026-09-26
 
 <rule>
-Name a ticket by a link to its record; one that has no record yet, by a slug and its state word.
+The first time a record or a reply names a ticket, name it by a link to its record whose text
+carries its slug — the id may lead it; later mentions may be the id alone. Name one that has no
+record yet by a slug and its state word.
 </rule>

@@ -11,6 +11,65 @@ deleting a rule: occurrences accumulate and what to do about a rule that keeps f
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 12. A queue answer named tickets by their position alone — 2026-09-26
+
+**Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s **P9**, *name a ticket by a link
+to its record*; [`TICKET-FORMAT.md`](../.agents/skills/ticket/TICKET-FORMAT.md#numbering)'s
+*slug — what the ticket is. Never changes. Cite by this*, beside *position — changes when priority
+changes*.
+
+**What happened.** Asked *what's next? is our queue in order?*, the `/recall` reply ranked the work
+as `.0172`, `.0185`, `.0190`, `.0195`, `.0170`, `.0150`, `01-0017.0020`. Some were links whose text
+was the position, and some were bare ids. The reader was left with numbers. The user: *do not we
+have a rule to always show slug together with ticket id?*
+
+**Why it did not fire.** P9 is satisfied by the link's target, so `[.0172](…)` complies even though
+the reader sees only the one part of the name that changes. The slug rule sits in the format shelf,
+which is read when minting a ticket, not when talking about one. And the delivery status the reply
+was drawn from uses position-only link text throughout, so the wording was copied from what had
+just been read.
+
+**Amendment landed 2026-09-26, then reworded twice below.** P9 first read: *Name a ticket by a link to its record whose text
+carries its slug — the id may lead it; one that has no record yet, by a slug and its state word.*
+The delivery status's position-only link text becomes the drift `/maintain` repairs.
+
+**Tested by replay, 2026-09-26** — the method on
+[01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md). The control, under the
+old P9, named every ticket by a bare id and linked none. Under the amendment, the four tickets it
+linked each carried the slug, but about ten stayed bare ids — `.0125`, `.0168`, `.0185`, `.0190`,
+`.0195`, `.0200`, `.0205` among them — in lists and passing mentions. So the amendment fixed the link
+text and left mentions untouched, the ambiguity a cold reader had already named: *does every
+mention need the full form?* The run was also primed: it read the uncommitted diff and reported the
+amendment as pending work, so the partial result overstates what the wording did alone.
+
+**Reworded and replayed, 2026-09-26.** P9 now opens *Every time you name a ticket, in a record or a
+reply*. Replayed with the register and `git diff`/`git show` withheld, since it could still see P9
+modified in git status. Ten mentions were links carrying their slug, and every ticket the reply
+leans on was linked at least once. Seven stayed bare: repeats of a ticket already linked (`.0150`,
+`.0172`, `01-0020`), and ids inside compact chains copied from the delivery status (`.0190`,
+`.0195`, `.0170`). Two of those — `.0190` and `.0170` — were never linked at all. What is left
+looks like copying from the delivery status, whose own link text is id-only, rather than the rule
+not firing.
+
+**Replayed with all of `docs/` withheld, 2026-09-26** *(the user's instruction)*. The session
+declined the request: `/recall` reads the queue from `docs/`, so it had nothing to rank. It named one
+ticket, built from a path in git status, as a link carrying its slug. That complies, but one mention
+is not a test. For a request whose answer lives in `docs/`, withholding the folder removes the
+occasion the rule fires on.
+
+**Repeats allowed, 2026-09-26** *(the user: a second mention of the same id in a turn can be without
+slug)*. P9 now reads *the first time a record or a reply names a ticket … later mentions may be the id
+alone*. Graded against it, the reworded run's failures shrink to four first mentions, all in the
+one chain copied from the delivery status: `.0190`, `.0195`, `.0150`, `.0170`.
+
+**Delivery status repaired and replayed, 2026-09-26.** The queue's prose now links each ticket's
+first mention with its slug, the candidate chain included. On the replay, twelve of thirteen tickets
+were first named by a link carrying the slug, the copied chain among them. The one miss was a closed
+ticket mentioned in passing, `.0165`. Caveat: the session learned of the amendment from git status,
+`AGENTS.md` and the test-method bullet on 01-0019, which names this entry. Still open: the queue
+table's rows link by title, as `TICKET-FORMAT` prescribes, so a ticket first named in the table
+carries no slug.
+
 ## 11. A copy step was landed in the architecture because a sentence there listed its neighbours — 2026-09-26
 
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#document-load-bearing-codecomment-the-rest) —
