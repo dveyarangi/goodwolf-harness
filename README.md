@@ -86,11 +86,10 @@ The loop and its rules are in [AGENTS.md](AGENTS.md), every skill under
   `CLAUDE.md` or `AGENTS.md`, so they are moved aside first; the installing agent then reads them,
   with your skills and documents, and works out with you, at `/align`, where each piece belongs —
   your facts and overrides into the local file, your own skills beside the shipped ones — and
-  `CLAUDE.md` becomes a one-line pointer to the entry file. It has come into a large existing
-  codebase with no agent setup this way, and into a project with a smaller harness of its own.
-- Describing an existing codebase: the first session after install aligns with you on what the
-  project is, and its architecture, decisions and glossary are written from there, deepening as
-  the work reaches each part.
+  `CLAUDE.md` becomes a one-line pointer to the entry file. The first session after install then
+  aligns with you on what the project is, and its architecture, decisions and glossary are written
+  from there, deepening as the work reaches each part. It has come into a large existing codebase
+  with no agent setup this way, and into a project with a smaller harness of its own.
 - One home per rule, with drift detection; checks on the harness's own records and declarations.
   The harness is developed with itself.
 
@@ -103,6 +102,7 @@ The loop and its rules are in [AGENTS.md](AGENTS.md), every skill under
 - <straw-dog until="01-0010.0195 is done" ticket="docs/tickets/01-0010.0195-a-recipient-reads-before-it-takes.md">Updates don't say what changed.</straw-dog>
 - <straw-dog until="01-0010.0200 is done" ticket="docs/tickets/01-0010.0200-a-project-can-remove-the-harness.md">There is no uninstall.</straw-dog>
 - <straw-dog until="01-0010.0125 is done" ticket="docs/tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md">The host doesn't block an action a rule forbids; the agent is trusted to keep it.</straw-dog>
+- <straw-dog until="01-0017.0020 is done" ticket="docs/tickets/01-0017.0020-practice-swaps-in-one-edit.md">It assumes one person steering the agents: several developers on parallel branches would collide on ticket numbers in one shared queue, and a team's own tracker can't yet take the tickets' place.</straw-dog>
 - <straw-dog until="a project's improvement reaches core by the harness's own path" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">Improvements a project makes to the harness stay in that project.</straw-dog>
 
 ## Use it

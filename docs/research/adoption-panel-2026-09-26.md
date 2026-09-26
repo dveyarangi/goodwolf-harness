@@ -466,3 +466,84 @@ code.*
 [ADRs for agents](https://dev.to/naman_here/adrs-for-ai-coding-agents-how-to-make-every-agent-read-architecture-decisions-3he4) ·
 [Beads](https://github.com/steveyegge/beads) ·
 [OpenSpec vs Spec Kit](https://hashrocket.com/blog/posts/openspec-vs-spec-kit-choosing-the-right-ai-driven-development-workflow-for-your-team)
+
+---
+
+# Fourth run — 2026-09-26, at `c845092`
+
+The same five needs and the same reading rule, after the page gained *Why a loop* — agents kept in
+check, work that stops at any step and any agent resumes, the user's stops optional, `commit=auto`
+committing verified work — the same-opening-every-session line, and a first-session `/align` for an
+existing codebase. **The question was split** *(the user)*: first a verdict on the method and its
+tooling alone, age and adoption set aside; then, separately, what the reader would need before
+trusting it.
+
+**Verdicts on merit: five *not for my case*.** Every reader credited the method; none of the five
+needs it. Condensed:
+
+## 1. Minimal ceremony — *not for my case*
+
+A full delivery process where a memory fix is wanted; the part that fixes forgetting — `/recall`
+and `/conclude`, about thirty lines — is small and copyable, and the rest keeps the method itself
+consistent. Replaces `CLAUDE.md`; nothing forces the recall to happen — a hook would; lost work is
+solved by commits and checkpoints. Best fit instead: built-in memory with a session-start hook and a
+handoff note. **Its advantage over all:** *auditable written decisions and drift detection between
+docs and code* — for a larger, long-lived codebase. Trust needs: a light mode, an uninstall,
+updates that say what changed, adoption beyond the author, a case study. Front page: *institutional
+memory* never says what the memory costs per change; *observability* named, its cost in tokens or
+time not; how much it installs.
+
+## 2. Large existing codebase — *not for my case*
+
+**No team model** — `/align` interviews one person; nothing says whose decision wins across fifteen
+on parallel branches; the queue table, repositioned tickets and incrementally numbered sessions
+collide in merges. **Arrival is an interview, not tooling** — nothing drafts a first architecture
+from 600k lines of Java. **Cost every session** — a mandatory `/recall`, no light path, the harness's
+own meta-rules carried in the entry file. **Worth taking:** one home per decision, `/recall` citing
+what decided a question or where it is still open, no reopening without evidence — *squarely* the
+problem. Compared: nested `AGENTS.md` plus ADRs; Spec Kit, whose per-branch specs collide less, with
+a brownfield extension; BMAD, whose document-project task generates brownfield docs from code;
+Kiro's steering. Trust needs: a multi-developer install, a published large-codebase case, measured
+per-session cost, the light mode, Jira owning tickets, an uninstall, releases, more than one
+contributor. Front page: *institutional memory for a workforce* implies a team, and everything is
+single-user; *describing an existing codebase* under *works today* is an interview, with the
+automated part under *not yet*; silent on per-session cost, the meta-rules shipped in the entry
+file, and the fixed `docs/` layout.
+
+## 3. Existing instructions — *not for my case*
+
+Arrival replaces what works — the `CLAUDE.md` spread into the local file and the harness's documents,
+left a pointer (the commands would likely survive). Too much ceremony for three people; ticket
+positions, the shared queue and session numbers collide across branches; a private vocabulary.
+**Real strengths:** one source per rule with a drift checker; decisions in ADRs and architecture,
+open work in tickets, never in session logs — *exactly what I want*. Compared: **Beads** — a
+dependency graph of unfinished work, hash IDs that avoid merge collisions, additive; OpenSpec; Spec
+Kit; BMAD; plain Claude Code with an ADR folder and a `/handoff`. Trust needs: installs by others
+into projects with setups, with before-and-after `CLAUDE.md`; a light mode; an uninstall; releases
+and changelogs; a team story; some enforcement. Front page: frames the `CLAUDE.md` takeover as a
+strength; missing per-task cost, what a one-line fix goes through, team use, a sample ticket.
+
+## 4. Greenfield prototype — *not for my case* (different model)
+
+Process weight against a two-month solo timeline — two rings, the entry contract, mechanisms, drift
+checks, a vocabulary to learn before shipping product. **Targets the real fear well in principle** —
+forced tickets and architecture, *document load-bearing, code the rest*, drift detection, straw dogs
+naming what resolves them: *a genuinely good idea, just heavy machinery for one founder*. Windows
+friction, issue #1. Compared: Spec Kit; BMAD; **Agent-OS** — reverse-engineers a codebase's own
+conventions, closer to just enough process; plain `CLAUDE.md` plus ADRs, *60% of the benefit*.
+Trust needs: a run on someone else's codebase, outside users reporting outcomes, a release, issue #1
+closed, a case study of how much it slows early iteration. Front page: candid and mostly accurate;
+silent on how much ceremony an agent produces per turn and on the vocabulary's cost.
+
+## 5. Single host, Cursor on Windows — *not for my case* (different model)
+
+Trust cost first — Python scripts that install, check and repair a document tree, to be read before
+running on client code. A vocabulary used before it is defined. Ceremony scaled for one evolving
+project, not quick tasks across three repositories. **To its credit:** *the loop shape is right for
+what I asked* — plan, red-green TDD in vertical slices, implement, verify against the project's own
+checks — and memory as committed markdown, *genuinely durable, genuinely auditable*. Windows
+friction, and the one open GitHub issue is that failure. Compared: BMAD with native Cursor rules;
+Spec Kit, lighter and easiest to trust; Memory Bank; Cursor's own rules and memories. Trust needs:
+adoption, issue #1 fixed, a light mode, a plain walkthrough of what the install writes. Front page:
+no disclosure of a new single-author project; jargon before explanation; the loop diagram implies
+one ceremony size for everything.
