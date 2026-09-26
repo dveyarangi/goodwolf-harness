@@ -597,3 +597,46 @@ Front page, as they read it:
 Alternatives newly named in this run: **Backlog.md** — tasks, decisions and docs as markdown in git
 with a CLI, an MCP server and a board, additive to an existing `CLAUDE.md`; **claude-remember**;
 **Agent OS** again, for adapting to any tool.
+
+---
+
+# Sixth run — 2026-09-26, at `b409d29`
+
+The same five needs, reading rule and full question, after the page said that large work starts as
+a spec and is split into slices, and that records stay current instead of piling up. Still not
+clean-room: started from this session, each reader told to set aside the context it inherited.
+
+**Verdicts on merit: five *not for my case*.** Condensed:
+
+| Reader | Deciding reason | What would change the answer |
+|---|---|---|
+| Minimal ceremony | heavy by default for a dozen copy tweaks a day; the part that fixes forgetting is small | a declared light path — a small fix skips ticket and plan but keeps a log line and an auto-commit; keeping `CLAUDE.md`; a minimal profile; a work-in-progress checkpoint at `/conclude` |
+| Existing instructions | single steering — three developers decides it | tickets in GitHub Issues or Linear, or branch-safe numbering; installing beside an authoritative `CLAUDE.md`; a light path; an uninstall — *lift the team limit and the takeover and I'd pilot it* |
+| Large existing codebase | single steering; arrival is instructions, not tooling | many-developer support with an issue-tracker backend; an arrival script drafting architecture, glossary and ADRs from the code, marked unverified; a light path; the harness's own development rules out of the shipped entry file |
+| Greenfield prototype | **the ceremony has nothing to bite on yet** — `/maintain`'s drift and `/align`'s contradictions pay off once there is an architecture and history to drift from | a mode that scales ceremony to the work's size; evidence it holds up once there is enough architecture for `/maintain` to find drift |
+| Cursor on Windows | a Python engine to audit before trusting it; a governance system for a product team, not a few-hour ticket | a layer simple enough to read directly; a light path; Windows support with no git configuration step; proof on independent repositories |
+
+Credited on merit: the decision model — decisions in architecture, ADRs and a glossary, concerns
+tracked, *do not reopen an accepted decision without new evidence* hitting the contradiction problem
+directly; records in the repository, *better thought through than memory plugins*; one home per rule
+and drift checks, beating Spec Kit and BMAD there; it *genuinely addresses the undocumented why
+better than a plain `CLAUDE.md`*. The large-codebase reader still found a plain `AGENTS.md` with ADRs
+*most of this harness's value*.
+
+Trust needs, as in every run: users beyond the author; an uninstall and changelogs; measured cost
+per trivial change; a pilot measured by the page's own three signals; a worked example of arriving
+in a project like the reader's.
+
+Front page, as read:
+
+- **The team limit is buried** — near the bottom of eight, when it decides it for any team (three
+  readers, the third run in a row).
+- ***It has come into a large existing codebase*** still carries no evidence or outcome (the large
+  codebase, the third run in a row).
+- **No worked example** of a day, a bug fix, or an arrival (three).
+- **No cost figures** (three).
+- *You don't run the steps* reads as lightweight when every step still runs, by the agent; *you meet
+  a few terms* is contradicted by the terms on the page itself.
+- **Windows:** a reader cloning the repository found `.claude/skills` and `.cursor/skills` checked
+  out as 17-byte text files — `core.symlinks` defaults to false in Git for Windows — which the
+  install's link step does not cover for a teammate who clones a project that already has them.
