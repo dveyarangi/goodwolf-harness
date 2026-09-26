@@ -278,6 +278,36 @@ as the mechanism's own surface moving; and a wrapper goes around an installed bl
 it. Not narrower: the sentence without the lint leaves detection to luck, the lint without the duty
 leaves marking to luck.
 
+## Impact — 2026-09-26, the fast suite
+
+Assessed on the draft of
+[01-0011.0080 a-test-pays-only-for-what-it-proves](../tickets/01-0011.0080-a-test-pays-only-for-what-it-proves.md),
+before minting, on the user's request that the tests stop doing needless work. Verdict: **proceed
+as one ticket, narrowed** — which tests keep real Git is decided by what each test proves, not by
+speed.
+
+The problem is measured: 342 tests take 320–345 s, and process starts are 85–92% of every test
+measured. Outside `harness.py` the scripts touch Git in one place, `corpus()`'s `git ls-files`,
+inherited by every script and test from the first one, `move_doc.py`. The harness tests are ~250 s
+of the run: each builds its source's history by committing, and `harness.py` clones that source and
+runs the recipient's checks as child Pythons on every install, update and check.
+
+Blast radius: the test base `repository.py`, which is this mechanism's part and reaches every
+mechanism's tests; `test_harness.py` and `harness.py`'s `Source` and gate, which need a way to be
+handed an in-memory source and to run the checks in-process; the Testing Decisions here and in
+[the install spec](01-0010.0130-harness-installs-into-another-tree.md), which say every test builds
+a real repository; and a guard in the test base, so a test not about Git or the gate cannot start a
+process again. The suite ships with core, so recipients get the new tests. Hidden edges, each a test that
+must stay real: [rule failure 9](../rule-failures.md) — a fixture standing for a tree made under
+earlier rules is built the way it came to be, so the earlier-rules tests cannot take a source
+written by today's code; the CRLF test, since `git archive` with `core.eol=lf` is its subject;
+`corpus()`'s case, untracked and ignored cases; `move_doc`'s index refusals; the gate running at
+the new path after the scripts' move, whose subject is the child process. And one unexplained fact
+that may be the cheapest lever: the slowest test takes 5.2 s alone and 9.8 s inside the suite.
+Production behaviour does not change — the real `Source`, the real gate and `git ls-files` stay the
+default. Not a general abstraction: `Source` already exists, and the in-memory one is its second
+shape. Not narrower: `corpus()` alone saves about a fifth; the harness is the rest.
+
 ## User Stories
 
 1. As a maintainer, I want one stated test for what counts as a mechanism, so that I can tell
