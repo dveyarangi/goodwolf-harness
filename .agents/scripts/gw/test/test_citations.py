@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import unittest
 
-from repository import RepositoryCase
+from repository import RepositoryCase, proves_a_process
 
 import move_doc
 
@@ -26,7 +26,6 @@ class CitationRepair(RepositoryCase):
             session,
             "# Session 2\n\n**2026-09-05:** minted [the plan ticket](../tickets/01-0010.0040-install-plan.md).\n",
         )
-        self.commit()
 
         self.close_the_ticket()
 
@@ -40,7 +39,6 @@ class CitationRepair(RepositoryCase):
             "docs/process.md",
             '# Process\n\nSee [criteria](tickets/01-0010.0040-install-plan.md#acceptance-criteria "The plan ticket").\n',
         )
-        self.commit()
 
         self.close_the_ticket()
 
@@ -54,7 +52,6 @@ class CitationRepair(RepositoryCase):
             "docs/notes.md",
             "# Notes\n\n[home](https://example.invalid/01-0010.0040-install-plan.md) and [anchor](#section).\n",
         )
-        self.commit()
         before = self.read("docs/notes.md")
 
         self.close_the_ticket()
@@ -68,7 +65,6 @@ class CitationRepair(RepositoryCase):
             "# Format\n\nCite as `[title](tickets/01-0010.0040-install-plan.md)`:\n\n"
             "```md\n[title](tickets/01-0010.0040-install-plan.md)\n```\n",
         )
-        self.commit()
         before = self.read(shelf)
 
         self.close_the_ticket()
@@ -78,7 +74,6 @@ class CitationRepair(RepositoryCase):
     def test_a_records_own_line_endings_and_unrelated_bytes_are_left_alone(self) -> None:
         self.write("docs/queue.md", "# Queue\r\n\r\n- [plan](tickets/01-0010.0040-install-plan.md)\r\n- trailing  \r\n")
         self.write("docs/unrelated.md", "# Unrelated\r\n\r\nNo citations here.\r\n")
-        self.commit()
 
         self.close_the_ticket()
 
@@ -88,6 +83,7 @@ class CitationRepair(RepositoryCase):
         )
         self.assertEqual("# Unrelated\r\n\r\nNo citations here.\r\n", self.read("docs/unrelated.md"))
 
+    @proves_a_process
     def test_a_record_minted_this_session_is_repaired_before_it_is_ever_staged(self) -> None:
         self.commit()
         self.write("docs/fresh.md", "# Fresh\n\n[plan](tickets/01-0010.0040-install-plan.md)\n")
@@ -112,7 +108,6 @@ class CitationForms(RepositoryCase):
             "docs/queue.md",
             "# Queue\n\nSee [the plan][plan].\n\n[plan]: tickets/01-0010.0040-install-plan.md\n",
         )
-        self.commit()
 
         self.close_the_ticket()
 
@@ -126,7 +121,6 @@ class CitationForms(RepositoryCase):
             "docs/queue.md",
             f"# Queue\n\n[plan]({self.root.as_posix()}/docs/tickets/01-0010.0040-install-plan.md)\n",
         )
-        self.commit()
 
         self.close_the_ticket()
 
@@ -138,7 +132,6 @@ class CitationForms(RepositoryCase):
     def test_a_file_uri_inside_the_repository_follows_the_record(self) -> None:
         uri = f"file:///{self.root.as_posix()}/docs/tickets/01-0010.0040-install-plan.md"
         self.write("docs/queue.md", f"# Queue\n\n[plan]({uri})\n")
-        self.commit()
 
         self.close_the_ticket()
 
@@ -152,7 +145,6 @@ class CitationForms(RepositoryCase):
             "docs/queue.md",
             "# Queue\n\n[source](D:/Dev/AI/meteoscape/docs/tickets/01-0010.0040-install-plan.md)\n",
         )
-        self.commit()
         before = self.read("docs/queue.md")
 
         self.close_the_ticket()
@@ -163,7 +155,6 @@ class CitationForms(RepositoryCase):
         spaced = "docs/tickets/install plan.md"
         self.write(spaced, "# Install plan\n")
         self.write("docs/queue.md", "# Queue\n\n[plan](tickets/install%20plan.md)\n")
-        self.commit()
 
         move_doc.perform(self.root, [(spaced, "docs/tickets/done/install plan.md")])
 
@@ -174,7 +165,6 @@ class CitationForms(RepositoryCase):
 
     def test_an_angle_bracketed_destination_keeps_its_brackets(self) -> None:
         self.write("docs/queue.md", "# Queue\n\n[plan](<tickets/01-0010.0040-install-plan.md>)\n")
-        self.commit()
 
         self.close_the_ticket()
 
@@ -188,7 +178,6 @@ class CitationForms(RepositoryCase):
             "docs/queue.md",
             "# Queue\n\nSee [the install\nplan ticket](tickets/01-0010.0040-install-plan.md).\n",
         )
-        self.commit()
 
         self.close_the_ticket()
 
@@ -200,7 +189,6 @@ class CitationForms(RepositoryCase):
     def test_a_moving_records_citation_of_a_staying_record_is_re_depthed(self) -> None:
         self.write(TICKET, "# Install /plan\n\nGoverned by [the process](../process.md#verification).\n")
         self.write("docs/process.md", "# Process\n\n## Verification\n")
-        self.commit()
 
         self.close_the_ticket()
 
@@ -227,7 +215,6 @@ class StrawDogOwners(RepositoryCase):
             '<straw-dog until="/plan is installed" ticket="docs/tickets/01-0010.0040-install-plan.md">\n'
             "Preliminary.\n</straw-dog>\n",
         )
-        self.commit()
 
         self.close_the_ticket()
 
@@ -248,7 +235,6 @@ class StrawDogOwners(RepositoryCase):
             '<straw-dog until="c" ticket="docs/tickets/01-0010.0040-install-plan.md">rule</straw-dog>\n'
             "```\n",
         )
-        self.commit()
         before = self.read(entry)
 
         self.close_the_ticket()

@@ -74,7 +74,6 @@ class Installing(RepositoryCase):
         super().setUp()
         self.write(RULES, rules_file())
         self.write(TARGET, TARGET_TEXT)
-        self.commit()
 
     def run_installer(self, *operands: str) -> tuple[int, dict]:
         said = io.StringIO()
@@ -115,7 +114,6 @@ class Installing(RepositoryCase):
     def test_a_block_lands_at_the_end_of_the_anchors_section_after_its_content(self) -> None:
         text = TARGET_TEXT.replace(f"{ANCHOR}\n", f"{ANCHOR}\n\nThe section's own prose.\n\n- and a bullet\n")
         self.write(TARGET, text)
-        self.commit()
         before = self.snapshot()
 
         self.assertEqual(0, self.run_installer(SLUG, "--install")[0])
@@ -127,7 +125,6 @@ class Installing(RepositoryCase):
     def test_a_section_ends_at_the_next_heading_of_its_own_level_or_higher_and_not_at_a_subheading(self) -> None:
         text = TARGET_TEXT.replace(f"{ANCHOR}\n", f"{ANCHOR}\n\n### A subsection\n\nStill inside.\n")
         self.write(TARGET, text)
-        self.commit()
 
         self.assertEqual(0, self.run_installer(SLUG, "--install")[0])
 
@@ -136,7 +133,6 @@ class Installing(RepositoryCase):
     def test_a_heading_drawn_in_a_fence_does_not_end_the_section(self) -> None:
         text = TARGET_TEXT.replace(f"{ANCHOR}\n", f"{ANCHOR}\n\n```md\n## Not a heading\n```\n\nAfter the fence.\n")
         self.write(TARGET, text)
-        self.commit()
 
         self.assertEqual(0, self.run_installer(SLUG, "--install")[0])
 
@@ -145,7 +141,6 @@ class Installing(RepositoryCase):
     def test_a_section_that_ends_the_file_takes_the_block_after_its_last_line(self) -> None:
         text = "# Keeper\n\n" f"{ANCHOR}\n\nLast prose.\n"
         self.write(TARGET, text)
-        self.commit()
 
         self.assertEqual(0, self.run_installer(SLUG, "--install")[0])
 
@@ -157,7 +152,6 @@ class Installing(RepositoryCase):
             f".agents/mechanisms/{other}/{other}.rules.md",
             rules_file().replace(SLUG, other),
         )
-        self.commit()
         self.run_installer(SLUG, "--install")
 
         self.assertEqual(0, self.run_installer(other, "--install")[0])
@@ -177,7 +171,6 @@ class Installing(RepositoryCase):
         )
         self.write(TARGET, target_text)
         self.write(RULES, rules_file(table=f"| target | anchor |\n|---|---|\n| `{TARGET}` | `{anchor}` |\n"))
-        self.commit()
         before = self.snapshot()
 
         self.assertEqual(0, self.run_installer(SLUG, "--install")[0])
@@ -243,7 +236,6 @@ class LocalSource(RepositoryCase):
         self.write(RULES, rules_file())
         self.write(TARGET, TARGET_TEXT)
         self.write(LOCAL_FILE, local_file())
-        self.commit()
 
     def run_installer(self, *operands: str) -> tuple[int, dict]:
         said = io.StringIO()
@@ -408,7 +400,6 @@ class Refusing(RepositoryCase):
         super().setUp()
         self.write(RULES, rules_file())
         self.write(TARGET, TARGET_TEXT)
-        self.commit()
 
     def run_installer(self, *operands: str) -> tuple[int, str]:
         said = io.StringIO()
@@ -572,7 +563,6 @@ class Drifting(RepositoryCase):
         self.write(RULES, rules_file())
         self.write(TARGET, TARGET_TEXT)
         self.run_installer(SLUG, "--install")
-        self.commit()
 
     def run_installer(self, *operands: str) -> tuple[int, dict]:
         said = io.StringIO()
@@ -667,7 +657,6 @@ class FailingMidWrite(RepositoryCase):
         ))
         self.write(TARGET, TARGET_TEXT)
         self.write(self.OTHER, TARGET_TEXT)
-        self.commit()
         os.chmod(self.root / self.OTHER, stat.S_IREAD)
         self.addCleanup(os.chmod, self.root / self.OTHER, stat.S_IWRITE | stat.S_IREAD)
 
@@ -692,7 +681,6 @@ class Checking(RepositoryCase):
         super().setUp()
         self.write(RULES, rules_file())
         self.write(TARGET, TARGET_TEXT)
-        self.commit()
 
     def checked(self) -> tuple[int, dict]:
         said = io.StringIO()

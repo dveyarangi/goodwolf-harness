@@ -254,28 +254,48 @@ class Source:
             shutil.rmtree(self._clone, onexc=_writable_then_retry)
 
     def resolve(self, ref: str) -> Ref:
-        commit = self._git("rev-parse", "--verify", "--quiet", f"{ref}^{{commit}}")
+        commit = self._commit(ref)
         if commit is None:
             raise Refused(f"ref: {ref} does not resolve in {self.repository}")
-        tag = self._git("describe", "--tags", "--exact-match", commit)
-        short = self._git("rev-parse", "--short", commit) or commit[:7]
-        date = self._git("log", "-1", "--format=%cs", commit) or ""
-        return Ref(self.name, commit, tag or short, date)
+        return Ref(self.name, commit, self._tag(commit) or self._short(commit), self._date(commit))
 
     def files(self, ref: Ref) -> dict[str, bytes]:
         """Every file under the core directory at the commit, plus the entry file, the host stub
         and the license, as the commit holds them: nothing else travels — not the root README, not
-        the local file, not `docs/`. One archive of the ref, one process: reading sixty files one
-        `cat-file` at a time cost more than the clone.
+        the local file, not `docs/`.
 
         The license is the source's root file and a recipient's `.agents/LICENSE`: its notice must
         go with every copy, and a recipient's root is its own. It is read apart from the archive,
         which refuses a path the commit lacks — and every ref before the license lacks it."""
+        files = self._archived(ref, (CORE.rstrip("/"), ENTRY_FILE, HOST_STUB))
+        license = self._blob(ref, LICENSE)
+        if license is not None:
+            files[INSTALLED_LICENSE] = license
+        return files
+
+    # What follows reads the clone, and is all that does: the choices above are made on what it
+    # returns, so a source held some other way answers these and inherits the rest.
+
+    def _commit(self, ref: str) -> str | None:
+        return self._git("rev-parse", "--verify", "--quiet", f"{ref}^{{commit}}")
+
+    def _tag(self, commit: str) -> str | None:
+        return self._git("describe", "--tags", "--exact-match", commit)
+
+    def _short(self, commit: str) -> str:
+        return self._git("rev-parse", "--short", commit) or commit[:7]
+
+    def _date(self, commit: str) -> str:
+        return self._git("log", "-1", "--format=%cs", commit) or ""
+
+    def _archived(self, ref: Ref, paths: tuple[str, ...]) -> dict[str, bytes]:
+        """Every file at or under the paths, as the commit holds them. One archive of the ref, one
+        process: reading sixty files one `cat-file` at a time cost more than the clone."""
         # `archive` smudges like a checkout would — `core.autocrlf` on Windows turns every line
         # ending — so conversion is switched off for this one command and the bytes are the commit's.
         archived = subprocess.run(
             ["git", "-C", str(self._clone), "-c", "core.autocrlf=false", "-c", "core.eol=lf", "archive",
-             "--format=tar", ref.commit, "--", CORE.rstrip("/"), ENTRY_FILE, HOST_STUB],
+             "--format=tar", ref.commit, "--", *paths],
             capture_output=True,
         )
         if archived.returncode != 0:
@@ -285,9 +305,6 @@ class Source:
             for member in archive.getmembers():
                 if member.isfile():
                     files[member.name] = archive.extractfile(member).read()
-        license = self._blob(ref, LICENSE)
-        if license is not None:
-            files[INSTALLED_LICENSE] = license
         return files
 
     def _blob(self, ref: Ref, path: str) -> bytes | None:

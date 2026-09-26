@@ -23,7 +23,6 @@ class PairedClose(RepositoryCase):
             "docs/tickets/README.md",
             "# Delivery status\n\n| [Install /plan](01-0010.0040-install-plan.md) | Done |\n",
         )
-        self.commit()
 
     def test_the_pair_lands_in_done_citing_each_other_and_the_queue_follows(self) -> None:
         move_doc.perform(self.root, [(TICKET, CLOSED_TICKET), (RFC, CLOSED_RFC)])

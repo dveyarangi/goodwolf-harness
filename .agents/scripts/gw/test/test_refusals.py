@@ -2,11 +2,9 @@
 
 from __future__ import annotations
 
-import subprocess
-
 import unittest
 
-from repository import RepositoryCase
+from repository import RepositoryCase, proves_a_process
 
 import move_doc
 
@@ -22,7 +20,6 @@ class Refusal(RepositoryCase):
         self.write(TICKET, "# Install /plan\n")
         self.write(RFC, "# Install /plan — plan\n")
         self.write("docs/tickets/README.md", "# Queue\n\n[plan](01-0010.0040-install-plan.md)\n")
-        self.commit()
 
     def refused_for(self, pairs: list[tuple[str, str]]) -> str:
         untouched = self.snapshot()
@@ -36,7 +33,6 @@ class Refusal(RepositoryCase):
 
     def test_only_markdown_records_move(self) -> None:
         self.write("docs/diagram.png", "not really a png")
-        self.commit()
         self.assertIn("markdown", self.refused_for([("docs/diagram.png", "docs/done/diagram.png")]))
 
     def test_the_same_record_cannot_be_sent_to_two_homes(self) -> None:
@@ -47,6 +43,7 @@ class Refusal(RepositoryCase):
         why = self.refused_for([(TICKET, CLOSED_TICKET), (RFC, CLOSED_TICKET)])
         self.assertIn("claimed twice", why)
 
+    @proves_a_process
     def test_an_ignored_file_still_occupies_its_destination(self) -> None:
         self.write(".gitignore", "docs/tickets/done/\n")
         self.write(CLOSED_TICKET, "# Ignored, but really there\n")
@@ -75,11 +72,9 @@ class Coverage(RepositoryCase):
     def setUp(self) -> None:
         super().setUp()
         self.write(TICKET, "# Install /plan\n")
-        self.commit()
 
     def test_a_record_the_scan_cannot_read_refuses_the_close(self) -> None:
         (self.root / "docs/notes.md").write_bytes(b"# Notes \xff\xfe with a stray byte\n")
-        self.commit()
         untouched = self.snapshot()
 
         why = move_doc.refusal(self.root, [(TICKET, CLOSED_TICKET)])
@@ -95,7 +90,6 @@ class Escapes(RepositoryCase):
     def setUp(self) -> None:
         super().setUp()
         self.write(TICKET, "# Install /plan\n")
-        self.commit()
 
     def test_a_destination_reached_through_a_junction_out_of_the_tree_is_refused(self) -> None:
         outside = self.root.parent / f"{self.root.name}-outside"
@@ -116,10 +110,15 @@ class Escapes(RepositoryCase):
         try:
             link.symlink_to(target, target_is_directory=True)
         except (OSError, NotImplementedError):
-            made = subprocess.run(
-                ["cmd", "/c", "mklink", "/J", str(link), str(target)], capture_output=True
-            )
-            if made.returncode:
+            # Windows refuses a symlink without the privilege and makes a junction without one —
+            # through the API CPython's own tests use, so no process is started for it.
+            try:
+                import _winapi
+            except ImportError:
+                return False
+            try:
+                _winapi.CreateJunction(str(target), str(link))
+            except OSError:
                 return False
         self.addCleanup(link.rmdir)
         return True

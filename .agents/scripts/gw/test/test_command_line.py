@@ -23,7 +23,6 @@ class CommandLine(RepositoryCase):
         self.write(TICKET, "# Install /plan\n\n[the RFC](../rfc/01-0010.0040-install-plan.md)\n")
         self.write(RFC, "# Install /plan — plan\n\n[the ticket](../tickets/01-0010.0040-install-plan.md)\n")
         self.write(QUEUE, "# Queue\n\n[plan](01-0010.0040-install-plan.md)\n")
-        self.commit()
 
     def run_mover(self, *operands: str) -> tuple[int, str]:
         said = io.StringIO()
@@ -84,7 +83,6 @@ class CommandLine(RepositoryCase):
             "docs/notes.md",
             '# Notes\n\n<a href="tickets/01-0010.0040-install-plan.md">the plan</a>\n',
         )
-        self.commit()
 
         status, said = self.run_mover(TICKET, CLOSED_TICKET)
 
@@ -106,7 +104,6 @@ class OutgoingReferences(RepositoryCase):
 
     def test_a_moved_records_reference_that_leads_nowhere_is_reported_not_swallowed(self) -> None:
         self.write(TICKET, "# Install /plan\n\n[the spec](../spec/never-written.md)\n")
-        self.commit()
 
         status, said = self.run_mover(TICKET, CLOSED_TICKET)
 

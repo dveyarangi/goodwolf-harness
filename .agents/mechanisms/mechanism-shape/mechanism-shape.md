@@ -77,6 +77,7 @@ absence is honestly classified, are judgements it records and never makes.
 | the check's tests | `.agents/scripts/gw/test/test_mechanisms.py` |
 | the installer | `.agents/scripts/gw/inject_rules.py` |
 | the installer's tests | `.agents/scripts/gw/test/test_inject_rules.py` |
+| the test harness's tests | `.agents/scripts/gw/test/test_repository.py` |
 | citation reader | `.agents/scripts/gw/docs_corpus.py` |
 | test harness | `.agents/scripts/gw/test/repository.py` |
 

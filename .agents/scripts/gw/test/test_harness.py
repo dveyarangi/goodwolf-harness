@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import contextlib
+import datetime
+import hashlib
 import io
 import json
 import os
@@ -13,9 +15,11 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from repository import SCRIPTS, RepositoryCase
+from repository import SCRIPTS, RepositoryCase, folder_listing, proves_a_process
 
 import harness
+import inject_rules
+import mechanisms
 
 KEEPER = ".agents/skills/keeper/SKILL.md"
 HARNESS_SKILL = ".agents/skills/harness/SKILL.md"
@@ -97,14 +101,124 @@ def platform_makes_symlinks() -> bool:
         return True
 
 
+class History:
+    """The source's commits and tags when no repository holds them: each commit a snapshot of the
+    source folder, named as Git would name one."""
+
+    def __init__(self) -> None:
+        self.commits: dict[str, dict[str, bytes]] = {}
+        self.tags: dict[str, str] = {}
+        self.head: str | None = None
+        self.date = datetime.date.today().isoformat()
+
+    def commit(self, files: dict[str, bytes]) -> None:
+        named = hashlib.sha1(repr((len(self.commits), sorted(files.items()))).encode()).hexdigest()
+        self.commits[named] = files
+        self.head = named
+
+    def tag(self, name: str) -> None:
+        self.tags[name] = self.head
+
+    def commit_of(self, ref: str) -> str | None:
+        if ref == "HEAD":
+            return self.head
+        if ref in self.tags:
+            return self.tags[ref]
+        matching = [named for named in self.commits if named.startswith(ref)]
+        return matching[0] if len(matching) == 1 and len(ref) >= 4 else None
+
+    def tag_of(self, commit: str) -> str | None:
+        return next((name for name, tagged in self.tags.items() if tagged == commit), None)
+
+
+class HeldSource(harness.Source):
+    """The source read from a `History` instead of a clone: it answers the reads `Source` makes
+    of Git, and inherits every choice `Source` makes on what they return."""
+
+    def __init__(self, repository: str, history: History) -> None:
+        super().__init__(repository)
+        self.history = history
+
+    def __enter__(self) -> HeldSource:
+        return self
+
+    def __exit__(self, *_: object) -> None:
+        pass
+
+    def _commit(self, ref: str) -> str | None:
+        return self.history.commit_of(ref)
+
+    def _tag(self, commit: str) -> str | None:
+        return self.history.tag_of(commit)
+
+    def _short(self, commit: str) -> str:
+        return commit[:7]
+
+    def _date(self, commit: str) -> str:
+        return self.history.date
+
+    def _archived(self, ref: harness.Ref, paths: tuple[str, ...]) -> dict[str, bytes]:
+        at = self.history.commits[ref.commit]
+        return {name: data for name, data in at.items() if any(name == path or name.startswith(path + "/") for path in paths)}
+
+    def _blob(self, ref: harness.Ref, path: str) -> bytes | None:
+        return self.history.commits[ref.commit].get(path)
+
+
+def plain_target_git(target: Path, *arguments: str) -> str | None:
+    """What Git says of a plain folder that is the top of its own work tree, with no origin and
+    no setting of its own."""
+    return str(target) if arguments == ("rev-parse", "--show-toplevel") else None
+
+
+def checks_in_process(target: Path, arguments: list[str]) -> subprocess.CompletedProcess:
+    """The gate's child, run as its `main`: the fixture's target holds copies of the live scripts,
+    so the module already loaded is the one the child would have run, rooted where the child
+    would have rooted itself."""
+    script = Path(arguments[0])
+    module = {"inject_rules.py": inject_rules, "mechanisms.py": mechanisms}[script.name]
+    said, complained = io.StringIO(), io.StringIO()
+    with contextlib.redirect_stdout(said), contextlib.redirect_stderr(complained):
+        status = module.main(arguments[1:], root=script.parents[3])
+    return subprocess.CompletedProcess(arguments, status, said.getvalue(), complained.getvalue())
+
+
 class TwoTrees(RepositoryCase):
-    """A source repository holding a small core with the live scripts, and a target beside it."""
+    """A source holding a small core with the live scripts, and a target beside it. The source's
+    history is held in memory and the gate's checks run in-process, unless the case proves a
+    process — then both trees are real repositories and the gate starts its children."""
 
     def setUp(self) -> None:
         super().setUp()
         self.source = self.root
+        if not self._proves_a_process():
+            self.history = History()
+            self._patch(harness, "Source", lambda repository: HeldSource(repository, self.history))
+            self._patch(harness, "_git_in", plain_target_git)
+            self._patch(harness, "_python", checks_in_process)
         self.seed_source()
         self.target = self.another_repository()
+
+    def commit(self, message: str = "records") -> None:
+        if self._proves_a_process():
+            super().commit(message)
+        else:
+            self.history.commit({name: (self.source / name).read_bytes() for name in folder_listing(self.source)})
+
+    def tag(self, name: str) -> None:
+        if self._proves_a_process():
+            self.git("tag", name)
+        else:
+            self.history.tag(name)
+
+    def remove(self, *names: str) -> None:
+        """Takes files or whole directories out of the source; the next commit records it."""
+        for name in names:
+            path = self.source / name
+            if path.is_dir():
+                shutil.rmtree(path)
+            else:
+                path.unlink()
 
     def seed_source(self) -> None:
         self.write(KEEPER, "---\nname: keeper\ndescription: keeps\n---\n\n# Keeper\n\nKeep things.\n")
@@ -117,7 +231,13 @@ class TwoTrees(RepositoryCase):
         self.write(".agents/README.md", "# Installed harness\n\nSkills live under `skills/`.\n")
         self.write(".agents/glossary.md", "# The development method\n\n**Recipient**: a tree that received core.\n")
         for script in SCRIPTS.glob("*.py"):
-            self.write(f".agents/scripts/gw/{script.name}", script.read_text(encoding="utf-8"))
+            # A real gate runs these copies as its children; an in-memory one runs the loaded
+            # modules, so a line naming the script stands in and nothing tokenizes the live code.
+            if self._proves_a_process():
+                text = script.read_text(encoding="utf-8")
+            else:
+                text = f"# {script.name}: the gate runs the loaded module in its place\n"
+            self.write(f".agents/scripts/gw/{script.name}", text)
         self.write(".agents/scripts/gw/test/test_arrival.py", ARRIVAL_TEST)
         self.write(TICKET, "# Sweep\n")
         self.write("README.md", "# The repository's front page, never shipped\n")
@@ -136,18 +256,19 @@ class TwoTrees(RepositoryCase):
             return handle.read()
 
     def target_snapshot(self) -> dict[str, bytes]:
-        files = {
-            path.relative_to(self.target).as_posix(): path.read_bytes()
-            for path in sorted(self.target.rglob("*"))
-            if path.is_file() and ".git" not in path.relative_to(self.target).parts
-        }
+        """Every byte of the target, and its index where the case may start a process."""
+        files = {name: (self.target / name).read_bytes() for name in folder_listing(self.target)}
+        if not self._proves_a_process():
+            return files
         index = subprocess.run(
             ["git", "ls-files", "--stage"], cwd=self.target, capture_output=True, encoding="utf-8", check=True
         ).stdout
         return {**files, "<index>": index.encode()}
 
     def short_head(self) -> str:
-        return self.git("rev-parse", "--short", "HEAD").strip()
+        if self._proves_a_process():
+            return self.git("rev-parse", "--short", "HEAD").strip()
+        return self.history.head[:7]
 
 
 # --- the pure parts -----------------------------------------------------------------------------
@@ -244,6 +365,7 @@ class TheRepositoryLine(unittest.TestCase):
 
 
 class TheSource(TwoTrees):
+    @proves_a_process
     def test_the_manifest_at_a_ref_is_core_the_two_root_files_and_the_license_and_nothing_else(self) -> None:
         with harness.Source(str(self.source)) as source:
             ref = source.resolve("HEAD")
@@ -261,15 +383,16 @@ class TheSource(TwoTrees):
 
         with self.subTest(license="absent at the ref"):
             # Every ref before the license existed lacks it, and the archive refuses a path the ref lacks.
-            self.git("rm", "-q", "LICENSE")
+            self.remove("LICENSE")
             self.commit("no license")
             with harness.Source(str(self.source)) as source:
                 self.assertNotIn(INSTALLED_LICENSE, source.files(source.resolve("HEAD")))
 
+    @proves_a_process
     def test_a_tagged_commit_is_announced_by_its_tag_and_an_untagged_one_by_its_short_commit(self) -> None:
         with harness.Source(str(self.source)) as source:
             untagged = source.resolve("HEAD")
-        self.git("tag", "v1")
+        self.tag("v1")
         with harness.Source(str(self.source)) as source:
             tagged = source.resolve("HEAD")
 
@@ -300,17 +423,23 @@ class ARefusal(TwoTrees):
             self.assertIn(word, report["refusals"][0])
         self.assertEqual(before, self.target_snapshot())
 
+    # The two refusals Git decides are asked of the target before anything is read from the
+    # source, so a `Source` never entered — never cloned — is all they need of it.
+
+    @proves_a_process
     def test_a_target_that_is_not_a_work_tree_root(self) -> None:
         inside = self.target / "inside"
         inside.mkdir()
-        self.target = inside
 
-        self.assert_refused(("--install",), "target:", "top level")
+        with self.assertRaisesRegex(harness.Refused, "target:.*top level"):
+            harness._work_tree_root(inside, harness.Source(str(self.source)))
 
+    @proves_a_process
     def test_the_source_itself_by_its_remote(self) -> None:
         subprocess.run(["git", "remote", "add", "origin", str(self.source)], cwd=self.target, check=True)
 
-        self.assert_refused(("--install",), "target:", "the source itself")
+        with self.assertRaisesRegex(harness.Refused, "target:.*the source itself"):
+            harness._work_tree_root(self.target, harness.Source(str(self.source)))
 
     def test_install_over_a_present_manifest_path(self) -> None:
         for present in ("AGENTS.md", "CLAUDE.md", KEEPER, INSTALLED_LICENSE):
@@ -373,11 +502,9 @@ class ARefusal(TwoTrees):
     def test_a_junction_where_a_link_goes(self) -> None:
         (self.target / ".agents" / "skills").mkdir(parents=True)
         (self.target / ".claude").mkdir()
-        made = subprocess.run(
-            ["cmd", "/c", "mklink", "/J", str(self.target / ".claude" / "skills"), str(self.target / ".agents" / "skills")],
-            capture_output=True,
-        )
-        self.assertEqual(0, made.returncode, made.stderr)
+        import _winapi  # a junction without a process, as CPython's own tests make one
+
+        _winapi.CreateJunction(str(self.target / ".agents" / "skills"), str(self.target / ".claude" / "skills"))
         shutil.rmtree(self.target / ".agents")
 
         self.assert_refused(("--install",), "link:", ".claude/skills", "junction")
@@ -430,7 +557,6 @@ class AnInstall(TwoTrees):
             self.assertIn(str(self.target / ".claude" / "skills"), report["pending"][0])
             self.assertIn("mklink /D" if os.name == "nt" else "ln -s", report["pending"][0])
             self.assertEqual({".claude/skills": False, ".cursor/skills": False}, report["links_resolve"])
-        self.assertFalse(any("__pycache__" in path.parts for path in self.target.rglob("*")))
 
     def test_a_shape_diagnostic_in_the_recipient_leaves_arrival_false_naming_the_gate(self) -> None:
         self.write(".agents/skills/silent/SKILL.md", "# Silent\n\nNamed by nothing, claiming nothing.\n")
@@ -462,6 +588,33 @@ class AnInstall(TwoTrees):
 
 
 # --- update --------------------------------------------------------------------------------------
+
+
+class TheRealPath(TwoTrees):
+    """What every other case here holds in memory, done once for real: the source cloned, and the
+    gate's checks run as the recipient's own scripts, each in a child of its own."""
+
+    proves_a_process = True
+
+    def test_an_install_arrives_a_check_names_an_edit_and_an_update_replaces_it(self) -> None:
+        status, report = self.run_harness("--install")
+
+        self.assertEqual(0, status, report["gates"])
+        self.assertFalse(any("__pycache__" in path.parts for path in self.target.rglob("*")))
+
+        (self.target / KEEPER).write_text("# Keeper, edited\n", encoding="utf-8")
+        status, report = self.run_harness("--check")
+
+        self.assertEqual(1, status)
+        self.assertEqual([KEEPER], report["gates"]["ref"]["differs"])
+
+        self.write(KEEPER, "# Keeper\n\nKeep more things.\n")
+        self.commit("core moved")
+        status, report = self.run_harness("--update", "--overwrite")
+
+        self.assertEqual(0, status, report["gates"])
+        self.assertEqual([KEEPER], report["replaced"])
+        self.assertIn("Keep more things.", self.target_text(KEEPER))
 
 
 class AnUpdate(TwoTrees):
@@ -497,7 +650,7 @@ class AnUpdate(TwoTrees):
         self.assertTrue(report["gates"]["injector"]["passed"], report["gates"]["injector"])
 
     def test_deletes_what_left_the_manifest_and_the_directories_it_emptied_when_the_line_announces_a_ref(self) -> None:
-        self.git("rm", "-q", "-r", ".agents/glossary.md", ".agents/scripts/gw/test")
+        self.remove(".agents/glossary.md", ".agents/scripts/gw/test")
         self.commit("the glossary and the shipped tests leave")
 
         status, report = self.run_harness("--update")
@@ -520,7 +673,7 @@ class AnUpdate(TwoTrees):
         entry = self.target / "AGENTS.md"
         entry.write_text(entry.read_text(encoding="utf-8").replace(f"{self.source.name}@", "v"), encoding="utf-8")
         self.write_target(".agents/stale.md", "left over from a hand install\n")
-        self.git("rm", "-q", ".agents/glossary.md")
+        self.remove(".agents/glossary.md")
         self.commit("the glossary leaves")
 
         status, report = self.run_harness("--update", "--overwrite")
@@ -580,7 +733,7 @@ class ATreeInstalledUnderEarlierRules(TwoTrees):
         super().setUp()
         today = self.short_head()
         self.run_harness("--install")
-        self.git("rm", "-q", QUEUE_ARRIVAL, "LICENSE")
+        self.remove(QUEUE_ARRIVAL, "LICENSE")
         self.write(HARNESS_SKILL, harness.REPOSITORY.sub("", HARNESS_SKILL_TEXT, count=1))
         self.write(self.OLD_TEST, self.OLD_TEST_TEXT)
         self.commit("core as it stood under earlier rules")
@@ -594,7 +747,7 @@ class ATreeInstalledUnderEarlierRules(TwoTrees):
         (self.target / self.OLD_TEST).write_text(self.OLD_TEST_TEXT, encoding="utf-8")
         entry = self.target / "AGENTS.md"
         entry.write_text(entry.read_text(encoding="utf-8").replace(f"@{today},", f"@{self.earlier},"), encoding="utf-8")
-        self.git("rm", "-q", self.OLD_TEST)
+        self.remove(self.OLD_TEST)
         self.write(QUEUE_ARRIVAL, QUEUE_ARRIVAL_TEXT)
         self.write(HARNESS_SKILL, HARNESS_SKILL_TEXT)
         self.write("LICENSE", LICENSE_TEXT)
@@ -640,8 +793,8 @@ class TheSourceARecipientHolds(TwoTrees):
         self.assertEqual(self.source.resolve().as_posix(), self.stamped_line())
 
     def test_a_url_from_is_stamped_verbatim(self) -> None:
-        # A `file://` URL is a real URL git can clone and a path that does not exist as one, so
-        # the stamp is exercised end to end without reaching the network.
+        # A `file://` URL names the source without being a path that exists, so it is stamped as
+        # given rather than resolved.
         url = self.source.resolve().as_uri()
 
         said = io.StringIO()
@@ -653,8 +806,8 @@ class TheSourceARecipientHolds(TwoTrees):
 
     def test_an_update_from_another_source_replaces_nothing_in_core(self) -> None:
         self.run_harness("--install")
-        beside = self.another_repository() / self.source.name
-        subprocess.run(["git", "clone", "--quiet", str(self.source), str(beside)], check=True)
+        beside = self.another_repository() / self.source.name  # the same history, held elsewhere
+        beside.mkdir()
 
         said = io.StringIO()
         with contextlib.redirect_stdout(said):
@@ -666,23 +819,6 @@ class TheSourceARecipientHolds(TwoTrees):
         self.assertEqual(0, status, report["gates"])
         self.assertEqual(beside.resolve().as_posix(), self.stamped_line())
 
-    def test_a_script_whose_skill_lost_the_line_refuses_naming_the_file_and_the_flag(self) -> None:
-        self.run_harness("--install")
-        skill = self.target / HARNESS_SKILL
-        skill.write_text(
-            harness.without_repository_line(HARNESS_SKILL, skill.read_text(encoding="utf-8")), encoding="utf-8"
-        )
-
-        done = subprocess.run(
-            [sys.executable, str(self.target / ".agents/scripts/gw/harness.py"), str(self.target), "--check"],
-            capture_output=True,
-            encoding="utf-8",
-        )
-        refusal = json.loads(done.stdout)["refusals"][0]
-
-        self.assertIn(HARNESS_SKILL, refusal)
-        self.assertIn("--from", refusal)
-        self.assertIn("no Repository line", refusal)
 
     def test_a_ref_whose_harness_skill_has_no_line_is_refused_and_nothing_is_written(self) -> None:
         self.write(HARNESS_SKILL, "---\nname: harness\ndescription: places core\n---\n\nNo line here.\n")
@@ -695,20 +831,36 @@ class TheSourceARecipientHolds(TwoTrees):
         self.assertIn("not the harness", report["refusals"][0])
         self.assertEqual(before, self.target_snapshot())
 
-    def test_a_recipients_own_script_checks_with_no_from(self) -> None:
+    @proves_a_process
+    def test_a_recipients_own_script_checks_with_no_from_and_refuses_once_its_skill_lost_the_line(self) -> None:
         self.run_harness("--install")
 
+        checked = self.recipients_own_check()
+
+        self.assertEqual(self.source.resolve().as_posix(), checked["repository"])
+        self.assertTrue(checked["gates"]["ref"]["passed"], checked)
+        # The fixture's skill carries the line; the one core authors in this tree must too, or
+        # every recipient's script would have nothing to read. `home` refuses naming the file.
+        self.assertTrue(harness.home(), "core's own harness skill must author the line")
+
+        skill = self.target / HARNESS_SKILL
+        skill.write_text(
+            harness.without_repository_line(HARNESS_SKILL, skill.read_text(encoding="utf-8")), encoding="utf-8"
+        )
+        refusal = self.recipients_own_check()["refusals"][0]
+
+        self.assertIn(HARNESS_SKILL, refusal)
+        self.assertIn("--from", refusal)
+        self.assertIn("no Repository line", refusal)
+
+    def recipients_own_check(self) -> dict:
+        """The recipient's copy of the script, run as its own process with no `--from`."""
         done = subprocess.run(
             [sys.executable, str(self.target / ".agents/scripts/gw/harness.py"), str(self.target), "--check"],
             capture_output=True,
             encoding="utf-8",
         )
-
-        self.assertEqual(self.source.resolve().as_posix(), json.loads(done.stdout)["repository"])
-        self.assertTrue(json.loads(done.stdout)["gates"]["ref"]["passed"], done.stdout)
-        # The fixture's skill carries the line; the one core authors in this tree must too, or
-        # every recipient's script would have nothing to read. `home` refuses naming the file.
-        self.assertTrue(harness.home(), "core's own harness skill must author the line")
+        return json.loads(done.stdout)
 
 
 # --- the one door that arrives with content ---------------------------------------------------

@@ -534,7 +534,6 @@ class TheIndex(Declared):
 
     def test_is_rendered_without_writing_it_or_reading_a_committed_copy(self) -> None:
         self.write(f"{MECHANISMS}/README.md", "| mechanism |\n|---|\n| a stale copy |\n")
-        self.commit()
         untouched = self.snapshot()
 
         rendered = self.rendered()

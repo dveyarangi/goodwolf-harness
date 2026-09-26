@@ -23,7 +23,6 @@ class InterruptedClose(RepositoryCase):
         self.write(TICKET, "# Install /plan\n\n[the RFC](../rfc/01-0010.0040-install-plan.md)\n")
         self.write(RFC, "# Install /plan — plan\n\n[the ticket](../tickets/01-0010.0040-install-plan.md)\n")
         self.write(QUEUE, "# Queue\n\n[plan](01-0010.0040-install-plan.md)\n")
-        self.commit()
         self.pairs = [(TICKET, CLOSED_TICKET), (RFC, CLOSED_RFC)]
 
     def test_a_failure_on_the_second_record_stops_and_reports_both_halves(self) -> None:
