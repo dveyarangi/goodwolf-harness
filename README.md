@@ -8,8 +8,8 @@ reconstructs where the project stands from those records, not from a chat that i
 The harness is yours to change. Your project's own rules — its test commands, whether the agent may
 commit without asking — go in one local file that every install and update applies last; to change
 a shipped rule, you override it there by name. You can add skills of your own: `/mechanism`, the
-skill for declaring one, walks you through it, and the same checks then hold your skill as hold the
-shipped ones. And when a rule was in place but the agent didn't follow it, the case is written down
+skill for declaring one, walks you through it, and the checks that hold a declared mechanism then
+hold yours. And when a rule was in place but the agent didn't follow it, the case is written down
 and the rule reworded — a postmortem aimed at the instructions instead of the code.
 
 ## How it works
@@ -35,8 +35,9 @@ format file: [tickets](.agents/skills/ticket/TICKET-FORMAT.md),
 [glossary](.agents/skills/align/GLOSSARY-FORMAT.md).
 
 Where a person has to say yes is a switch — commit, push, start the next piece of work, split work
-into tickets — each `ask` or `auto`, and one more for whether a clear rule violation is fixed and
-reported or shown to you first:
+into tickets — each `ask` or `auto`, and `push` may also be `never`; one more says whether a clear
+rule violation is fixed and reported or shown to you first. A switch your project hasn't set is
+`ask`. This repository's own:
 
 ```
 commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report
@@ -91,12 +92,10 @@ The loop and its rules are in [AGENTS.md](AGENTS.md), every skill under
 - Installing into a project, updating it, and checking the installed copy is intact, with your
   project's own rules applied last.
 - Arriving in a project that already has something. The install refuses to write over an existing
-  `CLAUDE.md` or `AGENTS.md`, so they are moved aside first; the installing agent then reads them,
-  with your skills and documents, and works out with you, at `/align`, where each piece belongs —
-  your facts and overrides into the local file, your own skills beside the shipped ones — and
-  `CLAUDE.md` becomes a one-line pointer to the entry file. The first session after install then
-  aligns with you on what the project is, and its architecture, decisions and glossary are written
-  from there, deepening as the work reaches each part.
+  `CLAUDE.md` or `AGENTS.md`, so they are moved aside first, and `CLAUDE.md` becomes a one-line
+  pointer to the entry file. The first session after install then aligns with you on what the
+  project is, and its architecture, decisions and glossary are written from there, deepening as
+  the work reaches each part.
 - One home per rule, with drift detection; checks on the harness's own records and declarations.
   The harness is developed with itself.
 
@@ -104,10 +103,10 @@ The loop and its rules are in [AGENTS.md](AGENTS.md), every skill under
 `<straw-dog until="…" ticket="…">`, naming what retires it:
 
 - <straw-dog until="01-0017.0020 is done" ticket="docs/tickets/01-0017.0020-practice-swaps-in-one-edit.md">It assumes one person steering the agents: several developers on parallel branches would collide on ticket numbers in one shared queue, and a team's own tracker can't yet take the tickets' place.</straw-dog>
-- <straw-dog until="01-0010.0150 is done" ticket="docs/tickets/01-0010.0150-harness-meets-a-tree-with-a-method.md">Arrival is guided by instructions, not by tooling: the script doesn't take its own inventory of what a project already has.</straw-dog>
+- <straw-dog until="01-0010.0150 is done" ticket="docs/tickets/01-0010.0150-harness-meets-a-tree-with-a-method.md">What a project already had — its moved-aside `CLAUDE.md` or `AGENTS.md`, its skills, its documents — isn't carried into the harness: nothing reads it and sorts your facts into the local file and your skills beside the shipped ones.</straw-dog>
 - <straw-dog until="01-0010.0175 is done" ticket="docs/tickets/01-0010.0175-arrival-describes-what-it-finds.md">The script doesn't draft an architecture and glossary from a project's code and documents on arrival.</straw-dog>
 - <straw-dog until="01-0020 settles switchable ceremony" ticket="docs/tickets/01-0020-pacer.md">There's no declared lighter process for small work, or heavier one for large — the agent and you choose it each time.</straw-dog>
-- <straw-dog until="01-0010.0195 is done" ticket="docs/tickets/01-0010.0195-a-recipient-reads-before-it-takes.md">Updates don't say what changed.</straw-dog>
+- <straw-dog until="01-0010.0195 is done" ticket="docs/tickets/01-0010.0195-a-recipient-reads-before-it-takes.md">Updates name the files they changed, not what changed in them or what a project has to do about it.</straw-dog>
 - <straw-dog until="01-0010.0200 is done" ticket="docs/tickets/01-0010.0200-a-project-can-remove-the-harness.md">There is no uninstall.</straw-dog>
 - <straw-dog until="01-0010.0125 is done" ticket="docs/tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md">The host doesn't block an action a rule forbids; the agent is trusted to keep it.</straw-dog>
 - <straw-dog until="a project's improvement reaches core by the harness's own path" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">Improvements a project makes to the harness stay in that project.</straw-dog>
