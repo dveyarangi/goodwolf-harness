@@ -1,7 +1,7 @@
 ---
 name: commit
 description: >-
-  Rules for committing changes to the code repository. Never commit without explicit instruction or permission from the user.
+  Use when committing or pushing changes to the repository.
 ---
 
 <straw-dog until="01-0017 declares the commit mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
@@ -32,5 +32,5 @@ description: >-
   skill holding a project's commands is a second home for them, and it is wrong for every
   project but the one it was written in.
 
-- Do not commit without explicit instruction or permission from user.
-- Separately, do not push without explicit instruction or permission from user.
+- Commit and push only as the entry file's `commit` and `push` switches allow; a push is its own
+  permission, never implied by a commit's.

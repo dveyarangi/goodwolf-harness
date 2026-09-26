@@ -11,6 +11,25 @@ deleting a rule: occurrences accumulate and what to do about a rule that keeps f
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 13. Skill descriptions fixed by adding their method — 2026-09-27
+
+**Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s tiering rule, *name there every
+occasion the skill serves, with the context that makes it fire, and nothing else*.
+
+**What happened.** Asked to fix descriptions an outside review found naming no occasion, I rewrote
+four: `/commit` gained how commits are grouped and checked, `/implement` gained where it sits in the
+loop by naming two other skills, `/improve-comments` gained what good comments say. The user: *do
+not describe implementation or method in skill description, only usecase*, and *do not name skills
+in other skills, unless injected*.
+
+**Why it did not fire.** *With the context that makes it fire* read as licence to add context, and
+method and loop position passed as context. Nothing said a skill may not name another.
+
+**Amendment landed 2026-09-27.** The tiering rule reads *name there every use case the skill
+serves, and nothing else — never its method or how it is built*. The mechanism shape's R8 and R9,
+installed into `/skill-up` and `/mechanism`: a mechanism's skill, and a skill on its way to one,
+names no other skill; what it needs reaches it installed. Not yet replayed.
+
 ## 12. A queue answer named tickets by their position alone — 2026-09-26
 
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s **P9**, *name a ticket by a link

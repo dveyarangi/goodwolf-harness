@@ -15,6 +15,29 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v17 — 2026-09-27
+
+**Two core changes**, both from an outside review that installed the harness into a fresh tree and
+read which skill reads each switch:
+
+- **A switch the project has not set is `ask`.** A fresh install carries the switch roster and no
+  local block until `local.rules.md` is written, so its first session had no commit behaviour at
+  all. The same pass took `/commit`'s own blanket ban out — it contradicted `commit=auto` — and
+  made it defer to the `commit` and `push` switches.
+- **`/dream` left the loop's helpers.** Optional and experimental, it was paid for at tier 1 by
+  every session, against the tiering rule; its own description carries its occasion.
+
+Three more the same day, from rules the user moved out of the agent's private memory, since a rule
+kept there does not travel with the harness:
+
+- **Write for a capable model**, as a general rule. *Problem before machinery* came with it and
+  went to `/align`, whose opening is its only occasion.
+- **The tiering rule** names use cases only, never a skill's method —
+  [rule failure 13](../rule-failures.md).
+
+The Self-improvement bullet was reworded, and now asks that the amendment land in the same pass;
+that section is outside what a version covers.
+
 ## v16 — 2026-09-21
 
 **One core change:** the ticket mechanism's P9, the first block a mechanism installs into the

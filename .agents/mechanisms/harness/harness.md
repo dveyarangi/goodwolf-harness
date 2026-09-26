@@ -126,9 +126,8 @@ needs a revision and a check.
 
 ## What would show it working, graded by someone who did not build it
 
-**The user, in frost_map.** That tree took the harness by hand on 2026-09-09 at a version its
-entry file still announces, refused one core check rather than duplicate its own state, and has
-built on the copy since. It writes its answers into a local file, takes an update from the
+**The user, in a tree that took the harness by hand** at a version its entry file still announces
+and has built on the copy since. It writes its answers into a local file, takes an update from the
 repository, and the user grades: its local file survives byte-identical and its blocks are
 restored last; its `docs/` is untouched; its links resolve; its announce line names the ref; the
 gate passes, or says which of the three did not. An install that had to be hand-finished to reach

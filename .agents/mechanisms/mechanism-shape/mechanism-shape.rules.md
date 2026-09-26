@@ -94,3 +94,26 @@ file: `inject_rules.py --check` fails on a block that differs from its source an
 nothing owns, and the repair is the local file, re-installed. The local block is the project's,
 not core's, and a redeploy preserves it.
 </rule>
+
+## R8 — an installed mechanism's skill names no other skill
+
+- **target** `.agents/skills/skill-up/SKILL.md`
+- **target** `.agents/skills/mechanism/SKILL.md`
+- **authority** the user, 2026-09-27
+
+<rule>
+The skill of a mechanism whose state is `installed` names no other skill: what it needs from
+another reaches it as an installed block.
+</rule>
+
+<straw-dog until="01-0017 declares a mechanism for every skill that says Mechanism: not yet" ticket="docs/tickets/01-0017-io-graph-coherent.md">
+## R9 — so does a skill on its way to a mechanism
+
+- **target** `.agents/skills/skill-up/SKILL.md`
+- **target** `.agents/skills/mechanism/SKILL.md`
+- **authority** the user, 2026-09-27
+
+<rule>
+A skill whose first body line says `Mechanism: not yet` names no other skill either.
+</rule>
+</straw-dog>

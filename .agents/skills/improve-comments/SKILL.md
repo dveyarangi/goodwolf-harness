@@ -1,6 +1,6 @@
 ---
 name: improve-comments
-description: Write or improve codebase comments
+description: Use when writing or reviewing comments and docstrings in code.
 ---
 
 <straw-dog until="01-0017 declares the improve-comments mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>

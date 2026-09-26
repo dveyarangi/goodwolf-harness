@@ -1,6 +1,6 @@
 ---
 name: implement
-description: Implement the agreed work into code, following its governing docs.
+description: Use when agreed work is to be written into code.
 ---
 
 <straw-dog until="01-0017 declares the implement mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>

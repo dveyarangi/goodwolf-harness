@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v16, 2026-09-21.
+Entry contract: v17, 2026-09-27.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -26,8 +26,10 @@ nothing about being load-bearing — an implementation method is a shape too. �
 
 - Clarity and simplicity first — Occam's razor: take the shape with the fewest parts that does the job, and remove before you add.
 
+- Write for a capable model: state the rule and its pointer. The definition the glossary owns, the example that motivated it and what it implies stay out.
+
 <straw-dog until="01-0018 declares the mechanism that owns tiering" ticket="docs/tickets/01-0018-reachability-coherent.md">
-- A skill's description is its tier-1 surface: name there every occasion the skill serves, with the context that makes it fire, and nothing else. Write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session.
+- A skill's description is its tier-1 surface: name there every use case the skill serves, and nothing else — never its method or how it is built. Write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session.
 </straw-dog>
 
 <installed by="ticket">
@@ -97,18 +99,18 @@ Do not reopen an accepted decision without new evidence.
 
 - /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.
 - /discover to investigate hidden complexity, by detecting what else the shape is.
-- /dream is an experimental second "lobe" of the harness, aiming to reassess load-bearingness. It is optional, runs after /conclude, and writes dreams that /maintain and /align may pick up; it never amends rules.
 
 ## Self-improvement
 
 <straw-dog until="01-0019 is done" ticket="docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md">
-- The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)
+- A rule that was in place and did not fire was usually worded wrong. Register the failure in docs/rule-failures.md, or strike the entry it repeats, and propose the amendment that would have made it fire; /mechanism and /skill-up hold the means. Land the amendment in the same pass, showing its text first.
 - Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.
 </straw-dog>
 
 ## Autonomy
 
 The project sets each switch in its local block, under *Project-local*; skills defer to those values.
+A switch the project has not set is `ask`.
 
 | Switch | Meaning |
 |---|---|
