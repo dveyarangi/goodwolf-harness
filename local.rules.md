@@ -43,5 +43,6 @@ uv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/
 uv run --offline --no-project python .agents/scripts/gw/mechanisms.py --check
 uv run --offline --no-project python .agents/scripts/gw/inject_rules.py --check
 uv run --offline --no-project python .agents/scripts/gw/tickets.py --check
+uv run --offline --no-project python .agents/scripts/gw/maintain.py --check
 ```
 </rule>

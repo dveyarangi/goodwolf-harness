@@ -19,12 +19,23 @@ and this mechanism sits on it. The harness mechanism places it in a tree with th
 removing it alone is declared below as a gap, not assumed away.
 
 Its record is the marks — one row per mechanism per level, moved only by the closing step of a
-maintenance, from which dueness is derived.
+maintenance, from which dueness is derived. A mechanism's doc is due when the meta-rules moved
+since its mark; its records are due when its own doc, rules file or skill did. `maintain.py
+--check` derives that at every pass and never fails on it — being due is news, not a defect — and
+`--mark` is the only writer; the format is the skill's, under *Marks*. A due mechanism joins
+whatever scope a pass declared, because a pass that closes one ticket would otherwise never reach
+a mechanism doc. A mark fingerprints the surface as it stands when written, so what moved between
+the re-check and the mark is cleared unread; marking is therefore the step that closes the
+re-check.
 
-<straw-dog until="01-0011.0060 is done" ticket="docs/tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md">
-**It does not have them yet.** Until the clock exists, the body carries an interim rule inside a
-straw dog: every declared mechanism in a pass's scope is due at every pass. That rule is loud in
-the listing and retires with the clock's ticket.
+In a recipient the mechanisms that came with core are maintained where core is made: the clock
+leaves them out and a mark refuses them, and the origin's marks never ship.
+<straw-dog until="a recipient's own mechanisms have a declared home" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">
+A recipient's own mechanisms have no home yet, so its clock reads an empty set.
+</straw-dog>
+<straw-dog until="01-0010.0120 establishes a channel that speaks unasked" ticket="docs/tickets/01-0010.0120-host-delivery-surfaces.md">
+The due list is read at every pass and printed by the check; it is not announced, so a tree
+where no pass runs is not told.
 </straw-dog>
 
 The ticket mechanism's rules on paired close and on its records, and the mechanism shape's rules
@@ -48,6 +59,7 @@ repair-and-report, recording the cause in the evidence.
 | rule | decided by |
 |---|---|
 | A1, A2, A4 | the user, 2026-09-07 |
+| B4, F4, the marks' format | the user, 2026-09-27, at 01-0011.0060's align and plan |
 | B1, D4 | the user, 2026-09-06 |
 | C1 | the user, 2026-09-06 — eligibility is the maintainer's, never the script's |
 | A3, B2, D3 | drafted into the process document 2026-09-05, never separately decided |
@@ -65,7 +77,8 @@ repair-and-report, recording the cause in the evidence.
 | declaring a scope and running a pass over it | `.agents/skills/maintain/SKILL.md` | |
 | re-checking derived work when what governs it moved — a doc against the meta-rules, an implementation against its doc, records against their format | `.agents/skills/maintain/SKILL.md` | |
 | holding a landed slice to its governing docs, both ways | — | elsewhere — landing-time agreement is verification, `.agents/skills/verify/SKILL.md` |
-| knowing a re-check is due | — | <straw-dog until="the marks exist and give *since* a meaning" ticket="docs/tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md">not yet</straw-dog> |
+| knowing a re-check is due | `.agents/skills/maintain/SKILL.md` | |
+| marking a level re-checked | `.agents/skills/maintain/SKILL.md` | |
 | deciding whether a straw dog's condition holds, and retiring the block | `.agents/skills/maintain/SKILL.md` | |
 | guessing where a straw dog nobody wrapped stands, and judging each guess | `.agents/scripts/gw/straw_dogs.py` | |
 | cleaning prose and records to one home per fact | `.agents/skills/maintain/SKILL.md` | |
@@ -90,6 +103,8 @@ repair-and-report, recording the cause in the evidence.
 | its rules file | `.agents/mechanisms/maintain/maintain.rules.md` |
 | the listing script | `.agents/scripts/gw/straw_dogs.py` |
 | its tests | `.agents/scripts/gw/test/test_straw_dogs.py` |
+| the clock | `.agents/scripts/gw/maintain.py` |
+| its tests | `.agents/scripts/gw/test/test_maintain.py` |
 
 ## Relies on, and does not own
 
@@ -105,6 +120,7 @@ repair-and-report, recording the cause in the evidence.
 | citation reader | `.agents/scripts/gw/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |
 | test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |
 | the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |
+| the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 
 ## What it produces, and who reads it
@@ -121,25 +137,21 @@ repair-and-report, recording the cause in the evidence.
   fails a run.
 - **The rules file** — one rule, M1, targeting `/mechanism`'s *Incept*, read by the installer
   alone and installed there as this mechanism's block.
+- **The marks**, `docs/mechanisms/maintenance.md` — read by the clock at every pass. The
+  instance's record: a recipient keeps its own, and the origin's never ships.
+- **The clock's report** — read by `/maintain` at the start of every pass, and by `/verify`
+  through the verification set, where only an unreadable mark or surface fails it.
 
 Nothing else; no index.
 
-<straw-dog until="01-0011.0060 is done" ticket="docs/tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md">
-No record until the marks.
-</straw-dog>
-
 ## Not yet at the shape
-
-**The marks.** A maintenance mechanism is record-bearing by design, and this one has no record.
-Dueness is inferred, which the body forbids in the same breath as it permits it, inside a straw
-dog.
 
 <straw-dog until="01-0017 is done" ticket="docs/tickets/01-0017-io-graph-coherent.md">
 **One rule held by hand.** P4 is `/spec`'s, and `/spec` is undeclared, so the body carries it
 inside a straw dog bound to the ticket that declares the rest of the corpus.
 </straw-dog>
 
-**Three `not yet` rows**, each naming a ticket that exists.
+**Two `not yet` rows**, each naming a ticket that exists.
 
 ## What retires this
 

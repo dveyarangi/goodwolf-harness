@@ -53,6 +53,14 @@ _Avoid_: source; product as a synonym.
 What a mechanism writes and keeps under a declared format, live until archived: a ticket, an RFC, a session record, the marks. An entry is one row of a record that holds many.
 _Avoid_: log.
 
+**Mark**:
+The row a maintenance writes when it has re-checked a mechanism at a level: the fingerprint of what it checked against, the date, and the outcome. Only the maintenance that finished the re-check writes one; no edit to a doc is a mark.
+_Avoid_: timestamp, last-checked, checkpoint.
+
+**Due**:
+Said of a mechanism at a level when what governs it has moved since its mark, or it has none — *never maintained*. Derived at every look, never stored.
+_Avoid_: stale, dirty, pending.
+
 **Evidence**:
 The record of why a doc is what it is: what was tried, what was refuted, what it cost, what it used to be. One per mechanism. Evolution belongs here; provenance does not.
 _Avoid_: sidecar, notes, history, appendix. *Sidecar* describes a file's position, never its contents.

@@ -19,12 +19,7 @@ One pass over a declared scope. The scope decides which rules apply.
 - **A3** When a governing side moves, re-check what it governs, upper link first: the mechanism
   shape, then a mechanism's doc and rules, then its records. Do not stop at the link you were
   sent for.
-- **A4** Read dueness from the clock. Do not infer it.
-
-<straw-dog until="01-0011.0060 is done" ticket="docs/tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md">
-There is no clock. Treat every declared mechanism in the scope as due at every pass: re-read its
-doc against the shape, its instruction file against its doc, its records against their format.
-</straw-dog>
+- **A4** Read dueness from `maintain.py --check` at the start of every pass. Do not infer it.
 
 ## Scope
 
@@ -36,6 +31,10 @@ doc against the shape, its instruction file against its doc, its records against
   already held is cited, not rewritten.
 - **B3** Archive every finished record, whatever scope you declared. The record's format says
   what finished means and where it goes.
+- **B4** Re-check every mechanism the check reports due or never maintained, whatever scope you
+  declared: its doc against the meta-rules at `rules`; its records against its doc and format at
+  `output` — the live ones, and historical ones where a mechanical change stays in this tree, never
+  records on a remote board.
 
 ## Judge
 
@@ -114,5 +113,27 @@ second home for what that folder already says.
 
 - **F1** Run the checks in the project's verification set that the scope touched.
 - **F2** Report: the declared scope, what was checked, what was repaired and against which
-  rule, what moved, what remains open and who owns it, and what you did not cover.
+  rule, what moved, the marks written, what remains open and who owns it, and what you did not
+  cover.
 - **F3** Do not verify landed work; a close needs verification to have already happened.
+- **F4** Mark each level you re-checked, as the step that closes it and before the report:
+  `maintain.py --mark <mechanism> <level> <outcome>`. Mark nothing you did not re-check. An edit
+  made between the re-check and its mark is cleared unread.
+
+## Marks
+
+`docs/mechanisms/maintenance.md`: a heading, a line pointing here, and one table, written only by
+`--mark`.
+
+| mechanism | level | fingerprint | date | outcome |
+|---|---|---|---|---|
+
+- One row per mechanism per level; `level` is `rules` or `output`.
+- `fingerprint` is 64 lowercase hex, of what the level was checked against; `date` is
+  `YYYY-MM-DD`; `outcome` is `amended` or `nothing to change`.
+- A row whose mechanism is no longer declared is dropped at the next mark. Rows are sorted by
+  mechanism, then level.
+- Read by `--check` at every pass; a malformed row fails the check and refuses every mark until it
+  is repaired.
+- In a recipient the mechanisms that came with core are maintained where core is made: the check
+  leaves them out and a mark refuses them.
