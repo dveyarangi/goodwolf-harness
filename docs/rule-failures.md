@@ -11,6 +11,36 @@ deleting a rule: occurrences accumulate and what to do about a rule that keeps f
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 14. A recall recommended the next item by a criterion the queue does not use — 2026-09-27
+
+**Rules in play:** [the delivery status](tickets/README.md)'s ordering rule *(the user,
+2026-09-07)*, *the governing consideration is which slice hands the next one a tool that makes the
+harness work better*; [`/recall`](../.agents/skills/recall/SKILL.md)'s *sessions … are dated
+snapshots — read them for why, never for whether*.
+
+**What happened.** The session-27 `/recall` took its three candidates from session 26's
+continuation — [01-0011.0090 a-test-catches-what-its-name-promises](tickets/01-0011.0090-a-test-catches-what-its-name-promises.md),
+[01-0010.0172 a-first-install-says-what-stopped-it](tickets/01-0010.0172-a-first-install-says-what-stopped-it.md)
+and the releases chain — and recommended `.0172` because a recipient had reported its failure. The
+user: *is that the real priority?* By the ordering rule, both recipient-facing candidates rank
+below slices that repair how the harness decides and keeps its own state.
+
+**Why it did not fire.** The ordering rule lives in the queue's prose, which `/recall` reads as
+state, not as the criterion for its recommendation; `/recall` says *find the next things to focus
+on* and names no criterion, so the agent supplied its own. The handoff's shortlist read as already
+ranked.
+
+**Amendment landed 2026-09-27, reworded the same day.** The first wording had `/recall` rank by
+the ordering rule, which re-ranks at every wake; the user then set when the order changes — by the
+user's decision, when priorities or product requirements change, the order is found inconsistent,
+or a HITL resolution meets unpredicted complexity or a split
+([01-0020 pacer](tickets/01-0020-pacer.md)). `/recall` now reads, as a straw dog on 01-0020, which
+owns ordering and rehomes the rule: *read the next item from the order the queue states; do not
+re-rank it; check whether any of those occasions has arisen since the order was set, name each,
+and put the reordering to the user; a last session's handoff is a list of candidates, not an
+order.* Graded by the next `/recall`: it takes the next item from the stated order, or names the
+occasion that puts the order to the user, or this entry is struck. Not yet replayed.
+
 ## 13. Skill descriptions fixed by adding their method — 2026-09-27
 
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s tiering rule, *name there every
