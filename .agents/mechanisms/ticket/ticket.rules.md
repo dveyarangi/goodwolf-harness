@@ -84,6 +84,16 @@ Land a resolved decision in its durable home with its provenance, and rewrite th
 place to what is now true; list under `Open issues` only what stays unresolved.
 </rule>
 
+## P10 — an align on a ticket opens with what the ticket is
+
+- **target** `.agents/skills/align/SKILL.md`
+- **authority** the user, 2026-09-27
+
+<rule>
+Open an align on a ticket by saying what the ticket is: what it builds and the problem it answers,
+in plain words, each of its terms explained, before the necessity gate or any question.
+</rule>
+
 ## P9 — a ticket is named by a link, or by a slug and its state
 
 - **target** `AGENTS.md`
