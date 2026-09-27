@@ -59,6 +59,9 @@ PAINTED_DOORS = frozenset(
         "docs/tickets/done/",
         "docs/tickets/README.md",
         "docs/mechanisms/",
+        # TODO docs/tickets/01-0017-io-graph-coherent.md: the maintain mechanism's marks, declared in
+        # its skill's prose until each mechanism's records are declared where a script reads them.
+        "docs/mechanisms/maintenance.md",
         # TODO docs/tickets/01-0017-io-graph-coherent.md: /align, /plan, /spec, /conclude, /dream
         # and /setup-devops are undeclared; each row goes with its owner's declaration.
         "docs/glossary.md",
@@ -281,23 +284,37 @@ def _summary(text: str) -> str | None:
 def check(root: Path) -> Checked:
     """Every declaration under `.agents/mechanisms/`, with what does not hold about it — and, read
     the other way, every installed skill with who claims it."""
-    declarations: list[Declaration] = []
-    diagnostics: list[Diagnostic] = []
     recipient = announced(root) is not None
-    for directory in _directories(root):
-        doc = directory / f"{directory.name}.md"
-        if not doc.is_file():
-            diagnostics.append(Diagnostic(directory.name, f"{directory.name} holds no doc"))
-            continue
-        text = doc.read_text(encoding="utf-8")
-        declared = _declaration(root, directory, text)
-        declarations.append(declared)
-        diagnostics += _problems(root, declared, text, recipient)
-    skills = _skills(root, declarations)
+    diagnostics = [
+        Diagnostic(directory.name, f"{directory.name} holds no doc")
+        for directory in _directories(root)
+        if not _doc(directory).is_file()
+    ]
+    declared = declarations(root)
+    for one in declared:
+        diagnostics += _problems(root, one, (root / one.doc).read_text(encoding="utf-8"), recipient)
+    skills = _skills(root, declared)
     diagnostics += _skill_problems(root, skills, recipient)
     cites, unreadable = _core_cites(root)
     diagnostics += unreadable + _leaks(cites) + _retired_tags(root)
-    return Checked(declarations, skills, cites, diagnostics)
+    return Checked(declared, skills, cites, diagnostics)
+
+
+def declarations(root: Path) -> list[Declaration]:
+    """Every mechanism a doc under `.agents/mechanisms/` declares, read as written and unchecked.
+
+    The one reading both the shape check and the re-check clock stand on, so the two cannot
+    disagree about what a mechanism is made of. A directory holding no doc declares nothing.
+    """
+    return [
+        _declaration(root, directory, _doc(directory).read_text(encoding="utf-8"))
+        for directory in _directories(root)
+        if _doc(directory).is_file()
+    ]
+
+
+def _doc(directory: Path) -> Path:
+    return directory / f"{directory.name}.md"
 
 
 def _core_cites(root: Path) -> tuple[list[Citation], list[Diagnostic]]:

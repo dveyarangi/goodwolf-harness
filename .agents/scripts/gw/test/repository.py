@@ -19,6 +19,7 @@ from pathlib import Path
 from unittest import mock
 
 SCRIPTS = Path(__file__).resolve().parents[1]
+LIVE_MARKS = SCRIPTS.parents[2] / "docs" / "mechanisms" / "maintenance.md"
 sys.path.insert(0, str(SCRIPTS))
 
 import docs_corpus  # noqa: E402  (path set just above)
@@ -70,9 +71,21 @@ class RepositoryCase(unittest.TestCase):
 
     def setUp(self) -> None:
         self.root = self._fresh_tree()
+        self._guard_the_live_marks()
         if not self._proves_a_process():
             self._refuse_processes()
             self._answer_listings_from_the_folder()
+
+    def _guard_the_live_marks(self) -> None:
+        """Fails the case after which this tree's own marks differ from before it, present or
+        absent: a mark is written only when a maintenance of this tree finishes, never by a test."""
+        before = _bytes_or_none(LIVE_MARKS)
+
+        def unchanged() -> None:
+            if _bytes_or_none(LIVE_MARKS) != before:
+                raise AssertionError(f"{type(self).__name__} changed this tree's own marks, {LIVE_MARKS}")
+
+        self.addCleanup(unchanged)
 
     def another_repository(self) -> Path:
         """A second fresh tree beside `self.root`, for a case whose subject acts across two
@@ -151,6 +164,10 @@ class RepositoryCase(unittest.TestCase):
         if not self._proves_a_process():
             return files
         return {**files, "<index>": self.git("ls-files", "--stage").encode()}
+
+
+def _bytes_or_none(path: Path) -> bytes | None:
+    return path.read_bytes() if path.is_file() else None
 
 
 def folder_listing(root: Path) -> list[str]:
