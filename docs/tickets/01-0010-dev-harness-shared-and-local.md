@@ -785,7 +785,8 @@ An outside agent installed the harness into a fresh tree, over an existing `CLAU
 it, tampered with it, ran the suite as root and as a plain user, and traced which skill reads each
 switch.
 
-**Decided** *(the user)*: the harness is personal memory — one person steering agents. Team memory
+**Decided** *(the user)*: the harness is personal memory — one person uses it now, and teams come in
+the near future *(corrected by the user, 2026-09-27: not a decision that it serves one person)*. Team memory
 is planned as the next step after the currently scheduled work; it has not been discussed and has
 no record yet (team-memory, unminted).
 

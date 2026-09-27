@@ -1,9 +1,14 @@
 # Every skill and document has named producers and consumers
 
-- **Status:** Planned (the first mechanism precedes)
+- **Status:** Planned (`.0060` and scope precede)
 - **Type:** HITL
 - **Depends on:** [The shape is checked mechanically](./done/01-0011.0050-shape-checked.md) (a proven
-  shape and a working check, so applying it to the rest is application rather than design)
+  shape and a working check, so applying it to the rest is application rather than design);
+  [01-0011.0060 mechanism-rechecked-when-governing-moves](./01-0011.0060-mechanism-rechecked-when-governing-moves.md);
+  [01-0014 scope-coherent](./01-0014-scope-coherent.md) (where a mechanism's boundary falls is a
+  question of scope) *(the user, 2026-09-27)*
+- **Blocks:** [01-0016 responsibility-coherent](./01-0016-responsibility-coherent.md) — its outcome
+  reads what an installed mechanism asks of a skill, which needs the mechanisms declared
 - **Outcome:** Every mechanism in this tree is declared to the shape paired close proved, every
   installed skill is named by one or allowlisted with its reason, and the documents four skills
   transact against either exist with an owner or stop being referenced.

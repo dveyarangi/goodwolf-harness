@@ -1,10 +1,12 @@
 # Each skill owns its own responsibility
 
-- **Status:** Planned (hierarchy and scope precede)
+- **Status:** Planned (hierarchy, scope and the mechanisms' declaration precede)
 - **Type:** HITL
 - **Depends on:** [Scope reads the same everywhere](./01-0014-scope-coherent.md) (settled
   vocabulary for what a responsibility covers), [/impact recommends the work's
-  shape](./01-0010.0080-impact-work-shape.md) (so this pass sees a finished `/impact`)
+  shape](./01-0010.0080-impact-work-shape.md) (so this pass sees a finished `/impact`),
+  [01-0017 io-graph-coherent](./01-0017-io-graph-coherent.md) (the mechanisms declared, so what one
+  asks of a skill can arrive installed) *(the user, 2026-09-27)*
 - **Blocks:** [Rules reach the occasion they are for](./01-0018-reachability-coherent.md)
 - **Outcome:** Every skill states only what it owns; what an installed mechanism asks of it arrives
   installed, and it names another skill only while that skill is on its way to a mechanism; a rule
