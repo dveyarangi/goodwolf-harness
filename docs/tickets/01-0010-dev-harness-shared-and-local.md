@@ -805,6 +805,27 @@ align; a Claude Code hook ahead of the host survey → [`.0125`](./01-0010.0125-
 align. The light path for small work is [01-0020](./01-0020-pacer.md)'s already; every panel run
 and both review passes named it.
 
+## A recipient's own maintenance — 2026-09-27
+
+Raised by the user at [01-0011.0060 mechanism-rechecked-when-governing-moves](./01-0011.0060-mechanism-rechecked-when-governing-moves.md)'s
+`/plan`. **Decided there** *(the user)*: the re-check clock runs in a recipient too, over the
+recipient's own mechanisms; the harness's built-in mechanisms are excluded from it — they are
+maintained where core is made — and the origin's marks never ship. Three threads it opens, none
+with a record yet, each awaiting `/ticket`:
+
+- **A recipient amends its records for what an update brings in** (recipient-amends-after-update,
+  unminted) — an update that changes a record's format leaves the recipient's own records to
+  re-check. The releases chain tells the recipient what it amends
+  ([`.0195`](./01-0010.0195-a-recipient-reads-before-it-takes.md)); nothing yet does or schedules
+  the amending once the update is taken.
+- **Where a recipient's own mechanisms live, and how its clock reads them**
+  (recipient-own-mechanisms, unminted) — `.agents/` is core and every update replaces it, so a
+  recipient's own mechanism has no home; until it has one, a recipient's clock reads an empty set.
+- **An install aligns on wrapping a recipient's existing skills into mechanisms**
+  (existing-skills-become-mechanisms, unminted) — skills a tree already had join maintenance as
+  mechanisms of its own, beyond [`.0150`](./01-0010.0150-harness-meets-a-tree-with-a-method.md)'s
+  carrying them into the local file or a claimed skill; it needs the second thread's home.
+
 ## Adoption shortlist — recommendations awaiting alignment
 
 This is the compact decision surface extracted from the [Life research](../research/life-harness-findings.md). Rows marked agreed link to the current policy; the other recommendations remain undecided. Resolve one question at a time.
