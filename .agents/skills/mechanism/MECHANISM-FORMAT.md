@@ -200,8 +200,9 @@ line in the entry file is exactly what an anchor is for.
 
 ## Records
 
-A mechanism that writes records declares each one where that record's format is declared — its
-format shelf, or its doc where it has no shelf. Three fields:
+A mechanism that writes records declares each one where that record's format is declared — a
+format file beside its instruction file, or its skill where the format is small; never its doc.
+Three fields:
 
 - **what a record is** — one file, one directory, or one row of a file that holds many.
 - **tier** — when it is read.

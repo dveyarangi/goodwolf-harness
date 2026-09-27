@@ -119,7 +119,9 @@ nothing indexes, a file dropped where nothing looks.
 ## Records
 
 A mechanism with records declares what a record is — its fields, what a row means, its
-tier, what removes a finished entry — inside the record's own file *(the user, 2026-09-07)*.
+tier, what removes a finished entry — in a format file beside its instruction file, referenced
+from its doc and its skill, or in the skill itself where the format is small; never in the doc
+*(the user, 2026-09-07; where, 2026-09-27)*.
 
 <installed by="mechanism-shape">
 **R1** Check a record-bearing mechanism's records with its maintainer script — format never

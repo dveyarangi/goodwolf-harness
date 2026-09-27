@@ -11,6 +11,29 @@ deleting a rule: occurrences accumulate and what to do about a rule that keeps f
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 15. A record's format was placed in a mechanism's doc — 2026-09-27
+
+**Rules in play:** [`/mechanism`](../.agents/skills/mechanism/SKILL.md#three-homes-and-the-chain)'s
+*Three homes* — the doc is the instruction's *why*, and the skill holds every rule read in the work
+it governs; against [MECHANISM-FORMAT §Records](../.agents/skills/mechanism/MECHANISM-FORMAT.md#records)'s
+*its format shelf, or its doc where it has no shelf*, and `/mechanism`'s own *Records*, *inside
+the record's own file*.
+
+**What happened.** Planning [01-0011.0060 mechanism-rechecked-when-governing-moves](tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md),
+the marks' format was recommended for `maintain.md`, the maintain mechanism's doc, on §Records'
+fallback. The user: *actionable rules must not be discovered from architecture files, they should
+be separate* — a separate format file referenced from both the doc and the skill, or the skill
+itself where the format is small.
+
+**Why it did not fire.** Three statements of one rule disagreed, and the most specific one named
+the doc. *Three homes* speaks of rules, and a record's format did not read as one.
+
+**Amendment landed 2026-09-27.** `/mechanism`'s *Records* and MECHANISM-FORMAT §Records now say
+the same: a format file beside the instruction file, referenced from the doc and the skill, or the
+skill itself where the format is small; never the doc. The accepted spec's *inside the record's own
+file* stands as the record of what was accepted then. Graded by the next record format declared:
+it lands in a format file or the skill, or this entry is struck. Not yet replayed.
+
 ## 14. A recall recommended the next item by a criterion the queue does not use — 2026-09-27
 
 **Rules in play:** [the delivery status](tickets/README.md)'s ordering rule *(the user,
