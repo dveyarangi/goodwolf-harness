@@ -235,7 +235,7 @@ accretion this spec exists to stop.
 ## Impact — 2026-09-07, the clock
 
 Assessed at [01-0011.0022](../tickets/done/01-0011.0022-shape-survives-second-mechanism.md)'s
-`/align` on the draft of [01-0011.0060](../tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md),
+`/align` on the draft of [01-0011.0060](../tickets/done/01-0011.0060-mechanism-rechecked-when-governing-moves.md),
 before minting. Verdict: **proceed**, as a single HITL ticket after `.0050` and before
 [01-0017](../tickets/01-0017-io-graph-coherent.md).
 

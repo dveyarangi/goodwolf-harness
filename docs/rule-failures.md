@@ -19,7 +19,7 @@ it governs; against [MECHANISM-FORMAT §Records](../.agents/skills/mechanism/MEC
 *its format shelf, or its doc where it has no shelf*, and `/mechanism`'s own *Records*, *inside
 the record's own file*.
 
-**What happened.** Planning [01-0011.0060 mechanism-rechecked-when-governing-moves](tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md),
+**What happened.** Planning [01-0011.0060 mechanism-rechecked-when-governing-moves](tickets/done/01-0011.0060-mechanism-rechecked-when-governing-moves.md),
 the marks' format was recommended for `maintain.md`, the maintain mechanism's doc, on §Records'
 fallback. The user: *actionable rules must not be discovered from architecture files, they should
 be separate* — a separate format file referenced from both the doc and the skill, or the skill

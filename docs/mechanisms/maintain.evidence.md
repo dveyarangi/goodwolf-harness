@@ -17,7 +17,7 @@ probe records below and nothing else.
 obligation is `none` and not deferred. Life's `maintenance` mechanism, read directly, is
 record-bearing by design: marks moved only by a maintenance, dueness derived from them at every
 wake. The obligation is `not yet`; the clock is
-[01-0011.0060](../tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md).
+[01-0011.0060](../tickets/done/01-0011.0060-mechanism-rechecked-when-governing-moves.md).
 
 **Three subjects.** Mechanism, documentation and code were one activity seen from three sides:
 `/sync-arch` in general form is *hold an implementation to its documentation*, and this

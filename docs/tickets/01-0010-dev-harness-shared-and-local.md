@@ -807,7 +807,7 @@ and both review passes named it.
 
 ## A recipient's own maintenance — 2026-09-27
 
-Raised by the user at [01-0011.0060 mechanism-rechecked-when-governing-moves](./01-0011.0060-mechanism-rechecked-when-governing-moves.md)'s
+Raised by the user at [01-0011.0060 mechanism-rechecked-when-governing-moves](./done/01-0011.0060-mechanism-rechecked-when-governing-moves.md)'s
 `/plan`. **Decided there** *(the user)*: the re-check clock runs in a recipient too, over the
 recipient's own mechanisms; the harness's built-in mechanisms are excluded from it — they are
 maintained where core is made — and the origin's marks never ship. Three threads it opens, none

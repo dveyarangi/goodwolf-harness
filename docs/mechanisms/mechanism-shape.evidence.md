@@ -157,7 +157,7 @@ this skill's *Incept*, and the general rule is the only thing authored here.
 **A maintenance mechanism assumed to have no records.** `.0022` was minted with `/maintain`'s
 record obligation as `none` *by property*. Life's `maintenance` is record-bearing by design — the
 marks — so the obligation is `not yet`, and the clock is
-[.0060](../tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md). Not an amendment
+[.0060](../tickets/done/01-0011.0060-mechanism-rechecked-when-governing-moves.md). Not an amendment
 to the shape, which never said otherwise; recorded here because the shape's first application
 let the assumption pass unexamined.
 
@@ -282,7 +282,7 @@ reason a form is what it is belongs to the doc.
 editing. `/ticket` and `/mechanism` already carry all three fields in their shelves. `/maintain`
 writes no records yet and says so twice — *"No record until the marks"* and *"A maintenance
 mechanism is record-bearing by design, and this one has no record"* — both bound to
-[.0060](../tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md). The honest absence
+[.0060](../tickets/done/01-0011.0060-mechanism-rechecked-when-governing-moves.md). The honest absence
 was already recorded in vocabulary the shape already had, which is the outcome a bent declaration
 could not have produced without someone noticing.
 

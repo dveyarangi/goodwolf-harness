@@ -87,7 +87,7 @@ Details are on the records named.
 - **v9 is taken**; `.0110`'s bump is v10.
 - **Stale tickets against later rules** have no general fix: 01-0020's *placed* bullet was
   corrected by hand, and re-checking records when what governs them moves is
-  [01-0011.0060](../tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md)'s shape,
+  [01-0011.0060](../tickets/done/01-0011.0060-mechanism-rechecked-when-governing-moves.md)'s shape,
   scoped to mechanisms. Tickets would be a second shape for it; not minted.
 - **Carried from sixteen, unchanged:** the entry file's straw-dog sentence on `.0130`'s *What to
   build*, contribution back on the spec, the user's grade on the mechanism shape, and frost_map

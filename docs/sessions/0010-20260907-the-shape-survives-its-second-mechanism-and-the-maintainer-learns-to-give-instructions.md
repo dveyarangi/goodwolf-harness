@@ -18,7 +18,7 @@ One full ring on [01-0011.0022](../tickets/done/01-0011.0022-shape-survives-seco
   construction*; one code span per absence cell — never the declaration bent to fit. That is the
   result the slice was placed to produce, and it is recorded on both closed tickets.
 - **The clock is its own ticket**,
-  [01-0011.0060](../tickets/01-0011.0060-mechanism-rechecked-when-governing-moves.md), minted after
+  [01-0011.0060](../tickets/done/01-0011.0060-mechanism-rechecked-when-governing-moves.md), minted after
   Life's `maintenance` mechanism was read directly and falsified `.0022`'s premise: a maintenance
   mechanism is record-bearing by design, so `/maintain`'s record obligation is `not yet`, not
   `none by property`.
