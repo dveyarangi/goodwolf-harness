@@ -184,6 +184,17 @@ held anywhere.
   injected** — a meta-rule, or judgment — **and needs a body**, or **a genuine gap** with no rule
   anywhere.
 
+## Handed from 01-0011.0060, 2026-09-27
+
+**Each mechanism's records declared where a script reads them** *(the user)*. The re-check clock of
+[01-0011.0060 mechanism-rechecked-when-governing-moves](./01-0011.0060-mechanism-rechecked-when-governing-moves.md)
+has a third trigger — a mechanism's records changed enough since its last maintenance, so they are
+due — that it cannot count: a doc's parts table names its doc and rules file, but no mechanism
+declares where its records live, and they are not parts, since records are the instance's. This
+ticket's criterion that every durable document is named by the mechanism that writes it is that
+declaration; made readable by `mechanisms.py`, it lets the clock add the trigger. The unit handed
+with it: record files changed since the last maintenance, due at N.
+
 ## Decisions this ticket's align owns
 
 - Where the mechanism boundaries actually fall. The delivery ring, the entry contract, the autonomy
