@@ -556,6 +556,15 @@ harness imposes is not one of these. The repairs belong to their owning tickets,
 
 ## Further Notes
 
+**Rule and principle, 2026-09-28** *(the user, at
+[01-0011.0100](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)'s align)*.
+The method glossary now defines both: a rule has a moment and an outcome; a principle has a reason
+and neither. The rules-file grammar requires target, authority and body, and so admits a principle
+as a rule; the entry file's *General rules* holds both kinds unmarked, and rule failures 3 and 4
+are what a principle filed as a rule does. Open here, for a `/mechanism` change to the shape:
+whether a rules-file section must name its moment and outcome, refused otherwise, and whether the
+entry file's general section is split by the same line.
+
 The three-home split supersedes an earlier decision taken this session, that rules are either
 global-and-strict or skill-specific. That split leaves no home for how a thing works, which is what
 most of `docs/process.md` is. It is superseded rather than wrong: `docs/architecture.md` and

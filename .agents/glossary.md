@@ -169,6 +169,14 @@ A boundary across which a producer supplies behavior, information or an artifact
 **Load-bearing seam — proposed definition**:
 A seam across distinct responsibilities whose contract determines a promised outcome, authority, data meaning or integrity, compatibility, or recovery beyond either side's implementation-local choices. A change that appears valid at one end can invalidate the other end or their shared guarantee.
 
+**Principle**:
+A reason a rule exists, read at tier 1 and applied by judgement. It names no occasion and no outcome, so it never fires and is never a rule failure: a principle that "did not fire" is a rule missing. Its home is the entry file's general section, a mechanism's doc, or this glossary; in an instruction file it appears only as the pointer behind a rule.
+_Avoid_: rule, guideline as its name.
+
+**Rule**:
+An instruction with a moment — the occasion, in the words a person would use for it — and an outcome that can be checked afterwards. Its home is a rules file, installed at the tier its moment reads, citing the principle behind it. A judge's invocation is a rule; what the judge judges by is a principle.
+_Avoid_: principle, for an instruction that has no moment.
+
 **Meta-rule**:
 A rule governing how other rules or mechanisms are created, changed, checked or maintained.
 
