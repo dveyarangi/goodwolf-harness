@@ -298,11 +298,11 @@ reviewed them. Deciding tickets vary by change and are named below.
   of, and how it is built. "Recency for evidence, longevity for principles" added.
 - **`shape` defined at Tier 1**, held between an idea and a thing, pointing at
   [the glossary](../glossary.md). Being a shape says nothing about being load-bearing — an
-  implementation method is a shape too. → [01-0012](../tickets/01-0012-hierarchy-coherent.md).
+  implementation method is a shape too. → [01-0012](../tickets/done/01-0012-hierarchy-coherent.md).
 - **"Document load-bearing, code&comment the rest"** added: constitution, structure and
   load-bearing decisions belong in core docs, with a bad/better example.
 - **"What makes a thing load-bearing"** added: a multi-factor test and a counter-test.
-  → [01-0012](../tickets/01-0012-hierarchy-coherent.md).
+  → [01-0012](../tickets/done/01-0012-hierarchy-coherent.md).
 - **Loop line:** `/spec` named as a return path for load-bearing shapes. Helper descriptions moved
   into a `Helpers` subsection, and `/dream` moved there from the loop paragraph.
 - **Temporary statements:** the condition reads "the ticket is done, or the condition is fulfilled".

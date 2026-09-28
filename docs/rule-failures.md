@@ -275,7 +275,7 @@ is implementation.*
 
 **Why it did not fire.** The implementation-versus-invariant rule is scoped to *a project's
 architecture, ADRs and glossary*, and a mechanism declaration is none of the three; it is also a
-straw dog on [01-0012](tickets/01-0012-hierarchy-coherent.md), so it reads as provisional.
+straw dog on [01-0012](tickets/done/01-0012-hierarchy-coherent.md), so it reads as provisional.
 `MECHANISM-FORMAT` asked only for *what it is, in one line*, which a procedure satisfies — the
 loosest possible phrasing at the one place the rule was needed. `/maintain` holds *docs to the
 meta-rules* and so had the scope, but no meta-rule to apply, and harness has no rules file at

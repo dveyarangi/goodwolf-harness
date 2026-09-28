@@ -13,7 +13,7 @@
 
 ## Parent
 
-[AGENTS.md](../../AGENTS.md). Sibling of [01-0012](./01-0012-hierarchy-coherent.md),
+[AGENTS.md](../../AGENTS.md). Sibling of [01-0012](./done/01-0012-hierarchy-coherent.md),
 [01-0014](./01-0014-scope-coherent.md) and [01-0016](./01-0016-responsibility-coherent.md), the
 fourth rule refactor. All four now run after
 [the mechanism shape](../spec/01-0011-mechanism-shape.md).
