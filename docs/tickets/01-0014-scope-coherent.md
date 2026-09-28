@@ -1,23 +1,24 @@
 # Scope reads the same everywhere
 
-- **Status:** Planned (hierarchy precedes)
+- **Status:** Planned (the questions mechanism precedes)
 - **Type:** HITL
-- **Depends on:** [Hierarchy reads the same everywhere](./01-0012-hierarchy-coherent.md) (eight
-  shared files, and height is half of what scope is stated against)
+- **Depends on:** [01-0011.0100 the-open-questions-are-kept-by-a-mechanism](./01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)
+  (the structure scope is a subtree of, if its align confirms that; height, half of what scope
+  was stated against, is depth in it — [01-0012](./done/01-0012-hierarchy-coherent.md), closed)
 - **Outcome:** Scope — the extent of what a pass, a ticket or a document covers — has one account,
   and every scope statement across the harness either is that account or points at it.
 
 ## Parent
 
 [AGENTS.md](../../AGENTS.md) and [the process](../process.md). Sibling of
-[01-0012](./01-0012-hierarchy-coherent.md), on the same argument for staying out of
+[01-0012](./done/01-0012-hierarchy-coherent.md), on the same argument for staying out of
 [01-0010](./01-0010-dev-harness-shared-and-local.md).
 
 ## Impact
 
 **2026-09-06.** 37 scope statements across 12 files; heaviest in `maintain/SKILL.md` (11),
 `docs/process.md` (5), `TICKET-FORMAT.md` (4). Eight files overlap
-[01-0012](./01-0012-hierarchy-coherent.md)'s set. Verdict: proceed, strictly after 01-0012.
+[01-0012](./done/01-0012-hierarchy-coherent.md)'s set. Verdict: proceed, strictly after 01-0012.
 Amending 01-0012's prose at a shared site is this ticket's completion, not a reopened decision.
 
 ## Why this exists
@@ -38,8 +39,11 @@ coverage honestly.
   declared scope, out-of-scope and parent scope made explicit — same concept or distinct ones.
 - Every existing scope statement reconciled against it, dispositioned as pointer, correction, or
   deliberate keep with a reason.
-- The relationship to height settled by [01-0012](./01-0012-hierarchy-coherent.md) stated: whether
-  scope and height are two axes of one act, or independent.
+- The relationship to height stated. Height became depth in a structure of open questions at
+  [01-0012](./done/01-0012-hierarchy-coherent.md)'s close, 2026-09-28, kept by
+  [01-0011.0100](./01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md); the candidate this
+  ticket's align tests first is that a pass's scope is a subtree of that structure, which would
+  reduce this account to it.
 
 ## Decisions this ticket's align owns
 

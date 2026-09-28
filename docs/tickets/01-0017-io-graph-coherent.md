@@ -145,7 +145,10 @@ The other direction is unwatched too: `docs/pacer.md` and two of the three
   are named by no skill file today.
 - Dispositions for `docs/concerns.md` and `docs/adr/`: created with an owning mechanism, or their
   references removed from `/align`, `/plan`, `/ticket` and `/maintain`. The check surfaces these on
-  its first run over a tree that declares more than one mechanism.
+  its first run over a tree that declares more than one mechanism. **`concerns.md`'s owner is
+  decided, 2026-09-28**: the `questions` mechanism,
+  [01-0011.0100](./01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md), whose store the
+  file becomes an entry set or a view of; `docs/adr/` stays open here.
 
 ## Routed here at `01-0011.0022`'s align, 2026-09-07
 

@@ -64,7 +64,7 @@ A project's architecture, ADRs and glossary are the home for:
 A decision forms in its owning ticket and lands in one of these when it is ready. A decision about a
 mechanism lands in that mechanism's doc, and what was refuted in its evidence.
 
-<straw-dog until="01-0012 is done" ticket="docs/tickets/01-0012-hierarchy-coherent.md">
+<straw-dog until="the practice mechanism owns how architecture is documented" ticket="docs/tickets/01-0017.0020-practice-swaps-in-one-edit.md">
 Bad architectural documentation:
 - Forecasts are stored in MongoDB collection forecast_hourly.
 

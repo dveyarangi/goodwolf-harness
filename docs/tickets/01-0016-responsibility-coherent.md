@@ -3,8 +3,10 @@
 - **Status:** Planned (hierarchy, scope and the mechanisms' declaration precede)
 - **Type:** HITL
 - **Depends on:** [Scope reads the same everywhere](./01-0014-scope-coherent.md) (settled
-  vocabulary for what a responsibility covers), [/impact recommends the work's
-  shape](./01-0010.0080-impact-work-shape.md) (so this pass sees a finished `/impact`),
+  vocabulary for what a responsibility covers),
+  [01-0011.0100 the-open-questions-are-kept-by-a-mechanism](./01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)
+  (the store the coherence refactors onto, and the branch slice that carries `/impact`'s routing
+  answer, which `.0080` folded into on 2026-09-28),
   [01-0017 io-graph-coherent](./01-0017-io-graph-coherent.md) (the mechanisms declared, so what one
   asks of a skill can arrive installed) *(the user, 2026-09-27)*
 - **Blocks:** [Rules reach the occasion they are for](./01-0018-reachability-coherent.md)
@@ -58,7 +60,7 @@ and pointing at the owner; the resume instruction keeps its function without nam
 is the class of defect this ticket exists for, caught in a record rather than a skill.
 
 This ticket also hosts the canonical accounts that
-[01-0012](./01-0012-hierarchy-coherent.md) and [01-0014](./01-0014-scope-coherent.md) deliberately
+[01-0012](./done/01-0012-hierarchy-coherent.md) and [01-0014](./01-0014-scope-coherent.md) deliberately
 left unhosted.
 
 ## What to build

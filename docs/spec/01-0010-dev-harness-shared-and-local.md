@@ -83,7 +83,10 @@ Current development must be reconstructable without fetching archived specs. His
 
 **Agreed maintenance ownership:** [Tree maintenance](../../.agents/mechanisms/maintain/maintain.md) governs whole-tree and narrower project/RFC passes, complete mechanism coverage in scope, repair and archiving. Remaining implementation design includes how supporting routines are exposed and how coverage is derived and demonstrated. Source gaps: current `/denoise` treats RFCs as historical without consistently separating active plans, and current Life `/maintain` exempts archives from scripted repair; neither exception is adopted here.
 
-**Capture and routing:** requests such as "open an issue", "record this problem" and "keep this for later" first preserve the issue and its relevant context. Reuse an existing owner when identifiable; a genuinely unowned issue needs a visible intake home, whose representation remains open. Do not fabricate a spec, implementation RFC or full decomposition simply to record an issue. Capture alone does not authorize further work.
+**Capture and routing:** requests such as "open an issue", "record this problem" and "keep this for later" first preserve the issue and its relevant context. Reuse an existing owner when identifiable; a genuinely unowned issue needs a visible intake home, whose representation remains open
+*(resolved 2026-09-28: the intake home is the `questions` store,
+[01-0011.0100](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md); capture and
+routing are that mechanism's, and `/align` keeps the unresolved decisions)*. Do not fabricate a spec, implementation RFC or full decomposition simply to record an issue. Capture alone does not authorize further work.
 
 **Proposed division of responsibilities:** `/align` handles capture/routing and unresolved decisions; `/impact` supplies consequence and contract analysis with a recommended continuation; `/ticket` owns decomposition into delivery work; `/plan` owns its implementation plan. `/impact` can challenge a split without becoming a second authoritative decomposition writer. Selecting what proceeds now follows authorization, dependencies and the autonomy policy; a scale assessment does not grant permission.
 
