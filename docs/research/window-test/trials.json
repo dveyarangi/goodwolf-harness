@@ -1,0 +1,1730 @@
+[
+ {
+  "size": 100,
+  "rendering": "flat",
+  "task": "place_near",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\flat-place_near-0.txt",
+  "lines": 115,
+  "chars": 11196,
+  "question": "A new question has arrived: \"Should the game rules engine be a library or a standalone service?\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "n722",
+  "truth": {
+   "answer": "n184",
+   "near": [
+    "n724",
+    "n722"
+   ],
+   "hidden": "n538"
+  },
+  "tag": "100-flat-place_near-0"
+ },
+ {
+  "size": 100,
+  "rendering": "flat",
+  "task": "place_near",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\flat-place_near-1.txt",
+  "lines": 115,
+  "chars": 11204,
+  "question": "A new question has arrived: \"How are conflicting orders resolved when two units target one tile?\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "n14",
+  "truth": {
+   "answer": "n622",
+   "near": [
+    "n23",
+    "n14"
+   ],
+   "hidden": "n520"
+  },
+  "tag": "100-flat-place_near-1"
+ },
+ {
+  "size": 100,
+  "rendering": "flat",
+  "task": "place_far",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\flat-place_far-0.txt",
+  "lines": 115,
+  "chars": 11203,
+  "question": "A new question has arrived: \"How are secrets rotated without redeploying every service?\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "n572",
+  "truth": {
+   "answer": "n409",
+   "near": [
+    "n724",
+    "n6"
+   ],
+   "hidden": "n655"
+  },
+  "tag": "100-flat-place_far-0"
+ },
+ {
+  "size": 100,
+  "rendering": "flat",
+  "task": "place_far",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\flat-place_far-1.txt",
+  "lines": 115,
+  "chars": 11197,
+  "question": "A new question has arrived: \"Should air units be deferred entirely to a post-launch expansion?\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "n177",
+  "truth": {
+   "answer": "n56",
+   "near": [
+    "n23",
+    "n61"
+   ],
+   "hidden": "n762"
+  },
+  "tag": "100-flat-place_far-1"
+ },
+ {
+  "size": 100,
+  "rendering": "flat",
+  "task": "path",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\flat-path-0.txt",
+  "lines": 116,
+  "chars": 11300,
+  "question": "List the ancestors of question n667, from the root down to n667 itself, as an ordered list of ids.",
+  "current": "n667",
+  "truth": {
+   "answer": [
+    "n23",
+    "n622",
+    "n520",
+    "n59",
+    "n236",
+    "n572",
+    "n667"
+   ]
+  },
+  "tag": "100-flat-path-0"
+ },
+ {
+  "size": 100,
+  "rendering": "flat",
+  "task": "path",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\flat-path-1.txt",
+  "lines": 116,
+  "chars": 11300,
+  "question": "List the ancestors of question n534, from the root down to n534 itself, as an ordered list of ids.",
+  "current": "n534",
+  "truth": {
+   "answer": [
+    "n23",
+    "n622",
+    "n14",
+    "n534"
+   ]
+  },
+  "tag": "100-flat-path-1"
+ },
+ {
+  "size": 100,
+  "rendering": "flat",
+  "task": "children",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\flat-children-0.txt",
+  "lines": 116,
+  "chars": 11300,
+  "question": "List the ids of the OPEN direct children of question n397.",
+  "current": "n397",
+  "truth": {
+   "answer": [
+    "n175",
+    "n411",
+    "n601"
+   ]
+  },
+  "tag": "100-flat-children-0"
+ },
+ {
+  "size": 100,
+  "rendering": "flat",
+  "task": "children",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\flat-children-1.txt",
+  "lines": 116,
+  "chars": 11300,
+  "question": "List the ids of the OPEN direct children of question n724.",
+  "current": "n724",
+  "truth": {
+   "answer": [
+    "n42",
+    "n184",
+    "n326",
+    "n409",
+    "n500"
+   ]
+  },
+  "tag": "100-flat-children-1"
+ },
+ {
+  "size": 100,
+  "rendering": "tree",
+  "task": "place_near",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\tree-place_near-0.txt",
+  "lines": 114,
+  "chars": 9842,
+  "question": "A new question has arrived: \"Is the map hexagonal, square, or a free-form navigation mesh?\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "n263",
+  "truth": {
+   "answer": "n371",
+   "near": [
+    "n23",
+    "n183",
+    "n263"
+   ],
+   "hidden": "n687"
+  },
+  "tag": "100-tree-place_near-0"
+ },
+ {
+  "size": 100,
+  "rendering": "tree",
+  "task": "place_near",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\tree-place_near-1.txt",
+  "lines": 115,
+  "chars": 9926,
+  "question": "A new question has arrived: \"Does match abandonment rate belong to server health or to live-ops?\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "n516",
+  "truth": {
+   "answer": "n626",
+   "near": [
+    "n431",
+    "n92",
+    "n149",
+    "n516",
+    "n625",
+    "n757"
+   ],
+   "hidden": "n94"
+  },
+  "tag": "100-tree-place_near-1"
+ },
+ {
+  "size": 100,
+  "rendering": "tree",
+  "task": "place_far",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\tree-place_far-0.txt",
+  "lines": 114,
+  "chars": 9837,
+  "question": "A new question has arrived: \"Are feature flags served by a service or baked into builds?\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "n621",
+  "truth": {
+   "answer": "n409",
+   "near": [
+    "n724",
+    "n655"
+   ],
+   "hidden": "n6"
+  },
+  "tag": "100-tree-place_far-0"
+ },
+ {
+  "size": 100,
+  "rendering": "tree",
+  "task": "place_far",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\tree-place_far-1.txt",
+  "lines": 114,
+  "chars": 9842,
+  "question": "A new question has arrived: \"Do ships use the same hex grid as land units or a separate layer?\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "n757",
+  "truth": {
+   "answer": "n56",
+   "near": [
+    "n23",
+    "n762"
+   ],
+   "hidden": "n61"
+  },
+  "tag": "100-tree-place_far-1"
+ },
+ {
+  "size": 100,
+  "rendering": "tree",
+  "task": "path",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\tree-path-0.txt",
+  "lines": 116,
+  "chars": 10011,
+  "question": "List the ancestors of question n619, from the root down to n619 itself, as an ordered list of ids.",
+  "current": "n619",
+  "truth": {
+   "answer": [
+    "n23",
+    "n488",
+    "n43",
+    "n619"
+   ]
+  },
+  "tag": "100-tree-path-0"
+ },
+ {
+  "size": 100,
+  "rendering": "tree",
+  "task": "path",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\tree-path-1.txt",
+  "lines": 116,
+  "chars": 10011,
+  "question": "List the ancestors of question n604, from the root down to n604 itself, as an ordered list of ids.",
+  "current": "n604",
+  "truth": {
+   "answer": [
+    "n23",
+    "n657",
+    "n434",
+    "n604"
+   ]
+  },
+  "tag": "100-tree-path-1"
+ },
+ {
+  "size": 100,
+  "rendering": "tree",
+  "task": "children",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\tree-children-0.txt",
+  "lines": 116,
+  "chars": 10011,
+  "question": "List the ids of the OPEN direct children of question n371.",
+  "current": "n371",
+  "truth": {
+   "answer": [
+    "n183",
+    "n263",
+    "n687"
+   ]
+  },
+  "tag": "100-tree-children-0"
+ },
+ {
+  "size": 100,
+  "rendering": "tree",
+  "task": "children",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\tree-children-1.txt",
+  "lines": 116,
+  "chars": 10011,
+  "question": "List the ids of the OPEN direct children of question n23.",
+  "current": "n23",
+  "truth": {
+   "answer": [
+    "n22",
+    "n56",
+    "n341",
+    "n371",
+    "n397",
+    "n639",
+    "n657",
+    "n771"
+   ]
+  },
+  "tag": "100-tree-children-1"
+ },
+ {
+  "size": 100,
+  "rendering": "paths",
+  "task": "place_near",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\paths-place_near-0.txt",
+  "lines": 115,
+  "chars": 10738,
+  "question": "A new question has arrived: \"Are engineers on call for game servers and operators for live-ops?\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "n48",
+  "truth": {
+   "answer": "n589",
+   "near": [
+    "n157",
+    "n48"
+   ],
+   "hidden": "n349"
+  },
+  "tag": "100-paths-place_near-0"
+ },
+ {
+  "size": 100,
+  "rendering": "paths",
+  "task": "place_near",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\paths-place_near-1.txt",
+  "lines": 115,
+  "chars": 10749,
+  "question": "A new question has arrived: \"Is weather global per map or regional per map zone?\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "n497",
+  "truth": {
+   "answer": "n424",
+   "near": [
+    "n23",
+    "n497"
+   ],
+   "hidden": "n284"
+  },
+  "tag": "100-paths-place_near-1"
+ },
+ {
+  "size": 100,
+  "rendering": "paths",
+  "task": "place_far",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\paths-place_far-0.txt",
+  "lines": 115,
+  "chars": 10730,
+  "question": "A new question has arrived: \"Is the count of players disconnected per minute a golden signal?\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "n194",
+  "truth": {
+   "answer": "n626",
+   "near": [
+    "n431",
+    "n92",
+    "n94",
+    "n149",
+    "n625",
+    "n757"
+   ],
+   "hidden": "n516"
+  },
+  "tag": "100-paths-place_far-0"
+ },
+ {
+  "size": 100,
+  "rendering": "paths",
+  "task": "place_far",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\paths-place_far-1.txt",
+  "lines": 115,
+  "chars": 10740,
+  "question": "A new question has arrived: \"Is turn resolution latency the primary game server health metric?\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "n14",
+  "truth": {
+   "answer": "n626",
+   "near": [
+    "n431",
+    "n94",
+    "n149",
+    "n516",
+    "n625",
+    "n757"
+   ],
+   "hidden": "n92"
+  },
+  "tag": "100-paths-place_far-1"
+ },
+ {
+  "size": 100,
+  "rendering": "paths",
+  "task": "path",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\paths-path-0.txt",
+  "lines": 116,
+  "chars": 10833,
+  "question": "List the ancestors of question n408, from the root down to n408 itself, as an ordered list of ids.",
+  "current": "n408",
+  "truth": {
+   "answer": [
+    "n724",
+    "n409",
+    "n655",
+    "n408"
+   ]
+  },
+  "tag": "100-paths-path-0"
+ },
+ {
+  "size": 100,
+  "rendering": "paths",
+  "task": "path",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\paths-path-1.txt",
+  "lines": 116,
+  "chars": 10833,
+  "question": "List the ancestors of question n101, from the root down to n101 itself, as an ordered list of ids.",
+  "current": "n101",
+  "truth": {
+   "answer": [
+    "n23",
+    "n371",
+    "n687",
+    "n101"
+   ]
+  },
+  "tag": "100-paths-path-1"
+ },
+ {
+  "size": 100,
+  "rendering": "paths",
+  "task": "children",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\paths-children-0.txt",
+  "lines": 116,
+  "chars": 10833,
+  "question": "List the ids of the OPEN direct children of question n724.",
+  "current": "n724",
+  "truth": {
+   "answer": [
+    "n42",
+    "n184",
+    "n326",
+    "n409",
+    "n500"
+   ]
+  },
+  "tag": "100-paths-children-0"
+ },
+ {
+  "size": 100,
+  "rendering": "paths",
+  "task": "children",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\paths-children-1.txt",
+  "lines": 116,
+  "chars": 10833,
+  "question": "List the ids of the OPEN direct children of question n724.",
+  "current": "n724",
+  "truth": {
+   "answer": [
+    "n42",
+    "n184",
+    "n326",
+    "n409",
+    "n500"
+   ]
+  },
+  "tag": "100-paths-children-1"
+ },
+ {
+  "size": 100,
+  "rendering": "window",
+  "task": "place_near",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\window-place_near-0.txt",
+  "lines": 41,
+  "chars": 2762,
+  "question": "A new question has arrived: \"How are secrets rotated without redeploying every service?\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "n6",
+  "truth": {
+   "answer": "n409",
+   "near": [
+    "n724",
+    "n6"
+   ],
+   "hidden": "n655"
+  },
+  "tag": "100-window-place_near-0"
+ },
+ {
+  "size": 100,
+  "rendering": "window",
+  "task": "place_near",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\window-place_near-1.txt",
+  "lines": 43,
+  "chars": 2958,
+  "question": "A new question has arrived: \"Is a weekly rotation or a daily rotation less exhausting for the team?\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "n349",
+  "truth": {
+   "answer": "n589",
+   "near": [
+    "n157",
+    "n349"
+   ],
+   "hidden": "n48"
+  },
+  "tag": "100-window-place_near-1"
+ },
+ {
+  "size": 100,
+  "rendering": "window",
+  "task": "place_far",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\window-place_far-0.txt",
+  "lines": 55,
+  "chars": 3927,
+  "question": "A new question has arrived: \"How long may the full pipeline take before it slows delivery?\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "n56",
+  "truth": {
+   "answer": "n42",
+   "near": [
+    "n724",
+    "n594"
+   ],
+   "hidden": "n413"
+  },
+  "tag": "100-window-place_far-0"
+ },
+ {
+  "size": 100,
+  "rendering": "window",
+  "task": "place_far",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\window-place_far-1.txt",
+  "lines": 42,
+  "chars": 2870,
+  "question": "A new question has arrived: \"Does night reduce vision radius for all units or only some?\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "n186",
+  "truth": {
+   "answer": "n424",
+   "near": [
+    "n23",
+    "n284"
+   ],
+   "hidden": "n497"
+  },
+  "tag": "100-window-place_far-1"
+ },
+ {
+  "size": 100,
+  "rendering": "window",
+  "task": "path",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\window-path-0.txt",
+  "lines": 58,
+  "chars": 4190,
+  "question": "List the ancestors of question n534, from the root down to n534 itself, as an ordered list of ids.",
+  "current": "n534",
+  "truth": {
+   "answer": [
+    "n23",
+    "n622",
+    "n14",
+    "n534"
+   ]
+  },
+  "tag": "100-window-path-0"
+ },
+ {
+  "size": 100,
+  "rendering": "window",
+  "task": "path",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\window-path-1.txt",
+  "lines": 47,
+  "chars": 3307,
+  "question": "List the ancestors of question n516, from the root down to n516 itself, as an ordered list of ids.",
+  "current": "n516",
+  "truth": {
+   "answer": [
+    "n724",
+    "n431",
+    "n626",
+    "n516"
+   ]
+  },
+  "tag": "100-window-path-1"
+ },
+ {
+  "size": 100,
+  "rendering": "window",
+  "task": "children",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\window-children-0.txt",
+  "lines": 44,
+  "chars": 3040,
+  "question": "List the ids of the OPEN direct children of question n294.",
+  "current": "n294",
+  "truth": {
+   "answer": [
+    "n123",
+    "n507",
+    "n536"
+   ]
+  },
+  "tag": "100-window-children-0"
+ },
+ {
+  "size": 100,
+  "rendering": "window",
+  "task": "children",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store100\\window-children-1.txt",
+  "lines": 44,
+  "chars": 3040,
+  "question": "List the ids of the OPEN direct children of question n294.",
+  "current": "n294",
+  "truth": {
+   "answer": [
+    "n123",
+    "n507",
+    "n536"
+   ]
+  },
+  "tag": "100-window-children-1"
+ },
+ {
+  "size": 1000,
+  "rendering": "flat",
+  "task": "place_near",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\flat-place_near-0.txt",
+  "lines": 999,
+  "chars": 105261,
+  "question": "A new question has arrived: \"Does each faction get a unique economy rule or only unique units? [Aurora]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q1212",
+  "truth": {
+   "answer": "q1350",
+   "near": [
+    "q1203",
+    "q1212"
+   ],
+   "hidden": "q1248"
+  },
+  "tag": "1000-flat-place_near-0"
+ },
+ {
+  "size": 1000,
+  "rendering": "flat",
+  "task": "place_near",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\flat-place_near-1.txt",
+  "lines": 999,
+  "chars": 105279,
+  "question": "A new question has arrived: \"Do voice line packs count as a unit cosmetic slot? [Titan]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q203",
+  "truth": {
+   "answer": "q390",
+   "near": [
+    "q474",
+    "q203",
+    "q316"
+   ],
+   "hidden": "q739"
+  },
+  "tag": "1000-flat-place_near-1"
+ },
+ {
+  "size": 1000,
+  "rendering": "flat",
+  "task": "place_far",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\flat-place_far-0.txt",
+  "lines": 999,
+  "chars": 105255,
+  "question": "A new question has arrived: \"Is the count of players disconnected per minute a golden signal? [Titan]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q873",
+  "truth": {
+   "answer": "q681",
+   "near": [
+    "q527",
+    "q426",
+    "q437",
+    "q783"
+   ],
+   "hidden": "q501"
+  },
+  "tag": "1000-flat-place_far-0"
+ },
+ {
+  "size": 1000,
+  "rendering": "flat",
+  "task": "place_far",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\flat-place_far-1.txt",
+  "lines": 999,
+  "chars": 105272,
+  "question": "A new question has arrived: \"Is the same runtime used on the server and in the client? [Titan]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q1087",
+  "truth": {
+   "answer": "q428",
+   "near": [
+    "q441",
+    "q90",
+    "q669"
+   ],
+   "hidden": "q162"
+  },
+  "tag": "1000-flat-place_far-1"
+ },
+ {
+  "size": 1000,
+  "rendering": "flat",
+  "task": "path",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\flat-path-0.txt",
+  "lines": 1000,
+  "chars": 105366,
+  "question": "List the ancestors of question q1108, from the root down to q1108 itself, as an ordered list of ids.",
+  "current": "q1108",
+  "truth": {
+   "answer": [
+    "q1203",
+    "q1331",
+    "q1174",
+    "q1076",
+    "q1113",
+    "q1108"
+   ]
+  },
+  "tag": "1000-flat-path-0"
+ },
+ {
+  "size": 1000,
+  "rendering": "flat",
+  "task": "path",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\flat-path-1.txt",
+  "lines": 1000,
+  "chars": 105366,
+  "question": "List the ancestors of question q933, from the root down to q933 itself, as an ordered list of ids.",
+  "current": "q933",
+  "truth": {
+   "answer": [
+    "q1445",
+    "q1345",
+    "q1425",
+    "q933"
+   ]
+  },
+  "tag": "1000-flat-path-1"
+ },
+ {
+  "size": 1000,
+  "rendering": "flat",
+  "task": "children",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\flat-children-0.txt",
+  "lines": 1000,
+  "chars": 105366,
+  "question": "List the ids of the OPEN direct children of question q1445.",
+  "current": "q1445",
+  "truth": {
+   "answer": [
+    "q852",
+    "q1015",
+    "q1128",
+    "q1166",
+    "q1345",
+    "q1409",
+    "q1516"
+   ]
+  },
+  "tag": "1000-flat-children-0"
+ },
+ {
+  "size": 1000,
+  "rendering": "flat",
+  "task": "children",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\flat-children-1.txt",
+  "lines": 1000,
+  "chars": 105366,
+  "question": "List the ids of the OPEN direct children of question q87.",
+  "current": "q87",
+  "truth": {
+   "answer": [
+    "q59",
+    "q112",
+    "q231",
+    "q311",
+    "q659"
+   ]
+  },
+  "tag": "1000-flat-children-1"
+ },
+ {
+  "size": 1000,
+  "rendering": "tree",
+  "task": "place_near",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\tree-place_near-0.txt",
+  "lines": 998,
+  "chars": 93041,
+  "question": "A new question has arrived: \"Is the tech tree linear, branching, or a free-choice web? [Aurora]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q1134",
+  "truth": {
+   "answer": "q1326",
+   "near": [
+    "q1330",
+    "q1134",
+    "q1162"
+   ],
+   "hidden": "q903"
+  },
+  "tag": "1000-tree-place_near-0"
+ },
+ {
+  "size": 1000,
+  "rendering": "tree",
+  "task": "place_near",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\tree-place_near-1.txt",
+  "lines": 998,
+  "chars": 93046,
+  "question": "A new question has arrived: \"Does enabling mods disable ranked play on that client? [Aurora]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q1318",
+  "truth": {
+   "answer": "q1154",
+   "near": [
+    "q1236",
+    "q1318"
+   ],
+   "hidden": "q1515"
+  },
+  "tag": "1000-tree-place_near-1"
+ },
+ {
+  "size": 1000,
+  "rendering": "tree",
+  "task": "place_far",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\tree-place_far-0.txt",
+  "lines": 994,
+  "chars": 92637,
+  "question": "A new question has arrived: \"Are game servers containers on Kubernetes or bare virtual machines? [Titan]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q1555",
+  "truth": {
+   "answer": "q723",
+   "near": [
+    "q87",
+    "q237",
+    "q492"
+   ],
+   "hidden": "q288"
+  },
+  "tag": "1000-tree-place_far-0"
+ },
+ {
+  "size": 1000,
+  "rendering": "tree",
+  "task": "place_far",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\tree-place_far-1.txt",
+  "lines": 998,
+  "chars": 93039,
+  "question": "A new question has arrived: \"Is a refund automatic within a window or always reviewed by support? [Aurora]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q1027",
+  "truth": {
+   "answer": "q1128",
+   "near": [
+    "q1445",
+    "q1513"
+   ],
+   "hidden": "q1405"
+  },
+  "tag": "1000-tree-place_far-1"
+ },
+ {
+  "size": 1000,
+  "rendering": "tree",
+  "task": "path",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\tree-path-0.txt",
+  "lines": 1000,
+  "chars": 93234,
+  "question": "List the ancestors of question q31, from the root down to q31 itself, as an ordered list of ids.",
+  "current": "q31",
+  "truth": {
+   "answer": [
+    "q441",
+    "q572",
+    "q732",
+    "q40",
+    "q31"
+   ]
+  },
+  "tag": "1000-tree-path-0"
+ },
+ {
+  "size": 1000,
+  "rendering": "tree",
+  "task": "path",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\tree-path-1.txt",
+  "lines": 1000,
+  "chars": 93234,
+  "question": "List the ancestors of question q1448, from the root down to q1448 itself, as an ordered list of ids.",
+  "current": "q1448",
+  "truth": {
+   "answer": [
+    "q991",
+    "q1101",
+    "q876",
+    "q1448"
+   ]
+  },
+  "tag": "1000-tree-path-1"
+ },
+ {
+  "size": 1000,
+  "rendering": "tree",
+  "task": "children",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\tree-children-0.txt",
+  "lines": 1000,
+  "chars": 93234,
+  "question": "List the ids of the OPEN direct children of question q1445.",
+  "current": "q1445",
+  "truth": {
+   "answer": [
+    "q852",
+    "q1015",
+    "q1128",
+    "q1166",
+    "q1345",
+    "q1409",
+    "q1516"
+   ]
+  },
+  "tag": "1000-tree-children-0"
+ },
+ {
+  "size": 1000,
+  "rendering": "tree",
+  "task": "children",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\tree-children-1.txt",
+  "lines": 1000,
+  "chars": 93234,
+  "question": "List the ids of the OPEN direct children of question q991.",
+  "current": "q991",
+  "truth": {
+   "answer": [
+    "q886",
+    "q899",
+    "q926",
+    "q941",
+    "q1074",
+    "q1101",
+    "q1179",
+    "q1180",
+    "q1267",
+    "q1377",
+    "q1437",
+    "q1542"
+   ]
+  },
+  "tag": "1000-tree-children-1"
+ },
+ {
+  "size": 1000,
+  "rendering": "paths",
+  "task": "place_near",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\paths-place_near-0.txt",
+  "lines": 999,
+  "chars": 100999,
+  "question": "A new question has arrived: \"Are assets served from a CDN with content-addressed file names? [Aurora]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q1136",
+  "truth": {
+   "answer": "q1470",
+   "near": [
+    "q1379",
+    "q883",
+    "q1136"
+   ],
+   "hidden": "q1078"
+  },
+  "tag": "1000-paths-place_near-0"
+ },
+ {
+  "size": 1000,
+  "rendering": "paths",
+  "task": "place_near",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\paths-place_near-1.txt",
+  "lines": 999,
+  "chars": 101012,
+  "question": "A new question has arrived: \"Is chat moderation automated, human, or a hybrid? [Titan]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q522",
+  "truth": {
+   "answer": "q405",
+   "near": [
+    "q145",
+    "q522"
+   ],
+   "hidden": "q347"
+  },
+  "tag": "1000-paths-place_near-1"
+ },
+ {
+  "size": 1000,
+  "rendering": "paths",
+  "task": "place_far",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\paths-place_far-0.txt",
+  "lines": 999,
+  "chars": 101010,
+  "question": "A new question has arrived: \"Can modders see usage statistics for their own mods? [Aurora]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q1346",
+  "truth": {
+   "answer": "q1087",
+   "near": [
+    "q1236",
+    "q1243"
+   ],
+   "hidden": "q1283"
+  },
+  "tag": "1000-paths-place_far-0"
+ },
+ {
+  "size": 1000,
+  "rendering": "paths",
+  "task": "place_far",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\paths-place_far-1.txt",
+  "lines": 999,
+  "chars": 101005,
+  "question": "A new question has arrived: \"Can mods change unit stats, add units, or only add cosmetics? [Titan]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q532",
+  "truth": {
+   "answer": "q572",
+   "near": [
+    "q441",
+    "q235"
+   ],
+   "hidden": "q732"
+  },
+  "tag": "1000-paths-place_far-1"
+ },
+ {
+  "size": 1000,
+  "rendering": "paths",
+  "task": "path",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\paths-path-0.txt",
+  "lines": 1000,
+  "chars": 101108,
+  "question": "List the ancestors of question q1506, from the root down to q1506 itself, as an ordered list of ids.",
+  "current": "q1506",
+  "truth": {
+   "answer": [
+    "q1434",
+    "q1385",
+    "q801",
+    "q1506"
+   ]
+  },
+  "tag": "1000-paths-path-0"
+ },
+ {
+  "size": 1000,
+  "rendering": "paths",
+  "task": "path",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\paths-path-1.txt",
+  "lines": 1000,
+  "chars": 101108,
+  "question": "List the ancestors of question q1514, from the root down to q1514 itself, as an ordered list of ids.",
+  "current": "q1514",
+  "truth": {
+   "answer": [
+    "q1445",
+    "q1166",
+    "q869",
+    "q1514"
+   ]
+  },
+  "tag": "1000-paths-path-1"
+ },
+ {
+  "size": 1000,
+  "rendering": "paths",
+  "task": "children",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\paths-children-0.txt",
+  "lines": 1000,
+  "chars": 101108,
+  "question": "List the ids of the OPEN direct children of question q1445.",
+  "current": "q1445",
+  "truth": {
+   "answer": [
+    "q852",
+    "q1015",
+    "q1128",
+    "q1166",
+    "q1345",
+    "q1409",
+    "q1516"
+   ]
+  },
+  "tag": "1000-paths-children-0"
+ },
+ {
+  "size": 1000,
+  "rendering": "paths",
+  "task": "children",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\paths-children-1.txt",
+  "lines": 1000,
+  "chars": 101108,
+  "question": "List the ids of the OPEN direct children of question q535.",
+  "current": "q535",
+  "truth": {
+   "answer": [
+    "q191",
+    "q511",
+    "q531",
+    "q533"
+   ]
+  },
+  "tag": "1000-paths-children-1"
+ },
+ {
+  "size": 1000,
+  "rendering": "window",
+  "task": "place_near",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\window-place_near-0.txt",
+  "lines": 54,
+  "chars": 4036,
+  "question": "A new question has arrived: \"How is script execution time limited per turn? [Aurora]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q1464",
+  "truth": {
+   "answer": "q1223",
+   "near": [
+    "q1236",
+    "q1464"
+   ],
+   "hidden": "q885"
+  },
+  "tag": "1000-window-place_near-0"
+ },
+ {
+  "size": 1000,
+  "rendering": "window",
+  "task": "place_near",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\window-place_near-1.txt",
+  "lines": 72,
+  "chars": 5799,
+  "question": "A new question has arrived: \"Do movement costs vary by terrain type per unit class? [Titan]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q709",
+  "truth": {
+   "answer": "q64",
+   "near": [
+    "q408",
+    "q323",
+    "q709"
+   ],
+   "hidden": "q430"
+  },
+  "tag": "1000-window-place_near-1"
+ },
+ {
+  "size": 1000,
+  "rendering": "window",
+  "task": "place_far",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\window-place_far-0.txt",
+  "lines": 58,
+  "chars": 4548,
+  "question": "A new question has arrived: \"Are strings extracted automatically or registered by hand? [Aurora]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q446",
+  "truth": {
+   "answer": "q1378",
+   "near": [
+    "q1379",
+    "q1469"
+   ],
+   "hidden": "q905"
+  },
+  "tag": "1000-window-place_far-0"
+ },
+ {
+  "size": 1000,
+  "rendering": "window",
+  "task": "place_far",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\window-place_far-1.txt",
+  "lines": 63,
+  "chars": 4798,
+  "question": "A new question has arrived: \"Do challenges reset daily, weekly, or roll over to season end? [Titan]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q271",
+  "truth": {
+   "answer": "q644",
+   "near": [
+    "q535",
+    "q269"
+   ],
+   "hidden": "q358"
+  },
+  "tag": "1000-window-place_far-1"
+ },
+ {
+  "size": 1000,
+  "rendering": "window",
+  "task": "path",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\window-path-0.txt",
+  "lines": 62,
+  "chars": 4905,
+  "question": "List the ancestors of question q1075, from the root down to q1075 itself, as an ordered list of ids.",
+  "current": "q1075",
+  "truth": {
+   "answer": [
+    "q1434",
+    "q1280",
+    "q1069",
+    "q1075"
+   ]
+  },
+  "tag": "1000-window-path-0"
+ },
+ {
+  "size": 1000,
+  "rendering": "window",
+  "task": "path",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\window-path-1.txt",
+  "lines": 61,
+  "chars": 4733,
+  "question": "List the ancestors of question q619, from the root down to q619 itself, as an ordered list of ids.",
+  "current": "q619",
+  "truth": {
+   "answer": [
+    "q196",
+    "q642",
+    "q452",
+    "q619"
+   ]
+  },
+  "tag": "1000-window-path-1"
+ },
+ {
+  "size": 1000,
+  "rendering": "window",
+  "task": "children",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\window-children-0.txt",
+  "lines": 59,
+  "chars": 4534,
+  "question": "List the ids of the OPEN direct children of question q196.",
+  "current": "q196",
+  "truth": {
+   "answer": [
+    "q104",
+    "q131",
+    "q146",
+    "q279",
+    "q306",
+    "q384",
+    "q385",
+    "q472",
+    "q582",
+    "q642",
+    "q747"
+   ]
+  },
+  "tag": "1000-window-children-0"
+ },
+ {
+  "size": 1000,
+  "rendering": "window",
+  "task": "children",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store1000\\window-children-1.txt",
+  "lines": 56,
+  "chars": 4310,
+  "question": "List the ids of the OPEN direct children of question q535.",
+  "current": "q535",
+  "truth": {
+   "answer": [
+    "q191",
+    "q511",
+    "q531",
+    "q533"
+   ]
+  },
+  "tag": "1000-window-children-1"
+ },
+ {
+  "size": 10000,
+  "rendering": "flat",
+  "task": "place_near",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store10000\\flat-place_near-0.txt",
+  "lines": 9999,
+  "chars": 1071893,
+  "question": "A new question has arrived: \"Does the matchmaker request a server from a fleet manager or pick directly? [Kestrel]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q1819",
+  "truth": {
+   "answer": "q1694",
+   "near": [
+    "q1786",
+    "q1819"
+   ],
+   "hidden": "q1638"
+  },
+  "tag": "10000-flat-place_near-0"
+ },
+ {
+  "size": 10000,
+  "rendering": "flat",
+  "task": "path",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store10000\\flat-path-0.txt",
+  "lines": 10000,
+  "chars": 1072009,
+  "question": "List the ancestors of question q1109, from the root down to q1109 itself, as an ordered list of ids.",
+  "current": "q1109",
+  "truth": {
+   "answer": [
+    "q1379",
+    "q1255",
+    "q1555",
+    "q1109"
+   ]
+  },
+  "tag": "10000-flat-path-0"
+ },
+ {
+  "size": 10000,
+  "rendering": "tree",
+  "task": "place_near",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store10000\\tree-place_near-0.txt",
+  "lines": 9997,
+  "chars": 946376,
+  "question": "A new question has arrived: \"Who is on call and how is the rotation staffed across time zones? [Onyx]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q5056",
+  "truth": {
+   "answer": "q5161",
+   "near": [
+    "q4857",
+    "q5056",
+    "q5299"
+   ],
+   "hidden": "q5525"
+  },
+  "tag": "10000-tree-place_near-0"
+ },
+ {
+  "size": 10000,
+  "rendering": "tree",
+  "task": "path",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store10000\\tree-path-0.txt",
+  "lines": 10000,
+  "chars": 946676,
+  "question": "List the ancestors of question q8703, from the root down to q8703 itself, as an ordered list of ids.",
+  "current": "q8703",
+  "truth": {
+   "answer": [
+    "q8485",
+    "q8481",
+    "q8058",
+    "q8703"
+   ]
+  },
+  "tag": "10000-tree-path-0"
+ },
+ {
+  "size": 10000,
+  "rendering": "paths",
+  "task": "place_near",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store10000\\paths-place_near-0.txt",
+  "lines": 9999,
+  "chars": 1042212,
+  "question": "A new question has arrived: \"How are conflicting orders resolved when two units target one tile? [Kestrel]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q1641",
+  "truth": {
+   "answer": "q2126",
+   "near": [
+    "q1998",
+    "q1641",
+    "q2094",
+    "q2319"
+   ],
+   "hidden": "q1969"
+  },
+  "tag": "10000-paths-place_near-0"
+ },
+ {
+  "size": 10000,
+  "rendering": "paths",
+  "task": "path",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store10000\\paths-path-0.txt",
+  "lines": 10000,
+  "chars": 1042316,
+  "question": "List the ancestors of question q5336, from the root down to q5336 itself, as an ordered list of ids.",
+  "current": "q5336",
+  "truth": {
+   "answer": [
+    "q5354",
+    "q5396",
+    "q5294",
+    "q5336"
+   ]
+  },
+  "tag": "10000-paths-path-0"
+ },
+ {
+  "size": 10000,
+  "rendering": "window",
+  "task": "place_near",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store10000\\window-place_near-0.txt",
+  "lines": 189,
+  "chars": 16364,
+  "question": "A new question has arrived: \"Are ability cooldowns measured in turns or in wall-clock seconds? [Sable]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q4419",
+  "truth": {
+   "answer": "q4436",
+   "near": [
+    "q4383",
+    "q4077",
+    "q4283",
+    "q4419"
+   ],
+   "hidden": "q4555"
+  },
+  "tag": "10000-window-place_near-0"
+ },
+ {
+  "size": 10000,
+  "rendering": "window",
+  "task": "place_far",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store10000\\window-place_far-0.txt",
+  "lines": 186,
+  "chars": 15943,
+  "question": "A new question has arrived: \"Do corporate and school networks block the chosen transport? [Kestrel]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q380",
+  "truth": {
+   "answer": "q1984",
+   "near": [
+    "q2342",
+    "q1885",
+    "q2228"
+   ],
+   "hidden": "q2218"
+  },
+  "tag": "10000-window-place_far-0"
+ },
+ {
+  "size": 10000,
+  "rendering": "window",
+  "task": "path",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store10000\\window-path-0.txt",
+  "lines": 174,
+  "chars": 14984,
+  "question": "List the ancestors of question q2642, from the root down to q2642 itself, as an ordered list of ids.",
+  "current": "q2642",
+  "truth": {
+   "answer": [
+    "q2920",
+    "q2644",
+    "q2888",
+    "q2642"
+   ]
+  },
+  "tag": "10000-window-path-0"
+ },
+ {
+  "size": 10000,
+  "rendering": "window",
+  "task": "children",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store10000\\window-children-0.txt",
+  "lines": 171,
+  "chars": 14665,
+  "question": "List the ids of the OPEN direct children of question q7690.",
+  "current": "q7690",
+  "truth": {
+   "answer": [
+    "q7346",
+    "q7666",
+    "q7686",
+    "q7688"
+   ]
+  },
+  "tag": "10000-window-children-0"
+ },
+ {
+  "size": 30000,
+  "rendering": "flat",
+  "task": "place_near",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store30000\\flat-place_near-0.txt",
+  "lines": 29999,
+  "chars": 3244400,
+  "question": "A new question has arrived: \"How far in advance is maintenance announced in the client? [Aurora]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q1349",
+  "truth": {
+   "answer": "q1209",
+   "near": [
+    "q1472",
+    "q1349"
+   ],
+   "hidden": "q1359"
+  },
+  "tag": "30000-flat-place_near-0"
+ },
+ {
+  "size": 30000,
+  "rendering": "window",
+  "task": "place_near",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store30000\\window-place_near-0.txt",
+  "lines": 414,
+  "chars": 36383,
+  "question": "A new question has arrived: \"Is the map hexagonal, square, or a free-form navigation mesh? [Xenon]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q28613",
+  "truth": {
+   "answer": "q28404",
+   "near": [
+    "q28233",
+    "q27939",
+    "q28482",
+    "q28613"
+   ],
+   "hidden": "q27846"
+  },
+  "tag": "30000-window-place_near-0"
+ },
+ {
+  "size": 30000,
+  "rendering": "window",
+  "task": "place_near",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store30000\\window-place_near-1.txt",
+  "lines": 397,
+  "chars": 34675,
+  "question": "A new question has arrived: \"Can a content patch ship independently of a client release? [Tarn]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q24697",
+  "truth": {
+   "answer": "q25381",
+   "near": [
+    "q25229",
+    "q24697",
+    "q24939"
+   ],
+   "hidden": "q24773"
+  },
+  "tag": "30000-window-place_near-1"
+ },
+ {
+  "size": 30000,
+  "rendering": "window",
+  "task": "place_far",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store30000\\window-place_far-0.txt",
+  "lines": 408,
+  "chars": 35747,
+  "question": "A new question has arrived: \"Do units reveal themselves when attacking from within the fog? [Vesper]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q6906",
+  "truth": {
+   "answer": "q6763",
+   "near": [
+    "q6768",
+    "q6363",
+    "q6602",
+    "q6724"
+   ],
+   "hidden": "q6831"
+  },
+  "tag": "30000-window-place_far-0"
+ },
+ {
+  "size": 30000,
+  "rendering": "window",
+  "task": "place_far",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store30000\\window-place_far-1.txt",
+  "lines": 405,
+  "chars": 35473,
+  "question": "A new question has arrived: \"How many playtest sessions per patch are enough to trust the data? [Yarrow]\". Decide where it belongs in the store: give the id of the existing question it is a sub-question of (its parent). If it belongs under no existing question, answer \"new-root\".",
+  "current": "q12567",
+  "truth": {
+   "answer": "q29123",
+   "near": [
+    "q28879",
+    "q28692"
+   ],
+   "hidden": "q28877"
+  },
+  "tag": "30000-window-place_far-1"
+ },
+ {
+  "size": 30000,
+  "rendering": "window",
+  "task": "path",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store30000\\window-path-0.txt",
+  "lines": 404,
+  "chars": 35394,
+  "question": "List the ancestors of question q11955, from the root down to q11955 itself, as an ordered list of ids.",
+  "current": "q11955",
+  "truth": {
+   "answer": [
+    "q12460",
+    "q12399",
+    "q12315",
+    "q11955"
+   ]
+  },
+  "tag": "30000-window-path-0"
+ },
+ {
+  "size": 30000,
+  "rendering": "window",
+  "task": "path",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store30000\\window-path-1.txt",
+  "lines": 405,
+  "chars": 35353,
+  "question": "List the ancestors of question q7844, from the root down to q7844 itself, as an ordered list of ids.",
+  "current": "q7844",
+  "truth": {
+   "answer": [
+    "q7794",
+    "q7780",
+    "q7906",
+    "q7844"
+   ]
+  },
+  "tag": "30000-window-path-1"
+ },
+ {
+  "size": 30000,
+  "rendering": "window",
+  "task": "children",
+  "k": 0,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store30000\\window-children-0.txt",
+  "lines": 399,
+  "chars": 34875,
+  "question": "List the ids of the OPEN direct children of question q27490.",
+  "current": "q27490",
+  "truth": {
+   "answer": [
+    "q27071",
+    "q27164",
+    "q27790"
+   ]
+  },
+  "tag": "30000-window-children-0"
+ },
+ {
+  "size": 30000,
+  "rendering": "window",
+  "task": "children",
+  "k": 1,
+  "file": "C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\75ce0c05-fc90-482e-9c0c-c362d36959bd\\scratchpad\\store30000\\window-children-1.txt",
+  "lines": 394,
+  "chars": 34411,
+  "question": "List the ids of the OPEN direct children of question q20525.",
+  "current": "q20525",
+  "truth": {
+   "answer": [
+    "q19932",
+    "q20095",
+    "q20208",
+    "q20246",
+    "q20425",
+    "q20489",
+    "q20596"
+   ]
+  },
+  "tag": "30000-window-children-1"
+ }
+]

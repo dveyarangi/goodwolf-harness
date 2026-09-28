@@ -1,0 +1,4772 @@
+[
+ {
+  "id": "n363",
+  "title": "Is there a follow-the-sun rotation or a single-region team?",
+  "parent": "n710",
+  "state": "open"
+ },
+ {
+  "id": "n549",
+  "title": "Is the tech tree identical across factions with faction-specific leaves?",
+  "parent": "n356",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n72",
+  "title": "How is server-authoritative fog enforced against client map hacks?",
+  "parent": "n341",
+  "state": "open"
+ },
+ {
+  "id": "n748",
+  "title": "Is order validation rejection rate tracked as a cheating signal?",
+  "parent": "n626",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n740",
+  "title": "How many hero units can a single army field at once?",
+  "parent": "n22",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n105",
+  "title": "Does the client resume from a snapshot or replay missed events?",
+  "parent": "n615",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n440",
+  "title": "How is fraud detected and prevented in the store?",
+  "parent": "n754",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n739",
+  "title": "Does obfuscation break the modding SDK's ability to extend the UI?",
+  "parent": "n159",
+  "state": "open"
+ },
+ {
+  "id": "n533",
+  "title": "Do roads halve movement cost for every unit class equally?",
+  "parent": "n411",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n401",
+  "title": "Can a player toggle vision sharing off to hide a flank maneuver?",
+  "parent": "n509",
+  "state": "open"
+ },
+ {
+  "id": "n544",
+  "title": "How can modders monetize their mods, if at all?",
+  "parent": "n561",
+  "state": "open"
+ },
+ {
+  "id": "n199",
+  "title": "Is there a kill switch for a runaway reward exploit?",
+  "parent": "n530",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n209",
+  "title": "Should ranked parties have a maximum allowed rating difference?",
+  "parent": "n292",
+  "state": "open"
+ },
+ {
+  "id": "n427",
+  "title": "Can mods alter the fog of war and vision rules?",
+  "parent": "n512",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n264",
+  "title": "Are ban waves preferred over immediate individual bans?",
+  "parent": "n214",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n593",
+  "title": "How is an individual's contribution to a team result estimated?",
+  "parent": "n87",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n383",
+  "title": "Can an event bundle be scheduled with a future activation time?",
+  "parent": "n328",
+  "state": "open"
+ },
+ {
+  "id": "n182",
+  "title": "How is player feedback gathered, triaged, and fed to design?",
+  "parent": "n450",
+  "state": "open"
+ },
+ {
+  "id": "n738",
+  "title": "Can announcements be targeted by region, language, or segment?",
+  "parent": "n278",
+  "state": "open"
+ },
+ {
+  "id": "n441",
+  "title": "Is deployment blue-green, canary, or rolling by region?",
+  "parent": "n177",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n687",
+  "title": "Is the map hexagonal, square, or a free-form navigation mesh?",
+  "parent": "n371",
+  "state": "open"
+ },
+ {
+  "id": "n526",
+  "title": "How much bandwidth does visibility filtering save per client per turn?",
+  "parent": "n15",
+  "state": "closed:moot"
+ },
+ {
+  "id": "n470",
+  "title": "Can cosmetic-only mods remain enabled during ranked matches?",
+  "parent": "n705",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n621",
+  "title": "Does a river crossing consume the whole turn's movement?",
+  "parent": "n411",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n225",
+  "title": "Are full premades restricted to matching only other full premades?",
+  "parent": "n40",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n111",
+  "title": "Does flat armor make low-damage swarm units useless in the late game?",
+  "parent": "n434",
+  "state": "open"
+ },
+ {
+  "id": "n596",
+  "title": "How long is a deprecated API kept functional after announcement?",
+  "parent": "n55",
+  "state": "open"
+ },
+ {
+  "id": "n419",
+  "title": "Should critical hits be removed from ranked to reduce outcome variance?",
+  "parent": "n716",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n149",
+  "title": "Should memory growth per match hour be alerted as a leak indicator?",
+  "parent": "n626",
+  "state": "open"
+ },
+ {
+  "id": "n773",
+  "title": "Are victory animations a cosmetic slot at launch?",
+  "parent": "n597",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n179",
+  "title": "Can a curated set of balance mods be whitelisted for ranked seasons?",
+  "parent": "n388",
+  "state": "open"
+ },
+ {
+  "id": "n180",
+  "title": "Does the cap grow with territory, buildings, or research milestones?",
+  "parent": "n418",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n167",
+  "title": "How is the in-game currency modeled and accounted for?",
+  "parent": "n754",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n148",
+  "title": "Does the service worker precache game assets or only the shell?",
+  "parent": "n60",
+  "state": "open"
+ },
+ {
+  "id": "n134",
+  "title": "Should map decoration themes be a purchasable cosmetic slot?",
+  "parent": "n597",
+  "state": "open"
+ },
+ {
+  "id": "n132",
+  "title": "How is pricing localized across regions and currencies?",
+  "parent": "n754",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n116",
+  "title": "Do veteran units cost more upkeep than fresh recruits?",
+  "parent": "n88",
+  "state": "open"
+ },
+ {
+  "id": "n310",
+  "title": "How are A/B tests run on live players?",
+  "parent": "n450",
+  "state": "open"
+ },
+ {
+  "id": "n433",
+  "title": "Does a first-party portal require its own moderation staff?",
+  "parent": "n173",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n388",
+  "title": "Do stat-changing mods disqualify a match from ranked play?",
+  "parent": "n512",
+  "state": "open"
+ },
+ {
+  "id": "n47",
+  "title": "Is a content change tested by an automated bot playthrough?",
+  "parent": "n342",
+  "state": "open"
+ },
+ {
+  "id": "n268",
+  "title": "What happens to queued players when the matchmaker restarts?",
+  "parent": "n100",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n735",
+  "title": "Can an in-progress match migrate to a new node without a reconnect?",
+  "parent": "n391",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n119",
+  "title": "How are supply lines and attrition modeled, if they exist at all?",
+  "parent": "n23",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n280",
+  "title": "Do build queues run in parallel across cities or serially?",
+  "parent": "n763",
+  "state": "open"
+ },
+ {
+  "id": "n548",
+  "title": "Which test suites must pass before a build reaches staging?",
+  "parent": "n42",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n627",
+  "title": "Is there a transfer cap per turn to prevent feeding one player?",
+  "parent": "n402",
+  "state": "open"
+ },
+ {
+  "id": "n551",
+  "title": "Does the matchmaker request a server from a fleet manager or pick directly?",
+  "parent": "n143",
+  "state": "open"
+ },
+ {
+  "id": "n154",
+  "title": "Can an event rewrite match rules or only add rewards?",
+  "parent": "n328",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n6",
+  "title": "Are feature flags served by a service or baked into builds?",
+  "parent": "n409",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n320",
+  "title": "Should a disconnected player's units hold position or auto-defend?",
+  "parent": "n622",
+  "state": "open"
+ },
+ {
+  "id": "n83",
+  "title": "How are large binary assets stored without bloating the repository?",
+  "parent": "n457",
+  "state": "open"
+ },
+ {
+  "id": "n606",
+  "title": "Do placement matches use a wider rating window than normal matches?",
+  "parent": "n541",
+  "state": "open"
+ },
+ {
+  "id": "n677",
+  "title": "How is age verification and parental consent implemented?",
+  "parent": "n754",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n80",
+  "title": "Which price index source is used for purchasing-power adjustment?",
+  "parent": "n168",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n647",
+  "title": "Is a declared permission model worth building for network access?",
+  "parent": "n761",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n416",
+  "title": "How are purchase entitlements granted, stored, and verified by servers?",
+  "parent": "n754",
+  "state": "open"
+ },
+ {
+  "id": "n493",
+  "title": "Which transactions must be logged immutably for audit?",
+  "parent": "n139",
+  "state": "open"
+ },
+ {
+  "id": "n500",
+  "title": "How are staging and test environments kept representative of production?",
+  "parent": "n724",
+  "state": "open"
+ },
+ {
+  "id": "n537",
+  "title": "Does a general's death trigger an immediate army-wide morale check?",
+  "parent": "n779",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n34",
+  "title": "Are progressive rewards revoked if the event is cancelled early?",
+  "parent": "n662",
+  "state": "open"
+ },
+ {
+  "id": "n585",
+  "title": "Do designers need a graphical editor on top of the text format?",
+  "parent": "n486",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n136",
+  "title": "How are game server IPs hidden from players to prevent targeting?",
+  "parent": "n91",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n397",
+  "title": "How do unit movement and pathfinding behave under the rules?",
+  "parent": "n23",
+  "state": "open"
+ },
+ {
+  "id": "n581",
+  "title": "Are chat logs retained and for how long for investigations?",
+  "parent": "n789",
+  "state": "open"
+ },
+ {
+  "id": "n44",
+  "title": "Is a new device plus a large first purchase enough to require review?",
+  "parent": "n732",
+  "state": "open"
+ },
+ {
+  "id": "n574",
+  "title": "Should contribution use in-game score or only the match outcome?",
+  "parent": "n593",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n163",
+  "title": "Is a paid mod's refund policy the same as official item refunds?",
+  "parent": "n678",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n205",
+  "title": "How is a draw declared when both capitals fall simultaneously?",
+  "parent": "n639",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n478",
+  "title": "How many placement matches before a visible rank is assigned?",
+  "parent": "n541",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n794",
+  "title": "Do ranged units gain extra range when firing from high ground?",
+  "parent": "n694",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n188",
+  "title": "What simulation fidelity suffices to predict resource curves reliably?",
+  "parent": "n471",
+  "state": "open"
+ },
+ {
+  "id": "n741",
+  "title": "Should pathfinding run on the server or be client-proposed and validated?",
+  "parent": "n175",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n242",
+  "title": "Is the game free to play, premium, or a hybrid with a demo?",
+  "parent": "n334",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n333",
+  "title": "Is an experience boost acceptable if it never touches ranked play?",
+  "parent": "n719",
+  "state": "open"
+ },
+ {
+  "id": "n661",
+  "title": "Can every faction be earned in reasonable play time without paying?",
+  "parent": "n361",
+  "state": "open"
+ },
+ {
+  "id": "n38",
+  "title": "Is there an interactive API reference inside the editor?",
+  "parent": "n792",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n671",
+  "title": "How are inheritance cycles and overrides detected at validation time?",
+  "parent": "n51",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n380",
+  "title": "What happens if the pass is bought on the last day of a season?",
+  "parent": "n731",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n345",
+  "title": "Is the renderer WebGL or WebGPU with a WebGL fallback?",
+  "parent": "n315",
+  "state": "open"
+ },
+ {
+  "id": "n302",
+  "title": "Does leaving a match early apply a queue timeout or a rating loss?",
+  "parent": "n140",
+  "state": "open"
+ },
+ {
+  "id": "n120",
+  "title": "Is a third-party error reporter used or a self-hosted collector?",
+  "parent": "n519",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n384",
+  "title": "Which languages does automated moderation cover at launch?",
+  "parent": "n485",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n190",
+  "title": "How is the ledger compacted once it grows beyond millions of rows?",
+  "parent": "n340",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n756",
+  "title": "How are influencer events isolated from the ranked ladder?",
+  "parent": "n350",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n71",
+  "title": "Is item trading between players allowed and is it taxed?",
+  "parent": "n428",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n724",
+  "title": "How is the game deployed, operated, and scaled in production?",
+  "parent": null,
+  "state": "open"
+ },
+ {
+  "id": "n670",
+  "title": "How are stale cached assets invalidated after a patch?",
+  "parent": "n673",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n261",
+  "title": "Is the pass purchasable mid-season at a prorated price?",
+  "parent": "n318",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n745",
+  "title": "How is script execution time limited per turn?",
+  "parent": "n226",
+  "state": "closed:moot"
+ },
+ {
+  "id": "n292",
+  "title": "How does the matchmaker handle party members with very different ratings?",
+  "parent": "n573",
+  "state": "open"
+ },
+ {
+  "id": "n169",
+  "title": "Are bot matches rated or completely excluded from rating?",
+  "parent": "n643",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n153",
+  "title": "Does using in-game score invite farming behaviors that distort ratings?",
+  "parent": "n574",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n425",
+  "title": "Is there a global market with prices driven by all players?",
+  "parent": "n482",
+  "state": "open"
+ },
+ {
+  "id": "n308",
+  "title": "Can a mod introduce a new resource type into the economy?",
+  "parent": "n512",
+  "state": "open"
+ },
+ {
+  "id": "n285",
+  "title": "Do seasonal cosmetics return in later seasons or stay exclusive?",
+  "parent": "n58",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n608",
+  "title": "Does a single chargeback lock the account or only the purchases?",
+  "parent": "n234",
+  "state": "open"
+ },
+ {
+  "id": "n766",
+  "title": "How is mod quality and safety signaled to players?",
+  "parent": "n561",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n121",
+  "title": "Are faction colors also distinguished by shape or pattern markers?",
+  "parent": "n299",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n78",
+  "title": "How is a procedurally generated map checked for reachability?",
+  "parent": "n358",
+  "state": "open"
+ },
+ {
+  "id": "n187",
+  "title": "Is the authentication service shared with the website and launcher?",
+  "parent": "n184",
+  "state": "open"
+ },
+ {
+  "id": "n774",
+  "title": "How are area-of-effect ability shapes defined on a hex grid?",
+  "parent": "n771",
+  "state": "open"
+ },
+ {
+  "id": "n400",
+  "title": "Which audio compression suits the web with acceptable quality?",
+  "parent": "n162",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n143",
+  "title": "How is a match assigned to a game server after a match is formed?",
+  "parent": "n573",
+  "state": "open"
+ },
+ {
+  "id": "n515",
+  "title": "Which region is chosen for a match spanning players from two regions?",
+  "parent": "n551",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n535",
+  "title": "How are official tournaments operated as scheduled live events?",
+  "parent": "n450",
+  "state": "open"
+ },
+ {
+  "id": "n413",
+  "title": "How long may the full pipeline take before it slows delivery?",
+  "parent": "n42",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n356",
+  "title": "Is the tech tree linear, branching, or a free-choice web?",
+  "parent": "n230",
+  "state": "open"
+ },
+ {
+  "id": "n424",
+  "title": "How does the weather and day-night cycle affect combat resolution?",
+  "parent": "n23",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n26",
+  "title": "Are strings extracted automatically or registered by hand?",
+  "parent": "n354",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n109",
+  "title": "Is machine translation offered for mod descriptions on the portal?",
+  "parent": "n392",
+  "state": "open"
+ },
+ {
+  "id": "n409",
+  "title": "How is service configuration managed across all deployment environments?",
+  "parent": "n724",
+  "state": "open"
+ },
+ {
+  "id": "n124",
+  "title": "How long should a typical siege last measured in turns?",
+  "parent": "n775",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n183",
+  "title": "How large can a map be before turn resolution exceeds its budget?",
+  "parent": "n371",
+  "state": "open"
+ },
+ {
+  "id": "n613",
+  "title": "Can research be sped up by spending gold or only by buildings?",
+  "parent": "n230",
+  "state": "open"
+ },
+ {
+  "id": "n228",
+  "title": "Are two adjacent versions kept mutually compatible for a rolling deploy?",
+  "parent": "n410",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n510",
+  "title": "How are copyright takedown requests handled on the portal?",
+  "parent": "n618",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n542",
+  "title": "Should the threshold vary by region based on observed smurf rates?",
+  "parent": "n127",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n70",
+  "title": "Is the widening linear, exponential, or stepwise per thirty seconds?",
+  "parent": "n18",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n742",
+  "title": "Is a single provider acceptable or is multi-cloud required for resilience?",
+  "parent": "n45",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n570",
+  "title": "Should achievements be retroactive when new ones are added?",
+  "parent": "n564",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n353",
+  "title": "How fast should a new player reach the first meaningful unlock?",
+  "parent": "n448",
+  "state": "open"
+ },
+ {
+  "id": "n679",
+  "title": "Does the chosen model expose enough parameters for per-mode tuning?",
+  "parent": "n216",
+  "state": "open"
+ },
+ {
+  "id": "n743",
+  "title": "Are marketing launches gated on server capacity confirmation?",
+  "parent": "n350",
+  "state": "open"
+ },
+ {
+  "id": "n297",
+  "title": "Do contested tiles yield reduced income to both players?",
+  "parent": "n106",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n638",
+  "title": "How many units per faction keep each faction's identity distinct?",
+  "parent": "n22",
+  "state": "open"
+ },
+ {
+  "id": "n772",
+  "title": "Can two designers edit the same map concurrently with merging?",
+  "parent": "n201",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n644",
+  "title": "Can a content patch ship independently of a client release?",
+  "parent": "n457",
+  "state": "open"
+ },
+ {
+  "id": "n758",
+  "title": "Is a relational database sufficient or is a document store better for inventories?",
+  "parent": "n286",
+  "state": "open"
+ },
+ {
+  "id": "n144",
+  "title": "How are art assets produced, optimized, and packaged for the web?",
+  "parent": "n759",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n700",
+  "title": "How does the ranked season structure and reset schedule work?",
+  "parent": "n573",
+  "state": "open"
+ },
+ {
+  "id": "n463",
+  "title": "How many events can overlap without diluting player attention?",
+  "parent": "n595",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n323",
+  "title": "How are loot boxes and randomized purchases regulated?",
+  "parent": "n754",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n680",
+  "title": "Do content changes require a designer review or only automated checks?",
+  "parent": "n342",
+  "state": "open"
+ },
+ {
+  "id": "n35",
+  "title": "Does the choice constrain what UI mods can replace?",
+  "parent": "n696",
+  "state": "closed:moot"
+ },
+ {
+  "id": "n602",
+  "title": "Is there a fixed cadence for content drops or event-driven releases?",
+  "parent": "n359",
+  "state": "open"
+ },
+ {
+  "id": "n790",
+  "title": "Can a mod remove an official unit from the roster for its mode?",
+  "parent": "n512",
+  "state": "open"
+ },
+ {
+  "id": "n252",
+  "title": "Is gifting limited to friends of a minimum friendship age to stop fraud?",
+  "parent": "n717",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n145",
+  "title": "Does the team have the operational skill to run Kubernetes at scale?",
+  "parent": "n290",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n376",
+  "title": "How many vetoes does each side get in a best-of-one match?",
+  "parent": "n563",
+  "state": "open"
+ },
+ {
+  "id": "n82",
+  "title": "Who decides an experiment is conclusive and ships the winner?",
+  "parent": "n310",
+  "state": "open"
+ },
+ {
+  "id": "n577",
+  "title": "Can a replay from an older game version still be played back?",
+  "parent": "n366",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n286",
+  "title": "What database stores player accounts, inventories, and match histories?",
+  "parent": "n724",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n434",
+  "title": "Is armor a flat reduction or a percentage of incoming damage?",
+  "parent": "n657",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n316",
+  "title": "How is the community managed in-game and externally?",
+  "parent": "n450",
+  "state": "open"
+ },
+ {
+  "id": "n656",
+  "title": "Which skill rating system underlies ranked matchmaking at launch?",
+  "parent": "n573",
+  "state": "open"
+ },
+ {
+  "id": "n763",
+  "title": "How are unit production costs and build times balanced against value?",
+  "parent": "n332",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n358",
+  "title": "How is procedural content generation used, if at all?",
+  "parent": "n759",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n598",
+  "title": "Is mod code reviewed by humans or scanned automatically?",
+  "parent": "n709",
+  "state": "open"
+ },
+ {
+  "id": "n637",
+  "title": "How are prediction mismatches shown to the player?",
+  "parent": "n490",
+  "state": "open"
+ },
+ {
+  "id": "n726",
+  "title": "What upkeep or maintenance costs constrain army size mid-match?",
+  "parent": "n332",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n293",
+  "title": "How are mods distributed, updated, and discovered by players?",
+  "parent": "n561",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n423",
+  "title": "Can drop rates be tuned live without a deployment?",
+  "parent": "n530",
+  "state": "open"
+ },
+ {
+  "id": "n322",
+  "title": "Is the win-rate spread measured per skill tier or globally?",
+  "parent": "n619",
+  "state": "open"
+ },
+ {
+  "id": "n21",
+  "title": "How are modders notified when a deprecation affects their mod?",
+  "parent": "n447",
+  "state": "open"
+ },
+ {
+  "id": "n599",
+  "title": "Can modders provide translations through the same string system?",
+  "parent": "n392",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n53",
+  "title": "How is disaster recovery across cloud regions designed and drilled?",
+  "parent": "n724",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n730",
+  "title": "Is there a verified mod badge and what earns it?",
+  "parent": "n766",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n667",
+  "title": "Does floating point drift force integer-only arithmetic in combat math?",
+  "parent": "n572",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n13",
+  "title": "Can campaign scripts reuse the modding SDK scripting runtime?",
+  "parent": "n474",
+  "state": "open"
+ },
+ {
+  "id": "n454",
+  "title": "Can units pass through allied units or are they fully blocked?",
+  "parent": "n397",
+  "state": "open"
+ },
+ {
+  "id": "n760",
+  "title": "Is the same runtime used on the server and in the client?",
+  "parent": "n226",
+  "state": "open"
+ },
+ {
+  "id": "n460",
+  "title": "How is a failed rollover step rolled back safely?",
+  "parent": "n170",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n414",
+  "title": "Can live-ops change game tuning without a client release?",
+  "parent": "n409",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n291",
+  "title": "Does WebGPU noticeably improve frame rate for large late-game battles?",
+  "parent": "n345",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n405",
+  "title": "Is distributed tracing worth its overhead on hot match paths?",
+  "parent": "n431",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n137",
+  "title": "How is accessibility supported in the web client interface?",
+  "parent": "n266",
+  "state": "open"
+ },
+ {
+  "id": "n693",
+  "title": "Can a region fail over completely and within what recovery time?",
+  "parent": "n53",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n207",
+  "title": "Do resource nodes deplete over time or yield indefinitely?",
+  "parent": "n482",
+  "state": "open"
+ },
+ {
+  "id": "n494",
+  "title": "What rewards are tied to peak rank versus end-of-season rank?",
+  "parent": "n700",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n377",
+  "title": "Which toolchain do modders use to compile to WebAssembly easily?",
+  "parent": "n483",
+  "state": "open"
+ },
+ {
+  "id": "n185",
+  "title": "Is an unexpected currency inflow rate the first exploit indicator?",
+  "parent": "n84",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n96",
+  "title": "How is inventory schema evolution handled with millions of rows?",
+  "parent": "n758",
+  "state": "open"
+ },
+ {
+  "id": "n645",
+  "title": "Are unclaimed rewards granted before or after rating reset?",
+  "parent": "n702",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n4",
+  "title": "Is a leave during the first two turns treated as a dodge instead?",
+  "parent": "n302",
+  "state": "open"
+ },
+ {
+  "id": "n534",
+  "title": "Does the turn timer shorten as the match progresses past midgame?",
+  "parent": "n14",
+  "state": "open"
+ },
+ {
+  "id": "n708",
+  "title": "What headroom multiplier over predicted peak is provisioned?",
+  "parent": "n130",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n663",
+  "title": "Are mod-added units subject to the same validation as official content?",
+  "parent": "n512",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n453",
+  "title": "Can modders accept voluntary donations through the official portal?",
+  "parent": "n544",
+  "state": "open"
+ },
+ {
+  "id": "n398",
+  "title": "Is staging populated with synthetic players or anonymized production data?",
+  "parent": "n500",
+  "state": "open"
+ },
+ {
+  "id": "n539",
+  "title": "What happens to a mod when the game version breaks its API?",
+  "parent": "n133",
+  "state": "open"
+ },
+ {
+  "id": "n245",
+  "title": "Does the refund window differ for currency versus direct item purchases?",
+  "parent": "n752",
+  "state": "open"
+ },
+ {
+  "id": "n736",
+  "title": "Is idempotency of grant operations guaranteed under retried webhooks?",
+  "parent": "n255",
+  "state": "open"
+ },
+ {
+  "id": "n751",
+  "title": "How are runbooks maintained for recurring live-ops tasks?",
+  "parent": "n450",
+  "state": "open"
+ },
+ {
+  "id": "n379",
+  "title": "Does every faction need a healer or is attrition the intended cost?",
+  "parent": "n558",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n619",
+  "title": "What win-rate spread between factions triggers a balance intervention?",
+  "parent": "n43",
+  "state": "open"
+ },
+ {
+  "id": "n459",
+  "title": "How are live event rewards defined, granted, and verified?",
+  "parent": "n450",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n88",
+  "title": "How do units gain experience and veterancy within a single match?",
+  "parent": "n23",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n255",
+  "title": "Is an entitlement a ledger entry or a mutable inventory row?",
+  "parent": "n416",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n474",
+  "title": "Does the campaign use a scripting language or data-driven triggers?",
+  "parent": "n303",
+  "state": "open"
+ },
+ {
+  "id": "n389",
+  "title": "How does the starting position and initial resource grant affect fairness?",
+  "parent": "n332",
+  "state": "open"
+ },
+ {
+  "id": "n767",
+  "title": "How quickly should a new account's rating converge?",
+  "parent": "n656",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n556",
+  "title": "Are ranked maps mirrored, rotationally symmetric, or asymmetric with tuning?",
+  "parent": "n344",
+  "state": "open"
+ },
+ {
+  "id": "n682",
+  "title": "Is the matchmaker a single process per region or sharded by mode?",
+  "parent": "n100",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n9",
+  "title": "Are flaky tests quarantined automatically or block the pipeline?",
+  "parent": "n548",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n573",
+  "title": "How are matchmaking and competitive ranked play structured for players?",
+  "parent": null,
+  "state": "closed:decided"
+ },
+ {
+  "id": "n594",
+  "title": "Is a full bot-versus-bot simulation part of the release gate?",
+  "parent": "n42",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n283",
+  "title": "How is the score gap computed when scores are multi-dimensional?",
+  "parent": "n218",
+  "state": "open"
+ },
+ {
+  "id": "n725",
+  "title": "Does validation catch a unit that no faction can ever produce?",
+  "parent": "n68",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n159",
+  "title": "Is the client bundle obfuscated and is that worth the debugging cost?",
+  "parent": "n203",
+  "state": "closed:moot"
+ },
+ {
+  "id": "n757",
+  "title": "Is a per-region latency percentile reported per server process?",
+  "parent": "n626",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n327",
+  "title": "How is headless mode kept in sync with the client's rules version?",
+  "parent": "n367",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n576",
+  "title": "Is a player banner composed of layered parts or a single image?",
+  "parent": "n597",
+  "state": "open"
+ },
+ {
+  "id": "n746",
+  "title": "Is manual reward granting for a support ticket covered by a runbook?",
+  "parent": "n432",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n135",
+  "title": "Is testing matchmaking parameters ethical when it affects match fairness?",
+  "parent": "n309",
+  "state": "open"
+ },
+ {
+  "id": "n497",
+  "title": "Does night reduce vision radius for all units or only some?",
+  "parent": "n424",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n22",
+  "title": "How large is the unit roster at launch across all factions?",
+  "parent": "n23",
+  "state": "open"
+ },
+ {
+  "id": "n31",
+  "title": "Are damage numbers shown to players or only health bar changes?",
+  "parent": "n657",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n279",
+  "title": "Is adaptive music driven by match state or static per map?",
+  "parent": "n162",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n212",
+  "title": "Is a dodge before match start punished at all?",
+  "parent": "n140",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n722",
+  "title": "Which services must be separate for scaling versus organizational reasons?",
+  "parent": "n184",
+  "state": "open"
+ },
+ {
+  "id": "n614",
+  "title": "Does trading create a real-money secondary market we must police?",
+  "parent": "n71",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n27",
+  "title": "Must all players have the mod installed or is it streamed?",
+  "parent": "n555",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n307",
+  "title": "Do load tests use recorded real sessions or synthetic bot scripts?",
+  "parent": "n256",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n339",
+  "title": "How is text expansion handled in the layout for long languages?",
+  "parent": "n354",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n676",
+  "title": "How is player data sharded across regions and by which key?",
+  "parent": "n286",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n165",
+  "title": "Who curates the whitelist and on what cadence?",
+  "parent": "n179",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n519",
+  "title": "How are errors and crashes reported from the client?",
+  "parent": "n266",
+  "state": "open"
+ },
+ {
+  "id": "n103",
+  "title": "Are gameplay-affecting items ever sold or only cosmetics?",
+  "parent": "n334",
+  "state": "open"
+ },
+ {
+  "id": "n311",
+  "title": "How are taxes calculated and remitted per jurisdiction?",
+  "parent": "n754",
+  "state": "open"
+ },
+ {
+  "id": "n337",
+  "title": "How long are financial records retained per region?",
+  "parent": "n139",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n649",
+  "title": "Which checks run client-side purely as a deterrent?",
+  "parent": "n203",
+  "state": "closed:moot"
+ },
+ {
+  "id": "n432",
+  "title": "Which tasks must have a runbook before launch?",
+  "parent": "n751",
+  "state": "open"
+ },
+ {
+  "id": "n444",
+  "title": "Are regional price differences protected against storefront hopping?",
+  "parent": "n132",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n628",
+  "title": "Are one-versus-one and two-versus-two ranked queues separate ladders?",
+  "parent": "n368",
+  "state": "open"
+ },
+ {
+  "id": "n275",
+  "title": "How is matchmaker state persisted so a restart does not lose queues?",
+  "parent": "n682",
+  "state": "open"
+ },
+ {
+  "id": "n350",
+  "title": "How does live-ops coordinate launches with external marketing campaigns?",
+  "parent": "n450",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n229",
+  "title": "Is a mixed party rated by its highest, average, or a weighted formula?",
+  "parent": "n292",
+  "state": "open"
+ },
+ {
+  "id": "n381",
+  "title": "What is the fallback if no server becomes available within ten seconds?",
+  "parent": "n143",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n262",
+  "title": "Are balance patches tested on a public test server first?",
+  "parent": "n288",
+  "state": "open"
+ },
+ {
+  "id": "n326",
+  "title": "How are compliance and data residency obligations met per region?",
+  "parent": "n724",
+  "state": "open"
+ },
+ {
+  "id": "n505",
+  "title": "Are mod-added abilities limited to composing existing effect primitives?",
+  "parent": "n512",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n214",
+  "title": "How are cheating and exploits handled by the live-ops team?",
+  "parent": "n450",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n420",
+  "title": "How is a malicious mod detected before it reaches players?",
+  "parent": "n709",
+  "state": "open"
+ },
+ {
+  "id": "n522",
+  "title": "Can mods add new maps and new victory conditions?",
+  "parent": "n703",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n566",
+  "title": "Can critical chance be raised by flanking or by unit veterancy?",
+  "parent": "n716",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n685",
+  "title": "How many concurrent matches does one server process host?",
+  "parent": "n443",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n630",
+  "title": "Are alerts thresholded per region or on global aggregates?",
+  "parent": "n84",
+  "state": "open"
+ },
+ {
+  "id": "n653",
+  "title": "Are live-ops runbooks executable scripts or human-readable documents?",
+  "parent": "n751",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n178",
+  "title": "What is the asset budget per unit for download size?",
+  "parent": "n144",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n442",
+  "title": "Should matchmaking, billing, and social be separate deployables at launch?",
+  "parent": "n722",
+  "state": "open"
+ },
+ {
+  "id": "n509",
+  "title": "Is vision shared among allied players in team matches by default?",
+  "parent": "n341",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n617",
+  "title": "Is there a dependency graph tool for content authors?",
+  "parent": "n378",
+  "state": "open"
+ },
+ {
+  "id": "n787",
+  "title": "Would persistent veterancy make the roster a meta-progression grind?",
+  "parent": "n552",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n48",
+  "title": "Is a weekly rotation or a daily rotation less exhausting for the team?",
+  "parent": "n589",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n5",
+  "title": "How are mods versioned and updated on players' machines?",
+  "parent": "n293",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n492",
+  "title": "Can a backend deploy happen during peak hours or only off-peak?",
+  "parent": "n177",
+  "state": "open"
+ },
+ {
+  "id": "n299",
+  "title": "Is there a colorblind mode for faction and terrain colors?",
+  "parent": "n137",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n122",
+  "title": "Is Simplified Chinese launch-critical given the regional player forecast?",
+  "parent": "n75",
+  "state": "open"
+ },
+ {
+  "id": "n648",
+  "title": "Who owns a mod's content, the modder or the studio?",
+  "parent": "n618",
+  "state": "open"
+ },
+ {
+  "id": "n186",
+  "title": "How is a data deletion request propagated to backups and analytics?",
+  "parent": "n326",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n10",
+  "title": "Is every referenced asset checked for existence and size budget?",
+  "parent": "n68",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n177",
+  "title": "How are deployments rolled out without disrupting live matches?",
+  "parent": "n724",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n472",
+  "title": "Is a full-scale load test run in production-sized infrastructure?",
+  "parent": "n256",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n788",
+  "title": "Which assets must be present before a match can begin?",
+  "parent": "n480",
+  "state": "open"
+ },
+ {
+  "id": "n231",
+  "title": "Is protocol encoding size a real bottleneck for turn-based traffic?",
+  "parent": "n54",
+  "state": "open"
+ },
+ {
+  "id": "n176",
+  "title": "How many playtest sessions per patch are enough to trust the data?",
+  "parent": "n471",
+  "state": "open"
+ },
+ {
+  "id": "n313",
+  "title": "How is client-side match state managed and synchronized with servers?",
+  "parent": "n266",
+  "state": "open"
+ },
+ {
+  "id": "n253",
+  "title": "How is the economy tuned and validated before a balance patch ships?",
+  "parent": "n332",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n2",
+  "title": "What subset of content is safe to hot-patch on live servers?",
+  "parent": "n644",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n473",
+  "title": "Can tiers be skipped by purchase, and with what cap?",
+  "parent": "n202",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n210",
+  "title": "Does a separate ladder split the population below viable queue times?",
+  "parent": "n628",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n524",
+  "title": "How many damage types keep the counter table learnable for newcomers?",
+  "parent": "n52",
+  "state": "open"
+ },
+ {
+  "id": "n499",
+  "title": "How is the mod editor delivered to modders?",
+  "parent": "n561",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n455",
+  "title": "Can designers preview a balance change in a live sandbox instantly?",
+  "parent": "n456",
+  "state": "closed:moot"
+ },
+ {
+  "id": "n25",
+  "title": "Is every unit reachable through at least one tech tree path?",
+  "parent": "n68",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n527",
+  "title": "Is detection a binary radius or a probabilistic check per turn?",
+  "parent": "n498",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n98",
+  "title": "Which client events are captured and at what sampling rate?",
+  "parent": "n118",
+  "state": "open"
+ },
+ {
+  "id": "n158",
+  "title": "How many tiers per season keep completion achievable for casual players?",
+  "parent": "n202",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n785",
+  "title": "How long does a canary run before promotion is allowed?",
+  "parent": "n441",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n338",
+  "title": "How often should balance patches ship in a season?",
+  "parent": "n288",
+  "state": "closed:moot"
+ },
+ {
+  "id": "n590",
+  "title": "Does Lua embed cleanly in both the server and the browser runtime?",
+  "parent": "n744",
+  "state": "open"
+ },
+ {
+  "id": "n269",
+  "title": "How is the client tested end to end?",
+  "parent": "n266",
+  "state": "open"
+ },
+ {
+  "id": "n567",
+  "title": "What is the target frame rate on a mid-range laptop?",
+  "parent": "n369",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n289",
+  "title": "How does the economy behave in team modes with shared or split treasuries?",
+  "parent": "n332",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n437",
+  "title": "Is the UI navigable by keyboard alone and screen readers?",
+  "parent": "n137",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n530",
+  "title": "How is the game economy monitored and adjusted live?",
+  "parent": "n450",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n600",
+  "title": "Does a stealthed unit break stealth on movement or only on attack?",
+  "parent": "n498",
+  "state": "open"
+ },
+ {
+  "id": "n643",
+  "title": "How are bots used to fill matches and train new players?",
+  "parent": "n573",
+  "state": "open"
+ },
+ {
+  "id": "n579",
+  "title": "Which laptop model defines the mid-range baseline for testing?",
+  "parent": "n567",
+  "state": "open"
+ },
+ {
+  "id": "n59",
+  "title": "Does initiative come from unit speed or from a random roll?",
+  "parent": "n520",
+  "state": "open"
+ },
+ {
+  "id": "n101",
+  "title": "Are existing hex map libraries mature enough to adopt rather than write?",
+  "parent": "n687",
+  "state": "open"
+ },
+ {
+  "id": "n192",
+  "title": "Are assets served from a CDN with content-addressed file names?",
+  "parent": "n673",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n57",
+  "title": "How is event reward eligibility verified against client-side tampering?",
+  "parent": "n459",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n684",
+  "title": "Does verification expire when a new game version ships?",
+  "parent": "n730",
+  "state": "open"
+ },
+ {
+  "id": "n108",
+  "title": "What severity levels exist and what triggers each one?",
+  "parent": "n157",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n387",
+  "title": "How is the server-side rules engine kept in lockstep with the client?",
+  "parent": "n724",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n290",
+  "title": "Are game servers containers on Kubernetes or bare virtual machines?",
+  "parent": "n443",
+  "state": "open"
+ },
+ {
+  "id": "n233",
+  "title": "Are level-of-detail meshes generated automatically from the source model?",
+  "parent": "n178",
+  "state": "open"
+ },
+ {
+  "id": "n232",
+  "title": "Are purchased goods refunded on account deletion or forfeited?",
+  "parent": "n254",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n557",
+  "title": "What share of the target audience lacks WebGPU support today?",
+  "parent": "n345",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n786",
+  "title": "How is mod telemetry captured for support and analytics?",
+  "parent": "n561",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n692",
+  "title": "Can land units embark on transports without a dedicated port tile?",
+  "parent": "n56",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n502",
+  "title": "Does content live in the code repository or a separate content repository?",
+  "parent": "n457",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n66",
+  "title": "Is an unreliable datagram channel needed for a turn-based game?",
+  "parent": "n115",
+  "state": "open"
+ },
+ {
+  "id": "n164",
+  "title": "Does the adaptive bot use the same rules engine as the server?",
+  "parent": "n458",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n518",
+  "title": "Is touch a first-class input at launch or a later addition?",
+  "parent": "n211",
+  "state": "open"
+ },
+ {
+  "id": "n591",
+  "title": "Does sharding by player id complicate cross-region friend features?",
+  "parent": "n676",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n235",
+  "title": "Is there a single schema shared between the editor and the runtime?",
+  "parent": "n607",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n491",
+  "title": "Do score-based timeouts end stalemates, and after how many turns?",
+  "parent": "n639",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n141",
+  "title": "Can internal-only features be hidden without a separate codebase?",
+  "parent": "n195",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n795",
+  "title": "Is there a performance regression test in the client pipeline?",
+  "parent": "n369",
+  "state": "open"
+ },
+ {
+  "id": "n343",
+  "title": "Is the public SDK a subset of the internal toolset?",
+  "parent": "n195",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n133",
+  "title": "Do mods declare compatibility with specific game versions?",
+  "parent": "n293",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n412",
+  "title": "Can an account be transferred to another person legally?",
+  "parent": "n254",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n140",
+  "title": "How are leaver, dodger, and griefer behaviors deterred?",
+  "parent": "n573",
+  "state": "open"
+ },
+ {
+  "id": "n172",
+  "title": "Does a trailing player receive a passive income bonus or a bounty?",
+  "parent": "n197",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n396",
+  "title": "Can queued abilities be interrupted or cancelled before resolution?",
+  "parent": "n771",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n100",
+  "title": "How does the matchmaker service scale and stay available?",
+  "parent": "n573",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n715",
+  "title": "How long is a ranked season in weeks?",
+  "parent": "n700",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n130",
+  "title": "How is capacity planned ahead of launch and major events?",
+  "parent": "n724",
+  "state": "open"
+ },
+ {
+  "id": "n595",
+  "title": "What kinds of live events exist and how are they scheduled?",
+  "parent": "n450",
+  "state": "open"
+ },
+ {
+  "id": "n572",
+  "title": "Which pseudo-random generator stays deterministic across browsers and the server?",
+  "parent": "n236",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n531",
+  "title": "Are all map spawn points verified to reach every resource node?",
+  "parent": "n68",
+  "state": "open"
+ },
+ {
+  "id": "n375",
+  "title": "Does depletion push players toward expansion or toward trading?",
+  "parent": "n207",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n247",
+  "title": "Are unit skins per unit type or per faction-wide theme?",
+  "parent": "n597",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n563",
+  "title": "Do players veto maps from a pool or is selection random?",
+  "parent": "n227",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n236",
+  "title": "Is the random seed shared with clients for deterministic replays?",
+  "parent": "n59",
+  "state": "open"
+ },
+ {
+  "id": "n631",
+  "title": "How many difficulty tiers are needed to cover new players to experts?",
+  "parent": "n458",
+  "state": "open"
+ },
+ {
+  "id": "n243",
+  "title": "How is game audio implemented within browser constraints?",
+  "parent": "n266",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n359",
+  "title": "How is a content release scheduled and coordinated with live-ops?",
+  "parent": "n759",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n382",
+  "title": "Is match migration cheaper than simply waiting for matches to end?",
+  "parent": "n39",
+  "state": "open"
+ },
+ {
+  "id": "n783",
+  "title": "Is zone of control enforced when moving past adjacent enemy units?",
+  "parent": "n397",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n312",
+  "title": "Can a player extend the timer by spending a limited resource?",
+  "parent": "n14",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n482",
+  "title": "What resources exist and how are they gathered during a match?",
+  "parent": "n332",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n87",
+  "title": "Does the rating model handle team games with individual ratings?",
+  "parent": "n216",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n147",
+  "title": "Does the detector need human review before applying a penalty?",
+  "parent": "n20",
+  "state": "open"
+ },
+ {
+  "id": "n112",
+  "title": "Are codes single-use per account or per code?",
+  "parent": "n370",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n495",
+  "title": "How is a mandatory client update forced during a live session?",
+  "parent": "n610",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n79",
+  "title": "Should spectator slots be available in custom lobbies at launch?",
+  "parent": "n511",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n729",
+  "title": "Can the simulator reuse the production rules engine unmodified?",
+  "parent": "n188",
+  "state": "open"
+ },
+ {
+  "id": "n378",
+  "title": "How are content dependencies tracked between assets and rules?",
+  "parent": "n759",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n113",
+  "title": "How are refunds and chargebacks processed and reflected in inventories?",
+  "parent": "n754",
+  "state": "open"
+ },
+ {
+  "id": "n462",
+  "title": "Should low-sample tiers borrow priors from adjacent tiers or be excluded?",
+  "parent": "n107",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n769",
+  "title": "Is JavaScript too easy to escape from a sandbox inside the browser?",
+  "parent": "n744",
+  "state": "open"
+ },
+ {
+  "id": "n309",
+  "title": "Which features are appropriate for A/B testing in a competitive game?",
+  "parent": "n310",
+  "state": "open"
+ },
+ {
+  "id": "n206",
+  "title": "What weekly play time should suffice to finish the free track?",
+  "parent": "n158",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n215",
+  "title": "Are earned and purchased currencies kept as separate balances?",
+  "parent": "n167",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n223",
+  "title": "How many research tiers fit into a forty-minute match?",
+  "parent": "n230",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n690",
+  "title": "Do garrisoned units in cities pay reduced upkeep?",
+  "parent": "n560",
+  "state": "open"
+ },
+ {
+  "id": "n480",
+  "title": "Is the initial download minimized by streaming assets on demand?",
+  "parent": "n673",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n580",
+  "title": "How often are localized prices refreshed against exchange rates?",
+  "parent": "n132",
+  "state": "open"
+ },
+ {
+  "id": "n698",
+  "title": "Which live-ops actions are safe for a single operator?",
+  "parent": "n710",
+  "state": "open"
+ },
+ {
+  "id": "n610",
+  "title": "How is the web client loaded, cached, and updated?",
+  "parent": "n266",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n791",
+  "title": "Is the displayed rank the hidden rating or a separate ladder score?",
+  "parent": "n656",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n435",
+  "title": "How does city building and district placement shape the economy?",
+  "parent": "n332",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n485",
+  "title": "Is chat moderation automated, human, or a hybrid?",
+  "parent": "n789",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n564",
+  "title": "How do achievements and mastery tracks contribute to long-term goals?",
+  "parent": "n332",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n521",
+  "title": "Can a headless server run inside the test process for speed?",
+  "parent": "n664",
+  "state": "open"
+ },
+ {
+  "id": "n683",
+  "title": "Which engine or framework underlies the web client renderer?",
+  "parent": "n315",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n335",
+  "title": "Which stats enter the cost formula and with what weights?",
+  "parent": "n373",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n276",
+  "title": "Which channels feed into the live-ops feedback queue?",
+  "parent": "n182",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n95",
+  "title": "Does the release pipeline run a suite of sample mods?",
+  "parent": "n104",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n392",
+  "title": "How does the SDK handle localization of mod content?",
+  "parent": "n561",
+  "state": "open"
+ },
+ {
+  "id": "n483",
+  "title": "Does WebAssembly sandboxing justify the harder authoring experience?",
+  "parent": "n744",
+  "state": "open"
+ },
+ {
+  "id": "n503",
+  "title": "Must drop probabilities be disclosed in every region?",
+  "parent": "n323",
+  "state": "open"
+ },
+ {
+  "id": "n197",
+  "title": "How are catch-up mechanics designed for players who fall behind?",
+  "parent": "n332",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n274",
+  "title": "Do challenges reset daily, weekly, or roll over to season end?",
+  "parent": "n202",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n620",
+  "title": "How is anti-cheat enforcement reconciled with client-side modding support?",
+  "parent": "n561",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n85",
+  "title": "Which operational dashboards must exist before the launch day?",
+  "parent": "n431",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n244",
+  "title": "Should stealth be removed from the launch roster to reduce balance risk?",
+  "parent": "n498",
+  "state": "open"
+ },
+ {
+  "id": "n17",
+  "title": "How are source maps protected while still enabling symbolication?",
+  "parent": "n519",
+  "state": "open"
+ },
+ {
+  "id": "n155",
+  "title": "Is the leaderboard global, per region, or both?",
+  "parent": "n8",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n668",
+  "title": "Do scouting units get a vision radius bonus on high ground?",
+  "parent": "n341",
+  "state": "open"
+ },
+ {
+  "id": "n11",
+  "title": "Are player reports reviewed by humans or auto-actioned by thresholds?",
+  "parent": "n316",
+  "state": "open"
+ },
+ {
+  "id": "n618",
+  "title": "How is intellectual property ownership in community mods handled?",
+  "parent": "n561",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n422",
+  "title": "Does lost territory revoke technologies tied to captured buildings?",
+  "parent": "n230",
+  "state": "open"
+ },
+ {
+  "id": "n657",
+  "title": "How is damage calculated between attacker and defender statistics?",
+  "parent": "n23",
+  "state": "open"
+ },
+ {
+  "id": "n592",
+  "title": "Are the official maps built with the public SDK as proof?",
+  "parent": "n792",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n665",
+  "title": "Must European player data stay within European regions exclusively?",
+  "parent": "n326",
+  "state": "open"
+ },
+ {
+  "id": "n334",
+  "title": "Which monetization model does the game use at launch?",
+  "parent": "n754",
+  "state": "open"
+ },
+ {
+  "id": "n344",
+  "title": "How are ranked maps designed and reviewed for competitive fairness?",
+  "parent": "n759",
+  "state": "open"
+ },
+ {
+  "id": "n782",
+  "title": "Is an over-budget mod script paused, killed, or throttled next turn?",
+  "parent": "n745",
+  "state": "closed:moot"
+ },
+ {
+  "id": "n582",
+  "title": "What is the recovery point objective for player inventories?",
+  "parent": "n445",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n689",
+  "title": "Are flags evaluated on the server only or also on the client?",
+  "parent": "n6",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n372",
+  "title": "Does a mid-match stat change apply immediately or on next match?",
+  "parent": "n193",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n776",
+  "title": "Do events have a minimum lead time for announcement?",
+  "parent": "n595",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n650",
+  "title": "Can supply depots be captured intact by the enemy army?",
+  "parent": "n119",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n520",
+  "title": "How are conflicting orders resolved when two units target one tile?",
+  "parent": "n622",
+  "state": "open"
+ },
+ {
+  "id": "n49",
+  "title": "Should there be alternate wonder or economic victory conditions at launch?",
+  "parent": "n639",
+  "state": "open"
+ },
+ {
+  "id": "n139",
+  "title": "How is the billing service kept auditable and compliant?",
+  "parent": "n754",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n449",
+  "title": "How are UI layouts adapted to small and ultrawide screens?",
+  "parent": "n30",
+  "state": "open"
+ },
+ {
+  "id": "n24",
+  "title": "Are official tournaments run on isolated servers separate from ranked?",
+  "parent": "n535",
+  "state": "open"
+ },
+ {
+  "id": "n368",
+  "title": "What queue modes exist at launch and how are they separated?",
+  "parent": "n573",
+  "state": "open"
+ },
+ {
+  "id": "n227",
+  "title": "How is the map chosen for a ranked match?",
+  "parent": "n573",
+  "state": "open"
+ },
+ {
+  "id": "n126",
+  "title": "Do all localized strings exist for every shipped language?",
+  "parent": "n68",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n525",
+  "title": "Does delayed banning risk ruining more matches in the meantime?",
+  "parent": "n264",
+  "state": "closed:moot"
+ },
+ {
+  "id": "n753",
+  "title": "Would removing randomized purchases materially reduce projected revenue?",
+  "parent": "n711",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n603",
+  "title": "How are platform-purchased entitlements reconciled with our ledger?",
+  "parent": "n248",
+  "state": "open"
+ },
+ {
+  "id": "n597",
+  "title": "Which cosmetic slots exist per unit, building, and player profile?",
+  "parent": "n58",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n157",
+  "title": "What is the incident response process during a live outage?",
+  "parent": "n724",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n702",
+  "title": "What runs at season rollover and in what order?",
+  "parent": "n170",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n60",
+  "title": "Is the client a single-page app cached by a service worker?",
+  "parent": "n610",
+  "state": "open"
+ },
+ {
+  "id": "n115",
+  "title": "Is the transport WebSocket, WebTransport, or WebRTC data channels?",
+  "parent": "n86",
+  "state": "open"
+ },
+ {
+  "id": "n329",
+  "title": "Is income proportional to tile count or to specific developed buildings?",
+  "parent": "n106",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n402",
+  "title": "Can teammates transfer resources freely or only through a tax?",
+  "parent": "n289",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n484",
+  "title": "Is a WebGL fallback maintained indefinitely or sunset after a year?",
+  "parent": "n557",
+  "state": "open"
+ },
+ {
+  "id": "n394",
+  "title": "Can walls be breached only by siege units or by any unit?",
+  "parent": "n775",
+  "state": "open"
+ },
+ {
+  "id": "n303",
+  "title": "How is narrative and campaign content authored differently from skirmish?",
+  "parent": "n759",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n765",
+  "title": "Are maps stored as tile arrays or as procedural generation recipes?",
+  "parent": "n607",
+  "state": "open"
+ },
+ {
+  "id": "n629",
+  "title": "How is map fairness measured from match statistics?",
+  "parent": "n344",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n127",
+  "title": "What level threshold blocks smurfs without frustrating genuine newcomers?",
+  "parent": "n260",
+  "state": "open"
+ },
+ {
+  "id": "n341",
+  "title": "How do fog of war and vision work on the strategic map?",
+  "parent": "n23",
+  "state": "open"
+ },
+ {
+  "id": "n569",
+  "title": "How quickly can spare capacity be added in an unexpected surge?",
+  "parent": "n443",
+  "state": "open"
+ },
+ {
+  "id": "n789",
+  "title": "Is there in-game chat and how is it moderated?",
+  "parent": "n316",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n418",
+  "title": "Is there a population cap and what raises it?",
+  "parent": "n763",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n587",
+  "title": "Are store layout experiments run without any gameplay experiments?",
+  "parent": "n309",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n23",
+  "title": "What is the core combat and unit resolution model?",
+  "parent": null,
+  "state": "closed:decided"
+ },
+ {
+  "id": "n370",
+  "title": "How are promotional codes and partner bundles supported?",
+  "parent": "n754",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n373",
+  "title": "Is unit cost derived from a formula or hand-tuned per unit?",
+  "parent": "n763",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n301",
+  "title": "Is a path validated by cost recomputation or by full re-search?",
+  "parent": "n513",
+  "state": "open"
+ },
+ {
+  "id": "n712",
+  "title": "Does hex geometry make the map editor harder for community modders?",
+  "parent": "n687",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n672",
+  "title": "How quickly must a flag change propagate to all game servers?",
+  "parent": "n6",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n131",
+  "title": "How are scheduled maintenance windows chosen and communicated?",
+  "parent": "n450",
+  "state": "open"
+ },
+ {
+  "id": "n201",
+  "title": "Is the map editor a web tool, a desktop app, or an engine plugin?",
+  "parent": "n456",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n674",
+  "title": "Is a commercial edge provider used or a self-managed scrubbing setup?",
+  "parent": "n91",
+  "state": "open"
+ },
+ {
+  "id": "n43",
+  "title": "How asymmetric can factions be before balance becomes intractable to tune?",
+  "parent": "n488",
+  "state": "open"
+ },
+ {
+  "id": "n558",
+  "title": "Which unit roles are mandatory in every faction's starting roster?",
+  "parent": "n22",
+  "state": "closed:moot"
+ },
+ {
+  "id": "n468",
+  "title": "Is velocity limiting applied per account, per device, or per card?",
+  "parent": "n440",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n37",
+  "title": "Do custom lobbies allow rule modifications from the modding SDK?",
+  "parent": "n511",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n529",
+  "title": "Does the editor work offline with local files?",
+  "parent": "n499",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n146",
+  "title": "Are ability cooldown values checked against the design range table?",
+  "parent": "n68",
+  "state": "open"
+ },
+ {
+  "id": "n317",
+  "title": "Are districts placed on adjacent tiles or inside an abstract city?",
+  "parent": "n435",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n658",
+  "title": "Does a premade-only rule make top-rated premades unmatchable at night?",
+  "parent": "n225",
+  "state": "open"
+ },
+ {
+  "id": "n16",
+  "title": "Would a premium price reduce the population below matchmaking viability?",
+  "parent": "n242",
+  "state": "open"
+ },
+ {
+  "id": "n92",
+  "title": "Is turn resolution latency the primary game server health metric?",
+  "parent": "n626",
+  "state": "open"
+ },
+ {
+  "id": "n15",
+  "title": "Does the server send only visible entities or full state with flags?",
+  "parent": "n72",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n226",
+  "title": "Which language and runtime do mod scripts use?",
+  "parent": "n561",
+  "state": "open"
+ },
+ {
+  "id": "n36",
+  "title": "Are starting resources identical per faction or tuned per faction?",
+  "parent": "n389",
+  "state": "open"
+ },
+ {
+  "id": "n411",
+  "title": "Do movement costs vary by terrain type per unit class?",
+  "parent": "n397",
+  "state": "open"
+ },
+ {
+  "id": "n361",
+  "title": "Are faction unlocks sold, and does that count as selling power?",
+  "parent": "n103",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n728",
+  "title": "How are regions and cross-region play handled by the matchmaker?",
+  "parent": "n573",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n256",
+  "title": "What load-test scenarios approximate real launch traffic patterns?",
+  "parent": "n130",
+  "state": "open"
+ },
+ {
+  "id": "n42",
+  "title": "How does the continuous integration pipeline gate a release?",
+  "parent": "n724",
+  "state": "open"
+ },
+ {
+  "id": "n195",
+  "title": "How does the SDK relate to internal content tools?",
+  "parent": "n561",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n706",
+  "title": "After how many days of inactivity does rating decay begin?",
+  "parent": "n553",
+  "state": "open"
+ },
+ {
+  "id": "n94",
+  "title": "Does match abandonment rate belong to server health or to live-ops?",
+  "parent": "n626",
+  "state": "open"
+ },
+ {
+  "id": "n640",
+  "title": "What canary metrics gate the promotion to the full fleet?",
+  "parent": "n441",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n737",
+  "title": "Is the first canary region chosen by low population or low revenue?",
+  "parent": "n441",
+  "state": "open"
+ },
+ {
+  "id": "n636",
+  "title": "Does the formula account for synergy with faction passives?",
+  "parent": "n335",
+  "state": "open"
+ },
+ {
+  "id": "n561",
+  "title": "What does the modding SDK expose and how is it governed?",
+  "parent": null,
+  "state": "open"
+ },
+ {
+  "id": "n52",
+  "title": "Do damage types use a counter table or continuous modifiers?",
+  "parent": "n657",
+  "state": "open"
+ },
+ {
+  "id": "n489",
+  "title": "Are in-progress matches abandoned or migrated during a regional failover?",
+  "parent": "n693",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n421",
+  "title": "Do abilities consume a shared resource pool or independent charges?",
+  "parent": "n771",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n102",
+  "title": "Is a mod's script hash checked against the lobby's declared version?",
+  "parent": "n27",
+  "state": "open"
+ },
+ {
+  "id": "n349",
+  "title": "Are engineers on call for game servers and operators for live-ops?",
+  "parent": "n589",
+  "state": "open"
+ },
+ {
+  "id": "n45",
+  "title": "Which cloud provider and regions host the production fleet?",
+  "parent": "n724",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n646",
+  "title": "Are crashes in mod code reported separately from base game crashes?",
+  "parent": "n786",
+  "state": "open"
+ },
+ {
+  "id": "n193",
+  "title": "Are unit stat changes hot-patchable while matches are running?",
+  "parent": "n2",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n439",
+  "title": "How is audio unlocked given browser autoplay restrictions?",
+  "parent": "n243",
+  "state": "open"
+ },
+ {
+  "id": "n18",
+  "title": "How does the acceptable rating gap widen as wait time grows?",
+  "parent": "n528",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n475",
+  "title": "Can tournament brackets be run inside the client or only externally?",
+  "parent": "n511",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n605",
+  "title": "Does each faction get a unique economy rule or only unique units?",
+  "parent": "n488",
+  "state": "open"
+ },
+ {
+  "id": "n793",
+  "title": "How is store content personalized per player segment?",
+  "parent": "n778",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n695",
+  "title": "Should campaign missions be authored in the same map editor?",
+  "parent": "n303",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n583",
+  "title": "Is every content build tagged with a reproducible content hash?",
+  "parent": "n19",
+  "state": "open"
+ },
+ {
+  "id": "n260",
+  "title": "Does account progression gate ranked play behind a minimum level?",
+  "parent": "n448",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n651",
+  "title": "How quickly must a critical exploit be hot-fixed?",
+  "parent": "n214",
+  "state": "open"
+ },
+ {
+  "id": "n635",
+  "title": "Should earned currency be sinkable into anything beyond cosmetics?",
+  "parent": "n386",
+  "state": "open"
+ },
+ {
+  "id": "n342",
+  "title": "How is content validated before it enters a build?",
+  "parent": "n759",
+  "state": "open"
+ },
+ {
+  "id": "n771",
+  "title": "How are unit abilities and their cooldowns modeled in rules?",
+  "parent": "n23",
+  "state": "open"
+ },
+ {
+  "id": "n578",
+  "title": "How many distinct resource types keep the economy readable at a glance?",
+  "parent": "n482",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n770",
+  "title": "Is the message schema shared with the server through generated code?",
+  "parent": "n86",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n355",
+  "title": "How are tokens refreshed without interrupting a live match?",
+  "parent": "n718",
+  "state": "open"
+ },
+ {
+  "id": "n504",
+  "title": "Does the hold time differ between ranked and casual matches?",
+  "parent": "n306",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n487",
+  "title": "Which competitor benchmarks anchor our retention targets for launch?",
+  "parent": "n749",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n545",
+  "title": "Does the error reporter satisfy regional data residency requirements?",
+  "parent": "n120",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n331",
+  "title": "Can mods replace the user interface or only extend it?",
+  "parent": "n703",
+  "state": "open"
+ },
+ {
+  "id": "n779",
+  "title": "How do morale and retreat mechanics change combat outcomes?",
+  "parent": "n23",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n208",
+  "title": "Is supply traced along roads or by distance from friendly depots?",
+  "parent": "n119",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n675",
+  "title": "Do units reveal themselves when attacking from within the fog?",
+  "parent": "n341",
+  "state": "open"
+ },
+ {
+  "id": "n8",
+  "title": "How is the ranked leaderboard computed, cached, and displayed?",
+  "parent": "n573",
+  "state": "open"
+ },
+ {
+  "id": "n688",
+  "title": "Are skirmish maps procedurally generated with a seed?",
+  "parent": "n358",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n58",
+  "title": "How are cosmetics unlocked through gameplay rather than purchase?",
+  "parent": "n332",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n755",
+  "title": "How often are point-in-time database backups verified by a restore drill?",
+  "parent": "n445",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n399",
+  "title": "Are sessions JSON web tokens or opaque server-side session ids?",
+  "parent": "n718",
+  "state": "open"
+ },
+ {
+  "id": "n562",
+  "title": "Which local payment methods are mandatory in each launch region?",
+  "parent": "n652",
+  "state": "open"
+ },
+ {
+  "id": "n543",
+  "title": "Can the model be computed incrementally per match without batch jobs?",
+  "parent": "n216",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n632",
+  "title": "Is there a hard maximum wait before a bot match is offered?",
+  "parent": "n528",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n181",
+  "title": "Are seasonal leaderboards archived and viewable after the season?",
+  "parent": "n155",
+  "state": "open"
+ },
+ {
+  "id": "n218",
+  "title": "Should comeback mechanics scale with the score gap or with time?",
+  "parent": "n197",
+  "state": "open"
+ },
+ {
+  "id": "n711",
+  "title": "Are randomized purchases offered at all given regulatory risk?",
+  "parent": "n323",
+  "state": "open"
+ },
+ {
+  "id": "n604",
+  "title": "Should armor be reducible by a dedicated armor-piercing damage type?",
+  "parent": "n434",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n174",
+  "title": "Is match state a single immutable store or mutable entity components?",
+  "parent": "n313",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n369",
+  "title": "How is web client performance budgeted, measured, and regression-tested?",
+  "parent": "n266",
+  "state": "open"
+ },
+ {
+  "id": "n325",
+  "title": "Is a mid-season balance patch allowed to change the ranked map pool?",
+  "parent": "n338",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n216",
+  "title": "Is the rating Elo, Glicko-2, TrueSkill, or a custom model?",
+  "parent": "n656",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n496",
+  "title": "Can modders see usage statistics for their own mods?",
+  "parent": "n786",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n117",
+  "title": "Should each faction have exactly one siege unit at launch?",
+  "parent": "n558",
+  "state": "open"
+ },
+ {
+  "id": "n240",
+  "title": "Can players opt into cross-region play with higher latency?",
+  "parent": "n728",
+  "state": "open"
+ },
+ {
+  "id": "n20",
+  "title": "Which telemetry signals distinguish feeding from merely playing badly?",
+  "parent": "n514",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n609",
+  "title": "What is the scale-up trigger when queue times begin to climb?",
+  "parent": "n443",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n466",
+  "title": "Are fonts subset per language to reduce download size?",
+  "parent": "n321",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n391",
+  "title": "How does the fleet manager drain a node during a rolling upgrade?",
+  "parent": "n660",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n306",
+  "title": "How long does the server hold a disconnected player's seat?",
+  "parent": "n615",
+  "state": "open"
+ },
+ {
+  "id": "n271",
+  "title": "Does rollover pause matchmaking or run while matches continue?",
+  "parent": "n702",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n458",
+  "title": "Do bots play at fixed difficulty tiers or adapt to the player?",
+  "parent": "n643",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n348",
+  "title": "Is the starting build order fixed or chosen at match start?",
+  "parent": "n389",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n681",
+  "title": "Are events global by clock or staggered per region's prime time?",
+  "parent": "n595",
+  "state": "open"
+ },
+ {
+  "id": "n288",
+  "title": "How are balance patches planned, tested, and communicated?",
+  "parent": "n450",
+  "state": "open"
+ },
+ {
+  "id": "n516",
+  "title": "Is the count of players disconnected per minute a golden signal?",
+  "parent": "n626",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n568",
+  "title": "Should the client show the opponent's rating before the match starts?",
+  "parent": "n547",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n471",
+  "title": "Is tuning driven by simulation, playtest data, or designer judgment?",
+  "parent": "n253",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n69",
+  "title": "Do players see opponents' pending orders before the turn resolves?",
+  "parent": "n622",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n641",
+  "title": "How are event rules configured without a client release?",
+  "parent": "n450",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n138",
+  "title": "Do live matches finish on the old version before servers recycle?",
+  "parent": "n177",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n528",
+  "title": "How does the matchmaker trade off wait time against match quality?",
+  "parent": "n573",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n784",
+  "title": "Who can publish an event configuration to production?",
+  "parent": "n641",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n257",
+  "title": "Is there a subscription tier and what does it include?",
+  "parent": "n334",
+  "state": "open"
+ },
+ {
+  "id": "n716",
+  "title": "Is there a critical hit mechanic, and is it purely random?",
+  "parent": "n657",
+  "state": "open"
+ },
+ {
+  "id": "n386",
+  "title": "How does inflation across a season affect earned currencies?",
+  "parent": "n332",
+  "state": "open"
+ },
+ {
+  "id": "n84",
+  "title": "Which economy metrics trigger an alert to live-ops?",
+  "parent": "n530",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n721",
+  "title": "Is the Kubernetes networking overhead acceptable for real-time traffic?",
+  "parent": "n290",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n554",
+  "title": "Do account levels grant power, cosmetics, or only access?",
+  "parent": "n448",
+  "state": "open"
+ },
+ {
+  "id": "n114",
+  "title": "Should catch-up experience be granted to players who join late?",
+  "parent": "n206",
+  "state": "open"
+ },
+ {
+  "id": "n360",
+  "title": "How many buildings per city before management becomes tedious?",
+  "parent": "n435",
+  "state": "open"
+ },
+ {
+  "id": "n65",
+  "title": "How large should the ranked map pool be per season?",
+  "parent": "n227",
+  "state": "open"
+ },
+ {
+  "id": "n351",
+  "title": "Which unlocks are gated at which account levels for a new player?",
+  "parent": "n554",
+  "state": "open"
+ },
+ {
+  "id": "n246",
+  "title": "Which regions get dedicated matchmaking pools at launch?",
+  "parent": "n728",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n611",
+  "title": "Is a bounty placed on the leading player's units visible to everyone?",
+  "parent": "n172",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n32",
+  "title": "Are gameplay-earned cosmetics visibly distinct from purchased ones?",
+  "parent": "n58",
+  "state": "open"
+ },
+ {
+  "id": "n623",
+  "title": "Is cross-team chat disabled in ranked matches by default?",
+  "parent": "n789",
+  "state": "open"
+ },
+ {
+  "id": "n697",
+  "title": "Can a mod be signed to prove it was not tampered with?",
+  "parent": "n620",
+  "state": "open"
+ },
+ {
+  "id": "n486",
+  "title": "Are unit definitions authored in JSON, YAML, or a custom DSL?",
+  "parent": "n607",
+  "state": "open"
+ },
+ {
+  "id": "n517",
+  "title": "Is rating soft-reset, hard-reset, or squashed at season start?",
+  "parent": "n700",
+  "state": "open"
+ },
+ {
+  "id": "n410",
+  "title": "Does a version mismatch refuse the connection or negotiate a downgrade?",
+  "parent": "n387",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n431",
+  "title": "How is observability implemented across services and game servers?",
+  "parent": "n724",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n29",
+  "title": "Can a mod change the turn timer for its own game mode?",
+  "parent": "n512",
+  "state": "open"
+ },
+ {
+  "id": "n89",
+  "title": "How are players informed of an outage inside the client?",
+  "parent": "n157",
+  "state": "open"
+ },
+ {
+  "id": "n761",
+  "title": "Can a mod access the network or the file system at all?",
+  "parent": "n709",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n230",
+  "title": "How does in-match technology research unlock units and buildings?",
+  "parent": "n332",
+  "state": "open"
+ },
+ {
+  "id": "n552",
+  "title": "Does veterancy persist across matches or reset every new game?",
+  "parent": "n88",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n106",
+  "title": "How does territory control translate into income and influence?",
+  "parent": "n332",
+  "state": "open"
+ },
+ {
+  "id": "n452",
+  "title": "Is tax computed by the payment provider or by our own service?",
+  "parent": "n311",
+  "state": "open"
+ },
+ {
+  "id": "n332",
+  "title": "How does the economy and player progression system work?",
+  "parent": null,
+  "state": "closed:decided"
+ },
+ {
+  "id": "n622",
+  "title": "Is combat resolved in real time or in simultaneous locked turns?",
+  "parent": "n23",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n390",
+  "title": "Who signs off that content is complete and shippable?",
+  "parent": "n359",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n156",
+  "title": "How large may a streamed mod be before joining takes too long?",
+  "parent": "n27",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n278",
+  "title": "How are player-facing announcements delivered in the client?",
+  "parent": "n450",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n709",
+  "title": "How are mods sandboxed and kept from harming players?",
+  "parent": "n561",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n189",
+  "title": "Is the data format friendly to code review diffs and merges?",
+  "parent": "n486",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n281",
+  "title": "Is seasonal content flagged in data or in a separate bundle?",
+  "parent": "n523",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n104",
+  "title": "How is the SDK tested against game releases?",
+  "parent": "n561",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n168",
+  "title": "Is pricing purchasing-power-adjusted or converted at market rate?",
+  "parent": "n132",
+  "state": "open"
+ },
+ {
+  "id": "n408",
+  "title": "Is a secrets manager with dynamic credentials used for the databases?",
+  "parent": "n655",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n237",
+  "title": "Is the region chosen by average latency or by the lower-latency majority?",
+  "parent": "n515",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n61",
+  "title": "Do ships use the same hex grid as land units or a separate layer?",
+  "parent": "n56",
+  "state": "open"
+ },
+ {
+  "id": "n780",
+  "title": "Are faction mastery tracks independent or do they share progress?",
+  "parent": "n564",
+  "state": "open"
+ },
+ {
+  "id": "n461",
+  "title": "How is player retention measured and acted on?",
+  "parent": "n450",
+  "state": "open"
+ },
+ {
+  "id": "n428",
+  "title": "How are gifting and trading of purchased items handled?",
+  "parent": "n754",
+  "state": "open"
+ },
+ {
+  "id": "n366",
+  "title": "Is a replay a recorded event stream or a sequence of snapshots?",
+  "parent": "n151",
+  "state": "open"
+ },
+ {
+  "id": "n456",
+  "title": "What tooling do designers use to author and preview content?",
+  "parent": "n759",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n324",
+  "title": "Is a match pinned to a process for its whole lifetime?",
+  "parent": "n685",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n238",
+  "title": "Is there a weekly maintenance window or only as-needed downtime?",
+  "parent": "n131",
+  "state": "open"
+ },
+ {
+  "id": "n488",
+  "title": "How are factions differentiated mechanically rather than only cosmetically?",
+  "parent": "n23",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n586",
+  "title": "Should the matchmaker prefer geographic proximity over rating closeness?",
+  "parent": "n528",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n540",
+  "title": "Which browsers and minimum versions are officially supported at launch?",
+  "parent": "n369",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n660",
+  "title": "Does Agones or a custom fleet manager allocate game server pods?",
+  "parent": "n290",
+  "state": "closed:moot"
+ },
+ {
+  "id": "n321",
+  "title": "How does the client support multiple languages and fonts?",
+  "parent": "n266",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n633",
+  "title": "Is the maximum acceptable gap different for top-rated players?",
+  "parent": "n18",
+  "state": "open"
+ },
+ {
+  "id": "n352",
+  "title": "Can ships bombard coastal tiles or only engage other ships?",
+  "parent": "n61",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n64",
+  "title": "Is currency balance stored per region or globally per account?",
+  "parent": "n167",
+  "state": "open"
+ },
+ {
+  "id": "n259",
+  "title": "Does the license permit the studio to feature mods in marketing?",
+  "parent": "n648",
+  "state": "open"
+ },
+ {
+  "id": "n374",
+  "title": "How far in advance is maintenance announced in the client?",
+  "parent": "n131",
+  "state": "open"
+ },
+ {
+  "id": "n659",
+  "title": "Does a single-provider outage history justify multi-cloud cost?",
+  "parent": "n742",
+  "state": "open"
+ },
+ {
+  "id": "n51",
+  "title": "Does the format need inheritance to avoid duplicating shared unit stats?",
+  "parent": "n486",
+  "state": "open"
+ },
+ {
+  "id": "n642",
+  "title": "Is machine translation acceptable for a first pass of new content?",
+  "parent": "n354",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n393",
+  "title": "Do buildings get skins or only a faction-wide architecture set?",
+  "parent": "n597",
+  "state": "open"
+ },
+ {
+  "id": "n315",
+  "title": "Which rendering technology does the web client use?",
+  "parent": "n266",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n12",
+  "title": "Does capturing a capital end the match instantly or after a hold timer?",
+  "parent": "n194",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n162",
+  "title": "How are audio assets authored, compressed, and delivered to clients?",
+  "parent": "n759",
+  "state": "open"
+ },
+ {
+  "id": "n703",
+  "title": "What scope of the game can mods modify?",
+  "parent": "n561",
+  "state": "open"
+ },
+ {
+  "id": "n669",
+  "title": "Does the game sell through a launcher platform in addition to the web?",
+  "parent": "n248",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n654",
+  "title": "How fast must the kill switch propagate to all game servers?",
+  "parent": "n199",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n287",
+  "title": "Who chooses the mod set in a custom lobby?",
+  "parent": "n555",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n664",
+  "title": "Are browser tests run against a real server or a mocked one?",
+  "parent": "n269",
+  "state": "open"
+ },
+ {
+  "id": "n142",
+  "title": "Is the store a native client view or an embedded web page?",
+  "parent": "n778",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n362",
+  "title": "Should trading between opponents be possible in a competitive match?",
+  "parent": "n375",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n371",
+  "title": "What grid geometry does the battlefield map actually use?",
+  "parent": "n23",
+  "state": "open"
+ },
+ {
+  "id": "n550",
+  "title": "Are ability cooldowns measured in turns or in wall-clock seconds?",
+  "parent": "n771",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n198",
+  "title": "Are spending limits configurable by a parent account?",
+  "parent": "n677",
+  "state": "open"
+ },
+ {
+  "id": "n547",
+  "title": "How is skill-based matchmaking explained and made transparent to players?",
+  "parent": "n573",
+  "state": "open"
+ },
+ {
+  "id": "n354",
+  "title": "How is localization integrated into the content pipeline?",
+  "parent": "n759",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n759",
+  "title": "How does the content pipeline produce and ship game content?",
+  "parent": null,
+  "state": "open"
+ },
+ {
+  "id": "n469",
+  "title": "What ping threshold makes a match unacceptable regardless of rating?",
+  "parent": "n586",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n588",
+  "title": "How are tournament rule sets frozen against balance patches?",
+  "parent": "n535",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n448",
+  "title": "How does out-of-match account progression reward continued play?",
+  "parent": "n332",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n678",
+  "title": "Are paid mods allowed and with what revenue share?",
+  "parent": "n544",
+  "state": "open"
+ },
+ {
+  "id": "n118",
+  "title": "How is gameplay telemetry captured and batched from the client?",
+  "parent": "n266",
+  "state": "open"
+ },
+ {
+  "id": "n615",
+  "title": "How does the client handle reconnection after a network drop?",
+  "parent": "n266",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n532",
+  "title": "Is match replay data stored in the database or in object storage?",
+  "parent": "n286",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n296",
+  "title": "Is right-to-left interface layout supported at launch or later?",
+  "parent": "n321",
+  "state": "open"
+ },
+ {
+  "id": "n612",
+  "title": "Which interactions need redesign for touch beyond simple tap targets?",
+  "parent": "n518",
+  "state": "open"
+ },
+ {
+  "id": "n171",
+  "title": "Does removing a unit break maps that reference it?",
+  "parent": "n378",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n367",
+  "title": "Does the rules engine need a headless mode with no rendering dependencies?",
+  "parent": "n729",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n56",
+  "title": "How are naval and air units integrated into the ground model?",
+  "parent": "n23",
+  "state": "open"
+ },
+ {
+  "id": "n506",
+  "title": "Which live interventions are tried first when retention dips?",
+  "parent": "n461",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n616",
+  "title": "Are announcements dismissible permanently or shown again after updates?",
+  "parent": "n364",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n211",
+  "title": "How is input handled across mouse, keyboard, touch, and gamepad?",
+  "parent": "n266",
+  "state": "open"
+ },
+ {
+  "id": "n560",
+  "title": "Is upkeep paid per unit or scaled by total army size?",
+  "parent": "n726",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n429",
+  "title": "Is the editor a web application requiring no installation?",
+  "parent": "n499",
+  "state": "open"
+ },
+ {
+  "id": "n476",
+  "title": "Are regional pools merged automatically during low-population hours?",
+  "parent": "n246",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n330",
+  "title": "Does the editor need undo history persisted across sessions?",
+  "parent": "n201",
+  "state": "open"
+ },
+ {
+  "id": "n713",
+  "title": "Which regions must be live at launch versus added later?",
+  "parent": "n45",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n200",
+  "title": "Is the leaderboard snapshot taken before the reset job starts?",
+  "parent": "n702",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n150",
+  "title": "Is player data replicated cross-region synchronously or asynchronously?",
+  "parent": "n53",
+  "state": "open"
+ },
+ {
+  "id": "n501",
+  "title": "Does damage output scale down with a unit's remaining health?",
+  "parent": "n657",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n395",
+  "title": "Are entitlements cached on the client and how is the cache invalidated?",
+  "parent": "n416",
+  "state": "open"
+ },
+ {
+  "id": "n19",
+  "title": "How is the build reproducible and traceable for a given release?",
+  "parent": "n759",
+  "state": "open"
+ },
+ {
+  "id": "n752",
+  "title": "Is a refund automatic within a window or always reviewed by support?",
+  "parent": "n113",
+  "state": "open"
+ },
+ {
+  "id": "n294",
+  "title": "What are the cost targets for infrastructure per active player?",
+  "parent": "n724",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n254",
+  "title": "How are virtual goods handled for account deletion and inheritance?",
+  "parent": "n754",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n655",
+  "title": "How are secrets rotated without redeploying every service?",
+  "parent": "n409",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n248",
+  "title": "How are third-party platform stores integrated with our billing ledger?",
+  "parent": "n754",
+  "state": "open"
+ },
+ {
+  "id": "n219",
+  "title": "How is purchased currency treated for revenue recognition?",
+  "parent": "n167",
+  "state": "open"
+ },
+ {
+  "id": "n125",
+  "title": "Is a post-match rating change explained with a breakdown?",
+  "parent": "n547",
+  "state": "open"
+ },
+ {
+  "id": "n40",
+  "title": "How are premade groups matched against solo players?",
+  "parent": "n573",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n152",
+  "title": "Is telemetry batched and sent on a timer or on each event?",
+  "parent": "n118",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n720",
+  "title": "Which bracket formats must the in-client system support at launch?",
+  "parent": "n475",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n213",
+  "title": "Should missed premium rewards be recoverable after a season ends?",
+  "parent": "n202",
+  "state": "open"
+ },
+ {
+  "id": "n107",
+  "title": "Which skill tiers have enough matches for statistically valid spreads?",
+  "parent": "n322",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n508",
+  "title": "How are optimistic UI updates reconciled with server state?",
+  "parent": "n313",
+  "state": "closed:moot"
+ },
+ {
+  "id": "n284",
+  "title": "Is weather global per map or regional per map zone?",
+  "parent": "n424",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n490",
+  "title": "How is client-side prediction used in a simultaneous turn game?",
+  "parent": "n266",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n30",
+  "title": "How is the user interface architected and styled?",
+  "parent": "n266",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n607",
+  "title": "Which formats define units, abilities, and maps for the engine?",
+  "parent": "n759",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n701",
+  "title": "Which jurisdictions require a local legal entity for sales?",
+  "parent": "n311",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n160",
+  "title": "Do corporate and school networks block the chosen transport?",
+  "parent": "n115",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n555",
+  "title": "How are mods enabled and synchronized in multiplayer custom matches?",
+  "parent": "n561",
+  "state": "open"
+ },
+ {
+  "id": "n717",
+  "title": "Can players gift items to friends directly from the store?",
+  "parent": "n428",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n196",
+  "title": "Is elevation a discrete level per tile or a continuous height value?",
+  "parent": "n694",
+  "state": "open"
+ },
+ {
+  "id": "n694",
+  "title": "Does terrain elevation grant a defense bonus or an attack bonus?",
+  "parent": "n657",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n639",
+  "title": "What are the victory conditions for a standard ranked match?",
+  "parent": "n23",
+  "state": "open"
+ },
+ {
+  "id": "n734",
+  "title": "Is a higher initial rating deviation used for accounts flagged as smurfs?",
+  "parent": "n767",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n267",
+  "title": "Can a resource node be contested by two players simultaneously?",
+  "parent": "n571",
+  "state": "open"
+ },
+ {
+  "id": "n50",
+  "title": "Are game servers colocated with the database or in separate zones?",
+  "parent": "n45",
+  "state": "open"
+ },
+ {
+  "id": "n224",
+  "title": "How are partner bundle revenues split and reported?",
+  "parent": "n370",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n465",
+  "title": "Does WebTransport browser support cover enough players at launch?",
+  "parent": "n115",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n266",
+  "title": "How does the web client render and communicate with the backend?",
+  "parent": null,
+  "state": "open"
+ },
+ {
+  "id": "n204",
+  "title": "How many concurrent modes can the population sustain without long waits?",
+  "parent": "n368",
+  "state": "open"
+ },
+ {
+  "id": "n110",
+  "title": "Is a surrendering teammate's economy split among the remaining allies?",
+  "parent": "n289",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n511",
+  "title": "How are tournaments and custom lobbies supported by the client?",
+  "parent": "n573",
+  "state": "open"
+ },
+ {
+  "id": "n415",
+  "title": "Which regions require age gates before any purchase?",
+  "parent": "n677",
+  "state": "open"
+ },
+ {
+  "id": "n202",
+  "title": "How does the battle pass structure its free and premium tracks?",
+  "parent": "n332",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n62",
+  "title": "Are keybindings rebindable and where are they stored?",
+  "parent": "n211",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n732",
+  "title": "Which signals indicate stolen card usage at checkout?",
+  "parent": "n440",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n54",
+  "title": "How is the protocol encoded, as JSON, Protobuf, or a custom binary format?",
+  "parent": "n86",
+  "state": "open"
+ },
+ {
+  "id": "n340",
+  "title": "Does a ledger simplify audits and refunds enough to justify complexity?",
+  "parent": "n255",
+  "state": "open"
+ },
+ {
+  "id": "n203",
+  "title": "How is the client protected against cheating and tampering?",
+  "parent": "n266",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n754",
+  "title": "How do billing, monetization, and entitlements work end to end?",
+  "parent": null,
+  "state": "open"
+ },
+ {
+  "id": "n239",
+  "title": "What is the appeal process for a banned player?",
+  "parent": "n214",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n151",
+  "title": "How are replays and spectating implemented in the client?",
+  "parent": "n266",
+  "state": "closed:merged"
+ },
+ {
+  "id": "n691",
+  "title": "Do repeated leaves escalate the timeout duration and by what schedule?",
+  "parent": "n302",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n777",
+  "title": "What is the retention policy for full match histories?",
+  "parent": "n286",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n404",
+  "title": "Can spectators watch live with a delay to prevent cheating?",
+  "parent": "n151",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n347",
+  "title": "Does staggering cause spoilers between regions on social media?",
+  "parent": "n681",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n263",
+  "title": "Do maps wrap at the edges or have hard impassable borders?",
+  "parent": "n371",
+  "state": "open"
+ },
+ {
+  "id": "n91",
+  "title": "How is DDoS and abusive traffic mitigated at the edge?",
+  "parent": "n724",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n184",
+  "title": "How is the backend split into services and why?",
+  "parent": "n724",
+  "state": "open"
+ },
+ {
+  "id": "n481",
+  "title": "Do inventory queries need transactions across multiple item rows?",
+  "parent": "n758",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n74",
+  "title": "Is South America a dedicated pool or merged with North America?",
+  "parent": "n246",
+  "state": "open"
+ },
+ {
+  "id": "n430",
+  "title": "Is an event configuration validated in staging before going live?",
+  "parent": "n641",
+  "state": "open"
+ },
+ {
+  "id": "n77",
+  "title": "Is a player's region chosen by account setting or by measured latency?",
+  "parent": "n728",
+  "state": "open"
+ },
+ {
+  "id": "n406",
+  "title": "Do faction passives apply from turn one or unlock through progression?",
+  "parent": "n488",
+  "state": "open"
+ },
+ {
+  "id": "n727",
+  "title": "Are player ratings and reports visible on the portal?",
+  "parent": "n766",
+  "state": "open"
+ },
+ {
+  "id": "n436",
+  "title": "How is a sharded matchmaker kept from splitting a thin population?",
+  "parent": "n682",
+  "state": "open"
+ },
+ {
+  "id": "n447",
+  "title": "Is the API semantically versioned with a deprecation window?",
+  "parent": "n55",
+  "state": "open"
+ },
+ {
+  "id": "n731",
+  "title": "How is the battle pass purchase reconciled with progression?",
+  "parent": "n754",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n744",
+  "title": "Is the scripting language Lua, JavaScript, or WebAssembly?",
+  "parent": "n226",
+  "state": "open"
+ },
+ {
+  "id": "n718",
+  "title": "How does the client authenticate and maintain a session?",
+  "parent": "n266",
+  "state": "open"
+ },
+ {
+  "id": "n173",
+  "title": "Is there a first-party mod portal or a third-party workshop?",
+  "parent": "n293",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n161",
+  "title": "Which services are portable enough to run on a second provider?",
+  "parent": "n742",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n467",
+  "title": "Which battlefield events lower army morale beyond losing units?",
+  "parent": "n779",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n75",
+  "title": "Which languages ship at launch and which follow later?",
+  "parent": "n354",
+  "state": "open"
+ },
+ {
+  "id": "n673",
+  "title": "How is game content delivered to web clients efficiently?",
+  "parent": "n759",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n73",
+  "title": "Is the Web Audio API used directly or through a middleware layer?",
+  "parent": "n243",
+  "state": "open"
+ },
+ {
+  "id": "n450",
+  "title": "How are live operations and in-game events run?",
+  "parent": null,
+  "state": "closed:decided"
+ },
+ {
+  "id": "n575",
+  "title": "Is a single global provider sufficient or are regional providers needed?",
+  "parent": "n652",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n55",
+  "title": "How is the modding API versioned and deprecated?",
+  "parent": "n561",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n304",
+  "title": "How is feedback weighted between vocal forums and silent majority?",
+  "parent": "n182",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n626",
+  "title": "Which metrics define the golden signals for a game server?",
+  "parent": "n431",
+  "state": "open"
+ },
+ {
+  "id": "n128",
+  "title": "Is the content editor also the basis of the modding tools?",
+  "parent": "n456",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n258",
+  "title": "Can a queued unit be reordered or refunded before production starts?",
+  "parent": "n280",
+  "state": "open"
+ },
+ {
+  "id": "n571",
+  "title": "Are resources gathered from fixed nodes or from controlled territory area?",
+  "parent": "n482",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n764",
+  "title": "Are ability descriptions checked against their actual numeric effects?",
+  "parent": "n68",
+  "state": "open"
+ },
+ {
+  "id": "n438",
+  "title": "Can players share a seed to replay a favorite generated map?",
+  "parent": "n688",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n3",
+  "title": "Are community translations accepted for languages we do not staff?",
+  "parent": "n75",
+  "state": "open"
+ },
+ {
+  "id": "n298",
+  "title": "Does a separate repository complicate atomic content-plus-code changes?",
+  "parent": "n502",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n76",
+  "title": "Can a DOM-based UI overlay hit the frame budget during large battles?",
+  "parent": "n696",
+  "state": "open"
+ },
+ {
+  "id": "n222",
+  "title": "How does the game server verify an entitlement without a round trip?",
+  "parent": "n416",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n733",
+  "title": "How are payment provider outages handled during checkout?",
+  "parent": "n652",
+  "state": "open"
+ },
+ {
+  "id": "n81",
+  "title": "Which usage statistics per unit and map feed design decisions?",
+  "parent": "n282",
+  "state": "open"
+ },
+ {
+  "id": "n385",
+  "title": "Do adjacency bonuses between districts reward planning over speed?",
+  "parent": "n435",
+  "state": "open"
+ },
+ {
+  "id": "n336",
+  "title": "Does an embedded web store risk inconsistent styling with the client?",
+  "parent": "n142",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n241",
+  "title": "Is there an automated check for asset budgets in the pipeline?",
+  "parent": "n144",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n328",
+  "title": "Is an event a data bundle or a set of feature flags?",
+  "parent": "n641",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n129",
+  "title": "Do units out of supply lose health each turn or only morale?",
+  "parent": "n119",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n318",
+  "title": "Is a battle pass an entitlement that unlocks a progression track?",
+  "parent": "n731",
+  "state": "open"
+ },
+ {
+  "id": "n775",
+  "title": "How do sieges and fortifications differ from open-field combat?",
+  "parent": "n23",
+  "state": "open"
+ },
+ {
+  "id": "n634",
+  "title": "Are placement matches played against other placement players only?",
+  "parent": "n478",
+  "state": "open"
+ },
+ {
+  "id": "n747",
+  "title": "Can the studio incorporate a popular mod into the base game?",
+  "parent": "n618",
+  "state": "open"
+ },
+ {
+  "id": "n300",
+  "title": "Which regions are unprofitable at current cost and player counts?",
+  "parent": "n507",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n357",
+  "title": "Do besieged cities starve on a fixed timer or a food stockpile?",
+  "parent": "n775",
+  "state": "open"
+ },
+ {
+  "id": "n719",
+  "title": "Do convenience boosts count as gameplay-affecting under our policy?",
+  "parent": "n103",
+  "state": "open"
+ },
+ {
+  "id": "n559",
+  "title": "How is expired seasonal content removed from the client cache?",
+  "parent": "n523",
+  "state": "open"
+ },
+ {
+  "id": "n417",
+  "title": "Should unranked queues still use hidden ratings for match quality?",
+  "parent": "n368",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n536",
+  "title": "Which components dominate cost and can be optimized first?",
+  "parent": "n294",
+  "state": "open"
+ },
+ {
+  "id": "n778",
+  "title": "How is the storefront presented in the client?",
+  "parent": "n754",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n175",
+  "title": "Which pathfinding algorithm handles hundreds of units within the turn budget?",
+  "parent": "n397",
+  "state": "open"
+ },
+ {
+  "id": "n170",
+  "title": "How are seasonal transitions executed operationally without downtime?",
+  "parent": "n450",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n699",
+  "title": "How large may a snapshot be before resuming is slower than replaying?",
+  "parent": "n105",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n221",
+  "title": "How are experiment cohorts assigned and kept stable?",
+  "parent": "n310",
+  "state": "open"
+ },
+ {
+  "id": "n46",
+  "title": "Can the portal reuse the store's content delivery and payment stack?",
+  "parent": "n173",
+  "state": "open"
+ },
+ {
+  "id": "n584",
+  "title": "Does mirror symmetry make maps feel too predictable for veterans?",
+  "parent": "n556",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n666",
+  "title": "How often is the leaderboard refreshed and is it cached?",
+  "parent": "n8",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n781",
+  "title": "Are textures compressed offline or transcoded at build time?",
+  "parent": "n144",
+  "state": "closed:moot"
+ },
+ {
+  "id": "n514",
+  "title": "How is intentional feeding detected from match telemetry?",
+  "parent": "n140",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n234",
+  "title": "How is a chargeback reflected in the player's account standing?",
+  "parent": "n113",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n97",
+  "title": "Does free to play require a stronger anti-smurf investment before launch?",
+  "parent": "n242",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n705",
+  "title": "Does enabling mods disable ranked play on that client?",
+  "parent": "n620",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n652",
+  "title": "Which payment providers are integrated and for which regions?",
+  "parent": "n754",
+  "state": "open"
+ },
+ {
+  "id": "n265",
+  "title": "What happens to consumed items when a purchase is refunded?",
+  "parent": "n113",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n443",
+  "title": "How are game server instances provisioned and lifecycle-managed?",
+  "parent": "n724",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n662",
+  "title": "Are rewards granted at event end or progressively during the event?",
+  "parent": "n459",
+  "state": "open"
+ },
+ {
+  "id": "n33",
+  "title": "Does a routed unit flee automatically or become controllable again later?",
+  "parent": "n779",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n710",
+  "title": "How is the live-ops team staffed across global time zones?",
+  "parent": "n450",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n446",
+  "title": "Can rewards be granted retroactively if a bug blocked progress?",
+  "parent": "n459",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n498",
+  "title": "How are stealth and detection resolved between hidden and seeking units?",
+  "parent": "n23",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n14",
+  "title": "How long is a simultaneous turn before all orders lock in?",
+  "parent": "n622",
+  "state": "open"
+ },
+ {
+  "id": "n365",
+  "title": "Which rule changes are safe under the anti-cheat model?",
+  "parent": "n154",
+  "state": "open"
+ },
+ {
+  "id": "n513",
+  "title": "How does the server validate a client-proposed path cheaply each turn?",
+  "parent": "n741",
+  "state": "open"
+ },
+ {
+  "id": "n512",
+  "title": "Can mods change unit stats, add units, or only add cosmetics?",
+  "parent": "n703",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n220",
+  "title": "Does the UI share a design system with the website and store?",
+  "parent": "n30",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n166",
+  "title": "Are order previews computed locally before server confirmation?",
+  "parent": "n490",
+  "state": "open"
+ },
+ {
+  "id": "n295",
+  "title": "Which flows are covered by automated end-to-end tests?",
+  "parent": "n269",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n457",
+  "title": "How is content versioned and branched alongside code?",
+  "parent": "n759",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n191",
+  "title": "Does a premade receive a rating penalty applied to the match search?",
+  "parent": "n40",
+  "state": "open"
+ },
+ {
+  "id": "n272",
+  "title": "Should mercenary units be shared across all factions or faction-locked?",
+  "parent": "n22",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n768",
+  "title": "Do voice line packs count as a unit cosmetic slot?",
+  "parent": "n597",
+  "state": "open"
+ },
+ {
+  "id": "n346",
+  "title": "Is every faction verified to have a counter for every unit role?",
+  "parent": "n68",
+  "state": "open"
+ },
+ {
+  "id": "n90",
+  "title": "Which scenes are benchmarked and on which hardware profiles?",
+  "parent": "n795",
+  "state": "closed:moot"
+ },
+ {
+  "id": "n403",
+  "title": "Do workers physically travel to nodes or is gathering abstracted?",
+  "parent": "n571",
+  "state": "open"
+ },
+ {
+  "id": "n63",
+  "title": "Is the map rendered as 2D sprites or 3D models with an isometric camera?",
+  "parent": "n315",
+  "state": "open"
+ },
+ {
+  "id": "n99",
+  "title": "Which model and texture formats does the web renderer accept?",
+  "parent": "n144",
+  "state": "open"
+ },
+ {
+  "id": "n319",
+  "title": "Does a turn-based cooldown reset when a turn ends early by consensus?",
+  "parent": "n550",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n762",
+  "title": "Should air units be deferred entirely to a post-launch expansion?",
+  "parent": "n56",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n541",
+  "title": "How is match placement done for new players?",
+  "parent": "n573",
+  "state": "open"
+ },
+ {
+  "id": "n479",
+  "title": "Is a monolith with modules acceptable until the team grows?",
+  "parent": "n722",
+  "state": "open"
+ },
+ {
+  "id": "n538",
+  "title": "Should the game rules engine be a library or a standalone service?",
+  "parent": "n184",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n704",
+  "title": "Are content metrics available to designers without engineering help?",
+  "parent": "n282",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n696",
+  "title": "Is the UI built in React, Svelte, or a game-engine native system?",
+  "parent": "n30",
+  "state": "open"
+ },
+ {
+  "id": "n86",
+  "title": "How does the client communicate with game servers in real time?",
+  "parent": "n266",
+  "state": "open"
+ },
+ {
+  "id": "n250",
+  "title": "Do branches lock out sibling technologies for the rest of the match?",
+  "parent": "n356",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n41",
+  "title": "Is personalization limited to ordering or does it change offers?",
+  "parent": "n793",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n589",
+  "title": "Who is on call and how is the rotation staffed across time zones?",
+  "parent": "n157",
+  "state": "closed:deferred"
+ },
+ {
+  "id": "n273",
+  "title": "Can trade agreements be broken unilaterally without an in-game penalty?",
+  "parent": "n362",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n93",
+  "title": "Does a relay layer add unacceptable latency to real-time traffic?",
+  "parent": "n136",
+  "state": "open"
+ },
+ {
+  "id": "n792",
+  "title": "What documentation and examples ship with the SDK?",
+  "parent": "n561",
+  "state": "open"
+ },
+ {
+  "id": "n553",
+  "title": "Are decayed inactive players removed from the top leaderboard?",
+  "parent": "n8",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n68",
+  "title": "Which invariants are checked by automated validation of content data?",
+  "parent": "n342",
+  "state": "open"
+ },
+ {
+  "id": "n282",
+  "title": "How are content metrics captured to inform future authoring?",
+  "parent": "n759",
+  "state": "open"
+ },
+ {
+  "id": "n723",
+  "title": "Does building official maps with the SDK slow internal designers?",
+  "parent": "n592",
+  "state": "open"
+ },
+ {
+  "id": "n364",
+  "title": "Is there a news feed, a modal, or a notification tray?",
+  "parent": "n278",
+  "state": "open"
+ },
+ {
+  "id": "n1",
+  "title": "Does one crashing match take down the other matches on that process?",
+  "parent": "n685",
+  "state": "open"
+ },
+ {
+  "id": "n507",
+  "title": "What is the acceptable monthly cost per daily active user?",
+  "parent": "n294",
+  "state": "open"
+ },
+ {
+  "id": "n749",
+  "title": "What are the target day one, day seven, and day thirty retention rates?",
+  "parent": "n461",
+  "state": "open"
+ },
+ {
+  "id": "n624",
+  "title": "How many environments exist and who owns each one?",
+  "parent": "n500",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n277",
+  "title": "How is a session revoked immediately on a detected account compromise?",
+  "parent": "n399",
+  "state": "open"
+ },
+ {
+  "id": "n464",
+  "title": "Does a global balance conflict with regional pricing rules?",
+  "parent": "n64",
+  "state": "open"
+ },
+ {
+  "id": "n305",
+  "title": "Can the capital be relocated once the original is threatened?",
+  "parent": "n194",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n39",
+  "title": "Which state must be serialized to migrate a live match mid-turn?",
+  "parent": "n735",
+  "state": "open"
+ },
+ {
+  "id": "n7",
+  "title": "Can a district be destroyed by an enemy without capturing the city?",
+  "parent": "n317",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n251",
+  "title": "What delay length balances spectator experience and cheating prevention?",
+  "parent": "n404",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n686",
+  "title": "How is the patch rationale communicated to the community?",
+  "parent": "n288",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n601",
+  "title": "Does a unit's movement remaining carry over to the next turn?",
+  "parent": "n397",
+  "state": "open"
+ },
+ {
+  "id": "n750",
+  "title": "Does exceeding upkeep halt income or actively drain the treasury?",
+  "parent": "n726",
+  "state": "open"
+ },
+ {
+  "id": "n426",
+  "title": "Can a tournament organizer set custom match rules per round?",
+  "parent": "n475",
+  "state": "open"
+ },
+ {
+  "id": "n314",
+  "title": "Do currency caps prevent hoarding across multiple seasons?",
+  "parent": "n386",
+  "state": "open"
+ },
+ {
+  "id": "n407",
+  "title": "Which provider handles the required local methods in Southeast Asia?",
+  "parent": "n575",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n707",
+  "title": "Is the CDN cache warmed before a patch goes live to all regions?",
+  "parent": "n192",
+  "state": "open"
+ },
+ {
+  "id": "n523",
+  "title": "How does the pipeline support seasonal and limited-time content?",
+  "parent": "n759",
+  "state": "open"
+ },
+ {
+  "id": "n270",
+  "title": "Who reviews a new map before it enters the ranked pool?",
+  "parent": "n344",
+  "state": "open"
+ },
+ {
+  "id": "n625",
+  "title": "Should tick jitter be alerted on before it becomes player-visible?",
+  "parent": "n626",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n194",
+  "title": "Is capturing the enemy capital sufficient or must every unit die?",
+  "parent": "n639",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n249",
+  "title": "Is a faction's starting worker count part of its tuning knob set?",
+  "parent": "n36",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n565",
+  "title": "Does a squash toward the mean keep the top ladder stable enough?",
+  "parent": "n517",
+  "state": "open"
+ },
+ {
+  "id": "n451",
+  "title": "Can a shipped build be rebuilt byte-for-byte a year later?",
+  "parent": "n19",
+  "state": "open"
+ },
+ {
+  "id": "n67",
+  "title": "Are map tiles addressed by axial coordinates or offset coordinates?",
+  "parent": "n371",
+  "state": "closed:pruned"
+ },
+ {
+  "id": "n477",
+  "title": "How is the shared rules module packaged for both runtimes?",
+  "parent": "n387",
+  "state": "open"
+ },
+ {
+  "id": "n445",
+  "title": "How are database backups taken and restores regularly tested?",
+  "parent": "n724",
+  "state": "closed:decided"
+ },
+ {
+  "id": "n546",
+  "title": "Must every faction have a dedicated anti-cavalry unit type?",
+  "parent": "n558",
+  "state": "closed:superseded"
+ },
+ {
+  "id": "n123",
+  "title": "Are spot instances acceptable for game servers given preemption risk?",
+  "parent": "n294",
+  "state": "open"
+ },
+ {
+  "id": "n714",
+  "title": "How long are logs retained and at what sampling rate?",
+  "parent": "n431",
+  "state": "open"
+ },
+ {
+  "id": "n28",
+  "title": "Are popular community mods included in a compatibility test?",
+  "parent": "n104",
+  "state": "open"
+ },
+ {
+  "id": "n217",
+  "title": "How many veterancy ranks feel rewarding while staying legible on screen?",
+  "parent": "n88",
+  "state": "open"
+ }
+]
