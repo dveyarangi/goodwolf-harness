@@ -37,6 +37,14 @@ agent was standing.
 
 That is the whole subject: a rule can be well written, well owned, and never reach the occasion.
 
+**2026-09-28, a placement to watch.** P10 — an align on a ticket opens by saying what the ticket
+is — is installed into `/align` at the ticket mechanism's one anchor there, *Record resolutions
+in the owning ticket inline*, near the end of a long skill, while the occasion it governs is the
+opening, beside *Begin every alignment with a necessity gate*. The installer places one block per
+mechanism per target, so moving it means moving P7 with it. Rule failures 3 and 4 were both
+rules sitting in the wrong place; if P10 fails to fire, its placement is the first suspect, and
+this ticket owns the answer.
+
 **2026-09-09, a second instance, and this one was manufactured while tidying.** Two edits in one
 session removed the queue's path from tier 1: `/recall`'s pointer block went, because the layout it
 named is shared rather than local, and the entry file's opening block lost the same pointer for the
