@@ -5,9 +5,13 @@ from __future__ import annotations
 
 import subprocess
 import sys
+import tempfile
 import types
 import unittest
+from pathlib import Path
+from unittest import mock
 
+import repository
 from repository import RepositoryCase, proves_a_process
 
 import docs_corpus
@@ -50,6 +54,54 @@ class TheGuard(unittest.TestCase):
                 self.assertFalse((self.root / ".git").exists())
 
         result = outcome(Unmarked)
+
+        self.assertEqual([], result.failures + result.errors)
+
+
+class TheLiveStoreGuard(unittest.TestCase):
+    """A suite run leaves this tree's question store byte-identical: only a session writes it."""
+
+    def setUp(self) -> None:
+        workspace = tempfile.TemporaryDirectory()
+        self.addCleanup(workspace.cleanup)
+        self.store = Path(workspace.name) / "questions"
+        self.store.mkdir()
+        (self.store / "q-0001-a-question.md").write_text("# q-0001 A question\n", encoding="utf-8")
+        patcher = mock.patch.object(repository, "LIVE_STORE", self.store)
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def test_a_case_that_changes_an_entry_fails_and_names_the_store(self) -> None:
+        store = self.store
+
+        class Writer(RepositoryCase):
+            def test_writes(self) -> None:
+                (store / "q-0001-a-question.md").write_text("# q-0001 Rewritten\n", encoding="utf-8")
+
+        result = outcome(Writer)
+
+        self.assertEqual(1, len(result.failures))
+        self.assertIn("question store", result.failures[0][1])
+
+    def test_a_case_that_adds_an_entry_fails_too(self) -> None:
+        store = self.store
+
+        class Adder(RepositoryCase):
+            def test_adds(self) -> None:
+                (store / "q-0002-another.md").write_text("# q-0002 Another\n", encoding="utf-8")
+
+        result = outcome(Adder)
+
+        self.assertEqual(1, len(result.failures))
+
+    def test_a_case_that_only_reads_it_passes(self) -> None:
+        store = self.store
+
+        class Reader(RepositoryCase):
+            def test_reads(self) -> None:
+                (store / "q-0001-a-question.md").read_text(encoding="utf-8")
+
+        result = outcome(Reader)
 
         self.assertEqual([], result.failures + result.errors)
 

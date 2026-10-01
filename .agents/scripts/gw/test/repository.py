@@ -20,6 +20,7 @@ from unittest import mock
 
 SCRIPTS = Path(__file__).resolve().parents[1]
 LIVE_MARKS = SCRIPTS.parents[2] / "docs" / "mechanisms" / "maintenance.md"
+LIVE_STORE = SCRIPTS.parents[2] / "docs" / "questions"
 sys.path.insert(0, str(SCRIPTS))
 
 import docs_corpus  # noqa: E402  (path set just above)
@@ -71,19 +72,22 @@ class RepositoryCase(unittest.TestCase):
 
     def setUp(self) -> None:
         self.root = self._fresh_tree()
-        self._guard_the_live_marks()
+        self._guard_the_live_records()
         if not self._proves_a_process():
             self._refuse_processes()
             self._answer_listings_from_the_folder()
 
-    def _guard_the_live_marks(self) -> None:
-        """Fails the case after which this tree's own marks differ from before it, present or
-        absent: a mark is written only when a maintenance of this tree finishes, never by a test."""
-        before = _bytes_or_none(LIVE_MARKS)
+    def _guard_the_live_records(self) -> None:
+        """Fails the case after which this tree's own marks or question store differ from before
+        it, present or absent: a mark is written only when a maintenance of this tree finishes,
+        and the store only by a session working in it — never by a test."""
+        marks, store = _bytes_or_none(LIVE_MARKS), _store_bytes(LIVE_STORE)
 
         def unchanged() -> None:
-            if _bytes_or_none(LIVE_MARKS) != before:
+            if _bytes_or_none(LIVE_MARKS) != marks:
                 raise AssertionError(f"{type(self).__name__} changed this tree's own marks, {LIVE_MARKS}")
+            if _store_bytes(LIVE_STORE) != store:
+                raise AssertionError(f"{type(self).__name__} changed this tree's own question store, {LIVE_STORE}")
 
         self.addCleanup(unchanged)
 
@@ -168,6 +172,13 @@ class RepositoryCase(unittest.TestCase):
 
 def _bytes_or_none(path: Path) -> bytes | None:
     return path.read_bytes() if path.is_file() else None
+
+
+def _store_bytes(store: Path) -> dict[str, bytes] | None:
+    """Every file under a directory by its relative name, or `None` where there is no directory."""
+    if not store.is_dir():
+        return None
+    return {path.relative_to(store).as_posix(): path.read_bytes() for path in store.rglob("*") if path.is_file()}
 
 
 def folder_listing(root: Path) -> list[str]:
