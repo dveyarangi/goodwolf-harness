@@ -15,6 +15,21 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v18 — 2026-10-02
+
+**Every message is placed in the question store before it is answered** — the questions
+mechanism's Q1, installed into the general rules by
+[01-0011.0100.0010](../tickets/01-0011.0100.0010-the-store-and-questions-writes-it.md). Before
+drafting, the agent reads the window — delivered by the host's hook in Claude Code and Codex, run
+by the agent in Cursor — and declares where the message lands through `questions.py`. Kept short
+for a capable model: the act, the moment, four example lines, since the declared line is parsed
+strictly and cannot be guessed, and a pointer to the questions skill for the rest
+([decisions 44 and 45](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md#decisions-landed-at-this-tickets-align)).
+
+**`debug` is named by its use alone.** A sentence defining it beside the switches was drafted and
+removed the same day *(the user, 2026-10-02)*: Q1 says what `debug=on` shows, and the project sets
+it in its local block.
+
 ## v17 — 2026-09-27
 
 **Two core changes**, both from an outside review that installed the harness into a fresh tree and

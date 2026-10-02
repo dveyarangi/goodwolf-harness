@@ -119,19 +119,9 @@ When high-level architecture of this project changes, update `architecture.md`. 
 > You should guide the user toward deep modules with simple boundaries.
 
 
-### Extract open questions and risks
-
-Open questions and risks live in `docs/concerns.md`, this skill's artifact:
-
-- Ordered by priority, highest first — how much it blocks the current build, and how hard it is to absorb later.
-- Entry is `## N. Title`, then `**Kind:** {sort of pressure, and whether a driver exists} · **Refs:** {ADRs, architecture sections, sibling concerns}`, then the pressure.
-- Numbers are stable IDs, not ranks. A settled concern moves out to its owning ADR or architecture section, leaving a gap. Never renumber, never resolve in place.
-- A concern queued as work keeps only its architectural contact surface plus `→ queued as <ticket-slug>`; the deliberation moves into the ticket.
-- The file holds unresolved pressure — not delivery sequencing, not decisions.
-
 ### Record resolutions in the owning ticket inline
 
-When the plan under review is a ticket, record each resolution the moment it lands, as the block above says; sweep the ticket for internal consistency at the end, since an early section may still assert what a later resolution changed.
+When the plan under review is a ticket, record each resolution the moment it lands, as the block below says.
 
 <installed by="mechanism-shape">
 **R5** Land a mechanism's rule in AGENTS.md only as an installed block from its rules file. While the
@@ -145,6 +135,9 @@ place to what is now true; list under `Open issues` only what stays unresolved.
 
 **P10** Open an align on a ticket by saying what the ticket is: what it builds and the problem it answers,
 in plain words, each of its terms explained, before the necessity gate or any question.
+
+**P11** Sweep the ticket for internal consistency at the end: an early section may still assert what a
+later resolution changed.
 </installed>
 
 ### Offer ADRs sparingly

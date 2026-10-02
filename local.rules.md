@@ -30,6 +30,15 @@ version of the entry contract changed: docs/research/entry-contract-findings.md.
 commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report
 </rule>
 
+## L4 — the working is shown
+
+- **target** `AGENTS.md`
+- **authority** the user, 2026-09-29
+
+<rule>
+debug=on
+</rule>
+
 ## L3 — the verification set
 
 - **target** `.agents/skills/verify/SKILL.md`
@@ -44,5 +53,6 @@ uv run --offline --no-project python .agents/scripts/gw/mechanisms.py --check
 uv run --offline --no-project python .agents/scripts/gw/inject_rules.py --check
 uv run --offline --no-project python .agents/scripts/gw/tickets.py --check
 uv run --offline --no-project python .agents/scripts/gw/maintain.py --check
+uv run --offline --no-project python .agents/scripts/gw/questions.py --check
 ```
 </rule>

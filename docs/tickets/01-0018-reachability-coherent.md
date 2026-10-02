@@ -43,7 +43,10 @@ in the owning ticket inline*, near the end of a long skill, while the occasion i
 opening, beside *Begin every alignment with a necessity gate*. The installer places one block per
 mechanism per target, so moving it means moving P7 with it. Rule failures 3 and 4 were both
 rules sitting in the wrong place; if P10 fails to fire, its placement is the first suspect, and
-this ticket owns the answer.
+this ticket owns the answer. **Observed 2026-10-02:** it fired — an align on
+[01-0011.0100](./01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md) opened with what the
+ticket is, before the necessity gate. P11, installed beside it the same day, governs the end of an
+align, where the block sits.
 
 **2026-09-09, a second instance, and this one was manufactured while tidying.** Two edits in one
 session removed the queue's path from tier 1: `/recall`'s pointer block went, because the layout it

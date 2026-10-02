@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v17, 2026-09-27.
+Entry contract: v18, 2026-10-02.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -36,6 +36,23 @@ nothing about being load-bearing — an implementation method is a shape too. �
 **P9** The first time a record or a reply names a ticket, name it by a link to its record whose text
 carries its slug — the id may lead it; later mentions may be the id alone. Name one that has no
 record yet by a slug and its state word.
+</installed>
+
+<installed by="questions">
+**Q1** Before drafting a reply, place the message in the question store: read this turn's window — the
+one the host's hook put in your context, or `questions.py --window --session <tag>` — and declare
+where the message lands with `questions.py --declare "<line>" --session <tag>`, again whenever
+the turn's own work settles, opens or moves a question:
+
+- `at q-0004`
+- `at q-0014; opens q-0014 under q-0004: <question>`
+- `at q-0002; closes q-0004: decided, [link](../path.md)`
+- `nothing`
+
+A message that answers nothing near the current question opens what that question cannot be
+answered without. Only the working agent declares, never a helper. Under `debug=on`, show each
+declared line where it happened. For any other form, a closure, a branching or a drop, read the
+questions skill.
 </installed>
 
 ## Core and instance
@@ -145,6 +162,8 @@ Terms: docs/glossary.md, this project's own; the method's are .agents/glossary.m
 version of the entry contract changed: docs/research/entry-contract-findings.md.
 
 **L2** commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report
+
+**L4** debug=on
 </installed>
 
 ## Straw dogs

@@ -86,7 +86,7 @@ repair-and-report, recording the cause in the evidence.
 | updating the header at close | `.agents/skills/maintain/SKILL.md` | |
 | checking a mechanism's records against their declared format, the ticket records among them | `.agents/skills/maintain/SKILL.md` | |
 | repairing mechanically, history included | — | elsewhere — a meta-rule, read where it lives, `.agents/skills/mechanism/SKILL.md` |
-| disposing of a concern | — | elsewhere — a settled concern leaves the concern index for the ADR or architecture section that owns its answer, and a queued one keeps its contact surface, `.agents/skills/align/SKILL.md` |
+| disposing of a concern | — | elsewhere — a concern is an open question of the store, closed by a recorded kind that points to the ADR, architecture section or code that owns its answer, `.agents/skills/questions/SKILL.md` |
 | checking links outside a close | — | <straw-dog until="a link check runs outside a close, not only the mover's note over records a close rewrote" ticket="docs/tickets/01-0017-io-graph-coherent.md">not yet</straw-dog> |
 | cleaning inline comments in scope | — | elsewhere — verification applies the comment skill to landed work, `.agents/skills/verify/SKILL.md` |
 | running the verification set the scope touched | `.agents/skills/maintain/SKILL.md` | |

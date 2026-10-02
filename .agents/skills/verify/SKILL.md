@@ -48,6 +48,7 @@ uv run --offline --no-project python .agents/scripts/gw/mechanisms.py --check
 uv run --offline --no-project python .agents/scripts/gw/inject_rules.py --check
 uv run --offline --no-project python .agents/scripts/gw/tickets.py --check
 uv run --offline --no-project python .agents/scripts/gw/maintain.py --check
+uv run --offline --no-project python .agents/scripts/gw/questions.py --check
 ```
 </installed>
 
@@ -64,8 +65,9 @@ uv run --offline --no-project python .agents/scripts/gw/maintain.py --check
   A promise about something that already exists — a recipient's tree, a stored record — is
   asserted only by a fixture built the way that thing came to be: one the code under test
   made cannot hold a shape that code now refuses.
-- Sweep the concern index for entries in scope: a concern the implementation has since
-  answered belongs in its owning record, and a dead trigger retires.
+- Sweep the question store, `docs/questions/`, for entries in scope: a question the
+  implementation has since answered closes with a pointer to its owning record, and a dead
+  trigger retires.
 - Apply repair-and-report — the entry file's `repair` switch — where it holds:
   make the repair, verify it, and record the violated rule, the change, the verification
   result and any remaining uncertainty in the owning work item.

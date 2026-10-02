@@ -101,6 +101,18 @@ ticket, where a straw dog stands unwrapped. A guess is a finding for the maintai
 diagnostic, and never moves the run's status; what has no named successor is a claim and is
 left as written.
 
+### Question store
+
+The store is shared by every session working in the tree; a position is one session's. Entries
+are written only from a declared line, and a write re-reads every entry it changes and refuses
+one that moved since it was read — detected interference is a failure, as in
+[interruption and recovery](#interruption-and-recovery). The sessions file is written only by the
+script, each session replacing its own line and no other, so one session's write never refuses
+another's. Wholly closed subtrees move to `done/` with the mover and keep their ids. A host's hook
+delivers the window and registers the session under the host's own session id, and never fails
+the host: a problem becomes a line of context. Everything else is
+[the questions mechanism](../.agents/mechanisms/questions/questions.md)'s.
+
 ### Installed blocks
 
 [The shape](../.agents/skills/mechanism/SKILL.md#rules-injection-and-retraction) owns what a

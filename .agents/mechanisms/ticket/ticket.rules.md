@@ -94,6 +94,16 @@ Open an align on a ticket by saying what the ticket is: what it builds and the p
 in plain words, each of its terms explained, before the necessity gate or any question.
 </rule>
 
+## P11 — the ticket is swept for consistency when the align ends
+
+- **target** `.agents/skills/align/SKILL.md`
+- **authority** `/align`'s own text, moved here by 01-0011.0100 decision 15 at 01-0011.0100.0010's plan, 2026-09-29
+
+<rule>
+Sweep the ticket for internal consistency at the end: an early section may still assert what a
+later resolution changed.
+</rule>
+
 ## P9 — a ticket is named by a link, or by a slug and its state
 
 - **target** `AGENTS.md`

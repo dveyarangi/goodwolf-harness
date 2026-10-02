@@ -109,6 +109,12 @@ diagnostic is a finding; repair it under the repair policy.
 second home for what that folder already says.
 </installed>
 
+<installed by="questions">
+**Q4** Check the question store with `questions.py --check`. A diagnostic is a finding; repair it under
+the repair policy. Move each subtree it reports ready for `done/` with `move_doc.py`, every entry
+of the subtree in one invocation, into `docs/questions/done/`; ids are unchanged.
+</installed>
+
 ## Finish
 
 - **F1** Run the checks in the project's verification set that the scope touched.
