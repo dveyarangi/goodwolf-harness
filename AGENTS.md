@@ -164,6 +164,8 @@ version of the entry contract changed: docs/research/entry-contract-findings.md.
 **L2** commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report
 
 **L4** debug=on
+
+**L5** Run a Python script with `uv run --offline --no-project python <script>`.
 </installed>
 
 ## Straw dogs

@@ -39,6 +39,15 @@ commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report
 debug=on
 </rule>
 
+## L5 — how Python runs here
+
+- **target** `AGENTS.md`
+- **authority** the user, 2026-10-03
+
+<rule>
+Run a Python script with `uv run --offline --no-project python <script>`.
+</rule>
+
 ## L3 — the verification set
 
 - **target** `.agents/skills/verify/SKILL.md`
