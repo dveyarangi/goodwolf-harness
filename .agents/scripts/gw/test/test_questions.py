@@ -1221,6 +1221,7 @@ class TheHook(Hooked):
         self.assertIn("current: q-0004", self.context(first))
         self.assertEqual("UserPromptSubmit", json.loads(first)["hookSpecificOutput"]["hookEventName"])
         self.assertIn("window unchanged since your last one", self.context(second))
+        self.assertIn("place this message with `questions.py at q-0004 --session s-alpha`", self.context(second))
         self.assertNotIn("path (root to current):", self.context(second))
 
     def test_a_moved_position_or_a_changed_entry_draws_the_window_again(self) -> None:

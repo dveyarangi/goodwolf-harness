@@ -843,9 +843,12 @@ def window(root: Path, tag: str, full: bool = False) -> str:
     fingerprint = _fingerprint(held, seen)
     memory = _memory(root, tag)
     if not full and memory.is_file() and memory.read_text(encoding="utf-8") == fingerprint:
+        # The one line in front of most turns names the act, since "nothing moved" read as nothing
+        # to do and the turn's `at` went unmade (rule failure 16).
         return (
             f"window unchanged since your last one: {held.tag} at {held.current or 'no position yet'}; "
-            f"`questions.py --window --session {held.tag} --full` draws it again"
+            f"place this message with `questions.py at {held.current or 'q-N'} --session {held.tag}`, "
+            f"or `--window --session {held.tag} --full` to draw it again"
         )
     drawn = _drawn(store, held)
     memory.parent.mkdir(parents=True, exist_ok=True)

@@ -12,6 +12,31 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 16. A session stopped placing its messages once the window said nothing moved — 2026-10-03
+
+**Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s Q1, *call `questions.py at q-N` …
+where the message lands* before every reply, with *under `debug=on`, show each call*; parent
+decision 56's *every turn still calls*, kept so that the call is where the placement is judged
+and so that staying strikes.
+
+**What happened.** In the session that built `.0017`, `.0011` and `.0012`, the agent called `at`
+only when the session moved — at an align, a closure, a placement it had reason to change — and on
+most turns made no call and so showed none. The user: *why I no longer see the "at" at start of
+turn?* The host's hook had put one line in front of each of those turns: *window unchanged since
+your last one*.
+
+**Why it did not fire.** The one text present at the occasion every turn was the hook's line, and
+it said that nothing had moved, which read as nothing to do; the rule saying to call anyway sat in
+the entry file read at session start, where long working turns buried it. The session also held
+Q1 as it stood when it started, v18's declared line; both texts say every turn, so that is not the
+cause.
+
+**Amendment proposed:** the hook's unchanged line names the act at the occasion — *window unchanged
+since your last one; place this message: `questions.py at q-N --session <tag>`*, with the
+session's current id and tag filled in, about a dozen tokens a turn. **Landed 2026-10-03** on the
+user's word, in `questions.py`'s window, tested where the hook draws it. Graded by the next long
+session under the hook: an `at` call shown at the head of every reply, or this entry is struck.
+
 ## 15. A record's format was placed in a mechanism's doc — 2026-09-27
 
 **Rules in play:** [`/mechanism`](../.agents/skills/mechanism/SKILL.md#three-homes-and-the-chain)'s
