@@ -1192,14 +1192,28 @@ def _called(root: Path, argv: list[str], today: date) -> int:
         said = _calls().parse_args(argv)
     except SystemExit as stopped:
         return stopped.code if isinstance(stopped.code, int) else 2
+    left = read_store(root).session(said.session).current
     written = declare(root, said.session, [_clause(said)], today)
     for record in written.entries:
         print(f"wrote {record}")
     for identity in written.opened:
         print(f"opened {identity}")
     if written.session is not None:
-        print(f"{written.session.tag} at {written.session.current}")
+        print(_landed(root, written.session.current, left))
     return 0
+
+
+def _landed(root: Path, current: str | None, left: str | None) -> str:
+    """Where an `at` placed the session, as a person reads it under `debug=on`: the question, and
+    the one it left when it moved (the user, 2026-10-03, amending parent decision 25)."""
+    index = read_store(root).index
+
+    def titled(identity: str) -> str:
+        read = index.get(identity)
+        return f"{identity} {read.question}" if read else identity
+
+    moved = f" (from {titled(left)})" if left and left != current else ""
+    return f"at {titled(current or '')}{moved}"
 
 
 def _clause(said: argparse.Namespace) -> Clause:

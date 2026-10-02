@@ -15,6 +15,15 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v21 — 2026-10-03
+
+**Under `debug=on` the reply shows the question, not the call** — Q1's display sentence, on the
+user's word: the reply opens with the question the message landed on, its id and its question as
+the window writes it, and names each move from one question to another where it happens. The
+call's command line, a bare id and a session tag, told a person nothing; `at` now prints the
+line to show ([decision 25](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md#decisions-landed-at-this-tickets-align),
+amended).
+
 ## v20 — 2026-10-03
 
 **A raised question is looked up before it is held** — Q1's newcomer sentence replaced by the

@@ -893,6 +893,19 @@ class TheCalls(Declared):
 
         self.assertEqual("s-alpha running 2026-09-29 q-0010 q-0004,q-0002,q-0001", self.own_line())
 
+    def test_at_prints_the_question_it_landed_on_and_the_one_it_left(self) -> None:
+        said = self.called("at", "q-0010")
+
+        self.assertIn(
+            "at q-0010 How do sessions reach each other? (from q-0004 Which parts are optional?)", said
+        )
+
+    def test_at_that_stays_prints_the_question_alone(self) -> None:
+        said = self.called("at", "q-0004")
+
+        self.assertIn("at q-0004 Which parts are optional?", said)
+        self.assertNotIn("(from", said)
+
     def test_open_takes_the_next_free_id_prints_it_and_leaves_the_session_where_it_stands(self) -> None:
         said = self.called("open", "Is the owner optional?", "--under", "q-0004")
 
