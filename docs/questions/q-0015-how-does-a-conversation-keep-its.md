@@ -1,0 +1,5 @@
+# q-0015 How does a conversation keep its position when its host resumes it under a new session id?
+
+- **part of** q-0001
+- **state** open
+- **lean** carry the position over from the session it resumes, found through what the hook input still shares, such as the transcript path
