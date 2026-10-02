@@ -15,6 +15,15 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v22 — 2026-10-03
+
+**The debug header is a one-cell table** — Q1's display sentence, on the user's word: the
+question the message landed on is shown as `| ↳ **q-N** · <question> |` over `|---|`, boxed with
+the id bold and no lead word. A plain line read as part of the reply's prose; a box drawn in
+characters and a `Headline:` lead were tried and refused
+([decision 25](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md#decisions-landed-at-this-tickets-align),
+amended).
+
 ## v21 — 2026-10-03
 
 **Under `debug=on` the reply shows the question, not the call** — Q1's display sentence, on the

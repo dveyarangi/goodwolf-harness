@@ -39,7 +39,8 @@ after a call says what it takes.
 `open` leaves the session where it stands: to stand on the new question, call `at` on the id it
 printed. A refused call writes nothing and says why; fix it and call again in the same turn. Under
 `debug=on` the reply opens, after the announce line when there is one, with what `at` printed —
-the question the message landed on, and the one it left when it moved — never the call itself; an
+the question the message landed on, in Q1's one-cell table, and the one it left when it moved —
+never the call itself; an
 event mid-turn — a question opened, closed or moved — is named, with its question, where the reply
 reports it.
 

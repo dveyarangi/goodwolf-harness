@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v21, 2026-10-03.
+Entry contract: v22, 2026-10-03.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -52,8 +52,8 @@ question:
 Before opening a question, look for its answer in the docs and the code: found, point to it and
 open nothing; not found, open it. A message that lands nowhere makes no call. Only the working
 agent calls, never a helper. Under `debug=on`, head the reply with the question the message landed
-on — its id and its question as the window writes it — and name each move from one question to
-another where it happened. For any other call, a closure, a branching or a drop, read the
+on, as a one-cell table — `| ↳ **q-N** · <its question as the window writes it> |` over `|---|` —
+and name each move from one question to another where it happened. For any other call, a closure, a branching or a drop, read the
 questions skill.
 </installed>
 
