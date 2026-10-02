@@ -71,7 +71,7 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | listing finished records not yet moved | — | <straw-dog until="a listing exists" ticket="docs/tickets/01-0011.0030-archive-backlog-listed.md">not yet</straw-dog> |
 | rendering the queue from the tickets | — | <straw-dog until="the table is derived rather than copied by hand" ticket="docs/tickets/01-0011.0040-queue-derived-index.md">not yet</straw-dog> |
 | ordering the queue and writing its pacing prose | — | <straw-dog until="the pacer owns both" ticket="docs/tickets/01-0020-pacer.md">not yet</straw-dog> |
-| promoting a concern into a ticket | `.agents/skills/ticket/SKILL.md` | |
+| promoting an open question of the store into a ticket | `.agents/skills/ticket/SKILL.md` | |
 | verifying a ticket's criteria against landed work | — | elsewhere — landing-time agreement is verification, `.agents/skills/verify/SKILL.md` |
 | writing an RFC's contents | — | elsewhere — what an RFC holds is planning's, `.agents/skills/plan/SKILL.md` |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
