@@ -307,7 +307,7 @@ script's behaviour, as this entry's declaration took its verbs. Repaired: the li
 slug made by the script from the question's words — so phrase a question short*. **Amendment
 proposed:** the rule's list gains *and what a script already does for the reader*. It edits the
 general rules, so it moves the entry contract; agreed by the user 2026-10-03 and **landed** the
-same day in the v19 of [01-0011.0100.0011 the-agent-calls-a-subcommand-per-event](tickets/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md).
+same day in the v19 of [01-0011.0100.0011 the-agent-calls-a-subcommand-per-event](tickets/done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md).
 Graded by the next skill line written beside its script: it names only what the agent does, or
 this entry is struck again.
 

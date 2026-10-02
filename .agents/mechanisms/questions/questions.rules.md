@@ -63,5 +63,5 @@ happened. As the conclude's last act, run `questions.py --end --session <tag>`.
 <rule>
 Check the question store with `questions.py --check`. A diagnostic is a finding; repair it under
 the repair policy. Move each subtree it reports ready for `done/` with `move_doc.py`, every entry
-of the subtree in one invocation, into `docs/questions/done/`; ids are unchanged.
+of the subtree in one invocation, into `docs/questions/done/`.
 </rule>

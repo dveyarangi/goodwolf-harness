@@ -90,8 +90,7 @@ A project's own answers and overrides are authored in one file beside the entry 
 installed block whose owner is `local` — which the installer writes after every mechanism's block
 there, so the project's answer is what a reader meets after core's rule. An override names the rule it
 overrides. A local change to a rule is written in the local file, never into a skill or the entry
-file: `inject_rules.py --check` fails on a block that differs from its source and on a block
-nothing owns, and the repair is the local file, re-installed. The local block is the project's,
+file, and re-installed. The local block is the project's,
 not core's, and a redeploy preserves it.
 </rule>
 

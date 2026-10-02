@@ -18,7 +18,7 @@ this record keeps recording what each bump changed.
 ## v19 — 2026-10-03
 
 **The agent calls a subcommand per event** — Q1's examples, installed by
-[01-0011.0100.0011](../tickets/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md):
+[01-0011.0100.0011](../tickets/done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md):
 `questions.py at q-N`, `open`, `close` and the rest, each with `--session`, in place of a line in a
 grammar of its own. The line was the interface while a hook was to read it from the reply; no hook
 did, the agent called the script itself, and the grammar refused a lean holding `; ` at the align

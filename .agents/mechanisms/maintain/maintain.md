@@ -22,7 +22,7 @@ Its record is the marks — one row per mechanism per level, moved only by the c
 maintenance, from which dueness is derived. A mechanism's doc is due when the meta-rules moved
 since its mark; its records are due when its own doc, rules file or skill did. `maintain.py
 --check` derives that at every pass and never fails on it — being due is news, not a defect — and
-`--mark` is the only writer; the format is the skill's, under *Marks*. A due mechanism joins
+`--mark` is the only writer; the format is the shelf beside the skill, `MARKS-FORMAT.md`. A due mechanism joins
 whatever scope a pass declared, because a pass that closes one ticket would otherwise never reach
 a mechanism doc. A mark fingerprints the surface as it stands when written, so what moved between
 the re-check and the mark is cleared unread; marking is therefore the step that closes the
@@ -99,6 +99,7 @@ repair-and-report, recording the cause in the evidence.
 | part | where |
 |---|---|
 | instruction file | `.agents/skills/maintain/SKILL.md` |
+| format shelf | `.agents/skills/maintain/MARKS-FORMAT.md` |
 | this doc | `.agents/mechanisms/maintain/maintain.md` |
 | its rules file | `.agents/mechanisms/maintain/maintain.rules.md` |
 | the listing script | `.agents/scripts/gw/straw_dogs.py` |

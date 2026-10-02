@@ -112,7 +112,7 @@ second home for what that folder already says.
 <installed by="questions">
 **Q4** Check the question store with `questions.py --check`. A diagnostic is a finding; repair it under
 the repair policy. Move each subtree it reports ready for `done/` with `move_doc.py`, every entry
-of the subtree in one invocation, into `docs/questions/done/`; ids are unchanged.
+of the subtree in one invocation, into `docs/questions/done/`.
 </installed>
 
 ## Finish
@@ -128,18 +128,4 @@ of the subtree in one invocation, into `docs/questions/done/`; ids are unchanged
 
 ## Marks
 
-`docs/mechanisms/maintenance.md`: a heading, a line pointing here, and one table, written only by
-`--mark`.
-
-| mechanism | level | fingerprint | date | outcome |
-|---|---|---|---|---|
-
-- One row per mechanism per level; `level` is `rules` or `output`.
-- `fingerprint` is 64 lowercase hex, of what the level was checked against; `date` is
-  `YYYY-MM-DD`; `outcome` is `amended` or `nothing to change`.
-- A row whose mechanism is no longer declared is dropped at the next mark. Rows are sorted by
-  mechanism, then level.
-- Read by `--check` at every pass; a malformed row fails the check and refuses every mark until it
-  is repaired.
-- In a recipient the mechanisms that came with core are maintained where core is made: the check
-  leaves them out and a mark refuses them.
+The marks' format is [MARKS-FORMAT.md](./MARKS-FORMAT.md).

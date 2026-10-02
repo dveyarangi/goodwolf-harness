@@ -7,7 +7,8 @@ A mechanism is checked at two levels. At `rules` its doc is due when the meta-ru
 its mark; at `output` its records are due when its own doc, rules file or skill moved since its
 mark. A mark is the fingerprint of what a maintenance checked, written by `--mark` when the
 maintenance finishes and by nothing else: no edit to a doc counts as a re-check. Dueness is
-derived at every look and never stored. The marks' format is `/maintain`'s, in its skill.
+derived at every look and never stored. The marks' format is `/maintain`'s, in the format shelf
+beside its skill, `MARKS-FORMAT.md`.
 
 `--check` never fails on a due mechanism — being due is the news, not a defect — only on marks it
 cannot read or a surface it cannot fingerprint. In a recipient the built-in mechanisms are
@@ -348,7 +349,7 @@ def _write_marks(root: Path, marks: list[Mark]) -> None:
     text = (
         "# Maintenance marks\n\n"
         "One row per mechanism per level, written by `maintain.py --mark` when a maintenance\n"
-        "finishes; the format is `/maintain`'s, in its skill under *Marks*.\n\n"
+        "finishes; the format is `/maintain`'s, in `.agents/skills/maintain/MARKS-FORMAT.md`.\n\n"
         + header
         + "".join(held.row + "\n" for held in ordered)
     )
