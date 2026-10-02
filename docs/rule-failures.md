@@ -306,7 +306,8 @@ whose list of what stays out — the glossary's definition, the motivating examp
 script's behaviour, as this entry's declaration took its verbs. Repaired: the line reads *the
 slug made by the script from the question's words — so phrase a question short*. **Amendment
 proposed:** the rule's list gains *and what a script already does for the reader*. It edits the
-general rules, so it moves the entry contract; not landed until the user agrees.
+general rules, so it moves the entry contract; agreed by the user 2026-10-03, to land with the
+v19 of [01-0011.0100.0011 the-agent-calls-a-subcommand-per-event](tickets/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md).
 
 ## 6. The binding form lived on two tickets, and six closed tickets got a bare id — 2026-09-20
 
