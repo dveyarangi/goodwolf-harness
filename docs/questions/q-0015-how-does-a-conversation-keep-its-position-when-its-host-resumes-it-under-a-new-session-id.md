@@ -2,4 +2,4 @@
 
 - **part of** q-0001
 - **state** open
-- **lean** carry the position over from the session it resumes, found through what the hook input still shares, such as the transcript path
+- **lean** carry the position over from the session it resumes, found through what the hook input still shares, such as the transcript path; seen again 2026-10-03, the old tag left running at a closed question
