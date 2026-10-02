@@ -1,0 +1,14 @@
+{
+  "revision": "924d0b989401d3c4698133735bfbbabe0da4d329",
+  "interleaving": "another editor changes source after _change_set derives operations, before the first operation applies",
+  "preflight_refusal": null,
+  "exception": null,
+  "announcements": [
+    "moved record.md -> done/record.md",
+    "repaired citations in index.md"
+  ],
+  "source_exists": false,
+  "destination_content": "# Original\n",
+  "index_content": "[Record](done/record.md)\n",
+  "new_decision_preserved": false
+}

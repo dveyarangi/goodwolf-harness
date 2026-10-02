@@ -1,0 +1,861 @@
+{
+  "revision": "924d0b989401d3c4698133735bfbbabe0da4d329",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "win32",
+  "checks": {
+    "maintain": {
+      "exit": 0,
+      "seconds": 0.469,
+      "stdout": "{\n  \"mechanisms\": [\n    {\n      \"mechanism\": \"harness\",\n      \"level\": \"rules\",\n      \"state\": \"current\",\n      \"why\": null\n    },\n    {\n      \"mechanism\": \"harness\",\n      \"level\": \"output\",\n      \"state\": \"current\",\n      \"why\": null\n    },\n    {\n      \"mechanism\": \"maintain\",\n      \"level\": \"rules\",\n      \"state\": \"current\",\n      \"why\": null\n    },\n    {\n      \"mechanism\": \"maintain\",\n      \"level\": \"output\",\n      \"state\": \"current\",\n      \"why\": null\n    },\n    {\n      \"mechanism\": \"mechanism-shape\",\n      \"level\": \"rules\",\n      \"state\": \"current\",\n      \"why\": null\n    },\n    {\n      \"mechanism\": \"mechanism-shape\",\n      \"level\": \"output\",\n      \"state\": \"current\",\n      \"why\": null\n    },\n    {\n      \"mechanism\": \"ticket\",\n      \"level\": \"rules\",\n      \"state\": \"current\",\n      \"why\": null\n    },\n    {\n      \"mechanism\": \"ticket\",\n      \"level\": \"output\",\n      \"state\": \"current\",\n      \"why\": null\n    }\n  ],\n  \"built in\": {\n    \"why\": \"a recipient's built-in mechanisms came with core, maintained where core is made\",\n    \"mechanisms\": []\n  },\n  \"undeclared\": [],\n  \"diagnostics\": []\n}\n",
+      "stderr": ""
+    },
+    "tickets": {
+      "exit": 0,
+      "seconds": 0.594,
+      "stdout": "{\n  \"records\": [\n    {\n      \"record\": \"docs/tickets/01-0010-dev-harness-shared-and-local.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"In progress\",\n        \"Type\": \"HITL\",\n        \"Outcome\": \"Projects share a canonical development method, contribute improvements to it, and receive accepted changes mechanically while preserving project-specific behavior across Claude Code, Codex and Cursor.\"\n      },\n      \"sections\": [\n        \"What to build\",\n        \"Evidence\",\n        \"Resolutions and constraints\",\n        \"Decisions this ticket's align owns\",\n        \"Bootstrap corpus selection\",\n        \"First bootstrap delivery ticket \\u2014 proposed breakdown\",\n        \"Second bootstrap delivery \\u2014 2026-09-06\",\n        \"Third bootstrap delivery \\u2014 2026-09-06\",\n        \"Separation delivery \\u2014 2026-09-09\",\n        \"Discover \\u2014 the premise, 2026-09-10\",\n        \"Hermetic core delivery \\u2014 2026-09-10\",\n        \"Existing-tree delivery \\u2014 2026-09-21\",\n        \"Arrival-to-ready \\u2014 2026-09-23\",\n        \"Front page \\u2014 2026-09-26\",\n        \"Reports from recipients \\u2014 2026-09-26\",\n        \"Measuring what it costs \\u2014 2026-09-26\",\n        \"Outside review, second pass \\u2014 2026-09-27\",\n        \"A recipient's own maintenance \\u2014 2026-09-27\",\n        \"Adoption shortlist \\u2014 recommendations awaiting alignment\",\n        \"Idea \\u2014 pacer\",\n        \"Derived work \\u2014 Life basis and scope decision\",\n        \"HITL checkpoints \\u2014 initial source check\",\n        \"Acceptance criteria\",\n        \"Out of scope\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0010.0080-impact-work-shape.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Planned (folds into 01-0011.0100.0050 as the branch instrument, 2026-09-28)\",\n        \"Related\": \"[01-0011.0100.0050 a-question-branches-before-it-is-answered](./01-0011.0100.0050-a-question-branches-before-it-is-answered.md) \\u2014 the branch slice this ticket's routing answer becomes an instrument of\",\n        \"Type\": \"HITL\",\n        \"Depends on\": \"[Install /maintain](./done/01-0010.0070-install-maintain.md) (the last install whose breakdown ran without this)\",\n        \"Blocks\": \"[Each skill owns its own responsibility](./01-0016-responsibility-coherent.md) \\u2014 that pass should see a finished `/impact`\",\n        \"Outcome\": \"`/impact` says whether the work it assessed is a spec, a ticket, an RFC or a re-slice, alongside its blast-radius verdict, so `/ticket` and `/plan` receive a routing answer instead of inferring one.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"Why this exists\",\n        \"What to build\",\n        \"Acceptance criteria\",\n        \"Out of scope\",\n        \"Parent scope addressed\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0010.0100-remaining-named-corpus.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Partial (all five installed by 2026-09-09; nothing else met)\",\n        \"Type\": \"HITL\",\n        \"Depends on\": \"[Each skill owns its own responsibility](./01-0016-responsibility-coherent.md) (so five new skills inherit settled vocabulary and stated ownership rather than adding to the restatement)\",\n        \"Outcome\": \"`/advise`, `/skill-up`, `/commit`, `/celebrate` and `/edge` are installed from the accepted selection, discoverable, each used once, and the core changes they owe are landed with them.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"Four arrived early, 2026-09-07\",\n        \"Why this exists\",\n        \"What to build\",\n        \"Decisions this ticket's align owns\",\n        \"Acceptance criteria\",\n        \"Out of scope\",\n        \"Parent scope addressed\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0010.0105-backlog-five-arrive.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Partial (three installed 2026-09-09; no adaptation applied beyond the two below)\",\n        \"Type\": \"HITL\",\n        \"Depends on\": \"[Each skill owns its own responsibility](./01-0016-responsibility-coherent.md) (so five more skills inherit settled vocabulary rather than adding to the restatement)\",\n        \"Outcome\": \"`/conclude`, `/recall`, `/dream`, `/review-architecture` and `/setup-devops` carry the adaptations the selection names for them, each has been used once here, and the twenty selected working commands are complete with nothing left in the parent's backlog.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"Three arrived early, again\",\n        \"What to build\",\n        \"Open issues\",\n        \"Acceptance criteria\",\n        \"Out of scope\",\n        \"Parent scope addressed\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0010.0120-host-delivery-surfaces.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Ready\",\n        \"Type\": \"HITL\",\n        \"Blocks\": \"[01-0011.0030](./01-0011.0030-archive-backlog-listed.md) \\u2014 its ratchet is *loud when it rises*, and nothing here can be loud; [01-0018](./01-0018-reachability-coherent.md) \\u2014 it concludes *where a rule cannot reach an occasion, name the gap*, which assumes the answer this ticket establishes\",\n        \"Related\": \"[01-0011.0060 mechanism-rechecked-when-governing-moves](./done/01-0011.0060-mechanism-rechecked-when-governing-moves.md) \\u2014 blocked by this from 2026-09-07 to 2026-09-27, released *(the user)*: dueness is `/maintain`'s own input, read at every close. **Handed back, 2026-09-27** *(the user)*: the maintenance list it derives must be announced through the channel this ticket establishes, and whether [01-0011.0030](./01-0011.0030-archive-backlog-listed.md)'s ratchet shares that announcement is decided here\",\n        \"Outcome\": \"The harness knows, from observation rather than assumption, what Claude Code, Codex and Cursor each place in front of an agent without being asked; that capability is recorded with what cannot be confirmed about it; and the decision of whether this harness takes a dynamic tier-1 surface at all is landed in its durable home, unblocking the slices that assume one.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"Why this exists\",\n        \"What to build\",\n        \"Decisions this ticket's align owns\",\n        \"Acceptance criteria \\u2014 provisional, firmed at the align\",\n        \"Out of scope\",\n        \"Impact \\u2014 2026-09-07\",\n        \"Parent scope addressed\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Planned (decision-bearing; its own align precedes the feature)\",\n        \"Type\": \"HITL\",\n        \"Depends on\": \"[01-0010.0120](./01-0010.0120-host-delivery-surfaces.md) (whether the harness takes a dynamic host surface at all \\u2014 a hook is one)\",\n        \"Outcome\": \"Which hosts and which rules the harness enforces through the host is decided and landed, and the feature is unblocked: an action a rule forbids \\u2014 a commit while `commit=ask` \\u2014 is refused by the host instead of trusted to the agent.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"Every rule today is trusted, not enforced\",\n        \"The align this ticket owns\",\n        \"What to build\",\n        \"Acceptance criteria\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0010.0150-harness-meets-a-tree-with-a-method.md\",\n      \"stage\": \"shaped\",\n      \"fields\": {\n        \"Status\": \"Ready (RFC authored 2026-09-21)\",\n        \"Type\": \"HITL\",\n        \"Plan\": \"[The harness meets a tree that already has a method RFC](../rfc/01-0010.0150-harness-meets-a-tree-with-a-method.md) \\u2014 the inventory as one look over the four places; the flow as instruction, with collisions and a process of the project's own at `/align`, and an anchor for mechanisms' meet-blocks\",\n        \"Depends on\": \"[01-0010.0130](./done/01-0010.0130-harness-installs-into-another-tree.md) (the install, its refusals, the stamp and the skill this slice extends); [01-0010.0145](./done/01-0010.0145-core-scripts-under-one-directory.md) (core's scripts under a directory of their own, so an install into a foreign `.agents/` cannot overwrite a project's)\",\n        \"Outcome\": \"An install into a tree that already has a method \\u2014 this harness taken by hand, or a stranger's entry file, stub, skills and process \\u2014 ends with that method's content carried into the local file or a claimed skill, aligned with the user where it collides with core, or left where it is, never lost; and the skill says each step.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"What to build\",\n        \"Open issues\",\n        \"Acceptance criteria\",\n        \"Out of scope\",\n        \"Parent scope addressed\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0010.0160-harness-edge-changes-reach-an-update.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"In progress (decomposed 2026-09-23 into `.0185` \\u2192 `.0190` \\u2192 `.0195`; this record is the end state and takes no RFC of its own)\",\n        \"Type\": \"HITL\",\n        \"Depends on\": \"[01-0010.0145](./done/01-0010.0145-core-scripts-under-one-directory.md) (the first edge change with a real recipient behind it \\u2014 the evidence the align read)\",\n        \"Related\": \"[01-0010.0155](./done/01-0010.0155-a-tree-names-the-repository-its-core-comes-from.md) \\u2014 the repository line, taken first at the 2026-09-23 split so `.0195` writes the core repository's URL once in its final home rather than into the script and again into the line; [01-0010.0100](./01-0010.0100-remaining-named-corpus.md) \\u2014 owes `/edge` its declaration, which this ticket does not take; [01-0018](./01-0018-reachability-coherent.md) \\u2014 will move the tiering rule from prose to a rules file, a second edge change\",\n        \"Outcome\": \"Core is published as releases to a repository of its own, each carrying a note written for an instance \\u2014 what moved, from where to where, what the instance amends \\u2014 and a recipient reads the notes standing between its ref and the latest before it decides whether to take them.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"Nothing registers an edge change when it happens\",\n        \"What to build\",\n        \"The split \\u2014 2026-09-23\",\n        \"Open issues\",\n        \"Acceptance criteria \\u2014 provisional, firmed at the split\",\n        \"Out of scope\",\n        \"Parent scope addressed\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0010.0168-the-harness-measures-what-it-costs-and-saves.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Planned (decision-bearing; its own align precedes the feature)\",\n        \"Type\": \"HITL\",\n        \"Outcome\": \"What the harness measures about itself \\u2014 the tokens and the human turns a unit of work costs, and what it saves an agent arriving cold \\u2014 and how each is counted is decided and landed, and the feature is unblocked: a script reads the hosts' own session records into a trend that starts at the harness's first session and runs forward, and the trend is stated where a reader weighing the harness will see it.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"Asked for everywhere, measured nowhere\",\n        \"The record already exists\",\n        \"The align this ticket owns\",\n        \"What to build\",\n        \"Acceptance criteria\",\n        \"Out of scope\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0010.0170-arrival-becomes-a-sequence.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Ready\",\n        \"Type\": \"AFK\",\n        \"Related\": \"[01-0010.0165](./done/01-0010.0165-a-fresh-tree-has-a-delivery-status.md) \\u2014 the dependency dissolved at that slice's 2026-09-23 `/plan`: it no longer creates the directories this sequence writes into, because a record's parent is made on the way in. Ordering only, and both touch the same install\",\n        \"Outcome\": \"A first install ends with a local file whose verification set names the project's own checks or states that it has none, instead of falling back to core's gates.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"One instruction ran before its inputs existed\",\n        \"What to build\",\n        \"Open issues\",\n        \"Acceptance criteria\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0010.0172-a-first-install-says-what-stopped-it.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Ready\",\n        \"Type\": \"HITL\",\n        \"Related\": \"[01-0010.0170](./01-0010.0170-arrival-becomes-a-sequence.md) \\u2014 an empty folder that is not yet a Git work tree is that slice's, as the refusal bullet that offers `git init`\",\n        \"Outcome\": \"An install that Git's ownership check stops is refused with that cause and the command that clears it, not as a target of the wrong shape; an install whose loader links do not yet resolve ends in a report that cannot be read as ready for Claude Code and Cursor; and a fresh clone of a project holding core gets its links from one light step, without an update.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"Two first-run failures read as something else\",\n        \"What to build\",\n        \"Open issues\",\n        \"Acceptance criteria\",\n        \"Out of scope\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0010.0175-arrival-describes-what-it-finds.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Planned (narrowed at the 2026-09-23 `/impact`; the codebase half back in scope 2026-09-26)\",\n        \"Type\": \"HITL\",\n        \"Depends on\": \"[01-0010.0170](./01-0010.0170-arrival-becomes-a-sequence.md) (the sequence this step sits inside, and the doors it writes into)\",\n        \"Outcome\": \"An install into a tree that already holds written material or code ends with a glossary and an architecture skeleton drawn from them, and every section nobody read stamped so, rather than a tree that arrives undescribed.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"The admission scales, not the effort\",\n        \"What to build\",\n        \"Open issues\",\n        \"Acceptance criteria\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0010.0180-harness-names-its-maintenance.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Planned\",\n        \"Type\": \"AFK\",\n        \"Depends on\": \"[01-0010.0165](./done/01-0010.0165-a-fresh-tree-has-a-delivery-status.md), [01-0010.0170](./01-0010.0170-arrival-becomes-a-sequence.md), [01-0010.0175](./01-0010.0175-arrival-describes-what-it-finds.md) (what harness owns, and so what there is to re-check)\",\n        \"Trigger\": \"[rule failure 7](../rule-failures.md) \\u2014 harness has no rules file, so nothing it owns is named to `/maintain`, which is why a declaration describing its own script went uncaught\",\n        \"Outcome\": \"A `/maintain` pass over a tree that holds core re-checks what the harness owns there, instead of harness being the one mechanism that asks for nothing.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"The one mechanism that names nothing\",\n        \"What to build\",\n        \"Open issues\",\n        \"Acceptance criteria\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0010.0185-an-edge-change-writes-its-line.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Planned (decision-bearing; its own align precedes the feature)\",\n        \"Type\": \"HITL\",\n        \"Depends on\": \"[01-0010.0145](./done/01-0010.0145-core-scripts-under-one-directory.md) (the edge change the rule is calibrated against \\u2014 a script path that moved with nothing to tell a recipient)\",\n        \"Outcome\": \"A change to the installation edge has its line in the edge record in the pass that made it, held there by a rule that fires at the occasion rather than by whoever remembered.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"Nothing writes the change down at the moment it is made\",\n        \"The align this ticket owns\",\n        \"What to build\",\n        \"Open issues\",\n        \"Acceptance criteria\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0010.0190-core-is-published-as-a-release.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Planned\",\n        \"Type\": \"HITL\",\n        \"Depends on\": \"[01-0010.0185](./01-0010.0185-an-edge-change-writes-its-line.md) (the mechanism and the record whose accumulated lines the note is derived from)\",\n        \"Outcome\": \"Core is published to a repository of its own, each publish a release carrying a note written for an instance, so a recipient installs from what was published rather than from this working tree.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"The shipment already exists; nothing writes it anywhere\",\n        \"What to build\",\n        \"Open issues\",\n        \"Acceptance criteria\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0010.0195-a-recipient-reads-before-it-takes.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Planned\",\n        \"Type\": \"HITL\",\n        \"Depends on\": \"[01-0010.0190](./01-0010.0190-core-is-published-as-a-release.md) (the releases there are to stand between a ref and the latest); [01-0010.0155](./done/01-0010.0155-a-tree-names-the-repository-its-core-comes-from.md) (the repository line, so the core repository's URL is written once in its final home rather than into the script and again into the line)\",\n        \"Outcome\": \"A recipient runs `--check` and learns which releases stand between its announced ref and the latest, reads what each asks of it, and decides \\u2014 instead of taking a change blind or never learning one exists.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"A tree is stranded right now\",\n        \"What to build\",\n        \"Open issues\",\n        \"Acceptance criteria\",\n        \"Out of scope\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0010.0200-a-project-can-remove-the-harness.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Ready\",\n        \"Type\": \"AFK\",\n        \"Related\": \"[01-0010.0150](./01-0010.0150-harness-meets-a-tree-with-a-method.md) \\u2014 an install that carries a project's own method into core leaves something an uninstall must give back; whichever of the two lands second owes the other a case\",\n        \"Outcome\": \"A project runs one command and the harness is gone \\u2014 everything the announced version shipped and the loader links it made removed, the project's local file and records under `docs/` left as they are \\u2014 or the command refuses, writes nothing, and says why.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"What to build\",\n        \"Open issues\",\n        \"Acceptance criteria\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0010.0205-a-recipient-reports-a-harness-failure-upstream.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Planned (decision-bearing; its own align precedes the feature)\",\n        \"Type\": \"HITL\",\n        \"Related\": \"[01-0019](./01-0019-harness-amends-itself-by-explicit-meta-rules.md) \\u2014 owns the meta-rules of the rule-failure register this changes the routing of\",\n        \"Outcome\": \"How a failure of a core rule found in a recipient reaches the harness's own repository \\u2014 where, with whose consent, carrying what \\u2014 is decided and landed, and the feature is unblocked: such a failure is filed on the harness repository's board instead of staying in the recipient's register, while a failure of the project's own local rule stays there.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"A core defect found in a recipient stays there\",\n        \"The align this ticket owns\",\n        \"What to build\",\n        \"Acceptance criteria\",\n        \"Out of scope\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0011.0030-archive-backlog-listed.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Ready\",\n        \"Type\": \"AFK\",\n        \"Depends on\": \"[01-0011.0025](./done/01-0011.0025-archive-duty-reaches-maintain.md) (`/ticket` declared, and a declared record shape for the listing to read)\",\n        \"Related\": \"[01-0010.0120](./01-0010.0120-host-delivery-surfaces.md) \\u2014 **surfaced 2026-09-07:** *loud when it rises* names no channel, and this tree has nothing that speaks unasked. Not a blocker: the fallback is that \\\"loud\\\" means this command's own output, and the ratchet then costs someone remembering to run it. Which it is, is that ticket's to answer and this one's to state.\",\n        \"Outcome\": \"A command lists records whose work is finished and whose folder does not say so, and the standing count is held as a ratchet \\u2014 silent at or below its mark, loud when it rises.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"Why this exists\",\n        \"What to build\",\n        \"Acceptance criteria\",\n        \"Out of scope\",\n        \"Parent scope addressed\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0011.0040-queue-derived-index.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Ready\",\n        \"Type\": \"HITL\",\n        \"Depends on\": \"[01-0011.0025](./done/01-0011.0025-archive-duty-reaches-maintain.md) (`/ticket` declared, and the record shape the index is derived from)\",\n        \"Outcome\": \"The queue's status, type and outcome are derived from the ticket headers that own them, so the queue cannot contradict a ticket, and the pacing prose stays hand-written.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"Why this exists\",\n        \"Decisions this ticket's align owns\",\n        \"What to build\",\n        \"Acceptance criteria\",\n        \"Out of scope\",\n        \"Parent scope addressed\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0011.0090-a-test-catches-what-its-name-promises.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Ready\",\n        \"Type\": \"AFK\",\n        \"Depends on\": \"[01-0011.0080 a-test-pays-only-for-what-it-proves](./done/01-0011.0080-a-test-pays-only-for-what-it-proves.md) (the pruned suite, so no strengthening lands on a test about to go)\",\n        \"Outcome\": \"Every test that the 2026-09-27 audit found too weak to catch its own regression catches it, and every script branch the audit found untested has a test.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"What to build\",\n        \"Acceptance criteria\",\n        \"Out of scope\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"In progress (align landed 2026-09-29, decisions 24\\u201342, and 43 at the first slice's implement; the first slice is Ready)\",\n        \"Type\": \"HITL\",\n        \"Blocks\": \"[Scope reads the same everywhere](./01-0014-scope-coherent.md), [Each skill owns its own responsibility](./01-0016-responsibility-coherent.md), [Every skill and document has named producers and consumers](./01-0017-io-graph-coherent.md) \\u2014 the coherence tickets refactor onto the question store rather than onto prose\",\n        \"Outcome\": \"Every open question of this tree is written in one store with its relations and its state, the turn's current question is known and every shift from it is judged and recorded, a question closes by a recorded kind, and every skill that opens, splits or closes a question \\u2014 `/align` in an interview, `/plan`, `/recall` and `/conclude` on their own \\u2014 works from that store instead of carrying it in session text, so a question left behind is found again and a decision made above an unexpanded shape is caught.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"Why this exists\",\n        \"What to build\",\n        \"Decisions landed at 01-0012's align\",\n        \"Decisions landed at this ticket's align\",\n        \"The turn, walked *(2026-09-28, the shared understanding the doc's *How it works* is written from)*\",\n        \"Open issues\",\n        \"Slices\",\n        \"Acceptance criteria \\u2014 firmed at the align, 2026-09-29\",\n        \"Out of scope\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0011.0100.0010-the-store-and-questions-writes-it.md\",\n      \"stage\": \"shaped\",\n      \"fields\": {\n        \"Status\": \"Ready (RFC authored 2026-09-29, its items settled at the plan's align the same day)\",\n        \"Type\": \"HITL\",\n        \"Plan\": \"[plan](../rfc/01-0011.0100.0010-the-store-and-questions-writes-it.md) \\u2014 the store, the script, the declaration, the fold and the strip in seven stages\",\n        \"Depends on\": \"[01-0011.0100 the-open-questions-are-kept-by-a-mechanism](./01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md) (the record shape, the moments and their outputs, the store's home \\u2014 decisions 24 to 42)\",\n        \"Outcome\": \"Every open question of the tree is written in one store with its relations and its state, opened and closed through the mechanism's own skill; `/align`, `/recall` and `/conclude` work from it through installed rules, each session at a position of its own; `/align` carries the interview and nothing else; and the three concerns and the questions of an abstraction height and of sharing sessions are its first entries.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"What to build\",\n        \"Acceptance criteria \\u2014 firmed at the parent's align, 2026-09-29\",\n        \"Out of scope\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Planned\",\n        \"Type\": \"HITL\",\n        \"Depends on\": \"[01-0011.0100.0010 the-store-and-questions-writes-it](./01-0011.0100.0010-the-store-and-questions-writes-it.md) (the store to hold them)\",\n        \"Outcome\": \"Every open issue a live ticket carries is an entry of the store owned by that ticket's goal, the ticket's *Open issues* section is a view of those entries or a pointer to them, and a reconciliation proves the two hold one set with nothing lost.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"What to build\",\n        \"Acceptance criteria \\u2014 provisional, firmed at the align\",\n        \"Out of scope\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0011.0100.0030-straw-dogs-are-entries-of-the-store.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Planned\",\n        \"Type\": \"HITL\",\n        \"Depends on\": \"[01-0011.0100.0010 the-store-and-questions-writes-it](./01-0011.0100.0010-the-store-and-questions-writes-it.md) (the store to hold them)\",\n        \"Outcome\": \"Every straw dog in the tree is an entry of the store \\u2014 a decision landed with an open question bound to the ticket that will answer it \\u2014 the listing is a view of those entries, and a reconciliation proves the wrapped text and the store hold one set with nothing lost.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"What to build\",\n        \"Acceptance criteria \\u2014 provisional, firmed at the align\",\n        \"Out of scope\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0011.0100.0040-the-turn-is-steered-from-the-store.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Planned\",\n        \"Type\": \"HITL\",\n        \"Depends on\": \"[01-0011.0100.0010 the-store-and-questions-writes-it](./01-0011.0100.0010-the-store-and-questions-writes-it.md) (the store, which is the state to steer from)\",\n        \"Related\": \"[01-0010.0120 host-delivery-surfaces](./01-0010.0120-host-delivery-surfaces.md) \\u2014 where the judge runs unasked; until then the turn calls it\",\n        \"Outcome\": \"At every turn the current question is read from the store, the request is judged for which open question it addresses and whether it leaves the current one \\u2014 up, down, or to nothing \\u2014 the shift is named, a premature descent is steered back and a worthwhile one follows after the question being left is written as a semi-formed decision, and none of it depends on the agent watching its own tokens.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"What to build\",\n        \"Acceptance criteria \\u2014 provisional, firmed at the align\",\n        \"Out of scope\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0011.0100.0050-a-question-branches-before-it-is-answered.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Planned\",\n        \"Type\": \"HITL\",\n        \"Depends on\": \"[01-0011.0100.0010 the-store-and-questions-writes-it](./01-0011.0100.0010-the-store-and-questions-writes-it.md) (the store the children are written to)\",\n        \"Related\": \"[01-0010.0080 impact-work-shape](./01-0010.0080-impact-work-shape.md) \\u2014 the routing answer it owes, spec / ticket / RFC / re-slice, is this slice's branch instrument for goals and folds in here\",\n        \"Outcome\": \"A question that hides children \\u2014 a shape whose hidden complexity, expanded, would change the answer \\u2014 is branched in the store before it is answered, in autonomous work and in an interview alike, and the trigger `/impact` and `/discover` lack exists: something decides that this shape needs one of them.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"What to build\",\n        \"Acceptance criteria \\u2014 provisional, firmed at the align\",\n        \"Out of scope\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0014-scope-coherent.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Planned (the questions mechanism precedes)\",\n        \"Type\": \"HITL\",\n        \"Depends on\": \"[01-0011.0100 the-open-questions-are-kept-by-a-mechanism](./01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md) (the structure scope is a subtree of, if its align confirms that; height, half of what scope was stated against, is depth in it \\u2014 [01-0012](./done/01-0012-hierarchy-coherent.md), closed)\",\n        \"Outcome\": \"Scope \\u2014 the extent of what a pass, a ticket or a document covers \\u2014 has one account, and every scope statement across the harness either is that account or points at it.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"Impact\",\n        \"Why this exists\",\n        \"What to build\",\n        \"Decisions this ticket's align owns\",\n        \"Acceptance criteria\",\n        \"Out of scope\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0016-responsibility-coherent.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Planned (hierarchy, scope and the mechanisms' declaration precede)\",\n        \"Type\": \"HITL\",\n        \"Depends on\": \"[Scope reads the same everywhere](./01-0014-scope-coherent.md) (settled vocabulary for what a responsibility covers), [01-0011.0100 the-open-questions-are-kept-by-a-mechanism](./01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md) (the store the coherence refactors onto, and the branch slice that carries `/impact`'s routing answer, which `.0080` folded into on 2026-09-28), [01-0017 io-graph-coherent](./01-0017-io-graph-coherent.md) (the mechanisms declared, so what one asks of a skill can arrive installed) *(the user, 2026-09-27)*\",\n        \"Blocks\": \"[Rules reach the occasion they are for](./01-0018-reachability-coherent.md)\",\n        \"Outcome\": \"Every skill states only what it owns; what an installed mechanism asks of it arrives installed, and it names another skill only while that skill is on its way to a mechanism; a rule appears once, in the skill responsible for it; contradictions between skills are resolved rather than coexisting.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"Impact\",\n        \"Why this exists\",\n        \"What to build\",\n        \"Decisions this ticket's align owns\",\n        \"Already landed\",\n        \"Acceptance criteria\",\n        \"Out of scope\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0017-io-graph-coherent.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Planned (scope precedes)\",\n        \"Type\": \"HITL\",\n        \"Depends on\": \"[The shape is checked mechanically](./done/01-0011.0050-shape-checked.md) (a proven shape and a working check, so applying it to the rest is application rather than design); [01-0011.0060 mechanism-rechecked-when-governing-moves](./done/01-0011.0060-mechanism-rechecked-when-governing-moves.md); [01-0014 scope-coherent](./01-0014-scope-coherent.md) (where a mechanism's boundary falls is a question of scope) *(the user, 2026-09-27)*\",\n        \"Blocks\": \"[01-0016 responsibility-coherent](./01-0016-responsibility-coherent.md) \\u2014 its outcome reads what an installed mechanism asks of a skill, which needs the mechanisms declared\",\n        \"Outcome\": \"Every mechanism in this tree is declared to the shape paired close proved, every installed skill is named by one or allowlisted with its reason, and the documents four skills transact against either exist with an owner or stop being referenced.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"A recipient receives skills written in a vocabulary they do not receive\",\n        \"Impact\",\n        \"Why this exists\",\n        \"What to build\",\n        \"Routed here at `01-0011.0022`'s align, 2026-09-07\",\n        \"Handed from 01-0011.0060, 2026-09-27\",\n        \"Decisions this ticket's align owns\",\n        \"Acceptance criteria\",\n        \"Out of scope\",\n        \"Parent scope addressed\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0017.0010-terms-defined-before-they-land.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"In progress (align underway)\",\n        \"Type\": \"HITL\",\n        \"Related\": \"[01-0018](./01-0018-reachability-coherent.md) \\u2014 owns whether a shared fact may be restated at tier 1 *because* it is needed there, which is the same question this ticket's tier-1-plus-injection shape asks; [01-0011.0050](./done/01-0011.0050-shape-checked.md) \\u2014 group targets cannot resolve until every skill is named by a mechanism or allowlisted\",\n        \"Outcome\": \"A term used as shared vocabulary is either defined in the glossary or is stopped as a decision before it reaches a record, every glossary rule has one authored home, and the rule that enforces this is where the occasion is rather than inside one skill nobody had invoked.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"The rule was loaded, and it lost\",\n        \"What to build\",\n        \"Open issues\",\n        \"Acceptance criteria \\u2014 provisional, firmed at the align\",\n        \"Out of scope\",\n        \"Parent scope addressed\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0017.0020-practice-swaps-in-one-edit.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"In progress (align underway; its boundary is the align's first question)\",\n        \"Type\": \"HITL\",\n        \"Related\": \"[01-0017.0010](./01-0017.0010-terms-defined-before-they-land.md) \\u2014 the sibling conversion, and the first shape that wanted group targets; [01-0020](./01-0020-pacer.md) \\u2014 holds `docs/process.md` under a straw dog, so the two must agree what remains in that document; [01-0016](./01-0016-responsibility-coherent.md) \\u2014 *every skill states only what it owns* is the rule this mechanism would let a whole corpus obey at once\",\n        \"Outcome\": \"The transferable practice this harness carries \\u2014 how tests are written, how architecture is documented \\u2014 has one owner, so adopting a different practice is an edit to one mechanism instead of a refactor across scattered skills, and what belongs to that corpus rather than to the harness's own loop is settled rather than assumed.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"Practice is swappable; the loop is not\",\n        \"What to build\",\n        \"Open issues\",\n        \"Recorded, not this ticket's\",\n        \"Acceptance criteria \\u2014 provisional, firmed at the align\",\n        \"Out of scope\",\n        \"Parent scope addressed\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0018-reachability-coherent.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Planned (responsibility precedes)\",\n        \"Type\": \"HITL\",\n        \"Depends on\": \"[Each skill owns its own responsibility](./01-0016-responsibility-coherent.md) (a rule must be correctly owned before its arrival can be checked)\",\n        \"Related\": \"[01-0010.0120](./01-0010.0120-host-delivery-surfaces.md) \\u2014 **surfaced 2026-09-07:** this ticket's *where it cannot be, the gap is named* assumes an answer about what the hosts can deliver that nobody has established. That ticket establishes it; this one decides what to do with the gaps that remain.\",\n        \"Outcome\": \"A rule or skill that applies at an occasion is actually in front of the agent at that occasion, and where it cannot be, the gap is named rather than assumed away.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"Impact\",\n        \"Why this exists\",\n        \"What to build\",\n        \"Decisions this ticket's align owns\",\n        \"Acceptance criteria\",\n        \"Out of scope\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"Blocked (accumulating evidence before its align)\",\n        \"Type\": \"HITL\",\n        \"Related\": \"[`/mechanism`](../../.agents/skills/mechanism/SKILL.md) holds this responsibility today and [`/skill-up`](../../.agents/skills/skill-up/SKILL.md) is its neighbour; [01-0017.0010](./01-0017.0010-terms-defined-before-they-land.md) \\u2014 the first registered failure proposes an amendment to `/align` that should land with that ticket's rewrites, not ahead of them\",\n        \"Outcome\": \"Amending the harness's own rules follows stated meta-rules \\u2014 how a failure is registered, when a rule is reworded, what counts as evidence that it did not work \\u2014 instead of a judgement made afresh each time; and whether that is its own mechanism is answered from strikes rather than from argument.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"Why it is minted before it can be decided\",\n        \"What to build\",\n        \"Open issues\",\n        \"Acceptance criteria \\u2014 provisional, firmed at the align\",\n        \"Out of scope\"\n      ]\n    },\n    {\n      \"record\": \"docs/tickets/01-0020-pacer.md\",\n      \"stage\": \"incepted\",\n      \"fields\": {\n        \"Status\": \"In progress (align underway; first core rule landed 2026-09-20)\",\n        \"Type\": \"HITL\",\n        \"Outcome\": \"The agent knows, on every turn, what it does after `/recall` and what the turn's reply is scoped to, from Tier 1 rules in the entry file; and after a session break the next session resumes the delivery ring at the step it stopped, stopping only for a HITL escalation.\"\n      },\n      \"sections\": [\n        \"Parent\",\n        \"What to build\",\n        \"Decisions this ticket's align owns\",\n        \"Handed to this ticket\",\n        \"Acceptance criteria\",\n        \"Out of scope\"\n      ]\n    }\n  ],\n  \"diagnostics\": [],\n  \"skipped\": []\n}\n",
+      "stderr": ""
+    },
+    "inject_rules": {
+      "exit": 0,
+      "seconds": 0.828,
+      "stdout": "{\n  \"rules files\": 4,\n  \"blocks\": [\n    {\n      \"slug\": \"maintain\",\n      \"target\": \".agents/skills/mechanism/SKILL.md\",\n      \"state\": \"present\"\n    },\n    {\n      \"slug\": \"mechanism-shape\",\n      \"target\": \".agents/skills/maintain/SKILL.md\",\n      \"state\": \"present\"\n    },\n    {\n      \"slug\": \"mechanism-shape\",\n      \"target\": \".agents/skills/mechanism/SKILL.md\",\n      \"state\": \"present\"\n    },\n    {\n      \"slug\": \"mechanism-shape\",\n      \"target\": \".agents/skills/align/SKILL.md\",\n      \"state\": \"present\"\n    },\n    {\n      \"slug\": \"mechanism-shape\",\n      \"target\": \".agents/skills/skill-up/SKILL.md\",\n      \"state\": \"present\"\n    },\n    {\n      \"slug\": \"mechanism-shape\",\n      \"target\": \"AGENTS.md\",\n      \"state\": \"present\"\n    },\n    {\n      \"slug\": \"mechanism-shape\",\n      \"target\": \".agents/skills/verify/SKILL.md\",\n      \"state\": \"present\"\n    },\n    {\n      \"slug\": \"ticket\",\n      \"target\": \".agents/skills/maintain/SKILL.md\",\n      \"state\": \"present\"\n    },\n    {\n      \"slug\": \"ticket\",\n      \"target\": \".agents/skills/plan/SKILL.md\",\n      \"state\": \"present\"\n    },\n    {\n      \"slug\": \"ticket\",\n      \"target\": \".agents/skills/align/SKILL.md\",\n      \"state\": \"present\"\n    },\n    {\n      \"slug\": \"ticket\",\n      \"target\": \"AGENTS.md\",\n      \"state\": \"present\"\n    },\n    {\n      \"slug\": \"local\",\n      \"target\": \"AGENTS.md\",\n      \"state\": \"present\"\n    },\n    {\n      \"slug\": \"local\",\n      \"target\": \".agents/skills/verify/SKILL.md\",\n      \"state\": \"present\"\n    }\n  ],\n  \"orphans\": [],\n  \"diagnostics\": []\n}\n",
+      "stderr": ""
+    },
+    "mechanisms": {
+      "exit": 0,
+      "seconds": 1.0,
+      "stdout": "{\n  \"declarations\": [\n    {\n      \"mechanism\": \"harness\",\n      \"doc\": \".agents/mechanisms/harness/harness.md\",\n      \"instruction\": \".agents/skills/harness/SKILL.md\",\n      \"state\": \"installed\",\n      \"rules\": null,\n      \"moments\": [\n        {\n          \"moment\": \"installing a ref into an empty tree\",\n          \"instructed by\": \".agents/scripts/gw/harness.py\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"updating a tree that has a copy\",\n          \"instructed by\": \".agents/scripts/gw/harness.py\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"checking a copy against the ref it announces\",\n          \"instructed by\": \".agents/scripts/gw/harness.py\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"making a loader link, or handing the person the command\",\n          \"instructed by\": \".agents/scripts/gw/harness.py\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"reading a refusal and resuming\",\n          \"instructed by\": \".agents/skills/harness/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"populating the local file after the first install\",\n          \"instructed by\": \".agents/skills/harness/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"pointing a tree at another core, as a fork does\",\n          \"instructed by\": \".agents/skills/harness/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"knowing an update is available\",\n          \"instructed by\": null,\n          \"kind\": \"unowned by design\",\n          \"why\": \"a person asks for one; nothing polls the repository\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"verifying that a host reads the loader link\",\n          \"instructed by\": null,\n          \"kind\": \"not yet\",\n          \"why\": \"a host's delivery is observed rather than assumed\",\n          \"referent\": \"docs/tickets/01-0010.0120-host-delivery-surfaces.md\"\n        },\n        {\n          \"moment\": \"writing a fresh tree's delivery status\",\n          \"instructed by\": \".agents/scripts/gw/harness.py\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"removing one mechanism from a tree\",\n          \"instructed by\": null,\n          \"kind\": \"not yet\",\n          \"why\": \"the parts tables say what goes and something says how\",\n          \"referent\": \"docs/tickets/01-0010-dev-harness-shared-and-local.md\"\n        },\n        {\n          \"moment\": \"sending a change back to the repository\",\n          \"instructed by\": null,\n          \"kind\": \"not yet\",\n          \"why\": \"contribution back has a shape\",\n          \"referent\": \"docs/tickets/01-0010-dev-harness-shared-and-local.md\"\n        }\n      ],\n      \"parts\": [\n        {\n          \"part\": \"instruction file\",\n          \"where\": \".agents/skills/harness/SKILL.md\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"this doc\",\n          \"where\": \".agents/mechanisms/harness/harness.md\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"the script\",\n          \"where\": \".agents/scripts/gw/harness.py\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"its tests\",\n          \"where\": \".agents/scripts/gw/test/test_harness.py\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"the entry file\",\n          \"where\": \"AGENTS.md\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"the host stub\",\n          \"where\": \"CLAUDE.md\",\n          \"anchor\": null,\n          \"owner\": null\n        }\n      ],\n      \"relies on\": [\n        {\n          \"part\": \"the installer\",\n          \"where\": \".agents/scripts/gw/inject_rules.py\",\n          \"anchor\": null,\n          \"owner\": \"`mechanism-shape`\"\n        },\n        {\n          \"part\": \"citation reader\",\n          \"where\": \".agents/scripts/gw/docs_corpus.py\",\n          \"anchor\": null,\n          \"owner\": \"`mechanism-shape`, the one that cannot leave\"\n        },\n        {\n          \"part\": \"the delivery status's arrival state\",\n          \"where\": \".agents/skills/ticket/QUEUE-ARRIVAL.md\",\n          \"anchor\": null,\n          \"owner\": \"`ticket`, which owns the record and words it\"\n        },\n        {\n          \"part\": \"the shape check\",\n          \"where\": \".agents/scripts/gw/mechanisms.py\",\n          \"anchor\": null,\n          \"owner\": \"`mechanism-shape`\"\n        },\n        {\n          \"part\": \"test harness\",\n          \"where\": \".agents/scripts/gw/test/repository.py\",\n          \"anchor\": null,\n          \"owner\": \"`mechanism-shape`\"\n        },\n        {\n          \"part\": \"the listing script\",\n          \"where\": \".agents/scripts/gw/straw_dogs.py\",\n          \"anchor\": null,\n          \"owner\": \"`maintain`\"\n        },\n        {\n          \"part\": \"the method's vocabulary\",\n          \"where\": \".agents/glossary.md\",\n          \"anchor\": null,\n          \"owner\": \"nobody removable\"\n        }\n      ]\n    },\n    {\n      \"mechanism\": \"maintain\",\n      \"doc\": \".agents/mechanisms/maintain/maintain.md\",\n      \"instruction\": \".agents/skills/maintain/SKILL.md\",\n      \"state\": \"installed\",\n      \"rules\": \".agents/mechanisms/maintain/maintain.rules.md\",\n      \"moments\": [\n        {\n          \"moment\": \"declaring a scope and running a pass over it\",\n          \"instructed by\": \".agents/skills/maintain/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"re-checking derived work when what governs it moved \\u2014 a doc against the meta-rules, an implementation against its doc, records against their format\",\n          \"instructed by\": \".agents/skills/maintain/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"holding a landed slice to its governing docs, both ways\",\n          \"instructed by\": null,\n          \"kind\": \"elsewhere\",\n          \"why\": \"landing-time agreement is verification\",\n          \"referent\": \".agents/skills/verify/SKILL.md\"\n        },\n        {\n          \"moment\": \"knowing a re-check is due\",\n          \"instructed by\": \".agents/skills/maintain/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"marking a level re-checked\",\n          \"instructed by\": \".agents/skills/maintain/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"deciding whether a straw dog's condition holds, and retiring the block\",\n          \"instructed by\": \".agents/skills/maintain/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"guessing where a straw dog nobody wrapped stands, and judging each guess\",\n          \"instructed by\": \".agents/scripts/gw/straw_dogs.py\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"cleaning prose and records to one home per fact\",\n          \"instructed by\": \".agents/skills/maintain/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"closing a finished ticket with its RFC\",\n          \"instructed by\": \".agents/skills/maintain/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"updating the header at close\",\n          \"instructed by\": \".agents/skills/maintain/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"checking a mechanism's records against their declared format, the ticket records among them\",\n          \"instructed by\": \".agents/skills/maintain/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"repairing mechanically, history included\",\n          \"instructed by\": null,\n          \"kind\": \"elsewhere\",\n          \"why\": \"a meta-rule, read where it lives\",\n          \"referent\": \".agents/skills/mechanism/SKILL.md\"\n        },\n        {\n          \"moment\": \"disposing of a concern\",\n          \"instructed by\": null,\n          \"kind\": \"elsewhere\",\n          \"why\": \"a settled concern leaves the concern index for the ADR or architecture section that owns its answer, and a queued one keeps its contact surface\",\n          \"referent\": \".agents/skills/align/SKILL.md\"\n        },\n        {\n          \"moment\": \"checking links outside a close\",\n          \"instructed by\": null,\n          \"kind\": \"not yet\",\n          \"why\": \"a link check runs outside a close, not only the mover's note over records a close rewrote\",\n          \"referent\": \"docs/tickets/01-0017-io-graph-coherent.md\"\n        },\n        {\n          \"moment\": \"cleaning inline comments in scope\",\n          \"instructed by\": null,\n          \"kind\": \"elsewhere\",\n          \"why\": \"verification applies the comment skill to landed work\",\n          \"referent\": \".agents/skills/verify/SKILL.md\"\n        },\n        {\n          \"moment\": \"running the verification set the scope touched\",\n          \"instructed by\": \".agents/skills/maintain/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"installing this mechanism into a tree, with the rest of core\",\n          \"instructed by\": \".agents/scripts/gw/harness.py\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"removing this mechanism from a tree\",\n          \"instructed by\": null,\n          \"kind\": \"not yet\",\n          \"why\": \"the parts table says what goes and something says how\",\n          \"referent\": \"docs/tickets/01-0010-dev-harness-shared-and-local.md\"\n        },\n        {\n          \"moment\": \"picking up a dream\",\n          \"instructed by\": null,\n          \"kind\": \"unowned by design\",\n          \"why\": \"the entry file says *may*, a permission and not a duty, while the dream skill is experimental\",\n          \"referent\": null\n        }\n      ],\n      \"parts\": [\n        {\n          \"part\": \"instruction file\",\n          \"where\": \".agents/skills/maintain/SKILL.md\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"this doc\",\n          \"where\": \".agents/mechanisms/maintain/maintain.md\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"its rules file\",\n          \"where\": \".agents/mechanisms/maintain/maintain.rules.md\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"the listing script\",\n          \"where\": \".agents/scripts/gw/straw_dogs.py\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"its tests\",\n          \"where\": \".agents/scripts/gw/test/test_straw_dogs.py\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"the clock\",\n          \"where\": \".agents/scripts/gw/maintain.py\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"its tests\",\n          \"where\": \".agents/scripts/gw/test/test_maintain.py\",\n          \"anchor\": null,\n          \"owner\": null\n        }\n      ],\n      \"relies on\": [\n        {\n          \"part\": \"the mover\",\n          \"where\": \".agents/scripts/gw/move_doc.py\",\n          \"anchor\": null,\n          \"owner\": \"`ticket`\"\n        },\n        {\n          \"part\": \"the mover's tests\",\n          \"where\": \".agents/scripts/gw/test/test_paired_close.py\",\n          \"anchor\": null,\n          \"owner\": \"`ticket`\"\n        },\n        {\n          \"part\": \"the mover's tests\",\n          \"where\": \".agents/scripts/gw/test/test_refusals.py\",\n          \"anchor\": null,\n          \"owner\": \"`ticket`\"\n        },\n        {\n          \"part\": \"the mover's tests\",\n          \"where\": \".agents/scripts/gw/test/test_citations.py\",\n          \"anchor\": null,\n          \"owner\": \"`ticket`\"\n        },\n        {\n          \"part\": \"the mover's tests\",\n          \"where\": \".agents/scripts/gw/test/test_command_line.py\",\n          \"anchor\": null,\n          \"owner\": \"`ticket`\"\n        },\n        {\n          \"part\": \"the mover's tests\",\n          \"where\": \".agents/scripts/gw/test/test_failure_contract.py\",\n          \"anchor\": null,\n          \"owner\": \"`ticket`\"\n        },\n        {\n          \"part\": \"the ticket maintainer\",\n          \"where\": \".agents/scripts/gw/tickets.py\",\n          \"anchor\": null,\n          \"owner\": \"`ticket`\"\n        },\n        {\n          \"part\": \"citation reader\",\n          \"where\": \".agents/scripts/gw/docs_corpus.py\",\n          \"anchor\": null,\n          \"owner\": \"`mechanism-shape`, the one that cannot leave\"\n        },\n        {\n          \"part\": \"test harness\",\n          \"where\": \".agents/scripts/gw/test/repository.py\",\n          \"anchor\": null,\n          \"owner\": \"`mechanism-shape`\"\n        },\n        {\n          \"part\": \"the shape check\",\n          \"where\": \".agents/scripts/gw/mechanisms.py\",\n          \"anchor\": null,\n          \"owner\": \"`mechanism-shape`\"\n        },\n        {\n          \"part\": \"the installer\",\n          \"where\": \".agents/scripts/gw/inject_rules.py\",\n          \"anchor\": null,\n          \"owner\": \"`mechanism-shape`\"\n        },\n        {\n          \"part\": \"the method's vocabulary\",\n          \"where\": \".agents/glossary.md\",\n          \"anchor\": null,\n          \"owner\": \"nobody removable\"\n        }\n      ]\n    },\n    {\n      \"mechanism\": \"mechanism-shape\",\n      \"doc\": \".agents/mechanisms/mechanism-shape/mechanism-shape.md\",\n      \"instruction\": \".agents/skills/mechanism/SKILL.md\",\n      \"state\": \"always on\",\n      \"rules\": \".agents/mechanisms/mechanism-shape/mechanism-shape.rules.md\",\n      \"moments\": [\n        {\n          \"moment\": \"deciding whether a thing is a mechanism\",\n          \"instructed by\": \".agents/skills/mechanism/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"incepting one\",\n          \"instructed by\": \".agents/skills/mechanism/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"telling an inceptor what to hand `/maintain`\",\n          \"instructed by\": \".agents/skills/mechanism/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"amending a declared one, editing a skill that is an instruction file included\",\n          \"instructed by\": \".agents/skills/mechanism/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"retiring a declared one\",\n          \"instructed by\": \".agents/skills/mechanism/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"installing a declared mechanism into a tree, with the rest of core\",\n          \"instructed by\": \".agents/scripts/gw/harness.py\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"removing one declared mechanism from a tree\",\n          \"instructed by\": null,\n          \"kind\": \"not yet\",\n          \"why\": \"the parts table says what goes and something says how\",\n          \"referent\": \"docs/tickets/01-0010-dev-harness-shared-and-local.md\"\n        },\n        {\n          \"moment\": \"checking that a declaration is true\",\n          \"instructed by\": \".agents/scripts/gw/mechanisms.py\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"installing a mechanism's rules into skills, its own included, and the project's local file after every mechanism's\",\n          \"instructed by\": \".agents/scripts/gw/inject_rules.py\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"retracting them\",\n          \"instructed by\": \".agents/scripts/gw/inject_rules.py\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"reporting a retired tag left in core\",\n          \"instructed by\": \".agents/scripts/gw/mechanisms.py\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"writing a mechanism's rule where a session reads it, the entry file included, at `/align` or here\",\n          \"instructed by\": \".agents/skills/mechanism/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"re-checking a mechanism when what governs it has moved\",\n          \"instructed by\": null,\n          \"kind\": \"elsewhere\",\n          \"why\": \"re-checking derived work against a changed source is maintenance\",\n          \"referent\": \".agents/skills/maintain/SKILL.md\"\n        },\n        {\n          \"moment\": \"writing or changing a skill's text\",\n          \"instructed by\": null,\n          \"kind\": \"elsewhere\",\n          \"why\": \"a sibling mechanism's subject, and both apply when a skill is an instruction file\",\n          \"referent\": \".agents/skills/skill-up/SKILL.md\"\n        },\n        {\n          \"moment\": \"recording that an installed skill belongs to no mechanism\",\n          \"instructed by\": \".agents/skills/skill-up/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"asking whether every installed skill is claimed\",\n          \"instructed by\": \".agents/scripts/gw/mechanisms.py\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"holding core to citing only what its mechanisms declare\",\n          \"instructed by\": \".agents/scripts/gw/mechanisms.py\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"finding a mechanism's doc, or asking what is declared at all\",\n          \"instructed by\": null,\n          \"kind\": \"unowned by design\",\n          \"why\": \"the directory is a routing table and the index renders it on request; looking something up needs no rule\",\n          \"referent\": null\n        }\n      ],\n      \"parts\": [\n        {\n          \"part\": \"instruction file\",\n          \"where\": \".agents/skills/mechanism/SKILL.md\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"format shelf\",\n          \"where\": \".agents/skills/mechanism/MECHANISM-FORMAT.md\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"trigger\",\n          \"where\": \"AGENTS.md\",\n          \"anchor\": \"is mechanism work: use\",\n          \"owner\": null\n        },\n        {\n          \"part\": \"the hand-edit rule\",\n          \"where\": \"AGENTS.md\",\n          \"anchor\": \"is not that file's to edit\",\n          \"owner\": null\n        },\n        {\n          \"part\": \"this doc\",\n          \"where\": \".agents/mechanisms/mechanism-shape/mechanism-shape.md\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"its rules file\",\n          \"where\": \".agents/mechanisms/mechanism-shape/mechanism-shape.rules.md\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"the check\",\n          \"where\": \".agents/scripts/gw/mechanisms.py\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"the check's tests\",\n          \"where\": \".agents/scripts/gw/test/test_mechanisms.py\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"the installer\",\n          \"where\": \".agents/scripts/gw/inject_rules.py\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"the installer's tests\",\n          \"where\": \".agents/scripts/gw/test/test_inject_rules.py\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"the test harness's tests\",\n          \"where\": \".agents/scripts/gw/test/test_repository.py\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"citation reader\",\n          \"where\": \".agents/scripts/gw/docs_corpus.py\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"test harness\",\n          \"where\": \".agents/scripts/gw/test/repository.py\",\n          \"anchor\": null,\n          \"owner\": null\n        }\n      ],\n      \"relies on\": [\n        {\n          \"part\": \"the method's vocabulary\",\n          \"where\": \".agents/glossary.md\",\n          \"anchor\": null,\n          \"owner\": \"nobody removable\"\n        }\n      ]\n    },\n    {\n      \"mechanism\": \"ticket\",\n      \"doc\": \".agents/mechanisms/ticket/ticket.md\",\n      \"instruction\": \".agents/skills/ticket/SKILL.md\",\n      \"state\": \"installed\",\n      \"rules\": \".agents/mechanisms/ticket/ticket.rules.md\",\n      \"moments\": [\n        {\n          \"moment\": \"deciding a chunk is ticket-sized, or needs `/align` or a spec first\",\n          \"instructed by\": \".agents/skills/ticket/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"decomposing a parent into slices, and impacting the split\",\n          \"instructed by\": \".agents/skills/ticket/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"presenting the breakdown for approval under the `breakdown` switch\",\n          \"instructed by\": \".agents/skills/ticket/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"numbering, naming and placing a ticket\",\n          \"instructed by\": \".agents/skills/ticket/TICKET-FORMAT.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"writing a ticket to the shape its stage requires\",\n          \"instructed by\": \".agents/skills/ticket/TICKET-FORMAT.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"flipping a status\",\n          \"instructed by\": \".agents/skills/ticket/TICKET-FORMAT.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"amending the queue's table\",\n          \"instructed by\": \".agents/skills/ticket/TICKET-FORMAT.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"resolving a decision a ticket owns\",\n          \"instructed by\": \".agents/skills/align/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"naming an RFC for a ticket\",\n          \"instructed by\": \".agents/skills/plan/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"deciding a ticket is finished\",\n          \"instructed by\": \".agents/skills/maintain/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"closing a finished ticket with its RFC\",\n          \"instructed by\": \".agents/skills/maintain/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"repairing the citations a close breaks\",\n          \"instructed by\": \".agents/scripts/gw/move_doc.py\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"checking live records against the shape\",\n          \"instructed by\": \".agents/scripts/gw/tickets.py\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"listing finished records not yet moved\",\n          \"instructed by\": null,\n          \"kind\": \"not yet\",\n          \"why\": \"a listing exists\",\n          \"referent\": \"docs/tickets/01-0011.0030-archive-backlog-listed.md\"\n        },\n        {\n          \"moment\": \"rendering the queue from the tickets\",\n          \"instructed by\": null,\n          \"kind\": \"not yet\",\n          \"why\": \"the table is derived rather than copied by hand\",\n          \"referent\": \"docs/tickets/01-0011.0040-queue-derived-index.md\"\n        },\n        {\n          \"moment\": \"ordering the queue and writing its pacing prose\",\n          \"instructed by\": null,\n          \"kind\": \"not yet\",\n          \"why\": \"the pacer owns both\",\n          \"referent\": \"docs/tickets/01-0020-pacer.md\"\n        },\n        {\n          \"moment\": \"promoting a concern into a ticket\",\n          \"instructed by\": \".agents/skills/ticket/SKILL.md\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"verifying a ticket's criteria against landed work\",\n          \"instructed by\": null,\n          \"kind\": \"elsewhere\",\n          \"why\": \"landing-time agreement is verification\",\n          \"referent\": \".agents/skills/verify/SKILL.md\"\n        },\n        {\n          \"moment\": \"writing an RFC's contents\",\n          \"instructed by\": null,\n          \"kind\": \"elsewhere\",\n          \"why\": \"what an RFC holds is planning's\",\n          \"referent\": \".agents/skills/plan/SKILL.md\"\n        },\n        {\n          \"moment\": \"installing this mechanism into a tree, with the rest of core\",\n          \"instructed by\": \".agents/scripts/gw/harness.py\",\n          \"kind\": null,\n          \"why\": \"\",\n          \"referent\": null\n        },\n        {\n          \"moment\": \"removing this mechanism from a tree\",\n          \"instructed by\": null,\n          \"kind\": \"not yet\",\n          \"why\": \"the parts table says what goes and something says how\",\n          \"referent\": \"docs/tickets/01-0010-dev-harness-shared-and-local.md\"\n        },\n        {\n          \"moment\": \"reading how a shaped ticket reached its decisions\",\n          \"instructed by\": null,\n          \"kind\": \"unowned by design\",\n          \"why\": \"the durable home carries the decision with its provenance and the session record the align; looking it up needs no rule\",\n          \"referent\": null\n        }\n      ],\n      \"parts\": [\n        {\n          \"part\": \"instruction file\",\n          \"where\": \".agents/skills/ticket/SKILL.md\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"format shelf\",\n          \"where\": \".agents/skills/ticket/TICKET-FORMAT.md\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"the queue's arrival state\",\n          \"where\": \".agents/skills/ticket/QUEUE-ARRIVAL.md\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"this doc\",\n          \"where\": \".agents/mechanisms/ticket/ticket.md\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"its rules file\",\n          \"where\": \".agents/mechanisms/ticket/ticket.rules.md\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"the mover\",\n          \"where\": \".agents/scripts/gw/move_doc.py\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"the mover's tests\",\n          \"where\": \".agents/scripts/gw/test/test_paired_close.py\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"the mover's tests\",\n          \"where\": \".agents/scripts/gw/test/test_refusals.py\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"the mover's tests\",\n          \"where\": \".agents/scripts/gw/test/test_citations.py\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"the mover's tests\",\n          \"where\": \".agents/scripts/gw/test/test_command_line.py\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"the mover's tests\",\n          \"where\": \".agents/scripts/gw/test/test_failure_contract.py\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"the maintainer\",\n          \"where\": \".agents/scripts/gw/tickets.py\",\n          \"anchor\": null,\n          \"owner\": null\n        },\n        {\n          \"part\": \"the maintainer's tests\",\n          \"where\": \".agents/scripts/gw/test/test_tickets.py\",\n          \"anchor\": null,\n          \"owner\": null\n        }\n      ],\n      \"relies on\": [\n        {\n          \"part\": \"citation reader\",\n          \"where\": \".agents/scripts/gw/docs_corpus.py\",\n          \"anchor\": null,\n          \"owner\": \"`mechanism-shape`, the one that cannot leave\"\n        },\n        {\n          \"part\": \"test harness\",\n          \"where\": \".agents/scripts/gw/test/repository.py\",\n          \"anchor\": null,\n          \"owner\": \"`mechanism-shape`\"\n        },\n        {\n          \"part\": \"the installer\",\n          \"where\": \".agents/scripts/gw/inject_rules.py\",\n          \"anchor\": null,\n          \"owner\": \"`mechanism-shape`\"\n        },\n        {\n          \"part\": \"the method's vocabulary\",\n          \"where\": \".agents/glossary.md\",\n          \"anchor\": null,\n          \"owner\": \"nobody removable\"\n        }\n      ]\n    }\n  ],\n  \"skills\": [\n    {\n      \"skill\": \".agents/skills/advise/\",\n      \"named by\": [],\n      \"claims\": {\n        \"kind\": \"not yet\",\n        \"why\": \"01-0017 declares the advise mechanism\",\n        \"referent\": \"docs/tickets/01-0017-io-graph-coherent.md\"\n      }\n    },\n    {\n      \"skill\": \".agents/skills/align/\",\n      \"named by\": [],\n      \"claims\": {\n        \"kind\": \"not yet\",\n        \"why\": \"01-0017 declares the align mechanism\",\n        \"referent\": \"docs/tickets/01-0017-io-graph-coherent.md\"\n      }\n    },\n    {\n      \"skill\": \".agents/skills/celebrate/\",\n      \"named by\": [],\n      \"claims\": {\n        \"kind\": \"not yet\",\n        \"why\": \"01-0017 declares the celebrate mechanism\",\n        \"referent\": \"docs/tickets/01-0017-io-graph-coherent.md\"\n      }\n    },\n    {\n      \"skill\": \".agents/skills/commit/\",\n      \"named by\": [],\n      \"claims\": {\n        \"kind\": \"not yet\",\n        \"why\": \"01-0017 declares the commit mechanism\",\n        \"referent\": \"docs/tickets/01-0017-io-graph-coherent.md\"\n      }\n    },\n    {\n      \"skill\": \".agents/skills/conclude/\",\n      \"named by\": [],\n      \"claims\": {\n        \"kind\": \"not yet\",\n        \"why\": \"01-0017 declares the conclude mechanism\",\n        \"referent\": \"docs/tickets/01-0017-io-graph-coherent.md\"\n      }\n    },\n    {\n      \"skill\": \".agents/skills/discover/\",\n      \"named by\": [],\n      \"claims\": {\n        \"kind\": \"not yet\",\n        \"why\": \"01-0017 declares the discover mechanism\",\n        \"referent\": \"docs/tickets/01-0017-io-graph-coherent.md\"\n      }\n    },\n    {\n      \"skill\": \".agents/skills/dream/\",\n      \"named by\": [],\n      \"claims\": {\n        \"kind\": \"not yet\",\n        \"why\": \"01-0017 declares the dream mechanism\",\n        \"referent\": \"docs/tickets/01-0017-io-graph-coherent.md\"\n      }\n    },\n    {\n      \"skill\": \".agents/skills/edge/\",\n      \"named by\": [],\n      \"claims\": {\n        \"kind\": \"not yet\",\n        \"why\": \"01-0010.0100 declares the edge mechanism\",\n        \"referent\": \"docs/tickets/01-0010.0100-remaining-named-corpus.md\"\n      }\n    },\n    {\n      \"skill\": \".agents/skills/harness/\",\n      \"named by\": [\n        \"harness\"\n      ],\n      \"claims\": null\n    },\n    {\n      \"skill\": \".agents/skills/impact/\",\n      \"named by\": [],\n      \"claims\": {\n        \"kind\": \"not yet\",\n        \"why\": \"01-0017 declares the impact mechanism\",\n        \"referent\": \"docs/tickets/01-0017-io-graph-coherent.md\"\n      }\n    },\n    {\n      \"skill\": \".agents/skills/implement/\",\n      \"named by\": [],\n      \"claims\": {\n        \"kind\": \"not yet\",\n        \"why\": \"01-0017 declares the implement mechanism\",\n        \"referent\": \"docs/tickets/01-0017-io-graph-coherent.md\"\n      }\n    },\n    {\n      \"skill\": \".agents/skills/improve-comments/\",\n      \"named by\": [],\n      \"claims\": {\n        \"kind\": \"not yet\",\n        \"why\": \"01-0017 declares the improve-comments mechanism\",\n        \"referent\": \"docs/tickets/01-0017-io-graph-coherent.md\"\n      }\n    },\n    {\n      \"skill\": \".agents/skills/maintain/\",\n      \"named by\": [\n        \"maintain\"\n      ],\n      \"claims\": null\n    },\n    {\n      \"skill\": \".agents/skills/mechanism/\",\n      \"named by\": [\n        \"mechanism-shape\"\n      ],\n      \"claims\": null\n    },\n    {\n      \"skill\": \".agents/skills/plan/\",\n      \"named by\": [],\n      \"claims\": {\n        \"kind\": \"not yet\",\n        \"why\": \"01-0017 declares the plan mechanism\",\n        \"referent\": \"docs/tickets/01-0017-io-graph-coherent.md\"\n      }\n    },\n    {\n      \"skill\": \".agents/skills/recall/\",\n      \"named by\": [],\n      \"claims\": {\n        \"kind\": \"not yet\",\n        \"why\": \"01-0020 settles where /recall sits\",\n        \"referent\": \"docs/tickets/01-0020-pacer.md\"\n      }\n    },\n    {\n      \"skill\": \".agents/skills/review-architecture/\",\n      \"named by\": [],\n      \"claims\": {\n        \"kind\": \"not yet\",\n        \"why\": \"01-0017 declares the review-architecture mechanism\",\n        \"referent\": \"docs/tickets/01-0017-io-graph-coherent.md\"\n      }\n    },\n    {\n      \"skill\": \".agents/skills/setup-devops/\",\n      \"named by\": [],\n      \"claims\": {\n        \"kind\": \"not yet\",\n        \"why\": \"01-0017 declares the setup-devops mechanism\",\n        \"referent\": \"docs/tickets/01-0017-io-graph-coherent.md\"\n      }\n    },\n    {\n      \"skill\": \".agents/skills/skill-up/\",\n      \"named by\": [],\n      \"claims\": {\n        \"kind\": \"not yet\",\n        \"why\": \"01-0017 declares the skill-up mechanism\",\n        \"referent\": \"docs/tickets/01-0017-io-graph-coherent.md\"\n      }\n    },\n    {\n      \"skill\": \".agents/skills/spec/\",\n      \"named by\": [],\n      \"claims\": {\n        \"kind\": \"not yet\",\n        \"why\": \"01-0017 declares the spec mechanism\",\n        \"referent\": \"docs/tickets/01-0017-io-graph-coherent.md\"\n      }\n    },\n    {\n      \"skill\": \".agents/skills/tdd/\",\n      \"named by\": [],\n      \"claims\": {\n        \"kind\": \"not yet\",\n        \"why\": \"01-0017 declares the tdd mechanism\",\n        \"referent\": \"docs/tickets/01-0017-io-graph-coherent.md\"\n      }\n    },\n    {\n      \"skill\": \".agents/skills/ticket/\",\n      \"named by\": [\n        \"ticket\"\n      ],\n      \"claims\": null\n    },\n    {\n      \"skill\": \".agents/skills/verify/\",\n      \"named by\": [],\n      \"claims\": {\n        \"kind\": \"not yet\",\n        \"why\": \"01-0017 declares the verify mechanism\",\n        \"referent\": \"docs/tickets/01-0017-io-graph-coherent.md\"\n      }\n    }\n  ],\n  \"core cites\": {\n    \"painted doors\": [\n      {\n        \"file\": \".agents/glossary.md\",\n        \"line\": 4,\n        \"cites\": \"docs/glossary.md\"\n      },\n      {\n        \"file\": \".agents/mechanisms/maintain/maintain.md\",\n        \"line\": 140,\n        \"cites\": \"docs/mechanisms/maintenance.md\"\n      },\n      {\n        \"file\": \".agents/mechanisms/mechanism-shape/mechanism-shape.md\",\n        \"line\": 99,\n        \"cites\": \"docs/mechanisms/\"\n      },\n      {\n        \"file\": \".agents/mechanisms/ticket/ticket.rules.md\",\n        \"line\": 29,\n        \"cites\": \"docs/tickets/done/\"\n      },\n      {\n        \"file\": \".agents/mechanisms/ticket/ticket.rules.md\",\n        \"line\": 30,\n        \"cites\": \"docs/rfc/done/\"\n      },\n      {\n        \"file\": \".agents/mechanisms/ticket/ticket.rules.md\",\n        \"line\": 62,\n        \"cites\": \"docs/tickets/done/\"\n      },\n      {\n        \"file\": \".agents/mechanisms/ticket/ticket.rules.md\",\n        \"line\": 73,\n        \"cites\": \"docs/rfc/\"\n      },\n      {\n        \"file\": \".agents/mechanisms/ticket/ticket.rules.md\",\n        \"line\": 74,\n        \"cites\": \"docs/rfc/done/\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/docs_corpus.py\",\n        \"line\": 58,\n        \"cites\": \"docs/tickets/\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/harness.py\",\n        \"line\": 65,\n        \"cites\": \"docs/tickets/README.md\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/maintain.py\",\n        \"line\": 33,\n        \"cites\": \"docs/mechanisms/maintenance.md\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/mechanisms.py\",\n        \"line\": 58,\n        \"cites\": \"docs/tickets/\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/mechanisms.py\",\n        \"line\": 59,\n        \"cites\": \"docs/tickets/done/\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/mechanisms.py\",\n        \"line\": 60,\n        \"cites\": \"docs/tickets/README.md\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/mechanisms.py\",\n        \"line\": 61,\n        \"cites\": \"docs/mechanisms/\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/mechanisms.py\",\n        \"line\": 64,\n        \"cites\": \"docs/mechanisms/maintenance.md\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/mechanisms.py\",\n        \"line\": 67,\n        \"cites\": \"docs/glossary.md\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/mechanisms.py\",\n        \"line\": 68,\n        \"cites\": \"docs/architecture.md\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/mechanisms.py\",\n        \"line\": 69,\n        \"cites\": \"docs/concerns.md\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/mechanisms.py\",\n        \"line\": 70,\n        \"cites\": \"docs/adr/\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/mechanisms.py\",\n        \"line\": 71,\n        \"cites\": \"docs/rfc/\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/mechanisms.py\",\n        \"line\": 72,\n        \"cites\": \"docs/rfc/done/\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/mechanisms.py\",\n        \"line\": 73,\n        \"cites\": \"docs/spec/\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/mechanisms.py\",\n        \"line\": 74,\n        \"cites\": \"docs/sessions/\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/mechanisms.py\",\n        \"line\": 75,\n        \"cites\": \"docs/dreams/\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/mechanisms.py\",\n        \"line\": 76,\n        \"cites\": \"docs/cicd.md\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/mechanisms.py\",\n        \"line\": 78,\n        \"cites\": \"docs/edge/\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/mechanisms.py\",\n        \"line\": 80,\n        \"cites\": \"docs/rule-failures.md\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/straw_dogs.py\",\n        \"line\": 41,\n        \"cites\": \"docs/tickets/\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/straw_dogs.py\",\n        \"line\": 44,\n        \"cites\": \"docs/tickets/\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/straw_dogs.py\",\n        \"line\": 44,\n        \"cites\": \"docs/rfc/\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/straw_dogs.py\",\n        \"line\": 44,\n        \"cites\": \"docs/spec/\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/straw_dogs.py\",\n        \"line\": 44,\n        \"cites\": \"docs/sessions/\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/tickets.py\",\n        \"line\": 29,\n        \"cites\": \"docs/tickets\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/tickets.py\",\n        \"line\": 30,\n        \"cites\": \"docs/rfc\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/tickets.py\",\n        \"line\": 31,\n        \"cites\": \"docs/tickets/README.md\"\n      },\n      {\n        \"file\": \".agents/scripts/gw/tickets.py\",\n        \"line\": 168,\n        \"cites\": \"docs/tickets/\"\n      },\n      {\n        \"file\": \".agents/skills/align/ADR-FORMAT.md\",\n        \"line\": 3,\n        \"cites\": \"docs/adr/\"\n      },\n      {\n        \"file\": \".agents/skills/align/ADR-FORMAT.md\",\n        \"line\": 5,\n        \"cites\": \"docs/adr/\"\n      },\n      {\n        \"file\": \".agents/skills/align/ADR-FORMAT.md\",\n        \"line\": 27,\n        \"cites\": \"docs/concerns.md\"\n      },\n      {\n        \"file\": \".agents/skills/align/ADR-FORMAT.md\",\n        \"line\": 31,\n        \"cites\": \"docs/adr/\"\n      },\n      {\n        \"file\": \".agents/skills/align/EDGE-FORMAT.md\",\n        \"line\": 3,\n        \"cites\": \"docs/edge/\"\n      },\n      {\n        \"file\": \".agents/skills/align/GLOSSARY-FORMAT.md\",\n        \"line\": 34,\n        \"cites\": \"docs/glossary.md\"\n      },\n      {\n        \"file\": \".agents/skills/align/GLOSSARY-FORMAT.md\",\n        \"line\": 57,\n        \"cites\": \"docs/glossary.md\"\n      },\n      {\n        \"file\": \".agents/skills/align/GLOSSARY-FORMAT.md\",\n        \"line\": 58,\n        \"cites\": \"docs/glossary.md\"\n      },\n      {\n        \"file\": \".agents/skills/align/SKILL.md\",\n        \"line\": 62,\n        \"cites\": \"docs/glossary.md\"\n      },\n      {\n        \"file\": \".agents/skills/align/SKILL.md\",\n        \"line\": 62,\n        \"cites\": \"docs/adr/\"\n      },\n      {\n        \"file\": \".agents/skills/align/SKILL.md\",\n        \"line\": 68,\n        \"cites\": \"docs/glossary.md\"\n      },\n      {\n        \"file\": \".agents/skills/align/SKILL.md\",\n        \"line\": 75,\n        \"cites\": \"docs/edge/\"\n      },\n      {\n        \"file\": \".agents/skills/align/SKILL.md\",\n        \"line\": 109,\n        \"cites\": \"docs/glossary.md\"\n      },\n      {\n        \"file\": \".agents/skills/align/SKILL.md\",\n        \"line\": 111,\n        \"cites\": \"docs/glossary.md\"\n      },\n      {\n        \"file\": \".agents/skills/align/SKILL.md\",\n        \"line\": 124,\n        \"cites\": \"docs/concerns.md\"\n      },\n      {\n        \"file\": \".agents/skills/conclude/SKILL.md\",\n        \"line\": 14,\n        \"cites\": \"docs/sessions\"\n      },\n      {\n        \"file\": \".agents/skills/conclude/SKILL.md\",\n        \"line\": 15,\n        \"cites\": \"docs/sessions/\"\n      },\n      {\n        \"file\": \".agents/skills/dream/SKILL.md\",\n        \"line\": 50,\n        \"cites\": \"docs/dreams\"\n      },\n      {\n        \"file\": \".agents/skills/edge/SKILL.md\",\n        \"line\": 17,\n        \"cites\": \"docs/concerns.md\"\n      },\n      {\n        \"file\": \".agents/skills/edge/SKILL.md\",\n        \"line\": 23,\n        \"cites\": \"docs/edge/\"\n      },\n      {\n        \"file\": \".agents/skills/edge/SKILL.md\",\n        \"line\": 25,\n        \"cites\": \"docs/glossary.md\"\n      },\n      {\n        \"file\": \".agents/skills/maintain/SKILL.md\",\n        \"line\": 97,\n        \"cites\": \"docs/tickets/done/\"\n      },\n      {\n        \"file\": \".agents/skills/maintain/SKILL.md\",\n        \"line\": 98,\n        \"cites\": \"docs/rfc/done/\"\n      },\n      {\n        \"file\": \".agents/skills/maintain/SKILL.md\",\n        \"line\": 108,\n        \"cites\": \"docs/tickets/done/\"\n      },\n      {\n        \"file\": \".agents/skills/maintain/SKILL.md\",\n        \"line\": 125,\n        \"cites\": \"docs/mechanisms/maintenance.md\"\n      },\n      {\n        \"file\": \".agents/skills/mechanism/MECHANISM-FORMAT.md\",\n        \"line\": 247,\n        \"cites\": \"docs/mechanisms/\"\n      },\n      {\n        \"file\": \".agents/skills/mechanism/SKILL.md\",\n        \"line\": 45,\n        \"cites\": \"docs/mechanisms/\"\n      },\n      {\n        \"file\": \".agents/skills/plan/SKILL.md\",\n        \"line\": 140,\n        \"cites\": \"docs/rfc/\"\n      },\n      {\n        \"file\": \".agents/skills/plan/SKILL.md\",\n        \"line\": 141,\n        \"cites\": \"docs/rfc/done/\"\n      },\n      {\n        \"file\": \".agents/skills/setup-devops/SKILL.md\",\n        \"line\": 32,\n        \"cites\": \"docs/cicd.md\"\n      },\n      {\n        \"file\": \".agents/skills/spec/SKILL.md\",\n        \"line\": 35,\n        \"cites\": \"docs/spec/\"\n      },\n      {\n        \"file\": \".agents/skills/ticket/SKILL.md\",\n        \"line\": 12,\n        \"cites\": \"docs/tickets/\"\n      },\n      {\n        \"file\": \".agents/skills/ticket/SKILL.md\",\n        \"line\": 108,\n        \"cites\": \"docs/tickets/\"\n      },\n      {\n        \"file\": \".agents/skills/ticket/SKILL.md\",\n        \"line\": 113,\n        \"cites\": \"docs/tickets/done/\"\n      },\n      {\n        \"file\": \".agents/skills/ticket/TICKET-FORMAT.md\",\n        \"line\": 5,\n        \"cites\": \"docs/tickets/README.md\"\n      },\n      {\n        \"file\": \".agents/skills/ticket/TICKET-FORMAT.md\",\n        \"line\": 22,\n        \"cites\": \"docs/tickets/\"\n      },\n      {\n        \"file\": \".agents/skills/ticket/TICKET-FORMAT.md\",\n        \"line\": 22,\n        \"cites\": \"docs/tickets/done/\"\n      },\n      {\n        \"file\": \".agents/skills/ticket/TICKET-FORMAT.md\",\n        \"line\": 38,\n        \"cites\": \"docs/tickets/done/\"\n      },\n      {\n        \"file\": \".agents/skills/ticket/TICKET-FORMAT.md\",\n        \"line\": 38,\n        \"cites\": \"docs/rfc/done/\"\n      },\n      {\n        \"file\": \".agents/skills/ticket/TICKET-FORMAT.md\",\n        \"line\": 73,\n        \"cites\": \"docs/tickets/\"\n      },\n      {\n        \"file\": \".agents/skills/ticket/TICKET-FORMAT.md\",\n        \"line\": 111,\n        \"cites\": \"docs/rfc/\"\n      },\n      {\n        \"file\": \".agents/skills/ticket/TICKET-FORMAT.md\",\n        \"line\": 164,\n        \"cites\": \"docs/rfc/\"\n      },\n      {\n        \"file\": \".agents/skills/ticket/TICKET-FORMAT.md\",\n        \"line\": 164,\n        \"cites\": \"docs/rfc/done/\"\n      },\n      {\n        \"file\": \".agents/skills/ticket/TICKET-FORMAT.md\",\n        \"line\": 165,\n        \"cites\": \"docs/tickets/\"\n      },\n      {\n        \"file\": \".agents/skills/ticket/TICKET-FORMAT.md\",\n        \"line\": 165,\n        \"cites\": \"docs/tickets/done/\"\n      },\n      {\n        \"file\": \".agents/skills/ticket/TICKET-FORMAT.md\",\n        \"line\": 181,\n        \"cites\": \"docs/tickets/README.md\"\n      },\n      {\n        \"file\": \"AGENTS.md\",\n        \"line\": 50,\n        \"cites\": \"docs/tickets/\"\n      },\n      {\n        \"file\": \"AGENTS.md\",\n        \"line\": 50,\n        \"cites\": \"docs/glossary.md\"\n      },\n      {\n        \"file\": \"AGENTS.md\",\n        \"line\": 51,\n        \"cites\": \"docs/tickets/\"\n      },\n      {\n        \"file\": \"AGENTS.md\",\n        \"line\": 106,\n        \"cites\": \"docs/rule-failures.md\"\n      }\n    ],\n    \"skipped\": [\n      {\n        \"file\": \"AGENTS.md\",\n        \"line\": 144,\n        \"cites\": \"docs/glossary.md\"\n      },\n      {\n        \"file\": \"AGENTS.md\",\n        \"line\": 145,\n        \"cites\": \"docs/research/entry-contract-findings.md\"\n      }\n    ],\n    \"leaks\": []\n  },\n  \"diagnostics\": []\n}\n",
+      "stderr": ""
+    },
+    "tests": {
+      "exit": 0,
+      "seconds": 55.703,
+      "stdout": "",
+      "stderr": "...............................................s...............................................................................................................................................................................................................................................................................\n----------------------------------------------------------------------\nRan 319 tests in 54.653s\n\nOK (skipped=1)\n"
+    }
+  },
+  "probes": {
+    "install": {
+      "exit": 0,
+      "seconds": 6.782,
+      "stdout": "{\n  \"target\": \"C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\recipient\",\n  \"mode\": \"install\",\n  \"repository\": \"C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\source\",\n  \"ref\": {\n    \"repository\": \"source\",\n    \"commit\": \"f888c452d85bdce7d46ea452ffdec83b51ef049e\",\n    \"announced\": \"f888c45\",\n    \"date\": \"2026-09-30\"\n  },\n  \"written\": [\n    \".agents/README.md\",\n    \".agents/glossary.md\",\n    \".agents/mechanisms/harness/harness.md\",\n    \".agents/mechanisms/maintain/maintain.md\",\n    \".agents/mechanisms/maintain/maintain.rules.md\",\n    \".agents/mechanisms/mechanism-shape/mechanism-shape.md\",\n    \".agents/mechanisms/mechanism-shape/mechanism-shape.rules.md\",\n    \".agents/mechanisms/ticket/ticket.md\",\n    \".agents/mechanisms/ticket/ticket.rules.md\",\n    \".agents/scripts/gw/docs_corpus.py\",\n    \".agents/scripts/gw/harness.py\",\n    \".agents/scripts/gw/inject_rules.py\",\n    \".agents/scripts/gw/maintain.py\",\n    \".agents/scripts/gw/mechanisms.py\",\n    \".agents/scripts/gw/move_doc.py\",\n    \".agents/scripts/gw/straw_dogs.py\",\n    \".agents/scripts/gw/test/repository.py\",\n    \".agents/scripts/gw/test/test_citations.py\",\n    \".agents/scripts/gw/test/test_command_line.py\",\n    \".agents/scripts/gw/test/test_failure_contract.py\",\n    \".agents/scripts/gw/test/test_harness.py\",\n    \".agents/scripts/gw/test/test_inject_rules.py\",\n    \".agents/scripts/gw/test/test_maintain.py\",\n    \".agents/scripts/gw/test/test_mechanisms.py\",\n    \".agents/scripts/gw/test/test_paired_close.py\",\n    \".agents/scripts/gw/test/test_refusals.py\",\n    \".agents/scripts/gw/test/test_repository.py\",\n    \".agents/scripts/gw/test/test_straw_dogs.py\",\n    \".agents/scripts/gw/test/test_tickets.py\",\n    \".agents/scripts/gw/tickets.py\",\n    \".agents/skills/advise/SKILL.md\",\n    \".agents/skills/align/ADR-FORMAT.md\",\n    \".agents/skills/align/ARCH-FORMAT.md\",\n    \".agents/skills/align/EDGE-FORMAT.md\",\n    \".agents/skills/align/GLOSSARY-FORMAT.md\",\n    \".agents/skills/align/SKILL.md\",\n    \".agents/skills/celebrate/SKILL.md\",\n    \".agents/skills/commit/SKILL.md\",\n    \".agents/skills/conclude/SKILL.md\",\n    \".agents/skills/discover/EVIDENCE.md\",\n    \".agents/skills/discover/SKILL.md\",\n    \".agents/skills/dream/SKILL.md\",\n    \".agents/skills/edge/SKILL.md\",\n    \".agents/skills/harness/SKILL.md\",\n    \".agents/skills/impact/SKILL.md\",\n    \".agents/skills/implement/SKILL.md\",\n    \".agents/skills/improve-comments/SKILL.md\",\n    \".agents/skills/maintain/SKILL.md\",\n    \".agents/skills/mechanism/MECHANISM-FORMAT.md\",\n    \".agents/skills/mechanism/SKILL.md\",\n    \".agents/skills/plan/SKILL.md\",\n    \".agents/skills/recall/SKILL.md\",\n    \".agents/skills/review-architecture/REFERENCE.md\",\n    \".agents/skills/review-architecture/SKILL.md\",\n    \".agents/skills/setup-devops/SKILL.md\",\n    \".agents/skills/skill-up/SKILL.md\",\n    \".agents/skills/spec/SKILL.md\",\n    \".agents/skills/tdd/SKILL.md\",\n    \".agents/skills/tdd/deep-modules.md\",\n    \".agents/skills/tdd/interface-design.md\",\n    \".agents/skills/tdd/mocking.md\",\n    \".agents/skills/tdd/refactoring.md\",\n    \".agents/skills/tdd/tests.md\",\n    \".agents/skills/ticket/QUEUE-ARRIVAL.md\",\n    \".agents/skills/ticket/SKILL.md\",\n    \".agents/skills/ticket/TICKET-FORMAT.md\",\n    \".agents/skills/verify/SKILL.md\",\n    \"AGENTS.md\",\n    \"CLAUDE.md\",\n    \".agents/LICENSE\",\n    \"docs/tickets/README.md\"\n  ],\n  \"replaced\": [],\n  \"deleted\": [],\n  \"own\": [],\n  \"links\": [\n    {\n      \"link\": \".claude/skills\",\n      \"state\": \"pending\",\n      \"error\": \"[WinError 1314] A required privilege is not held by the client: '..\\\\\\\\.agents\\\\\\\\skills' -> 'C:\\\\\\\\Users\\\\\\\\fimar\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\goodwolf-evaluation-uu5gm6ox\\\\\\\\recipient\\\\\\\\.claude\\\\\\\\skills'\"\n    },\n    {\n      \"link\": \".cursor/skills\",\n      \"state\": \"pending\",\n      \"error\": \"[WinError 1314] A required privilege is not held by the client: '..\\\\\\\\.agents\\\\\\\\skills' -> 'C:\\\\\\\\Users\\\\\\\\fimar\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\goodwolf-evaluation-uu5gm6ox\\\\\\\\recipient\\\\\\\\.cursor\\\\\\\\skills'\"\n    }\n  ],\n  \"pending\": [\n    \"mklink /D \\\"C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\recipient\\\\.claude\\\\skills\\\" \\\"..\\\\.agents\\\\skills\\\"\",\n    \"mklink /D \\\"C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\recipient\\\\.cursor\\\\skills\\\" \\\"..\\\\.agents\\\\skills\\\"\"\n  ],\n  \"injected\": [\n    {\n      \"slug\": \"maintain\",\n      \"targets\": [\n        {\n          \"target\": \".agents/skills/mechanism/SKILL.md\",\n          \"state\": \"present\"\n        }\n      ]\n    },\n    {\n      \"slug\": \"mechanism-shape\",\n      \"targets\": [\n        {\n          \"target\": \".agents/skills/maintain/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \".agents/skills/mechanism/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \".agents/skills/align/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \".agents/skills/skill-up/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \"AGENTS.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \".agents/skills/verify/SKILL.md\",\n          \"state\": \"present\"\n        }\n      ]\n    },\n    {\n      \"slug\": \"ticket\",\n      \"targets\": [\n        {\n          \"target\": \".agents/skills/maintain/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \".agents/skills/plan/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \".agents/skills/align/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \"AGENTS.md\",\n          \"state\": \"present\"\n        }\n      ]\n    }\n  ],\n  \"gates\": {\n    \"ref\": {\n      \"passed\": true,\n      \"ref\": \"f888c45\",\n      \"differs\": [],\n      \"own\": []\n    },\n    \"injector\": {\n      \"passed\": true,\n      \"exit\": 0,\n      \"said\": [\n        \"  \\\"orphans\\\": [],\",\n        \"  \\\"diagnostics\\\": []\",\n        \"}\"\n      ]\n    },\n    \"shape\": {\n      \"passed\": true,\n      \"exit\": 0,\n      \"said\": [\n        \"  },\",\n        \"  \\\"diagnostics\\\": []\",\n        \"}\"\n      ]\n    }\n  },\n  \"links_resolve\": {\n    \".claude/skills\": false,\n    \".cursor/skills\": false\n  },\n  \"notes\": [\n    \"run the pending command(s) once in an elevated prompt, then `harness.py . --check`\",\n    \"core.symlinks is false in the target: a fresh clone checks the links out as text\",\n    \"whether a host reads the loader link is not observable from inside a tree\"\n  ],\n  \"refusals\": [],\n  \"arrived\": true\n}\n",
+      "stderr": "",
+      "report": {
+        "target": "C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-evaluation-uu5gm6ox\\recipient",
+        "mode": "install",
+        "repository": "C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-evaluation-uu5gm6ox\\source",
+        "ref": {
+          "repository": "source",
+          "commit": "f888c452d85bdce7d46ea452ffdec83b51ef049e",
+          "announced": "f888c45",
+          "date": "2026-09-30"
+        },
+        "written": [
+          ".agents/README.md",
+          ".agents/glossary.md",
+          ".agents/mechanisms/harness/harness.md",
+          ".agents/mechanisms/maintain/maintain.md",
+          ".agents/mechanisms/maintain/maintain.rules.md",
+          ".agents/mechanisms/mechanism-shape/mechanism-shape.md",
+          ".agents/mechanisms/mechanism-shape/mechanism-shape.rules.md",
+          ".agents/mechanisms/ticket/ticket.md",
+          ".agents/mechanisms/ticket/ticket.rules.md",
+          ".agents/scripts/gw/docs_corpus.py",
+          ".agents/scripts/gw/harness.py",
+          ".agents/scripts/gw/inject_rules.py",
+          ".agents/scripts/gw/maintain.py",
+          ".agents/scripts/gw/mechanisms.py",
+          ".agents/scripts/gw/move_doc.py",
+          ".agents/scripts/gw/straw_dogs.py",
+          ".agents/scripts/gw/test/repository.py",
+          ".agents/scripts/gw/test/test_citations.py",
+          ".agents/scripts/gw/test/test_command_line.py",
+          ".agents/scripts/gw/test/test_failure_contract.py",
+          ".agents/scripts/gw/test/test_harness.py",
+          ".agents/scripts/gw/test/test_inject_rules.py",
+          ".agents/scripts/gw/test/test_maintain.py",
+          ".agents/scripts/gw/test/test_mechanisms.py",
+          ".agents/scripts/gw/test/test_paired_close.py",
+          ".agents/scripts/gw/test/test_refusals.py",
+          ".agents/scripts/gw/test/test_repository.py",
+          ".agents/scripts/gw/test/test_straw_dogs.py",
+          ".agents/scripts/gw/test/test_tickets.py",
+          ".agents/scripts/gw/tickets.py",
+          ".agents/skills/advise/SKILL.md",
+          ".agents/skills/align/ADR-FORMAT.md",
+          ".agents/skills/align/ARCH-FORMAT.md",
+          ".agents/skills/align/EDGE-FORMAT.md",
+          ".agents/skills/align/GLOSSARY-FORMAT.md",
+          ".agents/skills/align/SKILL.md",
+          ".agents/skills/celebrate/SKILL.md",
+          ".agents/skills/commit/SKILL.md",
+          ".agents/skills/conclude/SKILL.md",
+          ".agents/skills/discover/EVIDENCE.md",
+          ".agents/skills/discover/SKILL.md",
+          ".agents/skills/dream/SKILL.md",
+          ".agents/skills/edge/SKILL.md",
+          ".agents/skills/harness/SKILL.md",
+          ".agents/skills/impact/SKILL.md",
+          ".agents/skills/implement/SKILL.md",
+          ".agents/skills/improve-comments/SKILL.md",
+          ".agents/skills/maintain/SKILL.md",
+          ".agents/skills/mechanism/MECHANISM-FORMAT.md",
+          ".agents/skills/mechanism/SKILL.md",
+          ".agents/skills/plan/SKILL.md",
+          ".agents/skills/recall/SKILL.md",
+          ".agents/skills/review-architecture/REFERENCE.md",
+          ".agents/skills/review-architecture/SKILL.md",
+          ".agents/skills/setup-devops/SKILL.md",
+          ".agents/skills/skill-up/SKILL.md",
+          ".agents/skills/spec/SKILL.md",
+          ".agents/skills/tdd/SKILL.md",
+          ".agents/skills/tdd/deep-modules.md",
+          ".agents/skills/tdd/interface-design.md",
+          ".agents/skills/tdd/mocking.md",
+          ".agents/skills/tdd/refactoring.md",
+          ".agents/skills/tdd/tests.md",
+          ".agents/skills/ticket/QUEUE-ARRIVAL.md",
+          ".agents/skills/ticket/SKILL.md",
+          ".agents/skills/ticket/TICKET-FORMAT.md",
+          ".agents/skills/verify/SKILL.md",
+          "AGENTS.md",
+          "CLAUDE.md",
+          ".agents/LICENSE",
+          "docs/tickets/README.md"
+        ],
+        "replaced": [],
+        "deleted": [],
+        "own": [],
+        "links": [
+          {
+            "link": ".claude/skills",
+            "state": "pending",
+            "error": "[WinError 1314] A required privilege is not held by the client: '..\\\\.agents\\\\skills' -> 'C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\recipient\\\\.claude\\\\skills'"
+          },
+          {
+            "link": ".cursor/skills",
+            "state": "pending",
+            "error": "[WinError 1314] A required privilege is not held by the client: '..\\\\.agents\\\\skills' -> 'C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\recipient\\\\.cursor\\\\skills'"
+          }
+        ],
+        "pending": [
+          "mklink /D \"C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-evaluation-uu5gm6ox\\recipient\\.claude\\skills\" \"..\\.agents\\skills\"",
+          "mklink /D \"C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-evaluation-uu5gm6ox\\recipient\\.cursor\\skills\" \"..\\.agents\\skills\""
+        ],
+        "injected": [
+          {
+            "slug": "maintain",
+            "targets": [
+              {
+                "target": ".agents/skills/mechanism/SKILL.md",
+                "state": "present"
+              }
+            ]
+          },
+          {
+            "slug": "mechanism-shape",
+            "targets": [
+              {
+                "target": ".agents/skills/maintain/SKILL.md",
+                "state": "present"
+              },
+              {
+                "target": ".agents/skills/mechanism/SKILL.md",
+                "state": "present"
+              },
+              {
+                "target": ".agents/skills/align/SKILL.md",
+                "state": "present"
+              },
+              {
+                "target": ".agents/skills/skill-up/SKILL.md",
+                "state": "present"
+              },
+              {
+                "target": "AGENTS.md",
+                "state": "present"
+              },
+              {
+                "target": ".agents/skills/verify/SKILL.md",
+                "state": "present"
+              }
+            ]
+          },
+          {
+            "slug": "ticket",
+            "targets": [
+              {
+                "target": ".agents/skills/maintain/SKILL.md",
+                "state": "present"
+              },
+              {
+                "target": ".agents/skills/plan/SKILL.md",
+                "state": "present"
+              },
+              {
+                "target": ".agents/skills/align/SKILL.md",
+                "state": "present"
+              },
+              {
+                "target": "AGENTS.md",
+                "state": "present"
+              }
+            ]
+          }
+        ],
+        "gates": {
+          "ref": {
+            "passed": true,
+            "ref": "f888c45",
+            "differs": [],
+            "own": []
+          },
+          "injector": {
+            "passed": true,
+            "exit": 0,
+            "said": [
+              "  \"orphans\": [],",
+              "  \"diagnostics\": []",
+              "}"
+            ]
+          },
+          "shape": {
+            "passed": true,
+            "exit": 0,
+            "said": [
+              "  },",
+              "  \"diagnostics\": []",
+              "}"
+            ]
+          }
+        },
+        "links_resolve": {
+          ".claude/skills": false,
+          ".cursor/skills": false
+        },
+        "notes": [
+          "run the pending command(s) once in an elevated prompt, then `harness.py . --check`",
+          "core.symlinks is false in the target: a fresh clone checks the links out as text",
+          "whether a host reads the loader link is not observable from inside a tree"
+        ],
+        "refusals": [],
+        "arrived": true
+      }
+    },
+    "intact_check": {
+      "exit": 0,
+      "seconds": 5.437,
+      "stdout": "{\n  \"target\": \"C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\recipient\",\n  \"mode\": \"check\",\n  \"repository\": \"C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\source\",\n  \"ref\": {\n    \"repository\": \"source\",\n    \"commit\": \"f888c452d85bdce7d46ea452ffdec83b51ef049e\",\n    \"announced\": \"f888c45\",\n    \"date\": \"2026-09-30\"\n  },\n  \"written\": [],\n  \"replaced\": [],\n  \"deleted\": [],\n  \"own\": [],\n  \"links\": [],\n  \"pending\": [],\n  \"injected\": [],\n  \"gates\": {\n    \"ref\": {\n      \"passed\": true,\n      \"ref\": \"f888c45\",\n      \"differs\": [],\n      \"own\": []\n    },\n    \"injector\": {\n      \"passed\": true,\n      \"exit\": 0,\n      \"said\": [\n        \"  \\\"orphans\\\": [],\",\n        \"  \\\"diagnostics\\\": []\",\n        \"}\"\n      ]\n    },\n    \"shape\": {\n      \"passed\": true,\n      \"exit\": 0,\n      \"said\": [\n        \"  },\",\n        \"  \\\"diagnostics\\\": []\",\n        \"}\"\n      ]\n    }\n  },\n  \"links_resolve\": {\n    \".claude/skills\": false,\n    \".cursor/skills\": false\n  },\n  \"notes\": [\n    \"whether a host reads the loader link is not observable from inside a tree\"\n  ],\n  \"refusals\": [],\n  \"arrived\": true\n}\n",
+      "stderr": "",
+      "report": {
+        "target": "C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-evaluation-uu5gm6ox\\recipient",
+        "mode": "check",
+        "repository": "C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-evaluation-uu5gm6ox\\source",
+        "ref": {
+          "repository": "source",
+          "commit": "f888c452d85bdce7d46ea452ffdec83b51ef049e",
+          "announced": "f888c45",
+          "date": "2026-09-30"
+        },
+        "written": [],
+        "replaced": [],
+        "deleted": [],
+        "own": [],
+        "links": [],
+        "pending": [],
+        "injected": [],
+        "gates": {
+          "ref": {
+            "passed": true,
+            "ref": "f888c45",
+            "differs": [],
+            "own": []
+          },
+          "injector": {
+            "passed": true,
+            "exit": 0,
+            "said": [
+              "  \"orphans\": [],",
+              "  \"diagnostics\": []",
+              "}"
+            ]
+          },
+          "shape": {
+            "passed": true,
+            "exit": 0,
+            "said": [
+              "  },",
+              "  \"diagnostics\": []",
+              "}"
+            ]
+          }
+        },
+        "links_resolve": {
+          ".claude/skills": false,
+          ".cursor/skills": false
+        },
+        "notes": [
+          "whether a host reads the loader link is not observable from inside a tree"
+        ],
+        "refusals": [],
+        "arrived": true
+      }
+    },
+    "new_path_collision": {
+      "classified_before": {
+        "exit": 0,
+        "seconds": 6.093,
+        "stdout": "{\n  \"target\": \"C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\recipient\",\n  \"mode\": \"check\",\n  \"repository\": \"C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\source\",\n  \"ref\": {\n    \"repository\": \"source\",\n    \"commit\": \"f888c452d85bdce7d46ea452ffdec83b51ef049e\",\n    \"announced\": \"f888c45\",\n    \"date\": \"2026-09-30\"\n  },\n  \"written\": [],\n  \"replaced\": [],\n  \"deleted\": [],\n  \"own\": [],\n  \"links\": [],\n  \"pending\": [],\n  \"injected\": [],\n  \"gates\": {\n    \"ref\": {\n      \"passed\": true,\n      \"ref\": \"f888c45\",\n      \"differs\": [],\n      \"own\": [\n        \".agents/evaluation-collision.txt\"\n      ]\n    },\n    \"injector\": {\n      \"passed\": true,\n      \"exit\": 0,\n      \"said\": [\n        \"  \\\"orphans\\\": [],\",\n        \"  \\\"diagnostics\\\": []\",\n        \"}\"\n      ]\n    },\n    \"shape\": {\n      \"passed\": true,\n      \"exit\": 0,\n      \"said\": [\n        \"  },\",\n        \"  \\\"diagnostics\\\": []\",\n        \"}\"\n      ]\n    }\n  },\n  \"links_resolve\": {\n    \".claude/skills\": false,\n    \".cursor/skills\": false\n  },\n  \"notes\": [\n    \"whether a host reads the loader link is not observable from inside a tree\"\n  ],\n  \"refusals\": [],\n  \"arrived\": true\n}\n",
+        "stderr": "",
+        "report": {
+          "target": "C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-evaluation-uu5gm6ox\\recipient",
+          "mode": "check",
+          "repository": "C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-evaluation-uu5gm6ox\\source",
+          "ref": {
+            "repository": "source",
+            "commit": "f888c452d85bdce7d46ea452ffdec83b51ef049e",
+            "announced": "f888c45",
+            "date": "2026-09-30"
+          },
+          "written": [],
+          "replaced": [],
+          "deleted": [],
+          "own": [],
+          "links": [],
+          "pending": [],
+          "injected": [],
+          "gates": {
+            "ref": {
+              "passed": true,
+              "ref": "f888c45",
+              "differs": [],
+              "own": [
+                ".agents/evaluation-collision.txt"
+              ]
+            },
+            "injector": {
+              "passed": true,
+              "exit": 0,
+              "said": [
+                "  \"orphans\": [],",
+                "  \"diagnostics\": []",
+                "}"
+              ]
+            },
+            "shape": {
+              "passed": true,
+              "exit": 0,
+              "said": [
+                "  },",
+                "  \"diagnostics\": []",
+                "}"
+              ]
+            }
+          },
+          "links_resolve": {
+            ".claude/skills": false,
+            ".cursor/skills": false
+          },
+          "notes": [
+            "whether a host reads the loader link is not observable from inside a tree"
+          ],
+          "refusals": [],
+          "arrived": true
+        }
+      },
+      "update": {
+        "exit": 0,
+        "seconds": 6.265,
+        "stdout": "{\n  \"target\": \"C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\recipient\",\n  \"mode\": \"update\",\n  \"repository\": \"C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\source\",\n  \"ref\": {\n    \"repository\": \"source\",\n    \"commit\": \"e7458daccf984eb97f5f0b7b528caffc14363aff\",\n    \"announced\": \"e7458da\",\n    \"date\": \"2026-09-30\"\n  },\n  \"written\": [\n    \".agents/evaluation-collision.txt\",\n    \"AGENTS.md\"\n  ],\n  \"replaced\": [],\n  \"deleted\": [],\n  \"own\": [],\n  \"links\": [\n    {\n      \"link\": \".claude/skills\",\n      \"state\": \"pending\",\n      \"error\": \"[WinError 1314] A required privilege is not held by the client: '..\\\\\\\\.agents\\\\\\\\skills' -> 'C:\\\\\\\\Users\\\\\\\\fimar\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\goodwolf-evaluation-uu5gm6ox\\\\\\\\recipient\\\\\\\\.claude\\\\\\\\skills'\"\n    },\n    {\n      \"link\": \".cursor/skills\",\n      \"state\": \"pending\",\n      \"error\": \"[WinError 1314] A required privilege is not held by the client: '..\\\\\\\\.agents\\\\\\\\skills' -> 'C:\\\\\\\\Users\\\\\\\\fimar\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\goodwolf-evaluation-uu5gm6ox\\\\\\\\recipient\\\\\\\\.cursor\\\\\\\\skills'\"\n    }\n  ],\n  \"pending\": [\n    \"mklink /D \\\"C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\recipient\\\\.claude\\\\skills\\\" \\\"..\\\\.agents\\\\skills\\\"\",\n    \"mklink /D \\\"C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\recipient\\\\.cursor\\\\skills\\\" \\\"..\\\\.agents\\\\skills\\\"\"\n  ],\n  \"injected\": [\n    {\n      \"slug\": \"maintain\",\n      \"targets\": [\n        {\n          \"target\": \".agents/skills/mechanism/SKILL.md\",\n          \"state\": \"present\"\n        }\n      ]\n    },\n    {\n      \"slug\": \"mechanism-shape\",\n      \"targets\": [\n        {\n          \"target\": \".agents/skills/maintain/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \".agents/skills/mechanism/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \".agents/skills/align/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \".agents/skills/skill-up/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \"AGENTS.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \".agents/skills/verify/SKILL.md\",\n          \"state\": \"present\"\n        }\n      ]\n    },\n    {\n      \"slug\": \"ticket\",\n      \"targets\": [\n        {\n          \"target\": \".agents/skills/maintain/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \".agents/skills/plan/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \".agents/skills/align/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \"AGENTS.md\",\n          \"state\": \"present\"\n        }\n      ]\n    }\n  ],\n  \"gates\": {\n    \"ref\": {\n      \"passed\": true,\n      \"ref\": \"e7458da\",\n      \"differs\": [],\n      \"own\": []\n    },\n    \"injector\": {\n      \"passed\": true,\n      \"exit\": 0,\n      \"said\": [\n        \"  \\\"orphans\\\": [],\",\n        \"  \\\"diagnostics\\\": []\",\n        \"}\"\n      ]\n    },\n    \"shape\": {\n      \"passed\": true,\n      \"exit\": 0,\n      \"said\": [\n        \"  },\",\n        \"  \\\"diagnostics\\\": []\",\n        \"}\"\n      ]\n    }\n  },\n  \"links_resolve\": {\n    \".claude/skills\": false,\n    \".cursor/skills\": false\n  },\n  \"notes\": [\n    \"docs/tickets/README.md is the project's: left as it stands\",\n    \"run the pending command(s) once in an elevated prompt, then `harness.py . --check`\",\n    \"core.symlinks is false in the target: a fresh clone checks the links out as text\",\n    \"whether a host reads the loader link is not observable from inside a tree\"\n  ],\n  \"refusals\": [],\n  \"arrived\": true\n}\n",
+        "stderr": "",
+        "report": {
+          "target": "C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-evaluation-uu5gm6ox\\recipient",
+          "mode": "update",
+          "repository": "C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-evaluation-uu5gm6ox\\source",
+          "ref": {
+            "repository": "source",
+            "commit": "e7458daccf984eb97f5f0b7b528caffc14363aff",
+            "announced": "e7458da",
+            "date": "2026-09-30"
+          },
+          "written": [
+            ".agents/evaluation-collision.txt",
+            "AGENTS.md"
+          ],
+          "replaced": [],
+          "deleted": [],
+          "own": [],
+          "links": [
+            {
+              "link": ".claude/skills",
+              "state": "pending",
+              "error": "[WinError 1314] A required privilege is not held by the client: '..\\\\.agents\\\\skills' -> 'C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\recipient\\\\.claude\\\\skills'"
+            },
+            {
+              "link": ".cursor/skills",
+              "state": "pending",
+              "error": "[WinError 1314] A required privilege is not held by the client: '..\\\\.agents\\\\skills' -> 'C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\recipient\\\\.cursor\\\\skills'"
+            }
+          ],
+          "pending": [
+            "mklink /D \"C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-evaluation-uu5gm6ox\\recipient\\.claude\\skills\" \"..\\.agents\\skills\"",
+            "mklink /D \"C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-evaluation-uu5gm6ox\\recipient\\.cursor\\skills\" \"..\\.agents\\skills\""
+          ],
+          "injected": [
+            {
+              "slug": "maintain",
+              "targets": [
+                {
+                  "target": ".agents/skills/mechanism/SKILL.md",
+                  "state": "present"
+                }
+              ]
+            },
+            {
+              "slug": "mechanism-shape",
+              "targets": [
+                {
+                  "target": ".agents/skills/maintain/SKILL.md",
+                  "state": "present"
+                },
+                {
+                  "target": ".agents/skills/mechanism/SKILL.md",
+                  "state": "present"
+                },
+                {
+                  "target": ".agents/skills/align/SKILL.md",
+                  "state": "present"
+                },
+                {
+                  "target": ".agents/skills/skill-up/SKILL.md",
+                  "state": "present"
+                },
+                {
+                  "target": "AGENTS.md",
+                  "state": "present"
+                },
+                {
+                  "target": ".agents/skills/verify/SKILL.md",
+                  "state": "present"
+                }
+              ]
+            },
+            {
+              "slug": "ticket",
+              "targets": [
+                {
+                  "target": ".agents/skills/maintain/SKILL.md",
+                  "state": "present"
+                },
+                {
+                  "target": ".agents/skills/plan/SKILL.md",
+                  "state": "present"
+                },
+                {
+                  "target": ".agents/skills/align/SKILL.md",
+                  "state": "present"
+                },
+                {
+                  "target": "AGENTS.md",
+                  "state": "present"
+                }
+              ]
+            }
+          ],
+          "gates": {
+            "ref": {
+              "passed": true,
+              "ref": "e7458da",
+              "differs": [],
+              "own": []
+            },
+            "injector": {
+              "passed": true,
+              "exit": 0,
+              "said": [
+                "  \"orphans\": [],",
+                "  \"diagnostics\": []",
+                "}"
+              ]
+            },
+            "shape": {
+              "passed": true,
+              "exit": 0,
+              "said": [
+                "  },",
+                "  \"diagnostics\": []",
+                "}"
+              ]
+            }
+          },
+          "links_resolve": {
+            ".claude/skills": false,
+            ".cursor/skills": false
+          },
+          "notes": [
+            "docs/tickets/README.md is the project's: left as it stands",
+            "run the pending command(s) once in an elevated prompt, then `harness.py . --check`",
+            "core.symlinks is false in the target: a fresh clone checks the links out as text",
+            "whether a host reads the loader link is not observable from inside a tree"
+          ],
+          "refusals": [],
+          "arrived": true
+        }
+      },
+      "recipient_file_preserved": false,
+      "content_after": "new upstream file\n"
+    },
+    "refusal_side_effects": {
+      "install": {
+        "exit": 1,
+        "seconds": 4.281,
+        "stdout": "{\n  \"target\": \"C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\invalid-local\",\n  \"mode\": \"install\",\n  \"repository\": \"C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\source\",\n  \"ref\": {\n    \"repository\": \"source\",\n    \"commit\": \"f888c452d85bdce7d46ea452ffdec83b51ef049e\",\n    \"announced\": \"f888c45\",\n    \"date\": \"2026-09-30\"\n  },\n  \"written\": [\n    \".agents/README.md\",\n    \".agents/glossary.md\",\n    \".agents/mechanisms/harness/harness.md\",\n    \".agents/mechanisms/maintain/maintain.md\",\n    \".agents/mechanisms/maintain/maintain.rules.md\",\n    \".agents/mechanisms/mechanism-shape/mechanism-shape.md\",\n    \".agents/mechanisms/mechanism-shape/mechanism-shape.rules.md\",\n    \".agents/mechanisms/ticket/ticket.md\",\n    \".agents/mechanisms/ticket/ticket.rules.md\",\n    \".agents/scripts/gw/docs_corpus.py\",\n    \".agents/scripts/gw/harness.py\",\n    \".agents/scripts/gw/inject_rules.py\",\n    \".agents/scripts/gw/maintain.py\",\n    \".agents/scripts/gw/mechanisms.py\",\n    \".agents/scripts/gw/move_doc.py\",\n    \".agents/scripts/gw/straw_dogs.py\",\n    \".agents/scripts/gw/test/repository.py\",\n    \".agents/scripts/gw/test/test_citations.py\",\n    \".agents/scripts/gw/test/test_command_line.py\",\n    \".agents/scripts/gw/test/test_failure_contract.py\",\n    \".agents/scripts/gw/test/test_harness.py\",\n    \".agents/scripts/gw/test/test_inject_rules.py\",\n    \".agents/scripts/gw/test/test_maintain.py\",\n    \".agents/scripts/gw/test/test_mechanisms.py\",\n    \".agents/scripts/gw/test/test_paired_close.py\",\n    \".agents/scripts/gw/test/test_refusals.py\",\n    \".agents/scripts/gw/test/test_repository.py\",\n    \".agents/scripts/gw/test/test_straw_dogs.py\",\n    \".agents/scripts/gw/test/test_tickets.py\",\n    \".agents/scripts/gw/tickets.py\",\n    \".agents/skills/advise/SKILL.md\",\n    \".agents/skills/align/ADR-FORMAT.md\",\n    \".agents/skills/align/ARCH-FORMAT.md\",\n    \".agents/skills/align/EDGE-FORMAT.md\",\n    \".agents/skills/align/GLOSSARY-FORMAT.md\",\n    \".agents/skills/align/SKILL.md\",\n    \".agents/skills/celebrate/SKILL.md\",\n    \".agents/skills/commit/SKILL.md\",\n    \".agents/skills/conclude/SKILL.md\",\n    \".agents/skills/discover/EVIDENCE.md\",\n    \".agents/skills/discover/SKILL.md\",\n    \".agents/skills/dream/SKILL.md\",\n    \".agents/skills/edge/SKILL.md\",\n    \".agents/skills/harness/SKILL.md\",\n    \".agents/skills/impact/SKILL.md\",\n    \".agents/skills/implement/SKILL.md\",\n    \".agents/skills/improve-comments/SKILL.md\",\n    \".agents/skills/maintain/SKILL.md\",\n    \".agents/skills/mechanism/MECHANISM-FORMAT.md\",\n    \".agents/skills/mechanism/SKILL.md\",\n    \".agents/skills/plan/SKILL.md\",\n    \".agents/skills/recall/SKILL.md\",\n    \".agents/skills/review-architecture/REFERENCE.md\",\n    \".agents/skills/review-architecture/SKILL.md\",\n    \".agents/skills/setup-devops/SKILL.md\",\n    \".agents/skills/skill-up/SKILL.md\",\n    \".agents/skills/spec/SKILL.md\",\n    \".agents/skills/tdd/SKILL.md\",\n    \".agents/skills/tdd/deep-modules.md\",\n    \".agents/skills/tdd/interface-design.md\",\n    \".agents/skills/tdd/mocking.md\",\n    \".agents/skills/tdd/refactoring.md\",\n    \".agents/skills/tdd/tests.md\",\n    \".agents/skills/ticket/QUEUE-ARRIVAL.md\",\n    \".agents/skills/ticket/SKILL.md\",\n    \".agents/skills/ticket/TICKET-FORMAT.md\",\n    \".agents/skills/verify/SKILL.md\",\n    \"AGENTS.md\",\n    \"CLAUDE.md\",\n    \".agents/LICENSE\",\n    \"docs/tickets/README.md\"\n  ],\n  \"replaced\": [],\n  \"deleted\": [],\n  \"own\": [],\n  \"links\": [\n    {\n      \"link\": \".claude/skills\",\n      \"state\": \"pending\",\n      \"error\": \"[WinError 1314] A required privilege is not held by the client: '..\\\\\\\\.agents\\\\\\\\skills' -> 'C:\\\\\\\\Users\\\\\\\\fimar\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\goodwolf-evaluation-uu5gm6ox\\\\\\\\invalid-local\\\\\\\\.claude\\\\\\\\skills'\"\n    },\n    {\n      \"link\": \".cursor/skills\",\n      \"state\": \"pending\",\n      \"error\": \"[WinError 1314] A required privilege is not held by the client: '..\\\\\\\\.agents\\\\\\\\skills' -> 'C:\\\\\\\\Users\\\\\\\\fimar\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\goodwolf-evaluation-uu5gm6ox\\\\\\\\invalid-local\\\\\\\\.cursor\\\\\\\\skills'\"\n    }\n  ],\n  \"pending\": [\n    \"mklink /D \\\"C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\invalid-local\\\\.claude\\\\skills\\\" \\\"..\\\\.agents\\\\skills\\\"\",\n    \"mklink /D \\\"C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\invalid-local\\\\.cursor\\\\skills\\\" \\\"..\\\\.agents\\\\skills\\\"\"\n  ],\n  \"injected\": [\n    {\n      \"slug\": \"maintain\",\n      \"targets\": [\n        {\n          \"target\": \".agents/skills/mechanism/SKILL.md\",\n          \"state\": \"present\"\n        }\n      ]\n    },\n    {\n      \"slug\": \"mechanism-shape\",\n      \"targets\": [\n        {\n          \"target\": \".agents/skills/maintain/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \".agents/skills/mechanism/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \".agents/skills/align/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \".agents/skills/skill-up/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \"AGENTS.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \".agents/skills/verify/SKILL.md\",\n          \"state\": \"present\"\n        }\n      ]\n    },\n    {\n      \"slug\": \"ticket\",\n      \"targets\": [\n        {\n          \"target\": \".agents/skills/maintain/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \".agents/skills/plan/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \".agents/skills/align/SKILL.md\",\n          \"state\": \"present\"\n        },\n        {\n          \"target\": \"AGENTS.md\",\n          \"state\": \"present\"\n        }\n      ]\n    }\n  ],\n  \"gates\": {},\n  \"links_resolve\": {},\n  \"notes\": [\n    \"run the pending command(s) once in an elevated prompt, then `harness.py . --check`\",\n    \"core.symlinks is false in the target: a fresh clone checks the links out as text\"\n  ],\n  \"refusals\": [\n    \"inject: local: no rule sections \\u2014 an install of nothing is not a success; fix local.rules.md, run inject_rules.py local --install, then harness.py . --check\"\n  ],\n  \"arrived\": false\n}\n",
+        "stderr": "",
+        "report": {
+          "target": "C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-evaluation-uu5gm6ox\\invalid-local",
+          "mode": "install",
+          "repository": "C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-evaluation-uu5gm6ox\\source",
+          "ref": {
+            "repository": "source",
+            "commit": "f888c452d85bdce7d46ea452ffdec83b51ef049e",
+            "announced": "f888c45",
+            "date": "2026-09-30"
+          },
+          "written": [
+            ".agents/README.md",
+            ".agents/glossary.md",
+            ".agents/mechanisms/harness/harness.md",
+            ".agents/mechanisms/maintain/maintain.md",
+            ".agents/mechanisms/maintain/maintain.rules.md",
+            ".agents/mechanisms/mechanism-shape/mechanism-shape.md",
+            ".agents/mechanisms/mechanism-shape/mechanism-shape.rules.md",
+            ".agents/mechanisms/ticket/ticket.md",
+            ".agents/mechanisms/ticket/ticket.rules.md",
+            ".agents/scripts/gw/docs_corpus.py",
+            ".agents/scripts/gw/harness.py",
+            ".agents/scripts/gw/inject_rules.py",
+            ".agents/scripts/gw/maintain.py",
+            ".agents/scripts/gw/mechanisms.py",
+            ".agents/scripts/gw/move_doc.py",
+            ".agents/scripts/gw/straw_dogs.py",
+            ".agents/scripts/gw/test/repository.py",
+            ".agents/scripts/gw/test/test_citations.py",
+            ".agents/scripts/gw/test/test_command_line.py",
+            ".agents/scripts/gw/test/test_failure_contract.py",
+            ".agents/scripts/gw/test/test_harness.py",
+            ".agents/scripts/gw/test/test_inject_rules.py",
+            ".agents/scripts/gw/test/test_maintain.py",
+            ".agents/scripts/gw/test/test_mechanisms.py",
+            ".agents/scripts/gw/test/test_paired_close.py",
+            ".agents/scripts/gw/test/test_refusals.py",
+            ".agents/scripts/gw/test/test_repository.py",
+            ".agents/scripts/gw/test/test_straw_dogs.py",
+            ".agents/scripts/gw/test/test_tickets.py",
+            ".agents/scripts/gw/tickets.py",
+            ".agents/skills/advise/SKILL.md",
+            ".agents/skills/align/ADR-FORMAT.md",
+            ".agents/skills/align/ARCH-FORMAT.md",
+            ".agents/skills/align/EDGE-FORMAT.md",
+            ".agents/skills/align/GLOSSARY-FORMAT.md",
+            ".agents/skills/align/SKILL.md",
+            ".agents/skills/celebrate/SKILL.md",
+            ".agents/skills/commit/SKILL.md",
+            ".agents/skills/conclude/SKILL.md",
+            ".agents/skills/discover/EVIDENCE.md",
+            ".agents/skills/discover/SKILL.md",
+            ".agents/skills/dream/SKILL.md",
+            ".agents/skills/edge/SKILL.md",
+            ".agents/skills/harness/SKILL.md",
+            ".agents/skills/impact/SKILL.md",
+            ".agents/skills/implement/SKILL.md",
+            ".agents/skills/improve-comments/SKILL.md",
+            ".agents/skills/maintain/SKILL.md",
+            ".agents/skills/mechanism/MECHANISM-FORMAT.md",
+            ".agents/skills/mechanism/SKILL.md",
+            ".agents/skills/plan/SKILL.md",
+            ".agents/skills/recall/SKILL.md",
+            ".agents/skills/review-architecture/REFERENCE.md",
+            ".agents/skills/review-architecture/SKILL.md",
+            ".agents/skills/setup-devops/SKILL.md",
+            ".agents/skills/skill-up/SKILL.md",
+            ".agents/skills/spec/SKILL.md",
+            ".agents/skills/tdd/SKILL.md",
+            ".agents/skills/tdd/deep-modules.md",
+            ".agents/skills/tdd/interface-design.md",
+            ".agents/skills/tdd/mocking.md",
+            ".agents/skills/tdd/refactoring.md",
+            ".agents/skills/tdd/tests.md",
+            ".agents/skills/ticket/QUEUE-ARRIVAL.md",
+            ".agents/skills/ticket/SKILL.md",
+            ".agents/skills/ticket/TICKET-FORMAT.md",
+            ".agents/skills/verify/SKILL.md",
+            "AGENTS.md",
+            "CLAUDE.md",
+            ".agents/LICENSE",
+            "docs/tickets/README.md"
+          ],
+          "replaced": [],
+          "deleted": [],
+          "own": [],
+          "links": [
+            {
+              "link": ".claude/skills",
+              "state": "pending",
+              "error": "[WinError 1314] A required privilege is not held by the client: '..\\\\.agents\\\\skills' -> 'C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\invalid-local\\\\.claude\\\\skills'"
+            },
+            {
+              "link": ".cursor/skills",
+              "state": "pending",
+              "error": "[WinError 1314] A required privilege is not held by the client: '..\\\\.agents\\\\skills' -> 'C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\invalid-local\\\\.cursor\\\\skills'"
+            }
+          ],
+          "pending": [
+            "mklink /D \"C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-evaluation-uu5gm6ox\\invalid-local\\.claude\\skills\" \"..\\.agents\\skills\"",
+            "mklink /D \"C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-evaluation-uu5gm6ox\\invalid-local\\.cursor\\skills\" \"..\\.agents\\skills\""
+          ],
+          "injected": [
+            {
+              "slug": "maintain",
+              "targets": [
+                {
+                  "target": ".agents/skills/mechanism/SKILL.md",
+                  "state": "present"
+                }
+              ]
+            },
+            {
+              "slug": "mechanism-shape",
+              "targets": [
+                {
+                  "target": ".agents/skills/maintain/SKILL.md",
+                  "state": "present"
+                },
+                {
+                  "target": ".agents/skills/mechanism/SKILL.md",
+                  "state": "present"
+                },
+                {
+                  "target": ".agents/skills/align/SKILL.md",
+                  "state": "present"
+                },
+                {
+                  "target": ".agents/skills/skill-up/SKILL.md",
+                  "state": "present"
+                },
+                {
+                  "target": "AGENTS.md",
+                  "state": "present"
+                },
+                {
+                  "target": ".agents/skills/verify/SKILL.md",
+                  "state": "present"
+                }
+              ]
+            },
+            {
+              "slug": "ticket",
+              "targets": [
+                {
+                  "target": ".agents/skills/maintain/SKILL.md",
+                  "state": "present"
+                },
+                {
+                  "target": ".agents/skills/plan/SKILL.md",
+                  "state": "present"
+                },
+                {
+                  "target": ".agents/skills/align/SKILL.md",
+                  "state": "present"
+                },
+                {
+                  "target": "AGENTS.md",
+                  "state": "present"
+                }
+              ]
+            }
+          ],
+          "gates": {},
+          "links_resolve": {},
+          "notes": [
+            "run the pending command(s) once in an elevated prompt, then `harness.py . --check`",
+            "core.symlinks is false in the target: a fresh clone checks the links out as text"
+          ],
+          "refusals": [
+            "inject: local: no rule sections \u2014 an install of nothing is not a success; fix local.rules.md, run inject_rules.py local --install, then harness.py . --check"
+          ],
+          "arrived": false
+        }
+      },
+      "unchanged": false,
+      "added": [
+        ".agents/LICENSE",
+        ".agents/README.md",
+        ".agents/glossary.md",
+        ".agents/mechanisms/harness/harness.md",
+        ".agents/mechanisms/maintain/maintain.md",
+        ".agents/mechanisms/maintain/maintain.rules.md",
+        ".agents/mechanisms/mechanism-shape/mechanism-shape.md",
+        ".agents/mechanisms/mechanism-shape/mechanism-shape.rules.md",
+        ".agents/mechanisms/ticket/ticket.md",
+        ".agents/mechanisms/ticket/ticket.rules.md",
+        ".agents/scripts/gw/docs_corpus.py",
+        ".agents/scripts/gw/harness.py",
+        ".agents/scripts/gw/inject_rules.py",
+        ".agents/scripts/gw/maintain.py",
+        ".agents/scripts/gw/mechanisms.py",
+        ".agents/scripts/gw/move_doc.py",
+        ".agents/scripts/gw/straw_dogs.py",
+        ".agents/scripts/gw/test/repository.py",
+        ".agents/scripts/gw/test/test_citations.py",
+        ".agents/scripts/gw/test/test_command_line.py",
+        ".agents/scripts/gw/test/test_failure_contract.py",
+        ".agents/scripts/gw/test/test_harness.py",
+        ".agents/scripts/gw/test/test_inject_rules.py",
+        ".agents/scripts/gw/test/test_maintain.py",
+        ".agents/scripts/gw/test/test_mechanisms.py",
+        ".agents/scripts/gw/test/test_paired_close.py",
+        ".agents/scripts/gw/test/test_refusals.py",
+        ".agents/scripts/gw/test/test_repository.py",
+        ".agents/scripts/gw/test/test_straw_dogs.py",
+        ".agents/scripts/gw/test/test_tickets.py",
+        ".agents/scripts/gw/tickets.py",
+        ".agents/skills/advise/SKILL.md",
+        ".agents/skills/align/ADR-FORMAT.md",
+        ".agents/skills/align/ARCH-FORMAT.md",
+        ".agents/skills/align/EDGE-FORMAT.md",
+        ".agents/skills/align/GLOSSARY-FORMAT.md",
+        ".agents/skills/align/SKILL.md",
+        ".agents/skills/celebrate/SKILL.md",
+        ".agents/skills/commit/SKILL.md",
+        ".agents/skills/conclude/SKILL.md",
+        ".agents/skills/discover/EVIDENCE.md",
+        ".agents/skills/discover/SKILL.md",
+        ".agents/skills/dream/SKILL.md",
+        ".agents/skills/edge/SKILL.md",
+        ".agents/skills/harness/SKILL.md",
+        ".agents/skills/impact/SKILL.md",
+        ".agents/skills/implement/SKILL.md",
+        ".agents/skills/improve-comments/SKILL.md",
+        ".agents/skills/maintain/SKILL.md",
+        ".agents/skills/mechanism/MECHANISM-FORMAT.md",
+        ".agents/skills/mechanism/SKILL.md",
+        ".agents/skills/plan/SKILL.md",
+        ".agents/skills/recall/SKILL.md",
+        ".agents/skills/review-architecture/REFERENCE.md",
+        ".agents/skills/review-architecture/SKILL.md",
+        ".agents/skills/setup-devops/SKILL.md",
+        ".agents/skills/skill-up/SKILL.md",
+        ".agents/skills/spec/SKILL.md",
+        ".agents/skills/tdd/SKILL.md",
+        ".agents/skills/tdd/deep-modules.md",
+        ".agents/skills/tdd/interface-design.md",
+        ".agents/skills/tdd/mocking.md",
+        ".agents/skills/tdd/refactoring.md",
+        ".agents/skills/tdd/tests.md",
+        ".agents/skills/ticket/QUEUE-ARRIVAL.md",
+        ".agents/skills/ticket/SKILL.md",
+        ".agents/skills/ticket/TICKET-FORMAT.md",
+        ".agents/skills/verify/SKILL.md",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "docs/tickets/README.md"
+      ],
+      "changed": []
+    },
+    "core_drift": {
+      "exit": 1,
+      "seconds": 5.796,
+      "stdout": "{\n  \"target\": \"C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\recipient\",\n  \"mode\": \"check\",\n  \"repository\": \"C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-evaluation-uu5gm6ox\\\\source\",\n  \"ref\": {\n    \"repository\": \"source\",\n    \"commit\": \"e7458daccf984eb97f5f0b7b528caffc14363aff\",\n    \"announced\": \"e7458da\",\n    \"date\": \"2026-09-30\"\n  },\n  \"written\": [],\n  \"replaced\": [],\n  \"deleted\": [],\n  \"own\": [],\n  \"links\": [],\n  \"pending\": [],\n  \"injected\": [],\n  \"gates\": {\n    \"ref\": {\n      \"passed\": false,\n      \"ref\": \"e7458da\",\n      \"differs\": [\n        \".agents/skills/recall/SKILL.md\"\n      ],\n      \"own\": []\n    },\n    \"injector\": {\n      \"passed\": true,\n      \"exit\": 0,\n      \"said\": [\n        \"  \\\"orphans\\\": [],\",\n        \"  \\\"diagnostics\\\": []\",\n        \"}\"\n      ]\n    },\n    \"shape\": {\n      \"passed\": true,\n      \"exit\": 0,\n      \"said\": [\n        \"  },\",\n        \"  \\\"diagnostics\\\": []\",\n        \"}\"\n      ]\n    }\n  },\n  \"links_resolve\": {\n    \".claude/skills\": false,\n    \".cursor/skills\": false\n  },\n  \"notes\": [\n    \"whether a host reads the loader link is not observable from inside a tree\"\n  ],\n  \"refusals\": [],\n  \"arrived\": false\n}\n",
+      "stderr": "",
+      "report": {
+        "target": "C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-evaluation-uu5gm6ox\\recipient",
+        "mode": "check",
+        "repository": "C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-evaluation-uu5gm6ox\\source",
+        "ref": {
+          "repository": "source",
+          "commit": "e7458daccf984eb97f5f0b7b528caffc14363aff",
+          "announced": "e7458da",
+          "date": "2026-09-30"
+        },
+        "written": [],
+        "replaced": [],
+        "deleted": [],
+        "own": [],
+        "links": [],
+        "pending": [],
+        "injected": [],
+        "gates": {
+          "ref": {
+            "passed": false,
+            "ref": "e7458da",
+            "differs": [
+              ".agents/skills/recall/SKILL.md"
+            ],
+            "own": []
+          },
+          "injector": {
+            "passed": true,
+            "exit": 0,
+            "said": [
+              "  \"orphans\": [],",
+              "  \"diagnostics\": []",
+              "}"
+            ]
+          },
+          "shape": {
+            "passed": true,
+            "exit": 0,
+            "said": [
+              "  },",
+              "  \"diagnostics\": []",
+              "}"
+            ]
+          }
+        },
+        "links_resolve": {
+          ".claude/skills": false,
+          ".cursor/skills": false
+        },
+        "notes": [
+          "whether a host reads the loader link is not observable from inside a tree"
+        ],
+        "refusals": [],
+        "arrived": false
+      }
+    }
+  },
+  "checks_preserve_files": true,
+  "inventory": {
+    "core_markdown": {
+      "files": 46,
+      "words_whitespace_split": 33314,
+      "lines": 4176
+    },
+    "core_python": {
+      "files": 8,
+      "words_whitespace_split": 20714,
+      "lines": 4292
+    },
+    "test_python": {
+      "files": 13,
+      "words_whitespace_split": 13982,
+      "lines": 4626
+    },
+    "docs_markdown": {
+      "files": 151,
+      "words_whitespace_split": 304640,
+      "lines": 25607
+    },
+    "skills": 23,
+    "declared_mechanisms": [
+      "harness",
+      "maintain",
+      "mechanism-shape",
+      "ticket"
+    ],
+    "live_tickets": 35,
+    "done_tickets": 25,
+    "queue_words": 4735,
+    "ci_paths": []
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "revision": "924d0b989401d3c4698133735bfbbabe0da4d329",
+  "hash_seed": "1",
+  "saved_trials": 83,
+  "answer_files": 83,
+  "score_as_committed": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-research-probe-u_v0ra51\\docs\\research\\window-test\\score.py\", line 50, in <module>\n    elif t['rendering'] == 'window' and t['task'] == 'place_far' and g == root_of(t['size'], truth):\n                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-research-probe-u_v0ra51\\docs\\research\\window-test\\score.py\", line 17, in root_of\n    s = store(size)\n        ^^^^^^^^^^^\n  File \"C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-research-probe-u_v0ra51\\docs\\research\\window-test\\score.py\", line 11, in store\n    nodes = json.load(open(os.path.join(OUT, f'store{size}', 'store.json'), encoding='utf-8'))\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-research-probe-u_v0ra51\\\\docs\\\\research\\\\window-test\\\\store100\\\\store.json'\n"
+  },
+  "generate": {
+    "exit": 0,
+    "stdout": "83 trials\n100 nodes 116 roots 2\n1000 nodes 1000 roots 18\n10000 nodes 10000 roots 117\n30000 nodes 30000 roots 342\n100 flat 115 lines 2804 ~tokens\n100 tree 114 lines 2455 ~tokens\n100 paths 115 lines 2687 ~tokens\n100 window 56 lines 1007 ~tokens\n1000 flat 999 lines 26272 ~tokens\n1000 tree 999 lines 23243 ~tokens\n1000 paths 999 lines 25218 ~tokens\n1000 window 59 lines 1146 ~tokens\n10000 flat 9999 lines 267973 ~tokens\n10000 tree 9997 lines 236594 ~tokens\n10000 paths 9999 lines 260553 ~tokens\n10000 window 189 lines 4091 ~tokens\n30000 flat 29999 lines 811100 ~tokens\n30000 window 414 lines 9095 ~tokens\n",
+    "stderr": ""
+  },
+  "generated_trials": 83,
+  "generated_missing_tag": 83,
+  "changed_trial_truths": 59,
+  "score_after_generate": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-research-probe-u_v0ra51\\docs\\research\\window-test\\score.py\", line 39, in <module>\n    got = parse(os.path.join(OUT, 'answers', t['tag'] + '.txt'))\n                                             ~^^^^^^^\nKeyError: 'tag'\n"
+  }
+}
