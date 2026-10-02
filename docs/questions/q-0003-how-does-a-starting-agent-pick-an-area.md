@@ -2,3 +2,4 @@
 
 - **part of** q-0016
 - **state** open
+- **lean** an agent's area is part of the scope its role grants at its start
