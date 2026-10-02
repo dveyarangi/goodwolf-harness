@@ -2,4 +2,4 @@
 
 - **part of** q-0009
 - **state** closed:decided
-- **answer** [the declared line](../../.agents/skills/questions/SKILL.md#the-declared-line) — the user, 2026-10-02
+- **answer** [the declared line](../../../.agents/skills/questions/SKILL.md#the-declared-line) — the user, 2026-10-02
