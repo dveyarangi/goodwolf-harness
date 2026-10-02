@@ -1,3 +1,4 @@
+<straw-dog until="the edge mechanism installs its rules into /align" ticket="docs/tickets/01-0010.0100-remaining-named-corpus.md">
 # Edge record Format
 
 One record per product surface, a living document at `docs/edge/<surface>.md` (e.g. `mcp.md`,
@@ -68,3 +69,4 @@ ticket. Plans, not promises.
 - **A contract change is named out loud.** Any edit that changes a promise is declared breaking
   or compatible at the moment it is made (the `/align` Edge challenge rule). When a Roadmap
   entry's ticket lands, the same edit that updates `Contract` removes the entry.
+</straw-dog>

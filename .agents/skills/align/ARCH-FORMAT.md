@@ -1,3 +1,4 @@
+<straw-dog until="the practice mechanism installs how architecture is documented" ticket="docs/tickets/01-0017.0020-practice-swaps-in-one-edit.md">
 # architecture.md format
 
 `architecture.md` captures the **high-level architecture**. Unresolved concerns are intentionally **deferred** and listed at the end. Keep in mind that as the document evolves, deferred concerns may become part of the core document.
@@ -42,3 +43,4 @@ This document captures the **high-level architecture**. See [`glossary.md`](./gl
 ## ADR index
 
 ```
+</straw-dog>

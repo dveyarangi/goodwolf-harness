@@ -1,3 +1,4 @@
+<straw-dog until="the glossary mechanism installs its rules into /align" ticket="docs/tickets/01-0017.0010-terms-defined-before-they-land.md">
 # glossary.md Format
 
 ## Structure
@@ -58,3 +59,4 @@ The skill infers which structure applies:
 - If neither exists, create `docs/glossary.md` lazily when the first term is resolved
 
 When multiple contexts exist, infer which one the current topic relates to. If unclear, ask.
+</straw-dog>
