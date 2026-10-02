@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v19, 2026-10-03.
+Entry contract: v20, 2026-10-03.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -49,10 +49,10 @@ question:
 - `questions.py open '<question>' --under q-0004 --session <tag>`, which prints the id it gave
 - `questions.py close q-0004 decided '[link](../path.md) — who, date' --session <tag>`
 
-A message that answers nothing near the current question opens what that question cannot be
-answered without; one that lands nowhere makes no call. Only the working agent calls, never a
-helper. Under `debug=on`, show each call where it happened. For any other call, a closure, a
-branching or a drop, read the questions skill.
+Before opening a question, look for its answer in the docs and the code: found, point to it and
+open nothing; not found, open it. A message that lands nowhere makes no call. Only the working
+agent calls, never a helper. Under `debug=on`, show each call where it happened. For any other
+call, a closure, a branching or a drop, read the questions skill.
 </installed>
 
 ## Core and instance

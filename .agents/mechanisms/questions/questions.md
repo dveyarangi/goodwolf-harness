@@ -45,7 +45,14 @@ is drawn only when the session's position or an entry moved, and whole again aft
 **Three levels**, each usable without the next: the store, where the agent judges and nobody watches
 it; a judge outside the generator, which catches the agent's own descents; the hook, after which
 nothing is left to remember. The window's half of the hook lands with the store; the write after
-the turn waits on the judge.
+the turn waits on the judge. Whether a question is load-bearing, or hides parts, is the judge's to
+judge, since the agent fails at both; without a judge the instruction stands where the agent reads
+it, and the agent tries.
+
+**Rights.** An agent's rights over the store come from the role it starts with, which also grants
+its permissions and its skill set. The harness has one role, the HITL session, driven by a person
+and holding every right, so the store checks none. What a role is, and which mechanism keeps
+roles, is an open question of the store.
 
 ## Moments
 

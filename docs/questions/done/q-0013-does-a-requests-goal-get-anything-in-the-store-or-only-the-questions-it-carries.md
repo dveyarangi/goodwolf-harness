@@ -3,4 +3,4 @@
 - **part of** q-0009
 - **depends on** q-0011
 - **state** closed:decided
-- **answer** [decision 52](../../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md#decisions-landed-at-this-tickets-align) — the user, 2026-10-02
+- **answer** [the questions skill's *A raised question*](../../../.agents/skills/questions/SKILL.md#a-raised-question) — the user, 2026-10-02

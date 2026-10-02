@@ -15,6 +15,19 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v20 — 2026-10-03
+
+**A raised question is looked up before it is held** — Q1's newcomer sentence replaced by the
+lookup, installed by
+[01-0011.0100.0012](../tickets/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md):
+*before opening a question, look for its answer in the docs and the code: found, point to it and
+open nothing; not found, open it*, agreed verbatim. Its occasion is placing a message, where Q1 is
+the only text read
+([decision 47](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md#decisions-landed-at-this-tickets-align));
+the skill alone would not be read when a question is raised. Decision 32's placement test — open
+what the current question cannot be answered without — leaves tier 1 for the questions skill's
+*A raised question*, and *a message that lands nowhere makes no call* stays.
+
 ## v19 — 2026-10-03
 
 **The agent calls a subcommand per event** — Q1's examples, installed by

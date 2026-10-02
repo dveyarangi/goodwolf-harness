@@ -13,7 +13,7 @@ install it with overwrite; the block in a target is never the place.
 ## Q1 — every message is placed before it is answered
 
 - **target** `AGENTS.md`
-- **authority** the user, 2026-09-28 to 2026-10-03 — 01-0011.0100 decisions 32, 39, 44, 45 and 56
+- **authority** the user, 2026-09-28 to 2026-10-03 — 01-0011.0100 decisions 32, 39, 44, 45, 46, 47 and 56
 
 <rule>
 Before drafting a reply, place the message in the question store: read this turn's window — the
@@ -26,10 +26,10 @@ question:
 - `questions.py open '<question>' --under q-0004 --session <tag>`, which prints the id it gave
 - `questions.py close q-0004 decided '[link](../path.md) — who, date' --session <tag>`
 
-A message that answers nothing near the current question opens what that question cannot be
-answered without; one that lands nowhere makes no call. Only the working agent calls, never a
-helper. Under `debug=on`, show each call where it happened. For any other call, a closure, a
-branching or a drop, read the questions skill.
+Before opening a question, look for its answer in the docs and the code: found, point to it and
+open nothing; not found, open it. A message that lands nowhere makes no call. Only the working
+agent calls, never a helper. Under `debug=on`, show each call where it happened. For any other
+call, a closure, a branching or a drop, read the questions skill.
 </rule>
 
 ## Q2 — the wake opens at where the work stands

@@ -44,13 +44,28 @@ call made mid-turn is quoted where the reply reports its event.
 Free text goes in single quotes, which neither bash nor PowerShell expands; a text holding an
 apostrophe goes in double quotes, with no backtick or `$` inside.
 
-## Placing a message that answers nothing near
+## A raised question
 
-Name what the current question cannot be answered without deciding, or what the method's plan
-expects here, and open that. When answering it narrows the current question and answering the
-current one contributes to it, open it `--between` the current question's parent and the current
-question; when only the first holds, open it beside, under the same parent, and
-`depend <current> --on <new>`.
+**Look it up first.** Every question a message raises is looked for before anything is opened, in
+*the docs*: the architecture, ADRs, the glossary, the mechanism docs, the code, and the decisions
+landed in live tickets, where a decision sits until it reaches its home. Found, point to it and
+open nothing; a settled question is not reopened without new evidence against its answer. There
+is no need to search `done/`: a decided entry links to what holds its answer.
+
+**Who settles what is not found.** A decision that is not load-bearing, settle in the turn and
+report it, as `repair=report` does. A load-bearing one is the person's: settled in the turn, it
+goes to its home; not settled, open it. Unsure whether it is load-bearing, treat it as
+load-bearing.
+
+**A request.** *Build X* is a proposed answer: lean it on the question X answers — *what is X
+for?* — or open that question when none is held. Open *how to build X?* under it once X is
+accepted; the ticket's plan answers it. A trivial request is settled by doing it.
+
+**Where to open it.** A message that answers nothing near the current question opens what that
+question cannot be answered without deciding, or what the method's plan expects here. When
+answering it narrows the current question and answering the current one contributes to it, open it
+`--between` the current question's parent and the current question; when only the first holds,
+open it beside, under the same parent, and `depend <current> --on <new>`.
 
 ## Closing
 
