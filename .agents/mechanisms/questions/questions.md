@@ -112,11 +112,16 @@ Nothing else; the tree is rendered on request and never committed.
 
 ## Not yet at the shape
 
-**Six `not yet` rows**, each bound to a ticket that exists. **The sessions file** is a straw dog in
-the skill: one file in the working tree is how sessions see each other until it is known how
-registrations reach sessions that do not share the directory. **The store's paths** are painted
-doors held by hand in the shape check until a mechanism's records are declared where a script
-reads them.
+**Six `not yet` rows**, each bound to a ticket that exists.
+
+<straw-dog until="01-0010 says how registrations reach sessions that do not share the directory" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">
+**The sessions file** is one file in the working tree, and that is how sessions see each other;
+sessions that do not share the directory do not see each other.
+</straw-dog>
+
+<straw-dog until="record-bearing parses, so a mechanism's records are declared where a script reads them" ticket="docs/tickets/01-0017.0010-terms-defined-before-they-land.md">
+**The store's paths** are painted doors held by hand in the shape check.
+</straw-dog>
 
 ## What retires this
 

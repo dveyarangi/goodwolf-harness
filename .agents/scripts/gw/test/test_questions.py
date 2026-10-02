@@ -1200,6 +1200,12 @@ class TheHook(Hooked):
 
         self.assertEqual((0, ""), (status, said.strip()))
 
+    def test_a_problem_at_a_known_event_is_answered_in_the_hosts_own_form(self) -> None:
+        status, said = self.hook("cursor", {"hook_event_name": "sessionStart"})
+
+        self.assertEqual(0, status)
+        self.assertIn("questions hook", self.context(said))
+
     def test_never_fails_the_host_a_problem_becomes_a_notice_in_context(self) -> None:
         for host, payload in (("claude-code", "not json"), ("nohost", {"session_id": "x", "hook_event_name": "SessionStart"})):
             with self.subTest(host=host):

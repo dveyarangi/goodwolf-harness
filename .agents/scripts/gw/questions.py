@@ -960,10 +960,13 @@ def hook(root: Path, host_name: str, payload: str, today: date) -> str:
     message, nothing after a compaction but a forgotten window.
 
     It never fails the host. A prompt hook that fails can hold back the person's message, so any
-    problem is answered as one line of context that names it, and the exit status stays 0.
+    problem is answered as one line of context that names it, and the exit status stays 0. Once the
+    host and the event are known, the notice goes out in that host's own form, since a host that
+    reads its hook's answer as JSON would drop plain text.
     """
+    host = HOSTS.get(host_name)
+    event: str | None = None
     try:
-        host = HOSTS.get(host_name)
         if host is None:
             raise Refused(f"no host `{host_name}`; the hosts are {', '.join(HOSTS)}")
         sent = json.loads(payload)
@@ -981,7 +984,10 @@ def hook(root: Path, host_name: str, payload: str, today: date) -> str:
             return host.answer(event, window(root, tag))
         return ""
     except Exception as problem:  # noqa: BLE001 — the boundary to a host: nothing may escape it
-        return f"questions hook: {problem}"
+        notice = f"questions hook: {problem}"
+        if host is not None and event in (host.starts, host.messages):
+            return host.answer(event, notice)
+        return notice
 
 
 def _started(root: Path, tag: str, source: str | None, today: date) -> str:
