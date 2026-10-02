@@ -1,0 +1,5 @@
+# q-0002 How do running sessions reach each other beyond one working directory?
+
+- **part of** q-0001
+- **state** open
+- **owner** [01-0010](../tickets/01-0010-dev-harness-shared-and-local.md)

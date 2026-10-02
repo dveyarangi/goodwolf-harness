@@ -130,16 +130,20 @@ implementation tickets for that outcome.
   describe the alignment exit: the decision is landed in its durable home and
   the feature is unblocked. Hold the decision tree — evidence, alternatives,
   and open questions — in the ticket.
-- **Concern promotion:** leave only the architectural contact surface in
-  `concerns.md` under its stable anchor, add `→ queued as <ticket-slug>`, and
-  move the deliberation into the ticket.
+<straw-dog until="a ticket's open issues are entries of the question store" ticket="docs/tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md">
+- **Question promotion:** an open question in `docs/questions/` that becomes
+  work is assigned to the ticket with `assigns`, and its deliberation moves into
+  the ticket.
+</straw-dog>
 - **During alignment:** follow [/align](../align/SKILL.md)'s inline
   resolution rule; the ticket is the live working document.
-- **At resolution:** land decisions in their durable homes, remove the
-  resolved concern entry (or retain separately-scoped residue), and rewrite
-  the same ticket in place to feature altitude
-  ([TICKET-FORMAT.md](./TICKET-FORMAT.md)). Keep its place in the order unless
-  the resolved dependencies require moving it.
+<straw-dog until="a ticket's open issues are entries of the question store" ticket="docs/tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md">
+- **At resolution:** land decisions in their durable homes, close each question
+  they answer with a pointer to that home (or open a new one for
+  separately-scoped residue), and rewrite the same ticket in place to feature
+  altitude ([TICKET-FORMAT.md](./TICKET-FORMAT.md)). Keep its place in the order
+  unless the resolved dependencies require moving it.
+</straw-dog>
 - **If the resolved feature is too coarse for one RFC:** retain the ticket as
   the parent/end-state and decompose it through `/ticket`; do not create a
   sibling merely to hold the implementation.

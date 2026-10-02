@@ -20,7 +20,7 @@ Check:
 - product/API behavior
 - code and composition
 - tests, fixtures, parity/reference readers
-- active tickets, concerns, RFCs
+- active tickets, open questions, RFCs
 - upcoming work likely to depend on it
 - historical context and records; history is maintained mechanically like everything else (`/mechanism`, *Mechanical by construction*), not exempted from repair
 

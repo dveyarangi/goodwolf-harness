@@ -85,4 +85,4 @@ Not yet determined; the align decides it. What is known to be in scope:
 
 Deleting a rule on accumulated failures, refused at minting. The glossary mechanism and the
 dev-method mechanism, which are [01-0017](./01-0017-io-graph-coherent.md)'s children. Group install
-targets — [concern 2](../concerns.md).
+targets — [q-0005](../questions/q-0005-how-does-a-group-install-target-resolve.md).

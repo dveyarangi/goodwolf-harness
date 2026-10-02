@@ -6,7 +6,8 @@ is a phrasing or boundary defect, not only an execution slip, and the entry prop
 
 Entries are struck when a later occurrence repeats one, and counted. Nothing here authorises
 deleting a rule: occurrences accumulate and what to do about a rule that keeps failing is
-[concern 3](concerns.md)'s, unresolved on purpose.
+[q-0004 is-harness-self-amendment-its-own](questions/q-0004-is-harness-self-amendment-its-own.md)'s,
+unresolved on purpose.
 
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
@@ -531,7 +532,8 @@ inside either** — the class that raises no error anywhere, because each rule i
 > minting early is cheap and a concern nobody converts is pressure with no owner.
 
 **Disposition:** [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md) minted
-the same day; [concern 3](concerns.md) reduced to its contact surface. The amendment to `/align` is
+the same day; concern 3 reduced to its contact surface, since folded into the question store as
+[q-0004](questions/q-0004-is-harness-self-amendment-its-own.md). The amendment to `/align` is
 not yet made — `/align`'s glossary and concerns rules are both moving under
 [01-0017.0010](tickets/01-0017.0010-terms-defined-before-they-land.md) and this wording should land
 with them rather than ahead of them.

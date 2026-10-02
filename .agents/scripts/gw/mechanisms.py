@@ -72,7 +72,6 @@ PAINTED_DOORS = frozenset(
         # and /setup-devops are undeclared; each row goes with its owner's declaration.
         "docs/glossary.md",
         "docs/architecture.md",
-        "docs/concerns.md",
         "docs/adr/",
         "docs/rfc/",
         "docs/rfc/done/",

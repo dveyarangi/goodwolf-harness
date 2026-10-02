@@ -169,7 +169,7 @@ sit in the same folder state. Only names are read; nothing inside an RFC is.
 
 - Cite by slug through a relative link; add the `done/` segment when the
   target completes.
-- Reference the architecture, ADRs, glossary, concerns and edge records;
+- Reference the architecture, ADRs, glossary, open questions and edge records;
   never restate them.
 - Date a criterion checked early and a status flip; nothing else accretes.
 - Update the queue in the same pass.

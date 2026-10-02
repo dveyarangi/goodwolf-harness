@@ -45,7 +45,7 @@ description: >-
 
 - If you see a concern, first check deeper how the existing architecture
   documentation describes it - it most probably already does. Read
-  architecture.md, ADRs and concerns.md for this.
+  architecture.md, ADRs and the question store for this.
 
 - Major goal of this planning is to find inconsistencies in the pre-planned
   architecture. Do this diligently. If such inconsistency found, do not stick

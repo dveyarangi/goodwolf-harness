@@ -34,8 +34,9 @@ validator inline:**
 
 ## Concerns
 
-Edge-scoped open questions and risks — pointers into `docs/concerns.md` (which stays their
-owner), each with its edge-local reading: what this concern means at this surface.
+Edge-scoped open questions and risks — pointers into the question store, `docs/questions/`
+(which stays their owner), each with its edge-local reading: what this question means at this
+surface.
 
 ## Roadmap
 
@@ -58,7 +59,7 @@ ticket. Plans, not promises.
   enforces it, so `/edge` and `/maintain` can check mechanically that the validator still
   exists and still asserts the promise. **⚠ unguarded** is legal in a Stub, a finding in a
   Normative record.
-- **Aggregate by reference.** `concerns.md` owns concerns, tickets own delivery state,
+- **Aggregate by reference.** The question store owns open questions, tickets own delivery state,
   architecture.md owns the internal shape — the record holds the edge-local projection and the
   link, never a copy.
 - **Derivations are subsets.** Any customer-facing text about the edge must be derivable from

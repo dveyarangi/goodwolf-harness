@@ -14,7 +14,7 @@ aggregates — **the seam between architecture and user-oriented design**. It ho
   as built;
 - the strict **Invariants** upstream machinery owes the edge, each naming the edge test that
   validates it;
-- the edge-scoped **Concerns** — pointers into `docs/concerns.md` with their edge-local reading;
+- the edge-scoped **Concerns** — pointers into the question store, `docs/questions/`, with their edge-local reading;
 - the staged, caller-visible **Roadmap** of the edge's evolution, linked to owning tickets.
 
 Customer-facing descriptions of the edge (tool descriptions, public API docs) are **derived from**
@@ -46,7 +46,7 @@ Your goal is one or more of the following, according to the task at hand:
 
 ## Boundaries
 
-- Aggregate by reference: `concerns.md` owns concerns, the delivery queue owns delivery state,
+- Aggregate by reference: the question store owns open questions, the delivery queue owns delivery state,
   `architecture.md` owns the internal shape — the record holds the edge-local projection and the
   link, never a copy.
 - Do not generalize *edge* to other artifacts: edge means the system's outer boundary.

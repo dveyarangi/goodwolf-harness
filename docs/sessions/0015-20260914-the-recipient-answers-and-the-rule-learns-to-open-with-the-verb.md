@@ -23,7 +23,7 @@ Details are on the records named; this is the index.
   ([01-0017.0010](../tickets/01-0017.0010-terms-defined-before-they-land.md)), dev-method
   ([01-0017.0020](../tickets/01-0017.0020-practice-swaps-in-one-edit.md)), self-amendment
   ([01-0019](../tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)) — and created
-  [`docs/concerns.md`](../concerns.md) and [`docs/rule-failures.md`](../rule-failures.md).
+  `docs/concerns.md` (folded into [the question store](../questions/) on 2026-10-02) and [`docs/rule-failures.md`](../rule-failures.md).
 - **`MECHANISM-FORMAT` gains Records.** Two mechanisms already declared theirs unasked; `/maintain`'s
   B3 could not fire over the 4,293 lines that did not. The first draft carried its rationale inside
   the requirement and the user cut four clauses out of it.

@@ -4,7 +4,7 @@ The harness under [`.agents/`](../.agents/README.md) is built here with its own 
 
 - [Harness architecture](architecture.md): agreed boundaries and their rationale. [ADRs](adr/) hold the decisions that reached one.
 - [Project glossary](glossary.md): this project's own terms. The method's are [`.agents/glossary.md`](../.agents/glossary.md).
-- [Delivery queue](tickets/README.md): current work, its order and what is still open. [Concerns](concerns.md) hold the pressure no ticket owns yet.
+- [Delivery queue](tickets/README.md): current work, its order and what is still open. [Open questions](questions/) hold the pressure no ticket owns yet.
 - [Install spec](spec/01-0010.0130-harness-installs-into-another-tree.md): how the harness reaches a tree that is not its own, accepted 2026-09-14.
 - [Sessions](sessions/): dated handoffs, read for why, never for whether something is still open.
 - [Mechanism evidence](mechanisms/): why each declared mechanism's doc is what it is.
