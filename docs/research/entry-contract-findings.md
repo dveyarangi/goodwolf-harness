@@ -19,7 +19,7 @@ this record keeps recording what each bump changed.
 
 **A raised question is looked up before it is held** — Q1's newcomer sentence replaced by the
 lookup, installed by
-[01-0011.0100.0012](../tickets/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md):
+[01-0011.0100.0012](../tickets/done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md):
 *before opening a question, look for its answer in the docs and the code: found, point to it and
 open nothing; not found, open it*, agreed verbatim. Its occasion is placing a message, where Q1 is
 the only text read
