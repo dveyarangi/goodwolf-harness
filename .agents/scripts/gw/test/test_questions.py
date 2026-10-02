@@ -5,14 +5,25 @@ from __future__ import annotations
 import contextlib
 import io
 import json
+import tempfile
 import unittest
 from datetime import date
+from unittest import mock
 
 from repository import RepositoryCase
 
 import questions
 
 STORE = "docs/questions"
+
+
+def remember_windows_in_the_case(case: unittest.TestCase) -> None:
+    """Keep what `--window` remembers inside the case, never in the machine's temp folder."""
+    memory = tempfile.TemporaryDirectory()
+    case.addCleanup(memory.cleanup)
+    patcher = mock.patch.object(questions, "WINDOW_MEMORY", memory.name)
+    patcher.start()
+    case.addCleanup(patcher.stop)
 
 
 def entry(identity: str, question: str, parts: dict[str, str]) -> str:
@@ -26,6 +37,7 @@ class Store(RepositoryCase):
 
     def setUp(self) -> None:
         super().setUp()
+        remember_windows_in_the_case(self)
         self.place("q-0001-which-store", "Which store holds the questions?", {"state": "open"})
         self.place(
             "q-0002-what-an-entry-holds",
@@ -1082,7 +1094,144 @@ class ARoundTrip(Declared):
         self.assertIn("q-0014 [closed:pruned]", self.said("--tree", "q-0004")[1])
 
 
+class Hooked(Rendered):
+    """What each host's hook receives and what it gets back."""
+
+    def hook(self, host: str, payload: dict | str) -> tuple[int, str]:
+        stdin = io.StringIO(payload if isinstance(payload, str) else json.dumps(payload))
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out), mock.patch("sys.stdin", stdin):
+            status = questions.main(["--hook", host], root=self.root, today=TODAY)
+        return status, out.getvalue()
+
+    def context(self, said: str) -> str:
+        """The text a host would place in the agent's context from the hook's answer."""
+        answer = json.loads(said)
+        if "hookSpecificOutput" in answer:
+            return answer["hookSpecificOutput"]["additionalContext"]
+        return answer["additional_context"]
+
+
+class TheHook(Hooked):
+    def test_claude_code_registers_a_new_session_under_its_own_id_and_injects_the_wake(self) -> None:
+        status, said = self.hook("claude-code", {"session_id": "abc-123", "hook_event_name": "SessionStart", "source": "startup"})
+
+        self.assertEqual(0, status)
+        self.assertEqual("SessionStart", json.loads(said)["hookSpecificOutput"]["hookEventName"])
+        self.assertIn("session: abc-123, registered now", self.context(said))
+        self.assertIn("abc-123 running 2026-09-29 -", self.read(SESSIONS))
+
+    def test_a_resumed_session_is_not_registered_twice(self) -> None:
+        _, said = self.hook("claude-code", {"session_id": "s-alpha", "hook_event_name": "SessionStart", "source": "resume"})
+
+        self.assertIn("session: s-alpha, already registered", self.context(said))
+        self.assertEqual(3, len(self.read(SESSIONS).splitlines()))
+
+    def test_a_message_gets_the_window_and_then_one_line_while_nothing_moved(self) -> None:
+        submit = {"session_id": "s-alpha", "hook_event_name": "UserPromptSubmit", "prompt": "next"}
+
+        _, first = self.hook("codex", submit)
+        _, second = self.hook("codex", submit)
+
+        self.assertIn("current: q-0004", self.context(first))
+        self.assertEqual("UserPromptSubmit", json.loads(first)["hookSpecificOutput"]["hookEventName"])
+        self.assertIn("window unchanged since your last one", self.context(second))
+        self.assertNotIn("path (root to current):", self.context(second))
+
+    def test_a_moved_position_or_a_changed_entry_draws_the_window_again(self) -> None:
+        submit = {"session_id": "s-alpha", "hook_event_name": "UserPromptSubmit", "prompt": "next"}
+        self.hook("claude-code", submit)
+        self.said("--declare", "at q-0002", "--session", "s-alpha")
+
+        _, moved = self.hook("claude-code", submit)
+        self.said("--declare", "at q-0002; leans q-0007: by hand", "--session", "s-beta")
+        _, changed = self.hook("claude-code", submit)
+
+        self.assertIn("current: q-0002", self.context(moved))
+        self.assertIn("path (root to current):", self.context(changed))
+
+    def test_another_sessions_move_alone_does_not_redraw_it(self) -> None:
+        submit = {"session_id": "s-alpha", "hook_event_name": "UserPromptSubmit", "prompt": "next"}
+        self.hook("claude-code", submit)
+        self.said("--declare", "at q-0007", "--session", "s-beta")
+
+        _, said = self.hook("claude-code", submit)
+
+        self.assertIn("window unchanged", self.context(said))
+
+    def test_a_compaction_makes_the_next_window_whole(self) -> None:
+        submit = {"session_id": "s-alpha", "hook_event_name": "UserPromptSubmit", "prompt": "next"}
+        self.hook("claude-code", submit)
+
+        _, compacted = self.hook("claude-code", {"session_id": "s-alpha", "hook_event_name": "SessionStart", "source": "compact"})
+        self.hook("codex", {"session_id": "s-alpha", "hook_event_name": "UserPromptSubmit", "prompt": "next"})
+        _, codex_compacts = self.hook("codex", {"session_id": "s-alpha", "hook_event_name": "PostCompact", "trigger": "auto"})
+        _, after = self.hook("codex", submit)
+
+        self.assertIn("path (root to current):", self.context(compacted))
+        self.assertEqual("", codex_compacts.strip())
+        self.assertIn("path (root to current):", self.context(after))
+
+    def test_cursor_registers_under_its_conversation_id_and_answers_in_its_own_form(self) -> None:
+        _, said = self.hook(
+            "cursor", {"conversation_id": "conv-9", "session_id": "other", "hook_event_name": "sessionStart"}
+        )
+
+        self.assertIn("session: conv-9, registered now", self.context(said))
+        self.assertIn("conv-9 running", self.read(SESSIONS))
+
+    def test_cursor_compaction_forgets_the_last_window(self) -> None:
+        self.said("--window", "--session", "s-alpha")
+
+        _, said = self.hook("cursor", {"conversation_id": "s-alpha", "hook_event_name": "preCompact"})
+        _, window = self.said("--window", "--session", "s-alpha")
+
+        self.assertEqual("{}", said.strip())
+        self.assertIn("path (root to current):", window)
+
+    def test_a_session_whose_start_was_never_seen_is_registered_by_its_first_message(self) -> None:
+        _, said = self.hook("claude-code", {"session_id": "late-1", "hook_event_name": "UserPromptSubmit", "prompt": "hi"})
+
+        self.assertIn("late-1 running 2026-09-29 -", self.read(SESSIONS))
+        self.assertIn("session: late-1", self.context(said))
+
+    def test_an_event_it_has_no_use_for_answers_nothing(self) -> None:
+        status, said = self.hook("claude-code", {"session_id": "s-alpha", "hook_event_name": "Stop"})
+
+        self.assertEqual((0, ""), (status, said.strip()))
+
+    def test_never_fails_the_host_a_problem_becomes_a_notice_in_context(self) -> None:
+        for host, payload in (("claude-code", "not json"), ("nohost", {"session_id": "x", "hook_event_name": "SessionStart"})):
+            with self.subTest(host=host):
+                status, said = self.hook(host, payload)
+
+                self.assertEqual(0, status)
+                self.assertIn("questions hook", said)
+
+
+class TheAgentsOwnWindow(Hooked):
+    def test_says_unchanged_when_nothing_moved_and_draws_it_whole_on_request(self) -> None:
+        self.said("--window", "--session", "s-alpha")
+
+        _, again = self.said("--window", "--session", "s-alpha")
+        _, full = self.said("--window", "--session", "s-alpha", "--full")
+
+        self.assertIn("window unchanged since your last one", again)
+        self.assertIn("--full", again)
+        self.assertIn("path (root to current):", full)
+
+    def test_a_refused_line_prints_the_clause_forms(self) -> None:
+        _, said = self.said("--declare", "go to q-0010", "--session", "s-alpha")
+
+        self.assertIn("at q-N", said)
+        self.assertIn("opens q-N under q-P: <question>", said)
+
+
 class AFirstWake(RepositoryCase):
+    def setUp(self) -> None:
+        super().setUp()
+        remember_windows_in_the_case(self)
+
     def test_in_a_tree_without_a_store_registers_the_first_session(self) -> None:
         out = io.StringIO()
         with contextlib.redirect_stdout(out):

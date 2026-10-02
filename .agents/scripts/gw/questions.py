@@ -19,11 +19,13 @@ wake and the end write, and each writes only its own session's line.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import posixpath
 import re
 import secrets
 import sys
+import tempfile
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import date
@@ -39,6 +41,8 @@ STALE_AFTER_DAYS = 7
 # A twin shares at least this many content words, and at least half of the shorter title's.
 TWIN_SHARED_WORDS = 3
 SLUG_LENGTH = 40
+# Where the fingerprint of each session's last window is kept; `None` is the machine's temp folder.
+WINDOW_MEMORY: str | None = None
 PARTS = ("part of", "depends on", "state", "owner", "answer", "lean")
 KINDS = ("decided", "pruned", "merged", "deferred", "moot", "superseded")
 _USAGE = (
@@ -195,8 +199,11 @@ def main(argv: list[str], root: Path | None = None, today: date | None = None) -
             checked = check(root, today)
             print(json.dumps(checked.as_record(), indent=2))
             return 1 if checked.diagnostics or checked.skipped else 0
-        if len(argv) == 3 and argv[:2] == ["--window", "--session"]:
-            print(window(root, argv[2]))
+        if len(argv) in (3, 4) and argv[:2] == ["--window", "--session"] and argv[3:] in ([], ["--full"]):
+            print(window(root, argv[2], full=argv[3:] == ["--full"]))
+            return 0
+        if len(argv) == 2 and argv[0] == "--hook":
+            print(hook(root, argv[1], sys.stdin.read(), today))
             return 0
         if argv == ["--wake"] or (len(argv) == 3 and argv[:2] == ["--wake", "--session"]):
             print(wake(root, today, argv[2] if len(argv) == 3 else None))
@@ -804,10 +811,10 @@ def _ancestry(index: dict[str, Entry], identity: str) -> list[Entry]:
     return found
 
 
-def read_store(root: Path) -> Store:
+def read_store(root: Path, seen: dict[str, bytes] | None = None) -> Store:
     """The store as the window and the wake read it. A file the check would report is read as far
     as it goes, and one that cannot be read at all is left out — the check is what says so."""
-    entries, _, _ = _entries(root)
+    entries, _, _ = _entries(root, seen)
     sessions, _, _ = _sessions(root)
     live = sorted((read for read in entries if read.identity and not read.archived), key=_order)
     children: dict[str, list[Entry]] = {}
@@ -819,17 +826,36 @@ def read_store(root: Path) -> Store:
     return Store(index, children, roots, sessions)
 
 
-def window(root: Path, tag: str) -> str:
+def window(root: Path, tag: str, full: bool = False) -> str:
     """What the agent reads before placing a message: the session's position and what is near it.
 
     It prints position, never relevance — it has no idea what the message says. The rendering is
     the one the window test in the mechanism's evidence measured, with each line's state and lean
     added; a change to it reruns that test.
+
+    Every window drawn stays in the conversation, so one is drawn only when something moved: when
+    neither this session's position nor any entry changed since the last one, a single line says
+    so (parent decision 44). Another session's position alone is not a change.
     """
     if not (root / STORE).is_dir():
         return f"no store at {STORE}/: nothing to place a message in yet"
-    store = read_store(root)
+    seen: dict[str, bytes] = {}
+    store = read_store(root, seen)
     held = store.session(tag)
+    fingerprint = _fingerprint(held, seen)
+    memory = _memory(root, tag)
+    if not full and memory.is_file() and memory.read_text(encoding="utf-8") == fingerprint:
+        return (
+            f"window unchanged since your last one: {held.tag} at {held.current or 'no position yet'}; "
+            f"`questions.py --window --session {held.tag} --full` draws it again"
+        )
+    drawn = _drawn(store, held)
+    memory.parent.mkdir(parents=True, exist_ok=True)
+    memory.write_text(fingerprint, encoding="utf-8")
+    return drawn
+
+
+def _drawn(store: Store, held: Session) -> str:
     if held.current is None or held.current not in store.index:
         return _without_position(store, held)
     path = store.path(held.current)
@@ -855,10 +881,13 @@ def wake(root: Path, today: date, tag: str | None = None) -> str:
     """
     if tag is None:
         held = _register(root, today)
-        header = f"session: {held.tag}, registered now"
-    else:
-        held = read_store(root).session(tag)
-        header = f"session: {held.tag}, already registered"
+        return _wake_read(root, held, f"session: {held.tag}, registered now")
+    held = read_store(root).session(tag)
+    return _wake_read(root, held, f"session: {held.tag}, already registered")
+
+
+def _wake_read(root: Path, held: Session, header: str) -> str:
+    """Who else is where, what waits to be re-read, and this session's window drawn whole."""
     store = read_store(root)
     live = sorted((read for read in store.index.values() if not read.archived), key=_order)
     others = [other for other in store.sessions if other.tag != held.tag]
@@ -871,19 +900,113 @@ def wake(root: Path, today: date, tag: str | None = None) -> str:
             [f"  {_line(read)} — {read.parts['answer'].value}" for read in deferred],
         )
         + _section("suspect, to re-read:", [f"  {_line(read)}" for read in live if read.suspect])
-        + [window(root, held.tag)]
+        + [window(root, held.tag, full=True)]
     )
 
 
-def _register(root: Path, today: date) -> Session:
-    """A new session's line, running and with no position yet, under a tag no session holds."""
-    taken = {held.tag for held in _sessions(root)[0]}
-    tag = f"s-{today:%m%d}-{secrets.token_hex(2)}"
-    while tag in taken:
+def _register(root: Path, today: date, tag: str | None = None) -> Session:
+    """A new session's line, running and with no position yet, under the host's own session id
+    where a hook gave one, or else a tag minted here that no session holds."""
+    if tag is None:
+        taken = {held.tag for held in _sessions(root)[0]}
         tag = f"s-{today:%m%d}-{secrets.token_hex(2)}"
+        while tag in taken:
+            tag = f"s-{today:%m%d}-{secrets.token_hex(2)}"
     held = Session(tag, True, today, None, [], 0)
     _write_own_line(root, held)
     return held
+
+
+# --- the hooks ----------------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class Host:
+    """What one host's hooks send and expect: everything host-specific about delivery is here.
+
+    Read from each host's hook documentation (parent decision 44); a row is documented, not
+    observed, until a live session in that host shows it.
+    """
+
+    session_field: str
+    starts: str
+    messages: str | None
+    compactions: tuple[str, ...]
+    answer: Callable[[str, str], str]
+    quiet: str
+
+
+def _hook_specific(event: str, context: str) -> str:
+    return json.dumps({"hookSpecificOutput": {"hookEventName": event, "additionalContext": context}})
+
+
+HOSTS = {
+    "claude-code": Host("session_id", "SessionStart", "UserPromptSubmit", (), _hook_specific, ""),
+    "codex": Host("session_id", "SessionStart", "UserPromptSubmit", ("PostCompact",), _hook_specific, ""),
+    # Cursor's prompt hook can only allow or block, so its agent draws the window by the rule.
+    "cursor": Host(
+        "conversation_id",
+        "sessionStart",
+        None,
+        ("preCompact",),
+        lambda event, context: json.dumps({"additional_context": context}),
+        "{}",
+    ),
+}
+
+
+def hook(root: Path, host_name: str, payload: str, today: date) -> str:
+    """What a host's hook prints: the wake's read when a session starts, the window before a
+    message, nothing after a compaction but a forgotten window.
+
+    It never fails the host. A prompt hook that fails can hold back the person's message, so any
+    problem is answered as one line of context that names it, and the exit status stays 0.
+    """
+    try:
+        host = HOSTS.get(host_name)
+        if host is None:
+            raise Refused(f"no host `{host_name}`; the hosts are {', '.join(HOSTS)}")
+        sent = json.loads(payload)
+        event = sent.get("hook_event_name")
+        tag = _tag(str(sent.get(host.session_field) or ""))
+        if event in host.compactions:
+            _forget_window(root, tag)
+            return host.quiet
+        if event == host.starts:
+            return host.answer(event, _started(root, tag, sent.get("source"), today))
+        if event == host.messages:
+            if tag not in {held.tag for held in _sessions(root)[0]}:
+                # The start was never seen — the hooks arrived mid-session — so this is the start.
+                return host.answer(event, _started(root, tag, None, today))
+            return host.answer(event, window(root, tag))
+        return ""
+    except Exception as problem:  # noqa: BLE001 — the boundary to a host: nothing may escape it
+        return f"questions hook: {problem}"
+
+
+def _started(root: Path, tag: str, source: str | None, today: date) -> str:
+    """A session starting, resuming or compacted: registered once under the host's id, running
+    again if it had ended, and given a whole window, since its context has none."""
+    _forget_window(root, tag)
+    known = {held.tag: held for held in _sessions(root)[0]}
+    if tag not in known:
+        held = _register(root, today, tag)
+        return _wake_read(root, held, f"session: {tag}, registered now")
+    held = known[tag]
+    if not held.running:
+        held = Session(held.tag, True, today, held.current, held.recent, held.line)
+        _write_own_line(root, held)
+    if source == "compact":
+        return window(root, tag, full=True)
+    return _wake_read(root, held, f"session: {tag}, already registered")
+
+
+def _tag(identity: str) -> str:
+    """A host's session id as a session tag: the characters a sessions line holds, no others."""
+    tag = re.sub(r"[^\w.-]", "-", identity.strip())
+    if not tag:
+        raise Refused("the hook's input names no session")
+    return tag if tag[0].isalnum() else f"s{tag}"
 
 
 def end(root: Path, tag: str, today: date) -> Session:
@@ -927,6 +1050,26 @@ def tree(root: Path, identity: str | None = None) -> str:
     for top in tops:
         draw(top, 0)
     return "\n".join(lines)
+
+
+def _fingerprint(held: Session, seen: dict[str, bytes]) -> str:
+    """What a window was drawn from: this session's position and every entry's bytes."""
+    digest = hashlib.sha256(f"{held.current}\n".encode())
+    for name in sorted(seen):
+        digest.update(name.encode() + b"\0" + seen[name] + b"\0")
+    return digest.hexdigest()
+
+
+def _memory(root: Path, tag: str) -> Path:
+    """Where the fingerprint of a session's last window is kept: outside the tree, so it never
+    churns the store, keyed by tree and session."""
+    tree = hashlib.sha256(str(root.resolve()).encode()).hexdigest()[:16]
+    return Path(WINDOW_MEMORY or Path(tempfile.gettempdir()) / "questions-windows") / tree / tag
+
+
+def _forget_window(root: Path, tag: str) -> None:
+    """After a compaction the last window is gone from the conversation, so the next is whole."""
+    _memory(root, tag).unlink(missing_ok=True)
 
 
 def _path_lines(path: list[Entry]) -> list[str]:
@@ -1075,7 +1218,27 @@ def _clause(written: str) -> Clause:
         if verb in ("leans", "assigns"):
             return Clause(verb, groups[0], text=groups[1])
         return Clause(verb, *groups)
-    raise Refused(f"`{written}` is not a clause of the declared line")
+    raise Refused(f"`{written}` is not a clause of the declared line; the clauses are:\n{FORMS}")
+
+
+# The declared line's clauses, printed with a refusal so a malformed line is fixed in the same turn.
+FORMS = "\n".join(
+    f"  {form}"
+    for form in (
+        "at q-N                                   (required, once, unless the line is `nothing`)",
+        "opens q-N: <question>                    (a root; q-N is the next free id)",
+        "opens q-N under q-P: <question>",
+        "opens q-N between q-U and q-L: <question>",
+        "moves q-K under q-P  |  moves q-K to root",
+        "depends q-A on q-B",
+        "closes q-N: decided, [link](path) — who, date",
+        "closes q-N: deferred, until <condition>, meanwhile <default>",
+        "closes q-N: merged, q-M  |  closes q-N: superseded, q-M",
+        "closes q-N: pruned, <reason>  |  closes q-N: moot, <reason>",
+        "suspects q-N  |  clears q-N  |  leans q-N: <line>  |  assigns q-N to <path>",
+        "nothing",
+    )
+) + "\nclauses are separated by `; `, and free text may not hold `;`"
 
 
 @dataclass
