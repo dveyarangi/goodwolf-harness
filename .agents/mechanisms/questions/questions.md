@@ -19,8 +19,15 @@ core's substrate, beneath whatever method a tree runs.
 **The turn.** Before drafting, the agent reads the window — the path from the root to its session's
 current question, the children along it, the root's other open questions, the other roots, the
 other sessions — and calls the script with where the message lands, one call per event, each
-validated and written whole; the script gives a new question its id. The window prints position, never relevance: the one judgement of the turn is
-the agent's. The rule placing a message is installed at tier 1, since its occasion is every turn.
+validated and written whole; the script gives a new question its id. The window prints position,
+never relevance: the one judgement of the turn is the agent's. The rule placing a message is
+installed at tier 1, since its occasion is every turn.
+
+**What keeps coming back rises.** A question reached twelve hours or more after it was opened or
+last struck is struck, counted by the script from the `at` call with no judgement of the agent's;
+the count shows on its window line and ranks it where a session starts. The time gap tells a
+return from a stay without telling sessions apart, so a resumed conversation's new id changes
+nothing; a question worked for days strikes too, so the count ranks time spent as well as returns.
 
 **Delivery.** Where a host's hooks can add context, the window and the session's registration come
 from them, under the host's own session id; the rule stays the floor every host reads. Claude Code

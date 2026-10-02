@@ -7,7 +7,7 @@ import io
 import json
 import tempfile
 import unittest
-from datetime import date
+from datetime import date, datetime, timedelta, timezone
 from unittest import mock
 
 from repository import RepositoryCase
@@ -113,10 +113,29 @@ class AMalformedEntry(Store):
                 "owner": "[the record](../record.md)",
                 "answer": "[the record](../record.md) — the user, 2026-09-29",
                 "lean": "held loosely",
+                "struck": "2, last 2026-10-02T19:40Z",
             },
         )
 
         self.assertEqual([], self.problems())
+
+    def test_a_strike_without_its_last_time(self) -> None:
+        self.assertReported(entry("q-0003", "A bad one?", {"state": "open", "struck": "2"}), "last <YYYY-MM-DDTHH:MMZ>")
+
+    def test_a_strike_whose_time_has_no_zone(self) -> None:
+        self.assertReported(
+            entry("q-0003", "A bad one?", {"state": "open", "struck": "2, last 2026-10-02T19:40"}), "last <YYYY-MM-DDTHH:MMZ>"
+        )
+
+    def test_a_strike_with_a_negative_count(self) -> None:
+        self.assertReported(
+            entry("q-0003", "A bad one?", {"state": "open", "struck": "-1, last 2026-10-02T19:40Z"}), "last <YYYY-MM-DDTHH:MMZ>"
+        )
+
+    def test_a_strike_on_a_day_the_calendar_lacks(self) -> None:
+        self.assertReported(
+            entry("q-0003", "A bad one?", {"state": "open", "struck": "1, last 2026-13-02T19:40Z"}), "last <YYYY-MM-DDTHH:MMZ>"
+        )
 
 
 ARCHITECTURE = (
@@ -333,6 +352,7 @@ class TheRelations(Store):
 
 SESSIONS = f"{STORE}/sessions"
 TODAY = date(2026, 9, 29)
+NOW = datetime(2026, 9, 29, 12, 0, tzinfo=timezone.utc)
 
 
 class TheSessions(Store):
@@ -610,7 +630,7 @@ class Rendered(Store):
     def said(self, *argv: str) -> tuple[int, str]:
         out = io.StringIO()
         with contextlib.redirect_stdout(out):
-            status = questions.main(list(argv), root=self.root, today=TODAY)
+            status = questions.main(list(argv), root=self.root, today=TODAY, now=NOW)
         return status, out.getvalue()
 
     def section(self, text: str, heading: str) -> str:
@@ -698,6 +718,44 @@ class TwoSessions(Rendered):
 
         self.assertEqual(2, status)
         self.assertIn("--wake", text)
+
+
+class TheCount(Rendered):
+    """A struck question carries its count on its line, and the wake reads the most struck first."""
+
+    def strike(self, stem: str, question: str, count: int, parent: str | None = None, state: str = "open",
+               folder: str = STORE) -> None:
+        parts = {"part of": parent, "state": state, "answer": "gone" if state != "open" else None}
+        parts = {name: value for name, value in parts.items() if value is not None}
+        self.place(stem, question, parts | {"struck": f"{count}, last 2026-09-29T12:00Z"}, folder)
+
+    def test_a_struck_line_shows_its_count_and_an_unstruck_one_none(self) -> None:
+        self.strike("q-0010-how-do-sessions-reach-each-other", "How do sessions reach each other?", 2)
+
+        _, text = self.said("--window", "--session", "s-alpha", "--full")
+
+        roots = self.section(text, "other roots:")
+        self.assertIn("q-0010 [open] How do sessions reach each other? (struck 2)", roots)
+        self.assertNotIn("struck", roots.split("q-0011")[1])
+
+    def test_the_roots_open_questions_show_their_count(self) -> None:
+        self.strike("q-0007-who-moves-a-subtree", "Who moves a subtree?", 1, parent="q-0003")
+
+        _, text = self.said("--window", "--session", "s-alpha", "--full")
+
+        self.assertIn("Who moves a subtree? (struck 1)", self.section(text, "open questions under this root"))
+
+    def test_the_wake_reads_the_most_struck_open_questions_first(self) -> None:
+        self.strike("q-0007-who-moves-a-subtree", "Who moves a subtree?", 1, parent="q-0003")
+        self.strike("q-0010-how-do-sessions-reach-each-other", "How do sessions reach each other?", 3)
+        self.strike("q-0011-is-height-depth", "Is height depth?", 9, state="closed:moot")
+        self.strike("q-0012-an-archived-one", "An archived one?", 9, state="closed:moot", folder=f"{STORE}/done")
+
+        _, text = self.said("--wake", "--session", "s-alpha")
+
+        ranked = self.section(text, "most struck, open:").splitlines()[1:]
+        self.assertEqual(["q-0010", "q-0007"], [line.split()[0] for line in ranked])
+        self.assertTrue(text.index("most struck, open:") < text.index("sessions:"), "it opens the read")
 
 
 class TheWake(Rendered):
@@ -853,11 +911,11 @@ class Declared(Rendered):
     """The writer over the fixed store, as s-alpha at q-0004 calls it: written whole, or refused
     with its reason and nothing written."""
 
-    def call(self, *argv: str, session: str | None = "s-alpha") -> tuple[int, str]:
+    def call(self, *argv: str, session: str | None = "s-alpha", now: datetime = NOW) -> tuple[int, str]:
         said, complained = io.StringIO(), io.StringIO()
         tagged = [*argv, "--session", session] if session else list(argv)
         with contextlib.redirect_stdout(said), contextlib.redirect_stderr(complained):
-            status = questions.main(tagged, root=self.root, today=TODAY)
+            status = questions.main(tagged, root=self.root, today=TODAY, now=now)
         return status, said.getvalue() + complained.getvalue()
 
     def called(self, *argv: str) -> str:
@@ -911,7 +969,8 @@ class TheCalls(Declared):
 
         self.assertIn("opened q-0014", said)
         self.assertEqual(
-            "# q-0014 Is the owner optional?\n\n- **part of** q-0004\n- **state** open\n",
+            "# q-0014 Is the owner optional?\n\n- **part of** q-0004\n- **state** open\n"
+            "- **struck** 0, last 2026-09-29T12:00Z\n",
             self.read(f"{STORE}/q-0014-is-the-owner-optional.md"),
         )
         self.assertEqual("s-alpha running 2026-09-29 q-0004 q-0002,q-0001", self.own_line())
@@ -1006,6 +1065,90 @@ class TheCalls(Declared):
         self.assertEqual(["q-0015"], written.opened)
         self.assertEqual(theirs, self.read(f"{STORE}/q-0014-their-question.md"))
         self.assertTrue((self.root / STORE / "q-0015-my-question.md").is_file())
+
+
+class Strikes(Declared):
+    """A held question reached again twelve hours or more after its last stamp is struck; any
+    other reach writes nothing to it (parent decisions 53 and 54)."""
+
+    def at(self, identity: str, hours: float = 0, session: str = "s-alpha") -> None:
+        status, said = self.call("at", identity, session=session, now=NOW + timedelta(hours=hours))
+        self.assertEqual(0, status, said)
+
+    def stamped(self, hours: float, count: int = 0) -> str:
+        return f"{count}, last {NOW + timedelta(hours=hours):%Y-%m-%dT%H:%M}Z"
+
+    def test_opening_stamps_zero_and_an_at_soon_after_does_not_strike(self) -> None:
+        self.called("open", "Is the owner optional?", "--under", "q-0004")
+        self.at("q-0014", hours=0.02)
+
+        self.assertEqual(self.stamped(0), self.part("q-0014-is-the-owner-optional", "struck"))
+
+    def test_an_entry_older_than_the_count_is_stamped_at_its_first_reach_and_not_struck(self) -> None:
+        self.at("q-0007")
+
+        self.assertEqual(self.stamped(0), self.part("q-0007-who-moves-a-subtree", "struck"))
+
+    def test_a_reach_twelve_hours_on_strikes_once_and_restamps(self) -> None:
+        self.at("q-0007")
+        self.at("q-0007", hours=12)
+        self.at("q-0007", hours=12)
+
+        self.assertEqual(self.stamped(12, count=1), self.part("q-0007-who-moves-a-subtree", "struck"))
+
+    def test_a_reach_short_of_twelve_hours_writes_nothing(self) -> None:
+        self.at("q-0007")
+        before = self.snapshot()
+
+        self.at("q-0007", hours=11 + 59 / 60)
+
+        self.assertEqual(before, self.snapshot())
+
+    def test_a_stamp_ahead_of_the_clock_does_not_strike(self) -> None:
+        self.write(
+            f"{STORE}/q-0007-who-moves-a-subtree.md",
+            entry("q-0007", "Who moves a subtree?", {"part of": "q-0003", "state": "open", "struck": self.stamped(5)}),
+        )
+
+        self.at("q-0007")
+
+        self.assertEqual(self.stamped(5), self.part("q-0007-who-moves-a-subtree", "struck"))
+
+    def test_ordinary_reaches_leave_the_store_as_it_was_and_the_window_unchanged(self) -> None:
+        self.at("q-0004")
+        self.said("--window", "--session", "s-alpha")
+        before = self.snapshot()
+
+        for hours in (1, 3, 5, 8, 11):
+            self.at("q-0004", hours=hours)
+        _, window = self.said("--window", "--session", "s-alpha")
+
+        self.assertEqual(before, self.snapshot())
+        self.assertIn("window unchanged", window)
+
+    def test_a_question_struck_is_not_struck_again_by_another_session_soon_after(self) -> None:
+        self.at("q-0007")
+        self.at("q-0007", hours=12)
+
+        self.at("q-0007", hours=12.5, session="s-beta")
+
+        self.assertEqual(self.stamped(12, count=1), self.part("q-0007-who-moves-a-subtree", "struck"))
+
+    def test_a_strike_raced_by_another_write_to_the_entry_is_refused_and_keeps_theirs(self) -> None:
+        self.at("q-0007")
+        theirs = entry("q-0007", "Who moves a subtree?", {"part of": "q-0003", "state": "open", "lean": "theirs"})
+
+        with self.assertRaises(questions.Refused):
+            questions.declare(
+                self.root,
+                "s-alpha",
+                [questions.Clause("at", "q-0007")],
+                TODAY,
+                between=lambda: self.write(f"{STORE}/q-0007-who-moves-a-subtree.md", theirs),
+                now=NOW + timedelta(hours=12),
+            )
+
+        self.assertEqual(theirs, self.entry_text("q-0007-who-moves-a-subtree"))
 
 
 class Naming(Declared):
@@ -1250,7 +1393,11 @@ class TheHook(Hooked):
         self.assertIn("path (root to current):", self.context(changed))
 
     def test_another_sessions_move_alone_does_not_redraw_it(self) -> None:
+        """q-0007 is stamped first, since the first reach of an entry older than the count writes
+        its stamp, which is a change to the entry and so redraws."""
         submit = {"session_id": "s-alpha", "hook_event_name": "UserPromptSubmit", "prompt": "next"}
+        self.said("at", "q-0007", "--session", "s-beta")
+        self.said("at", "q-0010", "--session", "s-beta")
         self.hook("claude-code", submit)
         self.assertEqual(0, self.said("at", "q-0007", "--session", "s-beta")[0], "the other session moved")
 

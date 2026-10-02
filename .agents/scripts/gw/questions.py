@@ -32,7 +32,7 @@ import sys
 import tempfile
 from collections.abc import Callable
 from dataclasses import dataclass
-from datetime import date
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -42,12 +42,17 @@ from docs_corpus import cited_record, citations, corpus, target_of  # noqa: E402
 STORE = "docs/questions"
 SESSIONS = "docs/questions/sessions"
 STALE_AFTER_DAYS = 7
+# A held question reached again at least this long after it was opened or last struck is struck
+# (parent decision 53); a constant until a project wants another.
+STRIKE_AFTER = timedelta(hours=12)
+# How many of the most-struck open questions the wake's read lists first (parent decision 54).
+WAKE_STRUCK_LINES = 5
 # A twin shares at least this many content words, and at least half of the shorter title's.
 TWIN_SHARED_WORDS = 3
 SLUG_LENGTH = 160
 # Where the fingerprint of each session's last window is kept; `None` is the machine's temp folder.
 WINDOW_MEMORY: str | None = None
-PARTS = ("part of", "depends on", "state", "owner", "answer", "lean")
+PARTS = ("part of", "depends on", "state", "owner", "answer", "lean", "struck")
 KINDS = ("decided", "pruned", "merged", "deferred", "moot", "superseded")
 _USAGE = (
     "usage: questions.py --check | --window --session <tag> | --wake [--session <tag>] "
@@ -67,6 +72,7 @@ _STATE = re.compile(rf"^(open|closed:({'|'.join(KINDS)}))(, suspect)?$")
 _IDENTITY = re.compile(r"^q-\d{4,}$")
 _ENTRY_NAME = re.compile(rf"^{STORE}/(?:done/)?(q-\d{{4,}})-([a-z0-9]+(?:-[a-z0-9]+)*)\.md$")
 _DEFERRAL = re.compile(r"^until \S.*, meanwhile \S.*$")
+_STRIKE = re.compile(r"^(\d+), last (\d{4}-\d{2}-\d{2}T\d{2}:\d{2})Z$")
 _SESSION = re.compile(
     r"^([A-Za-z0-9][\w.-]*) (running|ended) (\d{4}-\d{2}-\d{2}) (q-\d{4,}|-)(?: (q-\d{4,}(?:,q-\d{4,}){0,3}))?$"
 )
@@ -137,6 +143,32 @@ class Entry:
             return answer.value
         return None
 
+    @property
+    def strike(self) -> Strike | None:
+        """Its strike count and last stamp, or `None` when it has none or its form cannot be read."""
+        said = self.parts.get("struck")
+        written = _STRIKE.match(said.value) if said else None
+        if written is None:
+            return None
+        try:
+            last = datetime.strptime(written.group(2), "%Y-%m-%dT%H:%M").replace(tzinfo=timezone.utc)
+        except ValueError:
+            return None
+        return Strike(int(written.group(1)), last)
+
+
+@dataclass(frozen=True)
+class Strike:
+    """How often a held question was reached again after a delay, and when it was last stamped:
+    at its opening, at its first reach if it predates the count, or at its last strike."""
+
+    count: int
+    last: datetime
+
+    @property
+    def text(self) -> str:
+        return f"{self.count}, last {self.last:%Y-%m-%dT%H:%M}Z"
+
 
 @dataclass(frozen=True)
 class Diagnostic:
@@ -194,7 +226,9 @@ class Refused(Exception):
     """A call the store cannot answer as asked. The message says what to settle first."""
 
 
-def main(argv: list[str], root: Path | None = None, today: date | None = None) -> int:
+def main(
+    argv: list[str], root: Path | None = None, today: date | None = None, now: datetime | None = None
+) -> int:
     root = root or Path(__file__).resolve().parents[3]
     today = today or date.today()
     # A title may hold any character, and a Windows console's default encoding holds few of them:
@@ -203,7 +237,7 @@ def main(argv: list[str], root: Path | None = None, today: date | None = None) -
         sys.stdout.reconfigure(encoding="utf-8")
     try:
         if argv[:1] and argv[0] in EVENTS:
-            return _called(root, argv, today)
+            return _called(root, argv, today, now or datetime.now(timezone.utc))
         if argv == ["--check"]:
             checked = check(root, today)
             print(json.dumps(checked.as_record(), indent=2))
@@ -330,7 +364,7 @@ def _read(name: str, text: str) -> tuple[Entry, list[Diagnostic]]:
         elif line.strip():
             problems.append(Diagnostic(name, number, "holds a line that is not one of its parts"))
     read = Entry(name, title.group(1) if title else None, title.group(2) if title else "", parts)
-    return read, problems + _state_problems(read) + _relation_form_problems(read)
+    return read, problems + _state_problems(read) + _relation_form_problems(read) + _strike_problems(read)
 
 
 def _ids(value: str) -> list[str] | None:
@@ -371,6 +405,15 @@ def _state_problems(read: Entry) -> list[Diagnostic]:
     if read.open and "answer" in read.parts:
         return [Diagnostic(read.record, read.parts["answer"].line, "is open and carries an answer")]
     return []
+
+
+def _strike_problems(read: Entry) -> list[Diagnostic]:
+    """A strike is optional, since entries written before the count have none; when written, it
+    reads as the writer writes it."""
+    said = read.parts.get("struck")
+    if said is None or read.strike is not None:
+        return []
+    return [Diagnostic(read.record, said.line, f"struck is `{said.value}`, not `<n>, last <YYYY-MM-DDTHH:MMZ>`")]
 
 
 def _name_problems(read: Entry, stem: re.Match[str]) -> list[Diagnostic]:
@@ -888,13 +931,15 @@ def wake(root: Path, today: date, tag: str | None = None) -> str:
 
 
 def _wake_read(root: Path, held: Session, header: str) -> str:
-    """Who else is where, what waits to be re-read, and this session's window drawn whole."""
+    """What keeps coming back, who else is where, what waits to be re-read, and this session's
+    window drawn whole."""
     store = read_store(root)
     live = sorted((read for read in store.index.values() if not read.archived), key=_order)
     others = [other for other in store.sessions if other.tag != held.tag]
     deferred = [read for read in live if read.kind == "deferred" and "answer" in read.parts]
     return "\n".join(
         [header, ""]
+        + _section("most struck, open:", [f"  {_line(read)}" for read in _most_struck(live)])
         + _section("sessions:", [f"  {_session_state(other)}" for other in others])
         + _section(
             "deferred, to re-check whether each condition is met:",
@@ -903,6 +948,13 @@ def _wake_read(root: Path, held: Session, header: str) -> str:
         + _section("suspect, to re-read:", [f"  {_line(read)}" for read in live if read.suspect])
         + [window(root, held.tag, full=True)]
     )
+
+
+def _most_struck(live: list[Entry]) -> list[Entry]:
+    """The open questions that came back most, highest count first and then by id, a few at most,
+    so a session sees them before anything else and the read stays bounded (parent decision 54)."""
+    struck = [read for read in live if read.open and read.strike and read.strike.count]
+    return sorted(struck, key=lambda read: (-read.strike.count, _order(read)))[:WAKE_STRUCK_LINES]
 
 
 def _register(root: Path, today: date, tag: str | None = None) -> Session:
@@ -1109,7 +1161,7 @@ def _root_lines(store: Store, path: list[Entry]) -> list[str]:
         _section(
             f"open questions under this root ({root.identity}), with their parent:",
             [
-                f"  {read.identity} (parent {read.parent}) {read.question}{_lean(read)}"
+                f"  {read.identity} (parent {read.parent}) {read.question}{_count(read)}{_lean(read)}"
                 for read in below
                 if read.open
             ],
@@ -1143,7 +1195,13 @@ def _without_position(store: Store, held: Session) -> str:
 
 
 def _line(read: Entry) -> str:
-    return f"{read.identity} [{read.parts['state'].value}] {read.question}{_lean(read)}"
+    return f"{read.identity} [{read.parts['state'].value}] {read.question}{_count(read)}{_lean(read)}"
+
+
+def _count(read: Entry) -> str:
+    """How often the question came back, when it has (parent decision 54)."""
+    strike = read.strike
+    return f" (struck {strike.count})" if strike and strike.count else ""
 
 
 def _lean(read: Entry) -> str:
@@ -1185,7 +1243,7 @@ _RECORD_ID = re.compile(r"^\d{2}-\d{4}(?:\.\d{4})*")
 EVENTS = ("at", "open", "move", "depend", "undepend", "close", "suspect", "clear", "lean", "assign")
 
 
-def _called(root: Path, argv: list[str], today: date) -> int:
+def _called(root: Path, argv: list[str], today: date, now: datetime) -> int:
     """One event of a turn, as its call says it (parent decision 56): written whole and reported,
     or refused with its usage and nothing written."""
     try:
@@ -1193,7 +1251,7 @@ def _called(root: Path, argv: list[str], today: date) -> int:
     except SystemExit as stopped:
         return stopped.code if isinstance(stopped.code, int) else 2
     left = read_store(root).session(said.session).current
-    written = declare(root, said.session, [_clause(said)], today)
+    written = declare(root, said.session, [_clause(said)], today, now=now)
     for record in written.entries:
         print(f"wrote {record}")
     for identity in written.opened:
@@ -1295,9 +1353,11 @@ def declare(
     clauses: list[Clause],
     today: date,
     between: Callable[[], None] | None = None,
+    now: datetime | None = None,
 ) -> Written:
     """Apply clauses in order to the store, validate the result whole, then write the entries they
-    changed and the session's line last.
+    changed and the session's line last. `now`, the clock's UTC time unless a caller injects one,
+    stamps what opens and strikes what is reached again (parent decision 53).
 
     Nothing is written unless everything validates. Just before writing, every entry file the
     clauses change is read again, and one that moved since it was read refuses them: detected
@@ -1307,10 +1367,11 @@ def declare(
     The sessions file is outside the recheck, since each session replaces only its own line there.
     `between` runs after validation and before that last read — the moment another writer may act.
     """
+    now = now or datetime.now(timezone.utc)
     attempt = 1
     while True:
         try:
-            return _declared(root, tag, clauses, today, between if attempt == 1 else None)
+            return _declared(root, tag, clauses, today, now, between if attempt == 1 else None)
         except Taken:
             if attempt == OPEN_ATTEMPTS:
                 raise
@@ -1318,12 +1379,17 @@ def declare(
 
 
 def _declared(
-    root: Path, tag: str, clauses: list[Clause], today: date, between: Callable[[], None] | None
+    root: Path,
+    tag: str,
+    clauses: list[Clause],
+    today: date,
+    now: datetime,
+    between: Callable[[], None] | None,
 ) -> Written:
     seen: dict[str, bytes] = {}
     entries, _, _ = _entries(root, seen)
     held = read_store(root).session(tag)
-    draft = _Draft(root, {read.identity: read for read in entries if read.identity})
+    draft = _Draft(root, {read.identity: read for read in entries if read.identity}, now)
     for clause in clauses:
         draft.apply(clause)
     position = next((clause.question for clause in clauses if clause.verb == "at"), None)
@@ -1354,9 +1420,10 @@ def _moved(held: Session, position: str | None, today: date) -> Session | None:
 class _Draft:
     """The store as the clauses leave it, held in memory until all of them validate."""
 
-    def __init__(self, root: Path, index: dict[str, Entry]) -> None:
+    def __init__(self, root: Path, index: dict[str, Entry], now: datetime) -> None:
         self.root = root
         self.index = dict(index)
+        self.now = now
         self.changed: list[str] = []
         self.new: set[str] = set()
 
@@ -1364,10 +1431,23 @@ class _Draft:
         getattr(self, f"_{clause.verb}")(clause)
 
     def place(self, identity: str) -> None:
+        """The position is an open question, and reaching it may strike it."""
         read = self._existing(identity)
         if not read.open:
             state = read.parts["state"].value
             raise Refused(f"`at {identity}`: {identity} is {state}; a position is an open question")
+        self._reach(read)
+
+    def _reach(self, read: Entry) -> None:
+        """A reach twelve hours or more after the last stamp strikes the question; an entry written
+        before the count is stamped and not struck, so the old ones do not all strike at once; any
+        other reach writes nothing, so a turn that stays does not redraw every window. A stamp the
+        check would refuse is left for the check to report."""
+        strike = read.strike
+        if strike is None and "struck" not in read.parts:
+            self._put(_with(read, struck=Strike(0, self.now).text))
+        elif strike is not None and self.now - strike.last >= STRIKE_AFTER:
+            self._put(_with(read, struck=Strike(strike.count + 1, self.now).text))
 
     def _at(self, clause: Clause) -> None:
         """Checked once every clause has applied, by `place`."""
@@ -1376,7 +1456,7 @@ class _Draft:
         """A new question takes the next free id; the recheck finds it still free, or `declare`
         draws again."""
         identity = _next_free(self.index)
-        parts = {"state": "open"}
+        parts = {"state": "open", "struck": Strike(0, self.now).text}
         if clause.other:
             self._existing(clause.other)
             parts = {"part of": clause.other} | parts

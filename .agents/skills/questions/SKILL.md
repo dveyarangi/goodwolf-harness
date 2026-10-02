@@ -105,8 +105,9 @@ default; *pruned* says the question should not have been held.
 
 **An entry** — one file in `docs/questions/`, named `q-NNNN-<slug>.md`, the slug made by the
 script from the question's words — so phrase a question short. Tier 2: read by the script, and by
-a person through this skill. What removes one: it moves to `docs/questions/done/` with a wholly closed subtree nothing open depends on, a deferred
-or suspect entry counting as open; it is never deleted.
+a person through this skill. What removes one: it moves to `docs/questions/done/` with a wholly
+closed subtree nothing open depends on, a deferred or suspect entry counting as open; it is never
+deleted.
 
 ```md
 # q-0041 Which package manager do we use?
@@ -117,9 +118,11 @@ or suspect entry counting as open; it is never deleted.
 - **owner** [01-0011.0100](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)
 - **answer** [the ADR](../adr/0004-scripts-run-on-the-standard-library-alone.md) — the user, 2026-09-28
 - **lean** the flat directory, for insertion cost
+- **struck** 2, last 2026-10-02T19:40Z
 ```
 
-Every part but **state** is optional, and a closed entry must carry its **answer**. The state is
+Every part but **state** is optional, and a closed entry must carry its **answer**. **struck** is
+`<n>, last <YYYY-MM-DDTHH:MMZ>`, in UTC, written by the script alone, never by hand. The state is
 `open` or `closed:<kind>`, with `, suspect` after it at most. The id is placement and never
 hierarchy; *part of* is the hierarchy's one home.
 

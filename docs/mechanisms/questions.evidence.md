@@ -59,7 +59,15 @@ next free id to the rendering measured; a change to its format reruns the test.
 
 From stages 1 to 3, each a reading of the RFC where it left a detail open: the sessions line
 `<tag> running|ended <date> <q-id>|- [<q-id>,…]`; a slug is the question's leading words up to
-forty characters, raised by parent decision 55 to the whole question, cut past 160; twins share at least three content words and half the shorter title's;
-`nothing` writes nothing, the date included; a closure keeps an existing suspect flag; the writer
-refuses a closure the check would fail; a host's hook never fails the host, and a session whose
-start no hook saw is registered by its first message.
+forty characters, raised by parent decision 55 to the whole question, cut past 160; twins share
+at least three content words and half the shorter title's; `nothing` writes nothing, the date
+included; a closure keeps an existing suspect flag; the writer refuses a closure the check would
+fail; a host's hook never fails the host, and a session whose start no hook saw is registered by
+its first message.
+
+From `.0015`'s stages, 2026-10-03: the strike's stamp is UTC to the minute, since the store is
+shared through Git between machines in different zones; `struck` is written last among the
+parts; a stamp the check would refuse is left for the check, never overwritten by a reach; a
+stamp ahead of the clock does not strike; the count shows as `(struck n)` after the question;
+the wake lists five most-struck open questions at most, ahead of everything else. A raced strike
+is refused like any changed entry, and only a taken id is drawn again.
