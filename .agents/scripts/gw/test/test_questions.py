@@ -38,7 +38,7 @@ class Store(RepositoryCase):
     def setUp(self) -> None:
         super().setUp()
         remember_windows_in_the_case(self)
-        self.place("q-0001-which-store", "Which store holds the questions?", {"state": "open"})
+        self.place("q-0001-which-store-holds-the-questions", "Which store holds the questions?", {"state": "open"})
         self.place(
             "q-0002-what-an-entry-holds",
             "What an entry holds?",
@@ -221,11 +221,18 @@ class TheFilename(Store):
         self.assertEqual(1, len(problems), problems)
         self.assertIn("slug", problems[0])
 
-    def test_may_shorten_the_question_to_its_leading_words(self) -> None:
-        self.place("q-0003-which-package-manager", "Which package manager do we use?", {"state": "open"})
-        self.place("q-0004-what-the-tickets-align-holds", "What the ticket's align holds?", {"state": "open"})
+    def test_holds_every_word_of_the_question_an_apostrophe_dropped(self) -> None:
+        self.place("q-0003-what-the-tickets-align-holds", "What the ticket's align holds?", {"state": "open"})
 
         self.assertEqual([], self.problems())
+
+    def test_that_stops_short_of_the_whole_question_is_reported_with_the_name_it_needs(self) -> None:
+        self.place("q-0003-which-package-manager", "Which package manager do we use?", {"state": "open"})
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems), problems)
+        self.assertIn("q-0003-which-package-manager-do-we-use.md", problems[0])
 
     def test_that_is_not_an_entrys_name_is_reported(self) -> None:
         self.write(f"{STORE}/notes.md", "# Notes\n")
@@ -283,13 +290,13 @@ class TheRelations(Store):
 
     def test_a_cycle_in_part_of_is_reported(self) -> None:
         self.place(
-            "q-0001-which-store", "Which store holds the questions?", {"part of": "q-0002", "state": "open"}
+            "q-0001-which-store-holds-the-questions", "Which store holds the questions?", {"part of": "q-0002", "state": "open"}
         )
         self.assertReported("cycle")
 
     def supersede_the_root_and_close_its_child(self, child_state: str) -> None:
         self.place(
-            "q-0001-which-store",
+            "q-0001-which-store-holds-the-questions",
             "Which store holds the questions?",
             {"state": "closed:superseded", "answer": "q-0003"},
         )
@@ -407,9 +414,11 @@ class LikelyTwins(Store):
         return [note.finding for note in questions.check(self.root, today=TODAY).findings]
 
     def test_two_live_titles_sharing_most_of_their_words_are_a_finding(self) -> None:
-        self.place("q-0003-which-package-manager", "Which package manager do we use?", {"state": "open"})
+        self.place("q-0003-which-package-manager-do-we-use", "Which package manager do we use?", {"state": "open"})
         self.place(
-            "q-0004-what-package-manager", "What package manager should we use for builds?", {"state": "open"}
+            "q-0004-what-package-manager-should-we-use-for-builds",
+            "What package manager should we use for builds?",
+            {"state": "open"},
         )
 
         found = self.findings()
@@ -420,14 +429,14 @@ class LikelyTwins(Store):
         self.assertEqual([], self.problems())
 
     def test_titles_sharing_a_word_or_two_are_not(self) -> None:
-        self.place("q-0003-which-store-holds", "Which store holds the drafts?", {"state": "open"})
+        self.place("q-0003-which-store-holds-the-drafts", "Which store holds the drafts?", {"state": "open"})
 
         self.assertEqual([], self.findings())
 
     def test_an_archived_title_is_searched_by_a_person_not_paired_here(self) -> None:
-        self.place("q-0003-which-package-manager", "Which package manager do we use?", {"state": "open"})
+        self.place("q-0003-which-package-manager-do-we-use", "Which package manager do we use?", {"state": "open"})
         self.place(
-            "q-0004-what-package-manager",
+            "q-0004-what-package-manager-should-we-use-for-builds",
             "What package manager should we use for builds?",
             {"state": "closed:moot", "answer": "no builds"},
             folder=f"{STORE}/done",
@@ -461,7 +470,7 @@ class ReadyForDone(Store):
         self.assertIn("q-0002", ready[0])
 
     def test_a_wholly_closed_tree_is_ready_once_at_its_root(self) -> None:
-        self.close("q-0001-which-store", "Which store holds the questions?")
+        self.close("q-0001-which-store-holds-the-questions", "Which store holds the questions?")
         self.close("q-0002-what-an-entry-holds", "What an entry holds?", **{"part of": "q-0001"})
 
         ready = self.ready()
@@ -551,7 +560,7 @@ class Rendered(Store):
         self.question("q-0004-which-parts-are-optional", "Which parts are optional?", "q-0002")
         self.question("q-0005-is-the-id-a-path", "Is the id a path?", "q-0002", "closed:decided", decided)
         self.question(
-            "q-0006-is-the-directory-partitioned",
+            "q-0006-is-the-directory-partitioned-by-root",
             "Is the directory partitioned by root?",
             "q-0002",
             "closed:deferred",
@@ -568,7 +577,7 @@ class Rendered(Store):
             "closed:deferred",
             "until a place to run, meanwhile word match",
         )
-        self.question("q-0010-how-do-sessions-reach", "How do sessions reach each other?")
+        self.question("q-0010-how-do-sessions-reach-each-other", "How do sessions reach each other?")
         self.question("q-0011-is-height-depth", "Is height depth?", None, "closed:pruned", "height was abstraction")
         self.question("q-0012-an-archived-one", "An archived one?", None, "closed:moot", "gone", folder=f"{STORE}/done")
         self.question(
@@ -829,7 +838,7 @@ class TheTree(Rendered):
 
 class ItsOutput(Rendered):
     def test_is_utf8_whatever_the_consoles_encoding_so_any_title_prints(self) -> None:
-        self.place("q-0010-how-do-sessions-reach", "How do sessions reach each other → remotely?", {"state": "open"})
+        self.place("q-0010-how-do-sessions-reach-each-other", "How do sessions reach each other → remotely?", {"state": "open"})
         raw = io.BytesIO()
         console = io.TextIOWrapper(raw, encoding="cp1252")
 
@@ -865,6 +874,30 @@ class OpeningAndPlacing(Declared):
         )
         self.assertEqual("s-alpha running 2026-09-29 q-0014 q-0004,q-0002,q-0001", self.own_line())
         self.assertIn("q-0014", said)
+
+    def test_names_a_long_question_with_every_word(self) -> None:
+        question = (
+            "Does a question whose words run well past the old forty character cut keep every one "
+            "of them in its name when the listing shows it?"
+        )
+        slug = "-".join(questions._words(question))
+        self.assertTrue(120 < len(slug) <= questions.SLUG_LENGTH, len(slug))
+
+        status, said = self.declare(f"at q-0014; opens q-0014: {question}")
+
+        self.assertEqual(0, status, said)
+        self.assertTrue((self.root / STORE / f"q-0014-{slug}.md").is_file())
+
+    def test_cuts_a_question_past_the_length_at_a_word_boundary(self) -> None:
+        words = [f"word{number:02d}" for number in range(40)]
+        status, said = self.declare(f"at q-0014; opens q-0014: {' '.join(words)}?")
+
+        self.assertEqual(0, status, said)
+        [named] = [name.name for name in (self.root / STORE).glob("q-0014-*.md")]
+        slug = named[len("q-0014-") : -len(".md")]
+        self.assertLessEqual(len(slug), questions.SLUG_LENGTH)
+        self.assertGreater(len(slug) + len("-word00"), questions.SLUG_LENGTH, "cut no earlier than it must")
+        self.assertEqual(words[: len(slug.split("-"))], slug.split("-"), "whole words, the question's first")
 
 
 class EachClause(Declared):

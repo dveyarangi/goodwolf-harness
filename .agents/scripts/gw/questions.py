@@ -40,7 +40,7 @@ SESSIONS = "docs/questions/sessions"
 STALE_AFTER_DAYS = 7
 # A twin shares at least this many content words, and at least half of the shorter title's.
 TWIN_SHARED_WORDS = 3
-SLUG_LENGTH = 40
+SLUG_LENGTH = 160
 # Where the fingerprint of each session's last window is kept; `None` is the machine's temp folder.
 WINDOW_MEMORY: str | None = None
 PARTS = ("part of", "depends on", "state", "owner", "answer", "lean")
@@ -372,22 +372,22 @@ def _state_problems(read: Entry) -> list[Diagnostic]:
 
 
 def _name_problems(read: Entry, stem: re.Match[str]) -> list[Diagnostic]:
-    """The filename's id is the title's, and its slug is the question's leading words.
-
-    A slug may stop short of the question — `which-package-manager` for *Which package manager do
-    we use?* — so the check is that its words are the question's, in order, and no more.
-    """
+    """The filename's id is the title's, and its slug is the whole question, as the writer names it
+    (parent decision 55), so a name shortened or left behind by a reworded question is caught."""
     if read.identity is None:
         return []
     if stem.group(1) != read.identity:
         return [
             Diagnostic(read.record, 1, f"is named {stem.group(1)} and its title says {read.identity}")
         ]
-    words = _words(read.question)
-    slug = stem.group(2).split("-")
-    if slug != words[: len(slug)]:
+    wanted = _slug(read.question)
+    if stem.group(2) != wanted:
         return [
-            Diagnostic(read.record, 1, f"its slug `{stem.group(2)}` is not the question's leading words")
+            Diagnostic(
+                read.record,
+                1,
+                f"its slug `{stem.group(2)}` is not the question's words; name it `{read.identity}-{wanted}.md`",
+            )
         ]
     return []
 
@@ -1500,8 +1500,8 @@ def _entry_text(read: Entry) -> str:
 
 
 def _slug(question: str) -> str:
-    """The question's leading words, as many as fit in forty characters, so the name stays
-    readable in a listing and still says which question it is."""
+    """Every word of the question, cut at a word boundary only past `SLUG_LENGTH` characters, so a
+    person reading a listing reads the whole question (parent decision 55)."""
     slug: list[str] = []
     for word in _words(question):
         if slug and len("-".join(slug + [word])) > SLUG_LENGTH:

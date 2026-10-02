@@ -6,7 +6,7 @@ is a phrasing or boundary defect, not only an execution slip, and the entry prop
 
 Entries are struck when a later occurrence repeats one, and counted. Nothing here authorises
 deleting a rule: occurrences accumulate and what to do about a rule that keeps failing is
-[q-0004 is-harness-self-amendment-its-own](questions/q-0004-is-harness-self-amendment-its-own.md)'s,
+[q-0004 is-harness-self-amendment-its-own-mechanism](questions/q-0004-is-harness-self-amendment-its-own-mechanism.md)'s,
 unresolved on purpose.
 
 Whether this register and its rules become their own mechanism is
@@ -294,6 +294,20 @@ registers and the bootstrapping align will fill, since the moments it adds are w
 would ask `/maintain` to check. Graded by the next declaration written beside its implementation
 — named by its job, or this entry is struck.
 
+**Struck, 2026-10-03 — one repeat, in a skill.** Planning
+[01-0011.0100.0017 an-entry-name-carries-its-whole-question](tickets/done/01-0011.0100.0017-an-entry-name-carries-its-whole-question.md),
+the RFC told the questions skill's *Records* to say the slug is *every word of the question, cut at
+a word boundary only past 160 characters*, and `/implement` wrote it. The user: *what the hell is
+this for? is it instruction? why is it in questions skill?* The script makes the name and the
+check holds it; the agent can act on nothing in that clause but *phrase a question short*. The
+rule in play was the entry file's *write for a capable model: state the rule and its pointer*,
+whose list of what stays out — the glossary's definition, the motivating example, what it implies
+— does not name what a script already does, and a skill line written beside its script took the
+script's behaviour, as this entry's declaration took its verbs. Repaired: the line reads *the
+slug made by the script from the question's words — so phrase a question short*. **Amendment
+proposed:** the rule's list gains *and what a script already does for the reader*. It edits the
+general rules, so it moves the entry contract; not landed until the user agrees.
+
 ## 6. The binding form lived on two tickets, and six closed tickets got a bare id — 2026-09-20
 
 **Rules in play:** [01-0011.0050](tickets/done/01-0011.0050-shape-checked.md)'s align, *Related* —
@@ -533,7 +547,7 @@ inside either** — the class that raises no error anywhere, because each rule i
 
 **Disposition:** [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md) minted
 the same day; concern 3 reduced to its contact surface, since folded into the question store as
-[q-0004](questions/q-0004-is-harness-self-amendment-its-own.md). The amendment to `/align` is
+[q-0004](questions/q-0004-is-harness-self-amendment-its-own-mechanism.md). The amendment to `/align` is
 not yet made — `/align`'s glossary and concerns rules are both moving under
 [01-0017.0010](tickets/01-0017.0010-terms-defined-before-they-land.md) and this wording should land
 with them rather than ahead of them.

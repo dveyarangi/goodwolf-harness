@@ -54,7 +54,7 @@ next free id to the rendering measured; a change to its format reruns the test.
 
 From stages 1 to 3, each a reading of the RFC where it left a detail open: the sessions line
 `<tag> running|ended <date> <q-id>|- [<q-id>,…]`; a slug is the question's leading words up to
-forty characters; twins share at least three content words and half the shorter title's;
+forty characters, raised by parent decision 55 to the whole question, cut past 160; twins share at least three content words and half the shorter title's;
 `nothing` writes nothing, the date included; a closure keeps an existing suspect flag; the writer
 refuses a closure the check would fail; a host's hook never fails the host, and a session whose
 start no hook saw is registered by its first message.

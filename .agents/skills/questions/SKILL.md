@@ -84,8 +84,8 @@ default; *pruned* says the question should not have been held.
 
 ## Records
 
-**An entry** — one file in `docs/questions/`, named `q-NNNN-<slug>.md`, the slug the question's
-leading words. Tier 2: read by the script, and by a person through this skill. What removes one: it
+**An entry** — one file in `docs/questions/`, named `q-NNNN-<slug>.md`, the slug made by the script from
+the question's words — so phrase a question short. Tier 2: read by the script, and by a person through this skill. What removes one: it
 moves to `docs/questions/done/` with a wholly closed subtree nothing open depends on, a deferred
 or suspect entry counting as open; it is never deleted.
 
