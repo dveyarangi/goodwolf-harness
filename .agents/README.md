@@ -24,7 +24,7 @@ declare, and renders the register from
 [`mechanisms/`](./mechanisms/), `inject_rules.py` installs a mechanism's rules into the skills
 its rules file names, and the project's local file last, and takes them out again, `tickets.py` holds every live ticket to the shape
 the ticket format shelf declares, `questions.py` keeps the store of open questions — the window,
-the wake, the declared line and its check, and the hosts' hooks — and `docs_corpus.py` is the one view of the
+the wake, the calls and the check, and the hosts' hooks — and `docs_corpus.py` is the one view of the
 tree they share. They
 run on the standard library alone, and their behavioral tests are in
 [`scripts/gw/test/`](./scripts/gw/test/) — inside `.agents/` because they are core: a recipient's first

@@ -5,6 +5,7 @@
     uv run --offline --no-project python .agents/scripts/gw/questions.py --wake [--session <tag>]
     uv run --offline --no-project python .agents/scripts/gw/questions.py --end --session <tag>
     uv run --offline --no-project python .agents/scripts/gw/questions.py --tree [<q-id>]
+    uv run --offline --no-project python .agents/scripts/gw/questions.py <event> ... --session <tag>
 
 The store is `docs/questions/`: one file per question, its parent line the hierarchy's one home,
 wholly closed subtrees in `docs/questions/done/`, and `docs/questions/sessions`, where each running
@@ -13,12 +14,15 @@ session keeps its position. The formats are the questions skill's.
 `--check` is the maintainer. It writes nothing; its exit status is the verdict and its JSON is for
 the person reading a failure. A tree with no store has nothing to check and passes. `--window` is
 what the agent reads before placing a message; `--wake` registers a session and reads where the
-work stands; `--end` closes a session's line; `--tree` draws the live tree for a person. Only the
-wake and the end write, and each writes only its own session's line.
+work stands; `--end` closes a session's line; `--tree` draws the live tree for a person. Each
+event of a turn is its own call — `at`, `open`, `move`, `depend`, `undepend`, `close`, `suspect`,
+`clear`, `lean`, `assign` — validated and written whole (parent decision 56); `--help` after any
+of them says what it takes.
 """
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import posixpath
@@ -47,8 +51,11 @@ PARTS = ("part of", "depends on", "state", "owner", "answer", "lean")
 KINDS = ("decided", "pruned", "merged", "deferred", "moot", "superseded")
 _USAGE = (
     "usage: questions.py --check | --window --session <tag> | --wake [--session <tag>] "
-    "| --end --session <tag> | --tree [<q-id>] | --declare \"<line>\" --session <tag>"
+    "| --end --session <tag> | --tree [<q-id>] | <event> ... --session <tag>, the events "
+    "at, open, move, depend, undepend, close, suspect, clear, lean, assign"
 )
+# How many times an `open` takes the next free id again when another session took the one it drew.
+OPEN_ATTEMPTS = 3
 _STOPWORDS = frozenset(
     "a an and are as at be by can do does for from how in is it of on or should the this to we "
     "what when where whether which who why will with".split()
@@ -195,6 +202,8 @@ def main(argv: list[str], root: Path | None = None, today: date | None = None) -
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
     try:
+        if argv[:1] and argv[0] in EVENTS:
+            return _called(root, argv, today)
         if argv == ["--check"]:
             checked = check(root, today)
             print(json.dumps(checked.as_record(), indent=2))
@@ -210,13 +219,6 @@ def main(argv: list[str], root: Path | None = None, today: date | None = None) -
             return 0
         if argv[:1] == ["--tree"] and len(argv) <= 2:
             print(tree(root, argv[1] if len(argv) == 2 else None))
-            return 0
-        if len(argv) == 4 and argv[0] == "--declare" and argv[2] == "--session":
-            written = declare(root, argv[3], parse(argv[1]), today)
-            for record in written.entries:
-                print(f"wrote {record}")
-            if written.session is not None:
-                print(f"{written.session.tag} at {written.session.current}")
             return 0
         if len(argv) == 3 and argv[:2] == ["--end", "--session"]:
             held = end(root, argv[2], today)
@@ -788,10 +790,6 @@ class Store:
             raise Refused(f"no session {tag} is registered in {SESSIONS}; `--wake` registers one")
         return held
 
-    @property
-    def next_free(self) -> str:
-        return _next_free(self.index)
-
 
 def _next_free(index: dict[str, Entry]) -> str:
     """The id a new question takes: one past the highest ever given, live or archived, so an id is
@@ -1129,14 +1127,13 @@ def _elsewhere_lines(store: Store, held: Session) -> list[str]:
     ]
     return _section("other running sessions:", others) + [
         f"recently attached: {', '.join(held.recent) or 'none'}",
-        f"next free id: {store.next_free}",
     ]
 
 
 def _without_position(store: Store, held: Session) -> str:
     """A session that has not placed itself yet: the roots to place it among, and who is where."""
     return "\n".join(
-        [f"session: {held.tag}", "current: none yet — the first declared `at` places it", ""]
+        [f"session: {held.tag}", "current: none yet — the first `at` call places it", ""]
         + _section("roots:", [f"  {_line(read)}" for read in store.roots])
         + _elsewhere_lines(store, held)
     )
@@ -1166,10 +1163,11 @@ def _order(read: Entry) -> int:
 
 @dataclass(frozen=True)
 class Clause:
-    """One event of a declared line, as the writer applies it.
+    """One event, as the writer applies it.
 
-    The parser makes these from a line; a judge's typed value will be turned into the same list
-    without parsing (parent decision 39), so the writer has one front door for both.
+    A call makes one from its arguments; a judge's typed value will be turned into the same list
+    without parsing (parent decision 39), so the writer has one front door for both. An `opens`
+    carries no id: the writer takes the next free one.
     """
 
     verb: str
@@ -1179,80 +1177,99 @@ class Clause:
     text: str | None = None
 
 
-_ID = r"(q-\d{4,})"
 # A record named by its id, `01-0011.0100` of a ticket's file name, is labelled by that id alone.
 _RECORD_ID = re.compile(r"^\d{2}-\d{4}(?:\.\d{4})*")
-_CLAUSES = (
-    ("at", re.compile(rf"^at {_ID}$")),
-    ("opens", re.compile(rf"^opens {_ID}(?: under {_ID}| between {_ID} and {_ID})?: (.+)$")),
-    ("moves", re.compile(rf"^moves {_ID} (?:under {_ID}|to root)$")),
-    ("depends", re.compile(rf"^depends {_ID} on {_ID}$")),
-    ("closes", re.compile(rf"^closes {_ID}: ({'|'.join(KINDS)})(?:, (.+))?$")),
-    ("suspects", re.compile(rf"^suspects {_ID}$")),
-    ("clears", re.compile(rf"^clears {_ID}$")),
-    ("leans", re.compile(rf"^leans {_ID}: (.+)$")),
-    ("assigns", re.compile(rf"^assigns {_ID} to (.+)$")),
-)
+EVENTS = ("at", "open", "move", "depend", "undepend", "close", "suspect", "clear", "lean", "assign")
 
 
-def parse(line: str) -> list[Clause]:
-    """A declared line as clauses, in the order written; `nothing` alone is a turn that placed
-    nothing. Free text may not hold `;`, since `; ` is what separates clauses."""
-    if line.strip() == "nothing":
-        return [Clause("nothing")]
-    clauses = []
-    for written in line.strip().split("; "):
-        if ";" in written:
-            raise Refused(f"`{written}` holds a `;`, which free text in a declared line may not")
-        clauses.append(_clause(written))
-    placed = [clause for clause in clauses if clause.verb == "at"]
-    if len(placed) != 1:
-        raise Refused("a declared line names its session's position with exactly one `at`, or is `nothing`")
-    return clauses
+def _called(root: Path, argv: list[str], today: date) -> int:
+    """One event of a turn, as its call says it (parent decision 56): written whole and reported,
+    or refused with its usage and nothing written."""
+    try:
+        said = _calls().parse_args(argv)
+    except SystemExit as stopped:
+        return stopped.code if isinstance(stopped.code, int) else 2
+    written = declare(root, said.session, [_clause(said)], today)
+    for record in written.entries:
+        print(f"wrote {record}")
+    for identity in written.opened:
+        print(f"opened {identity}")
+    if written.session is not None:
+        print(f"{written.session.tag} at {written.session.current}")
+    return 0
 
 
-def _clause(written: str) -> Clause:
-    for verb, grammar in _CLAUSES:
-        said = grammar.match(written)
-        if said is None:
-            continue
-        groups = said.groups()
-        if verb == "opens":
-            return Clause(verb, groups[0], groups[1] or groups[2], groups[3], groups[4])
-        if verb == "closes":
-            return Clause(verb, groups[0], groups[1], text=groups[2])
-        if verb in ("leans", "assigns"):
-            return Clause(verb, groups[0], text=groups[1])
-        return Clause(verb, *groups)
-    raise Refused(f"`{written}` is not a clause of the declared line; the clauses are:\n{FORMS}")
+def _clause(said: argparse.Namespace) -> Clause:
+    """The writer's clause for one call."""
+    if said.event == "open":
+        upper, lower = said.between or (said.under, None)
+        return Clause("opens", other=upper, lower=lower, text=said.text)
+    if said.event == "move":
+        return Clause("moves", said.question, other=said.under)
+    if said.event in ("depend", "undepend"):
+        return Clause(f"{said.event}s", said.question, other=said.on)
+    if said.event == "close":
+        return Clause("closes", said.question, other=said.kind, text=said.pointer)
+    if said.event in ("lean", "assign"):
+        return Clause(f"{said.event}s", said.question, text=said.text)
+    return Clause({"at": "at", "suspect": "suspects", "clear": "clears"}[said.event], said.question)
 
 
-# The declared line's clauses, printed with a refusal so a malformed line is fixed in the same turn.
-FORMS = "\n".join(
-    f"  {form}"
-    for form in (
-        "at q-N                                   (required, once, unless the line is `nothing`)",
-        "opens q-N: <question>                    (a root; q-N is the next free id)",
-        "opens q-N under q-P: <question>",
-        "opens q-N between q-U and q-L: <question>",
-        "moves q-K under q-P  |  moves q-K to root",
-        "depends q-A on q-B",
-        "closes q-N: decided, [link](path) — who, date",
-        "closes q-N: deferred, until <condition>, meanwhile <default>",
-        "closes q-N: merged, q-M  |  closes q-N: superseded, q-M",
-        "closes q-N: pruned, <reason>  |  closes q-N: moot, <reason>",
-        "suspects q-N  |  clears q-N  |  leans q-N: <line>  |  assigns q-N to <path>",
-        "nothing",
-    )
-) + "\nclauses are separated by `; `, and free text may not hold `;`"
+def _calls() -> argparse.ArgumentParser:
+    """The events of a turn, one subcommand each, every one naming the session that makes it."""
+    calls = argparse.ArgumentParser(prog="questions.py")
+    events = calls.add_subparsers(dest="event", required=True)
+
+    def event(name: str, does: str) -> argparse.ArgumentParser:
+        call = events.add_parser(name, help=does, description=does)
+        call.add_argument("--session", required=True, help="the session making the call")
+        return call
+
+    def of_question(name: str, does: str) -> argparse.ArgumentParser:
+        call = event(name, does)
+        call.add_argument("question", type=_question_id)
+        return call
+
+    of_question("at", "place the session at an open question")
+    opening = event("open", "open a question; prints the id it was given")
+    opening.add_argument("text", help="the question, phrased short")
+    where = opening.add_mutually_exclusive_group()
+    where.add_argument("--under", type=_question_id, help="its parent")
+    where.add_argument("--between", nargs=2, type=_question_id, metavar=("UPPER", "LOWER"),
+                       help="its parent, and a child of that parent moved under it")
+    moving = of_question("move", "give a question a new parent, or none")
+    to = moving.add_mutually_exclusive_group(required=True)
+    to.add_argument("--under", type=_question_id)
+    to.add_argument("--to-root", action="store_true")
+    for name, does in (("depend", "a question waits on another"), ("undepend", "it waits no more")):
+        of_question(name, does).add_argument("--on", required=True, type=_question_id)
+    closing = of_question("close", "close a question by a kind, with its pointer")
+    closing.add_argument("kind", choices=KINDS)
+    closing.add_argument("pointer", nargs="?", help="what the questions skill's Closing names for the kind")
+    of_question("suspect", "mark a question's answer to be re-read")
+    of_question("clear", "lift the mark")
+    of_question("lean", "write a question's lean").add_argument("text")
+    of_question("assign", "name the record holding a question's deliberation").add_argument("text", metavar="path")
+    return calls
+
+
+def _question_id(given: str) -> str:
+    if not _IDENTITY.match(given):
+        raise argparse.ArgumentTypeError(f"`{given}` is not a question id, `q-NNNN`")
+    return given
 
 
 @dataclass
 class Written:
-    """What one declaration wrote, in the order it was written."""
+    """What one declaration wrote, in the order it was written, and the ids it opened."""
 
     entries: list[str]
     session: Session | None
+    opened: list[str]
+
+
+class Taken(Refused):
+    """An id this declaration drew for an `opens` was written by another session meanwhile."""
 
 
 def declare(
@@ -1262,15 +1279,30 @@ def declare(
     today: date,
     between: Callable[[], None] | None = None,
 ) -> Written:
-    """Apply a declared line's clauses in order to the store, validate the result whole, then
-    write the entries it changed and the session's line last.
+    """Apply clauses in order to the store, validate the result whole, then write the entries they
+    changed and the session's line last.
 
     Nothing is written unless everything validates. Just before writing, every entry file the
-    line changes is read again, and one that moved since it was read refuses the line: detected
-    interference is a failure, never authority to overwrite. The sessions file is the exception,
-    since each session replaces only its own line there. `between` runs after validation and
-    before that last read — the moment another writer may act.
+    clauses change is read again, and one that moved since it was read refuses them: detected
+    interference is a failure, never authority to overwrite. The one exception is an id drawn for
+    an `opens` that another session took meanwhile: the store is read again and the next free id
+    drawn, up to `OPEN_ATTEMPTS` times, since the other session's entry is untouched either way.
+    The sessions file is outside the recheck, since each session replaces only its own line there.
+    `between` runs after validation and before that last read — the moment another writer may act.
     """
+    attempt = 1
+    while True:
+        try:
+            return _declared(root, tag, clauses, today, between if attempt == 1 else None)
+        except Taken:
+            if attempt == OPEN_ATTEMPTS:
+                raise
+            attempt += 1
+
+
+def _declared(
+    root: Path, tag: str, clauses: list[Clause], today: date, between: Callable[[], None] | None
+) -> Written:
     seen: dict[str, bytes] = {}
     entries, _, _ = _entries(root, seen)
     held = read_store(root).session(tag)
@@ -1290,7 +1322,7 @@ def declare(
             _write_own_line(root, moved)
         except OSError as error:
             raise WriteInterrupted(written, SESSIONS, error) from error
-    return Written(written, moved)
+    return Written(written, moved, [identity for identity in draft.changed if identity in draft.new])
 
 
 def _moved(held: Session, position: str | None, today: date) -> Session | None:
@@ -1303,7 +1335,7 @@ def _moved(held: Session, position: str | None, today: date) -> Session | None:
 
 
 class _Draft:
-    """The store as a declared line leaves it, held in memory until the whole line validates."""
+    """The store as the clauses leave it, held in memory until all of them validate."""
 
     def __init__(self, root: Path, index: dict[str, Entry]) -> None:
         self.root = root
@@ -1321,13 +1353,12 @@ class _Draft:
             raise Refused(f"`at {identity}`: {identity} is {state}; a position is an open question")
 
     def _at(self, clause: Clause) -> None:
-        """Checked once the whole line has applied, by `place`."""
+        """Checked once every clause has applied, by `place`."""
 
     def _opens(self, clause: Clause) -> None:
-        identity = clause.question or ""
-        expected = _next_free(self.index)
-        if identity != expected:
-            raise Refused(f"`opens {identity}`: the next free id is {expected}")
+        """A new question takes the next free id; the recheck finds it still free, or `declare`
+        draws again."""
+        identity = _next_free(self.index)
         parts = {"state": "open"}
         if clause.other:
             self._existing(clause.other)
@@ -1338,10 +1369,7 @@ class _Draft:
         if clause.lower:
             lower = self._existing(clause.lower)
             if lower.parent != clause.other:
-                raise Refused(
-                    f"`opens {identity} between {clause.other} and {clause.lower}`: {clause.lower} is not "
-                    f"part of {clause.other}"
-                )
+                raise Refused(f"`open --between {clause.other} {clause.lower}`: {clause.lower} is not part of {clause.other}")
             self._put(_with(lower, **{"part of": identity}))
 
     def _moves(self, clause: Clause) -> None:
@@ -1349,16 +1377,24 @@ class _Draft:
         if clause.other is not None:
             self._existing(clause.other)
             if moving in _ancestry(self.index, clause.other):
-                raise Refused(f"`moves {moving.identity} under {clause.other}` makes a cycle in part of")
+                raise Refused(f"`move {moving.identity} --under {clause.other}` makes a cycle in part of")
         self._put(_with(moving, **{"part of": clause.other}))
 
     def _depends(self, clause: Clause) -> None:
         waiting, awaited = self._existing(clause.question or ""), self._existing(clause.other or "")
         if waiting.identity in self._awaited_by(awaited.identity or ""):
-            raise Refused(f"`depends {waiting.identity} on {awaited.identity}` makes a cycle in depends on")
+            raise Refused(f"`depend {waiting.identity} --on {awaited.identity}` makes a cycle in depends on")
         if awaited.identity not in waiting.dependencies:
             listed = ", ".join(waiting.dependencies + [awaited.identity or ""])
             self._put(_with(waiting, **{"depends on": listed}))
+
+    def _undepends(self, clause: Clause) -> None:
+        """One dependency lifted; the part goes with the last."""
+        waiting, awaited = self._existing(clause.question or ""), clause.other or ""
+        if awaited not in waiting.dependencies:
+            raise Refused(f"`undepend {waiting.identity} --on {awaited}`: {waiting.identity} does not depend on {awaited}")
+        left = [each for each in waiting.dependencies if each != awaited]
+        self._put(_with(waiting, **{"depends on": ", ".join(left) or None}))
 
     def _closes(self, clause: Clause) -> None:
         """A question closes only by a recorded kind with its pointer (parent decision 35); a prune
@@ -1371,14 +1407,14 @@ class _Draft:
             ]
             if left:
                 raise Refused(
-                    f"`closes {closing.identity}: pruned` leaves {', '.join(left)} open under it; move out "
+                    f"`close {closing.identity} pruned` leaves {', '.join(left)} open under it; move out "
                     "the ones that stand alone and close the rest first"
                 )
         state = f"closed:{kind}" + (", suspect" if closing.suspect else "")
         closed = _with(closing, state=state, answer=clause.text)
         problems = _answer_problems(self.root, closed)
         if problems:
-            raise Refused(f"`closes {closing.identity}: {kind}`: {problems[0].problem}")
+            raise Refused(f"`close {closing.identity} {kind}`: {problems[0].problem}")
         if closed.points_to:
             self._existing(closed.points_to)
         self._put(closed)
@@ -1400,14 +1436,11 @@ class _Draft:
         read = self._existing(clause.question or "")
         owner = (clause.text or "").strip()
         if not (self.root / owner).is_file():
-            raise Refused(f"`assigns {read.identity} to {owner}`: no file {owner} in this tree")
+            raise Refused(f"`assign {read.identity} {owner}`: no file {owner} in this tree")
         name = posixpath.splitext(posixpath.basename(owner))[0]
         label = _RECORD_ID.match(name)
         link = posixpath.relpath(owner, posixpath.dirname(read.record))
         self._put(_with(read, owner=f"[{label.group(0) if label else name}]({link})"))
-
-    def _nothing(self, clause: Clause) -> None:
-        """A turn that placed nothing writes nothing."""
 
     def _awaited_by(self, identity: str) -> set[str]:
         """Every question this one waits on, directly or through another."""
@@ -1432,23 +1465,20 @@ class _Draft:
             self.changed.append(read.identity or "")
 
     def recheck(self, seen: dict[str, bytes]) -> None:
-        """Every entry this line changes is as it was read, and every id it opens is still free —
+        """Every entry the clauses change is as it was read, and every id they open is still free —
         under any slug, since another session names its question in its own words."""
         for identity in self.changed:
             record = self.index[identity].record
             if identity in self.new:
                 if _files_holding(self.root, identity):
-                    raise Refused(
-                        f"{identity} was written by another session since this line was read; declare "
-                        "it again with the next free id"
-                    )
+                    raise Taken(f"{identity} was written by another session since this call read the store")
                 continue
             now = (self.root / record).read_bytes() if (self.root / record).is_file() else None
             if now != seen.get(record):
-                raise Refused(f"{record} changed since this line was read; read it again and declare anew")
+                raise Refused(f"{record} changed since this call read it; call it again")
 
     def write(self) -> list[str]:
-        """The changed entries, in the order the line changed them. A failure stops the run and
+        """The changed entries, in the order the clauses changed them. A failure stops the run and
         says what was written: nothing is rolled back."""
         written: list[str] = []
         for identity in self.changed:

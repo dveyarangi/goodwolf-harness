@@ -1,6 +1,6 @@
 # questions — every open question of the tree is kept in one store, with each session's current question known
 
-- **instruction** `.agents/skills/questions/SKILL.md` — the formats, the declared line, and closing, branching and dropping
+- **instruction** `.agents/skills/questions/SKILL.md` — the formats, the calls, and closing, branching and dropping
 - **state** installed
 
 ## How it works
@@ -18,8 +18,8 @@ core's substrate, beneath whatever method a tree runs.
 
 **The turn.** Before drafting, the agent reads the window — the path from the root to its session's
 current question, the children along it, the root's other open questions, the other roots, the
-other sessions, the next free id — and declares where the message lands, as one line the script
-parses and writes. The window prints position, never relevance: the one judgement of the turn is
+other sessions — and calls the script with where the message lands, one call per event, each
+validated and written whole; the script gives a new question its id. The window prints position, never relevance: the one judgement of the turn is
 the agent's. The rule placing a message is installed at tier 1, since its occasion is every turn.
 
 **Delivery.** Where a host's hooks can add context, the window and the session's registration come
@@ -56,7 +56,7 @@ the turn waits on the judge.
 | re-parenting, merging or pruning by hand | `.agents/skills/questions/SKILL.md` | |
 | drawing the window | `.agents/scripts/gw/questions.py` | |
 | registering a session and delivering its window through a host's hook | `.agents/scripts/gw/questions.py` | |
-| writing entries and the position from a declared line | `.agents/scripts/gw/questions.py` | |
+| writing entries and the position from a call | `.agents/scripts/gw/questions.py` | |
 | checking the store | `.agents/scripts/gw/questions.py` | |
 | reading where the work stands when a session wakes | `.agents/skills/recall/SKILL.md` | |
 | writing the session's leans and ending it | `.agents/skills/conclude/SKILL.md` | |
@@ -128,7 +128,7 @@ sessions that do not share the directory do not see each other.
 If it works, nothing: it is the core other things are built on. Two conditions would show that it
 does not work as a substrate. A host that comes to keep a conversation's question structure itself
 — position, tree, and the moments with the same outputs — in which case the store is the host's.
-Or its own measure: over a stated span, the declared lines and suspect marks led to no amendment
+Or its own measure: over a stated span, the calls and suspect marks led to no amendment
 the session would not have made anyway, counted as judged shifts, suspect marks cleared and
 reopenings refused against the turns and tokens spent declaring — it costs and does not save. The
 store becoming the ticketing is not a retirement.
@@ -137,7 +137,7 @@ store becoming the ticketing is not a retirement.
 
 Three yes-or-no tests, pre-registered at the align that incepted it:
 
-1. Drift deliberately in a chat: does the declared line name the shift in the same turn?
+1. Drift deliberately in a chat: does the turn's `at` call name the shift in the same turn?
 2. Break a session at a deep question: does the next wake open at it, with its path?
 3. Change a parent's answer: is every child under it reported suspect before anyone reads them?
 

@@ -49,6 +49,11 @@ next free id to the rendering measured; a change to its format reruns the test.
   read or a window footer (decision 45): text placed anywhere in a session is carried by every
   later turn, so no other place is cheaper, and a strict grammar cannot be guessed — four example
   lines at tier 1 instead.
+- **The declared line itself** (decision 56, 2026-10-02): a grammar of its own was the interface
+  while a hook was to read the line from the reply. No hook did; the agent called the script with
+  the line as its argument, named the next free id and was refused when another session took it,
+  and had a lean holding `; ` refused at the align that dropped it. A subcommand per event
+  replaced it, the script drawing ids.
 
 ## Decided while building
 

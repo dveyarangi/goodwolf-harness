@@ -13,45 +13,45 @@ install it with overwrite; the block in a target is never the place.
 ## Q1 — every message is placed before it is answered
 
 - **target** `AGENTS.md`
-- **authority** the user, 2026-09-28 to 2026-10-02 — 01-0011.0100 decisions 32, 39, 44 and 45
+- **authority** the user, 2026-09-28 to 2026-10-03 — 01-0011.0100 decisions 32, 39, 44, 45 and 56
 
 <rule>
 Before drafting a reply, place the message in the question store: read this turn's window — the
-one the host's hook put in your context, or `questions.py --window --session <tag>` — and declare
-where the message lands with `questions.py --declare "<line>" --session <tag>`, again whenever
-the turn's own work settles, opens or moves a question:
+one the host's hook put in your context, or `questions.py --window --session <tag>`, the script
+being `.agents/scripts/gw/questions.py` — and call `questions.py at q-N --session <tag>` where the
+message lands, and the store's other calls whenever the turn's own work settles, opens or moves a
+question:
 
-- `at q-0004`
-- `at q-0014; opens q-0014 under q-0004: <question>`
-- `at q-0002; closes q-0004: decided, [link](../path.md)`
-- `nothing`
+- `questions.py at q-0004 --session <tag>`
+- `questions.py open '<question>' --under q-0004 --session <tag>`, which prints the id it gave
+- `questions.py close q-0004 decided '[link](../path.md) — who, date' --session <tag>`
 
 A message that answers nothing near the current question opens what that question cannot be
-answered without. Only the working agent declares, never a helper. Under `debug=on`, show each
-declared line where it happened. For any other form, a closure, a branching or a drop, read the
-questions skill.
+answered without; one that lands nowhere makes no call. Only the working agent calls, never a
+helper. Under `debug=on`, show each call where it happened. For any other call, a closure, a
+branching or a drop, read the questions skill.
 </rule>
 
 ## Q2 — the wake opens at where the work stands
 
 - **target** `.agents/skills/recall/SKILL.md`
-- **authority** the user, 2026-09-29 and 2026-10-02 — 01-0011.0100 decisions 38, 39 and 44
+- **authority** the user, 2026-09-29 to 2026-10-03 — 01-0011.0100 decisions 38, 39, 44 and 56
 
 <rule>
 Start from the wake's read — the one the host's session-start hook put in your context, or
 `questions.py --wake`. Report where the other sessions stand, what is suspect, and which
 deferrals may now be due; take this session's position from the person or estimate it, and
-declare it. Re-rank nothing another running session is on; then read the queue as this skill says.
+place it with `at`. Re-rank nothing another running session is on; then read the queue as this skill says.
 </rule>
 
 ## Q3 — the conclude writes the leans and ends the session
 
 - **target** `.agents/skills/conclude/SKILL.md`
-- **authority** the user, 2026-09-29 — 01-0011.0100 decision 38
+- **authority** the user, 2026-09-29 and 2026-10-03 — 01-0011.0100 decisions 38 and 56
 
 <rule>
-Write a lean line on each question the session touched and left open — `leans q-N: <line>`, in
-a declared line with its `at` — and nothing else: placements and closures were written as they
+Write a lean line on each question the session touched and left open —
+`questions.py lean q-N '<line>' --session <tag>` — and nothing else: placements and closures were written as they
 happened. As the conclude's last act, run `questions.py --end --session <tag>`.
 </rule>
 

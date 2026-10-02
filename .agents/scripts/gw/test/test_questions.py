@@ -661,7 +661,7 @@ class TheWindow(Rendered):
         roots = self.section(text, "other roots:").strip().splitlines()
         self.assertEqual(["q-0010 [open] How do sessions reach each other?", "q-0011 [closed:pruned] Is height depth?"], [line.strip() for line in roots])
 
-    def test_names_the_recent_positions_the_other_running_sessions_and_the_next_free_id(self) -> None:
+    def test_names_the_recent_positions_and_the_other_running_sessions(self) -> None:
         _, text = self.said("--window", "--session", "s-alpha")
 
         self.assertIn("recently attached: q-0002, q-0001", text)
@@ -669,7 +669,7 @@ class TheWindow(Rendered):
         self.assertIn("s-beta at q-0010 (last wrote 2026-09-28)", others)
         self.assertNotIn("s-gamma", others)
         self.assertNotIn("s-alpha", others)
-        self.assertIn("next free id: q-0014", text)
+        self.assertNotIn("next free id", text, "the script draws ids, so the agent is not handed one")
 
 
 class TwoSessions(Rendered):
@@ -692,7 +692,6 @@ class TwoSessions(Rendered):
         self.assertIn("q-0001", roots)
         self.assertIn("q-0010", roots)
         self.assertIn("s-beta at q-0010", text)
-        self.assertIn("next free id: q-0014", text)
 
     def test_a_session_nobody_registered_is_refused_with_the_way_to_register(self) -> None:
         status, text = self.said("--window", "--session", "s-nobody")
@@ -851,30 +850,152 @@ class ItsOutput(Rendered):
 
 
 class Declared(Rendered):
-    """The writer over the fixed store, as s-alpha at q-0004 declares."""
+    """The writer over the fixed store, as s-alpha at q-0004 calls it: written whole, or refused
+    with its reason and nothing written."""
 
-    def declare(self, line: str, session: str = "s-alpha") -> tuple[int, str]:
-        return self.said("--declare", line, "--session", session)
+    def call(self, *argv: str, session: str | None = "s-alpha") -> tuple[int, str]:
+        said, complained = io.StringIO(), io.StringIO()
+        tagged = [*argv, "--session", session] if session else list(argv)
+        with contextlib.redirect_stdout(said), contextlib.redirect_stderr(complained):
+            status = questions.main(tagged, root=self.root, today=TODAY)
+        return status, said.getvalue() + complained.getvalue()
 
-    def entry_text(self, stem: str, folder: str = STORE) -> str:
-        return self.read(f"{folder}/{stem}.md")
-
-    def own_line(self, tag: str = "s-alpha") -> str:
-        return next(line for line in self.read(SESSIONS).splitlines() if line.startswith(f"{tag} "))
-
-
-class OpeningAndPlacing(Declared):
-    def test_opens_a_question_under_another_and_places_the_session_there(self) -> None:
-        status, said = self.declare("at q-0014; opens q-0014 under q-0004: Is the owner optional?")
-
+    def called(self, *argv: str) -> str:
+        status, said = self.call(*argv)
         self.assertEqual(0, status, said)
+        return said
+
+    def assertRefused(self, reason: str, *argv: str, session: str | None = "s-alpha") -> None:
+        untouched = self.snapshot()
+
+        status, said = self.call(*argv, session=session)
+
+        self.assertEqual(2, status, said)
+        self.assertIn(reason, said)
+        self.assertEqual(untouched, self.snapshot())
+
+    def entry_text(self, stem: str) -> str:
+        return self.read(f"{STORE}/{stem}.md")
+
+    def part(self, stem: str, name: str) -> str | None:
+        found = [line.split("** ", 1)[1] for line in self.entry_text(stem).splitlines() if line.startswith(f"- **{name}** ")]
+        return found[0] if found else None
+
+    def own_line(self) -> str:
+        return next(line for line in self.read(SESSIONS).splitlines() if line.startswith("s-alpha "))
+
+
+class TheCalls(Declared):
+    """Each event of a turn is its own call."""
+
+    def test_at_places_the_session(self) -> None:
+        self.called("at", "q-0010")
+
+        self.assertEqual("s-alpha running 2026-09-29 q-0010 q-0004,q-0002,q-0001", self.own_line())
+
+    def test_open_takes_the_next_free_id_prints_it_and_leaves_the_session_where_it_stands(self) -> None:
+        said = self.called("open", "Is the owner optional?", "--under", "q-0004")
+
+        self.assertIn("opened q-0014", said)
         self.assertEqual(
             "# q-0014 Is the owner optional?\n\n- **part of** q-0004\n- **state** open\n",
-            self.entry_text("q-0014-is-the-owner-optional"),
+            self.read(f"{STORE}/q-0014-is-the-owner-optional.md"),
         )
-        self.assertEqual("s-alpha running 2026-09-29 q-0014 q-0004,q-0002,q-0001", self.own_line())
-        self.assertIn("q-0014", said)
+        self.assertEqual("s-alpha running 2026-09-29 q-0004 q-0002,q-0001", self.own_line())
 
+    def test_open_a_root(self) -> None:
+        self.called("open", "Is there a third root?")
+
+        self.assertIsNone(self.part("q-0014-is-there-a-third-root", "part of"))
+
+    def test_open_between_two_questions_reparents_the_lower(self) -> None:
+        self.called("open", "What must an entry hold?", "--between", "q-0002", "q-0004")
+
+        self.assertEqual("q-0002", self.part("q-0014-what-must-an-entry-hold", "part of"))
+        self.assertEqual("q-0014", self.part("q-0004-which-parts-are-optional", "part of"))
+
+    def test_move_under_another_and_to_root(self) -> None:
+        self.called("move", "q-0007", "--under", "q-0002")
+        self.assertEqual("q-0002", self.part("q-0007-who-moves-a-subtree", "part of"))
+
+        self.called("move", "q-0007", "--to-root")
+        self.assertIsNone(self.part("q-0007-who-moves-a-subtree", "part of"))
+
+    def test_depend_on_another(self) -> None:
+        self.called("depend", "q-0004", "--on", "q-0010")
+
+        self.assertEqual("q-0010", self.part("q-0004-which-parts-are-optional", "depends on"))
+
+    def test_undepend_removes_one_of_two(self) -> None:
+        self.called("depend", "q-0004", "--on", "q-0010")
+        self.called("depend", "q-0004", "--on", "q-0003")
+
+        self.called("undepend", "q-0004", "--on", "q-0010")
+
+        self.assertEqual("q-0003", self.part("q-0004-which-parts-are-optional", "depends on"))
+
+    def test_undepend_the_last_removes_the_part(self) -> None:
+        self.called("depend", "q-0004", "--on", "q-0010")
+
+        self.called("undepend", "q-0004", "--on", "q-0010")
+
+        self.assertIsNone(self.part("q-0004-which-parts-are-optional", "depends on"))
+
+    def test_undepend_on_one_not_awaited_is_refused(self) -> None:
+        self.assertRefused("does not depend on q-0010", "undepend", "q-0004", "--on", "q-0010")
+
+    def test_close_with_its_kind_and_pointer(self) -> None:
+        self.called("close", "q-0007", "decided", "[the record](../record.md) — the user, 2026-09-29")
+
+        self.assertEqual("closed:decided", self.part("q-0007-who-moves-a-subtree", "state"))
+        self.assertEqual("[the record](../record.md) — the user, 2026-09-29", self.part("q-0007-who-moves-a-subtree", "answer"))
+
+    def test_suspect_and_clear(self) -> None:
+        self.called("suspect", "q-0007")
+        self.assertEqual("open, suspect", self.part("q-0007-who-moves-a-subtree", "state"))
+
+        self.called("clear", "q-0007")
+        self.assertEqual("open", self.part("q-0007-who-moves-a-subtree", "state"))
+
+    def test_lean_takes_any_text_a_semicolon_included(self) -> None:
+        self.called("lean", "q-0007", "the mover; never by hand")
+
+        self.assertEqual("the mover; never by hand", self.part("q-0007-who-moves-a-subtree", "lean"))
+
+    def test_assign_links_the_owner(self) -> None:
+        self.called("assign", "q-0007", "docs/record.md")
+
+        self.assertEqual("[record](../record.md)", self.part("q-0007-who-moves-a-subtree", "owner"))
+
+    def test_a_call_without_its_session_is_refused_with_its_usage(self) -> None:
+        self.assertRefused("--session", "at", "q-0010", session=None)
+
+    def test_a_malformed_id_is_refused(self) -> None:
+        self.assertRefused("not a question id", "at", "q-12")
+
+    def test_a_kind_outside_the_vocabulary_is_refused(self) -> None:
+        self.assertRefused("invalid choice", "close", "q-0007", "done")
+
+    def test_at_a_closed_question_is_refused(self) -> None:
+        self.assertRefused("a position is an open question", "at", "q-0005")
+
+    def test_open_raced_by_another_session_takes_the_id_after_theirs(self) -> None:
+        theirs = entry("q-0014", "Their question?", {"state": "open"})
+
+        written = questions.declare(
+            self.root,
+            "s-alpha",
+            [questions.Clause("opens", text="My question?")],
+            TODAY,
+            between=lambda: self.write(f"{STORE}/q-0014-their-question.md", theirs),
+        )
+
+        self.assertEqual(["q-0015"], written.opened)
+        self.assertEqual(theirs, self.read(f"{STORE}/q-0014-their-question.md"))
+        self.assertTrue((self.root / STORE / "q-0015-my-question.md").is_file())
+
+
+class Naming(Declared):
     def test_names_a_long_question_with_every_word(self) -> None:
         question = (
             "Does a question whose words run well past the old forty character cut keep every one "
@@ -883,16 +1004,15 @@ class OpeningAndPlacing(Declared):
         slug = "-".join(questions._words(question))
         self.assertTrue(120 < len(slug) <= questions.SLUG_LENGTH, len(slug))
 
-        status, said = self.declare(f"at q-0014; opens q-0014: {question}")
+        self.called("open", question)
 
-        self.assertEqual(0, status, said)
         self.assertTrue((self.root / STORE / f"q-0014-{slug}.md").is_file())
 
     def test_cuts_a_question_past_the_length_at_a_word_boundary(self) -> None:
         words = [f"word{number:02d}" for number in range(40)]
-        status, said = self.declare(f"at q-0014; opens q-0014: {' '.join(words)}?")
 
-        self.assertEqual(0, status, said)
+        self.called("open", f"{' '.join(words)}?")
+
         [named] = [name.name for name in (self.root / STORE).glob("q-0014-*.md")]
         slug = named[len("q-0014-") : -len(".md")]
         self.assertLessEqual(len(slug), questions.SLUG_LENGTH)
@@ -900,176 +1020,96 @@ class OpeningAndPlacing(Declared):
         self.assertEqual(words[: len(slug.split("-"))], slug.split("-"), "whole words, the question's first")
 
 
-class EachClause(Declared):
-    """One test per clause of the grammar: it writes, and it reads back as written."""
+class ClosingByKind(Declared):
+    """The kinds `TheCalls` does not close by: each takes its own pointer."""
 
-    def assertDeclared(self, line: str) -> None:
-        status, said = self.declare(line)
-        self.assertEqual(0, status, said)
+    def test_deferred_with_its_condition_and_default(self) -> None:
+        self.called("close", "q-0007", "deferred", "until the mover exists, meanwhile by hand")
 
-    def part(self, stem: str, name: str, folder: str = STORE) -> str | None:
-        found = [
-            line.split("** ", 1)[1]
-            for line in self.entry_text(stem, folder).splitlines()
-            if line.startswith(f"- **{name}** ")
-        ]
-        return found[0] if found else None
-
-    def test_opens_a_root(self) -> None:
-        self.assertDeclared("at q-0014; opens q-0014: Is there a third root?")
-        self.assertIsNone(self.part("q-0014-is-there-a-third-root", "part of"))
-
-    def test_opens_between_two_questions_reparenting_the_lower(self) -> None:
-        self.assertDeclared("at q-0014; opens q-0014 between q-0002 and q-0004: What must an entry hold?")
-        self.assertEqual("q-0002", self.part("q-0014-what-must-an-entry-hold", "part of"))
-        self.assertEqual("q-0014", self.part("q-0004-which-parts-are-optional", "part of"))
-
-    def test_moves_a_question_under_another(self) -> None:
-        self.assertDeclared("at q-0004; moves q-0007 under q-0002")
-        self.assertEqual("q-0002", self.part("q-0007-who-moves-a-subtree", "part of"))
-
-    def test_moves_a_question_to_root(self) -> None:
-        self.assertDeclared("at q-0004; moves q-0007 to root")
-        self.assertIsNone(self.part("q-0007-who-moves-a-subtree", "part of"))
-
-    def test_depends_adds_to_what_a_question_waits_on(self) -> None:
-        self.assertDeclared("at q-0004; depends q-0004 on q-0010; depends q-0004 on q-0003")
-        self.assertEqual("q-0010, q-0003", self.part("q-0004-which-parts-are-optional", "depends on"))
-
-    def test_closes_as_decided_with_its_link(self) -> None:
-        self.assertDeclared("at q-0002; closes q-0004: decided, [the record](../record.md) — the user, 2026-09-29")
-        self.assertEqual("closed:decided", self.part("q-0004-which-parts-are-optional", "state"))
-        self.assertEqual(
-            "[the record](../record.md) — the user, 2026-09-29", self.part("q-0004-which-parts-are-optional", "answer")
-        )
-
-    def test_closes_as_deferred_with_its_condition_and_default(self) -> None:
-        self.assertDeclared("at q-0004; closes q-0007: deferred, until the mover exists, meanwhile by hand")
         self.assertEqual("until the mover exists, meanwhile by hand", self.part("q-0007-who-moves-a-subtree", "answer"))
 
-    def test_closes_as_merged_into_another(self) -> None:
-        self.assertDeclared("at q-0004; closes q-0007: merged, q-0003")
+    def test_merged_into_another(self) -> None:
+        self.called("close", "q-0007", "merged", "q-0003")
+
         self.assertEqual("closed:merged", self.part("q-0007-who-moves-a-subtree", "state"))
         self.assertEqual("q-0003", self.part("q-0007-who-moves-a-subtree", "answer"))
 
-    def test_suspects_and_clears(self) -> None:
-        self.assertDeclared("at q-0004; suspects q-0005; clears q-0008")
+    def test_a_suspect_flag_on_a_closed_question_is_set_and_cleared(self) -> None:
+        self.called("suspect", "q-0005")
+        self.called("clear", "q-0008")
+
         self.assertEqual("closed:decided, suspect", self.part("q-0005-is-the-id-a-path", "state"))
         self.assertEqual("closed:decided", self.part("q-0008-is-the-lean-optional", "state"))
 
-    def test_leans(self) -> None:
-        self.assertDeclared("at q-0004; leans q-0004: the required ones only")
-        self.assertEqual("the required ones only", self.part("q-0004-which-parts-are-optional", "lean"))
-
-    def test_assigns_an_owner_as_a_link_from_the_entry(self) -> None:
-        self.assertDeclared("at q-0004; assigns q-0004 to docs/record.md")
-        self.assertEqual("[record](../record.md)", self.part("q-0004-which-parts-are-optional", "owner"))
-
-    def test_at_alone_moves_the_position_and_keeps_the_last_as_recent(self) -> None:
-        self.assertDeclared("at q-0010")
-        self.assertEqual("s-alpha running 2026-09-29 q-0010 q-0004,q-0002,q-0001", self.own_line())
-
-    def test_nothing_writes_nothing(self) -> None:
-        untouched = self.snapshot()
-
-        self.assertDeclared("nothing")
-
-        self.assertEqual(untouched, self.snapshot())
-
 
 class Refusals(Declared):
-    """A refused line names its reason and writes nothing at all."""
-
-    def assertRefused(self, line: str, reason: str, session: str = "s-alpha") -> None:
-        untouched = self.snapshot()
-
-        status, said = self.declare(line, session)
-
-        self.assertEqual(2, status, said)
-        self.assertIn(reason, said)
-        self.assertEqual(untouched, self.snapshot())
-
-    def test_a_malformed_clause(self) -> None:
-        self.assertRefused("at q-0004; go to q-0010", "`go to q-0010` is not a clause")
-
-    def test_a_semicolon_in_free_text(self) -> None:
-        self.assertRefused("at q-0004; leans q-0004: this;that", "`;`")
-
-    def test_a_line_without_its_position(self) -> None:
-        self.assertRefused("leans q-0004: the required ones", "exactly one `at`")
-
-    def test_an_id_that_is_not_the_next_free_one(self) -> None:
-        self.assertRefused("at q-0020; opens q-0020: Too far ahead?", "the next free id is q-0014")
-
-    def test_a_position_on_a_closed_question(self) -> None:
-        self.assertRefused("at q-0005", "a position is an open question")
+    """What the store refuses whatever form the call takes."""
 
     def test_a_question_nobody_holds(self) -> None:
-        self.assertRefused("at q-0004; leans q-0099: a lean", "no entry holds q-0099")
+        self.assertRefused("no entry holds q-0099", "lean", "q-0099", "a lean")
 
     def test_a_between_whose_lower_is_not_part_of_the_upper(self) -> None:
-        self.assertRefused(
-            "at q-0014; opens q-0014 between q-0003 and q-0004: Misplaced?", "q-0004 is not part of q-0003"
-        )
+        self.assertRefused("q-0004 is not part of q-0003", "open", "Misplaced?", "--between", "q-0003", "q-0004")
 
     def test_a_move_that_makes_a_cycle(self) -> None:
-        self.assertRefused("at q-0004; moves q-0002 under q-0004", "cycle")
+        self.assertRefused("cycle", "move", "q-0002", "--under", "q-0004")
 
     def test_a_dependency_that_makes_a_cycle(self) -> None:
-        self.assertRefused("at q-0004; depends q-0004 on q-0003; depends q-0003 on q-0004", "cycle")
+        self.called("depend", "q-0004", "--on", "q-0003")
+
+        self.assertRefused("cycle", "depend", "q-0003", "--on", "q-0004")
 
     def test_a_prune_that_leaves_an_open_child(self) -> None:
-        self.assertRefused("at q-0010; closes q-0003: pruned, not worth holding", "leaves q-0007 open")
+        self.assertRefused("leaves q-0007 open", "close", "q-0003", "pruned", "not worth holding")
 
     def test_a_kind_without_its_pointer(self) -> None:
-        self.assertRefused("at q-0002; closes q-0004: decided", "no answer")
+        self.assertRefused("no answer", "close", "q-0004", "decided")
 
     def test_a_decided_answer_that_does_not_resolve(self) -> None:
-        self.assertRefused("at q-0002; closes q-0004: decided, [gone](../gone.md)", "does not resolve")
+        self.assertRefused("does not resolve", "close", "q-0004", "decided", "[gone](../gone.md)")
 
     def test_a_session_nobody_registered(self) -> None:
-        self.assertRefused("at q-0004", "no session s-nobody", session="s-nobody")
+        self.assertRefused("no session s-nobody", "at", "q-0004", session="s-nobody")
 
 
 class Interference(Declared):
-    """What another writer does between this line's validation and its write."""
+    """What another writer does between a call's validation and its write."""
 
-    def declare_with(self, line: str, meanwhile) -> None:
-        questions.declare(self.root, "s-alpha", questions.parse(line), TODAY, between=meanwhile)
+    def declare_with(self, clauses: list[questions.Clause], meanwhile) -> None:
+        questions.declare(self.root, "s-alpha", clauses, TODAY, between=meanwhile)
 
-    def test_an_entry_changed_on_disk_refuses_the_line_and_keeps_the_other_writers_text(self) -> None:
+    def test_an_entry_changed_on_disk_refuses_the_call_and_keeps_the_other_writers_text(self) -> None:
         intruder = entry("q-0004", "Which parts are optional?", {"part of": "q-0002", "state": "open", "lean": "theirs"})
         before = self.snapshot()
 
         with self.assertRaises(questions.Refused) as refused:
             self.declare_with(
-                "at q-0004; leans q-0004: mine",
+                [questions.Clause("leans", "q-0004", text="mine")],
                 lambda: self.write(f"{STORE}/q-0004-which-parts-are-optional.md", intruder),
             )
 
-        self.assertIn("changed since this line was read", str(refused.exception))
+        self.assertIn("changed since this call read it", str(refused.exception))
         self.assertEqual(intruder, self.entry_text("q-0004-which-parts-are-optional"))
         after = self.snapshot()
         del before[f"{STORE}/q-0004-which-parts-are-optional.md"], after[f"{STORE}/q-0004-which-parts-are-optional.md"]
         self.assertEqual(before, after, "nothing else was written")
 
-    def test_a_second_session_taking_the_id_just_written_is_refused(self) -> None:
+    def test_an_open_raced_past_its_attempts_is_refused_and_writes_nothing_of_its_own(self) -> None:
         theirs = entry("q-0014", "Their question?", {"state": "open"})
 
-        with self.assertRaises(questions.Refused) as refused:
+        with mock.patch.object(questions, "OPEN_ATTEMPTS", 1), self.assertRaises(questions.Taken):
             self.declare_with(
-                "at q-0014; opens q-0014: My question?",
+                [questions.Clause("opens", text="My question?")],
                 lambda: self.write(f"{STORE}/q-0014-their-question.md", theirs),
             )
 
-        self.assertIn("declare it again with the next free id", str(refused.exception))
-        self.assertFalse((self.root / STORE / "q-0014-my-question.md").exists())
+        self.assertEqual([], list((self.root / STORE).glob("*-my-question.md")))
 
     def test_a_sessions_at_changes_its_own_line_and_keeps_one_another_session_wrote_meanwhile(self) -> None:
         def beta_moves() -> None:
             self.write(SESSIONS, self.read(SESSIONS).replace("s-beta running 2026-09-28 q-0010", "s-beta running 2026-09-29 q-0001 q-0010"))
 
-        self.declare_with("at q-0002", beta_moves)
+        self.declare_with([questions.Clause("at", "q-0002")], beta_moves)
 
         self.assertEqual(
             "s-alpha running 2026-09-29 q-0002 q-0004,q-0001\n"
@@ -1084,7 +1124,10 @@ class Interference(Declared):
             (self.root / SESSIONS).mkdir()
 
         with self.assertRaises(questions.WriteInterrupted) as stopped:
-            self.declare_with("at q-0004; leans q-0004: written first", sessions_file_becomes_a_folder)
+            self.declare_with(
+                [questions.Clause("at", "q-0004"), questions.Clause("leans", "q-0004", text="written first")],
+                sessions_file_becomes_a_folder,
+            )
 
         self.assertEqual([f"{STORE}/q-0004-which-parts-are-optional.md"], stopped.exception.completed)
         self.assertEqual(SESSIONS, stopped.exception.failed)
@@ -1092,21 +1135,29 @@ class Interference(Declared):
 
 
 class InOrder(Declared):
-    def test_clauses_apply_left_to_right_and_at_is_checked_against_the_result(self) -> None:
-        status, said = self.declare(
-            "at q-0015; opens q-0014 under q-0004: Is the owner optional?; "
-            "opens q-0015 under q-0004: Is the owner required at birth?; closes q-0014: merged, q-0015"
+    def test_clauses_apply_in_order_and_at_is_checked_against_the_result(self) -> None:
+        """The writer's front door takes a list, as a judge's typed value will reach it."""
+        written = questions.declare(
+            self.root,
+            "s-alpha",
+            [
+                questions.Clause("at", "q-0015"),
+                questions.Clause("opens", other="q-0004", text="Is the owner optional?"),
+                questions.Clause("opens", other="q-0004", text="Is the owner required at birth?"),
+                questions.Clause("closes", "q-0014", other="merged", text="q-0015"),
+            ],
+            TODAY,
         )
 
-        self.assertEqual(0, status, said)
+        self.assertEqual(["q-0014", "q-0015"], written.opened)
         self.assertIn("- **state** closed:merged\n- **answer** q-0015", self.entry_text("q-0014-is-the-owner-optional"))
         self.assertIn("- **state** open", self.entry_text("q-0015-is-the-owner-required-at-birth"))
         self.assertEqual("q-0015", self.own_line().split()[3])
 
     def test_a_prune_goes_through_once_the_child_that_stands_alone_is_moved_out_first(self) -> None:
-        status, said = self.declare("at q-0001; moves q-0007 to root; closes q-0003: pruned, archiving is the mover's")
+        self.called("move", "q-0007", "--to-root")
+        self.called("close", "q-0003", "pruned", "archiving is the mover's")
 
-        self.assertEqual(0, status, said)
         self.assertIn("closed:pruned", self.entry_text("q-0003-how-is-a-subtree-archived"))
 
 
@@ -1114,14 +1165,15 @@ class ARoundTrip(Declared):
     def test_opens_attaches_closes_and_prunes_then_checks_clean(self) -> None:
         self.assertEqual([], self.problems(), "the fixture itself is clean")
 
-        for line in (
-            "at q-0014; opens q-0014 under q-0004: Is the owner optional?",
-            "at q-0015; opens q-0015 under q-0014: Must an owner exist at birth?",
-            "at q-0014; closes q-0015: decided, [the record](../record.md) — the user, 2026-09-29",
-            "at q-0004; closes q-0014: pruned, the store keeps no owner rule",
+        for call in (
+            ("open", "Is the owner optional?", "--under", "q-0004"),
+            ("at", "q-0014"),
+            ("open", "Must an owner exist at birth?", "--under", "q-0014"),
+            ("close", "q-0015", "decided", "[the record](../record.md) — the user, 2026-09-29"),
+            ("at", "q-0004"),
+            ("close", "q-0014", "pruned", "the store keeps no owner rule"),
         ):
-            status, said = self.declare(line)
-            self.assertEqual(0, status, f"{line}: {said}")
+            self.called(*call)
 
         self.assertEqual([], self.problems())
         self.assertIn("q-0014 [closed:pruned]", self.said("--tree", "q-0004")[1])
@@ -1174,10 +1226,10 @@ class TheHook(Hooked):
     def test_a_moved_position_or_a_changed_entry_draws_the_window_again(self) -> None:
         submit = {"session_id": "s-alpha", "hook_event_name": "UserPromptSubmit", "prompt": "next"}
         self.hook("claude-code", submit)
-        self.said("--declare", "at q-0002", "--session", "s-alpha")
+        self.said("at", "q-0002", "--session", "s-alpha")
 
         _, moved = self.hook("claude-code", submit)
-        self.said("--declare", "at q-0002; leans q-0007: by hand", "--session", "s-beta")
+        self.said("lean", "q-0007", "by hand", "--session", "s-beta")
         _, changed = self.hook("claude-code", submit)
 
         self.assertIn("current: q-0002", self.context(moved))
@@ -1186,7 +1238,7 @@ class TheHook(Hooked):
     def test_another_sessions_move_alone_does_not_redraw_it(self) -> None:
         submit = {"session_id": "s-alpha", "hook_event_name": "UserPromptSubmit", "prompt": "next"}
         self.hook("claude-code", submit)
-        self.said("--declare", "at q-0007", "--session", "s-beta")
+        self.assertEqual(0, self.said("at", "q-0007", "--session", "s-beta")[0], "the other session moved")
 
         _, said = self.hook("claude-code", submit)
 
@@ -1259,11 +1311,11 @@ class TheAgentsOwnWindow(Hooked):
         self.assertIn("--full", again)
         self.assertIn("path (root to current):", full)
 
-    def test_a_refused_line_prints_the_clause_forms(self) -> None:
-        _, said = self.said("--declare", "go to q-0010", "--session", "s-alpha")
+    def test_a_call_it_does_not_know_prints_the_calls_it_does(self) -> None:
+        status, said = self.said("go", "q-0010", "--session", "s-alpha")
 
-        self.assertIn("at q-N", said)
-        self.assertIn("opens q-N under q-P: <question>", said)
+        self.assertEqual(2, status)
+        self.assertIn("at, open, move, depend, undepend, close", said)
 
 
 class AFirstWake(RepositoryCase):

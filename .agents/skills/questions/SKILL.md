@@ -1,6 +1,6 @@
 ---
 name: questions
-description: See where the work stands among the open questions, or re-parent, merge or prune questions by hand. Read mid-turn for a declared line's other forms, and before closing, branching or dropping a question.
+description: See where the work stands among the open questions, or re-parent, merge or prune questions by hand. Read mid-turn for the store's other calls, and before closing, branching or dropping a question.
 ---
 
 # The open questions
@@ -14,45 +14,48 @@ both. The window is the part of the store near a session's position, drawn befor
 
 - No argument: `questions.py --tree` and the session's window drawn whole,
   `--window --session <tag> --full`.
-- With an argument: the tidy-up asked for, as a declared line — re-parent with `moves`, merge
-  with `closes q-N: merged, q-M`, prune with `closes q-N: pruned, <reason>`.
+- With an argument: the tidy-up asked for, as calls — re-parent with `move`, merge with
+  `close q-N merged q-M`, prune with `close q-N pruned '<reason>'`.
 
 Asked where things stand mid-session: `questions.py --wake --session <tag>`; it registers nothing.
 
-## The declared line
+## The calls
 
-`questions.py --declare "<line>" --session <tag>`. Clauses are separated by `; ` and apply left
-to right; `at` is checked against the result and must name an open question. A line holds exactly
-one `at`, or is `nothing`, which writes nothing.
+`questions.py <call> … --session <tag>`, one event each, validated and written whole; `--help`
+after a call says what it takes.
 
-| clause | writes |
+| call | writes |
 |---|---|
-| `at q-N` | this session's position |
-| `opens q-N: <question>` · `opens q-N under q-P: <question>` | a new open question, a root or under q-P; q-N is the next free id the window names |
-| `opens q-N between q-U and q-L: <question>` | a new question under q-U, with q-L moved under it; q-L must be part of q-U |
-| `moves q-K under q-P` · `moves q-K to root` | a new parent; a cycle is refused |
-| `depends q-A on q-B` | q-A cannot be asked until q-B is answered; a cycle is refused |
-| `closes q-N: <kind>, <pointer>` | the closure, below |
-| `suspects q-N` · `clears q-N` | the suspect flag |
-| `leans q-N: <line>` | the lean |
-| `assigns q-N to <path>` | the owner, the record holding the deliberation |
+| `at q-N` | this session's position, an open question |
+| `open '<question>'` · `--under q-P` | a new open question, a root or under q-P; prints the id it was given |
+| `open '<question>' --between q-U q-L` | a new question under q-U, with q-L moved under it; q-L must be part of q-U |
+| `move q-K --under q-P` · `move q-K --to-root` | a new parent; a cycle is refused |
+| `depend q-A --on q-B` · `undepend q-A --on q-B` | q-A cannot be asked until q-B is answered, or no longer waits; a cycle is refused |
+| `close q-N <kind> '<pointer>'` | the closure, below |
+| `suspect q-N` · `clear q-N` | the suspect flag |
+| `lean q-N '<line>'` | the lean |
+| `assign q-N <path>` | the owner, the record holding the deliberation |
 
-Free text may not hold `;`. A refused line writes nothing, says why, and lists the clauses; fix it
-and declare again in the same turn. Under `debug=on` the first declared line heads the reply, after
-the announce line when there is one; a line declared mid-turn is quoted where the reply reports
-its event.
+`open` leaves the session where it stands: to stand on the new question, call `at` on the id it
+printed. A refused call writes nothing and says why; fix it and call again in the same turn. Under
+`debug=on` the turn's first call heads the reply, after the announce line when there is one; a
+call made mid-turn is quoted where the reply reports its event.
+
+Free text goes in single quotes, which neither bash nor PowerShell expands; a text holding an
+apostrophe goes in double quotes, with no backtick or `$` inside.
 
 ## Placing a message that answers nothing near
 
 Name what the current question cannot be answered without deciding, or what the method's plan
 expects here, and open that. When answering it narrows the current question and answering the
-current one contributes to it, open it `between` the current question and its parent; when only
-the first holds, open it beside, under the same parent, and add `depends <current> on <new>`.
+current one contributes to it, open it `--between` the current question's parent and the current
+question; when only the first holds, open it beside, under the same parent, and
+`depend <current> --on <new>`.
 
 ## Closing
 
 **When** an answer lands, a question is found wrong, two are found to be one, one is parked, one
-is made irrelevant, or one is replaced. **Do** `closes` with its kind and pointer:
+is made irrelevant, or one is replaced. **Do** `close` with its kind and pointer:
 
 | kind | pointer |
 |---|---|
@@ -61,15 +64,14 @@ is made irrelevant, or one is replaced. **Do** `closes` with its kind and pointe
 | `merged` · `superseded` | the id it points to |
 | `pruned` · `moot` | a one-line reason; a longer one goes to the owner's record and is linked |
 
-The answer is never the deliberation itself. `suspects` every open child and dependent whose
-assumption the answer changes; move `at` to the parent if the closed question was current.
-**Then** the reply's declared line names the closure.
+The answer is never the deliberation itself. `suspect` every open child and dependent whose
+assumption the answer changes; call `at` on the parent first if the closed question was current.
 
 ## Branching
 
 **When** a question's shape hides parts whose expansion would change its answer, or a split comes
-back from an impact pass. **Do** open each hidden part under it, with `depends` where one cannot
-be asked before another; leave the parent open; place `at` on the first child that can be worked.
+back from an impact pass. **Do** open each hidden part under it, with `depend` where one cannot
+be asked before another; leave the parent open; call `at` on the first child that can be worked.
 No answer lands on the parent until its children close or are deferred with a default. How a kind
 of question branches is the method's instrument; the moment is this one.
 
@@ -84,9 +86,9 @@ default; *pruned* says the question should not have been held.
 
 ## Records
 
-**An entry** — one file in `docs/questions/`, named `q-NNNN-<slug>.md`, the slug made by the script from
-the question's words — so phrase a question short. Tier 2: read by the script, and by a person through this skill. What removes one: it
-moves to `docs/questions/done/` with a wholly closed subtree nothing open depends on, a deferred
+**An entry** — one file in `docs/questions/`, named `q-NNNN-<slug>.md`, the slug made by the
+script from the question's words — so phrase a question short. Tier 2: read by the script, and by
+a person through this skill. What removes one: it moves to `docs/questions/done/` with a wholly closed subtree nothing open depends on, a deferred
 or suspect entry counting as open; it is never deleted.
 
 ```md

@@ -17,7 +17,7 @@ Session files live under `docs/sessions/`, named `NNNN-<YYYYMMDD>-<name>` with a
 ## Installed from other mechanisms
 
 <installed by="questions">
-**Q3** Write a lean line on each question the session touched and left open — `leans q-N: <line>`, in
-a declared line with its `at` — and nothing else: placements and closures were written as they
+**Q3** Write a lean line on each question the session touched and left open —
+`questions.py lean q-N '<line>' --session <tag>` — and nothing else: placements and closures were written as they
 happened. As the conclude's last act, run `questions.py --end --session <tag>`.
 </installed>

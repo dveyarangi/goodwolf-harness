@@ -15,6 +15,22 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v19 — 2026-10-03
+
+**The agent calls a subcommand per event** — Q1's examples, installed by
+[01-0011.0100.0011](../tickets/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md):
+`questions.py at q-N`, `open`, `close` and the rest, each with `--session`, in place of a line in a
+grammar of its own. The line was the interface while a hook was to read it from the reply; no hook
+did, the agent called the script itself, and the grammar refused a lean holding `; ` at the align
+that dropped it ([decision 56](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md#decisions-landed-at-this-tickets-align)).
+Q1 now names the script's path, never its interpreter *(the user)*: a session ran `python`, which
+the machine lacked, then searched for the script; the interpreter is the machine's, and a project
+names its own in the local block.
+
+**What a script already does stays out of a rule** — *write for a capable model* gains it among
+what stays out, from [rule failure 7](../rule-failures.md)'s strike of 2026-10-03: a skill line
+written beside its script took the script's cutting rule, which the agent could not act on.
+
 ## v18 — 2026-10-02
 
 **Every message is placed in the question store before it is answered** — the questions

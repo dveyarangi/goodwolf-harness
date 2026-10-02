@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v18, 2026-10-02.
+Entry contract: v19, 2026-10-03.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -26,7 +26,7 @@ nothing about being load-bearing — an implementation method is a shape too. �
 
 - Clarity and simplicity first — Occam's razor: take the shape with the fewest parts that does the job, and remove before you add.
 
-- Write for a capable model: state the rule and its pointer. The definition the glossary owns, the example that motivated it and what it implies stay out.
+- Write for a capable model: state the rule and its pointer. The definition the glossary owns, the example that motivated it, what it implies, and what a script already does for the reader stay out.
 
 <straw-dog until="01-0018 declares the mechanism that owns tiering" ticket="docs/tickets/01-0018-reachability-coherent.md">
 - A skill's description is its tier-1 surface: name there every use case the skill serves, and nothing else — never its method or how it is built. Write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session.
@@ -40,19 +40,19 @@ record yet by a slug and its state word.
 
 <installed by="questions">
 **Q1** Before drafting a reply, place the message in the question store: read this turn's window — the
-one the host's hook put in your context, or `questions.py --window --session <tag>` — and declare
-where the message lands with `questions.py --declare "<line>" --session <tag>`, again whenever
-the turn's own work settles, opens or moves a question:
+one the host's hook put in your context, or `questions.py --window --session <tag>`, the script
+being `.agents/scripts/gw/questions.py` — and call `questions.py at q-N --session <tag>` where the
+message lands, and the store's other calls whenever the turn's own work settles, opens or moves a
+question:
 
-- `at q-0004`
-- `at q-0014; opens q-0014 under q-0004: <question>`
-- `at q-0002; closes q-0004: decided, [link](../path.md)`
-- `nothing`
+- `questions.py at q-0004 --session <tag>`
+- `questions.py open '<question>' --under q-0004 --session <tag>`, which prints the id it gave
+- `questions.py close q-0004 decided '[link](../path.md) — who, date' --session <tag>`
 
 A message that answers nothing near the current question opens what that question cannot be
-answered without. Only the working agent declares, never a helper. Under `debug=on`, show each
-declared line where it happened. For any other form, a closure, a branching or a drop, read the
-questions skill.
+answered without; one that lands nowhere makes no call. Only the working agent calls, never a
+helper. Under `debug=on`, show each call where it happened. For any other call, a closure, a
+branching or a drop, read the questions skill.
 </installed>
 
 ## Core and instance
