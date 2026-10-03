@@ -112,10 +112,10 @@ closed subtree nothing open depends on, a deferred or suspect entry counting as 
 deleted.
 
 ```md
-# q-0090.0030 Which package manager do we use?
+# q-0090.0003 Which package manager do we use?
 
 - **part of** q-0090
-- **depends on** q-0070, q-0080.0010
+- **depends on** q-0070, q-0080.0001
 - **state** closed:decided, suspect
 - **owner** [01-0011.0100](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)
 - **answer** [the ADR](../adr/0004-scripts-run-on-the-standard-library-alone.md) — the user, 2026-09-28
@@ -133,7 +133,8 @@ it as it found it on every call. A line in it shaped like a part is not one.
 Every part but **state** is optional, and a closed entry must carry its **answer**. **struck** is
 `<n>, last <YYYY-MM-DDTHH:MMZ>`, in UTC, written by the script alone, never by hand. The state is
 `open` or `closed:<kind>`, with `, suspect` after it at most. **The id is the place**: a root is
-`q-NNNN`, a child its parent's id and one more position, `q-0090.0030`, stepping by ten. A
+`q-NNNN`, a child its parent's id and one more position, `q-0090.0003`, the next after its
+siblings. A
 re-parent renames the moved question and everything under it — files, links, relations, session
 lines and bare ids under `docs/` — so an id seen earlier may be gone: draw the window again. *part
 of* is the line the check holds the id against.

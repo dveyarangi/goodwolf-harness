@@ -57,7 +57,7 @@ SLUG_LENGTH = 160
 # The longest absolute path an entry may take: Windows' limit less its terminating null.
 PATH_LIMIT = 259
 # The highest four-digit position a child takes; a root's id may grow a digit, as it always could.
-LAST_POSITION = 9990
+LAST_POSITION = 9999
 # Where the fingerprint of each session's last window is kept; `None` is the machine's temp folder.
 WINDOW_MEMORY: str | None = None
 PARTS = ("part of", "depends on", "state", "owner", "answer", "lean", "struck")
@@ -885,14 +885,16 @@ class Store:
 
 
 def _next_free(index: dict[str, Entry], parent: str | None) -> str:
-    """The id a question placed under `parent`, or among the roots, takes: past every position at
-    that level, live or archived, stepping by ten as ticket positions do (`.0020`'s decision 6).
+    """The id a question placed under `parent`, or among the roots, takes: the one after every
+    position at that level, live or archived (`.0020`'s decision 6). No gaps are left, since a
+    question's place among its siblings carries no order to insert into — ticket positions step by
+    ten for their queue, and a question has none.
 
     An id freed by a rename may come back below the highest; nothing forwards it, so an old commit
     message naming it may then read wrongly — accepted with the decision.
     """
     level = [_positions(identity)[-1] for identity in index if _parent_of(identity) == parent]
-    position = (max(level, default=0) // 10 + 1) * 10
+    position = max(level, default=0) + 1
     if position > LAST_POSITION and parent is not None:
         raise Refused(f"no free position under {parent}: four digits end at {LAST_POSITION}")
     return f"{parent}.{position:04d}" if parent else f"q-{position:04d}"
@@ -1741,7 +1743,7 @@ class _Draft:
                 if child in nested:
                     position = _positions(child.identity or "")[-1]
                 else:
-                    position = (max(taken, default=0) // 10 + 1) * 10
+                    position = max(taken, default=0) + 1
                     if position > LAST_POSITION:
                         raise Refused(f"no free position under {renames[above.identity or '']}")
                     taken.append(position)

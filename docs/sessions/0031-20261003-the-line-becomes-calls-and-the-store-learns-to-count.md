@@ -13,7 +13,7 @@ each planned, implemented, verified and closed:**
   entry's name holds its whole question, and the check holds every name to it.
 - [`.0011`](../tickets/done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md): the
   declared line's grammar replaced by a `questions.py` subcommand per event, the script drawing
-  ids. It was incepted mid-session, at the align on q-0001.0070 that produced decision 56: the line was
+  ids. It was incepted mid-session, at the align on q-0001.0007 that produced decision 56: the line was
   the interface while a hook was to read it from the reply, and no such hook ever shipped.
 - [`.0012`](../tickets/done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md):
   Q1's lookup before a question is opened.
@@ -66,7 +66,7 @@ the `debug=on` display was observed. Only Codex and Cursor live remain.
     registering nothing from Cursor's hook, are the alternatives left undecided.
   
   `.0010` was closed with its RFC at a `/maintain` the same night.
-- **q-0001.0060, a resumed conversation under a new id.** Seen again: the old tag stayed `running` at
+- **q-0001.0006, a resumed conversation under a new id.** Seen again: the old tag stayed `running` at
   a closed question. The time-gap strike does without session identity; the position still does
   not carry over.
 - **`.0040`'s align** rests on *this harness has no wake hooks*, which decision 44 made untrue.

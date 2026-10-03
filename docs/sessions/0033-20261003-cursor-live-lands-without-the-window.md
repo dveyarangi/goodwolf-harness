@@ -22,7 +22,7 @@ wake in the first turn.
 
 - **Next in the ring:** [`.0020` open-issues-are-entries-of-the-store](../tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md),
   HITL, which opens at `/align`.
-- **Still open under q-0001:** q-0001.0060 — a conversation's position when the host resumes it under
+- **Still open under q-0001:** q-0001.0006 — a conversation's position when the host resumes it under
   a new session id; this session is a minted tag beside the host id.
 - **Uncommitted:** the 0120 Cursor observation, this record. Session 31's leftovers remain that
   session's.
