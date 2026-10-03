@@ -1,0 +1,6 @@
+# q-0023 Where do the arguments of closed questions live, now that an entry holds its own?
+
+- **part of** q-0022
+- **state** open
+- **owner** [01-0011.0100](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)
+- **struck** 0, last 2026-10-03T00:28Z
