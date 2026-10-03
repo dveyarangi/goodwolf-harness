@@ -619,8 +619,8 @@ class Rendered(Store):
         q-0011 Is height depth?                          pruned
         q-0012 (in done/)
 
-    Its children keep the flat ids every store held before an id said where it sits (`.0020`'s
-    decision 6): they still read, and a call that opens or renames under them gives nested ones.
+    Its children keep the flat ids every store held before an id said where it sits (the user,
+    2026-10-03): they still read, and a call that opens or renames under them gives nested ones.
     """
 
     def seed(self) -> None:
@@ -1135,7 +1135,7 @@ class TheCalls(Declared):
 
 class Renaming(Declared):
     """A re-parent renames the subtree that moves, so every id keeps saying where its question
-    sits (`.0020`'s decision 6): files, links, relations, session lines and bare ids follow."""
+    sits (the user, 2026-10-03): files, links, relations, session lines and bare ids follow."""
 
     def stems(self, folder: str = STORE) -> set[str]:
         return {path.stem for path in (self.root / folder).glob("q-*.md")}
@@ -1250,7 +1250,7 @@ class Renaming(Declared):
 
 class TheBody(Declared):
     """An entry holds its own argument after its parts, written by hand and kept by every call as
-    it found it (`.0020`'s decision 3)."""
+    it found it (the user, 2026-10-03)."""
 
     BODY = "The argument, with `code` and\n\n- **lean** a line shaped like a part.\n"
 

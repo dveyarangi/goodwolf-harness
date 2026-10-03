@@ -11,7 +11,7 @@ The store is `docs/questions/`: one file per question, its id nested under its p
 parent line the one the check holds that id against, wholly closed subtrees in
 `docs/questions/done/`, and `docs/questions/sessions`, where each running session keeps its
 position. A re-parent renames the subtree that moves, across the records under `docs/`
-(`.0020`'s decision 6). The formats are the questions skill's.
+(the user, 2026-10-03). The formats are the questions skill's.
 
 `--check` is the maintainer. It writes nothing; its exit status is the verdict and its JSON is for
 the person reading a failure. A tree with no store has nothing to check and passes. `--window` is
@@ -74,7 +74,7 @@ _STOPWORDS = frozenset(
     "what when where whether which who why will with".split()
 )
 # An id says where its question sits: a root's position, then one four-digit position per level
-# below it, as a ticket's id nests (`.0020`'s decision 6).
+# below it, as a ticket's id nests (the user, 2026-10-03).
 _ID = r"q-\d{4,}(?:\.\d{4})*"
 _TITLE = re.compile(rf"^# ({_ID}) (\S.*)$")
 _BULLET = re.compile(r"^- \*\*([^*]+)\*\* ?(.*)$")
@@ -106,7 +106,7 @@ class Entry:
     """One question as its file says it. Nothing here has been judged yet.
 
     `body` is the argument after the parts, written by hand and kept as read: the script writes
-    the parts and never the body (`.0020`'s decision 3)."""
+    the parts and never the body (the user, 2026-10-03)."""
 
     record: str
     identity: str | None
@@ -572,7 +572,7 @@ def _relation_problems(entries: list[Entry], index: dict[str, Entry]) -> list[Di
 
 
 def _misplaced(entries: list[Entry], index: dict[str, Entry]) -> list[Diagnostic]:
-    """An id that disagrees with its *part of*, the line it restates (`.0020`'s decision 6). An
+    """An id that disagrees with its *part of*, the line it restates (the user, 2026-10-03). An
     orphan's is not judged: its missing parent is reported already, and is what to fix first."""
     notes = []
     for read in entries:
@@ -886,7 +886,7 @@ class Store:
 
 def _next_free(index: dict[str, Entry], parent: str | None) -> str:
     """The id a question placed under `parent`, or among the roots, takes: the one after every
-    position at that level, live or archived (`.0020`'s decision 6). No gaps are left, since a
+    position at that level, live or archived (the user, 2026-10-03). No gaps are left, since a
     question's place among its siblings carries no order to insert into — ticket positions step by
     ten for their queue, and a question has none.
 
@@ -1705,7 +1705,7 @@ class _Draft:
 
     def _seat(self, read: Entry, parent: str | None) -> None:
         """Give a question its parent, renaming it and everything under it so each id says where
-        it sits (`.0020`'s decision 6). One already there, under an id that says so, is left as
+        it sits (the user, 2026-10-03). One already there, under an id that says so, is left as
         it is; a flat id from before ids nested is renamed even under the parent it has."""
         if read.parent == parent and _parent_of(read.identity or "") == parent:
             return
@@ -1937,7 +1937,7 @@ def _slug(question: str) -> str:
 
 def _fitted_slug(root: Path, identity: str, question: str) -> str:
     """The question's slug, cut further at a word boundary while the entry's path in `done/` — the
-    longer of its two homes — would pass `PATH_LIMIT`. The id is never cut (`.0020`'s decision 6);
+    longer of its two homes — would pass `PATH_LIMIT`. The id is never cut (the user, 2026-10-03);
     a single word that still does not fit is kept, and the platform says so when it is written."""
     words = _slug(question).split("-")
     while len(words) > 1 and len(str(root / STORE / "done" / f"{identity}-{'-'.join(words)}.md")) > PATH_LIMIT:

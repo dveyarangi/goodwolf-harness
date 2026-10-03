@@ -145,7 +145,8 @@ ticket as you write it.
 
 <installed by="ticket">
 **P7** Land a resolved decision in its durable home with its provenance, and rewrite the ticket in
-place to what is now true; list under `Open issues` only what stays unresolved.
+place to what is now true; close the question it answers against that home, and when a decision
+lands, repoint every entry closed against it there.
 
 **P10** Open an align on a ticket by saying what the ticket is: what it builds and the problem it answers,
 in plain words, each of its terms explained, before the necessity gate or any question.

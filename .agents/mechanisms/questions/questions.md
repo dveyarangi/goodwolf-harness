@@ -73,14 +73,16 @@ roles, is an open question of the store.
 | drawing the window | `.agents/scripts/gw/questions.py` | |
 | registering a session and delivering its window through a host's hook | `.agents/scripts/gw/questions.py` | |
 | writing entries and the position from a call | `.agents/scripts/gw/questions.py` | |
+| writing a question's argument, the body after its parts, by hand | `.agents/skills/questions/SKILL.md` | |
 | checking the store | `.agents/scripts/gw/questions.py` | |
 | reading where the work stands when a session wakes | `.agents/skills/recall/SKILL.md` | |
 | writing the session's leans and ending it | `.agents/skills/conclude/SKILL.md` | |
-| archiving a wholly closed subtree | `.agents/skills/maintain/SKILL.md` | |
+| archiving the subtree a closure finishes | `.agents/scripts/gw/questions.py` | |
+| sweeping a wholly closed subtree a closure left behind | `.agents/skills/maintain/SKILL.md` | |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
 | judging a message outside the agent | — | <straw-dog until="the judge slice lands" ticket="docs/tickets/01-0011.0100.0040-the-turn-is-steered-from-the-store.md">not yet</straw-dog> |
 | detecting a shape that hides children | — | <straw-dog until="the branch slice lands" ticket="docs/tickets/01-0011.0100.0050-a-question-branches-before-it-is-answered.md">not yet</straw-dog> |
-| holding the tickets' open issues as entries | — | <straw-dog until="the open-issues slice lands" ticket="docs/tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md">not yet</straw-dog> |
+| holding a ticket's open questions under the question it answers | `.agents/skills/ticket/SKILL.md` | |
 | holding the straw dogs as entries | — | <straw-dog until="the straw-dog slice lands" ticket="docs/tickets/01-0011.0100.0030-straw-dogs-are-entries-of-the-store.md">not yet</straw-dog> |
 | carrying the hook wiring into a recipient tree | — | <straw-dog until="the installer carries each host's hook wiring" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
 | removing this mechanism from a tree | — | <straw-dog until="the parts table says what goes and something says how" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |

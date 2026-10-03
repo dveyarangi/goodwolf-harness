@@ -10,6 +10,7 @@
   [01-0017 io-graph-coherent](./01-0017-io-graph-coherent.md) (the mechanisms declared, so what one
   asks of a skill can arrive installed) *(the user, 2026-09-27)*
 - **Blocks:** [Rules reach the occasion they are for](./01-0018-reachability-coherent.md)
+- **Answers:** [q-0023](../questions/q-0023-does-each-skill-state-only-what-it-owns.md)
 - **Outcome:** Every skill states only what it owns; what an installed mechanism asks of it arrives
   installed, and it names another skill only while that skill is on its way to a mechanism; a rule
   appears once, in the skill responsible for it; contradictions between skills are resolved rather

@@ -1,0 +1,5 @@
+# q-0024 Who produces and who consumes each skill and document?
+
+- **state** open
+- **owner** [01-0017](../tickets/01-0017-io-graph-coherent.md)
+- **struck** 0, last 2026-10-03T10:15Z

@@ -77,11 +77,12 @@ moves to `docs/rfc/done/` with the ticket.
 ## P7 — a resolved decision leaves the ticket for its durable home
 
 - **target** `.agents/skills/align/SKILL.md`
-- **authority** the user, 2026-09-08
+- **authority** the user, 2026-09-08; against the store, 2026-10-03 — 01-0011.0100 decision 50
 
 <rule>
 Land a resolved decision in its durable home with its provenance, and rewrite the ticket in
-place to what is now true; list under `Open issues` only what stays unresolved.
+place to what is now true; close the question it answers against that home, and when a decision
+lands, repoint every entry closed against it there.
 </rule>
 
 ## P10 — an align on a ticket opens with what the ticket is

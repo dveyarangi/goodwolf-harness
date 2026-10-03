@@ -6,6 +6,7 @@
   today and [`/skill-up`](../../.agents/skills/skill-up/SKILL.md) is its neighbour;
   [01-0017.0010](./01-0017.0010-terms-defined-before-they-land.md) — the first registered failure
   proposes an amendment to `/align` that should land with that ticket's rewrites, not ahead of them
+- **Answers:** [q-0026](../questions/q-0026-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md)
 - **Outcome:** Amending the harness's own rules follows stated meta-rules — how a failure is
   registered, when a rule is reworded, what counts as evidence that it did not work — instead of a
   judgement made afresh each time; and whether that is its own mechanism is answered from strikes
@@ -56,18 +57,6 @@ Not yet determined; the align decides it. What is known to be in scope:
   declared format, which is the same gap
   [01-0017.0020](./01-0017.0020-practice-swaps-in-one-edit.md) found for sessions and dreams.
 - **Whether this is a mechanism**, answered from the register rather than from this text.
-
-## Open issues
-
-- **Everything above.** This is an incepted ticket parked on purpose; its align has not run.
-- **The first entry names an amendment that is not yet made.** `/align`'s concerns rule and
-  `TICKET-FORMAT`'s decision-bearing-ticket rule do not name each other, so both were satisfiable
-  and salience decided. The wording lands with
-  [01-0017.0010](./01-0017.0010-terms-defined-before-they-land.md), which is already rewriting
-  `/align`'s neighbouring sections.
-- **What the replay's tester is kept from.** Withholding all of `docs/` *(the user, 2026-09-26)*
-  left a `/recall` with no queue to read, so it declined; withholding the register and `git diff`
-  left the amendment visible in git status and on this ticket. Undecided.
 - **One strike is not evidence.** Whatever this ticket concludes, it concludes from a register with
   more than one entry, or it concludes that the register was not worth keeping.
 

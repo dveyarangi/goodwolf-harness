@@ -8,6 +8,7 @@
   this ticket's *where it cannot be, the gap is named* assumes an answer about what the hosts can
   deliver that nobody has established. That ticket establishes it; this one decides what to do
   with the gaps that remain.
+- **Answers:** [q-0025](../questions/q-0025-does-each-rule-reach-the-occasion-it-is-for.md)
 - **Outcome:** A rule or skill that applies at an occasion is actually in front of the agent at that
   occasion, and where it cannot be, the gap is named rather than assumed away.
 

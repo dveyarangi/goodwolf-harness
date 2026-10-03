@@ -26,9 +26,9 @@ One pass over a declared scope. The scope decides which rules apply.
 - **B1** Declare the scope first — the tree, a project, or one work item with its consumers and
   governing docs — and write it into the report.
 - **B2** Certify only what you examined; mark nothing checked that was not. Route a finding
-  outside the scope to the record that owns its subject — the open issue that already holds it,
-  else the owning work item, else `/align` — after searching the open issues, so a finding
-  already held is cited, not rewritten.
+  outside the scope to the record that owns its subject — the open question in the store that
+  already holds it, else the owning work item, else `/align` — after searching the store, so a
+  finding already held is cited, not rewritten.
 - **B3** Archive every finished record, whatever scope you declared. The record's format says
   what finished means and where it goes.
 - **B4** Re-check every mechanism the check reports due or never maintained, whatever scope you

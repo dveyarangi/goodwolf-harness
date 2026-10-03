@@ -5,6 +5,7 @@
 - **Depends on:** [01-0011.0100 the-open-questions-are-kept-by-a-mechanism](./01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)
   (the structure scope is a subtree of, if its align confirms that; height, half of what scope
   was stated against, is depth in it — [01-0012](./done/01-0012-hierarchy-coherent.md), closed)
+- **Answers:** [q-0022](../questions/q-0022-what-is-scope-in-one-account-the-whole-harness-points-at.md)
 - **Outcome:** Scope — the extent of what a pass, a ticket or a document covers — has one account,
   and every scope statement across the harness either is that account or points at it.
 
