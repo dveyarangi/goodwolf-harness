@@ -68,7 +68,6 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | closing a finished ticket with its RFC | `.agents/skills/maintain/SKILL.md` | |
 | repairing the citations a close breaks | `.agents/scripts/gw/move_doc.py` | |
 | checking live records against the shape | `.agents/scripts/gw/tickets.py` | |
-| listing finished records not yet moved | — | <straw-dog until="a listing exists" ticket="docs/tickets/01-0011.0030-archive-backlog-listed.md">not yet</straw-dog> |
 | rendering the queue from the tickets | — | <straw-dog until="the table is derived rather than copied by hand" ticket="docs/tickets/01-0011.0040-queue-derived-index.md">not yet</straw-dog> |
 | ordering the queue and writing its pacing prose | — | <straw-dog until="the pacer owns both" ticket="docs/tickets/01-0020-pacer.md">not yet</straw-dog> |
 | promoting an open question of the store into a ticket | `.agents/skills/ticket/SKILL.md` | |
@@ -146,16 +145,10 @@ done, which never arrives. This section states that so nobody re-investigates it
 
 ## What would show it working, graded by someone who did not build it
 
-Two graders, two questions, pre-registered at the align that declared this mechanism and its
-`/plan`.
+One grader, pre-registered at the align that declared this mechanism and its `/plan`; a second,
+the session that would have landed an archive listing, went with the listing.
 
 <straw-dog until="01-0017 is done" ticket="docs/tickets/01-0017-io-graph-coherent.md">**The session that declares `/plan`**</straw-dog>
 grades the pairing rule and the `Plan` bullet: did they hold against `/plan`'s own record shape,
 or did this doc claim of an RFC what `/plan`'s declaration had to take back? A pairing check that
 had to be moved out of `tickets.py` is this doc having claimed too much.
-
-**<straw-dog until="01-0011.0030 is done" ticket="docs/tickets/01-0011.0030-archive-backlog-listed.md">The session that lands the archive listing</straw-dog>**
-grades the record declaration as the first reader that was written for: was the shelf's *The
-record* enough to read eligibility from — the boxes, the `/verify` box, the folder — or did the
-shape have to be amended to make the listing possible? A shape amended by its first reader was
-declared for the wrong reader.

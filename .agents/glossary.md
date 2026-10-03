@@ -101,6 +101,12 @@ _Avoid_: version, cut, ship, distribution.
 A tree that received core by install. Its entry file's announce line names the repository and the ref it came from, `<repository>@<ref>`; the one tree whose line carries no `@` is core's own repository, the origin, and is never installed into.
 _Avoid_: instance as a name for the tree, consumer.
 
+**Host**:
+The program that runs an agent's session and reads the tree for it — Claude Code, Codex, Cursor.
+
+**Loader link**:
+A link from the place a host looks for skills to `.agents/skills`, so every host reads the one copy.
+
 **Painted door**:
 A path under `docs/` that a mechanism declares as where its records live — the directory, or the one file that is a record — and thereby reserves in every recipient: core may name it, and a record written there makes it. Some arrive with content, where the owning mechanism declares what the record says before anything has happened in it; the rest come into being when the first record is written. A particular record inside one is a document, not a painted door.
 _Avoid_: place, path convention.
