@@ -78,7 +78,7 @@ absorbing it. The skill is `/questions`, read mid-turn and invoked by a person.
   [01-0014](../tickets/01-0014-scope-coherent.md), then the rest of the chain, `.0080` folded
   into the branch slice. Landed in the delivery status.
 - **Next in the ring:** `/plan` on
-  [01-0011.0100.0010](../tickets/01-0011.0100.0010-the-store-and-questions-writes-it.md), Ready,
+  [01-0011.0100.0010](../tickets/done/01-0011.0100.0010-the-store-and-questions-writes-it.md), Ready,
   its build list and criteria pointed at the decisions by number. Concluded here on purpose, so
   the plan reads the ticket cold — the first test of whether forty-two decisions resume cleanly.
 - **Push is pending**, nine commits.

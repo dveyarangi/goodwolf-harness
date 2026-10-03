@@ -1,7 +1,7 @@
 # Session 30 — the store goes live, and learns what to hold
 
 **2026-09-29 to 2026-10-02.** Woke with `/recall` on the open-questions mechanism and built
-[01-0011.0100.0010 the-store-and-questions-writes-it](../tickets/01-0011.0100.0010-the-store-and-questions-writes-it.md)
+[01-0011.0100.0010 the-store-and-questions-writes-it](../tickets/done/01-0011.0100.0010-the-store-and-questions-writes-it.md)
 through all seven stages of its RFC, then verified and maintained it, pushed, and aligned on what
 the store should hold. The conversation was resumed three times under new host session ids and
 woke under v18 from the second resume on.
@@ -41,7 +41,7 @@ were minted to carry 46 to 55: `.0012`, `.0015`, `.0017`.
 
 ## Open questions
 
-- **[.0010](../tickets/01-0011.0100.0010-the-store-and-questions-writes-it.md)'s three live boxes**:
+- **[.0010](../tickets/done/01-0011.0100.0010-the-store-and-questions-writes-it.md)'s three live boxes**:
   a session showing every declared line under v18, two sessions seeing each other, and Codex and
   Cursor live — Codex needs the project trusted and its hooks approved through `/hooks`.
 - **q-0015 — a resumed conversation under a new session id** leaves a trail of session lines and

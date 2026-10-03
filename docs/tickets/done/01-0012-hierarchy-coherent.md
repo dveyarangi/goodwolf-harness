@@ -19,7 +19,7 @@ contract — the same argument that kept [the pacer](../01-0020-pacer.md) out of
 
 **Closed as a landed decision, 2026-09-28** *(the user)*. The residues went to their owners: the
 height vocabulary sweep is a criterion of
-[01-0011.0100.0010](../01-0011.0100.0010-the-store-and-questions-writes-it.md); *Unit of work —
+[01-0011.0100.0010](01-0011.0100.0010-the-store-and-questions-writes-it.md); *Unit of work —
 proposed* is [01-0020](../01-0020-pacer.md)'s; the entry file's load-bearing threshold and its
 wrapped example are [01-0017.0020](../01-0017.0020-practice-swaps-in-one-edit.md)'s. The three
 `/discover` passes and the Life trace are research records, pointed at below. The sections that

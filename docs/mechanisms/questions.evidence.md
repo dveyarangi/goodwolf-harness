@@ -3,7 +3,7 @@
 Why [the doc](../../.agents/mechanisms/questions/questions.md) is what it is: what was measured,
 what was refuted, and what it replaced. Provenance stays on each decision in its ticket.
 
-Declared by [01-0011.0100.0010 the-store-and-questions-writes-it](../tickets/01-0011.0100.0010-the-store-and-questions-writes-it.md),
+Declared by [01-0011.0100.0010 the-store-and-questions-writes-it](../tickets/done/01-0011.0100.0010-the-store-and-questions-writes-it.md),
 2026-10-02, the first slice of
 [01-0011.0100 the-open-questions-are-kept-by-a-mechanism](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md),
 whose decisions 1 to 45 are the shape's reasons.

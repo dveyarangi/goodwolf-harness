@@ -1,7 +1,7 @@
 # Session 33 — Cursor live lands without the window
 
 **2026-10-03.** A Cursor agent chat under v22, first message a ping, to observe the last host
-row of [01-0011.0100.0010](../tickets/01-0011.0100.0010-the-store-and-questions-writes-it.md).
+row of [01-0011.0100.0010](../tickets/done/01-0011.0100.0010-the-store-and-questions-writes-it.md).
 No wake and no window were in context.
 
 ## What happened

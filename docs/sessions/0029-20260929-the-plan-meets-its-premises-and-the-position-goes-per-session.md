@@ -1,14 +1,14 @@
 # Session 29 — the plan meets its premises, and the position goes per session
 
 **2026-09-29.** Woke with `/recall`, pushed session 28's commits, and ran `/plan` on
-[01-0011.0100.0010 the-store-and-questions-writes-it](../tickets/01-0011.0100.0010-the-store-and-questions-writes-it.md)
+[01-0011.0100.0010 the-store-and-questions-writes-it](../tickets/done/01-0011.0100.0010-the-store-and-questions-writes-it.md)
 three times, reading the parent's forty-two decisions cold — the test session 28 set up. Ten items
 went to `/align` on the way; three of the parent's decisions were amended. Two commits, neither
 pushed.
 
 ## What happened
 
-**The RFC**, [01-0011.0100.0010](../rfc/01-0011.0100.0010-the-store-and-questions-writes-it.md): the
+**The RFC**, [01-0011.0100.0010](../rfc/done/01-0011.0100.0010-the-store-and-questions-writes-it.md): the
 store, `questions.py` (`--window`, `--wake`, `--tree`, `--declare`, `--end`, `--check`), the
 declaration with four installed blocks, the fold of `concerns.md`, `/align` cut to the interview —
 seven stages. Its *Settled at `/align`* section holds each item with its provenance; the parent's

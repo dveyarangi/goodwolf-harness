@@ -66,7 +66,7 @@ written beside its script took the script's cutting rule, which the agent could 
 
 **Every message is placed in the question store before it is answered** — the questions
 mechanism's Q1, installed into the general rules by
-[01-0011.0100.0010](../tickets/01-0011.0100.0010-the-store-and-questions-writes-it.md). Before
+[01-0011.0100.0010](../tickets/done/01-0011.0100.0010-the-store-and-questions-writes-it.md). Before
 drafting, the agent reads the window — delivered by the host's hook in Claude Code and Codex, run
 by the agent in Cursor — and declares where the message lands through `questions.py`. Kept short
 for a capable model: the act, the moment, four example lines, since the declared line is parsed
