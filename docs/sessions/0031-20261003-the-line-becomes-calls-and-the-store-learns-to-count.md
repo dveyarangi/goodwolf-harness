@@ -52,17 +52,19 @@ the `debug=on` display was observed. Only Codex and Cursor live remain.
 
 ## Open questions
 
-- **`.0010`'s last box: Cursor.** Codex and Cursor each tested themselves live and recorded the
-  result on [01-0010.0120](../tickets/01-0010.0120-host-delivery-surfaces.md).
+- **`.0010` is Done**, every box checked after this record was first written. Codex and Cursor
+  each tested themselves live and recorded the result on
+  [01-0010.0120](../tickets/01-0010.0120-host-delivery-surfaces.md).
   - **Codex** registers under its id and delivers the window.
-  - **Cursor** does not register. Its `sessionStart` context is dropped by the host, and
-    `questions.py` reads `conversation_id` where Cursor's payload documents `session_id`. Its
-    agent registered itself as `s-1003-7b62` by a bare `--wake`.
-  - **The fix to plan:** read Cursor's `session_id`, and find a way to give its agent the tag the
-    hook registered, since `additional_context` never lands. Cursor's staff name the hook's `env`
-    as the path that does.
+  - **Cursor** did not register at first, and the box was ticked on an inference and reverted.
+    Cursor's Hooks output channel then showed the cause: the hook ran, but read its input in the
+    Windows code page. Read by its byte-order mark instead, a fresh chat registered under its own
+    id, and its tag went out as `env`.
+  - **Still open:** whether that `env` reaches Cursor's agent's shell. If it does, `questions.py`
+    could take its session from it and end the duplicate `--wake` registrations; that is a call
+    interface change, for the user.
   
-  The box was ticked here on an inference and reverted once the Cursor test refuted it.
+  Its paired close is the next `/maintain`'s.
 - **q-0015, a resumed conversation under a new id.** Seen again: the old tag stayed `running` at
   a closed question. The time-gap strike does without session identity; the position still does
   not carry over.
