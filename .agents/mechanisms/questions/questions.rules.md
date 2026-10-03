@@ -28,10 +28,11 @@ question:
 
 Before opening a question, look for its answer in the docs and the code: found, point to it and
 open nothing; not found, open it. A message that lands nowhere makes no call. Only the working
-agent calls, never a helper. Under `debug=on`, head the reply with the question the message landed
-on, as a one-cell table — `| ↳ **q-N** · <its question as the window writes it> |` over `|---|` —
-and name each move from one question to another where it happened. For any other call, a closure, a branching or a drop, read the
-questions skill.
+agent calls, never a helper. Under `debug=on`, head the reply with a one-cell table holding a row
+for each question the turn stood on, in order, the first over `|---|`: `| ↳ **q-N** · <its
+question as the window writes it> |` for the one the turn ends on, `| ✓ **q-N** · <question>
+(<kind>: <its answer>) |` for one closed in it, the question alone for one it left open. For any
+other call, a closure, a branching or a drop, read the questions skill.
 </rule>
 
 ## Q2 — the wake opens at where the work stands

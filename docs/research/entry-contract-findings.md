@@ -15,6 +15,16 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v23 — 2026-10-03
+
+**The debug table holds the turn's path** — Q1's display sentence, on the user's word: one row
+per question the turn stood on, in order — `↳` on the one it ends on, `✓` with its kind and
+answer on one closed in it, the question alone on one it left open. A move mid-turn had no form
+and was written as a loose line beside the box; a row per event with a direction arrow was
+proposed and refused for the user's row per question
+([decision 25](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md#decisions-landed-at-this-tickets-align),
+amended).
+
 ## v22 — 2026-10-03
 
 **The debug header is a one-cell table** — Q1's display sentence, on the user's word: the
