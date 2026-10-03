@@ -2,5 +2,5 @@
 
 - **state** open
 - **owner** [01-0011.0100](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)
-- **lean** the store is live; Cursor sessionStart is fire-and-forget and additional_context is a confirmed drop; questions.py reads conversation_id, the event payload documents session_id; .0020 next
+- **lean** the store is live on all three hosts, its first slice and four more closed; a Cursor chat holds two session lines since its agent cannot see its hook's tag; .0020 brings the tickets' open issues in next
 - **struck** 0, last 2026-10-02T23:02Z

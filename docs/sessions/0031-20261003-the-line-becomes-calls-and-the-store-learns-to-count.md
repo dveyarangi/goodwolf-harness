@@ -60,11 +60,12 @@ the `debug=on` display was observed. Only Codex and Cursor live remain.
     Cursor's Hooks output channel then showed the cause: the hook ran, but read its input in the
     Windows code page. Read by its byte-order mark instead, a fresh chat registered under its own
     id, and its tag went out as `env`.
-  - **Still open:** whether that `env` reaches Cursor's agent's shell. If it does, `questions.py`
-    could take its session from it and end the duplicate `--wake` registrations; that is a call
-    interface change, for the user.
+  - **The `env` does not reach Cursor's agent's shell.** `echo $env:QUESTIONS_SESSION` printed
+    nothing, so the agent cannot see its hook's tag, and a Cursor chat holds two session lines.
+    That is a known limit on `.0120`. Adopting the hook's line from a bare `--wake`, or
+    registering nothing from Cursor's hook, are the alternatives left undecided.
   
-  Its paired close is the next `/maintain`'s.
+  `.0010` was closed with its RFC at a `/maintain` the same night.
 - **q-0015, a resumed conversation under a new id.** Seen again: the old tag stayed `running` at
   a closed question. The time-gap strike does without session identity; the position still does
   not carry over.
@@ -77,7 +78,6 @@ the `debug=on` display was observed. Only Codex and Cursor live remain.
 
 ## Continuation
 
-- **Uncommitted here:** this record, and the leans on q-0001 and q-0015. 25 commits are not
-  pushed.
+- **Everything is committed and pushed** at this record's last write.
 - **Next in the ring:** [`.0020` open-issues-are-entries-of-the-store](../tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md),
   HITL, which opens at `/align`. Behind it is the coherence chain the queue orders.
