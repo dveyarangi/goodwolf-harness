@@ -19,7 +19,9 @@ core's substrate, beneath whatever method a tree runs.
 **The turn.** Before drafting, the agent reads the window — the path from the root to its session's
 current question, the children along it, the root's other open questions, the other roots, the
 other sessions — and calls the script with where the message lands, one call per event, each
-validated and written whole; the script gives a new question its id. The window prints position,
+validated and written whole; the script gives a new question its id, nested under its parent's,
+and a re-parent renames the subtree that moves, so an id always says where its question sits. The
+window prints position,
 never relevance: the one judgement of the turn is the agent's. The rule placing a message is
 installed at tier 1, since its occasion is every turn.
 

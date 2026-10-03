@@ -7,9 +7,11 @@
     uv run --offline --no-project python .agents/scripts/gw/questions.py --tree [<q-id>]
     uv run --offline --no-project python .agents/scripts/gw/questions.py <event> ... --session <tag>
 
-The store is `docs/questions/`: one file per question, its parent line the hierarchy's one home,
-wholly closed subtrees in `docs/questions/done/`, and `docs/questions/sessions`, where each running
-session keeps its position. The formats are the questions skill's.
+The store is `docs/questions/`: one file per question, its id nested under its parent's and its
+parent line the one the check holds that id against, wholly closed subtrees in
+`docs/questions/done/`, and `docs/questions/sessions`, where each running session keeps its
+position. A re-parent renames the subtree that moves, across the records under `docs/`
+(`.0020`'s decision 6). The formats are the questions skill's.
 
 `--check` is the maintainer. It writes nothing; its exit status is the verdict and its JSON is for
 the person reading a failure. A tree with no store has nothing to check and passes. `--window` is
@@ -32,12 +34,13 @@ import secrets
 import sys
 import tempfile
 from collections.abc import Callable
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import move_doc  # noqa: E402  (path set above)
 from docs_corpus import cited_record, citations, corpus, target_of  # noqa: E402  (path set above)
 
 STORE = "docs/questions"
@@ -51,6 +54,10 @@ WAKE_STRUCK_LINES = 5
 # A twin shares at least this many content words, and at least half of the shorter title's.
 TWIN_SHARED_WORDS = 3
 SLUG_LENGTH = 160
+# The longest absolute path an entry may take: Windows' limit less its terminating null.
+PATH_LIMIT = 259
+# The highest four-digit position a child takes; a root's id may grow a digit, as it always could.
+LAST_POSITION = 9990
 # Where the fingerprint of each session's last window is kept; `None` is the machine's temp folder.
 WINDOW_MEMORY: str | None = None
 PARTS = ("part of", "depends on", "state", "owner", "answer", "lean", "struck")
@@ -66,17 +73,22 @@ _STOPWORDS = frozenset(
     "a an and are as at be by can do does for from how in is it of on or should the this to we "
     "what when where whether which who why will with".split()
 )
-_TITLE = re.compile(r"^# (q-\d{4,}) (\S.*)$")
+# An id says where its question sits: a root's position, then one four-digit position per level
+# below it, as a ticket's id nests (`.0020`'s decision 6).
+_ID = r"q-\d{4,}(?:\.\d{4})*"
+_TITLE = re.compile(rf"^# ({_ID}) (\S.*)$")
 _BULLET = re.compile(r"^- \*\*([^*]+)\*\* ?(.*)$")
 _CONTINUATION = re.compile(r"^\s+\S")
 _STATE = re.compile(rf"^(open|closed:({'|'.join(KINDS)}))(, suspect)?$")
-_IDENTITY = re.compile(r"^q-\d{4,}$")
-_ENTRY_NAME = re.compile(rf"^{STORE}/(?:done/)?(q-\d{{4,}})-([a-z0-9]+(?:-[a-z0-9]+)*)\.md$")
+_IDENTITY = re.compile(rf"^{_ID}$")
+_ENTRY_NAME = re.compile(rf"^{STORE}/(?:done/)?({_ID})-([a-z0-9]+(?:-[a-z0-9]+)*)\.md$")
 _DEFERRAL = re.compile(r"^until \S.*, meanwhile \S.*$")
 _STRIKE = re.compile(r"^(\d+), last (\d{4}-\d{2}-\d{2}T\d{2}:\d{2})Z$")
 _SESSION = re.compile(
-    r"^([A-Za-z0-9][\w.-]*) (running|ended) (\d{4}-\d{2}-\d{2}) (q-\d{4,}|-)(?: (q-\d{4,}(?:,q-\d{4,}){0,3}))?$"
+    rf"^([A-Za-z0-9][\w.-]*) (running|ended) (\d{{4}}-\d{{2}}-\d{{2}}) ({_ID}|-)(?: ({_ID}(?:,{_ID}){{0,3}}))?$"
 )
+# An id in prose: never part of a word or a longer id, so `faq-0007` and `q-00070` are not ids.
+_BARE_ID = re.compile(rf"(?<![\w.]){_ID}(?!\w)")
 _HEADING = re.compile(r"^#{1,6} +(.*?)(?: +#+)? *$")
 _FENCE = re.compile(r"^\s*(```|~~~)")
 
@@ -322,7 +334,7 @@ def _entries(
             skipped.append(Skipped(name, "is not UTF-8, so the entry cannot be read"))
             continue
         entries.append(read)
-        diagnostics += problems + _name_problems(read, stem)
+        diagnostics += problems + _name_problems(root, read, stem)
     return entries, diagnostics, skipped
 
 
@@ -417,9 +429,10 @@ def _strike_problems(read: Entry) -> list[Diagnostic]:
     return [Diagnostic(read.record, said.line, f"struck is `{said.value}`, not `<n>, last <YYYY-MM-DDTHH:MMZ>`")]
 
 
-def _name_problems(read: Entry, stem: re.Match[str]) -> list[Diagnostic]:
+def _name_problems(root: Path, read: Entry, stem: re.Match[str]) -> list[Diagnostic]:
     """The filename's id is the title's, and its slug is the whole question, as the writer names it
-    (parent decision 55), so a name shortened or left behind by a reworded question is caught."""
+    (parent decision 55), so a name shortened or left behind by a reworded question is caught. A
+    slug the writer cut so the path fits this tree is the writer's name too."""
     if read.identity is None:
         return []
     if stem.group(1) != read.identity:
@@ -427,7 +440,7 @@ def _name_problems(read: Entry, stem: re.Match[str]) -> list[Diagnostic]:
             Diagnostic(read.record, 1, f"is named {stem.group(1)} and its title says {read.identity}")
         ]
     wanted = _slug(read.question)
-    if stem.group(2) != wanted:
+    if stem.group(2) not in (wanted, _fitted_slug(root, read.identity, read.question)):
         return [
             Diagnostic(
                 read.record,
@@ -543,9 +556,27 @@ def _identity_problems(entries: list[Entry]) -> list[Diagnostic]:
 
 
 def _relation_problems(entries: list[Entry], index: dict[str, Entry]) -> list[Diagnostic]:
-    """Relations are ids resolved over the live store and `done/` together: an id is placement
-    and never a path, so an archived question is still the same question."""
-    return _orphans(entries, index) + _cycles(index) + _unmarked_suspects(entries, index)
+    """Relations are ids resolved over the live store and `done/` together: an id says where its
+    question sits and never which folder holds it, so an archived question is still the same
+    question."""
+    return _orphans(entries, index) + _cycles(index) + _unmarked_suspects(entries, index) + _misplaced(entries, index)
+
+
+def _misplaced(entries: list[Entry], index: dict[str, Entry]) -> list[Diagnostic]:
+    """An id that disagrees with its *part of*, the line it restates (`.0020`'s decision 6). An
+    orphan's is not judged: its missing parent is reported already, and is what to fix first."""
+    notes = []
+    for read in entries:
+        if read.identity is None or (read.parent is not None and read.parent not in index):
+            continue
+        if _parent_of(read.identity) != read.parent:
+            wanted = f"{read.parent}.NNNN" if read.parent else "q-NNNN"
+            notes.append(
+                Diagnostic(
+                    read.record, 1, f"{read.identity} is part of {read.parent or 'nothing'}, so its id is {wanted}"
+                )
+            )
+    return notes
 
 
 def _orphans(entries: list[Entry], index: dict[str, Entry]) -> list[Diagnostic]:
@@ -806,7 +837,8 @@ class Store:
     """The live questions as a tree, with every id resolvable and every session's line.
 
     The tree is the live directory alone: `done/` holds wholly closed subtrees, which no window
-    draws. Ids still resolve over both, since an id is placement and never a path.
+    draws. Ids still resolve over both, since an id says where a question sits, never which
+    folder holds it.
     """
 
     index: dict[str, Entry]
@@ -835,11 +867,24 @@ class Store:
         return held
 
 
-def _next_free(index: dict[str, Entry]) -> str:
-    """The id a new question takes: one past the highest ever given, live or archived, so an id is
-    never handed out twice."""
-    highest = max((int(identity[2:]) for identity in index), default=0)
-    return f"q-{highest + 1:04d}"
+def _next_free(index: dict[str, Entry], parent: str | None) -> str:
+    """The id a question placed under `parent`, or among the roots, takes: past every position at
+    that level, live or archived, stepping by ten as ticket positions do (`.0020`'s decision 6).
+
+    An id freed by a rename may come back below the highest; nothing forwards it, so an old commit
+    message naming it may then read wrongly — accepted with the decision.
+    """
+    level = [_positions(identity)[-1] for identity in index if _parent_of(identity) == parent]
+    position = (max(level, default=0) // 10 + 1) * 10
+    if position > LAST_POSITION and parent is not None:
+        raise Refused(f"no free position under {parent}: four digits end at {LAST_POSITION}")
+    return f"{parent}.{position:04d}" if parent else f"q-{position:04d}"
+
+
+def _parent_of(identity: str) -> str | None:
+    """The parent an id names, or `None` for a root's — a flat id from before ids nested is read as
+    a root's, so the roots continue past it."""
+    return identity.rsplit(".", 1)[0] if "." in identity else None
 
 
 def _ancestry(index: dict[str, Entry], identity: str) -> list[Entry]:
@@ -1251,8 +1296,13 @@ def _section(heading: str, lines: list[str]) -> list[str]:
     return [heading] + (lines or ["  (none)"]) + [""]
 
 
-def _order(read: Entry) -> int:
-    return int((read.identity or "q-0")[2:])
+def _order(read: Entry) -> tuple[int, ...]:
+    """Tree order: a child after its parent and before the parent's next sibling."""
+    return _positions(read.identity or "q-0")
+
+
+def _positions(identity: str) -> tuple[int, ...]:
+    return tuple(int(position) for position in identity[2:].split("."))
 
 
 # --- the writer ---------------------------------------------------------------------------------
@@ -1292,6 +1342,8 @@ def _called(root: Path, argv: list[str], today: date, now: datetime) -> int:
         print(f"wrote {record}")
     for identity in written.opened:
         print(f"opened {identity}")
+    for old, new in written.renamed.items():
+        print(f"renamed {old} → {new}")
     if written.session is not None:
         print(_landed(root, written.session.current, left))
     return 0
@@ -1366,17 +1418,19 @@ def _calls() -> argparse.ArgumentParser:
 
 def _question_id(given: str) -> str:
     if not _IDENTITY.match(given):
-        raise argparse.ArgumentTypeError(f"`{given}` is not a question id, `q-NNNN`")
+        raise argparse.ArgumentTypeError(f"`{given}` is not a question id, `q-NNNN` or `q-NNNN.NNNN`")
     return given
 
 
 @dataclass
 class Written:
-    """What one declaration wrote, in the order it was written, and the ids it opened."""
+    """What one declaration wrote, in the order it was written, the ids it opened, and each id a
+    re-parent renamed, with the one it took."""
 
     entries: list[str]
     session: Session | None
     opened: list[str]
+    renamed: dict[str, str] = field(default_factory=dict)
 
 
 class Taken(Refused):
@@ -1435,13 +1489,66 @@ def _declared(
         between()
     draft.recheck(seen)
     written = draft.write()
+    if draft.renames:
+        written = _carry_renames(root, draft.moves, draft.renames, written)
+        held = _renamed_session(held, draft.renames)
     moved = _moved(held, position, today)
     if moved is not None:
         try:
             _write_own_line(root, moved)
         except OSError as error:
             raise WriteInterrupted(written, SESSIONS, error) from error
-    return Written(written, moved, [identity for identity in draft.changed if identity in draft.new])
+    opened = [identity for identity in draft.changed if identity in draft.new]
+    return Written(written, moved, opened, dict(draft.renames))
+
+
+def _carry_renames(
+    root: Path, moves: list[tuple[str, str]], renames: dict[str, str], written: list[str]
+) -> list[str]:
+    """After the renamed entries are written in place: move them, which repairs every link to
+    them, then rewrite their bare ids — so nothing under `docs/` names an id that is gone."""
+    try:
+        move_doc.perform(root, moves)
+    except move_doc.CloseInterrupted as stopped:
+        raise WriteInterrupted(written, "the renamed entries' move", stopped) from stopped
+    landed = dict(moves)
+    _rewrite_ids(root, renames)
+    return [landed.get(record, record) for record in written]
+
+
+def _rewrite_ids(root: Path, renames: dict[str, str]) -> None:
+    """Every renamed id written outside a link, in the records under `docs/` and the sessions file.
+
+    An id is matched whole, so a longer one that starts the same way is never touched, and it is
+    rewritten wherever it is written, a code span included: an id in this map names this store's
+    question. `.agents/` and the entry file are left alone — core names no record of this tree.
+    Each file is read and replaced in one rename; a person editing it at that moment can still
+    lose the race, as with the mover.
+    """
+    names = [name for name in corpus(root) if name.startswith("docs/") and name.endswith(".md")]
+    for name in names + ([SESSIONS] if (root / SESSIONS).is_file() else []):
+        path = root / name
+        text = path.read_bytes().decode("utf-8")
+        rewritten = _BARE_ID.sub(lambda found: renames.get(found.group(0), found.group(0)), text)
+        if rewritten != text:
+            _replace(path, rewritten)
+
+
+def _replace(path: Path, text: str) -> None:
+    """The file's new text in one rename, so a reader never meets half a file."""
+    staging = path.with_name(f".{path.name}.renaming.tmp")
+    try:
+        staging.write_bytes(text.encode("utf-8"))
+        staging.replace(path)
+    finally:
+        staging.unlink(missing_ok=True)
+
+
+def _renamed_session(held: Session, renames: dict[str, str]) -> Session:
+    """This session's line as the rename left it, so its own write does not put old ids back."""
+    current = renames.get(held.current or "", held.current)
+    recent = [renames.get(identity, identity) for identity in held.recent]
+    return Session(held.tag, held.running, held.wrote, current, recent, held.line)
 
 
 def _moved(held: Session, position: str | None, today: date) -> Session | None:
@@ -1462,6 +1569,15 @@ class _Draft:
         self.now = now
         self.changed: list[str] = []
         self.new: set[str] = set()
+        # Each id a re-parent renamed, with the one it took, and where each renamed entry's file
+        # sits on disk until the rename moves it.
+        self.renames: dict[str, str] = {}
+        self.origin: dict[str, str] = {}
+
+    @property
+    def moves(self) -> list[tuple[str, str]]:
+        """Each renamed entry's file, from where it sits to where its new id puts it."""
+        return [(self.origin[identity], self.index[identity].record) for identity in self.origin]
 
     def apply(self, clause: Clause) -> None:
         getattr(self, f"_{clause.verb}")(clause)
@@ -1489,21 +1605,22 @@ class _Draft:
         """Checked once every clause has applied, by `place`."""
 
     def _opens(self, clause: Clause) -> None:
-        """A new question takes the next free id; the recheck finds it still free, or `declare`
-        draws again."""
-        identity = _next_free(self.index)
-        parts = {"state": "open", "struck": Strike(0, self.now).text}
+        """A new question takes the next free position under its parent; the recheck finds it
+        still free, or `declare` draws again."""
         if clause.other:
             self._existing(clause.other)
+        identity = _next_free(self.index, clause.other)
+        parts = {"state": "open", "struck": Strike(0, self.now).text}
+        if clause.other:
             parts = {"part of": clause.other} | parts
-        record = f"{STORE}/{identity}-{_slug(clause.text or '')}.md"
+        record = f"{STORE}/{identity}-{_fitted_slug(self.root, identity, clause.text or '')}.md"
         self._put(Entry(record, identity, clause.text or "", {n: Part(v, 0) for n, v in parts.items()}))
         self.new.add(identity)
         if clause.lower:
             lower = self._existing(clause.lower)
             if lower.parent != clause.other:
                 raise Refused(f"`open --between {clause.other} {clause.lower}`: {clause.lower} is not part of {clause.other}")
-            self._put(_with(lower, **{"part of": identity}))
+            self._seat(lower, identity)
 
     def _moves(self, clause: Clause) -> None:
         moving = self._existing(clause.question or "")
@@ -1511,7 +1628,67 @@ class _Draft:
             self._existing(clause.other)
             if moving in _ancestry(self.index, clause.other):
                 raise Refused(f"`move {moving.identity} --under {clause.other}` makes a cycle in part of")
-        self._put(_with(moving, **{"part of": clause.other}))
+        self._seat(moving, clause.other)
+
+    def _seat(self, read: Entry, parent: str | None) -> None:
+        """Give a question its parent, renaming it and everything under it so each id says where
+        it sits (`.0020`'s decision 6). One already there, under an id that says so, is left as
+        it is; a flat id from before ids nested is renamed even under the parent it has."""
+        if read.parent == parent and _parent_of(read.identity or "") == parent:
+            return
+        renames = self._renames_below(read, _next_free(self.index, parent))
+        for old, new in renames.items():
+            moved = self.index.pop(old)
+            above = parent if old == read.identity else renames[moved.parent or ""]
+            slug = _fitted_slug(self.root, new, moved.question)
+            record = posixpath.join(posixpath.dirname(moved.record), f"{new}-{slug}.md")
+            if old in self.new:
+                self.new.discard(old)
+                self.new.add(new)
+            else:
+                self.origin[new] = self.origin.pop(old, moved.record)
+            self.changed = [new if each == old else each for each in self.changed]
+            self._put(Entry(record, new, moved.question, _with(moved, **{"part of": above}).parts))
+        self.renames.update(renames)
+        for other in list(self.index.values()):
+            self._name_renamed_ids(other, renames)
+
+    def _renames_below(self, top: Entry, identity: str) -> dict[str, str]:
+        """The new id of every question in the subtree, from its top down: a child whose id nests
+        under its parent's keeps its last position, and one whose id never did takes the next free
+        position after its nested siblings."""
+        renames = {top.identity or "": identity}
+        waiting = [top]
+        while waiting:
+            above = waiting.pop(0)
+            children = sorted(
+                (read for read in self.index.values() if read.parent == above.identity), key=_order
+            )
+            nested = [read for read in children if _parent_of(read.identity or "") == above.identity]
+            taken = [_positions(read.identity or "")[-1] for read in nested]
+            for child in children:
+                if child in nested:
+                    position = _positions(child.identity or "")[-1]
+                else:
+                    position = (max(taken, default=0) // 10 + 1) * 10
+                    if position > LAST_POSITION:
+                        raise Refused(f"no free position under {renames[above.identity or '']}")
+                    taken.append(position)
+                renames[child.identity or ""] = f"{renames[above.identity or '']}.{position:04d}"
+            waiting += children
+        return renames
+
+    def _name_renamed_ids(self, read: Entry, renames: dict[str, str]) -> None:
+        """An entry's relations, rewritten to the ids a rename gave."""
+        changes: dict[str, str] = {}
+        if read.parent in renames:
+            changes["part of"] = renames[read.parent]
+        if any(identity in renames for identity in read.dependencies):
+            changes["depends on"] = ", ".join(renames.get(identity, identity) for identity in read.dependencies)
+        if read.points_to in renames:
+            changes["answer"] = renames[read.points_to]
+        if changes:
+            self._put(_with(read, **changes))
 
     def _depends(self, clause: Clause) -> None:
         waiting, awaited = self._existing(clause.question or ""), self._existing(clause.other or "")
@@ -1589,7 +1766,10 @@ class _Draft:
     def _existing(self, identity: str) -> Entry:
         read = self.index.get(identity)
         if read is None:
-            raise Refused(f"no entry holds {identity}")
+            raise Refused(
+                f"no entry holds {identity}; an id changes when its question is re-parented — "
+                "draw the window again, `--window --session <tag> --full`"
+            )
         return read
 
     def _put(self, read: Entry) -> None:
@@ -1598,31 +1778,37 @@ class _Draft:
             self.changed.append(read.identity or "")
 
     def recheck(self, seen: dict[str, bytes]) -> None:
-        """Every entry the clauses change is as it was read, and every id they open is still free —
-        under any slug, since another session names its question in its own words."""
+        """Every entry the clauses change is as it was read, and every id they open or rename to is
+        still free — under any slug, since another session names its question in its own words;
+        then the mover has no reason to refuse the renamed entries' move."""
         for identity in self.changed:
-            record = self.index[identity].record
+            if (identity in self.new or identity in self.origin) and _files_holding(self.root, identity):
+                raise Taken(f"{identity} was written by another session since this call read the store")
             if identity in self.new:
-                if _files_holding(self.root, identity):
-                    raise Taken(f"{identity} was written by another session since this call read the store")
                 continue
+            record = self.origin.get(identity, self.index[identity].record)
             now = (self.root / record).read_bytes() if (self.root / record).is_file() else None
             if now != seen.get(record):
                 raise Refused(f"{record} changed since this call read it; call it again")
+        why = move_doc.refusal(self.root, self.moves) if self.moves else None
+        if why:
+            raise Refused(f"the renamed entries cannot move: {why}")
 
     def write(self) -> list[str]:
-        """The changed entries, in the order the clauses changed them. A failure stops the run and
-        says what was written: nothing is rolled back."""
+        """The changed entries, in the order the clauses changed them — a renamed one where its file
+        still sits, for the mover to carry. A failure stops the run and says what was written:
+        nothing is rolled back."""
         written: list[str] = []
         for identity in self.changed:
             read = self.index[identity]
+            record = self.origin.get(identity, read.record)
             try:
-                path = self.root / read.record
+                path = self.root / record
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_text(_entry_text(read), encoding="utf-8", newline="\n")
             except OSError as error:
-                raise WriteInterrupted(written, read.record, error) from error
-            written.append(read.record)
+                raise WriteInterrupted(written, record, error) from error
+            written.append(record)
         return written
 
 
@@ -1630,7 +1816,7 @@ class WriteInterrupted(Exception):
     """A write that failed after another had succeeded. Nothing was rolled back; `completed` is
     what was written and `failed` where it stopped."""
 
-    def __init__(self, completed: list[str], failed: str, error: OSError) -> None:
+    def __init__(self, completed: list[str], failed: str, error: Exception) -> None:
         super().__init__(f"writing {failed} failed: {error}")
         self.completed = completed
         self.failed = failed
@@ -1671,6 +1857,16 @@ def _slug(question: str) -> str:
             break
         slug.append(word)
     return "-".join(slug) or "question"
+
+
+def _fitted_slug(root: Path, identity: str, question: str) -> str:
+    """The question's slug, cut further at a word boundary while the entry's path in `done/` — the
+    longer of its two homes — would pass `PATH_LIMIT`. The id is never cut (`.0020`'s decision 6);
+    a single word that still does not fit is kept, and the platform says so when it is written."""
+    words = _slug(question).split("-")
+    while len(words) > 1 and len(str(root / STORE / "done" / f"{identity}-{'-'.join(words)}.md")) > PATH_LIMIT:
+        words.pop()
+    return "-".join(words)
 
 
 if __name__ == "__main__":

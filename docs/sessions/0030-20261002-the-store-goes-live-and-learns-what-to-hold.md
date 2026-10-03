@@ -44,10 +44,10 @@ were minted to carry 46 to 55: `.0012`, `.0015`, `.0017`.
 - **[.0010](../tickets/done/01-0011.0100.0010-the-store-and-questions-writes-it.md)'s three live boxes**:
   a session showing every declared line under v18, two sessions seeing each other, and Codex and
   Cursor live — Codex needs the project trusted and its hooks approved through `/hooks`.
-- **q-0015 — a resumed conversation under a new session id** leaves a trail of session lines and
+- **q-0001.0060 — a resumed conversation under a new session id** leaves a trail of session lines and
   loses its position until it declares again; it happened at three of this session's resumes but not
   at every message. The hook could carry the position over, once one payload shows what it shares.
-- **q-0016 — what an agent role is**, and which mechanism keeps roles; q-0003, picking an area,
+- **q-0016 — what an agent role is**, and which mechanism keeps roles; q-0016.0010, picking an area,
   waits under it.
 - **The rule-failure entry** for undefined terms: register it, and decide whether the amendment goes
   to `/align`'s line or to the general rules — it fired outside an align as often as inside.
@@ -56,7 +56,7 @@ were minted to carry 46 to 55: `.0012`, `.0015`, `.0017`.
 
 ## Continuation
 
-- **Uncommitted at this record**: this file, the leans on q-0001 and q-0003, and the store's session
+- **Uncommitted at this record**: this file, the leans on q-0001 and q-0016.0010, and the store's session
   line; the align's two commits, `0acf144` and `0e16a53`, are not pushed.
 - **Next in the ring**: `/plan` on the three new slices — `.0017` is the smallest, and renaming the
   entries early means later links are written once. Then `.0012` and `.0015`.

@@ -28,8 +28,8 @@ after a call says what it takes.
 |---|---|
 | `at q-N` | this session's position, an open question |
 | `open '<question>'` · `--under q-P` | a new open question, a root or under q-P; prints the id it was given |
-| `open '<question>' --between q-U q-L` | a new question under q-U, with q-L moved under it; q-L must be part of q-U |
-| `move q-K --under q-P` · `move q-K --to-root` | a new parent; a cycle is refused |
+| `open '<question>' --between q-U q-L` | a new question under q-U, with q-L moved under it and renamed; q-L must be part of q-U |
+| `move q-K --under q-P` · `move q-K --to-root` | a new parent, q-K and everything under it renamed; a cycle is refused |
 | `depend q-A --on q-B` · `undepend q-A --on q-B` | q-A cannot be asked until q-B is answered, or no longer waits; a cycle is refused |
 | `close q-N <kind> '<pointer>'` | the closure, below |
 | `suspect q-N` · `clear q-N` | the suspect flag |
@@ -108,17 +108,17 @@ default; *pruned* says the question should not have been held.
 
 ## Records
 
-**An entry** — one file in `docs/questions/`, named `q-NNNN-<slug>.md`, the slug made by the
+**An entry** — one file in `docs/questions/`, named `<id>-<slug>.md`, the slug made by the
 script from the question's words — so phrase a question short. Tier 2: read by the script, and by
 a person through this skill. What removes one: it moves to `docs/questions/done/` with a wholly
 closed subtree nothing open depends on, a deferred or suspect entry counting as open; it is never
 deleted.
 
 ```md
-# q-0041 Which package manager do we use?
+# q-0090.0030 Which package manager do we use?
 
-- **part of** q-0012
-- **depends on** q-0007, q-0009
+- **part of** q-0090
+- **depends on** q-0070, q-0080.0010
 - **state** closed:decided, suspect
 - **owner** [01-0011.0100](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)
 - **answer** [the ADR](../adr/0004-scripts-run-on-the-standard-library-alone.md) — the user, 2026-09-28
@@ -128,8 +128,11 @@ deleted.
 
 Every part but **state** is optional, and a closed entry must carry its **answer**. **struck** is
 `<n>, last <YYYY-MM-DDTHH:MMZ>`, in UTC, written by the script alone, never by hand. The state is
-`open` or `closed:<kind>`, with `, suspect` after it at most. The id is placement and never
-hierarchy; *part of* is the hierarchy's one home.
+`open` or `closed:<kind>`, with `, suspect` after it at most. **The id is the place**: a root is
+`q-NNNN`, a child its parent's id and one more position, `q-0090.0030`, stepping by ten. A
+re-parent renames the moved question and everything under it — files, links, relations, session
+lines and bare ids under `docs/` — so an id seen earlier may be gone: draw the window again. *part
+of* is the line the check holds the id against.
 
 <straw-dog until="01-0010 says how registrations reach sessions that do not share the directory" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">
 **The sessions file** — one row of `docs/questions/sessions` per session:
