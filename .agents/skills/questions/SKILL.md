@@ -6,8 +6,9 @@ description: See where the work stands among the open questions, or re-parent, m
 # The open questions
 
 Every open question of this tree is one file in `docs/questions/`; the current question of each
-running session is a line in `docs/questions/sessions`. `questions.py` is the only writer of
-both. The window is the part of the store near a session's position, drawn before every message;
+running session is a line in `docs/questions/sessions`. `questions.py` is the only writer of the
+sessions file and of an entry's parts; an entry's body, the question's argument, is written by
+hand. The window is the part of the store near a session's position, drawn before every message;
 **depth** is the number of *part of* steps from a question to its root, derived, never written.
 
 ## Invoked by a person
@@ -34,7 +35,7 @@ after a call says what it takes.
 | `close q-N <kind> '<pointer>'` | the closure, below |
 | `suspect q-N` · `clear q-N` | the suspect flag |
 | `lean q-N '<line>'` | the lean |
-| `assign q-N <path>` | the owner, the record holding the deliberation |
+| `assign q-N <path>` | the owner, the record of the work that answers the question |
 
 `open` leaves the session where it stands: to stand on the new question, call `at` on the id it
 printed. A refused call writes nothing and says why; fix it and call again in the same turn. Under
@@ -78,16 +79,12 @@ is made irrelevant, or one is replaced. **Do** `close` with its kind and pointer
 | `decided` | a link to the doc, ADR or code that decided it, then who and when |
 | `deferred` | `until <condition>, meanwhile <default>` |
 | `merged` · `superseded` | the id it points to |
-| `pruned` · `moot` | a one-line reason; a longer one goes to the owner's record and is linked |
+| `pruned` · `moot` | a one-line reason; a longer one goes to the entry's body |
 
 The answer is never the deliberation itself. `suspect` every open child and dependent whose
 assumption the answer changes; call `at` on the parent first if the closed question was current.
-
-<straw-dog until="close moves the subtree it finishes" ticket="docs/tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md">
-A closure that finishes a subtree moves it to `done/` in the same turn: when `--check` reports
-it ready, move every entry of it with `move_doc.py` in one invocation, into
-`docs/questions/done/`.
-</straw-dog>
+A `close` that finishes a subtree moves it to `docs/questions/done/` itself and says so; a closed
+question with an open, deferred or suspect child stays live until that child closes.
 
 ## Branching
 
@@ -124,7 +121,14 @@ deleted.
 - **answer** [the ADR](../adr/0004-scripts-run-on-the-standard-library-alone.md) — the user, 2026-09-28
 - **lean** the flat directory, for insertion cost
 - **struck** 2, last 2026-10-02T19:40Z
+
+A flat directory inserts in one write; nested folders were weighed and refused, since a question
+moving between roots would move between folders.
 ```
+
+**The body** follows the parts after one blank line: the question's argument — positions,
+evidence, what was refuted — written by hand with the edit tools, never by the script, which keeps
+it as it found it on every call. A line in it shaped like a part is not one.
 
 Every part but **state** is optional, and a closed entry must carry its **answer**. **struck** is
 `<n>, last <YYYY-MM-DDTHH:MMZ>`, in UTC, written by the script alone, never by hand. The state is

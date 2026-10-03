@@ -103,12 +103,16 @@ class Part:
 
 @dataclass(frozen=True)
 class Entry:
-    """One question as its file says it. Nothing here has been judged yet."""
+    """One question as its file says it. Nothing here has been judged yet.
+
+    `body` is the argument after the parts, written by hand and kept as read: the script writes
+    the parts and never the body (`.0020`'s decision 3)."""
 
     record: str
     identity: str | None
     question: str
     parts: dict[str, Part]
+    body: str = ""
 
     @property
     def state(self) -> re.Match[str] | None:
@@ -352,7 +356,8 @@ def _read(name: str, text: str) -> tuple[Entry, list[Diagnostic]]:
     """The entry a file's text holds, and whatever in it the format does not admit.
 
     A line the format does not admit is reported and the rest is still read, so one defect does
-    not hide the others behind it.
+    not hide the others behind it. The parts end at the first blank line after one; what follows is
+    the body, never parsed, so a line in an argument that looks like a part is not one.
     """
     lines = text.splitlines()
     problems: list[Diagnostic] = []
@@ -361,7 +366,11 @@ def _read(name: str, text: str) -> tuple[Entry, list[Diagnostic]]:
         problems.append(Diagnostic(name, 1, "does not open with a title line `# q-NNNN <question>`"))
     parts: dict[str, Part] = {}
     last: str | None = None
+    body = ""
     for number, line in enumerate(lines[1:], start=2):
+        if last is not None and not line.strip():
+            body = "".join(text.splitlines(keepends=True)[number:])
+            break
         bullet = _BULLET.match(line)
         if bullet:
             last = bullet.group(1).strip()
@@ -376,7 +385,7 @@ def _read(name: str, text: str) -> tuple[Entry, list[Diagnostic]]:
             parts[last] = Part(f"{joined.value} {line.strip()}", joined.line)
         elif line.strip():
             problems.append(Diagnostic(name, number, "holds a line that is not one of its parts"))
-    read = Entry(name, title.group(1) if title else None, title.group(2) if title else "", parts)
+    read = Entry(name, title.group(1) if title else None, title.group(2) if title else "", parts, body)
     return read, problems + _state_problems(read) + _relation_form_problems(read) + _strike_problems(read)
 
 
@@ -804,7 +813,17 @@ def _likely_twins(entries: list[Entry]) -> list[Finding]:
 
 def _ready_for_done(entries: list[Entry], index: dict[str, Entry]) -> list[Finding]:
     """The live roots of wholly closed subtrees that nothing held open depends on, each reported
-    once at its highest root — the moves `/maintain` makes (parent decision 34)."""
+    once at its highest root — what a closure left behind, for `/maintain` to sweep (parent
+    decision 34, amended: a `close` that finishes a subtree moves it itself)."""
+    return [
+        Finding(read.record, 1, f"{read.identity} and everything under it are closed and ready for done/")
+        for read in _ready_roots(entries, index)
+    ]
+
+
+def _ready_roots(entries: list[Entry], index: dict[str, Entry]) -> list[Entry]:
+    """Each live root of a wholly closed subtree nothing held open depends on, at its highest; a
+    deferred or suspect entry counts as open, since the wake reads it in the live store."""
     children: dict[str, list[Entry]] = {}
     for read in entries:
         if read.parent:
@@ -823,9 +842,7 @@ def _ready_for_done(entries: list[Entry], index: dict[str, Entry]) -> list[Findi
         return parent is not None and not parent.archived and movable(parent)
 
     return [
-        Finding(read.record, 1, f"{read.identity} and everything under it are closed and ready for done/")
-        for read in entries
-        if not read.archived and movable(read) and not moves_with_its_parent(read)
+        read for read in entries if not read.archived and movable(read) and not moves_with_its_parent(read)
     ]
 
 
@@ -1344,8 +1361,13 @@ def _called(root: Path, argv: list[str], today: date, now: datetime) -> int:
         print(f"opened {identity}")
     for old, new in written.renamed.items():
         print(f"renamed {old} → {new}")
+    if written.archived:
+        print(f"moved {', '.join(written.archived)} to done/")
     if written.session is not None:
         print(_landed(root, written.session.current, left))
+    if written.archive_refused:
+        print(f"the closure stands; the subtree it finished stays live: {written.archive_refused}")
+        return 1
     return 0
 
 
@@ -1412,7 +1434,7 @@ def _calls() -> argparse.ArgumentParser:
     of_question("suspect", "mark a question's answer to be re-read")
     of_question("clear", "lift the mark")
     of_question("lean", "write a question's lean").add_argument("text")
-    of_question("assign", "name the record holding a question's deliberation").add_argument("text", metavar="path")
+    of_question("assign", "name the record of the work that answers a question").add_argument("text", metavar="path")
     return calls
 
 
@@ -1431,6 +1453,8 @@ class Written:
     session: Session | None
     opened: list[str]
     renamed: dict[str, str] = field(default_factory=dict)
+    archived: list[str] = field(default_factory=list)
+    archive_refused: str | None = None
 
 
 class Taken(Refused):
@@ -1499,7 +1523,42 @@ def _declared(
         except OSError as error:
             raise WriteInterrupted(written, SESSIONS, error) from error
     opened = [identity for identity in draft.changed if identity in draft.new]
-    return Written(written, moved, opened, dict(draft.renames))
+    closed = [draft.renames.get(clause.question or "", clause.question or "") for clause in clauses if clause.verb == "closes"]
+    archived, refused = _archive_finished(root, closed, written) if closed else ([], None)
+    return Written(written, moved, opened, dict(draft.renames), archived, refused)
+
+
+def _archive_finished(root: Path, closed: list[str], written: list[str]) -> tuple[list[str], str | None]:
+    """The subtrees these closures finished, moved to `done/` in one invocation of the mover —
+    the same one a rename carries its entries with — and the ids moved, or why the mover refused.
+    The closures stand either way: they are the decisions, and the maintainer sweeps what stays."""
+    entries, _, _ = _entries(root)
+    index = {read.identity: read for read in entries if read.identity}
+    finished = [
+        top
+        for top in _ready_roots(entries, index)
+        if any(top in _ancestry(index, identity) for identity in closed)
+    ]
+    moving = sorted((read for top in finished for read in _subtree(entries, top) if not read.archived), key=_order)
+    pairs = [(read.record, f"{STORE}/done/{posixpath.basename(read.record)}") for read in moving]
+    if not pairs:
+        return [], None
+    why = move_doc.refusal(root, pairs)
+    if why:
+        return [], why
+    try:
+        move_doc.perform(root, pairs)
+    except move_doc.CloseInterrupted as stopped:
+        raise WriteInterrupted(written, "the finished subtree's move to done/", stopped) from stopped
+    return [read.identity or "" for read in moving], None
+
+
+def _subtree(entries: list[Entry], top: Entry) -> list[Entry]:
+    """The question and every question below it, by *part of*."""
+    found = [top]
+    for read in found:
+        found += [child for child in entries if child.parent == read.identity and child not in found]
+    return found
 
 
 def _carry_renames(
@@ -1660,7 +1719,7 @@ class _Draft:
             else:
                 self.origin[new] = self.origin.pop(old, moved.record)
             self.changed = [new if each == old else each for each in self.changed]
-            self._put(Entry(record, new, moved.question, _with(moved, **{"part of": above}).parts))
+            self._put(Entry(record, new, moved.question, _with(moved, **{"part of": above}).parts, moved.body))
         self.renames.update(renames)
         for other in list(self.index.values()):
             self._name_renamed_ids(other, renames)
@@ -1753,8 +1812,9 @@ class _Draft:
         self._put(_with(self._existing(clause.question or ""), lean=clause.text))
 
     def _assigns(self, clause: Clause) -> None:
-        """The owner is the record holding the deliberation, written as a link from the entry, so
-        the mover repairs it when either one moves."""
+        """The owner is the record of the work that answers the question — the deliberation is
+        the entry's own body — written as a link from the entry, so the mover repairs it when
+        either one moves."""
         read = self._existing(clause.question or "")
         owner = (clause.text or "").strip()
         if not (self.root / owner).is_file():
@@ -1844,7 +1904,8 @@ def _files_holding(root: Path, identity: str) -> list[Path]:
 
 
 def _with(read: Entry, **changes: str | None) -> Entry:
-    """The same entry with some parts replaced; a part given as `None` is removed."""
+    """The same entry, its body untouched, with some parts replaced; a part given as `None` is
+    removed."""
     parts = dict(read.parts)
     for name, value in changes.items():
         name = name.replace("_", " ")
@@ -1852,12 +1913,13 @@ def _with(read: Entry, **changes: str | None) -> Entry:
             parts.pop(name, None)
         else:
             parts[name] = Part(value, 0)
-    return Entry(read.record, read.identity, read.question, parts)
+    return Entry(read.record, read.identity, read.question, parts, read.body)
 
 
 def _entry_text(read: Entry) -> str:
     bullets = [f"- **{name}** {read.parts[name].value}" for name in PARTS if name in read.parts]
-    return "\n".join([f"# {read.identity} {read.question}", "", *bullets]) + "\n"
+    parts = "\n".join([f"# {read.identity} {read.question}", "", *bullets]) + "\n"
+    return parts + ("\n" + read.body if read.body else "")
 
 
 def _slug(question: str) -> str:

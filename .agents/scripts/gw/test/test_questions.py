@@ -1248,6 +1248,131 @@ class Renaming(Declared):
         self.assertEqual(untouched, self.snapshot())
 
 
+class TheBody(Declared):
+    """An entry holds its own argument after its parts, written by hand and kept by every call as
+    it found it (`.0020`'s decision 3)."""
+
+    BODY = "The argument, with `code` and\n\n- **lean** a line shaped like a part.\n"
+
+    def argue(self, stem: str, body: str = BODY) -> None:
+        self.write(f"{STORE}/{stem}.md", self.entry_text(stem) + "\n" + body)
+
+    def body_of(self, stem: str) -> str:
+        return self.entry_text(stem).split("\n\n", 2)[2]
+
+    def test_survives_every_call_that_rewrites_the_entry(self) -> None:
+        self.argue("q-0007-who-moves-a-subtree")
+
+        for call in (
+            ("lean", "q-0007", "a lean"),
+            ("suspect", "q-0007"),
+            ("clear", "q-0007"),
+            ("assign", "q-0007", "docs/record.md"),
+            ("at", "q-0007"),
+            ("close", "q-0007", "moot", "the mover does it"),
+        ):
+            self.called(*call)
+            self.assertEqual(self.BODY, self.body_of("q-0007-who-moves-a-subtree"), call)
+
+    def test_survives_a_strike(self) -> None:
+        self.argue("q-0007-who-moves-a-subtree")
+        self.call("at", "q-0007")
+
+        self.call("at", "q-0007", now=NOW + timedelta(hours=13))
+
+        self.assertIn("- **struck** 1,", self.entry_text("q-0007-who-moves-a-subtree"))
+        self.assertEqual(self.BODY, self.body_of("q-0007-who-moves-a-subtree"))
+
+    def test_survives_a_rename_its_renamed_ids_rewritten_outside_fences(self) -> None:
+        self.argue("q-0007-who-moves-a-subtree", "Argued against q-0013.\n\n```\nq-0013 as a sample\n```\n")
+
+        self.called("move", "q-0007", "--under", "q-0002")
+
+        self.assertEqual(
+            "Argued against q-0002.0010.0010.\n\n```\nq-0013 as a sample\n```\n",
+            self.body_of("q-0002.0010-who-moves-a-subtree"),
+        )
+
+    def test_a_line_shaped_like_a_part_in_the_body_is_not_one(self) -> None:
+        before = self.problems()
+        self.argue("q-0010-how-do-sessions-reach-each-other")
+
+        read = questions.read_store(self.root).index["q-0010"]
+
+        self.assertNotIn("lean", read.parts)
+        self.assertEqual(before, self.problems())
+
+    def test_a_line_glued_to_the_parts_is_still_reported(self) -> None:
+        self.write(
+            f"{STORE}/q-0010-how-do-sessions-reach-each-other.md",
+            self.entry_text("q-0010-how-do-sessions-reach-each-other") + "glued to the parts\n",
+        )
+
+        self.assertTrue(any("not one of its parts" in problem for problem in self.problems()), self.problems())
+
+    def test_a_hand_edit_to_the_body_meanwhile_refuses_the_call_and_keeps_the_edit(self) -> None:
+        self.argue("q-0007-who-moves-a-subtree")
+        edited = self.entry_text("q-0007-who-moves-a-subtree") + "One more line.\n"
+
+        with self.assertRaises(questions.Refused) as refused:
+            questions.declare(
+                self.root,
+                "s-alpha",
+                [questions.Clause("leans", "q-0007", text="mine")],
+                TODAY,
+                between=lambda: self.write(f"{STORE}/q-0007-who-moves-a-subtree.md", edited),
+            )
+
+        self.assertIn("changed since this call read it", str(refused.exception))
+        self.assertEqual(edited, self.entry_text("q-0007-who-moves-a-subtree"))
+
+
+class ArchivingAtClosure(Declared):
+    """A `close` that finishes a subtree moves it to `done/` in the same call; the maintainer's
+    move is the sweep for what a closure left behind (parent decision 34, amended)."""
+
+    def archived(self) -> set[str]:
+        return {path.stem for path in (self.root / STORE / "done").glob("q-*.md")}
+
+    def test_a_close_that_finishes_a_subtree_moves_it_and_every_link_follows(self) -> None:
+        self.write("docs/notes.md", "See [the sessions](questions/q-0010-how-do-sessions-reach-each-other.md).\n")
+
+        said = self.called("close", "q-0010", "moot", "one tree, one directory")
+
+        self.assertIn("moved q-0010 to done/", said)
+        self.assertIn("q-0010-how-do-sessions-reach-each-other", self.archived())
+        self.assertEqual(
+            "See [the sessions](questions/done/q-0010-how-do-sessions-reach-each-other.md).\n", self.read("docs/notes.md")
+        )
+
+    def test_a_close_with_an_open_child_moves_nothing_until_the_child_closes_then_both(self) -> None:
+        self.called("open", "Across machines?", "--under", "q-0010")
+
+        self.assertNotIn("moved", self.called("close", "q-0010", "moot", "one tree, one directory"))
+        said = self.called("close", "q-0010.0010", "moot", "no second machine")
+
+        self.assertIn("moved q-0010, q-0010.0010 to done/", said)
+        self.assertLessEqual({"q-0010-how-do-sessions-reach-each-other", "q-0010.0010-across-machines"}, self.archived())
+
+    def test_a_deferred_child_keeps_its_subtree_live(self) -> None:
+        self.called("open", "Across machines?", "--under", "q-0010")
+        self.called("close", "q-0010.0010", "deferred", "until a second machine, meanwhile one tree")
+
+        said = self.called("close", "q-0010", "moot", "one tree, one directory")
+
+        self.assertNotIn("moved", said)
+        self.assertEqual(set(), self.archived() & {"q-0010-how-do-sessions-reach-each-other"})
+
+    def test_a_move_the_mover_refuses_leaves_the_closure_written_and_says_why(self) -> None:
+        (self.root / "docs" / "unreadable.md").write_bytes(b"\xff\xfe not utf-8\n")
+
+        status, said = self.call("close", "q-0010", "moot", "one tree, one directory")
+
+        self.assertEqual(1, status, said)
+        self.assertIn("not UTF-8", said)
+        self.assertEqual("closed:moot", self.part("q-0010-how-do-sessions-reach-each-other", "state"))
+
+
 class Strikes(Declared):
     """A held question reached again twelve hours or more after its last stamp is struck; any
     other reach writes nothing to it (parent decisions 53 and 54)."""
@@ -1528,7 +1653,9 @@ class InOrder(Declared):
 
         self.assertEqual(["q-0004.0010", "q-0004.0020"], written.opened)
         self.assertIn(
-            "- **state** closed:merged\n- **answer** q-0004.0020", self.entry_text("q-0004.0010-is-the-owner-optional")
+            "- **state** closed:merged\n- **answer** q-0004.0020",
+            self.read(f"{STORE}/done/q-0004.0010-is-the-owner-optional.md"),
+            "the merge finished its subtree, so it moved",
         )
         self.assertIn("- **state** open", self.entry_text("q-0004.0020-is-the-owner-required-at-birth"))
         self.assertEqual("q-0004.0020", self.own_line().split()[3])
@@ -1555,7 +1682,8 @@ class ARoundTrip(Declared):
             self.called(*call)
 
         self.assertEqual(before, self.problems(), "the fixture's flat ids are reported as before, and nothing more")
-        self.assertIn("q-0004.0010 [closed:pruned]", self.said("--tree", "q-0004")[1])
+        self.assertIn("closed:pruned", self.read(f"{STORE}/done/q-0004.0010-is-the-owner-optional.md"))
+        self.assertNotIn("q-0004.0010", self.said("--tree", "q-0004")[1], "the finished subtree left the live tree")
 
 
 class Hooked(Rendered):
