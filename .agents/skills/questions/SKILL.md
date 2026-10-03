@@ -83,6 +83,12 @@ is made irrelevant, or one is replaced. **Do** `close` with its kind and pointer
 The answer is never the deliberation itself. `suspect` every open child and dependent whose
 assumption the answer changes; call `at` on the parent first if the closed question was current.
 
+<straw-dog until="close moves the subtree it finishes" ticket="docs/tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md">
+A closure that finishes a subtree moves it to `done/` in the same turn: when `--check` reports
+it ready, move every entry of it with `move_doc.py` in one invocation, into
+`docs/questions/done/`.
+</straw-dog>
+
 ## Branching
 
 **When** a question's shape hides parts whose expansion would change its answer, or a split comes
