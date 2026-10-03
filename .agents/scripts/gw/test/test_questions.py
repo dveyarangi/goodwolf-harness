@@ -1426,6 +1426,39 @@ class TheHook(Hooked):
         self.assertIn("session: conv-9, registered now", self.context(said))
         self.assertIn("conv-9 running", self.read(SESSIONS))
 
+    def raw_hook(self, host: str, raw: bytes) -> str:
+        """The hook fed bytes as a host's pipe carries them, decoded by nothing in between."""
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out), mock.patch("sys.stdin", io.TextIOWrapper(io.BytesIO(raw))):
+            questions.main(["--hook", host], root=self.root, today=TODAY)
+        return out.getvalue()
+
+    def test_input_written_as_utf16_with_its_mark_is_read(self) -> None:
+        """Cursor on Windows answered "Expecting value: line 1 column 1 (char 0)" to a payload it
+        logged as sent: input in another encoding than the code page the pipe was read in."""
+        sent = json.dumps({"conversation_id": "conv-16", "hook_event_name": "sessionStart"})
+
+        said = self.raw_hook("cursor", sent.encode("utf-16"))
+
+        self.assertIn("session: conv-16, registered now", self.context(said))
+
+    def test_input_written_as_utf8_with_its_mark_is_read(self) -> None:
+        sent = json.dumps({"conversation_id": "conv-8", "hook_event_name": "sessionStart"})
+
+        said = self.raw_hook("cursor", sent.encode("utf-8-sig"))
+
+        self.assertIn("session: conv-8, registered now", self.context(said))
+
+    def test_input_that_is_not_json_is_named_by_its_length_and_how_it_begins(self) -> None:
+        said = self.raw_hook("claude-code", b"")
+
+        self.assertIn("the hook's input is not JSON: 0 characters", said)
+
+    def test_cursor_hands_its_session_on_to_later_hooks_and_shells_as_env(self) -> None:
+        _, said = self.hook("cursor", {"conversation_id": "conv-9", "hook_event_name": "sessionStart"})
+
+        self.assertEqual({"QUESTIONS_SESSION": "conv-9"}, json.loads(said)["env"])
+
     def test_cursor_compaction_forgets_the_last_window(self) -> None:
         self.said("--window", "--session", "s-alpha")
 

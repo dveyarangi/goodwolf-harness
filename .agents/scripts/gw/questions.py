@@ -23,6 +23,7 @@ of them says what it takes.
 from __future__ import annotations
 
 import argparse
+import codecs
 import hashlib
 import json
 import posixpath
@@ -246,7 +247,7 @@ def main(
             print(window(root, argv[2], full=argv[3:] == ["--full"]))
             return 0
         if len(argv) == 2 and argv[0] == "--hook":
-            print(hook(root, argv[1], sys.stdin.read(), today))
+            print(hook(root, argv[1], _hook_input(), today))
             return 0
         if argv == ["--wake"] or (len(argv) == 3 and argv[:2] == ["--wake", "--session"]):
             print(wake(root, today, argv[2] if len(argv) == 3 else None))
@@ -985,12 +986,22 @@ class Host:
     starts: str
     messages: str | None
     compactions: tuple[str, ...]
-    answer: Callable[[str, str], str]
+    answer: Callable[[str, str, str], str]
     quiet: str
 
 
-def _hook_specific(event: str, context: str) -> str:
+def _hook_specific(event: str, context: str, tag: str) -> str:
     return json.dumps({"hookSpecificOutput": {"hookEventName": event, "additionalContext": context}})
+
+
+def _cursor_answer(event: str, context: str, tag: str) -> str:
+    """Cursor drops a start hook's context (a confirmed host defect), and passes its `env` to
+    every later hook of the session, so the session's tag goes there too, for whatever the agent's
+    shell can read of it."""
+    answer: dict = {"additional_context": context}
+    if tag and event == "sessionStart":
+        answer["env"] = {"QUESTIONS_SESSION": tag}
+    return json.dumps(answer)
 
 
 HOSTS = {
@@ -1002,10 +1013,23 @@ HOSTS = {
         "sessionStart",
         None,
         ("preCompact",),
-        lambda event, context: json.dumps({"additional_context": context}),
+        _cursor_answer,
         "{}",
     ),
 }
+
+
+def _hook_input() -> str:
+    """The host's payload as it wrote it. The pipe's bytes are decoded by their own mark, never in
+    the console's code page: Cursor on Windows wrote input the code page could not read, and the
+    hook registered nothing."""
+    pipe = getattr(sys.stdin, "buffer", None)
+    if pipe is None:
+        return sys.stdin.read()
+    raw = pipe.read()
+    if raw.startswith((codecs.BOM_UTF16_LE, codecs.BOM_UTF16_BE)):
+        return raw.decode("utf-16")
+    return raw.decode("utf-8-sig", errors="replace")
 
 
 def hook(root: Path, host_name: str, payload: str, today: date) -> str:
@@ -1019,28 +1043,40 @@ def hook(root: Path, host_name: str, payload: str, today: date) -> str:
     """
     host = HOSTS.get(host_name)
     event: str | None = None
+    tag = ""
     try:
         if host is None:
             raise Refused(f"no host `{host_name}`; the hosts are {', '.join(HOSTS)}")
-        sent = json.loads(payload)
+        sent = _sent(payload)
         event = sent.get("hook_event_name")
         tag = _tag(str(sent.get(host.session_field) or ""))
         if event in host.compactions:
             _forget_window(root, tag)
             return host.quiet
         if event == host.starts:
-            return host.answer(event, _started(root, tag, sent.get("source"), today))
+            return host.answer(event, _started(root, tag, sent.get("source"), today), tag)
         if event == host.messages:
             if tag not in {held.tag for held in _sessions(root)[0]}:
                 # The start was never seen — the hooks arrived mid-session — so this is the start.
-                return host.answer(event, _started(root, tag, None, today))
-            return host.answer(event, window(root, tag))
+                return host.answer(event, _started(root, tag, None, today), tag)
+            return host.answer(event, window(root, tag), tag)
         return ""
     except Exception as problem:  # noqa: BLE001 — the boundary to a host: nothing may escape it
         notice = f"questions hook: {problem}"
         if host is not None and event in (host.starts, host.messages):
-            return host.answer(event, notice)
+            return host.answer(event, notice, "")
         return notice
+
+
+def _sent(payload: str) -> dict:
+    """The host's payload as JSON; what is not is named by its length and its first characters,
+    so a host's hook log shows what arrived."""
+    try:
+        return json.loads(payload)
+    except json.JSONDecodeError:
+        raise Refused(
+            f"the hook's input is not JSON: {len(payload)} characters, beginning {payload[:40]!r}"
+        ) from None
 
 
 def _started(root: Path, tag: str, source: str | None, today: date) -> str:
