@@ -15,7 +15,7 @@ q-0001 remains open. Codex resume, compaction and helper ids remain unobserved i
 0120 permits named limits, so these are useful further observations rather than prerequisites
 for every cell. Its broader matrix and dynamic-surface decisions remain open. The delivery
 queue's next store slice is
-[01-0011.0100.0020 open-issues-are-entries-of-the-store](../tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md);
+[01-0011.0100.0020 open-issues-are-entries-of-the-store](../tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md);
 this evidence session did not start that cycle.
 
 The user asked how session closure works, then requested `/conclude`, clarifying that no

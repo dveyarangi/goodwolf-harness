@@ -6,7 +6,7 @@ v22 at the wake, v24 at the close.
 
 ## What was done
 
-[01-0011.0100.0020 open-issues-are-entries-of-the-store](../tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md)
+[01-0011.0100.0020 open-issues-are-entries-of-the-store](../tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md)
 went through `/align`, `/plan` (with its own validation passes), `/implement` and `/verify`; its
 decisions 1 to 6 are on the ticket. On the way the user split out
 [01-0011.0100.0018 a-question-id-says-where-it-sits](../tickets/done/01-0011.0100.0018-a-question-id-says-where-it-sits.md),

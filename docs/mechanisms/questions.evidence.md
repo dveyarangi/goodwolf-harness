@@ -14,7 +14,7 @@ No store existed, so `questions.py --check` had nothing to run over: no prior co
 a manufactured zero. The questions this tree already kept lived in three stores with three
 formats, counted 2026-09-28: the three concerns of `concerns.md`, which this slice folds in; 35
 open-issue bullets on tickets, left to
-[.0020](../tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md); and 60 distinct
+[.0020](../tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md); and 60 distinct
 straw-dog conditions, left to
 [.0030](../tickets/01-0011.0100.0030-straw-dogs-are-entries-of-the-store.md). None of the three
 said which question the work stood at.

@@ -18,7 +18,7 @@ Whether this register and its rules become their own mechanism is
 reply names a ticket, name it by a link to its record whose text carries its slug*; nothing for a
 question's id.
 
-**What happened.** Reviewing the 01-0010 family of [`.0020`](tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md)'s
+**What happened.** Reviewing the 01-0010 family of [`.0020`](tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md)'s
 fold, a reply put four points to the user. One said an entry goes *under 01-0020's question* —
 the question the pacer ticket will answer, which the store does not hold yet, named by a ticket id
 and a phrase coined in the turn; another named its owner as a bare *01-0010*, and a question as a

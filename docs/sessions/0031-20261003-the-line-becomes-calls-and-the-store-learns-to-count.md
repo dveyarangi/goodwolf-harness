@@ -79,5 +79,5 @@ the `debug=on` display was observed. Only Codex and Cursor live remain.
 ## Continuation
 
 - **Everything is committed and pushed** at this record's last write.
-- **Next in the ring:** [`.0020` open-issues-are-entries-of-the-store](../tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md),
+- **Next in the ring:** [`.0020` open-issues-are-entries-of-the-store](../tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md),
   HITL, which opens at `/align`. Behind it is the coherence chain the queue orders.

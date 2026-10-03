@@ -106,7 +106,7 @@ left as written.
 The store is shared by every session working in the tree; a position is one session's. An entry's
 parts are written only by the script's calls, one per event; its body, the question's argument,
 is written by hand, and every call keeps it as it found it
-([decision 3](tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md#decisions-landed-at-this-tickets-align)).
+([decision 3](tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md#decisions-landed-at-this-tickets-align)).
 A write re-reads every entry it changes and refuses one that moved since it was read — a hand edit
 included; detected interference is a failure, as in
 [interruption and recovery](#interruption-and-recovery). A new question's id is the script's to
@@ -114,7 +114,7 @@ draw, and one another session took meanwhile is drawn again. An id says where th
 a root `q-NNNN`, a child its parent's id and one more position — and stays true: a re-parent
 renames the moved subtree in the same call, its files and every id and link to them across the
 records under `docs/`, mechanically and without forwarding the old ids
-([decision 6](tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md#decisions-landed-at-this-tickets-align)).
+([decision 6](tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md#decisions-landed-at-this-tickets-align)).
 The sessions file is written only by the script, each session replacing its own line and no other,
 so one session's write never refuses another's; a rename is the one write that touches every
 line, and only the ids in it. A wholly closed subtree moves to `done/` with the mover in the

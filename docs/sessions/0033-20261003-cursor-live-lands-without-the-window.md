@@ -20,7 +20,7 @@ wake in the first turn.
 
 ## Continuation
 
-- **Next in the ring:** [`.0020` open-issues-are-entries-of-the-store](../tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md),
+- **Next in the ring:** [`.0020` open-issues-are-entries-of-the-store](../tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md),
   HITL, which opens at `/align`.
 - **Still open under q-0001:** q-0001.0006 — a conversation's position when the host resumes it under
   a new session id; this session is a minted tag beside the host id.
