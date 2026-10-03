@@ -220,6 +220,19 @@ sentence already describes it. The manifest sentence is cut to its invariant —
 the project's. Graded by the next plan whose change touches a sentence the architecture already
 holds: the counter-test is applied before the doc is edited, or this entry is struck.
 
+**Struck, 2026-10-04 — one repeat.** Planning
+[01-0011.0100.0030 a-straw-dog-is-bound-to-the-question-it-waits-on](tickets/01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md),
+the plan drafted the architecture's *Straw dogs* with each decision's reasons, the dueness rule
+per closure kind the script computes, and the agent's rule to assign before closing, which P7
+owns. The user: *why so fat about the straw dogs? is this written for a capable model?* The
+counter-test was applied to the section, not to each sentence; and `/plan` says what may land in
+the architecture, never how it is written there, while the entry file's *write for a capable
+model* is not read at that moment. Cut to four sentences before it landed. **Amendment, landed
+the same day:** `/plan`'s architecture rule gains *write each sentence landed there as its
+invariant and its pointer: the reasons stay with the decision that holds them, and what a
+mechanism or a script owns stays there*. Graded by the next plan that writes into the
+architecture: invariants with their pointers only, or this entry is struck again.
+
 ## 10. A claim about what sets the harness apart was drafted from inside it — 2026-09-26
 
 **Rules in play:** [`/discover`](../.agents/skills/discover/SKILL.md)'s *for: you are about to say

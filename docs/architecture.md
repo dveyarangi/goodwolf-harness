@@ -81,11 +81,13 @@ install adds no separate recovery mechanism.
 
 ### Straw dogs
 
-[The entry contract](../AGENTS.md#straw-dogs) owns the `<straw-dog>` syntax, ticket binding,
-expiry, and the duty to wrap when writing. Listing provides source locations and the written
-condition and owner; the maintainer establishes whether the condition holds from evidence.
-Unknown conditions remain unresolved. Mechanical removal follows that disposition and preserves
-surviving agreements. Examples describing the syntax are distinct from operative statements.
+[The entry contract](../AGENTS.md#straw-dogs) owns the `<straw-dog>` syntax and the duty to wrap.
+A straw dog binds to a question of the store, never to a ticket — the one record of this tree
+core names. Whether it is due is derived from the store at every look; the maintainer decides
+how its text is rewritten. A rename of the store's ids carries every binding
+([01-0011.0100.0030 a-straw-dog-is-bound-to-the-question-it-waits-on](tickets/01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md#decisions-landed-at-this-tickets-align)).
+Mechanical removal follows the maintainer's disposition and preserves surviving agreements.
+Examples describing the syntax are distinct from operative statements.
 
 A removal request identifies an entire obsolete statement; the mechanical tool does not
 decide whether nested statements have also expired. Reject an outer-block removal while it
@@ -93,11 +95,11 @@ contains nested blocks. The maintainer disposes of children first and rescans be
 removal; active children and enduring agreements require preservation before the outer
 statement can be removed.
 
-In code the marking is a comment line beginning `TODO`: one naming its ticket is listed as a
-straw dog with that owner, and leaves with the code rather than through the tool.
+In code the marking is a comment line beginning `TODO` that names its question; it leaves with
+the code rather than through the tool.
 
 The listing tool may also guess, from the words a sentence carries or a `TODO` that names no
-ticket, where a straw dog stands unwrapped. A guess is a finding for the maintainer, never a
+question, where a straw dog stands unwrapped. A guess is a finding for the maintainer, never a
 diagnostic, and never moves the run's status; what has no named successor is a claim and is
 left as written.
 
@@ -168,7 +170,7 @@ places them and composes nothing. A tree that already has one keeps it untouched
 included — from its first line that record is the instance's.
 
 What ships is transformed before it is written: the origin's own local blocks removed, every
-straw-dog wrapper and every `TODO`'s ticket binding sheared with its content kept, the entry
+straw-dog wrapper and every `TODO`'s question binding sheared with its content kept, the entry
 file's announce line stamped `<repository>@<ref>, <date>`, the harness skill's repository line
 stamped with the source the run actually read, and the result held to the same leak rule the
 origin's check applies. A tree whose announce line carries the `@` is a recipient; the line is
