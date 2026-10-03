@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v23, 2026-10-03.
+Entry contract: v24, 2026-10-03.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -56,6 +56,10 @@ for each question the turn stood on, in order, the first over `|---|`: `| ↳ **
 question as the window writes it> |` for the one the turn ends on, `| ✓ **q-N** · <question>
 (<kind>: <its answer>) |` for one closed in it, the question alone for one it left open. For any
 other call, a closure, a branching or a drop, read the questions skill.
+
+**Q5** The first time a reply names a question, write its id with its question as the window writes it;
+later mentions may be the id alone. A question the store does not hold yet is written out, never
+named after the ticket it will belong to.
 </installed>
 
 ## Core and instance

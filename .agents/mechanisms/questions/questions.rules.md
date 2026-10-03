@@ -68,3 +68,14 @@ Check the question store with `questions.py --check`. A diagnostic is a finding;
 the repair policy. Move each subtree it reports ready for `done/` with `move_doc.py`, every entry
 of the subtree in one invocation, into `docs/questions/done/`.
 </rule>
+
+## Q5 — a question is named by its id and its words
+
+- **target** `AGENTS.md`
+- **authority** the user, 2026-10-03 — rule failure 17
+
+<rule>
+The first time a reply names a question, write its id with its question as the window writes it;
+later mentions may be the id alone. A question the store does not hold yet is written out, never
+named after the ticket it will belong to.
+</rule>

@@ -12,6 +12,31 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 17. A reply named what it asked about by bare ids — 2026-10-03
+
+**Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s P9, *the first time a record or a
+reply names a ticket, name it by a link to its record whose text carries its slug*; nothing for a
+question's id.
+
+**What happened.** Reviewing the 01-0010 family of [`.0020`](tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md)'s
+fold, a reply put four points to the user. One said an entry goes *under 01-0020's question* —
+the question the pacer ticket will answer, which the store does not hold yet, named by a ticket id
+and a phrase coined in the turn; another named its owner as a bare *01-0010*, and a question as a
+bare *q-0001*. The user: *what is 01-0020's question? where did the instruction to put the slug
+beside the id go? the same for point 4.* Two replies were spent re-explaining.
+
+**Why it did not fire.** P9 speaks of naming a ticket; *a ticket's question* is a new thing the
+fold creates, named through the ticket, which P9 does not reach — and the owner, a plain ticket
+mention deep in a long session, was simply missed. For a question's id there was no rule at all, so
+whether a reply carried the question's words was left to the moment.
+
+**Amendment proposed:** Q5 beside Q1 at tier 1 — *the first time a reply names a question, write
+its id with its question as the window writes it; later mentions may be the id alone. A question the
+store does not hold yet is written out, never named after the ticket it will belong to.* **Landed
+2026-10-03**, the entry contract at v24. P9 is unchanged: its wording holds, and the miss on the
+owner is a repeat to strike here if it recurs. Graded by the rest of this fold's review: no question
+and no ticket named in a reply without its words.
+
 ## 16. A session stopped placing its messages once the window said nothing moved — 2026-10-03
 
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s Q1, *call `questions.py at q-N` …

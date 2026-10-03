@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v24 — 2026-10-03
+
+**A question is named by its id and its words** — Q5, installed beside Q1: the first time a reply
+names a question it writes the question with its id, and a question the store does not hold yet is
+written out, never named after the ticket it will belong to. Occasion:
+[rule failure 17](rule-failures.md#17-a-reply-named-what-it-asked-about-by-bare-ids--2026-10-03).
+
 ## v23 — 2026-10-03
 
 **The debug table holds the turn's path** — Q1's display sentence, on the user's word: one row
