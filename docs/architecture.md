@@ -107,9 +107,14 @@ The store is shared by every session working in the tree; a position is one sess
 are written only by the script's calls, one per event, and a write re-reads every entry it changes
 and refuses one that moved since it was read — detected interference is a failure, as in
 [interruption and recovery](#interruption-and-recovery). A new question's id is the script's to
-draw, and one another session took meanwhile is drawn again. The sessions file is written only by the
-script, each session replacing its own line and no other, so one session's write never refuses
-another's. Wholly closed subtrees move to `done/` with the mover and keep their ids. A host's hook
+draw, and one another session took meanwhile is drawn again. An id says where the question sits —
+a root `q-NNNN`, a child its parent's id and one more position — and stays true: a re-parent
+renames the moved subtree in the same call, its files and every id and link to them across the
+records under `docs/`, mechanically and without forwarding the old ids
+([decision 6](tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md#decisions-landed-at-this-tickets-align)).
+The sessions file is written only by the script, each session replacing its own line and no other,
+so one session's write never refuses another's; a rename is the one write that touches every
+line, and only the ids in it. Wholly closed subtrees move to `done/` with the mover. A host's hook
 delivers the window and registers the session under the host's own session id, and never fails
 the host: a problem becomes a line of context. Everything else is
 [the questions mechanism](../.agents/mechanisms/questions/questions.md)'s.
