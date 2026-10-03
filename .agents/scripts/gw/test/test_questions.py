@@ -1176,6 +1176,14 @@ class Renaming(Declared):
             self.read("docs/notes.md"),
         )
 
+    def test_an_id_inside_a_fenced_block_is_an_example_and_is_left_as_written(self) -> None:
+        sample = "Before.\n\n```md\n# q-0041 A sample\n\n- **part of** q-0007\n```\n\nAfter q-0007.\n"
+        self.write("docs/sample.md", sample)
+
+        self.called("move", "q-0007", "--under", "q-0002")
+
+        self.assertEqual(sample.replace("After q-0007.", "After q-0002.0010."), self.read("docs/sample.md"))
+
     def test_relations_and_every_sessions_line_name_the_new_ids(self) -> None:
         self.called("depend", "q-0004", "--on", "q-0007")
         self.write(

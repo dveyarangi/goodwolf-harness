@@ -1519,19 +1519,31 @@ def _carry_renames(
 def _rewrite_ids(root: Path, renames: dict[str, str]) -> None:
     """Every renamed id written outside a link, in the records under `docs/` and the sessions file.
 
-    An id is matched whole, so a longer one that starts the same way is never touched, and it is
-    rewritten wherever it is written, a code span included: an id in this map names this store's
-    question. `.agents/` and the entry file are left alone — core names no record of this tree.
-    Each file is read and replaced in one rename; a person editing it at that moment can still
-    lose the race, as with the mover.
+    An id is matched whole, so a longer one that starts the same way is never touched. A code span
+    is rewritten, since an id there names this store's question; a fenced block is not — it holds
+    samples, whose ids are examples, never references (the user, 2026-10-03). `.agents/` and the
+    entry file are left alone — core names no record of this tree. Each file is read and replaced
+    in one rename; a person editing it at that moment can still lose the race, as with the mover.
     """
     names = [name for name in corpus(root) if name.startswith("docs/") and name.endswith(".md")]
     for name in names + ([SESSIONS] if (root / SESSIONS).is_file() else []):
         path = root / name
         text = path.read_bytes().decode("utf-8")
-        rewritten = _BARE_ID.sub(lambda found: renames.get(found.group(0), found.group(0)), text)
+        rewritten = _outside_fences(text, lambda line: _BARE_ID.sub(lambda found: renames.get(found.group(0), found.group(0)), line))
         if rewritten != text:
             _replace(path, rewritten)
+
+
+def _outside_fences(text: str, change: Callable[[str], str]) -> str:
+    """The text with `change` applied to every line outside a fenced block, its line ends kept."""
+    lines = text.splitlines(keepends=True)
+    inside = False
+    for at, line in enumerate(lines):
+        if _FENCE.match(line):
+            inside = not inside
+        elif not inside:
+            lines[at] = change(line)
+    return "".join(lines)
 
 
 def _replace(path: Path, text: str) -> None:
