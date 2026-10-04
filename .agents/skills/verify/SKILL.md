@@ -75,9 +75,9 @@ uv run --offline --no-project python .agents/scripts/gw/questions.py --check
   Pause that change; independently authorized work continues.
 
 <straw-dog question="q-0023.0001">
-- Read the landed work against the pending tickets. What one of them will replace is a straw
-  dog: wrap it and bind it to that ticket, per the entry file, and leave what has no named
-  successor alone. Run `straw_dogs.py --guess` over the files the slice touched and judge its
+- Read the landed work against the open questions. What one's answer will change is a straw
+  dog: wrap it and bind it to that question, per the entry file, and leave what no open question
+  would change alone. Run `straw_dogs.py --guess` over the files the slice touched and judge its
   candidates.
 </straw-dog>
 

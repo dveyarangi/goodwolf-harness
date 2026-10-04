@@ -84,7 +84,10 @@ is made irrelevant, or one is replaced. **Do** `close` with its kind and pointer
 The answer is never the deliberation itself. `suspect` every open child and dependent whose
 assumption the answer changes; call `at` on the parent first if the closed question was current.
 A `close` that finishes a subtree moves it to `docs/questions/done/` itself and says so; a closed
-question with an open, deferred or suspect child stays live until that child closes.
+question with an open, deferred or suspect child stays live until that child closes. Closing
+against a decision that has not reached its home yet, `assign` the record holding it first if
+the question has no owner: the straw dogs waiting on it come due once no link of its answer
+cites its owner's record.
 
 ## Branching
 
@@ -136,7 +139,8 @@ Every part but **state** is optional, and a closed entry must carry its **answer
 `q-NNNN`, a child its parent's id and one more position, `q-0090.0003`, the next after its
 siblings. A
 re-parent renames the moved question and everything under it — files, links, relations, session
-lines and bare ids under `docs/` — so an id seen earlier may be gone: draw the window again. *part
+lines, bare ids under `docs/` and every straw dog's binding — so an id seen earlier may be gone:
+draw the window again. *part
 of* is the line the check holds the id against.
 
 <straw-dog question="q-0018.0015">

@@ -20,7 +20,7 @@ A part of how the work gets done — the development method and its machinery �
 A mechanism's own instruction file, invocable and identified by its purpose and conditions of use. A skill may also host rules installed into it by mechanisms that do not own it.
 
 **Straw dog**:
-Text or code a live ticket will change, wrapped in a `<straw-dog>` bound to that ticket at the moment it is written. Unwrapped, it is drift the enumerator cannot see. What no ticket would change is a claim.
+Text or code an open question's answer will change, wrapped in a `<straw-dog>` bound to that question at the moment it is written. Not a question itself: provisional text that waits on one. Unwrapped, it is drift the enumerator cannot see. What no open question would change is a claim.
 _Avoid_: temporary statement, temporary, placeholder, stub, interim, hack.
 
 **Rules file**:
@@ -58,7 +58,7 @@ The row a maintenance writes when it has re-checked a mechanism at a level: the 
 _Avoid_: timestamp, last-checked, checkpoint.
 
 **Due**:
-Said of a mechanism at a level when what governs it has moved since its mark, or it has none — *never maintained*. Derived at every look, never stored.
+Said of a mechanism at a level when what governs it has moved since its mark, or it has none — *never maintained*; and of a straw dog when the answer its question waited on has landed, or the question no longer stands. Derived at every look, never stored.
 _Avoid_: stale, dirty, pending.
 
 **Evidence**:

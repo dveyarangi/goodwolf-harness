@@ -132,11 +132,11 @@ files each say for themselves is an index, whatever it is called — an allowlis
 a manifest — and each entry belongs at its authored home, wrapped there if provisional.
 
 **R5** Land a mechanism's rule in AGENTS.md only as an installed block from its rules file. While the
-mechanism is undeclared, write the rule by hand and wrap it as a straw dog on the inception
-ticket as you write it.
+mechanism is undeclared, write the rule by hand and wrap it as a straw dog bound to the question
+of what the mechanism owns, as you write it.
 
 **R6** A skill is a mechanism's one instruction file, or says so on its first body line: `Mechanism:`
-then `not yet`, wrapped as a straw dog bound to the ticket that declares its mechanism, or
+then `not yet`, wrapped as a straw dog bound to the question of what the skill owns, or
 `unowned by design` with its reason. Write the line as you add the skill; no list holds it.
 
 **R8** Name no skill of a mechanism whose state is `installed` in another skill's own text: what it asks

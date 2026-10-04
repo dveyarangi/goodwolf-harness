@@ -15,6 +15,16 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v25 — 2026-10-04
+
+**A straw dog is bound to the question it waits on** — the `<straw-dog>` convention binds by
+`question="q-N"` and a `TODO` names `q-N`; `until` and `ticket` are gone, the duty reads *find the
+question, or open one*, and a straw dog is followed until it is due rather than until a condition is
+judged met. *Core and instance* names a particular record only in a straw dog's binding, a
+question, and no ticket anywhere. The entry file's own straw dogs were rebound in the same version.
+Occasion: [01-0011.0100.0030 a-straw-dog-is-bound-to-the-question-it-waits-on](../tickets/01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md),
+decisions 1 to 9.
+
 ## v24 — 2026-10-03
 
 **A question is named by its id and its words** — Q5, installed beside Q1: the first time a reply

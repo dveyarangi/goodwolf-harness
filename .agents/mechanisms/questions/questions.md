@@ -118,7 +118,8 @@ roles, is an open question of the store.
 - **The sessions file** — read by the script for every window and wake, so each session sees where
   the others stand.
 - **The window** — read by the agent before every message, from the host's hook or the rule.
-- **The wake's read** — read by the agent at session start, from the hook or `/recall`.
+- **The wake's read** — read by the agent at session start, from the hook or `/recall`; it names
+  the straw dogs due, whose text `/maintain` rewrites.
 - **The fingerprint of each session's last window**, outside the tree — read by the script alone,
   to tell whether anything moved; a compaction clears it.
 - **The hook's answers** — read by the host, which places them in the agent's context.

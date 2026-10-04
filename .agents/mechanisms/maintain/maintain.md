@@ -79,7 +79,7 @@ repair-and-report, recording the cause in the evidence.
 | holding a landed slice to its governing docs, both ways | — | elsewhere — landing-time agreement is verification, `.agents/skills/verify/SKILL.md` |
 | knowing a re-check is due | `.agents/skills/maintain/SKILL.md` | |
 | marking a level re-checked | `.agents/skills/maintain/SKILL.md` | |
-| deciding whether a straw dog's condition holds, and retiring the block | `.agents/skills/maintain/SKILL.md` | |
+| rewriting a straw dog that is due, and retiring the block | `.agents/skills/maintain/SKILL.md` | |
 | guessing where a straw dog nobody wrapped stands, and judging each guess | `.agents/scripts/gw/straw_dogs.py` | |
 | cleaning prose and records to one home per fact | `.agents/skills/maintain/SKILL.md` | |
 | closing a finished ticket with its RFC | `.agents/skills/maintain/SKILL.md` | |
@@ -149,7 +149,7 @@ Nothing else; no index.
 
 <straw-dog question="q-0023.0017">
 **One rule held by hand.** P4 is `/spec`'s, and `/spec` is undeclared, so the body carries it
-inside a straw dog bound to the ticket that declares the rest of the corpus.
+inside a straw dog bound to the question of what `/spec` owns.
 </straw-dog>
 
 **Two `not yet` rows**, each naming a ticket that exists.

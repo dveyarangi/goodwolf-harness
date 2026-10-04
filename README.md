@@ -100,7 +100,7 @@ The loop and its rules are in [AGENTS.md](AGENTS.md), every skill under
   The harness is developed with itself.
 
 **Not yet** — each item wrapped in this page's source as a *straw dog*,
-`<straw-dog until="…" ticket="…">`, naming what retires it:
+`<straw-dog question="…">`, naming the question whose answer retires it:
 
 - <straw-dog question="q-0024.0002">It assumes one person steering the agents: several developers on parallel branches would collide on ticket numbers in one shared queue, and a team's own tracker can't yet take the tickets' place.</straw-dog>
 - <straw-dog question="q-0018.0006">What a project already had — its moved-aside `CLAUDE.md` or `AGENTS.md`, its skills, its documents — isn't carried into the harness: nothing reads it and sorts your facts into the local file and your skills beside the shipped ones.</straw-dog>

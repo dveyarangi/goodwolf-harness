@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v24, 2026-10-03.
+Entry contract: v25, 2026-10-04.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -74,9 +74,9 @@ that holds a kind of record, or a file that is one — never a particular record
 directory: `docs/tickets/` and `docs/glossary.md` are painted doors; one particular ticket inside
 `docs/tickets/` is a document only this project has. Content inside the
 [local block](#project-local) is the instance's, not core's. A `<straw-dog>` exempts
-nothing: its wrapper is stripped on install and whatever it wrapped ships. Core names a ticket
-only in a straw dog's binding — never in a link, never as a bare id in prose — since a recipient
-can resolve neither.
+nothing: its wrapper is stripped on install and whatever it wrapped ships. Core names a particular
+record of this tree only in a straw dog's binding, and that record is a question; it names no
+ticket anywhere — in a link or as a bare id in prose — since a recipient can resolve neither.
 
 ## Document load-bearing, code&comment the rest
 
@@ -176,15 +176,13 @@ version of the entry contract changed: docs/research/entry-contract-findings.md.
 
 ## Straw dogs
 
-Wrap anything a live ticket will change, as you write it — or, for text already written, in the
-pass that mints the ticket or decides that it will change it:
-`<straw-dog until="condition" ticket="path">`, or in code a `TODO` naming the ticket. Treat *not
-yet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find
-the ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.
-Make the condition testable and the ticket path repository-relative. Write the body to stand on
-its own: it is what a recipient receives once the wrapper is stripped, so it reads whole without
-the condition and names no ticket — the binding does. Leave what no ticket would change
-unwrapped.
+Wrap anything an open question's answer will change, as you write it — or, for text already
+written, in the pass that opens the question: `<straw-dog question="q-N">`, bound to the question
+whose answer will rewrite it, or in code a `TODO` naming `q-N` first. Treat *not yet*, *until*,
+*once it exists*, *for now*, *untested* in your own text as the same signal: find the question, or
+open one. Wrap at the authored home, never where the harness installs or derives it. Write the body
+to stand on its own: it is what a recipient receives once the wrapper is stripped, so it names no
+question or ticket — the binding does. Leave what no open question would change unwrapped.
 
-Follow a straw dog like any other rule until its condition is visibly met; then act on reality,
-report the stale block, and do not treat the contradiction as a violation.
+Follow a straw dog like any other rule until it is due, as the listing and the wake report; then
+act on reality, rewrite it to what is now true, and do not treat the contradiction as a violation.

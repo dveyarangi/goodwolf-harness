@@ -39,8 +39,8 @@ One pass over a declared scope. The scope decides which rules apply.
 ## Judge
 
 - **C1** Decide that a record is finished yourself; scripts move and check form, never decide.
-- **C2** Decide whether a straw dog's condition holds from observable evidence. The tool never
-  interprets an `until`; report an unresolved condition as unresolved.
+- **C2** Rewrite a straw dog the listing reports due to what is now true; whether it is due is
+  the store's to say, how it is rewritten is yours.
 - **C3** Before removing a straw dog, rehome what outlives it, children before parent. Write
   what is then true where the block was.
 
@@ -61,7 +61,7 @@ One pass over a declared scope. The scope decides which rules apply.
 ## Straw dogs
 
 - **T1** List with `straw_dogs.py docs AGENTS.md local.rules.md .agents README.md`. Any diagnostic fails the run;
-  zero straw dogs is clean.
+  zero straw dogs is clean. A straw dog listed `due` is C2's.
 - **T2** Remove one you have judged obsolete with `--remove FILE:LINE --expect <fingerprint>`.
   A straw dog holding a nested one is refused: dispose of the children, scan again.
 - **T3** Guess with `--guess` over the scope you declared, and judge each candidate: wrap and
