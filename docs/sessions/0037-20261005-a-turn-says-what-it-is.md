@@ -46,10 +46,6 @@ from `e3c8593` to `071388a` hold the detail; all pushed.
   need a judge outside the agent that answers it?"; q-0024.0006 and q-0026.0003, above;
   q-0001.0006 "How does a conversation keep its position when its host resumes it under a new
   session id?", struck three more times here.
-- **Not opened**: a question for the harness's lifecycle — install, update, removal, upkeep —
-  which the user named as the home the installer report lacked. Eleven of the sharing root's
-  nineteen children would go under it; whether that makes it a missing parent or the root itself
-  is left to the turn that next needs it.
 - **Never found**: why correct loader links were judged wrong under Codex. The installer's report
   now says where a repointed link pointed, so the next occurrence answers it.
 - **Recipients**: xuanxue-workshop takes the installer fix and the reworded rule at its next
