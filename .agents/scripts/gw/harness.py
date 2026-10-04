@@ -694,7 +694,7 @@ def _link_plan(target: Path) -> dict[str, str]:
         if _is_junction(path):
             raise Refused(f"link: {link} is a junction, which nothing sees through; remove it, a symlink goes there")
         if path.is_symlink():
-            plan[link] = "keep" if _resolves_to(path, skills) else "repoint"
+            plan[link] = "keep" if _resolves_to(path, skills) or _written_to(path, skills) else "repoint"
         elif not os.path.lexists(path):
             plan[link] = "make"
         else:
@@ -704,22 +704,31 @@ def _link_plan(target: Path) -> dict[str, str]:
 
 def _make_links(target: Path, plan: dict[str, str], report: Report) -> None:
     """A symlink, or the exact command for the person: the platform's refusal is the one step of an
-    install that may be left to a hand, and it does not stop the rest."""
+    install that may be left to a hand, and it does not stop the rest. A link being repointed is
+    removed only once its replacement exists: one the platform will not replace stays standing."""
     for link, action in plan.items():
         path = target / link
         if action == "keep":
             report.links.append({"link": link, "state": "kept"})
             continue
-        if action == "repoint":
-            _remove_link(path)
+        made = path.with_name(f"{path.name}.gw-new") if action == "repoint" else path
         try:
             path.parent.mkdir(parents=True, exist_ok=True)
-            os.symlink(LINK_TARGET.replace("/", os.sep), path, target_is_directory=True)
+            os.symlink(LINK_TARGET.replace("/", os.sep), made, target_is_directory=True)
         except OSError as failure:
-            report.links.append({"link": link, "state": "pending", "error": str(failure)})
-            report.pending.append(_link_command(path))
+            pending = {"link": link, "state": "pending", "error": str(failure)}
+            if action == "repoint":
+                pending |= {"stands": True, "was": _link_text(path)}
+            report.links.append(pending)
+            report.pending.append(_link_command(path, replacing=action == "repoint"))
             continue
-        report.links.append({"link": link, "state": "made" if action == "make" else "repointed"})
+        if action == "repoint":
+            was = _link_text(path)
+            _remove_link(path)
+            os.replace(made, path)
+            report.links.append({"link": link, "state": "repointed", "was": was})
+            continue
+        report.links.append({"link": link, "state": "made"})
     if report.pending:
         report.notes.append("run the pending command(s) once in an elevated prompt, then `harness.py . --check`")
     # TODO q-0018.0010: this note assumes tracked
@@ -736,10 +745,19 @@ def _remove_link(path: Path) -> None:
         os.rmdir(path)
 
 
-def _link_command(path: Path) -> str:
+def _link_text(path: Path) -> str | None:
+    try:
+        return os.readlink(path)
+    except OSError:
+        return None
+
+
+def _link_command(path: Path, replacing: bool = False) -> str:
     if os.name == "nt":
-        return f'mklink /D "{path}" "{LINK_TARGET.replace("/", os.sep)}"'
-    return f'ln -s {LINK_TARGET} "{path}"'
+        make = f'mklink /D "{path}" "{LINK_TARGET.replace("/", os.sep)}"'
+        return f'rmdir "{path}" && {make}' if replacing else make
+    make = f'ln -s {LINK_TARGET} "{path}"'
+    return f'rm "{path}" && {make}' if replacing else make
 
 
 def _inject(target: Path, report: Report) -> None:
@@ -829,6 +847,16 @@ def _resolves_to(link: Path, skills: Path) -> bool:
         return link.resolve() == skills and link.is_dir()
     except OSError:
         return False
+
+
+def _written_to(link: Path, skills: Path) -> bool:
+    """Whether the link's own text names the skills directory, asked without following it: a
+    process that cannot see through a link, as inside a sandbox, still reads where it points."""
+    text = _link_text(link)
+    if text is None:
+        return False
+    pointed = os.path.normpath(os.path.join(link.parent.resolve(), text.removeprefix("\\\\?\\")))
+    return os.path.normcase(pointed) == os.path.normcase(str(skills))
 
 
 def _is_junction(path: Path) -> bool:

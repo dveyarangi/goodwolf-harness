@@ -342,6 +342,58 @@ class TheStamp(unittest.TestCase):
         self.assertIn("not the harness", str(refused.exception))
 
 
+class TheLinks(unittest.TestCase):
+    """The link step against a platform that refuses a symlink, which is refused here by hand so
+    the case proves the same thing on a machine that would have made one."""
+
+    def setUp(self) -> None:
+        workspace = tempfile.TemporaryDirectory()
+        self.addCleanup(workspace.cleanup)
+        self.target = Path(workspace.name).resolve()
+        (self.target / harness.SKILLS).mkdir(parents=True)
+        self.link = self.target / ".claude/skills"
+        self.report = harness.Report(target=".", mode="update", repository="")
+
+        def refuse(*arguments: object, **options: object) -> None:
+            raise OSError("a required privilege is not held")
+
+        self.symlink = os.symlink
+        os.symlink = refuse
+        self.addCleanup(setattr, os, "symlink", self.symlink)
+
+    def test_a_link_the_platform_will_not_replace_is_left_standing(self) -> None:
+        # A directory stands in for the link: what is proved is that nothing is removed.
+        self.link.mkdir(parents=True)
+
+        harness._make_links(self.target, {".claude/skills": "repoint"}, self.report)
+
+        self.assertTrue(os.path.lexists(self.link))
+        self.assertEqual("pending", self.report.links[0]["state"])
+        self.assertTrue(self.report.links[0]["stands"])
+        self.assertFalse(os.path.lexists(self.link.with_name("skills.gw-new")))
+
+    def test_a_refused_repoint_hands_over_a_command_that_removes_before_it_makes(self) -> None:
+        self.link.mkdir(parents=True)
+
+        harness._make_links(self.target, {".claude/skills": "repoint"}, self.report)
+
+        command = self.report.pending[0]
+        self.assertLess(command.index("rmdir" if os.name == "nt" else "rm "), command.index("mklink" if os.name == "nt" else "ln -s"))
+
+    def test_a_link_written_to_the_skills_is_kept_by_a_process_that_cannot_see_through_it(self) -> None:
+        os.symlink = self.symlink
+        if not platform_makes_symlinks():
+            self.skipTest("this platform refuses to create a symlink; a link to keep cannot be made")
+        for link in harness.LINKS:
+            (self.target / link).parent.mkdir(parents=True, exist_ok=True)
+            self.symlink(harness.LINK_TARGET.replace("/", os.sep), self.target / link, target_is_directory=True)
+        resolves = harness._resolves_to
+        harness._resolves_to = lambda link, skills: False
+        self.addCleanup(setattr, harness, "_resolves_to", resolves)
+
+        self.assertEqual({link: "keep" for link in harness.LINKS}, harness._link_plan(self.target))
+
+
 class TheRepositoryLine(unittest.TestCase):
     """The line naming where core comes from: stamped, and set aside."""
 
