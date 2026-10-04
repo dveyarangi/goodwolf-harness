@@ -35,6 +35,14 @@ align. **Landed 2026-10-05**, the entry contract at v26, with the hook's unchang
 the choice and filling in no id. Graded by the sessions that follow: every reply's row is what
 the turn stood on, read by the user.
 
+**Struck, 2026-10-05 — the first session after it.** A message no child contained was taken up
+from the child that resembled it and placed on the root, with the missing parent offered to the
+user in prose. Q1 said *go up* and stopped; the missing-parent rule sat in the questions skill,
+which Q1 names only for a closure, a branching or a drop, so it was not read before placing.
+**Amendment landed the same day**, the entry contract at v27: going up, a question that contains
+the message only as loosely as it contains everything under it is not its home either — the
+parent is missing, read the skill and open it, or the turn is uncharted. Graded as before.
+
 ## 17. A reply named what it asked about by bare ids — 2026-10-03
 
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s P9, *the first time a record or a

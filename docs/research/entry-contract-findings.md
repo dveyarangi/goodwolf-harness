@@ -15,6 +15,15 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v27 — 2026-10-05
+
+**Going up stops short of a root that holds everything** — Q1's *On a question* gains a sentence:
+a question that contains the message only as loosely as it contains everything under it is not
+its home either; the parent is missing, and the turn reads the questions skill and opens it, or is
+uncharted. The missing-parent rule was in the skill, which Q1 sent a turn to only for a closure, a
+branching or a drop, so a turn that went up and met a far root placed itself there. Occasion:
+[rule failure 18](../rule-failures.md), struck the same day.
+
 ## v26 — 2026-10-05
 
 **A turn says what it is** — Q1 reworded: a turn is on a question, opens one, is a process, or is

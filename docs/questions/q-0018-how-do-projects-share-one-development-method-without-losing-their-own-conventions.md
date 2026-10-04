@@ -2,4 +2,4 @@
 
 - **state** open
 - **owner** [01-0010](../tickets/01-0010-dev-harness-shared-and-local.md)
-- **struck** 0, last 2026-10-03T09:53Z
+- **struck** 1, last 2026-10-04T22:51Z

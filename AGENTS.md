@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v26, 2026-10-05.
+Entry contract: v27, 2026-10-05.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -44,7 +44,10 @@ hook put in your context, or `questions.py --window --session <tag>`, the script
 `.agents/scripts/gw/questions.py`:
 
 - **On a question**: call `at` on the lowest question that contains the message. One that only
-  resembles it is not its home; from a question that does not contain it, go up.
+  resembles it is not its home; from a question that does not contain it, go up. Going up, a
+  question that contains the message only as loosely as it contains everything under it is not
+  its home either: the parent is missing — read the questions skill and open it, or the turn is
+  uncharted.
 - **A new question**: look for its answer in the docs and the code first — found, point to it and
   open nothing. Not found, `open` it under the lowest question that contains it, and call `at` on
   it.
