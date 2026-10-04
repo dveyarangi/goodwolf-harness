@@ -54,6 +54,14 @@ next free id to the rendering measured; a change to its format reruns the test.
   the line as its argument, named the next free id and was refused when another session took it,
   and had a lean holding `; ` refused at the align that dropped it. A subcommand per event
   replaced it, the script drawing ids.
+- **Asking whenever two parents can be worded, or a child is in doubt** (the user, 2026-10-05): a
+  status question about a recipient's update had no home below the sharing root. The agent
+  worded a parent the size of the message, which one child clearly served, and a wider one,
+  harness lifecycle, which eleven did; it asked which, and counted the eleven against the wider.
+  The two nest, so neither closes off the other; one child groups nothing; many children are
+  the reason for a parent, never against it; a doubted child is settled by leaving it. The
+  parent is sized by its children and tested by whether one would look under it for the
+  question, and only two parents claiming the same children are put to the user.
 
 ## Decided while building
 

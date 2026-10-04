@@ -71,12 +71,14 @@ parent and the current question when answering it narrows the current one and an
 current one contributes to it; when only the first holds, beside it, under the same parent, with
 `depend <current> --on <new>`.
 
-**A missing parent.** When only a far question contains the message and several of its children
-resemble it, the question they jointly serve is missing. `open` it under the far one, `move` each
-child it contains under it, call `at` on it, and say in the reply which moved. The renames it
-costs are no reason to ask. Ask only when the grouping is ambiguous: you can word two parents
-that divide the children differently, or cannot say of a child whether it belongs. Then the turn
-is uncharted, and the ask names each parent you weighed and the children it would take.
+**A missing parent.** When only a far question contains the message and two or more of its
+children resemble it, the question those children jointly serve is missing. Size it by the
+children, never by the message. Test it: would you look under it for this question? `open` it
+under the far one, `move` each child you would look for under it, leave a child you doubt where
+it is, call `at` on it, and say in the reply which moved and which you left. Neither the number
+of children moved nor a second parent that would sit inside or around this one is a reason to
+ask. Ask only when two parents would each take the same children. Then the turn is uncharted,
+and the ask names each parent you weighed and the children it would take.
 
 **Uncharted.** The reply does the work asked and puts the question's home to the user: the
 question the message is one case of, never the message restated, the homes you weighed, and the

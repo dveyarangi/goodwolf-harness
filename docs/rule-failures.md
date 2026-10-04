@@ -43,6 +43,14 @@ which Q1 names only for a closure, a branching or a drop, so it was not read bef
 the message only as loosely as it contains everything under it is not its home either — the
 parent is missing, read the skill and open it, or the turn is uncharted. Graded as before.
 
+**Struck, 2026-10-05 — a later session the same day.** The skill was read and the missing parent
+was still put to the user: the agent could word two parents, one the size of the message and one
+the children served, and the skill's *two parents that divide the children differently* took
+nested candidates for rivals; it also let the count of children moved pass as a doubt about
+meaning. **Amendment landed the same day**, in the questions skill's *A missing parent*: sized by
+the children, tested by where one would look, a doubted child left in place, and an ask only when
+two parents would each take the same children. Graded as before.
+
 ## 17. A reply named what it asked about by bare ids — 2026-10-03
 
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s P9, *the first time a record or a
