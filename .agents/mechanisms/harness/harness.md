@@ -36,6 +36,8 @@ recipient fail its own shape check.
 **Every refusal writes nothing**, and the loader links are the one step a person may finish by
 hand: where the platform refuses to create a symlink, the run finishes everything else and ends
 with the exact elevated command. Nothing is substituted for a link; a junction is refused by name.
+A link that stands is removed only once its replacement exists, and one written to the skills
+directory is kept even by a process that cannot see through it.
 
 **The gate is the check, and it takes seconds.** Arrival and any later day's question are one
 function: the copy against the ref, the injector's check, the shape check — the target's own
