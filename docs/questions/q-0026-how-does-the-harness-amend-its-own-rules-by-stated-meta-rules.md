@@ -2,4 +2,4 @@
 
 - **state** open
 - **owner** [01-0019](../tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)
-- **struck** 0, last 2026-10-03T10:15Z
+- **struck** 1, last 2026-10-04T23:45Z

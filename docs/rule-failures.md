@@ -51,6 +51,14 @@ meaning. **Amendment landed the same day**, in the questions skill's *A missing 
 the children, tested by where one would look, a doubted child left in place, and an ask only when
 two parents would each take the same children. Graded as before.
 
+**Struck, 2026-10-05 — a fresh session the same day.** A message that asked nothing of the work,
+*what kind of person would do the work we do in this repo?*, fit none of the four kinds: it was
+shown as uncharted and its home asked of the user, who answered that it needed none; the next
+such message was shown as a process the agent named *banter*, which no rule names.
+**Amendment landed the same day**, the entry contract at v29: a fifth kind, banter *(the user)* —
+no call, and a reply that writes nothing and settles nothing, so that no load-bearing work falls
+into it; a doubt makes the turn another kind. Graded as before.
+
 ## 17. A reply named what it asked about by bare ids — 2026-10-03
 
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s P9, *the first time a record or a

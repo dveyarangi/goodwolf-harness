@@ -41,7 +41,7 @@ after a call says what it takes.
 printed. A refused call writes nothing and says why; fix it and call again in the same turn. Under
 `debug=on` the reply opens, after the announce line when there is one, with Q1's table — a row
 for each question the turn stood on, opened or closed, as the calls printed them, a move mid-turn
-included; a row for a process; a row for an uncharted ask — never the call itself.
+included; a row for a process; a row for an uncharted ask; a row for banter — never the call itself.
 
 Free text goes in single quotes, which neither bash nor PowerShell expands; a text holding an
 apostrophe goes in double quotes, with no backtick or `$` inside.

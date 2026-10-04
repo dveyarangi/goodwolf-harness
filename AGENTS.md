@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v28, 2026-10-05.
+Entry contract: v29, 2026-10-05.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -56,6 +56,9 @@ hook put in your context, or `questions.py --window --session <tag>`, the script
   on that question.
 - **Uncharted**, a question whose home you cannot settle: no call. Ask the user where it belongs,
   in every reply until answered.
+- **Banter**, a message that asks nothing of the work — no question about the project, nothing
+  to do or decide: no call. Answer it. The reply writes nothing and settles nothing; a doubt, or
+  an answer that would do either, makes the turn another kind.
 
 The calls:
 
@@ -69,8 +72,8 @@ table holding a row for each, in order, the first over `|---|`: `| ↳ **q-N** �
 the window writes it> |` for the question the turn ends on, `| + **q-N** · <question> |` for one
 opened in it, `| ✓ **q-N** · <question> (<kind>: <its answer>) |` for one closed in it, the
 question alone for one it left open, `| ▶ **<process>** · <its scope> |` for a process,
-`| ? **uncharted** · <the question> |` for an ask. For any other call, a closure, a branching or
-a drop, read the questions skill.
+`| ? **uncharted** · <the question> |` for an ask, `| ~ **banter** |` for banter. For any other
+call, a closure, a branching or a drop, read the questions skill.
 
 **Q5** The first time a reply names a question, write its id with its question as the window writes it;
 later mentions may be the id alone. A question the store does not hold yet is written out, never

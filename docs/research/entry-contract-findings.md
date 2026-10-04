@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v29 — 2026-10-05
+
+**A message that asks nothing of the work is banter** — Q1 gains a fifth kind of turn *(the user,
+2026-10-05)*: no call, the message answered, the table's row `~`. The reply writes nothing and
+settles nothing, and a doubt makes the turn another kind, so no load-bearing work falls into it.
+A probe that asked nothing had been shown as uncharted and its home asked of the user, and the
+next as a process no rule names. Occasion: [rule failure 18](../rule-failures.md), struck again.
+
 ## v28 — 2026-10-05
 
 **A found answer still leaves the turn on a question** — Q1's *A new question* reworded: the
