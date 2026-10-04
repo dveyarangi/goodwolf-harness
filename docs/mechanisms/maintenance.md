@@ -5,13 +5,13 @@ finishes; the format is `/maintain`'s, in `.agents/skills/maintain/MARKS-FORMAT.
 
 | mechanism | level | fingerprint | date | outcome |
 |---|---|---|---|---|
-| harness | rules | 8cb15fed994061290b1ae167d5efd3adeb70d68f0bc856af7aa93eacd065510a | 2026-10-03 | nothing to change |
-| harness | output | 3e6039e86cd31e98d635efc56319b74de6c7d0244f787adb6a04478b3e0b7b16 | 2026-09-27 | nothing to change |
-| maintain | rules | 8cb15fed994061290b1ae167d5efd3adeb70d68f0bc856af7aa93eacd065510a | 2026-10-03 | nothing to change |
-| maintain | output | 8c89eae8fd8330d672c49bb4c1b8535eb279d07e3cee1b7339c9b65da5b0dd51 | 2026-10-03 | nothing to change |
-| mechanism-shape | rules | 8cb15fed994061290b1ae167d5efd3adeb70d68f0bc856af7aa93eacd065510a | 2026-10-03 | nothing to change |
-| mechanism-shape | output | 086ded8d10f838bcc9e34d56b27fe50eababc93af9fc643cb42455136cff9ea2 | 2026-10-03 | nothing to change |
-| questions | rules | 8cb15fed994061290b1ae167d5efd3adeb70d68f0bc856af7aa93eacd065510a | 2026-10-03 | nothing to change |
-| questions | output | e0b428cdac207691999f9bc050f38b1c21be30fb5578d54d0e0215fa8b6333b6 | 2026-10-03 | nothing to change |
-| ticket | rules | 8cb15fed994061290b1ae167d5efd3adeb70d68f0bc856af7aa93eacd065510a | 2026-10-03 | nothing to change |
-| ticket | output | c22f91f1ff4543dc2941ad54710ad386f01dca73af666d6369554eb172acbe9b | 2026-10-03 | nothing to change |
+| harness | rules | fed4f83f33aca9e28616814952bd3e57a5a9e9c8de0588ef09a36620bc66b752 | 2026-10-04 | nothing to change |
+| harness | output | 2a68795927b5fa5bb39ab9506c1f839b924db2ee297045637d577d5d130917d4 | 2026-10-04 | nothing to change |
+| maintain | rules | fed4f83f33aca9e28616814952bd3e57a5a9e9c8de0588ef09a36620bc66b752 | 2026-10-04 | amended |
+| maintain | output | f5fabdb6b639c32159d4f1f11912738b38355f291e97b0ad44e3399b3e9422ca | 2026-10-04 | nothing to change |
+| mechanism-shape | rules | fed4f83f33aca9e28616814952bd3e57a5a9e9c8de0588ef09a36620bc66b752 | 2026-10-04 | amended |
+| mechanism-shape | output | cb3b0cd454daa6d594a25ef2b083c68b2f3dcfb94bfc2facabf26c6affe3f258 | 2026-10-04 | nothing to change |
+| questions | rules | fed4f83f33aca9e28616814952bd3e57a5a9e9c8de0588ef09a36620bc66b752 | 2026-10-04 | amended |
+| questions | output | 1cae8df6b9c4f5f32680d342b58ce56ba212665b760c1c6547b8b0fe5a1841c2 | 2026-10-04 | nothing to change |
+| ticket | rules | fed4f83f33aca9e28616814952bd3e57a5a9e9c8de0588ef09a36620bc66b752 | 2026-10-04 | amended |
+| ticket | output | 970774b1f66892916cee66d5f03c012555e65c0a160b6b3a3cab891dec397b65 | 2026-10-04 | nothing to change |

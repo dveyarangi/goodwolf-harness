@@ -22,7 +22,7 @@ this record keeps recording what each bump changed.
 question, or open one*, and a straw dog is followed until it is due rather than until a condition is
 judged met. *Core and instance* names a particular record only in a straw dog's binding, a
 question, and no ticket anywhere. The entry file's own straw dogs were rebound in the same version.
-Occasion: [01-0011.0100.0030 a-straw-dog-is-bound-to-the-question-it-waits-on](../tickets/01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md),
+Occasion: [01-0011.0100.0030 a-straw-dog-is-bound-to-the-question-it-waits-on](../tickets/done/01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md),
 decisions 1 to 9.
 
 ## v24 — 2026-10-03
@@ -30,7 +30,7 @@ decisions 1 to 9.
 **A question is named by its id and its words** — Q5, installed beside Q1: the first time a reply
 names a question it writes the question with its id, and a question the store does not hold yet is
 written out, never named after the ticket it will belong to. Occasion:
-[rule failure 17](rule-failures.md#17-a-reply-named-what-it-asked-about-by-bare-ids--2026-10-03).
+[rule failure 17](../rule-failures.md#17-a-reply-named-what-it-asked-about-by-bare-ids--2026-10-03).
 
 ## v23 — 2026-10-03
 

@@ -54,7 +54,8 @@ session removed the queue's path from tier 1: `/recall`'s pointer block went, be
 named is shared rather than local, and the entry file's opening block lost the same pointer for the
 same reason. Both edits were right by the rule they applied. The queue is still declared in core —
 in [`TICKET-FORMAT`](../../.agents/skills/ticket/TICKET-FORMAT.md)'s queue section, which is itself
-inside a straw dog bound to [01-0011.0040](./01-0011.0040-queue-derived-index.md) — but a waking
+inside a straw dog bound to q-0020, the question [01-0011.0040](./01-0011.0040-queue-derived-index.md)
+answers — but a waking
 session now meets it nowhere, and wake still lands on `/align` by the pacer's straw dog rather than
 on the `/recall` installed the same day.
 

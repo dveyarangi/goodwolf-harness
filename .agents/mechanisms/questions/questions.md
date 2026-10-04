@@ -131,7 +131,7 @@ Nothing else; the tree is rendered on request and never committed.
 
 ## Not yet at the shape
 
-**Six `not yet` rows**, each bound to a ticket that exists.
+**Four `not yet` rows**, each bound to an open question.
 
 <straw-dog question="q-0018.0015">
 **The sessions file** is one file in the working tree, and that is how sessions see each other;

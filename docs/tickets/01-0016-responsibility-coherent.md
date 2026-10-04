@@ -101,7 +101,8 @@ left unhosted.
   [01-0011.0070](./done/01-0011.0070-straw-dogs-marked-and-found.md)'s align, the user)*. The duty to
   wrap one is the entry file's, a meta-rule; the enumerator that lists and retires them is the
   maintenance mechanism's part; the review that marks them at landing is `/verify`'s own
-  sentence, written as a straw dog bound to this ticket. Nothing owns the concept end to end, and
+  sentence, written as a straw dog bound to q-0023.0001 "Which mechanism is responsible for the
+  straw dogs?", which this pass answers. Nothing owns the concept end to end, and
   three mechanisms each hold a piece. The elected owner is this pass's to settle; `/verify`'s
   wrapper retires with the answer.
 - A live instance to settle: on 2026-09-06 `/verify`'s skill body lost its opening line — "`/verify`

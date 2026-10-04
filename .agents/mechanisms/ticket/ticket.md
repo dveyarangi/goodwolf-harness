@@ -126,8 +126,8 @@ Nothing else; no index of its own. The register of tickets is the queue, <straw-
 
 ## Not yet at the shape
 
-**Four `not yet` rows**, each naming a ticket that exists: the archive listing, the derived
-queue, the pacer, the installer.
+**Three `not yet` rows**, each bound to an open question: the derived queue, the pacer, the
+installer.
 
 **The queue's table is still a copy.** The shelf's queue section instructs the copy inside a
 straw dog, and the maintainer does not read the queue at all.

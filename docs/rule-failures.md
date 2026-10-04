@@ -221,7 +221,7 @@ the project's. Graded by the next plan whose change touches a sentence the archi
 holds: the counter-test is applied before the doc is edited, or this entry is struck.
 
 **Struck, 2026-10-04 — one repeat.** Planning
-[01-0011.0100.0030 a-straw-dog-is-bound-to-the-question-it-waits-on](tickets/01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md),
+[01-0011.0100.0030 a-straw-dog-is-bound-to-the-question-it-waits-on](tickets/done/01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md),
 the plan drafted the architecture's *Straw dogs* with each decision's reasons, the dueness rule
 per closure kind the script computes, and the agent's rule to assign before closing, which P7
 owns. The user: *why so fat about the straw dogs? is this written for a capable model?* The

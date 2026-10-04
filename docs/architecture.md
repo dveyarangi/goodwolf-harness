@@ -85,7 +85,7 @@ install adds no separate recovery mechanism.
 A straw dog binds to a question of the store, never to a ticket — the one record of this tree
 core names. Whether it is due is derived from the store at every look; the maintainer decides
 how its text is rewritten. A rename of the store's ids carries every binding
-([01-0011.0100.0030 a-straw-dog-is-bound-to-the-question-it-waits-on](tickets/01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md#decisions-landed-at-this-tickets-align)).
+([01-0011.0100.0030 a-straw-dog-is-bound-to-the-question-it-waits-on](tickets/done/01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md#decisions-landed-at-this-tickets-align)).
 Mechanical removal follows the maintainer's disposition and preserves surviving agreements.
 Examples describing the syntax are distinct from operative statements.
 

@@ -61,10 +61,10 @@ instruction or a stated kind of absence, and either way a clause saying why.
 | `elsewhere` | instructed, by another mechanism | the instruction file that does it |
 | `embedded` | instructed, from the wrong home | where the instruction sits |
 | `unowned by design` | no rule warranted | its reason, nothing else |
-| `not yet` | a genuine gap | a ticket that exists |
+| `not yet` | a genuine gap | the open question it waits on, as a straw dog's binding |
 
-There is no *none needed*: if nobody acts, it is not a moment. A `not yet` never names
-the mechanism's own migration ticket. The verdict is per moment, never per mechanism.
+There is no *none needed*: if nobody acts, it is not a moment. The verdict is per moment,
+never per mechanism.
 
 ## Rules, injection and retraction
 

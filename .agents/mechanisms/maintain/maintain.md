@@ -154,7 +154,7 @@ Nothing else; no index.
 inside a straw dog bound to the question of what `/spec` owns.
 </straw-dog>
 
-**Two `not yet` rows**, each naming a ticket that exists.
+**Two `not yet` rows**, each bound to an open question.
 
 ## What retires this
 

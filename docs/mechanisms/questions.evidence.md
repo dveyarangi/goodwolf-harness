@@ -16,7 +16,7 @@ formats, counted 2026-09-28: the three concerns of `concerns.md`, which this sli
 open-issue bullets on tickets, left to
 [.0020](../tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md); and 60 distinct
 straw-dog conditions, left to
-[.0030](../tickets/01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md). None of the three
+[.0030](../tickets/done/01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md). None of the three
 said which question the work stood at.
 
 ## The window test
