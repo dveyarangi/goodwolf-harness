@@ -132,7 +132,7 @@ rglob        -> ['host/link/a.md', 'real/a.md']    the same file twice
 git ls-files -> ['host/link/a.md', 'real/a.md']    twice
 ```
 
-`git ls-files` is what [`docs_corpus.corpus()`](../../.agents/scripts/docs_corpus.py) runs, and that
+`git ls-files` is what [`docs_corpus.corpus()`](../../.agents/scripts/gw/docs_corpus.py) runs, and that
 is the one view every script shares. Under a junction the corpus double-counts every skill, and
 `move_doc.py` would repair citations through two paths to one file. ADR-0003's stated objection —
 Git tracks it as a directory — is this mechanism named less precisely, and it does **not** stop at

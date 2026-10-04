@@ -48,7 +48,7 @@ Life names dropping into detail before a higher question is settled as a failure
 *This align's reading, unconfirmed:* the expansion ticket's class is Life's `unexpanded-is` /
 `unexpanded-lives`; the steering ticket's class — a question left before it landed — is a kind
 Life has not named. Our [rule-failures register](../rule-failures.md) is Life's `/failure`
-(detection: a rule present that did not fire), and [01-0019](./01-0019-harness-amends-itself-by-explicit-meta-rules.md)
+(detection: a rule present that did not fire), and [01-0019](../tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)
 is the amendment method Life's `/failure` has and its `/reasoning` withholds. The judge is the
 "second process" Life's register names as missing.
 
