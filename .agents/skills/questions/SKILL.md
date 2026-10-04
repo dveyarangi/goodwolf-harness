@@ -51,8 +51,9 @@ apostrophe goes in double quotes, with no backtick or `$` inside.
 **Look it up first.** Every question a message raises is looked for before anything is opened, in
 *the docs*: the architecture, ADRs, the glossary, the mechanism docs, the code, and the decisions
 landed in live tickets, where a decision sits until it reaches its home. Found, point to it and
-open nothing; a settled question is not reopened without new evidence against its answer. There
-is no need to search `done/`: a decided entry links to what holds its answer.
+open nothing; a settled question is not reopened without new evidence against its answer. An
+answer that leaves part unsettled is found only in part: the rest is a raised question of its
+own. There is no need to search `done/`: a decided entry links to what holds its answer.
 
 **Who settles what is not found.** A decision that is not load-bearing, settle in the turn and
 report it, as `repair=report` does. A load-bearing one is the person's: settled in the turn, it
@@ -72,12 +73,15 @@ current one contributes to it; when only the first holds, beside it, under the s
 
 **A missing parent.** When only a far question contains the message and several of its children
 resemble it, the question they jointly serve is missing. `open` it under the far one, `move` each
-child it contains under it, call `at` on it, and say in the reply which moved. Whether the
-grouping is right and worth its renames is yours to judge; one you cannot settle is uncharted.
+child it contains under it, call `at` on it, and say in the reply which moved. The renames it
+costs are no reason to ask. Ask only when the grouping is ambiguous: you can word two parents
+that divide the children differently, or cannot say of a child whether it belongs. Then the turn
+is uncharted, and the ask names each parent you weighed and the children it would take.
 
 **Uncharted.** The reply does the work asked and puts the question's home to the user: the
-question in your words, and the homes you weighed. The row repeats in every reply until the user
-answers; then open it where they said.
+question the message is one case of, never the message restated, the homes you weighed, and the
+one you would choose. The row repeats in every reply until the user answers; then open it where
+they said.
 
 ## Closing
 

@@ -15,6 +15,17 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v28 — 2026-10-05
+
+**A found answer still leaves the turn on a question** — Q1's *A new question* reworded: the
+question is the one the message is one case of, worded as the store would hold it; an answer
+found in the docs opens nothing and the turn is on the question that contains it; what the answer
+leaves unsettled is opened. As it stood, a message answered from the docs had no kind of turn left
+but uncharted, and the message itself was taken for the question. With it, in the questions
+skill: a missing parent is opened whatever its renames cost and asked about only when the
+grouping is ambiguous, and an uncharted ask states the question at the store's height with the
+home the agent would choose *(the user, 2026-10-05)*.
+
 ## v27 — 2026-10-05
 
 **Going up stops short of a root that holds everything** — Q1's *On a question* gains a sentence:
