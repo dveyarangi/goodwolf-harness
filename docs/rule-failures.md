@@ -12,6 +12,27 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 18. Six turns of seven showed a question the turn did not stand on — 2026-10-05
+
+**Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s Q1, *call `at` where the message
+lands … a message that lands nowhere makes no call*, and its table of *each question the turn
+stood on*.
+
+**What happened.** A maintenance pass over the whole tree made no call and its reply showed the
+session's stored position, the next ticket's question. An installer defect in an update — loader
+links removed and not replaced — was placed on *what a first install says when something stops
+it*, and three more turns carried that. The user: *look at the question selected for the previous
+turns. it was off most of the conversation.*
+
+**Why it did not fire.** The rule has two answers, a question or no call, and no word for what a
+reply then shows; so a process was shown against a stale position. And *where the message lands*
+does not say by what: the nearest-looking sibling passed for a landing, when no child contained
+the message and the parent that would have was missing.
+
+**Amendment proposed:** Q1 reworded to placement by containment and four kinds of turn, each with
+its row — the decisions of [01-0011.0100.0040 the-turn-is-steered-from-the-store](tickets/01-0011.0100.0040-the-turn-is-steered-from-the-store.md)'s
+align, which lands it.
+
 ## 17. A reply named what it asked about by bare ids — 2026-10-03
 
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s P9, *the first time a record or a
