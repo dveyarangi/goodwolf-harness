@@ -201,7 +201,7 @@ own, each publish carrying a note written for an instance — what moved, from w
 the instance amends. A recipient reads the notes standing between its ref and the latest before it
 takes them, and whether to take them is the installing agent's decision with its user, never the
 script's. *(The user, 2026-09-21.)*
-<straw-dog until="01-0010.0160 declares the releases mechanism" ticket="docs/tickets/01-0010.0160-harness-edge-changes-reach-an-update.md">
+<straw-dog question="q-0018.0007.0002">
 Nothing does this yet: core is shared from the working tree and an update crosses an edge change
 in silence, leaving what a recipient must amend to whoever reads the manifest diff.
 </straw-dog>

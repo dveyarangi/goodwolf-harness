@@ -139,7 +139,7 @@ re-parent renames the moved question and everything under it — files, links, r
 lines and bare ids under `docs/` — so an id seen earlier may be gone: draw the window again. *part
 of* is the line the check holds the id against.
 
-<straw-dog until="01-0010 says how registrations reach sessions that do not share the directory" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">
+<straw-dog question="q-0018.0015">
 **The sessions file** — one row of `docs/questions/sessions` per session:
 `<tag> running|ended <YYYY-MM-DD> <q-id>|- [<q-id>,… up to four]` — its tag, whether it runs, the
 date it last wrote, its current question or `-` before it has one, and its recent ones. Tier 1

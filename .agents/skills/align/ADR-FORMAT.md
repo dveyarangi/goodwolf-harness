@@ -1,4 +1,4 @@
-<straw-dog until="the practice mechanism installs how architecture is documented" ticket="docs/tickets/01-0017.0020-practice-swaps-in-one-edit.md">
+<straw-dog question="q-0024.0002.0005">
 # ADR Format
 
 ADRs live in `docs/adr/` and use sequential numbering: `0001-slug.md`, `0002-slug.md`, etc.

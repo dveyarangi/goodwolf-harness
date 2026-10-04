@@ -3,7 +3,7 @@ name: recall
 description: Determine where the project stands and what to work on next, with the decisions already taken surfaced alongside the questions genuinely still open. Use when asked what is next, where things stand, or to continue or pick up work.
 ---
 
-<straw-dog until="01-0020 settles where /recall sits" ticket="docs/tickets/01-0020-pacer.md">Mechanism: not yet</straw-dog>
+<straw-dog question="q-0027.0001">Mechanism: not yet</straw-dog>
 
 
 Your goal is to find out the actual state of the project and the current and/or next things to focus on, without re-opening anything already settled. Start from the delivery status and the last session, and read what bears on the item in flight; survey more widely only when nothing is in flight or the trace meets a gap.
@@ -15,7 +15,7 @@ Your goal is to find out the actual state of the project and the current and/or 
 - Build a compact summary of current state of the project and bring up all relevant items for current or next task, including the decisions already taken that bear on it, each with its reference. The summary must be written in simple but precise language, no moonspeak.
 
 - In case of ambiguity, present it too user. In case when continuation requires decision making, invoke /align skill.
-<straw-dog until="01-0020 is done" ticket="docs/tickets/01-0020-pacer.md">
+<straw-dog question="q-0027">
 - Read the next item from the order the queue states; do not re-rank it. Check whether, since that order was set, priorities or product requirements changed, the order came to contradict itself — a dependency, a status or another statement of it — or a HITL resolution found complexity or a split the order does not yet reflect. Name each such occasion and put the reordering to the user. A last session's handoff is a list of candidates, not an order.
 </straw-dog>
 - Report drift you hit while reading (stale headers, docs the tree has outrun) rather than fixing it — fixing is outside recall's scope.

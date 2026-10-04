@@ -212,10 +212,10 @@ Three fields:
 A record declared without all three is a diagnostic, and so is a mechanism that writes records and
 declares none.
 
-<straw-dog until="01-0017.0010 is done" ticket="docs/tickets/01-0017.0010-terms-defined-before-they-land.md">
+<straw-dog question="q-0024.0004">
 Neither diagnostic is emitted yet: finding a mechanism that owes a record declaration needs
-`record-bearing` to be a declared field, which that ticket promotes. Until then the two sentences
-above are a rule with no check behind them.
+`record-bearing` to be a declared field, which it is not. Until then the two sentences above are a
+rule with no check behind them.
 </straw-dog>
 
 ## Parsing

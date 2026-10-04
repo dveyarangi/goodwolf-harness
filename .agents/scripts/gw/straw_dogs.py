@@ -49,6 +49,7 @@ _TODO = re.compile(r"^\s*#\s*TODO\b")
 # condition beside it. Read so the listing can say what to write instead, and so the install can
 # shear one a tree still holds.
 TICKET_PATH = re.compile(r"docs/tickets/[\w./-]+\.md")
+_OLD_ATTRIBUTE = re.compile(r'\b(until|ticket)\s*=\s*"([^"]*)"', re.S)
 # The record folders the harness itself imposes: provisional by status, or history, never a
 # surface read as truth, so never guessed over. A project's own folders are its own to judge.
 _WORKING_RECORDS = ("docs/tickets/", "docs/rfc/", "docs/spec/", "docs/sessions/")
@@ -405,7 +406,7 @@ def _nested(
     """Turn raw spans into straw dogs that know their depth and how many children they hold."""
     statements = []
     for start, end, written in spans:
-        attributes = dict(ATTRIBUTE.findall(written))
+        attributes = dict(ATTRIBUTE.findall(written)) | dict(_OLD_ATTRIBUTE.findall(written))
         parents = [other for other in spans if _holds(other, (start, end))]
         children = [other for other in spans if _holds((start, end), other)]
         direct = [child for child in children if not any(_holds(kin, child) for kin in children)]

@@ -4,7 +4,7 @@ description: >-
   Use when a session ends, or the user asks to conclude the current chat.
 ---
 
-<straw-dog until="01-0017 declares the conclude mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+<straw-dog question="q-0023.0006">Mechanism: not yet</straw-dog>
 
 Conclude curent chat, extracting:
 - a brief summary of work done (no need to repeat details already stored into other documentation files), 

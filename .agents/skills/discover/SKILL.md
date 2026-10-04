@@ -10,7 +10,7 @@ description: >-
   Returns material, never a verdict.
 ---
 
-<straw-dog until="01-0017 declares the discover mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+<straw-dog question="q-0023.0007">Mechanism: not yet</straw-dog>
 
 # Discover
 

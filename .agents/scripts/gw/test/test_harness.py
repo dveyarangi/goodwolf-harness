@@ -50,7 +50,7 @@ ENTRY = (
     "# Entry contract\n\n"
     "Entry contract: v3, 2026-09-01.\n\n"
     "Open your first reply with the line above.\n\n"
-    f'<straw-dog until="the sweep is a mechanism" ticket="{TICKET}">\n'
+    '<straw-dog question="q-0002">\n'
     f"{WRAPPED_RULE}\n"
     "</straw-dog>\n\n"
     "## Project-local\n\n"
@@ -67,7 +67,7 @@ SAMPLE_DOC = (
     "## Moments\n\n"
     "| moment | instructed by | kind, and why |\n|---|---|---|\n"
     f"| keeping | `{KEEPER}` | |\n"
-    f'| sweeping | — | <straw-dog until="somebody sweeps" ticket="{TICKET}">not yet</straw-dog> |\n\n'
+    '| sweeping | — | <straw-dog question="q-0002">not yet</straw-dog> |\n\n'
     "## Install adds, uninstall removes\n\n"
     f"| part | where |\n|---|---|\n| instruction file | `{KEEPER}` |\n\n"
     "## Relies on, and does not own\n\n"
@@ -276,19 +276,19 @@ class TwoTrees(RepositoryCase):
 
 class TheShear(unittest.TestCase):
     def test_a_block_wrapper_leaves_with_its_lines_and_the_rule_stays(self) -> None:
-        text = "# A\n\n<straw-dog until=\"x\" ticket=\"docs/tickets/t.md\">\nThe rule.\n</straw-dog>\n\n## B\n"
+        text = "# A\n\n<straw-dog question=\"q-0001\">\nThe rule.\n</straw-dog>\n\n## B\n"
 
         self.assertEqual("# A\n\nThe rule.\n\n## B\n", harness.sheared("a.md", text))
 
     def test_an_inline_wrapper_in_a_table_cell_leaves_the_row_a_row(self) -> None:
-        text = '| sweeping | — | <straw-dog until="x" ticket="docs/tickets/t.md">not yet</straw-dog> |\n'
+        text = '| sweeping | — | <straw-dog question="q-0001">not yet</straw-dog> |\n'
 
         self.assertEqual("| sweeping | — | not yet |\n", harness.sheared("a.md", text))
 
     def test_nested_wrappers_all_leave_and_the_content_is_joined_as_written(self) -> None:
         text = (
-            '<straw-dog until="outer" ticket="docs/tickets/t.md">\n'
-            'Outer says <straw-dog until="inner" ticket="docs/tickets/u.md">inner</straw-dog> too.\n'
+            '<straw-dog question="q-0001">\n'
+            'Outer says <straw-dog question="q-0001.0001">inner</straw-dog> too.\n'
             "</straw-dog>\n"
         )
 
@@ -296,21 +296,21 @@ class TheShear(unittest.TestCase):
 
     def test_a_wrapper_drawn_in_a_fence_or_a_code_span_is_left_alone(self) -> None:
         text = (
-            "Write `<straw-dog until=\"c\" ticket=\"p\">` around it.\n\n"
-            "```md\n<straw-dog until=\"x\" ticket=\"y\">rule</straw-dog>\n```\n"
+            "Write `<straw-dog question=\"q-N\">` around it.\n\n"
+            "```md\n<straw-dog question=\"q-0001\">rule</straw-dog>\n```\n"
         )
 
         self.assertEqual(text, harness.sheared("a.md", text))
 
     def test_an_unbalanced_wrapper_refuses_naming_the_file(self) -> None:
         with self.assertRaises(harness.Refused) as refused:
-            harness.sheared("a.md", '<straw-dog until="x" ticket="docs/tickets/t.md">\nRule.\n')
+            harness.sheared("a.md", '<straw-dog question="q-0001">\nRule.\n')
 
         self.assertIn("a.md", str(refused.exception))
         self.assertIn("never closes", str(refused.exception))
 
     def test_a_todo_loses_its_binding_and_keeps_its_words(self) -> None:
-        code = "x = 1\n# TODO docs/tickets/01-0002-sweep.md: the shear strips\n# this on install.\n"
+        code = "x = 1\n# TODO q-0002: the shear strips\n# this on install.\n"
 
         self.assertEqual("x = 1\n# TODO: the shear strips\n# this on install.\n", harness.todo_bindings_sheared(code))
 
@@ -489,7 +489,7 @@ class ARefusal(TwoTrees):
         self.write(
             KEEPER,
             "# Keeper\n\n"
-            f'<straw-dog until="x" ticket="{TICKET}">\nSee [the sweep](../../../{TICKET}).\n</straw-dog>\n',
+            f'<straw-dog question="q-0002">\nSee [the sweep](../../../{TICKET}).\n</straw-dog>\n',
         )
         self.commit("a leak")
 

@@ -1,4 +1,4 @@
-<straw-dog until="the glossary mechanism installs its rules into /align" ticket="docs/tickets/01-0017.0010-terms-defined-before-they-land.md">
+<straw-dog question="q-0024.0001.0001">
 # glossary.md Format
 
 ## Structure

@@ -50,7 +50,7 @@ absence is honestly classified, are judgements it records and never makes.
 | amending a declared one, editing a skill that is an instruction file included | `.agents/skills/mechanism/SKILL.md` | |
 | retiring a declared one | `.agents/skills/mechanism/SKILL.md` | |
 | installing a declared mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
-| removing one declared mechanism from a tree | — | <straw-dog until="the parts table says what goes and something says how" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
+| removing one declared mechanism from a tree | — | <straw-dog question="q-0018.0013.0002">not yet</straw-dog> |
 | checking that a declaration is true | `.agents/scripts/gw/mechanisms.py` | |
 | installing a mechanism's rules into skills, its own included, and the project's local file after every mechanism's | `.agents/scripts/gw/inject_rules.py` | |
 | retracting them | `.agents/scripts/gw/inject_rules.py` | |
@@ -134,7 +134,7 @@ records.
 
 ## Not yet at the shape
 
-<straw-dog until="01-0010.0120 is done" ticket="docs/tickets/01-0010.0120-host-delivery-surfaces.md">
+<straw-dog question="q-0018.0004">
 **Nothing runs the check unasked.** It runs when a person types it, or when the project's
 verification set is run, which happens at `/verify`. That is better than remembering and weaker
 than a mechanism that speaks at wake; this tree has no hook to speak from. A run that stays quiet
@@ -152,7 +152,7 @@ what says it happened.
 **Four declared mechanisms are still thin evidence for a shape.** The first three each forced
 amendments to it, the fourth passed its check unedited and sharpened one word — what each one
 forced is in the evidence — and
-<straw-dog until="01-0017 is done" ticket="docs/tickets/01-0017-io-graph-coherent.md">the rest of the corpus meets it at once</straw-dog>.
+<straw-dog question="q-0024">the rest of the corpus meets it at once</straw-dog>.
 
 ## What retires this
 

@@ -4,7 +4,7 @@ description: >-
   Sleep or meditate over the project or an aspect, making it more cohesive, coherent, balanced and deep. Use once per day, after session is concluded.
 ---
 
-<straw-dog until="01-0017 declares the dream mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+<straw-dog question="q-0023.0008">Mechanism: not yet</straw-dog>
 
 Goal is to emulate analytical meditation or REM/deep sleep stages.
 

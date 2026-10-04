@@ -1,6 +1,6 @@
 # Development process
 
-<straw-dog until="01-0020 is done" ticket="docs/tickets/01-0020-pacer.md">
+<straw-dog question="q-0027">
 This document is a suggestion of sequence, not a rulebook. The sequence and the scoping of work are the [pacer's](pacer.md) concern, and the pacer owns this document once it exists. Each step's rules belong in the step's own skill and move there as the skill is installed. Where the installed skills or the [entry file](../AGENTS.md) differ from what follows, they are right.
 </straw-dog>
 

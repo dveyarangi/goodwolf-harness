@@ -1,6 +1,6 @@
 # discover — evidence
 
-<straw-dog until="01-0017 declares the discover mechanism and sorts this file into doc and evidence" ticket="docs/tickets/01-0017-io-graph-coherent.md">The install that brought this skill</straw-dog> decided this
+<straw-dog question="q-0023.0007">The install that brought this skill</straw-dog> decided this
 skill's standing in this repository, and that it files no artifact. What follows is the mechanism's
 history, most of it from the estate it was built in.
 

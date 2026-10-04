@@ -3,7 +3,7 @@ name: review-architecture
 description: Explore the codebase for module-deepening opportunities — architectural improvements that raise testability and navigability. Use when asked to improve or refactor the architecture.
 ---
 
-<straw-dog until="01-0017 declares the review-architecture mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+<straw-dog question="q-0023.0014">Mechanism: not yet</straw-dog>
 
 # Improve Codebase Architecture
 

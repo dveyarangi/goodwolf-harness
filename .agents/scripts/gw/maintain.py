@@ -35,7 +35,7 @@ MARKS = "docs/mechanisms/maintenance.md"
 # The mechanism whose rules every mechanism's doc is written to.
 SHAPE = "mechanism-shape"
 EVIDENCE = "EVIDENCE.md"
-# TODO docs/tickets/01-0017-io-graph-coherent.md: a third trigger — a mechanism's records changed
+# TODO q-0024.0004: a third trigger — a mechanism's records changed
 # enough since its mark — waits for each mechanism to declare where its records live.
 LEVELS = ("rules", "output")
 NEVER = "never maintained"
@@ -220,7 +220,7 @@ def _built_in(root: Path, declared: list[Declaration]) -> list[Declaration]:
 
 
 def _received_core(root: Path) -> bool:
-    # TODO docs/tickets/01-0010-dev-harness-shared-and-local.md: recipient-own-mechanisms, unminted,
+    # TODO q-0018.0019: recipient-own-mechanisms, unminted,
     # settles where a recipient's own mechanisms live; until then every one a recipient holds is core's.
     return announced(root) is not None
 

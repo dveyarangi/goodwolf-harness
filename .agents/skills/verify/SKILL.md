@@ -6,7 +6,7 @@ description: >-
   project's verification set. Repair-and-report where that policy holds.
 ---
 
-<straw-dog until="01-0017 declares the verify mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+<straw-dog question="q-0023.0019">Mechanism: not yet</straw-dog>
 
 Compare the work to its ticket, RFC if any, governing docs, and every check
 in the project's [verification set](#the-verification-set).
@@ -74,7 +74,7 @@ uv run --offline --no-project python .agents/scripts/gw/questions.py --check
   contradictory rule, a new foundational decision, or work beyond the authorization.
   Pause that change; independently authorized work continues.
 
-<straw-dog until="the mechanism responsible for straw dogs is elected" ticket="docs/tickets/01-0016-responsibility-coherent.md">
+<straw-dog question="q-0023.0001">
 - Read the landed work against the pending tickets. What one of them will replace is a straw
   dog: wrap it and bind it to that ticket, per the entry file, and leave what has no named
   successor alone. Run `straw_dogs.py --guess` over the files the slice touched and judge its

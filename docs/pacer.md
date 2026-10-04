@@ -18,7 +18,7 @@ The pacer's core rules are Tier 1: they say what the agent does after `/recall` 
 - ~~When the user's message names no step, how is the step chosen?~~ **2026-09-06, user: a session that starts with "what's next" starts with `/recall`, which finds the next probable move; if nothing is active, `/align` on what's next.** The precedence recall uses, accepted as "ok for now, a bit muddy": landed-but-unverified work first; then a decision parked at `/align` on the active ticket; then the active ticket's current stage, continued; then, nothing active, `/align` on what comes next, which is the `next-cycle` checkpoint. A tie at one rank is presented, not resolved. **2026-09-20, user: every session wake starts with `/recall`, whatever the first message says** — no carve-out for a message that names a skill or a task. Landed in [AGENTS.md](../AGENTS.md) at v9, beside the announce line; the first core rule to leave this page. Occasion: [rule failure 4](rule-failures.md#4-the-wake-rule-sat-in-a-diagram-and-a-greeting-was-answered-with-a-greeting--2026-09-20). How it sits with *one turn, one step* when the first message names a task is the chaining question above, still open.
 - **2026-09-06, user: bootstrap the pacer on the `<temporary>` blocks.** Each block's `until` condition is bound to a real ticket, so the conditions become the queue the pacer paces, and "what's next" can be answered from them for the current work here.
 
-<straw-dog until="01-0020 is done" ticket="docs/tickets/01-0020-pacer.md">
+<straw-dog question="q-0027">
 Until the pacer is installed, the wake runs `/recall` and stops at the fork it finds; the pacer then reads state, resumes the ring at the next step, and stops only for a HITL escalation.
 </straw-dog>
 

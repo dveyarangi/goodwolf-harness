@@ -666,7 +666,7 @@ def _unmarked_suspects(entries: list[Entry], index: dict[str, Entry]) -> list[Di
 
 
 # --- the sessions -------------------------------------------------------------------------------
-# TODO docs/tickets/01-0010-dev-harness-shared-and-local.md: one sessions file in the working tree
+# TODO q-0018.0015: one sessions file in the working tree
 # is how running sessions see each other until that work says how registrations reach sessions
 # that do not share the directory.
 

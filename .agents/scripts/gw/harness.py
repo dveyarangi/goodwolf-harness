@@ -8,7 +8,7 @@ The source is always the repository, cloned whole and without a checkout into a 
 directory and read through git, so what a recipient receives is what a commit holds and never a
 working tree. What ships is every file under the core directory at the ref plus the entry file and
 the host stub, transformed in memory before a byte is written: the origin's own local blocks
-removed, every straw-dog wrapper and every TODO's ticket binding sheared with its content kept, the
+removed, every straw-dog wrapper and every TODO's question binding sheared with its content kept, the
 entry file's announce line stamped `<repository>@<ref>, <date>`, and the result held to the leak
 rule the origin's check applies. That line is the recipient's only revision record; a check clones
 the announced ref again and compares. Every refusal writes nothing. A loader link the platform
@@ -42,6 +42,7 @@ from docs_corpus import (  # noqa: E402
     ENTRY_FILE,
     RETIRED_TAG,
     SCRIPTS,
+    TODO_QUESTION,
     UnreadableCode,
     announced,
     corpus,
@@ -50,7 +51,7 @@ from docs_corpus import (  # noqa: E402
     without_code,
 )
 from mechanisms import PAINTED_DOORS, TESTS  # noqa: E402
-from straw_dogs import TAG, TICKET_PATH  # noqa: E402
+from straw_dogs import TAG  # noqa: E402
 
 CORE = ".agents/"
 HOST_STUB = "CLAUDE.md"
@@ -439,13 +440,12 @@ def sheared(path: str, text: str) -> str:
 
 
 def todo_bindings_sheared(text: str) -> str:
-    """A TODO's ticket path is its binding, the code form of a straw dog's `ticket=`; the words
-    stay and the path goes, so the recipient reads a note and never a path it cannot resolve."""
+    """A TODO's question id is its binding, the code form of a straw dog's `question=`; the words
+    stay and the id goes, so the recipient reads a note and never an id its store does not hold."""
     lines = []
     for line in text.splitlines(keepends=True):
-        if re.match(r"^\s*#\s*TODO\b", line) and TICKET_PATH.search(line):
-            line = re.sub(r"\s*" + TICKET_PATH.pattern, "", line, count=1)
-        lines.append(line)
+        named = TODO_QUESTION.match(line)
+        lines.append(named.group(1).rstrip() + line[named.end(2) :] if named else line)
     return "".join(lines)
 
 
@@ -523,7 +523,7 @@ def _work_tree_root(target: Path, source: Source) -> Path:
         raise Refused(f"target: {target} is not a directory")
     target = target.resolve()
     top = _git_in(target, "rev-parse", "--show-toplevel")
-    # TODO docs/tickets/01-0010.0172-a-first-install-says-what-stopped-it.md: a failed rev-parse is
+    # TODO q-0018.0010: a failed rev-parse is
     # read here as a wrong shape, Git's dubious-ownership refusal included.
     if top is None or Path(top).resolve() != target:
         raise Refused(f"target: {target} is not the top level of a git work tree; a workspace of several is refused")
@@ -722,7 +722,7 @@ def _make_links(target: Path, plan: dict[str, str], report: Report) -> None:
         report.links.append({"link": link, "state": "made" if action == "make" else "repointed"})
     if report.pending:
         report.notes.append("run the pending command(s) once in an elevated prompt, then `harness.py . --check`")
-    # TODO docs/tickets/01-0010.0172-a-first-install-says-what-stopped-it.md: this note assumes tracked
+    # TODO q-0018.0010: this note assumes tracked
     # links; untracked since 2026-09-26, a clone gets them from the link step, and the note goes.
     if _git_in(target, "config", "--get", "core.symlinks") == "false":
         report.notes.append("core.symlinks is false in the target: a fresh clone checks the links out as text")

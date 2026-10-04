@@ -70,7 +70,7 @@ Run [/impact](../impact/SKILL.md) on the draft split. Record its output on
 the parent. If the recommendation is narrow or rethink, revise the draft and
 run `/impact` again until the split is what you will present.
 
-<straw-dog until="01-0010.0080 is done" ticket="docs/tickets/01-0010.0080-impact-work-shape.md">
+<straw-dog question="q-0018.0001">
 `/impact`'s current output is whether the split is balanced (proceed, narrow,
 rethink, postpone). Record that. It does not yet recommend spec / ticket /
 RFC / re-slice; that extension is the parent's, not this skill's.

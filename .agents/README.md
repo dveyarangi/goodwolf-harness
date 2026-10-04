@@ -10,7 +10,7 @@ The links belong to each clone and are never committed. Both are required: Claud
 read only their own directory; Codex reads `.agents/skills` natively and needs none. `/harness`
 makes them, or hands the person the exact elevated command where the platform refuses to create
 one; a junction is never a substitute, since nothing sees through it.
-<straw-dog until="01-0010.0172 is done" ticket="docs/tickets/01-0010.0172-a-first-install-says-what-stopped-it.md">A fresh clone has no links until the harness's update runs in it.</straw-dog>
+<straw-dog question="q-0018.0010">A fresh clone has no links until the harness's update runs in it.</straw-dog>
 
 ## Mechanical support
 

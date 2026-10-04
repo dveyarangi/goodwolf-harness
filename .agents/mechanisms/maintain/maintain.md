@@ -30,10 +30,10 @@ re-check.
 
 In a recipient the mechanisms that came with core are maintained where core is made: the clock
 leaves them out and a mark refuses them, and the origin's marks never ship.
-<straw-dog until="a recipient's own mechanisms have a declared home" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">
+<straw-dog question="q-0018.0019">
 A recipient's own mechanisms have no home yet, so its clock reads an empty set.
 </straw-dog>
-<straw-dog until="01-0010.0120 establishes a channel that speaks unasked" ticket="docs/tickets/01-0010.0120-host-delivery-surfaces.md">
+<straw-dog question="q-0018.0004">
 The due list is read at every pass and printed by the check; it is not announced, so a tree
 where no pass runs is not told.
 </straw-dog>
@@ -41,7 +41,7 @@ where no pass runs is not told.
 The ticket mechanism's rules on paired close and on its records, and the mechanism shape's rules
 on records and re-checks, reach the body as installed blocks.
 
-<straw-dog until="01-0017 is done" ticket="docs/tickets/01-0017-io-graph-coherent.md">
+<straw-dog question="q-0023.0017">
 One rule sits in the body by hand inside a straw dog: a spec's agreements before archiving it,
 which is `/spec`'s and waits for `/spec` to be declared.
 </straw-dog>
@@ -87,11 +87,11 @@ repair-and-report, recording the cause in the evidence.
 | checking a mechanism's records against their declared format, the ticket records among them | `.agents/skills/maintain/SKILL.md` | |
 | repairing mechanically, history included | — | elsewhere — a meta-rule, read where it lives, `.agents/skills/mechanism/SKILL.md` |
 | disposing of a concern | — | elsewhere — a concern is an open question of the store, closed by a recorded kind that points to the ADR, architecture section or code that owns its answer, `.agents/skills/questions/SKILL.md` |
-| checking links outside a close | — | <straw-dog until="a link check runs outside a close, not only the mover's note over records a close rewrote" ticket="docs/tickets/01-0017-io-graph-coherent.md">not yet</straw-dog> |
+| checking links outside a close | — | <straw-dog question="q-0024.0005">not yet</straw-dog> |
 | cleaning inline comments in scope | — | elsewhere — verification applies the comment skill to landed work, `.agents/skills/verify/SKILL.md` |
 | running the verification set the scope touched | `.agents/skills/maintain/SKILL.md` | |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
-| removing this mechanism from a tree | — | <straw-dog until="the parts table says what goes and something says how" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
+| removing this mechanism from a tree | — | <straw-dog question="q-0018.0013.0002">not yet</straw-dog> |
 | picking up a dream | — | unowned by design — the entry file says *may*, a permission and not a duty, while the dream skill is experimental |
 
 ## Install adds, uninstall removes
@@ -147,7 +147,7 @@ Nothing else; no index.
 
 ## Not yet at the shape
 
-<straw-dog until="01-0017 is done" ticket="docs/tickets/01-0017-io-graph-coherent.md">
+<straw-dog question="q-0023.0017">
 **One rule held by hand.** P4 is `/spec`'s, and `/spec` is undeclared, so the body carries it
 inside a straw dog bound to the ticket that declares the rest of the corpus.
 </straw-dog>

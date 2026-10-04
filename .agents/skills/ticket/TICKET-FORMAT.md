@@ -178,7 +178,7 @@ sit in the same folder state. Only names are read; nothing inside an RFC is.
 - Update the queue in the same pass.
 - Wrap at ~100 columns.
 
-<straw-dog until="01-0011.0040 is done" ticket="docs/tickets/01-0011.0040-queue-derived-index.md">
+<straw-dog question="q-0020">
 ## The queue
 
 The queue is `docs/tickets/README.md`. `/ticket` amends **the table** in the

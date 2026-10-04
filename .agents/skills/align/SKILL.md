@@ -3,7 +3,7 @@ name: align
 description: Grilling session that challenges current plan against the existing domain model, sharpens terminology, and updates documentation as decisions crystallise. Use to stress-test a plan against their project's language and documented decisions.
 ---
 
-<straw-dog until="01-0017 declares the align mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+<straw-dog question="q-0023.0003">Mechanism: not yet</straw-dog>
 
 <what-to-do>
 
@@ -17,7 +17,7 @@ Ask the questions one at a time, waiting for feedback on each question before co
 
 If a *fact* can be found by exploring the doc corpus or codebase, look it up rather than asking me. The *decisions*, though, are mine - put each one to me and wait for my answer.
 
-<straw-dog until="the branch slice installs how a question branches" ticket="docs/tickets/01-0011.0100.0050-a-question-branches-before-it-is-answered.md">
+<straw-dog question="q-0001.0020">
 Decomposing the work during an align is [/ticket](../ticket/SKILL.md)'s, and it calls
 [/impact](../impact/SKILL.md) on the draft split. Run that chain and present what it returns as a
 suggestion; do not mint. A breakdown reached by unaided grouping is not that chain's output,
@@ -31,7 +31,7 @@ Do not enact the plan before I confirm we have reached a shared understanding.
 
 <supporting-info>
 
-<straw-dog until="the practice mechanism installs how architecture is documented" ticket="docs/tickets/01-0017.0020-practice-swaps-in-one-edit.md">
+<straw-dog question="q-0024.0002.0005">
 ## Good architecture
 
 Goal of architecture is to reduce work on creation and maintenance of the system.
@@ -67,7 +67,7 @@ Create files lazily — only when you have something to write. If no `docs/gloss
 
 ## During the session
 
-<straw-dog until="the glossary mechanism installs its rules into /align" ticket="docs/tickets/01-0017.0010-terms-defined-before-they-land.md">
+<straw-dog question="q-0024.0001.0001">
 ### Challenge against the glossary
 
 When the user uses a term that conflicts with the existing language in `docs/glossary.md`, call it out immediately. "Your glossary defines 'cancellation' as X, but you seem to mean Y — which is it?"
@@ -75,7 +75,7 @@ When the user uses a term that conflicts with the existing language in `docs/glo
 This cuts both ways: before *you* propose a name, check the glossary yourself — including its _Avoid_ lists, which are reservations, not suggestions. If every synonym for a concept is avoided, that is a designed constraint telling you which word the project has chosen; work within it rather than proposing around it.
 </straw-dog>
 
-<straw-dog until="the edge mechanism installs its rules into /align" ticket="docs/tickets/01-0010.0100-remaining-named-corpus.md">
+<straw-dog question="q-0023.0009">
 ### Challenge against the Edge records
 
 When the plan touches a product edge, check that surface's Edge record
@@ -88,7 +88,7 @@ promise without a validating test is marked **⚠ unguarded**), newly surfaced e
 concerns as pointers in `Concerns`, staging shifts in `Roadmap`.
 </straw-dog>
 
-<straw-dog until="the practice mechanism installs how architecture is documented" ticket="docs/tickets/01-0017.0020-practice-swaps-in-one-edit.md">
+<straw-dog question="q-0024.0002.0005">
 ### Check whether it was already decided
 
 Before treating a question as open, search the ADRs and architecture docs for it. A surprising amount of "open" questions are accepted decisions the code drifted from — the answer then is "implement the ADR", not a fresh trade-off analysis. Cite the deciding document when you find one.
@@ -114,7 +114,7 @@ When domain relationships are being discussed, stress-test them with specific sc
 
 When the user states how something works, check whether the code agrees. If you find a contradiction, surface it: "Your code cancels entire Orders, but you just said partial cancellation is possible — which is right?"
 
-<straw-dog until="the glossary mechanism installs its rules into /align" ticket="docs/tickets/01-0017.0010-terms-defined-before-they-land.md">
+<straw-dog question="q-0024.0001.0001">
 ### Update glossary.md inline
 
 When a term is resolved, update `docs/glossary.md` right there. Don't batch these up — capture them as they happen. Use the format in [GLOSSARY-FORMAT.md](./GLOSSARY-FORMAT.md).
@@ -122,7 +122,7 @@ When a term is resolved, update `docs/glossary.md` right there. Don't batch thes
 `docs/glossary.md` should be totally devoid of implementation details. Do not treat it as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
 </straw-dog>
 
-<straw-dog until="the practice mechanism installs how architecture is documented" ticket="docs/tickets/01-0017.0020-practice-swaps-in-one-edit.md">
+<straw-dog question="q-0024.0002.0005">
 ### Update architecture.md inline
 
 When high-level architecture of this project changes, update `architecture.md`. Use format in [ARCH-FORMAT.md](./ARCH-FORMAT.md).
@@ -155,7 +155,7 @@ in plain words, each of its terms explained, before the necessity gate or any qu
 later resolution changed.
 </installed>
 
-<straw-dog until="the practice mechanism installs how architecture is documented" ticket="docs/tickets/01-0017.0020-practice-swaps-in-one-edit.md">
+<straw-dog question="q-0024.0002.0005">
 ### Offer ADRs sparingly
 
 Only offer to create an ADR when all three are true:

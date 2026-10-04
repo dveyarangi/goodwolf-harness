@@ -51,7 +51,7 @@ Check the ticket records with `tickets.py --check` — format never content, liv
 diagnostic is a finding; repair it under the repair policy.
 </rule>
 
-<straw-dog until="01-0011.0040 is done" ticket="docs/tickets/01-0011.0040-queue-derived-index.md">
+<straw-dog question="q-0020">
 ## P8 — a closed ticket leaves the queue
 
 - **target** `.agents/skills/maintain/SKILL.md`

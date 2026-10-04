@@ -80,12 +80,12 @@ roles, is an open question of the store.
 | archiving the subtree a closure finishes | `.agents/scripts/gw/questions.py` | |
 | sweeping a wholly closed subtree a closure left behind | `.agents/skills/maintain/SKILL.md` | |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
-| judging a message outside the agent | — | <straw-dog until="the judge slice lands" ticket="docs/tickets/01-0011.0100.0040-the-turn-is-steered-from-the-store.md">not yet</straw-dog> |
-| detecting a shape that hides children | — | <straw-dog until="the branch slice lands" ticket="docs/tickets/01-0011.0100.0050-a-question-branches-before-it-is-answered.md">not yet</straw-dog> |
+| judging a message outside the agent | — | <straw-dog question="q-0001.0016">not yet</straw-dog> |
+| detecting a shape that hides children | — | <straw-dog question="q-0001.0020">not yet</straw-dog> |
 | holding a ticket's open questions under the question it answers | `.agents/skills/ticket/SKILL.md` | |
-| binding each straw dog to the question it waits on | — | <straw-dog until="the straw-dog slice lands" ticket="docs/tickets/01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md">not yet</straw-dog> |
-| carrying the hook wiring into a recipient tree | — | <straw-dog until="the installer carries each host's hook wiring" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
-| removing this mechanism from a tree | — | <straw-dog until="the parts table says what goes and something says how" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
+| saying which straw dogs are due, and carrying their bindings through a rename | `.agents/scripts/gw/questions.py` | |
+| carrying the hook wiring into a recipient tree | — | <straw-dog question="q-0018.0016">not yet</straw-dog> |
+| removing this mechanism from a tree | — | <straw-dog question="q-0018.0013.0002">not yet</straw-dog> |
 
 ## Install adds, uninstall removes
 
@@ -132,12 +132,12 @@ Nothing else; the tree is rendered on request and never committed.
 
 **Six `not yet` rows**, each bound to a ticket that exists.
 
-<straw-dog until="01-0010 says how registrations reach sessions that do not share the directory" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">
+<straw-dog question="q-0018.0015">
 **The sessions file** is one file in the working tree, and that is how sessions see each other;
 sessions that do not share the directory do not see each other.
 </straw-dog>
 
-<straw-dog until="record-bearing parses, so a mechanism's records are declared where a script reads them" ticket="docs/tickets/01-0017.0010-terms-defined-before-they-land.md">
+<straw-dog question="q-0024.0004">
 **The store's paths** are painted doors held by hand in the shape check.
 </straw-dog>
 

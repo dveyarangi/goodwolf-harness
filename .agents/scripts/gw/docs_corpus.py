@@ -19,16 +19,13 @@ from urllib.parse import quote, unquote
 
 _INLINE = re.compile(r'(!?\[[^\]]*\]\(\s*)(<[^>]*>|[^)\s]+)((?:\s+(?:"[^"]*"|\'[^\']*\'|\([^)]*\)))?\s*\))', re.S)
 _DEFINITION = re.compile(r'(^[ ]{0,3}\[[^\]]+\]:[ \t]*)(<[^>]*>|\S+)((?:[ \t]+(?:"[^"]*"|\'[^\']*\'|\([^)]*\)))?[ \t]*$)', re.M)
-_BINDING = re.compile(r'(<straw-dog\b[^<>]*?\bticket\s*=\s*")([^"]*)(")', re.S)
 # A straw dog binds to the question whose answer will rewrite it, by that question's id.
 _QUESTION_BINDING = re.compile(r'(<straw-dog\b[^<>]*?\bquestion\s*=\s*")([^"]*)(")', re.S)
 # In code the binding is the id a `TODO` comment line names first: `# TODO q-0018.0010: …`.
 TODO_QUESTION = re.compile(r"^(\s*#\s*TODO\s+)(q-[\d.]*\d)(?![\w.])")
-# A straw dog's attributes, the author's words: the question it waits on, and — until every one is
-# rebound — the condition and the ticket it was bound by before. One grammar for the lister and
-# the mechanism check, so both read what the rename and the mover rewrite.
-# TODO q-0001.0019: `until` and `ticket` leave once the tree's straw dogs bind to questions.
-ATTRIBUTE = re.compile(r'\b(until|ticket|question)\s*=\s*"([^"]*)"', re.S)
+# A straw dog's attribute, as written: the question it waits on. One grammar for the lister and
+# the mechanism check, so both read what a rename rewrites.
+ATTRIBUTE = re.compile(r'\b(question)\s*=\s*"([^"]*)"', re.S)
 _WRAPPED_WHOLE = re.compile(r"^<straw-dog\b([^<>]*)>(.*)</straw-dog\s*>$", re.S)
 # The installed block's tag, shared with the injector that writes it and the listing that skips it.
 INSTALLED_OPENING = re.compile(r'<installed by="([^"]+)">')
@@ -64,7 +61,6 @@ STRAW_DOG_SCOPE = ("docs", "AGENTS.md", "local.rules.md", ".agents", "README.md"
 # Core's scripts sit under a directory of their own, so an install into a tree that already has
 # scripts beside them writes next to the project's and never over one.
 SCRIPTS = ".agents/scripts/gw/"
-_TODO_BINDING = re.compile(r"^#\s*TODO\b.*docs/tickets/[\w./-]+\.md")
 _CODE_TOKENS = {tokenize.STRING, tokenize.COMMENT} | (
     {tokenize.FSTRING_MIDDLE} if hasattr(tokenize, "FSTRING_MIDDLE") else set()
 )
@@ -169,14 +165,12 @@ def with_citations_retargeted(text: str, retarget) -> str:
 class Wrapper:
     """One straw dog wrapped around a whole span of text — a table cell, typically.
 
-    `question`, `until` and `ticket` are as written, or `None` where the tag omits one; `body` is
-    what the tag wraps, and what survives the install spec's shear.
+    `question` is as written, or `None` where the tag binds none; `body` is what the tag wraps, and
+    what survives the install spec's shear.
     """
 
-    until: str | None
-    ticket: str | None
+    question: str | None
     body: str
-    question: str | None = None
 
 
 def wrapper_of(text: str) -> Wrapper | None:
@@ -188,10 +182,7 @@ def wrapper_of(text: str) -> Wrapper | None:
     found = _WRAPPED_WHOLE.match(text.strip())
     if found is None:
         return None
-    attributes = dict(ATTRIBUTE.findall(found.group(1)))
-    return Wrapper(
-        attributes.get("until"), attributes.get("ticket"), found.group(2).strip(), attributes.get("question")
-    )
+    return Wrapper(dict(ATTRIBUTE.findall(found.group(1))).get("question"), found.group(2).strip())
 
 
 def question_bindings(root: Path) -> list[tuple[str, int, str]]:
@@ -230,18 +221,7 @@ def with_question_bindings_retargeted(name: str, text: str, retarget) -> str:
     """
     if name.endswith(".py"):
         return _todo_bindings_retargeted(text, retarget)
-    return _outside_code(text, lambda prose: _prose_bindings_retargeted(prose, retarget, _QUESTION_BINDING))
-
-
-def with_owner_bindings_retargeted(text: str, retarget) -> str:
-    """Every operative `<straw-dog ticket="…">` binding re-aimed by `retarget`.
-
-    A binding is a root-relative path to the ticket whose work retires the straw dog, so it follows
-    that ticket into `done/` exactly as a link would. `retarget` is given and returns a root-relative
-    name; an illustration of the syntax binds nothing and is left alone.
-    """
-    # TODO q-0001.0019: goes with the last ticket binding; a question's id does not move when it closes.
-    return _outside_code(text, lambda prose: _prose_bindings_retargeted(prose, retarget, _BINDING))
+    return _outside_code(text, lambda prose: _prose_bindings_retargeted(prose, retarget))
 
 
 def _outside_code(text: str, rewrite: Callable[[str], str]) -> str:
@@ -263,7 +243,7 @@ def _outside_code(text: str, rewrite: Callable[[str], str]) -> str:
     return "".join(rewritten)
 
 
-def _prose_bindings_retargeted(text: str, retarget, binding: re.Pattern[str]) -> str:
+def _prose_bindings_retargeted(text: str, retarget) -> str:
     code_spans = [span.span() for span in _CODE_SPAN.finditer(text)]
 
     def rewritten(match: re.Match[str]) -> str:
@@ -272,7 +252,7 @@ def _prose_bindings_retargeted(text: str, retarget, binding: re.Pattern[str]) ->
         final = retarget(match.group(2))
         return match.group(0) if final is None else match.group(1) + final + match.group(3)
 
-    return binding.sub(rewritten, text)
+    return _QUESTION_BINDING.sub(rewritten, text)
 
 
 def _todo_bindings_retargeted(text: str, retarget) -> str:
@@ -406,8 +386,8 @@ def docs_mentioned(root: Path, citing: str, text: str) -> list[Mention]:
 def docs_mentioned_in_code(text: str) -> list[Mention]:
     """Every path under `docs/` a script names in a string or a comment.
 
-    A comment line beginning `TODO` that names its ticket is the code form of a straw dog, and its
-    path is its binding rather than a citation. Raises `UnreadableCode` where the tokenizer fails.
+    A `TODO` binds a question by its id, never a path, so a path in one is a citation like any
+    other. Raises `UnreadableCode` where the tokenizer fails.
     """
     try:
         tokens = list(tokenize.generate_tokens(io.StringIO(text).readline))
@@ -415,8 +395,6 @@ def docs_mentioned_in_code(text: str) -> list[Mention]:
         raise UnreadableCode(str(error)) from error
     found = []
     for token in tokens:
-        if token.type == tokenize.COMMENT and _TODO_BINDING.match(token.string):
-            continue
         if token.type in _CODE_TOKENS:
             for literal in PATH_LITERAL.finditer(token.string):
                 found.append(Mention(token.start[0], literal.group(0).rstrip(_TRAILING_PUNCTUATION), False))

@@ -60,10 +60,10 @@ is not a part: it never ships, and a recipient has its own.
 | populating the local file after the first install | `.agents/skills/harness/SKILL.md` | |
 | pointing a tree at another core, as a fork does | `.agents/skills/harness/SKILL.md` | |
 | knowing an update is available | — | unowned by design — a person asks for one; nothing polls the repository |
-| verifying that a host reads the loader link | — | <straw-dog until="a host's delivery is observed rather than assumed" ticket="docs/tickets/01-0010.0120-host-delivery-surfaces.md">not yet</straw-dog> |
+| verifying that a host reads the loader link | — | <straw-dog question="q-0018.0004.0001">not yet</straw-dog> |
 | writing a fresh tree's delivery status | `.agents/scripts/gw/harness.py` | |
-| removing one mechanism from a tree | — | <straw-dog until="the parts tables say what goes and something says how" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
-| sending a change back to the repository | — | <straw-dog until="contribution back has a shape" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">not yet</straw-dog> |
+| removing one mechanism from a tree | — | <straw-dog question="q-0018.0013.0002">not yet</straw-dog> |
+| sending a change back to the repository | — | <straw-dog question="q-0018.0018">not yet</straw-dog> |
 
 ## Install adds, uninstall removes
 

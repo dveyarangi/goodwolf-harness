@@ -1,4 +1,4 @@
-<straw-dog until="the edge mechanism installs its rules into /align" ticket="docs/tickets/01-0010.0100-remaining-named-corpus.md">
+<straw-dog question="q-0023.0009">
 # Edge record Format
 
 One record per product surface, a living document at `docs/edge/<surface>.md` (e.g. `mcp.md`,

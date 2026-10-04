@@ -69,7 +69,7 @@ One pass over a declared scope. The scope decides which rules apply.
 
 ## Installed from other mechanisms
 
-<straw-dog until="01-0017 is done" ticket="docs/tickets/01-0017-io-graph-coherent.md">
+<straw-dog question="q-0023.0017">
 One rule of `/spec`'s, held here by hand until that mechanism is declared and installs it:
 
 - **P4** Before archiving a spec, confirm its surviving agreements have homes, its obligations

@@ -4,7 +4,7 @@ Entry contract: v24, 2026-10-03.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
-<straw-dog until="01-0020 is done" ticket="docs/tickets/01-0020-pacer.md">
+<straw-dog question="q-0027">
 Run /recall first in every session, whatever the first message says.
 </straw-dog>
 
@@ -28,7 +28,7 @@ nothing about being load-bearing — an implementation method is a shape too. �
 
 - Write for a capable model: state the rule and its pointer. The definition the glossary owns, the example that motivated it, what it implies, and what a script already does for the reader stay out.
 
-<straw-dog until="01-0018 declares the mechanism that owns tiering" ticket="docs/tickets/01-0018-reachability-coherent.md">
+<straw-dog question="q-0025.0002">
 - A skill's description is its tier-1 surface: name there every use case the skill serves, and nothing else — never its method or how it is built. Write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session.
 </straw-dog>
 
@@ -88,7 +88,7 @@ A project's architecture, ADRs and glossary are the home for:
 A decision forms in its owning ticket and lands in one of these when it is ready. A decision about a
 mechanism lands in that mechanism's doc, and what was refuted in its evidence.
 
-<straw-dog until="the practice mechanism owns how architecture is documented" ticket="docs/tickets/01-0017.0020-practice-swaps-in-one-edit.md">
+<straw-dog question="q-0024.0002.0005">
 Bad architectural documentation:
 - Forecasts are stored in MongoDB collection forecast_hourly.
 
@@ -126,7 +126,7 @@ Do not reopen an accepted decision without new evidence.
 
 ## Self-improvement
 
-<straw-dog until="01-0019 is done" ticket="docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md">
+<straw-dog question="q-0026">
 - A rule that was in place and did not fire was usually worded wrong. Register the failure in docs/rule-failures.md, or strike the entry it repeats, and propose the amendment that would have made it fire; /mechanism and /skill-up hold the means. Land the amendment in the same pass, showing its text first.
 - Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.
 </straw-dog>

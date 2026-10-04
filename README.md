@@ -102,14 +102,14 @@ The loop and its rules are in [AGENTS.md](AGENTS.md), every skill under
 **Not yet** — each item wrapped in this page's source as a *straw dog*,
 `<straw-dog until="…" ticket="…">`, naming what retires it:
 
-- <straw-dog until="01-0017.0020 is done" ticket="docs/tickets/01-0017.0020-practice-swaps-in-one-edit.md">It assumes one person steering the agents: several developers on parallel branches would collide on ticket numbers in one shared queue, and a team's own tracker can't yet take the tickets' place.</straw-dog>
-- <straw-dog until="01-0010.0150 is done" ticket="docs/tickets/01-0010.0150-harness-meets-a-tree-with-a-method.md">What a project already had — its moved-aside `CLAUDE.md` or `AGENTS.md`, its skills, its documents — isn't carried into the harness: nothing reads it and sorts your facts into the local file and your skills beside the shipped ones.</straw-dog>
-- <straw-dog until="01-0010.0175 is done" ticket="docs/tickets/01-0010.0175-arrival-describes-what-it-finds.md">The script doesn't draft an architecture and glossary from a project's code and documents on arrival.</straw-dog>
-- <straw-dog until="01-0020 settles switchable ceremony" ticket="docs/tickets/01-0020-pacer.md">There's no declared lighter process for small work, or heavier one for large — the agent and you choose it each time.</straw-dog>
-- <straw-dog until="01-0010.0195 is done" ticket="docs/tickets/01-0010.0195-a-recipient-reads-before-it-takes.md">Updates name the files they changed, not what changed in them or what a project has to do about it.</straw-dog>
-- <straw-dog until="01-0010.0200 is done" ticket="docs/tickets/01-0010.0200-a-project-can-remove-the-harness.md">There is no uninstall.</straw-dog>
-- <straw-dog until="01-0010.0125 is done" ticket="docs/tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md">The host doesn't block an action a rule forbids; the agent is trusted to keep it.</straw-dog>
-- <straw-dog until="a project's improvement reaches core by the harness's own path" ticket="docs/tickets/01-0010-dev-harness-shared-and-local.md">Improvements a project makes to the harness stay in that project.</straw-dog>
+- <straw-dog question="q-0024.0002">It assumes one person steering the agents: several developers on parallel branches would collide on ticket numbers in one shared queue, and a team's own tracker can't yet take the tickets' place.</straw-dog>
+- <straw-dog question="q-0018.0006">What a project already had — its moved-aside `CLAUDE.md` or `AGENTS.md`, its skills, its documents — isn't carried into the harness: nothing reads it and sorts your facts into the local file and your skills beside the shipped ones.</straw-dog>
+- <straw-dog question="q-0018.0011">The script doesn't draft an architecture and glossary from a project's code and documents on arrival.</straw-dog>
+- <straw-dog question="q-0027.0003">There's no declared lighter process for small work, or heavier one for large — the agent and you choose it each time.</straw-dog>
+- <straw-dog question="q-0018.0007.0003">Updates name the files they changed, not what changed in them or what a project has to do about it.</straw-dog>
+- <straw-dog question="q-0018.0013">There is no uninstall.</straw-dog>
+- <straw-dog question="q-0018.0005">The host doesn't block an action a rule forbids; the agent is trusted to keep it.</straw-dog>
+- <straw-dog question="q-0018.0018">Improvements a project makes to the harness stay in that project.</straw-dog>
 
 ## Use it
 
@@ -125,7 +125,7 @@ checks and its switches. What it runs is one script,
 says why. Claude Code and Cursor reach the skills through directory links; where Windows refuses
 to create one without an elevated prompt, the install finishes everything else and prints the
 commands to run there, once. The links belong to each clone and are never committed;
-<straw-dog until="01-0010.0172 is done" ticket="docs/tickets/01-0010.0172-a-first-install-says-what-stopped-it.md">a teammate's fresh clone gets them by running the harness's update.</straw-dog>
+<straw-dog question="q-0018.0010">a teammate's fresh clone gets them by running the harness's update.</straw-dog>
 Updating to a later version and checking the installed copy are in
 the same skill. Python 3.12 or later, standard library only. [MIT licensed](LICENSE).
 

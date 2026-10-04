@@ -3,7 +3,7 @@ name: improve-comments
 description: Use when writing or reviewing comments and docstrings in code.
 ---
 
-<straw-dog until="01-0017 declares the improve-comments mechanism" ticket="docs/tickets/01-0017-io-graph-coherent.md">Mechanism: not yet</straw-dog>
+<straw-dog question="q-0023.0012">Mechanism: not yet</straw-dog>
 
 
 # Comment Guide for LLM-Generated Code
