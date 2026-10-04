@@ -77,7 +77,7 @@ moves to `docs/rfc/done/` with the ticket.
 ## P7 — a resolved decision leaves the ticket for its durable home
 
 - **target** `.agents/skills/align/SKILL.md`
-- **authority** the user, 2026-09-08; against the store, 2026-10-03 — 01-0011.0100 decision 50; the owner first, 2026-10-04
+- **authority** the user, 2026-09-08; against the store, 2026-10-03; the owner first, 2026-10-04
 
 <rule>
 Land a resolved decision in its durable home with its provenance, and rewrite the ticket in
@@ -99,7 +99,7 @@ in plain words, each of its terms explained, before the necessity gate or any qu
 ## P11 — the ticket is swept for consistency when the align ends
 
 - **target** `.agents/skills/align/SKILL.md`
-- **authority** `/align`'s own text, moved here by 01-0011.0100 decision 15 at 01-0011.0100.0010's plan, 2026-09-29
+- **authority** `/align`'s own text, moved here 2026-09-29
 
 <rule>
 Sweep the ticket for internal consistency at the end: an early section may still assert what a

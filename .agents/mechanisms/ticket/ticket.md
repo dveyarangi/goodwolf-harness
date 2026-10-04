@@ -46,7 +46,7 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | P8 — a closed ticket leaves the queue | the user, 2026-09-09 |
 | P9 — a ticket is named by a link, or by a slug and its state | the user, 2026-09-21; the slug in the link text, 2026-09-26 |
 | P10 — an align on a ticket opens with what the ticket is | the user, 2026-09-27 |
-| P11 — the ticket is swept for consistency when the align ends | `/align`'s own text, moved here 2026-09-29 by 01-0011.0100 decision 15 |
+| P11 — the ticket is swept for consistency when the align ends | `/align`'s own text, moved here 2026-09-29 |
 | the record's shape — one header form, `Type` required, `Kind` gone, `Outcome` one sentence, the stage read from the plan, the sections a stage admits | the user, 2026-09-08 |
 | the status vocabulary, numbering and one basename per work item | with the selected skills, 2026-09-06 |
 | check-only, and nothing retires this | the user, 2026-09-08 |

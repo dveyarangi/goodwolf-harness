@@ -13,7 +13,7 @@ install it with overwrite; the block in a target is never the place.
 ## Q1 — every message is placed before it is answered
 
 - **target** `AGENTS.md`
-- **authority** the user, 2026-09-28 to 2026-10-03 — 01-0011.0100 decisions 25, 32, 39, 44, 45, 46, 47 and 56
+- **authority** the user, 2026-09-28 to 2026-10-03
 
 <rule>
 Before drafting a reply, place the message in the question store: read this turn's window — the
@@ -38,7 +38,7 @@ other call, a closure, a branching or a drop, read the questions skill.
 ## Q2 — the wake opens at where the work stands
 
 - **target** `.agents/skills/recall/SKILL.md`
-- **authority** the user, 2026-09-29 to 2026-10-03 — 01-0011.0100 decisions 38, 39, 44 and 56
+- **authority** the user, 2026-09-29 to 2026-10-04
 
 <rule>
 Start from the wake's read — the one the host's session-start hook put in your context, or
@@ -50,7 +50,7 @@ estimate it, and place it with `at`. Re-rank nothing another running session is 
 ## Q3 — the conclude writes the leans and ends the session
 
 - **target** `.agents/skills/conclude/SKILL.md`
-- **authority** the user, 2026-09-29 and 2026-10-03 — 01-0011.0100 decisions 38 and 56
+- **authority** the user, 2026-09-29 and 2026-10-03
 
 <rule>
 Write a lean line on each question the session touched and left open —
@@ -61,7 +61,7 @@ happened. As the conclude's last act, run `questions.py --end --session <tag>`.
 ## Q4 — the store is checked, and finished subtrees archived
 
 - **target** `.agents/skills/maintain/SKILL.md`
-- **authority** the user, 2026-09-29 — 01-0011.0100.0010 RFC item 4, for M1's duty
+- **authority** the user, 2026-09-29, for M1's duty
 
 <rule>
 Check the question store with `questions.py --check`. A diagnostic is a finding; repair it under

@@ -59,15 +59,16 @@ repair-and-report, recording the cause in the evidence.
 | rule | decided by |
 |---|---|
 | A1, A2, A4 | the user, 2026-09-07 |
-| B4, F4, the marks' format | the user, 2026-09-27, at 01-0011.0060's align and plan |
+| B4, F4, the marks' format | the user, 2026-09-27 |
 | B1, D4 | the user, 2026-09-06 |
 | C1 | the user, 2026-09-06 — eligibility is the maintainer's, never the script's |
 | A3, B2, D3 | drafted into the process document 2026-09-05, never separately decided |
 | B3 | a maintenance pass, 2026-09-07, from `TICKET-FORMAT` stating the duty unconditionally |
-| C2, C3 | the install RFC of 2026-09-06 |
+| C2 | the user, 2026-10-04 — whether a straw dog is due is the store's to say |
+| C3 | the install RFC of 2026-09-06 |
 | E1–E3 | `/denoise` as selected, 2026-09-05 |
 | the mechanism shape's block, R1–R4 | the user, 2026-09-07, in the shape's rules file; installed here |
-| the ticket mechanism's block, P1, P2, P3, P5 | in the ticket mechanism's rules file, where each rule carries its own authority; installed here from `01-0011.0025` |
+| the ticket mechanism's block, P1, P2, P3, P5 | in the ticket mechanism's rules file, where each rule carries its own authority; installed here |
 | P4 | drafted into the process document 2026-09-05 as a spec rule; held here by hand for `/spec`, undeclared |
 
 ## Moments
@@ -118,6 +119,7 @@ repair-and-report, recording the cause in the evidence.
 | the mover's tests | `.agents/scripts/gw/test/test_command_line.py` | `ticket` |
 | the mover's tests | `.agents/scripts/gw/test/test_failure_contract.py` | `ticket` |
 | the ticket maintainer | `.agents/scripts/gw/tickets.py` | `ticket` |
+| whether a straw dog is due, read by the listing | `.agents/scripts/gw/questions.py` | `questions` |
 | citation reader | `.agents/scripts/gw/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |
 | test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |
 | the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |
