@@ -20,9 +20,15 @@ from urllib.parse import quote, unquote
 _INLINE = re.compile(r'(!?\[[^\]]*\]\(\s*)(<[^>]*>|[^)\s]+)((?:\s+(?:"[^"]*"|\'[^\']*\'|\([^)]*\)))?\s*\))', re.S)
 _DEFINITION = re.compile(r'(^[ ]{0,3}\[[^\]]+\]:[ \t]*)(<[^>]*>|\S+)((?:[ \t]+(?:"[^"]*"|\'[^\']*\'|\([^)]*\)))?[ \t]*$)', re.M)
 _BINDING = re.compile(r'(<straw-dog\b[^<>]*?\bticket\s*=\s*")([^"]*)(")', re.S)
-# A straw dog's two attributes, the author's words: the condition that ends it and the ticket whose
-# work does. One grammar for the lister and the mechanism check, so both read what the mover rewrites.
-ATTRIBUTE = re.compile(r'\b(until|ticket)\s*=\s*"([^"]*)"', re.S)
+# A straw dog binds to the question whose answer will rewrite it, by that question's id.
+_QUESTION_BINDING = re.compile(r'(<straw-dog\b[^<>]*?\bquestion\s*=\s*")([^"]*)(")', re.S)
+# In code the binding is the id a `TODO` comment line names first: `# TODO q-0018.0010: …`.
+TODO_QUESTION = re.compile(r"^(\s*#\s*TODO\s+)(q-[\d.]*\d)(?![\w.])")
+# A straw dog's attributes, the author's words: the question it waits on, and — until every one is
+# rebound — the condition and the ticket it was bound by before. One grammar for the lister and
+# the mechanism check, so both read what the rename and the mover rewrite.
+# TODO q-0001.0019: `until` and `ticket` leave once the tree's straw dogs bind to questions.
+ATTRIBUTE = re.compile(r'\b(until|ticket|question)\s*=\s*"([^"]*)"', re.S)
 _WRAPPED_WHOLE = re.compile(r"^<straw-dog\b([^<>]*)>(.*)</straw-dog\s*>$", re.S)
 # The installed block's tag, shared with the injector that writes it and the listing that skips it.
 INSTALLED_OPENING = re.compile(r'<installed by="([^"]+)">')
@@ -52,6 +58,9 @@ _WRAPPER_OPENING = re.compile(r"<straw-dog\b[^<>]*>")
 # the one mark that tells the two trees apart — no record file, the line is the revision.
 ANNOUNCE = re.compile(r"^Entry contract: (?P<revision>[^,\r\n]+), (?P<date>\d{4}-\d{2}-\d{2})\.[ \t]*\r?$", re.M)
 ENTRY_FILE = "AGENTS.md"
+# Where a tree's straw dogs stand: what `/maintain` lists, what the wake reads for the due ones,
+# and where a rename carries their bindings.
+STRAW_DOG_SCOPE = ("docs", "AGENTS.md", "local.rules.md", ".agents", "README.md")
 # Core's scripts sit under a directory of their own, so an install into a tree that already has
 # scripts beside them writes next to the project's and never over one.
 SCRIPTS = ".agents/scripts/gw/"
@@ -160,13 +169,14 @@ def with_citations_retargeted(text: str, retarget) -> str:
 class Wrapper:
     """One straw dog wrapped around a whole span of text — a table cell, typically.
 
-    `until` and `ticket` are as written, or `None` where the tag omits one; `body` is what the tag
-    wraps, and what survives the install spec's shear.
+    `question`, `until` and `ticket` are as written, or `None` where the tag omits one; `body` is
+    what the tag wraps, and what survives the install spec's shear.
     """
 
     until: str | None
     ticket: str | None
     body: str
+    question: str | None = None
 
 
 def wrapper_of(text: str) -> Wrapper | None:
@@ -179,7 +189,48 @@ def wrapper_of(text: str) -> Wrapper | None:
     if found is None:
         return None
     attributes = dict(ATTRIBUTE.findall(found.group(1)))
-    return Wrapper(attributes.get("until"), attributes.get("ticket"), found.group(2).strip())
+    return Wrapper(
+        attributes.get("until"), attributes.get("ticket"), found.group(2).strip(), attributes.get("question")
+    )
+
+
+def question_bindings(root: Path) -> list[tuple[str, int, str]]:
+    """Every operative binding to a question where a tree's straw dogs stand, as `(record, line,
+    id)` in record order. A path of the scope the tree lacks is no straw dog's, never an error."""
+    found: list[tuple[str, int, str]] = []
+    for name in corpus(root):
+        if not in_straw_dog_scope(name):
+            continue
+        text = (root / name).read_bytes().decode("utf-8", errors="replace")
+        if name.endswith(".py"):
+            found += [
+                (name, number, named.group(2))
+                for number, line in enumerate(text.splitlines(), start=1)
+                if (named := TODO_QUESTION.match(line))
+            ]
+        else:
+            found += [(name, _line_at(text, bound.start()), bound.group(2)) for bound in _QUESTION_BINDING.finditer(without_code(text))]
+    return found
+
+
+def in_straw_dog_scope(name: str) -> bool:
+    """Whether a record is a document or a script where straw dogs stand."""
+    return name.endswith((".md", ".py")) and any(
+        name == prefix or name.startswith(f"{prefix}/") for prefix in STRAW_DOG_SCOPE
+    )
+
+
+def with_question_bindings_retargeted(name: str, text: str, retarget) -> str:
+    """Every operative binding to a question in the record `name` re-aimed by `retarget`, which is
+    given an id and returns the id it now has, or `None` to leave it.
+
+    A document's binding is its `<straw-dog question="…">`; a script's is the id its `TODO` lines
+    name first. An illustration of the syntax — in a fence or a code span — binds nothing and is left
+    alone, so an id in an example keeps its value.
+    """
+    if name.endswith(".py"):
+        return _todo_bindings_retargeted(text, retarget)
+    return _outside_code(text, lambda prose: _prose_bindings_retargeted(prose, retarget, _QUESTION_BINDING))
 
 
 def with_owner_bindings_retargeted(text: str, retarget) -> str:
@@ -189,7 +240,8 @@ def with_owner_bindings_retargeted(text: str, retarget) -> str:
     that ticket into `done/` exactly as a link would. `retarget` is given and returns a root-relative
     name; an illustration of the syntax binds nothing and is left alone.
     """
-    return _outside_code(text, lambda prose: _prose_bindings_retargeted(prose, retarget))
+    # TODO q-0001.0019: goes with the last ticket binding; a question's id does not move when it closes.
+    return _outside_code(text, lambda prose: _prose_bindings_retargeted(prose, retarget, _BINDING))
 
 
 def _outside_code(text: str, rewrite: Callable[[str], str]) -> str:
@@ -211,7 +263,7 @@ def _outside_code(text: str, rewrite: Callable[[str], str]) -> str:
     return "".join(rewritten)
 
 
-def _prose_bindings_retargeted(text: str, retarget) -> str:
+def _prose_bindings_retargeted(text: str, retarget, binding: re.Pattern[str]) -> str:
     code_spans = [span.span() for span in _CODE_SPAN.finditer(text)]
 
     def rewritten(match: re.Match[str]) -> str:
@@ -220,7 +272,17 @@ def _prose_bindings_retargeted(text: str, retarget) -> str:
         final = retarget(match.group(2))
         return match.group(0) if final is None else match.group(1) + final + match.group(3)
 
-    return _BINDING.sub(rewritten, text)
+    return binding.sub(rewritten, text)
+
+
+def _todo_bindings_retargeted(text: str, retarget) -> str:
+    lines = text.splitlines(keepends=True)
+    for at, line in enumerate(lines):
+        named = TODO_QUESTION.match(line)
+        final = retarget(named.group(2)) if named else None
+        if final is not None:
+            lines[at] = named.group(1) + final + line[named.end(2) :]
+    return "".join(lines)
 
 
 def citations(text: str) -> list[str]:

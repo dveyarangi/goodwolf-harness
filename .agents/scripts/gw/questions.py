@@ -41,7 +41,15 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import move_doc  # noqa: E402  (path set above)
-from docs_corpus import cited_record, citations, corpus, target_of  # noqa: E402  (path set above)
+from docs_corpus import (  # noqa: E402  (path set above)
+    cited_record,
+    citations,
+    corpus,
+    in_straw_dog_scope,
+    question_bindings,
+    target_of,
+    with_question_bindings_retargeted,
+)
 
 STORE = "docs/questions"
 SESSIONS = "docs/questions/sessions"
@@ -932,6 +940,47 @@ def read_store(root: Path, seen: dict[str, bytes] | None = None) -> Store:
     return Store(index, children, roots, sessions)
 
 
+def due(root: Path, read: Entry) -> bool:
+    """Whether a straw dog bound to this question is due: its text waited on an answer that has
+    now landed, or on a question that no longer stands (the user, 2026-10-03 and 2026-10-04).
+
+    A decided answer has landed when none of its links still cites the record of the work that owns
+    the question — while one does, the decision sits in that work and has not reached its home.
+    With no owner, every cited answer is already elsewhere, which is why a question closed against a
+    decision that has not landed is assigned first. A merge or a supersession is never due: the
+    binding follows the successor. A deferral, an open question and a suspect one are never due.
+    """
+    if read.suspect:
+        return False
+    if read.kind in ("moot", "pruned"):
+        return True
+    answer = read.parts.get("answer")
+    if read.kind != "decided" or answer is None:
+        return False
+    homes = {_cited_file(root, read.record, link) for link in citations(answer.value)} - {None}
+    owner = read.parts.get("owner")
+    owned = [_cited_file(root, read.record, link) for link in citations(owner.value)] if owner else []
+    return bool(homes) and not (homes & set(owned))
+
+
+def successor(index: dict[str, Entry], read: Entry) -> Entry | None:
+    """The question that finally stands where a merged or superseded one stood, following a chain
+    of them to its end; `None` for a question that stands itself, or a chain that breaks or loops."""
+    seen = [read]
+    at = read
+    while at.points_to:
+        at = index.get(at.points_to)
+        if at is None or at in seen:
+            return None
+        seen.append(at)
+    return at if at is not read else None
+
+
+def _cited_file(root: Path, citing: str, written: str) -> str | None:
+    """The record a link cites, without its anchor; `None` for a link outside the repository."""
+    return cited_record(root, citing, target_of(written))
+
+
 def window(root: Path, tag: str, full: bool = False) -> str:
     """What the agent reads before placing a message: the session's position and what is near it.
 
@@ -1010,9 +1059,19 @@ def _wake_read(root: Path, held: Session, header: str) -> str:
             "deferred, to re-check whether each condition is met:",
             [f"  {_line(read)} — {read.parts['answer'].value}" for read in deferred],
         )
+        + _section("straw dogs due, their text to re-read:", _straw_dogs_due(root, store))
         + _section("suspect, to re-read:", [f"  {_line(read)}" for read in live if read.suspect])
         + [window(root, held.tag, full=True)]
     )
+
+
+def _straw_dogs_due(root: Path, store: Store) -> list[str]:
+    """One line per straw dog whose question is due, where it stands and the question it waited on."""
+    return [
+        f"  {name}:{line} → {_line(read)}"
+        for name, line, identity in question_bindings(root)
+        if (read := store.index.get(identity)) is not None and due(root, read)
+    ]
 
 
 def _most_struck(live: list[Entry]) -> list[Entry]:
@@ -1578,21 +1637,36 @@ def _carry_renames(
 
 
 def _rewrite_ids(root: Path, renames: dict[str, str]) -> None:
-    """Every renamed id written outside a link, in the records under `docs/` and the sessions file.
+    """Every renamed id written outside a link, in the records under `docs/` and the sessions file,
+    and every straw dog's binding to one, wherever the straw dogs stand.
 
-    An id is matched whole, so a longer one that starts the same way is never touched. A code span
-    is rewritten, since an id there names this store's question; a fenced block is not — it holds
-    samples, whose ids are examples, never references (the user, 2026-10-03). `.agents/` and the
-    entry file are left alone — core names no record of this tree. Each file is read and replaced
-    in one rename; a person editing it at that moment can still lose the race, as with the mover.
+    An id is matched whole, so a longer one that starts the same way is never touched. Under
+    `docs/` a code span is rewritten, since an id there names this store's question; a fenced block
+    is not — it holds samples, whose ids are examples, never references (the user, 2026-10-03).
+    Elsewhere only a binding moves: core names a record of this tree in a straw dog's binding and
+    nowhere else, so an id in its prose is an example. Each file is read and replaced in one
+    rename; a person editing it at that moment can still lose the race, as with the mover.
     """
-    names = [name for name in corpus(root) if name.startswith("docs/") and name.endswith(".md")]
-    for name in names + ([SESSIONS] if (root / SESSIONS).is_file() else []):
+    for name in _records_naming_ids(root):
         path = root / name
         text = path.read_bytes().decode("utf-8")
-        rewritten = _outside_fences(text, lambda line: _BARE_ID.sub(lambda found: renames.get(found.group(0), found.group(0)), line))
+        if name.startswith("docs/") or name == SESSIONS:
+            rewritten = _outside_fences(text, lambda line: _BARE_ID.sub(lambda found: renames.get(found.group(0), found.group(0)), line))
+        else:
+            rewritten = with_question_bindings_retargeted(name, text, renames.get)
         if rewritten != text:
             _replace(path, rewritten)
+
+
+def _records_naming_ids(root: Path) -> list[str]:
+    """The records a rename reads: the documents under `docs/`, the sessions file, and the
+    documents and scripts where straw dogs stand outside `docs/`."""
+    names = [
+        name
+        for name in corpus(root)
+        if (name.startswith("docs/") and name.endswith(".md")) or (in_straw_dog_scope(name) and not name.startswith("docs/"))
+    ]
+    return names + ([SESSIONS] if (root / SESSIONS).is_file() else [])
 
 
 def _outside_fences(text: str, change: Callable[[str], str]) -> str:
