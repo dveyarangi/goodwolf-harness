@@ -31,7 +31,9 @@ the message and the parent that would have was missing.
 
 **Amendment proposed:** Q1 reworded to placement by containment and four kinds of turn, each with
 its row — the decisions of [01-0011.0100.0040 the-turn-is-steered-from-the-store](tickets/01-0011.0100.0040-the-turn-is-steered-from-the-store.md)'s
-align, which lands it.
+align. **Landed 2026-10-05**, the entry contract at v26, with the hook's unchanged line naming
+the choice and filling in no id. Graded by the sessions that follow: every reply's row is what
+the turn stood on, read by the user.
 
 ## 17. A reply named what it asked about by bare ids — 2026-10-03
 
@@ -81,7 +83,8 @@ cause.
 since your last one; place this message: `questions.py at q-N --session <tag>`*, with the
 session's current id and tag filled in, about a dozen tokens a turn. **Landed 2026-10-03** on the
 user's word, in `questions.py`'s window, tested where the hook draws it. Graded by the next long
-session under the hook: an `at` call shown at the head of every reply, or this entry is struck.
+session under the hook: an `at` call shown at the head of every reply, or this entry is struck —
+since entry 18, a row at the head of every reply, a process turn making no call.
 
 ## 15. A record's format was placed in a mechanism's doc — 2026-09-27
 

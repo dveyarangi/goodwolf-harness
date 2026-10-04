@@ -39,9 +39,9 @@ after a call says what it takes.
 
 `open` leaves the session where it stands: to stand on the new question, call `at` on the id it
 printed. A refused call writes nothing and says why; fix it and call again in the same turn. Under
-`debug=on` the reply opens, after the announce line when there is one, with Q1's table — the
-questions the turn stood on as `at` and `close` printed them, a move mid-turn included — never
-the call itself.
+`debug=on` the reply opens, after the announce line when there is one, with Q1's table — a row
+for each question the turn stood on, opened or closed, as the calls printed them, a move mid-turn
+included; a row for a process; a row for an uncharted ask — never the call itself.
 
 Free text goes in single quotes, which neither bash nor PowerShell expands; a text holding an
 apostrophe goes in double quotes, with no backtick or `$` inside.
@@ -63,11 +63,21 @@ load-bearing.
 for?* — or open that question when none is held. Open *how to build X?* under it once X is
 accepted; the ticket's plan answers it. A trivial request is settled by doing it.
 
-**Where to open it.** A message that answers nothing near the current question opens what that
-question cannot be answered without deciding, or what the method's plan expects here. When
-answering it narrows the current question and answering the current one contributes to it, open it
-`--between` the current question's parent and the current question; when only the first holds,
-open it beside, under the same parent, and `depend <current> --on <new>`.
+**Where to open it.** Under the lowest question that contains it, whatever the session stands
+on. One that bears on the current question — what that question cannot be answered without
+deciding, or what the method's plan expects here — is opened `--between` the current question's
+parent and the current question when answering it narrows the current one and answering the
+current one contributes to it; when only the first holds, beside it, under the same parent, with
+`depend <current> --on <new>`.
+
+**A missing parent.** When only a far question contains the message and several of its children
+resemble it, the question they jointly serve is missing. `open` it under the far one, `move` each
+child it contains under it, call `at` on it, and say in the reply which moved. Whether the
+grouping is right and worth its renames is yours to judge; one you cannot settle is uncharted.
+
+**Uncharted.** The reply does the work asked and puts the question's home to the user: the
+question in your words, and the homes you weighed. The row repeats in every reply until the user
+answers; then open it where they said.
 
 ## Closing
 

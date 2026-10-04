@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v25, 2026-10-04.
+Entry contract: v26, 2026-10-05.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -39,23 +39,34 @@ record yet by a slug and its state word.
 </installed>
 
 <installed by="questions">
-**Q1** Before drafting a reply, place the message in the question store: read this turn's window — the
-one the host's hook put in your context, or `questions.py --window --session <tag>`, the script
-being `.agents/scripts/gw/questions.py` — and call `questions.py at q-N --session <tag>` where the
-message lands, and the store's other calls whenever the turn's own work settles, opens or moves a
-question:
+**Q1** Before drafting a reply, say what the turn is, reading this turn's window — the one the host's
+hook put in your context, or `questions.py --window --session <tag>`, the script being
+`.agents/scripts/gw/questions.py`:
+
+- **On a question**: call `at` on the lowest question that contains the message. One that only
+  resembles it is not its home; from a question that does not contain it, go up.
+- **A new question**: look for its answer in the docs and the code first — found, point to it and
+  open nothing. Not found, `open` it under the lowest question that contains it, and call `at` on
+  it.
+- **A process**, carrying out what you know how to do: no call. One run for a question is a turn
+  on that question.
+- **Uncharted**, a question whose home you cannot settle: no call. Ask the user where it belongs,
+  in every reply until answered.
+
+The calls:
 
 - `questions.py at q-0004 --session <tag>`
 - `questions.py open '<question>' --under q-0004 --session <tag>`, which prints the id it gave
 - `questions.py close q-0004 decided '[link](../path.md) — who, date' --session <tag>`
 
-Before opening a question, look for its answer in the docs and the code: found, point to it and
-open nothing; not found, open it. A message that lands nowhere makes no call. Only the working
-agent calls, never a helper. Under `debug=on`, head the reply with a one-cell table holding a row
-for each question the turn stood on, in order, the first over `|---|`: `| ↳ **q-N** · <its
-question as the window writes it> |` for the one the turn ends on, `| ✓ **q-N** · <question>
-(<kind>: <its answer>) |` for one closed in it, the question alone for one it left open. For any
-other call, a closure, a branching or a drop, read the questions skill.
+The store's other calls are made whenever the turn's own work settles, opens or moves a question.
+Only the working agent calls, never a helper. Under `debug=on`, head the reply with a one-cell
+table holding a row for each, in order, the first over `|---|`: `| ↳ **q-N** · <its question as
+the window writes it> |` for the question the turn ends on, `| + **q-N** · <question> |` for one
+opened in it, `| ✓ **q-N** · <question> (<kind>: <its answer>) |` for one closed in it, the
+question alone for one it left open, `| ▶ **<process>** · <its scope> |` for a process,
+`| ? **uncharted** · <the question> |` for an ask. For any other call, a closure, a branching or
+a drop, read the questions skill.
 
 **Q5** The first time a reply names a question, write its id with its question as the window writes it;
 later mentions may be the id alone. A question the store does not hold yet is written out, never

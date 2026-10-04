@@ -15,6 +15,16 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v26 — 2026-10-05
+
+**A turn says what it is** — Q1 reworded: a turn is on a question, opens one, is a process, or is
+uncharted. A message is placed on the lowest question that contains it, never on one that only
+resembles it; a process makes no call; an uncharted question is put to the user until its home is
+settled. The table gains `+` for a question opened in the turn, `▶` for a process and `?` for an
+ask. *A message that lands nowhere makes no call* is gone: it had no word for what the reply then
+shows. Occasion: [01-0011.0100.0040 the-turn-is-steered-from-the-store](../tickets/01-0011.0100.0040-the-turn-is-steered-from-the-store.md),
+decisions 1 to 8, and [rule failure 18](../rule-failures.md).
+
 ## v25 — 2026-10-04
 
 **A straw dog is bound to the question it waits on** — the `<straw-dog>` convention binds by

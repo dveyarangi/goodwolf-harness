@@ -18,7 +18,10 @@ core's substrate, beneath whatever method a tree runs.
 
 **The turn.** Before drafting, the agent reads the window — the path from the root to its session's
 current question, the children along it, the root's other open questions, the other roots, the
-other sessions — and calls the script with where the message lands, one call per event, each
+other sessions — and says what the turn is: on a question, placed on the lowest one that contains
+the message and never on one that only resembles it; a process, the agent carrying out what it
+knows how to do, which is placed nowhere; or uncharted, a question whose home the person settles.
+What it places it writes by calling the script, one call per event, each
 validated and written whole; the script gives a new question its id, nested under its parent's,
 and a re-parent renames the subtree that moves, so an id always says where its question sits. The
 window prints position,
@@ -80,7 +83,7 @@ roles, is an open question of the store.
 | archiving the subtree a closure finishes | `.agents/scripts/gw/questions.py` | |
 | sweeping a wholly closed subtree a closure left behind | `.agents/skills/maintain/SKILL.md` | |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
-| judging a message outside the agent | — | <straw-dog question="q-0001.0016">not yet</straw-dog> |
+| judging a message outside the agent | — | <straw-dog question="q-0001.0016.0001">not yet</straw-dog> |
 | detecting a shape that hides children | — | <straw-dog question="q-0001.0020">not yet</straw-dog> |
 | holding a ticket's open questions under the question it answers | `.agents/skills/ticket/SKILL.md` | |
 | saying which straw dogs are due, and carrying their bindings through a rename | `.agents/scripts/gw/questions.py` | |
