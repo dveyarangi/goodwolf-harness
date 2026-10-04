@@ -63,6 +63,16 @@ The first install from the pushed repository into an empty tree took six minutes
 
 After the four: five seconds, 65 files, three gates.
 
+## Refuted at a recipient's update, 2026-10-04
+
+- **Removing a link before making its replacement.** An update run by Codex in xuanxue-workshop
+  judged both loader links wrong, removed them, and was refused the privilege to make new ones;
+  the tree was left with none. The user: the links were correct. Why they were judged wrong was
+  not found — the report said `pending` and nothing of what stood there before. A repoint now
+  makes the new link first and swaps on success, a link whose own text names the skills directory
+  is kept even when the process cannot see through it, and the report carries where a repointed
+  link pointed. The swap itself is untested where the platform makes no symlink.
+
 ## The prior corpus
 
 One copy of core existed outside this repository before the mechanism did: frost_map, installed
