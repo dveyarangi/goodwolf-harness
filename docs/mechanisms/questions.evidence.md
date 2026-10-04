@@ -71,3 +71,23 @@ parts; a stamp the check would refuse is left for the check, never overwritten b
 stamp ahead of the clock does not strike; the count shows as `(struck n)` after the question;
 the wake lists five most-struck open questions at most, ahead of everything else. A raced strike
 is refused like any changed entry, and only a taken id is drawn again.
+
+## The placement replay — 2026-10-05
+
+The seven messages of the session that opened `.0040`'s align, read against Q1 as reworded and
+nothing else. As placed then: one of seven showed what the turn stood on.
+
+| message | as shown then | under the reworded rule |
+|---|---|---|
+| a greeting | the next ticket's question, estimated | `▶ /recall`; the wake stores a position and does not show it |
+| end the stale sessions, fix the drift, maintain the tree | the same question, no call made | `▶ /maintain · the whole tree`, and `+` for each of the two questions the pass opened |
+| an update removed loader links it could not replace | *what a first install says when something stops it* | no child of the sharing root contains it; `+` a question for the harness's lifecycle, opened under that root |
+| the links were correct | carried | `↳` the same |
+| the host was Codex, its report pasted | carried | `↳` the same |
+| commit the fix | carried | `↳` the same: a process run for a question |
+| push, and move on | the next ticket's question | `↳` that question |
+
+None lands on a sibling that resembles it, none against a stale position, none uncharted. Not
+replayed: whether the agent would have gathered the root's install, update, removal and upkeep
+children under the new question — eleven of its nineteen — which is a judgement only a live turn
+shows.
