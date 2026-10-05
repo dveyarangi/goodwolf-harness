@@ -1,0 +1,6 @@
+# q-0029 How is produced work gone over again: over what scope, by what criteria, by whom, and to what result?
+
+- **state** open
+- **owner** [01-0030](../tickets/01-0030-a-second-look-is-a-pass.md)
+- **lean** the user, 2026-10-05: the wording is outdated; the umbrella is how produced work is gone over again. Judging is a method, not an instance — a second pass on the same object under mostly different rules and data; the one thing is the raw machinery, a pass: select a scope, slice it, drop irrelevant slices cheaply, apply the criteria to a slice and transform it if needed, iterate — parametrized by each; it may write elsewhere, a revision document included. How scope is selected depends on the pass — maintenance over any kind of record, skills included; a style pass over named outputs; verify over code and docs — and may itself take judgement, a different one from applying. A large scope makes iteration rich: slicing, and a cheap filter such as Jev before the costly model. What a specific set of these is called is open. An outside pass, docs/research/discover-second-pass-2026-10-05.md, found no accepted umbrella term. Invariants are one kind of criterion; a few are checked by scripts
+- **struck** 0, last 2026-10-05T10:05Z
