@@ -59,6 +59,16 @@ such message was shown as a process the agent named *banter*, which no rule name
 no call, and a reply that writes nothing and settles nothing, so that no load-bearing work falls
 into it; a doubt makes the turn another kind. Graded as before.
 
+**Struck, 2026-10-05 — another fresh session the same day.** Asked whether the harness's update
+in a recipient was fixed, the agent rejected four children of q-0018 that resembled the message,
+went up to q-0018 and placed the turn there; the answer was in the docs, so it opened nothing.
+v27's *only as loosely as it contains everything under it* is a judgement with nothing to count,
+and the count — two or more children that resemble — sat in the skill, which was not opened;
+*found, point to it and open nothing* read as the end of placing. **Amendment landed the same
+day**, the entry contract at v30 *(the user)*: going up past two or more questions that resemble
+the message, their parent is not its home; and a found answer opens nothing for the message, a
+missing parent still opened. Graded as before.
+
 ## 17. A reply named what it asked about by bare ids — 2026-10-03
 
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s P9, *the first time a record or a

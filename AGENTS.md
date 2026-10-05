@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v29, 2026-10-05.
+Entry contract: v30, 2026-10-05.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -44,14 +44,16 @@ hook put in your context, or `questions.py --window --session <tag>`, the script
 `.agents/scripts/gw/questions.py`:
 
 - **On a question**: call `at` on the lowest question that contains the message. One that only
-  resembles it is not its home; from a question that does not contain it, go up. Going up, a
-  question that contains the message only as loosely as it contains everything under it is not
-  its home either: the parent is missing — read the questions skill and open it, or the turn is
-  uncharted.
+  resembles it is not its home; from a question that does not contain it, go up. Going up past
+  two or more questions that resemble the message, their parent is not its home either: the
+  question they jointly serve is missing — read the questions skill and open it, or the turn is
+  uncharted. So is a question that contains the message only as loosely as it contains everything
+  under it.
 - **A new question**: the question the message is one case of, worded as the store would hold it.
-  Look for its answer in the docs and the code first — found, point to it and open nothing; the
-  turn is on the question that contains it. Not found, or what the answer leaves unsettled, `open`
-  it under the lowest question that contains it, and call `at` on it.
+  Look for its answer in the docs and the code first — found, point to it and open nothing for
+  it; the turn is on the question that contains it, placed as above — a missing parent is still
+  opened. Not found, or what the answer leaves unsettled, `open` it under the lowest question
+  that contains it, and call `at` on it.
 - **A process**, carrying out what you know how to do: no call. One run for a question is a turn
   on that question.
 - **Uncharted**, a question whose home you cannot settle: no call. Ask the user where it belongs,
@@ -98,6 +100,7 @@ ticket anywhere — in a link or as a bare id in prose — since a recipient can
 
 ## Document load-bearing, code&comment the rest
 
+<straw-dog question="q-0024.0002.0005">
 A project's architecture, ADRs and glossary are the home for:
 - Constitution — identity semantics, consistency model, source-of-truth rules
 - Structure — service boundaries, data ownership, event/data flows, extension seams
@@ -105,6 +108,7 @@ A project's architecture, ADRs and glossary are the home for:
 
 A decision forms in its owning ticket and lands in one of these when it is ready. A decision about a
 mechanism lands in that mechanism's doc, and what was refuted in its evidence.
+</straw-dog>
 
 <straw-dog question="q-0024.0002.0005">
 Bad architectural documentation:

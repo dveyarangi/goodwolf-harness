@@ -15,6 +15,17 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v30 — 2026-10-05
+
+**The missing parent has a sign that can be counted** — Q1's *On a question*: going up past two
+or more questions that resemble the message, their parent is not its home; the question they
+jointly serve is missing. The loosely-held root stays as a second case. *A new question*: a found
+answer opens nothing for the message, and a missing parent is still opened *(the user,
+2026-10-05)*. A turn had rejected four resembling children, gone up to their root and stopped
+there: *as loosely as everything under it* gave it nothing to count, the count sat in the skill
+it did not open, and *found, open nothing* read as the end of placing. Occasion:
+[rule failure 18](../rule-failures.md), struck again.
+
 ## v29 — 2026-10-05
 
 **A message that asks nothing of the work is banter** — Q1 gains a fifth kind of turn *(the user,

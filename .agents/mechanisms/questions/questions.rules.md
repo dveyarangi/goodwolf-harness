@@ -21,14 +21,16 @@ hook put in your context, or `questions.py --window --session <tag>`, the script
 `.agents/scripts/gw/questions.py`:
 
 - **On a question**: call `at` on the lowest question that contains the message. One that only
-  resembles it is not its home; from a question that does not contain it, go up. Going up, a
-  question that contains the message only as loosely as it contains everything under it is not
-  its home either: the parent is missing — read the questions skill and open it, or the turn is
-  uncharted.
+  resembles it is not its home; from a question that does not contain it, go up. Going up past
+  two or more questions that resemble the message, their parent is not its home either: the
+  question they jointly serve is missing — read the questions skill and open it, or the turn is
+  uncharted. So is a question that contains the message only as loosely as it contains everything
+  under it.
 - **A new question**: the question the message is one case of, worded as the store would hold it.
-  Look for its answer in the docs and the code first — found, point to it and open nothing; the
-  turn is on the question that contains it. Not found, or what the answer leaves unsettled, `open`
-  it under the lowest question that contains it, and call `at` on it.
+  Look for its answer in the docs and the code first — found, point to it and open nothing for
+  it; the turn is on the question that contains it, placed as above — a missing parent is still
+  opened. Not found, or what the answer leaves unsettled, `open` it under the lowest question
+  that contains it, and call `at` on it.
 - **A process**, carrying out what you know how to do: no call. One run for a question is a turn
   on that question.
 - **Uncharted**, a question whose home you cannot settle: no call. Ask the user where it belongs,
