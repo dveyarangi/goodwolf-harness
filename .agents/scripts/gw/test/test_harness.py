@@ -731,6 +731,32 @@ class AnUpdate(TwoTrees):
         self.assertEqual([".agents/skills/theirs/SKILL.md"], report["own"])
         self.assertTrue((self.target / ".agents/skills/theirs/SKILL.md").is_file())
 
+    def test_a_block_the_recipients_own_mechanism_installed_is_not_an_edit_in_core(self) -> None:
+        self.write_target(
+            ".agents/mechanisms/theirs/theirs.rules.md",
+            f"# theirs — the recipient's own rules\n\n| target | anchor |\n|---|---|\n| `{KEEPER}` | `# Keeper` |\n\n"
+            f"## T1 — theirs\n\n- **target** `{KEEPER}`\n- **authority** the user, 2026-10-05\n\n<rule>\nTheir rule.\n</rule>\n",
+        )
+        inject_rules.install(self.target, inject_rules.read_rules_file(self.target, "theirs"), overwrite=False)
+        self.assertIn('<installed by="theirs">', self.target_text(KEEPER))
+
+        _, checked = self.run_harness("--check")
+        self.assertTrue(checked["gates"]["ref"]["passed"], checked["gates"]["ref"])
+
+        _, report = self.run_harness("--update")
+
+        self.assertEqual([], report["replaced"])
+        self.assertNotIn(KEEPER, report["written"])
+        self.assertIn('<installed by="theirs">', self.target_text(KEEPER))
+        self.assertTrue(report["gates"]["ref"]["passed"], report["gates"]["ref"])
+
+    def test_a_block_whose_owner_has_no_rules_file_is_an_edit_in_core(self) -> None:
+        self.write_target(KEEPER, self.target_text(KEEPER) + '\n<installed by="nobody">\n**N1** A rule.\n</installed>\n')
+
+        _, checked = self.run_harness("--check")
+
+        self.assertEqual([KEEPER], checked["gates"]["ref"]["differs"])
+
     def test_with_no_announced_ref_overwrite_replaces_every_core_file_and_deletes_nothing(self) -> None:
         entry = self.target / "AGENTS.md"
         entry.write_text(entry.read_text(encoding="utf-8").replace(f"{self.source.name}@", "v"), encoding="utf-8")

@@ -175,9 +175,10 @@ file's announce line stamped `<repository>@<ref>, <date>`, the harness skill's r
 stamped with the source the run actually read, and the result held to the same leak rule the
 origin's check applies. A tree whose announce line carries the `@` is a recipient; the line is
 its only revision record, and integrity is asked of the source: a check clones the announced ref
-and compares file by file, line endings normalised, local blocks removed and the repository line
-set aside — it is the recipient's own fact living in a core file, as the announce line is, so a
-run from another source reads no edit in core.
+and compares file by file, line endings normalised, local blocks and the blocks of the
+recipient's own mechanisms removed and the repository line set aside — it is the recipient's own
+fact living in a core file, as the announce line is, so a run from another source reads no edit
+in core.
 
 An install refuses a target that is not the top level of a git work tree, that already holds any
 manifest path, or that is the source itself. An update refuses over a core file the recipient
@@ -201,7 +202,7 @@ own, each publish carrying a note written for an instance — what moved, from w
 the instance amends. A recipient reads the notes standing between its ref and the latest before it
 takes them, and whether to take them is the installing agent's decision with its user, never the
 script's. *(The user, 2026-09-21.)*
-<straw-dog question="q-0018.0007.0002">
+<straw-dog question="q-0018.0020.0002.0002">
 Nothing does this yet: core is shared from the working tree and an update crosses an edge change
 in silence, leaving what a recipient must amend to whoever reads the manifest diff.
 </straw-dog>

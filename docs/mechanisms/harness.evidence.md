@@ -73,6 +73,16 @@ After the four: five seconds, 65 files, three gates.
   is kept even when the process cannot see through it, and the report carries where a repointed
   link pointed. The swap itself is untested where the platform makes no symlink.
 
+## Refuted at a recipient's update, 2026-10-05
+
+- **Setting aside only the local block.** xuanxue-workshop has a mechanism of its own whose
+  rules install a block into `/align`. The comparison read that block as an edit in core: two
+  updates needed `--overwrite`, and the gate said `arrived: false` of a correct tree. The
+  workshop's agent removed the block in memory, found the shipped text exactly, and left the gate
+  alone. The comparison now sets aside the block of every mechanism whose rules file stands in
+  the tree and never shipped; a block no rules file owns still reads as an edit. The same update
+  kept both loader links.
+
 ## The prior corpus
 
 One copy of core existed outside this repository before the mechanism did: frost_map, installed

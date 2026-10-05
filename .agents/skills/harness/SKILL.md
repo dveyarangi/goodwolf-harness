@@ -14,7 +14,8 @@ Repository: https://github.com/dveyarangi/goodwolf-harness.git
 That is the only authored home of it. The script reads its default `--from` there, an install
 stamps a recipient's copy with the source the run actually read, and a fork edits the line once
 and everything it installs names the fork. A check or an update from another `--from` sets the
-line aside rather than reading an edit in core, as it does the local block.
+line aside rather than reading an edit in core, as it does the local block and the block of any
+mechanism of the tree's own.
 
 Run the script from any clone of the harness, or from the tree's own copy once it has one:
 

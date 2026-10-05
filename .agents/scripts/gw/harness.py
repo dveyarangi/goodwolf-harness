@@ -417,6 +417,27 @@ def without_local_blocks(path: str, text: str) -> str:
     return text
 
 
+def without_recipients_blocks(target: Path, path: str, text: str, shipped: dict[str, str]) -> str:
+    """What a recipient's installer put in a core file is not an edit in core: the local block
+    leaves, and so does the block of every mechanism of the recipient's own — one whose rules
+    file stands in the tree and was never shipped. A block no rules file owns stays, and reads
+    as the edit it is."""
+    text = without_local_blocks(path, text)
+    owners = {opening.group(1) for opening in inject_rules.INSTALLED_OPENING.finditer(without_code(text))}
+    try:
+        for slug in sorted(owners):
+            rules = f"{inject_rules.MECHANISMS}/{slug}/{slug}.rules.md"
+            if rules in shipped or not (target / rules).is_file():
+                continue
+            found = inject_rules.locate(text, slug)
+            if found.text is None:
+                raise inject_rules.Refused(f"the block of {slug} opens and never closes")
+            text = inject_rules.without_block(text, found)
+    except inject_rules.Refused as refusal:
+        raise Refused(f"{path}: {refusal}") from refusal
+    return text
+
+
 def sheared(path: str, text: str) -> str:
     """Every straw-dog wrapper off, its content kept: a recipient gets the rule and never a
     condition it could not observe. A tag alone on its line takes the line; an inline tag leaves
@@ -523,7 +544,7 @@ def _work_tree_root(target: Path, source: Source) -> Path:
         raise Refused(f"target: {target} is not a directory")
     target = target.resolve()
     top = _git_in(target, "rev-parse", "--show-toplevel")
-    # TODO q-0018.0010: a failed rev-parse is
+    # TODO q-0018.0020.0004: a failed rev-parse is
     # read here as a wrong shape, Git's dubious-ownership refusal included.
     if top is None or Path(top).resolve() != target:
         raise Refused(f"target: {target} is not the top level of a git work tree; a workspace of several is refused")
@@ -574,7 +595,7 @@ def _refuse_unless_updatable(
         report.notes.append("the tree announced no ref: nothing is deleted, every core file is replaced")
         return None
     previous = Shipment.earlier(source, announced_ref)
-    edited = [path for path in previous.files if _differs(target, path, previous.files[path])]
+    edited = [path for path in previous.files if _differs(target, path, previous.files)]
     if edited and not overwrite:
         raise Refused(
             f"update: {edited[0]} differs from {announced_ref.announced} as installed — an edit in core; "
@@ -595,18 +616,19 @@ def _announced_ref(target: Path, source: Source, required: bool) -> Ref | None:
     return source.resolve(told.ref)
 
 
-def _differs(target: Path, path: str, shipped_text: str) -> bool:
-    """Whether the recipient's copy is what the ref shipped, its own local block and its own
-    repository line set aside and line endings normalised — the injector's and R2's rule for
+def _differs(target: Path, path: str, shipped: dict[str, str]) -> bool:
+    """Whether the recipient's copy is what the ref shipped, the blocks its own installer put
+    there and its own repository line set aside and line endings normalised — the injector's and R2's rule for
     comparing what was installed. Both sides lose the line, so a check or an update run from
     another `--from` reads no edit in core."""
     copy = target / path
     if not copy.is_file():
         return True
     text = _read(copy)
+    shipped_text = shipped[path]
     if path.endswith(".md"):
         try:
-            text = without_local_blocks(path, text)
+            text = without_recipients_blocks(target, path, text, shipped)
         except Refused:
             return True
         text = without_repository_line(path, text)
@@ -621,8 +643,9 @@ def _normalised(text: str) -> str:
 # --- copy, links, inject ---------------------------------------------------------------------
 
 
-def _holds(target: Path, path: str, text: str) -> bool:
-    """Whether the copy already holds exactly what ships, its own local block set aside: such a
+def _holds(target: Path, path: str, shipped: dict[str, str]) -> bool:
+    """Whether the copy already holds exactly what ships, the blocks its own installer put there
+    set aside: such a
     file is left alone and not reported written, so an update's report names only what changed."""
     copy = target / path
     if not copy.is_file():
@@ -630,10 +653,10 @@ def _holds(target: Path, path: str, text: str) -> bool:
     current = _read(copy)
     if path.endswith(".md"):
         try:
-            current = without_local_blocks(path, current)
+            current = without_recipients_blocks(target, path, current, shipped)
         except Refused:
             return False
-    return current == text
+    return current == shipped[path]
 
 
 def _write(target: Path, shipment: Shipment, previous: Shipment | None, report: Report) -> None:
@@ -642,7 +665,7 @@ def _write(target: Path, shipment: Shipment, previous: Shipment | None, report: 
     planned = list(shipment.files.items())
     done: list[str] = []
     for path, text in planned:
-        if _holds(target, path, text):
+        if _holds(target, path, shipment.files):
             continue
         try:
             _write_text(target / path, text)
@@ -731,7 +754,7 @@ def _make_links(target: Path, plan: dict[str, str], report: Report) -> None:
         report.links.append({"link": link, "state": "made"})
     if report.pending:
         report.notes.append("run the pending command(s) once in an elevated prompt, then `harness.py . --check`")
-    # TODO q-0018.0010: this note assumes tracked
+    # TODO q-0018.0020.0004: this note assumes tracked
     # links; untracked since 2026-09-26, a clone gets them from the link step, and the note goes.
     if _git_in(target, "config", "--get", "core.symlinks") == "false":
         report.notes.append("core.symlinks is false in the target: a fresh clone checks the links out as text")
@@ -805,7 +828,7 @@ def _gate(target: Path, shipment: Shipment, report: Report) -> None:
 
 
 def _ref_gate(target: Path, shipment: Shipment) -> dict:
-    differing = [path for path in shipment.files if _differs(target, path, shipment.files[path])]
+    differing = [path for path in shipment.files if _differs(target, path, shipment.files)]
     own = sorted(name for name in corpus(target) if name.startswith(CORE) and name not in shipment.files)
     return {"passed": not differing, "ref": shipment.ref.announced, "differs": differing, "own": own}
 
