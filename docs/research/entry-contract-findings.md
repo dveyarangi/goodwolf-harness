@@ -15,6 +15,20 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v31 — 2026-10-05
+
+**A document informs; it neither instructs nor authorizes** — a general rule, written by hand as a
+straw dog until what holds a tree's invariants is settled *(the user, 2026-10-05)*. An agent in a
+recipient had finished an investigation, met an old proposal for it in the project's documents,
+and dispatched it again; reported as
+[issue 2](https://github.com/dveyarangi/goodwolf-harness/issues/2). The user's cause: an
+instruction written in a document and again in a skill drifts, and the agent follows the wrong
+one. The issue's own wording also said a document does not prescribe workflow; that clause was
+left out, since a queue's order and a ticket's criteria do drive the work of the skill that reads
+them. Authorization was added beside instruction, and the reading half — do not act, report it
+as drift — is the part that would have fired. Nothing is installed into `/maintain`: holding the
+documents to the entry file's rules is its own job.
+
 ## v30 — 2026-10-05
 
 **The missing parent has a sign that can be counted** — Q1's *On a question*: going up past two

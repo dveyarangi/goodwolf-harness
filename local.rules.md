@@ -24,10 +24,10 @@ version of the entry contract changed: docs/research/entry-contract-findings.md.
 ## L2 — the switches
 
 - **target** `AGENTS.md`
-- **authority** the user, 2026-09-05
+- **authority** the user, 2026-09-05; commit and push to auto, the user, 2026-10-05
 
 <rule>
-commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report
+commit=auto · push=auto · next-cycle=ask · breakdown=ask · repair=report
 </rule>
 
 ## L4 — the working is shown
