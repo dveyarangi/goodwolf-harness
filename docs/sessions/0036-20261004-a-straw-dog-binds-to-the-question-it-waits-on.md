@@ -43,7 +43,7 @@ architecture rule amended.
   own; after an update the listing reports each as *old binding*, saying what to write instead.
   An update crosses this in silence until 01-0010.0160.
 - **A fresh install ends `arrived: false`**: the questions mechanism's hook files are its parts and
-  the install does not carry them — q-0018.0016 "How does the installer carry each host's hook
+  the install does not carry them — q-0018.0020.0005 "How does the installer carry each host's hook
   wiring into a recipient tree?".
 - **Open questions this session opened or leaned**: q-0001.0018 "How is an open question that
   nobody reaches kept from sinking unseen?"; q-0023.0001 "Which mechanism is responsible for the

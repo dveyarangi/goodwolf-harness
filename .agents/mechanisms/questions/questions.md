@@ -90,7 +90,7 @@ roles, is an open question of the store.
 | detecting a shape that hides children | — | <straw-dog question="q-0001.0020">not yet</straw-dog> |
 | holding a ticket's open questions under the question it answers | `.agents/skills/ticket/SKILL.md` | |
 | saying which straw dogs are due, and carrying their bindings through a rename | `.agents/scripts/gw/questions.py` | |
-| carrying the hook wiring into a recipient tree | — | <straw-dog question="q-0018.0016">not yet</straw-dog> |
+| carrying the hook wiring into a recipient tree | — | <straw-dog question="q-0018.0020.0005">not yet</straw-dog> |
 | removing this mechanism from a tree | — | <straw-dog question="q-0018.0013.0002">not yet</straw-dog> |
 
 ## Install adds, uninstall removes

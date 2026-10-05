@@ -442,7 +442,7 @@ hand-written sentence in `/align` pointed *below* at a block that is now above i
 every anchor is today, and a non-heading anchor's section ends at the next heading of any level
 rather than being refused. A recipient installed before this holds its blocks at the old
 positions; nothing flags that, and its next update installs only what is absent.
-<straw-dog question="q-0018.0007.0001">
+<straw-dog question="q-0018.0020.0002.0001">
 An observation for that mechanism to collect: a placement rule is an edge change a recipient
 cannot see.
 </straw-dog>
