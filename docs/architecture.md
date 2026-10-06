@@ -180,8 +180,14 @@ recipient's own mechanisms removed and the repository line set aside — it is t
 fact living in a core file, as the announce line is, so a run from another source reads no edit
 in core.
 
-An install refuses a target that is not the top level of a git work tree, that already holds any
-manifest path, or that is the source itself. An update refuses over a core file the recipient
+A target is a Git repository, because every script of core reads a tree through Git's listing —
+tracked and untracked-but-unignored files, in Git's exact case — and the top level of its work
+tree is where one installation's tree ends. An install into an empty folder inside no repository
+runs `git init` there first and reports it: the root is not in question, and the person asked for
+an install *(the user, 2026-10-07)*. Anything else that is not the top level of a work tree is
+refused with the step — `git init` for a folder with files of its own, since where the root goes
+is then the person's decision; the parent for a subfolder of a repository. An install also
+refuses a target that already holds any manifest path, or that is the source itself. An update refuses over a core file the recipient
 edited unless told to overwrite, and then reports what it replaced; it never touches a file under
 the core directory the manifest does not name, and reports it as the recipient's own; it refuses
 an entry file still carrying a retired `<project-local>` block, whose content is the project's.
