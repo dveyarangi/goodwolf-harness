@@ -83,6 +83,14 @@ After the four: five seconds, 65 files, three gates.
   the tree and never shipped; a block no rules file owns still reads as an edit. The same update
   kept both loader links.
 
+## Found at the first-install slice, 2026-10-06
+
+- **Git's own ownership knob proves nothing on an older Git.** `GIT_TEST_ASSUME_DIFFERENT_OWNER`
+  was to make the dubious-ownership refusal testable without two identities; on a Git older than
+  2.35.2 there is no ownership check and the knob is inert — the suite's machine ran 2.32. The
+  refusal is proved against Git's message as issue 1 recorded it, and the knob's test skips where
+  Git predates the check, so a newer Git proves it through Git itself.
+
 ## The prior corpus
 
 One copy of core existed outside this repository before the mechanism did: frost_map, installed
