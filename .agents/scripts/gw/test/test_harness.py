@@ -165,10 +165,38 @@ class HeldSource(harness.Source):
         return self.history.commits[ref.commit].get(path)
 
 
-def plain_target_git(target: Path, *arguments: str) -> str | None:
+def plain_target_git(target: Path, *arguments: str) -> subprocess.CompletedProcess:
     """What Git says of a plain folder that is the top of its own work tree, with no origin and
     no setting of its own."""
-    return str(target) if arguments == ("rev-parse", "--show-toplevel") else None
+    if arguments == ("rev-parse", "--show-toplevel"):
+        return subprocess.CompletedProcess(arguments, 0, str(target), "")
+    return subprocess.CompletedProcess(arguments, 1, "", "")
+
+
+DUBIOUS_OWNERSHIP = (
+    "fatal: detected dubious ownership in repository at '{target}'\n"
+    "'{target}/.git' is owned by:\n\t'S-1-5-21-1008'\nbut the current user is:\n\t'S-1-5-21-1001'\n"
+    "To add an exception for this directory, call:\n\n"
+    "\tgit config --global --add safe.directory {target}\n"
+)
+
+
+def git_refusing_ownership(target: Path, *arguments: str) -> subprocess.CompletedProcess:
+    """Git's refusal as issue 1 recorded it, word for word: the suite's Git predates the
+    ownership check, so the refusal is proved against the message Git prints where it has one."""
+    return subprocess.CompletedProcess(arguments, 128, "", DUBIOUS_OWNERSHIP.format(target=target.as_posix()))
+
+
+def git_checks_ownership() -> bool:
+    """Whether this machine's Git refuses a repository owned by another identity, asked by Git's
+    own test knob; a Git older than 2.35.2 has no such check and the knob does nothing."""
+    with tempfile.TemporaryDirectory() as workspace:
+        subprocess.run(["git", "init", "--quiet", workspace], capture_output=True)
+        asked = subprocess.run(
+            ["git", "-C", workspace, "rev-parse", "--show-toplevel"],
+            capture_output=True, encoding="utf-8", env={**os.environ, "GIT_TEST_ASSUME_DIFFERENT_OWNER": "1"},
+        )
+        return asked.returncode != 0 and "dubious ownership" in asked.stderr
 
 
 def checks_in_process(target: Path, arguments: list[str]) -> subprocess.CompletedProcess:
@@ -194,7 +222,7 @@ class TwoTrees(RepositoryCase):
         if not self._proves_a_process():
             self.history = History()
             self._patch(harness, "Source", lambda repository: HeldSource(repository, self.history))
-            self._patch(harness, "_git_in", plain_target_git)
+            self._patch(harness, "_git_said", plain_target_git)
             self._patch(harness, "_python", checks_in_process)
         self.seed_source()
         self.target = self.another_repository()
@@ -471,8 +499,9 @@ class ARefusal(TwoTrees):
 
         self.assertEqual(1, status)
         self.assertEqual(1, len(report["refusals"]), report)
+        self.last_refusal = report["refusals"][0]
         for word in said:
-            self.assertIn(word, report["refusals"][0])
+            self.assertIn(word, self.last_refusal)
         self.assertEqual(before, self.target_snapshot())
 
     # The two refusals Git decides are asked of the target before anything is read from the
@@ -485,6 +514,20 @@ class ARefusal(TwoTrees):
 
         with self.assertRaisesRegex(harness.Refused, "target:.*top level"):
             harness._work_tree_root(inside, harness.Source(str(self.source)))
+
+    def test_a_target_git_refuses_for_dubious_ownership_is_refused_with_gits_own_command(self) -> None:
+        self._patch(harness, "_git_said", git_refusing_ownership)
+
+        self.assert_refused(("--install",), "target:", "dubious ownership", f"safe.directory {self.target.as_posix()}")
+        self.assertNotIn("top level", self.last_refusal)
+
+    @proves_a_process
+    def test_gits_own_ownership_check_is_what_the_refusal_reads(self) -> None:
+        if not git_checks_ownership():
+            self.skipTest("this Git predates the ownership check; the refusal is proved against its message")
+        self._patch(os, "environ", {**os.environ, "GIT_TEST_ASSUME_DIFFERENT_OWNER": "1"})
+
+        self.assert_refused(("--install",), "target:", "dubious ownership", "safe.directory")
 
     @proves_a_process
     def test_the_source_itself_by_its_remote(self) -> None:

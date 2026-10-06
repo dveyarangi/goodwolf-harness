@@ -543,15 +543,28 @@ def _work_tree_root(target: Path, source: Source) -> Path:
     if not target.is_dir():
         raise Refused(f"target: {target} is not a directory")
     target = target.resolve()
-    top = _git_in(target, "rev-parse", "--show-toplevel")
-    # TODO q-0018.0020.0004: a failed rev-parse is
-    # read here as a wrong shape, Git's dubious-ownership refusal included.
+    asked = _git_said(target, "rev-parse", "--show-toplevel")
+    if asked.returncode != 0 and "dubious ownership" in asked.stderr:
+        raise Refused(
+            f"target: Git refuses {target} for dubious ownership — run "
+            f"`{_safe_directory_command(asked.stderr, target)}`, then run again"
+        )
+    top = asked.stdout.strip() if asked.returncode == 0 else None
     if top is None or Path(top).resolve() != target:
         raise Refused(f"target: {target} is not the top level of a git work tree; a workspace of several is refused")
     origin = _git_in(target, "remote", "get-url", "origin")
     if origin is not None and _same_repository(origin, source.repository):
         raise Refused(f"target: {target} is the source itself; the origin is never installed into")
     return target
+
+
+def _safe_directory_command(git_said: str, target: Path) -> str:
+    """Git's own command to trust the directory, as it printed it; composed only where Git's
+    message does not carry it."""
+    for line in git_said.splitlines():
+        if line.strip().startswith("git config --global --add safe.directory"):
+            return line.strip()
+    return f"git config --global --add safe.directory {target.as_posix()}"
 
 
 def _same_repository(one: str, other: str) -> bool:
@@ -860,8 +873,13 @@ def _last_lines(text: str | None, keep: int = 3) -> list[str]:
 # --- helpers ---------------------------------------------------------------------------------
 
 
+def _git_said(target: Path, *arguments: str) -> subprocess.CompletedProcess:
+    """Git's whole answer: a refusal names its cause on stderr, and one caller reads it."""
+    return subprocess.run(["git", "-C", str(target), *arguments], capture_output=True, encoding="utf-8")
+
+
 def _git_in(target: Path, *arguments: str) -> str | None:
-    done = subprocess.run(["git", "-C", str(target), *arguments], capture_output=True, encoding="utf-8")
+    done = _git_said(target, *arguments)
     return done.stdout.strip() if done.returncode == 0 else None
 
 
