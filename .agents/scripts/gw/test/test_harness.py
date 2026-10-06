@@ -1113,6 +1113,39 @@ class TheLinkStep(TwoTrees):
             self.assertEqual(2, len(report["pending"]))
             self.assertIn("mklink /D" if os.name == "nt" else "ln -s", report["pending"][0])
 
+    def test_the_pending_note_sends_the_person_to_the_step_and_nothing_names_core_symlinks(self) -> None:
+        _, report = self.run_harness("--install")
+
+        self.assertFalse(any("core.symlinks" in note for note in report["notes"]), report["notes"])
+        if not platform_makes_symlinks():
+            self.assertTrue(any("--links" in note for note in report["notes"]), report["notes"])
+            self.assertFalse(any("--check" in note for note in report["notes"]), report["notes"])
+
+    @proves_a_process
+    def test_whatever_plans_a_link_names_it_in_the_clones_exclude_file_once(self) -> None:
+        self.run_harness("--install")
+        _, report = self.run_links()
+
+        self.assertEqual(list(harness.LINKS), report["excluded"])
+        for link in harness.LINKS:
+            ignored = subprocess.run(["git", "-C", str(self.target), "check-ignore", "-q", link], capture_output=True)
+            self.assertEqual(0, ignored.returncode, link)
+        exclude = (self.target / ".git" / "info" / "exclude").read_text(encoding="utf-8")
+        for link in harness.LINKS:
+            self.assertEqual(1, exclude.splitlines().count(link), exclude)
+
+    @proves_a_process
+    def test_a_pending_link_is_excluded_before_it_exists(self) -> None:
+        def refuse(*arguments: object, **options: object) -> None:
+            raise OSError("a required privilege is not held")
+
+        self._patch(os, "symlink", refuse)
+
+        _, report = self.run_harness("--install")
+
+        self.assertEqual(["pending", "pending"], [link["state"] for link in report["links"]])
+        self.assertEqual(list(harness.LINKS), report["excluded"])
+
     def test_a_fresh_clone_of_a_recipient_gets_its_links_from_the_step(self) -> None:
         self.run_harness("--install")
         for link in harness.LINKS:

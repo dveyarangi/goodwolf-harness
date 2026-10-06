@@ -112,6 +112,7 @@ class Report:
     pending: list[str] = field(default_factory=list)
     injected: list[dict] = field(default_factory=list)
     gates: dict = field(default_factory=dict)
+    excluded: list[str] = field(default_factory=list)
     links_resolve: dict = field(default_factory=dict)
     notes: list[str] = field(default_factory=list)
     refusals: list[str] = field(default_factory=list)
@@ -158,6 +159,7 @@ def link(target: Path, report: Report) -> None:
         raise Refused(f"links: {target} holds no {SKILLS} — --install first")
     plan = _link_plan(target)
     _make_links(target, plan, report)
+    _exclude_links(target, plan, report)
     report.links_resolve = _links_resolve(target)
 
 
@@ -182,6 +184,7 @@ def run(target: Path, mode: str, overwrite: bool, source: Source, ref: str | Non
     _write(target, shipment, previous, report)
     _write_delivery_status(target, shipment, report)
     _make_links(target, plan, report)
+    _exclude_links(target, plan, report)
     _inject(target, report)
     _gate(target, shipment, report)
 
@@ -792,11 +795,27 @@ def _make_links(target: Path, plan: dict[str, str], report: Report) -> None:
             continue
         report.links.append({"link": link, "state": "made"})
     if report.pending:
-        report.notes.append("run the pending command(s) once in an elevated prompt, then `harness.py . --check`")
-    # TODO q-0018.0020.0004: this note assumes tracked
-    # links; untracked since 2026-09-26, a clone gets them from the link step, and the note goes.
-    if _git_in(target, "config", "--get", "core.symlinks") == "false":
-        report.notes.append("core.symlinks is false in the target: a fresh clone checks the links out as text")
+        report.notes.append(
+            "run the pending command(s) once in an elevated prompt, then `harness.py . --links`, which reports whether each resolves"
+        )
+
+
+def _exclude_links(target: Path, plan: dict[str, str], report: Report) -> None:
+    """Every planned link is named in the clone's exclude file, the pending ones too, so the
+    person's later command makes a link `git add -A` never stages. The links are never committed;
+    the origin's ignore file does not ship, and the exclude file is the clone's as the links are.
+    Git names the file, since a work tree made by `git worktree` keeps its `.git` elsewhere."""
+    named = _git_in(target, "rev-parse", "--git-path", "info/exclude")
+    if named is None:
+        report.notes.append("git named no exclude file: the links may show as untracked")
+        return
+    exclude = target / named if not Path(named).is_absolute() else Path(named)
+    present = _read(exclude).splitlines() if exclude.is_file() else []
+    missing = [link for link in plan if link not in present]
+    if missing:
+        text = "".join(f"{line}\n" for line in present + missing)
+        _write_text(exclude, text)
+    report.excluded = list(plan)
 
 
 def _remove_link(path: Path) -> None:
