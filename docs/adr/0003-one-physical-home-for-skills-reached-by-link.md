@@ -31,6 +31,11 @@ every script shares: under a junction every skill is enumerated twice and `move_
 one file's citations through two paths. This holds whether or not the link is tracked, so
 gitignoring it changes nothing.
 
+**Tracked again, with the installer replacing a link Git checked out as text.** Considered
+2026-10-06 and declined by the user: it would give macOS and Linux clones their links on arrival,
+but a Windows clone still needs the privilege whoever creates the link, so the per-clone step
+stays either way, and a tracked link reintroduces the file that looks present and is not read.
+
 **A junction as a fallback when the platform refuses a symlink.** Rejected 2026-09-09 by the user
 after it was tried during [the frost_map probe](../research/separation-probe-frost-map.md). **The
 link is a symlink or the install stops and asks** — no fallback, no substitute. A refusal is a human
