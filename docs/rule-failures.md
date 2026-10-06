@@ -152,7 +152,7 @@ snapshots — read them for why, never for whether*.
 
 **What happened.** The session-27 `/recall` took its three candidates from session 26's
 continuation — [01-0011.0090 a-test-catches-what-its-name-promises](tickets/01-0011.0090-a-test-catches-what-its-name-promises.md),
-[01-0010.0172 a-first-install-says-what-stopped-it](tickets/01-0010.0172-a-first-install-says-what-stopped-it.md)
+[01-0010.0172 a-first-install-says-what-stopped-it](tickets/done/01-0010.0172-a-first-install-says-what-stopped-it.md)
 and the releases chain — and recommended `.0172` because a recipient had reported its failure. The
 user: *is that the real priority?* By the ordering rule, both recipient-facing candidates rank
 below slices that repair how the harness decides and keeps its own state.

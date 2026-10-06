@@ -67,7 +67,7 @@ installer rule was already R5. Only the edit-tools preference stays in memory.
 - **What the memory is for, and what it may cost** — on
   [01-0010.0168 the-harness-measures-what-it-costs-and-saves](../tickets/01-0010.0168-the-harness-measures-what-it-costs-and-saves.md)'s align.
 - **The queue's order** — whether
-  [01-0010.0172 a-first-install-says-what-stopped-it](../tickets/01-0010.0172-a-first-install-says-what-stopped-it.md)
+  [01-0010.0172 a-first-install-says-what-stopped-it](../tickets/done/01-0010.0172-a-first-install-says-what-stopped-it.md)
   goes ahead of the releases chain — still undecided; the delivery status leads with `.0185`.
 
 ## Continuation

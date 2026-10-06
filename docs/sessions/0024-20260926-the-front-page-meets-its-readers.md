@@ -43,7 +43,7 @@ three tiers, recorded on [01-0020](../tickets/01-0020-pacer.md).
 **Minted:** [`.0125`](../tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md) the host
 blocking what a rule forbids; [`.0168`](../tickets/01-0010.0168-the-harness-measures-what-it-costs-and-saves.md)
 measuring tokens and human turns from the hosts' own transcripts;
-[`.0172`](../tickets/01-0010.0172-a-first-install-says-what-stopped-it.md) the Windows first-run
+[`.0172`](../tickets/done/01-0010.0172-a-first-install-says-what-stopped-it.md) the Windows first-run
 failures of GitHub issue #1 and the per-clone link step;
 [`.0200`](../tickets/01-0010.0200-a-project-can-remove-the-harness.md) uninstall;
 [`.0205`](../tickets/01-0010.0205-a-recipient-reports-a-harness-failure-upstream.md) a recipient

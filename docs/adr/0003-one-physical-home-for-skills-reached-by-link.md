@@ -12,7 +12,7 @@ makes them, and tracking them had become the harm: Git for Windows checks a trac
 teammate's clone met a refusal the tracking itself created — found by an adoption panel reader
 cloning this repository. Untracked, every clone on every platform behaves alike: it has no links
 until the harness makes them, by the light per-clone step
-[01-0010.0172](../tickets/01-0010.0172-a-first-install-says-what-stopped-it.md) adds.
+[01-0010.0172](../tickets/done/01-0010.0172-a-first-install-says-what-stopped-it.md) adds.
 
 ## Considered options
 

@@ -740,7 +740,7 @@ README is not a part*; `.0190`'s published front page; the manifest, which no ro
 ## Reports from recipients — 2026-09-26
 
 **Status:** Minted as two slices on the user's request:
-[`.0172`](./01-0010.0172-a-first-install-says-what-stopped-it.md), the Windows first-run
+[`.0172`](./done/01-0010.0172-a-first-install-says-what-stopped-it.md), the Windows first-run
 failures of [issue #1](https://github.com/dveyarangi/goodwolf-harness/issues/1) that no ticket
 held, and [`.0205`](./01-0010.0205-a-recipient-reports-a-harness-failure-upstream.md), a core rule's
 failure found in a recipient reported to the harness's own board.
@@ -799,7 +799,7 @@ does until [`.0150`](./01-0010.0150-harness-meets-a-tree-with-a-method.md) lands
 descriptions of `/implement`, `/improve-comments`, `/celebrate` and `/conclude`, cut to their use
 case.
 
-**Folded:** the recipient's loader links ignored by Git → [`.0172`](./01-0010.0172-a-first-install-says-what-stopped-it.md);
+**Folded:** the recipient's loader links ignored by Git → [`.0172`](./done/01-0010.0172-a-first-install-says-what-stopped-it.md);
 a suite run on Linux and CI → [01-0011.0090 a-test-catches-what-its-name-promises](./01-0011.0090-a-test-catches-what-its-name-promises.md);
 what the method may cost and what it is for → [`.0168`](./01-0010.0168-the-harness-measures-what-it-costs-and-saves.md)'s
 align; a Claude Code hook ahead of the host survey → [`.0125`](./01-0010.0125-the-host-blocks-what-a-rule-forbids.md)'s

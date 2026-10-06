@@ -142,7 +142,7 @@ the documented implementation contract, so it is not a code deviation. It is a p
 problem if callers interpret the success boolean as ready for all supported hosts.
 
 This is already recognized by
-[01-0010.0172-a-first-install-says-what-stopped-it](../../tickets/01-0010.0172-a-first-install-says-what-stopped-it.md).
+[01-0010.0172-a-first-install-says-what-stopped-it](../../tickets/done/01-0010.0172-a-first-install-says-what-stopped-it.md).
 The report should distinguish copy integrity from host usability. This sandbox's inability to make
 the links says nothing about whether an appropriately configured host can discover the skills.
 

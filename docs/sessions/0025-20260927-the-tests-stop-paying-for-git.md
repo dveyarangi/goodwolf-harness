@@ -59,7 +59,7 @@ tests and untested branches the audit found, Ready. A parallel runner was declin
 ## Continuation
 
 - **Next in the ring:** [01-0011.0090](../tickets/01-0011.0090-a-test-catches-what-its-name-promises.md)
-  is Ready and AFK; [01-0010.0172](../tickets/01-0010.0172-a-first-install-says-what-stopped-it.md)
+  is Ready and AFK; [01-0010.0172](../tickets/done/01-0010.0172-a-first-install-says-what-stopped-it.md)
   is Ready and starts with its align on `arrived`. `next-cycle=ask`.
 - **Nothing is pushed** — this session's commits sit on `main`. `push=ask`.
 - **The Completed step** in the queue is still a changelog; unrepaired.
