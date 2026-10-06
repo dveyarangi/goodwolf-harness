@@ -2,7 +2,7 @@
 name: skill-up
 description: >-
   Aid agent skill creation or modification. Use when creating a new skill or changing an existing one.
-  Use whenever writing any instructions, whether to a file or directly in a reply.
+  Use whenever writing any agent instructions, whether to a file or directly in a reply.
 ---
 
 <straw-dog question="q-0023.0016">Mechanism: not yet</straw-dog>
