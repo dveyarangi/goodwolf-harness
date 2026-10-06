@@ -512,8 +512,60 @@ class ARefusal(TwoTrees):
         inside = self.target / "inside"
         inside.mkdir()
 
-        with self.assertRaisesRegex(harness.Refused, "target:.*top level"):
+        with self.assertRaisesRegex(harness.Refused, f"target:.*top level.*{self.target.name}"):
             harness._work_tree_root(inside, harness.Source(str(self.source)))
+
+    def plain_folder(self, *holding: str) -> Path:
+        """A folder inside no repository, holding the named files; the case's own, cleaned up."""
+        workspace = tempfile.TemporaryDirectory()
+        self.addCleanup(workspace.cleanup)
+        folder = Path(workspace.name).resolve()
+        for name in holding:
+            (folder / name).write_text("theirs\n", encoding="utf-8")
+        return folder
+
+    def run_harness_at(self, folder: Path, *operands: str) -> tuple[int, dict]:
+        said = io.StringIO()
+        with contextlib.redirect_stdout(said):
+            status = harness.main([str(folder), *operands, "--from", str(self.source)])
+        return status, json.loads(said.getvalue())
+
+    @proves_a_process
+    def test_a_folder_with_files_of_its_own_that_is_no_repository_is_refused_with_the_step(self) -> None:
+        folder = self.plain_folder("notes.txt")
+
+        status, report = self.run_harness_at(folder, "--install")
+
+        self.assertEqual(1, status)
+        self.assertEqual(1, len(report["refusals"]), report)
+        self.assertIn("not a git repository", report["refusals"][0])
+        self.assertIn("git init", report["refusals"][0])
+        self.assertEqual(["notes.txt"], [path.name for path in folder.iterdir()])
+
+    @proves_a_process
+    def test_an_empty_folder_is_initialised_and_the_install_arrives(self) -> None:
+        folder = self.plain_folder()
+
+        status, report = self.run_harness_at(folder, "--install")
+
+        self.assertEqual([], report["refusals"])
+        self.assertTrue((folder / ".git").is_dir())
+        self.assertTrue(any("git init" in note for note in report["notes"]), report["notes"])
+        for name, gate in report["gates"].items():
+            self.assertTrue(gate["passed"], (name, gate))
+        self.assertTrue(report["arrived"])
+
+    @proves_a_process
+    def test_the_link_step_initialises_nothing_in_an_empty_folder(self) -> None:
+        folder = self.plain_folder()
+        said = io.StringIO()
+        with contextlib.redirect_stdout(said):
+            status = harness.main([str(folder), "--links"])
+        report = json.loads(said.getvalue())
+
+        self.assertEqual(1, status)
+        self.assertIn("not a git repository", report["refusals"][0])
+        self.assertFalse((folder / ".git").exists())
 
     def test_a_target_git_refuses_for_dubious_ownership_is_refused_with_gits_own_command(self) -> None:
         self._patch(harness, "_git_said", git_refusing_ownership)

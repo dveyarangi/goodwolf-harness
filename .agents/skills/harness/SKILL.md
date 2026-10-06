@@ -56,6 +56,12 @@ Every refusal writes nothing and names its step.
 - **A link the platform refused to create** is not a refusal: everything else landed, and the
   report's `pending` lines are the exact commands. Present them to the person verbatim, to run
   once in an elevated prompt, then run `--links`, which confirms each resolves without a source.
+- **A folder that is not a Git repository**: empty, the install runs `git init` there first and
+  says so in its notes — every script of core reads a tree through Git, so a target is a
+  repository. Holding files of its own, it is refused with the step: where the root goes is the
+  person's decision, so they run `git init` there, or install at the root they mean.
+- **A subfolder of a repository**: refused naming the top level. Install there; one installation
+  is one tree.
 - **Git refuses the target for dubious ownership**: the `.git` directory is owned by another
   identity than the one running — a sandbox and a shell often differ. The refusal carries Git's
   own `safe.directory` command; the person runs it once, then the install runs again.

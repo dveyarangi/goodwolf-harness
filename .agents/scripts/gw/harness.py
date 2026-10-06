@@ -165,6 +165,8 @@ def link(target: Path, report: Report) -> None:
 
 def run(target: Path, mode: str, overwrite: bool, source: Source, ref: str | None, report: Report) -> None:
     """The sequence: refuse what cannot be satisfied, copy, stamp, link, inject, then the gate."""
+    if mode == "--install":
+        _initialise_if_empty(target.resolve(), report)
     target = _work_tree_root(target, source)
     if mode == "--check":
         wanted = _announced_ref(target, source, required=True)
@@ -578,13 +580,39 @@ def _work_tree_root(target: Path, source: Source | None) -> Path:
             f"target: Git refuses {target} for dubious ownership — run "
             f"`{_safe_directory_command(asked.stderr, target)}`, then run again"
         )
+    if asked.returncode != 0 and "not a git repository" in asked.stderr:
+        raise Refused(
+            f"target: {target} is not a git repository; run git init there, or install at the root you mean, "
+            "then run again"
+        )
     top = asked.stdout.strip() if asked.returncode == 0 else None
-    if top is None or Path(top).resolve() != target:
+    if top is None:
         raise Refused(f"target: {target} is not the top level of a git work tree; a workspace of several is refused")
+    if Path(top).resolve() != target:
+        raise Refused(
+            f"target: {target} is not the top level of a git work tree; {Path(top).resolve()} is — install there, "
+            "or a workspace of several is refused"
+        )
     origin = _git_in(target, "remote", "get-url", "origin") if source is not None else None
     if origin is not None and _same_repository(origin, source.repository):
         raise Refused(f"target: {target} is the source itself; the origin is never installed into")
     return target
+
+
+def _initialise_if_empty(target: Path, report: Report) -> None:
+    """An install into an empty folder inside no repository makes the repository first: the root
+    is not in question there, and the person asked for an install. A folder holding anything is
+    left for the work-tree check to refuse with the step, since where the root goes is then the
+    person's decision. The init is the run's one write outside the manifest, so it is reported."""
+    if not target.is_dir() or any(target.iterdir()):
+        return
+    asked = _git_said(target, "rev-parse", "--show-toplevel")
+    if asked.returncode == 0 or "not a git repository" not in asked.stderr:
+        return
+    made = _git_said(target, "init", "--quiet")
+    if made.returncode != 0:
+        raise Refused(f"target: git init in {target} failed — {made.stderr.strip()}")
+    report.notes.append(f"git init: {target} was not a repository and is now one")
 
 
 def _safe_directory_command(git_said: str, target: Path) -> str:
