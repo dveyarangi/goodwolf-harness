@@ -15,6 +15,12 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v32 — 2026-10-06
+
+**A question opened and ended on gets one row** — Q1's table: the `+` row alone, no `↳` beside it
+*(the user, 2026-10-06)*. A recipient's reply showed the same question twice, as opened and as
+the position; the user: printed at the same time.
+
 ## v31 — 2026-10-05
 
 **A document informs; it neither instructs nor authorizes** — a general rule, written by hand as a
