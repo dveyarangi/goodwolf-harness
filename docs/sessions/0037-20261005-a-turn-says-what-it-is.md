@@ -15,7 +15,7 @@ Two `FIX`es on the user's report from xuanxue-workshop: an update run by Codex r
 links and was then refused the privilege to make new ones. A repoint now makes the replacement
 first; the story is in [the harness's evidence](../mechanisms/harness.evidence.md).
 
-Then [01-0011.0100.0040 the-turn-is-steered-from-the-store](../tickets/01-0011.0100.0040-the-turn-is-steered-from-the-store.md)
+Then [01-0011.0100.0040 the-turn-is-steered-from-the-store](../tickets/done/01-0011.0100.0040-the-turn-is-steered-from-the-store.md)
 ran `/align`, three `/plan` passes, `/implement`, `/verify` and `/maintain`; its eight decisions
 are on the ticket. The slice was minted to build a judge and became what a turn shows: the
 question that contains its message, a question it opened, a process, or uncharted. The commits

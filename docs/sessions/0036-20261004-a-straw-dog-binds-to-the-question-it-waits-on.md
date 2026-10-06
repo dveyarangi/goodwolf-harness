@@ -37,7 +37,7 @@ architecture rule amended.
 
 ## What continues
 
-- **Next in the queue**: [01-0011.0100.0040 the-turn-is-steered-from-the-store](../tickets/01-0011.0100.0040-the-turn-is-steered-from-the-store.md),
+- **Next in the queue**: [01-0011.0100.0040 the-turn-is-steered-from-the-store](../tickets/done/01-0011.0100.0040-the-turn-is-steered-from-the-store.md),
   its `/align` first; `next-cycle=ask`.
 - **Recipients**: ai-game-1, frost_map and xuanxue-workshop hold ticket-bound straw dogs of their
   own; after an update the listing reports each as *old binding*, saying what to write instead.

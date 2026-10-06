@@ -81,7 +81,7 @@ uncharted. A message is placed on the lowest question that contains it, never on
 resembles it; a process makes no call; an uncharted question is put to the user until its home is
 settled. The table gains `+` for a question opened in the turn, `▶` for a process and `?` for an
 ask. *A message that lands nowhere makes no call* is gone: it had no word for what the reply then
-shows. Occasion: [01-0011.0100.0040 the-turn-is-steered-from-the-store](../tickets/01-0011.0100.0040-the-turn-is-steered-from-the-store.md),
+shows. Occasion: [01-0011.0100.0040 the-turn-is-steered-from-the-store](../tickets/done/01-0011.0100.0040-the-turn-is-steered-from-the-store.md),
 decisions 1 to 8, and [rule failure 18](../rule-failures.md).
 
 ## v25 — 2026-10-04

@@ -30,7 +30,7 @@ does not say by what: the nearest-looking sibling passed for a landing, when no 
 the message and the parent that would have was missing.
 
 **Amendment proposed:** Q1 reworded to placement by containment and four kinds of turn, each with
-its row — the decisions of [01-0011.0100.0040 the-turn-is-steered-from-the-store](tickets/01-0011.0100.0040-the-turn-is-steered-from-the-store.md)'s
+its row — the decisions of [01-0011.0100.0040 the-turn-is-steered-from-the-store](tickets/done/01-0011.0100.0040-the-turn-is-steered-from-the-store.md)'s
 align. **Landed 2026-10-05**, the entry contract at v26, with the hook's unchanged line naming
 the choice and filling in no id. Graded by the sessions that follow: every reply's row is what
 the turn stood on, read by the user.
