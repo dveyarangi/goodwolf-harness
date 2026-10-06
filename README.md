@@ -125,7 +125,7 @@ checks and its switches. What it runs is one script,
 says why. Claude Code and Cursor reach the skills through directory links; where Windows refuses
 to create one without an elevated prompt, the install finishes everything else and prints the
 commands to run there, once. The links belong to each clone and are never committed;
-<straw-dog question="q-0018.0020.0004">a teammate's fresh clone gets them by running the harness's update.</straw-dog>
+a teammate's fresh clone gets them by running `harness.py . --links` once, offline.
 Updating to a later version and checking the installed copy are in
 the same skill. Python 3.12 or later, standard library only. [MIT licensed](LICENSE).
 

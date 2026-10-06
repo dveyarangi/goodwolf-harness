@@ -1,6 +1,6 @@
 # harness — a project that is not the origin holds core whole, at the ref it announces, and can take a later one
 
-- **instruction** `.agents/skills/harness/SKILL.md` — the commands, each refusal and what the person does, the first install's last step
+- **instruction** `.agents/skills/harness/SKILL.md` — the four commands, install, update, check and the per-clone links, each refusal and what the person does, the first install's last step
 - **state** installed
 
 ## How it works

@@ -190,7 +190,10 @@ junction, a directory or a file in its place is refused by name; a link that alr
 left alone; and where the platform refuses to create one, the run finishes everything else,
 reports the link as pending with the exact elevated command for that tree. Nothing is
 substituted for a link, and a link never decides arrival: the links are reported beside the
-verdict, resolving or not.
+verdict, resolving or not. The links are made in each clone and never committed, so a fresh clone
+of a recipient gets them from `--links`, the link step run alone from the clone's own copy, with
+no source; whatever plans a link names it in the clone's exclude file, which Git locates. A
+target Git refuses for dubious ownership is refused with that cause and Git's own command.
 
 **The edge, and what crosses it.** The core–instance interaction is everything an instance must
 know to integrate core, customise it and stay coherent across core changes: a rule id, a target
