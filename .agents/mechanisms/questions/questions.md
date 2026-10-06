@@ -26,7 +26,9 @@ banter, a message that asks nothing of the work, answered by a reply that writes
 nothing.
 What it places it writes by calling the script, one call per event, each
 validated and written whole; the script gives a new question its id, nested under its parent's,
-and a re-parent renames the subtree that moves, so an id always says where its question sits. The
+and a re-parent renames the subtree that moves, so an id always says where its question sits; a
+reword gives an open question new words under the id it has, since the same question means the
+same answers and never the same wording. The
 window prints position,
 never relevance: the one judgement of the turn is the agent's. The rule placing a message is
 installed at tier 1, since its occasion is every turn.
