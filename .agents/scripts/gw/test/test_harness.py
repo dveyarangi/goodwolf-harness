@@ -1063,6 +1063,72 @@ class TheCommandLine(unittest.TestCase):
         self.assertEqual(2, self.run_main("x", "--install", "--overwrite"))
         self.assertEqual(2, self.run_main("x", "--check", "--at", "v1"))
 
+    def test_links_takes_no_source_no_ref_and_no_overwrite(self) -> None:
+        self.assertEqual(2, self.run_main("x", "--links", "--from", "y"))
+        self.assertEqual(2, self.run_main("x", "--links", "--at", "v1"))
+        self.assertEqual(2, self.run_main("x", "--links", "--overwrite"))
+
+
+class TheLinkStep(TwoTrees):
+    """`--links` in a tree that holds core: the per-clone step, with no source and no network."""
+
+    def run_links(self) -> tuple[int, dict]:
+        said = io.StringIO()
+        with contextlib.redirect_stdout(said):
+            status = harness.main([str(self.target), "--links"])
+        return status, json.loads(said.getvalue())
+
+    def test_a_tree_without_core_is_refused_before_anything_is_written(self) -> None:
+        before = self.target_snapshot()
+
+        status, report = self.run_links()
+
+        self.assertEqual(1, status)
+        self.assertEqual(1, len(report["refusals"]), report)
+        self.assertIn("links:", report["refusals"][0])
+        self.assertIn("--install first", report["refusals"][0])
+        self.assertEqual(before, self.target_snapshot())
+
+    def test_opens_no_source_and_reports_the_links_without_a_verdict(self) -> None:
+        self.run_harness("--install")
+
+        def never(repository: str) -> None:
+            raise AssertionError(f"--links opened a source: {repository}")
+
+        self._patch(harness, "Source", never)
+
+        status, report = self.run_links()
+
+        self.assertNotIn("arrived", report)
+        self.assertNotIn("gates", report)
+        self.assertNotIn("ref", report)
+        self.assertEqual("links", report["mode"])
+        if platform_makes_symlinks():
+            self.assertEqual(0, status)
+            self.assertEqual(["kept", "kept"], [link["state"] for link in report["links"]])
+            self.assertEqual({".claude/skills": True, ".cursor/skills": True}, report["links_resolve"])
+        else:
+            self.assertEqual(1, status)
+            self.assertEqual(["pending", "pending"], [link["state"] for link in report["links"]])
+            self.assertEqual(2, len(report["pending"]))
+            self.assertIn("mklink /D" if os.name == "nt" else "ln -s", report["pending"][0])
+
+    def test_a_fresh_clone_of_a_recipient_gets_its_links_from_the_step(self) -> None:
+        self.run_harness("--install")
+        for link in harness.LINKS:
+            path = self.target / link
+            if path.is_symlink():
+                harness._remove_link(path)
+        self.assertFalse(any((self.target / link).is_symlink() for link in harness.LINKS))
+
+        status, report = self.run_links()
+
+        if platform_makes_symlinks():
+            self.assertEqual(["made", "made"], [link["state"] for link in report["links"]])
+            self.assertTrue(all(report["links_resolve"].values()))
+        else:
+            self.assertEqual(["pending", "pending"], [link["state"] for link in report["links"]])
+
 
 if __name__ == "__main__":
     unittest.main()

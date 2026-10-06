@@ -66,11 +66,12 @@ QUEUE_ARRIVAL = f"{SKILLS}/ticket/QUEUE-ARRIVAL.md"
 DELIVERY_STATUS = "docs/tickets/README.md"
 ARRIVAL_STATE = re.compile(r"^```delivery-status[ \t]*\r?\n(?P<said>.*?)^```", re.M | re.S)
 REPOSITORY = re.compile(r"^Repository: (?P<url>\S+)[ \t]*(?:\r?\n|\Z)", re.M)
-MODES = ("--install", "--update", "--check")
+MODES = ("--install", "--update", "--check", "--links")
 _USAGE = (
     "usage: harness.py <target> --install [--from REPOSITORY] [--at REF]\n"
     "       harness.py <target> --update [--overwrite] [--from REPOSITORY] [--at REF]\n"
-    "       harness.py <target> --check [--from REPOSITORY]"
+    "       harness.py <target> --check [--from REPOSITORY]\n"
+    "       harness.py <target> --links"
 )
 
 
@@ -117,7 +118,12 @@ class Report:
     arrived: bool = False
 
     def as_record(self) -> dict:
-        return dict(self.__dict__)
+        record = dict(self.__dict__)
+        if self.mode == "links":
+            # No gate ran: a verdict printed false would read as an install that failed.
+            for verdict in ("arrived", "gates", "ref"):
+                del record[verdict]
+        return record
 
 
 def main(argv: list[str]) -> int:
@@ -128,14 +134,31 @@ def main(argv: list[str]) -> int:
     target, mode, overwrite, repository, ref = parsed
     report = Report(target, mode[2:], repository or "")
     try:
-        if repository is None:
-            repository = report.repository = home()
-        with Source(repository) as source:
-            run(Path(target), mode, overwrite, source, ref, report)
+        if mode == "--links":
+            link(Path(target), report)
+        else:
+            if repository is None:
+                repository = report.repository = home()
+            with Source(repository) as source:
+                run(Path(target), mode, overwrite, source, ref, report)
     except Refused as refusal:
         report.refusals.append(str(refusal))
     print(json.dumps(report.as_record(), indent=2))
+    if mode == "--links":
+        return 0 if not report.pending and not report.refusals else 1
     return 0 if report.arrived else 1
+
+
+def link(target: Path, report: Report) -> None:
+    """The per-clone step: a clone of a tree that holds core has no loader links until this makes
+    them, from the tree's own copy, with no source and no network. The links are the install's
+    link step run alone; a pending one is the same accepted state, and the exit says it is left."""
+    target = _work_tree_root(target, source=None)
+    if not (target / SKILLS).is_dir():
+        raise Refused(f"links: {target} holds no {SKILLS} — --install first")
+    plan = _link_plan(target)
+    _make_links(target, plan, report)
+    report.links_resolve = _links_resolve(target)
 
 
 def run(target: Path, mode: str, overwrite: bool, source: Source, ref: str | None, report: Report) -> None:
@@ -197,6 +220,8 @@ def _parsed(argv: list[str]) -> tuple[str, str, bool, str | None, str | None] | 
     if overwrite and mode != "--update":
         return None
     if ref is not None and mode == "--check":
+        return None
+    if mode == "--links" and (repository is not None or ref is not None):
         return None
     return words[0], mode, overwrite, repository, ref
 
@@ -537,9 +562,10 @@ def _whole_line_if_alone(text: str, start: int, end: int) -> tuple[int, int]:
 # --- the target ------------------------------------------------------------------------------
 
 
-def _work_tree_root(target: Path, source: Source) -> Path:
+def _work_tree_root(target: Path, source: Source | None) -> Path:
     """One installation is one tree: the target is the top level of a git work tree, and never
-    the repository core comes from."""
+    the repository core comes from. The link step names no source and copies nothing, so it
+    asks only the first."""
     if not target.is_dir():
         raise Refused(f"target: {target} is not a directory")
     target = target.resolve()
@@ -552,7 +578,7 @@ def _work_tree_root(target: Path, source: Source) -> Path:
     top = asked.stdout.strip() if asked.returncode == 0 else None
     if top is None or Path(top).resolve() != target:
         raise Refused(f"target: {target} is not the top level of a git work tree; a workspace of several is refused")
-    origin = _git_in(target, "remote", "get-url", "origin")
+    origin = _git_in(target, "remote", "get-url", "origin") if source is not None else None
     if origin is not None and _same_repository(origin, source.repository):
         raise Refused(f"target: {target} is the source itself; the origin is never installed into")
     return target
