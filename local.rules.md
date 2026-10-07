@@ -48,7 +48,7 @@ debug=on
 Run a Python script with `uv run --offline --no-project python <script>`.
 </rule>
 
-## L6 — the rows carry emoji
+## L6 — the glyphs are anchors
 
 - **target** `AGENTS.md`
 - **authority** the user, 2026-10-07
@@ -59,8 +59,8 @@ In this tree the table's glyphs are emoji — `📍` for the question the turn e
 opened in it, `✅` for one closed in it, `⚙️` for a process, `🧭` for an uncharted ask, `🐺` for
 banter — so a row reads `| 📍 **q-N** · <question> |`, `| 🌱 **q-N** · <question> |`,
 `| ✅ **q-N** · <question> (<kind>: <its answer>) |`, `| ⚙️ **<process>** · <its scope> |`,
-`| 🧭 **uncharted** · <the question> |`, `| 🐺 **banter** |`. The wolf is goodwolf-harness's own,
-and decoration matters here.
+`| 🧭 **uncharted** · <the question> |`, `| 🐺 **banter** |`. A glyph is an anchor for the
+reader's thinking — people think largely in pictures — and the wolf is goodwolf-harness's own.
 </rule>
 
 ## L3 — the verification set

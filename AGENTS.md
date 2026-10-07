@@ -203,8 +203,8 @@ version of the entry contract changed: docs/research/entry-contract-findings.md.
 opened in it, `✅` for one closed in it, `⚙️` for a process, `🧭` for an uncharted ask, `🐺` for
 banter — so a row reads `| 📍 **q-N** · <question> |`, `| 🌱 **q-N** · <question> |`,
 `| ✅ **q-N** · <question> (<kind>: <its answer>) |`, `| ⚙️ **<process>** · <its scope> |`,
-`| 🧭 **uncharted** · <the question> |`, `| 🐺 **banter** |`. The wolf is goodwolf-harness's own,
-and decoration matters here.
+`| 🧭 **uncharted** · <the question> |`, `| 🐺 **banter** |`. A glyph is an anchor for the
+reader's thinking — people think largely in pictures — and the wolf is goodwolf-harness's own.
 </installed>
 
 ## Straw dogs
