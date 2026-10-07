@@ -1,7 +1,7 @@
 # q-0030 How does a reply show the principles each of its claims stands on, and where are the principles named for it?
 
 - **state** open
-- **lean** the user, 2026-10-07: three marks on a paragraph — 💡 the principle it is governed by, 🗂️ the classification it sorts by, ⚓ the footing it rests on — and a blockquote box where no principle fits; a principle is what to prefer when it is unclear what to do, a classification where a thing goes when it is unclear what it is; 28 principles and 15 classifications rendered, the handles to be named at the align with the sort of records
+- **lean** the user, 2026-10-07: three marks on a paragraph — 💡 the principle it is governed by, 🧩 the classification it sorts by, ⚓ the footing it rests on — and a blockquote box where no principle fits; a principle is what to prefer when it is unclear what to do, a classification where a thing goes when it is unclear what it is; 28 principles and 15 classifications rendered, the handles to be named at the align with the sort of records
 - **struck** 0, last 2026-10-07T11:46Z
 
 ## The instructions, agreed in draft 2026-10-07
@@ -48,10 +48,10 @@ it is unclear what it is, as a principle says what to prefer when it is unclear 
 claim like *a description of the environment is of the third kind, so it is rendered* stands on
 one, and neither the lamp nor the anchor names it. Those a script reads (closure kinds, statuses)
 are mechanical and need no handle; those the agent sorts by hand (kinds of record, of turn, of
-statement) need one. **A classification takes a glyph of its own, `🗂️ *<name>*`** *(the user,
+statement) need one. **A classification takes a glyph of its own, `🧩 *<name>*`** *(the user,
 2026-10-07)*: it answers a different question in the reader's head — *what is this?* against
 *what to prefer?* — and the glyph is the picture of the question. So the marks a paragraph may
-open with are three: `💡` the principle it is governed by, `🗂️` the classification it sorts by,
+open with are three: `💡` the principle it is governed by, `🧩` the classification it sorts by,
 `⚓` the footing it rests on; the box stands where no principle fits.
 
 The classifications rendered 2026-10-07, with their types, showed: the three without a home are
