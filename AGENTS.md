@@ -199,8 +199,8 @@ version of the entry contract changed: docs/research/entry-contract-findings.md.
 
 **L5** Run a Python script with `uv run --offline --no-project python <script>`.
 
-**L6** *(overrides questions/Q1)* In this tree the banter row reads `| 🐺 **banter** |`: the wolf is goodwolf-harness's own, and
-decoration matters here.
+**L6** *(overrides questions/Q1)* In this tree the banter row reads `| 🐺 **banter** |` and the process row `| ⚙️ **<process>** · <its scope> |`:
+the wolf is goodwolf-harness's own, and decoration matters here.
 </installed>
 
 ## Straw dogs
