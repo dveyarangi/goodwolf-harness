@@ -15,6 +15,17 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v34 — 2026-10-08
+
+**A paragraph shows what it stands on** — under `debug=on` a claiming paragraph opens with
+`💡` the principle it is governed by, `🧩` the classification it sorts by and `⚓` the footing it
+rests on, and a boxed line where no principle fits; every principle and agentic classification
+is cited by the name its home gives it. By hand, a straw dog bound to q-0030, since no mechanism
+owns principles. Occasion:
+[01-0011.0110.0020 a-paragraph-shows-what-it-stands-on](../tickets/01-0011.0110.0020-a-paragraph-shows-what-it-stands-on.md),
+on the user's ask of 2026-10-07 that the governing principles be caught and shown as the rows
+show the turn.
+
 ## v33 — 2026-10-08
 
 **Every general bullet opens with its name** — ten bold leads, *one shape is not a class* to
