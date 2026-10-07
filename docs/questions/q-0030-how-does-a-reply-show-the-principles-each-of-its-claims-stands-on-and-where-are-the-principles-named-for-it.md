@@ -31,6 +31,6 @@ reasoning has none. A paragraph that links, narrates or restates carries no mark
 three overturned recommendations each had an anchor — *no recorded failures*, *no recipient
 asked* — and no lamp: the box would have shown that before the user did.
 
-**Open:** the box's form — a blockquote, or a one-cell table like the turn's rows; and the
-handles themselves, named at the align that lands this with the sort of records
-(q-0024.0009), one work.
+**The box is a blockquote** *(the user, 2026-10-07)*: it lives inside the text and breaks no
+paragraph. **Open:** the handles themselves, named at the align that lands this with the sort of
+records (q-0024.0009), one work.
