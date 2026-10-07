@@ -56,9 +56,11 @@ Run a Python script with `uv run --offline --no-project python <script>`.
 
 <rule>
 In this tree the table's glyphs are emoji — `📍` for the question the turn ends on, `🌱` for one
-opened in it, `⚙️` for a process, `🐺` for banter; `✓` and `?` stay — so a row reads
-`| 📍 **q-N** · <question> |`, `| 🌱 **q-N** · <question> |`, `| ⚙️ **<process>** · <its scope> |`,
-`| 🐺 **banter** |`. The wolf is goodwolf-harness's own, and decoration matters here.
+opened in it, `✅` for one closed in it, `⚙️` for a process, `🧭` for an uncharted ask, `🐺` for
+banter — so a row reads `| 📍 **q-N** · <question> |`, `| 🌱 **q-N** · <question> |`,
+`| ✅ **q-N** · <question> (<kind>: <its answer>) |`, `| ⚙️ **<process>** · <its scope> |`,
+`| 🧭 **uncharted** · <the question> |`, `| 🐺 **banter** |`. The wolf is goodwolf-harness's own,
+and decoration matters here.
 </rule>
 
 ## L3 — the verification set
