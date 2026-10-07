@@ -21,7 +21,7 @@ this record keeps recording what each bump changed.
 *tier is paid by every session*, so a reply or a format cites a principle by its name and nothing
 else; the method's glossary gains the four kinds of record by source of truth, the five kinds of
 statement with a test each, and the whiteboard, and each role says its kind. Occasion:
-[01-0011.0110.0010 the-kinds-have-names](../tickets/01-0011.0110.0010-the-kinds-have-names.md),
+[01-0011.0110.0010 the-kinds-have-names](../tickets/done/01-0011.0110.0010-the-kinds-have-names.md),
 first slice of [the spec](../spec/01-0011.0110-every-written-thing-has-a-source-of-truth.md).
 
 ## v32 — 2026-10-06
