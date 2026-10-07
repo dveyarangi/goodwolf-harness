@@ -48,6 +48,17 @@ debug=on
 Run a Python script with `uv run --offline --no-project python <script>`.
 </rule>
 
+## L6 — the banter row carries the wolf
+
+- **target** `AGENTS.md`
+- **authority** the user, 2026-10-07
+- **overrides** `questions/Q1`
+
+<rule>
+In this tree the banter row reads `| 🐺 **banter** |`: the wolf is goodwolf-harness's own, and
+decoration matters here.
+</rule>
+
 ## L3 — the verification set
 
 - **target** `.agents/skills/verify/SKILL.md`
