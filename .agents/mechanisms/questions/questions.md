@@ -47,16 +47,16 @@ is drawn only when the session's position or an entry moved, and whole again aft
 
 **Principles**, behind the rules and never installed:
 
-- Depth is the instrument against breadth: when a question's open children outgrow what the window
-  can show, find the question they jointly serve and insert it above them.
-- A skipped question is found by impasse or by the method's plan, never by walking presuppositions
-  upward.
-- Decide at the level asked; go down to look, and return.
-- Descend or hold is a value question: resolve the higher question first only when its answer could
-  flip this one and is cheaper to get than the flip would cost; otherwise decide under it, record
-  the dependency, and the answer is born suspect.
-- The same question means the same answers, never the same wording.
-- A question is held when answering it is worth its cost, when someone can say what one might have
+- **Depth is the instrument against breadth**: when a question's open children outgrow what the
+  window can show, find the question they jointly serve and insert it above them.
+- **A skipped question is found by impasse**, or by the method's plan, never by walking
+  presuppositions upward.
+- **Decide at the level asked**; go down to look, and return.
+- **Descend or hold is a value question**: resolve the higher question first only when its answer
+  could flip this one and is cheaper to get than the flip would cost; otherwise decide under it,
+  record the dependency, and the answer is born suspect.
+- **The same question means the same answers**, never the same wording.
+- **A question is held when it is worth its cost**, when someone can say what one might have
   thought instead, and when a clairvoyant could answer it without judgement.
 
 **Three levels**, each usable without the next: the store, where the agent judges and nobody watches

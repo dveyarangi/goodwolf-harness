@@ -15,6 +15,15 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v33 — 2026-10-08
+
+**Every general bullet opens with its name** — ten bold leads, *one shape is not a class* to
+*tier is paid by every session*, so a reply or a format cites a principle by its name and nothing
+else; the method's glossary gains the four kinds of record by source of truth, the five kinds of
+statement with a test each, and the whiteboard, and each role says its kind. Occasion:
+[01-0011.0110.0010 the-kinds-have-names](../tickets/01-0011.0110.0010-the-kinds-have-names.md),
+first slice of [the spec](../spec/01-0011.0110-every-written-thing-has-a-source-of-truth.md).
+
 ## v32 — 2026-10-06
 
 **A question opened and ended on gets one row** — Q1's table: the `+` row alone, no `↳` beside it

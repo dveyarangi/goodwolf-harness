@@ -7,7 +7,7 @@
 
 `/maintain` holds four things in agreement, per documentation-and-implementation pair a project
 has: docs are derived work of the meta-rules and take their format; docs and their implementation
-agree, both ways; live records are derived work of their declared format; every fact has one home.
+agree, both ways; live records are derived work of their declared format; **every fact has one home**.
 Its occasion is **drift** — a governing side that moved with no landing behind it, or a sum of
 clean landings that no longer agrees. Agreement over a landed slice is verification's, at
 `/verify`, and this mechanism does not repeat it.
