@@ -1,7 +1,7 @@
 # q-0030 How does a reply show the principles each of its claims stands on, and where are the principles named for it?
 
 - **state** open
-- **lean** the user, 2026-10-07: two marks on a paragraph — 💡 the principle governing its reasoning, ⚓ the footing it rests on — and a box where no principle fits, the box being the signal; principles named at their homes first; one work with the sort of records; open: the box's form
+- **lean** the user, 2026-10-07: three marks on a paragraph — 💡 the principle it is governed by, 🗂️ the classification it sorts by, ⚓ the footing it rests on — and a blockquote box where no principle fits; a principle is what to prefer when it is unclear what to do, a classification where a thing goes when it is unclear what it is; 28 principles and 15 classifications rendered, the handles to be named at the align with the sort of records
 - **struck** 0, last 2026-10-07T11:46Z
 
 ## The instructions, agreed in draft 2026-10-07
@@ -48,7 +48,17 @@ it is unclear what it is, as a principle says what to prefer when it is unclear 
 claim like *a description of the environment is of the third kind, so it is rendered* stands on
 one, and neither the lamp nor the anchor names it. Those a script reads (closure kinds, statuses)
 are mechanical and need no handle; those the agent sorts by hand (kinds of record, of turn, of
-statement) need one. Open: a glyph of their own, or under the lamp.
+statement) need one. **A classification takes a glyph of its own, `🗂️ *<name>*`** *(the user,
+2026-10-07)*: it answers a different question in the reader's head — *what is this?* against
+*what to prefer?* — and the glyph is the picture of the question. So the marks a paragraph may
+open with are three: `💡` the principle it is governed by, `🗂️` the classification it sorts by,
+`⚓` the footing it rests on; the box stands where no principle fits.
+
+The classifications rendered 2026-10-07, with their types, showed: the three without a home are
+all of that day — kinds of record, kinds of statement, and the glossary's roles (documentation,
+record, evidence, provenance) cutting the same objects as the kinds of record on another axis,
+to be made one or declared two; the load-bearing factors have no threshold, so they are nearer a
+principle than a classification until one is set (q-0024.0002.0001).
 
 **The box is a blockquote** *(the user, 2026-10-07)*: it lives inside the text and breaks no
 paragraph. **Open:** the handles themselves, named at the align that lands this with the sort of
