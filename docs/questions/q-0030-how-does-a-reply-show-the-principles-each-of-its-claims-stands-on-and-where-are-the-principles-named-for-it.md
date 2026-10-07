@@ -40,6 +40,16 @@ of the method (*every refusal writes nothing*) and definitions (*load-bearing*, 
 which are records of other kinds and take no lamp. The glossary's entry is rewritten to this at
 the align.
 
+**Classifications** *(raised by the user, 2026-10-07)*: a sort with an exhaustiveness claim and
+a test — the kinds of record by source of truth, the five kinds of turn, the four kinds of
+moment, the six closure kinds, the three tiers, the kinds of written statement this very sift
+produced. Neither a preference nor an instruction: a classification says where a thing goes when
+it is unclear what it is, as a principle says what to prefer when it is unclear what to do. A
+claim like *a description of the environment is of the third kind, so it is rendered* stands on
+one, and neither the lamp nor the anchor names it. Those a script reads (closure kinds, statuses)
+are mechanical and need no handle; those the agent sorts by hand (kinds of record, of turn, of
+statement) need one. Open: a glyph of their own, or under the lamp.
+
 **The box is a blockquote** *(the user, 2026-10-07)*: it lives inside the text and breaks no
 paragraph. **Open:** the handles themselves, named at the align that lands this with the sort of
 records (q-0024.0009), one work.
