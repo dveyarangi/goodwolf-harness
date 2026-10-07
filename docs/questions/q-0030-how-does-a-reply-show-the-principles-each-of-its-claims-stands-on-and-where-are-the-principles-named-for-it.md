@@ -31,6 +31,15 @@ reasoning has none. A paragraph that links, narrates or restates carries no mark
 three overturned recommendations each had an anchor — *no recorded failures*, *no recipient
 asked* — and no lamp: the box would have shown that before the user did.
 
+**What a principle is** *(the user, 2026-10-07)*: *an instruction tells the agent what exactly
+to do; a principle says what to prefer when it is unclear what to do.* So a principle is a
+preference under uncertainty, and the test for one is that it can be written as *prefer A over
+B*. A first listing of sixty-nine candidates fell to about forty by the glossary's test (no
+moment, no outcome) and to fewer by this one: what remains outside are instructions, invariants
+of the method (*every refusal writes nothing*) and definitions (*load-bearing*, *the whiteboard*),
+which are records of other kinds and take no lamp. The glossary's entry is rewritten to this at
+the align.
+
 **The box is a blockquote** *(the user, 2026-10-07)*: it lives inside the text and breaks no
 paragraph. **Open:** the handles themselves, named at the align that lands this with the sort of
 records (q-0024.0009), one work.
