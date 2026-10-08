@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v38, 2026-10-08.
+Entry contract: v39, 2026-10-08.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -45,14 +45,14 @@ applies by judgement, carries a name at its authored home and is cited by that n
   by; rarely, where it follows a principle the list lacks, `(⬜ *<that principle, worded>*)`;
   with none at work, nothing.
 - Text proposed for a record of the kind *what it intends to become* or *what must always hold*
-  is a paragraph of its own, as it would be written, under a line `🧩 **Proposed change —
-  <record>**` or `⚓ **Proposed invariant — <record>**`.
+  is a paragraph of its own, as it would be written, in a blockquote under a line `🧩 **Proposed
+  change — <record>**` or `⚓ **Proposed invariant — <record>**`, the line outside it.
 - What a claim rests on from outside this session — a decision, evidence or the user's word, by
   its record or by who and when — is a markdown footnote, its marker in prose. What this session
   read or said takes none.
 
 Whatever waits on the user's decision goes, debug or not, to a table headed `| ⚖️ Decisions |`,
-a row each.
+a row each; drift met and not repaired, to a table headed `| 🍂 Drift |`, a row each.
 </straw-dog>
 
 <installed by="ticket">

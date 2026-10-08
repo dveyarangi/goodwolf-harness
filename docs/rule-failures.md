@@ -12,6 +12,22 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 19. A session record's stale handoff was reported as drift — 2026-10-08
+
+**Rules in play:** [`/recall`](../.agents/skills/recall/SKILL.md)'s *sessions, `tickets/done` and
+`rfc/done` are dated snapshots — read them for why, never for whether*, and its *report drift you
+hit while reading*.
+
+**What happened.** The wake's `/recall` reported as drift that session 41's handoff said two
+commits waited on a push, when none did. The user: *drift in a session file does not count as
+drift.*
+
+**Why it did not fire.** The snapshot rule sat in the bullet on reading the state; the drift
+bullet, read when reporting, named what drifts and not what cannot.
+
+**Amendment proposed:** the drift bullet says it itself — a dated snapshot does not drift; what
+the tree has moved past in it is history. **Landed 2026-10-08**, with the entry contract at v39.
+
 ## 18. Six turns of seven showed a question the turn did not stand on — 2026-10-05
 
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s Q1, *call `at` where the message

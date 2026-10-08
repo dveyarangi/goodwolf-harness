@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v39 — 2026-10-08
+
+**Drift gets its table; a proposed change, its blockquote** — drift met and not repaired goes,
+debug or not, to a table headed `| 🍂 Drift |`, beside the decisions' ⚖️; text proposed for a
+governing record sits in a blockquote, its 🧩 or ⚓ line outside it. Occasion: the user, after a
+`/recall` that reported its drift as a plain list: *let's give drift an icon too* — the leaves —
+and *the paragraph proposed as a change goes in a blockquote, the heading stays outside.*
+
 ## v38 — 2026-10-08
 
 **The push is the conclude's** — `push=ask` now means the push is put to the user once, at
