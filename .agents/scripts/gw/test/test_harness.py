@@ -62,7 +62,8 @@ ENTRY = (
 SAMPLE_DOC = (
     "# sample — one line saying what it is\n\n"
     f"- **instruction** `{KEEPER}` — the act\n"
-    "- **state** installed\n\n"
+    "- **state** installed\n"
+    "- **kind** what must always hold\n\n"
     "## How it works\n\nProse nothing parses.\n\n"
     "## Moments\n\n"
     "| moment | instructed by | kind, and why |\n|---|---|---|\n"

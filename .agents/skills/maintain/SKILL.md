@@ -12,8 +12,9 @@ One pass over a declared scope. The scope decides which rules apply.
 
 ## Hold
 
-- **A1** Hold four things in agreement: docs to the meta-rules and their format; docs to their
-  implementation, both ways; live records to their declared format; every fact to one home.
+- **A1** Hold four things in agreement: docs to the meta-rules and their format; a record to the
+  thing it is of, by its kind — one of *what must always hold* repairs the thing, one of *what
+  exists* is regenerated from it; live records to their declared format; every fact to one home.
 - **A2** Maintain drift only: a governing side that moved with no landing behind it, or clean
   landings that no longer agree. A landed slice is verified, not maintained.
 - **A3** When a governing side moves, re-check what it governs, upper link first: the mechanism

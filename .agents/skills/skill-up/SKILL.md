@@ -9,7 +9,8 @@ description: >-
 
 Your goal is to aid agent skill creation or modification.
 
-Writing rules:
+Writing rules — to the mechanism shape, which produces instructions, a skill is a record of the
+kind *what must always hold*, and these are that kind's invariants for one:
 
 - A skill is instruction, not story. Be precise and concise. Prefer umbrella terms to enumeration, unless can be interpreted wrong in context of the skill.
 - State everything in definitive form — no evolution logic, no decision explanations.
