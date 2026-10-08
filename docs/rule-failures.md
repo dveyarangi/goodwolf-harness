@@ -12,6 +12,22 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 24. Text just written into the entry file was quoted without its 🧩 — 2026-10-09
+
+**Rules in play:** the entry file's *A paragraph shows what it stands on* — *text proposed for a
+record of the kind what it intends to become or what must always hold* goes in a blockquote under
+`🧩 **Proposed change — <record>**`.
+
+**What happened.** A reply proposed the /recall straw dog's new wording under 🧩; the next reply,
+after landing it, quoted the same text in a bare blockquote under *The rule*. The user: *why is
+it not wrapped as 🧩? — everything planned to be added, or just added, must be wrapped with 🧩.*
+
+**Why it did not fire.** The rule says *proposed*; once landed, the text read as no longer
+proposed, and nothing named the header for text the session had just written.
+
+**Amendment proposed:** the bullet covers text proposed for such a record *or written into one in
+this session*, the line reading `🧩 **Landed change — <record>**` for the latter, and `⚓` likewise.
+
 ## 23. A rollback ran /recall a second time over a context that held the first — 2026-10-09
 
 **Rules in play:** the entry file's straw dog *Run /recall first in every session, whatever the
