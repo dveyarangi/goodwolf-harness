@@ -10,7 +10,11 @@ each. Each answered the same ten questions about every tool from its current doc
 with a date and a confidence for every claim. None was told anything about this project.
 
 The summary below is the agent's reading. The harness's row is the agent's account of its own
-tree, not a pass's. The four reports follow it as they came back.
+tree, not a pass's. The four reports follow it as they came back. The rows for Gas Town and
+Archon come from a fifth pass, started by a first run that was cut short. That pass's report
+reached the session but no file, so it is not reproduced here. Its sources were Gas Town's README,
+`HOOKS.md` and releases, and Archon's README, changelog and `sdlc` workflow files, all read
+2026-10-08.
 
 ## Summary
 

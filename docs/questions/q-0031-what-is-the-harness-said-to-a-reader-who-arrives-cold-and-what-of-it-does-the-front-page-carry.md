@@ -79,6 +79,31 @@ left with its lean. The new conversation of 2026-10-06 went for the queue's next
 to that question through it, and by 2026-10-08 had turned it into a spec, five tickets and two
 landed slices.
 
+**Measured against the genre, 2026-10-08.** The [README survey](../research/readme-survey-2026-10-08.md)
+found the draft out of genre in three ways. Install came last, where most peers put it in the first
+third. The example was the harness's own meta-work. The mechanism sat on the front page. The
+survey also found that no peer says who it is not for, or what it costs. The user decided four
+things *(the user, 2026-10-08)*:
+
+- position the page against named peers;
+- tell a session from the user's seat;
+- keep the honest sections, compressed;
+- keep the mechanism on the front page, against the agent's proposal to move it to the glossary.
+
+The user then struck the evidence the agent was about to position from: *the 2026-09-26 pass is
+long out of date*. The positioning now rests on
+[what sixteen peers can do as of 2026-10-08](../research/peer-capabilities-2026-10-08.md).
+State in the repository, verification against criteria, overrides and many hosts are standard
+now. What the matrix finds rare, or held by no peer, is what the page now names as the harness's
+own:
+
+- context injected before every message;
+- open questions as structured records at the method's centre;
+- a repair direction per kind of record, both ways;
+- an in-project tie from a rule that did not fire to its amendment.
+
+Where the harness is behind, the page says so: three hosts, and no locks between sessions.
+
 Decisions of 2026-09-26 that still bind the page: written for a cold human and for an agent handed
 the link; points into core, never into `docs/`; the title *GoodWolf Harness*; not a second home
 for the flow. The page is kept out of the install manifest, so a published core has no front page
