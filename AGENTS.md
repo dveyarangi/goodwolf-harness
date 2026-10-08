@@ -45,10 +45,10 @@ applies by judgement, carries a name at its authored home and is cited by that n
   by; rarely, where it follows a principle the list lacks, `(⬜ *<that principle, worded>*)`;
   with none at work, nothing.
 - Text proposed for a record of the kind *what it intends to become* or *what must always hold*
-  is the one cell of a table, under a line `🧩 *What it intends to become — <record>*` or
-  `⚓ *What must always hold — <record>*`.
+  is a paragraph of its own, as it would be written, under a line `🧩 **Proposed change —
+  <record>**` or `⚓ **Proposed invariant — <record>**`.
 - What a claim rests on — a decision, evidence or the user's word, by its record or by who and
-  when — is a footnote, its marker in prose.
+  when — is a note at the reply's end, numbered by a superscript (`¹`) placed in prose.
 
 Whatever waits on the user's decision goes, debug or not, to a table headed `| ⚖️ Decisions |`,
 a row each.

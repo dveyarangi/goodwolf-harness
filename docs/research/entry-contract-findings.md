@@ -17,10 +17,10 @@ this record keeps recording what each bump changed.
 
 ## v37 — 2026-10-08
 
-**The piece frames a candidate; the footing is a footnote** — text proposed for a governing
-record is the one cell of a table under a line `🧩 What it intends to become — <record>` or
-`⚓ What must always hold — <record>`; the inline piece goes; each footing is a footnote, its
-marker in prose; the paragraph is rewritten to three bullets and a line. Occasion: the user, over
+**The piece heads a candidate; the footing is a note** — text proposed for a governing
+record is a paragraph of its own under a line `🧩 Proposed change — <record>` or
+`⚓ Proposed invariant — <record>`; the inline piece goes; each footing is a note at the end,
+numbered by a superscript in prose; the paragraph is rewritten to three bullets and a line. Occasion: the user, over
 the align replies under v36. Still a straw dog bound to q-0030.
 
 ## v36 — 2026-10-08

@@ -112,4 +112,9 @@ anchor icon is not needed; use it for invariants.* So a footing is a plain footn
 heads a candidate of *what must always hold* in place of the pillar. A footnote's marker inside
 a table cell, or a colon inside its text, broke the rendering — the marker stays in prose. And,
 the paragraph having grown over the day: *check that our formatting instruction has not grown —
-write for a capable model*; rewritten to three bullets and a line.
+write for a capable model*; rewritten to three bullets and a line. Then: *let's not put the
+classified paragraph in a table — just the classification as a heading, made understandable,
+and then the paragraph's ordinary output*: `🧩 **Proposed change — <record>**` or
+`⚓ **Proposed invariant — <record>**` over the paragraph. And the colon after a footnote's
+label still broke the rendering, so the footing drops footnote syntax for a superscript number
+in prose and a note at the end.
