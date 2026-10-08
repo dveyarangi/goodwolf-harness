@@ -2,4 +2,5 @@
 
 - **state** open
 - **owner** [01-0018](../tickets/01-0018-reachability-coherent.md)
+- **lean** three failures on 2026-10-08 (20, 21, 22) each a rule whose placeholder or verb the reader filled loosely
 - **struck** 1, last 2026-10-08T06:45Z

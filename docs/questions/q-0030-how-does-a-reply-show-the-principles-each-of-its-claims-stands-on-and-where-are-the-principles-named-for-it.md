@@ -2,7 +2,7 @@
 
 - **state** open
 - **owner** [01-0011.0110.0020](../tickets/01-0011.0110.0020-a-paragraph-shows-what-it-stands-on.md)
-- **lean** the form reworked on the user reading v35 to v37: lamp closes the paragraph, box only for a missing principle, 🧩 and ⚓ head a proposed change or invariant, footing as footnotes from outside the session, decisions in a ⚖️ table; .0020 waits on the week of grading and the first box
+- **lean** the form at v42 — lamp names a principle in words, 無 for a missing one, 🧩 and ⚓ head a blockquoted proposal, footnotes only from outside the session, ⚖️ and 🍂 tables; .0020 waits on the week of grading
 - **struck** 1, last 2026-10-08T05:53Z
 
 ## The instructions, agreed in draft 2026-10-07
