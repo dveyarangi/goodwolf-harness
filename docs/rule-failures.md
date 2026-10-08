@@ -12,6 +12,24 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 20. A rule landed in the tree was copied into the host's memory — 2026-10-08
+
+**Rules in play:** the host's own memory instructions, *don't save what the repo already
+records*; the entry file's *Self-improvement*, which puts a correction into a rule here.
+
+**What happened.** The user moved the push to `/conclude`; I landed it in the entry file's switch
+and the conclude skill, then also wrote it as a note in Claude Code's auto-memory. The user:
+*please do not.* I answered that I would not write to memory again unasked, and the user: *how
+won't you, in the next session? what carries it? this sentence is plain reasoning error.*
+
+**Why it did not fire.** The host's rule lives in the host's prompt, outside this tree, and
+nothing here says where a correction goes once it is a rule — so the habit of saving feedback
+won over the instruction against duplicating the repo. The promise that followed had no carrier
+at all.
+
+**Amendment proposed:** a local rule, L7 — a correction that lands as a rule here is not also
+written to the host's memory store. **Landed 2026-10-08**, with the entry contract at v40.
+
 ## 19. A session record's stale handoff was reported as drift — 2026-10-08
 
 **Rules in play:** [`/recall`](../.agents/skills/recall/SKILL.md)'s *sessions, `tickets/done` and

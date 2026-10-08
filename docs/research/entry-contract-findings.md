@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v40 — 2026-10-08
+
+**The box becomes 無** — a paragraph following a principle the list lacks ends with
+`(無 *<that principle, worded>*)`, the glyph *mu*, nothing, in place of `⬜`. The user,
+2026-10-08. And the local block gains L7: a correction landed as a rule here is not also written
+to the host's memory store — [rule failure 20](../rule-failures.md).
+
 ## v39 — 2026-10-08
 
 **Drift gets its table; a proposed change, its blockquote** — drift met and not repaired goes,

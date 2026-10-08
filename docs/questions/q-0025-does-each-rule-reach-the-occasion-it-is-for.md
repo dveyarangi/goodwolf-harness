@@ -2,4 +2,4 @@
 
 - **state** open
 - **owner** [01-0018](../tickets/01-0018-reachability-coherent.md)
-- **struck** 0, last 2026-10-03T10:15Z
+- **struck** 1, last 2026-10-08T06:45Z

@@ -63,6 +63,17 @@ banter — so a row reads `| 📍 **q-N** · <question> |`, `| 🌱 **q-N** · <
 reader's thinking — people think largely in pictures — and the wolf is goodwolf-harness's own.
 </rule>
 
+## L7 — a rule here is not copied to the host's memory
+
+- **target** `AGENTS.md`
+- **authority** the user, 2026-10-08
+
+<rule>
+A correction that lands as a rule in this tree is not also written to the host's own memory
+store outside the repository — Claude Code's auto-memory directory and its kin; that store holds
+only what no record in this tree carries.
+</rule>
+
 ## L3 — the verification set
 
 - **target** `.agents/skills/verify/SKILL.md`

@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v39, 2026-10-08.
+Entry contract: v40, 2026-10-08.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -42,7 +42,7 @@ applies by judgement, carries a name at its authored home and is cited by that n
 `debug=on`:
 
 - A paragraph that claims or recommends ends with `(💡 *<principle>*)`, the one it is governed
-  by; rarely, where it follows a principle the list lacks, `(⬜ *<that principle, worded>*)`;
+  by; rarely, where it follows a principle the list lacks, `(無 *<that principle, worded>*)`;
   with none at work, nothing.
 - Text proposed for a record of the kind *what it intends to become* or *what must always hold*
   is a paragraph of its own, as it would be written, in a blockquote under a line `🧩 **Proposed
@@ -224,6 +224,10 @@ banter — so a row reads `| 📍 **q-N** · <question> |`, `| 🌱 **q-N** · <
 `| ✅ **q-N** · <question> (<kind>: <its answer>) |`, `| ⚙️ **<process>** · <its scope> |`,
 `| 🧭 **uncharted** · <the question> |`, `| 🐺 **banter** |`. A glyph is an anchor for the
 reader's thinking — people think largely in pictures — and the wolf is goodwolf-harness's own.
+
+**L7** A correction that lands as a rule in this tree is not also written to the host's own memory
+store outside the repository — Claude Code's auto-memory directory and its kin; that store holds
+only what no record in this tree carries.
 </installed>
 
 ## Straw dogs
