@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v38 — 2026-10-08
+
+**The push is the conclude's** — `push=ask` now means the push is put to the user once, at
+`/conclude`, and the conclude skill settles the session's unpushed commits after its ended row.
+Occasion: the user, after a session that re-asked the push in every reply: *instead of filtering
+it out of the table, make it conclude's responsibility.*
+
 ## v37 — 2026-10-08
 
 **The piece heads a candidate; the footing is a footnote** — text proposed for a governing

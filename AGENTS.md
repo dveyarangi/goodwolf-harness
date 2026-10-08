@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v37, 2026-10-08.
+Entry contract: v38, 2026-10-08.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -184,7 +184,7 @@ A switch the project has not set is `ask`.
 | Switch | Meaning |
 |---|---|
 | commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |
-| push | `ask`: separate from commit, per push. `never`, `auto`. |
+| push | `ask`: separate from commit, put to the user once, at /conclude. `never`, `auto`. |
 | next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |
 | breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |
 | repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |
