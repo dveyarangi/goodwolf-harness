@@ -116,10 +116,12 @@ cites its owner's record.
 
 ## Branching
 
-**When** a question's shape hides parts whose expansion would change its answer, or a split comes
-back from an impact pass. **Do** open each hidden part under it, with `depend` where one cannot
-be asked before another; leave the parent open; call `at` on the first child that can be worked.
-No answer lands on the parent until its children close or are deferred with a default. How a kind
+**When** a question's shape hides parts whose expansion would change its answer; a split comes
+back from an impact pass; or the person refutes a proposed answer by reshaping the question rather
+than by choosing among its options. **Do** open each hidden part under it, with `depend` where one
+cannot be asked before another; leave the parent open; call `at` on the first child that can be
+worked. No answer lands on the parent, and none is put to the person as a proposal or a decision,
+until its children close or are deferred with a default. How a kind
 of question branches is the method's instrument; the moment is this one.
 
 ## Dropping

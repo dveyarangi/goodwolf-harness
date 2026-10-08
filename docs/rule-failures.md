@@ -12,6 +12,31 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 25. Answers proposed four times on a question whose parts were not unfolded — 2026-10-09
+
+**Rules in play:** /questions' *Branching* — open each hidden part, and no answer lands on the
+parent until its children close; the questions mechanism's own warning that whether a shape hides
+parts is what the agent fails to judge; the entry file's ⚖️ table for what waits on the user.
+
+**What happened.** On q-0001.0023 the agent drafted a relation, then put a form and a next step to
+the user four replies running. Each time the user's answer reshaped the question — the link's ends
+are answers; both relations point at an answer; *which database* presupposes a database; every
+question presupposes something, and which kind holds tracks how set the project is — and each
+time the agent re-cut a narrower answer and asked for a decision. The user: *you hurry to make
+concrete and cut where it is not yet worth it; you know the problem is not simple; do you think
+you have untangled it? If not, remember what we do for this.*
+
+**Why it did not fire.** Branching's *When* names a shape that hides parts, a judgement the
+mechanism says the agent fails at, and an impact pass's split; a refutation by the person that
+reshapes the question is the observable sign of hidden parts, and the rule did not name it. The ⚖️
+table pulled the other way: every reply had something to put to the user, so a decision was made
+up for a shape not yet unfolded.
+
+**Amendment proposed:** Branching's *When* adds the person refuting a proposed answer by reshaping
+the question rather than by choosing among its options; its last sentence adds that no answer of
+the parent is put to the person as a proposal or a decision until the children close.
+**Landed 2026-10-09.**
+
 ## 24. Text just written into the entry file was quoted without its 🧩 — 2026-10-09
 
 **Rules in play:** the entry file's *A paragraph shows what it stands on* — *text proposed for a
