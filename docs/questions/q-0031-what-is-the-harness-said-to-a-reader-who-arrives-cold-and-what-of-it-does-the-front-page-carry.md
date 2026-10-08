@@ -61,6 +61,24 @@ recall structure (*it does not mean there is none*). What the material bears on 
   single-parent placement is where rule failure 18 struck; a wrong placement makes the next push
   wrong; nothing measures whether a pushed line was used; Cursor gets no per-message push.
 
+**The second draft, 2026-10-08, built around what the reader gets.** The user: *two axes are not
+all there is in the harness; it has to be presented as a useful tool, not as a technical
+curiosity.* The draft now opens on the jobs: eight problems of working with agents over weeks,
+each with what changes. Then come a real example from this tree, who it is for and who not yet,
+what it costs in measured sizes, and only then how it works, with the two axes inside it. Its
+evidence is the [adoption panel](../research/adoption-panel-2026-09-26.md). Its six runs came
+back *not for my case* on merit, while crediting the decision model. Across the runs the readers
+asked for three things: the team limit up front, cost figures, and a worked example. The
+greenfield reader's *the ceremony has nothing to bite on yet* became the page's line on who it is
+not for.
+
+The first example drafted was false. It said a fresh session picked up overnight what an
+afternoon align had left. The transcripts show one conversation, resumed by the host under three
+ids. It was replaced by a story the records bear out: q-0024.0009 was opened on 2026-10-05 and
+left with its lean. The new conversation of 2026-10-06 went for the queue's next item, came back
+to that question through it, and by 2026-10-08 had turned it into a spec, five tickets and two
+landed slices.
+
 Decisions of 2026-09-26 that still bind the page: written for a cold human and for an agent handed
 the link; points into core, never into `docs/`; the title *GoodWolf Harness*; not a second home
 for the flow. The page is kept out of the install manifest, so a published core has no front page
