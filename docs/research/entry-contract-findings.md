@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v35 — 2026-10-08
+
+**The marks leave the text** — the lamp, the piece and the box open a claiming paragraph as a
+blockquote, and the anchors gather into one list at the reply's end, an item per footing naming
+the claim it bears. Occasion: the first fresh session's first reply under v34, on which the user
+said *the marks interfere with the text itself*, and asked for the principles in a blockquote and
+the anchors in one list at the end (the user, 2026-10-08). Still a straw dog bound to q-0030.
+
 ## v34 — 2026-10-08
 
 **A paragraph shows what it stands on** — under `debug=on` a claiming paragraph opens with

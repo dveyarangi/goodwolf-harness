@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v34, 2026-10-08.
+Entry contract: v35, 2026-10-08.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -39,12 +39,13 @@ nothing about being load-bearing — an implementation method is a shape too. �
 <straw-dog question="q-0030">
 **A paragraph shows what it stands on.** Every principle, and every classification an agent
 applies by judgement, carries a name at its authored home and is cited by that name. Under
-`debug=on`, a paragraph that claims or recommends opens with the marks it earns, in this order:
-`💡 *<name>*` the one principle it is governed by; `🧩 *<name>*` the classification it sorts by;
-`⚓ *<footing>*` what it rests on — a decision, evidence or the user's word, by its record or by
-who and when. Where no principle fits, a blockquote `> ⬜ no principle fits — <what it rests on>`
-stands in the lamp's place, and the box is the signal: a principle is missing from the list, or
-the reasoning has none. A paragraph that links, narrates or restates carries no mark.
+`debug=on`, a paragraph that claims or recommends opens with a blockquote of the marks it earns,
+in this order: `💡 *<name>*` the one principle it is governed by; `🧩 *<name>*` the
+classification it sorts by. Where no principle fits, `⬜ no principle fits` stands in the lamp's
+place, and the box is the signal: a principle is missing from the list, or the reasoning has
+none. What the claims rest on goes to one list at the reply's end, an item `⚓ *<footing>* —
+<the claim>` for each: a decision, evidence or the user's word, by its record or by who and when.
+A paragraph that links, narrates or restates carries no mark.
 </straw-dog>
 
 <installed by="ticket">

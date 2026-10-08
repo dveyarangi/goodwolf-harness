@@ -3,7 +3,7 @@
 - **state** open
 - **owner** [01-0011.0110.0020](../tickets/01-0011.0110.0020-a-paragraph-shows-what-it-stands-on.md)
 - **lean** the rule landed 2026-10-08 at tier 1 as a straw dog bound here, the contract at v34: 💡 🧩 ⚓ and the box; .0020 stays open until a fresh session shows the marks unasked and the user grades a week of replies; the box's first catch of a missing principle is the third box
-- **struck** 0, last 2026-10-07T11:46Z
+- **struck** 1, last 2026-10-08T05:53Z
 
 ## The instructions, agreed in draft 2026-10-07
 
@@ -64,3 +64,11 @@ principle than a classification until one is set (q-0024.0002.0001).
 **The box is a blockquote** *(the user, 2026-10-07)*: it lives inside the text and breaks no
 paragraph. **Open:** the handles themselves, named at the align that lands this with the sort of
 records (q-0024.0009), one work.
+
+## The marks leave the text, 2026-10-08
+
+The first fresh session's first reply under v34 carried the marks unasked, and the user read it:
+*the marks interfere too much with the text itself.* So *(the user, 2026-10-08)*: the principle
+with its glyph goes into a blockquote — the lamp, the piece and the box alike open a claiming
+paragraph as a quoted line — and the anchors go into one list at the end of the reply, an item
+per footing naming the claim it bears. Landed at v35.
