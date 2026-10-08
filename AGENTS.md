@@ -48,7 +48,7 @@ applies by judgement, carries a name at its authored home and is cited by that n
   is a paragraph of its own, as it would be written, under a line `🧩 **Proposed change —
   <record>**` or `⚓ **Proposed invariant — <record>**`.
 - What a claim rests on — a decision, evidence or the user's word, by its record or by who and
-  when — is a note at the reply's end, numbered by a superscript (`¹`) placed in prose.
+  when — is a note at the reply's end, `[1] <footing>` with no colon, its `[1]` placed in prose.
 
 Whatever waits on the user's decision goes, debug or not, to a table headed `| ⚖️ Decisions |`,
 a row each.

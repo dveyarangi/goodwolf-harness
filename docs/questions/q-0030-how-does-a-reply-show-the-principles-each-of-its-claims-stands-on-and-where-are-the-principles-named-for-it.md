@@ -116,5 +116,6 @@ write for a capable model*; rewritten to three bullets and a line. Then: *let's 
 classified paragraph in a table — just the classification as a heading, made understandable,
 and then the paragraph's ordinary output*: `🧩 **Proposed change — <record>**` or
 `⚓ **Proposed invariant — <record>**` over the paragraph. And the colon after a footnote's
-label still broke the rendering, so the footing drops footnote syntax for a superscript number
-in prose and a note at the end.
+label still broke the rendering, so the footing drops footnote syntax; tried as a superscript,
+the user: *no, the brackets were needed; the colon after them was not* — so `[1]` in prose and
+`[1] <footing>` at the end, with no colon.
