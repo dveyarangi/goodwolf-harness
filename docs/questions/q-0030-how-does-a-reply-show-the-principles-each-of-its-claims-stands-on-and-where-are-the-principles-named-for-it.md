@@ -2,7 +2,7 @@
 
 - **state** open
 - **owner** [01-0011.0110.0020](../tickets/01-0011.0110.0020-a-paragraph-shows-what-it-stands-on.md)
-- **lean** the rule landed 2026-10-08 at tier 1 as a straw dog bound here, the contract at v34: 💡 🧩 ⚓ and the box; .0020 stays open until a fresh session shows the marks unasked and the user grades a week of replies; the box's first catch of a missing principle is the third box
+- **lean** the form reworked on the user reading v35 to v37: lamp closes the paragraph, box only for a missing principle, 🧩 and ⚓ head a proposed change or invariant, footing as footnotes from outside the session, decisions in a ⚖️ table; .0020 waits on the week of grading and the first box
 - **struck** 1, last 2026-10-08T05:53Z
 
 ## The instructions, agreed in draft 2026-10-07
