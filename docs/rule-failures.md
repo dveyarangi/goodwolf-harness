@@ -12,6 +12,23 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 23. A rollback ran /recall a second time over a context that held the first — 2026-10-09
+
+**Rules in play:** the entry file's straw dog *Run /recall first in every session, whatever the
+first message says*; the questions hook's start read.
+
+**What happened.** The user stopped a reply in the desktop app and rolled it back. The app resumed
+the conversation under a new session id, the hook answered *registered now* as for a new session,
+and the agent ran /recall again. The user: *does a second recall make sense at all, or does the
+context survive when the session id changes?* — it survives.
+
+**Why it did not fire.** It fired where it should not have: "session" read as the host's id, and the
+hook, seeing an id it had not registered, said nothing to the contrary.
+
+**Amendment proposed:** the straw dog says *conversation*, and that one resumed under a new id is
+the same one; the hook finds the session a new id continues by its transcript's first message and
+says so, carrying the position over. **Landed 2026-10-09**, with the entry contract at v43.
+
 ## 22. A lamp cited a rule's id instead of a principle's name — 2026-10-08
 
 **Rules in play:** the entry file's *A paragraph shows what it stands on* — every principle

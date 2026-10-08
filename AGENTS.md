@@ -1,11 +1,12 @@
 # Entry contract
 
-Entry contract: v42, 2026-10-08.
+Entry contract: v43, 2026-10-09.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
 <straw-dog question="q-0027">
-Run /recall first in every session, whatever the first message says.
+Run /recall first in every conversation, whatever the first message says. A conversation the host
+resumes under a new id is the same conversation: its context holds the recall it ran.
 </straw-dog>
 
 ## General rules

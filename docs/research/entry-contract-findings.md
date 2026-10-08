@@ -15,6 +15,12 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v43 — 2026-10-09
+
+**/recall runs once per conversation, not per host id** — a conversation the host resumes under a
+new id is the same conversation, its context holding the recall it ran; the questions hook names
+the session it continues. Occasion: [rule failure 23](../rule-failures.md).
+
 ## v42 — 2026-10-08
 
 **The lamp names a principle in words** — `(💡 *<principle's name>*)`, its name as its home

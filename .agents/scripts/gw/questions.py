@@ -1108,6 +1108,7 @@ class Host:
     """
 
     session_field: str
+    transcript_field: str | None
     starts: str
     messages: str | None
     compactions: tuple[str, ...]
@@ -1130,11 +1131,14 @@ def _cursor_answer(event: str, context: str, tag: str) -> str:
 
 
 HOSTS = {
-    "claude-code": Host("session_id", "SessionStart", "UserPromptSubmit", (), _hook_specific, ""),
-    "codex": Host("session_id", "SessionStart", "UserPromptSubmit", ("PostCompact",), _hook_specific, ""),
+    # Claude Code keeps a session's transcript beside every other, named by its id; observed
+    # 2026-10-09, when a rollback resumed a conversation under a new id.
+    "claude-code": Host("session_id", "transcript_path", "SessionStart", "UserPromptSubmit", (), _hook_specific, ""),
+    "codex": Host("session_id", None, "SessionStart", "UserPromptSubmit", ("PostCompact",), _hook_specific, ""),
     # Cursor's prompt hook can only allow or block, so its agent draws the window by the rule.
     "cursor": Host(
         "conversation_id",
+        None,
         "sessionStart",
         None,
         ("preCompact",),
@@ -1175,15 +1179,16 @@ def hook(root: Path, host_name: str, payload: str, today: date) -> str:
         sent = _sent(payload)
         event = sent.get("hook_event_name")
         tag = _tag(str(sent.get(host.session_field) or ""))
+        transcript = sent.get(host.transcript_field) if host.transcript_field else None
         if event in host.compactions:
             _forget_window(root, tag)
             return host.quiet
         if event == host.starts:
-            return host.answer(event, _started(root, tag, sent.get("source"), today), tag)
+            return host.answer(event, _started(root, tag, sent.get("source"), today, transcript), tag)
         if event == host.messages:
             if tag not in {held.tag for held in _sessions(root)[0]}:
                 # The start was never seen — the hooks arrived mid-session — so this is the start.
-                return host.answer(event, _started(root, tag, None, today), tag)
+                return host.answer(event, _started(root, tag, None, today, transcript), tag)
             return host.answer(event, window(root, tag), tag)
         return ""
     except Exception as problem:  # noqa: BLE001 — the boundary to a host: nothing may escape it
@@ -1204,14 +1209,30 @@ def _sent(payload: str) -> dict:
         ) from None
 
 
-def _started(root: Path, tag: str, source: str | None, today: date) -> str:
+def _started(root: Path, tag: str, source: str | None, today: date, transcript: str | None = None) -> str:
     """A session starting, resuming or compacted: registered once under the host's id, running
-    again if it had ended, and given a whole window, since its context has none."""
+    again if it had ended, and given a whole window, since its context has none.
+
+    A conversation the host resumes under a new id is the session it continues, not a new one:
+    the new id takes over its position and the old one ends. Its context still holds the wake it
+    read, so it gets its window alone."""
     _forget_window(root, tag)
     known = {held.tag: held for held in _sessions(root)[0]}
     if tag not in known:
-        held = _register(root, today, tag)
-        return _wake_read(root, held, f"session: {tag}, registered now")
+        before = _resumed_from(transcript, [held for held in known.values() if held.tag != tag])
+        if before is None:
+            held = _register(root, today, tag)
+            return _wake_read(root, held, f"session: {tag}, registered now")
+        _write_own_line(root, Session(tag, True, today, before.current, before.recent, 0))
+        _write_own_line(root, Session(before.tag, False, before.wrote, before.current, before.recent, before.line))
+        return "\n".join(
+            [
+                f"session: {tag}, resumes {before.tag} — the same conversation under a new id: its "
+                "context, the wake it read among it, carries over; no new recall",
+                "",
+                window(root, tag, full=True),
+            ]
+        )
     held = known[tag]
     if not held.running:
         held = Session(held.tag, True, today, held.current, held.recent, held.line)
@@ -1219,6 +1240,49 @@ def _started(root: Path, tag: str, source: str | None, today: date) -> str:
     if source == "compact":
         return window(root, tag, full=True)
     return _wake_read(root, held, f"session: {tag}, already registered")
+
+
+def _resumed_from(transcript: str | None, known: list[Session]) -> Session | None:
+    """The registered session a new id continues, or none.
+
+    A host that resumes a conversation under a new id writes its messages into the new transcript
+    under the uuids they had, so the session continued is the one whose transcript, beside this
+    one and named by its tag, holds this one's first message as a message of its own — its quotes
+    bare, since a transcript that only quotes the uuid in text holds them escaped. Of several — a
+    conversation resumed twice — the latest written is the one continued; the newest are read
+    first, so the usual case reads one file."""
+    if not transcript:
+        return None
+    path = Path(transcript)
+    first = _first_message(path)
+    if first is None:
+        return None
+    first = f'"uuid":"{first}"'
+    beside = [(path.with_name(f"{held.tag}.jsonl"), held) for held in known]
+    beside = sorted((pair for pair in beside if pair[0].is_file()), key=lambda pair: -pair[0].stat().st_mtime)
+    for other, held in beside:
+        try:
+            if first in other.read_text(encoding="utf-8", errors="replace"):
+                return held
+        except OSError:
+            continue
+    return None
+
+
+def _first_message(transcript: Path) -> str | None:
+    """The uuid of a transcript's first message; none where it is not written yet."""
+    try:
+        with transcript.open(encoding="utf-8", errors="replace") as lines:
+            for line in lines:
+                try:
+                    said = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                if isinstance(said, dict) and isinstance(said.get("uuid"), str):
+                    return said["uuid"]
+    except OSError:
+        return None
+    return None
 
 
 def _tag(identity: str) -> str:

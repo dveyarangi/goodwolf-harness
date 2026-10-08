@@ -1881,6 +1881,76 @@ class TheHook(Hooked):
         self.assertIn("session: s-alpha, already registered", self.context(said))
         self.assertEqual(3, len(self.read(SESSIONS).splitlines()))
 
+    def transcripts(self, **held: list[str]) -> Path:
+        """Transcripts beside each other as Claude Code keeps them, one per session, each line a
+        message under its own uuid; the path of the last one written."""
+        compact = {"separators": (",", ":")}
+        for tag, uuids in held.items():
+            lines = [json.dumps({"type": "mode", "sessionId": tag}, **compact)]
+            lines += [json.dumps({"type": "user", "uuid": uuid, "sessionId": tag}, **compact) for uuid in uuids]
+            self.write(f"transcripts/{tag}.jsonl", "\n".join(lines) + "\n")
+        return self.root / "transcripts" / f"{tag}.jsonl"
+
+    def test_a_transcript_that_only_quotes_another_ones_message_does_not_continue_it(self) -> None:
+        """The first live run matched the session that had grepped the fork's transcript: its tool
+        output quoted the uuid, inside a string, where its quotes are escaped."""
+        self.transcripts(**{"s-alpha": ["m-1"]})
+        quoted = json.dumps({"type": "user", "uuid": "m-5", "text": '"uuid":"m-7"'}, separators=(",", ":"))
+        self.write("transcripts/s-beta.jsonl", quoted + "\n")
+        fresh = self.transcripts(**{"new-3": ["m-7"]})
+
+        _, said = self.hook(
+            "claude-code",
+            {"session_id": "new-3", "hook_event_name": "SessionStart", "source": "resume", "transcript_path": str(fresh)},
+        )
+
+        self.assertIn("session: new-3, registered now", self.context(said))
+        self.assertIn("s-beta running", self.read(SESSIONS))
+
+    def test_a_conversation_resumed_under_a_new_id_carries_on_from_the_session_it_continues(self) -> None:
+        """A rollback in the desktop app resumed one conversation under a new id (2026-10-09): the
+        new transcript repeated the old one's messages under their own uuids, and the hook said
+        "registered now", so the agent ran a second /recall over a context that held the first."""
+        self.transcripts(**{"s-beta": ["m-9"], "s-alpha": ["m-1", "m-2"]})
+        resumed = self.transcripts(**{"fork-1": ["m-1", "m-2", "m-3"]})
+
+        _, said = self.hook(
+            "claude-code",
+            {"session_id": "fork-1", "hook_event_name": "SessionStart", "source": "resume", "transcript_path": str(resumed)},
+        )
+
+        self.assertIn("session: fork-1, resumes s-alpha", self.context(said))
+        self.assertIn("no new recall", self.context(said))
+        self.assertIn("current: q-0004", self.context(said))
+        self.assertNotIn("most struck, open:", self.context(said), "the wake it read is still in its context")
+        self.assertIn("fork-1 running 2026-09-29 q-0004 q-0002,q-0001", self.read(SESSIONS))
+        self.assertIn("s-alpha ended", self.read(SESSIONS))
+
+    def test_a_transcript_no_registered_session_shares_is_a_new_session(self) -> None:
+        self.transcripts(**{"s-alpha": ["m-1"]})
+        fresh = self.transcripts(**{"new-1": ["m-7"]})
+
+        _, said = self.hook(
+            "claude-code",
+            {"session_id": "new-1", "hook_event_name": "SessionStart", "source": "startup", "transcript_path": str(fresh)},
+        )
+
+        self.assertIn("session: new-1, registered now", self.context(said))
+        self.assertIn("s-alpha running", self.read(SESSIONS))
+
+    def test_a_transcript_not_yet_written_is_a_new_session(self) -> None:
+        _, said = self.hook(
+            "claude-code",
+            {
+                "session_id": "new-2",
+                "hook_event_name": "SessionStart",
+                "source": "startup",
+                "transcript_path": str(self.root / "transcripts" / "new-2.jsonl"),
+            },
+        )
+
+        self.assertIn("session: new-2, registered now", self.context(said))
+
     def test_a_message_gets_the_window_and_then_one_line_while_nothing_moved(self) -> None:
         submit = {"session_id": "s-alpha", "hook_event_name": "UserPromptSubmit", "prompt": "next"}
 
