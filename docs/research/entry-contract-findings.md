@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v44 — 2026-10-09
+
+**Text just written carries its 🧩 too** — text written in this session into a record of the
+kind *what it intends to become* or *what must always hold* is quoted under `🧩 **Landed change —
+<record>**` or `⚓ **Landed invariant — <record>**`, as a proposal is under its own line.
+Occasion: [rule failure 24](../rule-failures.md).
+
 ## v43 — 2026-10-09
 
 **/recall runs once per conversation, not per host id** — a conversation the host resumes under a

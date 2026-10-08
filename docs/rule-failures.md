@@ -27,6 +27,7 @@ proposed, and nothing named the header for text the session had just written.
 
 **Amendment proposed:** the bullet covers text proposed for such a record *or written into one in
 this session*, the line reading `🧩 **Landed change — <record>**` for the latter, and `⚓` likewise.
+**Landed 2026-10-09**, with the entry contract at v44.
 
 ## 23. A rollback ran /recall a second time over a context that held the first — 2026-10-09
 
