@@ -44,9 +44,9 @@ is governed by, in parentheses as its last sentence. Rarely, where the reasoning
 principle the list lacks, `⬜ *<that principle, worded>*` stands in the lamp's place; where no
 principle is at work, there is no lamp and no box. A candidate for a record that governs —
 text that would be written into one of the kind *what it intends to become* or *what must always
-hold* — stands, as it would be written, in a one-cell table headed by its kind and its record:
-`| 🧩 What it intends to become — <record> |` or `| 🏛️ What must always hold — <record> |`;
-nothing else stands in one. What the claims rest on closes the reply, folded:
+hold* — stands, as it would be written, as the one cell of a table, under a line of its own
+naming its kind and its record: `🧩 *What it intends to become — <record>*` or
+`🏛️ *What must always hold — <record>*`; nothing else stands in such a table. What the claims rest on closes the reply, folded:
 `<details><summary>⚓ Footing</summary>`, a line `⚓ *<footing>* — <the claim>` for each: a
 decision, evidence or the user's word, by its record or by who and when. A paragraph that links,
 narrates or restates carries no mark. Whatever waits on the user's decision goes to a one-cell

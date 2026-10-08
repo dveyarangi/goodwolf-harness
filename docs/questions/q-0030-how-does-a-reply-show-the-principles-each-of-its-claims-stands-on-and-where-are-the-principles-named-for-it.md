@@ -104,4 +104,7 @@ the pillar being what holds the building up. The record's name in the header is 
 addition, so the reader sees where the text would go. And *is there an element that collapses
 the anchors — a big block after the text confuses*: `<details><summary>⚓ Footing</summary>`,
 which GitHub-flavoured markdown renders folded; whether the host's renderer does is checked on
-the reply that lands it. v37.
+the reply that lands it. v37. On that reply: *no separate cell for the 🧩 header — it is
+simply a line of its own*, so the kind and the record stand as a line above a table whose one
+cell is the text; and *`<details><summary>` does not work* in the host's renderer, so the
+footing is not folded that way — footnotes are tried next.

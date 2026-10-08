@@ -18,7 +18,7 @@ this record keeps recording what each bump changed.
 ## v37 — 2026-10-08
 
 **The piece frames a candidate; the footing folds** — a text proposed for a governing record
-stands as it would be written in a one-cell table headed `🧩 What it intends to become — <record>`
+stands as it would be written as the one cell of a table, under a line `🧩 What it intends to become — <record>`
 or `🏛️ What must always hold — <record>`, and nothing else does; the inline piece goes; the
 footing closes the reply inside `<details>`. Occasion: the user, on the first align reply under
 v36. Still a straw dog bound to q-0030.
