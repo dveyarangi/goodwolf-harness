@@ -12,6 +12,21 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 22. A lamp cited a rule's id instead of a principle's name — 2026-10-08
+
+**Rules in play:** the entry file's *A paragraph shows what it stands on* — every principle
+*carries a name at its authored home and is cited by that name*, the lamp written
+`(💡 *<principle>*)`.
+
+**What happened.** Codex, working in this tree, closed paragraphs with `(💡 L14)`. The user:
+*this is useless — it must say something with content.*
+
+**Why it did not fire.** A rule id is a name of a sort, and the placeholder `<principle>` did not
+say which; the sentence on names sat above the bullet that is read when writing the lamp.
+
+**Amendment proposed:** the bullet itself says the lamp holds the principle's name in words, as
+its home writes it, never a rule's id. **Landed 2026-10-08**, with the entry contract at v42.
+
 ## 21. A reply spoke of the push the conclude owns — 2026-10-08
 
 **Rules in play:** the entry file's `push` switch, *`ask`: put to the user once, at /conclude*,

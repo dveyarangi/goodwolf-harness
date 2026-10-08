@@ -15,6 +15,12 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v42 — 2026-10-08
+
+**The lamp names a principle in words** — `(💡 *<principle's name>*)`, its name as its home
+writes it, never a rule's id. Occasion: [rule failure 22](../rule-failures.md), Codex's
+`(💡 L14)`.
+
 ## v41 — 2026-10-08
 
 **No reply but the conclude's speaks of the push** — the `push` switch's `ask` now says the push

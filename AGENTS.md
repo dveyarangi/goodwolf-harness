@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v41, 2026-10-08.
+Entry contract: v42, 2026-10-08.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -41,8 +41,8 @@ nothing about being load-bearing — an implementation method is a shape too. �
 applies by judgement, carries a name at its authored home and is cited by that name. Under
 `debug=on`:
 
-- A paragraph that claims or recommends ends with `(💡 *<principle>*)`, the one it is governed
-  by; rarely, where it follows a principle the list lacks, `(無 *<that principle, worded>*)`;
+- A paragraph that claims or recommends ends with `(💡 *<principle's name>*)`, the one it is
+  governed by — its name in words, as its home writes it, never a rule's id; rarely, where it follows a principle the list lacks, `(無 *<that principle, worded>*)`;
   with none at work, nothing.
 - Text proposed for a record of the kind *what it intends to become* or *what must always hold*
   is a paragraph of its own, as it would be written, in a blockquote under a line `🧩 **Proposed
