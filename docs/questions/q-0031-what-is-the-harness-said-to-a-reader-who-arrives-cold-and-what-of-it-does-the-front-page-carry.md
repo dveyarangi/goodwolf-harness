@@ -1,5 +1,6 @@
 # q-0031 What is the harness, said to a reader who arrives cold, and what of it does the front page carry?
 
+- **depends on** q-0033
 - **state** open
 - **lean** the user, 2026-10-08: the page says what the harness is in product terms, not what is new; the drift system is sold as decisions getting built and staying built, never as keeping documentation true
 - **struck** 0, last 2026-10-07T23:12Z
