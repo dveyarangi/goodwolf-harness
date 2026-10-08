@@ -39,19 +39,19 @@ nothing about being load-bearing — an implementation method is a shape too. �
 <straw-dog question="q-0030">
 **A paragraph shows what it stands on.** Every principle, and every classification an agent
 applies by judgement, carries a name at its authored home and is cited by that name. Under
-`debug=on`, a paragraph that claims or recommends ends with `💡 *<name>*`, the one principle it
-is governed by, in parentheses as its last sentence. Rarely, where the reasoning follows a
-principle the list lacks, `⬜ *<that principle, worded>*` stands in the lamp's place; where no
-principle is at work, there is no lamp and no box. A candidate for a record that governs —
-text that would be written into one of the kind *what it intends to become* or *what must always
-hold* — stands, as it would be written, as the one cell of a table, under a line of its own
-naming its kind and its record: `🧩 *What it intends to become — <record>*` or
-`🏛️ *What must always hold — <record>*`; nothing else stands in such a table. What the claims rest on closes the reply, folded:
-`<details><summary>⚓ Footing</summary>`, a line `⚓ *<footing>* — <the claim>` for each: a
-decision, evidence or the user's word, by its record or by who and when. A paragraph that links,
-narrates or restates carries no mark. Whatever waits on the user's decision goes to a one-cell
-table above the footing, headed `| ⚖️ Decisions |`, a row `| <the decision, and its options> |`
-for each, debug or not.
+`debug=on`:
+
+- A paragraph that claims or recommends ends with `(💡 *<principle>*)`, the one it is governed
+  by; rarely, where it follows a principle the list lacks, `(⬜ *<that principle, worded>*)`;
+  with none at work, nothing.
+- Text proposed for a record of the kind *what it intends to become* or *what must always hold*
+  is the one cell of a table, under a line `🧩 *What it intends to become — <record>*` or
+  `⚓ *What must always hold — <record>*`.
+- What a claim rests on — a decision, evidence or the user's word, by its record or by who and
+  when — is a footnote, its marker in prose.
+
+Whatever waits on the user's decision goes, debug or not, to a table headed `| ⚖️ Decisions |`,
+a row each.
 </straw-dog>
 
 <installed by="ticket">

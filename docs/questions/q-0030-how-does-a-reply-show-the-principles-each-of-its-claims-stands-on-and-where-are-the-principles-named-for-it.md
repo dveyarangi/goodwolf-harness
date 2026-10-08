@@ -107,4 +107,9 @@ which GitHub-flavoured markdown renders folded; whether the host's renderer does
 the reply that lands it. v37. On that reply: *no separate cell for the 🧩 header — it is
 simply a line of its own*, so the kind and the record stand as a line above a table whose one
 cell is the text; and *`<details><summary>` does not work* in the host's renderer, so the
-footing is not folded that way — footnotes are tried next.
+footing is not folded that way — footnotes are tried next. They rendered: *better — then the
+anchor icon is not needed; use it for invariants.* So a footing is a plain footnote, and `⚓`
+heads a candidate of *what must always hold* in place of the pillar. A footnote's marker inside
+a table cell, or a colon inside its text, broke the rendering — the marker stays in prose. And,
+the paragraph having grown over the day: *check that our formatting instruction has not grown —
+write for a capable model*; rewritten to three bullets and a line.
