@@ -121,4 +121,6 @@ the user: *no, the brackets were needed; the colon after them was not* — so `[
 `[1] <footing>` at the end, with no colon. And *the user's previous message gets no footnote*:
 the message being answered is in view, so citing it is noise. Then, of the plain `[1]` notes:
 *still bad — before, the footnotes were formatted; after the colon's fix they are plain text and
-add noise again.* So back to markdown footnotes; the colon is the syntax's own and stays.
+add noise again.* So back to markdown footnotes; the colon is the syntax's own and stays. And of a footnote citing
+*the code and records read this session*: *also superfluous — with no real source outside the
+session, no footnote is needed.* A footing is cited only when it comes from outside the session.

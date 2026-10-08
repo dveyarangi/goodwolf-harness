@@ -20,7 +20,7 @@ this record keeps recording what each bump changed.
 **The piece heads a candidate; the footing is a footnote** — text proposed for a governing
 record is a paragraph of its own under a line `🧩 Proposed change — <record>` or
 `⚓ Proposed invariant — <record>`; the inline piece goes; each footing is a markdown footnote,
-its marker in prose, and the message being answered takes none; the paragraph is rewritten to
+its marker in prose, and only for a source outside the session; the paragraph is rewritten to
 three bullets and a line. Occasion: the user, over the align replies under v36. Still a straw dog
 bound to q-0030.
 
