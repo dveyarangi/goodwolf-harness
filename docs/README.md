@@ -2,6 +2,7 @@
 
 The harness under [`.agents/`](../.agents/README.md) is built here with its own loop; [AGENTS.md](../AGENTS.md) is the entry file and owns that loop. This directory is the instance half — what this repository decided, records and still owes — and a recipient replaces it whole.
 
+- [What the harness is for](product.md): the pains it relieves, their causes, and each answer as it stands. The leading product document; goals and the front page derive from it.
 - [Harness architecture](architecture.md): agreed boundaries and their rationale. [ADRs](adr/) hold the decisions that reached one.
 - [Project glossary](glossary.md): this project's own terms. The method's are [`.agents/glossary.md`](../.agents/glossary.md).
 - [Delivery queue](tickets/README.md): current work, its order and what is still open. [Open questions](questions/) hold the pressure no ticket owns yet.

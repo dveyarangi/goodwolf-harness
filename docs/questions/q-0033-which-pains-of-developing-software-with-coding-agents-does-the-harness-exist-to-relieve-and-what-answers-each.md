@@ -1,7 +1,7 @@
 # q-0033 Which pains of developing software with coding agents does the harness exist to relieve, and what answers each?
 
 - **state** open
-- **lean** the user, 2026-10-09: three pains — ineffective, suboptimal, the person agency off its point on a scale from loss of control to micromanagement; two goals with no guarantee yet, better over time and no harm; the exploration space is one answer, kept and aligned with the person ideas; agency rests on the load-bearing test, HITL, switches and visible footing
+- **lean** the user, 2026-10-09: the answer lives in docs/product.md, the leading product document — pains, goals without a guarantee, causes, and a matrix of mechanisms marked present, partial or absent; goals and the front page derive from it; open while the absent rows are
 - **struck** 0, last 2026-10-08T21:08Z
 
 Opened 2026-10-09 from the front-page align (q-0031). Each list of what the harness *is* came
