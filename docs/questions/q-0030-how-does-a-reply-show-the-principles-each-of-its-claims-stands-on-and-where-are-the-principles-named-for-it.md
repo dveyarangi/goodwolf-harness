@@ -74,4 +74,8 @@ paragraph as a quoted line — and the anchors go into one list at the end of th
 per footing naming the claim it bears. On the next reply, which showed `🧩 *Kind of record*`:
 *show not the classification but the kind: classification and value* — so the piece reads
 `🧩 *<classification>: <kind>*`, the classification alone saying nothing of where the thing
-went. Landed at v35.
+went. And on the box, after a reply that boxed a paragraph merely for having no principle:
+*it should appear only in the rare case where you see a meta-principle at work that the existing
+ones lack; otherwise nothing is needed.* So the box carries the missing principle, worded, and a
+paragraph with no principle at work carries neither lamp nor box — the box catches a gap in the
+list, not a claim without a lamp. Landed at v35.

@@ -41,9 +41,9 @@ nothing about being load-bearing — an implementation method is a shape too. �
 applies by judgement, carries a name at its authored home and is cited by that name. Under
 `debug=on`, a paragraph that claims or recommends opens with a blockquote of the marks it earns,
 in this order: `💡 *<name>*` the one principle it is governed by; `🧩 *<name>: <kind>*` the
-classification it sorts by and the kind it sorts the thing into. Where no principle fits, `⬜ no principle fits` stands in the lamp's
-place, and the box is the signal: a principle is missing from the list, or the reasoning has
-none. What the claims rest on goes to one list at the reply's end, an item `⚓ *<footing>* —
+classification it sorts by and the kind it sorts the thing into. Rarely, where the reasoning
+follows a principle the list lacks, `⬜ *<that principle, worded>*` stands in the lamp's place;
+where no principle is at work, there is no lamp and no box. What the claims rest on goes to one list at the reply's end, an item `⚓ *<footing>* —
 <the claim>` for each: a decision, evidence or the user's word, by its record or by who and when.
 A paragraph that links, narrates or restates carries no mark.
 </straw-dog>

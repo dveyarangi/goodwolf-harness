@@ -23,7 +23,9 @@ the claim it bears. Occasion: the first fresh session's first reply under v34, o
 said *the marks interfere with the text itself*, and asked for the principles in a blockquote and
 the anchors in one list at the end (the user, 2026-10-08). The piece names the kind beside its
 classification, `🧩 *<classification>: <kind>*`, on the user's word on the next reply, the same
-day and before v35 was pushed. Still a straw dog bound to q-0030.
+day and before v35 was pushed; and the box, `⬜ *<that principle, worded>*`, appears only where
+the reasoning follows a principle the list lacks — a paragraph with no principle at work carries
+nothing. Still a straw dog bound to q-0030.
 
 ## v34 — 2026-10-08
 
