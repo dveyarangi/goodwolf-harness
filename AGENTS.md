@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v36, 2026-10-08.
+Entry contract: v37, 2026-10-08.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -39,16 +39,19 @@ nothing about being load-bearing — an implementation method is a shape too. �
 <straw-dog question="q-0030">
 **A paragraph shows what it stands on.** Every principle, and every classification an agent
 applies by judgement, carries a name at its authored home and is cited by that name. Under
-`debug=on`, a paragraph that claims or recommends ends with the marks it earns, in parentheses
-as its last sentence, in this order: `💡 *<name>*` the one principle it is governed by;
-`🧩 *<name>: <kind>*` the classification it sorts by and the kind it sorts the thing into.
-Rarely, where the reasoning follows a principle the list lacks, `⬜ *<that principle, worded>*`
-stands in the lamp's place; where no principle is at work, there is no lamp and no box. What the
-claims rest on goes to one blockquote at the reply's end, a line `⚓ *<footing>* — <the claim>`
-for each: a decision, evidence or the user's word, by its record or by who and when. A paragraph
-that links, narrates or restates carries no mark. Whatever waits on the user's decision goes to
-a one-cell table above the anchors, headed `| ⚖️ Decisions |`, a row `| <the decision, and its
-options> |` for each, debug or not.
+`debug=on`, a paragraph that claims or recommends ends with `💡 *<name>*`, the one principle it
+is governed by, in parentheses as its last sentence. Rarely, where the reasoning follows a
+principle the list lacks, `⬜ *<that principle, worded>*` stands in the lamp's place; where no
+principle is at work, there is no lamp and no box. A candidate for a record that governs —
+text that would be written into one of the kind *what it intends to become* or *what must always
+hold* — stands, as it would be written, in a one-cell table headed by its kind and its record:
+`| 🧩 What it intends to become — <record> |` or `| 🏛️ What must always hold — <record> |`;
+nothing else stands in one. What the claims rest on closes the reply, folded:
+`<details><summary>⚓ Footing</summary>`, a line `⚓ *<footing>* — <the claim>` for each: a
+decision, evidence or the user's word, by its record or by who and when. A paragraph that links,
+narrates or restates carries no mark. Whatever waits on the user's decision goes to a one-cell
+table above the footing, headed `| ⚖️ Decisions |`, a row `| <the decision, and its options> |`
+for each, debug or not.
 </straw-dog>
 
 <installed by="ticket">

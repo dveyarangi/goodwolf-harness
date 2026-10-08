@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v37 — 2026-10-08
+
+**The piece frames a candidate; the footing folds** — a text proposed for a governing record
+stands as it would be written in a one-cell table headed `🧩 What it intends to become — <record>`
+or `🏛️ What must always hold — <record>`, and nothing else does; the inline piece goes; the
+footing closes the reply inside `<details>`. Occasion: the user, on the first align reply under
+v36. Still a straw dog bound to q-0030.
+
 ## v36 — 2026-10-08
 
 **The decisions table has a header** — `| ⚖️ Decisions |` heads it and carries the glyph alone;

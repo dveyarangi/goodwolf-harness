@@ -90,3 +90,18 @@ classification, add them inline, as the paragraph's last sentence, in parenthese
 the piece and the box close the paragraph they govern rather than open it. Landed at v35.
 After the push: *the table's first row is its header, and the icon is in it alone* —
 `| ⚖️ Decisions |` over the rows. v36.
+
+## The piece marks a candidate, 2026-10-08
+
+On the first align reply in the v36 form *(the user)*: *the classification mark and its
+paragraph go inside a one-cell table; its content is what will be written — always and only
+candidates for a record, and of no historical and no existing kind: only candidates for change,
+and invariants, the invariants with an icon of their own; the icon and the classification are a
+header before the paragraph.* So the piece stops being a mark any classification earns and
+becomes the frame of a proposed text: `| 🧩 What it intends to become — <record> |` over the
+paragraph as it would be written, `| 🏛️ What must always hold — <record> |` for an invariant,
+the pillar being what holds the building up. The record's name in the header is the agent's
+addition, so the reader sees where the text would go. And *is there an element that collapses
+the anchors — a big block after the text confuses*: `<details><summary>⚓ Footing</summary>`,
+which GitHub-flavoured markdown renders folded; whether the host's renderer does is checked on
+the reply that lands it. v37.
