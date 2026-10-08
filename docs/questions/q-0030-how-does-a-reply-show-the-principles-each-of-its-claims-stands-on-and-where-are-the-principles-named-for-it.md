@@ -78,4 +78,8 @@ went. And on the box, after a reply that boxed a paragraph merely for having no 
 *it should appear only in the rare case where you see a meta-principle at work that the existing
 ones lack; otherwise nothing is needed.* So the box carries the missing principle, worded, and a
 paragraph with no principle at work carries neither lamp nor box — the box catches a gap in the
-list, not a claim without a lamp. Landed at v35.
+list, not a claim without a lamp. Then a blockquote of another sort: *for the things the user
+must attend to because a decision of theirs is needed, and an icon for it* — `> ⚖️ <the
+decision, and its options>`, the scales the picture of the question *what do I choose?*, as the
+piece is of *what is this?*. It stands under any debug setting, a decision being owed whether or
+not the reasoning is shown. Landed at v35.

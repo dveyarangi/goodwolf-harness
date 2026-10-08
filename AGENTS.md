@@ -46,7 +46,8 @@ follows a principle the list lacks, `⬜ *<that principle, worded>*` stands in t
 where no principle is at work, there is no lamp and no box. What the claims rest on goes to one
 list at the reply's end, an item `⚓ *<footing>* — <the claim>` for each: a decision, evidence or
 the user's word, by its record or by who and when.
-A paragraph that links, narrates or restates carries no mark.
+A paragraph that links, narrates or restates carries no mark. Whatever waits on the user's
+decision stands in a blockquote of its own, `> ⚖️ <the decision, and its options>`, debug or not.
 </straw-dog>
 
 <installed by="ticket">

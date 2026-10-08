@@ -25,7 +25,8 @@ the anchors in one list at the end (the user, 2026-10-08). The piece names the k
 classification, `🧩 *<classification>: <kind>*`, on the user's word on the next reply, the same
 day and before v35 was pushed; and the box, `⬜ *<that principle, worded>*`, appears only where
 the reasoning follows a principle the list lacks — a paragraph with no principle at work carries
-nothing. Still a straw dog bound to q-0030.
+nothing. And whatever waits on the user's decision stands in a blockquote of its own,
+`> ⚖️ <the decision, and its options>`, debug or not. Still a straw dog bound to q-0030.
 
 ## v34 — 2026-10-08
 
