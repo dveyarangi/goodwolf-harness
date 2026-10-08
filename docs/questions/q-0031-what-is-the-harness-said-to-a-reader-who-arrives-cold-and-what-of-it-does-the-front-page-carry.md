@@ -104,6 +104,38 @@ own:
 
 Where the harness is behind, the page says so: three hosts, and no locks between sessions.
 
+**The third draft, 2026-10-08, after two rounds of cold reads.** The user struck four things:
+
+- the version line in the morning scene, *a debugging line* — now q-0025.0003;
+- "decisions live in…", *both too verbose and undersells*;
+- method stated as result throughout, *put on the right glasses*;
+- the second paragraph, *still a wall*.
+
+Then: *"It is yours to change" is weak and hidden; reliable self-change is one of the key
+things.*
+
+Two cold readers, a solo developer and a sceptical tech lead, each read only the page, twice. The
+second round came from fresh agents. What the third draft took from them:
+
+- **Results first.** Each line says what changes for the reader, and how it works comes after.
+- **Workflow and costs up front.** The workflow's weight shows in paragraph two. The handling of
+  `CLAUDE.md` sits beside the install line.
+- **Self-change as its own section.** It is named after the pain — rule files rot — and shown
+  with one real rewording from the rule-failure log, rather than claimed.
+- **An honest line on context loading.** An install carries no hook wiring yet, so in a
+  recipient nothing forces the context to load (q-0018.0020.0005). The previous drafts said the
+  hooks worked in Claude Code and Codex, which is true only in this repository.
+- **A ✦ claim the reader can check.** It names four peers and the month it was checked. The
+  front page may not link `docs/`, so it cannot link the matrix.
+- **The morning scene.** It gains the beat the page promises: a settled decision holding two days
+  later.
+
+The readers' advice that the agent did not take:
+
+- **Moving the self-change section to the end.** The user wants it prominent, so it sits right
+  after the costs.
+- **Retitling the page.** The title was tested on cold readers on 2026-09-26.
+
 Decisions of 2026-09-26 that still bind the page: written for a cold human and for an agent handed
 the link; points into core, never into `docs/`; the title *GoodWolf Harness*; not a second home
 for the flow. The page is kept out of the install manifest, so a published core has no front page
