@@ -17,16 +17,16 @@ this record keeps recording what each bump changed.
 
 ## v35 — 2026-10-08
 
-**The marks leave the text** — the lamp, the piece and the box open a claiming paragraph as a
-blockquote, and the anchors gather into one blockquote at the reply's end, a line per footing
-naming the claim it bears. Occasion: the first fresh session's first reply under v34, on which the user
-said *the marks interfere with the text itself*, and asked for the principles in a blockquote and
-the anchors in one list at the end (the user, 2026-10-08). The piece names the kind beside its
-classification, `🧩 *<classification>: <kind>*`, on the user's word on the next reply, the same
-day and before v35 was pushed; and the box, `⬜ *<that principle, worded>*`, appears only where
-the reasoning follows a principle the list lacks — a paragraph with no principle at work carries
-nothing. And whatever waits on the user's decision stands in a blockquote of its own,
-`> ⚖️ <the decision, and its options>`, debug or not. Still a straw dog bound to q-0030.
+**The marks leave the text's way** — the lamp and the piece close a claiming paragraph, in
+parentheses as its last sentence; the piece names the kind beside its classification,
+`🧩 *<classification>: <kind>*`; the box, `⬜ *<that principle, worded>*`, appears only where the
+reasoning follows a principle the list lacks, and a paragraph with no principle at work carries
+nothing; the anchors gather into one blockquote at the reply's end, a line per footing naming the
+claim it bears; and whatever waits on the user's decision goes to a one-cell table above them, a
+row `| ⚖️ … |` each, debug or not. Occasion: the first fresh session's first reply under v34, on
+which the user said *the marks interfere with the text itself*, and the user's reading of the
+next five replies the same day, before v35 was pushed; each step is in q-0030's body. Still a
+straw dog bound to q-0030.
 
 ## v34 — 2026-10-08
 

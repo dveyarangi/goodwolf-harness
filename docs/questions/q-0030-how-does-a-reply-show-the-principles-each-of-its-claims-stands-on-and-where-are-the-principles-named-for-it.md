@@ -83,5 +83,8 @@ must attend to because a decision of theirs is needed, and an icon for it* — `
 decision, and its options>`, the scales the picture of the question *what do I choose?*, as the
 piece is of *what is this?*. It stands under any debug setting, a decision being owed whether or
 not the reasoning is shown. Last, *all the anchors in one blockquote too*: the end list becomes
-a quoted block, a line per footing, so every mark of the reply sits outside its text. Landed at
-v35.
+a quoted block, a line per footing, so every mark of the reply sits outside its text. Then two
+reversals of the same reply: *decisions in a table of one column, like the questions* — a row
+`| ⚖️ … |` each, the table above the anchors; and *instead of a blockquote for a principle or a
+classification, add them inline, as the paragraph's last sentence, in parentheses* — the lamp,
+the piece and the box close the paragraph they govern rather than open it. Landed at v35.
