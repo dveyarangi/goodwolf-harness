@@ -82,4 +82,6 @@ list, not a claim without a lamp. Then a blockquote of another sort: *for the th
 must attend to because a decision of theirs is needed, and an icon for it* — `> ⚖️ <the
 decision, and its options>`, the scales the picture of the question *what do I choose?*, as the
 piece is of *what is this?*. It stands under any debug setting, a decision being owed whether or
-not the reasoning is shown. Landed at v35.
+not the reasoning is shown. Last, *all the anchors in one blockquote too*: the end list becomes
+a quoted block, a line per footing, so every mark of the reply sits outside its text. Landed at
+v35.
