@@ -70,9 +70,12 @@ The maintainer inspects actual files and recovers under the existing repair poli
 reporting completion. Emit operation progress as it occurs; after abrupt termination the
 last attempted operation can be uncertain and must be checked against the filesystem.
 
-This contract does not promise atomic multi-file writes, persisted transaction recovery or
-safe simultaneous writers. Recheck expected file contents and destination absence before
-applying changes; detected interference is a failure, not authority to overwrite it.
+This contract does not promise atomic multi-file writes or persisted transaction recovery.
+<straw-dog question="q-0032">
+Nor does it promise safe simultaneous writers: two sessions in one tree may write the same file.
+</straw-dog>
+Recheck expected file contents and destination absence before applying changes; detected
+interference is a failure, not authority to overwrite it.
 
 The writing technique belongs to helper implementation. Git is a recovery fallback for
 committed or staged content; it does not generally recover overwritten unstaged edits.
