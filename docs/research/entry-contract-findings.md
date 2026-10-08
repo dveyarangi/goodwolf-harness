@@ -21,7 +21,9 @@ this record keeps recording what each bump changed.
 blockquote, and the anchors gather into one list at the reply's end, an item per footing naming
 the claim it bears. Occasion: the first fresh session's first reply under v34, on which the user
 said *the marks interfere with the text itself*, and asked for the principles in a blockquote and
-the anchors in one list at the end (the user, 2026-10-08). Still a straw dog bound to q-0030.
+the anchors in one list at the end (the user, 2026-10-08). The piece names the kind beside its
+classification, `🧩 *<classification>: <kind>*`, on the user's word on the next reply, the same
+day and before v35 was pushed. Still a straw dog bound to q-0030.
 
 ## v34 — 2026-10-08
 

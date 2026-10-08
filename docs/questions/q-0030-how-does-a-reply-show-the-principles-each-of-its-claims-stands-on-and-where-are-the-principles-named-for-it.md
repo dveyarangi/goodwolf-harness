@@ -71,4 +71,7 @@ The first fresh session's first reply under v34 carried the marks unasked, and t
 *the marks interfere too much with the text itself.* So *(the user, 2026-10-08)*: the principle
 with its glyph goes into a blockquote — the lamp, the piece and the box alike open a claiming
 paragraph as a quoted line — and the anchors go into one list at the end of the reply, an item
-per footing naming the claim it bears. Landed at v35.
+per footing naming the claim it bears. On the next reply, which showed `🧩 *Kind of record*`:
+*show not the classification but the kind: classification and value* — so the piece reads
+`🧩 *<classification>: <kind>*`, the classification alone saying nothing of where the thing
+went. Landed at v35.
