@@ -1,7 +1,7 @@
 # q-0033 Which pains of developing software with coding agents does the harness exist to relieve, and what answers each?
 
 - **state** open
-- **lean** the user, 2026-10-09: three pains — work called done that is not, time and tokens, thinking that cannot range freely; the first two share causes — instructions that do not reach the agent, wrong model decisions, a task set wrong, agents out of sync — answered by tiers, one source of truth, counted misses, the person at the weak decisions; correction and evaluation run across all
+- **lean** the user, 2026-10-09: pains generalized — the agent is ineffective, the agent is suboptimal, the person is not agentic (worded: loses the lead); the agent proposes a fourth, it gets worse over time not better; eight causes, and each answer serves several pains
 - **struck** 0, last 2026-10-08T21:08Z
 
 Opened 2026-10-09 from the front-page align (q-0031). Each list of what the harness *is* came
@@ -11,7 +11,65 @@ chain. This body is the whiteboard: the user's words sorted, with what the tree 
 each and what is missing. Its decisions land in a durable home once their form is seen. The user:
 *much of this should determine how we develop the project.*
 
-## The chain
+## The pains generalized — third sorting, 2026-10-09
+
+The user generalized the pains to three, asked for a better phrase for the third and for any
+others of the same level, and noted that causes and answers overlap across all of them. *The
+person's presence at important points is agency; aligning the person's space of ideas with the
+space the agent has mapped is agency too, and it also serves effectiveness and optimality.*
+
+Four pains, each of them an outcome the person feels:
+
+1. **Ineffective.** The agent does not reach the intended result: work called done that does not
+   work, or is not what was meant.
+2. **Suboptimal.** It reaches the result at too high a cost: tokens, time, rework, and the
+   person's attention spent re-explaining, re-checking and babysitting.
+3. **The person loses the lead** — the user's *not agentic*, worded by the agent. Decisions are
+   taken without the person. The agent's picture of the project drifts from theirs. They no
+   longer know why things are as they are, and they narrow their thinking to what the agent can
+   hold. The project stops being theirs to steer.
+4. **It gets worse over time, not better** — proposed by the agent as the fourth of the same
+   level. The other three are felt in one task; this one is felt over months. Decisions erode,
+   contradictions accumulate, and the code drifts from what was decided. Meanwhile lessons do not
+   stick: the same mistake comes back in every fresh session.
+
+The causes, generalized from the chain below:
+
+- **C1** instructions don't reach the agent, or are wrong — scattered, contradictory, unchecked
+- **C2** the model decides where models are known to be weak
+- **C3** the person's space of ideas and the agent's mapped space diverge; a task set wrong is
+  one case
+- **C4** context is lost between sessions
+- **C5** agents out of sync with each other
+- **C6** what was decided and what was built drift apart
+- **C7** failures go undetected or unattributed, so nothing is learned
+- **C8** the process weighs the same for small and large work
+
+Each answer serves several pains, which is the user's point:
+
+| answer | causes | 1 ineffective | 2 suboptimal | 3 loses the lead | 4 worse over time |
+|---|---|---|---|---|---|
+| memory of the exploration space | C4, C3 | ● | ● | ● | |
+| aligning the idea space with the agent's map | C3 | ● | ● | ● | |
+| the person at the decisions where models are weak, choosing which kinds are theirs, seeing what the work stands on | C2 | ● | | ● | |
+| tiers | C1 | ● | ● | | |
+| one source of truth, decisions that bind | C1, C6 | ● | | ● | ● |
+| correction and evaluation: verify, maintain, misses counted, evidence | C7, C1, C6 | ● | | | ● |
+| coordination between sessions | C5 | ● | ● | | |
+| process weighed to the work | C8 | | ● | ● | |
+
+Read by column:
+
+- **Ineffective** has the most answers.
+- **Losing the lead** is answered mostly by memory and alignment.
+- **Worse over time** rests on one source of truth and on correction with evaluation, the
+  self-improvement loop.
+
+One pain of the same level the harness does not address: **the agent does damage** —
+destructive actions, leaked secrets. Its only answer today is trust (q-0018.0005), and it stays
+outside the harness's promise.
+
+## The chain — second sorting, kept for its detail per cause
 
 The first list put pains and their causes side by side. The user: *2 and 3 are links of one
 chain.* Instructions that do not reach the agent are a cause of work that is called done and is
