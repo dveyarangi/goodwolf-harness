@@ -1,7 +1,7 @@
 # q-0033 Which pains of developing software with coding agents does the harness exist to relieve, and what answers each?
 
 - **state** open
-- **lean** the user, 2026-10-09: pains generalized — the agent is ineffective, the agent is suboptimal, the person is not agentic (worded: loses the lead); the agent proposes a fourth, it gets worse over time not better; eight causes, and each answer serves several pains
+- **lean** the user, 2026-10-09: three pains — ineffective, suboptimal, the person agency off its point on a scale from loss of control to micromanagement; two goals with no guarantee yet, better over time and no harm; the exploration space is one answer, kept and aligned with the person ideas; agency rests on the load-bearing test, HITL, switches and visible footing
 - **struck** 0, last 2026-10-08T21:08Z
 
 Opened 2026-10-09 from the front-page align (q-0031). Each list of what the harness *is* came
@@ -11,63 +11,97 @@ chain. This body is the whiteboard: the user's words sorted, with what the tree 
 each and what is missing. Its decisions land in a durable home once their form is seen. The user:
 *much of this should determine how we develop the project.*
 
-## The pains generalized — third sorting, 2026-10-09
+## The pains generalized — fourth sorting, 2026-10-09
 
-The user generalized the pains to three, asked for a better phrase for the third and for any
-others of the same level, and noted that causes and answers overlap across all of them. *The
+The user generalized the pains to three — *the agent is ineffective; the agent is suboptimal; the
+user is not agentic* — and noted that causes and answers overlap across all of them. *The
 person's presence at important points is agency; aligning the person's space of ideas with the
-space the agent has mapped is agency too, and it also serves effectiveness and optimality.*
+exploration space is agency too, and it also serves effectiveness and optimality.* The third
+sorting worded the third pain as *the person loses the lead*. The user: *the user's agency is a
+scale — at one end loss of control, at the other micromanagement; "loses the lead" is half of
+what I meant.*
 
-Four pains, each of them an outcome the person feels:
+### Three pains
 
 1. **Ineffective.** The agent does not reach the intended result: work called done that does not
    work, or is not what was meant.
 2. **Suboptimal.** It reaches the result at too high a cost: tokens, time, rework, and the
-   person's attention spent re-explaining, re-checking and babysitting.
-3. **The person loses the lead** — the user's *not agentic*, worded by the agent. Decisions are
-   taken without the person. The agent's picture of the project drifts from theirs. They no
-   longer know why things are as they are, and they narrow their thinking to what the agent can
-   hold. The project stops being theirs to steer.
-4. **It gets worse over time, not better** — proposed by the agent as the fourth of the same
-   level. The other three are felt in one task; this one is felt over months. Decisions erode,
-   contradictions accumulate, and the code drifts from what was decided. Meanwhile lessons do not
-   stick: the same mistake comes back in every fresh session.
+   person's attention.
+3. **The person's agency is off its point.** It sits on a scale and fails at both ends:
+   - **Too little: loss of control.** Decisions that matter are taken without the person, the
+     shared picture drifts from theirs, and the project stops being theirs to steer.
+   - **Too much: micromanagement.** The person re-explains, re-checks, approves each step, and
+     babysits work the agent could carry.
 
-The causes, generalized from the chain below:
+   The right point puts the person at the decisions that bear load and where models are known to
+   be weak, and nowhere else.
+
+### Two goals with no guarantee yet
+
+The user: *both are important, we have nothing yet to guarantee either, and neither may be lost as
+a goal.*
+
+- **G1 Better over time, not worse.** Decisions do not erode, contradictions do not accumulate,
+  and a lesson learned in one session holds in the next.
+- **G2 No harm.** The agent does not destroy work, leak secrets or act beyond what it was
+  allowed. The only answer today is trust (q-0018.0005).
+
+### Causes
 
 - **C1** instructions don't reach the agent, or are wrong — scattered, contradictory, unchecked
 - **C2** the model decides where models are known to be weak
-- **C3** the person's space of ideas and the agent's mapped space diverge; a task set wrong is
-  one case
-- **C4** context is lost between sessions
+- **C3** the person's space of ideas and the exploration space diverge; a task set wrong is one
+  case
+- **C4** the exploration space is lost between sessions
 - **C5** agents out of sync with each other
 - **C6** what was decided and what was built drift apart
 - **C7** failures go undetected or unattributed, so nothing is learned
 - **C8** the process weighs the same for small and large work
+- **C9** where the person is placed is left to the agent's mood rather than to the weight of the
+  decision, so both ends of the agency scale happen
+- **C10** what the agent's work stands on is invisible, so checking it cheaply is impossible, and
+  the person either trusts blindly or re-checks everything
 
-Each answer serves several pains, which is the user's point:
+### Answers against pains
 
-| answer | causes | 1 ineffective | 2 suboptimal | 3 loses the lead | 4 worse over time |
-|---|---|---|---|---|---|
-| memory of the exploration space | C4, C3 | ● | ● | ● | |
-| aligning the idea space with the agent's map | C3 | ● | ● | ● | |
-| the person at the decisions where models are weak, choosing which kinds are theirs, seeing what the work stands on | C2 | ● | | ● | |
-| tiers | C1 | ● | ● | | |
-| one source of truth, decisions that bind | C1, C6 | ● | | ● | ● |
-| correction and evaluation: verify, maintain, misses counted, evidence | C7, C1, C6 | ● | | | ● |
-| coordination between sessions | C5 | ● | ● | | |
-| process weighed to the work | C8 | | ● | ● | |
+**The exploration space is one answer, not two.** The third sorting split memory from alignment
+and called the second *aligning the idea space with the agent's map*. The user: *alignment of the
+idea space with the exploration space — what is the agent's map, docs?* It was not docs. It was
+the question tree and the agent's placements in it, which is the exploration space itself. So:
+
+- **memory** keeps the space;
+- **alignment** keeps it matching the person's ideas — each message placed, a missing parent
+  opened, a question reworded, an uncharted one put to the person.
+
+Docs are a different answer: where settled outcomes land.
+
+| answer — today's mechanisms | causes | 1 | 2 | 3 | G1 | G2 |
+|---|---|---|---|---|---|---|
+| **the shared exploration space** — the question store, every message placed, the window, leans, strikes; `/recall`, `/conclude`; straw dogs bound to questions | C3, C4 | ● | ● | ● | | |
+| **alignment of intent** — `/align`; a shared vocabulary in the glossaries; the whiteboard, with a ticket minted only once the form is seen; `/spec` | C3 | ● | ● | ● | | |
+| **the load-bearing test** — `/impact` routes load-bearing work to the person and a spec, local work to the agent and a ticket; a load-bearing decision is the person's, any other is settled and reported | C2, C8, C9 | ● | ● | ● | | |
+| **HITL and human checkpoints** — HITL or AFK on every ticket; every decision at `/align`; spec accepted, breakdown approved | C2, C9 | ● | | ● | | |
+| **switches and the repair policy** — commit, push, next cycle, breakdown each `ask` or `auto`; repair `report` under four conditions, otherwise `ask` | C9 | | ● | ● | | |
+| **visible footing** — the rows that open each reply, the marks on a paragraph, the ⚖️ and 🍂 tables, a record of every step | C10, C2 | ● | ● | ● | | |
+| **guards on known model weaknesses** — `/discover`'s outside view; *one shape is not a class*, *Occam*, the shape's context and structure; no reopening a decision without new evidence | C2 | ● | ● | | | |
+| **delivery discipline** — thin vertical slices, `/plan` validated against the governing docs, `/tdd`, `/verify` against the ticket, the plan and the checks | C7, C3 | ● | ● | | | |
+| **tiers** — the entry contract, installed blocks at their anchors, hooks, *tier is paid by every session* | C1 | ● | ● | | | |
+| **one source of truth** — rules files and the installer's check, the four kinds, architecture and decisions, provenance on every rule | C1, C6 | ● | | ● | ● | |
+| **maintenance** — `/maintain`, marks and what is due, suspect answers under a moved parent | C6 | ● | | | ● | |
+| **self-improvement** — the rule-failure register, evidence records, declared and checked mechanisms, `/skill-up`, `/dream` | C7, C1 | ● | | | ● | |
+| **coordination between sessions** — the sessions file and positions, the store refusing a moved entry; locks to come (q-0032) | C5 | ● | ● | | | |
+| **process weighed to the work** — one step per turn with a reassessment boundary; a lighter path to come (q-0027.0003) | C8, C9 | | ● | ● | | |
+| **refusing forbidden actions** — none yet (q-0018.0005) | — | | | | | ● |
 
 Read by column:
 
 - **Ineffective** has the most answers.
-- **Losing the lead** is answered mostly by memory and alignment.
-- **Worse over time** rests on one source of truth and on correction with evaluation, the
-  self-improvement loop.
-
-One pain of the same level the harness does not address: **the agent does damage** —
-destructive actions, leaked secrets. Its only answer today is trust (q-0018.0005), and it stays
-outside the harness's promise.
+- **Agency** rests on the load-bearing test, HITL, the switches and visible footing as much as on
+  the exploration space. The third sorting missed the first three, and they are what set the
+  point on the scale.
+- **G1** rests on one source of truth, maintenance and self-improvement, and nothing yet measures
+  whether it holds (q-0017).
+- **G2** has no answer at all.
 
 ## The chain — second sorting, kept for its detail per cause
 
