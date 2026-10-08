@@ -88,3 +88,5 @@ reversals of the same reply: *decisions in a table of one column, like the quest
 `| ⚖️ … |` each, the table above the anchors; and *instead of a blockquote for a principle or a
 classification, add them inline, as the paragraph's last sentence, in parentheses* — the lamp,
 the piece and the box close the paragraph they govern rather than open it. Landed at v35.
+After the push: *the table's first row is its header, and the icon is in it alone* —
+`| ⚖️ Decisions |` over the rows. v36.

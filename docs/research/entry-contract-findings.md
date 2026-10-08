@@ -15,6 +15,12 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v36 — 2026-10-08
+
+**The decisions table has a header** — `| ⚖️ Decisions |` heads it and carries the glyph alone;
+each row is the decision and its options. Occasion: the user, on the first reply after v35 was
+pushed. Still a straw dog bound to q-0030.
+
 ## v35 — 2026-10-08
 
 **The marks leave the text's way** — the lamp and the piece close a claiming paragraph, in
