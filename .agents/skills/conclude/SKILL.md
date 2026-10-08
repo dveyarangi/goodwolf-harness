@@ -23,7 +23,7 @@ is recorded by its decisions, not by its commits. It holds:
 Session files live under `docs/sessions/`, named `NNNN-<YYYYMMDD>-<name>` with a constantly incrementing number.
 
 The session's unpushed commits are the conclude's to settle, once the ended row is committed, by
-the `push` switch: under `ask`, put to the user here and nowhere earlier.
+the `push` switch: under `ask`, put to the user here; no other reply speaks of it.
 
 ## Installed from other mechanisms
 

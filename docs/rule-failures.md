@@ -12,6 +12,22 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 21. A reply spoke of the push the conclude owns — 2026-10-08
+
+**Rules in play:** the entry file's `push` switch, *`ask`: put to the user once, at /conclude*,
+landed an hour before.
+
+**What happened.** A reply after the switch moved closed with *two commits haven't been pushed;
+the push is asked at the next /conclude*. The user: *why is this still here? we said the push is
+the conclude's responsibility — we must not write about it anywhere else.*
+
+**Why it did not fire.** The switch said where the push is *asked*, so a reply that only
+*mentioned* the waiting commits read as compliant.
+
+**Amendment proposed:** the switch says the push is the conclude's alone, and no other reply asks,
+mentions or counts what waits on it; the conclude skill says the same. **Landed 2026-10-08**,
+with the entry contract at v41.
+
 ## 20. A rule landed in the tree was copied into the host's memory — 2026-10-08
 
 **Rules in play:** the host's own memory instructions, *don't save what the repo already

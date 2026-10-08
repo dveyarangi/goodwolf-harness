@@ -15,6 +15,12 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v41 — 2026-10-08
+
+**No reply but the conclude's speaks of the push** — the `push` switch's `ask` now says the push
+is /conclude's alone: no other reply asks, mentions or counts what waits on it. Occasion:
+[rule failure 21](../rule-failures.md).
+
 ## v40 — 2026-10-08
 
 **The box becomes 無** — a paragraph following a principle the list lacks ends with
