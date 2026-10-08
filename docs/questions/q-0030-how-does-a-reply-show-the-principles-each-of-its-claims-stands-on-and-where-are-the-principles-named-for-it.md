@@ -118,4 +118,5 @@ and then the paragraph's ordinary output*: `🧩 **Proposed change — <record>*
 `⚓ **Proposed invariant — <record>**` over the paragraph. And the colon after a footnote's
 label still broke the rendering, so the footing drops footnote syntax; tried as a superscript,
 the user: *no, the brackets were needed; the colon after them was not* — so `[1]` in prose and
-`[1] <footing>` at the end, with no colon.
+`[1] <footing>` at the end, with no colon. And *the user's previous message gets no footnote*:
+the message being answered is in view, so citing it is noise.

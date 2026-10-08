@@ -49,6 +49,7 @@ applies by judgement, carries a name at its authored home and is cited by that n
   <record>**` or `⚓ **Proposed invariant — <record>**`.
 - What a claim rests on — a decision, evidence or the user's word, by its record or by who and
   when — is a note at the reply's end, `[1] <footing>` with no colon, its `[1]` placed in prose.
+  The message being answered is in view and takes none.
 
 Whatever waits on the user's decision goes, debug or not, to a table headed `| ⚖️ Decisions |`,
 a row each.
