@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v51 — 2026-10-10
+
+**The lamp links to its principle's text** — the name after `💡` is a link to the line where the
+principle stands at its home. The user, reading a lamp that named the queue's ordering paragraph:
+*after the lamp a live link to the verbatim is needed* — and whether the principle was core's was
+not answerable from its name. The link's path answers it: `AGENTS.md` or `.agents/` is core,
+`docs/` or the local file is the project's.
+
 ## v50 — 2026-10-09
 
 ***Never a rule's id* back on the lamp** — v49 dropped it as carried by *named as its home names

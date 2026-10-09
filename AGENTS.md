@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v50, 2026-10-09.
+Entry contract: v51, 2026-10-10.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -41,8 +41,9 @@ nothing about being load-bearing — an implementation method is a shape too. �
 **A paragraph shows what it stands on.** Every principle, and every classification applied by
 judgement, is named at its authored home and cited by that name. Under `debug=on`:
 
-- A paragraph that claims or recommends ends with `(💡 *<the principle governing it, named as its
-  home names it>*)`, never a rule's id; rarely, one following a principle the list lacks, `(無 *<that principle>*)`;
+- A paragraph that claims or recommends ends with `(💡 [*<the principle governing it, named as its
+  home names it>*](<its home>:<line>))`, the name a link to the line its text stands on, never a
+  rule's id; rarely, one following a principle the list lacks, `(無 *<that principle>*)`;
   one with none at work, nothing.
 - Text proposed for, or written this session into, a record of the kind *what it intends to
   become* or *what must always hold* stands as written, in a blockquote under `🧩 **Proposed
