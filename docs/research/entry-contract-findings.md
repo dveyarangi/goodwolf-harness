@@ -15,6 +15,12 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v48 — 2026-10-09
+
+**The three tables, rewritten for a capable reader** — one sentence naming what goes under each
+of ⚖️, 🍂 and 🪢; the parties listed and the session example dropped, *party* and *colliding*
+carrying them. No change of meaning. The user: *rewrite the rule for a capable model.*
+
 ## v47 — 2026-10-09
 
 **The conflict table is 🪢 Tangle** — ⚔️, 🪢 and ⚡ were set side by side on the same row; the user
