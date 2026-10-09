@@ -121,6 +121,17 @@ edits shown in the transcript. Said in the reply; later edits used the edit tool
   - **.0002** to **.0006** and **.0003.0001** hold the second pass's material as leans.
 - This tree keeps its twenty roots. Whether to put them under the three was raised and never asked.
 
+## After the conclude: the reply's tables, v45 to v50
+
+The conclude reported a parallel session's commit carrying this session's records as drift. The
+user: *this is not drift, it is desync; it needs its own icon and header.* Then: *not ⚔️? The
+header need not be desync; it can be any conflict.* ⚔️, 🪢 and ⚡ were set side by side on the same
+row, and the user chose 🪢 Tangle, keeping ⚡ for urgency, which no rule marks yet. Asked to
+rewrite the rule for a capable model, the agent tightened all of *A paragraph shows what it
+stands on*, and dropped *never a rule's id* as implied by *named as its home names it*. The user:
+*bring it back, otherwise the ids show.* A guard a failure put into a rule is not implied by the
+words around it. Each version is in [the entry contract's findings](../research/entry-contract-findings.md).
+
 ## What continues
 
 The user picks the next item. Candidates:
