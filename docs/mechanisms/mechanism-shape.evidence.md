@@ -446,3 +446,16 @@ positions; nothing flags that, and its next update installs only what is absent.
 An observation for that mechanism to collect: a placement rule is an edge change a recipient
 cannot see.
 </straw-dog>
+
+## One owner per skill, not one skill per mechanism — 2026-10-10
+
+The rule *one mechanism, one instruction file* stood on the user's decision of 2026-09-06 alone,
+a tightening of Life's *usually a skill, and there may be several*. Its recorded reason was that
+naming a mechanism and naming its skill are one act. The first mechanism to strain it was a
+proposed session mechanism (q-0034): `/recall` and `/conclude` open and close the same record, a
+session's row, and keeping one skill each would split one lifecycle across two mechanisms. The
+direction the reason actually needs is the other one — a skill with two owners makes a reference
+ambiguous, which the check already refuses — so the user loosened the rule to one mechanism per
+skill, with a mechanism's skills each acting on a record it declares *(the user, 2026-10-10)*. The
+declaration still reads one `instruction` bullet; the field becomes a list when a mechanism owning
+a second skill is declared.

@@ -146,8 +146,10 @@ implementation changed.
 
 ### Header bullets
 
-- **instruction** — backticked repo-relative path to the mechanism's one skill.
+- **instruction** — backticked repo-relative path to a skill the mechanism owns.
   Required, and never the doc itself.
+  <straw-dog question="q-0034">One bullet: a declaration names one skill, and a second skill
+  of the same mechanism has no field to stand in.</straw-dog>
 - **state** — `always on` or `installed`, and nothing else. `always on` means nothing can install
   or uninstall it, so it has no lifecycle scripts and that absence is a property. It is what tells
   a reader which way to read the parts table.

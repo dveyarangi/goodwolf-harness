@@ -14,7 +14,7 @@ itself authorize new process machinery.
 The development instructions and supporting mechanisms through which projects define, implement, verify and maintain software, including the harness itself.
 
 **Mechanism**:
-A part of how the work gets done — the development method and its machinery — on which other work relies, together with its instructions, producers, consumers, checks and records. It has exactly one instruction file and may span many other files. What the project produces is not one.
+A part of how the work gets done — the development method and its machinery — on which other work relies, together with its instructions, producers, consumers, checks and records. It owns one or more instruction files, each a skill no other mechanism owns, and may span many other files. What the project produces is not one.
 
 **Skill**:
 A mechanism's own instruction file, invocable and identified by its purpose and conditions of use. A skill may also host rules installed into it by mechanisms that do not own it.

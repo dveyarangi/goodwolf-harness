@@ -483,6 +483,8 @@ def _header_problems(root: Path, declared: Declaration) -> list[Diagnostic]:
     )
 
 
+# TODO q-0034: a declaration reads one instruction bullet; a mechanism owning a second skill
+# turns the field into a list.
 def _instruction_problems(root: Path, declared: Declaration) -> list[Diagnostic]:
     """The one bullet a mechanism cannot be declared without, and the file it must not be."""
     if not declared.instruction:
