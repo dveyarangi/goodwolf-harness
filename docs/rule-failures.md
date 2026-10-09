@@ -12,6 +12,25 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 28. In Cursor the window was not drawn by the rule — 2026-10-10
+
+**Rules in play:** the entry file's Q1 — read this turn's window, the hook's or
+`questions.py --window --session <tag>`; Cursor's prompt hook can inject nothing, so in Cursor the
+second is the only way.
+
+**What happened.** Planning 01-0011.0100.0060, the window memories were read as each session's sign
+of life. Cursor's session `5fba085e…` answered four messages between 00:01 and 00:09 on
+2026-10-10; its transcript holds one `at` and no `--window` call, and its memory was written once,
+by its start hook.
+
+**Why it did not fire.** In Claude Code and Codex the window arrives unasked, and Q1 reads as
+*read what is in front of you*; the clause that makes a call of it in Cursor is the second half of
+one sentence, and nothing in Cursor's turn puts it in front of the agent.
+
+**Amendment proposed:** the sign of life stops resting on it — Cursor's message hook records the
+session as seen, landing with 01-0011.0100.0060. The window's own reach into Cursor stays a rule
+and stays unreliable; that is q-0025's, with this as its evidence.
+
 ## 27. Another session's claim on the question being worked was filed as drift — 2026-10-10
 
 **Rules in play:** the entry file's *A paragraph shows what it stands on* — a record out of

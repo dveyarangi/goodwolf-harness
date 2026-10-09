@@ -128,6 +128,13 @@ delivers the window and registers the session under the host's own session id, a
 the host: a problem becomes a line of context. Everything else is
 [the questions mechanism](../.agents/mechanisms/questions/questions.md)'s.
 
+<straw-dog question="q-0034">
+A wake also ends every other running line whose session has gone silent — the one write besides a
+rename to a line not its own. It stays safe because a silent session has no write of its own to
+meet: a session is seen while its messages reach a hook or it writes its line, and a message
+turns an ended line running again *(the user, 2026-10-10)*.
+</straw-dog>
+
 ### Installed blocks
 
 [The shape](../.agents/skills/mechanism/SKILL.md#rules-injection-and-retraction) owns what a
