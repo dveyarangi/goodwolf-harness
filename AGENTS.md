@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v45, 2026-10-09.
+Entry contract: v46, 2026-10-09.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -56,9 +56,10 @@ applies by judgement, carries a name at its authored home and is cited by that n
 
 Whatever waits on the user's decision goes, debug or not, to a table headed `| ⚖️ Decisions |`,
 a row each; drift met and not repaired, to a table headed `| 🍂 Drift |`, a row each — a record
-out of agreement with what it is of. Interference between sessions met and not repaired — a write
-of one taken, overwritten or committed under another — is desync, not drift, and goes to a table
-headed `| 🔀 Desync |`, a row each.
+out of agreement with what it is of. A conflict met and not resolved — the work of one party,
+session, agent or person, colliding with another's, as a write of one session taken, overwritten
+or committed under another — is not drift, and goes to a table headed `| ⚔️ Conflict |`, a row
+each.
 </straw-dog>
 
 <installed by="ticket">

@@ -15,6 +15,12 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v46 — 2026-10-09
+
+**Desync widens to conflict, under ⚔️** — the table v45 made for sessions out of sync takes any
+conflict met and not resolved: one party's work, a session's, an agent's or a person's, colliding
+with another's. The user: *not ⚔️? The header need not be desync; it can be any conflict.*
+
 ## v45 — 2026-10-09
 
 **Desync gets its own table** — interference between sessions met and not repaired, a write of

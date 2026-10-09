@@ -2,7 +2,7 @@
 
 - **state** open
 - **owner** [01-0011.0110.0020](../tickets/01-0011.0110.0020-a-paragraph-shows-what-it-stands-on.md)
-- **lean** the form at v45 — lamp names a principle in words, 無 for a missing one, 🧩 and ⚓ head a blockquoted proposal or landed text; footnotes only from outside the session; ⚖️, 🍂 and, since v45, 🔀 for desync between sessions; .0020 waits on the week of grading
+- **lean** the form at v46 — lamp names a principle in words, 無 for a missing one, 🧩 and ⚓ head a blockquoted proposal or landed text; footnotes only from outside the session; ⚖️ for decisions, 🍂 for drift, ⚔️ for any conflict between parties; .0020 waits on the week of grading
 - **struck** 3, last 2026-10-09T13:40Z
 
 ## The instructions, agreed in draft 2026-10-07
