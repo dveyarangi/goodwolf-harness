@@ -172,7 +172,12 @@ delivery status: its words are the ticket mechanism's, declared with the record'
 carried in the shipment; the install places them and composes nothing. And a store's roots, into a
 store holding no entry: their words are the questions mechanism's shelf, and its script writes
 them, the install only calling it. A tree that already has either keeps it untouched, overwrite
-included — from its first line each is the instance's.
+included — from its first line each is the instance's. A third kind is merged rather than
+written: each host's shared, committed hook file, never a local settings file, receives core's
+hook entries beside the project's own *(the user, 2026-10-09)*. The entries' words are the
+questions mechanism's shelf, shipped as core; an update replaces core's entries and removes one
+that left core, and a check compares core's entries alone, so a project's own hook is never drift.
+A host file that is not valid JSON is refused, not rewritten.
 
 What ships is transformed before it is written: the origin's own local blocks removed, every
 straw-dog wrapper and every `TODO`'s question binding sheared with its content kept, the entry
@@ -226,8 +231,8 @@ clean with the local block last, the shape check clean — run as the target's o
 shipped suite is not part of it; a recipient that wants it names it in its own verification set.
 Whether a host reads the link is not observable from inside a tree and is reported as
 unverified. A mid-run failure follows [interruption and recovery](#interruption-and-recovery).
-The project's verification set is the project's; core checks itself through this check, which a
-recipient may list in its set.
+The project's verification set is the project's. A copy drifting from its ref is maintenance's to
+find, never verification's *(the user, 2026-10-09)*.
 
 ## Deferred decisions
 
