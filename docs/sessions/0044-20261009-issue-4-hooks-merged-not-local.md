@@ -39,7 +39,7 @@ hold — a failed gate's report hides its reason, and the hook commands need `uv
 ## What went wrong
 
 A parallel session, branched from this conversation, minted the three tickets
-([`.0173`](../tickets/01-0010.0173-an-install-merges-cores-hooks-into-each-hosts-file.md),
+([`.0173`](../tickets/done/01-0010.0173-an-install-merges-cores-hooks-into-each-hosts-file.md),
 [`.0174`](../tickets/01-0010.0174-each-hook-finds-its-interpreter.md),
 [`.0176`](../tickets/01-0010.0176-a-failed-gate-says-why.md)), aligned `.0173` and wrote its RFC
 while this one was still presenting the breakdown. Nothing was duplicated: the sessions file and
