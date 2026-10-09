@@ -208,7 +208,10 @@ reports the link as pending with the exact elevated command for that tree. Nothi
 substituted for a link, and a link never decides arrival: the links are reported beside the
 verdict, resolving or not. The links are made in each clone and never committed, so a fresh clone
 of a recipient gets them from `--links`, the link step run alone from the clone's own copy, with
-no source; whatever plans a link names it in the clone's exclude file, which Git locates. A
+no source; whatever plans a link names it in the clone's exclude file, which Git locates. The same
+step records the interpreter that ran it, in a file of the clone's own named in that exclude file:
+every core hook runs through a wrapper that reads it, so a hook needs no `uv` and no `python` on
+the path, and a clone without the record is told which step makes it *(the user, 2026-10-09)*. A
 target Git refuses for dubious ownership is refused with that cause and Git's own command.
 
 **The edge, and what crosses it.** The core–instance interaction is everything an instance must
