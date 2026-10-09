@@ -15,6 +15,15 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v53 — 2026-10-10
+
+**The candle** — a paragraph following a principle that stands in a document takes `🕯️` in the
+lamp's form, linked to its line: a light not wired into the harness. The user: catch such a
+principle, *but not as 無* — instructions must not lie in documents, and one there lies at the
+third tier, out of a skill's reach; *in effect a harness error*. No table of its own: *used just
+as the lamp is*. [q-0030.0002](../questions/done/q-0030.0002-how-does-a-reply-mark-a-principle-it-acts-on-from-a-document-where-no-skill-brings-it-into-reach.md)
+holds what the class was found to cover.
+
 ## v52 — 2026-10-10
 
 **🪢 names a claim beside work** — another session standing where this one works is a tangle, and

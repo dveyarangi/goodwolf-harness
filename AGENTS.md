@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v52, 2026-10-10.
+Entry contract: v53, 2026-10-10.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -43,8 +43,9 @@ judgement, is named at its authored home and cited by that name. Under `debug=on
 
 - A paragraph that claims or recommends ends with `(💡 [*<the principle governing it, named as its
   home names it>*](<its home>:<line>))`, the name a link to the line its text stands on, never a
-  rule's id; rarely, one following a principle the list lacks, `(無 *<that principle>*)`;
-  one with none at work, nothing.
+  rule's id; one following a principle that stands in a document, where no skill brings it into
+  reach, `(🕯️ …)` in the same form — a harness error; rarely, one following a principle the list
+  lacks, `(無 *<that principle>*)`; one with none at work, nothing.
 - Text proposed for, or written this session into, a record of the kind *what it intends to
   become* or *what must always hold* stands as written, in a blockquote under `🧩 **Proposed
   change — <record>**` or `⚓ **Proposed invariant — <record>**`; `Landed` once written.
