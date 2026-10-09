@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v50 — 2026-10-09
+
+***Never a rule's id* back on the lamp** — v49 dropped it as carried by *named as its home names
+it*; the user: *bring it back, otherwise the ids show.* A guard a failure put into a rule is not
+implied by the words around it: the reader filled that placeholder with an id before, and the
+words alone did not stop it.
+
 ## v49 — 2026-10-09
 
 **The rest of *A paragraph shows what it stands on*, rewritten for a capable reader** — the lamp,
