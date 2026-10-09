@@ -10,7 +10,7 @@ import unittest
 from datetime import date, datetime, timedelta, timezone
 from unittest import mock
 
-from repository import RepositoryCase
+from repository import RepositoryCase, folder_listing
 
 import questions
 
@@ -2131,6 +2131,111 @@ class NoStore(RepositoryCase):
 
         self.assertEqual(0, status)
         self.assertEqual("absent", json.loads(said.getvalue())["store"])
+
+
+SHELF = ".agents/skills/questions/STORE-ARRIVAL.md"
+# The fixture's own words, never the shipped ones, so a seed that carried words of its own would
+# be caught writing them.
+FIXTURE_ROOTS = ("What is the fixture for?", "How is the fixture built?", "Where does the fixture live?")
+
+
+def shelf(*roots: str) -> str:
+    lines = "".join(f"{root}\n" for root in roots)
+    return f"# What the store holds before anything has happened in it\n\nMachine input.\n\n```roots\n{lines}```\n"
+
+
+class Seeding(RepositoryCase):
+    """A store that holds no entry opens with the roots its shelf words; one that holds any is
+    the project's and is left."""
+
+    def setUp(self) -> None:
+        super().setUp()
+        remember_windows_in_the_case(self)
+        self.write(SHELF, shelf(*FIXTURE_ROOTS))
+
+    def seeded(self) -> list[str]:
+        return questions.seed(self.root, NOW)
+
+    def snapshot(self) -> dict[str, bytes]:
+        return {name: (self.root / name).read_bytes() for name in folder_listing(self.root)}
+
+    def test_an_empty_store_opens_with_the_shelf_roots_in_order_and_nothing_under_them(self) -> None:
+        written = self.seeded()
+
+        store = questions.read_store(self.root)
+        self.assertEqual(3, len(written))
+        self.assertEqual(["q-0001", "q-0002", "q-0003"], [read.identity for read in store.roots])
+        self.assertEqual(list(FIXTURE_ROOTS), [read.question for read in store.roots])
+        self.assertTrue(all(read.open and read.parent is None for read in store.roots))
+        self.assertEqual({}, store.children)
+        checked = questions.check(self.root, TODAY)
+        self.assertEqual([], checked.diagnostics)
+        self.assertEqual(3, checked.entries)
+
+    def test_seeding_registers_no_session(self) -> None:
+        self.seeded()
+
+        self.assertFalse((self.root / SESSIONS).exists())
+
+    def test_a_store_holding_a_live_entry_is_left_as_it_stands(self) -> None:
+        self.write(f"{STORE}/q-0001-whose-store-is-this.md", entry("q-0001", "Whose store is this?", {"state": "open"}))
+        untouched = self.snapshot()
+
+        self.assertEqual([], self.seeded())
+        self.assertEqual(untouched, self.snapshot())
+
+    def test_a_store_holding_only_an_archived_entry_is_left_as_it_stands(self) -> None:
+        self.write(
+            f"{STORE}/done/q-0001-whose-store-was-this.md",
+            entry("q-0001", "Whose store was this?", {"state": "closed:pruned", "answer": "nobody asked"}),
+        )
+        untouched = self.snapshot()
+
+        self.assertEqual([], self.seeded())
+        self.assertEqual(untouched, self.snapshot())
+
+    def test_a_sessions_file_alone_is_no_entry_and_the_store_is_seeded(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29 -\n")
+
+        self.assertEqual(3, len(self.seeded()))
+        self.assertEqual("s-alpha running 2026-09-29 -\n", self.read(SESSIONS))
+
+    def test_a_shelf_that_cannot_say_the_roots_is_refused_with_nothing_written(self) -> None:
+        for said, reason in (
+            (None, "no shelf"),
+            ("# What the store holds\n\nNo block here.\n", "no `roots` block"),
+            ("# What the store holds\n\n```roots\n\n```\n", "names no root"),
+        ):
+            with self.subTest(reason=reason):
+                if said is None:
+                    (self.root / SHELF).unlink(missing_ok=True)
+                else:
+                    self.write(SHELF, said)
+                with self.assertRaises(questions.Refused) as refused:
+                    self.seeded()
+                self.assertIn(reason, str(refused.exception))
+                self.assertFalse((self.root / STORE).exists())
+
+    def test_the_command_says_what_it_wrote_then_that_the_store_was_left(self) -> None:
+        first, second = io.StringIO(), io.StringIO()
+        with contextlib.redirect_stdout(first):
+            seeded = questions.main(["--seed"], root=self.root, today=TODAY, now=NOW)
+        with contextlib.redirect_stdout(second):
+            left = questions.main(["--seed"], root=self.root, today=TODAY, now=NOW)
+
+        self.assertEqual(0, seeded)
+        self.assertEqual(3, first.getvalue().count("wrote docs/questions/q-000"))
+        self.assertEqual(0, left)
+        self.assertIn("holds entries; left as it stands", second.getvalue())
+
+    def test_the_command_refuses_a_shelf_with_no_roots(self) -> None:
+        (self.root / SHELF).unlink()
+        said = io.StringIO()
+        with contextlib.redirect_stdout(said):
+            status = questions.main(["--seed"], root=self.root, today=TODAY, now=NOW)
+
+        self.assertEqual(2, status)
+        self.assertIn("refused: seed:", said.getvalue())
 
 
 if __name__ == "__main__":

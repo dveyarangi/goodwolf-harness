@@ -20,6 +20,7 @@ from repository import SCRIPTS, RepositoryCase, folder_listing, proves_a_process
 import harness
 import inject_rules
 import mechanisms
+import questions
 
 KEEPER = ".agents/skills/keeper/SKILL.md"
 HARNESS_SKILL = ".agents/skills/harness/SKILL.md"
@@ -36,6 +37,24 @@ QUEUE_ARRIVAL_TEXT = (
     "Machine input for the install, read by nobody at session time.\n\n"
     "```delivery-status\n# Delivery status\n\nCore arrived at `{ref}` and nothing is in flight.\n```\n"
 )
+QUESTIONS_SKILL = ".agents/skills/questions/SKILL.md"
+QUESTIONS_SKILL_TEXT = (
+    "---\nname: questions\ndescription: keeps the open questions\n---\n\n"
+    "Mechanism: unowned by design — this fixture's core declares only sample\n\n"
+    "Keep them.\n"
+)
+STORE_ARRIVAL = ".agents/skills/questions/STORE-ARRIVAL.md"
+STORE = "docs/questions"
+# The fixture's own words, never the shipped ones: an install seeding these proves the installer
+# carries no root of its own.
+FIXTURE_ROOTS = ("What is the fixture for?", "How is the fixture built?", "Where does the fixture live?")
+
+
+def store_arrival_text(*roots: str) -> str:
+    lines = "".join(f"{root}\n" for root in roots)
+    return f"# What the store holds before anything has happened in it\n\nMachine input.\n\n```roots\n{lines}```\n"
+
+
 HARNESS_SKILL_TEXT = (
     "---\nname: harness\ndescription: places core\n---\n\n"
     "Mechanism: unowned by design — this fixture's core declares only sample\n\n"
@@ -254,6 +273,8 @@ class TwoTrees(RepositoryCase):
         self.write(HARNESS_SKILL, HARNESS_SKILL_TEXT)
         self.write(TICKET_SKILL, TICKET_SKILL_TEXT)
         self.write(QUEUE_ARRIVAL, QUEUE_ARRIVAL_TEXT)
+        self.write(QUESTIONS_SKILL, QUESTIONS_SKILL_TEXT)
+        self.write(STORE_ARRIVAL, store_arrival_text(*FIXTURE_ROOTS))
         self.write(DOC, SAMPLE_DOC)
         self.write("AGENTS.md", ENTRY)
         self.write("CLAUDE.md", "@AGENTS.md\n")
@@ -1091,6 +1112,73 @@ class TheDeliveryStatus(TwoTrees):
         ):
             with self.subTest(reason=reason):
                 self.write(QUEUE_ARRIVAL, QUEUE_ARRIVAL_TEXT)
+                spoil()
+                self.commit("spoil the shelf")
+                before = self.target_snapshot()
+
+                status, report = self.run_harness("--install")
+
+                self.assertEqual(1, status)
+                self.assertIn(reason, report["refusals"][0])
+                self.assertEqual(before, self.target_snapshot())
+
+
+class TheRoots(TwoTrees):
+    """A fresh tree's store opens with the roots the questions mechanism's shelf words, written by
+    the store's script; the installer only calls it."""
+
+    def seeded_roots(self) -> list[str]:
+        return [read.question for read in questions.read_store(self.target).roots]
+
+    def store_snapshot(self) -> dict[str, bytes]:
+        return {name: data for name, data in self.target_snapshot().items() if name.startswith(STORE)}
+
+    def test_an_install_opens_the_store_with_the_shelf_roots(self) -> None:
+        status, report = self.run_harness("--install")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual(list(FIXTURE_ROOTS), self.seeded_roots())
+        seeded = [name for name in report["written"] if name.startswith(f"{STORE}/")]
+        self.assertEqual(3, len(seeded), report["written"])
+        self.assertEqual([], questions.check(self.target).diagnostics)
+
+    def test_rewording_the_shelf_changes_what_an_install_seeds_with_no_change_to_the_installer(self) -> None:
+        reworded = ("What is the fixture for, reworded?", *FIXTURE_ROOTS[1:])
+        self.write(STORE_ARRIVAL, store_arrival_text(*reworded))
+        self.commit("the mechanism rewords its own roots")
+
+        status, report = self.run_harness("--install")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual(list(reworded), self.seeded_roots())
+
+    def test_an_update_into_a_store_holding_no_entry_seeds_it(self) -> None:
+        self.run_harness("--install")
+        shutil.rmtree(self.target / STORE)
+
+        status, report = self.run_harness("--update")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual(list(FIXTURE_ROOTS), self.seeded_roots())
+
+    def test_an_update_leaves_a_store_holding_an_entry_and_says_so(self) -> None:
+        self.run_harness("--install")
+        before = self.store_snapshot()
+
+        status, report = self.run_harness("--update")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual(before, self.store_snapshot())
+        self.assertFalse(any(name.startswith(f"{STORE}/") for name in report["written"]), report["written"])
+        self.assertTrue(any(STORE in note for note in report["notes"]), report["notes"])
+
+    def test_a_ref_whose_shelf_cannot_say_the_roots_is_refused_and_nothing_is_written(self) -> None:
+        for spoil, reason in (
+            (lambda: (self.root / STORE_ARRIVAL).unlink(), "no shelf"),
+            (lambda: self.write(STORE_ARRIVAL, "# Roots\n\nNo block.\n"), "no `roots` block"),
+        ):
+            with self.subTest(reason=reason):
+                self.write(STORE_ARRIVAL, store_arrival_text(*FIXTURE_ROOTS))
                 spoil()
                 self.commit("spoil the shelf")
                 before = self.target_snapshot()

@@ -166,11 +166,13 @@ so what a recipient receives is always what a commit holds. Which repository tha
 once, in its harness skill's `Repository:` line — the only authored home of it, read as the
 default when a run names no source, so a fork edits one line and everything it installs names the
 fork. The manifest is core at that ref and nothing of the project's: the project's local rules
-file is never in it and never written. One file outside the manifest is written, and only when absent: the delivery status,
-which a fresh tree's first session reads before anything has been written into it. Its words are
-the ticket mechanism's, declared with the record's shape and carried in the shipment; the install
-places them and composes nothing. A tree that already has one keeps it untouched, overwrite
-included — from its first line that record is the instance's.
+file is never in it and never written. Two things outside the manifest are written, each only when
+absent, both read by a fresh tree's first session before anything has been written into it. The
+delivery status: its words are the ticket mechanism's, declared with the record's shape and
+carried in the shipment; the install places them and composes nothing. And a store's roots, into a
+store holding no entry: their words are the questions mechanism's shelf, and its script writes
+them, the install only calling it. A tree that already has either keeps it untouched, overwrite
+included — from its first line each is the instance's.
 
 What ships is transformed before it is written: the origin's own local blocks removed, every
 straw-dog wrapper and every `TODO`'s question binding sheared with its content kept, the entry

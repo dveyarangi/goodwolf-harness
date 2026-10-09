@@ -67,6 +67,7 @@ is not a part: it never ships, and a recipient has its own.
 | knowing an update is available | — | unowned by design — a person asks for one; nothing polls the repository |
 | verifying that a host reads the loader link | — | <straw-dog question="q-0018.0004.0001">not yet</straw-dog> |
 | writing a fresh tree's delivery status | `.agents/scripts/gw/harness.py` | |
+| opening a fresh tree's store with its roots, by the store's seed | `.agents/scripts/gw/harness.py` | |
 | removing one mechanism from a tree | — | <straw-dog question="q-0018.0013.0002">not yet</straw-dog> |
 | sending a change back to the repository | — | <straw-dog question="q-0018.0018">not yet</straw-dog> |
 
@@ -94,6 +95,7 @@ would otherwise fail the shape check for the same absence the report already nam
 | the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
 | citation reader | `.agents/scripts/gw/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |
 | the delivery status's arrival state | `.agents/skills/ticket/QUEUE-ARRIVAL.md` | `ticket`, which owns the record and words it |
+| the store's seed, its shelf and its reader | `.agents/scripts/gw/questions.py` | `questions`, which owns the store and words its roots |
 | the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |
 | test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |
 | the listing script | `.agents/scripts/gw/straw_dogs.py` | `maintain` |

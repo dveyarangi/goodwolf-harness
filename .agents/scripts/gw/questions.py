@@ -5,6 +5,7 @@
     uv run --offline --no-project python .agents/scripts/gw/questions.py --wake [--session <tag>]
     uv run --offline --no-project python .agents/scripts/gw/questions.py --end --session <tag>
     uv run --offline --no-project python .agents/scripts/gw/questions.py --tree [<q-id>]
+    uv run --offline --no-project python .agents/scripts/gw/questions.py --seed
     uv run --offline --no-project python .agents/scripts/gw/questions.py <event> ... --session <tag>
 
 The store is `docs/questions/`: one file per question, its id nested under its parent's and its
@@ -16,7 +17,9 @@ position. A re-parent renames the subtree that moves, across the records under `
 `--check` is the maintainer. It writes nothing; its exit status is the verdict and its JSON is for
 the person reading a failure. A tree with no store has nothing to check and passes. `--window` is
 what the agent reads before placing a message; `--wake` registers a session and reads where the
-work stands; `--end` closes a session's line; `--tree` draws the live tree for a person. Each
+work stands; `--end` closes a session's line; `--tree` draws the live tree for a person; `--seed`
+opens the roots of a store that holds no entry, as the install does, and is how a person resumes
+an install that stopped there. Each
 event of a turn is its own call — `at`, `open`, `move`, `depend`, `undepend`, `close`, `suspect`,
 `clear`, `lean`, `assign` — validated and written whole (parent decision 56); `--help` after any
 of them says what it takes.
@@ -53,6 +56,9 @@ from docs_corpus import (  # noqa: E402  (path set above)
 
 STORE = "docs/questions"
 SESSIONS = "docs/questions/sessions"
+# The questions mechanism's shelf of the words a fresh store opens with; this script reads it and
+# the installer holds none of it (the user, 2026-10-09).
+STORE_ARRIVAL = ".agents/skills/questions/STORE-ARRIVAL.md"
 STALE_AFTER_DAYS = 7
 # A held question reached again at least this long after it was opened or last struck is struck
 # (parent decision 53); a constant until a project wants another.
@@ -72,7 +78,7 @@ PARTS = ("part of", "depends on", "state", "owner", "answer", "lean", "struck")
 KINDS = ("decided", "pruned", "merged", "deferred", "moot", "superseded")
 _USAGE = (
     "usage: questions.py --check | --window --session <tag> | --wake [--session <tag>] "
-    "| --end --session <tag> | --tree [<q-id>] | <event> ... --session <tag>, the events "
+    "| --end --session <tag> | --tree [<q-id>] | --seed | <event> ... --session <tag>, the events "
     "at, open, move, reword, depend, undepend, close, suspect, clear, lean, assign"
 )
 # How many times an `open` takes the next free id again when another session took the one it drew.
@@ -99,6 +105,7 @@ _SESSION = re.compile(
 _BARE_ID = re.compile(rf"(?<![\w.]){_ID}(?!\w)")
 _HEADING = re.compile(r"^#{1,6} +(.*?)(?: +#+)? *$")
 _FENCE = re.compile(r"^\s*(```|~~~)")
+_ROOTS_BLOCK = re.compile(r"^```roots\n(?P<said>.*?)^```", re.MULTILINE | re.DOTALL)
 
 
 @dataclass(frozen=True)
@@ -282,6 +289,13 @@ def main(
         if len(argv) == 3 and argv[:2] == ["--end", "--session"]:
             held = end(root, argv[2], today)
             print(f"ended {held.tag} at {held.current or 'no position'}")
+            return 0
+        if argv == ["--seed"]:
+            written = seed(root, now or datetime.now(timezone.utc))
+            for record in written:
+                print(f"wrote {record}")
+            if not written:
+                print(f"{STORE} holds entries; left as it stands")
             return 0
     except Refused as refusal:
         print(f"refused: {refusal}")
@@ -1657,6 +1671,38 @@ def _declared(
     closed = [draft.renames.get(clause.question or "", clause.question or "") for clause in clauses if clause.verb == "closes"]
     archived, refused = _archive_finished(root, closed, written) if closed else ([], None)
     return Written(written, moved, opened, dict(draft.renames), list(draft.reworded), archived, refused)
+
+
+def seed(root: Path, now: datetime) -> list[str]:
+    """A store that holds no entry, live or archived, opens with the roots its shelf words, in the
+    shelf's order and with nothing under them — the questions mechanism's *Three roots from the
+    start*. A store holding any entry is the project's: nothing is written and nothing returned.
+
+    An install is not a turn, so no session is read or registered, which is why `declare` is not
+    the way in; the draft still refuses an id another writer took meanwhile."""
+    if _entry_files(root):
+        return []
+    shelf = root / STORE_ARRIVAL
+    if not shelf.is_file():
+        raise Refused(f"seed: no shelf at {STORE_ARRIVAL}")
+    draft = _Draft(root, {}, now)
+    for question in arrival_roots(shelf.read_text(encoding="utf-8")):
+        draft.apply(Clause("opens", text=question))
+    draft.recheck({})
+    return draft.write()
+
+
+def arrival_roots(shelf: str) -> list[str]:
+    """The root questions a shelf's `roots` block words, one to a line. Found by the info string and
+    not by position, so prose may be written around the block; read from text rather than a path,
+    so the installer can ask it of a ref before anything of the ref is written."""
+    said = _ROOTS_BLOCK.search(shelf.replace("\r\n", "\n"))
+    if said is None:
+        raise Refused(f"seed: {STORE_ARRIVAL} holds no `roots` block")
+    roots = [line.strip() for line in said.group("said").splitlines() if line.strip()]
+    if not roots:
+        raise Refused(f"seed: {STORE_ARRIVAL}'s `roots` block names no root")
+    return roots
 
 
 def _archive_finished(root: Path, closed: list[str], written: list[str]) -> tuple[list[str], str | None]:

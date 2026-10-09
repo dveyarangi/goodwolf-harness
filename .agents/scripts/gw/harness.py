@@ -32,11 +32,13 @@ import subprocess  # noqa: E402
 import tarfile  # noqa: E402
 import tempfile  # noqa: E402
 from dataclasses import dataclass, field  # noqa: E402
+from datetime import datetime, timezone  # noqa: E402
 from pathlib import Path  # noqa: E402
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import inject_rules  # noqa: E402  (path set just above)
+import questions  # noqa: E402
 from docs_corpus import (  # noqa: E402
     ANNOUNCE,
     ENTRY_FILE,
@@ -185,6 +187,7 @@ def run(target: Path, mode: str, overwrite: bool, source: Source, ref: str | Non
     plan = _link_plan(target)
     _write(target, shipment, previous, report)
     _write_delivery_status(target, shipment, report)
+    _seed_store(target, report)
     _make_links(target, plan, report)
     _exclude_links(target, plan, report)
     _inject(target, report)
@@ -383,6 +386,7 @@ class Shipment:
         files = _transformed(source, ref, held=True)
         if HARNESS_SKILL not in files:
             raise Refused(f"ship: {ref.announced} has no {HARNESS_SKILL}; this is not the harness")
+        _refuse_unless_the_roots_are_said(files, ref)
         return cls(ref, files, arrival_state(files, ref))
 
     @classmethod
@@ -537,6 +541,19 @@ def arrival_state(files: dict[str, str], ref: Ref) -> str:
     if said is None:
         raise Refused(f"ship: {QUEUE_ARRIVAL} at {ref.announced} declares no arrival state")
     return said.group("said").replace("{ref}", ref.announced)
+
+
+def _refuse_unless_the_roots_are_said(files: dict[str, str], ref: Ref) -> None:
+    """A ref whose store shelf cannot say a fresh store's roots is refused while the shipment is
+    built, before anything is written, as one whose queue shelf cannot. Where the shelf sits and
+    how it is read are the questions mechanism's, asked of its script."""
+    shelf = files.get(questions.STORE_ARRIVAL)
+    if shelf is None:
+        raise Refused(f"ship: {ref.announced} has no shelf at {questions.STORE_ARRIVAL}")
+    try:
+        questions.arrival_roots(shelf)
+    except questions.Refused as refusal:
+        raise Refused(f"ship: {ref.announced}: {refusal}") from refusal
 
 
 def without_repository_line(path: str, text: str) -> str:
@@ -773,6 +790,20 @@ def _write_delivery_status(target: Path, shipment: Shipment, report: Report) -> 
     with record.open("w", encoding="utf-8", newline="") as handle:
         handle.write(shipment.arrival)
     report.written.append(DELIVERY_STATUS)
+
+
+def _seed_store(target: Path, report: Report) -> None:
+    """A store holding no entry opens with its roots, on an install or an update alike, as the
+    delivery status is written whenever it is absent. The words, the entries and the rule of when
+    are the store script's; the installer only calls it (the user, 2026-10-09: no constants in the
+    installer). A store holding any entry is the project's and is left."""
+    try:
+        written = questions.seed(target, datetime.now(timezone.utc))
+    except (questions.Refused, questions.WriteInterrupted) as stopped:
+        raise Refused(f"{stopped}; run questions.py --seed, then harness.py . --check") from stopped
+    report.written += written
+    if not written:
+        report.notes.append(f"{questions.STORE} holds entries, so it is the project's: left as it stands")
 
 
 def _link_plan(target: Path) -> dict[str, str]:

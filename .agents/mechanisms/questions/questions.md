@@ -17,10 +17,10 @@ Level is depth in that structure, derived and never written; a shift in a conver
 attaching to a different question. A ticket is a method's goal and stays the method's; the store is
 core's substrate, beneath whatever method a tree runs.
 
-**Three roots from the start.** A first install seeds the store with three root questions and
-nothing else — no parts under them, no links between them: *What is this project for?*, *How is
-this project built?*, *What landscape does this project evolve in?* — the purpose, the structure,
-and the space of neighbours, history and evolution the project moves in. Each is where a person's
+**Three roots from the start.** A store holding no entry, at a first install or an update, is
+seeded with three root questions and nothing else — no parts under them, no links between them:
+the purpose, the structure, and the space of neighbours, history and evolution the project moves
+in, worded on the shelf [`STORE-ARRIVAL.md`](../../skills/questions/STORE-ARRIVAL.md). Each is where a person's
 judgement is spent: choosing the goal from the space of ideas; correcting the model where it is
 ineffective, wasteful or destructive in the structure; and seeing what the model misses in the
 landscape, which can move both the others. *What is this project?* is what the three answer
@@ -102,7 +102,7 @@ roles, is an open question of the store.
 | archiving the subtree a closure finishes | `.agents/scripts/gw/questions.py` | |
 | sweeping a wholly closed subtree a closure left behind | `.agents/skills/maintain/SKILL.md` | |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
-| seeding the three roots at a first install | — | <straw-dog question="q-0001.0022.0002">not yet</straw-dog> |
+| seeding the roots of a store holding no entry, called by the install | `.agents/scripts/gw/questions.py` | |
 | judging a message outside the agent | — | <straw-dog question="q-0001.0016.0001">not yet</straw-dog> |
 | detecting a shape that hides children | — | <straw-dog question="q-0001.0020">not yet</straw-dog> |
 | holding a ticket's open questions under the question it answers | `.agents/skills/ticket/SKILL.md` | |
@@ -116,6 +116,7 @@ roles, is an open question of the store.
 |---|---|
 | instruction file | `.agents/skills/questions/SKILL.md` |
 | this doc | `.agents/mechanisms/questions/questions.md` |
+| the shelf of a fresh store's roots | `.agents/skills/questions/STORE-ARRIVAL.md` |
 | its rules file | `.agents/mechanisms/questions/questions.rules.md` |
 | the store's script | `.agents/scripts/gw/questions.py` |
 | its tests | `.agents/scripts/gw/test/test_questions.py` |
@@ -136,6 +137,9 @@ roles, is an open question of the store.
 
 ## What it produces, and who reads it
 
+- **A fresh store's roots** — *what it intends to become* — read by the first session's `/recall`
+  and every window after, before the project has written a question of its own; worded on the
+  shelf, written by the script, the project's from then on.
 - **The entries** — *what it intends to become, what happened once closed* — read by the script at every window, wake, declaration and check, and by a
   person through `--tree`.
 - **The sessions file** — *what exists* — read by the script for every window and wake, so each session sees where
@@ -154,7 +158,7 @@ Nothing else; the tree is rendered on request and never committed.
 
 ## Not yet at the shape
 
-**Five `not yet` rows**, each bound to an open question.
+**Four `not yet` rows**, each bound to an open question.
 
 <straw-dog question="q-0018.0015">
 **The sessions file** is one file in the working tree, and that is how sessions see each other;
