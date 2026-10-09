@@ -154,7 +154,9 @@ replaces the block whole and reports what it replaced. A mid-write failure follo
 
 A rules file's block is installed in every target it names, or the tree's check fails: an
 absent block, a drifted block, and a block nothing owns — its owner has no rules file, or that
-file does not name the file the block sits in — are each a diagnostic.
+file does not name the file the block sits in — are each a diagnostic. Installing a rules file
+also takes its own block out of every file it no longer names, by retraction's cut, and reports
+what left *(the user, 2026-10-09)*.
 The installer writes no doc and decides nothing about a mechanism's state.
 
 ### Installing

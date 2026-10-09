@@ -84,7 +84,7 @@ included *(the user, 2026-09-20)*.
 - A rules file's block is installed in every target it names, or the check fails.
 
 The installer is `inject_rules.py`: `<slug> --install`, with `--overwrite` when the source has
-moved; `<slug> --retract`; `--check` over the tree, in the verification set. Grammar and block
+moved, which also takes the source's block out of a file it no longer names; `<slug> --retract`; `--check` over the tree, in the verification set. Grammar and block
 form: [MECHANISM-FORMAT.md](./MECHANISM-FORMAT.md#the-rules-file).
 
 A mechanism that injects nothing has no rules file. A project's own rules file, beside the
