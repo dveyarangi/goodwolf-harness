@@ -72,7 +72,7 @@ A row not marked ✓ is bound, in this page's source, to the open question that 
 |---|---|---|---|---|---|---|---|
 | **The shared exploration space** — memory keeps it; alignment keeps it matching the person's ideas | | | | | | | |
 | the question store: open questions as a tree, each with its lean and what it waits on; every message placed on its question before the reply; questions returned to rise | C3, C4 | ● | ● | ● | | | ✓ |
-| the store's neighbourhood handed over at session start and before every message | C4 | ● | ● | ● | | | <straw-dog question="q-0018.0020.0005">◐ by hooks an install merges into each host's file, before every message in two hosts of three; they run only where `uv` is, and elsewhere the agent fetches it by rule</straw-dog> |
+| the store's neighbourhood handed over at session start and before every message | C4 | ● | ● | ● | | | ✓ by hooks an install merges into each host's file; Cursor's hooks can add context at session start only, so there the agent fetches it before a message by rule |
 | a position kept through a compaction and a resume under a new identity | C4 | ● | ● | | | | <straw-dog question="q-0001.0006">◐ in one host</straw-dog> |
 | a session resumes the work at the step it stopped | C4 | ● | ● | | | | <straw-dog question="q-0027">◐ the wake finds where the work stands; resuming at the step is not built</straw-dog> |
 | provisional text bound to the question it waits on; answers under a changed answer marked suspect | C3, C6 | | | ● | ● | | ✓ |

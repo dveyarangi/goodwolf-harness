@@ -117,7 +117,6 @@ Before you install, know this:
 - <straw-dog question="q-0033.0004">**One person, not a team, for now.** Several developers on parallel branches would collide on ticket numbers in one shared queue, and your team's tracker can't yet take the tickets' place.</straw-dog>
 - <straw-dog question="q-0027.0003">**No fast path for small work yet.** Every change is meant to go through ticket, plan, build and verify. You can tell the agent to skip that for a one-line fix, but nothing yet says when that is fine.</straw-dog>
 - <straw-dog question="q-0018.0005">**Instructions, not enforcement.** Everything here is the agent following written rules, plus scripts that check the files. A model can still slip; the records make the slip visible, and the rule it missed gets reworded.</straw-dog>
-- <straw-dog question="q-0018.0020.0005">**In your project, the hooks need `uv`.** An install sets up the host's hooks that hand the agent where things stand, but they run through `uv`; without it, the agent reads where things stand only because its rules tell it to.</straw-dog>
 - <straw-dog question="q-0018.0013">**No uninstall command.** Everything it adds is files, so reverting the install commit removes the harness. What it wrote under `docs/` afterwards stays until you delete it.</straw-dog>
 - **Context.** A fresh project's session starts with about 4,000 tokens of rules and skill
   descriptions. In this repository, after a month of daily use, a session reads about 22,000
