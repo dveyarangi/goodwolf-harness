@@ -17,6 +17,16 @@ Level is depth in that structure, derived and never written; a shift in a conver
 attaching to a different question. A ticket is a method's goal and stays the method's; the store is
 core's substrate, beneath whatever method a tree runs.
 
+**Three roots from the start.** A first install seeds the store with three root questions and
+nothing else — no parts under them, no links between them: *What is this project for?*, *How is
+this project built?*, *What landscape does this project evolve in?* — the purpose, the structure,
+and the space of neighbours, history and evolution the project moves in. Each is where a person's
+judgement is spent: choosing the goal from the space of ideas; correcting the model where it is
+ineffective, wasteful or destructive in the structure; and seeing what the model misses in the
+landscape, which can move both the others. *What is this project?* is what the three answer
+together, never an entry. How one root's answers bear on another's is the project's own, so
+nothing fixes it.
+
 **The turn.** Before drafting, the agent reads the window — the path from the root to its session's
 current question, the children along it, the root's other open questions, the other roots, the
 other sessions — and says what the turn is: on a question, placed on the lowest one that contains
@@ -92,6 +102,7 @@ roles, is an open question of the store.
 | archiving the subtree a closure finishes | `.agents/scripts/gw/questions.py` | |
 | sweeping a wholly closed subtree a closure left behind | `.agents/skills/maintain/SKILL.md` | |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
+| seeding the three roots at a first install | — | <straw-dog question="q-0001.0022.0002">not yet</straw-dog> |
 | judging a message outside the agent | — | <straw-dog question="q-0001.0016.0001">not yet</straw-dog> |
 | detecting a shape that hides children | — | <straw-dog question="q-0001.0020">not yet</straw-dog> |
 | holding a ticket's open questions under the question it answers | `.agents/skills/ticket/SKILL.md` | |
@@ -143,7 +154,7 @@ Nothing else; the tree is rendered on request and never committed.
 
 ## Not yet at the shape
 
-**Four `not yet` rows**, each bound to an open question.
+**Five `not yet` rows**, each bound to an open question.
 
 <straw-dog question="q-0018.0015">
 **The sessions file** is one file in the working tree, and that is how sessions see each other;
