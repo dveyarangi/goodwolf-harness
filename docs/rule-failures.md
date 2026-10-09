@@ -12,6 +12,25 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 26. A project with no code got the harness's own check as its verification set — 2026-10-09
+
+**Rules in play:** the harness skill's *After the first install* — the set read off the project's
+own toolchain, and `harness.py . --check` named by a project that wants core re-checked on every
+`/verify`.
+
+**What happened.** Installing core into an empty study folder, the agent found no toolchain and
+wrote `harness.py . --check` as the whole set, under the user's authority though the user had
+chosen only the switches. Every `/verify` there would clone the harness repository over the
+network and check core, never the project's work. The user: *again* the harness script in the set.
+
+**Why it did not fire.** The skill named one command and no case of an empty toolchain; the
+optional entry was the only command in reach, and *a project that wants* was read as a default.
+The gate's own paragraph said *seconds* and left the clone unsaid.
+
+**Amendment proposed:** a project without a toolchain has an empty set and its local file says
+so; `harness.py . --check` joins the set only when the person asks, every run cloning the source
+over the network; the harness doc's gate paragraph says the clone. **Landed 2026-10-09.**
+
 ## 25. Answers proposed four times on a question whose parts were not unfolded — 2026-10-09
 
 **Rules in play:** /questions' *Branching* — open each hidden part, and no answer lands on the
