@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v49 — 2026-10-09
+
+**The rest of *A paragraph shows what it stands on*, rewritten for a capable reader** — the lamp,
+the proposal and landed blockquotes and the footnote, each one bullet; *never a rule's id*, *the
+line outside it* and *what this session read takes none* dropped as carried by *named as its home
+names it*, *under* and *from outside this session*. No change of meaning. The user: *tighten the
+rest of the rule.*
+
 ## v48 — 2026-10-09
 
 **The three tables, rewritten for a capable reader** — one sentence naming what goes under each

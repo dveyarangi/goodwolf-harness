@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v48, 2026-10-09.
+Entry contract: v49, 2026-10-09.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -38,21 +38,17 @@ nothing about being load-bearing — an implementation method is a shape too. �
 </straw-dog>
 
 <straw-dog question="q-0030">
-**A paragraph shows what it stands on.** Every principle, and every classification an agent
-applies by judgement, carries a name at its authored home and is cited by that name. Under
-`debug=on`:
+**A paragraph shows what it stands on.** Every principle, and every classification applied by
+judgement, is named at its authored home and cited by that name. Under `debug=on`:
 
-- A paragraph that claims or recommends ends with `(💡 *<principle's name>*)`, the one it is
-  governed by — its name in words, as its home writes it, never a rule's id; rarely, where it follows a principle the list lacks, `(無 *<that principle, worded>*)`;
-  with none at work, nothing.
-- Text proposed for a record of the kind *what it intends to become* or *what must always hold*,
-  or written into one in this session, is a paragraph of its own, as it would be written, in a
-  blockquote under a line `🧩 **Proposed change — <record>**` or `⚓ **Proposed invariant —
-  <record>**`, for text already written `🧩 **Landed change — <record>**` or `⚓ **Landed
-  invariant — <record>**`, the line outside it.
-- What a claim rests on from outside this session — a decision, evidence or the user's word, by
-  its record or by who and when — is a markdown footnote, its marker in prose. What this session
-  read or said takes none.
+- A paragraph that claims or recommends ends with `(💡 *<the principle governing it, named as its
+  home names it>*)`; rarely, one following a principle the list lacks, `(無 *<that principle>*)`;
+  one with none at work, nothing.
+- Text proposed for, or written this session into, a record of the kind *what it intends to
+  become* or *what must always hold* stands as written, in a blockquote under `🧩 **Proposed
+  change — <record>**` or `⚓ **Proposed invariant — <record>**`; `Landed` once written.
+- What a claim rests on from outside this session — a decision, evidence, the user's word — is a
+  footnote naming its record, or who and when.
 
 Debug or not, a row each: what waits on the user's decision, under `| ⚖️ Decisions |`; a record
 out of agreement with what it is of, met and not repaired, under `| 🍂 Drift |`; one party's work
