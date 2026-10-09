@@ -563,5 +563,5 @@ Grading: one entry graded (4, it fired), one replayed (12), three marked *not ye
 | B77 | instructions outside the tree — the host's prompt and memory — compete with rules inside it | 20 | **none** |
 | B78 | register entries stay open with no closure marker; the register's own closing rule has no field | 1, 2 | q-0026 |
 
-**Section D after F:** 157 items in A; 78 weaknesses in B, 15 of them from the register, eight
-of those with no open question.
+**Section D after F:** 157 items in A; 78 weaknesses in B, 11 of them from the register, five
+of those with no open question at all.
