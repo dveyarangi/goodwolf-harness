@@ -116,7 +116,7 @@ A row not marked ✓ is bound, in this page's source, to the open question that 
 | `/maintain`: records against each other and against the code, a clock of what is due, finished records archived | C6, C8 | ● | ● | | ● | | <straw-dog question="q-0024.0005">◐ links are checked only when records move; what is due is not announced</straw-dog> |
 | **Self-improvement — the seed of a test suite for instructions** | | | | | | | |
 | a register of rules that were in place and did not fire; the next occurrence grades the rewording | C7, C1 | ● | | | ● | | ✓ |
-| a recorded failure replayed as a test against the amended rule | C7, C1 | ● | | | ● | | <straw-dog question="q-0026.0004">✗</straw-dog> |
+| a recorded failure replayed as a test against the amended rule | C7, C1 | ● | | | ● | | <straw-dog question="q-0026.0004">◐ replayed by hand at times; no suite</straw-dog> |
 | the method measured on the same tasks with and without it | C7 | ● | | | ● | | <straw-dog question="q-0017">✗</straw-dog> |
 | its cost counted, and what it saves | C7, C8 | | ● | | ● | | <straw-dog question="q-0018.0008">✗</straw-dog> |
 | a free reading of the record for what is missing, redundant or out of balance (`/dream`, `/advise`) | C7 | | | | ● | | <straw-dog question="q-0018.0002">◐ in use, not declared</straw-dog> |
