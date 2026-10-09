@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uv run --offline --no-project python .agents/scripts/gw/questions.py --hook codex",
+            "command": "git -c \"alias.gw-hook=!sh .agents/scripts/gw/hook.sh\" gw-hook codex",
             "timeout": 30
           }
         ]
@@ -17,7 +17,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uv run --offline --no-project python .agents/scripts/gw/questions.py --hook codex",
+            "command": "git -c \"alias.gw-hook=!sh .agents/scripts/gw/hook.sh\" gw-hook codex",
             "timeout": 30
           }
         ]
@@ -29,7 +29,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uv run --offline --no-project python .agents/scripts/gw/questions.py --hook codex",
+            "command": "git -c \"alias.gw-hook=!sh .agents/scripts/gw/hook.sh\" gw-hook codex",
             "timeout": 30
           }
         ]

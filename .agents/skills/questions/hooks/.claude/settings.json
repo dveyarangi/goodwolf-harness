@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uv run --offline --no-project python \"${CLAUDE_PROJECT_DIR}/.agents/scripts/gw/questions.py\" --hook claude-code",
+            "command": "git -c \"alias.gw-hook=!sh .agents/scripts/gw/hook.sh\" gw-hook claude-code",
             "timeout": 30
           }
         ]
@@ -16,7 +16,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uv run --offline --no-project python \"${CLAUDE_PROJECT_DIR}/.agents/scripts/gw/questions.py\" --hook claude-code",
+            "command": "git -c \"alias.gw-hook=!sh .agents/scripts/gw/hook.sh\" gw-hook claude-code",
             "timeout": 30
           }
         ]

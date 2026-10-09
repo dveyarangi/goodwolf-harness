@@ -61,6 +61,9 @@ LICENSE = "LICENSE"
 INSTALLED_LICENSE = f"{CORE}LICENSE"
 LOCAL_FILE = inject_rules.LOCAL_FILE
 LINKS = (".claude/skills", ".cursor/skills")
+# The interpreter every core hook runs under, one line in the clone's Git directory: per clone by
+# construction, so no commit carries a path that is true on one machine only.
+INTERPRETER_RECORD = "gw-interpreter"
 LINK_TARGET = "../.agents/skills"
 SKILLS = ".agents/skills"
 HARNESS_SKILL = f"{SKILLS}/harness/SKILL.md"
@@ -116,6 +119,7 @@ class Report:
     gates: dict = field(default_factory=dict)
     excluded: list[str] = field(default_factory=list)
     links_resolve: dict = field(default_factory=dict)
+    interpreter: dict = field(default_factory=dict)
     notes: list[str] = field(default_factory=list)
     refusals: list[str] = field(default_factory=list)
     arrived: bool = False
@@ -162,6 +166,7 @@ def link(target: Path, report: Report) -> None:
     plan = _link_plan(target)
     _make_links(target, plan, report)
     _exclude_links(target, plan, report)
+    _record_interpreter(target, report)
     report.links_resolve = _links_resolve(target)
 
 
@@ -192,6 +197,7 @@ def run(target: Path, mode: str, overwrite: bool, source: Source, ref: str | Non
     _write_wiring(target, wiring, report)
     _make_links(target, plan, report)
     _exclude_links(target, plan, report)
+    _record_interpreter(target, report)
     _inject(target, report)
     _gate(target, shipment, report)
 
@@ -978,6 +984,24 @@ def _exclude_links(target: Path, plan: dict[str, str], report: Report) -> None:
         text = "".join(f"{line}\n" for line in present + missing)
         _write_text(exclude, text)
     report.excluded = list(plan)
+
+
+def _record_interpreter(target: Path, report: Report) -> None:
+    """The interpreter running this step, which runs by that fact, recorded for the hooks: a bare
+    `python` may be the Windows Store stub, macOS and Linux may carry only `python3`, and `uv` is
+    one machine's habit. A record naming an interpreter that still exists is the person's choice
+    and stays; one naming a missing path is rewritten."""
+    named = _git_in(target, "rev-parse", "--git-path", INTERPRETER_RECORD)
+    if named is None:
+        report.notes.append("git named no directory for the interpreter record: the hooks will say so")
+        return
+    record = target / named if not Path(named).is_absolute() else Path(named)
+    held = _read(record).strip() if record.is_file() else ""
+    if held and Path(held).is_file():
+        report.interpreter = {"record": held, "state": "kept"}
+        return
+    _write_text(record, f"{sys.executable}\n")
+    report.interpreter = {"record": sys.executable, "state": "written"}
 
 
 def _remove_link(path: Path) -> None:

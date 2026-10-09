@@ -123,9 +123,11 @@ roles, is an open question of the store.
 | the shelf of Claude Code's hook wiring | `.agents/skills/questions/hooks/.claude/settings.json` |
 | the shelf of Codex's hook wiring | `.agents/skills/questions/hooks/.codex/hooks.json` |
 | the shelf of Cursor's hook wiring | `.agents/skills/questions/hooks/.cursor/hooks.json` |
-| Claude Code's hook wiring | `.claude/settings.json` → "--hook claude-code" |
-| Codex's hook wiring | `.codex/hooks.json` → "--hook codex" |
-| Cursor's hook wiring | `.cursor/hooks.json` → "--hook cursor" |
+| the hooks' wrapper, launched by a Git alias | `.agents/scripts/gw/hook.sh` |
+| its line endings, kept LF in every clone | `.agents/.gitattributes` |
+| Claude Code's hook wiring | `.claude/settings.json` → "gw-hook claude-code" |
+| Codex's hook wiring | `.codex/hooks.json` → "gw-hook codex" |
+| Cursor's hook wiring | `.cursor/hooks.json` → "gw-hook cursor" |
 
 ## Relies on, and does not own
 
@@ -136,6 +138,7 @@ roles, is an open question of the store.
 | test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |
 | the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |
 | the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
+| the interpreter record the wrapper reads, made by the link step | `.agents/scripts/gw/harness.py` | `harness` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 
 ## What it produces, and who reads it

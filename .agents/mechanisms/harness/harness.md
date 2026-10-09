@@ -74,6 +74,7 @@ is not a part: it never ships, and a recipient has its own.
 | writing a fresh tree's delivery status | `.agents/scripts/gw/harness.py` | |
 | opening a fresh tree's store with its roots, by the store's seed | `.agents/scripts/gw/harness.py` | |
 | merging core's hook wiring into each host's file | `.agents/scripts/gw/harness.py` | |
+| recording, per clone, the interpreter the hooks run under | `.agents/scripts/gw/harness.py` | |
 | removing one mechanism from a tree | — | <straw-dog question="q-0018.0013.0002">not yet</straw-dog> |
 | sending a change back to the repository | — | <straw-dog question="q-0018.0018">not yet</straw-dog> |
 
@@ -124,6 +125,8 @@ would otherwise fail the shape check for the same absence the report already nam
   this tree's core comes from, or pointing it somewhere else.
 - **Each host's hook file, core's entries merged in** — *what exists* — read by that host at session
   start and before each message, and by `--check`, which compares core's entries alone.
+- **The interpreter record**, in the clone's Git directory — *what exists* — read by the hooks'
+  wrapper before every hook; made by the link step, so `--links` is the one step a fresh clone runs.
 - **The pending command** — *what exists* — read by a person, once, in an elevated prompt.
 
 No record. The two stamped lines are the tree's, and nothing else is kept.

@@ -204,6 +204,8 @@ def plain_target_git(target: Path, *arguments: str) -> subprocess.CompletedProce
     no setting of its own."""
     if arguments == ("rev-parse", "--show-toplevel"):
         return subprocess.CompletedProcess(arguments, 0, str(target), "")
+    if arguments[:2] == ("rev-parse", "--git-path") and len(arguments) == 3:
+        return subprocess.CompletedProcess(arguments, 0, f".git/{arguments[2]}", "")
     return subprocess.CompletedProcess(arguments, 1, "", "")
 
 
@@ -1362,6 +1364,57 @@ class TheHookWiring(TwoTrees):
         self.assertEqual(before, self.target_snapshot())
 
 
+HOOK_COMMAND = 'git -c "alias.gw-hook=!sh .agents/scripts/gw/hook.sh" gw-hook'
+# Stands in for the store's script: says what it was asked and what it was handed.
+ECHOING_QUESTIONS = "import sys\nprint('asked', ' '.join(sys.argv[1:]), 'handed', sys.stdin.read())\n"
+
+
+class TheWrapper(RepositoryCase):
+    """Every core hook, as the hosts run it: through Git's alias, under Git's `sh`, from wherever
+    the host's shell stands in the tree."""
+
+    proves_a_process = True
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.write(".agents/scripts/gw/hook.sh", (SCRIPTS / "hook.sh").read_text(encoding="utf-8"))
+        self.write(".agents/scripts/gw/questions.py", ECHOING_QUESTIONS)
+        (self.root / "sub").mkdir()
+
+    def run_hook(self, host: str, payload: str) -> subprocess.CompletedProcess:
+        return subprocess.run(
+            f"{HOOK_COMMAND} {host}", shell=True, cwd=self.root / "sub", input=payload,
+            capture_output=True, encoding="utf-8",
+        )
+
+    def record(self, interpreter: str) -> None:
+        (self.root / ".git" / harness.INTERPRETER_RECORD).write_text(f"{interpreter}\n", encoding="utf-8")
+
+    def test_runs_the_stores_hook_under_the_recorded_interpreter_from_the_trees_top(self) -> None:
+        self.record(sys.executable)
+
+        done = self.run_hook("codex", '{"hook_event_name": "SessionStart", "note": "привет"}')
+
+        self.assertEqual(0, done.returncode, done.stderr)
+        self.assertEqual(
+            'asked --hook codex handed {"hook_event_name": "SessionStart", "note": "привет"}', done.stdout.strip()
+        )
+
+    def test_without_a_record_it_names_the_step_in_the_hosts_form_and_holds_nothing_back(self) -> None:
+        for host, gone in (("claude-code", None), ("cursor", "C:/gone/python.exe")):
+            with self.subTest(host=host):
+                if gone:
+                    self.record(gone)
+
+                done = self.run_hook(host, "{}")
+
+                self.assertEqual(0, done.returncode, done.stderr)
+                said = done.stdout.strip()
+                if host == "cursor":
+                    said = json.loads(said)["additional_context"]
+                self.assertIn("harness.py . --links", said)
+
+
 class TheOriginsOwnHostFiles(unittest.TestCase):
     """The origin never installs into itself, so nothing merges its host files: this holds them to
     what its shelf ships, the way a check holds a recipient's."""
@@ -1406,6 +1459,42 @@ class TheLinkStep(TwoTrees):
         with contextlib.redirect_stdout(said):
             status = harness.main([str(self.target), "--links"])
         return status, json.loads(said.getvalue())
+
+    def recorded(self) -> str:
+        return (self.target / ".git" / harness.INTERPRETER_RECORD).read_text(encoding="utf-8").strip()
+
+    def test_records_the_interpreter_running_it_in_the_clones_git_directory(self) -> None:
+        self.run_harness("--install")
+        (self.target / ".git" / harness.INTERPRETER_RECORD).unlink()
+
+        _, report = self.run_links()
+
+        self.assertEqual(sys.executable, self.recorded())
+        self.assertEqual("written", report["interpreter"]["state"])
+
+    def test_an_install_records_it_too(self) -> None:
+        self.run_harness("--install")
+
+        self.assertEqual(sys.executable, self.recorded())
+
+    def test_a_record_naming_an_interpreter_that_exists_is_left(self) -> None:
+        self.run_harness("--install")
+        another = shutil.which("git")
+        (self.target / ".git" / harness.INTERPRETER_RECORD).write_text(f"{another}\n", encoding="utf-8")
+
+        _, report = self.run_links()
+
+        self.assertEqual(another, self.recorded())
+        self.assertEqual("kept", report["interpreter"]["state"])
+
+    def test_a_record_naming_a_missing_path_is_rewritten(self) -> None:
+        self.run_harness("--install")
+        (self.target / ".git" / harness.INTERPRETER_RECORD).write_text("C:/gone/python.exe\n", encoding="utf-8")
+
+        _, report = self.run_links()
+
+        self.assertEqual(sys.executable, self.recorded())
+        self.assertEqual("written", report["interpreter"]["state"])
 
     def test_a_tree_without_core_is_refused_before_anything_is_written(self) -> None:
         before = self.target_snapshot()
