@@ -59,6 +59,9 @@ SESSIONS = "docs/questions/sessions"
 # The questions mechanism's shelf of the words a fresh store opens with; this script reads it and
 # the installer holds none of it (the user, 2026-10-09).
 STORE_ARRIVAL = ".agents/skills/questions/STORE-ARRIVAL.md"
+# The mechanism's hook wiring, one file per host file at that file's own path beneath this
+# directory; the installer merges each into the host file it names and holds no path of its own.
+HOOKS = ".agents/skills/questions/hooks/"
 STALE_AFTER_DAYS = 7
 # A held question reached again at least this long after it was opened or last struck is struck
 # (parent decision 53); a constant until a project wants another.

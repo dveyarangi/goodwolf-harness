@@ -73,6 +73,7 @@ is not a part: it never ships, and a recipient has its own.
 | verifying that a host reads the loader link | — | <straw-dog question="q-0018.0004.0001">not yet</straw-dog> |
 | writing a fresh tree's delivery status | `.agents/scripts/gw/harness.py` | |
 | opening a fresh tree's store with its roots, by the store's seed | `.agents/scripts/gw/harness.py` | |
+| merging core's hook wiring into each host's file | `.agents/scripts/gw/harness.py` | |
 | removing one mechanism from a tree | — | <straw-dog question="q-0018.0013.0002">not yet</straw-dog> |
 | sending a change back to the repository | — | <straw-dog question="q-0018.0018">not yet</straw-dog> |
 
@@ -101,6 +102,7 @@ would otherwise fail the shape check for the same absence the report already nam
 | citation reader | `.agents/scripts/gw/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |
 | the delivery status's arrival state | `.agents/skills/ticket/QUEUE-ARRIVAL.md` | `ticket`, which owns the record and words it |
 | the store's seed, its shelf and its reader | `.agents/scripts/gw/questions.py` | `questions`, which owns the store and words its roots |
+| the hook wiring's directory, each file at its host file's path | `.agents/scripts/gw/questions.py` | `questions`, which words the hooks |
 | the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |
 | test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |
 | the listing script | `.agents/scripts/gw/straw_dogs.py` | `maintain` |
@@ -120,6 +122,8 @@ would otherwise fail the shape check for the same absence the report already nam
 - **The stamped repository line** — *what must always hold* — read by the script whenever a run is given no `--from`,
   including the recipient's own copy at its own `--check`; and by a person or a fork asking where
   this tree's core comes from, or pointing it somewhere else.
+- **Each host's hook file, core's entries merged in** — *what exists* — read by that host at session
+  start and before each message, and by `--check`, which compares core's entries alone.
 - **The pending command** — *what exists* — read by a person, once, in an elevated prompt.
 
 No record. The two stamped lines are the tree's, and nothing else is kept.

@@ -55,6 +55,19 @@ def store_arrival_text(*roots: str) -> str:
     return f"# What the store holds before anything has happened in it\n\nMachine input.\n\n```roots\n{lines}```\n"
 
 
+# The fixture's own wiring, one shelf file per host file at the host file's own path; the sample
+# mechanism declares the Claude Code file as its part, so the shape gate depends on the merge.
+FIXTURE_WIRING = {
+    ".claude/settings.json": {"hooks": {"SessionStart": [{"hooks": [{"type": "command", "command": "sample --hook claude-code"}]}]}},
+    ".codex/hooks.json": {"hooks": {"SessionStart": [{"hooks": [{"type": "command", "command": "sample --hook codex"}]}]}},
+    ".cursor/hooks.json": {"version": 1, "hooks": {"sessionStart": [{"command": "sample --hook cursor"}]}},
+}
+
+
+def shelf_path(host_file: str) -> str:
+    return f"{questions.HOOKS}{host_file}"
+
+
 HARNESS_SKILL_TEXT = (
     "---\nname: harness\ndescription: places core\n---\n\n"
     "Mechanism: unowned by design — this fixture's core declares only sample\n\n"
@@ -89,7 +102,8 @@ SAMPLE_DOC = (
     f"| keeping | `{KEEPER}` | |\n"
     '| sweeping | — | <straw-dog question="q-0002">not yet</straw-dog> |\n\n'
     "## Install adds, uninstall removes\n\n"
-    f"| part | where |\n|---|---|\n| instruction file | `{KEEPER}` |\n\n"
+    f"| part | where |\n|---|---|\n| instruction file | `{KEEPER}` |\n"
+    '| Claude Code\'s hook wiring | `.claude/settings.json` → "--hook claude-code" |\n\n'
     "## Relies on, and does not own\n\n"
     "| part | where | owner |\n|---|---|---|\n| corpus reader | `.agents/scripts/gw/docs_corpus.py` | nobody removable |\n\n"
     "## What it produces, and who reads it\n\nThe declaration, read by whoever amends this.\n\n"
@@ -275,6 +289,8 @@ class TwoTrees(RepositoryCase):
         self.write(QUEUE_ARRIVAL, QUEUE_ARRIVAL_TEXT)
         self.write(QUESTIONS_SKILL, QUESTIONS_SKILL_TEXT)
         self.write(STORE_ARRIVAL, store_arrival_text(*FIXTURE_ROOTS))
+        for host_file, wiring in FIXTURE_WIRING.items():
+            self.write(shelf_path(host_file), json.dumps(wiring, indent=2) + "\n")
         self.write(DOC, SAMPLE_DOC)
         self.write("AGENTS.md", ENTRY)
         self.write("CLAUDE.md", "@AGENTS.md\n")
@@ -390,6 +406,71 @@ class TheStamp(unittest.TestCase):
             harness.stamped("# Something else\n", ref)
 
         self.assertIn("not the harness", str(refused.exception))
+
+
+CORE_START = {"type": "command", "command": "core --hook start"}
+CORE_PROMPT = {"type": "command", "command": "core --hook prompt"}
+THEIRS = {"type": "command", "command": "their-own-check"}
+
+
+def wiring(**events: list) -> str:
+    return json.dumps({"hooks": events})
+
+
+class TheWiring(unittest.TestCase):
+    """Core's hook entries merged into a host file the project shares with core."""
+
+    def test_into_no_file_the_wiring_is_written_whole(self) -> None:
+        said = harness.wired(".codex/hooks.json", None, wiring(SessionStart=[CORE_START]), None)
+
+        self.assertEqual({"hooks": {"SessionStart": [CORE_START]}}, json.loads(said))
+        self.assertTrue(said.endswith("}\n"))
+
+    def test_the_projects_own_hooks_and_keys_stay_first_and_unchanged(self) -> None:
+        theirs = json.dumps({"permissions": {"allow": ["Bash(ls)"]}, "hooks": {"SessionStart": [THEIRS]}})
+
+        said = json.loads(harness.wired(".claude/settings.json", theirs, wiring(SessionStart=[CORE_START]), None))
+
+        self.assertEqual({"allow": ["Bash(ls)"]}, said["permissions"])
+        self.assertEqual([THEIRS, CORE_START], said["hooks"]["SessionStart"])
+
+    def test_an_entry_already_present_is_not_appended_and_nothing_is_written(self) -> None:
+        held = json.dumps({"hooks": {"SessionStart": [CORE_START, THEIRS]}})
+
+        self.assertIsNone(harness.wired(".codex/hooks.json", held, wiring(SessionStart=[CORE_START]), None))
+
+    def test_an_entry_that_left_core_is_removed_and_the_projects_neighbour_kept(self) -> None:
+        held = json.dumps({"hooks": {"SessionStart": [CORE_START, THEIRS], "Stop": [CORE_PROMPT]}})
+        previous = wiring(SessionStart=[CORE_START], Stop=[CORE_PROMPT])
+
+        said = json.loads(harness.wired(".codex/hooks.json", held, wiring(SessionStart=[CORE_START]), previous))
+
+        self.assertEqual({"SessionStart": [CORE_START, THEIRS], "Stop": []}, said["hooks"])
+
+    def test_a_key_beside_the_hooks_is_written_when_absent_and_refused_when_it_differs(self) -> None:
+        core = json.dumps({"version": 1, "hooks": {"sessionStart": [CORE_START]}})
+
+        written = json.loads(harness.wired(".cursor/hooks.json", json.dumps({"hooks": {}}), core, None))
+        with self.assertRaises(harness.Refused) as refused:
+            harness.wired(".cursor/hooks.json", json.dumps({"version": 2}), core, None)
+
+        self.assertEqual(1, written["version"])
+        self.assertIn(".cursor/hooks.json", str(refused.exception))
+        self.assertIn("version", str(refused.exception))
+
+    def test_a_host_file_of_the_wrong_shape_is_refused_naming_it(self) -> None:
+        for held in ("{not json", "[]", '{"hooks": []}', '{"hooks": {"SessionStart": {}}}'):
+            with self.subTest(held=held), self.assertRaises(harness.Refused) as refused:
+                harness.wired(".claude/settings.json", held, wiring(SessionStart=[CORE_START]), None)
+            self.assertIn(".claude/settings.json", str(refused.exception))
+
+    def test_a_wiring_holds_when_every_core_entry_and_key_is_present(self) -> None:
+        core = wiring(SessionStart=[CORE_START])
+
+        self.assertTrue(harness.holds_wiring(json.dumps({"hooks": {"SessionStart": [THEIRS, CORE_START]}}), core))
+        self.assertFalse(harness.holds_wiring(json.dumps({"hooks": {"SessionStart": [CORE_PROMPT]}}), core))
+        self.assertFalse(harness.holds_wiring("{not json", core))
+        self.assertFalse(harness.holds_wiring(None, core))
 
 
 class TheLinks(unittest.TestCase):
@@ -1188,6 +1269,113 @@ class TheRoots(TwoTrees):
                 self.assertEqual(1, status)
                 self.assertIn(reason, report["refusals"][0])
                 self.assertEqual(before, self.target_snapshot())
+
+
+class TheHookWiring(TwoTrees):
+    """Core's hooks merged into each host's shared file, beside the project's own."""
+
+    def held(self, host_file: str) -> dict:
+        return json.loads(self.target_text(host_file))
+
+    def test_an_install_arrives_with_each_host_file_holding_cores_hooks(self) -> None:
+        status, report = self.run_harness("--install")
+
+        self.assertEqual(0, status, report)
+        self.assertTrue(report["arrived"])
+        for host_file, wiring in FIXTURE_WIRING.items():
+            self.assertEqual(wiring, self.held(host_file))
+            self.assertIn(host_file, report["written"])
+
+    def test_without_its_hook_file_the_shape_gate_fails(self) -> None:
+        self.run_harness("--install")
+        (self.target / ".claude/settings.json").unlink()
+
+        _, report = self.run_harness("--check")
+
+        self.assertFalse(report["gates"]["shape"]["passed"])
+
+    def test_a_host_file_of_the_projects_own_keeps_its_hooks_and_keys(self) -> None:
+        theirs = {"permissions": {"allow": ["Bash(ls)"]}, "hooks": {"SessionStart": [{"hooks": [THEIRS]}]}}
+        (self.target / ".claude").mkdir()
+        (self.target / ".claude/settings.json").write_text(json.dumps(theirs), encoding="utf-8")
+
+        status, report = self.run_harness("--install")
+
+        self.assertEqual(0, status, report)
+        held = self.held(".claude/settings.json")
+        self.assertEqual(theirs["permissions"], held["permissions"])
+        core = FIXTURE_WIRING[".claude/settings.json"]["hooks"]["SessionStart"]
+        self.assertEqual(theirs["hooks"]["SessionStart"] + core, held["hooks"]["SessionStart"])
+
+    def test_an_update_replaces_cores_entries_and_keeps_the_projects(self) -> None:
+        self.run_harness("--install")
+        held = self.held(".codex/hooks.json")
+        held["hooks"]["Stop"] = [{"hooks": [THEIRS]}]
+        (self.target / ".codex/hooks.json").write_text(json.dumps(held), encoding="utf-8")
+        moved = {"hooks": {"UserPromptSubmit": [{"hooks": [{"type": "command", "command": "sample --hook codex"}]}]}}
+        self.write(shelf_path(".codex/hooks.json"), json.dumps(moved))
+        self.commit("core's codex hook moves to another event")
+
+        status, report = self.run_harness("--update")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual(
+            {"SessionStart": [], "Stop": [{"hooks": [THEIRS]}], **moved["hooks"]},
+            self.held(".codex/hooks.json")["hooks"],
+        )
+
+    def test_a_check_passes_beside_a_projects_hook_and_names_an_edited_core_entry(self) -> None:
+        self.run_harness("--install")
+        held = self.held(".cursor/hooks.json")
+        held["hooks"]["sessionStart"].append(THEIRS)
+        (self.target / ".cursor/hooks.json").write_text(json.dumps(held), encoding="utf-8")
+
+        _, beside = self.run_harness("--check")
+        held["hooks"]["sessionStart"][0]["command"] = "edited --hook cursor"
+        (self.target / ".cursor/hooks.json").write_text(json.dumps(held), encoding="utf-8")
+        _, edited = self.run_harness("--check")
+
+        self.assertTrue(beside["gates"]["ref"]["passed"], beside["gates"]["ref"])
+        self.assertFalse(edited["gates"]["ref"]["passed"])
+        self.assertIn(".cursor/hooks.json", edited["gates"]["ref"]["differs"])
+
+    def test_a_host_file_that_is_not_json_refuses_the_install_and_nothing_is_written(self) -> None:
+        (self.target / ".codex").mkdir()
+        (self.target / ".codex/hooks.json").write_text("{not json", encoding="utf-8")
+        before = self.target_snapshot()
+
+        status, report = self.run_harness("--install")
+
+        self.assertEqual(1, status)
+        self.assertIn(".codex/hooks.json", report["refusals"][0])
+        self.assertEqual(before, self.target_snapshot())
+
+    def test_a_shelf_file_that_is_not_a_hook_file_refuses_naming_it(self) -> None:
+        self.write(shelf_path(".codex/hooks.json"), "[]")
+        self.commit("a broken shelf")
+        before = self.target_snapshot()
+
+        status, report = self.run_harness("--install")
+
+        self.assertEqual(1, status)
+        self.assertIn(shelf_path(".codex/hooks.json"), report["refusals"][0])
+        self.assertEqual(before, self.target_snapshot())
+
+
+class TheOriginsOwnHostFiles(unittest.TestCase):
+    """The origin never installs into itself, so nothing merges its host files: this holds them to
+    what its shelf ships, the way a check holds a recipient's."""
+
+    def test_hold_every_entry_the_shelf_wires(self) -> None:
+        origin = SCRIPTS.parents[2]
+        shelves = sorted((origin / questions.HOOKS).rglob("*.json"))
+
+        self.assertEqual(3, len(shelves))
+        for shelf in shelves:
+            host_file = shelf.relative_to(origin / questions.HOOKS).as_posix()
+            with self.subTest(host_file=host_file):
+                held = (origin / host_file).read_text(encoding="utf-8")
+                self.assertTrue(harness.holds_wiring(held, shelf.read_text(encoding="utf-8")))
 
 
 class TheCommandLine(unittest.TestCase):

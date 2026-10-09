@@ -41,7 +41,9 @@ until they have been run.
 Copies every file under `.agents/` plus `AGENTS.md` and `CLAUDE.md`, and the source's root
 `LICENSE` as `.agents/LICENSE`, with the origin's local blocks removed and every straw-dog wrapper and `TODO` binding sheared so the rule stays and the question it waits on, which only this tree holds, does not;
 stamps the entry file's announce line `<repository>@<ref>, <date>`, which is the tree's only
-revision record and what every session there announces; makes the loader links; installs every
+revision record and what every session there announces; merges core's hooks into each host's
+shared hook file — `.claude/settings.json`, `.codex/hooks.json`, `.cursor/hooks.json` — beside the
+project's own, an update replacing core's entries alone; makes the loader links; installs every
 mechanism's rules and then the project's local file last; and runs the gate — the copy compared
 against the ref, the injector's check, the shape check, in seconds. The report ends
 `arrived: true` only when all three hold, and says beside it whether each loader link resolves.
@@ -76,6 +78,8 @@ Every refusal writes nothing and names its step.
 - **The injector refused**: an override naming a rule this ref no longer sends there, or a local
   anchor a new anchor now follows. Fix the local file, run `inject_rules.py local --install`, then
   `--check`.
+- **A host's hook file that is not valid JSON, or sets a key core's hooks need otherwise**: the
+  file is the project's as much as core's. Fix it by hand and run again; nothing rewrites it.
 - **A junction, a directory or a file where a link goes**: the project's own. Move it; a symlink
   goes there.
 - **No readable `Repository:` line beside the script**: with no `--from`, the script cannot tell

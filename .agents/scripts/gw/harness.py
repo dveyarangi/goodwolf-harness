@@ -185,9 +185,11 @@ def run(target: Path, mode: str, overwrite: bool, source: Source, ref: str | Non
     else:
         previous = _refuse_unless_updatable(target, source, shipment, overwrite, report)
     plan = _link_plan(target)
+    wiring = _wiring_plan(target, shipment, previous)
     _write(target, shipment, previous, report)
     _write_delivery_status(target, shipment, report)
     _seed_store(target, report)
+    _write_wiring(target, wiring, report)
     _make_links(target, plan, report)
     _exclude_links(target, plan, report)
     _inject(target, report)
@@ -806,6 +808,107 @@ def _seed_store(target: Path, report: Report) -> None:
         report.notes.append(f"{questions.STORE} holds entries, so it is the project's: left as it stands")
 
 
+def _wiring_plan(target: Path, shipment: Shipment, previous: Shipment | None) -> dict[str, str]:
+    """Each host file's merged text, planned before anything is written so a host file that cannot
+    be merged refuses the run with no file changed. A host whose wiring left core since the
+    previous ref is planned too: its entries are taken out."""
+    shelves = _shelves(shipment)
+    before = _shelves(previous) if previous is not None else {}
+    plan: dict[str, str] = {}
+    for host_file in sorted({*shelves, *before}):
+        held = target / host_file
+        text = wired(
+            host_file,
+            _read(held) if held.is_file() else None,
+            shelves.get(host_file, "{}"),
+            before.get(host_file),
+        )
+        if text is not None:
+            plan[host_file] = text
+    return plan
+
+
+def _shelves(shipment: Shipment) -> dict[str, str]:
+    """Core's wiring per host file, read off the shipment: a shelf file's destination is its path
+    beneath the questions mechanism's hooks directory. A shelf that is not a hook file is a fault
+    of the ref, refused naming it."""
+    shelves = {}
+    for path, text in shipment.files.items():
+        if path.startswith(questions.HOOKS):
+            _hook_document(path, text)
+            shelves[path[len(questions.HOOKS):]] = text
+    return shelves
+
+
+def _write_wiring(target: Path, plan: dict[str, str], report: Report) -> None:
+    for host_file, text in plan.items():
+        _write_text(target / host_file, text)
+        report.written.append(host_file)
+
+
+def wired(host_file: str, held: str | None, wiring: str, previous: str | None) -> str | None:
+    """A host file with core's hook wiring merged in, or None when it already holds exactly that,
+    so an unchanged file is never rewritten.
+
+    The file is shared: the project's own hooks and keys stay where they are. What is core's is
+    what the wiring says, compared as JSON values — nothing is written into the file to mark it,
+    since JSON has no comments and a marker key is a field the host may reject. An entry the
+    previous ref wired and this one does not is taken out; one this ref wires and the file lacks is
+    appended; one already present stays where it is, so hooks a person copied by hand count once."""
+    current = _hook_document(host_file, held)
+    core = _hook_document(f"core's wiring for {host_file}", wiring)
+    left = _hook_document(f"the previous wiring for {host_file}", previous).get("hooks", {})
+    merged = json.loads(json.dumps(current))
+    for key, value in core.items():
+        if key == "hooks":
+            continue
+        if key not in merged:
+            merged[key] = value
+        elif merged[key] != value:
+            raise Refused(f"wire: {host_file} sets {key} to {merged[key]!r} and core's hooks need {value!r}; settle it by hand")
+    hooks = merged.setdefault("hooks", {})
+    for event, entries in left.items():
+        gone = [entry for entry in entries if entry not in core.get("hooks", {}).get(event, [])]
+        if event in hooks:
+            hooks[event] = [entry for entry in hooks[event] if entry not in gone]
+    for event, entries in core.get("hooks", {}).items():
+        listed = hooks.setdefault(event, [])
+        listed.extend([entry for entry in entries if entry not in listed])
+    if held is not None and merged == current:
+        return None
+    return json.dumps(merged, indent=2, ensure_ascii=False) + "\n"
+
+
+def holds_wiring(held: str | None, wiring: str) -> bool:
+    """Whether a host file holds every entry and key core's wiring names; the project's own are
+    never read, so a hook of its own is not drift."""
+    try:
+        current = _hook_document("the host file", held)
+    except Refused:
+        return False
+    core = json.loads(wiring)
+    keys_held = all(current.get(key) == value for key, value in core.items() if key != "hooks")
+    hooks = current.get("hooks", {})
+    return keys_held and all(
+        entry in hooks.get(event, []) for event, entries in core.get("hooks", {}).items() for entry in entries
+    )
+
+
+def _hook_document(name: str, text: str | None) -> dict:
+    """A hook file as the hosts read it: an object whose `hooks`, if any, maps each event to a list.
+    No text is an empty file; anything else is refused naming it, never rewritten."""
+    if text is None:
+        return {}
+    try:
+        document = json.loads(text)
+    except json.JSONDecodeError as error:
+        raise Refused(f"wire: {name} is not JSON — {error}; fix it by hand and run again") from error
+    hooks = document.get("hooks", {}) if isinstance(document, dict) else None
+    if not isinstance(hooks, dict) or not all(isinstance(entries, list) for entries in hooks.values()):
+        raise Refused(f"wire: {name} is not a hook file — an object whose hooks map each event to a list")
+    return document
+
+
 def _link_plan(target: Path) -> dict[str, str]:
     """Per loader link, before anything is written: `keep`, `make` or `repoint`. A junction, a
     directory or a file where the link goes is the recipient's own and refuses the run."""
@@ -946,7 +1049,11 @@ def _gate(target: Path, shipment: Shipment, report: Report) -> None:
 
 def _ref_gate(target: Path, shipment: Shipment) -> dict:
     differing = [path for path in shipment.files if _differs(target, path, shipment.files)]
-    own = sorted(name for name in corpus(target) if name.startswith(CORE) and name not in shipment.files)
+    differing += [
+        host_file for host_file, wiring in _shelves(shipment).items()
+        if not holds_wiring(_read(target / host_file) if (target / host_file).is_file() else None, wiring)
+    ]
+    own =sorted(name for name in corpus(target) if name.startswith(CORE) and name not in shipment.files)
     return {"passed": not differing, "ref": shipment.ref.announced, "differs": differing, "own": own}
 
 

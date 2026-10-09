@@ -107,7 +107,7 @@ roles, is an open question of the store.
 | detecting a shape that hides children | — | <straw-dog question="q-0001.0020">not yet</straw-dog> |
 | holding a ticket's open questions under the question it answers | `.agents/skills/ticket/SKILL.md` | |
 | saying which straw dogs are due, and carrying their bindings through a rename | `.agents/scripts/gw/questions.py` | |
-| carrying the hook wiring into a recipient tree | — | <straw-dog question="q-0018.0020.0005">not yet</straw-dog> |
+| carrying the hook wiring into a recipient tree | `.agents/scripts/gw/harness.py` | |
 | removing this mechanism from a tree | — | <straw-dog question="q-0018.0013.0002">not yet</straw-dog> |
 
 ## Install adds, uninstall removes
@@ -120,6 +120,9 @@ roles, is an open question of the store.
 | its rules file | `.agents/mechanisms/questions/questions.rules.md` |
 | the store's script | `.agents/scripts/gw/questions.py` |
 | its tests | `.agents/scripts/gw/test/test_questions.py` |
+| the shelf of Claude Code's hook wiring | `.agents/skills/questions/hooks/.claude/settings.json` |
+| the shelf of Codex's hook wiring | `.agents/skills/questions/hooks/.codex/hooks.json` |
+| the shelf of Cursor's hook wiring | `.agents/skills/questions/hooks/.cursor/hooks.json` |
 | Claude Code's hook wiring | `.claude/settings.json` → "--hook claude-code" |
 | Codex's hook wiring | `.codex/hooks.json` → "--hook codex" |
 | Cursor's hook wiring | `.cursor/hooks.json` → "--hook cursor" |
@@ -149,6 +152,8 @@ roles, is an open question of the store.
   the straw dogs due, whose text `/maintain` rewrites.
 - **The fingerprint of each session's last window**, outside the tree — *what exists* — read by the script alone,
   to tell whether anything moved; a compaction clears it.
+- **The hook wiring** — *what must always hold* — read by the installer, which merges each shelf
+  file into the host file at its own path beside the project's hooks, and by each host from there.
 - **The hook's answers** — *what exists* — read by the host, which places them in the agent's context.
 - **The check's report** — *what exists* — read by `/maintain` at its pass and by `/verify` through the
   verification set.
