@@ -25,10 +25,14 @@ network and check core, never the project's work. The user: *again* the harness 
 
 **Why it did not fire.** The skill named one command and no case of an empty toolchain; the
 optional entry was the only command in reach, and *a project that wants* was read as a default.
-The gate's own paragraph said *seconds* and left the clone unsaid.
+The gate's own paragraph said *seconds* and left the clone unsaid. Asked afterwards, the
+installing agent said it judged an empty set worse than any check, and copied the authority line
+from the origin's own local file onto both rules — the format defines **authority** as who decided,
+but the skill told the agent to write the file and never said whose its rules are.
 
-**Amendment proposed:** a project without a toolchain has an empty set and its local file says
-so; `harness.py . --check` joins the set only when the person asks, every run cloning the source
+**Amendment proposed:** each rule of the local file is the person's — proposed, then written
+under their name and the date once they confirm it; a project without a toolchain has an empty
+set; `harness.py . --check` joins the set only when the person asks, every run cloning the source
 over the network; the harness doc's gate paragraph says the clone. **Landed 2026-10-09.**
 
 ## 25. Answers proposed four times on a question whose parts were not unfolded — 2026-10-09
