@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v45 — 2026-10-09
+
+**Desync gets its own table** — interference between sessions met and not repaired, a write of
+one taken, overwritten or committed under another, goes to `| 🔀 Desync |`, not to `| 🍂 Drift |`,
+which keeps a record out of agreement with what it is of. Occasion: a conclude reported a parallel
+session's commit carrying this session's records as drift; the user: *this is not drift, it is
+desync; it needs its own icon and header.*
+
 ## v44 — 2026-10-09
 
 **Text just written carries its 🧩 too** — text written in this session into a record of the
