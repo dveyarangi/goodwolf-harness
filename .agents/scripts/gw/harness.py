@@ -1082,8 +1082,21 @@ def _ref_gate(target: Path, shipment: Shipment) -> dict:
 
 
 def _script_gate(target: Path, script: str) -> dict:
+    """A gate is the script's own verdict, and what it says is the script's diagnostics — the
+    reason, whole, so the person never runs the check again to find it. A script that printed no
+    report, having crashed, is quoted by its last lines instead."""
     done = _python(target, [str(target / SCRIPTS / script), "--check"])
-    return {"passed": done.returncode == 0, "exit": done.returncode, "said": _last_lines(done.stdout or done.stderr)}
+    return {"passed": done.returncode == 0, "exit": done.returncode, "said": _diagnostics(done)}
+
+
+def _diagnostics(done: subprocess.CompletedProcess) -> list:
+    try:
+        report = json.loads(done.stdout or "")
+    except json.JSONDecodeError:
+        report = None
+    if isinstance(report, dict) and isinstance(report.get("diagnostics"), list):
+        return report["diagnostics"]
+    return _last_lines(done.stdout or done.stderr)
 
 
 def _links_resolve(target: Path) -> dict[str, bool]:

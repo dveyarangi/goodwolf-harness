@@ -475,6 +475,22 @@ class TheWiring(unittest.TestCase):
         self.assertFalse(harness.holds_wiring(None, core))
 
 
+class AGatesWords(unittest.TestCase):
+    def test_are_the_scripts_diagnostics_whole(self) -> None:
+        report = json.dumps({"blocks": [], "diagnostics": ["one", "two", "three", "four"]}, indent=2)
+
+        said = harness._diagnostics(subprocess.CompletedProcess([], 1, report, ""))
+
+        self.assertEqual(["one", "two", "three", "four"], said)
+
+    def test_are_a_crashed_scripts_last_lines(self) -> None:
+        crashed = "Traceback (most recent call last):\n  File \"x.py\", line 1\nKeyError: 'slug'\n"
+
+        said = harness._diagnostics(subprocess.CompletedProcess([], 1, "", crashed))
+
+        self.assertEqual("KeyError: 'slug'", said[-1])
+
+
 class TheLinks(unittest.TestCase):
     """The link step against a platform that refuses a symlink, which is refused here by hand so
     the case proves the same thing on a machine that would have made one."""
@@ -819,6 +835,33 @@ class AnInstall(TwoTrees):
         self.assertFalse(report["gates"]["shape"]["passed"])
         self.assertFalse(report["arrived"])
         self.assertEqual(1, status)
+
+    def test_a_failed_shape_gate_carries_each_of_its_diagnostics(self) -> None:
+        self.write(".agents/skills/silent/SKILL.md", "# Silent\n\nNamed by nothing, claiming nothing.\n")
+        self.commit("a silent skill")
+
+        _, report = self.run_harness("--install")
+
+        said = report["gates"]["shape"]["said"]
+        self.assertTrue(said, report["gates"]["shape"])
+        self.assertTrue(any("silent" in json.dumps(note) for note in said), said)
+
+    def test_a_failed_injector_gate_carries_each_of_its_diagnostics(self) -> None:
+        self.run_harness("--install")
+        held = self.target_text(KEEPER)
+        (self.target / KEEPER).write_text(held + '\n<installed by="ghost">\n**G1** Nobody owns this.\n</installed>\n', encoding="utf-8")
+
+        _, report = self.run_harness("--check")
+
+        injector = report["gates"]["injector"]
+        self.assertFalse(injector["passed"])
+        self.assertIn(f"orphan block of ghost in {KEEPER}", injector["said"])
+
+    def test_a_passing_gate_says_nothing(self) -> None:
+        _, report = self.run_harness("--install")
+
+        self.assertEqual([], report["gates"]["shape"]["said"])
+        self.assertEqual([], report["gates"]["injector"]["said"])
 
     def test_a_file_edited_after_install_is_named_by_the_check(self) -> None:
         self.run_harness("--install")
