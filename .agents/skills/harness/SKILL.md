@@ -90,9 +90,8 @@ Every refusal writes nothing and names its step.
 The tree has core and no answers. Write `local.rules.md` beside the entry file, in the rules-file
 format the entry file's *Project-local* section describes, from the environment you stand in: the
 project's facts for the entry file, its autonomy switches, and its verification set — its
-typechecker, its tests, every command required of landed work, read off its own toolchain. Each rule there is the
-person's: propose it, and write it under their name and the date once they confirm it. A project
-without a toolchain has an empty set. Then `inject_rules.py local --install`, and `--check`.
+typechecker, its tests, every command required of landed work, read off its own toolchain; a project without one has an
+empty set, and its local file says so. Then `inject_rules.py local --install`, and `--check`.
 `harness.py . --check` joins the set only when the person asks for it: every run clones the source
 over the network.
 
