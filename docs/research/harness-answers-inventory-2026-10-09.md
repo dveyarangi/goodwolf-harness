@@ -551,17 +551,18 @@ Grading: one entry graded (4, it fired), one replayed (12), three marked *not ye
 
 | # | weakness | evidence | open question |
 |---|---|---|---|
-| B68 | rules each satisfiable with no stated boundary or precedence between them | entries 1, 3, 8, 15, 25 | **none** (nearest q-0023) |
+| B68 | rules each satisfiable with no stated boundary or precedence between them | entries 1, 3, 8, 15, 25 | q-0023.0020 |
 | B69 | a rule's placeholder or noun filled loosely, or met by its letter | 5, 7, 12, 13, 17, 21–24, 26 | q-0025 (its lean names it) |
 | B70 | a rule's home not read at its occasion, as a class — beyond the size and density rows | 2, 10, 11, 12, 16, 18, 19, 22 | q-0025 |
 | B71 | rules and decisions kept in documents or tickets read as state, not as instructions | 4, 6, 14 | q-0029 (*a document informs*) |
-| B72 | text written beside its implementation inherits its verbs | 7, 9, 11 | **none** |
+| B72 | text written beside its implementation inherits its verbs | 7, 9, 11 | q-0025.0004 |
 | B73 | grading is never triggered or tracked: *graded by the next …* recorded once in 26 | 4, 12, 13–15 | q-0026.0004 in part |
 | B74 | the person is always the detector of a missed rule | all 26 | q-0026 in part (A153) |
-| B75 | rules only grow: every amendment adds and none removes | 3, 18 | **none** (A152) |
-| B76 | a later rewrite can silently undo an amendment, and the register does not notice | 14, 16, 22 | **none** |
-| B77 | instructions outside the tree — the host's prompt and memory — compete with rules inside it | 20 | **none** |
+| B75 | rules only grow: every amendment adds and none removes | 3, 18 | q-0026.0005 (A152) |
+| B76 | a later rewrite can silently undo an amendment, and the register does not notice | 14, 16, 22 | q-0026.0004.0002 |
+| B77 | instructions outside the tree — the host's prompt and memory — compete with rules inside it | 20 | q-0018.0004.0002 |
 | B78 | register entries stay open with no closure marker; the register's own closing rule has no field | 1, 2 | q-0026 |
 
-**Section D after F:** 157 items in A; 78 weaknesses in B, 11 of them from the register, five
-of those with no open question at all.
+**Section D after F:** 157 items in A; 78 weaknesses in B, 11 of them from the register. The
+five that had no open question got one on 2026-10-09: q-0023.0020, q-0025.0004, q-0026.0005,
+q-0026.0004.0002, q-0018.0004.0002.
