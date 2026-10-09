@@ -32,8 +32,10 @@ decided, the agent included; a rule that was the person's alone was refused as u
 2026-10-09)*, and with no harness check to put in the set the mislabelled rule has no occasion.
 
 **Amendment proposed:** a project without a toolchain has an empty set and its local file says
-so; `harness.py . --check` joins the set only when the person asks, every run cloning the source
-over the network; the harness doc's gate paragraph says the clone. **Landed 2026-10-09.**
+so; the skill no longer offers `harness.py . --check` for the set at all — a copy drifting from its
+ref is maintenance's, not verification's, and reaches a maintain pass only once it reads no
+network and is offered with its product reason *(the user, 2026-10-09)*; the harness doc's gate
+paragraph says the clone. **Landed 2026-10-09.**
 
 ## 25. Answers proposed four times on a question whose parts were not unfolded — 2026-10-09
 

@@ -49,8 +49,10 @@ beside the verdict and never decide it: a link the platform refused is the perso
 remaining step, and its command is already in the report. The shipped suite is not run here —
 it costs minutes, and an install is seconds — a recipient that wants it names it in its own
 verification set *(the user, 2026-09-21)*. The gate itself clones the source whole, over the
-network, at every run, so it is not a routine step of a recipient's `/verify`: it joins that set
-only when the person asks *(the user, 2026-10-09)*.
+network, at every run. A copy drifting from its ref is maintenance's to find, never
+verification's *(the user, 2026-10-09)*; <straw-dog question="q-0018.0012">no maintain pass runs the
+gate: one is offered to the person, with its reason, only once the comparison reads no network and
+takes no clone.</straw-dog>
 
 It is **installed**; a tree without it holds no core at all. The repository's root `README.md`
 is not a part: it never ships, and a recipient has its own.
@@ -66,6 +68,7 @@ is not a part: it never ships, and a recipient has its own.
 | reading a refusal and resuming | `.agents/skills/harness/SKILL.md` | |
 | populating the local file after the first install | `.agents/skills/harness/SKILL.md` | |
 | pointing a tree at another core, as a fork does | `.agents/skills/harness/SKILL.md` | |
+| re-checking a recipient's copy against its ref in a maintain pass | — | <straw-dog question="q-0018.0012">not yet</straw-dog> |
 | knowing an update is available | — | unowned by design — a person asks for one; nothing polls the repository |
 | verifying that a host reads the loader link | — | <straw-dog question="q-0018.0004.0001">not yet</straw-dog> |
 | writing a fresh tree's delivery status | `.agents/scripts/gw/harness.py` | |
@@ -109,8 +112,8 @@ would otherwise fail the shape check for the same absence the report already nam
   follow.
 - **The stamped announce line** — *what exists* — announced by the recipient's first reply; read by `--check` and
   `--update` to know what was installed, and by the shape check to know it stands in a recipient.
-- **The report** — *what exists* — read by whoever ran the script, and by the recipient's `/verify` where its
-  verification set names the check. Its `pending` lines are read by the person who runs them.
+- **The report** — *what exists* — read by whoever ran the script. Its `pending` lines are read by
+  the person who runs them.
 - **A fresh tree's delivery status** — *what it intends to become* — read by the first session's `/recall`, which runs before
   anything has been written into the queue; worded by the `ticket` mechanism, placed here, and the
   instance's from its first line.

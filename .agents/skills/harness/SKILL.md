@@ -92,8 +92,6 @@ format the entry file's *Project-local* section describes, from the environment 
 project's facts for the entry file, its autonomy switches, and its verification set — its
 typechecker, its tests, every command required of landed work, read off its own toolchain; a project without one has an
 empty set, and its local file says so. Then `inject_rules.py local --install`, and `--check`.
-`harness.py . --check` joins the set only when the person asks for it: every run clones the source
-over the network.
 
 `uv run --offline --no-project python` is the harness's own habit; the scripts need only the
 standard library, so a bare `python` works.
