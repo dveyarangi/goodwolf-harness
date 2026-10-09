@@ -827,6 +827,47 @@ with a record yet, each awaiting `/ticket`:
   mechanisms of its own, beyond [`.0150`](./01-0010.0150-harness-meets-a-tree-with-a-method.md)'s
   carrying them into the local file or a claimed skill; it needs the second thread's home.
 
+## Hook wiring reaches a recipient — 2026-10-09
+
+From [issue 4](https://github.com/dveyarangi/goodwolf-harness/issues/4): every fresh install ends
+`arrived: false`, since the questions mechanism declares the three hosts' hook files as its parts
+and the install carries none of them. **Decided** *(the user, 2026-10-09)*: core's hooks are merged
+into each host's shared, committed file — never a local settings file — and every hook runs
+through a wrapper reading the interpreter found once per clone; each host's Windows shell is
+checked live. The argument and the hosts' documentation are q-0018.0020.0005's.
+
+`/impact` on the draft split:
+
+**Impact.** The installer's manifest, refusal and comparison: the host files are neither core
+files nor absent-only writes, so the architecture's *Installing* contract — one file written
+outside the manifest, a target holding a manifest path refused, a core file compared whole —
+gains a third kind of write, a merge whose own entries alone are core's. `--install`, `--update`,
+`--check` and `--links` each touch it; the update removes an entry that left core. This tree's own
+three hook files change their commands, and the origin needs the per-clone interpreter record too
+before its own hooks run again. The questions mechanism's *carrying the hook wiring* moment, the
+harness skill's `uv` note and the product matrix's straw dog bound to q-0018.0020.0005 move with
+it; the installer's tests gain merged host files in their source and target trees.
+
+**Hidden edges.** Where core's hook entries are authored: read off the origin's host files, they
+carry whatever else the origin puts there; authored under `.agents/`, they ship as ordinary core
+and the origin's own host files become merged like any recipient's. A changed hook command
+re-asks Codex's trust in every tree that takes it. Each host resolves the working directory its
+own way — Claude Code by `${CLAUDE_PROJECT_DIR}`, Cursor from the project root, Codex from the
+session's working directory, which may be a subfolder. Claude Code on Windows falls back to
+PowerShell without Git Bash; Codex has `commandWindows`; Cursor's Windows shell is undocumented.
+A recipient's host file that is not valid JSON is refused, not rewritten. Rewriting the file
+re-formats it. Removing the harness ([`.0200`](./01-0010.0200-a-project-can-remove-the-harness.md))
+must take core's entries out again.
+
+**Leave alone.** [`.0150`](./01-0010.0150-harness-meets-a-tree-with-a-method.md)'s entry-file
+modes; [`.0120`](./01-0010.0120-host-delivery-surfaces.md)'s capability matrix beyond the shell each
+hook runs in; the delivery-status write; the loader links' own plan; `questions.py --hook` itself.
+
+**Recommendation: narrow** — three slices rather than two. Merging the files is what makes an
+install arrive, and is verifiable alone; the wrapper and the interpreter record are what make the
+hooks run without `uv`, and carry the only live, per-host unknowns; a gate saying why it failed is
+independent of both.
+
 ## Adoption shortlist — recommendations awaiting alignment
 
 This is the compact decision surface extracted from the [Life research](../research/life-harness-findings.md). Rows marked agreed link to the current policy; the other recommendations remain undecided. Resolve one question at a time.
