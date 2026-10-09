@@ -58,7 +58,7 @@ line numbers the original cited are left out.
 - **Terms defined before they land:** q-0024.0001, 01-0017.0010. Serves C3.
 - **Links checked outside a close:** q-0024.0005. An edited thing carries its mark back: q-0024.0009.0004, 01-0011.0110.0050. Both serve C6.
 - **Tests catch what their names promise:** q-0021, 01-0011.0090. Serves C7.
-- **Where a tree's invariants are declared as criteria a pass applies:** q-0029.0005. **Self-amendment** questions: q-0026.0001 and q-0026.0002. Both serve C7.
+- **Where a tree's invariants are declared as criteria a pass applies:** q-0029.0005. **Self-amendment** questions: q-0026.0001 and q-0026.0004.0001 (q-0026.0002 when the audit ran; re-parented the same day). Both serve C7.
 - **Observing what each host delivers:** q-0018.0004 / 01-0010.0120, and q-0018.0004.0001.
 - **Team memory:** "unminted", with no question at all. Every pain is framed for one person.
 
