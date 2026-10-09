@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v52 — 2026-10-10
+
+**🪢 names a claim beside work** — another session standing where this one works is a tangle, and
+a row that is both a record's disagreement and a collision goes under 🪢. The recall had filed
+stale session rows standing on q-0030 as drift, and the next turn amended q-0030's rule unflagged;
+[rule failure 27](../rule-failures.md).
+
 ## v51 — 2026-10-10
 
 **The lamp links to its principle's text** — the name after `💡` is a link to the line where the

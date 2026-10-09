@@ -21,8 +21,6 @@ Open idea, unowned: `/impact` could name the *error classes that stay uncaught* 
 
 **Working documents:** [Harness spec — draft](../spec/01-0010-dev-harness-shared-and-local.md), [the install spec — accepted 2026-09-14](../spec/01-0010.0130-harness-installs-into-another-tree.md), [working glossary](../glossary.md), and [pacer.md](../pacer.md), which holds the pacer's core rules resolved so far until [01-0020](01-0020-pacer.md) carries them. `docs/process.md` is preliminary under a `<straw-dog>` block; the pacer owns it once it exists.
 
-**The verification set** is `/verify`'s local block, installed from `local.rules.md`'s L3; 532 tests on 2026-10-05, two skipped where the platform makes no symlink. The straw dogs are what `straw_dogs.py docs AGENTS.md local.rules.md .agents README.md` lists: 108 at that pass, all bound, none due.
-
 | Ticket | Status | Type | Outcome |
 |---|---|---|---|
 | [Shared harness across projects](01-0010-dev-harness-shared-and-local.md) | In progress | HITL | Projects share a canonical development method, contribute improvements to it, and receive accepted changes mechanically while preserving project-specific behavior across Claude Code, Codex and Cursor. |

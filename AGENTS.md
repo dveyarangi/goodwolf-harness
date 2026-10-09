@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v51, 2026-10-10.
+Entry contract: v52, 2026-10-10.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -53,7 +53,8 @@ judgement, is named at its authored home and cited by that name. Under `debug=on
 
 Debug or not, a row each: what waits on the user's decision, under `| ⚖️ Decisions |`; a record
 out of agreement with what it is of, met and not repaired, under `| 🍂 Drift |`; one party's work
-colliding with another's, met and not resolved, under `| 🪢 Tangle |`.
+or claim colliding with another's — another session standing where this one works — met and not
+resolved, under `| 🪢 Tangle |`, even where a record's disagreement is what shows it.
 </straw-dog>
 
 <installed by="ticket">

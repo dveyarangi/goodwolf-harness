@@ -12,6 +12,25 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 27. Another session's claim on the question being worked was filed as drift — 2026-10-10
+
+**Rules in play:** the entry file's *A paragraph shows what it stands on* — a record out of
+agreement with what it is of under 🍂, one party's work colliding with another's under 🪢.
+
+**What happened.** The wake read ten session rows as running, most silent since 2026-10-07; the
+recall listed them under 🍂. Two of them stood at q-0030 and q-0030.0001, and the next turn
+amended q-0030's own rule with no row saying so. The user: *it is not drift but a tangle — why
+did it not go there?*
+
+**Why it did not fire.** The rows fit 🍂's words literally — the file says running, the session is
+not — and the agent sorted by the record. 🪢 says *work colliding*, which reads as two edits
+meeting; a standing claim on a question did not look like work, so the collision with this
+session's own edit went unseen.
+
+**Amendment proposed:** 🪢 names a claim beside work — another session standing where this one
+works counts — and a collision outranks the disagreement that shows it: a row that is both goes
+under 🪢. **Landed 2026-10-10.**
+
 ## 26. A project with no code got the harness's own check as its verification set — 2026-10-09
 
 **Rules in play:** the harness skill's *After the first install* — the set read off the project's
