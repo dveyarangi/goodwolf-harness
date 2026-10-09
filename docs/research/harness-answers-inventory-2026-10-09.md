@@ -474,9 +474,94 @@ inventory for each found no row. Numbering continues A.
 | A156 | the weight of the method's vocabulary on the person: the number of commands and coined terms a reader meets | absent, no question | 2, 3, C8 | ✗ | none (nearest q-0024.0001) | **missing** | cold reads, both rounds |
 | A157 | the README's claims held to the tree, so the front page cannot promise hook delivery an install lacks | absent, question only | C10 | ✗ | q-0031 | **missing** | the second cold read's fact-check, 2026-10-08 |
 
-**Not used as a source, and named here so it is not lost:** the rule-failure register
-(`docs/rule-failures.md`, 26 entries). Each entry is evidence of a weakness in a named rule. Its
-recent entries were landed; whether the older ones were landed or refused was not read for this
-inventory.
-
 **Section D after E:** 157 items; 41 missing from product.md.
+
+**A disagreement resolved after E.** C's reading that the audit's *the q-0029 binding on "a
+document informs" looks wrong* is refuted by the record. The rule was written on 2026-10-05 as a
+straw dog *until what holds a tree's invariants is settled* (`entry-contract-findings.md`, v31).
+That is q-0029 and, precisely, q-0029.0005 "Where are a tree's invariants declared as criteria a
+pass applies?". The binding stands.
+
+## F. The rule-failure register, entry by entry
+
+Added 2026-10-09 at the user's request. One read-only agent read `docs/rule-failures.md` whole,
+checked each entry's state against the tree on disk (`AGENTS.md` at v49), and mapped it onto the
+causes and onto section A. Every question id below exists and is open.
+
+| # | entry | date | rules in play | weakness, said generally | cause | state now | inventory | open question |
+|---|---|---|---|---|---|---|---|---|
+| 1 | a concern written where a ticket was wanted | 09-10 | the ticket format against `/align`'s old *concerns* clause | two rules each satisfiable, no boundary; salience won | C1 | proposed, not landed — overtaken: the concerns file is gone, questions go to the store | A1, A103 | **none** for the boundary |
+| 2 | a partial sweep reported as a settled count | 09-10 | `/maintain` B1, B2 | a rule scoped to one skill, its occasion everywhere | C1, C10 | not landed; routed to 01-0018, still open | A95, A85, A76 | q-0025 |
+| 3 | the straw-dog rule at tier 1, three straw dogs unwrapped | 09-14 | entry file *Straw dogs*; `/mechanism`'s three homes; R5 | imperative buried; a home table admitting the wrong category; one occasion of two | C1, C6 | landed, struck twice, amended after each | A17, A75 | q-0023.0001 |
+| 4 | the wake rule in a diagram; a greeting got a greeting | 09-20 | the loop diagram; `docs/pacer.md` | an instruction with no verb; the sentence rule scoped too narrowly | C1, C4 | landed (v9), graded: *the rule fired*; reworded since by 23 | A13, A16 | q-0027 |
+| 5 | "allowlist", so a list was built | 09-20 | R4, R6; *authored home* | a noun naming an artifact beat a prohibition worded with another noun | C1, C11 | landed; never graded | A75, A81 | **none** |
+| 6 | the binding form on two tickets; bare ids on six closed ones | 09-20 | decisions held only on tickets → *Core and instance*, *Straw dogs* | a decision held only in read-once records; the first fix repeated the fault | C1, C6 | landed (v12) in two steps; not graded | A127, A17 | q-0018.0017 |
+| 7 | a declaration named its script's verbs | 09-23 | *Document load-bearing*; the format's title line; `/maintain` scope | text beside its implementation takes its words | C1, C6 | landed, struck once, amended (v19); residue: `harness` still has no rules file | A55, A82, A136 | q-0018.0012 |
+| 8 | a nested skill's output contract ended the caller's turn | 09-23 | `/ticket` steps; `/impact`'s *Output only* | two output contracts, no precedence; the last read won | C1 | landed; not graded | A36, A59 | **none** |
+| 9 | a fixture made by today's code stood for yesterday's tree | 09-24 | `/verify`'s validator bullet | the rule checks the assertion, not where its fixture came from | C7 | landed, with a code fix; not graded | A58 | q-0021 |
+| 10 | a claim about what sets the harness apart, drafted from inside | 09-26 | `/discover`'s description; `/align`'s external reality; *shape context* | the sharpest occasion in the body, not the description; an outside check met by sources sharing the frame | C2, C1 | landed; not graded | A33, A56 | q-0023.0007; q-0025.0002 in part |
+| 11 | a copy step landed in the architecture | 09-26 | the load-bearing counter-test; `/plan`'s architecture rule | an unqualified noun skipped a test in another file | C1, C11, C8 | landed, struck once, amended | A35, A60, A68 | q-0024.0002.0005 |
+| 12 | a queue answer named tickets by position | 09-26 | P9; the slug rule; the queue's link text | met by the letter, failed the reader; copied from a hub that broke it | C1, C10 | landed, reworded twice, replayed four times; residue: queue rows carry no slug | A49, A93, A102 | q-0020; q-0026.0004 |
+| 13 | skill descriptions fixed by adding their method | 09-27 | the tiering rule; R8 | a permissive phrase read as licence | C1, C8 | landed; *not yet replayed* | A56, A80 | q-0025.0002 |
+| 14 | a recall ranked by a criterion the queue does not use | 09-27 | the ordering rule in the queue's prose; `/recall` | a criterion in a document's prose read as state; the skill named none | C9, C2, C1 | landed, reworded the same day; *not yet replayed* | A13, A93 | q-0027; q-0020 |
+| 15 | a record's format placed in a mechanism's doc | 09-27 | `/mechanism` three homes and records; the format's §Records | three statements of one rule disagreed; the most specific won | C1 | landed; *not yet replayed* | A109, A75 | **none** (nearest q-0024.0004) |
+| 16 | placing stopped once the window said nothing moved | 10-03 | Q1; the hook's unchanged line | the rule buried at session start; the text at the occasion read as nothing to do | C1, C10 | landed | A2, A9, A85 | q-0001.0016; q-0025 |
+| 17 | a reply named what it asked by bare ids | 10-03 | P9; no rule for question ids → Q5 | a rule's slot reached one kind and not the kind derived from it | C10, C1 | Q5 landed (v24); P9 left as a repeat to strike, not struck | A49 | **none** |
+| 18 | six turns of seven showed the wrong question | 10-05 | Q1; the skill's *missing parent* | a judgement with nothing to count; a case missing; the rule in a skill not opened | C1, C3, C2 | landed (v26), struck four times in one day, amended after each | A2, A3 | q-0001.0016; q-0001.0016.0001 |
+| 19 | a stale handoff reported as drift | 10-08 | `/recall`'s snapshot bullet against its drift bullet | the exemption in one bullet, the occasion read in another | C1 | landed (v39) | A13, A15 | **none** |
+| 20 | a landed rule copied into the host's memory | 10-08 | the host's memory instructions; *Self-improvement* → L7 | the governing rule outside the tree; habit won | C1 | landed (v40), L7 | **none** (nearest A75) | **none** |
+| 21 | a reply spoke of the push the conclude owns | 10-08 | the `push` switch; `/conclude` | one verb named, neighbouring acts uncovered | C1 | landed (v41) | A122 | **none** |
+| 22 | a lamp cited a rule's id | 10-08 | *A paragraph shows what it stands on* | a placeholder filled loosely; the sentence on names above the bullet read | C10, C1 | landed (v42), reworded since — whether v49's wording regressed needs a judgement | A47 | q-0030 |
+| 23 | a rollback ran `/recall` twice | 10-09 | the wake straw dog; the hook's start read | an ambiguous term — session as the host's id or the conversation | C4, C1 | landed (v43) | A11, A13 | q-0027; q-0001.0006 |
+| 24 | landed text quoted without its 🧩 | 10-09 | the 🧩 bullet | *proposed* read as excluding text just landed — a boundary in time | C10, C1 | landed (v44) | A47 | q-0030 |
+| 25 | answers proposed four times on an unfolded question | 10-09 | `/questions` *Branching*; the ⚖️ table | a trigger the agent is known to fail at, with no sign named; an output owed every reply pulled toward a decision | C2, C3, C9 | landed | A19 | q-0001.0020 |
+| 26 | a project with no code got the harness's check as its set | 10-09 | the harness skill's *after the first install*; `harness.md` | an optional example, the only concrete command in reach, read as the default; the empty case unnamed | C1, C7, C11 | landed | A133, A65 | q-0018.0020.0003; q-0018.0022.0001 |
+
+**State counts:**
+
+| state | entries |
+|---|---|
+| landed, never struck | 20 |
+| landed and later struck | 4, with 8 strikes; amended after every strike |
+| proposed or routed, not landed | 2 (1 overtaken, 2 routed to 01-0018) |
+| refused | 0 |
+
+Grading: one entry graded (4, it fired), one replayed (12), three marked *not yet replayed*
+(13, 14, 15). The rest record no grade.
+
+**Patterns across entries:**
+
+- **Wording filled loosely, or met by its letter:** 5, 7, 12, 13, 17, 21, 22, 23, 24, 26.
+- **The rule's home not read at its occasion** — wrong tier, file or bullet, or a scope narrower
+  than the behaviour: 2, 4, 10, 11, 12, 16, 18, 19, 20, 22.
+- **Two satisfiable rules with no boundary or precedence:** 1, 3, 8, 15, 25.
+- **A rule or decision held in a document, record or diagram instead of an instruction:**
+  3, 4, 6, 12, 14.
+- **A judgement with nothing to count, where models are weak:** 10, 11, 18, 25.
+- **One occasion bound, a second missed:** 3, 9, 24.
+- **Text beside its implementation takes its shape:** 7, 9, 11.
+- **Copying from a source just read:** 12, 14.
+- **The fix repeated the failure:** 4, 6.
+- **The person is the detector every time:** all 26 were caught by the user, or by a hunt the user
+  asked for.
+- **Amendment churn:** 18 landed five times in a day, 3 three times; every amendment adds text and
+  none removes any.
+
+**Weaknesses the register adds to section B**, numbered on:
+
+| # | weakness | evidence | open question |
+|---|---|---|---|
+| B68 | rules each satisfiable with no stated boundary or precedence between them | entries 1, 3, 8, 15, 25 | **none** (nearest q-0023) |
+| B69 | a rule's placeholder or noun filled loosely, or met by its letter | 5, 7, 12, 13, 17, 21–24, 26 | q-0025 (its lean names it) |
+| B70 | a rule's home not read at its occasion, as a class — beyond the size and density rows | 2, 10, 11, 12, 16, 18, 19, 22 | q-0025 |
+| B71 | rules and decisions kept in documents or tickets read as state, not as instructions | 4, 6, 14 | q-0029 (*a document informs*) |
+| B72 | text written beside its implementation inherits its verbs | 7, 9, 11 | **none** |
+| B73 | grading is never triggered or tracked: *graded by the next …* recorded once in 26 | 4, 12, 13–15 | q-0026.0004 in part |
+| B74 | the person is always the detector of a missed rule | all 26 | q-0026 in part (A153) |
+| B75 | rules only grow: every amendment adds and none removes | 3, 18 | **none** (A152) |
+| B76 | a later rewrite can silently undo an amendment, and the register does not notice | 14, 16, 22 | **none** |
+| B77 | instructions outside the tree — the host's prompt and memory — compete with rules inside it | 20 | **none** |
+| B78 | register entries stay open with no closure marker; the register's own closing rule has no field | 1, 2 | q-0026 |
+
+**Section D after F:** 157 items in A; 78 weaknesses in B, 15 of them from the register, eight
+of those with no open question.

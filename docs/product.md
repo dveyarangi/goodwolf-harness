@@ -128,7 +128,7 @@ A row not marked ✓ is bound, in this page's source, to the open question that 
 | one step per reply, with a point to reassess at its end | C8, C9 | | ● | ● | | | <straw-dog question="q-0027">◐ defined, not instructed</straw-dog> |
 | the work's shape recommended, and a lighter path for small work and a heavier one for large | C8 | | ● | ● | | | <straw-dog question="q-0027.0003">✗</straw-dog> |
 | **Refusing harm** | | | | | | | |
-| writes that refuse rather than overwrite: a refusal writes nothing, interference is a failure, a removal needs the fingerprint it expects, push waits for a yes | C12 | | | | | ● | ✓ |
+| writes that refuse rather than overwrite: a refusal writes nothing, interference is a failure, a removal needs the fingerprint it expects, push waits for a yes | C12 | | | | | ● | <straw-dog question="q-0032">◐ the harness's own scripts refuse; an agent's own edits are guarded by nothing</straw-dog> |
 | an agent's role bounding its permissions, its rights over the records and its skills | C12, C5 | | | | | ● | <straw-dog question="q-0016">✗</straw-dog> |
 | the host refuses an action a rule forbids | C12 | | | | | ● | <straw-dog question="q-0018.0005">✗</straw-dog> |
 
@@ -176,10 +176,12 @@ Its open parts:
 
 - <straw-dog question="q-0018.0020.0001">An install meets an existing `CLAUDE.md` or `AGENTS.md` by moving it aside, in one mode only.</straw-dog>
 - <straw-dog question="q-0018.0011">An install does not draft an architecture and glossary from the project's code.</straw-dog>
+- <straw-dog question="q-0018.0011.0004">An install does not find what the project exists to solve, or the answers it has already built into its docs and code.</straw-dog>
 - <straw-dog question="q-0018.0020.0003">A first install does not end with the project's own checks in place.</straw-dog>
 - <straw-dog question="q-0018.0019">A project's own mechanisms have no declared home, so they are not checked like the shipped ones.</straw-dog>
 - <straw-dog question="q-0018.0020.0002">An update does not say what changed or what the project has to do about it.</straw-dog>
-- <straw-dog question="q-0018.0014">A harness failure found in a project does not reach the harness, and neither does an improvement.</straw-dog>
+- <straw-dog question="q-0018.0014">A harness failure found in a project does not reach the harness.</straw-dog>
+- <straw-dog question="q-0018.0018">An improvement a project makes to the harness does not reach it either.</straw-dog>
 - <straw-dog question="q-0018.0012">What maintenance re-checks for the harness inside a project is not settled.</straw-dog>
 - <straw-dog question="q-0018.0020.0001.0002">A shipped skill's name can collide with a project's own command.</straw-dog>
 - <straw-dog question="q-0024.0002">A project cannot change how it builds in one edit.</straw-dog>
