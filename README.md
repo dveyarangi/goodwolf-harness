@@ -178,7 +178,7 @@ project is one of four kinds, and the kind says which side wins.
 |---|---|---|---|
 | what it intends to become | the document, until the code gets there | the code moves toward it; the document is done once they match | a ticket, a plan, a spec |
 | what must always hold | the document, always | the code is fixed; the document changes only by a decision | the architecture, the glossary |
-| what exists | the code | the document is rebuilt from the code, never edited by hand | the queue's table, a check's report |
+| what exists | the code | the document is rebuilt from the code, never edited by hand | the ticket list, a check's report |
 | what happened | neither — it is past | nothing is fixed | a session record, a finished ticket |
 
 **How the right things reach the agent.** There is no vector database and no similarity search;

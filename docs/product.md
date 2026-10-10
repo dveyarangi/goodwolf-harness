@@ -110,7 +110,7 @@ A row not marked ✓ is bound, in this page's source, to the open question that 
 | every record says which side wins when it and the code disagree | C6 | ● | | | ● | | <straw-dog question="q-0024.0009">◐ named; records being brought to it</straw-dog> |
 | what bears load is written down, the rest lives in code and its comments | C6, C8 | ● | ● | | ● | | <straw-dog question="q-0024.0002.0005">◐ a rule, not yet settled</straw-dog> |
 | an edited thing carries its mark back to the record that governs it | C6 | ● | | | ● | | <straw-dog question="q-0024.0009.0004">✗</straw-dog> |
-| the queue derived from its tickets, its order the person's | C6, C9 | | ● | ● | | | <straw-dog question="q-0020">◐ the order is the person's; the table is still kept by hand</straw-dog> |
+| the live tickets listed from their headers, the queue's order the person's | C6, C9 | | ● | ● | | | ✓ |
 | a contract per edge, for those who consume the system and those who extend it, its outward text derived from it | C6, C10 | ● | | | ● | | <straw-dog question="q-0018.0023.0002">◐ the edge mechanism and the hosts record exist; no text is derived from a record yet</straw-dog> |
 | **Maintenance** | | | | | | | |
 | `/maintain`: records against each other and against the code, a clock of what is due, finished records archived | C6, C8 | ● | ● | | ● | | <straw-dog question="q-0024.0005">◐ links are checked only when records move; what is due is not announced</straw-dog> |
