@@ -2,4 +2,4 @@
 
 - **state** open
 - **owner** [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md)
-- **struck** 1, last 2026-10-09T21:06Z
+- **struck** 2, last 2026-10-10T15:02Z

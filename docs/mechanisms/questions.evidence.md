@@ -62,6 +62,13 @@ next free id to the rendering measured; a change to its format reruns the test.
   the reason for a parent, never against it; a doubted child is settled by leaving it. The
   parent is sized by its children and tested by whether one would look under it for the
   question, and only two parents claiming the same children are put to the user.
+- **A resumed conversation found by its transcript** (2026-10-10): the new transcript's first
+  message, looked for in the transcripts beside it, named the session a new Claude Code id
+  continued. Reopened in the desktop app, a conversation's start hook ran 3 s before its new
+  transcript was written, found nothing, and registered a new session. The desktop app names the
+  conversation itself in every process it starts, `CLAUDE_CODE_HOST_SESSION_ID`, unchanged across
+  the reopening; the terminal keeps the session id on resume. The session is keyed on the app's
+  name where it is set *(the user)*, and the transcript match is gone.
 
 ## Decided while building
 

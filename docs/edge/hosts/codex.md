@@ -41,3 +41,4 @@
   on one message; the ending by a wake was not watched.
 - **Offline tests** — observed 2026-10-10: the hook cases and the merge passed in the verification
   set.
+- **Resume** — unobserved; a resumed chat keeps its thread and rollout, `session_id` with them.

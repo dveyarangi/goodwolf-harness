@@ -29,7 +29,8 @@ agent draws the window itself.
 **What a host's integration is made of**, all of it core:
 
 - a row in `HOSTS`, `.agents/scripts/gw/questions.py`: the input field carrying the session id,
-  the transcript field if any, the start event, the message event if the host's answer reaches
+  the environment variable naming the conversation more steadily if the host sets one, the start
+  event, the message event if the host's answer reaches
   the agent, its compaction events, the function that writes its answer, and its quiet answer;
 - its hook file's shelf under `.agents/skills/questions/hooks/`, at the path the host reads it
   from, each entry launching `.agents/scripts/gw/hook.sh` as `gw-hook <host>` — the install merges
@@ -75,6 +76,8 @@ Each sidecar names its own parts.
    running again.
 10. **Offline tests** — the host's hook cases and its merge are in the test files the integration
     names, and pass in the verification set.
+11. **Resume** — a conversation closed and reopened in the host keeps its session: the sessions
+    file gains no row, and the reopened conversation stands where it stood.
 
 ## Extensions
 

@@ -1157,7 +1157,9 @@ class Host:
     """
 
     session_field: str
-    transcript_field: str | None
+    # An environment variable naming the conversation more steadily than the payload's field,
+    # read first where it is set.
+    conversation_variable: str | None
     starts: str
     messages: str | None
     compactions: tuple[str, ...]
@@ -1185,9 +1187,12 @@ def _cursor_answer(event: str, context: str, tag: str) -> str:
 
 
 HOSTS = {
-    # Claude Code keeps a session's transcript beside every other, named by its id; observed
-    # 2026-10-09, when a rollback resumed a conversation under a new id.
-    "claude-code": Host("session_id", "transcript_path", "SessionStart", "UserPromptSubmit", (), _hook_specific, ""),
+    # The desktop app gives Claude Code a new session id when it resumes a conversation (a
+    # rollback 2026-10-09, a reopening 2026-10-10) and keeps its own id for the conversation in
+    # every process it starts; the terminal keeps the session id on resume, and sets no such id.
+    "claude-code": Host(
+        "session_id", "CLAUDE_CODE_HOST_SESSION_ID", "SessionStart", "UserPromptSubmit", (), _hook_specific, ""
+    ),
     "codex": Host("session_id", None, "SessionStart", "UserPromptSubmit", ("PostCompact",), _hook_specific, ""),
     # Cursor's prompt hook can only allow or block, so its agent draws the window by the rule, and
     # the hook only marks the session seen: in practice the agent draws none (rule failure 28).
@@ -1235,18 +1240,18 @@ def hook(root: Path, host_name: str, payload: str, now: datetime) -> str:
             raise Refused(f"no host `{host_name}`; the hosts are {', '.join(HOSTS)}")
         sent = _sent(payload)
         event = sent.get("hook_event_name")
-        tag = _tag(str(sent.get(host.session_field) or ""))
-        transcript = sent.get(host.transcript_field) if host.transcript_field else None
+        named = os.environ.get(host.conversation_variable, "") if host.conversation_variable else ""
+        tag = _tag(named or str(sent.get(host.session_field) or ""))
         if event in host.compactions:
             _forget_window(root, tag)
             return host.quiet
         if event == host.starts:
-            return host.answer(event, _started(root, tag, sent.get("source"), now, transcript), tag)
+            return host.answer(event, _started(root, tag, sent.get("source"), now), tag)
         registered = tag in {held.tag for held in _sessions(root)[0]}
         if event == host.messages:
             if not registered:
                 # The start was never seen — the hooks arrived mid-session — so this is the start.
-                return host.answer(event, _started(root, tag, None, now, transcript), tag)
+                return host.answer(event, _started(root, tag, None, now), tag)
             drawn = window(root, tag)
             _seen(root, tag, now)
             return host.answer(event, drawn, tag)
@@ -1274,33 +1279,16 @@ def _sent(payload: str) -> dict:
         ) from None
 
 
-def _started(root: Path, tag: str, source: str | None, now: datetime, transcript: str | None = None) -> str:
+def _started(root: Path, tag: str, source: str | None, now: datetime) -> str:
     """A session starting, resuming or compacted: registered once under the host's id, running
     again if it had ended, and given a whole window, since its context has none. A start that is
-    not a compaction ends every other session gone silent first.
-
-    A conversation the host resumes under a new id is the session it continues, not a new one:
-    the new id takes over its position and the old one ends. Its context still holds the wake it
-    read, so it gets its window alone."""
+    not a compaction ends every other session gone silent first."""
     _forget_window(root, tag)
     known = {held.tag: held for held in _sessions(root)[0]}
     if tag not in known:
-        before = _resumed_from(transcript, [held for held in known.values() if held.tag != tag])
-        if before is None:
-            held = _register(root, now, tag)
-            _end_silent(root, now, tag)
-            return _wake_read(root, held, f"session: {tag}, registered now")
-        _write_line(root, Session(tag, True, _minute(now), before.current, before.recent, 0))
-        _write_line(root, Session(before.tag, False, before.wrote, before.current, before.recent, before.line))
+        held = _register(root, now, tag)
         _end_silent(root, now, tag)
-        return "\n".join(
-            [
-                f"session: {tag}, resumes {before.tag} — the same conversation under a new id: its "
-                "context, the wake it read among it, carries over; no new recall",
-                "",
-                window(root, tag, full=True),
-            ]
-        )
+        return _wake_read(root, held, f"session: {tag}, registered now")
     held = known[tag]
     if not held.running:
         held = Session(held.tag, True, _minute(now), held.current, held.recent, held.line)
@@ -1309,49 +1297,6 @@ def _started(root: Path, tag: str, source: str | None, now: datetime, transcript
         return window(root, tag, full=True)
     _end_silent(root, now, tag)
     return _wake_read(root, held, f"session: {tag}, already registered")
-
-
-def _resumed_from(transcript: str | None, known: list[Session]) -> Session | None:
-    """The registered session a new id continues, or none.
-
-    A host that resumes a conversation under a new id writes its messages into the new transcript
-    under the uuids they had, so the session continued is the one whose transcript, beside this
-    one and named by its tag, holds this one's first message as a message of its own — its quotes
-    bare, since a transcript that only quotes the uuid in text holds them escaped. Of several — a
-    conversation resumed twice — the latest written is the one continued; the newest are read
-    first, so the usual case reads one file."""
-    if not transcript:
-        return None
-    path = Path(transcript)
-    first = _first_message(path)
-    if first is None:
-        return None
-    first = f'"uuid":"{first}"'
-    beside = [(path.with_name(f"{held.tag}.jsonl"), held) for held in known]
-    beside = sorted((pair for pair in beside if pair[0].is_file()), key=lambda pair: -pair[0].stat().st_mtime)
-    for other, held in beside:
-        try:
-            if first in other.read_text(encoding="utf-8", errors="replace"):
-                return held
-        except OSError:
-            continue
-    return None
-
-
-def _first_message(transcript: Path) -> str | None:
-    """The uuid of a transcript's first message; none where it is not written yet."""
-    try:
-        with transcript.open(encoding="utf-8", errors="replace") as lines:
-            for line in lines:
-                try:
-                    said = json.loads(line)
-                except json.JSONDecodeError:
-                    continue
-                if isinstance(said, dict) and isinstance(said.get("uuid"), str):
-                    return said["uuid"]
-    except OSError:
-        return None
-    return None
 
 
 def _tag(identity: str) -> str:

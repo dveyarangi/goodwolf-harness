@@ -40,3 +40,4 @@
   on one message, marked seen by the prompt hook; the ending by a wake was not watched.
 - **Offline tests** — observed 2026-10-10: the hook cases and the merge passed in the verification
   set.
+- **Resume** — unobserved.

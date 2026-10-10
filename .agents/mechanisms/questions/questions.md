@@ -55,9 +55,9 @@ from them, under the host's own session id; the rule stays the floor every host 
 and Codex take context at session start and before every message; Cursor only at session start, so
 its agent draws the window by the rule, and its prompt hook only marks the session seen. A window stays in the conversation once drawn, so the next
 is drawn only when the session's position or an entry moved, and whole again after a compaction.
-A conversation the host resumes under a new id is the session it continues: where the host keeps
-transcripts side by side, the one holding the new transcript's first message names it, its
-position passes to the new id, and the start says no new recall is due.
+A conversation resumed under a new session id is the session it was: where the host names the
+conversation more steadily than the session — the Claude Code desktop app does, in every process
+it starts — the session is registered under that name, so a resume finds it already registered.
 
 **Principles**, behind the rules and never installed:
 

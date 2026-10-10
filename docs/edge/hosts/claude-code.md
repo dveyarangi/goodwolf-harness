@@ -8,7 +8,9 @@
   `.agents/skills/questions/hooks/.claude/settings.json`: `SessionStart` and `UserPromptSubmit`,
   each launching `.agents/scripts/gw/hook.sh` as `gw-hook claude-code`.
 - The host's row `claude-code` in `HOSTS`, `.agents/scripts/gw/questions.py`: `session_id`, and
-  `transcript_path` for a conversation resumed under a new id.
+  the desktop app's `CLAUDE_CODE_HOST_SESSION_ID`, read first where it is set, since the app gives
+  a resumed conversation a new `session_id` and keeps its own id; the terminal keeps the
+  `session_id` on resume, a new one only under `--fork-session`.
 - Its hook cases in `.agents/scripts/gw/test/test_questions.py`, its merge in
   `.agents/scripts/gw/test/test_harness.py`.
 - A project `settings.json` written mid-session is read without a restart; nothing to approve.
@@ -40,3 +42,7 @@
   on one message; the ending by a wake was not watched.
 - **Offline tests** — observed 2026-10-10: the hook cases and the merge passed in the verification
   set.
+- **Resume** — observed 2026-10-10, desktop app, failing before the fix: reopened, the
+  conversation `58bf3b88` came back as `d0abdc88`, and the start hook ran 3 s before the new
+  transcript existed, so the transcript match found nothing and registered a new session; the
+  session is now keyed on the app's own id. The fix and the terminal's resume are unobserved.
