@@ -12,6 +12,21 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 29. A reply closed on an empty tangle table — 2026-10-10
+
+**Rules in play:** the entry file's reply tables, *debug or not, a row each: … under
+`| ⚖️ Decisions |`; … under `| 🍂 Drift |`; … under `| 🪢 Tangle |`*, a straw dog bound to q-0030.
+
+**What happened.** A `/recall` session ended every reply with all three tables. When the other
+session's uncommitted files had been committed, its 🪢 table held a single dash. The user: *why an
+empty tangle?*
+
+**Why it did not fire.** *A row each* says what a row is for and never says when a table is
+absent; *debug or not* reads as *always*, so the three headers were taken as a fixed footer.
+
+**Amendment landed**, the entry contract at v55: *debug or not, a row each, and a table only where
+it has one*. Graded by the next replies: no table without a row.
+
 ## 28. In Cursor the window was not drawn by the rule — 2026-10-10
 
 **Rules in play:** the entry file's Q1 — read this turn's window, the hook's or

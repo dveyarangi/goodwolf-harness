@@ -15,6 +15,12 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v55 — 2026-10-10
+
+**No empty table** — the reply's ⚖️, 🍂 and 🪢 tables appear only where they have a row. A session
+read *debug or not, a row each* as *each table, always*, and closed a reply with a 🪢 table holding
+a dash; the user: *why an empty tangle?* Rule failure 29.
+
 ## v54 — 2026-10-10
 
 **A ticket's slug in every reply** — P9's first mention is counted per reply and per record, a
