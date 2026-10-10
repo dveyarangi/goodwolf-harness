@@ -1,6 +1,13 @@
 """What each live ticket declares in its header, and whether the record keeps its declared shape.
 
     uv run --offline --no-project python .agents/scripts/gw/tickets.py --check
+    uv run --offline --no-project python .agents/scripts/gw/tickets.py --list
+
+`--list` prints the live tickets as their headers say them, a markdown table in id order: the
+ticket by id and slug, its status word, its type, its title, and the question it answers by id and
+slug. It is the ticket list, rendered on request and never committed (the user, 2026-10-10); it
+judges nothing, so a field a header lacks prints a dash, and a ticket it cannot read is named under
+the table and fails the run.
 
 The shape is the ticket format shelf's, `TICKET-FORMAT.md`, under *The record*: the header's
 fields and their order, the sections a stage admits, the acceptance boxes, and the pairing of an
@@ -47,7 +54,9 @@ NAMED_SECTIONS = (
 # its own argument, so a section listing them is a second home (the user, 2026-10-03).
 RETIRED_SECTIONS = ("Open issues",)
 REQUIRED_SECTIONS = ("What to build", "Acceptance criteria")
-_USAGE = "usage: tickets.py --check"
+_USAGE = "usage: tickets.py --check | --list"
+_NAMED = re.compile(r"^(\d{2}-\d{4}(?:\.\d{4})*|q-\d{4}(?:\.\d{4})*)-(.+)$")
+_DASH = "—"
 _BULLET = re.compile(r"^- \*\*([^*]+?):\*\* ?(.*)$")
 _BARE = re.compile(r"^\*\*([^*]+?):\*\* ?(.*)$")
 _CONTINUATION = re.compile(r"^\s+\S")
@@ -81,6 +90,7 @@ class Ticket:
     """One live ticket as its header and sections declare it. Nothing here has been judged yet."""
 
     record: str
+    title: str
     header: list[Field]
     sections: list[Section]
     bullet_form: bool
@@ -138,14 +148,31 @@ class Checked:
         }
 
 
+@dataclass(frozen=True)
+class Listing:
+    """The ticket list: a row per live ticket read, and every ticket that could not be read."""
+
+    rows: list[str]
+    skipped: list[Skipped]
+
+    def as_text(self) -> str:
+        table = ["| Ticket | Status | Type | Title | Question |", "|---|---|---|---|---|", *self.rows]
+        unread = [f"not read: {passed_over.record} — {passed_over.why}" for passed_over in self.skipped]
+        return "\n".join(table + ([""] + unread if unread else []))
+
+
 def main(argv: list[str], root: Path | None = None) -> int:
     root = root or Path(__file__).resolve().parents[3]
-    if argv != ["--check"]:
-        print(_USAGE)
-        return 2
-    checked = check(root)
-    print(json.dumps(checked.as_record(), indent=2))
-    return 1 if checked.diagnostics or checked.skipped else 0
+    if argv == ["--check"]:
+        checked = check(root)
+        print(json.dumps(checked.as_record(), indent=2))
+        return 1 if checked.diagnostics or checked.skipped else 0
+    if argv == ["--list"]:
+        listed = listing(root)
+        print(listed.as_text())
+        return 1 if listed.skipped else 0
+    print(_USAGE)
+    return 2
 
 
 def check(root: Path) -> Checked:
@@ -164,6 +191,62 @@ def check(root: Path) -> Checked:
         diagnostics += _problems(root, read, names) + _answers_problems(root, read, entries)
     diagnostics += _pairing_problems(names)
     return Checked(records, diagnostics, skipped)
+
+
+def listing(root: Path) -> Listing:
+    """Every live ticket as its header says it, in id order — the parent before its children, since
+    a name sorts `-` before `.`. Untracked tickets are listed too, so one minted this session is."""
+    entries = {read.record: read for read in questions.read_store(root).index.values()}
+    rows: list[str] = []
+    skipped: list[Skipped] = []
+    for name in _live_tickets(corpus(root)):
+        read = _read(root, name)
+        if isinstance(read, Skipped):
+            skipped.append(read)
+            continue
+        rows.append(_row(root, read, entries))
+    return Listing(rows, skipped)
+
+
+# --- a ticket as a row of the list --------------------------------------------------------------
+
+
+def _row(root: Path, read: Ticket, entries: dict[str, "questions.Entry"]) -> str:
+    """What the header says, shown and never judged: a field it lacks prints a dash."""
+    fields = read.fields
+    cells = (
+        _named_link(read.record),
+        _status_word(fields.get("Status")),
+        fields.get("Type") or _DASH,
+        read.title,
+        _question(root, read, entries),
+    )
+    return "| " + " | ".join(cell.replace("|", "\\|") for cell in cells) + " |"
+
+
+def _named_link(record: str) -> str:
+    """A link to a record whose text is its id and slug, read off its basename."""
+    basename = posixpath.splitext(posixpath.basename(record))[0]
+    named = _NAMED.match(basename)
+    return f"[{named.group(1)} {named.group(2)}]({record})" if named else f"[{basename}]({record})"
+
+
+def _status_word(status: str | None) -> str:
+    """The status without its qualifier, which stays in the ticket. A value the grammar does not
+    match is shown as written: whether it is right is `--check`'s to say."""
+    if not status:
+        return _DASH
+    word = _STATUS.match(status)
+    return word.group(1) if word else status
+
+
+def _question(root: Path, read: Ticket, entries: dict[str, "questions.Entry"]) -> str:
+    """The entry `Answers` links, as a named link; a dash unless it links exactly one entry."""
+    written = citations(read.fields.get("Answers", ""))
+    if len(written) != 1:
+        return _DASH
+    entry = entries.get(cited_record(root, read.record, target_of(written[0])) or "")
+    return _named_link(entry.record) if entry else _DASH
 
 
 # --- reading a ticket ---------------------------------------------------------------------------
@@ -187,7 +270,7 @@ def _read(root: Path, name: str) -> Ticket | Skipped:
     if not lines or not lines[0].startswith("# "):
         return Skipped(name, "does not open with a title line, so nothing after it can be placed")
     header, bullet_form, after = _header(lines)
-    return Ticket(name, header, _sections(lines, after), bullet_form)
+    return Ticket(name, lines[0][2:].strip(), header, _sections(lines, after), bullet_form)
 
 
 def _header(lines: list[str]) -> tuple[list[Field], bool, int]:
