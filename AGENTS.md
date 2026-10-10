@@ -221,7 +221,7 @@ progress live in docs/ like any other project's — the instance half doing its 
 Terms: docs/glossary.md, this project's own; the method's are .agents/glossary.md's. What each
 version of the entry contract changed: docs/research/entry-contract-findings.md.
 
-**L2** commit=auto · push=ask · next-cycle=ask · breakdown=ask · repair=report
+**L2** commit=auto · push=auto · next-cycle=ask · breakdown=ask · repair=report
 
 **L4** debug=on
 

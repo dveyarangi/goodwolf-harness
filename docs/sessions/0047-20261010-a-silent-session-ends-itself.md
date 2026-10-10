@@ -65,6 +65,12 @@ The user's proposal itself is q-0034, opened and not aligned. The agent's agreem
 are in its body: `/maintain` re-checks the sessions file but does not end rows; the border with the
 pacer, which owns resume state by the user's 2026-09-06 word, is undecided.
 
+### `push=auto`
+
+After the first conclude pushed on the user's word, the user moved the switch: *put push on auto,
+conclude again, commit and push.* L2 in `local.rules.md`, re-installed; the conclude now pushes
+without asking.
+
 ## A principle with no home yet
 
 **Before repeating a rule as the reason, find the reason the rule was written for.** The answer to
