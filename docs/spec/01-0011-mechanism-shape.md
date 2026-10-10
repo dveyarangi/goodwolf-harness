@@ -109,7 +109,10 @@ nobody. A moments table would have forced that row to exist on the day it was de
 **One mechanism, one instruction file** (the user, 2026-09-06). A mechanism's own instruction file
 is one skill. Rules it needs in skills it does not own are **injected pointers**, not second
 instruction files. `/maintain` is therefore not a part of any mechanism it maintains: it is the
-mechanism for maintaining mechanisms, and it acts on the others from outside.
+mechanism for maintaining mechanisms, and it acts on the others from outside. **Loosened
+2026-10-10** *(the user)*: one mechanism per skill, not one skill per mechanism — a mechanism may
+own several, each acting on a record it declares
+([evidence](../mechanisms/mechanism-shape.evidence.md#one-owner-per-skill-not-one-skill-per-mechanism--2026-10-10)).
 
 A mechanism reaches its shape when every moment it has is instructed, or carries a declared kind of
 absence. An absence that is a genuine gap names a ticket, never left silent — an undeclared gap is

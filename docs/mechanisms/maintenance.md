@@ -5,13 +5,13 @@ finishes; the format is `/maintain`'s, in `.agents/skills/maintain/MARKS-FORMAT.
 
 | mechanism | level | fingerprint | date | outcome |
 |---|---|---|---|---|
-| harness | rules | 5ad9db9c55e736b51c324d2ba56f35754650a14b33027c8aaf8dbcb875eb1ded | 2026-10-09 | nothing to change |
-| harness | output | d6a42bb4b28b1b5dab5e52d71ff7c4fda2800badddaaa556c53658fc40966b34 | 2026-10-09 | nothing to change |
-| maintain | rules | 5ad9db9c55e736b51c324d2ba56f35754650a14b33027c8aaf8dbcb875eb1ded | 2026-10-09 | nothing to change |
+| harness | rules | 9f5cf166c9774da3e48f8c0cd96c58564264a42af2e25c235d19fedce62434cc | 2026-10-10 | nothing to change |
+| harness | output | 2944318ff4384dc120c03e7c3d7102bd0d32cc46dd3be1561ef6c9eacc787e6f | 2026-10-10 | nothing to change |
+| maintain | rules | 9f5cf166c9774da3e48f8c0cd96c58564264a42af2e25c235d19fedce62434cc | 2026-10-10 | nothing to change |
 | maintain | output | 9fcf2fd39c74ee8c8d8ec7721bf1d7a5545dcd7f6005134881b10f0b63cdaafb | 2026-10-08 | nothing to change |
-| mechanism-shape | rules | 5ad9db9c55e736b51c324d2ba56f35754650a14b33027c8aaf8dbcb875eb1ded | 2026-10-09 | nothing to change |
-| mechanism-shape | output | 58171f1da767b6fe3b5a9262011590b219e957cbb28aa47c82d576113494033b | 2026-10-08 | nothing to change |
-| questions | rules | 5ad9db9c55e736b51c324d2ba56f35754650a14b33027c8aaf8dbcb875eb1ded | 2026-10-09 | nothing to change |
-| questions | output | bc75761cb8f954fc51fb3f96edd91e25e0c8b734683dd13364f6efac16a572a3 | 2026-10-09 | nothing to change |
-| ticket | rules | 5ad9db9c55e736b51c324d2ba56f35754650a14b33027c8aaf8dbcb875eb1ded | 2026-10-09 | nothing to change |
+| mechanism-shape | rules | 9f5cf166c9774da3e48f8c0cd96c58564264a42af2e25c235d19fedce62434cc | 2026-10-10 | nothing to change |
+| mechanism-shape | output | ab665a00057db18bca31fba6dea9d23f8b8710be9a94ec67fda11cf7bc0babb5 | 2026-10-10 | amended |
+| questions | rules | 9f5cf166c9774da3e48f8c0cd96c58564264a42af2e25c235d19fedce62434cc | 2026-10-10 | nothing to change |
+| questions | output | 49f122c8250750ab1227375ed98bc6bd7e5cbde2f77f3d12030e4942b2c48de6 | 2026-10-10 | nothing to change |
+| ticket | rules | 9f5cf166c9774da3e48f8c0cd96c58564264a42af2e25c235d19fedce62434cc | 2026-10-10 | nothing to change |
 | ticket | output | 1ff097089b379130eb0fa941789171a85ae609fdb26d8682febd98310dd7ef00 | 2026-10-08 | nothing to change |
