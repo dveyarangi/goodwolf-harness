@@ -24,19 +24,20 @@ an install guide — is derived from the record.
 **The checks are the record's, the act is the skill's.** A record's `Extending` lists the checks
 every extension passes, as a ticket lists its criteria; the skill's *Extend* goal is the
 instruction to build an extension to the contract, pass those checks live, and write the sidecar.
-Because every sidecar answers every check by name, a fourth host is held to the same checks as the
-first three, and a check added later shows at once as unanswered in every sidecar.
+Because every sidecar answers every check by name, a new extension is held to the same checks as
+those before it, and a check added later shows at once as unanswered in every sidecar.
 
 **A landed change writes its record in the same commit.** The occasion that most changes an edge
-is a landing — a promise, a validator or a file a sidecar names, changed by delivered work — and a
+is a landing — a promise, a validator or a part a sidecar names, changed by delivered work — and a
 live observation is made in the same work. Both reach `/verify` as an installed rule, E4, since
 holding landed work to what governs it is where the occasion is read; without it the record would
 be written only at alignment and in maintenance, and fall behind every landing *(the user,
 2026-10-10)*.
 
 **Maintenance fits `/maintain`'s model.** A record is of the code and configuration it names, so
-when a pass's scope moves a named file the record is re-read against it, a broken promise
-reported as drift, and a touched observation marked stale rather than re-dated. Both duties reach
+when a pass's scope moves a named part — at the grain the record names it — the record is re-read
+against it, a broken promise reported as drift, and a result resting on that part marked stale
+rather than re-dated. Both duties reach
 `/maintain` as an installed block, beside the check that holds the form. Re-observing is live work
 and never a maintenance pass's.
 
@@ -98,6 +99,7 @@ installer adds and an uninstaller removes.
 | test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |
 | the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
 | the pass that re-reads a record | `.agents/skills/maintain/SKILL.md` | `maintain` |
+| the status vocabulary a record's aggregation sections keep out | `.agents/skills/ticket/TICKET-FORMAT.md` | `ticket` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 
 ## What it produces, and who reads it
@@ -127,8 +129,7 @@ every landing and every pass leaves a result silently old.
 
 **Three `not yet` rows of its own**, each bound to an open question: noticing a host's new
 version, the installation edge's line written as a change is made, and a named file moved outside
-every landing and every pass. That record — the installation edge's
-— is not yet written here; its ticket writes it to this format.
+every landing and every pass.
 
 ## What retires this
 
@@ -140,10 +141,10 @@ while the harness is shared.
 
 Pre-registered 2026-10-10, two graders.
 
-**The session that attaches a fourth host** grades the record: did the hosts edge's record and the
-skill's *Extend* goal suffice to integrate and check that host, without reading the ticket whose
-narrative seeded it? Each time it had to go back to the ticket, or to the code, for something the
-record should have said is a miss, named in the evidence.
+**The session that next attaches an extension at an edge that already has some** grades the
+record: did the record and the skill's *Extend* goal suffice to integrate and check it, without
+reading the history the record was seeded from? Each time it had to go back to that history, or to
+the code, for something the record should have said is a miss, named in the evidence.
 
 **The session that writes the installation edge's record** grades the format: did a promised edge,
 with no extensions and a different reader, fit the shape unchanged, or did the format have to be

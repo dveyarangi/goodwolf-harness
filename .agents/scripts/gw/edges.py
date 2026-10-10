@@ -35,6 +35,7 @@ _TITLE = re.compile(r"^# Edge — (\S.*)$")
 _SIDECAR_TITLE = re.compile(r"^# (\S.*?) — (\S.*) edge$")
 _STATUS = re.compile(r"^- \*\*Status:\*\* (.*)$")
 _CHECK = re.compile(r"^\d+\. \*\*([^*]+)\*\* — \S")
+_NUMBERED = re.compile(r"^\d+\. ")
 _RESULT = re.compile(r"^- \*\*([^*]+)\*\* — (.*)$")
 _VALIDATED = re.compile(r"\*validated by:\*\s*(.*)$")
 _LIVE = re.compile(r"^live — \*\*([^*]+)\*\*")
@@ -175,8 +176,6 @@ def _bullets(section: Section) -> list[tuple[int, str]]:
             joined.append((number, line))
         elif joined and line.startswith("  ") and line.strip():
             joined[-1] = (joined[-1][0], f"{joined[-1][1]} {line.strip()}")
-        elif not line.strip():
-            continue
     return joined
 
 
@@ -193,8 +192,21 @@ def _record_problems(root: Path, read: Read) -> list[Diagnostic]:
     elif status not in STATUSES:
         problems.append(Diagnostic(read.record, None, f"Status `{status}` is not one of {', '.join(STATUSES)}"))
     problems += _section_problems(read)
+    problems += _extending_problems(read)
     problems += _invariant_problems(root, read, status)
     return problems
+
+
+def _extending_problems(read: Read) -> list[Diagnostic]:
+    """A numbered line `_checks` cannot read would drop out of every sidecar's count unseen."""
+    extending = read.section("Extending")
+    if extending is None:
+        return []
+    return [
+        Diagnostic(read.record, number, "a numbered line not in the check form `1. **<check>** — <what it observes>`")
+        for number, line in extending.body
+        if _NUMBERED.match(line) and not _CHECK.match(line)
+    ]
 
 
 def _status(read: Read) -> str | None:
@@ -230,8 +242,9 @@ def _invariant_problems(root: Path, read: Read, status: str | None) -> list[Diag
     checks = _checks(read)
     for number, bullet in _bullets(invariants):
         if UNGUARDED in bullet:
-            if status == "Normative":
-                problems.append(Diagnostic(read.record, number, "a promise marked unguarded in a Normative record"))
+            # A tentative record is held to the same standard; only a Stub may promise unguarded.
+            if status is not None and status.startswith("Normative"):
+                problems.append(Diagnostic(read.record, number, f"a promise marked unguarded in a {status} record"))
             continue
         validated = _VALIDATED.search(bullet)
         if validated is None:
@@ -296,7 +309,10 @@ def _named_sidecars(path: Path, read: Read, problems: list[Diagnostic]) -> dict[
         if link is None:
             problems.append(Diagnostic(read.record, number, "a row whose sidecar cell links no file"))
             continue
-        named[(path.parent / link.group(1)).resolve()] = number
+        target = (path.parent / link.group(1)).resolve()
+        if target in named:
+            problems.append(Diagnostic(read.record, number, f"two rows name the sidecar `{link.group(1)}`"))
+        named[target] = number
     return named
 
 
@@ -318,6 +334,8 @@ def _one_sidecar(side: Read, edge: str | None, checks: list[str]) -> list[Diagno
             problems.append(Diagnostic(side.record, number, "a conformance bullet not `- **<check>** — <result>`"))
             continue
         name, result = found.group(1).strip(), found.group(2).strip()
+        if name in answered:
+            problems.append(Diagnostic(side.record, number, f"check `{name}` answered twice"))
         answered.append(name)
         if name not in checks:
             problems.append(Diagnostic(side.record, number, f"`{name}` is not a check of the record's `## Extending`"))

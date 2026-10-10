@@ -88,3 +88,34 @@ where the installation edge's block lands, which its ticket had left for `/plan`
 heading for installed rules. One added at its end, after every wrapper, was refused by the
 installer's check: the local block, under *The verification set*, must be the last in its file. The
 heading sits before that section instead, where no wrapper opens between it and the next heading.
+
+## The first /verify, with an independent review — 2026-10-10
+
+Both commits had landed on a green verification set alone; asked *did you check it is good?*, the
+inceptor read the work against what governs it and found E4 contradicting E2 on which side wins
+and *touched* left to the reader ([rule failure 30](../rule-failures.md)). The amendment gave both
+rules the grain of what a sidecar names. `/verify` then ran, beside a separate agent that had not
+built the mechanism and read it cold.
+
+**The inceptor's own pass** found three things the checker let through — an unguarded promise in
+a tentative record, a malformed numbered check dropping out of the count, a check answered twice —
+and two results claiming more than was watched: Claude Code's compaction marked documented with no
+source, and every *Silence* marked observed when only the revival was.
+
+**The reviewer found what the inceptor had not**, and these were repaired: E4's trigger list lost
+in the amendment; E3 writing a contract change into a Normative record before it landed, with no
+`⚠ pending` and no tentative state, fixed by E3 marking it and E4 clearing it; Monitor writing a
+compatible change with no decision, now a finding until one is made; Codex's entry file marked
+observed on a premise, Cursor's and Claude Code's dated a day early, partial observations unnamed,
+Cursor's registration recorded as observed while it fails the check's second half; the Wake and
+Window invariants stated without the qualification the contract gives them, and an observation
+about the loader link standing as a promise; the skill naming the queue as delivery state's owner;
+a ticket field the format leaned on that does not exist; the check claiming more than it reads;
+two tests whose fragment a different message also matched; a duplicate row collapsing silently; a
+link left on the old shelf; instance state in the core doc; and no account of what a host's
+integration is made of, which a new host would have read code for.
+
+**Two findings wait on a decision.** Staleness is still per sidecar: a result rests on no named
+part of its own, so any named part moving stales every result. And a result has no verdict:
+`observed` says someone watched, not that the check passed, and the *Helper* check asks a question
+rather than asserting an answer.

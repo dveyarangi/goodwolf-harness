@@ -28,10 +28,10 @@ Your goal is one or more of the following, according to the task at hand:
    check nobody watched is `unobserved`, however sure the documentation sounds. Pass the checks
    again for an extension that changed upstream or whose integration moved, rewriting only the
    results they touch.
-3. **Monitor** — check recent changes (diff, branch, landed ticket) against the affected records.
-   A change that alters a promise must be named **breaking or compatible**; align with the user on
-   major or incompatible changes before updating the record. New edge-touching concerns or roadmap
-   shifts land in their sections as part of the same pass.
+3. **Monitor** — when asked, check recent changes (a diff, a branch) against the affected records.
+   A change that alters a promise is a finding until a decision changes the promise: name it
+   **breaking or compatible** and align with the user before the record is touched. New
+   edge-touching concerns or roadmap shifts land in their sections as part of the same pass.
 4. **Validate** — audit the code, tests, docs, and derived text against the record, after
    `edges.py --check` holds its form: no code behavior may contradict a Normative promise; every
    named validator must still exist and still assert its promise; **⚠ unguarded** markers in a
@@ -43,8 +43,8 @@ Your goal is one or more of the following, according to the task at hand:
 
 ## Boundaries
 
-- Aggregate by reference: the question store owns open questions, the delivery queue owns delivery
-  state, the architecture owns the internal shape, the code owns the integration — the record holds
+- Aggregate by reference: the question store owns open questions, a ticket's header owns its
+  delivery state, the architecture owns the internal shape, the code owns the integration — the record holds
   the edge-local projection and the link, never a copy.
 - An edge is where the system meets someone outside it who consumes it or attaches to it. A seam
   between two of the system's own parts is the architecture's, never an edge.

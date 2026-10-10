@@ -124,6 +124,15 @@ class TheRecord(Records):
         self.write(RECORD, record(contract=INVARIANTS, invariants=CONTRACT))
         self.assertFlagged("order")
 
+    def test_a_numbered_line_of_extending_not_in_the_check_form_is_flagged(self) -> None:
+        self.write(RECORD, record(extending=EXTENDING + "3. Nap — the agent sleeps.\n\n"))
+        self.assertFlagged("check form")
+
+    def test_a_heading_inside_a_fence_is_not_a_section(self) -> None:
+        fenced = CONTRACT + "```md\n## History\n```\n\n"
+        self.write(RECORD, record(contract=fenced))
+        self.assertEqual([], self.problems())
+
     def test_extending_without_extensions_is_flagged(self) -> None:
         self.write(RECORD, record(extensions=""))
         self.assertFlagged("together")
@@ -142,13 +151,28 @@ class Invariants(Records):
         self.write(RECORD, record("Normative", invariants="## Invariants\n\n- A promise — **⚠ unguarded**\n\n"))
         self.assertFlagged("unguarded")
 
+    def test_an_unguarded_promise_in_a_tentative_normative_record_is_flagged(self) -> None:
+        unguarded = "## Invariants\n\n- A promise — **⚠ unguarded**\n\n"
+        self.write(RECORD, record("Normative (tentative)", invariants=unguarded))
+        self.assertFlagged("unguarded")
+
     def test_a_validator_path_that_does_not_exist_is_flagged(self) -> None:
         (self.root / VALIDATOR).unlink()
         self.assertFlagged(VALIDATOR)
 
     def test_a_validator_neither_a_path_nor_live_is_flagged(self) -> None:
         self.write(RECORD, record(invariants="## Invariants\n\n- A promise — *validated by:* someone\n\n"))
-        self.assertFlagged("validator")
+        self.assertFlagged("neither a backticked path")
+
+    def test_a_validator_on_a_continuation_line_is_read(self) -> None:
+        wrapped = "## Invariants\n\n- A promise — *validated by:*\n  `" + VALIDATOR + "`, its case\n\n"
+        self.write(RECORD, record(invariants=wrapped))
+        self.assertEqual([], self.problems())
+
+    def test_a_missing_validator_on_a_continuation_line_is_flagged(self) -> None:
+        wrapped = "## Invariants\n\n- A promise — *validated by:*\n  `tests/gone.py`\n\n"
+        self.write(RECORD, record(invariants=wrapped))
+        self.assertFlagged("`tests/gone.py` does not exist")
 
     def test_a_live_validator_naming_no_check_of_extending_is_flagged(self) -> None:
         self.write(RECORD, record(invariants="## Invariants\n\n- A promise — *validated by:* live — **Nap**\n\n"))
@@ -163,6 +187,11 @@ class Extensions(Records):
     def test_a_sidecar_no_row_names_is_flagged(self) -> None:
         self.write("docs/edge/hosts/beta.md", sidecar(title="# Beta — Hosts edge"))
         self.assertFlagged("beta.md")
+
+    def test_two_rows_naming_one_sidecar_are_flagged(self) -> None:
+        twice = EXTENSIONS.rstrip("\n") + "\n| Alpha again | the same | [alpha](hosts/alpha.md) |\n\n"
+        self.write(RECORD, record(extensions=twice))
+        self.assertFlagged("two rows")
 
     def test_a_sidecar_directory_with_no_record_is_flagged(self) -> None:
         self.write("docs/edge/orphan/one.md", sidecar(title="# One — Orphan edge"))
@@ -194,7 +223,17 @@ class Sidecars(Records):
 
     def test_a_result_opening_with_no_word_of_the_format_is_flagged(self) -> None:
         self.write(SIDECAR, sidecar(conformance="- **Entry file** — works.\n- **Wake** — unobserved.\n"))
-        self.assertFlagged("result")
+        self.assertFlagged("the result opens with `works`")
+
+    def test_a_sidecar_titled_for_another_edge_is_flagged(self) -> None:
+        self.write(SIDECAR, sidecar(title="# Alpha — Plugins edge"))
+        self.assertFlagged("— Hosts edge")
+
+    def test_a_check_answered_twice_is_flagged(self) -> None:
+        self.write(SIDECAR, sidecar(conformance=(
+            "- **Entry file** — unobserved.\n- **Wake** — unobserved.\n- **Wake** — absent.\n"
+        )))
+        self.assertFlagged("twice")
 
     def test_a_result_word_followed_by_its_colon_is_read(self) -> None:
         self.write(SIDECAR, sidecar(conformance="- **Entry file** — documented: the docs.\n- **Wake** — absent: the rule.\n"))

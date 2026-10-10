@@ -23,11 +23,14 @@ Look for architectural or responsibility leakage.
 
 <installed by="edge">
 **E4** When the landed work changes an edge — a promise in its Contract or Invariants, an invariant's
-validator, a file a sidecar names, or a check of its Extending — the same commit updates its
-record under `docs/edge/`: Contract and Invariants to what landed, the change named breaking or
-compatible; the Roadmap entry of the ticket that landed removed; each touched sidecar result
-observed again live, dated and versioned, or rewritten `unobserved since <date> — <what moved>`.
-An extension observed live in this work has its result written in its sidecar, not only in the
+validator, a part a sidecar's Integration names, or a check of its Extending — the same commit
+writes its record under `docs/edge/`. A promise the landing makes true loses its `⚠ pending` mark,
+and the record leaves `Normative (tentative)` when no mark is left; a landing that breaks a promise
+no decision changed is a finding, never written into the record. The Roadmap entry of the ticket
+that landed is removed. A sidecar result is stale when the landing changed a part its Integration
+names, at the grain it names it — a row, a function, a file named whole: observe it again live,
+dated, with the version where known, or rewrite it `unobserved since <date> — <what moved>`. An
+extension observed live in this work has its result written in its sidecar, not only in the
 ticket or the session record.
 </installed>
 

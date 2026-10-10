@@ -87,10 +87,11 @@ Before treating a question as open, search the ADRs and architecture docs for it
 **E3** When the plan touches an edge — where the system meets those who consume it or extend it — check
 that edge's record under `docs/edge/`. A contradiction with its Contract or Invariants is either a
 plan bug or a deliberate contract change, and a contract change is named **breaking or
-compatible** out loud before proceeding. Update the record inline as decisions land, in the shape
-of `.agents/skills/edge/EDGE-FORMAT.md`: contract changes in `Contract` and `Invariants`, a promise
-without a validator marked **⚠ unguarded**; newly surfaced edge-scoped concerns as pointers in
-`Concerns`; staging shifts in `Roadmap`.
+compatible** out loud before proceeding. As decisions land, write them into the record in the
+shape of `.agents/skills/edge/EDGE-FORMAT.md`: a contract change in `Contract` and `Invariants`,
+marked `⚠ pending — <ticket>` until its ticket lands and the record set `Normative (tentative)`
+while any is pending, a promise without a validator marked **⚠ unguarded**; newly surfaced
+edge-scoped concerns as pointers in `Concerns`; staging shifts in `Roadmap`.
 </installed>
 
 ### Lead with the decisive fact

@@ -12,6 +12,26 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 30. Committed on a green verification set, the work never read against what governs it — 2026-10-10
+
+**Rules in play:** the entry file's autonomy switch, *`auto`: commit when the work is verified*,
+under L2's `commit=auto`.
+
+**What happened.** Session `58bf3b88` declared the edge mechanism and then landed its rule E4, and
+committed both, `d5a57c7` and `88bda95`, once the verification set was green. `/verify`'s own pass
+— the landed work read against its governing docs and the rules beside it — was never run. The
+user: *did you check it is good?* Read afterwards, E4 contradicted E2 on which side wins: E2 calls
+a promise the code no longer keeps drift, never rewritten to fit, while E4 told a landing to write
+Contract and Invariants *to what landed*. And E4's *each touched sidecar result* left *touched*
+to the reader, so any change to `questions.py` would have marked every host's results stale.
+
+**Why it did not fire.** *Verified* names no pass, so a green set read as verification; the set's
+own text in `/verify` says a clean run means nothing was caught, but the switch never sends the
+reader there.
+
+**Amendment proposed:** *`auto`: commit when `/verify` has passed on the work — its verification
+set, and the work read against what governs it.*
+
 ## 29. A reply closed on an empty tangle table — 2026-10-10
 
 **Rules in play:** the entry file's reply tables, *debug or not, a row each: … under

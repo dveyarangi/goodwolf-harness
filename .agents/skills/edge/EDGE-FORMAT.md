@@ -88,18 +88,18 @@ edge things attach to, or neither does.
   license for aspiration. **`Normative (tentative)`** is the state between: the record is
   load-bearing for what it states, but a landing ticket is reshaping the edge, so a promise may
   carry **⚠ pending — \<ticket\>**, naming the ticket and stage that clears it. It is not a softer
-  `Normative`: an unmarked claim in a tentative record is held to the same standard, and the owning
-  ticket's docs-at-landing list carries the record, so the qualifier goes with the commit that
-  lands the change. `Extensions`, `Concerns` and `Roadmap` are aggregation — pointers and plans,
+  `Normative`: an unmarked claim in a tentative record is held to the same standard, and the
+  qualifier goes with the commit that lands the change. `Extensions`, `Concerns` and `Roadmap` are aggregation — pointers and plans,
   never validated, carrying no delivery-status vocabulary
   → [Status](../ticket/TICKET-FORMAT.md#status).
 - **Per-invariant validators, not a separate section.** Each promise points at what enforces it,
   so a check can see the validator still exists. **⚠ unguarded** is legal in a Stub, a finding in
-  a Normative record.
+  a Normative or tentative record.
 - **An observation is what was watched.** A conformance result nobody watched is `documented` or
-  `unobserved`, never `observed`. A result is re-observed, never re-dated: when the integration a
-  sidecar names moves, or the extension changes upstream, the results it touches are observed
-  again by the record's checks.
+  `unobserved`, never `observed`, and one that watched part of a check says which part. A result
+  is never re-dated: when a part a sidecar's `Integration` names moves — at the grain it names it,
+  a row, a function, a file named whole — or the extension changes upstream, the result is
+  observed again by the record's checks or rewritten `unobserved since <date> — <what moved>`.
 - **Aggregate by reference.** The question store owns open questions, tickets own delivery state,
   the architecture owns the internal shape, the code owns the integration — the record holds the
   edge-local projection and the link, never a copy.
@@ -108,5 +108,11 @@ edge things attach to, or neither does.
 - **A contract change is named out loud.** An edit that changes a promise is declared breaking or
   compatible at the moment it is made. When a Roadmap entry's ticket lands, the same edit that
   updates `Contract` removes the entry.
-- **The check.** `edges.py --check` holds every live record and sidecar to this shape — form, never
-  whether a promise is true.
+- **The check.** `edges.py --check` holds the form it can read, never whether a promise is true:
+  the title and status, the sections and their order, a validator or **⚠ unguarded** on every
+  invariant and an unguarded one only in a Stub, a validator path that exists and a live validator
+  naming a check, the checks' form, a sidecar for every row and a row for every sidecar, each
+  sidecar's title and sections, and one result per check, each opening with its word and an
+  observation with its date. Whether a Concern points into the store, a Roadmap line links a
+  ticket, a `documented` result names its source or an `absent` one what stands in, is the
+  reader's.

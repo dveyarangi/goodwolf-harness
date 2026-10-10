@@ -4,8 +4,8 @@
 
 ## Contract
 
-A **host** runs an agent's session and reads the tree for it. The harness meets three: Claude
-Code, Codex and Cursor.
+A **host** runs an agent's session and reads the tree for it. The hosts met are the rows of
+`## Extensions`.
 
 **Promised to whoever works in a host:** the same entry file, the same skills and the same rules
 in every host reached; the question store's wake at session start and its window before every
@@ -24,22 +24,36 @@ and a hook that never fails the host, so a problem becomes a line of context
 - a project's hooks can be approved or trusted per project.
 
 A host lacking one of the last three is reached in part: the entry file's rule stands in, and the
-agent draws the window itself. What is host-specific lives in code — the host table and hook
-answers in `.agents/scripts/gw/questions.py`, the hook shelves under
-`.agents/skills/questions/hooks/`, the merge into each host's hook file in
-`.agents/scripts/gw/harness.py` — and each sidecar names its own.
+agent draws the window itself.
+
+**What a host's integration is made of**, all of it core:
+
+- a row in `HOSTS`, `.agents/scripts/gw/questions.py`: the input field carrying the session id,
+  the transcript field if any, the start event, the message event if the host's answer reaches
+  the agent, its compaction events, the function that writes its answer, and its quiet answer;
+- its hook file's shelf under `.agents/skills/questions/hooks/`, at the path the host reads it
+  from, each entry launching `.agents/scripts/gw/hook.sh` as `gw-hook <host>` — the install merges
+  every shelf it finds there into the recipient's file of the same path, with no list to amend;
+- a loader link in `LINKS`, `.agents/scripts/gw/harness.py`, unless the host reads `.agents/skills`
+  natively, and a stub like `CLAUDE.md` unless it reads `AGENTS.md` natively;
+- its hook cases in `.agents/scripts/gw/test/test_questions.py`, and its merge in
+  `.agents/scripts/gw/test/test_harness.py`.
+
+Each sidecar names its own parts.
 
 ## Invariants
 
-- A hook's problem becomes a line of context and never fails the host — *validated by:*
+- A hook's unreadable input becomes a line of context — *validated by:*
   `.agents/scripts/gw/test/test_questions.py`, the hook's unreadable-input case
+- The hook exits clean whatever its input, so it never fails the host — **⚠ unguarded**: no test
+  asserts its exit status
 - A session is registered under the host's own session id — *validated by:* live —
   **Registration**
-- The wake's read reaches the agent before its first command — *validated by:* live — **Wake**
-- Every message carries the window, or the one-line notice that it is unchanged — *validated by:*
-  live — **Window**
-- Whether a host reads the loader link is not observable from inside a tree; that it lists the
-  skills is — *validated by:* live — **Skills**
+- In a host whose start hook reaches the agent, the wake's read arrives before its first command —
+  *validated by:* live — **Wake**
+- In a host whose message hook reaches the agent, every message carries the window or the
+  one-line notice that it is unchanged — *validated by:* live — **Window**
+- The host lists the harness's skills and runs one by name — *validated by:* live — **Skills**
 
 ## Extending
 
@@ -59,6 +73,8 @@ answers in `.agents/scripts/gw/questions.py`, the hook shelves under
    its parent's.
 9. **Silence** — a row silent three hours is ended by the next wake, and one message turns it
    running again.
+10. **Offline tests** — the host's hook cases and its merge are in the test files the integration
+    names, and pass in the verification set.
 
 ## Extensions
 
@@ -66,7 +82,7 @@ answers in `.agents/scripts/gw/questions.py`, the hook shelves under
 |---|---|---|
 | Claude Code | reached in full; compaction and helper ids not watched | [claude-code](hosts/claude-code.md) |
 | Codex | reached in full; start-hook attribution qualified; compaction and helper ids not watched | [codex](hosts/codex.md) |
-| Cursor | reached in part: no wake and no window reach the agent, the entry file's rule stands in | [cursor](hosts/cursor.md) |
+| Cursor | reached in part: no wake and no window reach the agent, the entry file's rule stands in; registration leaves a second line | [cursor](hosts/cursor.md) |
 
 ## Concerns
 
@@ -76,7 +92,8 @@ answers in `.agents/scripts/gw/questions.py`, the hook shelves under
   — what each host places in front of an agent unasked; its observations are this record's
   sidecars.
 - [q-0018.0004.0001](../questions/q-0018.0004.0001-how-is-it-observed-that-a-host-reads-the-loader-link.md)
-  — the loader link, the invariant no check inside a tree can watch.
+  — whether a host reads the loader link is not observable from inside a tree; **Skills** is the
+  nearest check, and Codex has no link to read.
 
 ## Roadmap
 
