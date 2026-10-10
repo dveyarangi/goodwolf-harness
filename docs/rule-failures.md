@@ -12,6 +12,22 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 33. A command that writes was run to read — 2026-10-11
+
+**Rules in play:** none that this broke. `/maintain`'s T1 — list the straw dogs with
+`straw_dogs.py`, its `due` field saying which are due — fired and was followed.
+
+**What happened.** In the maintenance pass after 01-0011.0110.0040.0020, the due straw dog was
+already found through `straw_dogs.py`; `questions.py --wake` was then run without `--session` to
+see it as one line with its question's words. The wake starts a session: it registered a second
+one, `s-1010-a876`, beside this conversation's, and would have ended any other session silent for
+three hours. The row was ended with `--end` and stays in the sessions file, as every row does. The
+user: *did you write the slip down, so you know later whether it is the only one?*
+
+**Why it did not fire.** No rule covers it: a command with a side effect was taken for a read. Kept
+here to be counted; one occurrence proposes no rule. A second one — any write run for what it
+prints — is the shape that would.
+
 ## 32. Two switch values went through the whole loop — 2026-10-11
 
 **Rules in play:** Occam, *say what need not exist: a rule, mechanism, record or step*; the
