@@ -5,6 +5,8 @@ finishes; the format is `/maintain`'s, in `.agents/skills/maintain/MARKS-FORMAT.
 
 | mechanism | level | fingerprint | date | outcome |
 |---|---|---|---|---|
+| edge | rules | 4c973a4711deb2c6127dac9473871292d3ef4266e23c4fe8725afa1df065d23f | 2026-10-10 | nothing to change |
+| edge | output | d0cc0753f34ef2cd93c004c6007edb933861573382ae7e69e7642995578fb474 | 2026-10-10 | nothing to change |
 | harness | rules | 4c973a4711deb2c6127dac9473871292d3ef4266e23c4fe8725afa1df065d23f | 2026-10-10 | nothing to change |
 | harness | output | 2944318ff4384dc120c03e7c3d7102bd0d32cc46dd3be1561ef6c9eacc787e6f | 2026-10-10 | nothing to change |
 | maintain | rules | 4c973a4711deb2c6127dac9473871292d3ef4266e23c4fe8725afa1df065d23f | 2026-10-10 | nothing to change |
