@@ -1,5 +1,6 @@
 # q-0032 How do sessions running at once in one tree keep from overwriting each other's writes?
 
+- **record of** what it intends to become
 - **state** open
 - **lean** the user, 2026-10-08: locks are needed; the architecture disclaiming safe simultaneous writers no longer holds
 - **struck** 0, last 2026-10-08T07:13Z

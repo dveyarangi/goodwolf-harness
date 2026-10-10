@@ -144,6 +144,7 @@ deleted.
 ```md
 # q-0090.0003 Which package manager do we use?
 
+- **record of** what happened
 - **part of** q-0090
 - **depends on** q-0070, q-0080.0001
 - **state** closed:decided, suspect
@@ -160,7 +161,12 @@ moving between roots would move between folders.
 evidence, what was refuted — written by hand with the edit tools, never by the script, which keeps
 it as it found it on every call. A line in it shaped like a part is not one.
 
-Every part but **state** is optional, and a closed entry must carry its **answer**. **struck** is
+**record of** opens the parts: what the entry is a record of — *what it intends to become* while
+open, *what happened* once closed — so whoever writes its body meets the kind in context. The
+script writes it from the state on every call, and the check holds the two equal; its earlier
+name, `kind`, is reported.
+
+Every other part but **state** is optional, and a closed entry must carry its **answer**. **struck** is
 `<n>, last <YYYY-MM-DDTHH:MMZ>`, in UTC, written by the script alone, never by hand. The state is
 `open` or `closed:<kind>`, with `, suspect` after it at most. **The id is the place**: a root is
 `q-NNNN`, a child its parent's id and one more position, `q-0090.0003`, the next after its

@@ -1,5 +1,6 @@
 # A shared dev harness improves without losing project conventions
 
+- **record of** what it intends to become
 - **Status:** In progress
 - **Type:** HITL
 - **Answers:** [q-0018](../questions/q-0018-how-do-projects-share-one-development-method-without-losing-their-own-conventions.md)

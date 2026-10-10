@@ -2,7 +2,7 @@
 
 - **instruction** `.agents/skills/edge/SKILL.md` — the act: establishing a record, attaching an extension and passing its checks, monitoring, validating, deriving
 - **state** installed
-- **kind** what must always hold
+- **record of** what must always hold
 
 ## How it works
 

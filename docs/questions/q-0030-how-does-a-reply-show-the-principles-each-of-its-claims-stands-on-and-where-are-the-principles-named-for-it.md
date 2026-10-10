@@ -1,5 +1,6 @@
 # q-0030 How does a reply show the principles each of its claims stands on, and where are the principles named for it?
 
+- **record of** what it intends to become
 - **state** open
 - **owner** [01-0011.0110.0020](../tickets/01-0011.0110.0020-a-paragraph-shows-what-it-stands-on.md)
 - **lean** the form at v57 — lamp names a principle as its home names it, never a rule id, 無 for a missing one; proposed or landed text framed by its statement, 🧩 a rule, ⚓ an invariant, ✏️ any other change, always shown for a rule, an invariant or a load-bearing doc; footnotes only from outside the session; ⚖️ decisions, 🍂 drift, 🪢 the running sessions first then each collision in bold, a table only with a row; ⚡ kept for urgency, unassigned

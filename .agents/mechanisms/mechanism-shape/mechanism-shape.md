@@ -2,7 +2,7 @@
 
 - **instruction** `.agents/skills/mechanism/SKILL.md` — the shape: membership, the three homes, moments, injection, records, incept, amend and retire
 - **state** always on
-- **kind** what must always hold
+- **record of** what must always hold
 
 ## How it works
 

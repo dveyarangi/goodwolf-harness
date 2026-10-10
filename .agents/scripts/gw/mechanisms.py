@@ -102,6 +102,10 @@ RECORD_KINDS = ("what it intends to become", "what must always hold", "what exis
 OUTPUT_KINDS = (*RECORD_KINDS, "its format's")
 # A doc is the record of why an instruction is what it is: the instruction is repaired to it.
 DOC_KIND = "what must always hold"
+# The bullet a record carries its kind under, read as what the record is a record of; `.0030`
+# named it `kind`, and a doc still carrying that name is told so rather than passed over.
+MARK = "record of"
+FORMER_MARK = "kind"
 MOMENTS_TABLE = "## Moments"
 PARTS_TABLE = "## Install adds, uninstall removes"
 RELIED_ON_TABLE = "## Relies on, and does not own"
@@ -158,6 +162,7 @@ class Declaration:
     instruction: str | None
     state: str | None
     kind: str | None
+    kind_under_former_mark: str | None
     rules: str | None
     moments: list[Moment]
     parts: list[Part]
@@ -465,7 +470,8 @@ def _declaration(root: Path, directory: Path, text: str, held: dict[str, questio
         doc=citing,
         instruction=bullets.get("instruction"),
         state=bullets.get("state"),
-        kind=bullets.get("kind"),
+        kind=bullets.get(MARK),
+        kind_under_former_mark=bullets.get(FORMER_MARK),
         rules=_rules_file(root, directory),
         moments=[_moment(row, held) for row in _rows(text, "## Moments")],
         parts=[_part(row) for row in _rows(text, "## Install adds, uninstall removes")],
@@ -509,10 +515,13 @@ def _kind_problems(declared: Declaration) -> list[Diagnostic]:
     """A doc carries its kind on itself, so the agent editing it meets the kind in context before
     adding what the kind refuses (the user, 2026-10-08); the format is the kind's authored home,
     and this holds the two equal."""
+    expected = f"`- **{MARK}** {DOC_KIND}`"
+    if declared.kind_under_former_mark is not None:
+        return [Diagnostic(declared.slug, f"the doc carries its kind as `- **{FORMER_MARK}**`: write {expected}")]
     if declared.kind == DOC_KIND:
         return []
     if declared.kind is None:
-        return [Diagnostic(declared.slug, f"the doc names no kind: its header says `- **kind** {DOC_KIND}`")]
+        return [Diagnostic(declared.slug, f"the doc names no kind: its header says {expected}")]
     return [Diagnostic(declared.slug, f"the doc's kind is {declared.kind}, and a doc is {DOC_KIND}")]
 
 

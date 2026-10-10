@@ -1,5 +1,6 @@
 # The harness changes its own rules by stated meta-rules, not by judgement each time
 
+- **record of** what it intends to become
 - **Status:** Blocked (accumulating evidence before its align)
 - **Type:** HITL
 - **Related:** [`/mechanism`](../../.agents/skills/mechanism/SKILL.md) holds this responsibility

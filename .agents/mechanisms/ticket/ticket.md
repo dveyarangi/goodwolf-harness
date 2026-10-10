@@ -2,7 +2,7 @@
 
 - **instruction** `.agents/skills/ticket/SKILL.md` — the act: sizing, slicing, impacting the split, presenting the breakdown, minting
 - **state** installed
-- **kind** what must always hold
+- **record of** what must always hold
 
 ## How it works
 
@@ -100,9 +100,11 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 
 ## What it produces, and who reads it
 
-- **The tickets** — *what it intends to become* — read by `/plan` for what to build, by `/implement` for the same, by `/verify`
+- **The tickets** — *what it intends to become, what happened once closed* — read by `/plan` for what to build, by `/implement` for the same, by `/verify`
   for the criteria, by `/maintain` for whether each is finished, and through citations from every
   record that cites work by its slug.
+- **The queue** — *what it intends to become* — read by `/recall` for the order and its candidate,
+  and by whoever orders the work; written by hand.
 - **The list** — *what exists* — read under P12 by whoever orders the queue or is about to mint a
   ticket; rendered from the headers on request by `tickets.py --list` and never committed.
 - **The maintainer's report** — *what exists* — read by `/verify` through the verification set and by `/maintain`

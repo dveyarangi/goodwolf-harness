@@ -2,7 +2,7 @@
 
 - **instruction** `.agents/skills/harness/SKILL.md` — the four commands, install, update, check and the per-clone links, each refusal and what the person does, the first install's last step
 - **state** installed
-- **kind** what must always hold
+- **record of** what must always hold
 
 ## How it works
 

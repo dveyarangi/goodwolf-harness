@@ -1,5 +1,6 @@
 # Every second look at produced work is a pass
 
+- **record of** what it intends to become
 - **Status:** Planned (decision-bearing; its own align precedes the feature)
 - **Type:** HITL
 - **Answers:** [q-0029](../questions/q-0029-how-is-produced-work-gone-over-again-over-what-scope-by-what-criteria-by-whom-and-to-what-result.md)

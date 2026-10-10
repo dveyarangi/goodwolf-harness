@@ -1,5 +1,6 @@
 # Every skill and document has named producers and consumers
 
+- **record of** what it intends to become
 - **Status:** Planned (scope precedes)
 - **Type:** HITL
 - **Depends on:** [The shape is checked mechanically](./done/01-0011.0050-shape-checked.md) (a proven

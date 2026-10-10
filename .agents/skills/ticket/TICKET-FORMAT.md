@@ -75,6 +75,11 @@ never content *(the user, 2026-09-08)*.
   included. Archived records are matched by name for pairing and exempt from
   everything else; older fields in them are left, and a live record carries
   none.
+- **The kind** is *what it intends to become* while the ticket is live, and
+  *what happened* once it closes. A ticket carries it as `- **record of**
+  what it intends to become`, the line after its title; the mover turns it
+  to `what happened` as it closes the pair. The mark has no colon, which
+  tells it from a field; its earlier name, `kind`, is reported.
 - **The stage** is read from the `Plan` bullet. *Incepted*, before its plan
   exists, a ticket hosts chunks: routed inputs, ideas, any section; its open
   questions are entries of the store under its `Answers` question, each
@@ -86,14 +91,14 @@ never content *(the user, 2026-09-08)*.
 
 ### The header
 
-The bullet list at the first non-blank line after the title, one form,
-ending at the first line that is neither a bullet nor an indented
-continuation. Known fields in this order, a one-off field anywhere before
-`Outcome`, `Outcome` last:
+The bullet list after the mark, one form, ending at the first line that is
+neither a bullet nor an indented continuation. Known fields in this order, a
+one-off field anywhere before `Outcome`, `Outcome` last:
 
 ```md
 # {Title}
 
+- **record of** what it intends to become
 - **Status:** {value} {(qualifier)}
 - **Type:** HITL | AFK
 - **Plan:** [{title} RFC](../rfc/{basename}.md) — what it selected
@@ -180,4 +185,6 @@ sit in the same folder state. Only names are read; nothing inside an RFC is.
 The queue is `docs/tickets/README.md`: the order of the work and its
 candidate. It copies nothing a ticket says; the live tickets are listed by
 `tickets.py --list`. It keeps no account of steps done: the
-session records hold it.
+session records hold it. It is of the kind *what it intends to become*, and
+carries `- **record of** what it intends to become` on the line after its
+title, held by `tickets.py --check` where the queue exists.

@@ -81,7 +81,14 @@ PATH_LIMIT = 259
 LAST_POSITION = 9999
 # Where the fingerprint of each session's last window is kept; `None` is the machine's temp folder.
 WINDOW_MEMORY: str | None = None
-PARTS = ("part of", "depends on", "state", "owner", "answer", "lean", "struck")
+PARTS = ("record of", "part of", "depends on", "state", "owner", "answer", "lean", "struck")
+# An entry carries what it is a record of as its first part, so the agent writing its body meets
+# the kind in context (the user, 2026-10-08): what it intends to become while open, what happened
+# once closed. The writer writes it from the state on every write; `kind` was the mark's earlier name.
+MARK = "record of"
+FORMER_MARK = "kind"
+OPEN_KIND = "what it intends to become"
+CLOSED_KIND = "what happened"
 KINDS = ("decided", "pruned", "merged", "deferred", "moot", "superseded")
 _USAGE = (
     "usage: questions.py --check | --window --session <tag> | --wake [--session <tag>] "
@@ -399,6 +406,7 @@ def _read(name: str, text: str) -> tuple[Entry, list[Diagnostic]]:
     parts: dict[str, Part] = {}
     last: str | None = None
     body = ""
+    carries_former_mark = False
     for number, line in enumerate(lines[1:], start=2):
         if last is not None and not line.strip():
             body = "".join(text.splitlines(keepends=True)[number:])
@@ -406,7 +414,12 @@ def _read(name: str, text: str) -> tuple[Entry, list[Diagnostic]]:
         bullet = _BULLET.match(line)
         if bullet:
             last = bullet.group(1).strip()
-            if last not in PARTS:
+            if last == FORMER_MARK:
+                carries_former_mark = True
+                problems.append(
+                    Diagnostic(name, number, f"carries its kind as `- **{FORMER_MARK}**`: the part is `{MARK}`")
+                )
+            elif last not in PARTS:
                 problems.append(Diagnostic(name, number, f"`{last}` is not a part of an entry"))
             elif last in parts:
                 problems.append(Diagnostic(name, number, f"`{last}` is written twice"))
@@ -418,7 +431,33 @@ def _read(name: str, text: str) -> tuple[Entry, list[Diagnostic]]:
         elif line.strip():
             problems.append(Diagnostic(name, number, "holds a line that is not one of its parts"))
     read = Entry(name, title.group(1) if title else None, title.group(2) if title else "", parts, body)
-    return read, problems + _state_problems(read) + _relation_form_problems(read) + _strike_problems(read)
+    return read, (
+        problems
+        + _state_problems(read)
+        + ([] if carries_former_mark else _mark_problems(read))
+        + _relation_form_problems(read)
+        + _strike_problems(read)
+    )
+
+
+def _kind(read: Entry) -> str | None:
+    """What the entry is a record of, by its state; `None` where the state cannot be read."""
+    if read.state is None:
+        return None
+    return OPEN_KIND if read.open else CLOSED_KIND
+
+
+def _mark_problems(read: Entry) -> list[Diagnostic]:
+    """The mark held equal to the kind the entry's state calls for. An unreadable state is
+    reported as itself, so no kind is asked of it."""
+    expected = _kind(read)
+    carried = read.parts.get(MARK)
+    if expected is None or (carried and carried.value == expected):
+        return []
+    if carried is None:
+        return [Diagnostic(read.record, 1, f"names no kind: its parts open with `- **{MARK}** {expected}`")]
+    said = "an open entry" if read.open else "a closed entry"
+    return [Diagnostic(read.record, carried.line, f"is marked {carried.value}, and {said} is {expected}")]
 
 
 def _ids(value: str) -> list[str] | None:
@@ -2159,7 +2198,11 @@ def _with(read: Entry, **changes: str | None) -> Entry:
 
 
 def _entry_text(read: Entry) -> str:
-    bullets = [f"- **{name}** {read.parts[name].value}" for name in PARTS if name in read.parts]
+    """The entry as the store writes it: the parts in the format's order, the mark first and as the
+    state calls for, whatever the file carried before; then the body as it was read."""
+    kind = _kind(read)
+    parts = {**read.parts, MARK: Part(kind, 0)} if kind else read.parts
+    bullets = [f"- **{name}** {parts[name].value}" for name in PARTS if name in parts]
     parts = "\n".join([f"# {read.identity} {read.question}", "", *bullets]) + "\n"
     return parts + ("\n" + read.body if read.body else "")
 

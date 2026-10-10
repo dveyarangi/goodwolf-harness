@@ -1,5 +1,6 @@
 # Scope reads the same everywhere
 
+- **record of** what it intends to become
 - **Status:** Planned (the questions mechanism precedes)
 - **Type:** HITL
 - **Depends on:** [01-0011.0100 the-open-questions-are-kept-by-a-mechanism](./01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)

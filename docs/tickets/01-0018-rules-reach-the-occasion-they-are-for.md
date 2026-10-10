@@ -1,5 +1,6 @@
 # Rules reach the occasion they are for
 
+- **record of** what it intends to become
 - **Status:** Planned (responsibility precedes)
 - **Type:** HITL
 - **Depends on:** [Each skill owns its own responsibility](./01-0016-each-skill-owns-its-own-responsibility.md)

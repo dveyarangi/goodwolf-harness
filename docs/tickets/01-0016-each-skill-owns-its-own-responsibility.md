@@ -1,5 +1,6 @@
 # Each skill owns its own responsibility
 
+- **record of** what it intends to become
 - **Status:** Planned (hierarchy, scope and the mechanisms' declaration precede)
 - **Type:** HITL
 - **Depends on:** [Scope reads the same everywhere](./01-0014-scope-reads-the-same-everywhere.md) (settled

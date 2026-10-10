@@ -1,5 +1,6 @@
 # q-0033 Which pains of developing software with coding agents does the harness exist to relieve, and what answers each?
 
+- **record of** what it intends to become
 - **state** open
 - **lean** the user, 2026-10-09: the answer lives in docs/product.md, the leading product document — pains, goals without a guarantee, causes, and a matrix of mechanisms marked present, partial or absent; goals and the front page derive from it; open while the absent rows are
 - **struck** 0, last 2026-10-08T21:08Z

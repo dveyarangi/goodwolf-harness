@@ -28,8 +28,16 @@ def remember_windows_in_the_case(case: unittest.TestCase) -> None:
     case.addCleanup(patcher.stop)
 
 
-def entry(identity: str, question: str, parts: dict[str, str]) -> str:
-    """An entry in the store's format: the title line, then one bullet per part, in order given."""
+OPEN_KIND = "what it intends to become"
+CLOSED_KIND = "what happened"
+
+
+def entry(identity: str, question: str, parts: dict[str, str], marked: bool = True) -> str:
+    """An entry in the store's format: the title line, then one bullet per part, in order given —
+    opening, unless a test says otherwise, with the mark its state calls for."""
+    state = parts.get("state", "")
+    if marked and "record of" not in parts and state:
+        parts = {"record of": OPEN_KIND if state.startswith("open") else CLOSED_KIND, **parts}
     bullets = [f"- **{name}** {value}" for name, value in parts.items()]
     return "\n".join([f"# {identity} {question}", "", *bullets]) + "\n"
 
@@ -86,7 +94,7 @@ class AMalformedEntry(Store):
         self.assertIn(fragment, problems[0])
 
     def test_without_a_title_line_naming_its_id(self) -> None:
-        self.assertReported("A bad one?\n\n- **state** open\n", "title")
+        self.assertReported(f"A bad one?\n\n- **record of** {OPEN_KIND}\n- **state** open\n", "title")
 
     def test_without_a_state(self) -> None:
         self.assertReported(entry("q-0003", "A bad one?", {"lean": "none"}), "no state")
@@ -123,6 +131,25 @@ class AMalformedEntry(Store):
         )
 
         self.assertEqual([], self.problems())
+
+    def test_carrying_no_mark(self) -> None:
+        self.assertReported(entry("q-0003", "A bad one?", {"state": "open"}, marked=False), "names no kind")
+
+    def test_marked_with_the_kind_another_state_calls_for(self) -> None:
+        with self.subTest(state="open"):
+            self.assertReported(
+                entry("q-0003", "A bad one?", {"record of": CLOSED_KIND, "state": "open"}), "an open entry"
+            )
+        with self.subTest(state="closed"):
+            self.assertReported(
+                entry("q-0003", "A bad one?", {"record of": OPEN_KIND, "state": "closed:moot", "answer": "gone"}),
+                "a closed entry",
+            )
+
+    def test_carrying_the_mark_under_its_former_name(self) -> None:
+        self.assertReported(
+            entry("q-0003", "A bad one?", {"kind": OPEN_KIND, "state": "open"}, marked=False), "`- **kind**`"
+        )
 
     def test_a_strike_without_its_last_time(self) -> None:
         self.assertReported(entry("q-0003", "A bad one?", {"state": "open", "struck": "2"}), "last <YYYY-MM-DDTHH:MMZ>")
@@ -1049,8 +1076,8 @@ class TheCalls(Declared):
 
         self.assertIn("opened q-0004.0001", said)
         self.assertEqual(
-            "# q-0004.0001 Is the owner optional?\n\n- **part of** q-0004\n- **state** open\n"
-            "- **struck** 0, last 2026-09-29T12:00Z\n",
+            "# q-0004.0001 Is the owner optional?\n\n- **record of** what it intends to become\n"
+            "- **part of** q-0004\n- **state** open\n- **struck** 0, last 2026-09-29T12:00Z\n",
             self.read(f"{STORE}/q-0004.0001-is-the-owner-optional.md"),
         )
         self.assertEqual("s-alpha running 2026-09-29T11:30Z q-0004 q-0002,q-0001", self.own_line())
@@ -1115,6 +1142,24 @@ class TheCalls(Declared):
 
         self.assertEqual("closed:decided", self.part("q-0007-who-moves-a-subtree", "state"))
         self.assertEqual("[the record](../record.md) — the user, 2026-09-29", self.part("q-0007-who-moves-a-subtree", "answer"))
+
+    def test_close_turns_the_mark_to_what_happened(self) -> None:
+        self.assertEqual(OPEN_KIND, self.part("q-0007-who-moves-a-subtree", "record of"))
+
+        self.called("close", "q-0007", "decided", "[the record](../record.md) — the user, 2026-09-29")
+
+        self.assertEqual(CLOSED_KIND, self.part("q-0007-who-moves-a-subtree", "record of"))
+
+    def test_any_rewrite_writes_the_mark_an_entry_carried_none_of_first(self) -> None:
+        self.write(
+            f"{STORE}/q-0007-who-moves-a-subtree.md",
+            entry("q-0007", "Who moves a subtree?", {"part of": "q-0003", "state": "open"}, marked=False),
+        )
+
+        self.called("lean", "q-0007", "the mover")
+
+        self.assertTrue(self.entry_text("q-0007-who-moves-a-subtree").splitlines()[2].startswith("- **record of** "))
+        self.assertEqual(OPEN_KIND, self.part("q-0007-who-moves-a-subtree", "record of"))
 
     def test_suspect_and_clear(self) -> None:
         self.called("suspect", "q-0007")

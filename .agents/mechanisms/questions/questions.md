@@ -2,7 +2,7 @@
 
 - **instruction** `.agents/skills/questions/SKILL.md` — the formats, the calls, and closing, branching and dropping
 - **state** installed
-- **kind** what must always hold
+- **record of** what must always hold
 
 ## How it works
 

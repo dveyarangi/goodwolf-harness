@@ -2,7 +2,7 @@
 
 - **instruction** `.agents/skills/maintain/SKILL.md` — the pass: scope, the four things, straw dogs, archiving, finish
 - **state** installed
-- **kind** what must always hold
+- **record of** what must always hold
 
 ## How it works
 
