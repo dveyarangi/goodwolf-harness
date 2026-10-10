@@ -224,7 +224,7 @@ What a turn is, said before its reply is drafted: on a question, a new question,
 What a mechanism's moment carries: instructed by another mechanism, instructed from the wrong home, unowned by design, or not yet. The classification is the mechanism format's.
 
 **Meta-rule**:
-A rule governing how other rules or mechanisms are created, changed, checked or maintained.
+An instruction on how instructions are made, changed, checked or maintained — the mechanism shape's alone, reaching every file it governs installed from its rules file, the entry file included. A principle that bears on everything, instructions among them, is a meta-principle: meta too, and the entry file's own.
 
 **Tier 1**:
 Context supplied to the agent at the relevant occasion without a separate retrieval action. Intended Tier 1 placement and observed delivery are distinct facts.
