@@ -183,9 +183,10 @@ sit in the same folder state. Only names are read; nothing inside an RFC is.
 
 The queue is `docs/tickets/README.md`. `/ticket` amends **the table** in the
 same pass as minting, a status flip, or a completion. Pacing prose around
-the table (`Completed step`, `Current pass`, `Current stage`, working-document
-pointers) is not the table; leave it in place, do not restate it here, and
-do not replace it with another skeleton.
+the table (`Current pass`, `Current stage`, working-document pointers) is not
+the table; leave it in place, do not restate it here, and do not replace it
+with another skeleton. The queue keeps no account of steps done: the session
+records hold it.
 
 ```md
 | Ticket | Status | Type | Outcome |

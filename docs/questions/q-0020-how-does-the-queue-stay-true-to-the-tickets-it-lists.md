@@ -2,4 +2,4 @@
 
 - **state** open
 - **owner** [01-0011.0040](../tickets/01-0011.0040-queue-derived-index.md)
-- **struck** 0, last 2026-10-03T10:15Z
+- **struck** 1, last 2026-10-10T00:23Z
