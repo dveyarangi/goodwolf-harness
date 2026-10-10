@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v64, 2026-10-11.
+Entry contract: v65, 2026-10-11.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -150,7 +150,8 @@ A project's architecture, ADRs and glossary are the home for:
 - Structure — service boundaries, data ownership, event/data flows, extension seams
 - Load-bearing — see the definition below
 
-A decision forms in its owning ticket and lands in one of these when it is ready. A decision about a
+A decision forms in the body of the question it answers and lands in one of these as it is made —
+as a straw dog while an open question's answer can still change it. A decision about a
 mechanism lands in that mechanism's doc, and what was refuted in its evidence.
 </straw-dog>
 

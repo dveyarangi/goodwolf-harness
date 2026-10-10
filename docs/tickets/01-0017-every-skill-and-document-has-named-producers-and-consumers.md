@@ -3,6 +3,7 @@
 - **record of** what it intends to become
 - **Status:** Planned (scope precedes)
 - **Type:** HITL
+- **Minted:** 2026-09-06
 - **Depends on:** [The shape is checked mechanically](./done/01-0011.0050-shape-checked.md) (a proven
   shape and a working check, so applying it to the rest is application rather than design);
   [01-0011.0060 mechanism-rechecked-when-governing-moves](./done/01-0011.0060-mechanism-rechecked-when-governing-moves.md);

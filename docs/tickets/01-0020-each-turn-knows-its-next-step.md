@@ -3,6 +3,7 @@
 - **record of** what it intends to become
 - **Status:** In progress (align underway; first core rule landed 2026-09-20)
 - **Type:** HITL
+- **Minted:** 2026-09-06
 - **Answers:** [q-0027](../questions/q-0027-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md)
 - **Outcome:** The agent knows, on every turn, what it does after `/recall` and what
   the turn's reply is scoped to, from Tier 1 rules in the entry file; and after a

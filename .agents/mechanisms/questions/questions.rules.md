@@ -9,6 +9,7 @@ install it with overwrite; the block in a target is never the place.
 | `.agents/skills/recall/SKILL.md` | `## Installed from other mechanisms` |
 | `.agents/skills/conclude/SKILL.md` | `## Installed from other mechanisms` |
 | `.agents/skills/maintain/SKILL.md` | `## Installed from other mechanisms` |
+| `.agents/skills/align/SKILL.md` | `### Land resolutions as they are made` |
 
 ## Q1 — every message is placed before it is answered
 
@@ -93,4 +94,18 @@ of the subtree in one invocation, into `docs/questions/done/`.
 The first time a reply names a question, write its id with its question as the window writes it;
 later mentions may be the id alone. A question the store does not hold yet is written out, never
 named after the ticket it will belong to.
+</rule>
+
+## Q6 — a decision lands as it is made
+
+- **target** `.agents/skills/align/SKILL.md`
+- **authority** the user, 2026-10-11 — q-0024.0009.0003.0002.0001; moved here from the ticket's P7
+
+<rule>
+Land a decision as it is made, with its provenance: final in its durable home where no open
+question's answer can change its form or home, otherwise as a straw dog bound to the nearest open
+ancestor whose answer can. One with nowhere to land yet — its home is work not done — is a line in
+the `## Decisions` list of the lowest question holding everyone who needs it, and takes
+`→ <link>` when it lands. Close the question it answers against where it landed, and when a line
+lands, repoint every entry closed against its list there.
 </rule>

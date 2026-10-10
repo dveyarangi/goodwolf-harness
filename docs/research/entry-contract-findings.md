@@ -15,6 +15,16 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v65 — 2026-10-11
+
+**A decision lands as it is made** — the entry file's sentence on where a decision forms moves from
+the owning ticket to the body of the question it answers, landing at once, as a straw dog while an
+open question's answer can still change it. The rule itself is the questions mechanism's Q6,
+installed in `/align`; the ticket keeps P7 as rewriting itself to what landed. Landed by
+[01-0011.0110.0040.0020](../tickets/01-0011.0110.0040.0020-a-decision-lives-in-the-question-until-it-lands.md);
+the user, 2026-10-11. Written as v63 while another session landed v64 over it; renumbered at the
+landing, so no v63 was ever announced.
+
 ## v64 — 2026-10-11
 
 **Weight follows the work** — a general rule, a straw dog bound to q-0027.0003: a change costs what

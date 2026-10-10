@@ -3,6 +3,7 @@
 - **record of** what it intends to become
 - **Status:** Planned (responsibility precedes)
 - **Type:** HITL
+- **Minted:** 2026-09-06
 - **Depends on:** [Each skill owns its own responsibility](./01-0016-each-skill-owns-its-own-responsibility.md)
   (a rule must be correctly owned before its arrival can be checked)
 - **Related:** [01-0010.0120](./01-0010.0120-what-each-host-says-without-being-asked.md) — **surfaced 2026-09-07:**

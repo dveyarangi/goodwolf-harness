@@ -3,6 +3,7 @@
 - **record of** what it intends to become
 - **Status:** Planned (hierarchy, scope and the mechanisms' declaration precede)
 - **Type:** HITL
+- **Minted:** 2026-09-06
 - **Depends on:** [Scope reads the same everywhere](./01-0014-scope-reads-the-same-everywhere.md) (settled
   vocabulary for what a responsibility covers),
   [01-0011.0100 the-open-questions-are-kept-by-a-mechanism](./01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)

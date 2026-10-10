@@ -11,8 +11,8 @@ The user requested on 2026-09-05 that this harness be developed using its own ti
 The loop itself, its stages, skills and human checkpoints, the autonomy switches and the `<straw-dog>` convention are owned by [AGENTS.md](../AGENTS.md), the session entry file every host loads at start. This section holds the detail behind it.
 
 - Substantial new work, including this harness, uses a spec before implementation decomposition. `/spec` develops the brief through `/align`, records agreed scope, behavior, architectural boundaries and testing decisions, then hands off to `/ticket`. Small, bounded work can start directly as a ticket. The spec is a document, not a separately queued work item.
-- A ticket owns the intended outcome, acceptance criteria and unresolved decisions. The [queue](tickets/README.md) owns ordering; a ticket's header its delivery status.
-- `/align` resolves decisions against evidence and records them in the owning ticket. Accepted architecture belongs in `architecture.md`, created when a design is settled.
+- A ticket owns the intended outcome and acceptance criteria. The [queue](tickets/README.md) owns ordering; a ticket's header its delivery status.
+- `/align` resolves decisions against evidence and lands each as it is made; one with nowhere to land yet waits in the body of the question it answers. Accepted architecture belongs in `architecture.md`, created when a design is settled.
 - An implementation RFC belongs to a ticket and is named by it, per [the ticket format](../.agents/skills/ticket/TICKET-FORMAT.md#one-basename-per-work-item). It follows agreement on the boundaries it implements; a research finding or an unsettled proposal is not an accepted implementation plan.
 - Implementation follows the RFC when the work needs one. `/verify` is the
   verification of landed work, not only documentation or shape review. The

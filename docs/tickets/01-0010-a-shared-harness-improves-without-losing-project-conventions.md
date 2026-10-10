@@ -3,6 +3,7 @@
 - **record of** what it intends to become
 - **Status:** In progress
 - **Type:** HITL
+- **Minted:** 2026-09-05
 - **Answers:** [q-0018](../questions/q-0018-how-do-projects-share-one-development-method-without-losing-their-own-conventions.md)
 - **Outcome:** Projects share a canonical development method, contribute improvements to it, and receive accepted changes mechanically while preserving project-specific behavior across Claude Code, Codex and Cursor.
 

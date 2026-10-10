@@ -3,6 +3,7 @@
 - **record of** what it intends to become
 - **Status:** Blocked (accumulating evidence before its align)
 - **Type:** HITL
+- **Minted:** 2026-09-14
 - **Related:** [`/mechanism`](../../.agents/skills/mechanism/SKILL.md) holds this responsibility
   today and [`/skill-up`](../../.agents/skills/skill-up/SKILL.md) is its neighbour;
   [01-0017.0010](./01-0017.0010-terms-defined-before-they-land.md) — the first registered failure

@@ -3,6 +3,7 @@
 - **record of** what it intends to become
 - **Status:** Planned (the questions mechanism precedes)
 - **Type:** HITL
+- **Minted:** 2026-09-06
 - **Depends on:** [01-0011.0100 the-open-questions-are-kept-by-a-mechanism](./01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)
   (the structure scope is a subtree of, if its align confirms that; height, half of what scope
   was stated against, is depth in it — [01-0012](./done/01-0012-hierarchy-coherent.md), closed)
