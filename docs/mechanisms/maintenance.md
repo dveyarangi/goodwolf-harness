@@ -5,15 +5,15 @@ finishes; the format is `/maintain`'s, in `.agents/skills/maintain/MARKS-FORMAT.
 
 | mechanism | level | fingerprint | date | outcome |
 |---|---|---|---|---|
-| edge | rules | 4c973a4711deb2c6127dac9473871292d3ef4266e23c4fe8725afa1df065d23f | 2026-10-10 | nothing to change |
-| edge | output | d0cc0753f34ef2cd93c004c6007edb933861573382ae7e69e7642995578fb474 | 2026-10-10 | nothing to change |
-| harness | rules | 4c973a4711deb2c6127dac9473871292d3ef4266e23c4fe8725afa1df065d23f | 2026-10-10 | nothing to change |
-| harness | output | 2944318ff4384dc120c03e7c3d7102bd0d32cc46dd3be1561ef6c9eacc787e6f | 2026-10-10 | nothing to change |
-| maintain | rules | 4c973a4711deb2c6127dac9473871292d3ef4266e23c4fe8725afa1df065d23f | 2026-10-10 | nothing to change |
-| maintain | output | 9fcf2fd39c74ee8c8d8ec7721bf1d7a5545dcd7f6005134881b10f0b63cdaafb | 2026-10-08 | nothing to change |
-| mechanism-shape | rules | 4c973a4711deb2c6127dac9473871292d3ef4266e23c4fe8725afa1df065d23f | 2026-10-10 | nothing to change |
-| mechanism-shape | output | ab665a00057db18bca31fba6dea9d23f8b8710be9a94ec67fda11cf7bc0babb5 | 2026-10-10 | amended |
-| questions | rules | 4c973a4711deb2c6127dac9473871292d3ef4266e23c4fe8725afa1df065d23f | 2026-10-10 | nothing to change |
-| questions | output | 32515c980581b99915c12a6dfee19883efeb231d5eb893f6702540fe28996026 | 2026-10-10 | nothing to change |
-| ticket | rules | 4c973a4711deb2c6127dac9473871292d3ef4266e23c4fe8725afa1df065d23f | 2026-10-10 | nothing to change |
-| ticket | output | f31345a0ae08f4a7045c3221571644869ff4b99e6e88cb360e7da7bc1bbea560 | 2026-10-10 | amended |
+| edge | rules | 901f06ba2bcd5436d047ef764aee02f34d6266936e0c12b8b0abe305db62a935 | 2026-10-10 | nothing to change |
+| edge | output | 2f9da1b63caf0df8b42e25cc391cbd25b5cf6c1bb963b6e36a5578a0526edf95 | 2026-10-10 | nothing to change |
+| harness | rules | 901f06ba2bcd5436d047ef764aee02f34d6266936e0c12b8b0abe305db62a935 | 2026-10-10 | nothing to change |
+| harness | output | c451e33c15ff06b3fb6f7ace083fb21090017de35f42f6e83098480636347032 | 2026-10-10 | nothing to change |
+| maintain | rules | 901f06ba2bcd5436d047ef764aee02f34d6266936e0c12b8b0abe305db62a935 | 2026-10-10 | nothing to change |
+| maintain | output | 9bb51b2b74ca3dc1c79649d470e476202bef2e956919b1a749ac0826f8ddf579 | 2026-10-10 | nothing to change |
+| mechanism-shape | rules | 901f06ba2bcd5436d047ef764aee02f34d6266936e0c12b8b0abe305db62a935 | 2026-10-10 | nothing to change |
+| mechanism-shape | output | 117bec080512024b08f3a18b253fe5c41f99db0dbc6719464a27f24a471972f9 | 2026-10-10 | nothing to change |
+| questions | rules | 901f06ba2bcd5436d047ef764aee02f34d6266936e0c12b8b0abe305db62a935 | 2026-10-10 | nothing to change |
+| questions | output | 1a0e4d729e8bd680b54b6a05575f5a5306c8084f994edbdfb6d127dcf48961f8 | 2026-10-10 | nothing to change |
+| ticket | rules | 901f06ba2bcd5436d047ef764aee02f34d6266936e0c12b8b0abe305db62a935 | 2026-10-10 | nothing to change |
+| ticket | output | e82c4f3e2c8f3991f391c50215896daf6c55a51be5b1dd5f8d8badf1a9e3af91 | 2026-10-10 | amended |

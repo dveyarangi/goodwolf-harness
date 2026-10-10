@@ -52,7 +52,7 @@ format has no checking mechanism. The user agreed, with two amendments:
   should contain all information actual for the work, including existing state where relevant.*
   Narrowed is not thinned; `.0040`'s outcome lost its *nothing else*.
 
-Minted: [.0040.0010 every-record-shows-what-it-is-a-record-of](../tickets/01-0011.0110.0040.0010-every-record-shows-what-it-is-a-record-of.md),
+Minted: [.0040.0010 every-record-shows-what-it-is-a-record-of](../tickets/done/01-0011.0110.0040.0010-every-record-shows-what-it-is-a-record-of.md),
 AFK; [.0040.0020 a-decision-lives-in-the-question-until-it-lands](../tickets/01-0011.0110.0040.0020-a-decision-lives-in-the-question-until-it-lands.md),
 HITL. The record of the split is `.0040`'s *Split impact* section.
 

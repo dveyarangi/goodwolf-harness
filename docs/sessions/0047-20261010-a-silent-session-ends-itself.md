@@ -110,5 +110,5 @@ evidence* — is unsettled.
 
 ## What continues
 
-The queue's candidate, [01-0011.0110.0040.0010 every-record-shows-what-it-is-a-record-of](../tickets/01-0011.0110.0040.0010-every-record-shows-what-it-is-a-record-of.md),
+The queue's candidate, [01-0011.0110.0040.0010 every-record-shows-what-it-is-a-record-of](../tickets/done/01-0011.0110.0040.0010-every-record-shows-what-it-is-a-record-of.md),
 its `/plan` first — or `/align` on q-0034 if the user picks it.

@@ -3,7 +3,7 @@
 **2026-10-10.** Claude Code in the desktop app, one conversation, `fcfe212c…`. Entry contract v53
 at the start; v54 and v55 raised here, v56 and v57 by parallel sessions, v58 in flight in another
 when it ended. It opened with a `/recall` whose candidate was
-[01-0011.0110.0040.0010 every-record-shows-what-it-is-a-record-of](../tickets/01-0011.0110.0040.0010-every-record-shows-what-it-is-a-record-of.md);
+[01-0011.0110.0040.0010 every-record-shows-what-it-is-a-record-of](../tickets/done/01-0011.0110.0040.0010-every-record-shows-what-it-is-a-record-of.md);
 the user turned instead to the drift the recall reported, and the session ended with the queue
 holding no copy of anything a ticket says.
 
@@ -113,7 +113,7 @@ decisions; how they turned:
 ## What continues
 
 The queue's candidate, unchanged:
-[01-0011.0110.0040.0010 every-record-shows-what-it-is-a-record-of](../tickets/01-0011.0110.0040.0010-every-record-shows-what-it-is-a-record-of.md),
+[01-0011.0110.0040.0010 every-record-shows-what-it-is-a-record-of](../tickets/done/01-0011.0110.0040.0010-every-record-shows-what-it-is-a-record-of.md),
 its `/plan` first. Its sibling
 [01-0011.0110.0040.0020 a-decision-lives-in-the-question-until-it-lands](../tickets/01-0011.0110.0040.0020-a-decision-lives-in-the-question-until-it-lands.md)
 is independent of it.
