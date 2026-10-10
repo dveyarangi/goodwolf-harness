@@ -15,6 +15,16 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v56 — 2026-10-10
+
+**The frame names the statement, not the record** — proposed or landed text is headed by what it
+is: `🧩` a rule, `⚓` an invariant, `✏️` any other change to a doc or code. Until now the frame
+followed the record's kind, so a rule landing in the entry file — a record of *what must always
+hold* — took the anchor meant for invariants. The user: *a new rule shows with the anchor, like an
+invariant; it should be the puzzle, and changes to docs or code get an icon of their own*; the
+pencil, the user's pick. Shown always for a rule, an invariant or a load-bearing doc, elsewhere
+where the reply shows it *(the user)*.
+
 ## v55 — 2026-10-10
 
 **No empty table** — the reply's ⚖️, 🍂 and 🪢 tables appear only where they have a row. A session

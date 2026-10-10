@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v55, 2026-10-10.
+Entry contract: v56, 2026-10-10.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -46,9 +46,11 @@ judgement, is named at its authored home and cited by that name. Under `debug=on
   rule's id; one following a principle that stands in a document, where no skill brings it into
   reach, `(🕯️ …)` in the same form — a harness error; rarely, one following a principle the list
   lacks, `(無 *<that principle>*)`; one with none at work, nothing.
-- Text proposed for, or written this session into, a record of the kind *what it intends to
-  become* or *what must always hold* stands as written, in a blockquote under `🧩 **Proposed
-  change — <record>**` or `⚓ **Proposed invariant — <record>**`; `Landed` once written.
+- Text proposed for, or written this session into, a doc or code stands as written, in a
+  blockquote under a header naming what it is: `🧩 **Proposed rule — <record>**` for an
+  instruction, `⚓ **Proposed invariant — <record>**` for an invariant, `✏️ **Proposed change —
+  <record>**` for any other text; always for an instruction, an invariant or a load-bearing doc,
+  elsewhere where the reply shows it; `Landed` once written.
 - What a claim rests on from outside this session — a decision, evidence, the user's word — is a
   footnote naming its record, or who and when.
 

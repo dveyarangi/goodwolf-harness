@@ -2,7 +2,7 @@
 
 - **state** open
 - **owner** [01-0011.0110.0020](../tickets/01-0011.0110.0020-a-paragraph-shows-what-it-stands-on.md)
-- **lean** the form at v50, the rule rewritten for a capable reader — lamp names a principle as its home names it, never a rule id, 無 for a missing one; 🧩 and ⚓ head proposed or landed text; footnotes only from outside the session; ⚖️ decisions, 🍂 drift, 🪢 any collision between parties; ⚡ kept for urgency, unassigned; .0020 waits on the week of grading
+- **lean** the form at v56 — lamp names a principle as its home names it, never a rule id, 無 for a missing one; proposed or landed text framed by its statement, 🧩 a rule, ⚓ an invariant, ✏️ any other change, always shown for a rule, an invariant or a load-bearing doc; footnotes only from outside the session; ⚖️ decisions, 🍂 drift, 🪢 any collision, a table only with a row; ⚡ kept for urgency, unassigned
 - **struck** 3, last 2026-10-09T13:40Z
 
 ## The instructions, agreed in draft 2026-10-07
@@ -124,3 +124,13 @@ the message being answered is in view, so citing it is noise. Then, of the plain
 add noise again.* So back to markdown footnotes; the colon is the syntax's own and stays. And of a footnote citing
 *the code and records read this session*: *also superfluous — with no real source outside the
 session, no footnote is needed.* A footing is cited only when it comes from outside the session.
+
+## The frame names the statement, 2026-10-10
+
+The frame followed the record's kind, so a rule landing in the entry file, a record of *what must
+always hold*, took `⚓`, the invariant's. The user: *a new rule shows with the anchor, like an
+invariant; it should be the puzzle, and changes to docs or code get an icon of their own.* So the
+frame sorts by kind of statement: `🧩 **Proposed rule**` for an instruction, `⚓ **Proposed
+invariant**` for an invariant, `✏️ **Proposed change**` for any other text in a doc or code — the
+pencil the user's pick. Shown always for an instruction, an invariant or a load-bearing doc,
+elsewhere where the reply shows it *(the user)*. Landed at v56.
