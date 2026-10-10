@@ -1,7 +1,7 @@
 # q-0034 What is a session to the harness, and which mechanism keeps its lifecycle?
 
 - **state** open
-- **lean** the user's proposal: a session mechanism owning /recall and /conclude, the sessions file and its lifecycle — legal since the 2026-10-10 loosening, one mechanism per skill; the silent-row slice landed in the questions mechanism as a straw dog bound here; its align next: the border with the pacer, the five questions to gather
+- **lean** the user's proposal: a session mechanism owning /recall and /conclude, the sessions file and its lifecycle — legal since the 2026-10-10 loosening, one mechanism per skill; the silent-row slice landed in the questions mechanism as a straw dog bound here; its align next: the border with the pacer, the five questions to gather; a row carries no host and no address another session could reach it by
 - **struck** 1, last 2026-10-10T14:06Z
 
 The user, 2026-10-10: a session mechanism of its own — the wake, the conclude and the pacer's
