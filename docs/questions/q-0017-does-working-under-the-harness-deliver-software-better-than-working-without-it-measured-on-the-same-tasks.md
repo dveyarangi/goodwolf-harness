@@ -15,7 +15,9 @@
   workflow, boundaries — filled with the project's facts only, the same facts the harnessed twin
   holds, as an ETH study (Gloaguen et al., arXiv 2602.11988) advises: a human-written context file
   should state minimal requirements, its LLM-generated ones lowering success and raising cost over
-  20%.
+  20%. Taken, the user, 2026-10-11, no newer primary source being found: the 2026 guides derive
+  from these two, and the study's constraint rides on the template — written by a person, facts
+  only, short.
 - **The harness version may grow** during the run, recorded at each milestone rather than pinned.
 
 What the design must still answer: the person carrying one twin's decisions into the other, the
