@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v61, 2026-10-11.
+Entry contract: v62, 2026-10-11.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -63,6 +63,15 @@ record's disagreement is what shows it. Under 🪢, the sessions running beside 
 first, a row each with the question it stands on as the window writes it, then each collision in
 bold, naming the sessions it involves.
 
+Under `debug=on`, head the reply with a one-cell table holding a row for each of the turn's store
+calls, in order, the first over `|---|`: `| 📍 **q-N** · <its question as the window writes it> |`
+for the question the turn ends on, `| 🌱 **q-N** · <question> |` for one opened in it — one the
+turn opened and ends on gets the 🌱 row alone — `| ✅ **q-N** · <question> (<kind>: <its answer>) |`
+for one closed in it, the question alone for one it left open, `| ⚙️ **<process>** · <its scope> |`
+for a process, `| 🧭 **uncharted** · <the question> |` for an ask, `| 🐺 **banter** |` for banter.
+A glyph is an anchor for the reader's thinking — people think largely in pictures — and the wolf
+is goodwolf-harness's own.
+
 A turn that completes a step of the delivery ring adds a row to the head table:
 `| 🔁 <the ticket, linked with its slug> · ✅ <each step this turn completed> |`.
 </straw-dog>
@@ -105,13 +114,8 @@ The calls:
 - `questions.py close q-0004 decided '[link](../path.md) — who, date' --session <tag>`
 
 The store's other calls are made whenever the turn's own work settles, opens or moves a question.
-Only the working agent calls, never a helper. Under `debug=on`, head the reply with a one-cell
-table holding a row for each, in order, the first over `|---|`: `| ↳ **q-N** · <its question as
-the window writes it> |` for the question the turn ends on, `| + **q-N** · <question> |` for one
-opened in it — one the turn opened and ends on gets the `+` row alone — `| ✓ **q-N** · <question> (<kind>: <its answer>) |` for one closed in it, the
-question alone for one it left open, `| ▶ **<process>** · <its scope> |` for a process,
-`| ? **uncharted** · <the question> |` for an ask, `| ~ **banter** |` for banter. For any other
-call, a closure, a branching or a drop, read the questions skill.
+Only the working agent calls, never a helper. For any other call, a closure, a branching or a
+drop, read the questions skill.
 
 **Q5** The first time a reply names a question, write its id with its question as the window writes it;
 later mentions may be the id alone. A question the store does not hold yet is written out, never
@@ -230,13 +234,6 @@ version of the entry contract changed: docs/research/entry-contract-findings.md.
 **L4** debug=on
 
 **L5** Run a Python script with `uv run --offline --no-project python <script>`.
-
-**L6** *(overrides questions/Q1)* In this tree the table's glyphs are emoji — `📍` for the question the turn ends on, `🌱` for one
-opened in it, `✅` for one closed in it, `⚙️` for a process, `🧭` for an uncharted ask, `🐺` for
-banter — so a row reads `| 📍 **q-N** · <question> |`, `| 🌱 **q-N** · <question> |`,
-`| ✅ **q-N** · <question> (<kind>: <its answer>) |`, `| ⚙️ **<process>** · <its scope> |`,
-`| 🧭 **uncharted** · <the question> |`, `| 🐺 **banter** |`. A glyph is an anchor for the
-reader's thinking — people think largely in pictures — and the wolf is goodwolf-harness's own.
 
 **L7** A correction that lands as a rule in this tree is not also written to the host's own memory
 store outside the repository — Claude Code's auto-memory directory and its kin; that store holds

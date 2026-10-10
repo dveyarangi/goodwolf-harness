@@ -49,21 +49,6 @@ debug=on
 Run a Python script with `uv run --offline --no-project python <script>`.
 </rule>
 
-## L6 — the glyphs are anchors
-
-- **target** `AGENTS.md`
-- **authority** the user, 2026-10-07
-- **overrides** `questions/Q1`
-
-<rule>
-In this tree the table's glyphs are emoji — `📍` for the question the turn ends on, `🌱` for one
-opened in it, `✅` for one closed in it, `⚙️` for a process, `🧭` for an uncharted ask, `🐺` for
-banter — so a row reads `| 📍 **q-N** · <question> |`, `| 🌱 **q-N** · <question> |`,
-`| ✅ **q-N** · <question> (<kind>: <its answer>) |`, `| ⚙️ **<process>** · <its scope> |`,
-`| 🧭 **uncharted** · <the question> |`, `| 🐺 **banter** |`. A glyph is an anchor for the
-reader's thinking — people think largely in pictures — and the wolf is goodwolf-harness's own.
-</rule>
-
 ## L7 — a rule here is not copied to the host's memory
 
 - **target** `AGENTS.md`

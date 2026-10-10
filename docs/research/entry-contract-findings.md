@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v62 — 2026-10-11
+
+**All of the reply's layout is the one straw dog** — the head table leaves Q1, which keeps
+placing the turn and the calls, and joins the block bound to q-0023.0021, written with this tree's
+emoji; L6, the local override that gave the table its emoji, is retired into it. The user: *all
+of the layout goes under the dog.*
+
 ## v61 — 2026-10-11
 
 **⚖️ holds only what waits** — the Decisions table never carries a decision already taken, the
