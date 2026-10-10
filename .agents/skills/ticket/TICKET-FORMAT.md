@@ -8,7 +8,7 @@ ticket as a record, and how to amend the queue table in
 
 ```
 docs/tickets/done/01-0010.0010-life-informs-dev-harness.md
-              │  │    └── slug — what the ticket is. Never changes. Cite by this.
+              │  │    └── slug — what the ticket is.
               │  └─────── position — global. Changes when priority changes.
               └────────── release — the contract the ticket serves.
 ```
