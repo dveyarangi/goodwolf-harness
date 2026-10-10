@@ -35,7 +35,8 @@ One pass over a declared scope. The scope decides which rules apply.
 - **B4** Re-check every mechanism the check reports due or never maintained, whatever scope you
   declared: its doc against the meta-rules at `rules`; its records against its doc and format at
   `output` — the live ones, and historical ones where a mechanical change stays in this tree, never
-  records on a remote board.
+  records on a remote board. Where the check names the files that moved, were added or went since
+  a mark, read those against the record.
 
 ## Judge
 
