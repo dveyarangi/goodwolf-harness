@@ -47,4 +47,7 @@
   transcript existed, so the transcript match found nothing and registered a new session; the
   session is now keyed on the app's own id. Observed 2026-10-10 in the terminal, passing: a
   session `6408d73c` exited and reopened by `claude --continue` got *already registered* under
-  the same id, one row in the sessions file. The desktop app after the fix is unobserved.
+  the same id, one row in the sessions file. Observed 2026-10-10 in the desktop app after the
+  fix, the restart only: the app quit and relaunched, a new process, and the start hook answered
+  *already registered* under the app's id, no row added; Claude Code kept its session id this
+  time, so a new session id after the fix is still unwatched.
