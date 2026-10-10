@@ -4,6 +4,11 @@ Rules that were present and did not fire, under
 [`AGENTS.md` — Self-improvement](../AGENTS.md#self-improvement). A rule that was available and lost
 is a phrasing or boundary defect, not only an execution slip, and the entry proposes the amendment.
 
+Slips no rule covers are entered too, so that a repeat is seen *(the user, 2026-10-11)*: the entry
+says so where it names the rules in play, and describes the slip broadly enough to recognise its
+next occurrence. One proposes no rule; a repeat strikes it, as for any entry, and is the second
+shape a rule would need.
+
 Entries are struck when a later occurrence repeats one, and counted. Nothing here authorises
 deleting a rule: occurrences accumulate and what to do about a rule that keeps failing is
 [q-0026.0001 is-harness-self-amendment-its-own-mechanism](questions/q-0026.0001-is-harness-self-amendment-its-own-mechanism.md)'s,
