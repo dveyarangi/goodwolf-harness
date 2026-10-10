@@ -18,7 +18,7 @@ Wrote and accepted [the mechanism spec](../spec/01-0011-mechanism-shape.md), dec
 - Rules live in **three homes**, not two: `AGENTS.md` for meta/strict, the skill for *use*, the mechanism doc for *mechanics* → [the spec](../spec/01-0011-mechanism-shape.md). This supersedes the two-way split taken earlier the same session, which had nowhere to put how a thing works.
 - A mechanism has three independent properties — **delivered, indexed, singly authored** — and a gap in any is declared with a ticket rather than left absent → [the spec](../spec/01-0011-mechanism-shape.md), first proved on [01-0011.0010](../tickets/done/01-0011.0010-mechanism-declared.md).
 - **Injection** is adopted, proven on paired close first: one rule home, mechanically installed and removable, a hand-edited copy is drift → [01-0011.0020](../tickets/done/01-0011.0020-rules-one-home.md).
-- The queue is a **derived index**, not a transcription → [01-0011.0040](../tickets/01-0011.0040-the-ticket-list-is-rendered-never-copied.md). The word is *index*; Life's glossary reserves *digest*.
+- The queue is a **derived index**, not a transcription → [01-0011.0040](../tickets/done/01-0011.0040-the-ticket-list-is-rendered-never-copied.md). The word is *index*; Life's glossary reserves *digest*.
 - Mechanism docs live at `.agents/mechanisms/<slug>/`, so they travel with the unit recipient projects actually receive → [the spec](../spec/01-0011-mechanism-shape.md).
 - **Archiving is not scope-limited.** A finished record in the active folder is a fact about the folder, not a judgment about work the pass did not examine → [`/maintain`](../../.agents/skills/maintain/SKILL.md).
 - `/discover` is installed because the user installed it; the audited source selection records what was taken from three estates and is not the roster of what is installed → [01-0010.0090](../tickets/done/01-0010.0090-install-discover.md).
@@ -26,7 +26,7 @@ Wrote and accepted [the mechanism spec](../spec/01-0011-mechanism-shape.md), dec
 
 ## Open, with owners
 
-- Whether the queue's rendered table is committed. The spec's reasoning came from a tree with wake hooks this harness lacks, while [AGENTS.md](../../AGENTS.md) routes every session to the queue → [01-0011.0040](../tickets/01-0011.0040-the-ticket-list-is-rendered-never-copied.md).
+- Whether the queue's rendered table is committed. The spec's reasoning came from a tree with wake hooks this harness lacks, while [AGENTS.md](../../AGENTS.md) routes every session to the queue → [01-0011.0040](../tickets/done/01-0011.0040-the-ticket-list-is-rendered-never-copied.md).
 - Nothing sweeps for archive eligibility. `/maintain` says archiving is tree-wide; the five were found by hand → [01-0011.0030](../tickets/done/01-0011.0030-archive-backlog-listed.md).
 - `docs/concerns.md` and `docs/adr/` do not exist while four skills transact against them → [01-0017](../tickets/01-0017-every-skill-and-document-has-named-producers-and-consumers.md).
 - Two mechanisms keep their evidence records in different places; the process says each has one without saying where it lives → [01-0016](../tickets/01-0016-each-skill-owns-its-own-responsibility.md).

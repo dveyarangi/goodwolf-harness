@@ -31,7 +31,7 @@ the leak was in the definition rather than in the skill.
 Acceptance covers the shape, the three homes, injection, the derived index and the
 one-mechanism scope of the first build. It does not settle whether the queue's rendered table is
 committed — that reasoning was taken from a tree with wake hooks this harness lacks, and the
-question is [01-0011.0040](../tickets/01-0011.0040-the-ticket-list-is-rendered-never-copied.md)'s align to answer.
+question is [01-0011.0040](../tickets/done/01-0011.0040-the-ticket-list-is-rendered-never-copied.md)'s align to answer.
 
 ## Problem Statement
 
@@ -485,7 +485,7 @@ shape. Not narrower: `corpus()` alone saves about a fifth; the harness is the re
   the user: the register is derived, and no file holds it.** The mechanism directories are the
   records; a register is their index; and this spec's own index rule says an index is derived on
   request and never committed beside its records. Committing one would be
-  [01-0011.0040](../tickets/01-0011.0040-the-ticket-list-is-rendered-never-copied.md)'s defect one level up, shipped by
+  [01-0011.0040](../tickets/done/01-0011.0040-the-ticket-list-is-rendered-never-copied.md)'s defect one level up, shipped by
   the slice whose job is to establish the rule against it.
   **The new evidence is Life's own.** Its register is hand-written because it is a *migration
   ledger* — twenty-three mechanisms, roughly four with directories, and rows exist for mechanisms

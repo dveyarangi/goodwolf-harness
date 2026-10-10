@@ -41,7 +41,7 @@ read as our own docs* — so L7 names the host's store outside the repository (v
 
 `/ticket` → `/impact` on my four-part draft returned *narrow*: the ticket's contract merges into
 the slice that narrows the ticket format, since the format states it; the queue slice is
-[01-0011.0040 queue-derived-index](../tickets/01-0011.0040-the-ticket-list-is-rendered-never-copied.md) itself, HITL
+[01-0011.0040 queue-derived-index](../tickets/done/01-0011.0040-the-ticket-list-is-rendered-never-copied.md) itself, HITL
 with three decisions of its own; `Kind` is a retired ticket field the check refuses; the RFC's
 format has no checking mechanism. The user agreed, with two amendments:
 

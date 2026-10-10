@@ -30,7 +30,7 @@ dependencies or affected references from maintenance.
   its ticket, RFC, governing documents and the project's verification set.
 - A ticket's header owns its delivery state, and the queue the order of the work and its
   candidate; the live tickets are listed from their headers on request, never copied
-  ([01-0011.0040](tickets/01-0011.0040-the-ticket-list-is-rendered-never-copied.md), the user,
+  ([01-0011.0040](tickets/done/01-0011.0040-the-ticket-list-is-rendered-never-copied.md), the user,
   2026-10-10). Tickets and RFCs retain work decisions and evidence;
   the mechanism's [evidence record](mechanisms/maintain.evidence.md) retains observations
   that inform maintenance of the mechanism itself.
