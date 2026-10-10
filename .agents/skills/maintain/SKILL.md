@@ -116,6 +116,17 @@ the repair policy. Move each subtree it reports ready for `done/` with `move_doc
 of the subtree in one invocation, into `docs/questions/done/`.
 </installed>
 
+<installed by="edge">
+**E1** Check the edge records and their sidecars with `edges.py --check` — format never content, live
+records only. A diagnostic is a finding; repair it under the repair policy.
+
+**E2** An edge record is of the code and configuration it names. When the scope moves a file that a
+record or a sidecar under `docs/edge/` names in backticks, re-read what it says of that file. A
+promise the code no longer keeps is drift, reported with its evidence and never rewritten to fit.
+A sidecar's result the move touches is stale: rewrite it `unobserved since <date> — <what moved>`
+and name the live check owed; never re-date an observation from the tree.
+</installed>
+
 ## Finish
 
 - **F1** Run the checks in the project's verification set that the scope touched.

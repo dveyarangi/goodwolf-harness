@@ -82,7 +82,8 @@ PAINTED_DOORS = frozenset(
         "docs/dreams/",
         # TODO q-0023.0015: /setup-devops's, which goes with its declaration.
         "docs/cicd.md",
-        # TODO q-0023.0009: /edge's record.
+        # TODO q-0024.0004: the edge mechanism's records, declared in its format shelf's prose;
+        # this row goes when `record-bearing` parses.
         "docs/edge/",
         # TODO q-0026: the register.
         "docs/rule-failures.md",

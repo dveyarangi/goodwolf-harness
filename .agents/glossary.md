@@ -89,8 +89,16 @@ A project's own answers and overrides, authored once in its local rules file bes
 Placing a ref of core into a tree that is not core's own repository, from a fresh clone of that repository and never from a working tree; an update is the same over a tree that already holds one, and a check compares a copy against the ref its entry file announces. The mechanism that does all three is `harness`.
 _Avoid_: deploy, sync, distribute, port.
 
+**Edge**:
+Where the system meets someone outside it: a consumer of what it promises, or an extender attaching to it — a host and its integration, a recipient with its own mechanisms. Each edge has one **edge record** under `docs/edge/`: what is promised and required there, the checks a new extension passes, where each extension stands. A seam between two of the system's own parts is the architecture's, never an edge.
+_Avoid_: surface, boundary as names for this.
+
+**Extension**:
+One thing attached at an edge — a host, with the integration that reaches it — kept in a sidecar of its edge record, which holds where the integration lives and its result for every check the record names.
+_Avoid_: plugin, adapter.
+
 **Installation edge**:
-Everything about the core–instance interaction an instance must know to integrate core, customise it and stay coherent across core changes: a rule id, a target and its anchor, a script's path and command, a skill's name, the announce form, and a behaviour a recipient's files rely on. What a recipient never meets — a skill's body, a declaration's prose, a script's internals — is not on it.
+The edge between core and a recipient. Everything about the core–instance interaction an instance must know to integrate core, customise it and stay coherent across core changes: a rule id, a target and its anchor, a script's path and command, a skill's name, the announce form, and a behaviour a recipient's files rely on. What a recipient never meets — a skill's body, a declaration's prose, a script's internals — is not on it.
 _Avoid_: API, surface, interface as names for this.
 
 **Release**:

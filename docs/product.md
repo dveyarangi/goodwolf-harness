@@ -102,7 +102,7 @@ A row not marked ✓ is bound, in this page's source, to the open question that 
 | **Instructions that reach the agent** | | | | | | | |
 | one home per rule, copied by a script into every place that reads it, at the tier its occasion is read at, and checked | C1 | ● | ● | | ● | | <straw-dog question="q-0025.0002">◐ which mechanism owns tiering is open</straw-dog> |
 | rules written to a form an agent follows: an occasion and a checkable outcome, no overlap, no contradiction | C1 | ● | | | ● | | <straw-dog question="q-0028">◐ `/skill-up` holds the form; a rule without it is not refused</straw-dog> |
-| each skill states only what it owns, and everything a mechanism produces has a reader | C1 | ● | ● | | | | <straw-dog question="q-0023">◐ five of twenty-four skills are declared mechanisms</straw-dog> |
+| each skill states only what it owns, and everything a mechanism produces has a reader | C1 | ● | ● | | | | <straw-dog question="q-0023">◐ six of twenty-four skills are declared mechanisms</straw-dog> |
 | whether a rule reaches its occasion observed, not asserted | C1 | ● | | | | | <straw-dog question="q-0025">◐ the session announces the rules it runs, self-reported</straw-dog> |
 | a document informs and never instructs, so text in one is not taken as a command | C1, C12 | ● | | | | ● | <straw-dog question="q-0029">◐ a rule, not yet settled</straw-dog> |
 | **One source of truth between decisions and code** | | | | | | | |
@@ -111,7 +111,7 @@ A row not marked ✓ is bound, in this page's source, to the open question that 
 | what bears load is written down, the rest lives in code and its comments | C6, C8 | ● | ● | | ● | | <straw-dog question="q-0024.0002.0005">◐ a rule, not yet settled</straw-dog> |
 | an edited thing carries its mark back to the record that governs it | C6 | ● | | | ● | | <straw-dog question="q-0024.0009.0004">✗</straw-dog> |
 | the queue derived from its tickets, its order the person's | C6, C9 | | ● | ● | | | <straw-dog question="q-0020">◐ the order is the person's; the table is still kept by hand</straw-dog> |
-| a contract per product surface, its customer-facing text derived from it | C6, C10 | ● | | | ● | | <straw-dog question="q-0023.0009">◐ the skill exists, unused here</straw-dog> |
+| a contract per edge, for those who consume the system and those who extend it, its outward text derived from it | C6, C10 | ● | | | ● | | <straw-dog question="q-0018.0023.0002">◐ the edge mechanism and the hosts record exist; no text is derived from a record yet</straw-dog> |
 | **Maintenance** | | | | | | | |
 | `/maintain`: records against each other and against the code, a clock of what is due, finished records archived | C6, C8 | ● | ● | | ● | | <straw-dog question="q-0024.0005">◐ links are checked only when records move; what is due is not announced</straw-dog> |
 | **Self-improvement — the seed of a test suite for instructions** | | | | | | | |

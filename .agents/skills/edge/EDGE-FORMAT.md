@@ -1,72 +1,112 @@
-<straw-dog question="q-0023.0009">
-# Edge record Format
+# Edge record format
 
-One record per product surface, a living document at `docs/edge/<surface>.md` (e.g. `mcp.md`,
-`embedding.md`). No numbers, no `done/` — the record is named by its surface and never completes;
-history is git's.
+One record per edge, a living document at `docs/edge/<edge>.md`, named by the edge — `hosts.md`,
+`installation.md`, `mcp.md`. No numbers, no `done/`: the record never completes, and its history
+is git's. An edge things attach to keeps one sidecar per extension at
+`docs/edge/<edge>/<extension>.md`.
 
-An Edge record is the **seam between architecture and user-oriented design**: the living surface
-where everything about one product edge aggregates — its current contract shape, the strict
-invariants upstream machinery owes it (with their validation state), the edge-scoped concerns,
-and its staged evolution. The audience is the project at work (user and agents). Customer-facing
-descriptions of the edge (tool descriptions, public API docs) are **derived from** the record and
-must stay a subset of it — never the other way around.
+An **edge** is where the system meets those who consume it or extend it. Its record holds what the
+system promises them, what it requires of what attaches to it, the checks a new attachment passes,
+where each attached thing stands, the edge's open questions, and its staged evolution. The
+audience is the project at work, user and agents. Text written for a consumer or an extender — a
+tool description, a public API doc, the front page, an install guide — is **derived from** the
+record and stays a subset of it.
 
-## Structure
+The record informs. Nothing an integration needs to work is read from it: the integration is code
+and configuration in its own home, and the record names it.
+
+## The record
 
 ```md
-# Edge — {Surface}
+# Edge — {Name}
 
 - **Status:** Stub | Normative | Normative (tentative)
 
 ## Contract
 
-The edge's consumer-visible shape as built: request, response, outcomes — the source of truth
-customer-facing derivations project from. Reference canonical semantics (ADRs, architecture)
-instead of restating them.
-
 ## Invariants
 
-The strict behavior upstream machinery owes this edge. One bullet each, **each naming its
-validator inline:**
+## Extending
 
-- Vendor nulls reach the wire as JSON `null` — *validated by:* `tests/deterministic/...`
-- An invariant with no test is marked **⚠ unguarded**.
+## Extensions
 
 ## Concerns
 
-Edge-scoped open questions and risks — pointers into the question store, `docs/questions/`
-(which stays their owner), each with its edge-local reading: what this question means at this
-surface.
-
 ## Roadmap
-
-The staged, caller-visible evolution of this edge — one line per stage, linked to its owning
-ticket. Plans, not promises.
 ```
+
+Sections appear in this order and no others. `Extending` and `Extensions` appear together, on an
+edge things attach to, or neither does.
+
+- **Contract** — the edge as built: what it promises those who consume it, and what it requires of
+  what attaches to it. Reference canonical semantics (ADRs, architecture) instead of restating
+  them.
+- **Invariants** — the strict behaviour owed at the edge, one bullet each, each naming its
+  validator inline: `*validated by:*` and a backticked path to the test that asserts it, or
+  `*validated by:* live —` and the `Extending` check that observes it. A promise with no validator
+  is marked **⚠ unguarded**.
+- **Extending** — the checks a new extension passes, in general terms: a numbered list, one check
+  each, `1. **<check>** — <what it observes>`. The same checks hold for every extension, and are
+  passed again when one changes upstream.
+- **Extensions** — one row per extension attached:
+
+  ```md
+  | extension | standing | sidecar |
+  |---|---|---|
+  | Claude Code | every check observed but two | [claude-code](hosts/claude-code.md) |
+  ```
+
+  `standing` is a few words; the sidecar holds the evidence. Every file in `docs/edge/<edge>/` is
+  a row's sidecar.
+- **Concerns** — edge-scoped open questions and risks: pointers into the question store,
+  `docs/questions/`, which stays their owner, each with its edge-local reading.
+- **Roadmap** — the staged evolution of the edge, one line per stage, linked to its owning ticket.
+  Plans, not promises.
+
+## The sidecar
+
+```md
+# {Extension} — {Name} edge
+
+## Integration
+
+## Conformance
+```
+
+- **Integration** — where the extension's integration lives, every part backticked: files,
+  configuration, the code written for it, and what it needs from outside the tree — an approval,
+  a version, a setting. Where to look, never a copy of what is there.
+- **Conformance** — one bullet per check of the record's `Extending`, named as it names it,
+  `- **<check>** — <result>`, the result opening with one of: `observed <date>`, with the version
+  where known and what was seen; `documented`, with the source; `unobserved`; `absent`, with what
+  stands in.
 
 ## Rules
 
-- **Normative core, descriptive periphery.** `Contract` and `Invariants` are promises — in a
-  `Status: Normative` record everything there is true of the live edge (`Stub` is the only
-  license for aspiration). **`Normative (tentative)`** is the state between: the record is
-  load-bearing for what it states, but a landing ticket is actively reshaping the surface, so
-  individual promises may carry **⚠ pending — \<ticket\>** and must name the ticket and stage that
-  clears them. It is not a softer `Normative` — an unmarked claim in a tentative record is held to
-  the same standard — and the owning ticket's docs-at-landing list must carry the record, so the
-  qualifier is retired by the same commit that lands the change. `Concerns` and `Roadmap` are aggregation — pointers and plans, never
-  validated, and carry no delivery-status vocabulary → [Status](../ticket/TICKET-FORMAT.md#status).
-- **Per-invariant validators, not a separate section.** Each promise points at the test that
-  enforces it, so `/edge` and `/maintain` can check mechanically that the validator still
-  exists and still asserts the promise. **⚠ unguarded** is legal in a Stub, a finding in a
-  Normative record.
+- **Normative core, descriptive periphery.** `Contract` and `Invariants` are promises: in a
+  `Status: Normative` record everything there is true of the live edge, and `Stub` is the only
+  license for aspiration. **`Normative (tentative)`** is the state between: the record is
+  load-bearing for what it states, but a landing ticket is reshaping the edge, so a promise may
+  carry **⚠ pending — \<ticket\>**, naming the ticket and stage that clears it. It is not a softer
+  `Normative`: an unmarked claim in a tentative record is held to the same standard, and the owning
+  ticket's docs-at-landing list carries the record, so the qualifier goes with the commit that
+  lands the change. `Extensions`, `Concerns` and `Roadmap` are aggregation — pointers and plans,
+  never validated, carrying no delivery-status vocabulary
+  → [Status](../ticket/TICKET-FORMAT.md#status).
+- **Per-invariant validators, not a separate section.** Each promise points at what enforces it,
+  so a check can see the validator still exists. **⚠ unguarded** is legal in a Stub, a finding in
+  a Normative record.
+- **An observation is what was watched.** A conformance result nobody watched is `documented` or
+  `unobserved`, never `observed`. A result is re-observed, never re-dated: when the integration a
+  sidecar names moves, or the extension changes upstream, the results it touches are observed
+  again by the record's checks.
 - **Aggregate by reference.** The question store owns open questions, tickets own delivery state,
-  architecture.md owns the internal shape — the record holds the edge-local projection and the
-  link, never a copy.
-- **Derivations are subsets.** Any customer-facing text about the edge must be derivable from
-  the record; if a derivation says something the record doesn't, the record is behind — fix it
-  first.
-- **A contract change is named out loud.** Any edit that changes a promise is declared breaking
-  or compatible at the moment it is made (the `/align` Edge challenge rule). When a Roadmap
-  entry's ticket lands, the same edit that updates `Contract` removes the entry.
-</straw-dog>
+  the architecture owns the internal shape, the code owns the integration — the record holds the
+  edge-local projection and the link, never a copy.
+- **Derivations are subsets.** Any text for a consumer or an extender must be derivable from the
+  record; if it says something the record does not, the record is behind — fix it first.
+- **A contract change is named out loud.** An edit that changes a promise is declared breaking or
+  compatible at the moment it is made. When a Roadmap entry's ticket lands, the same edit that
+  updates `Contract` removes the entry.
+- **The check.** `edges.py --check` holds every live record and sidecar to this shape — form, never
+  whether a promise is true.
