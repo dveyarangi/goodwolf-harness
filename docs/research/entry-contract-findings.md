@@ -15,6 +15,25 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v60 — 2026-10-11
+
+**A completed step shows** — a turn that completes a step of the delivery ring adds a 🔁 row to the
+head table: the ticket with its slug, and each step the turn completed. The user: *if a turn closes
+a step of the pipeline, say which steps are done*; of the draft that drew the whole ring with the
+closed step in bold: *no — one ring only, and only what this turn closed.*
+
+## v59 — 2026-10-11
+
+**Occam says what need not exist** — *Occam* gains *say what need not exist: a rule, mechanism,
+record or step — the person's proposal or yours — that the work would not miss, said before it is
+built.* A reality check on the tree: 552 commits in 26 days, about 548k words of markdown against
+17k lines of Python that mostly checks it, record-keeping commits outnumbering implementation
+nearly four to one; the agent named its own part — it turns each intuition into a rule, an id and
+a mechanism, and rarely says that one need not exist. The user: *let us add this rule to Occam —
+say what need not exist.* It bears on
+[q-0026.0005](../questions/q-0026.0005-what-keeps-the-rules-from-only-growing-when-every-amendment-adds-text-and-none-removes-any.md),
+which it does not close: it asks before a part is built, and removes nothing already built.
+
 ## v58 — 2026-10-10
 
 **Verified means `/verify` passed** — the `commit` switch's `auto` now reads *commit when `/verify`

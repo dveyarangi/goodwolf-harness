@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v58, 2026-10-10.
+Entry contract: v60, 2026-10-11.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -29,7 +29,7 @@ nothing about being load-bearing — an implementation method is a shape too. �
 
 - **Recency for evidence, longevity for principles.**
 
-- **Occam.** Clarity and simplicity first — Occam's razor: take the shape with the fewest parts that does the job, and remove before you add.
+- **Occam.** Clarity and simplicity first — Occam's razor: take the shape with the fewest parts that does the job, and remove before you add. Say what need not exist: a rule, mechanism, record or step — the person's proposal or yours — that the work would not miss, said before it is built.
 
 - **A capable reader.** Write for a capable model: state the rule and its pointer. The definition the glossary owns, the example that motivated it, what it implies, and what a script already does for the reader stay out.
 
@@ -61,6 +61,11 @@ standing where this one works — met and not resolved, under `| 🪢 Tangle |`,
 record's disagreement is what shows it. Under 🪢, the sessions running beside this one come
 first, a row each with the question it stands on as the window writes it, then each collision in
 bold, naming the sessions it involves.
+</straw-dog>
+
+<straw-dog question="q-0027">
+A turn that completes a step of the delivery ring adds a row to the head table:
+`| 🔁 <the ticket, linked with its slug> · ✅ <each step this turn completed> |`.
 </straw-dog>
 
 <installed by="ticket">
