@@ -45,4 +45,6 @@
 - **Resume** — observed 2026-10-10, desktop app, failing before the fix: reopened, the
   conversation `58bf3b88` came back as `d0abdc88`, and the start hook ran 3 s before the new
   transcript existed, so the transcript match found nothing and registered a new session; the
-  session is now keyed on the app's own id. The fix and the terminal's resume are unobserved.
+  session is now keyed on the app's own id. Observed 2026-10-10 in the terminal, passing: a
+  session `6408d73c` exited and reopened by `claude --continue` got *already registered* under
+  the same id, one row in the sessions file. The desktop app after the fix is unobserved.
