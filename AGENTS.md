@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v53, 2026-10-10.
+Entry contract: v54, 2026-10-10.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -59,9 +59,10 @@ resolved, under `| 🪢 Tangle |`, even where a record's disagreement is what sh
 </straw-dog>
 
 <installed by="ticket">
-**P9** The first time a record or a reply names a ticket, name it by a link to its record whose text
-carries its slug — the id may lead it; later mentions may be the id alone. Name one that has no
-record yet by a slug and its state word.
+**P9** In every reply and every record, the first mention of a ticket — a table's cell included — is a
+link to its record whose text carries its slug, its whole id leading it if at all; later mentions
+in that reply or record may be the whole id alone. Name one that has no record yet by a slug and
+its state word.
 </installed>
 
 <installed by="questions">

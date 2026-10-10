@@ -281,6 +281,19 @@ store does not hold yet is written out, never named after the ticket it will bel
 owner is a repeat to strike here if it recurs. Graded by the rest of this fold's review: no question
 and no ticket named in a reply without its words.
 
+**Struck, 2026-10-10.** A `/recall` session linked each ticket with its slug in its first reply,
+then, four replies on, put the next step to the user as *`/plan` on `.0040.0010` or align on
+01-0011.0040* — and named `.0060` and `.0040` bare in the tables before it. The user: *I have no
+idea what these numbers are, why don't you write their slugs anywhere? did we lose that rule?*
+P9 was installed and read; *the first time … later mentions* was taken across the conversation
+rather than per reply, a table's row did not read as a mention, and the relative ids were copied
+from the window's leans. **Amendment landed** in the ticket mechanism's rules file and reinstalled,
+the entry contract at v54: *in every reply and every record, the first mention of a ticket — a
+table's cell included — is a link to its record whose text carries its slug, its whole id leading
+it if at all; later mentions in that reply or record may be the whole id alone.* Graded by the
+next replies of this session and the next fresh one: no ticket first named in a reply without its
+slug.
+
 ## 16. A session stopped placing its messages once the window said nothing moved — 2026-10-03
 
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s Q1, *call `questions.py at q-N` …

@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v54 — 2026-10-10
+
+**A ticket's slug in every reply** — P9's first mention is counted per reply and per record, a
+table's cell included, and the id is written whole. A session had linked each ticket with its slug
+once and then, in later replies' decision rows, named them `.0040.0010` and `01-0011.0040`; the
+user: *I have no idea what these numbers are — did we lose that rule?* Rule failure 17, struck.
+
 ## v53 — 2026-10-10
 
 **The candle** — a paragraph following a principle that stands in a document takes `🕯️` in the
