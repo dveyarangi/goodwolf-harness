@@ -16,8 +16,8 @@ position. A re-parent renames the subtree that moves, across the records under `
 
 `--check` is the maintainer. It writes nothing; its exit status is the verdict and its JSON is for
 the person reading a failure. A tree with no store has nothing to check and passes. `--window` is
-what the agent reads before placing a message; `--wake` registers a session and reads where the
-work stands; `--end` closes a session's line; `--tree` draws the live tree for a person; `--seed`
+what the agent reads before placing a message; `--wake` registers a session, ends every other gone
+silent, and reads where the work stands; `--end` closes a session's line; `--tree` draws the live tree for a person; `--seed`
 opens the roots of a store that holds no entry, as the install does, and is how a person resumes
 an install that stopped there. Each
 event of a turn is its own call — `at`, `open`, `move`, `depend`, `undepend`, `close`, `suspect`,
@@ -31,6 +31,7 @@ import argparse
 import codecs
 import hashlib
 import json
+import os
 import posixpath
 import re
 import secrets
@@ -62,7 +63,10 @@ STORE_ARRIVAL = ".agents/skills/questions/STORE-ARRIVAL.md"
 # The mechanism's hook wiring, one file per host file at that file's own path beneath this
 # directory; the installer merges each into the host file it names and holds no path of its own.
 HOOKS = ".agents/skills/questions/hooks/"
-STALE_AFTER_DAYS = 7
+# A running line whose session nothing has seen for this long is ended by the next wake, quietly
+# (the user, 2026-10-10).
+# TODO q-0034: the rule moves with the sessions file to a session mechanism.
+SILENT_AFTER = timedelta(hours=3)
 # A held question reached again at least this long after it was opened or last struck is struck
 # (parent decision 53); a constant until a project wants another.
 STRIKE_AFTER = timedelta(hours=12)
@@ -102,7 +106,8 @@ _ENTRY_NAME = re.compile(rf"^{STORE}/(?:done/)?({_ID})-([a-z0-9]+(?:-[a-z0-9]+)*
 _DEFERRAL = re.compile(r"^until \S.*, meanwhile \S.*$")
 _STRIKE = re.compile(r"^(\d+), last (\d{4}-\d{2}-\d{2}T\d{2}:\d{2})Z$")
 _SESSION = re.compile(
-    rf"^([A-Za-z0-9][\w.-]*) (running|ended) (\d{{4}}-\d{{2}}-\d{{2}}) ({_ID}|-)(?: ({_ID}(?:,{_ID}){{0,3}}))?$"
+    rf"^([A-Za-z0-9][\w.-]*) (running|ended) (\d{{4}}-\d{{2}}-\d{{2}})(?:T(\d{{2}}:\d{{2}})Z)? ({_ID}|-)"
+    rf"(?: ({_ID}(?:,{_ID}){{0,3}}))?$"
 )
 # An id in prose: never part of a word or a longer id, so `faq-0007` and `q-00070` are not ids.
 _BARE_ID = re.compile(rf"(?<![\w.]){_ID}(?!\w)")
@@ -266,35 +271,37 @@ def main(
 ) -> int:
     root = root or Path(__file__).resolve().parents[3]
     today = today or date.today()
+    now = now or datetime.now(timezone.utc)
     # A title may hold any character, and a Windows console's default encoding holds few of them:
     # printed as-is, one arrow in a question would end the run with nothing shown.
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
     try:
         if argv[:1] and argv[0] in EVENTS:
-            return _called(root, argv, today, now or datetime.now(timezone.utc))
+            return _called(root, argv, today, now)
         if argv == ["--check"]:
-            checked = check(root, today)
+            checked = check(root)
             print(json.dumps(checked.as_record(), indent=2))
             return 1 if checked.diagnostics or checked.skipped else 0
         if len(argv) in (3, 4) and argv[:2] == ["--window", "--session"] and argv[3:] in ([], ["--full"]):
             print(window(root, argv[2], full=argv[3:] == ["--full"]))
+            _seen(root, argv[2], now)
             return 0
         if len(argv) == 2 and argv[0] == "--hook":
-            print(hook(root, argv[1], _hook_input(), today))
+            print(hook(root, argv[1], _hook_input(), now))
             return 0
         if argv == ["--wake"] or (len(argv) == 3 and argv[:2] == ["--wake", "--session"]):
-            print(wake(root, today, argv[2] if len(argv) == 3 else None))
+            print(wake(root, now, argv[2] if len(argv) == 3 else None))
             return 0
         if argv[:1] == ["--tree"] and len(argv) <= 2:
             print(tree(root, argv[1] if len(argv) == 2 else None))
             return 0
         if len(argv) == 3 and argv[:2] == ["--end", "--session"]:
-            held = end(root, argv[2], today)
+            held = end(root, argv[2], now)
             print(f"ended {held.tag} at {held.current or 'no position'}")
             return 0
         if argv == ["--seed"]:
-            written = seed(root, now or datetime.now(timezone.utc))
+            written = seed(root, now)
             for record in written:
                 print(f"wrote {record}")
             if not written:
@@ -312,7 +319,7 @@ def main(
     return 2
 
 
-def check(root: Path, today: date | None = None) -> Checked:
+def check(root: Path) -> Checked:
     """Every entry, live and archived, and the sessions file against the store's shape; then what
     a person should look at in a store that keeps it."""
     if not (root / STORE).is_dir():
@@ -328,7 +335,7 @@ def check(root: Path, today: date | None = None) -> Checked:
         + _position_problems(sessions, index)
     )
     findings = (
-        _session_findings(sessions, index, today or date.today())
+        _session_findings(sessions, index)
         + _likely_twins(entries)
         + _ready_for_done(entries, index)
     )
@@ -690,11 +697,12 @@ def _unmarked_suspects(entries: list[Entry], index: dict[str, Entry]) -> list[Di
 
 @dataclass(frozen=True)
 class Session:
-    """One line of the sessions file: where one conversation stands in the store."""
+    """One line of the sessions file: where one conversation stands in the store, and when the line
+    was last written, in UTC to the minute."""
 
     tag: str
     running: bool
-    wrote: date
+    wrote: datetime
     current: str | None
     recent: list[str]
     line: int
@@ -721,7 +729,7 @@ def _sessions(root: Path) -> tuple[list[Session], list[Diagnostic], list[Skipped
                     SESSIONS,
                     number,
                     f"line {number} is not "
-                    "`<tag> running|ended <YYYY-MM-DD> <q-id>|- [<q-id>,… up to four]`",
+                    "`<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four]`",
                 )
             )
         elif any(earlier.tag == read.tag for earlier in sessions):
@@ -732,30 +740,42 @@ def _sessions(root: Path) -> tuple[list[Session], list[Diagnostic], list[Skipped
 
 
 def _session(line: str, number: int) -> Session | None:
+    """A line read, its time as written; a line from before the time was written holds the date
+    alone, read as that day's start, and carries the time from its next write."""
     said = _SESSION.match(line.rstrip())
     if said is None:
         return None
     try:
-        wrote = date.fromisoformat(said.group(3))
+        wrote = datetime.fromisoformat(f"{said.group(3)}T{said.group(4) or '00:00'}").replace(tzinfo=timezone.utc)
     except ValueError:
         return None
-    current = None if said.group(4) == "-" else said.group(4)
-    recent = said.group(5).split(",") if said.group(5) else []
+    current = None if said.group(5) == "-" else said.group(5)
+    recent = said.group(6).split(",") if said.group(6) else []
     return Session(said.group(1), said.group(2) == "running", wrote, current, recent, number)
 
 
 def _session_line(held: Session) -> str:
     recent = f" {','.join(held.recent)}" if held.recent else ""
     state = "running" if held.running else "ended"
-    return f"{held.tag} {state} {held.wrote} {held.current or '-'}{recent}"
+    return f"{held.tag} {state} {_stamp(held.wrote)} {held.current or '-'}{recent}"
 
 
-def _write_own_line(root: Path, held: Session) -> None:
-    """Replace this session's line and no other, appending it where there is none.
+def _stamp(moment: datetime) -> str:
+    return f"{moment:%Y-%m-%dT%H:%MZ}"
+
+
+def _minute(now: datetime) -> datetime:
+    """The clock's time as a line holds it: UTC, to the minute."""
+    return now.astimezone(timezone.utc).replace(second=0, microsecond=0)
+
+
+def _write_line(root: Path, held: Session) -> None:
+    """Replace one session's line and no other, appending it where there is none.
 
     The file is re-read just before the write, so a line another session wrote a moment ago is
     kept as found: one session's write is never a refusal of another's (RFC item 10). The new
-    text replaces the old in one rename, so a reader never meets half a file.
+    text replaces the old in one rename, so a reader never meets half a file. The line is the
+    writing session's own, except when a wake ends a silent one.
     """
     path = root / SESSIONS
     lines = path.read_text(encoding="utf-8").splitlines() if path.is_file() else []
@@ -782,28 +802,14 @@ def _position_problems(sessions: list[Session], index: dict[str, Entry]) -> list
     ]
 
 
-def _session_findings(
-    sessions: list[Session], index: dict[str, Entry], today: date
-) -> list[Finding]:
-    """A running session whose question closed under it, or that stopped writing.
-
-    Neither fails the run: the first is shown in that session's next window, and a silent session
-    may be alive — a crash leaves a `running` line nobody ends, and only a person can tell.
-    """
-    notes = []
-    for held in sessions:
-        if not held.running:
-            continue
-        standing = index.get(held.current or "")
-        if standing is not None and not standing.open:
-            notes.append(
-                Finding(SESSIONS, held.line, f"{held.tag} stands at {held.current}, which is closed")
-            )
-        if (today - held.wrote).days > STALE_AFTER_DAYS:
-            notes.append(
-                Finding(SESSIONS, held.line, f"{held.tag} is running and has not written since {held.wrote}")
-            )
-    return notes
+def _session_findings(sessions: list[Session], index: dict[str, Entry]) -> list[Finding]:
+    """A running session whose question closed under it. It does not fail the run: it is shown in
+    that session's next window. A silent session is no finding — the next wake ends it."""
+    return [
+        Finding(SESSIONS, held.line, f"{held.tag} stands at {held.current}, which is closed")
+        for held in sessions
+        if held.running and (standing := index.get(held.current or "")) is not None and not standing.open
+    ]
 
 
 # --- for a person to settle ---------------------------------------------------------------------
@@ -1048,19 +1054,45 @@ def _drawn(store: Store, held: Session) -> str:
 # --- the wake -----------------------------------------------------------------------------------
 
 
-def wake(root: Path, today: date, tag: str | None = None) -> str:
+def wake(root: Path, now: datetime, tag: str | None = None) -> str:
     """Where the work stands when a session starts: who else is where, what waits to be re-read,
     and the window this session opens on.
 
     Called without a tag it registers a new session and draws the window of a session with no
     position yet. Called with the tag of a registered one it registers nothing, so `/recall` asked
     mid-session reads the same as at the start without giving one conversation two sessions.
+    Either way every other session gone silent is ended first, as at a hook's start.
     """
     if tag is None:
-        held = _register(root, today)
+        held = _register(root, now)
+        _end_silent(root, now, held.tag)
         return _wake_read(root, held, f"session: {held.tag}, registered now")
     held = read_store(root).session(tag)
+    _end_silent(root, now, held.tag)
     return _wake_read(root, held, f"session: {held.tag}, already registered")
+
+
+def _end_silent(root: Path, now: datetime, waking: str) -> None:
+    """Every other running line whose session nothing has seen for `SILENT_AFTER` reads ended, its
+    position and its time kept, and the wake says nothing of it (the user, 2026-10-10).
+
+    The one write to a line not its own besides a rename: safe because a silent session has no
+    write of its own to meet. The session's next message turns its line running again.
+    TODO q-0034: a session mechanism takes the sessions file and this rule with it.
+    """
+    for held in _sessions(root)[0]:
+        if held.running and held.tag != waking and now - _last_seen(root, held) >= SILENT_AFTER:
+            _write_line(root, Session(held.tag, False, held.wrote, held.current, held.recent, held.line))
+
+
+def _last_seen(root: Path, held: Session) -> datetime:
+    """The later of the line's time and its window memory's: a session is seen while its messages
+    reach a hook or it writes its line. The memory is kept outside the tree, so the committed file
+    does not move with every message."""
+    memory = _memory(root, held.tag)
+    if not memory.is_file():
+        return held.wrote
+    return max(held.wrote, datetime.fromtimestamp(memory.stat().st_mtime, timezone.utc))
 
 
 def _wake_read(root: Path, held: Session, header: str) -> str:
@@ -1100,16 +1132,16 @@ def _most_struck(live: list[Entry]) -> list[Entry]:
     return sorted(struck, key=lambda read: (-read.strike.count, _order(read)))[:WAKE_STRUCK_LINES]
 
 
-def _register(root: Path, today: date, tag: str | None = None) -> Session:
+def _register(root: Path, now: datetime, tag: str | None = None) -> Session:
     """A new session's line, running and with no position yet, under the host's own session id
     where a hook gave one, or else a tag minted here that no session holds."""
     if tag is None:
         taken = {held.tag for held in _sessions(root)[0]}
-        tag = f"s-{today:%m%d}-{secrets.token_hex(2)}"
+        tag = f"s-{now:%m%d}-{secrets.token_hex(2)}"
         while tag in taken:
-            tag = f"s-{today:%m%d}-{secrets.token_hex(2)}"
-    held = Session(tag, True, today, None, [], 0)
-    _write_own_line(root, held)
+            tag = f"s-{now:%m%d}-{secrets.token_hex(2)}"
+    held = Session(tag, True, _minute(now), None, [], 0)
+    _write_line(root, held)
     return held
 
 
@@ -1131,6 +1163,8 @@ class Host:
     compactions: tuple[str, ...]
     answer: Callable[[str, str, str], str]
     quiet: str
+    # A message event whose answer reaches no agent: the session is only marked seen.
+    signs_of_life: str | None = None
 
 
 def _hook_specific(event: str, context: str, tag: str) -> str:
@@ -1140,7 +1174,10 @@ def _hook_specific(event: str, context: str, tag: str) -> str:
 def _cursor_answer(event: str, context: str, tag: str) -> str:
     """Cursor drops a start hook's context (a confirmed host defect), and passes its `env` to
     every later hook of the session, so the session's tag goes there too, for whatever the agent's
-    shell can read of it."""
+    shell can read of it. Its prompt hook can only allow or block, and always allows: nothing here
+    may hold back the person's message."""
+    if event == "beforeSubmitPrompt":
+        return json.dumps({"continue": True})
     answer: dict = {"additional_context": context}
     if tag and event == "sessionStart":
         answer["env"] = {"QUESTIONS_SESSION": tag}
@@ -1152,7 +1189,8 @@ HOSTS = {
     # 2026-10-09, when a rollback resumed a conversation under a new id.
     "claude-code": Host("session_id", "transcript_path", "SessionStart", "UserPromptSubmit", (), _hook_specific, ""),
     "codex": Host("session_id", None, "SessionStart", "UserPromptSubmit", ("PostCompact",), _hook_specific, ""),
-    # Cursor's prompt hook can only allow or block, so its agent draws the window by the rule.
+    # Cursor's prompt hook can only allow or block, so its agent draws the window by the rule, and
+    # the hook only marks the session seen: in practice the agent draws none (rule failure 28).
     "cursor": Host(
         "conversation_id",
         None,
@@ -1161,6 +1199,7 @@ HOSTS = {
         ("preCompact",),
         _cursor_answer,
         "{}",
+        "beforeSubmitPrompt",
     ),
 }
 
@@ -1178,9 +1217,10 @@ def _hook_input() -> str:
     return raw.decode("utf-8-sig", errors="replace")
 
 
-def hook(root: Path, host_name: str, payload: str, today: date) -> str:
+def hook(root: Path, host_name: str, payload: str, now: datetime) -> str:
     """What a host's hook prints: the wake's read when a session starts, the window before a
-    message, nothing after a compaction but a forgotten window.
+    message, nothing after a compaction but a forgotten window. A message marks its session seen;
+    where its answer reaches no agent, that is all it does.
 
     It never fails the host. A prompt hook that fails can hold back the person's message, so any
     problem is answered as one line of context that names it, and the exit status stays 0. Once the
@@ -1201,16 +1241,24 @@ def hook(root: Path, host_name: str, payload: str, today: date) -> str:
             _forget_window(root, tag)
             return host.quiet
         if event == host.starts:
-            return host.answer(event, _started(root, tag, sent.get("source"), today, transcript), tag)
+            return host.answer(event, _started(root, tag, sent.get("source"), now, transcript), tag)
+        registered = tag in {held.tag for held in _sessions(root)[0]}
         if event == host.messages:
-            if tag not in {held.tag for held in _sessions(root)[0]}:
+            if not registered:
                 # The start was never seen — the hooks arrived mid-session — so this is the start.
-                return host.answer(event, _started(root, tag, None, today, transcript), tag)
-            return host.answer(event, window(root, tag), tag)
+                return host.answer(event, _started(root, tag, None, now, transcript), tag)
+            drawn = window(root, tag)
+            _seen(root, tag, now)
+            return host.answer(event, drawn, tag)
+        if event == host.signs_of_life:
+            if not registered:
+                _register(root, now, tag)
+            _seen(root, tag, now)
+            return host.answer(event, "", tag)
         return ""
     except Exception as problem:  # noqa: BLE001 — the boundary to a host: nothing may escape it
         notice = f"questions hook: {problem}"
-        if host is not None and event in (host.starts, host.messages):
+        if host is not None and event in (host.starts, host.messages, host.signs_of_life):
             return host.answer(event, notice, "")
         return notice
 
@@ -1226,9 +1274,10 @@ def _sent(payload: str) -> dict:
         ) from None
 
 
-def _started(root: Path, tag: str, source: str | None, today: date, transcript: str | None = None) -> str:
+def _started(root: Path, tag: str, source: str | None, now: datetime, transcript: str | None = None) -> str:
     """A session starting, resuming or compacted: registered once under the host's id, running
-    again if it had ended, and given a whole window, since its context has none.
+    again if it had ended, and given a whole window, since its context has none. A start that is
+    not a compaction ends every other session gone silent first.
 
     A conversation the host resumes under a new id is the session it continues, not a new one:
     the new id takes over its position and the old one ends. Its context still holds the wake it
@@ -1238,10 +1287,12 @@ def _started(root: Path, tag: str, source: str | None, today: date, transcript: 
     if tag not in known:
         before = _resumed_from(transcript, [held for held in known.values() if held.tag != tag])
         if before is None:
-            held = _register(root, today, tag)
+            held = _register(root, now, tag)
+            _end_silent(root, now, tag)
             return _wake_read(root, held, f"session: {tag}, registered now")
-        _write_own_line(root, Session(tag, True, today, before.current, before.recent, 0))
-        _write_own_line(root, Session(before.tag, False, before.wrote, before.current, before.recent, before.line))
+        _write_line(root, Session(tag, True, _minute(now), before.current, before.recent, 0))
+        _write_line(root, Session(before.tag, False, before.wrote, before.current, before.recent, before.line))
+        _end_silent(root, now, tag)
         return "\n".join(
             [
                 f"session: {tag}, resumes {before.tag} — the same conversation under a new id: its "
@@ -1252,10 +1303,11 @@ def _started(root: Path, tag: str, source: str | None, today: date, transcript: 
         )
     held = known[tag]
     if not held.running:
-        held = Session(held.tag, True, today, held.current, held.recent, held.line)
-        _write_own_line(root, held)
+        held = Session(held.tag, True, _minute(now), held.current, held.recent, held.line)
+        _write_line(root, held)
     if source == "compact":
         return window(root, tag, full=True)
+    _end_silent(root, now, tag)
     return _wake_read(root, held, f"session: {tag}, already registered")
 
 
@@ -1310,19 +1362,19 @@ def _tag(identity: str) -> str:
     return tag if tag[0].isalnum() else f"s{tag}"
 
 
-def end(root: Path, tag: str, today: date) -> Session:
+def end(root: Path, tag: str, now: datetime) -> Session:
     """The conclude's last act: the session is marked ended and keeps its position, so a later
     wake can offer to resume where it stopped."""
     held = read_store(root).session(tag)
-    ended = Session(held.tag, False, today, held.current, held.recent, held.line)
-    _write_own_line(root, ended)
+    ended = Session(held.tag, False, _minute(now), held.current, held.recent, held.line)
+    _write_line(root, ended)
     return ended
 
 
 def _session_state(held: Session) -> str:
     state = "running" if held.running else "ended"
     recent = f" (recent {', '.join(held.recent)})" if held.recent else ""
-    return f"{held.tag} {state}, last wrote {held.wrote}, at {held.current or 'no position yet'}{recent}"
+    return f"{held.tag} {state}, last wrote {_stamp(held.wrote)}, at {held.current or 'no position yet'}{recent}"
 
 
 # --- the tree -----------------------------------------------------------------------------------
@@ -1369,8 +1421,29 @@ def _memory(root: Path, tag: str) -> Path:
 
 
 def _forget_window(root: Path, tag: str) -> None:
-    """After a compaction the last window is gone from the conversation, so the next is whole."""
-    _memory(root, tag).unlink(missing_ok=True)
+    """After a compaction the last window is gone from the conversation, so the next is whole. The
+    memory is emptied rather than removed: its time is the session's sign of life."""
+    memory = _memory(root, tag)
+    if memory.is_file():
+        memory.write_text("", encoding="utf-8")
+
+
+def _seen(root: Path, tag: str, now: datetime) -> None:
+    """A sign of life from the session: its window memory takes the time, and a line that reads
+    ended runs again, its position kept — a wake may have ended it while it sat idle.
+
+    TODO q-0034: a session mechanism takes the sessions file and this rule with it.
+    """
+    if not (root / STORE).is_dir():
+        return
+    held = read_store(root).session(tag)
+    memory = _memory(root, tag)
+    memory.parent.mkdir(parents=True, exist_ok=True)
+    if not memory.is_file():
+        memory.write_text("", encoding="utf-8")
+    os.utime(memory, (now.timestamp(), now.timestamp()))
+    if not held.running:
+        _write_line(root, Session(held.tag, True, _minute(now), held.current, held.recent, held.line))
 
 
 def _path_lines(path: list[Entry]) -> list[str]:
@@ -1418,7 +1491,7 @@ def _root_lines(store: Store, path: list[Entry]) -> list[str]:
 
 def _elsewhere_lines(store: Store, held: Session) -> list[str]:
     others = [
-        f"  {other.tag} at {other.current or 'no position yet'} (last wrote {other.wrote})"
+        f"  {other.tag} at {other.current or 'no position yet'} (last wrote {_stamp(other.wrote)})"
         for other in store.sessions
         if other.running and other.tag != held.tag
     ]
@@ -1664,10 +1737,10 @@ def _declared(
     if draft.moves:
         written = _carry_renames(root, draft.moves, draft.renames, written)
         held = _renamed_session(held, draft.renames)
-    moved = _moved(held, position, today)
+    moved = _moved(held, position, now)
     if moved is not None:
         try:
-            _write_own_line(root, moved)
+            _write_line(root, moved)
         except OSError as error:
             raise WriteInterrupted(written, SESSIONS, error) from error
     opened = [identity for identity in draft.changed if identity in draft.new]
@@ -1818,13 +1891,17 @@ def _renamed_session(held: Session, renames: dict[str, str]) -> Session:
     return Session(held.tag, held.running, held.wrote, current, recent, held.line)
 
 
-def _moved(held: Session, position: str | None, today: date) -> Session | None:
-    """The session's line after an `at`: the old position joins the recent ones, at most four."""
+def _moved(held: Session, position: str | None, now: datetime) -> Session | None:
+    """The session's line after an `at`: the old position joins the recent ones, at most four. An
+    `at` that leaves a running session where it stood leaves its line as it was, so the committed
+    file does not move with every turn; the window memory says the session is alive."""
     if position is None:
         return None
+    if held.running and position == held.current:
+        return held
     recent = [held.current] if held.current and held.current != position else []
     recent += [identity for identity in held.recent if identity != position and identity not in recent]
-    return Session(held.tag, True, today, position, recent[:4], held.line)
+    return Session(held.tag, True, _minute(now), position, recent[:4], held.line)
 
 
 class _Draft:

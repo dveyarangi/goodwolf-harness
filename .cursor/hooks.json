@@ -6,6 +6,9 @@
     ],
     "preCompact": [
       { "command": "git -c \"alias.gw-hook=!sh .agents/scripts/gw/hook.sh\" gw-hook cursor" }
+    ],
+    "beforeSubmitPrompt": [
+      { "command": "git -c \"alias.gw-hook=!sh .agents/scripts/gw/hook.sh\" gw-hook cursor" }
     ]
   }
 }

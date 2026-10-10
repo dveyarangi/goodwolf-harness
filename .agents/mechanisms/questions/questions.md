@@ -53,7 +53,7 @@ nothing; a question worked for days strikes too, so the count ranks time spent a
 **Delivery.** Where a host's hooks can add context, the window and the session's registration come
 from them, under the host's own session id; the rule stays the floor every host reads. Claude Code
 and Codex take context at session start and before every message; Cursor only at session start, so
-its agent draws the window by the rule. A window stays in the conversation once drawn, so the next
+its agent draws the window by the rule, and its prompt hook only marks the session seen. A window stays in the conversation once drawn, so the next
 is drawn only when the session's position or an entry moved, and whole again after a compaction.
 A conversation the host resumes under a new id is the session it continues: where the host keeps
 transcripts side by side, the one holding the new transcript's first message names it, its
@@ -149,7 +149,7 @@ roles, is an open question of the store.
 - **The entries** — *what it intends to become, what happened once closed* — read by the script at every window, wake, declaration and check, and by a
   person through `--tree`.
 - **The sessions file** — *what exists* — read by the script for every window and wake, so each session sees where
-  the others stand.
+  the others stand; a wake ends the rows gone silent.
 - **The window** — *what exists* — read by the agent before every message, from the host's hook or the rule.
 - **The wake's read** — *what exists* — read by the agent at session start, from the hook or `/recall`; it names
   the straw dogs due, whose text `/maintain` rewrites.

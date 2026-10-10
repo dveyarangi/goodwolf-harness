@@ -172,8 +172,16 @@ of* is the line the check holds the id against.
 
 <straw-dog question="q-0018.0015">
 **The sessions file** — one row of `docs/questions/sessions` per session:
-`<tag> running|ended <YYYY-MM-DD> <q-id>|- [<q-id>,… up to four]` — its tag, whether it runs, the
-date it last wrote, its current question or `-` before it has one, and its recent ones. Tier 1
-through the window and the wake's read. What removes a row: kept by design — an ended row lets a
-later wake offer to resume, and a running row silent for a week is reported, never removed.
+`<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four]` — its tag, whether it
+runs, when its line last changed, its current question or `-` before it has one, and its recent
+ones; a row holding the date alone still reads, as that day's start. Tier 1 through the window and
+the wake's read. What removes a row: kept by design — an ended row lets a later wake offer to
+resume.
+</straw-dog>
+
+<straw-dog question="q-0034">
+**A silent row ends at the next wake.** Every wake ends each other running row whose session
+nothing has seen for three hours, and says nothing of it. A session is seen while its messages
+reach a hook — the window drawn, or Cursor's prompt hook — or it writes its row; the next message
+turns an ended row running again.
 </straw-dog>
