@@ -2,7 +2,7 @@
 
 - **state** open
 - **owner** [01-0011.0110.0020](../tickets/01-0011.0110.0020-a-paragraph-shows-what-it-stands-on.md)
-- **lean** the form at v56 — lamp names a principle as its home names it, never a rule id, 無 for a missing one; proposed or landed text framed by its statement, 🧩 a rule, ⚓ an invariant, ✏️ any other change, always shown for a rule, an invariant or a load-bearing doc; footnotes only from outside the session; ⚖️ decisions, 🍂 drift, 🪢 any collision, a table only with a row; ⚡ kept for urgency, unassigned
+- **lean** the form at v57 — lamp names a principle as its home names it, never a rule id, 無 for a missing one; proposed or landed text framed by its statement, 🧩 a rule, ⚓ an invariant, ✏️ any other change, always shown for a rule, an invariant or a load-bearing doc; footnotes only from outside the session; ⚖️ decisions, 🍂 drift, 🪢 any collision after a table of the running sessions and their questions, a table only with a row; ⚡ kept for urgency, unassigned
 - **struck** 3, last 2026-10-09T13:40Z
 
 ## The instructions, agreed in draft 2026-10-07
@@ -134,3 +134,11 @@ frame sorts by kind of statement: `🧩 **Proposed rule**` for an instruction, `
 invariant**` for an invariant, `✏️ **Proposed change**` for any other text in a doc or code — the
 pencil the user's pick. Shown always for an instruction, an invariant or a load-bearing doc,
 elsewhere where the reply shows it *(the user)*. Landed at v56.
+
+## The tangle shows who first, 2026-10-10
+
+A 🪢 row said *another session's uncommitted files* without saying which sessions run or what each
+is on. The user: *show the list of sessions and what each is doing, and only then, with the icon,
+the problems it causes.* So a 🪢 table follows a `| Session | At |` table of the sessions running
+beside this one, each with the question it stands on as the window writes it, and each tangle row
+names the sessions it involves. Landed at v57.

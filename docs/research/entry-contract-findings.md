@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v57 — 2026-10-10
+
+**The tangle shows who first** — a 🪢 table follows a table of the sessions running beside this
+one, each with the question it stands on, and each tangle row names the sessions it involves. The
+user: *show the list of sessions and what each is doing, and only then, with the icon, the
+problems it causes.*
+
 ## v56 — 2026-10-10
 
 **The frame names the statement, not the record** — proposed or landed text is headed by what it

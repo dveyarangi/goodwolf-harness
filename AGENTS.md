@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v56, 2026-10-10.
+Entry contract: v57, 2026-10-10.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -54,10 +54,13 @@ judgement, is named at its authored home and cited by that name. Under `debug=on
 - What a claim rests on from outside this session — a decision, evidence, the user's word — is a
   footnote naming its record, or who and when.
 
-Debug or not, a row each, and a table only where it has one: what waits on the user's decision, under `| ⚖️ Decisions |`; a record
-out of agreement with what it is of, met and not repaired, under `| 🍂 Drift |`; one party's work
-or claim colliding with another's — another session standing where this one works — met and not
-resolved, under `| 🪢 Tangle |`, even where a record's disagreement is what shows it.
+Debug or not, a row each, and a table only where it has one: what waits on the user's decision,
+under `| ⚖️ Decisions |`; a record out of agreement with what it is of, met and not repaired,
+under `| 🍂 Drift |`; one party's work or claim colliding with another's — another session
+standing where this one works — met and not resolved, under `| 🪢 Tangle |`, even where a
+record's disagreement is what shows it. A 🪢 table follows a `| Session | At |` table of the
+sessions running beside this one, each with the question it stands on as the window writes it,
+and each of its rows names the sessions it involves.
 </straw-dog>
 
 <installed by="ticket">
