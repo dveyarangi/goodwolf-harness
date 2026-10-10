@@ -53,7 +53,7 @@ class Records(RepositoryCase):
     def setUp(self) -> None:
         super().setUp()
         self.questions: dict[str, str] = {}
-        self.write("docs/tickets/README.md", "# Delivery status\n\n**Last updated:** never\n")
+        self.write("docs/tickets/README.md", "# Delivery status\n\n**Candidate:** none.\n")
         self.write("docs/tickets/01-0001-earlier.md", ticket(INCEPTED))
         self.write(LIVE, ticket(INCEPTED))
         self.write(PLANNED, ticket(SHAPED))
