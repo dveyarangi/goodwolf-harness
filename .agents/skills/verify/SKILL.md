@@ -19,6 +19,18 @@ Find out:
 
 Look for architectural or responsibility leakage.
 
+## Installed from other mechanisms
+
+<installed by="edge">
+**E4** When the landed work changes an edge — a promise in its Contract or Invariants, an invariant's
+validator, a file a sidecar names, or a check of its Extending — the same commit updates its
+record under `docs/edge/`: Contract and Invariants to what landed, the change named breaking or
+compatible; the Roadmap entry of the ticket that landed removed; each touched sidecar result
+observed again live, dated and versioned, or rewritten `unobserved since <date> — <what moved>`.
+An extension observed live in this work has its result written in its sidecar, not only in the
+ticket or the session record.
+</installed>
+
 ## The verification set
 
 The project's verification set is its typechecker, its tests and every other command required

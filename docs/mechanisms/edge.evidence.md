@@ -70,3 +70,21 @@ was followed by a straw dog whose opening tag precedes its own heading, so the b
 section's end landed inside that wrapper, with no diagnostic. The heading was moved below the
 straw dog's close. The installer reads a section as ending at the next heading, whether or not a
 wrapper opened in between.
+
+## The landing the declaration missed — 2026-10-10
+
+Asked whether the rules say what is written into an edge and when, the declaration answered for
+alignment (E3), maintenance (E2) and a deliberate `/edge` call, and for nothing at a landing — the
+occasion that most changes an edge. The format said a landed Roadmap entry leaves with the edit
+that updates `Contract`, and a tentative record rides its ticket's docs-at-landing list, but no
+skill that runs at a landing read either; and a live observation of a host had no rule sending it
+to the sidecar, so it would have kept landing in tickets and session records, where the matrix had
+lived. The moment row *checking a change against the edges it touches* named `/edge` as its
+instruction, true only when someone asks for it.
+
+E4 went to `/verify`, not `/implement` *(the user)*: holding landed work to what governs it is
+`/verify`'s, and the live checks that observe a host run there. It answered, in the same pass,
+where the installation edge's block lands, which its ticket had left for `/plan`. `/verify` had no
+heading for installed rules. One added at its end, after every wrapper, was refused by the
+installer's check: the local block, under *The verification set*, must be the last in its file. The
+heading sits before that section instead, where no wrapper opens between it and the next heading.

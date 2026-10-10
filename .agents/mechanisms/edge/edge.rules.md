@@ -7,6 +7,7 @@ install it with overwrite; the block in a target is never the place.
 |---|---|
 | `.agents/skills/maintain/SKILL.md` | `## Installed from other mechanisms` |
 | `.agents/skills/align/SKILL.md` | `### Challenge against the Edge records` |
+| `.agents/skills/verify/SKILL.md` | `## Installed from other mechanisms` |
 
 ## E1 — the records are checked by their maintainer
 
@@ -44,4 +45,19 @@ compatible** out loud before proceeding. Update the record inline as decisions l
 of `.agents/skills/edge/EDGE-FORMAT.md`: contract changes in `Contract` and `Invariants`, a promise
 without a validator marked **⚠ unguarded**; newly surfaced edge-scoped concerns as pointers in
 `Concerns`; staging shifts in `Roadmap`.
+</rule>
+
+## E4 — a landed change at an edge writes its record
+
+- **target** `.agents/skills/verify/SKILL.md`
+- **authority** the user, 2026-10-10
+
+<rule>
+When the landed work changes an edge — a promise in its Contract or Invariants, an invariant's
+validator, a file a sidecar names, or a check of its Extending — the same commit updates its
+record under `docs/edge/`: Contract and Invariants to what landed, the change named breaking or
+compatible; the Roadmap entry of the ticket that landed removed; each touched sidecar result
+observed again live, dated and versioned, or rewritten `unobserved since <date> — <what moved>`.
+An extension observed live in this work has its result written in its sidecar, not only in the
+ticket or the session record.
 </rule>

@@ -27,6 +27,13 @@ instruction to build an extension to the contract, pass those checks live, and w
 Because every sidecar answers every check by name, a fourth host is held to the same checks as the
 first three, and a check added later shows at once as unanswered in every sidecar.
 
+**A landed change writes its record in the same commit.** The occasion that most changes an edge
+is a landing — a promise, a validator or a file a sidecar names, changed by delivered work — and a
+live observation is made in the same work. Both reach `/verify` as an installed rule, E4, since
+holding landed work to what governs it is where the occasion is read; without it the record would
+be written only at alignment and in maintenance, and fall behind every landing *(the user,
+2026-10-10)*.
+
 **Maintenance fits `/maintain`'s model.** A record is of the code and configuration it names, so
 when a pass's scope moves a named file the record is re-read against it, a broken promise
 reported as drift, and a touched observation marked stale rather than re-dated. Both duties reach
@@ -43,6 +50,7 @@ installer adds and an uninstaller removes.
 | E1 — the records are checked by `edges.py` | the user, 2026-10-10, owed to `/maintain`'s M1 |
 | E2 — a record is held to what it names; a stale observation is marked, never re-dated | the user, 2026-10-10: the maintenance rule fits maintenance |
 | E3 — a plan is challenged against the edges it touches | the align skill's own text, moved here 2026-10-10 |
+| E4 — a landed change at an edge writes its record, a live observation its sidecar | the user, 2026-10-10 |
 | an edge is met by consumers and extenders, plugin-like shapes included | the user, 2026-10-10 |
 | the record in `docs/edge/`, informing and never depended on | the user, 2026-10-10 |
 | the general checks in the record, each extension's specifics in a sidecar | the user, 2026-10-10 |
@@ -57,13 +65,16 @@ installer adds and an uninstaller removes.
 | attaching an extension and passing the record's checks live | `.agents/skills/edge/SKILL.md` | |
 | passing the checks again for an extension that changed upstream | `.agents/skills/edge/SKILL.md` | |
 | noticing that an extension changed upstream, a host's new version | — | <straw-dog question="q-0018.0023">not yet</straw-dog> |
-| checking a change against the edges it touches | `.agents/skills/edge/SKILL.md` | |
+| checking a change against the edges it touches, when asked | `.agents/skills/edge/SKILL.md` | |
+| writing a record when a change at its edge lands | `.agents/skills/verify/SKILL.md` | |
+| writing a live observation of an extension into its sidecar | `.agents/skills/verify/SKILL.md` | |
 | challenging a plan against an edge's record | `.agents/skills/align/SKILL.md` | |
 | validating code, tests and derived text against a record | `.agents/skills/edge/SKILL.md` | |
 | deriving text for a consumer or an extender | `.agents/skills/edge/SKILL.md` | |
 | checking live records and sidecars against the shape | `.agents/scripts/gw/edges.py` | |
 | re-reading a record when a file it names moved | `.agents/skills/maintain/SKILL.md` | |
 | writing an installation-edge change's line as it is made | — | <straw-dog question="q-0018.0020.0002.0001">not yet</straw-dog> |
+| noticing a file a sidecar names moved outside every landing and every pass | — | <straw-dog question="q-0025.0005">not yet</straw-dog> |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
 | removing this mechanism from a tree | — | <straw-dog question="q-0018.0013.0002">not yet</straw-dog> |
 
@@ -78,6 +89,7 @@ installer adds and an uninstaller removes.
 | the maintainer | `.agents/scripts/gw/edges.py` |
 | the maintainer's tests | `.agents/scripts/gw/test/test_edges.py` |
 | the challenge's heading in `/align` | `.agents/skills/align/SKILL.md` → "### Challenge against the Edge records" |
+| the installed rules' heading in `/verify` | `.agents/skills/verify/SKILL.md` → "## Installed from other mechanisms" |
 
 ## Relies on, and does not own
 
@@ -92,26 +104,30 @@ installer adds and an uninstaller removes.
 
 - **The edge records** — *what must always hold* — read by whoever plans or builds at an edge,
   through the challenge installed in `/align`; by the skill's *Extend* goal for the checks a new
-  extension passes; by `/maintain` when a file a record names moves; and as the source of every
+  extension passes; by `/verify` under E4 when a change at the edge lands; by `/maintain` when a
+  file a record names moves; and as the source of every
   text derived for a consumer or an extender.
-- **The sidecars** — *what exists* — read by whoever attaches or re-checks that extension, and by
-  `/maintain` under E2; each result is an observation as of its date, never a promise.
+- **The sidecars** — *what exists* — read by whoever attaches or re-checks that extension, by
+  `/verify` under E4, and by `/maintain` under E2; each result is an observation as of its date, never a promise.
 - **The maintainer's report** — *what exists* — read by `/verify` through the verification set and
   by `/maintain` under E1. Its exit status is what the set consumes; its JSON is for the person
   reading a failure. It writes nothing.
 - **The rules file** — *what must always hold* — read by the installer alone, and by whoever amends
-  a rule of this mechanism that another skill reads. Its blocks sit in `/maintain` and `/align`.
+  a rule of this mechanism that another skill reads. Its blocks sit in `/maintain`, `/align` and
+  `/verify`.
 
 Nothing else; no index. The records directory is its own register.
 
 ## Not yet at the shape
 
 **Staleness is judged, not derived.** Whether a file a sidecar names moved since its result was
-observed is re-read by a pass whose scope moved it; no script compares a result's date with the
-named files' history, so a move outside every pass's scope leaves a result silently old.
+observed is re-read at the landing that moved it, under E4, or by a pass whose scope moved it,
+under E2; no script compares a result's date with the named files' history, so a move outside
+every landing and every pass leaves a result silently old.
 
-**Two `not yet` rows of its own**, each bound to an open question: noticing a host's new version,
-and the installation edge's line written as a change is made. That record — the installation edge's
+**Three `not yet` rows of its own**, each bound to an open question: noticing a host's new
+version, the installation edge's line written as a change is made, and a named file moved outside
+every landing and every pass. That record — the installation edge's
 — is not yet written here; its ticket writes it to this format.
 
 ## What retires this
