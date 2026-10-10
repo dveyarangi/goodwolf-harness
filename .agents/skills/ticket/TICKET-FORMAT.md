@@ -196,7 +196,6 @@ records hold it.
 
 | Field | Rule |
 |---|---|
-| `Last updated` | The date **delivery state** last moved, not the date the file was last touched. A copy-edit or a link repair does not advance it; a status flip, a minted ticket, or a reorder does. |
 | `Ticket` | Relative link to the ticket. The row is deleted when the ticket closes: `done/` enumerates finished work, and the queue is delivery status. |
 | `Status` | A [status](#status) value, including an allowed qualifier. |
 | `Type` | `HITL` or `AFK`. |
