@@ -12,6 +12,23 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 31. A decision the agent had taken was put under ⚖️ for confirmation — 2026-10-11
+
+**Rules in play:** the entry file's reply tables, *what waits on the user's decision, under
+`| ⚖️ Decisions |`*, a straw dog then bound to q-0030.
+
+**What happened.** Closing the plan of 01-0011.0110.0040.0020, the reply named a choice it had made
+itself — a line with nowhere to land moves to the successor on a `merged` or `superseded` close —
+and listed it under ⚖️ as *taken myself, confirm or correct*. The user: *fix the rule — do not
+show under ⚖️ the decisions you took yourself.*
+
+**Why it did not fire.** *Waits on the user's decision* never says what a taken decision is; a
+choice the user might still overturn read as one still waiting.
+
+**Amendment landed**, the entry contract at v61: *— never one already taken, the agent's own
+included, which the reply reports as taken and the user overturns by saying so.* Graded by the
+next replies: ⚖️ holds only what nothing has settled.
+
 ## 30. Committed on a green verification set, the work never read against what governs it — 2026-10-10
 
 **Rules in play:** the entry file's autonomy switch, *`auto`: commit when the work is verified*,

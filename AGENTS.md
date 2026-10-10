@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v60, 2026-10-11.
+Entry contract: v61, 2026-10-11.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -37,7 +37,7 @@ nothing about being load-bearing — an implementation method is a shape too. �
 - **Tier is paid by every session.** A skill's description is its tier-1 surface: name there every use case the skill serves, and nothing else — never its method or how it is built. Write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session.
 </straw-dog>
 
-<straw-dog question="q-0030">
+<straw-dog question="q-0023.0021">
 **A paragraph shows what it stands on.** Every principle, and every classification applied by
 judgement, is named at its authored home and cited by that name. Under `debug=on`:
 
@@ -55,15 +55,14 @@ judgement, is named at its authored home and cited by that name. Under `debug=on
   footnote naming its record, or who and when.
 
 Debug or not, a row each, and a table only where it has one: what waits on the user's decision,
-under `| ⚖️ Decisions |`; a record out of agreement with what it is of, met and not repaired,
+under `| ⚖️ Decisions |` — never one already taken, the agent's own included, which the reply
+reports as taken and the user overturns by saying so; a record out of agreement with what it is of, met and not repaired,
 under `| 🍂 Drift |`; one party's work or claim colliding with another's — another session
 standing where this one works — met and not resolved, under `| 🪢 Tangle |`, even where a
 record's disagreement is what shows it. Under 🪢, the sessions running beside this one come
 first, a row each with the question it stands on as the window writes it, then each collision in
 bold, naming the sessions it involves.
-</straw-dog>
 
-<straw-dog question="q-0027">
 A turn that completes a step of the delivery ring adds a row to the head table:
 `| 🔁 <the ticket, linked with its slug> · ✅ <each step this turn completed> |`.
 </straw-dog>

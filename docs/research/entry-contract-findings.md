@@ -15,6 +15,16 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v61 — 2026-10-11
+
+**⚖️ holds only what waits** — the Decisions table never carries a decision already taken, the
+agent's own included: the reply reports it as taken, and the user overturns it by saying so. A
+plan's closing reply had put a choice the agent had already made under ⚖️, asking to confirm it;
+[rule failure 31](../rule-failures.md). **The reply's layout is one straw dog** — the lamps, the
+framed texts, the footnotes, the three tables and the 🔁 row, bound until now to q-0030 and q-0027,
+are one block bound to q-0023.0021, the question of which mechanism owns a reply's layout,
+debugging or interaction *(the user: not sure yet which)*.
+
 ## v60 — 2026-10-11
 
 **A completed step shows** — a turn that completes a step of the delivery ring adds a 🔁 row to the
