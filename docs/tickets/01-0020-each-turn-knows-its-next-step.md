@@ -94,7 +94,7 @@ resolved so far live in [pacer.md](../pacer.md) until this ticket carries them.
     Ready and renumber; into `/ticket`, to place a ticket at mint; into `/align`, so a precedence
     decision lands as a renumbering rather than a paragraph; into `/recall`, to read the first
     Ready ticket by position.
-  - The position number is the one carrier. [01-0011.0040](./01-0011.0040-queue-derived-index.md)
+  - The position number is the one carrier. [01-0011.0040](./01-0011.0040-the-ticket-list-is-rendered-never-copied.md)
     then derives the table from the tickets sorted by it, and the candidate line and the
     hand-ordered table stop being second and third homes.
   - The rule stays judgment, applied by whoever renumbers, with the human checkpoint where it is

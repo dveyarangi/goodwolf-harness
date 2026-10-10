@@ -45,7 +45,7 @@ passes, because the text was well-formed and internally consistent every time.
 - **Next cycle needs a nod** (`next-cycle=ask`). By the ordering rule the candidate is
   [.0050](../tickets/done/01-0011.0050-shape-checked.md), the shape check: the only Ready slice that
   hands the next one a check, and AFK. [.0030](../tickets/done/01-0011.0030-archive-backlog-listed.md)
-  and [.0040](../tickets/01-0011.0040-queue-derived-index.md) are Ready beside it.
+  and [.0040](../tickets/01-0011.0040-the-ticket-list-is-rendered-never-copied.md) are Ready beside it.
 - **The `not yet` links are a live violation of the core rule.** Every referent is a markdown link
   from `.agents/` into `docs/tickets/`, outside any `<project-local>` or `<straw-dog>` block, and
   the format mandates the form. It travels into a recipient as a dangling link. Routed to
@@ -58,7 +58,7 @@ passes, because the text was well-formed and internally consistent every time.
 - **P4 waits for `/spec`**, in `/maintain`'s body inside a straw dog bound to
   [01-0017](../tickets/01-0017-every-skill-and-document-has-named-producers-and-consumers.md).
 - **P8 waits for the derived queue**, wrapped at its home in `ticket.rules.md`, bound to
-  [.0040](../tickets/01-0011.0040-queue-derived-index.md).
+  [.0040](../tickets/01-0011.0040-the-ticket-list-is-rendered-never-copied.md).
 - **The abbreviation limitation in `tickets.py`.** An outcome containing a sentence-ending
   abbreviation followed by a capital is read as two sentences. No live instance; the rule is
   amended when one appears rather than pre-empted. On the RFC.
