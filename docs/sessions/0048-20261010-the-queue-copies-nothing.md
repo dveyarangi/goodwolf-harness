@@ -115,5 +115,5 @@ decisions; how they turned:
 The queue's candidate, unchanged:
 [01-0011.0110.0040.0010 every-record-shows-what-it-is-a-record-of](../tickets/done/01-0011.0110.0040.0010-every-record-shows-what-it-is-a-record-of.md),
 its `/plan` first. Its sibling
-[01-0011.0110.0040.0020 a-decision-lives-in-the-question-until-it-lands](../tickets/01-0011.0110.0040.0020-a-decision-lives-in-the-question-until-it-lands.md)
+[01-0011.0110.0040.0020 a-decision-lives-in-the-question-until-it-lands](../tickets/done/01-0011.0110.0040.0020-a-decision-lives-in-the-question-until-it-lands.md)
 is independent of it.

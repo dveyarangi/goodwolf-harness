@@ -82,7 +82,7 @@ A row not marked ✓ is bound, in this page's source, to the open question that 
 | **Alignment of intent** | | | | | | | |
 | `/align`: one question at a time, each with a recommended answer; facts looked up, decisions put to the person; opens on the present customer, the observable problem, and why what exists cannot serve | C3, C9, C11 | ● | ● | ● | | | ✓ |
 | one vocabulary for the person and the agent, defined before a term lands in a record | C3 | ● | | ● | | | <straw-dog question="q-0024.0001">◐ the glossaries exist; keeping a term out until defined is not built</straw-dog> |
-| a task takes its form in its question before a ticket is minted from it | C3 | ● | ● | | | | <straw-dog question="q-0024.0009.0003.0002">◐ decided, not landed</straw-dog> |
+| a task takes its form in its question before a ticket is minted from it; a decision lands as it is made, provisional ones bound to the question that will change them | C3 | ● | ● | | | | ✓ |
 | **Decisions placed by their weight** | | | | | | | |
 | the load-bearing test: `/impact` routes load-bearing work to the person and a spec, local work to the agent and a ticket; a raised decision that bears no load is settled and reported, one that does goes to the person, and doubt counts as load | C2, C8, C9 | ● | ● | ● | | | ✓ |
 | HITL or AFK on every ticket; a spec accepted, a breakdown approved; commit, push and the next cycle each `ask` or `auto`; repair fixed and reported only under four conditions | C2, C9, C12 | ● | ● | ● | | ● | ✓ |
