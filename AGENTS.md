@@ -58,9 +58,9 @@ Debug or not, a row each, and a table only where it has one: what waits on the u
 under `| ⚖️ Decisions |`; a record out of agreement with what it is of, met and not repaired,
 under `| 🍂 Drift |`; one party's work or claim colliding with another's — another session
 standing where this one works — met and not resolved, under `| 🪢 Tangle |`, even where a
-record's disagreement is what shows it. A 🪢 table follows a `| Session | At |` table of the
-sessions running beside this one, each with the question it stands on as the window writes it,
-and each of its rows names the sessions it involves.
+record's disagreement is what shows it. Under 🪢, the sessions running beside this one come
+first, a row each with the question it stands on as the window writes it, then each collision in
+bold, naming the sessions it involves.
 </straw-dog>
 
 <installed by="ticket">
