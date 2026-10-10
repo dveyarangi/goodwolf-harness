@@ -29,8 +29,9 @@ to the reader, so any change to `questions.py` would have marked every host's re
 own text in `/verify` says a clean run means nothing was caught, but the switch never sends the
 reader there.
 
-**Amendment proposed:** *`auto`: commit when `/verify` has passed on the work — its verification
-set, and the work read against what governs it.*
+**Amendment landed**, the entry contract at v58: *`auto`: commit when `/verify` has passed on the
+work — its verification set, and the work read against what governs it.* Graded by the next
+`commit=auto` landing: a `/verify` pass before the commit.
 
 ## 29. A reply closed on an empty tangle table — 2026-10-10
 

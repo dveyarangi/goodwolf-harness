@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v58 — 2026-10-10
+
+**Verified means `/verify` passed** — the `commit` switch's `auto` now reads *commit when `/verify`
+has passed on the work — its verification set, and the work read against what governs it*. A
+session declaring the edge mechanism committed twice on a green verification set alone, and read
+afterwards the work held two rules contradicting each other on which side wins; the user: *did you
+check it is good?* *Verified* named no pass. Rule failure 30.
+
 ## v57 — 2026-10-10
 
 **The tangle shows who first** — under 🪢, the sessions running beside this one come first, a row
