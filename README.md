@@ -154,20 +154,7 @@ covers it, never under one that merely looks alike. The sessions after that got 
 harness has been built with itself for a month, over 45 sessions, and its log holds 26 misses so
 far.
 
-To override a shipped rule, add a section naming it. This one, from this repository, replaces the
-plain symbols in the per-reply status table with emoji:
-
-```markdown
-## L6 — the glyphs are anchors
-
-- **target** `AGENTS.md`
-- **authority** the user, 2026-10-07
-- **overrides** `questions/Q1`
-
-<rule>
-In this tree the table's glyphs are emoji — 📍 for the question the turn ends on, …
-</rule>
-```
+To override a shipped rule, add a section naming it.
 
 ## How it works
 
