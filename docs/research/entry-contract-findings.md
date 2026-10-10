@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v64 — 2026-10-11
+
+**Weight follows the work** — a general rule, a straw dog bound to q-0027.0003: a change costs what
+it weighs. The `commit` switch's `auto` drops its gloss naming the whole verification set, which
+outweighed Occam and sent a two-value switch flip through the full set. Rule failure 32; the user,
+2026-10-11.
+
 ## v62 — 2026-10-11
 
 **All of the reply's layout is the one straw dog** — the head table leaves Q1, which keeps

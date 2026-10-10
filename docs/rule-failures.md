@@ -12,6 +12,23 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 32. Two switch values went through the whole loop — 2026-10-11
+
+**Rules in play:** Occam, *say what need not exist: a rule, mechanism, record or step*; the
+`commit` switch's `auto`, *its verification set, and the work read against what governs it*.
+
+**What happened.** In a recipient tree, asked to set `commit=auto` and `push=auto`, an agent
+opened `/mechanism`, ran four whole-tree checks, edited a question record in passing and pushed —
+for two values in `local.rules.md`. The user: *insanely much for changing two values.* A first
+amendment drafted here listed exempt cases — the local file, doc-only changes; the user: *ad hoc,
+chewed over for a smart model.*
+
+**Why it did not fire.** Occam names steps, but the switch's gloss named the whole set explicitly,
+and the explicit rule outweighed the principle.
+
+**Amendment landed**, the entry contract at v64: a general rule, *Weight follows the work*, and the
+gloss struck. Graded by the next small change under `commit=auto`.
+
 ## 31. A decision the agent had taken was put under ⚖️ for confirmation — 2026-10-11
 
 **Rules in play:** the entry file's reply tables, *what waits on the user's decision, under

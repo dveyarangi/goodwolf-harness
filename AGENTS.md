@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v62, 2026-10-11.
+Entry contract: v64, 2026-10-11.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -30,6 +30,10 @@ nothing about being load-bearing — an implementation method is a shape too. �
 - **Recency for evidence, longevity for principles.**
 
 - **Occam.** Clarity and simplicity first — Occam's razor: take the shape with the fewest parts that does the job, and remove before you add. Say what need not exist: a rule, mechanism, record or step — the person's proposal or yours — that the work would not miss, said before it is built.
+
+<straw-dog question="q-0027.0003">
+- **Weight follows the work.** A change costs what it weighs — in checks, records and steps.
+</straw-dog>
 
 - **A capable reader.** Write for a capable model: state the rule and its pointer. The definition the glossary owns, the example that motivated it, what it implies, and what a script already does for the reader stay out.
 
@@ -200,7 +204,7 @@ A switch the project has not set is `ask`.
 
 | Switch | Meaning |
 |---|---|
-| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when `/verify` has passed on the work — its verification set, and the work read against what governs it. |
+| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when `/verify` has passed on the work. |
 | push | `ask`: separate from commit, and /conclude's alone — no other reply asks, mentions or counts what waits on it. `never`, `auto`. |
 | next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |
 | breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |
