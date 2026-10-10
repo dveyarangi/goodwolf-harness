@@ -28,7 +28,10 @@ dependencies or affected references from maintenance.
   expiry condition into authority to execute code.
 - `/align` owns unresolved decisions. `/verify` owns verification of delivered work against
   its ticket, RFC, governing documents and the project's verification set.
-- The queue owns current delivery state. Tickets and RFCs retain work decisions and evidence;
+- A ticket's header owns its delivery state, and the queue the order of the work and its
+  candidate; the live tickets are listed from their headers on request, never copied
+  ([01-0011.0040](tickets/01-0011.0040-the-ticket-list-is-rendered-never-copied.md), the user,
+  2026-10-10). Tickets and RFCs retain work decisions and evidence;
   the mechanism's [evidence record](mechanisms/maintain.evidence.md) retains observations
   that inform maintenance of the mechanism itself.
 
