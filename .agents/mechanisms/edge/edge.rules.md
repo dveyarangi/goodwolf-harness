@@ -26,11 +26,8 @@ diagnostic is a finding; repair it under the repair policy.
 
 <rule>
 An edge record is of the code and configuration it names. When the scope moves a part that a
-record or a sidecar under `docs/edge/` names in backticks — at the grain it names it: a row, a
-function, a file named whole — re-read what it says of that part. A promise the code no longer
-keeps is drift, reported with its evidence and never rewritten to fit. A sidecar result is stale
-when a part its Integration names moved: rewrite it `unobserved since <date> — <what moved>` and
-name the live check owed; never re-date an observation from the tree.
+record under `docs/edge/` names, re-read what it says of that part. A promise the code no longer
+keeps is drift, reported with its evidence and never rewritten to fit.
 </rule>
 
 ## E3 — a plan is challenged against the edges it touches
@@ -56,13 +53,10 @@ edge-scoped concerns as pointers in `Concerns`; staging shifts in `Roadmap`.
 
 <rule>
 When the landed work changes an edge — a promise in its Contract or Invariants, an invariant's
-validator, a part a sidecar's Integration names, or a check of its Extending — the same commit
-writes its record under `docs/edge/`. A promise the landing makes true loses its `⚠ pending` mark,
-and the record leaves `Normative (tentative)` when no mark is left; a landing that breaks a promise
-no decision changed is a finding, never written into the record. The Roadmap entry of the ticket
-that landed is removed. A sidecar result is stale when the landing changed a part its Integration
-names, at the grain it names it — a row, a function, a file named whole: observe it again live,
-dated, with the version where known, or rewrite it `unobserved since <date> — <what moved>`. An
-extension observed live in this work has its result written in its sidecar, not only in the
-ticket or the session record.
+validator, or a check of its Extending — the same commit writes its record under `docs/edge/`. A
+promise the landing makes true loses its `⚠ pending` mark, and the record leaves
+`Normative (tentative)` when no mark is left; a landing that breaks a promise no decision changed
+is a finding, never written into the record. The Roadmap entry of the ticket that landed is
+removed. An extension observed live in this work has what was seen written in its sidecar, dated,
+not only in the ticket or the session record.
 </rule>

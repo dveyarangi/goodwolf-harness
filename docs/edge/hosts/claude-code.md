@@ -33,7 +33,9 @@
   reached the agent's context.
 - **Compaction** — unobserved; the host's row in `HOSTS` wires no compaction event, so nothing
   makes the window after one whole.
-- **Helper** — unobserved.
+- **Helper** — observed 2026-10-10, session `58bf3b88`: a helper agent ran some five minutes; the
+  sessions file gained no row, and the session's next message carried a true unchanged notice.
+  The helper's own hook input was not seen; no helper event is wired.
 - **Silence** — observed 2026-10-10 at 01:17Z, the revival only: a row ended by hand turned running
   on one message; the ending by a wake was not watched.
 - **Offline tests** — observed 2026-10-10: the hook cases and the merge passed in the verification

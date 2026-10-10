@@ -28,18 +28,21 @@ Because every sidecar answers every check by name, a new extension is held to th
 those before it, and a check added later shows at once as unanswered in every sidecar.
 
 **A landed change writes its record in the same commit.** The occasion that most changes an edge
-is a landing — a promise, a validator or a part a sidecar names, changed by delivered work — and a
+is a landing — a promise, a validator or a check, changed by delivered work — and a
 live observation is made in the same work. Both reach `/verify` as an installed rule, E4, since
 holding landed work to what governs it is where the occasion is read; without it the record would
 be written only at alignment and in maintenance, and fall behind every landing *(the user,
 2026-10-10)*.
 
 **Maintenance fits `/maintain`'s model.** A record is of the code and configuration it names, so
-when a pass's scope moves a named part — at the grain the record names it — the record is re-read
-against it, a broken promise reported as drift, and a result resting on that part marked stale
-rather than re-dated. Both duties reach
-`/maintain` as an installed block, beside the check that holds the form. Re-observing is live work
-and never a maintenance pass's.
+when a pass's scope moves a named part the record is re-read against it, and a broken promise is
+reported as drift. That duty reaches `/maintain` as an installed block, beside the check that
+holds the form. Re-observing is live work and never a maintenance pass's.
+
+**An observation keeps its date, and nothing marks it stale** *(the user, 2026-10-10)*. Its date,
+beside the history of the code it watched, already says what it is worth; marking results stale
+when a named part moved would cost a judgment at every landing and lose real observations, and
+only the next live check acts on age, which runs when an extension is deliberately re-checked.
 
 It is **installed**. A tree without it keeps no edge records; the parts table below is what an
 installer adds and an uninstaller removes.
@@ -49,7 +52,8 @@ installer adds and an uninstaller removes.
 | rule | decided by |
 |---|---|
 | E1 — the records are checked by `edges.py` | the user, 2026-10-10, owed to `/maintain`'s M1 |
-| E2 — a record is held to what it names; a stale observation is marked, never re-dated | the user, 2026-10-10: the maintenance rule fits maintenance |
+| E2 — a record is held to what it names | the user, 2026-10-10: the maintenance rule fits maintenance |
+| no staleness marking: an observation keeps its date | the user, 2026-10-10 |
 | E3 — a plan is challenged against the edges it touches | the align skill's own text, moved here 2026-10-10 |
 | E4 — a landed change at an edge writes its record, a live observation its sidecar | the user, 2026-10-10 |
 | an edge is met by consumers and extenders, plugin-like shapes included | the user, 2026-10-10 |
@@ -75,7 +79,6 @@ installer adds and an uninstaller removes.
 | checking live records and sidecars against the shape | `.agents/scripts/gw/edges.py` | |
 | re-reading a record when a file it names moved | `.agents/skills/maintain/SKILL.md` | |
 | writing an installation-edge change's line as it is made | — | <straw-dog question="q-0018.0020.0002.0001">not yet</straw-dog> |
-| noticing a file a sidecar names moved outside every landing and every pass | — | <straw-dog question="q-0025.0005">not yet</straw-dog> |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
 | removing this mechanism from a tree | — | <straw-dog question="q-0018.0013.0002">not yet</straw-dog> |
 
@@ -122,14 +125,8 @@ Nothing else; no index. The records directory is its own register.
 
 ## Not yet at the shape
 
-**Staleness is judged, not derived.** Whether a file a sidecar names moved since its result was
-observed is re-read at the landing that moved it, under E4, or by a pass whose scope moved it,
-under E2; no script compares a result's date with the named files' history, so a move outside
-every landing and every pass leaves a result silently old.
-
-**Three `not yet` rows of its own**, each bound to an open question: noticing a host's new
-version, the installation edge's line written as a change is made, and a named file moved outside
-every landing and every pass.
+**Two `not yet` rows of its own**, each bound to an open question: noticing a host's new version,
+and the installation edge's line written as a change is made.
 
 ## What retires this
 

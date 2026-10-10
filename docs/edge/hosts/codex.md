@@ -33,7 +33,8 @@
 - **Window** — observed 2026-10-03, chat `01a0fef1`: the unchanged notice, then after `at` the
   changed window, each before any agent command.
 - **Compaction** — documented: `PostCompact` in the host's hook documentation.
-- **Helper** — documented: a helper inherits its parent's `session_id`.
+- **Helper** — documented: a helper inherits its parent's `session_id`, so a helper whose hook
+  fires would take the session's window as its own; whether its hooks fire is unobserved.
 - **Silence** — observed 2026-10-10 at 01:16Z, the revival only: a row ended by hand turned running
   on one message; the ending by a wake was not watched.
 - **Offline tests** — observed 2026-10-10: the hook cases and the merge passed in the verification

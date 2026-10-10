@@ -178,6 +178,6 @@ sit in the same folder state. Only names are read; nothing inside an RFC is.
 ## The queue
 
 The queue is `docs/tickets/README.md`: the order of the work and its
-candidate, written by hand. It copies nothing a ticket says; the live tickets
-are listed by `tickets.py --list`. It keeps no account of steps done: the
+candidate. It copies nothing a ticket says; the live tickets are listed by
+`tickets.py --list`. It keeps no account of steps done: the
 session records hold it.

@@ -95,11 +95,8 @@ edge things attach to, or neither does.
 - **Per-invariant validators, not a separate section.** Each promise points at what enforces it,
   so a check can see the validator still exists. **⚠ unguarded** is legal in a Stub, a finding in
   a Normative or tentative record.
-- **An observation is what was watched.** A conformance result nobody watched is `documented` or
-  `unobserved`, never `observed`, and one that watched part of a check says which part. A result
-  is never re-dated: when a part a sidecar's `Integration` names moves — at the grain it names it,
-  a row, a function, a file named whole — or the extension changes upstream, the result is
-  observed again by the record's checks or rewritten `unobserved since <date> — <what moved>`.
+- **An observation is what was watched.** Nothing unwatched is written `observed`, and a partial
+  watch says which part. An observation keeps its date; a later one replaces it.
 - **Aggregate by reference.** The question store owns open questions, tickets own delivery state,
   the architecture owns the internal shape, the code owns the integration — the record holds the
   edge-local projection and the link, never a copy.

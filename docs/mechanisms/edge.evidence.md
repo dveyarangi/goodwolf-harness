@@ -115,7 +115,19 @@ two tests whose fragment a different message also matched; a duplicate row colla
 link left on the old shelf; instance state in the core doc; and no account of what a host's
 integration is made of, which a new host would have read code for.
 
-**Two findings wait on a decision.** Staleness is still per sidecar: a result rests on no named
-part of its own, so any named part moving stales every result. And a result has no verdict:
-`observed` says someone watched, not that the check passed, and the *Helper* check asks a question
-rather than asserting an answer.
+**Two findings waited on a decision.** Staleness was still per sidecar — a result rested on no
+named part of its own, so any named part moving staled every result — and a result had no verdict:
+`observed` said someone watched, not that the check passed.
+
+## Staleness marking refuted — 2026-10-10
+
+Asked what problem staleness marking solves, the answer was an observation outliving the code it
+watched and reading as current. Its date already says that, beside the code's history; the
+marking added nothing a reader could not see, cost a judgment at every landing that touched a
+named file, risked erasing real observations, and was acted on by nobody but the next live check,
+which runs when an extension is deliberately re-checked. Refuted *(the user)*: E2 keeps only the
+broken promise as drift, E4 only the decided change, the cleared mark, the removed Roadmap entry
+and the observation written to its sidecar; the format keeps *an observation keeps its date, a
+later one replaces it*. The verdict vocabulary went with it — a result's own words say when a check
+failed, as Cursor's registration does. A glossary entry for *result* was proposed and refused: a
+general word is not captured by a narrow mechanism.

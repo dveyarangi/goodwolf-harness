@@ -69,8 +69,8 @@ Each sidecar names its own parts.
 6. **Window** — the next message carries the unchanged notice; after an `at`, the one after it
    carries the changed window.
 7. **Compaction** — after the host compacts the context, the next window arrives whole.
-8. **Helper** — a helper agent's hook input carries an id, and whether it is the helper's own or
-   its parent's.
+8. **Helper** — a helper agent spawned in a session registers no session of its own and leaves the
+   session's window as it was: the session's next message carries what it would have without it.
 9. **Silence** — a row silent three hours is ended by the next wake, and one message turns it
    running again.
 10. **Offline tests** — the host's hook cases and its merge are in the test files the integration
