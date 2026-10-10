@@ -1,6 +1,7 @@
 # q-0034 What is a session to the harness, and which mechanism keeps its lifecycle?
 
 - **state** open
+- **struck** 0, last 2026-10-10T01:18Z
 
 The user, 2026-10-10: a session mechanism of its own — the wake, the conclude and the pacer's
 invocation among its moments — installing into `/maintain` the re-check of the sessions file, the
