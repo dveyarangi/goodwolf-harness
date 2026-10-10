@@ -2,7 +2,7 @@
 
 - **state** open
 - **lean** the user's proposal: a session mechanism owning /recall and /conclude, the sessions file and its lifecycle — legal since the 2026-10-10 loosening, one mechanism per skill; the silent-row slice landed in the questions mechanism as a straw dog bound here; its align next: the border with the pacer, the five questions to gather
-- **struck** 0, last 2026-10-10T01:18Z
+- **struck** 1, last 2026-10-10T14:06Z
 
 The user, 2026-10-10: a session mechanism of its own — the wake, the conclude and the pacer's
 invocation among its moments — installing into `/maintain` the re-check of the sessions file, the
@@ -17,4 +17,11 @@ directory), q-0016.0001 (a starting agent picking an area no other session holds
 instruction file* — `/recall` and `/conclude` are two skills, each with its own open question of
 ownership (q-0027.0001, q-0023.0006); and the user's 2026-09-06 word that resume state is the
 pacer's.
-- **struck** 0, last 2026-10-09T23:14Z
+
+Found 2026-10-10: a row of the sessions file carries an id, a time, a position and its recent
+questions — no host, and no address by which another session could reach it. Running sessions see
+each other only through the store, and cannot call one another. In Claude Desktop a peer session
+is reachable by its title and a short handle, which nothing maps to the host's session id; an id
+of the UUID v7 form, as Codex and Cursor sessions have shown in this tree, names a session no such
+listing holds. A session that opens a question under another's position can only wait for that
+session's window to show it.
