@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v67 — 2026-10-11
+
+**A slip is counted** — Self-improvement registers a slip no rule covers too, described broadly
+enough to recognise its repeat; one proposes no rule. A `questions.py --wake` run without
+`--session` to read a straw dog registered a second session, and was first left unwritten because
+no rule was broken; the user: *did you write the slip down, so you know later whether it is the
+only one?* [Rule failure 33](../rule-failures.md); the register's header says the same.
+
 ## v66 — 2026-10-11
 
 **A switch shows as a setting** — a switch a reply names is written `🛠️ <switch>=<value>`. The

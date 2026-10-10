@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v66, 2026-10-11.
+Entry contract: v67, 2026-10-11.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -197,6 +197,8 @@ Do not reopen an accepted decision without new evidence.
 
 <straw-dog question="q-0026">
 - A rule that was in place and did not fire was usually worded wrong. Register the failure in docs/rule-failures.md, or strike the entry it repeats, and propose the amendment that would have made it fire; /mechanism and /skill-up hold the means. Land the amendment in the same pass, showing its text first.
+- A slip no rule covers is registered there too, described broadly enough to recognise its repeat;
+  one proposes no rule.
 - Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.
 </straw-dog>
 
