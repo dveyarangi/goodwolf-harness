@@ -15,6 +15,12 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v66 — 2026-10-11
+
+**A switch shows as a setting** — a switch a reply names is written `🛠️ <switch>=<value>`. The
+user, of a decision row ending *(next-cycle=ask)*: *I want a settings icon before it*; `⚙️`,
+already the process row's glyph, gave way to the user's pick, the hammer and wrench.
+
 ## v65 — 2026-10-11
 
 **A decision lands as it is made** — the entry file's sentence on where a decision forms moves from

@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v65, 2026-10-11.
+Entry contract: v66, 2026-10-11.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -57,6 +57,8 @@ judgement, is named at its authored home and cited by that name. Under `debug=on
   elsewhere where the reply shows it; `Landed` once written.
 - What a claim rests on from outside this session — a decision, evidence, the user's word — is a
   footnote naming its record, or who and when.
+- A switch the reply names, from the autonomy table or the local block, is written
+  `🛠️ <switch>=<value>`.
 
 Debug or not, a row each, and a table only where it has one: what waits on the user's decision,
 under `| ⚖️ Decisions |` — never one already taken, the agent's own included, which the reply

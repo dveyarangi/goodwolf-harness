@@ -3,8 +3,8 @@
 - **record of** what it intends to become
 - **state** open
 - **owner** [01-0011.0110.0020](../tickets/01-0011.0110.0020-a-paragraph-shows-what-it-stands-on.md)
-- **lean** the form at v57 — lamp names a principle as its home names it, never a rule id, 無 for a missing one; proposed or landed text framed by its statement, 🧩 a rule, ⚓ an invariant, ✏️ any other change, always shown for a rule, an invariant or a load-bearing doc; footnotes only from outside the session; ⚖️ decisions, 🍂 drift, 🪢 the running sessions first then each collision in bold, a table only with a row; ⚡ kept for urgency, unassigned
-- **struck** 3, last 2026-10-09T13:40Z
+- **lean** the form at v66 — lamp names a principle as its home names it, never a rule id, 無 for a missing one; proposed or landed text framed by its statement, 🧩 a rule, ⚓ an invariant, ✏️ any other change, always shown for a rule, an invariant or a load-bearing doc; footnotes only from outside the session; a switch written 🛠️ <switch>=<value>; ⚖️ decisions, 🍂 drift, 🪢 the running sessions first then each collision in bold, a table only with a row; ⚡ kept for urgency, unassigned
+- **struck** 4, last 2026-10-10T23:49Z
 
 ## The instructions, agreed in draft 2026-10-07
 
@@ -144,3 +144,9 @@ the problems it causes.* A `| Session | At |` table above the 🪢 one was tried
 the tangle with its icon in the common header.* So under 🪢 the sessions running beside this one
 come first, a row each with the question it stands on as the window writes it, then each
 collision in bold, naming the sessions it involves. Landed at v57.
+
+## A switch shows as a setting, 2026-10-11
+
+Of a decision row ending *(next-cycle=ask)*, the user: *I want a settings icon before it.* `⚙️` is
+the process row's glyph, so another was offered; the user picked `🛠️`. A switch a reply names is
+written `🛠️ <switch>=<value>`. Landed at v66.
