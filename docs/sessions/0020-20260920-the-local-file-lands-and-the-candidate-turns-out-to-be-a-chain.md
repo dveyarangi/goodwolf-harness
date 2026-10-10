@@ -20,7 +20,7 @@ Details are on the records named.
   their evidence.
 - **How the candidate was chosen** — it was not. The status page's candidate line was a chain
   advanced by the closing session, the ordering rule applied once in the tree's history, three
-  carriers of order disagreeing. Recorded on [01-0020](../tickets/01-0020-pacer.md) with the
+  carriers of order disagreeing. Recorded on [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md) with the
   shape the user agreed in principle: order moves when delivery state moves, never at wake; the
   pacer owns the rule and installs it into `/maintain`, `/ticket`, `/align` and `/recall`; the
   position number is the one carrier and `.0040` derives the table from it. A second item beside
@@ -66,7 +66,7 @@ Details are on the records named.
 
 - **`.0130`'s `/plan`** is the queue's candidate by the chain, `next-cycle=ask`. Whether it is
   also next by the ordering rule — `.0040` ranks second by it and the ordering shape leans on it
-  — is [01-0020](../tickets/01-0020-pacer.md)'s, held there with the pacer's own placement.
+  — is [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md)'s, held there with the pacer's own placement.
 - **Sibling blocks at one anchor stand in install order**, so a recipient's update will reorder
   them. Unowned; the installer ticket is the natural home if it matters there.
 - **The three `/plan` choices were taken on my recommendation** when the user said to implement

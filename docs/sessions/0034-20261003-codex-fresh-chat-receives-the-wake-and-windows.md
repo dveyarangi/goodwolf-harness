@@ -2,7 +2,7 @@
 
 **2026-10-03.** Codex desktop chat `01a0fef1-9b89-7873-826a-c2d7c38814f4`, under entry
 contract v22. Recorded this fresh-chat test in
-[01-0010.0120 host-delivery-surfaces](../tickets/01-0010.0120-host-delivery-surfaces.md),
+[01-0010.0120 host-delivery-surfaces](../tickets/01-0010.0120-what-each-host-says-without-being-asked.md),
 including its capability-matrix row.
 
 The wake arrived under the actual host session id before the test instruction and before any

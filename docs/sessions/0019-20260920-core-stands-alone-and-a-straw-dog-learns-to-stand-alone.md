@@ -59,7 +59,7 @@ Details are on the records named.
   contract, core reading its own contract from the instance half through a local block. No
   ticket owns moving them. Recommended: the mover's contract to the ticket mechanism's doc, which
   owns the mover; the straw-dog contract to whichever mechanism
-  [01-0016](../tickets/01-0016-responsibility-coherent.md) elects. Waits on the user.
+  [01-0016](../tickets/01-0016-each-skill-owns-its-own-responsibility.md) elects. Waits on the user.
 - **`.0110`'s `/plan`** is the queue's candidate, `next-cycle=ask`.
 - **The remover and inline wrappers** — `straw_dogs.py --remove` deletes whole lines, so it cannot
   retire an inline wrapper without the sentence around it; the five today were retired by hand.

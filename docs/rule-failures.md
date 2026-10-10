@@ -381,7 +381,7 @@ ranked.
 the ordering rule, which re-ranks at every wake; the user then set when the order changes — by the
 user's decision, when priorities or product requirements change, the order is found inconsistent,
 or a HITL resolution meets unpredicted complexity or a split
-([01-0020 pacer](tickets/01-0020-pacer.md)). `/recall` now reads, as a straw dog on 01-0020, which
+([01-0020 pacer](tickets/01-0020-each-turn-knows-its-next-step.md)). `/recall` now reads, as a straw dog on 01-0020, which
 owns ordering and rehomes the rule: *read the next item from the order the queue states; do not
 re-rank it; check whether any of those occasions has arisen since the order was set, name each,
 and put the reordering to the user; a last session's handoff is a list of candidates, not an
@@ -725,7 +725,7 @@ with "what's next" starts with `/recall`.
 the contract, reported the tree clean and *offered* `/recall` — "say `/recall` when you want to
 pick up where that left off". The user then invoked it by hand, with the question of how to make
 it the default. Twelve earlier sessions had taken the wake by hand too, which
-[01-0020](tickets/01-0020-pacer.md) already recorded on 2026-09-09 without treating it as a
+[01-0020](tickets/01-0020-each-turn-knows-its-next-step.md) already recorded on 2026-09-09 without treating it as a
 failure.
 
 **Why it did not fire.** The instruction lived in a diagram — a noun-phrase picture of the loop,
@@ -846,13 +846,13 @@ wherever anyone searches anything.** That is the same shape as
 is broader than the skill it lives in, invisible at the moment it applies.
 
 **Proposed amendment.** Not a rewording of B1/B2, which are correct where they sit. The two failures
-together are one finding for [01-0018](tickets/01-0018-reachability-coherent.md): a rule whose
+together are one finding for [01-0018](tickets/01-0018-rules-reach-the-occasion-they-are-for.md): a rule whose
 occasion is *any turn* cannot live only inside a skill's body. Whether the answer is a tier-1 line,
 a group injection, or something else is that ticket's — this register's job is to record that the
 same shape has now cost twice.
 
 **Disposition:** the two overstated claims withdrawn in the same reply; the sweep not yet redone.
-The reachability finding is routed to [01-0018](tickets/01-0018-reachability-coherent.md) and is not
+The reachability finding is routed to [01-0018](tickets/01-0018-rules-reach-the-occasion-they-are-for.md) and is not
 repeated on a third record.
 
 ## 1. A concern was written where a ticket was wanted — 2026-09-10

@@ -1,7 +1,7 @@
 # A shared dev harness improves without losing project conventions
 
 **Status:** Draft for alignment — not an approved implementation specification.
-**Owning work:** [Shared-harness ticket](../tickets/01-0010-dev-harness-shared-and-local.md).
+**Owning work:** [Shared-harness ticket](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md).
 
 This draft gathers agreed requirements and exposes unresolved behavior. The ticket owns deliberation and decisions; the [process](../process.md) owns the current working rules. Recommendations below are labelled separately from agreed requirements.
 
@@ -96,7 +96,7 @@ A HITL ticket may capture work before its shape is understood; investigation can
 
 Natural-language capture triggers belong in the chosen entry skill's Tier 1 description and routing contract; detailed selection lives in Tier 2. Verify discovery and representative paraphrases on each supported host. A description containing the right phrase is not proof that the host delivered it or that an agent routed the request correctly. No new `/step` or `/decompose` skill is selected: additional names require a distinct responsibility and concrete examples that existing boundaries cannot serve.
 
-Agreed boundaries are in the [owning ticket](../tickets/01-0010-dev-harness-shared-and-local.md#resolutions-and-constraints): canonical acceptance and recipient pulls; inline local instructions initially; mechanisms covering instructions, consumers, checks and records; mechanical maintenance from inception; and dynamic autonomy with repair-and-report.
+Agreed boundaries are in the [owning ticket](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md#resolutions-and-constraints): canonical acceptance and recipient pulls; inline local instructions initially; mechanisms covering instructions, consumers, checks and records; mechanical maintenance from inception; and dynamic autonomy with repair-and-report.
 
 No module layout, storage schema, transport or implementation RFC is approved. Cross-project comparison, instruction delivery and downstream verification are separate responsibilities; success in one must not be reported as proof of another. The concrete representation of these responsibilities remains to be designed.
 
@@ -129,15 +129,15 @@ The [queue](../tickets/README.md) owns the current step. Bootstrap suite members
 
 ## Delivery-ring breakdown — 2026-09-06
 
-Parent of this `/ticket` pass: the agreed loop-completion requirement (story 11 and [Harness loop on itself](#harness-loop-on-itself--agreed-2026-09-06)), not the unaccepted rest of this draft. [01-0020](../tickets/01-0020-pacer.md) is a different contract. **Minted 2026-09-06.**
+Parent of this `/ticket` pass: the agreed loop-completion requirement (story 11 and [Harness loop on itself](#harness-loop-on-itself--agreed-2026-09-06)), not the unaccepted rest of this draft. [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md) is a different contract. **Minted 2026-09-06.**
 
 ### Impact
 
-**Main blast radius.** Four children of [01-0010](../tickets/01-0010-dev-harness-shared-and-local.md). `/verify` is installed when there is landed work to review; it does not wait on `/implement`. A ticket is not moved to `done/` until `/verify` has been run. Catalog, `AGENTS.md` installed-list, and renamed callers change per slice. `/plan` must call `/impact`. `/maintain` enumerates `<temporary>` blocks.
+**Main blast radius.** Four children of [01-0010](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md). `/verify` is installed when there is landed work to review; it does not wait on `/implement`. A ticket is not moved to `done/` until `/verify` has been run. Catalog, `AGENTS.md` installed-list, and renamed callers change per slice. `/plan` must call `/impact`. `/maintain` enumerates `<temporary>` blocks.
 
 **Hidden edges.** `/maintain` has no source file (denoise + sync-arch plus the `<temporary>` enumerator); composition is still open on 0010. `/implement` and `/verify` still name `/tdd`, `/improve-comments`, `/review-impl`, `/sync-arch`; adapt per slice. The rest of this draft (principles, distribution, local overrides) is not accepted and is not sliced here.
 
-**Leave alone.** [01-0020](../tickets/01-0020-pacer.md), `/edge`, `/recall`, the remaining selected corpus, spec acceptance.
+**Leave alone.** [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md), `/edge`, `/recall`, the remaining selected corpus, spec acceptance.
 
 **Recommendation.** Proceed, narrowed to the four ring skills.
 

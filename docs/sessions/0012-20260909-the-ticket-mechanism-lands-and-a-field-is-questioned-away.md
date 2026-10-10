@@ -56,7 +56,7 @@ passes, because the text was well-formed and internally consistent every time.
   since 2026-09-07: did the shape change because `/maintain` did not fit it, or was the
   declaration bent? The third declaration has now added its own answer to `/maintain`'s evidence.
 - **P4 waits for `/spec`**, in `/maintain`'s body inside a straw dog bound to
-  [01-0017](../tickets/01-0017-io-graph-coherent.md).
+  [01-0017](../tickets/01-0017-every-skill-and-document-has-named-producers-and-consumers.md).
 - **P8 waits for the derived queue**, wrapped at its home in `ticket.rules.md`, bound to
   [.0040](../tickets/01-0011.0040-queue-derived-index.md).
 - **The abbreviation limitation in `tickets.py`.** An outcome containing a sentence-ending

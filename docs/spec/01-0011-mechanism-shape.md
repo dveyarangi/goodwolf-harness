@@ -3,7 +3,7 @@
 **Status:** **Accepted by the user, 2026-09-06.** Developed through `/spec` → `/align`;
 decomposed by `/ticket` into [01-0011.0010](../tickets/done/01-0011.0010-mechanism-declared.md) …
 [.0050](../tickets/done/01-0011.0050-shape-checked.md), with
-[01-0017](../tickets/01-0017-io-graph-coherent.md) re-parented here as the generalisation step.
+[01-0017](../tickets/01-0017-every-skill-and-document-has-named-producers-and-consumers.md) re-parented here as the generalisation step.
 
 **Amended 2026-09-06** during [01-0011.0010](../tickets/done/01-0011.0010-mechanism-declared.md)'s
 `/align`, on the user's decision, after Life's own mechanism apparatus was read in detail. Four
@@ -240,7 +240,7 @@ accretion this spec exists to stop.
 Assessed at [01-0011.0022](../tickets/done/01-0011.0022-shape-survives-second-mechanism.md)'s
 `/align` on the draft of [01-0011.0060](../tickets/done/01-0011.0060-mechanism-rechecked-when-governing-moves.md),
 before minting. Verdict: **proceed**, as a single HITL ticket after `.0050` and before
-[01-0017](../tickets/01-0017-io-graph-coherent.md).
+[01-0017](../tickets/01-0017-every-skill-and-document-has-named-producers-and-consumers.md).
 
 The problem is demonstrated: the re-check rule is stated three times in this tree as prose —
 `/mechanism`'s *Amend and retire*, this spec's *Re-check on governing change*,
@@ -250,7 +250,7 @@ wake. That reading falsified `.0022`'s *record obligation `none` by property* be
 built, which is what that slice was placed to do.
 
 Blast radius when it lands: `/maintain`'s body and doc, `mechanism-shape`'s *Not yet at the shape*,
-the verification set, and [01-0010.0120](../tickets/01-0010.0120-host-delivery-surfaces.md),
+the verification set, and [01-0010.0120](../tickets/01-0010.0120-what-each-host-says-without-being-asked.md),
 which must name the clock as a consumer of its surface decision. Hidden edges recorded on the
 ticket as its align's questions: whether Git is the clock, narrower by three parts; the churn unit,
 since this tree has no session identity at wake; the entry file in the governing surface at the

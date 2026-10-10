@@ -26,7 +26,7 @@ hold — a failed gate's report hides its reason, and the hook commands need `uv
 - **Three tickets, core's hook entries authored under `.agents/`** *(the user)*: `/impact`
   recommended narrowing two slices to three — the merge alone makes an install arrive; the
   interpreter carries the only live, per-host unknowns; the gate's report is independent of both.
-  Its assessment is on [01-0010](../tickets/01-0010-dev-harness-shared-and-local.md), *Hook wiring
+  Its assessment is on [01-0010](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md), *Hook wiring
   reaches a recipient*.
 
 ## What was done

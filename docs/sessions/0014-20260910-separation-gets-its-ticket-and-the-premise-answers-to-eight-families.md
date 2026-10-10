@@ -17,7 +17,7 @@ taken; the queue's candidate `.0050` is still untouched.
   parent.
 - **Six findings that cited nowhere maintained now have a home** on that ticket, on the user's
   direction: the four the frost_map probe left unowned, and two found this session.
-- **[The `/discover` pass over the premise](../tickets/01-0010-dev-harness-shared-and-local.md#discover--the-premise-2026-09-10)**,
+- **[The `/discover` pass over the premise](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md#discover--the-premise-2026-09-10)**,
   filed verbatim on the parent. Eight families, deliberately disagreeing; its smuggling section is
   the part that costs something.
 

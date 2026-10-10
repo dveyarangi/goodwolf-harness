@@ -1,4 +1,4 @@
-# Pacer
+# Each turn knows its next step
 
 - **Status:** In progress (align underway; first core rule landed 2026-09-20)
 - **Type:** HITL
@@ -11,7 +11,7 @@
 ## Parent
 
 [pacer.md](../pacer.md). **2026-09-06, user:** not a child of
-[01-0010](./01-0010-dev-harness-shared-and-local.md). Pace is this ticket's contract;
+[01-0010](./01-0010-a-shared-harness-improves-without-losing-project-conventions.md). Pace is this ticket's contract;
 the shared-harness ticket is a different one. Minted 2026-09-06 as
 `01-0010.0040` to bind the `<temporary until="/pacer is installed">` block in
 `docs/process.md`; reparented the same day to `01-0020`. The idea and the rules
@@ -62,7 +62,7 @@ resolved so far live in [pacer.md](../pacer.md) until this ticket carries them.
   with no ceremony; **simple** ones need a ticket to carry them and not the loop; **bigger** ones
   take the loop at an intensity matched to their weight — how many `/plan` and `/verify` passes —
   which today the user asks for by hand on heavier tickets.
-  [01-0010.0080](./01-0010.0080-impact-work-shape.md), `/impact` routing work to its shape, is
+  [01-0010.0080](./01-0010.0080-impact-recommends-the-works-shape.md), `/impact` routing work to its shape, is
   where the grade would be read. Both adoption panels of 2026-09-26
   ([record](../research/adoption-panel-2026-09-26.md)) named the uniform ceremony in every reader's
   reasons, and two asked for a lighter profile outright — `/recall` and `/conclude` alone, a memory
@@ -71,7 +71,7 @@ resolved so far live in [pacer.md](../pacer.md) until this ticket carries them.
   own meets it at `/align` step by step under
   [01-0010.0150](./01-0010.0150-harness-meets-a-tree-with-a-method.md)'s flow. Touches
   [pacer.md](../pacer.md)'s open question on which artifact levels can be omitted, and
-  [01-0010.0080](./01-0010.0080-impact-work-shape.md)'s routing answer.
+  [01-0010.0080](./01-0010.0080-impact-recommends-the-works-shape.md)'s routing answer.
 - Resume state: owner, shape, and what `/conclude` and `/recall` do with it.
 - When chaining steps inside one turn becomes allowed, and how that allowance
   is stated.
@@ -104,7 +104,7 @@ resolved so far live in [pacer.md](../pacer.md) until this ticket carries them.
   2026-09-27)*: it waits. The pacer waits for skills to become mechanisms, which is tied to the
   coherence refactors; `.0110` having landed does not release it. The reasoning below was the case
   for moving it, and did not hold. The queue places it after
-  [01-0018](./01-0018-reachability-coherent.md) because it wanted the Tier 1 placement rule that
+  [01-0018](./01-0018-rules-reach-the-occasion-they-are-for.md) because it wanted the Tier 1 placement rule that
   ticket settles: how a rule reaches the entry file. Two things landed on 2026-09-20 that answer
   most of that: R5, under which a mechanism's rule reaches the entry file only as an installed
   block from its rules file, and [01-0010.0110](./done/01-0010.0110-project-facets-injected.md)'s
@@ -148,4 +148,4 @@ glossary's *Unit of work — proposed definition* is this ticket's to promote or
 ## Out of scope
 
 The shared-harness corpus, `/edge`, and this project's remaining 0010 bootstrap.
-Those stay on [01-0010](./01-0010-dev-harness-shared-and-local.md).
+Those stay on [01-0010](./01-0010-a-shared-harness-improves-without-losing-project-conventions.md).

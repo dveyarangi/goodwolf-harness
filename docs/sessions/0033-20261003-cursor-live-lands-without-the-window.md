@@ -6,7 +6,7 @@ No wake and no window were in context.
 
 ## What happened
 
-**Cursor live, recorded on [01-0010.0120](../tickets/01-0010.0120-host-delivery-surfaces.md).**
+**Cursor live, recorded on [01-0010.0120](../tickets/01-0010.0120-what-each-host-says-without-being-asked.md).**
 The agent registered as `s-1003-7b62` by a bare `questions.py --wake`, placed itself at q-0001,
 and drew the window by the entry file's rule. `sessionStart` → `additional_context` did not
 arrive.

@@ -400,7 +400,7 @@ see it.
 ## v15 — 2026-09-21
 
 **One core change:** the tiering rule, in the general rules, wrapped on
-[01-0018](../tickets/01-0018-reachability-coherent.md) under R5 until that ticket declares the
+[01-0018](../tickets/01-0018-rules-reach-the-occasion-they-are-for.md) under R5 until that ticket declares the
 mechanism that owns it — *a skill's description is its tier-1 surface: name there every occasion
 the skill serves, with the context that makes it fire, and nothing else; write every rule at the
 tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session*.
@@ -490,7 +490,7 @@ method glossary now defines **painted door**, with *place* and *path convention*
 
 **One core change:** the announce sentence now also says *start every session by running
 `/recall`, whatever the first message says*. Decided by the user on 2026-09-20 at
-[01-0020](../tickets/01-0020-pacer.md)'s align, and the first of the pacer's core rules to land in
+[01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md)'s align, and the first of the pacer's core rules to land in
 the entry file. The occasion is
 [rule failure 4](../rule-failures.md#4-the-wake-rule-sat-in-a-diagram-and-a-greeting-was-answered-with-a-greeting--2026-09-20):
 the loop diagram had said *wake with `/recall`* since v1, and on 2026-09-15 a session opened with
@@ -550,13 +550,13 @@ estates that already run on them. Meteoscape holds 7 ADRs, Forecast Collector 5,
 audited estates, 1264 lines of it in Meteoscape. Both of my errors that day were the same error in
 opposite directions: this project's emptiness assumed to generalise, and this project's structure
 assumed to generalise. Neither took ten seconds to check. What survives is narrower and is
-[01-0017](../tickets/01-0017-io-graph-coherent.md)'s: nothing distinguishes a convention an instance
+[01-0017](../tickets/01-0017-every-skill-and-document-has-named-producers-and-consumers.md)'s: nothing distinguishes a convention an instance
 has not populated from a reference that is simply broken.
 
 **A cost, recorded rather than repaired.** Removing the queue's path here and `/recall`'s pointer
 block in the same session left a waking session meeting the queue nowhere at tier 1. Each removal
 was correct by `/maintain`'s E1; the sum was not. On
-[01-0018](../tickets/01-0018-reachability-coherent.md) as its second observed instance, and the
+[01-0018](../tickets/01-0018-rules-reach-the-occasion-they-are-for.md) as its second observed instance, and the
 first anyone manufactured while tidying.
 
 ## v7 — 2026-09-09
@@ -573,7 +573,7 @@ which was a positional reference in the one rule whose whole job is being unambi
 explained only in passing inside **Core and instance**. Two rules, one of them reaching tier 1
 for the first time — a block is carried *only* for a fact that would differ in another project,
 which had lived since 2026-09-06 in
-[01-0010](../tickets/01-0010-dev-harness-shared-and-local.md#resolutions-and-constraints)'s
+[01-0010](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md#resolutions-and-constraints)'s
 resolutions and nowhere a session would meet it. It was applied by hand to `/recall` in this same
 pass, from the ticket, which is what showed it had no reachable home. The section was drafted at 90
 words and cut to 40 on the user's *write for a capable model*: the glossary's definition, the
@@ -673,4 +673,4 @@ intent did not change.
 - Where this record belongs is provisional. It follows
   [one evidence record per mechanism](../../.agents/skills/mechanism/SKILL.md#three-homes-and-the-chain), but a version
   delta is closer to an operational record than to a lesson.
-  [01-0016](../tickets/01-0016-responsibility-coherent.md) owns the placement.
+  [01-0016](../tickets/01-0016-each-skill-owns-its-own-responsibility.md) owns the placement.

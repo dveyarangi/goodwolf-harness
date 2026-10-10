@@ -22,7 +22,7 @@ stands, the 30 open ones by track. The tracks are my grouping; it is a snapshot.
 **The outside review's second pass.** An agent installed the harness into a fresh tree and traced
 which skill reads each switch. Checked against the tree, nearly every finding held. Fixed and
 pushed the same day — the list and where the rest went are on
-[the parent](../tickets/01-0010-dev-harness-shared-and-local.md#outside-review-second-pass--2026-09-27):
+[the parent](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md#outside-review-second-pass--2026-09-27):
 `/commit` contradicted `commit=auto`; an unset switch now reads `ask`; `--update` reported every
 file written; two tests passed only on Windows or as a plain user; the front page claimed an
 arrival flow nothing performs. Entry contract **v17**.
@@ -55,7 +55,7 @@ installer rule was already R5. Only the edit-tools preference stays in memory.
 ## Open questions
 
 - **R8's drift.** Eight skills name `/ticket` or `/maintain` outside installed blocks. Listed on
-  [01-0016 responsibility-coherent](../tickets/01-0016-responsibility-coherent.md), whose outcome
+  [01-0016 responsibility-coherent](../tickets/01-0016-each-skill-owns-its-own-responsibility.md), whose outcome
   now reads R8's way.
 - **`/dream`'s lost rule.** Leaving tier 1 took *a dream never amends rules* with it, and the skill's
   own addition was reverted. Parked by the user; it has no home but this record.

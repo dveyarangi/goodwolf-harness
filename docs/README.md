@@ -12,7 +12,7 @@ The harness under [`.agents/`](../.agents/README.md) is built here with its own 
 - [Initial skills comparison](research/audit-2026-09-05/REPORT.md) and [life findings](research/life-harness-findings.md): the evidence the harness was selected and shaped from.
 
 <straw-dog question="q-0018">
-- [Harness spec — draft](spec/01-0010-dev-harness-shared-and-local.md): intended behavior and concrete cases under alignment.
+- [Harness spec — draft](spec/01-0010-a-shared-harness-improves-without-losing-project-conventions.md): intended behavior and concrete cases under alignment.
 </straw-dog>
 
 <straw-dog question="q-0027">

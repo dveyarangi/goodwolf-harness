@@ -13,7 +13,7 @@
 
 [AGENTS.md](../../AGENTS.md) and [the process](../process.md). Sibling of
 [01-0012](./done/01-0012-hierarchy-coherent.md), on the same argument for staying out of
-[01-0010](./01-0010-dev-harness-shared-and-local.md).
+[01-0010](./01-0010-a-shared-harness-improves-without-losing-project-conventions.md).
 
 ## Impact
 
@@ -53,7 +53,7 @@ coverage honestly.
 - What a scope must name to be declarable — `/maintain` already asserts "the work and its
   dependencies", which is a rule with no home.
 - Hosting of the operational rules is deferred to
-  [responsibility](./01-0016-responsibility-coherent.md), as in 01-0012.
+  [responsibility](./01-0016-each-skill-owns-its-own-responsibility.md), as in 01-0012.
 
 ## Acceptance criteria
 

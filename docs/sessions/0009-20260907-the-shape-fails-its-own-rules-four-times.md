@@ -47,7 +47,7 @@ that can use it, and this record is the last hand-written one.
   builder does not grade.
 - **`/maintain`'s own policy consolidates into `/maintain`; *Autonomy and repair* does not**
   *(the user)*. The second is cited by two skills, deferred to by a third, and switched in
-  `AGENTS.md` — shared, and [01-0016](../tickets/01-0016-responsibility-coherent.md)'s.
+  `AGENTS.md` — shared, and [01-0016](../tickets/01-0016-each-skill-owns-its-own-responsibility.md)'s.
 - **Mechanism, documentation and code are three maintenance subjects.** The distinction is core;
   which of them a project has is a facet, recorded on
   [01-0010.0110](../tickets/done/01-0010.0110-project-facets-injected.md).
@@ -60,7 +60,7 @@ that can use it, and this record is the last hand-written one.
   rule → [.0050](../tickets/done/01-0011.0050-shape-checked.md).
 - **An unknown header bullet is ignored in silence.** Raised twice, never ruled on.
 - **`docs/concerns.md` has never existed** while six skills transact against it, and `/maintain`'s
-  body mentions concerns zero times → [01-0017](../tickets/01-0017-io-graph-coherent.md).
+  body mentions concerns zero times → [01-0017](../tickets/01-0017-every-skill-and-document-has-named-producers-and-consumers.md).
 - **`tests/` sits outside `.agents/`**, so `mechanism-shape` names a part that does not travel and
   the spec's *a mechanism travels by construction* is false for it. Unowned.
 - **`docs/dreams/` is in no index.** Still nobody's.

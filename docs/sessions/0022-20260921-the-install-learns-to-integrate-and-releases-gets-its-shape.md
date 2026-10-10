@@ -51,7 +51,7 @@ Details are on the records named.
   smooth is the namespace and an explicit `/align`, not a bigger refusal.
 - **"loop is not swappable is too hard a rule"** — the cut
   [01-0017.0020](../tickets/01-0017.0020-practice-swaps-in-one-edit.md) drew is relaxed; ceremony
-  and granularity become switchable, which is [01-0020](../tickets/01-0020-pacer.md)'s.
+  and granularity become switchable, which is [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md)'s.
 - **"plain text ids like .0145 in your output are no good"** — became P9, at tier 1, installed.
 - **"the injected rule is too fat :)"** — four lines to one.
 - **"the installation should be to the end of the anchor section, not beginning."**

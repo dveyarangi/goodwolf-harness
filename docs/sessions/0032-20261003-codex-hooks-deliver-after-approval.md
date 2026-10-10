@@ -2,7 +2,7 @@
 
 **2026-10-03.** A live Codex desktop test under entry contract v22, chat
 `01a0fee7-f1bc-7043-9569-37ab27fb527e`. Recorded the observations and their limits in
-[01-0010.0120 host-delivery-surfaces](../tickets/01-0010.0120-host-delivery-surfaces.md).
+[01-0010.0120 host-delivery-surfaces](../tickets/01-0010.0120-what-each-host-says-without-being-asked.md).
 
 The initial messages supplied no hook context. After the user approved the hooks, the same chat
 received the wake's read and then its question window directly in context. The runtime reported

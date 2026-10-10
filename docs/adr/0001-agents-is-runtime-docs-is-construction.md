@@ -28,7 +28,7 @@ got with paired close" are the same sentence often enough that the file re-mixes
 work, so they belong in the mechanisms and rules under `.agents/` — the harness's process happening
 also to be its own self-development process changes nothing about where it lives.
 [`docs/process.md`](../process.md) currently holds both that process and several chunks with no home
-yet; it is a straw dog bound to [01-0020](../tickets/01-0020-pacer.md), and what survives it is the
+yet; it is a straw dog bound to [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md), and what survives it is the
 *architecture* of the process, in `docs/architecture.md`, not the process itself.
 
 For this repository the two halves collide: its product *is* the method, so `docs/architecture.md` is

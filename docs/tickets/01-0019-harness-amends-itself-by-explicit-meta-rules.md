@@ -73,5 +73,5 @@ Not yet determined; the align decides it. What is known to be in scope:
 ## Out of scope
 
 Deleting a rule on accumulated failures, refused at minting. The glossary mechanism and the
-dev-method mechanism, which are [01-0017](./01-0017-io-graph-coherent.md)'s children. Group install
+dev-method mechanism, which are [01-0017](./01-0017-every-skill-and-document-has-named-producers-and-consumers.md)'s children. Group install
 targets — [q-0005](../questions/q-0005-how-does-a-group-install-target-resolve-to-a-file-and-an-anchor-in-each-member.md).

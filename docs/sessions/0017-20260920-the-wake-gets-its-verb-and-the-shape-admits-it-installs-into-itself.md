@@ -17,7 +17,7 @@ Details are on the records named.
 - **The pacer's first core rule landed** at entry contract **v9**: run `/recall` first in every
   session, whatever the first message says *(the user, who refused a carve-out for a first message
   naming a skill or a task)*. Hand-written beside the announce line and wrapped as a straw dog on
-  [01-0020](../tickets/01-0020-pacer.md), because the pacer is undeclared and has no rules file.
+  [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md), because the pacer is undeclared and has no rules file.
   On [pacer.md](../pacer.md#core-rules--under-alignment), the ticket, and
   [the contract record](../research/entry-contract-findings.md#v9--2026-09-20).
 - **Rule failure 4 opened, and failure 3 struck once**, on

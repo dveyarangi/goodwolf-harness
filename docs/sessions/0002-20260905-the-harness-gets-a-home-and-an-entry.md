@@ -16,8 +16,8 @@ Reviewed what the inception session had landed and reconciled it with the earlie
 - Autonomy switches `commit`, `push`, `next-cycle`, `breakdown`, `repair`, with this project's values in the local block → [AGENTS.md](../../AGENTS.md#autonomy).
 - `<temporary until="condition">` marks expiring statements anywhere; followed until visibly met, then reported as stale; `/maintain` removes → [AGENTS.md](../../AGENTS.md#temporary-statements).
 - Delivery evidence is the versioned announce line opened by every session's first reply → child ticket, evidence decision.
-- `/spec` and `/verify` are the names for to-spec and review-impl → [parent ticket, selection table](../tickets/01-0010-dev-harness-shared-and-local.md#bootstrap-corpus-selection).
-- Five core changes are owed to later installs: impact recommends a shape, commit reads the switches, skill-up documents the tag, maintain enumerates it, ticket and plan call impact → [parent ticket](../tickets/01-0010-dev-harness-shared-and-local.md#core-changes-owed-by-later-installs).
+- `/spec` and `/verify` are the names for to-spec and review-impl → [parent ticket, selection table](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md#bootstrap-corpus-selection).
+- Five core changes are owed to later installs: impact recommends a shape, commit reads the switches, skill-up documents the tag, maintain enumerates it, ticket and plan call impact → [parent ticket](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md#core-changes-owed-by-later-installs).
 
 ## Open, with owners
 

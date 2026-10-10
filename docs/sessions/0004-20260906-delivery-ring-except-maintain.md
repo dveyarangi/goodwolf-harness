@@ -18,7 +18,7 @@ Installed the implementation mechanism ([01-0010.0050](../tickets/done/01-0010.0
 
 - How denoise and sync-arch compose into `/maintain`, and what the first live close covers → [01-0010.0070](../tickets/done/01-0010.0070-install-maintain.md). Align was not finished this session.
 - `/sync-arch` still named in `align/EDGE-FORMAT.md` (pre-existing `/edge` shelf) → 0070 or `/edge`.
-- Remaining selected corpus, `/edge` → parent. The pacer → [01-0020](../tickets/01-0020-pacer.md).
+- Remaining selected corpus, `/edge` → parent. The pacer → [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md).
 
 ## Session through the advise questions
 

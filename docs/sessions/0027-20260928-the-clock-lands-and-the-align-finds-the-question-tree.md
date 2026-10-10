@@ -13,7 +13,7 @@ arrival work: `.0060` → 01-0012 → 01-0014 → 01-0017 → `.0080` → 01-001
 the pacer. Two corrections on the record: the harness is used by one person now with teams soon,
 not a decision that it serves one person; and the order changes by the user's decision on four
 occasions — priorities, product requirements, an inconsistency found, a HITL resolution forcing
-a split — never mechanically ([01-0020](../tickets/01-0020-pacer.md)). `.0060` was released from
+a split — never mechanically ([01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md)). `.0060` was released from
 `.0120`, since dueness is `/maintain`'s own input at every close.
 [Rule failure 14](../rule-failures.md): `/recall` had ranked by its own criterion; it now reads
 the stated order and puts a reorder to the user when one of the four occasions has arisen.
@@ -29,7 +29,7 @@ check; the marks' format in the skill, [rule failure 15](../rule-failures.md) �
 is never found in a doc), implemented test-first (`maintain.py --check` and `--mark`, 319 tests),
 verified, and closed with the first maintenance under it: all four mechanisms never maintained,
 re-checked, marked current. Three recipient threads it opened are held on
-[01-0010](../tickets/01-0010-dev-harness-shared-and-local.md#a-recipients-own-maintenance--2026-09-27),
+[01-0010](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md#a-recipients-own-maintenance--2026-09-27),
 unminted.
 
 **01-0012's align became an inception.** It opened on *how is the hierarchy enforced?* and the

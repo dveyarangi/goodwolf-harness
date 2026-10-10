@@ -64,7 +64,7 @@ own line.
 - **Owned elsewhere, raised here**: the reply's `Entry contract:` announce line, which the user
   holds redundant — parked in [the queue](../tickets/README.md) with the entry-contract version
   question; how sessions share registrations beyond one directory — a store entry to be, owned by
-  [01-0010](../tickets/01-0010-dev-harness-shared-and-local.md); how an agent picks a
+  [01-0010](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md); how an agent picks a
   non-overlapping area — a store entry to be, no owner; whether an abstraction height can be
   established — a store entry to be, no owner.
 - **A thought the user had and lost** at the per-session turn — if it returns, it is a question

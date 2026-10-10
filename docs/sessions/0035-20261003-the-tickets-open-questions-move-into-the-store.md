@@ -52,4 +52,4 @@ GitHub.
   do the arguments of closed questions live, now that an entry holds its own?", the tickets'
   *Decisions landed* sections; q-0018.0017 above.
 - `docs/pacer.md` keeps an *Open issues* section of its own; it folds with
-  [01-0020 pacer](../tickets/01-0020-pacer.md)'s align.
+  [01-0020 pacer](../tickets/01-0020-each-turn-knows-its-next-step.md)'s align.

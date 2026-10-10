@@ -5,9 +5,9 @@
 - **Depends on:** [The shape is checked mechanically](./done/01-0011.0050-shape-checked.md) (a proven
   shape and a working check, so applying it to the rest is application rather than design);
   [01-0011.0060 mechanism-rechecked-when-governing-moves](./done/01-0011.0060-mechanism-rechecked-when-governing-moves.md);
-  [01-0014 scope-coherent](./01-0014-scope-coherent.md) (where a mechanism's boundary falls is a
+  [01-0014 scope-reads-the-same-everywhere](./01-0014-scope-reads-the-same-everywhere.md) (where a mechanism's boundary falls is a
   question of scope) *(the user, 2026-09-27)*
-- **Blocks:** [01-0016 responsibility-coherent](./01-0016-responsibility-coherent.md) — its outcome
+- **Blocks:** [01-0016 each-skill-owns-its-own-responsibility](./01-0016-each-skill-owns-its-own-responsibility.md) — its outcome
   reads what an installed mechanism asks of a skill, which needs the mechanisms declared
 - **Answers:** [q-0024](../questions/q-0024-who-produces-and-who-consumes-each-skill-and-document.md)
 - **Outcome:** Every mechanism in this tree is declared to the shape paired close proved, every
@@ -78,7 +78,7 @@ docs. Plus `AGENTS.md`, which would take **the first installed block any mechani
 tier 1**; every rules file today targets a `SKILL.md`.
 
 *Hidden edges.* The tier-1 line and the injected block may be one fact in two homes, which is
-[01-0018](./01-0018-reachability-coherent.md)'s unsettled rule and must not be settled here. Group
+[01-0018](./01-0018-rules-reach-the-occasion-they-are-for.md)'s unsettled rule and must not be settled here. Group
 targets now have three shapes wanting them and cannot resolve while nineteen skills belong to no
 mechanism, so the interim is explicit targets plus a new maintenance duty when a target skill
 appears. `AGENTS.md` has no installer, which makes
@@ -229,10 +229,10 @@ with it: record files changed since the last maintenance, due at N.
 
 ## Out of scope
 
-`/edge` and `docs/edge/` — [01-0010.0100](./01-0010.0100-remaining-named-corpus.md) owns the Edge
+`/edge` and `docs/edge/` — [01-0010.0100](./01-0010.0100-the-remaining-named-corpus-arrives.md) owns the Edge
 half, down to whether `/maintain`'s Edge-record check has records to check. What each skill *owns*
-is [01-0016](./01-0016-responsibility-coherent.md)'s; this is what each mechanism is made of.
-Whether a rule *arrives* at its occasion is [01-0018](./01-0018-reachability-coherent.md)'s.
+is [01-0016](./01-0016-each-skill-owns-its-own-responsibility.md)'s; this is what each mechanism is made of.
+Whether a rule *arrives* at its occasion is [01-0018](./01-0018-rules-reach-the-occasion-they-are-for.md)'s.
 Building the shape and proving it on one mechanism is
 [01-0011](../spec/01-0011-mechanism-shape.md)'s children; this applies what they proved.
 Relocating `docs/architecture.md`'s script contracts, which moves for a different reason.

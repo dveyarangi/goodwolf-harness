@@ -75,7 +75,7 @@ absorbing it. The skill is `/questions`, read mid-turn and invoked by a person.
 ## Continuation
 
 - **The queue's order is confirmed** *(the user, 2026-09-29)*: 01-0011.0100 and its slices, then
-  [01-0014](../tickets/01-0014-scope-coherent.md), then the rest of the chain, `.0080` folded
+  [01-0014](../tickets/01-0014-scope-reads-the-same-everywhere.md), then the rest of the chain, `.0080` folded
   into the branch slice. Landed in the delivery status.
 - **Next in the ring:** `/plan` on
   [01-0011.0100.0010](../tickets/done/01-0011.0100.0010-the-store-and-questions-writes-it.md), Ready,

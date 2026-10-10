@@ -110,5 +110,5 @@ instance does not make a kind.
   waits on this ticket's question only for its owner.
 - A judge inside the turn, for placing a message: q-0001.0016.0001.
 - Rewording a question: q-0001.0021.
-- What scope is, in one account: [01-0014](./01-0014-scope-coherent.md), a neighbour this
+- What scope is, in one account: [01-0014](./01-0014-scope-reads-the-same-everywhere.md), a neighbour this
   ticket's align reads.

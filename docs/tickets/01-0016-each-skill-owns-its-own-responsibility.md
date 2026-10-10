@@ -2,14 +2,14 @@
 
 - **Status:** Planned (hierarchy, scope and the mechanisms' declaration precede)
 - **Type:** HITL
-- **Depends on:** [Scope reads the same everywhere](./01-0014-scope-coherent.md) (settled
+- **Depends on:** [Scope reads the same everywhere](./01-0014-scope-reads-the-same-everywhere.md) (settled
   vocabulary for what a responsibility covers),
   [01-0011.0100 the-open-questions-are-kept-by-a-mechanism](./01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)
   (the store the coherence refactors onto, and the branch slice that carries `/impact`'s routing
   answer, which `.0080` folded into on 2026-09-28),
-  [01-0017 io-graph-coherent](./01-0017-io-graph-coherent.md) (the mechanisms declared, so what one
+  [01-0017 every-skill-and-document-has-named-producers-and-consumers](./01-0017-every-skill-and-document-has-named-producers-and-consumers.md) (the mechanisms declared, so what one
   asks of a skill can arrive installed) *(the user, 2026-09-27)*
-- **Blocks:** [Rules reach the occasion they are for](./01-0018-reachability-coherent.md)
+- **Blocks:** [Rules reach the occasion they are for](./01-0018-rules-reach-the-occasion-they-are-for.md)
 - **Answers:** [q-0023](../questions/q-0023-does-each-skill-state-only-what-it-owns.md)
 - **Outcome:** Every skill states only what it owns; what an installed mechanism asks of it arrives
   installed, and it names another skill only while that skill is on its way to a mechanism; a rule
@@ -61,7 +61,7 @@ and pointing at the owner; the resume instruction keeps its function without nam
 is the class of defect this ticket exists for, caught in a record rather than a skill.
 
 This ticket also hosts the canonical accounts that
-[01-0012](./done/01-0012-hierarchy-coherent.md) and [01-0014](./01-0014-scope-coherent.md) deliberately
+[01-0012](./done/01-0012-hierarchy-coherent.md) and [01-0014](./01-0014-scope-reads-the-same-everywhere.md) deliberately
 left unhosted.
 
 ## What to build
@@ -95,7 +95,7 @@ left unhosted.
   does not own arrive by injection, which is [.0020](./done/01-0011.0020-rules-one-home.md)'s. The
   question that remains is not the unit but the elected owner in each contested case.
 - Whether `docs/process.md` survives this pass as a rule home or becomes policy-only — its
-  `<temporary>` block already promises the sequence to [the pacer](./01-0020-pacer.md).
+  `<temporary>` block already promises the sequence to [the pacer](./01-0020-each-turn-knows-its-next-step.md).
 - Whether "update the glossary/architecture inline" is `/align`'s or `/maintain`'s.
 - **Which mechanism is responsible for straw dogs** *(raised 2026-09-08 at
   [01-0011.0070](./done/01-0011.0070-straw-dogs-marked-and-found.md)'s align, the user)*. The duty to
@@ -143,5 +143,5 @@ rather than an edit, and the drift a hand-move can introduce stops being possibl
 
 ## Out of scope
 
-Whether a rule *arrives* where it is needed — [reachability](./01-0018-reachability-coherent.md).
+Whether a rule *arrives* where it is needed — [reachability](./01-0018-rules-reach-the-occasion-they-are-for.md).
 Installing any skill.

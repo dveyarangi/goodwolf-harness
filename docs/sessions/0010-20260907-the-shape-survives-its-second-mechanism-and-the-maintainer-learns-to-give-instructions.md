@@ -58,9 +58,9 @@ All on the closed ticket unless named. The ones that reshaped more than this sli
   whether the shape changed because `/maintain` did not fit it or the declaration was bent;
   `.0025`'s session grades whether the doc received the installed block unrewritten.
 - **A skill structure with addressable rules, and an instruction-not-prose check** →
-  [01-0010.0100](../tickets/01-0010.0100-remaining-named-corpus.md), `/skill-up`'s owed change.
+  [01-0010.0100](../tickets/01-0010.0100-the-remaining-named-corpus-arrives.md), `/skill-up`'s owed change.
   `/maintain`'s body is the first instance; the second decides whether it generalises.
-- **Three findings on [01-0017](../tickets/01-0017-io-graph-coherent.md)**: a whole-tree link
+- **Three findings on [01-0017](../tickets/01-0017-every-skill-and-document-has-named-producers-and-consumers.md)**: a whole-tree link
   check; `/verify:38` and `/implement:38–40` naming rules or skills that are not theirs; and a
   mechanism doc's `not yet` rows linking specific tickets under `docs/`, which *Core and
   instance* may or may not exempt.

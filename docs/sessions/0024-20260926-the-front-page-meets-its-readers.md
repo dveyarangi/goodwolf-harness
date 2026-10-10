@@ -38,7 +38,7 @@ change your answer*; run clean-room, not yet achievable from a session.
 load, and the page says so; `/recall` reads what bears on the work in flight, as it already did;
 the loader links are made in each clone and never committed —
 [ADR-0003](../adr/0003-one-physical-home-for-skills-reached-by-link.md) amended; ceremony comes in
-three tiers, recorded on [01-0020](../tickets/01-0020-pacer.md).
+three tiers, recorded on [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md).
 
 **Minted:** [`.0125`](../tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md) the host
 blocking what a rule forbids; [`.0168`](../tickets/01-0010.0168-the-harness-measures-what-it-costs-and-saves.md)

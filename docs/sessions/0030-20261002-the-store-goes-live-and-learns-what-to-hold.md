@@ -14,7 +14,7 @@ v18); each host's hook wired: Claude Code, Codex, Cursor; `concerns.md` folded i
 first entries; `/align` cut to the interview. `/verify` checked four of seven boxes; `/maintain`
 marked every mechanism current. Claude Code is observed live — session start, the prompt hook,
 the one-line *unchanged* window — and recorded on
-[01-0010.0120](../tickets/01-0010.0120-host-delivery-surfaces.md).
+[01-0010.0120](../tickets/01-0010.0120-what-each-host-says-without-being-asked.md).
 
 **Decisions 43 to 55** on [01-0011.0100](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md),
 each with its provenance there: a closed question points to its answer; each host's hook delivers

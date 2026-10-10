@@ -3,7 +3,7 @@
 Skill bodies live once, under `.agents/skills/`. Each host reaches them through a directory symlink
 — `.claude/skills` and `.cursor/skills`; Codex reads `.agents/skills` natively. Decided 2026-09-05
 with the repository's root, in
-[01-0010](../tickets/01-0010-dev-harness-shared-and-local.md#resolutions-and-constraints).
+[01-0010](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md#resolutions-and-constraints).
 
 **Amended 2026-09-26: the links are made in each clone and never committed** *(the user)*. They were
 tracked as mode 120000 when nothing else could give a clone its links. Since 2026-09-21 the harness

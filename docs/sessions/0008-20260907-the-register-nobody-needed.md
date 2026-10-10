@@ -13,7 +13,7 @@ installed; this was written by hand at the user's request.
 - **The first dream committed**, from session seven.
 - **`/plan` on [01-0011.0010](../tickets/done/01-0011.0010-mechanism-declared.md)** — its
   [RFC](../rfc/done/01-0011.0010-mechanism-declared.md) written and then validated three times.
-- **[01-0010.0120](../tickets/01-0010.0120-host-delivery-surfaces.md) minted**: what each host can
+- **[01-0010.0120](../tickets/01-0010.0120-what-each-host-says-without-being-asked.md) minted**: what each host can
   place in front of an agent without being asked.
 - **`docs/process.md` measured section by section**, and `AGENTS.md`'s `Installed:` line deleted.
 - **[01-0010.0110](../tickets/done/01-0010.0110-project-facets-injected.md) gained dream language** as a
@@ -38,11 +38,11 @@ installed; this was written by hand at the user's request.
 ## Open, with owners
 
 - **Nothing runs the check at wake.** Patched into the verification set;
-  [01-0010.0120](../tickets/01-0010.0120-host-delivery-surfaces.md) owns whether better exists.
+  [01-0010.0120](../tickets/01-0010.0120-what-each-host-says-without-being-asked.md) owns whether better exists.
 - **`.0030`'s ratchet is *loud when it rises* with no channel to be loud on.** Recorded on that
   ticket, same owner.
 - **Named in the loop but not installed** — `/recall`, `/conclude`, `/edge` — is derivable and
-  nothing derives it. [01-0010.0100](../tickets/01-0010.0100-remaining-named-corpus.md)'s.
+  nothing derives it. [01-0010.0100](../tickets/01-0010.0100-the-remaining-named-corpus-arrives.md)'s.
 - **The spec described its own provenance wrongly** on two points, corrected: Life allows several
   instruction files, so our one-file rule is this project's tightening.
 

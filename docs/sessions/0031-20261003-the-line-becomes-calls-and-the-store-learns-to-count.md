@@ -54,7 +54,7 @@ the `debug=on` display was observed. Only Codex and Cursor live remain.
 
 - **`.0010` is Done**, every box checked after this record was first written. Codex and Cursor
   each tested themselves live and recorded the result on
-  [01-0010.0120](../tickets/01-0010.0120-host-delivery-surfaces.md).
+  [01-0010.0120](../tickets/01-0010.0120-what-each-host-says-without-being-asked.md).
   - **Codex** registers under its id and delivers the window.
   - **Cursor** did not register at first, and the box was ticked on an inference and reverted.
     Cursor's Hooks output channel then showed the cause: the hook ran, but read its input in the

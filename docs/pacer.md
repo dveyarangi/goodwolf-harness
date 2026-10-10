@@ -68,7 +68,7 @@ Different parts of one project can have different maturity. A new subsystem in a
 
 **Revised hypothesis for the next execution step:** one `/ticket` decomposition pass over this bootstrap milestone, using the existing audit and decisions. Produce a proposed set of bounded delivery tickets and identify the first ready ticket or its precise blocking decision. Reassess that output before moving to a `/plan` pass; do not combine corpus selection, rewriting, installation and three-host verification into this step.
 
-**Live progression, 2026-09-05:** a prerequisite source-selection `/align` pass was taken first on the existing HITL ticket and its [selection was accepted](tickets/01-0010-dev-harness-shared-and-local.md#bootstrap-corpus-selection). The following `/ticket` pass read the selected skill and format, assessed impact and produced [one proposed slice](tickets/01-0010-dev-harness-shared-and-local.md#first-bootstrap-delivery-ticket--proposed-breakdown): live alignment and impact assessment in all three hosts. Its granularity awaits user review; no child ticket or RFC has been created. The [queue](tickets/README.md) owns current delivery state.
+**Live progression, 2026-09-05:** a prerequisite source-selection `/align` pass was taken first on the existing HITL ticket and its [selection was accepted](tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md#bootstrap-corpus-selection). The following `/ticket` pass read the selected skill and format, assessed impact and produced [one proposed slice](tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md#first-bootstrap-delivery-ticket--proposed-breakdown): live alignment and impact assessment in all three hosts. Its granularity awaits user review; no child ticket or RFC has been created. The [queue](tickets/README.md) owns current delivery state.
 
 **Step evidence:** the proposed slices each have observable outcomes, dependencies and unresolved agreements; together they cover the bootstrap milestone without pretending unresolved design is settled. If the milestone cannot yet be sliced meaningfully, identify the specific missing agreement and return to `/align` rather than producing arbitrary implementation tasks.
 
@@ -86,4 +86,4 @@ Different parts of one project can have different maturity. A new subsystem in a
 
 ## Context
 
-[Harness spec](spec/01-0010-dev-harness-shared-and-local.md), [glossary](glossary.md), [development process](process.md), and [owning harness work](tickets/01-0010-dev-harness-shared-and-local.md).
+[Harness spec](spec/01-0010-a-shared-harness-improves-without-losing-project-conventions.md), [glossary](glossary.md), [development process](process.md), and [owning harness work](tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md).

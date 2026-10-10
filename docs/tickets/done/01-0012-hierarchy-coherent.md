@@ -13,14 +13,14 @@
 
 [AGENTS.md](../../../AGENTS.md), whose General rules and load-bearing section are where the concept
 surfaced, 2026-09-06. Not a child of
-[01-0010](../01-0010-dev-harness-shared-and-local.md): that ticket's contract is distributing a
+[01-0010](../01-0010-a-shared-harness-improves-without-losing-project-conventions.md): that ticket's contract is distributing a
 canonical harness across projects, and the coherence of the method's own concepts is a different
-contract — the same argument that kept [the pacer](../01-0020-pacer.md) out of it.
+contract — the same argument that kept [the pacer](../01-0020-each-turn-knows-its-next-step.md) out of it.
 
 **Closed as a landed decision, 2026-09-28** *(the user)*. The residues went to their owners: the
 height vocabulary sweep is a criterion of
 [01-0011.0100.0010](01-0011.0100.0010-the-store-and-questions-writes-it.md); *Unit of work —
-proposed* is [01-0020](../01-0020-pacer.md)'s; the entry file's load-bearing threshold and its
+proposed* is [01-0020](../01-0020-each-turn-knows-its-next-step.md)'s; the entry file's load-bearing threshold and its
 wrapped example are [01-0017.0020](../01-0017.0020-practice-swaps-in-one-edit.md)'s. The three
 `/discover` passes and the Life trace are research records, pointed at below. The sections that
 follow are the align as it ran, kept whole.
@@ -29,7 +29,7 @@ follow are the align as it ran, kept whole.
 
 **2026-09-06.** 33 hierarchy-flavoured statements across 9 files; heaviest in
 `ticket/SKILL.md` (12), `docs/glossary.md` (6), `align/SKILL.md` (5). Eight of those nine files also
-carry the scope statements owned by [01-0014](../01-0014-scope-coherent.md), so the two passes are
+carry the scope statements owned by [01-0014](../01-0014-scope-reads-the-same-everywhere.md), so the two passes are
 sequential, never parallel. Verdict: proceed.
 
 ## Why this exists
@@ -125,7 +125,7 @@ the docs first, load-bearing architecture only). The procedure exists at `/plan`
 
 **The moment is the turn, and it needs a state and an observer** *(the user, 2026-09-27)*. If
 the rule holds for every discussion and for the agent's autonomous work alike, its owner is the
-pacer, [01-0020](../01-0020-pacer.md), whose outcome is what a turn's reply is scoped to. The
+pacer, [01-0020](../01-0020-each-turn-knows-its-next-step.md), whose outcome is what a turn's reply is scoped to. The
 moments above were vague because two parts were missing. *State*: the current height must be
 declared constantly and held, or there is nothing to compare against. *An observer outside the
 generator*: the agent cannot watch its own tokens as it produces them, so a shift is detected only
@@ -145,7 +145,7 @@ model" — text in, a value from a schema declared in advance out, with a calibr
 message and the declared height, output the observed height and whether it shifted. What it needs
 from this ticket is height definitions crisp enough to be a schema; what it depends on is an
 external service and a place to run and speak from —
-[01-0010.0120](../01-0010.0120-host-delivery-surfaces.md)'s question. The moments still have to be
+[01-0010.0120](../01-0010.0120-what-each-host-says-without-being-asked.md)'s question. The moments still have to be
 defined for it to judge them.
 
 **An optional judge in the turn** *(the user, 2026-09-27; the pipeline as this align read it
@@ -396,7 +396,7 @@ resolutions in the owning ticket, beside P7 and P10. Straw dogs: the glossary ch
 update and `GLOSSARY-FORMAT.md` on [01-0017.0010](../01-0017.0010-terms-defined-before-they-land.md);
 good architecture, domain awareness, checking ADRs, updating architecture inline, offering ADRs,
 `ARCH-FORMAT.md` and `ADR-FORMAT.md` on [01-0017.0020](../01-0017.0020-practice-swaps-in-one-edit.md);
-the edge challenge and `EDGE-FORMAT.md` on [01-0010.0100](../01-0010.0100-remaining-named-corpus.md).
+the edge challenge and `EDGE-FORMAT.md` on [01-0010.0100](../01-0010.0100-the-remaining-named-corpus-arrives.md).
 **This align's reading, pending the user**: `/align` stripped to its act — open a question, split
 it, walk the branches with the user, close each by a recorded decision — is the act of the
 `questions` mechanism, so `/align` is its instruction file; a separate `align` mechanism would

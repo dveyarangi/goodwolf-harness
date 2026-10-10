@@ -15,7 +15,7 @@ first time. No delivery-ring slice was taken; the queue's candidate `.0050` is u
 - **The tests moved into `.agents/scripts/test/`** and ship with core, which makes core a directory
   again: `.agents/` plus two line-level parts in `AGENTS.md`.
 - **Entry contract v7 and v8**, and `docs/adr/` created on its first real need with four ADRs.
-- **One ticket minted**, [01-0010.0105](../tickets/01-0010.0105-backlog-five-arrive.md); three
+- **One ticket minted**, [01-0010.0105](../tickets/01-0010.0105-the-backlog-five-arrive-with-their-adaptations.md); three
   proposed were not, because the work already had owners.
 - **[The separation probe](../research/separation-probe-frost-map.md)** into `frost_map`, which
   holds its own findings and is the session's real output.
@@ -54,7 +54,7 @@ places. It is now one bullet. The tell each time is reaching for narrative where
 
 Two edits removed the queue's path from tier 1 — `/recall`'s pointer block and the entry file's
 opening block — each correct by `/maintain`'s E1, the sum removing the only copy a waking session
-would meet. On [01-0018](../tickets/01-0018-reachability-coherent.md) as its second observed
+would meet. On [01-0018](../tickets/01-0018-rules-reach-the-occasion-they-are-for.md) as its second observed
 instance, and the first anyone made while cleaning. It sharpens that ticket's existing question:
 whether a shared fact may be restated at tier 1 *because* it is needed there, which E1 reads as
 duplication.
@@ -62,7 +62,7 @@ duplication.
 ## Open, with owners
 
 - **A separation/deployment ticket does not exist.** Its constraints are on
-  [01-0010](../tickets/01-0010-dev-harness-shared-and-local.md)'s resolutions and its evidence in the
+  [01-0010](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md)'s resolutions and its evidence in the
   probe record; `breakdown=ask`, so minting waits for a nod.
 - **~~What an entry-contract version covers~~** — four sections sit outside the scope the record
   claims, evidenced: *Core and instance* landed 2026-09-07 between v3 and v4 with no entry. The user

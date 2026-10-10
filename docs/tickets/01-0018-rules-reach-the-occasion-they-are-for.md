@@ -2,9 +2,9 @@
 
 - **Status:** Planned (responsibility precedes)
 - **Type:** HITL
-- **Depends on:** [Each skill owns its own responsibility](./01-0016-responsibility-coherent.md)
+- **Depends on:** [Each skill owns its own responsibility](./01-0016-each-skill-owns-its-own-responsibility.md)
   (a rule must be correctly owned before its arrival can be checked)
-- **Related:** [01-0010.0120](./01-0010.0120-host-delivery-surfaces.md) — **surfaced 2026-09-07:**
+- **Related:** [01-0010.0120](./01-0010.0120-what-each-host-says-without-being-asked.md) — **surfaced 2026-09-07:**
   this ticket's *where it cannot be, the gap is named* assumes an answer about what the hosts can
   deliver that nobody has established. That ticket establishes it; this one decides what to do
   with the gaps that remain.
@@ -15,7 +15,7 @@
 ## Parent
 
 [AGENTS.md](../../AGENTS.md). Sibling of [01-0012](./done/01-0012-hierarchy-coherent.md),
-[01-0014](./01-0014-scope-coherent.md) and [01-0016](./01-0016-responsibility-coherent.md), the
+[01-0014](./01-0014-scope-reads-the-same-everywhere.md) and [01-0016](./01-0016-each-skill-owns-its-own-responsibility.md), the
 fourth rule refactor. All four now run after
 [the mechanism shape](../spec/01-0011-mechanism-shape.md).
 
@@ -113,4 +113,4 @@ restated at tier 1 precisely because it is needed there, which E1 currently read
 ## Out of scope
 
 Hierarchy, scope and responsibility. The pacer's session-resumption rules, which are
-[01-0020](./01-0020-pacer.md)'s even though they are also Tier 1.
+[01-0020](./01-0020-each-turn-knows-its-next-step.md)'s even though they are also Tier 1.

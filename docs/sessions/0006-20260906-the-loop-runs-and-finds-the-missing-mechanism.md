@@ -22,15 +22,15 @@ Wrote and accepted [the mechanism spec](../spec/01-0011-mechanism-shape.md), dec
 - Mechanism docs live at `.agents/mechanisms/<slug>/`, so they travel with the unit recipient projects actually receive → [the spec](../spec/01-0011-mechanism-shape.md).
 - **Archiving is not scope-limited.** A finished record in the active folder is a fact about the folder, not a judgment about work the pass did not examine → [`/maintain`](../../.agents/skills/maintain/SKILL.md).
 - `/discover` is installed because the user installed it; the audited source selection records what was taken from three estates and is not the roster of what is installed → [01-0010.0090](../tickets/done/01-0010.0090-install-discover.md).
-- `/mechanism` runs **before** the four rule refactors, because injection dissolves the question that stalled [01-0016](../tickets/01-0016-responsibility-coherent.md).
+- `/mechanism` runs **before** the four rule refactors, because injection dissolves the question that stalled [01-0016](../tickets/01-0016-each-skill-owns-its-own-responsibility.md).
 
 ## Open, with owners
 
 - Whether the queue's rendered table is committed. The spec's reasoning came from a tree with wake hooks this harness lacks, while [AGENTS.md](../../AGENTS.md) routes every session to the queue → [01-0011.0040](../tickets/01-0011.0040-queue-derived-index.md).
 - Nothing sweeps for archive eligibility. `/maintain` says archiving is tree-wide; the five were found by hand → [01-0011.0030](../tickets/done/01-0011.0030-archive-backlog-listed.md).
-- `docs/concerns.md` and `docs/adr/` do not exist while four skills transact against them → [01-0017](../tickets/01-0017-io-graph-coherent.md).
-- Two mechanisms keep their evidence records in different places; the process says each has one without saying where it lives → [01-0016](../tickets/01-0016-responsibility-coherent.md).
-- 66% of `docs/process.md` is rules belonging to a skill or a mechanism. Paired close's share leaves in [01-0011.0020](../tickets/done/01-0011.0020-rules-one-home.md); the rest waits for its own mechanisms and for [01-0020](../tickets/01-0020-pacer.md).
+- `docs/concerns.md` and `docs/adr/` do not exist while four skills transact against them → [01-0017](../tickets/01-0017-every-skill-and-document-has-named-producers-and-consumers.md).
+- Two mechanisms keep their evidence records in different places; the process says each has one without saying where it lives → [01-0016](../tickets/01-0016-each-skill-owns-its-own-responsibility.md).
+- 66% of `docs/process.md` is rules belonging to a skill or a mechanism. Paired close's share leaves in [01-0011.0020](../tickets/done/01-0011.0020-rules-one-home.md); the rest waits for its own mechanisms and for [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md).
 
 ## Session through the advise questions
 

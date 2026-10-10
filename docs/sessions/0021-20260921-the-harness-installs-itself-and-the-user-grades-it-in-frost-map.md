@@ -45,7 +45,7 @@ Details are on the records named; the mechanism's evidence holds what was refute
   states the flow, the README shrinks to a front page, the skill names the repository on the one
   line the script derives from and stamps into a recipient. Graded by a stranger tree.
 - **The tiering rule** at tier 1 (v15), hand-written and wrapped on
-  [01-0018](../tickets/01-0018-reachability-coherent.md) under R5: a skill's description is its
+  [01-0018](../tickets/01-0018-rules-reach-the-occasion-they-are-for.md) under R5: a skill's description is its
   tier-1 surface, every occasion and nothing else; every rule at the tier its occasion reads.
 - **The shape's evidence** records its fourth application: the harness passed the check
   unedited and sharpened one word — a part is what ships.
@@ -77,7 +77,7 @@ Details are on the records named; the mechanism's evidence holds what was refute
 - **`.0150`'s `/plan`** is the queue's candidate; first by the ordering rule, since it hands every
   later install into an existing estate its flow. `next-cycle=ask`.
 - **Whether the pacer still waits behind the four coherence refactors** —
-  [01-0020](../tickets/01-0020-pacer.md)'s, and the first thing to decide after the nod.
+  [01-0020](../tickets/01-0020-each-turn-knows-its-next-step.md)'s, and the first thing to decide after the nod.
 - **01-0018 owes the tiering rule a rules file and an owner**, and carries the `/maintain` skill
   pass — holding bodies to `/skill-up`'s rules and descriptions to the tiering rule — as a handed
   input no mechanism instructs yet.

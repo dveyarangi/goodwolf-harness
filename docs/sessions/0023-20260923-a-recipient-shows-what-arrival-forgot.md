@@ -15,7 +15,7 @@ second, and the entry file's own rule about not generalising from one shape is w
 align necessary rather than optional.
 
 That align landed nine decisions on
-[01-0010](../tickets/01-0010-dev-harness-shared-and-local.md#arrival-to-ready--2026-09-23) and
+[01-0010](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md#arrival-to-ready--2026-09-23) and
 minted four slices. A second `/ticket` pass decomposed
 [01-0010.0160](../tickets/01-0010.0160-harness-edge-changes-reach-an-update.md) into three.
 Then two slices went the whole ring — `/plan`, `/implement`, `/verify` — and landed:

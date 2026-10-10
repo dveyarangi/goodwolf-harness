@@ -9,7 +9,7 @@ Ran `/align` on [01-0011.0010](../tickets/done/01-0011.0010-mechanism-declared.m
 
 Ran `/ticket` on the re-slice, with `/impact` returning **narrow** and changing two things before presentation. Five children became seven; two mechanisms that had no slice got one.
 
-Four skills arrived mid-session — `/advise`, `/celebrate`, `/commit`, `/skill-up` — brought in by the user as-is, ahead of [01-0010.0100](../tickets/01-0010.0100-remaining-named-corpus.md)'s align. `/dream` followed. Registered rather than absorbed: that ticket is now `Partial` and lists what each still owes.
+Four skills arrived mid-session — `/advise`, `/celebrate`, `/commit`, `/skill-up` — brought in by the user as-is, ahead of [01-0010.0100](../tickets/01-0010.0100-the-remaining-named-corpus-arrives.md)'s align. `/dream` followed. Registered rather than absorbed: that ticket is now `Partial` and lists what each still owes.
 
 Five commits, `abf7e77` through this session's last.
 
@@ -29,10 +29,10 @@ Five commits, `abf7e77` through this session's last.
 ## Open, with owners
 
 - Whether a `<project-local>` block may ever override rather than answer, and how a new project's facts reach the skills that need them → [01-0010.0110](../tickets/done/01-0010.0110-project-facets-injected.md), which takes the *local overrides* issue the queue had carried as deferred since inception.
-- Where repair-and-report lives. Re-counted this session: **three skills touch it, two restate it** — not the five I claimed. The evidence now points at `/verify` → [01-0016](../tickets/01-0016-responsibility-coherent.md).
+- Where repair-and-report lives. Re-counted this session: **three skills touch it, two restate it** — not the five I claimed. The evidence now points at `/verify` → [01-0016](../tickets/01-0016-each-skill-owns-its-own-responsibility.md).
 - Whether the queue's rendered table is committed → [01-0011.0040](../tickets/01-0011.0040-queue-derived-index.md), unchanged.
 - Four references from core into this project's own documents, which the new rule makes violations → their owning tickets.
-- `/advise`, `/celebrate`, `/commit`, `/skill-up`: none used once here, `/commit` still carries its own absolute permission rule, `/skill-up` documents neither `<temporary>` nor `<project-local>`, `/edge` has not arrived → [01-0010.0100](../tickets/01-0010.0100-remaining-named-corpus.md).
+- `/advise`, `/celebrate`, `/commit`, `/skill-up`: none used once here, `/commit` still carries its own absolute permission rule, `/skill-up` documents neither `<temporary>` nor `<project-local>`, `/edge` has not arrived → [01-0010.0100](../tickets/01-0010.0100-the-remaining-named-corpus-arrives.md).
 
 ## Session through the advise questions
 

@@ -33,7 +33,7 @@ if it tried.
 
 The general case is open and is **not settled here**: what core may lean on at all — a travelling
 counterpart, a local block, or an accepted limit stated out loud — is
-[01-0017](../tickets/01-0017-io-graph-coherent.md)'s align to weigh. This ADR records the rule and
+[01-0017](../tickets/01-0017-every-skill-and-document-has-named-producers-and-consumers.md)'s align to weigh. This ADR records the rule and
 its two exemptions, not the answer to that question. The live instances of the tension —
 `/verify`'s three links to `docs/process.md`, and the `not yet` rows linking tickets because the
 format required a link — ended on 2026-09-20 under
