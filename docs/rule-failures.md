@@ -22,7 +22,9 @@ Whether this register and its rules become their own mechanism is
 **Rules in play:** the next-cycle switch at v72, *the reply puts the next step as a ⚖️ row and
 says nothing of why it waits*; the ⚖️ rule, *what waits on the user's decision*.
 
-**What happened.** A reply closing 01-0011.0110.0080's plan validation ended *the next step —
+**What happened.** A reply closing
+[01-0011.0110.0080 a-doc-is-due-when-its-parts-move](tickets/01-0011.0110.0080-a-doc-is-due-when-its-parts-move.md)'s
+plan validation ended *the next step —
 /implement by the RFC's three stages* in prose, and stopped. The user: *why is the next step not
 in the decisions box?*
 
