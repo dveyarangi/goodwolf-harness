@@ -63,18 +63,22 @@ only what no record in this tree carries.
 ## L3 — the verification set
 
 - **target** `.agents/skills/verify/SKILL.md`
-- **authority** the user, 2026-09-05
+- **authority** the user, 2026-09-05; the tests by what changed, 2026-10-11
 
 <rule>
-The verification set:
+The verification set: the checks always; the tests too when the work changed a file that is not
+markdown, the question store's own writes aside.
 
 ```
-uv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/test -p "test_*.py"
 uv run --offline --no-project python .agents/scripts/gw/mechanisms.py --check
 uv run --offline --no-project python .agents/scripts/gw/inject_rules.py --check
 uv run --offline --no-project python .agents/scripts/gw/tickets.py --check
 uv run --offline --no-project python .agents/scripts/gw/edges.py --check
 uv run --offline --no-project python .agents/scripts/gw/maintain.py --check
 uv run --offline --no-project python .agents/scripts/gw/questions.py --check
+```
+
+```
+uv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/test -p "test_*.py"
 ```
 </rule>
