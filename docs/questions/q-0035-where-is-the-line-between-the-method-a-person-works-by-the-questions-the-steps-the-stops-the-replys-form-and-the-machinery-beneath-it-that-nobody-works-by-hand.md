@@ -4,3 +4,81 @@
 - **state** open
 - **lean** the user, 2026-10-11: which question the work is on, the steps of the method and nearly every rule on the reply's form are the product — what the person works by; the trouble is that everything else the harness says describes the layer beneath, its machinery — scripts, checks, gates, the installer's report, injection, the manifest — which the person never touches by hand, and an agent reading it speaks it; not a debug switch on the reply
 - **struck** 0, last 2026-10-11T11:14Z
+
+Opened 2026-10-11 from two first installs into `research-harness` the same day (q-0031.0001,
+q-0018.0020.0010): the installing agent reported gates, `arrived: true`, the verification set, the
+injector and a session registry, and asked whether to commit; after the install skill gained an
+introduction, it introduced itself as a list of mechanisms — 13 sentences of what it did, 0 of what
+the person gets, by its own count. Each repair proposed here named scripts. First read as a debug
+mode of the reply against a user mode; the user: *no — which question we stand on, the steps and
+nearly every rule on the reply's form are the product; the trouble is that everything else
+describes the still more technical part.*
+
+## The inventory, 2026-10-11
+
+The test per line: does the person work by it by hand, and would they say the word. Shares are
+counted by lines and rough.
+
+**The entry file** — read by every session of every project. Machinery, about 50 of 263 lines:
+
+- the announce line and *open your first reply with it* — evidence the host read the file;
+- *A capable reader*, *Tier is paid by every session* — rules for whoever writes the harness's
+  text, needed only when authoring an instruction;
+- in the reply's form, 🕯️ *a harness error* and 無 — the builder's diagnostics; the `debug=on`
+  gate itself is undecided;
+- in Q1, the script, its calls and *never a helper*; the classification of the turn is method;
+- *Core and instance* whole — painted doors, the leak rule, the wrapper stripped on install;
+  meaningful only in the origin;
+- in *Document load-bearing*, the line sending a mechanism's decision to its doc and evidence;
+- in *Self-improvement*, `/mechanism` and `/skill-up` as the means; the register and the
+  rewording are method, and the front page sells them;
+- in R7, the local block, its order after every mechanism's block, the re-install; the
+  person's one file kept through updates is method;
+- in *Straw dogs*, authored against installed home, the wrapper sheared, the body standing
+  alone; the provisional text bound to its question, the *not yet* signal and *follow until due*
+  are method.
+
+Method, the rest: `/recall` first, the general rules, the reply's form, P9, Q5, the four kinds
+of record, the load-bearing test, the loop, the switches and `repair=report`'s conditions.
+
+**The skills** — read when invoked; the person reads them only in what the agent says.
+
+| skill | share | the machinery |
+|---|---|---|
+| mechanism | all | by definition; and its text sews the layers: *a mechanism is part of how the work gets done — the development method and its machinery*; its description opens *Method is mechanism work* |
+| harness | ~⅘ | the repository line, the four commands, *What a run does*, the refusals, `inject_rules.py`, the checks' names; method: what the person does at a refusal, their local file, the stop at the commit, the introduction |
+| maintain | ~⅗ | A1–A4 and `maintain.py --check`, B4, T1–T3 `straw_dogs.py`, R1–R4, P2–P3 `move_doc.py`, P5, Q4, E1, F4 `--mark`, the marks; method: hold the records in agreement, archive, one home per fact, judge, the report |
+| questions | ~½ | the calls and their table, the sessions file and the silent row, *the id is the place*, renames, `struck`; method: look it up first, who settles, where to open, outgrown words, a missing parent, closing, branching, dropping; an entry's body |
+| skill-up | ~⅓ | frontmatter, the appendix files, the installed block, merging a corpus, R6/R8; method: how to write an instruction, which a person does for their own skills |
+| verify | ~¼ | the set *installed here as the local block*, R7 again, L3, `straw_dogs.py --guess` |
+| recall | ~¼ | Q2: the hook, `--wake --session`, registration; P12 `tickets.py --list` |
+| conclude, align, plan, ticket, implement, impact | a few lines | Q3's calls; R5 and E3's marks; *which the mover turns to*; `--list`, `assign`; L3 and *the store's own writes aside*; *maintained mechanically (`/mechanism`)* |
+| edge | method | a project's edges; `edges.py --check` one line; used here for the harness's hosts, which are machinery |
+| commit, spec, tdd, discover, improve-comments, review-architecture, setup-devops, dream, advise, celebrate | method | none |
+
+Descriptions at tier 1 that speak machinery: mechanism (*installed block*, *rules file*),
+maintain (*meta-rules*, *straw dog*), questions (*the store's other calls*). Shelves: TICKET-FORMAT
+method with `move_doc.py` and `tickets.py --check` inside it; EDGE-, GLOSSARY-, ARCH-, ADR-FORMAT
+and review-architecture's REFERENCE method; MECHANISM-FORMAT, MARKS-FORMAT, STORE-ARRIVAL
+machinery; QUEUE-ARRIVAL a method text on a machinery shelf; discover's EVIDENCE the doc's why.
+The mechanism docs, the scripts and the hooks are machinery and ship whole.
+
+## What it shows
+
+1. The layers are sewn together in the harness's definition of itself: `/mechanism` names a
+   mechanism *the development method and its machinery* at once. Drawing the line rewrites that
+   sentence first.
+2. Machinery at tier 1 that only the origin needs — *Core and instance*, the two authoring
+   rules, Q1's calls, the install mechanics in *Straw dogs* and R7 — is paid by every session of
+   every recipient.
+3. The machinery lives in four skills and their descriptions; elsewhere it enters as installed
+   blocks carrying a script call.
+4. The agent speaks to the person from exactly those skills — `/harness` at an install,
+   `/maintain` in its report, `/recall` through Q2 — which is how the machinery reaches them.
+5. `/mechanism`'s *Three homes* already gives the machinery a home, the mechanism's doc, read
+   *when installing, amending or debugging*; but it leaves the skill *every rule read in the work
+   it governs*, and a script's call is read in the work. The border this suggests: the skill
+   holds the act in the method's words and the bare call; the doc holds how it is built.
+   *What a run does* and the sessions file's semantics are description.
+
+By volume a spec: the entry file, four skills, the definition, and likely one rule on speech.
