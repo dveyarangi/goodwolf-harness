@@ -56,8 +56,9 @@ the stamped line is the evidence a person reads.
 Every refusal writes nothing and names its step.
 
 - **A link the platform refused to create** is not a refusal: everything else landed, and the
-  report's `pending` lines are the exact commands. Present them to the person verbatim, to run
-  once in an elevated prompt, then run `--links`, which confirms each resolves without a source.
+  report's `pending` lines are the exact commands. Present those for the hosts the person works
+  in, verbatim, to run once in an elevated prompt; once they say they have, run `--links`
+  yourself — it confirms each resolves without a source, and is never asked of the person.
 - **A folder that is not a Git repository**: empty, the install runs `git init` there first and
   says so in its notes — every script of core reads a tree through Git, so a target is a
   repository. Holding files of its own, it is refused with the step: where the root goes is the
@@ -103,7 +104,10 @@ commit, as it decides any other.
 
 The person asked for a method to work by, not for files. Before asking anything, introduce it in
 their language, in a few lines: who you now are to them, what you will do for them, and where you
-stop for their yes. Ask each answer with the reason a project would choose it. The harness's checks
+stop for their yes. Ask each answer with the reason a project would choose it, in their terms —
+*commit on my own once the checks pass, or ask each time* — never as a switch's name and values;
+the origin's own answers, read in its clone, are not this project's and are offered as no default.
+The harness's checks
 are two kinds: those of the records the method keeps — `tickets.py`, `questions.py`, `edges.py`,
 `maintain.py` — serve every project that works by it; those of core itself — `mechanisms.py`,
 `inject_rules.py` — serve a project that means to change the harness. End with the first question the work asks. What was copied, gated and registered stays in the
