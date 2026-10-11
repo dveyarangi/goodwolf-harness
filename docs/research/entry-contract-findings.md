@@ -15,6 +15,17 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v75 — 2026-10-11
+
+**Ask about the class** replaces *one shape is not a class*: where there is reason to think the
+work will need a shape generalized, the agent asks the person before writing it narrow; a seam is
+preserved either way. The old principle — generalize only when a second shape forces it — kept
+rules written to the one case in view, and the person caught the class each time: v72's next step
+hung on one switch and reached by v74, P9 reaching questions only by a second rule. The user: *I
+do not like this principle, it fails us time after time*; of a draft keeping *do not generalize on
+your own* and adding a proposal: *no — the opposite: when there are reasons to think
+generalization will be needed, ask the user.* `/plan`'s copy of the old principle goes with it.
+
 ## v74 — 2026-10-11
 
 **Any next step the reply stops before is a decision** — v72's sentence leaves the next-cycle row
