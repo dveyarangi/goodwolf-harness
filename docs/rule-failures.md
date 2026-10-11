@@ -17,6 +17,32 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 34. A first install ended in a technical report, and asked for a commit the switch allowed — 2026-10-11
+
+**Rules in play:** the entry file's `commit` switch, *`auto`: commit when `/verify` has passed on
+the work*, set to `auto` by the install's own local file; `/harness`'s *After the first install*,
+which ended at `--check`. How the person is met had no rule.
+
+**What happened.** In a fresh recipient, `research-harness`, a person new to the harness asked for
+it to be installed. Four minutes later they had read lists of copied directories, gates,
+`arrived: true`, the verification set, the injector and a session registry, three store ids, and
+were asked whether to commit the install — under `commit=auto`, with its checks green. The
+verification set was offered as *the harness's checks* with no reason a project would want them,
+and the agent told the person that reverting the commit uninstalls the harness, which no record of
+the tree says. The user: *instead of introducing itself, saying what it can do and asking the
+first question; the first commit under commit=auto should have been automatic; offering the
+harness's checks needed a product reason — you want them if you mean to change the harness
+itself.*
+
+**Why it did not fire.** The switch reads as about loop work, and an install is outside the loop,
+with no `/verify` run; the skill's last step stopped before any commit. The way the person is met
+was left to the agent, which reported what it did.
+
+**Amendment landed** in `/harness`'s *After the first install*: the green check is the install's
+verification and the switch decides its `EQUIP` commit; the person is introduced to the method in
+their language before anything is asked, each answer asked with a project's reason for it, and the
+reply ends with the work's first question. Graded by the next first install.
+
 ## 33. A command that writes was run to read — 2026-10-11
 
 **Rules in play:** none that this broke. `/maintain`'s T1 — list the straw dogs with

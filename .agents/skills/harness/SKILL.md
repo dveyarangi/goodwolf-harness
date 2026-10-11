@@ -96,6 +96,15 @@ format the entry file's *Project-local* section describes, from the environment 
 project's facts for the entry file, its autonomy switches, and its verification set — its
 typechecker, its tests, every command required of landed work, read off its own toolchain; a project without one has an
 empty set, and its local file says so. Then `inject_rules.py local --install`, and `--check`.
+That check is the install's verification: the `commit` switch just written decides its `EQUIP`
+commit, as it decides any other.
+
+The person asked for a method to work by, not for files. Before asking anything, introduce it in
+their language, in a few lines: who you now are to them, what you will do for them, and where you
+stop for their yes. Ask each answer with the reason a project would choose it — the harness's own
+checks in the verification set, for one, serve a project that means to change the harness itself.
+End with the first question the work asks. What was copied, gated and registered stays in the
+files and the commit, said on request.
 
 `uv run --offline --no-project python` is the harness's own habit; the scripts need only the
 standard library, so a bare `python` works.
