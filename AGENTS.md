@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v76, 2026-10-11.
+Entry contract: v77, 2026-10-11.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -35,6 +35,13 @@ nothing about being load-bearing — an implementation method is a shape too. �
 
 <straw-dog question="q-0025.0002">
 - **Tier is paid by every session.** A skill's description is its tier-1 surface: name there every use case the skill serves, and nothing else — never its method or how it is built. Write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session.
+</straw-dog>
+
+<straw-dog question="q-0024.0012">
+**A reply speaks the method:** which question the work is on, the step, what is decided, what is
+next, where it stops, what it needs from the person. It names no script, call, check, report,
+record's internals or hook, and never retells a report: an outcome is one sentence, a failure is
+what the person does. Under `debug=on` the machinery is shown as well.
 </straw-dog>
 
 <straw-dog question="q-0023.0021">

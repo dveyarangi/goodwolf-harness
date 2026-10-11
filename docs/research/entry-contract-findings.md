@@ -15,6 +15,18 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v77 — 2026-10-11
+
+**A reply speaks the method.** One paragraph before the reply's form, a straw dog bound to
+q-0024.0012: a reply says which question the work is on, the step, what is decided, what is next,
+where it stops and what it needs from the person; it names no script, call, check, report,
+record's internals or hook, and never retells a report; under `debug=on` the machinery is shown as
+well. From two first installs the same day that reported gates and scripts to a person meeting
+the harness: the line between the method a person works by and the machinery beneath it runs
+inside a skill, whose instructions keep every call they need, so it is drawn in what the reply
+says. `debug` thereby gains a second meaning, the machinery shown; whether the lamps and tables
+stay under it is q-0030's. The user, 2026-10-11.
+
 ## v76 — 2026-10-11
 
 **Generalize or ask** replaces v75's *ask about the class*: where there is a load-bearing reason to
