@@ -393,35 +393,25 @@ class TheShear(unittest.TestCase):
 
 
 class TheFrontPage(unittest.TestCase):
-    """The front page is the origin's document, not core text: its links point back to the
-    origin at the shipped ref, and the leak rule does not read it."""
+    """The front page is the origin's document, not core text: it ships as written, a straw dog
+    sheared like any shipped page, its links the origin's, and the leak rule does not read it."""
 
     REF = harness.Ref("goodwolf-harness", "0123abc" * 5 + "01234", "v1", "2026-10-11")
     TEXT = (
         "# Front\n\n"
         "The table: [peers](docs/research/peers.md); the rules: [AGENTS.md](AGENTS.md).\n"
-        "![steps](dev-skills-readme.png) Elsewhere: [docs](https://example.org/x) and [top](#front).\n"
-        "In a span `[not](docs/a.md)` and a fence:\n\n```\n[not](docs/b.md)\n```\n"
+        '<straw-dog question="q-0001">Not yet.</straw-dog>\n'
     )
 
-    def test_relative_links_point_back_at_the_origin_and_the_picture_beside_it_stays(self) -> None:
+    def test_ships_as_written_with_its_links_and_refuses_nothing(self) -> None:
         shipped = harness.shipped(
             harness.INSTALLED_FRONT_PAGE, self.TEXT, self.REF, "https://github.com/o/goodwolf-harness.git"
         )
 
-        base = f"https://github.com/o/goodwolf-harness/blob/{self.REF.commit}/"
-        self.assertIn(f"[peers]({base}docs/research/peers.md)", shipped)
-        self.assertIn(f"[AGENTS.md]({base}AGENTS.md)", shipped)
-        self.assertIn("![steps](dev-skills-readme.png)", shipped)
-        self.assertIn("[docs](https://example.org/x)", shipped)
-        self.assertIn("[top](#front)", shipped)
-        self.assertIn("`[not](docs/a.md)`", shipped)
-        self.assertIn("```\n[not](docs/b.md)\n```", shipped)
-
-    def test_a_source_on_disk_leaves_the_links_as_written_and_refuses_nothing(self) -> None:
-        shipped = harness.shipped(harness.INSTALLED_FRONT_PAGE, self.TEXT, self.REF, "/clones/goodwolf-harness")
-
         self.assertIn("[peers](docs/research/peers.md)", shipped)
+        self.assertIn("[AGENTS.md](AGENTS.md)", shipped)
+        self.assertNotIn("<straw-dog", shipped)
+        self.assertIn("Not yet.", shipped)
 
 
 class TheLocalBlockStrip(unittest.TestCase):

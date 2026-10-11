@@ -10,9 +10,8 @@ Core reaches a tree from a fresh clone of its repository at a ref and never from
 so what a recipient holds is what a commit holds. The manifest is everything under the core
 directory plus the entry file, the host stub, the license, and the front page with its picture
 beside the harness skill — what an installing agent introduces the harness from, the origin's own
-document rather than core text, so its relative links point back at the origin at the shipped
-ref and the leak rule does not read it, a binary file shipping as its bytes; the project's local
-file is never
+document rather than core text, shipped as written with its links the origin's, which the leak
+rule does not read, a binary file shipping as its bytes; the project's local file is never
 in it, which is what lets a redeploy overwrite core's content and nothing of the project's. What ships is
 transformed before a byte is written: the origin's local blocks removed, every straw-dog wrapper
 and every `TODO`'s question binding sheared with the content kept, the announce line stamped, and

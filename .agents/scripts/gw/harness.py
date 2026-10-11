@@ -447,9 +447,9 @@ def shipped(path: str, text: str, ref: Ref, told: str, held: bool = True) -> str
             text = stamped(text, ref)
         if path == HARNESS_SKILL and (held or REPOSITORY.search(text)):
             text = repository_stamped(text, ref, told)
-        if path == INSTALLED_FRONT_PAGE:
-            text = front_page_shipped(text, ref, told)
-        elif held:
+        # The front page is the origin's own document, not core text: it ships as written, its
+        # links the origin's, and the leak rule does not read it.
+        if held and path != INSTALLED_FRONT_PAGE:
             _refuse_leaks(path, [seen.path for seen in docs_mentioned(Path("."), path, text) if not seen.instance_owned])
     elif path.endswith(".py"):
         text = todo_bindings_sheared(text)
@@ -459,32 +459,6 @@ def shipped(path: str, text: str, ref: Ref, told: str, held: bool = True) -> str
             except UnreadableCode as error:
                 raise Refused(f"ship: {path} could not be read for citations — {error}") from error
     return text
-
-
-_LINK = re.compile(r"(!?\[[^\]]*\]\()([^)\s]+)(\))")
-_LINK_LEFT_ALONE = ("http://", "https://", "mailto:", "#", "/")
-
-
-def front_page_shipped(text: str, ref: Ref, told: str) -> str:
-    """The front page as a recipient receives it: the origin's own document, not core text, so
-    the leak rule does not read it and its relative links point back at the origin at the shipped
-    ref — a reader follows them instead of meeting a path the tree does not hold. The picture,
-    shipped beside it, stays relative; a link drawn in a code span or a fence is an illustration
-    and stays as written. A source on disk has no page to point at, and every link stays."""
-    if not told.startswith(("http://", "https://")):
-        return text
-    base = (told[:-4] if told.endswith(".git") else told).rstrip("/") + f"/blob/{ref.commit}/"
-    pieces: list[str] = []
-    last = 0
-    for link in _LINK.finditer(without_code(text)):
-        target = link.group(2)
-        if target.startswith(_LINK_LEFT_ALONE) or target == PICTURE:
-            continue
-        pieces.append(text[last : link.start(2)])
-        pieces.append(base + target)
-        last = link.end(2)
-    pieces.append(text[last:])
-    return "".join(pieces)
 
 
 def without_local_blocks(path: str, text: str) -> str:
