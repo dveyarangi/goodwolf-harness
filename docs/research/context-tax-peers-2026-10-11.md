@@ -1,7 +1,8 @@
 # Context tax of peer harnesses, as of 2026-10-11
 
 **Kind:** evidence — a dated measurement. What a session pays in context before the person's
-first message, in a freshly installed project under Claude Code, for this harness and seven peers.
+first message, in a freshly installed project under Claude Code, for this harness and seven peers;
+and, [below](#per-step), what each step of the work makes the agent read.
 
 **Method.** Tokens are characters ÷ 4. *Always-loaded instructions* is the CLAUDE.md or AGENTS.md
 text the tool installs, plus whatever its session-start hook injects. *Descriptions* is the
@@ -45,3 +46,66 @@ is about 4,000 tokens; in this repository, with its own installed blocks and loc
 The user asked for this comparison on 2026-10-11, for the front page's cost paragraph. The
 figures were gathered by a delegated agent from the repositories named; nothing was taken from a
 tool's own claims except where the table says so.
+
+## Per step
+
+The user asked for this the same day, after the session-start table. Same clones, same commits,
+same ÷4 convention.
+
+**Method.** The step unit is this harness's ring — align, recall, ticket, plan, implement, verify,
+commit — and each peer's commands are mapped onto it; the mapping is a judgement, and one peer
+command may cover several steps. A cell is the fixed text the method makes the agent read at that
+step: the command's body loaded at invocation, plus the tool's own shipped files the body makes
+it read — templates, checklists, workflows, sub-skills marked required — one level down, and a
+loaded workflow's own mandatory includes. Conditional reads are left out of the sums. Project-sized
+records — the spec, the plan, the state file, the code — are not counted. What a step hands to a
+subagent is counted nowhere.
+
+Each cell: body + shipped reads = total. `—` is a step the tool has no command for.
+
+| tool | align | recall | ticket | plan | implement | verify | commit | ticket → commit |
+|---|---|---|---|---|---|---|---|---|
+| **this harness** | 2,390 + 420 = **2,810** | **1,040** | 1,770 + 3,000 = **4,770** | 1,730 + 1,580 = **3,310** | 680 + 2,980 = **3,660** | 1,530 + 3,080 = **4,610** | **550** | **≈16,900** |
+| **GSD Core** | 1,495 + 14,265 = **15,760** | 175 + 5,440 = **5,615** | — (inside plan-phase) | 1,270 + 34,000 = **35,270** | 805 + 34,050 = **34,855** | 365 + 14,180 = **14,545** | — (per task, inside execute) | **≈84,670** |
+| **BMAD-METHOD** | 4,160 + 605 = **4,765** | 630 + 475 = **1,105** | 2,500 + 5,305 = **7,805** | 420 + 6,600 = **7,020** | **910** (same build invocation) | **3,040** (same) | **285** (same) | **≈19,060** |
+| **superpowers** | 2,520 + 220 = **2,740** | — | — (inside writing-plans) | **2,585** | 5,100 + 6,165 = **11,265** | **910** | **1,945** | **≈16,705** |
+| **spec-kit** | **4,875** (clarify) | — | 6,275 (specify) + 5,150 (tasks) = **11,425** | 2,010 + 945 = **2,955** | **3,195** | **2,940** (analyze, before implementing) | — | **≈20,515** |
+| **OpenSpec** | **5,700** (explore) | — | 4,060 + 4,640 = **8,700** (propose; covers plan) | — (in propose) | 2,790 + 50 = **2,840** | **4,585** | — (archive ≈4,140, no git commit) | **≈16,125** |
+| **Matt Pocock's skills** | 40 + 520 = **560** (grill-me) | — | **1,480** (to-tickets) | **780** (to-spec) | 160 + 1,875 = **2,035** | **1,690** (code-review) | — | **≈5,985** |
+| **beads** | — | ≈1,400 (the session-start hook) | **1,215** (the skill, where installed) | — | — | — | — | **≈1,215** |
+
+**Per message.** No peer injects anything unconditionally before each message; GSD's tool-call
+guards add ≈60 tokens only on a finding. This harness's hook injects the question window: a line
+of ≈90 tokens when the session's position has not moved, the window redrawn — ≈4,430 in this
+repository today, growing with the store — when it has. At session start and after a compaction
+the wake report is ≈7,680 here today.
+
+**Project-sized records the steps read.** This harness: the ticket, RFC, architecture, ADRs,
+glossary, edge records and the question store. GSD: PROJECT, REQUIREMENTS, ROADMAP, STATE,
+CONTEXT, RESEARCH, PLAN, SUMMARY, VERIFICATION and the codebase map. BMAD: the initiative's
+ticket tree, plans, the spec kernel and persistent facts. superpowers: the design doc, the plan
+and the progress ledger. spec-kit: the constitution, spec, plan, tasks, research, data model and
+contracts. OpenSpec: the change's proposal, specs, design and tasks, and the main specs. Pocock:
+the tracker doc, glossary, ADRs and coding standards. beads: the issue graph and stored memories.
+
+### Reading it
+
+- Per ring this harness is in the middle: ≈16,900 tokens of the method's own text from ticket to
+  commit, beside superpowers, OpenSpec, BMAD and spec-kit at 16,000–20,500. Pocock's skills are a
+  third of that; GSD is five times it, its workflows alone 22,000–24,000 a step.
+- So the morning's gap — two to ten times heavier before the first message — is mostly where the
+  text is paid, not how much: this harness pays the rules up front so that they bind every turn,
+  the peers pay inside each command. Over one ring the difference shrinks to the entry file,
+  ≈4,400, carried through every step.
+- The cost no peer has is the window before each message: small while the work stays on one
+  question, ≈4,400 each time it moves, and growing with the store. With every injected token
+  re-read on each later model call, it is the item to watch.
+- A static count is the text, not the tax. The tax is steps times context length (see
+  [the first measures](measures-2026-10-11/REPORT.md)), and how many steps a method makes for the
+  same work is not read here. GSD hands its heaviest work to subagents, whose contexts this
+  counts nowhere.
+
+**Caveats.** Each figure ±10%: whole files, ÷4, keys counted with values; spec-kit's placeholders
+and BMAD's rendered step files move a cell a few percent. This harness's step bodies carry its own
+installed blocks and local rules, larger than a fresh install's; the peers were measured from
+source, without what their installers write into a project.

@@ -129,7 +129,11 @@ Before you install, know this:
   beads, measured the same way ([the table](docs/research/context-tax-peers-2026-10-11.md)).
   The difference is in kind: they load skill descriptions and pay inside each command when its
   body loads; this loads the method's rules themselves, so they bind every turn whether or not
-  you invoke anything. In this repository, after a month of daily use, a session reads about
+  you invoke anything. Per step it is in the middle: carrying a ticket through plan, build,
+  verify and commit reads about 17,000 tokens of the method's own text, against 16,000–20,500
+  for superpowers, OpenSpec, BMAD and spec-kit, 6,000 for Matt Pocock's skills and 85,000 for GSD.
+  What no peer has is the question window before each message: a line while the work stays on
+  one question, about 4,400 tokens in this repository each time it moves. In this repository, after a month of daily use, a session reads about
   22,000 before your first message: about 4,400 of rules and skill descriptions, 2,700 of status
   report, and <straw-dog question="q-0024.0009">15,000 of work queue, most of it a history log that is being moved out of it</straw-dog>.
 
