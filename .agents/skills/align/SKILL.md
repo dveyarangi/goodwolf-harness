@@ -153,8 +153,6 @@ words, each of its terms explained, before the necessity gate or any question.
 an early line may still assert what a later resolution changed.
 </installed>
 
-<straw-dog question="q-0024.0002.0005">
-
 <installed by="questions">
 **Q6** Land a decision as it is made, with its provenance: final in its durable home where no open
 question's answer can change its form or home, otherwise as a straw dog bound to the nearest open
@@ -163,6 +161,8 @@ the `## Decisions` list of the lowest question holding everyone who needs it, an
 `→ <link>` when it lands. Close the question it answers against where it landed, and when a line
 lands, repoint every entry closed against its list there.
 </installed>
+
+<straw-dog question="q-0024.0002.0005">
 ### Offer ADRs sparingly
 
 Only offer to create an ADR when all three are true:
