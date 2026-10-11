@@ -1,3 +1,4 @@
+# Mechanism: maintain
 """Which mechanisms are due for a re-check, from marks only a maintenance writes.
 
     uv run --offline --no-project python .agents/scripts/gw/maintain.py --check

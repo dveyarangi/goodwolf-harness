@@ -1,3 +1,4 @@
+# Mechanism: mechanism-shape
 """Installing a mechanism's rules into skills, its own included, and taking them out again."""
 
 from __future__ import annotations

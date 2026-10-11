@@ -1,3 +1,4 @@
+# Mechanism: mechanism-shape
 """Reading a mechanism's declaration, and saying whether it is true."""
 
 from __future__ import annotations
@@ -15,7 +16,12 @@ SLUG = "sample-shape"
 MECHANISMS = ".agents/mechanisms"
 DOC = f"{MECHANISMS}/{SLUG}/{SLUG}.md"
 INSTRUCTION = ".agents/skills/sample/SKILL.md"
+SCRIPT = ".agents/scripts/gw/sample.py"
 TRIGGER = "is sample work: use"
+# A part an agent edits names its mechanism on its first line: a skill past its frontmatter, code as
+# a comment after any shebang (the user, 2026-10-11).
+NAMED_SKILL = f"Mechanism: {SLUG}\n\n# Sample\n"
+NAMED_SCRIPT = f'# Mechanism: {SLUG}\n"""The sample\'s script."""\n'
 
 MOMENTS = (
     "| moment | instructed by | kind, and why |\n"
@@ -34,6 +40,7 @@ PARTS = (
     "| part | where |\n"
     "|---|---|\n"
     f"| instruction file | `{INSTRUCTION}` |\n"
+    f"| the script | `{SCRIPT}` |\n"
     f'| trigger | `AGENTS.md` → "{TRIGGER}" |\n'
 )
 RELIED_ON = (
@@ -48,7 +55,8 @@ class Declared(RepositoryCase):
 
     def setUp(self) -> None:
         super().setUp()
-        self.write(INSTRUCTION, "# Sample\n")
+        self.write(INSTRUCTION, NAMED_SKILL)
+        self.write(SCRIPT, NAMED_SCRIPT)
         self.write("AGENTS.md", f"- Doing it {TRIGGER} /sample.\n")
         self.write(".agents/scripts/docs_corpus.py", "# shared\n")
         self.write("docs/tickets/01-0002-sweep.md", "# Sweep\n")
@@ -112,7 +120,7 @@ class AWellFormedDeclaration(Declared):
         self.assertEqual(INSTRUCTION, declared.instruction)
         self.assertEqual("always on", declared.state)
         self.assertEqual(2, len(declared.moments))
-        self.assertEqual(2, len(declared.parts))
+        self.assertEqual(3, len(declared.parts))
         self.assertEqual(1, len(declared.relied_on))
         self.assertIsNone(declared.rules)
         not_yet = declared.moments[1]
@@ -124,7 +132,7 @@ class ANamedPart(Declared):
         self.write(
             DOC,
             self.doc(
-                parts="| part | where |\n|---|---|\n| a script | `.agents/scripts/nowhere.py` |\n"
+                parts=PARTS + "| a script | `.agents/scripts/nowhere.py` |\n"
             ),
         )
 
@@ -137,7 +145,7 @@ class ANamedPart(Declared):
         self.write(
             DOC,
             self.doc(
-                parts='| part | where |\n|---|---|\n| trigger | `AGENTS.md` → "reworded away" |\n'
+                parts=PARTS.replace(TRIGGER, "reworded away")
             ),
         )
 
@@ -228,10 +236,11 @@ class TheInstruction(Declared):
 
         problems = [note.problem for note in self.checked().diagnostics]
 
-        # The declaration names no skill, so the sample skill is unclaimed too: two findings, one cause.
+        # The declaration names no skill, so the sample skill names a mechanism that does not name
+        # it: two findings, one cause.
         self.assertEqual(2, len(problems))
         self.assertIn("the doc", problems[0])
-        self.assertIn("claims nothing", problems[1])
+        self.assertIn("whose declaration does not name it", problems[1])
 
     def test_is_required(self) -> None:
         self.write(DOC, self.doc(header=self.header("- **state** always on\n")))
@@ -240,7 +249,7 @@ class TheInstruction(Declared):
 
         self.assertEqual(2, len(problems))
         self.assertIn("instruction", problems[0])
-        self.assertIn("claims nothing", problems[1])
+        self.assertIn("whose declaration does not name it", problems[1])
 
     def test_must_resolve(self) -> None:
         self.write(
@@ -251,7 +260,7 @@ class TheInstruction(Declared):
 
         self.assertEqual(2, len(problems))
         self.assertIn(".agents/skills/gone/SKILL.md", problems[0])
-        self.assertIn("claims nothing", problems[1])
+        self.assertIn("whose declaration does not name it", problems[1])
 
 
 class AMomentsRow(Declared):
@@ -664,7 +673,7 @@ class TheReversePass(Declared):
         self.assertEqual(([], "not yet", SWEEPING, "q-0002"),
                          (stray.named_by, stray.claim.kind, stray.claim.why, stray.claim.referent))
         sample = next(skill for skill in checked.skills if skill.directory == ".agents/skills/sample/")
-        self.assertEqual(([SLUG], None), (sample.named_by, sample.claim))
+        self.assertEqual(([SLUG], None, SLUG), (sample.named_by, sample.claim.kind, sample.claim.why))
 
     def test_the_claim_is_read_past_the_frontmatter_and_without_one(self) -> None:
         self.write(STRAY, CLAIMING)
@@ -681,12 +690,14 @@ class TheReversePass(Declared):
 
     def test_a_skill_two_declarations_name_is_reported_with_both(self) -> None:
         other = f"{MECHANISMS}/other-shape/other-shape.md"
-        self.write(other, self.doc().replace(SLUG, "other-shape", 1))
+        self.write(other, self.doc(parts=PARTS.replace(f"| the script | `{SCRIPT}` |\n", "")).replace(SLUG, "other-shape", 1))
 
         problems = self.problems()
 
-        self.assertEqual(1, len(problems))
+        # The skill names one of the two, so the other's naming check reports it as well.
+        self.assertEqual(2, len(problems))
         self.assertIn("named by other-shape and sample-shape", problems[0])
+        self.assertIn(f"{INSTRUCTION} names {SLUG}", problems[1])
 
     def test_a_claim_pointing_at_an_owner_is_not_a_claim(self) -> None:
         self.write(STRAY, FRONTMATTER + f"Mechanism: elsewhere — `{INSTRUCTION}` owns it\n")
@@ -708,6 +719,76 @@ class TheReversePass(Declared):
         self.write(STRAY, FRONTMATTER + "Mechanism: unowned by design — a one-off nobody relies on\n")
 
         self.assertEqual([], self.checked().diagnostics)
+
+    def test_a_skill_naming_a_mechanism_whose_declaration_does_not_name_it_is_reported(self) -> None:
+        self.write(STRAY, FRONTMATTER + f"Mechanism: {SLUG}\n")
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems))
+        self.assertIn(f"names {SLUG}, whose declaration does not name it", problems[0])
+
+
+class APartNamesItsMechanism(Declared):
+    """Every skill, script, test and hook a mechanism owns opens with `Mechanism: <slug>`, so an agent
+    editing it meets the doc that governs it; the check holds the line to the parts table both ways
+    (the user, 2026-10-11)."""
+
+    def test_a_named_skill_and_an_owned_script_opening_with_the_slug_pass(self) -> None:
+        self.assertEqual([], self.problems())
+
+    def test_a_named_skill_opening_with_no_line_is_reported(self) -> None:
+        self.write(INSTRUCTION, "# Sample\n")
+
+        self.assertEqual([f"{INSTRUCTION} names no mechanism"], self.problems())
+
+    def test_a_named_skill_opening_with_another_slug_is_reported(self) -> None:
+        self.write(INSTRUCTION, "Mechanism: other-shape\n\n# Sample\n")
+
+        self.assertEqual([f"{INSTRUCTION} names other-shape"], self.problems())
+
+    def test_the_skill_s_line_is_read_past_its_frontmatter(self) -> None:
+        self.write(INSTRUCTION, FRONTMATTER + NAMED_SKILL)
+
+        self.assertEqual([], self.problems())
+
+    def test_an_owned_script_opening_with_no_line_is_reported(self) -> None:
+        self.write(SCRIPT, '"""The sample\'s script."""\n')
+
+        self.assertEqual([f"{SCRIPT} names no mechanism"], self.problems())
+
+    def test_an_owned_script_naming_another_mechanism_is_reported_from_both_sides(self) -> None:
+        self.write(SCRIPT, '# Mechanism: other-shape\n"""The sample\'s script."""\n')
+
+        self.assertEqual(
+            sorted([f"{SCRIPT} names other-shape", f"{SCRIPT} names other-shape, whose parts do not list it"]),
+            sorted(self.problems()),
+        )
+
+    def test_a_shebang_comes_first_and_the_line_after_it(self) -> None:
+        hook = ".agents/scripts/gw/hook.sh"
+        self.write(DOC, self.doc(parts=PARTS + f"| the hook | `{hook}` |\n"))
+        self.write(hook, f"#!/bin/sh\n# Mechanism: {SLUG}\nexit 0\n")
+
+        self.assertEqual([], self.problems())
+
+    def test_a_script_no_mechanism_lists_naming_one_is_reported(self) -> None:
+        stray = ".agents/scripts/gw/stray.py"
+        self.write(stray, f"# Mechanism: {SLUG}\n")
+
+        self.assertEqual([f"{stray} names {SLUG}, whose parts do not list it"], self.problems())
+
+    def test_a_script_no_mechanism_lists_and_naming_none_is_not_this_check_s(self) -> None:
+        self.write(".agents/scripts/gw/stray.py", '"""Nobody\'s."""\n')
+
+        self.assertEqual([], self.problems())
+
+    def test_a_part_outside_the_scripts_and_not_the_skill_carries_no_line(self) -> None:
+        shelf = ".agents/skills/sample/SAMPLE-FORMAT.md"
+        self.write(DOC, self.doc(parts=PARTS + f"| format shelf | `{shelf}` |\n"))
+        self.write(shelf, "# Sample format\n")
+
+        self.assertEqual([], self.problems())
 
 
 DOCUMENT = "docs/tickets/01-0001-sample.md"

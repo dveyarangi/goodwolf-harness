@@ -1,3 +1,4 @@
+# Mechanism: questions
 """The open questions of the tree, kept in one store, and whether the store keeps its shape.
 
     uv run --offline --no-project python .agents/scripts/gw/questions.py --check

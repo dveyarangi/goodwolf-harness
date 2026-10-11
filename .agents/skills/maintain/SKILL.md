@@ -8,6 +8,8 @@ description: >-
   not maintained.
 ---
 
+Mechanism: maintain
+
 One pass over a declared scope. The scope decides which rules apply.
 
 ## Hold

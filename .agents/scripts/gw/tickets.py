@@ -1,3 +1,4 @@
+# Mechanism: ticket
 """What each live ticket declares in its header, and whether the record keeps its declared shape.
 
     uv run --offline --no-project python .agents/scripts/gw/tickets.py --check

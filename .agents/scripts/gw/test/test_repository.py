@@ -1,3 +1,4 @@
+# Mechanism: mechanism-shape
 """The test base itself: a case that is not marked as proving a process cannot start one, and
 the scripts' Git listing it answers from the folder never outlives the case."""
 

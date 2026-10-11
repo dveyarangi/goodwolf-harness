@@ -6,6 +6,8 @@ description: >-
   project's own answers yet.
 ---
 
+Mechanism: harness
+
 The source is always the repository, cloned fresh at a ref; a working tree is never read. Where
 that repository is, this tree says once:
 

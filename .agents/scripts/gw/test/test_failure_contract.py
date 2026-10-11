@@ -1,3 +1,4 @@
+# Mechanism: ticket
 """What a close does when it cannot finish: stop, say what happened, and change nothing further."""
 
 from __future__ import annotations

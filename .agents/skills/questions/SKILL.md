@@ -3,6 +3,8 @@ name: questions
 description: See where the work stands among the open questions, or re-parent, merge or prune questions by hand. Read mid-turn for the store's other calls, and before closing, branching or dropping a question.
 ---
 
+Mechanism: questions
+
 # The open questions
 
 Every open question of this tree is one file in `docs/questions/`; the current question of each

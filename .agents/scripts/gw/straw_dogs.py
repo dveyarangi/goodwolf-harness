@@ -1,3 +1,4 @@
+# Mechanism: maintain
 """The straw dogs — provisional text bound to the question whose answer will rewrite it — and the
 one edit that retires one.
 

@@ -66,17 +66,19 @@ mechanism is undeclared, write the rule by hand and wrap it as a straw dog bound
 of what the mechanism owns, as you write it.
 </rule>
 
-## R6 — a skill is claimed or listed
+## R6 — a part names its mechanism
 
 - **target** `.agents/skills/skill-up/SKILL.md`
 - **target** `.agents/skills/mechanism/SKILL.md`
 - **authority** the user, 2026-09-08; the binding a question, 2026-10-04; one owner, not one skill,
-  2026-10-10
+  2026-10-10; every part naming its mechanism, 2026-10-11
 
 <rule>
-A skill is an instruction file of exactly one mechanism, or says so on its first body line: `Mechanism:`
-then `not yet`, wrapped as a straw dog bound to the question of what the skill owns, or
-`unowned by design` with its reason. Write the line as you add the skill; no list holds it.
+A skill is an instruction file of exactly one mechanism and opens its body with
+`Mechanism: <slug>`. A skill no mechanism names opens it with `Mechanism:` then `not yet`,
+wrapped as a straw dog bound to the question of what the skill owns, or `unowned by design` with
+its reason. A script, test or hook a mechanism owns opens with `# Mechanism: <slug>`, after a
+shebang where there is one. Write the line as you add the file; no list holds it.
 </rule>
 
 ## R7 — a project's answers live in its local file

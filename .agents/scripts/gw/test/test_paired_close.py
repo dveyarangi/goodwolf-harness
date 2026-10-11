@@ -1,3 +1,4 @@
+# Mechanism: ticket
 """The paired close: two records move together and every citation still points at a record."""
 
 from __future__ import annotations

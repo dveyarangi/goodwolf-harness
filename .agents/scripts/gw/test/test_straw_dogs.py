@@ -1,3 +1,4 @@
+# Mechanism: maintain
 """Listing the straw dogs, guessing where an unwrapped one stands, and taking out the ones that expired."""
 
 from __future__ import annotations

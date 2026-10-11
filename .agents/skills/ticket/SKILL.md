@@ -6,6 +6,8 @@ description: >-
   without one.
 ---
 
+Mechanism: ticket
+
 # Decompose into tickets
 
 Break a parent work into independently-grabbable tickets using vertical slices

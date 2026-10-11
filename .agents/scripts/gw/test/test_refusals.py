@@ -1,3 +1,4 @@
+# Mechanism: ticket
 """Preflight: why a selection must not happen at all, and the proof that nothing moved."""
 
 from __future__ import annotations

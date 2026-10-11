@@ -1,3 +1,4 @@
+# Mechanism: mechanism-shape
 """What the repository's records are, and where their citations point.
 
 The maintenance scripts share one view of the tree: every file Git speaks for, and the markdown

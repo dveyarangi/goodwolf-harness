@@ -1,3 +1,4 @@
+# Mechanism: ticket
 """Mechanical record mover — `/ticket`'s paired close, run from `/maintain`'s pass.
 
     uv run --offline --no-project python .agents/scripts/gw/move_doc.py SRC DST [SRC DST ...]

@@ -1,3 +1,4 @@
+# Mechanism: edge
 """Whether each live edge record and its sidecars keep the edge format's shape.
 
     uv run --offline --no-project python .agents/scripts/gw/edges.py --check

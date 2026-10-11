@@ -48,9 +48,11 @@ Port body changes, fixing defects as you port; leave every appendix file and ins
 ## Installed from other mechanisms
 
 <installed by="mechanism-shape">
-**R6** A skill is an instruction file of exactly one mechanism, or says so on its first body line: `Mechanism:`
-then `not yet`, wrapped as a straw dog bound to the question of what the skill owns, or
-`unowned by design` with its reason. Write the line as you add the skill; no list holds it.
+**R6** A skill is an instruction file of exactly one mechanism and opens its body with
+`Mechanism: <slug>`. A skill no mechanism names opens it with `Mechanism:` then `not yet`,
+wrapped as a straw dog bound to the question of what the skill owns, or `unowned by design` with
+its reason. A script, test or hook a mechanism owns opens with `# Mechanism: <slug>`, after a
+shebang where there is one. Write the line as you add the file; no list holds it.
 
 **R8** Name no skill of a mechanism whose state is `installed` in another skill's own text: what it asks
 of that skill reaches it as an installed block from its rules file.

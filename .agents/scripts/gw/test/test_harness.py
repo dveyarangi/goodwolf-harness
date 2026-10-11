@@ -1,3 +1,4 @@
+# Mechanism: harness
 """Placing a ref of the repository into a tree that is not its own, updating it, and checking it."""
 
 from __future__ import annotations
@@ -23,6 +24,8 @@ import mechanisms
 import questions
 
 KEEPER = ".agents/skills/keeper/SKILL.md"
+# The keeper is the sample mechanism's instruction file, so its body opens by naming it.
+KEEPER_NAMES = "Mechanism: sample\n\n"
 HARNESS_SKILL = ".agents/skills/harness/SKILL.md"
 TICKET_SKILL = ".agents/skills/ticket/SKILL.md"
 QUEUE_ARRIVAL = ".agents/skills/ticket/QUEUE-ARRIVAL.md"
@@ -66,6 +69,13 @@ FIXTURE_WIRING = {
 
 def shelf_path(host_file: str) -> str:
     return f"{questions.HOOKS}{host_file}"
+
+
+def without_mechanism_line(text: str) -> str:
+    """A core script as a tree that does not declare its mechanism would hold it: the first line
+    naming that mechanism taken out, the rest as written."""
+    first, _, rest = text.partition("\n")
+    return rest if first.startswith("# Mechanism:") else text
 
 
 HARNESS_SKILL_TEXT = (
@@ -290,7 +300,7 @@ class TwoTrees(RepositoryCase):
                 path.unlink()
 
     def seed_source(self) -> None:
-        self.write(KEEPER, "---\nname: keeper\ndescription: keeps\n---\n\n# Keeper\n\nKeep things.\n")
+        self.write(KEEPER, f"---\nname: keeper\ndescription: keeps\n---\n\n{KEEPER_NAMES}# Keeper\n\nKeep things.\n")
         self.write(HARNESS_SKILL, HARNESS_SKILL_TEXT)
         self.write(TICKET_SKILL, TICKET_SKILL_TEXT)
         self.write(QUEUE_ARRIVAL, QUEUE_ARRIVAL_TEXT)
@@ -307,7 +317,9 @@ class TwoTrees(RepositoryCase):
             # A real gate runs these copies as its children; an in-memory one runs the loaded
             # modules, so a line naming the script stands in and nothing tokenizes the live code.
             if self._proves_a_process():
-                text = script.read_text(encoding="utf-8")
+                # This fixture's core declares only sample, so a script's line naming the
+                # mechanism that owns it in core would name one declared nowhere here.
+                text = without_mechanism_line(script.read_text(encoding="utf-8"))
             else:
                 text = f"# {script.name}: the gate runs the loaded module in its place\n"
             self.write(f".agents/scripts/gw/{script.name}", text)
@@ -833,7 +845,7 @@ class ARefusal(TwoTrees):
     def test_a_docs_link_inside_a_straw_dog_at_the_ref_cannot_ship(self) -> None:
         self.write(
             KEEPER,
-            "# Keeper\n\n"
+            f"{KEEPER_NAMES}# Keeper\n\n"
             f'<straw-dog question="q-0002">\nSee [the sweep](../../../{TICKET}).\n</straw-dog>\n',
         )
         self.commit("a leak")
@@ -981,7 +993,7 @@ class TheRealPath(TwoTrees):
         self.assertEqual(1, status)
         self.assertEqual([KEEPER], report["gates"]["ref"]["differs"])
 
-        self.write(KEEPER, "# Keeper\n\nKeep more things.\n")
+        self.write(KEEPER, f"{KEEPER_NAMES}# Keeper\n\nKeep more things.\n")
         self.commit("core moved")
         status, report = self.run_harness("--update", "--overwrite")
 
@@ -1008,7 +1020,7 @@ class AnUpdate(TwoTrees):
             handle.write(text)
 
     def test_leaves_the_local_file_byte_identical_and_restores_its_block_last(self) -> None:
-        self.write(KEEPER, "# Keeper\n\nKeep more things.\n")
+        self.write(KEEPER, f"{KEEPER_NAMES}# Keeper\n\nKeep more things.\n")
         self.commit("core moved")
 
         status, report = self.run_harness("--update")
@@ -1023,7 +1035,7 @@ class AnUpdate(TwoTrees):
         self.assertTrue(report["gates"]["injector"]["passed"], report["gates"]["injector"])
 
     def test_reports_written_only_the_files_that_changed(self) -> None:
-        self.write(KEEPER, "# Keeper\n\nKeep more things.\n")
+        self.write(KEEPER, f"{KEEPER_NAMES}# Keeper\n\nKeep more things.\n")
         self.commit("core moved")
 
         status, report = self.run_harness("--update")

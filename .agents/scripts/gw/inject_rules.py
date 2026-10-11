@@ -1,3 +1,4 @@
+# Mechanism: mechanism-shape
 """A mechanism's rules reach other skills as installed blocks, from the one file that holds them.
 
     uv run --offline --no-project python .agents/scripts/gw/inject_rules.py <slug> --install [--overwrite]

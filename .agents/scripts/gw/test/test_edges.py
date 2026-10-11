@@ -1,3 +1,4 @@
+# Mechanism: edge
 """Reading a live edge record and its sidecars, and saying whether each keeps the format's shape."""
 
 from __future__ import annotations

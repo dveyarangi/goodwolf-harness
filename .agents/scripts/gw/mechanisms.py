@@ -1,3 +1,4 @@
+# Mechanism: mechanism-shape
 """What each mechanism declares itself to be made of, and whether the declaration is true.
 
     uv run --offline --no-project python .agents/scripts/gw/mechanisms.py --check
@@ -6,7 +7,9 @@
 `--check` reads every declaration under `.agents/mechanisms/` and reports its parts, its moments
 and what does not hold; then it asks the reverse question — is every installed skill named by a
 declaration, or does it say on its own first line that none does yet — and reports each skill
-with who claims it; then it holds core to citing only what its mechanisms declare — every path
+with who claims it; then it holds every skill, script, test and hook a mechanism owns to naming
+that mechanism on its first line, and no script to naming one whose parts omit it, per the
+format's *A part's claim*; then it holds core to citing only what its mechanisms declare — every path
 under `docs/` a core file names is a painted door, is skipped inside an instance-owned block, or
 is a leak that fails the run, per AGENTS.md § Core and instance. In a recipient — a tree whose
 entry file announces `<repository>@<ref>` — a `not yet` with no binding is upstream's gap, since
@@ -42,6 +45,8 @@ from docs_corpus import (  # noqa: E402  (path set just above)
 
 MECHANISMS = ".agents/mechanisms"
 SKILLS = ".agents/skills"
+# Where a mechanism's code lives, every file of it naming its mechanism on its first line.
+SCRIPTS_ROOT = ".agents/scripts/"
 CORE = ".agents/"
 ENTRY_FILE = "AGENTS.md"
 TESTS = SCRIPTS + "test/"
@@ -320,6 +325,7 @@ def check(root: Path) -> Checked:
         diagnostics += _problems(root, one, (root / one.doc).read_text(encoding="utf-8"), recipient, held)
     skills = _skills(root, declared, held)
     diagnostics += _skill_problems(root, skills, recipient, held)
+    diagnostics += _naming_problems(root, declared, skills)
     cites, unreadable = _core_cites(root)
     diagnostics += unreadable + _leaks(cites) + _retired_tags(root)
     return Checked(declared, skills, cites, diagnostics)
@@ -725,7 +731,14 @@ def _skill_problems(
                 notes.append(Diagnostic(where, "no mechanism names it and it claims nothing"))
             continue
         if skill.named_by:
-            notes.append(Diagnostic(where, f"named by {', '.join(skill.named_by)} and claims {skill.claim.kind}"))
+            # A named skill's line names its mechanism, held by the parts' naming check; only a
+            # line saying nothing owns it is a second claim.
+            if skill.claim.kind is not None:
+                notes.append(Diagnostic(where, f"named by {', '.join(skill.named_by)} and claims {skill.claim.kind}"))
+            continue
+        if skill.claim.kind is None:
+            notes.append(Diagnostic(where, f"names {skill.claim.why}, whose declaration does not name it"))
+            continue
         if skill.claim.kind is not None and skill.claim.kind not in CLAIM_KINDS:
             notes.append(Diagnostic(where, f"claims {skill.claim.kind}; a claim says nothing owns the skill"))
             continue
@@ -733,6 +746,68 @@ def _skill_problems(
         claimed = Moment(f"{CLAIM} line", None, claim.kind, claim.why, claim.referent)
         notes += _absence_problems(root, where, claimed, recipient, held)
     return notes
+
+
+def _naming_problems(root: Path, declared: list[Declaration], skills: list[Skill]) -> list[Diagnostic]:
+    """Every skill, script, test and hook a mechanism owns names it on its first line, so an agent
+    editing the file meets the doc that governs it; and no script names a mechanism whose parts
+    omit it (the user, 2026-10-11). A part that does not resolve is the parts check's to report."""
+    notes = []
+    lines = {f"{skill.directory}SKILL.md": skill.claim for skill in skills}
+    owners: dict[str, str] = {}
+    for one in declared:
+        for carrier in _carriers(one):
+            owners[carrier] = one.slug
+            if not (root / carrier).is_file():
+                continue
+            if carrier in lines:
+                claim = lines[carrier]
+                if claim is not None and claim.kind is not None:
+                    continue  # a named skill saying nothing owns it is a second claim, reported as one
+                named = claim.why if claim else None
+            else:
+                named = _named_in_code(root / carrier)
+            if named != one.slug:
+                problem = f"{carrier} names {named}" if named else f"{carrier} names no mechanism"
+                notes.append(Diagnostic(one.slug, problem))
+    for code in _code_files(root):
+        named = _named_in_code(root / code)
+        if named and owners.get(code) != named:
+            notes.append(Diagnostic(code, f"{code} names {named}, whose parts do not list it"))
+    return notes
+
+
+def _carriers(declared: Declaration) -> list[str]:
+    """The parts that name their mechanism: its instruction file, and its parts under the scripts.
+    The doc and rules file sit in the mechanism's own directory and a shelf beside its skill, so
+    their place already says whose they are."""
+    instruction = declared.instruction or ""
+    carriers = [instruction] if instruction.startswith(SKILLS) and instruction.endswith("/SKILL.md") else []
+    carriers += [part.where for part in declared.parts if part.where.startswith(SCRIPTS_ROOT)]
+    return list(dict.fromkeys(carriers))
+
+
+def _code_files(root: Path) -> list[str]:
+    home = root / SCRIPTS_ROOT
+    if not home.is_dir():
+        return []
+    return sorted(
+        path.relative_to(root).as_posix()
+        for path in home.rglob("*")
+        if path.is_file() and "__pycache__" not in path.parts
+    )
+
+
+def _named_in_code(path: Path) -> str | None:
+    """The mechanism a code file names on its first line, a comment after any shebang."""
+    lines = path.read_bytes().decode("utf-8", errors="replace").splitlines()
+    if lines and lines[0].startswith("#!"):
+        lines = lines[1:]
+    first = lines[0].strip() if lines else ""
+    label = f"# {CLAIM}"
+    if not first.startswith(label):
+        return None
+    return first[len(label) :].strip() or None
 
 
 def _row_problems(slug: str, moment: Moment) -> list[Diagnostic]:

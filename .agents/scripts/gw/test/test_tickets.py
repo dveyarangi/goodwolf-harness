@@ -1,3 +1,4 @@
+# Mechanism: ticket
 """Reading a live ticket's header and sections, and saying whether the record keeps its shape."""
 
 from __future__ import annotations

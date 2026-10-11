@@ -1,3 +1,4 @@
+# Mechanism: mechanism-shape
 """A disposable tree the maintenance scripts can be exercised against, never this one.
 
 A case builds a real repository only when Git, or a child process, is what it proves, and says so

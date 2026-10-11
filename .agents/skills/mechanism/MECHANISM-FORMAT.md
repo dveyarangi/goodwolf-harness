@@ -245,18 +245,40 @@ rule with no check behind them.
 - Prose, the taxonomy's correctness, and whether a moment should exist are judgment. A
   script records them and rules on none of them.
 
-## A skill's claim
+## A part's claim
 
-A skill no declaration names says so itself, on the first body line of its `SKILL.md`, after
-the frontmatter:
+A file an agent edits says which mechanism's doc governs it, on its first line, so the agent
+meets the doc where it works. The files that carry it are a mechanism's instruction file and
+every part of its *Install adds, uninstall removes* table under `.agents/scripts/` — its
+scripts, tests and hook. The doc and the rules file sit in the mechanism's own directory and a
+shelf beside its skill, so their place already says whose they are; a file whose format holds
+no comment carries none.
+
+A skill a declaration names opens its body, after the frontmatter, with that mechanism's slug:
+
+```md
+Mechanism: ticket
+```
+
+Code opens with it as a comment, after a shebang where there is one:
+
+```python
+# Mechanism: ticket
+```
+
+The slug resolves to the doc by the directory rule above, so the line never names a path under
+`docs/`. A skill no declaration names says so in the same place, with `Mechanism:` then the
+moments grammar, `not yet` or `unowned by design` only:
 
 ```md
 <straw-dog question="q-N">Mechanism: not yet</straw-dog>
 ```
 
-`Mechanism:` then the moments grammar, `not yet` or `unowned by design` only. The line is a
-straw dog like a `not yet` row; it goes when a declaration names the skill. Named and claiming,
-or neither, is a diagnostic. No list holds these: each is a straw dog at its authored home.
+That line is a straw dog like a `not yet` row; it becomes the slug when a declaration names the
+skill. The check holds each line to the parts tables both ways: a part naming no mechanism or
+another, a skill both named and claiming `not yet`, a skill naming a mechanism whose declaration
+does not name it, and a script naming one whose parts do not list it are each a diagnostic. No
+list holds these lines: each sits at its authored home.
 
 ## The evidence is a record of the shape
 

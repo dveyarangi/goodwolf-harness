@@ -1,4 +1,5 @@
 #!/bin/sh
+# Mechanism: questions
 # Every core hook runs here, launched by a Git alias:
 #
 #     git -c "alias.gw-hook=!sh .agents/scripts/gw/hook.sh" gw-hook <host>

@@ -1,3 +1,4 @@
+# Mechanism: harness
 """Core reaches a tree that is not its own repository, from a fresh clone of that repository at a ref.
 
     python .agents/scripts/gw/harness.py <target> --install [--from REPOSITORY] [--at REF]

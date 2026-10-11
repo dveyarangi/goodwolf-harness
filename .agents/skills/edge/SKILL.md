@@ -3,6 +3,8 @@ name: edge
 description: Maintain Edge records — one per edge where the system meets those who consume it or extend it. Use when establishing or populating an Edge record; when adding an extension such as a host, or re-checking one after it changes; when checking changes or code against an edge; or when deriving consumer- or extender-facing text from a record.
 ---
 
+Mechanism: edge
+
 # Edge records
 
 An **edge** is where the system meets those who consume it or extend it. Its **record** holds what

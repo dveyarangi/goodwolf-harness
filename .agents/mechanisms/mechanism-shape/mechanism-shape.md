@@ -127,11 +127,14 @@ applying the spec's ownership decision)*.
   owned by nothing is what it fails on, and a local block that is not last in its file, or an
   override naming a rule that is not installed where the override is.
 
-- **A skill's claim** — *what it intends to become, what must always hold once unowned by design* —
-  the `Mechanism:` line a skill no declaration names opens with, a straw
-  dog at its authored home. Written by whoever adds the skill, through R6; read by `--check` on
-  every `/verify` for the reverse pass. Not a record of this mechanism: it is the skill's own
-  line, and no file lists them *(the user, 2026-09-20)*.
+- **A part's claim** — *what it intends to become, what must always hold once it names a mechanism
+  or says unowned by design* — the `Mechanism:` line a file an agent edits opens
+  with: a skill a declaration names, and every script, test and hook a mechanism owns, naming its
+  slug, so the agent meets the doc that governs the file where it works; a skill none names, `not
+  yet` as a straw dog at its authored home. Written by whoever adds the file, through R6; read by
+  `--check` on every `/verify`, held to the parts tables both ways. Not a record of this
+  mechanism: it is the file's own line, and no file lists them *(the user, 2026-09-20; every part
+  that names its mechanism, 2026-10-11)*.
 
 Nothing else is emitted. It writes no records beyond the mechanism directories that are its
 records.
