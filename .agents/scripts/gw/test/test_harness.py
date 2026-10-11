@@ -787,6 +787,61 @@ class ARefusal(TwoTrees):
         self.assertTrue((folder / TICKET).is_file(), "nothing written, nothing removed")
 
     @proves_a_process
+    def test_a_clone_holding_commits_its_origin_lacks_is_not_replaced(self) -> None:
+        for where in ("HEAD", "a branch beside it"):
+            with self.subTest(where=where):
+                folder = self.clone_of_the_source()
+                git = lambda *words: subprocess.run(["git", "-C", str(folder), *words], check=True, capture_output=True)
+                if where != "HEAD":
+                    git("switch", "--quiet", "-c", "side")
+                (folder / "notes.txt").write_text("theirs\n", encoding="utf-8")
+                git("add", "notes.txt")
+                git("-c", "user.name=t", "-c", "user.email=t@t", "commit", "--quiet", "-m", "theirs")
+                if where != "HEAD":
+                    git("switch", "--quiet", "-")
+
+                status, report = self.run_harness_at(folder, "--install", "--replace-clone")
+
+                self.assertEqual(1, len(report["refusals"]), report["refusals"])
+                self.assertIn("replace-clone:", report["refusals"][0])
+                self.assertIn("push", report["refusals"][0])
+                self.assertTrue((folder / TICKET).is_file(), "nothing written, nothing removed")
+                git("cat-file", "-e", "side" if where != "HEAD" else "HEAD")
+
+    @proves_a_process
+    def test_a_clone_holding_ignored_files_of_its_own_is_not_replaced(self) -> None:
+        folder = self.clone_of_the_source()
+        (folder / ".git/info/exclude").write_text("secrets.env\n", encoding="utf-8")
+        (folder / "secrets.env").write_text("theirs\n", encoding="utf-8")
+
+        status, report = self.run_harness_at(folder, "--install", "--replace-clone")
+
+        self.assertEqual(1, len(report["refusals"]), report["refusals"])
+        self.assertIn("replace-clone:", report["refusals"][0])
+        self.assertIn("secrets.env", report["refusals"][0])
+        self.assertTrue((folder / "secrets.env").is_file())
+        self.assertTrue((folder / TICKET).is_file(), "nothing written, nothing removed")
+
+        status, report = self.run_harness_at(folder, "--install", "--replace-clone", "--at", "HEAD")
+
+        self.assertIn("secrets.env", report["refusals"][0], "a ref named does not skip the guard")
+        self.assertTrue((folder / "secrets.env").is_file())
+
+    @proves_a_process
+    def test_what_running_the_script_leaves_in_a_clone_does_not_stop_its_replacement(self) -> None:
+        folder = self.clone_of_the_source()
+        (folder / ".git/info/exclude").write_text("__pycache__/\n.claude/skills\n", encoding="utf-8")
+        (folder / ".agents/scripts/gw/__pycache__").mkdir()
+        (folder / ".agents/scripts/gw/__pycache__/harness.cpython-312.pyc").write_bytes(b"\0")
+        (folder / ".claude").mkdir()
+        (folder / ".claude/skills").write_text("a link the platform would not make\n", encoding="utf-8")
+
+        status, report = self.run_harness_at(folder, "--install", "--replace-clone")
+
+        self.assertEqual([], report["refusals"])
+        self.assertTrue(report["arrived"], report["gates"])
+
+    @proves_a_process
     def test_a_folder_that_is_no_clone_of_the_origin_is_not_replaced(self) -> None:
         folder = self.plain_folder()
         subprocess.run(["git", "init", "--quiet"], cwd=folder, check=True)

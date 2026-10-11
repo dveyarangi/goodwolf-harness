@@ -93,8 +93,9 @@ Every refusal writes nothing and names its step.
 - **The source itself as target**: the origin is never installed into. A clean clone of it standing
   where the project was meant — the person asked for an install there and the host cloned — is
   turned into one from inside it, `harness.py . --install --replace-clone`: the tree is emptied,
-  a repository begun afresh, and core installed at the clone's commit. A clone holding changes of
-  its own is refused.
+  a repository begun afresh, and core installed at the clone's commit. A clone holding anything of
+  its own — a change, an ignored file, a commit its origin's branches lack — is somebody's work and
+  is refused: install into the project's own folder instead.
 
 ## After the first install
 

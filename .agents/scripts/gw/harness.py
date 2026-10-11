@@ -192,7 +192,8 @@ def run(
         report.ref = wanted.as_record()
         _gate(target, shipment, report)
         return
-    wanted = source.resolve(ref or (_clean_clone_head(target) if replace_clone else "HEAD"))
+    head = _clean_clone_head(target) if replace_clone else "HEAD"
+    wanted = source.resolve(ref or head)
     report.ref = wanted.as_record()
     shipment = Shipment.at(source, wanted)
     if mode == "--install":
@@ -655,15 +656,35 @@ def _work_tree_root(target: Path, source: Source | None, replacing: bool = False
 
 
 def _clean_clone_head(target: Path) -> str:
-    """The commit a clean clone stands at, which the install then ships; a clone holding changes
-    of its own is somebody's work, and is refused."""
-    changed = _git_said(target, "status", "--porcelain")
-    if changed.returncode != 0 or changed.stdout.strip():
-        raise Refused(f"replace-clone: {target} holds changes of its own; a clean clone alone is replaced")
+    """The commit a clean clone stands at, which the install then ships. A clone holding anything
+    of its own is somebody's work, and is refused: a change, an ignored file other than what
+    running the harness from it leaves, or a commit on any ref that no remote-tracking branch of
+    its origin holds. The remote-tracking branches are read as last fetched, so a stale one can
+    only refuse more."""
+    somebodys = (
+        f"{target} is somebody's work, not a fresh clone; install into the project's own folder "
+        "instead, or push what it holds and move the rest out, then run again"
+    )
+    changed = _git_said(target, "status", "--porcelain", "--ignored=matching")
+    if changed.returncode != 0:
+        raise Refused(f"replace-clone: git status in {target} failed — {changed.stderr.strip()}")
+    own = [line[3:] for line in changed.stdout.splitlines() if not (line.startswith("!! ") and _left_by_running(line[3:]))]
+    if own:
+        raise Refused(f"replace-clone: {own[0]} is not the origin's — {somebodys}")
+    unpushed = _git_said(target, "rev-list", "--count", "--all", "--not", "--remotes=origin")
+    if unpushed.returncode != 0 or unpushed.stdout.strip() != "0":
+        raise Refused(f"replace-clone: it holds commits its origin's branches lack — {somebodys}")
     head = _git_in(target, "rev-parse", "HEAD")
     if head is None:
         raise Refused(f"replace-clone: {target} has no commit to install from")
     return head
+
+
+def _left_by_running(ignored: str) -> bool:
+    """What a clone of the origin gains by the harness being run from it: the loader links of the
+    link step and Python's bytecode caches. Anything else ignored there is the person's."""
+    path = ignored.strip('"').rstrip("/")
+    return path in LINKS or Path(path).name in ("__pycache__", ".pytest_cache") or path.endswith(".pyc")
 
 
 def _replace_clone(target: Path, report: Report) -> None:
