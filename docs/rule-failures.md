@@ -37,9 +37,11 @@ such. The rule cuts by another axis, instruction against why, and nothing in it 
 line naming a script, a call or a refusal is an instruction all the same. The two axes crossed in
 the proposal, and the rule's words — *why*, *informs* — never met the line being moved.
 
-**Amendment proposed**, for `/mechanism`'s *Three homes*: *what a skill's act needs — a call, a
-refusal and what to do at it, a script's name — is instruction and stays in the skill, however
-much machinery it names; the doc takes only what informs.* Shown first; lands on the user's yes.
+**Amendment landed** in `/mechanism`'s *Three homes*: *what a skill's act needs — a call, a
+refusal and what to do at it, a script's name — is instruction and stays in the skill; the doc
+takes only what informs.* The user struck *however much machinery it names* from the proposal:
+the tail of the reasoning, not the instruction. Graded by the next proposal that moves a skill's
+text.
 
 ## 39. A next step inside a ticket was told in prose, not put as a decision — 2026-10-11
 

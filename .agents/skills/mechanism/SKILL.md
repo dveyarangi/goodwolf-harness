@@ -37,7 +37,9 @@ to work*? Then it is a mechanism and owes a declaration.
 | `.agents/skills/<name>/` | the act, and every rule read *in the work it governs* | when the skill is invoked |
 | `.agents/mechanisms/<slug>/` | why the instruction is what it is: parts, moments, and the mechanism's rules in their single home | when installing, amending or debugging |
 
-The cut is **when is this read**. There is no fourth home.
+The cut is **when is this read**. There is no fourth home. What a skill's act needs — a call, a
+refusal and what to do at it, a script's name — is instruction and stays in the skill; the doc
+takes only what informs.
 
 > The doc is the instruction's *why*. The evidence is the doc's *why*.
 > *(the user, 2026-09-06)*
