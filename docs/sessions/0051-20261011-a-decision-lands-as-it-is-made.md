@@ -120,6 +120,6 @@ new rules. The front page lost its L6 example. Entry contract v61, v62, v65, v67
 ## What continues
 
 **First step:** the next cycle needs a nod — `/plan` for
-[01-0011.0110.0080 a-doc-is-due-when-its-parts-move](../tickets/01-0011.0110.0080-a-doc-is-due-when-its-parts-move.md).
+[01-0011.0110.0080 a-doc-is-due-when-its-parts-move](../tickets/done/01-0011.0110.0080-a-doc-is-due-when-its-parts-move.md).
 Then the place of 01-0011.0110.0050 in the queue, which the queue does not state, and
 01-0011.0110.0040's own `/verify`.
