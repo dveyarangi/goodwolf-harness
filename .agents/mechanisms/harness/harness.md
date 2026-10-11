@@ -89,8 +89,8 @@ is not a part: it never ships, and a recipient has its own.
 | the entry file | `AGENTS.md` |
 | the host stub | `CLAUDE.md` |
 
-The entry file is this mechanism's whole file; two lines inside it are the shape's anchored
-parts, and nothing asks about the overlap. The license ships and is not a row: it lives at the
+The entry file is this mechanism's whole file; other mechanisms only install their blocks in it,
+and own no line of it. The license ships and is not a row: it lives at the
 source's root and at a recipient's `.agents/LICENSE`, and a row names one path that the shape check
 reads in every tree. The loader links are made by this mechanism and are not its parts: they are the host's way in, never shipped, and a link a platform has refused
 would otherwise fail the shape check for the same absence the report already names.

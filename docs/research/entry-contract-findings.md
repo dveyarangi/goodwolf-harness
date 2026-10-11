@@ -23,7 +23,7 @@ first restated that description at the same tier; the second is guarded by
 `inject_rules.py --check`, which reports a hand-edited block as drifted. The align had them
 installed from the shape's rules file; at the plan that met *a mechanism has one place in a
 target*, and the reading above. Landed by
-[01-0011.0110.0060](../tickets/01-0011.0110.0060-the-mechanism-shape-holds-its-meta-rules-in-its-skill.md);
+[01-0011.0110.0060](../tickets/done/01-0011.0110.0060-the-mechanism-shape-holds-its-meta-rules-in-its-skill.md);
 the user, 2026-10-11.
 
 ## v67 — 2026-10-11

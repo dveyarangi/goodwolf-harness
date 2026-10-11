@@ -106,7 +106,7 @@ seven decisions**, the align's account in its body. The ones a reasoning turned:
 ## What continues
 
 The queue: [.0020](../tickets/done/01-0011.0110.0040.0020-a-decision-lives-in-the-question-until-it-lands.md),
-another session's; beside it [.0060 the-mechanism-shape-installs-its-meta-rules](../tickets/01-0011.0110.0060-the-mechanism-shape-holds-its-meta-rules-in-its-skill.md),
+another session's; beside it [.0060 the-mechanism-shape-installs-its-meta-rules](../tickets/done/01-0011.0110.0060-the-mechanism-shape-holds-its-meta-rules-in-its-skill.md),
 its `/plan` first — the entry file it edits now holds v60, landed. The six `rules` levels the clock
 reports due moved with v59 and v60, now landed: the next `/maintain` re-checks them against that
 text, and their marks keep files from then on.
