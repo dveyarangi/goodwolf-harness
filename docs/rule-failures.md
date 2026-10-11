@@ -28,15 +28,19 @@ it to be installed. Four minutes later they had read lists of copied directories
 `arrived: true`, the verification set, the injector and a session registry, three store ids, and
 were asked whether to commit the install — under `commit=auto`, with its checks green. The
 verification set was offered as *the harness's checks* with no reason a project would want them,
-and the agent told the person that reverting the commit uninstalls the harness, which no record of
-the tree says. The user: *instead of introducing itself, saying what it can do and asking the
+and the agent told the person that reverting the commit uninstalls the harness — a line of the
+origin's README, read in the clone, which no installed record says. The user: *instead of introducing itself, saying what it can do and asking the
 first question; the first commit under commit=auto should have been automatic; offering the
 harness's checks needed a product reason — you want them if you mean to change the harness
 itself.*
 
-**Why it did not fire.** The switch reads as about loop work, and an install is outside the loop,
-with no `/verify` run; the skill's last step stopped before any commit. The way the person is met
-was left to the agent, which reported what it did.
+**Why it did not fire.** The installing session never had the entry file in context: it arrived
+mid-session, and was read only by grep. The switch never reached it, so the host's own default —
+commit only when asked — decided; the agent, asked afterwards, quoted no rule for asking. What
+reaches an installing session of the harness's text is `/harness` and the script's report, and the
+skill's last step stopped before any commit. The way the person is met was left to the agent,
+which retold the report: a block for each field, the README's *reports what arrived* read as a
+list of directories.
 
 **Amendment landed** in `/harness`'s *After the first install*: the green check is the install's
 verification and the switch decides its `EQUIP` commit; the person is introduced to the method in
@@ -58,6 +62,13 @@ user: *did you write the slip down, so you know later whether it is the only one
 **Why it did not fire.** No rule covers it: a command with a side effect was taken for a read. Kept
 here to be counted; one occurrence proposes no rule. A second one — any write run for what it
 prints — is the shape that would.
+
+**Struck, 2026-10-11 — the installing session of entry 34.** Its `/recall`, asked about the install
+afterwards, ran `questions.py --wake` with no `--session` beside the session its hook had
+registered, and registered `s-1011-d8ca`. Here a rule was in play: Q2, installed in `/recall`,
+offered the bare `questions.py --wake` as the wake's read. **Amendment landed** in Q2: the read is
+`--wake --session <tag>` with the tag the hook's read named, a bare `--wake` registering a new
+session and kept for a host whose hook registered none. Graded by the next `/recall` under a hook.
 
 ## 32. Two switch values went through the whole loop — 2026-10-11
 
