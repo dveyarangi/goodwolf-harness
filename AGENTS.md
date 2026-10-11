@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v73, 2026-10-11.
+Entry contract: v74, 2026-10-11.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -60,8 +60,9 @@ judgement, is named at its authored home and cited by that name. Under `debug=on
   `🛠️ <switch>=<value>`.
 
 Debug or not, a row each, and a table only where it has one: what waits on the user's decision,
-under `| ⚖️ Decisions |` — never one already taken, the agent's own included, which the reply
-reports as taken and the user overturns by saying so; a record out of agreement with what it is of, met and not repaired,
+under `| ⚖️ Decisions |`, the next step the reply stops before among it, with nothing said of why
+it waits — never one already taken, the agent's own included, which the reply reports as taken and
+the user overturns by saying so; a record out of agreement with what it is of, met and not repaired,
 under `| 🍂 Drift |`; one party's work or claim colliding with another's — another session
 standing where this one works — met and not resolved, under `| 🪢 Tangle |`, even where a
 record's disagreement is what shows it. Under 🪢, the sessions running beside this one come
@@ -211,7 +212,7 @@ A switch the project has not set is `ask`.
 |---|---|
 | commit | `ask`: commit only on explicit permission, per change. `auto`: commit when `/verify` has passed on the work. |
 | push | `ask`: separate from commit, and /conclude's alone — no other reply asks, mentions or counts what waits on it. `never`, `auto`. |
-| next-cycle | `ask`: starting the next ticket after one lands needs a nod; the reply puts the next step as a ⚖️ row and says nothing of why it waits. `auto`. |
+| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |
 | breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |
 | repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |
 

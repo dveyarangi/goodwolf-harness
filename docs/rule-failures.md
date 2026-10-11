@@ -17,6 +17,23 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 39. A next step inside a ticket was told in prose, not put as a decision — 2026-10-11
+
+**Rules in play:** the next-cycle switch at v72, *the reply puts the next step as a ⚖️ row and
+says nothing of why it waits*; the ⚖️ rule, *what waits on the user's decision*.
+
+**What happened.** A reply closing 01-0011.0110.0080's plan validation ended *the next step —
+/implement by the RFC's three stages* in prose, and stopped. The user: *why is the next step not
+in the decisions box?*
+
+**Why it did not fire.** v72 hung the rule on `next-cycle`, a step between tickets; /plan to
+/implement is inside one, held by no switch, so the reply read no rule for it — one shape had been
+written as the class.
+
+**Amendment landed**, the entry contract at v74: the ⚖️ rule holds *the next step the reply stops
+before … with nothing said of why it waits*, and the next-cycle row returns to the switch alone.
+Graded by the next reply that stops before a step: the step a ⚖️ row.
+
 ## 38. Landed text was headed Proposed under a Landed heading — 2026-10-11
 
 **Rules in play:** the entry file's framed texts, *`✏️ **Proposed change — <record>**` … Once

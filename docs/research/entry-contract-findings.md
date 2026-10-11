@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v74 — 2026-10-11
+
+**Any next step the reply stops before is a decision** — v72's sentence leaves the next-cycle row
+for the ⚖️ rule: the next step the reply stops before stands among the decisions, with nothing
+said of why it waits. A reply closing a plan's validation pass wrote *the next step — /implement
+by the RFC's three stages* in prose; /plan to /implement is no switch's, so v72 did not reach it.
+The user: *why is the next step not in the decisions box?* Rule failure 39.
+
 ## v73 — 2026-10-11
 
 **Proposed or Landed, never both** — a framed text's header reads `Proposed` until the text is
