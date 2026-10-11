@@ -83,6 +83,7 @@ is not a part: it never ships, and a recipient has its own.
 | part | where |
 |---|---|
 | instruction file | `.agents/skills/harness/SKILL.md` |
+| what the harness changes for the person who installed it, read when introducing it | `.agents/skills/harness/introduction.md` |
 | this doc | `.agents/mechanisms/harness/harness.md` |
 | the script | `.agents/scripts/gw/harness.py` |
 | its tests | `.agents/scripts/gw/test/test_harness.py` |
