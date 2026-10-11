@@ -8,10 +8,10 @@
 
 Core reaches a tree from a fresh clone of its repository at a ref and never from a working tree,
 so what a recipient holds is what a commit holds. The manifest is everything under the core
-directory plus the entry file, the host stub, the license, and the front page with its picture
-beside the harness skill — what an installing agent introduces the harness from, the origin's own
-document rather than core text, shipped as written with its links the origin's, which the leak
-rule does not read, a binary file shipping as its bytes; the project's local file is never
+directory plus the entry file, the host stub, the license, and the front page beside the harness
+skill — what an installing agent introduces the harness from, the origin's own document rather
+than core text, shipped as written with its links the origin's, which the leak rule does not
+read; the project's local file is never
 in it, which is what lets a redeploy overwrite core's content and nothing of the project's. What ships is
 transformed before a byte is written: the origin's local blocks removed, every straw-dog wrapper
 and every `TODO`'s question binding sheared with the content kept, the announce line stamped, and
@@ -93,7 +93,7 @@ is not a part: it never ships, and a recipient has its own.
 | the host stub | `CLAUDE.md` |
 
 The entry file is this mechanism's whole file; other mechanisms only install their blocks in it,
-and own no line of it. The license and the front page with its picture ship and are not rows: each lives at the
+and own no line of it. The license and the front page ship and are not rows: each lives at the
 source's root and at its place in a recipient — `.agents/LICENSE`, beside the harness skill — and
 a row names one path that the shape check reads in every tree. The loader links are made by this mechanism and are not its parts: they are the host's way in, never shipped, and a link a platform has refused
 would otherwise fail the shape check for the same absence the report already names.

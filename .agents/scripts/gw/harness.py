@@ -68,10 +68,6 @@ LINK_TARGET = "../.agents/skills"
 SKILLS = ".agents/skills"
 HARNESS_SKILL = f"{SKILLS}/harness/SKILL.md"
 FRONT_PAGE = "README.md"
-PICTURE = "dev-skills-readme.png"
-INSTALLED_PICTURE = f"{SKILLS}/harness/{PICTURE}"
-# What ships as its bytes: nothing in it is a rule, a citation or a straw dog to transform.
-BINARY = (".png",)
 QUEUE_ARRIVAL = f"{SKILLS}/ticket/QUEUE-ARRIVAL.md"
 DELIVERY_STATUS = "docs/tickets/README.md"
 ARRIVAL_STATE = re.compile(r"^```delivery-status[ \t]*\r?\n(?P<said>.*?)^```", re.M | re.S)
@@ -308,7 +304,7 @@ class Source:
 
     def files(self, ref: Ref) -> dict[str, bytes]:
         """Every file under the core directory at the commit, plus the entry file, the host stub,
-        the license and the front page with its picture, as the commit holds them: nothing else
+        the license and the front page, as the commit holds them: nothing else
         travels — not the local file, not `docs/`.
 
         The license and the front page are the source's root files, placed under the core
@@ -317,9 +313,7 @@ class Source:
         the harness from. Each is read apart from the archive, which refuses a path the commit
         lacks — and every ref before the license lacks it."""
         files = self._archived(ref, (CORE.rstrip("/"), ENTRY_FILE, HOST_STUB))
-        for root_file, installed in (
-            (LICENSE, INSTALLED_LICENSE), (FRONT_PAGE, INSTALLED_FRONT_PAGE), (PICTURE, INSTALLED_PICTURE),
-        ):
+        for root_file, installed in ((LICENSE, INSTALLED_LICENSE), (FRONT_PAGE, INSTALLED_FRONT_PAGE)):
             held = self._blob(ref, root_file)
             if held is not None:
                 files[installed] = held
@@ -396,7 +390,7 @@ class Shipment:
     before anything is written."""
 
     ref: Ref
-    files: dict[str, str | bytes]
+    files: dict[str, str]
     arrival: str
 
     @classmethod
@@ -417,13 +411,10 @@ class Shipment:
         return cls(ref, _transformed(source, ref, held=False), "")
 
 
-def _transformed(source: Source, ref: Ref, held: bool) -> dict[str, str | bytes]:
-    files: dict[str, str | bytes] = {}
+def _transformed(source: Source, ref: Ref, held: bool) -> dict[str, str]:
+    files: dict[str, str] = {}
     told = resolved(source.repository)
     for path, raw in source.files(ref).items():
-        if path.endswith(BINARY):
-            files[path] = raw
-            continue
         try:
             text = raw.decode("utf-8")
         except UnicodeDecodeError as error:
@@ -474,7 +465,7 @@ def without_local_blocks(path: str, text: str) -> str:
     return text
 
 
-def without_recipients_blocks(target: Path, path: str, text: str, shipped: dict[str, str | bytes]) -> str:
+def without_recipients_blocks(target: Path, path: str, text: str, shipped: dict[str, str]) -> str:
     """What a recipient's installer put in a core file is not an edit in core: the local block
     leaves, and so does the block of every mechanism of the recipient's own — one whose rules
     file stands in the tree and was never shipped. A block no rules file owns stays, and reads
@@ -726,7 +717,7 @@ def _announced_ref(target: Path, source: Source, required: bool) -> Ref | None:
     return source.resolve(told.ref)
 
 
-def _differs(target: Path, path: str, shipped: dict[str, str | bytes]) -> bool:
+def _differs(target: Path, path: str, shipped: dict[str, str]) -> bool:
     """Whether the recipient's copy is what the ref shipped, the blocks its own installer put
     there and its own repository line set aside and line endings normalised — the injector's and R2's rule for
     comparing what was installed. Both sides lose the line, so a check or an update run from
@@ -734,10 +725,8 @@ def _differs(target: Path, path: str, shipped: dict[str, str | bytes]) -> bool:
     copy = target / path
     if not copy.is_file():
         return True
-    shipped_text = shipped[path]
-    if isinstance(shipped_text, bytes):
-        return copy.read_bytes() != shipped_text
     text = _read(copy)
+    shipped_text = shipped[path]
     if path.endswith(".md"):
         try:
             text = without_recipients_blocks(target, path, text, shipped)
@@ -755,15 +744,13 @@ def _normalised(text: str) -> str:
 # --- copy, links, inject ---------------------------------------------------------------------
 
 
-def _holds(target: Path, path: str, shipped: dict[str, str | bytes]) -> bool:
+def _holds(target: Path, path: str, shipped: dict[str, str]) -> bool:
     """Whether the copy already holds exactly what ships, the blocks its own installer put there
     set aside: such a
     file is left alone and not reported written, so an update's report names only what changed."""
     copy = target / path
     if not copy.is_file():
         return False
-    if isinstance(shipped[path], bytes):
-        return copy.read_bytes() == shipped[path]
     current = _read(copy)
     if path.endswith(".md"):
         try:
@@ -782,11 +769,7 @@ def _write(target: Path, shipment: Shipment, previous: Shipment | None, report: 
         if _holds(target, path, shipment.files):
             continue
         try:
-            if isinstance(text, bytes):
-                (target / path).parent.mkdir(parents=True, exist_ok=True)
-                (target / path).write_bytes(text)
-            else:
-                _write_text(target / path, text)
+            _write_text(target / path, text)
         except OSError as failure:
             pending = [other for other, _ in planned if other not in done and other != path]
             raise Refused(

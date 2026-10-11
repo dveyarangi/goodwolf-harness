@@ -199,7 +199,7 @@ other and with the code. Before a big decision, `/impact` traces what a change t
 project, and `/discover` asks a separate agent that has not read the project how things like it
 usually go wrong elsewhere.
 
-![The session steps — /recall, /align, /conclude — joined at /align to the work steps — /ticket, /plan, /implement, /verify, /maintain](dev-skills-readme.png)
+![The session steps — /recall, /align, /conclude — joined at /align to the work steps — /ticket, /plan, /implement, /verify, /maintain](https://github.com/dveyarangi/goodwolf-harness/raw/main/dev-skills-readme.png)
 
 The rules are in [AGENTS.md](AGENTS.md) and every skill is under [`.agents/skills/`](.agents/skills/).
 

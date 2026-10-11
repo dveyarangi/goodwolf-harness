@@ -125,9 +125,6 @@ FRONT_PAGE = (
     "Its evidence: [the panel](docs/research/panel.md), a document only the origin has.\n"
 )
 INSTALLED_FRONT_PAGE = ".agents/skills/harness/README.md"
-# Not UTF-8, as the front page's picture is not: a binary file ships as its bytes.
-PICTURE = bytes([0x89]) + b"PNG\r\n\x1a\n\x00 the fixture's picture"
-INSTALLED_PICTURE = ".agents/skills/harness/dev-skills-readme.png"
 
 
 def platform_makes_symlinks() -> bool:
@@ -317,7 +314,6 @@ class TwoTrees(RepositoryCase):
         self.write(".agents/scripts/gw/test/test_arrival.py", ARRIVAL_TEST)
         self.write(TICKET, "# Sweep\n")
         self.write("README.md", FRONT_PAGE)
-        (self.source / "dev-skills-readme.png").write_bytes(PICTURE)
         self.write("LICENSE", LICENSE_TEXT)
         self.write("local.rules.md", "# local — never shipped\n")
         self.commit("core")
@@ -609,7 +605,6 @@ class TheSource(TwoTrees):
         self.assertIn(".agents/scripts/gw/test/test_arrival.py", manifest)
         self.assertEqual((self.source / "LICENSE").read_bytes(), manifest[INSTALLED_LICENSE])
         self.assertEqual((self.source / "README.md").read_bytes(), manifest[INSTALLED_FRONT_PAGE])
-        self.assertEqual(PICTURE, manifest[INSTALLED_PICTURE])
         self.assertNotIn("LICENSE", manifest)
         self.assertNotIn("README.md", manifest)
         self.assertNotIn("local.rules.md", manifest)
@@ -829,7 +824,6 @@ class AnInstall(TwoTrees):
         self.assertTrue((self.target / ".agents/scripts/gw/harness.py").is_file())
         self.assertFalse((self.target / "README.md").exists())
         self.assertEqual(FRONT_PAGE, self.target_text(INSTALLED_FRONT_PAGE))
-        self.assertEqual(PICTURE, (self.target / INSTALLED_PICTURE).read_bytes())
         self.assertFalse((self.target / "local.rules.md").exists())
         self.assertFalse((self.target / TICKET).exists())
         entry = self.target_text("AGENTS.md")
