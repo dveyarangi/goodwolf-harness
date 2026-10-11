@@ -17,6 +17,22 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 38. Landed text was headed Proposed under a Landed heading — 2026-10-11
+
+**Rules in play:** the entry file's framed texts, *`✏️ **Proposed change — <record>**` … Once
+written, the reply reporting it shows it again under `Landed`*, 36's amendment.
+
+**What happened.** A reply opened with a bare *Landed* and under it four blocks each headed
+*✏️ Proposed change — …*; another session's replies all day wrote *🧩 Proposed rule — … · Landed*.
+The user: *either landed or proposed — how can it be both?*
+
+**Why it did not fire.** *Under `Landed`* named no header to replace: the only headers the rule
+gave were the three *Proposed* ones, so *Landed* was added beside or above them.
+
+**Amendment landed**, the entry contract at v73: *`Proposed` read `Landed` once the text is
+written, never both*, and the reply reporting it shows it under its landed header. Graded by the
+next reply that lands text: one word, `Landed`, in its header.
+
 ## 37. Commits were named after what they touched, not the step that made them — 2026-10-11
 
 **Rules in play:** `/commit`'s prefix rule, *prefix the subject with the loop step that produced

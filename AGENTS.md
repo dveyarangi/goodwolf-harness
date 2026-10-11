@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v72, 2026-10-11.
+Entry contract: v73, 2026-10-11.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -50,9 +50,10 @@ judgement, is named at its authored home and cited by that name. Under `debug=on
   blockquote under a header naming what it is: `🧩 **Proposed rule — <record>**` for an
   instruction — any text an agent acts by, a skill's body and the entry file's included —,
   `⚓ **Proposed invariant — <record>**` for an invariant, `✏️ **Proposed change — <record>**` for
-  any other text; always for an instruction, an invariant or a load-bearing doc, elsewhere where
-  the reply shows it. Once written, the reply reporting it shows it again under `Landed`, though a
-  proposal earlier in the turn showed it.
+  any other text, `Proposed` read `Landed` once the text is written, never both; always for an
+  instruction, an invariant or a load-bearing doc, elsewhere where the reply shows it. Once
+  written, the reply reporting it shows it again under its landed header, though a proposal
+  earlier in the turn showed it.
 - What a claim rests on from outside this session — a decision, evidence, the user's word — is a
   footnote naming its record, or who and when.
 - A switch the reply names, from the autonomy table or the local block, is written

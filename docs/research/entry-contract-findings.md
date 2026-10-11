@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v73 — 2026-10-11
+
+**Proposed or Landed, never both** — a framed text's header reads `Proposed` until the text is
+written and `Landed` after, the word replaced, not added. Under v70's *shows it again under
+`Landed`*, replies wrote a bare *Landed* over blocks still headed *Proposed*, or *Proposed … ·
+Landed*; the user: *either landed or proposed — how can it be both?* Rule failure 38.
+
 ## v72 — 2026-10-11
 
 **The next step is asked, not explained** — under `next-cycle=ask` the reply puts the next step as
