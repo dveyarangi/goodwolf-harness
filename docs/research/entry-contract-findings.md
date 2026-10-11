@@ -15,6 +15,12 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v79 — 2026-10-11
+
+**The commits stand in a table of their own, first** — `| 🪶 Commits |` opens the reply above the
+head table, a row each. v78 had put the commits as rows inside the head table; the user: *why are
+the commits and the questions one table?*
+
 ## v78 — 2026-10-11
 
 **The turn's commits head the reply** — v71's closing `| 🪶 Commits |` table moves into the head
