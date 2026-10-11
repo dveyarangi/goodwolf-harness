@@ -103,8 +103,8 @@ project's facts for the entry file, its autonomy switches, and its verification 
 typechecker, its tests, every command required of landed work, read off its own toolchain, a
 project without one having none of its own and its local file saying so; and, offered beside them,
 the harness's checks. Then `inject_rules.py local --install`, and `--check`.
-That check is the install's verification: the `commit` switch just written decides its `EQUIP`
-commit, as it decides any other.
+That check is the install's verification: the `commit` switch just written decides the install's
+commit, as it decides any other, named in the project's own convention where it states one.
 
 The person asked for a method to work by, not for files. Before asking anything, introduce it in
 their language, in a few lines: who you now are to them, what you will do for them, and where you
