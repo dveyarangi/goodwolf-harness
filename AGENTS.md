@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v70, 2026-10-11.
+Entry contract: v71, 2026-10-11.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -65,7 +65,8 @@ under `| 🍂 Drift |`; one party's work or claim colliding with another's — a
 standing where this one works — met and not resolved, under `| 🪢 Tangle |`, even where a
 record's disagreement is what shows it. Under 🪢, the sessions running beside this one come
 first, a row each with the question it stands on as the window writes it, then each collision in
-bold, naming the sessions it involves.
+bold, naming the sessions it involves. A reply whose turn made commits ends with
+`| 🪶 Commits |`, a row each in order: the short hash and the subject's head.
 
 Under `debug=on`, head the reply with a one-cell table holding a row for each of the turn's store
 calls, in order, the first over `|---|`: `| 📍 **q-N** · <its question as the window writes it> |`

@@ -15,6 +15,12 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v71 — 2026-10-11
+
+**The turn's commits close the reply** — a reply whose turn made commits ends with `| 🪶 Commits |`,
+a row each: the short hash and the subject's head. The user: *add the list of the step's commits,
+with icons too*; of a draft giving each step's prefix an icon of its own: *only 🪶*.
+
 ## v70 — 2026-10-11
 
 **A landed text is shown again in the reply reporting it, and an instruction is any text an agent
