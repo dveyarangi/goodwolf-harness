@@ -17,6 +17,30 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 40. A mechanism's doc was proposed as the home for a skill's machinery — 2026-10-11
+
+**Rules in play:** `/mechanism`'s *Three homes* — *the doc is the instruction's why*, *doc and
+instruction file are never the same file*; the entry file's *A document informs. It never
+instructs an agent.*
+
+**What happened.** Aligning q-0024.0012, the reply proposed that *the description of how the
+machinery is built* leave the skills for the mechanism's doc and the script, the skill keeping
+*the act and the bare call*. The user: *how can we pull the machinery out of the skills without
+breaking them — they have to know; the mechanism doc is no place for instructions.* Most of what
+the inventory had counted as a skill's machinery — the calls, the refusals and what to do at each,
+the steps after an install — is instruction, and stays in the skill whatever it names. Only a
+description the doc already holds can leave, as a restatement replaced by a pointer.
+
+**Why it did not fire.** The reply was sorting every line by one axis, method against machinery,
+and took the doc's *parts, moments* and its *How it works* section for a home of machinery as
+such. The rule cuts by another axis, instruction against why, and nothing in it says that a
+line naming a script, a call or a refusal is an instruction all the same. The two axes crossed in
+the proposal, and the rule's words — *why*, *informs* — never met the line being moved.
+
+**Amendment proposed**, for `/mechanism`'s *Three homes*: *what a skill's act needs — a call, a
+refusal and what to do at it, a script's name — is instruction and stays in the skill, however
+much machinery it names; the doc takes only what informs.* Shown first; lands on the user's yes.
+
 ## 39. A next step inside a ticket was told in prose, not put as a decision — 2026-10-11
 
 **Rules in play:** the next-cycle switch at v72, *the reply puts the next step as a ⚖️ row and
