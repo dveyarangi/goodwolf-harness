@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v68, 2026-10-11.
+Entry contract: v69, 2026-10-11.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -179,8 +179,8 @@ Two rings, joined at /align.
 /align opens the delivery ring and is where it returns whenever a decision is needed:
 /spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.
 
-Human checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;
-next cycle at /maintain → /ticket.
+Human checkpoints: every decision at /align; spec accepted; and, as their switches under
+[Autonomy](#autonomy) set them, breakdown, commit, push and the next cycle at /maintain → /ticket.
 
 Do not reopen an accepted decision without new evidence.
 

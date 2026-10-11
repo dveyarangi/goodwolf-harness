@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v69 — 2026-10-11
+
+**The loop's human checkpoints defer to the switches** — breakdown, commit, push and the next cycle
+are checkpoints as their switches under Autonomy set them; every decision at /align and an
+accepted spec stay the person's always. The line listed all six unconditionally, against the
+switch table, and an installing agent asked by rule failure 34 quoted it among the lines that say
+*ask*. The user, 2026-10-11.
+
 ## v68 — 2026-10-11
 
 **The shape's two lines leave the entry file** — *method is mechanism work* and *an installed
