@@ -15,6 +15,17 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v68 — 2026-10-11
+
+**The shape's two lines leave the entry file** — *method is mechanism work* and *an installed
+block is not yours* become `/mechanism`'s description, the second turned into a use case. The
+first restated that description at the same tier; the second is guarded by
+`inject_rules.py --check`, which reports a hand-edited block as drifted. The align had them
+installed from the shape's rules file; at the plan that met *a mechanism has one place in a
+target*, and the reading above. Landed by
+[01-0011.0110.0060](../tickets/01-0011.0110.0060-the-mechanism-shape-holds-its-meta-rules-in-its-skill.md);
+the user, 2026-10-11.
+
 ## v67 — 2026-10-11
 
 **A slip is counted** — Self-improvement registers a slip no rule covers too, described broadly

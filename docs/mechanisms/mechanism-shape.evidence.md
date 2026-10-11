@@ -459,3 +459,24 @@ ambiguous, which the check already refuses — so the user loosened the rule to 
 skill, with a mechanism's skills each acting on a record it declares *(the user, 2026-10-10)*. The
 declaration still reads one `instruction` bullet; the field becomes a list when a mechanism owning
 a second skill is declared.
+
+## The meta-rules leave the entry file, not installed — 2026-10-11
+
+**Refuted at the plan of 01-0011.0110.0060: the shape installs its two entry-file lines.** The
+align on q-0024.0009.0006 (decision 4) had *method is mechanism work* and *an installed block is
+not yours* become rules of the shape's rules file, installed in the entry file as R7 is. The plan
+met the format's *a mechanism has one place in a target*: the shape's place there is
+`## Project-local`, R7's section, so the lines would land among the project's answers or R7 would
+move. Read again, neither line needed installing. The first restated `/mechanism`'s description,
+which is read at the same tier — every session meets a skill's description — so it was one fact in
+two homes. The second has its guard already: `inject_rules.py --check` reports a hand-edited block
+as drifted, in the verification set. Both became the description's, the second turned from a
+prohibition into a use case *(the user, 2026-10-11)*.
+
+This keeps the ruling of 2026-09-20 above — a rule reaching the entry file by hand is the copy the
+check cannot compare — and does not turn it: nothing of the shape is now written by hand in the
+entry file, and the description stays tier 1, not tier 3. What the move gives up is the stop
+*before* a block is edited; the check stops it after, before a commit.
+
+The same two tests — does a line restate a description read at the same tier, does a check already
+hold it — were handed to q-0026.0006 for the entry file's other sentences.

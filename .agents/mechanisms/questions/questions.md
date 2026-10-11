@@ -126,9 +126,6 @@ roles, is an open question of the store.
 | the shelf of Cursor's hook wiring | `.agents/skills/questions/hooks/.cursor/hooks.json` |
 | the hooks' wrapper, launched by a Git alias | `.agents/scripts/gw/hook.sh` |
 | its line endings, kept LF in every clone | `.agents/.gitattributes` |
-| Claude Code's hook wiring | `.claude/settings.json` → "gw-hook claude-code" |
-| Codex's hook wiring | `.codex/hooks.json` → "gw-hook codex" |
-| Cursor's hook wiring | `.cursor/hooks.json` → "gw-hook cursor" |
 
 ## Relies on, and does not own
 

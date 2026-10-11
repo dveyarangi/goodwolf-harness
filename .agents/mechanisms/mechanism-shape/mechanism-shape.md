@@ -73,8 +73,6 @@ absence is honestly classified, are judgements it records and never makes.
 |---|---|
 | instruction file | `.agents/skills/mechanism/SKILL.md` |
 | format shelf | `.agents/skills/mechanism/MECHANISM-FORMAT.md` |
-| trigger | `AGENTS.md` → "is mechanism work: use" |
-| the hand-edit rule | `AGENTS.md` → "is not that file's to edit" |
 | this doc | `.agents/mechanisms/mechanism-shape/mechanism-shape.md` |
 | its rules file | `.agents/mechanisms/mechanism-shape/mechanism-shape.rules.md` |
 | the check | `.agents/scripts/gw/mechanisms.py` |
@@ -164,8 +162,8 @@ forced is in the evidence — and
 
 A tree that can derive a mechanism's parts and moments from itself, making a doc that asserts them
 a second home for what the code already says. Until then, declaration is the only way the claim
-exists at all. Retirement removes the parts above, this directory, and the trigger — which is a
-part, so retracting the mechanism takes its own entry point with it.
+exists at all. Retirement removes the parts above and this directory; its entry point is its
+skill's description, so retracting the mechanism takes it with the skill.
 
 ## What would show it working, graded by someone who did not build it
 
