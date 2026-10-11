@@ -3,7 +3,7 @@
 - **record of** what it intends to become
 - **state** open
 - **owner** [01-0011.0110.0020](../tickets/01-0011.0110.0020-a-paragraph-shows-what-it-stands-on.md)
-- **lean** the form at v81 — lamp names a principle as its home names it, never a rule id, 無 for a missing one; proposed or landed text framed by its statement, 🧩 a rule, ⚓ an invariant, ✏️ any other change, Proposed or Landed never both; a switch written 🛠️ <switch>=<value>; ⚖️ decisions with the next step stopped before, 🍂 drift, a table only with a row; on top, above the head table, a 🪶 Commits table then 🪢, the running sessions first then each collision in bold; 🔁 for a completed step; ⚡ kept for urgency, unassigned
+- **lean** the form at v82 — lamp names a principle as its home names it, never a rule id, 無 for a missing one; proposed or landed text framed by its statement, 🧩 a rule, ⚓ an invariant, ✏️ any other change, Proposed or Landed never both; a switch written 🛠️ <switch>=<value>; ⚖️ decisions with the next step stopped before, 🍂 drift, a table only with a row; the reply opens with 🪢, the running sessions first then each collision in bold, then a 🪶 Commits table, then the head table; 🔁 for a completed step; ⚡ kept for urgency, unassigned
 - **struck** 4, last 2026-10-10T23:49Z
 
 ## The instructions, agreed in draft 2026-10-07
