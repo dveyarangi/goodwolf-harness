@@ -109,3 +109,85 @@ the tracker doc, glossary, ADRs and coding standards. beads: the issue graph and
 and BMAD's rendered step files move a cell a few percent. This harness's step bodies carry its own
 installed blocks and local rules, larger than a fresh install's; the peers were measured from
 source, without what their installers write into a project.
+
+## The project's own records, per step
+
+The section above left out the records the steps read, as project-sized. The user pointed out the
+same day that this misses what each agent must actually read. They are measured here on real
+projects.
+
+**Method.** For each tool, the step bodies were read for which project records each step tells
+the main agent to read always, and which only on a condition. Only the always reads are summed.
+Each peer was measured on five or six public repositories that use it for real work — dozens to
+hundreds of features done, pushed within weeks, no forks or demos — from the blob sizes in their
+git trees. Each repository gives its median feature, and the table gives the median across
+repositories, with the range. This harness was measured on frost_map, a product project a month
+under it, and on this tree. Source code and git output are counted for no one. One agent per
+tool did the work; their scripts and data are in the session's scratchpad, not in the tree.
+
+Main agent, tokens, median (range):
+
+| tool | align | recall | ticket | plan | implement | verify | ticket → commit | project-wide, read always |
+|---|---|---|---|---|---|---|---|---|
+| **this harness**, frost_map | 17,700 | 22,300 | 9,600 | 18,600 | 14,200 | 22,500 | **≈65,000** | ≈20,000 |
+| **this harness**, this tree | 7,900 | 25,500 | 10,400 | 10,300 | 13,000 | 13,200 | **≈47,000** | ≈20,600 |
+| **GSD Core** | 28,700 (10,000–74,600) | 11,100 (6,500–43,400) | — | 2,000 (550–2,800) | 7,000 (3,400–24,800) | 5,000 (3,900–9,200) | **≈14,000**, subagents +216,000 | 28,100 (11,600–84,500) |
+| **spec-kit** | 4,590 (3,756–8,278) | 0 | 6,958 (5,484–12,482) | 8,229 (5,387–15,665) | 6,856 (6,016–11,398) | 15,943 (12,572–28,080) | **≈40,100** (31,200–67,600) | 2,843 (1,158–10,892) |
+| **superpowers** | 0 | 0 | — | 3,360 (1,170–7,040) | 20,690 (8,400–40,280) | 0 | **≈25,100** (9,400–43,600) | 0 |
+| **OpenSpec** | 530 (5–2,534) | — | 6,413 (3,576–7,692) | — (in ticket) | 6,674 (3,862–8,180) | 5,793 (3,499–6,708) | **≈18,900** | 530 (5–2,534) |
+| **BMAD-METHOD** | 0 | ≈30 | 5,900 (2,600–20,500), per epic | 4,400 (1,000–14,700) | 2,300 (500–13,900) | 1,900 (500–6,400) | **≈18,500** | 2,400 (850–4,800) |
+| **Matt Pocock's skills** | 0 | — | 4,060 (1,900–10,010) | 3,050 (1,350–6,350) | 1,120 (1,030–1,830) | 4,060 (1,630–9,750) | **≈14,000** (7,700–22,100) | 3,050 (1,350–6,350) |
+| **beads** | — | 1,086 (678–5,382) | 193 (88–287) | — | — | — | **≈1,300** | 1,086 |
+
+This harness's cells, from its skills: recall reads the wake report, the queue, the live tickets,
+the last session record, the architecture and the ticket and RFC in flight; align the
+architecture, glossary, ADRs and the question; ticket the parent spec and the live tickets; plan
+the ticket, architecture, ADRs and glossary; implement the spec, ticket, RFC and glossary; verify
+the ticket, RFC, architecture, ADRs and glossary. In frost_map the architecture alone is ≈15,100;
+in this tree it is ≈4,600, the rest spread over the mechanisms' docs.
+
+Method text and project records together, ticket to commit:
+
+| tool | method text | project records | together |
+|---|---|---|---|
+| GSD Core, main agent | ≈84,700 | ≈14,000 | **≈98,700**, subagents +216,000 |
+| **this harness**, frost_map | ≈16,900 | ≈65,000 | **≈81,900** |
+| **this harness**, this tree | ≈16,900 | ≈47,000 | **≈63,900** |
+| spec-kit | ≈20,500 | ≈40,100 | **≈60,600** |
+| superpowers | ≈16,700 | ≈25,100 | **≈41,800** |
+| BMAD-METHOD | ≈19,100 | ≈18,500 | **≈37,600** |
+| OpenSpec | ≈16,100 | ≈18,900 | **≈35,000** |
+| Matt Pocock's skills | ≈6,000 | ≈14,000 | **≈20,000** |
+| beads | ≈1,200 | ≈1,300 | **≈2,500** |
+
+### Reading it
+
+- Counted with the project's records, this harness is the second heaviest main agent of the ring,
+  after GSD: ≈82,000 in a product project against 20,000–61,000 for the rest. The previous
+  section's "in the middle" holds for the method's text alone.
+- The weight is of a kind only GSD shares: project-wide records read at every step. This harness
+  re-reads the architecture, glossary and ADRs at plan, verify, align and recall; GSD re-reads
+  STATE, ROADMAP and PROJECT, which reach 60,000–95,000 in half its repositories. Both grow with
+  every feature. spec-kit, superpowers, OpenSpec, BMAD and Pocock read the feature's own spec,
+  plan and tasks, with a project-wide record of 0–3,000 — their cost per step does not grow with
+  the number of features.
+- That is the price of the harness's central claim: a step is checked against what the project
+  has decided, not only against the feature's own plan. Whether it buys fewer re-decisions and
+  less drift is what the measurement of savings has to show.
+- The largest single item is one document. Reading only the sections of the architecture a step
+  bears on, rather than the whole file, would take most of the difference away; no skill says
+  that today.
+
+**Caveats.**
+
+- Summing the steps assumes each runs in a fresh context. Run in one session, a record read at
+  plan is still in context at verify, and both this harness's and GSD's sums fall the most.
+- This harness is measured on one product project and on this tree; each peer on five or six
+  repositories, mostly young and solo, picked for depth from the hundreds found.
+- Always against conditional is a judgement on each tool's wording. Conditional reads are large
+  for some: spec-kit's design files, present in nine features of ten, add 4,000–12,000 at ticket
+  and implement; OpenSpec's relevant main specs add ≈6,600; BMAD's architecture and UX documents,
+  where they exist, 4,000–40,000.
+- Records are measured at their final size; a plan read at implement was smaller then. GSD's
+  subagent contexts, and every tool's reviewer subagents, are separate contexts the main agent
+  never holds.
