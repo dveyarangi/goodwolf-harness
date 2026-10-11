@@ -20,6 +20,9 @@ description: >-
 
 - Unless already working in branch or instructed to branch - commit to default branch.
 
+- Work the person holds back stays on its own branch, never merged into the shared main until they
+  release it: whatever stands on main may be published.
+
 - When committing a code change, first run the checks the repository defines for itself — its
   linter, its formatter in check mode, its type checker, its tests. Pure doc changes need none
   of them. **Read them from where the project states them; never carry them here.** A commit

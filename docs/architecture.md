@@ -78,6 +78,8 @@ Nor does it promise safe simultaneous writers. Keeping two sessions out of one f
 responsibility — its edit tool refusing a write over a file changed since the agent read it, and a
 worktree per session where it offers one — not the harness's: it locks nothing. Its own scripts refuse a write to an entry that moved since it was
 read. *(the user, 2026-10-11)*
+Whatever stands on the shared main may be published; work the person holds back stays on its own
+branch until they release it. *(the user, 2026-10-12)*
 Recheck expected file contents and destination absence before applying changes; detected
 interference is a failure, not authority to overwrite it.
 
