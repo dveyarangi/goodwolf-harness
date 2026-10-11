@@ -13,8 +13,8 @@ The only home of the shape. A rule carrying a name and date is that person's to 
 
 ## Is it a mechanism
 
-A mechanism is part of **how the work gets done** — the development method and its
-machinery. What the project produces is not one, however much depends on it.
+A mechanism is part of **how the work gets done**. What the project produces is not one,
+however much depends on it.
 
 Test: does other work rely on this as a source of instruction or behavior *about how
 to work*? Then it is a mechanism and owes a declaration.

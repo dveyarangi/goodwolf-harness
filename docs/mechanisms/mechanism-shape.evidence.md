@@ -480,3 +480,14 @@ entry file, and the description stays tier 1, not tier 3. What the move gives up
 
 The same two tests — does a line restate a description read at the same tier, does a check already
 hold it — were handed to q-0026.0006 for the entry file's other sentences.
+
+## The gloss on the membership test, struck 2026-10-11
+
+The definition of 2026-09-07 carried a gloss — *the development method and its machinery* — in the
+method glossary and in `/mechanism`'s first paragraph. It was recorded from a misreading of the
+user's words: what was meant was that the development method, once separated from the harness's
+machinery, is itself a candidate mechanism. The gloss read as if a mechanism had to be both at
+once, and an inventory on 2026-10-11 took it for the harness's definition of itself. Struck from
+both homes; the membership test — *how the work gets done, never what the project produces* —
+stands as decided. The line between method and machinery is q-0024.0012's *(the user,
+2026-10-11)*.
