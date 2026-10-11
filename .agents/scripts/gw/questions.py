@@ -1552,9 +1552,17 @@ def _root_lines(store: Store, path: list[Entry]) -> list[str]:
     )
 
 
+def _position(store: Store, current: str | None) -> str:
+    """Another session's position with its question's words, so a reply can name it as written."""
+    if current is None:
+        return "no position yet"
+    entry = store.index.get(current)
+    return f"{current} {entry.question}" if entry else current
+
+
 def _elsewhere_lines(store: Store, held: Session) -> list[str]:
     others = [
-        f"  {other.tag} at {other.current or 'no position yet'} (last wrote {_stamp(other.wrote)})"
+        f"  {other.tag} at {_position(store, other.current)} (last wrote {_stamp(other.wrote)})"
         for other in store.sessions
         if other.running and other.tag != held.tag
     ]

@@ -776,7 +776,7 @@ class TheWindow(Rendered):
 
         self.assertIn("recently attached: q-0002, q-0001", text)
         others = self.section(text, "other running sessions:")
-        self.assertIn("s-beta at q-0010 (last wrote 2026-09-29T11:00Z)", others)
+        self.assertIn("s-beta at q-0010 How do sessions reach each other? (last wrote 2026-09-29T11:00Z)", others)
         self.assertNotIn("s-gamma", others)
         self.assertNotIn("s-alpha", others)
         self.assertNotIn("next free id", text, "the script draws ids, so the agent is not handed one")

@@ -17,6 +17,21 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 35. Running sessions' questions were named in words the window never wrote — 2026-10-11
+
+**Rules in play:** the entry file's 🪢 table, *the sessions running beside this one come first, a
+row each with the question it stands on as the window writes it*.
+
+**What happened.** Reporting the amendment of entry 34, a reply listed the three running sessions
+under 🪢 with wordings of its own for q-0024.0009.0006, q-0018.0022.0001.0001 and q-0027.0003, none
+of them the store's.
+
+**Why it did not fire.** The window wrote each other session's position as a bare id, so the words
+the rule asks for were nowhere in context, and the reply supplied them.
+
+**Amendment landed** in `questions.py`: the window names each other running session's position
+with its question's words. Graded by the next 🪢 table.
+
 ## 34. A first install ended in a technical report, and asked for a commit the switch allowed — 2026-10-11
 
 **Rules in play:** the entry file's `commit` switch, *`auto`: commit when `/verify` has passed on
