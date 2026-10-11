@@ -44,3 +44,21 @@ Once done, and unless you need to take a break, use `/verify`.
 Read `commit` from `AGENTS.md`. Do not commit until that switch allows it.
 Repair during the work follows the `repair` switch; it is not a substitute
 for `/verify`.
+
+<installed by="local">
+**L3** The verification set: the checks always; the tests too when the work changed a file that is not
+markdown, the question store's own writes aside.
+
+```
+uv run --offline --no-project python .agents/scripts/gw/mechanisms.py --check
+uv run --offline --no-project python .agents/scripts/gw/inject_rules.py --check
+uv run --offline --no-project python .agents/scripts/gw/tickets.py --check
+uv run --offline --no-project python .agents/scripts/gw/edges.py --check
+uv run --offline --no-project python .agents/scripts/gw/maintain.py --check
+uv run --offline --no-project python .agents/scripts/gw/questions.py --check
+```
+
+```
+uv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/test -p "test_*.py"
+```
+</installed>

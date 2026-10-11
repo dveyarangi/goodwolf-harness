@@ -8,6 +8,8 @@ with overwrite; the block in a target is never the place.
 |---|---|
 | `AGENTS.md` | `## Project-local` |
 | `.agents/skills/verify/SKILL.md` | `## The verification set` |
+| `.agents/skills/implement/SKILL.md` | `During the work, run the checks in the project's verification set, as` |
+| `.agents/skills/maintain/SKILL.md` | `## Finish` |
 
 ## L1 — what this repository is
 
@@ -60,10 +62,14 @@ store outside the repository — Claude Code's auto-memory directory and its kin
 only what no record in this tree carries.
 </rule>
 
+<straw-dog question="q-0018.0022.0001">
 ## L3 — the verification set
 
 - **target** `.agents/skills/verify/SKILL.md`
-- **authority** the user, 2026-09-05; the tests by what changed, 2026-10-11
+- **target** `.agents/skills/implement/SKILL.md`
+- **target** `.agents/skills/maintain/SKILL.md`
+- **authority** the user, 2026-09-05; the tests by what changed, 2026-10-11; in every skill that
+  runs it, 2026-10-11
 
 <rule>
 The verification set: the checks always; the tests too when the work changed a file that is not
@@ -82,3 +88,4 @@ uv run --offline --no-project python .agents/scripts/gw/questions.py --check
 uv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/test -p "test_*.py"
 ```
 </rule>
+</straw-dog>
