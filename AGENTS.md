@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v79, 2026-10-11.
+Entry contract: v80, 2026-10-11.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -16,7 +16,7 @@ to have a context and a structure, not yet exhausted by any one realization. Bei
 nothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).
 
 - **Generalize or ask.** Where there is a load-bearing reason to think the work will need a shape generalized, generalize if the effort and the output are small; otherwise ask the person. Preserve a seam either way.
-- **The shape's context.** Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?
+- **The shape's context.** Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape? Look in this tree and in every tree core reaches.
 - **The shape's structure.** Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?
 
 <straw-dog question="q-0029">

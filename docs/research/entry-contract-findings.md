@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v80 — 2026-10-11
+
+**A shape's context runs past this tree** — *The shape's context* gains *Look in this tree and in
+every tree core reaches*. A session planning the mark back deferred a rule for a project's own code
+on *every file of this tree's code is core*, while eight recipients on the same machine hold their
+own code under their own architecture; the user: *what does no recipient mean? we have plenty of
+recipients.* Rule failure 34, struck.
+
 ## v79 — 2026-10-11
 
 **The commits stand in a table of their own, first** — `| 🪶 Commits |` opens the reply above the

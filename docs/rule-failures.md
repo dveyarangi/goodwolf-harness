@@ -169,6 +169,23 @@ reply ends with the work's first question. Then, from the cause above, the same 
 installing session reads the entry file, which arrived after it began, its rules governing the
 rest of the session. Graded by the next first install.
 
+**Struck, 2026-10-11 — a session at the origin, its cause in a second shape.** The entry file did
+not arrive mid-session; it moved under one, v71 to v79 in other sessions' commits, and nothing
+told this one. Planning 01-0011.0110.0050, its reply cited *One shape is not a class* to defer a
+rule for a project's own code — a rule another session had replaced that day by *Generalize or
+ask* — and looked for the second shape in this tree alone: *every file of this tree's code is
+core*. The user: *what does no recipient mean? we have plenty of recipients.* Eight trees on this
+machine announce a harness ref, frost_map and meteoscape among them, each with its own code under
+its own architecture, almost none of it naming the doc that governs it. The rule in force would
+have asked the person on that evidence; the one in context let the agent decide there was none.
+Two misses, one cause each: the entry file's move reaches a running session through nothing, and
+*The shape's context* asks what a shape is one of without saying that its context runs past this
+tree, into every tree core reaches. **Proposed:** the window says when the entry contract's version
+moved since the session's last window, and the session re-reads the entry file before its reply —
+the hosts whose message hook reaches the agent, the rule at session start the floor for the rest;
+and *The shape's context* gains *— in this tree and in every tree core reaches*. Put to the user,
+the first being mechanism work on the window; the second landed as entry contract v80.
+
 ## 33. A command that writes was run to read — 2026-10-11
 
 **Rules in play:** none that this broke. `/maintain`'s T1 — list the straw dogs with
