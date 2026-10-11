@@ -3,9 +3,8 @@
 **Kind:** what must always hold — the pains, the goals and the causes. The status column is as of
 2026-10-09, and each mechanism not in place names the open question that waits on it.
 
-The leading product document. The project's goals, its front page and the introduction an
-installing agent gives a person — `.agents/skills/harness/introduction.md` — are derived from it,
-and a piece of work earns its place by the pain it relieves. It was found, not designed: at the
+The leading product document. The project's goals and its front page are derived from it, and a
+piece of work earns its place by the pain it relieves. It was found, not designed: at the
 front-page align of 2026-10-08 every attempt to say what the harness *is* came out as its
 implementation, until the user named the pains. The argument is in
 [q-0033](questions/q-0033-which-pains-of-developing-software-with-coding-agents-does-the-harness-exist-to-relieve-and-what-answers-each.md)

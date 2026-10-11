@@ -56,9 +56,8 @@ the stamped line is the evidence a person reads.
 Every refusal writes nothing and names its step.
 
 - **A link the platform refused to create** is not a refusal: everything else landed, and the
-  report's `pending` lines are the exact commands. Present those for the hosts the person works
-  in, verbatim, to run once in an elevated prompt; once they say they have, run `--links` yourself,
-  which confirms each resolves without a source.
+  report's `pending` lines are the exact commands. Present them to the person verbatim, to run
+  once in an elevated prompt, then run `--links`, which confirms each resolves without a source.
 - **A folder that is not a Git repository**: empty, the install runs `git init` there first and
   says so in its notes — every script of core reads a tree through Git, so a target is a
   repository. Holding files of its own, it is refused with the step: where the root goes is the
@@ -102,12 +101,13 @@ the harness's checks. Then `inject_rules.py local --install`, and `--check`.
 That check is the install's verification: the `commit` switch just written decides its `EQUIP`
 commit, as it decides any other.
 
-The person asked for a method to work by, not for files. Before asking anything, introduce the
-harness from [introduction.md](introduction.md): what it changes for them, in their language and
-their terms. Ask each step and each answer with what it gives them, from the same file — the
-records' checks are `tickets.py`, `questions.py`, `edges.py` and `maintain.py`, core's
-`mechanisms.py` and `inject_rules.py`. End with the first question the work asks. What was copied,
-gated and registered stays in the files and the commit, said on request.
+The person asked for a method to work by, not for files. Before asking anything, introduce it in
+their language, in a few lines: who you now are to them, what you will do for them, and where you
+stop for their yes. Ask each answer with the reason a project would choose it. The harness's checks
+are two kinds: those of the records the method keeps — `tickets.py`, `questions.py`, `edges.py`,
+`maintain.py` — serve every project that works by it; those of core itself — `mechanisms.py`,
+`inject_rules.py` — serve a project that means to change the harness. End with the first question the work asks. What was copied, gated and registered stays in the
+files and the commit, said on request.
 
 `uv run --offline --no-project python` is the harness's own habit; the scripts need only the
 standard library, so a bare `python` works.
