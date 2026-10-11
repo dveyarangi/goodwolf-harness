@@ -281,9 +281,8 @@ class Refused(Exception):
 
 
 def main(
-    argv: list[str], root: Path | None = None, today: date | None = None, now: datetime | None = None
+    argv: list[str], root: Path, today: date | None = None, now: datetime | None = None
 ) -> int:
-    root = root or Path(__file__).resolve().parents[3]
     today = today or date.today()
     now = now or datetime.now(timezone.utc)
     # A title may hold any character, and a Windows console's default encoding holds few of them:
@@ -2325,4 +2324,5 @@ def _fitted_slug(root: Path, identity: str, question: str) -> str:
 
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv[1:]))
+    # The tree this script sits in; anything that imports it names its tree itself.
+    sys.exit(main(sys.argv[1:], Path(__file__).resolve().parents[3]))

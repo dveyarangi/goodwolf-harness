@@ -41,9 +41,8 @@ _CLOSED_MARK = "- **record of** what happened"
 _ARCHIVE = "done"
 
 
-def main(argv: list[str], root: Path | None = None) -> int:
+def main(argv: list[str], root: Path) -> int:
     """Preview or carry out a close, and say enough afterwards for the caller to trust the result."""
-    root = root or Path(__file__).resolve().parents[3]
     previewing = bool(argv) and argv[0] == "--dry-run"
     operands = argv[1:] if previewing else argv
     if not operands or len(operands) % 2:
@@ -421,4 +420,5 @@ def _replace_content(path: Path, text: str) -> None:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main(sys.argv[1:]))
+    # The tree this script sits in; anything that imports it names its tree itself.
+    raise SystemExit(main(sys.argv[1:], Path(__file__).resolve().parents[3]))

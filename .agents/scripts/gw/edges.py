@@ -103,8 +103,7 @@ class Checked:
         }
 
 
-def main(argv: list[str], root: Path | None = None) -> int:
-    root = root or Path(__file__).resolve().parents[3]
+def main(argv: list[str], root: Path) -> int:
     if argv != ["--check"]:
         print(_USAGE)
         return 2
@@ -352,4 +351,5 @@ def _one_sidecar(side: Read, edge: str | None, checks: list[str]) -> list[Diagno
 
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv[1:]))
+    # The tree this script sits in; anything that imports it names its tree itself.
+    sys.exit(main(sys.argv[1:], Path(__file__).resolve().parents[3]))

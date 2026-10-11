@@ -156,8 +156,7 @@ class Guessed:
         }
 
 
-def main(argv: list[str], root: Path | None = None) -> int:
-    root = root or Path(__file__).resolve().parents[3]
+def main(argv: list[str], root: Path) -> int:
     if argv[:1] == ["--remove"]:
         return _removal(root, argv[1:])
     if argv[:1] == ["--guess"]:
@@ -514,4 +513,5 @@ def _replace_content(path: Path, text: str) -> None:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main(sys.argv[1:]))
+    # The tree this script sits in; anything that imports it names its tree itself.
+    raise SystemExit(main(sys.argv[1:], Path(__file__).resolve().parents[3]))

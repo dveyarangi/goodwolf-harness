@@ -1,18 +1,17 @@
 # Mechanism: mechanism-shape
-"""The test base itself: a case that is not marked as proving a process cannot start one, and
-the scripts' Git listing it answers from the folder never outlives the case."""
+"""The test base itself: a case that is not marked as proving a process cannot start one, the
+scripts' Git listing it answers from the folder never outlives the case, and no script runs
+without being told the tree it works in."""
 
 from __future__ import annotations
 
+import importlib
+import inspect
 import subprocess
 import sys
-import tempfile
 import types
 import unittest
-from pathlib import Path
-from unittest import mock
 
-import repository
 from repository import RepositoryCase, proves_a_process
 
 import docs_corpus
@@ -59,52 +58,24 @@ class TheGuard(unittest.TestCase):
         self.assertEqual([], result.failures + result.errors)
 
 
-class TheLiveStoreGuard(unittest.TestCase):
-    """A suite run leaves this tree's question store byte-identical: only a session writes it."""
+class AScriptGivenNoRoot(unittest.TestCase):
+    """A script's `main()` takes the tree it works in as a required argument, so a test that forgets
+    its own tree fails at the call rather than writing into this one (the user, 2026-10-12)."""
 
-    def setUp(self) -> None:
-        workspace = tempfile.TemporaryDirectory()
-        self.addCleanup(workspace.cleanup)
-        self.store = Path(workspace.name) / "questions"
-        self.store.mkdir()
-        (self.store / "q-0001-a-question.md").write_text("# q-0001 A question\n", encoding="utf-8")
-        patcher = mock.patch.object(repository, "LIVE_STORE", self.store)
-        patcher.start()
-        self.addCleanup(patcher.stop)
+    SCRIPTS = ("edges", "inject_rules", "maintain", "mechanisms", "move_doc", "questions", "straw_dogs", "tickets")
 
-    def test_a_case_that_changes_an_entry_fails_and_names_the_store(self) -> None:
-        store = self.store
+    def test_every_script_s_main_has_no_default_root(self) -> None:
+        for name in self.SCRIPTS:
+            with self.subTest(script=name):
+                root = inspect.signature(importlib.import_module(name).main).parameters["root"]
 
-        class Writer(RepositoryCase):
-            def test_writes(self) -> None:
-                (store / "q-0001-a-question.md").write_text("# q-0001 Rewritten\n", encoding="utf-8")
+                self.assertIs(inspect.Parameter.empty, root.default)
 
-        result = outcome(Writer)
+    def test_a_call_without_a_root_fails_before_it_reads_anything(self) -> None:
+        import questions
 
-        self.assertEqual(1, len(result.failures))
-        self.assertIn("question store", result.failures[0][1])
-
-    def test_a_case_that_adds_an_entry_fails_too(self) -> None:
-        store = self.store
-
-        class Adder(RepositoryCase):
-            def test_adds(self) -> None:
-                (store / "q-0002-another.md").write_text("# q-0002 Another\n", encoding="utf-8")
-
-        result = outcome(Adder)
-
-        self.assertEqual(1, len(result.failures))
-
-    def test_a_case_that_only_reads_it_passes(self) -> None:
-        store = self.store
-
-        class Reader(RepositoryCase):
-            def test_reads(self) -> None:
-                (store / "q-0001-a-question.md").read_text(encoding="utf-8")
-
-        result = outcome(Reader)
-
-        self.assertEqual([], result.failures + result.errors)
+        with self.assertRaisesRegex(TypeError, "root"):
+            questions.main(["--check"])
 
 
 class TheFolderListing(unittest.TestCase):

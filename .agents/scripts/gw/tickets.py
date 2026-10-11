@@ -189,8 +189,7 @@ class Listing:
         return "\n".join(table + ([""] + unread if unread else []))
 
 
-def main(argv: list[str], root: Path | None = None) -> int:
-    root = root or Path(__file__).resolve().parents[3]
+def main(argv: list[str], root: Path) -> int:
     if argv == ["--check"]:
         checked = check(root)
         print(json.dumps(checked.as_record(), indent=2))
@@ -658,4 +657,5 @@ def _is_rfc(name: str) -> bool:
 
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv[1:]))
+    # The tree this script sits in; anything that imports it names its tree itself.
+    sys.exit(main(sys.argv[1:], Path(__file__).resolve().parents[3]))
