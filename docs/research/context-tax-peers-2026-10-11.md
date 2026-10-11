@@ -188,6 +188,11 @@ Method text and project records together, ticket to commit:
   for some: spec-kit's design files, present in nine features of ten, add 4,000–12,000 at ticket
   and implement; OpenSpec's relevant main specs add ≈6,600; BMAD's architecture and UX documents,
   where they exist, 4,000–40,000.
+- Source code is counted for no one. A peer with no architecture learns the project's structure
+  from the code; this harness writes the map down so that its agent need not. Whether it does is
+  not read here: in Claude Code's transcripts the code read per change is about the same in
+  meteoscape before the harness and in frost_map under it, ≈82,000 and ≈77,000 tokens per
+  thousand lines changed — q-0033.0007.
 - Records are measured at their final size; a plan read at implement was smaller then. GSD's
   subagent contexts, and every tool's reviewer subagents, are separate contexts the main agent
   never holds.

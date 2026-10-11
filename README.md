@@ -134,7 +134,8 @@ Before you install, know this:
   harness, reads about 82,000 tokens: 17,000 of the method's text and 65,000 of the project's
   records. Peers' main agents read 20,000–61,000 for the same ring, and GSD's 99,000. The
   weight is the architecture document, re-read at plan and at verify, which grows with the
-  project; most peers read only the feature's own spec and plan. What no peer has is the
+  project; most peers read only the feature's own spec and plan, and learn
+  the rest from the code, which nobody here counted. What no peer has is the
   question window before each message: a line while the work stays on one question, about
   4,400 tokens in this repository each time it moves. In this repository, after a month of daily use, a session reads about
   22,000 before your first message: about 4,400 of rules and skill descriptions, 2,700 of status

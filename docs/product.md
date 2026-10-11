@@ -109,6 +109,7 @@ A row not marked ✓ is bound, in this page's source, to the open question that 
 | decisions in the architecture, its records and the glossary; who decided each rule, and when | C1, C6 | ● | | ● | ● | | ✓ |
 | every record says which side wins when it and the code disagree | C6 | ● | | | ● | | <straw-dog question="q-0024.0009">◐ named; records being brought to it</straw-dog> |
 | what bears load is written down, the rest lives in code and its comments | C6, C8 | ● | ● | | ● | | <straw-dog question="q-0024.0002.0005">◐ a rule, not yet settled</straw-dog> |
+| the architecture's map — components, contracts, flows, seams — read before the code, so the agent finds where a change lands and what depends on it without paging through the code | C4, C8 | | ● | | | | <straw-dog question="q-0033.0007">◐ the map is written; no step navigates by it, and the code read did not fall</straw-dog> |
 | an edited thing carries its mark back to the record that governs it | C6 | ● | | | ● | | <straw-dog question="q-0024.0009.0004">✗</straw-dog> |
 | the live tickets listed from their headers, the queue's order the person's | C6, C9 | | ● | ● | | | ✓ |
 | a contract per edge, for those who consume the system and those who extend it, its outward text derived from it | C6, C10 | ● | | | ● | | <straw-dog question="q-0018.0023.0002">◐ the edge mechanism and the hosts record exist; no text is derived from a record yet</straw-dog> |
