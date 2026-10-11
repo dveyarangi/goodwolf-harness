@@ -3,5 +3,5 @@
 - **record of** what it intends to become
 - **state** open
 - **owner** [01-0018](../tickets/01-0018-rules-reach-the-occasion-they-are-for.md)
-- **lean** failures 17 (struck) and 29 on 2026-10-10, P9 per reply and a table only with a row, v54 and v55; earlier three on 2026-10-08 (20, 21, 22)
+- **lean** 2026-10-11: failures 31 (⚖️ held a taken decision, v61) and 33 (a slip no rule covers, the register counting slips, v67); earlier 17, 29, 20-22
 - **struck** 3, last 2026-10-10T23:51Z
