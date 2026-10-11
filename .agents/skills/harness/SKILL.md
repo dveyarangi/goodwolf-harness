@@ -38,8 +38,8 @@ until they have been run.
 
 ## What a run does
 
-Copies every file under `.agents/` plus `AGENTS.md` and `CLAUDE.md`, and the source's root
-`LICENSE` as `.agents/LICENSE`, with the origin's local blocks removed and every straw-dog wrapper and `TODO` binding sheared so the rule stays and the question it waits on, which only this tree holds, does not;
+Copies every file under `.agents/` plus `AGENTS.md` and `CLAUDE.md`, the source's root
+`LICENSE` as `.agents/LICENSE`, and its root `README.md` with its picture beside this skill, with the origin's local blocks removed and every straw-dog wrapper and `TODO` binding sheared so the rule stays and the question it waits on, which only this tree holds, does not;
 stamps the entry file's announce line `<repository>@<ref>, <date>`, which is the tree's only
 revision record and what every session there announces; merges core's hooks into each host's
 shared hook file — `.claude/settings.json`, `.codex/hooks.json`, `.cursor/hooks.json` — beside the

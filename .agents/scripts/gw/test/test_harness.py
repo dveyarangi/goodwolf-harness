@@ -120,6 +120,11 @@ ARRIVAL_TEST = (
 )
 LICENSE_TEXT = "MIT License\n\nCopyright (c) 2026 the fixture's contributors\n"
 INSTALLED_LICENSE = ".agents/LICENSE"
+FRONT_PAGE = "# The repository's front page, shipped beside the harness skill\n"
+INSTALLED_FRONT_PAGE = ".agents/skills/harness/README.md"
+# Not UTF-8, as the front page's picture is not: a binary file ships as its bytes.
+PICTURE = bytes([0x89]) + b"PNG\r\n\x1a\n\x00 the fixture's picture"
+INSTALLED_PICTURE = ".agents/skills/harness/dev-skills-readme.png"
 
 
 def platform_makes_symlinks() -> bool:
@@ -308,7 +313,8 @@ class TwoTrees(RepositoryCase):
             self.write(f".agents/scripts/gw/{script.name}", text)
         self.write(".agents/scripts/gw/test/test_arrival.py", ARRIVAL_TEST)
         self.write(TICKET, "# Sweep\n")
-        self.write("README.md", "# The repository's front page, never shipped\n")
+        self.write("README.md", FRONT_PAGE)
+        (self.source / "dev-skills-readme.png").write_bytes(PICTURE)
         self.write("LICENSE", LICENSE_TEXT)
         self.write("local.rules.md", "# local — never shipped\n")
         self.commit("core")
@@ -567,7 +573,7 @@ class TheRepositoryLine(unittest.TestCase):
 
 class TheSource(TwoTrees):
     @proves_a_process
-    def test_the_manifest_at_a_ref_is_core_the_two_root_files_and_the_license_and_nothing_else(self) -> None:
+    def test_the_manifest_at_a_ref_is_core_the_two_root_files_the_license_and_the_front_page_and_nothing_else(self) -> None:
         with harness.Source(str(self.source)) as source:
             ref = source.resolve("HEAD")
             manifest = source.files(ref)
@@ -577,6 +583,8 @@ class TheSource(TwoTrees):
         self.assertIn(KEEPER, manifest)
         self.assertIn(".agents/scripts/gw/test/test_arrival.py", manifest)
         self.assertEqual((self.source / "LICENSE").read_bytes(), manifest[INSTALLED_LICENSE])
+        self.assertEqual((self.source / "README.md").read_bytes(), manifest[INSTALLED_FRONT_PAGE])
+        self.assertEqual(PICTURE, manifest[INSTALLED_PICTURE])
         self.assertNotIn("LICENSE", manifest)
         self.assertNotIn("README.md", manifest)
         self.assertNotIn("local.rules.md", manifest)
@@ -584,10 +592,12 @@ class TheSource(TwoTrees):
 
         with self.subTest(license="absent at the ref"):
             # Every ref before the license existed lacks it, and the archive refuses a path the ref lacks.
-            self.remove("LICENSE")
-            self.commit("no license")
+            self.remove("LICENSE", "README.md")
+            self.commit("no license, no front page")
             with harness.Source(str(self.source)) as source:
-                self.assertNotIn(INSTALLED_LICENSE, source.files(source.resolve("HEAD")))
+                held = source.files(source.resolve("HEAD"))
+                self.assertNotIn(INSTALLED_LICENSE, held)
+                self.assertNotIn(INSTALLED_FRONT_PAGE, held)
 
     @proves_a_process
     def test_a_tagged_commit_is_announced_by_its_tag_and_an_untagged_one_by_its_short_commit(self) -> None:
@@ -793,6 +803,8 @@ class AnInstall(TwoTrees):
         self.assertTrue((self.target / KEEPER).is_file())
         self.assertTrue((self.target / ".agents/scripts/gw/harness.py").is_file())
         self.assertFalse((self.target / "README.md").exists())
+        self.assertEqual(FRONT_PAGE, self.target_text(INSTALLED_FRONT_PAGE))
+        self.assertEqual(PICTURE, (self.target / INSTALLED_PICTURE).read_bytes())
         self.assertFalse((self.target / "local.rules.md").exists())
         self.assertFalse((self.target / TICKET).exists())
         entry = self.target_text("AGENTS.md")
