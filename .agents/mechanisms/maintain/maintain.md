@@ -22,8 +22,13 @@ and this mechanism sits on it. The harness mechanism places it in a tree with th
 removing it alone is declared below as a gap, not assumed away.
 
 Its record is the marks — one row per mechanism per level, moved only by the closing step of a
-maintenance, from which dueness is derived. A mechanism's doc is due when the meta-rules moved
-since its mark; its records are due when its own doc, rules file or skill did. `maintain.py
+maintenance, from which dueness is derived. A record is due when what it depends on moved, and a
+mechanism has two dependences: at `parts` its doc is due when a part it owns moved since its mark
+— the parts table's rows, whole files, a relied-on part being its owner's doc to watch; at
+`output` its records are due when its own doc, rules file or skill moved, and its doc and skill
+when the mechanism shape's did — every mechanism's doc and skill are the shape's outputs, read
+against it one mechanism at a time in that mechanism's own row, the entry file governing none in
+particular *(the user, 2026-10-11)*. `maintain.py
 --check` derives that at every pass and never fails on it — being due is news, not a defect — and
 `--mark` is the only writer; the format is the shelf beside the skill, `MARKS-FORMAT.md`. A due mechanism joins
 whatever scope a pass declared, because a pass that closes one ticket would otherwise never reach
