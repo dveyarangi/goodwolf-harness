@@ -116,8 +116,9 @@ Before you install, know this:
 
 - **Several sessions at once, yes; keeping them apart is your host's job.** Sessions in one tree
   see where the others stand, and the harness's own scripts refuse a write to an entry that moved
-  since it was read. Nothing here locks a file: run each session in its own worktree where your
-  host offers one, as the Claude desktop app does.
+  since it was read. Nothing here locks a file: that is your host's — its edit tool refuses to
+  write over a file that changed since the agent read it, and where it offers a worktree per
+  session, each works in its own.
   <straw-dog question="q-0033.0004">A team sharing one queue across branches is not tested yet, and your team's tracker can't yet take the tickets' place.</straw-dog>
 - <straw-dog question="q-0027.0003">**No fast path for small work yet.** Every change is meant to go through ticket, plan, build and verify. You can tell the agent to skip that for a one-line fix, but nothing yet says when that is fine.</straw-dog>
 - <straw-dog question="q-0018.0005">**Instructions, not enforcement.** Everything here is the agent following written rules, plus scripts that check the files. A model can still slip; the records make the slip visible, and the rule it missed gets reworded.</straw-dog>
