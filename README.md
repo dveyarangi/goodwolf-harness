@@ -228,11 +228,13 @@ The rules are in [AGENTS.md](AGENTS.md) and every skill is under [`.agents/skill
 
 ## Use it
 
+Clone it beside your project — never into it:
+
 ```
 git clone https://github.com/dveyarangi/goodwolf-harness.git
 ```
 
-From your project's root, have your coding agent read
+Then, from your project's root, have your coding agent read
 [`.agents/skills/harness/SKILL.md`](.agents/skills/harness/SKILL.md) in the clone and follow it. It
 installs the harness, reports what arrived, and sets up your project's own rules with you. The
 install itself is one script you can run and read first,
