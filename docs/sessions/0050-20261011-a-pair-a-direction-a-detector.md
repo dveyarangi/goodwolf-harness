@@ -38,7 +38,7 @@ these labels give a direction — they do not look relative*. A unary label has 
 spec had asked every record to name its referent, and the slice had dropped it. Direction and drift
 go to pairs with a detector.
 
-**[q-0024.0009.0006](../questions/q-0024.0009.0006-how-is-a-record-paired-with-the-thing-it-is-of-so-that-drift-between-them-is-noticed.md)'s
+**[q-0024.0009.0006](../questions/done/q-0024.0009.0006-how-is-a-record-paired-with-the-thing-it-is-of-so-that-drift-between-them-is-noticed.md)'s
 seven decisions**, the align's account in its body. The ones a reasoning turned:
 
 - *Only its own parts*, so one edit makes one doc due.

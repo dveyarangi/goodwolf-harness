@@ -67,8 +67,8 @@ repair-and-report, recording the cause in the evidence.
 
 | rule | decided by |
 |---|---|
-| A1, A2, A4 | the user, 2026-09-07 |
-| B4, F4, the marks' format | the user, 2026-09-27 |
+| A1, A2, A4 | the user, 2026-09-07; A1's three outcomes of a due pair, the user, 2026-10-11 |
+| B4, F4, the marks' format | the user, 2026-09-27; B4's two levels and the format's `parts`, `output` and `repaired`, the user, 2026-10-11 |
 | B1, D4 | the user, 2026-09-06 |
 | C1 | the user, 2026-09-06 — eligibility is the maintainer's, never the script's |
 | A3, B2, D3 | drafted into the process document 2026-09-05, never separately decided |
