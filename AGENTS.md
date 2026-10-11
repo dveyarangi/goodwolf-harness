@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v75, 2026-10-11.
+Entry contract: v76, 2026-10-11.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -15,7 +15,7 @@ A **shape** is whatever is under consideration, held between an idea and a thing
 to have a context and a structure, not yet exhausted by any one realization. Being a shape says
 nothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).
 
-- **Ask about the class.** Where there is reason to think the work will need a shape generalized — a second case in sight, a rule that reads as one case of a wider one — ask the person whether to generalize before writing it narrow. Preserve a seam either way.
+- **Generalize or ask.** Where there is a load-bearing reason to think the work will need a shape generalized, generalize if the effort and the output are small; otherwise ask the person. Preserve a seam either way.
 - **The shape's context.** Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?
 - **The shape's structure.** Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?
 

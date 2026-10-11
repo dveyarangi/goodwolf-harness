@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v76 — 2026-10-11
+
+**Generalize or ask** replaces v75's *ask about the class*: where there is a load-bearing reason to
+think the work will need a shape generalized, the agent generalizes if the effort and the output
+are small, and otherwise asks the person; a seam is preserved either way. v75 asked every time and
+named a second case as a sign, the old trigger back in; the user: *still wrong*, and gave the rule
+nearly as it stands. The user's *operator* is written *the person*, the entry file's word.
+
 ## v75 — 2026-10-11
 
 **Ask about the class** replaces *one shape is not a class*: where there is reason to think the
