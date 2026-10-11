@@ -153,9 +153,9 @@ mechanism cannot be retired. The shape's block absent from `/mechanism` under `-
 signal that the always-on mechanism has lost what it installed into itself, and the check is
 what says it happened.
 
-**Four declared mechanisms are still thin evidence for a shape.** The first three each forced
+**Six declared mechanisms are still thin evidence for a shape.** The first three each forced
 amendments to it, the fourth passed its check unedited and sharpened one word — what each one
-forced is in the evidence — and
+forced is in the evidence; the fifth and sixth left no account there — and
 <straw-dog question="q-0024">the rest of the corpus meets it at once</straw-dog>.
 
 ## What retires this
