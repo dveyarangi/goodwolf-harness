@@ -82,7 +82,9 @@ list of directories.
 **Amendment landed** in `/harness`'s *After the first install*: the green check is the install's
 verification and the switch decides its `EQUIP` commit; the person is introduced to the method in
 their language before anything is asked, each answer asked with a project's reason for it, and the
-reply ends with the work's first question. Graded by the next first install.
+reply ends with the work's first question. Then, from the cause above, the same section: the
+installing session reads the entry file, which arrived after it began, its rules governing the
+rest of the session. Graded by the next first install.
 
 ## 33. A command that writes was run to read — 2026-10-11
 

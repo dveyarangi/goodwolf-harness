@@ -91,8 +91,9 @@ Every refusal writes nothing and names its step.
 
 ## After the first install
 
-The tree has core and no answers. Write `local.rules.md` beside the entry file, in the rules-file
-format the entry file's *Project-local* section describes, from the environment you stand in: the
+The tree has core and no answers, and its entry file arrived after this session began, so none of
+its rules are in your context: read it now — from here they govern this session, as they will
+every next one. Write `local.rules.md` beside the entry file, in the rules-file format the entry file's *Project-local* section describes, from the environment you stand in: the
 project's facts for the entry file, its autonomy switches, and its verification set — its
 typechecker, its tests, every command required of landed work, read off its own toolchain, a
 project without one having none of its own and its local file saying so; and, offered beside them,
