@@ -3,6 +3,7 @@
 - **record of** what it intends to become
 - **state** open
 - **owner** [01-0010](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md)
+- **lean** the user, 2026-10-11: research-harness, the first recipient with a method of its own, stands on five things open here — q-0018.0019, 01-0020, 01-0017.0020, mechanisms from a second repository (no question yet), q-0017; its architecture read as this queue's order, the reordering the user's
 - **struck** 2, last 2026-10-11T20:40Z
 
 ## The first recipient with a method of its own, 2026-10-11
