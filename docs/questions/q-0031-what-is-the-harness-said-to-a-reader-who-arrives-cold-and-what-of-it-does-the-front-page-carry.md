@@ -4,7 +4,7 @@
 - **depends on** q-0033
 - **state** open
 - **lean** the user, 2026-10-09: README rewritten from docs/product.md and landed — three pains in the reader words, what answers each, two goals it cannot promise yet, no comparisons; follows the product document as it changes
-- **struck** 1, last 2026-10-10T17:03Z
+- **struck** 2, last 2026-10-11T11:18Z
 
 Opened 2026-10-08 when the user asked for the front page to be rethought: the page of 2026-09-26
 called the harness *an institutional memory in the repository*, and the tree had since gained the
