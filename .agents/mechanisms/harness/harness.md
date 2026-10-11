@@ -36,7 +36,11 @@ runs `git init` there first and reports it: the root is not in question, and the
 an install *(the user, 2026-10-07)*. Anything else that is not the top level of a work tree is
 refused with the step — `git init` for a folder with files of its own, where the root is the
 person's decision; the parent for a subfolder of a repository. An install also refuses a target
-that already holds any manifest path, or that is the source itself; a target Git refuses for
+that already holds any manifest path, or that is the source itself — unless asked to replace a
+clone of it that holds nothing of the person's: no change, no ignored file beyond the loader links
+and bytecode caches running the script leaves, no commit on any ref that no remote-tracking branch
+of its origin holds, whatever ref the run names; such a clone is emptied, its repository with it,
+and the install runs as into an empty folder. A target Git refuses for
 dubious ownership is refused with that cause and Git's own command. An update refuses over a core
 file the recipient edited unless told to overwrite, and then reports what it replaced; it never
 touches a file under the core directory the manifest does not name, and reports it as the
