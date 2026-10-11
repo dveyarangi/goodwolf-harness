@@ -63,7 +63,7 @@ absence is honestly classified, are judgements it records and never makes.
 | re-checking a mechanism when what governs it has moved | — | elsewhere — re-checking derived work against a changed source is maintenance, `.agents/skills/maintain/SKILL.md` |
 | writing or changing a skill's text | — | elsewhere — a sibling mechanism's subject, and both apply when a skill is an instruction file, `.agents/skills/skill-up/SKILL.md` |
 | recording that an installed skill belongs to no mechanism | `.agents/skills/skill-up/SKILL.md` | |
-| asking whether every installed skill is claimed | `.agents/scripts/gw/mechanisms.py` | |
+| asking whether every installed skill is claimed, and every part a mechanism owns names it | `.agents/scripts/gw/mechanisms.py` | |
 | holding core to citing only what its mechanisms declare | `.agents/scripts/gw/mechanisms.py` | |
 | finding a mechanism's doc, or asking what is declared at all | — | unowned by design — the directory is a routing table and the index renders it on request; looking something up needs no rule |
 
