@@ -17,6 +17,32 @@ transformed before a byte is written: the origin's local blocks removed, every s
 and every `TODO`'s question binding sheared with the content kept, the announce line stamped, and
 the whole held to the leak rule the origin's check applies.
 
+**Two things outside the manifest are written, each only when absent**, both read by a fresh
+tree's first session before anything has been written into it: the delivery status, in the words
+the ticket mechanism ships beside its record's shape, which the install places and composes
+nothing of; and a store's roots, into a store holding no entry, which the questions mechanism's
+script writes from its shelf, the install only calling it. A tree that already has either keeps it
+untouched, overwrite included: from its first line each is the instance's. **A third kind is
+merged rather than written**: each host's shared, committed hook file, never a local settings
+file, receives core's hook entries beside the project's own *(the user, 2026-10-09)*. The entries'
+words are the questions mechanism's shelf, shipped as core; an update replaces core's entries and
+removes one that left core, and a check compares core's entries alone, so a project's own hook is
+never drift. A host file that is not valid JSON is refused, not rewritten.
+
+**A target is a Git repository**, because every script of core reads a tree through Git's listing
+— tracked and untracked-but-unignored files, in Git's exact case — and the top level of its work
+tree is where one installation's tree ends. An install into an empty folder inside no repository
+runs `git init` there first and reports it: the root is not in question, and the person asked for
+an install *(the user, 2026-10-07)*. Anything else that is not the top level of a work tree is
+refused with the step — `git init` for a folder with files of its own, where the root is the
+person's decision; the parent for a subfolder of a repository. An install also refuses a target
+that already holds any manifest path, or that is the source itself; a target Git refuses for
+dubious ownership is refused with that cause and Git's own command. An update refuses over a core
+file the recipient edited unless told to overwrite, and then reports what it replaced; it never
+touches a file under the core directory the manifest does not name, and reports it as the
+recipient's own; it refuses an entry file still carrying a retired `<project-local>` block, whose
+content is the project's.
+
 **The announce line is the revision.** A recipient's entry file reads
 `Entry contract: <repository>@<ref>, <date>.`; every session there announces it, the check reads
 it, and the shape check reads its `@` to know it stands in a recipient — where an unbound
@@ -41,15 +67,25 @@ recipient fail its own shape check.
 
 **Every refusal writes nothing**, and the loader links are the one step a person may finish by
 hand: where the platform refuses to create a symlink, the run finishes everything else and ends
-with the exact elevated command. Nothing is substituted for a link; a junction is refused by name.
-A link that stands is removed only once its replacement exists, and one written to the skills
-directory is kept even by a process that cannot see through it.
+with the exact elevated command. Nothing is substituted for a link; a junction, a directory or a
+file in a link's place is refused by name, and a link that already resolves is left alone. A link
+that stands is removed only once its replacement exists, and one written to the skills directory
+is kept even by a process that cannot see through it. The links are made in each clone and never
+committed, so a fresh clone of a recipient gets them from `--links`, the link step run alone from
+the clone's own copy with no source; whatever plans a link names it in the clone's exclude file,
+which Git locates. The same step records the interpreter that ran it in the clone's Git directory,
+which no commit carries: every core hook runs through a wrapper that reads it, so a hook needs no
+`uv` and no `python` on the path, and a clone without the record is told which step makes it *(the
+user, 2026-10-09)*. A run that fails after it began writing stops, reports what it wrote, what was
+pending and the path that failed, and rolls nothing back: the person recovers from the files as
+they stand.
 
 **The gate is the check, and it takes seconds.** Arrival and any later day's question are one
-function: the copy against the ref, the injector's check, the shape check — the target's own
-scripts, run as subprocesses, so what is checked is what arrived. The loader links are reported
-beside the verdict and never decide it: a link the platform refused is the person's one
-remaining step, and its command is already in the report. The shipped suite is not run here —
+function: the copy against the ref, the injector's check clean with the local block last, the
+shape check — the target's own scripts, run as subprocesses, so what is checked is what arrived.
+The loader links are reported beside the verdict and never decide it: a link the platform refused
+is the person's one remaining step, and its command is already in the report. Whether a host reads
+a link is not observable from inside a tree and is reported as unverified. The shipped suite is not run here —
 it costs minutes, and an install is seconds — a recipient that wants it names it in its own
 verification set *(the user, 2026-09-21)*. The gate itself clones the source whole, over the
 network, at every run. A copy drifting from its ref is maintenance's to find, never

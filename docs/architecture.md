@@ -172,60 +172,12 @@ The installer writes no doc and decides nothing about a mechanism's state.
 
 ### Installing
 
-[The install spec](spec/01-0010.0130-harness-installs-into-another-tree.md) owns the decisions;
-this is the contract a recipient holds the harness mechanism to. The source is a repository at a
-ref — cloned fresh on every run, read through git rather than a checkout, never a working tree —
-so what a recipient receives is always what a commit holds. Which repository that is, a tree says
-once, in its harness skill's `Repository:` line — the only authored home of it, read as the
-default when a run names no source, so a fork edits one line and everything it installs names the
-fork. The manifest is core at that ref and nothing of the project's: the project's local rules
-file is never in it and never written. Two things outside the manifest are written, each only when
-absent, both read by a fresh tree's first session before anything has been written into it. The
-delivery status: its words are the ticket mechanism's, declared with the record's shape and
-carried in the shipment; the install places them and composes nothing. And a store's roots, into a
-store holding no entry: their words are the questions mechanism's shelf, and its script writes
-them, the install only calling it. A tree that already has either keeps it untouched, overwrite
-included — from its first line each is the instance's. A third kind is merged rather than
-written: each host's shared, committed hook file, never a local settings file, receives core's
-hook entries beside the project's own *(the user, 2026-10-09)*. The entries' words are the
-questions mechanism's shelf, shipped as core; an update replaces core's entries and removes one
-that left core, and a check compares core's entries alone, so a project's own hook is never drift.
-A host file that is not valid JSON is refused, not rewritten.
-
-What ships is transformed before it is written: the origin's own local blocks removed, every
-straw-dog wrapper and every `TODO`'s question binding sheared with its content kept, the entry
-file's announce line stamped `<repository>@<ref>, <date>`, the harness skill's repository line
-stamped with the source the run actually read, and the result held to the same leak rule the
-origin's check applies. A tree whose announce line carries the `@` is a recipient; the line is
-its only revision record, and integrity is asked of the source: a check clones the announced ref
-and compares file by file, line endings normalised, local blocks and the blocks of the
-recipient's own mechanisms removed and the repository line set aside — it is the recipient's own
-fact living in a core file, as the announce line is, so a run from another source reads no edit
-in core.
-
-A target is a Git repository, because every script of core reads a tree through Git's listing —
-tracked and untracked-but-unignored files, in Git's exact case — and the top level of its work
-tree is where one installation's tree ends. An install into an empty folder inside no repository
-runs `git init` there first and reports it: the root is not in question, and the person asked for
-an install *(the user, 2026-10-07)*. Anything else that is not the top level of a work tree is
-refused with the step — `git init` for a folder with files of its own, since where the root goes
-is then the person's decision; the parent for a subfolder of a repository. An install also
-refuses a target that already holds any manifest path, or that is the source itself. An update refuses over a core file the recipient
-edited unless told to overwrite, and then reports what it replaced; it never touches a file under
-the core directory the manifest does not name, and reports it as the recipient's own; it refuses
-an entry file still carrying a retired `<project-local>` block, whose content is the project's.
-Every refusal changes no file. A loader link is a symlink resolving to the skills directory; a
-junction, a directory or a file in its place is refused by name; a link that already resolves is
-left alone; and where the platform refuses to create one, the run finishes everything else,
-reports the link as pending with the exact elevated command for that tree. Nothing is
-substituted for a link, and a link never decides arrival: the links are reported beside the
-verdict, resolving or not. The links are made in each clone and never committed, so a fresh clone
-of a recipient gets them from `--links`, the link step run alone from the clone's own copy, with
-no source; whatever plans a link names it in the clone's exclude file, which Git locates. The same
-step records the interpreter that ran it in the clone's Git directory, which no commit carries:
-every core hook runs through a wrapper that reads it, so a hook needs no `uv` and no `python` on
-the path, and a clone without the record is told which step makes it *(the user, 2026-10-09)*. A
-target Git refuses for dubious ownership is refused with that cause and Git's own command.
+The install contract is the harness mechanism's, in [its doc](../.agents/mechanisms/harness/harness.md):
+the source a repository at a ref and never a working tree, the manifest and what is written or
+merged outside it, the transformation, the announce and repository lines, what a target is and
+what an install and an update refuse, the loader links and the interpreter record, and arrival as
+the check. [The install spec](spec/01-0010.0130-harness-installs-into-another-tree.md) owns the
+decisions behind it. The project's verification set is the project's: arrival runs none of it.
 
 **The edge, and what crosses it.** The core–instance interaction is everything an instance must
 know to integrate core, customise it and stay coherent across core changes: a rule id, a target
@@ -241,14 +193,6 @@ script's. *(The user, 2026-09-21.)*
 Nothing does this yet: core is shared from the working tree and an update crosses an edge change
 in silence, leaving what a recipient must amend to whoever reads the manifest diff.
 </straw-dog>
-
-Arrival is the check, and it takes seconds: the announced ref compared, the injector's check
-clean with the local block last, the shape check clean — run as the target's own scripts. The
-shipped suite is not part of it; a recipient that wants it names it in its own verification set.
-Whether a host reads the link is not observable from inside a tree and is reported as
-unverified. A mid-run failure follows [interruption and recovery](#interruption-and-recovery).
-The project's verification set is the project's. A copy drifting from its ref is maintenance's to
-find, never verification's *(the user, 2026-10-09)*.
 
 ## Deferred decisions
 
