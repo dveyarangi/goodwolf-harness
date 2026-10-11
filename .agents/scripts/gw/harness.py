@@ -74,7 +74,7 @@ ARRIVAL_STATE = re.compile(r"^```delivery-status[ \t]*\r?\n(?P<said>.*?)^```", r
 REPOSITORY = re.compile(r"^Repository: (?P<url>\S+)[ \t]*(?:\r?\n|\Z)", re.M)
 MODES = ("--install", "--update", "--check", "--links")
 _USAGE = (
-    "usage: harness.py <target> --install [--from REPOSITORY] [--at REF]\n"
+    "usage: harness.py <target> --install [--replace-clone] [--from REPOSITORY] [--at REF]\n"
     "       harness.py <target> --update [--overwrite] [--from REPOSITORY] [--at REF]\n"
     "       harness.py <target> --check [--from REPOSITORY]\n"
     "       harness.py <target> --links"
@@ -139,7 +139,7 @@ def main(argv: list[str]) -> int:
     if parsed is None:
         print(_USAGE)
         return 2
-    target, mode, overwrite, repository, ref = parsed
+    target, mode, overwrite, replace_clone, repository, ref = parsed
     report = Report(target, mode[2:], repository or "")
     try:
         if mode == "--links":
@@ -148,7 +148,7 @@ def main(argv: list[str]) -> int:
             if repository is None:
                 repository = report.repository = home()
             with Source(repository) as source:
-                run(Path(target), mode, overwrite, source, ref, report)
+                run(Path(target), mode, overwrite, source, ref, report, replace_clone)
     except Refused as refusal:
         report.refusals.append(str(refusal))
     print(json.dumps(report.as_record(), indent=2))
@@ -171,21 +171,32 @@ def link(target: Path, report: Report) -> None:
     report.links_resolve = _links_resolve(target)
 
 
-def run(target: Path, mode: str, overwrite: bool, source: Source, ref: str | None, report: Report) -> None:
-    """The sequence: refuse what cannot be satisfied, copy, stamp, link, inject, then the gate."""
+def run(
+    target: Path, mode: str, overwrite: bool, source: Source, ref: str | None, report: Report,
+    replace_clone: bool = False,
+) -> None:
+    """The sequence: refuse what cannot be satisfied, copy, stamp, link, inject, then the gate.
+
+    Replacing a clone: what a host makes of *install <url> here* in an empty folder is the
+    origin cloned into it, and the agent may not delete what it cloned. A clean clone of the
+    repository holds nothing of the person's, so it is turned into an install in place — the
+    shipment built first, at the clone's own commit, then the tree emptied, a repository begun
+    afresh, and the install run as into an empty folder."""
     if mode == "--install":
         _initialise_if_empty(target.resolve(), report)
-    target = _work_tree_root(target, source)
+    target = _work_tree_root(target, source, replace_clone)
     if mode == "--check":
         wanted = _announced_ref(target, source, required=True)
         shipment = Shipment.earlier(source, wanted)
         report.ref = wanted.as_record()
         _gate(target, shipment, report)
         return
-    wanted = source.resolve(ref or "HEAD")
+    wanted = source.resolve(ref or (_clean_clone_head(target) if replace_clone else "HEAD"))
     report.ref = wanted.as_record()
     shipment = Shipment.at(source, wanted)
     if mode == "--install":
+        if replace_clone:
+            _replace_clone(target, report)
         _refuse_unless_empty(target, shipment)
         previous = None
     else:
@@ -203,7 +214,7 @@ def run(target: Path, mode: str, overwrite: bool, source: Source, ref: str | Non
     _gate(target, shipment, report)
 
 
-def _parsed(argv: list[str]) -> tuple[str, str, bool, str | None, str | None] | None:
+def _parsed(argv: list[str]) -> tuple[str, str, bool, bool, str | None, str | None] | None:
     """Exactly one target, one mode, and the options each mode admits; anything else is usage.
 
     An absent `--from` stays absent rather than defaulting here: the default is read from the
@@ -212,6 +223,7 @@ def _parsed(argv: list[str]) -> tuple[str, str, bool, str | None, str | None] | 
     words: list[str] = []
     modes: list[str] = []
     overwrite = False
+    replace_clone = False
     repository = None
     ref = None
     operands = list(argv)
@@ -221,6 +233,8 @@ def _parsed(argv: list[str]) -> tuple[str, str, bool, str | None, str | None] | 
             modes.append(operand)
         elif operand == "--overwrite":
             overwrite = True
+        elif operand == "--replace-clone":
+            replace_clone = True
         elif operand in ("--from", "--at") and operands:
             value = operands.pop(0)
             if operand == "--from":
@@ -240,7 +254,9 @@ def _parsed(argv: list[str]) -> tuple[str, str, bool, str | None, str | None] | 
         return None
     if mode == "--links" and (repository is not None or ref is not None):
         return None
-    return words[0], mode, overwrite, repository, ref
+    if replace_clone and mode != "--install":
+        return None
+    return words[0], mode, overwrite, replace_clone, repository, ref
 
 
 # --- the source ------------------------------------------------------------------------------
@@ -598,10 +614,11 @@ def _whole_line_if_alone(text: str, start: int, end: int) -> tuple[int, int]:
 # --- the target ------------------------------------------------------------------------------
 
 
-def _work_tree_root(target: Path, source: Source | None) -> Path:
+def _work_tree_root(target: Path, source: Source | None, replacing: bool = False) -> Path:
     """One installation is one tree: the target is the top level of a git work tree, and never
-    the repository core comes from. The link step names no source and copies nothing, so it
-    asks only the first."""
+    the repository core comes from — unless a clone of it is being replaced, when that is the
+    one thing it must be. The link step names no source and copies nothing, so it asks only the
+    first."""
     if not target.is_dir():
         raise Refused(f"target: {target} is not a directory")
     target = target.resolve()
@@ -625,9 +642,42 @@ def _work_tree_root(target: Path, source: Source | None) -> Path:
             "or a workspace of several is refused"
         )
     origin = _git_in(target, "remote", "get-url", "origin") if source is not None else None
-    if origin is not None and _same_repository(origin, source.repository):
-        raise Refused(f"target: {target} is the source itself; the origin is never installed into")
+    is_origin = origin is not None and _same_repository(origin, source.repository)
+    if replacing and not is_origin:
+        raise Refused(f"replace-clone: {target} is no clone of {source.repository}; --replace-clone is for one")
+    if is_origin and not replacing:
+        raise Refused(
+            f"target: {target} is the source itself; the origin is never installed into — a clean clone "
+            "standing where the project was meant takes --install --replace-clone"
+        )
     return target
+
+
+def _clean_clone_head(target: Path) -> str:
+    """The commit a clean clone stands at, which the install then ships; a clone holding changes
+    of its own is somebody's work, and is refused."""
+    changed = _git_said(target, "status", "--porcelain")
+    if changed.returncode != 0 or changed.stdout.strip():
+        raise Refused(f"replace-clone: {target} holds changes of its own; a clean clone alone is replaced")
+    head = _git_in(target, "rev-parse", "HEAD")
+    if head is None:
+        raise Refused(f"replace-clone: {target} has no commit to install from")
+    return head
+
+
+def _replace_clone(target: Path, report: Report) -> None:
+    """The clone's whole content leaves, its repository with it, and a repository begins afresh:
+    the person's folder was empty before the host cloned, so nothing of theirs is here."""
+    for child in target.iterdir():
+        if child.is_dir() and not child.is_symlink():
+            shutil.rmtree(child, onexc=_writable_then_retry)
+        else:
+            os.chmod(child, stat.S_IWRITE)
+            child.unlink()
+    made = _git_said(target, "init", "--quiet")
+    if made.returncode != 0:
+        raise Refused(f"replace-clone: git init in {target} failed — {made.stderr.strip()}")
+    report.notes.append(f"replace-clone: {target} held a clean clone of the origin and is now a fresh repository")
 
 
 def _initialise_if_empty(target: Path, report: Report) -> None:

@@ -736,8 +736,55 @@ class ARefusal(TwoTrees):
     def test_the_source_itself_by_its_remote(self) -> None:
         subprocess.run(["git", "remote", "add", "origin", str(self.source)], cwd=self.target, check=True)
 
-        with self.assertRaisesRegex(harness.Refused, "target:.*the source itself"):
+        with self.assertRaisesRegex(harness.Refused, "target:.*the source itself.*--replace-clone"):
             harness._work_tree_root(self.target, harness.Source(str(self.source)))
+
+    def clone_of_the_source(self) -> Path:
+        """What a host makes of *install <url> here* in an empty folder: the origin, cloned into it."""
+        folder = self.plain_folder()
+        subprocess.run(["git", "clone", "--quiet", str(self.source), str(folder)], check=True, capture_output=True)
+        return folder
+
+    @proves_a_process
+    def test_a_clean_clone_of_the_origin_where_the_project_was_meant_is_replaced_by_an_install(self) -> None:
+        folder = self.clone_of_the_source()
+        self.assertTrue((folder / TICKET).is_file(), "the clone holds the origin's own records")
+
+        status, report = self.run_harness_at(folder, "--install", "--replace-clone")
+
+        self.assertEqual([], report["refusals"])
+        self.assertTrue(report["arrived"], report["gates"])
+        self.assertTrue(any("replace-clone" in note for note in report["notes"]), report["notes"])
+        for origins_own in (TICKET, "local.rules.md", "README.md"):
+            self.assertFalse((folder / origins_own).exists(), origins_own)
+        self.assertTrue((folder / KEEPER).is_file())
+        self.assertIn(f"Entry contract: {self.source.name}@{self.short_head()}, ", (folder / "AGENTS.md").read_text(encoding="utf-8"))
+        log = subprocess.run(["git", "-C", str(folder), "rev-list", "--count", "--all"], capture_output=True, text=True)
+        self.assertEqual("0", log.stdout.strip(), "a fresh repository, none of the origin's history")
+
+    @proves_a_process
+    def test_a_clone_with_changes_of_its_own_is_not_replaced(self) -> None:
+        folder = self.clone_of_the_source()
+        (folder / "notes.txt").write_text("theirs\n", encoding="utf-8")
+
+        status, report = self.run_harness_at(folder, "--install", "--replace-clone")
+
+        self.assertEqual(1, len(report["refusals"]), report["refusals"])
+        self.assertIn("replace-clone:", report["refusals"][0])
+        self.assertTrue((folder / "notes.txt").is_file())
+        self.assertTrue((folder / TICKET).is_file(), "nothing written, nothing removed")
+
+    @proves_a_process
+    def test_a_folder_that_is_no_clone_of_the_origin_is_not_replaced(self) -> None:
+        folder = self.plain_folder()
+        subprocess.run(["git", "init", "--quiet"], cwd=folder, check=True)
+        (folder / "notes.txt").write_text("theirs\n", encoding="utf-8")
+
+        status, report = self.run_harness_at(folder, "--install", "--replace-clone")
+
+        self.assertEqual(1, len(report["refusals"]), report["refusals"])
+        self.assertIn("replace-clone:", report["refusals"][0])
+        self.assertTrue((folder / "notes.txt").is_file())
 
     def test_install_over_a_present_manifest_path(self) -> None:
         for present in ("AGENTS.md", "CLAUDE.md", KEEPER, INSTALLED_LICENSE):

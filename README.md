@@ -234,6 +234,9 @@ Clone it beside your project — never into it:
 git clone https://github.com/dveyarangi/goodwolf-harness.git
 ```
 
+Cloned it into the project instead? From that folder, `python .agents/scripts/gw/harness.py . --install --replace-clone`
+turns the clean clone into an install.
+
 Then, from your project's root, have your coding agent read
 [`.agents/skills/harness/SKILL.md`](.agents/skills/harness/SKILL.md) in the clone and follow it. It
 installs the harness, reports what arrived, and sets up your project's own rules with you. The

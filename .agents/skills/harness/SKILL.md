@@ -20,7 +20,7 @@ mechanism of the tree's own.
 Run the script from any clone of the harness, or from the tree's own copy once it has one:
 
 ```
-python <clone>/.agents/scripts/gw/harness.py <target> --install [--from REPOSITORY] [--at REF]
+python <clone>/.agents/scripts/gw/harness.py <target> --install [--replace-clone] [--from REPOSITORY] [--at REF]
 python <target>/.agents/scripts/gw/harness.py <target> --update [--overwrite] [--from REPOSITORY] [--at REF]
 python <target>/.agents/scripts/gw/harness.py . --check [--from REPOSITORY]
 python <target>/.agents/scripts/gw/harness.py . --links
@@ -88,7 +88,11 @@ Every refusal writes nothing and names its step.
   run reads.
 - **A ref whose harness skill carries no such line**: not the harness, in the same sense as an
   entry file with no announce line. Check the ref, or the repository.
-- **The source itself as target**: the origin is never installed into.
+- **The source itself as target**: the origin is never installed into. A clean clone of it standing
+  where the project was meant — the person asked for an install there and the host cloned — is
+  turned into one from inside it, `harness.py . --install --replace-clone`: the tree is emptied,
+  a repository begun afresh, and core installed at the clone's commit. A clone holding changes of
+  its own is refused.
 
 ## After the first install
 

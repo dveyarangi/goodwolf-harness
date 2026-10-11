@@ -79,6 +79,7 @@ is not a part: it never ships, and a recipient has its own.
 | merging core's hook wiring into each host's file | `.agents/scripts/gw/harness.py` | |
 | recording, per clone, the interpreter the hooks run under | `.agents/scripts/gw/harness.py` | |
 | removing one mechanism from a tree | — | <straw-dog question="q-0018.0013.0002">not yet</straw-dog> |
+| turning a clean clone of the origin, standing where the project was meant, into an install | `.agents/scripts/gw/harness.py` | |
 | sending a change back to the repository | — | <straw-dog question="q-0018.0018">not yet</straw-dog> |
 
 ## Install adds, uninstall removes
