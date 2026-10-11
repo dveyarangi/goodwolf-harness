@@ -17,6 +17,28 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 41. A probe of one variant was read as a verdict on the design — 2026-10-12
+
+**Rules in play:** `/align`'s *Name the shared assumption* — state the assumption both branches
+share, *the premise is wrong* a first-class outcome; its *necessity gate*, weak evidence meaning
+narrow, postpone or eliminate; decision 26 of the open-questions ticket, *the judge reads a window*.
+
+**What happened.** Probing q-0001.0020.0001, two runs gave sixteen drafts to a judge, every run the
+same prompt, written once by the agent and never shown. Fourteen were flagged, and the reply read
+it as the ticket's premise refuted: *an outside judge does not see hidden parts better than
+almost everywhere*, recommending the judge be postponed. The user: *nothing follows from it; maybe
+you botched the judge's prompt.* The prompt gave the judge one exchange, not the window the
+decision names; it asked whether any hidden part could be named, with no weight on whether opening
+it was worth it; and every run shared it, so the runs varied the drafts and nothing of the judge.
+
+**Why it did not fire.** *Name the shared assumption* is worded for an A-or-B fork put to the
+person; a probe's runs are not a fork, and what they shared — the one prompt — was the agent's own
+unexamined choice rather than a premise of either branch.
+
+**Amendment proposed:** `/align`'s *Name the shared assumption* adds: *a probe's result is the
+variant's it ran; before reading it as the design's, name what every run held fixed, and say the
+verdict for that alone.*
+
 ## 40. A mechanism's doc was proposed as the home for a skill's machinery — 2026-10-11
 
 **Rules in play:** `/mechanism`'s *Three homes* — *the doc is the instruction's why*, *doc and
