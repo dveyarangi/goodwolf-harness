@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v72 — 2026-10-11
+
+**The next step is asked, not explained** — under `next-cycle=ask` the reply puts the next step as
+a ⚖️ row and says nothing of why it waits. A reply had closed on *any choice is the next cycle, and
+it waits for a nod: 🛠️ next-cycle=ask*, with a lamp on the switch's line; the user: *the agent
+still justifies the next step — we do not need that, just the next step as a decision if ask.*
+
 ## v71 — 2026-10-11
 
 **The turn's commits close the reply** — a reply whose turn made commits ends with `| 🪶 Commits |`,
