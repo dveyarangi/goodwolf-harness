@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v80, 2026-10-11.
+Entry contract: v81, 2026-10-11.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -88,7 +88,8 @@ is goodwolf-harness's own.
 A turn that completes a step of the delivery ring adds a row to the head table:
 `| 🔁 <the ticket, linked with its slug> · ✅ <each step this turn completed> |`. A turn that made
 commits opens the reply with a table of its own above the head table, `| 🪶 Commits |`, a row
-each in order: the short hash and the subject's head.
+each in order: the short hash and the subject's head. The 🪢 table stands above the head table
+too, after the commits.
 </straw-dog>
 
 <installed by="ticket">

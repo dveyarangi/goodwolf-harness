@@ -15,6 +15,11 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v81 — 2026-10-11
+
+**The tangle stands at the top** — the 🪢 table moves above the head table, after the commits.
+The user: *the tangle should be at the top too.*
+
 ## v80 — 2026-10-11
 
 **A shape's context runs past this tree** — *The shape's context* gains *Look in this tree and in
