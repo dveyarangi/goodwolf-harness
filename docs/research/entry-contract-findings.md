@@ -15,6 +15,12 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v78 — 2026-10-11
+
+**The turn's commits head the reply** — v71's closing `| 🪶 Commits |` table moves into the head
+table, above every other row, a row each: ``| 🪶 `<short hash>` <the subject's head> |``. The user:
+*the list of commits goes to the top header, above the questions.*
+
 ## v77 — 2026-10-11
 
 **A reply speaks the method.** One paragraph before the reply's form, a straw dog bound to

@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v77, 2026-10-11.
+Entry contract: v78, 2026-10-11.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -74,8 +74,7 @@ under `| 🍂 Drift |`; one party's work or claim colliding with another's — a
 standing where this one works — met and not resolved, under `| 🪢 Tangle |`, even where a
 record's disagreement is what shows it. Under 🪢, the sessions running beside this one come
 first, a row each with the question it stands on as the window writes it, then each collision in
-bold, naming the sessions it involves. A reply whose turn made commits ends with
-`| 🪶 Commits |`, a row each in order: the short hash and the subject's head.
+bold, naming the sessions it involves.
 
 Under `debug=on`, head the reply with a one-cell table holding a row for each of the turn's store
 calls, in order, the first over `|---|`: `| 📍 **q-N** · <its question as the window writes it> |`
@@ -87,7 +86,9 @@ A glyph is an anchor for the reader's thinking — people think largely in pictu
 is goodwolf-harness's own.
 
 A turn that completes a step of the delivery ring adds a row to the head table:
-`| 🔁 <the ticket, linked with its slug> · ✅ <each step this turn completed> |`.
+`| 🔁 <the ticket, linked with its slug> · ✅ <each step this turn completed> |`. A turn that made
+commits opens the head table with them, above every other row, a row each in order:
+``| 🪶 `<short hash>` <the subject's head> |``.
 </straw-dog>
 
 <installed by="ticket">
