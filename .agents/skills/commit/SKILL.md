@@ -12,13 +12,7 @@ description: >-
 
 - Separate implementation and documentation commits.
 
-- Prefix the subject with the loop step that produced the work, uppercase, then a colon:
-  `ALIGN`, `SPEC`, `TICKET`, `PLAN`, `IMPLEMENT`, `VERIFY`, `MAINTAIN`, `DISCOVER`, `RECALL`,
-  `CONCLUDE`. Three sit outside the ring: `FIX` for a repair taken on its own, `EQUIP` for
-  a change to the harness's own installation, and `DREAM` for a record the second lobe wrote. One
-  prefix per commit — where the work spans two steps, take the dominant one and name the bleed in
-  the message. The prefix says which step produced the work, never which files it touched: what
-  changed is visible in the diff, and which step produced it is not.
+- Write the subject in the project's own convention, where it states one.
 
 - In case the file changes belong to several groups, commit the file with the group forming its dominant topic and mention the bleed in that commit's message.
 
@@ -34,3 +28,14 @@ description: >-
 
 - Commit and push only as the entry file's `commit` and `push` switches allow; a push is its own
   permission, never implied by a commit's.
+
+<installed by="local">
+**L8** Prefix the subject with the loop step that produced the work, uppercase, then a colon — one of
+these and no other: `ALIGN`, `SPEC`, `TICKET`, `PLAN`, `IMPLEMENT`, `VERIFY`, `MAINTAIN`,
+`DISCOVER`, `RECALL`, `CONCLUDE`; outside the ring, `FIX` for a repair taken on its own, `EQUIP`
+for a change to the harness's own installation, `DREAM` for a record the second lobe wrote. A
+name for what the commit touched — the entry file, the local rules, the question store, an RFC —
+is not a step: a rule landed at an align is `ALIGN`, a question opened while planning is `PLAN`.
+One prefix per commit; where the work spans two steps, take the dominant one and name the bleed in
+the message.
+</installed>

@@ -17,6 +17,28 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 37. Commits were named after what they touched, not the step that made them — 2026-10-11
+
+**Rules in play:** `/commit`'s prefix rule, *prefix the subject with the loop step that produced
+the work … the prefix says which step produced the work, never which files it touched*.
+
+**What happened.** The log holds about 130 commits prefixed `ENTRY`, `LOCAL`, `QUESTIONS`, `RFC`,
+`TICKETS`, `MECHANISM`, `EDGE` or `RESEARCH`, none of them a step; a session added seven of them
+on 2026-10-11, rules landed with the user named `ENTRY` and `LOCAL`. Asked to list a turn's
+commits with an icon for each step, the reply had no step to give them. The user: *always write
+the step that produced the work.*
+
+**Why it did not fire.** The list read as examples, not as the only values; the subject was
+written from the file in view — the entry file, the store — and each new name, once in the log,
+was copied from the log.
+
+**Amendment landed:** the list is closed — *one of these and no other* — and a name for what was
+touched is named as not a step, with the two cases that drew it: a rule landed at an align is
+`ALIGN`, a question opened while planning is `PLAN`. The user: *the commit's tags and step are a
+local practice*; so the rule left core `/commit`, which now asks for the project's own convention,
+and stands as the local rules file's L8, installed into `/commit`. Graded by the next commits: no
+prefix outside the list.
+
 ## 36. Landed changes were retold in prose, and instructions framed as other text — 2026-10-11
 
 **Rules in play:** the entry file's framed texts, *always for an instruction … `Landed` once
