@@ -15,6 +15,15 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v70 — 2026-10-11
+
+**A landed text is shown again in the reply reporting it, and an instruction is any text an agent
+acts by.** `Landed once written` named the header's state, not the reply that carries it: a
+proposal shown mid-turn, before the edit Self-improvement asks it to precede, read as the showing
+done, and the report retold the change in prose. And `Proposed rule` for *an instruction* read
+narrowly: a skill's paragraph and a line of the loop were framed ✏️. Rule failure 36; the user,
+2026-10-11.
+
 ## v69 — 2026-10-11
 
 **The loop's human checkpoints defer to the switches** — breakdown, commit, push and the next cycle

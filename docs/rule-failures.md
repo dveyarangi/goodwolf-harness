@@ -17,6 +17,28 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 36. Landed changes were retold in prose, and instructions framed as other text — 2026-10-11
+
+**Rules in play:** the entry file's framed texts, *always for an instruction … `Landed` once
+written*, a straw dog bound to q-0023.0021; Self-improvement's *showing its text first*.
+
+**What happened.** Reporting the v69 checkpoint line and the split of `/harness`'s checks, the
+reply showed each text only mid-turn, as a proposal before its edit, then summarised both in
+prose, with no `Landed` block. Both were framed ✏️ — any other text — though one is the entry
+file's and one a skill's; the turn before had framed the skill's paragraph `✏️ Landed` too. The
+user: *why didn't you use the formatting to show what changed in the skill — are our instructions
+still limping?*
+
+**Why it did not fire.** `Landed once written` says what the header becomes, never which reply
+shows it, and the proposal shown first read as the showing done. `Proposed rule` for *an
+instruction* read as a rules file's rule, so a skill's body and the loop's line fell to *any other
+text*.
+
+**Amendment landed**, the entry contract at v70: an instruction is any text an agent acts by, a
+skill's body and the entry file's included; once written, the reply reporting it shows it again
+under `Landed`, though a proposal earlier in the turn showed it. Graded by the next reply that
+lands an instruction.
+
 ## 35. Running sessions' questions were named in words the window never wrote — 2026-10-11
 
 **Rules in play:** the entry file's 🪢 table, *the sessions running beside this one come first, a
