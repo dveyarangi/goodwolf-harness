@@ -3,7 +3,7 @@
 - **record of** what it intends to become
 - **depends on** q-0033
 - **state** open
-- **lean** the user, 2026-10-09: README rewritten from docs/product.md and landed — three pains in the reader words, what answers each, two goals it cannot promise yet, no comparisons; follows the product document as it changes
+- **lean** the user, 2026-10-11: the front page compares with peers where the comparison is a number — the context tax, measured the same way for seven peers in docs/research/context-tax-peers-2026-10-11.md; elsewhere still no comparisons; locks are the host's and several sessions at once work, the one-person framing dropped
 - **struck** 2, last 2026-10-11T11:18Z
 
 Opened 2026-10-08 when the user asked for the front page to be rethought: the page of 2026-09-26

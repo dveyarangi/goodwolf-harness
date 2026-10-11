@@ -122,13 +122,13 @@ A row not marked ✓ is bound, in this page's source, to the open question that 
 | a free reading of the record for what is missing, redundant or out of balance (`/dream`, `/advise`) | C7 | | | | ● | | <straw-dog question="q-0018.0002">◐ in use, not declared</straw-dog> |
 | **Coordination between sessions** | | | | | | | |
 | each session sees where the others stand; the question store refuses a write to an entry that moved; a commit holds only its own session's work | C5, C12 | ● | ● | | | ● | <straw-dog question="q-0018.0015">◐ within one working directory</straw-dog> |
-| no session overwrites another's write | C5, C12 | ● | ● | | | ● | <straw-dog question="q-0032">✗</straw-dog> |
+| no session overwrites another's write | C5, C12 | ● | ● | | | ● | the host's: each session in its own worktree; the harness locks nothing (the user, 2026-10-11) |
 | a starting session takes an area no other session is in | C5 | | ● | | | | <straw-dog question="q-0016.0001">✗</straw-dog> |
 | **Process weighed to the work** | | | | | | | |
 | one step per reply, with a point to reassess at its end | C8, C9 | | ● | ● | | | <straw-dog question="q-0027">◐ defined, not instructed</straw-dog> |
 | the work's shape recommended, and a lighter path for small work and a heavier one for large | C8 | | ● | ● | | | <straw-dog question="q-0027.0003">✗</straw-dog> |
 | **Refusing harm** | | | | | | | |
-| writes that refuse rather than overwrite: a refusal writes nothing, interference is a failure, a removal needs the fingerprint it expects, push waits for a yes | C12 | | | | | ● | <straw-dog question="q-0032">◐ the harness's own scripts refuse; an agent's own edits are guarded by nothing</straw-dog> |
+| writes that refuse rather than overwrite: a refusal writes nothing, interference is a failure, a removal needs the fingerprint it expects, push waits for a yes | C12 | | | | | ● | ◐ the harness's own scripts refuse; an agent's own edits are kept apart by the host's worktrees, not by the harness |
 | an agent's role bounding its permissions, its rights over the records and its skills | C12, C5 | | | | | ● | <straw-dog question="q-0016">✗</straw-dog> |
 | the host refuses an action a rule forbids | C12 | | | | | ● | <straw-dog question="q-0018.0005">✗</straw-dog> |
 
@@ -143,8 +143,8 @@ Read by column:
   scale: which kinds of decision stop for them, and a record of where models are weak.
 - **G1** rests on one source of truth, maintenance and self-improvement, and nothing measures
   whether it holds.
-- **G2** has guarded writes and the switches, and none of the three things that would bound the
-  agent: roles, the host refusing, locks.
+- **G2** has guarded writes and the switches, and neither of the two things that would bound the
+  agent: roles, the host refusing. Locks are the host's, not the harness's.
 </straw-dog>
 
 ## Correction and evaluation, together
@@ -160,7 +160,9 @@ boundary, a task's form.
 
 ## Who it is for
 
-<straw-dog question="q-0033.0004">Every pain above is framed for one person steering agents on one project. Several people sharing one project — their queue, their decisions, their branches — are not served yet.</straw-dog>
+Every pain above is framed for a person steering agents on one project, in one session or several
+at once: sessions in one tree see each other's position, and the host keeps their writes apart.
+<straw-dog question="q-0033.0004">Several people sharing one project — their queue, their decisions, their branches — are not served yet.</straw-dog>
 
 ## A pain of the harness itself
 

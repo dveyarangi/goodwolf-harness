@@ -74,9 +74,10 @@ reporting completion. Emit operation progress as it occurs; after abrupt termina
 last attempted operation can be uncertain and must be checked against the filesystem.
 
 This contract does not promise atomic multi-file writes or persisted transaction recovery.
-<straw-dog question="q-0032">
-Nor does it promise safe simultaneous writers: two sessions in one tree may write the same file.
-</straw-dog>
+Nor does it promise safe simultaneous writers. Keeping two sessions out of one file is the host's
+responsibility — each session in its own worktree, as the hosts that offer one do — not the
+harness's: it locks nothing. Its own scripts refuse a write to an entry that moved since it was
+read. *(the user, 2026-10-11)*
 Recheck expected file contents and destination absence before applying changes; detected
 interference is a failure, not authority to overwrite it.
 

@@ -107,21 +107,30 @@ you have told it to ask.
 
 ## Who it is for, and what it costs
 
-It is for **one person steering agents on a project that lives for months** — a long-lived
-product, a large refactor, a codebase you return to between other work — where forgetting costs
-more every week. It is not worth it in a prototype's first week, when there is nothing settled yet
+It is for **steering agents on a project that lives for months**, in one session or several at
+once — a long-lived product, a large refactor, a codebase you return to between other work —
+where forgetting costs more every week. It is not worth it in a prototype's first week, when there is nothing settled yet
 to keep, or for one-off scripts.
 
 Before you install, know this:
 
-- <straw-dog question="q-0033.0004">**One person, not a team, for now.** Several developers on parallel branches would collide on ticket numbers in one shared queue, and your team's tracker can't yet take the tickets' place.</straw-dog>
+- **Several sessions at once, yes; keeping them apart is your host's job.** Sessions in one tree
+  see where the others stand, and the harness's own scripts refuse a write to an entry that moved
+  since it was read. Nothing here locks a file: run each session in its own worktree where your
+  host offers one, as the Claude desktop app does.
+  <straw-dog question="q-0033.0004">A team sharing one queue across branches is not tested yet, and your team's tracker can't yet take the tickets' place.</straw-dog>
 - <straw-dog question="q-0027.0003">**No fast path for small work yet.** Every change is meant to go through ticket, plan, build and verify. You can tell the agent to skip that for a one-line fix, but nothing yet says when that is fine.</straw-dog>
 - <straw-dog question="q-0018.0005">**Instructions, not enforcement.** Everything here is the agent following written rules, plus scripts that check the files. A model can still slip; the records make the slip visible, and the rule it missed gets reworded.</straw-dog>
 - <straw-dog question="q-0018.0013">**No uninstall command.** Everything it adds is files, so reverting the install commit removes the harness. What it wrote under `docs/` afterwards stays until you delete it.</straw-dog>
 - **Context.** A fresh project's session starts with about 4,000 tokens of rules and skill
-  descriptions. In this repository, after a month of daily use, a session reads about 22,000
-  before your first message: about 4,400 of rules and skill descriptions, 2,700 of status report, and
-  <straw-dog question="q-0024.0009">15,000 of work queue, most of it a history log that is being moved out of it</straw-dog>.
+  descriptions. That is two to ten times what its peers load before your first message —
+  370 to 2,100 tokens for spec-kit, OpenSpec, Matt Pocock's skills, superpowers, BMAD, GSD and
+  beads, measured the same way ([the table](docs/research/context-tax-peers-2026-10-11.md)).
+  The difference is in kind: they load skill descriptions and pay inside each command when its
+  body loads; this loads the method's rules themselves, so they bind every turn whether or not
+  you invoke anything. In this repository, after a month of daily use, a session reads about
+  22,000 before your first message: about 4,400 of rules and skill descriptions, 2,700 of status
+  report, and <straw-dog question="q-0024.0009">15,000 of work queue, most of it a history log that is being moved out of it</straw-dog>.
 
 <straw-dog question="q-0017">What it saves has not been measured. To judge it, install it into one project and watch three things over a few weeks: whether an agent arriving cold re-decides less of what was settled, whether work survives the end of a session without you reconstructing it, and whether drift between documents and code falls rather than documents piling up.</straw-dog>
 
@@ -203,7 +212,6 @@ The rules are in [AGENTS.md](AGENTS.md) and every skill is under [`.agents/skill
 
 **Not yet:**
 
-- <straw-dog question="q-0032">Sessions see where the others stand, but nothing locks: two sessions can still edit the same file.</straw-dog>
 - <straw-dog question="q-0027.0002">You can't yet say which kinds of decision stop for you; the line between yours and the agent's is drawn by its judgement of what bears load.</straw-dog>
 - <straw-dog question="q-0018.0011.0004">The install doesn't yet find what your project exists to solve, or the answers already built into its docs and code; the first session builds them with you instead.</straw-dog>
 - <straw-dog question="q-0018.0020.0002.0003">Updates name the files they changed, not what changed in them or what your project has to do about it.</straw-dog>
