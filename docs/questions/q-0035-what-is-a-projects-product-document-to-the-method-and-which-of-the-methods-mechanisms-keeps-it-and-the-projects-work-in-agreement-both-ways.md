@@ -2,7 +2,7 @@
 
 - **record of** what it intends to become
 - **state** open
-- **lean** decisions 1–9, the user, 2026-10-12/13: allocation and trace links, coverage derived, pains measured not closed, zigzag, the document leads by showing; each root and its words belong to its mechanism; the measure parked (.0004)
+- **lean** decisions 1–10, the user, 2026-10-12/13: allocation and trace links, coverage derived, pains measured not closed, zigzag, leads by showing, roots and words to their mechanisms; one product mechanism for the document, the README and the release note; in /spec
 - **struck** 0, last 2026-10-12T16:02Z
 
 Opened 2026-10-12 from the align on what is now q-0035.0002. The user: *the customer is not only
@@ -75,6 +75,13 @@ appears (q-0035.0001). This tree's own product document is the first case.
    an empty store, the roots the installed mechanisms declare. Until the product and research
    mechanisms exist, the store's shelf keeps all three words, its sentence of ownership a straw dog
    bound here.
+10. **One mechanism, `product`, tells the project's account to each of its readers** *(the user,
+    2026-10-13, at the spec)*: the product document inside, the root README to a reader arriving
+    cold, the release note to one updating — the README derived from the document, the note's
+    product half from the coverage that moved since the last release. Its instruction file is a
+    `/product` skill holding the three formats and the writing of all three. A line of contract
+    change stays the edge mechanism's, read by the note and the README, never written by them;
+    publishing a release stays the harness's. No separate releases mechanism is declared.
 
 ## Open within it
 
