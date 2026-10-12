@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft is a /verify report on an already-implemented slice (straw-dog rename plus the --guess mode); it commits to no new shape, only a verdict, one documentation repair, and a request to commit as VERIFY:. I checked the one thing it newly asserts as a contract: that code TODO naming a ticket is listed as a straw dog. The tree's architecture.md describes only word-based guessing, matching the draft's stated finding, and the verify SKILL already carries the bound review bullet it says is "the first pass to run". Candidate parts, such as whether the guess mode's scope, the TODO convention in code, or the bullet's binding to 01-0016 are right, were all examined in the earlier plan and implement exchanges and are detail inside an accepted contract that can be settled locally. The architecture repair is a local doc edit that changes no boundary or dependent.
+CONFIDENCE: medium

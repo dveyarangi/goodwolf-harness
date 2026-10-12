@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports completed implementation of an already-planned and accepted RFC (stages 1-4, orphan scan decided by the person) and asks only permission to commit under commit=ask, which the tree's AGENTS.md confirms (commit=ask). It commits to no new shape beyond a two-commit split (script with tests, then corpus changes). I considered whether that split leaves an inconsistent intermediate commit or whether the broad corpus edits hide an unexamined boundary, but the shape and its boundaries were examined across three RFC passes and the verification set is green; the commit grouping is local and can be settled later without changing what was built. The draft also discloses its own testing weaknesses and the CRLF gap it fixed. Nothing load-bearing is left unexamined that would change the contract.
+CONFIDENCE: medium

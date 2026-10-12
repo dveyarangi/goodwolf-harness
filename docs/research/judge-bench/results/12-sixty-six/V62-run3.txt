@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports a fourth-reader test of the title "GoodWolf Harness" and recommends it, with "the harness" in the prose, before moving on to paragraph 2. The shape is a README title and a prose naming choice; it is cheap to change and nothing else depends on it. I checked the tree. The repository is already named goodwolf-harness and the README's H1 is "goodwolf-harness". The glossary defines "Harness" as the project's own term, and the skill and installer are called harness, so the prose usage is consistent with existing vocabulary. The test's non-blindness (the host loads the entry file into the readers) was already caveated in the earlier exchanges. No cross-component, cross-record or cross-project contract hangs on this choice, and any remaining uncertainty can be settled later, locally, by renaming the title. Paragraph 2 is explicitly deferred as the next question and is not part of the committed shape.
+CONFIDENCE: medium

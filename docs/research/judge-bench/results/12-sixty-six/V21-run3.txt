@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft commits to a small shape: reword the README's "not yet" ceremony item, bind it to the pacer ticket 01-0020, record the person's three tiers there, and trim the license entry from architecture.md. I checked the candidate parts. First, whether 01-0020 is the right home. It already lists "how the loop's granularity and ceremony become switchable" as a decision it owns, 01-0017.0020 and 0150 both defer to it, and the .0167 bindings table already pointed there, so the binding is established and not newly assumed. Second, the claim of absence in the new wording ("no lighter path"). The tree has tickets that take no RFC (for example 0160), so the wording may overstate the present state. That is a phrasing fix inside the straw dog and does not change the binding, the ticket or the README's role. Third, the straw dog retiring only when the whole pacer ticket is done. That is a retirement-condition detail that can be tuned later. Nothing examined here could make several other things wrong, cross a boundary, or undo a decision the draft rests on.
+CONFIDENCE: medium

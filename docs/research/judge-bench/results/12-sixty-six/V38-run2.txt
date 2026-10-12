@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft commits only to a candidate list of nine principles for the README, with a proposed split between "What it is" and "How it works", and it puts both the split and the list contents to the person. The person's correction was that the point is accepted decisions getting implemented, not documentation upkeep. The draft answers this: item 3 makes decided work binding on code, item 7 covers the verified delivery steps, and the doc-truth framing drops out of the product-level items. That matches the person's recorded lean in q-0031. I checked the claims the list rests on against the tree. Frequently revisited questions do rank higher (questions.md, "What keeps coming back rises"), and the tree develops itself. Item 3's "divergence is repaired toward the decision" is a bit too general, since q-0031 says repair direction depends on the kind of record. That is a wording detail inside the list, not a part that changes the contract. Which principles go on the front page, and in what order, can be settled later without changing the README's scope or what depends on it.
+CONFIDENCE: medium

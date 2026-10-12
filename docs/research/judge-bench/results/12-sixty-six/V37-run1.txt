@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports a finished slice (every record carries a "record of" mark; the mover flips it to "what happened" when a record lands in a done/ shelf; P3 reverted) and asks only whether to start the next cycle. The earlier exchanges already examined the load-bearing choices: whether the mover rewrites the mark, whether the done/ folder makes the mark redundant, and whether P3 needs to change. The user decided each of them. I checked the tree: the mover's docstring already says it rewrites only the mark line and that this follows from the shelf, and P3 in maintain/SKILL.md still says it changes no checkbox, status, date or prose. A mark is none of those, so the revert leaves P3 true. The remaining candidates are the records that have no format (already deferred to a named open question), the manual RFC mark that no check covers (stated openly as a gap), and the relabel step for recipient projects (recorded). Each of these can be settled later, locally, without changing what the draft commits to, so none passes as an unexamined load-bearing part.
+CONFIDENCE: medium

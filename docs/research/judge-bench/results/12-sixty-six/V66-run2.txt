@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft commits to dropping the rebuilt paragraph 2, keeping the approved one, and testing the whole draft README with two fresh readers (offered as a question). The claims of absence/presence it rests on hold: the repo root visibly shows AGENTS.md, CLAUDE.md, local.rules.md, .agents/ (skills, scripts) and docs/, so GitHub's file tree does carry what the rebuilt paragraph's tree showed; the other sections it cites belong to the draft README under rework (the current README is only install/update), so they are the proposal the person already referred to. Candidate concerns: whether readers see GitHub's tree chrome, and whether the README's audience (the installing agent versus an evaluating reader) changes. Both were settled or can be settled locally in the test's design without changing what the draft commits to, which is a README wording and test-procedure choice rather than a boundary or dependency. The shape is small, reversible, and touches no cross-component contract.
+CONFIDENCE: medium

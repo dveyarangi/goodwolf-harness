@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft commits to a wording of README paragraph 2 (local file applied last, override by name, add your own skills via /mechanism with the same checks holding them, rule-failure postmortem) and drops the sunset-clause analogy in favour of the "not yet" list as the straw-dog explanation. I checked the claims the paragraph rests on in the V33 tree. harness.py install/update applies the project's local file last and does not delete files outside the manifest, and R7 (override by name) and the autonomy switches exist as stated. mechanisms.py _skill_problems fails any installed skill that no mechanism names and that claims nothing, so a project-added skill is held by the same checks, and /mechanism is the declaring skill and ships under .agents/skills. The rule-failure register mentioned in the last sentence exists in core. The draft does not answer the person's first question (what "the answers travel with the release" means), but that is an omission of a reply, not an unexamined part of the committed shape; the wording of the paragraph can be adjusted later without changing any contract.
+CONFIDENCE: medium

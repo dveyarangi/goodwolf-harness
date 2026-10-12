@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports a fourth reader's result and recommends a README title, "GoodWolf Harness", with "the harness" as the product's name in prose. That is a small, local, easily reversible choice. I checked the claim that the title matches the repository: the tree's README.md is headed `goodwolf-harness` and its clone URL is goodwolf-harness, so the claim holds. I considered whether the host-contaminated readers, or the README being "written for an agent" while the test used human-like cold readers, invalidate the evidence. The earlier exchange already named the contamination caveat, and the draft's recommendation does not depend on the readers being blind. I also considered whether "the harness" in prose clashes with the project's glossary term "dev harness" or "harness instance". That would be a wording fix, not a change to the draft's contract. The title can be settled or changed later without touching anything else, and the draft explicitly defers the larger open item (paragraph 2) to a separate question. Nothing crosses a boundary or undoes a decision the draft rests on.
+CONFIDENCE: medium

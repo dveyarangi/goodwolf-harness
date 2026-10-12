@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft re-checks an already-agreed plan (move two entry-file lines into /mechanism's description, change the glossary's Meta-rule, drop anchored rows from parts tables) and reports four follow-up repairs outside the slice. The earlier exchanges already examined the main contract risk: the tier-0 prohibition is replaced by a use case plus the inject_rules.py --check guard, and the person accepted that cost explicitly. I checked the draft's absence claims in the tree. There are no live mentions of the two lines outside AGENTS.md, history, and the plan's own records. mechanisms.py parses the owner column of the Relies-on table but never checks it. The /verify skill runs inject_rules.py --check, so a hand-edited block is caught as drifted. The remaining candidates are the unchanged premise in ticket 01-0017, host differences in loading skill descriptions, and the evidence entry. Each can be settled later and locally without changing what the slice commits to, and 01-0017 is already recorded as a hidden edge, so they pass the counter-test.
+CONFIDENCE: medium

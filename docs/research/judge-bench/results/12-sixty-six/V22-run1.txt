@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft commits to one shape: replace the entry-file principle "generalize only when a second shape forces it" with "ask the person whether to generalize when there is reason to think it will be needed", and drop /plan's duplicate. That is the direction the person just gave, and the earlier exchange had already examined the old principle's failure. I checked what else depends on the old principle. A surviving copy exists in /impact (SKILL.md line 43, "what second materially different concrete shape justifies it?"), as do mentions in q-0033, its branch q-0033.0005, and a done RFC. The draft reports the q-0033 drift but not /impact. These are local wording repairs and do not change the new rule's contract of asking, preserving a seam, and sitting in the entry file. Open points remain: no autonomy switch for the asking, how "reason to think" is judged, and what happens when no person is present. They are detail inside the same promise and can be settled later without changing what was committed. The core/instance boundary holds, since the rule sits in core and cites no docs/ record.
+CONFIDENCE: medium

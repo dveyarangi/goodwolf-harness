@@ -74,6 +74,7 @@ runs answered in the conversation and are summarised in the question alone.
 | 9 | the same prompt over the other nine drafts | `9-all-sixteen` |
 | 10 | the counter-test *given how the project evolves*; the live repository closed to the judge — `prompt.txt` as it stands | `10-evolution` |
 | 11 | run 10's prompt and the same without *given how the project evolves*, five runs a draft each | `11-five-runs-A`; `11-five-runs-B` holds runs 4–5, runs 1–3 are `10-evolution` |
+| 12 | run 10's prompt over `V1`–`V66`, three runs each; trees under `D:/jt` | `12-sixty-six` |
 
 Run 10 won back rule failure 25's fourth draft (2/3) and lost the deferral (0/3, 2/3 in run 8),
 and two drafts taken as clean drew a majority. Between runs 8–9 and 10, three drafts moved across

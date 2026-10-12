@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft is a /verify report on an already-planned move of core scripts to .agents/scripts/gw/. It commits only to the repairs it made, a Partial status, and a two-commit split (IMPLEMENT, then VERIFY). The load-bearing question behind the move, a recipient updating from its own old copy whose old gate looks for scripts the update just deleted, was examined in the prior exchange, including the refused alternative of having the gate read the shipment. I also considered the claim "nothing leaked". The tree snapshot is the pre-move layout, so I cannot confirm that claim, and it is a local grep-level fact that /verify's own checks would catch. I also considered recipients' local.rules.md verification commands, which the update preserves and which still point at the old script path. That is a per-recipient local fix, and the frost_map grade the draft leaves open will surface it without changing what the move promises. The commit split and box states are procedural and can be changed locally. Nothing here would change the contract of the move.
+CONFIDENCE: medium

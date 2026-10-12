@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft is a verification report on an already-implemented slice (the <temporary> to <straw-dog> rename, the --guess mode, the TODO-in-code marking). It commits only to one local documentation repair in the architecture section and to a VERIFY: commit followed by /maintain; the contract itself was settled in the earlier plan and implement exchanges. I considered whether the "TODO (temporary):" wording in the improve-comments skill conflicts with the new code marking, and checked straw_dogs.py: its TODO pattern is a comment line starting with TODO, which matches "# TODO (temporary): [0117](path)", so there is no contradiction. I also considered the rename's reach (session records, retired-name diagnostic) and the non-Python comment syntax, but the earlier exchange measured the rename's reach, and language coverage can be settled later without changing what the slice promises. Leftover "temporary statement" wording in maintain.md and the glossary is drift that /maintain, which the draft names as the next step, can repair locally.
+CONFIDENCE: medium

@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports a finished implementation of an already-planned, twice-validated slice (RFC and ticket in the tree) and puts one low-stakes choice to the person: commit as two IMPLEMENT commits (script and tests first, corpus second). It commits to no new shape; the installer contract, grammar, orphan scan, batch tag and entry-file v4 sentence were all decided earlier with the user. I checked the tree's RFC and ticket: the live-tree stage-3 proof, the expected three blocks across two targets, the temporary wrappers coexisting until close, the commit=ask switch and /verify following are all as planned. I also considered the two-commit split (the intermediate state would run the installer with no rules files, which the RFC says reports count 0 and exits clean, so the set stays green) and the admitted deviation from the plan's watch-each-fail method (disclosed, compensated with mutation breaks, and /verify follows). Both can be settled locally without changing what the draft commits to, so they are detail inside the contract.
+CONFIDENCE: medium
