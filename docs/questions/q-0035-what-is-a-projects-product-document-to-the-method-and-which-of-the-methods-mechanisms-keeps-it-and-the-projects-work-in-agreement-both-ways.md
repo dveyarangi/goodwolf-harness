@@ -175,3 +175,54 @@ proposed, the owners' worry about coupling. Its material as it came back:
 - QFD's full House of Quality roof.
 - Hevner's guidelines as publication criteria.
 - None of these families offers evidence that a question tree outperforms other forms for steering AI agents — only principles with continued life: means-ends reasoning, bidirectional traceability, keeping rationale capture light, and closing the loop with evaluation.
+
+## Impact of the split, 2026-10-13
+
+Of the draft split of the accepted spec, 01-0040: the end state, and `.0010` coverage read from
+the questions that realize an answer (the trace link, the document's format, the check rendering
+coverage, the mechanism declared with `/product`), `.0020` drift found, `.0030` allocation,
+`.0040` this tree's account on the mechanism, `.0050` the queue shows what each item realizes,
+`.0060` seeded roots from their mechanisms, `.0070` the README told from the document, `.0080` a
+release note says which answers moved; and the re-cut of the release family.
+
+### Impact
+- **Must change:** the question store — a new part on every entry, read by the parser, the writer,
+  the store check and the window; the questions mechanism's doc and rules file (the part, the
+  statement at opening, the seed); `/align`'s and the questions skill's installed blocks; a new
+  mechanism declared (doc, rules file, `/product`, its script and tests), which the mechanism shape
+  check and the install's part tables read; this tree's product document, numbered and rebound.
+- **Must verify:** the store's 258 tests and the harness's 109 — the part is optional, so every
+  store written before it must read unchanged; the install shipping the new script into a recipient
+  with no product document, where the check must find nothing.
+- **Re-cut:** 01-0010.0185 loses *the releases mechanism declared* — its occasion rule comes from
+  the edge mechanism's rules file; 01-0010.0190's note takes its product half from the coverage
+  that moved, composed by `/product`; 01-0010.0160's end state reads the same otherwise.
+
+### Hidden edges
+- **Two front pages.** The harness mechanism ships *the front page* into every recipient beside
+  the harness skill, while this tree's root README never ships. Decision 10 gives the product
+  mechanism a project's root README; here that README is also the account core ships outward.
+  `.0070` meets the harness mechanism's row, not only q-0035.0005.
+- **The harness's doc names who words the roots** — its *Relies on* row says the questions
+  mechanism *owns the store and words its roots*. `.0060` changes that row.
+- **No edge line is written for the store's new part.** The occasion rule is 01-0010.0185's, not
+  built; the part ships to every recipient as `.0145`'s script move did, unannounced. Compatible
+  because optional — say so in `.0010`, and let 01-0010.0185 replay it.
+- **The window draws parts.** If it draws the new one, every session pays for it every message.
+- **frost_map's 27 structure questions** become orphans the day a product document appears there.
+  That is the finding working, not noise, but its first run will be loud.
+
+### Leave alone
+- The ticket record and `tickets.py`: a ticket reaches the product through its question.
+- The reply form, q-0030's session's ground.
+- 01-0018.0010 and the high-frequency regime, out of the order by the user's word.
+- Publishing a release and the recipient's read before taking it (01-0010.0190's publish, .0195).
+
+### Recommendation
+**Narrow.** `.0080` builds the coverage that moved since a release before any release exists: its
+only reader is 01-0010.0190's note, still Planned. Fold it into the re-cut 01-0010.0190, where the
+reader is built. `.0060` generalises seeding with one concrete shape, the product mechanism's root;
+it is small, so keep it, late. The rest proceeds.
+
+**Second pass, on the narrowed split** (`.0080` folded into 01-0010.0190): proceed — every slice's
+output has a reader inside the split or in 01-0010.0190, and the hidden edges above stand.
