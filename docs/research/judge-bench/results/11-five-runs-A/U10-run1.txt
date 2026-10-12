@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft answers "what is 0050 about" by restating the ticket (convention for the mark back, core marks into its mechanism's doc and never into docs/, two repairs) and then proposes only that /plan comes next, with the next-cycle switch left to the person. It does not commit to a new shape; the shape is the existing ticket, whose outcome and criteria I read and the draft reproduces faithfully. Its own absence claims check out: no non-test core script names a mechanism doc under .agents/mechanisms (scripts only name rules files and format shelves), and the Installing section still exists in docs/architecture.md. The one open design choice, where the convention lives and whether mechanisms.py can check a script's pointer, is flagged by the draft itself as a matter for the plan, and it can be settled locally without changing what the ticket promises. The collision with the other session's uncommitted harness edits is likewise named and sequenced rather than hidden. Nothing crosses a boundary that the draft leaves unexamined.
+CONFIDENCE: medium

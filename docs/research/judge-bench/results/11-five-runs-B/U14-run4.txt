@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports two FIX commits the person just authorised, states that nothing is pushed under push=ask (the tree's local rules do set commit=ask and push=ask), lists two follow-ups, and asks whether to push. It commits to no new shape; it reports a landed step and puts one routine choice to the person. Candidate parts: the unproven root cause of the link removal, the untested successful swap path, the bundling of the question-store positions into the second commit, and the claim that the workshop gets the fix only after a push and another update. The earlier turns already examined the cause and the swap path, and the draft names the open points itself. The bundling and the workshop-update claim are local, can be settled when the person answers or at the next update, and do not change what the commits or the push promise. Pushing is reversible in effect and gated by the person, so no boundary or decision is undone.
+CONFIDENCE: medium

@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft is a report of counts (80 tickets: 36 live, 44 done; 146 entries in the question store, 35 in the archive) plus an offer to split the 146 into open and closed. It commits to no rule, mechanism, decision or plan, so there is no shape whose contract could change. I checked the figures against the tree: docs/tickets holds 38 entries (36 tickets, the done directory and README), done holds 44, and docs/questions holds about 146-148 files. These match the draft, and its caveat that 146 is not the number of open questions is stated. Whether it counts by each day's last commit or whether it should have drawn a chart are detail that can be settled later and locally. Neither changes what the draft promises, so both pass the counter-test.
+CONFIDENCE: high

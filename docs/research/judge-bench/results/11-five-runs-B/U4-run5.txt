@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft is a report of counts (tickets 80 = 36 live + 44 done; question store 146 root entries, 35 archived) and an offer to break them down further; it commits to no mechanism, rule or plan. I checked the tree: docs/tickets holds 36 ticket files plus README and done/, done/ holds 44, and docs/questions has 146 q- files plus done/ with 35, so the numbers match. One explanatory claim is off (the root's 146 are 142 open and only 4 closed, so "not the number of open questions" misleads), but that is a local factual slip correctable in a later reply, not a part that changes any contract. The unproduced chart and the counting method (last commit per day) are detail that can be settled later without altering anything the draft commits to. Nothing crosses a boundary or undoes a decision the draft rests on.
+CONFIDENCE: medium

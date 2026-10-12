@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft answers a counting question: it reports ticket totals (80, 36 live, 44 done) and question-store counts (146 entries, 35 archived), explains what the store count includes, and offers a possible follow-up breakdown. It commits to no rule, mechanism or plan, so there is no shape whose contract could shift. I checked the tree: docs/tickets holds 38 entries (about 36 tickets plus README and the done folder) and docs/tickets/done holds 44, which is consistent with the draft's figures. The store count is roughly consistent too (148 files in docs/questions, including the done folder). The one candidate gap is that the draft did not produce the requested graph. That is a deliverable the person can ask for next, and it changes no boundary or dependency, so it passes the counter-test. The "counted by last commit of each day" method is a local detail that could be redone without changing what the draft says.
+CONFIDENCE: high

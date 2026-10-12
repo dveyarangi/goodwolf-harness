@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The person asked what ticket 0050 is about, and the draft explains the ticket's content in plain words. It commits to no new shape beyond proposing /plan next, with the next-cycle decision left to the person. I checked its claims of absence against the tree. harness.py has no reference to harness.md or any mechanism doc, and no non-test script under scripts/gw names a mechanism doc. The ticket's three "what to build" items match the draft's summary. The one thing it defers, where the convention lives and whether a script can check the mark, is explicitly left for /plan. That can be settled later without changing what the ticket promises. The draft also notes the collision with the other session's uncommitted harness edits, so there is nothing load-bearing left unexamined.
+CONFIDENCE: high

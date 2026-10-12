@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports counts (80 tickets: 36 live, 44 done; 146 store entries, 35 archived) and offers a further breakdown; it commits to no mechanism, rule, plan or decision, so there is no shape whose contract could change. I checked the counts against the tree: 36 live ticket files plus README, 44 in tickets/done, 146 q-*.md files in docs/questions and 35 in questions/done all match. The only soft spot is that the draft implies the open/closed split is unknown, while the store shows 142 open and 4 closed; that is a local, easily settled detail and does not alter anything the draft commits to. The missing chart and the unshown git-history trend claim are also local to this report and can be settled later without changing any contract.
+CONFIDENCE: high

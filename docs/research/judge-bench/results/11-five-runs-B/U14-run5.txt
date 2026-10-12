@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft only reports two completed FIX commits and asks whether to push; it commits to no new shape. The fix itself (replace-before-remove for loader links) was examined in the earlier exchange and approved by the person. I checked the push=ask claim against the tree's local rules and AGENTS.md (commit=ask, push=ask), so asking is consistent. Remaining candidates (the unproven root cause, untested swap path, the due harness output level, the unupdated xuanxue-workshop) are listed in the draft or earlier exchange and can be settled later, locally, without changing what the draft commits to.
+CONFIDENCE: high

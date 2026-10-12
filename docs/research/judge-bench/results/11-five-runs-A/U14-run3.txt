@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports two FIX commits the person had just approved and asks whether to push; it commits to no new shape. The fix itself (create-then-swap, keep an unreadable-but-correct link, report why a link was repointed) was examined in the prior exchange and accepted. I checked that push=ask in local.rules.md and AGENTS.md matches the draft's claim, so asking before pushing is the correct move and not an unexamined premise. The second commit carrying the session's question-store positions is a local detail, settled by the commit itself. The remaining items (the harness level due on the maintenance clock, xuanxue-workshop needing an update) are follow-ups that can be handled later and locally, and push is a reversible choice that changes no contract.
+CONFIDENCE: high

@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports two FIX commits the person had just authorised and asks whether to push; it commits to no new shape beyond what the earlier exchange examined (the installer fix, the doc sentence). I checked the push switch: the tree's local rules set push=ask, so asking is correct. The leftovers it names (the harness output level due for a maintain re-check, xuanxue-workshop needing another update) are local follow-ups that can be settled later without changing what was committed. The question-store positions riding along in the doc commit is a minor commit-hygiene detail, not a boundary or contract matter. The untested swap path and the unproven cause were already examined in the prior turn. A report plus a push question leaves no load-bearing part undecided.
+CONFIDENCE: high

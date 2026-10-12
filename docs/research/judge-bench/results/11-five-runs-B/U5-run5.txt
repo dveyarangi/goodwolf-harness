@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports a completed, user-approved mechanical rename of 11 live ticket files (slug only; ids kept) through the existing move_doc.py, with link addresses repaired repo-wide, link texts hand-edited in live records, and history left alone. The slug-as-identity question was already examined in the earlier exchanges (rule amended, user agreed, procedure and exclusions explained, pacer deferral explained, user said "go, pacer too"). I checked whether scripts key on the slug: tickets.py has no slug handling and questions.py refers to tickets by id, so nothing in the machinery depends on the old slug, and core (.agents) names the old slugs only in a test file's deliberately fictional paths, which the draft already notes. The remaining risks (another session's uncommitted edits to docs/edge/hosts.md and a session holding the old pacer path in context) are surfaced in the draft's Tangle table and are local, recoverable detail, not a change to what the rename promises. Link-text drift and stale code-span paths can be settled later locally without changing the shape.
+CONFIDENCE: medium

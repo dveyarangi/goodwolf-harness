@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft commits to no new design. It reports two FIX commits the person had just authorized (commit=ask in the tree's local block, and "yes, commit as FIX" is a clear go), and it asks for permission to push, which matches push=ask in the tree's AGENTS.md at that date. The fix's contract (create the replacement first, swap only on success, keep a correctly written link, report why) was examined in the earlier exchange, and the draft restates only its commit identifiers. Candidates I considered: the second commit carrying unrelated question-store positions (a commit-hygiene detail, visible in the draft and settleable locally); the unproven root cause of the destroyed workshop links (already stated openly in earlier turns, and the fix was argued to be cause-independent); the untested successful swap path, and the downstream workshop still lacking its links (both examined earlier and listed as follow-ups). None of these would change what the draft promises or where its boundary lies, so each passes the counter-test as local detail or already-examined material.
+CONFIDENCE: medium

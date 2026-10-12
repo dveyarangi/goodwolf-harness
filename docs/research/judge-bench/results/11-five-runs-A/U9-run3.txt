@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft commits to two small shapes: the criterion stands and the ticket stays open on it, with the README candidate amended to record that and the user's word. For story 19 it advises against a post-/conclude hook and recommends a straw-dog line in /conclude bound to q-0034, with the session mechanism as the eventual home; the choice is put to the person. I checked the claims it rests on. q-0023.0013 (/plan ownership) and q-0034 (session mechanism) both exist in the store, and the straw dogs and TODOs binding to them are already in the tree. docs/edge/hosts.md wires only start and per-message hooks, and Cursor is "reached in part", so the host-coverage claim holds as of that day. The second argument (a stamp applied after the record is written does not do the mark's job) stands independently of host coverage. The remaining parts, namely the exact wording of the straw-dog line, whether a birth script is built later, and whether story 19 stays in .0040's claim or moves, can each be settled locally without changing what the draft commits to. All of them pass the counter-test.
+CONFIDENCE: medium

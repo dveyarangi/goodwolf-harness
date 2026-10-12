@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft answers a counting question: it reports 80 tickets (36 live, 44 done), a trend, and a caveat that 146 store entries are not the number of open questions, then offers a further breakdown. It commits to no design, rule or plan, so there is no contract to change. I checked the tree: docs/tickets holds 36 live files besides README.md, docs/tickets/done holds 44, docs/questions holds about 146-147 root files and 35 in done/. The counts match the draft. The one thing that could matter is that the person asked for a chart and none was drawn. Whether to chart is a local, later choice that the draft already puts to the person, and it changes no boundary or dependency. The historical trend claim (live tickets between 30 and 39 since late September) is detail that can be re-derived without touching anything the draft commits to.
+CONFIDENCE: high

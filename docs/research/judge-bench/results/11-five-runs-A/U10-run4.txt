@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The person asked what ticket 0050 is about, and the draft mainly explains the ticket's content (one convention for marks back, core pointing at its mechanism's doc and never into docs/, two repairs). Its only commitment is the next step, /plan for 0050, which it puts to the person as a decision. I checked the ticket file: the draft's summary matches its "What to build" and criteria. I also checked its absence claim: apart from the maintenance-marks path, no non-test script under .agents/scripts/gw names its mechanism's doc, and the Installing section in architecture.md still restates the install contract at length. Open points such as where the convention lives and how a script names its doc are explicitly left for the plan and can be settled locally without changing what the ticket promises. The collision with the other session's uncommitted harness.py/harness.md edits is a sequencing matter, and the draft already names it. A draft that explains and commits to no shape is answered no.
+CONFIDENCE: medium

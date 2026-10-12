@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft is a report: it answers "how many tickets" with counts and a short history, then offers a finer breakdown of the question store. It commits to no plan, rule or mechanism whose contract could shift. I checked the counts in the tree: 36 live tickets (37 entries less the done folder) and 44 in done, 80 in all; 146 question files in the root and 35 in the archive. All of these match. One claim is loose, since only 4 of the 146 root questions are closed and 142 are open, so "146 is not the number of open questions" overstates the gap. That is a local numeric correction, fixable later without changing anything the draft commits to. The draft also skips the graph the person asked for and offers a breakdown instead. That is a choice put to the person and does not hide a load-bearing premise. The day-by-day history figures depend on git, which I did not check. They are evidence inside a report, not a shape.
+CONFIDENCE: high

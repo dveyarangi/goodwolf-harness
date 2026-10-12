@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports two FIX commits (installer plus tests, then the doc sentence) and asks whether to push; it commits to no new design. I checked that push=ask is the project's setting in the tree as of that day (local.rules.md and AGENTS.md L2), so asking before pushing is correct and the "not pushed" framing rests on a real rule. Candidate parts: the untested successful-swap path and the unproven root cause (a Codex sandbox that cannot see through the links). The previous turn already examined both and the person accepted the fix knowing them, so they are not unexamined; omitting the swap-path caveat from this short list is a local reporting gap. Another candidate, question-store positions riding along in the doc commit, is a local commit-hygiene detail that changes nothing the draft promises. The claim that xuanxue-workshop gets the fix only after a push and another update follows from how the update installs from a fresh clone, and it is unchanged from the earlier turn. None of these, once examined, would change what the draft promises, its boundary, or what depends on it.
+CONFIDENCE: medium
