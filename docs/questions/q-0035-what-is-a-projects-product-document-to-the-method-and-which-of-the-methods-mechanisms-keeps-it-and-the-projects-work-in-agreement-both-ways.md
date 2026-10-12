@@ -2,7 +2,7 @@
 
 - **record of** what it intends to become
 - **state** open
-- **lean** decisions 1–6, the user, 2026-10-12/13: allocation and trace links, coverage derived; a pain is measured, never closed; purpose and structure zigzag — q-0035.0004 next
+- **lean** decisions 1–7, the user, 2026-10-12/13: allocation and trace links, coverage derived, pains measured not closed, zigzag; the document leads by showing, the order the person's; open: the seed words (.0003), the measure (.0004, parked)
 - **struck** 0, last 2026-10-12T16:02Z
 
 Opened 2026-10-12 from the align on what is now q-0035.0002. The user: *the customer is not only
@@ -58,6 +58,11 @@ appears (q-0035.0001). This tree's own product document is the first case.
    question opens from that structure work — its origin history in its body — and its decision
    adds or replaces answers, never renumbering one. A pain's measure moving, or not, is the other
    road back.
+7. **The document leads by showing, the order stays the person's** *(the user, 2026-10-13)*: what
+   is minted comes from allocation (decision 4); the queue's order is the person's, and beside it
+   the product mechanism shows the answers each item realizes — read through ticket, question and
+   trace link — and the unrealized answers, by goal and by pain, so what is left out is a choice
+   made in sight. Weighting the order by pain waits on the pain's measure (q-0035.0004).
 
 ## Open within it
 
