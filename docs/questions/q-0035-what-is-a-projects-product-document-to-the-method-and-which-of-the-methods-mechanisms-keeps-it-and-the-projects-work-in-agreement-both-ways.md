@@ -18,23 +18,24 @@ appears (q-0035.0001). This tree's own product document is the first case.
    waits on, and the wake reports it due when that question closes; once closed, the row carries a
    visible link to where the answer landed, taken from the closing pointer. A question carries no
    product mark for the link. *Narrowed by decision 4: the binding is the undecided row's alone; a
-   question under another root carries a trace link instead, and a decided row's coverage is read
-   from it.* Evidence, 2026-10-12: all 46 bound rows wait on live open
+   decided row is itself the home its purpose question closes against and points nowhere; a
+   question under another root carries a trace link to it, and its coverage is read from those.*
+   Evidence, 2026-10-12: all 46 bound rows wait on live open
    questions; 114 of 155 open questions reach a row through themselves, an ancestor or a
    descendant; the 14 rows marked done link nowhere, and 2 unfinished rows carry no binding.
 2. **The product document is the home of the purpose root's answers** *(the user, 2026-10-13)*:
    as the architecture and the ADRs are the structure root's, the product document is where the
-   purpose root's decisions land — pains, goals, causes, answers — and an unfinished row is bound
-   to a question under the purpose root. The link both ways runs between the document and that one
-   subtree. A question under another root serves the product through an answer's row — the way a
-   pain is relieved — never through a row of its own; q-0035.0003 decision 1 gave each root its
-   mechanism. In this tree, whose store predates the seed, q-0033 stands as the purpose root.
-
+   purpose root's decisions land — pains, goals, causes, answers — and a row whose answer is not
+   yet chosen is bound to a question under the purpose root. A question under another root serves
+   the product through an answer's row — the way a pain is relieved — never through a row of its
+   own, by the trace link of decision 4; decision 8 gave each root its mechanism. In this tree,
+   whose store predates the seed, q-0033 stands as the purpose root.
 3. **The product mechanism's own check reads the link** *(the user, 2026-10-13)*, in the
-   verification set and in `/maintain`: an unfinished row with no binding, a finished row with no
-   link to where its answer lives, a question under the purpose root that no row names, a row
-   bound outside the purpose root. A row whose question closed is still the wake's to report, as
-   every due straw dog is. Each is a matter of form, so the check needs no judgement.
+   verification set and in `/maintain`: an undecided row with no binding, a row bound outside the
+   purpose root, a question under the purpose root that no row names, and — by decision 4 — an
+   orphan, an unrealized answer, a trace link naming no answer. A row whose question closed is
+   still the wake's to report, as every due straw dog is. Each is a matter of form, so the check
+   needs no judgement.
 4. **Allocation and the trace link** *(the user, 2026-10-13, taking the traceability vocabulary
    whole — the glossary's *Product to implementation*)*: a decided purpose question closes, its
    answer becomes a row, and a structure question opens under the structure root with a trace link
