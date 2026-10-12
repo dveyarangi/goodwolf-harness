@@ -5,6 +5,7 @@
 Each label gets `<directory>/<label>/`, the repository as `git archive` gives it at the snapshot
 commit — the last commit before the draft, so the tree holds nothing decided after it. Put the
 directory outside the repository: a judge is pointed at it and must not find this bench there.
+Keep its path short (`D:/jt`): the question store's file names outgrow Windows' path limit.
 """
 
 import io
