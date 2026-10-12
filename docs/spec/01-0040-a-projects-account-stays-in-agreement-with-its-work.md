@@ -1,9 +1,10 @@
 # A project's account stays in agreement with its work
 
-**Status:** Draft, 2026-10-13 — developed through `/spec` from the align on
+**Status:** **Accepted by the user, 2026-10-13**, with its modules and its testing decisions —
+developed through `/spec` from the align on
 [q-0035](../questions/q-0035-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the-projects-work-in-agreement-both-ways.md),
-whose eleven decisions it rests on and does not restate; awaiting the user's acceptance. The id is
-the one `/ticket` is to mint for it, unminted yet.
+whose eleven decisions it rests on and does not restate. The id is the one `/ticket` is to mint
+for it.
 
 ## Problem Statement
 
