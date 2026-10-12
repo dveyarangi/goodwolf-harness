@@ -1196,7 +1196,7 @@ def _counters(root: Path, store: Store, tag: str) -> str:
         memory.write_text(said, encoding="utf-8")
     kinds = (("🎫", now.tickets, before and before.tickets), ("❓", now.questions, before and before.questions), ("🐕", now.dogs, before and before.dogs))
     if before is None:
-        return " · ".join(f"{glyph} {len(named)}" for glyph, named, _ in kinds) + " (nothing to compare yet)"
+        return " · ".join(f"{glyph} {len(named)}" for glyph, named, _ in kinds)
     return " · ".join(f"{glyph} {len(named)} {_came_and_went(earlier, named)}" for glyph, named, earlier in kinds)
 
 

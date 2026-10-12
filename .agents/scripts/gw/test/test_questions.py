@@ -804,13 +804,13 @@ class TheCounters(Rendered):
     def dogs(self, *questions_bound: str) -> None:
         self.write(self.DOGS, "".join(f'<straw-dog question="{bound}">a claim</straw-dog>\n' for bound in questions_bound))
 
-    def test_the_first_window_counts_and_has_nothing_to_compare(self) -> None:
+    def test_the_first_window_gives_the_totals_alone(self) -> None:
         self.write(self.TICKET, "# A first ticket\n")
         self.dogs("q-0001")
 
         text, counts = self.counted()
 
-        self.assertIn("nothing to compare yet", text)
+        self.assertIn("🎫 1 · ❓ 6 · 🐕 1\n", text + "\n", "nothing to compare, so nothing said of it")
         self.assertEqual({"🎫": (1, 0, 0), "❓": (6, 0, 0), "🐕": (1, 0, 0)}, counts)
 
     def test_a_ticket_minted_a_question_opened_and_a_straw_dog_wrapped_each_come(self) -> None:
@@ -819,9 +819,8 @@ class TheCounters(Rendered):
         self.question("q-0014-who-counts", "Who counts?", "q-0010")
         self.dogs("q-0010")
 
-        text, counts = self.counted()
+        _, counts = self.counted()
 
-        self.assertNotIn("nothing to compare", text)
         self.assertEqual({"🎫": (1, 1, 0), "❓": (7, 1, 0), "🐕": (1, 1, 0)}, counts)
 
     def test_a_ticket_closed_a_question_decided_and_a_straw_dog_removed_each_go(self) -> None:
@@ -871,9 +870,8 @@ class TheCounters(Rendered):
         questions._forget_window(self.root, "s-alpha")
         self.write(self.TICKET, "# A first ticket\n")
 
-        text, counts = self.counted()
+        _, counts = self.counted()
 
-        self.assertNotIn("nothing to compare", text)
         self.assertEqual((1, 1, 0), counts["🎫"])
 
     def test_a_record_whose_size_and_time_did_not_move_is_not_read_again(self) -> None:
