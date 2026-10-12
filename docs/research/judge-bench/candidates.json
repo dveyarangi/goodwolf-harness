@@ -701,7 +701,8 @@
       "part": null,
       "evidence": "Person said yes; only complaint was 0012 still talking about heights, then 'stop growing 0012, extract decisions into new tickets' (ticket-vehicle/size, a local plan choice); mechanism 'questions' exists as named; later align-vs-questions home change was not claimed by this draft.",
       "confidence": "low"
-    }
+    },
+    "user": "hid — a ticket's size matters to the model; what size is the open part (the user, 2026-10-12)"
   },
   "C29": {
     "session": "182ce67e-437f-4a2a-a2ee-64dc1668ca80",
@@ -1682,7 +1683,8 @@
       "part": null,
       "evidence": "Largely an analysis with stated caveats (agent sets the denominator, method-building repo, no counterfactual); the person replaced the unit with closed questions and sent measurement to real product projects (q-0018.0008, q-0017), a redirect the draft had partly foreseen.",
       "confidence": "low"
-    }
+    },
+    "user": "hid — a result wrong or misleading is a part missed (the user, 2026-10-12)"
   },
   "C69": {
     "session": "d24205ec-000b-4504-86bb-ff64633fb4fc",
