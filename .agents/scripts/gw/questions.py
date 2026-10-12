@@ -38,6 +38,7 @@ import re
 import secrets
 import sys
 import tempfile
+from collections import Counter
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from datetime import date, datetime, timedelta, timezone
@@ -47,11 +48,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import move_doc  # noqa: E402  (path set above)
 from docs_corpus import (  # noqa: E402  (path set above)
+    STRAW_DOG_SCOPE,
+    bindings_in,
     cited_record,
     citations,
     corpus,
     in_straw_dog_scope,
     question_bindings,
+    read_text,
     target_of,
     with_question_bindings_retargeted,
 )
@@ -1132,12 +1136,15 @@ def window(root: Path, tag: str, full: bool = False) -> str:
     Every window drawn stays in the conversation, so one is drawn only when something moved: when
     neither this session's position nor any entry changed since the last one, a single line says
     so (parent decision 44). Another session's position alone is not a change.
+
+    Either form ends with the counters, since a ticket or a straw dog moves while no entry does.
     """
     if not (root / STORE).is_dir():
         return f"no store at {STORE}/: nothing to place a message in yet"
     seen: dict[str, bytes] = {}
     store = read_store(root, seen)
     held = store.session(tag)
+    counters = _counters(root, store, tag)
     fingerprint = _fingerprint(held, seen)
     memory = _memory(root, tag)
     if not full and memory.is_file() and memory.read_text(encoding="utf-8") == fingerprint:
@@ -1148,12 +1155,119 @@ def window(root: Path, tag: str, full: bool = False) -> str:
             f"window unchanged since your last one: {held.tag} at {held.current or 'no position yet'}; "
             f"say what this turn is — on a question, `questions.py at q-N --session {held.tag}` on the "
             f"one that contains the message; a process, no call — "
-            f"or `--window --session {held.tag} --full` to draw it again"
+            f"or `--window --session {held.tag} --full` to draw it again\n{counters}"
         )
     drawn = _drawn(store, held)
     memory.parent.mkdir(parents=True, exist_ok=True)
     memory.write_text(fingerprint, encoding="utf-8")
-    return drawn
+    return f"{drawn}\n\n{counters}"
+
+
+# --- the counters -------------------------------------------------------------------------------
+
+
+@dataclass
+class Counted:
+    """What a window counted, by the names that tell one member from another: a ticket by its
+    record, a question by its id, a straw dog by its record and the question it binds — never its
+    line, which an edit above it moves. `records` holds each scanned record's size, time and
+    bindings, so the next window reads again only what moved."""
+
+    tickets: list[str]
+    questions: list[str]
+    records: dict[str, tuple[int, int, list[tuple[int, str]]]]
+
+    @property
+    def dogs(self) -> list[tuple[str, str]]:
+        return [(name, bound) for name, (_, _, found) in self.records.items() for _, bound in found]
+
+
+def _counters(root: Path, store: Store, tag: str) -> str:
+    """The line a reply copies: open tickets, open questions and straw dogs, each with how many came
+    and went since this session's previous window, its memory then moved to this one."""
+    memory = Path(f"{_memory(root, tag)}.counted")
+    before, remembered = _recalled(memory)
+    now = _tally(root, store, before.records if before else {})
+    # Written by hand, and only when it moved: `asdict` copies every binding deeply, and closing a
+    # written file costs more than the rest of the count, on every turn.
+    said = json.dumps({"tickets": now.tickets, "questions": now.questions, "records": now.records})
+    if said != remembered:
+        memory.parent.mkdir(parents=True, exist_ok=True)
+        memory.write_text(said, encoding="utf-8")
+    kinds = (("🎫", now.tickets, before and before.tickets), ("❓", now.questions, before and before.questions), ("🐕", now.dogs, before and before.dogs))
+    if before is None:
+        return " · ".join(f"{glyph} {len(named)}" for glyph, named, _ in kinds) + " (nothing to compare yet)"
+    return " · ".join(f"{glyph} {len(named)} {_came_and_went(earlier, named)}" for glyph, named, earlier in kinds)
+
+
+def _came_and_went(earlier: list, named: list) -> str:
+    """`(+came/−went)`, members matched by name and counted as many times as they stand."""
+    then, now = Counter(map(_hashable, earlier)), Counter(map(_hashable, named))
+    return f"(+{sum((now - then).values())}/−{sum((then - now).values())})"
+
+
+def _hashable(member: object) -> object:
+    return tuple(member) if isinstance(member, list) else member
+
+
+def _tally(root: Path, store: Store, known: dict[str, tuple[int, int, list[tuple[int, str]]]]) -> Counted:
+    # The ticket mechanism says what a live ticket is; imported here, since it imports this module.
+    import tickets
+
+    stamps = _straw_dog_records(root)
+    return Counted(
+        tickets=tickets.live_tickets(list(stamps)),
+        questions=sorted(read.identity for read in store.index.values() if read.open and read.identity),
+        records={name: _scanned(root, name, stamp, known.get(name)) for name, stamp in sorted(stamps.items())},
+    )
+
+
+def _straw_dog_records(root: Path) -> dict[str, tuple[int, int]]:
+    """Every record of the straw-dog scope with its size and time, by walking it: a quarter of
+    what asking Git costs, at the price of counting a record Git ignores, which the listing skips."""
+    found: dict[str, tuple[int, int]] = {}
+    for prefix in STRAW_DOG_SCOPE:
+        top = os.path.join(root, prefix)
+        if os.path.isfile(top):
+            stat = os.stat(top)
+            found[prefix] = (stat.st_size, stat.st_mtime_ns)
+        elif os.path.isdir(top):
+            _walked(top, prefix, found)
+    return {name: stamp for name, stamp in found.items() if in_straw_dog_scope(name)}
+
+
+def _walked(folder: str, inside: str, found: dict[str, tuple[int, int]]) -> None:
+    # The directory's own listing carries each file's size and time on Windows, so no file is
+    # stat'ed again: on every turn the walk is most of the counters' cost.
+    with os.scandir(folder) as listed:
+        for item in listed:
+            name = f"{inside}/{item.name}"
+            if item.is_dir(follow_symlinks=False):
+                _walked(item.path, name, found)
+            elif item.is_file():
+                stat = item.stat()
+                found[name] = (stat.st_size, stat.st_mtime_ns)
+
+
+def _scanned(
+    root: Path, name: str, stamp: tuple[int, int], known: tuple[int, int, list[tuple[int, str]]] | None
+) -> tuple[int, int, list[tuple[int, str]]]:
+    """A record's size, time and bindings — the remembered ones while its size and time stand."""
+    if known is not None and (known[0], known[1]) == stamp:
+        return known
+    return stamp[0], stamp[1], bindings_in(name, read_text(root, name))
+
+
+def _recalled(memory: Path) -> tuple[Counted | None, str | None]:
+    """The previous window's count and the text it was read from, or `None` where there is none to
+    read — never a failure, since a window that cannot compare still counts."""
+    try:
+        text = memory.read_text(encoding="utf-8")
+        said = json.loads(text)
+        records = {name: (size, time, [tuple(found) for found in bound]) for name, (size, time, bound) in said["records"].items()}
+        return Counted(said["tickets"], said["questions"], records), text
+    except (OSError, ValueError, KeyError, TypeError):
+        return None, None
 
 
 def _drawn(store: Store, held: Session) -> str:

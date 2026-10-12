@@ -209,7 +209,7 @@ def check(root: Path) -> Checked:
     records: list[Ticket] = []
     diagnostics: list[Diagnostic] = []
     skipped: list[Skipped] = []
-    for name in _live_tickets(names):
+    for name in live_tickets(names):
         read = _read(root, name)
         if isinstance(read, Skipped):
             skipped.append(read)
@@ -226,7 +226,7 @@ def listing(root: Path) -> Listing:
     entries = {read.record: read for read in questions.read_store(root).index.values()}
     rows: list[str] = []
     skipped: list[Skipped] = []
-    for name in _live_tickets(corpus(root)):
+    for name in live_tickets(corpus(root)):
         read = _read(root, name)
         if isinstance(read, Skipped):
             skipped.append(read)
@@ -279,7 +279,7 @@ def _question(root: Path, read: Ticket, entries: dict[str, "questions.Entry"]) -
 # --- reading a ticket ---------------------------------------------------------------------------
 
 
-def _live_tickets(names: list[str]) -> list[str]:
+def live_tickets(names: list[str]) -> list[str]:
     """The records under `docs/tickets/` itself: not the queue, not anything archived."""
     return sorted(
         name

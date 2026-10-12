@@ -783,6 +783,112 @@ class TheWindow(Rendered):
         self.assertNotIn("next free id", text, "the script draws ids, so the agent is not handed one")
 
 
+class TheCounters(Rendered):
+    """The window's last line: open tickets, open questions and straw dogs, each with what came and
+    went since the session's previous window, matched by name."""
+
+    TICKET = "docs/tickets/01-0010-a-first-ticket.md"
+    DOGS = "docs/note.md"
+
+    def counted(self) -> tuple[str, dict[str, tuple[int, int, int]]]:
+        """A window drawn for s-alpha, and its counters as `{glyph: (total, came, went)}`."""
+        _, text = self.said("--window", "--session", "s-alpha")
+        line = [said for said in text.splitlines() if said.startswith("🎫")][0]
+        counts = {}
+        for part in line.split(" · "):
+            glyph, total, *moved = part.replace("(", " ").replace(")", " ").replace("/", " ").split()
+            came, went = (int(moved[0]), int(moved[1].lstrip("−"))) if moved and moved[0].startswith("+") else (0, 0)
+            counts[glyph] = (int(total), came, went)
+        return text, counts
+
+    def dogs(self, *questions_bound: str) -> None:
+        self.write(self.DOGS, "".join(f'<straw-dog question="{bound}">a claim</straw-dog>\n' for bound in questions_bound))
+
+    def test_the_first_window_counts_and_has_nothing_to_compare(self) -> None:
+        self.write(self.TICKET, "# A first ticket\n")
+        self.dogs("q-0001")
+
+        text, counts = self.counted()
+
+        self.assertIn("nothing to compare yet", text)
+        self.assertEqual({"🎫": (1, 0, 0), "❓": (6, 0, 0), "🐕": (1, 0, 0)}, counts)
+
+    def test_a_ticket_minted_a_question_opened_and_a_straw_dog_wrapped_each_come(self) -> None:
+        self.counted()
+        self.write(self.TICKET, "# A first ticket\n")
+        self.question("q-0014-who-counts", "Who counts?", "q-0010")
+        self.dogs("q-0010")
+
+        text, counts = self.counted()
+
+        self.assertNotIn("nothing to compare", text)
+        self.assertEqual({"🎫": (1, 1, 0), "❓": (7, 1, 0), "🐕": (1, 1, 0)}, counts)
+
+    def test_a_ticket_closed_a_question_decided_and_a_straw_dog_removed_each_go(self) -> None:
+        self.write(self.TICKET, "# A first ticket\n")
+        self.dogs("q-0010")
+        self.counted()
+        (self.root / self.TICKET).unlink()
+        self.question("q-0007-who-moves-a-subtree", "Who moves a subtree?", "q-0003", "closed:decided", "[the record](../record.md) — the user, 2026-09-29")
+        self.dogs()
+
+        _, counts = self.counted()
+
+        self.assertEqual({"🎫": (0, 0, 1), "❓": (5, 0, 1), "🐕": (0, 0, 1)}, counts)
+
+    def test_one_going_as_another_comes_reads_as_both(self) -> None:
+        self.write(self.TICKET, "# A first ticket\n")
+        self.dogs("q-0001")
+        self.counted()
+        (self.root / self.TICKET).unlink()
+        self.write("docs/tickets/01-0020-a-second-ticket.md", "# A second ticket\n")
+        self.dogs("q-0010")
+
+        _, counts = self.counted()
+
+        self.assertEqual((1, 1, 1), counts["🎫"])
+        self.assertEqual((1, 1, 1), counts["🐕"])
+
+    def test_a_straw_dog_moved_while_no_entry_did_shows_on_the_unchanged_line(self) -> None:
+        self.counted()
+        self.dogs("q-0001")
+
+        text, counts = self.counted()
+
+        self.assertTrue(text.startswith("window unchanged"), text)
+        self.assertEqual((1, 1, 0), counts["🐕"])
+
+    def test_the_queue_and_an_archived_ticket_are_not_counted(self) -> None:
+        self.write("docs/tickets/README.md", "# Delivery status\n")
+        self.write("docs/tickets/done/01-0005-an-old-ticket.md", "# An old ticket\n")
+
+        _, counts = self.counted()
+
+        self.assertEqual(0, counts["🎫"][0])
+
+    def test_a_window_after_a_compaction_still_compares(self) -> None:
+        self.counted()
+        questions._forget_window(self.root, "s-alpha")
+        self.write(self.TICKET, "# A first ticket\n")
+
+        text, counts = self.counted()
+
+        self.assertNotIn("nothing to compare", text)
+        self.assertEqual((1, 1, 0), counts["🎫"])
+
+    def test_a_record_whose_size_and_time_did_not_move_is_not_read_again(self) -> None:
+        self.dogs("q-0001")
+        self.counted()
+        path = self.root / self.DOGS
+        moment = path.stat()
+        self.dogs("q-0003")
+        os.utime(path, ns=(moment.st_atime_ns, moment.st_mtime_ns))
+
+        _, counts = self.counted()
+
+        self.assertEqual((1, 0, 0), counts["🐕"], "the cache answered for the unmoved record")
+
+
 class TwoSessions(Rendered):
     def test_each_window_is_drawn_around_its_own_position_and_lists_the_other(self) -> None:
         _, beta = self.said("--window", "--session", "s-beta")

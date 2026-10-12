@@ -191,18 +191,26 @@ def question_bindings(root: Path) -> list[tuple[str, int, str]]:
     id)` in record order. A path of the scope the tree lacks is no straw dog's, never an error."""
     found: list[tuple[str, int, str]] = []
     for name in corpus(root):
-        if not in_straw_dog_scope(name):
-            continue
-        text = (root / name).read_bytes().decode("utf-8", errors="replace")
-        if name.endswith(".py"):
-            found += [
-                (name, number, named.group(2))
-                for number, line in enumerate(text.splitlines(), start=1)
-                if (named := TODO_QUESTION.match(line))
-            ]
-        else:
-            found += [(name, _line_at(text, bound.start()), bound.group(2)) for bound in _QUESTION_BINDING.finditer(without_code(text))]
+        if in_straw_dog_scope(name):
+            found += [(name, line, question) for line, question in bindings_in(name, read_text(root, name))]
     return found
+
+
+def bindings_in(name: str, text: str) -> list[tuple[int, str]]:
+    """One record's bindings to a question, as `(line, id)`: a `TODO q-N` line in a script, a straw
+    dog's tag outside code in a document."""
+    if name.endswith(".py"):
+        return [
+            (number, named.group(2))
+            for number, line in enumerate(text.splitlines(), start=1)
+            if (named := TODO_QUESTION.match(line))
+        ]
+    return [(_line_at(text, bound.start()), bound.group(2)) for bound in _QUESTION_BINDING.finditer(without_code(text))]
+
+
+def read_text(root: Path, name: str) -> str:
+    """A record's text as the binding scan reads it: undecodable bytes replaced, never refused."""
+    return (root / name).read_bytes().decode("utf-8", errors="replace")
 
 
 def in_straw_dog_scope(name: str) -> bool:
