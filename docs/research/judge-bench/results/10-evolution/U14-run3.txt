@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports two FIX commits the person had just authorized, notes the tree is clean and unpushed, lists two leftovers, and asks whether to push. It commits to no new shape. The fix itself (create-then-swap loader links, keep a correctly written link, report why) was presented and examined in the previous exchange, and the person approved it. The unpushed state and the push question match the tree's setting (commit=ask, push=ask in local.rules.md and AGENTS.md L2). The remaining open items (the maintenance-clock re-check, the workshop taking the update, the untested success path) were already surfaced earlier, and each can be settled later and locally without changing what the draft commits to.
+CONFIDENCE: high

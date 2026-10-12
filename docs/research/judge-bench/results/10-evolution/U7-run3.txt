@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft commits to a migration plan for the 01-0014..01-0020 family. It maps each ticket's "why" to a question tree, moves other Open issues into What to build or the body of an existing question, and deletes four as stale. I checked the deletion claims against the tree. The "AGENTS.md has no installer" item is superseded by the installed blocks now in the entry file. The "repair policy does not travel" item is superseded by the Autonomy section in the entry file. The warning about 01-0010.0140 concerns a ticket already in done/. "Everything above" is a placeholder, which the ticket's own text confirms. The group-targets item already points at q-0005, which exists, and q-0004 exists for the move under q-0100. Each of these can be settled or corrected locally when the records are written, without changing what the draft promises. The row-25 decision belongs to the person, who answered it directly. The draft ends with an accept-or-correct question, and the nine items it lists are the places the person can still redirect.
+CONFIDENCE: medium

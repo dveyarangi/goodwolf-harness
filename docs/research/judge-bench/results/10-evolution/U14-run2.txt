@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports two FIX commits the person explicitly authorized, states the tree is clean and unpushed (push=ask, confirmed in the tree's local rules), lists the two remaining follow-ups, and asks whether to push. It commits to no new shape; the fix's design (create-then-swap, report fields) was examined and approved in the earlier exchange. Candidate parts considered: bundling unrelated question-store positions into the doc commit (local, disclosed in the draft, reversible before push), the untested swap path (already disclosed earlier and not a contract question), and the workshop only receiving the fix after push plus another update (consistent with the earlier report that the update was installed from a fresh clone of upstream). Each can be settled locally without changing what the draft promises, so none is load-bearing here.
+CONFIDENCE: high

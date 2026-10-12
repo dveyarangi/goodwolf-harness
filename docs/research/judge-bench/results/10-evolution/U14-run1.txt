@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports two FIX commits already authorized by the person ("yes, commit as FIX") and asks whether to push, with push=ask in force. It commits to no new shape beyond that routine step. The fix itself (create the replacement link first, swap only on success, keep a link that is correctly written) was examined in the earlier exchange, including its unproven cause and the untested swap path. Those were already disclosed there, and the fix does not depend on the cause. Candidate parts I considered: the unproven Codex-sandbox cause, the untested successful-swap path, and the downstream workshop only receiving the fix after a push and a further update. Each of these can be settled later and locally without changing what the draft commits to. The draft states the downstream dependency itself. The harness.py plan code in the tree (keep/make/repoint at about line 697 and 713) matches what the earlier turn described. Nothing in the draft leaves open a boundary-crossing or contract-changing part.
+CONFIDENCE: high

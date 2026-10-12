@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The person asked what ticket .0050 is about, and the draft explains the ticket (one mark-back convention over three existing cases, core pointing at its mechanism's doc and never into docs/, two repairs) and proposes only that /plan comes next. It commits to no new shape beyond restating the already-minted, Ready ticket. The open design choices that would touch the contract (where the convention lives, and whether the script's naming of the doc is a plain comment or something mechanisms.py can check) are named in the draft and left to the plan, so they are examined as open, not hidden. I verified the claims of absence in the tree: no core .py file names harness.md, and the Installing section of docs/architecture.md is still an 80-line restatement (lines 173-253). Scripts do cite format shelves and docs/ painted doors, but not a mechanism's own doc, so "no script names its mechanism's doc" holds in the narrow sense the draft means. The other-session collision on harness.py/harness.md is stated and deferred to implementation, which is local sequencing.
+CONFIDENCE: medium

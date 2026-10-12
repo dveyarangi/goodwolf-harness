@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft is a status report answering "how many tickets": counts of live and closed tickets, a history trend, and the question-store size, with an offered follow-up (split open/closed, chart by RFC or commit kind). It commits to no mechanism, rule, or plan, so there is no shape whose contract could change. I checked the counts against the tree: docs/tickets holds 36 live files (38 entries minus done/ and README) and done/ holds 44, matching the draft; the question root holds 146 q-files and done/ 35. The claim that 146 is not the open count is only partly right, since 142 of the 146 are open and 4 closed, so the explanation overstates the gap, but that is a local accuracy issue and can be corrected without changing anything the draft commits to. It also omits the requested chart, but that is incomplete delivery, not an unexamined load-bearing part of a committed shape.
+CONFIDENCE: high

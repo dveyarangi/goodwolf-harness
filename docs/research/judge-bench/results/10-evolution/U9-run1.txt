@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft commits to keeping criterion 1 of ticket .0040 (recorded in the queue's candidate note), advising against a post-/conclude hook for story 19, and recommending a straw-dog line in /conclude bound to q-0034, with the story's final home left to the person. I checked its absence claims against the tree. docs/edge/hosts.md and the three host sidecars wire only SessionStart and UserPromptSubmit and record no after-skill or end-of-turn event. Cursor is "reached in part" and relies on the entry file's rule in place of hooks. q-0023.0013 (What does /plan own?) exists and is open and empty. q-0034 exists, carries the user's session-mechanism proposal, and owns /recall and /conclude and the sessions file. The draft's remaining weaker points are the weighing of a hook against a rule and the choice between two homes for story 19. Both can be settled later and locally inside q-0034's align without changing the criterion decision or the mark-at-the-thing principle the draft stands on. The decision put to the person is a local scoping choice, not a premise the shape depends on.
+CONFIDENCE: medium
