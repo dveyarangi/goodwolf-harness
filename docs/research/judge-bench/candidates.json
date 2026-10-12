@@ -16,7 +16,13 @@
     },
     "copies": [
       "361594b2-a0da-4665-afcb-25eb0eba9a5a 782"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "What a mechanism is and the order: next day the spec was amended (abf7e77 'a mechanism is one skill, and /mechanism is the first declared') and re-sliced into seven with the injector first and /maintain declared second for falsification, because a declaration installing its rules by hand has a false central claim.",
+      "evidence": "Commit 993caab 'the mechanism spec becomes seven slices, injector first' and abf7e77; .0040 queue-derived question later decided differently (not committed, 41f84b8). Draft itself flagged .0040 as open, so the hidden part is the mechanism shape/ordering.",
+      "confidence": "medium"
+    }
   },
   "C2": {
     "session": "d9066aa7-144b-4c83-8c26-ce1ec0398918",
@@ -35,7 +41,13 @@
     },
     "copies": [
       "d9066aa7-144b-4c83-8c26-ce1ec0398918 151"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person: adopt and rewrite spec; core shape persists (SKILL.md 'The only home of the shape', sidecars under docs/mechanisms, nothing under .agents/mechanisms/<slug> but doc+rules). Later corrections (three-property drop, core/docs rule, one-skill loosened 2026-10-10) came from later drafts or later evidence.",
+      "confidence": "medium"
+    }
   },
   "C3": {
     "session": "17c29603-12a2-4b68-824a-e1ed2dd01bda",
@@ -54,7 +66,13 @@
     },
     "copies": [
       "17c29603-12a2-4b68-824a-e1ed2dd01bda 776"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "User said 'yes, do it in this slice'; AGENTS.md L1 and the tree today keep .agents/glossary.md (249 lines) and a 12-line docs/glossary.md; commit 186d3f8 PLAN landed it; no revert or FIX for the placement found.",
+      "confidence": "medium"
+    }
   },
   "C4": {
     "session": "9ac461a4-b796-4cdb-a724-23da21eb5059",
@@ -73,7 +91,13 @@
     },
     "copies": [
       "9ac461a4-b796-4cdb-a724-23da21eb5059 341"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person: 'ok.' .agents/mechanisms/maintain/maintain.md today says 'Nothing in the entry file is its part: the ring belongs to the loop'; grep finds no trigger row; later reworks (parts/output levels) kept this.",
+      "confidence": "high"
+    }
   },
   "C5": {
     "session": "d1571dee-ca9d-4aee-91e3-200624e1bceb",
@@ -92,7 +116,13 @@
     },
     "copies": [
       "d1571dee-ca9d-4aee-91e3-200624e1bceb 356"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "User said 'ok, two graders'; ticket 01-0011.0022 records both graders as decided and mechanism-shape evidence refers to them (graders pre-registered at .0022's align); no later rework found.",
+      "confidence": "low"
+    }
   },
   "C6": {
     "session": "557c4e35-6f8e-4b60-b0a6-ba064fd1af45",
@@ -111,7 +141,13 @@
     },
     "copies": [
       "557c4e35-6f8e-4b60-b0a6-ba064fd1af45 418"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person: 'yes, homes are fine'; the gap was named by the draft itself (01-0018 / hooks). Installed blocks mechanism exists and works (mechanism-shape blocks in skills). Later R6 and 'block already present' issues belong to later drafts, not this one.",
+      "confidence": "medium"
+    }
   },
   "C7": {
     "session": "453e7ef0-503c-493c-8214-80ecf1f8d336",
@@ -130,7 +166,13 @@
     },
     "copies": [
       "453e7ef0-503c-493c-8214-80ecf1f8d336 805"
-    ]
+    ],
+    "second": {
+      "label": "other",
+      "part": null,
+      "evidence": "An implementation report on an already-approved RFC (inject_rules.py installer, stages 1-4) asking leave to commit. Follow-ups were process: run it on something real, further verify passes (doc drift, undefined terms, CRLF test), and a separate point that unwrapped temporaries are undetected. Later commits extended rather than overturned it (local.rules.md, block placement at section end 8874047, retract stale blocks f6cd2dd); placement was a refinement found in use, not a reversal of the draft's contract.",
+      "confidence": "medium"
+    }
   },
   "C8": {
     "session": "453e7ef0-503c-493c-8214-80ecf1f8d336",
@@ -149,7 +191,13 @@
     },
     "copies": [
       "453e7ef0-503c-493c-8214-80ecf1f8d336 1952"
-    ]
+    ],
+    "second": {
+      "label": "other",
+      "part": null,
+      "evidence": "A /verify report on slice 01-0011.0070 (straw dog listing) with a commit request; person said yes; straw_dogs.py later changed only by unrelated slices; no rework of the verified slice found in git log.",
+      "confidence": "medium"
+    }
   },
   "C9": {
     "session": "8f62f85e-1406-4d6c-b7f4-ebff1a8801dd",
@@ -168,7 +216,13 @@
     },
     "copies": [
       "8f62f85e-1406-4d6c-b7f4-ebff1a8801dd 147"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person: 'yes, agreed'. Today .agents/skills/align, maintain, plan, recall and ticket all carry <installed by=\"ticket\"> blocks; ticket.rules.md holds P6/P10/P11 etc. No rework of the target shape found.",
+      "confidence": "medium"
+    }
   },
   "C10": {
     "session": "8f62f85e-1406-4d6c-b7f4-ebff1a8801dd",
@@ -187,7 +241,13 @@
     },
     "copies": [
       "8f62f85e-1406-4d6c-b7f4-ebff1a8801dd 264"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person 'yes, agreed'; the later plan passes found other defects (stage cut on the Plan line, a docs link in the shelf) but none touched this cut line; no sign of rework in the tree. Did not check the exact skill diff.",
+      "confidence": "low"
+    }
   },
   "C11": {
     "session": "772d2813-f7d7-4d69-9f7d-6c0f3a8e7193",
@@ -206,7 +266,13 @@
     },
     "copies": [
       "772d2813-f7d7-4d69-9f7d-6c0f3a8e7193 198"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person: 'ok, .0140 does it'; commits d787f1c/806ae95/b006a1e land exactly that (definition into /verify, four conditions under repair switch, commands in local block); docs/process.md survives as pointer lines; later questions (convention set) were a separate shape.",
+      "confidence": "medium"
+    }
   },
   "C12": {
     "session": "2b3f343b-7ec1-4fcc-a24a-e3b91fe59c5e",
@@ -225,7 +291,13 @@
     },
     "copies": [
       "2b3f343b-7ec1-4fcc-a24a-e3b91fe59c5e 346"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "Who triggers reordering and whether the pacer waits: the person on 2026-09-27 retracted the in-principle agreement, deciding the order is not re-ranked mechanically when state moves but changes by the user's decision, and that the pacer still waits behind the four refactors.",
+      "evidence": "01-0020 ticket text: 'Decided (the user, 2026-09-27, retracting the in-principle agreement of 2026-09-20)' with the shape struck through, and the second item decided 'it waits'.",
+      "confidence": "high"
+    }
   },
   "C13": {
     "session": "ca2d5d95-22f0-440f-a31f-99e797516633",
@@ -244,7 +316,13 @@
     },
     "copies": [
       "ca2d5d95-22f0-440f-a31f-99e797516633 975"
-    ]
+    ],
+    "second": {
+      "label": "other",
+      "part": null,
+      "evidence": "Person ok; follow-up was about release/migration notices, a separate shape already tracked by 01-0010.0160; checked ticket reference and the next turns.",
+      "confidence": "medium"
+    }
   },
   "C14": {
     "session": "e239bc2b-7569-4a63-b8e4-331fcc551c2b",
@@ -263,7 +341,13 @@
     },
     "copies": [
       "e239bc2b-7569-4a63-b8e4-331fcc551c2b 829"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person said yes; README later rewritten wholesale from the product document (4ef6c2e) with no comparisons, not because of a flaw in this bullet; /impact and /discover wording survives in the current README. Local copy decision.",
+      "confidence": "low"
+    }
   },
   "C15": {
     "session": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
@@ -282,7 +366,13 @@
     },
     "copies": [
       "21180e9e-e11e-4d1a-bcbe-65224a8d303d 911"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person said yes; README.md today still starts '# GoodWolf Harness'. The next-turn correction (paragraph 2 rebuild over-read a truncated test) concerns a later draft, not the title.",
+      "confidence": "high"
+    }
   },
   "C16": {
     "session": "dfb85b52-3e35-4aa6-b33e-cc60d640ffdb",
@@ -301,7 +391,13 @@
     },
     "copies": [
       "dfb85b52-3e35-4aa6-b33e-cc60d640ffdb 979"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person said assemble and test; the test ran and produced findings; no later rework of this shape found beyond README iterations; checked README git log.",
+      "confidence": "low"
+    }
   },
   "C17": {
     "session": "124ba770-945f-447f-a193-94568cb84274",
@@ -320,7 +416,13 @@
     },
     "copies": [
       "124ba770-945f-447f-a193-94568cb84274 1040"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person said 'yes, next section'. README git log: the /mechanism and override-by-name sentences survive in today's README (lines ~161, 174); only the override example was later removed as stale (c3ec5e0, L6 retired) and the page was rewritten wholesale on 2026-10-09 for other reasons. No rework of this paragraph's claim found.",
+      "confidence": "low"
+    }
   },
   "C18": {
     "session": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
@@ -340,7 +442,13 @@
     "copies": [
       "124ba770-945f-447f-a193-94568cb84274 1326",
       "21180e9e-e11e-4d1a-bcbe-65224a8d303d 1259"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person said 'yes' and moved on; rule-failure 11 and /plan wording stand in the tree; the ceremony item later left the README Not-yet list (now q-0027.0002 on stop kinds) as normal evolution; found no revert or rework of the shape.",
+      "confidence": "low"
+    }
   },
   "C19": {
     "session": "124ba770-945f-447f-a193-94568cb84274",
@@ -359,7 +467,13 @@
     },
     "copies": [
       "124ba770-945f-447f-a193-94568cb84274 1729"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "The page claimed 'install never overwrites what is there' and 'small changes don't take the whole loop' while the install refuses until CLAUDE.md is moved aside, /recall runs every session and the same page lists no lighter process; the draft's own two sections contradicted each other and the arrival contract.",
+      "evidence": "Next run: reviewers called the install line hiding the real experience and the small-changes line contradictory (agent: 'that line should go', page must say the move-aside); earlier FIX 74570c0 'front page stops claiming arrival reads existing instructions'.",
+      "confidence": "medium"
+    }
   },
   "C20": {
     "session": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
@@ -378,7 +492,13 @@
     },
     "copies": [
       "21180e9e-e11e-4d1a-bcbe-65224a8d303d 2383"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "Whether the entry file's origin-only machinery (Core and instance, authoring rules, install mechanics) is paid at tier 1 by every recipient session and so does not serve them.",
+      "evidence": "Later run-6 reviewers repeated 'the entry file mixes the harness's own development rules'. Commit a936e22 (q-0035 body) lists 'Machinery at tier 1 that only the origin needs - Core and instance, the two authoring rules, Q1's calls, the install mechanics in Straw dogs and R7 - is paid by every session of every recipient'; q-0026.0006 and commit 6121a9f move meta-rules out of the entry file. This contradicts the draft's retraction.",
+      "confidence": "medium"
+    }
   },
   "C21": {
     "session": "72390caf-d63c-4840-8f83-1b3536ff1e5d",
@@ -397,7 +517,13 @@
     },
     "copies": [
       "72390caf-d63c-4840-8f83-1b3536ff1e5d 219"
-    ]
+    ],
+    "second": {
+      "label": "other",
+      "part": null,
+      "evidence": "Person answered 'yes'. Mostly a survey plus a question plainly put; later order questions (Q5-Q7) were separate decisions the agent raised itself. No tree evidence that the group-1 scope was undone.",
+      "confidence": "medium"
+    }
   },
   "C22": {
     "session": "9ba63414-6c5d-40d3-81da-758ab382f214",
@@ -417,7 +543,13 @@
     "copies": [
       "9ba63414-6c5d-40d3-81da-758ab382f214 248",
       "dfb1afea-d7b5-4f0d-8d5c-5f6a1074e6f8 273"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person said yes; .0060 aligned (148064d), planned, implemented, verified and closed (b8f72d1) with dueness as /maintain's input via maintain.py --check/--mark; .0120 holds .0060 only as Related in done/; announcement handed to .0120 as an extra. No rework found.",
+      "confidence": "medium"
+    }
   },
   "C23": {
     "session": "eac39f3d-8315-49ac-8f0e-4f1f2c110dac",
@@ -436,7 +568,13 @@
     },
     "copies": [
       "eac39f3d-8315-49ac-8f0e-4f1f2c110dac 355"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person accepted ('yes, commit'). tickets/README still carries this order as 'settled at the queue-order align of 2026-09-27'; later 09-29 re-read only inserted the question-store tickets (a new development) ahead of it; .0060 done 09-27. Checked README, ticket git log, the follow-on .0060 align.",
+      "confidence": "medium"
+    }
   },
   "C24": {
     "session": "a53039e7-b842-47f0-883f-08bf7499bf96",
@@ -456,7 +594,13 @@
     "copies": [
       "a53039e7-b842-47f0-883f-08bf7499bf96 747",
       "e777353d-8916-4f37-b728-e865950de937 666"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "Trigger 2 left out the skill directory and its record-format shelf (TICKET-FORMAT.md), so a record-format change would make nothing due, the very missed re-check .0060 exists for; and the marks format's home contradicted MECHANISM-FORMAT.",
+      "evidence": "/plan impact in the same session: 'a correction to what was aligned, so it goes back to /align'; the person then widened trigger 2 to doc, rules file and skill directory, and moved the marks format into /maintain's skill (rule failure 15).",
+      "confidence": "high"
+    }
   },
   "C25": {
     "session": "a53039e7-b842-47f0-883f-08bf7499bf96",
@@ -478,7 +622,8 @@
       "0cd6152e-9c2f-472a-9a58-c9dedd45bb90 842",
       "a53039e7-b842-47f0-883f-08bf7499bf96 851",
       "4d0469b0-b94f-4558-b701-4c851db4f8ee 849"
-    ]
+    ],
+    "chain_of": "C24"
   },
   "C26": {
     "session": "eac39f3d-8315-49ac-8f0e-4f1f2c110dac",
@@ -499,7 +644,13 @@
     "copies": [
       "eac39f3d-8315-49ac-8f0e-4f1f2c110dac 834",
       "d6de4075-9376-4eef-9bc2-4f777938e09a 908"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "In a recipient tree the rules level asks for an amendment to core mechanism docs it must not make, so due never clears; the script must treat built-in mechanisms as the origin's (refuse marking, report as origin's) and 'never maintained' must count as due.",
+      "evidence": "Two planning passes later (user asked 'another pass') agent found: in a recipient the rules level cannot clear, proposed A (only output derived in a recipient), plus fix that never-maintained counts as due; current maintain.py documents 'In a recipient the built-in mechanisms are maintained where core is made' and WHY_BUILT_IN.",
+      "confidence": "high"
+    }
   },
   "C27": {
     "session": "690dcf15-8ddc-4262-9833-73ee156d536b",
@@ -519,7 +670,13 @@
     "copies": [
       "690dcf15-8ddc-4262-9833-73ee156d536b 1053",
       "33e40c21-9241-4927-a22a-7b3a58dee816 1065"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person 'yes'; implemented in .0060 (319 tests), maintain.md still says built-ins are maintained where core is made and a recipient's own mechanisms have no home yet; the unknowns were named by the draft as open threads. Checked maintain.md, git log of maintain.py (later work only reworked levels).",
+      "confidence": "medium"
+    }
   },
   "C28": {
     "session": "fadb2b53-ecd7-4bfe-bfa8-15d1649d2dc7",
@@ -538,7 +695,13 @@
     },
     "copies": [
       "fadb2b53-ecd7-4bfe-bfa8-15d1649d2dc7 2099"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person said yes; only complaint was 0012 still talking about heights, then 'stop growing 0012, extract decisions into new tickets' (ticket-vehicle/size, a local plan choice); mechanism 'questions' exists as named; later align-vs-questions home change was not claimed by this draft.",
+      "confidence": "low"
+    }
   },
   "C29": {
     "session": "182ce67e-437f-4a2a-a2ee-64dc1668ca80",
@@ -557,7 +720,13 @@
     },
     "copies": [
       "182ce67e-437f-4a2a-a2ee-64dc1668ca80 146"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person: 'yes, land it'; commit 924d0b9 landed it; questions SKILL still says 'no need to search done/: a decided entry links to what holds its answer', check built in stage 1. Later 'home' predicate refinement (ticket is no home) refines rather than overturns it.",
+      "confidence": "medium"
+    }
   },
   "C30": {
     "session": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
@@ -576,7 +745,13 @@
     },
     "copies": [
       "d4406b99-8ee7-4e49-8d84-5621c2fd5766 590"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "User said yes; landed in 1388c85/6810498/5961dd7; later turns raised only wording (script behaviour in skill) and invocation path in Q1; Q1 still uses calls with --session today; draft itself named the shell-quoting risk as must-verify.",
+      "confidence": "medium"
+    }
   },
   "C31": {
     "session": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
@@ -595,7 +770,13 @@
     },
     "copies": [
       "d4406b99-8ee7-4e49-8d84-5621c2fd5766 3898"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person said yes; ticket 01-0010.0120 records the known limit with alternatives undecided; later Cursor work (message hook, rule failure 28) built on it without reversing; checked git log and the ticket text.",
+      "confidence": "low"
+    }
   },
   "C32": {
     "session": "27fb8892-59e6-4bbc-9605-a2d7aa4d3c70",
@@ -616,7 +797,13 @@
       "27fb8892-59e6-4bbc-9605-a2d7aa4d3c70 297",
       "9f9f0714-7b5b-44fa-bc00-8d16838ab7a6 375",
       "b10d79ee-831b-4cd8-bbd0-5f8d24181518 296"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "Whether the question's own entry should hold the argument (against parent decision 24, 'arguments stay in the owner record'), which also bears on the practice-swap decision that tickets are replaceable.",
+      "evidence": "Person: 'wait, on the previous question, why not let the questions keep the arguments themselves?'; agent opened q-0022, marked q-0019 suspect, then superseded decision 2 with decision 3 (body holds arguments, Open issues section leaves the ticket format, field renamed Answers). Questions' bodies hold arguments in the tree today.",
+      "confidence": "high"
+    }
   },
   "C33": {
     "session": "27fb8892-59e6-4bbc-9605-a2d7aa4d3c70",
@@ -637,7 +824,13 @@
       "27fb8892-59e6-4bbc-9605-a2d7aa4d3c70 519",
       "9f9f0714-7b5b-44fa-bc00-8d16838ab7a6 683",
       "b10d79ee-831b-4cd8-bbd0-5f8d24181518 518"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "The timing and owner of the move to done/: the person says questions must move at the moment of closing, with /maintain only sweeping the forgotten; leaving finished subtrees in the live folder inflated the window.",
+      "evidence": "Person: 'maintain подчищает забытое, но вопросы должны переноситься в момент закрытия'; agent then moved three subtrees, amended decision 34, added a close-moves-subtree criterion to .0020 (commit 5b129e6 'the move at closure'); maintain's Q4 still sweeps leftovers. Fork A itself accepted unchanged.",
+      "confidence": "low"
+    }
   },
   "C34": {
     "session": "27fb8892-59e6-4bbc-9605-a2d7aa4d3c70",
@@ -659,7 +852,13 @@
       "27fb8892-59e6-4bbc-9605-a2d7aa4d3c70 1398",
       "9f9f0714-7b5b-44fa-bc00-8d16838ab7a6 1851",
       "b10d79ee-831b-4cd8-bbd0-5f8d24181518 1397"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "That a question's place among siblings orders nothing, so ticket-style gaps of ten are wrong for the id contract.",
+      "evidence": "Commit ebde4ab 'question positions step by one, the store renumbered... On the user's word at the fold: a child takes the position after its siblings, not ten past them as ticket positions step'; decision 6 amended and 56 files re-renamed. The id-reissue and code-block issues the draft itself put to the person were handled in-turn.",
+      "confidence": "medium"
+    }
   },
   "C35": {
     "session": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
@@ -678,7 +877,13 @@
     },
     "copies": [
       "5bab93a2-b640-4ce2-a0d8-623d0fd7f965 394"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "The premise that a straw dog is an open question (and is bound to a ticket) was inherited, not checked; a dog is a temporary text depending on work, and binding it via ticket breaks core's independence from the ticket method.",
+      "evidence": "Person: 'почему мы вообще решили, что собака это открытый вопрос?'; agent traced premise to an unconfirmed 2026-09-28 align line, then proposed dog -> question <- work (owner field), user agreed; ALIGN 754369a 'a straw dog is bound to the question it waits on' and a PLAN withdrawing 01-0011.0030; entry file now uses straw-dog question=\"q-N\".",
+      "confidence": "high"
+    }
   },
   "C36": {
     "session": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
@@ -697,7 +902,13 @@
     },
     "copies": [
       "5bab93a2-b640-4ce2-a0d8-623d0fd7f965 1133"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "The answer already lived in the installed ticket rules P1/P2 and /maintain B3, so deferral was wrong: closure kind decides whether the two straw dogs ripen; the ticket should be withdrawn, not blocked.",
+      "evidence": "Person: 'разве тикеты не инсталлируют в /maintain правило закрытия?'; agent recast as decided against P1/B3, withdrew the ticket, rewrote both dogs; the draft itself listed P1, P2, B3 as the existing answer.",
+      "confidence": "medium"
+    }
   },
   "C37": {
     "session": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
@@ -716,7 +927,13 @@
     },
     "copies": [
       "5bab93a2-b640-4ce2-a0d8-623d0fd7f965 1281"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person accepted and asked only for the reformulation, which the draft itself proposed. Withdrawn ticket sits in done/, q-0019 in questions/done; no later revert/reopen found in git log or tree. The person's following q-0027/pacer placement correction concerned a different family's row, not this draft's.",
+      "confidence": "medium"
+    }
   },
   "C38": {
     "session": "17658ee1-78ee-410c-871e-86e722da27fe",
@@ -735,7 +952,13 @@
     },
     "copies": [
       "17658ee1-78ee-410c-871e-86e722da27fe 265"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Committed c0829db as FIX; harness.md line 76 still states the behaviour; later --links per-clone step (.0172) added around it rather than undoing it; draft itself stated the cause unproven and the success path untested.",
+      "confidence": "medium"
+    }
   },
   "C39": {
     "session": "17658ee1-78ee-410c-871e-86e722da27fe",
@@ -754,7 +977,13 @@
     },
     "copies": [
       "17658ee1-78ee-410c-871e-86e722da27fe 532"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person: 'yes, commit the plan and start /implement'; implemented, verified, committed; Q1 now says new question goes under the lowest containing question. Later the placement rule was struck twice (q-0001.0016 struck 2: 'loosely contains' and resembling-children counts), which is rule-wording repair of the same area rather than the draft's skill section; so low confidence.",
+      "confidence": "low"
+    }
   },
   "C40": {
     "session": "17658ee1-78ee-410c-871e-86e722da27fe",
@@ -773,7 +1002,13 @@
     },
     "copies": [
       "17658ee1-78ee-410c-871e-86e722da27fe 767"
-    ]
+    ],
+    "second": {
+      "label": "other",
+      "part": null,
+      "evidence": "Recommendation to end the session and a recitation of the queue order and loose ends; commits to no new rule or design.",
+      "confidence": "high"
+    }
   },
   "C41": {
     "session": "e11dbff6-95f3-4c29-a40b-b68304644caa",
@@ -792,7 +1027,13 @@
     },
     "copies": [
       "e11dbff6-95f3-4c29-a40b-b68304644caa 151"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person: 'yes, go ahead'; the Q1 banter bullet in AGENTS.md is verbatim as drafted; later LOCAL L6 only changed the row glyph to the wolf; rule-failures 'struck' entries about banter none; checked git log and rule-failures.",
+      "confidence": "medium"
+    }
   },
   "C42": {
     "session": "1e8b7b03-a36e-46db-ab42-cded0d6e7983",
@@ -813,7 +1054,13 @@
       "1e8b7b03-a36e-46db-ab42-cded0d6e7983 259",
       "2ccc7021-f7dd-40dc-b3d7-ce20b7cf5ac7 240",
       "a3c9b354-c5d7-4cbd-b754-f36d7b4bcae9 298"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "Where the verification set lives: it is the key rule set, so a script or a project document cannot be its home; the pointer premise, which also moved authority to a document that carries none, was unexamined.",
+      "evidence": "Person: 'where is the home of the list of checks? ... not sure L3 as a link ... explain the thinking'; agent opened q-0018.0021 and made .0170 wait on it, conceded the home is local.rules.md; tickets/README says .0170 is 're-read against both, its L3-as-pointer premise reversed'.",
+      "confidence": "high"
+    }
   },
   "C43": {
     "session": "1e8b7b03-a36e-46db-ab42-cded0d6e7983",
@@ -834,7 +1081,8 @@
       "1e8b7b03-a36e-46db-ab42-cded0d6e7983 298",
       "2ccc7021-f7dd-40dc-b3d7-ce20b7cf5ac7 279",
       "a3c9b354-c5d7-4cbd-b754-f36d7b4bcae9 352"
-    ]
+    ],
+    "chain_of": "C42"
   },
   "C44": {
     "session": "1e8b7b03-a36e-46db-ab42-cded0d6e7983",
@@ -855,7 +1103,8 @@
       "1e8b7b03-a36e-46db-ab42-cded0d6e7983 444",
       "2ccc7021-f7dd-40dc-b3d7-ce20b7cf5ac7 425",
       "a3c9b354-c5d7-4cbd-b754-f36d7b4bcae9 578"
-    ]
+    ],
+    "chain_of": "C42"
   },
   "C45": {
     "session": "1e8b7b03-a36e-46db-ab42-cded0d6e7983",
@@ -874,7 +1123,13 @@
     },
     "copies": [
       "1e8b7b03-a36e-46db-ab42-cded0d6e7983 638"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "Kind is a relation, not a property of a file: each record must name what it is a record of (its referent), and which side bears the mark in the thing; the draft had no referent and no direction of reading.",
+      "evidence": "Person at once: 'for each concrete source establish what it is a record of and what it is the thing for'; the session's rule became 'declare kind plus referent'; the tree now has the 'record of' mark (c8964e8: every record an agent edits shows what it is a record of).",
+      "confidence": "high"
+    }
   },
   "C46": {
     "session": "1e8b7b03-a36e-46db-ab42-cded0d6e7983",
@@ -893,7 +1148,13 @@
     },
     "copies": [
       "1e8b7b03-a36e-46db-ab42-cded0d6e7983 939"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "Footing and principle are two different things at different levels of thinking; one tag conflated them, and a paragraph with no fitting principle needs its own box rather than an empty anchor.",
+      "evidence": "Person: 'a tag is footing and principle is separate; principles govern the thinking level above; if no principle fits, a box instead of the anchor'; agent then redrafted as two marks, lamp (principle) and anchor (footing), plus a box; AGENTS.md today has the (principle) clause and a separate footnote for what a claim rests on.",
+      "confidence": "high"
+    }
   },
   "C47": {
     "session": "693642b7-d512-4533-8790-820e90970571",
@@ -913,7 +1174,13 @@
     "copies": [
       "693642b7-d512-4533-8790-820e90970571 229",
       "a9b67b24-f67f-4653-a2e4-25cbfeaf5510 176"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "The distinguishing grounds were unexamined: embeddings-vs-position does not set it apart, and a source of truth per record is a separate axis that does not replace a recall structure (five selectors); the memory-family frame also covers only two axes, not what the page must sell.",
+      "evidence": "Person: embeddings going out of use, source of truth does not mean no recall structure, redo via discover; then 'two axes are not all in the harness'. q-0031 body records both claims 'struck', five selectors, and README rebuilt around jobs-to-be-done with the two axes moved into 'How it works'.",
+      "confidence": "medium"
+    }
   },
   "C48": {
     "session": "693642b7-d512-4533-8790-820e90970571",
@@ -933,7 +1200,8 @@
     "copies": [
       "693642b7-d512-4533-8790-820e90970571 318",
       "a9b67b24-f67f-4653-a2e4-25cbfeaf5510 229"
-    ]
+    ],
+    "chain_of": "C47"
   },
   "C49": {
     "session": "1e8b7b03-a36e-46db-ab42-cded0d6e7983",
@@ -952,7 +1220,8 @@
     },
     "copies": [
       "1e8b7b03-a36e-46db-ab42-cded0d6e7983 1958"
-    ]
+    ],
+    "chain_of": "C45"
   },
   "C50": {
     "session": "693642b7-d512-4533-8790-820e90970571",
@@ -972,7 +1241,13 @@
     "copies": [
       "693642b7-d512-4533-8790-820e90970571 1212",
       "a9b67b24-f67f-4653-a2e4-25cbfeaf5510 805"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "The level: the items were implementations and engineering claims rather than principles answering a user's pain; the person named self-improvement, one source of truth, exploration-space memory, then rejected the next list as 'general and engineering, not answering the user's pain'; this opened a new root q-0033 on pains and their causes.",
+      "evidence": "Person: 'не принцип ... Пропущенное правило — это соломенная собака' and 'это все общие и инженерные утверждения и не отвечают на боль пользователя'; agent opened q-0033 and rebuilt the analysis as pain, cause, remedy.",
+      "confidence": "high"
+    }
   },
   "C51": {
     "session": "693642b7-d512-4533-8790-820e90970571",
@@ -992,7 +1267,8 @@
     "copies": [
       "693642b7-d512-4533-8790-820e90970571 1253",
       "a9b67b24-f67f-4653-a2e4-25cbfeaf5510 832"
-    ]
+    ],
+    "chain_of": "C50"
   },
   "C52": {
     "session": "693642b7-d512-4533-8790-820e90970571",
@@ -1012,7 +1288,8 @@
     "copies": [
       "693642b7-d512-4533-8790-820e90970571 1266",
       "a9b67b24-f67f-4653-a2e4-25cbfeaf5510 838"
-    ]
+    ],
+    "chain_of": "C50"
   },
   "C53": {
     "session": "693642b7-d512-4533-8790-820e90970571",
@@ -1032,7 +1309,8 @@
     "copies": [
       "693642b7-d512-4533-8790-820e90970571 1304",
       "a9b67b24-f67f-4653-a2e4-25cbfeaf5510 864"
-    ]
+    ],
+    "chain_of": "C50"
   },
   "C54": {
     "session": "a9b67b24-f67f-4653-a2e4-25cbfeaf5510",
@@ -1051,7 +1329,8 @@
     },
     "copies": [
       "a9b67b24-f67f-4653-a2e4-25cbfeaf5510 936"
-    ]
+    ],
+    "chain_of": "C50"
   },
   "C55": {
     "session": "a9b67b24-f67f-4653-a2e4-25cbfeaf5510",
@@ -1070,7 +1349,13 @@
     },
     "copies": [
       "a9b67b24-f67f-4653-a2e4-25cbfeaf5510 1140"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "The question tree serves more than the product, so a row-per-question matrix would be a second index of the store (second source of truth), and half of staleness was already covered by straw dogs bound to questions; the link should be carried from the mechanism/ticket side.",
+      "evidence": "Person: 'возможно это преждевременно, дерево вопросов обслуживает не только продукт'; agent next reply agrees, says half already exists, opens q-0033.0005 (product doc stays true without forcing the question tree into it); tree has q-0033.0005 commits shifting to marks on tickets/mechanisms collected at release.",
+      "confidence": "medium"
+    }
   },
   "C56": {
     "session": "de339340-8b19-4267-adf9-e12d9a7b6382",
@@ -1089,7 +1374,13 @@
     },
     "copies": [
       "de339340-8b19-4267-adf9-e12d9a7b6382 345"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "The distinction cannot be drawn from the pair of questions at all: every question presupposes something, so whether a change in B removes the question or only shifts the answer depends on how far B moved and on how settled (ground vs live) the project is.",
+      "evidence": "Person: 'все еще не точно ... БД уже предполагает', then 'depends and assumes зависят от закостенелости проекта'; q-0001.0023 reworded and split into .0001-.0006 (presupposition vs premise, who judges a change, ground vs recorded, what depends on carries, ...); person 'ты спешишь'.",
+      "confidence": "high"
+    }
   },
   "C57": {
     "session": "de339340-8b19-4267-adf9-e12d9a7b6382",
@@ -1108,7 +1399,13 @@
     },
     "copies": [
       "de339340-8b19-4267-adf9-e12d9a7b6382 807"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person said go ahead; ticket 01-0011.0100.0045 implemented and closed as designed (7b4b991, STORE-ARRIVAL.md and questions.md still carry it, no later rework in git log); only a local architecture sentence (two files written outside the delivery, not one) was corrected during implementation.",
+      "confidence": "medium"
+    }
   },
   "C58": {
     "session": "93929df3-c4b8-4d09-b137-2c45adac1344",
@@ -1130,7 +1427,13 @@
       "53bad90a-ebc6-4f25-bb79-f755244a0394 202",
       "93929df3-c4b8-4d09-b137-2c45adac1344 151",
       "e588cd44-ef96-4ff7-a499-d0346d4cc03e 156"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "That the source-comparison belongs to /verify at all: the person said it is part of /maintain, must be fast (no clone) to be added, and must be offered with a product reason; the line was removed from the skill and the doc rebound to q-0018.0012 / 01-0010.0180.",
+      "evidence": "Person: 'это вообще не часть верификации, это часть maintain ... он должен быть быстрым'; agent then removed the proposal, moved the rule to maintain, rule failure 26 updated.",
+      "confidence": "high"
+    }
   },
   "C59": {
     "session": "a9b67b24-f67f-4653-a2e4-25cbfeaf5510",
@@ -1149,7 +1452,13 @@
     },
     "copies": [
       "a9b67b24-f67f-4653-a2e4-25cbfeaf5510 1505"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "At product level the 'why' is the cause the person recognized and wants solved, a stated anchor in product.md, not a reconstruction; the draft conflated 'why it exists' with 'why built this way', and the 'found, not confirmed' marker is really a HITL ticket label tied to the unbuilt authorization mechanism.",
+      "evidence": "Person: 'мне кажется ты напутал...' with two (three) anchors and the align-gate correction; agent: 'Ты прав, я напутал в главном'; q-0018.0011.0004 body records the struck 'why is not realistic' bullet and the corrected two-stage plan.",
+      "confidence": "high"
+    }
   },
   "C60": {
     "session": "a6ab6249-878e-4bd3-9fa6-368659f58d1a",
@@ -1168,7 +1477,13 @@
     },
     "copies": [
       "a6ab6249-878e-4bd3-9fa6-368659f58d1a 284"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "What silence is measured from (a row is written only at store writes, so a working session would be closed and revived at each message) and that Cursor has no per-message hook that revives a row; also a wake writing into another session's row.",
+      "evidence": "Person set threshold to 3h and challenged the reason; /impact then found the measure-from problem, RFC c804fd8 measures from later of row write and window memory, Cursor's beforeSubmitPrompt hook added, rule failure 28, architecture straw dog bound to q-0034 for the wake's second foreign write.",
+      "confidence": "medium"
+    }
   },
   "C61": {
     "session": "fcfe212c-0649-4af0-84f3-770d86c3b360",
@@ -1188,7 +1503,13 @@
     "copies": [
       "5ee9fe64-bbbd-43dd-8c5b-e4f61fd910ba 182",
       "fcfe212c-0649-4af0-84f3-770d86c3b360 182"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "Whether the Completed step line (even as a derived pointer) should exist at all: nothing reads it, it duplicates session records, so removal, not rendering, was the answer.",
+      "evidence": "Person: 'кто читает completed step? и не редаденси ли это?'; agent withdrew its recommendation and proposed deleting the line whole; person: 'удали целиком, отдельной правкой'. ac20c13 TICKET: queue keeps no account of steps done, line removed whole from queue, arrival state and ticket format; q-0024.0009.0003.0003 decided.",
+      "confidence": "high"
+    }
   },
   "C62": {
     "session": "58bf3b88-e0f2-404e-b156-45c3be4940b8",
@@ -1207,7 +1528,13 @@
     },
     "copies": [
       "58bf3b88-e0f2-404e-b156-45c3be4940b8 703"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "E4 flipped the record/code direction against E2 (a broken promise is drift, never rewritten to fit) and left 'touched' sidecar result to the reader's reading, so any questions.py change would stale every host's results.",
+      "evidence": "Agent's own check after the person asked 'did you check it is good?': found the E2 contradiction and loose 'touched'; rule-failures entry 30; E4 and E2 reworded; staleness mechanism then withdrawn as over-built under Occam.",
+      "confidence": "high"
+    }
   },
   "C63": {
     "session": "3a5196da-1e76-4fd1-8512-75a5c7ef8e67",
@@ -1228,7 +1555,8 @@
       "3a5196da-1e76-4fd1-8512-75a5c7ef8e67 976",
       "58bf3b88-e0f2-404e-b156-45c3be4940b8 1307",
       "d0abdc88-9837-43b9-a67f-312de5aea55e 967"
-    ]
+    ],
+    "chain_of": "C62"
   },
   "C64": {
     "session": "58bf3b88-e0f2-404e-b156-45c3be4940b8",
@@ -1247,7 +1575,13 @@
     },
     "copies": [
       "58bf3b88-e0f2-404e-b156-45c3be4940b8 1322"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person said 'да, убирай'; landed as a87fd43 and q-0025.0005 decided; E2/E4 still in edge.rules.md, no later rework or rule-failure; CONCLUDE 72416eb lists 'staleness marking refuted'. Open helper question was named in the draft.",
+      "confidence": "medium"
+    }
   },
   "C65": {
     "session": "3a5196da-1e76-4fd1-8512-75a5c7ef8e67",
@@ -1267,7 +1601,13 @@
     "copies": [
       "3a5196da-1e76-4fd1-8512-75a5c7ef8e67 1260",
       "d0abdc88-9837-43b9-a67f-312de5aea55e 1347"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "The identity key itself: the desktop app has its own stable conversation id (CLAUDE_CODE_HOST_SESSION_ID) that survives a resume, making the log comparison and its race unnecessary.",
+      "evidence": "Person: 'don't we have a more reliable id that needs no acrobatics?'; agent found it and deleted the log comparison; committed as 1962f08 (sessions keyed on the app's id; 143 lines removed).",
+      "confidence": "high"
+    }
   },
   "C66": {
     "session": "a58f78ae-91ed-41e2-9811-230354197278",
@@ -1286,7 +1626,13 @@
     },
     "copies": [
       "a58f78ae-91ed-41e2-9811-230354197278 1353"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "Whether a per-record kind mark serves the actual purpose (detecting drift needs a declared pair, a direction and a detector; the mark gives direction only) and whether a mechanism doc is `what must always hold` or `what exists`.",
+      "evidence": "Next turns: person says mechanism docs should carry 'what is' (they describe present state, not source of truth), then 'the whole idea is to understand drift, not stick kind labels'; agent re-raised to q-0024.0009 and ran /discover. Tree: commit 725ed6d 'the mark says how a record is treated, drift goes to declared pairs with a detector; a mechanism's doc stays what must always hold', q-0024.0009.0005/.0006 opened.",
+      "confidence": "high"
+    }
   },
   "C67": {
     "session": "a58f78ae-91ed-41e2-9811-230354197278",
@@ -1305,7 +1651,13 @@
     },
     "copies": [
       "a58f78ae-91ed-41e2-9811-230354197278 1971"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "The shape ignored that a mechanism has one place in a target (the entry file's Project-local) and that these are meta-rules of the mechanism-of-mechanisms, distinct from meta-principles; the install was later refuted and the lines held in /mechanism's own skill.",
+      "evidence": "Person at once: they belong to the mechanism of mechanisms, Occam is a meta-principle (opened q-0026.0006); later PLAN 327d1c1/260e2bb: the install met a mechanism's one place in a target, decision 4 amended, 6121a9f implements 'holds its meta-rules in its own skill', evidence records the refuted install.",
+      "confidence": "high"
+    }
   },
   "C68": {
     "session": "fd35afcb-b7fd-43f7-b105-a7efec8fd7b3",
@@ -1324,7 +1676,13 @@
     },
     "copies": [
       "fd35afcb-b7fd-43f7-b105-a7efec8fd7b3 291"
-    ]
+    ],
+    "second": {
+      "label": "other",
+      "part": null,
+      "evidence": "Largely an analysis with stated caveats (agent sets the denominator, method-building repo, no counterfactual); the person replaced the unit with closed questions and sent measurement to real product projects (q-0018.0008, q-0017), a redirect the draft had partly foreseen.",
+      "confidence": "low"
+    }
   },
   "C69": {
     "session": "d24205ec-000b-4504-86bb-ff64633fb4fc",
@@ -1343,7 +1701,13 @@
     },
     "copies": [
       "d24205ec-000b-4504-86bb-ff64633fb4fc 801"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person accepted; Q6 text in questions.rules.md is the same as proposed, unchanged since 13fa1f6; the ticket-contract question was explicitly flagged and bound to a straw dog (q-0024.0009.0003.0002.0002); later pass only added a local merged/superseded detail.",
+      "confidence": "medium"
+    }
   },
   "C70": {
     "session": "d24205ec-000b-4504-86bb-ff64633fb4fc",
@@ -1362,7 +1726,13 @@
     },
     "copies": [
       "d24205ec-000b-4504-86bb-ff64633fb4fc 2974"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "Person: 'да, начинай implement', then verify, maintain, 'закругляемся' with no objection. Implemented 6121a9f, closed f211f3c (only a stale harness.md sentence missed, repaired in maintain, a local doc fact). No later rework, revert or reopened q-0024.0009.0006.0001 found in git log; mechanism SKILL.md changed since only by the 0110.0050 Mechanism: line.",
+      "confidence": "medium"
+    }
   },
   "C71": {
     "session": "2d4781b4-95c5-47c1-8685-81fb75f93180",
@@ -1382,7 +1752,13 @@
     "copies": [
       "2d4781b4-95c5-47c1-8685-81fb75f93180 671",
       "f621c092-f5f3-49c9-96d9-05a5e7752430 531"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "The sidecar conflated source with speech: a thin hand-condensed text is a second account of the product that must be kept in agreement with product.md (pairing question q-0024.0009.0006 unanswered); the source should be the full product account, indeed the README copied from its single home.",
+      "evidence": "Person: 'и это все описание, чем харнесс полезен? сириосли?', then 'почему просто не копировать ридми?'; agent conceded copying beats a second text. git: e30a5eb reverted by 578868b (thin sidecar, 'derived' claim, loader-link change; front page to be copied instead); introduction.md no longer exists.",
+      "confidence": "high"
+    }
   },
   "C72": {
     "session": "2d4781b4-95c5-47c1-8685-81fb75f93180",
@@ -1402,7 +1778,13 @@
     "copies": [
       "2d4781b4-95c5-47c1-8685-81fb75f93180 1034",
       "f621c092-f5f3-49c9-96d9-05a5e7752430 795"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "The line is not user-vs-debug: questions, steps and the reply's form are the product the person works by; the real boundary is method vs machinery beneath it, and nearly all harness text describes the machinery.",
+      "evidence": "Person: 'нет. на каком вопросе стоим и шаги метода - это продуктовая часть ... проблема в том что все остальное описывает еще более техническую часть'; q-0035 reworded (59d0d7a) to method vs machinery, then moved under q-0024 as q-0024.0012 (ca35cbf) with a layered inventory.",
+      "confidence": "high"
+    }
   },
   "C73": {
     "session": "2d4781b4-95c5-47c1-8685-81fb75f93180",
@@ -1422,7 +1804,8 @@
     "copies": [
       "2d4781b4-95c5-47c1-8685-81fb75f93180 1325",
       "f621c092-f5f3-49c9-96d9-05a5e7752430 978"
-    ]
+    ],
+    "chain_of": "C72"
   },
   "C74": {
     "session": "5ee9fe64-bbbd-43dd-8c5b-e4f61fd910ba",
@@ -1441,7 +1824,13 @@
     },
     "copies": [
       "5ee9fe64-bbbd-43dd-8c5b-e4f61fd910ba 1973"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "The rule's contract: the person's intent was a cost-conditioned default (generalize when effort and output are small, ask otherwise, only with a load-bearing reason), not ask-always; the draft's condition ('a second case in sight') and 'before writing narrow' inverted the default.",
+      "evidence": "Person: 'все равно неправильно' and gave the wording; landed as v76 'Generalize or ask' (generalize if small, otherwise ask; load-bearing reason) and AGENTS.md carries it now; the agent's v75 text was replaced, not just reworded.",
+      "confidence": "medium"
+    }
   },
   "C75": {
     "session": "f621c092-f5f3-49c9-96d9-05a5e7752430",
@@ -1460,7 +1849,13 @@
     },
     "copies": [
       "f621c092-f5f3-49c9-96d9-05a5e7752430 1078"
-    ]
+    ],
+    "second": {
+      "label": "clean",
+      "part": null,
+      "evidence": "AGENTS.md rule text unchanged since b663c6e; seventh install VERIFY commit 91067b3 says 'v77 holds'; only later edits are table/ordering rules (v78-v84); the debug and q-0030 tangle was named by the draft itself.",
+      "confidence": "medium"
+    }
   },
   "C76": {
     "session": "52176573-4ea9-4d2b-9bdb-a9fc15bd26f9",
@@ -1479,7 +1874,13 @@
     },
     "copies": [
       "52176573-4ea9-4d2b-9bdb-a9fc15bd26f9 806"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "The architecture's Structure half (boundaries, flows, seams) is meant as a map so the agent need not page through code to find where a change lands and what depends on it; the draft quoted only the 'what code cannot say' half of the rule.",
+      "evidence": "Person: 'большая часть идеи выписывать архитектуру нужна именно за тем чтобы меньше листать код и искать зависимости'; agent conceded it quoted the rule one-sidedly, opened q-0033.0007 (still in docs/questions), reverted its landed edits in 9bc19aa.",
+      "confidence": "high"
+    }
   },
   "C77": {
     "session": "1679de7f-3726-40d2-993a-fb1b84d51785",
@@ -1498,7 +1899,13 @@
     },
     "copies": [
       "1679de7f-3726-40d2-993a-fb1b84d51785 554"
-    ]
+    ],
+    "second": {
+      "label": "hid",
+      "part": "Both runs shared one prompt (single pair, any nameable hidden part, no window), so they tested the prompt not the judge; the criterion must be load-bearing parts that change the shape's contract, with the window the user had decided.",
+      "evidence": "Person: 'нет, ничего из этого не следует... напартачил с промптом'; agent withdrew, registered rule failure 41 (fab4ae7), then rewrote the prompt to load-bearing-only (d7df912) and ran further runs.",
+      "confidence": "high"
+    }
   },
   "C78": {
     "session": "1679de7f-3726-40d2-993a-fb1b84d51785",
@@ -1517,7 +1924,8 @@
     },
     "copies": [
       "1679de7f-3726-40d2-993a-fb1b84d51785 589"
-    ]
+    ],
+    "chain_of": "C77"
   },
   "C79": {
     "session": "1679de7f-3726-40d2-993a-fb1b84d51785",
@@ -1536,7 +1944,8 @@
     },
     "copies": [
       "1679de7f-3726-40d2-993a-fb1b84d51785 1087"
-    ]
+    ],
+    "chain_of": "C77"
   },
   "C80": {
     "session": "1679de7f-3726-40d2-993a-fb1b84d51785",
@@ -1555,6 +1964,7 @@
     },
     "copies": [
       "1679de7f-3726-40d2-993a-fb1b84d51785 1414"
-    ]
+    ],
+    "chain_of": "C77"
   }
 }
