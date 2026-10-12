@@ -75,7 +75,7 @@ prose), 40 (a mechanism's doc proposed as the home for a skill's machinery). Oth
 - q-0018 — the first recipient with a method of its own, `research-harness`, stands on five
   things open here: q-0018.0019, 01-0020, 01-0017.0020, a second-repository source (no question
   yet), q-0017. The user read its architecture as a list of this queue's blockers.
-- q-0033.0005 — a second product on this queue, a case for the collection; left to the next
+- q-0035.0001 — a second product on this queue, a case for the collection; left to the next
   session by the user.
 - q-0018.0020.0010 — suspect since the second install; superseded in substance by q-0024.0012.
 

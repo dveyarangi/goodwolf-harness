@@ -78,7 +78,7 @@ the leading product document, from which goals and the front page are derived. W
 - **The product mark lives on questions, never on tickets or other temporary records** *(the
   user)*. A ticket reaches the product through the question it answers.
 - **Collecting the marks may be the release mechanism reincarnated** *(the user)*. Recorded as an
-  intention on q-0033.0005; 01-0010.0190 carries the note's product half.
+  intention on q-0035.0001; 01-0010.0190 carries the note's product half.
 - **Built answers.** Answers built through the question store are fine. The harness's own
   historical rules count as seed, as straw dogs, until q-0026 settles who owns them. An install
   into an existing project harvests its answers in two stages. First, an align on what is hard and
@@ -165,7 +165,7 @@ the leading product document, from which goals and the front page are derived. W
   - q-0033.0001 — where models are weak;
   - q-0033.0003 — tracing a failure to its cause;
   - q-0033.0004 — teams;
-  - q-0033.0005 — keeping the document true: marks on questions, derivation, collection at
+  - q-0035.0001 — keeping the document true: marks on questions, derivation, collection at
     release.
 - **q-0018.0011.0004** — an arrival's two-stage harvest and a generated question tree; to be
   tested on the harness itself against the inventory, once the person has ruled on its items.

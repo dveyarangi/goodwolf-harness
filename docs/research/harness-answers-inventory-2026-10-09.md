@@ -12,7 +12,7 @@ item.
 1. [docs/product.md](../product.md) — the matrix (48 rows), C1–C12, pains 1–3, G1–G2, the harness-pain section.
 2. [product-audit-2026-10-09](product-audit-2026-10-09.md) — a read-only sweep of the tree.
 3. [q-0033](../questions/q-0033-which-pains-of-developing-software-with-coding-agents-does-the-harness-exist-to-relieve-and-what-answers-each.md) — earlier sortings, the answers table, the chain with Today/Missing.
-4. [q-0033.0005](../questions/q-0033.0005-how-does-the-product-document-stay-true-as-mechanisms-and-work-appear-without-the-question-tree-being-forced-into-it.md) — the matrix rows sorted into eight categories.
+4. [q-0035.0001](../questions/q-0035.0001-how-does-the-product-document-stay-true-as-mechanisms-and-work-appear-without-the-question-tree-being-forced-into-it.md) — the matrix rows sorted into eight categories.
 5. [discover-recall-structure-2026-10-08](discover-recall-structure-2026-10-08.md) — two outside passes: **5A** read the repository cold, **5B** had a functional description only.
 6. [peer-capabilities-2026-10-08](peer-capabilities-2026-10-08.md) — the harness's row and the notes on what is rare.
 7. [front-page-review-by-outside-agents-2026-10-08](front-page-review-by-outside-agents-2026-10-08.md) — two rounds of cold readers.
@@ -308,8 +308,8 @@ row mentions it without making it its subject; **missing** when nothing in the d
 
 | # | item | what it is | serves | status | waits on | product.md | sources |
 |---|---|---|---|---|---|---|---|
-| A142 | A product mark on questions (`product C…`, `structure`, `evolution`), collected at a release into the note's product half; the matrix derived, not hand-kept | Q (intention) | C6, C10; G1 | ✗ | q-0033.0005; 01-0010.0190 | **missing** | 4 |
-| A143 | An owner of `docs/product.md`'s coherence in clean core (a painted door) | Q | C1, C6 | ✗ | q-0033.0005 | **missing** | 4 |
+| A142 | A product mark on questions (`product C…`, `structure`, `evolution`), collected at a release into the note's product half; the matrix derived, not hand-kept | Q (intention) | C6, C10; G1 | ✗ | q-0035.0001; 01-0010.0190 | **missing** | 4 |
+| A143 | An owner of `docs/product.md`'s coherence in clean core (a painted door) | Q | C1, C6 | ✗ | q-0035.0001 | **missing** | 4 |
 | A144 | The harness's own historical rules counted as seed, reflected as straw dogs until the meta-rules mechanism owns them | D (decided) | C1 | ◐ | q-0026, q-0026.0001 | **missing** | 4 |
 | A145 | Correction and evaluation together: work evaluated against its criteria and checks, a failure correcting whatever let it through | D (cross-cutting) | all; C7 | ◐ | q-0033.0003 | CE | 1, 2, 3 |
 | A146 | `/celebrate` | S | no cause | — | q-0023.0004, q-0018.0002 | **missing** (rightly) | 2, 4 |
@@ -373,7 +373,7 @@ row mentions it without making it its subject; **missing** when nothing in the d
 | B51 | `CLAUDE.md` moved aside at install, a disqualifier for readers | A129 | 7 | q-0018.0020.0001.0001 |
 | B52 | No team support, a disqualifier | A116 | 6, 7 | q-0033.0004 |
 | B53 | Three hosts against fifteen to fifty; one author, one month old | A140 | 6, 7 | q-0018.0023; age **none** |
-| B54 | 19 of 24 skills are undeclared; the matrix credits general rules and undeclared skills as mechanisms | A82, matrix | 2, 4; T | q-0023, q-0033.0005 |
+| B54 | 19 of 24 skills are undeclared; the matrix credits general rules and undeclared skills as mechanisms | A82, matrix | 2, 4; T | q-0023, q-0035.0001 |
 | B55 | *A document informs* is bound to q-0029, a binding the audit reads as wrong | A88 | 2 | **none** |
 | B56 | What is due is never announced; links are checked only when records move | A96, A98 | 1, 2 | q-0024.0005 |
 | B57 | Nothing makes a session end with `/conclude`; the wake rule is a straw dog | A13, A14 | 2 | q-0027 |
@@ -381,8 +381,8 @@ row mentions it without making it its subject; **missing** when nothing in the d
 | B59 | Delivery evidence is self-reported by the agent | A85, A86 | 1, 2 | q-0026.0007.0002, q-0018.0004.0001 |
 | B60 | The host table is documented, not observed | A87 | T | q-0018.0004 |
 | B61 | The guarded-writes contract lives in `docs/architecture.md`, this project's own document, not in core | A120 | 4 | **none** |
-| B62 | Matrix rows mix kinds and are not maintained; a new mechanism or work appearing with no row is caught by nothing | the product document | 4 | q-0033.0005 |
-| B63 | A mark people must fill in tends toward a cause chosen just to have one | A142 | 4 | q-0033.0005 |
+| B62 | Matrix rows mix kinds and are not maintained; a new mechanism or work appearing with no row is caught by nothing | the product document | 4 | q-0035.0001 |
+| B63 | A mark people must fill in tends toward a cause chosen just to have one | A142 | 4 | q-0035.0001 |
 | B64 | Comparing two generated lists measures their agreement, not their truth | A131, this list | 2, 8a | q-0018.0011.0004 |
 | B65 | A first install took the harness's own check as a recipient's verification set (rule failure 26) | A133 | T | q-0018.0020.0003 |
 | B66 | Answers proposed four times on a question whose parts were not unfolded (rule failure 25) | A19 | T | q-0001.0020 |
