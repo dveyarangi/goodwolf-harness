@@ -2,7 +2,7 @@
 
 - **record of** what it intends to become
 - **state** open
-- **lean** decisions 1–4, the user, 2026-10-12/13: the document is the purpose root home; allocation opens a structure question with a trace link; coverage derived; the traceability vocabulary taken whole; next, the return path — does a present answer relieve its cause
+- **lean** decisions 1–5, the user, 2026-10-12/13: allocation and trace links, coverage derived; a pain does not close and is measured, not binary — q-0035.0004
 - **struck** 0, last 2026-10-12T16:02Z
 
 Opened 2026-10-12 from the align on what is now q-0035.0002. The user: *the customer is not only
@@ -47,6 +47,11 @@ appears (q-0035.0001). This tree's own product document is the first case.
    skill, and its check finds orphans and unrealized answers; the development method and the store
    know nothing of the product. Where a question came from — the decision it was opened from — is
    history in its body, never a checked link.
+5. **A pain does not close; it is measured** *(the user, 2026-10-13: "the pain does not close, for
+   now; we can add a way; the pain has to be measured somehow, it is not a binary value")*: answers
+   are added to a pain, and none of them closes it; whether the answers relieve it is read from a
+   measure of the pain that takes values, never from a yes or no on an answer. Coverage says what
+   is built; the pain's measure says what it relieved.
 
 ## Open within it
 
