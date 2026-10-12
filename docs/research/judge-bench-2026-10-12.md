@@ -24,6 +24,27 @@ evidence for it:
 A person's acceptance is no clean label: two drafts first taken as controls were found to hide a
 part. A verdict moves with new evidence, and the key is edited when it does.
 
+## Candidates
+
+Sixteen drafts hold four failures: one draft moves recall by a quarter, below the judge's own
+variance. [`candidates.json`](./judge-bench/candidates.json) holds eighty more, labelled but not
+yet checked by the person *(the user, 2026-10-12)*:
+
+- `pairs.py` lists every agent reply and the person's next message across the transcripts —
+  4,684 pairs.
+- 122 replies the person answered with a correction, and 60 sampled from those answered with
+  agreement, were triaged by Sonnet agents reading each with `show.py` and the tree as it is
+  today: a correction pointed at a hidden load-bearing part, a local fix, the reply's form, who
+  decides, or nothing; an accepted draft stayed clean, was later shown to hide a part, or was a
+  report.
+- Forked and resumed sessions repeat a conversation, so copies of one draft are merged; 181
+  labels fell to 125 drafts. Seven drafts drew different labels from different agents; three of
+  them are kept, marked `disputed`.
+
+Kept: 45 hid — 35 found by a correction, 10 by an accepted draft later amended — and 35 clean;
+each with the commit before it, the part, and the person's words. The triage was one model's
+reading: a candidate joins the key once its label is checked.
+
 ## Running it
 
 1. Lay out the trees: `snapshot.py <directory>` writes each label's repository at its commit, the

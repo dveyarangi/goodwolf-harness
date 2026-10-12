@@ -1,0 +1,1560 @@
+{
+  "C1": {
+    "session": "361594b2-a0da-4665-afcb-25eb0eba9a5a",
+    "draft": 782,
+    "request": null,
+    "snapshot": "b734d18",
+    "written": "2026-09-06T15:56",
+    "going_in": "hid",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Declare paired close as its own mechanism (.agents/mechanisms/paired-close/) in slice 01-0011.0010 and break the spec into five slices with the queue index depending only on 0010.",
+    "part": "The unit being declared was wrong and the slices had a hidden dependency: paired close is a behavior of /ticket, not a mechanism, so /ticket had to be declared (new slices .0022, .0025) before the derived index (.0040) could be read from it.",
+    "evidence": "Re-slice of 2026-09-07 added 01-0011.0022 and .0025; .0025 states 'Paired close is a behavior of /ticket, not a mechanism' and .0040 now depends on .0025 because it had no declared record shape to read. .0040 itself also ended with the table removed outright (hooks existed), not committed-vs-rendered.",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "361594b2-a0da-4665-afcb-25eb0eba9a5a 782"
+    ]
+  },
+  "C2": {
+    "session": "d9066aa7-144b-4c83-8c26-ce1ec0398918",
+    "draft": 151,
+    "request": null,
+    "snapshot": "de224db",
+    "written": "2026-09-06T19:24",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "low",
+    "shape": "Adopt Life's split for the mechanism skill/doc (skill carries shape rules read while incepting; doc the what/why/moments), keep one skill per mechanism, and replace the three-properties verdict with a moments table.",
+    "part": null,
+    "evidence": "Person said adopt; mechanism spec accepted (abf7e77, b734d18) with one skill per mechanism and /mechanism carrying the rules; moments table survives in mechanism docs today (e.g. ticket doc moment); only later refinement was rule failure 13 on where a record format lives, a placement slip not a reversal.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "d9066aa7-144b-4c83-8c26-ce1ec0398918 151"
+    ]
+  },
+  "C3": {
+    "session": "17c29603-12a2-4b68-824a-e1ed2dd01bda",
+    "draft": 776,
+    "request": null,
+    "snapshot": "49f46ea",
+    "written": "2026-09-06T23:23",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "high",
+    "shape": "Split the glossary: the method's terms in .agents/glossary.md (travels with core, never edited by a recipient), the project's domain in docs/glossary.md; done in the current slice",
+    "part": null,
+    "evidence": "Person said yes do it in this slice; AGENTS.md L1 today still says terms are docs/glossary.md (project) and the method's are .agents/glossary.md; both files exist; later commits only edit glossary entries (q-0024.0012 gloss strike, kind names), no revert or relocation",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "17c29603-12a2-4b68-824a-e1ed2dd01bda 776"
+    ]
+  },
+  "C4": {
+    "session": "9ac461a4-b796-4cdb-a724-23da21eb5059",
+    "draft": 341,
+    "request": null,
+    "snapshot": "b15ab4d",
+    "written": "2026-09-07T21:25",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "high",
+    "shape": "/maintain's mechanism doc has no trigger part row; the ring belongs to the entry file/loop, not to /maintain.",
+    "part": null,
+    "evidence": "Person said ok. Current .agents/mechanisms/maintain/maintain.md still says 'Nothing in the entry file is its part: the ring belongs to the loop'; no trigger row; no later reversal in git log.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "9ac461a4-b796-4cdb-a724-23da21eb5059 341"
+    ]
+  },
+  "C5": {
+    "session": "d1571dee-ca9d-4aee-91e3-200624e1bceb",
+    "draft": 356,
+    "request": null,
+    "snapshot": "b15ab4d",
+    "written": "2026-09-07T21:40",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Pre-register two graders for the /maintain declaration slice (.0022): the user grades the shape amendments, the session declaring /ticket at .0025 grades whether the doc received its three landings unchanged; /maintain retires when scripts hold all four agreements.",
+    "part": null,
+    "evidence": "Person agreed (two graders). maintain.evidence.md section The third declaration grades this one, 2026-09-09 carries out exactly the pre-registered question and answers it (block landed clean; ownership forward-declaration was the error; P4 found by asking who owned each sentence). The grading scheme itself was not reworked; the draft also noted its single-precedent caveat.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "d1571dee-ca9d-4aee-91e3-200624e1bceb 356"
+    ]
+  },
+  "C6": {
+    "session": "557c4e35-6f8e-4b60-b0a6-ba064fd1af45",
+    "draft": 418,
+    "request": null,
+    "snapshot": "dbc48ab",
+    "written": "2026-09-08T11:18",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Install rules reach a session through /mechanism's own body (tier-1 trigger routes there) and /verify runs --check; edits outside /mechanism are caught only at next /verify.",
+    "part": null,
+    "evidence": "Draft names its own reachability gap and points at 01-0018 and 01-0010.0120; person said homes are fine; later hooks (0173/0174) and 327d1c1 move meta-rules into the skill description but as a separate ticket extending reach, not a flaw the draft hid.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "557c4e35-6f8e-4b60-b0a6-ba064fd1af45 418"
+    ]
+  },
+  "C7": {
+    "session": "453e7ef0-503c-493c-8214-80ecf1f8d336",
+    "draft": 805,
+    "request": null,
+    "snapshot": "c416404",
+    "written": "2026-09-08T16:41",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "low",
+    "shape": "inject_rules.py installer implemented in stages 1-4 (parse, render, locate, preflight, check) with rules files and three installed blocks, verification set green.",
+    "part": null,
+    "evidence": "Person asked to commit and verify, then to run it on real drift; three verify passes found doc wording gaps, a CRLF round-trip test, a dead assertion and stale sentences, and a323a31 records the injector held against real drift; no contract change, no later revert of the installer design found.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "453e7ef0-503c-493c-8214-80ecf1f8d336 805"
+    ]
+  },
+  "C8": {
+    "session": "453e7ef0-503c-493c-8214-80ecf1f8d336",
+    "draft": 1952,
+    "request": null,
+    "snapshot": "453e6a8",
+    "written": "2026-09-08T18:59",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "low",
+    "shape": "Verification of the straw-dog slice: it matches ticket and RFC, one architecture documentation gap repaired (the marking in code), commit then /maintain.",
+    "part": null,
+    "evidence": "Person said commit and maintain; maintain and conclude followed with open items (owner of straw dogs, R6) already named by the agent; the later change of a straw dog's binding from ticket to question came from the new questions mechanism, not from a part this draft hid.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "453e7ef0-503c-493c-8214-80ecf1f8d336 1952"
+    ]
+  },
+  "C9": {
+    "session": "8f62f85e-1406-4d6c-b7f4-ebff1a8801dd",
+    "draft": 147,
+    "request": null,
+    "snapshot": "656c85d",
+    "written": "2026-09-08T19:44",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Make /plan and /align targets (besides /maintain) of installed blocks authored in ticket.rules.md.",
+    "part": null,
+    "evidence": "Person agreed. ticket.rules.md today still installs into maintain, plan and align (plus AGENTS.md, recall, ticket); targets grew but the three-target decision stands.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "8f62f85e-1406-4d6c-b7f4-ebff1a8801dd 147"
+    ]
+  },
+  "C10": {
+    "session": "8f62f85e-1406-4d6c-b7f4-ebff1a8801dd",
+    "draft": 264,
+    "request": null,
+    "snapshot": "656c85d",
+    "written": "2026-09-08T20:09",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Cut from the ticket skill and shelf only the sentences a rule installed/declared by this ticket makes a second home; leave merely-long text to 01-0016/0017.",
+    "part": null,
+    "evidence": "Person agreed; criterion carried verbatim into ticket .0025 and checked [x] at VERIFY (25ed668); verify only repaired consistency residue (skill still pointing at collapsed skeleton), no change of the cut line.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "8f62f85e-1406-4d6c-b7f4-ebff1a8801dd 264"
+    ]
+  },
+  "C11": {
+    "session": "772d2813-f7d7-4d69-9f7d-6c0f3a8e7193",
+    "draft": 198,
+    "request": null,
+    "snapshot": "a6b8659",
+    "written": "2026-09-20T06:02",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Move process.md's verification definition, project commands and repair policy out to /verify, a local block and the repair switch, done by ticket .0140.",
+    "part": null,
+    "evidence": "Person accepted. 01-0010.0140 ticket/RFC and commits b006a1e/806ae95 show it landed as drafted: no core link to docs/process.md, definition in core, commands in project-local block, zero leaks.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "772d2813-f7d7-4d69-9f7d-6c0f3a8e7193 198"
+    ]
+  },
+  "C12": {
+    "session": "2b3f343b-7ec1-4fcc-a24a-e3b91fe59c5e",
+    "draft": 346,
+    "request": null,
+    "snapshot": "08f5d1b",
+    "written": "2026-09-20T13:26",
+    "going_in": "hid",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "The pacer mechanism owns a queue-ordering rule that re-ranks and renumbers Ready tickets at close, mint and align, installed into /maintain, /ticket, /align and /recall, with position number the one carrier.",
+    "part": "Who has authority to reorder the queue: the order is the user decision not a mechanical re-rank on delivery-state moves.",
+    "evidence": "01-0020 ticket now says Decided (user, 2026-09-27, retracting the in-principle agreement of 2026-09-20): order is not re-ranked mechanically; the 2026-09-20 shape is struck through and kept only for what else it holds.",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "2b3f343b-7ec1-4fcc-a24a-e3b91fe59c5e 346"
+    ]
+  },
+  "C13": {
+    "session": "ca2d5d95-22f0-440f-a31f-99e797516633",
+    "draft": 975,
+    "request": null,
+    "snapshot": "8874047",
+    "written": "2026-09-21T12:54",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Verify result of the scripts-under-gw move with spec repairs under repair=report and a two-commit plan (IMPLEMENT, VERIFY) before the install proof.",
+    "part": null,
+    "evidence": "Commits 2196f95, 10d6c8e, b972d1f landed as planned; the later user question about release notes concerns the move itself (ticket .0160 already minted and acknowledged in next reply), not this verification; no revert or rework of these repairs found.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "ca2d5d95-22f0-440f-a31f-99e797516633 975"
+    ]
+  },
+  "C14": {
+    "session": "e239bc2b-7569-4a63-b8e4-331fcc551c2b",
+    "draft": 829,
+    "request": null,
+    "snapshot": "87c8f7e",
+    "written": "2026-09-25T22:05",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "A front-page README bullet 'Two looks before a decision' (impact inward, discover outward) lifted out of 'how it works', section retitled.",
+    "part": null,
+    "evidence": "Person said yes; the agent checked its two claims (.0080 not built, 'as little framing as possible'). README wording only; no later correction in the session of this bullet found; later README commits are about other content.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "e239bc2b-7569-4a63-b8e4-331fcc551c2b 829"
+    ]
+  },
+  "C15": {
+    "session": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+    "draft": 911,
+    "request": null,
+    "snapshot": "87c8f7e",
+    "written": "2026-09-25T22:15",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Name the product GoodWolf Harness, with 'the harness' in prose, after a fourth-reader test; paragraph 2 to be rebuilt next.",
+    "part": null,
+    "evidence": "Person said yes; README.md still headed '# GoodWolf Harness' today after full rewrite 4ef6c2e; no rename in git log. (Paragraph 2 proposal in the following turn was withdrawn, but that is a different draft.)",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "21180e9e-e11e-4d1a-bcbe-65224a8d303d 911"
+    ]
+  },
+  "C16": {
+    "session": "dfb85b52-3e35-4aa6-b33e-cc60d640ffdb",
+    "draft": 979,
+    "request": null,
+    "snapshot": "87c8f7e",
+    "written": "2026-09-25T22:17",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "low",
+    "shape": "Drop the rebuilt paragraph 2, keep the approved one, and test the whole draft README page with two fresh readers before touching the README",
+    "part": null,
+    "evidence": "Person said yes assemble and test; the test ran and produced signals (adoption blocker, house vocabulary) the person sorted into real and noise; the front page was later reworked repeatedly (q-0031, first-install fixes) but through new evidence, not because this test design hid a part; nothing in git/rule-failures ties a rework to the draft's test method",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "dfb85b52-3e35-4aa6-b33e-cc60d640ffdb 979"
+    ]
+  },
+  "C17": {
+    "session": "124ba770-945f-447f-a193-94568cb84274",
+    "draft": 1040,
+    "request": null,
+    "snapshot": "87c8f7e",
+    "written": "2026-09-25T22:34",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "README paragraph 'The harness is yours to change' naming /mechanism as the skill for declaring new parts, dropping the sunset-clause analogy.",
+    "part": null,
+    "evidence": "Person accepted ('yes, next section'). README prose; later panel runs praised accuracy and the page was rewritten, README line 161 still carries the /mechanism claim ('Your own skills get the same checks'). No contract correction found.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "124ba770-945f-447f-a193-94568cb84274 1040"
+    ]
+  },
+  "C18": {
+    "session": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+    "draft": 1259,
+    "request": null,
+    "snapshot": "02c86ee",
+    "written": "2026-09-25T23:00",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Front-page slice .0167: reword the ceremony concern as a straw dog bound to 01-0020, remove architecture license sentence, tighten /plan's load-bearing wording, register rule failure 11, then commit and implement.",
+    "part": null,
+    "evidence": "Person said yes; slice implemented, committed, pushed (d3af46f) and the README confirmed good; the external audit then cited uniform-process as a top objection, which is exactly the straw dog the draft already recorded; later README rewrite 4ef6c2e is a new product-document derivation, not a repair of this shape; no revert found.",
+    "labels": {
+      "clean": 2
+    },
+    "copies": [
+      "124ba770-945f-447f-a193-94568cb84274 1326",
+      "21180e9e-e11e-4d1a-bcbe-65224a8d303d 1259"
+    ]
+  },
+  "C19": {
+    "session": "124ba770-945f-447f-a193-94568cb84274",
+    "draft": 1729,
+    "request": null,
+    "snapshot": "d3af46f",
+    "written": "2026-09-25T23:25",
+    "going_in": "hid",
+    "found_by": "acceptance, then the tree",
+    "confidence": "high",
+    "shape": "Rebalanced front-page 'Where it stands': Works today now claims arrival in an existing project, 'install never overwrites', and 'small changes don't have to take the whole loop'; Not yet cut to six items.",
+    "part": "The draft's claims were not examined against the install's real refusal of an existing CLAUDE.md/AGENTS.md and against the 'not yet' no-lighter-process item and /recall-every-session rule; they contradict each other.",
+    "evidence": "Person said yes and re-ran the panel; the very next run found 'install never overwrites' read as hiding that install refuses with CLAUDE.md present, and the 'small changes' line contradicted the not-yet item and /recall. Agent then rewrote arrival text and deleted the small-changes line (commit ccb66b1).",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "124ba770-945f-447f-a193-94568cb84274 1729"
+    ]
+  },
+  "C20": {
+    "session": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+    "draft": 2383,
+    "request": null,
+    "snapshot": "cc5087a",
+    "written": "2026-09-26T00:39",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "low",
+    "shape": "Retract the entry-file finding, add two passages (large work via spec; records stay current) to the README, record clean-room panel requirement on .0190, commit and rerun panels.",
+    "part": null,
+    "evidence": "Person agreed; commit b409d29 landed. Draft itself flagged the leakage caveat. README was later fully rewritten from the product doc (4ef6c2e) but for unrelated reasons; nothing found showing a hidden part.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "21180e9e-e11e-4d1a-bcbe-65224a8d303d 2383"
+    ]
+  },
+  "C21": {
+    "session": "72390caf-d63c-4840-8f83-1b3536ff1e5d",
+    "draft": 219,
+    "request": null,
+    "snapshot": "6ea0e80",
+    "written": "2026-09-27T10:01",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "low",
+    "shape": "Open tickets grouped in seven groups; recommendation that coherence means the whole of group 1 (refactor chain, 01-0017 and children, feeders) before the pacer.",
+    "part": null,
+    "evidence": "Person said yes; commit c944403 landed the order with coherence as the whole group; later divergences (order of 01-0017, .0060 first) were decided in the same session by new questions, not by something this draft hid; no rule-failure or rework of the definition found.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "72390caf-d63c-4840-8f83-1b3536ff1e5d 219"
+    ]
+  },
+  "C22": {
+    "session": "9ba63414-6c5d-40d3-81da-758ab382f214",
+    "draft": 248,
+    "request": null,
+    "snapshot": "6ea0e80",
+    "written": "2026-09-27T10:20",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Ticket-graph change: .0060's dependency on .0120 becomes Related because dueness is /maintain's own input; status Planned.",
+    "part": null,
+    "evidence": "Person said yes; .0060 later landed (RFC in docs/rfc/done, clock implemented in maintain.py, commit 61db04a) with 0120 only related; no revert or reopening found in git log or rule-failures.",
+    "labels": {
+      "clean": 2
+    },
+    "copies": [
+      "9ba63414-6c5d-40d3-81da-758ab382f214 248",
+      "dfb1afea-d7b5-4f0d-8d5c-5f6a1074e6f8 273"
+    ]
+  },
+  "C23": {
+    "session": "eac39f3d-8315-49ac-8f0e-4f1f2c110dac",
+    "draft": 355,
+    "request": null,
+    "snapshot": "6ea0e80",
+    "written": "2026-09-27T10:27",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Queue order .0060 -> 01-0012 -> 01-0014 -> 01-0017 -> .0080 -> 01-0016 -> .0120 -> 01-0018 -> pacer, coherence group first, no auto re-ranking, pacer waits for coherence",
+    "part": null,
+    "evidence": "Person said yes commit; today's docs/tickets/README.md still states 'the order as settled at the queue-order align of 2026-09-27 (the user)' with the same sequence; the 2026-09-29 re-read refined it (question store first, 0080 folded into branch slice) via the very occasions the decision built in, not by hiding a part",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "eac39f3d-8315-49ac-8f0e-4f1f2c110dac 355"
+    ]
+  },
+  "C24": {
+    "session": "a53039e7-b842-47f0-883f-08bf7499bf96",
+    "draft": 747,
+    "request": null,
+    "snapshot": "39eeb87",
+    "written": "2026-09-27T11:07",
+    "going_in": "hid",
+    "found_by": "acceptance, then the tree",
+    "confidence": "high",
+    "shape": "Align of ticket .0060: maintenance clock with trigger 1 (meta-rules change) and trigger 2 (a mechanism's doc or rules file changes), marks in docs/mechanisms/maintenance.md, status moved to Ready.",
+    "part": "Trigger 2's fingerprint surface (doc + rules file) misses the record-format shelf in the skill directory (e.g. TICKET-FORMAT.md), so a format change makes nothing due; also the marks-format home contradicted MECHANISM-FORMAT.",
+    "evidence": "Next turn's /impact says verbatim that hidden edge 1 is 'a correction to what was aligned' and sends it back; trigger 2 amended to doc, rules file and skill directory (draft 842 accepted), marks format moved to the maintain skill, rule failure 15 registered.",
+    "labels": {
+      "hid": 2
+    },
+    "copies": [
+      "a53039e7-b842-47f0-883f-08bf7499bf96 747",
+      "e777353d-8916-4f37-b728-e865950de937 666"
+    ]
+  },
+  "C25": {
+    "session": "a53039e7-b842-47f0-883f-08bf7499bf96",
+    "draft": 851,
+    "request": null,
+    "snapshot": "148064d",
+    "written": "2026-09-27T11:14",
+    "going_in": "hid, disputed",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Trigger 2 of the re-check clock fingerprints a mechanism's doc, rules file and whole skill directory, so a record-format edit makes its records due.",
+    "part": "A skill directory holds files that do not govern the records (EVIDENCE.md) and a skill can serve another mechanism (the /mechanism skill is mechanism-shape's own), so widening to the directory makes unrelated levels due.",
+    "evidence": "Person said yes (with the historical-records rider); later plan pass added 'EVIDENCE.md excluded from fingerprints' with a stage-3 test, and implementation found the RFC wrong that editing the /mechanism skill also makes mechanism-shape's own output due. The draft named only the 'extra re-check' cost.",
+    "labels": {
+      "clean": 2,
+      "hid": 1
+    },
+    "copies": [
+      "0cd6152e-9c2f-472a-9a58-c9dedd45bb90 842",
+      "a53039e7-b842-47f0-883f-08bf7499bf96 851",
+      "4d0469b0-b94f-4558-b701-4c851db4f8ee 849"
+    ]
+  },
+  "C26": {
+    "session": "eac39f3d-8315-49ac-8f0e-4f1f2c110dac",
+    "draft": 834,
+    "request": null,
+    "snapshot": "148064d",
+    "written": "2026-09-27T11:21",
+    "going_in": "clean, disputed",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "One script maintain.py with --check (due report/format check, due never fails) and --mark (only writer of marks) for the mechanism re-check clock",
+    "part": null,
+    "evidence": "Person said ok; maintain.py today still has exactly --check and --mark with those semantics. Later passes in the same session (recipient behaviour of the clock, never-maintained counting as due) amended the RFC around the script but did not change the script name or two-command contract named in the draft",
+    "labels": {
+      "clean": 1,
+      "hid": 1
+    },
+    "copies": [
+      "eac39f3d-8315-49ac-8f0e-4f1f2c110dac 834",
+      "d6de4075-9376-4eef-9bc2-4f777938e09a 908"
+    ]
+  },
+  "C27": {
+    "session": "690dcf15-8ddc-4262-9833-73ee156d536b",
+    "draft": 1053,
+    "request": null,
+    "snapshot": "148064d",
+    "written": "2026-09-27T12:23",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "The re-check clock runs in a recipient over the recipient's own mechanisms only; built-ins excluded (--check derives nothing, --mark refuses), origin marks never ship.",
+    "part": null,
+    "evidence": "Person confirmed; implemented as stated and maintain.py still carries it (docstring and WHY_BUILT_IN, TODO q-0018.0019 for where recipient-own mechanisms live, which the draft itself named as an open thread). Later plan 01-0011.0110.0070 notes a recipient clocks none of its received mechanisms, consistent.",
+    "labels": {
+      "clean": 2
+    },
+    "copies": [
+      "690dcf15-8ddc-4262-9833-73ee156d536b 1053",
+      "33e40c21-9241-4927-a22a-7b3a58dee816 1065"
+    ]
+  },
+  "C28": {
+    "session": "fadb2b53-ecd7-4bfe-bfa8-15d1649d2dc7",
+    "draft": 2099,
+    "request": null,
+    "snapshot": "b8f72d1",
+    "written": "2026-09-27T22:29",
+    "going_in": "hid",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Incept the questions mechanism with 01-0012 retitled as its inception ticket, /impact next.",
+    "part": "01-0012 (616 lines, 14k words) could not be the inception ticket: the user ordered decisions extracted into new tickets, and 01-0012 was instead closed as a landed decision with a new parent 01-0011.0100 holding the mechanism; also the claim that /align is the mechanism's instruction file was later overturned.",
+    "evidence": "Session continuation after the draft: user says stop growing 0012, extract to new ticket, align not the correct home; git 472769f 'MAINTAIN: 01-0012 closes as a landed decision'; tickets 01-0011.0100.* exist, 01-0012 in done/. Name 'questions' survived.",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "fadb2b53-ecd7-4bfe-bfa8-15d1649d2dc7 2099"
+    ]
+  },
+  "C29": {
+    "session": "182ce67e-437f-4a2a-a2ee-64dc1668ca80",
+    "draft": 146,
+    "request": null,
+    "snapshot": "84001c5",
+    "written": "2026-09-29T16:41",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Keep decision 34 (finished branches move to done/, found by title search not the window) and add --check diagnostics that a closed entry has an answer and a decided answer is a resolving link, landed as decision 43.",
+    "part": null,
+    "evidence": "Person said land it; implemented in stage 1 (questions.py still has no-answer and decided-answer-not-a-link diagnostics, lines 565/588 today). Later q-0024 work (home predicate, due) extended the answer contract but as separate new questions, not a repair of a hidden part.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "182ce67e-437f-4a2a-a2ee-64dc1668ca80 146"
+    ]
+  },
+  "C30": {
+    "session": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+    "draft": 590,
+    "request": null,
+    "snapshot": "0636bd8",
+    "written": "2026-10-02T20:58",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Mint one AFK slice .0011: the agent calls a questions.py subcommand per event, script assigns ids, --declare line removed.",
+    "part": null,
+    "evidence": "Person approved; ticket .0011 in done/ carries the same Outcome and criteria; the plan passes added quoting/non-ASCII tests and Q1 path wording but did not change the slice contract (v19, same subcommands, same order .0017->.0011->.0012/.0015). Draft itself flagged the shell-quoting risk.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "d4406b99-8ee7-4e49-8d84-5621c2fd5766 590"
+    ]
+  },
+  "C31": {
+    "session": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+    "draft": 3898,
+    "request": null,
+    "snapshot": "526f70b",
+    "written": "2026-10-03T00:02",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Record Cursor's two-session-lines-per-chat finding on ticket .0120 as a known limit, leaving adopt/register-nothing alternatives undecided",
+    "part": null,
+    "evidence": "Person said yes; ticket 01-0010.0120 still carries the note as a known limit kin to resume trail with the two alternatives left undecided; no later revert/rework found in git log or rule-failures about it",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "d4406b99-8ee7-4e49-8d84-5621c2fd5766 3898"
+    ]
+  },
+  "C32": {
+    "session": "27fb8892-59e6-4bbc-9605-a2d7aa4d3c70",
+    "draft": 297,
+    "request": null,
+    "snapshot": "c73b5d5",
+    "written": "2026-10-03T00:24",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "high",
+    "shape": "Decision 2: an open-issue item in a ticket keeps its own argument text, with a Serves field proposed for naming the question.",
+    "part": "Whether arguments should live in the question entries themselves rather than in the owning ticket (contradicting parent decision 24 and ticket-replaceability, decision 30).",
+    "evidence": "«хотя нет, подожди, по предыдущему вопросу - почему бы самим вопросам не хранить доводы»; agent opened q-0022, marked q-0019 suspect, user said yes, decision 2 replaced (Open issues section removed, entry body holds arguments, parser format changed).",
+    "labels": {
+      "hid": 3
+    },
+    "copies": [
+      "27fb8892-59e6-4bbc-9605-a2d7aa4d3c70 297",
+      "9f9f0714-7b5b-44fa-bc00-8d16838ab7a6 375",
+      "b10d79ee-831b-4cd8-bbd0-5f8d24181518 296"
+    ]
+  },
+  "C33": {
+    "session": "27fb8892-59e6-4bbc-9605-a2d7aa4d3c70",
+    "draft": 519,
+    "request": null,
+    "snapshot": "526235a",
+    "written": "2026-10-03T00:35",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "medium",
+    "shape": "Decision 34: closed questions move to done/ in the /maintain pass, not at close time.",
+    "part": "Who and when moves a finished question subtree: the move belongs to the close call itself, with /maintain only sweeping leftovers.",
+    "evidence": "«maintain подчищает забытое, но вопросы должны переноситься в момент закрытия»; agent moved the three subtrees, amended decision 34, and added close-moves-subtree to the .0020 build and criteria.",
+    "labels": {
+      "hid": 3
+    },
+    "copies": [
+      "27fb8892-59e6-4bbc-9605-a2d7aa4d3c70 519",
+      "9f9f0714-7b5b-44fa-bc00-8d16838ab7a6 683",
+      "b10d79ee-831b-4cd8-bbd0-5f8d24181518 518"
+    ]
+  },
+  "C34": {
+    "session": "27fb8892-59e6-4bbc-9605-a2d7aa4d3c70",
+    "draft": 1398,
+    "request": null,
+    "snapshot": "398352d",
+    "written": "2026-10-03T01:17",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "medium",
+    "shape": "Mechanical renumbering of the question store with freed ids simply reusable (accepted limitation of decision 6).",
+    "part": "That ids once given must never be given again (collision with done/ and old references); the store must remember every id ever issued.",
+    "evidence": "«не перевыделять id, это неправильно» (alongside agreeing on code blocks); agent opened q-0001.0130 on remembering issued ids and proposed a formerly part; user then narrowed it to avoiding overlap with done.",
+    "labels": {
+      "hid": 4
+    },
+    "copies": [
+      "27fb8892-59e6-4bbc-9605-a2d7aa4d3c70 1398",
+      "27fb8892-59e6-4bbc-9605-a2d7aa4d3c70 1398",
+      "9f9f0714-7b5b-44fa-bc00-8d16838ab7a6 1851",
+      "b10d79ee-831b-4cd8-bbd0-5f8d24181518 1397"
+    ]
+  },
+  "C35": {
+    "session": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+    "draft": 394,
+    "request": null,
+    "snapshot": "3485287",
+    "written": "2026-10-03T11:49",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "high",
+    "shape": "Slice plan making every straw dog an entry of the question store, choosing between one record per dog (A) and binding to the ticket's existing question (B, recommended).",
+    "part": "The premise that a straw dog is an open question at all (an analogy to Rust's unresolved questions introduced at an earlier align and never put to the user), and that the dog's ticket binding is the sole place core depends on the ticket method.",
+    "evidence": "'подожди, почему мы вообще решили, что собака это открытый вопрос? объясни'; the agent traced the claim to an unconfirmed analogy, then proposed dog -> question <- work, dropping the ticket from the dog and 'until' in favour of the question's closure, changing the entry file and Core-and-instance; user: 'да, думаю так будет правильно'.",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "5bab93a2-b640-4ce2-a0d8-623d0fd7f965 394"
+    ]
+  },
+  "C36": {
+    "session": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+    "draft": 1133,
+    "request": null,
+    "snapshot": "754369a",
+    "written": "2026-10-03T22:59",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "medium",
+    "shape": "Close q-0019 (how finished-but-unarchived work is found) as deferred with a condition, leaving ticket 01-0011.0030 Blocked and its two straw dogs bound to the open question.",
+    "part": "That the ticket mechanism already installs the closing rule (P1/P2) into /maintain and applies it to all live tickets, so the question was already decided and the listing ticket was unneeded.",
+    "evidence": "'что то тут не так. разве тикеты не инсталлируют в /maintain правило закрытия тикетов?'; agent agreed ('я ответил криво'), closed q-0019 as decided against P1 and B3, withdrew the ticket, rewrote its dogs and fixed a neighbouring ticket's references.",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "5bab93a2-b640-4ce2-a0d8-623d0fd7f965 1133"
+    ]
+  },
+  "C37": {
+    "session": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+    "draft": 1281,
+    "request": null,
+    "snapshot": "754369a",
+    "written": "2026-10-03T23:03",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Close q-0019 decided, withdraw ticket 01-0011.0030, rebind its straw dogs and accept the 01-0011 family of straw-dog bindings, reword q-0001.0017.",
+    "part": null,
+    "evidence": "Person accepted and asked to reword q-0001.0017 (done as q-0001.0020, which still stands with a child); a misparenting the person caught (q-0027 vs pacer) was in the next family's table, not this draft; ticket 0030 not reopened in git log.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "5bab93a2-b640-4ce2-a0d8-623d0fd7f965 1281"
+    ]
+  },
+  "C38": {
+    "session": "17658ee1-78ee-410c-871e-86e722da27fe",
+    "draft": 265,
+    "request": null,
+    "snapshot": "e3c8593",
+    "written": "2026-10-04T21:41",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Installer fix: a loader link is replaced via temp name and swapped only on success, a correctly written link is kept even if unfollowable, report carries was/stands.",
+    "part": null,
+    "evidence": "Draft itself names the unproven cause, untested swap path, and unmarked maintain level; person said commit as FIX; c0829db and bcf2724 landed; the misjudgement stayed open in q-0018.0020 lean but as the explicitly flagged unproven cause, no later rework of the fix found in git log of harness.py.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "17658ee1-78ee-410c-871e-86e722da27fe 265"
+    ]
+  },
+  "C39": {
+    "session": "17658ee1-78ee-410c-871e-86e722da27fe",
+    "draft": 532,
+    "request": null,
+    "snapshot": "6c51f70",
+    "written": "2026-10-04T22:32",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Rewrite the questions skill's 'Where to open it' section containment-first and amend the 2026-09-28 decision, plus reword a rule-failure grading line",
+    "part": null,
+    "evidence": "Person said yes; implemented and verified same session; q-0001.0016 file shows rule landed 2026-10-05 and ticket closed 2026-10-07 with every box graded; only the already-known judge question remains (q-0001.0016.0001); no revert/rework of the placement text in git log",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "17658ee1-78ee-410c-871e-86e722da27fe 532"
+    ]
+  },
+  "C40": {
+    "session": "17658ee1-78ee-410c-871e-86e722da27fe",
+    "draft": 767,
+    "request": null,
+    "snapshot": "071388a",
+    "written": "2026-10-04T22:46",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "low",
+    "shape": "End this long session via /conclude and prove the steering ticket (.0040) in a fresh session, then proceed in the set queue order (.0050 align, 01-0014).",
+    "part": null,
+    "evidence": "Person said run /conclude. Tree: fresh sessions on 10-05 exposed several Q1 wording defects (FIX v27-v30) but these are rule refinements, not a hidden part of the draft plan; .0040 closed 2026-10-07 (4e95764) as predicted. Mostly procedural recommendation, small shape.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "17658ee1-78ee-410c-871e-86e722da27fe 767"
+    ]
+  },
+  "C41": {
+    "session": "e11dbff6-95f3-4c29-a40b-b68304644caa",
+    "draft": 151,
+    "request": null,
+    "snapshot": "9957d9e",
+    "written": "2026-10-04T23:47",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Add banter as a fifth kind of turn to Q1 with a row mark, conditioned so no load-bearing work falls into it.",
+    "part": null,
+    "evidence": "Person approved; 4114843 landed it. Q1's banter text persists; only the row glyph later changed (c71f313 wolf, a cosmetic local override). rule-failures entry marked landed.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "e11dbff6-95f3-4c29-a40b-b68304644caa 151"
+    ]
+  },
+  "C42": {
+    "session": "1e8b7b03-a36e-46db-ab42-cded0d6e7983",
+    "draft": 259,
+    "request": null,
+    "snapshot": "4e95764",
+    "written": "2026-10-06T23:19",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "high",
+    "shape": "Plan for .0170: L3 (verification set) becomes a pointer to a section of docs/cicd.md, injected nowhere.",
+    "part": "Where the verification set's home is and what shape it takes: a set of rules, not a list, and a document in docs/ cannot be a home for rules the agent executes.",
+    "evidence": "Person: 'погоди ка. где дом у списка проверок?... L3 становится ссылкой на ... cicd.md - не уверен. зачем?'; agent opened q-0018.0021 and made .0170 wait on it; later 'sounds like environment mechanism'.",
+    "labels": {
+      "hid": 3
+    },
+    "copies": [
+      "1e8b7b03-a36e-46db-ab42-cded0d6e7983 259",
+      "2ccc7021-f7dd-40dc-b3d7-ce20b7cf5ac7 240",
+      "a3c9b354-c5d7-4cbd-b754-f36d7b4bcae9 298"
+    ]
+  },
+  "C43": {
+    "session": "1e8b7b03-a36e-46db-ab42-cded0d6e7983",
+    "draft": 298,
+    "request": null,
+    "snapshot": "0fae4e7",
+    "written": "2026-10-07T06:44",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "high",
+    "shape": "Propose an executable project entry-point script as the home of the verification set.",
+    "part": "The nature of the verification set: it is a key set of rules with authority, so a script cannot be its home; also the document-informs-not-instructs boundary.",
+    "evidence": "Person: 'нет. набор верификации это ключевой набор правил, \"скрипт\" не может быть его домом'; then 'cicd.md, скилл девопса - sounds like environment mechanism? try abstracting away'; /discover and /align followed.",
+    "labels": {
+      "hid": 3
+    },
+    "copies": [
+      "1e8b7b03-a36e-46db-ab42-cded0d6e7983 298",
+      "2ccc7021-f7dd-40dc-b3d7-ce20b7cf5ac7 279",
+      "a3c9b354-c5d7-4cbd-b754-f36d7b4bcae9 352"
+    ]
+  },
+  "C44": {
+    "session": "1e8b7b03-a36e-46db-ab42-cded0d6e7983",
+    "draft": 444,
+    "request": null,
+    "snapshot": "76ab965",
+    "written": "2026-10-07T07:18",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "high",
+    "shape": "Decision 3 (home of the verification set defined) and a choice between forms A and B for the set, building on cicd.md staying a document.",
+    "part": "Whether a cicd.md environment document should exist at all: the agent can describe the environment on request and the file is non-authoritative and editable by the user.",
+    "evidence": "Person: 'нет, стоп, предыдущий ответ насчет инжекции в cicd - я не уверен. если агент может рассказать пользователю о среде - специальный файл не нужен'; agent rewrote decision 3, opened 3b on whether cicd.md survives, dropping the .0170 premise.",
+    "labels": {
+      "hid": 3
+    },
+    "copies": [
+      "1e8b7b03-a36e-46db-ab42-cded0d6e7983 444",
+      "2ccc7021-f7dd-40dc-b3d7-ce20b7cf5ac7 425",
+      "a3c9b354-c5d7-4cbd-b754-f36d7b4bcae9 578"
+    ]
+  },
+  "C45": {
+    "session": "1e8b7b03-a36e-46db-ab42-cded0d6e7983",
+    "draft": 638,
+    "request": null,
+    "snapshot": "008ad1e",
+    "written": "2026-10-07T11:00",
+    "going_in": "hid",
+    "found_by": "acceptance, then the tree",
+    "confidence": "high",
+    "shape": "A record's kind is a kind of source of truth, along two dimensions (whose side is right, whether the record's authority expires).",
+    "part": "A kind is a relation to a referent, not a property of a file (a record can itself be a thing for another record), so each record must declare what it is a record of, plus the reading direction (pointer carried by the thing).",
+    "evidence": "Person immediately asked 'record can be a thing'; agent replied the kind is a relation and every record declares its referent; q-0024.0009 body records 'Decided: a kind is a relation, so every record declares its referent'; children q-0024.0009.0003.0001 ('what it is a record of') and q-0024.0009.0004 (mark carried back to the record) were spawned.",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "1e8b7b03-a36e-46db-ab42-cded0d6e7983 638"
+    ]
+  },
+  "C46": {
+    "session": "1e8b7b03-a36e-46db-ab42-cded0d6e7983",
+    "draft": 939,
+    "request": null,
+    "snapshot": "c02f9bc",
+    "written": "2026-10-07T11:48",
+    "going_in": "hid",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Two rules: every principle has a name; under debug=on each paragraph opens with one anchor tag for what it stands on (principle, record, or empty), option B.",
+    "part": "The tag conflated footing with principle: the user answered that footing and principle are separate things (principles govern higher-level thinking), so the shape became two marks (lamp for principle, anchor for footing) plus a box when no principle fits; it later evolved further (the 💡 / 🕯️ / 無 forms in AGENTS.md).",
+    "evidence": "Next exchange: user 'тэг - основание и принцип это отдельные вещи'; agent's revised rule has two marks and a box; q-0030 and its children q-0030.0001/.0002 and many v7x contract bumps in git log.",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "1e8b7b03-a36e-46db-ab42-cded0d6e7983 939"
+    ]
+  },
+  "C47": {
+    "session": "693642b7-d512-4533-8790-820e90970571",
+    "draft": 229,
+    "request": null,
+    "snapshot": "086d9b5",
+    "written": "2026-10-07T23:27",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "medium",
+    "shape": "Claim that the harness is a project-memory architecture, distinguished by non-embedding retrieval and one source of truth, to be said on the README.",
+    "part": "That 'no embeddings' is outdated as a differentiator and that a source of truth does not mean absence of a recall structure; the recall structure itself (selectors) was unexamined.",
+    "evidence": "'эмбеддинги уже начинают устаревать, проверь интернет; то что у каждой записи есть источник истины не означает, что нет структуры припоминания; давай новый разбор через дискавери' - two discover passes confirmed both; README centre became two axes with five selectors.",
+    "labels": {
+      "hid": 2
+    },
+    "copies": [
+      "693642b7-d512-4533-8790-820e90970571 229",
+      "a9b67b24-f67f-4653-a2e4-25cbfeaf5510 176"
+    ]
+  },
+  "C48": {
+    "session": "693642b7-d512-4533-8790-820e90970571",
+    "draft": 318,
+    "request": null,
+    "snapshot": "ce5feca",
+    "written": "2026-10-07T23:51",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "medium",
+    "shape": "README centre should rest on two axes (record kind and recall structure) from the discover passes.",
+    "part": "What the front page is for: presenting the harness as a useful tool to a cold reader, not as a technological curiosity; the two axes are not all the harness is.",
+    "evidence": "'хорошо, две оси, но ведь это вообще не все что есть в харнесе. нам нужно придумать как его преподнести как полезный инструмент' - README rebuilt around reader benefit, axes moved into How it works.",
+    "labels": {
+      "hid": 2
+    },
+    "copies": [
+      "693642b7-d512-4533-8790-820e90970571 318",
+      "a9b67b24-f67f-4653-a2e4-25cbfeaf5510 229"
+    ]
+  },
+  "C49": {
+    "session": "1e8b7b03-a36e-46db-ab42-cded0d6e7983",
+    "draft": 1958,
+    "request": null,
+    "snapshot": "fdaf5a4",
+    "written": "2026-10-08T04:38",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "high",
+    "shape": "Do not put the kind on each record; declare it once in the format (one home per fact), apply to mechanism docs only.",
+    "part": "Whether the kind must be visibly present in the record so the modifying agent sees it in context and does not add junk before /maintain runs.",
+    "evidence": "Person: 'нет секундочку. вид должен наглядно присутствовать в записи. иначе он необязательно будет доступен в контексте'; agent reversed its narrowing, amended glossary, spec, q-0024.0009 and RFC .0030, .0040 to put the kind on each record.",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "1e8b7b03-a36e-46db-ab42-cded0d6e7983 1958"
+    ]
+  },
+  "C50": {
+    "session": "693642b7-d512-4533-8790-820e90970571",
+    "draft": 1212,
+    "request": null,
+    "snapshot": "faa38d0",
+    "written": "2026-10-08T14:27",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "medium",
+    "shape": "A list of nine 'principles' for the README, with a proposed selection and order.",
+    "part": "The level of the list: several items are implementations or descriptions of where data lives, not principles; the real principles (self-improvement, one source of truth, exploration-space memory) sit above them.",
+    "evidence": "'Помнит репозиторий, а не агент - это принцип? он понятен? принцип это самоулучшение, один источник истины, память exploration space' - agent conceded the list mixed principles with implementations and rebuilt it.",
+    "labels": {
+      "hid": 2
+    },
+    "copies": [
+      "693642b7-d512-4533-8790-820e90970571 1212",
+      "a9b67b24-f67f-4653-a2e4-25cbfeaf5510 805"
+    ]
+  },
+  "C51": {
+    "session": "693642b7-d512-4533-8790-820e90970571",
+    "draft": 1253,
+    "request": null,
+    "snapshot": "faa38d0",
+    "written": "2026-10-08T20:56",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "medium",
+    "shape": "Six more principle-level statements (verifiable, human decides, method as engineering product, etc.) offered as README principles.",
+    "part": "That the statements must answer a user's pain rather than describe general engineering properties; no pain-to-principle mapping or cause structure was examined.",
+    "evidence": "'нет, это все общие и инженерные утверждения и не отвечают на боль пользователя' - agent rebuilt as a pain-to-principle table, which then grew into a new root question on the harness's reason to exist.",
+    "labels": {
+      "hid": 2
+    },
+    "copies": [
+      "693642b7-d512-4533-8790-820e90970571 1253",
+      "a9b67b24-f67f-4653-a2e4-25cbfeaf5510 832"
+    ]
+  },
+  "C52": {
+    "session": "693642b7-d512-4533-8790-820e90970571",
+    "draft": 1266,
+    "request": null,
+    "snapshot": "faa38d0",
+    "written": "2026-10-08T20:58",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "medium",
+    "shape": "A table of user pains with principle per pain (three the user gave, three candidates), proposing which go on the page.",
+    "part": "The pain/cause/remedy structure: several 'pains' are causes or harness-side details, and missing pains (free thinking across topics, instruction reach, time and tokens) change the whole taxonomy.",
+    "evidence": "Long correction: 'подстраивается - ок, но это нюанс инсталляции а не реальная боль...; ... для начала распиши это' - agent opened new root question q-0033 and wrote the pain analysis; user said 'это уже не страница, а вопрос, зачем существует харнесс' effect.",
+    "labels": {
+      "hid": 2
+    },
+    "copies": [
+      "693642b7-d512-4533-8790-820e90970571 1266",
+      "a9b67b24-f67f-4653-a2e4-25cbfeaf5510 838"
+    ]
+  },
+  "C53": {
+    "session": "693642b7-d512-4533-8790-820e90970571",
+    "draft": 1304,
+    "request": null,
+    "snapshot": "27ed56b",
+    "written": "2026-10-08T21:10",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "high",
+    "shape": "A six-pain analysis (free-roaming thought, instructions not reaching the agent, 'done' but broken, decisions leaving the user's hands, plus two added: parallel agents, invisible footing) with answers and gaps.",
+    "part": "Hierarchy: pains 2 and 3 are links of one chain; parallel agents and invisible footing are causes, not pains; time and tokens is a further pain. The taxonomy of pain/cause/remedy was unexamined.",
+    "evidence": "'2 и три это звенья цепи, не? ... Несколько агентов разом мешают друг другу - это не сама боль, это одна из причин боли' - agent rewrote q-0033 as pain-cause-fix chain; user then asked to generalize into three pains (inefficient, suboptimal, user not agentic).",
+    "labels": {
+      "hid": 2
+    },
+    "copies": [
+      "693642b7-d512-4533-8790-820e90970571 1304",
+      "a9b67b24-f67f-4653-a2e4-25cbfeaf5510 864"
+    ]
+  },
+  "C54": {
+    "session": "a9b67b24-f67f-4653-a2e4-25cbfeaf5510",
+    "draft": 936,
+    "request": null,
+    "snapshot": "1e62296",
+    "written": "2026-10-08T21:28",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "high",
+    "shape": "Four pains, eight causes, answers matrix; harm declared out of scope; 'user not agentic' renamed 'loses control'.",
+    "part": "Agency is a scale (loss of control vs micro-control); 'gets worse over time' and 'harm' are goals that cannot be dropped; load-bearing test and HITL mechanisms were missing.",
+    "evidence": "'агентность пользователя это шкала... обе нам пока нечем гарантировать и обе нельзя потерять как цели'; 'ты забыл об определении несущей нагрузки и решениях HITL'.",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "a9b67b24-f67f-4653-a2e4-25cbfeaf5510 936"
+    ]
+  },
+  "C55": {
+    "session": "a9b67b24-f67f-4653-a2e4-25cbfeaf5510",
+    "draft": 1140,
+    "request": null,
+    "snapshot": "a3f3674",
+    "written": "2026-10-08T22:46",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "medium",
+    "shape": "Making reconciliation of docs/product.md against every mechanism and open question a /maintain duty.",
+    "part": "The question tree serves structure and evolution as well as product, so forcing every question into the product matrix is the wrong boundary (a second index); implementation route had to be rethought.",
+    "evidence": "'возможно это преждевременно. дерево вопросов обслуживает не только продукт, но и устройство и эволюцию'; agent opened q-0033.0005 and moved to labels carried by the thing.",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "a9b67b24-f67f-4653-a2e4-25cbfeaf5510 1140"
+    ]
+  },
+  "C56": {
+    "session": "de339340-8b19-4267-adf9-e12d9a7b6382",
+    "draft": 345,
+    "request": null,
+    "snapshot": "2fff081",
+    "written": "2026-10-08T22:57",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "high",
+    "shape": "Two question-links, depends on (blocks, question presupposed) vs assumes (non-blocking, answer's premise), separated by a 'can options be listed without B' test.",
+    "part": "Whether the depends/assumes split is derivable from the pair at all; what a premise of an answer is vs a presupposition of a question, what a change does to dependents, what is ground, what depends on carries today.",
+    "evidence": "'Ð²Ñ?Ðµ ÐµÑ‰Ðµ Ð½Ðµ Ñ‚Ð¾Ñ‡Ð½Ð¾... Ð½Ðµ Ð²Ð¸Ð¶Ñƒ Ñ…Ð¾Ñ€Ð¾ÑˆÐµÐ³Ð¾ Ð¿Ñ€Ð¸Ð¼ÐµÑ€Ð° assumes'; later 'Ñ‚Ñ‹ Ñ?Ð¿ÐµÑˆÐ¸ÑˆÑŒ ÐºÐ¾Ð½ÐºÑ€ÐµÑ‚Ð¸Ð·Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ'; question reopened and branched into four sub-questions, parent reworded, rule-failure 25 registered.",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "de339340-8b19-4267-adf9-e12d9a7b6382 345"
+    ]
+  },
+  "C57": {
+    "session": "de339340-8b19-4267-adf9-e12d9a7b6382",
+    "draft": 807,
+    "request": null,
+    "snapshot": "64b1e0b",
+    "written": "2026-10-09T10:41",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Seed a fresh project's store with three root questions: words on the questions mechanism's shelf, store script owns format and when-to-seed, installer only calls it",
+    "part": null,
+    "evidence": "Person said take it; ticket 01-0011.0100.0045 done and closed same day; git log shows only the planned plan/implement/close commits, later mentions of 'seed' are unrelated; weight-of-roots follow-up already named as q-0001.0022.0001; no rework found",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "de339340-8b19-4267-adf9-e12d9a7b6382 807"
+    ]
+  },
+  "C58": {
+    "session": "93929df3-c4b8-4d09-b137-2c45adac1344",
+    "draft": 151,
+    "request": null,
+    "snapshot": "ee908a7",
+    "written": "2026-10-09T12:19",
+    "going_in": "hid, disputed",
+    "found_by": "a person's correction",
+    "confidence": "medium",
+    "shape": "A rule that harness.py . --check joins a recipient's verification set only when the person asks; plus a hooks split into three tickets.",
+    "part": "How a first install writes local rules under whose authority (agent-chosen rule signed as the user's), and that the source-cloning check belongs to /maintain, not /verify; neither was examined, only the network cost.",
+    "evidence": "User pasted the installer agent's explanation (L3 written under 'the user' though agent chose it); agent added a second rule; later user: 'это вообще не часть верификации, это часть maintain... должен быть быстрым' - check moved to maintain ticket 01-0010.0180, q-0018.0012 opened.",
+    "labels": {
+      "hid": 2,
+      "local": 1
+    },
+    "copies": [
+      "53bad90a-ebc6-4f25-bb79-f755244a0394 202",
+      "93929df3-c4b8-4d09-b137-2c45adac1344 151",
+      "e588cd44-ef96-4ff7-a499-d0346d4cc03e 156"
+    ]
+  },
+  "C59": {
+    "session": "a9b67b24-f67f-4653-a2e4-25cbfeaf5510",
+    "draft": 1505,
+    "request": null,
+    "snapshot": "7d67e54",
+    "written": "2026-10-09T13:19",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "medium",
+    "shape": "A scheme for generating the missing question tree from the codebase: structure via /align, scope via load-bearing test, 'found, not confirmed' closure, root stays open.",
+    "part": "Misread what the user's two hooks (what is hard, causes) are: they anchor to product.md sections and split into recognised/unrecognised/recognised-but-unnamed causes; align gate semantics differ.",
+    "evidence": "'нет секундочку, мне кажется ты напутал. во первых это просто верхние уровни дерева ... эти зацепки якорятся в существующие разделы product.md'.",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "a9b67b24-f67f-4653-a2e4-25cbfeaf5510 1505"
+    ]
+  },
+  "C60": {
+    "session": "a6ab6249-878e-4bd3-9fa6-368659f58d1a",
+    "draft": 284,
+    "request": null,
+    "snapshot": "2ade38e",
+    "written": "2026-10-09T22:37",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "medium",
+    "shape": "Principle-from-a-document marking offered as keep-the-lamp-link or mark as no-home (無); plus a session-row close design treated 'only a human can end a silent row' as a fixed rule",
+    "part": "A third class: principles stranded in documents (tier 3, unreachable when a skill is called) need their own marker and are harness errors; and the rationale for the session-row rule was never examined, only repeated",
+    "evidence": "'надо ловить принципы пришедшие из доков, но не как увей... у них своя иконка... проверь класс'; 'ты просто повторил правило причину которого мы не знаем'; agent opened q-0030.0002 (candle marker, amended the reply contract to v53) and traced the rule's origin (RFC of 2 Oct) to show it was changeable",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "a6ab6249-878e-4bd3-9fa6-368659f58d1a 284"
+    ]
+  },
+  "C61": {
+    "session": "fcfe212c-0649-4af0-84f3-770d86c3b360",
+    "draft": 182,
+    "request": null,
+    "snapshot": "ce6a9b9",
+    "written": "2026-10-10T00:20",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "high",
+    "shape": "Recommend closing the gap by having the queue renderer derive a Completed-step pointer from session records and opening a question for it.",
+    "part": "Whether the Completed step field has any reader or is pure redundancy of the session records; examining it removed the field entirely.",
+    "evidence": "\"кто читает или будет читать completed step? и не редаденси ли это?\" - agent withdrew its recommendation, proposed deleting the line, person: \"удали целиком, отдельной правкой\"; contract of queue/template/TICKET-FORMAT changed and the 2026-10-07 decision rewritten.",
+    "labels": {
+      "hid": 2
+    },
+    "copies": [
+      "5ee9fe64-bbbd-43dd-8c5b-e4f61fd910ba 182",
+      "fcfe212c-0649-4af0-84f3-770d86c3b360 182"
+    ]
+  },
+  "C62": {
+    "session": "58bf3b88-e0f2-404e-b156-45c3be4940b8",
+    "draft": 703,
+    "request": null,
+    "snapshot": "a5427ff",
+    "written": "2026-10-10T11:09",
+    "going_in": "hid",
+    "found_by": "acceptance, then the tree",
+    "confidence": "high",
+    "shape": "Proposed rule E4 in /verify: a landing that changes an edge updates its record under docs/edge in the same commit (Contract/Invariants to what landed, sidecars re-observed).",
+    "part": "E4 contradicts E2 (a promise the code no longer keeps is drift, never rewritten to fit), and 'each touched sidecar result' leaves 'touched' to the reader so any questions.py change would stale every host's results.",
+    "evidence": "Person said land it; after landing, asked 'did you check it is good?' and the agent admitted both faults, logged rule-failures entry 30 and proposed a rewording.",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "58bf3b88-e0f2-404e-b156-45c3be4940b8 703"
+    ]
+  },
+  "C63": {
+    "session": "3a5196da-1e76-4fd1-8512-75a5c7ef8e67",
+    "draft": 976,
+    "request": null,
+    "snapshot": "5b28dbb",
+    "written": "2026-10-10T11:59",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "high",
+    "shape": "Adds 'Result' to the glossary and keeps a staleness mechanism in edge rules E2/E4 (all of a host's results marked stale when its Integration code changes), asking only to refine it to per-result dependencies and a passed/failed verdict.",
+    "part": "Whether a staleness-detection mechanism is needed at all, i.e. what problem it solves that the observation's date does not; and that a general word cannot be captured by a narrow mechanism.",
+    "evidence": "'нет, никакого резулта в глоссарии... общее слово не может быть схвачено узким механизмом. нам точно нужен тут сложный механизм обнаружения устаревания? какую проблему он решает'; agent withdrew the glossary entry, removed staleness marking and the verdict vocabulary, rewrote E2/E4, committed.",
+    "labels": {
+      "hid": 3
+    },
+    "copies": [
+      "3a5196da-1e76-4fd1-8512-75a5c7ef8e67 976",
+      "58bf3b88-e0f2-404e-b156-45c3be4940b8 1307",
+      "d0abdc88-9837-43b9-a67f-312de5aea55e 967"
+    ]
+  },
+  "C64": {
+    "session": "58bf3b88-e0f2-404e-b156-45c3be4940b8",
+    "draft": 1322,
+    "request": null,
+    "snapshot": "35fecd6",
+    "written": "2026-10-10T12:04",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Remove staleness marking from edge records: an observation keeps its date, E2 keeps broken promise as drift, E4 writes decided changes and live observations into the sidecar",
+    "part": null,
+    "evidence": "Person said yes remove; landed a87fd43 and recorded in edge.md as 'nothing marks it stale (the user, 2026-10-10)'; edge.md still holds it; no later reintroduction in git log (later edge commits are observations/maintenance). Helper-check wording was refined by rule failure 30 review but not the removal",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "58bf3b88-e0f2-404e-b156-45c3be4940b8 1322"
+    ]
+  },
+  "C65": {
+    "session": "3a5196da-1e76-4fd1-8512-75a5c7ef8e67",
+    "draft": 1260,
+    "request": null,
+    "snapshot": "1ddb421",
+    "written": "2026-10-10T15:06",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "high",
+    "shape": "Fix session continuity across a host resume by re-running the log-comparison identity check on later messages while the new session is still empty.",
+    "part": "Session identity itself: the desktop app carries a stable conversation id (CLAUDE_CODE_HOST_SESSION_ID) that survives resume, so the keying scheme, not the race in log comparison, was what to examine.",
+    "evidence": "'у нас нет более надежного айди который не требует эквилибристики?'; agent found the app's stable id, then keyed sessions on it, deleted the log comparison (-143/+76 lines), added a Resume check to the hosts record.",
+    "labels": {
+      "hid": 2
+    },
+    "copies": [
+      "3a5196da-1e76-4fd1-8512-75a5c7ef8e67 1260",
+      "d0abdc88-9837-43b9-a67f-312de5aea55e 1347"
+    ]
+  },
+  "C66": {
+    "session": "a58f78ae-91ed-41e2-9811-230354197278",
+    "draft": 1353,
+    "request": null,
+    "snapshot": "c8964e8",
+    "written": "2026-10-10T17:46",
+    "going_in": "hid",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Mechanism docs carry the record-of label 'what must always hold' (landed as ticket 0010, paired close next)",
+    "part": "The label's job was never examined: the person's aim was drift (what a record is of, which side is right, what detects it), and the 'record of' mark gives direction only, not the paired subject; also the glossary's 'what exists' ('never edited by hand') conflicted with hand-written mechanism docs",
+    "evidence": "Minutes later the person challenged the mechanism-doc label and said the idea is to understand drift, not hang kind labels; agent opened q-0024.0009.0005, raised to q-0024.0009, ran /discover. d1e7277 decided the doc stays 'what must always hold' but amended the glossary (what exists loses 'never edited by hand'), reframed the mark as 'how a record is treated, not what it is paired with', and moved drift/side-to-repair to q-0024.0009.0006 (follow-on tickets 01-0011.0110.*)",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "a58f78ae-91ed-41e2-9811-230354197278 1353"
+    ]
+  },
+  "C67": {
+    "session": "a58f78ae-91ed-41e2-9811-230354197278",
+    "draft": 1971,
+    "request": null,
+    "snapshot": "d1e7277",
+    "written": "2026-10-10T20:58",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "low",
+    "shape": "Decision 4: make the two hand-written entry-file lines installable blocks of the mechanism shape; the draft treated all hand-written entry-file text (Occam, One shape is not a class, etc.) as one class of 'meta-rules'",
+    "part": "The meta-rule vs meta-principle distinction: only instructions about making instructions belong to the mechanism of mechanisms; principles like Occam apply to everything and are not installed meta-instructions",
+    "evidence": "'механизм механизмов... держит настоящие метаинструкции... оккам это не метаинструкция это метапринцип'; agent fixed the glossary and opened q-0026.0006 on which entry-file sentences are meta-rules vs meta-principles",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "a58f78ae-91ed-41e2-9811-230354197278 1971"
+    ]
+  },
+  "C68": {
+    "session": "fd35afcb-b7fd-43f7-b105-a7efec8fd7b3",
+    "draft": 291,
+    "request": null,
+    "snapshot": "8f0ea4b",
+    "written": "2026-10-10T21:59",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "medium",
+    "shape": "A working measurement formula: (tokens, human replies, hours) divided by an agent-independent unit of work, with weekly token-per-ticket/checkmark numbers.",
+    "part": "That raw tokens are ~98% cache re-reads and mechanical steps, so tokens measure steps times context length, not work; the numerator (and soon the unit, ticket checkmarks vs closed questions) did not measure what the formula claimed.",
+    "evidence": "\"как ты померял токены? ... но ведь там есть и механические движения\" then \"надо мерять закрытые вопросы\" - agent produced token anatomy, declared raw tokens a poor measure, and re-based the metric on closed questions.",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "fd35afcb-b7fd-43f7-b105-a7efec8fd7b3 291"
+    ]
+  },
+  "C69": {
+    "session": "d24205ec-000b-4504-86bb-ff64633fb4fc",
+    "draft": 801,
+    "request": null,
+    "snapshot": "49f4221",
+    "written": "2026-10-10T22:26",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Move the decision-landing rule into the questions mechanism as Q6, narrow ticket P7 to one sentence, with the listed follow-on edits.",
+    "part": null,
+    "evidence": "User accepted. Current questions.rules.md Q6 text equals the drafted text and P7 is narrowed as drafted (ticket.rules.md). Sub-question q-0024.0009.0003.0002.0001 was opened but closed with Q6 as its answer. Implementation commit 13fa1f6 added mechanisms (close refuses, due predicate) that were consequences of earlier decisions.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "d24205ec-000b-4504-86bb-ff64633fb4fc 801"
+    ]
+  },
+  "C70": {
+    "session": "d24205ec-000b-4504-86bb-ff64633fb4fc",
+    "draft": 2974,
+    "request": null,
+    "snapshot": "21d59e1",
+    "written": "2026-10-11T00:15",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Plan for slice 01-0011.0110.0060: the mechanism shape holds its meta-rules in /mechanism skill description rather than installing them into the entry file, with four hidden edges found and fixed in the validation pass.",
+    "part": null,
+    "evidence": "Person said go; implement/verify/maintain landed (6121a9f, f211f3c) with the same shape; no later FIX/revert or rule-failure on it; only a lagging harness.md line found at maintain, a doc lag not a contract change.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "d24205ec-000b-4504-86bb-ff64633fb4fc 2974"
+    ]
+  },
+  "C71": {
+    "session": "2d4781b4-95c5-47c1-8685-81fb75f93180",
+    "draft": 671,
+    "request": null,
+    "snapshot": "e30a5eb",
+    "written": "2026-10-11T10:48",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "medium",
+    "shape": "Landed a thin introduction.md sidecar (three pains in a few lines) as the source of the installing agent's introduction, with product.md line and skill edits.",
+    "part": "That the source must be the full product account (all answers, the day, who it is for), not a compressed script; the shape became shipping the README itself with the install.",
+    "evidence": "«и это все описание того, чем харнесс полезен? сириосли? и вообще, почему ты сразу исправил»; agent reverted e30a5eb and proposed a full source; later the installer ships README with picture (binary support). Also a process complaint (landed before showing).",
+    "labels": {
+      "hid": 2
+    },
+    "copies": [
+      "2d4781b4-95c5-47c1-8685-81fb75f93180 671",
+      "f621c092-f5f3-49c9-96d9-05a5e7752430 531"
+    ]
+  },
+  "C72": {
+    "session": "2d4781b4-95c5-47c1-8685-81fb75f93180",
+    "draft": 1034,
+    "request": null,
+    "snapshot": "7fc082a",
+    "written": "2026-10-11T11:15",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "high",
+    "shape": "Two reply modes set by the debug switch: user mode (default, no harness talk) versus debug mode.",
+    "part": "That the real line is method vs machinery, not user vs debug: the question stood on, method steps and reply form are the product part; the technical machinery is what everything else describes.",
+    "evidence": "«нет. на каком вопросе стоим и шаги метода - это продуктовая часть ... проблема в том что все остальное описывает еще более техническую часть»; q-0035 reworded to method vs machinery; definition of mechanism to be split.",
+    "labels": {
+      "hid": 2
+    },
+    "copies": [
+      "2d4781b4-95c5-47c1-8685-81fb75f93180 1034",
+      "f621c092-f5f3-49c9-96d9-05a5e7752430 795"
+    ]
+  },
+  "C73": {
+    "session": "2d4781b4-95c5-47c1-8685-81fb75f93180",
+    "draft": 1325,
+    "request": null,
+    "snapshot": "3e55a5c",
+    "written": "2026-10-11T11:54",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "high",
+    "shape": "Recommends option (a): move descriptive machinery out of skills into the mechanism doc and add a speech rule in the entry file, keeping only the bare call and the act in the skill.",
+    "part": "Skills need the machinery words (calls, refusals, what to do at them) as instruction, and a mechanism doc only informs, so moving them breaks the 'Three homes' contract; the rule had not fired on this.",
+    "evidence": "'как мы можем вытащить описание машинерии из скилов не сломав их? они же должны знать. док механизма это не место для инструкций - проверь почему правило прошло незамеченным'; followed by an amendment to /mechanism Three homes (instruction stays in skill), instructions not moved, speech rule landed in entry file v77.",
+    "labels": {
+      "hid": 2
+    },
+    "copies": [
+      "2d4781b4-95c5-47c1-8685-81fb75f93180 1325",
+      "f621c092-f5f3-49c9-96d9-05a5e7752430 978"
+    ]
+  },
+  "C74": {
+    "session": "5ee9fe64-bbbd-43dd-8c5b-e4f61fd910ba",
+    "draft": 1973,
+    "request": null,
+    "snapshot": "b5f97f9",
+    "written": "2026-10-11T12:02",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "low",
+    "shape": "Rule 'Ask about the class': ask whether to generalize whenever a second case is in sight, before writing narrow.",
+    "part": "The cost of generalizing: when effort and output are small the agent should just generalize, and only a load-bearing reason triggers it.",
+    "evidence": "'все равно неправильно.' then the user's own text: 'if generalization effort and output is small - generalize, otherwise ask'; rule landed as 'Generalize or ask' (v76).",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "5ee9fe64-bbbd-43dd-8c5b-e4f61fd910ba 1973"
+    ]
+  },
+  "C75": {
+    "session": "f621c092-f5f3-49c9-96d9-05a5e7752430",
+    "draft": 1078,
+    "request": null,
+    "snapshot": "f1a6120",
+    "written": "2026-10-11T12:13",
+    "going_in": "clean",
+    "found_by": "acceptance, then the tree",
+    "confidence": "medium",
+    "shape": "Entry contract v77 rule: a reply speaks the method and names no script, check, report or hook, with machinery shown only under debug=on; wrapped as a straw dog bound to q-0024.0012 pending a clean-install grade.",
+    "part": null,
+    "evidence": "Commit 91067b3 grades v77 on the seventh install as holding (reply speaks the method); the rule text in AGENTS.md is unchanged today; later v78-v84 changes touch table layout and the tangle, not this rule; the draft itself marked it a straw dog awaiting evaluation.",
+    "labels": {
+      "clean": 1
+    },
+    "copies": [
+      "f621c092-f5f3-49c9-96d9-05a5e7752430 1078"
+    ]
+  },
+  "C76": {
+    "session": "52176573-4ea9-4d2b-9bdb-a9fc15bd26f9",
+    "draft": 806,
+    "request": null,
+    "snapshot": "7d68711",
+    "written": "2026-10-11T19:33",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "medium",
+    "shape": "Concludes from transcript counts that agents read about as much code under the harness (frost_map) as without it (meteoscape), and that the harness's design never promised saving code reading.",
+    "part": "What the written architecture is for (a map that spares paging through code) and the validity of the baseline: meteoscape was never harness-free, so the comparison and the claim of the harness's purpose both rested on an unexamined premise.",
+    "evidence": "'а мне кажется ты не прав. большая часть идеи выписывать архитектуру нужна именно за тем чтобы меньше листать код и искать зависимости'; later 'meteoscape никогда не был без харнесса' and the agent withdrew every figure; q-0033.0007 opened then closed, search-reading split out.",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "52176573-4ea9-4d2b-9bdb-a9fc15bd26f9 806"
+    ]
+  },
+  "C77": {
+    "session": "1679de7f-3726-40d2-993a-fb1b84d51785",
+    "draft": 554,
+    "request": null,
+    "snapshot": "4c1c26f",
+    "written": "2026-10-11T21:23",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "high",
+    "shape": "Close the probe with 'no, in this form' and defer the judge ticket because the judge cannot tell drafts apart.",
+    "part": "The judge prompt itself (asks for any nameable hidden part, no load-bearing criterion, wrong window) was never examined, so the verdict on 'the judge' was only a verdict on one prompt.",
+    "evidence": "Person: 'нет, ничего из этого не следует. возможно ты просто напартачил с промптом судьи'; agent retracted the conclusion, logged rule failure 41, and the judge was redefined to look only for load-bearing parts.",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "1679de7f-3726-40d2-993a-fb1b84d51785 554"
+    ]
+  },
+  "C78": {
+    "session": "1679de7f-3726-40d2-993a-fb1b84d51785",
+    "draft": 589,
+    "request": null,
+    "snapshot": "fab4ae7",
+    "written": "2026-10-11T21:27",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "medium",
+    "shape": "Diagnosis of the failed judge prompt and a plan for a third run with a 'weight' question (is disclosure worth its cost / does it reshape the question).",
+    "part": "The criterion that matters is load-bearing (examining it changes the shape's contract), which the draft's cost-versus-importance 'weight' did not state.",
+    "evidence": "Person: 'любая форма скрывает неограниченную сложность, дубина ты. нам важна... load-bearing - те которые изменят контракт формы'; agent recorded decision 1 and rewrote the judge prompt around contract change.",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "1679de7f-3726-40d2-993a-fb1b84d51785 589"
+    ]
+  },
+  "C79": {
+    "session": "1679de7f-3726-40d2-993a-fb1b84d51785",
+    "draft": 1087,
+    "request": null,
+    "snapshot": "25691f4",
+    "written": "2026-10-11T21:46",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "high",
+    "shape": "Close the probe as 'yes for load-bearing parts inside the draft's reasoning, no for parts whose evidence is outside the window'.",
+    "part": "The boundary of what the real judge sees: the real judge will see the tree, so 'evidence outside the window' was an artifact of the probe, not a property of the judge.",
+    "evidence": "Person: 'мы прячем дерево от судьи?... настоящий судья будет видеть дерево, не так ли?'; agent conceded it misread decision 26, retracted the wording and ran a fourth run with the repo.",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "1679de7f-3726-40d2-993a-fb1b84d51785 1087"
+    ]
+  },
+  "C80": {
+    "session": "1679de7f-3726-40d2-993a-fb1b84d51785",
+    "draft": 1414,
+    "request": null,
+    "snapshot": "00349d2",
+    "written": "2026-10-11T22:16",
+    "going_in": "hid",
+    "found_by": "a person's correction",
+    "confidence": "low",
+    "shape": "Plain-language summary closing the probe: judge finds errors inside the answer, is useless against errors outside it.",
+    "part": "The 'outside the answer' class is really one form, claims of absence, which a judge prompt could be told to check, so the closing conclusion drew its boundary in the wrong place.",
+    "evidence": "Person: 'у обеих ошибок одинаковая форма - они утверждают отсутствие. возможно мы могли бы добавить проверку отсутствия в промпт судьи?'; agent drafted an absence paragraph and a sixth run followed instead of closing.",
+    "labels": {
+      "hid": 1
+    },
+    "copies": [
+      "1679de7f-3726-40d2-993a-fb1b84d51785 1414"
+    ]
+  }
+}
