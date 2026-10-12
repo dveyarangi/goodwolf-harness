@@ -12,7 +12,7 @@ item.
 1. [docs/product.md](../product.md) — the matrix (48 rows), C1–C12, pains 1–3, G1–G2, the harness-pain section.
 2. [product-audit-2026-10-09](product-audit-2026-10-09.md) — a read-only sweep of the tree.
 3. [q-0033](../questions/q-0033-which-pains-of-developing-software-with-coding-agents-does-the-harness-exist-to-relieve-and-what-answers-each.md) — earlier sortings, the answers table, the chain with Today/Missing.
-4. [q-0035.0001](../questions/q-0035.0001-how-does-the-product-document-stay-true-as-mechanisms-and-work-appear-without-the-question-tree-being-forced-into-it.md) — the matrix rows sorted into eight categories.
+4. [q-0035.0001](../questions/done/q-0035.0001-how-does-the-product-document-stay-true-as-mechanisms-and-work-appear-without-the-question-tree-being-forced-into-it.md) — the matrix rows sorted into eight categories.
 5. [discover-recall-structure-2026-10-08](discover-recall-structure-2026-10-08.md) — two outside passes: **5A** read the repository cold, **5B** had a functional description only.
 6. [peer-capabilities-2026-10-08](peer-capabilities-2026-10-08.md) — the harness's row and the notes on what is rare.
 7. [front-page-review-by-outside-agents-2026-10-08](front-page-review-by-outside-agents-2026-10-08.md) — two rounds of cold readers.
