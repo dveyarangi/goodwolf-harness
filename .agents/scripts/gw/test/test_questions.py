@@ -7,6 +7,7 @@ import contextlib
 import io
 import json
 import os
+import re
 import tempfile
 import unittest
 from datetime import date, datetime, timedelta, timezone
@@ -796,9 +797,11 @@ class TheCounters(Rendered):
         line = [said for said in text.splitlines() if said.startswith("🎫")][0]
         counts = {}
         for part in line.split(" · "):
-            glyph, total, *moved = part.replace("(", " ").replace(")", " ").replace("/", " ").split()
-            came, went = (int(moved[0]), int(moved[1].lstrip("−"))) if moved and moved[0].startswith("+") else (0, 0)
-            counts[glyph] = (int(total), came, went)
+            said = re.fullmatch(r"(\S+) (\d+)(?: \((?:\+(\d+))?(?:-(\d+))?\))?", part)
+            self.assertIsNotNone(said, f"a counter out of form: {part!r}")
+            self.assertNotIn("()", part)
+            glyph, total, came, went = said.groups()
+            counts[glyph] = (int(total), int(came or 0), int(went or 0))
         return text, counts
 
     def dogs(self, *questions_bound: str) -> None:
@@ -812,6 +815,17 @@ class TheCounters(Rendered):
 
         self.assertIn("🎫 1 · ❓ 6 · 🐕 1\n", text + "\n", "nothing to compare, so nothing said of it")
         self.assertEqual({"🎫": (1, 0, 0), "❓": (6, 0, 0), "🐕": (1, 0, 0)}, counts)
+
+    def test_a_move_is_written_in_brackets_and_none_is_written_as_nothing(self) -> None:
+        self.write(self.TICKET, "# A first ticket\n")
+        self.counted()
+        (self.root / self.TICKET).unlink()
+        self.write("docs/tickets/01-0020-a-second-ticket.md", "# A second ticket\n")
+        self.write("docs/tickets/01-0030-a-third-ticket.md", "# A third ticket\n")
+
+        text, _ = self.counted()
+
+        self.assertIn("🎫 2 (+2-1) · ❓ 6 · 🐕 0\n", text + "\n")
 
     def test_a_ticket_minted_a_question_opened_and_a_straw_dog_wrapped_each_come(self) -> None:
         self.counted()

@@ -14,7 +14,7 @@ One row per mechanism per level, then each file that level was checked against, 
 | maintain | output | e1b7d84387967aa93f7e14efc1b411fde3e1ed1efb0db1b55a801d19051ef2c2 | 2026-10-12 | nothing to change |
 | mechanism-shape | parts | 5fb37a169deda5401804869c7f710c569cb3cd6875d8ad9b7bc4b3baf64acc0e | 2026-10-12 | nothing to change |
 | mechanism-shape | output | bfc233083cf7f765e196116a5619689d3925f86b76b8f5630eff9bc7598fd0d0 | 2026-10-12 | nothing to change |
-| questions | parts | 95de2ae8ee9225945eb6e4f6f6c50d23a68227e77966c50cde37cfd47f8eddfb | 2026-10-12 | nothing to change |
+| questions | parts | fb355fd6dbd48315e1c6ef3b1b8d56f1d94aeaaff1f4d43ba6000f5cb3271c59 | 2026-10-12 | nothing to change |
 | questions | output | 59f400a5e5f2458e881713c02c1e1c87c416fce9d5d6515b50ba81acf7a99523 | 2026-10-12 | nothing to change |
 | ticket | parts | 87330ed2d923bc2c523f7a806bb916110119eac51b3ba8834a4c77304939a1ef | 2026-10-12 | amended |
 | ticket | output | 5de3e7d696faa0caf471386c2e009d14acc6f66c6dd2103cedf76b9e499cbefa | 2026-10-12 | nothing to change |
@@ -77,8 +77,8 @@ One row per mechanism per level, then each file that level was checked against, 
 | questions | parts | .agents/.gitattributes | bd95d1f719ab960c7d638d202a762ab72f356be5be7270623165327a47e28149 |
 | questions | parts | .agents/mechanisms/questions/questions.rules.md | 8f6cfc73482171925b2c27e0063d07b5335547755fcbf499f2bba4ab9b977507 |
 | questions | parts | .agents/scripts/gw/hook.sh | 0118d8145545019d8121a339242fc9795690bb554d2375a8f89a3b4de27ba83e |
-| questions | parts | .agents/scripts/gw/questions.py | bb1099b749b78fee92befec7378efb055b20bf1f6fa752a8a87beb86c428f244 |
-| questions | parts | .agents/scripts/gw/test/test_questions.py | b5de8463279f3c2f38574ae1d7ac432bacb2e13a563e445e8609fdc458e0cb4d |
+| questions | parts | .agents/scripts/gw/questions.py | e09ea04cf470a1bd049c513fbc42a1287449dc8a78f0b72a7dde2ce62551221f |
+| questions | parts | .agents/scripts/gw/test/test_questions.py | f68b941160c399270a9f1cef4195154ef34d94b592bb9b803eda9002eb42531b |
 | questions | parts | .agents/skills/questions/SKILL.md | c2b6139274a16ef0d4dd3ce70e04370b82f77f0f6f7251d3d9704cf2ae0bc835 |
 | questions | parts | .agents/skills/questions/STORE-ARRIVAL.md | b746ca845d89c543ba661000c5811fdac8d0f288fc94ce0c9ef079439aebac23 |
 | questions | parts | .agents/skills/questions/hooks/.claude/settings.json | 7502eae6c772b16eef9d81a925f5fd2a26f4ac5d5562d64ba2fb5f4225318970 |

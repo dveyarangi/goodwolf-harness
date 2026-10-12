@@ -1194,16 +1194,25 @@ def _counters(root: Path, store: Store, tag: str) -> str:
     if said != remembered:
         memory.parent.mkdir(parents=True, exist_ok=True)
         memory.write_text(said, encoding="utf-8")
-    kinds = (("🎫", now.tickets, before and before.tickets), ("❓", now.questions, before and before.questions), ("🐕", now.dogs, before and before.dogs))
-    if before is None:
-        return " · ".join(f"{glyph} {len(named)}" for glyph, named, _ in kinds)
-    return " · ".join(f"{glyph} {len(named)} {_came_and_went(earlier, named)}" for glyph, named, earlier in kinds)
+    kinds = (
+        ("🎫", now.tickets, before.tickets if before else None),
+        ("❓", now.questions, before.questions if before else None),
+        ("🐕", now.dogs, before.dogs if before else None),
+    )
+    return " · ".join(f"{glyph} {len(named)}{_came_and_went(earlier, named)}" for glyph, named, earlier in kinds)
 
 
-def _came_and_went(earlier: list, named: list) -> str:
-    """`(+came/−went)`, members matched by name and counted as many times as they stand."""
+def _came_and_went(earlier: list | None, named: list) -> str:
+    """` (+came-went)` after the total, each only where it is not nought and the brackets only
+    where they hold one (the user, 2026-10-12); members matched by name and counted as many times
+    as they stand. No earlier count — the session's first window — is nothing to compare, never
+    everything come."""
+    if earlier is None:
+        return ""
     then, now = Counter(earlier), Counter(named)
-    return f"(+{sum((now - then).values())}/−{sum((then - now).values())})"
+    came, went = sum((now - then).values()), sum((then - now).values())
+    moved = (f"+{came}" if came else "") + (f"-{went}" if went else "")
+    return f" ({moved})" if moved else ""
 
 
 def _tally(root: Path, store: Store, known: dict[str, tuple[int, int, list[tuple[int, str]]]]) -> Counted:
