@@ -31,7 +31,7 @@ one line; any other text in further lines.*
 
 **The counters stand after the commits** — the window's line of open tickets, questions and straw
 dogs with what came and went, copied as it stands, a one-cell table before the head table. It
-lands with [01-0011.0110.0020.0010 a-reply-counts-what-is-open](../tickets/01-0011.0110.0020.0010-a-reply-counts-what-is-open.md),
+lands with [01-0011.0110.0020.0010 a-reply-counts-what-is-open](../tickets/done/01-0011.0110.0020.0010-a-reply-counts-what-is-open.md),
 the window printing it from this version on.
 
 ## v82 — 2026-10-11

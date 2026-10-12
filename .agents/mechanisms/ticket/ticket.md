@@ -102,8 +102,9 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 ## What it produces, and who reads it
 
 - **The tickets** — *what it intends to become, what happened once closed* — read by `/plan` for what to build, by `/implement` for the same, by `/verify`
-  for the criteria, by `/maintain` for whether each is finished, and through citations from every
-  record that cites work by its slug.
+  for the criteria, by `/maintain` for whether each is finished, by the questions mechanism's
+  window, which counts the live ones through `tickets.live_tickets`, and through citations from
+  every record that cites work by its slug.
 - **The queue** — *what it intends to become* — read by `/recall` for the order and its candidate,
   and by whoever orders the work; written by hand.
 - **The list** — *what exists* — read under P12 by whoever orders the queue or is about to mint a
