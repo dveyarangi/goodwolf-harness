@@ -2,7 +2,7 @@
 
 - **record of** what it intends to become
 - **state** open
-- **lean** decisions 1–7, the user, 2026-10-12/13: allocation and trace links, coverage derived, pains measured not closed, zigzag; the document leads by showing, the order the person's; open: the seed words (.0003), the measure (.0004, parked)
+- **lean** decisions 1–9, the user, 2026-10-12/13: allocation and trace links, coverage derived, pains measured not closed, zigzag, the document leads by showing; each root and its words belong to its mechanism; the measure parked (.0004)
 - **struck** 0, last 2026-10-12T16:02Z
 
 Opened 2026-10-12 from the align on what is now q-0035.0002. The user: *the customer is not only
@@ -63,6 +63,17 @@ appears (q-0035.0001). This tree's own product document is the first case.
    the product mechanism shows the answers each item realizes — read through ticket, question and
    trace link — and the unrealized answers, by goal and by pain, so what is left out is a choice
    made in sight. Weighting the order by pain waits on the pain's measure (q-0035.0004).
+8. **Each seeded root belongs to the mechanism whose questions it holds** *(the user,
+   2026-10-12; moved from q-0035.0003)*: the purpose to the product mechanism, where every product
+   link goes; the structure to the development method; the landscape to the research mechanism,
+   which grows into what the GoodWolf research harness does — the landscape, the study of methods,
+   and analysis, the study of what methods yield. An empirical study answering a product question —
+   frost_map's crop-table figures — is analysis, the research mechanism's work, whichever root its
+   question sits under.
+9. **A root's words belong to its mechanism** *(the user, 2026-10-13)*: the store only seeds, into
+   an empty store, the roots the installed mechanisms declare. Until the product and research
+   mechanisms exist, the store's shelf keeps all three words, its sentence of ownership a straw dog
+   bound here.
 
 ## Open within it
 
