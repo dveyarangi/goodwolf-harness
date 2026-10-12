@@ -2,7 +2,7 @@
 
 - **record of** what it intends to become
 - **state** open
-- **lean** decisions 1–10, the user, 2026-10-12/13: allocation and trace links, coverage derived, pains measured not closed, zigzag, leads by showing, roots and words to their mechanisms; one product mechanism for the document, the README and the release note; in /spec
+- **lean** decisions 1–11, the user, 2026-10-12/13; its spec drafted, docs/spec/01-0040-a-projects-account-stays-in-agreement-with-its-work.md, awaiting acceptance; open: the README derivation (.0005), the measure (.0004, parked)
 - **struck** 0, last 2026-10-12T16:02Z
 
 Opened 2026-10-12 from the align on what is now q-0035.0002. The user: *the customer is not only
@@ -82,6 +82,10 @@ appears (q-0035.0001). This tree's own product document is the first case.
     `/product` skill holding the three formats and the writing of all three. A line of contract
     change stays the edge mechanism's, read by the note and the README, never written by them;
     publishing a release stays the harness's. No separate releases mechanism is declared.
+11. **In core for now** *(the user, 2026-10-13, at the spec)*: the product mechanism ships with
+    core like every other, its script beside theirs; in a tree with no product document its check
+    finds nothing, and the rules it installs hold where a project keeps a product document — that
+    condition a straw dog bound to q-0018.0024, until a project can take a mechanism alone.
 
 ## Open within it
 
