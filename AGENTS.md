@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v83, 2026-10-12.
+Entry contract: v84, 2026-10-12.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -70,13 +70,13 @@ Debug or not, a row each, and a table only where it has one: what waits on the u
 under `| ⚖️ Decisions |`, the next step the reply stops before among it, with nothing said of why
 it waits — never one already taken, the agent's own included, which the reply reports as taken and
 the user overturns by saying so; a record out of agreement with what it is of, met and not repaired,
-under `| 🍂 Drift |`; one party's work or claim colliding with another's — another session
-standing where this one works — met and not resolved, under `| 🪢 Tangle |`, even where a
-record's disagreement is what shows it. The 🪢 table's header lists every running session's
+under `| 🍂 Drift |`. Under `debug=on` also: one party's work or claim colliding with another's —
+another session standing where this one works — met and not resolved, under `| 🪢 Tangle |`, even
+where a record's disagreement is what shows it. The 🪢 table's header lists every running session's
 question, this one's included, on one line, each by its id linked to its entry, `—` for a session
 with no position; each collision is a row under it, naming the sessions it involves.
 
-Under `debug=on`, head the reply with a one-cell table holding a row for each of the turn's store
+Head the reply with a one-cell table holding a row for each of the turn's store
 calls, in order, the first over `|---|`: `| 📍 **q-N** · <its question as the window writes it> |`
 for the question the turn ends on, `| 🌱 **q-N** · <question> |` for one opened in it — one the
 turn opened and ends on gets the 🌱 row alone — `| ✅ **q-N** · <question> (<kind>: <its answer>) |`
@@ -88,8 +88,8 @@ is goodwolf-harness's own.
 A turn that completes a step of the delivery ring adds a row to the head table:
 `| 🔁 <the ticket, linked with its slug> · ✅ <each step this turn completed> |`. The 🪢 table
 opens the reply; a turn that made commits follows it with a table of its own, `| 🪶 Commits |`, a
-row each in order: the short hash and the subject's head; then the window's counters line, copied
-as it stands, a one-cell table of its own; the head table comes after them.
+row each in order: the short hash and the subject's head; then, under `debug=on`, the window's
+counters line, copied as it stands, a one-cell table of its own; the head table comes after them.
 </straw-dog>
 
 <installed by="ticket">

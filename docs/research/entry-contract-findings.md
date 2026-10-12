@@ -15,6 +15,12 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v84 — 2026-10-12
+
+**What `debug=on` shows moves** — the head table of the turn's questions is drawn always; the 🪢
+table and the window's counters line only under `debug=on`. The user: *is debug=on only for the
+questions? I don't think that's right — if anything, debug=on for the tangles and our new line.*
+
 ## v83 — 2026-10-12
 
 **The tangle's header names every session's question** — on one line, each id linked to its entry,
