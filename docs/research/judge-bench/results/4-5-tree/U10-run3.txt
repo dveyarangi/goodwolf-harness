@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The person asked what ticket 0050 is about, and the draft explains the ticket in plain words. It commits to no new shape beyond proposing /plan as the next cycle, which is the existing queue order, gated by next-cycle=ask. I compared the draft with the ticket file. Its three build items, the leak-check rule that core never points into docs/, and the two repairs all match the ticket's "What to build". In the tree, harness.py references no harness.md, and architecture.md has an Installing section at line 173, which supports the draft's claim that neither repair is done. The draft itself defers the open design question, which is where the convention lives and how a script names its doc. That question belongs to /plan and can be settled locally in that step without changing anything the draft commits to. It also flags the collision with the other session's uncommitted harness edits. No load-bearing part is left unexamined by the draft.
+CONFIDENCE: high

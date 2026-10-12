@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The person asked what ticket 0050 is about, and the draft explains the ticket's content: a convention for pointers from agent-edited things back to their records, code pointing to its mechanism's doc, and two repairs. It commits to no shape of its own. The only forward step is proposing /plan, which is left as a decision for the person under next-cycle=ask. Candidate parts: where the convention lives and how a script "names" its doc, which the draft itself defers to the plan stage and so does not commit on. The collision with the other session's uncommitted harness.py and harness.md edits, which the draft names and defers to implementation. Both can be settled later without changing what the draft says, so they pass the counter-test. A draft that explains and commits to nothing is answered no.
+CONFIDENCE: high

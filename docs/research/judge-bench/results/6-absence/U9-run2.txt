@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft commits to keeping the criterion, recording the queue note, declining a post-/conclude hook in favour of the format-declares-kind / skill-writes-mark / check-holds pattern, and leaving story 19's placement to the user (straw-dog line bound to q-0034 or stay as is). I checked the host claims: docs/edge/hosts.md rates Cursor "reached in part" and the Claude Code record lists only SessionStart and UserPromptSubmit as wired, so "no after-skill event observed or wired" holds as a statement about the records. The draft's second reason (a mark stamped after the record is written does not act in context at writing time) is independent of host reach, so the recommendation does not hang on whether Stop/PostToolUse exist on some hosts. q-0023.0013 and q-0034 both exist with the titles quoted. The remaining choice (where story 19 lives) is explicitly handed to the user as a decision and is settleable locally without changing what the draft commits to.
+CONFIDENCE: medium

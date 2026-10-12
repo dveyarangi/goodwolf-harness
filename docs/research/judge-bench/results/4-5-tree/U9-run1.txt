@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft commits to three small things: the first criterion of .0040 stands with the RFC mark hung on the unminted plan ticket under q-0023.0013; a hook after /conclude is not advised; and history 19 goes to a straw-dog line in /conclude bound to q-0034, left to the person's choice. I checked that q-0023.0013 ("What does /plan own?") and q-0034 (session mechanism, the person's own proposal, owning /recall and /conclude) both exist in the store, and that docs/edge/hosts.md records only the start and message hook events, with Cursor reached in part, so the host claim rests on the tree. The remaining candidates are whether a later-added session-end event could change the hook verdict, and whether marking the session record collides with the open sub-question on records without a format. Both can be settled later and locally inside q-0034 and do not change what the draft promises. The criterion decision is the person's own, and the history 19 choice is surfaced as a decision, not committed.
+CONFIDENCE: medium

@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft answers "where does the rule live" with L3 in local.rules.md (targeting verify), the general principle in core AGENTS.md, and flags two follow-ups: installing L3 into /implement and /maintain, and wrapping the sentence as a straw dog. I checked the tree: L3 is indeed in local.rules.md with the single target verify/SKILL.md; the 7 Oct align (q-0018.0022 item 3) does say the set is injected into each skill that runs it; /implement and /maintain mention the set without carrying L3's text. Two premises are somewhat shaky: /implement links to /verify's section (so the text is reachable by pointer), and q-0018.0022.0001.0001 records the by-scope decision as decided by the user, with only parallelism and the guard open, so the straw-dog wrap is doubtful. Both, however, are local settlements (which skills receive the block, whether to wrap) and are put to the person as a decision/drift; neither changes where the rule lives, what it promises, or its boundary. The draft's home answer stands regardless, so the counter-test passes.
+CONFIDENCE: medium

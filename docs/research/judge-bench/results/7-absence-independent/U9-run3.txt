@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft commits to keeping criterion 1 of .0040 (recorded in the tickets README), tying the RFC mark to the unminted /plan-mechanism ticket under q-0023.0013, and advising against a post-/conclude hook for story 19 in favour of the format-declares / skill-writes / check-holds pattern, with the decision on story 19 put to the person. I verified q-0023.0013 exists in the store and that the hosts doc records only start and per-message hooks, with Cursor reached in part, so the factual premises hold. The hook recommendation rests on three independent reasons; even if a host does offer an after-skill event, the "mark after the fact does not meet the agent at writing time" argument stands alone, so the host-coverage claim is not load-bearing. The remaining open choices (a straw-dog line in /conclude vs. leaving story 19 as is, and its binding to q-0034) can be settled locally without changing the criterion decision or the pattern the draft commits to. The README wording is a local note that follows the user's stated decision.
+CONFIDENCE: medium

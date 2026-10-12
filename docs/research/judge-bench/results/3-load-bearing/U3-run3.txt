@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft mostly answers a where-does-it-live question: the rule sits in L3 of local.rules.md, the general principle sits in core, and L3 reaches sessions only through /verify. It commits to no new shape beyond proposing that L3 also be installed into /implement and /maintain, and it puts that proposal to the person as a decision. I considered whether the markdown boundary belongs in core rather than the local file. The draft rests the local placement on the 7 October decision and on recipients having their own tests, so this was examined. I considered the overlap with q-0027.0003, owned by another session. The earlier exchange already raised it as a tangle, so it is not unexamined. I considered whether the installer strips a straw-dog wrapper inside a local rule. The draft names this as a check to make, and the answer only changes whether the wrapper can be applied, not what the rule promises. The install targets for L3 and the wrapper are settled locally, with no change to the contract.
+CONFIDENCE: medium

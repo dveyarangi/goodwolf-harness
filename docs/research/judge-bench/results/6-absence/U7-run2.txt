@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft commits to a migration plan: tickets 01-0014 to 01-0020 get roots and nested questions in the question store. Seven of the ticket-level Open issues become questions, five items move into What to build or into the body of an existing question, and four are deleted. I checked the deletions against the tree. Items 33 and 30 are stale: AGENTS.md now carries the Autonomy repair policy and several installed blocks. Item 34 points at 01-0010.0140, which is in done/. Item 37 is a status stub. Item 26 is already filed as q-0005, which has no body yet, so moving the text there is harmless. Items 38, 40, 27 and 32 read as work or constraints, or as an argument, as the draft says. The id re-parenting of q-0004 touches citations, but earlier exchanges had already settled that mechanism, namely the mover that repairs citations. Everything else, such as exact wording or the q-0110 dependency link, can be settled locally without changing what the draft commits to. The draft also ends by asking the person to accept or edit.
+CONFIDENCE: medium

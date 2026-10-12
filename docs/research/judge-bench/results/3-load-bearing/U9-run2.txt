@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft commits to three things: criterion 1 of .0040 stands unchanged with the ticket held open and the /plan-as-mechanism work recorded in the queue under its existing question; a recommendation against a post-/conclude hook; and the pattern "format declares the kind, the skill writes the mark, a check holds it", with an interim one-line straw dog bound to q-0034. The hook question was the person's, and the draft examines it on host reach, timing of the mark, and weight, so the earlier exchanges and this draft already cover it. The remaining candidates, such as how long .0040 stays open, whether the unminted plan-mechanism ticket is queued correctly, and the exact wording of the straw dog, can all be settled later and locally without changing the contract the draft commits to. The person's own condition (narrow only by hanging the RFC's mark on the planning-mechanism ticket) is recorded as the rule, not left open. The one real choice, story 19's home, is surfaced to the person as a decision rather than silently committed to.
+CONFIDENCE: medium

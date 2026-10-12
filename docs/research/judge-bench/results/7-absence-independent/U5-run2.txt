@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports a rename the person authorized and had already examined (mover behaviour, text of links, snapshots, the pacer), and then recommends dropping the queue's `Last updated` line, putting that choice to the person. I considered the recommendation's premise that `git log docs/tickets/README.md` replaces the field. It is weak: TICKET-FORMAT.md:199 defines the field as the date delivery state moved, explicitly not advanced by a link repair, whereas git log moves on link repairs, as the rename just did to the queue. I then checked who depends on the field. Only the README, QUEUE-ARRIVAL.md, TICKET-FORMAT.md and a test fixture mention it, and no script reads it. The ticket 01-0011.0040 already names "whether Last updated survives" as an open decision of its own. So removing the field, and what stands in for it, can be settled locally in the format, the template and the queue without changing what the draft commits to, and it passes the counter-test as detail. The tangles and drift it reports are reports, not shapes.
+CONFIDENCE: medium

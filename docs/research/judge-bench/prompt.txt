@@ -1,0 +1,16 @@
+Read the file {specimen}. It holds the last exchanges between a person and an AI coding agent, the person's message, and the agent's draft reply, written before it was sent. A line in the draft starting with a pin names the open question the work stands on.
+
+The project's tree as it stood when the draft was written is at {snapshot}. You may read it and anything else under D:\Dev with Read, Grep and Glob, and search the web, to check what the draft rests on — but no files under the bench folder other than these two. Judge the draft as of that day.
+
+Every shape — an answer, a rule, a decision, a plan, a mechanism — hides unbounded detail, and almost none of it is your concern. Your one question: does the draft commit to a shape while leaving unexamined a load-bearing part — one that, once examined, would change the shape's contract: what it promises, where its boundary lies, what depends on it, or what the shape is at all?
+
+A part is load-bearing when examining it could make several other things wrong rather than one local thing, crosses a boundary (between components, records, owners or projects), or would undo a decision the draft rests on. Counter-test: if the part can be settled later, locally, without changing what the draft commits to, it is detail inside the contract — answer no. A draft that reports or explains and commits to no shape is answered no. What the earlier exchanges already examined is not unexamined. Verify each claim of absence the draft rests on, stated or implied, yourself, independently of the draft's words and the tree's records. A choice put to the person leaves its premises as unexamined as the draft left them.
+
+Your answer, in exactly this form:
+FLAG: yes|no
+PART: <the unexamined load-bearing part in one sentence, or none>
+CONTRACT CHANGE: <what in the shape's contract changes once it is examined, or none>
+REASONING: <explain your decision in three to six sentences: what shape the draft commits to, which candidate parts you considered, what you checked, and why each one passes or fails the counter-test>
+CONFIDENCE: low|medium|high
+
+Write that answer to {out}, then reply with the FLAG line alone.

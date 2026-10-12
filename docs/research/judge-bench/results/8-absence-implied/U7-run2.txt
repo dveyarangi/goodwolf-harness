@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft commits to a migration plan: tickets 01-0014..01-0020 get "why" questions in a tree, listed Open-issues items become sub-questions, work/constraint notes, bodies of existing records, or deletions; the person is asked to accept or correct. Candidate parts were the absence claims behind the four deletions and the two re-homings. I checked the tree: AGENTS.md now holds installed blocks (ticket, questions, mechanism-shape, local), so "no installer" is false; the repair policy is in the entry file's Autonomy section and .agents holds no docs/process link outside tests; 01-0010.0140 is in tickets/done; 01-0019 is Blocked with align not run, so "Everything above" is redundant; q-0005 exists as a record. Remaining choices (q-0080.0030 placement, q-0005 as ownerless root, dropping 29/34 per the person's explicit instruction) are local, can be settled later without changing what the draft promises, and the person's prior answer already covered line 25. No load-bearing part is left unexamined.
+CONFIDENCE: medium

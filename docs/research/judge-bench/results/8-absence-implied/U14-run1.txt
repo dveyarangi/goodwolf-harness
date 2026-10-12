@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft commits to no new shape; it reports two FIX commits already authorised by the person ("yes, commit as FIX") and asks whether to push. The tree's local rules set push=ask, so asking is the correct behaviour and the claim of being unpushed is consistent with it. Candidate parts considered: the doc commit carrying unrelated question-store positions along (a local bundling choice, disclosed in the draft, revertible without changing what the fix promises); the untested successful swap path and the unproven root cause (both already examined in the previous exchange, and the draft repeats them as open); the downstream recipient, xuanxue-workshop, getting the fix only after a push and an update (stated in the draft). None of these would change the fix's contract, boundary or dependents if examined later, so each can be settled locally.
+CONFIDENCE: high

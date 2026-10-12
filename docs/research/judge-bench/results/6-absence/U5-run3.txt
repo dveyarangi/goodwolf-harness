@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports a finished rename (a rename the person approved after the mover and the repair plan were examined in earlier exchanges) and puts one recommendation to the person: drop `Last updated` from the queue and the new-queue template. I considered whether anything depends on that field. A grep of .agents and docs finds it only in TICKET-FORMAT's field table, the QUEUE-ARRIVAL template, one test fixture string, the queue header, and two tickets that already list "whether Last updated survives" as an open question. No script, skill or recall step reads it, so removal does not cross a boundary. The field's defined meaning (delivery state moved, not file touched) differs somewhat from git log of the README, but that is a local wording point inside the decision the draft already puts to the person, and it is reversible. The rename claims (130 files repaired, the Tangle and Drift notes) are reports, not new shape commitments. The decision can be settled locally without changing what the draft commits to.
+CONFIDENCE: medium

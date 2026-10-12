@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft commits to keeping criterion 1 of .0040 (recorded in the README candidate), advising against a post-/conclude hook for story 19 in favour of a format-declares-kind / skill-writes-mark / check-holds pattern, and putting the remaining choice (a straw-dog line in /conclude bound to q-0034, versus leaving it) to the person. I checked the host-hook claim: docs/edge/hosts.md wires only session-start and before-every-message hooks, so the draft's statement about the recorded wiring holds (Claude Code does have other events, but the draft's decisive argument, that a stamp after the fact misses the write moment, does not depend on that). I checked that q-0023.0013 exists in the store as "what does /plan own". The criterion-kept part follows the person's own decision. The story-19 recommendation rests on the glossary principle that the mark must be met at write time; whether to hook later or put it under q-0034 can be settled locally without changing what is committed to, and the draft already ties it to the session-mechanism question. No unexamined part would change the contract.
+CONFIDENCE: medium

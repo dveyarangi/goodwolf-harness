@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The person asked what ticket .0050 is about, and the draft explains it. It commits to no new shape beyond proposing /plan as the next step, which is already a pending decision for the person. Its account matches the ticket in the tree (one convention covering three cases, core marks back only to its mechanism's doc and never into docs/, the Installing section repair and the installer's pointer, AFK, Ready). The candidate parts I considered were where the convention lives, how a script "names" a doc, and the collision with the other session's uncommitted harness edits. The draft itself defers the first two to /plan, and they can be settled locally in the plan without changing what the ticket commits to. The collision is stated and handled by sequencing implementation after the other session's commit. Nothing hidden would change the contract of a report-style answer.
+CONFIDENCE: high

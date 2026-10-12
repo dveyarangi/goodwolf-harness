@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports two completed FIX commits and asks permission to push; it commits to no new shape. The fix itself (create replacement first, swap on success) was examined in the earlier exchange and approved by the person. I checked that push=ask is in force in the tree (local.rules.md and AGENTS.md L2), so asking before pushing is correct and the draft's claim stands. The one mild oddity is that unrelated question-store positions rode along in the doc commit, but that is a local commit-hygiene detail that can be settled without changing anything the draft promises. The remaining items (harness output level due, workshop needing a later update) are stated follow-ups, settled locally later.
+CONFIDENCE: high

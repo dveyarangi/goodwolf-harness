@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports two completed FIX commits and puts a push to the person; it commits to no new shape beyond that. The claim that push is gated by `push=ask` checks out: the tree's AGENTS.md L2 and local.rules.md both set commit=ask, push=ask, and past session records treat unpushed commits the same way. Asking is therefore the correct contract, and the choice leaves no premise unexamined. Other candidates were the second commit carrying unrelated question-store positions, the untested swap path, and the claim that the workshop gets the fix only after a push and another update. Each of these can be settled later and locally. None changes what is promised, where the boundary lies, or what depends on it. The earlier exchanges had already examined the fix design and the cause.
+CONFIDENCE: medium

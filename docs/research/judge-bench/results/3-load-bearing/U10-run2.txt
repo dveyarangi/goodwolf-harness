@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The person asked what ticket 0050 is about, and the draft explains the ticket: a convention for pointers from agent-edited things back to their governing record, plus two repairs. It commits to no new shape; it reports the ticket's scope and proposes only the next loop step, /plan, behind the next-cycle=ask switch. Candidate parts I considered: where the convention lives and how a script names its doc (the draft names this itself as the open point for the plan, so it is examined and deferred to the right place); the collision with the other session editing harness.py and harness.md (also named, with sequencing handled at implementation); the claim that the work is small and AFK (it comes from the ticket's own classification, and the draft's description of scope is consistent with it). Each of these can be settled later, locally, in /plan without changing what the draft commits to, so none passes as a load-bearing unexamined part.
+CONFIDENCE: medium

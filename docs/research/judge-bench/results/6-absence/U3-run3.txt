@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft answers "where does the rule live" with one home, L3 in local.rules.md, installed into /verify, plus the core principle "Weight follows the work" as its general form. I checked local.rules.md (L3 targets only verify/SKILL.md), the installed block in verify/SKILL.md, the q-0018.0022 align of 2026-10-07 (set's home is the local rules file, injected into each skill that runs it, into no document), and q-0018.0022.0001.0001 (tests by what changed, landed in L3). The draft's claims hold: /implement and /maintain run the set but are not L3 targets. One thing it does not weigh is that /implement links to /verify's "The verification set" section as the definition, which softens the drift reading. That affects how a follow-up decision is framed, not where the rule lives or what it promises, and it can be settled locally. The straw-dog wrapper question is flagged by the draft itself as open and is local to one rule's wording. The core/instance boundary is respected, since L3 is in the local block. No unexamined part would change the contract.
+CONFIDENCE: medium

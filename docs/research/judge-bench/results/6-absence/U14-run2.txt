@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports two FIX commits the person explicitly asked for, states that they are unpushed under push=ask, lists two remaining follow-ups, and asks whether to push. It commits to no new shape (no rule, plan, mechanism or decision); the fix itself was examined and agreed in earlier exchanges. I checked the tree's push setting: it is push=ask in the tree as of that day, so the draft's claim and its question are consistent with the project's rules. Candidate parts, such as the untested successful swap path or the fact that the fix has not reached the workshop, are already surfaced in earlier exchanges or in the draft and can be settled locally later without changing what was committed.
+CONFIDENCE: high

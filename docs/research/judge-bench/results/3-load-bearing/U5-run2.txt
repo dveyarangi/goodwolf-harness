@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft mostly reports a rename that was already examined and approved in the earlier exchanges (the mover's behaviour, link-text handling, snapshots left alone, the pacer held back and then included on the person's say-so), and it states the verification (649 tests, --check clean, 413/413 line diff). Its only forward commitment is a recommendation to drop the `Last updated` line from the queue and from the new-queue template, and that recommendation is put to the person as a pending decision rather than carried out. I considered whether a check, test or consumer reads `Last updated`, and whether the template is core and so reaches recipients. Both are real questions, but they can be settled locally when the decision is taken, and either answer only changes how the removal is done, not what the shape is. I also considered the dangling EDGE-FORMAT link and the other sessions' stale paths. The draft surfaces both in the Drift and Tangle tables with owners named, so nothing is hidden. The git-log replacement for the date is a minor accuracy point, not a contract change.
+CONFIDENCE: medium

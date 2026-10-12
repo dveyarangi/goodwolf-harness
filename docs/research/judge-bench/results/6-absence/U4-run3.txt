@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports counts of tickets (36 live, 44 done, 80 total) and question-store entries (146 in the root, 35 archived) and offers a further breakdown; it commits to no mechanism, rule or plan. I checked the tree: docs/tickets holds 37 files including README (36 live), docs/tickets/done holds 44, and docs/questions has 146 q-files plus a done/ folder, so the figures hold. The candidate gap, that no chart was actually produced although the user asked for one, is a deliverable omission that can be fixed locally on the next turn and changes no contract. The method (last commit per day) is stated and the draft caveats that 146 is not the open-question count.
+CONFIDENCE: medium

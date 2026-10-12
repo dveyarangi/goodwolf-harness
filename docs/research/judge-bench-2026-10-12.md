@@ -1,0 +1,57 @@
+# The judge bench — sixteen drafts a judge is graded on, 2026-10-12
+
+A bench for the judge of
+[q-0001.0020.0001 does-a-judge-outside-the-agent-flag-the-drafts-that-hid-parts](../questions/q-0001.0020.0001-does-a-judge-outside-the-agent-flag-the-drafts-that-hid-parts-and-pass-the-ones-that-did-not-on-the-recorded-cases.md):
+a reader outside the agent, given one of the agent's draft replies, says whether the draft commits
+to a shape while leaving a load-bearing part of it unexamined. Built while probing that question,
+preliminary to [01-0011.0100.0050 a-question-branches-before-it-is-answered](../tickets/01-0011.0100.0050-a-question-branches-before-it-is-answered.md),
+and kept so a changed judge is graded on the same drafts *(the user, 2026-10-12)*. The bench's
+files are in [`judge-bench/`](./judge-bench/); what each run found is in the question's body.
+
+## The set
+
+Sixteen drafts cut from the transcripts, each with the two exchanges before it, labelled `U1`–`U16`
+in an order that hides their verdict. [`key.json`](./judge-bench/key.json) holds, per label, the
+transcript and lines it came from, the commit its tree stood at, the verdict going in and the
+evidence for it:
+
+- **Failure** — four drafts the person later corrected: rule failure 25 twice, rule failure 11, and
+  a deferral resting on a second case nobody had looked for.
+- **Hid** — four accepted drafts later shown to hide a part, or doubtfully so.
+- **Clean** — seven accepted drafts nothing has amended since.
+- **Unknown** — one accepted draft whose part a judge flags and nobody has checked.
+
+A person's acceptance is no clean label: two drafts first taken as controls were found to hide a
+part. A verdict moves with new evidence, and the key is edited when it does.
+
+## Running it
+
+1. Lay out the trees: `snapshot.py <directory>` writes each label's repository at its commit, the
+   last before the draft, into a directory outside the repository.
+2. For each label, run three judges — fresh subagents, Sonnet, one per run — each given
+   [`prompt.txt`](./judge-bench/prompt.txt) with `{specimen}`, `{snapshot}` and `{out}` filled in.
+   A host runs twenty at once.
+3. Read the `FLAG` lines: a draft is flagged by the majority of its three runs. Then read the
+   `PART` against the key's evidence — a flag on a failure counts when it names the person's part.
+
+`build.py` rebuilds `specimens/` from the transcripts, and reruns only on the machine that holds
+them. A judge reads 65,000 to 100,000 tokens; a full run is forty-eight judges.
+
+## The prompts run so far
+
+[`results/`](./judge-bench/results/) holds every answer written to a file, by run; the first three
+runs answered in the conversation and are summarised in the question alone.
+
+| run | what changed | where |
+|---|---|---|
+| 1–2 | any part that could be named; one exchange; no tree | the question |
+| 3 | load-bearing parts alone, the counter-test, the contract change named, reasoning; two exchanges before | `3-load-bearing` |
+| 4–5 | the tree at the draft's commit | `4-5-tree` |
+| 6 | a claim of absence stays unexamined until its search covers it; the machine and the web | `6-absence` |
+| 7 | verify each claim of absence independently; a choice put to the person leaves its premises unexamined | `7-absence-independent` |
+| 8 | absence stated or implied — `prompt.txt` as it stands | `8-absence-implied` |
+| 9 | the same prompt over the other nine drafts | `9-all-sixteen` |
+
+Under the current prompt, three of four failures and one confirmed hidden part draw a majority and
+no clean draft does; rule failure 25's fourth draft, caught by every earlier prompt from run 3, is
+lost.

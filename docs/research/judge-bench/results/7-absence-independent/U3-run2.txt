@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft answers "where does the rule live": L3 in local.rules.md, installed into /verify, with the general principle (Weight follows the work) in core AGENTS.md. I checked the tree. L3 sits in local.rules.md with the single target verify/SKILL.md. The 7 October align in q-0018.0022 does say the set is "injected into the skills that run it and into no document". /implement and /maintain mention the set but carry no L3 text, and local.rules.md has no straw dog. The draft's "drift" reading is open to doubt, because /implement deliberately links to /verify's definition ("as /verify defines it"), but that only affects a proposal put to the person, which can be settled locally. Whether the installer strips a straw-dog wrapper inside a local rule is flagged as unchecked, and it is a local mechanism detail that does not change where the rule lives. The home and the core/local split do not depend on either point, so the counter-test passes.
+CONFIDENCE: medium

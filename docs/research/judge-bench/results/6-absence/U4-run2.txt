@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports counts of tickets (80 total, 36 live, 44 closed) and question-store entries (146 root, 35 archived) and offers a further breakdown; it commits to no rule, mechanism or plan. The one interpretive claim is that 146 is not the number of open questions because closed-but-unarchived records stay in the root. I checked the tree: docs/tickets has 38 entries (about 36 tickets plus README and the done folder), docs/tickets/done has 44, and docs/questions has 148 entries (146 plus the sessions folder and similar), so the counts are consistent. The caveat on 146 is stated and the breakdown can be settled later without changing anything the draft promises. The missing chart is a local gap in the deliverable, not a boundary or contract matter.
+CONFIDENCE: high

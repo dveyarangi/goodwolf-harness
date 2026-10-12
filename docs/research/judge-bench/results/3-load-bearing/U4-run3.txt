@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports ticket and question counts derived from git history and offers to refine them; it commits to no rule, mechanism, decision or plan. The method is stated (last commit per day, counting files in docs/tickets/ and docs/tickets/done/), and the draft itself warns that 146 is not the number of open questions and says what it includes. Candidate parts considered: whether the counting method matches how tickets are really tracked, and whether the question store's root includes closed records. Both only affect the accuracy of a read-only figure and can be settled locally without changing anything the draft commits to. The draft does not build the requested chart, but it offers to, and that is a scope gap rather than an unexamined load-bearing part. Nothing in it crosses a boundary or rests on an undone decision.
+CONFIDENCE: high

@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports that two FIX commits were made as the person asked and asks whether to push; it commits to no new shape, only executes an already-accepted one (the installer fix examined in the earlier exchanges). Candidate parts: the untested successful-swap path and the unproven root cause of the link removal were both already surfaced in the prior exchange, so they count as examined and do not change what this reply commits to. The doc commit carrying the question-store positions along is a bundling detail that can be settled locally without changing any contract. Whether xuanxue-workshop receives the fix depends on a later push and update, which the draft states plainly and leaves to the person. A push is a separate human checkpoint, so asking is the correct boundary rather than a hidden part. None of these, once examined, would alter what the draft promises or what depends on it.
+CONFIDENCE: high

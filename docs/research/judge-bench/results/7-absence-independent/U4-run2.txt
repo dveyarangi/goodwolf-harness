@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports ticket and question counts from git history and offers to break them down further; it commits to no shape (no rule, mechanism, or decision). The candidate parts, such as how "live" versus "closed" tickets were counted or whether the question-store figure means open questions, are explicitly caveated by the draft itself (146 is not the open count) and can be settled locally by a follow-up without changing anything the draft commits to. I checked the tree: docs/tickets holds 44 done files and about 37 entries besides README in the live folder, so the figures are close; any small discrepancy is a local counting detail. The draft does skip the requested chart, but that is a deliverable gap, not an unexamined load-bearing part.
+CONFIDENCE: high

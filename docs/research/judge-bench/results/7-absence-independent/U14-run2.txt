@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports two FIX commits the person had just authorized, notes what remains (the harness output level due for /maintain re-check, xuanxue-workshop needing the fix via a later update), and asks whether to push. It commits to no new shape; the fix itself was examined and accepted in earlier exchanges. I checked the one claim the draft leans on, push=ask: the tree's local.rules.md and AGENTS.md at that date both set push=ask, so asking before pushing is correct. Candidate parts, such as whether the swap-then-replace path works on Windows or whether the root cause was proven, were already flagged as open or untested by the earlier turn and are local to the installer fix, so they do not change what the draft commits to. Pushing is a separate decision put to the person.
+CONFIDENCE: high

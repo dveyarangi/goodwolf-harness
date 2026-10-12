@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports counts of tickets and question records from git history and offers a further breakdown; it commits to no rule, mechanism or decision, so there is no shape whose contract could change. I considered whether the counting method (last commit per day, files in docs/tickets and docs/tickets/done) or the reading of 146 question records hides something load-bearing. I checked the tree: docs/tickets holds 36 ticket files plus the done directory, done holds 44, and docs/questions holds about 146 entries plus the sessions folder, matching the draft's numbers. The claim that 146 is not the open-question count is an explicit caveat, and any recount is local detail. The missing chart is an omission of deliverable, not an unexamined part of a committed shape.
+CONFIDENCE: high

@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports ticket and question counts derived from git history and offers further breakdowns; it commits to no rule, decision, plan or mechanism. The candidate parts I considered were the counting method (last commit per day, excluding README.md), the meaning of 146 records in the questions store, and the missing chart the person asked for. The counting method and the 146 figure are explained in the draft itself, and any inaccuracy there would be corrected locally in the numbers without changing a contract. The missing chart is a delivery gap that can be filled in a follow-up, and it crosses no boundary or owner. The draft also ends by offering options rather than fixing a shape, so nothing it rests on is left unexamined.
+CONFIDENCE: high

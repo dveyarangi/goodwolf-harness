@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft mostly reports an already-authorized rename (the person said "давай, переименовывай, пэйсер тоже") and then recommends dropping the `Last updated` line from the queue and its template, a choice it leaves to the person under Decisions. The rename's load-bearing questions were examined in earlier exchanges: the slug rule was amended, the mover's reach and its limits (link text, snapshots, code spans, commit messages) were laid out, and the Pacer was explicitly in scope. The cross-session risk, another session holding the old path or an old link caption, is reported in the Tangle table, so it is surfaced rather than hidden. The `Last updated` recommendation could rest on a weak premise, since `git log` of the queue file also shows mechanical edits such as renames. Even so, that can be settled locally when the person decides, and it changes no contract. The EDGE-FORMAT dangling link is reported as drift and belongs to another session's uncommitted work. No part of the draft would undo a decision it rests on.
+CONFIDENCE: medium

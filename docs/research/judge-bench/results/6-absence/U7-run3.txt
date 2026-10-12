@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft commits to a migration plan for the Open issues of tickets 01-0014..01-0020: most become store questions, nine go to What to build, a body, or deletion, and the person is asked to accept or edit. I checked the claims the deletions rest on against the tree. AGENTS.md carries four installed blocks, so "AGENTS.md has no installer" is stale. The repair policy now sits in the entry file's Autonomy section. No file under .agents references 01-0010.0140, so the warning to that ticket is moot. "record-bearing" is still not a declared field, which supports moving item 27 into 01-0017.0010's work. q-0005 exists with its own lean, so folding item 26 into it is local. Dropping item 25's two decisions loses their wake-visible return conditions, but the person decided that and the draft asks them to confirm. Everything left is detail that can be settled at the accept-or-edit step without changing the plan's contract.
+CONFIDENCE: medium

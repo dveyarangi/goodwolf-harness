@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft mostly explains what ticket 0050 is, restating its "what to build" and acceptance criteria faithfully, and proposes only that /plan comes next, a choice put to the person. I checked its absence claims. No non-test script under .agents/scripts names a mechanism doc, and harness.py has no reference to harness.md. docs/architecture.md still has a long *Installing* section that restates the install contract. The related question q-0024.0009.0004 is still open, so the draft is not overriding a decision. The draft itself lists the open design points (where the convention lives, and comment versus a form mechanisms.py can check) as plan-level questions that can be settled locally without changing what the ticket promises. I found no pointer convention for code comments in the implement skill of this tree to collide with. The collision with another session's uncommitted harness edits is already named as a sequencing matter. Nothing found would change the contract.
+CONFIDENCE: medium

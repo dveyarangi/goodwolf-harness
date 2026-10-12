@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft answers a counting question with a report: 80 tickets (36 live, 44 done) and 146 question records, and offers a breakdown and further series. It commits to no mechanism, rule or design. I checked the tree: docs/tickets holds 36 live files besides README, docs/tickets/done holds 44, and docs/questions holds 146 q- files, so the headline counts hold. The remaining claims (daily-commit history, the 35 archived questions) are descriptive, and nothing downstream depends on them. The way the counts are defined (a file in the folder, the last commit per day) is a local choice that can be changed later without altering anything the draft commits to. The person asked for a graph and the draft supplies none; that is a gap in what was delivered, not an unexamined part of a shape.
+CONFIDENCE: high

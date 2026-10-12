@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports ticket and question counts and offers a further breakdown; it commits to no rule, mechanism, plan or decision, so there is no shape whose contract could change. I checked the counts in the tree: 36 live ticket files (37 entries minus the done directory, README excluded), 44 in done, and 146 q-* files at the root of docs/questions, matching the draft. The "35 in archive" figure is not verifiable as a directory (the closed questions sit in docs/questions/done), but that is a local detail of a report, not a part that changes any contract. The history-by-day methodology and the missing chart are settled later and locally. The offer of a further split puts nothing load-bearing to the person.
+CONFIDENCE: high

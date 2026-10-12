@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports a finished rename (already examined and approved in the earlier exchanges) and then recommends one small change: remove the `Last updated` line from the queue and from the new-queue template. I considered whether the premise "git log of the queue file gives the same fact" hides a load-bearing part. It is weak: the TICKET-FORMAT field rule says link repairs and copy-edits must not advance the date, and this very rename touched the queue file's links, so git log would answer a different question. Still, I checked every reader of the line. Only the queue file itself, TICKET-FORMAT (inside a straw dog bound to q-0020), the QUEUE-ARRIVAL template and a test fixture mention it; no script or skill parses it. The queue ticket already lists "whether Last updated survives" as an open item for its own align, and a derived view replaces the table. So the flaw in the rationale can be corrected locally in that align without changing what the change commits to or any consumer. The Drift and Tangle items are reports, not shapes.
+CONFIDENCE: medium

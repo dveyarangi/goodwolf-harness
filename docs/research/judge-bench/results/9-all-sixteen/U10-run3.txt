@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft answers "what is 0050 about" by explaining the ticket (one convention for three mark-back cases, core pointing to its mechanism doc and never into docs/, two repairs) and only restates the already-offered next step, /plan. It commits to no new shape, so it is mostly a report. I checked its absence claims against the tree and they hold: no core script names its mechanism's doc (harness.py names no harness.md), and the architecture's Installing section still retells the install contract at length. The ticket text matches the draft's three bullets and its AFK/Ready status. Candidate parts, such as where the convention lives and whether a script can check the pointer, are explicitly deferred to /plan and can be settled locally without changing what the ticket promises. The concurrent-session collision on harness.py and harness.md only affects timing of implementation.
+CONFIDENCE: medium

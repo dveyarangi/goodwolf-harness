@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports ticket and question counts derived from git history and the tree; it commits to no decision, rule, plan or mechanism. I checked the headline counts against the tree: docs/tickets holds 36 live ticket files besides README and the done folder, and done holds 44, giving the stated 80. The question-store figure of 146 (148 entries in the folder, with sessions and similar items) is consistent with the draft's own caveat that it counts all records in the root, so it is not the number of open questions. The remaining gaps, such as that no chart was produced and that open versus closed questions are not split, are local follow-ups the draft itself offers, and they can be settled later without changing what the draft commits to. Nothing crosses a boundary or undoes a decision.
+CONFIDENCE: high

@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft mostly reports a finished rename (done by the mover, already agreed in the earlier exchange, with the mover's behavior, the snapshots and the tail of untouched citations all examined before) and recommends removing `Last updated` from the queue and the template, a decision it hands to the person. For that recommendation I checked whether anything consumes the field. A search of the tree finds it only in the queue itself, the format doc's column table, the queue template, and a test fixture that writes the string and does not depend on it. The old tickets that mention it are history, and the open ticket on the derived index already lists the question. The one soft spot is that the stated reason (git log shows the last change) is blurred by link-repair edits like this rename, but the format doc defined the date as delivery-state movement, which is now derived. That can be settled locally when the person decides and does not change what the draft commits to. The Tangle and Drift notes are surfaced with their actions named, not left unexamined.
+CONFIDENCE: medium

@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft commits to a disposition of 15 Open-issues bullets across eight tickets into the question store: a tree of new questions, four bullets moved into What-to-build or a body, and four deleted. It follows a staged RFC table that was already examined. I verified the claims of absence the deletions rest on. The installer does write four blocks into AGENTS.md (ticket, questions, mechanism-shape, local). AGENTS.md has an Autonomy section with the four repair conditions. Nothing under .agents/ or AGENTS.md links docs/process.md#autonomy-and-repair or 01-0010.0140 (grep found no hits). The bullets about the ticket record assuming one maintainer and the unmade amendment landing in 01-0017.0010 are routing choices, local to each record. Dropping the two deferred questions at the person's explicit instruction loses only a wake-time reminder, not a contract; the draft flags it and invites correction. Each candidate part can be settled later and locally without changing what the draft commits to.
+CONFIDENCE: medium

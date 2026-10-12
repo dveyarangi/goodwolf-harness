@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft answers "what is 0050 about" by explaining the ticket and, as its only commitment, proposes running /plan on it (a next-cycle=ask decision left to the person). Its description matches the ticket in the tree (one convention naming three cases, core code marks back to its mechanism's doc and never into docs/, the Installing section and harness.py repairs). The candidate open parts, where the convention lives and how a script "names" its doc (header comment vs something mechanisms.py can check), are explicitly deferred by the draft to the plan, and settling them there does not change what the ticket commits to or its outcome. The collision with the other session's uncommitted harness.py/harness.md edits is stated and sequenced (implementation waits for its commit). The draft's slight tightening of "no core file names a section of docs/" to "never in docs/" is a wording detail, not a boundary change. Since the draft explains and proposes only the standard next step, nothing load-bearing is committed to while unexamined.
+CONFIDENCE: high

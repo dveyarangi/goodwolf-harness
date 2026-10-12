@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft is a report of counts (80 tickets, 36 live, 44 done; 146 question records in the root, 35 archived) with an offer to break them down further; it commits to no rule, mechanism, plan or decision, so there is no shape whose contract could change. I checked the counts against the tree: docs/tickets holds 36 live files besides README and done/, done/ holds 44, questions root holds 146 q- files and done/ holds 35, so the numbers match. One detail is off: 142 of the 146 root questions are in state open and only 4 are closed, so the draft's caveat that 146 is not the open count overstates the closed share. That is a local factual slip in a report, correctable in the follow-up breakdown the draft already offers, and it changes nothing the draft commits to. The unproduced chart and the unverified claim about the rate of ticket arrival are likewise local detail, not a boundary or contract.
+CONFIDENCE: high

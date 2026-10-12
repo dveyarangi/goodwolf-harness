@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports two FIX commits already made at the person's explicit "yes, commit as FIX" and asks permission to push. It commits to no new design. The installer fix itself was examined in earlier exchanges. I checked the push policy in the tree: AGENTS.md and local.rules.md both say push=ask, so stopping to ask is the correct behaviour. The mention that question-store positions ride along in the second commit is a local commit-hygiene detail. It does not change what was committed or what the push would publish. The remaining items (the harness output level being due, and xuanxue-workshop needing a later update) were already flagged in the previous turn. Each can be settled later and locally without changing anything the draft commits to.
+CONFIDENCE: high

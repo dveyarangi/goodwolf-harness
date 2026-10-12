@@ -1,0 +1,5 @@
+FLAG: no
+PART: none
+CONTRACT CHANGE: none
+REASONING: The draft reports counts of tickets and questions from the repository and commits to no design, rule or mechanism; the only forward item is an offer to break the 146 down further, which the person can accept or decline. I considered whether the counting method (last commit of each day) or the definition of "in the store" hides something that would change what is reported. I listed the tree: docs/tickets/done holds 44 files, matching the draft, and docs/tickets holds 38 entries, which is consistent with 36 live tickets once README.md and perhaps a subfolder are excluded. docs/questions has 148 entries, consistent with 146 plus a README or subfolder. Any counting discrepancy is local and settleable without changing what the draft commits to. The draft also does not produce the graph the person asked for, but that is a delivery gap and not an unexamined load-bearing part.
+CONFIDENCE: high
