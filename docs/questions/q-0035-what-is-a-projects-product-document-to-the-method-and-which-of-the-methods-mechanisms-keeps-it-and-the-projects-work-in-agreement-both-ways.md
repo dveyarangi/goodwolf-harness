@@ -2,7 +2,7 @@
 
 - **record of** what it intends to become
 - **state** open
-- **lean** decisions 1–3, the user, 2026-10-12/13: a row links to work through the store; the product document is the home of the purpose root answers; its own check reads the link, the wake reports dueness
+- **lean** decisions 1–4, the user, 2026-10-12/13: the document is the purpose root home; allocation opens a structure question with a trace link; coverage derived; the traceability vocabulary taken whole; next, the return path — does a present answer relieve its cause
 - **struck** 0, last 2026-10-12T16:02Z
 
 Opened 2026-10-12 from the align on what is now q-0035.0002. The user: *the customer is not only
@@ -17,7 +17,9 @@ appears (q-0035.0001). This tree's own product document is the first case.
    2026-10-12)*: while its need is open, a row's status is a straw dog bound to the question it
    waits on, and the wake reports it due when that question closes; once closed, the row carries a
    visible link to where the answer landed, taken from the closing pointer. A question carries no
-   product mark for the link. Evidence, 2026-10-12: all 46 bound rows wait on live open
+   product mark for the link. *Narrowed by decision 4: the binding is the undecided row's alone; a
+   question under another root carries a trace link instead, and a decided row's coverage is read
+   from it.* Evidence, 2026-10-12: all 46 bound rows wait on live open
    questions; 114 of 155 open questions reach a row through themselves, an ancestor or a
    descendant; the 14 rows marked done link nowhere, and 2 unfinished rows carry no binding.
 2. **The product document is the home of the purpose root's answers** *(the user, 2026-10-13)*:
@@ -33,6 +35,18 @@ appears (q-0035.0001). This tree's own product document is the first case.
    link to where its answer lives, a question under the purpose root that no row names, a row
    bound outside the purpose root. A row whose question closed is still the wake's to report, as
    every due straw dog is. Each is a matter of form, so the check needs no judgement.
+4. **Allocation and the trace link** *(the user, 2026-10-13, taking the traceability vocabulary
+   whole — the glossary's *Product to implementation*)*: a decided purpose question closes, its
+   answer becomes a row, and a structure question opens under the structure root with a trace link
+   to it. A trace link is an opaque reference the question store keeps without interpreting; it
+   may name several answers; sub-questions carry it by trace propagation; a question opened
+   directly under the structure root states its answers or that it is derived. A decided answer's
+   coverage is read from the questions that realize it and never written; the product document
+   points out only from an undecided row to the purpose question it waits on. The product
+   mechanism installs the allocation into `/align` and the statement at opening into the questions
+   skill, and its check finds orphans and unrealized answers; the development method and the store
+   know nothing of the product. Where a question came from — the decision it was opened from — is
+   history in its body, never a checked link.
 
 ## Open within it
 
