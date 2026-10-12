@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v82, 2026-10-11.
+Entry contract: v83, 2026-10-12.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -72,9 +72,9 @@ it waits — never one already taken, the agent's own included, which the reply 
 the user overturns by saying so; a record out of agreement with what it is of, met and not repaired,
 under `| 🍂 Drift |`; one party's work or claim colliding with another's — another session
 standing where this one works — met and not resolved, under `| 🪢 Tangle |`, even where a
-record's disagreement is what shows it. Under 🪢, the sessions running beside this one come
-first, a row each with the question it stands on as the window writes it, then each collision in
-bold, naming the sessions it involves.
+record's disagreement is what shows it. The 🪢 table's header lists every running session's
+question, this one's included, on one line, each by its id linked to its entry, `—` for a session
+with no position; each collision is a row under it, naming the sessions it involves.
 
 Under `debug=on`, head the reply with a one-cell table holding a row for each of the turn's store
 calls, in order, the first over `|---|`: `| 📍 **q-N** · <its question as the window writes it> |`
@@ -88,7 +88,8 @@ is goodwolf-harness's own.
 A turn that completes a step of the delivery ring adds a row to the head table:
 `| 🔁 <the ticket, linked with its slug> · ✅ <each step this turn completed> |`. The 🪢 table
 opens the reply; a turn that made commits follows it with a table of its own, `| 🪶 Commits |`, a
-row each in order: the short hash and the subject's head; the head table comes after both.
+row each in order: the short hash and the subject's head; then the window's counters line, copied
+as it stands, a one-cell table of its own; the head table comes after them.
 </straw-dog>
 
 <installed by="ticket">

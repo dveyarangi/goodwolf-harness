@@ -55,6 +55,10 @@ from them, under the host's own session id; the rule stays the floor every host 
 and Codex take context at session start and before every message; Cursor only at session start, so
 its agent draws the window by the rule, and its prompt hook only marks the session seen. A window stays in the conversation once drawn, so the next
 is drawn only when the session's position or an entry moved, and whole again after a compaction.
+Either form ends with the counters — the tree's open tickets, open questions and straw dogs, each
+with what came and went since the session's previous window, matched by name — since a ticket or
+a straw dog moves while no entry does; the names are remembered outside the tree beside the
+window's own memory, which a compaction empties and they outlive.
 A conversation resumed under a new session id is the session it was: where the host names the
 conversation more steadily than the session — the Claude Code desktop app does, in every process
 it starts — the session is registered under that name, so a resume finds it already registered.

@@ -15,6 +15,19 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v83 — 2026-10-12
+
+**The tangle's header names every session's question** — on one line, each id linked to its entry,
+this session's included, `—` for one with no position; the collisions are the rows under it. The
+user, of a 🪢 table whose rows each held a session's tag and its question's words: *this is a mess
+— just put the questions' ids, linked to their files, for all current sessions, in the first line,
+one line; any other text in further lines.*
+
+**The counters stand after the commits** — the window's line of open tickets, questions and straw
+dogs with what came and went, copied as it stands, a one-cell table before the head table. It
+lands with [01-0011.0110.0020.0010 a-reply-counts-what-is-open](../tickets/01-0011.0110.0020.0010-a-reply-counts-what-is-open.md),
+the window printing it from this version on.
+
 ## v82 — 2026-10-11
 
 **The tangle first** — the reply opens with 🪢, then 🪶 Commits, then the head table. The user, of
