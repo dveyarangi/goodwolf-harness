@@ -131,7 +131,7 @@ the leading product document, from which goals and the front page are derived. W
     78 weaknesses, and the rule-failure register read entry by entry.
 - **Questions opened:**
   - q-0031, q-0032, q-0033 and its children;
-  - q-0018.0023, q-0018.0011.0004, q-0025.0003;
+  - q-0018.0023, q-0018.0011.0004, q-0026.0007.0002;
   - q-0026.0004 and its child q-0026.0004.0002;
   - q-0026.0005, q-0023.0020, q-0025.0004, q-0018.0004.0002.
 - **Questions merged and moved:** q-0033.0002 merged into q-0027.0002; q-0026.0002 moved under
@@ -171,7 +171,7 @@ the leading product document, from which goals and the front page are derived. W
   tested on the harness itself against the inventory, once the person has ruled on its items.
 - **q-0027.0002** — HITL as a mark on questions.
 - **q-0032** — locks. **q-0018.0023** — more hosts. **q-0018.0020.0001** — two integration modes.
-- **q-0025.0003** — the version announcement as a straw dog. The wrap is pending the user, and the
+- **q-0026.0007.0002** — the version announcement as a straw dog. The wrap is pending the user, and the
   entry contract has moved on since.
 - **The five opened for the register's weaknesses:** q-0023.0020, q-0025.0004, q-0026.0005,
   q-0026.0004.0002, q-0018.0004.0002.

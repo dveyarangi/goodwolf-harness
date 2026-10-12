@@ -109,7 +109,7 @@ Where the harness is behind, the page says so: three hosts, and no locks between
 
 **The third draft, 2026-10-08, after two rounds of cold reads.** The user struck four things:
 
-- the version line in the morning scene, *a debugging line* — now q-0025.0003;
+- the version line in the morning scene, *a debugging line* — now q-0026.0007.0002;
 - "decisions live in…", *both too verbose and undersells*;
 - method stated as result throughout, *put on the right glasses*;
 - the second paragraph, *still a wall*.

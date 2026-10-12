@@ -177,7 +177,7 @@ delivered at the moment it governs, or reachable on demand.
 
 - **Today:** the tiers, installed blocks at their anchors, the entry contract.
 - **Missing:** whether each rule reaches its occasion is asserted, not observed (q-0025,
-  q-0025.0003).
+  q-0026.0007.0002).
 
 **Contradictory → one source of truth.** Every rule, fact and decision has one authoritative home;
 copies are generated and checked; each record declares which side wins when it and the thing it

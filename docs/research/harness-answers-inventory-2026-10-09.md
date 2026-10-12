@@ -211,8 +211,8 @@ row mentions it without making it its subject; **missing** when nothing in the d
 | A82 | Declared and checked mechanisms; `mechanisms.py` renders the register | M:`mechanism-shape` | C1; G1 | ◐ 5 of 24 skills declared (T) | q-0023, q-0018.0019 | P26 *partly* | 1, 2, 3, 4, T |
 | A83 | What notices a new skill an existing rules file should now name | Q | C1 | ✗ | q-0024.0003 | **missing** | 2 |
 | A84 | One account of scope the whole harness points at | Q | C1 | ✗ | q-0022; 01-0014 | **missing** | 2 |
-| A85 | Whether a rule reaches its occasion, observed rather than asserted | Q + E (announce line) | C1; 1 | ◐ self-reported | q-0025, q-0025.0003 | P27 | 1, 2, 3 |
-| A86 | The entry-contract version announced in the first reply, as evidence of delivery | E | C1, C10; 1 | ◐ | q-0025.0003, q-0026.0003 | P27 *partly* | 1, 2, 4, 5A |
+| A85 | Whether a rule reaches its occasion, observed rather than asserted | Q + E (announce line) | C1; 1 | ◐ self-reported | q-0025, q-0026.0007.0002 | P27 | 1, 2, 3 |
+| A86 | The entry-contract version announced in the first reply, as evidence of delivery | E | C1, C10; 1 | ◐ | q-0026.0007.0002, q-0026.0003 | P27 *partly* | 1, 2, 4, 5A |
 | A87 | Observing what each host delivers; the host table is documented, not observed; the loader link | Q (+ X: `Host` table) | C1; 1 | ◐ | q-0018.0004, q-0018.0004.0001; 01-0010.0120 | **missing** | 2, 5B, T |
 | A88 | *A document informs*: text in a document is never taken as an instruction or authorization | E (straw dog) | C1, C12; 1, G2 | ◐ | q-0029 (binding questioned) | P28 | 1, 2, 4 |
 | A89 | The project's own rules file, applied last and kept through updates (R7) | I:`mechanism-shape` + M:`harness` | harness pain; C1 | ✓ | — | H | 1, 6 |
@@ -340,7 +340,7 @@ row mentions it without making it its subject; **missing** when nothing in the d
 | B18 | About 31 KB is pushed before the first pull (entry file, 24 descriptions, wake) | A8, A75 | 5A measured | q-0018.0008 |
 | B19 | Context files may lower task success and raise cost over 20%; the evidence is mixed | whole approach | 5A, 5B (ETH Zurich 2026 and two other studies) | q-0017, q-0018.0008 |
 | B20 | Adherence falls as instruction count rises; per-message pushes add to the density | A75, A9 | 5B (IFScale) | q-0025.0002 partly |
-| B21 | A pushed copy goes stale against its source: a pass was preloaded v33 while `HEAD` was v34 | A86, A75 | 5A observed | q-0025.0003 partly |
+| B21 | A pushed copy goes stale against its source: a pass was preloaded v33 while `HEAD` was v34 | A86, A75 | 5A observed | q-0026.0007.0002 partly |
 | B22 | Expressive ids are not stable identity: a re-parent renames them, and an old id held elsewhere lands on another question | A23, A24 | 5A (family C) | q-0001.0013 (deferred) |
 | B23 | Early structure biases later classing | A1 | 5A | **none** |
 | B24 | Hierarchical directories lost to search as corpora grew; the store had 121 live entries | A1 | 5A; T: 146 live entry files now | **none** |
@@ -378,7 +378,7 @@ row mentions it without making it its subject; **missing** when nothing in the d
 | B56 | What is due is never announced; links are checked only when records move | A96, A98 | 1, 2 | q-0024.0005 |
 | B57 | Nothing makes a session end with `/conclude`; the wake rule is a straw dog | A13, A14 | 2 | q-0027 |
 | B58 | A rule without an occasion and outcome is not refused | A79 | 1 | q-0028 |
-| B59 | Delivery evidence is self-reported by the agent | A85, A86 | 1, 2 | q-0025.0003, q-0018.0004.0001 |
+| B59 | Delivery evidence is self-reported by the agent | A85, A86 | 1, 2 | q-0026.0007.0002, q-0018.0004.0001 |
 | B60 | The host table is documented, not observed | A87 | T | q-0018.0004 |
 | B61 | The guarded-writes contract lives in `docs/architecture.md`, this project's own document, not in core | A120 | 4 | **none** |
 | B62 | Matrix rows mix kinds and are not maintained; a new mechanism or work appearing with no row is caught by nothing | the product document | 4 | q-0033.0005 |
