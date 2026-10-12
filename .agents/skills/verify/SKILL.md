@@ -116,6 +116,10 @@ A missing RFC is not a defect of this skill when the ticket has none.
 - Docstrings say what their own unit does. Apply
   [/improve-comments](../improve-comments/SKILL.md) to comments in scope and check
   that TODO tags still describe something pending.
+<straw-dog question="q-0023.0011">
+- Read the pointers in the slice's code: each names, word for word, a heading or a bold lead that
+  the record it points into holds. One that does not is a finding.
+</straw-dog>
 
 
 Apply `/plan` rules that help this review. Do not start a whole-tree
