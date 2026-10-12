@@ -1202,12 +1202,8 @@ def _counters(root: Path, store: Store, tag: str) -> str:
 
 def _came_and_went(earlier: list, named: list) -> str:
     """`(+came/−went)`, members matched by name and counted as many times as they stand."""
-    then, now = Counter(map(_hashable, earlier)), Counter(map(_hashable, named))
+    then, now = Counter(earlier), Counter(named)
     return f"(+{sum((now - then).values())}/−{sum((then - now).values())})"
-
-
-def _hashable(member: object) -> object:
-    return tuple(member) if isinstance(member, list) else member
 
 
 def _tally(root: Path, store: Store, known: dict[str, tuple[int, int, list[tuple[int, str]]]]) -> Counted:
