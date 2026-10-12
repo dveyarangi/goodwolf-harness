@@ -86,15 +86,15 @@ the repair policy. Move each subtree it reports ready for `done/` with `move_doc
 of the subtree in one invocation, into `docs/questions/done/`.
 </rule>
 
-## Q5 — a question is named by its id and its words
+## Q5 — a question is named by a link and its words
 
 - **target** `AGENTS.md`
-- **authority** the user, 2026-10-03 — rule failure 17
+- **authority** the user, 2026-10-03 — rule failure 17; every mention a link, 2026-10-12
 
 <rule>
-The first time a reply names a question, write its id with its question as the window writes it;
-later mentions may be the id alone. A question the store does not hold yet is written out, never
-named after the ticket it will belong to.
+Every time a reply names a question — a table's cell included — its whole id is a link to its
+entry; the first time, its question follows as the window writes it. A question the store does
+not hold yet is written out, never named after the ticket it will belong to.
 </rule>
 
 ## Q6 — a decision lands as it is made

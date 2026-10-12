@@ -107,11 +107,10 @@ an early line may still assert what a later resolution changed.
 
 - **target** `AGENTS.md`
 - **authority** the user, 2026-09-21; the slug in the link text, 2026-09-26; each reply on its
-  own, 2026-10-10
+  own, 2026-10-10; every mention a link, 2026-10-12
 
 <rule>
-In every reply and every record, the first mention of a ticket — a table's cell included — is a
-link to its record whose text carries its slug, its whole id leading it if at all; later mentions
-in that reply or record may be the whole id alone. Name one that has no record yet by a slug and
-its state word.
+In every reply and every record, every mention of a ticket — a table's cell included — is a link
+to its record: the first one's text carries its slug, its whole id leading it if at all; a later
+one's may be the whole id alone. Name one that has no record yet by a slug and its state word.
 </rule>

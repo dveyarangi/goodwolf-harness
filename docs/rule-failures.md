@@ -583,6 +583,17 @@ it if at all; later mentions in that reply or record may be the whole id alone.*
 next replies of this session and the next fresh one: no ticket first named in a reply without its
 slug.
 
+**Struck, 2026-10-12.** A `/recall` session, its sixth reply, put three decisions under ⚖️ naming a
+ticket by its bare id and two questions by bare ids, one with no words at all; the prose above
+named four question ids. The user: *I have no idea what these numbers are.* Q5 and P9 were
+installed and read; each reply's tables were drawn after the prose, where the ids had already been
+written out once, and *later mentions may be the id alone* let a number stand for what the reader
+had never been told. **Amendment landed** in both rules files and reinstalled, the entry contract
+at v85, on the user's word: *let's add a rule to ALWAYS show question and ticket numbers as links
+to them* — every mention, a table's cell included, is a link; the first still carries the words or
+the slug. Graded by the next replies of this session and the next fresh one: no question or ticket
+id in a reply that is not a link.
+
 ## 16. A session stopped placing its messages once the window said nothing moved — 2026-10-03
 
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s Q1, *call `questions.py at q-N` …

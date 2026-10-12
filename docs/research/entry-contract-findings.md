@@ -15,6 +15,15 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v85 — 2026-10-12
+
+**Every mention of a question or a ticket is a link** — Q5 and P9 drop *later mentions may be the
+id alone*: each mention, a table's cell included, is its whole id linked to its record; the first
+still carries the question's words or the ticket's slug. The user, after a reply that put bare
+ids under ⚖️: *I have no idea what these numbers are* — then: *let's add a rule to ALWAYS show
+question and ticket numbers as links to them.* [Rule failure 17](../rule-failures.md), struck a
+third time.
+
 ## v84 — 2026-10-12
 
 **What `debug=on` shows moves** — the head table of the turn's questions is drawn always; the 🪢

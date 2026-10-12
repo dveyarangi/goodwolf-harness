@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v84, 2026-10-12.
+Entry contract: v85, 2026-10-12.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -93,10 +93,9 @@ counters line, copied as it stands, a one-cell table of its own; the head table 
 </straw-dog>
 
 <installed by="ticket">
-**P9** In every reply and every record, the first mention of a ticket — a table's cell included — is a
-link to its record whose text carries its slug, its whole id leading it if at all; later mentions
-in that reply or record may be the whole id alone. Name one that has no record yet by a slug and
-its state word.
+**P9** In every reply and every record, every mention of a ticket — a table's cell included — is a link
+to its record: the first one's text carries its slug, its whole id leading it if at all; a later
+one's may be the whole id alone. Name one that has no record yet by a slug and its state word.
 </installed>
 
 <installed by="questions">
@@ -133,9 +132,9 @@ The store's other calls are made whenever the turn's own work settles, opens or 
 Only the working agent calls, never a helper. For any other call, a closure, a branching or a
 drop, read the questions skill.
 
-**Q5** The first time a reply names a question, write its id with its question as the window writes it;
-later mentions may be the id alone. A question the store does not hold yet is written out, never
-named after the ticket it will belong to.
+**Q5** Every time a reply names a question — a table's cell included — its whole id is a link to its
+entry; the first time, its question follows as the window writes it. A question the store does
+not hold yet is written out, never named after the ticket it will belong to.
 </installed>
 
 ## Core and instance
