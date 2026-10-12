@@ -99,8 +99,8 @@ each item realizes and which answers nothing realizes.
   decided with something to build, `/product` lands the row, the question closes against it, and
   a structure question opens with its trace link. Into the questions skill: a question opened
   directly under the structure root states its answers or that it is derived. Into `/maintain`:
-  run the product check. Each holds where a project keeps a product document — a condition bound
-  to q-0018.0024 until a project can take a mechanism alone.
+  run the product check. <straw-dog question="q-0018.0024">Each holds where a project keeps a
+  product document.</straw-dog>
 - **The mechanism's doc.** Its moments — a purpose decision landing, the README derived, a release
   note gathered — what it produces and who reads each output, the release note among them; what
   retires it; what would show it working.
@@ -109,10 +109,13 @@ each item realizes and which answers nothing realizes.
   mechanism declares *What is this project for?*.
 - **Naming a tree's purpose root.** A tree whose store predates the seed names its purpose root
   once, as a project-local answer; this tree's is q-0033.
+<straw-dog question="q-0035.0005">
 - **The README's derivation** is open — generated whole from the document and the edge records, or
-  written by hand and checked against them: q-0035.0005.
-- **A pain's measure** is open and parked by the user: q-0035.0004. The document carries no measure
-  field until it is settled.
+  written by hand and checked against them.
+</straw-dog>
+<straw-dog question="q-0035.0004">
+- **A pain's measure** is open and parked by the user. The document carries no measure field.
+</straw-dog>
 - **This tree's own migration** is instance work, not the mechanism's: q-0033 named as the purpose
   root; the rows of the product document numbered; the 43 bindings to structure questions turned
   into trace links on those questions; the 14 done rows given their coverage; the README derived
