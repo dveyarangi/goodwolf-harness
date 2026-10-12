@@ -2,7 +2,7 @@
 
 - **record of** what it intends to become
 - **state** open
-- **lean** decisions 1–5, the user, 2026-10-12/13: allocation and trace links, coverage derived; a pain does not close and is measured, not binary — q-0035.0004
+- **lean** decisions 1–6, the user, 2026-10-12/13: allocation and trace links, coverage derived; a pain is measured, never closed; purpose and structure zigzag — q-0035.0004 next
 - **struck** 0, last 2026-10-12T16:02Z
 
 Opened 2026-10-12 from the align on what is now q-0035.0002. The user: *the customer is not only
@@ -52,6 +52,12 @@ appears (q-0035.0001). This tree's own product document is the first case.
    are added to a pain, and none of them closes it; whether the answers relieve it is read from a
    measure of the pain that takes values, never from a yes or no on an answer. Coverage says what
    is built; the pain's measure says what it relieved.
+6. **Purpose and structure zigzag** *(the user, 2026-10-13, taking Suh's zigzagging from the
+   discover pass)*: allocation is not a one-way crossing. Building an answer may show that the
+   answer, or the causes it was chosen for, should be split or worded again; then a purpose
+   question opens from that structure work — its origin history in its body — and its decision
+   adds or replaces answers, never renumbering one. A pain's measure moving, or not, is the other
+   road back.
 
 ## Open within it
 
