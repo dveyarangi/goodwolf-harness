@@ -1,7 +1,7 @@
 # The judge bench — sixteen drafts a judge is graded on, 2026-10-12
 
 A bench for the judge of
-[q-0001.0020.0001 does-a-judge-outside-the-agent-flag-the-drafts-that-hid-parts](../questions/q-0001.0020.0001-does-a-judge-outside-the-agent-flag-the-drafts-that-hid-parts-and-pass-the-ones-that-did-not-on-the-recorded-cases.md):
+[q-0001.0020.0001 does-a-judge-outside-the-agent-flag-the-drafts-that-hid-parts](../questions/done/q-0001.0020.0001-does-a-judge-outside-the-agent-flag-the-drafts-that-hid-parts-and-pass-the-ones-that-did-not-on-the-recorded-cases.md):
 a reader outside the agent, given one of the agent's draft replies, says whether the draft commits
 to a shape while leaving a load-bearing part of it unexamined. Built while probing that question,
 preliminary to [01-0011.0100.0050 a-question-branches-before-it-is-answered](../tickets/01-0011.0100.0050-a-question-branches-before-it-is-answered.md),
@@ -22,7 +22,9 @@ evidence for it:
 - **Unknown** — one accepted draft whose part a judge flags and nobody has checked.
 
 A person's acceptance is no clean label: two drafts first taken as controls were found to hide a
-part. A verdict moves with new evidence, and the key is edited when it does.
+part. A verdict moves with new evidence, and the key is edited when it does. A draft whose result
+proved wrong or misleading missed a part, whether or not it hedged; a ticket's size counts, since
+it matters to the model *(the user, 2026-10-12)*.
 
 ## Candidates
 
@@ -81,3 +83,8 @@ and two drafts taken as clean drew a majority. Between runs 8–9 and 10, three 
 the majority line in each direction under a one-clause change: at three runs a draft, the bench
 does not separate a prompt's effect from the judge's own variance. Run 11 compared the two at five
 runs a draft: the same catches, the clause flagging less.
+
+Run 12 is the judge as it stands, recorded so *(the user, 2026-10-12)*: over `V1`–`V66` it flags
+18 of 33 hidden parts and 5 of 33 clean drafts, right three times in four when it flags. Most of
+what it never flags is what a shape is for, which only the person's intent settles; if the judge
+cannot generalize to that, it is taught later and graded on the same drafts.
