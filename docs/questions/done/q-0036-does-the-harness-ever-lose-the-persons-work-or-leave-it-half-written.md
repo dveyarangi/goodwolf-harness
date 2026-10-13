@@ -4,6 +4,7 @@
 - **state** closed:decided
 - **owner** [01-0035](../../tickets/done/01-0035-the-harness-never-loses-the-persons-work.md)
 - **answer** [01-0035](../../tickets/done/01-0035-the-harness-never-loses-the-persons-work.md) — no longer, for the four losses found: each refused before its write or its write kept whole, each held by a test; the user, 2026-10-13
+- **realizes** A42 "No session overwrites another", A46 "Writes that refuse"
 - **struck** 0, last 2026-10-13T07:34Z
 
 Opened 2026-10-13 from [the outside audit of that day](../../research/external-audit-2026-10-13.md),

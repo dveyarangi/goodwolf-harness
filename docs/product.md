@@ -1,7 +1,8 @@
 # What the harness is for
 
-**Kind:** what must always hold — the pains, the goals and the causes. The status column is as of
-2026-10-09, and each mechanism not in place names the open question that waits on it.
+**Kind:** what must always hold — the pains, the goals, the causes and the answers, in the product
+format. How much of each answer is built is read from the questions that realize it, never
+written here.
 
 The leading product document. The project's goals and its front page are derived from it, and a
 piece of work earns its place by the pain it relieves. It was found, not designed: at the
@@ -60,77 +61,73 @@ Neither may be lost as a goal, though nothing guarantees either today.
 
 ## Answers
 
-Each answer serves several pains. Each row is a mechanism.
+Each answer serves several pains. Its coverage — absent, in progress, present — is
+`product.py --coverage`'s, read from the questions whose trace links name it. An answer not chosen
+yet waits on its purpose question, bound to it in *waits on*.
 
-- ✓ the mechanism is in the tree
-- ◐ it is partly there
-- ✗ it is absent
-
-A row not marked ✓ is bound, in this page's source, to the open question that waits on it.
-
-| answer and mechanism | causes | 1 | 2 | 3 | G1 | G2 | status |
+| answer | causes | 1 | 2 | 3 | G1 | G2 | waits on |
 |---|---|---|---|---|---|---|---|
 | **The shared exploration space** — memory keeps it; alignment keeps it matching the person's ideas | | | | | | | |
-| the question store: open questions as a tree, each with its lean and what it waits on; every message placed on its question before the reply; questions returned to rise | C3, C4 | ● | ● | ● | | | ✓ |
-| the store's neighbourhood handed over at session start and before every message | C4 | ● | ● | ● | | | ✓ by hooks an install merges into each host's file; Cursor's hooks can add context at session start only, so there the agent fetches it before a message by rule |
-| a position kept through a compaction and a resume under a new identity | C4 | ● | ● | | | | <straw-dog question="q-0037.0001.0006">◐ in one host</straw-dog> |
-| a session resumes the work at the step it stopped | C4 | ● | ● | | | | <straw-dog question="q-0037.0013">◐ the wake finds where the work stands; resuming at the step is not built</straw-dog> |
-| provisional text bound to the question it waits on; answers under a changed answer marked suspect | C3, C6 | | | ● | ● | | ✓ |
-| a question split into the parts it needs before anyone answers it | C2, C3 | ● | ● | | | | <straw-dog question="q-0037.0001.0020">✗</straw-dog> |
-| a judge outside the agent for where a message belongs | C3 | ● | | ● | | | <straw-dog question="q-0037.0001.0016.0001">✗</straw-dog> |
-| a question nobody reaches kept from sinking | C4 | | | ● | | | <straw-dog question="q-0037.0001.0018">✗</straw-dog> |
+| **A1 The question store** — the question store: open questions as a tree, each with its lean and what it waits on; every message placed on its question before the reply; questions returned to rise | C3, C4 | ● | ● | ● |  |  |  |
+| **A2 The store handed over every message** — the store's neighbourhood handed over at session start and before every message; by hooks an install merges into each host's file; Cursor's hooks can add context at session start only, so there the agent fetches it before a message by rule | C4 | ● | ● | ● |  |  |  |
+| **A3 A position kept through compaction and resume** — a position kept through a compaction and a resume under a new identity | C4 | ● | ● |  |  |  |  |
+| **A4 A session resumes at its step** — a session resumes the work at the step it stopped | C4 | ● | ● |  |  |  |  |
+| **A5 Provisional text bound to its question** — provisional text bound to the question it waits on; answers under a changed answer marked suspect | C3, C6 |  |  | ● | ● |  |  |
+| **A6 A question split before it is answered** — a question split into the parts it needs before anyone answers it | C2, C3 | ● | ● |  |  |  |  |
+| **A7 An outside judge of where a message belongs** — a judge outside the agent for where a message belongs | C3 | ● |  | ● |  |  |  |
+| **A8 No question left to sink** — a question nobody reaches kept from sinking | C4 |  |  | ● |  |  |  |
 | **Alignment of intent** | | | | | | | |
-| `/align`: one question at a time, each with a recommended answer; facts looked up, decisions put to the person; opens on the present customer, the observable problem, and why what exists cannot serve | C3, C9, C11 | ● | ● | ● | | | ✓ |
-| one vocabulary for the person and the agent, defined before a term lands in a record | C3 | ● | | ● | | | <straw-dog question="q-0037.0010.0001">◐ the glossaries exist; keeping a term out until defined is not built</straw-dog> |
-| a task takes its form in its question before a ticket is minted from it; a decision lands as it is made, provisional ones bound to the question that will change them | C3 | ● | ● | | | | ✓ |
+| **A9 Alignment one question at a time** — `/align`: one question at a time, each with a recommended answer; facts looked up, decisions put to the person; opens on the present customer, the observable problem, and why what exists cannot serve | C3, C9, C11 | ● | ● | ● |  |  |  |
+| **A10 One vocabulary, defined before use** — one vocabulary for the person and the agent, defined before a term lands in a record | C3 | ● |  | ● |  |  |  |
+| **A11 A task takes its form before its ticket** — a task takes its form in its question before a ticket is minted from it; a decision lands as it is made, provisional ones bound to the question that will change them | C3 | ● | ● |  |  |  |  |
 | **Decisions placed by their weight** | | | | | | | |
-| the load-bearing test: `/impact` routes load-bearing work to the person and a spec, local work to the agent and a ticket; a raised decision that bears no load is settled and reported, one that does goes to the person, and doubt counts as load | C2, C8, C9 | ● | ● | ● | | | ✓ |
-| HITL or AFK on every ticket; a spec accepted, a breakdown approved; commit, push and the next cycle each `ask` or `auto`; repair fixed and reported only under four conditions | C2, C9, C12 | ● | ● | ● | | ● | ✓ |
-| the project says which kinds of decision stop for the person | C9 | | ● | ● | | | <straw-dog question="q-0037.0013.0002">✗</straw-dog> |
-| a record of where models are known to be weak, deciding which decisions go to the person | C2, C9 | ● | | ● | | | <straw-dog question="q-0033.0001">✗</straw-dog> |
+| **A12 The load-bearing test** — the load-bearing test: `/impact` routes load-bearing work to the person and a spec, local work to the agent and a ticket; a raised decision that bears no load is settled and reported, one that does goes to the person, and doubt counts as load | C2, C8, C9 | ● | ● | ● |  |  |  |
+| **A13 Human checkpoints and switches** — HITL or AFK on every ticket; a spec accepted, a breakdown approved; commit, push and the next cycle each `ask` or `auto`; repair fixed and reported only under four conditions | C2, C9, C12 | ● | ● | ● |  | ● |  |
+| **A14 The project names its stopping decisions** — the project says which kinds of decision stop for the person | C9 |  | ● | ● |  |  |  |
+| **A15 A record of model weaknesses** — a record of where models are known to be weak, deciding which decisions go to the person | C2, C9 | ● |  | ● |  |  | <straw-dog question="q-0033.0001">✗</straw-dog> |
 | **Visible footing** | | | | | | | |
-| each reply shows the question it stands on, the principle it reasons by, what waits on the person and drift met, in plain words; every step leaves a record | C10, C2 | ● | | ● | | | <straw-dog question="q-0037.0016">◐ being graded</straw-dog> |
+| **A16 Each reply shows its footing** — each reply shows the question it stands on, the principle it reasons by, what waits on the person and drift met, in plain words; every step leaves a record | C10, C2 | ● |  | ● |  |  |  |
 | **Guards on known model weaknesses** | | | | | | | |
-| an outside view before saying what a thing is (`/discover`); a plan probed by the cheapest example that could prove it wrong; one case is not a class; the fewest parts, removing before adding; no reopening a settled decision without new evidence | C2, C11 | ● | ● | ● | | | ✓ |
-| guards on the checks themselves: a check written before what it checks and seen to fail; a run with no tests is not a pass; a fixture built the way the real thing came to be | C7 | ● | | | ● | | ✓ |
+| **A17 Guards on model reasoning** — an outside view before saying what a thing is (`/discover`); a plan probed by the cheapest example that could prove it wrong; one case is not a class; the fewest parts, removing before adding; no reopening a settled decision without new evidence | C2, C11 | ● | ● | ● |  |  |  |
+| **A18 Guards on the checks** — guards on the checks themselves: a check written before what it checks and seen to fail; a run with no tests is not a pass; a fixture built the way the real thing came to be | C7 | ● |  |  | ● |  |  |
 | **Delivery and evaluation** | | | | | | | |
-| a ticket with checkable criteria; thin vertical slices; a plan validated against the governing docs; test-first; `/verify` against the ticket, the plan, the docs and the project's checks; checks run before a commit | C3, C7 | ● | ● | | | | ✓ |
-| the project's checks, and a rule on who may change them | C7 | ● | | | | | <straw-dog question="q-0037.0006.0022.0001">◐ weakening a check is forbidden; where the checks live and their shape is not settled</straw-dog> |
-| a failure traced to its cause, so that what let it through is corrected | C7 | ● | | | ● | | <straw-dog question="q-0033.0003">◐ to an instruction, in the register; to a decision boundary or a task's form, not yet</straw-dog> |
-| every mechanism names what would show it working, graded by someone who did not build it | C7 | | | | ● | | ✓ |
-| the harness's own tests catch what their names promise | C7 | | | | ● | | <straw-dog question="q-0037.0007">✗</straw-dog> |
+| **A19 Delivery against criteria** — a ticket with checkable criteria; thin vertical slices; a plan validated against the governing docs; test-first; `/verify` against the ticket, the plan, the docs and the project's checks; checks run before a commit | C3, C7 | ● | ● |  |  |  |  |
+| **A20 The project's checks, guarded** — the project's checks, and a rule on who may change them | C7 | ● |  |  |  |  |  |
+| **A21 A failure traced to its cause** — a failure traced to its cause, so that what let it through is corrected | C7 | ● |  |  | ● |  | <straw-dog question="q-0033.0003">✗</straw-dog> |
+| **A22 Every mechanism graded from outside** — every mechanism names what would show it working, graded by someone who did not build it | C7 |  |  |  | ● |  |  |
+| **A23 Tests that catch what they promise** — the harness's own tests catch what their names promise | C7 |  |  |  | ● |  |  |
 | **Instructions that reach the agent** | | | | | | | |
-| one home per rule, copied by a script into every place that reads it, at the tier its occasion is read at, and checked | C1 | ● | ● | | ● | | <straw-dog question="q-0037.0011.0002">◐ which mechanism owns tiering is open</straw-dog> |
-| rules written to a form an agent follows: an occasion and a checkable outcome, no overlap, no contradiction | C1 | ● | | | ● | | <straw-dog question="q-0037.0014">◐ `/skill-up` holds the form; a rule without it is not refused</straw-dog> |
-| each skill states only what it owns, and everything a mechanism produces has a reader | C1 | ● | ● | | | | <straw-dog question="q-0037.0009">◐ six of twenty-four skills are declared mechanisms</straw-dog> |
-| whether a rule reaches its occasion observed, not asserted | C1 | ● | | | | | <straw-dog question="q-0037.0011">◐ the session announces the rules it runs, self-reported</straw-dog> |
-| a document informs and never instructs, so text in one is not taken as a command | C1, C12 | ● | | | | ● | <straw-dog question="q-0037.0015">◐ a rule, not yet settled</straw-dog> |
+| **A24 One home per rule** — one home per rule, copied by a script into every place that reads it, at the tier its occasion is read at, and checked | C1 | ● | ● |  | ● |  |  |
+| **A25 Rules in a followable form** — rules written to a form an agent follows: an occasion and a checkable outcome, no overlap, no contradiction | C1 | ● |  |  | ● |  |  |
+| **A26 Each skill owns only its own** — each skill states only what it owns, and everything a mechanism produces has a reader | C1 | ● | ● |  |  |  |  |
+| **A27 Rules observed reaching their occasion** — whether a rule reaches its occasion observed, not asserted | C1 | ● |  |  |  |  |  |
+| **A28 A document informs, never instructs** — a document informs and never instructs, so text in one is not taken as a command | C1, C12 | ● |  |  |  | ● |  |
 | **One source of truth between decisions and code** | | | | | | | |
-| decisions in the architecture, its records and the glossary; who decided each rule, and when | C1, C6 | ● | | ● | ● | | ✓ |
-| every record says which side wins when it and the code disagree | C6 | ● | | | ● | | <straw-dog question="q-0037.0010.0009">◐ named; records being brought to it</straw-dog> |
-| what bears load is written down, the rest lives in code and its comments | C6, C8 | ● | ● | | ● | | <straw-dog question="q-0037.0010.0002.0005">◐ a rule, not yet settled</straw-dog> |
-| an edited thing carries its mark back to the record that governs it | C6 | ● | | | ● | | <straw-dog question="q-0037.0010.0009.0004">✗</straw-dog> |
-| the live tickets listed from their headers, the queue's order the person's | C6, C9 | | ● | ● | | | ✓ |
-| a contract per edge, for those who consume the system and those who extend it, its outward text derived from it | C6, C10 | ● | | | ● | | <straw-dog question="q-0037.0006.0023.0002">◐ the edge mechanism and the hosts record exist; no text is derived from a record yet</straw-dog> |
+| **A29 Decisions in the records** — decisions in the architecture, its records and the glossary; who decided each rule, and when | C1, C6 | ● |  | ● | ● |  |  |
+| **A30 Every record says which side wins** — every record says which side wins when it and the code disagree | C6 | ● |  |  | ● |  |  |
+| **A31 Load-bearing written, the rest in code** — what bears load is written down, the rest lives in code and its comments | C6, C8 | ● | ● |  | ● |  |  |
+| **A32 An edited thing carries its mark back** — an edited thing carries its mark back to the record that governs it | C6 | ● |  |  | ● |  |  |
+| **A33 The queue read from ticket headers** — the live tickets listed from their headers, the queue's order the person's | C6, C9 |  | ● | ● |  |  |  |
+| **A34 A contract per edge** — a contract per edge, for those who consume the system and those who extend it, its outward text derived from it | C6, C10 | ● |  |  | ● |  |  |
 | **Maintenance** | | | | | | | |
-| `/maintain`: records against each other and against the code, a clock of what is due, finished records archived | C6, C8 | ● | ● | | ● | | <straw-dog question="q-0037.0010.0005">◐ links are checked only when records move; what is due is not announced</straw-dog> |
+| **A35 Maintenance** — `/maintain`: records against each other and against the code, a clock of what is due, finished records archived | C6, C8 | ● | ● |  | ● |  |  |
 | **Self-improvement — the seed of a test suite for instructions** | | | | | | | |
-| a register of rules that were in place and did not fire; the next occurrence grades the rewording | C7, C1 | ● | | | ● | | ✓ |
-| a recorded failure replayed as a test against the amended rule | C7, C1 | ● | | | ● | | <straw-dog question="q-0037.0012.0004">◐ replayed by hand at times; no suite</straw-dog> |
-| the method measured on the same tasks with and without it | C7 | ● | | | ● | | <straw-dog question="q-0038.0001">✗</straw-dog> |
-| its cost counted, and what it saves | C7, C8 | | ● | | ● | | <straw-dog question="q-0037.0006.0008">✗</straw-dog> |
-| a free reading of the record for what is missing, redundant or out of balance (`/dream`, `/advise`) | C7 | | | | ● | | <straw-dog question="q-0037.0006.0002">◐ in use, not declared</straw-dog> |
+| **A36 The rule-failure register** — a register of rules that were in place and did not fire; the next occurrence grades the rewording | C7, C1 | ● |  |  | ● |  |  |
+| **A37 Failures replayed as tests** — a recorded failure replayed as a test against the amended rule | C7, C1 | ● |  |  | ● |  |  |
+| **A38 The method measured against none** — the method measured on the same tasks with and without it | C7 | ● |  |  | ● |  |  |
+| **A39 Its cost counted** — its cost counted, and what it saves | C7, C8 |  | ● |  | ● |  |  |
+| **A40 A free reading of the record** — a free reading of the record for what is missing, redundant or out of balance (`/dream`, `/advise`) | C7 |  |  |  | ● |  |  |
 | **Coordination between sessions** | | | | | | | |
-| each session sees where the others stand; the question store refuses a write to an entry that moved; a commit holds only its own session's work | C5, C12 | ● | ● | | | ● | <straw-dog question="q-0037.0006.0015">◐ within one working directory</straw-dog> |
-| no session overwrites another's write | C5, C12 | ● | ● | | | ● | the host's: its edit tool refuses a write over a file changed since it was read, and a worktree per session where it offers one; the harness locks nothing (the user, 2026-10-11) |
-| a starting session takes an area no other session is in | C5 | | ● | | | | <straw-dog question="q-0037.0005.0001">✗</straw-dog> |
+| **A41 Sessions see each other** — each session sees where the others stand; the question store refuses a write to an entry that moved; a commit holds only its own session's work | C5, C12 | ● | ● |  |  | ● |  |
+| **A42 No session overwrites another** — no session overwrites another's write; the host's: its edit tool refuses a write over a file changed since it was read, and a worktree per session where it offers one; the harness locks nothing (the user, 2026-10-11) | C5, C12 | ● | ● |  |  | ● |  |
+| **A43 A starting session takes a free area** — a starting session takes an area no other session is in | C5 |  | ● |  |  |  |  |
 | **Process weighed to the work** | | | | | | | |
-| one step per reply, with a point to reassess at its end | C8, C9 | | ● | ● | | | <straw-dog question="q-0037.0013">◐ defined, not instructed</straw-dog> |
-| the work's shape recommended, and a lighter path for small work and a heavier one for large | C8 | | ● | ● | | | <straw-dog question="q-0037.0013.0003">✗</straw-dog> |
+| **A44 One step per reply** — one step per reply, with a point to reassess at its end | C8, C9 |  | ● | ● |  |  |  |
+| **A45 Work weighed to its shape** — the work's shape recommended, and a lighter path for small work and a heavier one for large | C8 |  | ● | ● |  |  |  |
 | **Refusing harm** | | | | | | | |
-| writes that refuse rather than overwrite: a refusal writes nothing, interference is a failure, a removal needs the fingerprint it expects, push waits for a yes | C12 | | | | | ● | ◐ the harness's own scripts refuse; an agent's own edits are guarded by the host — its stale-write refusal, its worktrees — not by the harness |
-| an agent's role bounding its permissions, its rights over the records and its skills | C12, C5 | | | | | ● | <straw-dog question="q-0037.0005">✗</straw-dog> |
-| the host refuses an action a rule forbids | C12 | | | | | ● | <straw-dog question="q-0037.0006.0005">✗</straw-dog> |
+| **A46 Writes that refuse** — writes that refuse rather than overwrite: a refusal writes nothing, interference is a failure, a removal needs the fingerprint it expects, push waits for a yes; the harness's own scripts refuse; an agent's own edits are guarded by the host — its stale-write refusal, its worktrees — not by the harness | C12 |  |  |  |  | ● |  |
+| **A47 Agent roles** — an agent's role bounding its permissions, its rights over the records and its skills | C12, C5 |  |  |  |  | ● |  |
+| **A48 The host refuses forbidden actions** — the host refuses an action a rule forbids | C12 |  |  |  |  | ● |  |
 
 <straw-dog question="q-0033">
 Read by column:
