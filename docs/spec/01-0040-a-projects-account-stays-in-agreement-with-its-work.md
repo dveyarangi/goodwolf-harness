@@ -108,8 +108,10 @@ each item realizes and which answers nothing realizes.
 - **Seeding declared roots.** The store seeds, into an empty store, the roots the installed
   mechanisms declare, and its own shelf supplies the rest until their mechanisms exist; the product
   mechanism declares *What is this project for?*.
-- **Naming a tree's purpose root.** A tree whose store predates the seed names its purpose root
-  once, as a project-local answer; this tree's is q-0033.
+- **A tree's roots, by their words.** Every tree that took the method carries the three seeded
+  roots; this tree, whose store predates the seed, takes them: q-0033 reworded as the purpose root,
+  q-0031 under it, every other root under a new structure root, q-0017 under a new landscape root
+  *(the user, 2026-10-13, replacing a purpose root named as a project-local answer)*.
 <straw-dog question="q-0035.0005">
 - **The README's derivation** is open — generated whole from the document and the edge records, or
   written by hand and checked against them.

@@ -227,3 +227,19 @@ it is small, so keep it, late. The rest proceeds.
 
 **Second pass, on the narrowed split** (`.0080` folded into [01-0010.0190](../tickets/01-0010.0190-core-is-published-as-a-release.md)): proceed — every slice's
 output has a reader inside the split or in [01-0010.0190](../tickets/01-0010.0190-core-is-published-as-a-release.md), and the hidden edges above stand.
+
+## Impact of the roots slice, 2026-10-13
+
+A slice added before `.0020`, the tree taking the three seeded roots by
+[q-0035.0009.0001](q-0035.0009.0001-how-does-this-trees-store-take-the-three-seeded-roots.md)'s decisions.
+
+- **Must change:** q-0033's words; two new roots; nineteen roots moved, every id under them
+  renamed — 172 live entries and 68 in `done/`, links and bare ids under `docs/`, straw-dog bindings
+  in 56 files of core, the entry file and the local rules among them, and every session line.
+- **Hidden edges:** the entry file's bindings change, which is a change of the entry file, so its
+  contract version moves; a session running at the move holds ids that no longer exist; ids in
+  commit messages stay as they were, history; paths grow by one position, the writer cutting slugs
+  that would pass the path limit.
+- **Leave alone:** the store's code — the move is its own call, tested; tickets, which keep their
+  ids.
+- **Recommendation:** proceed, as one slice, when no other session runs.
