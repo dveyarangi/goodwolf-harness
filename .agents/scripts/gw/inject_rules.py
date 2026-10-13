@@ -42,6 +42,7 @@ LOCAL_FILE = "local.rules.md"
 MODES = ("--install", "--retract", "--check")
 _USAGE = "usage: inject_rules.py <slug> --install [--overwrite] | <slug> --retract | --check"
 _HEADING = re.compile(r"^(#{1,6}) (.*)$", re.M)
+_WRAPPER_OPENING = re.compile(r"^<straw-dog\b[^<>]*>$")
 _TABLE_ROW = re.compile(r"^\|\s*`([^`]+)`\s*\|\s*`([^`]+)`\s*\|\s*$")
 _TARGET = re.compile(r"^- \*\*target\*\* `([^`]+)`\s*$")
 _OVERRIDES = re.compile(r"^- \*\*overrides\*\* `([^`/]+)/([^`/]+)`\s*$")
@@ -337,7 +338,9 @@ def after_anchor(text: str, anchor: str) -> int:
 def section_end(text: str, anchor: str) -> int:
     """The offset just past the last non-blank line of the anchor's section: the section runs
     from the anchor line to the next heading of the anchor's level or higher, or to the end of
-    the text; a line that is not a heading is ended by any heading. Fences are not read."""
+    the text; a line that is not a heading is ended by any heading. Fences are not read. A straw
+    dog opening on a line of its own with nothing of the section after it wraps what follows, so
+    it is the next section's: a block placed after it would expire with text it does not belong to."""
     start = after_anchor(text, anchor)
     seen = without_code(text)
     level = _heading_level(anchor)
@@ -348,7 +351,7 @@ def section_end(text: str, anchor: str) -> int:
         if heading is not None and heading <= (level if level is not None else 6):
             break
         offset += len(line)
-        if line.strip():
+        if line.strip() and not _WRAPPER_OPENING.match(line.strip()):
             end = offset
     return end
 

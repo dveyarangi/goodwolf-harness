@@ -139,6 +139,16 @@ class Installing(RepositoryCase):
 
         self.assertEqual(text.replace("After the fence.\n", f"After the fence.\n\n{INSTALLED}\n"), self.read(TARGET))
 
+    def test_a_straw_dog_opening_on_the_next_section_is_left_to_that_section(self) -> None:
+        text = TARGET_TEXT.replace(
+            "## Finish\n", 'Own prose.\n\n<straw-dog question="q-0001">\n\n## Finish\n'
+        ).replace("- **F1** Report.\n", "- **F1** Report.\n</straw-dog>\n")
+        self.write(TARGET, text)
+
+        self.assertEqual(0, self.run_installer(SLUG, "--install")[0])
+
+        self.assertEqual(text.replace("Own prose.\n", f"Own prose.\n\n{INSTALLED}\n"), self.read(TARGET))
+
     def test_a_section_that_ends_the_file_takes_the_block_after_its_last_line(self) -> None:
         text = "# Keeper\n\n" f"{ANCHOR}\n\nLast prose.\n"
         self.write(TARGET, text)
