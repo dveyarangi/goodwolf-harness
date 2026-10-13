@@ -20,7 +20,7 @@ Split assessed in [q-0036's impact of the split](../questions/q-0036-does-the-ha
 Four slices, independent of one another:
 [.0010 a-moved-record-keeps-an-edit-made-while-it-moved](./done/01-0035.0010-a-moved-record-keeps-an-edit-made-while-it-moved.md),
 [.0020 an-install-that-will-refuse-writes-nothing](./done/01-0035.0020-an-install-that-will-refuse-writes-nothing.md),
-[.0030 an-update-never-replaces-a-file-the-project-owns](./01-0035.0030-an-update-never-replaces-a-file-the-project-owns.md),
+[.0030 an-update-never-replaces-a-file-the-project-owns](./done/01-0035.0030-an-update-never-replaces-a-file-the-project-owns.md),
 [.0040 session-lines-written-at-once-all-survive](./01-0035.0040-session-lines-written-at-once-all-survive.md).
 Each loss found is closed by a regression test that reproduces it, so it cannot return unseen.
 
