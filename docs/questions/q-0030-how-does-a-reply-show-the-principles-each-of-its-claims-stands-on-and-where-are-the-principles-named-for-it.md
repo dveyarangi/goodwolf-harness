@@ -4,7 +4,7 @@
 - **state** open
 - **owner** [01-0011.0110.0020](../tickets/01-0011.0110.0020-a-paragraph-shows-what-it-stands-on.md)
 - **lean** the form at v83 — lamp names a principle as its home names it, never a rule id, 無 for a missing one; proposed or landed text framed by its statement, 🧩 a rule, ⚓ an invariant, ✏️ any other change, Proposed or Landed never both; a switch written 🛠️ <switch>=<value>; ⚖️ decisions with the next step stopped before, 🍂 drift, a table only with a row; the reply opens with 🪢, every session question id linked on its header line then each collision, then 🪶 Commits, then the window counters, then the head table; 🔁 for a completed step; ⚡ kept for urgency, unassigned
-- **struck** 5, last 2026-10-12T06:41Z
+- **struck** 6, last 2026-10-13T09:05Z
 
 ## The instructions, agreed in draft 2026-10-07
 
