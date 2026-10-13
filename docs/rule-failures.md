@@ -17,6 +17,21 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 44. A case that answered a call in-process stood for the run that makes it — 2026-10-14
+
+**Rules in play:** none covers it — a slip, entered so a repeat is seen.
+
+**What happened.** The injection rehearsal, landed 2026-10-13, runs the injector over a scratch
+tree in the system's temporary folder. The injector lists a tree by Git, the folder is inside no
+repository, and every real install or update whose tree has a rules file crashed before its first
+write; a recipient met it the next day. The suite stayed green: every in-process case answers
+Git's listing from the folder, and the process-proving cases ship no rules file, so none reached
+the listing in a folder Git does not hold.
+
+**The slip, broadly.** A new place where code meets the system — a scratch folder, a child
+process, a path the host chooses — proven only by cases that stand a fixture in for what that
+place does, or by real cases whose inputs never reach it.
+
 ## 43. The counters line was replaced by words pointing at it — 2026-10-13
 
 **Rules in play:** the entry file's reply form, *under `debug=on`, the window's counters line,
@@ -901,6 +916,17 @@ difference that mattered was invisible by construction. The same pass is where t
 made available: `.0155` and `.0165` each added a refusal to `Shipment.at` for what ships, and
 the one constructor also served what had shipped. A rule written for one occasion read at
 another is the shape session twenty-three counted four times; this is the fifth.
+
+**Struck, 2026-10-14 — a recipient's update, repaired at the origin.** The front page began
+shipping 2026-10-11, and `Shipment.earlier` read an older ref with that day's manifest: the source's
+root `README.md` predates its shipping, so every tree installed before it lacked a copy the
+comparison expected, and its update was refused as an edit in core. Every update test installed
+with today's code, which ships the front page; none built a tree from the ref before. The slice
+adding a shipped file was the grading occasion this entry named, and the rule did not fire on it:
+*a shape that code now refuses* reads as a refusal added, and adding a shipped file refuses
+nothing — it only changes what a tree from before is compared against. Proposed amendment to
+`/verify`'s bullet: *one the code under test made cannot hold a shape that code now refuses, or
+lack a file that code now ships* — landed the same day.
 
 **Amendment, landed the same day.** `/verify`'s validator bullet gains: *a promise about
 something that already exists — a recipient's tree, a stored record — is asserted only by a

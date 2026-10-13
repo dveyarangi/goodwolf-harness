@@ -1129,6 +1129,33 @@ class AnUpdate(TwoTrees):
         self.assertTrue(report["gates"]["ref"]["passed"], report["gates"]["ref"])
         self.assertTrue(report["gates"]["injector"]["passed"], report["gates"]["injector"])
 
+    def test_a_tree_from_a_ref_that_shipped_no_front_page_updates_without_overwrite(self) -> None:
+        # A ref before the front page shipped held it at the root all the same, so its shipment
+        # read today names a copy the tree never received.
+        (self.target / INSTALLED_FRONT_PAGE).unlink()
+        self.write(KEEPER, f"{KEEPER_NAMES}# Keeper\n\nKeep more things.\n")
+        self.commit("core moved")
+
+        status, report = self.run_harness("--update")
+
+        self.assertEqual([], report["refusals"])
+        self.assertEqual(0, status, report["gates"])
+        self.assertEqual([], report["replaced"])
+        self.assertTrue((self.target / INSTALLED_FRONT_PAGE).is_file())
+
+    @proves_a_process
+    def test_the_rehearsal_lists_its_scratch_tree_as_the_injector_lists_a_repository(self) -> None:
+        # The scratch tree sits in the system's temporary folder, inside no repository, and the
+        # injector lists a tree by Git — the 2026-10-14 update of a recipient crashed there.
+        self.write(KEEPER, f"{KEEPER_NAMES}# Keeper\n\nKeep more things.\n")
+        self.commit("core moved")
+
+        status, report = self.run_harness("--update")
+
+        self.assertEqual([], report["refusals"])
+        self.assertEqual(0, status, report["gates"])
+        self.assertIn('<installed by="local">\n**L1** Our answer.\n</installed>', self.target_text("AGENTS.md"))
+
     def test_reports_written_only_the_files_that_changed(self) -> None:
         self.write(KEEPER, f"{KEEPER_NAMES}# Keeper\n\nKeep more things.\n")
         self.commit("core moved")

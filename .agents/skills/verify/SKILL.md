@@ -81,7 +81,7 @@ uv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/
   A missing or drifted validator is a finding, as is an unguarded normative promise.
   A promise about something that already exists — a recipient's tree, a stored record — is
   asserted only by a fixture built the way that thing came to be: one the code under test
-  made cannot hold a shape that code now refuses.
+  made cannot hold a shape that code now refuses, or lack a file that code now ships.
 - Sweep the question store, `docs/questions/`, for entries in scope: a question the
   implementation has since answered closes with a pointer to its owning record, and a dead
   trigger retires.

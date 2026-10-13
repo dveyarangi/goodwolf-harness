@@ -814,10 +814,13 @@ def _differs(target: Path, path: str, shipped: dict[str, str]) -> bool:
     """Whether the recipient's copy is what the ref shipped, the blocks its own installer put
     there and its own repository line set aside and line endings normalised — the injector's and R2's rule for
     comparing what was installed. Both sides lose the line, so a check or an update run from
-    another `--from` reads no edit in core."""
+    another `--from` reads no edit in core. A missing copy of a root file placed beside core — the
+    license, the front page — is no edit: a ref from before either shipped held it at its root all
+    the same, so its shipment read today names a copy the tree never received, and the next write
+    restores it."""
     copy = target / path
     if not copy.is_file():
-        return True
+        return path not in (INSTALLED_LICENSE, INSTALLED_FRONT_PAGE)
     text = _read(copy)
     shipped_text = shipped[path]
     if path.endswith(".md"):
@@ -1142,9 +1145,12 @@ def _inject(target: Path, report: Report) -> None:
 def _refuse_unless_injectable(target: Path, shipment: Shipment, previous: Shipment | None) -> None:
     """The injection rehearsed before a byte of the target is written, over a scratch tree holding
     the rules files and the files they target as the copy will leave them: a refusal the injector
-    would give after the copy is the run's refusal now."""
+    would give after the copy is the run's refusal now. The scratch tree is a repository of its
+    own, as the target is: the injector lists a tree by Git, and the system's temporary folder is
+    inside none."""
     with tempfile.TemporaryDirectory(prefix="harness-rehearsal-") as scratch:
         rehearsal = Path(scratch)
+        _git_said(rehearsal, "init", "--quiet")
         for path, text in _injection_inputs(target, shipment, previous).items():
             _write_text(rehearsal / path, text)
         refused = _install_rules(rehearsal, [])
