@@ -30,7 +30,7 @@ in the docstring.
 
 <straw-dog question="q-0023.0011">
 Where the code you write follows a rule that a load-bearing record of the project states — its
-architecture or an ADR — name the rule at the end of the comment phrase it backs, as
+architecture or an ADR — name each such rule at the end of the comment phrase it backs, as
 `(<path from the tree's root>: "<the rule's name>")`, whole on one line — wrap the comment before
 it, never inside it — the name being the rule's heading or the bold lead of its paragraph, word for
 word. A rule with no such name gets one in its record first. Code no such rule governs carries no
