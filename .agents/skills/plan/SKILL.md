@@ -37,6 +37,10 @@ description: >-
   done" or based on first idea. Promote simplicity, look for elegant solutions,
   prefer removing over expanding, prefer conciseness over verbosity.
 
+- A hidden edge the plan names — a race, a migration step, a special case — that a
+  choice of name, place or form brings with it reopens that choice before anything
+  is built around it.
+
 - Do not invent impl nouns or verbs that are not discussed or approved by
   user. Use existing vocabulary.
 

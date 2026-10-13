@@ -17,6 +17,28 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 42. A cost the plan named was built around instead of removed — 2026-10-13
+
+**Rules in play:** the entry file's *Occam* — the shape with the fewest parts, remove before you
+add; `/plan`'s *Do not select implementation shapes just because "that how it is usually done" or
+based on first idea … prefer removing over expanding*.
+
+**What happened.** For 01-0035.0040 the user chose a file per session *in a subfolder*. The plan
+put the folder at the single file's own path, `docs/questions/sessions`, and its *Hidden edges*
+said so: *the file and the folder share one path, so the carry-over must rename before it makes
+the folder*. The implementation then grew a rename with retries, a check for having taken another
+writer's new folder, and a give-back that merged it — and still failed a race. The user: *в общей
+подпапке для всех сессий, дубина.* Named apart, `sessions.d`, the carry-over became copies that
+never overwrite, and every race went with the rename.
+
+**Why it did not fire.** Both rules weigh shapes the plan chose between; the path was never put
+as a choice — it was taken from the old name — so the cost the plan wrote down was read as a
+constraint to engineer around, not as the price of a choice still open.
+
+**Amendment landed** 2026-10-13: `/plan` adds, beside *Do not select implementation shapes just
+because*: *A hidden edge the plan names — a race, a migration step, a special case — that a choice
+of name, place or form brings with it reopens that choice before anything is built around it.*
+
 ## 41. A probe of one variant was read as a verdict on the design — 2026-10-12
 
 **Rules in play:** `/align`'s *Name the shared assumption* — state the assumption both branches
