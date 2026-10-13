@@ -65,11 +65,11 @@ PAINTED_DOORS = frozenset(
         "docs/tickets/",
         "docs/tickets/done/",
         "docs/tickets/README.md",
-        # TODO q-0024.0004: the question store's entries and sessions file are declared in the
+        # TODO q-0024.0004: the question store's entries and sessions folder are declared in the
         # questions skill's prose; these rows go when `record-bearing` parses.
         "docs/questions/",
         "docs/questions/done/",
-        "docs/questions/sessions",
+        "docs/questions/sessions/",
         "docs/mechanisms/",
         # TODO q-0024.0004: the maintain mechanism's marks, declared in its skill's prose until each
         # mechanism's records are declared where a script reads them.
