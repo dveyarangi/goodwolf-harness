@@ -33,7 +33,7 @@ nothing.</straw-dog>
 | a trace link names an answer by id and name | the user, 2026-10-13, q-0035.0006 decision 1 |
 | only open and decided questions realize | settled at the plan, 2026-10-13, q-0035.0006 decision 2 |
 | U1 — the document is checked by `product.py` | the user, 2026-10-13, q-0035 decision 3, owed to `/maintain`'s M1 |
-| one mechanism tells the account to every reader; in core for now | the user, 2026-10-13, q-0035 decisions 10 and 11 |
+| one mechanism tells the account to every reader, shipped with core | the user, 2026-10-13, q-0035 decisions 10 and 11 |
 
 ## Moments
 

@@ -148,8 +148,9 @@ roles, is an open question of the store.
 - **A fresh store's roots** — *what it intends to become* — read by the first session's `/recall`
   and every window after, before the project has written a question of its own; worded on the
   shelf, written by the script, the project's from then on.
-- **The entries** — *what it intends to become, what happened once closed* — read by the script at every window, wake, declaration and check, and by a
-  person through `--tree`.
+- **The entries** — *what it intends to become, what happened once closed* — read by the script at every window, wake, declaration and check, by a
+  person through `--tree`, and by the product mechanism's script, which asks `realizes` for each
+  question's trace link — a part the store keeps as written and never resolves.
 - **The sessions folder** — *what exists* — one file per session, named by its tag and holding its
   line, so no session's write meets another's; read by the script for every window and wake, so
   each session sees where the others stand; a wake ends the sessions gone silent.
