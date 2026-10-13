@@ -15,6 +15,12 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v86 — 2026-10-13
+
+**The counters line is its numbers** — the window's counters line is copied character for
+character, never words standing for it. A reply headed its counters cell *🎫 / ❓ / 🐕 как в окне*;
+the user: *получил … вместо чисел.* [Rule failure 43](../rule-failures.md).
+
 ## v85 — 2026-10-12
 
 **Every mention of a question or a ticket is a link** — Q5 and P9 drop *later mentions may be the

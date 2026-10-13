@@ -17,6 +17,23 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 43. The counters line was replaced by words pointing at it — 2026-10-13
+
+**Rules in play:** the entry file's reply form, *under `debug=on`, the window's counters line,
+copied as it stands, a one-cell table of its own*.
+
+**What happened.** A session on q-0035 headed its reply with the cell *🎫 / ❓ / 🐕 как в окне* —
+the glyphs, and in place of the numbers a note that they are as in the window. The user: *получил
+… вместо чисел.*
+
+**Why it did not fire.** The line was in context: the window prints it on every turn, the
+unchanged one included. *Copied as it stands* says where the line comes from, not what the copy
+is, and was read as leave to point at it.
+
+**Amendment landed** 2026-10-13, entry contract v86: *the window's counters line — its glyphs,
+numbers and changes copied character for character from this turn's window, never words standing
+for them*. Graded by the next replies of other sessions.
+
 ## 42. A cost the plan named was built around instead of removed — 2026-10-13
 
 **Rules in play:** the entry file's *Occam* — the shape with the fewest parts, remove before you

@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v85, 2026-10-12.
+Entry contract: v86, 2026-10-13.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -89,7 +89,9 @@ A turn that completes a step of the delivery ring adds a row to the head table:
 `| 🔁 <the ticket, linked with its slug> · ✅ <each step this turn completed> |`. The 🪢 table
 opens the reply; a turn that made commits follows it with a table of its own, `| 🪶 Commits |`, a
 row each in order: the short hash and the subject's head; then, under `debug=on`, the window's
-counters line, copied as it stands, a one-cell table of its own; the head table comes after them.
+counters line — its glyphs, numbers and changes copied character for character from this turn's
+window, never words standing for them — a one-cell table of its own; the head table comes after
+them.
 </straw-dog>
 
 <installed by="ticket">
