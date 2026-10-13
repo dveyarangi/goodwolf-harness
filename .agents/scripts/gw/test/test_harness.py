@@ -341,12 +341,15 @@ class TwoTrees(RepositoryCase):
             return handle.read()
 
     def target_snapshot(self) -> dict[str, bytes]:
-        """Every byte of the target, and its index where the case may start a process."""
+        """Every byte of the target, and its index where the case may start a process. The
+        snapshot trusts the target itself, so a case that makes Git distrust it can still look."""
         files = {name: (self.target / name).read_bytes() for name in folder_listing(self.target)}
         if not self._proves_a_process():
             return files
+        trusted = f"safe.directory={self.target.resolve().as_posix()}"
         index = subprocess.run(
-            ["git", "ls-files", "--stage"], cwd=self.target, capture_output=True, encoding="utf-8", check=True
+            ["git", "-c", trusted, "ls-files", "--stage"],
+            cwd=self.target, capture_output=True, encoding="utf-8", check=True,
         ).stdout
         return {**files, "<index>": index.encode()}
 
@@ -740,7 +743,17 @@ class ARefusal(TwoTrees):
     def test_gits_own_ownership_check_is_what_the_refusal_reads(self) -> None:
         if not git_checks_ownership():
             self.skipTest("this Git predates the ownership check; the refusal is proved against its message")
-        self._patch(os, "environ", {**os.environ, "GIT_TEST_ASSUME_DIFFERENT_OWNER": "1"})
+        # Set in the process's own environment: a replaced `os.environ` never reaches a child Git
+        # started with no `env` of its own. The source is trusted by command-line config, so the
+        # knob refuses the target alone.
+        knob = unittest.mock.patch.dict(os.environ, {
+            "GIT_TEST_ASSUME_DIFFERENT_OWNER": "1",
+            "GIT_CONFIG_COUNT": "1",
+            "GIT_CONFIG_KEY_0": "safe.directory",
+            "GIT_CONFIG_VALUE_0": self.source.resolve().as_posix(),
+        })
+        knob.start()
+        self.addCleanup(knob.stop)
 
         self.assert_refused(("--install",), "target:", "dubious ownership", "safe.directory")
 
