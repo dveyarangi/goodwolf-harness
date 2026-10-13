@@ -95,6 +95,9 @@ PAINTED_DOORS = frozenset(
         # TODO q-0024.0004: the edge mechanism's records, declared in its format shelf's prose;
         # this row goes when `record-bearing` parses.
         "docs/edge/",
+        # TODO q-0024.0004: the product mechanism's document, declared in its format shelf's prose;
+        # this row goes when `record-bearing` parses.
+        "docs/product.md",
         # TODO q-0026: the register.
         "docs/rule-failures.md",
     )

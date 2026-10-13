@@ -120,7 +120,7 @@ stop for their yes. Ask each answer with the reason a project would choose it, i
 the origin's own answers, read in its clone, are not this project's and are offered as no default.
 The harness's checks
 are two kinds: those of the records the method keeps — `tickets.py`, `questions.py`, `edges.py`,
-`maintain.py` — serve every project that works by it; those of core itself — `mechanisms.py`,
+`product.py`, `maintain.py` — serve every project that works by it; those of core itself — `mechanisms.py`,
 `inject_rules.py` — serve a project that means to change the harness. End with the first question the work asks. What was copied, gated and registered stays in the
 files and the commit, said on request.
 

@@ -130,6 +130,11 @@ record under `docs/edge/` names, re-read what it says of that part. A promise th
 keeps is drift, reported with its evidence and never rewritten to fit.
 </installed>
 
+<installed by="product">
+**U1** Check the product document with `product.py --check` — form, never content. A diagnostic is a
+finding; repair it under the repair policy.
+</installed>
+
 ## Finish
 
 - **F1** Run the checks in the project's verification set that the scope touched.
