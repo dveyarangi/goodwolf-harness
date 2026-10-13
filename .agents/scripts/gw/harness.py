@@ -205,6 +205,7 @@ def run(
         previous = _refuse_unless_updatable(target, source, shipment, overwrite, report)
     plan = _link_plan(target)
     wiring = _wiring_plan(target, shipment, previous)
+    _refuse_unless_injectable(target, shipment, previous)
     _write(target, shipment, previous, report)
     _write_delivery_status(target, shipment, report)
     _seed_store(target, report)
@@ -741,6 +742,11 @@ def _same_repository(one: str, other: str) -> bool:
 
 def _refuse_unless_empty(target: Path, shipment: Shipment) -> None:
     present = [path for path in shipment.files if (target / path).exists()]
+    if present and (target / HARNESS_SKILL).is_file():
+        raise Refused(
+            f"install: core is already here — an install, whole or stopped partway; "
+            "--update --overwrite completes it"
+        )
     if present:
         raise Refused(
             f"install: {present[0]} already exists in the target; a previous install takes --update, "
@@ -1106,26 +1112,91 @@ def _link_command(path: Path, replacing: bool = False) -> str:
 
 
 def _inject(target: Path, report: Report) -> None:
-    """Every mechanism's rules file, then the recipient's local file last. A refusal is the
-    injector's, reported verbatim; the resume is the local file, the injector, then --check."""
-    sources = [directory.name for directory in sorted((target / inject_rules.MECHANISMS).glob("*/"))
+    """The rules files installed into the copy. The preflight asked the same of a rehearsal, so a
+    refusal here is one it could not foresee; the run has written, and the resume is the local
+    file, the injector, then --check."""
+    refused = _install_rules(target, report.injected)
+    if refused:
+        slug, reason = refused
+        raise Refused(
+            f"inject: {slug}: {reason}; fix {LOCAL_FILE}, run inject_rules.py {slug} --install, "
+            "then harness.py . --check"
+        )
+
+
+def _refuse_unless_injectable(target: Path, shipment: Shipment, previous: Shipment | None) -> None:
+    """The injection rehearsed before a byte of the target is written, over a scratch tree holding
+    the rules files and the files they target as the copy will leave them: a refusal the injector
+    would give after the copy is the run's refusal now."""
+    with tempfile.TemporaryDirectory(prefix="harness-rehearsal-") as scratch:
+        rehearsal = Path(scratch)
+        for path, text in _injection_inputs(target, shipment, previous).items():
+            _write_text(rehearsal / path, text)
+        refused = _install_rules(rehearsal, [])
+    if refused:
+        slug, reason = refused
+        raise Refused(f"inject: {slug}: {reason}; nothing was written — fix {LOCAL_FILE}, then run again")
+
+
+def _install_rules(root: Path, injected: list[dict]) -> tuple[str, str] | None:
+    """Every mechanism's rules file, then the recipient's local file last, each recorded in
+    `injected` as it lands; the first refusal, by the slug of the file refused, ends it."""
+    sources = [directory.name for directory in sorted((root / inject_rules.MECHANISMS).glob("*/"))
                if (directory / f"{directory.name}.rules.md").is_file()]
-    if (target / LOCAL_FILE).is_file():
+    if (root / LOCAL_FILE).is_file():
         sources.append(inject_rules.LOCAL)
     for slug in sources:
         try:
-            rules = inject_rules.read_rules_file(target, slug)
+            rules = inject_rules.read_rules_file(root, slug)
             if slug == inject_rules.LOCAL:
-                inject_rules.overrides_resolve(target, rules)
-            outcome = inject_rules.install(target, rules, overwrite=False)
+                inject_rules.overrides_resolve(root, rules)
+            outcome = inject_rules.install(root, rules, overwrite=False)
         except inject_rules.Refused as refusal:
-            raise Refused(f"inject: {slug}: {refusal}; fix {LOCAL_FILE}, run inject_rules.py {slug} --install, then harness.py . --check") from refusal
-        report.injected.append({"slug": slug, "targets": outcome["targets"]})
+            return slug, str(refusal)
+        injected.append({"slug": slug, "targets": outcome["targets"]})
         if outcome["refusals"]:
-            raise Refused(
-                f"inject: {slug}: {outcome['refusals'][0]}; fix {LOCAL_FILE}, "
-                f"run inject_rules.py {slug} --install, then harness.py . --check"
-            )
+            return slug, outcome["refusals"][0]
+    return None
+
+
+def _injection_inputs(target: Path, shipment: Shipment, previous: Shipment | None) -> dict[str, str]:
+    """What the injection will read once the copy is done: every rules file — shipped, the
+    recipient's own mechanisms' that stay, the local file — and every file their anchor tables
+    name, each as the copy leaves it. A file the target holds as shipped stays as it stands, its
+    installed blocks with it; a file leaving the manifest is gone."""
+    leaving = set(previous.files) - set(shipment.files) if previous else set()
+
+    def after_copy(path: str) -> str | None:
+        if path in shipment.files:
+            return _read(target / path) if _holds(target, path, shipment.files) else shipment.files[path]
+        if path in leaving or not (target / path).is_file():
+            return None
+        return _read(target / path)
+
+    held_rules = (path.relative_to(target).as_posix() for path in (target / inject_rules.MECHANISMS).glob("*/*.rules.md"))
+    rules_files = {path for path in [*shipment.files, *held_rules] if _is_rules_file(path)} | {LOCAL_FILE}
+    inputs = {}
+    for path in sorted(rules_files):
+        text = after_copy(path)
+        if text is None:
+            continue
+        inputs[path] = text
+        slug = inject_rules.LOCAL if path == LOCAL_FILE else path.split("/")[2]
+        try:
+            anchored = inject_rules.parse_rules_file(slug, text).anchors
+        except inject_rules.Refused:
+            continue  # the rehearsal reads it again, and its refusal is the run's
+        for anchored_path in anchored:
+            held = after_copy(anchored_path)
+            if held is not None:
+                inputs[anchored_path] = held
+    return inputs
+
+
+def _is_rules_file(path: str) -> bool:
+    """A mechanism's rules file: `<mechanisms>/<slug>/<slug>.rules.md`."""
+    parts = path.split("/")
+    return path.startswith(inject_rules.MECHANISMS + "/") and len(parts) == 4 and parts[3] == f"{parts[2]}.rules.md"
 
 
 # --- the gate --------------------------------------------------------------------------------

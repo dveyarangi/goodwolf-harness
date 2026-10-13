@@ -129,6 +129,12 @@ ARRIVAL_TEST = (
     "        self.assertTrue(True)\n"
 )
 LICENSE_TEXT = "MIT License\n\nCopyright (c) 2026 the fixture's contributors\n"
+# A local file the injector refuses only once it reads the shipped rules: sample declares no P9.
+LOCAL_OVERRIDING_NO_RULE = (
+    "# local\n\n| target | anchor |\n|---|---|\n| `AGENTS.md` | `## Project-local` |\n\n"
+    "## L1 — ours\n\n- **target** `AGENTS.md`\n- **overrides** `sample/P9`\n"
+    "- **authority** the user, 2026-09-21\n\n<rule>\nOur answer.\n</rule>\n"
+)
 INSTALLED_LICENSE = ".agents/LICENSE"
 FRONT_PAGE = (
     "# The repository's front page, shipped beside the harness skill\n\n"
@@ -757,6 +763,27 @@ class ARefusal(TwoTrees):
 
         self.assert_refused(("--install",), "target:", "dubious ownership", "safe.directory")
 
+    def test_a_malformed_local_file_is_refused_before_the_copy(self) -> None:
+        (self.target / "local.rules.md").write_text("# local\n\nNo rule sections here.\n", encoding="utf-8")
+
+        self.assert_refused(("--install",), "inject: local:", "no rule sections", "nothing was written")
+
+    def test_an_override_naming_no_rule_is_refused_before_the_copy(self) -> None:
+        (self.target / "local.rules.md").write_text(LOCAL_OVERRIDING_NO_RULE, encoding="utf-8")
+
+        self.assert_refused(("--install",), "inject: local:", "L1 overrides sample/P9", "nothing was written")
+
+    def test_a_second_install_over_core_names_the_update_that_completes_it(self) -> None:
+        self.run_harness("--install")
+        (self.target / KEEPER).unlink()  # as a run stopped partway would leave it
+
+        self.assert_refused(("--install",), "install:", "--update --overwrite")
+        status, report = self.run_harness("--update", "--overwrite")
+
+        self.assertEqual([], report["refusals"])
+        self.assertTrue(report["arrived"], report["gates"])
+        self.assertIn("Keep things.", self.target_text(KEEPER))
+
     @proves_a_process
     def test_the_source_itself_by_its_remote(self) -> None:
         subprocess.run(["git", "remote", "add", "origin", str(self.source)], cwd=self.target, check=True)
@@ -1188,21 +1215,18 @@ class AnUpdate(TwoTrees):
 
         self.assertEqual(["kept", "kept"], [link["state"] for link in report["links"]])
 
-    def test_an_injector_refusal_is_unfinished_and_names_the_resume(self) -> None:
-        self.write_target(
-            "local.rules.md",
-            "# local\n\n| target | anchor |\n|---|---|\n| `AGENTS.md` | `## Project-local` |\n\n"
-            "## L1 — ours\n\n- **target** `AGENTS.md`\n- **overrides** `sample/P9`\n"
-            "- **authority** the user, 2026-09-21\n\n<rule>\nOur answer.\n</rule>\n",
-        )
+    def test_an_injector_refusal_writes_nothing_of_the_update(self) -> None:
+        self.write_target("local.rules.md", LOCAL_OVERRIDING_NO_RULE)
+        self.write(KEEPER, f"{KEEPER_NAMES}# Keeper\n\nKeep more things.\n")
+        self.commit("core moved")
 
         status, report = self.run_harness("--update")
 
         self.assertEqual(1, status)
-        self.assertIn("inject:", report["refusals"][0])
+        self.assertIn("inject: local:", report["refusals"][0])
         self.assertIn("L1 overrides sample/P9", report["refusals"][0])
-        self.assertIn("harness.py . --check", report["refusals"][0])
-        self.assertIn("Keep things.", self.target_text(KEEPER))
+        self.assertIn("nothing was written", report["refusals"][0])
+        self.assertIn("Keep things.", self.target_text(KEEPER), "the moved core was not copied")
 
 
 class ATreeInstalledUnderEarlierRules(TwoTrees):
