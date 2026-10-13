@@ -150,8 +150,9 @@ roles, is an open question of the store.
   shelf, written by the script, the project's from then on.
 - **The entries** — *what it intends to become, what happened once closed* — read by the script at every window, wake, declaration and check, and by a
   person through `--tree`.
-- **The sessions file** — *what exists* — read by the script for every window and wake, so each session sees where
-  the others stand; a wake ends the rows gone silent.
+- **The sessions folder** — *what exists* — one file per session, named by its tag and holding its
+  line, so no session's write meets another's; read by the script for every window and wake, so
+  each session sees where the others stand; a wake ends the sessions gone silent.
 - **The window** — *what exists* — read by the agent before every message, from the host's hook or the rule.
 - **The wake's read** — *what exists* — read by the agent at session start, from the hook or `/recall`; it names
   the straw dogs due, whose text `/maintain` rewrites.
@@ -172,7 +173,7 @@ Nothing else; the tree is rendered on request and never committed.
 **Four `not yet` rows**, each bound to an open question.
 
 <straw-dog question="q-0018.0015">
-**The sessions file** is one file in the working tree, and that is how sessions see each other;
+**The sessions folder** is one folder in the working tree, and that is how sessions see each other;
 sessions that do not share the directory do not see each other.
 </straw-dog>
 
