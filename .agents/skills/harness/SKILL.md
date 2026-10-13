@@ -75,6 +75,8 @@ Every refusal writes nothing and names its step.
 - **A core file that differs from the announced ref**: an edit made in core. Keep it out of core
   — a project's answer or override goes in the local file — and run `--update --overwrite`,
   which replaces the file and names it.
+- **A file of the project's at a path the new ref adds**: refused naming it. Move it first, or
+  run `--update --overwrite`, which replaces it and names it.
 - **A tree that announces no ref**: a copy that predates this script. `--update --overwrite` is
   required; nothing is deleted, and files under `.agents/` outside the manifest are reported as
   the project's own.
