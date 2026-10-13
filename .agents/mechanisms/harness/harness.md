@@ -42,7 +42,9 @@ and bytecode caches running the script leaves, no commit on any ref that no remo
 of its origin holds, whatever ref the run names; such a clone is emptied, its repository with it,
 and the install runs as into an empty folder. A target Git refuses for
 dubious ownership is refused with that cause and Git's own command. An update refuses over a core
-file the recipient edited unless told to overwrite, and then reports what it replaced; it never
+file the recipient edited unless told to overwrite, and then reports what it replaced; it refuses
+likewise a path the new ref adds where the project already holds a file of its own, naming it,
+and passes one already holding what ships; it never
 touches a file under the core directory the manifest does not name, and reports it as the
 recipient's own; it refuses an entry file still carrying a retired `<project-local>` block, whose
 content is the project's.

@@ -115,4 +115,4 @@ mechanism of the method aligned, specified and decomposed:
 ## What continues
 
 The first step of the next session: the user places 01-0040 in the order; then `/plan` on
-[01-0040.0010 an-answers-coverage-is-read-from-the-questions-that-realize-it](../tickets/01-0040.0010-an-answers-coverage-is-read-from-the-questions-that-realize-it.md).
+[01-0040.0010 an-answers-coverage-is-read-from-the-questions-that-realize-it](../tickets/done/01-0040.0010-an-answers-coverage-is-read-from-the-questions-that-realize-it.md).

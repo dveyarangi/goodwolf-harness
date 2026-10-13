@@ -113,7 +113,8 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
   under P5. Its exit status is what the set consumes; its JSON is for the person reading a
   failure. It writes nothing.
 - **The mover's report** — *what happened* — read by the maintainer who ran it: what moved, what was repaired, what
-  it could not rewrite.
+  it could not rewrite, and a source edited after the move was derived, which stops the close as
+  interference.
 - **The rules file** — *what must always hold* — read by the installer alone, and by whoever amends a rule of this mechanism
   that another skill reads. Its blocks sit in `/maintain`, `/plan`, `/align`, `/recall`, `/ticket`
   and the entry file's general rules.

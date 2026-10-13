@@ -1,8 +1,8 @@
 # A project's account stays in agreement with its work
 
 - **record of** what it intends to become
-- **Status:** Planned (decomposed 2026-10-13 into `.0010`–`.0070`; this record is the end state and
-  takes no RFC of its own)
+- **Status:** In progress (decomposed 2026-10-13 into `.0010`–`.0070`, `.0010` done the same day;
+  this record is the end state and takes no RFC of its own)
 - **Type:** HITL
 - **Minted:** 2026-10-13
 - **Answers:** [q-0035](../questions/q-0035-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the-projects-work-in-agreement-both-ways.md)
@@ -20,7 +20,7 @@ the align on q-0035 and its eleven decisions. Split assessed in
 
 The slices, in the order their dependencies allow:
 
-- [01-0040.0010 an-answers-coverage-is-read-from-the-questions-that-realize-it](./01-0040.0010-an-answers-coverage-is-read-from-the-questions-that-realize-it.md)
+- [01-0040.0010 an-answers-coverage-is-read-from-the-questions-that-realize-it](./done/01-0040.0010-an-answers-coverage-is-read-from-the-questions-that-realize-it.md)
 - [01-0040.0020 drift-between-the-document-and-the-work-is-found](./01-0040.0020-drift-between-the-document-and-the-work-is-found.md)
 - [01-0040.0030 a-decided-purpose-question-opens-its-building](./01-0040.0030-a-decided-purpose-question-opens-its-building.md)
 - [01-0040.0040 this-trees-account-runs-on-the-mechanism](./01-0040.0040-this-trees-account-runs-on-the-mechanism.md)
