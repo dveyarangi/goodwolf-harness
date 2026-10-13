@@ -39,6 +39,7 @@ after a call says what it takes.
 | `suspect q-N` · `clear q-N` | the suspect flag |
 | `lean q-N '<line>'` | the lean |
 | `assign q-N <path>` | the owner, the record of the work that answers the question |
+| `realize q-N '<link>'` | the trace link, `A7 "<name>", …` or `derived`, replacing the one it carried |
 
 `open` leaves the session where it stands: to stand on the new question, call `at` on the id it
 printed. A refused call writes nothing and says why; fix it and call again in the same turn. Under
@@ -154,6 +155,7 @@ deleted.
 - **state** closed:decided, suspect
 - **owner** [01-0011.0100](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)
 - **answer** [the ADR](../adr/0004-scripts-run-on-the-standard-library-alone.md) — the user, 2026-09-28
+- **realizes** A7 "The question store"
 - **lean** the flat directory, for insertion cost
 - **struck** 2, last 2026-10-02T19:40Z
 
@@ -176,7 +178,9 @@ script writes it from the state on every call, and the check holds the two equal
 name, `kind`, is reported.
 
 Every other part but **state** is optional, and a closed entry must carry its **answer**. **struck** is
-`<n>, last <YYYY-MM-DDTHH:MMZ>`, in UTC, written by the script alone, never by hand. The state is
+`<n>, last <YYYY-MM-DDTHH:MMZ>`, in UTC, written by the script alone, never by hand. **realizes**
+is the trace link, kept as written and never resolved; a question without one carries its nearest
+ancestor's, and the window never draws it. The state is
 `open` or `closed:<kind>`, with `, suspect` after it at most. **The id is the place**: a root is
 `q-NNNN`, a child its parent's id and one more position, `q-0090.0003`, the next after its
 siblings. A

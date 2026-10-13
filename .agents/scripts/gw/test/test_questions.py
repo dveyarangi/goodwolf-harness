@@ -129,12 +129,18 @@ class AMalformedEntry(Store):
                 "state": "closed:decided, suspect",
                 "owner": "[the record](../record.md)",
                 "answer": "[the record](../record.md) — the user, 2026-09-29",
+                "realizes": 'A7 "The question store", A12 "A session resumes, at its step"',
                 "lean": "held loosely",
                 "struck": "2, last 2026-10-02T19:40Z",
             },
         )
 
         self.assertEqual([], self.problems())
+
+    def test_with_a_trace_link_that_names_no_answer_by_id_and_name(self) -> None:
+        for written in ("A7", 'A7 "The store", A7 "Again"', 'derived, A7 "The store"', '"The store"'):
+            with self.subTest(written=written):
+                self.assertReported(entry("q-0003", "A bad one?", {"state": "open", "realizes": written}), "realizes")
 
     def test_carrying_no_mark(self) -> None:
         self.assertReported(entry("q-0003", "A bad one?", {"state": "open"}, marked=False), "names no kind")
@@ -1997,6 +2003,63 @@ class ClosingByKind(Declared):
 
         self.assertEqual("closed:decided, suspect", self.part("q-0005-is-the-id-a-path", "state"))
         self.assertEqual("closed:decided", self.part("q-0008-is-the-lean-optional", "state"))
+
+
+class TheTraceLink(Declared):
+    """A question's trace link to the answers it realizes: kept as written, never resolved, carried
+    down to every sub-question that states none of its own, and never drawn."""
+
+    def realized(self, identity: str) -> questions.TraceLink | None:
+        return questions.realizes(questions.read_store(self.root).index, identity)
+
+    def test_realize_writes_the_link(self) -> None:
+        self.called("realize", "q-0004", 'A7 "The question store", A12 "A session resumes, at its step"')
+
+        self.assertEqual(
+            'A7 "The question store", A12 "A session resumes, at its step"',
+            self.part("q-0004-which-parts-are-optional", "realizes"),
+        )
+
+    def test_a_sub_question_reads_its_ancestors_link_as_its_own(self) -> None:
+        self.called("realize", "q-0002", 'A7 "The question store"')
+
+        self.assertEqual((("A7", "The question store"),), self.realized("q-0008").answers)
+        self.assertIsNone(self.part("q-0008-is-the-lean-optional", "realizes"))
+
+    def test_a_question_that_states_its_own_link_reads_its_own(self) -> None:
+        self.called("realize", "q-0002", 'A7 "The question store"')
+        self.called("realize", "q-0004", 'A12 "A session resumes at its step"')
+
+        self.assertEqual((("A12", "A session resumes at its step"),), self.realized("q-0008").answers)
+
+    def test_a_derived_question_reports_derived_and_so_do_its_sub_questions(self) -> None:
+        self.called("realize", "q-0004", "derived")
+
+        for identity in ("q-0004", "q-0008"):
+            with self.subTest(identity=identity):
+                self.assertTrue(self.realized(identity).derived)
+                self.assertEqual((), self.realized(identity).answers)
+
+    def test_a_question_with_no_link_up_to_its_root_realizes_nothing(self) -> None:
+        self.assertIsNone(self.realized("q-0008"))
+
+    def test_a_closed_question_in_done_takes_a_link(self) -> None:
+        self.called("realize", "q-0012", 'A7 "The question store"')
+
+        self.assertIn('- **realizes** A7 "The question store"', self.read(f"{STORE}/done/q-0012-an-archived-one.md"))
+
+    def test_a_malformed_link_is_refused_and_writes_nothing(self) -> None:
+        for written in ("A7", 'A7 "The store", A7 "Again"', 'derived, A7 "The store"', ""):
+            with self.subTest(written=written):
+                self.assertRefused("not a trace link", "realize", "q-0004", written)
+
+    def test_the_window_does_not_draw_the_link(self) -> None:
+        self.called("realize", "q-0002", 'A7 "The question store"')
+
+        _, text = self.said("--window", "--session", "s-alpha")
+
+        self.assertIn("q-0002 [open] What an entry holds?  ~ eight parts", text)
+        self.assertNotIn("The question store", text)
 
 
 class Refusals(Declared):

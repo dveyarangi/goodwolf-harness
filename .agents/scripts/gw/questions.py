@@ -22,8 +22,11 @@ silent, and reads where the work stands; `--end` closes a session's line; `--tre
 opens the roots of a store that holds no entry, as the install does, and is how a person resumes
 an install that stopped there. Each
 event of a turn is its own call — `at`, `open`, `move`, `depend`, `undepend`, `close`, `suspect`,
-`clear`, `lean`, `assign` — validated and written whole (parent decision 56); `--help` after any
-of them says what it takes.
+`clear`, `lean`, `assign`, `realize` — validated and written whole (parent decision 56); `--help`
+after any of them says what it takes.
+
+`realizes` answers what a question realizes, for whichever mechanism keeps the answers: the store
+keeps the trace link as written and never resolves it (q-0035, decision 4).
 """
 
 from __future__ import annotations
@@ -89,7 +92,10 @@ PATH_LIMIT = 259
 LAST_POSITION = 9999
 # Where the fingerprint of each session's last window is kept; `None` is the machine's temp folder.
 WINDOW_MEMORY: str | None = None
-PARTS = ("record of", "part of", "depends on", "state", "owner", "answer", "lean", "struck")
+PARTS = ("record of", "part of", "depends on", "state", "owner", "answer", "realizes", "lean", "struck")
+# A trace link names each answer by its reference and its name, as a ticket is named by id and
+# slug, or states that the question realizes none (q-0035.0006, decision 1).
+DERIVED = "derived"
 # An entry carries what it is a record of as its first part, so the agent writing its body meets
 # the kind in context (the user, 2026-10-08): what it intends to become while open, what happened
 # once closed. The writer writes it from the state on every write; `kind` was the mark's earlier name.
@@ -106,7 +112,7 @@ NOT_HOMES = (f"{STORE}/", "docs/tickets/", "docs/rfc/")
 _USAGE = (
     "usage: questions.py --check | --window --session <tag> | --wake [--session <tag>] "
     "| --end --session <tag> | --tree [<q-id>] | --seed | <event> ... --session <tag>, the events "
-    "at, open, move, reword, depend, undepend, close, suspect, clear, lean, assign"
+    "at, open, move, reword, depend, undepend, close, suspect, clear, lean, assign, realize"
 )
 # How many times an `open` takes the next free id again when another session took the one it drew.
 OPEN_ATTEMPTS = 3
@@ -125,6 +131,8 @@ _IDENTITY = re.compile(rf"^{_ID}$")
 _ENTRY_NAME = re.compile(rf"^{STORE}/(?:done/)?({_ID})-([a-z0-9]+(?:-[a-z0-9]+)*)\.md$")
 _DEFERRAL = re.compile(r"^until \S.*, meanwhile \S.*$")
 _STRIKE = re.compile(r"^(\d+), last (\d{4}-\d{2}-\d{2}T\d{2}:\d{2})Z$")
+_ANSWER_NAMED = r'([A-Za-z0-9][A-Za-z0-9._-]*) "(\S(?:[^"]*\S)?)"'
+_TRACE_LINK = re.compile(rf"^{_ANSWER_NAMED}(?:, *{_ANSWER_NAMED})*$")
 _SESSION = re.compile(
     rf"^([A-Za-z0-9][\w.-]*) (running|ended) (\d{{4}}-\d{{2}}-\d{{2}})(?:T(\d{{2}}:\d{{2}})Z)? ({_ID}|-)"
     rf"(?: ({_ID}(?:,{_ID}){{0,3}}))?$"
@@ -229,6 +237,15 @@ class Strike:
     @property
     def text(self) -> str:
         return f"{self.count}, last {self.last:%Y-%m-%dT%H:%M}Z"
+
+
+@dataclass(frozen=True)
+class TraceLink:
+    """The answers a question realizes, each a reference and its name as the link quotes them, or
+    none, by its statement that it is derived. Neither is resolved here."""
+
+    answers: tuple[tuple[str, str], ...]
+    derived: bool = False
 
 
 @dataclass(frozen=True)
@@ -450,6 +467,7 @@ def _read(name: str, text: str) -> tuple[Entry, list[Diagnostic]]:
         + _state_problems(read)
         + ([] if carries_former_mark else _mark_problems(read))
         + _relation_form_problems(read)
+        + _trace_link_problems(read)
         + _strike_problems(read)
     )
 
@@ -478,6 +496,30 @@ def _ids(value: str) -> list[str] | None:
     """A comma-separated list of ids, or `None` where anything else is written."""
     written = [item.strip() for item in value.split(",")]
     return written if all(_IDENTITY.match(item) for item in written) else None
+
+
+def _trace_link(value: str) -> TraceLink | None:
+    """The trace link a `realizes` part writes, or `None` where its form is anything else: answers
+    as `<reference> "<name>"`, comma-separated, each reference once, or `derived` alone."""
+    if value == DERIVED:
+        return TraceLink((), derived=True)
+    if not _TRACE_LINK.match(value):
+        return None
+    answers = tuple(re.findall(_ANSWER_NAMED, value))
+    references = [reference for reference, _ in answers]
+    return TraceLink(answers) if len(set(references)) == len(references) else None
+
+
+def _trace_link_problems(read: Entry) -> list[Diagnostic]:
+    """A trace link is optional, since most questions inherit theirs; when written, it reads as
+    one."""
+    said = read.parts.get("realizes")
+    if said is None or _trace_link(said.value) is not None:
+        return []
+    return [Diagnostic(read.record, said.line, f"realizes is `{said.value}`, {_NOT_A_TRACE_LINK}")]
+
+
+_NOT_A_TRACE_LINK = 'not a trace link: answers as `<reference> "<name>"`, comma-separated, each once, or `derived`'
 
 
 def _relation_form_problems(read: Entry) -> list[Diagnostic]:
@@ -1149,6 +1191,18 @@ def _ancestry(index: dict[str, Entry], identity: str) -> list[Entry]:
         found.append(at)
         at = index.get(at.parent or "")
     return found
+
+
+def realizes(index: dict[str, Entry], identity: str) -> TraceLink | None:
+    """What a question realizes: its own trace link, else its nearest ancestor's, else `None` —
+    trace propagation, computed when read and never copied into a sub-question (q-0035, decision 4).
+    A link whose form cannot be read is the check's to report, and is passed over here."""
+    for carrier in _ancestry(index, identity):
+        said = carrier.parts.get("realizes")
+        link = _trace_link(said.value) if said else None
+        if link is not None:
+            return link
+    return None
 
 
 def read_store(root: Path, seen: dict[str, bytes] | None = None) -> Store:
@@ -1823,7 +1877,9 @@ class Clause:
 
 # A record named by its id, `01-0011.0100` of a ticket's file name, is labelled by that id alone.
 _RECORD_ID = re.compile(r"^\d{2}-\d{4}(?:\.\d{4})*")
-EVENTS = ("at", "open", "move", "reword", "depend", "undepend", "close", "suspect", "clear", "lean", "assign")
+EVENTS = (
+    "at", "open", "move", "reword", "depend", "undepend", "close", "suspect", "clear", "lean", "assign", "realize"
+)
 
 
 def _called(root: Path, argv: list[str], today: date, now: datetime) -> int:
@@ -1877,7 +1933,7 @@ def _clause(said: argparse.Namespace) -> Clause:
         return Clause(f"{said.event}s", said.question, other=said.on)
     if said.event == "close":
         return Clause("closes", said.question, other=said.kind, text=said.pointer)
-    if said.event in ("lean", "assign", "reword"):
+    if said.event in ("lean", "assign", "reword", "realize"):
         return Clause(f"{said.event}s", said.question, text=said.text)
     return Clause({"at": "at", "suspect": "suspects", "clear": "clears"}[said.event], said.question)
 
@@ -1918,6 +1974,9 @@ def _calls() -> argparse.ArgumentParser:
     of_question("clear", "lift the mark")
     of_question("lean", "write a question's lean").add_argument("text")
     of_question("assign", "name the record of the work that answers a question").add_argument("text", metavar="path")
+    of_question("realize", 'write the answers a question realizes, `A7 "<name>", ...`, or `derived`').add_argument(
+        "text", metavar="link"
+    )
     return calls
 
 
@@ -2393,6 +2452,15 @@ class _Draft:
         label = _RECORD_ID.match(name)
         link = posixpath.relpath(owner, posixpath.dirname(read.record))
         self._put(_with(read, owner=f"[{label.group(0) if label else name}]({link})"))
+
+    def _realizes(self, clause: Clause) -> None:
+        """The trace link replaces whatever the question carried, on any entry the store holds,
+        open or closed, live or archived — coverage reads closed questions too."""
+        read = self._existing(clause.question or "")
+        link = (clause.text or "").strip()
+        if _trace_link(link) is None:
+            raise Refused(f"`realize {read.identity} {link}`: {_NOT_A_TRACE_LINK}")
+        self._put(_with(read, realizes=link))
 
     def _awaited_by(self, identity: str) -> set[str]:
         """Every question this one waits on, directly or through another."""
