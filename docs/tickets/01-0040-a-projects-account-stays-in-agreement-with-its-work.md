@@ -22,7 +22,7 @@ The slices, in the order their dependencies allow:
 
 - [01-0040.0010 an-answers-coverage-is-read-from-the-questions-that-realize-it](./done/01-0040.0010-an-answers-coverage-is-read-from-the-questions-that-realize-it.md)
 - [01-0040.0015 this-trees-store-takes-the-three-seeded-roots](./done/01-0040.0015-this-trees-store-takes-the-three-seeded-roots.md), added 2026-10-13
-- [01-0040.0020 drift-between-the-document-and-the-work-is-found](./01-0040.0020-drift-between-the-document-and-the-work-is-found.md)
+- [01-0040.0020 drift-between-the-document-and-the-work-is-found](./done/01-0040.0020-drift-between-the-document-and-the-work-is-found.md)
 - [01-0040.0030 a-decided-purpose-question-opens-its-building](./01-0040.0030-a-decided-purpose-question-opens-its-building.md)
 - [01-0040.0040 this-trees-account-runs-on-the-mechanism](./01-0040.0040-this-trees-account-runs-on-the-mechanism.md)
 - [01-0040.0050 the-queue-shows-what-each-item-realizes](./01-0040.0050-the-queue-shows-what-each-item-realizes.md)

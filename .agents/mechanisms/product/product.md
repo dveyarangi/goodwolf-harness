@@ -18,8 +18,13 @@ development method knows nothing of the product. An answer's coverage — absent
 present — is read from the questions that realize it, never written; the maintainer script renders
 it on request, and the document holds no status of its own.
 
-**The maintainer holds the document's form.** Every answer carries an id and a name, and no id is
-written twice. A tree with no product document has nothing to check and passes.
+**The maintainer holds the document and the store to each other.** It finds the purpose root and
+the structure root by their seeded words. What is broken fails the check: an answer with no id or
+name, an id written twice, a link naming no answer or quoting a name its answer no longer has, an
+undecided row bound to nothing or to a question outside the purpose root. What is missing is
+reported and never fails it: an open structure question with no link and not derived — an orphan
+—, a decided answer nothing realizes, an open purpose question no row names. A tree with no
+product document has nothing to check and passes.
 
 It is **installed**. <straw-dog question="q-0037.0006.0024">It ships with core like every mechanism,
 since a project cannot yet take one alone; where a project keeps no product document, it finds
@@ -87,8 +92,7 @@ Nothing else; no index.
 ## Not yet at the shape
 
 **Four `not yet` rows of its own**, each bound to an open question: allocation from a purpose
-decision, the README, the release note, and removal. Drift between the document and the work —
-an orphan, an unrealized answer, a link naming no answer or an outdated name — is not found yet.
+decision, the README, the release note, and removal.
 
 ## What retires this
 

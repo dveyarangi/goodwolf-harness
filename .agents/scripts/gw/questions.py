@@ -213,6 +213,13 @@ class Entry:
         return None
 
     @property
+    def trace_link(self) -> TraceLink | None:
+        """The trace link it writes itself, or `None` when it writes none or its form cannot be read;
+        what it realizes through an ancestor is `realizes`'s."""
+        said = self.parts.get("realizes")
+        return _trace_link(said.value) if said else None
+
+    @property
     def strike(self) -> Strike | None:
         """Its strike count and last stamp, or `None` when it has none or its form cannot be read."""
         said = self.parts.get("struck")
@@ -1198,12 +1205,7 @@ def realizes(index: dict[str, Entry], identity: str) -> TraceLink | None:
     trace propagation, computed when read and never copied into a sub-question (the user,
     2026-10-13).
     A link whose form cannot be read is the check's to report, and is passed over here."""
-    for carrier in _ancestry(index, identity):
-        said = carrier.parts.get("realizes")
-        link = _trace_link(said.value) if said else None
-        if link is not None:
-            return link
-    return None
+    return next((carrier.trace_link for carrier in _ancestry(index, identity) if carrier.trace_link), None)
 
 
 def read_store(root: Path, seen: dict[str, bytes] | None = None) -> Store:

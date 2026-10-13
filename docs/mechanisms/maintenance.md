@@ -14,8 +14,8 @@ One row per mechanism per level, then each file that level was checked against, 
 | maintain | output | f7dac46456512388ed514aa3c8f1644835ddeaafb1ea7c53aea3cc2a6e3ed89d | 2026-10-13 | nothing to change |
 | mechanism-shape | parts | e6f9e7aa5f6e0856e201ed1eff44dc8f54ffecfb2d20ab28eab2b3e4da23e6c4 | 2026-10-13 | nothing to change |
 | mechanism-shape | output | 39beb8b7fa3e0eb7f7979b84791c6e66d01e5d483aac0bed8ac5bd7607ca836e | 2026-10-13 | nothing to change |
-| product | parts | cbc6d67f5498360331ca4baef7e288d2bf96624aa549d7b11f2582fa2edb149b | 2026-10-13 | amended |
-| questions | parts | 195d6532b6a0c7529bf64f6b3f9179d7b5072d1e1cd3967a3be33ad2e1606d86 | 2026-10-13 | nothing to change |
+| product | parts | bcdbf746e7c57caacc937b649dd8cb57115ec2de67da98b42e6f2d8487633669 | 2026-10-13 | amended |
+| questions | parts | 195d8d6dbea48da5fd812395bf616360a306fe824ebc28f16e8c33df0127688b | 2026-10-13 | nothing to change |
 | questions | output | 411f74c93709b50d6d9481e618aa71cf607183c7543e68182b9abc34c83d7e72 | 2026-10-13 | nothing to change |
 | ticket | parts | cb2d42ea115cc76d7e2daf7cd8ad90e4984912afb034fed2a63baec6d6141ff6 | 2026-10-13 | nothing to change |
 | ticket | output | 69796cf18399b92c1fc31dae12bdebfe938f4df479fde1833fe6d124cb0d4ffe | 2026-10-13 | nothing to change |
@@ -76,14 +76,14 @@ One row per mechanism per level, then each file that level was checked against, 
 | mechanism-shape | output | .agents/skills/mechanism/MECHANISM-FORMAT.md | daa56fcbacf1109796fa9fad70d7328d75edb16162502e856173d86169d08992 |
 | mechanism-shape | output | .agents/skills/mechanism/SKILL.md | 14e6d50374c7372786200c1e2c3e622af31547b0fa9f23ecb359393d229ef0ed |
 | product | parts | .agents/mechanisms/product/product.rules.md | 47306c186df125ccb87bb4d852a6c3c79796b264fc014e33a827522ac8fa918b |
-| product | parts | .agents/scripts/gw/product.py | 8c8cd0533b14b1223a5492e3c6debc49e6bb441eb9b68408df28d993600932bf |
-| product | parts | .agents/scripts/gw/test/test_product.py | e4e25947c4703a29a3975c320fd1c0eb446b38921cc3b4cfeddd2a2d712ff279 |
+| product | parts | .agents/scripts/gw/product.py | c436a403744cccea05d014d98f856b956125aeded12f45e3da41d6e51ce9670e |
+| product | parts | .agents/scripts/gw/test/test_product.py | 137eea7fe0a105a5a434d2165c24ca0aa435709c6da7f33eb4ba4d30f5654b9d |
 | product | parts | .agents/skills/product/PRODUCT-FORMAT.md | 0d1fb3937e4f005037b8fdac012af3bd6d21a4a18b4d5d700cb2f07cbbb09747 |
 | product | parts | .agents/skills/product/SKILL.md | 8b742d6b82ef1e5defaecc03328d26b968ed1a94162f8be506a2f2427321e2af |
 | questions | parts | .agents/.gitattributes | bd95d1f719ab960c7d638d202a762ab72f356be5be7270623165327a47e28149 |
 | questions | parts | .agents/mechanisms/questions/questions.rules.md | 35da1535183088be03f1124e3e29a8cb1ac353121d2530914949ba84f6c58eb3 |
 | questions | parts | .agents/scripts/gw/hook.sh | 0118d8145545019d8121a339242fc9795690bb554d2375a8f89a3b4de27ba83e |
-| questions | parts | .agents/scripts/gw/questions.py | 60e0cc0acba1d0600184166b996469fa84500c49b846a586caecf8c839376034 |
+| questions | parts | .agents/scripts/gw/questions.py | 9367c7ecbc41a76a6c57223f68787d450c6db086bf6fa00d35cac5eb8a986907 |
 | questions | parts | .agents/scripts/gw/test/test_questions.py | 2252748dc2af18a2d475395f5f025a68ef0c19c4d0e8a9bfdb12746bebdaa6fd |
 | questions | parts | .agents/skills/questions/SKILL.md | 1eb9232824ae51da5e6e8c1e83c16a2df2b11bce98c3ef64fe24f290047e308b |
 | questions | parts | .agents/skills/questions/STORE-ARRIVAL.md | 705104bc52573cb61face69019835b073c9fd6841c54d157108b6c0f6ef4ef77 |
