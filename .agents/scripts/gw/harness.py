@@ -780,8 +780,23 @@ def _refuse_unless_updatable(
             f"update: {edited[0]} differs from {announced_ref.announced} as installed — an edit in core; "
             "--overwrite replaces it and reports it, or keep the edit in the local file"
         )
-    report.replaced = edited
+    taken = _projects_files_at_added_paths(target, shipment, previous)
+    if taken and not overwrite:
+        raise Refused(
+            f"update: {taken[0]} is the project's own, and {shipment.ref.announced} ships a file there; "
+            "--overwrite replaces it and reports it, or move it first"
+        )
+    report.replaced = edited + taken
     return previous
+
+
+def _projects_files_at_added_paths(target: Path, shipment: Shipment, previous: Shipment) -> list[str]:
+    """The paths this ref adds where the tree already holds something else: the project's own
+    files, which the copy would otherwise write over unseen."""
+    return [
+        path for path in shipment.files
+        if path not in previous.files and (target / path).is_file() and not _holds(target, path, shipment.files)
+    ]
 
 
 def _announced_ref(target: Path, source: Source, required: bool) -> Ref | None:

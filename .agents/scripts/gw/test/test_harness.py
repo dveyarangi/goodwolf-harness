@@ -1199,6 +1199,44 @@ class AnUpdate(TwoTrees):
         self.assertIn(".agents/stale.md", report["own"])
         self.assertIn(f"@{self.short_head()}, ", self.target_text("AGENTS.md"))
 
+    FRESH = ".agents/skills/fresh/SKILL.md"
+    FRESH_TEXT = f"---\nname: fresh\ndescription: arrives\n---\n\n{KEEPER_NAMES}# Fresh\n\nShipped.\n"
+
+    def a_ref_that_adds(self) -> None:
+        self.write(self.FRESH, self.FRESH_TEXT)
+        self.commit("core adds a skill")
+
+    def test_a_path_the_new_ref_adds_is_refused_where_the_project_holds_its_own(self) -> None:
+        self.write_target(self.FRESH, "The project's own, uncommitted.\n")
+        self.a_ref_that_adds()
+        before = self.target_snapshot()
+
+        status, report = self.run_harness("--update")
+
+        self.assertEqual(1, status)
+        self.assertIn(self.FRESH, report["refusals"][0])
+        self.assertIn("--overwrite", report["refusals"][0])
+        self.assertEqual(before, self.target_snapshot())
+
+    def test_overwrite_replaces_the_projects_file_at_an_added_path_and_names_it(self) -> None:
+        self.write_target(self.FRESH, "The project's own, uncommitted.\n")
+        self.a_ref_that_adds()
+
+        status, report = self.run_harness("--update", "--overwrite")
+
+        self.assertEqual([], report["refusals"])
+        self.assertIn(self.FRESH, report["replaced"])
+        self.assertEqual(self.FRESH_TEXT, self.target_text(self.FRESH))
+
+    def test_an_added_path_already_holding_what_ships_is_neither_refused_nor_reported(self) -> None:
+        self.write_target(self.FRESH, self.FRESH_TEXT)
+        self.a_ref_that_adds()
+
+        status, report = self.run_harness("--update")
+
+        self.assertEqual([], report["refusals"])
+        self.assertNotIn(self.FRESH, report["replaced"])
+
     def test_overwrite_replaces_an_edited_core_file_and_names_it(self) -> None:
         (self.target / KEEPER).write_text("# Keeper, edited\n", encoding="utf-8")
 
