@@ -2,6 +2,7 @@
 
 - **record of** what it intends to become
 - **state** open
+- **owner** [01-0040](../tickets/01-0040-a-projects-account-stays-in-agreement-with-its-work.md)
 - **lean** decisions 1–11, the user, 2026-10-12/13; its spec drafted, docs/spec/01-0040-a-projects-account-stays-in-agreement-with-its-work.md, awaiting acceptance; open: the README derivation (.0005), the measure (.0004, parked)
 - **struck** 0, last 2026-10-12T16:02Z
 
