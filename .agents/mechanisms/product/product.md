@@ -53,6 +53,9 @@ nothing.</straw-dog>
 | the root README told from the document | — | <straw-dog question="q-0037.0018.0005">not yet</straw-dog> |
 | a release note's product half gathered from the coverage that moved | — | <straw-dog question="q-0037.0006.0020.0002.0002">not yet</straw-dog> |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
+| an install into a tree with no product document writing an empty one in the format | — | <straw-dog question="q-0037.0018.0012">not yet</straw-dog> |
+| an install meeting a product document in another form: left as the project's and reported, and the check saying it is not in the format | — | <straw-dog question="q-0037.0018.0012">not yet</straw-dog> |
+| a project's existing account of what it is for brought into the format, by the person and the agent | — | <straw-dog question="q-0037.0018.0012">not yet</straw-dog> |
 | removing this mechanism from a tree | — | <straw-dog question="q-0037.0006.0013.0002">not yet</straw-dog> |
 
 ## Install adds, uninstall removes
@@ -91,8 +94,9 @@ Nothing else; no index.
 
 ## Not yet at the shape
 
-**Four `not yet` rows of its own**, each bound to an open question: allocation from a purpose
-decision, the README, the release note, and removal.
+**Seven `not yet` rows of its own**, each bound to an open question: allocation from a purpose
+decision, the README, the release note, removal, and the three ways a tree that already exists
+comes to its document.
 
 ## What retires this
 

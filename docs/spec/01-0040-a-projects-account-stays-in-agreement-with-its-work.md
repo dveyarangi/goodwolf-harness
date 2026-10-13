@@ -67,7 +67,7 @@ each item realizes and which answers nothing realizes.
 23. As a recipient updating, I want a release note whose product half lists the answers whose coverage moved since the last release, and the causes and pains they touch, so that I know what the update brings me.
 24. As a recipient updating, I want the note's contract half to come from the edge records' lines, so that what may break me is stated by the record that owns the contract.
 25. As a person, I want the release note gathered from coverage rather than written from memory, so that nothing built since the last release is left out.
-26. As a project that keeps no product document, I want the product check to find nothing and its rules to stay silent, so that a project without the mechanism in use is not burdened by it.
+26. As a project that does not take the product mechanism, I want none of its rules installed, and the product check to find nothing where no document is, so that a project without the mechanism in use is not burdened by it.
 27. As a person, I want the product check in the verification set and in `/maintain`, so that drift is caught where every other record's drift is.
 28. As a person, I want the store to keep the trace link without knowing what it points at, so that the development method works the same in a project with no product mechanism.
 29. As a person, I want each seeded root's words to belong to the mechanism that owns the root, so that a project taking a different mechanism for its purpose is seeded with that mechanism's question.
@@ -100,8 +100,8 @@ each item realizes and which answers nothing realizes.
   decided with something to build, `/product` lands the row, the question closes against it, and
   a structure question opens with its trace link. Into the questions skill: a question opened
   directly under the structure root states its answers or that it is derived. Into `/maintain`:
-  run the product check. <straw-dog question="q-0037.0006.0024">Each holds where a project keeps a
-  product document.</straw-dog>
+  run the product check. None carries a condition: installed, the mechanism creates the product
+  document; not installed, its rules are not either *(the user, 2026-10-14)*.
 - **The mechanism's doc.** Its moments — a purpose decision landing, the README derived, a release
   note gathered — what it produces and who reads each output, the release note among them; what
   retires it; what would show it working.
