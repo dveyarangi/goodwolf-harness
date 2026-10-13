@@ -11,8 +11,8 @@
 
 The store is `docs/questions/`: one file per question, its id nested under its parent's and its
 parent line the one the check holds that id against, wholly closed subtrees in
-`docs/questions/done/`, and `docs/questions/sessions`, where each running session keeps its
-position. A re-parent renames the subtree that moves, across the records under `docs/`
+`docs/questions/done/`, and `docs/questions/sessions.d/`, where each session keeps its position
+in a file of its own. A re-parent renames the subtree that moves, across the records under `docs/`
 (the user, 2026-10-03). The formats are the questions skill's.
 
 `--check` is the maintainer. It writes nothing; its exit status is the verdict and its JSON is for
@@ -61,7 +61,10 @@ from docs_corpus import (  # noqa: E402  (path set above)
 )
 
 STORE = "docs/questions"
-SESSIONS = "docs/questions/sessions"
+# The sessions folder, a file per session, shared by every session.
+SESSIONS = "docs/questions/sessions.d"
+# Where a store from before keeps every session's line in one file; read until carried over.
+SINGLE_SESSIONS_FILE = "docs/questions/sessions"
 # The questions mechanism's shelf of the words a fresh store opens with; this script reads it and
 # the installer holds none of it (the user, 2026-10-09).
 STORE_ARRIVAL = ".agents/skills/questions/STORE-ARRIVAL.md"
@@ -827,8 +830,8 @@ def _unmarked_suspects(entries: list[Entry], index: dict[str, Entry]) -> list[Di
 
 @dataclass(frozen=True)
 class Session:
-    """One line of the sessions file: where one conversation stands in the store, and when the line
-    was last written, in UTC to the minute."""
+    """One session's line: where one conversation stands in the store, and when the line was last
+    written, in UTC to the minute. `record` is the file it was read from, for the check to name."""
 
     tag: str
     running: bool
@@ -836,17 +839,32 @@ class Session:
     current: str | None
     recent: list[str]
     line: int
+    record: str = SESSIONS
 
 
 def _sessions(root: Path) -> tuple[list[Session], list[Diagnostic], list[Skipped]]:
-    """Every session line, and every line the form does not admit. No file is no sessions."""
-    path = root / SESSIONS
-    if not path.is_file():
-        return [], [], []
+    """Every session, and every file or line the form does not admit: the folder's, a file per
+    session named by its tag; and in a store from before, the single file's lines not carried over
+    yet — a session in both is read from its own file, which is newer. Listed by when each last
+    wrote, then by tag. Neither is no sessions."""
+    folder = root / SESSIONS
+    sessions, problems, unreadable = _sessions_in_folder(folder) if folder.is_dir() else ([], [], [])
+    single, single_problems, single_unreadable = _sessions_in_single_file(root)
+    filed = {held.tag for held in sessions}
+    sessions += [held for held in single if held.tag not in filed]
+    ordered = sorted(sessions, key=lambda held: (held.wrote, held.tag))
+    return ordered, problems + single_problems, unreadable + single_unreadable
+
+
+def _sessions_in_single_file(root: Path) -> tuple[list[Session], list[Diagnostic], list[Skipped]]:
+    """A store from before: one line per session in one file."""
+    path = root / SINGLE_SESSIONS_FILE
     try:
         text = path.read_bytes().decode("utf-8")
+    except (FileNotFoundError, IsADirectoryError, PermissionError):
+        return [], [], []
     except UnicodeDecodeError:
-        return [], [], [Skipped(SESSIONS, "is not UTF-8, so no session can be read")]
+        return [], [], [Skipped(SINGLE_SESSIONS_FILE, "is not UTF-8, so no session can be read")]
     sessions: list[Session] = []
     problems: list[Diagnostic] = []
     for number, line in enumerate(text.splitlines(), start=1):
@@ -854,19 +872,40 @@ def _sessions(root: Path) -> tuple[list[Session], list[Diagnostic], list[Skipped
             continue
         read = _session(line, number)
         if read is None:
-            problems.append(
-                Diagnostic(
-                    SESSIONS,
-                    number,
-                    f"line {number} is not "
-                    "`<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four]`",
-                )
-            )
+            problems.append(Diagnostic(SINGLE_SESSIONS_FILE, number, f"line {number} is not {_SESSION_FORM}"))
         elif any(earlier.tag == read.tag for earlier in sessions):
-            problems.append(Diagnostic(SESSIONS, number, f"{read.tag} is registered twice"))
+            problems.append(Diagnostic(SINGLE_SESSIONS_FILE, number, f"{read.tag} is registered twice"))
         else:
-            sessions.append(read)
+            sessions.append(Session(read.tag, read.running, read.wrote, read.current, read.recent, number, SINGLE_SESSIONS_FILE))
     return sessions, problems, []
+
+
+_SESSION_FORM = "`<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four]`"
+
+
+def _sessions_in_folder(folder: Path) -> tuple[list[Session], list[Diagnostic], list[Skipped]]:
+    """Each file one line, the session its name says. A writer's staging file, its name leading
+    with a dot, is not a session yet."""
+    sessions: list[Session] = []
+    problems: list[Diagnostic] = []
+    unreadable: list[Skipped] = []
+    for path in sorted(folder.iterdir()):
+        if not path.is_file() or path.name.startswith("."):
+            continue
+        record = f"{SESSIONS}/{path.name}"
+        try:
+            lines = [line for line in path.read_bytes().decode("utf-8").splitlines() if line.strip()]
+        except UnicodeDecodeError:
+            unreadable.append(Skipped(record, "is not UTF-8, so its session cannot be read"))
+            continue
+        read = _session(lines[0], 1) if len(lines) == 1 else None
+        if read is None:
+            problems.append(Diagnostic(record, 1, f"is not one line {_SESSION_FORM}"))
+        elif read.tag != path.name:
+            problems.append(Diagnostic(record, 1, f"holds {read.tag}, not the session it is named for"))
+        else:
+            sessions.append(Session(read.tag, read.running, read.wrote, read.current, read.recent, 1, record))
+    return sessions, problems, unreadable
 
 
 def _session(line: str, number: int) -> Session | None:
@@ -900,32 +939,66 @@ def _minute(now: datetime) -> datetime:
 
 
 def _write_line(root: Path, held: Session) -> None:
-    """Replace one session's line and no other, appending it where there is none.
+    """Write one session's line to its own file and touch no other, so however many sessions write
+    at once none undoes another's, and nothing is locked. The line replaces the old in one rename,
+    so a reader never meets half a file. It is the writing session's own, except when a wake ends a
+    silent one or a rename rewrites the ids it names."""
+    _write_session_file(_sessions_folder(root), held.tag, _session_line(held))
 
-    The file is re-read just before the write, so a line another session wrote a moment ago is
-    kept as found: one session's write is never a refusal of another's (RFC item 10). The new
-    text replaces the old in one rename, so a reader never meets half a file. The line is the
-    writing session's own, except when a wake ends a silent one.
-    """
-    path = root / SESSIONS
-    lines = path.read_text(encoding="utf-8").splitlines() if path.is_file() else []
-    mine = [at for at, line in enumerate(lines) if line.split(" ", 1)[0] == held.tag]
-    if mine:
-        lines[mine[0]] = _session_line(held)
-    else:
-        lines.append(_session_line(held))
-    path.parent.mkdir(parents=True, exist_ok=True)
-    staging = path.with_name(f".{path.name}.{held.tag}.tmp")
+
+def _write_session_file(folder: Path, name: str, line: str) -> None:
+    path = folder / name
+    staging = folder / f".{name}.{secrets.token_hex(4)}.tmp"
     try:
-        staging.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
+        staging.write_text(line + "\n", encoding="utf-8", newline="\n")
         staging.replace(path)
     finally:
         staging.unlink(missing_ok=True)
 
 
+def _sessions_folder(root: Path) -> Path:
+    """The folder, made at its first need; a store from before has its single file carried over
+    first."""
+    folder = root / SESSIONS
+    folder.mkdir(parents=True, exist_ok=True)
+    if (root / SINGLE_SESSIONS_FILE).is_file():
+        _carry_over(root, folder)
+    return folder
+
+
+def _carry_over(root: Path, folder: Path) -> None:
+    """The single file's lines, each to its session's file unless that file exists — its session
+    wrote it since, and it is newer — then the single file removed. Every step may run twice at
+    once and lands the same: a line is placed by a link that refuses an existing name, so it is
+    never half-written and never over a newer one. A line the form does not admit keeps a name of
+    its own, for the check to report."""
+    single = root / SINGLE_SESSIONS_FILE
+    try:
+        lines = [line for line in single.read_text(encoding="utf-8").splitlines() if line.strip()]
+    except FileNotFoundError:
+        return
+    for number, line in enumerate(lines, start=1):
+        read = _session(line, number)
+        name = read.tag if read is not None else f"unreadable-{number}"
+        staging = folder / f".{name}.{secrets.token_hex(4)}.tmp"
+        try:
+            staging.write_text(line + "\n", encoding="utf-8", newline="\n")
+            os.link(staging, folder / name)
+        except FileExistsError:
+            pass
+        finally:
+            staging.unlink(missing_ok=True)
+    try:
+        single.unlink(missing_ok=True)
+    except PermissionError:
+        # Windows will not remove a file another process holds open to read. Every line is in the
+        # folder already, and its file shadows it, so the next write removes what is left.
+        pass
+
+
 def _position_problems(sessions: list[Session], index: dict[str, Entry]) -> list[Diagnostic]:
     return [
-        Diagnostic(SESSIONS, held.line, f"{held.tag} stands at {identity}, which no entry holds")
+        Diagnostic(held.record, held.line, f"{held.tag} stands at {identity}, which no entry holds")
         for held in sessions
         for identity in ([held.current] if held.current else []) + held.recent
         if identity not in index
@@ -936,7 +1009,7 @@ def _session_findings(sessions: list[Session], index: dict[str, Entry]) -> list[
     """A running session whose question closed under it. It does not fail the run: it is shown in
     that session's next window. A silent session is no finding — the next wake ends it."""
     return [
-        Finding(SESSIONS, held.line, f"{held.tag} stands at {held.current}, which is closed")
+        Finding(held.record, held.line, f"{held.tag} stands at {held.current}, which is closed")
         for held in sessions
         if held.running and (standing := index.get(held.current or "")) is not None and not standing.open
     ]
@@ -2033,7 +2106,7 @@ def _rewrite_ids(root: Path, renames: dict[str, str]) -> None:
     for name in _records_naming_ids(root):
         path = root / name
         text = path.read_bytes().decode("utf-8")
-        if name.startswith("docs/") or name == SESSIONS:
+        if name.startswith("docs/"):
             rewritten = _outside_fences(text, lambda line: _BARE_ID.sub(lambda found: renames.get(found.group(0), found.group(0)), line))
         else:
             rewritten = with_question_bindings_retargeted(name, text, renames.get)
@@ -2042,14 +2115,17 @@ def _rewrite_ids(root: Path, renames: dict[str, str]) -> None:
 
 
 def _records_naming_ids(root: Path) -> list[str]:
-    """The records a rename reads: the documents under `docs/`, the sessions file, and the
-    documents and scripts where straw dogs stand outside `docs/`."""
+    """The records a rename reads: the documents under `docs/`, each session's file — or the
+    single sessions file of a store from before — and the documents and scripts where straw dogs
+    stand outside `docs/`."""
     names = [
         name
         for name in corpus(root)
         if (name.startswith("docs/") and name.endswith(".md")) or (in_straw_dog_scope(name) and not name.startswith("docs/"))
     ]
-    return names + ([SESSIONS] if (root / SESSIONS).is_file() else [])
+    folder = root / SESSIONS
+    filed = [f"{SESSIONS}/{path.name}" for path in sorted(folder.iterdir()) if path.is_file() and not path.name.startswith(".")] if folder.is_dir() else []
+    return names + filed + ([SINGLE_SESSIONS_FILE] if (root / SINGLE_SESSIONS_FILE).is_file() else [])
 
 
 def _outside_fences(text: str, change: Callable[[str], str]) -> str:
