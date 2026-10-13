@@ -5,8 +5,8 @@
 # GoodWolf Harness
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Python 3.12+](https://img.shields.io/badge/python-3.12%2B-3776AB?logo=python&logoColor=white)](#use-it)
-[![Dependencies: standard library only](https://img.shields.io/badge/dependencies-stdlib%20only-brightgreen.svg)](#use-it)
+[![Python 3.12+](https://img.shields.io/badge/python-3.12%2B-3776AB?logo=python&logoColor=white)](#use-it-instructions-for-your-agent)
+[![Dependencies: standard library only](https://img.shields.io/badge/dependencies-stdlib%20only-brightgreen.svg)](#use-it-instructions-for-your-agent)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-supported-D97757?logo=claude&logoColor=white)](#where-it-stands)
 [![Codex](https://img.shields.io/badge/Codex-supported-412991?logo=openai&logoColor=white)](#where-it-stands)
 [![Cursor](https://img.shields.io/badge/Cursor-supported-000000?logo=cursor&logoColor=white)](#where-it-stands)
@@ -31,7 +31,7 @@ scripts, in Claude Code, Codex and Cursor.
 https://github.com/dveyarangi/goodwolf-harness*. It installs, then asks for your test commands and
 where it should stop for your yes.
 <straw-dog question="q-0018.0020.0001">If your project already has a `CLAUDE.md` or `AGENTS.md`, the install moves them aside and doesn't merge them yet, so branch first and bring over what you need by hand.</straw-dog>
-More under [Use it](#use-it).
+More under [Use it](#use-it-instructions-for-your-agent).
 
 ## What it does about each
 
@@ -222,23 +222,19 @@ The rules are in [AGENTS.md](AGENTS.md) and every skill is under [`.agents/skill
 - <straw-dog question="q-0018.0018">There is no way yet to send improvements your project makes to the harness back upstream.</straw-dog>
 - <straw-dog question="q-0018.0023">Other hosts — Copilot, Gemini CLI, OpenCode and the rest — aren't supported yet.</straw-dog>
 
-## Use it
+## Use it (instructions for your agent)
 
-Clone it beside your project — never into it:
+Asked to install the harness into a project:
 
-```
-git clone https://github.com/dveyarangi/goodwolf-harness.git
-```
-
-Cloned it into the project instead? From that folder, `python .agents/scripts/gw/harness.py . --install --replace-clone`
-turns the clean clone into an install.
-
-Then, from your project's root, have your coding agent read
-[`.agents/skills/harness/SKILL.md`](.agents/skills/harness/SKILL.md) in the clone and follow it. It
-installs the harness, reports what arrived, and sets up your project's own rules with you. The
-install itself is one script you can run and read first,
-`python <clone>/.agents/scripts/gw/harness.py . --install`, which writes nothing if it refuses and
-says why. Updating and checking the installed copy are in the same skill.
+1. Clone this repository beside the project, never into it. Already cloned into the folder where
+   the project was meant to be? From that folder,
+   `python .agents/scripts/gw/harness.py . --install --replace-clone` turns the clean clone into
+   an install; go on to step 3.
+2. From the project's root, run `python <clone>/.agents/scripts/gw/harness.py . --install`. It
+   writes nothing if it refuses, and says why.
+3. Read [`.agents/skills/harness/SKILL.md`](.agents/skills/harness/SKILL.md) and follow it: it
+   says how to report what arrived and how to set up the project's own rules with the person.
+   Updating and checking the installed copy are in the same skill.
 
 What lands in your repository: `.agents/` (the skills, the scripts and their tests), `AGENTS.md`
 (the rules every session reads), a one-line `CLAUDE.md` pointing to it, and a starting work queue
