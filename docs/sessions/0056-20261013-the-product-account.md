@@ -3,7 +3,7 @@
 - **record of** what happened
 
 Session `local_d62bc5fd`, 2026-10-12 into 2026-10-13. Opened on *what do we do?*; the queue's
-candidate, [01-0011.0110.0055](../tickets/01-0011.0110.0055-a-projects-code-names-what-governs-it.md),
+candidate, [01-0011.0110.0055](../tickets/done/01-0011.0110.0055-a-projects-code-names-what-governs-it.md),
 was in another session's hands, so the session took what the queue left free and ended with a new
 mechanism of the method aligned, specified and decomposed:
 [01-0040 a-projects-account-stays-in-agreement-with-its-work](../tickets/01-0040-a-projects-account-stays-in-agreement-with-its-work.md).
