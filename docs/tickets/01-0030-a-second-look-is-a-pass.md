@@ -4,7 +4,7 @@
 - **Status:** Planned (decision-bearing; its own align precedes the feature)
 - **Type:** HITL
 - **Minted:** 2026-10-05
-- **Answers:** [q-0029](../questions/q-0029-how-is-produced-work-gone-over-again-over-what-scope-by-what-criteria-by-whom-and-to-what-result.md)
+- **Answers:** [q-0037.0015](../questions/q-0037.0015-how-is-produced-work-gone-over-again-over-what-scope-by-what-criteria-by-whom-and-to-what-result.md)
 - **Outcome:** Whether going over produced work again has one shape — the pass — is decided by
   the user against its formalization, and what is decided is landed in its durable home, so
   the work that would declare it can be planned.
@@ -100,7 +100,7 @@ instance does not make a kind.
 ## Acceptance criteria — provisional, firmed at the align
 
 - [ ] The user has revised the formalization, and what they changed is in this ticket.
-- [ ] Each fork under q-0029 is closed against its durable home or left open with its owner.
+- [ ] Each fork under q-0037.0015 is closed against its durable home or left open with its owner.
 - [ ] The working words are glossary entries or are gone from every record.
 - [ ] A second profile besides maintenance has been described by the same parameters, or the
       shape is recorded as one instance and not a kind.
@@ -110,7 +110,7 @@ instance does not make a kind.
 
 - The rule that a document neither instructs nor authorizes: landed in the entry file at v31; it
   waits on this ticket's question only for its owner.
-- A judge inside the turn, for placing a message: q-0001.0016.0001.
-- Rewording a question: q-0001.0021.
+- A judge inside the turn, for placing a message: q-0037.0001.0016.0001.
+- Rewording a question: q-0037.0001.0021.
 - What scope is, in one account: [01-0014](./01-0014-scope-reads-the-same-everywhere.md), a neighbour this
   ticket's align reads.

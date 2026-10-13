@@ -39,4 +39,4 @@ Each loss found is closed by a regression test that reproduces it, so it cannot 
   [01-0010.0150 harness-meets-a-tree-with-a-method](../01-0010.0150-harness-meets-a-tree-with-a-method.md).
 - A lock, or safe simultaneous writers in general — ruled out by
   [Interruption and recovery](../../architecture.md#interruption-and-recovery).
-- The window experiment's reproducibility (R1 of 2026-09-30) — with q-0017's experiment.
+- The window experiment's reproducibility (R1 of 2026-09-30) — with q-0038.0001's experiment.

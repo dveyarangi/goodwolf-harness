@@ -60,12 +60,12 @@ RULE = "AGENTS.md § Core and instance"
 # gone the check reads declarations alone.
 PAINTED_DOORS = frozenset(
     (
-        # TODO q-0024.0004: the ticket mechanism's records and the shape's evidence are declared in
+        # TODO q-0037.0010.0004: the ticket mechanism's records and the shape's evidence are declared in
         # prose; these rows go when `record-bearing` parses.
         "docs/tickets/",
         "docs/tickets/done/",
         "docs/tickets/README.md",
-        # TODO q-0024.0004: the question store's entries and sessions folder are declared in the
+        # TODO q-0037.0010.0004: the question store's entries and sessions folder are declared in the
         # questions skill's prose; these rows go when `record-bearing` parses.
         "docs/questions/",
         "docs/questions/done/",
@@ -73,32 +73,32 @@ PAINTED_DOORS = frozenset(
         # The single sessions file a store from before holds, read until its first write carries it.
         "docs/questions/sessions",
         "docs/mechanisms/",
-        # TODO q-0024.0004: the maintain mechanism's marks, declared in its skill's prose until each
+        # TODO q-0037.0010.0004: the maintain mechanism's marks, declared in its skill's prose until each
         # mechanism's records are declared where a script reads them.
         "docs/mechanisms/maintenance.md",
-        # TODO q-0024.0001.0001: the glossary's, which goes with the glossary mechanism's declaration.
+        # TODO q-0037.0010.0001.0001: the glossary's, which goes with the glossary mechanism's declaration.
         "docs/glossary.md",
-        # TODO q-0024.0002.0005: the practice's, which go with its declaration.
+        # TODO q-0037.0010.0002.0005: the practice's, which go with its declaration.
         "docs/architecture.md",
         "docs/adr/",
-        # TODO q-0023.0013: /plan's, which go with its declaration.
+        # TODO q-0037.0009.0013: /plan's, which go with its declaration.
         "docs/rfc/",
         "docs/rfc/done/",
-        # TODO q-0023.0017: /spec's, which goes with its declaration.
+        # TODO q-0037.0009.0017: /spec's, which goes with its declaration.
         "docs/spec/",
-        # TODO q-0023.0006: /conclude's, which goes with its declaration.
+        # TODO q-0037.0009.0006: /conclude's, which goes with its declaration.
         "docs/sessions/",
-        # TODO q-0023.0008: /dream's, which goes with its declaration.
+        # TODO q-0037.0009.0008: /dream's, which goes with its declaration.
         "docs/dreams/",
-        # TODO q-0023.0015: /setup-devops's, which goes with its declaration.
+        # TODO q-0037.0009.0015: /setup-devops's, which goes with its declaration.
         "docs/cicd.md",
-        # TODO q-0024.0004: the edge mechanism's records, declared in its format shelf's prose;
+        # TODO q-0037.0010.0004: the edge mechanism's records, declared in its format shelf's prose;
         # this row goes when `record-bearing` parses.
         "docs/edge/",
-        # TODO q-0024.0004: the product mechanism's document, declared in its format shelf's prose;
+        # TODO q-0037.0010.0004: the product mechanism's document, declared in its format shelf's prose;
         # this row goes when `record-bearing` parses.
         "docs/product.md",
-        # TODO q-0026: the register.
+        # TODO q-0037.0012: the register.
         "docs/rule-failures.md",
     )
 )
@@ -506,7 +506,7 @@ def _header_problems(root: Path, declared: Declaration) -> list[Diagnostic]:
     )
 
 
-# TODO q-0034: a declaration reads one instruction bullet; a mechanism owning a second skill
+# TODO q-0037.0017: a declaration reads one instruction bullet; a mechanism owning a second skill
 # turns the field into a list.
 def _instruction_problems(root: Path, declared: Declaration) -> list[Diagnostic]:
     """The one bullet a mechanism cannot be declared without, and the file it must not be."""

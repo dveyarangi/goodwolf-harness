@@ -3,7 +3,7 @@ name: setup-devops
 description: Set up the project's engineering scaffolding, from toolchain to CICD and observability. Use when initializing a repo or filling a setup gap.
 ---
 
-<straw-dog question="q-0023.0015">Mechanism: not yet</straw-dog>
+<straw-dog question="q-0037.0009.0015">Mechanism: not yet</straw-dog>
 
 # Programming project setup
 

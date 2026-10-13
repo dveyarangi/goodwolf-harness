@@ -3,7 +3,7 @@
 Session `39bde226`. Asked to look at the new issue on the board:
 [issue 4](https://github.com/dveyarangi/goodwolf-harness/issues/4), every fresh install ending
 `arrived: false` because the three hosts' hook files the questions mechanism declares as parts are
-never carried. The gap was already q-0018.0020.0005; the issue added two things the store did not
+never carried. The gap was already q-0037.0006.0020.0005; the issue added two things the store did not
 hold — a failed gate's report hides its reason, and the hook commands need `uv`.
 
 ## Decisions
@@ -31,9 +31,9 @@ hold — a failed gate's report hides its reason, and the hook commands need `uv
 
 ## What was done
 
-- Opened q-0018.0020.0009, a failed gate saying why, from the issue.
+- Opened q-0037.0006.0020.0009, a failed gate saying why, from the issue.
 - Read each host's documentation on hook files and shells and filed it with sources in
-  q-0018.0020.0005's body.
+  q-0037.0006.0020.0005's body.
 - Recorded the `/impact` on the parent ticket.
 
 ## What went wrong
@@ -48,10 +48,10 @@ q-0032's case; the check that caught it was reading the tree before writing, not
 
 ## Open questions touched
 
-- **q-0018.0020.0005** — the merge is `.0173`'s, under way in another session at
-  q-0018.0020.0005.0001; the interpreter is `.0174`'s, at q-0018.0020.0005.0002, waiting on
+- **q-0037.0006.0020.0005** — the merge is `.0173`'s, under way in another session at
+  q-0037.0006.0020.0005.0001; the interpreter is `.0174`'s, at q-0037.0006.0020.0005.0002, waiting on
   `.0173` and on each host's Windows shell observed live — Cursor's is undocumented.
-- **q-0018.0020.0009** — `.0176`, Ready, AFK, nobody on it; it edits the installer's gate, which
+- **q-0037.0006.0020.0009** — `.0176`, Ready, AFK, nobody on it; it edits the installer's gate, which
   `.0173` also edits.
 
 ## What continues

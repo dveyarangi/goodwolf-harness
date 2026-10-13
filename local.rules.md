@@ -80,7 +80,7 @@ One prefix per commit; where the work spans two steps, take the dominant one and
 the message.
 </rule>
 
-<straw-dog question="q-0018.0022.0001">
+<straw-dog question="q-0037.0006.0022.0001">
 ## L3 — the verification set
 
 - **target** `.agents/skills/verify/SKILL.md`

@@ -95,7 +95,7 @@ a link is not observable from inside a tree and is reported as unverified. The s
 it costs minutes, and an install is seconds — a recipient that wants it names it in its own
 verification set *(the user, 2026-09-21)*. The gate itself clones the source whole, over the
 network, at every run. A copy drifting from its ref is maintenance's to find, never
-verification's *(the user, 2026-10-09)*; <straw-dog question="q-0018.0012">no maintain pass runs the
+verification's *(the user, 2026-10-09)*; <straw-dog question="q-0037.0006.0012">no maintain pass runs the
 gate: one is offered to the person, with its reason, only once the comparison reads no network and
 takes no clone.</straw-dog>
 
@@ -113,16 +113,16 @@ is not a part: it never ships, and a recipient has its own.
 | reading a refusal and resuming | `.agents/skills/harness/SKILL.md` | |
 | populating the local file after the first install | `.agents/skills/harness/SKILL.md` | |
 | pointing a tree at another core, as a fork does | `.agents/skills/harness/SKILL.md` | |
-| re-checking a recipient's copy against its ref in a maintain pass | — | <straw-dog question="q-0018.0012">not yet</straw-dog> |
+| re-checking a recipient's copy against its ref in a maintain pass | — | <straw-dog question="q-0037.0006.0012">not yet</straw-dog> |
 | knowing an update is available | — | unowned by design — a person asks for one; nothing polls the repository |
-| verifying that a host reads the loader link | — | <straw-dog question="q-0018.0004.0001">not yet</straw-dog> |
+| verifying that a host reads the loader link | — | <straw-dog question="q-0037.0006.0004.0001">not yet</straw-dog> |
 | writing a fresh tree's delivery status | `.agents/scripts/gw/harness.py` | |
 | opening a fresh tree's store with its roots, by the store's seed | `.agents/scripts/gw/harness.py` | |
 | merging core's hook wiring into each host's file | `.agents/scripts/gw/harness.py` | |
 | recording, per clone, the interpreter the hooks run under | `.agents/scripts/gw/harness.py` | |
-| removing one mechanism from a tree | — | <straw-dog question="q-0018.0013.0002">not yet</straw-dog> |
+| removing one mechanism from a tree | — | <straw-dog question="q-0037.0006.0013.0002">not yet</straw-dog> |
 | turning a clean clone of the origin, standing where the project was meant, into an install | `.agents/scripts/gw/harness.py` | |
-| sending a change back to the repository | — | <straw-dog question="q-0018.0018">not yet</straw-dog> |
+| sending a change back to the repository | — | <straw-dog question="q-0037.0006.0018">not yet</straw-dog> |
 
 ## Install adds, uninstall removes
 

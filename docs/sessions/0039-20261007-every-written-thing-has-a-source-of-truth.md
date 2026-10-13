@@ -12,7 +12,7 @@ holds at all. The last question is where the day's substance is.
 
 ## What was decided, and what chose it
 
-### The environment is a mechanism — q-0018.0022
+### The environment is a mechanism — q-0037.0006.0022
 
 - **The necessity gate passes whole** *(the user)*. I had proposed passing it for the
   verification set alone, since every recorded failure was about the set and none about setting
@@ -32,7 +32,7 @@ holds at all. The last question is where the day's substance is.
   authoritative.* Before that the user had set the frame: *the verification set is a key set of
   rules; a script cannot be its home*, against my proposal of an executable entry point. This
   reverses the 2026-09-23 decision that L3 is a pointer to `docs/cicd.md`.
-- Still open under it: the set's shape (q-0018.0022.0001 "Where does a project's verification set
+- Still open under it: the set's shape (q-0037.0006.0022.0001 "Where does a project's verification set
   live, and what shape does it take?" — home decided, shape not), the rule on changing it, and
   whether the environment keeps any description record at all, which the sort below answers:
   a description of what exists is kind 3 and is rendered, not kept.
@@ -42,7 +42,7 @@ holds at all. The last question is where the day's substance is.
   the pass's own finding that my tasking had bundled a policy (acceptance), two capabilities
   (setup, run) and an external system (CI) under one word.
 
-### Every written thing has a source of truth — q-0024.0009
+### Every written thing has a source of truth — q-0037.0010.0009
 
 Raised by the user when "an agent can read the files a month later" was seen to argue against an
 architecture doc as much as against `cicd.md`. In their words: *I see several reasons for docs to
@@ -119,10 +119,10 @@ drifts by definition. Sounds like different citizens on different substrates.*
 ## What was done
 
 - `.0040`'s last box graded by the user on the fresh sessions of 2026-10-05 and 2026-10-07; the
-  paired close, the queue row deleted, the parent's status at `.0050` next. q-0001.0016 stays
+  paired close, the queue row deleted, the parent's status at `.0050` next. q-0037.0001.0016 stays
   open on its child, the judge.
-- q-0018.0021 opened and moved under the new q-0018.0022; q-0023.0015 and q-0018.0020.0003 now
-  wait on q-0018.0022, which waits on q-0024.0009.
+- q-0018.0021 opened and moved under the new q-0037.0006.0022; q-0037.0009.0015 and q-0037.0006.0020.0003 now
+  wait on q-0037.0006.0022, which waits on q-0037.0010.0009.
 - `/conclude` amended at the user's request before this record: substance before form — each
   decision with what chose it, the principles derived, what was refuted — against the old text's
   *brief summary of work done, no need to repeat details stored elsewhere*, which had no slot for
@@ -139,7 +139,7 @@ drifts by definition. Sounds like different citizens on different substrates.*
 - Two forks were posed too many: by *3b* the user was lost, and the way back was one concrete
   example — a fresh Python project and its three files.
 - The host resumed the conversation under a second id again; the earlier row is ended with this
-  one. q-0001.0006 is struck once more.
+  one. q-0037.0001.0006 is struck once more.
 
 ## What continues
 

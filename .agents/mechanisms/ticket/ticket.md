@@ -64,12 +64,12 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | repairing the citations a close breaks | `.agents/scripts/gw/move_doc.py` | |
 | checking live records against the shape | `.agents/scripts/gw/tickets.py` | |
 | listing the live tickets | `.agents/scripts/gw/tickets.py` | |
-| ordering the queue and writing its pacing prose | — | <straw-dog question="q-0027">not yet</straw-dog> |
+| ordering the queue and writing its pacing prose | — | <straw-dog question="q-0037.0013">not yet</straw-dog> |
 | promoting an open question of the store into a ticket | `.agents/skills/ticket/SKILL.md` | |
 | verifying a ticket's criteria against landed work | — | elsewhere — landing-time agreement is verification, `.agents/skills/verify/SKILL.md` |
 | writing an RFC's contents | — | elsewhere — what an RFC holds is planning's, `.agents/skills/plan/SKILL.md` |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
-| removing this mechanism from a tree | — | <straw-dog question="q-0018.0013.0002">not yet</straw-dog> |
+| removing this mechanism from a tree | — | <straw-dog question="q-0037.0006.0013.0002">not yet</straw-dog> |
 | reading how a ticket reached its decisions | — | unowned by design — the durable home carries the decision with its provenance and the session record the align; looking it up needs no rule |
 
 ## Install adds, uninstall removes
@@ -142,7 +142,7 @@ done, which never arrives. This section states that so nobody re-investigates it
 One grader, pre-registered at the align that declared this mechanism and its `/plan`; a second,
 the session that would have landed an archive listing, went with the listing.
 
-<straw-dog question="q-0023.0013">**The session that declares `/plan`**</straw-dog>
+<straw-dog question="q-0037.0009.0013">**The session that declares `/plan`**</straw-dog>
 grades the pairing rule and the `Plan` bullet: did they hold against `/plan`'s own record shape,
 or did this doc claim of an RFC what `/plan`'s declaration had to take back? A pairing check that
 had to be moved out of `tickets.py` is this doc having claimed too much.

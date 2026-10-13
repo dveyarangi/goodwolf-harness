@@ -21,7 +21,7 @@ it on request, and the document holds no status of its own.
 **The maintainer holds the document's form.** Every answer carries an id and a name, and no id is
 written twice. A tree with no product document has nothing to check and passes.
 
-It is **installed**. <straw-dog question="q-0018.0024">It ships with core like every mechanism,
+It is **installed**. <straw-dog question="q-0037.0006.0024">It ships with core like every mechanism,
 since a project cannot yet take one alone; where a project keeps no product document, it finds
 nothing.</straw-dog>
 
@@ -29,11 +29,11 @@ nothing.</straw-dog>
 
 | rule | decided by |
 |---|---|
-| the document is the purpose root's home, linked to the work through the store | the user, 2026-10-12/13, q-0035 decisions 1, 2 and 4 |
-| a trace link names an answer by id and name | the user, 2026-10-13, q-0035.0006 decision 1 |
-| only open and decided questions realize | settled at the plan, 2026-10-13, q-0035.0006 decision 2 |
-| U1 — the document is checked by `product.py` | the user, 2026-10-13, q-0035 decision 3, owed to `/maintain`'s M1 |
-| one mechanism tells the account to every reader, shipped with core | the user, 2026-10-13, q-0035 decisions 10 and 11 |
+| the document is the purpose root's home, linked to the work through the store | the user, 2026-10-12/13 |
+| a trace link names an answer by id and name | the user, 2026-10-13 |
+| only open and decided questions realize | settled at the plan, 2026-10-13 |
+| U1 — the document is checked by `product.py` | the user, 2026-10-13, owed to `/maintain`'s M1 |
+| one mechanism tells the account to every reader, shipped with core | the user, 2026-10-13 |
 
 ## Moments
 
@@ -44,11 +44,11 @@ nothing.</straw-dog>
 | seeing each answer's coverage | `.agents/skills/product/SKILL.md` | |
 | checking the document's form | `.agents/scripts/gw/product.py` | |
 | checking the document in a maintenance pass | `.agents/skills/maintain/SKILL.md` | |
-| a purpose decision landing as an answer, its building question opened with a trace link | — | <straw-dog question="q-0035.0008">not yet</straw-dog> |
-| the root README told from the document | — | <straw-dog question="q-0035.0005">not yet</straw-dog> |
-| a release note's product half gathered from the coverage that moved | — | <straw-dog question="q-0018.0020.0002.0002">not yet</straw-dog> |
+| a purpose decision landing as an answer, its building question opened with a trace link | — | <straw-dog question="q-0037.0018.0008">not yet</straw-dog> |
+| the root README told from the document | — | <straw-dog question="q-0037.0018.0005">not yet</straw-dog> |
+| a release note's product half gathered from the coverage that moved | — | <straw-dog question="q-0037.0006.0020.0002.0002">not yet</straw-dog> |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
-| removing this mechanism from a tree | — | <straw-dog question="q-0018.0013.0002">not yet</straw-dog> |
+| removing this mechanism from a tree | — | <straw-dog question="q-0037.0006.0013.0002">not yet</straw-dog> |
 
 ## Install adds, uninstall removes
 

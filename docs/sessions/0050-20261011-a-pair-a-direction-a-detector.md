@@ -22,7 +22,7 @@ toward it. Kept once explained. P3 was amended to name the exception, then rever
 mover from.
 
 **A mechanism's doc stays `what must always hold`**
-([q-0024.0009.0005](../questions/done/q-0024.0009.0005-is-a-mechanisms-doc-a-record-of-what-must-always-hold-or-of-what-exists.md)).
+([q-0037.0010.0009.0005](../questions/done/q-0037.0010.0009.0005-is-a-mechanisms-doc-a-record-of-what-must-always-hold-or-of-what-exists.md)).
 The user opened it: *docs change from time to time and are not the source of truth; they describe
 the existing state*. Taken first as `what exists`, which forced the glossary's *never edited by
 hand* to go (*the glossary spoke without thinking — we have no mechanical way to make docs*).
@@ -38,7 +38,7 @@ these labels give a direction — they do not look relative*. A unary label has 
 spec had asked every record to name its referent, and the slice had dropped it. Direction and drift
 go to pairs with a detector.
 
-**[q-0024.0009.0006](../questions/done/q-0024.0009.0006-how-is-a-record-paired-with-the-thing-it-is-of-so-that-drift-between-them-is-noticed.md)'s
+**[q-0037.0010.0009.0006](../questions/done/q-0037.0010.0009.0006-how-is-a-record-paired-with-the-thing-it-is-of-so-that-drift-between-them-is-noticed.md)'s
 seven decisions**, the align's account in its body. The ones a reasoning turned:
 
 - *Only its own parts*, so one edit makes one doc due.
@@ -59,7 +59,7 @@ seven decisions**, the align's account in its body. The ones a reasoning turned:
 ## Principles without a home yet
 
 - **Seeing drift takes three things at once — the pair, the side that leads, and what notices.**
-  A label gives at most the second. Held as the body of q-0024.0009.0006; its home once the slices
+  A label gives at most the second. Held as the body of q-0037.0010.0009.0006; its home once the slices
   land is the maintain mechanism's doc.
 - **Make the right act cheaper than the stamp.** A re-check told which files moved reads them; one
   told only that something moved guesses or stamps.
@@ -69,7 +69,7 @@ seven decisions**, the align's account in its body. The ones a reasoning turned:
 - [.0040.0010](../tickets/done/01-0011.0110.0040.0010-every-record-shows-what-it-is-a-record-of.md)
   landed and closed: `- **record of** <kind>` in mechanism docs, tickets, the queue, question
   entries and RFCs, held by `mechanisms.py`, `tickets.py`, `questions.py`; the mover marks a closed
-  pair. Its line for recipients is in q-0018.0020.0002.0001's body.
+  pair. Its line for recipients is in q-0037.0006.0020.0002.0001's body.
 - A `/discover` pass, kept whole: [what a record drifting from its thing is an instance
   of](../research/discover-record-drift-2026-10-10.md).
 - Three slices minted from the align — `.0060`, `.0070`, `.0080` — and the queue ordered
@@ -89,19 +89,19 @@ seven decisions**, the align's account in its body. The ones a reasoning turned:
   A recommendation the user cannot read cold is a question put badly.
 - **Flaky tests under load.** One full run failed six tests, another one; each passed alone. Other
   sessions were running beside. It belongs to
-  [q-0021](../questions/q-0021-do-the-tests-catch-the-regressions-their-names-promise.md)'s ground.
+  [q-0037.0007](../questions/q-0037.0007-do-the-tests-catch-the-regressions-their-names-promise.md)'s ground.
 - **The host resumed this conversation under a new id** (`local_…`); the questions mechanism's
   change of the same day keyed it on the app's id, and it found itself registered.
 
 ## Open questions touched
 
-- **q-0024.0009.0006** — the align done; `.0060` and `.0080` remain, `.0080` owning it.
-- **q-0024.0009.0006.0001** — `.0060`'s: the shape installs its meta-rules.
-- **q-0026.0006** — which other sentences of the entry file are meta-rules (*a capable reader*,
+- **q-0037.0010.0009.0006** — the align done; `.0060` and `.0080` remain, `.0080` owning it.
+- **q-0037.0010.0009.0006.0001** — `.0060`'s: the shape installs its meta-rules.
+- **q-0037.0012.0006** — which other sentences of the entry file are meta-rules (*a capable reader*,
   *tier is paid*, *self-improvement*, *a document informs*).
-- **q-0024.0009.0003.0001.0001** — edge records, mechanism evidence and records without a format
+- **q-0037.0010.0009.0003.0001.0001** — edge records, mechanism evidence and records without a format
   carry no mark.
-- **q-0024.0009** — the kinds stand; drift moves to pairs.
+- **q-0037.0010.0009** — the kinds stand; drift moves to pairs.
 
 ## What continues
 

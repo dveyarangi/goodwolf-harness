@@ -1,6 +1,6 @@
 # Discover — what stands on an answer, and what a change does to it, 2026-10-09
 
-One /discover pass for [q-0001.0023](../questions/q-0001.0023-how-does-a-change-in-one-answer-reach-what-stood-on-it.md),
+One /discover pass for [q-0037.0001.0023](../questions/q-0037.0001.0023-how-does-a-change-in-one-answer-reach-what-stood-on-it.md),
 a general-purpose subagent told not to read the repository, answering from its own knowledge with
 no web search; citations and figures are from memory. Filed as it came back, its layout condensed.
 Not fed the earlier pass of the same day.

@@ -4,7 +4,7 @@ description: >-
   Strategic advisory read on the project or a regarded aspect.
 ---
 
-<straw-dog question="q-0023.0002">Mechanism: not yet</straw-dog>
+<straw-dog question="q-0037.0009.0002">Mechanism: not yet</straw-dog>
 
 Please advise me on current project/regarded aspect. 
 Tell me, whichever is relevant:

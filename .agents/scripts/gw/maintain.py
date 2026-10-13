@@ -44,7 +44,7 @@ MARKS = "docs/mechanisms/maintenance.md"
 # The mechanism whose outputs every mechanism's doc and skill are.
 SHAPE = "mechanism-shape"
 EVIDENCE = "EVIDENCE.md"
-# TODO q-0024.0004: a third dependence — a mechanism's records changed
+# TODO q-0037.0010.0004: a third dependence — a mechanism's records changed
 # enough since its mark — waits for each mechanism to declare where its records live.
 LEVELS = ("parts", "output")
 NEVER = "never maintained"
@@ -263,7 +263,7 @@ def _built_in(root: Path, declared: list[Declaration]) -> list[Declaration]:
 
 
 def _received_core(root: Path) -> bool:
-    # TODO q-0018.0019: recipient-own-mechanisms, unminted,
+    # TODO q-0037.0006.0019: recipient-own-mechanisms, unminted,
     # settles where a recipient's own mechanisms live; until then every one a recipient holds is core's.
     return announced(root) is not None
 

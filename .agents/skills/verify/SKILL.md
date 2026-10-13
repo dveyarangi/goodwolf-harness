@@ -6,7 +6,7 @@ description: >-
   project's verification set. Repair-and-report where that policy holds.
 ---
 
-<straw-dog question="q-0023.0019">Mechanism: not yet</straw-dog>
+<straw-dog question="q-0037.0009.0019">Mechanism: not yet</straw-dog>
 
 Compare the work to its ticket, RFC if any, governing docs, and every check
 in the project's [verification set](#the-verification-set).
@@ -91,7 +91,7 @@ uv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/
   contradictory rule, a new foundational decision, or work beyond the authorization.
   Pause that change; independently authorized work continues.
 
-<straw-dog question="q-0023.0001">
+<straw-dog question="q-0037.0009.0001">
 - Read the landed work against the open questions. What one's answer will change is a straw
   dog: wrap it and bind it to that question, per the entry file, and leave what no open question
   would change alone. Run `straw_dogs.py --guess` over the files the slice touched and judge its
@@ -116,7 +116,7 @@ A missing RFC is not a defect of this skill when the ticket has none.
 - Docstrings say what their own unit does. Apply
   [/improve-comments](../improve-comments/SKILL.md) to comments in scope and check
   that TODO tags still describe something pending.
-<straw-dog question="q-0023.0011">
+<straw-dog question="q-0037.0009.0011">
 - Read the pointers in the slice's code: each names, word for word, a heading or a bold lead that
   the record it points into holds. One that does not is a finding.
 </straw-dog>

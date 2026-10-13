@@ -7,7 +7,7 @@ No wake and no window were in context.
 ## What happened
 
 **Cursor live, recorded on [01-0010.0120](../tickets/01-0010.0120-what-each-host-says-without-being-asked.md).**
-The agent registered as `s-1003-7b62` by a bare `questions.py --wake`, placed itself at q-0001,
+The agent registered as `s-1003-7b62` by a bare `questions.py --wake`, placed itself at q-0037.0001,
 and drew the window by the entry file's rule. `sessionStart` → `additional_context` did not
 arrive.
 
@@ -22,7 +22,7 @@ wake in the first turn.
 
 - **Next in the ring:** [`.0020` open-issues-are-entries-of-the-store](../tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md),
   HITL, which opens at `/align`.
-- **Still open under q-0001:** q-0001.0006 — a conversation's position when the host resumes it under
+- **Still open under q-0037.0001:** q-0037.0001.0006 — a conversation's position when the host resumes it under
   a new session id; this session is a minted tag beside the host id.
 - **Uncommitted:** the 0120 Cursor observation, this record. Session 31's leftovers remain that
   session's.

@@ -50,9 +50,9 @@ link is a home when it resolves outside the store, tickets and RFCs, read the sa
 an answer.
 
 **The ticket's contract is stated in the format**, *the question it answers* wrapped as a straw dog
-— *пометь, надо повесить на продумать* (q-0024.0009.0003.0002.0002).
+— *пометь, надо повесить на продумать* (q-0037.0010.0009.0003.0002.0002).
 
-**The reply's layout is one straw dog** bound to q-0023.0021 — the user is not sure whether a
+**The reply's layout is one straw dog** bound to q-0037.0009.0021 — the user is not sure whether a
 debugging or an interaction mechanism will own it; the head table left Q1 and L6 retired into it
 (v61, v62). With it, ⚖️ holds only what waits: a decision the agent had already taken had been
 listed there for confirmation (rule failure 31).
@@ -78,7 +78,7 @@ is tier 1, not tier 3.
   assumption the format already refused: a mint date the header did not have, and a second place
   for a mechanism in one file.
 - **Two tests for a tier-1 line**: does it restate a description read at the same tier, and does a
-  check already hold it. Handed to q-0026.0006 as a lead, not landed as a rule.
+  check already hold it. Handed to q-0037.0012.0006 as a lead, not landed as a rule.
 
 ## Done
 
@@ -86,7 +86,7 @@ is tier 1, not tier 3.
 by one home predicate, `Minted` on every live ticket, the contract; closed with its RFC.
 01-0011.0110.0040's three slices are done; its own `/verify` waits. 01-0011.0110.0060 — the two
 lines into `/mechanism`'s description, seven anchored rows out of the parts tables; closed with its
-RFC, `harness.md`'s stale sentence repaired at the maintenance. q-0001.0010.0001 closed against the
+RFC, `harness.md`'s stale sentence repaired at the maintenance. q-0037.0001.0010.0001 closed against the
 new rules. The front page lost its L6 example. Entry contract v61, v62, v65, v67, v68 from here.
 
 ## What went wrong, and what it taught
@@ -106,16 +106,16 @@ new rules. The front page lost its L6 example. Entry contract v61, v62, v65, v67
 
 ## Open questions touched
 
-- q-0024.0009.0006 — `.0060` and `.0070` done, `.0080` next, which owns it.
-- q-0024.0009.0003 — its three slices done; 01-0011.0110.0040's `/verify` next, its kind criterion
+- q-0037.0010.0009.0006 — `.0060` and `.0070` done, `.0080` next, which owns it.
+- q-0037.0010.0009.0003 — its three slices done; 01-0011.0110.0040's `/verify` next, its kind criterion
   open since no check holds an RFC's mark.
-- q-0024.0009.0003.0002.0002 — must a board link each item to its question; open, a straw dog in the
+- q-0037.0010.0009.0003.0002.0002 — must a board link each item to its question; open, a straw dog in the
   contract.
-- q-0024.0009.0003.0002.0003 — deferred until no live ticket predates `Minted`.
-- q-0001.0025 — straw dogs bound to a question, weighted by tier, as a ranking signal; open.
-- q-0023.0021 — which mechanism owns a reply's layout; open.
-- q-0026.0006 — reworded to what the shape should hold in its skill; the two tests as a lead.
-- q-0025 — slips now counted beside rule failures.
+- q-0037.0010.0009.0003.0002.0003 — deferred until no live ticket predates `Minted`.
+- q-0037.0001.0025 — straw dogs bound to a question, weighted by tier, as a ranking signal; open.
+- q-0037.0009.0021 — which mechanism owns a reply's layout; open.
+- q-0037.0012.0006 — reworded to what the shape should hold in its skill; the two tests as a lead.
+- q-0037.0011 — slips now counted beside rule failures.
 
 ## What continues
 

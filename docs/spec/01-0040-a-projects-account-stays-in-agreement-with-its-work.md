@@ -2,7 +2,7 @@
 
 **Status:** **Accepted by the user, 2026-10-13**, with its modules and its testing decisions —
 developed through `/spec` from the align on
-[q-0035](../questions/q-0035-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the-projects-work-in-agreement-both-ways.md),
+[q-0037.0018](../questions/q-0037.0018-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the-projects-work-in-agreement-both-ways.md),
 whose eleven decisions it rests on and does not restate. The id is the one `/ticket` is to mint
 for it.
 
@@ -100,7 +100,7 @@ each item realizes and which answers nothing realizes.
   decided with something to build, `/product` lands the row, the question closes against it, and
   a structure question opens with its trace link. Into the questions skill: a question opened
   directly under the structure root states its answers or that it is derived. Into `/maintain`:
-  run the product check. <straw-dog question="q-0018.0024">Each holds where a project keeps a
+  run the product check. <straw-dog question="q-0037.0006.0024">Each holds where a project keeps a
   product document.</straw-dog>
 - **The mechanism's doc.** Its moments — a purpose decision landing, the README derived, a release
   note gathered — what it produces and who reads each output, the release note among them; what
@@ -110,13 +110,13 @@ each item realizes and which answers nothing realizes.
   mechanism declares *What is this project for?*.
 - **A tree's roots, by their words.** Every tree that took the method carries the three seeded
   roots; this tree, whose store predates the seed, takes them: q-0033 reworded as the purpose root,
-  q-0031 under it, every other root under a new structure root, q-0017 under a new landscape root
+  q-0033.0008 under it, every other root under a new structure root, q-0038.0001 under a new landscape root
   *(the user, 2026-10-13, replacing a purpose root named as a project-local answer)*.
-<straw-dog question="q-0035.0005">
+<straw-dog question="q-0037.0018.0005">
 - **The README's derivation** is open — generated whole from the document and the edge records, or
   written by hand and checked against them.
 </straw-dog>
-<straw-dog question="q-0035.0004">
+<straw-dog question="q-0037.0018.0004">
 - **A pain's measure** is open and parked by the user. The document carries no measure field.
 </straw-dog>
 - **This tree's own migration** is instance work, not the mechanism's: q-0033 named as the purpose
@@ -141,8 +141,8 @@ each item realizes and which answers nothing realizes.
 
 ## Out of Scope
 
-- How a pain is measured, and weighting the queue by pain (q-0035.0004, parked).
-- Taking a mechanism alone or going without it (q-0018.0024); until then the mechanism ships in
+- How a pain is measured, and weighting the queue by pain (q-0037.0018.0004, parked).
+- Taking a mechanism alone or going without it (q-0037.0006.0024); until then the mechanism ships in
   core with its conditions.
 - The landscape root's research mechanism and the development method as a declared mechanism;
   each keeps its root on the store's shelf until it exists.
@@ -154,8 +154,8 @@ each item realizes and which answers nothing realizes.
 
 - The vocabulary is requirements traceability's, taken whole: answer, trace link, realizes, trace
   propagation, coverage, allocation, orphan, derived, unrealized answer — in this project's
-  glossary, bound to q-0035 until the mechanism is accepted into the method.
-- A discover pass of 2026-10-13, in q-0035's body, names the known failure of this shape: links
+  glossary, bound to q-0037.0018 until the mechanism is accepted into the method.
+- A discover pass of 2026-10-13, in q-0037.0018's body, names the known failure of this shape: links
   decay when nobody reads them. Every link here has a named reader — the check, the coverage
   rendering, the release note, the person ordering the queue.
 - Precedents named by that pass: bidirectional traceability, stored one way and traversed the other;

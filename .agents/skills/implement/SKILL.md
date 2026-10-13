@@ -3,7 +3,7 @@ name: implement
 description: Use when agreed work is to be written into code.
 ---
 
-<straw-dog question="q-0023.0011">Mechanism: not yet</straw-dog>
+<straw-dog question="q-0037.0009.0011">Mechanism: not yet</straw-dog>
 
 Implement the work described by the relevant architecture decisions (spec,
 ticket, RFC, prior discussion).
@@ -28,7 +28,7 @@ Mark code an open question's answer will change with a comment line beginning
 `TODO` that names the question, per the entry file's straw-dog rule, and say so
 in the docstring.
 
-<straw-dog question="q-0023.0011">
+<straw-dog question="q-0037.0009.0011">
 Where the code you write follows a rule that a load-bearing record of the project states — its
 architecture or an ADR — name each such rule at the end of the comment phrase it backs, as
 `(<path from the tree's root>: "<the rule's name>")`, whole on one line — wrap the comment before

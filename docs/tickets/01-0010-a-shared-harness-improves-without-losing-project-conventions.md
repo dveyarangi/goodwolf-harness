@@ -4,7 +4,7 @@
 - **Status:** In progress
 - **Type:** HITL
 - **Minted:** 2026-09-05
-- **Answers:** [q-0018](../questions/q-0018-how-do-projects-share-one-development-method-without-losing-their-own-conventions.md)
+- **Answers:** [q-0037.0006](../questions/q-0037.0006-how-do-projects-share-one-development-method-without-losing-their-own-conventions.md)
 - **Outcome:** Projects share a canonical development method, contribute improvements to it, and receive accepted changes mechanically while preserving project-specific behavior across Claude Code, Codex and Cursor.
 
 ## What to build
@@ -836,7 +836,7 @@ From [issue 4](https://github.com/dveyarangi/goodwolf-harness/issues/4): every f
 and the install carries none of them. **Decided** *(the user, 2026-10-09)*: core's hooks are merged
 into each host's shared, committed file — never a local settings file — and every hook runs
 through a wrapper reading the interpreter found once per clone; each host's Windows shell is
-checked live. The argument and the hosts' documentation are q-0018.0020.0005's.
+checked live. The argument and the hosts' documentation are q-0037.0006.0020.0005's.
 
 `/impact` on the draft split:
 
@@ -847,7 +847,7 @@ gains a third kind of write, a merge whose own entries alone are core's. `--inst
 `--check` and `--links` each touch it; the update removes an entry that left core. This tree's own
 three hook files change their commands, and the origin needs the per-clone interpreter record too
 before its own hooks run again. The questions mechanism's *carrying the hook wiring* moment, the
-harness skill's `uv` note and the product matrix's straw dog bound to q-0018.0020.0005 move with
+harness skill's `uv` note and the product matrix's straw dog bound to q-0037.0006.0020.0005 move with
 it; the installer's tests gain merged host files in their source and target trees.
 
 **Hidden edges.** Where core's hook entries are authored: read off the origin's host files, they

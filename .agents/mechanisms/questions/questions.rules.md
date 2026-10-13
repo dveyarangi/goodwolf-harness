@@ -100,7 +100,7 @@ not hold yet is written out, never named after the ticket it will belong to.
 ## Q6 — a decision lands as it is made
 
 - **target** `.agents/skills/align/SKILL.md`
-- **authority** the user, 2026-10-11 — q-0024.0009.0003.0002.0001; moved here from the ticket's P7
+- **authority** the user, 2026-10-11; moved here from the ticket's P7
 
 <rule>
 Land a decision as it is made, with its provenance: final in its durable home where no open

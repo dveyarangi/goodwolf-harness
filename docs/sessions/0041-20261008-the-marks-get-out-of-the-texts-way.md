@@ -2,7 +2,7 @@
 
 **2026-10-08.** Claude Code, session `7871cf30…`, Opus 5.5. Entry contract v34 at the start, v37
 at the close. Sixteen commits of this session's own; the first seven pushed with v35 on the
-user's word, the nine since wait. The parallel session `693642b7…` worked on the front page (q-0031)
+user's word, the nine since wait. The parallel session `693642b7…` worked on the front page (q-0033.0008)
 in the same tree; its files — `README.md`, `.agents/skills/recall/SKILL.md` and its own commits —
 were left alone.
 
@@ -15,10 +15,10 @@ got past its opening question.
 
 ## What was decided, and what chose it
 
-### The form of the marks — q-0030, v35 to v37
+### The form of the marks — q-0037.0016, v35 to v37
 
 Every step was the user's reading of the reply before it; the rule, at its home in
-[AGENTS.md](../../AGENTS.md), holds the result, and q-0030's body holds each step in the user's
+[AGENTS.md](../../AGENTS.md), holds the result, and q-0037.0016's body holds each step in the user's
 words. What turned it:
 
 - *The marks interfere too much with the text itself.* v34 opened each claiming paragraph with
@@ -80,7 +80,7 @@ seam. The user has not answered; the session ended on the question.
 ## What was done
 
 - The marks rule rewritten seven times across v35–v37, its current text at the entry file, its
-  history in q-0030's body and [the contract's findings](../research/entry-contract-findings.md).
+  history in q-0037.0016's body and [the contract's findings](../research/entry-contract-findings.md).
 - `.0020`'s first box checked: the marks came unasked in a fresh session.
 - `/recall` at the start; `.0040`'s align opened and its necessity gate passed.
 - One memory: push asked once per unit.
@@ -95,10 +95,10 @@ seam. The user has not answered; the session ended on the question.
 
 ## Open questions the session touched
 
-- q-0030 "How does a reply show the principles each of its claims stands on, and where are the
+- q-0037.0016 "How does a reply show the principles each of its claims stands on, and where are the
   principles named for it?" — the form settled for now at v37; `.0020` waits on the user's week
   of grading and the first box that names a missing principle.
-- q-0024.0009.0003 "How do the ticket and the queue hold what comes next alone, with the draft in
+- q-0037.0010.0009.0003 "How do the ticket and the queue hold what comes next alone, with the draft in
   the question's body?" — `.0040`'s align open, waiting on the user's answer to its size.
 
 ## What continues
@@ -107,4 +107,4 @@ seam. The user has not answered; the session ended on the question.
   `/impact` on the four-part draft, presented, not minted. If the align waits, `.0050`, Ready and
   AFK.
 - The unpushed commits — v36 and v37 — wait on the user's push.
-- `df0f81c5…` and `s-1008-8a4e` still read running; `693642b7…` is live on q-0031.
+- `df0f81c5…` and `s-1008-8a4e` still read running; `693642b7…` is live on q-0033.0008.

@@ -15,7 +15,7 @@ a live link to the verbatim is needed.* The lamp's name is now a link to the lin
 on, and the path says whose it is: `AGENTS.md` or `.agents/` is core, `docs/` or the local file is
 the project's.
 
-### A principle from a document takes the candle — v53, q-0030.0002
+### A principle from a document takes the candle — v53, q-0037.0016.0002
 
 The agent offered 無 for such a principle. Refused: *catch them, but not as 無 — instructions must
 not lie in documents, and a principle there has a reachability problem: it lies at the third tier
@@ -28,7 +28,7 @@ class's consequences. The user chose 🕯️, *used just as the lamp is*, no tab
 ### A claim on the work is a tangle — v52, rule failure 27
 
 The recall filed ten stale session rows under 🍂. The user: *it is not drift but a tangle — why did
-it not go there?* Two of the rows stood on q-0030 while the next turn amended q-0030's rule. The
+it not go there?* Two of the rows stood on q-0037.0016 while the next turn amended q-0037.0016's rule. The
 agent had sorted by the record (the file says running, the session is not) and read 🪢's *work* as
 two edits meeting. 🪢 now names a claim beside work and takes a row that is also drift.
 
@@ -51,7 +51,7 @@ two edits meeting. 🪢 now names a claim beside work and takes a row that is al
   turn; an `at` that stays put now changes nothing.
 - Live in all three hosts, each row ended by hand and revived by one message.
 
-### A mechanism may own several skills — q-0034.0001
+### A mechanism may own several skills — q-0037.0017.0001
 
 The user proposed a session mechanism holding `/recall`, `/conclude` and the pacer's invocation,
 with a `/maintain` re-check installed from it. The agent objected that *one mechanism, one
@@ -61,7 +61,7 @@ recorded reason needs only that a skill has one owner. Loosened: a mechanism may
 acting on a record it declares — the record the brake against a bucket. Tooling still reads one
 `instruction` bullet until a second skill is declared.
 
-The user's proposal itself is q-0034, opened and not aligned. The agent's agreement and objections
+The user's proposal itself is q-0037.0017, opened and not aligned. The agent's agreement and objections
 are in its body: `/maintain` re-checks the sessions file but does not end rows; the border with the
 pacer, which owns resume state by the user's 2026-09-06 word, is undecided.
 
@@ -101,14 +101,14 @@ evidence* — is unsettled.
 
 ## Open questions touched
 
-- **q-0034** — a session mechanism: its align is next when the user picks it; the five questions it
+- **q-0037.0017** — a session mechanism: its align is next when the user picks it; the five questions it
   would gather are named in its body.
-- **q-0030** — the form moved by v51–v53 here; another session carried it to v56 meanwhile.
-- **q-0025** — rule failure 28 is evidence for it: the window by the rule does not reach Cursor.
+- **q-0037.0016** — the form moved by v51–v53 here; another session carried it to v56 meanwhile.
+- **q-0037.0011** — rule failure 28 is evidence for it: the window by the rule does not reach Cursor.
 - **q-0032** — the suite's guard and concurrent writes; this session staged only its own lines of
   shared files by hand.
 
 ## What continues
 
 The queue's candidate, [01-0011.0110.0040.0010 every-record-shows-what-it-is-a-record-of](../tickets/done/01-0011.0110.0040.0010-every-record-shows-what-it-is-a-record-of.md),
-its `/plan` first — or `/align` on q-0034 if the user picks it.
+its `/plan` first — or `/align` on q-0037.0017 if the user picks it.

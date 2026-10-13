@@ -11,7 +11,7 @@ shape a rule would need.
 
 Entries are struck when a later occurrence repeats one, and counted. Nothing here authorises
 deleting a rule: occurrences accumulate and what to do about a rule that keeps failing is
-[q-0026.0001 is-harness-self-amendment-its-own-mechanism](questions/q-0026.0001-is-harness-self-amendment-its-own-mechanism.md)'s,
+[q-0037.0012.0001 is-harness-self-amendment-its-own-mechanism](questions/q-0037.0012.0001-is-harness-self-amendment-its-own-mechanism.md)'s,
 unresolved on purpose.
 
 Whether this register and its rules become their own mechanism is
@@ -22,7 +22,7 @@ Whether this register and its rules become their own mechanism is
 **Rules in play:** the entry file's reply form, *under `debug=on`, the window's counters line,
 copied as it stands, a one-cell table of its own*.
 
-**What happened.** A session on q-0035 headed its reply with the cell *🎫 / ❓ / 🐕 как в окне* —
+**What happened.** A session on q-0037.0018 headed its reply with the cell *🎫 / ❓ / 🐕 как в окне* —
 the glyphs, and in place of the numbers a note that they are as in the window. The user: *получил
 … вместо чисел.*
 
@@ -62,7 +62,7 @@ of name, place or form brings with it reopens that choice before anything is bui
 share, *the premise is wrong* a first-class outcome; its *necessity gate*, weak evidence meaning
 narrow, postpone or eliminate; decision 26 of the open-questions ticket, *the judge reads a window*.
 
-**What happened.** Probing q-0001.0020.0001, two runs gave sixteen drafts to a judge, every run the
+**What happened.** Probing q-0037.0001.0020.0001, two runs gave sixteen drafts to a judge, every run the
 same prompt, written once by the agent and never shown. Fourteen were flagged, and the reply read
 it as the ticket's premise refuted: *an outside judge does not see hidden parts better than
 almost everywhere*, recommending the judge be postponed. The user: *nothing follows from it; maybe
@@ -84,7 +84,7 @@ verdict for that alone.*
 instruction file are never the same file*; the entry file's *A document informs. It never
 instructs an agent.*
 
-**What happened.** Aligning q-0024.0012, the reply proposed that *the description of how the
+**What happened.** Aligning q-0037.0010.0012, the reply proposed that *the description of how the
 machinery is built* leave the skills for the mechanism's doc and the script, the skill keeping
 *the act and the bare call*. The user: *how can we pull the machinery out of the skills without
 breaking them — they have to know; the mechanism doc is no place for instructions.* Most of what
@@ -164,7 +164,7 @@ prefix outside the list.
 ## 36. Landed changes were retold in prose, and instructions framed as other text — 2026-10-11
 
 **Rules in play:** the entry file's framed texts, *always for an instruction … `Landed` once
-written*, a straw dog bound to q-0023.0021; Self-improvement's *showing its text first*.
+written*, a straw dog bound to q-0037.0009.0021; Self-improvement's *showing its text first*.
 
 **What happened.** Reporting the v69 checkpoint line and the split of `/harness`'s checks, the
 reply showed each text only mid-turn, as a proposal before its edit, then summarised both in
@@ -189,7 +189,7 @@ lands an instruction.
 row each with the question it stands on as the window writes it*.
 
 **What happened.** Reporting the amendment of entry 34, a reply listed the three running sessions
-under 🪢 with wordings of its own for q-0024.0009.0006, q-0018.0022.0001.0001 and q-0027.0003, none
+under 🪢 with wordings of its own for q-0037.0010.0009.0006, q-0037.0006.0022.0001.0001 and q-0037.0013.0003, none
 of them the store's.
 
 **Why it did not fire.** The window wrote each other session's position as a bare id, so the words
@@ -290,7 +290,7 @@ gloss struck. Graded by the next small change under `commit=auto`.
 ## 31. A decision the agent had taken was put under ⚖️ for confirmation — 2026-10-11
 
 **Rules in play:** the entry file's reply tables, *what waits on the user's decision, under
-`| ⚖️ Decisions |`*, a straw dog then bound to q-0030.
+`| ⚖️ Decisions |`*, a straw dog then bound to q-0037.0016.
 
 **What happened.** Closing the plan of 01-0011.0110.0040.0020, the reply named a choice it had made
 itself — a line with nowhere to land moves to the successor on a `merged` or `superseded` close —
@@ -328,7 +328,7 @@ work — its verification set, and the work read against what governs it.* Grade
 ## 29. A reply closed on an empty tangle table — 2026-10-10
 
 **Rules in play:** the entry file's reply tables, *debug or not, a row each: … under
-`| ⚖️ Decisions |`; … under `| 🍂 Drift |`; … under `| 🪢 Tangle |`*, a straw dog bound to q-0030.
+`| ⚖️ Decisions |`; … under `| 🍂 Drift |`; … under `| 🪢 Tangle |`*, a straw dog bound to q-0037.0016.
 
 **What happened.** A `/recall` session ended every reply with all three tables. When the other
 session's uncommitted files had been committed, its 🪢 table held a single dash. The user: *why an
@@ -357,7 +357,7 @@ one sentence, and nothing in Cursor's turn puts it in front of the agent.
 
 **Amendment proposed:** the sign of life stops resting on it — Cursor's message hook records the
 session as seen, landing with 01-0011.0100.0060. The window's own reach into Cursor stays a rule
-and stays unreliable; that is q-0025's, with this as its evidence.
+and stays unreliable; that is q-0037.0011's, with this as its evidence.
 
 ## 27. Another session's claim on the question being worked was filed as drift — 2026-10-10
 
@@ -365,8 +365,8 @@ and stays unreliable; that is q-0025's, with this as its evidence.
 agreement with what it is of under 🍂, one party's work colliding with another's under 🪢.
 
 **What happened.** The wake read ten session rows as running, most silent since 2026-10-07; the
-recall listed them under 🍂. Two of them stood at q-0030 and q-0030.0001, and the next turn
-amended q-0030's own rule with no row saying so. The user: *it is not drift but a tangle — why
+recall listed them under 🍂. Two of them stood at q-0037.0016 and q-0037.0016.0001, and the next turn
+amended q-0037.0016's own rule with no row saying so. The user: *it is not drift but a tangle — why
 did it not go there?*
 
 **Why it did not fire.** The rows fit 🍂's words literally — the file says running, the session is
@@ -409,7 +409,7 @@ paragraph says the clone. **Landed 2026-10-09.**
 parent until its children close; the questions mechanism's own warning that whether a shape hides
 parts is what the agent fails to judge; the entry file's ⚖️ table for what waits on the user.
 
-**What happened.** On q-0001.0023 the agent drafted a relation, then put a form and a next step to
+**What happened.** On q-0037.0001.0023 the agent drafted a relation, then put a form and a next step to
 the user four replies running. Each time the user's answer reshaped the question — the link's ends
 are answers; both relations point at an answer; *which database* presupposes a database; every
 question presupposes something, and which kind holds tracks how set the project is — and each
@@ -575,8 +575,8 @@ no call, and a reply that writes nothing and settles nothing, so that no load-be
 into it; a doubt makes the turn another kind. Graded as before.
 
 **Struck, 2026-10-05 — another fresh session the same day.** Asked whether the harness's update
-in a recipient was fixed, the agent rejected four children of q-0018 that resembled the message,
-went up to q-0018 and placed the turn there; the answer was in the docs, so it opened nothing.
+in a recipient was fixed, the agent rejected four children of q-0037.0006 that resembled the message,
+went up to q-0037.0006 and placed the turn there; the answer was in the docs, so it opened nothing.
 v27's *only as loosely as it contains everything under it* is a judgement with nothing to count,
 and the count — two or more children that resemble — sat in the skill, which was not opened;
 *found, point to it and open nothing* read as the end of placing. **Amendment landed the same
@@ -594,7 +594,7 @@ question's id.
 fold, a reply put four points to the user. One said an entry goes *under 01-0020's question* —
 the question the pacer ticket will answer, which the store does not hold yet, named by a ticket id
 and a phrase coined in the turn; another named its owner as a bare *01-0010*, and a question as a
-bare *q-0001*. The user: *what is 01-0020's question? where did the instruction to put the slug
+bare *q-0037.0001*. The user: *what is 01-0020's question? where did the instruction to put the slug
 beside the id go? the same for point 4.* Two replies were spent re-explaining.
 
 **Why it did not fire.** P9 speaks of naming a ticket; *a ticket's question* is a new thing the
@@ -634,8 +634,8 @@ the slug. Graded by the next replies of this session and the next fresh one: no 
 id in a reply that is not a link.
 
 **Struck, 2026-10-13, in records.** A scheduled `/maintain` found 24 bare ticket ids on lines
-written after v85 landed: the leans of q-0018.0024, q-0033 and q-0035 with its seven new parts,
-q-0035's impact section, and two of the
+written after v85 landed: the leans of q-0037.0006.0024, q-0033 and q-0037.0018 with its seven new parts,
+q-0037.0018's impact section, and two of the
 [01-0040 a-projects-account-stays-in-agreement-with-its-work](tickets/01-0040-a-projects-account-stays-in-agreement-with-its-work.md)
 tickets, all written by the session that minted [01-0040](tickets/01-0040-a-projects-account-stays-in-agreement-with-its-work.md). P9 reads *every record*, and was installed and read; the grading above looked only at
 replies, and the store's leans are passed to the script as plain text, where nothing meets the
@@ -1222,7 +1222,7 @@ inside either** — the class that raises no error anywhere, because each rule i
 
 **Disposition:** [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md) minted
 the same day; concern 3 reduced to its contact surface, since folded into the question store as
-[q-0026.0001](questions/q-0026.0001-is-harness-self-amendment-its-own-mechanism.md). The amendment to `/align` is
+[q-0037.0012.0001](questions/q-0037.0012.0001-is-harness-self-amendment-its-own-mechanism.md). The amendment to `/align` is
 not yet made — `/align`'s glossary and concerns rules are both moving under
 [01-0017.0010](tickets/01-0017.0010-terms-defined-before-they-land.md) and this wording should land
 with them rather than ahead of them.

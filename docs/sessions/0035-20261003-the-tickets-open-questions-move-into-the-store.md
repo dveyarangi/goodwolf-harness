@@ -18,11 +18,11 @@ the fifteen tickets that held one. The commits from `28c4efa` to `b7c0685` hold 
 Three `FIX`es on the user's word: the debug table holds the turn's path (v23); a question is named
 by its id and its words, Q5 (v24, [rule failure 17](../rule-failures.md)); and, at `.0018`'s
 verify, fenced examples are never rewritten and a freed id may return — the one risk deferred as
-q-0001.0013 "How does the store remember every id it has given, so none is given twice?", its
+q-0037.0001.0013 "How does the store remember every id it has given, so none is given twice?", its
 remedy to be designed afresh if it strikes.
 
 `xuanxue-workshop` was updated by hand from a local clone to `goodwolf-harness@ebde4ab`; its one
-question renamed from the step-of-ten `q-0010` to `q-0001`; its `Repository:` line put back to
+question renamed from the step-of-ten `q-0010` to `q-0037.0001`; its `Repository:` line put back to
 GitHub.
 
 ## What went wrong, and what it taught
@@ -34,7 +34,7 @@ GitHub.
 - The rename's bare-id pass cannot tell a reference from an example; fences now exempt, prose
   examples still rewritten (seen in two RFCs, repaired by hand).
 - Core comments named a ticket by bare id, `.0020`'s decision N, and passed `.0018`'s verify; the
-  leak check reads paths only — q-0018.0017 "Does the leak check catch a ticket named by a bare id
+  leak check reads paths only — q-0037.0006.0017 "Does the leak check catch a ticket named by a bare id
   in core?".
 - A review the user could not follow cost two rounds: tickets and questions named by bare ids and
   a coined phrase. Q5 is the amendment; this fold's later review was its first grading.
@@ -46,10 +46,10 @@ GitHub.
   `ebde4ab`, which a check from GitHub cannot resolve until they are pushed (`push=ask`).
 - **`xuanxue-workshop`'s loader links**: `.claude/skills` and `.cursor/skills` are missing; the two
   `mklink /D` commands need an elevated prompt, or Windows' developer mode.
-- **Open questions this session leaned**: q-0001 "How are the open questions of this tree kept, so
-  that none is lost?"; q-0001.0006 "How does a conversation keep its position when its host
-  resumes it under a new session id?", with two fresh resumes as evidence; q-0001.0010.0001 "Where
+- **Open questions this session leaned**: q-0037.0001 "How are the open questions of this tree kept, so
+  that none is lost?"; q-0037.0001.0006 "How does a conversation keep its position when its host
+  resumes it under a new session id?", with two fresh resumes as evidence; q-0037.0001.0010.0001 "Where
   do the arguments of closed questions live, now that an entry holds its own?", the tickets'
-  *Decisions landed* sections; q-0018.0017 above.
+  *Decisions landed* sections; q-0037.0006.0017 above.
 - `docs/pacer.md` keeps an *Open issues* section of its own; it folds with
   [01-0020 pacer](../tickets/01-0020-each-turn-knows-its-next-step.md)'s align.

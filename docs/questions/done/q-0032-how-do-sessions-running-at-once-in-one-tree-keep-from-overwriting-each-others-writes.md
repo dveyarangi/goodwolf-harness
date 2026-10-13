@@ -6,7 +6,7 @@
 - **lean** the user, 2026-10-08: locks are needed; the architecture disclaiming safe simultaneous writers no longer holds
 - **struck** 0, last 2026-10-08T07:13Z
 
-Opened 2026-10-08 at the front-page align (q-0031). Comparing peers showed the harness behind on
+Opened 2026-10-08 at the front-page align (q-0033.0008). Comparing peers showed the harness behind on
 this: sessions see each other's positions in the store, but nothing stops two of them writing
 the same record. The architecture said as much — *does not promise safe simultaneous writers* —
 and the user: *the architecture lies; locks are needed.* That sentence is now a straw dog bound
@@ -35,10 +35,10 @@ hosts that run several sessions at once give each its own worktree, and in this 
 sessions have run in parallel that way without overwriting each other. The harness locks nothing;
 its own scripts keep refusing a write to an entry that moved since it was read. The 2026-10-08
 lean — *locks are needed* — is overturned by three days of parallel sessions. The unsettled list
-below lapses with it; what a starting session takes as its area stays with q-0016.0001.
+below lapses with it; what a starting session takes as its area stays with q-0037.0005.0001.
 
-Neighbours: q-0016.0001 "How does a starting agent pick an area that does not overlap another
+Neighbours: q-0037.0005.0001 "How does a starting agent pick an area that does not overlap another
 session's?" — avoiding overlap at the start, where this question is about writing; and
-q-0024.0002, a team on parallel branches. Unsettled: what is locked (a file, a record, an area),
+q-0037.0010.0002, a team on parallel branches. Unsettled: what is locked (a file, a record, an area),
 for how long, how a lock held by a dead session is released, and whether sessions should rather
 work in separate worktrees.

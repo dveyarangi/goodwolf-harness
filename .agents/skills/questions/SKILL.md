@@ -78,7 +78,7 @@ current one contributes to it; when only the first holds, beside it, under the s
 **Outgrown words.** When the discussion on a question has moved past its words — it took in a
 related topic, or found what it was really asking — `reword` it in the turn that notices, as often
 as that happens: the id stays, so nothing bound to it moves. A closed question is never reworded.
-<straw-dog question="q-0001.0021">
+<straw-dog question="q-0037.0001.0021">
 Reword when everything under the question still belongs under the new words; open a parent when
 the old question stays a distinct part of the wider one.
 </straw-dog>
@@ -189,7 +189,7 @@ lines, bare ids under `docs/` and every straw dog's binding — so an id seen ea
 draw the window again. A reword changes the words and the file's name, never the id. *part
 of* is the line the check holds the id against.
 
-<straw-dog question="q-0018.0015">
+<straw-dog question="q-0037.0006.0015">
 **The sessions folder** — `docs/questions/sessions.d/`, shared by all sessions, one file per
 session named by its tag and holding its one row:
 `<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four]` — its tag, whether it
@@ -201,7 +201,7 @@ the wake's read. What removes a row: kept by design — an ended row lets a late
 resume.
 </straw-dog>
 
-<straw-dog question="q-0034">
+<straw-dog question="q-0037.0017">
 **A silent row ends at the next wake.** Every wake ends each other running row whose session
 nothing has seen for three hours, and says nothing of it. A session is seen while its messages
 reach a hook — the window drawn, or Cursor's prompt hook — or it writes its row; the next message

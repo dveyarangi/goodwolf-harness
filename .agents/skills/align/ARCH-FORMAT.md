@@ -1,4 +1,4 @@
-<straw-dog question="q-0024.0002.0005">
+<straw-dog question="q-0037.0010.0002.0005">
 # architecture.md format
 
 `architecture.md` captures the **high-level architecture**. Unresolved concerns are intentionally **deferred** and listed at the end. Keep in mind that as the document evolves, deferred concerns may become part of the core document.

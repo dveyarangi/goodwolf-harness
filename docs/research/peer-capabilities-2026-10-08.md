@@ -1,7 +1,7 @@
 # What peer tools can do, as of 2026-10-08
 
 Run at the front-page align on
-[q-0031](../questions/q-0031-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md).
+[q-0033.0008](../questions/q-0033.0008-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md).
 The agent was about to write the page's positioning from the
 [2026-09-26 pass](discover-what-this-is.md). The user said that pass was long out of date.
 [The README survey of the same day](readme-survey-2026-10-08.md) already contradicted it: GSD and

@@ -1,7 +1,7 @@
 # How a fresh session reaches earlier work — two `/discover` passes, 2026-10-08
 
 Run at the front-page align on
-[q-0031](../questions/q-0031-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md)
+[q-0033.0008](../questions/q-0033.0008-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md)
 "What is the harness, said to a reader who arrives cold, and what of it does the front page
 carry?", after the user struck two of the agent's claims: that the harness is not a memory
 architecture, and that its retrieval differs from the field's by not using embeddings, which the
@@ -48,7 +48,7 @@ Both passes are filed below as they came back.
   - the `recall` and `conclude` skills, the head of the `dream` skill
   - the questions mechanism's doc and rules file
   - the wake, window and hook code of `.agents/scripts/gw/questions.py` (lines 940–1420), and the header of `docs_corpus.py`
-  - `docs/README.md`, `docs/pacer.md`, `docs/architecture.md` up to the question store, `docs/questions/q-0027`, `q-0018.0004`, `q-0001.0018`
+  - `docs/README.md`, `docs/pacer.md`, `docs/architecture.md` up to the question store, `docs/questions/q-0037.0013`, `q-0037.0006.0004`, `q-0037.0001.0018`
   - rule failures 4, 14, 16 and 18
   - the head of session record 0039
   - the structure of the delivery queue `docs/tickets/README.md`, and the design and results of the window test (`docs/research/window-test-2026-09-28.md`)
@@ -180,7 +180,7 @@ This repository sits at **3**. **M**
 
 **Mapping.**
 - **The question tree is an enumerative hierarchical schedule.** **H**
-- **Ids like `q-0018.0020.0005` are expressive hierarchical notation**, decimal-classification style: the identifier encodes position. **H**
+- **Ids like `q-0037.0006.0020.0005` are expressive hierarchical notation**, decimal-classification style: the identifier encodes position. **H**
 - **Re-parenting renames the subtree's ids everywhere.** That is reclassification under expressive notation. **H**
 - **Placing a message on "the lowest question that contains it" is the cataloguer's rule** of classing in the most specific class. **H**
 - **"One that only resembles it is not its home" separates aboutness from resemblance.** **M**
@@ -194,7 +194,7 @@ This repository sits at **3**. **M**
 
 **How this shape goes wrong** (old principles, still cited; e.g. [Svenonius, 2000](https://mitpress.mit.edu/9780262194334/the-intellectual-foundation-of-information-organization/)):
 - **Cross-classification.** A single-parent scheme forces one home on an item that has two. Rule failure 18 records five amendments to the placement rule in one day, all of them about where a message belongs. **H** (from the record)
-- **Expressive notation is not stable identity.** Inserting a level changes ids, so every reference must be rewritten, and copies of old ids held elsewhere go wrong silently. The store's own deferred q-0001.0013 names this case: a stale id from another session's context landing on a different question. **H**
+- **Expressive notation is not stable identity.** Inserting a level changes ids, so every reference must be rewritten, and copies of old ids held elsewhere go wrong silently. The store's own deferred q-0037.0001.0013 names this case: a stale id from another session's context landing on a different question. **H**
 - **Early structure biases later classing.** **M**
 - **Hierarchical directories lost to search as corpora grew** (the Yahoo directory). **M**
 
@@ -254,7 +254,7 @@ These are two recent answers to the same staleness problem: invalidate when writ
 - **The specific, structural match: "struck" ↔ ACT-R base-level activation.** Base-level activation ranks memories by how often and how recently they were used, as a predictor of need ([Anderson & Schooler, 1991](https://doi.org/10.1111/j.1467-9280.1991.tb00174.x)). The wake ranks open questions by a count of spaced returns (a gap of 12 hours or more) and shows the top five. Unlike ACT-R, the count has **no decay**. **H** on the structure.
 
 **How this shape goes wrong.**
-- **Under activation ranking, items nobody rehearses are forgotten**, which ACT-R treats as adaptive. For open obligations it is the failure. The store names it as its own open question q-0001.0018, "How is an open question that nobody reaches kept from sinking unseen?" **H**
+- **Under activation ranking, items nobody rehearses are forgotten**, which ACT-R treats as adaptive. For open obligations it is the failure. The store names it as its own open question q-0037.0001.0018, "How is an open question that nobody reaches kept from sinking unseen?" **H**
 - **Counts without decay saturate**, so old heavily-struck items keep their rank. **M**
 - **Recent agent-memory work uses ACT-R decay explicitly**, e.g. [Memory Bear, Dec 2025](https://arxiv.org/abs/2512.20651). **M**
 
@@ -414,7 +414,7 @@ Principles (older, still cited):
 - Furnas et al., *The vocabulary problem in human-system communication*, 1987 — https://doi.org/10.1145/32206.32212
 - Svenonius, *The Intellectual Foundation of Information Organization*, MIT Press, 2000 — https://mitpress.mit.edu/9780262194334/the-intellectual-foundation-of-information-organization/
 
-Subject files (in the clone, `HEAD` 369cd8b): `AGENTS.md`, `CLAUDE.md`, `.claude/settings.json`, `.codex/hooks.json`, `.cursor/hooks.json`, `.agents/glossary.md`, `.agents/skills/recall/SKILL.md`, `.agents/skills/conclude/SKILL.md`, `.agents/skills/dream/SKILL.md`, `.agents/mechanisms/questions/questions.md`, `.agents/mechanisms/questions/questions.rules.md`, `.agents/scripts/gw/questions.py`, `docs/architecture.md`, `docs/pacer.md`, `docs/tickets/README.md`, `docs/rule-failures.md`, `docs/research/window-test-2026-09-28.md`, `docs/questions/q-0001.0018-*.md`, `docs/sessions/0039-*.md`.
+Subject files (in the clone, `HEAD` 369cd8b): `AGENTS.md`, `CLAUDE.md`, `.claude/settings.json`, `.codex/hooks.json`, `.cursor/hooks.json`, `.agents/glossary.md`, `.agents/skills/recall/SKILL.md`, `.agents/skills/conclude/SKILL.md`, `.agents/skills/dream/SKILL.md`, `.agents/mechanisms/questions/questions.md`, `.agents/mechanisms/questions/questions.rules.md`, `.agents/scripts/gw/questions.py`, `docs/architecture.md`, `docs/pacer.md`, `docs/tickets/README.md`, `docs/rule-failures.md`, `docs/research/window-test-2026-09-28.md`, `docs/questions/q-0037.0001.0018-*.md`, `docs/sessions/0039-*.md`.
 
 
 ---

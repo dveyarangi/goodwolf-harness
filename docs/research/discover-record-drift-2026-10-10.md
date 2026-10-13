@@ -1,7 +1,7 @@
 # What a record drifting from its thing is an instance of — a `/discover` pass, 2026-10-10
 
 Run at the align on
-[q-0024.0009.0005](../questions/done/q-0024.0009.0005-is-a-mechanisms-doc-a-record-of-what-must-always-hold-or-of-what-exists.md),
+[q-0037.0010.0009.0005](../questions/done/q-0037.0010.0009.0005-is-a-mechanisms-doc-a-record-of-what-must-always-hold-or-of-what-exists.md),
 after the user asked what the kinds of record are for: *the whole idea is to see drift, not to
 hang labels for show*. A separate process, forbidden to read this repository, was given the shape
 in nobody's vocabulary. **What it was told:** a project kept by a person and an AI agent holds many

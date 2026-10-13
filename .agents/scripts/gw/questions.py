@@ -26,7 +26,7 @@ event of a turn is its own call — `at`, `open`, `move`, `depend`, `undepend`, 
 after any of them says what it takes.
 
 `realizes` answers what a question realizes, for whichever mechanism keeps the answers: the store
-keeps the trace link as written and never resolves it (q-0035, decision 4).
+keeps the trace link as written and never resolves it (the user, 2026-10-13).
 """
 
 from __future__ import annotations
@@ -76,7 +76,7 @@ STORE_ARRIVAL = ".agents/skills/questions/STORE-ARRIVAL.md"
 HOOKS = ".agents/skills/questions/hooks/"
 # A running line whose session nothing has seen for this long is ended by the next wake, quietly
 # (the user, 2026-10-10).
-# TODO q-0034: the rule moves with the sessions file to a session mechanism.
+# TODO q-0037.0017: the rule moves with the sessions file to a session mechanism.
 SILENT_AFTER = timedelta(hours=3)
 # A held question reached again at least this long after it was opened or last struck is struck
 # (parent decision 53); a constant until a project wants another.
@@ -94,7 +94,7 @@ LAST_POSITION = 9999
 WINDOW_MEMORY: str | None = None
 PARTS = ("record of", "part of", "depends on", "state", "owner", "answer", "realizes", "lean", "struck")
 # A trace link names each answer by its reference and its name, as a ticket is named by id and
-# slug, or states that the question realizes none (q-0035.0006, decision 1).
+# slug, or states that the question realizes none (the user, 2026-10-13).
 DERIVED = "derived"
 # An entry carries what it is a record of as its first part, so the agent writing its body meets
 # the kind in context (the user, 2026-10-08): what it intends to become while open, what happened
@@ -865,7 +865,7 @@ def _unmarked_suspects(entries: list[Entry], index: dict[str, Entry]) -> list[Di
 
 
 # --- the sessions -------------------------------------------------------------------------------
-# TODO q-0018.0015: one sessions file in the working tree
+# TODO q-0037.0006.0015: one sessions file in the working tree
 # is how running sessions see each other until that work says how registrations reach sessions
 # that do not share the directory.
 
@@ -1195,7 +1195,8 @@ def _ancestry(index: dict[str, Entry], identity: str) -> list[Entry]:
 
 def realizes(index: dict[str, Entry], identity: str) -> TraceLink | None:
     """What a question realizes: its own trace link, else its nearest ancestor's, else `None` —
-    trace propagation, computed when read and never copied into a sub-question (q-0035, decision 4).
+    trace propagation, computed when read and never copied into a sub-question (the user,
+    2026-10-13).
     A link whose form cannot be read is the check's to report, and is passed over here."""
     for carrier in _ancestry(index, identity):
         said = carrier.parts.get("realizes")
@@ -1442,7 +1443,7 @@ def _end_silent(root: Path, now: datetime, waking: str) -> None:
 
     The one write to a line not its own besides a rename: safe because a silent session has no
     write of its own to meet. The session's next message turns its line running again.
-    TODO q-0034: a session mechanism takes the sessions file and this rule with it.
+    TODO q-0037.0017: a session mechanism takes the sessions file and this rule with it.
     """
     for held in _sessions(root)[0]:
         if held.running and held.tag != waking and now - _last_seen(root, held) >= SILENT_AFTER:
@@ -1741,7 +1742,7 @@ def _seen(root: Path, tag: str, now: datetime) -> None:
     """A sign of life from the session: its window memory takes the time, and a line that reads
     ended runs again, its position kept — a wake may have ended it while it sat idle.
 
-    TODO q-0034: a session mechanism takes the sessions file and this rule with it.
+    TODO q-0037.0017: a session mechanism takes the sessions file and this rule with it.
     """
     if not (root / STORE).is_dir():
         return

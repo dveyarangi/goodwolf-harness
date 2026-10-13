@@ -148,7 +148,7 @@ implementation changed.
 
 - **instruction** — backticked repo-relative path to a skill the mechanism owns.
   Required, and never the doc itself.
-  <straw-dog question="q-0034">One bullet: a declaration names one skill, and a second skill
+  <straw-dog question="q-0037.0017">One bullet: a declaration names one skill, and a second skill
   of the same mechanism has no field to stand in.</straw-dog>
 - **state** — `always on` or `installed`, and nothing else. `always on` means nothing can install
   or uninstall it, so it has no lifecycle scripts and that absence is a property. It is what tells
@@ -228,7 +228,7 @@ Three fields:
 A record declared without all three is a diagnostic, and so is a mechanism that writes records and
 declares none.
 
-<straw-dog question="q-0024.0004">
+<straw-dog question="q-0037.0010.0004">
 Neither diagnostic is emitted yet: finding a mechanism that owes a record declaration needs
 `record-bearing` to be a declared field, which it is not. Until then the two sentences above are a
 rule with no check behind them.

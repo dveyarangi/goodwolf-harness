@@ -47,7 +47,7 @@ ORDERED = ("Status", "Type", "Minted", "Plan", "Depends on", "Blocks", "Answers"
 REQUIRED = ("Status", "Type", "Minted", "Answers", "Outcome")
 # The day the format narrowed to the five named sections, the stage gone (the user, 2026-10-11): a
 # ticket minted before it is held to the required sections and the /verify box alone.
-# TODO q-0024.0009.0003.0002.0003: the older shape goes once no live ticket was minted before it.
+# TODO q-0037.0010.0009.0003.0002.0003: the older shape goes once no live ticket was minted before it.
 FORMAT_MOVED = "2026-10-11"
 RETIRED = ("Kind", "Legacy id", "RFC", "Parent PRD", "User stories addressed")
 NAMED_SECTIONS = (
@@ -125,7 +125,7 @@ class Ticket:
         except ValueError:
             return None
 
-    # TODO q-0024.0009.0003.0002.0003: every ticket is narrowed once none minted before is live.
+    # TODO q-0037.0010.0009.0003.0002.0003: every ticket is narrowed once none minted before is live.
     @property
     def narrowed(self) -> bool:
         """Whether it is held to the narrowed shape: minted on or after the day the format moved.

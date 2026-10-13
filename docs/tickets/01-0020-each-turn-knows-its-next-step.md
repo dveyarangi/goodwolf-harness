@@ -4,7 +4,7 @@
 - **Status:** In progress (align underway; first core rule landed 2026-09-20)
 - **Type:** HITL
 - **Minted:** 2026-09-06
-- **Answers:** [q-0027](../questions/q-0027-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md)
+- **Answers:** [q-0037.0013](../questions/q-0037.0013-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md)
 - **Outcome:** The agent knows, on every turn, what it does after `/recall` and what
   the turn's reply is scoped to, from Tier 1 rules in the entry file; and after a
   session break the next session resumes the delivery ring at the step it stopped,
@@ -33,7 +33,7 @@ resolved so far live in [pacer.md](../pacer.md) until this ticket carries them.
   "what's next" rule with no carve-out for a message that names a skill or a task. In
   [AGENTS.md](../../AGENTS.md) at v9, beside the announce line; occasion
   [rule failure 4](../rule-failures.md#4-the-wake-rule-sat-in-a-diagram-and-a-greeting-was-answered-with-a-greeting--2026-09-20).
-  It is hand-authored and wrapped as a straw dog bound to this ticket's question, q-0027:
+  It is hand-authored and wrapped as a straw dog bound to this ticket's question, q-0037.0013:
   inception owes it a rules file
   and an `<installed by>` block in `AGENTS.md`, which makes this ticket the third claimant on
   `AGENTS.md` as an injection target after `.0110` and 01-0017.0010. The rest stay on

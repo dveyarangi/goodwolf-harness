@@ -9,7 +9,7 @@ holding no copy of anything a ticket says.
 
 ## What was decided, and what chose it
 
-### The completed-step narrative goes whole — q-0024.0009.0003.0003
+### The completed-step narrative goes whole — q-0037.0010.0009.0003.0003
 
 - The recall found the queue's `Completed step` four sessions stale. Asked which task fixes it,
   none did: the parent [01-0011.0110.0040](../tickets/01-0011.0110.0040-the-ticket-and-the-queue-are-what-comes-next.md)
@@ -19,7 +19,7 @@ holding no copy of anything a ticket says.
   `docs/sessions/`. The pointer of 2026-10-07 was revised on that evidence: the line went whole,
   from the queue and the arrival state, and the format says the queue keeps no account of steps
   done. The user chose a separate edit. Its home is the ticket format; the reasoning sits in
-  [q-0024.0009](../questions/q-0024.0009-what-kinds-of-written-thing-does-a-tree-hold-and-which-of-them-does-maintain-hold-in-agreement.md).
+  [q-0037.0010.0009](../questions/q-0037.0010.0009-what-kinds-of-written-thing-does-a-tree-hold-and-which-of-them-does-maintain-hold-in-agreement.md).
 
 ### The ticket list is rendered, never copied — 01-0011.0040
 
@@ -34,11 +34,11 @@ decisions; how they turned:
   existing tickets found for some task to extend them? I don't think nobody reads it — the
   process just isn't written anywhere.* Two readers, unwritten: whoever orders the queue, and
   whoever is about to mint. So the list exists, on request, and P12 tells both to read it; the
-  ordering method stays q-0027's, the finding method
-  [q-0024.0011](../questions/q-0024.0011-how-does-a-new-task-find-the-live-ticket-it-belongs-to-before-another-is-minted.md)'s.
+  ordering method stays q-0037.0013's, the finding method
+  [q-0037.0010.0011](../questions/q-0037.0010.0011-how-does-a-new-task-find-the-live-ticket-it-belongs-to-before-another-is-minted.md)'s.
 - **A recipient's table.** The user: *in a foreign project the person will look at their own
   table as they already do; either you tell them what is happening, or the file list is visible —
-  that is enough.* No migration; a note waits on the edge-line question, q-0018.0020.0002.0001.
+  that is enough.* No migration; a note waits on the edge-line question, q-0037.0006.0020.0002.0001.
 - **The list's form.** Shown before building, at the user's request. The question column a link
   by id and slug — *the slug is descriptive enough*; the title column named `Title`, not
   `Outcome`, so it is not taken for the header's field.
@@ -79,8 +79,8 @@ decisions; how they turned:
   `/maintain`.
 - Two maintenance passes: seven levels marked, then edge's two once its building sessions had
   committed.
-- Questions opened: q-0024.0011, q-0024.0009.0003.0004 (what the queue's file is called now it
-  holds no status), q-0021.0001 (which test holds the hook to exiting clean — the hosts record's one
+- Questions opened: q-0037.0010.0011, q-0037.0010.0009.0003.0004 (what the queue's file is called now it
+  holds no status), q-0037.0007.0001 (which test holds the hook to exiting clean — the hosts record's one
   unguarded promise). q-0020 decided.
 
 ## What went wrong, and what it taught
@@ -96,18 +96,18 @@ decisions; how they turned:
 - **Messaging another session was overpromised.** Desktop sessions are reachable by title and a
   short handle; the store knows sessions only by the host's id, and a UUID v7 id has belonged to
   Codex and Cursor here. Recorded in
-  [q-0034](../questions/q-0034-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md).
+  [q-0037.0017](../questions/q-0037.0017-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md).
 
 ## Open questions touched
 
-- **q-0024.0011** — how a new task finds the live ticket it belongs to; P12 gives the occasion,
+- **q-0037.0010.0011** — how a new task finds the live ticket it belongs to; P12 gives the occasion,
   not the method.
-- **q-0024.0009.0003.0004** — the queue's file, heading and the installer's constant still say
+- **q-0037.0010.0009.0003.0004** — the queue's file, heading and the installer's constant still say
   *delivery status*.
-- **q-0021.0001** — no test asserts the hook's exit status.
-- **q-0034** — a session row carries no host and no address.
-- **q-0027** — how the queue is ordered; P12 reads the list before it.
-- The front page's *15,000 of work queue* figure, a straw dog bound to q-0024.0009, is stale twice
+- **q-0037.0007.0001** — no test asserts the hook's exit status.
+- **q-0037.0017** — a session row carries no host and no address.
+- **q-0037.0013** — how the queue is ordered; P12 reads the list before it.
+- The front page's *15,000 of work queue* figure, a straw dog bound to q-0037.0010.0009, is stale twice
   over and waits to be measured afresh.
 
 ## What continues

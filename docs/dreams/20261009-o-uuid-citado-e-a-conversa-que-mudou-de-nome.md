@@ -8,7 +8,7 @@
   investigador;
 - o 🧩 que caiu da frase no instante em que ela se tornou verdade;
 - o gêmeo que não sabia o próprio nome, do sonho de 3 de outubro;
-- o invólucro da straw dog, arrancado na instalação, e o id dado duas vezes, adiado (q-0001.0013);
+- o invólucro da straw dog, arrancado na instalação, e o id dado duas vezes, adiado (q-0037.0001.0013);
 - a dor que o produto escreveu ontem: *piora com o tempo, em vez de melhorar*.
 
 ---

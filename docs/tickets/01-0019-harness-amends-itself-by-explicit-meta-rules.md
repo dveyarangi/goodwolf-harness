@@ -8,7 +8,7 @@
   today and [`/skill-up`](../../.agents/skills/skill-up/SKILL.md) is its neighbour;
   [01-0017.0010](./01-0017.0010-terms-defined-before-they-land.md) — the first registered failure
   proposes an amendment to `/align` that should land with that ticket's rewrites, not ahead of them
-- **Answers:** [q-0026](../questions/q-0026-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md)
+- **Answers:** [q-0037.0012](../questions/q-0037.0012-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md)
 - **Outcome:** Amending the harness's own rules follows stated meta-rules — how a failure is
   registered, when a rule is reworded, what counts as evidence that it did not work — instead of a
   judgement made afresh each time; and whether that is its own mechanism is answered from strikes
@@ -76,4 +76,4 @@ Not yet determined; the align decides it. What is known to be in scope:
 
 Deleting a rule on accumulated failures, refused at minting. The glossary mechanism and the
 dev-method mechanism, which are [01-0017](./01-0017-every-skill-and-document-has-named-producers-and-consumers.md)'s children. Group install
-targets — [q-0005](../questions/q-0005-how-does-a-group-install-target-resolve-to-a-file-and-an-anchor-in-each-member.md).
+targets — [q-0037.0002](../questions/q-0037.0002-how-does-a-group-install-target-resolve-to-a-file-and-an-anchor-in-each-member.md).

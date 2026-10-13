@@ -1,6 +1,6 @@
 # discover — evidence
 
-<straw-dog question="q-0023.0007">The install that brought this skill</straw-dog> decided this
+<straw-dog question="q-0037.0009.0007">The install that brought this skill</straw-dog> decided this
 skill's standing in this repository, and that it files no artifact. What follows is the mechanism's
 history, most of it from the estate it was built in.
 

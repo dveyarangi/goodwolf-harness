@@ -442,7 +442,7 @@ hand-written sentence in `/align` pointed *below* at a block that is now above i
 every anchor is today, and a non-heading anchor's section ends at the next heading of any level
 rather than being refused. A recipient installed before this holds its blocks at the old
 positions; nothing flags that, and its next update installs only what is absent.
-<straw-dog question="q-0018.0020.0002.0001">
+<straw-dog question="q-0037.0006.0020.0002.0001">
 An observation for that mechanism to collect: a placement rule is an edge change a recipient
 cannot see.
 </straw-dog>
@@ -452,7 +452,7 @@ cannot see.
 The rule *one mechanism, one instruction file* stood on the user's decision of 2026-09-06 alone,
 a tightening of Life's *usually a skill, and there may be several*. Its recorded reason was that
 naming a mechanism and naming its skill are one act. The first mechanism to strain it was a
-proposed session mechanism (q-0034): `/recall` and `/conclude` open and close the same record, a
+proposed session mechanism (q-0037.0017): `/recall` and `/conclude` open and close the same record, a
 session's row, and keeping one skill each would split one lifecycle across two mechanisms. The
 direction the reason actually needs is the other one — a skill with two owners makes a reference
 ambiguous, which the check already refuses — so the user loosened the rule to one mechanism per
@@ -463,7 +463,7 @@ a second skill is declared.
 ## The meta-rules leave the entry file, not installed — 2026-10-11
 
 **Refuted at the plan of 01-0011.0110.0060: the shape installs its two entry-file lines.** The
-align on q-0024.0009.0006 (decision 4) had *method is mechanism work* and *an installed block is
+align on q-0037.0010.0009.0006 (decision 4) had *method is mechanism work* and *an installed block is
 not yours* become rules of the shape's rules file, installed in the entry file as R7 is. The plan
 met the format's *a mechanism has one place in a target*: the shape's place there is
 `## Project-local`, R7's section, so the lines would land among the project's answers or R7 would
@@ -479,7 +479,7 @@ entry file, and the description stays tier 1, not tier 3. What the move gives up
 *before* a block is edited; the check stops it after, before a commit.
 
 The same two tests — does a line restate a description read at the same tier, does a check already
-hold it — were handed to q-0026.0006 for the entry file's other sentences.
+hold it — were handed to q-0037.0012.0006 for the entry file's other sentences.
 
 ## The gloss on the membership test, struck 2026-10-11
 
@@ -489,5 +489,5 @@ user's words: what was meant was that the development method, once separated fro
 machinery, is itself a candidate mechanism. The gloss read as if a mechanism had to be both at
 once, and an inventory on 2026-10-11 took it for the harness's definition of itself. Struck from
 both homes; the membership test — *how the work gets done, never what the project produces* —
-stands as decided. The line between method and machinery is q-0024.0012's *(the user,
+stands as decided. The line between method and machinery is q-0037.0010.0012's *(the user,
 2026-10-11)*.

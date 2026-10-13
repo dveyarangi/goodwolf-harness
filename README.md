@@ -30,7 +30,7 @@ scripts, in Claude Code, Codex and Cursor.
 **Try it:** in your project, tell your coding agent *install the GoodWolf Harness from
 https://github.com/dveyarangi/goodwolf-harness*. It installs, then asks for your test commands and
 where it should stop for your yes.
-<straw-dog question="q-0018.0020.0001">If your project already has a `CLAUDE.md` or `AGENTS.md`, the install stops and names the file: it doesn't move or merge them yet. Branch first, move them aside yourself, run the install again, and bring over what you need by hand.</straw-dog>
+<straw-dog question="q-0037.0006.0020.0001">If your project already has a `CLAUDE.md` or `AGENTS.md`, the install stops and names the file: it doesn't move or merge them yet. Branch first, move them aside yourself, run the install again, and bring over what you need by hand.</straw-dog>
 More under [Use it](#use-it-instructions-for-your-agent).
 
 ## What it does about each
@@ -132,11 +132,11 @@ Before you install, know this:
   write over a file that changed since the agent read it, and where it offers a worktree per
   session, each works in its own.
   <straw-dog question="q-0033.0004">A team sharing one queue across branches is not tested yet, and your team's tracker can't yet take the tickets' place.</straw-dog>
-- <straw-dog question="q-0027.0003">**No fast path for small work yet.** Every change is meant to go through ticket, plan, build and verify. You can tell the agent to skip that for a one-line fix, but nothing yet says when that is fine.</straw-dog>
-- <straw-dog question="q-0018.0005">**Instructions, not enforcement.** Everything here is the agent following written rules, plus scripts that check the files. A model can still slip; the records make the slip visible, and the rule it missed gets reworded.</straw-dog>
-- <straw-dog question="q-0018.0013">**No uninstall command.** Everything it adds is files, so reverting the install commit removes the harness. What it wrote under `docs/` afterwards stays until you delete it.</straw-dog>
+- <straw-dog question="q-0037.0013.0003">**No fast path for small work yet.** Every change is meant to go through ticket, plan, build and verify. You can tell the agent to skip that for a one-line fix, but nothing yet says when that is fine.</straw-dog>
+- <straw-dog question="q-0037.0006.0005">**Instructions, not enforcement.** Everything here is the agent following written rules, plus scripts that check the files. A model can still slip; the records make the slip visible, and the rule it missed gets reworded.</straw-dog>
+- <straw-dog question="q-0037.0006.0013">**No uninstall command.** Everything it adds is files, so reverting the install commit removes the harness. What it wrote under `docs/` afterwards stays until you delete it.</straw-dog>
 
-<straw-dog question="q-0017">What it saves has not been measured. To judge it, install it into one project and watch three things over a few weeks: whether an agent arriving cold re-decides less of what was settled, whether work survives the end of a session without you reconstructing it, and whether drift between documents and code falls rather than documents piling up.</straw-dog>
+<straw-dog question="q-0038.0001">What it saves has not been measured. To judge it, install it into one project and watch three things over a few weeks: whether an agent arriving cold re-decides less of what was settled, whether work survives the end of a session without you reconstructing it, and whether drift between documents and code falls rather than documents piling up.</straw-dog>
 
 ## It changes with your project
 
@@ -150,7 +150,7 @@ some, and your edits get overwritten when you pull an update. Here:
 - **A rule the agent ignored gets reworded, and the next miss shows whether that worked.** When a
   rule was in place and not followed, the agent logs the miss in `docs/rule-failures.md`, shows
   you the rewording, and lands it as one commit you can review and revert.
-  <straw-dog question="q-0026">So far it is you who notices the miss: every one in this repository's log was caught by the person, not the agent.</straw-dog>
+  <straw-dog question="q-0037.0012">So far it is you who notices the miss: every one in this repository's log was caught by the person, not the agent.</straw-dog>
 - **No two copies of a rule disagree.** Each rule is written in one place and copied by a script
   into every instruction that uses it. A check fails if a copy drifts from its source; it runs at
   every install and update, and in your own checks if you add it there.
@@ -216,11 +216,11 @@ The rules are in [AGENTS.md](AGENTS.md) and every skill is under [`.agents/skill
 
 **Not yet:**
 
-- <straw-dog question="q-0027.0002">You can't yet say which kinds of decision stop for you; the line between yours and the agent's is drawn by its judgement of what bears load.</straw-dog>
-- <straw-dog question="q-0018.0011.0004">The install doesn't yet find what your project exists to solve, or the answers already built into its docs and code; the first session builds them with you instead.</straw-dog>
-- <straw-dog question="q-0018.0020.0002.0003">Updates name the files they changed, not what changed in them or what your project has to do about it.</straw-dog>
-- <straw-dog question="q-0018.0018">There is no way yet to send improvements your project makes to the harness back upstream.</straw-dog>
-- <straw-dog question="q-0018.0023">Other hosts — Copilot, Gemini CLI, OpenCode and the rest — aren't supported yet.</straw-dog>
+- <straw-dog question="q-0037.0013.0002">You can't yet say which kinds of decision stop for you; the line between yours and the agent's is drawn by its judgement of what bears load.</straw-dog>
+- <straw-dog question="q-0037.0006.0011.0004">The install doesn't yet find what your project exists to solve, or the answers already built into its docs and code; the first session builds them with you instead.</straw-dog>
+- <straw-dog question="q-0037.0006.0020.0002.0003">Updates name the files they changed, not what changed in them or what your project has to do about it.</straw-dog>
+- <straw-dog question="q-0037.0006.0018">There is no way yet to send improvements your project makes to the harness back upstream.</straw-dog>
+- <straw-dog question="q-0037.0006.0023">Other hosts — Copilot, Gemini CLI, OpenCode and the rest — aren't supported yet.</straw-dog>
 
 ## Use it (instructions for your agent)
 

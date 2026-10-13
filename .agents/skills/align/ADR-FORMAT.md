@@ -1,4 +1,4 @@
-<straw-dog question="q-0024.0002.0005">
+<straw-dog question="q-0037.0010.0002.0005">
 # ADR Format
 
 ADRs live in `docs/adr/` and use sequential numbering: `0001-slug.md`, `0002-slug.md`, etc.

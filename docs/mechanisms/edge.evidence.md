@@ -2,9 +2,9 @@
 
 Why [the doc](../../.agents/mechanisms/edge/edge.md) is what it is. Declared 2026-10-10 in session
 `58bf3b88`, answering
-[q-0023.0009](../questions/done/q-0023.0009-what-does-edge-own.md) "What does /edge own?"; no ticket
+[q-0037.0009.0009](../questions/done/q-0037.0009.0009-what-does-edge-own.md) "What does /edge own?"; no ticket
 declared it. The first record, [hosts](../edge/hosts.md), answers
-[q-0018.0023.0001](../questions/done/q-0018.0023.0001-where-does-the-contract-a-host-must-meet-live-with-each-hosts-standing-against-it-and-the-procedure-that-checks-a-new-host-the-same-way.md).
+[q-0037.0006.0023.0001](../questions/done/q-0037.0006.0023.0001-where-does-the-contract-a-host-must-meet-live-with-each-hosts-standing-against-it-and-the-procedure-that-checks-a-new-host-the-same-way.md).
 
 ## How it came to be declared
 

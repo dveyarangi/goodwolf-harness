@@ -5,7 +5,7 @@ description: >-
   Use whenever writing any agent instructions, whether to a file or directly in a reply.
 ---
 
-<straw-dog question="q-0023.0016">Mechanism: not yet</straw-dog>
+<straw-dog question="q-0037.0009.0016">Mechanism: not yet</straw-dog>
 
 Your goal is to aid agent skill creation or modification.
 

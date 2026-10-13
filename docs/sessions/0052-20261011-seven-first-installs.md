@@ -9,13 +9,13 @@ between the method a person works by and the machinery beneath it came out of it
 ## Decisions
 
 - **The line runs inside a skill, not between skills; it is drawn in what the reply says**
-  (q-0024.0012). Three layers, the user's words: the *method* — what the self-improvement promise
+  (q-0037.0010.0012). Three layers, the user's words: the *method* — what the self-improvement promise
   promises to improve: the loop, the stops, the reply's form, the questions, the tickets' acts;
   the *practice* — what a project swaps; the *machinery* — what carries both, which a person
   knows of only in debug mode. A skill's instructions keep every call they need — the user:
   *the mechanism doc is no place for instructions; they have to know* — so no text moves; the
-  entry file's own machinery is q-0026.0006's. Landed as v77, *A reply speaks the method*, a
-  straw dog bound to q-0024.0012; `debug` thereby gains a second meaning, the machinery shown.
+  entry file's own machinery is q-0037.0012.0006's. Landed as v77, *A reply speaks the method*, a
+  straw dog bound to q-0037.0010.0012; `debug` thereby gains a second meaning, the machinery shown.
   Refuted on the way: a debug mode against a user mode of the reply — *which question we stand on
   and the steps are the product*; a sidecar derived from the product document — *why not just
   copy the README*; moving descriptive machinery into mechanism docs — rule failure 40.
@@ -65,23 +65,23 @@ prose), 40 (a mechanism's doc proposed as the home for a skill's machinery). Oth
 
 ## Open questions touched
 
-- q-0024.0012 — decided in its body: three layers, tickets method, sessions machinery; they land
-  once the method mechanism is declared (01-0017); open with q-0030 on whether the lamps stay
+- q-0037.0010.0012 — decided in its body: three layers, tickets method, sessions machinery; they land
+  once the method mechanism is declared (01-0017); open with q-0037.0016 on whether the lamps stay
   under `debug`.
-- q-0018.0020 — the clone path and the last step landed; open: the loader-link misjudgement, the
+- q-0037.0006.0020 — the clone path and the last step landed; open: the loader-link misjudgement, the
   release flow.
-- q-0031.0001 — open until a first install is graded under the shipped front page; the seventh
+- q-0033.0008.0001 — open until a first install is graded under the shipped front page; the seventh
   did introduce from it.
-- q-0018 — the first recipient with a method of its own, `research-harness`, stands on five
-  things open here: q-0018.0019, 01-0020, 01-0017.0020, a second-repository source (no question
-  yet), q-0017. The user read its architecture as a list of this queue's blockers.
-- q-0035.0001 — a second product on this queue, a case for the collection; left to the next
+- q-0037.0006 — the first recipient with a method of its own, `research-harness`, stands on five
+  things open here: q-0037.0006.0019, 01-0020, 01-0017.0020, a second-repository source (no question
+  yet), q-0038.0001. The user read its architecture as a list of this queue's blockers.
+- q-0037.0018.0001 — a second product on this queue, a case for the collection; left to the next
   session by the user.
-- q-0018.0020.0010 — suspect since the second install; superseded in substance by q-0024.0012.
+- q-0037.0006.0020.0010 — suspect since the second install; superseded in substance by q-0037.0010.0012.
 
 ## Continues
 
-The user's queue question: whether 01-0017.0020 → q-0018.0019 → a second-repository source →
+The user's queue question: whether 01-0017.0020 → q-0037.0006.0019 → a second-repository source →
 01-0020 is the order `research-harness` waits for, and whether to open the second-repository
-question under q-0018.0020. The first step of the next session: q-0018's body, the five
+question under q-0037.0006.0020. The first step of the next session: q-0037.0006's body, the five
 blockers, put to the user as a reordering.

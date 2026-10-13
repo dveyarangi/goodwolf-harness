@@ -9,7 +9,7 @@ an answer is a row of its answers table whose first cell opens with its bold lea
 `**A<n> <name>**`. `--check` rules on that form alone — every answer an id and a name, no id twice —
 and prints JSON for the person reading a failure. `--coverage` renders, for a person, each
 answer's coverage — absent, in progress, present — read from the questions whose trace links
-name it, and never written (q-0035, decision 4). A tree with no product document has nothing to
+name it, and never written (the user, 2026-10-13). A tree with no product document has nothing to
 check or render, and passes. The script writes nothing.
 """
 
@@ -86,7 +86,8 @@ def coverage(root: Path) -> list[str]:
 
 def _coverage_line(found: Answer, realizing: list[questions.Entry]) -> str:
     """Absent while no question realizes the answer, in progress while one that does is open,
-    present once every one is decided (q-0035.0006, decision 2)."""
+    present once every one is decided; a question closed otherwise built nothing (settled at the
+    plan, 2026-10-13)."""
     if not realizing:
         return f"{found.identity} {found.name} — absent"
     state = "in progress" if any(_counts_as_open(read) for read in realizing) else "present"

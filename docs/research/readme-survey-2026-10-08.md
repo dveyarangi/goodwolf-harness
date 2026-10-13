@@ -1,6 +1,6 @@
 # How the front pages of peer projects are written — a survey, 2026-10-08
 
-Run at the front-page align on [q-0031](../questions/q-0031-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md), when the user asked whether the draft reads the way READMEs of similar projects are written. One web-only agent fetched eleven READMEs and two docs pages and measured them. It was told nothing about this project. Filed as it came back; what the align takes from it is the align's.
+Run at the front-page align on [q-0033.0008](../questions/q-0033.0008-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md), when the user asked whether the draft reads the way READMEs of similar projects are written. One web-only agent fetched eleven READMEs and two docs pages and measured them. It was told nothing about this project. Filed as it came back; what the align takes from it is the align's.
 
 ---
 

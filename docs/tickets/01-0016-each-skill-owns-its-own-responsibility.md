@@ -12,7 +12,7 @@
   [01-0017 every-skill-and-document-has-named-producers-and-consumers](./01-0017-every-skill-and-document-has-named-producers-and-consumers.md) (the mechanisms declared, so what one
   asks of a skill can arrive installed) *(the user, 2026-09-27)*
 - **Blocks:** [Rules reach the occasion they are for](./01-0018-rules-reach-the-occasion-they-are-for.md)
-- **Answers:** [q-0023](../questions/q-0023-does-each-skill-state-only-what-it-owns.md)
+- **Answers:** [q-0037.0009](../questions/q-0037.0009-does-each-skill-state-only-what-it-owns.md)
 - **Outcome:** Every skill states only what it owns; what an installed mechanism asks of it arrives
   installed, and it names another skill only while that skill is on its way to a mechanism; a rule
   appears once, in the skill responsible for it; contradictions between skills are resolved rather
@@ -103,7 +103,7 @@ left unhosted.
   [01-0011.0070](./done/01-0011.0070-straw-dogs-marked-and-found.md)'s align, the user)*. The duty to
   wrap one is the entry file's, a meta-rule; the enumerator that lists and retires them is the
   maintenance mechanism's part; the review that marks them at landing is `/verify`'s own
-  sentence, written as a straw dog bound to q-0023.0001 "Which mechanism is responsible for the
+  sentence, written as a straw dog bound to q-0037.0009.0001 "Which mechanism is responsible for the
   straw dogs?", which this pass answers. Nothing owns the concept end to end, and
   three mechanisms each hold a piece. The elected owner is this pass's to settle; `/verify`'s
   wrapper retires with the answer.

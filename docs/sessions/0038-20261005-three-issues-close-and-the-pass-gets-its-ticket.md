@@ -12,7 +12,7 @@ same tree throughout; its files were left out of every commit here.
   installs into a core skill as an edit in core, so `arrived` was false of a correct tree and
   every update needed `--overwrite`; a `FIX` sets aside the block of every mechanism whose rules
   file stands in the tree and never shipped. The install and update questions were gathered under
-  one parent, q-0018.0020 "How does core reach a recipient tree and leave it working, at a first
+  one parent, q-0037.0006.0020 "How does core reach a recipient tree and leave it working, at a first
   install and at each update?".
 - **Issue 2** ran `/align`: a document under `docs/` informs and neither instructs an agent nor
   authorizes it to act; met while reading, it is not acted on and reported as drift. Landed by
@@ -23,7 +23,7 @@ same tree throughout; its files were left out of every commit here.
   data. An outside pass, [filed verbatim](../research/discover-second-pass-2026-10-05.md), found
   no accepted umbrella term and several fields that keep the activities apart. Formalized as
   [01-0030 a-second-look-is-a-pass](../tickets/01-0030-a-second-look-is-a-pass.md): three working
-  words, six operations, nine parameters, five forks under q-0029 — a candidate mechanism the
+  words, six operations, nine parameters, five forks under q-0037.0015 — a candidate mechanism the
   user revises before anything is built. Its align's necessity gate did not pass; the user chose
   another issue.
 - **Issue 1** closed through two tickets.
@@ -51,7 +51,7 @@ same tree throughout; its files were left out of every commit here.
   2.32. The refusal is proved against Git's message, and the knob's test skips where Git predates
   the check. In the harness's evidence.
 - The host resumed the conversation under three ids, each leaving a running row:
-  q-0001.0006 "How does a conversation keep its position when its host resumes it under a new
+  q-0037.0001.0006 "How does a conversation keep its position when its host resumes it under a new
   session id?", struck again.
 - The first recommendation on the maintain half of issue 2 — write it by hand and wait for an
   undeclared practice mechanism — missed that both candidate owners were declared; the user's
@@ -69,14 +69,14 @@ same tree throughout; its files were left out of every commit here.
   and the cheapest test is `/verify` described by the pass's nine parameters.
 - **Left from issue 2:** no glossary entry for *invariant* yet, and `/maintain`'s own text still
   says "docs to the meta-rules" rather than naming the entry file's rules — both held back while
-  the vocabulary is under q-0029. `docs/process.md` holds method text in instruction form, noted
-  on q-0024.0002.0003 "What does docs/process.md keep once method text leaves it?".
-- **Opened and left open:** q-0024.0008 "Does every mechanism that governs what is written owe
-  /maintain a re-check of it, installed from its own rules?" and q-0024.0009 "What kinds of
+  the vocabulary is under q-0037.0015. `docs/process.md` holds method text in instruction form, noted
+  on q-0037.0010.0002.0003 "What does docs/process.md keep once method text leaves it?".
+- **Opened and left open:** q-0037.0010.0008 "Does every mechanism that governs what is written owe
+  /maintain a re-check of it, installed from its own rules?" and q-0037.0010.0009 "What kinds of
   written thing does a tree hold, and which of them does /maintain hold in agreement?";
-  q-0001.0021 "How is a question reworded once the work shows its wording is outdated, and when
+  q-0037.0001.0021 "How is a question reworded once the work shows its wording is outdated, and when
   does rewording replace opening a parent?", which the forked session took up;
-  q-0018.0020.0006 "Why did an update run by Codex judge correct loader links wrong?", still
+  q-0037.0006.0020.0006 "Why did an update run by Codex judge correct loader links wrong?", still
   unexplained, the links having held since.
 - **The forked session's files** are uncommitted in the tree: the questions script, its tests,
   skill, doc and rules file, `AGENTS.md` and the entry contract's record.

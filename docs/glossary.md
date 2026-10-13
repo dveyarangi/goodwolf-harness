@@ -11,7 +11,7 @@ only it has.
 **Unit of work — proposed definition**:
 Work with an explicit scale, owner, outcome and completion evidence; a milestone and a ticket can both be units at different scales. The term alone does not specify an agent-sized step; see the [pacer hypothesis](pacer.md#scales-and-steps--revised-hypothesis).
 
-<straw-dog question="q-0035">
+<straw-dog question="q-0037.0018">
 ### Product to implementation
 
 The words of requirements traceability, taken whole *(the user, 2026-10-13)*.

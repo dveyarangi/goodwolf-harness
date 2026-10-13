@@ -11,14 +11,14 @@ The harness under [`.agents/`](../.agents/README.md) is built here with its own 
 - [Mechanism evidence](mechanisms/): why each declared mechanism's doc is what it is.
 - [Initial skills comparison](research/audit-2026-09-05/REPORT.md) and [life findings](research/life-harness-findings.md): the evidence the harness was selected and shaped from.
 
-<straw-dog question="q-0018">
+<straw-dog question="q-0037.0006">
 - [Harness spec — draft](spec/01-0010-a-shared-harness-improves-without-losing-project-conventions.md): intended behavior and concrete cases under alignment.
 </straw-dog>
 
-<straw-dog question="q-0027">
+<straw-dog question="q-0037.0013">
 - [Development process](process.md) and [pacer](pacer.md): the sequence of work and its progression, held here until the pacer is a mechanism and carries them.
 </straw-dog>
 
-<straw-dog question="q-0026">
+<straw-dog question="q-0037.0012">
 - [Rule failures](rule-failures.md): the register of rules that were present and did not fire.
 </straw-dog>

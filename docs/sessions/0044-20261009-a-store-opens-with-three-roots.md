@@ -1,7 +1,7 @@
 # Session 44 — a store opens with three roots
 
 **2026-10-09.** Claude Code, session `de339340…`. Entry contract v42 at the start, v44 at the
-close, moved by a parallel session. Other sessions worked q-0033, q-0030 and q-0018.0020 in the
+close, moved by a parallel session. Other sessions worked q-0033, q-0037.0016 and q-0037.0006.0020 in the
 same tree; their files, `README.md` among them, were left alone.
 
 ## What was decided, and what chose it
@@ -11,7 +11,7 @@ same tree; their files, `README.md` among them, were left alone.
 The user came with a proposal: a new project always gets three root questions — why it is needed
 (product), how it is built and where it is developing (technical), what else it could be and who
 its neighbours are, perhaps *what is this project?* (research) — and asked for sharper wordings,
-by /discover among other means. Opened as q-0001.0022; one pass,
+by /discover among other means. Opened as q-0037.0001.0022; one pass,
 [discover-root-questions-2026-10-09](../research/discover-root-questions-2026-10-09.md).
 
 What the pass changed. The trouble was where the roots divide, not how they are worded. The
@@ -35,7 +35,7 @@ The user's turns, in order:
   where the model misses.
 - Strategy starts from the situation, so the landscape sets the purpose at the start. Then the
   project grows flesh, and the purpose can no longer turn into a dating site. How that weight
-  shifts over a project's life was opened as q-0001.0022.0001.
+  shifts over a project's life was opened as q-0037.0001.0022.0001.
 - *Seed only the roots* — no links between them, no children.
 - The words: *What is this project for?* · *How is this project built?* · *What landscape does
   this project evolve in?* *For* was preferred to *for, and for whom*; *built* to *work*.
@@ -63,7 +63,7 @@ that rewords the shelf, so an installer holding words of its own would be caught
 
 ### Four answers proposed on a question whose parts were not unfolded
 
-Under q-0001.0022 the user said the landscape's answers can move the other roots. The agent
+Under q-0037.0001.0022 the user said the landscape's answers can move the other roots. The agent
 proposed a soft link and then, four replies running, a form and a next step. Each time the user's
 answer reshaped the question rather than chose among options:
 
@@ -110,9 +110,9 @@ edits shown in the transcript. Said in the reply; later edits used the edit tool
 
 ## Open questions touched
 
-- **q-0001.0022.0001** — how the roots' weight shifts over a project's life. Holds the user's
+- **q-0037.0001.0022.0001** — how the roots' weight shifts over a project's life. Holds the user's
   strategy-first reading; nothing chosen.
-- **q-0001.0023** — how a change in one answer reaches what stood on it. Unfolded into six parts;
+- **q-0037.0001.0023** — how a change in one answer reaches what stood on it. Unfolded into six parts;
   no answer. The roots do not wait on it.
   - **.0001** holds five positions — one link, two kinds by a test, three kinds, a typed graph,
     kind as a role — and a reading of the roots and q-0033: every kind of link occurs; `depends
@@ -136,8 +136,8 @@ words around it. Each version is in [the entry contract's findings](../research/
 
 The user picks the next item. Candidates:
 
-- the branch of q-0001.0023 at .0001, reading this tree's links;
-- q-0001.0022.0001.
+- the branch of q-0037.0001.0023 at .0001, reading this tree's links;
+- q-0037.0001.0022.0001.
 
 The queue's own next item is unchanged: 01-0011.0100.0050, *A question branches before it is
 answered*, which rule failure 25 now touches from the rule side.

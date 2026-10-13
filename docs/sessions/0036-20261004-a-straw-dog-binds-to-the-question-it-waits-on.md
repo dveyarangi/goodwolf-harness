@@ -15,7 +15,7 @@ dogs rebound by tables the user accepted family by family; 29 questions opened f
 contract at v25. The commits from `754369a` to `4569d60` hold the detail; all pushed.
 
 On the way, on the user's word: [01-0011.0030 archive-backlog-listed](../tickets/done/01-0011.0030-archive-backlog-listed.md)
-withdrawn and q-0019 closed against P1 and `/maintain`'s B3; q-0001.0017 reworded as q-0001.0020
+withdrawn and q-0019 closed against P1 and `/maintain`'s B3; q-0037.0001.0017 reworded as q-0037.0001.0020
 "How is a question split into the sub-questions it needs before anyone answers it?"; *Host* and
 *Loader link* entered the method glossary; rule failure 11 struck by a repeat and `/plan`'s
 architecture rule amended.
@@ -43,12 +43,12 @@ architecture rule amended.
   own; after an update the listing reports each as *old binding*, saying what to write instead.
   An update crosses this in silence until 01-0010.0160.
 - **A fresh install ends `arrived: false`**: the questions mechanism's hook files are its parts and
-  the install does not carry them — q-0018.0020.0005 "How does the installer carry each host's hook
+  the install does not carry them — q-0037.0006.0020.0005 "How does the installer carry each host's hook
   wiring into a recipient tree?".
-- **Open questions this session opened or leaned**: q-0001.0018 "How is an open question that
-  nobody reaches kept from sinking unseen?"; q-0023.0001 "Which mechanism is responsible for the
-  straw dogs?", now 01-0016's; q-0018.0002 "Are /advise, /skill-up, /commit, /celebrate and /edge
+- **Open questions this session opened or leaned**: q-0037.0001.0018 "How is an open question that
+  nobody reaches kept from sinking unseen?"; q-0037.0009.0001 "Which mechanism is responsible for the
+  straw dogs?", now 01-0016's; q-0037.0006.0002 "Are /advise, /skill-up, /commit, /celebrate and /edge
   in use, with the core changes they owe?", whose `/skill-up` requirement names retired tags;
-  q-0001.0010.0001 "Where do the arguments of closed questions live, now that an entry holds its
+  q-0037.0001.0010.0001 "Where do the arguments of closed questions live, now that an entry holds its
   own?".
-- `docs/questions/q-0017-…` carries an uncommitted edit from another session, left as found.
+- `docs/questions/q-0038.0001-…` carries an uncommitted edit from another session, left as found.

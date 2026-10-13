@@ -69,7 +69,7 @@ installer adds and an uninstaller removes.
 | writing a record or a sidecar to its shape | `.agents/skills/edge/EDGE-FORMAT.md` | |
 | attaching an extension and passing the record's checks live | `.agents/skills/edge/SKILL.md` | |
 | passing the checks again for an extension that changed upstream | `.agents/skills/edge/SKILL.md` | |
-| noticing that an extension changed upstream, a host's new version | — | <straw-dog question="q-0018.0023">not yet</straw-dog> |
+| noticing that an extension changed upstream, a host's new version | — | <straw-dog question="q-0037.0006.0023">not yet</straw-dog> |
 | checking a change against the edges it touches, when asked | `.agents/skills/edge/SKILL.md` | |
 | writing a record when a change at its edge lands | `.agents/skills/verify/SKILL.md` | |
 | writing a live observation of an extension into its sidecar | `.agents/skills/verify/SKILL.md` | |
@@ -78,9 +78,9 @@ installer adds and an uninstaller removes.
 | deriving text for a consumer or an extender | `.agents/skills/edge/SKILL.md` | |
 | checking live records and sidecars against the shape | `.agents/scripts/gw/edges.py` | |
 | re-reading a record when a file it names moved | `.agents/skills/maintain/SKILL.md` | |
-| writing an installation-edge change's line as it is made | — | <straw-dog question="q-0018.0020.0002.0001">not yet</straw-dog> |
+| writing an installation-edge change's line as it is made | — | <straw-dog question="q-0037.0006.0020.0002.0001">not yet</straw-dog> |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
-| removing this mechanism from a tree | — | <straw-dog question="q-0018.0013.0002">not yet</straw-dog> |
+| removing this mechanism from a tree | — | <straw-dog question="q-0037.0006.0013.0002">not yet</straw-dog> |
 
 ## Install adds, uninstall removes
 

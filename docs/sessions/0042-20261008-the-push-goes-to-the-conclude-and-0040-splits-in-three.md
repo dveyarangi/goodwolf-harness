@@ -80,12 +80,12 @@ HITL. The record of the split is `.0040`'s *Split impact* section.
 
 ## Open questions the session touched
 
-- q-0030 "How does a reply show the principles each of its claims stands on, and where are the
+- q-0037.0016 "How does a reply show the principles each of its claims stands on, and where are the
   principles named for it?" — the form at v42; `.0020` waits on the week of grading.
-- q-0024.0009.0003 "How do the ticket and the queue hold what comes next alone, with the draft in
+- q-0037.0010.0009.0003 "How do the ticket and the queue hold what comes next alone, with the draft in
   the question's body?" — split; its children .0001 and .0002 own the two minted slices.
-- q-0023.0006 "What does /conclude own?" — now the push, besides the record.
-- q-0025 "Does each rule reach the occasion it is for?" — three failures this session, each a
+- q-0037.0009.0006 "What does /conclude own?" — now the push, besides the record.
+- q-0037.0011 "Does each rule reach the occasion it is for?" — three failures this session, each a
   loose placeholder.
 
 ## What continues

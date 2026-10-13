@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v87 — 2026-10-13
+
+**No rule changed; the straw dogs' bindings follow the new roots.** The question store took the
+three seeded roots, and every question under the nineteen moved roots took a new id; the entry
+file's straw dogs are bound to the same questions under their new ids. A session announcing v86
+reads the same rules.
+
 ## v86 — 2026-10-13
 
 **The counters line is its numbers** — the window's counters line is copied character for
@@ -82,14 +89,14 @@ table, above every other row, a row each: ``| 🪶 `<short hash>` <the subject's
 ## v77 — 2026-10-11
 
 **A reply speaks the method.** One paragraph before the reply's form, a straw dog bound to
-q-0024.0012: a reply says which question the work is on, the step, what is decided, what is next,
+q-0037.0010.0012: a reply says which question the work is on, the step, what is decided, what is next,
 where it stops and what it needs from the person; it names no script, call, check, report,
 record's internals or hook, and never retells a report; under `debug=on` the machinery is shown as
 well. From two first installs the same day that reported gates and scripts to a person meeting
 the harness: the line between the method a person works by and the machinery beneath it runs
 inside a skill, whose instructions keep every call they need, so it is drawn in what the reply
 says. `debug` thereby gains a second meaning, the machinery shown; whether the lamps and tables
-stay under it is q-0030's. The user, 2026-10-11.
+stay under it is q-0037.0016's. The user, 2026-10-11.
 
 ## v76 — 2026-10-11
 
@@ -192,7 +199,7 @@ landing, so no v63 was ever announced.
 
 ## v64 — 2026-10-11
 
-**Weight follows the work** — a general rule, a straw dog bound to q-0027.0003: a change costs what
+**Weight follows the work** — a general rule, a straw dog bound to q-0037.0013.0003: a change costs what
 it weighs. The `commit` switch's `auto` drops its gloss naming the whole verification set, which
 outweighed Occam and sent a two-value switch flip through the full set. Rule failure 32; the user,
 2026-10-11.
@@ -200,7 +207,7 @@ outweighed Occam and sent a two-value switch flip through the full set. Rule fai
 ## v62 — 2026-10-11
 
 **All of the reply's layout is the one straw dog** — the head table leaves Q1, which keeps
-placing the turn and the calls, and joins the block bound to q-0023.0021, written with this tree's
+placing the turn and the calls, and joins the block bound to q-0037.0009.0021, written with this tree's
 emoji; L6, the local override that gave the table its emoji, is retired into it. The user: *all
 of the layout goes under the dog.*
 
@@ -210,8 +217,8 @@ of the layout goes under the dog.*
 agent's own included: the reply reports it as taken, and the user overturns it by saying so. A
 plan's closing reply had put a choice the agent had already made under ⚖️, asking to confirm it;
 [rule failure 31](../rule-failures.md). **The reply's layout is one straw dog** — the lamps, the
-framed texts, the footnotes, the three tables and the 🔁 row, bound until now to q-0030 and q-0027,
-are one block bound to q-0023.0021, the question of which mechanism owns a reply's layout,
+framed texts, the footnotes, the three tables and the 🔁 row, bound until now to q-0037.0016 and q-0037.0013,
+are one block bound to q-0037.0009.0021, the question of which mechanism owns a reply's layout,
 debugging or interaction *(the user: not sure yet which)*.
 
 ## v60 — 2026-10-11
@@ -230,7 +237,7 @@ built.* A reality check on the tree: 552 commits in 26 days, about 548k words of
 nearly four to one; the agent named its own part — it turns each intuition into a rule, an id and
 a mechanism, and rarely says that one need not exist. The user: *let us add this rule to Occam —
 say what need not exist.* It bears on
-[q-0026.0005](../questions/q-0026.0005-what-keeps-the-rules-from-only-growing-when-every-amendment-adds-text-and-none-removes-any.md),
+[q-0037.0012.0005](../questions/q-0037.0012.0005-what-keeps-the-rules-from-only-growing-when-every-amendment-adds-text-and-none-removes-any.md),
 which it does not close: it asks before a part is built, and removes nothing already built.
 
 ## v58 — 2026-10-10
@@ -278,14 +285,14 @@ user: *I have no idea what these numbers are — did we lose that rule?* Rule fa
 lamp's form, linked to its line: a light not wired into the harness. The user: catch such a
 principle, *but not as 無* — instructions must not lie in documents, and one there lies at the
 third tier, out of a skill's reach; *in effect a harness error*. No table of its own: *used just
-as the lamp is*. [q-0030.0002](../questions/done/q-0030.0002-how-does-a-reply-mark-a-principle-it-acts-on-from-a-document-where-no-skill-brings-it-into-reach.md)
+as the lamp is*. [q-0037.0016.0002](../questions/done/q-0037.0016.0002-how-does-a-reply-mark-a-principle-it-acts-on-from-a-document-where-no-skill-brings-it-into-reach.md)
 holds what the class was found to cover.
 
 ## v52 — 2026-10-10
 
 **🪢 names a claim beside work** — another session standing where this one works is a tangle, and
 a row that is both a record's disagreement and a collision goes under 🪢. The recall had filed
-stale session rows standing on q-0030 as drift, and the next turn amended q-0030's rule unflagged;
+stale session rows standing on q-0037.0016 as drift, and the next turn amended q-0037.0016's rule unflagged;
 [rule failure 27](../rule-failures.md).
 
 ## v51 — 2026-10-10
@@ -390,13 +397,13 @@ record is a paragraph of its own under a line `🧩 Proposed change — <record>
 `⚓ Proposed invariant — <record>`; the inline piece goes; each footing is a markdown footnote,
 its marker in prose, and only for a source outside the session; the paragraph is rewritten to
 three bullets and a line. Occasion: the user, over the align replies under v36. Still a straw dog
-bound to q-0030.
+bound to q-0037.0016.
 
 ## v36 — 2026-10-08
 
 **The decisions table has a header** — `| ⚖️ Decisions |` heads it and carries the glyph alone;
 each row is the decision and its options. Occasion: the user, on the first reply after v35 was
-pushed. Still a straw dog bound to q-0030.
+pushed. Still a straw dog bound to q-0037.0016.
 
 ## v35 — 2026-10-08
 
@@ -408,15 +415,15 @@ nothing; the anchors gather into one blockquote at the reply's end, a line per f
 claim it bears; and whatever waits on the user's decision goes to a one-cell table above them, a
 row `| ⚖️ … |` each, debug or not. Occasion: the first fresh session's first reply under v34, on
 which the user said *the marks interfere with the text itself*, and the user's reading of the
-next five replies the same day, before v35 was pushed; each step is in q-0030's body. Still a
-straw dog bound to q-0030.
+next five replies the same day, before v35 was pushed; each step is in q-0037.0016's body. Still a
+straw dog bound to q-0037.0016.
 
 ## v34 — 2026-10-08
 
 **A paragraph shows what it stands on** — under `debug=on` a claiming paragraph opens with
 `💡` the principle it is governed by, `🧩` the classification it sorts by and `⚓` the footing it
 rests on, and a boxed line where no principle fits; every principle and agentic classification
-is cited by the name its home gives it. By hand, a straw dog bound to q-0030, since no mechanism
+is cited by the name its home gives it. By hand, a straw dog bound to q-0037.0016, since no mechanism
 owns principles. Occasion:
 [01-0011.0110.0020 a-paragraph-shows-what-it-stands-on](../tickets/01-0011.0110.0020-a-paragraph-shows-what-it-stands-on.md),
 on the user's ask of 2026-10-07 that the governing principles be caught and shown as the rows

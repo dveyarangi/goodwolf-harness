@@ -76,7 +76,7 @@ Run [/impact](../impact/SKILL.md) on the draft split. Record its output in
 the body of the parent's question. If the recommendation is narrow or rethink, revise the draft and
 run `/impact` again until the split is what you will present.
 
-<straw-dog question="q-0018.0001">
+<straw-dog question="q-0037.0006.0001">
 `/impact`'s current output is whether the split is balanced (proceed, narrow,
 rethink, postpone). Record that. It does not yet recommend spec / ticket /
 RFC / re-slice; that extension is the parent's, not this skill's.
@@ -142,7 +142,7 @@ work is seen, never before — for decision-bearing work, after its align.
 - **If the resolved feature is too coarse for one RFC:** mint it as the
   parent's end-state and decompose it through `/ticket`.
 - **If alignment eliminates the feature:** no ticket is minted; the question
-  closes against where its decision landed. <straw-dog question="q-0024.0009.0003.0002.0003">A
+  closes against where its decision landed. <straw-dog question="q-0037.0010.0009.0003.0002.0003">A
   live ticket minted before 2026-10-11 as an align's working document closes
   as a landed decision.</straw-dog>
 

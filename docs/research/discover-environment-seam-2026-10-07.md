@@ -1,6 +1,6 @@
 # Outside view — the seam between a method and a project's environment, 2026-10-07
 
-Requested on q-0018.0022, after the user asked whether the verification set, the setup step and
+Requested on q-0037.0006.0022, after the user asked whether the verification set, the setup step and
 the document describing a project's engineering form one mechanism, and to think about it away
 from what the tree already has. This is material, not a verdict.
 

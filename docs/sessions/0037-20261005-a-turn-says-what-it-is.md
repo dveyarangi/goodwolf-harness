@@ -7,8 +7,8 @@ the wake, v26 at the close.
 ## What was done
 
 A `/maintain` pass over the whole tree, nothing due: nine stale session rows ended, the queue's
-counts repaired, its two decisions waiting at `/align` moved into the store as q-0024.0006 "Is an
-ADR or a ticket the home for a decision?" and q-0026.0003 "What does an entry-contract version
+counts repaired, its two decisions waiting at `/align` moved into the store as q-0037.0010.0006 "Is an
+ADR or a ticket the home for a decision?" and q-0037.0012.0003 "What does an entry-contract version
 cover?", four dead links repaired.
 
 Two `FIX`es on the user's report from xuanxue-workshop: an update run by Codex removed both loader
@@ -42,9 +42,9 @@ from `e3c8593` to `071388a` hold the detail; all pushed.
 - **Next in the queue** after it: [01-0011.0100.0050 a-question-branches-before-it-is-answered](../tickets/01-0011.0100.0050-a-question-branches-before-it-is-answered.md),
   its `/align` first. It was planned around a judge on the draft, and the judge on the request
   was just held back: its gate should be read against that.
-- **Open questions this session opened or leaned**: q-0001.0016.0001 "Does placing a message
-  need a judge outside the agent that answers it?"; q-0024.0006 and q-0026.0003, above;
-  q-0001.0006 "How does a conversation keep its position when its host resumes it under a new
+- **Open questions this session opened or leaned**: q-0037.0001.0016.0001 "Does placing a message
+  need a judge outside the agent that answers it?"; q-0037.0010.0006 and q-0037.0012.0003, above;
+  q-0037.0001.0006 "How does a conversation keep its position when its host resumes it under a new
   session id?", struck three more times here.
 - **Never found**: why correct loader links were judged wrong under Codex. The installer's report
   now says where a repointed link pointed, so the next occurrence answers it.

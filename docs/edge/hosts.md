@@ -89,12 +89,12 @@ Each sidecar names its own parts.
 
 ## Concerns
 
-- [q-0018.0023](../questions/q-0018.0023-how-does-the-harness-reach-more-hosts-than-claude-code-codex-and-cursor.md)
+- [q-0037.0006.0023](../questions/q-0037.0006.0023-how-does-the-harness-reach-more-hosts-than-claude-code-codex-and-cursor.md)
   — which hosts come next, and by what; here, whether a fourth can pass these checks.
-- [q-0018.0004](../questions/q-0018.0004-what-does-each-host-put-in-front-of-an-agent-without-being-asked.md)
+- [q-0037.0006.0004](../questions/q-0037.0006.0004-what-does-each-host-put-in-front-of-an-agent-without-being-asked.md)
   — what each host places in front of an agent unasked; its observations are this record's
   sidecars.
-- [q-0018.0004.0001](../questions/q-0018.0004.0001-how-is-it-observed-that-a-host-reads-the-loader-link.md)
+- [q-0037.0006.0004.0001](../questions/q-0037.0006.0004.0001-how-is-it-observed-that-a-host-reads-the-loader-link.md)
   — whether a host reads the loader link is not observable from inside a tree; **Skills** is the
   nearest check, and Codex has no link to read.
 
@@ -102,4 +102,4 @@ Each sidecar names its own parts.
 
 - The three hosts' unwatched checks — compaction, helper ids, Codex's start-hook attribution —
   observed: [01-0010.0120 what-each-host-says-without-being-asked](../tickets/01-0010.0120-what-each-host-says-without-being-asked.md).
-- A fourth host, chosen under q-0018.0023: no ticket yet.
+- A fourth host, chosen under q-0037.0006.0023: no ticket yet.

@@ -11,7 +11,7 @@
   question of scope) *(the user, 2026-09-27)*
 - **Blocks:** [01-0016 each-skill-owns-its-own-responsibility](./01-0016-each-skill-owns-its-own-responsibility.md) — its outcome
   reads what an installed mechanism asks of a skill, which needs the mechanisms declared
-- **Answers:** [q-0024](../questions/q-0024-who-produces-and-who-consumes-each-skill-and-document.md)
+- **Answers:** [q-0037.0010](../questions/q-0037.0010-who-produces-and-who-consumes-each-skill-and-document.md)
 - **Outcome:** Every mechanism in this tree is declared to the shape paired close proved, every
   installed skill is named by one or allowlisted with its reason, and the documents four skills
   transact against either exist with an owner or stop being referenced.

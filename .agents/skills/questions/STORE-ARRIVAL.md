@@ -1,7 +1,7 @@
 # What the store holds before anything has happened in it
 
 Machine input for the install, read by nobody at session time: a tree that has just received core
-has a question store to work from and no question in it. <straw-dog question="q-0035">The words
+has a question store to work from and no question in it. <straw-dog question="q-0037.0018">The words
 are kept here for every root until the mechanism that owns each root declares its own;</straw-dog>
 `questions.py --seed` writes them and the install only calls it.
 

@@ -2,11 +2,11 @@
 
 A record of what was done, kept so it can be repeated. The front page was rewritten three times
 in one session on
-[q-0031](../questions/q-0031-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md).
+[q-0033.0008](../questions/q-0033.0008-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md).
 Each round was checked by agents that knew nothing of the project. At the end the user asked
 that the process be saved for future use. It is a second look at produced work, by readers other
 than its author, under criteria other than the author's. That is a case of
-[q-0029](../questions/q-0029-how-is-produced-work-gone-over-again-over-what-scope-by-what-criteria-by-whom-and-to-what-result.md),
+[q-0037.0015](../questions/q-0037.0015-how-is-produced-work-gone-over-again-over-what-scope-by-what-criteria-by-whom-and-to-what-result.md),
 and it is filed there as one. This record describes; whether it becomes a skill is the user's
 decision.
 

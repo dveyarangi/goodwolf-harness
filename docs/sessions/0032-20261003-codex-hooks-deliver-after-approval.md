@@ -7,8 +7,8 @@
 The initial messages supplied no hook context. After the user approved the hooks, the same chat
 received the wake's read and then its question window directly in context. The runtime reported
 the project hooks enabled and trusted. The hook registered the actual Codex session id; the
-agent placed it at q-0001 and ended its own earlier manual fallback registration, `s-1003-e51e`.
+agent placed it at q-0037.0001 and ended its own earlier manual fallback registration, `s-1003-e51e`.
 
-q-0001 remains open: the store's broader work continues under its existing owner. This test
+q-0037.0001 remains open: the store's broader work continues under its existing owner. This test
 establishes Codex prompt delivery after approval; startup, compaction, unchanged-window output
 and helper session ids remain unobserved here. No implementation, commit or push was requested.

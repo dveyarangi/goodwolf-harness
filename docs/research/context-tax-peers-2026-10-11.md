@@ -40,7 +40,7 @@ is about 4,000 tokens; in this repository, with its own installed blocks and loc
 - Two peers pay a session-start hook as this one does: superpowers (≈850, a skill body) and beads
   (≈1,400, project state). This harness's wake report is the largest of the three and grows with
   the tree; its per-message window has no peer at all.
-- What the tax buys has not been measured, here or anywhere in the panel; q-0017 and q-0018.0008
+- What the tax buys has not been measured, here or anywhere in the panel; q-0038.0001 and q-0037.0006.0008
   hold that.
 
 The user asked for this comparison on 2026-10-11, for the front page's cost paragraph. The

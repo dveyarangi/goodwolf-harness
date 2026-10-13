@@ -27,10 +27,10 @@ of two simultaneous writers wins.
 **Hidden edges.** The sessions slice cannot take the lock the audit proposes without reopening
 "locks nothing"; its two shapes — a file per session, or re-read, compare and retry before the
 rename — differ in what they touch, the first every reader of the file, the second only the writer
-while narrowing the race rather than closing it. A session at q-0035 may be working in
+while narrowing the race rather than closing it. A session at q-0037.0018 may be working in
 `questions.py` at the same time. The README's promise to move an existing `CLAUDE.md` aside is
 [01-0010.0150 harness-meets-a-tree-with-a-method](../../tickets/01-0010.0150-harness-meets-a-tree-with-a-method.md)'s
-work, and its wording q-0031's.
+work, and its wording q-0033.0008's.
 
 **Leave alone.** "Locks nothing" in the first three slices; the sessions file's format beyond what
 the race needs.

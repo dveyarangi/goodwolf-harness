@@ -8,7 +8,7 @@ requirements on a host, and the checks of a new host's integration, anywhere but
 
 ## What was decided, and what chose it
 
-### The hosts are an edge, and the edge mechanism is declared — q-0023.0009, q-0018.0023.0001
+### The hosts are an edge, and the edge mechanism is declared — q-0037.0009.0009, q-0037.0006.0023.0001
 
 - Asked, the tree answered no: the capability matrix and the whole connection run lived only in
   the narrative of
@@ -32,7 +32,7 @@ requirements on a host, and the checks of a new host's integration, anywhere but
   [edge.evidence.md](../mechanisms/edge.evidence.md); the first record is
   [hosts](../edge/hosts.md) with three sidecars.
 
-### A landing writes its edge — q-0025.0005
+### A landing writes its edge — q-0037.0011.0005
 
 The user asked whether the rules say *what and when* to write into an edge. They covered
 alignment and maintenance and missed the landing, the occasion that changes an edge most, and a
@@ -57,7 +57,7 @@ it is good?* Read against what governs it, E4 contradicted E2 on which side wins
 `/verify` then ran beside an independent agent that had not built the mechanism; it found eleven
 faults the inceptor had not, all repaired — the evidence lists them.
 
-### A resumed conversation is keyed on the app's id — q-0027
+### A resumed conversation is keyed on the app's id — q-0037.0013
 
 The app reopened this conversation under a new Claude Code id, and the store took it for a new
 session. Investigated at the user's request: the start hook ran 3 s before the app wrote the new
@@ -105,15 +105,15 @@ and a quit-and-relaunch of the app.
 
 ## Open questions touched
 
-- [q-0018.0023](../questions/q-0018.0023-how-does-the-harness-reach-more-hosts-than-claude-code-codex-and-cursor.md)
+- [q-0037.0006.0023](../questions/q-0037.0006.0023-how-does-the-harness-reach-more-hosts-than-claude-code-codex-and-cursor.md)
   — which host comes fourth, open.
-- [q-0018.0023.0002](../questions/q-0018.0023.0002-which-text-a-hosts-user-meets-is-derived-from-the-hosts-edge-record-and-what-holds-it-a-subset-of-the-record.md)
+- [q-0037.0006.0023.0002](../questions/q-0037.0006.0023.0002-which-text-a-hosts-user-meets-is-derived-from-the-hosts-edge-record-and-what-holds-it-a-subset-of-the-record.md)
   — what text is derived from the hosts record, opened here, waiting.
-- [q-0027](../questions/q-0027-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md)
+- [q-0037.0013](../questions/q-0037.0013-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md)
   — the resume case settled; the question stays open for its other children.
-- [q-0026](../questions/q-0026-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md)
+- [q-0037.0012](../questions/q-0037.0012-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md)
   — v58 landed.
-- Closed here: q-0023.0009, q-0018.0023.0001, q-0025.0005, q-0018.0020.0002.0001.0001.
+- Closed here: q-0037.0009.0009, q-0037.0006.0023.0001, q-0037.0011.0005, q-0037.0006.0020.0002.0001.0001.
 
 ## What continues
 

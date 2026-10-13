@@ -1,6 +1,6 @@
 # Discover — the fixed root questions of a project's store, 2026-10-09
 
-One /discover pass for [q-0001.0022](../questions/q-0001.0022-which-root-questions-does-every-projects-store-stand-on-from-its-first-install.md),
+One /discover pass for [q-0037.0001.0022](../questions/q-0037.0001.0022-which-root-questions-does-every-projects-store-stand-on-from-its-first-install.md),
 a general-purpose subagent told not to read the repository, answering from its own knowledge with
 no web search. Filed as it came back.
 

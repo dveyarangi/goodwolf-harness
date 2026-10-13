@@ -80,7 +80,7 @@ worktree per session where it offers one — not the harness's: it locks nothing
 read. *(the user, 2026-10-11)*
 Whatever stands on the shared main may be published; work the person holds back stays on its own
 branch until they release it. *(the user, 2026-10-12)*
-<straw-dog question="q-0034.0002.0001">
+<straw-dog question="q-0037.0017.0002.0001">
 Sessions share one checkout and its main. A branch per session comes only together with a
 question store that does not travel through git. *(the user, 2026-10-12)*
 </straw-dog>
@@ -138,7 +138,7 @@ delivers the window and registers the session under the host's own session id, a
 the host: a problem becomes a line of context. Everything else is
 [the questions mechanism](../.agents/mechanisms/questions/questions.md)'s.
 
-<straw-dog question="q-0034">
+<straw-dog question="q-0037.0017">
 A wake also ends every other running line whose session has gone silent — the one write besides a
 rename to a line not its own. It stays safe because a silent session has no write of its own to
 meet: a session is seen while its messages reach a hook or it writes its line, and a message
@@ -195,7 +195,7 @@ own, each publish carrying a note written for an instance — what moved, from w
 the instance amends. A recipient reads the notes standing between its ref and the latest before it
 takes them, and whether to take them is the installing agent's decision with its user, never the
 script's. *(The user, 2026-09-21.)*
-<straw-dog question="q-0018.0020.0002.0002">
+<straw-dog question="q-0037.0006.0020.0002.0002">
 Nothing does this yet: core is shared from the working tree and an update crosses an edge change
 in silence, leaving what a recipient must amend to whoever reads the manifest diff.
 </straw-dog>

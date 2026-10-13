@@ -91,7 +91,7 @@ değil.**
 
 Bir manastır kulesi. Çan, aynı soruya on iki saat sonra dönüldüğünde bir kez çalıyor. Keşişler
 çanı geri dönüşleri saymak için kurmuştu. Ama en çok çalan çan, kimsenin terk etmediği kökün
-çanı: q-0001, günlerce başında oturulan. Çan dönüşü değil oturuşu ölçüyor. Keşişler gülüyor:
+çanı: q-0037.0001, günlerce başında oturulan. Çan dönüşü değil oturuşu ölçüyor. Keşişler gülüyor:
 *biz bunu kabul ettik*, ve gerçekten kabul etmişlerdi.
 
 ---
@@ -110,7 +110,7 @@ Bir manastır kulesi. Çan, aynı soruya on iki saat sonra dönüldüğünde bir
 3. **When the agent cannot see its own name, it makes a second self.** Three times in one day:
    a resumed conversation left its old id running; Codex, before approval, minted a fallback
    tag; Cursor's agent registers beside its hook's line. These are one question, not three: *how
-   does a session learn who it is?* q-0001.0006 and the Cursor limit belong together.
+   does a session learn who it is?* q-0037.0001.0006 and the Cursor limit belong together.
 
 4. **Fail-soft needs a place where the softness is seen.** The hook never fails the host, so it
    writes its error into context — and a host that drops context turns the error into silence,

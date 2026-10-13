@@ -1,7 +1,7 @@
 # Session 43 — a resumed conversation is the same conversation
 
 **2026-10-09.** Claude Code, session `eb103bd9…`. Entry contract v42 at the start, v44 at the
-close. Parallel sessions worked q-0033, q-0001.0022–.0023 and q-0018.0020 in the same tree; their
+close. Parallel sessions worked q-0033, q-0037.0001.0022–.0023 and q-0037.0006.0020 in the same tree; their
 files, `README.md` among them, were left alone.
 
 ## What was decided, and what chose it
@@ -60,15 +60,15 @@ became the input it then tested.
 
 ## Open questions touched
 
-- **q-0001.0006** How does a conversation keep its position when its host resumes it under a new
+- **q-0037.0001.0006** How does a conversation keep its position when its host resumes it under a new
   session id? Landed for Claude Code; open on one unseen fact: whether a resumed transcript is
   already written when its start hook runs. The next rollback shows it: its first hook output
   should read `resumes <old id>`. Codex and Cursor carry nothing yet.
-- **q-0030** How does a reply show the principles each of its claims stands on, and where are the
+- **q-0037.0016** How does a reply show the principles each of its claims stands on, and where are the
   principles named for it? The form now at v44 with the landed line; `.0020` still waits on the
   week of grading.
 
 ## What continues
 
 The user checks the v43–v44 instructions in another session. First step of the next session that
-meets a rollback: read the start hook's line, and close or re-lean q-0001.0006 by it.
+meets a rollback: read the start hook's line, and close or re-lean q-0037.0001.0006 by it.

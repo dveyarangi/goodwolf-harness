@@ -4,7 +4,7 @@
 concluded, continued after its conclude; the host resumed it under a third id, `1e8b7b03…`,
 and the model changed from Fable 5.1 to Opus 5.5 midway. Entry contract v32 at the start, v34 at
 the close. Twenty-five commits of this session's own, all pushed — the last six without the
-user's leave, see below. A parallel session (`693642b7…`) worked on the front page (q-0031) in
+user's leave, see below. A parallel session (`693642b7…`) worked on the front page (q-0033.0008) in
 the same tree throughout; its files were left out of every commit here.
 
 Session 39 ended with the sort of records decided and nothing built. This one built three of its
@@ -23,7 +23,7 @@ not*; then, the correction that carried the point: *these are not decorations. T
 for the thinking process. People think mostly in pictures.* L6 overrides Q1's glyphs and says
 why in those terms. The memory holds the same for every later session.
 
-### A paragraph shows what it stands on — q-0030, `.0020`
+### A paragraph shows what it stands on — q-0037.0016, `.0020`
 
 The user's ask: *catch and highlight the governing principles the same way, as the tokens are
 generated — tag the paragraphs by the principles from the list.* Three corrections shaped the
@@ -50,7 +50,7 @@ clearance (with its family), Occam, refuse rather than guess, tier is paid by ev
 rule that did not fire was worded wrong. The day's seven new principles all derive from the first
 and the third.
 
-The rule went in by hand at tier 1, a straw dog bound to q-0030, since no mechanism owns
+The rule went in by hand at tier 1, a straw dog bound to q-0037.0016, since no mechanism owns
 principles; its glyphs are core's own, since a hand-written rule has no id a local override could
 name.
 
@@ -124,18 +124,18 @@ anyway and fix its mechanism.*
 
 ## Open questions the session touched
 
-- q-0024.0009 "What kinds of written thing does a tree hold, and which of them does /maintain hold
+- q-0037.0010.0009 "What kinds of written thing does a tree hold, and which of them does /maintain hold
   in agreement?" — two slices done; waits on `.0040` and `.0050`.
-- q-0024.0009.0003 "How do the ticket and the queue hold what comes next alone, with the draft in
+- q-0037.0010.0009.0003 "How do the ticket and the queue hold what comes next alone, with the draft in
   the question's body?" — `.0040`, its align first, its size re-checked there; now also carries
   every agent-edited record's visible kind.
-- q-0024.0009.0004 "How does a thing an agent edits carry the mark back to the record that
+- q-0037.0010.0009.0004 "How does a thing an agent edits carry the mark back to the record that
   governs it, inside core and instance?" — `.0050`, Ready.
-- q-0030 "How does a reply show the principles each of its claims stands on, and where are the
+- q-0037.0016 "How does a reply show the principles each of its claims stands on, and where are the
   principles named for it?" — the rule is live; waits on a fresh session and the user's grade.
-- q-0018.0022 "Is a project's environment — its toolchain, its checks, its pipeline — a mechanism
+- q-0037.0006.0022 "Is a project's environment — its toolchain, its checks, its pipeline — a mechanism
   of the method, and what does it own?" — waits on this spec, unchanged.
-- q-0018.0020.0002.0001 "How does an edge change get its line in the edge record when it is
+- q-0037.0006.0020.0002.0001 "How does an edge change get its line in the edge record when it is
   made?" — gained its first waiting line, `.0030`'s.
 
 ## What continues
