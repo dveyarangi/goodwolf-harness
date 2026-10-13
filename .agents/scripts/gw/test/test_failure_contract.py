@@ -92,6 +92,23 @@ class InterruptedClose(RepositoryCase):
         self.assertEqual(edited, self.read(QUEUE))
         self.assertEqual(QUEUE, stopped.exception.failed)
 
+    def test_a_record_edited_mid_move_keeps_its_edit_where_it_was(self) -> None:
+        # The edit lands after the change set was derived, the interleaving the 2026-09-30 audit
+        # showed losing it; a source changed before the run would pass for the wrong reason.
+        edited = "# Install /plan — plan\n\n[the ticket](../tickets/01-0010.0040-install-plan.md)\n\nA decision added mid-run.\n"
+
+        def intrude(said: str) -> None:
+            if said == f"moved {TICKET} -> {CLOSED_TICKET}":
+                self.write(RFC, edited)
+
+        with self.assertRaises(move_doc.CloseInterrupted) as stopped:
+            move_doc.perform(self.root, self.pairs, announce=intrude)
+
+        self.assertEqual(edited, self.read(RFC), "the edit stands in the source")
+        self.assertFalse((self.root / CLOSED_RFC).exists(), "nothing stale is written in its place")
+        self.assertEqual([f"{TICKET} -> {CLOSED_TICKET}"], stopped.exception.completed)
+        self.assertIn(RFC, str(stopped.exception.cause), "the failure names the source")
+
 
 if __name__ == "__main__":
     unittest.main()

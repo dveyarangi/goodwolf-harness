@@ -115,10 +115,15 @@ class CloseInterrupted(Exception):
 
 @dataclass(frozen=True)
 class _Move:
-    """One record leaving its home for another, carrying its own citations re-aimed."""
+    """One record leaving its home for another, carrying its own citations re-aimed.
+
+    `before` is the source as the change set read it; `text` is what the destination receives,
+    re-aimed and re-marked, so it cannot stand in for the comparison.
+    """
 
     source: str
     destination: str
+    before: str
     text: str
 
     @property
@@ -132,6 +137,9 @@ class _Move:
         return f"moved {self}"
 
     def apply(self, root: Path) -> None:
+        # An edit to the source since it was read would be lost with it.
+        if _read(root / self.source) != self.before:
+            raise Interference(f"{self.source} changed after the preflight")
         if (root / self.destination).exists():
             raise Interference(f"{self.destination} appeared after the preflight")
         _replace_content(root / self.destination, self.text)
@@ -301,14 +309,11 @@ def _change_set(root: Path, pairs: list[tuple[str, str]]) -> list[_Move | _Repai
     repairs that follow are computed from the same one reading of the tree.
     """
     mapping = dict(pairs)
-    moves = [
-        _Move(
-            source,
-            destination,
-            _marked_for(destination, _redepthed(root, _read(root / source), source, destination, mapping)),
-        )
-        for source, destination in pairs
-    ]
+    moves = []
+    for source, destination in pairs:
+        before = _read(root / source)
+        after = _marked_for(destination, _redepthed(root, before, source, destination, mapping))
+        moves.append(_Move(source, destination, before, after))
     citers = []
     for name in _records(root):
         if name in mapping:
