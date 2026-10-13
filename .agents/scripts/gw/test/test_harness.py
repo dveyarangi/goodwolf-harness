@@ -281,6 +281,10 @@ class TwoTrees(RepositoryCase):
             self._patch(harness, "Source", lambda repository: HeldSource(repository, self.history))
             self._patch(harness, "_git_said", plain_target_git)
             self._patch(harness, "_python", checks_in_process)
+            # The loaded module is the incoming ref's installer, already handed the run.
+            handed = unittest.mock.patch.dict(os.environ, {harness.HANDED_OFF: "the tree's"})
+            handed.start()
+            self.addCleanup(handed.stop)
         self.seed_source()
         self.target = self.another_repository()
 
@@ -1155,6 +1159,20 @@ class AnUpdate(TwoTrees):
         self.assertEqual([], report["refusals"])
         self.assertEqual(0, status, report["gates"])
         self.assertIn('<installed by="local">\n**L1** Our answer.\n</installed>', self.target_text("AGENTS.md"))
+
+    @proves_a_process
+    def test_the_tree_s_installer_hands_the_update_to_the_incoming_ref_s(self) -> None:
+        # The tree's installer is older than any ref it may be asked for, and cannot know what a
+        # later one brings; the incoming ref's own installer can read the tree an earlier one left.
+        self.write(KEEPER, f"{KEEPER_NAMES}# Keeper\n\nKeep more things.\n")
+        self.commit("core moved")
+
+        status, report = self.run_harness("--update")
+
+        self.assertEqual([], report["refusals"])
+        self.assertEqual(0, status, report["gates"])
+        self.assertTrue(any(self.short_head() in note and "own installer" in note for note in report["notes"]), report["notes"])
+        self.assertIn("Keep more things.", self.target_text(KEEPER))
 
     def test_reports_written_only_the_files_that_changed(self) -> None:
         self.write(KEEPER, f"{KEEPER_NAMES}# Keeper\n\nKeep more things.\n")

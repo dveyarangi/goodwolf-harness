@@ -74,6 +74,9 @@ DELIVERY_STATUS = "docs/tickets/README.md"
 ARRIVAL_STATE = re.compile(r"^```delivery-status[ \t]*\r?\n(?P<said>.*?)^```", re.M | re.S)
 REPOSITORY = re.compile(r"^Repository: (?P<url>\S+)[ \t]*(?:\r?\n|\Z)", re.M)
 MODES = ("--install", "--update", "--check", "--links")
+# Set by the installer that hands an update on, so the incoming ref's own runs it and hands it on
+# to nobody.
+HANDED_OFF = "GOODWOLF_UPDATE_HANDED_OFF"
 _USAGE = (
     "usage: harness.py <target> --install [--replace-clone] [--from REPOSITORY] [--at REF]\n"
     "       harness.py <target> --update [--overwrite] [--from REPOSITORY] [--at REF]\n"
@@ -149,6 +152,13 @@ def main(argv: list[str]) -> int:
             if repository is None:
                 repository = report.repository = home()
             with Source(repository) as source:
+                if mode == "--update" and HANDED_OFF not in os.environ:
+                    return _handed_off(source, source.resolve(ref or "HEAD"), target, overwrite)
+                if mode == "--update":
+                    report.notes.append(
+                        f"the update ran {source.resolve(ref or 'HEAD').announced}'s own installer, "
+                        f"handed the run by {os.environ[HANDED_OFF]}"
+                    )
                 run(Path(target), mode, overwrite, source, ref, report, replace_clone)
     except Refused as refusal:
         report.refusals.append(str(refusal))
@@ -156,6 +166,30 @@ def main(argv: list[str]) -> int:
     if mode == "--links":
         return 0 if not report.pending and not report.refusals else 1
     return 0 if report.arrived else 1
+
+
+def _handed_off(source: Source, wanted: Ref, target: str, overwrite: bool) -> int:
+    """An update run by the incoming ref's own installer, from that ref's core unpacked beside the
+    clone: the tree's installer is as old as its last install and cannot know what a later ref
+    brings, while the incoming one reads what an earlier one left. Pinned to the resolved commit,
+    so both read one ref; its report is the run's."""
+    with tempfile.TemporaryDirectory(prefix="harness-incoming-") as scratch:
+        incoming = Path(scratch)
+        for path, data in source.files(wanted).items():
+            (incoming / path).parent.mkdir(parents=True, exist_ok=True)
+            (incoming / path).write_bytes(data)
+        script = incoming / SCRIPTS / "harness.py"
+        if not script.is_file():
+            raise Refused(f"update: {wanted.announced} holds no {SCRIPTS}harness.py to run the update")
+        arguments = [target, "--update", "--from", source.repository, "--at", wanted.commit]
+        handed = subprocess.run(
+            [sys.executable, str(script), *arguments, *(["--overwrite"] if overwrite else [])],
+            capture_output=True, encoding="utf-8", errors="replace",
+            env={**os.environ, HANDED_OFF: "the tree's installer"},
+        )
+    print(handed.stdout, end="")
+    print(handed.stderr, end="", file=sys.stderr)
+    return handed.returncode
 
 
 def link(target: Path, report: Report) -> None:

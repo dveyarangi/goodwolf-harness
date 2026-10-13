@@ -57,7 +57,17 @@ by cloning the announced ref again and comparing. A change to the transformation
 as an edit in every recipient installed before it, until it updates. What the announced ref
 shipped is read under the transformation alone, never held to today's shipping refusals: those
 govern what may leave now, and a rule added after a ref shipped would otherwise strand every tree
-that took it.
+that took it. A missing copy of the license or the front page is no edit: the source held both at
+its root before either shipped, so a ref from before is read as naming copies its trees never
+received.
+
+**An update is run by the incoming ref's installer** *(the user, 2026-10-14)*. The tree's own copy
+is as old as its last install and cannot know what a later ref brings; the incoming one reads what
+an earlier one left, as above. So the tree's installer, asked to update, resolves the ref, unpacks
+that ref's core beside its clone and hands it the run, pinned to the resolved commit and marked
+handed off so it hands it to no one; its report is the run's and says so. A tree whose installer
+predates the hand-off cannot learn it before its next update, so the skill names a clone of the
+source as what runs an update.
 
 **The repository line is the source, as the announce line is the ref.** The harness skill carries
 `Repository: <url>`, the only authored home of where core comes from: the script keeps no

@@ -19,11 +19,13 @@ and everything it installs names the fork. A check or an update from another `--
 line aside rather than reading an edit in core, as it does the local block and the block of any
 mechanism of the tree's own.
 
-Run the script from any clone of the harness, or from the tree's own copy once it has one:
+Run the script from any clone of the harness, or from the tree's own copy once it has one. An
+update is run by the incoming ref's installer, which reads what an earlier one left: run it from
+a clone, since a tree's own copy may predate handing the run on.
 
 ```
 python <clone>/.agents/scripts/gw/harness.py <target> --install [--replace-clone] [--from REPOSITORY] [--at REF]
-python <target>/.agents/scripts/gw/harness.py <target> --update [--overwrite] [--from REPOSITORY] [--at REF]
+python <clone>/.agents/scripts/gw/harness.py <target> --update [--overwrite] [--from REPOSITORY] [--at REF]
 python <target>/.agents/scripts/gw/harness.py . --check [--from REPOSITORY]
 python <target>/.agents/scripts/gw/harness.py . --links
 ```
