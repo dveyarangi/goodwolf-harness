@@ -8,7 +8,7 @@ Mechanism: questions
 # The open questions
 
 Every open question of this tree is one file in `docs/questions/`; the current question of each
-running session is the line in its own file under `docs/questions/sessions/`. `questions.py` is
+running session is the line in its own file under `docs/questions/sessions.d/`. `questions.py` is
 the only writer of the sessions folder and of an entry's parts; an entry's body, the question's argument, is written by
 hand. The window is the part of the store near a session's position, drawn before every message;
 **depth** is the number of *part of* steps from a question to its root, derived, never written.
@@ -186,11 +186,13 @@ draw the window again. A reword changes the words and the file's name, never the
 of* is the line the check holds the id against.
 
 <straw-dog question="q-0018.0015">
-**The sessions folder** — one file per session, `docs/questions/sessions/<tag>`, holding its one
-row: `<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four]` — its tag, whether
-it runs, when its line last changed, its current question or `-` before it has one, and its recent
+**The sessions folder** — `docs/questions/sessions.d/`, shared by all sessions, one file per
+session named by its tag and holding its one row:
+`<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four]` — its tag, whether it
+runs, when its line last changed, its current question or `-` before it has one, and its recent
 ones; a row holding the date alone still reads, as that day's start. A store still holding the
-single sessions file is carried into the folder at its first write. Tier 1 through the window and
+single file `docs/questions/sessions` is read with it, and carried into the folder at its first
+write. Tier 1 through the window and
 the wake's read. What removes a row: kept by design — an ended row lets a later wake offer to
 resume.
 </straw-dog>
