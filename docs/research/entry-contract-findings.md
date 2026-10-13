@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v88 — 2026-10-13
+
+**No word stands in for a question** — Q5 adds that a question the reader has not been shown is
+named, never stood for by *as before* or *the same*. A table proposing trace links for 48 answers
+wrote bare ids and *как было*; the user: *I cannot judge your proposals — questions without links
+or slugs.* [Rule failure 17](../rule-failures.md), struck a fifth time.
+
 ## v87 — 2026-10-13
 
 **No rule changed; the straw dogs' bindings follow the new roots.** The question store took the

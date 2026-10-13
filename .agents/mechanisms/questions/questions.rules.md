@@ -93,8 +93,9 @@ of the subtree in one invocation, into `docs/questions/done/`.
 
 <rule>
 Every time a reply names a question — a table's cell included — its whole id is a link to its
-entry; the first time, its question follows as the window writes it. A question the store does
-not hold yet is written out, never named after the ticket it will belong to.
+entry; the first time, its question follows as the window writes it. No word stands in for a
+question a reader has not been shown — *as before*, *the same* — it is named. A question the store
+does not hold yet is written out, never named after the ticket it will belong to.
 </rule>
 
 ## Q6 — a decision lands as it is made

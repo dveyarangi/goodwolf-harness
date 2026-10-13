@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v87, 2026-10-13.
+Entry contract: v88, 2026-10-13.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -135,8 +135,9 @@ Only the working agent calls, never a helper. For any other call, a closure, a b
 drop, read the questions skill.
 
 **Q5** Every time a reply names a question — a table's cell included — its whole id is a link to its
-entry; the first time, its question follows as the window writes it. A question the store does
-not hold yet is written out, never named after the ticket it will belong to.
+entry; the first time, its question follows as the window writes it. No word stands in for a
+question a reader has not been shown — *as before*, *the same* — it is named. A question the store
+does not hold yet is written out, never named after the ticket it will belong to.
 </installed>
 
 ## Core and instance

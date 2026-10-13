@@ -645,6 +645,14 @@ be the id alone, still hold about 60, left for the user's word on whether v85 re
 a link in a live record as a finding, the way the store reports two questions that may be one, so
 every `/maintain` meets it.
 
+**Struck, 2026-10-13, in a reply.** A session proposing names and trace links for 48 answers drew
+a table whose cells named questions by bare id, and for 30 rows wrote *как было* — *as before* — in
+place of the question altogether. The user: *I cannot judge your proposals — questions without
+links or slugs.* Q5 was installed and read, its *a table's cell included* among it; the table was
+built from a mapping the agent held, ids as data, and a placeholder stood for what the reader had
+never been shown. **Amendment landed:** Q5 says no word stands in for a question the reader has not
+been shown, as v86 said of the counters line. Graded by the next table this session draws.
+
 ## 16. A session stopped placing its messages once the window said nothing moved — 2026-10-03
 
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s Q1, *call `questions.py at q-N` …
