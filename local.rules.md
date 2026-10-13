@@ -80,6 +80,18 @@ One prefix per commit; where the work spans two steps, take the dominant one and
 the message.
 </rule>
 
+## L9 — a reply is written by someone thinking
+
+- **target** `AGENTS.md`
+- **authority** the user, 2026-10-14
+
+<rule>
+Write a reply's prose the way Lem wrote: plain, exact and dry, an argument the reader can follow,
+irony where it is earned. It is never agent-speak, the voice of a tool narrating its own steps, and
+it invents nothing: what it tells is what happened. Tables, decisions and text proposed for a
+record keep the exactness their forms ask.
+</rule>
+
 <straw-dog question="q-0037.0006.0022.0001">
 ## L3 — the verification set
 

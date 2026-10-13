@@ -259,6 +259,11 @@ version of the entry contract changed: docs/research/entry-contract-findings.md.
 **L7** A correction that lands as a rule in this tree is not also written to the host's own memory
 store outside the repository — Claude Code's auto-memory directory and its kin; that store holds
 only what no record in this tree carries.
+
+**L9** Write a reply's prose the way Lem wrote: plain, exact and dry, an argument the reader can follow,
+irony where it is earned. It is never agent-speak, the voice of a tool narrating its own steps, and
+it invents nothing: what it tells is what happened. Tables, decisions and text proposed for a
+record keep the exactness their forms ask.
 </installed>
 
 ## Straw dogs
