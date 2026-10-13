@@ -78,7 +78,7 @@ yet waits on its purpose question, bound to it in *waits on*.
 | **A8 No question left to sink** — a question nobody reaches kept from sinking | C4 |  |  | ● |  |  |  |
 | **Alignment of intent** | | | | | | | |
 | **A9 Alignment one question at a time** — `/align`: one question at a time, each with a recommended answer; facts looked up, decisions put to the person; opens on the present customer, the observable problem, and why what exists cannot serve | C3, C9, C11 | ● | ● | ● |  |  |  |
-| **A10 One vocabulary, defined before use** — one vocabulary for the person and the agent, defined before a term lands in a record | C3 | ● |  | ● |  |  |  |
+| **A10 A shared glossary, terms defined before use** — one vocabulary for the person and the agent, defined before a term lands in a record | C3 | ● |  | ● |  |  |  |
 | **A11 A task takes its form before its ticket** — a task takes its form in its question before a ticket is minted from it; a decision lands as it is made, provisional ones bound to the question that will change them | C3 | ● | ● |  |  |  |  |
 | **Decisions placed by their weight** | | | | | | | |
 | **A12 The load-bearing test** — the load-bearing test: `/impact` routes load-bearing work to the person and a spec, local work to the agent and a ticket; a raised decision that bears no load is settled and reported, one that does goes to the person, and doubt counts as load | C2, C8, C9 | ● | ● | ● |  |  |  |
@@ -97,9 +97,9 @@ yet waits on its purpose question, bound to it in *waits on*.
 | **A22 Every mechanism graded from outside** — every mechanism names what would show it working, graded by someone who did not build it | C7 |  |  |  | ● |  |  |
 | **A23 Tests that catch what they promise** — the harness's own tests catch what their names promise | C7 |  |  |  | ● |  |  |
 | **Instructions that reach the agent** | | | | | | | |
-| **A24 One home per rule** — one home per rule, copied by a script into every place that reads it, at the tier its occasion is read at, and checked | C1 | ● | ● |  | ● |  |  |
+| **A24 Each rule written once, installed where it is read** — one home per rule, copied by the rules installer into every place that reads it, at the tier its occasion is read at, and checked | C1 | ● | ● |  | ● |  |  |
 | **A25 Rules in a followable form** — rules written to a form an agent follows: an occasion and a checkable outcome, no overlap, no contradiction | C1 | ● |  |  | ● |  |  |
-| **A26 Each skill owns only its own** — each skill states only what it owns, and everything a mechanism produces has a reader | C1 | ● | ● |  |  |  |  |
+| **A26 Each skill owns only its own** — each skill states only what it owns, and everything a mechanism produces has a reader — usually an agent, not the person, except the top summaries | C1 | ● | ● |  |  |  |  |
 | **A27 Rules observed reaching their occasion** — whether a rule reaches its occasion observed, not asserted | C1 | ● |  |  |  |  |  |
 | **A28 A document informs, never instructs** — a document informs and never instructs, so text in one is not taken as a command | C1, C12 | ● |  |  |  | ● |  |
 | **One source of truth between decisions and code** | | | | | | | |
@@ -118,9 +118,10 @@ yet waits on its purpose question, bound to it in *waits on*.
 | **A39 Its cost counted** — its cost counted, and what it saves | C7, C8 |  | ● |  | ● |  |  |
 | **A40 A free reading of the record** — a free reading of the record for what is missing, redundant or out of balance (`/dream`, `/advise`) | C7 |  |  |  | ● |  |  |
 | **Coordination between sessions** | | | | | | | |
-| **A41 Sessions see each other** — each session sees where the others stand; the question store refuses a write to an entry that moved; a commit holds only its own session's work | C5, C12 | ● | ● |  |  | ● |  |
+| **A41 Sessions collaborate** — each session sees where the others stand; the question store refuses a write to an entry that moved; a commit holds only its own session's work | C5, C12 | ● | ● |  |  | ● |  |
 | **A42 No session overwrites another** — no session overwrites another's write; the host's: its edit tool refuses a write over a file changed since it was read, and a worktree per session where it offers one; the harness locks nothing (the user, 2026-10-11) | C5, C12 | ● | ● |  |  | ● |  |
 | **A43 A starting session takes a free area** — a starting session takes an area no other session is in | C5 |  | ● |  |  |  |  |
+| **A51 Several people develop one project together** — their queue, their decisions, their branches | C5 |  |  | ● |  |  | <straw-dog question="q-0033.0004">✗</straw-dog> |
 | **Process weighed to the work** | | | | | | | |
 | **A44 One step per reply** — one step per reply, with a point to reassess at its end | C8, C9 |  | ● | ● |  |  |  |
 | **A45 Work weighed to its shape** — the work's shape recommended, and a lighter path for small work and a heavier one for large | C8 |  | ● | ● |  |  |  |
@@ -128,6 +129,11 @@ yet waits on its purpose question, bound to it in *waits on*.
 | **A46 Writes that refuse** — writes that refuse rather than overwrite: a refusal writes nothing, interference is a failure, a removal needs the fingerprint it expects, push waits for a yes; the harness's own scripts refuse; an agent's own edits are guarded by the host — its stale-write refusal, its worktrees — not by the harness | C12 |  |  |  |  | ● |  |
 | **A47 Agent roles** — an agent's role bounding its permissions, its rights over the records and its skills | C12, C5 |  |  |  |  | ● |  |
 | **A48 The host refuses forbidden actions** — the host refuses an action a rule forbids | C12 |  |  |  |  | ● |  |
+| **The project's own account** | | | | | | | |
+| **A50 The product document kept in step with the work** — this document's answers numbered, the questions that build each linked to it, its coverage read from them, and drift between them found | C6, C10 | ● |  | ● | ● |  |  |
+| **A52 The front page tells a newcomer what the harness is for** — the account above, told to a reader who arrives cold | C10 |  |  | ● |  |  | <straw-dog question="q-0033.0008">✗</straw-dog> |
+| **Adopting the harness** | | | | | | | |
+| **A49 Installs and updates without losing the project's own rules** — the answer to the pain below: the project's own rules file applied last and kept, an update that stops rather than overwrite a hand edit, a check of the installed copy | | | | | | ● | |
 
 <straw-dog question="q-0033">
 Read by column:
