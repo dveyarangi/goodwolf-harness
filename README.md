@@ -30,7 +30,7 @@ scripts, in Claude Code, Codex and Cursor.
 **Try it:** in your project, tell your coding agent *install the GoodWolf Harness from
 https://github.com/dveyarangi/goodwolf-harness*. It installs, then asks for your test commands and
 where it should stop for your yes.
-<straw-dog question="q-0018.0020.0001">If your project already has a `CLAUDE.md` or `AGENTS.md`, the install moves them aside and doesn't merge them yet, so branch first and bring over what you need by hand.</straw-dog>
+<straw-dog question="q-0018.0020.0001">If your project already has a `CLAUDE.md` or `AGENTS.md`, the install stops and names the file: it doesn't move or merge them yet. Branch first, move them aside yourself, run the install again, and bring over what you need by hand.</straw-dog>
 More under [Use it](#use-it-instructions-for-your-agent).
 
 ## What it does about each
@@ -164,8 +164,8 @@ messages under the open question it belongs to. On 5 October, new sessions kept 
 under questions that only sounded similar. Each time, the miss was logged and the rule tightened —
 four times that day — until it said: file a message under the narrowest question that actually
 covers it, never under one that merely looks alike. The sessions after that got it right. The
-harness has been built with itself for a month, over 45 sessions, and its log holds 26 misses so
-far.
+harness has been built with itself for over a month, in 57 sessions, and its log holds 41 misses
+so far.
 
 To override a shipped rule, add a section naming it.
 
