@@ -3,8 +3,8 @@
 - **record of** what it intends to become
 - **depends on** q-0033
 - **state** open
-- **lean** the user, 2026-10-11: the front page compares with peers where the comparison is a number — the context tax, measured the same way for seven peers in docs/research/context-tax-peers-2026-10-11.md; elsewhere still no comparisons; locks are the host's and several sessions at once work, the one-person framing dropped
-- **struck** 2, last 2026-10-11T11:18Z
+- **lean** the user, 2026-10-13: the context-tax paragraph removed from the front page — no comparison with peers there now; the measurements stay in docs/research/context-tax-peers-2026-10-11.md; locks are the host's and several sessions at once work, the one-person framing dropped
+- **struck** 3, last 2026-10-12T23:55Z
 
 Opened 2026-10-08 when the user asked for the front page to be rethought: the page of 2026-09-26
 called the harness *an institutional memory in the repository*, and the tree had since gained the

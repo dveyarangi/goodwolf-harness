@@ -135,22 +135,6 @@ Before you install, know this:
 - <straw-dog question="q-0027.0003">**No fast path for small work yet.** Every change is meant to go through ticket, plan, build and verify. You can tell the agent to skip that for a one-line fix, but nothing yet says when that is fine.</straw-dog>
 - <straw-dog question="q-0018.0005">**Instructions, not enforcement.** Everything here is the agent following written rules, plus scripts that check the files. A model can still slip; the records make the slip visible, and the rule it missed gets reworded.</straw-dog>
 - <straw-dog question="q-0018.0013">**No uninstall command.** Everything it adds is files, so reverting the install commit removes the harness. What it wrote under `docs/` afterwards stays until you delete it.</straw-dog>
-- **Context.** A fresh project's session starts with about 4,000 tokens of rules and skill
-  descriptions. That is two to ten times what its peers load before your first message —
-  370 to 2,100 tokens for spec-kit, OpenSpec, Matt Pocock's skills, superpowers, BMAD, GSD and
-  beads, measured the same way ([the table](docs/research/context-tax-peers-2026-10-11.md)).
-  The difference is in kind: they load skill descriptions and pay inside each command when its
-  body loads; this loads the method's rules themselves, so they bind every turn whether or not
-  you invoke anything. Per step it is heavier than most once the project's own records are counted. Carrying
-  a ticket through plan, build, verify and commit, in a product project a month under the
-  harness, reads about 82,000 tokens: 17,000 of the method's text and 65,000 of the project's
-  records. Peers' main agents read 20,000–61,000 for the same ring, and GSD's 99,000. The
-  weight is the architecture document, re-read at plan and at verify, which grows with the
-  project; most peers read only the feature's own spec and plan. What no peer has is the
-  question window before each message: a line while the work stays on one question, about
-  4,400 tokens in this repository each time it moves. In this repository, after a month of daily use, a session reads about
-  22,000 before your first message: about 4,400 of rules and skill descriptions, 2,700 of status
-  report, and <straw-dog question="q-0024.0009">15,000 of work queue, most of it a history log that is being moved out of it</straw-dog>.
 
 <straw-dog question="q-0017">What it saves has not been measured. To judge it, install it into one project and watch three things over a few weeks: whether an agent arriving cold re-decides less of what was settled, whether work survives the end of a session without you reconstructing it, and whether drift between documents and code falls rather than documents piling up.</straw-dog>
 
