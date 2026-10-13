@@ -78,9 +78,11 @@ Every refusal writes nothing and names its step.
 - **A tree that announces no ref**: a copy that predates this script. `--update --overwrite` is
   required; nothing is deleted, and files under `.agents/` outside the manifest are reported as
   the project's own.
-- **The injector refused**: an override naming a rule this ref no longer sends there, or a local
-  anchor a new anchor now follows. Fix the local file, run `inject_rules.py local --install`, then
-  `--check`.
+- **The injector refused**: a malformed local file, an override naming a rule this ref no longer
+  sends there, or a local anchor a new anchor now follows — asked before the copy. Fix the local
+  file and run again.
+- **Core already here, on an install**: a previous install, whole or stopped partway.
+  `--update --overwrite` completes it.
 - **A host's hook file that is not valid JSON, or sets a key core's hooks need otherwise**: the
   file is the project's as much as core's. Fix it by hand and run again; nothing rewrites it.
 - **A junction, a directory or a file where a link goes**: the project's own. Move it; a symlink
