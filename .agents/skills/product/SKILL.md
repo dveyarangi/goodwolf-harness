@@ -13,7 +13,8 @@ never renumbered and a name.
 
 ## Goals
 
-1. **Keep the document.** Land a decided answer as a row with the next free id and a name; retire
+1. **Keep the document.** Land a decided answer as a row with the next free id and a name, or, where
+   a row waited on its question, empty that row's *waits on* cell; retire
    an answer rather than renumber it, and give a replacement a new id. A row whose answer is not
    chosen waits on its purpose question, bound to it. A pain is never closed.
 2. **Link the work.** A question that builds an answer carries its trace link, by id and name

@@ -162,6 +162,20 @@ the `## Decisions` list of the lowest question holding everyone who needs it, an
 lands, repoint every entry closed against its list there.
 </installed>
 
+<installed by="product">
+**U2** When a question under *What is this project for?* is decided with something to build, do three
+things in one step:
+
+1. With `/product`, write the answer into the document: a row that waits on this question has
+   its *waits on* cell emptied; otherwise a new row takes the next number.
+2. Close the question against that row.
+3. Open the question of how to build it in the *How is this project built?* branch, under the
+   question it belongs to, and give it its trace link with `questions.py realize`, naming the
+   row's number and name.
+
+A decision that changes, replaces or retires an answer is written by `/product` the same way.
+</installed>
+
 <straw-dog question="q-0037.0010.0002.0005">
 ### Offer ADRs sparingly
 

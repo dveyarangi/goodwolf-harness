@@ -105,6 +105,6 @@ collaborate, no?*, *people don't share a project, they develop it together*.
 ## What continues
 
 The first step of the next session: `/plan` on
-[01-0040.0030 a-decided-purpose-question-opens-its-building](../tickets/01-0040.0030-a-decided-purpose-question-opens-its-building.md),
+[01-0040.0030 a-decided-purpose-question-opens-its-building](../tickets/done/01-0040.0030-a-decided-purpose-question-opens-its-building.md),
 the rules that make a decided purpose question land its answer and open its building question with
 a link — so the document stays covered without a session like this one.

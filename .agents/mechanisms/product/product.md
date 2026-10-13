@@ -26,9 +26,18 @@ reported and never fails it: an open structure question with no link and not der
 —, a decided answer nothing realizes, an open purpose question no row names. A tree with no
 product document has nothing to check and passes.
 
+**A decided purpose question is allocated in one step.** Its answer lands as a row — the row that
+waited on it, or a new one — the question closes against the row, and the question of how to build
+it opens in the structure root's branch, under the question it belongs to, with its trace link. A
+question opened right under the structure root states its link at once, since it has no ancestor to
+carry one; one that forgets is an orphan at the next check, never refused. Building that shows an
+answer or its causes must change opens a purpose question like any other, and its decision is
+allocated the same way.
+
 It is **installed**. <straw-dog question="q-0037.0006.0024">It ships with core like every mechanism,
-since a project cannot yet take one alone; where a project keeps no product document, it finds
-nothing.</straw-dog>
+since a project cannot yet take one alone.</straw-dog> Its rules carry no condition: a tree that has
+the mechanism keeps the document. <straw-dog question="q-0037.0018.0012">Until an install writes
+it, the first answer landed does.</straw-dog>
 
 **Who decided each rule.**
 
@@ -39,6 +48,9 @@ nothing.</straw-dog>
 | only open and decided questions realize | settled at the plan, 2026-10-13 |
 | U1 — the document is checked by `product.py` | the user, 2026-10-13, owed to `/maintain`'s M1 |
 | one mechanism tells the account to every reader, shipped with core | the user, 2026-10-13 |
+| U2 — a decided purpose question is allocated in one step, its building question opened under the question it belongs to | the user, 2026-10-13 and 2026-10-14 |
+| U3 — a question opened right under the structure root states its link | the user, 2026-10-13 |
+| the rules carry no condition: installed, the mechanism keeps the document | the user, 2026-10-14 |
 
 ## Moments
 
@@ -49,7 +61,8 @@ nothing.</straw-dog>
 | seeing each answer's coverage | `.agents/skills/product/SKILL.md` | |
 | checking the document's form | `.agents/scripts/gw/product.py` | |
 | checking the document in a maintenance pass | `.agents/skills/maintain/SKILL.md` | |
-| a purpose decision landing as an answer, its building question opened with a trace link | — | <straw-dog question="q-0037.0018.0008">not yet</straw-dog> |
+| a purpose decision landing as an answer, its building question opened with a trace link | `.agents/skills/align/SKILL.md` | |
+| a question opened right under the structure root stating its trace link | `.agents/skills/questions/SKILL.md` | |
 | the root README told from the document | — | <straw-dog question="q-0037.0018.0005">not yet</straw-dog> |
 | a release note's product half gathered from the coverage that moved | — | <straw-dog question="q-0037.0006.0020.0002.0002">not yet</straw-dog> |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
@@ -77,6 +90,8 @@ nothing.</straw-dog>
 | test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |
 | the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
 | the pass that checks the document | `.agents/skills/maintain/SKILL.md` | `maintain` |
+| the heading in `/align` where U2 is installed | `.agents/skills/align/SKILL.md` → "### Land resolutions as they are made" | `/align`'s own, its mechanism not yet |
+| the heading in the questions skill where U3 is installed | `.agents/skills/questions/SKILL.md` → "## A raised question" | `questions` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 
 ## What it produces, and who reads it
@@ -88,15 +103,15 @@ nothing.</straw-dog>
 - **The maintainer's report** — *what exists* — read by `/maintain` under U1. Its exit status is
   the verdict; its JSON is for the person reading a failure. It writes nothing.
 - **The rules file** — *what must always hold* — read by the installer alone, and by whoever amends
-  a rule of this mechanism that another skill reads. Its block sits in `/maintain`.
+  a rule of this mechanism that another skill reads. Its blocks sit in `/maintain`, `/align` and
+  the questions skill.
 
 Nothing else; no index.
 
 ## Not yet at the shape
 
-**Seven `not yet` rows of its own**, each bound to an open question: allocation from a purpose
-decision, the README, the release note, removal, and the three ways a tree that already exists
-comes to its document.
+**Six `not yet` rows of its own**, each bound to an open question: the README, the release note,
+removal, and the three ways a tree that already exists comes to its document.
 
 ## What retires this
 

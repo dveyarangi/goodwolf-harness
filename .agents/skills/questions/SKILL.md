@@ -97,6 +97,12 @@ question the message is one case of, never the message restated, the homes you w
 one you would choose. The row repeats in every reply until the user answers; then open it where
 they said.
 
+<installed by="product">
+**U3** A question opened right under *How is this project built?* gets its trace link at once: the
+answers it realizes — `questions.py realize q-N 'A7 "<name>"'` — or `realize q-N derived` for
+none.
+</installed>
+
 ## Closing
 
 **When** an answer lands, a question is found wrong, two are found to be one, one is parked, one
