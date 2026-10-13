@@ -594,6 +594,18 @@ to them* — every mention, a table's cell included, is a link; the first still 
 the slug. Graded by the next replies of this session and the next fresh one: no question or ticket
 id in a reply that is not a link.
 
+**Struck, 2026-10-13, in records.** A scheduled `/maintain` found 24 bare ticket ids on lines
+written after v85 landed: the leans of q-0018.0024, q-0033 and q-0035 with its seven new parts,
+q-0035's impact section, and two of the
+[01-0040 a-projects-account-stays-in-agreement-with-its-work](tickets/01-0040-a-projects-account-stays-in-agreement-with-its-work.md)
+tickets, all written by the session that minted [01-0040](tickets/01-0040-a-projects-account-stays-in-agreement-with-its-work.md). P9 reads *every record*, and was installed and read; the grading above looked only at
+replies, and the store's leans are passed to the script as plain text, where nothing meets the
+writer with the rule. Repaired by the same pass. Older lines, written while later mentions could
+be the id alone, still hold about 60, left for the user's word on whether v85 reaches back.
+**Amendment proposed:** the store check and the ticket check each report a bare ticket id outside
+a link in a live record as a finding, the way the store reports two questions that may be one, so
+every `/maintain` meets it.
+
 ## 16. A session stopped placing its messages once the window said nothing moved — 2026-10-03
 
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s Q1, *call `questions.py at q-N` …

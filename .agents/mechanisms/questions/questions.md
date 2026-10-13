@@ -17,10 +17,10 @@ Level is depth in that structure, derived and never written; a shift in a conver
 attaching to a different question. A ticket is a method's goal and stays the method's; the store is
 core's substrate, beneath whatever method a tree runs.
 
-**Three roots from the start.** A store holding no entry, at a first install or an update, is
+**Three roots from the start.** <straw-dog question="q-0035">A store holding no entry, at a first install or an update, is
 seeded with three root questions and nothing else — no parts under them, no links between them:
 the purpose, the structure, and the space of neighbours, history and evolution the project moves
-in, worded on the shelf [`STORE-ARRIVAL.md`](../../skills/questions/STORE-ARRIVAL.md). Each is where a person's
+in, worded on the shelf [`STORE-ARRIVAL.md`](../../skills/questions/STORE-ARRIVAL.md).</straw-dog> Each is where a person's
 judgement is spent: choosing the goal from the space of ideas; correcting the model where it is
 ineffective, wasteful or destructive in the structure; and seeing what the model misses in the
 landscape, which can move both the others. *What is this project?* is what the three answer

@@ -40,4 +40,4 @@ where its reader is.
 
 ## Parent scope addressed
 
-The spec whole, its release note through 01-0010.0190.
+The spec whole, its release note through [01-0010.0190](./01-0010.0190-core-is-published-as-a-release.md).

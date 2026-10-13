@@ -8,16 +8,16 @@ One row per mechanism per level, then each file that level was checked against, 
 |---|---|---|---|---|
 | edge | parts | 0466f57a1dfa6be6875322193d8645d99f410c2ec42aa49b1c7874de7ef2db61 | 2026-10-12 | nothing to change |
 | edge | output | 299ce490fc68b5b4ee8e7ed2ddd8d46b67f2273a246d3e58b6da7bd913efcb3e | 2026-10-12 | nothing to change |
-| harness | parts | bd907c895dc0d43f231ef125a723c2ce22a9909d7514c5aa509ce75c3b9cd2fa | 2026-10-12 | nothing to change |
+| harness | parts | d36b5ed373bfbf993f4d290bd47dfb4755093c0d4bc700e1c07a59adc76dc7d8 | 2026-10-13 | nothing to change |
 | harness | output | 3a79214247112ecd0543da8b68e3b3e1024c94de4e99861d854b2680466a9637 | 2026-10-12 | nothing to change |
 | maintain | parts | 01bad9b10b35e443a99c34c61df8b5c118c3bd8ab99be495dea0edd4b4e274d0 | 2026-10-12 | nothing to change |
 | maintain | output | e1b7d84387967aa93f7e14efc1b411fde3e1ed1efb0db1b55a801d19051ef2c2 | 2026-10-12 | nothing to change |
 | mechanism-shape | parts | 5fb37a169deda5401804869c7f710c569cb3cd6875d8ad9b7bc4b3baf64acc0e | 2026-10-12 | nothing to change |
 | mechanism-shape | output | bfc233083cf7f765e196116a5619689d3925f86b76b8f5630eff9bc7598fd0d0 | 2026-10-12 | nothing to change |
-| questions | parts | fb355fd6dbd48315e1c6ef3b1b8d56f1d94aeaaff1f4d43ba6000f5cb3271c59 | 2026-10-12 | nothing to change |
-| questions | output | 59f400a5e5f2458e881713c02c1e1c87c416fce9d5d6515b50ba81acf7a99523 | 2026-10-12 | nothing to change |
-| ticket | parts | 87330ed2d923bc2c523f7a806bb916110119eac51b3ba8834a4c77304939a1ef | 2026-10-12 | amended |
-| ticket | output | 5de3e7d696faa0caf471386c2e009d14acc6f66c6dd2103cedf76b9e499cbefa | 2026-10-12 | nothing to change |
+| questions | parts | b0faa589443af07a5642bc5e6462dbdc2f8bae2b4bb468ba5e62c56dc9ff810d | 2026-10-13 | amended |
+| questions | output | 9472f26802638467dde75806e016f001a9b7db5d986d67e93f4163afbb20b75b | 2026-10-13 | repaired |
+| ticket | parts | c8bb881df8013f609fd381921e108122c7376ad219ae8aff726b2b3fab598cc4 | 2026-10-13 | amended |
+| ticket | output | 7219406471aaec8e703d4534331a524133b4832aeb6b47b166ad2105bb47fe45 | 2026-10-13 | repaired |
 
 | mechanism | level | file | fingerprint |
 |---|---|---|---|
@@ -37,7 +37,7 @@ One row per mechanism per level, then each file that level was checked against, 
 | harness | parts | .agents/scripts/gw/harness.py | 73d29bae8dc6611df4d97b9e1c70243758340afc9dae4c8b014a5523a1c8f6dd |
 | harness | parts | .agents/scripts/gw/test/test_harness.py | f13176253874c26d64d7a07e40c0714128a03c747b6b5f86b2e640b8c8acb787 |
 | harness | parts | .agents/skills/harness/SKILL.md | d0dbdd37247bf5f57cca55f736e327dc5fb62fe2b5077c669cd78bbf6d2288fa |
-| harness | parts | AGENTS.md | c84c2405535bc2979b4b7317ee7ec7eda31461ec225bfc578dc0906b1d7c8ef3 |
+| harness | parts | AGENTS.md | 32c17591f03be8ae40166cf66253b8488e2448950dbf66133a3dd4fb4f4e3d21 |
 | harness | parts | CLAUDE.md | 336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49 |
 | harness | output | .agents/mechanisms/harness/harness.md | ff660b5058371714013dced96f94a63024f27cd7aa948e7c1a85b45621d2301a |
 | harness | output | .agents/mechanisms/mechanism-shape/mechanism-shape.md | da8e08b11172b96ebc1bd1dd104a0444ecf16858cf083ccf74d24379b3a080c3 |
@@ -75,27 +75,27 @@ One row per mechanism per level, then each file that level was checked against, 
 | mechanism-shape | output | .agents/skills/mechanism/MECHANISM-FORMAT.md | 9a745ac29f45671ea32ea078802e26088e8197bc144f4156653d1ae4dfec163b |
 | mechanism-shape | output | .agents/skills/mechanism/SKILL.md | 14e6d50374c7372786200c1e2c3e622af31547b0fa9f23ecb359393d229ef0ed |
 | questions | parts | .agents/.gitattributes | bd95d1f719ab960c7d638d202a762ab72f356be5be7270623165327a47e28149 |
-| questions | parts | .agents/mechanisms/questions/questions.rules.md | 8f6cfc73482171925b2c27e0063d07b5335547755fcbf499f2bba4ab9b977507 |
+| questions | parts | .agents/mechanisms/questions/questions.rules.md | 67708d7e9cd6c21a8a53d33dbc432f6d1cfe9e7c3ba6d09abecf4a349cf7a059 |
 | questions | parts | .agents/scripts/gw/hook.sh | 0118d8145545019d8121a339242fc9795690bb554d2375a8f89a3b4de27ba83e |
 | questions | parts | .agents/scripts/gw/questions.py | e09ea04cf470a1bd049c513fbc42a1287449dc8a78f0b72a7dde2ce62551221f |
 | questions | parts | .agents/scripts/gw/test/test_questions.py | f68b941160c399270a9f1cef4195154ef34d94b592bb9b803eda9002eb42531b |
 | questions | parts | .agents/skills/questions/SKILL.md | c2b6139274a16ef0d4dd3ce70e04370b82f77f0f6f7251d3d9704cf2ae0bc835 |
-| questions | parts | .agents/skills/questions/STORE-ARRIVAL.md | b746ca845d89c543ba661000c5811fdac8d0f288fc94ce0c9ef079439aebac23 |
+| questions | parts | .agents/skills/questions/STORE-ARRIVAL.md | 4a6f263b8d3751f376e1190406d08fcc11828ef4f323ef6198f336d0fdc5999f |
 | questions | parts | .agents/skills/questions/hooks/.claude/settings.json | 7502eae6c772b16eef9d81a925f5fd2a26f4ac5d5562d64ba2fb5f4225318970 |
 | questions | parts | .agents/skills/questions/hooks/.codex/hooks.json | dee1313d892392fe04424e44608c4f5c7d44f608dbf80cc7822afa43b6f37ca4 |
 | questions | parts | .agents/skills/questions/hooks/.cursor/hooks.json | f26fb2ace2e616e7b5902c57a63489fde425ac411a5f54284f30bd67cbc99e6e |
 | questions | output | .agents/mechanisms/mechanism-shape/mechanism-shape.md | da8e08b11172b96ebc1bd1dd104a0444ecf16858cf083ccf74d24379b3a080c3 |
 | questions | output | .agents/mechanisms/mechanism-shape/mechanism-shape.rules.md | 2e681b0e5f05f91417d4745bfdb08f7d7d50152c91ad3db8b631b757dc941308 |
-| questions | output | .agents/mechanisms/questions/questions.md | 1cd99cd06d1ba3b9deb57b898a42105ea15ca9672cf03e26ab1467aa2fb80bfa |
-| questions | output | .agents/mechanisms/questions/questions.rules.md | 8f6cfc73482171925b2c27e0063d07b5335547755fcbf499f2bba4ab9b977507 |
+| questions | output | .agents/mechanisms/questions/questions.md | f9dae2510c97fb5e371bf9163926493f5446db867cfa8967c5ef19e18999ead5 |
+| questions | output | .agents/mechanisms/questions/questions.rules.md | 67708d7e9cd6c21a8a53d33dbc432f6d1cfe9e7c3ba6d09abecf4a349cf7a059 |
 | questions | output | .agents/skills/mechanism/MECHANISM-FORMAT.md | 9a745ac29f45671ea32ea078802e26088e8197bc144f4156653d1ae4dfec163b |
 | questions | output | .agents/skills/mechanism/SKILL.md | 14e6d50374c7372786200c1e2c3e622af31547b0fa9f23ecb359393d229ef0ed |
 | questions | output | .agents/skills/questions/SKILL.md | c2b6139274a16ef0d4dd3ce70e04370b82f77f0f6f7251d3d9704cf2ae0bc835 |
-| questions | output | .agents/skills/questions/STORE-ARRIVAL.md | b746ca845d89c543ba661000c5811fdac8d0f288fc94ce0c9ef079439aebac23 |
+| questions | output | .agents/skills/questions/STORE-ARRIVAL.md | 4a6f263b8d3751f376e1190406d08fcc11828ef4f323ef6198f336d0fdc5999f |
 | questions | output | .agents/skills/questions/hooks/.claude/settings.json | 7502eae6c772b16eef9d81a925f5fd2a26f4ac5d5562d64ba2fb5f4225318970 |
 | questions | output | .agents/skills/questions/hooks/.codex/hooks.json | dee1313d892392fe04424e44608c4f5c7d44f608dbf80cc7822afa43b6f37ca4 |
 | questions | output | .agents/skills/questions/hooks/.cursor/hooks.json | f26fb2ace2e616e7b5902c57a63489fde425ac411a5f54284f30bd67cbc99e6e |
-| ticket | parts | .agents/mechanisms/ticket/ticket.rules.md | a29e1c1b3c2bd8667aee2984e48ac369bb361c0c66a9fdb772b7b58be3c7c033 |
+| ticket | parts | .agents/mechanisms/ticket/ticket.rules.md | bae100215a0b14d53db5cec14ea0ed02c179048e284d62dc4d05f03e0727ced2 |
 | ticket | parts | .agents/scripts/gw/move_doc.py | 413d8a502dd309b9a7fb286bc98a04659d390283ba7bc48958ed62b541d981d8 |
 | ticket | parts | .agents/scripts/gw/test/test_citations.py | dbde70f3d00e122d5dcceda2fd5ad8c9cbe89ed98952cc44fe4f7778c67a8d4a |
 | ticket | parts | .agents/scripts/gw/test/test_command_line.py | 7f038df6e53672efb853180ad059cf16126e9553323cb0487f29a79d3b03a875 |
@@ -109,8 +109,8 @@ One row per mechanism per level, then each file that level was checked against, 
 | ticket | parts | .agents/skills/ticket/TICKET-FORMAT.md | d08faa438201df9f4a0461873c6522e35e9a688f2ca1ff208168bbf4d0d1197a |
 | ticket | output | .agents/mechanisms/mechanism-shape/mechanism-shape.md | da8e08b11172b96ebc1bd1dd104a0444ecf16858cf083ccf74d24379b3a080c3 |
 | ticket | output | .agents/mechanisms/mechanism-shape/mechanism-shape.rules.md | 2e681b0e5f05f91417d4745bfdb08f7d7d50152c91ad3db8b631b757dc941308 |
-| ticket | output | .agents/mechanisms/ticket/ticket.md | 69abb270baf71f9541dd550ea1ec06949b11dfadbbfb9cc5cb1a59f376750013 |
-| ticket | output | .agents/mechanisms/ticket/ticket.rules.md | a29e1c1b3c2bd8667aee2984e48ac369bb361c0c66a9fdb772b7b58be3c7c033 |
+| ticket | output | .agents/mechanisms/ticket/ticket.md | 787c7dc9293b441cdbae693538e3bf2201a2d0d345d314c8e48e7da04286992a |
+| ticket | output | .agents/mechanisms/ticket/ticket.rules.md | bae100215a0b14d53db5cec14ea0ed02c179048e284d62dc4d05f03e0727ced2 |
 | ticket | output | .agents/skills/mechanism/MECHANISM-FORMAT.md | 9a745ac29f45671ea32ea078802e26088e8197bc144f4156653d1ae4dfec163b |
 | ticket | output | .agents/skills/mechanism/SKILL.md | 14e6d50374c7372786200c1e2c3e622af31547b0fa9f23ecb359393d229ef0ed |
 | ticket | output | .agents/skills/ticket/QUEUE-ARRIVAL.md | 415fe65d77b694401922169c06f14756369f52d3bff471216b491b7adee2ac5e |

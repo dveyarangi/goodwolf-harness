@@ -3,7 +3,7 @@
 - **record of** what it intends to become
 - **state** open
 - **owner** [01-0040](../tickets/01-0040-a-projects-account-stays-in-agreement-with-its-work.md)
-- **lean** decisions 1–11, the user, 2026-10-12/13; its spec accepted and 01-0040 minted with seven slices, .0010 Ready; its place in the order the user's; open: the README (.0005), the measure (.0004, parked)
+- **lean** decisions 1–11, the user, 2026-10-12/13; its spec accepted and [01-0040](../tickets/01-0040-a-projects-account-stays-in-agreement-with-its-work.md) minted with seven slices, .0010 Ready; its place in the order the user's; open: the README (.0005), the measure (.0004, parked)
 - **struck** 0, last 2026-10-12T16:02Z
 
 Opened 2026-10-12 from the align on what is now q-0035.0002. The user: *the customer is not only
@@ -179,7 +179,7 @@ proposed, the owners' worry about coupling. Its material as it came back:
 
 ## Impact of the split, 2026-10-13
 
-Of the draft split of the accepted spec, 01-0040: the end state, and `.0010` coverage read from
+Of the draft split of the accepted spec, [01-0040](../tickets/01-0040-a-projects-account-stays-in-agreement-with-its-work.md): the end state, and `.0010` coverage read from
 the questions that realize an answer (the trace link, the document's format, the check rendering
 coverage, the mechanism declared with `/product`), `.0020` drift found, `.0030` allocation,
 `.0040` this tree's account on the mechanism, `.0050` the queue shows what each item realizes,
@@ -195,9 +195,9 @@ release note says which answers moved; and the re-cut of the release family.
 - **Must verify:** the store's 258 tests and the harness's 109 — the part is optional, so every
   store written before it must read unchanged; the install shipping the new script into a recipient
   with no product document, where the check must find nothing.
-- **Re-cut:** 01-0010.0185 loses *the releases mechanism declared* — its occasion rule comes from
-  the edge mechanism's rules file; 01-0010.0190's note takes its product half from the coverage
-  that moved, composed by `/product`; 01-0010.0160's end state reads the same otherwise.
+- **Re-cut:** [01-0010.0185 an-edge-change-writes-its-line](../tickets/01-0010.0185-an-edge-change-writes-its-line.md) loses *the releases mechanism declared* — its occasion rule comes from
+  the edge mechanism's rules file; [01-0010.0190 core-is-published-as-a-release](../tickets/01-0010.0190-core-is-published-as-a-release.md)'s note takes its product half from the coverage
+  that moved, composed by `/product`; [01-0010.0160 harness-edge-changes-reach-an-update](../tickets/01-0010.0160-harness-edge-changes-reach-an-update.md)'s end state reads the same otherwise.
 
 ### Hidden edges
 - **Two front pages.** The harness mechanism ships *the front page* into every recipient beside
@@ -206,9 +206,9 @@ release note says which answers moved; and the re-cut of the release family.
   `.0070` meets the harness mechanism's row, not only q-0035.0005.
 - **The harness's doc names who words the roots** — its *Relies on* row says the questions
   mechanism *owns the store and words its roots*. `.0060` changes that row.
-- **No edge line is written for the store's new part.** The occasion rule is 01-0010.0185's, not
+- **No edge line is written for the store's new part.** The occasion rule is [01-0010.0185](../tickets/01-0010.0185-an-edge-change-writes-its-line.md)'s, not
   built; the part ships to every recipient as `.0145`'s script move did, unannounced. Compatible
-  because optional — say so in `.0010`, and let 01-0010.0185 replay it.
+  because optional — say so in `.0010`, and let [01-0010.0185](../tickets/01-0010.0185-an-edge-change-writes-its-line.md) replay it.
 - **The window draws parts.** If it draws the new one, every session pays for it every message.
 - **frost_map's 27 structure questions** become orphans the day a product document appears there.
   That is the finding working, not noise, but its first run will be loud.
@@ -216,14 +216,14 @@ release note says which answers moved; and the re-cut of the release family.
 ### Leave alone
 - The ticket record and `tickets.py`: a ticket reaches the product through its question.
 - The reply form, q-0030's session's ground.
-- 01-0018.0010 and the high-frequency regime, out of the order by the user's word.
-- Publishing a release and the recipient's read before taking it (01-0010.0190's publish, .0195).
+- [01-0018.0010 a-session-learns-the-entry-file-moved](../tickets/01-0018.0010-a-session-learns-the-entry-file-moved.md) and the high-frequency regime, out of the order by the user's word.
+- Publishing a release and the recipient's read before taking it ([01-0010.0190](../tickets/01-0010.0190-core-is-published-as-a-release.md)'s publish, [01-0010.0195 a-recipient-reads-before-it-takes](../tickets/01-0010.0195-a-recipient-reads-before-it-takes.md)).
 
 ### Recommendation
 **Narrow.** `.0080` builds the coverage that moved since a release before any release exists: its
-only reader is 01-0010.0190's note, still Planned. Fold it into the re-cut 01-0010.0190, where the
+only reader is [01-0010.0190](../tickets/01-0010.0190-core-is-published-as-a-release.md)'s note, still Planned. Fold it into the re-cut [01-0010.0190](../tickets/01-0010.0190-core-is-published-as-a-release.md), where the
 reader is built. `.0060` generalises seeding with one concrete shape, the product mechanism's root;
 it is small, so keep it, late. The rest proceeds.
 
-**Second pass, on the narrowed split** (`.0080` folded into 01-0010.0190): proceed — every slice's
-output has a reader inside the split or in 01-0010.0190, and the hidden edges above stand.
+**Second pass, on the narrowed split** (`.0080` folded into [01-0010.0190](../tickets/01-0010.0190-core-is-published-as-a-release.md)): proceed — every slice's
+output has a reader inside the split or in [01-0010.0190](../tickets/01-0010.0190-core-is-published-as-a-release.md), and the hidden edges above stand.

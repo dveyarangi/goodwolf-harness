@@ -38,7 +38,7 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | P5 — the records are checked by `tickets.py` | the user, 2026-09-08, owed to `/maintain`'s M1 |
 | P6 — an RFC is named by its ticket | the user, 2026-09-08 |
 | P7 — the ticket is rewritten to what landed | the user, 2026-09-08; narrowed 2026-10-11, the landing the questions mechanism's Q6 |
-| P9 — a ticket is named by a link, or by a slug and its state | the user, 2026-09-21; the slug in the link text, 2026-09-26 |
+| P9 — a ticket is named by a link, or by a slug and its state | the user, 2026-09-21; the slug in the link text, 2026-09-26; each reply on its own, 2026-10-10; every mention a link, 2026-10-12 |
 | P10 — an align opens with what its work is | the user, 2026-09-27; its work, ticket or not, 2026-10-11 |
 | P11 — the question's body and the ticket are swept when the align ends | `/align`'s own text, moved here 2026-09-29; the body, the user, 2026-10-11 |
 | P12 — the live tickets are read from the list | the user, 2026-10-10 |
