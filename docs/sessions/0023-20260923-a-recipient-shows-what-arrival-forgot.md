@@ -68,7 +68,7 @@ structural:
   [01-0010.0180](../tickets/01-0010.0180-harness-names-its-maintenance.md)'s, since it is exactly
   what harness would name to `/maintain`.
 - **How the switches are elicited** before setup —
-  [01-0010.0170](../tickets/01-0010.0170-arrival-becomes-a-sequence.md)'s. The align settled that
+  [01-0010.0170](../tickets/done/01-0010.0170-arrival-becomes-a-sequence.md)'s. The align settled that
   they precede the step they authorise, not how they are asked.
 - **What the quicklook's fixed recipe actually reads**, and whether a glossary harvest runs
   unattended over material in a language the agent is guessing at —

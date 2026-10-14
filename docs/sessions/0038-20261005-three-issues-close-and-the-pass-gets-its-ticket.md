@@ -63,7 +63,7 @@ same tree throughout; its files were left out of every commit here.
 - **`.0040`'s last box** waits only for the user's grade: this conversation's first turn gave a
   fresh session's `▶` row and a `↳` with a `+` at its first question.
 - **Next in the queue**, under `next-cycle=ask`:
-  [01-0010.0170 arrival-becomes-a-sequence](../tickets/01-0010.0170-arrival-becomes-a-sequence.md),
+  [01-0010.0170 arrival-becomes-a-sequence](../tickets/done/01-0010.0170-arrival-becomes-a-sequence.md),
   Ready and AFK, the first install's last step.
 - **01-0030** waits for the user's revision of the shape; its gate needs an observed problem,
   and the cheapest test is `/verify` described by the pass's nine parameters.

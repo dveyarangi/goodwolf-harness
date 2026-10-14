@@ -76,5 +76,5 @@ done — `.0030`, `.0035`, `.0050` — one minted on the way, and 01-0010.0175 r
 
 ## Next
 
-Re-read [01-0010.0170 arrival-becomes-a-sequence](../tickets/01-0010.0170-arrival-becomes-a-sequence.md)
+Re-read [01-0010.0170 arrival-becomes-a-sequence](../tickets/done/01-0010.0170-arrival-becomes-a-sequence.md)
 against what reversed its premise, then 01-0010.0175. Rule failure 45's amendment waits on its home.

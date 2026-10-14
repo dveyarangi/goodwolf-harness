@@ -754,7 +754,7 @@ Run by `/ticket` on the two-slice request: **proceed on both.** `.0172`'s blast 
 report's ending, the harness skill's refusal list, and possibly the harness doc's *arrived is the
 three gates alone* — which the issue is evidence against, so its align decides whether that
 reopens. The empty non-Git folder in the same issue is
-[`.0170`](./01-0010.0170-arrival-becomes-a-sequence.md)'s already. `.0205`'s is the entry file's
+[`.0170`](./done/01-0010.0170-arrival-becomes-a-sequence.md)'s already. `.0205`'s is the entry file's
 *Self-improvement* rule, core and already a straw dog on
 [01-0019](./01-0019-harness-amends-itself-by-explicit-meta-rules.md), the harness skill's
 `Repository:` line as the address, and an outward-facing act the person must approve. Hidden edges:
