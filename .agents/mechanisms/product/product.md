@@ -19,7 +19,8 @@ present — is read from the questions that realize it, never written; the maint
 it on request, and the document holds no status of its own.
 
 **The maintainer holds the document and the store to each other.** It finds the purpose root and
-the structure root by their seeded words. What is broken fails the check: an answer with no id or
+the structure root by their seeded words. What is broken fails the check: a document with no
+answers heading, not in the format at all; an answer with no id or
 name, an id written twice, a link naming no answer or quoting a name its answer no longer has, an
 undecided row bound to nothing or to a question outside the purpose root. What is missing is
 reported and never fails it: an open structure question with no link and not derived — an orphan
@@ -36,8 +37,11 @@ allocated the same way.
 
 It is **installed**. <straw-dog question="q-0037.0006.0024">It ships with core like every mechanism,
 since a project cannot yet take one alone.</straw-dog> Its rules carry no condition: a tree that has
-the mechanism keeps the document. <straw-dog question="q-0037.0018.0012">Until an install writes
-it, the first answer landed does.</straw-dog>
+the mechanism keeps the document. **An install or an update writes it where none is**, empty, in
+the words of its arrival shelf, by this mechanism's script — the third record written when absent,
+after the delivery status and the store's roots. From its first line it is the project's: one
+already there, in the format or not, is left, and the install names one that is not, which the
+check fails.
 
 **Who decided each rule.**
 
@@ -51,6 +55,7 @@ it, the first answer landed does.</straw-dog>
 | U2 — a decided purpose question is allocated in one step, its building question opened under the question it belongs to | the user, 2026-10-13 and 2026-10-14 |
 | U3 — a question opened right under the structure root states its link | the user, 2026-10-13 |
 | the rules carry no condition: installed, the mechanism keeps the document | the user, 2026-10-14 |
+| the install writes the empty document where none is, and leaves and names one in another form, which the check fails | the user, 2026-10-14 |
 
 ## Moments
 
@@ -66,8 +71,9 @@ it, the first answer landed does.</straw-dog>
 | the root README told from the document | — | <straw-dog question="q-0037.0018.0005">not yet</straw-dog> |
 | a release note's product half gathered from the coverage that moved | — | <straw-dog question="q-0037.0006.0020.0002.0002">not yet</straw-dog> |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
-| an install into a tree with no product document writing an empty one in the format | — | <straw-dog question="q-0037.0018.0012">not yet</straw-dog> |
-| an install meeting a product document in another form: left as the project's and reported, and the check saying it is not in the format | — | <straw-dog question="q-0037.0018.0012">not yet</straw-dog> |
+| an install into a tree with no product document writing an empty one in the format | `.agents/scripts/gw/product.py` | |
+| wording the empty document an install writes | `.agents/skills/product/PRODUCT-ARRIVAL.md` | |
+| an install meeting a product document in another form: left as the project's and reported, and the check saying it is not in the format | `.agents/scripts/gw/harness.py` | |
 | a project's existing account of what it is for brought into the format, by the person and the agent | — | <straw-dog question="q-0037.0018.0012">not yet</straw-dog> |
 | removing this mechanism from a tree | — | <straw-dog question="q-0037.0006.0013.0002">not yet</straw-dog> |
 
@@ -77,6 +83,7 @@ it, the first answer landed does.</straw-dog>
 |---|---|
 | instruction file | `.agents/skills/product/SKILL.md` |
 | format shelf | `.agents/skills/product/PRODUCT-FORMAT.md` |
+| arrival shelf | `.agents/skills/product/PRODUCT-ARRIVAL.md` |
 | this doc | `.agents/mechanisms/product/product.md` |
 | its rules file | `.agents/mechanisms/product/product.rules.md` |
 | the maintainer | `.agents/scripts/gw/product.py` |
@@ -110,8 +117,8 @@ Nothing else; no index.
 
 ## Not yet at the shape
 
-**Six `not yet` rows of its own**, each bound to an open question: the README, the release note,
-removal, and the three ways a tree that already exists comes to its document.
+**Four `not yet` rows of its own**, each bound to an open question: the README, the release note,
+removal, and bringing a project's existing account into the format.
 
 ## What retires this
 
