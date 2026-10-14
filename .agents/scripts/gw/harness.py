@@ -14,7 +14,7 @@ entry file's announce line stamped `<repository>@<ref>, <date>`, and the result 
 rule the origin's check applies. That line is the recipient's only revision record; a check clones
 the announced ref again and compares. Every refusal writes nothing. A loader link the platform
 refuses to create is not a refusal: everything else lands, and the report carries the exact command
-for the person. The contract is the architecture's; the decisions are the install spec's.
+for the person. The contract is the architecture's and the harness mechanism's doc's.
 """
 
 from __future__ import annotations

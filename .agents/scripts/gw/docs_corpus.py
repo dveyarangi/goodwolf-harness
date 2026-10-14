@@ -167,7 +167,7 @@ class Wrapper:
     """One straw dog wrapped around a whole span of text — a table cell, typically.
 
     `question` is as written, or `None` where the tag binds none; `body` is what the tag wraps, and
-    what survives the install spec's shear.
+    what survives the install's shear.
     """
 
     question: str | None

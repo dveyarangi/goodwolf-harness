@@ -107,6 +107,9 @@ KINDS = ("decided", "pruned", "merged", "deferred", "moot", "superseded")
 # The body's list a decision waits in until it has a home, and the arrow its home follows; no
 # home is in the store, a ticket or an RFC (the user, 2026-10-11).
 DECISIONS = "## Decisions"
+# The body's opening part: the question as it stands, which a question a ticket answers carries
+# (the user, 2026-10-15).
+WHERE_IT_STANDS = "## Where it stands"
 ARROW = "→"
 NOT_HOMES = (f"{STORE}/", "docs/tickets/", "docs/rfc/")
 _USAGE = (
@@ -133,6 +136,9 @@ _DEFERRAL = re.compile(r"^until \S.*, meanwhile \S.*$")
 _STRIKE = re.compile(r"^(\d+), last (\d{4}-\d{2}-\d{2}T\d{2}:\d{2})Z$")
 _ANSWER_NAMED = r'([A-Za-z0-9][A-Za-z0-9._-]*) "(\S(?:[^"]*\S)?)"'
 _TRACE_LINK = re.compile(rf"^{_ANSWER_NAMED}(?:, *{_ANSWER_NAMED})*$")
+# An owner as `assign` writes it: a markdown link, its label the record's id.
+_LINK_LABEL = re.compile(r"^\[([^\]]+)\]")
+_LINK_TARGET = re.compile(r"\]\(([^)\s]+)\)")
 _SESSION = re.compile(
     rf"^([A-Za-z0-9][\w.-]*) (running|ended) (\d{{4}}-\d{{2}}-\d{{2}})(?:T(\d{{2}}:\d{{2}})Z)? ({_ID}|-)"
     rf"(?: ({_ID}(?:,{_ID}){{0,3}}))?$"
@@ -383,6 +389,7 @@ def check(root: Path) -> Checked:
         _session_findings(sessions, index)
         + _likely_twins(entries)
         + _ready_for_done(entries, index)
+        + _unstated(entries, index)
     )
     return Checked(True, len(entries), diagnostics, findings, skipped + unreadable)
 
@@ -1102,6 +1109,36 @@ def _ready_for_done(entries: list[Entry], index: dict[str, Entry]) -> list[Findi
         Finding(read.record, 1, f"{read.identity} and everything under it are closed and ready for done/")
         for read in _ready_roots(entries, index)
     ]
+
+
+def _unstated(entries: list[Entry], index: dict[str, Entry]) -> list[Finding]:
+    """Each live open question at the top of the work its owner answers that has no `Where it
+    stands` — the one its ticket's `Answers` names, read from the store's parts alone: a child its
+    owner also owns is held by the parent's picture. A finding, since the questions written before
+    the rule get theirs at their next touch (q-0037.0009.0017, decision 2)."""
+    notes = []
+    for read in entries:
+        owner = _owner(read)
+        if read.archived or not read.open or owner is None:
+            continue
+        parent = index.get(read.parent or "")
+        if parent is not None and _owner(parent) == owner:
+            continue
+        if not any(line.strip() == WHERE_IT_STANDS for line in read.body.splitlines()):
+            label = _LINK_LABEL.match(read.parts["owner"].value)
+            named = label.group(1) if label else posixpath.basename(owner)
+            notes.append(Finding(read.record, 1, f"{read.identity} is answered by {named} and has no Where it stands"))
+    return notes
+
+
+def _owner(read: Entry) -> str | None:
+    """The file an entry's owner links, from the tree's root, so links written from the live store
+    and from `done/` name one owner alike."""
+    said = read.parts.get("owner")
+    target = _LINK_TARGET.search(said.value) if said else None
+    if target is None:
+        return None
+    return posixpath.normpath(posixpath.join(posixpath.dirname(read.record), target.group(1)))
 
 
 def _ready_roots(entries: list[Entry], index: dict[str, Entry]) -> list[Entry]:

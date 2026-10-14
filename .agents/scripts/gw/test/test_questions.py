@@ -635,6 +635,69 @@ class ReadyForDone(Store):
         self.assertEqual(1, len(report["findings"]))
 
 
+class WhereItStands(Store):
+    """A question a ticket answers carries its `Where it stands` (q-0037.0009.0017, decision 2): the
+    top of the work an owner owns, read from the store's own parts, is named while it lacks one."""
+
+    OWNER = "[01-0001](../tickets/01-0001-the-store.md)"
+
+    def unstated(self) -> list[str]:
+        return [
+            note.finding
+            for note in questions.check(self.root).findings
+            if "Where it stands" in note.finding
+        ]
+
+    def own(self, stem: str, question: str, body: str = "", **parts: str) -> None:
+        name = self.place(stem, question, {**parts, "owner": self.OWNER})
+        if body:
+            self.write(name, (self.root / name).read_text(encoding="utf-8") + "\n" + body)
+
+    def test_an_owned_open_question_without_one_is_a_finding(self) -> None:
+        self.own("q-0001-which-store-holds-the-questions", "Which store holds the questions?", state="open")
+
+        found = self.unstated()
+
+        self.assertEqual(["q-0001 is answered by 01-0001 and has no Where it stands"], found)
+        self.assertEqual([], self.problems())
+
+    def test_one_that_carries_it_is_not(self) -> None:
+        self.own(
+            "q-0001-which-store-holds-the-questions",
+            "Which store holds the questions?",
+            "## Where it stands\n\nOne flat folder.\n",
+            state="open",
+        )
+
+        self.assertEqual([], self.unstated())
+
+    def test_a_child_its_owner_also_owns_is_held_by_the_parent_picture(self) -> None:
+        self.own("q-0001-which-store-holds-the-questions", "Which store holds the questions?", state="open")
+        self.own("q-0001.0001-what-an-entry-holds", "What an entry holds?", **{"part of": "q-0001", "state": "open"})
+
+        found = self.unstated()
+
+        self.assertEqual(1, len(found), found)
+        self.assertTrue(found[0].startswith("q-0001 "), found)
+
+    def test_a_closed_owned_question_stands_on_its_answer(self) -> None:
+        self.own(
+            "q-0001.0001-what-an-entry-holds",
+            "What an entry holds?",
+            **{"part of": "q-0001", "state": "closed:moot", "answer": "gone"},
+        )
+
+        self.assertEqual([], self.unstated())
+
+    def test_it_leaves_the_exit_status_at_zero(self) -> None:
+        self.own("q-0001-which-store-holds-the-questions", "Which store holds the questions?", state="open")
+
+        status, report = self.run_check()
+
+        self.assertEqual(0, status)
+        self.assertTrue(report["findings"])
+
+
 class TheMaintainer(Store):
     def test_leaves_the_tree_byte_identical_even_with_findings_and_diagnostics(self) -> None:
         self.write(SESSIONS, "s-alpha running 2000-01-01 q-0001.0001\n")

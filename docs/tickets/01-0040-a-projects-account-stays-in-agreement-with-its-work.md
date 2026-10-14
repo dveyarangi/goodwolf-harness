@@ -39,7 +39,3 @@ where its reader is.
 - [ ] Every slice above is done.
 - [ ] In this tree, the product check passes and every answer's coverage is read, not written.
 - [ ] `/verify` has been run on this ticket against the spec and the governing docs.
-
-## Parent scope addressed
-
-The spec whole, its release note through [01-0010.0190](./01-0010.0190-core-is-published-as-a-release.md).

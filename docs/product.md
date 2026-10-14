@@ -81,8 +81,8 @@ yet waits on its purpose question, bound to it in *waits on*.
 | **A10 A shared glossary, terms defined before use** — one vocabulary for the person and the agent, defined before a term lands in a record | C3 | ● |  | ● |  |  |  |
 | **A11 A task takes its form before its ticket** — a task takes its form in its question before a ticket is minted from it; a decision lands as it is made, provisional ones bound to the question that will change them | C3 | ● | ● |  |  |  |  |
 | **Decisions placed by their weight** | | | | | | | |
-| **A12 The load-bearing test** — the load-bearing test: `/impact` routes load-bearing work to the person and a spec, local work to the agent and a ticket; a raised decision that bears no load is settled and reported, one that does goes to the person, and doubt counts as load | C2, C8, C9 | ● | ● | ● |  |  |  |
-| **A13 Human checkpoints and switches** — HITL or AFK on every ticket; a spec accepted, a breakdown approved; commit, push and the next cycle each `ask` or `auto`; repair fixed and reported only under four conditions | C2, C9, C12 | ● | ● | ● |  | ● |  |
+| **A12 The load-bearing test** — the load-bearing test: `/impact` routes load-bearing work to the person and an align on its question, local work to the agent and a ticket; a raised decision that bears no load is settled and reported, one that does goes to the person, and doubt counts as load | C2, C8, C9 | ● | ● | ● |  |  |  |
+| **A13 Human checkpoints and switches** — HITL or AFK on every ticket; a question's `Where it stands` accepted, a breakdown approved; commit, push and the next cycle each `ask` or `auto`; repair fixed and reported only under four conditions | C2, C9, C12 | ● | ● | ● |  | ● |  |
 | **A14 The project names its stopping decisions** — the project says which kinds of decision stop for the person | C9 |  | ● | ● |  |  |  |
 | **A15 A record of model weaknesses** — a record of where models are known to be weak, deciding which decisions go to the person | C2, C9 | ● |  | ● |  |  | <straw-dog question="q-0033.0001">✗</straw-dog> |
 | **Visible footing** | | | | | | | |

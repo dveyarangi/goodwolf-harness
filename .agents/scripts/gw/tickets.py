@@ -45,18 +45,13 @@ STATUSES = ("Done", "In progress", "Ready", "Partial", "Planned", "Blocked")
 TYPES = ("HITL", "AFK")
 ORDERED = ("Status", "Type", "Minted", "Plan", "Depends on", "Blocks", "Answers", "Outcome")
 REQUIRED = ("Status", "Type", "Minted", "Answers", "Outcome")
-# The day the format narrowed to the five named sections, the stage gone (the user, 2026-10-11): a
+# The day the format narrowed to the named sections, the stage gone (the user, 2026-10-11): a
 # ticket minted before it is held to the required sections and the /verify box alone.
 # TODO q-0037.0010.0009.0003.0002.0003: the older shape goes once no live ticket was minted before it.
 FORMAT_MOVED = "2026-10-11"
 RETIRED = ("Kind", "Legacy id", "RFC", "Parent PRD", "User stories addressed")
-NAMED_SECTIONS = (
-    "Parent",
-    "What to build",
-    "Acceptance criteria",
-    "Out of scope",
-    "Parent scope addressed",
-)
+# `Parent scope addressed` left with the spec whose stories it counted (the user, 2026-10-15).
+NAMED_SECTIONS = ("Parent", "What to build", "Acceptance criteria", "Out of scope")
 # A ticket's open questions are entries of the store under its `Answers` question, each holding
 # its own argument, so a section listing them is a second home (the user, 2026-10-03).
 RETIRED_SECTIONS = ("Open issues",)
@@ -559,12 +554,13 @@ def _answers_problems(root: Path, read: Ticket, entries: dict[str, "questions.En
 
 
 def _titled(section: Section, name: str) -> bool:
-    """Whether a section is the named one — exactly, or with the shelf's provisional suffix."""
-    return section.title == name or section.title.startswith(f"{name} ")
+    """Whether a section is the named one — exactly, or with the shelf's provisional suffix after a
+    dash; a longer title sharing its first word, `Parent scope addressed`, is another section."""
+    return section.title == name or section.title.startswith(f"{name} {_DASH}")
 
 
 def _section_problems(read: Ticket) -> list[Diagnostic]:
-    """The required sections; for a narrowed ticket, nothing beyond the five named; the boxes."""
+    """The required sections; for a narrowed ticket, nothing beyond the four named; the boxes."""
     notes = []
     last_line = read.header[-1].line if read.header else 1
     for name in REQUIRED_SECTIONS:
@@ -587,7 +583,7 @@ def _section_problems(read: Ticket) -> list[Diagnostic]:
                     Diagnostic(
                         read.record,
                         extra.line,
-                        f"`{extra.title}` is outside the five sections a ticket holds; a decision lands "
+                        f"`{extra.title}` is outside the four sections a ticket holds; a decision lands "
                         "where it is made, and the story goes to evidence or a session record",
                     )
                 )

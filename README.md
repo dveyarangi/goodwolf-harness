@@ -176,7 +176,7 @@ project is one of four kinds, and the kind says which side wins.
 
 | the document says | who is right | when they disagree | for example |
 |---|---|---|---|
-| what it intends to become | the document, until the code gets there | the code moves toward it; the document is done once they match | a ticket, a plan, a spec |
+| what it intends to become | the document, until the code gets there | the code moves toward it; the document is done once they match | a ticket, a plan, an open question |
 | what must always hold | the document, always | the code is fixed; the document changes only by a decision | the architecture, the glossary |
 | what exists | the code | the document is rebuilt from the code, never edited by hand | the ticket list, a check's report |
 | what happened | neither — it is past | nothing is fixed | a session record, a finished ticket |
@@ -192,7 +192,7 @@ question you are on, and follows links from there.
 session starts with `/recall`, which finds where the work stopped; `/align` settles with you
 whatever needs deciding; `/conclude` writes down what the next session needs. A piece of work
 moves `/ticket` → `/plan` → `/implement` → `/verify` → `/maintain`; large work is first agreed with
-you as a spec and split into small tickets. `/verify` asks whether finished work keeps the
+you on its question and split into small tickets. `/verify` asks whether finished work keeps the
 promises its ticket and plan made; `/maintain` asks whether the documents still agree with each
 other and with the code. Before a big decision, `/impact` traces what a change touches in this
 project, and `/discover` asks a separate agent that has not read the project how things like it

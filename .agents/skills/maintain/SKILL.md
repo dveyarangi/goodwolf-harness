@@ -79,13 +79,6 @@ One pass over a declared scope. The scope decides which rules apply.
 
 ## Installed from other mechanisms
 
-<straw-dog question="q-0037.0009.0017">
-One rule of `/spec`'s, held here by hand until that mechanism is declared and installs it:
-
-- **P4** Before archiving a spec, confirm its surviving agreements have homes, its obligations
-  have dispositions, and its open issues keep owners.
-</straw-dog>
-
 <installed by="mechanism-shape">
 **R1** Check a record-bearing mechanism's records with its maintainer script — format never
 content, live rows only. Where the script is missing, write it: that is the maintenance.

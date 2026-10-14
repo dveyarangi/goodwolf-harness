@@ -50,11 +50,6 @@ where no pass runs is not told.
 The ticket mechanism's rules on paired close and on its records, and the mechanism shape's rules
 on records and re-checks, reach the body as installed blocks.
 
-<straw-dog question="q-0037.0009.0017">
-One rule sits in the body by hand inside a straw dog: a spec's agreements before archiving it,
-which is `/spec`'s and waits for `/spec` to be declared.
-</straw-dog>
-
 The body names no other skill except `/align`. What is not this mechanism's is stated as what it
 does not do — a landed slice is verified, not maintained — never as who does it instead; this
 table is where the other party is named.
@@ -79,8 +74,6 @@ repair-and-report, recording the cause in the evidence.
 | E1–E3 | `/denoise` as selected, 2026-09-05 |
 | the mechanism shape's block, R1–R4 | the user, 2026-09-07, in the shape's rules file; installed here |
 | the ticket mechanism's block, P1, P2, P3, P5 | in the ticket mechanism's rules file, where each rule carries its own authority; installed here |
-| P4 | drafted into the process document 2026-09-05 as a spec rule; held here by hand for `/spec`, undeclared |
-
 ## Moments
 
 | moment | instructed by | kind, and why |
@@ -159,11 +152,6 @@ repair-and-report, recording the cause in the evidence.
 Nothing else; no index.
 
 ## Not yet at the shape
-
-<straw-dog question="q-0037.0009.0017">
-**One rule held by hand.** P4 is `/spec`'s, and `/spec` is undeclared, so the body carries it
-inside a straw dog bound to the question of what `/spec` owns.
-</straw-dog>
 
 **Two `not yet` rows**, each bound to an open question.
 

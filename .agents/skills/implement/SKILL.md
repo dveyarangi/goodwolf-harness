@@ -5,8 +5,8 @@ description: Use when agreed work is to be written into code.
 
 <straw-dog question="q-0037.0009.0011">Mechanism: not yet</straw-dog>
 
-Implement the work described by the relevant architecture decisions (spec,
-ticket, RFC, prior discussion).
+Implement the work described by the relevant architecture decisions (the
+question, ticket, RFC, prior discussion).
 
 Pick entity names in vibe with the project glossary.
 Do not use implementation-shaped names or parameters; orient them at the

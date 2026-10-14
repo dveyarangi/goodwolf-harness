@@ -140,8 +140,8 @@ one-off field anywhere before `Outcome`, `Outcome` last:
 ### The sections
 
 - `Title` — names the outcome, not the mechanism. No number, no release.
-- `Parent` — the spec or coarse ticket this was carved from; otherwise the
-  durable doc owning the context. Never a session. A subticket says which
+- `Parent` — the coarse ticket this was carved from; otherwise the durable doc
+  owning the context. Never a session. A subticket says which
   slice it is and what the parent keeps.
 - `What to build` — **required**. End-to-end behavior, not a file-by-file
   plan. Each constraint carries its reason. Rewritten in place as decisions
@@ -154,11 +154,8 @@ one-off field anywhere before `Outcome`, `Outcome` last:
   a dash, and are firmed in place at the align.
 - `Out of scope` — what a reader expects and won't find, each with its actual
   home.
-- `Parent scope addressed` — the parent's stories or criteria this closes, by
-  number. The record of the split the user approved; nothing derives coverage
-  from it yet.
 
-A ticket holds the five sections named above and nothing else; its
+A ticket holds the four sections named above and nothing else; its
 `Acceptance criteria` holds checkbox lines, their continuations and blank
 lines, nothing else.
 

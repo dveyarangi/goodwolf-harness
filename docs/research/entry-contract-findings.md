@@ -15,6 +15,17 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v91 — 2026-10-15
+
+**The spec is retired into its question** — the loop sends a load-bearing shape to an align on its
+question until its `Where it stands` is accepted, where it sent it to `/spec`; the checkpoint *spec
+accepted* reads *a question's `Where it stands` accepted*; `/impact`'s ticketing shape names an
+align on the question for load-bearing work. Both routes are wrapped as straw dogs bound to
+q-0037.0010.0002.0005, the path being development's. The user, 2026-10-15, on
+[q-0037.0009.0017](../questions/done/q-0037.0009.0017-what-does-spec-own.md): *the filling of the
+high-level questions is the spec, isn't it?* Landed by
+[01-0016.0010](../tickets/done/01-0016.0010-a-question-is-its-works-working-document.md).
+
 ## v90 — 2026-10-14
 
 **A table's id-only form wins over Q5's words** — the 🪢 header names each session's question by

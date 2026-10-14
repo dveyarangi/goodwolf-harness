@@ -124,11 +124,8 @@ A citation from core to a document only the instance has. A painted door is not 
 _Avoid_: reach, dangling link, cross-reference as names for this.
 
 **Open issue**:
-An unresolved problem, question or risk that needs a disposition. It is unresolved subject matter, not a synonym for a spec, ticket or RFC; its current owning record holds it.
+An unresolved problem, question or risk that needs a disposition. It is unresolved subject matter, not a synonym for a question, ticket or RFC; its current owning record holds it.
 _Avoid_: issue as a generic name for every development document.
-
-**Spec**:
-A change-scoped definition of intended capability, scope and governing behavior from which delivery work can be derived. Its enduring agreements belong in maintained governing documents; its eventual historical status does not itself establish that the change was delivered. Of the kind *what it intends to become*.
 
 **Architecture**:
 The maintained description of system responsibilities, load-bearing seams and governing constraints, with the status of current and agreed target behavior explicit.
@@ -166,7 +163,7 @@ A tracked unit of agreed work with an intended outcome and observable completion
 _Avoid_: dossier, decision log, history as names for a ticket's contents.
 
 **HITL ticket**:
-A ticket whose progress requires a human decision or interaction. Its scope may still be undecomposed, but HITL does not itself specify size or maturity; investigation can reveal a need for a spec and multiple delivery tickets.
+A ticket whose progress requires a human decision or interaction. Its scope may still be undecomposed, but HITL does not itself specify size or maturity; investigation can reveal a need for an align on its question and multiple delivery tickets.
 
 **RFC**:
 An implementation proposal or agreed plan for an owning ticket, grounded in the governing architecture and contracts. Its existence alone does not mean its proposal has been accepted. Of the kind *what it intends to become*.

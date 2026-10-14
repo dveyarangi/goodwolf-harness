@@ -28,7 +28,7 @@ The previous definition was scale-blind: a bounded, verifiable outcome can still
 
 | Scale | What is controlled | Typical representation |
 |---|---|---|
-| Direction / milestone / capability | Intended change and governing agreements | A spec, roadmap or parent ticket, as appropriate |
+| Direction / milestone / capability | Intended change and governing agreements | A question's `Where it stands`, a roadmap or a parent ticket, as appropriate |
 | Delivery work | A verifiable slice, dependencies and readiness | A ticket or subticket |
 | Execution step | One bounded operation or pass and its feedback | A skill invocation or a bounded stage within it, recorded on the existing work |
 
@@ -80,8 +80,8 @@ Different parts of one project can have different maturity. A new subsystem in a
 - How to distinguish changes of scale from pace: what agreement is needed versus what proceeds now.
 - Which scales need explicit representation and which artifact levels can be omitted at a given project stage.
 - How to bound a skill pass, decide whether another pass adds needed evidence, and observe stage changes without imposing fixed approval or repetition counts.
-- The general spec gate. Architecture change alone is a hypothesis to test through `/impact`, not an adopted automatic trigger.
-- How a ticket gives rise to a spec and delivery tickets without losing identity, ownership or history.
+- The general gate to an align on the question. Architecture change alone is a hypothesis to test through `/impact`, not an adopted automatic trigger.
+- How a ticket gives rise to an align on its question and delivery tickets without losing identity, ownership or history.
 - How natural-language "next step" requests reach the assessment through Tier 1 and how that routing is observed.
 
 ## Context

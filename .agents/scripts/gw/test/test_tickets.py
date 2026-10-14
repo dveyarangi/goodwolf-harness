@@ -48,10 +48,10 @@ PLANNED_BEFORE = (
 )
 # A ticket minted the day the format moved, and so held to the narrowed shape.
 AFTER = BEFORE.replace("2026-09-08", tickets.FORMAT_MOVED)
-NAMED_FIVE = (
-    "## Parent\n\nThe spec.\n\n## What to build\n\nThe thing.\n\n"
+NAMED_FOUR = (
+    "## Parent\n\nThe coarse ticket.\n\n## What to build\n\nThe thing.\n\n"
     "## Acceptance criteria\n\n- [ ] It works.\n- [ ] `/verify` has been run.\n\n"
-    "## Out of scope\n\nThe rest.\n\n## Parent scope addressed\n\nStories 1, 2.\n"
+    "## Out of scope\n\nThe rest.\n"
 )
 
 
@@ -345,17 +345,27 @@ class TheSections(Records):
         self.assertEqual([], self.problems())
 
     def test_a_ticket_minted_since_the_format_moved_holding_a_narrative_section_is_reported(self) -> None:
-        self.write(LIVE, ticket(AFTER, sections="## Why this exists\n\nBecause.\n\n" + NAMED_FIVE))
+        self.write(LIVE, ticket(AFTER, sections="## Why this exists\n\nBecause.\n\n" + NAMED_FOUR))
 
         problems = self.problems()
 
         self.assertEqual(1, len(problems), problems)
         self.assertIn("`Why this exists`", problems[0])
 
-    def test_a_ticket_minted_since_the_format_moved_may_hold_the_five_named_sections(self) -> None:
-        self.write(LIVE, ticket(AFTER, sections=NAMED_FIVE))
+    def test_a_ticket_minted_since_the_format_moved_may_hold_the_four_named_sections(self) -> None:
+        self.write(LIVE, ticket(AFTER, sections=NAMED_FOUR))
 
         self.assertEqual([], self.problems())
+
+    def test_parent_scope_addressed_left_with_the_spec_it_counted(self) -> None:
+        # The section recorded which of a spec's stories a slice closed; the spec is retired, so a
+        # narrowed ticket holding it holds a fifth section (q-0037.0009.0017).
+        self.write(LIVE, ticket(AFTER, sections=NAMED_FOUR + "\n## Parent scope addressed\n\nStories 1, 2.\n"))
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems), problems)
+        self.assertIn("`Parent scope addressed` is outside the four sections", problems[0])
 
     def test_a_ticket_minted_before_the_format_moved_is_not_reported_for_any_section(self) -> None:
         sections = (

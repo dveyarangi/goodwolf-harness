@@ -84,8 +84,6 @@ PAINTED_DOORS = frozenset(
         # TODO q-0037.0009.0013: /plan's, which go with its declaration.
         "docs/rfc/",
         "docs/rfc/done/",
-        # TODO q-0037.0009.0017: /spec's, which goes with its declaration.
-        "docs/spec/",
         # TODO q-0037.0009.0006: /conclude's, which goes with its declaration.
         "docs/sessions/",
         # TODO q-0037.0009.0008: /dream's, which goes with its declaration.

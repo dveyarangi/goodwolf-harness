@@ -71,7 +71,7 @@ only what no record in this tree carries.
 
 <rule>
 Prefix the subject with the loop step that produced the work, uppercase, then a colon — one of
-these and no other: `ALIGN`, `SPEC`, `TICKET`, `PLAN`, `IMPLEMENT`, `VERIFY`, `MAINTAIN`,
+these and no other: `ALIGN`, `TICKET`, `PLAN`, `IMPLEMENT`, `VERIFY`, `MAINTAIN`,
 `DISCOVER`, `RECALL`, `CONCLUDE`; outside the ring, `FIX` for a repair taken on its own, `EQUIP`
 for a change to the harness's own installation, `DREAM` for a record the second lobe wrote. A
 name for what the commit touched — the entry file, the local rules, the question store, an RFC —

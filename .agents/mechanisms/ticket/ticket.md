@@ -43,7 +43,7 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | P11 — the question's body and the ticket are swept when the align ends | `/align`'s own text, moved here 2026-09-29; the body, the user, 2026-10-11 |
 | P12 — the live tickets are read from the list | the user, 2026-10-10 |
 | the record's shape — one header form, `Type` required, `Kind` gone, `Outcome` one sentence | the user, 2026-09-08 |
-| the contract; `Minted` required and the shape read from it; the five sections alone, the stage and the narrative gone | the user, 2026-10-11 |
+| the contract; `Minted` required and the shape read from it; the named sections alone, the stage and the narrative gone | the user, 2026-10-11; `Parent scope addressed` gone, four left, 2026-10-15 |
 | the status vocabulary, numbering and one basename per work item | with the selected skills, 2026-09-06 |
 | check-only, and nothing retires this | the user, 2026-09-08 |
 
@@ -51,7 +51,7 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 
 | moment | instructed by | kind, and why |
 |---|---|---|
-| deciding a chunk is ticket-sized, or needs `/align` or a spec first | `.agents/skills/ticket/SKILL.md` | |
+| deciding a chunk is ticket-sized, or needs `/align` first | `.agents/skills/ticket/SKILL.md` | |
 | decomposing a parent into slices, and impacting the split | `.agents/skills/ticket/SKILL.md` | |
 | presenting the breakdown for approval under the `breakdown` switch | `.agents/skills/ticket/SKILL.md` | |
 | numbering, naming and placing a ticket | `.agents/skills/ticket/TICKET-FORMAT.md` | |

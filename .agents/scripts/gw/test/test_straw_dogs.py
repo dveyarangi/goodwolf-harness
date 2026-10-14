@@ -278,7 +278,7 @@ class Guessing(Bound):
         self.assertEqual([], self.guessed()[1]["candidates"])
 
     def test_the_folders_the_harness_imposes_are_skipped_whole_and_a_projects_own_is_read(self) -> None:
-        for folder in ("tickets", "rfc", "spec", "sessions"):
+        for folder in ("tickets", "rfc", "sessions"):
             self.write(f"docs/{folder}/one.md", "# One\n\nProvisional until the align.\n")
         self.write("docs/research/one.md", "# Research\n\nHeld for now.\n")
 

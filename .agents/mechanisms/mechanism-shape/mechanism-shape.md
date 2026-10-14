@@ -86,7 +86,7 @@ absence is honestly classified, are judgements it records and never makes.
 The last two are shared by every script in the tree and claimed here because this mechanism is
 the one that cannot leave: where a shared part's ownership bites, the claimant is the always-on
 mechanism, so no uninstall can remove what another mechanism needs *(the user, 2026-09-08,
-applying the spec's ownership decision)*.
+applying the shape's own ownership decision)*.
 
 ## Relies on, and does not own
 

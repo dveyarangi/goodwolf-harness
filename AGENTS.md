@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v90, 2026-10-14.
+Entry contract: v91, 2026-10-15.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -195,16 +195,16 @@ Two rings, joined at /align.
     delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket
 
 /align opens the delivery ring and is where it returns whenever a decision is needed:
-/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.
+<straw-dog question="q-0037.0010.0002.0005">a load-bearing shape is aligned on its question until its `Where it stands` is accepted,</straw-dog> /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.
 
-Human checkpoints: every decision at /align; spec accepted; and, as their switches under
+Human checkpoints: every decision at /align; a question's `Where it stands` accepted; and, as their switches under
 [Autonomy](#autonomy) set them, breakdown, commit, push and the next cycle at /maintain → /ticket.
 
 Do not reopen an accepted decision without new evidence.
 
 ### Helpers
 
-- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.
+- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (<straw-dog question="q-0037.0010.0002.0005">an align on its question for load-bearing work, tickets for mechanical</straw-dog>), work units slicing or whether a shape deserves further investigation due to hidden complexity.
 - /discover to investigate hidden complexity, by detecting what else the shape is.
 
 ## Self-improvement

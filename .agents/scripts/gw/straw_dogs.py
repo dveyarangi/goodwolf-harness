@@ -53,7 +53,7 @@ TICKET_PATH = re.compile(r"docs/tickets/[\w./-]+\.md")
 _OLD_ATTRIBUTE = re.compile(r'\b(until|ticket)\s*=\s*"([^"]*)"', re.S)
 # The record folders the harness itself imposes: provisional by status, or history, never a
 # surface read as truth, so never guessed over. A project's own folders are its own to judge.
-_WORKING_RECORDS = ("docs/tickets/", "docs/rfc/", "docs/spec/", "docs/sessions/")
+_WORKING_RECORDS = ("docs/tickets/", "docs/rfc/", "docs/sessions/")
 # The tells. Small on purpose: every sentence the demonstration rested on carried one of these,
 # and anything cleverer would be guessing about guessing.
 _TELLS = re.compile(

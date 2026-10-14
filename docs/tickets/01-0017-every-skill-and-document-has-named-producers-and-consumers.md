@@ -238,8 +238,3 @@ Whether a rule *arrives* at its occasion is [01-0018](./01-0018-rules-reach-the-
 Building the shape and proving it on one mechanism is
 [01-0011](../spec/01-0011-mechanism-shape.md)'s children; this applies what they proved.
 Relocating `docs/architecture.md`'s script contracts, which moves for a different reason.
-
-## Parent scope addressed
-
-The spec's generalisation step: stories 13, 14, 21, 22, and the second mechanism that proves the
-shape holds beyond the one it was built on.

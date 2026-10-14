@@ -12,9 +12,9 @@ Mechanism: ticket
 
 Break a parent work into independently-grabbable tickets using vertical slices
 (tracer bullets), written as local markdown files under `docs/tickets/`. The
-parent is a **PRD** at inception, a **coarse ticket** when zooming in; or the
-currently discussed/referenced chunk of work; the same slicing principles apply
-at every resolution.
+parent is the **question** the work answers at inception, a **coarse ticket**
+when zooming in; or the currently discussed/referenced chunk of work; the same
+slicing principles apply at every resolution.
 
 ## Layout
 
@@ -78,7 +78,7 @@ run `/impact` again until the split is what you will present.
 
 <straw-dog question="q-0037.0006.0001">
 `/impact`'s current output is whether the split is balanced (proceed, narrow,
-rethink, postpone). Record that. It does not yet recommend spec / ticket /
+rethink, postpone). Record that. It does not yet recommend align / ticket /
 RFC / re-slice; that extension is the parent's, not this skill's.
 </straw-dog>
 
@@ -90,8 +90,6 @@ note. For each slice, show:
 - **Title**: short descriptive name
 - **Interaction**: HITL / AFK
 - **Depends on**: which other slices (if any) must complete first
-- **Parent scope covered**: which user stories or acceptance criteria of the
-  parent this addresses
 
 Ask the user:
 
@@ -130,7 +128,8 @@ assessment.
 
 An align runs on the question its work answers, and that question's body is
 its working document. A ticket is minted from the body once the form of the
-work is seen, never before — for decision-bearing work, after its align.
+work is seen and the person has accepted its `Where it stands`, never before —
+for decision-bearing work, after its align.
 
 - **Question promotion:** an open question in `docs/questions/` that becomes
   work is assigned to the ticket minted for it with `assign`; its argument

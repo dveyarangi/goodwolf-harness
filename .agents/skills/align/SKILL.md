@@ -24,7 +24,7 @@ suggestion; do not mint. A breakdown reached by unaided grouping is not that cha
 however ticket-shaped it looks.
 </straw-dog>
 
-Do not enact the plan before I confirm we have reached a shared understanding.
+Do not enact the plan before I confirm we have reached a shared understanding: the question's `Where it stands` holds the whole, and I have accepted it.
 
 
 </what-to-do>
