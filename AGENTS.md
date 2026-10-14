@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v89, 2026-10-14.
+Entry contract: v90, 2026-10-14.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -73,7 +73,7 @@ the user overturns by saying so; a record out of agreement with what it is of, m
 under `| 🍂 Drift |`. Under `debug=on` also: one party's work or claim colliding with another's —
 another session standing where this one works — met and not resolved, under `| 🪢 Tangle |`, even
 where a record's disagreement is what shows it. The 🪢 table's header lists every running session's
-question, this one's included, on one line, each by its id linked to its entry, `—` for a session
+question, this one's included, on one line, each by its id alone, linked to its entry, `—` for a session
 with no position; each collision is a row under it, naming the sessions it involves. The table
 stands whenever another session runs: its header is enough, with no collision under it.
 
@@ -136,9 +136,10 @@ Only the working agent calls, never a helper. For any other call, a closure, a b
 drop, read the questions skill.
 
 **Q5** Every time a reply names a question — a table's cell included — its whole id is a link to its
-entry; the first time, its question follows as the window writes it. No word stands in for a
-question a reader has not been shown — *as before*, *the same* — it is named. A question the store
-does not hold yet is written out, never named after the ticket it will belong to.
+entry; the first time, its question follows as the window writes it, save where a table's form
+names it by its id alone. No word stands in for a question a reader has not been shown — *as
+before*, *the same* — it is named. A question the store does not hold yet is written out, never
+named after the ticket it will belong to.
 </installed>
 
 ## Core and instance

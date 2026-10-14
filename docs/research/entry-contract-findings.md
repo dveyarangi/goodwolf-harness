@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v90 — 2026-10-14
+
+**A table's id-only form wins over Q5's words** — the 🪢 header names each session's question by
+its linked id alone, and Q5's first mention carries the question's words save where a table's form
+names it by id. The first 🪢 table under v89 wrote each question's words beside its id; the user:
+*unreadable — in the table the question's id as a clickable link is enough.*
+
 ## v89 — 2026-10-14
 
 **The 🪢 table stands whenever another session runs** — its header alone, with no collision

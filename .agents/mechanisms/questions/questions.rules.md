@@ -89,13 +89,14 @@ of the subtree in one invocation, into `docs/questions/done/`.
 ## Q5 — a question is named by a link and its words
 
 - **target** `AGENTS.md`
-- **authority** the user, 2026-10-03 — rule failure 17; every mention a link, 2026-10-12
+- **authority** the user, 2026-10-03 — rule failure 17; every mention a link, 2026-10-12; a table's id-only form, 2026-10-14
 
 <rule>
 Every time a reply names a question — a table's cell included — its whole id is a link to its
-entry; the first time, its question follows as the window writes it. No word stands in for a
-question a reader has not been shown — *as before*, *the same* — it is named. A question the store
-does not hold yet is written out, never named after the ticket it will belong to.
+entry; the first time, its question follows as the window writes it, save where a table's form
+names it by its id alone. No word stands in for a question a reader has not been shown — *as
+before*, *the same* — it is named. A question the store does not hold yet is written out, never
+named after the ticket it will belong to.
 </rule>
 
 ## Q6 — a decision lands as it is made
