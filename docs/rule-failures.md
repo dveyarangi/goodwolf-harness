@@ -33,10 +33,8 @@ taken out.
 **Why it did not fire.** Q6 reads every decision as text to land somewhere; a decision that only
 removes an act nothing instructed has no text to land, and Occam was not consulted before writing.
 
-**Proposed amendment**, to Q6: *A decision not to do what nothing instructs lands in its question
-alone.*
-
-**Disposition:** registered; the amendment waits on the user.
+**Amendment landed** in Q6, the user, 2026-10-14: *A decision not to do what nothing instructs
+lands in its question alone.*
 
 ## 46. An install met three frictions and filed none — 2026-10-14
 

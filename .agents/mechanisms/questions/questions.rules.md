@@ -102,7 +102,7 @@ named after the ticket it will belong to.
 ## Q6 — a decision lands as it is made
 
 - **target** `.agents/skills/align/SKILL.md`
-- **authority** the user, 2026-10-11; moved here from the ticket's P7
+- **authority** the user, 2026-10-11; moved here from the ticket's P7; a decision not to act, 2026-10-14
 
 <rule>
 Land a decision as it is made, with its provenance: final in its durable home where no open
@@ -110,5 +110,6 @@ question's answer can change its form or home, otherwise as a straw dog bound to
 ancestor whose answer can. One with nowhere to land yet — its home is work not done — is a line in
 the `## Decisions` list of the lowest question holding everyone who needs it, and takes
 `→ <link>` when it lands. Close the question it answers against where it landed, and when a line
-lands, repoint every entry closed against its list there.
+lands, repoint every entry closed against its list there. A decision not to do what nothing
+instructs lands in its question alone.
 </rule>

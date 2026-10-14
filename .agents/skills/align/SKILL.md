@@ -159,7 +159,8 @@ question's answer can change its form or home, otherwise as a straw dog bound to
 ancestor whose answer can. One with nowhere to land yet — its home is work not done — is a line in
 the `## Decisions` list of the lowest question holding everyone who needs it, and takes
 `→ <link>` when it lands. Close the question it answers against where it landed, and when a line
-lands, repoint every entry closed against its list there.
+lands, repoint every entry closed against its list there. A decision not to do what nothing
+instructs lands in its question alone.
 </installed>
 
 <installed by="product">
