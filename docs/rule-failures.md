@@ -17,6 +17,27 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 48. A long session's replies left L9's voice and promised to try — 2026-10-14
+
+**Rules in play:** L9, *plain, exact and dry, an argument the reader can follow … never
+agent-speak, the voice of a tool narrating its own steps*.
+
+**What happened.** Over a session of some forty turns on autonomy and git, the replies drifted: an
+argument laid out as tables; words coined and never explained (*ручка*, *срез*); a discovery's
+phrasing passed on untranslated — *who is hurt if main breaks*, *how fast* — which the user could
+not follow; the agent narrating its own steps. Asked whether it still wrote like Lem, the reply
+said no and that it *would try to keep closer to the rule*. The user: *how exactly will you try?
+what instruments do you have to try with?*
+
+**Why it did not fire.** L9 is at tier 1 and was in context every turn; it names the voice in
+abstractions and none of the shapes the drift took, so nothing at the moment of writing matched
+them. A promise to try is no instrument: only the rule's wording is.
+
+**Amendment landed** in L9, this project's local rule, below self-improvement's dial at a core rule
+(q-0037.0013.0005, decision 4): *A word it coins is explained where it first appears, another
+source's phrasing is put into the person's words before it reaches them, and an argument is never
+broken into a table.* Graded by the next replies of this session and the next.
+
 ## 47. A decision not to act was landed as three rules — 2026-10-14
 
 **Rules in play:** Occam, *say what need not exist: a rule … that the work would not miss, said
