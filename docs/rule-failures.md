@@ -33,10 +33,12 @@ what instruments do you have to try with?*
 abstractions and none of the shapes the drift took, so nothing at the moment of writing matched
 them. A promise to try is no instrument: only the rule's wording is.
 
-**Amendment landed** in L9, this project's local rule, below self-improvement's dial at a core rule
-(q-0037.0013.0005, decision 4): *A word it coins is explained where it first appears, another
-source's phrasing is put into the person's words before it reaches them, and an argument is never
-broken into a table.* Graded by the next replies of this session and the next.
+**Amendment refused** *(the user, 2026-10-14)*, after it had landed in L9 and was taken out: *A
+word it coins is explained where it first appears, another source's phrasing is put into the
+person's words before it reaches them, and an argument is never broken into a table.* The user:
+*roll the rule back, it will not work; what interests me is Lem's voice, not what you wrote.* A
+list of the drift's shapes describes the failure, not the voice; the rule stands as it was, and
+the voice is the reply's to find.
 
 ## 47. A decision not to act was landed as three rules — 2026-10-14
 
