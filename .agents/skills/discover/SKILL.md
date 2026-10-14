@@ -39,8 +39,9 @@ work has inverted, and the honest name for that is worthening.
 
 ## Run it
 
-**Describe the shape functionally, in nobody's vocabulary.** No local file names, no local
-rule numbers, no local record names, no house terms. If the pass can only answer in your
+**Ask the question the shape answers, not the shape:** what it is for, the situation it serves,
+without how this tree meets it — a shape described, in anyone's words, sends its frame along. No
+local file names, no local rule numbers, no local record names, no house terms. If the pass can only answer in your
 words, it never left — and this is the whole of the method, so it is worth more care than the
 rest of the tasking put together.
 

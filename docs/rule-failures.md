@@ -35,12 +35,10 @@ and keeps the frame, since a shape told in anyone's words is still this tree's c
 second states a degree, *as little as the subject allows*, and the subject was read as the shape.
 Neither says to ask the question the shape answers instead of the shape.
 
-**Proposed amendment**, to `/discover`'s *Run it*, its first rule: *Ask the question the shape
-answers, not the shape: what it is for, the situation it serves, without how this tree meets it —
-a shape described, in anyone's words, sends its frame along.*
-
-**Disposition:** registered; the amendment waits on the user — a skill's act, above
-self-improvement's dial at a core rule.
+**Amendment landed** in `/discover`'s *Run it*, its first rule, the user, 2026-10-15: *Ask the
+question the shape answers, not the shape: what it is for, the situation it serves, without how
+this tree meets it — a shape described, in anyone's words, sends its frame along.* Graded by the
+next discovery's tasking.
 
 ## 48. A long session's replies left L9's voice and promised to try — 2026-10-14
 
