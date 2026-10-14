@@ -1,6 +1,6 @@
 ---
 name: product
-description: Keep the project's product document — the pains it relieves, its goals, the causes and the answers — and see how much of each answer is built. Use when a decision about what the project is for lands as an answer, when writing or reading the product document, or when asked which answers are built, being built, or not started.
+description: Keep the project's product document — the pains it relieves, its goals, the causes and the answers — and see how much of each answer is built. Use when a decision about what the project is for lands as an answer, when writing or reading the product document, or when asked which answers are built, being built, or not started, or what each queued ticket builds and which answers no ticket does.
 ---
 
 Mechanism: product
@@ -22,5 +22,8 @@ never renumbered and a name.
    none. Its sub-questions carry it without writing it.
 3. **See coverage.** `product.py --coverage` renders each answer as absent, in progress or present,
    read from the questions that realize it. Coverage is never written into the document.
+4. **See the queue beside it.** `product.py --queue` renders what each live ticket realizes and the
+   answers left out — neither present nor realized by a ticket — under each pain and goal they
+   serve, for the person ordering the work. It ranks nothing and is never written into the queue.
 
 Check the document's form with `product.py --check`.

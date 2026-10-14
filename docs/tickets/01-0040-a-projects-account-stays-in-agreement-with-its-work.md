@@ -26,7 +26,7 @@ The slices, in the order their dependencies allow:
 - [01-0040.0030 a-decided-purpose-question-opens-its-building](./done/01-0040.0030-a-decided-purpose-question-opens-its-building.md)
 - [01-0040.0035 an-existing-project-gets-a-product-document-the-check-can-read](./done/01-0040.0035-an-existing-project-gets-a-product-document-the-check-can-read.md), added 2026-10-14
 - [01-0040.0040 this-trees-account-runs-on-the-mechanism](./done/01-0040.0040-this-trees-account-runs-on-the-mechanism.md)
-- [01-0040.0050 the-queue-shows-what-each-item-realizes](./01-0040.0050-the-queue-shows-what-each-item-realizes.md)
+- [01-0040.0050 the-queue-shows-what-each-item-realizes](./done/01-0040.0050-the-queue-shows-what-each-item-realizes.md)
 - [01-0040.0060 seeded-roots-come-from-their-mechanisms](./01-0040.0060-seeded-roots-come-from-their-mechanisms.md)
 - [01-0040.0070 the-root-readme-is-told-from-the-product-document](./01-0040.0070-the-root-readme-is-told-from-the-product-document.md)
 

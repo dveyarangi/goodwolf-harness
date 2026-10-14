@@ -1,6 +1,6 @@
 # product — keeps one account of what the project is for, and reads from the work how much of it is built
 
-- **instruction** `.agents/skills/product/SKILL.md` — the act: keeping the product document, seeing each answer's coverage
+- **instruction** `.agents/skills/product/SKILL.md` — the act: keeping the product document, seeing each answer's coverage and the queue beside it
 - **state** installed
 - **record of** what must always hold
 
@@ -64,6 +64,7 @@ check fails.
 | keeping the product document | `.agents/skills/product/SKILL.md` | |
 | writing the document to its shape | `.agents/skills/product/PRODUCT-FORMAT.md` | |
 | seeing each answer's coverage | `.agents/skills/product/SKILL.md` | |
+| seeing, beside the queue, what each item realizes and which answers are left out | `.agents/skills/product/SKILL.md` | |
 | checking the document's form | `.agents/scripts/gw/product.py` | |
 | checking the document in a maintenance pass | `.agents/skills/maintain/SKILL.md` | |
 | a purpose decision landing as an answer, its building question opened with a trace link | `.agents/skills/align/SKILL.md` | |
@@ -107,6 +108,9 @@ check fails.
   project is for, and by whoever opens a building question for an answer.
 - **The coverage rendering** — *what exists* — read by the person ordering the work, on request;
   never committed.
+- **The queue rendering** — *what exists* — what each live ticket realizes, read through the
+  store's owner part and the trace link, and the answers left out under each pain and goal; read
+  by the person ordering the work, on request, never written into the queue.
 - **The maintainer's report** — *what exists* — read by `/maintain` under U1. Its exit status is
   the verdict; its JSON is for the person reading a failure. It writes nothing.
 - **The rules file** — *what must always hold* — read by the installer alone, and by whoever amends
