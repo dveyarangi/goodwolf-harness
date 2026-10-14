@@ -17,6 +17,23 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 45. Figures were written into a record before they were counted — 2026-10-14
+
+**Rules in play:** L9, *"it invents nothing: what it tells is what happened"* — written for a
+reply's prose; the record that took the figures was an RFC.
+
+**What happened.** Recording the first run of `product.py --queue` over this tree in 01-0040.0050's
+RFC, I wrote *71 live tickets* and *30 answers left out* before anything had counted them. A count
+run afterwards printed 37 and 24; the RFC was corrected before its commit, and the reply said so.
+
+**Why it did not fire.** L9 reaches a reply. A record written mid-implementation — an RFC's *found
+while building* — is no reply, and nothing at that occasion asks where a figure came from.
+
+**Proposed amendment**, to L9 or beside it, its home the user's to name: *A figure in a reply or a
+record is one a run printed; one not yet counted is not written.*
+
+**Disposition:** registered; the amendment waits on where it belongs.
+
 ## 44. A case that answered a call in-process stood for the run that makes it — 2026-10-14
 
 **Rules in play:** none covers it — a slip, entered so a repeat is seen.
