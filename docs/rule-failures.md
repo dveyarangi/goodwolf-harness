@@ -230,6 +230,15 @@ the rule asks for were nowhere in context, and the reply supplied them.
 **Amendment landed** in `questions.py`: the window names each other running session's position
 with its question's words. Graded by the next 🪢 table.
 
+**Struck, 2026-10-14 — the table never came.** A `/recall` under `debug=on`, seven sessions
+running, found no collision and read *a table only where it has one* as dropping 🪢 whole, header
+included. The neighbours went into prose, their questions told in the reply's own words with no id
+and no link, Q5 broken beside it. The user: *why did you not show the neighbours block?* The
+window's fix held; the rule gave the reply leave to skip the place the words were to land.
+
+**Amendment landed** in the entry file, v89: the 🪢 table stands whenever another session runs, its
+header enough with no collision under it. Graded by the next reply with neighbours and no collision.
+
 ## 34. A first install ended in a technical report, and asked for a commit the switch allowed — 2026-10-11
 
 **Rules in play:** the entry file's `commit` switch, *`auto`: commit when `/verify` has passed on

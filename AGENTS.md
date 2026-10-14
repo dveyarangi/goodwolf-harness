@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v88, 2026-10-13.
+Entry contract: v89, 2026-10-14.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -74,7 +74,8 @@ under `| 🍂 Drift |`. Under `debug=on` also: one party's work or claim collidi
 another session standing where this one works — met and not resolved, under `| 🪢 Tangle |`, even
 where a record's disagreement is what shows it. The 🪢 table's header lists every running session's
 question, this one's included, on one line, each by its id linked to its entry, `—` for a session
-with no position; each collision is a row under it, naming the sessions it involves.
+with no position; each collision is a row under it, naming the sessions it involves. The table
+stands whenever another session runs: its header is enough, with no collision under it.
 
 Head the reply with a one-cell table holding a row for each of the turn's store
 calls, in order, the first over `|---|`: `| 📍 **q-N** · <its question as the window writes it> |`

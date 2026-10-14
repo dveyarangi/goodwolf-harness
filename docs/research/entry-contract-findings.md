@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v89 — 2026-10-14
+
+**The 🪢 table stands whenever another session runs** — its header alone, with no collision
+under it, is a table. A `/recall` under `debug=on`, seven sessions running and no collision found,
+read *a table only where it has one* as dropping 🪢 whole; the neighbours went to prose under
+wordings of the reply's own, without ids. The user: *why did you not show the neighbours block?*
+[Rule failure 35](../rule-failures.md), struck.
+
 ## v88 — 2026-10-13
 
 **No word stands in for a question** — Q5 adds that a question the reader has not been shown is
