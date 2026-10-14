@@ -126,6 +126,7 @@ is not a part: it never ships, and a recipient has its own.
 | reading a refusal and resuming | `.agents/skills/harness/SKILL.md` | |
 | populating the local file after the first install | `.agents/skills/harness/SKILL.md` | |
 | pointing a tree at another core, as a fork does | `.agents/skills/harness/SKILL.md` | |
+| reporting friction met in a run to the repository | `.agents/skills/harness/SKILL.md` | |
 | re-checking a recipient's copy against its ref in a maintain pass | — | <straw-dog question="q-0037.0006.0012">not yet</straw-dog> |
 | knowing an update is available | — | unowned by design — a person asks for one; nothing polls the repository |
 | verifying that a host reads the loader link | — | <straw-dog question="q-0037.0006.0004.0001">not yet</straw-dog> |

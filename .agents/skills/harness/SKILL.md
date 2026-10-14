@@ -103,6 +103,15 @@ Every refusal writes nothing and names its step.
   its own — a change, an ignored file, a commit its origin's branches lack — is somebody's work and
   is refused: install into the project's own folder instead.
 
+## Friction goes upstream
+
+<straw-dog question="q-0037.0006.0014">
+File any friction in a run — a crash, a workaround, a step this skill did not foresee — as an issue
+on the repository the `Repository:` line names, on the person's yes: the ref, the command, the
+platform, the step, the error verbatim, the workaround. Nothing of the project's own. A workaround
+left in the recipient links the issue.
+</straw-dog>
+
 ## After the first install
 
 The tree has core and no answers, and its entry file arrived after this session began, so none of
