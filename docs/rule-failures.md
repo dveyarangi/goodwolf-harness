@@ -17,6 +17,33 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 50. Four skills were changed without `/skill-up`, which asks nothing about growth — 2026-10-15
+
+**Rules in play:** `/skill-up`'s description, *Use whenever writing any agent instructions*; its
+*Be precise and concise*; the entry file's Occam, *remove before you add*.
+
+**What happened.** On 2026-10-14 and 15 the harness skill, setup-devops, `/discover` and the
+questions skill were amended without `/skill-up` being invoked. The questions skill took a new
+paragraph on the body's form, reaching 2,339 words: the largest skill in the set, 2.25 times its
+1,038 words at birth, grown at every one of its last twelve commits and shrunk at none. The user:
+*make sure the skill does not grow without measure and keeps its mark; and check that skill-up asks
+for a check of growth and of the chance to compact.* It does not: it asks for precision and for
+no restatement of another skill, and nothing about the skill's own size, what an amendment
+removes, or what a script or a format file should carry instead.
+
+**Why it did not fire.** The description names the occasion broadly, and an edit felt like a
+small amendment rather than *writing instructions*. Had it fired, it would still have asked nothing
+about growth: Occam's *remove before you add* stands at tier 1 as a principle, and no step at the
+moment a skill is changed applies it.
+
+**Proposed amendment**, to `/skill-up`, a step of its own: *Weigh the whole skill on every change:
+say what the change removes before what it adds, and compare the body's size before and after. A
+body that has only grown is read whole for what restates another home, what a script already does
+for the reader, and what is a record's format, which goes to a format file beside it.*
+
+**Disposition:** registered; the amendment waits on the user — a skill's act, above
+self-improvement's dial at a core rule.
+
 ## 49. A discovery's tasking described the method it was meant to step outside — 2026-10-15
 
 **Rules in play:** `/discover`, *Describe the shape functionally, in nobody's vocabulary* and

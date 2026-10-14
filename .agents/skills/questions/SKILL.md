@@ -182,8 +182,9 @@ one. It runs in three parts, in this order:
 
 **The decisions list** is the body's `## Decisions` section, up to the next `## ` heading: a
 decision with nowhere to land yet is an item, `- ` or `N. `, and takes `→ <link>` to its home when
-it lands. A decision that refused an alternative names it and why, after `Not:`. The script reads the list at `close` and in the check and never writes it; prose between
-the items and a fenced block hold no decision.
+it lands. A decision that refused an alternative names it and why, after `Not:`. The script reads
+the list at `close` and in the check and never writes it; prose between the items and a fenced
+block hold no decision.
 
 **record of** opens the parts: what the entry is a record of — *what it intends to become* while
 open, *what happened* once closed — so whoever writes its body meets the kind in context. The
