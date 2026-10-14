@@ -25,7 +25,7 @@ script writes from its shelf, the install only calling it; and the product docum
 product mechanism's script writes from its shelf the same way. A tree that already has any of them
 keeps it untouched, overwrite included: from its first line each is the instance's. A product
 document there in another form is named in the report, since its check fails *(the user,
-2026-10-14)*. **A third kind is
+2026-10-14)*. **A fourth is
 merged rather than written**: each host's shared, committed hook file, never a local settings
 file, receives core's hook entries beside the project's own *(the user, 2026-10-09)*. The entries'
 words are the questions mechanism's shelf, shipped as core; an update replaces core's entries and
