@@ -17,6 +17,27 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 47. A decision not to act was landed as three rules — 2026-10-14
+
+**Rules in play:** Occam, *say what need not exist: a rule … that the work would not miss, said
+before it is built*; *A capable reader*; Q6, *land a decision as it is made*, pulling the other way.
+
+**What happened.** At 01-0010.0170's re-read the user decided that a first install builds no
+environment; it waits until the project's requirements are known. Nothing instructed the install
+to build one. The reply landed the decision anyway: a negative line in the harness skill, a
+description in setup-devops naming the vague moment *once the requirements are known*, and a straw
+dog repeating both. The user: *what is the purpose of negative instructions? the model is already
+smart enough … it is useless to define vague moments using rules … just do not.* All three were
+taken out.
+
+**Why it did not fire.** Q6 reads every decision as text to land somewhere; a decision that only
+removes an act nothing instructed has no text to land, and Occam was not consulted before writing.
+
+**Proposed amendment**, to Q6: *A decision not to do what nothing instructs lands in its question
+alone.*
+
+**Disposition:** registered; the amendment waits on the user.
+
 ## 46. An install met three frictions and filed none — 2026-10-14
 
 **Rules in play:** the harness skill's *Friction goes upstream*, landed the same night and in the
