@@ -21,6 +21,7 @@ from repository import SCRIPTS, RepositoryCase, folder_listing, proves_a_process
 import harness
 import inject_rules
 import mechanisms
+import product
 import questions
 
 KEEPER = ".agents/skills/keeper/SKILL.md"
@@ -48,6 +49,19 @@ QUESTIONS_SKILL_TEXT = (
 )
 STORE_ARRIVAL = ".agents/skills/questions/STORE-ARRIVAL.md"
 STORE = "docs/questions"
+PRODUCT_SKILL = ".agents/skills/product/SKILL.md"
+PRODUCT_SKILL_TEXT = (
+    "---\nname: product\ndescription: keeps the product document\n---\n\n"
+    "Mechanism: unowned by design — this fixture's core declares only sample\n\n"
+    "Keep it.\n"
+)
+PRODUCT_ARRIVAL = ".agents/skills/product/PRODUCT-ARRIVAL.md"
+PRODUCT_DOCUMENT = "docs/product.md"
+FIXTURE_PRODUCT = "# What the fixture is for\n\n## Answers\n\n| answer | causes | waits on |\n|---|---|---|\n"
+
+
+def product_arrival_text(said: str = FIXTURE_PRODUCT) -> str:
+    return f"# The fixture's empty product document\n\n```product-document\n{said}```\n"
 # The fixture's own words, never the shipped ones: an install seeding these proves the installer
 # carries no root of its own.
 FIXTURE_ROOTS = ("What is the fixture for?", "How is the fixture built?", "Where does the fixture live?")
@@ -316,6 +330,8 @@ class TwoTrees(RepositoryCase):
         self.write(QUEUE_ARRIVAL, QUEUE_ARRIVAL_TEXT)
         self.write(QUESTIONS_SKILL, QUESTIONS_SKILL_TEXT)
         self.write(STORE_ARRIVAL, store_arrival_text(*FIXTURE_ROOTS))
+        self.write(PRODUCT_SKILL, PRODUCT_SKILL_TEXT)
+        self.write(PRODUCT_ARRIVAL, product_arrival_text())
         for host_file, wiring in FIXTURE_WIRING.items():
             self.write(shelf_path(host_file), json.dumps(wiring, indent=2) + "\n")
         self.write(DOC, SAMPLE_DOC)
@@ -1570,6 +1586,71 @@ class TheRoots(TwoTrees):
         ):
             with self.subTest(reason=reason):
                 self.write(STORE_ARRIVAL, store_arrival_text(*FIXTURE_ROOTS))
+                spoil()
+                self.commit("spoil the shelf")
+                before = self.target_snapshot()
+
+                status, report = self.run_harness("--install")
+
+                self.assertEqual(1, status)
+                self.assertIn(reason, report["refusals"][0])
+                self.assertEqual(before, self.target_snapshot())
+
+
+class TheProductDocument(TwoTrees):
+    """A tree that has the product mechanism keeps the document: one the shelf words is written where
+    none is, by the product script; one already there is the project's, in the format or not."""
+
+    def test_an_install_writes_the_shelfs_document_and_the_check_passes_it(self) -> None:
+        status, report = self.run_harness("--install")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual(FIXTURE_PRODUCT, self.target_text(PRODUCT_DOCUMENT))
+        self.assertIn(PRODUCT_DOCUMENT, report["written"])
+        self.assertEqual([], product.check(self.target)[0])
+
+    def test_an_update_of_a_tree_with_no_document_writes_one(self) -> None:
+        self.run_harness("--install")
+        (self.target / PRODUCT_DOCUMENT).unlink()
+
+        status, report = self.run_harness("--update")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual(FIXTURE_PRODUCT, self.target_text(PRODUCT_DOCUMENT))
+
+    def test_an_update_leaves_a_document_in_another_form_and_names_it(self) -> None:
+        self.run_harness("--install")
+        theirs = "# Our vision\r\n\r\nMaps for farmers.\r\n"
+        (self.target / PRODUCT_DOCUMENT).write_text(theirs, encoding="utf-8", newline="")
+
+        status, report = self.run_harness("--update")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual(theirs.encode("utf-8"), (self.target / PRODUCT_DOCUMENT).read_bytes())
+        self.assertNotIn(PRODUCT_DOCUMENT, report["written"])
+        said = [note for note in report["notes"] if PRODUCT_DOCUMENT in note]
+        self.assertEqual(1, len(said), report["notes"])
+        self.assertIn("not in the product format", said[0])
+
+    def test_an_update_leaves_a_document_in_the_format_and_says_only_that(self) -> None:
+        self.run_harness("--install")
+        before = self.target_text(PRODUCT_DOCUMENT)
+
+        status, report = self.run_harness("--update")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual(before, self.target_text(PRODUCT_DOCUMENT))
+        said = [note for note in report["notes"] if PRODUCT_DOCUMENT in note]
+        self.assertEqual(1, len(said), report["notes"])
+        self.assertNotIn("not in the product format", said[0])
+
+    def test_a_ref_whose_shelf_cannot_say_the_document_is_refused_and_nothing_is_written(self) -> None:
+        for spoil, reason in (
+            (lambda: (self.root / PRODUCT_ARRIVAL).unlink(), "no shelf"),
+            (lambda: self.write(PRODUCT_ARRIVAL, "# Product\n\nNo block.\n"), "no `product-document` block"),
+        ):
+            with self.subTest(reason=reason):
+                self.write(PRODUCT_ARRIVAL, product_arrival_text())
                 spoil()
                 self.commit("spoil the shelf")
                 before = self.target_snapshot()

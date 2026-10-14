@@ -39,6 +39,7 @@ from pathlib import Path  # noqa: E402
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import inject_rules  # noqa: E402  (path set just above)
+import product  # noqa: E402
 import questions  # noqa: E402
 from docs_corpus import (  # noqa: E402
     ANNOUNCE,
@@ -243,6 +244,7 @@ def run(
     _write(target, shipment, previous, report)
     _write_delivery_status(target, shipment, report)
     _seed_store(target, report)
+    _seed_product_document(target, report)
     _write_wiring(target, wiring, report)
     _make_links(target, plan, report)
     _exclude_links(target, plan, report)
@@ -452,6 +454,7 @@ class Shipment:
         if HARNESS_SKILL not in files:
             raise Refused(f"ship: {ref.announced} has no {HARNESS_SKILL}; this is not the harness")
         _refuse_unless_the_roots_are_said(files, ref)
+        _refuse_unless_the_product_document_is_said(files, ref)
         return cls(ref, files, arrival_state(files, ref))
 
     @classmethod
@@ -620,6 +623,19 @@ def _refuse_unless_the_roots_are_said(files: dict[str, str], ref: Ref) -> None:
     try:
         questions.arrival_roots(shelf)
     except questions.Refused as refusal:
+        raise Refused(f"ship: {ref.announced}: {refusal}") from refusal
+
+
+def _refuse_unless_the_product_document_is_said(files: dict[str, str], ref: Ref) -> None:
+    """A ref whose product shelf cannot say the empty document is refused while the shipment is
+    built, as one whose store shelf cannot say the roots. Where the shelf sits and how it is read
+    are the product mechanism's, asked of its script."""
+    shelf = files.get(product.ARRIVAL)
+    if shelf is None:
+        raise Refused(f"ship: {ref.announced} has no shelf at {product.ARRIVAL}")
+    try:
+        product.arrival_document(shelf)
+    except product.Refused as refusal:
         raise Refused(f"ship: {ref.announced}: {refusal}") from refusal
 
 
@@ -948,6 +964,28 @@ def _seed_store(target: Path, report: Report) -> None:
     report.written += written
     if not written:
         report.notes.append(f"{questions.STORE} holds entries, so it is the project's: left as it stands")
+
+
+def _seed_product_document(target: Path, report: Report) -> None:
+    """A tree with no product document gets the empty one the product shelf words, on an install or
+    an update alike; the words and the rule of when are the product script's. One already there is
+    the project's, in the format or not, and is left — named when it is not in the format, so the
+    first check failing it is no surprise (the user, 2026-10-14)."""
+    try:
+        written = product.seed(target)
+    except product.Refused as stopped:
+        raise Refused(f"{stopped}; then harness.py . --check") from stopped
+    report.written += written
+    if written:
+        return
+    held = (target / product.DOCUMENT).read_text(encoding="utf-8", errors="replace")
+    if product.in_format(held):
+        report.notes.append(f"{product.DOCUMENT} is the project's: left as it stands")
+    else:
+        report.notes.append(
+            f"{product.DOCUMENT} is the project's and not in the product format: left as it stands, "
+            "and its check fails until it is brought in"
+        )
 
 
 def _wiring_plan(target: Path, shipment: Shipment, previous: Shipment | None) -> dict[str, str]:

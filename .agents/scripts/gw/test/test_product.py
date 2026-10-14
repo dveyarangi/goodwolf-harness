@@ -83,6 +83,41 @@ class ATreeWithNoProductDocument(Product):
         self.assertEqual((0, ""), self.run_script("--coverage"))
 
 
+SHELF = ".agents/skills/product/PRODUCT-ARRIVAL.md"
+EMPTY = "# What this project is for\n\n## Answers\n\n| answer | causes | waits on |\n|---|---|---|\n"
+
+
+def shelf_text(said: str = EMPTY) -> str:
+    return f"# The document before anything is decided\n\nProse around it.\n\n```product-document\n{said}```\n"
+
+
+class TheSeed(Product):
+    def test_a_tree_with_no_document_gets_the_shelfs_and_the_check_passes_it(self) -> None:
+        self.write(SHELF, shelf_text())
+
+        written = product.seed(self.root)
+
+        self.assertEqual([DOCUMENT], written)
+        self.assertEqual(EMPTY, self.read(DOCUMENT))
+        self.assertEqual(([], 0), (self.checked()[1]["diagnostics"], self.checked()[0]))
+
+    def test_a_document_already_there_is_left_byte_for_byte_in_the_format_or_not(self) -> None:
+        self.write(SHELF, shelf_text())
+        for held in (document(answer("A1", "One")), "# Our vision\r\n\r\nMaps for farmers.\r\n"):
+            with self.subTest(held=held[:12]):
+                self.write(DOCUMENT, held)
+
+                self.assertEqual([], product.seed(self.root))
+                self.assertEqual(held.encode("utf-8"), (self.root / DOCUMENT).read_bytes())
+
+    def test_a_shelf_with_no_block_is_refused_and_nothing_written(self) -> None:
+        self.write(SHELF, "# A shelf\n\nNo block here.\n")
+
+        with self.assertRaises(product.Refused):
+            product.seed(self.root)
+        self.assertFalse((self.root / DOCUMENT).exists())
+
+
 class Coverage(Product):
     def setUp(self) -> None:
         super().setUp()
@@ -247,6 +282,19 @@ class TheDocumentsForm(Product):
         problems = self.problems()
         self.assertEqual(1, len(problems), problems)
         self.assertIn("**A<n> <name>**", problems[0])
+
+    def test_a_document_with_no_answers_heading_is_not_in_the_format(self) -> None:
+        self.write(DOCUMENT, "# Our vision\n\nWe make maps for farmers.\n\n## Features\n\n- frost alerts\n")
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems), problems)
+        self.assertIn("not in the product format", problems[0])
+
+    def test_an_answers_heading_with_no_row_is_in_the_format(self) -> None:
+        self.write(DOCUMENT, "# What it is for\n\n## Answers\n\n| answer | causes | waits on |\n|---|---|---|\n")
+
+        self.assertEqual([], self.problems())
 
     def test_a_call_with_no_mode_is_refused_with_its_usage(self) -> None:
         status, said = self.run_script()

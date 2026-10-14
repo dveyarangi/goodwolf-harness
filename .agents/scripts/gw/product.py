@@ -13,7 +13,12 @@ longer has, a row bound where it may not be — fails it; what is missing — an
 answer, a purpose question no row names — is reported and never fails it (the user, 2026-10-13).
 `--coverage` renders, for a person, each answer's coverage — absent, in progress, present — read
 from the questions whose trace links name it, and never written. A tree with no product document
-has nothing to check or render, and passes. The script writes nothing.
+has nothing to check or render, and passes. A document with no answers heading is not in the
+format, and fails.
+
+The one write is `seed`, the installer's to call: where no file is at the document's path, the
+empty document its shelf words, `.agents/skills/product/PRODUCT-ARRIVAL.md`. Everything else
+writes nothing.
 """
 
 from __future__ import annotations
@@ -31,6 +36,8 @@ from docs_corpus import bindings_in  # noqa: E402
 
 DOCUMENT = "docs/product.md"
 ANSWERS = "## Answers"
+ARRIVAL = ".agents/skills/product/PRODUCT-ARRIVAL.md"
+_ARRIVAL_BLOCK = re.compile(r"^```product-document\n(?P<said>.*?)^```", re.M | re.S)
 # TODO q-0037.0018.0011: the store's shelf words these roots too, until each mechanism declares the
 # root it owns — the purpose root this one, the structure root the development method.
 PURPOSE_ROOT = "What is this project for?"
@@ -38,6 +45,10 @@ STRUCTURE_ROOT = "How is this project built?"
 _USAGE = "usage: product.py --check | --coverage"
 _LEAD = re.compile(r"^\*\*(A\d+) +([^*]*[^*\s])\*\*")
 _SEPARATOR = re.compile(r"^\|[\s:|-]+\|$")
+
+
+class Refused(Exception):
+    """A seed that cannot say the document: nothing is written."""
 
 
 @dataclass(frozen=True)
@@ -117,6 +128,33 @@ def coverage(root: Path) -> list[str]:
     answers, _ = read_answers(path.read_text(encoding="utf-8"))
     realizing = _questions_realizing(root)
     return [_coverage_line(found, realizing.get(found.identity, [])) for found in answers]
+
+
+def seed(root: Path) -> list[str]:
+    """The empty document the shelf words, written where no file is at the document's path, on an
+    install or an update alike; what was written. A file already there is the project's from its
+    first line, in the format or not, and is left as it stands (the user, 2026-10-14)."""
+    path = root / DOCUMENT
+    if path.exists():
+        return []
+    shelf = root / ARRIVAL
+    if not shelf.is_file():
+        raise Refused(f"seed: no shelf at {ARRIVAL}")
+    said = arrival_document(shelf.read_text(encoding="utf-8"))
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        handle.write(said)
+    return [DOCUMENT]
+
+
+def arrival_document(shelf: str) -> str:
+    """The document a shelf's `product-document` block words. Read from text rather than a path,
+    so the installer can ask it of a ref before anything of the ref is written; found by the info
+    string, so prose may be written around it."""
+    said = _ARRIVAL_BLOCK.search(shelf.replace("\r\n", "\n"))
+    if said is None:
+        raise Refused(f"seed: {ARRIVAL} holds no `product-document` block")
+    return said.group("said")
 
 
 # --- what is broken -----------------------------------------------------------------------------
@@ -269,7 +307,11 @@ def _under(index: dict[str, questions.Entry], identity: str, root: str) -> bool:
 
 def read_answers(text: str) -> tuple[list[Answer], list[Note]]:
     """The answers the document's answers table holds, and whatever in it the format does not
-    admit. A row whose first cell alone is filled is a group heading, no answer."""
+    admit. A row whose first cell alone is filled is a group heading, no answer. A document with no
+    answers heading is not in the format at all: read as holding no answer, it would pass in
+    silence (the user, 2026-10-14)."""
+    if not in_format(text):
+        return [], [Note(DOCUMENT, None, f"the document is not in the product format: it has no `{ANSWERS}` heading")]
     answers: list[Answer] = []
     problems: list[Note] = []
     for number, cells in _answer_rows(text):
@@ -284,6 +326,11 @@ def read_answers(text: str) -> tuple[list[Answer], list[Note]]:
             continue
         answers.append(Answer(lead.group(1), lead.group(2), number, cells[-1] if len(cells) > 1 else ""))
     return answers, problems
+
+
+def in_format(text: str) -> bool:
+    """Whether a document is in the product format at all: it has the answers heading."""
+    return any(line.strip() == ANSWERS for line in text.splitlines())
 
 
 def _answer_rows(text: str) -> list[tuple[int, list[str]]]:
