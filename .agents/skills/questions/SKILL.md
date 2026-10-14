@@ -9,7 +9,7 @@ Mechanism: questions
 
 Every open question of this tree is one file in `docs/questions/`; the current question of each
 running session is the line in its own file under `docs/questions/sessions.d/`. `questions.py` is
-the only writer of the sessions folder and of an entry's parts; an entry's body, the question's argument, is written by
+the only writer of the sessions folder and of an entry's parts; an entry's body is written by
 hand. The window is the part of the store near a session's position, drawn before every message;
 **depth** is the number of *part of* steps from a question to its root, derived, never written.
 
@@ -42,10 +42,7 @@ after a call says what it takes.
 | `realize q-N '<link>'` | the trace link, `A7 "<name>", …` or `derived`, replacing the one it carried |
 
 `open` leaves the session where it stands: to stand on the new question, call `at` on the id it
-printed. A refused call writes nothing and says why; fix it and call again in the same turn. Under
-`debug=on` the reply opens, after the announce line when there is one, with Q1's table — a row
-for each question the turn stood on, opened or closed, as the calls printed them, a move mid-turn
-included; a row for a process; a row for an uncharted ask; a row for banter — never the call itself.
+printed. A refused call writes nothing and says why; fix it and call again in the same turn.
 
 Free text goes in single quotes, which neither bash nor PowerShell expands; a text holding an
 apostrophe goes in double quotes, with no backtick or `$` inside.
@@ -146,78 +143,5 @@ default; *pruned* says the question should not have been held.
 
 ## Records
 
-**An entry** — one file in `docs/questions/`, named `<id>-<slug>.md`, the slug made by the
-script from the question's words — so phrase a question short. Tier 2: read by the script, and by
-a person through this skill. What removes one: it moves to `docs/questions/done/` with a wholly
-closed subtree nothing open depends on, a deferred or suspect entry counting as open; it is never
-deleted.
-
-```md
-# q-0090.0003 Which package manager do we use?
-
-- **record of** what happened
-- **part of** q-0090
-- **depends on** q-0070, q-0080.0001
-- **state** closed:decided, suspect
-- **owner** [01-0011.0100](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)
-- **answer** [the ADR](../adr/0004-scripts-run-on-the-standard-library-alone.md) — the user, 2026-09-28
-- **realizes** A7 "The question store"
-- **lean** the flat directory, for insertion cost
-- **struck** 2, last 2026-10-02T19:40Z
-
-A flat directory inserts in one write; nested folders were weighed and refused, since a question
-moving between roots would move between folders.
-```
-
-**The body** follows the parts after one blank line, written by hand with the edit tools, never by
-the script, which keeps it as it found it on every call. A line in it shaped like a part is not
-one. It runs in three parts, in this order:
-
-- `## Where it stands` — the question as it stands, for a reader arriving cold: the problem, the
-  shape agreed so far, what is open. Rewritten whole whenever a decision lands; it holds no
-  history. A question a ticket answers carries it.
-- `## Decisions` — the list below.
-- Dated evidence — the case, a discovery's material, an impact — each under its own heading with
-  its date, appended and never rewritten.
-
-**The decisions list** is the body's `## Decisions` section, up to the next `## ` heading: a
-decision with nowhere to land yet is an item, `- ` or `N. `, and takes `→ <link>` to its home when
-it lands. A decision that refused an alternative names it and why, after `Not:`. The script reads
-the list at `close` and in the check and never writes it; prose between the items and a fenced
-block hold no decision.
-
-**record of** opens the parts: what the entry is a record of — *what it intends to become* while
-open, *what happened* once closed — so whoever writes its body meets the kind in context. The
-script writes it from the state on every call, and the check holds the two equal; its earlier
-name, `kind`, is reported.
-
-Every other part but **state** is optional, and a closed entry must carry its **answer**. **struck** is
-`<n>, last <YYYY-MM-DDTHH:MMZ>`, in UTC, written by the script alone, never by hand. **realizes**
-is the trace link, kept as written and never resolved; a question without one carries its nearest
-ancestor's, and the window never draws it. The state is
-`open` or `closed:<kind>`, with `, suspect` after it at most. **The id is the place**: a root is
-`q-NNNN`, a child its parent's id and one more position, `q-0090.0003`, the next after its
-siblings. A
-re-parent renames the moved question and everything under it — files, links, relations, session
-lines, bare ids under `docs/` and every straw dog's binding — so an id seen earlier may be gone:
-draw the window again. A reword changes the words and the file's name, never the id. *part
-of* is the line the check holds the id against.
-
-<straw-dog question="q-0037.0006.0015">
-**The sessions folder** — `docs/questions/sessions.d/`, shared by all sessions, one file per
-session named by its tag and holding its one row:
-`<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four]` — its tag, whether it
-runs, when its line last changed, its current question or `-` before it has one, and its recent
-ones; a row holding the date alone still reads, as that day's start. A store still holding the
-single file `docs/questions/sessions` is read with it, and carried into the folder at its first
-write. Tier 1 through the window and
-the wake's read. What removes a row: kept by design — an ended row lets a later wake offer to
-resume.
-</straw-dog>
-
-<straw-dog question="q-0037.0017">
-**A silent row ends at the next wake.** Every wake ends each other running row whose session
-nothing has seen for three hours, and says nothing of it. A session is seen while its messages
-reach a hook — the window drawn, or Cursor's prompt hook — or it writes its row; the next message
-turns an ended row running again.
-</straw-dog>
+The shape of an entry, its body and the sessions folder is [QUESTION-FORMAT.md](./QUESTION-FORMAT.md)'s;
+read it before writing a body.

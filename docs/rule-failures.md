@@ -36,13 +36,12 @@ small amendment rather than *writing instructions*. Had it fired, it would still
 about growth: Occam's *remove before you add* stands at tier 1 as a principle, and no step at the
 moment a skill is changed applies it.
 
-**Proposed amendment**, to `/skill-up`, a step of its own: *Weigh the whole skill on every change:
+**Amendment landed** in `/skill-up`, the user, 2026-10-15: *Weigh the whole skill on every change:
 say what the change removes before what it adds, and compare the body's size before and after. A
 body that has only grown is read whole for what restates another home, what a script already does
-for the reader, and what is a record's format, which goes to a format file beside it.*
-
-**Disposition:** registered; the amendment waits on the user — a skill's act, above
-self-improvement's dial at a core rule.
+for the reader, and what is a record's format, which goes to a format file beside it.* Applied the
+same day to the questions skill: 2,339 words to 1,556, its records' shape moved to
+`QUESTION-FORMAT.md` beside it, a restatement of the entry file and what the script does taken out.
 
 ## 49. A discovery's tasking described the method it was meant to step outside — 2026-10-15
 

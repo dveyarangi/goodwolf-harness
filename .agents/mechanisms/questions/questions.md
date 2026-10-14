@@ -1,6 +1,6 @@
 # questions — every open question of the tree is kept in one store, with each session's current question known
 
-- **instruction** `.agents/skills/questions/SKILL.md` — the formats, the calls, and closing, branching and dropping
+- **instruction** `.agents/skills/questions/SKILL.md` — the calls, and closing, branching and dropping; the records' shape in `QUESTION-FORMAT.md` beside it
 - **state** installed
 - **record of** what must always hold
 
@@ -99,7 +99,7 @@ roles, is an open question of the store.
 | drawing the window | `.agents/scripts/gw/questions.py` | |
 | registering a session and delivering its window through a host's hook | `.agents/scripts/gw/questions.py` | |
 | writing entries and the position from a call | `.agents/scripts/gw/questions.py` | |
-| writing a question's argument, the body after its parts, by hand | `.agents/skills/questions/SKILL.md` | |
+| writing a question's argument, the body after its parts, by hand | `.agents/skills/questions/QUESTION-FORMAT.md` | |
 | landing a decision an align makes, and holding one with nowhere to land yet | `.agents/skills/align/SKILL.md` | |
 | checking the store | `.agents/scripts/gw/questions.py` | |
 | reading where the work stands when a session wakes | `.agents/skills/recall/SKILL.md` | |
@@ -121,6 +121,7 @@ roles, is an open question of the store.
 |---|---|
 | instruction file | `.agents/skills/questions/SKILL.md` |
 | this doc | `.agents/mechanisms/questions/questions.md` |
+| the records' format | `.agents/skills/questions/QUESTION-FORMAT.md` |
 | the shelf of a fresh store's roots | `.agents/skills/questions/STORE-ARRIVAL.md` |
 | its rules file | `.agents/mechanisms/questions/questions.rules.md` |
 | the store's script | `.agents/scripts/gw/questions.py` |

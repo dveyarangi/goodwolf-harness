@@ -26,6 +26,8 @@ Verify the new or changed skill against the set:
 
 A fact the set already states in one skill is referenced from there, not restated.
 
+Weigh the whole skill on every change: say what the change removes before what it adds, and compare the body's size before and after. A body that has only grown is read whole for what restates another home, what a script already does for the reader, and what is a record's format, which goes to a format file beside it.
+
 The frontmatter description narrates the use case, not the implementation, and stays in line with the skill's intent. Capturing skill intent and usage is critical — /align when in tiniest doubt.
 
 ## Project-local divergence
