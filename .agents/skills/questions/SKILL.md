@@ -169,13 +169,20 @@ A flat directory inserts in one write; nested folders were weighed and refused, 
 moving between roots would move between folders.
 ```
 
-**The body** follows the parts after one blank line: the question's argument — positions,
-evidence, what was refuted — written by hand with the edit tools, never by the script, which keeps
-it as it found it on every call. A line in it shaped like a part is not one.
+**The body** follows the parts after one blank line, written by hand with the edit tools, never by
+the script, which keeps it as it found it on every call. A line in it shaped like a part is not
+one. It runs in three parts, in this order:
+
+- `## Where it stands` — the question as it stands, for a reader arriving cold: the problem, the
+  shape agreed so far, what is open. Rewritten whole whenever a decision lands; it holds no
+  history. A question a ticket answers carries it.
+- `## Decisions` — the list below.
+- Dated evidence — the case, a discovery's material, an impact — each under its own heading with
+  its date, appended and never rewritten.
 
 **The decisions list** is the body's `## Decisions` section, up to the next `## ` heading: a
 decision with nowhere to land yet is an item, `- ` or `N. `, and takes `→ <link>` to its home when
-it lands. The script reads the list at `close` and in the check and never writes it; prose between
+it lands. A decision that refused an alternative names it and why, after `Not:`. The script reads the list at `close` and in the check and never writes it; prose between
 the items and a fenced block hold no decision.
 
 **record of** opens the parts: what the entry is a record of — *what it intends to become* while
