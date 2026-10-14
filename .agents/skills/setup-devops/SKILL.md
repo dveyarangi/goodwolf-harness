@@ -1,11 +1,16 @@
 ---
 name: setup-devops
-description: Set up the project's engineering scaffolding, from toolchain to CICD and observability. Use when initializing a repo or filling a setup gap.
+description: Set up the project's engineering scaffolding, from toolchain to CICD and observability. Use once the project's requirements are known enough to choose them, or to fill a setup gap.
 ---
 
 <straw-dog question="q-0037.0009.0015">Mechanism: not yet</straw-dog>
 
 # Programming project setup
+
+<straw-dog question="q-0037.0006.0022">
+Set up an environment only once the project's requirements are known enough to choose it — never
+as part of installing the harness into a tree that holds no project yet.
+</straw-dog>
 
 ## Init
 

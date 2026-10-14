@@ -120,7 +120,8 @@ every next one. Write `local.rules.md` beside the entry file, in the rules-file 
 project's facts for the entry file, its autonomy switches, and its verification set — its
 typechecker, its tests, every command required of landed work, read off its own toolchain, a
 project without one having none of its own and its local file saying so; and, offered beside them,
-the harness's checks. Then `inject_rules.py local --install`, and `--check`.
+the harness's checks. The install builds no environment — no toolchain, pipeline or remote: that
+waits until the project's requirements are known. Then `inject_rules.py local --install`, and `--check`.
 That check is the install's verification: the `commit` switch just written decides the install's
 commit, as it decides any other, named in the project's own convention where it states one.
 
