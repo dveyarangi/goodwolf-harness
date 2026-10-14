@@ -42,8 +42,12 @@ _ARRIVAL_BLOCK = re.compile(r"^```product-document\n(?P<said>.*?)^```", re.M | r
 # root it owns — the purpose root this one, the structure root the development method.
 PURPOSE_ROOT = "What is this project for?"
 STRUCTURE_ROOT = "How is this project built?"
-_USAGE = "usage: product.py --check | --coverage"
+_USAGE = "usage: product.py --check | --coverage | --queue"
 _LEAD = re.compile(r"^\*\*(A\d+) +([^*]*[^*\s])\*\*")
+_PAIN = re.compile(r"^(\d+)\. \*\*([^*]+)\*\*", re.M)
+_GOAL = re.compile(r"\*\*(G\d+) ([^*]+)\*\*")
+_OWNER = re.compile(r"\]\((?P<path>[^)]*tickets/(?P<done>done/)?(?P<basename>[^/)]+)\.md)\)")
+_TICKET = re.compile(r"^(\d{2}-\d{4}(?:\.\d{4})*)-(.+)$")
 _SEPARATOR = re.compile(r"^\|[\s:|-]+\|$")
 
 
@@ -53,13 +57,14 @@ class Refused(Exception):
 
 @dataclass(frozen=True)
 class Answer:
-    """One answer row: its id, never renumbered; its name, which a trace link quotes; and what its
-    last cell says it waits on, empty once it is decided."""
+    """One answer row: its id, never renumbered; its name, which a trace link quotes; what its last
+    cell says it waits on, empty once it is decided; and the pain and goal columns it marks."""
 
     identity: str
     name: str
     line: int
     waits: str = ""
+    serves: tuple[str, ...] = ()
 
     @property
     def decided(self) -> bool:
@@ -93,8 +98,8 @@ def main(argv: list[str], root: Path) -> int:
         }
         print(json.dumps(report, indent=2, ensure_ascii=False))
         return 1 if diagnostics else 0
-    if argv == ["--coverage"]:
-        for line in coverage(root):
+    if argv in (["--coverage"], ["--queue"]):
+        for line in (coverage if argv == ["--coverage"] else queue)(root):
             print(line)
         return 0
     print(_USAGE)
@@ -128,6 +133,32 @@ def coverage(root: Path) -> list[str]:
     answers, _ = read_answers(path.read_text(encoding="utf-8"))
     realizing = _questions_realizing(root)
     return [_coverage_line(found, realizing.get(found.identity, [])) for found in answers]
+
+
+def queue(root: Path) -> list[str]:
+    """Beside the queue and never in it, for the person ordering the work: what each item realizes,
+    then the answers left out — neither present nor realized by an item — under every pain and goal
+    their row serves. Nothing is ranked; the order stays the person's (q-0037.0018, decision 7)."""
+    path = root / DOCUMENT
+    if not path.is_file():
+        return []
+    text = path.read_text(encoding="utf-8")
+    answers, _ = read_answers(text)
+    index = questions.read_store(root).index
+    items = _items(index)
+    built_by_items = {reference for item in items for reference, _ in item.answers}
+    realizing = _questions_realizing(root)
+    left = [
+        found for found in answers
+        if found.identity not in built_by_items and not _present(realizing.get(found.identity, []))
+    ]
+    lines = ["Items", *(_item_line(item) for item in items), "", "Left out"]
+    for column, words in _served(text):
+        lines.append(f"{column} {words}".rstrip())
+        lines += _left_lines([found for found in left if column in found.serves], realizing)
+    lines.append("Serving no stated pain or goal")
+    lines += _left_lines([found for found in left if not found.serves], realizing)
+    return lines
 
 
 def seed(root: Path) -> list[str]:
@@ -245,8 +276,85 @@ def _coverage_line(found: Answer, realizing: list[questions.Entry]) -> str:
     plan, 2026-10-13)."""
     if not realizing:
         return f"{found.identity} {found.name} — absent"
-    state = "in progress" if any(_counts_as_open(read) for read in realizing) else "present"
+    state = "present" if _present(realizing) else "in progress"
     return f"{found.identity} {found.name} — {state}: {', '.join(read.identity or '' for read in realizing)}"
+
+
+def _present(realizing: list[questions.Entry]) -> bool:
+    return bool(realizing) and not any(_counts_as_open(read) for read in realizing)
+
+
+# --- beside the queue ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class Item:
+    """A live ticket that owns open questions: its topmost ones — those no question of its own
+    holds — and what all of them realize."""
+
+    ticket: str
+    questions: tuple[str, ...]
+    links: tuple[questions.TraceLink | None, ...]
+
+    @property
+    def answers(self) -> list[tuple[str, str]]:
+        seen: dict[str, str] = {}
+        for link in self.links:
+            for reference, name in link.answers if link else ():
+                seen.setdefault(reference, name)
+        return list(seen.items())
+
+
+def _items(index: dict[str, questions.Entry]) -> list[Item]:
+    """Each live ticket that owns an open question, in ticket-id order. The store's owner part
+    names the ticket, so the ticket mechanism's reader is never asked; the ticket check holds the
+    ticket's own `Answers` to agree."""
+    owned: dict[str, list[questions.Entry]] = {}
+    for read in index.values():
+        owner = _OWNER.search(read.parts["owner"].value) if "owner" in read.parts else None
+        if read.open and not read.archived and owner is not None and not owner.group("done"):
+            owned.setdefault(owner.group("basename"), []).append(read)
+    items = []
+    for basename in sorted(owned):
+        mine = {read.identity for read in owned[basename]}
+        topmost = sorted(read.identity or "" for read in owned[basename] if not _held_by(index, read, mine))
+        links = tuple(questions.realizes(index, read.identity or "") for read in owned[basename])
+        items.append(Item(_ticket_label(basename), tuple(topmost), links))
+    return items
+
+
+def _held_by(index: dict[str, questions.Entry], read: questions.Entry, mine: set[str | None]) -> bool:
+    at = index.get(read.parent or "")
+    while at is not None:
+        if at.identity in mine:
+            return True
+        at = index.get(at.parent or "")
+    return False
+
+
+def _ticket_label(basename: str) -> str:
+    named = _TICKET.match(basename)
+    return f"{named.group(1)} {named.group(2)}" if named else basename
+
+
+def _item_line(item: Item) -> str:
+    if item.answers:
+        realized = ", ".join(f"{reference} {name}" for reference, name in item.answers)
+    elif any(link and link.derived for link in item.links):
+        realized = "derived"
+    else:
+        realized = "no trace link"
+    return f"{item.ticket} — {', '.join(item.questions)}: {realized}"
+
+
+def _left_lines(left: list[Answer], realizing: dict[str, list[questions.Entry]]) -> list[str]:
+    if not left:
+        return ["  nothing left out"]
+    return [
+        f"  {found.identity} {found.name} — not decided" if not found.decided
+        else f"  {_coverage_line(found, realizing.get(found.identity, []))}"
+        for found in left
+    ]
 
 
 def _questions_realizing(root: Path) -> dict[str, list[questions.Entry]]:
@@ -314,7 +422,8 @@ def read_answers(text: str) -> tuple[list[Answer], list[Note]]:
         return [], [Note(DOCUMENT, None, f"the document is not in the product format: it has no `{ANSWERS}` heading")]
     answers: list[Answer] = []
     problems: list[Note] = []
-    for number, cells in _answer_rows(text):
+    header, rows = _answer_table(text)
+    for number, cells in rows:
         if not any(cells[1:]):
             continue
         lead = _LEAD.match(cells[0])
@@ -324,8 +433,19 @@ def read_answers(text: str) -> tuple[list[Answer], list[Note]]:
         if any(seen.identity == lead.group(1) for seen in answers):
             problems.append(Note(DOCUMENT, number, f"answer {lead.group(1)} is written twice"))
             continue
-        answers.append(Answer(lead.group(1), lead.group(2), number, cells[-1] if len(cells) > 1 else ""))
+        serves = tuple(header[at] for at, cell in enumerate(cells[:len(header)]) if cell == "●")
+        answers.append(Answer(lead.group(1), lead.group(2), number, cells[-1] if len(cells) > 1 else "", serves))
     return answers, problems
+
+
+def _served(text: str) -> list[tuple[str, str]]:
+    """Each pain and goal column of the answers table in its order, with the words the document
+    gives it: a pain's from the numbered list's bold lead, a goal's from its `G<n>` bold lead. A
+    column the document does not name keeps its header alone."""
+    header, _ = _answer_table(text)
+    named = {number: words for number, words in _PAIN.findall(text)}
+    named.update({identity: words for identity, words in _GOAL.findall(text)})
+    return [(column, named.get(column, "").rstrip(".")) for column in header[2:-1]]
 
 
 def in_format(text: str) -> bool:
@@ -333,8 +453,10 @@ def in_format(text: str) -> bool:
     return any(line.strip() == ANSWERS for line in text.splitlines())
 
 
-def _answer_rows(text: str) -> list[tuple[int, list[str]]]:
-    """The cells of each body row of the first table under the answers heading, with its line."""
+def _answer_table(text: str) -> tuple[list[str], list[tuple[int, list[str]]]]:
+    """The header cells of the first table under the answers heading, and the cells of each of its
+    body rows with its line."""
+    header: list[str] = []
     rows: list[tuple[int, list[str]]] = []
     inside = header_read = False
     for number, line in enumerate(text.splitlines(), start=1):
@@ -348,10 +470,15 @@ def _answer_rows(text: str) -> list[tuple[int, list[str]]]:
                 break
             continue
         if not header_read or _SEPARATOR.match(line.strip()):
+            header = header or _cells(line)
             header_read = True
             continue
-        rows.append((number, [cell.strip() for cell in line.strip().strip("|").split("|")]))
-    return rows
+        rows.append((number, _cells(line)))
+    return header, rows
+
+
+def _cells(line: str) -> list[str]:
+    return [cell.strip() for cell in line.strip().strip("|").split("|")]
 
 
 if __name__ == "__main__":

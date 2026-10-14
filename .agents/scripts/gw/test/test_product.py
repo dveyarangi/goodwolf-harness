@@ -39,11 +39,13 @@ def question(
     parent: str | None = None,
     realizes: str | None = None,
     words: str | None = None,
+    owner: str | None = None,
 ) -> str:
     kind = "what it intends to become" if state.startswith("open") else "what happened"
     parts = [f"- **record of** {kind}"]
     parts += [f"- **part of** {parent}"] if parent else []
     parts += [f"- **state** {state}"]
+    parts += [f"- **owner** [{owner.split('/')[-1][:7]}](../{owner})"] if owner else []
     parts += ["- **answer** a reason"] if not state.startswith("open") else []
     parts += [f"- **realizes** {realizes}"] if realizes else []
     return "\n".join([f"# {identity} {words or f'Question {identity}?'}", "", *parts]) + "\n"
@@ -171,6 +173,82 @@ class Coverage(Product):
         self.place("q-0001.0002", question("q-0001.0002", "open", parent="q-0001", realizes="derived"))
 
         self.assertIn("A2 Still being built — in progress: q-0001", self.lines())
+
+
+QUEUED = (
+    "# What the project is for\n\n## Pains\n\n1. **It hurts.** Badly.\n2. **It costs.** Too much.\n\n"
+    "## Goals\n\n- **G1 Keep it.** Never lose it.\n\n"
+    "## Answers\n\n| answer | causes | 1 | 2 | G1 | G9 | waits on |\n|---|---|---|---|---|---|---|\n"
+    "| **A1 Built by an item** — x | C1 | ● | | | | |\n"
+    "| **A2 Built aside** — x | C1 | ● | ● | | | |\n"
+    "| **A3 Present** — x | C1 | | | ● | | |\n"
+    '| **A4 Undecided** — x | C1 | | ● | | | <straw-dog question="q-0005">✗</straw-dog> |\n'
+    "| **A5 For nothing** — x | C1 | | | | | |\n"
+    "| **A6 Unnamed goal** — x | C1 | | | | ● | |\n"
+)
+
+
+class TheQueue(Product):
+    def setUp(self) -> None:
+        super().setUp()
+        self.write(DOCUMENT, QUEUED)
+        self.place("q-0001", question("q-0001", realizes='A1 "Built by an item"', owner="tickets/01-0001-first.md"))
+        self.place("q-0001.0001", question("q-0001.0001", parent="q-0001", owner="tickets/01-0001.0010-second.md"))
+        self.place(
+            "q-0001.0002",
+            question("q-0001.0002", parent="q-0001", realizes='A5 "For nothing"', owner="tickets/01-0001-first.md"),
+        )
+        self.place("q-0001.0002.0001", question("q-0001.0002.0001", parent="q-0001.0002", owner="tickets/01-0001-first.md"))
+        self.place("q-0002", question("q-0002", realizes="derived", owner="tickets/01-0002-aside.md"))
+        self.place("q-0003", question("q-0003", realizes='A2 "Built aside"'))
+        self.place("q-0004", question("q-0004", "closed:decided", realizes='A3 "Present"'))
+        self.place("q-0006", question("q-0006", realizes='A6 "Unnamed goal"', owner="tickets/done/01-0000-old.md"))
+
+    def shown(self) -> list[str]:
+        status, said = self.run_script("--queue")
+        self.assertEqual(0, status)
+        return said.splitlines()
+
+    def test_each_live_item_shows_once_what_its_questions_realize_in_id_order(self) -> None:
+        shown = self.shown()
+
+        items = shown[1 : shown.index("")]
+        self.assertEqual(
+            [
+                "01-0001 first — q-0001: A1 Built by an item, A5 For nothing",
+                "01-0001.0010 second — q-0001.0001: A1 Built by an item",
+                "01-0002 aside — q-0002: derived",
+            ],
+            items,
+        )
+
+    def test_the_answers_no_item_realizes_stand_under_each_pain_and_goal_they_serve(self) -> None:
+        left = self.shown()
+        left = left[left.index("Left out") + 1 :]
+
+        self.assertEqual(
+            [
+                "1 It hurts",
+                "  A2 Built aside — in progress: q-0003",
+                "2 It costs",
+                "  A2 Built aside — in progress: q-0003",
+                "  A4 Undecided — not decided",
+                "G1 Keep it",
+                "  nothing left out",
+                "G9",
+                "  A6 Unnamed goal — in progress: q-0006",
+                "Serving no stated pain or goal",
+                "  nothing left out",
+            ],
+            left,
+        )
+
+    def test_rendering_writes_nothing(self) -> None:
+        before = self.snapshot()
+
+        self.shown()
+
+        self.assertEqual(before, self.snapshot())
 
 
 class Drift(Product):
