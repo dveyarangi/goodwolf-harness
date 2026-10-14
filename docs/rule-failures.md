@@ -17,6 +17,31 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 49. A discovery's tasking described the method it was meant to step outside — 2026-10-15
+
+**Rules in play:** `/discover`, *Describe the shape functionally, in nobody's vocabulary* and
+*Transmit the frame as little as the subject allows, and say what you transmitted*.
+
+**What happened.** The first discovery of 2026-10-14, on git, described the person's two switches
+as the axes; the pass's own reading of the tasking named that as what it smuggled in. On
+2026-10-15 a tasking on whether a spec is needed retold the question tree's whole construction and
+the spec practice, and asked the pass to compare the two. The user: *why did you rewrite the whole
+construction of the questions and describe the existing practice? … the idea of a discovery is to
+ask a question independent of the current method* — and then: *why does the discover skill itself
+not do this?*
+
+**Why it did not fire.** The first rule asks for the shape, described: it changes the vocabulary
+and keeps the frame, since a shape told in anyone's words is still this tree's construction. The
+second states a degree, *as little as the subject allows*, and the subject was read as the shape.
+Neither says to ask the question the shape answers instead of the shape.
+
+**Proposed amendment**, to `/discover`'s *Run it*, its first rule: *Ask the question the shape
+answers, not the shape: what it is for, the situation it serves, without how this tree meets it —
+a shape described, in anyone's words, sends its frame along.*
+
+**Disposition:** registered; the amendment waits on the user — a skill's act, above
+self-improvement's dial at a core rule.
+
 ## 48. A long session's replies left L9's voice and promised to try — 2026-10-14
 
 **Rules in play:** L9, *plain, exact and dry, an argument the reader can follow … never
