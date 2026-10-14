@@ -10,8 +10,8 @@ One row per mechanism per level, then each file that level was checked against, 
 | edge | output | 65802edf1a2ae1cdfb18b5e17b4eb45d70fab6fed348212627f737642bc040f5 | 2026-10-13 | nothing to change |
 | harness | parts | db43c714c93cdb551182ccf5b7187de7deb6c7b2e97ca4a9ea552d92d88d34a3 | 2026-10-14 | amended |
 | harness | output | bd614110d4d648055dae928f0252a3da75d72ddb0362880f0319a6d3fa5b4510 | 2026-10-14 | nothing to change |
-| maintain | parts | f8b153cb8761317ffca8d03f6aa87c66a2818228ec0842965c479293aa0d1f6c | 2026-10-13 | nothing to change |
-| maintain | output | f7dac46456512388ed514aa3c8f1644835ddeaafb1ea7c53aea3cc2a6e3ed89d | 2026-10-13 | nothing to change |
+| maintain | parts | c5a3f5e64352068d6405a018523f5251785611bffe2aa7bc9df371e647baf32e | 2026-10-15 | amended |
+| maintain | output | 8e102e4c7b5865bf2e41f3535c6fcfeb3d1126a3bba6d39ba0a87a0574ea0398 | 2026-10-15 | amended |
 | mechanism-shape | parts | f8e255a13cf3790a28ec2f6b1f6d5ef11484aa4c32df801cccd2a214cd372d53 | 2026-10-14 | nothing to change |
 | mechanism-shape | output | 39beb8b7fa3e0eb7f7979b84791c6e66d01e5d483aac0bed8ac5bd7607ca836e | 2026-10-13 | nothing to change |
 | product | parts | 27c65af8a0a87d7373736bfc59dd0c42f9ef7d20da114380a6b9b2486b003912 | 2026-10-14 | nothing to change |
@@ -53,13 +53,13 @@ One row per mechanism per level, then each file that level was checked against, 
 | maintain | parts | .agents/scripts/gw/test/test_maintain.py | 752004ea1b7de3efcf4748c9a04cf18c31d09e1d841cbc2a1d5f8dd3e46ef03e |
 | maintain | parts | .agents/scripts/gw/test/test_straw_dogs.py | fe474f7de0a07f7ce37ad56c0de40365f1cf2b70932bd4b5f7bd053e6065cf25 |
 | maintain | parts | .agents/skills/maintain/MARKS-FORMAT.md | a3fded4eeb74b7670550fbb7df7e95f5c4ad4b89caeb854cd0bf145188ffe2b7 |
-| maintain | parts | .agents/skills/maintain/SKILL.md | 453e41979180a249f75d2fb24e767a1cc92d6d86a95de9048a6b22465b519b3f |
-| maintain | output | .agents/mechanisms/maintain/maintain.md | 6cf038d971b809e0673c107b55c61ba09a57d734041cf8ba6786b729b99127b5 |
+| maintain | parts | .agents/skills/maintain/SKILL.md | 9675822268cb3dc988b368598392386c498b5e228a6824fa657fe38c5182faf2 |
+| maintain | output | .agents/mechanisms/maintain/maintain.md | 3e64103154252ddf9c97810c65a0a550208583af626e57efc1ff0cdbc863dbb1 |
 | maintain | output | .agents/mechanisms/maintain/maintain.rules.md | 1ce702ad5f0633581d11f18f0e1418257d2e35e363bb863ebc9fb544bd4725d9 |
 | maintain | output | .agents/mechanisms/mechanism-shape/mechanism-shape.md | 03179ed5a91a76be74c29fa9918e84bb73a1b13109d68dd8589a5f67f7cd0284 |
 | maintain | output | .agents/mechanisms/mechanism-shape/mechanism-shape.rules.md | 2e681b0e5f05f91417d4745bfdb08f7d7d50152c91ad3db8b631b757dc941308 |
 | maintain | output | .agents/skills/maintain/MARKS-FORMAT.md | a3fded4eeb74b7670550fbb7df7e95f5c4ad4b89caeb854cd0bf145188ffe2b7 |
-| maintain | output | .agents/skills/maintain/SKILL.md | 453e41979180a249f75d2fb24e767a1cc92d6d86a95de9048a6b22465b519b3f |
+| maintain | output | .agents/skills/maintain/SKILL.md | 9675822268cb3dc988b368598392386c498b5e228a6824fa657fe38c5182faf2 |
 | maintain | output | .agents/skills/mechanism/MECHANISM-FORMAT.md | daa56fcbacf1109796fa9fad70d7328d75edb16162502e856173d86169d08992 |
 | maintain | output | .agents/skills/mechanism/SKILL.md | 14e6d50374c7372786200c1e2c3e622af31547b0fa9f23ecb359393d229ef0ed |
 | mechanism-shape | parts | .agents/mechanisms/mechanism-shape/mechanism-shape.rules.md | 2e681b0e5f05f91417d4745bfdb08f7d7d50152c91ad3db8b631b757dc941308 |

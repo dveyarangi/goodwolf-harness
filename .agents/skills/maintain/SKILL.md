@@ -146,6 +146,11 @@ finding; repair it under the repair policy.
   `maintain.py --mark <mechanism> <level> <outcome>`. Mark nothing you did not re-check. An edit
   made between the re-check and its mark is cleared unread.
 
+<straw-dog question="q-0037.0017.0003">
+- **F5** Commit with the pass each row a wake ended in another session's file under
+  `docs/questions/sessions.d/`; a file whose row reads `running` stays out.
+</straw-dog>
+
 <installed by="local">
 **L3** The verification set: the checks always; the tests too when the work changed a file that is not
 markdown, the question store's own writes aside.

@@ -8,11 +8,6 @@ description: >-
 
 - Commit the work in current session only. Do not commit changes of other session that might represent a work in progress. When in doubt, ask user.
 
-<straw-dog question="q-0037.0017.0003">
-- Commit with a maintenance pass each row a wake ended in another session's file under
-  `docs/questions/sessions.d/`; a file whose row reads `running` stays out.
-</straw-dog>
-
 - Look at pending changes; group them by content aligning with origin topic, ticket, rfc or change type (documentation, code, CI, skills).
 
 - Separate implementation and documentation commits.

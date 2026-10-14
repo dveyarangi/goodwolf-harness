@@ -70,6 +70,7 @@ repair-and-report, recording the cause in the evidence.
 | A1, A2, A4 | the user, 2026-09-07; A1's three outcomes of a due pair, the user, 2026-10-11 |
 | B4, F4, the marks' format | the user, 2026-09-27; B4's two levels and the format's `parts`, `output` and `repaired`, the user, 2026-10-11 |
 | B1, D4 | the user, 2026-09-06 |
+| F5 | the user, 2026-10-15 — held here until the mechanism that keeps a session's lifecycle owns the rows |
 | C1 | the user, 2026-09-06 — eligibility is the maintainer's, never the script's |
 | A3, B2, D3 | drafted into the process document 2026-09-05, never separately decided |
 | B3 | a maintenance pass, 2026-09-07, from `TICKET-FORMAT` stating the duty unconditionally |
