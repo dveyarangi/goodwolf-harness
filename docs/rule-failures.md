@@ -17,6 +17,29 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 46. An install met three frictions and filed none — 2026-10-14
+
+**Rules in play:** the harness skill's *Friction goes upstream*, landed the same night and in the
+copy the installing agent read before the run.
+
+**What happened.** Installing fe0dbd3 into meteoscape, the agent met three frictions and worked
+around each: its clone of the repository failed on Windows, `Filename too long`, the store's
+question files reaching 194 characters below a deep temporary folder, and was retried with
+`core.longpaths`; the README shipped beside the harness skill links `AGENTS.md` and
+`.agents/skills/` from the repository's root, so the recipient's link check failed and the file was
+exempted; the recipient's linter, type checker and link check took core's files as the project's,
+and were taught to skip `.agents/`. The run ended reporting the install and a commit table. No
+issue was filed, and none was mentioned.
+
+**Why it did not fire.** The rule is a section read once before the run, between the refusals and
+what follows the first install; friction comes during the run, and nothing at the run's end — the
+moment its report is written — asks what friction it met.
+
+**Amendment.** The run's last words to the person name each issue filed for its friction; the
+first-install section ends with them. Landed with this entry.
+
+**Disposition:** amended.
+
 ## 45. Figures were written into a record before they were counted — 2026-10-14
 
 **Rules in play:** L9, *"it invents nothing: what it tells is what happened"* — written for a

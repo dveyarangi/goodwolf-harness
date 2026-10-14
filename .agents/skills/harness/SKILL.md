@@ -109,7 +109,7 @@ Every refusal writes nothing and names its step.
 File any friction in a run — a crash, a workaround, a step this skill did not foresee — as an issue
 on the harness's repository: the ref, the command, the platform, the step, the error verbatim, the
 workaround. Nothing of the project's own. A workaround
-left in the recipient links the issue.
+left in the recipient links the issue. The run's last words to the person name each issue filed.
 </straw-dog>
 
 ## After the first install
@@ -132,7 +132,8 @@ the origin's own answers, read in its clone, are not this project's and are offe
 The harness's checks
 are two kinds: those of the records the method keeps — `tickets.py`, `questions.py`, `edges.py`,
 `product.py`, `maintain.py` — serve every project that works by it; those of core itself — `mechanisms.py`,
-`inject_rules.py` — serve a project that means to change the harness. End with the first question the work asks. What was copied, gated and registered stays in the
+`inject_rules.py` — serve a project that means to change the harness. End with the issues filed for the run's
+friction, then the first question the work asks. What was copied, gated and registered stays in the
 files and the commit, said on request.
 
 `uv run --offline --no-project python` is the harness's own habit; the scripts need only the
