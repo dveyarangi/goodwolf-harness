@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v93 — 2026-10-15
+
+**The announce line under `debug=on` alone** — the first reply of a session opens with the
+`Entry contract:` line only when `debug=on`. A live install into an empty folder opened two replies
+with `goodwolf-harness@8ba4f00, 2026-10-15` before saying anything to the person; the user: *why is
+that, we hid it, didn't we?* The line is evidence of delivery for whoever develops the harness, and
+noise to a person meeting it; `debug=on` is where the machinery is shown.
+
 ## v92 — 2026-10-15
 
 **The switches give way to the dial** — *Autonomy* states a dial on a method's ladder: below it the

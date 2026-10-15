@@ -128,8 +128,9 @@ trouble — is said only on request.
 
 Then ask what the install needs from them, one ask to a reply and the next only once it is
 answered, never saying what is still to come: each ladder of the entry file's *Autonomy* as its
-lines, numbered, marked 🤖 below the dial the ladder proposes, ✋ at it and 💬 above, with what the
-marks mean, the person naming the line for ✋; their way of working with git in their
+lines alone, without the rungs' names, numbered, the line it proposes marked ✋, and one sentence:
+below it the agent acts on its own, at it shows them first, above it they decide — the person
+naming the line for ✋; their way of working with git in their
 terms<straw-dog question="q-0037.0006.0022.0003"> — *commit on main and push each commit, or keep my
 work on a branch of its own*</straw-dog>, never as a setting's name, the origin's own answers offered
 as no default; the links the platform refused, as the commands to run and where.

@@ -1,8 +1,8 @@
 # Entry contract
 
-Entry contract: v92, 2026-10-15.
+Entry contract: v93, 2026-10-15.
 
-Open your first reply of every session with the `Entry contract:` line above, verbatim.
+Under `debug=on`, open your first reply of every session with the `Entry contract:` line above, verbatim.
 
 <straw-dog question="q-0037.0013">
 Run /recall first in every conversation, whatever the first message says. A conversation the host
