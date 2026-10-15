@@ -119,25 +119,23 @@ its rules are in your context: read it now — from here they govern this sessio
 every next one. Write `local.rules.md` beside the entry file, in the [rules-file format](../mechanism/MECHANISM-FORMAT.md#the-rules-file), from the environment you stand in: the
 project's facts for the entry file, its dials and its way of working with git, and its verification set — its
 typechecker, its tests, every command required of landed work, read off its own toolchain, a
-project without one having none of its own and its local file saying so; and, offered beside them,
-the harness's checks. Then `inject_rules.py local --install`, and `--check`.
+project without one having none of its own and its local file saying so; and beside them the
+harness's checks of the records the method keeps — `tickets.py`, `questions.py`, `edges.py`,
+`product.py`, `maintain.py` — those of core itself, `mechanisms.py` and `inject_rules.py`, only for
+a project that means to change the harness. Then `inject_rules.py local --install`, and `--check`.
 That check is the install's verification: once it passes, the install closes with its commit, named
 in the project's own convention where it states one.
 
-The person asked for a method to work by, not for files. Before asking anything, introduce it in
-their language, in a few lines: who you now are to them, what you will do for them, and where you
-stop for their yes. Show each ladder of the entry file's *Autonomy* as its lines, numbered, in their
-language, marked 🤖 below the dial the ladder proposes, ✋ at it and 💬 above, and ask them to name the
-line for ✋. Ask their way of working with git in their terms<straw-dog question="q-0037.0006.0022.0003"> —
-*commit on main and push each commit, or keep my work on a branch of its own*</straw-dog> — never as a
-setting's name; the origin's own answers, read in its clone, are not this project's and are offered
-as no default.
-The harness's checks
-are two kinds: those of the records the method keeps — `tickets.py`, `questions.py`, `edges.py`,
-`product.py`, `maintain.py` — serve every project that works by it; those of core itself — `mechanisms.py`,
-`inject_rules.py` — serve a project that means to change the harness. End with the issues filed for the run's
-friction, then the first question the work asks. What was copied, gated and registered stays in the
-files and the commit, said on request.
-
+The person asked for a method to work by, not for files. Say in one line that it is installed and
+ready; what was copied, gated and registered stays in the files and the commit, said on request, and
+so does how the run got round a platform's trouble. Then introduce it in their language, in a few
+lines: what it gives them, who you now are to them, and where you stop for their yes. Then ask what
+the install still needs, one question at a time, each after the last is answered: each ladder of the
+entry file's *Autonomy* as its lines, numbered, marked 🤖 below the dial the ladder proposes, ✋ at
+it and 💬 above, the person naming the line for ✋; their way of working with git in their
+terms<straw-dog question="q-0037.0006.0022.0003"> — *commit on main and push each commit, or keep my
+work on a branch of its own*</straw-dog>, never as a setting's name, the origin's own answers offered
+as no default; the links the platform refused, as the commands to run. End with the first question
+the work asks.
 `uv run --offline --no-project python` is the harness's own habit; the scripts need only the
 standard library, so a bare `python` works.

@@ -17,6 +17,31 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 51. An install's introduction told the person what was copied, and asked everything at once — 2026-10-15
+
+**Rules in play:** `/harness`, *After the first install*: *What was copied, gated and registered
+stays in the files and the commit, said on request*; *introduce it … in a few lines*.
+
+**What happened.** An install into the empty `codename_japaka` from `9f1dba6` opened with what the
+installer did — the three checks passed, `git init`, `AGENTS.md`, `CLAUDE.md`, `.agents/`, `docs/`,
+the hooks of three hosts — said what the method was in one thin paragraph with no word of what it
+gives, then put five numbered asks in one reply: both ladders, git, the loader links, what the
+project is, and closed on two notes about a clone it fast-forwarded and long paths on Windows. The
+user: *this is very technical — enough that it is installed and ready*; *where is the benefit of the
+product? why did I install all this*; *all the user's tasks and questions are in a heap, they should
+be given one at a time*; *the two notes are very technical too*.
+
+**Why it did not fire.** The rule against telling what was copied stood last in its paragraph,
+after the checks and before nothing, where the agent meets it once the report is written. Nothing
+said to ask one thing at a time, and nothing said what the introduction is to give.
+
+**Amendment landed** in `/harness`, the user, 2026-10-15: *Say in one line that it is installed and
+ready; what was copied, gated and registered stays in the files and the commit, said on request, and
+so does how the run got round a platform's trouble. Then introduce it … what it gives them, who you
+now are to them, and where you stop for their yes. Then ask what the install still needs, one
+question at a time, each after the last is answered.* What the introduction says the harness gives
+is [q-0033.0008](questions/q-0033.0008-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md)'s.
+
 ## 50. Four skills were changed without `/skill-up`, which asks nothing about growth — 2026-10-15
 
 **Rules in play:** `/skill-up`'s description, *Use whenever writing any agent instructions*; its
