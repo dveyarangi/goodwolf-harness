@@ -69,7 +69,7 @@ _Avoid_: sidecar, notes, history, appendix. *Sidecar* describes a file's positio
 Who decided a rule and when, carried inline on the rule itself. It is not evidence and does not move to the evidence file: attribution at the moment of reading is what makes a rule challengeable. A part of a rule, of no kind of its own.
 
 **Authority**:
-Who may establish, amend or waive a rule. Stated on the rule, inline, as its provenance; the repair policy says what a maintainer may do with the rest. Separate from delivery tier and from evidence of effectiveness.
+Who may establish, amend or waive a rule. Stated on the rule, inline, as its provenance; the dial says what a maintainer may do with the rest. Separate from delivery tier and from evidence of effectiveness.
 _Avoid_: strict rule, working rule, rule strength.
 
 **Tier**:
@@ -241,6 +241,13 @@ Resolving differences between independently evolved states against their origins
 **Entry contract**:
 The instructions every host supplies at session start, versioned, and announced verbatim by the session's first reply as evidence of delivery.
 
-**Autonomy switch**:
-A named setting a project gives a value to, deciding whether an action proceeds or waits for a human; skills defer to it.
+**Ladder**:
+A method's decisions ordered by how far their consequences reach, one rung each kind; declared by the method's mechanism.
+
+**Rung**:
+One step of a ladder. A decision's rung is read from what it decides, never from the record that holds it.
+
+**Dial**:
+The rung a project sets on a ladder: below it the agent acts on its own, at it the agent shows the person before acting, above it the person decides.
+_Avoid_: switch, autonomy setting.
 

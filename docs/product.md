@@ -82,8 +82,8 @@ yet waits on its purpose question, bound to it in *waits on*.
 | **A11 A task takes its form before its ticket** — a task takes its form in its question before a ticket is minted from it; a decision lands as it is made, provisional ones bound to the question that will change them | C3 | ● | ● |  |  |  |  |
 | **Decisions placed by their weight** | | | | | | | |
 | **A12 The load-bearing test** — the load-bearing test: `/impact` routes load-bearing work to the person and an align on its question, local work to the agent and a ticket; a raised decision that bears no load is settled and reported, one that does goes to the person, and doubt counts as load | C2, C8, C9 | ● | ● | ● |  |  |  |
-| **A13 Human checkpoints and switches** — HITL or AFK on every ticket; a question's `Where it stands` accepted, a breakdown approved; commit, push and the next cycle each `ask` or `auto`; repair fixed and reported only under four conditions | C2, C9, C12 | ● | ● | ● |  | ● |  |
-| **A14 The project names its stopping decisions** — the project says which kinds of decision stop for the person | C9 |  | ● | ● |  |  |  |
+| **A13 Human checkpoints and the dial** — HITL or AFK on every ticket; a question's `Where it stands` accepted; a dial on each method's ladder — below it the agent acts, at it shows first, above it the person decides — and a question's highest rung saying where it stops | C2, C9, C12 | ● | ● | ● |  | ● |  |
+| **A14 The project names its stopping decisions** — the project says which kinds of decision stop for the person, by the dial it sets on each ladder | C9 |  | ● | ● |  |  |  |
 | **A15 A record of model weaknesses** — a record of where models are known to be weak, deciding which decisions go to the person | C2, C9 | ● |  | ● |  |  | <straw-dog question="q-0033.0001">✗</straw-dog> |
 | **Visible footing** | | | | | | | |
 | **A16 Each reply shows its footing** — each reply shows the question it stands on, the principle it reasons by, what waits on the person and drift met, in plain words; every step leaves a record | C10, C2 | ● |  | ● |  |  |  |
@@ -141,12 +141,12 @@ Read by column:
 - **1 Ineffective** has the most answers, and most of them are in place.
 - **2 Suboptimal** waits on the two absent rows that weigh most: no session overwriting
   another's write, and a lighter path for small work.
-- **3 Agency** rests on the load-bearing test, HITL and the switches, visible footing and the
-  exploration space. Its absent rows are the ones that would let the person move the point on the
-  scale: which kinds of decision stop for them, and a record of where models are weak.
+- **3 Agency** rests on the load-bearing test, HITL and the dial, visible footing and the exploration
+  space. The dial lets the person move the point on the scale; its absent row is a record of where
+  models are weak.
 - **G1** rests on one source of truth, maintenance and self-improvement, and nothing measures
   whether it holds.
-- **G2** has guarded writes and the switches, and neither of the two things that would bound the
+- **G2** has guarded writes and the dial, and neither of the two things that would bound the
   agent: roles, the host refusing. Locks are the host's, not the harness's.
 </straw-dog>
 

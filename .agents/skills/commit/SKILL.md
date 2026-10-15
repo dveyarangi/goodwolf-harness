@@ -29,8 +29,8 @@ description: >-
   skill holding a project's commands is a second home for them, and it is wrong for every
   project but the one it was written in.
 
-- Commit and push only as the entry file's `commit` and `push` switches allow; a push is its own
-  permission, never implied by a commit's.
+- Commit when the work closes — `/verify` has passed on it. Push as the project's local file states
+  its way of working with git; a push is never implied by a commit.
 
 <installed by="local">
 **L8** Prefix the subject with the loop step that produced the work, uppercase, then a colon — one of

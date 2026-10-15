@@ -50,7 +50,7 @@ reports it cannot rewrite, and say which. Git recovers committed or staged conte
 
 <rule>
 Check the ticket records with `tickets.py --check` — format never content, live rows only. A
-diagnostic is a finding; repair it under the repair policy.
+diagnostic is a finding; repair it at the rung of what it mends.
 </rule>
 
 ## P12 — the live tickets are read from the list

@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v91, 2026-10-15.
+Entry contract: v92, 2026-10-15.
 
 Open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -63,8 +63,7 @@ judgement, is named at its authored home and cited by that name. Under `debug=on
   earlier in the turn showed it.
 - What a claim rests on from outside this session — a decision, evidence, the user's word — is a
   footnote naming its record, or who and when.
-- A switch the reply names, from the autonomy table or the local block, is written
-  `🛠️ <switch>=<value>`.
+- A dial the reply names, from the local block, is written `🛠️ <ladder>=<rung>`.
 
 Debug or not, a row each, and a table only where it has one: what waits on the user's decision,
 under `| ⚖️ Decisions |`, the next step the reply stops before among it, with nothing said of why
@@ -197,8 +196,8 @@ Two rings, joined at /align.
 /align opens the delivery ring and is where it returns whenever a decision is needed:
 <straw-dog question="q-0037.0010.0002.0005">a load-bearing shape is aligned on its question until its `Where it stands` is accepted,</straw-dog> /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.
 
-Human checkpoints: every decision at /align; a question's `Where it stands` accepted; and, as their switches under
-[Autonomy](#autonomy) set them, breakdown, commit, push and the next cycle at /maintain → /ticket.
+Human checkpoints: every decision at /align; a question's `Where it stands` accepted; and
+whatever stands at or above its ladder's dial under [Autonomy](#autonomy).
 
 Do not reopen an accepted decision without new evidence.
 
@@ -218,21 +217,51 @@ Do not reopen an accepted decision without new evidence.
 
 ## Autonomy
 
-The project sets each switch in its local block, under *Project-local*; skills defer to those values.
-A switch the project has not set is `ask`.
+Autonomy is a dial on a ladder. A method whose decisions differ in how far their consequences
+reach has a ladder, its rungs ordered by that reach and declared by the method's mechanism; a
+method without one states which of its decisions are the agent's and which the person's. A
+decision's rung is read from what it decides, never from the record that holds it; a case between
+two rungs takes the higher.
 
-| Switch | Meaning |
+- 🤖 Below the dial the agent settles and acts on its own.
+- ✋ At the dial it settles, and shows the person before acting.
+- 💬 Above it, it settles nothing: it brings the options and a recommendation, and the person
+  decides.
+
+A question carries its highest rung on each ladder it touches and stops for the person while that
+rung is at or above the ladder's dial. Mending a violation is the work of the rung the mended thing
+is on. Work closes with its commit once `/verify` passes on it; a push follows the project's way of
+working with git, as its local file states.
+
+The project sets each dial in its local block; an unset dial is at the lowest rung. The agent never
+writes its dial<straw-dog question="q-0037.0006.0005">, and the host refuses an edit that changes it</straw-dog>.
+
+<straw-dog question="q-0037.0010.0002.0005">
+Development's ladder, lowest first:
+
+| rung | a decision on it — as the person is shown it |
 |---|---|
-| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when `/verify` has passed on the work. |
-| push | `ask`: separate from commit, and /conclude's alone — no other reply asks, mentions or counts what waits on it. `never`, `auto`. |
-| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |
-| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |
-| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |
+| code | writing the code inside agreed work |
+| a feature | what one piece of work should deliver |
+| load-bearing | a load-bearing architectural decision, e.g. module boundaries |
+| a product slice | what gets built next |
+| the whole product | what the project is for |
 
-`repair=report` holds only when all four are true: the governing rule is explicit, and cited; the
-repair restores compliance inside the authorized work and keeps every other agreed contract; the
-affected behaviour is understood well enough to say so; the result is verifiable against the
-rule. Otherwise `/align`. *(the user, 2026-09-05)*
+An install proposes the dial at *a feature*.
+</straw-dog>
+
+<straw-dog question="q-0037.0012.0001">
+Self-improvement's ladder, lowest first:
+
+| rung | a decision on it — as the person is shown it |
+|---|---|
+| a wording | rewording an instruction, its meaning unchanged |
+| a script | fixing a script that carries an instruction out |
+| a rule | changing an instruction or a skill |
+| the method | changing the way of working |
+
+An install proposes the dial at *a rule*.
+</straw-dog>
 
 ## Project-local
 
@@ -252,7 +281,7 @@ progress live in docs/ like any other project's — the instance half doing its 
 Terms: docs/glossary.md, this project's own; the method's are .agents/glossary.md's. What each
 version of the entry contract changed: docs/research/entry-contract-findings.md.
 
-**L2** commit=auto · push=auto · next-cycle=ask · breakdown=ask · repair=report
+**L2** development=a feature · self-improvement=a rule. Push each commit as it lands.
 
 **L4** debug=on
 

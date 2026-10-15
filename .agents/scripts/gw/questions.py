@@ -22,7 +22,7 @@ silent, and reads where the work stands; `--end` closes a session's line; `--tre
 opens the roots of a store that holds no entry, as the install does, and is how a person resumes
 an install that stopped there. Each
 event of a turn is its own call — `at`, `open`, `move`, `depend`, `undepend`, `close`, `suspect`,
-`clear`, `lean`, `assign`, `realize` — validated and written whole (parent decision 56); `--help`
+`clear`, `lean`, `assign`, `realize`, `rung` — validated and written whole (parent decision 56); `--help`
 after any of them says what it takes.
 
 `realizes` answers what a question realizes, for whichever mechanism keeps the answers: the store
@@ -92,7 +92,7 @@ PATH_LIMIT = 259
 LAST_POSITION = 9999
 # Where the fingerprint of each session's last window is kept; `None` is the machine's temp folder.
 WINDOW_MEMORY: str | None = None
-PARTS = ("record of", "part of", "depends on", "state", "owner", "answer", "realizes", "lean", "struck")
+PARTS = ("record of", "part of", "depends on", "state", "owner", "answer", "realizes", "rung", "lean", "struck")
 # A trace link names each answer by its reference and its name, as a ticket is named by id and
 # slug, or states that the question realizes none (the user, 2026-10-13).
 DERIVED = "derived"
@@ -115,7 +115,7 @@ NOT_HOMES = (f"{STORE}/", "docs/tickets/", "docs/rfc/")
 _USAGE = (
     "usage: questions.py --check | --window --session <tag> | --wake [--session <tag>] "
     "| --end --session <tag> | --tree [<q-id>] | --seed | <event> ... --session <tag>, the events "
-    "at, open, move, reword, depend, undepend, close, suspect, clear, lean, assign, realize"
+    "at, open, move, reword, depend, undepend, close, suspect, clear, lean, assign, realize, rung"
 )
 # How many times an `open` takes the next free id again when another session took the one it drew.
 OPEN_ATTEMPTS = 3
@@ -136,6 +136,9 @@ _DEFERRAL = re.compile(r"^until \S.*, meanwhile \S.*$")
 _STRIKE = re.compile(r"^(\d+), last (\d{4}-\d{2}-\d{2}T\d{2}:\d{2})Z$")
 _ANSWER_NAMED = r'([A-Za-z0-9][A-Za-z0-9._-]*) "(\S(?:[^"]*\S)?)"'
 _TRACE_LINK = re.compile(rf"^{_ANSWER_NAMED}(?:, *{_ANSWER_NAMED})*$")
+# A question's highest rung on each ladder it touches, `<ladder>: <rung>` (the user, 2026-10-15).
+_RUNG_NAMED = r"([a-z][a-z-]*): ([a-z][a-z' -]*[a-z])"
+_RUNG = re.compile(rf"^{_RUNG_NAMED}(?:, {_RUNG_NAMED})*$")
 # An owner as `assign` writes it: a markdown link, its label the record's id.
 _LINK_LABEL = re.compile(r"^\[([^\]]+)\]")
 _LINK_TARGET = re.compile(r"\]\(([^)\s]+)\)")
@@ -482,6 +485,7 @@ def _read(name: str, text: str) -> tuple[Entry, list[Diagnostic]]:
         + ([] if carries_former_mark else _mark_problems(read))
         + _relation_form_problems(read)
         + _trace_link_problems(read)
+        + _rung_problems(read)
         + _strike_problems(read)
     )
 
@@ -534,6 +538,31 @@ def _trace_link_problems(read: Entry) -> list[Diagnostic]:
 
 
 _NOT_A_TRACE_LINK = 'not a trace link: answers as `<reference> "<name>"`, comma-separated, each once, or `derived`'
+
+
+def _rung(value: str) -> tuple[tuple[str, str], ...] | None:
+    """The rungs a `rung` part writes, `(ladder, rung)` each, or `None` where its form is anything
+    else: `<ladder>: <rung>`, comma-separated, each ladder once.
+
+    Only the form is the store's: the rungs' names and their order are each ladder's mechanism's.
+    """
+    # TODO q-0037.0010.0002.0005: a ladder's rungs are checked by name, and a lowering told, once
+    # its mechanism declares them.
+    if not _RUNG.match(value):
+        return None
+    rungs = tuple(re.findall(_RUNG_NAMED, value))
+    ladders = [ladder for ladder, _ in rungs]
+    return rungs if len(set(ladders)) == len(ladders) else None
+
+
+def _rung_problems(read: Entry) -> list[Diagnostic]:
+    said = read.parts.get("rung")
+    if said is None or _rung(said.value) is not None:
+        return []
+    return [Diagnostic(read.record, said.line, f"rung is `{said.value}`, {_NOT_A_RUNG}")]
+
+
+_NOT_A_RUNG = "not a rung: `<ladder>: <rung>`, comma-separated, each ladder once"
 
 
 def _relation_form_problems(read: Entry) -> list[Diagnostic]:
@@ -1918,7 +1947,8 @@ class Clause:
 # A record named by its id, `01-0011.0100` of a ticket's file name, is labelled by that id alone.
 _RECORD_ID = re.compile(r"^\d{2}-\d{4}(?:\.\d{4})*")
 EVENTS = (
-    "at", "open", "move", "reword", "depend", "undepend", "close", "suspect", "clear", "lean", "assign", "realize"
+    "at", "open", "move", "reword", "depend", "undepend", "close", "suspect", "clear", "lean", "assign", "realize",
+    "rung",
 )
 
 
@@ -1973,7 +2003,7 @@ def _clause(said: argparse.Namespace) -> Clause:
         return Clause(f"{said.event}s", said.question, other=said.on)
     if said.event == "close":
         return Clause("closes", said.question, other=said.kind, text=said.pointer)
-    if said.event in ("lean", "assign", "reword", "realize"):
+    if said.event in ("lean", "assign", "reword", "realize", "rung"):
         return Clause(f"{said.event}s", said.question, text=said.text)
     return Clause({"at": "at", "suspect": "suspects", "clear": "clears"}[said.event], said.question)
 
@@ -2016,6 +2046,9 @@ def _calls() -> argparse.ArgumentParser:
     of_question("assign", "name the record of the work that answers a question").add_argument("text", metavar="path")
     of_question("realize", 'write the answers a question realizes, `A7 "<name>", ...`, or `derived`').add_argument(
         "text", metavar="link"
+    )
+    of_question("rung", "write a question's highest rung on each ladder it touches, `<ladder>: <rung>, ...`").add_argument(
+        "text", metavar="rungs"
     )
     return calls
 
@@ -2501,6 +2534,15 @@ class _Draft:
         if _trace_link(link) is None:
             raise Refused(f"`realize {read.identity} {link}`: {_NOT_A_TRACE_LINK}")
         self._put(_with(read, realizes=link))
+
+    def _rungs(self, clause: Clause) -> None:
+        """The highest rungs replace whatever the question carried. Raising is the agent's and
+        lowering the person's; the store cannot tell which until a ladder declares its order."""
+        read = self._existing(clause.question or "")
+        rungs = (clause.text or "").strip()
+        if _rung(rungs) is None:
+            raise Refused(f"`rung {read.identity} {rungs}`: {_NOT_A_RUNG}")
+        self._put(_with(read, rung=rungs))
 
     def _awaited_by(self, identity: str) -> set[str]:
         """Every question this one waits on, directly or through another."""

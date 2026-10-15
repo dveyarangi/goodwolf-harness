@@ -16,7 +16,7 @@ item.
 5. [discover-recall-structure-2026-10-08](discover-recall-structure-2026-10-08.md) — two outside passes: **5A** read the repository cold, **5B** had a functional description only.
 6. [peer-capabilities-2026-10-08](peer-capabilities-2026-10-08.md) — the harness's row and the notes on what is rare.
 7. [front-page-review-by-outside-agents-2026-10-08](front-page-review-by-outside-agents-2026-10-08.md) — two rounds of cold readers.
-8. **8a** [q-0037.0006.0011.0004](../questions/q-0037.0006.0011.0004-how-does-an-arrival-find-what-a-project-exists-to-solve-and-the-answers-it-already-has-in-its-documents-and-its-code.md), **8b** [q-0037.0013.0002](../questions/q-0037.0013.0002-which-questions-stop-for-a-human.md).
+8. **8a** [q-0037.0006.0011.0004](../questions/q-0037.0006.0011.0004-how-does-an-arrival-find-what-a-project-exists-to-solve-and-the-answers-it-already-has-in-its-documents-and-its-code.md), **8b** [q-0037.0013.0002](../questions/done/q-0037.0013.0002-which-questions-stop-for-a-human.md).
 
 **T** marks a claim spot-checked against the tree in this run, by grep or a file read, at
 `01cbb85`. Checked: 19 of 24 skills carry `Mechanism: not yet`; five declared mechanisms

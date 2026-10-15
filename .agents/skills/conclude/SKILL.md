@@ -28,8 +28,8 @@ never repaired, never copied into the queue.</straw-dog> It holds:
 - What continues, and the first step of the next session.
 Session files live under `docs/sessions/`, named `NNNN-<YYYYMMDD>-<name>` with a constantly incrementing number.
 
-The session's unpushed commits are the conclude's to settle, once the ended row is committed, by
-the `push` switch: under `ask`, put to the user here; no other reply speaks of it.
+The session's unpushed commits are the conclude's to settle, once the ended row is committed, as
+the project's way of working with git says in its local file.
 
 ## Installed from other mechanisms
 

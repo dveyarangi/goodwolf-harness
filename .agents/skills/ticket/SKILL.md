@@ -98,14 +98,14 @@ Ask the user:
 - Should any slices be merged or split further?
 - Are the correct slices marked as HITL and AFK?
 
-Read `breakdown` from `AGENTS.md`'s local block. When it is `ask`,
-do not mint until the user approves this presentation. That approval is what
-gets minted. Ask again only if a later `/impact` would change membership,
-granularity, or dependencies. Recording the impact text, or copy-edits, is
-not a new approval. When `breakdown` is `auto`, mint the post-impact
+A split stands on the rung of what its tickets decide. At or above its
+ladder's dial, do not mint until the user approves this presentation. That
+approval is what gets minted. Ask again only if a later `/impact` would change
+membership, granularity, or dependencies. Recording the impact text, or
+copy-edits, is not a new approval. Below the dial, mint the post-impact
 breakdown without waiting.
 
-Iterate until the user approves the breakdown (or `auto` applies).
+Iterate until the user approves the breakdown, or the dial lets it pass.
 
 ### 5. Create the ticket files
 

@@ -8,7 +8,7 @@ The user requested on 2026-09-05 that this harness be developed using its own ti
 
 ## Work and documents
 
-The loop itself, its stages, skills and human checkpoints, the autonomy switches and the `<straw-dog>` convention are owned by [AGENTS.md](../AGENTS.md), the session entry file every host loads at start. This section holds the detail behind it.
+The loop itself, its stages, skills and human checkpoints, the dial and its ladders and the `<straw-dog>` convention are owned by [AGENTS.md](../AGENTS.md), the session entry file every host loads at start. This section holds the detail behind it.
 
 - Substantial new work, including this harness, is aligned on the question it answers before implementation decomposition. `/align` develops the brief in the question's body until its `Where it stands` holds agreed scope, behavior, architectural boundaries and testing decisions; once the person accepts it, `/ticket` mints from it. Small, bounded work can start directly as a ticket.
 - A ticket owns the intended outcome and acceptance criteria. The [queue](tickets/README.md) owns ordering; a ticket's header its delivery status.
@@ -30,15 +30,15 @@ Ticket names, `done/` moves and citation:
 
 ## Autonomy and repair
 
-The policy is the entry file's: the `repair` switch and its four conditions in
-[AGENTS.md § Autonomy](../AGENTS.md#autonomy), moved there on 2026-09-20 under
-[01-0010.0140](tickets/done/01-0010.0140-core-stands-alone.md) so that core carries what core reads. Its
-decision record is in the [shared-harness ticket](tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md#resolutions-and-constraints).
+The policy is the entry file's: [AGENTS.md § Autonomy](../AGENTS.md#autonomy) sets how far the agent
+goes alone by a dial on each ladder, and a repair stands on the rung of what it mends. The dial
+replaced the five switches on 2026-10-15; its decisions are in
+[q-0037.0013.0005](questions/q-0037.0013.0005-which-of-the-agents-acts-need-the-persons-yes-and-which-does-it-do-on-its-own.md).
 
 ## Verification
 
 The definition is [`/verify`'s](../.agents/skills/verify/SKILL.md#the-verification-set), moved
 there the same day under the same ticket; this project's four commands sit in the entry file's
-local block beside its switches. `/tdd` still owns red-green.
+local block beside its dials. `/tdd` still owns red-green.
 
 

@@ -117,18 +117,21 @@ left in the recipient links the issue. The run's last words to the person name e
 The tree has core and no answers, and its entry file arrived after this session began, so none of
 its rules are in your context: read it now — from here they govern this session, as they will
 every next one. Write `local.rules.md` beside the entry file, in the [rules-file format](../mechanism/MECHANISM-FORMAT.md#the-rules-file), from the environment you stand in: the
-project's facts for the entry file, its autonomy switches, and its verification set — its
+project's facts for the entry file, its dials and its way of working with git, and its verification set — its
 typechecker, its tests, every command required of landed work, read off its own toolchain, a
 project without one having none of its own and its local file saying so; and, offered beside them,
 the harness's checks. Then `inject_rules.py local --install`, and `--check`.
-That check is the install's verification: the `commit` switch just written decides the install's
-commit, as it decides any other, named in the project's own convention where it states one.
+That check is the install's verification: once it passes, the install closes with its commit, named
+in the project's own convention where it states one.
 
 The person asked for a method to work by, not for files. Before asking anything, introduce it in
 their language, in a few lines: who you now are to them, what you will do for them, and where you
-stop for their yes. Ask each answer with the reason a project would choose it, in their terms —
-*commit on my own once the checks pass, or ask each time* — never as a switch's name and values;
-the origin's own answers, read in its clone, are not this project's and are offered as no default.
+stop for their yes. Show each ladder of the entry file's *Autonomy* as its lines, numbered, in their
+language, marked 🤖 below the dial the ladder proposes, ✋ at it and 💬 above, and ask them to name the
+line for ✋. Ask their way of working with git in their terms<straw-dog question="q-0037.0006.0022.0003"> —
+*commit on main and push each commit, or keep my work on a branch of its own*</straw-dog> — never as a
+setting's name; the origin's own answers, read in its clone, are not this project's and are offered
+as no default.
 The harness's checks
 are two kinds: those of the records the method keeps — `tickets.py`, `questions.py`, `edges.py`,
 `product.py`, `maintain.py` — serve every project that works by it; those of core itself — `mechanisms.py`,

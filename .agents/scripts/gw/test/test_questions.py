@@ -2125,6 +2125,39 @@ class TheTraceLink(Declared):
         self.assertNotIn("The question store", text)
 
 
+class TheRung(Declared):
+    """A question's highest rung on each ladder it touches (q-0037.0013.0005, decision 11): the
+    store holds its form; the rungs' names and order are each ladder's."""
+
+    def test_rung_writes_the_part(self) -> None:
+        self.called("rung", "q-0004", "development: a feature, self-improvement: a rule")
+
+        self.assertEqual(
+            "development: a feature, self-improvement: a rule", self.part("q-0004-which-parts-are-optional", "rung")
+        )
+        self.assertEqual([], [problem for problem in self.problems() if "rung" in problem])
+
+    def test_a_second_call_replaces_it_whole(self) -> None:
+        self.called("rung", "q-0004", "development: a feature")
+        self.called("rung", "q-0004", "development: load-bearing")
+
+        self.assertEqual("development: load-bearing", self.part("q-0004-which-parts-are-optional", "rung"))
+
+    def test_a_value_out_of_form_is_refused_and_writes_nothing(self) -> None:
+        for written in ("development", "development: a feature, development: code", ": a feature", ""):
+            with self.subTest(written=written):
+                self.assertRefused("not a rung", "rung", "q-0004", written)
+                self.assertIsNone(self.part("q-0004-which-parts-are-optional", "rung"))
+
+    def test_a_part_written_out_of_form_is_a_diagnostic(self) -> None:
+        self.place("q-0013-a-hand-written-one", "A hand-written one?", {"state": "open", "rung": "load-bearing"})
+
+        problems = [problem for problem in self.problems() if "rung" in problem]
+
+        self.assertEqual(1, len(problems), problems)
+        self.assertIn("not a rung", problems[0])
+
+
 class Refusals(Declared):
     """What the store refuses whatever form the call takes."""
 

@@ -59,7 +59,7 @@ One pass over a declared scope. The scope decides which rules apply.
 - **D3** Preserve the facts an archived record records. Never invent a past fact; never imply a
   later requirement was met at the time.
 - **D4** Treat a mechanical repair that stopped partway as unfinished: inspect the files against
-  what it reported done and pending, finish under the repair policy, and never report a repair
+  what it reported done and pending, finish at the rung of what it mends, and never report a repair
   that did not finish.
 
 ## One home per fact
@@ -105,18 +105,17 @@ leaves the Git index alone. Treat a refusal as a finding. Repair or deliberately
 reports it cannot rewrite, and say which. Git recovers committed or staged content only.
 
 **P5** Check the ticket records with `tickets.py --check` — format never content, live rows only. A
-diagnostic is a finding; repair it under the repair policy.
+diagnostic is a finding; repair it at the rung of what it mends.
 </installed>
 
 <installed by="questions">
-**Q4** Check the question store with `questions.py --check`. A diagnostic is a finding; repair it under
-the repair policy. Move each subtree it reports ready for `done/` with `move_doc.py`, every entry
+**Q4** Check the question store with `questions.py --check`. A diagnostic is a finding; repair it at the rung of what it mends. Move each subtree it reports ready for `done/` with `move_doc.py`, every entry
 of the subtree in one invocation, into `docs/questions/done/`.
 </installed>
 
 <installed by="edge">
 **E1** Check the edge records and their sidecars with `edges.py --check` — form, never content. A
-diagnostic is a finding; repair it under the repair policy.
+diagnostic is a finding; repair it at the rung of what it mends.
 
 **E2** An edge record is of the code and configuration it names. When the scope moves a part that a
 record under `docs/edge/` names, re-read what it says of that part. A promise the code no longer
@@ -125,7 +124,7 @@ keeps is drift, reported with its evidence and never rewritten to fit.
 
 <installed by="product">
 **U1** Check the product document with `product.py --check` — form, never content. A diagnostic is a
-finding; repair it under the repair policy.
+finding; repair it at the rung of what it mends.
 </installed>
 
 ## Finish

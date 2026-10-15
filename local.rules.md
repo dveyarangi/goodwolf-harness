@@ -24,14 +24,14 @@ Terms: docs/glossary.md, this project's own; the method's are .agents/glossary.m
 version of the entry contract changed: docs/research/entry-contract-findings.md.
 </rule>
 
-## L2 — the switches
+## L2 — the dials
 
 - **target** `AGENTS.md`
-- **authority** the user, 2026-09-05; commit to auto, the user, 2026-10-05; push to auto, the user,
-  2026-10-10
+- **authority** the user, 2026-10-15, word for word, the switches of 2026-09-05 to 2026-10-10
+  given way to the dial
 
 <rule>
-commit=auto · push=auto · next-cycle=ask · breakdown=ask · repair=report
+development=a feature · self-improvement=a rule. Push each commit as it lands.
 </rule>
 
 ## L4 — the working is shown

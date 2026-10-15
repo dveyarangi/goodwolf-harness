@@ -56,10 +56,14 @@ a home. Found, point to it and open nothing; a settled question is not reopened 
 answer that leaves part unsettled is found only in part: the rest is a raised question of its
 own. There is no need to search `done/`: a decided entry links to what holds its answer.
 
-**Who settles what is not found.** A decision that is not load-bearing, settle in the turn and
-report it, as `repair=report` does. A load-bearing one is the person's: settled in the turn, it
-goes to its home; not settled, open it. Unsure whether it is load-bearing, treat it as
-load-bearing.
+**Who settles what is not found.** The dial does, as the entry file's *Autonomy* says: a decision
+below its ladder's dial, settle in the turn and report it; at the dial, settle it and show it before
+it lands; above, it is the person's — settled in the turn, it goes to its home; not settled, open
+it. Unsure of its rung, take the higher.
+
+**A question's rung.** Give a question you open its highest rung on each ladder it touches —
+`questions.py rung q-N '<ladder>: <rung>, ...' --session <tag>` — as your estimate, and raise it
+when a higher decision turns up. Never lower it; the person may.
 
 **A request.** *Build X* is a proposed answer: lean it on the question X answers — *what is X
 for?* — or open that question when none is held. Open *how to build X?* under it once X is

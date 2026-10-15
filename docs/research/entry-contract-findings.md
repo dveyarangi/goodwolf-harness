@@ -15,6 +15,20 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v92 — 2026-10-15
+
+**The switches give way to the dial** — *Autonomy* states a dial on a method's ladder: below it the
+agent acts, at it it shows first, above it the person decides; a question stops while its highest
+rung is at or above the dial; mending is on the rung of what is mended; work closes with its
+commit and a push follows the project's way with git; an unset dial is at the lowest rung, and the
+agent never writes its own. Development's and self-improvement's ladders stand beside it as straw
+dogs bound to their mechanisms' questions. The *Human checkpoints* line and the reply's `🛠️` read
+the dial. The user, 2026-10-14 and 2026-10-15, on
+[q-0037.0013.0005](../questions/q-0037.0013.0005-which-of-the-agents-acts-need-the-persons-yes-and-which-does-it-do-on-its-own.md),
+decisions 1–13: the switches contradicted each other at an install — the installing agent had to
+say where it stops while only `/conclude` could speak of a push. Landed by
+[01-0020.0010](../tickets/01-0020.0010-the-agent-asks-at-its-dial.md).
+
 ## v91 — 2026-10-15
 
 **The spec is retired into its question** — the loop sends a load-bearing shape to an align on its

@@ -16,7 +16,7 @@ install it with overwrite; the block in a target is never the place.
 
 <rule>
 Check the edge records and their sidecars with `edges.py --check` — form, never content. A
-diagnostic is a finding; repair it under the repair policy.
+diagnostic is a finding; repair it at the rung of what it mends.
 </rule>
 
 ## E2 — a record is held to what it names

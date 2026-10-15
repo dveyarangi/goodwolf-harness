@@ -93,8 +93,8 @@ class Interference(OSError):
 class CloseInterrupted(Exception):
     """A close that began writing and could not finish. The tree is half-changed, on purpose.
 
-    There is no automatic rollback: the maintainer inspects the actual files and recovers under the
-    repair policy, using Git only where the affected content was committed or staged. `completed`,
+    There is no automatic rollback: the maintainer inspects the actual files and recovers at the rung
+    of what it mends, using Git only where the affected content was committed or staged. `completed`,
     `pending` and `failed` are what the recovery starts from — and after an abrupt termination even
     the failed operation has to be checked against the filesystem.
     """

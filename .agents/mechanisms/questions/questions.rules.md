@@ -81,8 +81,7 @@ happened. As the conclude's last act, run `questions.py --end --session <tag>`.
 - **authority** the user, 2026-09-29, for M1's duty
 
 <rule>
-Check the question store with `questions.py --check`. A diagnostic is a finding; repair it under
-the repair policy. Move each subtree it reports ready for `done/` with `move_doc.py`, every entry
+Check the question store with `questions.py --check`. A diagnostic is a finding; repair it at the rung of what it mends. Move each subtree it reports ready for `done/` with `move_doc.py`, every entry
 of the subtree in one invocation, into `docs/questions/done/`.
 </rule>
 

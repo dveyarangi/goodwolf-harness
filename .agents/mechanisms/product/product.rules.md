@@ -16,7 +16,7 @@ install it with overwrite; the block in a target is never the place.
 
 <rule>
 Check the product document with `product.py --check` — form, never content. A diagnostic is a
-finding; repair it under the repair policy.
+finding; repair it at the rung of what it mends.
 </rule>
 
 ## U2 — a decided purpose question is allocated in one step

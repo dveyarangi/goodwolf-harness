@@ -57,8 +57,8 @@ table is where the other party is named.
 **Who decided each rule.** The body carries rules by ID and no attribution, because attribution
 serves the maintainer at amend time, not the agent at execution; this doc carries it. A rule with
 a name and date below is that person's to amend, through `/align`; the rest came with the selected
-skills or with a pass under the repair policy, and a maintainer may amend them under
-repair-and-report, recording the cause in the evidence.
+skills or with a maintenance pass, and a maintainer may amend them at the rung of the rule, as
+the dial sets it, recording the cause in the evidence.
 
 | rule | decided by |
 |---|---|

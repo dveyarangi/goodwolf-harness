@@ -19,6 +19,7 @@ depends on, a deferred or suspect entry counting as open; it is never deleted.
 - **owner** [01-0011.0100](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)
 - **answer** [the ADR](../adr/0004-scripts-run-on-the-standard-library-alone.md) — the user, 2026-09-28
 - **realizes** A7 "The question store"
+- **rung** development: load-bearing
 - **lean** the flat directory, for insertion cost
 - **struck** 2, last 2026-10-02T19:40Z
 
@@ -29,7 +30,9 @@ depends on, a deferred or suspect entry counting as open; it is never deleted.
 
 **The parts** are the script's to write, never a hand's. Every part but **state** is optional, and
 a closed entry carries its **answer**. **realizes** is the trace link, kept as written and never
-resolved; a question without one carries its nearest ancestor's. The state is `open` or
+resolved; a question without one carries its nearest ancestor's. **rung** is the question's
+highest rung on each ladder it touches, `<ladder>: <rung>`, comma-separated, each ladder once; the
+rungs' names and order are each ladder's. The state is `open` or
 `closed:<kind>`, with `, suspect` after it at most.
 
 **The id is the place**: a root is `q-NNNN`, a child its parent's id and one more position. A

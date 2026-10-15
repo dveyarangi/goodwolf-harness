@@ -50,9 +50,8 @@ verification of landed work; a local run of a subset is not that pass.
 
 Once done, and unless you need to take a break, use `/verify`.
 
-Read `commit` from `AGENTS.md`. Do not commit until that switch allows it.
-Repair during the work follows the `repair` switch; it is not a substitute
-for `/verify`.
+Commit once `/verify` has passed on the work. Mending during the work stands
+on the rung of what it mends; it is not a substitute for `/verify`.
 
 <installed by="local">
 **L3** The verification set: the checks always; the tests too when the work changed a file that is not

@@ -53,7 +53,7 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 |---|---|---|
 | deciding a chunk is ticket-sized, or needs `/align` first | `.agents/skills/ticket/SKILL.md` | |
 | decomposing a parent into slices, and impacting the split | `.agents/skills/ticket/SKILL.md` | |
-| presenting the breakdown for approval under the `breakdown` switch | `.agents/skills/ticket/SKILL.md` | |
+| presenting the breakdown for approval at the dial | `.agents/skills/ticket/SKILL.md` | |
 | numbering, naming and placing a ticket | `.agents/skills/ticket/TICKET-FORMAT.md` | |
 | writing a ticket to the shape its stage requires | `.agents/skills/ticket/TICKET-FORMAT.md` | |
 | flipping a status | `.agents/skills/ticket/TICKET-FORMAT.md` | |
