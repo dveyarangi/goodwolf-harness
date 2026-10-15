@@ -129,7 +129,11 @@ in the project's own convention where it states one.
 The person asked for a method to work by, not for files. Say in one line that it is installed and
 ready; what was copied, gated and registered stays in the files and the commit, said on request, and
 so does how the run got round a platform's trouble. Then introduce it in their language, in a few
-lines: what it gives them, who you now are to them, and where you stop for their yes. Then ask what
+lines: what it gives them, who you now are to them, and where you stop for their yes. What it gives,
+in their words: work comes out as meant, each piece checked against what was agreed before it is
+called done; nothing is explained twice, since decisions, open questions and where the work stands
+carry from one session to the next; they decide what matters, and only that, since they set where
+the agent stops and below that line it does not ask. Then ask what
 the install still needs, one question at a time, each after the last is answered: each ladder of the
 entry file's *Autonomy* as its lines, numbered, marked 🤖 below the dial the ladder proposes, ✋ at
 it and 💬 above, the person naming the line for ✋; their way of working with git in their
