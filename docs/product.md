@@ -175,14 +175,15 @@ pain of adopting a tool, not of developing with agents. The harness answers it w
 - the project's own rules file, applied last and kept through updates;
 - an update that stops rather than overwrite a hand edit, and a refusal that writes nothing;
 - a check that the installed copy matches the release it came from;
-- a check that core never depends on a project's own documents.
+- a check that core never depends on a project's own documents;
+- a first install that ends with the project's verification set written from what exists, an
+  empty one stated.
 
 Its open parts:
 
 - <straw-dog question="q-0037.0006.0020.0001">An install meets an existing `CLAUDE.md` or `AGENTS.md` by moving it aside, in one mode only.</straw-dog>
 - <straw-dog question="q-0037.0006.0011">An install does not draft an architecture and glossary from the project's code.</straw-dog>
 - <straw-dog question="q-0037.0006.0011.0004">An install does not find what the project exists to solve, or the answers it has already built into its docs and code.</straw-dog>
-- <straw-dog question="q-0037.0006.0020.0003">A first install does not end with the project's own checks in place.</straw-dog>
 - <straw-dog question="q-0037.0006.0019">A project's own mechanisms have no declared home, so they are not checked like the shipped ones.</straw-dog>
 - <straw-dog question="q-0037.0006.0020.0002">An update does not say what changed or what the project has to do about it.</straw-dog>
 - <straw-dog question="q-0037.0006.0014">A harness failure found in a project does not reach the harness.</straw-dog>

@@ -172,7 +172,7 @@ Nothing else; the tree is rendered on request and never committed.
 
 ## Not yet at the shape
 
-**Four `not yet` rows**, each bound to an open question.
+**Three `not yet` rows**, each bound to an open question.
 
 <straw-dog question="q-0037.0006.0015">
 **The sessions folder** is one folder in the working tree, and that is how sessions see each other;

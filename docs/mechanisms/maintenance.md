@@ -12,8 +12,8 @@ One row per mechanism per level, then each file that level was checked against, 
 | harness | output | bd614110d4d648055dae928f0252a3da75d72ddb0362880f0319a6d3fa5b4510 | 2026-10-14 | nothing to change |
 | maintain | parts | c5a3f5e64352068d6405a018523f5251785611bffe2aa7bc9df371e647baf32e | 2026-10-15 | amended |
 | maintain | output | 8e102e4c7b5865bf2e41f3535c6fcfeb3d1126a3bba6d39ba0a87a0574ea0398 | 2026-10-15 | amended |
-| mechanism-shape | parts | f8e255a13cf3790a28ec2f6b1f6d5ef11484aa4c32df801cccd2a214cd372d53 | 2026-10-14 | nothing to change |
-| mechanism-shape | output | 39beb8b7fa3e0eb7f7979b84791c6e66d01e5d483aac0bed8ac5bd7607ca836e | 2026-10-13 | nothing to change |
+| mechanism-shape | parts | b29fbc76a911d1df1e8f7fc2ca6f8e4b53d346fcf549e4f6aca6d879e6316693 | 2026-10-15 | nothing to change |
+| mechanism-shape | output | f2ff90378ef8117f004aeb2285deec232bfc690f229e3d11d65978f66e31650c | 2026-10-15 | nothing to change |
 | product | parts | 27c65af8a0a87d7373736bfc59dd0c42f9ef7d20da114380a6b9b2486b003912 | 2026-10-14 | nothing to change |
 | product | output | fe0f5842064c023deeb777b5b74ac35595e8b94290a4597f096a4eb8010b68ce | 2026-10-14 | nothing to change |
 | questions | parts | 28c798f7e126d9855f2e87653aff18954561559e7953f157da8bf04b9b41f019 | 2026-10-14 | nothing to change |
@@ -63,16 +63,16 @@ One row per mechanism per level, then each file that level was checked against, 
 | maintain | output | .agents/skills/mechanism/MECHANISM-FORMAT.md | daa56fcbacf1109796fa9fad70d7328d75edb16162502e856173d86169d08992 |
 | maintain | output | .agents/skills/mechanism/SKILL.md | 14e6d50374c7372786200c1e2c3e622af31547b0fa9f23ecb359393d229ef0ed |
 | mechanism-shape | parts | .agents/mechanisms/mechanism-shape/mechanism-shape.rules.md | 2e681b0e5f05f91417d4745bfdb08f7d7d50152c91ad3db8b631b757dc941308 |
-| mechanism-shape | parts | .agents/scripts/gw/docs_corpus.py | b020b9940a009c6d42426a7697f2333d1f4b9e84b6240affcae324c8740ee80e |
+| mechanism-shape | parts | .agents/scripts/gw/docs_corpus.py | 1f786b707b4dca5a492fbaeaffc9a2ceb8829c88b3285517228520d5b041129a |
 | mechanism-shape | parts | .agents/scripts/gw/inject_rules.py | 6b9bcfd51543495869f0744a4e5dc4defe63092ed3631598fe7b798bdc9d3fd5 |
-| mechanism-shape | parts | .agents/scripts/gw/mechanisms.py | 36326d2262ca570ececc44cdf45844c3e861eaefa138fda8e04039e32c8b5d1b |
+| mechanism-shape | parts | .agents/scripts/gw/mechanisms.py | c50447a1ae207afca0c7ce1ed1bf5f60bfd87ab7be665316e86a7639fd72dd11 |
 | mechanism-shape | parts | .agents/scripts/gw/test/repository.py | 421f300b5d4eceb06652e69ad37c3765a9a2c5bb9f107a8c2385d5344fd12fab |
 | mechanism-shape | parts | .agents/scripts/gw/test/test_inject_rules.py | 066f82b461fb0a4413385072ac323a312c0e73437b159c046e530e2dd925860d |
 | mechanism-shape | parts | .agents/scripts/gw/test/test_mechanisms.py | 1bf38c754c4d8aa524a6c45e1063be0c87717135e43d5ce699f34be2c36fc559 |
 | mechanism-shape | parts | .agents/scripts/gw/test/test_repository.py | 61c008b612db93199ef86349eb3a9931479c3c33de1724365f90b293593d0e69 |
 | mechanism-shape | parts | .agents/skills/mechanism/MECHANISM-FORMAT.md | daa56fcbacf1109796fa9fad70d7328d75edb16162502e856173d86169d08992 |
 | mechanism-shape | parts | .agents/skills/mechanism/SKILL.md | 14e6d50374c7372786200c1e2c3e622af31547b0fa9f23ecb359393d229ef0ed |
-| mechanism-shape | output | .agents/mechanisms/mechanism-shape/mechanism-shape.md | 03179ed5a91a76be74c29fa9918e84bb73a1b13109d68dd8589a5f67f7cd0284 |
+| mechanism-shape | output | .agents/mechanisms/mechanism-shape/mechanism-shape.md | 0abd3be511c6b09585fc6d69a200e75ffc0abb9963861da82f2439e032a76c14 |
 | mechanism-shape | output | .agents/mechanisms/mechanism-shape/mechanism-shape.rules.md | 2e681b0e5f05f91417d4745bfdb08f7d7d50152c91ad3db8b631b757dc941308 |
 | mechanism-shape | output | .agents/skills/mechanism/MECHANISM-FORMAT.md | daa56fcbacf1109796fa9fad70d7328d75edb16162502e856173d86169d08992 |
 | mechanism-shape | output | .agents/skills/mechanism/SKILL.md | 14e6d50374c7372786200c1e2c3e622af31547b0fa9f23ecb359393d229ef0ed |
