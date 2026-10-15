@@ -116,30 +116,32 @@ left in the recipient links the issue. The run's last words to the person name e
 
 The tree has core and no answers, and its entry file arrived after this session began, so none of
 its rules are in your context: read it now — from here they govern this session, as they will
-every next one. Write `local.rules.md` beside the entry file, in the [rules-file format](../mechanism/MECHANISM-FORMAT.md#the-rules-file), from the environment you stand in: the
-project's facts for the entry file, its dials and its way of working with git, and its verification set — its
-typechecker, its tests, every command required of landed work, read off its own toolchain, a
-project without one having none of its own and its local file saying so; and beside them the
-harness's checks of the records the method keeps — `tickets.py`, `questions.py`, `edges.py`,
-`product.py`, `maintain.py` — those of core itself, `mechanisms.py` and `inject_rules.py`, only for
-a project that means to change the harness. Then `inject_rules.py local --install`, and `--check`.
-That check is the install's verification: once it passes, the install closes with its commit, named
-in the project's own convention where it states one.
+every next one.
 
-The person asked for a method to work by, not for files. Say in one line that it is installed and
-ready; what was copied, gated and registered stays in the files and the commit, said on request, and
-so does how the run got round a platform's trouble. Then introduce it in their language, in a few
-lines: what it gives them, who you now are to them, and where you stop for their yes. What it gives,
-in their words: work comes out as meant, each piece checked against what was agreed before it is
-called done; nothing is explained twice, since decisions, open questions and where the work stands
-carry from one session to the next; they decide what matters, and only that, since they set where
-the agent stops and below that line it does not ask. Then ask what
-the install still needs, one question at a time, each after the last is answered: each ladder of the
-entry file's *Autonomy* as its lines, numbered, marked 🤖 below the dial the ladder proposes, ✋ at
-it and 💬 above, the person naming the line for ✋; their way of working with git in their
+The person asked for a method to work by, not for files. Tell them, in their language and a few
+lines, that it is installed and what it gives them: work comes out as meant, each piece checked
+against what was agreed before it is called done; nothing is explained twice, since decisions, open
+questions and where the work stands carry from one session to the next; they decide what matters,
+and only that, since they set where the agent stops and below that line it does not ask. What the
+run did — what it copied, gated, registered and committed, and how it got round a platform's
+trouble — is said only on request.
+
+Then ask what the install needs from them, one ask to a reply and the next only once it is
+answered, never saying what is still to come: each ladder of the entry file's *Autonomy* as its
+lines, numbered, marked 🤖 below the dial the ladder proposes, ✋ at it and 💬 above, with what the
+marks mean, the person naming the line for ✋; their way of working with git in their
 terms<straw-dog question="q-0037.0006.0022.0003"> — *commit on main and push each commit, or keep my
 work on a branch of its own*</straw-dog>, never as a setting's name, the origin's own answers offered
-as no default; the links the platform refused, as the commands to run. End with the first question
-the work asks.
+as no default; the links the platform refused, as the commands to run and where.
+
+With the answers, write `local.rules.md` beside the entry file, in the [rules-file format](../mechanism/MECHANISM-FORMAT.md#the-rules-file): the
+project's facts, its dials, its way of working with git, and its verification set — its typechecker,
+its tests, every command required of landed work, read off its own toolchain, a project without one
+having none of its own and saying so — and beside them the harness's checks of the records the
+method keeps, `tickets.py`, `questions.py`, `edges.py`, `product.py`, `maintain.py`; those of core
+itself, `mechanisms.py` and `inject_rules.py`, only for a project that means to change the harness.
+Then `inject_rules.py local --install`, and `--check`; once it passes, the install closes with its
+commit, named in the project's own convention where it states one. End with the first question the
+work asks.
 `uv run --offline --no-project python` is the harness's own habit; the scripts need only the
 standard library, so a bare `python` works.

@@ -42,6 +42,17 @@ now are to them, and where you stop for their yes. Then ask what the install sti
 question at a time, each after the last is answered.* What the introduction says the harness gives
 is [q-0033.0008](questions/q-0033.0008-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md)'s.
 
+**Struck, 2026-10-15 — the next install, an hour later.** Under the amendment the introduction
+opened better and still reported the commit `f07af78` and every line of `local.rules.md`, then said
+*three things remain, one at a time* and announced what it would ask after. The user: *you still
+explain how you work instead of working*. Two causes in the amendment itself: its first paragraph
+had `local.rules.md` written and committed before the second asked for the dials and the way with
+git, so the agent wrote half, committed, and reported both; and *one question at a time* read as
+words to repeat. **Amendment landed**, the user, 2026-10-15: the section reordered — tell, ask, write
+from the answers, commit — with *what the run did … is said only on request*, *one ask to a reply
+and the next only once it is answered, never saying what is still to come*, and *who you now are to
+them* gone, the ladder showing where the agent stops.
+
 ## 50. Four skills were changed without `/skill-up`, which asks nothing about growth — 2026-10-15
 
 **Rules in play:** `/skill-up`'s description, *Use whenever writing any agent instructions*; its
