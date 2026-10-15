@@ -62,8 +62,9 @@ More under [Use it](#use-it-instructions-for-your-agent).
 - **Decisions go by their weight.** A decision whose mistake would break several parts of the
   project comes to you, with the agent's recommendation. Anything smaller the agent settles and
   tells you about. When it is unsure which one it is, it asks.
-- **You set the stops.** Commit, push, starting the next piece of work, splitting work into tickets:
-  each is `ask` or `auto`. Out of the box, everything asks.
+- **You set the line.** You say where the agent stops for your yes, on one short list of decisions
+  from writing code to what the project is for: below the line it acts, at it it shows you first,
+  above it you decide.
 - **You can see what it stands on.** Every step leaves a short record you can read, so checking the
   agent's work is cheap and trusting it isn't blind.
 - **You can think out loud.** Jump from topic to topic. What you say lands under the question it
@@ -74,7 +75,7 @@ More under [Use it](#use-it-instructions-for-your-agent).
 - **Better over time, not worse.** One home for every decision, a maintenance pass that keeps
   documents and code in agreement, and rules reworded each time the agent ignores one all point
   this way. Nothing yet measures whether it holds.
-- **No harm.** The harness's own scripts refuse rather than overwrite, and push waits for your yes.
+- **No harm.** The harness's own scripts refuse rather than overwrite, and work leaves your machine only the way you said it may.
   Nothing yet bounds what the agent itself may do.
 
 ## A morning with it

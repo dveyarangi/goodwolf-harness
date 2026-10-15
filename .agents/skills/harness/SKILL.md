@@ -118,15 +118,20 @@ The tree has core and no answers, and its entry file arrived after this session 
 its rules are in your context: read it now — from here they govern this session, as they will
 every next one.
 
-The person asked for a method to work by, not for files. Tell them, in their language and a few
-lines, that it is installed and what it gives them, as what they will notice and never as how it
-works<straw-dog question="q-0033.0008">: *done* means it works — a piece called done has been checked
-against what was agreed, and they will not find out later that it does not; nothing is explained
-again — tomorrow *continue* is enough, what was decided and why, what is half-done and what is
-still open being remembered, and nothing they said lost; they decide what matters, and only that —
-they draw the line where the agent stops, above it the decision is theirs, below it they are not
-disturbed</straw-dog>. What the run did — that it made a repository, what it copied, gated, registered
-and committed, that its checks passed, and how it got round a platform's trouble — is said only on
+The person asked for a method to work by, not for files. Tell them, in their language, that it is
+installed and what it spares them, and how — concrete troubles and the answer to
+each, never as slogans<straw-dog question="q-0033.0008">: work called done that does not work, or is
+not what was meant — each piece of work gets checkable criteria and a plan and counts as done only
+once checked against them and the project's tests, and an accepted architectural decision binds the
+code, so code that drifts from it is brought back, never the decision bent; paying twice, in time,
+tokens and their attention on re-explaining — what was decided and why, what is half-built and at
+which step, and what is still undecided are kept as files in their repository, every session
+starting from them, so *continue* is enough, and every open question is kept until it is answered,
+with where the thinking got to, a remark in passing noted rather than derailing the work; being in
+the wrong place, with what matters decided without them or every step waiting on them — a decision
+whose mistake would break several parts comes to them with options and a recommendation, a smaller
+one the agent settles and reports, and they set where that line runs</straw-dog>.
+What the run did — that it made a repository, what it copied, gated, registered and committed, that its checks passed, and how it got round a platform's trouble — is said only on
 request.
 
 Then ask what the install needs from them, one ask to a reply and the next only once it is
