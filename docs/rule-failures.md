@@ -53,6 +53,15 @@ from the answers, commit — with *what the run did … is said only on request*
 and the next only once it is answered, never saying what is still to come*, and *who you now are to
 them* gone, the ladder showing where the agent stops.
 
+**Struck again, 2026-10-15 — the fourth install.** It opened with *the installer made `git init`
+itself, all three checks passed, no commits yet*: the run's doings, taken for news because a
+repository and passing checks are not *copied, gated, registered and committed*. Its account of what
+the harness gives was the amendment's own three lines, read by the user as thin and as the method's
+workings rather than the person's gain. **Amendment landed**, the user, 2026-10-15: the on-request
+list names *that it made a repository* and *that its checks passed*; what it gives is said *as what
+they will notice and never as how it works*, its three promises in the person's experience, a
+straw dog bound to q-0033.0008; the git ask is numbered as where finished work goes.
+
 ## 50. Four skills were changed without `/skill-up`, which asks nothing about growth — 2026-10-15
 
 **Rules in play:** `/skill-up`'s description, *Use whenever writing any agent instructions*; its

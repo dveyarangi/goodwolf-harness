@@ -119,21 +119,25 @@ its rules are in your context: read it now — from here they govern this sessio
 every next one.
 
 The person asked for a method to work by, not for files. Tell them, in their language and a few
-lines, that it is installed and what it gives them: work comes out as meant, each piece checked
-against what was agreed before it is called done; nothing is explained twice, since decisions, open
-questions and where the work stands carry from one session to the next; they decide what matters,
-and only that, since they set where the agent stops and below that line it does not ask. What the
-run did — what it copied, gated, registered and committed, and how it got round a platform's
-trouble — is said only on request.
+lines, that it is installed and what it gives them, as what they will notice and never as how it
+works<straw-dog question="q-0033.0008">: *done* means it works — a piece called done has been checked
+against what was agreed, and they will not find out later that it does not; nothing is explained
+again — tomorrow *continue* is enough, what was decided and why, what is half-done and what is
+still open being remembered, and nothing they said lost; they decide what matters, and only that —
+they draw the line where the agent stops, above it the decision is theirs, below it they are not
+disturbed</straw-dog>. What the run did — that it made a repository, what it copied, gated, registered
+and committed, that its checks passed, and how it got round a platform's trouble — is said only on
+request.
 
 Then ask what the install needs from them, one ask to a reply and the next only once it is
 answered, never saying what is still to come: each ladder of the entry file's *Autonomy* as its
 lines alone, without the rungs' names, numbered, the line it proposes marked ✋, and one sentence:
 below it the agent acts on its own, at it shows them first, above it they decide — the person
-naming the line for ✋; their way of working with git in their
-terms<straw-dog question="q-0037.0006.0022.0003"> — *commit on main and push each commit, or keep my
-work on a branch of its own*</straw-dog>, never as a setting's name, the origin's own answers offered
-as no default; the links the platform refused, as the commands to run and where.
+naming the line for ✋; their way of working with git, asked as where finished work goes, numbered,
+in their terms<straw-dog question="q-0037.0006.0022.0003"> — *1. straight into the shared repository,
+always current on any machine; 2. the agent prepares it, they look and let it in; 3. it stays on
+this computer*</straw-dog>, never as a setting's name, a remote named where there is none yet, the
+origin's own answers offered as no default; the links the platform refused, as the commands to run and where.
 
 With the answers, write `local.rules.md` beside the entry file, in the [rules-file format](../mechanism/MECHANISM-FORMAT.md#the-rules-file): the
 project's facts, its dials, its way of working with git, and its verification set — its typechecker,
