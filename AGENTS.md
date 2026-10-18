@@ -2,7 +2,9 @@
 
 Entry contract: v95, 2026-10-18.
 
+<straw-dog question="q-0037.0009.0021">
 Under `debug=on`, open your first reply of every session with the `Entry contract:` line above, verbatim.
+</straw-dog>
 
 <straw-dog question="q-0037.0013">
 Run /recall first in every conversation, whatever the first message says. A conversation the host
@@ -43,7 +45,7 @@ name it, what is decided, what is next, where it stops, what it needs from the p
 work read, ran or wrote on the way, and what it will read next, is not told; what more the person
 hears at an occasion, a skill's `What the person hears` says, in their words. It names no script,
 call, check, report, record's internals or hook, and never retells a report: an outcome is one
-sentence, a failure is what the person does. Under `debug=on` the machinery is shown as well.
+sentence, a failure is what the person does. <straw-dog question="q-0037.0009.0021">Under `debug=on` the machinery is shown as well.</straw-dog>
 </straw-dog>
 
 <straw-dog question="q-0037.0009.0021">

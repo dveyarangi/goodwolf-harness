@@ -24,6 +24,12 @@ is told as the table in the debug mode*.
 [q-0037.0010.0012.0001](../questions/q-0037.0010.0012.0001-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person-about-that-work-and-how-is-a-reply-tested-for-keeping-them-apart.md),
 [the second slice's results](./speech-bench/results/install-and-maintain.md).
 
+**Every debug text a straw dog** — the announce line and *A reply speaks the method*'s *Under
+`debug=on` the machinery is shown as well* wrapped, bound to
+[q-0037.0009.0021](../questions/q-0037.0009.0021-which-mechanism-owns-how-a-reply-is-laid-out-for-its-reader-debugging-or-interaction-and-what-does-it-own.md)
+beside the reply form's block already there; the user: debug's final shape is *physically
+installing/uninstalling - or swapping - debug blocks*.
+
 ## v94 — 2026-10-18
 
 **A reply tells the method's step, never the work's course** — *A reply speaks the method* names
