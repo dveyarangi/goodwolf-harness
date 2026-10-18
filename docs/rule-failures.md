@@ -17,6 +17,28 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 52. An align put to the person, as a question, what their opening message had answered — 2026-10-18
+
+**Rules in play:** `/align`, *open with the concrete failures and my own earlier words, read back
+from the records, before any design question*; *do not reopen an accepted decision without new
+evidence*.
+
+**What happened.** At q-0037.0010.0012.0001 the second question asked what a reply may still say of
+the work, with three options. The person's message that opened the question had answered it, with
+the example the question then quoted as its decisive fact: *good morning, recalling what we have*.
+The user: *b — I wrote exactly that at the start, no?*
+
+**Why it did not fire.** *Read back from the records* points at the tree, and the opening message
+was not a record yet; the agent quoted the person's words as evidence and still offered them as one
+option among three.
+
+**Amendment proposed**, to `/align`'s *Problem before machinery*: *… and my own earlier words, this
+conversation's included, read back before any design question; a fork my words already settle is
+put as that answer, for me to confirm, never as a question.*
+
+**Amendment refused** *(the user, 2026-10-18)*: *no amendment — I worded it imprecisely myself*; the
+opening message did not settle the fork, so the question was not a repeat.
+
 ## 51. An install's introduction told the person what was copied, and asked everything at once — 2026-10-15
 
 **Rules in play:** `/harness`, *After the first install*: *What was copied, gated and registered
@@ -61,6 +83,21 @@ workings rather than the person's gain. **Amendment landed**, the user, 2026-10-
 list names *that it made a repository* and *that its checks passed*; what it gives is said *as what
 they will notice and never as how it works*, its three promises in the person's experience, a
 straw dog bound to q-0033.0008; the git ask is numbered as where finished work goes.
+
+**Struck again, 2026-10-16 — outside the install.** A session's first reply under `/recall`: *Good
+morning, within the recall: the session is registered, no position yet. Reading the wake and what
+concerns Core and instance.* — the wake's lines retold and the next read announced, where *good
+morning, recalling where we are* was the whole of what the person needed. Rules in play: the entry
+file's *A reply speaks the method … never retells a report*, and `/recall`'s own *greet … show some
+immediate interesting status* and *output wake/recall updates as the stages are completed*, which
+order the narration the first forbids; the specific won. Every amendment so far landed in
+`/harness` alone, so the shape came back at the next skill that speaks. The user: some rules are
+work done unseen, others say how to speak of it, and the two should be told apart — with tests.
+Open at [q-0037.0010.0012.0001](questions/q-0037.0010.0012.0001-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person-about-that-work-and-how-is-a-reply-tested-for-keeping-them-apart.md).
+
+**Amendment landed**, the user, 2026-10-18: `/recall`'s speech moved into its `What the person
+hears` section, and the entry file's *A reply speaks the method* tells the method's step and never
+the work's course, v94; graded on the speech bench, red to green.
 
 ## 50. Four skills were changed without `/skill-up`, which asks nothing about growth — 2026-10-15
 
