@@ -15,6 +15,18 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v94 — 2026-10-18
+
+**A reply tells the method's step, never the work's course** — *A reply speaks the method* names
+*the method's step as the person would name it* where it said *the step*, and adds that what the
+work read, ran or wrote, and what it will read next, is not told, a skill's `What the person hears`
+saying what more the person hears at its occasion. A session's first reply under `/recall` retold
+the wake and announced its next read; the user: *the whole first sentence can be replaced with
+"good morning, recalling what we have"*. Rule failure 51's third strike, the first outside
+`/harness`;
+[q-0037.0010.0012.0001](../questions/q-0037.0010.0012.0001-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person-about-that-work-and-how-is-a-reply-tested-for-keeping-them-apart.md),
+graded on [the speech bench](./speech-bench/).
+
 ## v93 — 2026-10-15
 
 **The announce line under `debug=on` alone** — the first reply of a session opens with the

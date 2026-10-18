@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v93, 2026-10-15.
+Entry contract: v94, 2026-10-18.
 
 Under `debug=on`, open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -38,10 +38,12 @@ nothing about being load-bearing â€” an implementation method is a shape too. â†
 </straw-dog>
 
 <straw-dog question="q-0037.0010.0012">
-**A reply speaks the method:** which question the work is on, the step, what is decided, what is
-next, where it stops, what it needs from the person. It names no script, call, check, report,
-record's internals or hook, and never retells a report: an outcome is one sentence, a failure is
-what the person does. Under `debug=on` the machinery is shown as well.
+**A reply speaks the method:** which question the work is on, the method's step as the person would
+name it, what is decided, what is next, where it stops, what it needs from the person. What the
+work read, ran or wrote on the way, and what it will read next, is not told; what more the person
+hears at an occasion, a skill's `What the person hears` says, in their words. It names no script,
+call, check, report, record's internals or hook, and never retells a report: an outcome is one
+sentence, a failure is what the person does. Under `debug=on` the machinery is shown as well.
 </straw-dog>
 
 <straw-dog question="q-0037.0009.0021">

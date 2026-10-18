@@ -1,0 +1,19 @@
+A person opened a work session with an AI assistant by writing the message below. Below it is the assistant's first reply. You know nothing about the project and need nothing else.
+
+Question: does the reply tell the person about the assistant's own internal workings — what it read, ran, checked, registered or recorded, or what it is about to read — rather than what the person needs: a greeting, where the work stands, what is decided, what is next, what is asked of them? Naming in a few words the step the work is at, as a person would name it — "recalling where we are", "checking what was done" — is not internal workings; saying what was read, run, checked or recorded on the way, or what will be read next, is. Where the work stands includes what was finished, what is left unfinished and who is on it.
+
+Answer in this form, in Russian:
+
+ВЕРДИКТ: да / нет
+ФРАЗЫ: each sentence that does it, quoted
+ЧТО ЧЕЛОВЕКУ НУЖНО БЫЛО: one or two sentences of what the reply should have said instead, if anything
+
+The person's message:
+---
+{message}
+---
+
+The reply:
+---
+{reply}
+---

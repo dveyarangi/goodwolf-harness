@@ -1,0 +1,150 @@
+session: local_530cd7de-4046-4af3-98cf-41d93e26635e, registered now
+
+most struck, open:
+  q-0037.0016 [open] How does a reply show the principles each of its claims stands on, and where are the principles named for it? (struck 7)  ~ the form at v90 — the 🪢 table stands whenever another session runs, its header ids alone and linked, Q5's words left out where a table's form names a question by id; lamp, frames, footnotes and the rest as at v83
+  q-0037.0010.0009 [open] What kinds of written thing does a tree hold, and which of them does /maintain hold in agreement? (struck 5)  ~ 2026-10-11: the four kinds stand, a mechanism's doc what must always hold; the mark says how a record is treated, drift goes to declared pairs with a detector, q-0037.0010.0009.0006
+  q-0037.0011 [open] Does each rule reach the occasion it is for? (struck 4)  ~ 2026-10-14: U3 recorded as a case — a plain open does not read the questions skill; the orphan finding catches it
+  q-0033.0008 [open] What is the harness, said to a reader who arrives cold, and what of it does the front page carry? (struck 3)  ~ 2026-10-13: the README's install promise brought to the installer — an existing CLAUDE.md stops it; counts 57 sessions, 41 misses
+  q-0037.0001 [open] How are the open questions of this tree kept, so that none is lost? (struck 3)  ~ the store holds every live ticket's open questions under the question the ticket answers, and every straw dog is bound to the question it waits on; ids nest by step one and a closure archives what it finishes; the turn steered from the store, .0040, is next
+
+sessions:
+  4847fa65-8668-423a-9a04-d08af3b520e3 ended, last wrote 2026-10-02T00:00Z, at q-0037.0001
+  a977132a-eeeb-4c8b-99d7-191bcbebfd71 ended, last wrote 2026-10-02T00:00Z, at q-0037.0001.0005
+  ba5eda6f-b7fa-46c2-b680-f617d83acf0d ended, last wrote 2026-10-02T00:00Z, at q-0037.0001.0002 (recent q-0037.0001.0003.0003, q-0037.0001.0003.0002, q-0037.0001.0003.0001, q-0037.0005)
+  cf23ed96-4384-4fb6-8633-ec70e9d02222 ended, last wrote 2026-10-02T00:00Z, at q-0037.0001.0005 (recent q-0037.0001.0003.0001, q-0037.0001.0003, q-0037.0001.0004, q-0037.0001.0002)
+  01a0fee7-f1bc-7043-9569-37ab27fb527e ended, last wrote 2026-10-03T00:00Z, at q-0037.0001
+  01a0fef1-9b89-7873-826a-c2d7c38814f4 ended, last wrote 2026-10-03T00:00Z, at q-0037.0001
+  06797d23-0631-4041-9e85-e0870d2cb0e5 ended, last wrote 2026-10-03T00:00Z, at q-0037.0001
+  27fb8892-59e6-4bbc-9605-a2d7aa4d3c70 ended, last wrote 2026-10-03T00:00Z, at q-0037.0001 (recent q-0037.0001.0013)
+  2805469a-7c26-4594-9561-25f3b16d622d ended, last wrote 2026-10-03T00:00Z, at q-0037.0001.0007 (recent q-0037.0001, q-0037.0001.0002)
+  9f9f0714-7b5b-44fa-bc00-8d16838ab7a6 ended, last wrote 2026-10-03T00:00Z, at q-0037.0001.0013 (recent q-0037.0001, q-0037.0001.0012, q-0037.0001.0011, q-0037.0001.0009)
+  b10d79ee-831b-4cd8-bbd0-5f8d24181518 ended, last wrote 2026-10-03T00:00Z, at q-0037.0001.0013
+  d4406b99-8ee7-4e49-8d84-5621c2fd5766 ended, last wrote 2026-10-03T00:00Z, at q-0037.0001 (recent q-0037.0001.0002, q-0037.0001.0007)
+  s-1003-7b62 ended, last wrote 2026-10-03T00:00Z, at q-0037.0001
+  s-1003-e51e ended, last wrote 2026-10-03T00:00Z, at q-0037.0001
+  01a0ff1a-4486-7e62-beab-f76a26575fcd ended, last wrote 2026-10-04T00:00Z, at q-0038.0001 (recent q-0037.0001)
+  09c25b75-4e12-4e3c-9862-2f8806b98797 ended, last wrote 2026-10-04T00:00Z, at no position yet
+  0be47a10-25e3-46e5-9cf4-6a7f5aefc86d ended, last wrote 2026-10-04T00:00Z, at q-0037.0001
+  0ef9f6f5-dc16-49c8-8d0b-8bc370554093 ended, last wrote 2026-10-04T00:00Z, at no position yet
+  22312a34-ed2c-4dcd-babd-c580295b1d89 ended, last wrote 2026-10-04T00:00Z, at q-0037.0001
+  5bab93a2-b640-4ce2-a0d8-623d0fd7f965 ended, last wrote 2026-10-04T00:00Z, at q-0037.0001 (recent q-0037.0001.0019, q-0037.0001.0015)
+  5f832670-5043-41aa-b675-ee4615489337 ended, last wrote 2026-10-04T00:00Z, at no position yet
+  7df59554-fd67-479d-8f3d-ba4817d3126a ended, last wrote 2026-10-04T00:00Z, at no position yet
+  8894523c-1e76-4de7-a8bf-dd67b19da24b ended, last wrote 2026-10-04T00:00Z, at q-0038.0001
+  fb978107-595f-440d-a251-4cce4f282ae8 ended, last wrote 2026-10-04T00:00Z, at q-0037.0001
+  s-1003-a8d6 ended, last wrote 2026-10-04T00:00Z, at q-0037.0001
+  17658ee1-78ee-410c-871e-86e722da27fe ended, last wrote 2026-10-05T00:00Z, at q-0037.0001.0016
+  17bc6b57-8bd2-4b05-9e39-be9b95db0e94 ended, last wrote 2026-10-05T00:00Z, at q-0037.0001.0016
+  193c581a-49db-4420-8cdc-ab3b199af973 ended, last wrote 2026-10-05T00:00Z, at q-0037.0006
+  5a9026da-4d7d-4eb0-ac5c-5a54155750b5 ended, last wrote 2026-10-05T00:00Z, at q-0037.0001.0016
+  8121b2f7-de9e-40e5-8598-af9586aaf47f ended, last wrote 2026-10-05T00:00Z, at q-0037.0001.0016 (recent q-0037.0006.0020.0004)
+  bd200f86-a450-4f0e-a818-2c72edaac899 ended, last wrote 2026-10-05T00:00Z, at q-0037.0006.0020.0004 (recent q-0037.0001.0016)
+  5b274edf-b844-42fe-951e-b5ac7e044d9e ended, last wrote 2026-10-07T00:00Z, at q-0037.0006.0020.0003 (recent q-0037.0006.0002, q-0037.0006.0020.0004, q-0037.0015)
+  5d42dc06-a77c-4f38-8636-bf25038ce0ef ended, last wrote 2026-10-07T00:00Z, at q-0037.0010.0007 (recent q-0037.0006.0020.0007, q-0037.0006.0020, q-0037.0001.0016)
+  a3c9b354-c5d7-4cbd-b754-f36d7b4bcae9 ended, last wrote 2026-10-07T00:00Z, at q-0037.0010.0009 (recent q-0037.0006.0022, q-0037.0006.0022.0001, q-0037.0006.0020.0003, q-0037.0001.0016)
+  f1e6d9b5-355a-4f38-9d8c-f5fc5795558a ended, last wrote 2026-10-07T00:00Z, at q-0037.0015 (recent q-0037.0010.0007)
+  0955da22-d8cb-4209-b61e-c6d12abe27c7 ended, last wrote 2026-10-08T00:00Z, at q-0037.0006 (recent q-0037.0001.0016)
+  1e8b7b03-a36e-46db-ab42-cded0d6e7983 ended, last wrote 2026-10-08T00:00Z, at q-0037.0010.0009 (recent q-0037.0010.0009.0002, q-0037.0016, q-0037.0010.0009.0001)
+  1fb408c0-8743-4971-932f-2eb766bb9cf0 ended, last wrote 2026-10-08T00:00Z, at q-0037.0012.0003 (recent q-0037.0001.0016)
+  2c47eabc-46f8-4f91-921c-720e544226ec ended, last wrote 2026-10-08T00:00Z, at q-0037.0016 (recent q-0037.0010.0009.0003)
+  2ccc7021-f7dd-40dc-b3d7-ce20b7cf5ac7 ended, last wrote 2026-10-08T00:00Z, at q-0037.0016 (recent q-0037.0010.0009)
+  42fa2799-25c4-4ecc-91ca-e8015acb2f68 ended, last wrote 2026-10-08T00:00Z, at no position yet
+  5a6d3b87-7e0b-41a3-9a5a-f91ddc529bbd ended, last wrote 2026-10-08T00:00Z, at no position yet
+  6d9261db-5fb6-42c3-a252-17601d6dd53a ended, last wrote 2026-10-08T00:00Z, at q-0037.0001.0016 (recent q-0037.0006)
+  77046e6b-437b-45ff-92df-d545e4a962c8 ended, last wrote 2026-10-08T00:00Z, at no position yet
+  8447f66c-8b62-437c-9063-2eb368142baa ended, last wrote 2026-10-08T00:00Z, at q-0037.0001.0016 (recent q-0037.0001.0021)
+  9c61a70b-065d-4bb3-9779-4f7c997b1bfe ended, last wrote 2026-10-08T00:00Z, at no position yet
+  a6dac0fb-499a-4c79-8d25-e292e43e8f26 ended, last wrote 2026-10-08T00:00Z, at no position yet
+  b5ffec6e-b205-40b1-bec6-adafb87e70c1 ended, last wrote 2026-10-08T00:00Z, at no position yet
+  ca011656-5213-4221-afc1-79be8391f6b3 ended, last wrote 2026-10-08T00:00Z, at q-0037.0001.0016
+  e11dbff6-95f3-4c29-a40b-b68304644caa ended, last wrote 2026-10-08T00:00Z, at q-0037.0001.0016 (recent q-0037.0012)
+  ec014601-2a94-4458-a003-c86498eebb20 ended, last wrote 2026-10-08T00:00Z, at no position yet
+  eeb197d0-9f68-4471-a38d-05fa2e5dc182 ended, last wrote 2026-10-08T00:00Z, at q-0037.0001.0016
+  39bde226-7c6f-4323-afbd-034fe274d625 ended, last wrote 2026-10-09T00:00Z, at q-0037.0006.0020.0005
+  693642b7-d512-4533-8790-820e90970571 ended, last wrote 2026-10-09T00:00Z, at q-0033 (recent q-0033.0008)
+  a9b67b24-f67f-4653-a2e4-25cbfeaf5510 ended, last wrote 2026-10-09T00:00Z, at q-0037.0018.0001 (recent q-0033)
+  de339340-8b19-4267-adf9-e12d9a7b6382 ended, last wrote 2026-10-09T00:00Z, at q-0037.0016 (recent q-0037.0001, q-0037.0001.0022.0002, q-0037.0001.0022, q-0037.0001.0023.0001)
+  eb103bd9-b897-4bb6-a7fc-ac75fdc7c701 ended, last wrote 2026-10-09T00:00Z, at q-0037.0016 (recent q-0037.0001.0006)
+  0a93454f-04ec-4a5d-9d13-886cc509bee3 ended, last wrote 2026-10-10T00:00Z, at q-0037.0016.0001 (recent q-0037.0010.0009.0003)
+  53bad90a-ebc6-4f25-bb79-f755244a0394 ended, last wrote 2026-10-10T00:00Z, at q-0037.0006.0020.0003 (recent q-0037.0006.0020.0005)
+  6eb06c21-144b-4cee-a124-e0b377c36b81 ended, last wrote 2026-10-10T00:00Z, at no position yet
+  7871cf30-018d-4d61-bdca-1a422a59a06f ended, last wrote 2026-10-10T00:00Z, at q-0037.0016 (recent q-0037.0011, q-0037.0009.0006, q-0037.0010.0009.0003)
+  7f615c71-0a43-498b-8fd7-73751c1f6449 ended, last wrote 2026-10-10T00:00Z, at no position yet
+  93929df3-c4b8-4d09-b137-2c45adac1344 ended, last wrote 2026-10-10T00:00Z, at q-0037.0006.0020.0005.0001 (recent q-0037.0010.0010, q-0037.0006.0020.0005, q-0037.0006.0012, q-0037.0006.0020.0003)
+  982e4a78-9bab-4a3f-ac8b-d3c437789a79 ended, last wrote 2026-10-10T00:00Z, at no position yet
+  c77402ce-02c6-4d5b-b85b-878ac25f0287 ended, last wrote 2026-10-10T00:00Z, at no position yet
+  df0f81c5-e782-4aae-81bc-3cc21a15a072 ended, last wrote 2026-10-10T00:00Z, at no position yet
+  e588cd44-ef96-4ff7-a499-d0346d4cc03e ended, last wrote 2026-10-10T00:00Z, at q-0037.0010.0010 (recent q-0037.0006.0020.0009, q-0037.0006.0020.0005.0002, q-0037.0006.0020.0005, q-0037.0006.0020.0005.0001)
+  probe-nouv ended, last wrote 2026-10-10T00:00Z, at no position yet
+  probe-nouv2 ended, last wrote 2026-10-10T00:00Z, at no position yet
+  s-1008-8a4e ended, last wrote 2026-10-10T00:00Z, at no position yet
+  5fba085e-5ba4-46e6-bfd9-503956f08c12 ended, last wrote 2026-10-10T01:06Z, at q-0037.0013
+  5ee9fe64-bbbd-43dd-8c5b-e4f61fd910ba ended, last wrote 2026-10-10T01:11Z, at q-0037.0016 (recent q-0020, q-0037.0011, q-0037.0010.0009.0003, q-0037.0010.0009.0003.0003)
+  01a1227f-dfda-7660-92d0-63c3b3a5138c ended, last wrote 2026-10-10T01:16Z, at no position yet
+  a6ab6249-878e-4bd3-9fa6-368659f58d1a ended, last wrote 2026-10-10T01:38Z, at q-0037.0017 (recent q-0037.0001.0024, q-0037.0016.0002, q-0037.0016, q-0037.0010.0009.0003.0001)
+  01a12615-134c-77e1-91ce-795968e2e8c6 ended, last wrote 2026-10-10T13:55Z, at q-0037.0007
+  fcfe212c-0649-4af0-84f3-770d86c3b360 ended, last wrote 2026-10-10T14:10Z, at q-0037.0017 (recent q-0020, q-0037.0011, q-0037.0010.0009.0003, q-0037.0010.0009.0003.0003)
+  a58f78ae-91ed-41e2-9811-230354197278 ended, last wrote 2026-10-10T14:13Z, at q-0037.0010.0009.0003.0001
+  58bf3b88-e0f2-404e-b156-45c3be4940b8 ended, last wrote 2026-10-10T15:04Z, at q-0037.0006.0023 (recent q-0037.0011.0005, q-0037.0006.0023.0002, q-0037.0009.0009, q-0037.0006.0023.0001)
+  d0abdc88-9837-43b9-a67f-312de5aea55e ended, last wrote 2026-10-10T15:42Z, at q-0037.0013 (recent q-0037.0012, q-0037.0006.0023)
+  6408d73c-cb05-479c-9fc7-119074b87f53 ended, last wrote 2026-10-10T17:03Z, at q-0033.0008
+  local_3816aacc-55fd-4923-b350-4b091b9f7ae2 ended, last wrote 2026-10-10T17:31Z, at no position yet
+  local_48db9702-effb-48b1-b334-95320b73fc7b ended, last wrote 2026-10-10T17:39Z, at q-0037.0013
+  local_bc1f0ace-25c1-4d51-a3c6-f647d67ee326 ended, last wrote 2026-10-10T22:19Z, at q-0037.0010.0009.0006.0002 (recent q-0037.0010.0009.0006, q-0037.0010.0009, q-0037.0010.0009.0005, q-0037.0010.0009.0003.0001)
+  local_210f2b79-b3c0-4982-aba9-fcd73de7dc8b ended, last wrote 2026-10-10T22:56Z, at q-0038.0001 (recent q-0037.0006.0008, q-0033.0006, q-0033)
+  s-1010-a876 ended, last wrote 2026-10-10T23:44Z, at no position yet
+  f7ed9eaa-6526-4d41-8bc3-e0ea4b616adf ended, last wrote 2026-10-11T10:09Z, at no position yet
+  local_8694ee4d-1e18-4f1e-ab7d-f8f372bff2fb ended, last wrote 2026-10-11T19:39Z, at q-0037.0006.0008 (recent q-0033.0007, q-0033.0004, q-0033.0008)
+  local_434d77b0-a2d9-4f88-8557-4361ff483f0f ended, last wrote 2026-10-11T21:12Z, at q-0037.0006 (recent q-0037.0011, q-0037.0013.0002, q-0037.0006.0020, q-0037.0010.0012)
+  local_9f08e8b0-b221-409f-b06a-06c508b96cb7 ended, last wrote 2026-10-11T22:11Z, at no position yet
+  local_1295f6b0-a5c3-434e-bafa-56f542dfba2f ended, last wrote 2026-10-12T05:06Z, at no position yet
+  local_3051ddf9-2e81-450d-a031-162f8053b846 ended, last wrote 2026-10-12T05:56Z, at no position yet
+  local_6035dd00-083f-4461-b26d-e1d517abd9f3 ended, last wrote 2026-10-12T14:17Z, at no position yet
+  local_5ee9fe64-bbbd-43dd-8c5b-e4f61fd910ba ended, last wrote 2026-10-12T14:32Z, at q-0037.0016 (recent q-0037.0016.0003, q-0037.0011, q-0037.0006.0022.0001.0001, q-0037.0013)
+  local_4f53af9a-fe95-41ef-beb5-d37051fe10e0 ended, last wrote 2026-10-12T14:35Z, at q-0037.0010.0009.0004.0002 (recent q-0037.0010.0009.0004, q-0037.0007, q-0037.0007.0002, q-0037.0010.0009)
+  local_f608beca-f2ce-4811-bc69-fcd45fdad310 ended, last wrote 2026-10-12T14:54Z, at q-0037.0017.0002 (recent q-0037.0013.0003)
+  local_e1dcbec4-8d21-49fb-b9eb-3c0a146ce0eb ended, last wrote 2026-10-12T16:08Z, at q-0037.0001.0020.0002 (recent q-0037.0001.0020.0001, q-0037.0001.0020, q-0037.0010.0009.0004)
+  local_d62bc5fd-4b39-4ccf-a1f4-7a2e13a81890 ended, last wrote 2026-10-13T00:11Z, at q-0037.0018 (recent q-0037.0018.0003, q-0037.0018.0002, q-0037.0018.0004, q-0037.0012.0007)
+  local_44ec47e0-c14c-4489-8c3e-e4c893223ee9 ended, last wrote 2026-10-13T08:51Z, at q-0036.0004 (recent q-0036, q-0036.0003, q-0036.0002, q-0033.0008)
+  local_540b00a6-1431-48a8-b56b-03ff4a4107c4 ended, last wrote 2026-10-13T22:40Z, at q-0037.0018 (recent q-0037.0018.0009, q-0037.0018.0007, q-0037.0018.0009.0001, q-0037.0018.0006)
+  local_8a5ef97a-c714-4205-9e76-d64a63a436e1 ended, last wrote 2026-10-13T22:40Z, at no position yet
+  local_ed414eb1-5d8c-45ee-82c0-568cad21a264 ended, last wrote 2026-10-13T23:13Z, at q-0037.0006.0020.0011 (recent q-0037.0006.0020)
+  local_86b65c7e-c6b9-4744-af77-71e2c9855ce4 ended, last wrote 2026-10-13T23:49Z, at no position yet
+  local_2d3afbd6-8b98-4a9c-a1b2-669dcf26ee99 ended, last wrote 2026-10-13T23:58Z, at q-0037.0010.0009.0006 (recent q-0037.0010.0009.0006.0001, q-0037.0011, q-0037.0009.0001, q-0037.0010.0009.0003)
+  local_2087b0bd-348c-4f00-9eef-aa32804852a2 ended, last wrote 2026-10-14T00:33Z, at q-0037.0018 (recent q-0037.0018.0010, q-0037.0018.0012, q-0037.0018.0008)
+  local_600e83e0-7425-4958-9efd-ac37703f09af ended, last wrote 2026-10-14T00:34Z, at q-0037.0016 (recent q-0033.0008)
+  local_cc7e1cab-b462-4a8d-bdc6-98b60f308d6b ended, last wrote 2026-10-14T09:32Z, at q-0037.0006.0014
+  local_14ae97eb-c077-4780-a610-5b318c823cde ended, last wrote 2026-10-14T21:54Z, at q-0037.0017.0003 (recent q-0037.0017)
+  local_3114389c-293d-471e-823f-279e387248dd ended, last wrote 2026-10-14T22:20Z, at q-0037.0009.0017 (recent q-0037.0013.0005, q-0037.0006.0022.0001, q-0037.0006.0020, q-0037.0006.0020.0003)
+  local_bd3c51a2-ea4d-439c-953a-7cb6fd710cc3 ended, last wrote 2026-10-15T10:05Z, at q-0037.0013.0005 (recent q-0037.0009, q-0037.0009.0017)
+  local_5aa3ea35-a34a-4d6e-931c-6e38a59dfe0f ended, last wrote 2026-10-15T10:57Z, at no position yet
+  local_954b70fe-0dea-40ca-b00b-84747c171cbb ended, last wrote 2026-10-15T11:27Z, at no position yet
+  local_b57259e0-baf8-45f4-9b1e-cd7371415553 ended, last wrote 2026-10-16T07:10Z, at no position yet
+  local_32bdb1ef-dedd-4946-af94-7723c2decf99 running, last wrote 2026-10-16T11:06Z, at q-0037.0012.0006
+
+deferred, to re-check whether each condition is met:
+  q-0037.0001.0013 [closed:deferred] How does the store remember every id it has given, so none is given twice? — until a stale id from another session's context lands silently on the question its id was given to after a rename, meanwhile a new id is checked free against every entry live and in done/ only, and the remedy is designed afresh then
+  q-0037.0003 [closed:deferred] Could the rule set be composite, with no pure core anywhere?  ~ reachable a section at a time, as Project-local already is — until a second mechanism's rules cannot be expressed as a block injected into a hand-authored tier 1, meanwhile the entry file stays authored and mechanisms install blocks into it
+  q-0037.0010.0009.0003.0002.0003 [closed:deferred] When does the ticket check stop holding tickets minted before the format moved to their old shape? — until no live ticket was minted before the day the format moved, meanwhile the check reads both shapes and the branch carries a TODO naming this question
+  q-0037.0017.0002.0001 [closed:deferred] How do sessions on separate branches share one question store that does not travel through git?  ~ the user, 2026-10-12: probably the whole store moves out, when separate branches are taken up — until separate branches per session are taken up, meanwhile nothing leaves git and sessions share the main checkout — the user, 2026-10-12
+
+straw dogs due, their text to re-read:
+  (none)
+
+suspect, to re-read:
+  q-0037.0010.0009.0004.0001 [closed:superseded, suspect] How does a project's own code name the record that governs it?  ~ deferral struck by its own premise, 2026-10-11: eight recipients on this machine hold their own code under their own architecture docs — frost_map 34 files in src, meteoscape 106 own files — and almost none names the doc that governs it; the second shape exists
+
+session: local_530cd7de-4046-4af3-98cf-41d93e26635e
+current: none yet — the first `at` call places it
+
+roots:
+  q-0033 [open] What is this project for? (struck 1)  ~ 2026-10-13: the purpose root by its words; its open questions wait as undecided answers A15, A21, A51 and A52 in docs/product.md
+  q-0037 [open] How is this project built?
+  q-0038 [open] What landscape does this project evolve in?
+
+other running sessions:
+  local_32bdb1ef-dedd-4946-af94-7723c2decf99 at q-0037.0012.0006 Which sentences of the entry file are meta-rules the mechanism shape should hold in its skill, and which are meta-principles the entry file keeps? (last wrote 2026-10-16T11:06Z)
+
+recently attached: none
+
+🎫 39 · ❓ 164 · 🐕 158
