@@ -1,0 +1,12 @@
+| ⚙️ **maintain** · the whole tree |
+|---|
+
+Good morning. The scheduled maintenance of the whole tree is done, and the work is on the remote.
+
+One thing was out of agreement, and it is now right: the harness doc's count of what an install writes.
+
+Something is still open. [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md) · How does a project's own code name the record that governs it? It is closed as superseded but still marked suspect, and nobody has looked at it again. Whether that closing holds is yours to judge, whenever you next take up that branch.
+
+| ⚖️ Decisions |
+|---|
+| Whether to merge any of the 21 pairs of questions the store thinks may be one question |

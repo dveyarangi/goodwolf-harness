@@ -15,6 +15,15 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v95 — 2026-10-18
+
+**The commits table under `debug=on` alone** — `| 🪶 Commits |`, shown on every turn that committed
+since v71, now stands only where the machinery is shown, beside the counters line, said as its own sentence — *a commit is machinery: with debug off, a reply shows no commit table and no commit's hash*; a clause folded into the table's sentence was read as covering the counters line alone. On the speech
+bench the reader took it for the work's record in most replies that committed; the user: *commits
+is told as the table in the debug mode*.
+[q-0037.0010.0012.0001](../questions/q-0037.0010.0012.0001-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person-about-that-work-and-how-is-a-reply-tested-for-keeping-them-apart.md),
+[the second slice's results](./speech-bench/results/install-and-maintain.md).
+
 ## v94 — 2026-10-18
 
 **A reply tells the method's step, never the work's course** — *A reply speaks the method* names

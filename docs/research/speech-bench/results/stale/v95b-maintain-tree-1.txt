@@ -1,0 +1,15 @@
+| 🪶 Commits |
+|---|
+| `e9e8acc` MAINTAIN: whole tree — harness, mechanism-shape, product and questions re-checked |
+
+| ⚙️ **maintain** · the whole tree |
+|---|
+
+I maintained the whole tree, and the result is pushed. One thing was out of agreement. The harness doc's count of what an install writes now adds up. Everything else already agreed with the decisions that last moved it.
+
+Two things are left, and both are yours.
+
+| ⚖️ Decisions |
+|---|
+| Whether to merge any of the 21 places where two questions may be one |
+| Whether the closure of [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md) · How does a project's own code name the record that governs it? stands: it was closed as superseded and is now marked suspect |

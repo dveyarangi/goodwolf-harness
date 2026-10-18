@@ -1,0 +1,14 @@
+| 🪶 Commits |
+|---|
+| `c9d4510` Install GoodWolf Harness |
+
+| ⚙️ **установка харнесса** · codename_japaka |
+|---|
+
+Обе ссылки работают. Харнесс готов.
+
+Работа начинается с первого вопроса: [q-0001](docs/questions/q-0001-what-is-this-project-for.md) · What is this project for? Иначе говоря, для чего этот проект: что вы хотите здесь сделать и для кого. Опишите своими словами. Сгодится и приблизительно, дальше уточним вместе.
+
+| ⚖️ Decisions |
+|---|
+| Для чего этот проект: [q-0001](docs/questions/q-0001-what-is-this-project-for.md) |

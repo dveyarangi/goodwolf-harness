@@ -1,0 +1,10 @@
+| ⚙️ **maintain** · the whole tree |
+|---|
+
+The scheduled maintenance of the whole tree is done. One fault was fixed: the harness doc now counts correctly the things an install writes. The rest of the tree agrees with what was decided, and the work is committed and pushed.
+
+Two things are still open. [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md) · How does a project's own code name the record that governs it? is still marked suspect and has not been read again. That is for the next session that takes it up. Separately, the question store holds 21 pairs of questions that may be one question. Whether to merge any of them is your call.
+
+| ⚖️ Decisions |
+|---|
+| Which of the 21 pairs of questions that may be one should be merged, if any |

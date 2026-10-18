@@ -60,14 +60,34 @@ Three wordings were run.
 `morning` under the generalised writer, five runs: a greeting and one line each — *Сейчас посмотрю /
 вспомню, на чём мы остановились* — none flagged. The first slice holds.
 
-## What the bench leaves to the user
+## The user's rulings, and v95
+
+The user, on the rounds above: *commits is told as the table in the debug mode*; *maintain report
+can tell what was fixed in debug mode*. The entry file's reply form, v95, now says as a sentence of
+its own that *a commit is machinery: with debug off, a reply shows no commit table and no commit's
+hash*; `/maintain`'s section names what it put right in a few words, what was wrong in it told only
+under `debug=on`. The question the user asked about *the method's description* is answered in the
+reply, not here.
+
+**A flaw in the bench, found here.** A writer spawned by this session inherits the entry file as
+the session loaded it at its start, and reads that copy instead of the disk. Two rounds under v95 —
+[`stale/`](stale/) — kept the commits table in 19 of 20 replies; asked why, a writer quoted v94's
+sentence from its context. `writer.txt` now tells the writer to read the entry file from disk, the
+copy in its context perhaps older. The skills were never in that context, so every round above,
+run on an unchanged entry file, stands.
+
+| case | before v95 | v95 | what the reader quoted |
+|---|---|---|---|
+| install-close | 2 / 5 | 0 / 5 | nothing |
+| maintain-tree | 3 / 5 | 2 / 5 | the store's own words, *suspect*, *superseded*; once, the four mechanisms that moved |
+
+No reply under v95 carries a commit table or a hash.
+
+## What the bench left to the user, and how it was settled
 
 - **The method's description at the install.** In both runs one opening in five was flagged for
   the three troubles and their answers — *kept as files in their repository*, *a remark noted* —
   the text the q-0033.0008 straw dog prescribes; four in five readers called the same text what
   the person gains. The reader splits on prescribed content, and the bench does not tune it.
-- **The 🪶 Commits table.** The entry file shows it on every turn that committed, debug or not; the
-  reader takes it for the work's record in most close and maintain replies. Whether a commit is
-  told to the person is the entry file's, not a skill's.
-- **How much of a repair is told.** The reader wants *one inconsistency in the docs fixed*; the
-  section asks for what was wrong in a line.
+- **The 🪶 Commits table.** Under `debug=on` alone, v95 *(the user)*.
+- **How much of a repair is told.** In a few words; what was wrong, under `debug=on` *(the user)*.

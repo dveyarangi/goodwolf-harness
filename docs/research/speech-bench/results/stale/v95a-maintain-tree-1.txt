@@ -1,0 +1,14 @@
+| 🪶 Commits |
+|---|
+| `e9e8acc` MAINTAIN: whole tree — harness, mechanism-shape, product and questions re-checked |
+
+| ⚙️ **maintain** · the whole tree |
+|---|
+
+The whole tree is back in agreement and pushed. One thing was off: the harness doc's count of what an install writes. It is now right.
+
+There is one item left for whichever session takes it up. [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md) · How does a project's own code name the record that governs it? is closed but marked suspect, and nobody has looked at it again yet.
+
+| ⚖️ Decisions |
+|---|
+| Whether any of the 21 pairs of questions that read alike should be merged into one |

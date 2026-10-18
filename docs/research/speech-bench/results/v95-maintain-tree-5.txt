@@ -1,0 +1,12 @@
+| ⚙️ **maintain** · the whole tree |
+|---|
+
+The whole tree is in agreement again, and the result is pushed.
+
+One thing was out of agreement: the harness doc's count of what an install writes. It is right now.
+
+One thing is left to take up. [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md) · How does a project's own code name the record that governs it? is still marked suspect and waits to be re-read. That belongs to whichever session next works in that part of the store.
+
+| ⚖️ Decisions |
+|---|
+| Twenty-one pairs of questions in the store read alike: whether any pair is one question and should be merged |

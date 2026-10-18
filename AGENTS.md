@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v94, 2026-10-18.
+Entry contract: v95, 2026-10-18.
 
 Under `debug=on`, open your first reply of every session with the `Entry contract:` line above, verbatim.
 
@@ -89,8 +89,11 @@ is goodwolf-harness's own.
 
 A turn that completes a step of the delivery ring adds a row to the head table:
 `| 🔁 <the ticket, linked with its slug> · ✅ <each step this turn completed> |`. The 🪢 table
-opens the reply; a turn that made commits follows it with a table of its own, `| 🪶 Commits |`, a
-row each in order: the short hash and the subject's head; then, under `debug=on`, the window's
+opens the reply.
+
+A commit is machinery: with debug off, a reply shows no commit table and no commit's hash. Under
+`debug=on`, a turn that made commits follows the 🪢 table with a table of its own,
+`| 🪶 Commits |`, a row each in order: the short hash and the subject's head; then the window's
 counters line — its glyphs, numbers and changes copied character for character from this turn's
 window, never words standing for them — a one-cell table of its own; the head table comes after
 them.

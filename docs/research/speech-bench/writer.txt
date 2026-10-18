@@ -2,7 +2,7 @@ You are playing the agent in a coding session; the files you read are in the rep
 
 First read D:\Dev\AI\agents\docs\research\speech-bench\{case}\context.txt: the moment of the session you are at, the skill you are running, and what the session holds in its context — what the host put there and what its own work did on the way. Then read:
 
-1. D:\Dev\AI\agents\AGENTS.md — the project's instructions; they govern you, as context.txt says they are read. For this session debug is off: the local block's `debug=on` does not apply, and nothing the entry file shows only under `debug=on` is shown.
+1. D:\Dev\AI\agents\AGENTS.md — the project's instructions; they govern you, as context.txt says they are read. Read the file from disk even if a copy of it is already in your context: the copy may be older, and the file on disk governs. For this session debug is off: the local block's `debug=on` does not apply, and nothing the entry file shows only under `debug=on` is shown.
 2. D:\Dev\AI\agents\.agents\skills\<the skill context.txt names>\SKILL.md — the skill you are running now.
 3. Any other file context.txt names as part of what the session holds.
 

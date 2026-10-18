@@ -1,0 +1,12 @@
+| ⚙️ **maintain** · the whole tree |
+|---|
+
+Good morning. The scheduled maintenance of the whole tree is done and pushed. The tree agrees with itself.
+
+One thing was out of agreement and is now right: the harness doc's count of what an install writes.
+
+Two things are left. One is a question the store marks suspect, [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md) · How does a project's own code name the record that governs it? It was closed as superseded, and nobody has read it again since it was marked suspect. That reading belongs to whichever session next takes up its parent, [q-0037.0010.0009.0004](docs/questions/). The other waits on you:
+
+| ⚖️ Decisions |
+|---|
+| Twenty-one pairs of questions in the store look as if they may be one question. Merge any of them, or leave them separate. |
