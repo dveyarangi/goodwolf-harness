@@ -1,0 +1,18 @@
+Skill: maintain, over the whole tree. (/recall ran first, as the entry file says; its wake found no other session running, no straw dog due, one suspect question, q-0037.0010.0009.0004.0001; the scheduled task asked for /maintain, so the turn is a process.)
+
+The moment: the pass is done, committed and pushed. The person is not present now; they will read the report when they come back. The session now writes that report, its last message of the run.
+
+What the pass did and found, in order:
+
+- `maintain.py --check`: four mechanisms due — harness, mechanism-shape, product and questions — each moved since its mark of 2026-10-13. No mechanism never maintained.
+- `tickets.py --check`, `questions.py --check`: no diagnostics. No live ticket has every acceptance box checked, so nothing archived; nothing in the store ready for done/. The questions check printed 21 "may be one question" findings, heuristic word overlaps that fail nothing.
+- `straw_dogs.py`: no straw dog due.
+- Every move since the four marks came by a landing — an align, an implement or a rule amendment — found by each file's history. So each doc was read against the decision that moved its parts:
+  - questions: the Q5 and Q6 amendments (a table may name a question by id alone; deciding not to act) ask nothing of the doc, which names the align skill as the home for landing a decision. Nothing to change.
+  - mechanism-shape: the injector now skips a straw dog's opening line when it seeks a section's end; the format already promised that. Nothing to change.
+  - product: the doc covers U2, U3, the queue rendering, the arrival shelf and the empty document an install writes; its four `not yet` rows match its table. Nothing to change.
+  - harness: one repair. The product seed's landing raised the count of things an install writes when absent from two to three, and the next sentence still called the merged hook file "a third kind", so the doc counted three and then named a different third. It now reads "A fourth is merged rather than written".
+- `straw_dogs.py --guess` over the whole tree: 415 candidates. Only those in files changed since the last whole-tree pass (8d31c0d) were judged — all ordinary conditionals, procedure, history, or a mechanism's own retirement condition; none wrapped. The rest were not re-judged.
+- Marks written with `maintain.py --mark`: seven levels; harness parts `amended`, the other six `nothing to change`. The check now shows nothing due.
+- Not covered: the 21 "may be one question" findings, since merging questions is the person's call; the suspect entry q-0037.0010.0009.0004.0001, which the wake listed and the pass did not re-read.
+- The seven checks of the verification set pass. Committed and pushed: `e9e8acc MAINTAIN: whole tree — harness, mechanism-shape, product and questions re-checked …`; main matches origin/main.

@@ -1,0 +1,18 @@
+| 🪶 Commits |
+|---|
+| `e9e8acc` MAINTAIN: whole tree — harness, mechanism-shape, product and questions re-checked … |
+
+| ⚙️ **maintain** · the whole tree |
+|---|
+
+Good morning. The scheduled maintenance covered the whole tree, and almost everything was where it should be. Four mechanisms had moved since they were last maintained on 13 October: harness, mechanism-shape, product and questions. Every move came from a landing, so each doc was read against the decision behind it. The docs for questions, mechanism-shape and product already said what their decisions say, so they needed no change.
+
+The harness doc needed one fix. When the product seed landed, the number of things an install writes when they are missing went from two to three. The next sentence still called the merged hook file "a third kind", so the doc counted to three and then named a different third. It now reads "A fourth is merged rather than written".
+
+No ticket is finished and waiting to be archived, and no group of questions is ready to be put away. The records are in their proper form, and no straw dog is due. Some lines in the files changed since the last whole-tree pass looked like they might be straw dogs. Each one turned out to be an ordinary claim, and none was wrapped. The older lines were not judged again. The verification set passes. The work is committed and pushed, and main matches the remote.
+
+The pass left two things alone. [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md) · How does a project's own code name the record that governs it? is closed but marked suspect, which means something it relied on may have changed. Nobody has read it again yet, this pass included. There are also 21 pairs of questions that share enough wording that each pair might really be one question. Nothing fails because of them, and most are probably just shared words, but whether to merge any is your decision.
+
+| ⚖️ Decisions |
+|---|
+| Whether to merge any of the 21 pairs of questions that might each be one question |

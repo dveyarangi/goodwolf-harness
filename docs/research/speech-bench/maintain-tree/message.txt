@@ -1,0 +1,9 @@
+<scheduled-task name="goodwolf-harness-maintenance">
+This is an automated run of a scheduled task. The user is not present to answer questions. For implementation details, execute autonomously without asking clarifying questions — make reasonable choices and note them in your output. "write" actions (e.g. MCP tools that send, post, create, update, or delete), only take them if the task file asks for that specific action. When in doubt, producing a report of what you found is the correct output.
+
+This is automatically scheduled task, with no user in session.
+
+Recall and run /maintain over entire goodwolf-harness project.
+
+Commit and push results of your work automatically.
+</scheduled-task>

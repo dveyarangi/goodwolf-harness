@@ -1,0 +1,18 @@
+| 🪶 Commits |
+|---|
+| `e9e8acc` MAINTAIN: whole tree — harness, mechanism-shape, product and questions re-checked |
+
+| ⚙️ **maintain** · the whole tree |
+|---|
+
+The scheduled maintenance covered the whole tree. It is committed and pushed, and nothing is left half-done.
+
+Four mechanisms had changed since they were last looked at: the harness, the mechanism shape, the product and the questions. Each change came from a decision that had landed, so I read each doc against the decision that changed it. Three of the docs needed nothing. The harness doc had learned to count to three and then named a different third. After the product seed landed, an install writes three things when they are absent, but the next sentence still called the merged hook file "a third kind". It now says a fourth is merged rather than written. That was the only repair.
+
+No ticket is finished, no question is ready to be put away, and no straw dog is due. Of the sentences that look provisional, I judged only those in files changed since the last whole-tree pass. Each one turned out to be what it looked like, and none needed wrapping. I did not re-judge the roughly four hundred others.
+
+Two things are outside what this pass settled. The store flags 21 pairs of questions that may be the same question. The flag is a guess from shared words, and merging questions is your call. The wake also marked [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md) · How does a project's own code name the record that governs it? as suspect. This pass did not re-read it, so it waits for a session that does.
+
+| ⚖️ Decisions |
+|---|
+| Whether any of the 21 pairs of questions flagged as possibly one should be merged |

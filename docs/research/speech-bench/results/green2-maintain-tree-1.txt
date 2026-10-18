@@ -1,0 +1,16 @@
+| 🪶 Commits |
+|---|
+| `e9e8acc` MAINTAIN: whole tree — harness, mechanism-shape, product and questions re-checked |
+
+| ⚙️ **maintain** · the whole tree |
+|---|
+
+The scheduled maintenance of the whole tree is done, committed and pushed.
+
+One thing was out of agreement. The harness doc said an install writes three things when they are absent, and the next sentence called the merged hook file "a third kind". That gave the doc two different thirds. It now says the hook file is a fourth, merged rather than written. Everything else agreed with what it describes.
+
+Two things are left. The question store has 21 places where two questions may really be one. The check finds them by shared words, so some will be coincidence, and merging is your call. Separately, this morning's recall flagged [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md), "How does a project's own code name the record that governs it?", as suspect. This pass did not re-read it, so it waits for the next session that works there.
+
+| ⚖️ Decisions |
+|---|
+| Whether any of the 21 possible pairs of questions should be merged |

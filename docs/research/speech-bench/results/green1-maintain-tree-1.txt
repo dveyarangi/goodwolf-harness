@@ -1,0 +1,21 @@
+| 🪶 Commits |
+|---|
+| `e9e8acc` MAINTAIN: whole tree — harness, mechanism-shape, product and questions re-checked |
+
+| ⚙️ **maintain** · the whole tree |
+|---|
+
+The scheduled pass went over the whole tree. Four parts had moved since their docs were last checked against them: installing the harness, the shape every mechanism takes, the product document, and the question store. Each move came from a decision that had already landed, so in each case the only question was whether the doc had kept up.
+
+Three had. The install doc was slightly off. When the product seed landed, the number of things an install writes when they are missing went from two to three. The next sentence still called the merged hook file "a third kind", so the doc counted to three and then named a different third. It now calls the merged file a fourth. That is committed and pushed, and nothing else is due. The tickets and the question store are in their proper form, nothing was ready to archive, and no provisional rule has come due.
+
+Three things are still open:
+
+- The question store's check flagged 21 pairs of questions that may be the same question. It goes by shared words and nothing fails on them. Merging questions is your call, so I left them alone.
+- [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md) · How does a project's own code name the record that governs it? It was closed as superseded but is flagged suspect, meaning its closure may no longer hold. The pass did not re-read it.
+- I searched the tree for text that should be marked provisional and judged only the candidates in files changed since the last whole-tree pass. None needed marking. The rest of the 415 candidates were not looked at again, and they belong to a later pass.
+
+| ⚖️ Decisions |
+|---|
+| Whether any of the 21 flagged pairs are one question and should be merged |
+| Whether to re-read [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md) and reopen it or confirm its closure |

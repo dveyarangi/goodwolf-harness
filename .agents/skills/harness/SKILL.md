@@ -118,8 +118,24 @@ The tree has core and no answers, and its entry file arrived after this session 
 its rules are in your context: read it now — from here they govern this session, as they will
 every next one.
 
-The person asked for a method to work by, not for files. Tell them, in their language, that it is
-installed and what it spares them, and how — concrete troubles and the answer to
+Take from the person what the install needs, as `What the person hears` says: each ladder's dial,
+their way of working with git, and the links the platform refused, run by them.
+
+With the answers, write `local.rules.md` beside the entry file, in the [rules-file format](../mechanism/MECHANISM-FORMAT.md#the-rules-file): the
+project's facts, its dials, its way of working with git, and its verification set — its typechecker,
+its tests, every command required of landed work, read off its own toolchain, a project without one
+having none of its own and saying so — and beside them the harness's checks of the records the
+method keeps, `tickets.py`, `questions.py`, `edges.py`, `product.py`, `maintain.py`; those of core
+itself, `mechanisms.py` and `inject_rules.py`, only for a project that means to change the harness.
+Then `inject_rules.py local --install`, and `--check`; once it passes, the install closes with its
+commit, named in the project's own convention where it states one.
+`uv run --offline --no-project python` is the harness's own habit; the scripts need only the
+standard library, so a bare `python` works.
+
+## What the person hears
+
+After the first install, in their language. They asked for a method to work by, not for files: tell
+them that it is installed and what it spares them, and how — concrete troubles and the answer to
 each, never as slogans<straw-dog question="q-0033.0008">: work called done that does not work, or is
 not what was meant — each piece of work gets checkable criteria and a plan and counts as done only
 once checked against them and the project's tests, and an accepted architectural decision binds the
@@ -131,27 +147,20 @@ with where the thinking got to, a remark in passing noted rather than derailing 
 the wrong place, with what matters decided without them or every step waiting on them — a decision
 whose mistake would break several parts comes to them with options and a recommendation, a smaller
 one the agent settles and reports, and they set where that line runs</straw-dog>.
-What the run did — that it made a repository, what it copied, gated, registered and committed, that its checks passed, and how it got round a platform's trouble — is said only on
-request.
 
-Then ask what the install needs from them, one ask to a reply and the next only once it is
-answered, never saying what is still to come: each ladder of the entry file's *Autonomy* as its
-lines alone, without the rungs' names, numbered, the line it proposes marked ✋, and one sentence:
-below it the agent acts on its own, at it shows them first, above it they decide — the person
-naming the line for ✋; their way of working with git, asked as where finished work goes, numbered,
-in their terms<straw-dog question="q-0037.0006.0022.0003"> — *1. straight into the shared repository,
-always current on any machine; 2. the agent prepares it, they look and let it in; 3. it stays on
-this computer*</straw-dog>, never as a setting's name, a remote named where there is none yet, the
-origin's own answers offered as no default; the links the platform refused, as the commands to run and where.
+Then what the install needs from them, one ask to a reply and the next only once it is answered,
+never saying what is still to come: each ladder of the entry file's *Autonomy* as its lines alone,
+without the rungs' names, numbered, the line it proposes marked ✋, and one sentence: below it the
+agent acts on its own, at it shows them first, above it they decide — the person naming the line
+for ✋; their way of working with git, asked as where finished work goes, numbered, in their
+terms<straw-dog question="q-0037.0006.0022.0003"> — *1. straight into the shared repository, always
+current on any machine; 2. the agent prepares it, they look and let it in; 3. it stays on this
+computer*</straw-dog>, never as a setting's name, a remote named where there is none yet, the
+origin's own answers offered as no default; the links the platform refused, as the commands to run
+and where.
 
-With the answers, write `local.rules.md` beside the entry file, in the [rules-file format](../mechanism/MECHANISM-FORMAT.md#the-rules-file): the
-project's facts, its dials, its way of working with git, and its verification set — its typechecker,
-its tests, every command required of landed work, read off its own toolchain, a project without one
-having none of its own and saying so — and beside them the harness's checks of the records the
-method keeps, `tickets.py`, `questions.py`, `edges.py`, `product.py`, `maintain.py`; those of core
-itself, `mechanisms.py` and `inject_rules.py`, only for a project that means to change the harness.
-Then `inject_rules.py local --install`, and `--check`; once it passes, the install closes with its
-commit, named in the project's own convention where it states one. End with the first question the
-work asks.
-`uv run --offline --no-project python` is the harness's own habit; the scripts need only the
-standard library, so a bare `python` works.
+Once it closes, that it is ready, and the first question the work asks, in their terms.
+
+What the run did — that it made a repository, what it copied, gated, registered, wrote and
+committed, that its checks passed, how it got round a platform's trouble, and that their answers
+are written down — is said only on request.

@@ -1,0 +1,299 @@
+{
+  "target": "D:/Dev/AI/codename_japaka",
+  "mode": "install",
+  "repository": "https://github.com/dveyarangi/goodwolf-harness.git",
+  "ref": {
+    "repository": "goodwolf-harness",
+    "commit": "0e3233fa7bc3ae7ba2fde8e942a85ffbb62793bf",
+    "announced": "0e3233f",
+    "date": "2026-10-18"
+  },
+  "written": [
+    ".agents/.gitattributes",
+    ".agents/README.md",
+    ".agents/glossary.md",
+    ".agents/mechanisms/edge/edge.md",
+    ".agents/mechanisms/edge/edge.rules.md",
+    ".agents/mechanisms/harness/harness.md",
+    ".agents/mechanisms/maintain/maintain.md",
+    ".agents/mechanisms/maintain/maintain.rules.md",
+    ".agents/mechanisms/mechanism-shape/mechanism-shape.md",
+    ".agents/mechanisms/mechanism-shape/mechanism-shape.rules.md",
+    ".agents/mechanisms/product/product.md",
+    ".agents/mechanisms/product/product.rules.md",
+    ".agents/mechanisms/questions/questions.md",
+    ".agents/mechanisms/questions/questions.rules.md",
+    ".agents/mechanisms/ticket/ticket.md",
+    ".agents/mechanisms/ticket/ticket.rules.md",
+    ".agents/scripts/gw/docs_corpus.py",
+    ".agents/scripts/gw/edges.py",
+    ".agents/scripts/gw/harness.py",
+    ".agents/scripts/gw/hook.sh",
+    ".agents/scripts/gw/inject_rules.py",
+    ".agents/scripts/gw/maintain.py",
+    ".agents/scripts/gw/mechanisms.py",
+    ".agents/scripts/gw/move_doc.py",
+    ".agents/scripts/gw/product.py",
+    ".agents/scripts/gw/questions.py",
+    ".agents/scripts/gw/straw_dogs.py",
+    ".agents/scripts/gw/test/repository.py",
+    ".agents/scripts/gw/test/test_citations.py",
+    ".agents/scripts/gw/test/test_command_line.py",
+    ".agents/scripts/gw/test/test_edges.py",
+    ".agents/scripts/gw/test/test_failure_contract.py",
+    ".agents/scripts/gw/test/test_harness.py",
+    ".agents/scripts/gw/test/test_inject_rules.py",
+    ".agents/scripts/gw/test/test_maintain.py",
+    ".agents/scripts/gw/test/test_mechanisms.py",
+    ".agents/scripts/gw/test/test_paired_close.py",
+    ".agents/scripts/gw/test/test_product.py",
+    ".agents/scripts/gw/test/test_questions.py",
+    ".agents/scripts/gw/test/test_refusals.py",
+    ".agents/scripts/gw/test/test_repository.py",
+    ".agents/scripts/gw/test/test_straw_dogs.py",
+    ".agents/scripts/gw/test/test_tickets.py",
+    ".agents/scripts/gw/tickets.py",
+    ".agents/skills/advise/SKILL.md",
+    ".agents/skills/align/ADR-FORMAT.md",
+    ".agents/skills/align/ARCH-FORMAT.md",
+    ".agents/skills/align/GLOSSARY-FORMAT.md",
+    ".agents/skills/align/SKILL.md",
+    ".agents/skills/celebrate/SKILL.md",
+    ".agents/skills/commit/SKILL.md",
+    ".agents/skills/conclude/SKILL.md",
+    ".agents/skills/discover/EVIDENCE.md",
+    ".agents/skills/discover/SKILL.md",
+    ".agents/skills/dream/SKILL.md",
+    ".agents/skills/edge/EDGE-FORMAT.md",
+    ".agents/skills/edge/SKILL.md",
+    ".agents/skills/harness/SKILL.md",
+    ".agents/skills/impact/SKILL.md",
+    ".agents/skills/implement/SKILL.md",
+    ".agents/skills/improve-comments/SKILL.md",
+    ".agents/skills/maintain/MARKS-FORMAT.md",
+    ".agents/skills/maintain/SKILL.md",
+    ".agents/skills/mechanism/MECHANISM-FORMAT.md",
+    ".agents/skills/mechanism/SKILL.md",
+    ".agents/skills/plan/SKILL.md",
+    ".agents/skills/product/PRODUCT-ARRIVAL.md",
+    ".agents/skills/product/PRODUCT-FORMAT.md",
+    ".agents/skills/product/SKILL.md",
+    ".agents/skills/questions/QUESTION-FORMAT.md",
+    ".agents/skills/questions/SKILL.md",
+    ".agents/skills/questions/STORE-ARRIVAL.md",
+    ".agents/skills/questions/hooks/.claude/settings.json",
+    ".agents/skills/questions/hooks/.codex/hooks.json",
+    ".agents/skills/questions/hooks/.cursor/hooks.json",
+    ".agents/skills/recall/SKILL.md",
+    ".agents/skills/review-architecture/REFERENCE.md",
+    ".agents/skills/review-architecture/SKILL.md",
+    ".agents/skills/setup-devops/SKILL.md",
+    ".agents/skills/skill-up/SKILL.md",
+    ".agents/skills/tdd/SKILL.md",
+    ".agents/skills/tdd/deep-modules.md",
+    ".agents/skills/tdd/interface-design.md",
+    ".agents/skills/tdd/mocking.md",
+    ".agents/skills/tdd/refactoring.md",
+    ".agents/skills/tdd/tests.md",
+    ".agents/skills/ticket/QUEUE-ARRIVAL.md",
+    ".agents/skills/ticket/SKILL.md",
+    ".agents/skills/ticket/TICKET-FORMAT.md",
+    ".agents/skills/verify/SKILL.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+    ".agents/LICENSE",
+    ".agents/skills/harness/README.md",
+    "docs/tickets/README.md",
+    "docs/questions/q-0001-what-is-this-project-for.md",
+    "docs/questions/q-0002-how-is-this-project-built.md",
+    "docs/questions/q-0003-what-landscape-does-this-project-evolve-in.md",
+    "docs/product.md",
+    ".claude/settings.json",
+    ".codex/hooks.json",
+    ".cursor/hooks.json"
+  ],
+  "replaced": [],
+  "deleted": [],
+  "own": [],
+  "links": [
+    {
+      "link": ".claude/skills",
+      "state": "pending",
+      "error": "[WinError 1314] A required privilege is not held by the client: '..\\\\.agents\\\\skills' -> 'D:\\\\Dev\\\\AI\\\\codename_japaka\\\\.claude\\\\skills'"
+    },
+    {
+      "link": ".cursor/skills",
+      "state": "pending",
+      "error": "[WinError 1314] A required privilege is not held by the client: '..\\\\.agents\\\\skills' -> 'D:\\\\Dev\\\\AI\\\\codename_japaka\\\\.cursor\\\\skills'"
+    }
+  ],
+  "pending": [
+    "mklink /D \"D:\\Dev\\AI\\codename_japaka\\.claude\\skills\" \"..\\.agents\\skills\"",
+    "mklink /D \"D:\\Dev\\AI\\codename_japaka\\.cursor\\skills\" \"..\\.agents\\skills\""
+  ],
+  "injected": [
+    {
+      "slug": "edge",
+      "targets": [
+        {
+          "target": ".agents/skills/maintain/SKILL.md",
+          "state": "present"
+        },
+        {
+          "target": ".agents/skills/align/SKILL.md",
+          "state": "present"
+        },
+        {
+          "target": ".agents/skills/verify/SKILL.md",
+          "state": "present"
+        }
+      ]
+    },
+    {
+      "slug": "maintain",
+      "targets": [
+        {
+          "target": ".agents/skills/mechanism/SKILL.md",
+          "state": "present"
+        }
+      ]
+    },
+    {
+      "slug": "mechanism-shape",
+      "targets": [
+        {
+          "target": ".agents/skills/maintain/SKILL.md",
+          "state": "present"
+        },
+        {
+          "target": ".agents/skills/mechanism/SKILL.md",
+          "state": "present"
+        },
+        {
+          "target": ".agents/skills/align/SKILL.md",
+          "state": "present"
+        },
+        {
+          "target": ".agents/skills/skill-up/SKILL.md",
+          "state": "present"
+        },
+        {
+          "target": "AGENTS.md",
+          "state": "present"
+        },
+        {
+          "target": ".agents/skills/verify/SKILL.md",
+          "state": "present"
+        }
+      ]
+    },
+    {
+      "slug": "product",
+      "targets": [
+        {
+          "target": ".agents/skills/maintain/SKILL.md",
+          "state": "present"
+        },
+        {
+          "target": ".agents/skills/align/SKILL.md",
+          "state": "present"
+        },
+        {
+          "target": ".agents/skills/questions/SKILL.md",
+          "state": "present"
+        }
+      ]
+    },
+    {
+      "slug": "questions",
+      "targets": [
+        {
+          "target": "AGENTS.md",
+          "state": "present"
+        },
+        {
+          "target": ".agents/skills/recall/SKILL.md",
+          "state": "present"
+        },
+        {
+          "target": ".agents/skills/conclude/SKILL.md",
+          "state": "present"
+        },
+        {
+          "target": ".agents/skills/maintain/SKILL.md",
+          "state": "present"
+        },
+        {
+          "target": ".agents/skills/align/SKILL.md",
+          "state": "present"
+        }
+      ]
+    },
+    {
+      "slug": "ticket",
+      "targets": [
+        {
+          "target": ".agents/skills/maintain/SKILL.md",
+          "state": "present"
+        },
+        {
+          "target": ".agents/skills/plan/SKILL.md",
+          "state": "present"
+        },
+        {
+          "target": ".agents/skills/align/SKILL.md",
+          "state": "present"
+        },
+        {
+          "target": "AGENTS.md",
+          "state": "present"
+        },
+        {
+          "target": ".agents/skills/recall/SKILL.md",
+          "state": "present"
+        },
+        {
+          "target": ".agents/skills/ticket/SKILL.md",
+          "state": "present"
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "ref": {
+      "passed": true,
+      "ref": "0e3233f",
+      "differs": [],
+      "own": []
+    },
+    "injector": {
+      "passed": true,
+      "exit": 0,
+      "said": []
+    },
+    "shape": {
+      "passed": true,
+      "exit": 0,
+      "said": []
+    }
+  },
+  "excluded": [
+    ".claude/skills",
+    ".cursor/skills"
+  ],
+  "links_resolve": {
+    ".claude/skills": false,
+    ".cursor/skills": false
+  },
+  "interpreter": {
+    "record": "D:\\Dev\\Tools\\Python\\uv\\python\\cpython-3.14-windows-x86_64-none\\python.exe",
+    "state": "written"
+  },
+  "notes": [
+    "git init: D:\\Dev\\AI\\codename_japaka was not a repository and is now one",
+    "run the pending command(s) once in an elevated prompt, then `harness.py . --links`, which reports whether each resolves",
+    "whether a host reads the loader link is not observable from inside a tree"
+  ],
+  "refusals": [],
+  "arrived": true
+}

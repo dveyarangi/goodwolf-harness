@@ -1,0 +1,21 @@
+| 🪶 Commits |
+|---|
+| e9e8acc MAINTAIN: whole tree — harness, mechanism-shape, product and questions re-checked |
+
+| ⚙️ **maintain** · the whole tree |
+|---|
+
+The scheduled maintenance covered the whole tree. Since they were last held against their docs, four parts of the method had moved: the install, the shape every mechanism shares, the product document and the question store. Each move came from a decision that landed in the meantime, so the question was only whether the docs had kept up.
+
+Three had. The fourth, the harness doc, had not quite. When the product seed landed, the number of things an install writes into a project went from two to three, but the next sentence still called the merged hook file "a third kind". So the doc counted to three and then named a different third. It now says "a fourth", and the count adds up. Nothing else was out of agreement, nothing was finished and ready to archive, and no provisional text had come due. The pass is committed and pushed.
+
+Left open:
+
+- The question store flags 21 pairs of questions whose wording overlaps enough that each pair might be one question. The flags are a guess from shared words and break nothing. Merging any of them is your call.
+- [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md) · How does a project's own code name the record that governs it? It is closed but flagged: a later answer may have overtaken it. This pass did not re-read it.
+- The tree holds 415 passages that read as provisional. I judged only those in files changed since the last whole-tree pass, and none needed marking as provisional. The rest were not looked at again.
+
+| ⚖️ Decisions |
+|---|
+| Merge any of the 21 flagged question pairs, or leave them as they are |
+| Re-read [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md) and clear its flag, or reopen it |

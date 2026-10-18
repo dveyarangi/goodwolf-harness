@@ -1,0 +1,21 @@
+Skill: harness, its section "After the first install".
+
+The entry file is read as the freshly installed tree's: D:\Dev\AI\agents\AGENTS.md without its Project-local block until this turn's install of local.rules.md, after which its local block holds that file's rules.
+
+The moment: the install of the harness into D:\Dev\AI\codename_japaka, an empty folder, is at its end. The conversation so far:
+
+1. The person: "давай установим сюда https://github.com/dveyarangi/goodwolf-harness". The session ran the install; the installer made the folder a git repository, its checks passed, and Windows refused the two skill links for want of administrator rights. Its reply said the harness is installed and what troubles it spares them, and asked where the agent stops in development, the five lines numbered, ✋ proposed on line 2.
+2. The person: "2". The reply took it and asked the same for changes to the method itself, four lines, ✋ proposed on line 3.
+3. The person: "3". The reply took it and asked where finished work goes: 1. straight into a shared repository; 2. the agent prepares it, they look and let it in; 3. it stays on this computer — saying the project has no remote yet.
+4. The person: "3". The reply took it and gave the two mklink commands to run once in an administrator cmd, saying to tell it when done.
+
+Now the person's latest message has arrived. Since then, in this turn, the session:
+
+- ran `py -3 .agents/scripts/gw/harness.py . --links`: both links, .claude/skills and .cursor/skills, resolve;
+- wrote local.rules.md from the answers — D:\Dev\AI\agents\docs\research\speech-bench\install-close\local.rules.md;
+- ran `inject_rules.py local --install`, then `inject_rules.py --check` and `harness.py . --check`: both pass;
+- committed the install: `c9d4510 Install GoodWolf Harness (goodwolf-harness@0e3233f)`, on main, not pushed, as the person chose.
+
+The question store holds the seeded roots; the first, q-0001 "What is this project for?", is open and has no answer yet. The project has no code.
+
+The session now writes its reply to the person.

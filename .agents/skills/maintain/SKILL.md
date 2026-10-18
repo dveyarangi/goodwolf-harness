@@ -32,7 +32,7 @@ One pass over a declared scope. The scope decides which rules apply.
 ## Scope
 
 - **B1** Declare the scope first — the tree, a project, or one work item with its consumers and
-  governing docs — and write it into the report.
+  governing docs.
 - **B2** Certify only what you examined; mark nothing checked that was not. Route a finding
   outside the scope to the record that owns its subject — the open question in the store that
   already holds it, else the owning work item, else `/align` — after searching the store, so a
@@ -130,9 +130,6 @@ finding; repair it at the rung of what it mends.
 ## Finish
 
 - **F1** Run the checks in the project's verification set that the scope touched.
-- **F2** Report: the declared scope, what was checked, what was repaired and against which
-  rule, what moved, the marks written, what remains open and who owns it, and what you did not
-  cover.
 - **F3** Do not verify landed work; a close needs verification to have already happened.
 - **F4** Mark each level you re-checked, as the step that closes it and before the report:
   `maintain.py --mark <mechanism> <level> <outcome>`. Mark nothing you did not re-check. An edit
@@ -161,6 +158,14 @@ uv run --offline --no-project python .agents/scripts/gw/product.py --check
 uv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/test -p "test_*.py"
 ```
 </installed>
+
+## What the person hears
+
+At the end of the pass, in their terms and in a few lines: that it is done, over what; each thing
+that was out of agreement, in a line, now right; what is left for someone to take up and whose it
+is; and what waits on their decision. Each is said as where the work stands, never as what the pass
+did or did not do, nor how a check found it. What moved and why, what was read against what, what
+agreed, the marks and the checks stay in the records and the commit, said on request.
 
 ## Marks
 

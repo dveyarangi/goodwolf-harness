@@ -1,0 +1,9 @@
+Skill: harness, its section "After the first install".
+
+The entry file is read as the freshly installed tree's: D:\Dev\AI\agents\AGENTS.md without its Project-local block, which a fresh install does not have yet.
+
+The moment: the person asked to install the harness into D:\Dev\AI\codename_japaka, an empty folder that was not a git repository. The session has run the install, and has just read the harness skill and the installed entry file, whose rules govern it from here. It now writes its first reply to the person since the install; the short progress lines it wrote while working are behind it.
+
+What the session did on the way: it found a clean, current clone of the harness next to the project, at D:\Dev\AI\goodwolf-harness, and ran `python D:\Dev\AI\goodwolf-harness\.agents\scripts\gw\harness.py D:\Dev\AI\codename_japaka --install`, which printed what is in D:\Dev\AI\agents\docs\research\speech-bench\install-plain\installer.json. Nothing went wrong on the way beyond what that output says.
+
+Nothing is committed yet; local.rules.md is not written.

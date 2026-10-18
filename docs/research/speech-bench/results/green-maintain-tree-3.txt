@@ -1,0 +1,18 @@
+| 🪶 Commits |
+|---|
+| e9e8acc MAINTAIN: whole tree — harness, mechanism-shape, product and questions re-checked |
+
+| ⚙️ **maintain** · the whole tree |
+|---|
+
+The whole tree agrees with itself again. The result is committed and pushed.
+
+Only one thing was out of step. The harness doc said an install writes three things when they are missing, and in the next sentence it called the merged hook file "a third kind". So the count said three and then named a different third. The hook file is now counted as the fourth.
+
+One question is left for the next session: [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md) · How does a project's own code name the record that governs it? It is closed as superseded, but it is flagged suspect, and nobody has yet re-read whether that closing still holds.
+
+One thing waits on you. In twenty-one places the store holds two questions that may be one question. Nothing more than shared wording ties them so far, and whether any of them merge is your call.
+
+| ⚖️ Decisions |
+|---|
+| Whether any of the twenty-one possible same-question pairs in the store should merge |

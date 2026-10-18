@@ -1,0 +1,19 @@
+| 🪶 Commits |
+|---|
+| `e9e8acc` MAINTAIN: whole tree |
+
+| ⚙️ **maintain** · the whole tree |
+|---|
+
+Good morning. The scheduled upkeep ran over the whole tree while you were away. It is finished, committed and pushed.
+
+Four parts of the method had moved since they were last looked after on 13 October: the install, the shape every mechanism follows, the product document and the question store. A decision stood behind every move, so each doc was read against the decision that moved it. Three of them needed nothing. The install's doc had miscounted. When the product seed landed, the number of things an install writes where they are absent went from two to three, but the next sentence still called the merged hook file "a third kind", so the doc counted three and then named a different third. It now says a fourth. All four are recorded as looked after, and nothing is due.
+
+No ticket was finished, so nothing was archived. No provisional text came due. In the files changed since the last whole-tree pass, nothing new needed to be marked provisional. Older text was not judged again.
+
+Two things were left alone, and both are yours. Twenty-one pairs of questions share enough wording that each pair may be one question. That is a resemblance in words only, and merging questions is your call. Separately, [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md) · How does a project's own code name the record that governs it? is still marked suspect. The morning's recall listed it, and this pass did not read it again.
+
+| ⚖️ Decisions |
+|---|
+| Whether any of the 21 pairs of questions with overlapping wording should be merged |
+| Whether to reopen the suspect [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md) |

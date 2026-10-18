@@ -1,0 +1,20 @@
+| 🪶 Commits |
+|---|
+| `e9e8acc` MAINTAIN: whole tree — harness, mechanism-shape, product and questions re-checked … |
+
+| ⚙️ **maintain** · the whole tree |
+|---|
+
+Good morning. While you were away, the scheduled maintenance went over the whole harness.
+
+Four parts had moved since they were last held up against their docs: the installer, the shape every mechanism takes, the product document and the question store. Each one had moved because a decision landed, not on its own, so the only thing to check was whether the docs had kept up.
+
+One had not. The installer's doc said an install now writes three things when they are missing, and in the next sentence it still called the merged hook file "a third kind". So it counted to three and then gave a different third. It now says the hook file is a fourth thing, merged rather than written. The other three parts already agreed with the decisions that moved them, and nothing in the tree had gone stale or was ready to archive.
+
+Two things are still open, and neither was settled here. The question store's check flags 21 pairs of questions whose wording overlaps enough that each pair may really be one question. Whether to merge any of them is up to you. Then there is the closed question marked suspect, [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md) · How does a project's own code name the record that governs it?. This pass didn't reread it, so it is waiting for whichever session takes it up next. Of the sentences that might be provisional and need marking as such, only the ones in files changed since the last whole-tree pass were judged. None needed marking. The rest were left as the earlier pass judged them.
+
+The repair is committed and pushed, and main matches the remote.
+
+| ⚖️ Decisions |
+|---|
+| Whether any of the 21 question pairs flagged as possibly one question should be merged |

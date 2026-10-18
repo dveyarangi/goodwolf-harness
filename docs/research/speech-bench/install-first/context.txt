@@ -1,0 +1,14 @@
+Skill: harness, its section "After the first install".
+
+The entry file is read as the freshly installed tree's: D:\Dev\AI\agents\AGENTS.md without its Project-local block, which a fresh install does not have yet.
+
+The moment: the person asked to install the harness into D:\Dev\AI\codename_japaka, an empty folder. The session has run the install, and has just read the harness skill and the installed entry file, whose rules govern it from here. It now writes its first reply to the person since the install; the short progress lines it wrote while working are behind it.
+
+What the session did on the way, in order:
+
+- found Python 3.14 as `py`; `python` is not on the PATH;
+- found an existing clone of the harness next to the project, at D:\Dev\AI\goodwolf-harness, two commits behind its origin and with no changes of its own, and fast-forwarded it;
+- before that, a fresh clone had failed on Windows: file names under docs/questions/ are too long for the default path limit. It got round this by enabling long paths for its own git commands only, leaving the global git configuration alone. The harness skill's "Friction goes upstream" asks for an issue on the harness's repository for such friction; filing one is a publication in the person's name, so it waits for their yes;
+- ran `py -3 D:\Dev\AI\goodwolf-harness\.agents\scripts\gw\harness.py D:\Dev\AI\codename_japaka --install`, which printed what is in D:\Dev\AI\agents\docs\research\speech-bench\install-first\installer.json.
+
+Nothing is committed yet; local.rules.md is not written.

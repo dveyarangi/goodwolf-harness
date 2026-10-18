@@ -99,6 +99,11 @@ Open at [q-0037.0010.0012.0001](questions/q-0037.0010.0012.0001-how-does-a-rule-
 hears` section, and the entry file's *A reply speaks the method* tells the method's step and never
 the work's course, v94; graded on the speech bench, red to green.
 
+**Amendment landed**, 2026-10-18, under q-0037.0010.0012.0001's decisions: `/harness`'s speech moved
+into its `What the person hears`, the close told as *ready, and the first question the work asks*,
+*that their answers are written down* said only on request; graded on this entry's three install
+replies as cases, the close from three flags in five to two, the rest held by the 🪶 Commits table.
+
 ## 50. Four skills were changed without `/skill-up`, which asks nothing about growth — 2026-10-15
 
 **Rules in play:** `/skill-up`'s description, *Use whenever writing any agent instructions*; its

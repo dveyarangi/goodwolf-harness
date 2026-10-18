@@ -1,0 +1,3 @@
+Skill: recall — the entry file says to run it first, whatever the first message says.
+
+The moment: the very start of the session. The person has written their first message; nothing has been read or run yet beyond what the session-start hook put in the context, which is D:\Dev\AI\agents\docs\research\speech-bench\morning\session-start.txt. Write the first message you send the person, before you go on with the rest of the work.

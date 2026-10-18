@@ -1,0 +1,20 @@
+| 🪶 Commits |
+|---|
+| e9e8acc MAINTAIN: whole tree — harness, mechanism-shape, product and questions re-checked |
+
+| ⚙️ **maintain** · the whole tree |
+|---|
+
+The scheduled maintenance of the whole tree is done, committed and pushed. main and origin agree.
+
+Four mechanisms had moved since they were last maintained on 2026-10-13: harness, mechanism-shape, product and questions. Each move came from a landed decision, so each doc was read against the decision that moved it. Three of them already said what the decisions had made true, and nothing changed there. The harness doc had fallen behind. When the product seed landed, the number of things an install writes when they are absent went from two to three, but the next sentence still called the merged hook file "a third kind". The doc counted to three and then named a different third. It now reads "a fourth". All four mechanisms stand as maintained as of today, and none is due.
+
+No ticket or question was finished, so nothing went to the archive. No provisional text was due for rewriting. Among the files changed since the last whole-tree pass, nothing new needed marking as provisional.
+
+Three things were left alone. The store has 21 pairs of questions whose wording overlaps enough that they may be one question; merging them is your call. The closed question [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md) · How does a project's own code name the record that governs it? is flagged as suspect, and this pass did not re-read it. Older files were not re-checked for provisional text, only the ones changed since the last pass.
+
+| ⚖️ Decisions |
+|---|
+| Which of the 21 overlapping question pairs, if any, to merge |
+
+The tree is in order. 🐺

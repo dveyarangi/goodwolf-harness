@@ -1,0 +1,23 @@
+| 🪶 Commits |
+|---|
+| e9e8acc MAINTAIN: whole tree — harness, mechanism-shape, product and questions re-checked |
+
+| ⚙️ **maintain** · the whole tree |
+|---|
+
+The scheduled maintenance went over the whole tree. Four mechanisms had moved since they were last held against their docs on the 13th: the harness, the mechanism shape, the product document and the question store. Each move had a landed decision behind it. Three of the four docs already said what those decisions asked of them.
+
+The harness doc did not. When the product seed landed, the number of things an install writes when they are absent went from two to three. The next sentence still called the merged hook file "a third kind", so the doc counted three things and then named a different third. It now says "a fourth". That was the one thing out of agreement. It is repaired, committed and pushed.
+
+Everything else was in agreement: no ticket was finished and waiting to be archived, no straw dog was due, and no record was out of its format.
+
+Left open:
+
+- Twenty-one pairs of questions share enough words that they may be one question. The overlap is only in the wording, and nothing fails because of it. Whether to merge any of them is your call.
+- [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md) · How does a project's own code name the record that governs it? It was closed as superseded and is marked suspect. The pass did not re-read it.
+- Of the candidate straw dogs across the tree, only those in files changed since the last whole-tree pass were judged, and none needed wrapping. The rest were not looked at again.
+
+| ⚖️ Decisions |
+|---|
+| Whether any of the 21 pairs of questions that may be one question should be merged |
+| Whether [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md), closed as superseded and marked suspect, should be re-read |

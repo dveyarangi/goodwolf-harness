@@ -1,0 +1,22 @@
+| 🪶 Commits |
+|---|
+| e9e8acc MAINTAIN: whole tree — harness, mechanism-shape, product and questions re-checked … |
+
+| ⚙️ **maintain** · the whole tree |
+|---|
+
+Good morning, or whatever time it is when you read this. The scheduled pass went over the whole tree. Four mechanisms had moved since they were last held up against their docs: harness, mechanism-shape, product and questions. Every one of those moves came from a landing, so each doc was read against the decision that moved it.
+
+One doc had drifted. When the product seed landed, the harness doc's count of what an install writes when it is missing went from two to three. The next sentence still called the merged hook file "a third kind", so the doc counted three things and then named a different third. It now reads "A fourth is merged rather than written". That fix is committed and pushed.
+
+The other three docs already matched the decisions that moved them. No ticket or question was finished, so nothing was archived. No straw dog was due, and none of the candidates in files changed since the last whole-tree pass needed wrapping.
+
+Three things are still open:
+
+- The store flags 21 pairs of questions that may be one question. The flag only means their words overlap, which proves nothing. Whether to merge any of them is your call.
+- [q-0037.0010.0009.0004.0001](docs/questions/q-0037.0010.0009.0004.0001-how-does-a-projects-own-code-name-the-record-that-governs-it.md) · How does a project's own code name the record that governs it? It is closed as superseded and marked suspect. The pass did not re-read it. It waits for whichever session takes it up.
+- Straw-dog candidates in files that have not changed since the last whole-tree pass were not judged again.
+
+| ⚖️ Decisions |
+|---|
+| Whether to go through the 21 question pairs that may be one question, and merge any |

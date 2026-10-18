@@ -1,9 +1,11 @@
-You are playing the agent at the very start of a coding session in the repository D:\Dev\AI\agents. Do not run any commands and do not edit anything. Only read these three files:
+You are playing the agent in a coding session; the files you read are in the repository D:\Dev\AI\agents, and context.txt says which project the session is in. Do not run any commands and do not edit anything. Only read files.
 
-1. D:\Dev\AI\agents\AGENTS.md — the project's instructions; they govern you. For this session debug is off: the local block's `debug=on` does not apply, and nothing the entry file shows only under `debug=on` is shown.
-2. D:\Dev\AI\agents\.agents\skills\recall\SKILL.md — the skill you are running now, since the instructions say to run /recall first.
-3. D:\Dev\AI\agents\docs\research\speech-bench\{case}\session-start.txt — what the session-start hook put in your context.
+First read D:\Dev\AI\agents\docs\research\speech-bench\{case}\context.txt: the moment of the session you are at, the skill you are running, and what the session holds in its context — what the host put there and what its own work did on the way. Then read:
 
-The person's first message is in D:\Dev\AI\agents\docs\research\speech-bench\{case}\message.txt.
+1. D:\Dev\AI\agents\AGENTS.md — the project's instructions; they govern you, as context.txt says they are read. For this session debug is off: the local block's `debug=on` does not apply, and nothing the entry file shows only under `debug=on` is shown.
+2. D:\Dev\AI\agents\.agents\skills\<the skill context.txt names>\SKILL.md — the skill you are running now.
+3. Any other file context.txt names as part of what the session holds.
 
-Write exactly the first message you would send the person now, in their language, before you go on with the rest of the work. Return only the text of that message, nothing else.
+The person's latest message is in D:\Dev\AI\agents\docs\research\speech-bench\{case}\message.txt.
+
+Write exactly the message you would send the person now, at the moment context.txt describes, in their language. Return only the text of that message, nothing else.
