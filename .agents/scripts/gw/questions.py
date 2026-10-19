@@ -1944,7 +1944,7 @@ class Clause:
     text: str | None = None
 
 
-# A record named by its id, `01-0011.0100` of a ticket's file name, is labelled by that id alone.
+# A record named by its id, `01-0090.0030` of a ticket's file name, is labelled by that id alone.
 _RECORD_ID = re.compile(r"^\d{2}-\d{4}(?:\.\d{4})*")
 EVENTS = (
     "at", "open", "move", "reword", "depend", "undepend", "close", "suspect", "clear", "lean", "assign", "realize",

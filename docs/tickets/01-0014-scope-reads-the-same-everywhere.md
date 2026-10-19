@@ -28,7 +28,7 @@ Amending 01-0012's prose at a shared site is this ticket's completion, not a reo
 
 Scope is asserted everywhere and defined nowhere. `/maintain` requires a declared scope and says a
 scope "is the work and its dependencies, not a list of filenames". `/impact` calls its version
-blast radius. `/spec` is "change-scoped". `/ticket` has `Out of scope` and `Parent scope addressed`.
+blast radius. `/ticket` has `Out of scope`.
 `AGENTS.md` says `/impact` determines "the scope and load-bearingness of the shape". The glossary
 defines neither scope nor blast radius.
 
@@ -39,7 +39,7 @@ coverage honestly.
 ## What to build
 
 - One account of scope, with the glossary carrying the term, and its relation to blast radius,
-  declared scope, out-of-scope and parent scope made explicit — same concept or distinct ones.
+  declared scope and out-of-scope made explicit — same concept or distinct ones.
 - Every existing scope statement reconciled against it, dispositioned as pointer, correction, or
   deliberate keep with a reason.
 - The relationship to height stated. Height became depth in a structure of open questions at

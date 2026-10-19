@@ -21,7 +21,7 @@ way: `/plan` names an RFC by its ticket, and `/align` rewrites the ticket in pla
 landed decisions make true.
 
 **A ticket holds what is actual for the work** *(the user, 2026-09-08; 2026-10-11)*. It is minted
-from the body of the question it answers once the work's form is seen, and keeps the work and its
+from the body of the question it answers once the work's form is seen and its `Where it stands` accepted, and keeps the work and its
 criteria. A decision lands where it is made, by the questions mechanism's rule; the question's
 body holds what has nowhere to land yet, and the session record the align.
 
@@ -55,7 +55,7 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | decomposing a parent into slices, and impacting the split | `.agents/skills/ticket/SKILL.md` | |
 | presenting the breakdown for approval at the dial | `.agents/skills/ticket/SKILL.md` | |
 | numbering, naming and placing a ticket | `.agents/skills/ticket/TICKET-FORMAT.md` | |
-| writing a ticket to the shape its stage requires | `.agents/skills/ticket/TICKET-FORMAT.md` | |
+| writing a ticket to the shape its `Minted` day requires | `.agents/skills/ticket/TICKET-FORMAT.md` | |
 | flipping a status | `.agents/skills/ticket/TICKET-FORMAT.md` | |
 | rewriting a ticket to what an align landed | `.agents/skills/align/SKILL.md` | |
 | naming an RFC for a ticket | `.agents/skills/plan/SKILL.md` | |

@@ -16,8 +16,8 @@ depends on, a deferred or suspect entry counting as open; it is never deleted.
 - **part of** q-0090
 - **depends on** q-0070, q-0080.0001
 - **state** closed:decided, suspect
-- **owner** [01-0011.0100](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)
-- **answer** [the ADR](../adr/0004-scripts-run-on-the-standard-library-alone.md) — the user, 2026-09-28
+- **owner** [01-0090.0030](../tickets/01-0090.0030-the-outcome-it-names.md)
+- **answer** [the ADR](../adr/0009-the-decision-it-records.md) — the user, 2026-09-28
 - **realizes** A7 "The question store"
 - **rung** development: load-bearing
 - **lean** the flat directory, for insertion cost

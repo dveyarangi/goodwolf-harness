@@ -7,7 +7,7 @@ What an RFC *contains* is `/plan`'s.
 ## Numbering
 
 ```
-docs/tickets/done/01-0010.0010-life-informs-dev-harness.md
+docs/tickets/done/01-0090.0030-the-outcome-it-names.md
               │  │    └── slug — what the ticket is.
               │  └─────── position — global. Changes when priority changes.
               └────────── release — the contract the ticket serves.
@@ -20,7 +20,7 @@ docs/tickets/done/01-0010.0010-life-informs-dev-harness.md
 - Allocate a position where the ticket will actually be worked, not merely at
   the end, checking both `docs/tickets/` and `docs/tickets/done/` for the
   surrounding positions.
-- A child appends a four-digit position: `01-0010.0010`. Depth is unbounded
+- A child appends a four-digit position: `01-0090.0030`. Depth is unbounded
   and means "is a child of", nothing else — work merely filed after `0010`
   takes `0020`.
 - A release closes when its contract's criteria are met, not on a date. A
