@@ -796,7 +796,7 @@ CITING = ".agents/skills/sample/NOTES.md"
 
 
 class CoreStandsAlone(Declared):
-    """Core may name a painted door under `docs/` and nothing else — AGENTS.md, A document informs."""
+    """Core may name a painted door under `docs/` and nothing else."""
 
     def leaks(self) -> list[tuple[str, int, str]]:
         return [(c.file, c.line, c.cites) for c in self.checked().cites if c.standing == "leak"]
@@ -815,7 +815,7 @@ class CoreStandsAlone(Declared):
 
         self.assertEqual(1, len(problems))
         self.assertIn(f"{CITING}:3 cites {DOCUMENT}", problems[0])
-        self.assertIn("A document informs", problems[0])
+        self.assertIn("a document only the instance has", problems[0])
         self.assertEqual([(CITING, 3, DOCUMENT)], self.leaks())
 
     def test_a_stamped_source_is_not_a_citation_however_much_it_looks_like_one(self) -> None:
