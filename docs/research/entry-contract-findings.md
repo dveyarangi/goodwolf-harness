@@ -15,6 +15,17 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v99 — 2026-10-20
+
+**Occam reads backwards too** — one sentence added to *Occam*: an abstraction that arrives late and
+unifies parts already written has them rewritten through it, the work paid once and the prose
+contracted. Occasion: rule failure 54 — a reply twice said *build nothing for it* of a
+meta-process it had found expressed in five unlinked places, reading *remove before you add* as
+*do nothing*. A first wording, *a principle met in several places is named once and cited from
+each*, the user refused as restating *every fact to one home*; the idea is Occam applied to what
+already stands: more work once, less prose after *(the user, 2026-10-20)*. Not run through the
+doc-rule bench: its mechanism is aligning under q-0037.0012.0009 and no standing runner exists.
+
 ## v98 — 2026-10-19
 
 **A document reaches the work through the instruction that reads it** — *A document informs* says

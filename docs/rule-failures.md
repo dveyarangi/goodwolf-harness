@@ -17,6 +17,41 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 54. A better abstraction was met and the reply said *build nothing for it* — 2026-10-20
+
+**Rules in play, both loaded:**
+
+- [`AGENTS.md` — *A paragraph shows what it stands on*](../AGENTS.md#general-rules): *"Every
+  principle, and every classification applied by judgement, is named at its authored home and
+  cited by that name."*
+- [`AGENTS.md` — *Occam*](../AGENTS.md#general-rules): *"take the shape with the fewest parts that
+  does the job, and remove before you add. Say what need not exist."*
+
+**What happened.** The person named a meta-process — abstraction to method and back — and the
+reply found its moves already expressed in five places: the shape's structure rule, the straw dog,
+the missing-parent rule, the reword call, the pacer page's *return upstream*. Twice it concluded
+*so I would build nothing for it*. The person: *if it is a better abstraction, we should realign
+our corpus around it, even if it is already expressed.* The same slip the turn before, on the
+backtrack's smaller cousin, the step-end choice.
+
+**Why it did not fire.** *A paragraph shows what it stands on* speaks of a reply's citations: a
+principle the reply reasons by is named at its home. It says nothing of a principle the work
+meets, whose cases stand scattered and unnamed — that is the occasion here, and no rule holds it.
+*Occam* was read as *do nothing*, where it says *fewest parts*: five unlinked expressions are more
+parts than one named principle five rules cite. Occam's *remove before you add* carried the
+reading; it has no clause for the case where naming joins what exists.
+
+**Proposed amendment**, to *Occam*, at the self-improvement dial — a rule, shown before it lands. A
+first wording, *a principle met in several places is named once and cited from each*, the person
+refused as restating *every fact to one home*; the idea is Occam read backwards: a unifying
+abstraction, once it arrives, consolidates what it unifies — more work once, less prose after.
+Second wording:
+
+> Occam reads backwards too: an abstraction that arrives late and unifies parts already written has
+> them rewritten through it, the work paid once and the prose contracted.
+
+**Disposition:** landed as v99, 2026-10-20, the second wording, on the user's yes.
+
 ## 53. A discovery was filed and an align opened on it, and the person was told nothing of what it found — 2026-10-19
 
 **Rules in play:** `/discover`, *put the material into the work as it came back*; `/align`, *open

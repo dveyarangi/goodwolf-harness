@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v98, 2026-10-19.
+Entry contract: v99, 2026-10-20.
 
 <straw-dog question="q-0037.0009.0021">
 Under `debug=on`, open your first reply of every session with the `Entry contract:` line above, verbatim.
@@ -27,7 +27,7 @@ nothing about being load-bearing — an implementation method is a shape too. �
 
 - **Recency for evidence, longevity for principles.**
 
-- **Occam.** Clarity and simplicity first — Occam's razor: take the shape with the fewest parts that does the job, and remove before you add. Say what need not exist: a rule, mechanism, record or step — the person's proposal or yours — that the work would not miss, said before it is built.
+- **Occam.** Clarity and simplicity first — Occam's razor: take the shape with the fewest parts that does the job, and remove before you add. Say what need not exist: a rule, mechanism, record or step — the person's proposal or yours — that the work would not miss, said before it is built. Occam reads backwards too: an abstraction that arrives late and unifies parts already written has them rewritten through it, the work paid once and the prose contracted.
 
 <straw-dog question="q-0037.0013.0003">
 - **Weight follows the work.** A change costs what it weighs — in checks, records and steps.
