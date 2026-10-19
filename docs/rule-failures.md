@@ -17,6 +17,37 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 55. A decision abandoned twelve days earlier was carried as waiting in six replies running — 2026-10-20
+
+**Rules in play, both loaded:**
+
+- [`AGENTS.md` — *A paragraph shows what it stands on*](../AGENTS.md#general-rules), the tables:
+  *"what waits on the user's decision, under `| ⚖️ Decisions |`, the next step the reply stops
+  before among it … never one already taken."*
+- [`/recall`](../.claude/skills/recall/SKILL.md): *"Every question you surface as open must cite
+  where it is still open — in a maintained doc (delivery status, the question store, …)."*
+
+**What happened.** The queue's status line said *one decision waits at `/align`*, q-0037.0012.0003,
+since 2026-10-08. `/recall` read it, and six replies in a row carried it as the last row of the
+⚖️ table, *as the queue has held since 2026-10-08*. The user: *we are not doing it here at all, it
+is long abandoned and the session took a different turn.*
+
+**Why it did not fire.** The ⚖️ rule says what the table holds and never whose waiting counts: a
+decision the turn's work put to the person, or any record's standing claim that something waits.
+`/recall`'s rule was met by the letter — the queue is a maintained doc — and says nothing of
+checking a doc's *waits* against the store's state or the person's word before it is repeated.
+Neither rule is wrong; the boundary between a record's claim and the reply's table is unstated.
+Not entirely a rule failure: no rule asked the row to be dropped, and the user had to.
+
+**Proposed amendment**, to the ⚖️ clause of *A paragraph shows what it stands on*, at the
+self-improvement dial — a rule, shown before it lands:
+
+> what waits on the user's decision — put to them by this session's work, or asked and unanswered;
+> a record's standing claim that a decision waits is not the table's, and one the person calls
+> abandoned is that record's drift
+
+**Disposition:** open; the amendment waits on the person. The queue's line repaired the same day.
+
 ## 54. A better abstraction was met and the reply said *build nothing for it* — 2026-10-20
 
 **Rules in play, both loaded:**

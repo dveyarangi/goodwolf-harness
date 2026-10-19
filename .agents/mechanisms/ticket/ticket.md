@@ -25,6 +25,15 @@ from the body of the question it answers once the work's form is seen and its `W
 criteria. A decision lands where it is made, by the questions mechanism's rule; the question's
 body holds what has nowhere to land yet, and the session record the align.
 
+<straw-dog question="q-0037.0019">
+**The seam between the record and the practice.** What is generic in a unit of work — an outcome,
+observable criteria, slicing with dependencies, the impact of a split, the question it answers, its
+states from minted to closed, evidence at close, a place in an order — is this mechanism's. What is
+the development practice's — the paired RFC, the ring's step names, Type HITL or AFK, and the names
+*ticket*, *queue* and *RFC* — stands here on one specimen and moves to the practice mechanism when a
+second method manifests a unit of its own *(the user, 2026-10-20)*.
+</straw-dog>
+
 It is **installed**. A tree without it tracks work some other way; the parts table below is what
 an installer adds and an uninstaller removes.
 

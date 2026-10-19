@@ -10,7 +10,7 @@
 now, with teams in the near future; team memory has not been discussed and has no record yet
 (team-memory, unminted) — see [the parent](01-0010-a-shared-harness-improves-without-losing-project-conventions.md#outside-review-second-pass--2026-09-27).
 
-**One decision waits at `/align`**, held in the store: [q-0037.0012.0003](../questions/q-0037.0012.0003-what-does-an-entry-contract-version-cover.md) "What does an entry-contract version cover?".
+[q-0037.0012.0003](../questions/q-0037.0012.0003-what-does-an-entry-contract-version-cover.md) "What does an entry-contract version cover?" was held here as waiting at `/align` from 2026-10-08; abandoned — not this queue's to hold, the question stays open in the store *(the user, 2026-10-20)*.
 
 <straw-dog question="q-0037.0013">
 **How this queue is ordered** *(the user, 2026-09-07)*: the harness is self-building, so the governing consideration is which slice hands the next one a tool that makes the harness work better — not dependency order alone, and not size. A slice that only describes something ranks below one that gives the next slice a script, a check or a rule it can lean on. The pacer owns this once it exists ([01-0020](01-0020-each-turn-knows-its-next-step.md)); until then it is stated here and applied by hand.
