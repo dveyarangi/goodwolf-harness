@@ -1,0 +1,3 @@
+Skill: plan.
+
+The moment: this session is in D:\Dev\AI\agents. The person asked you to plan ticket 01-0044. You have read its record, docs/tickets/01-0044-the-wake-report-lists-each-running-session-once.md, whose content is D:\Dev\AI\agents\docs\research\doc-rule-bench\doc-orders\fixture.md (read it). Nothing else has been run.

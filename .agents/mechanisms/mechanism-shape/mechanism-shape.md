@@ -32,6 +32,9 @@ on a record it declares — the start and the end of one record are two acts of 
 splitting them across two mechanisms to keep one skill each cuts a lifecycle in half. The record
 is the brake: a skill acting on none of the mechanism's records is not its own.
 
+**Core works the same over any `docs/` whose records keep their declared shapes**; the check
+holds the part a script can see, the paths a core file names.
+
 **Mechanical by construction**, because a mechanism whose parts a script cannot enumerate cannot be
 checked, and an unchecked declaration is exactly the label this shape exists to prevent.
 

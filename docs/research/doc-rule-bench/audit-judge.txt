@@ -1,0 +1,5 @@
+Below is an audit of agent instruction files. Question: does it report a conflict between the skill-up skill's guidance on project-local material (appendices, or pointing at the project's own documentation) and the entry file's rule on what core files may reference under `docs/`?
+
+Answer in this form:
+VERDICT: yes / no
+ROW: the row that does it, quoted, if any

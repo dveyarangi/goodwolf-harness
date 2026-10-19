@@ -1,0 +1,3 @@
+Skill: plan.
+
+The moment: this session is in D:\Dev\AI\agents. The person asked you to plan ticket 01-0045. You have read its record, whose content is D:\Dev\AI\agents\docs\research\doc-rule-bench\doc-binds\fixture-ticket.md, and the governing architecture doc, docs/architecture.md, whose relevant section is D:\Dev\AI\agents\docs\research\doc-rule-bench\doc-binds\fixture-architecture.md (read both). Nothing else has been run.

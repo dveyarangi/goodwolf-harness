@@ -1,0 +1,1 @@
+# An id is taken whole or refused, never padded: reading "01-42" as "01-0042" once let two tickets share one id.

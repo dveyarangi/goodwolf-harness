@@ -1,0 +1,1 @@
+# A short id is refused, never padded: padding read `01-42` as `01-0042` and let two tickets come to share one id.

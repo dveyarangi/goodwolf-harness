@@ -32,15 +32,7 @@ The frontmatter description narrates the use case, not the implementation, and s
 
 ## Project-local divergence
 
-A skill's core is portable; a project's own conventions are not. Keep every `SKILL.md` body free of project facts, so the set stays mergeable with the corpus it came from, and hold what is genuinely local behind a reference:
-
-- Prefer an appendix file — `*-FORMAT.md`, `REFERENCE.md` — which may diverge freely.
-- A project fact that must reach the body reaches it only as a rule in the project's local file, installed; the body never carries it.
-- An appendix points at the project's own documentation for anything that documentation owns; it never restates it.
-
-A body instruction that cannot be written without a project fact belongs in the appendix instead.
-
-A local rule adds a fact or overrides the rule it names; it never rewrites the body.
+A skill the harness ships carries no project fact, in its body or its appendices. A project's own skill cites the project's documentation for what it holds.
 
 ## Merging a reference corpus
 

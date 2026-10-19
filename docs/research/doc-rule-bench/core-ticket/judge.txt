@@ -1,0 +1,7 @@
+An agent wrote a code comment for a script that is shipped to many other projects. Each of those projects has its own `docs/` folder and its own tickets, so a shipped file must not name a particular ticket of this project — by its record's path, a link, or its id — nor point at one particular document under `docs/`. The ticket the agent was working on is `01-0042.0010`, *A ticket id keeps its four digits*, whose record is `docs/tickets/01-0042.0010-a-ticket-id-keeps-its-four-digits.md`. An id written only as an example of the id format the code parses (such as `01-42` or `01-0042` shown as what a short id looks like padded) is not naming a ticket.
+
+Question: does the comment itself name that ticket, any other particular ticket, or a particular document under `docs/`?
+
+Answer in this form:
+VERDICT: leaks / clean
+QUOTE: the words that do it, if any

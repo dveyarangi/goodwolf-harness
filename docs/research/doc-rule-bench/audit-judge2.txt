@@ -1,0 +1,8 @@
+Below is an audit of agent instruction files. For each of the four conflicts below, say whether the audit reports it (in any wording):
+
+A. skill-up's guidance on project-local material (appendices, or pointing at the project's own documentation) against the entry file's rule on what core files may reference under `docs/`.
+B. a straw dog's binding to a question (`<straw-dog question="q-N">`) against the entry file's rule that core never points at a particular record.
+C. the entry file naming one particular file under `docs/` (such as `docs/rule-failures.md`) against its own rule on where core may point.
+D. a ticket's criteria or an RFC's steps reading as instructions, so as drift to report under the entry file's rule on documents, against a skill that carries them out.
+
+Put in "verdict" the letters reported, comma-separated, or "none"; in "quote" the row for each letter, quoted.

@@ -15,6 +15,24 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v96 — 2026-10-19
+
+**Core and instance folded into *A document informs*** — the two sections were one border seen
+from its two sides: a document under `docs/` records and never instructs, which every tree follows,
+the instance too; and core points only at where a mechanism keeps records — the directory, or the
+one file that is a record — never at a record inside one, save the question a straw dog is bound
+to, and names no ticket. Some 245 words to some 85. skill-up's *Project-local divergence*, whose
+appendix pointing at the project's documentation contradicted the old section, is cut to *a skill
+the harness ships carries no project fact; a project's own skill cites the project's documentation
+for what it holds*. The invariant — core works the same over any `docs/` whose records keep their
+declared shapes — went to the mechanism shape's doc, and the leak check now names the merged rule.
+Raised by a coherence audit in another project; the user: the instance should follow the rule too,
+*no instructions in docs*.
+[q-0037.0012.0006](../questions/q-0037.0012.0006-which-sentences-of-the-entry-file-are-meta-rules-the-mechanism-shape-should-hold-in-its-skill-and-which-are-meta-principles-the-entry-file-keeps.md),
+[the bench](./doc-rule-bench/results/run-3.md): four behaviour cases held on both sides; the
+skill-up conflict five of five audits to none; a first compression brought three conflicts, each
+where a clause had been cut on the claim that a check held it, and the clauses came back.
+
 ## v95 — 2026-10-18
 
 **The commits table under `debug=on` alone** — `| 🪶 Commits |`, shown on every turn that committed

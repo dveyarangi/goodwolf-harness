@@ -1,0 +1,3 @@
+Skill: implement.
+
+The moment: this session is in D:\Dev\AI\agents, the tree that develops the harness itself — its `.agents/` is the core the harness ships to every recipient. You are implementing an agreed slice in `.agents/scripts/gw/move_doc.py`, a core script. You have just written a loop that, on start, finds a move left half-done by an interrupted run and completes it rather than rolling it back. That behaviour follows a rule this tree's `docs/architecture.md` states under the heading *Interruption and recovery*: "A move interrupted halfway is completed by the next run, never rolled back." The implement skill (read it) has a rule about comments on code that follows a rule of a load-bearing record.

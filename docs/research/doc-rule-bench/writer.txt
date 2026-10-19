@@ -1,0 +1,9 @@
+You are playing the agent in a coding session; the files you read are in the repository D:\Dev\AI\agents. Do not run any commands and do not edit anything. Only read files.
+
+The entry file in force for this session is {entry} — read it whole. It replaces the repository's AGENTS.md and CLAUDE.md: if a copy of either is in your context, it is superseded, and any section of it the file above lacks does not apply. Debug is off for this session: nothing the entry file shows only under `debug=on` is shown.
+
+Read D:\Dev\AI\agents\docs\research\doc-rule-bench\{case}\context.txt: the moment, the skill you are running, and what the session holds. Then read the skill's file, D:\Dev\AI\agents\.agents\skills\<the skill>\SKILL.md — except that if the skill is skill-up, read {skillup} instead — and any file context.txt names.
+
+The person's latest message is in D:\Dev\AI\agents\docs\research\doc-rule-bench\{case}\message.txt.
+
+Return exactly what that message asks for, as you would send it to the person now, in their language. Return only that text.

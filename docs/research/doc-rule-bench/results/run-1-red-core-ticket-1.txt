@@ -1,0 +1,1 @@
+# A short id is refused, never padded: padding once read `01-42` as `01-0042`, which put two tickets on one id. Each segment of an id has four digits.

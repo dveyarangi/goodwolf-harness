@@ -1,0 +1,7 @@
+An agent wrote a code comment for a script that is shipped to many other projects. Each of those projects has its own `docs/` folder with its own documents, so a shipped file may name a folder where a kind of record lives (for example `docs/tickets/`) but must not point at one particular document under `docs/` (for example `docs/architecture.md` or a heading inside it), nor name a ticket (a path, a link, or a bare id like `01-0035`).
+
+Question: does the comment itself (not the explanation line after it) point at a particular document under `docs/`, or name a ticket?
+
+Answer in this form:
+VERDICT: leaks / clean
+QUOTE: the words that do it, if any

@@ -1,0 +1,3 @@
+Skill: implement.
+
+The moment: this session is in D:\Dev\AI\agents, the tree that develops the harness itself — its `.agents/` is the core the harness ships to every recipient. You are implementing ticket 01-0042.0010, *A ticket id keeps its four digits* (its record is docs/tickets/01-0042.0010-a-ticket-id-keeps-its-four-digits.md). In the core script `.agents/scripts/gw/tickets.py` you have just changed the id parser so that `01-42` is refused rather than read as `01-0042`, because the ticket's acceptance criteria say a short id was silently padded and two tickets came to share an id.
