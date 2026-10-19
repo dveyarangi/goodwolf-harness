@@ -796,7 +796,7 @@ CITING = ".agents/skills/sample/NOTES.md"
 
 
 class CoreStandsAlone(Declared):
-    """Core may name a painted door under `docs/` and nothing else — AGENTS.md § Core and instance."""
+    """Core may name a painted door under `docs/` and nothing else — AGENTS.md, A document informs."""
 
     def leaks(self) -> list[tuple[str, int, str]]:
         return [(c.file, c.line, c.cites) for c in self.checked().cites if c.standing == "leak"]
@@ -815,7 +815,7 @@ class CoreStandsAlone(Declared):
 
         self.assertEqual(1, len(problems))
         self.assertIn(f"{CITING}:3 cites {DOCUMENT}", problems[0])
-        self.assertIn("Core and instance", problems[0])
+        self.assertIn("A document informs", problems[0])
         self.assertEqual([(CITING, 3, DOCUMENT)], self.leaks())
 
     def test_a_stamped_source_is_not_a_citation_however_much_it_looks_like_one(self) -> None:
@@ -875,6 +875,14 @@ class CoreStandsAlone(Declared):
         )
 
         self.assertEqual([(CITING, 4, DOCUMENT)], self.leaks())
+
+    # TODO q-0037.0006.0017: the check reads paths, not ticket ids; until it reads them the entry
+    # file's rule says it, and this test stays an expected failure.
+    @unittest.expectedFailure
+    def test_a_ticket_named_by_its_bare_id_is_a_leak(self) -> None:
+        self.write(CITING, "# Notes\n\nAs 01-0001 decided, the sample stays.\n")
+
+        self.assertEqual(1, len(self.problems()), self.problems())
 
     def test_a_fence_is_an_illustration_and_a_code_span_is_a_claim(self) -> None:
         self.write(CITING, f"# Notes\n\n```\n[x](../../../{DOCUMENT})\n```\n\nBut `{DOCUMENT}` is.\n")

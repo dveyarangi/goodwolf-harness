@@ -35,7 +35,7 @@ _FENCE = re.compile(r"^\s*(```|~~~)")
 _CODE_SPAN = re.compile(r"`[^`]*`")
 _ELSEWHERE = re.compile(r"^(?:https?|mailto|ftps?|tel|data|news|irc):|^//|^#")
 _DRIVE = re.compile(r"^[A-Za-z]:/")
-# What core may name under `docs/` is AGENTS.md § Core and instance; this module reads the mentions
+# What core may name under `docs/` is AGENTS.md, A document informs; this module reads the mentions
 # and `mechanisms.py` rules on them. A path is a token from `docs/` over path characters, so a
 # sentence ending in one keeps its full stop and `docs/` followed by an ellipsis is no path at all.
 PATH_LITERAL = re.compile(r"docs/\w[\w./-]*")

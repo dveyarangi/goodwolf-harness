@@ -11,7 +11,7 @@ with who claims it; then it holds every skill, script, test and hook a mechanism
 that mechanism on its first line, and no script to naming one whose parts omit it, per the
 format's *A part's claim*; then it holds core to citing only what its mechanisms declare — every path
 under `docs/` a core file names is a painted door, is skipped inside an instance-owned block, or
-is a leak that fails the run, per AGENTS.md § Core and instance. In a recipient — a tree whose
+is a leak that fails the run, per AGENTS.md, A document informs. In a recipient — a tree whose
 entry file announces `<repository>@<ref>` — a `not yet` with no binding is upstream's gap, since
 the harness mechanism sheared the binding on the way, and draws nothing; at the origin it fails. `--index` renders the register from the same directories; no file holds it, and none is
 written.
@@ -53,7 +53,7 @@ TESTS = SCRIPTS + "test/"
 # The origin's front page, shipped beside the harness skill: the origin's own document, not core
 # text, so what it cites is skipped and reported rather than read as a leak.
 FRONT_PAGE = ".agents/skills/harness/README.md"
-RULE = "AGENTS.md § Core and instance"
+RULE = "AGENTS.md, A document informs"
 # What core may name under `docs/`: a painted door — a record some mechanism declares, the directory
 # or the one file — and never a particular record behind it. Held here by hand until each owner's
 # declaration parses; a row leaves with the ticket that makes it readable, and when the last is
