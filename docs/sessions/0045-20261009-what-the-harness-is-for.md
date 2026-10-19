@@ -132,10 +132,10 @@ the leading product document, from which goals and the front page are derived. W
 - **Questions opened:**
   - q-0033.0008, q-0032, q-0033 and its children;
   - q-0037.0006.0023, q-0037.0006.0011.0004, q-0037.0012.0007.0002;
-  - q-0037.0012.0004 and its child q-0037.0012.0004.0002;
+  - q-0037.0012.0009.0001 and its child q-0037.0012.0009.0001.0002;
   - q-0037.0012.0005, q-0037.0009.0020, q-0037.0011.0004, q-0037.0006.0004.0002.
 - **Questions merged and moved:** q-0033.0002 merged into q-0037.0013.0002; q-0026.0002 moved under
-  its missing parent, as q-0037.0012.0004.0001.
+  its missing parent, as q-0037.0012.0009.0001.0001.
 - **Release tickets:** 01-0010.0185 and .0190 rebuilt. .0185 had briefly carried a product line,
   withdrawn when the mark moved to questions.
 
@@ -174,7 +174,7 @@ the leading product document, from which goals and the front page are derived. W
 - **q-0037.0012.0007.0002** — the version announcement as a straw dog. The wrap is pending the user, and the
   entry contract has moved on since.
 - **The five opened for the register's weaknesses:** q-0037.0009.0020, q-0037.0011.0004, q-0037.0012.0005,
-  q-0037.0012.0004.0002, q-0037.0006.0004.0002.
+  q-0037.0012.0009.0001.0002, q-0037.0006.0004.0002.
 
 ## What continues
 
@@ -184,4 +184,4 @@ the leading product document, from which goals and the front page are derived. W
 - **The inventory awaits the person's verdicts** before it can serve as the oracle for a mechanism
   that generates a project's question tree.
 - **Entry 22 of the rule-failure register** may have regressed under a later rewrite
-  (q-0037.0012.0004.0002).
+  (q-0037.0012.0009.0001.0002).

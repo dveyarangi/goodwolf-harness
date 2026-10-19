@@ -243,7 +243,7 @@ row mentions it without making it its subject; **missing** when nothing in the d
 |---|---|---|---|---|---|---|---|
 | A100 | The rule-failure register: rules in play, the amendment, a repeat strikes the entry; the next occurrence grades the rewording | R + E (straw dog) | C7, C1; 1, G1 | ✓ 26 entries (T) | q-0037.0012 | P36 | 1, 2, 3, 4, 5A, 5B, 6, T |
 | A101 | Per-mechanism evidence records | R (per declared mechanism) | C7; G1 | ✓ | — | P22, P36 *partly* | 3 |
-| A102 | A recorded failure replayed as a test against the amended rule; what the tester is kept from seeing | Q | C7, C1; 1, G1 | ◐ by hand at times | q-0037.0012.0004, q-0037.0012.0004.0001 | P37 | 1, 2, 3, 4 |
+| A102 | A recorded failure replayed as a test against the amended rule; what the tester is kept from seeing | Q | C7, C1; 1, G1 | ◐ by hand at times | q-0037.0012.0009.0001, q-0037.0012.0009.0001.0001 | P37 | 1, 2, 3, 4 |
 | A103 | Harness self-amendment by stated meta-rules, as its own mechanism | Q | C7, C1; G1 | ✗ | q-0037.0012, q-0037.0012.0001 | **missing** | 2, 4 |
 | A104 | The method measured on the same tasks with and without it | Q | C7; 1, G1 | ✗ | q-0038.0001 | P38 | 1, 2, 3, 4 |
 | A105 | Its cost counted, and what it saves (cost measured on the front page; savings not) | Q | C7, C8; 2, G1 | ✗ | q-0037.0006.0008; 01-0010.0168 | P39 | 1, 2, 3, 4 |
@@ -354,7 +354,7 @@ row mentions it without making it its subject; **missing** when nothing in the d
 | B32 | Typed fields (state, owner, parent, dependency) are where the literature predicts drift | A1 | 5B (F3) | **none** (the store's check covers form only) |
 | B33 | A trusted system fails when review lapses; capture inflates until review is abandoned; deferred lists grow without bound; clarifying becomes ceremony | A1, A7, A2 | 5A (family G), 5B (F8) | q-0037.0001.0018 partly; ceremony q-0037.0013.0003 |
 | B34 | Consolidation (`/maintain`, `/dream`, rewording) runs only by hand in a session | A95, A106, A100 | 5A, 5B | **none** |
-| B35 | Context collapse: iterative rewording of a self-maintained playbook erodes detail | A100 | 5B (ACE) | q-0037.0012.0004 partly |
+| B35 | Context collapse: iterative rewording of a self-maintained playbook erodes detail | A100 | 5B (ACE) | q-0037.0012.0009.0001 partly |
 | B36 | Self-reference: the system maintains its own desired state with no outside check | A91, A100 | 5B (F7, F9) | q-0038.0001, q-0037.0015.0003 partly |
 | B37 | Desired state goes stale: a permanently authoritative decision enforces something obsolete | A90, A45 | 5B (F7) | q-0037.0001.0023.0005 partly |
 | B38 | A record of ambiguous kind makes two repair directions fight | A91 | 5B (F7) | q-0037.0010.0009 |
@@ -368,7 +368,7 @@ row mentions it without making it its subject; **missing** when nothing in the d
 | B46 | Hosts load the entry file into every subagent, so no outside pass is blind | A33, A74 | 5, 7 | **none** |
 | B47 | Window fingerprints sit in the system temp directory, shared across trees; one pass deleted the live tree's | A9, A12 | 5 (intro) | **none** |
 | B48 | Rules are instructions, not enforcement; the page's absolute promises contradicted it | A40, A120, A124 | 7 | q-0037.0006.0005 |
-| B49 | The self-change claim had no evidence: who notices a miss, does a rewording hold? | A100 | 7 | q-0037.0012.0004, q-0038.0001 |
+| B49 | The self-change claim had no evidence: who notices a miss, does a rewording hold? | A100 | 7 | q-0037.0012.0009.0001, q-0038.0001 |
 | B50 | No fast path; the workflow's weight was hidden | A118 | 6, 7 | q-0037.0013.0003 |
 | B51 | `CLAUDE.md` moved aside at install, a disqualifier for readers | A129 | 7 | q-0037.0006.0020.0001.0001 |
 | B52 | No team support, a disqualifier | A116 | 6, 7 | q-0033.0004 |
@@ -409,7 +409,7 @@ row mentions it without making it its subject; **missing** when nothing in the d
 | C13 | The register's size | 3: 22 entries | T: 26 |
 | C14 | Sizes measured | 5A: queue 58 KB; entry file 232 lines, 15 KB; 121 live entries | T: 61,977 bytes; 247 lines, 15,849 bytes; 146 live entry files |
 | C15 | Audit corrections not carried into 1 | 2: guarded writes ◐; the q-0037.0015 binding wrong; "where knowledge lives" ✓; arrival harvest and reporting upstream as separate open parts | 1: guarded writes ✓; q-0037.0015 kept; ◐; harness pain names q-0037.0006.0011 and q-0037.0006.0014 only, not q-0037.0006.0011.0004 or q-0037.0006.0018 |
-| C16 | The audit's own check | 2: "every question id it cites exists and is open" | T: q-0026.0002, which it cites, exists nowhere in the tree — not the audit's error: it existed when the audit ran and was re-parented to q-0037.0012.0004.0001 the same day, after the audit was filed with the old id |
+| C16 | The audit's own check | 2: "every question id it cites exists and is open" | T: q-0026.0002, which it cites, exists nowhere in the tree — not the audit's error: it existed when the audit ran and was re-parented to q-0037.0012.0009.0001.0001 the same day, after the audit was filed with the old id |
 | C17 | Decision kinds and the HITL mark (A42) | 1: P14, the project says which kinds of decision stop | 8a, 8b: a HITL/AFK mark on questions and an authorization under which the agent closes some itself — wider than P14 |
 | C18 | Position through a compaction (A11, A12) | 2: landed for Claude Code only; 1: ◐ in one host | T: Codex and Cursor carry compaction hooks that redraw the window; keeping a position under a new id is what is single-host |
 | C19 | A second look as one pass (A72) | 3: missing, part of correction and evaluation | 2 §5: restructures `/verify` and `/maintain` rather than answering a cause |
@@ -501,7 +501,7 @@ causes and onto section A. Every question id below exists and is open.
 | 9 | a fixture made by today's code stood for yesterday's tree | 09-24 | `/verify`'s validator bullet | the rule checks the assertion, not where its fixture came from | C7 | landed, with a code fix; not graded | A58 | q-0037.0007 |
 | 10 | a claim about what sets the harness apart, drafted from inside | 09-26 | `/discover`'s description; `/align`'s external reality; *shape context* | the sharpest occasion in the body, not the description; an outside check met by sources sharing the frame | C2, C1 | landed; not graded | A33, A56 | q-0037.0009.0007; q-0037.0011.0002 in part |
 | 11 | a copy step landed in the architecture | 09-26 | the load-bearing counter-test; `/plan`'s architecture rule | an unqualified noun skipped a test in another file | C1, C11, C8 | landed, struck once, amended | A35, A60, A68 | q-0037.0010.0002.0005 |
-| 12 | a queue answer named tickets by position | 09-26 | P9; the slug rule; the queue's link text | met by the letter, failed the reader; copied from a hub that broke it | C1, C10 | landed, reworded twice, replayed four times; residue: queue rows carry no slug | A49, A93, A102 | q-0020; q-0037.0012.0004 |
+| 12 | a queue answer named tickets by position | 09-26 | P9; the slug rule; the queue's link text | met by the letter, failed the reader; copied from a hub that broke it | C1, C10 | landed, reworded twice, replayed four times; residue: queue rows carry no slug | A49, A93, A102 | q-0020; q-0037.0012.0009.0001 |
 | 13 | skill descriptions fixed by adding their method | 09-27 | the tiering rule; R8 | a permissive phrase read as licence | C1, C8 | landed; *not yet replayed* | A56, A80 | q-0037.0011.0002 |
 | 14 | a recall ranked by a criterion the queue does not use | 09-27 | the ordering rule in the queue's prose; `/recall` | a criterion in a document's prose read as state; the skill named none | C9, C2, C1 | landed, reworded the same day; *not yet replayed* | A13, A93 | q-0037.0013; q-0020 |
 | 15 | a record's format placed in a mechanism's doc | 09-27 | `/mechanism` three homes and records; the format's §Records | three statements of one rule disagreed; the most specific won | C1 | landed; *not yet replayed* | A109, A75 | **none** (nearest q-0037.0010.0004) |
@@ -556,13 +556,13 @@ Grading: one entry graded (4, it fired), one replayed (12), three marked *not ye
 | B70 | a rule's home not read at its occasion, as a class — beyond the size and density rows | 2, 10, 11, 12, 16, 18, 19, 22 | q-0037.0011 |
 | B71 | rules and decisions kept in documents or tickets read as state, not as instructions | 4, 6, 14 | q-0037.0015 (*a document informs*) |
 | B72 | text written beside its implementation inherits its verbs | 7, 9, 11 | q-0037.0011.0004 |
-| B73 | grading is never triggered or tracked: *graded by the next …* recorded once in 26 | 4, 12, 13–15 | q-0037.0012.0004 in part |
+| B73 | grading is never triggered or tracked: *graded by the next …* recorded once in 26 | 4, 12, 13–15 | q-0037.0012.0009.0001 in part |
 | B74 | the person is always the detector of a missed rule | all 26 | q-0037.0012 in part (A153) |
 | B75 | rules only grow: every amendment adds and none removes | 3, 18 | q-0037.0012.0005 (A152) |
-| B76 | a later rewrite can silently undo an amendment, and the register does not notice | 14, 16, 22 | q-0037.0012.0004.0002 |
+| B76 | a later rewrite can silently undo an amendment, and the register does not notice | 14, 16, 22 | q-0037.0012.0009.0001.0002 |
 | B77 | instructions outside the tree — the host's prompt and memory — compete with rules inside it | 20 | q-0037.0006.0004.0002 |
 | B78 | register entries stay open with no closure marker; the register's own closing rule has no field | 1, 2 | q-0037.0012 |
 
 **Section D after F:** 157 items in A; 78 weaknesses in B, 11 of them from the register. The
 five that had no open question got one on 2026-10-09: q-0037.0009.0020, q-0037.0011.0004, q-0037.0012.0005,
-q-0037.0012.0004.0002, q-0037.0006.0004.0002.
+q-0037.0012.0009.0001.0002, q-0037.0006.0004.0002.

@@ -90,7 +90,9 @@ already said, and the second isolation buys nothing.
 
 **Put the material into the work as it came back.** A summary written before you use it is your
 reading of the pass, which is the contamination the pass exists to escape. It goes into the body of
-the question that prompted it, the way `/impact`'s does.
+the question that prompted it, the way `/impact`'s does, and to the person in the same turn: each
+family in a sentence of their words, what it would mean here, and what the tasking was found to
+smuggle — before any decision that stands on it is put to them.
 
 ## Neighbours
 

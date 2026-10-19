@@ -17,6 +17,32 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 53. A discovery was filed and an align opened on it, and the person was told nothing of what it found — 2026-10-19
+
+**Rules in play:** `/discover`, *put the material into the work as it came back*; `/align`, *open
+with the concrete failures and my own earlier words … before any design question* and *when I do
+not follow, go more concrete*; the entry file's *a reply speaks the method*.
+
+**What happened.** At q-0037.0012.0009 a discovery pass returned eight families and nine framings
+the tasking smuggled in. The material went whole into the question's body; the next reply opened
+`/align` with its gate and a first question whose options leaned on *families 4, 5 and 8* by number.
+The user: *you decided not to tell me at all what you dug up, and bury me in agent-speak with no
+context?*
+
+**Why it did not fire.** `/discover` names where the material goes — the question's body — and
+nothing about the person, so filing it read as delivering it. `/align`'s *problem before machinery*
+was read as the necessity gate, which it then satisfied; the material the decision stood on was
+treated as already shared because it sat in a record. A record the person has not read is not
+context they hold.
+
+**Proposed amendment**, to `/discover`'s *Put the material into the work as it came back*:
+
+> … It goes into the body of the question that prompted it, the way `/impact`'s does, and to the
+> person in the same turn: each family in a sentence of their words, what it would mean here, and
+> what the tasking was found to smuggle — before any decision that stands on it is put to them.
+
+**Disposition:** landed the same day, the user: *поправка дискавер — да*.
+
 ## 52. An align put to the person, as a question, what their opening message had answered — 2026-10-18
 
 **Rules in play:** `/align`, *open with the concrete failures and my own earlier words, read back
