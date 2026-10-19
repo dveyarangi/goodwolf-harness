@@ -71,7 +71,7 @@ amended four skills. Every turn under `debug=on`.
 Four discoveries' material, each in the body of its question: git gates and situations
 (q-0037.0013.0005, q-0037.0006.0022.0003), action boundaries (q-0037.0013.0005), working documents
 (q-0037.0009.0017). Five tickets minted on approval —
-[01-0020.0010 the-agent-asks-at-its-dial](../tickets/01-0020.0010-the-agent-asks-at-its-dial.md),
+[01-0020.0010 the-agent-asks-at-its-dial](../tickets/done/01-0020.0010-the-agent-asks-at-its-dial.md),
 [01-0020.0020 a-reply-reports-by-its-dial](../tickets/01-0020.0020-a-reply-reports-by-its-dial.md),
 [01-0010.0210 a-recipients-switches-become-its-dial](../tickets/01-0010.0210-a-recipients-switches-become-its-dial.md),
 [01-0019.0010 self-improvement-follows-its-dial](../tickets/01-0019.0010-self-improvement-follows-its-dial.md),
@@ -90,7 +90,7 @@ Four discoveries' material, each in the body of its question: git gates and situ
 
 - q-0037.0013.0005 — decided in nine points; its children .0004 (the dial an install proposes),
   .0005 (the dial out of the agent's reach), .0007 (the report by rung), and q-0037.0013.0002
-  wait on [01-0020.0010](../tickets/01-0020.0010-the-agent-asks-at-its-dial.md)'s align.
+  wait on [01-0020.0010](../tickets/done/01-0020.0010-the-agent-asks-at-its-dial.md)'s align.
 - q-0037.0009.0017 — decided; the work is [01-0016.0010](../tickets/done/01-0016.0010-a-question-is-its-works-working-document.md).
 - q-0037.0009.0021 — debugging is a mechanism; what it owns is open.
 - q-0037.0006.0022.0001, .0002, .0003 — the verification set's pointer decided, its place open;
@@ -101,4 +101,4 @@ Four discoveries' material, each in the body of its question: git gates and situ
 
 The queue's first item is
 [01-0016.0010 a-question-is-its-works-working-document](../tickets/done/01-0016.0010-a-question-is-its-works-working-document.md),
-then [01-0020.0010](../tickets/01-0020.0010-the-agent-asks-at-its-dial.md). Start in a fresh session with `/recall`.
+then [01-0020.0010](../tickets/done/01-0020.0010-the-agent-asks-at-its-dial.md). Start in a fresh session with `/recall`.

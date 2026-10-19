@@ -110,7 +110,7 @@ the dial. The user, 2026-10-14 and 2026-10-15, on
 [q-0037.0013.0005](../questions/q-0037.0013.0005-which-of-the-agents-acts-need-the-persons-yes-and-which-does-it-do-on-its-own.md),
 decisions 1–13: the switches contradicted each other at an install — the installing agent had to
 say where it stops while only `/conclude` could speak of a push. Landed by
-[01-0020.0010](../tickets/01-0020.0010-the-agent-asks-at-its-dial.md).
+[01-0020.0010](../tickets/done/01-0020.0010-the-agent-asks-at-its-dial.md).
 
 ## v91 — 2026-10-15
 
