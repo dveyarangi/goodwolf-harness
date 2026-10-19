@@ -17,6 +17,31 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 56. A directory-wide add committed another session's work in progress — 2026-10-20
+
+**Rule in play, loaded:** [`/commit`](../.claude/skills/commit/SKILL.md): *"Commit the work in
+current session only. Do not commit changes of other session that might represent a work in
+progress. When in doubt, ask user."*
+
+**What happened.** After the store renamed a question and its file, the session staged
+`docs/questions/` whole to catch the rename, then unstaged the two files it knew were another
+session's. A third session's uncommitted work under q-0037.0009.0021 — its entry's edit and four
+new questions — went in with the commit and was pushed; a `FIX` commit took them back out of the
+repository a minute later, the working tree untouched.
+
+**Why it did not fire.** The rule names the outcome and not the act that produces it. It was
+obeyed in intent — the known other-session files were unstaged — and lost to the one command that
+cannot obey it, an add by directory, which stages whatever stands there. A rule about staging is
+missing, not a rule about intent.
+
+**Proposed amendment**, to `/commit`, one sentence after the first rule, at the self-improvement
+dial — a rule, shown before it lands:
+
+> Stage files by name, each one this session wrote or moved; never a directory, a glob or `-A` —
+> in a tree where other sessions run, those stage their work.
+
+**Disposition:** open; the amendment waits on the person.
+
 ## 55. A decision abandoned twelve days earlier was carried as waiting in six replies running — 2026-10-20
 
 **Rules in play, both loaded:**
