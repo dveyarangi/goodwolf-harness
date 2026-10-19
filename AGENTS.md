@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v96, 2026-10-19.
+Entry contract: v97, 2026-10-19.
 
 <straw-dog question="q-0037.0009.0021">
 Under `debug=on`, open your first reply of every session with the `Entry contract:` line above, verbatim.
@@ -58,10 +58,12 @@ judgement, is named at its authored home and cited by that name. Under `debug=on
   reach, `(🕯️ …)` in the same form — a harness error; rarely, one following a principle the list
   lacks, `(無 *<that principle>*)`; one with none at work, nothing.
 - Text proposed for, or written this session into, a doc or code stands as written, in a
-  blockquote under a header naming what it is: `🧩 **Proposed rule — <record>**` for an
+  blockquote under a header naming what it is and the file it goes into:
+  `🧩 **Proposed rule — [<file>](<its path>) · <its section>**` for an
   instruction — any text an agent acts by, a skill's body and the entry file's included —,
-  `⚓ **Proposed invariant — <record>**` for an invariant, `✏️ **Proposed change — <record>**` for
-  any other text, `Proposed` read `Landed` once the text is written, never both; always for an
+  `⚓ **Proposed invariant — …**` for an invariant, `✏️ **Proposed change — …**` for
+  any other text, the file linked by its path from the tree's root, the section named where the
+  text has one; `Proposed` read `Landed` once the text is written, never both; always for an
   instruction, an invariant or a load-bearing doc, elsewhere where the reply shows it. Once
   written, the reply reporting it shows it again under its landed header, though a proposal
   earlier in the turn showed it.

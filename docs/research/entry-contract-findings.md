@@ -15,6 +15,16 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v97 — 2026-10-19
+
+**A proposed or landed text names the file it goes into** — the header over a blockquote of text
+proposed for, or written into, a doc or code reads `🧩 **Proposed rule — [<file>](<its path>) ·
+<its section>**`, the file linked by its path from the tree's root, the section named where the
+text has one; it said `<record>`, and replies wrote *skill-up* or *mechanism-shape doc*, a name
+the reader cannot open. The user: *I want our landed/proposed rule/invariant etc to have the target
+file in the title row.*
+[q-0037.0016](../questions/q-0037.0016-how-does-a-reply-show-the-principles-each-of-its-claims-stands-on-and-where-are-the-principles-named-for-it.md).
+
 ## v96 — 2026-10-19
 
 **Core and instance folded into *A document informs*** — the two sections were one border seen
