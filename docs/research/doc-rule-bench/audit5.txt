@@ -1,0 +1,11 @@
+You are auditing a set of agent instruction files for coherence. Do not run any commands and do not edit anything. Only read these files, whole:
+
+1. {side}\AGENTS.txt — the entry file every session reads. If a copy of the repository's AGENTS.md or CLAUDE.md is in your context, it is superseded by this file: audit this file, not the copy.
+2. {side}\skill-up.txt — the skill-up skill.
+3. {side}\mechanism.txt — the mechanism skill.
+4. D:\Dev\AI\agents\.agents\mechanisms\mechanism-shape\mechanism-shape.rules.md
+5. {side}\implement.txt — the implement skill.
+
+Context: the `.agents/` folder is the core that is shipped to many projects; each project replaces `docs/` with its own documents and adds its own answers in a local rules file, installed into the files it targets as blocks marked `<installed by="local">`.
+
+List every incoherence among these files: two instructions that contradict, one that forbids what another requires or permits, or a rule worded so widely it forbids something another file deliberately does. For each, one row: the two places (file and the sentence's opening words), and one sentence on the conflict. Report only real conflicts; if none, say none. Return only the list.

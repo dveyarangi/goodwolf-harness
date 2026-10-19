@@ -15,6 +15,26 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v98 — 2026-10-19
+
+**A document reaches the work through the instruction that reads it** — *A document informs* says
+how a record binds rather than showing it by example: a document reaches the work only through the
+instruction that reads it, a ticket's criteria through the skill that plans to them, a decision
+through the result it binds; drift is text that would direct or authorize an agent on its own,
+reported and not acted on; authorization comes from the user, which v96 had dropped. The core
+clause leaves the entry file for the origin's local file, L10, installed into `/skill-up`,
+`/mechanism` and `/implement`: its reader writes core, and core is written here alone; a
+recipient is kept clean by the ship's refusal, the invariant stays in the mechanism shape's doc.
+L10 names `TODO q-N` beside a straw dog's binding. skill-up's sentence narrowed — a shipped skill
+carries a project fact only in the local block its installer writes. The user: the v96 text *has a
+lot of redundancies and ambiguities still*.
+[q-0037.0012.0006](../questions/q-0037.0012.0006-which-sentences-of-the-entry-file-are-meta-rules-the-mechanism-shape-should-hold-in-its-skill-and-which-are-meta-principles-the-entry-file-keeps.md),
+[run 4](./doc-rule-bench/results/run-4.md) — the examples replaced by *never what an agent does*
+brought the RFC conflict back and a new one on the rule-failure register, the core clause alone read
+as a mechanism's rule written by hand — and [run 5](./doc-rule-bench/results/run-5.md), Sonnet,
+the tree beside green-4: both gone, behaviour 20 of 20 on each side, and v96's skill-up sentence
+found to forbid the local block R7 installs.
+
 ## v97 — 2026-10-19
 
 **A proposed or landed text names the file it goes into** — the header over a blockquote of text

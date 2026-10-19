@@ -11,6 +11,8 @@ with overwrite; the block in a target is never the place.
 | `.agents/skills/implement/SKILL.md` | `During the work, run the checks in the project's verification set, as` |
 | `.agents/skills/maintain/SKILL.md` | `## Finish` |
 | `.agents/skills/commit/SKILL.md` | `- Write the subject in the project's own convention, where it states one.` |
+| `.agents/skills/skill-up/SKILL.md` | `## Installed from other mechanisms` |
+| `.agents/skills/mechanism/SKILL.md` | `## Siblings` |
 
 ## L1 — what this repository is
 
@@ -122,3 +124,17 @@ uv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/
 ```
 </rule>
 </straw-dog>
+
+## L10 — what core names under docs/
+
+- **target** `.agents/skills/skill-up/SKILL.md`
+- **target** `.agents/skills/mechanism/SKILL.md`
+- **target** `.agents/skills/implement/SKILL.md`
+- **authority** the user, 2026-10-19: the core half of the entry file's former *Core and instance*,
+  read only by whoever writes core, which is written here alone
+
+<rule>
+What the harness ships names under `docs/` only where a mechanism keeps a kind of record — the
+directory, or the one file that is a record — never a record inside one; a question only as a
+straw dog's binding or a `TODO q-N`; a ticket never.
+</rule>

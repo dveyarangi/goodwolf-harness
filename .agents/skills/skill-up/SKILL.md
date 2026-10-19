@@ -32,7 +32,7 @@ The frontmatter description narrates the use case, not the implementation, and s
 
 ## Project-local divergence
 
-A skill the harness ships carries no project fact, in its body or its appendices. A project's own skill cites the project's documentation for what it holds.
+A skill the harness ships carries a project fact only in the local block its installer writes; its body and appendices carry none. A project's own skill cites the project's documentation for what it holds.
 
 ## Merging a reference corpus
 
@@ -50,4 +50,10 @@ shebang where there is one. Write the line as you add the file; no list holds it
 
 **R8** Name no skill of a mechanism whose state is `installed` in another skill's own text: what it asks
 of that skill reaches it as an installed block from its rules file.
+</installed>
+
+<installed by="local">
+**L10** What the harness ships names under `docs/` only where a mechanism keeps a kind of record — the
+directory, or the one file that is a record — never a record inside one; a question only as a
+straw dog's binding or a `TODO q-N`; a ticket never.
 </installed>

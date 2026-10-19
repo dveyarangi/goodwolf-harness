@@ -1,0 +1,11 @@
+Below is an audit of agent instruction files. For each of the conflicts below, say whether the audit reports it (in any wording):
+
+A. skill-up's guidance on project-local material (appendices, or pointing at the project's own documentation) against a rule on what core files may reference under `docs/`.
+B. a straw dog's binding to a question (`<straw-dog question="q-N">`) against a rule that core never names a particular record.
+C. the entry file naming one particular file under `docs/` (such as `docs/rule-failures.md`) against a rule on where core may point.
+D. a ticket's criteria or an RFC's steps reading as instructions, so as drift under the entry file's rule on documents, against a skill that carries them out.
+E. an example call or id (such as `questions.py at q-0004`) naming a question, against a rule on what core names.
+F. the rule-failure register under `docs/` holding proposed rule text, read as instruction-shaped text in a document.
+G. a rule on what core names under `docs/` written by hand where a mechanism's rule should arrive as an installed block, or placed at the wrong tier.
+
+Put in "verdict" the letters reported, comma-separated, or "none"; in "quote" the row for each letter, quoted.

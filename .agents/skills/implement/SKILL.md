@@ -70,4 +70,8 @@ uv run --offline --no-project python .agents/scripts/gw/product.py --check
 ```
 uv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/test -p "test_*.py"
 ```
+
+**L10** What the harness ships names under `docs/` only where a mechanism keeps a kind of record — the
+directory, or the one file that is a record — never a record inside one; a question only as a
+straw dog's binding or a `TODO q-N`; a ticket never.
 </installed>

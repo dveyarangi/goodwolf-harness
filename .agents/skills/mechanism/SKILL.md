@@ -195,3 +195,9 @@ own trigger among them. An always-on mechanism cannot be retired.
 - [`/maintain`](../maintain/SKILL.md) applies the shape's rules and owns none of them; what it
   asks of an inceptor is its own rule, installed above.
 - [`/align`](../align/SKILL.md) is called by incept, before anything is built.
+
+<installed by="local">
+**L10** What the harness ships names under `docs/` only where a mechanism keeps a kind of record — the
+directory, or the one file that is a record — never a record inside one; a question only as a
+straw dog's binding or a `TODO q-N`; a ticket never.
+</installed>
