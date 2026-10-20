@@ -33,7 +33,7 @@ they hear only what of it asks something of them.
 <installed by="questions">
 **Q2** Start from the wake's read — the one the host's session-start hook put in your context, or
 `questions.py --wake --session <tag>` with the tag that read named; a bare `--wake` registers a new
-session, and is for a host whose hook registered none. Report where the other sessions stand, what is suspect, which deferrals
+session, and is for a host whose hook registered none. Take from it where the other sessions stand, what is suspect, which deferrals
 may now be due, and which straw dogs are due; take this session's position from the person or
 estimate it, and place it with `at`. Re-rank nothing another running session is on; then read the queue as this skill says.
 </installed>

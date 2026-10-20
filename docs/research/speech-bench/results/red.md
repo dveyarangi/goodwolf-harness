@@ -47,3 +47,18 @@ From 5–9 sentences of the work's course a reply to at most one, on which the r
 
 *Сейчас посмотрю, где мы остановились* is the method's step *(the user, 2026-10-18)*: the three
 flags are the reader's, and the slice is green.
+
+# Q2 — *take from it*, not *report*, 2026-10-20
+
+The questions mechanism's Q2, installed in `/recall`, said *Report where the other sessions stand,
+what is suspect, which deferrals may now be due, and which straw dogs are due* — the store's words
+the red replies retold. It now says *Take from it*. Five writer runs of `morning`, the current
+`writer.txt`: `q2-morning-1.txt` … `-5.txt`, each a greeting and one line naming the step.
+
+| run | verdict | quoted |
+|---|---|---|
+| 1, 2, 3, 5 | нет ×4 | nothing |
+| 4 | да | *сначала посмотрю, где мы вчера остановились, и вернусь с картиной* — the form the user ruled the method's step |
+
+No regression. The case stops at the greeting, before the reads where Q2 bears; that the change
+helps there is ungraded, as the reply after the reads is.
