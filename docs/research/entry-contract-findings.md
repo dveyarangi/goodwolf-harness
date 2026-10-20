@@ -15,6 +15,17 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v100 — 2026-10-20
+
+**A stop is said as the act** — *A reply speaks the method* gains the sentence a reply writes when a
+turn stops at or above a ladder's dial: the glyph ✋ and the ladder's own line for the rung, *settled;
+it lands on your yes* at the dial, *yours to decide; the options and a recommendation follow* above
+it, the ladder's and the rung's names in it nowhere. The debug list's `🛠️ <ladder>=<rung>` becomes
+a parenthesis after that sentence, never a line of its own. Occasion: a reply said *At the dial,
+🛠️ self-improvement=a rule* where it meant *this waits for your decision*; the user barely read it,
+and chose the act-sentence over three other forms, ✋ for both zones *(the user, 2026-10-20;
+q-0037.0013.0005.0007)*. Not run through the doc-rule bench, as v99 was not.
+
 ## v99 — 2026-10-20
 
 **Occam reads backwards too** — one sentence added to *Occam*: an abstraction that arrives late and

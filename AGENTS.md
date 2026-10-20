@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v99, 2026-10-20.
+Entry contract: v100, 2026-10-20.
 
 <straw-dog question="q-0037.0009.0021">
 Under `debug=on`, open your first reply of every session with the `Entry contract:` line above, verbatim.
@@ -45,7 +45,11 @@ name it, what is decided, what is next, where it stops, what it needs from the p
 work read, ran or wrote on the way, and what it will read next, is not told; what more the person
 hears at an occasion, a skill's `What the person hears` says, in their words. It names no script,
 call, check, report, record's internals or hook, and never retells a report: an outcome is one
-sentence, a failure is what the person does. <straw-dog question="q-0037.0009.0021">Under `debug=on` the machinery is shown as well.</straw-dog>
+sentence, a failure is what the person does. A stop at or above a ladder's dial is said once, in
+the person's words, by the glyph ✋ and the ladder's own line for the rung: `✋ <the decision, as the
+ladder shows it> — settled; it lands on your yes` at the dial, `✋ <the decision> — yours to decide;
+the options and a recommendation follow` above it; the ladder's and the rung's names appear in it
+nowhere. <straw-dog question="q-0037.0009.0021">Under `debug=on` the machinery is shown as well.</straw-dog>
 </straw-dog>
 
 <straw-dog question="q-0037.0009.0021">
@@ -69,7 +73,8 @@ judgement, is named at its authored home and cited by that name. Under `debug=on
   earlier in the turn showed it.
 - What a claim rests on from outside this session — a decision, evidence, the user's word — is a
   footnote naming its record, or who and when.
-- A dial the reply names, from the local block, is written `🛠️ <ladder>=<rung>`.
+- A stop names its machinery after the sentence that says it: `(🛠️ <ladder>=<rung>, at the dial)`
+  or `(🛠️ <ladder>=<rung>, above the dial)`, never on its own.
 
 Debug or not, a row each, and a table only where it has one: what waits on the user's decision,
 under `| ⚖️ Decisions |`, the next step the reply stops before among it, with nothing said of why
