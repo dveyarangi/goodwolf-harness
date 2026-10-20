@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v101 — 2026-10-20
+
+**One form for a stop** — v100's two sentences, one at the dial and one above it, collapse to one:
+`✋ <the decision, as the ladder shows it>`, and the parenthesis under `debug=on` is
+`(🛠️ <ladder>=<rung>)` with no zone named. The user found the two cases bloat that nothing needs
+*(the user, 2026-10-20)*.
+
 ## v100 — 2026-10-20
 
 **A stop is said as the act** — *A reply speaks the method* gains the sentence a reply writes when a
