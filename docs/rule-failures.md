@@ -279,6 +279,18 @@ for the reader, and what is a record's format, which goes to a format file besid
 same day to the questions skill: 2,339 words to 1,556, its records' shape moved to
 `QUESTION-FORMAT.md` beside it, a restatement of the entry file and what the script does taken out.
 
+**Struck, 2026-10-20 — a rule proposed in a reply.** Asked why ended session rows are kept, the
+session proposed a replacement for the questions format's *What removes a row* sentence under the
+reply's 🧩 header, which the reply-layout rule reserves for an instruction, and read neither
+`/skill-up` nor `/mechanism`, though the change is to a record's format. The user: *did you went
+through skill-up when proposed the rule?* Why it did not fire: salience, as before — the proposal
+was one sentence, and the description's *directly in a reply* was not in reach at the moment the
+🧩 header was; the header rule names the form and not the skill that writes what it holds.
+**Amendment proposed**, to the reply-layout rule in the entry file, at the header's definition:
+*an instruction, written through `/skill-up`* — the one moment the reply already knows it holds an
+instruction. **Amendment landed**, the user, 2026-10-20: the header's definition in the entry file
+reads *for an instruction, written through `/skill-up`*; the entry grows by four words, removes none.
+
 ## 49. A discovery's tasking described the method it was meant to step outside — 2026-10-15
 
 **Rules in play:** `/discover`, *Describe the shape functionally, in nobody's vocabulary* and

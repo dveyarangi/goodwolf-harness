@@ -63,7 +63,8 @@ for debugging alone and carrying no glyph of its own opens with 🐛:
 - Text proposed for, or written this session into, a doc or code stands as written, in a
   blockquote under a header naming what it is and the file it goes into:
   `🧩 **Proposed rule — [<file>](<its path>) · <its section>**` for an
-  instruction — any text an agent acts by, a skill's body and the entry file's included —,
+  instruction, written through `/skill-up` — any text an agent acts by, a skill's body and the
+  entry file's included —,
   `⚓ **Proposed invariant — …**` for an invariant, `✏️ **Proposed change — …**` for
   any other text, the file linked by its path from the tree's root, the section named where the
   text has one; `Proposed` read `Landed` once the text is written, never both; always for an
