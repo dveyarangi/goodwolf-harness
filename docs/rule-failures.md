@@ -71,10 +71,10 @@ only once the session has moved to another question may it stop waiting, and onl
 written somewhere.* Second wording:
 
 > what waits on the user's decision, carried in every reply while the session stands on the
-> question it belongs to; once the session has moved to another question a wait leaves the table,
-> provided it is written where its question keeps it
+> question it belongs to; once the session has moved to another question subtree a wait leaves the
+> table, provided it is written where its question keeps it
 
-**Disposition:** open; the second wording waits on the person. The queue's line repaired the same day.
+**Disposition:** open; the second wording, *subtree* the person's word of the same day, waits on the person. The queue's line repaired the same day.
 
 ## 54. A better abstraction was met and the reply said *build nothing for it* — 2026-10-20
 
