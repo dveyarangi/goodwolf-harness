@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v101, 2026-10-20.
+Entry contract: v102, 2026-10-20.
 
 <straw-dog question="q-0037.0009.0021">
 Under `debug=on`, open your first reply of every session with the `Entry contract:` line above, verbatim.
@@ -52,7 +52,8 @@ in it nowhere. <straw-dog question="q-0037.0009.0021">Under `debug=on` the machi
 
 <straw-dog question="q-0037.0009.0021">
 **A paragraph shows what it stands on.** Every principle, and every classification applied by
-judgement, is named at its authored home and cited by that name. Under `debug=on`:
+judgement, is named at its authored home and cited by that name. Under `debug=on`, an item shown
+for debugging alone and carrying no glyph of its own opens with 🐛:
 
 - A paragraph that claims or recommends ends with `(💡 [*<the principle governing it, named as its
   home names it>*](<its home>:<line>))`, the name a link to the line its text stands on, never a
@@ -71,7 +72,7 @@ judgement, is named at its authored home and cited by that name. Under `debug=on
   earlier in the turn showed it.
 - What a claim rests on from outside this session — a decision, evidence, the user's word — is a
   footnote naming its record, or who and when.
-- A stop names its machinery after the sentence that says it, `(🛠️ <ladder>=<rung>)`, never on its own.
+- A stop names its machinery after the sentence that says it, `(🐛 <ladder>=<rung>)`, never on its own.
 
 Debug or not, a row each, and a table only where it has one: what waits on the user's decision,
 under `| ⚖️ Decisions |`, the next step the reply stops before among it, with nothing said of why

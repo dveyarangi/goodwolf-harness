@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v102 — 2026-10-20
+
+**The debug marker** — under `debug=on`, an item shown for debugging alone and carrying no glyph of
+its own opens with 🐛; the stop's parenthesis becomes `(🐛 <ladder>=<rung>)`, so ✋ is the one stop
+icon in both modes and 🛠️ leaves the contract. Items with a glyph — the lamp, the piece, the tables
+— are marked already *(the user, 2026-10-20)*.
+
 ## v101 — 2026-10-20
 
 **One form for a stop** — v100's two sentences, one at the dial and one above it, collapse to one:
