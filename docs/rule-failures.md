@@ -17,6 +17,35 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 57. The rung rule fired on two of fourteen openings, and the older questions were never given one — 2026-10-20
+
+**Rules in play:**
+
+- [`/questions`](../.claude/skills/questions/SKILL.md), *A question's rung*, tier 2: *"Give a
+  question you open its highest rung on each ladder it touches … as your estimate, and raise it."*
+- [`AGENTS.md` — Q1](../AGENTS.md#general-rules), tier 1, *A new question*: *"`open` it under the
+  lowest question that contains it, and call `at` on it."* — `open` and `at`, no rung.
+
+**What happened.** The rung part landed 2026-10-15 with 01-0020.0010. Since then about fourteen
+questions were opened; two carry a rung. The 168 older questions were never given one: the slice's
+RFC planned no back-fill, and the store's form check validates a rung only where one stands, so
+nothing reports an absent one. The user, at the pathfinder's align: *why five of 173 and not all?*
+
+**Why it did not fire.** The rule stands at tier 2, read only when the questions skill is read; the
+occasion, an `open`, is named at tier 1 by Q1, which lists the two calls and not the third. A plain
+`open` does not read the skill — the shape q-0037.0011 already holds as U3 — so the rule reached
+two openings in fourteen. The missing back-fill is no rule's failure: no instruction ever asked
+for it; it is a pass to run once, which the pathfinder's align now needs for its definition of
+what waits on the person.
+
+**Proposed amendment**, to Q1's *A new question*, three words, at the self-improvement dial — a
+rule, shown before it lands:
+
+> `open` it under the lowest question that contains it, give it its rung, and call `at` on it.
+
+**Disposition:** open; the amendment waits on the person. The back-fill is proposed as a step of
+q-0037.0019's align.
+
 ## 56. A directory-wide add committed another session's work in progress — 2026-10-20
 
 **Rule in play, loaded:** [`/commit`](../.claude/skills/commit/SKILL.md): *"Commit the work in
