@@ -2,6 +2,7 @@
 
 - **record of** what it intends to become
 - **state** open
+- **rung** development: the whole product
 - **lean** 2026-10-13: the purpose root by its words; its open questions wait as undecided answers A15, A21, A51 and A52 in docs/product.md
 - **struck** 1, last 2026-10-10T21:36Z
 

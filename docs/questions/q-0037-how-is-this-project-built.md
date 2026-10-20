@@ -2,4 +2,5 @@
 
 - **record of** what it intends to become
 - **state** open
+- **rung** self-improvement: the method, development: load-bearing
 - **struck** 0, last 2026-10-13T14:13Z
