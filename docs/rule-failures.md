@@ -40,7 +40,7 @@ dial — a rule, shown before it lands:
 > Stage files by name, each one this session wrote or moved; never a directory, a glob or `-A` —
 > in a tree where other sessions run, those stage their work.
 
-**Disposition:** open; the amendment waits on the person.
+**Disposition:** open as a slip; the person, 2026-10-20: no amendment now, to be thought about later — the proposed sentence stands here as a candidate for a repeat.
 
 ## 55. A decision abandoned twelve days earlier was carried as waiting in six replies running — 2026-10-20
 
@@ -65,13 +65,16 @@ Neither rule is wrong; the boundary between a record's claim and the reply's tab
 Not entirely a rule failure: no rule asked the row to be dropped, and the user had to.
 
 **Proposed amendment**, to the ⚖️ clause of *A paragraph shows what it stands on*, at the
-self-improvement dial — a rule, shown before it lands:
+self-improvement dial — a rule, shown before it lands. A first wording dropped every record's
+standing claim from the table; the person: *not that simple — some waits must keep being carried;
+only once the session has moved to another question may it stop waiting, and only if the wait is
+written somewhere.* Second wording:
 
-> what waits on the user's decision — put to them by this session's work, or asked and unanswered;
-> a record's standing claim that a decision waits is not the table's, and one the person calls
-> abandoned is that record's drift
+> what waits on the user's decision, carried in every reply while the session stands on the
+> question it belongs to; once the session has moved to another question a wait leaves the table,
+> provided it is written where its question keeps it
 
-**Disposition:** open; the amendment waits on the person. The queue's line repaired the same day.
+**Disposition:** open; the second wording waits on the person. The queue's line repaired the same day.
 
 ## 54. A better abstraction was met and the reply said *build nothing for it* — 2026-10-20
 
