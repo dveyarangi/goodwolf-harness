@@ -49,6 +49,10 @@ to hold once it has, counted and quoted in the tree's own words:
 6. *Who owns what* — which record governs which part of the tree, who may change it, who decides
    what; where a boundary is written — a contract, a coordinator, a role — and where it is unsaid,
    so two parties may both believe a thing is theirs, or neither.
+7. *Where the person stands* — what waits on them and for how long; what was decided without them
+   that should have come to them; what came to them that need not have.
+8. *A decision without its reason* — records that hold what was decided and not why, so the next
+   reader cannot tell a choice from an accident, nor see when the reason has lapsed.
 
 **The ledger.** A measurement the report keeps so the same tasks can be measured again after a
 migration. A blind run: a fresh agent, told nothing of the harness or of a measurement, is given the
