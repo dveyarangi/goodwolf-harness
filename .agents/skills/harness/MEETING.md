@@ -31,8 +31,8 @@ checks and the rules that name them; outside coordinators and contracts; the kin
 tree keeps — decisions, plans, runbooks, specs — and where its current state lives. This is what the
 harness does not replace, said in the tree's own names.
 
-**The four readings.** Each is one way a project's knowledge fails to reach the person who needs it,
-counted and quoted in the tree's own words:
+**The readings.** Each is one way a project's knowledge fails to reach the person who needs it, or
+to hold once it has, counted and quoted in the tree's own words:
 
 1. *What it costs to reach what is written* — files, searches, steps between a question and its
    answer; chains of records that supersede one another; documents readable only by search.
@@ -43,6 +43,12 @@ counted and quoted in the tree's own words:
    what was met on the way, never claimed as all there is.
 4. *What no one records* — the tree's memory of its own operation: sessions, handovers, why a piece
    of work stopped; the gap shows as history leaking into rules and as work no record explains.
+5. *Where the project does not follow its own rules* — a rule stated and a case against it standing
+   in the tree; a rule whose gate covers less than the rule claims; a rule with no gate at all, held
+   by attention alone.
+6. *Who owns what* — which record governs which part of the tree, who may change it, who decides
+   what; where a boundary is written — a contract, a coordinator, a role — and where it is unsaid,
+   so two parties may both believe a thing is theirs, or neither.
 
 **The ledger.** A measurement the report keeps so the same tasks can be measured again after a
 migration. A blind run: a fresh agent, told nothing of the harness or of a measurement, is given the
@@ -74,28 +80,29 @@ precise, because at each step what is needed is known.
 The body of the person's question, *what would the harness change here?*, headed by that question
 in the project's language, and written in the project's names. No term or phrase of the harness's
 own — mechanism, store, straw dog, tier, rung, install block, a session *standing on* a question —
-appears; the study's parts are described by what they do; what the harness brings is said as what it
-does for the project: a home for
+appears; the harness is named by its name, GoodWolf Harness, never by the bare word; the study's
+parts are described by what they do; what it brings is said as what it does for the project: a home for
 each kind of record; a rule installed where it is read; open questions kept with their state and the
 session's position among them; a record of each session; a disagreement between records repaired
 where it is met; a decision kept with what it waits on.
 
 Sections, in this order, each headed:
 
-0. **How this was read.** What the study is — the inventory, the four readings named and said in one
+0. **How this was read.** What the study is — the inventory, the readings named and said in one
    line each, the ledger and how it was taken; that the read is quick and sampled; that what it
    found is what it met, not an inventory, and that the harness repairs a disagreement where a
    session meets it, every session meeting its own. A reader who has not seen the harness understands
    every later section from this one.
-1. **What was found.** By the inventory and the four readings, each a paragraph with its numbers and
+1. **What was found.** By the inventory and the readings, each a paragraph with its numbers and
    quotes; then what the method asks of a change, as the count; then what stays as it is.
 2. **Main recommendations.** Three to five, each one sentence and its reason, about the project's
    documentation and its own method — its rules, gates and records — only; never about what the
    project builds.
 3. **What clearly improves, and what the person will likely give up.** Two columns.
-4. **Proposals.** A table: what, what it touches and what depends on it, size; then the order.
-5. **What this report does not say.** No comparison of the tree's method with the harness before an
-   install, a migration and a real check; no inventory of disagreements; the ledger measures one
+4. **The migration plan.** A table: what, what it touches and what depends on it, size; then the
+   order.
+5. **What this report does not say.** No comparison of the tree's method with GoodWolf Harness
+   before an install, a migration and a real check; no inventory of disagreements; the ledger measures one
    thing, the cost of recovering the project's state on a sample, and is far from the whole harness;
    the post-migration re-run is its own stage, optional.
 6. **Appendix: the ledger.** The counts; the sample and its key; the blind run's return, whole and
