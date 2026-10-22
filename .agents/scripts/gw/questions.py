@@ -134,6 +134,9 @@ _LINK_TARGET = re.compile(r"\]\(([^)\s]+)\)")
 # An id in prose: never part of a word or a longer id, so `faq-0007` and `q-00070` are not ids.
 _BARE_ID = re.compile(rf"(?<![\w.]){_ID}(?!\w)")
 _HEADING = re.compile(r"^#{1,6} +(.*?)(?: +#+)? *$")
+# A relative id — `.0003` standing for q-0037.0006.0020.0001.0003 — names nothing a reader can follow;
+# an id in an entry is written whole (rule failure 17, struck 2026-10-23).
+_RELATIVE_ID = re.compile(r"(?<![\w.])\.\d{4}(?!\d)")
 _FENCE = re.compile(r"^\s*(```|~~~)")
 _ITEM = re.compile(r"^(?:-|\d+\.) +(\S.*)$")
 _ROOTS_BLOCK = re.compile(r"^```roots\n(?P<said>.*?)^```", re.MULTILINE | re.DOTALL)
@@ -370,6 +373,7 @@ def check(root: Path) -> Checked:
         + _ready_for_done(entries, index)
         + _unstated(entries, index)
         + _unrunged(entries)
+        + _relative_ids(root, entries)
     )
     return Checked(True, len(entries), diagnostics, findings, skipped + unreadable)
 
@@ -942,6 +946,23 @@ def _unstated(entries: list[Entry], index: dict[str, Entry]) -> list[Finding]:
             named = label.group(1) if label else posixpath.basename(owner)
             notes.append(Finding(read.record, 1, f"{read.identity} is answered by {named} and has no Where it stands"))
     return notes
+
+
+def _relative_ids(root: Path, entries: list[Entry]) -> list[Finding]:
+    """An id in an entry is written whole; a suffix such as `.0003` is a name no reader can follow.
+    A finding, not a diagnostic: bodies are written by hand and are repaired where a session meets
+    them. Fenced blocks are not read."""
+    findings: list[Finding] = []
+    for read in entries:
+        if read.archived:
+            continue
+        inside = False
+        for number, line in enumerate((root / read.record).read_text(encoding="utf-8").splitlines(), 1):
+            if _FENCE.match(line):
+                inside = not inside
+            elif not inside and (found := _RELATIVE_ID.search(line)):
+                findings.append(Finding(read.record, number, f"names `{found.group(0)}`, a relative id; an id is written whole"))
+    return findings
 
 
 def _unrunged(entries: list[Entry]) -> list[Finding]:
@@ -2187,7 +2208,10 @@ class _Draft:
         self._put(_with(read, state=read.state.group(1) if read.state else "open"))
 
     def _leans(self, clause: Clause) -> None:
-        self._put(_with(self._existing(clause.question or ""), lean=clause.text))
+        read = self._existing(clause.question or "")
+        if found := _RELATIVE_ID.search(clause.text or ""):
+            raise Refused(f"`lean {read.identity}`: `{found.group(0)}` is a relative id, which names nothing a reader can follow; write the id whole")
+        self._put(_with(read, lean=clause.text))
 
     def _assigns(self, clause: Clause) -> None:
         """The owner is the record of the work that answers the question — the deliberation is

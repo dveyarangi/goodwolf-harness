@@ -1158,9 +1158,12 @@ is the open question .0003 a bare id again, with no link to the file?* Q5 was in
 The suffix came from the session's own lean on the parent question, written minutes earlier as
 *two stops and /advise open as .0003*: a relative id in a record does not read as naming a
 question, so the reply copied it as a word. The leak starts where the lean is written, as the
-2026-10-10 strike already found of the window's leans. **Amendment proposed** to Q5's home: a
-question's id is written whole wherever it is written — a reply, a lean, a record — never as a
-suffix; a relative id is a name the reader cannot follow.
+2026-10-10 strike already found of the window's leans. **Amendment landed** where the lean is
+written, not at tier 1 — the user: *a lean is written through the store, and a rule about a record
+is maintenance's to check*: the question format says an id anywhere in an entry is whole; the
+store's writer refuses a lean holding a relative id; the store's check reports one already written
+as a finding for `/maintain` — 40 in this tree's entries on the day, bodies written by hand, to be
+repaired where a session meets them. Q5 unchanged. Graded by the next lean any session writes.
 
 ## 16. A session stopped placing its messages once the window said nothing moved — 2026-10-03
 

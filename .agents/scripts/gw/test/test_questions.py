@@ -2238,3 +2238,32 @@ class Seeding(RepositoryCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ARelativeId(Store):
+    """An id in an entry is whole. One already written is a finding for maintenance; one offered to
+    the writer in a lean is refused."""
+
+    def relative(self) -> list[str]:
+        return [note.finding for note in questions.check(self.root).findings if "relative id" in note.finding]
+
+    def test_in_a_lean_already_written_is_a_finding_not_a_problem(self) -> None:
+        self.place("q-0090-which-store", "Which store?", {"state": "open", "lean": "open as .0003 since"})
+        self.assertEqual([], self.problems())
+        self.assertEqual(1, len(self.relative()), self.relative())
+
+    def test_inside_a_fenced_block_is_not_read(self) -> None:
+        fenced = chr(10).join(["", "```", ".0003", "```", ""])
+        self.write(f"{STORE}/q-0090-which-store.md", entry("q-0090", "Which store?", {"state": "open"}) + fenced)
+        self.assertEqual([], self.relative())
+
+
+class ALeanWithARelativeId(Declared):
+    def test_is_refused_and_nothing_is_written(self) -> None:
+        self.assertRefused("relative id", "lean", "q-0004", "the user, 2026-10-23: open as .0003")
+
+    def test_a_whole_id_is_written(self) -> None:
+        self.called("lean", "q-0004", "the user, 2026-10-23: open as q-0004.0003")
+        written = next(Path(self.root, STORE).glob("q-0004-*.md")).read_text(encoding="utf-8")
+        self.assertEqual(1, len([line for line in written.splitlines() if "q-0004.0003" in line]))
+

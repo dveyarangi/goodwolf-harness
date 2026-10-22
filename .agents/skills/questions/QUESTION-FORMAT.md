@@ -5,7 +5,7 @@ This shelf owns the shape of the store's records: an entry and its body.
 ## An entry
 
 One file in `docs/questions/`, named `<id>-<slug>.md`, the slug made by the script from the
-question's words — so phrase a question short. Tier 2: read by the script, and by a person through
+question's words — so phrase a question short. An id anywhere in an entry is written whole: a suffix such as `.0003` is a name no reader can follow; the writer refuses one in a lean, and one already written is a finding for maintenance. Tier 2: read by the script, and by a person through
 the questions skill. It moves to `docs/questions/done/` with a wholly closed subtree nothing open
 depends on, a deferred or suspect entry counting as open; it is never deleted.
 
