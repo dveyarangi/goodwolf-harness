@@ -304,9 +304,8 @@ irony where it is earned. It is never agent-speak, the voice of a tool narrating
 it invents nothing: what it tells is what happened. Tables, decisions and text proposed for a
 record keep the exactness their forms ask.
 
-**L11** At the `open` of a question, give it its highest rung on each ladder it touches, as the entry
-file's *Autonomy* reads them; at the verification set's run, an open question without one is the
-store's finding.
+**L12** At most 8 open questions are in work at once — a running session standing on one or under it, or
+its owner ticket In progress. The ninth is opened and placed, and waits until one leaves work.
 </installed>
 
 ## Straw dogs

@@ -126,6 +126,16 @@ uv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/
 </rule>
 </straw-dog>
 
+## L12 — the cap on work in hand
+
+- **target** `AGENTS.md`
+- **authority** the user, 2026-10-22: eight on trial, to be re-read by what it stops
+
+<rule>
+At most 8 open questions are in work at once — a running session standing on one or under it, or
+its owner ticket In progress. The ninth is opened and placed, and waits until one leaves work.
+</rule>
+
 ## L10 — what core names under docs/
 
 - **target** `.agents/skills/skill-up/SKILL.md`

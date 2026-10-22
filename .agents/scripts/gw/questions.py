@@ -369,6 +369,7 @@ def check(root: Path) -> Checked:
         + _likely_twins(entries)
         + _ready_for_done(entries, index)
         + _unstated(entries, index)
+        + _unrunged(entries)
     )
     return Checked(True, len(entries), diagnostics, findings, skipped + unreadable)
 
@@ -941,6 +942,22 @@ def _unstated(entries: list[Entry], index: dict[str, Entry]) -> list[Finding]:
             named = label.group(1) if label else posixpath.basename(owner)
             notes.append(Finding(read.record, 1, f"{read.identity} is answered by {named} and has no Where it stands"))
     return notes
+
+
+def _unrunged(entries: list[Entry]) -> list[Finding]:
+    """Each live open question without a `rung` part, in a store that uses the part: one whose
+    method declares a ladder has given some question a rung, and then every open one carries its
+    own (q-0037.0019, decision 2). A store with no rung anywhere has no ladder, and is asked
+    nothing. A finding, not a diagnostic: another session's question gains its rung at that
+    session's next touch."""
+    live = [read for read in entries if not read.archived]
+    if not any("rung" in read.parts for read in live):
+        return []
+    return [
+        Finding(read.record, 1, f"{read.identity} is open and has no rung")
+        for read in live
+        if read.open and "rung" not in read.parts
+    ]
 
 
 def _owner(read: Entry) -> str | None:

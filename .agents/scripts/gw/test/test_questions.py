@@ -552,6 +552,33 @@ class ReadyForDone(Store):
         self.assertEqual(1, len(report["findings"]))
 
 
+class RungsInUse(Store):
+    """A store that uses the rung part — some question carries one — has every open question carry
+    its own (q-0037.0019, decision 2); one without is a finding. A store with no rung anywhere has no
+    ladder and is asked nothing."""
+
+    def unrunged(self) -> list[str]:
+        return [note.finding for note in questions.check(self.root).findings if "rung" in note.finding]
+
+    def test_a_store_with_no_rung_anywhere_is_asked_nothing(self) -> None:
+        self.assertEqual([], self.unrunged())
+
+    def test_once_one_question_carries_a_rung_an_open_one_without_is_a_finding(self) -> None:
+        self.place("q-0012-one-with-a-rung", "One with a rung?", {"state": "open", "rung": "development: a feature"})
+
+        found = self.unrunged()
+
+        self.assertIn("q-0001.0001 is open and has no rung", found)
+        self.assertNotIn("q-0012 is open and has no rung", found)
+        self.assertEqual([], self.problems())
+
+    def test_a_closed_one_is_not(self) -> None:
+        self.place("q-0012-one-with-a-rung", "One with a rung?", {"state": "open", "rung": "development: a feature"})
+        self.place("q-0013-a-closed-one", "A closed one?", {"state": "closed:decided"})
+
+        self.assertNotIn("q-0013 is open and has no rung", self.unrunged())
+
+
 class WhereItStands(Store):
     """A question a ticket answers carries its `Where it stands` (q-0037.0009.0017, decision 2): the
     top of the work an owner owns, read from the store's own parts, is named while it lacks one."""
