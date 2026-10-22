@@ -16,8 +16,8 @@ One row per mechanism per level, then each file that level was checked against, 
 | mechanism-shape | output | 3c2a9607a162fa442fa479ac5d3842b8a399f6d2fba192595362745049d40b83 | 2026-10-19 | nothing to change |
 | product | parts | 9207784985dd606ba5e8fe2339da592286612f021f6f5f2349fd2abb294d3225 | 2026-10-19 | nothing to change |
 | product | output | c7bd0085b16a38a032ab98f269ae30e4bc5359dca0d524c99991cfa552fdfd77 | 2026-10-19 | nothing to change |
-| questions | parts | d333ec3855e585dbb9b22bb7577537ed13c84b75bbb3e0049afe0823de5a92af | 2026-10-22 | nothing to change |
-| questions | output | 151e6835448f5c6359c43ea8b45056f3aafb817c11f69c411eed55743ad4f68f | 2026-10-22 | nothing to change |
+| questions | parts | 45f4343270e581ff07dc66aa07dd54bb17ca893811e6bddc5f35fe9cb8663d8c | 2026-10-22 | nothing to change |
+| questions | output | 2196b5264561b61fa478278d74e7a2896ea656d6d8709fa6ec9c3f19cacb1014 | 2026-10-22 | nothing to change |
 | ticket | parts | e4e29dd1df980406445f03c9bf6e693b183fefe736697d917372b63a03ac32e9 | 2026-10-19 | amended |
 | ticket | output | 83d23568c3465f37f687e19f8e0f71a2302d46c98209c0b7a761b30d7165c5c4 | 2026-10-22 | nothing to change |
 
@@ -94,9 +94,9 @@ One row per mechanism per level, then each file that level was checked against, 
 | questions | parts | .agents/.gitattributes | bd95d1f719ab960c7d638d202a762ab72f356be5be7270623165327a47e28149 |
 | questions | parts | .agents/mechanisms/questions/questions.rules.md | 1260648c7a7556db55294819c1a1582b775dedc361a04f13e5284aaa42e02657 |
 | questions | parts | .agents/scripts/gw/hook.sh | 0118d8145545019d8121a339242fc9795690bb554d2375a8f89a3b4de27ba83e |
-| questions | parts | .agents/scripts/gw/questions.py | ae4c81f4da4f1e3cd86b650ef218e7316ae5ce551993ffacdec5a4a6a4cccd1e |
+| questions | parts | .agents/scripts/gw/questions.py | 013f5811a925a2877fa65c36b41f5621623952724dfa9840feec4062bf937f5b |
 | questions | parts | .agents/scripts/gw/test/test_questions.py | ecf617d6901e6232dab82f1c4d7a05bd8bdb5af795766ae21fcd687536d303bd |
-| questions | parts | .agents/skills/questions/QUESTION-FORMAT.md | 0206f274f6234bdcd7e7f46e3f7bddaf71c6e27361e4b068a72e0d49882b4e2f |
+| questions | parts | .agents/skills/questions/QUESTION-FORMAT.md | eb7d7863b8a4ca80e8f4e1bbb9bc08f30481d007c4b74ee9163cd192ee2e29a6 |
 | questions | parts | .agents/skills/questions/SKILL.md | 9afe0978af79816acf0aa86495e89f61681bc4e40af8a84918154f69ae177b52 |
 | questions | parts | .agents/skills/questions/STORE-ARRIVAL.md | 705104bc52573cb61face69019835b073c9fd6841c54d157108b6c0f6ef4ef77 |
 | questions | parts | .agents/skills/questions/hooks/.claude/settings.json | 7502eae6c772b16eef9d81a925f5fd2a26f4ac5d5562d64ba2fb5f4225318970 |
@@ -104,11 +104,11 @@ One row per mechanism per level, then each file that level was checked against, 
 | questions | parts | .agents/skills/questions/hooks/.cursor/hooks.json | f26fb2ace2e616e7b5902c57a63489fde425ac411a5f54284f30bd67cbc99e6e |
 | questions | output | .agents/mechanisms/mechanism-shape/mechanism-shape.md | 926a299cc8b0af0fe4a11071c32f127d23e39db600c4124d31266e112a6ba70e |
 | questions | output | .agents/mechanisms/mechanism-shape/mechanism-shape.rules.md | 2e681b0e5f05f91417d4745bfdb08f7d7d50152c91ad3db8b631b757dc941308 |
-| questions | output | .agents/mechanisms/questions/questions.md | 0730b319efa125326355d875effb094592544bd6e03750fb54c565ed1324a1fe |
+| questions | output | .agents/mechanisms/questions/questions.md | 366bbbc97f07aacb9d7010adaad4e708e68ee99df3f32602026bf6f16c5b5b0c |
 | questions | output | .agents/mechanisms/questions/questions.rules.md | 1260648c7a7556db55294819c1a1582b775dedc361a04f13e5284aaa42e02657 |
 | questions | output | .agents/skills/mechanism/MECHANISM-FORMAT.md | daa56fcbacf1109796fa9fad70d7328d75edb16162502e856173d86169d08992 |
 | questions | output | .agents/skills/mechanism/SKILL.md | 14e6d50374c7372786200c1e2c3e622af31547b0fa9f23ecb359393d229ef0ed |
-| questions | output | .agents/skills/questions/QUESTION-FORMAT.md | 0206f274f6234bdcd7e7f46e3f7bddaf71c6e27361e4b068a72e0d49882b4e2f |
+| questions | output | .agents/skills/questions/QUESTION-FORMAT.md | eb7d7863b8a4ca80e8f4e1bbb9bc08f30481d007c4b74ee9163cd192ee2e29a6 |
 | questions | output | .agents/skills/questions/SKILL.md | 9afe0978af79816acf0aa86495e89f61681bc4e40af8a84918154f69ae177b52 |
 | questions | output | .agents/skills/questions/STORE-ARRIVAL.md | 705104bc52573cb61face69019835b073c9fd6841c54d157108b6c0f6ef4ef77 |
 | questions | output | .agents/skills/questions/hooks/.claude/settings.json | 7502eae6c772b16eef9d81a925f5fd2a26f4ac5d5562d64ba2fb5f4225318970 |
