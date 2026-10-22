@@ -2,4 +2,4 @@
 
 - **record of** what it intends to become
 - **state** open
-- **struck** 0, last 2026-10-13T14:13Z
+- **struck** 2, last 2026-10-22T08:52Z

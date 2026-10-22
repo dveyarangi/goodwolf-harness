@@ -13,9 +13,8 @@ one file it would write and where — `docs/sessions/0001-<date>-<slug>.md` unde
 a tree without `docs/` takes the place the person names — and wait. Silence takes the offer; another
 place named takes that place. Nothing else in the tree changes before or after.
 
-**Second.** Show the report in `/advise`'s form — what is good, what is good enough, what hurts,
-what first — and ask whether the migration runs, which proposals, in which mode. Speak of the
-report; do not retell it. Either answer closes the person's question — *what would the harness
+**Second.** Show the report's main recommendations and ask one thing: whether the migration runs,
+which of its plan, in which mode. Speak of the report; do not retell it. Either answer closes the person's question — *what would the harness
 change here?* — and the report, its body, stays: on *yes* as the tree's first record, its proposals
 becoming tickets; on *no* as the one record the method leaves.
 
@@ -34,6 +33,7 @@ harness does not replace, said in the tree's own names.
 **The readings.** Each is one way a project's knowledge fails to reach the person who needs it, or
 to hold once it has, counted and quoted in the tree's own words:
 
+<straw-dog question="q-0037.0006.0020.0013">
 1. *What it costs to reach what is written* — files, searches, steps between a question and its
    answer; chains of records that supersede one another; documents readable only by search.
 2. *Kinds of record mixed in one file* — instructions, decisions and history in one place;
@@ -53,6 +53,7 @@ to hold once it has, counted and quoted in the tree's own words:
    that should have come to them; what came to them that need not have.
 8. *A decision without its reason* — records that hold what was decided and not why, so the next
    reader cannot tell a choice from an accident, nor see when the reason has lapsed.
+</straw-dog>
 
 **The ledger.** A measurement the report keeps so the same tasks can be measured again after a
 migration. A blind run: a fresh agent, told nothing of the harness or of a measurement, is given the
@@ -84,7 +85,8 @@ precise, because at each step what is needed is known.
 The body of the person's question, *what would the harness change here?*, headed by that question
 in the project's language, and written in the project's names. No term or phrase of the harness's
 own — mechanism, store, straw dog, tier, rung, install block, a session *standing on* a question —
-appears; the harness is named by its name, GoodWolf Harness, never by the bare word; the study's
+appears; the harness is named by its name, <straw-dog question="q-0037.0006.0020.0013">GoodWolf</straw-dog>, never by
+the bare word; the study's
 parts are described by what they do; what it brings is said as what it does for the project: a home for
 each kind of record; a rule installed where it is read; open questions kept with their state and the
 session's position among them; a record of each session; a disagreement between records repaired
@@ -105,7 +107,7 @@ Sections, in this order, each headed:
 3. **What clearly improves, and what the person will likely give up.** Two columns.
 4. **The migration plan.** A table: what, what it touches and what depends on it, size; then the
    order.
-5. **What this report does not say.** No comparison of the tree's method with GoodWolf Harness
+5. **What this report does not say.** No comparison of the tree's method with <straw-dog question="q-0037.0006.0020.0013">GoodWolf</straw-dog>
    before an install, a migration and a real check; no inventory of disagreements; the ledger measures one
    thing, the cost of recovering the project's state on a sample, and is far from the whole harness;
    the post-migration re-run is its own stage, optional.
