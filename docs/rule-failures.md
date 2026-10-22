@@ -17,6 +17,39 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 59. A question was opened long, as a *how to build*, under the mechanism it named — 2026-10-22
+
+**Rules in play:**
+
+- [`QUESTION-FORMAT.md`](../.agents/skills/questions/QUESTION-FORMAT.md), *An entry*, tier 2: *"so
+  phrase a question short"*.
+- [`/questions`](../.claude/skills/questions/SKILL.md), *A request*, tier 2: *"Build X is a proposed
+  answer: lean it on the question X answers — what is X for? … Open how to build X? under it once X
+  is accepted."*
+- [`AGENTS.md` — Q1](../AGENTS.md#general-rules), tier 1, *A new question*: *"`open` it under the
+  lowest question that contains it, and call `at` on it."*
+
+**What happened.** The user proposed a mechanism of external variables that install and uninstall
+marked skills. The agent opened q-0037.0006.0020.0013 under the installer's question, forty-four
+words long, a *how* with the mechanism, three examples and a second question in its title, before
+any *what is it for*. The user: *why is it a sub-question of q-0037.0006.0020 and so complex?* The
+question's home is what it asks — which of the method's text a project's tree carries, the project's
+own conventions, q-0037.0006 — not the mechanism named to carry it out. Reworded and moved to
+q-0037.0006.0026 the same day.
+
+**Why it did not fire.** As 57: the three rules stand at tier 2, and a plain `open` reads none of
+them; Q1 names the call and not how to make it. The store's own long titles taught the habit.
+Repeats 57, which is struck.
+
+**Amendment**, to Q1's *A new question*, carrying 57's rung as well, at the self-improvement dial —
+a rule, shown before it landed:
+
+> the question the message is one case of, worded short, as the store would hold it; a proposal
+> leans on the question it answers — what it is for. … `open` it under the lowest question that
+> contains what it asks, give it its rung, and call `at` on it.
+
+**Disposition:** landed 2026-10-22 in the questions rules file and reinstalled, on the user's yes.
+
 ## 58. An instruction was proposed into a format file — 2026-10-21
 
 **Rules in play:** [`AGENTS.md` — A document informs](../AGENTS.md#general-rules), *Instructions
@@ -89,8 +122,8 @@ rule, shown before it lands:
 
 > `open` it under the lowest question that contains it, give it its rung, and call `at` on it.
 
-**Disposition:** open; the amendment waits on the person. The back-fill is proposed as a step of
-q-0037.0019's align.
+**Disposition:** struck 2026-10-22 by 59, whose amendment carries the rung; the back-fill stays
+proposed as a step of q-0037.0019's align.
 
 ## 56. A directory-wide add committed another session's work in progress — 2026-10-20
 

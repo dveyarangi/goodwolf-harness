@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v106 — 2026-10-22
+
+**A new question is opened short, by what it asks** — Q1's *A new question*: the question is worded
+short, a proposal leans on the question it answers — what it is for —, and `open` goes under the
+lowest question that contains what it asks, gives it its rung, and calls `at`. Occasion: rule
+failure 59, repeating 57 — a question opened forty-four words long, as a *how to build* under the
+mechanism it named, by three tier-2 rules a plain `open` never reads *(the user, 2026-10-22)*.
+
 ## v105 — 2026-10-22
 
 **The skills row** — under `debug=on`, a turn that read a skill's instructions closes the head table
