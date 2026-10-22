@@ -55,8 +55,8 @@ entry, a running session on a closed question — and `questions.py --check` sto
 `ended` and whose time is seven days or older; a running row is never removed. For that count
 to run from the session's end, the wake that ends a silent row writes the time it was last seen
 as the row's time — the later of the row's own and its sign of life — where today it keeps the
-row's time, which is the last `at` and may be days older than the session's last message. The
-conclude's `--end` already writes the time of ending. A removal Windows
+row's time, which is the last `at` and may be days older than the session's last message *(the
+user, 2026-10-22)*. The conclude's `--end` already writes the time of ending. A removal Windows
 refuses because a reader holds the file is left, as the carry-over leaves the single file, and
 the next wake removes it; a file already gone — a second wake removed it — is nothing. A removal
 racing the reopen of that very session at the same instant can leave the reopened session with
@@ -86,7 +86,7 @@ when the first such mechanism is declared.
 
 **The records**, declared in `/conclude`'s skill, where the session record's shape already is,
 both under `docs/sessions/`, the mechanism's one directory under `docs/` *(the user, 2026-10-22)*:
-the row — one file per session in a folder of its own there, named by its tag, holding
+the row — one file per session in `docs/sessions/rows/` *(the name, the user, 2026-10-22)*, named by its tag, holding
 `<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four]`; tier 1 through the
 window and the wake's read; gone when it reads ended and its time is seven days or older — and the
 session record — one file under `docs/sessions/`; tier 2; kept. The sessions section leaves
@@ -187,7 +187,7 @@ and the removal at its next update; its host files do not change.
 fails the host, a problem becoming a line of context, and each stage is one commit, so the window
 between a half-moved script and its tests is a commit's. A silent row ended with its old time
 kept would go seven days after its last `at`, not after its last message: hence the ending writes
-the last-seen time, a change to the silence rule's *time kept* put to the person. A reopened chat after seven
+the last-seen time, a change to the silence rule's *time kept*, decided. A reopened chat after seven
 days registers with no position and the wake says *registered now*; the rule to run `/recall`
 first stands and costs one recall. The shape's painted doors still hold the folder's path, since
 record declarations are not parsed. A Windows reader holding a row file defers its removal by one
