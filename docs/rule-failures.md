@@ -17,6 +17,31 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 61. A just-minted ticket's place in the order was put to the person as a decision — 2026-10-23
+
+**Rules in play:** [`AGENTS.md` — the ⚖️ clause](../AGENTS.md#general-rules), tier 1: *"what waits
+on the user's decision, under `| ⚖️ Decisions |`, the next step the reply stops before among it"*;
+[`/ticket`](../.agents/skills/ticket/SKILL.md), *Create the ticket files*, tier 2, which ended at
+the files.
+
+**What happened.** 01-0010.0220 was minted mid-align, the work plainly going on with it. The reply's
+⚖️ table asked *where 01-0010.0220 stands in the order*, and the box offered two positions. The
+user: the question is beside the point; if you doubt that we go on with the task, say why, and ask
+whether we go on or queue it, proposing its position.
+
+**Why it did not fire.** The ⚖️ clause says what enters the table and nothing of what stays out — a
+decision the turn does not stand before. `/ticket` said nothing of what follows a mint, so the
+habit filled it: a new ticket wants a place in the queue. The queue's order is the person's, but
+the turn was not at the queue.
+
+**Amendment**, to `/ticket`'s *Create the ticket files*, at the self-improvement dial — a rule,
+landed in the same pass, its text shown:
+
+> Minted, the work goes on with the ticket — its align or its plan — unless the person queues it.
+> In doubt, say why, and ask one thing: go on, or queue it at the position you propose.
+
+**Disposition:** landed 2026-10-23.
+
 ## 60. A local rule in the entry file named the skill that executes it, and no check found it odd — 2026-10-22
 
 **Rules in play:** none that covers it. The loop section of the entry file names skills by design,

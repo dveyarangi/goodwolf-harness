@@ -124,6 +124,10 @@ none, and `assign` it to the slice.
 Each child carries a one-line pointer to the parent's recorded `/impact`
 assessment.
 
+Minted, the work goes on with the ticket — its align or its plan — unless the
+person queues it. In doubt, say why, and ask one thing: go on, or queue it at
+the position you propose.
+
 ### Decision-bearing work
 
 An align runs on the question its work answers, and that question's body is
