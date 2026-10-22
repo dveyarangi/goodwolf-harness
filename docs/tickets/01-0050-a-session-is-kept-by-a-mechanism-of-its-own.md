@@ -51,7 +51,7 @@ decide. The glossary's *Session* stands as landed at the align.
 
 ## Acceptance criteria
 
-- [ ] `mechanisms.py --check` lists `session` always on with its two skills, its script and its
+- [ ] `mechanisms.py --check` lists `session` installed with its two skills, its script and its
   tests as parts, and reports no leak; the folder's painted-door row names `/conclude`'s
   declaration of the row, bound as before to q-0037.0010.0004.
 - [ ] A session's row is registered, marked seen, ended after three hours' silence, turned running

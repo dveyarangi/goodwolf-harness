@@ -3,6 +3,7 @@
 - **record of** what it intends to become
 
 **Authored:** 2026-10-22
+**Last amended:** 2026-10-22 — second pass: the state, the ended row's time, the commit anchor, the contract bump
 
 Implements [01-0050 a-session-is-kept-by-a-mechanism-of-its-own](../tickets/01-0050-a-session-is-kept-by-a-mechanism-of-its-own.md).
 
@@ -50,17 +51,21 @@ the store. `--end` moves: `sessions.py --end --session <tag>`, and `questions.py
 entry, a running session on a closed question — and `questions.py --check` stops reporting rows.
 
 **Gone after seven days.** The same walk that ends the silent rows removes each row that reads
-`ended` and whose time is seven days or older; a running row is never removed. A removal Windows
+`ended` and whose time is seven days or older; a running row is never removed. For that count
+to run from the session's end, the wake that ends a silent row writes the time it was last seen
+as the row's time — the later of the row's own and its sign of life — where today it keeps the
+row's time, which is the last `at` and may be days older than the session's last message. The
+conclude's `--end` already writes the time of ending. A removal Windows
 refuses because a reader holds the file is left, as the carry-over leaves the single file, and
 the next wake removes it. The wake's read lists running sessions only. A session whose row is
 gone and whose host returns under the same id is registered anew, with no position: the person or
 the agent places it, as Q2 says.
 
 **The declaration.** `.agents/mechanisms/session/session.md` to the format: two `instruction`
-bullets, `/recall` and `/conclude`; `state` always on — a tree that holds core holds sessions, and
-nothing installs or removes it apart; parts: the two skills, the doc, the rules file, the
-script, its tests; relied on: the hook wiring shelves, `hook.sh`, the window memory's owner
-(`questions`), the question script for the store it reads (`questions`), the mover (`ticket`),
+bullets, `/recall` and `/conclude`; `state` installed — the harness ships it with core and removes it
+with core, as every mechanism but the shape; parts: the two skills, the doc, the rules file, the
+script, its tests; relied on: the hook wiring shelves, `hook.sh` and the question script for the
+store it reads and the hook entry it answers (`questions`), the mover (`ticket`),
 the shape check and installer (`mechanism-shape`), the test harness. Moments: a session starts;
 is seen; falls silent; is reopened; concludes; is gone; rows a wake changed in other sessions'
 files are committed; a reply's 🪢 table; a recall re-ranking nothing another session is on; a
@@ -102,8 +107,9 @@ session record — one file under `docs/sessions/`; tier 2; kept. The sessions s
   that the 🪢 table opens the reply. The paragraph's straw dog on q-0037.0009.0021 stays around
   what remains; the block carries no wrapper, since the rule is decided.
 - **S5** → `/commit`: *Commit the work in the current session only; another session's changes may
-  be work in progress, and in doubt ask the person* — from the skill's body, under the anchor the
-  local block already uses there.
+  be work in progress, and in doubt ask the person* — from the skill's body, anchored on the line
+  the local block already uses there: the installer places a mechanism's block before the local
+  block in the same section, so the project's answer stays last.
 
 The architecture's two paragraphs on the sessions file under *Question store*, one wrapped on
 q-0037.0017 and due, become one: the row is the session mechanism's, each session writing its
@@ -137,7 +143,8 @@ this file at its next message, so no commit leaves the script half-moved.
    removal clears — the rules file installed with `inject_rules.py session --install`, the
    questions rules Q2 and Q3 amended and re-installed with overwrite, F5 and the commit rule
    lifted from their bodies, the 🪢 sentences moved, `Mechanism: session` on both skills, the
-   format and the architecture edited, `questions.py --end` removed. Red first: the shape check
+   format and the architecture edited, `questions.py --end` removed, the entry contract bumped
+   with its line in the findings record. Red first: the shape check
    reports the session doc until its parts resolve; the installer refuses until every target
    carries its block.
 4. **Gone after seven days.** Red: a wake removes a row ended eight days ago and keeps one ended
@@ -158,9 +165,9 @@ and the removal at its next update; its host files do not change.
 
 **Hidden edges.** Three sessions run in this checkout while the script moves: the hook never
 fails the host, a problem becoming a line of context, and each stage is one commit, so the window
-between a half-moved script and its tests is a commit's. The row's time is kept when the wake
-ends a silent session, so such a row goes seven days after its last write, which is earlier than
-seven days after its ending — accepted, it is the older of the two. A reopened chat after seven
+between a half-moved script and its tests is a commit's. A silent row ended with its old time
+kept would go seven days after its last `at`, not after its last message: hence the ending writes
+the last-seen time, a change to the silence rule's *time kept* put to the person. A reopened chat after seven
 days registers with no position and the wake says *registered now*; the rule to run `/recall`
 first stands and costs one recall. The shape's painted doors still hold the folder's path, since
 record declarations are not parsed. A Windows reader holding a row file defers its removal by one
