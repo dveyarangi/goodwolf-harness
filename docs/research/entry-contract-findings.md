@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v105 — 2026-10-22
+
+**The skills row** — under `debug=on`, a turn that read a skill's instructions closes the head table
+with `| ⚙️ <each such skill, as /name, in the order read> |`; a turn that read none has no row. The
+user asked to see every skill a reply used, and chose the gear *(the user, 2026-10-22)*. The agent
+reports the list itself; nothing checks it until the debugging mechanism exists (q-0037.0009.0021).
+
 ## v104 — 2026-10-22
 
 **A wait is carried while the session stands on its question** — the ⚖️ clause of *A paragraph
