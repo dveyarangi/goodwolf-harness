@@ -4,6 +4,7 @@
 - **Status:** Ready (aligned 2026-10-22)
 - **Type:** HITL
 - **Minted:** 2026-10-22
+- **Plan:** [A session is kept by a mechanism of its own RFC](../rfc/01-0050-a-session-is-kept-by-a-mechanism-of-its-own.md) — one script `sessions.py` the question script imports, the hook entry and `--wake` staying on `questions.py`, `--end` and `--check` moving; the shape admitting two instruction bullets; four stages, each one green commit
 - **Answers:** [q-0037.0017](../questions/q-0037.0017-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md)
 - **Outcome:** A session — one chat from its `/recall` to its `/conclude` — is registered, seen,
   ended when silent, reopened under the host's steadiest id, concluded and gone by a mechanism
@@ -50,8 +51,9 @@ decide. The glossary's *Session* stands as landed at the align.
 
 ## Acceptance criteria
 
-- [ ] `mechanisms.py --check` lists `session` as installed, its two skills, its script and its two
-  records declared, and reports no leak and no painted door for `sessions.d/`.
+- [ ] `mechanisms.py --check` lists `session` always on with its two skills, its script and its
+  tests as parts, and reports no leak; the folder's painted-door row names `/conclude`'s
+  declaration of the row, bound as before to q-0037.0010.0004.
 - [ ] A session's row is registered, marked seen, ended after three hours' silence, turned running
   again on a reopen under the same id with its position, and ended at `/conclude`, as before,
   with the question script holding none of that code; the questions tests still pass, the moved
@@ -61,9 +63,9 @@ decide. The glossary's *Session* stands as landed at the align.
   session ended before 2026-10-15.
 - [ ] `QUESTION-FORMAT.md` holds no sessions section; the question mechanism's doc names the
   sessions folder under *relies on* and carries no session moment.
-- [ ] The maintain rule on rows a wake changed, the 🪢 block and the recall's re-rank rule are
-  installed blocks owned by `session`, byte-identical in their targets to the rules file, and
-  `inject_rules.py --check` passes.
+- [ ] The maintain rule on rows a wake changed, the 🪢 block, the recall's re-rank rule, the
+  conclude's `--end` and the commit's one-session rule are installed blocks owned by `session`,
+  byte-identical in their targets to the rules file, and `inject_rules.py --check` passes.
 - [ ] `/verify` has been run on this ticket against the question's decisions and the governing docs.
 
 ## Out of scope
