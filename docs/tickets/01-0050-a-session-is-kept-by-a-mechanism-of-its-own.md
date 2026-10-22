@@ -25,10 +25,11 @@ with its doc, its rules file and its evidence, and `/mechanism`'s inception step
 check before the thing it checks, the count of prior violations, what retires it — nothing, it is
 always on — and what would show it working.
 
-- **Its records**, declared where the shape says: the row, one file per session in
-  `docs/questions/sessions.d/`, gone seven days after its session ended, because a chat the host
-  reopens finds its row under the same id until then; and the session record under
-  `docs/sessions/`, written at the conclude and kept. The sessions section leaves
+- **Its records**, declared where the shape says, both under `docs/sessions/`, the mechanism's
+  one directory under `docs/`: the row, one file per session in a folder of its own there,
+  carried from `docs/questions/sessions.d/` as the single file was carried into it, gone seven
+  days after its session ended, because a chat the host reopens finds its row under the same id
+  until then; and the session record, written at the conclude and kept. The sessions section leaves
   `QUESTION-FORMAT.md`, which declares entries alone.
 - **Its skills**, `/recall` and `/conclude`, each opening with `Mechanism: session`, the two ends
   of every session whatever method runs between them. The method's rules reach them as installed

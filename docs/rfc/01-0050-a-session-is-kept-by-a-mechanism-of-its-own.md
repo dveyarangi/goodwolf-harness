@@ -3,7 +3,8 @@
 - **record of** what it intends to become
 
 **Authored:** 2026-10-22
-**Last amended:** 2026-10-22 — second pass: the state, the ended row's time, the commit anchor, the contract bump
+**Last amended:** 2026-10-22 — second pass: the state, the ended row's time, the commit anchor, the contract
+bump; third pass: the rows' folder under `docs/sessions/`, the removal's races, the other tests' uses
 
 Implements [01-0050 a-session-is-kept-by-a-mechanism-of-its-own](../tickets/01-0050-a-session-is-kept-by-a-mechanism-of-its-own.md).
 
@@ -57,7 +58,10 @@ as the row's time — the later of the row's own and its sign of life — where 
 row's time, which is the last `at` and may be days older than the session's last message. The
 conclude's `--end` already writes the time of ending. A removal Windows
 refuses because a reader holds the file is left, as the carry-over leaves the single file, and
-the next wake removes it. The wake's read lists running sessions only. A session whose row is
+the next wake removes it; a file already gone — a second wake removed it — is nothing. A removal
+racing the reopen of that very session at the same instant can leave the reopened session with
+no row: its next `at` refuses as for any unregistered session, naming `--wake`, which registers
+it; a seven-day-old row reopened in the same minute as a wake is accepted as that rare. The wake's read lists running sessions only. A session whose row is
 gone and whose host returns under the same id is registered anew, with no position: the person or
 the agent places it, as Q2 says.
 
@@ -80,12 +84,23 @@ the shape check reads them as a list and matches a skill against any; a mechanis
 skills with one bullet is reported. The shape's evidence already says the field becomes a list
 when the first such mechanism is declared.
 
-**The records**, declared in `/conclude`'s skill, where the session record's shape already is:
-the row — one file per session under `docs/questions/sessions.d/`, named by its tag, holding
+**The records**, declared in `/conclude`'s skill, where the session record's shape already is,
+both under `docs/sessions/`, the mechanism's one directory under `docs/` *(the user, 2026-10-22)*:
+the row — one file per session in a folder of its own there, named by its tag, holding
 `<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four]`; tier 1 through the
 window and the wake's read; gone when it reads ended and its time is seven days or older — and the
 session record — one file under `docs/sessions/`; tier 2; kept. The sessions section leaves
 `QUESTION-FORMAT.md` whole, with the format's opening line reduced to the entry and its body.
+
+**The carry-over, generalised.** Today a store holding the single file `docs/questions/sessions`
+is carried into the folder at the first write by links that refuse an existing name, the single
+file removed after. The same step now carries a store holding the old folder
+`docs/questions/sessions.d/` as well: each old file linked under its name into the new folder
+unless one exists there, the old file removed after — a refused removal left for the next write,
+as the single file's is — and the old folder removed once empty. Every step may run twice at
+once and lands the same. In this tree the move lands in stage 2's commit, the rows' files renamed
+in git; a recipient's rows move at its first write after the update, and its pass commits them
+under S3. The painted-door row for the folder takes the new path.
 
 **The rules file**, `session.rules.md`, five rules, each installed under the target's
 `## Installed from other mechanisms` where the target has it:
@@ -137,14 +152,19 @@ this file at its next message, so no commit leaves the script half-moved.
    `questions.py` imports it; `--end` answered by both for this stage alone, the questions one a
    delegate. `test_sessions.py` takes the nine session classes — 65 tests — with their helpers,
    calling `sessions.*` where they called `questions.*` directly; the fixtures keep writing the
-   single file, so every one of them proves the carry-over still. The suite's count is unchanged.
+   single file, so every one of them proves the carry-over still; the tests of other classes that
+   name the folder or the memory through `questions` name them through `sessions`. Red first: a
+   store holding the old folder is carried into the new at the first write, an old file whose
+   session wrote since not overwritten. This tree's rows move in the same commit. The suite's
+   count is unchanged.
 3. **The declaration and the rules.** The doc, the evidence — its first paragraph naming this
    ticket, its count: 125 ended rows in this tree's folder at inception, the prior violation the
    removal clears — the rules file installed with `inject_rules.py session --install`, the
    questions rules Q2 and Q3 amended and re-installed with overwrite, F5 and the commit rule
    lifted from their bodies, the 🪢 sentences moved, `Mechanism: session` on both skills, the
    format and the architecture edited, `questions.py --end` removed, the entry contract bumped
-   with its line in the findings record. Red first: the shape check
+   with its line in the findings record; q-0037.0017.0003 closed against S3, and the straw dog
+   on it around F5 goes with the rule. Red first: the shape check
    reports the session doc until its parts resolve; the installer refuses until every target
    carries its block.
 4. **Gone after seven days.** Red: a wake removes a row ended eight days ago and keeps one ended
