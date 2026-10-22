@@ -51,7 +51,7 @@ same tree throughout; its files were left out of every commit here.
   2.32. The refusal is proved against Git's message, and the knob's test skips where Git predates
   the check. In the harness's evidence.
 - The host resumed the conversation under three ids, each leaving a running row:
-  q-0037.0001.0006 "How does a conversation keep its position when its host resumes it under a new
+  q-0037.0017.0004 "How does a conversation keep its position when its host resumes it under a new
   session id?", struck again.
 - The first recommendation on the maintain half of issue 2 — write it by hand and wait for an
   undeclared practice mechanism — missed that both candidate owners were declared; the user's

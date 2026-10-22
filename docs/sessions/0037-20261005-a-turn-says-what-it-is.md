@@ -44,7 +44,7 @@ from `e3c8593` to `071388a` hold the detail; all pushed.
   was just held back: its gate should be read against that.
 - **Open questions this session opened or leaned**: q-0037.0001.0016.0001 "Does placing a message
   need a judge outside the agent that answers it?"; q-0037.0010.0006 and q-0037.0012.0003, above;
-  q-0037.0001.0006 "How does a conversation keep its position when its host resumes it under a new
+  q-0037.0017.0004 "How does a conversation keep its position when its host resumes it under a new
   session id?", struck three more times here.
 - **Never found**: why correct loader links were judged wrong under Codex. The installer's report
   now says where a repointed link pointed, so the next occurrence answers it.

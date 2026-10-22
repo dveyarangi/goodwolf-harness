@@ -66,7 +66,7 @@ the `debug=on` display was observed. Only Codex and Cursor live remain.
     registering nothing from Cursor's hook, are the alternatives left undecided.
   
   `.0010` was closed with its RFC at a `/maintain` the same night.
-- **q-0037.0001.0006, a resumed conversation under a new id.** Seen again: the old tag stayed `running` at
+- **q-0037.0017.0004, a resumed conversation under a new id.** Seen again: the old tag stayed `running` at
   a closed question. The time-gap strike does without session identity; the position still does
   not carry over.
 - **`.0040`'s align** rests on *this harness has no wake hooks*, which decision 44 made untrue.

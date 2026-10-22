@@ -139,7 +139,7 @@ drifts by definition. Sounds like different citizens on different substrates.*
 - Two forks were posed too many: by *3b* the user was lost, and the way back was one concrete
   example — a fresh Python project and its three files.
 - The host resumed the conversation under a second id again; the earlier row is ended with this
-  one. q-0037.0001.0006 is struck once more.
+  one. q-0037.0017.0004 is struck once more.
 
 ## What continues
 

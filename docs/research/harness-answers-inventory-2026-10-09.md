@@ -107,7 +107,7 @@ row mentions it without making it its subject; **missing** when nothing in the d
 | A8 | Wake read at session start: most struck, sessions, deferred, straw dogs due, suspects, roots, window | X + host hooks | C4; 1, 2, 3 | ◐ this repository only | q-0037.0006.0020.0005 | P2 | 1, 3, 5A, 5B, 7, T |
 | A9 | Per-message window: path to root, children on it, open under the root, other roots and sessions; one line when unchanged; "position, never relevance" | X + host hooks | C3, C4; 1, 2, 3 | ◐ Claude Code, Codex; Cursor at start only | q-0037.0006.0020.0005, q-0037.0006.0023 | P2 | 1, 2, 3, 5A, 5B, 6, T |
 | A10 | Hook wiring carried into an installed project, merged into each host's file | Q (RFC on ticket) | C4; 1, 2 | ✗ (T) | q-0037.0006.0020.0005 (.0001, .0002); 01-0010.0173 | P2 *partly* (status text) | 1, 3, 7, T |
-| A11 | Position kept through a compaction and a resume under a new session id | M:`questions` | C4; 1, 2 | ◐ one host | q-0037.0001.0006 | P3 | 1, 2, 4 |
+| A11 | Position kept through a compaction and a resume under a new session id | M:`questions` | C4; 1, 2 | ◐ one host | q-0037.0017.0004 | P3 | 1, 2, 4 |
 | A12 | Fingerprint forgotten at a compaction, so the next window is drawn whole | X + hooks | C4; 1 | ✓ where hooked (Codex PostCompact, Cursor preCompact, T) | — | P3 *partly* | 5A, 5B, T |
 | A13 | `/recall` at every wake: reads the queue, last session records, open tickets, architecture, git; follows references "until they converge"; cites where a question is still open or treats it as settled; takes the queue's order, never re-ranks | S + E (straw dog) | C4, C9; 1, 2, 3 | ◐ wake rule is a straw dog | q-0037.0013, q-0037.0013.0001 | **missing** (own row; named in P4's status) | 2, 3, 4, 5A |
 | A14 | `/conclude`: session record, leans, `--end` | S | C4; 1, 2 | ◐ nothing makes a session end with it | q-0037.0009.0006, q-0037.0006.0003 | **missing** | 2, 3, 4, 5A |
@@ -257,7 +257,7 @@ row mentions it without making it its subject; **missing** when nothing in the d
 
 | # | item | what it is | serves | status | waits on | product.md | sources |
 |---|---|---|---|---|---|---|---|
-| A111 | A shared sessions file: each session sees where the others stand | M:`questions` | C5; 1, 2 | ◐ one working directory | q-0037.0006.0015 | P41 | 1, 2, 3, 4, 5A, 5B, 6 |
+| A111 | A shared sessions file: each session sees where the others stand | M:`questions` | C5; 1, 2 | ◐ one working directory | q-0037.0017.0005 | P41 | 1, 2, 3, 4, 5A, 5B, 6 |
 | A112 | The store refuses a write to an entry that moved since it was read | X (`questions.py` `_declared`, T) | C5, C12; G2 | ✓ | — | P41 | 1, 3, 4, T |
 | A113 | No session overwrites another's write (locks are one way) | Q | C5, C12; 1, 2, G2 | ✗ | q-0032 | P42 | 1, 2, 3, 4, 6 |
 | A114 | A starting session takes an area no other session is in | Q | C5; 2 | ✗ | q-0037.0005.0001 | P43 | 1, 3, 4 |
@@ -512,7 +512,7 @@ causes and onto section A. Every question id below exists and is open.
 | 20 | a landed rule copied into the host's memory | 10-08 | the host's memory instructions; *Self-improvement* → L7 | the governing rule outside the tree; habit won | C1 | landed (v40), L7 | **none** (nearest A75) | **none** |
 | 21 | a reply spoke of the push the conclude owns | 10-08 | the `push` switch; `/conclude` | one verb named, neighbouring acts uncovered | C1 | landed (v41) | A122 | **none** |
 | 22 | a lamp cited a rule's id | 10-08 | *A paragraph shows what it stands on* | a placeholder filled loosely; the sentence on names above the bullet read | C10, C1 | landed (v42), reworded since — whether v49's wording regressed needs a judgement | A47 | q-0037.0016 |
-| 23 | a rollback ran `/recall` twice | 10-09 | the wake straw dog; the hook's start read | an ambiguous term — session as the host's id or the conversation | C4, C1 | landed (v43) | A11, A13 | q-0037.0013; q-0037.0001.0006 |
+| 23 | a rollback ran `/recall` twice | 10-09 | the wake straw dog; the hook's start read | an ambiguous term — session as the host's id or the conversation | C4, C1 | landed (v43) | A11, A13 | q-0037.0013; q-0037.0017.0004 |
 | 24 | landed text quoted without its 🧩 | 10-09 | the 🧩 bullet | *proposed* read as excluding text just landed — a boundary in time | C10, C1 | landed (v44) | A47 | q-0037.0016 |
 | 25 | answers proposed four times on an unfolded question | 10-09 | `/questions` *Branching*; the ⚖️ table | a trigger the agent is known to fail at, with no sign named; an output owed every reply pulled toward a decision | C2, C3, C9 | landed | A19 | q-0037.0001.0020 |
 | 26 | a project with no code got the harness's check as its set | 10-09 | the harness skill's *after the first install*; `harness.md` | an optional example, the only concrete command in reach, read as the default; the empty case unnamed | C1, C7, C11 | landed | A133, A65 | q-0037.0006.0020.0003; q-0037.0006.0022.0001 |

@@ -60,7 +60,7 @@ became the input it then tested.
 
 ## Open questions touched
 
-- **q-0037.0001.0006** How does a conversation keep its position when its host resumes it under a new
+- **q-0037.0017.0004** How does a conversation keep its position when its host resumes it under a new
   session id? Landed for Claude Code; open on one unseen fact: whether a resumed transcript is
   already written when its start hook runs. The next rollback shows it: its first hook output
   should read `resumes <old id>`. Codex and Cursor carry nothing yet.
@@ -71,4 +71,4 @@ became the input it then tested.
 ## What continues
 
 The user checks the v43–v44 instructions in another session. First step of the next session that
-meets a rollback: read the start hook's line, and close or re-lean q-0037.0001.0006 by it.
+meets a rollback: read the start hook's line, and close or re-lean q-0037.0017.0004 by it.

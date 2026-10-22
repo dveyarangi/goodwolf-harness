@@ -54,7 +54,7 @@ as it found it. A line in it shaped like a part is not one. It runs in three par
 - Dated evidence — the case, a discovery's material, an impact — each under its own heading with
   its date, appended and never rewritten.
 
-<straw-dog question="q-0037.0006.0015">
+<straw-dog question="q-0037.0017.0005">
 ## The sessions folder
 
 `docs/questions/sessions.d/`, shared by all sessions, one file per session named by its tag and

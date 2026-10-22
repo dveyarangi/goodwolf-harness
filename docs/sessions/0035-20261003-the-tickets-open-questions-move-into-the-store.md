@@ -47,7 +47,7 @@ GitHub.
 - **`xuanxue-workshop`'s loader links**: `.claude/skills` and `.cursor/skills` are missing; the two
   `mklink /D` commands need an elevated prompt, or Windows' developer mode.
 - **Open questions this session leaned**: q-0037.0001 "How are the open questions of this tree kept, so
-  that none is lost?"; q-0037.0001.0006 "How does a conversation keep its position when its host
+  that none is lost?"; q-0037.0017.0004 "How does a conversation keep its position when its host
   resumes it under a new session id?", with two fresh resumes as evidence; q-0037.0001.0010.0001 "Where
   do the arguments of closed questions live, now that an entry holds its own?", the tickets'
   *Decisions landed* sections; q-0037.0006.0017 above.

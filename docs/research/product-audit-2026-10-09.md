@@ -51,8 +51,8 @@ line numbers the original cited are left out.
 - **Agent roles** (permissions, rights over the store, skill set): q-0037.0005. Serves G2 and C5.
 - **Splitting a question before it is answered:** q-0037.0001.0020, ticket 01-0011.0100.0050. `/impact` recommending the work's shape: q-0037.0006.0001, ticket 01-0010.0080. Serves C2, C3 and C8.
 - **Resuming at the step that stopped:** 01-0020 (pacer), q-0037.0013. Serves C4.
-- **A resumed conversation keeps its position:** q-0037.0001.0006. Landed for Claude Code only. Serves C4, **◐**.
-- **Sessions that do not share one working directory:** q-0037.0006.0015. Serves C5.
+- **A resumed conversation keeps its position:** q-0037.0017.0004. Landed for Claude Code only. Serves C4, **◐**.
+- **Sessions that do not share one working directory:** q-0037.0017.0005. Serves C5.
 - **The queue:** derived from the tickets (q-0020, 01-0011.0040), its order the person's (q-0037.0013). Serves C6 and C9.
 - **C1 coherence work:** each skill states only what it owns (q-0037.0009, 01-0016); producers and consumers of every skill and document (q-0037.0010, 01-0017); what notices a new skill a rules file should now name (q-0037.0010.0003); one account of scope (q-0037.0008, 01-0014); a rules-file section names its moment and outcome (q-0037.0014).
 - **Terms defined before they land:** q-0037.0010.0001, 01-0017.0010. Serves C3.
@@ -68,7 +68,7 @@ line numbers the original cited are left out.
 - **"Declared and checked mechanisms" ✓ should be ◐.** 5 declared; 19 of 24 skills say `Mechanism: not yet`. A recipient's own mechanisms have no home (q-0037.0006.0019).
 - **"A rule on who may change the checks" ✗ should be ◐.** `/verify` already forbids weakening a validator. Bind to q-0037.0006.0022.0001.
 - **"G2 has no answer at all" is wrong.** See the guarded writes in section 1.
-- **"Each session sees where the others stand" ✓ should be ◐.** Only within one working directory (q-0037.0006.0015).
+- **"Each session sees where the others stand" ✓ should be ◐.** Only within one working directory (q-0037.0017.0005).
 - **"Neighbourhood handed over before every message" ◐**, partial in this repository too (Cursor at session start only). Add q-0037.0006.0023.
 - **"Whether a rule reaches its occasion is observed" ✗ should be ◐.** The announce line and delivery evidence exist. Add q-0037.0006.0004.0001.
 - **"A failure traced to its cause" ✗ should be ◐.** The rule-failure register traces failures to the instruction.
@@ -88,7 +88,7 @@ line numbers the original cited are left out.
 - **The harness's own weight in context.** "Tier is paid by every session", Occam and "a capable reader", q-0037.0006.0008.
 - **Over-building.** The necessity gate, `/discover` "never the reason to change something … worthening", `/impact` "can it be narrower?", "remove before you add".
 - **No cause listed for G2.** Implied: no role-bounded permissions (q-0037.0005), documents read as instructions, concurrent writers (q-0032).
-- **C4 is too narrow.** Loss also happens at compaction and when the host resumes under a new id (q-0037.0001.0006).
+- **C4 is too narrow.** Loss also happens at compaction and when the host resumes under a new id (q-0037.0017.0004).
 - **The freedom-to-think pain dropped out** of the pains list.
 - **Correction and evaluation together** is scattered across rows.
 - **Teams.**

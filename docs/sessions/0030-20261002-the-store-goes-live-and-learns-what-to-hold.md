@@ -44,7 +44,7 @@ were minted to carry 46 to 55: `.0012`, `.0015`, `.0017`.
 - **[.0010](../tickets/done/01-0011.0100.0010-the-store-and-questions-writes-it.md)'s three live boxes**:
   a session showing every declared line under v18, two sessions seeing each other, and Codex and
   Cursor live — Codex needs the project trusted and its hooks approved through `/hooks`.
-- **q-0037.0001.0006 — a resumed conversation under a new session id** leaves a trail of session lines and
+- **q-0037.0017.0004 — a resumed conversation under a new session id** leaves a trail of session lines and
   loses its position until it declares again; it happened at three of this session's resumes but not
   at every message. The hook could carry the position over, once one payload shows what it shares.
 - **q-0037.0005 — what an agent role is**, and which mechanism keeps roles; q-0037.0005.0001, picking an area,

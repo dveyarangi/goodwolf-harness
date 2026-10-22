@@ -174,7 +174,7 @@ Nothing else; the tree is rendered on request and never committed.
 
 **Three `not yet` rows**, each bound to an open question.
 
-<straw-dog question="q-0037.0006.0015">
+<straw-dog question="q-0037.0017.0005">
 **The sessions folder** is one folder in the working tree, and that is how sessions see each other;
 sessions that do not share the directory do not see each other.
 </straw-dog>
