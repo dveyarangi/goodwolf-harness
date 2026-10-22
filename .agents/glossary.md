@@ -148,6 +148,10 @@ The execution of a single skill. It has an input state, an immediate purpose, an
 **Turn**:
 One agent reply, from the user's message to the reply's end. A turn holds at most one execution step; a step may span turns.
 
+**Session**:
+One chat of a host with the tree, from its `/recall` to its `/conclude`, known by the steadiest id the host gives the chat. It holds a position in the question store, is seen or silent, and leaves a session record.
+_Avoid_: a host process, a session id as the session's identity.
+
 **Uncharted**:
 A question whose home in the question store the agent cannot settle, put to the person until they say where it belongs. A question the agent can word and place is opened, not uncharted; work the agent knows how to do is a process, not a question.
 

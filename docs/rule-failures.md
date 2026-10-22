@@ -17,6 +17,32 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 58. An instruction was proposed into a format file — 2026-10-21
+
+**Rules in play:** [`AGENTS.md` — A document informs](../AGENTS.md#general-rules), *Instructions
+live in the entry file, a skill or a rules file*; [`/mechanism`](../.agents/skills/mechanism/SKILL.md),
+*the doc takes only what informs*, and its *Records*: a format file declares *what removes a
+finished entry*; [MECHANISM-FORMAT](../.agents/skills/mechanism/MECHANISM-FORMAT.md) §Records, the
+same field as *the condition*.
+
+**What happened.** Asked that something remove the rows of ended sessions, the session proposed
+into `QUESTION-FORMAT.md`'s sessions-folder section *a wake removes each ended row whose session
+has not returned within seven days … The wake's read lists running sessions only* — an actor, a
+moment and the wake's report, written where the record's shape is declared. The user: *question-
+format is not a place for instructions on a session's work, I already said so; it is not a place
+for instructions at all, it describes a format.* The same section already carries one — *A silent
+row ends at the next wake*, under its straw dog — and the sentence being replaced gave a reason,
+*an ended row lets a later wake offer to resume*, where the format wants a condition.
+
+**Why it did not fire.** *A document informs* names `docs/`, and a format file sits under
+`.agents/skills/`, so it did not read as a document; *Records* names the field as *what removes*,
+which reads as an actor and a moment, where MECHANISM-FORMAT's *the condition* reads as a fact.
+The two homes disagree on the field's grammar, and the skill's won.
+
+**Amendment proposed**, to `/mechanism`'s *Records*: *what removes a finished entry* read *when a
+finished entry is gone — the condition, never the actor or the moment, which are the doc's and the
+script's*. A format file describes; whatever acts on the record is told where the act is read.
+
 ## 57. The rung rule fired on two of fourteen openings, and the older questions were never given one — 2026-10-20
 
 **Rules in play:**
