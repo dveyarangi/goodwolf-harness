@@ -4,7 +4,7 @@ description: >-
   Use when a session ends, or the user asks to conclude the current chat.
 ---
 
-<straw-dog question="q-0037.0009.0006">Mechanism: not yet</straw-dog>
+Mechanism: session
 
 First go over the session once more for what it left undone — a step a reply promised and did not
 take, a decision not landed in its home, a change of its own not committed, drift met and not

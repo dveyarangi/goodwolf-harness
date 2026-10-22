@@ -3,7 +3,7 @@ name: recall
 description: Determine where the project stands and what to work on next, with the decisions already taken surfaced alongside the questions genuinely still open. Use when asked what is next, where things stand, or to continue or pick up work.
 ---
 
-<straw-dog question="q-0037.0013.0001">Mechanism: not yet</straw-dog>
+Mechanism: session
 
 
 Your goal is to find out the actual state of the project and the current and/or next things to focus on, without re-opening anything already settled. Start from the delivery status and the last session, and read what bears on the item in flight; survey more widely only when nothing is in flight or the trace meets a gap.

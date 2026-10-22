@@ -69,6 +69,7 @@ PAINTED_DOORS = frozenset(
         "docs/questions/",
         "docs/questions/done/",
         "docs/questions/sessions.d/",
+        "docs/sessions/rows/",
         # The single sessions file a store from before holds, read until its first write carries it.
         "docs/questions/sessions",
         "docs/mechanisms/",

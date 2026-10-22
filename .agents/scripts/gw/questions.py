@@ -11,14 +11,16 @@
 
 The store is `docs/questions/`: one file per question, its id nested under its parent's and its
 parent line the one the check holds that id against, wholly closed subtrees in
-`docs/questions/done/`, and `docs/questions/sessions.d/`, where each session keeps its position
-in a file of its own. A re-parent renames the subtree that moves, across the records under `docs/`
-(the user, 2026-10-03). The formats are the questions skill's.
+`docs/questions/done/`. Each session's position is its row, the session mechanism's, kept by
+`sessions.py`, which this script imports for every window and wake. A re-parent renames the
+subtree that moves, across the records under `docs/` (the user, 2026-10-03). The formats are the
+questions skill's.
 
 `--check` is the maintainer. It writes nothing; its exit status is the verdict and its JSON is for
 the person reading a failure. A tree with no store has nothing to check and passes. `--window` is
 what the agent reads before placing a message; `--wake` registers a session, ends every other gone
-silent, and reads where the work stands; `--end` closes a session's line; `--tree` draws the live tree for a person; `--seed`
+silent, and reads where the work stands; `--end` closes a session's row, `sessions.py --end`'s
+from here on; `--tree` draws the live tree for a person; `--seed`
 opens the roots of a store that holds no entry, as the install does, and is how a person resumes
 an install that stopped there. Each
 event of a turn is its own call — `at`, `open`, `move`, `depend`, `undepend`, `close`, `suspect`,
@@ -38,9 +40,7 @@ import json
 import os
 import posixpath
 import re
-import secrets
 import sys
-import tempfile
 from collections import Counter
 from collections.abc import Callable
 from dataclasses import dataclass, field
@@ -50,6 +50,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import move_doc  # noqa: E402  (path set above)
+import sessions  # noqa: E402  (path set above)
 from docs_corpus import (  # noqa: E402  (path set above)
     STRAW_DOG_SCOPE,
     bindings_in,
@@ -64,20 +65,12 @@ from docs_corpus import (  # noqa: E402  (path set above)
 )
 
 STORE = "docs/questions"
-# The sessions folder, a file per session, shared by every session.
-SESSIONS = "docs/questions/sessions.d"
-# Where a store from before keeps every session's line in one file; read until carried over.
-SINGLE_SESSIONS_FILE = "docs/questions/sessions"
 # The questions mechanism's shelf of the words a fresh store opens with; this script reads it and
 # the installer holds none of it (the user, 2026-10-09).
 STORE_ARRIVAL = ".agents/skills/questions/STORE-ARRIVAL.md"
 # The mechanism's hook wiring, one file per host file at that file's own path beneath this
 # directory; the installer merges each into the host file it names and holds no path of its own.
 HOOKS = ".agents/skills/questions/hooks/"
-# A running line whose session nothing has seen for this long is ended by the next wake, quietly
-# (the user, 2026-10-10).
-# TODO q-0037.0017: the rule moves with the sessions file to a session mechanism.
-SILENT_AFTER = timedelta(hours=3)
 # A held question reached again at least this long after it was opened or last struck is struck
 # (parent decision 53); a constant until a project wants another.
 STRIKE_AFTER = timedelta(hours=12)
@@ -90,8 +83,6 @@ SLUG_LENGTH = 160
 PATH_LIMIT = 259
 # The highest four-digit position a child takes; a root's id may grow a digit, as it always could.
 LAST_POSITION = 9999
-# Where the fingerprint of each session's last window is kept; `None` is the machine's temp folder.
-WINDOW_MEMORY: str | None = None
 PARTS = ("record of", "part of", "depends on", "state", "owner", "answer", "realizes", "rung", "lean", "struck")
 # A trace link names each answer by its reference and its name, as a ticket is named by id and
 # slug, or states that the question realizes none (the user, 2026-10-13).
@@ -142,10 +133,6 @@ _RUNG = re.compile(rf"^{_RUNG_NAMED}(?:, {_RUNG_NAMED})*$")
 # An owner as `assign` writes it: a markdown link, its label the record's id.
 _LINK_LABEL = re.compile(r"^\[([^\]]+)\]")
 _LINK_TARGET = re.compile(r"\]\(([^)\s]+)\)")
-_SESSION = re.compile(
-    rf"^([A-Za-z0-9][\w.-]*) (running|ended) (\d{{4}}-\d{{2}}-\d{{2}})(?:T(\d{{2}}:\d{{2}})Z)? ({_ID}|-)"
-    rf"(?: ({_ID}(?:,{_ID}){{0,3}}))?$"
-)
 # An id in prose: never part of a word or a longer id, so `faq-0007` and `q-00070` are not ids.
 _BARE_ID = re.compile(rf"(?<![\w.]){_ID}(?!\w)")
 _HEADING = re.compile(r"^#{1,6} +(.*?)(?: +#+)? *$")
@@ -338,7 +325,7 @@ def main(
             return 1 if checked.diagnostics or checked.skipped else 0
         if len(argv) in (3, 4) and argv[:2] == ["--window", "--session"] and argv[3:] in ([], ["--full"]):
             print(window(root, argv[2], full=argv[3:] == ["--full"]))
-            _seen(root, argv[2], now)
+            sessions.seen(root, argv[2], now)
             return 0
         if len(argv) == 2 and argv[0] == "--hook":
             print(hook(root, argv[1], _hook_input(), now))
@@ -350,7 +337,8 @@ def main(
             print(tree(root, argv[1] if len(argv) == 2 else None))
             return 0
         if len(argv) == 3 and argv[:2] == ["--end", "--session"]:
-            held = end(root, argv[2], now)
+            # TODO q-0037.0017: `sessions.py --end` is the conclude's; this delegate goes with the rules.
+            held = sessions.end(root, argv[2], now)
             print(f"ended {held.tag} at {held.current or 'no position'}")
             return 0
         if argv == ["--seed"]:
@@ -373,7 +361,7 @@ def main(
 
 
 def check(root: Path) -> Checked:
-    """Every entry, live and archived, and the sessions file against the store's shape; then what
+    """Every entry, live and archived, and the sessions' rows against the store's shape; then what
     a person should look at in a store that keeps it."""
     if not (root / STORE).is_dir():
         return Checked(False, 0, [], [], [])
@@ -381,15 +369,10 @@ def check(root: Path) -> Checked:
     diagnostics += [note for read in entries for note in _answer_problems(root, read)]
     diagnostics += _waiting_problems(root, entries)
     index = {read.identity: read for read in entries if read.identity}
-    sessions, session_problems, unreadable = _sessions(root)
-    diagnostics += (
-        _identity_problems(entries)
-        + _relation_problems(entries, index)
-        + session_problems
-        + _position_problems(sessions, index)
-    )
+    row_problems, row_findings, unreadable = sessions.check(root, index)
+    diagnostics += _identity_problems(entries) + _relation_problems(entries, index) + row_problems
     findings = (
-        _session_findings(sessions, index)
+        row_findings
         + _likely_twins(entries)
         + _ready_for_done(entries, index)
         + _unstated(entries, index)
@@ -907,199 +890,6 @@ def _unmarked_suspects(entries: list[Entry], index: dict[str, Entry]) -> list[Di
     return notes
 
 
-# --- the sessions -------------------------------------------------------------------------------
-# TODO q-0037.0006.0015: one sessions file in the working tree
-# is how running sessions see each other until that work says how registrations reach sessions
-# that do not share the directory.
-
-
-@dataclass(frozen=True)
-class Session:
-    """One session's line: where one conversation stands in the store, and when the line was last
-    written, in UTC to the minute. `record` is the file it was read from, for the check to name."""
-
-    tag: str
-    running: bool
-    wrote: datetime
-    current: str | None
-    recent: list[str]
-    line: int
-    record: str = SESSIONS
-
-
-def _sessions(root: Path) -> tuple[list[Session], list[Diagnostic], list[Skipped]]:
-    """Every session, and every file or line the form does not admit: the folder's, a file per
-    session named by its tag; and in a store from before, the single file's lines not carried over
-    yet — a session in both is read from its own file, which is newer. Listed by when each last
-    wrote, then by tag. Neither is no sessions."""
-    folder = root / SESSIONS
-    sessions, problems, unreadable = _sessions_in_folder(folder) if folder.is_dir() else ([], [], [])
-    single, single_problems, single_unreadable = _sessions_in_single_file(root)
-    filed = {held.tag for held in sessions}
-    sessions += [held for held in single if held.tag not in filed]
-    ordered = sorted(sessions, key=lambda held: (held.wrote, held.tag))
-    return ordered, problems + single_problems, unreadable + single_unreadable
-
-
-def _sessions_in_single_file(root: Path) -> tuple[list[Session], list[Diagnostic], list[Skipped]]:
-    """A store from before: one line per session in one file."""
-    path = root / SINGLE_SESSIONS_FILE
-    try:
-        text = path.read_bytes().decode("utf-8")
-    except (FileNotFoundError, IsADirectoryError, PermissionError):
-        return [], [], []
-    except UnicodeDecodeError:
-        return [], [], [Skipped(SINGLE_SESSIONS_FILE, "is not UTF-8, so no session can be read")]
-    sessions: list[Session] = []
-    problems: list[Diagnostic] = []
-    for number, line in enumerate(text.splitlines(), start=1):
-        if not line.strip():
-            continue
-        read = _session(line, number)
-        if read is None:
-            problems.append(Diagnostic(SINGLE_SESSIONS_FILE, number, f"line {number} is not {_SESSION_FORM}"))
-        elif any(earlier.tag == read.tag for earlier in sessions):
-            problems.append(Diagnostic(SINGLE_SESSIONS_FILE, number, f"{read.tag} is registered twice"))
-        else:
-            sessions.append(Session(read.tag, read.running, read.wrote, read.current, read.recent, number, SINGLE_SESSIONS_FILE))
-    return sessions, problems, []
-
-
-_SESSION_FORM = "`<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four]`"
-
-
-def _sessions_in_folder(folder: Path) -> tuple[list[Session], list[Diagnostic], list[Skipped]]:
-    """Each file one line, the session its name says. A writer's staging file, its name leading
-    with a dot, is not a session yet."""
-    sessions: list[Session] = []
-    problems: list[Diagnostic] = []
-    unreadable: list[Skipped] = []
-    for path in sorted(folder.iterdir()):
-        if not path.is_file() or path.name.startswith("."):
-            continue
-        record = f"{SESSIONS}/{path.name}"
-        try:
-            lines = [line for line in path.read_bytes().decode("utf-8").splitlines() if line.strip()]
-        except UnicodeDecodeError:
-            unreadable.append(Skipped(record, "is not UTF-8, so its session cannot be read"))
-            continue
-        read = _session(lines[0], 1) if len(lines) == 1 else None
-        if read is None:
-            problems.append(Diagnostic(record, 1, f"is not one line {_SESSION_FORM}"))
-        elif read.tag != path.name:
-            problems.append(Diagnostic(record, 1, f"holds {read.tag}, not the session it is named for"))
-        else:
-            sessions.append(Session(read.tag, read.running, read.wrote, read.current, read.recent, 1, record))
-    return sessions, problems, unreadable
-
-
-def _session(line: str, number: int) -> Session | None:
-    """A line read, its time as written; a line from before the time was written holds the date
-    alone, read as that day's start, and carries the time from its next write."""
-    said = _SESSION.match(line.rstrip())
-    if said is None:
-        return None
-    try:
-        wrote = datetime.fromisoformat(f"{said.group(3)}T{said.group(4) or '00:00'}").replace(tzinfo=timezone.utc)
-    except ValueError:
-        return None
-    current = None if said.group(5) == "-" else said.group(5)
-    recent = said.group(6).split(",") if said.group(6) else []
-    return Session(said.group(1), said.group(2) == "running", wrote, current, recent, number)
-
-
-def _session_line(held: Session) -> str:
-    recent = f" {','.join(held.recent)}" if held.recent else ""
-    state = "running" if held.running else "ended"
-    return f"{held.tag} {state} {_stamp(held.wrote)} {held.current or '-'}{recent}"
-
-
-def _stamp(moment: datetime) -> str:
-    return f"{moment:%Y-%m-%dT%H:%MZ}"
-
-
-def _minute(now: datetime) -> datetime:
-    """The clock's time as a line holds it: UTC, to the minute."""
-    return now.astimezone(timezone.utc).replace(second=0, microsecond=0)
-
-
-def _write_line(root: Path, held: Session) -> None:
-    """Write one session's line to its own file and touch no other, so however many sessions write
-    at once none undoes another's, and nothing is locked. The line replaces the old in one rename,
-    so a reader never meets half a file. It is the writing session's own, except when a wake ends a
-    silent one or a rename rewrites the ids it names."""
-    _write_session_file(_sessions_folder(root), held.tag, _session_line(held))
-
-
-def _write_session_file(folder: Path, name: str, line: str) -> None:
-    path = folder / name
-    staging = folder / f".{name}.{secrets.token_hex(4)}.tmp"
-    try:
-        staging.write_text(line + "\n", encoding="utf-8", newline="\n")
-        staging.replace(path)
-    finally:
-        staging.unlink(missing_ok=True)
-
-
-def _sessions_folder(root: Path) -> Path:
-    """The folder, made at its first need; a store from before has its single file carried over
-    first."""
-    folder = root / SESSIONS
-    folder.mkdir(parents=True, exist_ok=True)
-    if (root / SINGLE_SESSIONS_FILE).is_file():
-        _carry_over(root, folder)
-    return folder
-
-
-def _carry_over(root: Path, folder: Path) -> None:
-    """The single file's lines, each to its session's file unless that file exists — its session
-    wrote it since, and it is newer — then the single file removed. Every step may run twice at
-    once and lands the same: a line is placed by a link that refuses an existing name, so it is
-    never half-written and never over a newer one. A line the form does not admit keeps a name of
-    its own, for the check to report."""
-    single = root / SINGLE_SESSIONS_FILE
-    try:
-        lines = [line for line in single.read_text(encoding="utf-8").splitlines() if line.strip()]
-    except FileNotFoundError:
-        return
-    for number, line in enumerate(lines, start=1):
-        read = _session(line, number)
-        name = read.tag if read is not None else f"unreadable-{number}"
-        staging = folder / f".{name}.{secrets.token_hex(4)}.tmp"
-        try:
-            staging.write_text(line + "\n", encoding="utf-8", newline="\n")
-            os.link(staging, folder / name)
-        except FileExistsError:
-            pass
-        finally:
-            staging.unlink(missing_ok=True)
-    try:
-        single.unlink(missing_ok=True)
-    except PermissionError:
-        # Windows will not remove a file another process holds open to read. Every line is in the
-        # folder already, and its file shadows it, so the next write removes what is left.
-        pass
-
-
-def _position_problems(sessions: list[Session], index: dict[str, Entry]) -> list[Diagnostic]:
-    return [
-        Diagnostic(held.record, held.line, f"{held.tag} stands at {identity}, which no entry holds")
-        for held in sessions
-        for identity in ([held.current] if held.current else []) + held.recent
-        if identity not in index
-    ]
-
-
-def _session_findings(sessions: list[Session], index: dict[str, Entry]) -> list[Finding]:
-    """A running session whose question closed under it. It does not fail the run: it is shown in
-    that session's next window. A silent session is no finding — the next wake ends it."""
-    return [
-        Finding(held.record, held.line, f"{held.tag} stands at {held.current}, which is closed")
-        for held in sessions
-        if held.running and (standing := index.get(held.current or "")) is not None and not standing.open
-    ]
-
-
 # --- for a person to settle ---------------------------------------------------------------------
 
 
@@ -1200,7 +990,7 @@ def _ready_roots(entries: list[Entry], index: dict[str, Entry]) -> list[Entry]:
 
 @dataclass(frozen=True)
 class Store:
-    """The live questions as a tree, with every id resolvable and every session's line.
+    """The live questions as a tree, with every id resolvable and every session's row.
 
     The tree is the live directory alone: `done/` holds wholly closed subtrees, which no window
     draws. Ids still resolve over both, since an id says where a question sits, never which
@@ -1210,7 +1000,7 @@ class Store:
     index: dict[str, Entry]
     children: dict[str, list[Entry]]
     roots: list[Entry]
-    sessions: list[Session]
+    sessions: list[sessions.Session]
 
     def path(self, identity: str) -> list[Entry]:
         """From the root down to the question, following *part of* lines."""
@@ -1225,12 +1015,6 @@ class Store:
             found.append(read)
             waiting += self.children.get(read.identity or "", [])
         return sorted(found, key=_order)
-
-    def session(self, tag: str) -> Session:
-        held = next((each for each in self.sessions if each.tag == tag), None)
-        if held is None:
-            raise Refused(f"no session {tag} is registered in {SESSIONS}; `--wake` registers one")
-        return held
 
 
 def _next_free(index: dict[str, Entry], parent: str | None) -> str:
@@ -1278,7 +1062,7 @@ def read_store(root: Path, seen: dict[str, bytes] | None = None) -> Store:
     """The store as the window and the wake read it. A file the check would report is read as far
     as it goes, and one that cannot be read at all is left out — the check is what says so."""
     entries, _, _ = _entries(root, seen)
-    sessions, _, _ = _sessions(root)
+    rows, _, _ = sessions.rows(root)
     live = sorted((read for read in entries if read.identity and not read.archived), key=_order)
     children: dict[str, list[Entry]] = {}
     for read in live:
@@ -1286,7 +1070,7 @@ def read_store(root: Path, seen: dict[str, bytes] | None = None) -> Store:
             children.setdefault(read.parent, []).append(read)
     index = {read.identity: read for read in entries if read.identity}
     roots = [read for read in live if read.parent is None or read.parent not in index]
-    return Store(index, children, roots, sessions)
+    return Store(index, children, roots, rows)
 
 
 def due(root: Path, read: Entry) -> bool:
@@ -1339,10 +1123,10 @@ def window(root: Path, tag: str, full: bool = False) -> str:
         return f"no store at {STORE}/: nothing to place a message in yet"
     seen: dict[str, bytes] = {}
     store = read_store(root, seen)
-    held = store.session(tag)
+    held = sessions.held(root, tag)
     counters = _counters(root, store, tag)
     fingerprint = _fingerprint(held, seen)
-    memory = _memory(root, tag)
+    memory = sessions.memory(root, tag)
     if not full and memory.is_file() and memory.read_text(encoding="utf-8") == fingerprint:
         # The one line in front of most turns names the act, since "nothing moved" read as nothing
         # to do and the turn's `at` went unmade (rule failure 16). It names the choice and fills in
@@ -1381,7 +1165,7 @@ class Counted:
 def _counters(root: Path, store: Store, tag: str) -> str:
     """The line a reply copies: open tickets, open questions and straw dogs, each with how many came
     and went since this session's previous window, its memory then moved to this one."""
-    memory = Path(f"{_memory(root, tag)}.counted")
+    memory = Path(f"{sessions.memory(root, tag)}.counted")
     before, remembered = _recalled(memory)
     now = _tally(root, store, before.records if before else {})
     # Written by hand, and only when it moved: `asdict` copies every binding deeply, and closing a
@@ -1471,7 +1255,7 @@ def _recalled(memory: Path) -> tuple[Counted | None, str | None]:
         return None, None
 
 
-def _drawn(store: Store, held: Session) -> str:
+def _drawn(store: Store, held: sessions.Session) -> str:
     if held.current is None or held.current not in store.index:
         return _without_position(store, held)
     path = store.path(held.current)
@@ -1497,38 +1281,15 @@ def wake(root: Path, now: datetime, tag: str | None = None) -> str:
     Either way every other session gone silent is ended first, as at a hook's start.
     """
     if tag is None:
-        held = _register(root, now)
-        _end_silent(root, now, held.tag)
+        held = sessions.register(root, now)
+        sessions.end_silent(root, now, held.tag)
         return _wake_read(root, held, f"session: {held.tag}, registered now")
-    held = read_store(root).session(tag)
-    _end_silent(root, now, held.tag)
+    held = sessions.held(root, tag)
+    sessions.end_silent(root, now, held.tag)
     return _wake_read(root, held, f"session: {held.tag}, already registered")
 
 
-def _end_silent(root: Path, now: datetime, waking: str) -> None:
-    """Every other running line whose session nothing has seen for `SILENT_AFTER` reads ended, its
-    position and its time kept, and the wake says nothing of it (the user, 2026-10-10).
-
-    The one write to a line not its own besides a rename: safe because a silent session has no
-    write of its own to meet. The session's next message turns its line running again.
-    TODO q-0037.0017: a session mechanism takes the sessions file and this rule with it.
-    """
-    for held in _sessions(root)[0]:
-        if held.running and held.tag != waking and now - _last_seen(root, held) >= SILENT_AFTER:
-            _write_line(root, Session(held.tag, False, held.wrote, held.current, held.recent, held.line))
-
-
-def _last_seen(root: Path, held: Session) -> datetime:
-    """The later of the line's time and its window memory's: a session is seen while its messages
-    reach a hook or it writes its line. The memory is kept outside the tree, so the committed file
-    does not move with every message."""
-    memory = _memory(root, held.tag)
-    if not memory.is_file():
-        return held.wrote
-    return max(held.wrote, datetime.fromtimestamp(memory.stat().st_mtime, timezone.utc))
-
-
-def _wake_read(root: Path, held: Session, header: str) -> str:
+def _wake_read(root: Path, held: sessions.Session, header: str) -> str:
     """What keeps coming back, who else is where, what waits to be re-read, and this session's
     window drawn whole."""
     store = read_store(root)
@@ -1538,7 +1299,7 @@ def _wake_read(root: Path, held: Session, header: str) -> str:
     return "\n".join(
         [header, ""]
         + _section("most struck, open:", [f"  {_line(read)}" for read in _most_struck(live)])
-        + _section("sessions:", [f"  {_session_state(other)}" for other in others])
+        + _section("sessions:", [f"  {sessions.state(other)}" for other in others])
         + _section(
             "deferred, to re-check whether each condition is met:",
             [f"  {_line(read)} — {read.parts['answer'].value}" for read in deferred],
@@ -1563,19 +1324,6 @@ def _most_struck(live: list[Entry]) -> list[Entry]:
     so a session sees them before anything else and the read stays bounded (parent decision 54)."""
     struck = [read for read in live if read.open and read.strike and read.strike.count]
     return sorted(struck, key=lambda read: (-read.strike.count, _order(read)))[:WAKE_STRUCK_LINES]
-
-
-def _register(root: Path, now: datetime, tag: str | None = None) -> Session:
-    """A new session's line, running and with no position yet, under the host's own session id
-    where a hook gave one, or else a tag minted here that no session holds."""
-    if tag is None:
-        taken = {held.tag for held in _sessions(root)[0]}
-        tag = f"s-{now:%m%d}-{secrets.token_hex(2)}"
-        while tag in taken:
-            tag = f"s-{now:%m%d}-{secrets.token_hex(2)}"
-    held = Session(tag, True, _minute(now), None, [], 0)
-    _write_line(root, held)
-    return held
 
 
 # --- the hooks ----------------------------------------------------------------------------------
@@ -1674,24 +1422,24 @@ def hook(root: Path, host_name: str, payload: str, now: datetime) -> str:
         sent = _sent(payload)
         event = sent.get("hook_event_name")
         named = os.environ.get(host.conversation_variable, "") if host.conversation_variable else ""
-        tag = _tag(named or str(sent.get(host.session_field) or ""))
+        tag = sessions.tag_of(named or str(sent.get(host.session_field) or ""))
         if event in host.compactions:
-            _forget_window(root, tag)
+            sessions.forget_window(root, tag)
             return host.quiet
         if event == host.starts:
             return host.answer(event, _started(root, tag, sent.get("source"), now), tag)
-        registered = tag in {held.tag for held in _sessions(root)[0]}
+        registered = tag in {held.tag for held in sessions.rows(root)[0]}
         if event == host.messages:
             if not registered:
                 # The start was never seen — the hooks arrived mid-session — so this is the start.
                 return host.answer(event, _started(root, tag, None, now), tag)
             drawn = window(root, tag)
-            _seen(root, tag, now)
+            sessions.seen(root, tag, now)
             return host.answer(event, drawn, tag)
         if event == host.signs_of_life:
             if not registered:
-                _register(root, now, tag)
-            _seen(root, tag, now)
+                sessions.register(root, now, tag)
+            sessions.seen(root, tag, now)
             return host.answer(event, "", tag)
         return ""
     except Exception as problem:  # noqa: BLE001 — the boundary to a host: nothing may escape it
@@ -1716,43 +1464,15 @@ def _started(root: Path, tag: str, source: str | None, now: datetime) -> str:
     """A session starting, resuming or compacted: registered once under the host's id, running
     again if it had ended, and given a whole window, since its context has none. A start that is
     not a compaction ends every other session gone silent first."""
-    _forget_window(root, tag)
-    known = {held.tag: held for held in _sessions(root)[0]}
-    if tag not in known:
-        held = _register(root, now, tag)
-        _end_silent(root, now, tag)
+    sessions.forget_window(root, tag)
+    held, registered_now = sessions.arrive(root, tag, now)
+    if registered_now:
+        sessions.end_silent(root, now, tag)
         return _wake_read(root, held, f"session: {tag}, registered now")
-    held = known[tag]
-    if not held.running:
-        held = Session(held.tag, True, _minute(now), held.current, held.recent, held.line)
-        _write_line(root, held)
     if source == "compact":
         return window(root, tag, full=True)
-    _end_silent(root, now, tag)
+    sessions.end_silent(root, now, tag)
     return _wake_read(root, held, f"session: {tag}, already registered")
-
-
-def _tag(identity: str) -> str:
-    """A host's session id as a session tag: the characters a sessions line holds, no others."""
-    tag = re.sub(r"[^\w.-]", "-", identity.strip())
-    if not tag:
-        raise Refused("the hook's input names no session")
-    return tag if tag[0].isalnum() else f"s{tag}"
-
-
-def end(root: Path, tag: str, now: datetime) -> Session:
-    """The conclude's last act: the session is marked ended and keeps its position, so a later
-    wake can offer to resume where it stopped."""
-    held = read_store(root).session(tag)
-    ended = Session(held.tag, False, _minute(now), held.current, held.recent, held.line)
-    _write_line(root, ended)
-    return ended
-
-
-def _session_state(held: Session) -> str:
-    state = "running" if held.running else "ended"
-    recent = f" (recent {', '.join(held.recent)})" if held.recent else ""
-    return f"{held.tag} {state}, last wrote {_stamp(held.wrote)}, at {held.current or 'no position yet'}{recent}"
 
 
 # --- the tree -----------------------------------------------------------------------------------
@@ -1783,45 +1503,12 @@ def tree(root: Path, identity: str | None = None) -> str:
     return "\n".join(lines)
 
 
-def _fingerprint(held: Session, seen: dict[str, bytes]) -> str:
+def _fingerprint(held: sessions.Session, seen: dict[str, bytes]) -> str:
     """What a window was drawn from: this session's position and every entry's bytes."""
     digest = hashlib.sha256(f"{held.current}\n".encode())
     for name in sorted(seen):
         digest.update(name.encode() + b"\0" + seen[name] + b"\0")
     return digest.hexdigest()
-
-
-def _memory(root: Path, tag: str) -> Path:
-    """Where the fingerprint of a session's last window is kept: outside the tree, so it never
-    churns the store, keyed by tree and session."""
-    tree = hashlib.sha256(str(root.resolve()).encode()).hexdigest()[:16]
-    return Path(WINDOW_MEMORY or Path(tempfile.gettempdir()) / "questions-windows") / tree / tag
-
-
-def _forget_window(root: Path, tag: str) -> None:
-    """After a compaction the last window is gone from the conversation, so the next is whole. The
-    memory is emptied rather than removed: its time is the session's sign of life."""
-    memory = _memory(root, tag)
-    if memory.is_file():
-        memory.write_text("", encoding="utf-8")
-
-
-def _seen(root: Path, tag: str, now: datetime) -> None:
-    """A sign of life from the session: its window memory takes the time, and a line that reads
-    ended runs again, its position kept — a wake may have ended it while it sat idle.
-
-    TODO q-0037.0017: a session mechanism takes the sessions file and this rule with it.
-    """
-    if not (root / STORE).is_dir():
-        return
-    held = read_store(root).session(tag)
-    memory = _memory(root, tag)
-    memory.parent.mkdir(parents=True, exist_ok=True)
-    if not memory.is_file():
-        memory.write_text("", encoding="utf-8")
-    os.utime(memory, (now.timestamp(), now.timestamp()))
-    if not held.running:
-        _write_line(root, Session(held.tag, True, _minute(now), held.current, held.recent, held.line))
 
 
 def _path_lines(path: list[Entry]) -> list[str]:
@@ -1875,9 +1562,9 @@ def _position(store: Store, current: str | None) -> str:
     return f"{current} {entry.question}" if entry else current
 
 
-def _elsewhere_lines(store: Store, held: Session) -> list[str]:
+def _elsewhere_lines(store: Store, held: sessions.Session) -> list[str]:
     others = [
-        f"  {other.tag} at {_position(store, other.current)} (last wrote {_stamp(other.wrote)})"
+        f"  {other.tag} at {_position(store, other.current)} (last wrote {sessions.stamp(other.wrote)})"
         for other in store.sessions
         if other.running and other.tag != held.tag
     ]
@@ -1886,7 +1573,7 @@ def _elsewhere_lines(store: Store, held: Session) -> list[str]:
     ]
 
 
-def _without_position(store: Store, held: Session) -> str:
+def _without_position(store: Store, held: sessions.Session) -> str:
     """A session that has not placed itself yet: the roots to place it among, and who is where."""
     return "\n".join(
         [f"session: {held.tag}", "current: none yet — the first `at` call places it", ""]
@@ -1959,7 +1646,7 @@ def _called(root: Path, argv: list[str], today: date, now: datetime) -> int:
         said = _calls().parse_args(argv)
     except SystemExit as stopped:
         return stopped.code if isinstance(stopped.code, int) else 2
-    left = read_store(root).session(said.session).current
+    left = sessions.held(root, said.session).current
     written = declare(root, said.session, [_clause(said)], today, now=now)
     for record in written.entries:
         print(f"wrote {record}")
@@ -2066,7 +1753,7 @@ class Written:
     re-parent renamed, with the one it took, and the ids whose questions it reworded."""
 
     entries: list[str]
-    session: Session | None
+    session: sessions.Session | None
     opened: list[str]
     renamed: dict[str, str] = field(default_factory=dict)
     reworded: list[str] = field(default_factory=list)
@@ -2095,7 +1782,7 @@ def declare(
     interference is a failure, never authority to overwrite. The one exception is an id drawn for
     an `opens` that another session took meanwhile: the store is read again and the next free id
     drawn, up to `OPEN_ATTEMPTS` times, since the other session's entry is untouched either way.
-    The sessions file is outside the recheck, since each session replaces only its own line there.
+    The rows are outside the recheck, since each session replaces only its own.
     `between` runs after validation and before that last read — the moment another writer may act.
     """
     now = now or datetime.now(timezone.utc)
@@ -2119,7 +1806,7 @@ def _declared(
 ) -> Written:
     seen: dict[str, bytes] = {}
     entries, _, _ = _entries(root, seen)
-    held = read_store(root).session(tag)
+    held = sessions.held(root, tag)
     draft = _Draft(root, {read.identity: read for read in entries if read.identity}, now)
     for clause in clauses:
         draft.apply(clause)
@@ -2132,13 +1819,13 @@ def _declared(
     written = draft.write()
     if draft.moves:
         written = _carry_renames(root, draft.moves, draft.renames, written)
-        held = _renamed_session(held, draft.renames)
-    moved = _moved(held, position, now)
+        held = sessions.renamed(held, draft.renames)
+    moved = sessions.moved(held, position, now)
     if moved is not None:
         try:
-            _write_line(root, moved)
+            sessions.write_row(root, moved)
         except OSError as error:
-            raise WriteInterrupted(written, SESSIONS, error) from error
+            raise WriteInterrupted(written, sessions.ROWS, error) from error
     opened = [identity for identity in draft.changed if identity in draft.new]
     closed = [draft.renames.get(clause.question or "", clause.question or "") for clause in clauses if clause.verb == "closes"]
     archived, refused = _archive_finished(root, closed, written) if closed else ([], None)
@@ -2226,7 +1913,7 @@ def _carry_renames(
 
 
 def _rewrite_ids(root: Path, renames: dict[str, str]) -> None:
-    """Every renamed id written outside a link, in the records under `docs/` and the sessions file,
+    """Every renamed id written outside a link, in the records under `docs/` and the sessions' rows,
     and every straw dog's binding to one, wherever the straw dogs stand.
 
     An id is matched whole, so a longer one that starts the same way is never touched. Under
@@ -2248,17 +1935,14 @@ def _rewrite_ids(root: Path, renames: dict[str, str]) -> None:
 
 
 def _records_naming_ids(root: Path) -> list[str]:
-    """The records a rename reads: the documents under `docs/`, each session's file — or the
-    single sessions file of a store from before — and the documents and scripts where straw dogs
-    stand outside `docs/`."""
+    """The records a rename reads: the documents under `docs/`, each session's row wherever it
+    stands, and the documents and scripts where straw dogs stand outside `docs/`."""
     names = [
         name
         for name in corpus(root)
         if (name.startswith("docs/") and name.endswith(".md")) or (in_straw_dog_scope(name) and not name.startswith("docs/"))
     ]
-    folder = root / SESSIONS
-    filed = [f"{SESSIONS}/{path.name}" for path in sorted(folder.iterdir()) if path.is_file() and not path.name.startswith(".")] if folder.is_dir() else []
-    return names + filed + ([SINGLE_SESSIONS_FILE] if (root / SINGLE_SESSIONS_FILE).is_file() else [])
+    return names + sessions.records(root)
 
 
 def _outside_fences(text: str, change: Callable[[str], str]) -> str:
@@ -2281,26 +1965,6 @@ def _replace(path: Path, text: str) -> None:
         staging.replace(path)
     finally:
         staging.unlink(missing_ok=True)
-
-
-def _renamed_session(held: Session, renames: dict[str, str]) -> Session:
-    """This session's line as the rename left it, so its own write does not put old ids back."""
-    current = renames.get(held.current or "", held.current)
-    recent = [renames.get(identity, identity) for identity in held.recent]
-    return Session(held.tag, held.running, held.wrote, current, recent, held.line)
-
-
-def _moved(held: Session, position: str | None, now: datetime) -> Session | None:
-    """The session's line after an `at`: the old position joins the recent ones, at most four. An
-    `at` that leaves a running session where it stood leaves its line as it was, so the committed
-    file does not move with every turn; the window memory says the session is alive."""
-    if position is None:
-        return None
-    if held.running and position == held.current:
-        return held
-    recent = [held.current] if held.current and held.current != position else []
-    recent += [identity for identity in held.recent if identity != position and identity not in recent]
-    return Session(held.tag, True, _minute(now), position, recent[:4], held.line)
 
 
 class _Draft:

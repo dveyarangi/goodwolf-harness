@@ -9,7 +9,6 @@ import json
 import os
 import re
 import tempfile
-import threading
 import unittest
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -18,6 +17,7 @@ from unittest import mock
 from repository import RepositoryCase, folder_listing
 
 import questions
+import sessions
 
 STORE = "docs/questions"
 DESKTOP_ID = "CLAUDE_CODE_HOST_SESSION_ID"
@@ -27,7 +27,7 @@ def remember_windows_in_the_case(case: unittest.TestCase) -> None:
     """Keep what `--window` remembers inside the case, never in the machine's temp folder."""
     memory = tempfile.TemporaryDirectory()
     case.addCleanup(memory.cleanup)
-    patcher = mock.patch.object(questions, "WINDOW_MEMORY", memory.name)
+    patcher = mock.patch.object(sessions, "WINDOW_MEMORY", memory.name)
     patcher.start()
     case.addCleanup(patcher.stop)
 
@@ -446,94 +446,11 @@ def session_lines(root: Path) -> str:
     """Every session's line as written, wherever it stands — its own file, or the single file not
     carried over yet — in the order the store lists them."""
     lines = []
-    for held in questions._sessions(root)[0]:
+    for held in sessions.rows(root)[0]:
         with (root / held.record).open(encoding="utf-8", newline="") as handle:
             lines.append(handle.read().splitlines()[held.line - 1])
     return "".join(f"{line}\n" for line in lines)
 NOW = datetime(2026, 9, 29, 12, 0, tzinfo=timezone.utc)
-
-
-class TheSessions(Store):
-    """One line per session: its tag, running or ended, the date it last wrote, its current
-    question or `-` before it has one, and up to four recent ones."""
-
-    def setUp(self) -> None:
-        super().setUp()
-        self.write(SESSIONS, "s-alpha running 2026-09-29 q-0001.0001 q-0001\ns-beta ended 2026-09-01 q-0001\n")
-
-    def checked(self):
-        return questions.check(self.root)
-
-    def findings(self) -> list[str]:
-        return [note.finding for note in self.checked().findings]
-
-    def assertReported(self, fragment: str) -> None:
-        problems = self.problems()
-        self.assertEqual(1, len(problems), problems)
-        self.assertIn(fragment, problems[0])
-
-    def test_as_written_checks_clean_and_finds_nothing(self) -> None:
-        self.assertEqual(([], []), (self.problems(), self.findings()))
-
-    def test_a_session_registered_without_a_position_yet_is_the_form(self) -> None:
-        self.write(SESSIONS, "s-alpha running 2026-09-29 -\n")
-        self.assertEqual([], self.problems())
-
-    def test_a_line_out_of_the_form_is_reported(self) -> None:
-        self.write(SESSIONS, "s-alpha asleep 2026-09-29 q-0001.0001\n")
-        self.assertReported("line 1")
-
-    def test_more_than_four_recent_questions_is_out_of_the_form(self) -> None:
-        self.write(SESSIONS, "s-alpha running 2026-09-29 q-0001.0001 q-0001,q-0001.0001,q-0001,q-0001.0001,q-0001\n")
-        self.assertReported("line 1")
-
-    def test_a_tag_registered_twice_is_reported(self) -> None:
-        self.write(SESSIONS, "s-alpha running 2026-09-29 q-0001.0001\ns-alpha ended 2026-09-28 q-0001\n")
-        self.assertReported("s-alpha")
-
-    def test_a_position_naming_a_missing_entry_is_reported(self) -> None:
-        self.write(SESSIONS, "s-alpha running 2026-09-29 q-0009\n")
-        self.assertReported("q-0009")
-
-    def test_a_running_session_on_a_closed_question_is_a_finding_not_a_failure(self) -> None:
-        self.place(
-            "q-0001.0001-what-an-entry-holds",
-            "What an entry holds?",
-            {"part of": "q-0001", "state": "closed:moot", "answer": "gone"},
-        )
-
-        stranded = [finding for finding in self.findings() if "s-alpha" in finding]
-
-        self.assertEqual([], self.problems())
-        self.assertEqual(1, len(stranded), stranded)
-        self.assertIn("closed", stranded[0])
-
-    def test_a_line_carries_the_time_it_was_written_to_the_minute(self) -> None:
-        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0001.0001\ns-beta ended 2026-09-01 q-0001\n")
-        self.assertEqual([], self.problems())
-
-    def test_a_time_out_of_the_form_is_reported(self) -> None:
-        self.write(SESSIONS, "s-alpha running 2026-09-29T7:30Z q-0001.0001\n")
-        self.assertReported("line 1")
-
-    def test_a_running_session_long_silent_is_no_finding_the_next_wake_ends_it(self) -> None:
-        self.write(SESSIONS, "s-alpha running 2026-09-01 q-0001.0001\n")
-        self.assertEqual([], self.findings())
-
-    def test_findings_leave_the_exit_status_at_zero(self) -> None:
-        self.place(
-            "q-0001.0001-what-an-entry-holds",
-            "What an entry holds?",
-            {"part of": "q-0001", "state": "closed:moot", "answer": "gone"},
-        )
-        self.write(SESSIONS, "s-alpha running 2000-01-01 q-0001.0001\n")
-
-        said = io.StringIO()
-        with contextlib.redirect_stdout(said):
-            status = questions.main(["--check"], root=self.root, today=TODAY)
-
-        self.assertEqual(0, status)
-        self.assertTrue(json.loads(said.getvalue())["findings"])
 
 
 class LikelyTwins(Store):
@@ -964,7 +881,7 @@ class TheCounters(Rendered):
 
     def test_a_window_after_a_compaction_still_compares(self) -> None:
         self.counted()
-        questions._forget_window(self.root, "s-alpha")
+        sessions.forget_window(self.root, "s-alpha")
         self.write(self.TICKET, "# A first ticket\n")
 
         _, counts = self.counted()
@@ -982,34 +899,6 @@ class TheCounters(Rendered):
         _, counts = self.counted()
 
         self.assertEqual((1, 0, 0), counts["🐕"], "the cache answered for the unmoved record")
-
-
-class TwoSessions(Rendered):
-    def test_each_window_is_drawn_around_its_own_position_and_lists_the_other(self) -> None:
-        _, beta = self.said("--window", "--session", "s-beta")
-
-        self.assertIn("current: q-0010", beta)
-        self.assertEqual("q-0010", self.section(beta, "path (root to current):").split()[0])
-        self.assertIn("q-0001 [open] Which store holds the questions?", self.section(beta, "other roots:"))
-        self.assertIn("s-alpha at q-0004", self.section(beta, "other running sessions:"))
-
-    def test_a_session_without_a_position_yet_is_given_the_roots_to_place_itself_among(self) -> None:
-        self.write(SESSIONS, "s-alpha running 2026-09-29 -\ns-beta running 2026-09-28 q-0010\n")
-
-        status, text = self.said("--window", "--session", "s-alpha")
-
-        self.assertEqual(0, status)
-        self.assertIn("current: none yet", text)
-        roots = self.section(text, "roots:")
-        self.assertIn("q-0001", roots)
-        self.assertIn("q-0010", roots)
-        self.assertIn("s-beta at q-0010", text)
-
-    def test_a_session_nobody_registered_is_refused_with_the_way_to_register(self) -> None:
-        status, text = self.said("--window", "--session", "s-nobody")
-
-        self.assertEqual(2, status)
-        self.assertIn("--wake", text)
 
 
 class TheCount(Rendered):
@@ -1048,115 +937,6 @@ class TheCount(Rendered):
         ranked = self.section(text, "most struck, open:").splitlines()[1:]
         self.assertEqual(["q-0010", "q-0007"], [line.split()[0] for line in ranked])
         self.assertTrue(text.index("most struck, open:") < text.index("sessions:"), "it opens the read")
-
-
-class TheWake(Rendered):
-    def registered_tag(self, text: str) -> str:
-        return text.splitlines()[0].split()[1].rstrip(",")
-
-    def test_registers_a_new_session_without_a_position_and_prints_its_tag(self) -> None:
-        before = session_lines(self.root)
-
-        status, text = self.said("--wake")
-
-        tag = self.registered_tag(text)
-        self.assertEqual(0, status)
-        self.assertEqual(before + f"{tag} running 2026-09-29T12:00Z -\n", session_lines(self.root))
-        self.assertIn("registered now", text.splitlines()[0])
-
-    def test_two_wakes_register_two_sessions(self) -> None:
-        _, first = self.said("--wake")
-        _, second = self.said("--wake")
-
-        self.assertNotEqual(self.registered_tag(first), self.registered_tag(second))
-        self.assertEqual(5, len(session_lines(self.root).splitlines()))
-
-    def test_reports_the_sessions_first_running_and_ended_with_their_positions(self) -> None:
-        _, text = self.said("--wake")
-
-        sessions = self.section(text, "sessions:")
-        self.assertIn("s-alpha running, last wrote 2026-09-29T11:30Z, at q-0004", sessions)
-        self.assertIn("s-gamma ended, last wrote 2026-09-20T00:00Z, at q-0003", sessions)
-        self.assertLess(text.index("sessions:"), text.index("deferred"))
-
-    def test_lists_every_deferral_with_its_condition_and_every_suspect_entry(self) -> None:
-        _, text = self.said("--wake")
-
-        deferred = self.section(text, "deferred, to re-check whether each condition is met:")
-        self.assertIn("q-0006", deferred)
-        self.assertIn("q-0009 [closed:deferred] Are twins found by embeddings? — until a place to run, meanwhile word match", deferred)
-        suspect = self.section(text, "suspect, to re-read:")
-        self.assertIn("q-0008", suspect)
-        self.assertIn("q-0013", suspect)
-
-    def test_lists_the_straw_dogs_whose_question_is_due_wherever_they_stand(self) -> None:
-        self.write("AGENTS.md", '# Entry\n\n<straw-dog question="q-0005">Held.</straw-dog>\n')
-        self.write(".agents/skills/keeper/SKILL.md", '<straw-dog question="q-0010">Open still.</straw-dog>\n\n```md\n<straw-dog question="q-0011">Sample.</straw-dog>\n```\n')
-        self.write(".agents/scripts/keeper.py", "x = 1\n# TODO q-0011: pruned since.\n")
-
-        _, text = self.said("--wake")
-
-        due = self.section(text, "straw dogs due, their text to re-read:").strip().splitlines()
-        self.assertEqual(
-            [
-                ".agents/scripts/keeper.py:2 → q-0011 [closed:pruned] Is height depth?",
-                "AGENTS.md:3 → q-0005 [closed:decided] Is the id a path?",
-            ],
-            [line.strip() for line in due],
-        )
-        self.assertLess(text.index("deferred, to re-check"), text.index("straw dogs due"))
-
-    def test_a_new_session_is_given_the_roots_to_place_itself_among(self) -> None:
-        _, text = self.said("--wake")
-
-        self.assertIn("current: none yet", text)
-        self.assertIn("q-0010", self.section(text, "roots:"))
-
-    def test_for_a_registered_session_registers_nothing_and_draws_its_window(self) -> None:
-        untouched = self.snapshot()
-
-        status, text = self.said("--wake", "--session", "s-alpha")
-
-        self.assertEqual(0, status)
-        self.assertEqual(untouched, self.snapshot())
-        self.assertIn("current: q-0004", text)
-        self.assertIn("q-0009", self.section(text, "deferred, to re-check whether each condition is met:"))
-
-    def test_for_a_session_nobody_registered_is_refused(self) -> None:
-        untouched = self.snapshot()
-
-        status, _ = self.said("--wake", "--session", "s-nobody")
-
-        self.assertEqual(2, status)
-        self.assertEqual(untouched, self.snapshot())
-
-
-class TheEnd(Rendered):
-    def test_marks_the_session_ended_keeping_its_position_and_touching_no_other_line(self) -> None:
-        status, _ = self.said("--end", "--session", "s-alpha")
-
-        self.assertEqual(0, status)
-        self.assertEqual(
-            "s-gamma ended 2026-09-20 q-0003\n"
-            "s-beta running 2026-09-29T11:00Z q-0010\n"
-            "s-alpha ended 2026-09-29T12:00Z q-0004 q-0002,q-0001\n",
-            session_lines(self.root),
-        )
-
-    def test_a_later_wake_finds_where_the_ended_session_stopped(self) -> None:
-        self.said("--end", "--session", "s-alpha")
-
-        _, text = self.said("--wake")
-
-        self.assertIn("s-alpha ended, last wrote 2026-09-29T12:00Z, at q-0004", self.section(text, "sessions:"))
-
-    def test_a_session_nobody_registered_is_refused_and_nothing_is_written(self) -> None:
-        untouched = self.snapshot()
-
-        status, _ = self.said("--end", "--session", "s-nobody")
-
-        self.assertEqual(2, status)
-        self.assertEqual(untouched, self.snapshot())
 
 
 class TheTree(Rendered):
@@ -2241,7 +2021,7 @@ class Interference(Declared):
 
     def test_a_write_that_fails_partway_stops_and_reports_what_it_wrote(self) -> None:
         def sessions_folder_becomes_a_file() -> None:
-            self.write(questions.SESSIONS, "not a folder\n")
+            self.write(sessions.ROWS, "not a folder\n")
 
         with self.assertRaises(questions.WriteInterrupted) as stopped:
             self.declare_with(
@@ -2250,7 +2030,7 @@ class Interference(Declared):
             )
 
         self.assertEqual([f"{STORE}/q-0004-which-parts-are-optional.md"], stopped.exception.completed)
-        self.assertEqual(questions.SESSIONS, stopped.exception.failed)
+        self.assertEqual(sessions.ROWS, stopped.exception.failed)
         self.assertIn("written first", self.entry_text("q-0004-which-parts-are-optional"))
 
 
@@ -2302,434 +2082,6 @@ class ARoundTrip(Declared):
         self.assertEqual(before, self.problems(), "the fixture's flat ids are reported as before, and nothing more")
         self.assertIn("closed:pruned", self.read(f"{STORE}/done/q-0004.0001-is-the-owner-optional.md"))
         self.assertNotIn("q-0004.0001", self.said("--tree", "q-0004")[1], "the finished subtree left the live tree")
-
-
-class Hooked(Rendered):
-    """What each host's hook receives and what it gets back.
-
-    The desktop app names every process it starts with its own conversation id, this suite's
-    run included when it runs there, so each case starts with none and sets one where it is the
-    subject."""
-
-    def setUp(self) -> None:
-        super().setUp()
-        self.enterContext(mock.patch.dict(os.environ))
-        os.environ.pop(DESKTOP_ID, None)
-
-    def hook(self, host: str, payload: dict | str, desktop_id: str | None = None) -> tuple[int, str]:
-        stdin = io.StringIO(payload if isinstance(payload, str) else json.dumps(payload))
-        out = io.StringIO()
-        named = {DESKTOP_ID: desktop_id} if desktop_id else {}
-        with contextlib.redirect_stdout(out), mock.patch("sys.stdin", stdin), mock.patch.dict(os.environ, named):
-            status = questions.main(["--hook", host], root=self.root, today=TODAY, now=NOW)
-        return status, out.getvalue()
-
-    def context(self, said: str) -> str:
-        """The text a host would place in the agent's context from the hook's answer."""
-        answer = json.loads(said)
-        if "hookSpecificOutput" in answer:
-            return answer["hookSpecificOutput"]["additionalContext"]
-        return answer["additional_context"]
-
-
-class TheHook(Hooked):
-    def test_claude_code_registers_a_new_session_under_its_own_id_and_injects_the_wake(self) -> None:
-        status, said = self.hook("claude-code", {"session_id": "abc-123", "hook_event_name": "SessionStart", "source": "startup"})
-
-        self.assertEqual(0, status)
-        self.assertEqual("SessionStart", json.loads(said)["hookSpecificOutput"]["hookEventName"])
-        self.assertIn("session: abc-123, registered now", self.context(said))
-        self.assertIn("abc-123 running 2026-09-29T12:00Z -", session_lines(self.root))
-
-    def test_a_resumed_session_is_not_registered_twice(self) -> None:
-        _, said = self.hook("claude-code", {"session_id": "s-alpha", "hook_event_name": "SessionStart", "source": "resume"})
-
-        self.assertIn("session: s-alpha, already registered", self.context(said))
-        self.assertEqual(3, len(session_lines(self.root).splitlines()))
-
-    def test_in_the_desktop_app_a_session_is_registered_under_the_apps_id(self) -> None:
-        _, said = self.hook(
-            "claude-code", {"session_id": "abc-123", "hook_event_name": "SessionStart", "source": "startup"}, "local_1"
-        )
-
-        self.assertIn("session: local_1, registered now", self.context(said))
-        self.assertIn("local_1 running", session_lines(self.root))
-        self.assertNotIn("abc-123", session_lines(self.root))
-
-    def test_a_conversation_the_desktop_app_resumes_under_a_new_id_is_the_session_it_was(self) -> None:
-        """The desktop app resumed a conversation under a new Claude Code id twice (2026-10-09, a
-        rollback; 2026-10-10, a reopening), and each time the store took it for a new session; the
-        app's own id for the conversation stayed the same throughout."""
-        _, said = self.hook(
-            "claude-code", {"session_id": "fork-1", "hook_event_name": "SessionStart", "source": "resume"}, "s-alpha"
-        )
-
-        self.assertIn("session: s-alpha, already registered", self.context(said))
-        self.assertIn("s-alpha running 2026-09-29T11:30Z q-0004", session_lines(self.root), "its position kept")
-        self.assertNotIn("fork-1", session_lines(self.root))
-
-    def test_a_desktop_message_whose_start_was_never_seen_registers_the_apps_id(self) -> None:
-        self.hook("claude-code", {"session_id": "abc-9", "hook_event_name": "UserPromptSubmit", "prompt": "hi"}, "local_2")
-
-        self.assertIn("local_2 running", session_lines(self.root))
-        self.assertNotIn("abc-9", session_lines(self.root))
-
-    def test_a_message_gets_the_window_and_then_one_line_while_nothing_moved(self) -> None:
-        submit = {"session_id": "s-alpha", "hook_event_name": "UserPromptSubmit", "prompt": "next"}
-
-        _, first = self.hook("codex", submit)
-        _, second = self.hook("codex", submit)
-
-        self.assertIn("current: q-0004", self.context(first))
-        self.assertEqual("UserPromptSubmit", json.loads(first)["hookSpecificOutput"]["hookEventName"])
-        self.assertIn("window unchanged since your last one", self.context(second))
-        self.assertIn("s-alpha at q-0004; say what this turn is", self.context(second))
-        self.assertIn("`questions.py at q-N --session s-alpha` on the one that contains the message", self.context(second))
-        self.assertIn("a process, no call", self.context(second))
-        self.assertNotIn("questions.py at q-0004", self.context(second))
-        self.assertNotIn("path (root to current):", self.context(second))
-
-    def test_a_moved_position_or_a_changed_entry_draws_the_window_again(self) -> None:
-        submit = {"session_id": "s-alpha", "hook_event_name": "UserPromptSubmit", "prompt": "next"}
-        self.hook("claude-code", submit)
-        self.said("at", "q-0002", "--session", "s-alpha")
-
-        _, moved = self.hook("claude-code", submit)
-        self.said("lean", "q-0007", "by hand", "--session", "s-beta")
-        _, changed = self.hook("claude-code", submit)
-
-        self.assertIn("current: q-0002", self.context(moved))
-        self.assertIn("path (root to current):", self.context(changed))
-
-    def test_another_sessions_move_alone_does_not_redraw_it(self) -> None:
-        """q-0007 is stamped first, since the first reach of an entry older than the count writes
-        its stamp, which is a change to the entry and so redraws."""
-        submit = {"session_id": "s-alpha", "hook_event_name": "UserPromptSubmit", "prompt": "next"}
-        self.said("at", "q-0007", "--session", "s-beta")
-        self.said("at", "q-0010", "--session", "s-beta")
-        self.hook("claude-code", submit)
-        self.assertEqual(0, self.said("at", "q-0007", "--session", "s-beta")[0], "the other session moved")
-
-        _, said = self.hook("claude-code", submit)
-
-        self.assertIn("window unchanged", self.context(said))
-
-    def test_a_compaction_makes_the_next_window_whole(self) -> None:
-        submit = {"session_id": "s-alpha", "hook_event_name": "UserPromptSubmit", "prompt": "next"}
-        self.hook("claude-code", submit)
-
-        _, compacted = self.hook("claude-code", {"session_id": "s-alpha", "hook_event_name": "SessionStart", "source": "compact"})
-        self.hook("codex", {"session_id": "s-alpha", "hook_event_name": "UserPromptSubmit", "prompt": "next"})
-        _, codex_compacts = self.hook("codex", {"session_id": "s-alpha", "hook_event_name": "PostCompact", "trigger": "auto"})
-        _, after = self.hook("codex", submit)
-
-        self.assertIn("path (root to current):", self.context(compacted))
-        self.assertEqual("", codex_compacts.strip())
-        self.assertIn("path (root to current):", self.context(after))
-
-    def test_cursor_registers_under_its_conversation_id_and_answers_in_its_own_form(self) -> None:
-        _, said = self.hook(
-            "cursor", {"conversation_id": "conv-9", "session_id": "other", "hook_event_name": "sessionStart"}
-        )
-
-        self.assertIn("session: conv-9, registered now", self.context(said))
-        self.assertIn("conv-9 running", session_lines(self.root))
-
-    def raw_hook(self, host: str, raw: bytes) -> str:
-        """The hook fed bytes as a host's pipe carries them, decoded by nothing in between."""
-        out = io.StringIO()
-        with contextlib.redirect_stdout(out), mock.patch("sys.stdin", io.TextIOWrapper(io.BytesIO(raw))):
-            questions.main(["--hook", host], root=self.root, today=TODAY, now=NOW)
-        return out.getvalue()
-
-    def test_input_written_as_utf16_with_its_mark_is_read(self) -> None:
-        """Cursor on Windows answered "Expecting value: line 1 column 1 (char 0)" to a payload it
-        logged as sent: input in another encoding than the code page the pipe was read in."""
-        sent = json.dumps({"conversation_id": "conv-16", "hook_event_name": "sessionStart"})
-
-        said = self.raw_hook("cursor", sent.encode("utf-16"))
-
-        self.assertIn("session: conv-16, registered now", self.context(said))
-
-    def test_input_written_as_utf8_with_its_mark_is_read(self) -> None:
-        sent = json.dumps({"conversation_id": "conv-8", "hook_event_name": "sessionStart"})
-
-        said = self.raw_hook("cursor", sent.encode("utf-8-sig"))
-
-        self.assertIn("session: conv-8, registered now", self.context(said))
-
-    def test_input_that_is_not_json_is_named_by_its_length_and_how_it_begins(self) -> None:
-        said = self.raw_hook("claude-code", b"")
-
-        self.assertIn("the hook's input is not JSON: 0 characters", said)
-
-    def test_cursor_hands_its_session_on_to_later_hooks_and_shells_as_env(self) -> None:
-        _, said = self.hook("cursor", {"conversation_id": "conv-9", "hook_event_name": "sessionStart"})
-
-        self.assertEqual({"QUESTIONS_SESSION": "conv-9"}, json.loads(said)["env"])
-
-    def test_cursor_compaction_forgets_the_last_window(self) -> None:
-        self.said("--window", "--session", "s-alpha")
-
-        _, said = self.hook("cursor", {"conversation_id": "s-alpha", "hook_event_name": "preCompact"})
-        _, window = self.said("--window", "--session", "s-alpha")
-
-        self.assertEqual("{}", said.strip())
-        self.assertIn("path (root to current):", window)
-
-    def test_a_session_whose_start_was_never_seen_is_registered_by_its_first_message(self) -> None:
-        _, said = self.hook("claude-code", {"session_id": "late-1", "hook_event_name": "UserPromptSubmit", "prompt": "hi"})
-
-        self.assertIn("late-1 running 2026-09-29T12:00Z -", session_lines(self.root))
-        self.assertIn("session: late-1", self.context(said))
-
-    def test_an_event_it_has_no_use_for_answers_nothing(self) -> None:
-        status, said = self.hook("claude-code", {"session_id": "s-alpha", "hook_event_name": "Stop"})
-
-        self.assertEqual((0, ""), (status, said.strip()))
-
-    def test_a_problem_at_a_known_event_is_answered_in_the_hosts_own_form(self) -> None:
-        status, said = self.hook("cursor", {"hook_event_name": "sessionStart"})
-
-        self.assertEqual(0, status)
-        self.assertIn("questions hook", self.context(said))
-
-    def test_never_fails_the_host_a_problem_becomes_a_notice_in_context(self) -> None:
-        for host, payload in (("claude-code", "not json"), ("nohost", {"session_id": "x", "hook_event_name": "SessionStart"})):
-            with self.subTest(host=host):
-                status, said = self.hook(host, payload)
-
-                self.assertEqual(0, status)
-                self.assertIn("questions hook", said)
-
-
-class TheAgentsOwnWindow(Hooked):
-    def test_says_unchanged_when_nothing_moved_and_draws_it_whole_on_request(self) -> None:
-        self.said("--window", "--session", "s-alpha")
-
-        _, again = self.said("--window", "--session", "s-alpha")
-        _, full = self.said("--window", "--session", "s-alpha", "--full")
-
-        self.assertIn("window unchanged since your last one", again)
-        self.assertIn("--full", again)
-        self.assertIn("path (root to current):", full)
-
-    def test_a_call_it_does_not_know_prints_the_calls_it_does(self) -> None:
-        status, said = self.said("go", "q-0010", "--session", "s-alpha")
-
-        self.assertEqual(2, status)
-        self.assertIn("at, open, move, reword, depend, undepend, close", said)
-
-
-class ASilentSession(Hooked):
-    """A running line silent three hours is ended by the next wake, quietly, and a message of its
-    own session turns it running again (the user, 2026-10-10)."""
-
-    def seen_at(self, tag: str, when: datetime) -> None:
-        """The session's window memory, as if its session last drew a window then; one it already
-        holds keeps its fingerprint."""
-        memory = questions._memory(self.root, tag)
-        memory.parent.mkdir(parents=True, exist_ok=True)
-        if not memory.is_file():
-            memory.write_text("drawn", encoding="utf-8")
-        os.utime(memory, (when.timestamp(), when.timestamp()))
-
-    def seen(self, tag: str) -> float:
-        return os.path.getmtime(questions._memory(self.root, tag))
-
-    def line(self, tag: str) -> str:
-        return next(line for line in session_lines(self.root).splitlines() if line.startswith(f"{tag} "))
-
-    def start(self, tag: str, source: str = "startup") -> str:
-        _, said = self.hook("claude-code", {"session_id": tag, "hook_event_name": "SessionStart", "source": source})
-        return said
-
-    def test_a_line_last_seen_three_hours_ago_is_ended_at_another_sessions_start_its_position_kept(self) -> None:
-        self.write(SESSIONS, "s-beta running 2026-09-29T09:00Z q-0010\n")
-
-        self.start("s-new")
-
-        self.assertEqual("s-beta ended 2026-09-29T09:00Z q-0010", self.line("s-beta"))
-
-    def test_a_line_seen_under_three_hours_ago_stays_running(self) -> None:
-        self.write(SESSIONS, "s-beta running 2026-09-29T09:01Z q-0010\n")
-
-        self.start("s-new")
-
-        self.assertEqual("s-beta running 2026-09-29T09:01Z q-0010", self.line("s-beta"))
-
-    def test_a_line_written_long_ago_stays_running_while_its_session_draws_windows(self) -> None:
-        """A session answering messages on one question writes nothing to the store for hours."""
-        self.write(SESSIONS, "s-beta running 2026-09-20 q-0010\n")
-        self.seen_at("s-beta", NOW - timedelta(minutes=10))
-
-        self.start("s-new")
-
-        self.assertEqual("s-beta running 2026-09-20 q-0010", self.line("s-beta"))
-
-    def test_the_waking_sessions_own_line_is_not_ended_by_its_own_wake(self) -> None:
-        self.write(SESSIONS, "s-alpha running 2026-09-01 q-0004\n")
-
-        self.start("s-alpha")
-
-        self.assertEqual("s-alpha running 2026-09-01 q-0004", self.line("s-alpha"))
-
-    def test_a_compaction_ends_nothing(self) -> None:
-        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004\ns-beta running 2026-09-01 q-0010\n")
-
-        self.start("s-alpha", source="compact")
-
-        self.assertEqual("s-beta running 2026-09-01 q-0010", self.line("s-beta"))
-
-    def test_the_wake_by_hand_ends_as_the_hook_does(self) -> None:
-        self.write(SESSIONS, "s-beta running 2026-09-01 q-0010\n")
-
-        self.said("--wake")
-
-        self.assertEqual("s-beta ended 2026-09-01T00:00Z q-0010", self.line("s-beta"))
-
-    def test_the_wake_says_nothing_of_having_ended_one(self) -> None:
-        self.write(SESSIONS, "s-beta running 2026-09-01 q-0010\n")
-
-        said = self.context(self.start("s-new"))
-
-        self.assertEqual(1, said.count("s-beta"), said)
-        self.assertIn("s-beta ended, last wrote 2026-09-01T00:00Z, at q-0010", self.section(said, "sessions:"))
-
-    def test_a_line_another_session_wrote_meanwhile_is_kept(self) -> None:
-        self.write(SESSIONS, "s-beta running 2026-09-01 q-0010\ns-gamma running 2026-09-29T11:59Z q-0003\n")
-
-        self.start("s-new")
-
-        self.assertEqual("s-gamma running 2026-09-29T11:59Z q-0003", self.line("s-gamma"))
-
-    def test_an_ended_line_runs_again_at_its_sessions_next_message_and_no_other_line_moves(self) -> None:
-        self.write(SESSIONS, "s-alpha ended 2026-09-29T08:00Z q-0004 q-0002\ns-beta ended 2026-09-01 q-0010\n")
-
-        self.hook("claude-code", {"session_id": "s-alpha", "hook_event_name": "UserPromptSubmit", "prompt": "hi"})
-
-        self.assertEqual(
-            "s-beta ended 2026-09-01 q-0010\ns-alpha running 2026-09-29T12:00Z q-0004 q-0002\n",
-            session_lines(self.root),
-        )
-
-    def test_an_ended_line_runs_again_when_its_agent_draws_the_window_by_the_rule(self) -> None:
-        self.write(SESSIONS, "s-alpha ended 2026-09-29T08:00Z q-0004\n")
-
-        self.said("--window", "--session", "s-alpha")
-
-        self.assertEqual("s-alpha running 2026-09-29T12:00Z q-0004", self.line("s-alpha"))
-
-    def test_every_window_marks_its_session_seen_the_unchanged_one_too(self) -> None:
-        self.said("--window", "--session", "s-alpha")
-        self.seen_at("s-alpha", NOW - timedelta(hours=5))
-
-        _, again = self.said("--window", "--session", "s-alpha")
-
-        self.assertIn("window unchanged since your last one", again)
-        self.assertEqual(NOW.timestamp(), self.seen("s-alpha"))
-
-    def test_after_a_compaction_the_session_is_still_seen_and_its_next_window_whole(self) -> None:
-        self.said("--window", "--session", "s-alpha")
-
-        self.hook("cursor", {"conversation_id": "s-alpha", "hook_event_name": "preCompact"})
-        _, window = self.said("--window", "--session", "s-alpha")
-
-        self.assertTrue(questions._memory(self.root, "s-alpha").is_file())
-        self.assertIn("path (root to current):", window)
-
-    def test_cursors_message_marks_its_session_seen_and_lets_the_message_through_injecting_nothing(self) -> None:
-        self.write(SESSIONS, "s-alpha ended 2026-09-29T08:00Z q-0004\n")
-
-        _, said = self.hook("cursor", {"conversation_id": "s-alpha", "hook_event_name": "beforeSubmitPrompt", "prompt": "hi"})
-        _, window = self.said("--window", "--session", "s-alpha")
-
-        self.assertEqual({"continue": True}, json.loads(said))
-        self.assertEqual("s-alpha running 2026-09-29T12:00Z q-0004", self.line("s-alpha"))
-        self.assertIn("path (root to current):", window, "the hook drew no window the agent never saw")
-
-    def test_cursors_message_naming_no_session_is_still_let_through(self) -> None:
-        status, said = self.hook("cursor", {"hook_event_name": "beforeSubmitPrompt"})
-
-        self.assertEqual((0, {"continue": True}), (status, json.loads(said)))
-
-    def test_cursors_message_from_a_session_never_seen_starting_registers_it(self) -> None:
-        _, said = self.hook("cursor", {"conversation_id": "late-9", "hook_event_name": "beforeSubmitPrompt"})
-
-        self.assertEqual({"continue": True}, json.loads(said))
-        self.assertEqual("late-9 running 2026-09-29T12:00Z -", self.line("late-9"))
-
-
-class AFirstWake(RepositoryCase):
-    def setUp(self) -> None:
-        super().setUp()
-        remember_windows_in_the_case(self)
-
-    def test_in_a_tree_without_a_store_registers_the_first_session(self) -> None:
-        out = io.StringIO()
-        with contextlib.redirect_stdout(out):
-            status = questions.main(["--wake"], root=self.root, today=TODAY, now=NOW)
-
-        tag = out.getvalue().splitlines()[0].split()[1].rstrip(",")
-        self.assertEqual(0, status)
-        self.assertEqual(f"{tag} running 2026-09-29T12:00Z -\n", session_lines(self.root))
-
-
-class SessionsWrittenAtOnce(RepositoryCase):
-    """Each session writes its own file, so however many write at once, none undoes another's."""
-
-    def setUp(self) -> None:
-        super().setUp()
-        remember_windows_in_the_case(self)
-
-    def register_at_once(self, tags: list[str]) -> None:
-        """Every registration released together, so the writes meet rather than queue."""
-        gate = threading.Barrier(len(tags))
-        failures: list[Exception] = []
-
-        def register(tag: str) -> None:
-            gate.wait()
-            try:
-                questions._register(self.root, NOW, tag)
-            except Exception as failure:  # noqa: BLE001 — collected, so the assertion names it
-                failures.append(failure)
-
-        threads = [threading.Thread(target=register, args=(tag,)) for tag in tags]
-        for thread in threads:
-            thread.start()
-        for thread in threads:
-            thread.join()
-        self.assertEqual([], failures)
-
-    def registered(self) -> list[str]:
-        return sorted(held.tag for held in questions._sessions(self.root)[0])
-
-    def test_twenty_sessions_registered_at_once_all_stand(self) -> None:
-        tags = [f"s-{number:02}" for number in range(20)]
-
-        self.register_at_once(tags)
-
-        self.assertEqual(tags, self.registered())
-
-    def test_two_first_writes_over_the_single_file_keep_every_line(self) -> None:
-        self.write(SESSIONS, "s-alpha running 2026-09-29 q-0001\ns-beta ended 2026-09-01 -\n")
-
-        self.register_at_once(["s-one", "s-two"])
-
-        self.assertEqual(["s-alpha", "s-beta", "s-one", "s-two"], sorted(folder_listing(self.root / questions.SESSIONS)))
-        self.assertEqual(["s-alpha", "s-beta", "s-one", "s-two"], self.registered())
-        self.assertEqual("s-alpha running 2026-09-29 q-0001\n", self.read(f"{questions.SESSIONS}/s-alpha"))
-
-    def test_a_line_the_form_does_not_admit_is_carried_over_and_reported(self) -> None:
-        self.write(SESSIONS, "s-alpha running 2026-09-29 q-0001\nnot a session line\n")
-
-        questions._register(self.root, NOW, "s-one")
-
-        folder = questions.SESSIONS
-        carried = [name for name in folder_listing(self.root / folder) if "not a session line" in self.read(f"{folder}/{name}")]
-        self.assertEqual(1, len(carried), "kept, under a name of its own")
-        _, problems, _ = questions._sessions(self.root)
-        self.assertEqual([f"{folder}/{carried[0]}"], [problem.record for problem in problems])
 
 
 class NoStoreToDraw(RepositoryCase):

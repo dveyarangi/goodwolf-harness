@@ -4,7 +4,8 @@
 
 **Authored:** 2026-10-22
 **Last amended:** 2026-10-22 — second pass: the state, the ended row's time, the commit anchor, the contract
-bump; third pass: the rows' folder under `docs/sessions/`, the removal's races, the other tests' uses
+bump; third pass: the rows' folder under `docs/sessions/`, the removal's races, the other tests' uses;
+at stage 2: the declaration lands with the script, since a part may claim a mechanism only once declared
 
 Implements [01-0050 a-session-is-kept-by-a-mechanism-of-its-own](../tickets/01-0050-a-session-is-kept-by-a-mechanism-of-its-own.md).
 
@@ -148,16 +149,19 @@ this file at its next message, so no commit leaves the script half-moved.
    resolving, passes the header check; a mechanism whose doc names one skill while a second skill
    claims it is reported; the index renders both. Green in `mechanisms.py`, MECHANISM-FORMAT's
    bullet rewritten, the shape's evidence noting the first case.
-2. **The script, behaviour unchanged.** `sessions.py` carved out with the functions named above;
-   `questions.py` imports it; `--end` answered by both for this stage alone, the questions one a
-   delegate. `test_sessions.py` takes the nine session classes — 65 tests — with their helpers,
+2. **The script and the declaration, behaviour unchanged.** `sessions.py` carved out with the
+   functions named above; `questions.py` imports it; `--end` answered by both for this stage alone,
+   the questions one a delegate. The doc lands here too, with the two skills claiming the
+   mechanism: the shape check refuses a script that names a mechanism no declaration lists it
+   under, so the declaration cannot follow the script by a stage. Its rules file, the rules'
+   moves and the evidence stay stage 3's, the five rule moments `not yet` until then. `test_sessions.py` takes the nine session classes — 65 tests — with their helpers,
    calling `sessions.*` where they called `questions.*` directly; the fixtures keep writing the
    single file, so every one of them proves the carry-over still; the tests of other classes that
    name the folder or the memory through `questions` name them through `sessions`. Red first: a
    store holding the old folder is carried into the new at the first write, an old file whose
    session wrote since not overwritten. This tree's rows move in the same commit. The suite's
    count is unchanged.
-3. **The declaration and the rules.** The doc, the evidence — its first paragraph naming this
+3. **The rules.** The evidence — its first paragraph naming this
    ticket, its count: 125 ended rows in this tree's folder at inception, the prior violation the
    removal clears — the rules file installed with `inject_rules.py session --install`, the
    questions rules Q2 and Q3 amended and re-installed with overwrite, F5 and the commit rule
