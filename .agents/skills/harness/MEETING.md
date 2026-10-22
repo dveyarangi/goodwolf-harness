@@ -9,9 +9,9 @@ taking the tree's method in are the skill's.
 ## The two stops
 
 **First.** Offer to read the repository and write up what the harness would change here; name the
-one file it would write and where — `docs/sessions/0001-<date>-<slug>.md` where the tree keeps or
-will keep its records, else the folder a migration would make — and wait. Silence takes the offer;
-another place named takes that place. Nothing else in the tree changes before or after.
+one file it would write and where — `docs/sessions/0001-<date>-<slug>.md` under the tree's `docs/`;
+a tree without `docs/` takes the place the person names — and wait. Silence takes the offer; another
+place named takes that place. Nothing else in the tree changes before or after.
 
 **Second.** Show the report in `/advise`'s form — what is good, what is good enough, what hurts,
 what first — and ask whether the migration runs, which proposals, in which mode. Speak of the
@@ -21,8 +21,10 @@ becoming tickets; on *no* as the one record the method leaves.
 
 ## The study
 
-Read the tree as a capable newcomer would, by search and sampling, not whole. The study has three
-parts, and the report says which part each statement comes from.
+Read the tree as a capable newcomer would, by search and sampling, not whole; the tree is its
+default branch as checked out, and what is deployed is not the study's subject. The study has three
+parts, and the report says which part each statement comes from. The read is quick; the key is the
+study's largest cost, built from what the inventory and the readings meet, never from a second pass.
 
 **The inventory.** The entry file and what it includes; skills of the tree's own; scripts, gates and
 checks and the rules that name them; outside coordinators and contracts; the kinds of record the
@@ -52,24 +54,28 @@ The sample, from the tree as it stands on the day:
 
 | group | items | the key holds | scored |
 |---|---|---|---|
-| settled decisions | 5 | the decision and its reason | hit · partial · miss |
+| settled decisions | 5 | the decision and its reason; the question asks *why* | hit · partial · miss |
 | in flight | 3 | the item and its state | hit · partial · miss |
 | undecided | 3 | that it is open, and who decides | hit · partial · miss |
 | resting on contradictory or incomplete records | 3 | the two records, or the record that stops short; asked about the topic, never the discrepancy | noticed and said · answered from one side · filled the gap |
-| strong but hidden invariants or structures | 3 | what the code enforces and no record states; what the tree's shape implies | recovered · not |
+| strong but hidden invariants or structures | 3 | what the code enforces and no record states as a rule — a per-case mention in a decision record is not one; what the tree's shape implies | recovered · not |
 
-Counted beside the answers: tokens, tool calls, wall time, files read. And what the project's method
-asks of a change today, as numbers: rules read by every session, CI jobs and steps per PR, checklist
-items, PR body length, decision records per merged PR, check scripts. The project's practices stay
+Counted beside the answers: tokens, tool calls and wall time from the host's account of the blind
+run; files read from the blind agent's own account of how it searched. And what the project's method
+asks of a change today, as numbers: rules read by every session — the entry file and every file a
+rule orders read at every session —, CI jobs and steps per PR, checklist items, PR body length,
+decision records per merged PR, check scripts. The project's practices stay
 its own, kept by its choice; the harness integrates with them and replaces none. The count is there
 so the same count after a migration shows what the harness is for: fewer steps, and each step more
 precise, because at each step what is needed is known.
 
 ## The report
 
-The body of the person's question, *what would the harness change here?*, in the project's language
-and the project's names. No term of the harness's own — mechanism, store, straw dog, tier, rung,
-install block — appears; what the harness brings is said as what it does for the project: a home for
+The body of the person's question, *what would the harness change here?*, headed by that question
+in the project's language, and written in the project's names. No term or phrase of the harness's
+own — mechanism, store, straw dog, tier, rung, install block, a session *standing on* a question —
+appears; the study's parts are described by what they do; what the harness brings is said as what it
+does for the project: a home for
 each kind of record; a rule installed where it is read; open questions kept with their state and the
 session's position among them; a record of each session; a disagreement between records repaired
 where it is met; a decision kept with what it waits on.
@@ -84,7 +90,8 @@ Sections, in this order, each headed:
 1. **What was found.** By the inventory and the four readings, each a paragraph with its numbers and
    quotes; then what the method asks of a change, as the count; then what stays as it is.
 2. **Main recommendations.** Three to five, each one sentence and its reason, about the project's
-   documentation and its harness only — never about what the project builds.
+   documentation and its own method — its rules, gates and records — only; never about what the
+   project builds.
 3. **What clearly improves, and what the person will likely give up.** Two columns.
 4. **Proposals.** A table: what, what it touches and what depends on it, size; then the order.
 5. **What this report does not say.** No comparison of the tree's method with the harness before an
