@@ -17,6 +17,22 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 60. A local rule in the entry file named the skill that executes it, and no check found it odd — 2026-10-22
+
+**Rules in play:** none that covers it. The loop section of the entry file names skills by design,
+so no check reads a skill's name there as a smell; the leak check guards records under `docs/`, not
+skills; R8 forbids one skill naming another installed mechanism's skill, and says nothing of the
+entry file. A tier-1 rule whose text names the skill that carries it out — *repaired at
+`/maintain`* — was proposed, landed by reinstall, and taken out on the person's objection: *why did
+nothing find a reference to a skill from AGENTS.md suspicious?*
+
+**What it is.** A slip no rule covers, registered to recognise its repeat: a rule naming its
+executor instead of being installed where that executor reads it. The remedy taken was not a rule
+but the removal — the condition the rule carried now lives in the store's own check. A repeat
+decides whether the entry file needs a rule about naming skills outside the loop.
+
+**Disposition:** open as a slip; no amendment.
+
 ## 59. A question was opened long, as a *how to build*, under the mechanism it named — 2026-10-22
 
 **Rules in play:**
