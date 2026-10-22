@@ -8,9 +8,9 @@ Mechanism: questions
 # The open questions
 
 Every open question of this tree is one file in `docs/questions/`; the current question of each
-running session is the line in its own file under `docs/questions/sessions.d/`. `questions.py` is
-the only writer of the sessions folder and of an entry's parts; an entry's body is written by
-hand. The window is the part of the store near a session's position, drawn before every message;
+running session is its row, the session mechanism's, under `docs/sessions/rows/`. `questions.py` is
+the only writer of an entry's parts, and writes the row's position through the session's script;
+an entry's body is written by hand. The window is the part of the store near a session's position, drawn before every message;
 **depth** is the number of *part of* steps from a question to its root, derived, never written.
 
 ## Invoked by a person
@@ -147,5 +147,5 @@ default; *pruned* says the question should not have been held.
 
 ## Records
 
-The shape of an entry, its body and the sessions folder is [QUESTION-FORMAT.md](./QUESTION-FORMAT.md)'s;
+The shape of an entry and its body is [QUESTION-FORMAT.md](./QUESTION-FORMAT.md)'s;
 read it before writing a body.

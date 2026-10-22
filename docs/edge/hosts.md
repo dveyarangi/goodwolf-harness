@@ -65,8 +65,8 @@ Each sidecar names its own parts.
    clean.
 4. **Wake** — in a fresh chat, the wake's read is in context before the agent's first command,
    headed by the host's session id.
-5. **Registration** — the sessions file holds a line under the host's own session id, and no tag
-   minted by a bare `--wake`.
+5. **Registration** — the rows under `docs/sessions/rows/` hold one under the host's steadiest id
+   for the chat, and no tag minted by a bare `--wake`.
 6. **Window** — the next message carries the unchanged notice; after an `at`, the one after it
    carries the changed window.
 7. **Compaction** — after the host compacts the context, the next window arrives whole.
