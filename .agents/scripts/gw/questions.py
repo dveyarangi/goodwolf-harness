@@ -1271,23 +1271,24 @@ def wake(root: Path, now: datetime, tag: str | None = None) -> str:
     Called without a tag it registers a new session and draws the window of a session with no
     position yet. Called with the tag of a registered one it registers nothing, so `/recall` asked
     mid-session reads the same as at the start without giving one conversation two sessions.
-    Either way every other session gone silent is ended first, as at a hook's start.
+    Either way the other sessions' rows are tended first, as at a hook's start: the silent ended,
+    the long ended removed.
     """
     if tag is None:
         held = sessions.register(root, now)
-        sessions.end_silent(root, now, held.tag)
+        sessions.tend(root, now, held.tag)
         return _wake_read(root, held, f"session: {held.tag}, registered now")
     held = sessions.held(root, tag)
-    sessions.end_silent(root, now, held.tag)
+    sessions.tend(root, now, held.tag)
     return _wake_read(root, held, f"session: {held.tag}, already registered")
 
 
 def _wake_read(root: Path, held: sessions.Session, header: str) -> str:
-    """What keeps coming back, who else is where, what waits to be re-read, and this session's
-    window drawn whole."""
+    """What keeps coming back, who else is running and where, what waits to be re-read, and this
+    session's window drawn whole. An ended session is nobody's business at a wake."""
     store = read_store(root)
     live = sorted((read for read in store.index.values() if not read.archived), key=_order)
-    others = [other for other in store.sessions if other.tag != held.tag]
+    others = [other for other in store.sessions if other.running and other.tag != held.tag]
     deferred = [read for read in live if read.kind == "deferred" and "answer" in read.parts]
     return "\n".join(
         [header, ""]
@@ -1456,15 +1457,15 @@ def _sent(payload: str) -> dict:
 def _started(root: Path, tag: str, source: str | None, now: datetime) -> str:
     """A session starting, resuming or compacted: registered once under the host's id, running
     again if it had ended, and given a whole window, since its context has none. A start that is
-    not a compaction ends every other session gone silent first."""
+    not a compaction tends the other sessions' rows first."""
     sessions.forget_window(root, tag)
     held, registered_now = sessions.arrive(root, tag, now)
     if registered_now:
-        sessions.end_silent(root, now, tag)
+        sessions.tend(root, now, tag)
         return _wake_read(root, held, f"session: {tag}, registered now")
     if source == "compact":
         return window(root, tag, full=True)
-    sessions.end_silent(root, now, tag)
+    sessions.tend(root, now, tag)
     return _wake_read(root, held, f"session: {tag}, already registered")
 
 

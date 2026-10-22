@@ -152,12 +152,12 @@ class TheWake(Rendered):
         self.assertNotEqual(self.registered_tag(first), self.registered_tag(second))
         self.assertEqual(5, len(session_lines(self.root).splitlines()))
 
-    def test_reports_the_sessions_first_running_and_ended_with_their_positions(self) -> None:
+    def test_reports_the_running_sessions_first_with_their_positions_and_no_ended_one(self) -> None:
         _, text = self.said("--wake")
 
-        sessions = self.section(text, "sessions:")
-        self.assertIn("s-alpha running, last wrote 2026-09-29T11:30Z, at q-0004", sessions)
-        self.assertIn("s-gamma ended, last wrote 2026-09-20T00:00Z, at q-0003", sessions)
+        listed = self.section(text, "sessions:")
+        self.assertIn("s-alpha running, last wrote 2026-09-29T11:30Z, at q-0004", listed)
+        self.assertNotIn("s-gamma", listed, "an ended session is nobody's business at a wake")
         self.assertLess(text.index("sessions:"), text.index("deferred"))
 
     def test_lists_every_deferral_with_its_condition_and_every_suspect_entry(self) -> None:
@@ -226,18 +226,18 @@ class TheEnd(Rendered):
 
         self.assertEqual(0, status)
         self.assertEqual(
-            "s-gamma ended 2026-09-20 q-0003\n"
+            "s-gamma ended 2026-09-28 q-0003\n"
             "s-beta running 2026-09-29T11:00Z q-0010\n"
             "s-alpha ended 2026-09-29T12:00Z q-0004 q-0002,q-0001\n",
             session_lines(self.root),
         )
 
-    def test_a_later_wake_finds_where_the_ended_session_stopped(self) -> None:
+    def test_a_later_wake_of_the_ended_session_finds_where_it_stopped(self) -> None:
         self.said("--end", "--session", "s-alpha")
 
-        _, text = self.said("--wake")
+        _, text = self.said("--wake", "--session", "s-alpha")
 
-        self.assertIn("s-alpha ended, last wrote 2026-09-29T12:00Z, at q-0004", self.section(text, "sessions:"))
+        self.assertIn("current: q-0004", text)
 
     def test_a_session_nobody_registered_is_refused_and_nothing_is_written(self) -> None:
         untouched = self.snapshot()
@@ -537,8 +537,17 @@ class ASilentSession(Hooked):
 
         said = self.context(self.start("s-new"))
 
-        self.assertEqual(1, said.count("s-beta"), said)
-        self.assertIn("s-beta ended, last wrote 2026-09-01T00:00Z, at q-0010", self.section(said, "sessions:"))
+        self.assertEqual(0, said.count("s-beta"), said)
+        self.assertEqual("s-beta ended 2026-09-01T00:00Z q-0010", self.line("s-beta"))
+
+    def test_a_silent_row_ended_takes_the_time_its_session_was_last_seen(self) -> None:
+        """The seven days run from the session's end, not its last `at` (the user, 2026-10-22)."""
+        self.write(SESSIONS, "s-beta running 2026-09-20 q-0010\n")
+        self.seen_at("s-beta", NOW - timedelta(hours=4))
+
+        self.start("s-new")
+
+        self.assertEqual("s-beta ended 2026-09-29T08:00Z q-0010", self.line("s-beta"))
 
     def test_a_line_another_session_wrote_meanwhile_is_kept(self) -> None:
         self.write(SESSIONS, "s-beta running 2026-09-01 q-0010\ns-gamma running 2026-09-29T11:59Z q-0003\n")
@@ -745,3 +754,97 @@ class TheSessionsOwnCommands(Rendered):
 
         self.assertEqual(2, status)
         self.assertIn("--end --session", said)
+
+
+class TheGone(Hooked):
+    """A row that reads ended for seven days is removed by a wake, since a chat the host reopens
+    rarely comes later; a running row never is (the user, 2026-10-22)."""
+
+    def rows(self) -> list[str]:
+        return sorted(held.tag for held in sessions.rows(self.root)[0])
+
+    def test_a_row_ended_eight_days_ago_is_removed_at_another_sessions_start(self) -> None:
+        self.write(SESSIONS, "s-old ended 2026-09-21T11:00Z q-0010\ns-beta running 2026-09-29T11:00Z q-0010\n")
+
+        self.start("s-new")
+
+        self.assertEqual(["s-beta", "s-new"], self.rows())
+        self.assertFalse((self.root / sessions.ROWS / "s-old").exists())
+
+    def test_a_row_ended_six_days_ago_is_kept(self) -> None:
+        self.write(SESSIONS, "s-old ended 2026-09-23T13:00Z q-0010\n")
+
+        self.start("s-new")
+
+        self.assertEqual(["s-new", "s-old"], self.rows())
+
+    def test_a_row_ended_exactly_seven_days_ago_is_removed(self) -> None:
+        self.write(SESSIONS, "s-old ended 2026-09-22T12:00Z q-0010\n")
+
+        self.start("s-new")
+
+        self.assertEqual(["s-new"], self.rows())
+
+    def test_a_running_row_is_never_removed_however_old(self) -> None:
+        self.write(SESSIONS, "s-old running 2026-08-01 q-0010\n")
+        self.seen_at("s-old", NOW - timedelta(minutes=5))
+
+        self.start("s-new")
+
+        self.assertEqual(["s-new", "s-old"], self.rows())
+
+    def test_a_row_ended_at_this_wake_goes_at_a_later_one(self) -> None:
+        self.write(SESSIONS, "s-old running 2026-08-01 q-0010\n")
+
+        self.start("s-new")
+        self.assertEqual("s-old ended 2026-08-01T00:00Z q-0010", self.line("s-old"), "ended at this wake, kept")
+
+        self.start("s-newer")
+
+        self.assertEqual(["s-new", "s-newer"], self.rows())
+
+    def test_the_wake_says_nothing_of_a_removal(self) -> None:
+        self.write(SESSIONS, "s-old ended 2026-09-01 q-0010\n")
+
+        said = self.context(self.start("s-new"))
+
+        self.assertNotIn("s-old", said)
+
+    def test_the_wake_by_hand_removes_as_the_hook_does(self) -> None:
+        self.write(SESSIONS, "s-old ended 2026-09-01 q-0010\n")
+
+        self.said("--wake")
+
+        self.assertNotIn("s-old", self.rows())
+
+    def test_a_session_whose_row_is_gone_is_registered_anew_when_its_host_returns(self) -> None:
+        self.write(SESSIONS, "s-old ended 2026-09-01 q-0010\n")
+        self.start("s-new")
+
+        said = self.context(self.start("s-old", source="resume"))
+
+        self.assertIn("session: s-old, registered now", said)
+        self.assertIn("current: none yet", said)
+
+    def test_a_row_another_wake_removed_meanwhile_is_nothing(self) -> None:
+        self.write(SESSIONS, "s-old ended 2026-09-01 q-0010\n")
+        sessions.folder(self.root)  # carried over, so the row's file exists to vanish
+        (self.root / sessions.ROWS / "s-old").unlink()
+
+        self.start("s-new")
+
+        self.assertEqual(["s-new"], self.rows())
+
+    def seen_at(self, tag: str, when: datetime) -> None:
+        memory = sessions.memory(self.root, tag)
+        memory.parent.mkdir(parents=True, exist_ok=True)
+        if not memory.is_file():
+            memory.write_text("drawn", encoding="utf-8")
+        os.utime(memory, (when.timestamp(), when.timestamp()))
+
+    def line(self, tag: str) -> str:
+        return next(line for line in session_lines(self.root).splitlines() if line.startswith(f"{tag} "))
+
+    def start(self, tag: str, source: str = "startup") -> str:
+        _, said = self.hook("claude-code", {"session_id": tag, "hook_event_name": "SessionStart", "source": source})
+        return said

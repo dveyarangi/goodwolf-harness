@@ -703,7 +703,7 @@ class Rendered(Store):
             SESSIONS,
             "s-alpha running 2026-09-29T11:30Z q-0004 q-0002,q-0001\n"
             "s-beta running 2026-09-29T11:00Z q-0010\n"
-            "s-gamma ended 2026-09-20 q-0003\n",
+            "s-gamma ended 2026-09-28 q-0003\n",
         )
 
     def question(
@@ -1250,7 +1250,7 @@ class Renaming(Declared):
 
         self.assertEqual("q-0002.0001", self.part("q-0004-which-parts-are-optional", "depends on"))
         self.assertEqual(
-            "s-gamma ended 2026-09-20 q-0003\n"
+            "s-gamma ended 2026-09-28 q-0003\n"
             "s-beta running 2026-09-29T11:00Z q-0002.0001 q-0002.0001.0001,q-0010\n"
             "s-alpha running 2026-09-29T11:30Z q-0004 q-0002,q-0001\n",
             session_lines(self.root),
@@ -2013,7 +2013,7 @@ class Interference(Declared):
         self.declare_with([questions.Clause("at", "q-0002")], beta_moves)
 
         self.assertEqual(
-            "s-gamma ended 2026-09-20 q-0003\n"
+            "s-gamma ended 2026-09-28 q-0003\n"
             "s-beta running 2026-09-29T11:59Z q-0001 q-0010\n"
             "s-alpha running 2026-09-29T12:00Z q-0002 q-0004,q-0001\n",
             session_lines(self.root),

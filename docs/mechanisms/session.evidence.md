@@ -13,7 +13,8 @@ row lets a later wake offer to resume* — written for the single file and carri
 unchanged. The wake printed every one into each session's context, 19 KB of it. Of the 125, 43
 were desktop-app tags, reopenable by their conversation id; the rest were probes, Codex and
 Cursor ids, and the carry-over from the single file. The removal after seven days is the prior
-violation this mechanism clears.
+violation this mechanism clears: at the first wake after it landed, 2026-10-22, 108 rows went,
+21 stayed, the oldest of them ended 2026-10-15, and the wake said nothing of it.
 
 ## Refused, 2026-10-22
 

@@ -29,8 +29,8 @@ a sign of life, kept outside the tree so the committed file does not move with e
 running row nothing has seen for three hours is ended by the next wake, quietly *(the user,
 2026-10-10)*; the session's next message turns it running again. The conclude writes the session
 record under `docs/sessions/` and ends the row, its position kept, so a chat the host reopens finds
-where it stopped. <straw-dog question="q-0037.0017">A row that reads ended for seven days is removed by
-a wake, since a reopen rarely comes later; the wake's read lists running sessions only.</straw-dog>
+where it stopped. A row that reads ended for seven days is removed by a wake, since a reopen rarely
+comes later *(the user, 2026-10-22)*; the wake's read lists running sessions only.
 
 **Sessions see each other** through the rows alone: the window names the other running sessions
 and their positions, and the wake's read lists them. They cannot call one another. One folder in
@@ -55,7 +55,7 @@ for this mechanism.
 | a silent session is ended at another's wake | `.agents/scripts/gw/sessions.py` | |
 | a session concludes: its record written, its leans, its row ended | `.agents/skills/conclude/SKILL.md` | |
 | a session wakes and reads where the work stands | `.agents/skills/recall/SKILL.md` | |
-| a row ended for seven days is removed | — | <straw-dog question="q-0037.0017">not yet</straw-dog> |
+| a row ended for seven days is removed | `.agents/scripts/gw/sessions.py` | |
 | rows a wake changed in other sessions' files are committed | `.agents/skills/maintain/SKILL.md` | |
 | a reply shows the sessions it runs beside, under debug | `AGENTS.md` | |
 | a recall re-ranks nothing another running session is on | `.agents/skills/recall/SKILL.md` | |
@@ -107,9 +107,6 @@ for this mechanism.
   the verification set.
 
 ## Not yet at the shape
-
-**One `not yet` row waits on this mechanism's own inception**, named in its evidence: the removal
-after seven days.
 
 <straw-dog question="q-0037.0017.0005">
 **The rows' folder** is one folder in the working tree, and that is how sessions see each other;

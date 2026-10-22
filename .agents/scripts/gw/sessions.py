@@ -44,6 +44,9 @@ SINGLE_FILE = "docs/questions/sessions"
 # A running row whose session nothing has seen for this long is ended by the next wake, quietly
 # (the user, 2026-10-10).
 SILENT_AFTER = timedelta(hours=3)
+# A row that has read ended for this long is removed by the next wake: a chat the host reopens
+# finds its row under the same id until then, and rarely comes later (the user, 2026-10-22).
+GONE_AFTER = timedelta(days=7)
 # Where the fingerprint of each session's last window is kept, the session's sign of life; `None`
 # is the machine's temp folder.
 WINDOW_MEMORY: str | None = None
@@ -311,7 +314,8 @@ def _carry_over_single_file(single: Path, rows_folder: Path) -> None:
 
 def _remove(path: Path) -> None:
     """A file removed, or left: Windows will not remove a file another process holds open to read,
-    and every row is in the folder already, so the next write removes what is left."""
+    and the next write or wake removes what is left; one already gone — another wake removed it —
+    is nothing."""
     try:
         path.unlink(missing_ok=True)
     except PermissionError:
@@ -347,16 +351,26 @@ def arrive(root: Path, tag: str, now: datetime) -> tuple[Session, bool]:
     return held_row, False
 
 
-def end_silent(root: Path, now: datetime, waking: str) -> None:
-    """Every other running row whose session nothing has seen for `SILENT_AFTER` reads ended, its
-    position and its time kept, and the wake says nothing of it (the user, 2026-10-10).
+def tend(root: Path, now: datetime, waking: str) -> None:
+    """What a wake does to the other sessions' rows, and says nothing of: a running row whose
+    session nothing has seen for `SILENT_AFTER` reads ended, its position kept and its time the
+    moment it was last seen, so the days until it is gone run from the session's end (the user,
+    2026-10-10 and 2026-10-22); a row that already read ended for `GONE_AFTER` is removed — ended at
+    this wake, gone at a later one. A running row is never removed.
 
-    The one write to a row not its own besides a rename: safe because a silent session has no
-    write of its own to meet. The session's next message turns its row running again.
+    The writes to a row not its own, besides a rename: safe because a silent session has no
+    write of its own to meet. The session's next message turns an ended row running again; a
+    removed one is registered anew when its host returns.
     """
     for held_row in rows(root)[0]:
-        if held_row.running and held_row.tag != waking and now - last_seen(root, held_row) >= SILENT_AFTER:
-            write_row(root, Session(held_row.tag, False, held_row.wrote, held_row.current, held_row.recent, held_row.line))
+        if held_row.tag == waking:
+            continue
+        if held_row.running:
+            seen_at = last_seen(root, held_row)
+            if now - seen_at >= SILENT_AFTER:
+                write_row(root, Session(held_row.tag, False, minute(seen_at), held_row.current, held_row.recent, held_row.line))
+        elif now - held_row.wrote >= GONE_AFTER:
+            _remove(root / held_row.record)
 
 
 def last_seen(root: Path, held_row: Session) -> datetime:
