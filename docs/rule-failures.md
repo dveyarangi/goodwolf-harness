@@ -113,9 +113,10 @@ row ends at the next wake*, under its straw dog — and the sentence being repla
 which reads as an actor and a moment, where MECHANISM-FORMAT's *the condition* reads as a fact.
 The two homes disagree on the field's grammar, and the skill's won.
 
-**Amendment proposed**, to `/mechanism`'s *Records*: *what removes a finished entry* read *when a
-finished entry is gone — the condition, never the actor or the moment, which are the doc's and the
-script's*. A format file describes; whatever acts on the record is told where the act is read.
+**Amendment landed**, the user, 2026-10-23, in `/mechanism`'s *Records*: *what removes a finished
+entry* reads *when a finished entry is gone: the condition, never the actor or the moment, which are
+the doc's and the script's*. A format file describes; whatever acts on the record is told where the
+act is read.
 
 ## 58. A *yes, but which moment?* was taken as the yes, and the rule was landed before its moment was shown — 2026-10-22
 
