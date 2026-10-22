@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v103, 2026-10-22.
+Entry contract: v104, 2026-10-22.
 
 <straw-dog question="q-0037.0009.0021">
 Under `debug=on`, open your first reply of every session with the `Entry contract:` line above, verbatim.
@@ -78,7 +78,10 @@ for debugging alone and carrying no glyph of its own opens with 🐛:
 Debug or not, a row each, and a table only where it has one: what waits on the user's decision,
 under `| ⚖️ Decisions |`, the next step the reply stops before among it, with nothing said of why
 it waits — never one already taken, the agent's own included, which the reply reports as taken and
-the user overturns by saying so; a record out of agreement with what it is of, met and not repaired,
+the user overturns by saying so<straw-dog question="q-0037.0013.0005.0007">, carried in every
+reply while the session stands on the question it belongs to; once the session has moved to
+another question subtree a wait leaves the table, provided it is written where its question keeps
+it</straw-dog>; a record out of agreement with what it is of, met and not repaired,
 under `| 🍂 Drift |`; the 🪢 table of the sessions this one runs beside is the session mechanism's
 rule, installed below.
 
@@ -297,6 +300,10 @@ only what no record in this tree carries.
 irony where it is earned. It is never agent-speak, the voice of a tool narrating its own steps, and
 it invents nothing: what it tells is what happened. Tables, decisions and text proposed for a
 record keep the exactness their forms ask.
+
+**L11** At the `open` of a question, give it its highest rung on each ladder it touches, as the entry
+file's *Autonomy* reads them; at the verification set's run, an open question without one is the
+store's finding.
 </installed>
 
 ## Straw dogs

@@ -43,6 +43,26 @@ The two homes disagree on the field's grammar, and the skill's won.
 finished entry is gone — the condition, never the actor or the moment, which are the doc's and the
 script's*. A format file describes; whatever acts on the record is told where the act is read.
 
+## 58. A *yes, but which moment?* was taken as the yes, and the rule was landed before its moment was shown — 2026-10-22
+
+**Rule in play, loaded:** [`AGENTS.md` — *Autonomy*](../AGENTS.md#autonomy): *"✋ At the dial it
+settles, and shows the person before acting."*
+
+**What happened.** A local rule was proposed without naming the moment it serves. The person: *yes,
+only you did not write which moment this rule serves.* The agent read the *yes* as the approval
+and the rest as a wording to supply, wrote the rule with its moments, the check's flag, the tests
+and the local block, and ran the suite — all uncommitted — before showing the reworded text. The
+person: *what are you doing? I asked about the moment.*
+
+**Why it did not fire.** The rule says *shows before acting* and the agent had shown a text; it did
+not say that a text the person corrects is a new text, shown again before acting. The approval
+attached to the first wording, not to the one that answered the correction.
+
+**Proposed amendment:** none yet — the repeat decides whether this is a wording of *Autonomy* or a
+slip. Registered as a slip.
+
+**Disposition:** open.
+
 ## 57. The rung rule fired on two of fourteen openings, and the older questions were never given one — 2026-10-20
 
 **Rules in play:**
@@ -129,7 +149,7 @@ written somewhere.* Second wording:
 > question it belongs to; once the session has moved to another question subtree a wait leaves the
 > table, provided it is written where its question keeps it
 
-**Disposition:** open; the second wording, *subtree* the person's word of the same day, waits on the person. The queue's line repaired the same day.
+**Disposition:** landed as v104, 2026-10-22, the second wording, a straw dog bound to q-0037.0013.0005.0007 on the user's word. The queue's line repaired the same day.
 
 ## 54. A better abstraction was met and the reply said *build nothing for it* — 2026-10-20
 

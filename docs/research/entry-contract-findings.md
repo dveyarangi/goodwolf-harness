@@ -15,6 +15,18 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v104 — 2026-10-22
+
+**A wait is carried while the session stands on its question** — the ⚖️ clause of *A paragraph
+shows what it stands on* says when a row leaves the table: carried in every reply while the session
+stands on the question it belongs to; once the session has moved to another question subtree it
+leaves, provided it is written where its question keeps it. Occasion: rule failure 55 — a decision
+abandoned twelve days earlier was carried as waiting in six replies from the queue's line, and the
+rule said what the table holds and never whose waiting counts. A first wording dropped every
+record's standing claim; the user: *not that simple — some waits must keep being carried*. Wrapped
+as a straw dog bound to q-0037.0013.0005.0007, which decisions a reply carries being that
+question's *(the user, 2026-10-22)*.
+
 ## v103 — 2026-10-22
 
 **The 🪢 table is the session mechanism's** — its two sentences left the reply-layout paragraph
