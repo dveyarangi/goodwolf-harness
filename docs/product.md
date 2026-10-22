@@ -35,12 +35,15 @@ project's own practices stay its own, by its choice; the harness fits into them 
 
 ## Goals with no guarantee yet
 
-Neither may be lost as a goal, though nothing guarantees either today.
+None may be lost as a goal, though nothing guarantees any of them today.
 
 - **G1 Better over time, not worse.** Decisions do not erode, contradictions do not accumulate,
   and a lesson learned in one session holds in the next.
 - **G2 No harm.** The agent does not destroy work, leak secrets, or act beyond what it was
   allowed.
+- **G3 The agent is the interface.** A person steers the project, its settings included, through
+  the agent and never needs to open a file; a hand edit is allowed, rare, and treated as drift
+  *(the user, 2026-10-23)*.
 
 ## Causes
 
