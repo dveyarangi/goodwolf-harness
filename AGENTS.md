@@ -1,14 +1,9 @@
 # Entry contract
 
-Entry contract: v107, 2026-10-22.
+Entry contract: v108, 2026-10-23.
 
 <straw-dog question="q-0037.0009.0021">
 Under `debug=on`, open your first reply of every session with the `Entry contract:` line above, verbatim.
-</straw-dog>
-
-<straw-dog question="q-0037.0013">
-Run /recall first in every conversation, whatever the first message says. A conversation the host
-resumes under a new id is the same conversation: its context holds the recall it ran.
 </straw-dog>
 
 ## General rules
@@ -164,6 +159,9 @@ one's included, on one line, each by its id alone, linked to its entry, `—` fo
 position; each collision is a row under it, naming the sessions it involves. The table stands
 whenever another session runs: its header is enough, with no collision under it, and it opens the
 reply.
+
+**S6** Run `/recall` first in every conversation, whatever the first message says. A conversation the host
+resumes under a new id is the same conversation: its context holds the recall it ran.
 </installed>
 
 ## Document load-bearing, code&comment the rest

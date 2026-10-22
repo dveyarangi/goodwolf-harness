@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v108 — 2026-10-23
+
+**The recall rule is the session mechanism's** — *run `/recall` first in every conversation; a
+conversation the host resumes under a new id is the same conversation* left its straw dog at the
+head of the file, bound to the pacer's question since v9, for the session mechanism's rules file,
+and came back as the installed block S6 under the general rules: a session is a chat from its
+recall to its conclude, so where a session starts is the session's to say.
+
 ## v107 — 2026-10-22
 
 **A new question takes its parent's rung** — Q1's *A new question* reads *give it its parent's rung,

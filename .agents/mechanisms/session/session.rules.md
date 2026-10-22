@@ -58,6 +58,16 @@ whenever another session runs: its header is enough, with no collision under it,
 reply.
 </rule>
 
+## S6 — every conversation starts with its recall
+
+- **target** `AGENTS.md`
+- **authority** the user, 2026-09-20, the first core rule to leave the pacer page; a resumed conversation the same session, 2026-10-09; the session's since 2026-10-23
+
+<rule>
+Run `/recall` first in every conversation, whatever the first message says. A conversation the host
+resumes under a new id is the same conversation: its context holds the recall it ran.
+</rule>
+
 ## S5 — a commit holds one session's work
 
 - **target** `.agents/skills/commit/SKILL.md`
