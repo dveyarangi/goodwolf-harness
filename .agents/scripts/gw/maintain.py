@@ -304,17 +304,22 @@ def _owned_parts(root: Path, mechanism: Declaration) -> list[str]:
 
 
 def _skill_files(root: Path, mechanism: Declaration) -> list[str]:
-    """Every file beside the instruction file — its format shelf among them, where a record's
+    """Every file beside each instruction file — its format shelf among them, where a record's
     format is declared. Evidence is story and governs nothing, so an `EVIDENCE.md` a skill still
     carries from before its mechanism was declared is left out, as R2 leaves out evidence."""
-    if not mechanism.instruction or not (root / mechanism.instruction).is_file():
-        raise Unreadable(f"{mechanism.slug}'s instruction file {mechanism.instruction} does not resolve")
-    skill = (root / mechanism.instruction).parent
-    return [
-        path.relative_to(root).as_posix()
-        for path in skill.rglob("*")
-        if path.is_file() and path.name != EVIDENCE
-    ]
+    if not mechanism.instructions:
+        raise Unreadable(f"{mechanism.slug} declares no instruction file")
+    files = []
+    for named in mechanism.instructions:
+        if not (root / named).is_file():
+            raise Unreadable(f"{mechanism.slug}'s instruction file {named} does not resolve")
+        skill = (root / named).parent
+        files += [
+            path.relative_to(root).as_posix()
+            for path in skill.rglob("*")
+            if path.is_file() and path.name != EVIDENCE
+        ]
+    return files
 
 
 def _authored_surface(root: Path, surface: list[str]) -> dict[str, str]:

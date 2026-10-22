@@ -458,7 +458,11 @@ direction the reason actually needs is the other one — a skill with two owners
 ambiguous, which the check already refuses — so the user loosened the rule to one mechanism per
 skill, with a mechanism's skills each acting on a record it declares *(the user, 2026-10-10)*. The
 declaration still reads one `instruction` bullet; the field becomes a list when a mechanism owning
-a second skill is declared.
+a second skill is declared. **Done 2026-10-22**, the first stage of
+[01-0050](../tickets/01-0050-a-session-is-kept-by-a-mechanism-of-its-own.md): the header takes one
+`instruction` bullet per skill, the check reads them all and matches a skill against any, the index
+renders every one, and the maintain clock walks each skill's directory; the format's straw dog on
+one bullet rewritten.
 
 ## The meta-rules leave the entry file, not installed — 2026-10-11
 

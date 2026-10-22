@@ -169,7 +169,7 @@ class Declaration:
 
     slug: str
     doc: str
-    instruction: str | None
+    instructions: tuple[str, ...]
     state: str | None
     kind: str | None
     kind_under_former_mark: str | None
@@ -182,7 +182,7 @@ class Declaration:
         return {
             "mechanism": self.slug,
             "doc": self.doc,
-            "instruction": self.instruction,
+            "instruction": list(self.instructions),
             "state": self.state,
             "rules": self.rules,
             "moments": [moment.as_record() for moment in self.moments],
@@ -300,7 +300,8 @@ def _entry(directory: Path) -> tuple[str, str, str, str]:
     summary = _summary(text)
     if summary is None:
         return slug, "the doc does not open with a title line", "—", "—"
-    return slug, summary, f"`{bullets.get('instruction', '—')}`", bullets.get("state", "—")
+    named = _instructions(text)
+    return slug, summary, ", ".join(f"`{each}`" for each in named) or "—", bullets.get("state", "—")
 
 
 def _summary(text: str) -> str | None:
@@ -481,7 +482,7 @@ def _declaration(root: Path, directory: Path, text: str, held: dict[str, questio
     return Declaration(
         slug=slug,
         doc=citing,
-        instruction=bullets.get("instruction"),
+        instructions=_instructions(text),
         state=bullets.get("state"),
         kind=bullets.get(MARK),
         kind_under_former_mark=bullets.get(FORMER_MARK),
@@ -503,17 +504,18 @@ def _header_problems(root: Path, declared: Declaration) -> list[Diagnostic]:
     )
 
 
-# TODO q-0037.0017: a declaration reads one instruction bullet; a mechanism owning a second skill
-# turns the field into a list.
 def _instruction_problems(root: Path, declared: Declaration) -> list[Diagnostic]:
-    """The one bullet a mechanism cannot be declared without, and the file it must not be."""
-    if not declared.instruction:
+    """The bullet a mechanism cannot be declared without — one per skill it owns, each the act at
+    one of its moments (the user, 2026-10-10) — and the file none of them may be."""
+    if not declared.instructions:
         return [Diagnostic(declared.slug, "no instruction bullet")]
-    if declared.instruction == declared.doc:
-        return [Diagnostic(declared.slug, "the instruction file is the doc")]
-    if not (root / declared.instruction).is_file():
-        return [Diagnostic(declared.slug, f"{declared.instruction} does not resolve")]
-    return []
+    problems = []
+    for named in declared.instructions:
+        if named == declared.doc:
+            problems.append(Diagnostic(declared.slug, "the instruction file is the doc"))
+        elif not (root / named).is_file():
+            problems.append(Diagnostic(declared.slug, f"{named} does not resolve"))
+    return problems
 
 
 def _state_problems(declared: Declaration) -> list[Diagnostic]:
@@ -683,7 +685,7 @@ def _skills(root: Path, declarations: list[Declaration], held: dict[str, questio
     skills = []
     for directory in sorted(path for path in home.glob("*") if path.is_dir()) if home.is_dir() else []:
         named = f"{SKILLS}/{directory.name}/"
-        by = [declared.slug for declared in declarations if declared.instruction == f"{named}SKILL.md"]
+        by = [declared.slug for declared in declarations if f"{named}SKILL.md" in declared.instructions]
         skills.append(Skill(named, by, _claim(directory / "SKILL.md", held)))
     return skills
 
@@ -779,11 +781,12 @@ def _naming_problems(root: Path, declared: list[Declaration], skills: list[Skill
 
 
 def _carriers(declared: Declaration) -> list[str]:
-    """The parts that name their mechanism: its instruction file, and its parts under the scripts.
+    """The parts that name their mechanism: its instruction files, and its parts under the scripts.
     The doc and rules file sit in the mechanism's own directory and a shelf beside its skill, so
     their place already says whose they are."""
-    instruction = declared.instruction or ""
-    carriers = [instruction] if instruction.startswith(SKILLS) and instruction.endswith("/SKILL.md") else []
+    carriers = [
+        named for named in declared.instructions if named.startswith(SKILLS) and named.endswith("/SKILL.md")
+    ]
     carriers += [part.where for part in declared.parts if part.where.startswith(SCRIPTS_ROOT)]
     return list(dict.fromkeys(carriers))
 
@@ -851,6 +854,19 @@ def _bullets(text: str) -> dict[str, str]:
         name, _, rest = stripped[4:].partition("**")
         found[name.strip()] = _value(rest)
     return found
+
+
+def _instructions(text: str) -> tuple[str, ...]:
+    """Every `instruction` bullet of the header, in its order: one per skill the mechanism owns.
+    The header's other bullets stand once; this one repeats, so `_bullets` cannot carry it."""
+    named = []
+    for line in text.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("## "):
+            break
+        if stripped.startswith("- **instruction**"):
+            named.append(_value(stripped[len("- **instruction**"):]))
+    return tuple(named)
 
 
 def _value(rest: str) -> str:

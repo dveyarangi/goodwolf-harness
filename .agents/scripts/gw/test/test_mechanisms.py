@@ -117,7 +117,7 @@ class AWellFormedDeclaration(Declared):
         self.assertEqual(1, len(checked.declarations))
         declared = checked.declarations[0]
         self.assertEqual(SLUG, declared.slug)
-        self.assertEqual(INSTRUCTION, declared.instruction)
+        self.assertEqual((INSTRUCTION,), declared.instructions)
         self.assertEqual("always on", declared.state)
         self.assertEqual(2, len(declared.moments))
         self.assertEqual(3, len(declared.parts))
@@ -263,6 +263,63 @@ class TheInstruction(Declared):
         self.assertIn("whose declaration does not name it", problems[1])
 
 
+class TwoSkillsOfOneMechanism(Declared):
+    """A mechanism may own several skills, each the act at one of its moments (the user,
+    2026-10-10): its declaration names each in a bullet of its own."""
+
+    SECOND = ".agents/skills/second/SKILL.md"
+
+    def declaring_both(self, second: str = SECOND) -> None:
+        self.write(self.SECOND, NAMED_SKILL)
+        self.write(
+            DOC,
+            self.doc(
+                header=self.header(
+                    f"- **instruction** `{INSTRUCTION}` — the act\n"
+                    f"- **instruction** `{second}` — the other act\n"
+                ),
+                parts=PARTS + f"| instruction file | `{self.SECOND}` |\n",
+            ),
+        )
+
+    def test_both_skills_are_the_mechanisms_and_the_declaration_holds_both(self) -> None:
+        self.declaring_both()
+
+        checked = self.checked()
+
+        self.assertEqual([], checked.diagnostics)
+        self.assertEqual((INSTRUCTION, self.SECOND), checked.declarations[0].instructions)
+        named = {skill.directory: skill.named_by for skill in checked.skills}
+        self.assertEqual([SLUG], named[".agents/skills/sample/"])
+        self.assertEqual([SLUG], named[".agents/skills/second/"])
+
+    def test_a_second_bullet_that_does_not_resolve_is_reported_by_its_path(self) -> None:
+        self.declaring_both(second=".agents/skills/gone/SKILL.md")
+
+        problems = self.problems()
+
+        self.assertIn(".agents/skills/gone/SKILL.md does not resolve", problems[0])
+
+    def test_a_second_skill_claiming_the_mechanism_with_one_bullet_is_reported(self) -> None:
+        self.write(self.SECOND, NAMED_SKILL)
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems))
+        self.assertIn(f"names {SLUG}, whose declaration does not name it", problems[0])
+
+    def test_the_index_renders_every_instruction(self) -> None:
+        self.declaring_both()
+        said = io.StringIO()
+        with contextlib.redirect_stdout(said):
+            mechanisms.main(["--index"], root=self.root)
+
+        row = next(line for line in said.getvalue().splitlines() if SLUG in line)
+
+        self.assertIn(INSTRUCTION, row)
+        self.assertIn(self.SECOND, row)
+
+
 class AMomentsRow(Declared):
     def moments(self, *rows: str) -> str:
         header = "| moment | instructed by | kind, and why |\n|---|---|---|\n"
@@ -383,7 +440,7 @@ class TheHeader(Declared):
 
         checked = self.checked()
 
-        self.assertEqual(INSTRUCTION, checked.declarations[0].instruction)
+        self.assertEqual((INSTRUCTION,), checked.declarations[0].instructions)
         self.assertEqual([], checked.diagnostics)
 
     def test_states_one_of_the_two_states_a_mechanism_can_be_in(self) -> None:
