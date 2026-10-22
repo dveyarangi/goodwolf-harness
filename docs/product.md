@@ -12,6 +12,10 @@ implementation, until the user named the pains. The argument is in
 "Which pains of developing software with coding agents does the harness exist to relieve, and
 what answers each?".
 
+**What it does, in one line.** Fewer steps, each more precise: at every step the agent knows what
+is needed now — which rule, which record, which question — and does that, not the rest. The
+project's own practices stay its own, by its choice; the harness fits into them and replaces none.
+
 ## Pains
 
 1. **The agent is ineffective.** It does not reach the intended result: work called done that does
@@ -45,7 +49,8 @@ Neither may be lost as a goal, though nothing guarantees either today.
 - **C3** The person's space of ideas and the exploration space diverge. A task set wrong is one
   case.
 - **C4** The exploration space is lost, between sessions, at a compaction, or when the host resumes
-  a conversation under a new identity.
+  a conversation under a new identity — or it is written and costs a search to reach, a price paid
+  by every newcomer and every session.
 - **C5** Agents are out of sync with each other.
 - **C6** What was decided and what was built drift apart.
 - **C7** Failures go undetected or unattributed, so nothing is learned.
@@ -161,6 +166,10 @@ Work is evaluated against its own criteria and the project's checks. A failure i
 cause above, and corrects both the work and whatever let it through: an instruction, a decision
 boundary, a task's form.
 
+A disagreement between records, or between a record and the code, is repaired where a session
+meets it, and every session meets its own. No pass reads the whole tree; the method is the repair
+by encounter, not the audit.
+
 ## Who it is for
 
 Every pain above is framed for a person steering agents on one project, in one session or several
@@ -170,7 +179,11 @@ at once: sessions in one tree see each other's position, and the host keeps thei
 ## A pain of the harness itself
 
 **The method doesn't fit the project, and the project's changes are lost on update.** This is a
-pain of adopting a tool, not of developing with agents. The harness answers it with:
+pain of adopting a tool, not of developing with agents. The stance behind every answer: the harness
+integrates. A project's practices — its gates, its decision records, its scripts, its coordinators —
+stay as they are, kept by the project's choice; the harness is added beside them, and what it asks
+is counted against what the project's method already asks, so the gain shows as fewer and more
+precise steps, never as a practice removed. The harness answers it with:
 
 - the project's own rules file, applied last and kept through updates;
 - an update that stops rather than overwrite a hand edit, and a refusal that writes nothing;
