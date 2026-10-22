@@ -9,8 +9,9 @@ taking the tree's method in are the skill's.
 ## The two stops
 
 **First.** Offer to read the repository and write up what the harness would change here; name the
-one file it would write and where — `docs/sessions/0001-<date>-<slug>.md` under the tree's `docs/`;
-a tree without `docs/` takes the place the person names — and wait. Silence takes the offer; another
+one file it would write and where — `docs/sessions/0001-<YYYYMMDD>-<slug>.md` under the tree's
+`docs/`, the slug the question's words; a tree without `docs/` takes the place the person names — and
+wait. Silence takes the offer; another
 place named takes that place. Nothing else in the tree changes before or after.
 
 **Second.** Show the report's main recommendations and ask one thing: whether the migration runs,
@@ -21,8 +22,11 @@ becoming tickets; on *no* as the one record the method leaves.
 ## The study
 
 Read the tree as a capable newcomer would, by search and sampling, not whole; the tree is its
-default branch as checked out, and what is deployed is not the study's subject. The study has three
-parts, and the report says which part each statement comes from. The read is quick; the key is the
+default branch as checked out, and what is deployed is not the study's subject. Read-only means no
+write in the tree, no change to its git state, no fetch of any kind, and no network but the host's
+read commands for pull requests; scratch files go where the host puts them. The study has three
+parts, and the report says which part each statement comes from: a short bracketed mark on each
+paragraph, the three marks named once in the report's first section. The read is quick; the key is the
 study's largest cost, built from what the inventory and the readings meet, never from a second pass.
 
 **The inventory.** The entry file and what it includes; skills of the tree's own; scripts, gates and
@@ -59,7 +63,8 @@ to hold once it has, counted and quoted in the tree's own words:
 migration. A blind run: a fresh agent, told nothing of the harness or of a measurement, is given the
 repository and a sample of questions, answers read-only from files, git history and the PR list, and
 reports how it searched. The author of the report never answers the sample; the key is built from
-the code and the records before the run and corrected only where the run proves it wrong.
+the code and the records before the run and corrected only where the run proves it wrong. Where
+the run proves it incomplete, the addition is marked as one and no score changes.
 
 The sample, from the tree as it stands on the day:
 
@@ -69,23 +74,25 @@ The sample, from the tree as it stands on the day:
 | in flight | 3 | the item and its state | hit · partial · miss |
 | undecided | 3 | that it is open, and who decides | hit · partial · miss |
 | resting on contradictory or incomplete records | 3 | the two records, or the record that stops short; asked about the topic, never the discrepancy | noticed and said · answered from one side · filled the gap |
-| strong but hidden invariants or structures | 3 | what the code enforces and no record states as a rule — a per-case mention in a decision record is not one; what the tree's shape implies | recovered · not |
+| strong but hidden invariants or structures | 3 | what the code enforces and no record states as a general rule — a decision record's mention of one case does not state the rule; what the tree's shape implies and no record says | recovered · not |
 
 Counted beside the answers: tokens, tool calls and wall time from the host's account of the blind
 run; files read from the blind agent's own account of how it searched. And what the project's method
-asks of a change today, as numbers: rules read by every session — the entry file and every file a
-rule orders read at every session —, CI jobs and steps per PR, checklist items, PR body length,
-decision records per merged PR, check scripts. The project's practices stay
-its own, kept by its choice; the harness integrates with them and replaces none. The count is there
-so the same count after a migration shows what the harness is for: fewer steps, and each step more
-precise, because at each step what is needed is known.
+asks of a change today, as numbers: rules read by every session — the entry file and every file in
+the tree a rule orders read at every session, a read outside the tree named and not counted —, CI
+jobs and steps per PR, checklist items, PR body length, decision records per merged PR, check
+scripts. The project's practices stay its own, kept by its choice; the harness integrates with them
+and replaces none. The count is there so the same count after a migration shows what the harness is
+for: fewer steps, and each step more precise, because at each step what is needed is known. The
+count is counted, never judged: the body cites its numbers where an argument needs one and draws no
+conclusion from them; the table is the ledger's.
 
 ## The report
 
 The body of the person's question, *what would the harness change here?*, headed by that question
 in the project's language, and written in the project's names. No term or phrase of the harness's
 own — mechanism, store, straw dog, tier, rung, install block, a session *standing on* a question —
-appears; the harness is named by its name, <straw-dog question="q-0037.0006.0020.0013">GoodWolf</straw-dog>, never by
+appears in the harness's sense; a word the project uses itself is the project's, used as it uses it; the harness is named by its name, <straw-dog question="q-0037.0006.0020.0013">GoodWolf</straw-dog>, never by
 the bare word; the study's
 parts are described by what they do; what it brings is said as what it does for the project: a home for
 each kind of record; a rule installed where it is read; open questions kept with their state and the
