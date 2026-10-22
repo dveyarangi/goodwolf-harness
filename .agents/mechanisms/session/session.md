@@ -56,10 +56,10 @@ for this mechanism.
 | a session concludes: its record written, its leans, its row ended | `.agents/skills/conclude/SKILL.md` | |
 | a session wakes and reads where the work stands | `.agents/skills/recall/SKILL.md` | |
 | a row ended for seven days is removed | — | <straw-dog question="q-0037.0017">not yet</straw-dog> |
-| rows a wake changed in other sessions' files are committed | — | <straw-dog question="q-0037.0017">not yet</straw-dog> |
-| a reply shows the sessions it runs beside, under debug | — | <straw-dog question="q-0037.0017">not yet</straw-dog> |
-| a recall re-ranks nothing another running session is on | — | <straw-dog question="q-0037.0017">not yet</straw-dog> |
-| a commit holds one session's work alone | — | <straw-dog question="q-0037.0017">not yet</straw-dog> |
+| rows a wake changed in other sessions' files are committed | `.agents/skills/maintain/SKILL.md` | |
+| a reply shows the sessions it runs beside, under debug | `AGENTS.md` | |
+| a recall re-ranks nothing another running session is on | `.agents/skills/recall/SKILL.md` | |
+| a commit holds one session's work alone | `.agents/skills/commit/SKILL.md` | |
 | checking the rows | `.agents/scripts/gw/sessions.py` | |
 | a chat resumed under a new id its host does not keep steady | — | <straw-dog question="q-0037.0017.0004">not yet</straw-dog> |
 | sessions reaching each other beyond one working directory | — | <straw-dog question="q-0037.0017.0005">not yet</straw-dog> |
@@ -73,6 +73,7 @@ for this mechanism.
 | the wake's instruction file | `.agents/skills/recall/SKILL.md` |
 | the conclude's instruction file | `.agents/skills/conclude/SKILL.md` |
 | this doc | `.agents/mechanisms/session/session.md` |
+| its rules file | `.agents/mechanisms/session/session.rules.md` |
 | the rows' script | `.agents/scripts/gw/sessions.py` |
 | its tests | `.agents/scripts/gw/test/test_sessions.py` |
 
@@ -107,9 +108,8 @@ for this mechanism.
 
 ## Not yet at the shape
 
-**Five `not yet` rows wait on this mechanism's own inception**, named in its evidence: the removal
-after seven days, and the four rules on how sessions interact, which its rules file installs where
-they are read.
+**One `not yet` row waits on this mechanism's own inception**, named in its evidence: the removal
+after seven days.
 
 <straw-dog question="q-0037.0017.0005">
 **The rows' folder** is one folder in the working tree, and that is how sessions see each other;

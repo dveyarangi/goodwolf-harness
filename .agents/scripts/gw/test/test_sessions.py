@@ -213,6 +213,14 @@ class TheWake(Rendered):
 
 
 class TheEnd(Rendered):
+    def said(self, *argv: str) -> tuple[int, str]:
+        if argv[:1] == ("--end",):
+            out = io.StringIO()
+            with contextlib.redirect_stdout(out):
+                status = sessions.main(list(argv), root=self.root, now=NOW)
+            return status, out.getvalue()
+        return super().said(*argv)
+
     def test_marks_the_session_ended_keeping_its_position_and_touching_no_other_line(self) -> None:
         status, _ = self.said("--end", "--session", "s-alpha")
 

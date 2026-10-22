@@ -54,25 +54,23 @@ drop, read the questions skill.
 ## Q2 — the wake opens at where the work stands
 
 - **target** `.agents/skills/recall/SKILL.md`
-- **authority** the user, 2026-09-29 to 2026-10-04; *take from it*, not *report*, 2026-10-20
+- **authority** the user, 2026-09-29 to 2026-10-04; *take from it*, not *report*, 2026-10-20; the sessions' part the session mechanism's, 2026-10-22
 
 <rule>
-Start from the wake's read — the one the host's session-start hook put in your context, or
-`questions.py --wake --session <tag>` with the tag that read named; a bare `--wake` registers a new
-session, and is for a host whose hook registered none. Take from it where the other sessions stand, what is suspect, which deferrals
-may now be due, and which straw dogs are due; take this session's position from the person or
-estimate it, and place it with `at`. Re-rank nothing another running session is on; then read the queue as this skill says.
+Take from the wake's read what is suspect, which deferrals may now be due, and which straw dogs
+are due; take this session's position from the person or estimate it, and place it with `at`;
+then read the queue as this skill says.
 </rule>
 
-## Q3 — the conclude writes the leans and ends the session
+## Q3 — the conclude writes the leans
 
 - **target** `.agents/skills/conclude/SKILL.md`
-- **authority** the user, 2026-09-29 and 2026-10-03
+- **authority** the user, 2026-09-29 and 2026-10-03; the ending the session mechanism's, 2026-10-22
 
 <rule>
 Write a lean line on each question the session touched and left open —
 `questions.py lean q-N '<line>' --session <tag>` — and nothing else: placements and closures were written as they
-happened. As the conclude's last act, run `questions.py --end --session <tag>`.
+happened.
 </rule>
 
 ## Q4 — the store is checked, and finished subtrees archived

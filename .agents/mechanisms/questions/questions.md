@@ -1,6 +1,6 @@
 # questions — every open question of the tree is kept in one store, with each session's current question known
 
-- **instruction** `.agents/skills/questions/SKILL.md` — the calls, and closing, branching and dropping; the records' shape in `QUESTION-FORMAT.md` beside it
+- **instruction** `.agents/skills/questions/SKILL.md` — the calls, and closing, branching and dropping; the entries' shape in `QUESTION-FORMAT.md` beside it
 - **state** installed
 - **record of** what must always hold
 
@@ -50,8 +50,8 @@ the count shows on its window line and ranks it where a session starts. The time
 return from a stay without telling sessions apart, so a resumed conversation's new id changes
 nothing; a question worked for days strikes too, so the count ranks time spent as well as returns.
 
-**Delivery.** Where a host's hooks can add context, the window and the session's registration come
-from them, under the host's own session id; the rule stays the floor every host reads. Claude Code
+**Delivery.** Where a host's hooks can add context, the window comes from them, and the session
+mechanism's registration with it; the rule stays the floor every host reads. Claude Code
 and Codex take context at session start and before every message; Cursor only at session start, so
 its agent draws the window by the rule, and its prompt hook only marks the session seen. A window stays in the conversation once drawn, so the next
 is drawn only when the session's position or an entry moved, and whole again after a compaction.
@@ -59,9 +59,6 @@ Either form ends with the counters — the tree's open tickets, open questions a
 with what came and went since the session's previous window, matched by name — since a ticket or
 a straw dog moves while no entry does; the names are remembered outside the tree beside the
 window's own memory, which a compaction empties and they outlive.
-A conversation resumed under a new session id is the session it was: where the host names the
-conversation more steadily than the session — the Claude Code desktop app does, in every process
-it starts — the session is registered under that name, so a resume finds it already registered.
 
 **Principles**, behind the rules and never installed:
 
@@ -97,13 +94,13 @@ roles, is an open question of the store.
 | closing, branching or dropping a question | `.agents/skills/questions/SKILL.md` | |
 | re-parenting, merging or pruning by hand | `.agents/skills/questions/SKILL.md` | |
 | drawing the window | `.agents/scripts/gw/questions.py` | |
-| registering a session and delivering its window through a host's hook | `.agents/scripts/gw/questions.py` | |
+| delivering a session's window through a host's hook | `.agents/scripts/gw/questions.py` | |
 | writing entries and the position from a call | `.agents/scripts/gw/questions.py` | |
 | writing a question's argument, the body after its parts, by hand | `.agents/skills/questions/QUESTION-FORMAT.md` | |
 | landing a decision an align makes, and holding one with nowhere to land yet | `.agents/skills/align/SKILL.md` | |
 | checking the store | `.agents/scripts/gw/questions.py` | |
-| reading where the work stands when a session wakes | `.agents/skills/recall/SKILL.md` | |
-| writing the session's leans and ending it | `.agents/skills/conclude/SKILL.md` | |
+| reading the store at a session's wake: the most struck, the deferred, the straw dogs due | `.agents/scripts/gw/questions.py` | |
+| writing the session's leans | `.agents/skills/conclude/SKILL.md` | |
 | archiving the subtree a closure finishes | `.agents/scripts/gw/questions.py` | |
 | sweeping a wholly closed subtree a closure left behind | `.agents/skills/maintain/SKILL.md` | |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
@@ -142,6 +139,7 @@ roles, is an open question of the store.
 | the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |
 | the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
 | the interpreter record the wrapper reads, made by the link step | `.agents/scripts/gw/harness.py` | `harness` |
+| the rows' script, for each session's position | `.agents/scripts/gw/sessions.py` | `session` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 
 ## What it produces, and who reads it
@@ -152,9 +150,6 @@ roles, is an open question of the store.
 - **The entries** — *what it intends to become, what happened once closed* — read by the script at every window, wake, declaration and check, by a
   person through `--tree`, and by the product mechanism's script, which asks `realizes` for each
   question's trace link — a part the store keeps as written and never resolves.
-- **The sessions folder** — *what exists* — one file per session, named by its tag and holding its
-  line, so no session's write meets another's; read by the script for every window and wake, so
-  each session sees where the others stand; a wake ends the sessions gone silent.
 - **The window** — *what exists* — read by the agent before every message, from the host's hook or the rule.
 - **The wake's read** — *what exists* — read by the agent at session start, from the hook or `/recall`; it names
   the straw dogs due, whose text `/maintain` rewrites.
@@ -172,12 +167,7 @@ Nothing else; the tree is rendered on request and never committed.
 
 ## Not yet at the shape
 
-**Three `not yet` rows**, each bound to an open question.
-
-<straw-dog question="q-0037.0017.0005">
-**The sessions folder** is one folder in the working tree, and that is how sessions see each other;
-sessions that do not share the directory do not see each other.
-</straw-dog>
+**Two `not yet` rows**, each bound to an open question.
 
 <straw-dog question="q-0037.0010.0004">
 **The store's paths** are painted doors held by hand in the shape check.

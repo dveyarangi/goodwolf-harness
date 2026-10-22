@@ -26,7 +26,12 @@ never repaired, never copied into the queue.</straw-dog> It holds:
 - What was refuted or went wrong, and what it taught.
 - The open questions the session touched, each with where it stands and what it waits on.
 - What continues, and the first step of the next session.
-Session files live under `docs/sessions/`, named `NNNN-<YYYYMMDD>-<name>` with a constantly incrementing number.
+Session files live under `docs/sessions/`, named `NNNN-<YYYYMMDD>-<name>` with a constantly incrementing number:
+the session record, tier 2, read by the next session's `/recall` and kept. The session mechanism's
+other record is the row, one file per session under `docs/sessions/rows/`, named by its tag and
+holding `<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four]`; tier 1 through
+the window and the wake's read; gone when it reads ended and its time is seven days or older.
+The script writes it, never a hand.
 
 The session's unpushed commits are the conclude's to settle, once the ended row is committed, as
 the project's way of working with git says in its local file.
@@ -36,5 +41,9 @@ the project's way of working with git says in its local file.
 <installed by="questions">
 **Q3** Write a lean line on each question the session touched and left open —
 `questions.py lean q-N '<line>' --session <tag>` — and nothing else: placements and closures were written as they
-happened. As the conclude's last act, run `questions.py --end --session <tag>`.
+happened.
+</installed>
+
+<installed by="session">
+**S2** As the conclude's last act, run `sessions.py --end --session <tag>`.
 </installed>

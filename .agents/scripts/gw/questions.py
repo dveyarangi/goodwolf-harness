@@ -4,7 +4,6 @@
     uv run --offline --no-project python .agents/scripts/gw/questions.py --check
     uv run --offline --no-project python .agents/scripts/gw/questions.py --window --session <tag>
     uv run --offline --no-project python .agents/scripts/gw/questions.py --wake [--session <tag>]
-    uv run --offline --no-project python .agents/scripts/gw/questions.py --end --session <tag>
     uv run --offline --no-project python .agents/scripts/gw/questions.py --tree [<q-id>]
     uv run --offline --no-project python .agents/scripts/gw/questions.py --seed
     uv run --offline --no-project python .agents/scripts/gw/questions.py <event> ... --session <tag>
@@ -19,8 +18,7 @@ questions skill's.
 `--check` is the maintainer. It writes nothing; its exit status is the verdict and its JSON is for
 the person reading a failure. A tree with no store has nothing to check and passes. `--window` is
 what the agent reads before placing a message; `--wake` registers a session, ends every other gone
-silent, and reads where the work stands; `--end` closes a session's row, `sessions.py --end`'s
-from here on; `--tree` draws the live tree for a person; `--seed`
+silent, and reads where the work stands; `--tree` draws the live tree for a person; `--seed`
 opens the roots of a store that holds no entry, as the install does, and is how a person resumes
 an install that stopped there. Each
 event of a turn is its own call — `at`, `open`, `move`, `depend`, `undepend`, `close`, `suspect`,
@@ -105,7 +103,7 @@ ARROW = "→"
 NOT_HOMES = (f"{STORE}/", "docs/tickets/", "docs/rfc/")
 _USAGE = (
     "usage: questions.py --check | --window --session <tag> | --wake [--session <tag>] "
-    "| --end --session <tag> | --tree [<q-id>] | --seed | <event> ... --session <tag>, the events "
+    "| --tree [<q-id>] | --seed | <event> ... --session <tag>, the events "
     "at, open, move, reword, depend, undepend, close, suspect, clear, lean, assign, realize, rung"
 )
 # How many times an `open` takes the next free id again when another session took the one it drew.
@@ -335,11 +333,6 @@ def main(
             return 0
         if argv[:1] == ["--tree"] and len(argv) <= 2:
             print(tree(root, argv[1] if len(argv) == 2 else None))
-            return 0
-        if len(argv) == 3 and argv[:2] == ["--end", "--session"]:
-            # TODO q-0037.0017: `sessions.py --end` is the conclude's; this delegate goes with the rules.
-            held = sessions.end(root, argv[2], now)
-            print(f"ended {held.tag} at {held.current or 'no position'}")
             return 0
         if argv == ["--seed"]:
             written = seed(root, now)

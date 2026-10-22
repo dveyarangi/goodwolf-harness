@@ -31,13 +31,18 @@ they hear only what of it asks something of them.
 ## Installed from other mechanisms
 
 <installed by="questions">
-**Q2** Start from the wake's read — the one the host's session-start hook put in your context, or
-`questions.py --wake --session <tag>` with the tag that read named; a bare `--wake` registers a new
-session, and is for a host whose hook registered none. Take from it where the other sessions stand, what is suspect, which deferrals
-may now be due, and which straw dogs are due; take this session's position from the person or
-estimate it, and place it with `at`. Re-rank nothing another running session is on; then read the queue as this skill says.
+**Q2** Take from the wake's read what is suspect, which deferrals may now be due, and which straw dogs
+are due; take this session's position from the person or estimate it, and place it with `at`;
+then read the queue as this skill says.
 </installed>
 
 <installed by="ticket">
 **P12** Read the live tickets with `tickets.py --list` before ordering the queue or minting a ticket.
+</installed>
+
+<installed by="session">
+**S1** Start from the wake's read — the one the host's session-start hook put in your context, or
+`questions.py --wake --session <tag>` with the tag that read named; a bare `--wake` registers a new
+session, and is for a host whose hook registered none. Take from it where the other sessions
+stand, and re-rank nothing another running session is on.
 </installed>

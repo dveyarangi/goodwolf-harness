@@ -127,6 +127,12 @@ keeps is drift, reported with its evidence and never rewritten to fit.
 finding; repair it at the rung of what it mends.
 </installed>
 
+<installed by="session">
+**S3** Check the rows with `sessions.py --check`; a diagnostic is a finding, repaired at the rung of what
+it mends. Commit with the pass each row a wake ended or removed in another session's file under
+`docs/sessions/rows/`; a file whose row reads `running` stays out.
+</installed>
+
 ## Finish
 
 - **F1** Run the checks in the project's verification set that the scope touched.
@@ -134,11 +140,6 @@ finding; repair it at the rung of what it mends.
 - **F4** Mark each level you re-checked, as the step that closes it and before the report:
   `maintain.py --mark <mechanism> <level> <outcome>`. Mark nothing you did not re-check. An edit
   made between the re-check and its mark is cleared unread.
-
-<straw-dog question="q-0037.0017.0003">
-- **F5** Commit with the pass each row a wake ended in another session's file under
-  `docs/questions/sessions.d/`; a file whose row reads `running` stays out.
-</straw-dog>
 
 <installed by="local">
 **L3** The verification set: the checks always; the tests too when the work changed a file that is not
@@ -151,6 +152,7 @@ uv run --offline --no-project python .agents/scripts/gw/tickets.py --check
 uv run --offline --no-project python .agents/scripts/gw/edges.py --check
 uv run --offline --no-project python .agents/scripts/gw/maintain.py --check
 uv run --offline --no-project python .agents/scripts/gw/questions.py --check
+uv run --offline --no-project python .agents/scripts/gw/sessions.py --check
 uv run --offline --no-project python .agents/scripts/gw/product.py --check
 ```
 

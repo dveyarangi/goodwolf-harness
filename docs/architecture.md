@@ -130,20 +130,15 @@ a root `q-NNNN`, a child its parent's id and one more position — and stays tru
 renames the moved subtree in the same call, its files and every id and link to them across the
 records under `docs/`, mechanically and without forwarding the old ids
 ([decision 6](tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md#decisions-landed-at-this-tickets-align)).
-The sessions file is written only by the script, each session replacing its own line and no other,
-so one session's write never refuses another's; a rename is the one write that touches every
-line, and only the ids in it. A wholly closed subtree moves to `done/` with the mover in the
-`close` call that finishes it; the maintainer's move is the sweep for what a closure left behind. A host's hook
-delivers the window and registers the session under the host's own session id, and never fails
+A session's row is [the session mechanism](../.agents/mechanisms/session/session.md)'s: each
+session writes its own and no other, so one write never refuses another's; a wake ends the silent
+and removes the long ended, and a rename rewrites the ids a row names — the two writes to a row
+not its own, each safe because a silent session has no write of its own to meet *(the user,
+2026-10-10)*. A wholly closed subtree moves to `done/` with the mover in the `close` call that
+finishes it; the maintainer's move is the sweep for what a closure left behind. A host's hook
+delivers the window and registers the session under the host's steadiest id, and never fails
 the host: a problem becomes a line of context. Everything else is
 [the questions mechanism](../.agents/mechanisms/questions/questions.md)'s.
-
-<straw-dog question="q-0037.0017">
-A wake also ends every other running line whose session has gone silent — the one write besides a
-rename to a line not its own. It stays safe because a silent session has no write of its own to
-meet: a session is seen while its messages reach a hook or it writes its line, and a message
-turns an ended line running again *(the user, 2026-10-10)*.
-</straw-dog>
 
 ### Installed blocks
 
@@ -202,7 +197,7 @@ in silence, leaving what a recipient must amend to whoever reads the manifest di
 
 ## Deferred decisions
 
-- The pacer owns session resumption and turn progression. This maintenance install does not
-  define a scheduler, session retention window or automatic next cycle.
+- The pacer owns turn progression; where a session resumes is the session mechanism's. This
+  maintenance install does not define a scheduler or an automatic next cycle.
 - Cross-project distribution, generalized local overrides and dependency tracking retain
   their existing owners in the shared-harness work.

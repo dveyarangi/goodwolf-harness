@@ -1,6 +1,6 @@
 # Question format
 
-This shelf owns the shape of the store's records: an entry, its body, and the sessions folder.
+This shelf owns the shape of the store's records: an entry and its body.
 
 ## An entry
 
@@ -54,19 +54,3 @@ as it found it. A line in it shaped like a part is not one. It runs in three par
 - Dated evidence — the case, a discovery's material, an impact — each under its own heading with
   its date, appended and never rewritten.
 
-<straw-dog question="q-0037.0017.0005">
-## The sessions folder
-
-`docs/questions/sessions.d/`, shared by all sessions, one file per session named by its tag and
-holding its one row: `<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four]` —
-its tag, whether it runs, when its line last changed, its current question or `-` before it has
-one, and its recent ones. Tier 1 through the window and the wake's read. What removes a row: kept
-by design — an ended row lets a later wake offer to resume.
-</straw-dog>
-
-<straw-dog question="q-0037.0017">
-**A silent row ends at the next wake.** Every wake ends each other running row whose session
-nothing has seen for three hours, and says nothing of it. A session is seen while its messages
-reach a hook — the window drawn, or Cursor's prompt hook — or it writes its row; the next message
-turns an ended row running again.
-</straw-dog>

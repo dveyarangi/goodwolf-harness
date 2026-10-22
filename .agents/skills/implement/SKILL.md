@@ -64,6 +64,7 @@ uv run --offline --no-project python .agents/scripts/gw/tickets.py --check
 uv run --offline --no-project python .agents/scripts/gw/edges.py --check
 uv run --offline --no-project python .agents/scripts/gw/maintain.py --check
 uv run --offline --no-project python .agents/scripts/gw/questions.py --check
+uv run --offline --no-project python .agents/scripts/gw/sessions.py --check
 uv run --offline --no-project python .agents/scripts/gw/product.py --check
 ```
 

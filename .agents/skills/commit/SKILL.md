@@ -6,8 +6,6 @@ description: >-
 
 <straw-dog question="q-0037.0009.0005">Mechanism: not yet</straw-dog>
 
-- Commit the work in current session only. Do not commit changes of other session that might represent a work in progress. When in doubt, ask user.
-
 - Look at pending changes; group them by content aligning with origin topic, ticket, rfc or change type (documentation, code, CI, skills).
 
 - Separate implementation and documentation commits.
@@ -31,6 +29,11 @@ description: >-
 
 - Commit when the work closes — `/verify` has passed on it. Push as the project's local file states
   its way of working with git; a push is never implied by a commit.
+
+<installed by="session">
+**S5** Commit the work of the current session only: another session's changes may be its work in
+progress, and in doubt ask the person.
+</installed>
 
 <installed by="local">
 **L8** Prefix the subject with the loop step that produced the work, uppercase, then a colon — one of

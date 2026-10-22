@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v103 — 2026-10-22
+
+**The 🪢 table is the session mechanism's** — its two sentences left the reply-layout paragraph
+for the session mechanism's rules file and came back as the installed block S4 under the general
+rules, the paragraph keeping a pointer; the session mechanism declared the same day by
+[01-0050](../tickets/01-0050-a-session-is-kept-by-a-mechanism-of-its-own.md).
+
 ## v102 — 2026-10-20
 
 **The debug marker** — under `debug=on`, an item shown for debugging alone and carrying no glyph of

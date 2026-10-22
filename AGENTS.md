@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v102, 2026-10-20.
+Entry contract: v103, 2026-10-22.
 
 <straw-dog question="q-0037.0009.0021">
 Under `debug=on`, open your first reply of every session with the `Entry contract:` line above, verbatim.
@@ -79,12 +79,8 @@ Debug or not, a row each, and a table only where it has one: what waits on the u
 under `| ⚖️ Decisions |`, the next step the reply stops before among it, with nothing said of why
 it waits — never one already taken, the agent's own included, which the reply reports as taken and
 the user overturns by saying so; a record out of agreement with what it is of, met and not repaired,
-under `| 🍂 Drift |`. Under `debug=on` also: one party's work or claim colliding with another's —
-another session standing where this one works — met and not resolved, under `| 🪢 Tangle |`, even
-where a record's disagreement is what shows it. The 🪢 table's header lists every running session's
-question, this one's included, on one line, each by its id alone, linked to its entry, `—` for a session
-with no position; each collision is a row under it, naming the sessions it involves. The table
-stands whenever another session runs: its header is enough, with no collision under it.
+under `| 🍂 Drift |`; the 🪢 table of the sessions this one runs beside is the session mechanism's
+rule, installed below.
 
 Head the reply with a one-cell table holding a row for each of the turn's store
 calls, in order, the first over `|---|`: `| 📍 **q-N** · <its question as the window writes it> |`
@@ -96,8 +92,7 @@ A glyph is an anchor for the reader's thinking — people think largely in pictu
 is goodwolf-harness's own.
 
 A turn that completes a step of the delivery ring adds a row to the head table:
-`| 🔁 <the ticket, linked with its slug> · ✅ <each step this turn completed> |`. The 🪢 table
-opens the reply.
+`| 🔁 <the ticket, linked with its slug> · ✅ <each step this turn completed> |`.
 
 A commit is machinery: with debug off, a reply shows no commit table and no commit's hash. Under
 `debug=on`, a turn that made commits follows the 🪢 table with a table of its own,
@@ -152,6 +147,16 @@ entry; the first time, its question follows as the window writes it, save where 
 names it by its id alone. No word stands in for a question a reader has not been shown — *as
 before*, *the same* — it is named. A question the store does not hold yet is written out, never
 named after the ticket it will belong to.
+</installed>
+
+<installed by="session">
+**S4** Under `debug=on`, one party's work or claim colliding with another's — another session standing
+where this one works — met and not resolved, is a row under `| 🪢 Tangle |`, even where a record's
+disagreement is what shows it. The 🪢 table's header lists every running session's question, this
+one's included, on one line, each by its id alone, linked to its entry, `—` for a session with no
+position; each collision is a row under it, naming the sessions it involves. The table stands
+whenever another session runs: its header is enough, with no collision under it, and it opens the
+reply.
 </installed>
 
 ## Document load-bearing, code&comment the rest
