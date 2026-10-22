@@ -55,6 +55,7 @@ for this mechanism.
 | a silent session is ended at another's wake | `.agents/scripts/gw/sessions.py` | |
 | a session concludes: its record written, its leans, its row ended | `.agents/skills/conclude/SKILL.md` | |
 | a session wakes and reads where the work stands | `.agents/skills/recall/SKILL.md` | |
+| a conversation starts with its recall, and one the host resumes under a new id is the same session | `AGENTS.md` | |
 | a row ended for seven days is removed | `.agents/scripts/gw/sessions.py` | |
 | rows a wake changed in other sessions' files are committed | `.agents/skills/maintain/SKILL.md` | |
 | a reply shows the sessions it runs beside, under debug | `AGENTS.md` | |

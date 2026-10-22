@@ -9,8 +9,9 @@ taking the tree's method in are the skill's.
 ## The two stops
 
 **First.** Offer to read the repository and write up what the harness would change here; name the
-one file it would write and where — `docs/sessions/0001-<YYYYMMDD>-<slug>.md` under the tree's
-`docs/`, the slug the question's words; a tree without `docs/` takes the place the person names — and
+one file it would write and where — the first session record under the tree's `docs/sessions/`,
+named by its number, the day and the question's words; a tree without `docs/` takes the place the
+person names — and
 wait. Silence takes the offer; another
 place named takes that place. Nothing else in the tree changes before or after.
 
