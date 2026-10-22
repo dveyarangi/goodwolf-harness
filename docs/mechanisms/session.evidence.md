@@ -1,6 +1,6 @@
 # session — evidence
 
-Declared by [01-0050 a-session-is-kept-by-a-mechanism-of-its-own](../tickets/01-0050-a-session-is-kept-by-a-mechanism-of-its-own.md),
+Declared by [01-0050 a-session-is-kept-by-a-mechanism-of-its-own](../tickets/done/01-0050-a-session-is-kept-by-a-mechanism-of-its-own.md),
 from the align on [q-0037.0017](../questions/q-0037.0017-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md)
 and its eight decisions, 2026-10-21 to 2026-10-22. Why the doc is what it is: the decisions'
 refusals, and what the inception found.

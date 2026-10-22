@@ -1,11 +1,11 @@
 # A session is kept by a mechanism of its own
 
-- **record of** what it intends to become
+- **record of** what happened
 - **Status:** Done (2026-10-22, four stages, verified the same day)
 - **Type:** HITL
 - **Minted:** 2026-10-22
-- **Plan:** [A session is kept by a mechanism of its own RFC](../rfc/01-0050-a-session-is-kept-by-a-mechanism-of-its-own.md) — one script `sessions.py` the question script imports, the hook entry and `--wake` staying on `questions.py`, `--end` and `--check` moving; the shape admitting two instruction bullets; four stages, each one green commit
-- **Answers:** [q-0037.0017](../questions/q-0037.0017-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md)
+- **Plan:** [A session is kept by a mechanism of its own RFC](../../rfc/done/01-0050-a-session-is-kept-by-a-mechanism-of-its-own.md) — one script `sessions.py` the question script imports, the hook entry and `--wake` staying on `questions.py`, `--end` and `--check` moving; the shape admitting two instruction bullets; four stages, each one green commit
+- **Answers:** [q-0037.0017](../../questions/q-0037.0017-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md)
 - **Outcome:** A session — one chat from its `/recall` to its `/conclude` — is registered, seen,
   ended when silent, reopened under the host's steadiest id, concluded and gone by a mechanism
   declared to the shape, whose rules on how sessions interact reach every file that reads them
@@ -13,14 +13,14 @@
 
 ## Parent
 
-[q-0037.0017](../questions/q-0037.0017-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md),
+[q-0037.0017](../../questions/q-0037.0017-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md),
 its *Where it stands* accepted 2026-10-22 and its six decisions; the split assessed in
-[its impact of the split](../questions/q-0037.0017-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md#impact-of-the-split-2026-10-22)
+[its impact of the split](../../questions/q-0037.0017-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md#impact-of-the-split-2026-10-22)
 — proceed, as one ticket. Minted on the user's word, 2026-10-22.
 
 ## What to build
 
-The session mechanism, `session`, declared to [the shape](../../.agents/skills/mechanism/MECHANISM-FORMAT.md)
+The session mechanism, `session`, declared to [the shape](../../../.agents/skills/mechanism/MECHANISM-FORMAT.md)
 with its doc, its rules file and its evidence, and `/mechanism`'s inception steps run on it: the
 check before the thing it checks, the count of prior violations, what retires it — nothing, it is
 always on — and what would show it working.

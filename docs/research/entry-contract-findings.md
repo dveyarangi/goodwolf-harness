@@ -20,7 +20,7 @@ this record keeps recording what each bump changed.
 **The 🪢 table is the session mechanism's** — its two sentences left the reply-layout paragraph
 for the session mechanism's rules file and came back as the installed block S4 under the general
 rules, the paragraph keeping a pointer; the session mechanism declared the same day by
-[01-0050](../tickets/01-0050-a-session-is-kept-by-a-mechanism-of-its-own.md).
+[01-0050](../tickets/done/01-0050-a-session-is-kept-by-a-mechanism-of-its-own.md).
 
 ## v102 — 2026-10-20
 
