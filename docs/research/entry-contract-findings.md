@@ -15,6 +15,16 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v107 — 2026-10-22
+
+**A new question takes its parent's rung** — Q1's *A new question* reads *give it its parent's rung,
+raised where the question already shows a higher one* where v106 read *give it its rung*. Occasion:
+the pathfinder's align asked whether a rung can be known at an open at all; the store answered —
+of 155 child–parent pairs with rungs, the child stands higher in 7 on development and 4 on
+self-improvement, same or lower in the rest — so the parent's rung is the estimate, over-stating
+in half the cases in the safe direction, the person lowering. The questions skill's *A question's
+rung* reworded with it (q-0037.0019, decision 5; the user, 2026-10-22).
+
 ## v106 — 2026-10-22
 
 **A new question is opened short, by what it asks** — Q1's *A new question*: the question is worded

@@ -61,9 +61,10 @@ below its ladder's dial, settle in the turn and report it; at the dial, settle i
 it lands; above, it is the person's — settled in the turn, it goes to its home; not settled, open
 it. Unsure of its rung, take the higher.
 
-**A question's rung.** Give a question you open its highest rung on each ladder it touches —
-`questions.py rung q-N '<ladder>: <rung>, ...' --session <tag>` — as your estimate, and raise it
-when a higher decision turns up. Never lower it; the person may.
+**A question's rung.** Give a question you open its parent's rung on each ladder, raised where the
+question already shows a higher one —
+`questions.py rung q-N '<ladder>: <rung>, ...' --session <tag>` — and raise it when a higher
+decision turns up. Never lower it; the person may.
 
 **A request.** *Build X* is a proposed answer: lean it on the question X answers — *what is X
 for?* — or open that question when none is held. Open *how to build X?* under it once X is

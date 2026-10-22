@@ -32,7 +32,8 @@ hook put in your context, or `questions.py --window --session <tag>`, the script
   the docs and the code first — found, point to it and open nothing for it; the turn is on the
   question that contains it, placed as above — a missing parent is still opened. Not found, or
   what the answer leaves unsettled, `open` it under the lowest question that contains what it
-  asks, give it its rung, and call `at` on it.
+  asks, give it its parent's rung, raised where the question already shows a higher one, and call
+  `at` on it.
 - **A process**, carrying out what you know how to do: no call. One run for a question is a turn
   on that question.
 - **Uncharted**, a question whose home you cannot settle: no call. Ask the user where it belongs,
