@@ -1,0 +1,4 @@
+# Core ships by git archive, which converts line endings the way the archiving clone is set — on Windows with
+# core.autocrlf=true that is CRLF, and the installer's block stripper then meets a carriage return where it
+# expects a newline. Text travels LF whatever the clone's setting; .agents/.gitattributes holds the hooks' own line.
+* text=auto eol=lf
