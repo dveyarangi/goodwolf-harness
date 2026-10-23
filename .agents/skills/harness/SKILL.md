@@ -2,8 +2,9 @@
 name: harness
 description: >-
   Use when asked to install the harness into a project, to update a tree that already holds it,
-  or to confirm a copy is intact; and in a freshly installed tree, which has core and none of the
-  project's own answers yet.
+  or to confirm a copy is intact; in a freshly installed tree, which has core and none of the
+  project's own answers yet; and in a tree that already has a method of its own, to read it and
+  report what the harness would change there before anything is written.
 ---
 
 Mechanism: harness
@@ -110,6 +111,36 @@ File any friction in a run — a crash, a workaround, a step this skill did not 
 on the harness's repository: the ref, the command, the platform, the step, the error verbatim, the
 workaround. Nothing of the project's own. A workaround
 left in the recipient links the issue. The run's last words to the person name each issue filed.
+</straw-dog>
+
+## A tree that already has a method
+
+The install has refused because the tree holds an entry file or an `.agents/` of its own — the
+refusal names it — or the person asks whether the harness is needed here. Nothing is written. The
+study and the report are [MEETING.md](./MEETING.md)'s, read whole before the study; this section
+is what happens around them.
+
+<straw-dog question="q-0037.0006.0020.0001.0003">
+**The offer.** Say what the read is and what it costs — a study by search and sampling, with a
+blind run by a separate agent, on the order of half an hour and a few hundred thousand tokens —
+name the one file it would write and where: the next free session record under the tree's
+`docs/sessions/`, `<NNNN>-<YYYYMMDD>-<slug>.md`, the slug the question's words; a tree without
+`docs/` takes the place the person names. Then wait. Silence takes the offer; another place named
+takes that place.
+
+**The study and the report**, by the shelf. The blind run is a separate fresh agent, told nothing
+of the harness or of a measurement. Read the tree's git state before the study and after it; the
+report's head says it was unchanged, and a change is the study's failure, said there.
+
+**The second stop.** Show the report's main recommendations and ask one thing: whether the
+migration runs, which of its plan, in which mode. Speak of the report; do not retell it.
+</straw-dog>
+
+<straw-dog question="q-0037.0006.0020.0001">
+**After.** On yes, the tree's method is taken in — by inventory, or by one line from its own entry
+file — and the report's plan becomes open work in the tree's own records, cut at the grain of work
+the study read; the shelf is read again after the migration as its verification. On no, nothing
+more: the report stays, the one record the method leaves there.
 </straw-dog>
 
 ## After the first install

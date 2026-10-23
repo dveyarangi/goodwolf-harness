@@ -124,6 +124,9 @@ is not a part: it never ships, and a recipient has its own.
 | checking a copy against the ref it announces | `.agents/scripts/gw/harness.py` | |
 | making a loader link, or handing the person the command | `.agents/scripts/gw/harness.py` | |
 | reading a refusal and resuming | `.agents/skills/harness/SKILL.md` | |
+| offering to read a tree that has a method, and stopping for the person | `.agents/skills/harness/SKILL.md` | |
+| studying a tree that has a method and writing the report | `.agents/skills/harness/MEETING.md` | |
+| reading the tree again after a migration, as its verification | `.agents/skills/harness/MEETING.md` | |
 | populating the local file after the first install | `.agents/skills/harness/SKILL.md` | |
 | pointing a tree at another core, as a fork does | `.agents/skills/harness/SKILL.md` | |
 | reporting friction met in a run to the repository | `.agents/skills/harness/SKILL.md` | |
@@ -144,6 +147,7 @@ is not a part: it never ships, and a recipient has its own.
 | part | where |
 |---|---|
 | instruction file | `.agents/skills/harness/SKILL.md` |
+| the shelf of the study and the report | `.agents/skills/harness/MEETING.md` |
 | this doc | `.agents/mechanisms/harness/harness.md` |
 | the script | `.agents/scripts/gw/harness.py` |
 | its tests | `.agents/scripts/gw/test/test_harness.py` |
@@ -190,8 +194,13 @@ would otherwise fail the shape check for the same absence the report already nam
 - **The interpreter record**, in the clone's Git directory — *what exists* — read by the hooks'
   wrapper before every hook; made by the link step, so `--links` is the one step a fresh clone runs.
 - **The pending command** — *what exists* — read by a person, once, in an elevated prompt.
+- **The report**, in a tree that has a method — *what happened*, the body of that tree's own
+  question, what the harness would change there — read by the person at the second stop, and by
+  the migration for its plan; its ledger read again after the migration, on the same sample, and
+  by the method's own measure.
 
-No record. The two stamped lines are the tree's, and nothing else is kept.
+No record of its own in this tree. The two stamped lines are the recipient's, and the report is the
+recipient's record — the first of its sessions — never this mechanism's.
 
 ## Not yet at the shape
 
@@ -214,3 +223,9 @@ restored last; its `docs/` is untouched; its links resolve; its announce line na
 gate passes, or says which of the three did not. An install that had to be hand-finished to reach
 `arrived: true` reads identically to success in the report, and only the grader can say which it
 was.
+
+**The study, graded by its trial runs.** The shelf ran twice on a stranger tree with a method of its
+own before any live meeting, each run a fresh agent given the shelf alone: both produced the report
+in its form, in the tree's language; neither proved a key wrong; the two together found eighteen
+places where the shelf was unclear, each amended. The live meeting, the person at the stops, is the
+grade the ticket waits on.
