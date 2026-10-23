@@ -17,6 +17,41 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 66. The queue grew its history back in fourteen days, its format's rule read by no one who wrote it — 2026-10-24
+
+**Rules in play:** [TICKET-FORMAT](../.agents/skills/ticket/TICKET-FORMAT.md), *The queue*: the
+order and its candidate, *it keeps no account of steps done*; the ticket mechanism's doc, which
+leaves *ordering the queue and writing its pacing prose* with no instructing file, a straw dog
+bound to q-0037.0013; `tickets.py --check`, which holds the queue's mark and nothing of its body.
+
+**What happened.** The completed-step narrative was removed from the queue whole on 2026-10-10,
+by 01-0011.0040, and the criterion of 01-0011.0110.0040 checked. By 2026-10-24 the queue was again
+one paragraph of a screen and more: every close and every mint since — `MAINTAIN` closing 01-0050
+*the queue noting it done*, `TICKET` minting 01-0060 and 01-0019's slices — had appended a dated
+clause, each with its provenance, and none removed one; the mover rewrote the closed tickets'
+links into `done/`, so the history stayed live-looking. Its `Candidate` line names a done ticket.
+A `/recall` asked for the path could read no order from it, and the person asked how it came to
+be, the format standing.
+
+**Why it did not fire.** The rule sits in the format shelf, read at minting and numbering; the
+queue is written at a close and at a mint, by agents reading `/maintain` and `/ticket`, neither of
+which points at it, and no file instructs writing the queue at all. Nothing checks the body, so a
+clause appended stays. Each writer was right by its own rule — a decision cites who made it and
+when — and the sum was a chronicle.
+
+**Amendment**, at the self-improvement dial — a rule: the format's paragraph made checkable, and
+the check that holds it.
+
+> The queue is `docs/tickets/README.md`: the order of the work, a numbered list, one line an item —
+> a live ticket or an open question, with the person's word that placed it. It names nothing
+> closed: the pass that closes a ticket removes its line. It copies nothing a ticket says, keeps
+> no account of steps done — the session records and the commits hold it — and lists the live
+> tickets only through `tickets.py --list`. `tickets.py --check` refuses a queue that links into
+> `done/`.
+
+**Disposition:** landed 2026-10-24 on the person's word, the check red on the old queue at 24
+closed tickets and green on the rewritten one; the queue's arrival state numbered with it.
+
 ## 65. A judge session's verdict was put to the person as a decision, and the holder stopped — 2026-10-23
 
 **Rules in play:** [`AGENTS.md` — Autonomy](../AGENTS.md#autonomy), *work closes with its commit once

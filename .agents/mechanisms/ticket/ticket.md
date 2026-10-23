@@ -114,7 +114,7 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
   for the criteria, by `/maintain` for whether each is finished, by the questions mechanism's
   window, which counts the live ones through `tickets.live_tickets`, and through citations from
   every record that cites work by its slug.
-- **The queue** — *what it intends to become* — read by `/recall` for the order and its candidate,
+- **The queue** — *what it intends to become* — read by `/recall` for the order,
   and by whoever orders the work; written by hand.
 - **The list** — *what exists* — read under P12 by whoever orders the queue or is about to mint a
   ticket; rendered from the headers on request by `tickets.py --list` and never committed.

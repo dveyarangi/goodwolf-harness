@@ -12,6 +12,6 @@ record is that project's — nothing merges it, nothing overwrites it.
 
 - **record of** what it intends to become
 
-**Candidate:** the project's own setup, then its first `/align`. A tree with core and no answers
-of its own has no delivery to pace; what comes first is deciding what this project is.
+1. The project's own setup, then its first `/align`: a tree with core and no answers of its own
+   has no delivery to pace; what comes first is deciding what this project is.
 ```

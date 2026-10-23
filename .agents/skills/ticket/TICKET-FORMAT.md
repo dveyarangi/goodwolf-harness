@@ -195,9 +195,12 @@ sit in the same folder state. Only names are read; nothing inside an RFC is.
 
 ## The queue
 
-The queue is `docs/tickets/README.md`: the order of the work and its
-candidate. It copies nothing a ticket says; the live tickets are listed by
-`tickets.py --list`. It keeps no account of steps done: the
-session records hold it. It is of the kind *what it intends to become*, and
-carries `- **record of** what it intends to become` on the line after its
-title, held by `tickets.py --check` where the queue exists.
+The queue is `docs/tickets/README.md`: the order of the work, a numbered
+list, one line an item — a live ticket or an open question, with the
+person's word that placed it. It names nothing closed: the pass that closes
+a ticket removes its line. It copies nothing a ticket says, keeps no account
+of steps done — the session records and the commits hold it — and lists the
+live tickets only through `tickets.py --list`. It is of the kind *what it
+intends to become*, and carries `- **record of** what it intends to become`
+on the line after its title; `tickets.py --check` holds the mark and refuses
+a link into `done/`, where the queue exists.
