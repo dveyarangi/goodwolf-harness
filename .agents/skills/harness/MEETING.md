@@ -16,7 +16,12 @@ wait. Silence takes the offer; another
 place named takes that place. Nothing else in the tree changes before or after.
 
 **Second.** Show the report's main recommendations and ask one thing: whether the migration runs,
-which of its plan, in which mode. Speak of the report; do not retell it. Either answer closes the person's question — *what would the harness
+which of its plan, in which mode. Speak of the report; do not retell it.
+
+**After a yes.** Once the harness is installed, the migration plan is offered again as open work in
+the tree's own records — a task each, with what it depends on — and the re-check on the same sample
+is taken against it: a check run while the migration is unfinished says which of the plan has
+landed and which has not, and its ledger is read in that light, never as the harness's measure. Either answer closes the person's question — *what would the harness
 change here?* — and the report, its body, stays: on *yes* as the tree's first record, its proposals
 becoming tickets; on *no* as the one record the method leaves.
 
@@ -112,7 +117,9 @@ Sections, in this order, each headed:
 2. **Main recommendations.** Three to five, each one sentence and its reason, about the project's
    documentation and its own method — its rules, gates and records — only; never about what the
    project builds.
-3. **What clearly improves, and what the person will likely give up.** Two columns.
+3. **What clearly improves, and what the person will likely give up.** The report's main
+   conclusion, in prose addressed to the person — what you will see change, and what you will
+   likely let go of — in plain words, never a table of fragments.
 4. **The migration plan.** A table: what, what it touches and what depends on it, size; then the
    order.
 5. **What this report does not say.** No comparison of the tree's method with <straw-dog question="q-0037.0006.0020.0013">GoodWolf</straw-dog>
@@ -126,5 +133,8 @@ Sections, in this order, each headed:
 
 The report is a product document: it shows the harness's strengths by finding where it helps, and
 claims nothing the tree or the ledger does not show. No self-deprecation, no groundless comparison,
-nothing about the project's substance.
+nothing about the project's substance. Its product faces — sections 0, 2, 3 and 5 — speak to the
+person, in the second person, the way Lem wrote: plain, exact and dry, an argument they can follow,
+not a machine's inventory; section 1 and the appendix state what was found and counted, in the same
+plainness without the address.
 </straw-dog>
