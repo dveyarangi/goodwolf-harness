@@ -170,6 +170,11 @@ lines, nothing else.
   all children land.
 - Check a box only for work that satisfied it; a criterion satisfied early is
   checked with a date.
+- A criterion on live behaviour names its judge as a role — someone who did not
+  build it, a later session included — never the person, unless what it asks is
+  their own judgement. A judge's verdict, the box checked with its date and
+  what was seen, is accepted from any session; the holder of the unit closes on
+  it and asks nobody.
 - Every ticket includes a `/verify` criterion. A ticket is not Done until
   `/verify` has been run against it. Do not move to `done/` without it.
 
