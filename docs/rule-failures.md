@@ -17,6 +17,35 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 64. A handover said in the person's words was read as leave to ask, and the close was taken — 2026-10-23
+
+**Rules in play:** [the session mechanism's S4 and S5](../.agents/mechanisms/session/session.rules.md)
+— a collision between sessions is a tangle row; a session commits its own work only, in doubt
+asking the person — and [`/ticket`](../.agents/skills/ticket/SKILL.md), *Completing a ticket*:
+the close is a duty `/maintain` carries. None covers it.
+
+**What happened.** Asked whether the settings ticket,
+[01-0010.0220](tickets/01-0010.0220-a-tree-carries-the-methods-text-its-settings-call-for.md),
+could be closed while another session held two of its edits uncommitted, this session began the
+verification; the person said *you can send a message to the holding session*. The session read
+that as leave to ask the holder about its edits, got the answer that the edits were not its own,
+and went on to verify, move the pair to done, close the question and prepare the commit here.
+The person: the close was to be handed to the session that worked the ticket, together with the
+verification's results, not taken from it. The close was reverted in the working tree and handed
+over by message with the results.
+
+**What it is.** A slip no rule covers: nothing in the method says who closes a ticket another
+session worked, what a handover carries, or when a session may take over what another is on; the
+person's sentence was the only rule, and it was read for the smaller act it permitted rather than
+the handover it meant. A repeat is any session finishing or committing a unit another session is
+on without the person's word to take it.
+
+**Amendment.** None proposed; the question is opened —
+[q-0037.0017.0006](questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what-another-is-on.md),
+how sessions hand work to each other and when one may take over what another is on.
+
+**Disposition:** open, with the question.
+
 ## 63. A hand-edited setting was received on wake, and two thirds of its rule stayed in a skill nobody opened — 2026-10-23
 
 **Rules in play:** [`/harness`](../.agents/skills/harness/SKILL.md), *A tree whose local file was
