@@ -30,7 +30,7 @@ scripts, in Claude Code, Codex and Cursor.
 **Try it:** in your project, tell your coding agent *install the GoodWolf Harness from
 https://github.com/dveyarangi/goodwolf-harness*. It installs, then asks for your test commands and
 where it should stop for your yes.
-<straw-dog question="q-0037.0006.0020.0001">If your project already has a `CLAUDE.md` or `AGENTS.md`, the install stops and names the file: it doesn't move or merge them yet. Branch first, move them aside yourself, run the install again, and bring over what you need by hand.</straw-dog>
+<straw-dog question="q-0037.0006.0020.0001">When your project already has rules, skills or a method of its own, the install stops and offers to read the project instead: it studies the way you work and reports how GoodWolf can help and what it would take. Then you decide how to proceed.</straw-dog>
 More under [Use it](#use-it-instructions-for-your-agent).
 
 ## What it does about each
