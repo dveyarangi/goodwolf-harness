@@ -1,10 +1,6 @@
 # Entry contract
 
-Entry contract: v109, 2026-10-23.
-
-<straw-dog question="q-0037.0009.0021">
-Under `debug=on`, open your first reply of every session with the `Entry contract:` line above, verbatim.
-</straw-dog>
+Entry contract: v110, 2026-10-23.
 
 ## General rules
 
@@ -156,7 +152,7 @@ named after the ticket it will belong to.
 </installed>
 
 <installed by="session">
-**S4** Under `debug=on`, one party's work or claim colliding with another's — another session standing
+**S4** One party's work or claim colliding with another's — another session standing
 where this one works — met and not resolved, is a row under `| 🪢 Tangle |`, even where a record's
 disagreement is what shows it. The 🪢 table's header lists every running session's question, this
 one's included, on one line, each by its id alone, linked to its entry, `—` for a session with no
@@ -166,6 +162,10 @@ reply.
 
 **S6** Run `/recall` first in every conversation, whatever the first message says. A conversation the host
 resumes under a new id is the same conversation: its context holds the recall it ran.
+</installed>
+
+<installed by="debugging">
+**D1** Open your first reply of every session with the entry file's `Entry contract:` line, verbatim.
 </installed>
 
 ## Document load-bearing, code&comment the rest

@@ -50,8 +50,9 @@ Each sidecar names its own parts.
   asserts its exit status
 - A session is registered under the host's own session id — *validated by:* live —
   **Registration**
-- In a host whose start hook reaches the agent, the wake's read arrives before its first command —
-  *validated by:* live — **Wake**
+- In a host whose start hook reaches the agent, the wake's read arrives before its first command,
+  with the installer's one line last when the tree's installed blocks are out of step with its
+  rules files and settings — *validated by:* live — **Wake**
 - In a host whose message hook reaches the agent, every message carries the window or the
   one-line notice that it is unchanged — *validated by:* live — **Window**
 - The host lists the harness's skills and runs one by name — *validated by:* live — **Skills**

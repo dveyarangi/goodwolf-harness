@@ -1233,24 +1233,15 @@ def _refuse_unless_injectable(target: Path, shipment: Shipment, previous: Shipme
 
 
 def _install_rules(root: Path, injected: list[dict]) -> tuple[str, str] | None:
-    """Every mechanism's rules file, then the recipient's local file last, each recorded in
-    `injected` as it lands; the first refusal, by the slug of the file refused, ends it."""
-    sources = [directory.name for directory in sorted((root / inject_rules.MECHANISMS).glob("*/"))
-               if (directory / f"{directory.name}.rules.md").is_file()]
-    if (root / LOCAL_FILE).is_file():
-        sources.append(inject_rules.LOCAL)
-    for slug in sources:
-        try:
-            rules = inject_rules.read_rules_file(root, slug)
-            if slug == inject_rules.LOCAL:
-                inject_rules.overrides_resolve(root, rules)
-            outcome = inject_rules.install(root, rules, overwrite=False)
-        except inject_rules.Refused as refusal:
-            return slug, str(refusal)
-        injected.append({"slug": slug, "targets": outcome["targets"]})
-        if outcome["refusals"]:
-            return slug, outcome["refusals"][0]
-    return None
+    """The installer's own run — every mechanism's rules file, then the recipient's local file
+    last, each under the tree's settings — recorded in `injected` as each lands; the first
+    refusal, by the slug of the file refused, ends it."""
+    run = inject_rules.install_every(root, overwrite=False)
+    injected.extend(run["sources"])
+    if not run["refusals"]:
+        return None
+    slug, _, reason = run["refusals"][0].partition(": ")
+    return slug, reason
 
 
 def _injection_inputs(target: Path, shipment: Shipment, previous: Shipment | None) -> dict[str, str]:

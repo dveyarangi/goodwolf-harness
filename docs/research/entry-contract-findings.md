@@ -15,6 +15,16 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v110 — 2026-10-23
+
+**The announce line is debugging's** — the head's straw dog, *under `debug=on`, open your first
+reply of every session with the `Entry contract:` line above, verbatim*, left the hand-written
+head for the debugging mechanism's rules file, declared that day with one rule, D1, conditioned
+`when debug=on`, and comes back as an installed block under the general rules while the tree's
+local file sets `debug` to `on`; the session mechanism's S4, the 🪢 table, carries the same
+condition and loses its *Under `debug=on`* clause. The first text a tree carries by its settings
+rather than by a switch a session reads — 01-0010.0220 *(the user, 2026-10-23)*.
+
 ## v109 — 2026-10-23
 
 **In the ring a new question is a side question** — Q1 gains one clause after the five kinds of

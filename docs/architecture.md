@@ -171,6 +171,19 @@ also takes its own block out of every file it no longer names, by retraction's c
 what left *(the user, 2026-10-09)*.
 The installer writes no doc and decides nothing about a mechanism's state.
 
+**A tree carries the method's text its settings call for.** A mechanism declares the settings it
+owns in its rules file — name, values, default, who may set it — and the project sets their
+values in its local file, a setting left unset standing at its default; a rule of any installed
+mechanism may name a condition of its installation, `when <setting>=<value>`, and the installer
+writes it into its targets only while every condition holds, taking it out by retraction's cut
+when none does. A block that differs from its rendering only in which of its file's own rules
+it holds differs by the settings alone and is re-rendered without being asked; an edited copy or
+an amended source still refuses. The run over every source, mechanisms then local, is
+idempotent and is what an install, an update and a changed setting all run; the agent is the
+interface to the values, by one call that refuses, writes, runs and reports, and a hand edit is
+drift the next session's start reports and repairs *(the user, 2026-10-22 and 2026-10-23,
+q-0037.0006.0026)*. The settings table is rendered on request and never committed.
+
 ### Installing
 
 The install contract is the harness mechanism's, in [its doc](../.agents/mechanisms/harness/harness.md):

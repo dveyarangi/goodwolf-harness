@@ -46,13 +46,28 @@ content, live rows only. Where the script is missing, write it: that is the main
 
 Prose before the table is the file's own preamble and is not read.
 
-- **The anchor table** names every target the file installs into, one row each: the target a
-  backticked repo-relative path, the anchor a backticked line that occurs exactly once in the
-  target, whole and newline-terminated. **A mechanism has one place in a target**: a target
-  named twice is refused.
+- **The preamble's tables are told apart by their header row**; a row under no known header is
+  prose and is not read. **The anchor table**, `| target | anchor |`, names every target the
+  file installs into, one row each: the target a backticked repo-relative path, the anchor a
+  backticked line that occurs exactly once in the target, whole and newline-terminated. **A
+  mechanism has one place in a target**: a target named twice is refused.
+- **The settings table**, `| setting | values | default | set by |`, declares the settings this
+  mechanism owns: the name and each value a code span, the values told apart by ` · `, the
+  default among them, `set by` a rung's name as the entry file's ladders write it or *the
+  person*. A setting is declared once, by the mechanism it belongs to; the project's local file
+  declares none, and a setting two files declare is a diagnostic. Any installed mechanism's rule
+  may name a declared setting in its condition.
+- **The values table**, `| setting | value |`, in the project's local file alone, sets the
+  tree's values, each a code span; a setting absent from it stands at its default, and a value no
+  declaration holds is refused. The agent is the interface to it: `inject_rules.py --set
+  <setting>=<value>` writes the row and runs the installer, and a hand edit is brought to match
+  by the next run.
 - **One `## ` section per rule.** The heading's first token, before ` — `, is the rule's id,
   unique in the file. **target** repeats, one path per bullet, each a row of the table.
   **authority** is who decided the rule and when, read and reported, never interpreted.
+  **when**, any number, `- **when** <setting>=<value>`, names a condition of the rule's
+  installation: the rule is written into its targets only while every condition holds under the
+  tree's values, and a condition naming an undeclared setting or value is refused.
   **overrides**, at most once, names the core rule this one replaces as `` `<slug>/<id>` ``: the
   slug must have a rules file, the id must be in it, and that rule must name every target this
   section names — read from its declared targets, never from whether its block is present — or
@@ -80,13 +95,22 @@ excluded, and installed blocks excluded.
 </installed>
 ```
 
+A target named in the anchor table that the settings leave with no rule has no block: one
+present is taken out by retraction's cut and reported, as a dropped target's is. A block that
+differs from its rendering only in which of the file's own rules it holds differs by the
+settings alone and is re-rendered without `--overwrite`.
+
 The block is found by its tag, never by its body, and compared whole against what the rules
 file renders. **A rules file's block is installed in every target it names, or the check
 fails**: an absent block, a drifted one, and a block nothing owns — its slug has no rules file,
 or that file does not name the file the block sits in — are each a diagnostic. Every example of the tag or an anchor in a doc sits in a code span or fence, on one
 line; the installer looks through code and never takes an example for the thing.
 
-The installer: `inject_rules.py <slug> --install [--overwrite]`, `<slug> --retract`, `--check`.
+The installer: `inject_rules.py <slug> --install [--overwrite]`, `<slug> --retract`, `--check
+[--line]`; without a slug, `--install` is the run over every source in the harness's order, the
+mechanisms then the local file; `--set <setting>=<value>` changes one value and runs it;
+`--settings` renders the tree's settings as one table — setting, values, default, the tree's
+value, who sets it, who declares it — and writes nothing, an index rendered on request.
 A named mode or a refusal; every target validated before anything is written; retraction
 leaves the target byte-identical; a differing block refuses until the caller says overwrite,
 and then the block is replaced whole and the report carries what it replaced. The contract is

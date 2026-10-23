@@ -821,3 +821,249 @@ class Checking(RepositoryCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+DECLARING = "sample-debugging"
+DECLARING_RULES = f".agents/mechanisms/{DECLARING}/{DECLARING}.rules.md"
+DECLARATION = (
+    "| setting | values | default | set by |\n|---|---|---|---|\n"
+    "| `debug` | `on` · `off` | `off` | a wording |\n"
+)
+
+
+def declaring_file(declaration: str = DECLARATION, when: str = "- **when** debug=on\n") -> str:
+    """A mechanism that declares `debug` and sends the target one rule that stands always and one
+    that stands while `debug` is on."""
+    return (
+        f"# {DECLARING} — rules installed elsewhere\n\nRead by the installer alone.\n\n"
+        "| target | anchor |\n|---|---|\n" f"| `{TARGET}` | `{ANCHOR}` |\n\n"
+        f"{declaration}\n"
+        "## D1 — always\n\n"
+        f"- **target** `{TARGET}`\n"
+        "- **authority** the user, 2026-10-23\n\n"
+        "<rule>\nAlways here.\n</rule>\n\n"
+        "## D2 — while debugging\n\n"
+        f"- **target** `{TARGET}`\n"
+        f"{when}"
+        "- **authority** the user, 2026-10-23\n\n"
+        "<rule>\nOnly while debugging.\n</rule>\n"
+    )
+
+
+def values_table(value: str | None) -> str:
+    return "" if value is None else f"\n| setting | value |\n|---|---|\n| `debug` | `{value}` |\n"
+
+
+def local_with_value(value: str | None) -> str:
+    """The project's file: the anchor table, the values table where a value is set, one rule."""
+    return local_file(
+        table="| target | anchor |\n|---|---|\n" f"| `{TARGET}` | `{ANCHOR}` |\n" + values_table(value)
+    )
+
+
+BLOCK_ON = f'<installed by="{DECLARING}">\n**D1** Always here.\n\n**D2** Only while debugging.\n</installed>'
+BLOCK_OFF = f'<installed by="{DECLARING}">\n**D1** Always here.\n</installed>'
+
+
+class TheSettings(RepositoryCase):
+    """A mechanism declaring a setting, a rule conditioned on it, and the project's value."""
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.write(DECLARING_RULES, declaring_file())
+        self.write(TARGET, TARGET_TEXT)
+        self.write(LOCAL_FILE, local_with_value("on"))
+
+    def run_installer(self, *operands: str) -> tuple[int, dict | str]:
+        said = io.StringIO()
+        with contextlib.redirect_stdout(said), contextlib.redirect_stderr(said):
+            status = inject_rules.main(list(operands), root=self.root)
+        text = said.getvalue()
+        try:
+            return status, json.loads(text)
+        except json.JSONDecodeError:
+            return status, text
+
+    def test_the_local_files_values_table_is_not_read_as_anchors(self) -> None:
+        status, report = self.run_installer(LOCAL, "--install")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual([TARGET], [one["target"] for one in report["targets"]])
+        self.assertIn(LOCAL_INSTALLED, self.read(TARGET))
+
+    def test_a_rule_whose_condition_holds_is_installed_and_one_whose_does_not_is_left_out(self) -> None:
+        self.run_installer(DECLARING, "--install")
+        self.assertIn(BLOCK_ON, self.read(TARGET))
+
+        self.write(TARGET, TARGET_TEXT)
+        self.write(LOCAL_FILE, local_with_value("off"))
+        self.run_installer(DECLARING, "--install")
+        self.assertIn(BLOCK_OFF, self.read(TARGET))
+
+        self.write(TARGET, TARGET_TEXT)
+        self.write(LOCAL_FILE, local_with_value(None))
+        self.run_installer(DECLARING, "--install")
+        self.assertIn(BLOCK_OFF, self.read(TARGET), "a setting the local file leaves unset stands at its default")
+
+    def test_changing_the_value_then_running_moves_the_rule_both_ways_without_overwrite(self) -> None:
+        self.run_installer("--install")
+        self.assertIn(BLOCK_ON, self.read(TARGET))
+
+        self.write(LOCAL_FILE, local_with_value("off"))
+        status, report = self.run_installer("--install")
+
+        self.assertEqual(0, status, report)
+        self.assertIn(BLOCK_OFF, self.read(TARGET))
+        self.assertNotIn(BLOCK_ON, self.read(TARGET))
+        states = {(one["slug"], target["state"]) for one in report["sources"] for target in one["targets"]}
+        self.assertIn((DECLARING, "re-rendered"), states)
+
+        self.write(LOCAL_FILE, local_with_value("on"))
+        self.run_installer("--install")
+        self.assertIn(BLOCK_ON, self.read(TARGET))
+        once = self.snapshot()
+        self.run_installer("--install")
+        self.assertEqual(once, self.snapshot(), "run twice, the second run changes nothing")
+
+    def test_a_target_emptied_by_its_conditions_loses_its_block_and_the_report_says_removed(self) -> None:
+        self.write(DECLARING_RULES, declaring_file().replace("## D1 — always", "## D1 — also while debugging").replace(
+            "- **authority** the user, 2026-10-23\n\n<rule>\nAlways here.", "- **when** debug=on\n- **authority** the user, 2026-10-23\n\n<rule>\nAlways here."
+        ))
+        self.run_installer(DECLARING, "--install")
+        self.assertIn(f'<installed by="{DECLARING}">', self.read(TARGET))
+
+        self.write(LOCAL_FILE, local_with_value("off"))
+        status, report = self.run_installer(DECLARING, "--install")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual("removed", report["targets"][0]["state"])
+        self.assertEqual(TARGET_TEXT, self.read(TARGET))
+        status, report = self.run_installer(DECLARING, "--install")
+        self.assertEqual("not called for", report["targets"][0]["state"])
+
+    def test_a_condition_on_an_undeclared_setting_or_value_is_refused_and_a_diagnostic(self) -> None:
+        for when, said in (
+            ("- **when** verbose=on\n", "verbose, which no mechanism declares"),
+            ("- **when** debug=loud\n", "debug=`loud`, which is none of `on`, `off`"),
+        ):
+            with self.subTest(when=when):
+                self.write(DECLARING_RULES, declaring_file(when=when))
+                before = self.snapshot()
+
+                status, report = self.run_installer(DECLARING, "--install")
+
+                self.assertEqual(1, status)
+                self.assertIn(said, report["refusals"][0])
+                self.assertEqual(before, self.snapshot())
+                _, checked = self.run_installer("--check")
+                self.assertTrue(any(said in one for one in checked["diagnostics"]), checked["diagnostics"])
+
+    def test_a_local_value_no_declaration_holds_is_refused_and_a_diagnostic(self) -> None:
+        for table, said in (
+            (values_table("loud"), "sets debug to `loud`"),
+            ("\n| setting | value |\n|---|---|\n| `verbose` | `on` |\n", "sets verbose, which no mechanism declares"),
+        ):
+            with self.subTest(said=said):
+                self.write(LOCAL_FILE, local_file(table="| target | anchor |\n|---|---|\n" f"| `{TARGET}` | `{ANCHOR}` |\n" + table))
+
+                status, report = self.run_installer("--install")
+
+                self.assertEqual(1, status)
+                self.assertIn(said, report["refusals"][0])
+                _, checked = self.run_installer("--check")
+                self.assertTrue(any(said in one for one in checked["diagnostics"]), checked["diagnostics"])
+
+    def test_a_setting_declared_by_two_mechanisms_is_a_diagnostic(self) -> None:
+        self.write(RULES, rules_file(table="| target | anchor |\n|---|---|\n" f"| `{TARGET}` | `{ANCHOR}` |\n\n{DECLARATION}"))
+
+        _, checked = self.run_installer("--check")
+
+        self.assertTrue(any("declared by" in one and "and by" in one for one in checked["diagnostics"]), checked["diagnostics"])
+
+    def test_the_local_file_declares_nothing_and_a_mechanism_sets_nothing(self) -> None:
+        self.write(LOCAL_FILE, local_file(table="| target | anchor |\n|---|---|\n" f"| `{TARGET}` | `{ANCHOR}` |\n\n{DECLARATION}"))
+        status, report = self.run_installer(LOCAL, "--install")
+        self.assertEqual(1, status)
+        self.assertIn("declared by the mechanism it belongs to", report["refusals"][0])
+
+        self.write(DECLARING_RULES, declaring_file(declaration=DECLARATION + values_table("on")))
+        status, report = self.run_installer(DECLARING, "--install")
+        self.assertEqual(1, status)
+        self.assertIn("values are the project's", report["refusals"][0])
+
+    def test_set_writes_the_local_files_row_and_runs_the_installer(self) -> None:
+        self.write(LOCAL_FILE, local_with_value(None))
+        self.run_installer("--install")
+        self.assertIn(BLOCK_OFF, self.read(TARGET))
+
+        status, report = self.run_installer("--set", "debug=on")
+
+        self.assertEqual(0, status, report)
+        self.assertIn("| `debug` | `on` |", self.read(LOCAL_FILE))
+        self.assertIn(BLOCK_ON, self.read(TARGET))
+        self.assertIn(LOCAL_INSTALLED, self.read(TARGET), "the local file's own rule survives the write")
+
+        status, report = self.run_installer("--set", "debug=off")
+        self.assertEqual(0, status, report)
+        self.assertEqual(1, self.read(LOCAL_FILE).count("| `debug` |"), "the row is rewritten, not added")
+        self.assertIn(BLOCK_OFF, self.read(TARGET))
+
+    def test_set_on_an_undeclared_name_or_value_refuses_and_writes_nothing(self) -> None:
+        for said, refusal in (("debug=loud", "none of"), ("verbose=on", "no mechanism declares"), ("debug", "not `<setting>=<value>`")):
+            with self.subTest(said=said):
+                before = self.snapshot()
+
+                status, report = self.run_installer("--set", said)
+
+                self.assertEqual(1, status)
+                self.assertIn(refusal, report["refusals"][0])
+                self.assertEqual(before, self.snapshot())
+
+    def test_settings_renders_the_table_and_writes_nothing(self) -> None:
+        before = self.snapshot()
+
+        status, table = self.run_installer("--settings")
+
+        self.assertEqual(0, status)
+        self.assertIn("| `debug` | `on` · `off` | `off` | `on` | a wording | sample-debugging |", table)
+        self.assertEqual(before, self.snapshot())
+
+    def test_the_checks_line_is_one_line_when_out_of_step_and_nothing_when_not(self) -> None:
+        self.run_installer("--install")
+        status, said = self.run_installer("--check", "--line")
+        self.assertEqual((0, ""), (status, said.strip()))
+
+        self.write(LOCAL_FILE, local_with_value("off"))
+        status, said = self.run_installer("--check", "--line")
+
+        self.assertEqual(1, status)
+        self.assertEqual(1, len(said.strip().splitlines()))
+        self.assertIn("out of step", said)
+        self.assertIn("inject_rules.py --install", said)
+
+    def test_a_block_edited_by_hand_still_refuses_without_overwrite(self) -> None:
+        self.run_installer(DECLARING, "--install")
+        self.write(TARGET, self.read(TARGET).replace("Always here.", "Always here, edited."))
+
+        status, report = self.run_installer(DECLARING, "--install")
+
+        self.assertEqual(1, status)
+        self.assertIn("differs from the rules file", report["refusals"][0])
+        _, checked = self.run_installer("--check")
+        self.assertIn(f"{DECLARING} in {TARGET}: drifted", checked["diagnostics"])
+
+    def test_the_run_installs_every_source_in_the_harnesss_order_and_stops_at_a_refusal(self) -> None:
+        self.write(RULES, rules_file())
+
+        status, report = self.run_installer("--install")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual([DECLARING, SLUG, LOCAL], [one["slug"] for one in report["sources"]])
+        text = self.read(TARGET)
+        self.assertLess(text.index(f'<installed by="{DECLARING}">'), text.index(f'<installed by="{SLUG}">'))
+        self.assertLess(text.index(f'<installed by="{SLUG}">'), text.index(f'<installed by="{LOCAL}">'))
+
+        self.write(RULES, rules_file(sections=""))
+        status, report = self.run_installer("--install")
+        self.assertEqual(1, status)
+        self.assertTrue(report["refusals"][0].startswith(f"{SLUG}:"), report["refusals"])

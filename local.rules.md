@@ -14,6 +14,10 @@ with overwrite; the block in a target is never the place.
 | `.agents/skills/skill-up/SKILL.md` | `## Installed from other mechanisms` |
 | `.agents/skills/mechanism/SKILL.md` | `## Siblings` |
 
+| setting | value |
+|---|---|
+| `debug` | `on` |
+
 ## L1 — what this repository is
 
 - **target** `AGENTS.md`

@@ -1459,7 +1459,7 @@ def hook(root: Path, host_name: str, payload: str, now: datetime) -> str:
             sessions.forget_window(root, tag)
             return host.quiet
         if event == host.starts:
-            return host.answer(event, _started(root, tag, sent.get("source"), now), tag)
+            return host.answer(event, _noticed(_started(root, tag, sent.get("source"), now)), tag)
         registered = tag in {held.tag for held in sessions.rows(root)[0]}
         if event == host.messages:
             if not registered:
@@ -1479,6 +1479,14 @@ def hook(root: Path, host_name: str, payload: str, now: datetime) -> str:
         if host is not None and event in (host.starts, host.messages, host.signs_of_life):
             return host.answer(event, notice, "")
         return notice
+
+
+def _noticed(context: str) -> str:
+    """The wake's read with the line another mechanism handed the hook's wrapper — the installer's,
+    when the tree's installed blocks are out of step with its rules files and settings — last, so
+    the agent meets it before its first command. The wrapper hands it as `GW_NOTICE`."""
+    notice = os.environ.get("GW_NOTICE", "").strip()
+    return f"{context}\n\n{notice}" if notice else context
 
 
 def _sent(payload: str) -> dict:

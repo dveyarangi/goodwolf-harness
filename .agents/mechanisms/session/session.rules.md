@@ -46,10 +46,11 @@ it mends. Commit with the pass each row a wake ended or removed in another sessi
 ## S4 — a reply shows the sessions it runs beside
 
 - **target** `AGENTS.md`
+- **when** debug=on
 - **authority** the user, 2026-10-14 to 2026-10-20, in the reply's layout; the session's since 2026-10-22
 
 <rule>
-Under `debug=on`, one party's work or claim colliding with another's — another session standing
+One party's work or claim colliding with another's — another session standing
 where this one works — met and not resolved, is a row under `| 🪢 Tangle |`, even where a record's
 disagreement is what shows it. The 🪢 table's header lists every running session's question, this
 one's included, on one line, each by its id alone, linked to its entry, `—` for a session with no

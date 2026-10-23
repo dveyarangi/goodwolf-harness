@@ -2,7 +2,8 @@
 name: harness
 description: >-
   Use when asked to install the harness into a project, to update a tree that already holds it,
-  or to confirm a copy is intact; in a freshly installed tree, which has core and none of the
+  or to confirm a copy is intact; to change one of the tree's settings, or to say how the
+  harness is set up in this tree; in a freshly installed tree, which has core and none of the
   project's own answers yet; and in a tree that already has a method of its own, to read it and
   report what the harness would change there before anything is written.
 ---
@@ -49,12 +50,33 @@ stamps the entry file's announce line `<repository>@<ref>, <date>`, which is the
 revision record and what every session there announces; merges core's hooks into each host's
 shared hook file — `.claude/settings.json`, `.codex/hooks.json`, `.cursor/hooks.json` — beside the
 project's own, an update replacing core's entries alone; makes the loader links; installs every
-mechanism's rules and then the project's local file last; and runs the gate — the copy compared
+mechanism's rules, each under the tree's settings, and then the project's local file last; and
+runs the gate — the copy compared
 against the ref, the injector's check, the shape check, in seconds. The report ends
 `arrived: true` only when all three hold, and says beside it whether each loader link resolves.
 The shipped suite is not run; a project that wants it runs it from its own verification set.
 Whether a host reads the link is not observable from inside a tree; the first session announcing
 the stamped line is the evidence a person reads.
+
+## The tree's settings
+
+A setting is a knob a mechanism declares — its name, its values, its default, who may set it —
+and the project sets in `local.rules.md`; the installer writes a rule into the tree only while
+the rule's conditions hold under those values, so the tree carries the method's text its settings
+call for and no more. The agent is the interface to them, never the file.
+
+Asked to change one, read the table first — `inject_rules.py --settings`, every setting with its
+values, default, the tree's value, who sets it and who declares it — and show it. Where the
+setting's `set by` is a rung below the dial, change it by one call, `inject_rules.py --set
+<setting>=<value>`: it refuses an unknown name or value, writes the local file, runs the
+installer and reports what the tree now carries, which is what the person hears. Where it is the
+person's, write nothing and name the row to change. Asked how the harness is set up here, show
+the same table.
+
+A tree whose local file was edited by hand is out of step until the installer runs. The wake says
+so; run `inject_rules.py --install` before the first reply, at the rung of the setting that
+changed, and say in one line what the tree now carries. The entry file has then moved under the
+session: read it again before replying.
 
 ## Refusals, and what to do
 

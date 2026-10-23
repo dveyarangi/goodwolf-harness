@@ -2,16 +2,30 @@
 """A mechanism's rules reach other skills as installed blocks, from the one file that holds them.
 
     uv run --offline --no-project python .agents/scripts/gw/inject_rules.py <slug> --install [--overwrite]
+    uv run --offline --no-project python .agents/scripts/gw/inject_rules.py --install [--overwrite]
     uv run --offline --no-project python .agents/scripts/gw/inject_rules.py <slug> --retract
-    uv run --offline --no-project python .agents/scripts/gw/inject_rules.py --check
+    uv run --offline --no-project python .agents/scripts/gw/inject_rules.py --check [--line]
+    uv run --offline --no-project python .agents/scripts/gw/inject_rules.py --set <setting>=<value>
+    uv run --offline --no-project python .agents/scripts/gw/inject_rules.py --settings
 
 One block per source per target, holding every rule the source sends there. A source is a
 mechanism's rules file, or the project's own — `local.rules.md` beside the entry file, the slug
 `local` — whose block lands after every mechanism's in a target and whose rules may name the
-core rule each overrides. The grammar of the rules file is the format shelf's,
+core rule each overrides. A rule may name the condition of its installation, `when
+<setting>=<value>`; a mechanism declares the settings it owns in its rules file, the project sets
+their values in its local file, and a rule is written into a target only while its conditions
+hold under those values. The grammar of the rules file is the format shelf's,
 `MECHANISM-FORMAT.md`; the contract — a named mode or a refusal, every target validated before
 anything is written, retraction byte-identical, a differing block refused until the caller says
-overwrite — is the architecture's.
+overwrite — is the architecture's. A block that differs from its rendering only in which of the
+file's own rules it holds differs by the settings alone, and is re-rendered without being asked:
+the contract's refusal is for an edited copy or an amended source, which that block is not.
+
+Without a slug, `--install` is the installer's run: every source in the harness's order,
+mechanisms then local, so a changed setting brings the whole tree to match. `--set` changes one
+value in the local file and runs it. `--settings` renders the tree's settings as one table and
+writes nothing: an index is rendered on request, never committed. `--check --line` prints one
+line for a host's hook, or nothing.
 
 The script never decides what a rule means and never writes a doc.
 """
@@ -21,7 +35,7 @@ from __future__ import annotations
 import json
 import re
 import sys
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -39,14 +53,25 @@ MECHANISMS = ".agents/mechanisms"
 # the core directory cannot delete it. Its slug is the block tag the leak check already skips.
 LOCAL = "local"
 LOCAL_FILE = "local.rules.md"
-MODES = ("--install", "--retract", "--check")
-_USAGE = "usage: inject_rules.py <slug> --install [--overwrite] | <slug> --retract | --check"
+MODES = ("--install", "--retract", "--check", "--set", "--settings")
+_USAGE = (
+    "usage: inject_rules.py <slug> --install [--overwrite] | --install [--overwrite] | <slug> --retract"
+    " | --check [--line] | --set <setting>=<value> | --settings"
+)
 _HEADING = re.compile(r"^(#{1,6}) (.*)$", re.M)
 _WRAPPER_OPENING = re.compile(r"^<straw-dog\b[^<>]*>$")
-_TABLE_ROW = re.compile(r"^\|\s*`([^`]+)`\s*\|\s*`([^`]+)`\s*\|\s*$")
+_CELL = re.compile(r"^`([^`]+)`$")
+# A preamble's tables are told apart by their header row; a row under no known header is prose.
+_ANCHOR_HEADER = ("target", "anchor")
+_DECLARATION_HEADER = ("setting", "values", "default", "set by")
+_VALUE_HEADER = ("setting", "value")
+_HEADERS = (_ANCHOR_HEADER, _DECLARATION_HEADER, _VALUE_HEADER)
+_VALUES_APART = " · "
+THE_PERSON = "the person"
 _TARGET = re.compile(r"^- \*\*target\*\* `([^`]+)`\s*$")
 _OVERRIDES = re.compile(r"^- \*\*overrides\*\* `([^`/]+)/([^`/]+)`\s*$")
 _AUTHORITY = re.compile(r"^- \*\*authority\*\* (.+?)\s*$")
+_WHEN = re.compile(r"^- \*\*when\*\* ([^\s=`]+)=(.+?)\s*$")
 _SPAN_EDGE = re.compile(r"^</?rule>\r?\n?$")
 
 
@@ -63,6 +88,8 @@ class Rule:
     body: str
     overrides: tuple[str, str] | None = None
     """The core rule this one replaces, as (slug, id) — a project's override names its rule."""
+    when: tuple[tuple[str, str], ...] = ()
+    """The conditions of its installation, `(setting, value)` each, all of which must hold."""
 
     @property
     def paragraph(self) -> str:
@@ -73,17 +100,59 @@ class Rule:
 
 
 @dataclass(frozen=True)
+class Setting:
+    """A setting as its mechanism declares it: what it is called, what it may be, what it is
+    unless the project says, and who may set it — a rung's name, or the person."""
+
+    name: str
+    values: tuple[str, ...]
+    default: str
+    set_by: str
+    owner: str
+
+
+@dataclass(frozen=True)
+class Settings:
+    """The tree's settings resolved: every declaration across the rules files, and the values the
+    local file sets. A setting the local file leaves unset stands at its default."""
+
+    declared: dict[str, Setting]
+    values: dict[str, str]
+
+    def value(self, name: str) -> str:
+        return self.values.get(name, self.declared[name].default)
+
+    def holds(self, when: tuple[tuple[str, str], ...]) -> bool:
+        return all(name in self.declared and self.value(name) == value for name, value in when)
+
+
+NO_SETTINGS = Settings({}, {})
+
+
+@dataclass(frozen=True)
 class RulesFile:
-    """One mechanism's rules, with the place in each target its block goes."""
+    """One mechanism's rules, with the place in each target its block goes, the settings it
+    declares, and — the local file alone — the values the project sets."""
 
     slug: str
     anchors: dict[str, str]
     rules: tuple[Rule, ...]
+    settings: tuple[Setting, ...] = ()
+    values: dict[str, str] = field(default_factory=dict)
 
-    def block(self, target: str) -> str:
-        """What the target must hold: every rule naming it, file order, ids from the headings."""
-        paragraphs = [rule.paragraph for rule in self.rules if target in rule.targets]
+    def block(self, target: str, settings: Settings = NO_SETTINGS) -> str | None:
+        """What the target must hold: every rule naming it whose conditions hold, file order, ids
+        from the headings — or nothing, where the settings call for none of them."""
+        paragraphs = [
+            rule.paragraph for rule in self.rules if target in rule.targets and settings.holds(rule.when)
+        ]
+        if not paragraphs:
+            return None
         return f'<installed by="{self.slug}">\n' + "\n\n".join(paragraphs) + f"\n{INSTALLED_CLOSING}"
+
+    def paragraphs(self, target: str) -> set[str]:
+        """Every paragraph a rule of this file could put in the target, whatever the settings."""
+        return {rule.paragraph for rule in self.rules if target in rule.targets}
 
 
 @dataclass(frozen=True)
@@ -96,40 +165,64 @@ class Located:
 
 
 def main(argv: list[str], root: Path) -> int:
-    slug, mode, overwrite, usage = _parsed(argv)
+    word, mode, overwrite, line, usage = _parsed(argv)
     if usage:
         print(_USAGE)
         return 2
     if mode == "--check":
         report = check(root)
-        print(json.dumps(report, indent=2))
+        print(check_line(report) if line else json.dumps(report, indent=2))
         return 1 if report["diagnostics"] else 0
+    if mode == "--settings":
+        print(settings_table(root))
+        return 0
+    if mode == "--set":
+        report = set_value(root, word)
+        print(json.dumps(report, indent=2))
+        return 1 if report["refusals"] else 0
+    if mode == "--install" and word is None:
+        report = install_every(root, overwrite)
+        print(json.dumps(report, indent=2))
+        return 1 if report["refusals"] else 0
     try:
-        rules = read_rules_file(root, slug)
+        rules = read_rules_file(root, word)
+        settings = settings_resolved(root)
         if mode == "--install":
             overrides_resolve(root, rules)
+            conditions_resolve(rules, settings)
     except Refused as refusal:
-        print(json.dumps({"slug": slug, "mode": mode[2:], "refusals": [str(refusal)]}, indent=2))
+        print(json.dumps({"slug": word, "mode": mode[2:], "refusals": [str(refusal)]}, indent=2))
         return 1
-    report = install(root, rules, overwrite) if mode == "--install" else retract(root, rules)
+    report = install(root, rules, overwrite, settings) if mode == "--install" else retract(root, rules, settings)
     print(json.dumps(report, indent=2))
     return 1 if report["refusals"] else 0
 
 
-def _parsed(argv: list[str]) -> tuple[str | None, str | None, bool, bool]:
-    """Exactly one mode, always named; the slug present exactly when the mode needs it."""
+def _parsed(argv: list[str]) -> tuple[str | None, str | None, bool, bool, bool]:
+    """Exactly one mode, always named; a word present exactly when the mode takes one — the slug
+    of an install or retraction, `<setting>=<value>` of a set — an install with no slug being the
+    run over every source; `--overwrite` with an install alone, `--line` with the check alone."""
     modes = [operand for operand in argv if operand in MODES]
     flags = [operand for operand in argv if operand.startswith("-") and operand not in MODES]
     words = [operand for operand in argv if not operand.startswith("-")]
     overwrite = flags == ["--overwrite"]
-    if len(modes) != 1 or (flags and not overwrite):
-        return None, None, False, True
+    line = flags == ["--line"]
+    if len(modes) != 1 or (flags and not (overwrite or line)):
+        return None, None, False, False, True
     mode = modes[0]
     if mode == "--check":
-        return None, mode, False, bool(words) or overwrite
+        return None, mode, False, line, bool(words) or overwrite
+    if line:
+        return None, mode, False, False, True
+    if mode == "--settings":
+        return None, mode, False, False, bool(words) or overwrite
+    if mode == "--set":
+        return (words[0] if words else None), mode, False, False, len(words) != 1 or overwrite
+    if mode == "--install" and not words:
+        return None, mode, overwrite, False, False
     if len(words) != 1 or (overwrite and mode != "--install"):
-        return None, mode, overwrite, True
-    return words[0], mode, overwrite, False
+        return None, mode, overwrite, False, True
+    return words[0], mode, overwrite, False, False
 
 
 # --- the rules file --------------------------------------------------------------------------
@@ -165,7 +258,10 @@ def parse_rules_file(slug: str, text: str) -> RulesFile:
     starts = _section_starts(lines)
     if not starts:
         raise Refused("no rule sections — an install of nothing is not a success")
-    anchors = _anchor_table(lines[: starts[0]])
+    tables = _tables(lines[: starts[0]])
+    anchors = _anchor_table(tables.get(_ANCHOR_HEADER, []))
+    declared = _declarations(slug, tables.get(_DECLARATION_HEADER, []))
+    values = _values(slug, tables.get(_VALUE_HEADER, []))
     rules = [
         _rule(lines[start:end], anchors)
         for start, end in zip(starts, starts[1:] + [len(lines)])
@@ -174,7 +270,7 @@ def parse_rules_file(slug: str, text: str) -> RulesFile:
     for rule_id in ids:
         if ids.count(rule_id) > 1:
             raise Refused(f"rule id {rule_id} appears twice")
-    return RulesFile(slug, anchors, tuple(rules))
+    return RulesFile(slug, anchors, tuple(rules), declared, values)
 
 
 def _section_starts(lines: list[tuple[str, str]]) -> list[int]:
@@ -191,17 +287,79 @@ def _section_starts(lines: list[tuple[str, str]]) -> list[int]:
     return starts
 
 
-def _anchor_table(preamble: list[tuple[str, str]]) -> dict[str, str]:
-    anchors: dict[str, str] = {}
+def _tables(preamble: list[tuple[str, str]]) -> dict[tuple[str, ...], list[list[str]]]:
+    """The preamble's tables, each by its header row, its rows as lists of raw cells, the divider
+    skipped. A row under no known header is prose and is not read."""
+    tables: dict[tuple[str, ...], list[list[str]]] = {}
+    header: tuple[str, ...] | None = None
     for raw, seen in preamble:
-        row = _TABLE_ROW.match(raw)
-        if row is None or seen.replace("|", "").strip():
-            continue  # not a row of two code spans: the header, the divider, or prose
-        target, anchor = row.group(1), row.group(2)
+        if not seen.lstrip().startswith("|"):
+            header = None
+            continue
+        cells = [cell.strip() for cell in raw.strip().strip("|").split("|")]
+        named = tuple(cell.lower() for cell in cells)
+        if named in _HEADERS:
+            header = named
+            tables.setdefault(header, [])
+        elif header is not None and not all(set(cell) <= set("-: ") for cell in cells):
+            tables[header].append(cells)
+    return tables
+
+
+def _anchor_table(rows: list[list[str]]) -> dict[str, str]:
+    anchors: dict[str, str] = {}
+    for cells in rows:
+        spans = [_CELL.match(cell) for cell in cells]
+        if len(cells) != 2 or not all(spans):
+            continue  # not a row of two code spans: prose in the table
+        target, anchor = spans[0].group(1), spans[1].group(1)
         if target in anchors:
             raise Refused(f"{target} is named twice in the anchor table — a mechanism has one place in a target")
         anchors[target] = anchor
     return anchors
+
+
+def _declarations(slug: str, rows: list[list[str]]) -> tuple[Setting, ...]:
+    """The settings this file declares: the name and each value a code span, the values told
+    apart by ` · `, the default among them, `set by` a rung's name or the person. Values are the
+    project's, so the local file declares nothing."""
+    if rows and slug == LOCAL:
+        raise Refused(f"{LOCAL_FILE} declares a setting; a setting is declared by the mechanism it belongs to")
+    declared: list[Setting] = []
+    for cells in rows:
+        if len(cells) != 4:
+            raise Refused(f"a settings row has {len(cells)} cells, not setting, values, default and set by")
+        name_span, default_span = _CELL.match(cells[0]), _CELL.match(cells[2])
+        value_spans = [_CELL.match(value.strip()) for value in cells[1].split(_VALUES_APART)]
+        if name_span is None or default_span is None or not all(value_spans):
+            raise Refused(f"a setting's name, values and default are code spans: {' | '.join(cells)}")
+        name, default = name_span.group(1), default_span.group(1)
+        values = tuple(span.group(1) for span in value_spans)
+        if default not in values:
+            raise Refused(f"setting {name}'s default `{default}` is not among its values")
+        if any(one.name == name for one in declared):
+            raise Refused(f"setting {name} is declared twice")
+        if not cells[3]:
+            raise Refused(f"setting {name} says nothing of who sets it")
+        declared.append(Setting(name, values, default, cells[3], slug))
+    return tuple(declared)
+
+
+def _values(slug: str, rows: list[list[str]]) -> dict[str, str]:
+    """The values the project sets, name and value each a code span; a mechanism's file sets
+    none, since values are the project's."""
+    if rows and slug != LOCAL:
+        raise Refused(f"{slug}'s rules file sets a value; values are the project's, in {LOCAL_FILE}")
+    values: dict[str, str] = {}
+    for cells in rows:
+        spans = [_CELL.match(cell) for cell in cells]
+        if len(cells) != 2 or not all(spans):
+            raise Refused(f"a value row is a setting and a value, each a code span: {' | '.join(cells)}")
+        name, value = spans[0].group(1), spans[1].group(1)
+        if name in values:
+            raise Refused(f"setting {name} is set twice")
+        values[name] = value
+    return values
 
 
 def _rule(section: list[tuple[str, str]], anchors: dict[str, str]) -> Rule:
@@ -211,6 +369,7 @@ def _rule(section: list[tuple[str, str]], anchors: dict[str, str]) -> Rule:
     targets: list[str] = []
     overrides: list[tuple[str, str]] = []
     authorities: list[str] = []
+    when: list[tuple[str, str]] = []
     edges: list[int] = []
     for index, (raw, seen) in enumerate(section[1:], start=1):
         if seen.startswith("- **target**") and (match := _TARGET.match(raw)):
@@ -219,6 +378,10 @@ def _rule(section: list[tuple[str, str]], anchors: dict[str, str]) -> Rule:
             overrides.append((match.group(1), match.group(2)))
         elif seen.startswith("- **authority**") and (match := _AUTHORITY.match(raw)):
             authorities.append(match.group(1))
+        elif seen.startswith("- **when**"):
+            if (match := _WHEN.match(raw)) is None:
+                raise Refused(f"rule {rule_id}'s condition is not `when <setting>=<value>`: {raw.strip()}")
+            when.append((match.group(1), match.group(2)))
         elif _SPAN_EDGE.match(seen):
             edges.append(index)
     if not targets:
@@ -234,7 +397,10 @@ def _rule(section: list[tuple[str, str]], anchors: dict[str, str]) -> Rule:
         raise Refused(f"rule {rule_id} needs exactly one <rule> … </rule> span")
     body = "".join(raw for raw, _ in section[edges[0] + 1 : edges[1]]).rstrip("\r\n")
     _body_problems(rule_id, body)
-    return Rule(rule_id, title.strip(), tuple(targets), authorities[0], body, overrides[0] if overrides else None)
+    return Rule(
+        rule_id, title.strip(), tuple(targets), authorities[0], body,
+        overrides[0] if overrides else None, tuple(when),
+    )
 
 
 def overrides_resolve(root: Path, rules: RulesFile) -> None:
@@ -271,6 +437,179 @@ def override_problems(root: Path, rules: RulesFile) -> list[str]:
             if target not in found.targets
         ]
     return problems
+
+
+# --- the settings -----------------------------------------------------------------------------
+
+
+def settings_resolved(root: Path) -> Settings:
+    """The tree's settings, or a refusal naming the first thing wrong with them."""
+    settings, problems = read_settings(root)
+    if problems:
+        raise Refused(problems[0])
+    return settings
+
+
+def read_settings(root: Path) -> tuple[Settings, list[str]]:
+    """Every declaration across the mechanisms' rules files and the values the local file sets,
+    with what is wrong among them: a setting declared by two mechanisms, a value set for a
+    setting nobody declares, a value no declaration holds. A rules file that cannot be read is
+    its own diagnostic elsewhere and declares nothing here."""
+    declared: dict[str, Setting] = {}
+    problems: list[str] = []
+    for slug, rules in _sources_read(root).items():
+        if rules is None:
+            continue
+        for setting in rules.settings:
+            if setting.name in declared:
+                problems.append(
+                    f"setting {setting.name} is declared by {declared[setting.name].owner} and by {slug}"
+                )
+                continue
+            declared[setting.name] = setting
+    values: dict[str, str] = {}
+    local = _sources_read(root).get(LOCAL)
+    for name, value in (local.values if local else {}).items():
+        if name not in declared:
+            problems.append(f"{LOCAL_FILE} sets {name}, which no mechanism declares")
+        elif value not in declared[name].values:
+            problems.append(
+                f"{LOCAL_FILE} sets {name} to `{value}`, which is none of "
+                + ", ".join(f"`{one}`" for one in declared[name].values)
+            )
+        else:
+            values[name] = value
+    return Settings(declared, values), problems
+
+
+def _sources_read(root: Path) -> dict[str, RulesFile | None]:
+    """Every source the tree holds, in the harness's order — the mechanisms, then the local file —
+    each read, or None where its file refuses."""
+    files: dict[str, RulesFile | None] = {}
+    directories = sorted((root / MECHANISMS).glob("*/")) if (root / MECHANISMS).is_dir() else []
+    for directory in directories:
+        slug = directory.name
+        if slug == LOCAL or not (directory / f"{slug}.rules.md").is_file():
+            continue
+        try:
+            files[slug] = read_rules_file(root, slug)
+        except Refused:
+            files[slug] = None
+    if (root / LOCAL_FILE).is_file():
+        try:
+            files[LOCAL] = read_rules_file(root, LOCAL)
+        except Refused:
+            files[LOCAL] = None
+    return files
+
+
+def conditions_resolve(rules: RulesFile, settings: Settings) -> None:
+    for problem in condition_problems(rules, settings):
+        raise Refused(problem)
+
+
+def condition_problems(rules: RulesFile, settings: Settings) -> list[str]:
+    """Each condition naming a setting no mechanism declares, or a value its declaration lacks."""
+    problems = []
+    for rule in rules.rules:
+        for name, value in rule.when:
+            if name not in settings.declared:
+                problems.append(f"rule {rule.id} is conditioned on {name}, which no mechanism declares")
+            elif value not in settings.declared[name].values:
+                problems.append(
+                    f"rule {rule.id} is conditioned on {name}=`{value}`, which is none of "
+                    + ", ".join(f"`{one}`" for one in settings.declared[name].values)
+                )
+    return problems
+
+
+def settings_table(root: Path) -> str:
+    """The tree's settings as one table, rendered on request and never committed: an index of the
+    declarations and the local file, each entry at its authored home."""
+    settings, problems = read_settings(root)
+    rows = [
+        "| setting | values | default | this tree | set by | declared by |",
+        "|---|---|---|---|---|---|",
+    ]
+    for name in sorted(settings.declared):
+        one = settings.declared[name]
+        rows.append(
+            f"| `{name}` | {_VALUES_APART.join(f'`{value}`' for value in one.values)} | `{one.default}` "
+            f"| `{settings.value(name)}` | {one.set_by} | {one.owner} |"
+        )
+    return "\n".join(rows + [f"\n{problem}" for problem in problems])
+
+
+def set_value(root: Path, said: str | None) -> dict:
+    """One setting changed in the local file, then the run, so the tree matches at once. Refuses an
+    undeclared name or value before writing; who may run it is not the script's to tell."""
+    name, apart, value = (said or "").partition("=")
+    report: dict = {"mode": "set", "setting": name, "value": value, "refusals": []}
+    if not apart or not name or not value:
+        report["refusals"].append(f"not `<setting>=<value>`: {said!r}")
+        return report
+    settings, problems = read_settings(root)
+    if name not in settings.declared:
+        report["refusals"].append(f"no mechanism declares {name}")
+    elif value not in settings.declared[name].values:
+        report["refusals"].append(
+            f"{name} is none of " + ", ".join(f"`{one}`" for one in settings.declared[name].values)
+        )
+    if report["refusals"]:
+        return report
+    path = root / LOCAL_FILE
+    if not path.is_file():
+        report["refusals"].append(f"no {LOCAL_FILE} to set it in")
+        return report
+    _write(path, _with_value(_read(path), name, value))
+    report["written"] = LOCAL_FILE
+    run = install_every(root, overwrite=False)
+    report["installed"] = run["sources"]
+    report["refusals"] = run["refusals"]
+    return report
+
+
+def _with_value(text: str, name: str, value: str) -> str:
+    """The local file with the setting's row holding the value: the row rewritten where it is,
+    appended to the table where the setting had none, the table opened after the anchor table
+    where the file has none. Everything else stays byte for byte."""
+    newline = "\r\n" if "\r\n" in text else "\n"
+    lines = text.split(newline)
+    seen = without_code(text).split(newline)
+    header: tuple[str, ...] | None = None
+    value_rows: list[int] = []
+    anchor_rows: list[int] = []
+    value_header: int | None = None
+    for index, (raw, blank) in enumerate(zip(lines, seen)):
+        if blank.startswith("## "):
+            break
+        if not blank.lstrip().startswith("|"):
+            header = None
+            continue
+        cells = tuple(cell.strip().lower() for cell in raw.strip().strip("|").split("|"))
+        if cells in _HEADERS:
+            header = cells
+            if header == _VALUE_HEADER:
+                value_header = index
+            continue
+        if all(set(cell) <= set("-: ") for cell in cells):
+            continue
+        if header == _VALUE_HEADER:
+            value_rows.append(index)
+        elif header == _ANCHOR_HEADER:
+            anchor_rows.append(index)
+    row = f"| `{name}` | `{value}` |"
+    for index in value_rows:
+        if lines[index].strip().startswith(f"| `{name}` |"):
+            lines[index] = row
+            return newline.join(lines)
+    if value_header is not None:
+        last = value_rows[-1] if value_rows else value_header + 1
+        lines.insert(last + 1, row)
+        return newline.join(lines)
+    after = anchor_rows[-1] if anchor_rows else -1
+    lines[after + 1 : after + 1] = ["", "| setting | value |", "|---|---|", row]
+    return newline.join(lines)
 
 
 def _body_problems(rule_id: str, body: str) -> None:
@@ -398,22 +737,51 @@ def without_block(text: str, found: Located) -> str:
 # --- the modes ------------------------------------------------------------------------------
 
 
-def install(root: Path, rules: RulesFile, overwrite: bool) -> dict:
+def install(root: Path, rules: RulesFile, overwrite: bool, settings: Settings = NO_SETTINGS) -> dict:
     """Every target validated first; then, only if all of them passed, every target written."""
-    return _installing_or_retracting(root, rules, "install", overwrite)
+    return _installing_or_retracting(root, rules, "install", overwrite, settings)
 
 
-def retract(root: Path, rules: RulesFile) -> dict:
-    return _installing_or_retracting(root, rules, "retract", False)
+def retract(root: Path, rules: RulesFile, settings: Settings = NO_SETTINGS) -> dict:
+    return _installing_or_retracting(root, rules, "retract", False, settings)
 
 
-def _installing_or_retracting(root: Path, rules: RulesFile, mode: str, overwrite: bool) -> dict:
+def install_every(root: Path, overwrite: bool) -> dict:
+    """The installer's run: every source in the harness's order, the mechanisms then the local
+    file, each installed under the tree's settings; the first refusal ends it, and the report
+    says which source and why. Run twice, the second run changes nothing."""
+    report: dict = {"mode": "install", "sources": [], "refusals": []}
+    try:
+        settings = settings_resolved(root)
+    except Refused as refusal:
+        report["refusals"].append(str(refusal))
+        return report
+    for slug in _sources_read(root):
+        try:
+            rules = read_rules_file(root, slug)
+            if slug == LOCAL:
+                overrides_resolve(root, rules)
+            conditions_resolve(rules, settings)
+            outcome = install(root, rules, overwrite, settings)
+        except Refused as refusal:
+            report["refusals"].append(f"{slug}: {refusal}")
+            return report
+        report["sources"].append({"slug": slug, "targets": outcome["targets"]})
+        if outcome["refusals"]:
+            report["refusals"].append(f"{slug}: {outcome['refusals'][0]}")
+            return report
+    return report
+
+
+def _installing_or_retracting(
+    root: Path, rules: RulesFile, mode: str, overwrite: bool, settings: Settings
+) -> dict:
     planned: list[tuple[str, str]] = []
     outcomes: list[dict] = []
     refusals: list[str] = []
     for target, anchor in rules.anchors.items():
         try:
-            outcome, new_text = _planned(root, rules, target, anchor, mode, overwrite)
+            outcome, new_text = _planned(root, rules, target, anchor, mode, overwrite, settings)
         except Refused as refusal:
             refusals.append(f"{target}: {refusal}")
             continue
@@ -436,7 +804,7 @@ def _installing_or_retracting(root: Path, rules: RulesFile, mode: str, overwrite
 
 
 def _planned(
-    root: Path, rules: RulesFile, target: str, anchor: str, mode: str, overwrite: bool
+    root: Path, rules: RulesFile, target: str, anchor: str, mode: str, overwrite: bool, settings: Settings
 ) -> tuple[dict, str | None]:
     path = root / target
     if not path.is_file():
@@ -445,7 +813,13 @@ def _planned(
     found = locate(text, rules.slug)
     if found is not None and found.text is None:
         raise Refused("the block opens and never closes")
-    rendered = rules.block(target)
+    rendered = rules.block(target, settings)
+    if rendered is None:
+        # The settings call for none of the file's rules here: a block present is taken out by
+        # retraction's cut, as a dropped target's is, whatever the mode.
+        if found is None:
+            return {"target": target, "state": "not called for"}, None
+        return {"target": target, "state": "removed", "removed": found.text}, without_block(text, found)
     if mode == "install":
         if found is None:
             at = insertion_point(text, anchor, rules.slug)
@@ -457,6 +831,9 @@ def _planned(
             return {"target": target, "state": "installed"}, with_block(text, at, rendered)
         if matches(found.text, rendered):
             return {"target": target, "state": "present"}, None
+        if _differs_by_settings_alone(found.text, rules, target):
+            replaced = text[: found.start] + rendered + text[found.end:]
+            return {"target": target, "state": "re-rendered", "replaced": found.text}, replaced
         if not overwrite:
             raise Refused(
                 "the block differs from the rules file — an amended source not yet installed, or a "
@@ -472,6 +849,18 @@ def _planned(
             "then retract"
         )
     return {"target": target, "state": "retracted"}, without_block(text, found)
+
+
+def _differs_by_settings_alone(found: str, rules: RulesFile, target: str) -> bool:
+    """A block holding nothing but paragraphs of this file's own rules for this target, unedited:
+    which of them it holds is the settings' doing, not an edit's nor an amendment's, so it is
+    re-rendered without being asked."""
+    inside = found.replace("\r\n", "\n").split("\n", 1)[1].rsplit("\n", 1)[0]
+    held = {paragraph for paragraph in inside.split("\n\n") if paragraph}
+    # Both sides normalised, as `matches` normalises them: a rules file kept in CRLF renders
+    # bodies with CRLF, and a block in an LF target is still its own.
+    could = {paragraph.replace("\r\n", "\n") for paragraph in rules.paragraphs(target)}
+    return bool(held) and held <= could
 
 
 def _dropped_targets(root: Path, rules: RulesFile) -> list[str]:
@@ -513,10 +902,13 @@ def _written(root: Path, planned: list[tuple[str, str]], report: dict) -> dict:
 
 
 def check(root: Path) -> dict:
-    """Every rules file against every target it names, and every block against the rules files."""
+    """Every rules file against every target it names, every block against the rules files, and
+    the settings against the declarations — what a tree carries read under its own settings."""
     files: dict[str, RulesFile | None] = {}
     blocks: list[dict] = []
     diagnostics: list[str] = []
+    settings, problems = read_settings(root)
+    diagnostics.extend(problems)
     for directory in sorted((root / MECHANISMS).glob("*/")) if (root / MECHANISMS).is_dir() else []:
         slug = directory.name
         if slug == LOCAL:
@@ -539,10 +931,11 @@ def check(root: Path) -> dict:
         if rules is None:
             continue
         diagnostics.extend(f"{slug}: {problem}" for problem in override_problems(root, rules))
+        diagnostics.extend(f"{slug}: {problem}" for problem in condition_problems(rules, settings))
         for target, anchor in rules.anchors.items():
-            state = _state(root, rules, target, anchor)
+            state = _state(root, rules, target, anchor, settings)
             blocks.append({"slug": slug, "target": target, "state": state})
-            if state != "present":
+            if state not in ("present", "not called for"):
                 diagnostics.append(f"{slug} in {target}: {state}")
     orphans = _orphans(root, files)
     diagnostics.extend(f"orphan block of {slug} in {path}" for slug, path in orphans)
@@ -554,7 +947,19 @@ def check(root: Path) -> dict:
     }
 
 
-def _state(root: Path, rules: RulesFile, target: str, anchor: str) -> str:
+def check_line(report: dict) -> str:
+    """One line for a host's hook, or nothing: how many things are out of step, and the run that
+    brings the tree to match."""
+    count = len(report["diagnostics"])
+    if not count:
+        return ""
+    return (
+        f"installed blocks: {count} thing{'s' if count > 1 else ''} out of step with the rules files and "
+        "the settings — run `inject_rules.py --install`, then `--check` for what it could not mend"
+    )
+
+
+def _state(root: Path, rules: RulesFile, target: str, anchor: str, settings: Settings = NO_SETTINGS) -> str:
     path = root / target
     if not path.is_file():
         return "target missing"
@@ -563,6 +968,9 @@ def _state(root: Path, rules: RulesFile, target: str, anchor: str) -> str:
         found = locate(text, rules.slug)
     except Refused as refusal:
         return str(refusal)
+    rendered = rules.block(target, settings)
+    if rendered is None:
+        return "not called for" if found is None else "present though the settings call for none of it"
     if found is None:
         try:
             after_anchor(text, anchor)
@@ -571,8 +979,8 @@ def _state(root: Path, rules: RulesFile, target: str, anchor: str) -> str:
         return "absent"
     if found.text is None:
         return "the block opens and never closes"
-    if not matches(found.text, rules.block(target)):
-        return "drifted"
+    if not matches(found.text, rendered):
+        return "out of step with the settings" if _differs_by_settings_alone(found.text, rules, target) else "drifted"
     if rules.slug == LOCAL and following_block(text, found.end):
         return "not last"
     return "present"

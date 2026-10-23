@@ -86,7 +86,7 @@ for this mechanism.
 | the shelf of Claude Code's hook wiring | `.agents/skills/questions/hooks/.claude/settings.json` | `questions` |
 | the shelf of Codex's hook wiring | `.agents/skills/questions/hooks/.codex/hooks.json` | `questions` |
 | the shelf of Cursor's hook wiring | `.agents/skills/questions/hooks/.cursor/hooks.json` | `questions` |
-| the hooks' wrapper, launched by a Git alias | `.agents/scripts/gw/hook.sh` | `questions` |
+| the hooks' wrapper, launched by a Git alias | `.agents/scripts/gw/hook.sh` | `mechanism-shape` |
 | the mover | `.agents/scripts/gw/move_doc.py` | `ticket` |
 | the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |
 | the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |

@@ -1,5 +1,5 @@
 #!/bin/sh
-# Mechanism: questions
+# Mechanism: mechanism-shape
 # Every core hook runs here, launched by a Git alias:
 #
 #     git -c "alias.gw-hook=!sh .agents/scripts/gw/hook.sh" gw-hook <host>
@@ -17,7 +17,22 @@ if [ -n "$record" ] && [ -f "$record" ]; then
     python=$(head -n 1 "$record" | tr -d '\r')
 fi
 if [ -n "$python" ] && [ -f "$python" ]; then
-    exec "$python" .agents/scripts/gw/questions.py --hook "$host"
+    # The payload is kept whole for the store's hook; it is read here only to tell a session's
+    # start, where the installer's check runs and its one line — a tree whose installed blocks
+    # are out of step with its rules files and settings — is handed to the wake, which prints it
+    # last in the host's own form. Nothing here may fail the host: a check that cannot run says
+    # nothing.
+    payload=$(mktemp 2>/dev/null || echo "${TMPDIR:-/tmp}/gw-hook-$$")
+    cat > "$payload"
+    notice=""
+    if grep -qiE 'hook_event_name"[[:space:]]*:[[:space:]]*"sessionstart"' "$payload" 2>/dev/null \
+        && [ -f .agents/scripts/gw/inject_rules.py ]; then
+        notice=$("$python" .agents/scripts/gw/inject_rules.py --check --line 2>/dev/null)
+    fi
+    GW_NOTICE="$notice" "$python" .agents/scripts/gw/questions.py --hook "$host" < "$payload"
+    status=$?
+    rm -f "$payload"
+    exit $status
 fi
 
 # No interpreter: say which step makes the record, in the form the host reads, and exit 0 — a

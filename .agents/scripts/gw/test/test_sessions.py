@@ -848,3 +848,13 @@ class TheGone(Hooked):
     def start(self, tag: str, source: str = "startup") -> str:
         _, said = self.hook("claude-code", {"session_id": tag, "hook_event_name": "SessionStart", "source": source})
         return said
+
+
+class TheInstallersLine(unittest.TestCase):
+    """What the hooks' wrapper hands the store's hook at a session's start is printed last."""
+
+    def test_a_notice_from_the_environment_closes_the_wake_and_an_empty_one_leaves_it(self) -> None:
+        with mock.patch.dict(os.environ, {"GW_NOTICE": " installed blocks: 1 thing out of step \n"}):
+            self.assertEqual("the wake\n\ninstalled blocks: 1 thing out of step", questions._noticed("the wake"))
+        with mock.patch.dict(os.environ, {"GW_NOTICE": ""}):
+            self.assertEqual("the wake", questions._noticed("the wake"))

@@ -61,6 +61,10 @@ absence is honestly classified, are judgements it records and never makes.
 | checking that a declaration is true | `.agents/scripts/gw/mechanisms.py` | |
 | installing a mechanism's rules into skills, its own included, and the project's local file after every mechanism's | `.agents/scripts/gw/inject_rules.py` | |
 | retracting them | `.agents/scripts/gw/inject_rules.py` | |
+| running the installer over every source under the tree's settings, so a changed setting brings the tree to match | `.agents/scripts/gw/inject_rules.py` | |
+| changing one of the tree's settings and bringing the tree to match | `.agents/scripts/gw/inject_rules.py` | |
+| rendering the tree's settings as one table, on request | `.agents/scripts/gw/inject_rules.py` | |
+| telling a session at its start that the tree's blocks are out of step with its settings | `.agents/scripts/gw/hook.sh` | |
 | reporting a retired tag left in core | `.agents/scripts/gw/mechanisms.py` | |
 | writing a mechanism's rule where a session reads it, the entry file included, at `/align` or here | `.agents/skills/mechanism/SKILL.md` | |
 | re-checking a mechanism when what governs it has moved | — | elsewhere — re-checking derived work against a changed source is maintenance, `.agents/skills/maintain/SKILL.md` |
@@ -82,14 +86,16 @@ absence is honestly classified, are judgements it records and never makes.
 | the check's tests | `.agents/scripts/gw/test/test_mechanisms.py` |
 | the installer | `.agents/scripts/gw/inject_rules.py` |
 | the installer's tests | `.agents/scripts/gw/test/test_inject_rules.py` |
+| the hooks' wrapper, launched by a Git alias, running every mechanism's hook line | `.agents/scripts/gw/hook.sh` |
 | the test harness's tests | `.agents/scripts/gw/test/test_repository.py` |
 | citation reader | `.agents/scripts/gw/docs_corpus.py` |
 | test harness | `.agents/scripts/gw/test/repository.py` |
 
-The last two are shared by every script in the tree and claimed here because this mechanism is
-the one that cannot leave: where a shared part's ownership bites, the claimant is the always-on
-mechanism, so no uninstall can remove what another mechanism needs *(the user, 2026-09-08,
-applying the shape's own ownership decision)*.
+The last two, and the hooks' wrapper, are shared by every script in the tree and claimed here
+because this mechanism is the one that cannot leave: where a shared part's ownership bites, the
+claimant is the always-on mechanism, so no uninstall can remove what another mechanism needs
+*(the user, 2026-09-08, applying the shape's own ownership decision; the wrapper since
+2026-10-23, when the installer's line joined the store's hook there)*.
 
 ## Relies on, and does not own
 

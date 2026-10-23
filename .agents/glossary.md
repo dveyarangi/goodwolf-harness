@@ -255,3 +255,7 @@ One step of a ladder. A decision's rung is read from what it decides, never from
 The rung a project sets on a ladder: below it the agent acts on its own, at it the agent shows the person before acting, above it the person decides.
 _Avoid_: switch, autonomy setting.
 
+**Setting**:
+A knob a mechanism declares — its name, its values, its default, who may set it — and a project sets in its local file; a rule may be installed only while a setting holds a value, so a tree carries the method's text its settings call for.
+_Avoid_: flag, option, variable.
+

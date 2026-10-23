@@ -1756,6 +1756,8 @@ class TheHookWiring(TwoTrees):
 HOOK_COMMAND = 'git -c "alias.gw-hook=!sh .agents/scripts/gw/hook.sh" gw-hook'
 # Stands in for the store's script: says what it was asked and what it was handed.
 ECHOING_QUESTIONS = "import sys\nprint('asked', ' '.join(sys.argv[1:]), 'handed', sys.stdin.read())\n"
+NOTICING_QUESTIONS = "import os, sys\nprint('noticed', repr(os.environ.get('GW_NOTICE', '')), 'handed', sys.stdin.read())\n"
+LINE_SAYING_INJECTOR = "import sys\nprint('out of step' if sys.argv[1:] == ['--check', '--line'] else 'asked ' + ' '.join(sys.argv[1:]))\n"
 
 
 class TheWrapper(RepositoryCase):
@@ -1788,6 +1790,27 @@ class TheWrapper(RepositoryCase):
         self.assertEqual(
             'asked --hook codex handed {"hook_event_name": "SessionStart", "note": "привет"}', done.stdout.strip()
         )
+
+    def test_at_a_sessions_start_the_installers_line_is_handed_to_the_stores_hook_and_at_a_message_not(self) -> None:
+        self.record(sys.executable)
+        self.write(".agents/scripts/gw/questions.py", NOTICING_QUESTIONS)
+        self.write(".agents/scripts/gw/inject_rules.py", LINE_SAYING_INJECTOR)
+
+        started = self.run_hook("claude-code", '{"hook_event_name": "SessionStart"}')
+        messaged = self.run_hook("claude-code", '{"hook_event_name": "UserPromptSubmit"}')
+
+        self.assertEqual(0, started.returncode, started.stderr)
+        self.assertEqual("noticed 'out of step' handed {\"hook_event_name\": \"SessionStart\"}", started.stdout.strip())
+        self.assertEqual("noticed '' handed {\"hook_event_name\": \"UserPromptSubmit\"}", messaged.stdout.strip())
+
+    def test_a_tree_with_no_installer_starts_with_no_line_and_fails_nothing(self) -> None:
+        self.record(sys.executable)
+        self.write(".agents/scripts/gw/questions.py", NOTICING_QUESTIONS)
+
+        started = self.run_hook("codex", '{"hook_event_name": "SessionStart"}')
+
+        self.assertEqual(0, started.returncode, started.stderr)
+        self.assertTrue(started.stdout.startswith("noticed ''"), started.stdout)
 
     def test_without_a_record_it_names_the_step_in_the_hosts_form_and_holds_nothing_back(self) -> None:
         for host, gone in (("claude-code", None), ("cursor", "C:/gone/python.exe")):

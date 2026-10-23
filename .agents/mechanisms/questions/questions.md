@@ -126,7 +126,6 @@ roles, is an open question of the store.
 | the shelf of Claude Code's hook wiring | `.agents/skills/questions/hooks/.claude/settings.json` |
 | the shelf of Codex's hook wiring | `.agents/skills/questions/hooks/.codex/hooks.json` |
 | the shelf of Cursor's hook wiring | `.agents/skills/questions/hooks/.cursor/hooks.json` |
-| the hooks' wrapper, launched by a Git alias | `.agents/scripts/gw/hook.sh` |
 | its line endings, kept LF in every clone | `.agents/.gitattributes` |
 
 ## Relies on, and does not own
@@ -138,6 +137,7 @@ roles, is an open question of the store.
 | test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |
 | the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |
 | the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
+| the hooks' wrapper, launched by a Git alias, which runs the store's hook and hands it the installer's line | `.agents/scripts/gw/hook.sh` | `mechanism-shape` |
 | the interpreter record the wrapper reads, made by the link step | `.agents/scripts/gw/harness.py` | `harness` |
 | the rows' script, for each session's position | `.agents/scripts/gw/sessions.py` | `session` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
