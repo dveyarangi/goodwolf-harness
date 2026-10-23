@@ -152,8 +152,20 @@ named after the ticket it will belong to.
 </installed>
 
 <installed by="session">
+**S4** One party's work or claim colliding with another's — another session standing
+where this one works — met and not resolved, is a row under `| 🪢 Tangle |`, even where a record's
+disagreement is what shows it. The 🪢 table's header lists every running session's question, this
+one's included, on one line, each by its id alone, linked to its entry, `—` for a session with no
+position; each collision is a row under it, naming the sessions it involves. The table stands
+whenever another session runs: its header is enough, with no collision under it, and it opens the
+reply.
+
 **S6** Run `/recall` first in every conversation, whatever the first message says. A conversation the host
 resumes under a new id is the same conversation: its context holds the recall it ran.
+</installed>
+
+<installed by="debugging">
+**D1** Open your first reply of every session with the entry file's `Entry contract:` line, verbatim.
 </installed>
 
 ## Document load-bearing, code&comment the rest
@@ -282,7 +294,7 @@ version of the entry contract changed: docs/research/entry-contract-findings.md.
 
 **L2** development=a feature · self-improvement=a rule. Push each commit as it lands.
 
-**L4** debug=off
+**L4** debug=on
 
 **L5** Run a Python script with `uv run --offline --no-project python <script>`.
 

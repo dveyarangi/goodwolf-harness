@@ -16,7 +16,7 @@ with overwrite; the block in a target is never the place.
 
 | setting | value |
 |---|---|
-| `debug` | `off` |
+| `debug` | `on` |
 
 ## L1 — what this repository is
 
@@ -47,7 +47,7 @@ development=a feature · self-improvement=a rule. Push each commit as it lands.
 - **authority** the user, 2026-09-29
 
 <rule>
-debug=off
+debug=on
 </rule>
 </straw-dog>
 
