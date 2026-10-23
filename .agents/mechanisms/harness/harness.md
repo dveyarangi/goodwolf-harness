@@ -128,6 +128,7 @@ is not a part: it never ships, and a recipient has its own.
 | studying a tree that has a method and writing the report | `.agents/skills/harness/MEETING.md` | |
 | reading the tree again after a migration, as its verification | `.agents/skills/harness/MEETING.md` | |
 | populating the local file after the first install | `.agents/skills/harness/SKILL.md` | |
+| changing one of the tree's settings by the agent's call, or showing how the harness is set up here | `.agents/skills/harness/SKILL.md` | |
 | pointing a tree at another core, as a fork does | `.agents/skills/harness/SKILL.md` | |
 | reporting friction met in a run to the repository | `.agents/skills/harness/SKILL.md` | |
 | re-checking a recipient's copy against its ref in a maintain pass | — | <straw-dog question="q-0037.0006.0012">not yet</straw-dog> |
