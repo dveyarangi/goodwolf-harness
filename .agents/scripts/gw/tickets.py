@@ -13,7 +13,7 @@ the table and fails the run.
 The shape is the ticket format shelf's, `TICKET-FORMAT.md`, under *The record*: the mark of what
 the ticket is a record of, the header's fields and their order, the sections a stage admits, the
 acceptance boxes, and the pairing of an RFC with the ticket that shares its basename. The queue is
-read for its mark alone. The question store is read for one thing: that a
+read for its mark and for a link into an archive. The question store is read for one thing: that a
 ticket's `Answers` links an entry the ticket owns. This script rules on form alone. Whether a ticket
 should have been written, whether its status is true, whether an outcome is any good, are
 judgments it records and never makes.
@@ -369,15 +369,30 @@ def _mark_problems(record: str, mark: Field, called: str) -> list[Diagnostic]:
 
 
 def _queue_problems(root: Path, names: list[str]) -> list[Diagnostic]:
-    """The queue's mark, where the tree has a queue; a tree without one is not this check's to
-    report."""
+    """The queue's mark, and that it names nothing closed, where the tree has a queue; a tree
+    without one is not this check's to report."""
     if QUEUE not in names:
         return []
     try:
         lines = (root / QUEUE).read_bytes().decode("utf-8").splitlines()
     except UnicodeDecodeError:
         return [Diagnostic(QUEUE, None, "is not UTF-8, so its mark cannot be read")]
-    return _mark_problems(QUEUE, _mark(lines), "queue")
+    return _mark_problems(QUEUE, _mark(lines), "queue") + _closed_in_queue(root, lines)
+
+
+def _closed_in_queue(root: Path, lines: list[str]) -> list[Diagnostic]:
+    """A link into an archive: the queue is the order of work still to come, so the pass that
+    closes a record removes its line, and the history stays with the commits and the session
+    records (rule failure 66, the user, 2026-10-24)."""
+    notes = []
+    for number, line in enumerate(lines, start=1):
+        for written in citations(line):
+            record = cited_record(root, QUEUE, target_of(written))
+            if record and "done" in record.split("/")[:-1]:
+                notes.append(
+                    Diagnostic(QUEUE, number, f"names {record}, which is closed: the pass that closed it removes its line")
+                )
+    return notes
 
 
 def _form_problems(read: Ticket) -> list[Diagnostic]:

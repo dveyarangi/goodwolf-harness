@@ -22,8 +22,8 @@ One row per mechanism per level, then each file that level was checked against, 
 | questions | output | 80336d4bd159fda9678b44897adaca2a66c67e271c31c15e02bad7059c9813a7 | 2026-10-24 | repaired |
 | session | parts | 42dca8df4bc8f6c4e4aeb38182fc2a385eef9131c8d8ba59390a37cb166522f3 | 2026-10-24 | nothing to change |
 | session | output | 1f306eb43d955812405a3ed6632d541c51ecf67f8e13743642ba1151cf17f98e | 2026-10-24 | nothing to change |
-| ticket | parts | 4ba9f38c8f1d79fbb5f6f2181e7c6f36376f758c4683479283928c5f6a4a6f64 | 2026-10-24 | nothing to change |
-| ticket | output | 6383c8f16383a37747e4251a697b704d93f2414b0b3f0bec951844e6fa618578 | 2026-10-24 | nothing to change |
+| ticket | parts | d42baff2057b8d8791650d4d0911c71d3c9324356e9abc87de9580077c8e9d42 | 2026-10-24 | amended |
+| ticket | output | efb1163aadfb9d7590534ec2eb49552d48dc86224612f3a8b8a1879f01d76765 | 2026-10-24 | repaired |
 
 | mechanism | level | file | fingerprint |
 |---|---|---|---|
@@ -149,17 +149,17 @@ One row per mechanism per level, then each file that level was checked against, 
 | ticket | parts | .agents/scripts/gw/test/test_failure_contract.py | fb98267bdfca71023f00f5a36ac2734afaeaced6ee20d671836583b22e7482c9 |
 | ticket | parts | .agents/scripts/gw/test/test_paired_close.py | 8a6f57f07c743bbfe594ab6002659943a07896e74328c61387e10006f6304315 |
 | ticket | parts | .agents/scripts/gw/test/test_refusals.py | e57dc3df0c656820945a2be6824cc57fdcdba856738fc92c324223af6b6f45a2 |
-| ticket | parts | .agents/scripts/gw/test/test_tickets.py | 6d2eeb2f02c76f57c2a30d6e0bceb1021bfea90ac36476672b4ac67f217f18da |
-| ticket | parts | .agents/scripts/gw/tickets.py | 1141d91ece7afab66a0b13521a94aef9dafb6801c334e3b07ea8043f4c5ff522 |
-| ticket | parts | .agents/skills/ticket/QUEUE-ARRIVAL.md | 415fe65d77b694401922169c06f14756369f52d3bff471216b491b7adee2ac5e |
+| ticket | parts | .agents/scripts/gw/test/test_tickets.py | d77724467475c5f62bfec8898ed3c4e31cb2184ae6595bcffac5e7aeac9c11b3 |
+| ticket | parts | .agents/scripts/gw/tickets.py | 117bbe6077591447a07fca90f0616a1a807bfc0d3326ccc21ef7a3db4bc58395 |
+| ticket | parts | .agents/skills/ticket/QUEUE-ARRIVAL.md | 36441d38441f80b5163e5bd2046d9e29284fc70e85e9fbe29123a8d4a51d0a1d |
 | ticket | parts | .agents/skills/ticket/SKILL.md | 1d6897d3d3aca84f8f97afc05b4c74f8fd86f23853b3979391193453a83e220b |
-| ticket | parts | .agents/skills/ticket/TICKET-FORMAT.md | 9bd1ca20ebefd05dfc84c42a50ffa1d66cbbea1215dd99d8b1a407a700fe2c3f |
+| ticket | parts | .agents/skills/ticket/TICKET-FORMAT.md | b23d13650195e3ff2ae7959cd62c5845514598a3b6dd33cac6af57556ae2dd83 |
 | ticket | output | .agents/mechanisms/mechanism-shape/mechanism-shape.md | e9b706af39fb0cc75410ca13549c86b5f43b4a26d0b31aee02b57b7be4a9280e |
 | ticket | output | .agents/mechanisms/mechanism-shape/mechanism-shape.rules.md | 2e681b0e5f05f91417d4745bfdb08f7d7d50152c91ad3db8b631b757dc941308 |
-| ticket | output | .agents/mechanisms/ticket/ticket.md | 9eacbcdf94b35feccb1bc510db6d17603cfae32799185485661c9425ca34dd39 |
+| ticket | output | .agents/mechanisms/ticket/ticket.md | 7a1bb04d1a7f38a4537e2323dd4d9e6a2e9927d20d2aff1e658d936c05e382d2 |
 | ticket | output | .agents/mechanisms/ticket/ticket.rules.md | d68098d896a17ed5ccef64842539dcbd943436ad28b46611e4242aea4728531b |
 | ticket | output | .agents/skills/mechanism/MECHANISM-FORMAT.md | 422bbdf31e5378d2cd4967dec77648857a1d9f9211eeda56e2b3f5d292d4fab9 |
 | ticket | output | .agents/skills/mechanism/SKILL.md | 8841707ffc23f691808d2d77177aeb5a7d1c4d0cc049842e00e09cd1a19fc9a2 |
-| ticket | output | .agents/skills/ticket/QUEUE-ARRIVAL.md | 415fe65d77b694401922169c06f14756369f52d3bff471216b491b7adee2ac5e |
+| ticket | output | .agents/skills/ticket/QUEUE-ARRIVAL.md | 36441d38441f80b5163e5bd2046d9e29284fc70e85e9fbe29123a8d4a51d0a1d |
 | ticket | output | .agents/skills/ticket/SKILL.md | 1d6897d3d3aca84f8f97afc05b4c74f8fd86f23853b3979391193453a83e220b |
-| ticket | output | .agents/skills/ticket/TICKET-FORMAT.md | 9bd1ca20ebefd05dfc84c42a50ffa1d66cbbea1215dd99d8b1a407a700fe2c3f |
+| ticket | output | .agents/skills/ticket/TICKET-FORMAT.md | b23d13650195e3ff2ae7959cd62c5845514598a3b6dd33cac6af57556ae2dd83 |
