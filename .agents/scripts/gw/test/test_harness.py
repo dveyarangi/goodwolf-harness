@@ -914,15 +914,31 @@ class ARefusal(TwoTrees):
         self.assertTrue((folder / "notes.txt").is_file())
 
     def test_install_over_a_present_manifest_path(self) -> None:
-        for present in ("AGENTS.md", "CLAUDE.md", KEEPER, INSTALLED_LICENSE):
+        for present in (KEEPER, INSTALLED_LICENSE):
             with self.subTest(present=present):
                 shutil.rmtree(self.target / ".agents", ignore_errors=True)
-                for stale in ("AGENTS.md", "CLAUDE.md"):
-                    (self.target / stale).unlink(missing_ok=True)
                 (self.target / present).parent.mkdir(parents=True, exist_ok=True)
                 (self.target / present).write_text("theirs\n", encoding="utf-8")
 
                 self.assert_refused(("--install",), "install:", present, "--update")
+
+    def test_a_tree_with_its_own_entry_file_or_stub_is_met_not_installed_into(self) -> None:
+        for present in ("AGENTS.md", "CLAUDE.md"):
+            with self.subTest(present=present):
+                for stale in ("AGENTS.md", "CLAUDE.md"):
+                    (self.target / stale).unlink(missing_ok=True)
+                (self.target / present).write_text("# Our rules\n\nNever merge red.\n", encoding="utf-8")
+
+                self.assert_refused(
+                    ("--install",), "install:", "already has a method", present, "A tree that already has a method"
+                )
+                self.assertNotIn("--update", self.last_refusal)
+
+    def test_a_trees_own_skills_where_a_link_goes_are_a_method_named_by_skill(self) -> None:
+        (self.target / ".claude" / "skills" / "collaborate").mkdir(parents=True)
+        (self.target / ".claude" / "skills" / "collaborate" / "SKILL.md").write_text("---\nname: collaborate\n---\n", encoding="utf-8")
+
+        self.assert_refused(("--install",), "already has a method", ".claude/skills/ (collaborate)", "A tree that already has a method")
 
     def test_update_without_core(self) -> None:
         self.assert_refused(("--update",), "update:", "--install")
@@ -984,7 +1000,7 @@ class ARefusal(TwoTrees):
     def test_a_directory_of_the_recipients_own_where_a_link_goes(self) -> None:
         (self.target / ".cursor" / "skills").mkdir(parents=True)
 
-        self.assert_refused(("--install",), "link:", ".cursor/skills", "recipient's own")
+        self.assert_refused(("--install",), "already has a method", ".cursor/skills/")
 
 
 # --- install -------------------------------------------------------------------------------------

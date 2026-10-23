@@ -792,17 +792,50 @@ def _same_repository(one: str, other: str) -> bool:
 
 
 def _refuse_unless_empty(target: Path, shipment: Shipment) -> None:
+    """Before anything is written. A tree that already has a method of its own — an entry file, a
+    host stub, skills standing where a loader link goes — is met, not installed into: the refusal
+    names what it found and sends the agent to the skill's meeting, which writes nothing until the
+    person has decided. A file of the project's at a path core writes is a collision, and core
+    already here is an install to complete."""
     present = [path for path in shipment.files if (target / path).exists()]
     if present and (target / HARNESS_SKILL).is_file():
         raise Refused(
             f"install: core is already here — an install, whole or stopped partway; "
             "--update --overwrite completes it"
         )
+    method = _signs_of_a_method(target)
+    if method:
+        raise Refused(
+            f"install: the tree already has a method — {', '.join(method)}; nothing is written. "
+            "The harness skill says how it meets one, under *A tree that already has a method*: "
+            "read the tree and report what the harness would change, and write nothing until the "
+            "person has decided"
+        )
     if present:
         raise Refused(
             f"install: {present[0]} already exists in the target; a previous install takes --update, "
             "anything else is the recipient's to move first"
         )
+
+
+def _signs_of_a_method(target: Path) -> list[str]:
+    """What shows a tree works by a method of its own: its entry file or host stub, and a directory
+    or a file of its own standing where a loader link goes, with the names of the skills under it.
+    A symlink or a junction there is the link plan's, not a sign."""
+    signs: list[str] = []
+    for name in (ENTRY_FILE, HOST_STUB):
+        if (target / name).is_file():
+            signs.append(name)
+    for link in LINKS:
+        path = target / link
+        if path.is_symlink() or _is_junction(path) or not os.path.lexists(path):
+            continue
+        if path.is_dir():
+            skills = sorted(child.name for child in path.iterdir() if (child / "SKILL.md").is_file())
+            signs.append(f"{link}/ ({', '.join(skills)})" if skills else f"{link}/")
+        else:
+            signs.append(link)
+    return signs
 
 
 def _refuse_unless_updatable(

@@ -137,10 +137,13 @@ left in the recipient links the issue. The run's last words to the person name e
 
 ## A tree that already has a method
 
-The install has refused because the tree holds an entry file or an `.agents/` of its own — the
-refusal names it — or the person asks whether the harness is needed here. Nothing is written. The
-study and the report are [MEETING.md](./MEETING.md)'s, read whole before the study; this section
-is what happens around them.
+The install has refused because the tree already has a method — its own entry file or host stub,
+or skills of its own standing where a loader link goes; the refusal names what it found — or the
+person asks whether the harness is needed here. Nothing is written. The study and the report are
+[MEETING.md](./MEETING.md)'s, read whole before the study; this section is what happens around
+them. A tree whose `.agents/` holds files of its own at none of core's paths is not a method by
+itself, nor are a host's hook files: the install integrates into the one and merges into the
+other.
 
 <straw-dog question="q-0037.0006.0020.0001.0003">
 **The offer.** Say what the read is and what it costs — a study by search and sampling, with a
@@ -159,10 +162,12 @@ migration runs, which of its plan, in which mode. Speak of the report; do not re
 </straw-dog>
 
 <straw-dog question="q-0037.0006.0020.0001">
-**After.** On yes, the tree's method is taken in — by inventory, or by one line from its own entry
-file — and the report's plan becomes open work in the tree's own records, cut at the grain of work
-the study read; the shelf is read again after the migration as its verification. On no, nothing
-more: the report stays, the one record the method leaves there.
+**After.** On no, nothing more: the report stays, the one record the method leaves there. On yes,
+the tree's method is taken in — by inventory, or by one line from its own entry file — and the
+report's plan becomes open work in the tree's own records, cut at the grain of work the study read;
+the shelf is read again after the migration as its verification. This harness does not carry that
+step yet: say so to the person in one sentence, leave the report where it stands, and stop; the
+install is not run again and nothing is moved by hand.
 </straw-dog>
 
 ## After the first install
