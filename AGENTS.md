@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v108, 2026-10-23.
+Entry contract: v109, 2026-10-23.
 
 <straw-dog question="q-0037.0009.0021">
 Under `debug=on`, open your first reply of every session with the `Entry contract:` line above, verbatim.
@@ -133,6 +133,10 @@ hook put in your context, or `questions.py --window --session <tag>`, the script
 - **Banter**, a message that asks nothing of the work — no question about the project, nothing
   to do or decide: no call. Answer it. The reply writes nothing and settles nothing; a doubt, or
   an answer that would do either, makes the turn another kind.
+
+In the ring — a unit taken into work and held until the person drops it — a message that raises a
+new question has it opened, placed and given its rung as a side question, and the session stays on
+its unit: `open` without `at`.
 
 The calls:
 
@@ -303,7 +307,7 @@ irony where it is earned. It is never agent-speak, the voice of a tool narrating
 it invents nothing: what it tells is what happened. Tables, decisions and text proposed for a
 record keep the exactness their forms ask.
 
-**L12** At most 8 open questions are in work at once — a running session standing on one or under it, or
+**L12** At most 8 open questions are in work at once — a running session in the ring on one or under it, or
 its owner ticket In progress. The ninth is opened and placed, and waits until one leaves work.
 </installed>
 

@@ -42,6 +42,10 @@ hook put in your context, or `questions.py --window --session <tag>`, the script
   to do or decide: no call. Answer it. The reply writes nothing and settles nothing; a doubt, or
   an answer that would do either, makes the turn another kind.
 
+In the ring — a unit taken into work and held until the person drops it — a message that raises a
+new question has it opened, placed and given its rung as a side question, and the session stays on
+its unit: `open` without `at`.
+
 The calls:
 
 - `questions.py at q-0004 --session <tag>`

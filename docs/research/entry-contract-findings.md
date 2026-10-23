@@ -15,6 +15,17 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v109 — 2026-10-23
+
+**In the ring a new question is a side question** — Q1 gains one clause after the five kinds of
+turn: in the ring, a unit taken into work and held until the person drops it, a message that raises
+a new question has it opened, placed and given its rung as a side question, and the session stays
+on its unit, `open` without `at`. Occasion: q-0037.0019's decision 6 — the cadence is two session
+states and three boundaries core holds whatever the method, the session's start, the person's
+word, a unit's close; an idea said mid-ring enters no work, and in conversation captures the
+session only by the person's returning, which `struck` shows. The local cap L12 reworded with it: a
+session counts as work in the ring alone *(the user, 2026-10-23)*.
+
 ## v108 — 2026-10-23
 
 **The recall rule is the session mechanism's** — *run `/recall` first in every conversation; a
