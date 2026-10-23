@@ -475,7 +475,10 @@ def _transformed(source: Source, ref: Ref, held: bool) -> dict[str, str]:
             text = raw.decode("utf-8")
         except UnicodeDecodeError as error:
             raise Refused(f"ship: {path} at {ref.announced} is not UTF-8 — {error}") from error
-        files[path] = shipped(path, text, ref, told, held)
+        # Core's text is LF, as its .gitattributes says; a carriage return a Windows tool left in
+        # a commit would otherwise stand where the block stripper expects a newline and stop
+        # every install. Normalised here, once, for every reader of the shipment.
+        files[path] = shipped(path, text.replace(chr(13) + chr(10), chr(10)), ref, told, held)
     if ENTRY_FILE not in files:
         raise Refused(f"ship: {ref.announced} has no {ENTRY_FILE}; this is not the harness")
     return files

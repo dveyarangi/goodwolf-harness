@@ -1007,6 +1007,16 @@ class ARefusal(TwoTrees):
 
 
 class AnInstall(TwoTrees):
+    def test_a_core_file_committed_with_carriage_returns_ships_lf(self) -> None:
+        held = self.read(KEEPER).replace(chr(10), chr(13) + chr(10))
+        (self.source / KEEPER).write_bytes(held.encode("utf-8"))
+        self.commit("a Windows tool's line endings")
+
+        status, report = self.run_harness("--install")
+
+        self.assertEqual([], report["refusals"], report)
+        self.assertNotIn(chr(13).encode(), (self.target / KEEPER).read_bytes())
+
     def test_lands_the_manifest_transformed_and_nothing_outside_it(self) -> None:
         status, report = self.run_harness("--install")
 
