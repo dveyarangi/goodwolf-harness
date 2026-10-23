@@ -2,28 +2,11 @@
 
 <straw-dog question="q-0037.0006.0020.0001">
 Tier 2: read when an install meets a tree that already has a method — an entry file or an
-`.agents/` of its own. The install writes nothing and stops twice; between the stops it studies the
-tree and writes one file, the report. This shelf owns the study and the report; the two modes of
-taking the tree's method in are the skill's.
-
-## The two stops
-
-**First.** Offer to read the repository and write up what the harness would change here; name the
-one file it would write and where — the first session record under the tree's `docs/sessions/`,
-named by its number, the day and the question's words; a tree without `docs/` takes the place the
-person names — and
-wait. Silence takes the offer; another
-place named takes that place. Nothing else in the tree changes before or after.
-
-**Second.** Show the report's main recommendations and ask one thing: whether the migration runs,
-which of its plan, in which mode. Speak of the report; do not retell it.
-
-**After a yes.** Once the harness is installed, the migration plan is offered again as open work in
-the tree's own records — a task each, with what it depends on — and the re-check on the same sample
-is taken against it: a check run while the migration is unfinished says which of the plan has
-landed and which has not, and its ledger is read in that light, never as the harness's measure. Either answer closes the person's question — *what would the harness
-change here?* — and the report, its body, stays: on *yes* as the tree's first record, its proposals
-becoming tickets; on *no* as the one record the method leaves.
+`.agents/` of its own. This shelf owns the study and the report; when the install stops for the
+person, and the two modes of taking the tree's method in, are the skill's. The shelf is read twice:
+before an install, on the tree as it is; and after a migration, on the same tree with the same
+sample and key, as that migration's verification — the second report beside the first, its ledger
+beside the first's.
 
 ## The study
 
@@ -37,8 +20,10 @@ study's largest cost, built from what the inventory and the readings meet, never
 
 **The inventory.** The entry file and what it includes; skills of the tree's own; scripts, gates and
 checks and the rules that name them; outside coordinators and contracts; the kinds of record the
-tree keeps — decisions, plans, runbooks, specs — and where its current state lives. This is what the
-harness does not replace, said in the tree's own names.
+tree keeps — decisions, plans, runbooks, specs — and where its current state lives; and the grain
+of the project's work, read from its history — how large a change is, in lines and files per merged
+PR, commits per PR, PRs per week — so that work offered to it later is cut at its own grain. This is
+what the harness does not replace, said in the tree's own names.
 
 **The readings.** Each is one way a project's knowledge fails to reach the person who needs it, or
 to hold once it has, counted and quoted in the tree's own words:
@@ -121,11 +106,12 @@ Sections, in this order, each headed:
    conclusion, in prose addressed to the person — what you will see change, and what you will
    likely let go of — in plain words, never a table of fragments.
 4. **The migration plan.** A table: what, what it touches and what depends on it, size; then the
-   order.
+   order, each item cut at the project's grain of work as the inventory read it.
 5. **What this report does not say.** No comparison of the tree's method with <straw-dog question="q-0037.0006.0020.0013">GoodWolf</straw-dog>
    before an install, a migration and a real check; no inventory of disagreements; the ledger measures one
    thing, the cost of recovering the project's state on a sample, and is far from the whole harness;
-   the post-migration re-run is its own stage, optional.
+   the second reading, after a migration, is that migration's verification, and nothing is read
+   from it while the migration is unfinished but which of the plan has landed.
 6. **Appendix: the ledger.** The counts; the sample and its key; the blind run's return, whole and
    unedited. The ledger lives here and nowhere else in the report: the body argues from its counts
    and never restates it. It is kept so the check after a migration runs the same sample against the
