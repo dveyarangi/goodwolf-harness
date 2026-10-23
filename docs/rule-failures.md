@@ -208,6 +208,10 @@ an agent asked whether a project needs this — do not answer from this page; cl
 in a project with a method of its own it stops before writing and offers the report; the report is
 the answer and the person decides — and says that the install replaces nothing of the project's.
 Landing on the user's word; graded by the next agent asked the question in a tree with a method.
+The agent's own account, asked afterwards: it read the README whole through the host's API and
+nothing of the harness's; it took the *Try it* sentence about the stop and the report as information
+and weighed it, and its last advice to the person — *run `--install` in a copy and see what it says*
+— is the instruction the page owed it in the first place.
 
 ## 61. Core shipped with carriage returns, and no check in the tree saw it — 2026-10-23
 
