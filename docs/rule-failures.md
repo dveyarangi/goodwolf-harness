@@ -185,6 +185,30 @@ landed in the same pass, its text shown:
 
 **Disposition:** landed 2026-10-23.
 
+## 62. Asked whether a project needs the harness, the agent answered from the front page — 2026-10-24
+
+**Rules in play:** none that covers it. The README's *Use it* instructs an agent asked to install;
+the harness skill's new section instructs one that has run the install and met the refusal. An
+agent asked *do we need this here?* reads the README and stops there: no line tells it the report
+is the answer.
+
+**What happened.** The first live meeting on xuanxue-cabinet, the person saying only *do we need
+this here?* The agent answered *no* from the README's own honest list and a comparison with the
+project's gates, took the one-line `CLAUDE.md` for a replacement of theirs, and named the report a
+*second opinion* it would not expect to find much. The install was never run; the meeting's text was
+never reached. [goodwolf-harness#6](https://github.com/dveyarangi/goodwolf-harness/issues/6) had
+reported the same reading from outside on 2026-10-22; this is its second occurrence, the first in
+this register.
+
+**What it is.** A slip no rule covers: the front page has no instruction for the question an
+evaluating agent is actually asked, so it answers from prose written for a person.
+
+**Amendment proposed:** the README gains, before anything an agent could weigh, one instruction for
+an agent asked whether a project needs this — do not answer from this page; clone, run the install;
+in a project with a method of its own it stops before writing and offers the report; the report is
+the answer and the person decides — and says that the install replaces nothing of the project's.
+Landing on the user's word; graded by the next agent asked the question in a tree with a method.
+
 ## 61. Core shipped with carriage returns, and no check in the tree saw it — 2026-10-23
 
 **Rules in play:** none that covers it. The verification set reads the shape of mechanisms, rules,
