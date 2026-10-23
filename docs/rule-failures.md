@@ -42,6 +42,27 @@ landed in the same pass, its text shown:
 
 **Disposition:** landed 2026-10-23.
 
+## 61. Core shipped with carriage returns, and no check in the tree saw it — 2026-10-23
+
+**Rules in play:** none that covers it. The verification set reads the shape of mechanisms, rules,
+tickets, edges, records, sessions and the product document; none reads line endings. The shipment
+reads *the bytes as the commit holds them*, and the block stripper holds a block to the exact
+spacing the installer writes.
+
+**What happened.** A session's tool wrote carriage returns into committed text — the commit skill's
+installed blocks on 2026-10-22, among 156 files with CRLF or mixed endings in the index — and from
+then on every install from a clone refused at ship: *the block is not spaced as the installer
+writes it*. Nothing in the tree reported it; the readiness check before the first live meeting
+found it, a day later, by trying an install into a scratch tree.
+
+**What it is.** A slip no rule covers: the method's own text had no stated line-ending convention,
+so a tool's default could change it unseen, and the one check that cared ran only in a recipient.
+
+**Amendment landed, 2026-10-23:** a root `.gitattributes` — `* text=auto eol=lf` — so text enters
+the index LF whatever a clone's setting, the shipped paths renormalised under it; and the shipment
+turns a carriage return into a newline before any reader of its text, with a test. Graded by the
+next install from a clone made on a Windows machine.
+
 ## 60. A local rule in the entry file named the skill that executes it, and no check found it odd — 2026-10-22
 
 **Rules in play:** none that covers it. The loop section of the entry file names skills by design,
