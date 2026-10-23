@@ -48,13 +48,14 @@ Not yet determined; the align decides it. What is known to be in scope:
 
 - **The meta-rules themselves** — what registration requires, who may reword a rule and on what
   evidence, and what distinguishes a rule that was disobeyed from one that could not fire.
-- **How an amendment is tested** *(the user, 2026-09-26)*. A new session in this repository, with
-  the amended ruleset installed and not this session, receives the request that failed, word for
-  word, and is told nothing of the issue; the session that registered the failure grades its reply
-  against the rule. A reader asked how it parses the rule, or run in an empty folder, tests
-  comprehension, not firing. Record files that describe the failure are withheld. A control under the
-  old ruleset shows the failure still reproduces. First run on
-  [rule failure 12](../rule-failures.md) through the `claude` CLI, headless.
+- **How an amendment is tested** — decided at
+  [q-0037.0012.0009](../questions/q-0037.0012.0009-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen-how-run-with-no-instruction-the-standing-one-and-the-new-one.md#where-it-stands), its *Where it stands* accepted 2026-10-21:
+  two layers, cases drawn along one chain from a noticed failure, three modes, blind judges, four
+  verdicts, runs staged through a host adapter. Its first form was the user's of 2026-09-26 — a new
+  session under the amended ruleset given the failing request word for word, a control under the
+  old one, the `claude` CLI headless. Built by the slices
+  [01-0019.0020 one-amendment-is-tested-end-to-end](./01-0019.0020-one-amendment-is-tested-end-to-end.md) to
+  [01-0019.0070 every-amendment-is-tested-before-it-lands](./01-0019.0070-every-amendment-is-tested-before-it-lands.md).
 - **The register's shape**, if it stays: today `rule-failures.md` has a written form and no
   declared format, which is the same gap
   [01-0017.0020](./01-0017.0020-practice-swaps-in-one-edit.md) found for sessions and dreams.
