@@ -52,8 +52,10 @@ to hold once it has, counted and quoted in the tree's own words:
 
 **The ledger.** A measurement the report keeps so the same tasks can be measured again after a
 migration. A blind run: a fresh agent, told nothing of the harness or of a measurement, is given the
-repository and a sample of questions, answers read-only from files, git history and the PR list, and
-reports how it searched. The author of the report never answers the sample; the key is built from
+repository and a sample of questions, answers read-only from files, git history and the pull-request
+list where the host has one, and reports how it searched. The tree's git state is read before the
+study and after it, and the report's head says it was unchanged; a change is the study's failure,
+said there. The author of the report never answers the sample; the key is built from
 the code and the records before the run and corrected only where the run proves it wrong. Where
 the run proves it incomplete, the addition is marked as one and no score changes.
 
@@ -68,7 +70,8 @@ The sample, from the tree as it stands on the day:
 | strong but hidden invariants or structures | 3 | what the code enforces and no record states as a general rule — a decision record's mention of one case does not state the rule; what the tree's shape implies and no record says | recovered · not |
 
 Counted beside the answers: tokens, tool calls and wall time from the host's account of the blind
-run; files read from the blind agent's own account of how it searched. And what the project's method
+run — where the host gives none, the ledger says so and counts what the agent's own account gives;
+files read from the blind agent's own account of how it searched. And what the project's method
 asks of a change today, as numbers: rules read by every session — the entry file and every file in
 the tree a rule orders read at every session, a read outside the tree named and not counted —, CI
 jobs and steps per PR, checklist items, PR body length, decision records per merged PR, check
