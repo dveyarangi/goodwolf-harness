@@ -17,6 +17,51 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 63. A hand-edited setting was received on wake, and two thirds of its rule stayed in a skill nobody opened — 2026-10-23
+
+**Rules in play:** [`/harness`](../.agents/skills/harness/SKILL.md), *A tree whose local file was
+edited by hand*, tier 2: *"run `inject_rules.py --install` before the first reply, at the rung of
+the setting that changed, and say in one line what the tree now carries. The entry file has then
+moved under the session: read it again before replying"*; the installer's wake line, tier 1 at
+that occasion, as [the settings edge](edge/settings.md) states it: *told so at a session's start*;
+[the hosts edge](edge/hosts.md), *Wake*.
+
+**What happened.** The person set `debug` to `off` by hand in the local file's settings table,
+then opened a fresh chat, to see whether the next session brings the tree to match — criterion 6 of
+[01-0010.0220](tickets/01-0010.0220-a-tree-carries-the-methods-text-its-settings-call-for.md).
+The wake carried the installer's line: two things out of step, run the installer, then the check.
+The session ran both before its first reply and the check came back clean. Then the reply opened
+with the entry-contract line the install had just taken out of the entry file, and said what the
+tree now carried as a paragraph inside the recall, not as one line.
+
+**Why it did not fire.** The rule's home is `/harness`, a skill a session opens when asked about
+the harness or to change a setting. The occasion is a wake, where no skill is open and nothing
+sends the session to that one. What reached the session was the wake line, and the line carries
+one of the rule's three steps — the install — and neither the re-read nor the one-line report.
+The install fired because the line said it; the rest did not because nothing at the occasion did.
+The rule is worded for a reader who has it in front of them, and at its occasion nobody does.
+
+**How the third home came to be.** The decision of 2026-10-23 on the hand edit was one sentence
+with three parties in it — *the wake reports it, the session runs it before its first reply and
+says so* — and the RFC gave `/harness` two occasions and `/maintain` no new rule. The implementing
+session landed the sentence's agent half as a paragraph in `/harness` all the same, the skill
+nearest the subject rather than the occasion, while building the wake line that already carried
+it; no check reads a skill's prose against an edge record, so the third telling stood unseen until
+a hand edit exercised it.
+
+**Amendment** — a removal, the occasion being rare and the fact already having its home and its
+two carriers: the contract stands in [the settings edge](edge/settings.md), *a hand edit of the
+local file, allowed and rare, brought to match by the next session before its first reply*; the
+wake line carries the action to the session that meets it, and the installer's check in the
+verification set carries it to `/maintain` for the one no session met. The `/harness` paragraph
+told it a third time, and told it where no session reads it. It goes. The re-read it asked for is
+[01-0018.0010](tickets/01-0018.0010-a-session-learns-the-entry-file-moved.md)'s question, and the
+one-line report is what the entry file asks of every outcome. At the self-improvement dial, a
+rule, so shown first.
+
+**Disposition:** landed 2026-10-23, the paragraph removed; the wake line, the check and their
+tests unchanged.
+
 ## 61. A just-minted ticket's place in the order was put to the person as a decision — 2026-10-23
 
 **Rules in play:** [`AGENTS.md` — the ⚖️ clause](../AGENTS.md#general-rules), tier 1: *"what waits

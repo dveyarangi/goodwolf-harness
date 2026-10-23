@@ -73,11 +73,6 @@ installer and reports what the tree now carries, which is what the person hears.
 person's, write nothing and name the row to change. Asked how the harness is set up here, show
 the same table.
 
-A tree whose local file was edited by hand is out of step until the installer runs. The wake says
-so; run `inject_rules.py --install` before the first reply, at the rung of the setting that
-changed, and say in one line what the tree now carries. The entry file has then moved under the
-session: read it again before replying.
-
 ## Refusals, and what to do
 
 Every refusal writes nothing and names its step.
