@@ -17,6 +17,40 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 65. A judge session's verdict was put to the person as a decision, and the holder stopped — 2026-10-23
+
+**Rules in play:** [`AGENTS.md` — Autonomy](../AGENTS.md#autonomy), *work closes with its commit once
+`/verify` passes on it*, below every dial; [TICKET-FORMAT](../.agents/skills/ticket/TICKET-FORMAT.md),
+*Acceptance criteria*, which said who checks a box and nothing of who judges; the ticket's own
+criteria 4 and 6, worded *read by the person*; the host's note on every message from another
+session — not the method's.
+
+**What happened.** The session that worked 01-0010.0220 received, from the session that had
+verified it, the results and the close as its own. Instead of reading the evidence in the tree —
+register entry 63, the criterion-4 note — and closing, it put the close to the person as a
+decision, citing the host's note that a peer's message is not the person's approval. No approval
+was wanted: the close stood below the dial and the criteria were met. The person: the close
+needed verification, not their word, and the criteria had named them as the verifier.
+
+**Why it did not fire.** The criteria said *read by the person*, so a verdict from a session read
+as the person's business, and the host's note on peer messages filled the gap the format left:
+nothing said that a criterion's judge is a role, or that a judge's verdict is accepted whoever
+gave it. The mirror of 64: there the checker took the close, here the holder would not take it.
+
+**Amendment**, to TICKET-FORMAT's *Acceptance criteria*, at the self-improvement dial — a rule,
+landed in the same pass, its text shown; beside decision 2 of q-0037.0017.0006, the judge a role
+whose verdict goes into the record:
+
+> A criterion on live behaviour names its judge as a role — someone who did not build it, a later
+> session included — never the person, unless what it asks is their own judgement. A judge's
+> verdict, the box checked with its date and what was seen, is accepted from any session; the
+> holder of the unit closes on it and asks nobody.
+
+The three live tickets whose criteria read *read by the person* now read *read by a judge who
+did not build it*.
+
+**Disposition:** landed 2026-10-23.
+
 ## 64. A handover said in the person's words was read as leave to ask, and the close was taken — 2026-10-23
 
 **Rules in play:** [the session mechanism's S4 and S5](../.agents/mechanisms/session/session.rules.md)
