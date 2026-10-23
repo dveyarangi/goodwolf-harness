@@ -25,7 +25,7 @@ asking the person — and [`/ticket`](../.agents/skills/ticket/SKILL.md), *Compl
 the close is a duty `/maintain` carries. None covers it.
 
 **What happened.** Asked whether the settings ticket,
-[01-0010.0220](tickets/01-0010.0220-a-tree-carries-the-methods-text-its-settings-call-for.md),
+[01-0010.0220](tickets/done/01-0010.0220-a-tree-carries-the-methods-text-its-settings-call-for.md),
 could be closed while another session held two of its edits uncommitted, this session began the
 verification; the person said *you can send a message to the holding session*. The session read
 that as leave to ask the holder about its edits, got the answer that the edits were not its own,
@@ -57,7 +57,7 @@ that occasion, as [the settings edge](edge/settings.md) states it: *told so at a
 
 **What happened.** The person set `debug` to `off` by hand in the local file's settings table,
 then opened a fresh chat, to see whether the next session brings the tree to match — criterion 6 of
-[01-0010.0220](tickets/01-0010.0220-a-tree-carries-the-methods-text-its-settings-call-for.md).
+[01-0010.0220](tickets/done/01-0010.0220-a-tree-carries-the-methods-text-its-settings-call-for.md).
 The wake carried the installer's line: two things out of step, run the installer, then the check.
 The session ran both before its first reply and the check came back clean. Then the reply opened
 with the entry-contract line the install had just taken out of the entry file, and said what the

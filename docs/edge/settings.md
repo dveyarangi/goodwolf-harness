@@ -46,15 +46,15 @@ rule stands in the agent's hands</straw-dog>.
 
 ## Concerns
 
-- [q-0037.0006.0026](../questions/q-0037.0006.0026-how-does-a-project-choose-which-of-the-methods-text-its-tree-carries.md)
-  — which of the method's text a project's tree carries; the dial as a setting waits on the
-  ladder mechanisms.
+- [q-0037.0010.0002.0005](../questions/q-0037.0010.0002.0005-what-does-the-practice-mechanism-own.md)
+  — the dial as a setting waits on the ladder mechanisms' declaring it; until then the dial is
+  set as L2 and not through the table.
 
 ## Roadmap
 
 - The dial's two rows in the table, once a ladder's mechanism declares them —
-  [01-0010.0220](../tickets/01-0010.0220-a-tree-carries-the-methods-text-its-settings-call-for.md)'s
-  deferred criterion.
+  [q-0037.0010.0002.0005](../questions/q-0037.0010.0002.0005-what-does-the-practice-mechanism-own.md),
+  deferred from [01-0010.0220](../tickets/done/01-0010.0220-a-tree-carries-the-methods-text-its-settings-call-for.md).
 - The rest of what debug shows moving into debugging's conditioned rules —
   [01-0016.0020](../tickets/01-0016.0020-what-debug-shows-is-installed-not-read.md).
 - The host refusing an agent's change of a person's setting —
