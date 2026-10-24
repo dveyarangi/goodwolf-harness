@@ -15,6 +15,16 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v111 — 2026-10-25
+
+**A side question does not stop the work** — the straw-dog section gains one sentence: the work a
+side question was raised in goes on, and what its answer will change is wrapped as its straw dog
+as it is written. Occasion: on 01-0016.0030, the voice, a question on core's defaults was opened
+beside the work, and the agent put to the person whether to build now or wait for it. The person:
+*when a side question is opened we can go on with the current one, marking as straw dogs what will
+change when it lands*; the agent's draft limited it to the ring, and the person: *not only in the
+ring — everywhere; drop the filter* *(the user, 2026-10-25)*.
+
 ## v110 — 2026-10-23
 
 **The announce line is debugging's** — the head's straw dog, *under `debug=on`, open your first
