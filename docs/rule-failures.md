@@ -17,6 +17,29 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 71. A commit below every dial was put to the person as a decision — 2026-10-25
+
+**Rule in play, loaded:** the entry file, [Autonomy](../AGENTS.md#autonomy): *"Below the dial the
+agent settles and acts on its own"* and *"Work closes with its commit once `/verify` passes on it."*
+
+**What happened.** On 01-0016.0030 the build stood green — every check, every test — and the speech
+bench failed one criterion. The agent asked the person whether to commit what was built and keep the
+ticket open, or change the rule first. The person had already said they would judge the voice by
+talking with it; the commit was the agent's. The person: *why are you asking me about the commit?*
+
+**Why it did not fire.** *Work closes with its commit once `/verify` passes* reads, at the moment of
+a failed criterion, as *no commit before `/verify` passes*; the agent took the commit for the
+closing and the closing for the person's. The sentence names when work closes, not when a green
+stage may land, and nothing says the commit itself is never what waits.
+
+**Proposed amendment**, to the entry file's Autonomy, after *Work closes with its commit …*, at the
+self-improvement dial — a rule, shown before it lands:
+
+> A green stage of work in progress is committed as it stands; what a failed criterion puts to the
+> person is that criterion, never the commit.
+
+**Disposition:** open; the amendment waits on the person.
+
 ## 70. A rule was landed with a filter and a must where the person meant room for judgement — 2026-10-25
 
 **Rule in play, loaded:** [`/skill-up`](../.agents/skills/skill-up/SKILL.md): *"Blur wording where
