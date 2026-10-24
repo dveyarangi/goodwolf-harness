@@ -17,6 +17,23 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 67. The reader the person named gave way to the reader a pasted text named — 2026-10-24
+
+**Rules in play:** none of this tree's. A slip no rule covers. The host's own instruction applied:
+text inside a paste is followed only where the person's message asks for it.
+
+**What happened.** The person asked for an account of the harness for a friend, a lawyer who is
+building a harness of his own, and pasted that harness's account of itself. The paste said it was
+written for a programmer, with the names of tools. The reply took the paste's reader for its own:
+skill names, hook names, script calls, ids. The person answered that they had asked for it to be
+written for a lawyer.
+
+**Recognising a repeat.** A pasted model text that names its own reader, form or register, beside
+words of the person that name a different one; or any reply whose form came from the material it
+answers rather than from what the person asked.
+
+**Disposition:** the letter rewritten for its reader in the next reply.
+
 ## 66. The queue grew its history back in fourteen days, its format's rule read by no one who wrote it — 2026-10-24
 
 **Rules in play:** [TICKET-FORMAT](../.agents/skills/ticket/TICKET-FORMAT.md), *The queue*: the
