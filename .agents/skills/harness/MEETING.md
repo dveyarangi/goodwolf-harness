@@ -101,13 +101,18 @@ Sections, in this order, each headed:
 1. **What was found.** By the inventory and the readings, each a paragraph with its numbers and
    quotes; then what the method asks of a change, as the count; then what stays as it is.
 2. **Main recommendations.** Three to five, each one sentence and its reason, about the project's
-   documentation and its own method — its rules, gates and records — only; never about what the
+   documentation and its method, each said as what GoodWolf does about it; never about what the
    project builds.
 3. **What clearly improves, and what the person will likely give up.** The report's main
    conclusion, in prose addressed to the person — what you will see change, and what you will
-   likely let go of<straw-dog question="q-0037.0009.0021.0002"> — in plain words, never a table of fragments</straw-dog>.
-4. **The migration plan.** A table: what, what it touches and what depends on it, size; then the
-   order, each item cut at the project's grain of work as the inventory read it.
+   likely let go of<straw-dog question="q-0037.0009.0021.0002"> — in plain words, never a table of fragments</straw-dog>. What you will likely let go of is
+   the project's own habits — a file that holds everything, history kept in rules, state kept in
+   memory — never a limitation of GoodWolf: its own not-yets stand in section 5 alone, and only
+   those the plan meets.
+4. **The migration plan.** A table: what, what of GoodWolf carries it, what it touches and what
+   depends on it, size; then the order, each item cut at the project's grain of work as the
+   inventory read it. Taking GoodWolf in — beside the project's method or in its place — is the
+   first item, and the rest are carried by it; an item GoodWolf has nothing for says so.
 5. **What this report does not say.** No comparison of the tree's method with <straw-dog question="q-0037.0006.0020.0013">GoodWolf</straw-dog>
    before an install, a migration and a real check; no inventory of disagreements; the ledger measures one
    thing, the cost of recovering the project's state on a sample, and is far from the whole harness;
