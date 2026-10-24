@@ -41,3 +41,15 @@
 - **Offline tests** — observed 2026-10-10: the hook cases and the merge passed in the verification
   set.
 - **Resume** — unobserved.
+- **Edit refusal** — documented: `preToolUse` with the matcher `Write`, which takes Claude Code's
+  `Edit`, refuses with `permission: "deny"` and an `agent_message`, or exit code 2; a hook that
+  fails lets the edit through unless `failClosed: true`; whether it fires in the CLI agent is not
+  documented ([hooks](https://cursor.com/docs/agent/hooks),
+  [third-party hooks](https://cursor.com/docs/reference/third-party-hooks), 2026-10-24).
+- **Skill load** — unobserved: how a skill reaches the agent is not documented; one typed as
+  `/name` *attaches to one message*, and a Custom Mode keeps it for the session; no hook reports a
+  skill load, `beforeSubmitPrompt`'s attachments list files and rules only, and a read of a
+  SKILL.md would reach `preToolUse` and `beforeReadFile` only if the agent loads skills by its
+  `Read` tool, which no source states ([skills](https://cursor.com/docs/context/skills), 2026-10-24).
+- **Skill lifetime** — unobserved: what a later turn or a summarisation keeps of a skill is not
+  documented; `preCompact` observes and cannot block, with `conversation_id`.

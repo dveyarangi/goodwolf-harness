@@ -42,3 +42,18 @@
 - **Offline tests** — observed 2026-10-10: the hook cases and the merge passed in the verification
   set.
 - **Resume** — unobserved; a resumed chat keeps its thread and rollout, `session_id` with them.
+- **Edit refusal** — documented: PreToolUse covers `apply_patch` and the shell, and refuses with
+  `permissionDecision: "deny"` and a reason, or exit code 2; the documentation calls it *a useful
+  guardrail, not a complete enforcement boundary*
+  ([hooks](https://learn.chatgpt.com/docs/hooks), 2026-10-24).
+- **Skill load** — documented by the host's source, openai/codex at `970111f`, 2026-10-23: a skill
+  the person types as `$name` is injected by the host as a user message `<skill>…</skill>` before
+  `UserPromptSubmit`, whose `prompt` carries the `$name` text, though not a skill picked as a
+  structured input; a skill the model picks itself it reads with a shell or `skills.read` call,
+  which PreToolUse sees. No hook fires on a skill load as such.
+- **Skill lifetime** — documented by the same source: the skill catalog tells the model *Do not
+  carry skills across turns unless re-mentioned*; nothing removes an injected text before
+  compaction, and both the local and the remote compaction drop skill texts and tool outputs and
+  re-inject none; `PreCompact`, `PostCompact` and `SessionStart` with source `compact` carry
+  `session_id` and `turn_id`, the session's id unchanged across it. The documentation is silent on
+  all of it.

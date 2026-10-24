@@ -26,6 +26,20 @@ and a hook that never fails the host, so a problem becomes a line of context
 A host lacking one of the last three is reached in part: the entry file's rule stands in, and the
 agent draws the window itself.
 
+<straw-dog question="q-0037.0006.0005.0001">
+**Required of a host, to guard the files a mechanism controls** — an edit to such a file refused
+while the skill the mechanism names is not loaded in the session:
+
+- a hook before the agent's file edits that can refuse one and tell the agent why;
+- every way a skill is loaded — the agent choosing it, the person typing it — seen by a hook under
+  the session's id;
+- what the host keeps of a loaded skill across later turns and through a compaction, documented or
+  observed, and the compaction seen by a hook under the session's id.
+
+A host lacking one is guarded in part, and the commit's check stands in for the edit it cannot
+refuse. A skill counts as loaded as the host keeps it, never by a lifetime the harness invents.
+</straw-dog>
+
 **What a host's integration is made of**, all of it core:
 
 - a row in `HOSTS`, `.agents/scripts/gw/questions.py`: the input field carrying the session id,
@@ -56,6 +70,9 @@ Each sidecar names its own parts.
 - In a host whose message hook reaches the agent, every message carries the window or the
   one-line notice that it is unchanged — *validated by:* live — **Window**
 - The host lists the harness's skills and runs one by name — *validated by:* live — **Skills**
+- <straw-dog question="q-0037.0006.0005.0001">An edit to a file a mechanism controls is refused
+  while the skill it names is not loaded in the session — **⚠ unguarded**: the guard is not
+  built</straw-dog>
 
 ## Extending
 
@@ -79,6 +96,11 @@ Each sidecar names its own parts.
     names, and pass in the verification set.
 11. **Resume** — a conversation closed and reopened in the host keeps its session: the sessions
     file gains no row, and the reopened conversation stands where it stood.
+12. **Edit refusal** — a hook refuses an edit before it is written, and the agent reads why.
+13. **Skill load** — a skill the agent chooses and one the person types are each seen by a hook,
+    under the session's id.
+14. **Skill lifetime** — what a loaded skill stays loaded through: a later turn, a second read, a
+    compaction; and the compaction seen by a hook.
 
 ## Extensions
 
@@ -98,9 +120,14 @@ Each sidecar names its own parts.
 - [q-0037.0006.0004.0001](../questions/q-0037.0006.0004.0001-how-is-it-observed-that-a-host-reads-the-loader-link.md)
   — whether a host reads the loader link is not observable from inside a tree; **Skills** is the
   nearest check, and Codex has no link to read.
+- [q-0037.0006.0005.0001](../questions/q-0037.0006.0005.0001-which-skill-must-be-read-before-a-file-is-edited-or-a-rule-proposed-and-how-does-the-host-refuse-the-act-made-without-it.md)
+  — the guard on the files a mechanism controls; here, how each host loads and keeps a skill, read
+  from **Skill load** and **Skill lifetime**, and which hosts can refuse an edit at all.
 
 ## Roadmap
 
 - The three hosts' unwatched checks — compaction, helper ids, Codex's start-hook attribution —
   observed: [01-0010.0120 what-each-host-says-without-being-asked](../tickets/01-0010.0120-what-each-host-says-without-being-asked.md).
 - A fourth host, chosen under q-0037.0006.0023: no ticket yet.
+- The guard on the files a mechanism controls, once q-0037.0006.0005.0001's `Where it stands` is
+  accepted: [01-0010.0125 the-host-blocks-what-a-rule-forbids](../tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md).

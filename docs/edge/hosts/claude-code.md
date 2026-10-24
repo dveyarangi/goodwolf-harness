@@ -51,3 +51,17 @@
   fix, passing: with the app quit and relaunched, the conversation came back as `3a5196da` in a
   new process, and the start hook answered *already registered* under the app's
   `local_48db9702…`, its position kept and no row added.
+- **Edit refusal** — documented: a PreToolUse hook on `Write` or `Edit` gets the absolute
+  `file_path` and refuses with `permissionDecision: "deny"` and a reason shown to the agent, or exit
+  code 2 ([hooks](https://code.claude.com/docs/en/hooks), 2026-10-24).
+- **Skill load** — documented: a PreToolUse on `Skill` when the agent calls one, a
+  `UserPromptExpansion` with `command_name` when the person types it, each with `session_id`; a
+  subagent does not see the skills its parent invoked, save a fork, and whether its PreToolUse
+  carries `agent_id` is not stated ([hooks](https://code.claude.com/docs/en/hooks),
+  [sub-agents](https://code.claude.com/docs/en/sub-agents), 2026-10-24).
+- **Skill lifetime** — documented: an invoked skill's text stays across later turns, and a second
+  invocation of an unchanged skill adds only a note that it is loaded; at compaction the most recent
+  invocation of each skill is re-attached, its first 5,000 tokens, within 25,000 for all together,
+  filled from the most recent, so an older skill can be dropped; `PreCompact`, `PostCompact` and
+  `SessionStart` with source `compact` carry `session_id`
+  ([skills](https://code.claude.com/docs/en/skills), quotes checked, 2026-10-24).
