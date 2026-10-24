@@ -17,6 +17,30 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 70. A rule was landed with a filter and a must where the person meant room for judgement — 2026-10-25
+
+**Rule in play, loaded:** [`/skill-up`](../.agents/skills/skill-up/SKILL.md): *"Blur wording where
+letting the model decide beats overfitting the instruction."*
+
+**What happened.** The person said that when a side question is opened *we can* go on with the
+current one, wrapping what will change. The agent's draft narrowed it to the ring — a filter the
+person had not given — and, told to drop the filter, landed *a side question does not stop the
+work*: a must where the person had said *can*. The person: *why so categorical? drop it; that
+leaves the agent free to judge the question's weight and its bearing on the task.*
+
+**Why it did not fire.** *Blur wording* names the remedy, not the two shapes the overfit took: a
+condition narrowing where a rule applies, and a must hardening what the person offered as a
+possibility. Both read as precision while writing, and precision is what the same skill asks for
+two lines above.
+
+**Proposed amendment**, to `/skill-up`'s writing rules, replacing the line, at the self-improvement
+dial — a rule, shown before it lands:
+
+> Write a filter, a fixed form or a must only where it always holds; where judgement decides, leave
+> it to the model rather than overfit the instruction.
+
+**Disposition:** open; the amendment waits on the person.
+
 ## 69. In the ring, the agent offered to leave its unit and took a one-word yes as the drop — 2026-10-24
 
 **Rule in play, loaded:** [`AGENTS.md` — Q1](../AGENTS.md#general-rules), its ring clause: *"In the
