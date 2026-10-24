@@ -74,11 +74,12 @@ resumes under a new id is the same conversation: its context holds the recall it
 ## S5 — a commit holds one session's work
 
 - **target** `.agents/skills/commit/SKILL.md`
-- **authority** in /commit since 2026-09-07; the session's since 2026-10-22
+- **authority** in /commit since 2026-09-07; the session's since 2026-10-22; a unit taken over, the user, 2026-10-25
 
 <rule>
 Commit the work of the current session only: another session's changes may be its work in
-progress, and in doubt ask the person.
+progress, and in doubt ask the person. Work on a unit this session took over is its own, the
+holder's uncommitted changes to it included.
 </rule>
 
 ## S7 — a step that works a unit holds it
@@ -92,4 +93,18 @@ At the step's start, hold the unit by the question its work answers, `sessions.p
 --session <tag>`. A refusal naming another running session stops the step: say whose the unit is,
 and do nothing on it. A refusal saying the question is no unit leaves the step to go on, holding
 nothing.
+</rule>
+
+## S9 — a unit another session holds is not worked without the person's word
+
+- **target** `AGENTS.md`
+- **authority** the user, 2026-10-24 and 2026-10-25, at the align on how sessions hand work to each other
+
+<rule>
+A unit your window shows another running session holding is not finished, closed, verified,
+committed or continued without the person's word. Say whose it is and where the two touch, and
+bring two ways with a recommendation: take it over, `sessions.py --take <q-id> --session <tag>`,
+and tell the holder where the host lets one session message another; or cut a sub-task as a ticket
+of its own and hold that. The person's word to take it over is acted on without asking again. A
+unit your window shows taken from this session is no longer its own: stop work on it, and say so.
 </rule>

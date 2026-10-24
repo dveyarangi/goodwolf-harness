@@ -1078,3 +1078,97 @@ class TheHolderShown(Rendered):
         self.place("q-0004-which-parts-are-optional", "Which parts are optional?", {"part of": "q-0002", "state": "closed:moot", "answer": "gone", "owner": self.OWNER})
 
         self.assertEqual([], [found for found in self.findings() if "holds" in found])
+
+
+class TakingOver(Rendered):
+    """`--take` moves a unit another running session holds into this session's row, by the
+    person's word, and leaves in the holder's row `taken <q-id> by <tag>` where `holds` stood."""
+
+    OWNER = "[01-0001 the-work](../tickets/01-0001-the-work.md)"
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.place("q-0004-which-parts-are-optional", "Which parts are optional?", {"part of": "q-0002", "state": "open", "owner": self.OWNER})
+        self.place("q-0007-who-moves-a-subtree", "Who moves a subtree?", {"part of": "q-0003", "state": "open", "owner": self.OWNER})
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 holds q-0004\ns-beta running 2026-09-29T11:00Z q-0010\n")
+
+    def said_to_sessions(self, *argv: str) -> tuple[int, str]:
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out):
+            status = sessions.main(list(argv), root=self.root, now=NOW)
+        return status, out.getvalue()
+
+    def line(self, tag: str) -> str:
+        return next(line for line in session_lines(self.root).splitlines() if line.startswith(f"{tag} "))
+
+    def problems(self) -> list[str]:
+        return [note.problem for note in sessions.check(self.root, sessions._index(self.root))[0]]
+
+    def assertRefusedWritingNothing(self, fragment: str, *argv: str) -> None:
+        untouched = self.snapshot()
+
+        status, said = self.said_to_sessions(*argv)
+
+        self.assertEqual(2, status, said)
+        self.assertIn(fragment, said)
+        self.assertEqual(untouched, self.snapshot())
+
+    def test_a_takeover_moves_the_unit_and_leaves_the_holder_the_mark_of_who_took_it(self) -> None:
+        status, said = self.said_to_sessions("--take", "q-0004", "--session", "s-beta")
+
+        self.assertEqual(0, status, said)
+        self.assertEqual("s-alpha running 2026-09-29T11:30Z q-0004 taken q-0004 by s-beta", self.line("s-alpha"))
+        self.assertTrue(self.line("s-beta").endswith(" holds q-0004"), self.line("s-beta"))
+        self.assertIn("s-alpha", said)
+        self.assertEqual([], self.problems())
+
+    def test_the_holders_window_shows_who_took_its_unit(self) -> None:
+        self.said_to_sessions("--take", "q-0004", "--session", "s-beta")
+
+        _, text = self.said("--window", "--session", "s-alpha")
+
+        self.assertIn("taken: q-0004 by s-beta", text)
+        self.assertNotIn("holding:", text)
+
+    def test_the_holders_next_hold_release_or_end_clears_the_mark(self) -> None:
+        for argv in (("--hold", "q-0007", "--session", "s-alpha"), ("--release", "--session", "s-alpha"), ("--end", "--session", "s-alpha")):
+            with self.subTest(argv=argv[0]):
+                self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 taken q-0004 by s-beta\ns-beta running 2026-09-29T11:00Z q-0010 holds q-0004\n")
+
+                status, said = self.said_to_sessions(*argv)
+
+                self.assertEqual(0, status, said)
+                self.assertNotIn("taken", self.line("s-alpha"))
+
+    def test_every_rebuild_keeps_the_mark_and_a_rename_rewrites_it(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 taken q-0004 by s-beta\ns-beta running 2026-09-29T11:00Z q-0010 holds q-0004\n")
+        alpha = next(each for each in sessions.rows(self.root)[0] if each.tag == "s-alpha")
+
+        self.assertEqual(("q-0004", "s-beta"), (sessions.moved(alpha, "q-0003", NOW).taken, sessions.moved(alpha, "q-0003", NOW).taken_by))
+        self.assertEqual("q-0002.0001", sessions.renamed(alpha, {"q-0004": "q-0002.0001"}).taken)
+        sessions.tend(self.root, NOW + timedelta(hours=4), "s-new")
+        self.assertTrue(self.line("s-alpha").endswith(" taken q-0004 by s-beta"), self.line("s-alpha"))
+
+    def test_a_mark_naming_no_entry_is_reported(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 taken q-0099 by s-beta\n")
+
+        self.assertTrue(any("q-0099" in problem for problem in self.problems()), self.problems())
+
+    def test_a_unit_no_running_session_holds_is_refused_naming_the_hold(self) -> None:
+        self.assertRefusedWritingNothing("--hold", "--take", "q-0007", "--session", "s-beta")
+
+    def test_a_question_that_is_no_unit_is_refused(self) -> None:
+        self.assertRefusedWritingNothing("owner", "--take", "q-0003", "--session", "s-beta")
+
+    def test_a_second_unit_while_one_is_held_is_refused(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 holds q-0004\ns-beta running 2026-09-29T11:00Z q-0010 holds q-0007\n")
+
+        self.assertRefusedWritingNothing("--release", "--take", "q-0004", "--session", "s-beta")
+
+    def test_holding_a_unit_an_ended_row_still_names_marks_that_row_taken(self) -> None:
+        self.write(SESSIONS, "s-alpha ended 2026-09-29T11:30Z q-0004 holds q-0004\ns-beta running 2026-09-29T11:00Z q-0010\n")
+
+        status, said = self.said_to_sessions("--hold", "q-0004", "--session", "s-beta")
+
+        self.assertEqual(0, status, said)
+        self.assertEqual("s-alpha ended 2026-09-29T11:30Z q-0004 taken q-0004 by s-beta", self.line("s-alpha"))

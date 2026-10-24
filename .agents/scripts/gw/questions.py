@@ -1800,8 +1800,11 @@ def _holding(store: Store, held: sessions.Session) -> str:
 
 
 def _own_unit_lines(store: Store, held: sessions.Session) -> list[str]:
+    """The unit this session holds, or the mark of one another session took over from it."""
     unit = _held_unit(store, held)
-    return [f"holding: {unit}"] if unit else []
+    if unit:
+        return [f"holding: {unit}"]
+    return [f"taken: {held.taken} by {held.taken_by}"] if held.taken else []
 
 
 def _held_unit(store: Store, held: sessions.Session) -> str | None:

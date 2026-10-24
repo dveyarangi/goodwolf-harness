@@ -164,6 +164,13 @@ reply.
 
 **S6** Run `/recall` first in every conversation, whatever the first message says. A conversation the host
 resumes under a new id is the same conversation: its context holds the recall it ran.
+
+**S9** A unit your window shows another running session holding is not finished, closed, verified,
+committed or continued without the person's word. Say whose it is and where the two touch, and
+bring two ways with a recommendation: take it over, `sessions.py --take <q-id> --session <tag>`,
+and tell the holder where the host lets one session message another; or cut a sub-task as a ticket
+of its own and hold that. The person's word to take it over is acted on without asking again. A
+unit your window shows taken from this session is no longer its own: stop work on it, and say so.
 </installed>
 
 <installed by="debugging">

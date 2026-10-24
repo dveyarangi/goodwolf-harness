@@ -32,7 +32,8 @@ description: >-
 
 <installed by="session">
 **S5** Commit the work of the current session only: another session's changes may be its work in
-progress, and in doubt ask the person.
+progress, and in doubt ask the person. Work on a unit this session took over is its own, the
+holder's uncommitted changes to it included.
 </installed>
 
 <installed by="local">

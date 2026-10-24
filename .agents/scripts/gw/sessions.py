@@ -3,14 +3,15 @@
 
     uv run --offline --no-project python .agents/scripts/gw/sessions.py --end --session <tag>
     uv run --offline --no-project python .agents/scripts/gw/sessions.py --hold <q-id> --session <tag>
+    uv run --offline --no-project python .agents/scripts/gw/sessions.py --take <q-id> --session <tag>
     uv run --offline --no-project python .agents/scripts/gw/sessions.py --release --session <tag>
     uv run --offline --no-project python .agents/scripts/gw/sessions.py --check
 
 A session is one chat of a host with the tree, from its `/recall` to its `/conclude`, known by the
 steadiest id the host gives the chat. Its row is one file under `docs/sessions/rows/`, named by
 its tag and holding one line — its tag, whether it runs, when the row was last written, its
-current question or `-`, up to four recent ones, and the unit it holds — so no two sessions ever
-write one file. A
+current question or `-`, up to four recent ones, and the unit it holds or the mark of one taken
+from it. Any session writes any row: the mechanism manages every session from any one of them. A
 store from before keeps its rows under `docs/questions/sessions.d/`, or every row in the single
 file `docs/questions/sessions`; both are carried into the folder at the first write, by links
 that never overwrite.
@@ -55,14 +56,19 @@ GONE_AFTER = timedelta(days=7)
 # is the machine's temp folder.
 WINDOW_MEMORY: str | None = None
 ROW_FORM = "`<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four] [holds <q-id>]`"
-_USAGE = "usage: sessions.py --end --session <tag> | --hold <q-id> --session <tag> | --release --session <tag> | --check"
+_USAGE = (
+    "usage: sessions.py --end --session <tag> | --hold <q-id> --session <tag> | --take <q-id> --session <tag>"
+    " | --release --session <tag> | --check"
+)
 
 
 @dataclass(frozen=True)
 class Session:
     """One session's row: where one conversation stands in the store, and when the row was last
     written, in UTC to the minute. `record` is the file it was read from, for the check to name.
-    `holds` is the unit the session holds, by the question the unit answers, or `None`."""
+    `holds` is the unit the session holds, by the question the unit answers, or `None`; `taken`
+    and `taken_by`, where `holds` would stand, the unit another session took over from it and
+    that session's tag, until this session next holds, releases or ends."""
 
     tag: str
     running: bool
@@ -72,6 +78,8 @@ class Session:
     line: int
     record: str = ROWS
     holds: str | None = None
+    taken: str | None = None
+    taken_by: str | None = None
 
 
 def main(argv: list[str], root: Path, now: datetime | None = None) -> int:
@@ -89,6 +97,11 @@ def main(argv: list[str], root: Path, now: datetime | None = None) -> int:
             index = _index(root)
             holding = hold(root, argv[3], argv[1], index, now)
             print(f"{holding.tag} holds {holding.holds} ({owner_of(index, holding.holds)})")
+            return 0
+        if len(argv) == 4 and argv[0] == "--take" and argv[2] == "--session":
+            index = _index(root)
+            holding, holder = take(root, argv[3], argv[1], index, now)
+            print(f"{holding.tag} holds {holding.holds} ({owner_of(index, holding.holds)}), taken from {holder}")
             return 0
         if len(argv) == 3 and argv[:2] == ["--release", "--session"]:
             released = release(root, argv[2], now)
@@ -211,7 +224,7 @@ def _form() -> re.Pattern[str]:
 
     return re.compile(
         rf"^([A-Za-z0-9][\w.-]*) (running|ended) (\d{{4}}-\d{{2}}-\d{{2}})(?:T(\d{{2}}:\d{{2}})Z)? ({_ID}|-)"
-        rf"(?: ({_ID}(?:,{_ID}){{0,3}}))?(?: holds ({_ID}))?$"
+        rf"(?: ({_ID}(?:,{_ID}){{0,3}}))?(?: holds ({_ID})| taken ({_ID}) by ([A-Za-z0-9][\w.-]*))?$"
     )
 
 
@@ -227,14 +240,29 @@ def _row(line: str, number: int) -> Session | None:
         return None
     current = None if said.group(5) == "-" else said.group(5)
     recent = said.group(6).split(",") if said.group(6) else []
-    return Session(said.group(1), said.group(2) == "running", wrote, current, recent, number, holds=said.group(7))
+    return Session(
+        said.group(1),
+        said.group(2) == "running",
+        wrote,
+        current,
+        recent,
+        number,
+        holds=said.group(7),
+        taken=said.group(8),
+        taken_by=said.group(9),
+    )
 
 
 def row_line(held_row: Session) -> str:
     recent = f" {','.join(held_row.recent)}" if held_row.recent else ""
     state = "running" if held_row.running else "ended"
-    holds = f" holds {held_row.holds}" if held_row.holds else ""
-    return f"{held_row.tag} {state} {stamp(held_row.wrote)} {held_row.current or '-'}{recent}{holds}"
+    if held_row.holds:
+        unit = f" holds {held_row.holds}"
+    elif held_row.taken:
+        unit = f" taken {held_row.taken} by {held_row.taken_by}"
+    else:
+        unit = ""
+    return f"{held_row.tag} {state} {stamp(held_row.wrote)} {held_row.current or '-'}{recent}{unit}"
 
 
 def stamp(moment: datetime) -> str:
@@ -257,10 +285,10 @@ def state(held_row: Session) -> str:
 
 
 def write_row(root: Path, held_row: Session) -> None:
-    """Write one session's row to its own file and touch no other, so however many sessions write
-    at once none undoes another's, and nothing is locked. The line replaces the old in one rename,
-    so a reader never meets half a file. It is the writing session's own, except when a wake ends a
-    silent one or a rename rewrites the ids it names."""
+    """Write one session's row to its own file and touch no other. The line replaces the old in one
+    rename, so a reader never meets half a file, and nothing is locked: two writes to one row at
+    once leave the later. Besides its own session, a wake ending a silent row, a rename rewriting
+    the ids it names and a takeover marking the holder's row write it."""
     _write_row_file(folder(root), held_row.tag, row_line(held_row))
 
 
@@ -417,9 +445,10 @@ def seen(root: Path, tag: str, now: datetime) -> None:
 
 def end(root: Path, tag: str, now: datetime) -> Session:
     """The conclude's last act: the session is marked ended and keeps its position, so the wake of
-    a chat the host reopens finds where it stopped; the unit it held is let go."""
+    a chat the host reopens finds where it stopped; the unit it held is let go, and the mark of
+    one taken from it cleared."""
     held_row = held(root, tag)
-    ended = dataclasses.replace(held_row, running=False, wrote=minute(now), holds=None)
+    ended = dataclasses.replace(held_row, running=False, wrote=minute(now), holds=None, taken=None, taken_by=None)
     write_row(root, ended)
     return ended
 
@@ -429,29 +458,65 @@ def hold(root: Path, tag: str, unit: str, index: dict, now: datetime) -> Session
     holds already writes nothing. A unit is an open question with an owner, the record of the work
     that answers it, read from the store and never from that record, whose format is another
     mechanism's. Refused, writing nothing: a question that is no unit, a unit another running
-    session holds, and a second unit while one is held."""
+    session holds, and a second unit while one is held. An ended row still naming the unit holds
+    nothing, but its chat reopened would hold it again beside this one, so it is marked taken."""
     held_row = held(root, tag)
     if held_row.holds == unit:
         return held_row
     _refuse_unless_a_unit(index, unit)
-    if held_row.holds:
-        _refuse(f"{tag} holds {held_row.holds}; `--release --session {tag}` lets it go first")
-    holder = next((each for each in rows(root)[0] if each.running and each.holds == unit and each.tag != tag), None)
+    _refuse_a_second_unit(held_row, unit)
+    others = [each for each in rows(root)[0] if each.holds == unit and each.tag != tag]
+    holder = next((each for each in others if each.running), None)
     if holder is not None:
-        _refuse(f"{unit} is held by {holder.tag}, a running session")
-    holding = dataclasses.replace(held_row, running=True, wrote=minute(now), holds=unit)
+        _refuse(f"{unit} is held by {holder.tag}, a running session; `--take` takes it over, by the person's word")
+    for ended in others:
+        _mark_taken(root, ended, tag)
+    return _take_into(root, held_row, unit, now)
+
+
+def take(root: Path, tag: str, unit: str, index: dict, now: datetime) -> tuple[Session, str]:
+    """The session takes over a unit another running session holds, by the person's word: the
+    unit enters this session's row, and the holder's keeps the mark of who took it in its place,
+    so a holder still alive learns its unit is gone. Says from whom it was taken. Refused, writing
+    nothing: a question that is no unit, a unit no running session holds, which `--hold` takes, and
+    a second unit while one is held."""
+    held_row = held(root, tag)
+    _refuse_unless_a_unit(index, unit)
+    _refuse_a_second_unit(held_row, unit)
+    holder = next((each for each in rows(root)[0] if each.running and each.holds == unit and each.tag != tag), None)
+    if holder is None:
+        _refuse(f"no running session holds {unit}; `--hold` takes it")
+    _mark_taken(root, holder, tag)
+    return _take_into(root, held_row, unit, now), holder.tag
+
+
+def release(root: Path, tag: str, now: datetime) -> Session:
+    """The session lets its unit go, its position kept, and clears the mark of one taken from it;
+    holding nothing and marked with nothing, it writes nothing."""
+    held_row = held(root, tag)
+    if held_row.holds is None and held_row.taken is None:
+        return held_row
+    released = dataclasses.replace(held_row, running=True, wrote=minute(now), holds=None, taken=None, taken_by=None)
+    write_row(root, released)
+    return released
+
+
+def _take_into(root: Path, held_row: Session, unit: str, now: datetime) -> Session:
+    """The unit into this session's row, any mark of one taken from it cleared."""
+    holding = dataclasses.replace(held_row, running=True, wrote=minute(now), holds=unit, taken=None, taken_by=None)
     write_row(root, holding)
     return holding
 
 
-def release(root: Path, tag: str, now: datetime) -> Session:
-    """The session lets its unit go, its position kept; holding nothing, it writes nothing."""
-    held_row = held(root, tag)
-    if held_row.holds is None:
-        return held_row
-    released = dataclasses.replace(held_row, running=True, wrote=minute(now), holds=None)
-    write_row(root, released)
-    return released
+def _mark_taken(root: Path, holder: Session, taker: str) -> None:
+    """The holder's row with the unit gone and the mark of who took it in its place; its time stays
+    its own, so its silence is measured from its own last write."""
+    write_row(root, dataclasses.replace(holder, holds=None, taken=holder.holds, taken_by=taker))
+
+
+def _refuse_a_second_unit(held_row: Session, unit: str) -> None:
+    if held_row.holds and held_row.holds != unit:
+        _refuse(f"{held_row.tag} holds {held_row.holds}; `--release --session {held_row.tag}` lets it go first")
 
 
 def owner_of(index: dict, unit: str | None) -> str:
@@ -527,7 +592,8 @@ def renamed(held_row: Session, renames: dict[str, str]) -> Session:
     current = renames.get(held_row.current or "", held_row.current)
     recent = [renames.get(identity, identity) for identity in held_row.recent]
     holds = renames.get(held_row.holds or "", held_row.holds)
-    return dataclasses.replace(held_row, current=current, recent=recent, holds=holds)
+    taken = renames.get(held_row.taken or "", held_row.taken)
+    return dataclasses.replace(held_row, current=current, recent=recent, holds=holds, taken=taken)
 
 
 def records(root: Path) -> list[str]:
@@ -560,7 +626,7 @@ def check(root: Path, index: dict) -> tuple[list, list, list]:
     problems += [
         Diagnostic(held_row.record, held_row.line, f"{held_row.tag} stands at {identity}, which no entry holds")
         for held_row in sessions
-        for identity in ([held_row.current] if held_row.current else []) + held_row.recent + ([held_row.holds] if held_row.holds else [])
+        for identity in ([held_row.current] if held_row.current else []) + held_row.recent + [unit for unit in (held_row.holds, held_row.taken) if unit]
         if identity not in index
     ]
     findings = [
