@@ -26,6 +26,13 @@ and a hook that never fails the host, so a problem becomes a line of context
 A host lacking one of the last three is reached in part: the entry file's rule stands in, and the
 agent draws the window itself.
 
+**Offered by a host, used where it is offered and relied on nowhere:** one session's message to
+another, by which a session that took over a unit tells its holder; and a helper agent started
+inside a session, which the method uses as the judge of work its starter built. A helper receives
+no wake and no window, having no start of its own and no message of the person, so a judge reads
+the entry file and runs the wake itself, and the host's delivery of that text is this edge's live
+check, never the judge's.
+
 <straw-dog question="q-0037.0006.0005.0001">
 **Required of a host, to guard the files a mechanism controls** — an edit to such a file refused
 while the skill the mechanism names is not loaded in the session:
@@ -106,6 +113,8 @@ Each sidecar names its own parts.
     under the session's id.
 14. **Skill lifetime** — what a loaded skill stays loaded through: a later turn, a second read, a
     compaction; and the compaction seen by a hook.
+15. **Messaging** — one session's message reaches another running session in the host, and the
+    receiving session reads it; where it does not, nothing of the method waits on it.
 
 ## Extensions
 

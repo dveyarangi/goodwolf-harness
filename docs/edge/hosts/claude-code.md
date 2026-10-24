@@ -38,6 +38,9 @@
 - **Helper** — observed 2026-10-10, session `58bf3b88`: a helper agent ran some five minutes; the
   sessions file gained no row, and the session's next message carried a true unchanged notice.
   The helper's own hook input was not seen; no helper event is wired.
+- **Messaging** — observed 2026-10-23, desktop app: a message sent from one session to another
+  reached it, and the receiving session answered and acted on it — the close of a ticket handed
+  over with the results of its checks.
 - **Silence** — observed 2026-10-10 at 01:17Z, the revival only: a row ended by hand turned running
   on one message; the ending by a wake was not watched.
 - **Offline tests** — observed 2026-10-10: the hook cases and the merge passed in the verification

@@ -57,3 +57,4 @@
   re-inject none; `PreCompact`, `PostCompact` and `SessionStart` with source `compact` carry
   `session_id` and `turn_id`, the session's id unchanged across it. The documentation is silent on
   all of it.
+- **Messaging** — unobserved: whether one session can message another in this host is not known.

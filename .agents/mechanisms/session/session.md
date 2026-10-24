@@ -40,11 +40,15 @@ format is another mechanism's; a ticket names no session, since sessions are los
 stay *(the user, 2026-10-24 and 2026-10-25)*. A row holds its unit while it runs and while the
 question is open: a silent row ended by a wake holds nothing until its session returns, a closed
 question holds nobody, and neither needs a write. A session takes over a held unit by the
-person's word, and the holder's row keeps the mark of who took it *(the user, 2026-10-25)*.
-Nothing locks a hold; one unit taken by two sessions at once is the check's finding.
+person's word, and the holder's row keeps the mark of who took it *(the user, 2026-10-25)*,
+which the holder's window shows until its next hold, release or end; a hold of a unit an ended row
+still names marks that row too, so the chat, reopened, does not hold it beside its new holder.
+Nothing locks a hold; one unit taken by two sessions at once is the check's finding. A step that
+would act on a unit another running session holds stops, reading the holds off the window, and
+the person chooses: take it over, or cut a sub-task.
 
 **Sessions see each other** through the rows alone: the window names the other running sessions
-and their positions, and the wake's read lists them. They cannot call one another. One folder in
+and their positions, and the wake's read lists them. A host may let one session message another; the method uses it to tell a holder its unit was taken, and relies on it for nothing. One folder in
 the working tree is how they see each other, so sessions that do not share the directory do not.
 
 **Free unless locked.** A session is not of one method: the question it stands on names its root,
@@ -67,6 +71,8 @@ for this mechanism.
 | a session takes the unit it works, and lets it go | `.agents/scripts/gw/sessions.py` | |
 | a step that works a unit holds it, at its plan | `.agents/skills/plan/SKILL.md` | |
 | a step that works a unit holds it, at its implementation | `.agents/skills/implement/SKILL.md` | |
+| a session takes over a unit another holds, and leaves its mark | `.agents/scripts/gw/sessions.py` | |
+| a step stops before a unit another running session holds | `AGENTS.md` | |
 | a session concludes: its record written, its leans, its row ended | `.agents/skills/conclude/SKILL.md` | |
 | a session wakes and reads where the work stands | `.agents/skills/recall/SKILL.md` | |
 | a conversation starts with its recall, and one the host resumes under a new id is the same session | `AGENTS.md` | |

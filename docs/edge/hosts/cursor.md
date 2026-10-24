@@ -53,3 +53,4 @@
   `Read` tool, which no source states ([skills](https://cursor.com/docs/context/skills), 2026-10-24).
 - **Skill lifetime** — unobserved: what a later turn or a summarisation keeps of a skill is not
   documented; `preCompact` observes and cannot block, with `conversation_id`.
+- **Messaging** — unobserved: whether one session can message another in this host is not known.
