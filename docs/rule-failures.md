@@ -231,7 +231,11 @@ own.
 and nothing of the conversation — and the person's agent only offers, names the file, hands over,
 and asks the second stop's one question; in the shelf, whoever reads under the study carries its
 read-only rules verbatim and runs nothing of the project's, and the report file is the study's one
-write, at the place the offer named. Landing on the user's word; graded by the next live meeting.
+write, at the place the offer named. **Landed 2026-10-24**, amended by the user before landing: the
+report is a working document outside the tree, not a record of it; read-only is not strengthened —
+the study writes nothing of its own into the tree, and what the project's own tools do is the
+project's — since it cannot be enforced; the fresh author stands as proposed. Graded by the next
+live meeting.
 
 ## 62. Asked whether a project needs the harness, the agent answered from the front page — 2026-10-24
 

@@ -11,9 +11,9 @@ beside the first's.
 ## The study
 
 Read the tree as a capable newcomer would, by search and sampling, not whole; the tree is its
-default branch as checked out, and what is deployed is not the study's subject. Read-only means no
-write in the tree, no change to its git state, no fetch of any kind, and no network but the host's
-read commands for pull requests; scratch files go where the host puts them. The study has three
+default branch as checked out, and what is deployed is not the study's subject. The study writes
+nothing of its own into the tree: the report goes to the path it was given, scratch files where
+the host puts them; what the project's own tools do when run is the project's. The study has three
 parts, and the report says which part each statement comes from: a short bracketed mark on each
 paragraph, the three marks named once in the report's first section. The read is quick; the key is the
 study's largest cost, built from what the inventory and the readings meet, never from a second pass.
@@ -53,9 +53,7 @@ to hold once it has, counted and quoted in the tree's own words:
 **The ledger.** A measurement the report keeps so the same tasks can be measured again after a
 migration. A blind run: a fresh agent, told nothing of the harness or of a measurement, is given the
 repository and a sample of questions, answers read-only from files, git history and the pull-request
-list where the host has one, and reports how it searched. The tree's git state is read before the
-study and after it, and the report's head says it was unchanged; a change is the study's failure,
-said there. The author of the report never answers the sample; the key is built from
+list where the host has one, and reports how it searched. The author of the report never answers the sample; the key is built from
 the code and the records before the run and corrected only where the run proves it wrong. Where
 the run proves it incomplete, the addition is marked as one and no score changes.
 

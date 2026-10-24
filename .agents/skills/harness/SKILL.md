@@ -143,26 +143,26 @@ other.
 <straw-dog question="q-0037.0006.0020.0001.0003">
 **The offer.** Say what the read is and what it costs — a study by search and sampling, with a
 blind run by a separate agent, on the order of half an hour and a few hundred thousand tokens —
-name the one file it would write and where: the next free session record under the tree's
-`docs/sessions/`, `<NNNN>-<YYYYMMDD>-<slug>.md`, the slug the question's words; a tree without
-`docs/` takes the place the person names. Then wait. Silence takes the offer; another place named
-takes that place.
+and that it writes nothing in the tree: the report is a working document, kept where the host
+keeps this session's files, and you will name its path. Then wait.
 
-**The study and the report**, by the shelf. The blind run is a separate fresh agent, told nothing
-of the harness or of a measurement. Read the tree's git state before the study and after it; the
-report's head says it was unchanged, and a change is the study's failure, said there.
+**The study** is a fresh agent's: start one for it and give it the shelf, the tree and the path for
+the report — nothing of this conversation, not the question you were asked, not what you answered.
+You do not read under the study and you do not write the report. The blind run inside the study
+is a second fresh agent, the study's to start.
 
-**The second stop.** Show the report's main recommendations and ask one thing: whether the
-migration runs, which of its plan, in which mode. Speak of the report; do not retell it.
+**The second stop.** Name the report's path, show its main recommendations, and ask one thing:
+whether the migration runs, which of its plan, in which mode. Speak of the report; do not retell
+it, and add no view of your own: the person reads it.
 </straw-dog>
 
 <straw-dog question="q-0037.0006.0020.0001">
-**After.** On no, nothing more: the report stays, the one record the method leaves there. On yes,
-the tree's method is taken in — by inventory, or by one line from its own entry file — and the
-report's plan becomes open work in the tree's own records, cut at the grain of work the study read;
-the shelf is read again after the migration as its verification. This harness does not carry that
-step yet: say so to the person in one sentence, leave the report where it stands, and stop; the
-install is not run again and nothing is moved by hand.
+**After.** On no, nothing more: the tree is as it was, and the report is the person's to keep or
+drop. On yes, the tree's method is taken in — by inventory, or by one line from its own entry file
+— the report's plan becomes open work in the tree's own records, cut at the grain of work the study
+read, and the report with its ledger goes into the tree with it, so the shelf can be read again
+after the migration as its verification. This harness does not carry that step yet: say so to the
+person in one sentence and stop; the install is not run again and nothing is moved by hand.
 </straw-dog>
 
 ## After the first install
