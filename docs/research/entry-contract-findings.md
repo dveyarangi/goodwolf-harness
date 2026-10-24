@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v114 — 2026-10-25
+
+**A green stage commits; a failed criterion is what waits** — Autonomy gains one sentence after
+*Work closes with its commit*: a green stage of work in progress is committed as it stands, and
+what a failed criterion puts to the person is that criterion, never the commit. Occasion: rule
+failure 71, a commit below every dial put to the person *(the user, 2026-10-25)*.
+
 ## v113 — 2026-10-25
 
 **The voice is the project's, named once** — core loses every phrase that described how a reply

@@ -38,7 +38,7 @@ self-improvement dial — a rule, shown before it lands:
 > A green stage of work in progress is committed as it stands; what a failed criterion puts to the
 > person is that criterion, never the commit.
 
-**Disposition:** open; the amendment waits on the person.
+**Disposition:** landed 2026-10-25 in the entry file's Autonomy, v114, on the user's yes.
 
 ## 70. A rule was landed with a filter and a must where the person meant room for judgement — 2026-10-25
 
