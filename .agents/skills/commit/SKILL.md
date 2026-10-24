@@ -10,7 +10,7 @@ description: >-
 
 - Separate implementation and documentation commits.
 
-- Write the subject in the project's own convention, where it states one.
+- Write the subject in the project's convention: the one it states, else the one its tooling enforces, else the one its recent history keeps; a project with none of these, Conventional Commits.
 
 - In case the file changes belong to several groups, commit the file with the group forming its dominant topic and mention the bleed in that commit's message.
 

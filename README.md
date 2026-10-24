@@ -78,9 +78,10 @@ the install stops today: taking your method in after a yes — alongside yours, 
 kept, or in its place — is the next piece of work, and it starts from the report.
 </straw-dog>
 
-GoodWolf works with the method you have — your rules file, your gates, your decision records and
-your pull requests stay yours, and what it brings sits beside them — or takes its place, if you
-would rather: decided on the report. Whether your project needs it is answered by the study, in
+GoodWolf works with the method you have — your rules file, your gates, your decision records, your
+commit convention and your pull requests stay yours, and what it brings sits beside them — or takes
+its place, if you would rather: decided on the report. The step prefixes in this repository's own
+history are its local rule and do not travel. Whether your project needs it is answered by the study, in
 numbers from your own repository.
 
 In a fresh project, the install lands the method and the first session works out with you what
