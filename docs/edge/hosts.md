@@ -37,7 +37,9 @@ while the skill the mechanism names is not loaded in the session:
   observed, and the compaction seen by a hook under the session's id.
 
 A host lacking one is guarded in part, and the commit's check stands in for the edit it cannot
-refuse. A skill counts as loaded as the host keeps it, never by a lifetime the harness invents.
+refuse. A skill counts as loaded as the host keeps it, never by a lifetime the harness invents:
+the host's row in `HOSTS` declares the events that load a skill and its lifetime rule, and the
+check reads them there.
 </straw-dog>
 
 **What a host's integration is made of**, all of it core:
