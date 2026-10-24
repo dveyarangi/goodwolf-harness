@@ -1,9 +1,12 @@
 # A rule reaches every file of a group
 
 - **record of** what it intends to become
-- **Status:** Ready
+- **Status:** Ready (planned 2026-10-25)
 - **Type:** AFK
 - **Minted:** 2026-10-25
+- **Plan:** [the RFC](../rfc/01-0080-a-rule-reaches-every-file-of-a-group.md) — a pattern
+  row resolved to its members over the tree's listing, one resolution for install, retract, the
+  check and the harness's rehearsal
 - **Answers:** [q-0037.0002](../questions/q-0037.0002-how-does-a-group-install-target-resolve-to-a-file-and-an-anchor-in-each-member.md)
 - **Outcome:** A rules file names a group of files by a path pattern and a heading, and its rules are installed in, held in and retracted from every file the pattern matches that holds the heading, whether or not the rules file knew of that file when it was written.
 
