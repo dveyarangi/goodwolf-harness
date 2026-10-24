@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v111, 2026-10-25.
+Entry contract: v112, 2026-10-25.
 
 ## General rules
 
@@ -322,8 +322,8 @@ whose answer will rewrite it, or in code a `TODO` naming `q-N` first. Treat *not
 open one. Wrap at the authored home, never where the harness installs or derives it. Write the body
 to stand on its own: it is what a recipient receives once the wrapper is stripped, so it names no
 question or ticket — the binding does. Leave what no open question would change unwrapped.
-A side question does not stop the work it was raised in: the work goes on, and what its answer
-will change is wrapped as its straw dog as it is written.
+Where the work a side question was raised in goes on, what its answer will change is wrapped as
+its straw dog as it is written.
 
 Follow a straw dog like any other rule until it is due, as the listing and the wake report; then
 act on reality, rewrite it to what is now true, and do not treat the contradiction as a violation.

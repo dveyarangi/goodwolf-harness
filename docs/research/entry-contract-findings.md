@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v112 — 2026-10-25
+
+**Whether a side question stops the work is the agent's judgement** — v111's sentence loses *does
+not stop the work*: where the work a side question was raised in goes on, what its answer will
+change is wrapped as its straw dog as it is written. The person: *why so categorical — drop it;
+that leaves the agent free to judge the question's weight and its bearing on the task at hand*
+*(the user, 2026-10-25)*.
+
 ## v111 — 2026-10-25
 
 **A side question does not stop the work** — the straw-dog section gains one sentence: the work a
