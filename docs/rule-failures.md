@@ -656,6 +656,20 @@ was one sentence, and the description's *directly in a reply* was not in reach a
 instruction. **Amendment landed**, the user, 2026-10-20: the header's definition in the entry file
 reads *for an instruction, written through `/skill-up`*; the entry grows by four words, removes none.
 
+**Struck, 2026-10-24 — a third time, and the amendment is no longer a wording.** A session on the
+meeting and the front page amended the harness skill and its shelf several times after one early
+`/skill-up` read, proposed a new rule for the product skill under the 🧩 header, and rewrote the
+front page — which the product mechanism lists as its own, *the root README told from the
+document* — without reading `/product`. Both rules were in context: the header's *written through
+`/skill-up`*, and `/skill-up`'s *use whenever writing any agent instructions, whether to a file or
+directly in a reply*. The user: *the rule in product is not enough, since product was never called;
+just as you again did not call skill-up, where this is already explained*. Why it did not fire:
+salience again, as at both strikes before; three rewordings have not moved it. **Amendment
+proposed**, at the self-improvement ladder's *the method*: the host refuses the act — an edit to a
+file whose owning skill was not read in the session, a reply proposing a rule with no `/skill-up`
+read — where it can, and the commit refuses what reached the tree anyway; its design is
+q-0037.0006.0005.0001's.
+
 ## 49. A discovery's tasking described the method it was meant to step outside — 2026-10-15
 
 **Rules in play:** `/discover`, *Describe the shape functionally, in nobody's vocabulary* and
