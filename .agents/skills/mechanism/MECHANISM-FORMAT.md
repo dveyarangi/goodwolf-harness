@@ -48,8 +48,8 @@ Prose before the table is the file's own preamble and is not read.
 
 - **The preamble's tables are told apart by their header row**; a row under no known header is
   prose and is not read. **The anchor table**, `| target | anchor |`, names every target the
-  file installs into, one row each: the target a backticked repo-relative path, the anchor a
-  backticked line that occurs exactly once in the target, whole and newline-terminated. **A
+  file installs into, one row each: <straw-dog question="q-0037.0002">the target a backticked repo-relative path, the anchor a
+  backticked line that occurs exactly once in the target</straw-dog>, whole and newline-terminated. **A
   mechanism has one place in a target**: a target named twice is refused.
 - **The settings table**, `| setting | values | default | set by |`, declares the settings this
   mechanism owns: the name and each value a code span, the values told apart by ` · `, the

@@ -157,14 +157,14 @@ and after every mechanism's in a target, and a rule in it may name the core rule
 which is rendered where the reader meets it.
 
 The installer has a named mode or refuses. It validates every target of a file before writing
-anything — target present, anchor matching exactly one line, block absent or matching — and a
+anything — <straw-dog question="q-0037.0002">target present, anchor matching exactly one line</straw-dog>, block absent or matching — and a
 refusal changes no file. Retraction removes exactly what installation added, leaving the target
 byte-identical. A block that differs from its source is drift: the tool cannot tell an amended
 source from an edited copy, so it refuses unless the caller says to overwrite, and then it
 replaces the block whole and reports what it replaced. A mid-write failure follows
 [interruption and recovery](#interruption-and-recovery).
 
-A rules file's block is installed in every target it names, or the tree's check fails: an
+A rules file's block is installed <straw-dog question="q-0037.0002">in every target it names</straw-dog>, or the tree's check fails: an
 absent block, a drifted block, and a block nothing owns — its owner has no rules file, or that
 file does not name the file the block sits in — are each a diagnostic. Installing a rules file
 also takes its own block out of every file it no longer names, by retraction's cut, and reports

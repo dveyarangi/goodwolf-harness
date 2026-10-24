@@ -668,6 +668,7 @@ def after_anchor(text: str, anchor: str) -> int:
             hits.append(offset + len(line))
         offset += len(line)
     if not hits:
+        # TODO q-0037.0002: a group's member lacking the anchor is no member, passed over, not refused.
         raise Refused(f"anchor {anchor!r} not found")
     if len(hits) > 1:
         raise Refused(f"anchor {anchor!r} is ambiguous — it occurs {len(hits)} times")
