@@ -14,7 +14,7 @@ kind *what must always hold*, and these are that kind's invariants for one:
 
 - A skill is instruction, not story. Be precise and concise. Prefer umbrella terms to enumeration, unless can be interpreted wrong in context of the skill.
 - State everything in definitive form — no evolution logic, no decision explanations.
-- Blur wording where letting the model decide beats overfitting the instruction.
+- Write a filter, a fixed form or a must only where it always holds; where judgement decides, leave it to the model rather than overfit the instruction.
 
 Before writing, browse the existing skill set and match its structure and vibe — frontmatter shape, file layout, linking style, tone, altitude. Derive the set's conventions from the set itself; do not impose foreign ones.
 

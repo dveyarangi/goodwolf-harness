@@ -39,7 +39,9 @@ dial — a rule, shown before it lands:
 > Write a filter, a fixed form or a must only where it always holds; where judgement decides, leave
 > it to the model rather than overfit the instruction.
 
-**Disposition:** open; the amendment waits on the person.
+**Disposition:** landed 2026-10-25 in `/skill-up`, on the user's yes. A case for the bench of
+q-0037.0012.0009: the same request written with and without the line, judged for a filter or a
+must the request did not hold *(the user: a good candidate for rule tests)*.
 
 ## 69. In the ring, the agent offered to leave its unit and took a one-word yes as the drop — 2026-10-24
 
