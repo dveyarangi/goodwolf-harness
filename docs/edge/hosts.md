@@ -30,7 +30,9 @@ agent draws the window itself.
 **Required of a host, to guard the files a mechanism controls** — an edit to such a file refused
 while the skill the mechanism names is not loaded in the session:
 
-- a hook before the agent's file edits that can refuse one and tell the agent why;
+- a hook before the agent's file edits that can refuse one and tell the agent why, a hook before a
+  shell command that can refuse the agent's `git commit`, and a hook at the reply's end that can
+  send back a reply proposing text for such a file;
 - every way a skill is loaded — the agent choosing it, the person typing it — seen by a hook under
   the session's id;
 - what the host keeps of a loaded skill across later turns and through a compaction, documented or
@@ -98,7 +100,8 @@ Each sidecar names its own parts.
     names, and pass in the verification set.
 11. **Resume** — a conversation closed and reopened in the host keeps its session: the sessions
     file gains no row, and the reopened conversation stands where it stood.
-12. **Edit refusal** — a hook refuses an edit before it is written, and the agent reads why.
+12. **Edit refusal** — a hook refuses an edit before it is written, and a `git commit` before it
+    runs, and the agent reads why; a hook at the reply's end sends the reply back.
 13. **Skill load** — a skill the agent chooses and one the person types are each seen by a hook,
     under the session's id.
 14. **Skill lifetime** — what a loaded skill stays loaded through: a later turn, a second read, a
