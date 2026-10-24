@@ -755,6 +755,134 @@ class DroppingATarget(RepositoryCase):
         self.assertEqual(held, self.read(SECOND))
 
 
+GROUP = ".agents/skills/*/SKILL.md"
+HEARS = "## What the person hears"
+
+
+def speaking_skill(name: str, speaks: bool = True) -> str:
+    """A skill's file, holding the group's heading or not."""
+    heard = f"{HEARS}\n\nWhat was done.\n\n" if speaks else ""
+    return f"# {name}\n\nIts work.\n\n{heard}## Finish\n\nDone.\n"
+
+
+class Grouping(RepositoryCase):
+    """A rules file whose anchor-table row is a path pattern: its block reaches every file the
+    pattern matches that holds the heading, whether the rules file knew of it or not."""
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.write(".agents/skills/alpha/SKILL.md", speaking_skill("Alpha"))
+        self.write(".agents/skills/beta/SKILL.md", speaking_skill("Beta"))
+        self.write(".agents/skills/gamma/SKILL.md", speaking_skill("Gamma", speaks=False))
+        self.write("docs/notes.md", speaking_skill("Notes"))
+        self.before = {name: self.read(name) for name in self.files()}
+        self.write(RULES, self.group_rules())
+
+    @staticmethod
+    def group_rules(table: str = "") -> str:
+        return rules_file(
+            table=table or f"| target | anchor |\n|---|---|\n| `{GROUP}` | `{HEARS}` |\n",
+            sections=(
+                f"## V1 — the voice\n\n- **target** `{GROUP}`\n- **authority** the user, 2026-10-25\n\n"
+                "<rule>\nSpeak in the project's voice.\n</rule>\n"
+            ),
+        )
+
+    @staticmethod
+    def files() -> list[str]:
+        return [
+            ".agents/skills/alpha/SKILL.md",
+            ".agents/skills/beta/SKILL.md",
+            ".agents/skills/gamma/SKILL.md",
+            "docs/notes.md",
+        ]
+
+    def run_installer(self, *operands: str) -> tuple[int, dict]:
+        said = io.StringIO()
+        with contextlib.redirect_stdout(said), contextlib.redirect_stderr(said):
+            status = inject_rules.main(list(operands), root=self.root)
+        return status, json.loads(said.getvalue())
+
+    def holds_block(self, name: str) -> bool:
+        return f'<installed by="{SLUG}">' in self.read(name)
+
+    def test_the_block_reaches_every_matching_file_that_holds_the_heading_and_no_other(self) -> None:
+        status, report = self.run_installer(SLUG, "--install")
+
+        self.assertEqual(0, status, report)
+        self.assertTrue(self.holds_block(".agents/skills/alpha/SKILL.md"))
+        self.assertTrue(self.holds_block(".agents/skills/beta/SKILL.md"))
+        self.assertFalse(self.holds_block(".agents/skills/gamma/SKILL.md"), "it does not hold the heading")
+        self.assertFalse(self.holds_block("docs/notes.md"), "the pattern does not match it")
+        self.assertIn("**V1** Speak in the project's voice.", self.read(".agents/skills/alpha/SKILL.md"))
+        self.assertEqual(0, self.run_installer("--check")[0])
+
+    def test_a_file_that_comes_to_hold_the_heading_is_reported_then_filled(self) -> None:
+        self.run_installer(SLUG, "--install")
+        self.write(".agents/skills/gamma/SKILL.md", speaking_skill("Gamma"))
+
+        status, report = self.run_installer("--check")
+
+        self.assertEqual(1, status)
+        self.assertIn(f"{SLUG} in .agents/skills/gamma/SKILL.md: absent", report["diagnostics"])
+        self.run_installer(SLUG, "--install")
+        self.assertTrue(self.holds_block(".agents/skills/gamma/SKILL.md"))
+        self.assertEqual(0, self.run_installer("--check")[0])
+
+    def test_a_file_that_stops_holding_the_heading_holds_an_orphan_the_next_install_takes_out(self) -> None:
+        self.run_installer(SLUG, "--install")
+        beta = self.read(".agents/skills/beta/SKILL.md")
+        self.write(".agents/skills/beta/SKILL.md", beta.replace(HEARS, "## What it leaves"))
+
+        status, report = self.run_installer("--check")
+
+        self.assertEqual(1, status)
+        self.assertIn(f"orphan block of {SLUG} in .agents/skills/beta/SKILL.md", report["diagnostics"])
+        self.run_installer(SLUG, "--install")
+        self.assertFalse(self.holds_block(".agents/skills/beta/SKILL.md"))
+        self.assertEqual(0, self.run_installer("--check")[0])
+
+    def test_a_group_with_no_member_installs_nothing_and_is_no_finding(self) -> None:
+        for name in self.files():
+            self.write(name, self.read(name).replace(HEARS, "## Something else"))
+
+        status, report = self.run_installer(SLUG, "--install")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual([], report["refusals"])
+        self.assertFalse(any(self.holds_block(name) for name in self.files()))
+        self.assertEqual(0, self.run_installer("--check")[0])
+
+    def test_a_file_named_explicitly_and_matched_by_the_pattern_is_refused(self) -> None:
+        self.write(RULES, self.group_rules(
+            f"| target | anchor |\n|---|---|\n| `{GROUP}` | `{HEARS}` |\n"
+            f"| `.agents/skills/alpha/SKILL.md` | `## Finish` |\n"
+        ))
+
+        status, report = self.run_installer(SLUG, "--install")
+
+        self.assertEqual(1, status)
+        self.assertIn("alpha", " ".join(report.get("refusals", [])) + report.get("said", ""))
+        self.assertFalse(any(self.holds_block(name) for name in self.files()))
+
+    def test_a_member_holding_the_heading_twice_is_refused_and_nothing_is_written(self) -> None:
+        self.write(".agents/skills/beta/SKILL.md", speaking_skill("Beta") + f"\n{HEARS}\n\nAgain.\n")
+
+        status, report = self.run_installer(SLUG, "--install")
+
+        self.assertEqual(1, status)
+        self.assertTrue(any("ambiguous" in refusal for refusal in report["refusals"]), report)
+        self.assertFalse(self.holds_block(".agents/skills/alpha/SKILL.md"), "a refusal writes nothing")
+
+    def test_retract_leaves_every_member_as_it_was(self) -> None:
+        self.run_installer(SLUG, "--install")
+
+        status, report = self.run_installer(SLUG, "--retract")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual(self.before, {name: self.read(name) for name in self.files()})
+
+
 class Checking(RepositoryCase):
     """The sweep: every rules file against its targets, every block against the rules files."""
 

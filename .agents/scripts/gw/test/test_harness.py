@@ -1354,6 +1354,49 @@ class AnUpdate(TwoTrees):
         self.assertIn("Keep things.", self.target_text(KEEPER), "the moved core was not copied")
 
 
+GROUP_RULES = (
+    "# sample — rules installed into every skill that speaks\n\n| target | anchor |\n|---|---|\n"
+    "| `.agents/skills/*/SKILL.md` | `## What the person hears` |\n\n"
+    "## V1 — the voice\n\n- **target** `.agents/skills/*/SKILL.md`\n- **authority** the user, 2026-10-25\n\n"
+    "<rule>\nSpeak in the project's voice.\n</rule>\n"
+)
+SPEAKING = "## What the person hears\n\nWhat was done.\n"
+
+
+class AGroupInARecipient(AnUpdate):
+    """A shipped rules file whose row is a group: the rehearsal and the install reach the members
+    the copy brings and the members the recipient holds alike."""
+
+    def ship_the_group(self) -> None:
+        self.write(".agents/mechanisms/sample/sample.rules.md", GROUP_RULES)
+        self.write(KEEPER, f"{KEEPER_NAMES}# Keeper\n\nKeep things.\n\n{SPEAKING}")
+        self.commit("core speaks")
+
+    def test_the_install_reaches_a_shipped_member_and_the_recipient_s_own(self) -> None:
+        self.write_target(".agents/skills/theirs/SKILL.md", f"Mechanism: unowned by design — theirs\n\n# Theirs\n\n{SPEAKING}")
+        self.ship_the_group()
+
+        status, report = self.run_harness("--update")
+
+        self.assertEqual([], report["refusals"])
+        self.assertIn('<installed by="sample">', self.target_text(KEEPER))
+        self.assertIn('<installed by="sample">', self.target_text(".agents/skills/theirs/SKILL.md"))
+
+    def test_a_recipient_s_member_the_install_would_refuse_stops_the_update_before_it_writes(self) -> None:
+        self.write_target(
+            ".agents/skills/theirs/SKILL.md",
+            f"Mechanism: unowned by design — theirs\n\n# Theirs\n\n{SPEAKING}\n{SPEAKING}",
+        )
+        self.ship_the_group()
+
+        status, report = self.run_harness("--update")
+
+        self.assertEqual(1, status)
+        self.assertIn("inject: sample:", report["refusals"][0])
+        self.assertIn("nothing was written", report["refusals"][0])
+        self.assertNotIn("## What the person hears", self.target_text(KEEPER), "the moved core was not copied")
+
+
 class ATreeInstalledUnderEarlierRules(TwoTrees):
     """A recipient announcing a ref that today's shipping rules would refuse: no arrival shelf, a
     harness skill with no Repository line, and a test outside `gw/test/` citing a record only the

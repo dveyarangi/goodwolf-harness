@@ -85,9 +85,10 @@ included *(the user, 2026-09-20)*.
 
 - Removable as written: retraction leaves the target byte-identical.
 - **No default mode.** A bare invocation refuses.
-- **Refuse rather than guess** — missing target, <straw-dog question="q-0037.0002">missing anchor</straw-dog>, block present and differing.
+- **Refuse rather than guess** — missing target, missing anchor, block present and differing.
   A hand-edited block is drift to report, not a second opinion.
-- A rules file's block is installed <straw-dog question="q-0037.0002">in every target it names</straw-dog>, or the check fails.
+- A rules file's block is installed in every target it names, each member of a group included, or
+  the check fails.
 
 The installer is `inject_rules.py`: `<slug> --install`, with `--overwrite` when the source has
 moved, which also takes the source's block out of a file it no longer names; `<slug> --retract`; `--check` over the tree, in the verification set. Grammar and block

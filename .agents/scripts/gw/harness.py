@@ -34,7 +34,7 @@ import tarfile  # noqa: E402
 import tempfile  # noqa: E402
 from dataclasses import dataclass, field  # noqa: E402
 from datetime import datetime, timezone  # noqa: E402
-from pathlib import Path  # noqa: E402
+from pathlib import Path, PurePosixPath  # noqa: E402
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -1307,11 +1307,25 @@ def _injection_inputs(target: Path, shipment: Shipment, previous: Shipment | Non
             anchored = inject_rules.parse_rules_file(slug, text).anchors
         except inject_rules.Refused:
             continue  # the rehearsal reads it again, and its refusal is the run's
-        for anchored_path in anchored:
-            held = after_copy(anchored_path)
-            if held is not None:
-                inputs[anchored_path] = held
+        for row, anchor in anchored.items():
+            for anchored_path in _rows_files(row, anchor, after_copy, [*shipment.files, *corpus(target)]):
+                held = after_copy(anchored_path)
+                if held is not None:
+                    inputs[anchored_path] = held
     return inputs
+
+
+def _rows_files(row: str, anchor: str, after_copy, candidates: list[str]) -> list[str]:
+    """The files an anchor-table row reaches once the copy is done: an explicit row its own file, a
+    group's pattern every shipped or held file it wholly matches that holds its anchor then — the
+    members the installer will reach, so the rehearsal refuses what the install would."""
+    if not inject_rules.is_pattern(row):
+        return [row]
+    return [
+        path for path in sorted(set(candidates))
+        if PurePosixPath(path).full_match(row)
+        and (text := after_copy(path)) is not None and inject_rules.holds_anchor(text, anchor)
+    ]
 
 
 def _is_rules_file(path: str) -> bool:
