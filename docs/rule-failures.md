@@ -17,6 +17,27 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 69. In the ring, the agent offered to leave its unit and took a one-word yes as the drop — 2026-10-24
+
+**Rule in play, loaded:** [`AGENTS.md` — Q1](../AGENTS.md#general-rules), its ring clause: *"In the
+ring — a unit taken into work and held until the person drops it — a message that raises a new
+question has it opened, placed and given its rung as a side question, and the session stays on its
+unit."*
+
+**What happened.** Holding 01-0060.0010, planned, the session opened the voice as a side question,
+as the clause says. Its next reply put a decision to the person — *the voice's align now, or after
+the slice* — and read *давай* as *now*; four turns went to the voice's align before the person
+asked why the pathfinder was left.
+
+**Why it did not fire.** The clause guards the message that raises a question; it says nothing of
+the agent's own offer to change units. *Held until the person drops it* was read as satisfied by a
+yes to the agent's offer, ambiguous between the two branches it was given.
+
+**Proposed amendment:** none yet; a slip of the clause's second half, first seen. A repeat decides
+whether the clause needs *the agent never offers to leave its unit; a drop is the person's, said*.
+
+**Disposition:** open as a slip.
+
 ## 68. A question was opened and the text its answer will change was left unwrapped — 2026-10-24
 
 **Rule in play, loaded:** [`AGENTS.md` — Straw dogs](../AGENTS.md#straw-dogs): *"Wrap anything an
