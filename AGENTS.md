@@ -24,7 +24,9 @@ nothing about being load-bearing — an implementation method is a shape too. �
 - **Weight follows the work.** A change costs what it weighs — in checks, records and steps.
 </straw-dog>
 
+<straw-dog question="q-0037.0009.0021.0002">
 - **A capable reader.** Write for a capable model: state the rule and its pointer. The definition the glossary owns, the example that motivated it, what it implies, and what a script already does for the reader stay out.
+</straw-dog>
 
 <straw-dog question="q-0037.0011.0002">
 - **Tier is paid by every session.** A skill's description is its tier-1 surface: name there every use case the skill serves, and nothing else — never its method or how it is built. Write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session.
@@ -34,10 +36,10 @@ nothing about being load-bearing — an implementation method is a shape too. �
 **A reply speaks the method:** which question the work is on, the method's step as the person would
 name it, what is decided, what is next, where it stops, what it needs from the person. What the
 work read, ran or wrote on the way, and what it will read next, is not told; what more the person
-hears at an occasion, a skill's `What the person hears` says, in their words. It names no script,
+hears at an occasion, a skill's `What the person hears` says<straw-dog question="q-0037.0009.0021.0002">, in their words</straw-dog>. It names no script,
 call, check, report, record's internals or hook, and never retells a report: an outcome is one
-sentence, a failure is what the person does. A stop at or above a ladder's dial is said once, in
-the person's words — `✋ <the decision, as the ladder shows it>` — the ladder's and the rung's names
+sentence, a failure is what the person does. A stop at or above a ladder's dial is said once<straw-dog question="q-0037.0009.0021.0002">, in
+the person's words</straw-dog> — `✋ <the decision, as the ladder shows it>` — the ladder's and the rung's names
 in it nowhere. <straw-dog question="q-0037.0009.0021">Under `debug=on` the machinery is shown as well.</straw-dog>
 </straw-dog>
 

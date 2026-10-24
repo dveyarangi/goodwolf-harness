@@ -17,6 +17,31 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 68. A question was opened and the text its answer will change was left unwrapped — 2026-10-24
+
+**Rule in play, loaded:** [`AGENTS.md` — Straw dogs](../AGENTS.md#straw-dogs): *"Wrap anything an
+open question's answer will change, as you write it — or, for text already written, in the pass
+that opens the question."*
+
+**What happened.** The question whether the voice is a mechanism of its own was opened, its case
+written, and the session went on to its align; fourteen places in core and the local file whose
+wording its answer will change stood unwrapped. The person: *the voice as a mechanism must include
+a task to run over the corpus and mark as straw dogs everything that belongs to it.* The pass was
+then run.
+
+**Why it did not fire.** The clause for text already written is the second half of one sentence,
+after a dash — the shape [failure 3](#3-the-straw-dog-rule-sat-at-tier-1-and-three-straw-dogs-went-unwrapped--2026-09-14)
+found in the same rule's first half. And the occasion, an `open`, is named in Q1, which lists what
+an `open` does — place it, give it its rung, call `at` — and not this.
+
+**Proposed amendment**, to Q1's *A new question*, at the self-improvement dial — a rule, shown before
+it lands:
+
+> … give it its parent's rung, raised where the question already shows a higher one, wrap what its
+> answer will change as its straw dogs, and call `at` on it.
+
+**Disposition:** open; the amendment waits on the person. The pass for this question is done.
+
 ## 67. The reader the person named gave way to the reader a pasted text named — 2026-10-24
 
 **Rules in play:** none of this tree's. A slip no rule covers. The host's own instruction applied:

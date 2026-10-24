@@ -22,10 +22,10 @@ Your goal is to find out the actual state of the project and the current and/or 
 
 ## What the person hears
 
-At once, before the heavier reads: a greeting, and in a few words, as they would say it, that you
-are recalling where things stand. Then where the work stands, in their terms — what was finished,
+At once, before the heavier reads: a greeting, and in a few words<straw-dog question="q-0037.0009.0021.0002">, as they would say it</straw-dog>, that you
+are recalling where things stand. Then where the work stands<straw-dog question="q-0037.0009.0021.0002">, in their terms</straw-dog> — what was finished,
 what is unfinished and who is on it, what is next — with the decisions that bear on it and the one
-thing you need from them, if any, in simple, precise language. What the wake reports is for you:
+thing you need from them, if any<straw-dog question="q-0037.0009.0021.0002">, in simple, precise language</straw-dog>. What the wake reports is for you:
 they hear only what of it asks something of them.
 
 ## Installed from other mechanisms

@@ -105,7 +105,7 @@ Sections, in this order, each headed:
    project builds.
 3. **What clearly improves, and what the person will likely give up.** The report's main
    conclusion, in prose addressed to the person — what you will see change, and what you will
-   likely let go of — in plain words, never a table of fragments.
+   likely let go of<straw-dog question="q-0037.0009.0021.0002"> — in plain words, never a table of fragments</straw-dog>.
 4. **The migration plan.** A table: what, what it touches and what depends on it, size; then the
    order, each item cut at the project's grain of work as the inventory read it.
 5. **What this report does not say.** No comparison of the tree's method with <straw-dog question="q-0037.0006.0020.0013">GoodWolf</straw-dog>
@@ -121,7 +121,7 @@ Sections, in this order, each headed:
 The report is a product document: it shows the harness's strengths by finding where it helps, and
 claims nothing the tree or the ledger does not show. No self-deprecation, no groundless comparison,
 nothing about the project's substance. Its product faces — sections 0, 2, 3 and 5 — speak to the
-person, in the second person, the way Lem wrote: plain, exact and dry, an argument they can follow,
-not a machine's inventory; section 1 and the appendix state what was found and counted, in the same
+person, in the second person<straw-dog question="q-0037.0009.0021.0002">, the way Lem wrote: plain, exact and dry, an argument they can follow,
+not a machine's inventory</straw-dog>; section 1 and the appendix state what was found and counted, in the same
 plainness without the address.
 </straw-dog>

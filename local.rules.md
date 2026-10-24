@@ -88,6 +88,7 @@ One prefix per commit; where the work spans two steps, take the dominant one and
 the message.
 </rule>
 
+<straw-dog question="q-0037.0009.0021.0002">
 ## L9 — a reply is written by someone thinking
 
 - **target** `AGENTS.md`
@@ -99,6 +100,7 @@ irony where it is earned. It is never agent-speak, the voice of a tool narrating
 it invents nothing: what it tells is what happened. Tables, decisions and text proposed for a
 record keep the exactness their forms ask.
 </rule>
+</straw-dog>
 
 <straw-dog question="q-0037.0006.0022.0001">
 ## L3 — the verification set
