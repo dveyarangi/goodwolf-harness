@@ -30,32 +30,41 @@ GoodWolf answers all three from your repository: plain Markdown and a few standa
 scripts, in Claude Code, Codex and Cursor. Fewer steps, each more precise: at every step the agent
 knows what is needed now — which rule, which record, which question — and does that, not the rest.
 
-## What it adds
+## What it gives you
 
-- **A memory of the project between sessions.** What was decided and why, and what each decision
-  still waits on; what is half-built and at which step; every question you raised, kept with where
-  the thinking got to, until it is answered. A session starts from these, so "continue" is enough,
-  and "we settled that on Tuesday, has something changed?" is a thing the agent can say.
+- **A memory of the project, kept in the repository.** What was decided and why, what each
+  decision still waits on, what is half-built and at which step, every question you raised with
+  where the thinking got to. A session starts from these files, so "continue" is enough, and
+  "we settled that on Tuesday — has something changed?" is a thing the agent can say.
+- **Every record knows what it is, and so which side wins.** A plan says what will be, the
+  architecture what must always hold, a generated list what is, a session record what was. When a
+  record and the code disagree, the kind decides which one is fixed: code is brought to the
+  architecture, a generated list is rebuilt from the code, a record of the past is left alone. A
+  decision once accepted is not reopened without new evidence.
+- **Each rule in one home.** A rule is written once and copied by a script to every place an agent
+  reads it; a check fails when a copy drifts, and an update stops rather than overwrite a copy you
+  edited by hand. Your own answers live in one file, `local.rules.md`, applied last and never
+  touched.
+- **Provisional decisions tied to what will change them.** A rule or a document written while a
+  question is still open is bound to that question. When it is answered, everything that rested on
+  it comes up to be rewritten, so "for now" does not quietly become forever.
+- **A rule the agent ignored becomes a record.** The miss is logged with the rule that was in
+  place, the rule is reworded in one reviewable commit, and the next miss shows whether the
+  rewording worked.
 - **You where it matters, and nowhere else.** A decision whose mistake would break several parts
   of the project comes to you with options and a recommendation; anything smaller the agent settles
   and reports. You draw the line between the two, once, on a short list.
-- **Records that stay in agreement.** Each rule written once and copied by a script to wherever it
-  is read; a check that fails when a copy drifts; and a disagreement between two records, or a
-  record and the code, repaired by the session that meets it, not left for an audit.
-- **A working method, if you want one.** A piece of work moves ticket → plan → build → verify →
-  maintain, and large work is agreed with you on its question first. If your project already has
-  a method, yours stays: see the next two sections.
+- **Checking and keeping are two questions.** Whether finished work keeps the promises its ticket
+  and plan made, and whether the documents still agree with each other and with the code, are asked
+  separately, so neither hides behind the other. A disagreement a session meets is repaired there,
+  not left for an audit.
+- **A method that looks like ceremony and works as speed.** A piece of work moves ticket → plan →
+  build → verify → maintain, each step as heavy as the work — for a small change, a few lines and
+  a few minutes. What the steps buy is that the agent never starts from nothing: the decision, the
+  criteria and the state are already written, so the next step is short and right the first time.
 
-## It fits the project you have
-
-GoodWolf integrates. Your rules file, your CI gates, your decision records, your pull-request
-discipline stay as they are and stay the enforcement; the harness holds its own records to their
-shape by script and the agent to its rules by instruction, and leaves your gates gating. What it
-brings is what those usually do not hold: the state of a decision, the place where a session
-stopped and why, the questions still open, and where you stand among them. How its rules sit
-beside yours — your file kept and one line added, or yours carried into its — is settled on the
-report, not by the install. If you would rather it replaced your method, it can take yours in;
-that is your call, made on a report, not on this page.
+Plain Markdown and standard-library Python, MIT-licensed, in Claude Code, Codex and Cursor. Its
+scripts refuse rather than guess, and leave nothing behind when they refuse.
 
 ## How it meets your project
 
@@ -69,10 +78,10 @@ the install stops today: taking your method in after a yes — alongside yours, 
 kept, or in its place — is the next piece of work, and it starts from the report.
 </straw-dog>
 
-Whether your project needs this is answered by that study. What a mature project lacks is rarely
-another rule or another gate; it is the state between them — which decisions still hold and on
-what, where work stopped and why, what is still open and who decides it — and that is what the
-study measures and the report shows, in numbers from your own repository.
+GoodWolf works with the method you have — your rules file, your gates, your decision records and
+your pull requests stay yours, and what it brings sits beside them — or takes its place, if you
+would rather: decided on the report. Whether your project needs it is answered by the study, in
+numbers from your own repository.
 
 In a fresh project, the install lands the method and the first session works out with you what
 the project is and how it should be built.
@@ -164,10 +173,9 @@ you have told it to ask.
 
 ## Who it is for, and what it costs
 
-It is for **steering agents on a project that lives for months**, in one session or several at
-once — a long-lived product, a large refactor, a codebase you return to between other work —
-where forgetting costs more every week. It is not worth it in a prototype's first week, when there is nothing settled yet
-to keep, or for one-off scripts.
+It is for **steering agents on a project**, in one session or several at once — a long-lived
+product, a large refactor, a codebase you return to between other work, or a new one started under
+it — wherever forgetting would cost you. It is not for a one-off script.
 
 Before you install, know this:
 
@@ -177,39 +185,22 @@ Before you install, know this:
   write over a file that changed since the agent read it, and where it offers a worktree per
   session, each works in its own.
   <straw-dog question="q-0033.0004">A team sharing one queue across branches is not tested yet, and your team's tracker can't yet take the tickets' place.</straw-dog>
-- <straw-dog question="q-0037.0013.0003">**The loop's weight is one size so far.** Every change is meant to go through ticket, plan, build and verify. You can tell the agent to skip that for a one-line fix, but there is no setting yet that makes small work light by itself; a project with a fast cadence of its own keeps it, and the loop's steps join it where the study says they help.</straw-dog>
-- <straw-dog question="q-0037.0006.0005">**Your gates stay the enforcement.** The harness holds its own records to their shape by script and the agent to its rules by instruction; a model can still slip against a rule, and the records are what lets you see it and reword the rule.</straw-dog>
 - <straw-dog question="q-0037.0006.0013">**No uninstall command.** Everything it adds is files, so reverting the install commit removes the harness. What it wrote under `docs/` afterwards stays until you delete it.</straw-dog>
 
 <straw-dog question="q-0038.0001">What it saves has not been measured. To judge it, install it into one project and watch three things over a few weeks: whether an agent arriving cold re-decides less, whether work stopped in one session is found at its step in the next, and whether the questions you raise come back. In a project with a method of its own, the study's report carries a measure to repeat after the migration: what it cost a newcomer to recover the project's state before, and after.</straw-dog>
 
 ## It changes with your project
 
-Rule files for agents rot. Rules pile up and contradict each other, the agent quietly ignores
-some, and your edits get overwritten when you pull an update. Here:
-
-- **Your changes survive updates.** Your test commands, your approval settings, and any shipped
-  rule you want different go in one file, `local.rules.md`. Every install and update applies it
-  last and never touches it. If you edited a shipped file by hand instead, an update stops and
-  tells you rather than overwrite it.
-- **A rule the agent ignored gets reworded, and the next miss shows whether that worked.** When a
-  rule was in place and not followed, the agent logs the miss in `docs/rule-failures.md`, shows
-  you the rewording, and lands it as one commit you can review and revert.
-  <straw-dog question="q-0037.0012">So far it is you who notices the miss: every one in this repository's log was caught by the person, not the agent.</straw-dog>
-- **No two copies of a rule disagree.** Each rule is written in one place and copied by a script
-  into every instruction that uses it. A check fails if a copy drifts from its source; it runs at
-  every install and update, and in your own checks if you add it there.
 - **Your own skills get the same checks.** A guided command, `/mechanism`, walks you through adding
   one, and the scripts that check the shipped skills then check yours.
-- **Anything provisional says what it waits on.** A rule that will change once an open question is
-  answered names that question, and the session report tells you when the answer has landed.
+- <straw-dog question="q-0037.0012">**So far it is you who notices a miss:** every one in this repository's log was caught by the person, not the agent.</straw-dog>
 
 **An example from this repository's log.** One rule tells the agent to file each of your
 messages under the open question it belongs to. On 5 October, new sessions kept filing messages
 under questions that only sounded similar. Each time, the miss was logged and the rule tightened —
 four times that day — until it said: file a message under the narrowest question that actually
 covers it, never under one that merely looks alike. The sessions after that got it right. The
-harness has been built with itself since September, in 66 sessions, and its log holds 62 misses
+harness has been built with itself since September, in 66 sessions, and its log holds 63 misses
 so far.
 
 To override a shipped rule, add a section naming it.
