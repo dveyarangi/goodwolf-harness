@@ -1,7 +1,7 @@
 # Each turn knows its next step
 
 - **record of** what it intends to become
-- **Status:** In progress (align underway; first core rule landed 2026-09-20)
+- **Status:** Partial (2026-10-25: the wake rule landed 2026-09-20; the align resumes when taken)
 - **Type:** HITL
 - **Minted:** 2026-09-06
 - **Answers:** [q-0037.0013](../questions/q-0037.0013-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md)

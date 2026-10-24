@@ -1,8 +1,7 @@
 # A project's account stays in agreement with its work
 
 - **record of** what it intends to become
-- **Status:** In progress (decomposed 2026-10-13 into `.0010`–`.0070`, `.0010` done the same day;
-  this record is the end state and takes no RFC of its own)
+- **Status:** Partial (2026-10-25: `.0010`–`.0050` done, `.0060` Planned, `.0070` in progress; the end state, no RFC of its own)
 - **Type:** HITL
 - **Minted:** 2026-10-13
 - **Answers:** [q-0037.0018](../questions/q-0037.0018-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the-projects-work-in-agreement-both-ways.md)

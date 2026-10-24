@@ -1,7 +1,7 @@
 # A shared dev harness improves without losing project conventions
 
 - **record of** what it intends to become
-- **Status:** In progress
+- **Status:** Partial (2026-10-25: its slices in work or queued, the umbrella not itself in work)
 - **Type:** HITL
 - **Minted:** 2026-09-05
 - **Answers:** [q-0037.0006](../questions/q-0037.0006-how-do-projects-share-one-development-method-without-losing-their-own-conventions.md)
