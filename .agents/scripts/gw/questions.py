@@ -5,6 +5,7 @@
     uv run --offline --no-project python .agents/scripts/gw/questions.py --window --session <tag>
     uv run --offline --no-project python .agents/scripts/gw/questions.py --wake [--session <tag>]
     uv run --offline --no-project python .agents/scripts/gw/questions.py --tree [<q-id>]
+    uv run --offline --no-project python .agents/scripts/gw/questions.py --path
     uv run --offline --no-project python .agents/scripts/gw/questions.py --seed
     uv run --offline --no-project python .agents/scripts/gw/questions.py <event> ... --session <tag>
 
@@ -18,7 +19,7 @@ questions skill's.
 `--check` is the maintainer. It writes nothing; its exit status is the verdict and its JSON is for
 the person reading a failure. A tree with no store has nothing to check and passes. `--window` is
 what the agent reads before placing a message; `--wake` registers a session, ends every other gone
-silent, and reads where the work stands; `--tree` draws the live tree for a person; `--seed`
+silent, and reads where the work stands; `--tree` draws the live tree for a person; `--path` reads the path ahead, which the wake carries; `--seed`
 opens the roots of a store that holds no entry, as the install does, and is how a person resumes
 an install that stopped there. Each
 event of a turn is its own call — `at`, `open`, `move`, `depend`, `undepend`, `close`, `suspect`,
@@ -102,7 +103,7 @@ WHERE_IT_STANDS = "## Where it stands"
 ARROW = "→"
 NOT_HOMES = (f"{STORE}/", "docs/tickets/", "docs/rfc/")
 _USAGE = (
-    "usage: questions.py --check | --window --session <tag> | --wake [--session <tag>] "
+    "usage: questions.py --check | --window --session <tag> | --wake [--session <tag>] | --path "
     "| --tree [<q-id>] | --seed | <event> ... --session <tag>, the events "
     "at, open, move, reword, depend, undepend, close, suspect, clear, lean, assign, realize, rung"
 )
@@ -333,6 +334,9 @@ def main(
             return 0
         if argv == ["--wake"] or (len(argv) == 3 and argv[:2] == ["--wake", "--session"]):
             print(wake(root, now, argv[2] if len(argv) == 3 else None))
+            return 0
+        if argv == ["--path"]:
+            print(path_ahead(root, now))
             return 0
         if argv[:1] == ["--tree"] and len(argv) <= 2:
             print(tree(root, argv[1] if len(argv) == 2 else None))
@@ -1315,13 +1319,13 @@ def wake(root: Path, now: datetime, tag: str | None = None) -> str:
     if tag is None:
         held = sessions.register(root, now)
         sessions.tend(root, now, held.tag)
-        return _wake_read(root, held, f"session: {held.tag}, registered now")
+        return _wake_read(root, held, f"session: {held.tag}, registered now", now)
     held = sessions.held(root, tag)
     sessions.tend(root, now, held.tag)
-    return _wake_read(root, held, f"session: {held.tag}, already registered")
+    return _wake_read(root, held, f"session: {held.tag}, already registered", now)
 
 
-def _wake_read(root: Path, held: sessions.Session, header: str) -> str:
+def _wake_read(root: Path, held: sessions.Session, header: str, now: datetime) -> str:
     """What keeps coming back, who else is running and where, what waits to be re-read, and this
     session's window drawn whole. An ended session is nobody's business at a wake."""
     store = read_store(root)
@@ -1338,6 +1342,7 @@ def _wake_read(root: Path, held: sessions.Session, header: str) -> str:
         )
         + _section("straw dogs due, their text to re-read:", _straw_dogs_due(root, store))
         + _section("suspect, to re-read:", [f"  {_line(read)}" for read in live if read.suspect])
+        + _section("path:", _ahead_lines(root, now))
         + [window(root, held.tag, full=True)]
     )
 
@@ -1356,6 +1361,189 @@ def _most_struck(live: list[Entry]) -> list[Entry]:
     so a session sees them before anything else and the read stays bounded (parent decision 54)."""
     struck = [read for read in live if read.open and read.strike and read.strike.count]
     return sorted(struck, key=lambda read: (-read.strike.count, _order(read)))[:WAKE_STRUCK_LINES]
+
+
+# --- the path -----------------------------------------------------------------------------------
+
+# TODO q-0037.0019: the path is the pathfinder's, drawn here while that mechanism is undeclared.
+AHEAD_READY = 5
+AHEAD_STRUCK = 3
+AHEAD_LATELY = 5
+_TICKET_ID = re.compile(r"^(\d\d-\d{4}(?:\.\d{4})*)-")
+_FIRST_ID = re.compile(_ID)
+
+
+def path_ahead(root: Path, now: datetime) -> str:
+    """The path read from the records as they are, for the agent to tell the person: the work in
+    hand, the questions touched lately with no ticket, the candidates at the next boundary each
+    with its reasons, and how the roots balance. A reading, written nowhere, so two sessions read
+    one path; it ranks nothing, the order being the queue's, and compares no count with the
+    project's limit on work in hand, which the agent reads from the entry file."""
+    if not (root / STORE).is_dir():
+        return "path: no question store here"
+    return "\n".join(["path:", *_ahead_lines(root, now)])
+
+
+def _ahead_lines(root: Path, now: datetime) -> list[str]:
+    ahead = _Ahead.read(root)
+    lately = ahead.touched_lately(now)
+    return [
+        *ahead.in_work(),
+        *ahead.touched_lately_lines(lately),
+        "  ready, in id order; the order is the queue's:",
+        *_or_none(line for ticket in ahead.ready()[:AHEAD_READY] for line in ahead.ticket_lines(ticket)),
+        "  most struck, no ticket:",
+        *_or_none(line for read in ahead.most_struck(lately)[:AHEAD_STRUCK] for line in ahead.question_lines(read)),
+        "  roots:",
+        *ahead.roots(),
+    ]
+
+
+def _or_none(lines) -> list[str]:
+    found = list(lines)
+    return found or ["    (none)"]
+
+
+@dataclass(frozen=True)
+class _Ahead:
+    """What the path reads: the live store, the live tickets, the product document's coverage and
+    the straw dogs' bindings — each mechanism's records through that mechanism's reader."""
+
+    live: dict[str, Entry]
+    tickets: list
+    coverage: dict[str, str]
+    bindings: list[str]
+
+    @staticmethod
+    def read(root: Path) -> "_Ahead":
+        import product  # noqa: PLC0415  (it imports this module)
+        import tickets  # noqa: PLC0415  (it imports this module)
+
+        live = {identity: read for identity, read in read_store(root).index.items() if not read.archived}
+        bindings = [identity for _, _, identity in question_bindings(root)]
+        return _Ahead(live, tickets.check(root).records, product.coverage_words(root), bindings)
+
+    # --- the work in hand ---
+
+    def in_work(self) -> list[str]:
+        """The tickets In progress with none under them In progress: a parent is in progress
+        because a child is, and is counted once, through the child."""
+        # TODO q-0037.0019.0001: sessions in the ring count too once the store can tell them.
+        going = [ticket for ticket in self.tickets if _status_of(ticket) == "In progress"]
+        ids = [_ticket_id(ticket) for ticket in going]
+        leaves = [ticket for ticket in going if not any(other.startswith(f"{_ticket_id(ticket)}.") for other in ids)]
+        heading = f"  in work: {len(leaves)} — tickets In progress, a parent counted through its child; sessions are not counted"
+        return [heading, *(self._ticket_line(ticket) for ticket in leaves)]
+
+    # --- what waits ---
+
+    def touched_lately(self, now: datetime) -> list[Entry]:
+        """The open questions no ticket owns, below a root, stamped within the week the session
+        rows also keep — what the store can say of a new idea, which records no boundary."""
+        # TODO q-0037.0019.0001: since the last boundary, once the store records one.
+        horizon = now - sessions.GONE_AFTER
+        found = [read for read in self._unowned() if read.strike and read.strike.last >= horizon]
+        return sorted(found, key=lambda read: read.strike.last, reverse=True)
+
+    def touched_lately_lines(self, lately: list[Entry]) -> list[str]:
+        shown = [
+            f"    {read.question} — {read.identity} (struck {read.strike.count}, {read.strike.last:%Y-%m-%d})"
+            for read in lately[:AHEAD_LATELY]
+        ]
+        more = [f"    and {len(lately) - AHEAD_LATELY} more"] if len(lately) > AHEAD_LATELY else []
+        return [f"  touched lately, no ticket: {len(lately)}", *shown, *more]
+
+    # --- the candidates ---
+
+    def ready(self) -> list:
+        return [ticket for ticket in self.tickets if _status_of(ticket) == "Ready"]
+
+    def most_struck(self, lately: list[Entry]) -> list[Entry]:
+        """The open questions no ticket owns that came back most, roots left out — a root is struck
+        whenever its tree is — and those already shown as touched lately."""
+        shown = {read.identity for read in lately}
+        struck = [read for read in self._unowned() if read.strike and read.strike.count and read.identity not in shown]
+        return sorted(struck, key=lambda read: (-read.strike.count, _order(read)))
+
+    def ticket_lines(self, ticket) -> list[str]:
+        question = _answers_of(ticket)
+        waiting = [_title_of(other) for other in self.tickets if _stem(ticket) in (other.fields.get("Depends on") or "")]
+        return [self._ticket_line(ticket), self._reasons(question, waiting)]
+
+    def question_lines(self, read: Entry) -> list[str]:
+        return [f"    {read.question} — {read.identity}", self._reasons(read.identity, [])]
+
+    def _reasons(self, identity: str | None, waiting: list[str]) -> str:
+        """Why a candidate stands: the answer it serves and how much of it is built, how often it
+        came back, how much provisional text waits on it, and what waits on it. A reason the
+        records do not hold reads `unread`, never guessed."""
+        read = self.live.get(identity or "")
+        struck = read.strike.count if read and read.strike else 0
+        dogs = sum(1 for bound in self.bindings if identity and _within(bound, identity))
+        dependents = [other.identity for other in self.live.values() if other.open and identity
+                      and any(_within(needed, identity) for needed in other.dependencies)]
+        unlocks = ", ".join([*waiting, *(dependent or "" for dependent in dependents)]) or "—"
+        return f"      serves {self._serves(identity)} · struck {struck} · {dogs} straw dogs · unlocks {unlocks}"
+
+    def _serves(self, identity: str | None) -> str:
+        link = realizes(self.live, identity) if identity in self.live else None
+        if link and link.answers:
+            return "; ".join(f"{reference} {name}, {self.coverage.get(reference, 'unread')}" for reference, name in link.answers)
+        return "derived" if link and link.derived else "unread"
+
+    # --- the roots ---
+
+    def roots(self) -> list[str]:
+        """Each root, its open questions and those with a ticket on them or above them; a root with
+        open questions and none with a ticket is thin."""
+        lines = []
+        for root in sorted((read for read in self.live.values() if read.parent is None), key=_order):
+            under = [read for read in self.live.values() if read.open and _within(read.identity or "", f"{root.identity}.")]
+            ticketed = [read for read in under if self._owned(read.identity or "")]
+            thin = ", thin" if under and not ticketed else ""
+            lines.append(f"    {root.question} — {root.identity}: open {len(under)}, with a ticket {len(ticketed)}{thin}")
+        return _or_none(lines)
+
+    # --- reading ---
+
+    def _unowned(self) -> list[Entry]:
+        return [read for read in self.live.values()
+                if read.open and read.parent is not None and not self._owned(read.identity or "")]
+
+    def _owned(self, identity: str) -> bool:
+        """Whether a live ticket owns the question or a question above it — part of that ticket's work."""
+        return any("owner" in at.parts and "/done/" not in at.parts["owner"].value for at in _ancestry(self.live, identity))
+
+    def _ticket_line(self, ticket) -> str:
+        return f"    {_title_of(ticket)} — {_ticket_id(ticket)} → {_answers_of(ticket) or 'unread'}"
+
+
+def _within(identity: str, ancestor: str) -> bool:
+    """Whether an id is the ancestor's own or one under it; an ancestor ending in `.` names its
+    children alone."""
+    return identity.startswith(ancestor) if ancestor.endswith(".") else identity == ancestor or identity.startswith(f"{ancestor}.")
+
+
+def _status_of(ticket) -> str:
+    return (ticket.fields.get("Status") or "").split("(")[0].strip()
+
+
+def _answers_of(ticket) -> str | None:
+    found = _FIRST_ID.search(ticket.fields.get("Answers") or "")
+    return found.group(0) if found else None
+
+
+def _stem(ticket) -> str:
+    return posixpath.splitext(posixpath.basename(ticket.record))[0]
+
+
+def _ticket_id(ticket) -> str:
+    named = _TICKET_ID.match(_stem(ticket))
+    return named.group(1) if named else _stem(ticket)
+
+
+def _title_of(ticket) -> str:
+    return ticket.title
 
 
 # --- the hooks ----------------------------------------------------------------------------------
@@ -1508,11 +1696,11 @@ def _started(root: Path, tag: str, source: str | None, now: datetime) -> str:
     held, registered_now = sessions.arrive(root, tag, now)
     if registered_now:
         sessions.tend(root, now, tag)
-        return _wake_read(root, held, f"session: {tag}, registered now")
+        return _wake_read(root, held, f"session: {tag}, registered now", now)
     if source == "compact":
         return window(root, tag, full=True)
     sessions.tend(root, now, tag)
-    return _wake_read(root, held, f"session: {tag}, already registered")
+    return _wake_read(root, held, f"session: {tag}, already registered", now)
 
 
 # --- the tree -----------------------------------------------------------------------------------

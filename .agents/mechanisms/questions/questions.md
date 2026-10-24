@@ -100,6 +100,7 @@ roles, is an open question of the store.
 | landing a decision an align makes, and holding one with nowhere to land yet | `.agents/skills/align/SKILL.md` | |
 | checking the store | `.agents/scripts/gw/questions.py` | |
 | reading the store at a session's wake: the most struck, the deferred, the straw dogs due | `.agents/scripts/gw/questions.py` | |
+| <straw-dog question="q-0037.0019">reading the path ahead at the wake and on request: the work in hand, what was touched lately with no ticket, the candidates with their reasons, the roots</straw-dog> | `.agents/scripts/gw/questions.py` | |
 | writing the session's leans | `.agents/skills/conclude/SKILL.md` | |
 | archiving the subtree a closure finishes | `.agents/scripts/gw/questions.py` | |
 | sweeping a wholly closed subtree a closure left behind | `.agents/skills/maintain/SKILL.md` | |

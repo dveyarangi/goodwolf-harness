@@ -552,6 +552,171 @@ class ReadyForDone(Store):
         self.assertEqual(1, len(report["findings"]))
 
 
+PATH_NOW = datetime(2026, 9, 29, 12, 0, tzinfo=timezone.utc)
+PATH_PRODUCT = (
+    "# What the project is for\n\n## Pains\n\n1. **It hurts.**\n\n## Causes\n\n- **C1** A cause.\n\n"
+    "## Answers\n\n| answer | causes | 1 | waits on |\n|---|---|---|---|\n| **The first group** | | | |\n"
+    "| **A1 The question store** — what it does | C1 | ● | |\n\n## After\n\nProse.\n"
+)
+
+
+def path_ticket(title: str, status: str, answers: str, depends: str = "") -> str:
+    """A live ticket's header, enough for the path to read: its title, status and question."""
+    lines = [f"# {title}", "", "- **record of** what it intends to become", f"- **Status:** {status}",
+             "- **Type:** AFK", "- **Minted:** 2026-09-29"]
+    lines += [f"- **Depends on:** {depends}"] if depends else []
+    lines += [f"- **Answers:** [{answers}](../questions/{answers}-q.md)", "- **Outcome:** It works.", ""]
+    return "\n".join(lines)
+
+
+class ThePathAhead(RepositoryCase):
+    """The path read from the records as they are (01-0060.0010): what is in work, what was touched
+    lately with no ticket, the candidates with their reasons, and the roots' balance."""
+
+    def setUp(self) -> None:
+        super().setUp()
+        remember_windows_in_the_case(self)
+
+    def question(self, identity: str, words: str, parent: str | None = None, owner: str | None = None,
+                 struck: tuple[int, int] | None = None, realizes: str | None = None) -> None:
+        parts = {"part of": parent, "state": "open"}
+        parts["owner"] = f"[{owner}](../tickets/{owner}.md)" if owner else None
+        parts["realizes"] = realizes
+        if struck:
+            stamped = PATH_NOW - timedelta(days=struck[1])
+            parts["struck"] = f"{struck[0]}, last {stamped:%Y-%m-%dT%H:%MZ}"
+        parts = {name: value for name, value in parts.items() if value is not None}
+        self.write(f"{STORE}/{identity}-q.md", entry(identity, words, parts))
+
+    def a_tree(self) -> None:
+        self.question("q-0001", "What is this project for?", struck=(5, 1))
+        self.question("q-0001.0001", "Who is it for?", parent="q-0001", struck=(2, 2))
+        self.question("q-0002", "How is it built?")
+        self.question("q-0002.0001", "How are the questions kept?", parent="q-0002",
+                      owner="01-0010-questions-kept", realizes='A1 "The question store"')
+        self.question("q-0002.0001.0001", "How does a question branch?", parent="q-0002.0001",
+                      owner="01-0010.0010-a-question-branches")
+        self.question("q-0002.0002", "How is a ticket closed?", parent="q-0002", owner="01-0020-a-ticket-closes")
+        self.question("q-0002.0003", "Is the cap right?", parent="q-0002", struck=(0, 30))
+        self.question("q-0002.0004", "Does the path read?", parent="q-0002", struck=(3, 20))
+        self.question("q-0002.0005", "Is the cap read?", parent="q-0002", owner="01-0030-the-cap-is-read",
+                      realizes='A1 "The question store"')
+        self.question("q-0002.0006", "What follows a close?", parent="q-0002", owner="01-0040-after-close")
+        self.question("q-0003", "What landscape does it evolve in?")
+        self.write("docs/tickets/01-0010-questions-kept.md", path_ticket("Questions kept", "In progress", "q-0002.0001"))
+        self.write("docs/tickets/01-0010.0010-a-question-branches.md",
+                   path_ticket("A question branches", "In progress", "q-0002.0001.0001"))
+        self.write("docs/tickets/01-0020-a-ticket-closes.md", path_ticket("A ticket closes", "Ready", "q-0002.0002"))
+        self.write("docs/tickets/01-0030-the-cap-is-read.md", path_ticket("The cap is read", "Ready", "q-0002.0005"))
+        self.write("docs/tickets/01-0040-after-close.md", path_ticket(
+            "After close", "Planned", "q-0002.0006", depends="[A ticket closes](./01-0020-a-ticket-closes.md) (the close)"))
+        self.write("docs/product.md", PATH_PRODUCT)
+        self.write("docs/notes.md", '<straw-dog question="q-0002.0005">one</straw-dog> '
+                   '<straw-dog question="q-0002.0005">two</straw-dog>\n')
+
+    def said(self, *argv: str) -> tuple[int, str]:
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out):
+            status = questions.main(list(argv), root=self.root, today=PATH_NOW.date(), now=PATH_NOW)
+        return status, out.getvalue()
+
+    def path(self) -> tuple[int, list[str]]:
+        status, text = self.said("--path")
+        return status, text.splitlines()
+
+    def under(self, lines: list[str], heading: str) -> list[str]:
+        """The lines under one of the path's headings, up to the next line at its depth or less."""
+        start = next(index for index, line in enumerate(lines) if line.lstrip().startswith(heading))
+        depth = len(lines[start]) - len(lines[start].lstrip())
+        rest = lines[start + 1:]
+        end = next((index for index, line in enumerate(rest) if len(line) - len(line.lstrip()) <= depth), len(rest))
+        return [lines[start], *rest[:end]]
+
+    def test_work_in_hand_is_the_tickets_in_progress_a_parent_counted_through_its_child(self) -> None:
+        self.a_tree()
+
+        status, lines = self.path()
+
+        self.assertEqual(0, status)
+        work = self.under(lines, "in work:")
+        self.assertTrue(work[0].strip().startswith("in work: 1 —"), work[0])
+        self.assertIn("sessions are not counted", work[0])
+        self.assertEqual(["    A question branches — 01-0010.0010 → q-0002.0001.0001"], work[1:])
+
+    def test_touched_lately_is_an_open_question_with_no_ticket_reached_within_the_week(self) -> None:
+        self.a_tree()
+
+        lately = self.under(self.path()[1], "touched lately, no ticket:")
+
+        self.assertEqual("  touched lately, no ticket: 1", lately[0])
+        self.assertEqual(["    Who is it for? — q-0001.0001 (struck 2, 2026-09-27)"], lately[1:])
+
+    def test_a_ready_ticket_is_a_candidate_with_its_reasons_and_unread_where_none_is_held(self) -> None:
+        self.a_tree()
+
+        ready = self.under(self.path()[1], "ready")
+
+        self.assertEqual(
+            [
+                "    A ticket closes — 01-0020 → q-0002.0002",
+                "      serves unread · struck 0 · 0 straw dogs · unlocks After close",
+                "    The cap is read — 01-0030 → q-0002.0005",
+                "      serves A1 The question store, in progress · struck 0 · 2 straw dogs · unlocks —",
+            ],
+            ready[1:],
+        )
+
+    def test_the_most_struck_question_with_no_ticket_is_a_candidate_and_a_root_never_is(self) -> None:
+        self.a_tree()
+
+        struck = self.under(self.path()[1], "most struck, no ticket:")
+
+        self.assertEqual(
+            ["    Does the path read? — q-0002.0004", "      serves unread · struck 3 · 0 straw dogs · unlocks —"],
+            struck[1:],
+        )
+
+    def test_each_root_counts_its_open_questions_and_those_with_a_ticket_a_root_with_none_thin(self) -> None:
+        self.a_tree()
+
+        roots = self.under(self.path()[1], "roots:")
+
+        self.assertEqual(
+            [
+                "    What is this project for? — q-0001: open 1, with a ticket 0, thin",
+                "    How is it built? — q-0002: open 7, with a ticket 5",
+                "    What landscape does it evolve in? — q-0003: open 0, with a ticket 0",
+            ],
+            roots[1:],
+        )
+
+    def test_a_tree_with_no_tickets_and_no_product_document_shows_what_exists(self) -> None:
+        self.question("q-0001", "What is this project for?")
+        self.question("q-0001.0001", "Who is it for?", parent="q-0001", struck=(4, 40))
+
+        status, lines = self.path()
+
+        self.assertEqual(0, status)
+        self.assertTrue(self.under(lines, "in work:")[0].strip().startswith("in work: 0 —"))
+        self.assertIn("      serves unread · struck 4 · 0 straw dogs · unlocks —", lines)
+        self.assertIn("    What is this project for? — q-0001: open 1, with a ticket 0, thin", lines)
+
+    def test_a_tree_with_no_store_has_no_path_and_passes(self) -> None:
+        status, lines = self.path()
+
+        self.assertEqual(0, status)
+        self.assertEqual(["path: no question store here"], lines)
+
+    def test_the_wake_carries_the_path_before_the_window(self) -> None:
+        self.a_tree()
+
+        _, text = self.said("--wake")
+
+        self.assertIn("\npath:\n", text)
+        self.assertIn("  in work: 1 —", text)
+        self.assertLess(text.index("\npath:\n"), text.rindex("\nsession: "), "the path comes before the window")
+
+
 class RungsInUse(Store):
     """A store that uses the rung part — some question carries one — has every open question carry
     its own (q-0037.0019, decision 2); one without is a finding. A store with no rung anywhere has no

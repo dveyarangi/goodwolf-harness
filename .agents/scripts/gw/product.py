@@ -270,14 +270,31 @@ def _unnamed_purpose_questions(store: questions.Store, answers: list[Answer], pu
 # --- coverage -----------------------------------------------------------------------------------
 
 
+def coverage_words(root: Path) -> dict[str, str]:
+    """Each answer's id and its coverage word, as `--coverage` reads it; nothing in a tree with no
+    product document."""
+    path = root / DOCUMENT
+    if not path.is_file():
+        return {}
+    answers, _ = read_answers(path.read_text(encoding="utf-8"))
+    realizing = _questions_realizing(root)
+    return {found.identity: _coverage_word(realizing.get(found.identity, [])) for found in answers}
+
+
 def _coverage_line(found: Answer, realizing: list[questions.Entry]) -> str:
+    word = _coverage_word(realizing)
+    if not realizing:
+        return f"{found.identity} {found.name} — {word}"
+    return f"{found.identity} {found.name} — {word}: {', '.join(read.identity or '' for read in realizing)}"
+
+
+def _coverage_word(realizing: list[questions.Entry]) -> str:
     """Absent while no question realizes the answer, in progress while one that does is open,
     present once every one is decided; a question closed otherwise built nothing (settled at the
     plan, 2026-10-13)."""
     if not realizing:
-        return f"{found.identity} {found.name} — absent"
-    state = "present" if _present(realizing) else "in progress"
-    return f"{found.identity} {found.name} — {state}: {', '.join(read.identity or '' for read in realizing)}"
+        return "absent"
+    return "present" if _present(realizing) else "in progress"
 
 
 def _present(realizing: list[questions.Entry]) -> bool:
