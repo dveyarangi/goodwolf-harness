@@ -53,6 +53,15 @@ Once done, and unless you need to take a break, use `/verify`.
 Commit once `/verify` has passed on the work. Mending during the work stands
 on the rung of what it mends; it is not a substitute for `/verify`.
 
+## Installed from other mechanisms
+
+<installed by="session">
+**S7** At the step's start, hold the unit by the question its work answers, `sessions.py --hold <q-id>
+--session <tag>`. A refusal naming another running session stops the step: say whose the unit is,
+and do nothing on it. A refusal saying the question is no unit leaves the step to go on, holding
+nothing.
+</installed>
+
 <installed by="local">
 **L3** The verification set: the checks always; the tests too when the work changed a file that is not
 markdown, the question store's own writes aside.

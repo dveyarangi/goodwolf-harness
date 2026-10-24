@@ -8,7 +8,7 @@ with overwrite; the block in a target is never the place.
 |---|---|
 | `AGENTS.md` | `## Project-local` |
 | `.agents/skills/verify/SKILL.md` | `## The verification set` |
-| `.agents/skills/implement/SKILL.md` | `During the work, run the checks in the project's verification set, as` |
+| `.agents/skills/implement/SKILL.md` | `## Installed from other mechanisms` |
 | `.agents/skills/maintain/SKILL.md` | `## Finish` |
 | `.agents/skills/commit/SKILL.md` | `- Write the subject in the project's own convention, where it states one.` |
 | `.agents/skills/skill-up/SKILL.md` | `## Installed from other mechanisms` |

@@ -858,3 +858,223 @@ class TheInstallersLine(unittest.TestCase):
             self.assertEqual("the wake\n\ninstalled blocks: 1 thing out of step", questions._noticed("the wake"))
         with mock.patch.dict(os.environ, {"GW_NOTICE": ""}):
             self.assertEqual("the wake", questions._noticed("the wake"))
+
+
+class AHeldUnit(Rendered):
+    """A row may end with the unit its session holds, `holds <q-id>`, the question the unit
+    answers; a row without it holds nothing. Every rebuild of a row keeps the field but the end."""
+
+    HELD = "s-alpha running 2026-09-29T11:30Z q-0004 q-0002,q-0001 holds q-0004"
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.write(SESSIONS, f"{self.HELD}\ns-beta running 2026-09-29T11:00Z q-0010\n")
+
+    def row(self, tag: str) -> sessions.Session:
+        return next(each for each in sessions.rows(self.root)[0] if each.tag == tag)
+
+    def line(self, tag: str) -> str:
+        return next(line for line in session_lines(self.root).splitlines() if line.startswith(f"{tag} "))
+
+    def problems(self) -> list[str]:
+        """The rows' own diagnostics: this store keeps flat ids the store's check reports apart."""
+        return [note.problem for note in sessions.check(self.root, sessions._index(self.root))[0]]
+
+    def test_a_row_names_the_unit_it_holds_and_one_without_the_field_holds_nothing(self) -> None:
+        self.assertEqual(("q-0004", None), (self.row("s-alpha").holds, self.row("s-beta").holds))
+
+    def test_a_held_row_is_in_the_form_and_written_back_as_it_was_read(self) -> None:
+        self.assertEqual([], self.problems())
+        self.assertEqual(self.HELD, sessions.row_line(self.row("s-alpha")))
+
+    def test_a_row_with_no_recent_questions_may_hold_a_unit(self) -> None:
+        self.write(SESSIONS, "s-beta running 2026-09-29T11:00Z q-0010 holds q-0010\n")
+
+        self.assertEqual("q-0010", self.row("s-beta").holds)
+        self.assertEqual([], self.problems())
+
+    def test_the_wakes_ending_of_a_silent_row_keeps_what_it_holds(self) -> None:
+        sessions.tend(self.root, NOW + timedelta(hours=4), "s-new")
+
+        self.assertEqual("s-alpha ended 2026-09-29T11:30Z q-0004 q-0002,q-0001 holds q-0004", self.line("s-alpha"))
+
+    def test_a_sign_of_life_turning_an_ended_row_running_keeps_what_it_holds(self) -> None:
+        sessions.tend(self.root, NOW + timedelta(hours=4), "s-new")
+
+        sessions.seen(self.root, "s-alpha", NOW + timedelta(hours=5))
+
+        self.assertTrue(self.row("s-alpha").running)
+        self.assertEqual("q-0004", self.row("s-alpha").holds)
+
+    def test_an_arrival_turning_an_ended_row_running_keeps_what_it_holds(self) -> None:
+        sessions.tend(self.root, NOW + timedelta(hours=4), "s-new")
+
+        arrived, _ = sessions.arrive(self.root, "s-alpha", NOW + timedelta(hours=5))
+
+        self.assertEqual((True, "q-0004"), (arrived.running, self.row("s-alpha").holds))
+
+    def test_a_move_keeps_what_the_row_holds(self) -> None:
+        moved = sessions.moved(self.row("s-alpha"), "q-0003", NOW)
+
+        self.assertEqual(("q-0003", "q-0004"), (moved.current, moved.holds))
+
+    def test_a_rename_renames_the_held_unit(self) -> None:
+        renamed = sessions.renamed(self.row("s-alpha"), {"q-0004": "q-0002.0001"})
+
+        self.assertEqual("q-0002.0001", renamed.holds)
+
+    def test_the_end_lets_the_unit_go(self) -> None:
+        sessions.end(self.root, "s-alpha", NOW)
+
+        self.assertEqual("s-alpha ended 2026-09-29T12:00Z q-0004 q-0002,q-0001", self.line("s-alpha"))
+
+    def test_a_held_unit_naming_no_entry_is_reported(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 holds q-0099\n")
+
+        self.assertTrue(any("q-0099" in problem for problem in self.problems()), self.problems())
+
+
+class HoldingAndReleasing(Rendered):
+    """`--hold` takes the unit a question's owner names into the session's row; `--release` lets it
+    go. A refusal writes nothing and says why."""
+
+    OWNER = "[01-0001 the-work](../tickets/01-0001-the-work.md)"
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.place("q-0004-which-parts-are-optional", "Which parts are optional?", {"part of": "q-0002", "state": "open", "owner": self.OWNER})
+
+    def said_to_sessions(self, *argv: str) -> tuple[int, str]:
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out):
+            status = sessions.main(list(argv), root=self.root, now=NOW)
+        return status, out.getvalue()
+
+    def holds(self, tag: str) -> str | None:
+        return next(each for each in sessions.rows(self.root)[0] if each.tag == tag).holds
+
+    def assertRefusedWritingNothing(self, fragment: str, *argv: str) -> None:
+        untouched = self.snapshot()
+
+        status, said = self.said_to_sessions(*argv)
+
+        self.assertEqual(2, status, said)
+        self.assertIn(fragment, said)
+        self.assertEqual(untouched, self.snapshot())
+
+    def test_holding_an_open_question_with_an_owner_writes_it_into_the_row_and_names_the_owner(self) -> None:
+        status, said = self.said_to_sessions("--hold", "q-0004", "--session", "s-alpha")
+
+        self.assertEqual(0, status, said)
+        self.assertEqual("q-0004", self.holds("s-alpha"))
+        self.assertIn("01-0001", said)
+
+    def test_holding_what_it_holds_already_writes_nothing(self) -> None:
+        self.said_to_sessions("--hold", "q-0004", "--session", "s-alpha")
+        untouched = self.snapshot()
+
+        status, _ = self.said_to_sessions("--hold", "q-0004", "--session", "s-alpha")
+
+        self.assertEqual((0, untouched), (status, self.snapshot()))
+
+    def test_a_question_no_entry_holds_is_refused(self) -> None:
+        self.assertRefusedWritingNothing("q-0099", "--hold", "q-0099", "--session", "s-alpha")
+
+    def test_a_closed_question_is_refused(self) -> None:
+        self.assertRefusedWritingNothing("closed", "--hold", "q-0005", "--session", "s-alpha")
+
+    def test_a_question_with_no_owner_is_no_unit_and_refused(self) -> None:
+        self.assertRefusedWritingNothing("owner", "--hold", "q-0003", "--session", "s-alpha")
+
+    def test_a_unit_another_running_session_holds_is_refused_naming_that_session(self) -> None:
+        self.said_to_sessions("--hold", "q-0004", "--session", "s-beta")
+
+        self.assertRefusedWritingNothing("s-beta", "--hold", "q-0004", "--session", "s-alpha")
+
+    def test_a_unit_an_ended_session_holds_is_free_to_take(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004\ns-beta ended 2026-09-29T11:00Z q-0010 holds q-0004\n")
+
+        status, said = self.said_to_sessions("--hold", "q-0004", "--session", "s-alpha")
+
+        self.assertEqual((0, "q-0004"), (status, self.holds("s-alpha")), said)
+
+    def test_a_second_unit_while_one_is_held_is_refused_naming_the_release(self) -> None:
+        self.place("q-0007-who-moves-a-subtree", "Who moves a subtree?", {"part of": "q-0003", "state": "open", "owner": self.OWNER})
+        self.said_to_sessions("--hold", "q-0004", "--session", "s-alpha")
+
+        self.assertRefusedWritingNothing("--release", "--hold", "q-0007", "--session", "s-alpha")
+
+    def test_a_session_nobody_registered_is_refused(self) -> None:
+        self.assertRefusedWritingNothing("--wake", "--hold", "q-0004", "--session", "s-nobody")
+
+    def test_release_lets_the_unit_go_and_keeps_the_position(self) -> None:
+        self.said_to_sessions("--hold", "q-0004", "--session", "s-alpha")
+
+        status, _ = self.said_to_sessions("--release", "--session", "s-alpha")
+
+        self.assertEqual((0, None), (status, self.holds("s-alpha")))
+        self.assertIn("s-alpha running 2026-09-29T12:00Z q-0004 q-0002,q-0001\n", session_lines(self.root))
+
+    def test_release_holding_nothing_writes_nothing(self) -> None:
+        untouched = self.snapshot()
+
+        status, _ = self.said_to_sessions("--release", "--session", "s-alpha")
+
+        self.assertEqual((0, untouched), (status, self.snapshot()))
+
+
+class TheHolderShown(Rendered):
+    """The wake and the window name the unit each running session holds, and the owner of its
+    question; the check finds a unit held under a closed question, and one held twice."""
+
+    OWNER = "[01-0001 the-work](../tickets/01-0001-the-work.md)"
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.place("q-0004-which-parts-are-optional", "Which parts are optional?", {"part of": "q-0002", "state": "open", "owner": self.OWNER})
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 q-0002,q-0001 holds q-0004\ns-beta running 2026-09-29T11:00Z q-0010\n")
+
+    def findings(self) -> list[str]:
+        return [note.finding for note in sessions.check(self.root, sessions._index(self.root))[1]]
+
+    def test_the_wake_names_another_sessions_unit_and_its_owner(self) -> None:
+        _, text = self.said("--wake", "--session", "s-beta")
+
+        self.assertIn("at q-0004 (recent q-0002, q-0001), holding q-0004 (01-0001 the-work)", self.section(text, "sessions:"))
+
+    def test_the_window_names_another_sessions_unit_and_its_owner(self) -> None:
+        _, text = self.said("--window", "--session", "s-beta")
+
+        self.assertIn("holding q-0004 (01-0001 the-work)", self.section(text, "other running sessions:"))
+
+    def test_a_sessions_own_window_names_the_unit_it_holds(self) -> None:
+        _, text = self.said("--window", "--session", "s-alpha")
+
+        self.assertIn("holding: q-0004 (01-0001 the-work)", text)
+
+    def test_a_session_holding_nothing_is_shown_holding_nothing(self) -> None:
+        _, text = self.said("--window", "--session", "s-beta")
+
+        self.assertNotIn("holding:", text)
+        self.assertNotIn("holding", self.section(self.said("--window", "--session", "s-alpha")[1], "other running sessions:"))
+
+    def test_a_unit_under_a_closed_question_holds_nobody_and_is_a_finding(self) -> None:
+        self.place("q-0004-which-parts-are-optional", "Which parts are optional?", {"part of": "q-0002", "state": "closed:moot", "answer": "gone", "owner": self.OWNER})
+
+        _, text = self.said("--window", "--session", "s-beta")
+
+        self.assertNotIn("holding", self.section(text, "other running sessions:"))
+        self.assertTrue(any("s-alpha" in found and "closed" in found and "holds" in found for found in self.findings()), self.findings())
+
+    def test_one_unit_held_by_two_running_sessions_is_a_finding_naming_both(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 holds q-0004\ns-beta running 2026-09-29T11:00Z q-0010 holds q-0004\n")
+
+        twice = [found for found in self.findings() if "s-alpha" in found and "s-beta" in found]
+
+        self.assertTrue(twice, self.findings())
+
+    def test_an_ended_session_holding_a_closed_unit_is_no_finding(self) -> None:
+        self.write(SESSIONS, "s-alpha ended 2026-09-29T11:30Z q-0004 holds q-0004\ns-beta running 2026-09-29T11:00Z q-0010\n")
+        self.place("q-0004-which-parts-are-optional", "Which parts are optional?", {"part of": "q-0002", "state": "closed:moot", "answer": "gone", "owner": self.OWNER})
+
+        self.assertEqual([], [found for found in self.findings() if "holds" in found])

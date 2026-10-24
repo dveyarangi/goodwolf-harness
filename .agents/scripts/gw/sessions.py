@@ -2,12 +2,15 @@
 """The sessions of the tree: each one's row, from its registration to its removal.
 
     uv run --offline --no-project python .agents/scripts/gw/sessions.py --end --session <tag>
+    uv run --offline --no-project python .agents/scripts/gw/sessions.py --hold <q-id> --session <tag>
+    uv run --offline --no-project python .agents/scripts/gw/sessions.py --release --session <tag>
     uv run --offline --no-project python .agents/scripts/gw/sessions.py --check
 
 A session is one chat of a host with the tree, from its `/recall` to its `/conclude`, known by the
 steadiest id the host gives the chat. Its row is one file under `docs/sessions/rows/`, named by
 its tag and holding one line — its tag, whether it runs, when the row was last written, its
-current question or `-`, and up to four recent ones — so no two sessions ever write one file. A
+current question or `-`, up to four recent ones, and the unit it holds — so no two sessions ever
+write one file. A
 store from before keeps its rows under `docs/questions/sessions.d/`, or every row in the single
 file `docs/questions/sessions`; both are carried into the folder at the first write, by links
 that never overwrite.
@@ -15,12 +18,13 @@ that never overwrite.
 The question script imports this one and never the reverse: what the row's life needs of the
 store — the entry index for a position's check, the store's own types for what it reports — is
 taken as an argument or imported inside the function that uses it, so the row stands without the
-store. `--end` is the conclude's last act; `--check` is the rows' maintainer, format never
-content.
+store. `--end` is the conclude's last act; `--hold` and `--release` take and let go the unit a session
+works, named by the question it answers; `--check` is the rows' maintainer, format never content.
 """
 
 from __future__ import annotations
 
+import dataclasses
 import functools
 import hashlib
 import json
@@ -50,14 +54,15 @@ GONE_AFTER = timedelta(days=7)
 # Where the fingerprint of each session's last window is kept, the session's sign of life; `None`
 # is the machine's temp folder.
 WINDOW_MEMORY: str | None = None
-ROW_FORM = "`<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four]`"
-_USAGE = "usage: sessions.py --end --session <tag> | --check"
+ROW_FORM = "`<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four] [holds <q-id>]`"
+_USAGE = "usage: sessions.py --end --session <tag> | --hold <q-id> --session <tag> | --release --session <tag> | --check"
 
 
 @dataclass(frozen=True)
 class Session:
     """One session's row: where one conversation stands in the store, and when the row was last
-    written, in UTC to the minute. `record` is the file it was read from, for the check to name."""
+    written, in UTC to the minute. `record` is the file it was read from, for the check to name.
+    `holds` is the unit the session holds, by the question the unit answers, or `None`."""
 
     tag: str
     running: bool
@@ -66,6 +71,7 @@ class Session:
     recent: list[str]
     line: int
     record: str = ROWS
+    holds: str | None = None
 
 
 def main(argv: list[str], root: Path, now: datetime | None = None) -> int:
@@ -78,6 +84,15 @@ def main(argv: list[str], root: Path, now: datetime | None = None) -> int:
         if len(argv) == 3 and argv[:2] == ["--end", "--session"]:
             ended = end(root, argv[2], now)
             print(f"ended {ended.tag} at {ended.current or 'no position'}")
+            return 0
+        if len(argv) == 4 and argv[0] == "--hold" and argv[2] == "--session":
+            index = _index(root)
+            holding = hold(root, argv[3], argv[1], index, now)
+            print(f"{holding.tag} holds {holding.holds} ({owner_of(index, holding.holds)})")
+            return 0
+        if len(argv) == 3 and argv[:2] == ["--release", "--session"]:
+            released = release(root, argv[2], now)
+            print(f"{released.tag} holds nothing")
             return 0
         if argv == ["--check"]:
             problems, findings, unreadable = check(root, _index(root))
@@ -159,7 +174,7 @@ def _rows_in(root: Path, folder_name: str) -> tuple[list[Session], list, list]:
         elif read.tag != path.name:
             problems.append(Diagnostic(record, 1, f"holds {read.tag}, not the session it is named for"))
         else:
-            sessions.append(Session(read.tag, read.running, read.wrote, read.current, read.recent, 1, record))
+            sessions.append(dataclasses.replace(read, line=1, record=record))
     return sessions, problems, unreadable
 
 
@@ -185,7 +200,7 @@ def _rows_in_single_file(root: Path) -> tuple[list[Session], list, list]:
         elif any(earlier.tag == read.tag for earlier in sessions):
             problems.append(Diagnostic(SINGLE_FILE, number, f"{read.tag} is registered twice"))
         else:
-            sessions.append(Session(read.tag, read.running, read.wrote, read.current, read.recent, number, SINGLE_FILE))
+            sessions.append(dataclasses.replace(read, line=number, record=SINGLE_FILE))
     return sessions, problems, []
 
 
@@ -196,7 +211,7 @@ def _form() -> re.Pattern[str]:
 
     return re.compile(
         rf"^([A-Za-z0-9][\w.-]*) (running|ended) (\d{{4}}-\d{{2}}-\d{{2}})(?:T(\d{{2}}:\d{{2}})Z)? ({_ID}|-)"
-        rf"(?: ({_ID}(?:,{_ID}){{0,3}}))?$"
+        rf"(?: ({_ID}(?:,{_ID}){{0,3}}))?(?: holds ({_ID}))?$"
     )
 
 
@@ -212,13 +227,14 @@ def _row(line: str, number: int) -> Session | None:
         return None
     current = None if said.group(5) == "-" else said.group(5)
     recent = said.group(6).split(",") if said.group(6) else []
-    return Session(said.group(1), said.group(2) == "running", wrote, current, recent, number)
+    return Session(said.group(1), said.group(2) == "running", wrote, current, recent, number, holds=said.group(7))
 
 
 def row_line(held_row: Session) -> str:
     recent = f" {','.join(held_row.recent)}" if held_row.recent else ""
     state = "running" if held_row.running else "ended"
-    return f"{held_row.tag} {state} {stamp(held_row.wrote)} {held_row.current or '-'}{recent}"
+    holds = f" holds {held_row.holds}" if held_row.holds else ""
+    return f"{held_row.tag} {state} {stamp(held_row.wrote)} {held_row.current or '-'}{recent}{holds}"
 
 
 def stamp(moment: datetime) -> str:
@@ -346,7 +362,7 @@ def arrive(root: Path, tag: str, now: datetime) -> tuple[Session, bool]:
         return register(root, now, tag), True
     held_row = known[tag]
     if not held_row.running:
-        held_row = Session(held_row.tag, True, minute(now), held_row.current, held_row.recent, held_row.line)
+        held_row = dataclasses.replace(held_row, running=True, wrote=minute(now))
         write_row(root, held_row)
     return held_row, False
 
@@ -368,7 +384,7 @@ def tend(root: Path, now: datetime, waking: str) -> None:
         if held_row.running:
             seen_at = last_seen(root, held_row)
             if now - seen_at >= SILENT_AFTER:
-                write_row(root, Session(held_row.tag, False, minute(seen_at), held_row.current, held_row.recent, held_row.line))
+                write_row(root, dataclasses.replace(held_row, running=False, wrote=minute(seen_at)))
         elif now - held_row.wrote >= GONE_AFTER:
             _remove(root / held_row.record)
 
@@ -396,16 +412,73 @@ def seen(root: Path, tag: str, now: datetime) -> None:
         seen_file.write_text("", encoding="utf-8")
     os.utime(seen_file, (now.timestamp(), now.timestamp()))
     if not found.running:
-        write_row(root, Session(found.tag, True, minute(now), found.current, found.recent, found.line))
+        write_row(root, dataclasses.replace(found, running=True, wrote=minute(now)))
 
 
 def end(root: Path, tag: str, now: datetime) -> Session:
     """The conclude's last act: the session is marked ended and keeps its position, so the wake of
-    a chat the host reopens finds where it stopped."""
+    a chat the host reopens finds where it stopped; the unit it held is let go."""
     held_row = held(root, tag)
-    ended = Session(held_row.tag, False, minute(now), held_row.current, held_row.recent, held_row.line)
+    ended = dataclasses.replace(held_row, running=False, wrote=minute(now), holds=None)
     write_row(root, ended)
     return ended
+
+
+def hold(root: Path, tag: str, unit: str, index: dict, now: datetime) -> Session:
+    """The session takes a unit into its row, by the question the unit answers; holding what it
+    holds already writes nothing. A unit is an open question with an owner, the record of the work
+    that answers it, read from the store and never from that record, whose format is another
+    mechanism's. Refused, writing nothing: a question that is no unit, a unit another running
+    session holds, and a second unit while one is held."""
+    held_row = held(root, tag)
+    if held_row.holds == unit:
+        return held_row
+    _refuse_unless_a_unit(index, unit)
+    if held_row.holds:
+        _refuse(f"{tag} holds {held_row.holds}; `--release --session {tag}` lets it go first")
+    holder = next((each for each in rows(root)[0] if each.running and each.holds == unit and each.tag != tag), None)
+    if holder is not None:
+        _refuse(f"{unit} is held by {holder.tag}, a running session")
+    holding = dataclasses.replace(held_row, running=True, wrote=minute(now), holds=unit)
+    write_row(root, holding)
+    return holding
+
+
+def release(root: Path, tag: str, now: datetime) -> Session:
+    """The session lets its unit go, its position kept; holding nothing, it writes nothing."""
+    held_row = held(root, tag)
+    if held_row.holds is None:
+        return held_row
+    released = dataclasses.replace(held_row, running=True, wrote=minute(now), holds=None)
+    write_row(root, released)
+    return released
+
+
+def owner_of(index: dict, unit: str | None) -> str:
+    """The record of the work a unit's question names as its owner, as the store holds it: a
+    link's text, or the part as written."""
+    entry = index.get(unit or "")
+    owner = entry.parts.get("owner") if entry is not None else None
+    if owner is None:
+        return "no owner"
+    linked = re.match(r"\[([^\]]+)\]", owner.value)
+    return linked.group(1) if linked else owner.value
+
+
+def _refuse_unless_a_unit(index: dict, unit: str) -> None:
+    entry = index.get(unit)
+    if entry is None:
+        _refuse(f"no entry holds {unit}")
+    if not entry.open:
+        _refuse(f"{unit} is closed, and a closed question is no unit")
+    if "owner" not in entry.parts:
+        _refuse(f"{unit} has no owner, so it is no unit: a unit is an open question the record of its work answers")
+
+
+def _refuse(reason: str) -> None:
+    from questions import Refused  # noqa: PLC0415
+
+    raise Refused(reason)
 
 
 def tag_of(identity: str) -> str:
@@ -446,14 +519,15 @@ def moved(held_row: Session, position: str | None, now: datetime) -> Session | N
         return held_row
     recent = [held_row.current] if held_row.current and held_row.current != position else []
     recent += [identity for identity in held_row.recent if identity != position and identity not in recent]
-    return Session(held_row.tag, True, minute(now), position, recent[:4], held_row.line)
+    return dataclasses.replace(held_row, running=True, wrote=minute(now), current=position, recent=recent[:4])
 
 
 def renamed(held_row: Session, renames: dict[str, str]) -> Session:
     """This session's row as a rename left it, so its own write does not put old ids back."""
     current = renames.get(held_row.current or "", held_row.current)
     recent = [renames.get(identity, identity) for identity in held_row.recent]
-    return Session(held_row.tag, held_row.running, held_row.wrote, current, recent, held_row.line)
+    holds = renames.get(held_row.holds or "", held_row.holds)
+    return dataclasses.replace(held_row, current=current, recent=recent, holds=holds)
 
 
 def records(root: Path) -> list[str]:
@@ -486,7 +560,7 @@ def check(root: Path, index: dict) -> tuple[list, list, list]:
     problems += [
         Diagnostic(held_row.record, held_row.line, f"{held_row.tag} stands at {identity}, which no entry holds")
         for held_row in sessions
-        for identity in ([held_row.current] if held_row.current else []) + held_row.recent
+        for identity in ([held_row.current] if held_row.current else []) + held_row.recent + ([held_row.holds] if held_row.holds else [])
         if identity not in index
     ]
     findings = [
@@ -494,7 +568,25 @@ def check(root: Path, index: dict) -> tuple[list, list, list]:
         for held_row in sessions
         if held_row.running and (standing := index.get(held_row.current or "")) is not None and not standing.open
     ]
+    findings += _held_findings([held_row for held_row in sessions if held_row.running and held_row.holds], index, Finding)
     return problems, findings, unreadable
+
+
+def _held_findings(holding: list[Session], index: dict, finding: type) -> list:
+    """A running session holding a unit whose question closed, which holds it no longer; and one
+    unit held by two running sessions. Each writes its own row and nothing locks a hold, so the
+    check is what shows two sessions that took one unit at once."""
+    closed = [
+        finding(held_row.record, held_row.line, f"{held_row.tag} holds {held_row.holds}, which is closed")
+        for held_row in holding
+        if (unit := index.get(held_row.holds)) is not None and not unit.open
+    ]
+    twice = [
+        finding(held_row.record, held_row.line, f"{held_row.tag} holds {held_row.holds}, which {', '.join(others)} holds too")
+        for held_row in holding
+        if (others := [other.tag for other in holding if other.holds == held_row.holds and other.tag != held_row.tag])
+    ]
+    return closed + twice
 
 
 def _index(root: Path) -> dict:

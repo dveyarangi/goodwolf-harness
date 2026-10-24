@@ -10,6 +10,8 @@ install it with overwrite; the block in a target is never the place.
 | `.agents/skills/maintain/SKILL.md` | `## Installed from other mechanisms` |
 | `AGENTS.md` | `## General rules` |
 | `.agents/skills/commit/SKILL.md` | `- Write the subject in the project's own convention, where it states one.` |
+| `.agents/skills/plan/SKILL.md` | `## Installed from other mechanisms` |
+| `.agents/skills/implement/SKILL.md` | `## Installed from other mechanisms` |
 
 ## S1 — the wake opens at where the sessions stand
 
@@ -77,4 +79,17 @@ resumes under a new id is the same conversation: its context holds the recall it
 <rule>
 Commit the work of the current session only: another session's changes may be its work in
 progress, and in doubt ask the person.
+</rule>
+
+## S7 — a step that works a unit holds it
+
+- **target** `.agents/skills/plan/SKILL.md`
+- **target** `.agents/skills/implement/SKILL.md`
+- **authority** the user, 2026-10-25, at the plan of the holder mark
+
+<rule>
+At the step's start, hold the unit by the question its work answers, `sessions.py --hold <q-id>
+--session <tag>`. A refusal naming another running session stops the step: say whose the unit is,
+and do nothing on it. A refusal saying the question is no unit leaves the step to go on, holding
+nothing.
 </rule>

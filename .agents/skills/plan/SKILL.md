@@ -144,3 +144,10 @@ description: >-
 **P6** Name the RFC by the owning ticket's basename, under `docs/rfc/`, with no serial of its own; it
 moves to `docs/rfc/done/` with the ticket.
 </installed>
+
+<installed by="session">
+**S7** At the step's start, hold the unit by the question its work answers, `sessions.py --hold <q-id>
+--session <tag>`. A refusal naming another running session stops the step: say whose the unit is,
+and do nothing on it. A refusal saying the question is no unit leaves the step to go on, holding
+nothing.
+</installed>

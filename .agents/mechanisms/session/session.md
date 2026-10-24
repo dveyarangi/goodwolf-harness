@@ -15,8 +15,8 @@ chat exists, is seen, falls silent, is reopened, ends, and what it leaves. The m
 machinery, not method: a person works by the questions and the steps, never by a row.
 
 **The row.** Each session keeps one file under `docs/sessions/rows/`, named by its tag, holding
-one line: its tag, whether it runs, when the row was last written, its current question and up to
-four recent ones. No two sessions write one file, so however many write at once none undoes
+one line: its tag, whether it runs, when the row was last written, its current question, up to
+four recent ones, and the unit it holds, if it holds one. No two sessions write one file, so however many write at once none undoes
 another's, and nothing is locked *(the user, 2026-10-13)*.
 The two writes to a row not its own are a wake ending a silent session and a rename rewriting the
 ids a row names. A store from before kept the rows under the question store, and before that every
@@ -31,6 +31,15 @@ running row nothing has seen for three hours is ended by the next wake, quietly 
 record under `docs/sessions/` and ends the row, its position kept, so a chat the host reopens finds
 where it stopped. A row that reads ended for seven days is removed by a wake, since a reopen rarely
 comes later *(the user, 2026-10-22)*; the wake's read lists running sessions only.
+
+**A unit held.** A step that works a unit takes it into the session's row, by the question the
+unit's work answers; the person's word lets it go, and so does the conclude. A unit is an open
+question with an owner, read from the store and never from the record the owner names, whose
+format is another mechanism's; a ticket names no session, since sessions are lost and records
+stay *(the user, 2026-10-24 and 2026-10-25)*. A row holds its unit while it runs and while the
+question is open: a silent row ended by a wake holds nothing until its session returns, a closed
+question holds nobody, and neither needs a write. Each row is written by its own session, so
+nothing locks a hold; one unit taken by two sessions at once is the check's finding.
 
 **Sessions see each other** through the rows alone: the window names the other running sessions
 and their positions, and the wake's read lists them. They cannot call one another. One folder in
@@ -53,6 +62,9 @@ for this mechanism.
 | a session starts: registered under the host's steadiest id, or found and running again | `.agents/scripts/gw/sessions.py` | |
 | a session is seen, at each message | `.agents/scripts/gw/sessions.py` | |
 | a silent session is ended at another's wake | `.agents/scripts/gw/sessions.py` | |
+| a session takes the unit it works, and lets it go | `.agents/scripts/gw/sessions.py` | |
+| a step that works a unit holds it, at its plan | `.agents/skills/plan/SKILL.md` | |
+| a step that works a unit holds it, at its implementation | `.agents/skills/implement/SKILL.md` | |
 | a session concludes: its record written, its leans, its row ended | `.agents/skills/conclude/SKILL.md` | |
 | a session wakes and reads where the work stands | `.agents/skills/recall/SKILL.md` | |
 | a conversation starts with its recall, and one the host resumes under a new id is the same session | `AGENTS.md` | |
@@ -101,7 +113,8 @@ for this mechanism.
 - **The session record** — *what happened* — read by the next session's `/recall` and by a person
   reading what a session did; the account of a session, where the row is only its position.
 - **The wake's lines on sessions** — *what exists* — read by the agent at session start, through
-  the hook or `/recall`, for who else is where.
+  the hook or `/recall`, for who else is where and which unit each holds; the window carries the
+  same of the other running sessions, and of its own.
 - **The sign of life**, outside the tree — *what exists* — read by the script alone, to tell a
   silent session from a quiet one; a compaction empties it and keeps its time.
 - **The check's report** — *what exists* — read by `/maintain` at its pass and by `/verify` through

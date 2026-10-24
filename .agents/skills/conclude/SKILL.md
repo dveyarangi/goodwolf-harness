@@ -29,7 +29,8 @@ never repaired, never copied into the queue. It holds:
 Session files live under `docs/sessions/`, named `NNNN-<YYYYMMDD>-<name>` with a constantly incrementing number:
 the session record, tier 2, read by the next session's `/recall` and kept. The session mechanism's
 other record is the row, one file per session under `docs/sessions/rows/`, named by its tag and
-holding `<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four]`; tier 1 through
+holding `<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four] [holds <q-id>]`;
+tier 1 through
 the window and the wake's read; gone when it reads ended and its time is seven days or older.
 The script writes it, never a hand.
 

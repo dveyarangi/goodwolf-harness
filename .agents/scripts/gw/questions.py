@@ -1295,7 +1295,9 @@ def _drawn(store: Store, held: sessions.Session) -> str:
         return _without_position(store, held)
     path = store.path(held.current)
     return "\n".join(
-        [f"session: {held.tag}", f"current: {held.current}", ""]
+        [f"session: {held.tag}", f"current: {held.current}"]
+        + _own_unit_lines(store, held)
+        + [""]
         + _path_lines(path)
         + _frontier_lines(store, path)
         + _root_lines(store, path)
@@ -1335,7 +1337,7 @@ def _wake_read(root: Path, held: sessions.Session, header: str, now: datetime) -
     return "\n".join(
         [header, ""]
         + _section("most struck, open:", [f"  {_line(read)}" for read in _most_struck(live)])
-        + _section("sessions:", [f"  {sessions.state(other)}" for other in others])
+        + _section("sessions:", [f"  {sessions.state(other)}{_holding(store, other)}" for other in others])
         + _section(
             "deferred, to re-check whether each condition is met:",
             [f"  {_line(read)} — {read.parts['answer'].value}" for read in deferred],
@@ -1790,9 +1792,28 @@ def _position(store: Store, current: str | None) -> str:
     return f"{current} {entry.question}" if entry else current
 
 
+def _holding(store: Store, held: sessions.Session) -> str:
+    """The unit a session holds, as another's line names it: the question and its owner, while
+    the question is open; a closed question holds nobody."""
+    unit = _held_unit(store, held)
+    return f", holding {unit}" if unit else ""
+
+
+def _own_unit_lines(store: Store, held: sessions.Session) -> list[str]:
+    unit = _held_unit(store, held)
+    return [f"holding: {unit}"] if unit else []
+
+
+def _held_unit(store: Store, held: sessions.Session) -> str | None:
+    entry = store.index.get(held.holds or "")
+    if entry is None or not entry.open:
+        return None
+    return f"{held.holds} ({sessions.owner_of(store.index, held.holds)})"
+
+
 def _elsewhere_lines(store: Store, held: sessions.Session) -> list[str]:
     others = [
-        f"  {other.tag} at {_position(store, other.current)} (last wrote {sessions.stamp(other.wrote)})"
+        f"  {other.tag} at {_position(store, other.current)} (last wrote {sessions.stamp(other.wrote)}){_holding(store, other)}"
         for other in store.sessions
         if other.running and other.tag != held.tag
     ]
@@ -1804,7 +1825,9 @@ def _elsewhere_lines(store: Store, held: sessions.Session) -> list[str]:
 def _without_position(store: Store, held: sessions.Session) -> str:
     """A session that has not placed itself yet: the roots to place it among, and who is where."""
     return "\n".join(
-        [f"session: {held.tag}", "current: none yet — the first `at` call places it", ""]
+        [f"session: {held.tag}", "current: none yet — the first `at` call places it"]
+        + _own_unit_lines(store, held)
+        + [""]
         + _section("roots:", [f"  {_line(read)}" for read in store.roots])
         + _elsewhere_lines(store, held)
     )
