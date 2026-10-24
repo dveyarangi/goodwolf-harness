@@ -14,9 +14,11 @@
 
 Project memory and a working method for coding agents.
 
-Every new session, a coding agent starts over knowing your code but not why it is the way it is,
-what is still undecided, or where yesterday's work stopped. Working with agents on one project for
-weeks hurts in three ways:
+*The deeper the woods, the meaner the wolves*, says the proverb. A project that has lived for
+months is deep woods: hundreds of decisions, rules with their reasons, work stopped halfway, questions
+nobody answered yet. A coding agent walks in cold every session, knowing the code but not why it
+is the way it is, and the deeper the woods, the more it costs. This is the other wolf — the one
+that knows the woods. Working with agents on one project for weeks hurts in three ways:
 
 - **The agent is ineffective.** It calls work done that doesn't work, or isn't what you meant.
 - **The agent is expensive.** Tokens, time and rework go on rediscovering what it already knew,
@@ -25,13 +27,51 @@ weeks hurts in three ways:
   approving every step and babysitting work the agent could carry.
 
 GoodWolf answers all three from your repository: plain Markdown and a few standard-library Python
-scripts, in Claude Code, Codex and Cursor.
+scripts, in Claude Code, Codex and Cursor. Fewer steps, each more precise: at every step the agent
+knows what is needed now — which rule, which record, which question — and does that, not the rest.
 
-**Try it:** in your project, tell your coding agent *install the GoodWolf Harness from
-https://github.com/dveyarangi/goodwolf-harness*. It installs, then asks for your test commands and
-where it should stop for your yes.
-<straw-dog question="q-0037.0006.0020.0001">When your project already has rules, skills or a method of its own, the install stops and offers to read the project instead: it studies the way you work and reports how GoodWolf can help and what it would take. Then you decide how to proceed.</straw-dog>
-More under [Use it](#use-it-instructions-for-your-agent).
+## What it adds
+
+- **A memory of the project between sessions.** What was decided and why, and what each decision
+  still waits on; what is half-built and at which step; every question you raised, kept with where
+  the thinking got to, until it is answered. A session starts from these, so "continue" is enough,
+  and "we settled that on Tuesday, has something changed?" is a thing the agent can say.
+- **You where it matters, and nowhere else.** A decision whose mistake would break several parts
+  of the project comes to you with options and a recommendation; anything smaller the agent settles
+  and reports. You draw the line between the two, once, on a short list.
+- **Records that stay in agreement.** Each rule written once and copied by a script to wherever it
+  is read; a check that fails when a copy drifts; and a disagreement between two records, or a
+  record and the code, repaired by the session that meets it, not left for an audit.
+- **A working method, if you want one.** A piece of work moves ticket → plan → build → verify →
+  maintain, and large work is agreed with you on its question first. If your project already has
+  a method, yours stays: see the next two sections.
+
+## It fits the project you have
+
+GoodWolf integrates. Your rules file, your CI gates, your decision records, your pull-request
+discipline stay as they are and stay the enforcement — it adds no gate and removes none, and its
+own checks read only its own records. What it brings is what those usually do not hold: the state
+of a decision, the place where a session stopped and why, the questions still open, and where you
+stand among them. If you would rather it replaced your method, it can take yours in; that is your
+call, made on a report, not on this page.
+
+## How it meets your project
+
+<straw-dog question="q-0037.0006.0020.0001">
+In a project that already has rules, skills or a method of its own, the install stops before
+writing anything and offers a study instead. Your agent reads how your rules, decisions and history
+are kept, measures what it costs a newcomer to recover the state of the project, and writes one
+report in your project's language: what GoodWolf would change here, what it would cost you, and in
+what order. Nothing is moved. You read the report and decide how to proceed. Taking your method in
+after a yes — alongside yours, or in its place — is the next step, and not built yet.
+</straw-dog>
+
+Whether your project needs this is answered by that study, not by comparing lists on this page:
+a mature project has most of what a tool like this is usually praised for, and what it lacks is
+exactly what the study is built to find.
+
+In a fresh project, the install lands the method and the first session works out with you what
+the project is and how it should be built.
 
 ## What it does about each
 
@@ -133,11 +173,11 @@ Before you install, know this:
   write over a file that changed since the agent read it, and where it offers a worktree per
   session, each works in its own.
   <straw-dog question="q-0033.0004">A team sharing one queue across branches is not tested yet, and your team's tracker can't yet take the tickets' place.</straw-dog>
-- <straw-dog question="q-0037.0013.0003">**No fast path for small work yet.** Every change is meant to go through ticket, plan, build and verify. You can tell the agent to skip that for a one-line fix, but nothing yet says when that is fine.</straw-dog>
-- <straw-dog question="q-0037.0006.0005">**Instructions, not enforcement.** Everything here is the agent following written rules, plus scripts that check the files. A model can still slip; the records make the slip visible, and the rule it missed gets reworded.</straw-dog>
+- <straw-dog question="q-0037.0013.0003">**The loop's weight is one size so far.** Every change is meant to go through ticket, plan, build and verify. You can tell the agent to skip that for a one-line fix, but there is no setting yet that makes small work light by itself; a project with a fast cadence of its own keeps it, and the loop's steps join it where the study says they help.</straw-dog>
+- <straw-dog question="q-0037.0006.0005">**It adds no gates and removes none.** Everything here is the agent following written rules, plus scripts that check the harness's own files. Your gates stay the enforcement; a model can still slip against a rule, and the records are what lets you see it and reword the rule.</straw-dog>
 - <straw-dog question="q-0037.0006.0013">**No uninstall command.** Everything it adds is files, so reverting the install commit removes the harness. What it wrote under `docs/` afterwards stays until you delete it.</straw-dog>
 
-<straw-dog question="q-0038.0001">What it saves has not been measured. To judge it, install it into one project and watch three things over a few weeks: whether an agent arriving cold re-decides less of what was settled, whether work survives the end of a session without you reconstructing it, and whether drift between documents and code falls rather than documents piling up.</straw-dog>
+<straw-dog question="q-0038.0001">What it saves has not been measured. To judge it, install it into one project and watch three things over a few weeks: whether an agent arriving cold re-decides less, whether work stopped in one session is found at its step in the next, and whether the questions you raise come back. In a project with a method of its own, the study's report carries a measure to repeat after the migration: what it cost a newcomer to recover the project's state before, and after.</straw-dog>
 
 ## It changes with your project
 
@@ -165,7 +205,7 @@ messages under the open question it belongs to. On 5 October, new sessions kept 
 under questions that only sounded similar. Each time, the miss was logged and the rule tightened —
 four times that day — until it said: file a message under the narrowest question that actually
 covers it, never under one that merely looks alike. The sessions after that got it right. The
-harness has been built with itself for over a month, in 57 sessions, and its log holds 41 misses
+harness has been built with itself since September, in 66 sessions, and its log holds 62 misses
 so far.
 
 To override a shipped rule, add a section naming it.
@@ -209,6 +249,8 @@ The rules are in [AGENTS.md](AGENTS.md) and every skill is under [`.agents/skill
 
 - Installing into a project, updating it, and checking that the installed copy is intact, with
   your own rules applied last.
+- Meeting a project that already has a method: the install stops before writing, and the agent
+  studies the project and writes the report you decide on.
 - Arriving in a project that already has code: the first session after install works out with
   you what the project is, and writes its architecture, decisions and glossary from that
   conversation, deepening as the work reaches each part.
@@ -217,6 +259,7 @@ The rules are in [AGENTS.md](AGENTS.md) and every skill is under [`.agents/skill
 
 **Not yet:**
 
+- <straw-dog question="q-0037.0006.0020.0001.0001">Taking a project's own method in after the report — alongside yours, with your rules file kept and one line added, or in its place — is not built; the report ends with your decision, and the next step is by hand.</straw-dog>
 - <straw-dog question="q-0037.0013.0002">You can't yet say which kinds of decision stop for you; the line between yours and the agent's is drawn by its judgement of what bears load.</straw-dog>
 - <straw-dog question="q-0037.0006.0011.0004">The install doesn't yet find what your project exists to solve, or the answers already built into its docs and code; the first session builds them with you instead.</straw-dog>
 - <straw-dog question="q-0037.0006.0020.0002.0003">Updates name the files they changed, not what changed in them or what your project has to do about it.</straw-dog>
@@ -225,23 +268,26 @@ The rules are in [AGENTS.md](AGENTS.md) and every skill is under [`.agents/skill
 
 ## Use it (instructions for your agent)
 
-Asked to install the harness into a project:
+Asked to install the harness into a project, or asked whether the project needs it:
 
 1. Clone this repository beside the project, never into it. Already cloned into the folder where
    the project was meant to be? From that folder,
    `python .agents/scripts/gw/harness.py . --install --replace-clone` turns the clean clone into
    an install; go on to step 3.
 2. From the project's root, run `python <clone>/.agents/scripts/gw/harness.py . --install`. It
-   writes nothing if it refuses, and says why.
+   writes nothing if it refuses, and says why. In a project with rules, skills or a method of its
+   own it refuses and names what it found: that is the study's door, not a failure.
 3. Read [`.agents/skills/harness/SKILL.md`](.agents/skills/harness/SKILL.md) and follow it: it
-   says how to report what arrived and how to set up the project's own rules with the person.
-   Updating and checking the installed copy are in the same skill.
+   says how to offer and write the study in a project that has a method, how to report what
+   arrived in a fresh one, and how to set up the project's own rules with the person. Updating
+   and checking the installed copy are in the same skill.
 
-What lands in your repository: `.agents/` (the skills, the scripts and their tests), `AGENTS.md`
+What lands in a fresh repository: `.agents/` (the skills, the scripts and their tests), `AGENTS.md`
 (the rules every session reads), a one-line `CLAUDE.md` pointing to it, and a starting work queue
 in `docs/tickets/`. `local.rules.md` and the rest of `docs/` — architecture, decisions, questions,
-session notes — are written as you work. Claude Code and Cursor reach the skills through symbolic
-links the install makes in each clone; on Windows, where creating one may need an elevated
-prompt, it prints the command to run.
+session notes — are written as you work. A repository with a method of its own keeps everything it
+has: nothing lands there until you have read the report and said so. Claude Code and Cursor reach
+the skills through symbolic links the install makes in each clone; on Windows, where creating one
+may need an elevated prompt, it prints the command to run.
 
 Python 3.12 or later, standard library only. [MIT licensed](LICENSE).
