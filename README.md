@@ -49,11 +49,13 @@ knows what is needed now — which rule, which record, which question — and do
 ## It fits the project you have
 
 GoodWolf integrates. Your rules file, your CI gates, your decision records, your pull-request
-discipline stay as they are and stay the enforcement — it adds no gate and removes none, and its
-own checks read only its own records. What it brings is what those usually do not hold: the state
-of a decision, the place where a session stopped and why, the questions still open, and where you
-stand among them. If you would rather it replaced your method, it can take yours in; that is your
-call, made on a report, not on this page.
+discipline stay as they are and stay the enforcement; the harness holds its own records to their
+shape by script and the agent to its rules by instruction, and leaves your gates gating. What it
+brings is what those usually do not hold: the state of a decision, the place where a session
+stopped and why, the questions still open, and where you stand among them. How its rules sit
+beside yours — your file kept and one line added, or yours carried into its — is settled on the
+report, not by the install. If you would rather it replaced your method, it can take yours in;
+that is your call, made on a report, not on this page.
 
 ## How it meets your project
 
@@ -62,13 +64,15 @@ In a project that already has rules, skills or a method of its own, the install 
 writing anything and offers a study instead. Your agent reads how your rules, decisions and history
 are kept, measures what it costs a newcomer to recover the state of the project, and writes one
 report in your project's language: what GoodWolf would change here, what it would cost you, and in
-what order. Nothing is moved. You read the report and decide how to proceed. Taking your method in
-after a yes — alongside yours, or in its place — is the next step, and not built yet.
+what order. Nothing is moved. You read the report and decide how to proceed. The report is where
+the install stops today: taking your method in after a yes — alongside yours, with your rules file
+kept, or in its place — is the next piece of work, and it starts from the report.
 </straw-dog>
 
-Whether your project needs this is answered by that study, not by comparing lists on this page:
-a mature project has most of what a tool like this is usually praised for, and what it lacks is
-exactly what the study is built to find.
+Whether your project needs this is answered by that study. What a mature project lacks is rarely
+another rule or another gate; it is the state between them — which decisions still hold and on
+what, where work stopped and why, what is still open and who decides it — and that is what the
+study measures and the report shows, in numbers from your own repository.
 
 In a fresh project, the install lands the method and the first session works out with you what
 the project is and how it should be built.
@@ -174,7 +178,7 @@ Before you install, know this:
   session, each works in its own.
   <straw-dog question="q-0033.0004">A team sharing one queue across branches is not tested yet, and your team's tracker can't yet take the tickets' place.</straw-dog>
 - <straw-dog question="q-0037.0013.0003">**The loop's weight is one size so far.** Every change is meant to go through ticket, plan, build and verify. You can tell the agent to skip that for a one-line fix, but there is no setting yet that makes small work light by itself; a project with a fast cadence of its own keeps it, and the loop's steps join it where the study says they help.</straw-dog>
-- <straw-dog question="q-0037.0006.0005">**It adds no gates and removes none.** Everything here is the agent following written rules, plus scripts that check the harness's own files. Your gates stay the enforcement; a model can still slip against a rule, and the records are what lets you see it and reword the rule.</straw-dog>
+- <straw-dog question="q-0037.0006.0005">**Your gates stay the enforcement.** The harness holds its own records to their shape by script and the agent to its rules by instruction; a model can still slip against a rule, and the records are what lets you see it and reword the rule.</straw-dog>
 - <straw-dog question="q-0037.0006.0013">**No uninstall command.** Everything it adds is files, so reverting the install commit removes the harness. What it wrote under `docs/` afterwards stays until you delete it.</straw-dog>
 
 <straw-dog question="q-0038.0001">What it saves has not been measured. To judge it, install it into one project and watch three things over a few weeks: whether an agent arriving cold re-decides less, whether work stopped in one session is found at its step in the next, and whether the questions you raise come back. In a project with a method of its own, the study's report carries a measure to repeat after the migration: what it cost a newcomer to recover the project's state before, and after.</straw-dog>
@@ -259,7 +263,7 @@ The rules are in [AGENTS.md](AGENTS.md) and every skill is under [`.agents/skill
 
 **Not yet:**
 
-- <straw-dog question="q-0037.0006.0020.0001.0001">Taking a project's own method in after the report — alongside yours, with your rules file kept and one line added, or in its place — is not built; the report ends with your decision, and the next step is by hand.</straw-dog>
+- <straw-dog question="q-0037.0006.0020.0001.0001">Taking a project's own method in after the report — alongside yours, with your rules file kept and one line added, or in its place — is the next piece of work; today the report ends with your decision.</straw-dog>
 - <straw-dog question="q-0037.0013.0002">You can't yet say which kinds of decision stop for you; the line between yours and the agent's is drawn by its judgement of what bears load.</straw-dog>
 - <straw-dog question="q-0037.0006.0011.0004">The install doesn't yet find what your project exists to solve, or the answers already built into its docs and code; the first session builds them with you instead.</straw-dog>
 - <straw-dog question="q-0037.0006.0020.0002.0003">Updates name the files they changed, not what changed in them or what your project has to do about it.</straw-dog>
