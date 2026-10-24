@@ -202,6 +202,37 @@ landed in the same pass, its text shown:
 
 **Disposition:** landed 2026-10-23.
 
+## 63. The study was written by the agent that had already said no — 2026-10-24
+
+**Rules in play:** the harness skill's *A tree that already has a method* and the shelf
+`MEETING.md`: the report a product document, no comparison, no self-deprecation; the blind run a
+separate fresh agent; read-only, no fetch of any kind; one file written at the place named at the
+offer; the second stop one question. All read; the author of the report was the one agent the rules
+never said must not write it.
+
+**What happened.** On the rewritten front page a fresh session in xuanxue-cabinet, asked *do we
+need this here?*, gave a verdict — *no, not as an install* — and offered the study with a button.
+The person took it. The same agent ran the study: it read the shelf, kept the form, counted the
+readings and scored the ledger honestly, and wrote a report whose section 3 says the harness would
+add little here and whose plan makes the harness the seventh item of seven, after ordinary PRs. Its
+own summary: *the study confirms what I said before*. Two reading agents it sent without the rules
+broke read-only — a stray file in the root, a project script that ran `git fetch`. The report went
+to the host's scratch folder, *nothing inside the repo*. The second stop was a verdict and side
+notes, not the question.
+
+**Why it did not fire.** The two trial runs produced product-faced reports because their authors
+were fresh agents given the shelf alone. The live case gave the shelf to an agent already holding a
+verdict and loyal to the project it serves; the shelf's *no comparison* governed the words and not
+the conclusion. The read-only rules bound the author and not the agents it sent. The place of the
+report stood in the skill's offer, which the person's agent skipped, having made an offer of its
+own.
+
+**Amendment proposed:** in the skill, the study is a fresh agent's — given the shelf and the tree
+and nothing of the conversation — and the person's agent only offers, names the file, hands over,
+and asks the second stop's one question; in the shelf, whoever reads under the study carries its
+read-only rules verbatim and runs nothing of the project's, and the report file is the study's one
+write, at the place the offer named. Landing on the user's word; graded by the next live meeting.
+
 ## 62. Asked whether a project needs the harness, the agent answered from the front page — 2026-10-24
 
 **Rules in play:** none that covers it. The README's *Use it* instructs an agent asked to install;
