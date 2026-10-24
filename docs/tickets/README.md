@@ -3,7 +3,7 @@
 - **record of** what it intends to become
 
 1. [01-0060.0010 what-the-path-shows-at-every-recall](01-0060.0010-what-the-path-shows-at-every-recall.md) — the path shown at every recall, the queue held to its format first *(the user, 2026-10-24)*
-2. [01-0080 a-rule-reaches-every-file-of-a-group](01-0080-a-rule-reaches-every-file-of-a-group.md) → [01-0016.0030 the-voice-speaks-every-skill-that-speaks](01-0016.0030-the-voice-speaks-every-skill-that-speaks.md) — the group install, then the voice, which the path's telling waits on *(the user, 2026-10-25)*
+2. [01-0016.0030 the-voice-speaks-every-skill-that-speaks](01-0016.0030-the-voice-speaks-every-skill-that-speaks.md) — the voice, which the path's telling waits on, its group install done 2026-10-25 *(the user, 2026-10-25)*
 3. [01-0010.0175 arrival-describes-what-it-finds](01-0010.0175-arrival-describes-what-it-finds.md) — product work, what an outside agent meets *(the user, 2026-10-24)*
 4. [01-0010.0150 harness-meets-a-tree-with-a-method](01-0010.0150-harness-meets-a-tree-with-a-method.md) — `.0010` in progress, then `.0020` and `.0030`; product work *(the user, 2026-10-24)*
 5. [01-0040.0070 the-root-readme-is-told-from-the-product-document](01-0040.0070-the-root-readme-is-told-from-the-product-document.md) — product work *(the user, 2026-10-24)*

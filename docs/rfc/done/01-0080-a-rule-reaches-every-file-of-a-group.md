@@ -1,10 +1,10 @@
 # A rule reaches every file of a group — implementation plan
 
-- **record of** what it intends to become
+- **record of** what happened
 
 **Authored:** 2026-10-25
 
-Implements [01-0080](../tickets/01-0080-a-rule-reaches-every-file-of-a-group.md): an anchor-table
+Implements [01-0080](../../tickets/done/01-0080-a-rule-reaches-every-file-of-a-group.md): an anchor-table
 row whose target is a path pattern names a group, and the installer, its check and the harness's
 rehearsal treat every member as they treat an explicit target.
 
@@ -17,7 +17,7 @@ are under *Taken at `/plan`*.
 
 - **One installer, one grammar.** A rule's only home is its rules file; it reaches a file only as
   an installed block written by the one generic installer
-  ([Installed blocks](../architecture.md#installed-blocks)). A group changes how a target is
+  ([Installed blocks](../../architecture.md#installed-blocks)). A group changes how a target is
   addressed, never where a rule lives or who writes it.
 - **Refuse rather than guess, validate before writing.** Every member is validated before anything
   is written, and a refusal changes no file (the same section). A member is no weaker than an
@@ -143,5 +143,5 @@ Each stage ends green on the verification set; the tests run, scripts changing.
 ## Out of scope
 
 The voice's rules file and its group row —
-[01-0016.0030](../tickets/01-0016.0030-the-voice-speaks-every-skill-that-speaks.md). A group a member
+[01-0016.0030](../../tickets/01-0016.0030-the-voice-speaks-every-skill-that-speaks.md). A group a member
 declares by a mark of its own — refused in the question.

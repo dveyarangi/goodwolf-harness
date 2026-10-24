@@ -1,20 +1,20 @@
 # A rule reaches every file of a group
 
-- **record of** what it intends to become
-- **Status:** Ready (planned 2026-10-25)
+- **record of** what happened
+- **Status:** Done (2026-10-25)
 - **Type:** AFK
 - **Minted:** 2026-10-25
-- **Plan:** [the RFC](../rfc/01-0080-a-rule-reaches-every-file-of-a-group.md) — a pattern
+- **Plan:** [the RFC](../../rfc/done/01-0080-a-rule-reaches-every-file-of-a-group.md) — a pattern
   row resolved to its members over the tree's listing, one resolution for install, retract, the
   check and the harness's rehearsal
-- **Answers:** [q-0037.0002](../questions/q-0037.0002-how-does-a-group-install-target-resolve-to-a-file-and-an-anchor-in-each-member.md)
+- **Answers:** [q-0037.0002](../../questions/done/q-0037.0002-how-does-a-group-install-target-resolve-to-a-file-and-an-anchor-in-each-member.md)
 - **Outcome:** A rules file names a group of files by a path pattern and a heading, and its rules are installed in, held in and retracted from every file the pattern matches that holds the heading, whether or not the rules file knew of that file when it was written.
 
 ## Parent
 
-[q-0037.0002](../questions/q-0037.0002-how-does-a-group-install-target-resolve-to-a-file-and-an-anchor-in-each-member.md),
+[q-0037.0002](../../questions/done/q-0037.0002-how-does-a-group-install-target-resolve-to-a-file-and-an-anchor-in-each-member.md),
 whose `Where it stands` the user accepted on 2026-10-25. Impact:
-[in the question](../questions/q-0037.0002-how-does-a-group-install-target-resolve-to-a-file-and-an-anchor-in-each-member.md#impact-of-the-split-2026-10-25).
+[in the question](../../questions/done/q-0037.0002-how-does-a-group-install-target-resolve-to-a-file-and-an-anchor-in-each-member.md#impact-of-the-split-2026-10-25).
 
 ## What to build
 
@@ -27,19 +27,19 @@ five texts wrapped as straw dogs bound to the question are rewritten through it.
 
 ## Acceptance criteria
 
-- [ ] A rules file with a group row installs its block into every file the pattern matches that
+- [x] A rules file with a group row installs its block into every file the pattern matches that
       holds the heading, and into no other file.
-- [ ] A file that comes to hold the heading after the install is reported by the check as missing
+- [x] A file that comes to hold the heading after the install is reported by the check as missing
       the block, and the next install fills it.
-- [ ] A file that stops holding the heading is reported as holding a block nothing owns, and the
+- [x] A file that stops holding the heading is reported as holding a block nothing owns, and the
       next install takes the block out.
-- [ ] A group with no member installs nothing and is neither refused nor reported.
-- [ ] A file both named explicitly and matched as a member is refused, as a target named twice is.
-- [ ] Every rules file of this tree installs as before, and the check stays green.
-- [ ] `/verify` passes against this ticket, its RFC and the governing docs.
+- [x] A group with no member installs nothing and is neither refused nor reported.
+- [x] A file both named explicitly and matched as a member is refused, as a target named twice is.
+- [x] Every rules file of this tree installs as before, and the check stays green.
+- [x] `/verify` passes against this ticket, its RFC and the governing docs.
 
 ## Out of scope
 
 The voice, its first consumer —
-[01-0016.0030 the-voice-speaks-every-skill-that-speaks](./01-0016.0030-the-voice-speaks-every-skill-that-speaks.md).
+[01-0016.0030 the-voice-speaks-every-skill-that-speaks](../01-0016.0030-the-voice-speaks-every-skill-that-speaks.md).
 A named group that members declare by a mark of their own — refused in the question.
