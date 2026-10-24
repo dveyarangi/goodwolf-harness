@@ -141,21 +141,23 @@ class RulesFile:
     settings: tuple[Setting, ...] = ()
     values: dict[str, str] = field(default_factory=dict)
 
-    def block(self, row: str, settings: Settings = NO_SETTINGS) -> str | None:
-        """What a file the anchor table's row reaches must hold: every rule naming the row whose
-        conditions hold, file order, ids from the headings — or nothing, where the settings call for
-        none of them. A rule names the row — a file, or a group's pattern — never a member."""
+    def block(self, rows: tuple[str, ...], settings: Settings = NO_SETTINGS) -> str | None:
+        """What a file the anchor table's rows reach must hold: every rule naming one of the rows
+        whose conditions hold, file order, ids from the headings — or nothing, where the settings
+        call for none of them. A rule names a row — a file, or a group's pattern — never a member."""
         paragraphs = [
-            rule.paragraph for rule in self.rules if row in rule.targets and settings.holds(rule.when)
+            rule.paragraph
+            for rule in self.rules
+            if set(rows) & set(rule.targets) and settings.holds(rule.when)
         ]
         if not paragraphs:
             return None
         return f'<installed by="{self.slug}">\n' + "\n\n".join(paragraphs) + f"\n{INSTALLED_CLOSING}"
 
-    def paragraphs(self, row: str) -> set[str]:
-        """Every paragraph a rule of this file could put in a file the row reaches, whatever the
+    def paragraphs(self, rows: tuple[str, ...]) -> set[str]:
+        """Every paragraph a rule of this file could put in a file the rows reach, whatever the
         settings."""
-        return {rule.paragraph for rule in self.rules if row in rule.targets}
+        return {rule.paragraph for rule in self.rules if set(rows) & set(rule.targets)}
 
 
 @dataclass(frozen=True)
@@ -742,11 +744,11 @@ def without_block(text: str, found: Located) -> str:
 
 @dataclass(frozen=True)
 class Reached:
-    """A file a rules file's block goes to: the file, the anchor-table row that reaches it, and
-    that row's anchor."""
+    """A file a rules file's block goes to: the file, the anchor-table rows that reach it — the one
+    whose anchor places the block first — and that anchor."""
 
     file: str
-    row: str
+    rows: tuple[str, ...]
     anchor: str
 
 
@@ -754,19 +756,27 @@ def reached(root: Path, rules: RulesFile, listed: list[str] | None = None) -> li
     """Every file the anchor table reaches. An explicit row reaches its own file; a group's row — a
     path pattern — reaches every listed file it wholly matches that holds its anchor line, a member
     declaring itself by the heading and the rest passed over, an empty group reaching nothing. A
-    file reached twice is refused, a mechanism having one place in a target
+    mechanism has one place in a target: a file its own row names and a group also reaches holds
+    one block at the named row's anchor, with both rows' rules; a file two groups reach is refused
     (docs/architecture.md: "Installed blocks")."""
-    found: dict[str, Reached] = {}
+    found: dict[str, Reached] = {
+        row: Reached(row, (row,), anchor) for row, anchor in rules.anchors.items() if not is_pattern(row)
+    }
+    named = set(found)
     for row, anchor in rules.anchors.items():
-        if is_pattern(row):
-            listed = corpus(root) if listed is None else listed
-            files = [name for name in listed if PurePosixPath(name).full_match(row) and _holds(root / name, anchor)]
-        else:
-            files = [row]
-        for name in files:
-            if name in found:
-                raise Refused(f"{name} is reached twice by the anchor table — a mechanism has one place in a target")
-            found[name] = Reached(name, row, anchor)
+        if not is_pattern(row):
+            continue
+        listed = corpus(root) if listed is None else listed
+        for name in listed:
+            if not PurePosixPath(name).full_match(row) or not _holds(root / name, anchor):
+                continue
+            if name in named:
+                place = found[name]
+                found[name] = Reached(name, place.rows + (row,), place.anchor)
+            elif name in found:
+                raise Refused(f"{name} is reached by two groups of the anchor table — a mechanism has one place in a target")
+            else:
+                found[name] = Reached(name, (row,), anchor)
     return list(found.values())
 
 
@@ -865,7 +875,7 @@ def _planned(
     found = locate(text, rules.slug)
     if found is not None and found.text is None:
         raise Refused("the block opens and never closes")
-    rendered = rules.block(place.row, settings)
+    rendered = rules.block(place.rows, settings)
     if rendered is None:
         # The settings call for none of the file's rules here: a block present is taken out by
         # retraction's cut, as a dropped target's is, whatever the mode.
@@ -883,7 +893,7 @@ def _planned(
             return {"target": target, "state": "installed"}, with_block(text, at, rendered)
         if matches(found.text, rendered):
             return {"target": target, "state": "present"}, None
-        if _differs_by_settings_alone(found.text, rules, place.row):
+        if _differs_by_settings_alone(found.text, rules, place.rows):
             replaced = text[: found.start] + rendered + text[found.end:]
             return {"target": target, "state": "re-rendered", "replaced": found.text}, replaced
         if not overwrite:
@@ -903,7 +913,7 @@ def _planned(
     return {"target": target, "state": "retracted"}, without_block(text, found)
 
 
-def _differs_by_settings_alone(found: str, rules: RulesFile, row: str) -> bool:
+def _differs_by_settings_alone(found: str, rules: RulesFile, rows: tuple[str, ...]) -> bool:
     """A block holding nothing but paragraphs of this file's own rules for this target, unedited:
     which of them it holds is the settings' doing, not an edit's nor an amendment's, so it is
     re-rendered without being asked."""
@@ -911,7 +921,7 @@ def _differs_by_settings_alone(found: str, rules: RulesFile, row: str) -> bool:
     held = {paragraph for paragraph in inside.split("\n\n") if paragraph}
     # Both sides normalised, as `matches` normalises them: a rules file kept in CRLF renders
     # bodies with CRLF, and a block in an LF target is still its own.
-    could = {paragraph.replace("\r\n", "\n") for paragraph in rules.paragraphs(row)}
+    could = {paragraph.replace("\r\n", "\n") for paragraph in rules.paragraphs(rows)}
     return bool(held) and held <= could
 
 
@@ -1031,7 +1041,7 @@ def _state(root: Path, rules: RulesFile, place: Reached, settings: Settings = NO
         found = locate(text, rules.slug)
     except Refused as refusal:
         return str(refusal)
-    rendered = rules.block(place.row, settings)
+    rendered = rules.block(place.rows, settings)
     if rendered is None:
         return "not called for" if found is None else "present though the settings call for none of it"
     if found is None:
@@ -1043,7 +1053,7 @@ def _state(root: Path, rules: RulesFile, place: Reached, settings: Settings = NO
     if found.text is None:
         return "the block opens and never closes"
     if not matches(found.text, rendered):
-        return "out of step with the settings" if _differs_by_settings_alone(found.text, rules, place.row) else "drifted"
+        return "out of step with the settings" if _differs_by_settings_alone(found.text, rules, place.rows) else "drifted"
     if rules.slug == LOCAL and following_block(text, found.end):
         return "not last"
     return "present"

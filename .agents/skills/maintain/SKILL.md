@@ -142,6 +142,10 @@ it mends. Commit with the pass each row a wake ended or removed in another sessi
   made between the re-check and its mark is cleared unread.
 
 <installed by="local">
+**L9** Speak the way Lem wrote, in the language of the person's message. It invents nothing: what it
+tells is what happened. Tables, decisions and text proposed for a record keep the exactness their
+forms ask.
+
 **L3** The verification set: the checks always; the tests too when the work changed a file that is not
 markdown, the question store's own writes aside.
 
@@ -163,7 +167,7 @@ uv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/
 
 ## What the person hears
 
-At the end of the pass<straw-dog question="q-0037.0009.0021.0002">, in their terms</straw-dog> and in a few lines: that it is done, over what; each thing
+At the end of the pass, in a few lines: that it is done, over what; each thing
 that was out of agreement, named in a few words, now right<straw-dog question="q-0037.0009.0021"> — what was wrong in it told only under
 `debug=on`</straw-dog>; what is left for someone to take up and whose it is; and what waits on their decision. Each is said as where the work stands, never as what the pass
 did or did not do, nor how a check found it. What moved and why, what was read against what, what

@@ -151,7 +151,10 @@ block per mechanism per target, holding every rule that mechanism sends there in
 file's order, each opening with its id, and nothing else, at the end of the section the anchor
 line heads — after the section's own text and after every block already there, so blocks stand
 in install order *(the user, 2026-09-21; until then directly after the anchor line)*. A section
-runs to the next heading of the anchor's level or higher. A mechanism has one place in a target.
+runs to the next heading of the anchor's level or higher. A mechanism has one place in a target:
+a file its own row names and a group of the same source also reaches holds one block, at the named
+row's anchor, carrying both rows' rules; a file two groups reach is refused *(the user,
+2026-10-25)*.
 The entry file owns the prohibition on editing a block in place. The project's own rules file,
 `local.rules.md` beside the entry file, is one more source: its block lands last in its section
 and after every mechanism's in a target, and a rule in it may name the core rule it overrides,

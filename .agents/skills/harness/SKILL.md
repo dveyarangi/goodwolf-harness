@@ -187,7 +187,7 @@ standard library, so a bare `python` works.
 
 ## What the person hears
 
-After the first install<straw-dog question="q-0037.0009.0021.0002">, in their language</straw-dog>. They asked for a method to work by, not for files: tell
+After the first install. They asked for a method to work by, not for files: tell
 them that it is installed and what it spares them, and how — concrete troubles and the answer to
 each, never as slogans<straw-dog question="q-0033.0008">: work called done that does not work, or is
 not what was meant — each piece of work gets checkable criteria and a plan and counts as done only
@@ -212,8 +212,14 @@ computer*</straw-dog>, never as a setting's name, a remote named where there is 
 origin's own answers offered as no default; the links the platform refused, as the commands to run
 and where.
 
-Once it closes, that it is ready, and the first question the work asks<straw-dog question="q-0037.0009.0021.0002">, in their terms</straw-dog>.
+Once it closes, that it is ready, and the first question the work asks.
 
 What the run did — that it made a repository, what it copied, gated, registered, wrote and
 committed, that its checks passed, how it got round a platform's trouble, and that their answers
 are written down — is said only on request.
+
+<installed by="local">
+**L9** Speak the way Lem wrote, in the language of the person's message. It invents nothing: what it
+tells is what happened. Tables, decisions and text proposed for a record keep the exactness their
+forms ask.
+</installed>

@@ -105,7 +105,7 @@ Sections, in this order, each headed:
    project builds.
 3. **What clearly improves, and what the person will likely give up.** The report's main
    conclusion, in prose addressed to the person — what you will see change, and what you will
-   likely let go of<straw-dog question="q-0037.0009.0021.0002"> — in plain words, never a table of fragments</straw-dog>. What you will likely let go of is
+   likely let go of. What you will likely let go of is
    the project's own habits — a file that holds everything, history kept in rules, state kept in
    memory — never a limitation of GoodWolf: its own not-yets stand in section 5 alone, and only
    those the plan meets.
@@ -126,7 +126,6 @@ Sections, in this order, each headed:
 The report is a product document: it shows the harness's strengths by finding where it helps, and
 claims nothing the tree or the ledger does not show. No self-deprecation, no groundless comparison,
 nothing about the project's substance. Its product faces — sections 0, 2, 3 and 5 — speak to the
-person, in the second person<straw-dog question="q-0037.0009.0021.0002">, the way Lem wrote: plain, exact and dry, an argument they can follow,
-not a machine's inventory</straw-dog>; section 1 and the appendix state what was found and counted, in the same
-plainness without the address.
+person, in the second person; section 1 and the appendix state what was found and counted, without the
+address.
 </straw-dog>

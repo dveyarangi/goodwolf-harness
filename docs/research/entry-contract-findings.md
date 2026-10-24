@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v113 — 2026-10-25
+
+**The voice is the project's, named once** — core loses every phrase that described how a reply
+sounds: *A capable reader* keeps to instructions and records, and *in their words* and *in the
+person's words* leave *A reply speaks the method*. The voice is L9 of the local file, its name and
+the language of the person's message, installed in the entry file and under every skill's
+`What the person hears`; a description had narrowed it wrongly *(the user, 2026-10-25)*.
+
 ## v112 — 2026-10-25
 
 **Whether a side question stops the work is the agent's judgement** — v111's sentence loses *does

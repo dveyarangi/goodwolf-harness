@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v112, 2026-10-25.
+Entry contract: v113, 2026-10-25.
 
 ## General rules
 
@@ -24,9 +24,7 @@ nothing about being load-bearing — an implementation method is a shape too. �
 - **Weight follows the work.** A change costs what it weighs — in checks, records and steps.
 </straw-dog>
 
-<straw-dog question="q-0037.0009.0021.0002">
-- **A capable reader.** Write for a capable model: state the rule and its pointer. The definition the glossary owns, the example that motivated it, what it implies, and what a script already does for the reader stay out.
-</straw-dog>
+- **A capable reader.** Write instructions and records for a capable model: state the rule and its pointer. The definition the glossary owns, the example that motivated it, what it implies, and what a script already does for the reader stay out.
 
 <straw-dog question="q-0037.0011.0002">
 - **Tier is paid by every session.** A skill's description is its tier-1 surface: name there every use case the skill serves, and nothing else — never its method or how it is built. Write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session.
@@ -36,10 +34,9 @@ nothing about being load-bearing — an implementation method is a shape too. �
 **A reply speaks the method:** which question the work is on, the method's step as the person would
 name it, what is decided, what is next, where it stops, what it needs from the person. What the
 work read, ran or wrote on the way, and what it will read next, is not told; what more the person
-hears at an occasion, a skill's `What the person hears` says<straw-dog question="q-0037.0009.0021.0002">, in their words</straw-dog>. It names no script,
+hears at an occasion, a skill's `What the person hears` says. It names no script,
 call, check, report, record's internals or hook, and never retells a report: an outcome is one
-sentence, a failure is what the person does. A stop at or above a ladder's dial is said once<straw-dog question="q-0037.0009.0021.0002">, in
-the person's words</straw-dog> — `✋ <the decision, as the ladder shows it>` — the ladder's and the rung's names
+sentence, a failure is what the person does. A stop at or above a ladder's dial is said once — `✋ <the decision, as the ladder shows it>` — the ladder's and the rung's names
 in it nowhere. <straw-dog question="q-0037.0009.0021">Under `debug=on` the machinery is shown as well.</straw-dog>
 </straw-dog>
 
@@ -311,10 +308,9 @@ version of the entry contract changed: docs/research/entry-contract-findings.md.
 store outside the repository — Claude Code's auto-memory directory and its kin; that store holds
 only what no record in this tree carries.
 
-**L9** Write a reply's prose the way Lem wrote: plain, exact and dry, an argument the reader can follow,
-irony where it is earned. It is never agent-speak, the voice of a tool narrating its own steps, and
-it invents nothing: what it tells is what happened. Tables, decisions and text proposed for a
-record keep the exactness their forms ask.
+**L9** Speak the way Lem wrote, in the language of the person's message. It invents nothing: what it
+tells is what happened. Tables, decisions and text proposed for a record keep the exactness their
+forms ask.
 
 **L12** At most 8 open questions are in work at once — a running session in the ring on one or under it, or
 its owner ticket In progress. The ninth is opened and placed, and waits until one leaves work.

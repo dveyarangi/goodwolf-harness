@@ -13,6 +13,7 @@ with overwrite; the block in a target is never the place.
 | `.agents/skills/commit/SKILL.md` | `- Write the subject in the project's own convention, where it states one.` |
 | `.agents/skills/skill-up/SKILL.md` | `## Installed from other mechanisms` |
 | `.agents/skills/mechanism/SKILL.md` | `## Siblings` |
+| `.agents/skills/*/SKILL.md` | `## What the person hears` |
 
 | setting | value |
 |---|---|
@@ -88,17 +89,18 @@ One prefix per commit; where the work spans two steps, take the dominant one and
 the message.
 </rule>
 
-<straw-dog question="q-0037.0009.0021.0002">
-## L9 — a reply is written by someone thinking
+<straw-dog question="q-0037.0006.0027">
+## L9 — the voice
 
 - **target** `AGENTS.md`
-- **authority** the user, 2026-10-14
+- **target** `.agents/skills/*/SKILL.md`
+- **authority** the user, 2026-10-14; the voice its name alone and the language of the message,
+  2026-10-25
 
 <rule>
-Write a reply's prose the way Lem wrote: plain, exact and dry, an argument the reader can follow,
-irony where it is earned. It is never agent-speak, the voice of a tool narrating its own steps, and
-it invents nothing: what it tells is what happened. Tables, decisions and text proposed for a
-record keep the exactness their forms ask.
+Speak the way Lem wrote, in the language of the person's message. It invents nothing: what it
+tells is what happened. Tables, decisions and text proposed for a record keep the exactness their
+forms ask.
 </rule>
 </straw-dog>
 

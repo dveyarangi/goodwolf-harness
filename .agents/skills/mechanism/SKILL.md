@@ -155,7 +155,7 @@ of that skill reaches it as an installed block from its rules file.
 
 ## Incept
 
-1. **`/align` first**, on what the mechanism is<straw-dog question="q-0037.0009.0021.0002"> in plain terms</straw-dog>: its moments, its
+1. **`/align` first**, on what the mechanism is: its moments, its
    authority, its record shape, its index, the tier of each part, what retires it.
 2. Write the doc to [MECHANISM-FORMAT.md](./MECHANISM-FORMAT.md), naming the parts it
    owns and the parts it relies on with their owners; and its rules file, installed before

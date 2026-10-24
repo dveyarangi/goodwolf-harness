@@ -83,17 +83,15 @@ moves to `docs/rfc/done/` with the ticket.
 Rewrite the ticket in place to what the align's landed decisions make true.
 </rule>
 
-<straw-dog question="q-0037.0009.0021.0002">
 ## P10 — an align opens with what its work is
 
 - **target** `.agents/skills/align/SKILL.md`
 - **authority** the user, 2026-09-27; its work, ticket or not, 2026-10-11
 
 <rule>
-Open an align by saying what its work is: what it builds and the problem it answers, in plain
-words, each of its terms explained, before the necessity gate or any question.
+Open an align by saying what its work is: what it builds and the problem it answers, each of its
+terms explained, before the necessity gate or any question.
 </rule>
-</straw-dog>
 
 ## P11 — the question's body and the ticket are swept when the align ends
 

@@ -20,14 +20,6 @@ Your goal is to find out the actual state of the project and the current and/or 
 </straw-dog>
 - Report drift you hit while reading (stale headers, docs the tree has outrun) rather than fixing it — fixing is outside recall's scope. A dated snapshot — a session record, a done ticket — does not drift: what the tree has since moved past in it is history, not drift.
 
-## What the person hears
-
-At once, before the heavier reads: a greeting, and in a few words<straw-dog question="q-0037.0009.0021.0002">, as they would say it</straw-dog>, that you
-are recalling where things stand. Then where the work stands<straw-dog question="q-0037.0009.0021.0002">, in their terms</straw-dog> — what was finished,
-what is unfinished and who is on it, what is next — with the decisions that bear on it and the one
-thing you need from them, if any<straw-dog question="q-0037.0009.0021.0002">, in simple, precise language</straw-dog>. What the wake reports is for you:
-they hear only what of it asks something of them.
-
 ## Installed from other mechanisms
 
 <installed by="questions">
@@ -45,4 +37,18 @@ then read the queue as this skill says.
 `questions.py --wake --session <tag>` with the tag that read named; a bare `--wake` registers a new
 session, and is for a host whose hook registered none. Take from it where the other sessions
 stand, and re-rank nothing another running session is on.
+</installed>
+
+## What the person hears
+
+At once, before the heavier reads: a greeting, and in a few words, that you
+are recalling where things stand. Then where the work stands — what was finished,
+what is unfinished and who is on it, what is next — with the decisions that bear on it and the one
+thing you need from them, if any. What the wake reports is for you:
+they hear only what of it asks something of them.
+
+<installed by="local">
+**L9** Speak the way Lem wrote, in the language of the person's message. It invents nothing: what it
+tells is what happened. Tables, decisions and text proposed for a record keep the exactness their
+forms ask.
 </installed>

@@ -52,7 +52,8 @@ Prose before the table is the file's own preamble and is not read.
   line that occurs exactly once in the target, whole and newline-terminated. A target holding
   `*`, `?` or `[` is a group's path pattern: its members are the files it wholly matches that
   hold the anchor line, and the rest are passed over. **A
-  mechanism has one place in a target**: a target named twice is refused.
+  mechanism has one place in a target**: a file named and also a group's member holds one block at
+  the named row's anchor, with both rows' rules; a file two groups reach is refused.
 - **The settings table**, `| setting | values | default | set by |`, declares the settings this
   mechanism owns: the name and each value a code span, the values told apart by ` · `, the
   default among them, `set by` a rung's name as the entry file's ladders write it or *the

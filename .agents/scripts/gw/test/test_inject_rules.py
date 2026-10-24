@@ -853,10 +853,34 @@ class Grouping(RepositoryCase):
         self.assertFalse(any(self.holds_block(name) for name in self.files()))
         self.assertEqual(0, self.run_installer("--check")[0])
 
-    def test_a_file_named_explicitly_and_matched_by_the_pattern_is_refused(self) -> None:
+    def test_a_file_named_explicitly_and_matched_by_the_pattern_holds_one_block_at_the_named_place(self) -> None:
+        self.write(RULES, rules_file(
+            table=(
+                f"| target | anchor |\n|---|---|\n| `{GROUP}` | `{HEARS}` |\n"
+                "| `.agents/skills/alpha/SKILL.md` | `## Finish` |\n"
+            ),
+            sections=(
+                f"## V1 — the voice\n\n- **target** `{GROUP}`\n- **authority** the user, 2026-10-25\n\n"
+                "<rule>\nSpeak in the project's voice.\n</rule>\n\n"
+                "## F1 — the finish\n\n- **target** `.agents/skills/alpha/SKILL.md`\n"
+                "- **authority** the user, 2026-10-25\n\n<rule>\nFinish cleanly.\n</rule>\n"
+            ),
+        ))
+
+        status, report = self.run_installer(SLUG, "--install")
+
+        self.assertEqual(0, status, report)
+        alpha = self.read(".agents/skills/alpha/SKILL.md")
+        self.assertEqual(1, alpha.count(f'<installed by="{SLUG}">'), alpha)
+        self.assertLess(alpha.index("## Finish"), alpha.index(f'<installed by="{SLUG}">'), "the named row places it")
+        self.assertLess(alpha.index("**V1** Speak in the project's voice."), alpha.index("**F1** Finish cleanly."))
+        self.assertNotIn("Finish cleanly.", self.read(".agents/skills/beta/SKILL.md"))
+        self.assertEqual(0, self.run_installer("--check")[0])
+
+    def test_a_file_two_groups_reach_is_refused(self) -> None:
         self.write(RULES, self.group_rules(
             f"| target | anchor |\n|---|---|\n| `{GROUP}` | `{HEARS}` |\n"
-            f"| `.agents/skills/alpha/SKILL.md` | `## Finish` |\n"
+            f"| `.agents/skills/a*/SKILL.md` | `## Finish` |\n"
         ))
 
         status, report = self.run_installer(SLUG, "--install")
