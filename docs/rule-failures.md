@@ -17,6 +17,32 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 72. The commits table and the counters line were put at the reply's end — 2026-10-25
+
+**Rule in play, loaded:** the entry file, *A paragraph shows what it stands on*: *"Under `debug=on`,
+a turn that made commits follows the 🪢 table with a table of its own, `| 🪶 Commits |` …; then the
+window's counters line … a one-cell table of its own; the head table comes after them."*
+
+**What happened.** Through this session's replies on 01-0016.0030 the agent set the 🪶 table and the
+counters line last, under the decisions and the drift, the head table first. The person: *why are
+the commits and the ticket numbers not in the header?*
+
+**Why it did not fire.** The place is given relative to the 🪢 table, and on a turn with no 🪢 table
+*follows the 🪢 table* anchors nothing; *the head table comes after them* stands at the sentence's
+end, against *Head the reply with a one-cell table* two paragraphs up, which reads as *first*. The
+order the reply opens with is nowhere said in one place.
+
+**Proposed amendment**, to that sentence, at the self-improvement dial — a rule, shown before it
+lands:
+
+> Under `debug=on`, a turn that made commits opens the reply, after the 🪢 table where one stands,
+> with a table of its own, `| 🪶 Commits |`, a row each in order: the short hash and the subject's
+> head; then the window's counters line — its glyphs, numbers and changes copied character for
+> character from this turn's window, never words standing for them — a one-cell table of its own;
+> the head table comes after them.
+
+**Disposition:** open; the amendment waits on the person.
+
 ## 71. A commit below every dial was put to the person as a decision — 2026-10-25
 
 **Rule in play, loaded:** the entry file, [Autonomy](../AGENTS.md#autonomy): *"Below the dial the
