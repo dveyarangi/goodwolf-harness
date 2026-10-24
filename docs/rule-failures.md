@@ -17,6 +17,22 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 73. Replies left the person's language mid-align, twice — 2026-10-25
+
+**Rules in play:** none of this tree's — a slip no rule covers. L9 says how a reply's prose is
+written, not in which language; the host's own default follows the person.
+
+**What happened.** The person wrote in Russian throughout. Two align replies on q-0037.0018.0005
+came in English — each after a turn whose next-step buttons the agent had written in English —
+and twice the person asked for the reply again in Russian.
+
+**Why it slipped.** The reply's language drifted to the language of the agent's own last text —
+the records, the commit subjects and the buttons, all English by this tree's convention — rather
+than staying with the person's last message.
+
+**Disposition:** registered, no rule proposed; a repeat strikes it and is the second shape a rule
+would need.
+
 ## 72. The commits table and the counters line were put at the reply's end — 2026-10-25
 
 **Rule in play, loaded:** the entry file, *A paragraph shows what it stands on*: *"Under `debug=on`,
