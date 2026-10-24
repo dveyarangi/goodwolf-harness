@@ -262,6 +262,13 @@ the study writes nothing of its own into the tree, and what the project's own to
 project's — since it cannot be enforced; the fresh author stands as proposed. Graded by the next
 live meeting.
 
+**Struck, 2026-10-24 — at the second stop.** With the study handed to a fresh agent, the report
+came back without the person's agent's verdict; the person's agent then added it when it summarised
+the report — *too early to install beside your method* — against the skill's *add no view of your
+own: the person reads it*. The rule was in place and read. Why it did not fire: the agent's
+summary is its own reply, and the rule is a sentence in it. Remedy: the host's, a check at the end
+of the reply — q-0037.0006.0005.0001.
+
 ## 62. Asked whether a project needs the harness, the agent answered from the front page — 2026-10-24
 
 **Rules in play:** none that covers it. The README's *Use it* instructs an agent asked to install;
