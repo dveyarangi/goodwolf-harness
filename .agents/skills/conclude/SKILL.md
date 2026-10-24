@@ -37,6 +37,9 @@ The script writes it, never a hand.
 The session's unpushed commits are the conclude's to settle, once the ended row is committed, as
 the project's way of working with git says in its local file.
 
+Where the host lets a session rename itself, prefix this session's name there with `(closed) `
+before the row is ended.
+
 ## Installed from other mechanisms
 
 <installed by="questions">
