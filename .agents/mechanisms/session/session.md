@@ -16,10 +16,11 @@ machinery, not method: a person works by the questions and the steps, never by a
 
 **The row.** Each session keeps one file under `docs/sessions/rows/`, named by its tag, holding
 one line: its tag, whether it runs, when the row was last written, its current question, up to
-four recent ones, and the unit it holds, if it holds one. No two sessions write one file, so however many write at once none undoes
-another's, and nothing is locked *(the user, 2026-10-13)*.
-The two writes to a row not its own are a wake ending a silent session and a rename rewriting the
-ids a row names. A store from before kept the rows under the question store, and before that every
+four recent ones, and the unit it holds, if it holds one. A file per session keeps one write from undoing another's, and nothing is locked *(the user,
+2026-10-13)*; the mechanism manages every session from any one of them, so any session writes
+any row through the session script *(the user, 2026-10-25)*.
+Besides its own session's, a row is written by a wake ending a silent session, a rename rewriting
+the ids it names, and a takeover, which moves a held unit and leaves the mark of it. A store from before kept the rows under the question store, and before that every
 row in one file; each is carried into the folder at the first write, by links that never overwrite,
 and read until then. The row's form and lifetime are declared beside `/conclude`.
 
@@ -38,8 +39,9 @@ question with an owner, read from the store and never from the record the owner 
 format is another mechanism's; a ticket names no session, since sessions are lost and records
 stay *(the user, 2026-10-24 and 2026-10-25)*. A row holds its unit while it runs and while the
 question is open: a silent row ended by a wake holds nothing until its session returns, a closed
-question holds nobody, and neither needs a write. Each row is written by its own session, so
-nothing locks a hold; one unit taken by two sessions at once is the check's finding.
+question holds nobody, and neither needs a write. A session takes over a held unit by the
+person's word, and the holder's row keeps the mark of who took it *(the user, 2026-10-25)*.
+Nothing locks a hold; one unit taken by two sessions at once is the check's finding.
 
 **Sessions see each other** through the rows alone: the window names the other running sessions
 and their positions, and the wake's read lists them. They cannot call one another. One folder in

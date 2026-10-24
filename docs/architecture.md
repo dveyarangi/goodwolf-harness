@@ -130,11 +130,12 @@ a root `q-NNNN`, a child its parent's id and one more position — and stays tru
 renames the moved subtree in the same call, its files and every id and link to them across the
 records under `docs/`, mechanically and without forwarding the old ids
 ([decision 6](tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md#decisions-landed-at-this-tickets-align)).
-A session's row is [the session mechanism](../.agents/mechanisms/session/session.md)'s: each
-session writes its own and no other, so one write never refuses another's; a wake ends the silent
-and removes the long ended, and a rename rewrites the ids a row names — the two writes to a row
-not its own, each safe because a silent session has no write of its own to meet *(the user,
-2026-10-10)*. A wholly closed subtree moves to `done/` with the mover in the `close` call that
+A session's row is [the session mechanism](../.agents/mechanisms/session/session.md)'s, and the
+mechanism manages every session from any one of them: any session writes any row through the
+session script *(the user, 2026-10-25)*. A row is one file, replaced in one rename, so a reader
+never meets half of it and nothing is locked; a wake ends the silent and removes the long ended, a
+rename rewrites the ids a row names, and a takeover moves a held unit and leaves its mark in the
+holder's row *(the user, 2026-10-10 and 2026-10-25)*. A wholly closed subtree moves to `done/` with the mover in the `close` call that
 finishes it; the maintainer's move is the sweep for what a closure left behind. A host's hook
 delivers the window and registers the session under the host's steadiest id, and never fails
 the host: a problem becomes a line of context. Everything else is
