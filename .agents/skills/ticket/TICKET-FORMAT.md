@@ -9,23 +9,18 @@ What an RFC *contains* is `/plan`'s.
 ```
 docs/tickets/done/01-0090.0030-the-outcome-it-names.md
               │  │    └── slug — what the ticket is.
-              │  └─────── position — global. Changes when priority changes.
+              │  └─────── position — its identity, never changed; the order of the work is the queue's.
               └────────── release — the contract the ticket serves.
 ```
 
-- Names are `01-NNNN-slug.md`. Positions step by 10. Insert by splitting the
-  difference: `0015`, then `0012`. Positions stay four digits — longer numbers
-  break numeric ordering. When the gap is exhausted, take the nearest free
-  slot on the correct side. Never renumber anything else.
-- Allocate a position where the ticket will actually be worked, not merely at
-  the end, checking both `docs/tickets/` and `docs/tickets/done/` for the
-  surrounding positions.
+- Names are `01-NNNN-slug.md`. A new ticket takes the next free position after
+  its siblings', live and done, stepping by 10; positions stay four digits.
+  Never renumber.
 - A child appends a four-digit position: `01-0090.0030`. Depth is unbounded
   and means "is a child of", nothing else — work merely filed after `0010`
   takes `0020`.
 - A release closes when its contract's criteria are met, not on a date. A
   later release's ticket may land first.
-- Completed tickets keep their number.
 
 ### One basename per work item
 
