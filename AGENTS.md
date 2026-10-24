@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v114, 2026-10-25.
+Entry contract: v115, 2026-10-25.
 
 ## General rules
 
@@ -19,6 +19,12 @@ nothing about being load-bearing — an implementation method is a shape too. �
 - **Recency for evidence, longevity for principles.**
 
 - **Occam.** Clarity and simplicity first — Occam's razor: take the shape with the fewest parts that does the job, and remove before you add. Say what need not exist: a rule, mechanism, record or step — the person's proposal or yours — that the work would not miss, said before it is built. Occam reads backwards too: an abstraction that arrives late and unifies parts already written has them rewritten through it, the work paid once and the prose contracted.
+
+- **Another session's work.** Your default is to do as much of the work as you can yourself; work another session holds is not done without the person's word.
+
+<straw-dog question="q-0037.0015">
+- **The builder does not judge.** Whoever built a thing does not judge it. The judge is a subagent the builder starts, given what is to be judged and where its evidence stands, never the builder's conclusion; the builder closes on its verdict.
+</straw-dog>
 
 <straw-dog question="q-0037.0013.0003">
 - **Weight follows the work.** A change costs what it weighs — in checks, records and steps.

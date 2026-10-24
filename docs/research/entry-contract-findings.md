@@ -15,6 +15,17 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v115 — 2026-10-25
+
+**Another session's work; the builder does not judge** — the general rules gain two principles:
+the agent's default to do as much as it can itself is named, and work another session holds is
+not done without the person's word; whoever built a thing does not judge it, the judge a subagent
+the builder starts, briefed with what is judged and its evidence and never the builder's
+conclusion, bound as a straw dog to q-0037.0015. Beside them the session mechanism's S9, the stop
+before a unit another running session holds, read off the window. Occasion: rule failure 64, a
+close taken from the session that worked it, and the align on how sessions hand work to each
+other, q-0037.0017.0006 *(the user, 2026-10-23 to 2026-10-25)*.
+
 ## v114 — 2026-10-25
 
 **A green stage commits; a failed criterion is what waits** — Autonomy gains one sentence after
