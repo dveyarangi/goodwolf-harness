@@ -47,6 +47,15 @@ outsider meets it.
 - [q-0037.0009.0005](../questions/q-0037.0009.0005-what-does-commit-own.md) What does /commit own?
   It stays open; its skill still reads *Mechanism: not yet*.
 
+## After the conclude
+
+At the user's request, /conclude gained a step: where the host lets a session rename itself, it
+prefixes the session's name with `(closed) ` before the row is ended. A pass over this tree's
+sessions in the host followed, and the eleven that had run /conclude were renamed. Thirteen others
+have rows a wake ended without a conclude; they were left as they are. The rows of two sessions
+whose process had stopped still read `running` and hold units, pathfinder's and Sessions
+interaction's.
+
 ## What continues
 
 The cabinet's other point stands and was not taken up: the reply's head tables and glyphs come
