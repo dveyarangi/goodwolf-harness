@@ -2276,6 +2276,12 @@ same shape has now cost twice.
 The reachability finding is routed to [01-0018](tickets/01-0018-rules-reach-the-occasion-they-are-for.md) and is not
 repeated on a third record.
 
+**Struck 2026-10-25.** Asked about product labels, the agent counted the open questions carrying a
+trace link of their own — 41 of 187 — and reported 146 without one, proposing a pass to label them;
+the store reads a question's link through its ancestors, and 176 of 182 already reach an answer.
+The count was of one form of the link, reported as the whole; caught by the agent on the next read,
+before the pass ran.
+
 ## 1. A concern was written where a ticket was wanted — 2026-09-10
 
 **Rules in play, both loaded:**
