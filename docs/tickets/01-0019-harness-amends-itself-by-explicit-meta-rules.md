@@ -1,7 +1,7 @@
 # The harness changes its own rules by stated meta-rules, not by judgement each time
 
 - **record of** what it intends to become
-- **Status:** Blocked (accumulating evidence before its align)
+- **Status:** Planned (unblocked 2026-10-25: self-improvement is the mechanism shape's, q-0037.0012 decision 1; the move to be planned)
 - **Type:** HITL
 - **Minted:** 2026-09-14
 - **Related:** [`/mechanism`](../../.agents/skills/mechanism/SKILL.md) holds this responsibility
@@ -77,4 +77,4 @@ Not yet determined; the align decides it. What is known to be in scope:
 
 Deleting a rule on accumulated failures, refused at minting. The glossary mechanism and the
 dev-method mechanism, which are [01-0017](./01-0017-every-skill-and-document-has-named-producers-and-consumers.md)'s children. Group install
-targets — [q-0037.0002](../questions/q-0037.0002-how-does-a-group-install-target-resolve-to-a-file-and-an-anchor-in-each-member.md).
+targets — [q-0037.0002](../questions/done/q-0037.0002-how-does-a-group-install-target-resolve-to-a-file-and-an-anchor-in-each-member.md).
