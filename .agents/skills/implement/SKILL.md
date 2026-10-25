@@ -57,8 +57,9 @@ on the rung of what it mends; it is not a substitute for `/verify`.
 
 <installed by="session">
 **S7** At the step's start, hold the unit by the question its work answers, `sessions.py --hold <q-id>
---session <tag>`. A refusal naming another running session stops the step: say whose the unit is,
-and do nothing on it. A refusal saying the question is no unit leaves the step to go on, holding
+--session <tag>`; a unit this session held is let go by it: say which, and that it is nobody's
+now. A refusal naming another running session stops the step: say whose the unit is, and do
+nothing on it. A refusal saying the question is no unit leaves the step to go on, holding
 nothing.
 </installed>
 

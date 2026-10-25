@@ -998,11 +998,14 @@ class HoldingAndReleasing(Rendered):
 
         self.assertEqual((0, "q-0004"), (status, self.holds("s-alpha")), said)
 
-    def test_a_second_unit_while_one_is_held_is_refused_naming_the_release(self) -> None:
+    def test_holding_a_second_unit_lets_the_first_go_and_says_which(self) -> None:
         self.place("q-0007-who-moves-a-subtree", "Who moves a subtree?", {"part of": "q-0003", "state": "open", "owner": self.OWNER})
         self.said_to_sessions("--hold", "q-0004", "--session", "s-alpha")
 
-        self.assertRefusedWritingNothing("--release", "--hold", "q-0007", "--session", "s-alpha")
+        status, said = self.said_to_sessions("--hold", "q-0007", "--session", "s-alpha")
+
+        self.assertEqual((0, "q-0007"), (status, self.holds("s-alpha")), said)
+        self.assertIn("let go q-0004", said)
 
     def test_a_session_nobody_registered_is_refused(self) -> None:
         self.assertRefusedWritingNothing("--wake", "--hold", "q-0004", "--session", "s-nobody")

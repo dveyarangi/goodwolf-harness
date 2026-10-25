@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v119 — 2026-10-25
+
+**A takeover lets the taker's own unit go** — the session mechanism's S9, installed among the general
+rules, gains that the person's word to take a unit over also lets go any unit the taking session
+held, the reply saying which and that it is nobody's now; S7 in `/plan` and `/implement` the same
+for a hold at a step's start. Occasion: a cold case that held its own unit and asked again,
+decisions 14 and 15 of q-0037.0017.0006 *(the user, 2026-10-25)*.
+
 ## v118 — 2026-10-25
 
 **A proposed rule is drafted, whole** — the 🧩 frame's *written through `/skill-up`* reads

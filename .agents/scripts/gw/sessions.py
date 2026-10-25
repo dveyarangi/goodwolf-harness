@@ -95,15 +95,15 @@ def main(argv: list[str], root: Path, now: datetime | None = None) -> int:
             return 0
         if len(argv) == 4 and argv[0] == "--hold" and argv[2] == "--session":
             index = _index(root)
-            holding = hold(root, argv[3], argv[1], index, now)
+            holding, let_go = hold(root, argv[3], argv[1], index, now)
             print(f"{holding.tag} holds {holding.holds} ({owner_of(index, holding.holds)})")
+            _say_let_go(index, let_go)
             return 0
         if len(argv) == 4 and argv[0] == "--take" and argv[2] == "--session":
             index = _index(root)
             holding, holder, let_go = take(root, argv[3], argv[1], index, now)
             print(f"{holding.tag} holds {holding.holds} ({owner_of(index, holding.holds)}), taken from {holder}")
-            if let_go:
-                print(f"let go {let_go} ({owner_of(index, let_go)}), now nobody's")
+            _say_let_go(index, let_go)
             return 0
         if len(argv) == 3 and argv[:2] == ["--release", "--session"]:
             released = release(root, argv[2], now)
@@ -455,25 +455,26 @@ def end(root: Path, tag: str, now: datetime) -> Session:
     return ended
 
 
-def hold(root: Path, tag: str, unit: str, index: dict, now: datetime) -> Session:
+def hold(root: Path, tag: str, unit: str, index: dict, now: datetime) -> tuple[Session, str | None]:
     """The session takes a unit into its row, by the question the unit answers; holding what it
     holds already writes nothing. A unit is an open question with an owner, the record of the work
     that answers it, read from the store and never from that record, whose format is another
-    mechanism's. Refused, writing nothing: a question that is no unit, a unit another running
-    session holds, and a second unit while one is held. An ended row still naming the unit holds
-    nothing, but its chat reopened would hold it again beside this one, so it is marked taken."""
+    mechanism's. A session holding another unit lets it go, the step that takes the new one being
+    the person's word (the user, 2026-10-25), and says which. Refused, writing nothing: a question
+    that is no unit, and a unit another running session holds. An ended row still naming the unit
+    holds nothing, but its chat reopened would hold it again beside this one, so it is marked taken."""
     held_row = held(root, tag)
     if held_row.holds == unit:
-        return held_row
+        return held_row, None
     _refuse_unless_a_unit(index, unit)
-    _refuse_a_second_unit(held_row, unit)
+    let_go = held_row.holds
     others = [each for each in rows(root)[0] if each.holds == unit and each.tag != tag]
     holder = next((each for each in others if each.running), None)
     if holder is not None:
         _refuse(f"{unit} is held by {holder.tag}, a running session; `--take` takes it over, by the person's word")
     for ended in others:
         _mark_taken(root, ended, tag)
-    return _take_into(root, held_row, unit, now)
+    return _take_into(root, held_row, unit, now), let_go
 
 
 def take(root: Path, tag: str, unit: str, index: dict, now: datetime) -> tuple[Session, str, str | None]:
@@ -517,9 +518,9 @@ def _mark_taken(root: Path, holder: Session, taker: str) -> None:
     write_row(root, dataclasses.replace(holder, holds=None, taken=holder.holds, taken_by=taker))
 
 
-def _refuse_a_second_unit(held_row: Session, unit: str) -> None:
-    if held_row.holds and held_row.holds != unit:
-        _refuse(f"{held_row.tag} holds {held_row.holds}; `--release --session {held_row.tag}` lets it go first")
+def _say_let_go(index: dict, let_go: str | None) -> None:
+    if let_go:
+        print(f"let go {let_go} ({owner_of(index, let_go)}), now nobody's")
 
 
 def owner_of(index: dict, unit: str | None) -> str:
