@@ -139,7 +139,8 @@ content, live rows only. Where the script is missing, write it: that is the main
 files each say for themselves is an index, whatever it is called — an allowlist, a register,
 a manifest — and each entry belongs at its authored home, wrapped there if provisional.
 
-**R5** Land a mechanism's rule in AGENTS.md only as an installed block from its rules file. While the
+**R5** Before writing a rule into AGENTS.md, find the mechanism whose work it governs. Land a
+mechanism's rule in AGENTS.md only as an installed block from its rules file. While the
 mechanism is undeclared, write the rule by hand and wrap it as a straw dog bound to the question
 of what the mechanism owns, as you write it.
 

@@ -58,10 +58,12 @@ a manifest — and each entry belongs at its authored home, wrapped there if pro
 
 - **target** `.agents/skills/align/SKILL.md`
 - **target** `.agents/skills/mechanism/SKILL.md`
-- **authority** the user, 2026-09-20; the binding a question, 2026-10-04
+- **target** `.agents/skills/skill-up/SKILL.md`
+- **authority** the user, 2026-09-20; the binding a question, 2026-10-04; the home found first, 2026-10-25
 
 <rule>
-Land a mechanism's rule in AGENTS.md only as an installed block from its rules file. While the
+Before writing a rule into AGENTS.md, find the mechanism whose work it governs. Land a
+mechanism's rule in AGENTS.md only as an installed block from its rules file. While the
 mechanism is undeclared, write the rule by hand and wrap it as a straw dog bound to the question
 of what the mechanism owns, as you write it.
 </rule>

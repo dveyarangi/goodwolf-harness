@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v127, 2026-10-25.
+Entry contract: v128, 2026-10-25.
 
 ## General rules
 
@@ -58,7 +58,9 @@ a skill's body and the entry file's included —,
 any other text, the file linked by its path from the tree's root, the section named where the
 text has one; `Proposed` read `Landed` once the text is written, never both; always for an
 instruction, an invariant or a load-bearing doc, elsewhere where the reply shows it; the
-blockquote holds the whole text, never a placeholder or a pointer standing for it. Once
+blockquote holds the whole text, never a placeholder or a pointer standing for it. A change to
+text already written shows the old passage under *Before* and the new under *After*; every header
+ends with the count of lines removed and added in the file, `−N +M`. Once
 written, the reply reporting it shows it again under its landed header, though a proposal
 earlier in the turn showed it.
 

@@ -42,6 +42,11 @@ Port body changes, fixing defects as you port; leave every appendix file and ins
 ## Installed from other mechanisms
 
 <installed by="mechanism-shape">
+**R5** Before writing a rule into AGENTS.md, find the mechanism whose work it governs. Land a
+mechanism's rule in AGENTS.md only as an installed block from its rules file. While the
+mechanism is undeclared, write the rule by hand and wrap it as a straw dog bound to the question
+of what the mechanism owns, as you write it.
+
 **R6** A skill is an instruction file of exactly one mechanism and opens its body with
 `Mechanism: <slug>`. A skill no mechanism names opens it with `Mechanism:` then `not yet`,
 wrapped as a straw dog bound to the question of what the skill owns, or `unowned by design` with

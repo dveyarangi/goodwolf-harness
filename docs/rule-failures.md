@@ -17,6 +17,33 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## A rule was drafted into the entry file's own text, its mechanism never looked for — 2026-10-25
+
+**Rules in play:** R5 of the mechanism-shape mechanism, *land a mechanism's rule in AGENTS.md only
+as an installed block from its rules file*, installed into `/align` and `/mechanism` but not into
+`/skill-up`; `/skill-up`'s check that a change does not misfit the set; the entry file's *The
+shape's context*, *does its scope overlap any other shape?*
+
+**What happened.** Striking 55, the session drafted through `/skill-up` a rule that a wait on
+another running session's question is that session's to put, and placed it in the entry file's
+⚖️ clause, beside the text it extended. The session mechanism's S9 already governs another
+session's work. The user: *why are these the entry file's rules and not mechanisms'?* — and then,
+*why does our skill-up not instruct to look for a fitting mechanism before putting a rule into
+the root?*
+
+**Why it did not fire.** R5 reaches the skills where a decision lands and where a mechanism is
+built, not the one every instruction is drafted through; and it says what to do with a
+mechanism's rule, never to ask whose rule it is. An amendment to text already in the entry file
+read as the entry file's own. Kin to 11: a text placed where its neighbours stood.
+
+**Proposed amendment**, to R5, at the self-improvement dial — a rule, shown before it lands: R5
+gains `/skill-up` as a target, and its rule opens with *Before writing a rule into AGENTS.md, find
+the mechanism whose work it governs.* A rewording, not a check: no script tells a principle
+the entry file owns from a rule some mechanism's work holds.
+
+**Disposition:** landed 2026-10-25 on the user's word; R5 reinstalled into `/align`,
+`/mechanism` and `/skill-up`.
+
 ## 84. A *yes, but which moment?* was taken as the yes, and the rule was landed before its moment was shown — 2026-10-22
 
 **Rule in play, loaded:** [`AGENTS.md` — *Autonomy*](../AGENTS.md#autonomy): *"✋ At the dial it

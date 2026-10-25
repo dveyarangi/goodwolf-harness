@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v128 — 2026-10-25
+
+**A change is shown before and after** — the proposed-text form gains that a change to text
+already written shows the old passage under *Before* and the new under *After*, and every header
+the lines removed and added in the file, `−N +M`; for now in the entry file's reply form, bound
+with it to the voice mechanism's question *(the user, 2026-10-25)*.
+
 ## v127 — 2026-10-25
 
 **An amendment takes the strongest form that will hold** — Self-improvement's first rule no longer

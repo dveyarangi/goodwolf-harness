@@ -138,7 +138,8 @@ When high-level architecture of this project changes, update `architecture.md`. 
 Land each resolution the moment it is made, as the blocks below say.
 
 <installed by="mechanism-shape">
-**R5** Land a mechanism's rule in AGENTS.md only as an installed block from its rules file. While the
+**R5** Before writing a rule into AGENTS.md, find the mechanism whose work it governs. Land a
+mechanism's rule in AGENTS.md only as an installed block from its rules file. While the
 mechanism is undeclared, write the rule by hand and wrap it as a straw dog bound to the question
 of what the mechanism owns, as you write it.
 </installed>
