@@ -19,8 +19,8 @@ that never overwrite.
 The question script imports this one and never the reverse: what the row's life needs of the
 store — the entry index for a position's check, the store's own types for what it reports — is
 taken as an argument or imported inside the function that uses it, so the row stands without the
-store. `--end` is the conclude's last act; `--hold` and `--release` take and let go the unit a session
-works, named by the question it answers; `--check` is the rows' maintainer, format never content.
+store. `--end` is the conclude's last act; `--hold`, `--take` and `--release` take, take over and let
+go the unit a session works, named by the question it answers; `--check` is the rows' maintainer, format never content.
 """
 
 from __future__ import annotations
@@ -55,7 +55,7 @@ GONE_AFTER = timedelta(days=7)
 # Where the fingerprint of each session's last window is kept, the session's sign of life; `None`
 # is the machine's temp folder.
 WINDOW_MEMORY: str | None = None
-ROW_FORM = "`<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four] [holds <q-id>]`"
+ROW_FORM = "`<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four] [holds <q-id> | taken <q-id> by <tag>]`"
 _USAGE = (
     "usage: sessions.py --end --session <tag> | --hold <q-id> --session <tag> | --take <q-id> --session <tag>"
     " | --release --session <tag> | --check"

@@ -26,12 +26,15 @@ and a hook that never fails the host, so a problem becomes a line of context
 A host lacking one of the last three is reached in part: the entry file's rule stands in, and the
 agent draws the window itself.
 
-**Offered by a host, used where it is offered and relied on nowhere:** one session's message to
-another, by which a session that took over a unit tells its holder; and a helper agent started
-inside a session, which the method uses as the judge of work its starter built. A helper receives
-no wake and no window, having no start of its own and no message of the person, so a judge reads
-the entry file and runs the wake itself, and the host's delivery of that text is this edge's live
-check, never the judge's.
+**Offered by a host, used where it is offered and relied on nowhere:**
+<straw-dog question="q-0037.0017.0005">one session's message to another, by which a session that
+took over a unit tells its holder;</straw-dog>
+<straw-dog question="q-0037.0015">and a helper agent started inside a session, which the method
+uses as the judge of work its starter built. A helper receives no wake and no window, having no
+start of its own and no message of the person, so a judge reads the entry file and runs the wake
+itself, and the host's delivery of that text is this edge's live check, never the judge's.</straw-dog>
+Where the window does not reach the agent, as in Cursor, a session sees no other's hold, and the
+refusal at a hold is its only stop before another's unit.
 
 <straw-dog question="q-0037.0006.0005.0001">
 **Required of a host, to guard the files a mechanism controls** — an edit to such a file refused

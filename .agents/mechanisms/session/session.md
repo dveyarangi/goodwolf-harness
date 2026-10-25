@@ -16,7 +16,7 @@ machinery, not method: a person works by the questions and the steps, never by a
 
 **The row.** Each session keeps one file under `docs/sessions/rows/`, named by its tag, holding
 one line: its tag, whether it runs, when the row was last written, its current question, up to
-four recent ones, and the unit it holds, if it holds one. A file per session keeps one write from undoing another's, and nothing is locked *(the user,
+four recent ones, and the unit it holds or the mark of one another session took from it. A file per session keeps one write from undoing another's, and nothing is locked *(the user,
 2026-10-13)*; the mechanism manages every session from any one of them, so any session writes
 any row through the session script *(the user, 2026-10-25)*.
 Besides its own session's, a row is written by a wake ending a silent session, a rename rewriting
@@ -34,7 +34,8 @@ where it stopped. A row that reads ended for seven days is removed by a wake, si
 comes later *(the user, 2026-10-22)*; the wake's read lists running sessions only.
 
 **A unit held.** A step that works a unit takes it into the session's row, by the question the
-unit's work answers; the person's word lets it go, and so does the conclude. A unit is an open
+unit's work answers, letting go and naming as nobody's the unit it held before; the person's
+word lets it go, and so does the conclude. A unit is an open
 question with an owner, read from the store and never from the record the owner names, whose
 format is another mechanism's; a ticket names no session, since sessions are lost and records
 stay *(the user, 2026-10-24 and 2026-10-25)*. A row holds its unit while it runs and while the
@@ -45,7 +46,7 @@ which the holder's window shows until its next hold, release or end; a hold of a
 still names marks that row too, so the chat, reopened, does not hold it beside its new holder.
 Nothing locks a hold; one unit taken by two sessions at once is the check's finding. A step that
 would act on a unit another running session holds stops, reading the holds off the window, and
-the person chooses: take it over, or cut a sub-task.
+the person chooses: take it over, or cut a sub-task. Where the window does not reach the agent, the refusal at a hold is the only stop.
 
 **Only what a network carries.** Sessions reach each other only by ways that pass easily into a
 networked form, where they run on different machines: one shared place every session checks at
@@ -56,7 +57,7 @@ messages between sessions stand in for that place, each unreliable, and nothing 
 beyond what they are used for below.</straw-dog>
 
 **Sessions see each other** through the rows alone: the window names the other running sessions
-and their positions, and the wake's read lists them. A host may let one session message another; the method uses it to tell a holder its unit was taken, and relies on it for nothing. One folder in
+and their positions, and the wake's read lists them. <straw-dog question="q-0037.0017.0005">A host may let one session message another; the method uses it to tell a holder its unit was taken, and relies on it for nothing.</straw-dog> One folder in
 the working tree is how they see each other, so sessions that do not share the directory do not.
 
 **Free unless locked.** A session is not of one method: the question it stands on names its root,
