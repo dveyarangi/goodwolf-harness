@@ -47,6 +47,14 @@ Nothing locks a hold; one unit taken by two sessions at once is the check's find
 would act on a unit another running session holds stops, reading the holds off the window, and
 the person chooses: take it over, or cut a sub-task.
 
+**Only what a network carries.** Sessions reach each other only by ways that pass easily into a
+networked form, where they run on different machines: one shared place every session checks at
+every step by a fast mechanical script, carrying its own messages and the others' positions *(the
+user, 2026-10-25)*.
+<straw-dog question="q-0037.0017.0005">The rows' folder, the commits in git and a host's own
+messages between sessions stand in for that place, each unreliable, and nothing relies on them
+beyond what they are used for below.</straw-dog>
+
 **Sessions see each other** through the rows alone: the window names the other running sessions
 and their positions, and the wake's read lists them. A host may let one session message another; the method uses it to tell a holder its unit was taken, and relies on it for nothing. One folder in
 the working tree is how they see each other, so sessions that do not share the directory do not.
