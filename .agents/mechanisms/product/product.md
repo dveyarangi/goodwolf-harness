@@ -65,6 +65,7 @@ check fails.
 | writing the document to its shape | `.agents/skills/product/PRODUCT-FORMAT.md` | |
 | seeing each answer's coverage | `.agents/skills/product/SKILL.md` | |
 | seeing, beside the queue, what each item realizes and which answers are left out | `.agents/skills/product/SKILL.md` | |
+| saying what the project is, or what sets it apart, by its own account | `.agents/skills/product/SKILL.md` | |
 | checking the document's form | `.agents/scripts/gw/product.py` | |
 | checking the document in a maintenance pass | `.agents/skills/maintain/SKILL.md` | |
 | a purpose decision landing as an answer, its building question opened with a trace link | `.agents/skills/align/SKILL.md` | |

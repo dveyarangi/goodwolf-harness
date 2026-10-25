@@ -17,6 +17,30 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 79. A skill's moment was written into its body — 2026-10-25
+
+**Rules in play, loaded:** `/skill-up`, *"The frontmatter description narrates the use case, not
+the implementation"*; the entry file's *Tier is paid by every session*, *"name there every use
+case the skill serves, and nothing else — never its method"*.
+
+**What happened.** Drafting rule failure 78's amendment through `/skill-up`, the agent named the
+occasion in `/product`'s description and opened the goal it added to the body with the same
+occasion, *"Before saying what the project is or what sets it apart, read the document"*, after a
+judge found the body never said to read it. A body is read only once its description has fired, so
+a moment there reaches nothing. The person: *the moment should be in product skill description,
+not body*, and *the skill-up should distinguish between moment and instruction*.
+
+**Why it did not fire.** Both rules keep the method out of the description; neither keeps the
+moment out of the body, so the judge's finding read as a gap in the body.
+
+**Amendment**, to `/skill-up`'s description paragraph:
+
+> The frontmatter description narrates the use case — the skill's moments —, not the
+> implementation, and stays in line with the skill's intent; the body holds what to do at them and
+> never restates when.
+
+**Disposition:** closed 2026-10-25 — the amendment landed as written *(the user)*.
+
 ## 78. What the project is was said without its product document — 2026-10-25
 
 **Rules in play:** the entry file's *The shape's context*, *"Look in this tree and in every tree
@@ -39,13 +63,14 @@ was followed as far as the glossary, whose one line was taken for the account.
 
 **Proposed amendment**, to `/product`'s description, at the self-improvement dial — a rule, shown
 before it lands: the occasion *about to say what the project is or what sets it apart by its own
-account* named among its uses, beside `/discover`'s outside view; a goal in its body to read the
-document first and tell the project by its pains and answers, never by its mechanisms; the product
-mechanism's Moments given its row. Tried on two fresh judges: the first found the occasion firing
-and the clause a rival to `/discover`'s, the body silent on it; the second, on the revision, found
-the two complements and the goal actionable, short of saying to read the document.
+account* named among its uses, beside `/discover`'s outside view; a goal in its body to tell the
+project by its pains and answers, never by its mechanisms; the product mechanism's Moments given
+its row. Tried on two fresh judges: the first found the occasion firing and the clause a rival to
+`/discover`'s, the body silent on it; the second, on the revision, found the two complements and
+the goal actionable, short of saying to read the document. The draft that followed put the moment
+into the goal as well — rule failure 79.
 
-**Disposition:** registered 2026-10-25; the amendment shown, waiting on the person.
+**Disposition:** closed 2026-10-25 — the amendment landed as written *(the user)*.
 
 ## 77. A clause an open question will change could not be wrapped where it is authored — 2026-10-25
 
