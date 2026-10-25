@@ -214,7 +214,8 @@ in silence, leaving what a recipient must amend to whoever reads the manifest di
 
 ## Deferred decisions
 
-- The pacer owns turn progression; where a session resumes is the session mechanism's. This
+- The pacer dissolved (q-0037.0019): the ring's rules are the practice mechanism's, which work
+  comes next is the pathfinder's; where a session resumes is the session mechanism's. This
   maintenance install does not define a scheduler or an automatic next cycle.
 - Cross-project distribution, generalized local overrides and dependency tracking retain
   their existing owners in the shared-harness work.

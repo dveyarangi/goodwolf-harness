@@ -6,7 +6,7 @@ supplies at session start, announced verbatim by the session's first reply. The 
 announcing a version can find out what it announced.
 
 The version covers the **core** part only: the announce line, the general rules, the loop, the
-switch roster with its meanings, and the `<straw-dog>` convention — `<temporary>` until v5.
+autonomy dial and its ladders (the switch roster until v92), and the `<straw-dog>` convention — `<temporary>` until v5.
 The local block's values change without a bump.
 
 **A recipient's line is not a version.** Since 2026-09-21 the harness mechanism stamps a

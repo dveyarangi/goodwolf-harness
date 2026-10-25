@@ -16,7 +16,7 @@ The harness under [`.agents/`](../.agents/README.md) is built here with its own 
 </straw-dog>
 
 <straw-dog question="q-0037.0013">
-- [Development process](process.md) and [pacer](pacer.md): the sequence of work and its progression, held here until the pacer is a mechanism and carries them.
+- [Development process](process.md) and [pacer](pacer.md): the sequence of work and its progression, held here until their parts find homes; the pacer dissolved at q-0037.0019.
 </straw-dog>
 
 <straw-dog question="q-0037.0012">

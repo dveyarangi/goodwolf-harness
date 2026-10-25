@@ -1,7 +1,7 @@
 # The path ahead is shown from what the project is for
 
 - **record of** what it intends to become
-- **Status:** Planned (the end-state of q-0037.0019's accepted `Where it stands`; its first slice Ready)
+- **Status:** Planned (the end-state of q-0037.0019's accepted `Where it stands`; its first slice, 01-0060.0010, done 2026-10-25)
 - **Type:** HITL
 - **Minted:** 2026-10-23
 - **Answers:** [q-0037.0019](../questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three-roots-and-the-next-shown-with-its-unit-as-the-installed.md)

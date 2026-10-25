@@ -10,7 +10,7 @@ with overwrite; the block in a target is never the place.
 | `.agents/skills/verify/SKILL.md` | `## The verification set` |
 | `.agents/skills/implement/SKILL.md` | `## Installed from other mechanisms` |
 | `.agents/skills/maintain/SKILL.md` | `## Finish` |
-| `.agents/skills/commit/SKILL.md` | `- Write the subject in the project's own convention, where it states one.` |
+| `.agents/skills/commit/SKILL.md` | `- Write the subject in the project's convention: the one it states, else the one its tooling enforces, else the one its recent history keeps; a project with none of these, Conventional Commits.` |
 | `.agents/skills/skill-up/SKILL.md` | `## Installed from other mechanisms` |
 | `.agents/skills/mechanism/SKILL.md` | `## Siblings` |
 | `.agents/skills/*/SKILL.md` | `## What the person hears` |

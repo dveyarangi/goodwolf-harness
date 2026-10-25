@@ -15,4 +15,4 @@
 
 [01-0018.0010](01-0018.0010-a-session-learns-the-entry-file-moved.md) waits with [q-0037.0012.0007](../questions/q-0037.0012.0007-what-does-the-harness-need-while-its-own-rules-are-amended-many-times-a-day-under-sessions-still-running.md) *(the user, 2026-10-12)*. Team memory comes after coherence, under [q-0033.0004](../questions/q-0033.0004-how-does-the-harness-serve-several-people-steering-agents-in-one-project.md) *(the user, 2026-09-27)*.
 
-**Next cycle needs a nod** (`next-cycle=ask`).
+What gets built next is *a product slice*, above the dial at *a feature* (L2): it waits on your word.

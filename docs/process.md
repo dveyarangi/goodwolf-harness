@@ -38,7 +38,7 @@ replaced the five switches on 2026-10-15; its decisions are in
 ## Verification
 
 The definition is [`/verify`'s](../.agents/skills/verify/SKILL.md#the-verification-set), moved
-there the same day under the same ticket; this project's four commands sit in the entry file's
-local block beside its dials. `/tdd` still owns red-green.
+there the same day under the same ticket; this project's set is L3 in [local.rules.md](../local.rules.md), installed into
+`/verify`, `/implement` and `/maintain`. `/tdd` still owns red-green.
 
 

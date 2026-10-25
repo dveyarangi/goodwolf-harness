@@ -1,6 +1,6 @@
 # Pacer
 
-**Status:** Idea under alignment; no skill or runtime mechanism adopted.
+**Status:** Dissolved, 2026-10-23, at [q-0037.0019](questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three-roots-and-the-next-shown-with-its-unit-as-the-installed.md) (*Not the pacer*): the ring's rules are the practice mechanism's, a driver that runs the ring is q-0037.0010.0002.0005.0001, which work comes next is the pathfinder's, and where a session resumes is the session mechanism's. What follows is the idea as it stood.
 
 ## Need
 
