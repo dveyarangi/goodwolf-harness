@@ -17,6 +17,24 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 77. A clause an open question will change could not be wrapped where it is authored — 2026-10-25
+
+**Rules in play:** the entry file's *Straw dogs*, tier 1: *wrap anything an open question's answer
+will change … at the authored home, never where the harness installs or derives it*; the rules-file
+format, which admits no straw dog inside a rule's text.
+
+**What happened.** S9, the session mechanism's stop before another's unit, tells a session to
+*tell the holder where the host lets one session message another*. q-0037.0017.0005's answer —
+one shared place, the host's messages a stand-in — will change that clause. Its authored home is
+the rules file, inside a `<rule>`, where the format carries no wrapper, so the clause stands
+unwrapped; a verify judge found it, and its installed copy in the entry file stands unwrapped too.
+
+**What it is.** A slip no rule covers, in the format rather than in an agent: two rules each obeyed,
+the straw-dog rule asking a wrap at the authored home and the rules-file format refusing one
+there. A repeat is any rule text bound to an open question that its rules file cannot mark.
+
+**Disposition:** registered 2026-10-25; no rule proposed.
+
 ## 76. Rules were proposed in a reply without `/skill-up`, one of them a placeholder — 2026-10-25
 
 **Rules in play, loaded:** `/skill-up`'s description, *"Use whenever writing any agent
@@ -69,7 +87,7 @@ version, id or number two sessions give the same value.
 
 **Rules in play:** [`AGENTS.md` — *The builder does not judge*](../AGENTS.md#general-rules), tier
 1, landed at v115 that hour: *whoever built a thing does not judge it*; the criteria of
-[01-0070.0020](tickets/01-0070.0020-a-session-stops-before-anothers-unit.md), which named a
+[01-0070.0020](tickets/done/01-0070.0020-a-session-stops-before-anothers-unit.md), which named a
 subagent judge reading *both sessions' rows and windows*.
 
 **What happened.** The session that wrote S9, the stop before a unit another running session

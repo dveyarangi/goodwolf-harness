@@ -18,7 +18,7 @@ accepted by the person 2026-10-24 and rewritten to their decisions of 2026-10-25
 [in the same question](../questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what-another-is-on.md#impact-of-the-split--2026-10-24).
 The end-state of two slices:
 [01-0070.0010 a-sessions-row-names-the-unit-it-holds](./done/01-0070.0010-a-sessions-row-names-the-unit-it-holds.md)
-and [01-0070.0020 a-session-stops-before-anothers-unit](./01-0070.0020-a-session-stops-before-anothers-unit.md).
+and [01-0070.0020 a-session-stops-before-anothers-unit](./done/01-0070.0020-a-session-stops-before-anothers-unit.md).
 
 ## What to build
 

@@ -46,7 +46,8 @@ which the holder's window shows until its next hold, release or end; a hold of a
 still names marks that row too, so the chat, reopened, does not hold it beside its new holder.
 Nothing locks a hold; one unit taken by two sessions at once is the check's finding. A step that
 would act on a unit another running session holds stops, reading the holds off the window, and
-the person chooses: take it over, or cut a sub-task. Where the window does not reach the agent, the refusal at a hold is the only stop.
+the person chooses: take it over, or cut a sub-task. Where the window does not reach the agent, a hold shows only when the agent draws its window,
+and the refusal at a hold is the one stop that needs none.
 
 **Only what a network carries.** Sessions reach each other only by ways that pass easily into a
 networked form, where they run on different machines: one shared place every session checks at

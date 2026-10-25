@@ -33,8 +33,9 @@ took over a unit tells its holder;</straw-dog>
 uses as the judge of work its starter built. A helper receives no wake and no window, having no
 start of its own and no message of the person, so a judge reads the entry file and runs the wake
 itself, and the host's delivery of that text is this edge's live check, never the judge's.</straw-dog>
-Where the window does not reach the agent, as in Cursor, a session sees no other's hold, and the
-refusal at a hold is its only stop before another's unit.
+Where the window does not reach the agent, as in Cursor, a session sees another's hold only when
+it draws its window itself, as the entry file's rule asks, and the refusal at a hold is the one
+stop that needs no window.
 
 <straw-dog question="q-0037.0006.0005.0001">
 **Required of a host, to guard the files a mechanism controls** — an edit to such a file refused
