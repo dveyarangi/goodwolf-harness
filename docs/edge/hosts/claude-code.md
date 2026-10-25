@@ -37,7 +37,9 @@
   makes the window after one whole.
 - **Helper** — observed 2026-10-10, session `58bf3b88`: a helper agent ran some five minutes; the
   sessions file gained no row, and the session's next message carried a true unchanged notice.
-  The helper's own hook input was not seen; no helper event is wired.
+  The helper's own hook input was not seen; no helper event is wired. Observed 2026-10-25: a
+  helper's context carried the entry file as its parent session had loaded it at its start, v110,
+  where the file on disk stood at v117; a helper that must follow the entry file reads it from disk.
 - **Messaging** — observed 2026-10-23, desktop app: a message sent from one session to another
   reached it, and the receiving session answered and acted on it — the close of a ticket handed
   over with the results of its checks.

@@ -100,8 +100,10 @@ def main(argv: list[str], root: Path, now: datetime | None = None) -> int:
             return 0
         if len(argv) == 4 and argv[0] == "--take" and argv[2] == "--session":
             index = _index(root)
-            holding, holder = take(root, argv[3], argv[1], index, now)
+            holding, holder, let_go = take(root, argv[3], argv[1], index, now)
             print(f"{holding.tag} holds {holding.holds} ({owner_of(index, holding.holds)}), taken from {holder}")
+            if let_go:
+                print(f"let go {let_go} ({owner_of(index, let_go)}), now nobody's")
             return 0
         if len(argv) == 3 and argv[:2] == ["--release", "--session"]:
             released = release(root, argv[2], now)
@@ -474,20 +476,21 @@ def hold(root: Path, tag: str, unit: str, index: dict, now: datetime) -> Session
     return _take_into(root, held_row, unit, now)
 
 
-def take(root: Path, tag: str, unit: str, index: dict, now: datetime) -> tuple[Session, str]:
+def take(root: Path, tag: str, unit: str, index: dict, now: datetime) -> tuple[Session, str, str | None]:
     """The session takes over a unit another running session holds, by the person's word: the
     unit enters this session's row, and the holder's keeps the mark of who took it in its place,
-    so a holder still alive learns its unit is gone. Says from whom it was taken. Refused, writing
-    nothing: a question that is no unit, a unit no running session holds, which `--hold` takes, and
-    a second unit while one is held."""
+    so a holder still alive learns its unit is gone. The same word lets go the unit this session
+    held, which is then nobody's (the user, 2026-10-25). Says from whom it was taken and what was
+    let go. Refused, writing nothing: a question that is no unit, and a unit no running session
+    holds, which `--hold` takes."""
     held_row = held(root, tag)
     _refuse_unless_a_unit(index, unit)
-    _refuse_a_second_unit(held_row, unit)
     holder = next((each for each in rows(root)[0] if each.running and each.holds == unit and each.tag != tag), None)
     if holder is None:
         _refuse(f"no running session holds {unit}; `--hold` takes it")
+    let_go = held_row.holds if held_row.holds != unit else None
     _mark_taken(root, holder, tag)
-    return _take_into(root, held_row, unit, now), holder.tag
+    return _take_into(root, held_row, unit, now), holder.tag, let_go
 
 
 def release(root: Path, tag: str, now: datetime) -> Session:

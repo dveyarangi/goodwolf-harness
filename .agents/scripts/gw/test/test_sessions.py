@@ -1160,10 +1160,15 @@ class TakingOver(Rendered):
     def test_a_question_that_is_no_unit_is_refused(self) -> None:
         self.assertRefusedWritingNothing("owner", "--take", "q-0003", "--session", "s-beta")
 
-    def test_a_second_unit_while_one_is_held_is_refused(self) -> None:
+    def test_a_takeover_lets_the_takers_own_unit_go_and_says_which(self) -> None:
         self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 holds q-0004\ns-beta running 2026-09-29T11:00Z q-0010 holds q-0007\n")
 
-        self.assertRefusedWritingNothing("--release", "--take", "q-0004", "--session", "s-beta")
+        status, said = self.said_to_sessions("--take", "q-0004", "--session", "s-beta")
+
+        self.assertEqual(0, status, said)
+        self.assertTrue(self.line("s-beta").endswith(" holds q-0004"), self.line("s-beta"))
+        self.assertIn("let go q-0007", said)
+        self.assertNotIn("q-0007", self.line("s-alpha") + self.line("s-beta"))
 
     def test_holding_a_unit_an_ended_row_still_names_marks_that_row_taken(self) -> None:
         self.write(SESSIONS, "s-alpha ended 2026-09-29T11:30Z q-0004 holds q-0004\ns-beta running 2026-09-29T11:00Z q-0010\n")
