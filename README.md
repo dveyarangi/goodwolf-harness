@@ -12,40 +12,47 @@
 [![Cursor](https://img.shields.io/badge/Cursor-supported-000000?logo=cursor&logoColor=white)](#where-it-stands)
 [![Last commit](https://img.shields.io/github/last-commit/dveyarangi/goodwolf-harness)](https://github.com/dveyarangi/goodwolf-harness/commits/main)
 
-A harness for your own harnesses — for code, study, research, a diary — whose memory stays clean,
-whose instructions get followed, and whose goal holds while it moves. Built and tested on software
-development.
+Work with an agent comes apart over time: the memory fills with clutter, the instructions stop
+being followed, the goal slips — and you end up either left out of the decisions or caught in
+every one of them. GoodWolf keeps that work coherent from its first day: one true memory in your
+own files, instructions that reach the moment they are for, the goal held while it moves, and you
+at the decisions that bear the weight. On it you build your own method — for code, study,
+research, a diary — and the method gets all of this too. Software development is the first method
+built on it, and the one it is tested by.
 
-*The deeper the woods, the meaner the wolves*, says the proverb. A project that has lived for
-months is deep woods: hundreds of decisions, rules with their reasons, work stopped halfway, questions
-nobody answered yet. A coding agent walks in cold every session, knowing the code but not why it
-is the way it is, and the deeper the woods, the more it costs. This is the other wolf — the one
-that knows the woods. Working with agents on one project for weeks hurts in three ways:
+*The deeper the woods, the meaner the wolves*, says the proverb. Every session makes the woods
+deeper: decisions with their reasons, rules, work stopped halfway, questions nobody answered yet.
+An agent walks in cold every time, and the deeper the woods, the more that costs — on the first day
+a few files, after months the whole project. This is the other wolf — the one that knows the woods.
+The cost comes in three ways:
 
-- **The agent is ineffective.** It calls work done that doesn't work, or isn't what you meant.
+- **The agent is ineffective.** It calls work done that isn't, or isn't what you meant.
 - **The agent is expensive.** Tokens, time and rework go on rediscovering what it already knew,
   and your attention goes on re-explaining it.
 - **You are in the wrong place.** Either decisions that matter get made without you, or you end up
   approving every step and babysitting work the agent could carry.
 
-GoodWolf answers all three from your repository: plain Markdown and a few standard-library Python
+GoodWolf answers all three from your own files: plain Markdown and a few standard-library Python
 scripts, in Claude Code, Codex and Cursor. Fewer steps, each more precise: at every step the agent
 knows what is needed now — which rule, which record, which question — and does that, not the rest.
 
-If you have built a setup of your own — Markdown files, prompts, a project to learn with — you
-know how it ends: it grows complicated and starts to tangle, the memory fills with clutter, the
-instructions stop being followed, the goal slips. GoodWolf is the harness underneath:
-meta-instructions and scripts for writing any instructions so that their memory stays coherent,
-and a way to find your bearings in the space of any task. Development is the first method built
-on it, and the one it is tested by — the hardest case; a method you build for your own work gets
-all of it in turn.
+## Where you start
+
+- **New work.** The first session works out with you what the work is and how it should be done;
+  the memory and the method grow with it from there, so nothing piles up to be cleaned later.
+- **Work that has lived.** The install stops before writing anything and offers a study: your
+  agent reads how your rules, decisions and history are kept, measures what it costs a newcomer to
+  recover where things stand, and writes one report — what GoodWolf would change here, what it would
+  cost you, in what order. Nothing is moved; you decide on the report.
+- **A method of your own.** If you have built a setup of your own — Markdown files, prompts, a
+  project to learn with — you know how it ends: it grows complicated and starts to tangle. Build it
+  on GoodWolf instead, with `/mechanism`, and the checks that hold the shipped method hold yours.
 
 ## What it gives you
 
 - **A memory that stays true.** Not notes an agent keeps, but the project's working mind, held
   together:
-  - every rule in one home, installed by script wherever it is read, and a check that fails the
-    moment an installed copy drifts; every fact in one home, held there by maintenance<straw-dog question="q-0037.0010.0009.0008">,
+  - every fact in one home, held there by maintenance<straw-dog question="q-0037.0010.0009.0008">,
     with a check of its own being built, and instructions kept out of records the same way</straw-dog>;
   - every record knowing whether it says what will be, what must always hold, what is, or what
     was — and so which side wins when it and the code disagree;
@@ -56,45 +63,54 @@ all of it in turn.
   - where each piece of work stopped, at which step, and why.
 
   It reaches the agent before every message, not when the agent thinks to look; a disagreement is
-  repaired where a session meets it. "Continue" is enough.
+  repaired where a session meets it. "Continue" is enough. *In your project: your last stalled piece
+  of work — is the reason it stopped written anywhere? Where do the questions waiting on you live,
+  and how old is the oldest?*
+- **One home for every rule.** A rule is written once and copied by script to wherever it is read,
+  and a check fails the moment a copy drifts, so the agent is never working from two versions of
+  the same instruction. *In your project: when a rule last changed, did every copy of it change?*
+- **A provisional decision knows what will change it.** Text written while a question is still
+  open is tied to that question, and comes up for rewriting when the question is answered — so
+  "for now" does not quietly become "always". *In your project: how much of your docs says "for
+  now", and what would tell you it no longer holds?*
 - **A rule the agent ignored becomes a record.** The miss is logged with the rule that was in
   place, the rule is reworded in one reviewable commit, and the next miss shows whether the
-  rewording worked.
+  rewording worked. *In your project: do the gates your rules name all run, and does each check
+  what its rule claims? What share of your fixes did a person find, not a check?*
 - **You where it matters, and nowhere else.** A decision whose mistake would break several parts
   of the project comes to you with options and a recommendation; anything smaller the agent settles
-  and reports. You draw the line between the two, once, on a short list.
+  and reports. You draw the line between the two, once, on a short list. You can think out loud:
+  whatever you say lands under the question it belongs to and comes back when that topic does.
+  *In your project: of the last ten things your agent asked you, how many needed you?*
 - **Checking and keeping are two questions.** Whether finished work keeps the promises its ticket
   and plan made, and whether the documents still agree with each other and with the code, are asked
   separately, so neither hides behind the other. A disagreement a session meets is repaired there,
-  not left for an audit.
+  not left for an audit<straw-dog question="q-0037.0010.0009.0009">, and `/maintain` is made to run on its own as a scheduled task, so drift no
+  session meets is swept as well</straw-dog>. *In your project: when were the docs last checked against the
+  code?*
 - **A method that looks like ceremony and works as speed.** A piece of work moves ticket → plan →
   build → verify → maintain, each step as heavy as the work — for a small change, a few lines and
   a few minutes. What the steps buy is that the agent never starts from nothing: the decision, the
   criteria and the state are already written, so the next step is short and right the first time.
+  *In your project: how much does every session read before it starts, and has anyone measured
+  it?*
+- **A second opinion from outside.** Before a big decision, a separate agent that has not read the
+  project is asked how things like it usually go wrong elsewhere, so the answer is not only the one
+  the project already believes.
 
 Plain Markdown and standard-library Python, MIT-licensed, in Claude Code, Codex and Cursor. Its
 scripts refuse rather than guess, and leave nothing behind when they refuse.
 
-## How it meets your project
+The study asks these of your project and answers them in numbers from your own repository — run it
+before you decide.
 
-<straw-dog question="q-0037.0006.0020.0001">
-In a project that already has rules, skills or a method of its own, the install stops before
-writing anything and offers a study instead. Your agent reads how your rules, decisions and history
-are kept, measures what it costs a newcomer to recover the state of the project, and writes one
-report in your project's language: what GoodWolf would change here, what it would cost you, and in
-what order. Nothing is moved. You read the report and decide how to proceed. The report is where
-the install stops today: taking your method in after a yes — alongside yours, with your rules file
-kept, or in its place — is the next piece of work, and it starts from the report.
-</straw-dog>
+## How it meets your project
 
 GoodWolf works with the method you have — your rules file, your gates, your decision records, your
 commit convention and your pull requests stay yours, and what it brings sits beside them — or takes
 its place, if you would rather: decided on the report. The step prefixes in this repository's own
 history are its local rule and do not travel. Whether your project needs it is answered by the study, in
 numbers from your own repository.
-
-In a fresh project, the install lands the method and the first session works out with you what
-the project is and how it should be built.
 
 ## What it does about each
 
@@ -132,14 +148,6 @@ the project is and how it should be built.
   agent's work is cheap and trusting it isn't blind.
 - **You can think out loud.** Jump from topic to topic. What you say lands under the question it
   belongs to and comes back when that topic does.
-
-**Two goals it can't promise yet:**
-
-- **Better over time, not worse.** One home for every decision, a maintenance pass that keeps
-  documents and code in agreement, and rules reworded each time the agent ignores one all point
-  this way. Nothing yet measures whether it holds.
-- **No harm.** The harness's own scripts refuse rather than overwrite, and work leaves your machine only the way you said it may.
-  Nothing yet bounds what the agent itself may do.
 
 ## A morning with it
 
@@ -183,27 +191,28 @@ you have told it to ask.
 
 ## Who it is for, and what it costs
 
-It is for **steering agents on a project**, in one session or several at once — a long-lived
-product, a large refactor, a codebase you return to between other work, or a new one started under
-it — wherever forgetting would cost you. It is not for a one-off script.
-
-Before you install, know this:
+It is for **steering an agent on work that lasts**, in one session or several at once — a
+product, a refactor, a course of study, a research line, a diary, new or long-lived — wherever
+forgetting would cost you. It is not for a one-off script.
 
 - **Several sessions at once, yes; keeping them apart is your host's job.** Sessions in one tree
   see where the others stand, and the harness's own scripts refuse a write to an entry that moved
   since it was read. Nothing here locks a file: that is your host's — its edit tool refuses to
   write over a file that changed since the agent read it, and where it offers a worktree per
   session, each works in its own.
-  <straw-dog question="q-0033.0004">A team sharing one queue across branches is not tested yet, and your team's tracker can't yet take the tickets' place.</straw-dog>
-- <straw-dog question="q-0037.0006.0013">**No uninstall command.** Everything it adds is files, so reverting the install commit removes the harness. What it wrote under `docs/` afterwards stays until you delete it.</straw-dog>
+- **Everything it adds is files.** Reverting the install commit removes the harness; what it wrote
+  under `docs/` afterwards stays until you delete it.
 
-<straw-dog question="q-0038.0001">What it saves has not been measured. To judge it, install it into one project and watch three things over a few weeks: whether an agent arriving cold re-decides less, whether work stopped in one session is found at its step in the next, and whether the questions you raise come back. In a project with a method of its own, the study's report carries a measure to repeat after the migration: what it cost a newcomer to recover the project's state before, and after.</straw-dog>
+**Measure it in your project.** Over a few weeks, watch three things: whether an agent arriving
+cold re-decides less, whether work stopped in one session is found at its step in the next, and
+whether the questions you raise come back. In a project with a method of its own, the study's
+report carries a measure to repeat later: what it cost a newcomer to recover where things stood,
+before and after.
 
 ## It changes with your project
 
 - **Your own skills get the same checks.** A guided command, `/mechanism`, walks you through adding
   one, and the scripts that check the shipped skills then check yours.
-- <straw-dog question="q-0037.0012">**So far it is you who notices a miss:** every one in this repository's log was caught by the person, not the agent.</straw-dog>
 
 **An example from this repository's log.** One rule tells the agent to file each of your
 messages under the open question it belongs to. On 5 October, new sessions kept filing messages
@@ -261,15 +270,6 @@ The rules are in [AGENTS.md](AGENTS.md) and every skill is under [`.agents/skill
   conversation, deepening as the work reaches each part.
 - The open-question tree, with every message placed in it before the reply.
 - Each rule kept in one place, and checks on the harness's own files, run at install and update.
-
-**Not yet:**
-
-- <straw-dog question="q-0037.0006.0020.0001.0001">Taking a project's own method in after the report — alongside yours, with your rules file kept and one line added, or in its place — is the next piece of work; today the report ends with your decision.</straw-dog>
-- <straw-dog question="q-0037.0013.0002">You can't yet say which kinds of decision stop for you; the line between yours and the agent's is drawn by its judgement of what bears load.</straw-dog>
-- <straw-dog question="q-0037.0006.0011.0004">The install doesn't yet find what your project exists to solve, or the answers already built into its docs and code; the first session builds them with you instead.</straw-dog>
-- <straw-dog question="q-0037.0006.0020.0002.0003">Updates name the files they changed, not what changed in them or what your project has to do about it.</straw-dog>
-- <straw-dog question="q-0037.0006.0018">There is no way yet to send improvements your project makes to the harness back upstream.</straw-dog>
-- <straw-dog question="q-0037.0006.0023">Other hosts — Copilot, Gemini CLI, OpenCode and the rest — aren't supported yet.</straw-dog>
 
 ## Use it (instructions for your agent)
 
