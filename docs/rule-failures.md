@@ -853,6 +853,26 @@ dial — a rule, shown before it lands:
 
 **Disposition:** open as a slip; the person, 2026-10-20: no amendment now, to be thought about later — the proposed sentence stands here as a candidate for a repeat.
 
+**Struck 2026-10-25 — a shared index, no add at all.** A session landing S9's new sentence staged
+its four files by name, the register's own hunk as a blob, and ran the checks before committing.
+In those seconds a session planning 01-0011.0110.0090 ran its commit, 588d90e, without naming
+paths: the index held both sessions' staging, and the S9 rule, its reinstall in the entry file,
+v129 and this register's line went out under that session's subject and were pushed. Nothing was
+lost; the history names the wrong step. The same class as the entry's: a staging command that
+cannot obey *commit the work in current session only*, here `git commit` with no paths, which
+takes whatever the shared index holds. Staging by name, the amendment above, would not have
+stopped it.
+
+**Proposed amendment**, to `/commit`, replacing the sentence above, at the self-improvement dial —
+a rule, shown before it lands; a host hook refusing a bare `git commit` in a tree where other
+sessions run would hold it mechanically:
+
+> Commit with the paths named, `git commit -- <file>…`, each one this session wrote or moved, and
+> stage nothing ahead of the commit; never a directory, a glob, `-A` or a bare `git commit` — in a
+> tree where other sessions run, the index is shared.
+
+**Disposition:** open, struck once.
+
 ## 55. A decision abandoned twelve days earlier was carried as waiting in six replies running — 2026-10-20
 
 **Rules in play, both loaded:**
