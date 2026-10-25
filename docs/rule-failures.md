@@ -126,8 +126,9 @@ would need.
 
 ## 74. The person was asked to choose among a record's ids — 2026-10-25
 
-**Rule in play, loaded:** the entry file, *A reply speaks the method*: *"It names no script, call,
-check, report, record's internals or hook."*
+**Rule in play, loaded:** the debugging mechanism's D2, installed in the entry file: *"A reply tells
+nothing of the machinery behind it: … no script, call, check, report, hook, commit or its hash,
+rule's id, skill's name or record's internals."*
 
 **What happened.** Reading the product document toward a roadmap, the agent wrote its replies in
 the document's own ids — *A49*, *A26*, *A38 and A39*, *G2* — and put the decision as *A1, A26, A36,
@@ -137,12 +138,14 @@ or A38 and A39*. The person: *I have no idea what all these A's are.*
 rows are known by; an id looks like a name, and the agent, having just read the table, took it for
 one. Question and ticket ids are required in a reply, linked, which makes every id look allowed.
 
-**Proposed amendment**, to that sentence, at the self-improvement dial — a rule, shown before it
-lands:
+**Proposed amendment**, to D2 in `.agents/mechanisms/debugging/debugging.rules.md`, at the
+self-improvement dial — a rule, shown before it lands; the debugging mechanism is in another
+session's work, so it lands there, sent by message:
 
-> It names no script, call, check, report, record's internals or hook, and no record's id stands
-> for what it names — an answer, a pain, a rule is said by what it is; a question's and a ticket's
-> ids are shown only as their own rules ask, beside what they name.
+> A reply tells nothing of the machinery behind it: what the work read, ran or wrote on the way,
+> or will read next — no script, call, check, report, hook, commit or its hash, rule's id, skill's
+> name or record's internals; and no record's id stands for what it names — an answer, a pain, a
+> goal is said by what it is.
 
 **Disposition:** open; the amendment waits on the person.
 
