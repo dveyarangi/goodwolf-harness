@@ -4,7 +4,7 @@
 - **state** open
 - **rung** development: the whole product
 - **lean** 2026-10-13: the purpose root by its words; its open questions wait as undecided answers A15, A21, A51 and A52 in docs/product.md
-- **struck** 1, last 2026-10-10T21:36Z
+- **struck** 2, last 2026-10-25T09:25Z
 
 Opened 2026-10-09 from the front-page align (q-0033.0008). Each list of what the harness *is* came
 out as either its implementation or general engineering claims. The user: *none of this answers

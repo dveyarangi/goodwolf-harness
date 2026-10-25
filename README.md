@@ -34,7 +34,9 @@ knows what is needed now — which rule, which record, which question — and do
 
 - **A memory that stays true.** Not notes an agent keeps, but the project's working mind, held
   together:
-  - every fact and every rule in one home, copied by script to wherever it is read;
+  - every rule in one home, installed by script wherever it is read, and a check that fails the
+    moment an installed copy drifts; every fact in one home, held there by maintenance<straw-dog question="q-0037.0010.0009.0008">,
+    with a check of its own being built, and instructions kept out of records the same way</straw-dog>;
   - every record knowing whether it says what will be, what must always hold, what is, or what
     was — and so which side wins when it and the code disagree;
   - every decision linked to what it rests on, so that when an answer changes, what stood on it
