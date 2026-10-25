@@ -133,8 +133,9 @@ claimant is the always-on mechanism, so no uninstall can remove what another mec
   leaves the check nothing to compare the authored copy against.
 - **The installer's `--check` report** — *what exists* — read by `/verify` through the verification set, and by
   anyone who runs it. Its exit status is what the set consumes; a block absent, drifted or
-  owned by nothing is what it fails on, and a local block that is not last in its file, or an
-  override naming a rule that is not installed where the override is.
+  owned by nothing is what it fails on, and a block outside the section its anchor heads, a local
+  block that is not last in its file, or an override naming a rule that is not installed where the
+  override is.
 
 - **A part's claim** — *what it intends to become, what must always hold once it names a mechanism
   or says unowned by design* — the `Mechanism:` line a file an agent edits opens

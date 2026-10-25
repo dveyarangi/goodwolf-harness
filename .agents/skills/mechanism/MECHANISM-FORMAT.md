@@ -79,8 +79,9 @@ Prose before the table is the file's own preamble and is not read.
 - **The body** is the span between a line that is exactly `<rule>` and a line that is exactly
   `</rule>`, installed byte for byte. It holds no markdown citation — the mover rewrites a
   relative link per the file it sits in, so one body in two directories would drift apart — no
-  heading line, no `<installed` or `</installed>`, and no `<straw-dog>`. A section with two spans,
-  or none, is refused.
+  heading line, no `<installed` or `</installed>`, and no `<straw-dog>` outside code — the tag quoted
+  in a code span is no wrapper, to the listing or here. A section with two spans, or none, is
+  refused.
 - **A rule that expires is wrapped around its section**: the tag opens before the heading and
   closes after `</rule>`, outside the body, so a target receives the rule and never the wrapper.
   A tag inside a body is refused.
@@ -116,7 +117,8 @@ mechanisms then the local file; `--set <setting>=<value>` changes one value and 
 value, who sets it, who declares it — and writes nothing, an index rendered on request.
 A named mode or a refusal; every target validated before anything is written; retraction
 leaves the target byte-identical; a differing block refuses until the caller says overwrite,
-and then the block is replaced whole and the report carries what it replaced. The contract is
+and then the block is replaced whole and the report carries what it replaced; a matching block
+outside its anchor's section refuses until it is retracted and installed again. The contract is
 the architecture's; the entry file owns the prohibition on editing a block in place.
 
 **The project's own rules file is one more source.** `local.rules.md` sits beside the entry

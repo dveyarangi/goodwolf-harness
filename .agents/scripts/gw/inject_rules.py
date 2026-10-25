@@ -629,7 +629,9 @@ def _body_problems(rule_id: str, body: str) -> None:
     # A body is copied into every target, and the listing blanks an installed block before it
     # scans: a straw dog written here would be invisible in every place it landed. An expiring
     # rule is wrapped around its section instead, where the rule is authored and the listing looks.
-    if "<straw-dog" in body or "</straw-dog>" in body:
+    # The tag quoted in code is no wrapper to the listing, which reads prose, so it passes here too.
+    prose = without_code(body)
+    if "<straw-dog" in prose or "</straw-dog>" in prose:
         raise Refused(
             f"rule {rule_id}'s body holds a straw dog; wrap the section, not the body, so the "
             "listing sees it where the rule is authored"
@@ -716,6 +718,12 @@ def insertion_point(text: str, anchor: str, slug: str) -> int:
     if local is not None and after_anchor(text, anchor) <= local.start < end:
         return local.start - 1
     return end
+
+
+def in_its_section(text: str, anchor: str, found: Located) -> bool:
+    """Whether the block opens after the anchor line and closes within the anchor's section;
+    where in the section it stands is install order's, and not read."""
+    return after_anchor(text, anchor) <= found.start and found.end <= section_end(text, anchor)
 
 
 def following_block(text: str, offset: int) -> tuple[str, int] | None:
@@ -892,6 +900,11 @@ def _planned(
                 )
             return {"target": target, "state": "installed"}, with_block(text, at, rendered)
         if matches(found.text, rendered):
+            if not in_its_section(text, anchor, found):
+                # Present wherever it stood would let one section per mechanism go unread. Read here,
+                # on the matching block alone, so a re-render or an overwrite still mends a block in
+                # place first; a matching block then moves by retraction and an install.
+                raise Refused("the block stands outside its anchor's section; retract it, then install")
             return {"target": target, "state": "present"}, None
         if _differs_by_settings_alone(found.text, rules, place.rows):
             replaced = text[: found.start] + rendered + text[found.end:]
@@ -1037,7 +1050,8 @@ def check_line(report: dict) -> str:
         return ""
     return (
         f"installed blocks: {count} thing{'s' if count > 1 else ''} out of step with the rules files and "
-        "the settings — run `inject_rules.py --install`, then `--check` for what it could not mend"
+        "the settings — run `inject_rules.py --install`, a block outside its section retracted first, "
+        "then `--check` for what it could not mend"
     )
 
 
@@ -1055,18 +1069,26 @@ def _state(root: Path, rules: RulesFile, place: Reached, settings: Settings = NO
     if rendered is None:
         return "not called for" if found is None else "present though the settings call for none of it"
     if found is None:
-        try:
-            after_anchor(text, anchor)
-        except Refused as refusal:
-            return "anchor ambiguous" if "ambiguous" in str(refusal) else "anchor missing"
-        return "absent"
+        return _anchor_problem(text, anchor) or "absent"
     if found.text is None:
         return "the block opens and never closes"
     if not matches(found.text, rendered):
         return "out of step with the settings" if _differs_by_settings_alone(found.text, rules, place.rows) else "drifted"
+    if problem := _anchor_problem(text, anchor):
+        return problem
+    if not in_its_section(text, anchor, found):
+        return "outside its section"
     if rules.slug == LOCAL and following_block(text, found.end):
         return "not last"
     return "present"
+
+
+def _anchor_problem(text: str, anchor: str) -> str | None:
+    try:
+        after_anchor(text, anchor)
+    except Refused as refusal:
+        return "anchor ambiguous" if "ambiguous" in str(refusal) else "anchor missing"
+    return None
 
 
 def _orphans(

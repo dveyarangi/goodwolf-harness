@@ -535,6 +535,14 @@ class Refusing(RepositoryCase):
         self.assertIn("**R2** Move story out of a doc into its evidence.", written)
         self.assertNotIn("straw-dog", written)
 
+    def test_a_body_quoting_the_straw_dog_tag_in_a_code_span_installs_byte_for_byte(self) -> None:
+        quoted = 'Wrap it as `<straw-dog question="q-N">`, the tag closing after.'
+        self.write(RULES, rules_file().replace("Move story out of a doc into its evidence.", quoted))
+
+        self.assertEqual(0, self.run_installer(SLUG, "--install")[0])
+
+        self.assertIn(f"**R2** {quoted}", self.read(TARGET))
+
     # the target's blocks
 
     def test_two_blocks_of_one_slug_in_one_file_refuse(self) -> None:
@@ -652,6 +660,75 @@ class Drifting(RepositoryCase):
 
         self.assertEqual(0, status)
         self.assertEqual("absent", report["targets"][0]["state"])
+
+
+class Placing(RepositoryCase):
+    """A block stands in the section its anchor heads, or the tree is out of step."""
+
+    MISPLACED = TARGET_TEXT + f"\n{INSTALLED}\n"
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.write(RULES, rules_file())
+        self.write(TARGET, self.MISPLACED)
+
+    def run_installer(self, *operands: str) -> tuple[int, dict]:
+        said = io.StringIO()
+        with contextlib.redirect_stdout(said):
+            status = inject_rules.main(list(operands), root=self.root)
+        return status, json.loads(said.getvalue())
+
+    def test_a_block_below_the_next_heading_is_outside_its_section(self) -> None:
+        status, report = self.run_installer("--check")
+
+        self.assertEqual(1, status)
+        self.assertEqual("outside its section", report["blocks"][0]["state"])
+        self.assertIn(f"{SLUG} in {TARGET}: outside its section", report["diagnostics"])
+
+    def test_install_refuses_a_misplaced_block_rather_than_call_it_present(self) -> None:
+        untouched = self.snapshot()
+
+        status, report = self.run_installer(SLUG, "--install")
+
+        self.assertEqual(1, status)
+        self.assertIn("outside its anchor's section", report["refusals"][0])
+        self.assertIn("retract", report["refusals"][0])
+        self.assertEqual(untouched, self.snapshot())
+
+    def test_retract_then_install_moves_the_block_into_its_section(self) -> None:
+        self.assertEqual(0, self.run_installer(SLUG, "--retract")[0])
+        self.assertEqual(0, self.run_installer(SLUG, "--install")[0])
+
+        self.assertEqual(TARGET_TEXT.replace(f"{ANCHOR}\n", f"{ANCHOR}\n\n{INSTALLED}\n"), self.read(TARGET))
+        self.assertEqual(0, self.run_installer("--check")[0])
+
+    def test_a_drifted_block_outside_its_section_is_overwritten_in_place_then_moved(self) -> None:
+        self.write(TARGET, self.MISPLACED.replace("live rows only.", "live rows only, mostly."))
+
+        status, report = self.run_installer(SLUG, "--install", "--overwrite")
+        self.assertEqual(0, status, report)
+        self.assertEqual("overwritten", report["targets"][0]["state"])
+        self.assertEqual(self.MISPLACED, self.read(TARGET))
+
+        self.assertEqual(0, self.run_installer(SLUG, "--retract")[0])
+        self.assertEqual(0, self.run_installer(SLUG, "--install")[0])
+        self.assertEqual(TARGET_TEXT.replace(f"{ANCHOR}\n", f"{ANCHOR}\n\n{INSTALLED}\n"), self.read(TARGET))
+
+    def test_a_block_whose_anchor_is_gone_is_anchor_missing_not_present(self) -> None:
+        self.write(TARGET, TARGET_TEXT.replace(f"{ANCHOR}\n", f"## Renamed\n\n{INSTALLED}\n"))
+
+        status, report = self.run_installer("--check")
+
+        self.assertEqual(1, status)
+        self.assertEqual("anchor missing", report["blocks"][0]["state"])
+
+    def test_a_block_right_after_the_anchor_line_before_the_sections_prose_is_present(self) -> None:
+        self.write(TARGET, TARGET_TEXT.replace(f"{ANCHOR}\n", f"{ANCHOR}\n\n{INSTALLED}\n\nOwn prose.\n"))
+
+        status, report = self.run_installer("--check")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual("present", report["blocks"][0]["state"])
 
 
 class FailingMidWrite(RepositoryCase):
