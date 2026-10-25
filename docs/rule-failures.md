@@ -147,6 +147,14 @@ ticket's id shown beside its words, as their rules ask, stays outside it.
 **Renumbered 2026-10-25.** Registered as a second 74, nine hours after the first; its commit,
 318cd02, keeps the old number. The race strikes 75 again.
 
+**In play, corrected 2026-10-25.** At 11:40 the tree stood at `debug` on, so the debugging
+mechanism's show-the-machinery rule was installed, not its keep-it-out rule: no rule against an id
+in place of a thing stood at all.
+
+**Struck 2026-10-25, the same day.** The session weighing this very amendment told the person of
+the debugging rules by their ids — *D2*, *D3*, *D1–D3* — and of a register entry by its number.
+The person: *what is D2 and the rest?*
+
 ## 80. A rule landed the same day read as leave to commit other sessions' work — 2026-10-25
 
 **Rule in play, loaded:** the entry file, Autonomy, v114: *"A green stage of work in progress is
