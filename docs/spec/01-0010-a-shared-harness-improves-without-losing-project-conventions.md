@@ -125,7 +125,7 @@ Prior evidence includes the audit and [isolated Life probes](../research/life-ha
 
 Wholesale adoption of Life's operating policies, unrelated changes to consuming products, and general queue machinery without a demonstrated need in this harness. Queue requirements may enter scope when concrete cases justify them.
 
-The [queue](../tickets/README.md) owns the current step. Bootstrap suite membership and source variants are accepted in the owning ticket. Broader open design includes operational principle definitions, load-bearing seams, observable rule delivery, local exceptions, detailed ownership, proposal and pull behavior, activation in sessions, maintenance representation and canonical layout. The glossary distinguishes unresolved issues from the documents that hold or resolve them. This draft does not resolve them by implication.
+What comes next is the path's reading, shown at every `/recall`. Bootstrap suite membership and source variants are accepted in the owning ticket. Broader open design includes operational principle definitions, load-bearing seams, observable rule delivery, local exceptions, detailed ownership, proposal and pull behavior, activation in sessions, maintenance representation and canonical layout. The glossary distinguishes unresolved issues from the documents that hold or resolve them. This draft does not resolve them by implication.
 
 ## Delivery-ring breakdown — 2026-09-06
 

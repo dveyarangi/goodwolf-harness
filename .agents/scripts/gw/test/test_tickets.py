@@ -16,7 +16,6 @@ STORE = "docs/questions"
 LIVE = "docs/tickets/01-0002-live.md"
 PLANNED = "docs/tickets/01-0003-planned.md"
 RFC = "docs/rfc/01-0003-planned.md"
-QUEUE = "docs/tickets/README.md"
 MARKED = "- **record of** what it intends to become\n"
 
 
@@ -67,7 +66,6 @@ class Records(RepositoryCase):
     def setUp(self) -> None:
         super().setUp()
         self.questions: dict[str, str] = {}
-        self.write(QUEUE, f"# Delivery status\n\n{MARKED}\n**Candidate:** none.\n")
         self.write("docs/tickets/01-0001-earlier.md", ticket(BEFORE))
         self.write(LIVE, ticket(BEFORE))
         self.write(PLANNED, ticket(PLANNED_BEFORE))
@@ -275,52 +273,8 @@ class TheMark(Records):
         self.assertEqual(1, len(problems), "the mark passes while the retired field is refused")
         self.assertIn("Kind is no longer a field", problems[0])
 
-    def test_the_queue_carrying_none_is_reported(self) -> None:
-        self.write(QUEUE, "# Delivery status\n\n**Candidate:** none.\n")
-
-        problems = self.problems()
-
-        self.assertEqual(1, len(problems))
-        self.assertIn("names no kind", problems[0])
-        self.assertEqual([(QUEUE, 3)], self.problem_lines())
-
-    def test_the_queue_marked_with_another_kind_is_reported(self) -> None:
-        self.write(QUEUE, "# Delivery status\n\n- **record of** what exists\n\n**Candidate:** none.\n")
-
-        problems = self.problems()
-
-        self.assertEqual(1, len(problems))
-        self.assertIn("what exists", problems[0])
-
-    def test_the_queue_naming_a_closed_ticket_is_reported_at_its_line(self) -> None:
-        self.write(
-            QUEUE,
-            f"# Delivery status\n\n{MARKED}\n1. [01-0002 live](01-0002-live.md)\n"
-            "2. [01-0001 earlier](done/01-0001-earlier.md), done 2026-10-13\n",
-        )
-
-        problems = self.problems()
-
-        self.assertEqual(1, len(problems), "the live ticket passes while the closed one is refused")
-        self.assertIn("docs/tickets/done/01-0001-earlier.md", problems[0])
-        self.assertEqual([(QUEUE, 6)], self.problem_lines())
-
-    def test_the_queue_naming_a_closed_question_is_reported(self) -> None:
-        self.write(QUEUE, f"# Delivery status\n\n{MARKED}\n1. [q-0009](../questions/done/q-0009-was.md)\n")
-
-        self.assertEqual([(QUEUE, 5)], self.problem_lines())
-
-    def test_the_queue_naming_live_tickets_and_open_questions_passes(self) -> None:
-        self.write(
-            QUEUE,
-            f"# Delivery status\n\n{MARKED}\n1. [01-0002 live](01-0002-live.md)\n"
-            "2. [q-0001](../questions/q-0001-what-is-it-for.md), unminted\n",
-        )
-
-        self.assertEqual([], self.problems())
-
-    def test_a_tree_without_a_queue_is_not_reported_for_it(self) -> None:
-        (self.root / QUEUE).unlink()
+    def test_a_readme_among_the_tickets_is_not_read_as_one(self) -> None:
+        self.write("docs/tickets/README.md", "# The project's own notes\n\nNo mark, no header.\n")
 
         self.assertEqual([], self.problems())
 

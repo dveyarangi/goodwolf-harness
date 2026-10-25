@@ -890,10 +890,10 @@ class CoreStandsAlone(Declared):
         self.assertEqual([(CITING, 3, DOCUMENT)], self.leaks())
 
     def test_a_painted_door_passes_and_is_reported_as_one(self) -> None:
-        self.write(CITING, "# Notes\n\nThe queue is `docs/tickets/README.md`, under docs/tickets.\n")
+        self.write(CITING, "# Notes\n\nThe marks are `docs/mechanisms/maintenance.md`, beside docs/tickets.\n")
 
         self.assertEqual([], self.problems())
-        self.assertEqual(["docs/tickets/README.md", "docs/tickets"], self.standing("painted door"))
+        self.assertEqual(["docs/mechanisms/maintenance.md", "docs/tickets"], self.standing("painted door"))
 
     def test_a_directory_row_covers_itself_and_not_a_path_beneath_it(self) -> None:
         self.write(CITING, f"# Notes\n\n`docs/tickets/` holds `{DOCUMENT}`.\n")

@@ -205,7 +205,7 @@ A row carries an instruction or an absence, never both and never neither.
 A `not yet` row is a straw dog *(the user, 2026-09-20)*:
 
 ```md
-| ordering the queue | — | <straw-dog question="q-N">not yet</straw-dog> |
+| ordering the work | — | <straw-dog question="q-N">not yet</straw-dog> |
 ```
 
 Body: the kind alone; the referent is the question, and its words are the reason. A row

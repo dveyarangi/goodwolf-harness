@@ -20,7 +20,7 @@ class Refusal(RepositoryCase):
         super().setUp()
         self.write(TICKET, "# Install /plan\n")
         self.write(RFC, "# Install /plan — plan\n")
-        self.write("docs/tickets/README.md", "# Queue\n\n[plan](01-0010.0040-install-plan.md)\n")
+        self.write("docs/notes.md", "# Notes\n\n[plan](tickets/01-0010.0040-install-plan.md)\n")
 
     def refused_for(self, pairs: list[tuple[str, str]]) -> str:
         untouched = self.snapshot()

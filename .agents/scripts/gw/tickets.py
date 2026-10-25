@@ -12,9 +12,9 @@ the table and fails the run.
 
 The shape is the ticket format shelf's, `TICKET-FORMAT.md`, under *The record*: the mark of what
 the ticket is a record of, the header's fields and their order, the sections a stage admits, the
-acceptance boxes, and the pairing of an RFC with the ticket that shares its basename. The queue is
-read for its mark and for a link into an archive. The question store is read for one thing: that a
-ticket's `Answers` links an entry the ticket owns. This script rules on form alone. Whether a ticket
+acceptance boxes, and the pairing of an RFC with the ticket that shares its basename. The question
+store is read for one thing: that a ticket's `Answers` links an entry the ticket owns. This script
+rules on form alone. Whether a ticket
 should have been written, whether its status is true, whether an outcome is any good, are
 judgments it records and never makes.
 
@@ -40,7 +40,8 @@ from docs_corpus import cited_record, citations, corpus, target_of  # noqa: E402
 
 TICKETS = "docs/tickets"
 RFCS = "docs/rfc"
-QUEUE = "docs/tickets/README.md"
+# A README among the tickets is never a ticket: in a recipient it is that project's own record.
+README = "README.md"
 STATUSES = ("Done", "In progress", "Ready", "Partial", "Planned", "Blocked")
 TYPES = ("HITL", "AFK")
 ORDERED = ("Status", "Type", "Minted", "Plan", "Depends on", "Blocks", "Answers", "Outcome")
@@ -56,10 +57,9 @@ NAMED_SECTIONS = ("Parent", "What to build", "Acceptance criteria", "Out of scop
 # its own argument, so a section listing them is a second home (the user, 2026-10-03).
 RETIRED_SECTIONS = ("Open issues",)
 REQUIRED_SECTIONS = ("What to build", "Acceptance criteria")
-# A live ticket and the queue are records of what they intend to become, as the ticket format
-# declares; each carries it as the line its title is followed by, read as what the record is a
-# record of. The mark has no colon, which tells it from the retired `Kind:` field; `kind` was its
-# earlier name.
+# A live ticket is a record of what it intends to become, as the ticket format declares; it
+# carries it as the line its title is followed by, read as what the record is a record of. The
+# mark has no colon, which tells it from the retired `Kind:` field; `kind` was its earlier name.
 MARK = "record of"
 FORMER_MARK = "kind"
 RECORD_KIND = "what it intends to become"
@@ -211,7 +211,7 @@ def check(root: Path) -> Checked:
             continue
         records.append(read)
         diagnostics += _problems(root, read, names) + _answers_problems(root, read, entries)
-    diagnostics += _pairing_problems(names) + _queue_problems(root, names)
+    diagnostics += _pairing_problems(names)
     return Checked(records, diagnostics, skipped)
 
 
@@ -275,11 +275,13 @@ def _question(root: Path, read: Ticket, entries: dict[str, "questions.Entry"]) -
 
 
 def live_tickets(names: list[str]) -> list[str]:
-    """The records under `docs/tickets/` itself: not the queue, not anything archived."""
+    """The records under `docs/tickets/` itself: not a README, not anything archived."""
     return sorted(
         name
         for name in names
-        if posixpath.dirname(name) == TICKETS and name.endswith(".md") and name != QUEUE
+        if posixpath.dirname(name) == TICKETS
+        and name.endswith(".md")
+        and posixpath.basename(name) != README
     )
 
 
@@ -346,7 +348,7 @@ def _sections(lines: list[str], start: int) -> list[Section]:
 def _problems(root: Path, read: Ticket, names: list[str]) -> list[Diagnostic]:
     """Everything about one live ticket that the shelf's declared shape contradicts."""
     return (
-        _mark_problems(read.record, read.mark, "ticket")
+        _mark_problems(read.record, read.mark)
         + _form_problems(read)
         + _field_problems(read)
         + _plan_problems(root, read, names)
@@ -355,44 +357,17 @@ def _problems(root: Path, read: Ticket, names: list[str]) -> list[Diagnostic]:
     )
 
 
-def _mark_problems(record: str, mark: Field, called: str) -> list[Diagnostic]:
+def _mark_problems(record: str, mark: Field) -> list[Diagnostic]:
     """The kind the record carries against the kind its format declares (the user, 2026-10-08):
     carried, the agent editing it meets the kind in context before adding what the kind refuses."""
     expected = f"`- **{MARK}** {RECORD_KIND}`"
     if not mark.name:
-        return [Diagnostic(record, mark.line, f"the {called} names no kind: {expected} follows its title")]
+        return [Diagnostic(record, mark.line, f"the ticket names no kind: {expected} follows its title")]
     if mark.name == FORMER_MARK:
-        return [Diagnostic(record, mark.line, f"the {called} carries its kind as `- **{FORMER_MARK}**`: write {expected}")]
+        return [Diagnostic(record, mark.line, f"the ticket carries its kind as `- **{FORMER_MARK}**`: write {expected}")]
     if mark.value != RECORD_KIND:
-        return [Diagnostic(record, mark.line, f"the {called}'s kind is {mark.value}, and a live {called} is {RECORD_KIND}")]
+        return [Diagnostic(record, mark.line, f"the ticket's kind is {mark.value}, and a live ticket is {RECORD_KIND}")]
     return []
-
-
-def _queue_problems(root: Path, names: list[str]) -> list[Diagnostic]:
-    """The queue's mark, and that it names nothing closed, where the tree has a queue; a tree
-    without one is not this check's to report."""
-    if QUEUE not in names:
-        return []
-    try:
-        lines = (root / QUEUE).read_bytes().decode("utf-8").splitlines()
-    except UnicodeDecodeError:
-        return [Diagnostic(QUEUE, None, "is not UTF-8, so its mark cannot be read")]
-    return _mark_problems(QUEUE, _mark(lines), "queue") + _closed_in_queue(root, lines)
-
-
-def _closed_in_queue(root: Path, lines: list[str]) -> list[Diagnostic]:
-    """A link into an archive: the queue is the order of work still to come, so the pass that
-    closes a record removes its line, and the history stays with the commits and the session
-    records (rule failure 66, the user, 2026-10-24)."""
-    notes = []
-    for number, line in enumerate(lines, start=1):
-        for written in citations(line):
-            record = cited_record(root, QUEUE, target_of(written))
-            if record and "done" in record.split("/")[:-1]:
-                notes.append(
-                    Diagnostic(QUEUE, number, f"names {record}, which is closed: the pass that closed it removes its line")
-                )
-    return notes
 
 
 def _form_problems(read: Ticket) -> list[Diagnostic]:

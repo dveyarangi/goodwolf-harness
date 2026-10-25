@@ -1,15 +1,14 @@
 # Ticket format
 
-This shelf owns ticket naming, delivery-state vocabulary, the shape of a
-ticket as a record, and what the queue in `docs/tickets/README.md` holds.
-What an RFC *contains* is `/plan`'s.
+This shelf owns ticket naming, delivery-state vocabulary and the shape of a
+ticket as a record. What an RFC *contains* is `/plan`'s.
 
 ## Numbering
 
 ```
 docs/tickets/done/01-0090.0030-the-outcome-it-names.md
               │  │    └── slug — what the ticket is.
-              │  └─────── position — its identity, never changed; the order of the work is the queue's.
+              │  └─────── position — its identity, never changed.
               └────────── release — the contract the ticket serves.
 ```
 
@@ -187,17 +186,3 @@ sit in the same folder state. Only names are read; nothing inside an RFC is.
   never restate them.
 - Date a criterion checked early and a status flip; nothing else accretes.
 - Wrap at ~100 columns.
-
-## The queue
-
-<straw-dog question="q-0037.0019.0004">
-The queue is `docs/tickets/README.md`: the order of the work, a numbered
-list, one line an item — a live ticket or an open question, with the
-person's word that placed it. It names nothing closed: the pass that closes
-a ticket removes its line. It copies nothing a ticket says, keeps no account
-of steps done — the session records and the commits hold it — and lists the
-live tickets only through `tickets.py --list`. It is of the kind *what it
-intends to become*, and carries `- **record of** what it intends to become`
-on the line after its title; `tickets.py --check` holds the mark and refuses
-a link into `done/`, where the queue exists.
-</straw-dog>

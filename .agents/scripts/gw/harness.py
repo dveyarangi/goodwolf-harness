@@ -70,9 +70,6 @@ LINK_TARGET = "../.agents/skills"
 SKILLS = ".agents/skills"
 HARNESS_SKILL = f"{SKILLS}/harness/SKILL.md"
 FRONT_PAGE = "README.md"
-QUEUE_ARRIVAL = f"{SKILLS}/ticket/QUEUE-ARRIVAL.md"
-DELIVERY_STATUS = "docs/tickets/README.md"
-ARRIVAL_STATE = re.compile(r"^```delivery-status[ \t]*\r?\n(?P<said>.*?)^```", re.M | re.S)
 REPOSITORY = re.compile(r"^Repository: (?P<url>\S+)[ \t]*(?:\r?\n|\Z)", re.M)
 MODES = ("--install", "--update", "--check", "--links")
 # Set by the installer that hands an update on, so the incoming ref's own runs it and hands it on
@@ -242,7 +239,6 @@ def run(
     wiring = _wiring_plan(target, shipment, previous)
     _refuse_unless_injectable(target, shipment, previous)
     _write(target, shipment, previous, report)
-    _write_delivery_status(target, shipment, report)
     _seed_store(target, report)
     _seed_product_document(target, report)
     _write_wiring(target, wiring, report)
@@ -446,7 +442,6 @@ class Shipment:
 
     ref: Ref
     files: dict[str, str]
-    arrival: str
 
     @classmethod
     def at(cls, source: Source, ref: Ref) -> Shipment:
@@ -455,16 +450,16 @@ class Shipment:
             raise Refused(f"ship: {ref.announced} has no {HARNESS_SKILL}; this is not the harness")
         _refuse_unless_the_roots_are_said(files, ref)
         _refuse_unless_the_product_document_is_said(files, ref)
-        return cls(ref, files, arrival_state(files, ref))
+        return cls(ref, files)
 
     @classmethod
     def earlier(cls, source: Source, ref: Ref) -> Shipment:
         """What a ref a recipient announces shipped, read to compare its copy against and to know
         what has left the manifest since. It is never shipped again, so today's shipping rules —
-        the leak rule, the Repository line, the arrival shelf — do not hold it: a ref installed
-        before a rule existed would otherwise strand every tree that took it. It carries no
-        arrival state; only what is about to ship writes one."""
-        return cls(ref, _transformed(source, ref, held=False), "")
+        the leak rule, the Repository line, the shelves a fresh tree is seeded from — do not hold
+        it: a ref installed before a rule existed would otherwise strand every tree that took
+        it."""
+        return cls(ref, _transformed(source, ref, held=False))
 
 
 def _transformed(source: Source, ref: Ref, held: bool) -> dict[str, str]:
@@ -596,30 +591,10 @@ def repository_stamped(text: str, ref: Ref, told: str) -> str:
     return text[: line.start("url")] + told + text[line.end("url") :]
 
 
-def arrival_state(files: dict[str, str], ref: Ref) -> str:
-    """What the queue says in a tree where core has arrived and nothing is in flight, from the
-    ref's own words rather than this tree's: the ticket mechanism owns the record and words it,
-    and the only substitution is the ref the recipient will announce.
-
-    Read while the shipment is built, so a ref that cannot say it is refused before anything is
-    written rather than partway through. It has a shelf of its own because it is read once, by
-    this script, and the format shelf beside it is read at every ticket a session writes. The
-    block is found by its info string and not by its position, so prose may be written around it;
-    and being fenced is what keeps the citation reader from taking a path inside it for a
-    document only the origin has."""
-    shelf = files.get(QUEUE_ARRIVAL)
-    if shelf is None:
-        raise Refused(f"ship: {ref.announced} has no {QUEUE_ARRIVAL}; this is not the harness")
-    said = ARRIVAL_STATE.search(shelf)
-    if said is None:
-        raise Refused(f"ship: {QUEUE_ARRIVAL} at {ref.announced} declares no arrival state")
-    return said.group("said").replace("{ref}", ref.announced)
-
-
 def _refuse_unless_the_roots_are_said(files: dict[str, str], ref: Ref) -> None:
     """A ref whose store shelf cannot say a fresh store's roots is refused while the shipment is
-    built, before anything is written, as one whose queue shelf cannot. Where the shelf sits and
-    how it is read are the questions mechanism's, asked of its script."""
+    built, before anything is written rather than partway through. Where the shelf sits and how
+    it is read are the questions mechanism's, asked of its script."""
     shelf = files.get(questions.STORE_ARRIVAL)
     if shelf is None:
         raise Refused(f"ship: {ref.announced} has no shelf at {questions.STORE_ARRIVAL}")
@@ -971,28 +946,11 @@ def _write(target: Path, shipment: Shipment, previous: Shipment | None, report: 
     )
 
 
-def _write_delivery_status(target: Path, shipment: Shipment, report: Report) -> None:
-    """The one painted door that arrives with content: a fresh tree's first session reads the
-    queue before anything has been written into it, so it must already say something true.
-
-    Written whenever the path is absent — an update is how a tree that received core before this
-    acquires one. An existing record is the instance's from its first line: never merged, never
-    overwritten, and `--overwrite` does not reach it, since that flag is about core files."""
-    record = target / DELIVERY_STATUS
-    if record.exists():
-        report.notes.append(f"{DELIVERY_STATUS} is the project's: left as it stands")
-        return
-    record.parent.mkdir(parents=True, exist_ok=True)
-    with record.open("w", encoding="utf-8", newline="") as handle:
-        handle.write(shipment.arrival)
-    report.written.append(DELIVERY_STATUS)
-
-
 def _seed_store(target: Path, report: Report) -> None:
-    """A store holding no entry opens with its roots, on an install or an update alike, as the
-    delivery status is written whenever it is absent. The words, the entries and the rule of when
-    are the store script's; the installer only calls it (the user, 2026-10-09: no constants in the
-    installer). A store holding any entry is the project's and is left."""
+    """A store holding no entry opens with its roots, on an install or an update alike: whenever
+    it holds none. The words, the entries and the rule of when are the store script's; the
+    installer only calls it (the user, 2026-10-09: no constants in the installer). A store
+    holding any entry is the project's and is left."""
     try:
         written = questions.seed(target, datetime.now(timezone.utc))
     except (questions.Refused, questions.WriteInterrupted) as stopped:

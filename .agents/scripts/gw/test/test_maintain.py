@@ -258,11 +258,11 @@ class ADueLevelNamesWhatChanged(Clocked):
         self.assertNotIn("gone", standing)
 
     def test_a_file_added_beside_the_skill_is_named_as_added(self) -> None:
-        self.write(".agents/skills/sample/QUEUE-ARRIVAL.md", "# A fresh queue\n")
+        self.write(".agents/skills/sample/FRESH-SHELF.md", "# A fresh shelf\n")
 
         standing = self.standing("sample", "output")
 
-        self.assertEqual([".agents/skills/sample/QUEUE-ARRIVAL.md"], standing["added"])
+        self.assertEqual([".agents/skills/sample/FRESH-SHELF.md"], standing["added"])
         self.assertNotIn("moved", standing)
 
     def test_a_file_that_went_is_named_as_gone(self) -> None:

@@ -1071,8 +1071,8 @@ class Store:
 def _next_free(index: dict[str, Entry], parent: str | None) -> str:
     """The id a question placed under `parent`, or among the roots, takes: the one after every
     position at that level, live or archived (the user, 2026-10-03). No gaps are left, since a
-    question's place among its siblings carries no order to insert into — ticket positions step by
-    ten for their queue, and a question has none.
+    question's place among its siblings carries no order to insert into, so it steps by one where
+    a ticket's position steps by ten.
 
     An id freed by a rename may come back below the highest; nothing forwards it, so an old commit
     message naming it may then read wrongly — accepted with the decision.

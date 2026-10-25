@@ -29,17 +29,10 @@ KEEPER = ".agents/skills/keeper/SKILL.md"
 KEEPER_NAMES = "Mechanism: sample\n\n"
 HARNESS_SKILL = ".agents/skills/harness/SKILL.md"
 TICKET_SKILL = ".agents/skills/ticket/SKILL.md"
-QUEUE_ARRIVAL = ".agents/skills/ticket/QUEUE-ARRIVAL.md"
-DELIVERY_STATUS = "docs/tickets/README.md"
 TICKET_SKILL_TEXT = (
     "---\nname: ticket\ndescription: mints tickets\n---\n\n"
     "Mechanism: unowned by design — this fixture's core declares only sample\n\n"
     "Mint them.\n"
-)
-QUEUE_ARRIVAL_TEXT = (
-    "# What the queue says before anything has happened in it\n\n"
-    "Machine input for the install, read by nobody at session time.\n\n"
-    "```delivery-status\n# Delivery status\n\nCore arrived at `{ref}` and nothing is in flight.\n```\n"
 )
 QUESTIONS_SKILL = ".agents/skills/questions/SKILL.md"
 QUESTIONS_SKILL_TEXT = (
@@ -327,7 +320,6 @@ class TwoTrees(RepositoryCase):
         self.write(KEEPER, f"---\nname: keeper\ndescription: keeps\n---\n\n{KEEPER_NAMES}# Keeper\n\nKeep things.\n")
         self.write(HARNESS_SKILL, HARNESS_SKILL_TEXT)
         self.write(TICKET_SKILL, TICKET_SKILL_TEXT)
-        self.write(QUEUE_ARRIVAL, QUEUE_ARRIVAL_TEXT)
         self.write(QUESTIONS_SKILL, QUESTIONS_SKILL_TEXT)
         self.write(STORE_ARRIVAL, store_arrival_text(*FIXTURE_ROOTS))
         self.write(PRODUCT_SKILL, PRODUCT_SKILL_TEXT)
@@ -1398,7 +1390,7 @@ class AGroupInARecipient(AnUpdate):
 
 
 class ATreeInstalledUnderEarlierRules(TwoTrees):
-    """A recipient announcing a ref that today's shipping rules would refuse: no arrival shelf, a
+    """A recipient announcing a ref that today's shipping rules would refuse: no license, a
     harness skill with no Repository line, and a test outside `gw/test/` citing a record only the
     origin has. What such a ref shipped is read to compare
     against and to know what left the manifest, and is never shipped again, so none of the three
@@ -1414,13 +1406,11 @@ class ATreeInstalledUnderEarlierRules(TwoTrees):
         super().setUp()
         today = self.short_head()
         self.run_harness("--install")
-        self.remove(QUEUE_ARRIVAL, "LICENSE")
+        self.remove("LICENSE")
         self.write(HARNESS_SKILL, harness.REPOSITORY.sub("", HARNESS_SKILL_TEXT, count=1))
         self.write(self.OLD_TEST, self.OLD_TEST_TEXT)
         self.commit("core as it stood under earlier rules")
         self.earlier = self.short_head()
-        (self.target / QUEUE_ARRIVAL).unlink()
-        (self.target / DELIVERY_STATUS).unlink()
         (self.target / INSTALLED_LICENSE).unlink(missing_ok=True)
         skill = self.target / HARNESS_SKILL
         skill.write_text(harness.REPOSITORY.sub("", skill.read_text(encoding="utf-8"), count=1), encoding="utf-8")
@@ -1429,7 +1419,6 @@ class ATreeInstalledUnderEarlierRules(TwoTrees):
         entry = self.target / "AGENTS.md"
         entry.write_text(entry.read_text(encoding="utf-8").replace(f"@{today},", f"@{self.earlier},"), encoding="utf-8")
         self.remove(self.OLD_TEST)
-        self.write(QUEUE_ARRIVAL, QUEUE_ARRIVAL_TEXT)
         self.write(HARNESS_SKILL, HARNESS_SKILL_TEXT)
         self.write("LICENSE", LICENSE_TEXT)
         self.commit("today's rules")
@@ -1447,7 +1436,6 @@ class ATreeInstalledUnderEarlierRules(TwoTrees):
         self.assertEqual([], report["replaced"], "nothing in the tree was edited in core")
         self.assertIn(self.OLD_TEST, report["deleted"])
         self.assertFalse((self.target / self.OLD_TEST).exists())
-        self.assertIn(DELIVERY_STATUS, report["written"])
         self.assertIn(INSTALLED_LICENSE, report["written"])
         self.assertIsNotNone(harness.REPOSITORY.search(self.target_text(HARNESS_SKILL)))
         self.assertIn(f"@{self.short_head()}, ", self.target_text("AGENTS.md"))
@@ -1544,59 +1532,36 @@ class TheSourceARecipientHolds(TwoTrees):
         return json.loads(done.stdout)
 
 
-# --- the one door that arrives with content ---------------------------------------------------
+# --- what an install writes beside the manifest ---------------------------------------------------
 
 
-class TheDeliveryStatus(TwoTrees):
-    """A fresh tree's first session reads the queue before anything has been written into it."""
+class NoQueueIsWritten(TwoTrees):
+    """An install writes no record of the order of the work, and a `docs/tickets/README.md` a tree
+    keeps is the project's own, which no update touches."""
 
-    def test_an_install_writes_it_in_the_refs_own_words(self) -> None:
-        self.write(
-            QUEUE_ARRIVAL,
-            QUEUE_ARRIVAL_TEXT.replace("nothing is in flight", "the queue is empty, reworded"),
-        )
-        self.commit("the mechanism rewords its own record")
+    README = "docs/tickets/README.md"
 
+    def test_an_install_into_an_empty_tree_writes_none(self) -> None:
         status, report = self.run_harness("--install")
-        written = self.target_text(DELIVERY_STATUS)
 
         self.assertEqual(0, status, report)
-        self.assertIn("the queue is empty, reworded", written)
-        self.assertIn(report["ref"]["announced"], written)
-        self.assertNotIn("{ref}", written)
-        self.assertIn(DELIVERY_STATUS, report["written"])
+        self.assertFalse((self.target / self.README).exists())
+        self.assertNotIn(self.README, report["written"])
 
-    def test_an_install_leaves_a_record_the_tree_brought_with_it(self) -> None:
-        # An install refuses only over manifest paths, and this is not one — so a tree that
-        # already keeps its own docs/ receives core beside them.
-        theirs = "# Материалы\n\nThe project's own queue, in its own words.\n"
-        record = self.target / DELIVERY_STATUS
+    def test_an_update_leaves_the_trees_own_byte_for_byte(self) -> None:
+        self.run_harness("--install")
+        theirs = "# Материалы\r\n\r\nThe project's own order, in its own words.\r\n".encode("utf-8")
+        record = self.target / self.README
         record.parent.mkdir(parents=True, exist_ok=True)
-        record.write_text(theirs, encoding="utf-8", newline="")
+        record.write_bytes(theirs)
+        self.write(KEEPER, f"{KEEPER_NAMES}# Keeper\n\nKeep more things.\n")
+        self.commit("core moved")
 
-        status, report = self.run_harness("--install")
+        status, report = self.run_harness("--update")
 
-        self.assertEqual(0, status, report["refusals"])
-        self.assertEqual(theirs, self.target_text(DELIVERY_STATUS))
-        self.assertNotIn(DELIVERY_STATUS, report["written"])
-        self.assertTrue(any(DELIVERY_STATUS in note for note in report["notes"]), report["notes"])
-
-    def test_a_ref_with_no_shelf_or_no_block_is_refused_and_nothing_is_written(self) -> None:
-        for spoil, reason in (
-            (lambda: (self.root / QUEUE_ARRIVAL).unlink(), "this is not the harness"),
-            (lambda: self.write(QUEUE_ARRIVAL, "# Arrival\n\nNo block.\n"), "declares no arrival state"),
-        ):
-            with self.subTest(reason=reason):
-                self.write(QUEUE_ARRIVAL, QUEUE_ARRIVAL_TEXT)
-                spoil()
-                self.commit("spoil the shelf")
-                before = self.target_snapshot()
-
-                status, report = self.run_harness("--install")
-
-                self.assertEqual(1, status)
-                self.assertIn(reason, report["refusals"][0])
-                self.assertEqual(before, self.target_snapshot())
+        self.assertEqual(0, status, report["gates"])
+        self.assertEqual(theirs, record.read_bytes())
+        self.assertNotIn(self.README, report["written"])
 
 
 class TheRoots(TwoTrees):

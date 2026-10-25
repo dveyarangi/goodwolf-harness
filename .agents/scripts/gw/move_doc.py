@@ -173,8 +173,8 @@ class _Repair:
 def refusal(root: Path, pairs: list[tuple[str, str]]) -> str | None:
     """Why the whole selection must not happen — the mover writes all of it, or none of it.
 
-    Every check here answers a question the caller cannot answer from the queue alone, and none of
-    them touches a byte. A refusal is a maintenance finding, not a partial close.
+    Every check here answers a question the caller cannot answer from the selection alone, and none
+    of them touches a byte. A refusal is a maintenance finding, not a partial close.
     """
     records = set(corpus(root))
     sources = [source for source, _ in pairs]

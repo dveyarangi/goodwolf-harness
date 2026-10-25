@@ -1081,8 +1081,8 @@ class TheCounters(Rendered):
         self.assertTrue(text.startswith("window unchanged"), text)
         self.assertEqual((1, 1, 0), counts["🐕"])
 
-    def test_the_queue_and_an_archived_ticket_are_not_counted(self) -> None:
-        self.write("docs/tickets/README.md", "# Delivery status\n")
+    def test_a_readme_and_an_archived_ticket_are_not_counted(self) -> None:
+        self.write("docs/tickets/README.md", "# The project's own notes\n")
         self.write("docs/tickets/done/01-0005-an-old-ticket.md", "# An old ticket\n")
 
         _, counts = self.counted()

@@ -30,7 +30,7 @@ body holds what has nowhere to land yet, and the session record the align.
 observable criteria, slicing with dependencies, the impact of a split, the question it answers, its
 states from minted to closed, evidence at close, a place in an order — is this mechanism's. What is
 the development practice's — the paired RFC, the ring's step names, Type HITL or AFK, and the names
-*ticket*, *queue* and *RFC* — stands here on one specimen and moves to the practice mechanism when a
+*ticket* and *RFC* — stands here on one specimen and moves to the practice mechanism when a
 second method manifests a unit of its own *(the user, 2026-10-20)*.
 </straw-dog>
 
@@ -73,7 +73,6 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | repairing the citations a close breaks | `.agents/scripts/gw/move_doc.py` | |
 | checking live records against the shape | `.agents/scripts/gw/tickets.py` | |
 | listing the live tickets | `.agents/scripts/gw/tickets.py` | |
-| ordering the queue and writing its pacing prose | — | <straw-dog question="q-0037.0013">not yet</straw-dog> |
 | promoting an open question of the store into a ticket | `.agents/skills/ticket/SKILL.md` | |
 | verifying a ticket's criteria against landed work | — | elsewhere — landing-time agreement is verification, `.agents/skills/verify/SKILL.md` |
 | writing an RFC's contents | — | elsewhere — what an RFC holds is planning's, `.agents/skills/plan/SKILL.md` |
@@ -87,7 +86,6 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 |---|---|
 | instruction file | `.agents/skills/ticket/SKILL.md` |
 | format shelf | `.agents/skills/ticket/TICKET-FORMAT.md` |
-| the queue's arrival state | `.agents/skills/ticket/QUEUE-ARRIVAL.md` |
 | this doc | `.agents/mechanisms/ticket/ticket.md` |
 | its rules file | `.agents/mechanisms/ticket/ticket.rules.md` |
 | the mover | `.agents/scripts/gw/move_doc.py` |
@@ -114,9 +112,7 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
   for the criteria, by `/maintain` for whether each is finished, by the questions mechanism's
   window, which counts the live ones through `tickets.live_tickets`, and through citations from
   every record that cites work by its slug.
-- **The queue** — *what it intends to become* — <straw-dog question="q-0037.0019.0004">read by `/recall` for the order,
-  and by whoever orders the work</straw-dog>; written by hand.
-- **The list** — *what exists* — read under P12 by whoever orders the queue or is about to mint a
+- **The list** — *what exists* — read under P12 by whoever orders the work or is about to mint a
   ticket; rendered from the headers on request by `tickets.py --list` and never committed.
 - **The maintainer's report** — *what exists* — read by `/verify` through the verification set and by `/maintain`
   under P5. Its exit status is what the set consumes; its JSON is for the person reading a

@@ -15,7 +15,7 @@ TICKET = "docs/tickets/01-0010.0040-install-plan.md"
 RFC = "docs/rfc/01-0010.0040-install-plan.md"
 CLOSED_TICKET = "docs/tickets/done/01-0010.0040-install-plan.md"
 CLOSED_RFC = "docs/rfc/done/01-0010.0040-install-plan.md"
-QUEUE = "docs/tickets/README.md"
+CITING = "docs/notes.md"
 
 
 class CommandLine(RepositoryCase):
@@ -23,7 +23,7 @@ class CommandLine(RepositoryCase):
         super().setUp()
         self.write(TICKET, "# Install /plan\n\n[the RFC](../rfc/01-0010.0040-install-plan.md)\n")
         self.write(RFC, "# Install /plan — plan\n\n[the ticket](../tickets/01-0010.0040-install-plan.md)\n")
-        self.write(QUEUE, "# Queue\n\n[plan](01-0010.0040-install-plan.md)\n")
+        self.write(CITING, "# Notes\n\n[plan](tickets/01-0010.0040-install-plan.md)\n")
 
     def run_mover(self, *operands: str) -> tuple[int, str]:
         said = io.StringIO()
@@ -38,7 +38,7 @@ class CommandLine(RepositoryCase):
 
         self.assertEqual(0, status)
         self.assertIn(f"would move {TICKET} -> {CLOSED_TICKET}", said)
-        self.assertIn(f"would repair citations in {QUEUE}", said)
+        self.assertIn(f"would repair citations in {CITING}", said)
         self.assertEqual(untouched, self.snapshot())
 
     def test_a_refused_selection_says_why_and_leaves_the_tree_alone(self) -> None:
@@ -61,10 +61,10 @@ class CommandLine(RepositoryCase):
 
         self.assertEqual(0, status)
         self.assertIn(f"moved {TICKET} -> {CLOSED_TICKET}", said)
-        self.assertIn(f"repaired citations in {QUEUE}", said)
+        self.assertIn(f"repaired citations in {CITING}", said)
         self.assertLess(
             said.index(f"moved {TICKET} -> {CLOSED_TICKET}"),
-            said.index(f"repaired citations in {QUEUE}"),
+            said.index(f"repaired citations in {CITING}"),
             "each operation is announced in the order it happens",
         )
         self.assertTrue((self.root / CLOSED_RFC).exists())
@@ -95,7 +95,7 @@ class CommandLine(RepositoryCase):
 class OutgoingReferences(RepositoryCase):
     def setUp(self) -> None:
         super().setUp()
-        self.write("docs/tickets/README.md", "# Queue\n\n[plan](01-0010.0040-install-plan.md)\n")
+        self.write(CITING, "# Notes\n\n[plan](tickets/01-0010.0040-install-plan.md)\n")
 
     def run_mover(self, *operands: str) -> tuple[int, str]:
         said = io.StringIO()

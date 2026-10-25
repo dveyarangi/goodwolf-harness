@@ -6,18 +6,16 @@ description: Determine where the project stands and what to work on next, with t
 Mechanism: session
 
 
-Your goal is to find out the actual state of the project and the current and/or next things to focus on, without re-opening anything already settled. Start from the delivery status and the last session, and read what bears on the item in flight; survey more widely only when nothing is in flight or the trace meets a gap.
+Your goal is to find out the actual state of the project and the current and/or next things to focus on, without re-opening anything already settled. Start from the path and the last session, and read what bears on the item in flight; survey more widely only when nothing is in flight or the trace meets a gap.
 
 - Investigate last sessions and actual tickets against the roadmap/version plan and find out where are we standing. Sessions, `tickets/done` and `rfc/done` are dated snapshots — read them for *why*, never for *whether* something is still open. Check `git status` and recent log too: uncommitted work is part of the actual state.
 - An open ticket or RFC whose work has landed in the tree, but whose acceptance criteria are not all checked, is the next session's first item. The still-open ticket is the evidence the work is unfinished; a session record is not. Live verification that could not complete in the shipping session is the usual remainder.
 - Read the architecture and the open questions for the decisions and items that bear on it; look up a question's resolution or state wherever it lives — most pending items are at least referenced in existing documentation. Be thorough about the item in flight: follow its references until they converge, rather than reading each doc in isolation.
-- Every question you surface as open must cite where it is *still* open — in a maintained doc (delivery status, the question store, architecture, ADRs, glossary, edge records) or in the working tree. Otherwise it is settled: cite the deciding artifact instead, including the code where the code settled it. A question with no home at all is a documentation gap, so report it as one.
+- Every question you surface as open must cite where it is *still* open — in a maintained doc (the question store, architecture, ADRs, glossary, edge records) or in the working tree. Otherwise it is settled: cite the deciding artifact instead, including the code where the code settled it. A question with no home at all is a documentation gap, so report it as one.
 - Build a compact summary of current state of the project and bring up all relevant items for current or next task, including the decisions already taken that bear on it, each with its reference.
 
 - In case of ambiguity, present it too user. In case when continuation requires decision making, invoke /align skill.
-<straw-dog question="q-0037.0019.0004">
-- The candidates for what is next are the path's; recommend one and say why, taking no order from a written queue. A last session's handoff is a list of candidates, not an order.
-</straw-dog>
+- The candidates for what is next are the path's; recommend one and say why. A last session's handoff is a list of candidates, not an order.
 
 ## Installed from other mechanisms
 

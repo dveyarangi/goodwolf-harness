@@ -15,7 +15,7 @@ TICKET = "docs/tickets/01-0010.0040-install-plan.md"
 RFC = "docs/rfc/01-0010.0040-install-plan.md"
 CLOSED_TICKET = "docs/tickets/done/01-0010.0040-install-plan.md"
 CLOSED_RFC = "docs/rfc/done/01-0010.0040-install-plan.md"
-QUEUE = "docs/tickets/README.md"
+CITING = "docs/notes.md"
 
 
 class InterruptedClose(RepositoryCase):
@@ -23,12 +23,12 @@ class InterruptedClose(RepositoryCase):
         super().setUp()
         self.write(TICKET, "# Install /plan\n\n[the RFC](../rfc/01-0010.0040-install-plan.md)\n")
         self.write(RFC, "# Install /plan — plan\n\n[the ticket](../tickets/01-0010.0040-install-plan.md)\n")
-        self.write(QUEUE, "# Queue\n\n[plan](01-0010.0040-install-plan.md)\n")
+        self.write(CITING, "# Notes\n\n[plan](tickets/01-0010.0040-install-plan.md)\n")
         self.pairs = [(TICKET, CLOSED_TICKET), (RFC, CLOSED_RFC)]
 
     def test_a_failure_on_the_second_record_stops_and_reports_both_halves(self) -> None:
         self.write("docs/rfc/done", "a file where the archive folder should be")
-        rfc_before, queue_before = self.read(RFC), self.read(QUEUE)
+        rfc_before, citing_before = self.read(RFC), self.read(CITING)
 
         with self.assertRaises(move_doc.CloseInterrupted) as stopped:
             move_doc.perform(self.root, self.pairs)
@@ -38,20 +38,20 @@ class InterruptedClose(RepositoryCase):
         self.assertEqual(CLOSED_RFC, stopped.exception.failed)
         self.assertTrue((self.root / CLOSED_TICKET).exists(), "the first record did move")
         self.assertEqual(rfc_before, self.read(RFC))
-        self.assertEqual(queue_before, self.read(QUEUE))
+        self.assertEqual(citing_before, self.read(CITING))
 
     def test_a_record_whose_write_is_refused_keeps_its_content(self) -> None:
-        os.chmod(self.root / QUEUE, stat.S_IREAD)
-        self.addCleanup(os.chmod, self.root / QUEUE, stat.S_IWRITE | stat.S_IREAD)
+        os.chmod(self.root / CITING, stat.S_IREAD)
+        self.addCleanup(os.chmod, self.root / CITING, stat.S_IWRITE | stat.S_IREAD)
         if not self._write_is_refused():
             self.skipTest("this platform lets a read-only record be replaced")
-        queue_before = self.read(QUEUE)
+        citing_before = self.read(CITING)
 
         with self.assertRaises(move_doc.CloseInterrupted) as stopped:
             move_doc.perform(self.root, self.pairs)
 
-        self.assertEqual(queue_before, self.read(QUEUE), "a failed write must not cost content")
-        self.assertEqual(QUEUE, stopped.exception.failed)
+        self.assertEqual(citing_before, self.read(CITING), "a failed write must not cost content")
+        self.assertEqual(CITING, stopped.exception.failed)
 
     def _write_is_refused(self) -> bool:
         """Whether this platform's read-only bit actually stops a write — POSIX ignores it here."""
@@ -81,16 +81,16 @@ class InterruptedClose(RepositoryCase):
         self.assertEqual(interference, self.read(CLOSED_RFC))
 
     def test_a_record_edited_mid_run_is_not_overwritten_with_stale_text(self) -> None:
-        edited = "# Queue\n\n[plan](01-0010.0040-install-plan.md)\n\nA note added mid-run.\n"
+        edited = "# Notes\n\n[plan](tickets/01-0010.0040-install-plan.md)\n\nA note added mid-run.\n"
 
         def intrude(_: str) -> None:
-            self.write(QUEUE, edited)
+            self.write(CITING, edited)
 
         with self.assertRaises(move_doc.CloseInterrupted) as stopped:
             move_doc.perform(self.root, self.pairs, announce=intrude)
 
-        self.assertEqual(edited, self.read(QUEUE))
-        self.assertEqual(QUEUE, stopped.exception.failed)
+        self.assertEqual(edited, self.read(CITING))
+        self.assertEqual(CITING, stopped.exception.failed)
 
     def test_a_record_edited_mid_move_keeps_its_edit_where_it_was(self) -> None:
         # The edit lands after the change set was derived, the interleaving the 2026-09-30 audit

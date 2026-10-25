@@ -21,11 +21,11 @@ class PairedClose(RepositoryCase):
         self.write(TICKET, "# Install /plan\n\nPlan: [the RFC](../rfc/01-0010.0040-install-plan.md).\n")
         self.write(RFC, "# Install /plan — plan\n\nImplements [the ticket](../tickets/01-0010.0040-install-plan.md).\n")
         self.write(
-            "docs/tickets/README.md",
-            "# Delivery status\n\n| [Install /plan](01-0010.0040-install-plan.md) | Done |\n",
+            "docs/notes.md",
+            "# Notes\n\n| [Install /plan](tickets/01-0010.0040-install-plan.md) | Done |\n",
         )
 
-    def test_the_pair_lands_in_done_citing_each_other_and_the_queue_follows(self) -> None:
+    def test_the_pair_lands_in_done_citing_each_other_and_a_citing_record_follows(self) -> None:
         move_doc.perform(self.root, [(TICKET, CLOSED_TICKET), (RFC, CLOSED_RFC)])
 
         self.assertFalse((self.root / TICKET).exists())
@@ -33,8 +33,8 @@ class PairedClose(RepositoryCase):
         self.assertIn("../../rfc/done/01-0010.0040-install-plan.md", self.read(CLOSED_TICKET))
         self.assertIn("../../tickets/done/01-0010.0040-install-plan.md", self.read(CLOSED_RFC))
         self.assertEqual(
-            "# Delivery status\n\n| [Install /plan](done/01-0010.0040-install-plan.md) | Done |\n",
-            self.read("docs/tickets/README.md"),
+            "# Notes\n\n| [Install /plan](tickets/done/01-0010.0040-install-plan.md) | Done |\n",
+            self.read("docs/notes.md"),
         )
 
 

@@ -17,15 +17,14 @@ transformed before a byte is written: the origin's local blocks removed, every s
 and every `TODO`'s question binding sheared with the content kept, the announce line stamped, and
 the whole held to the leak rule the origin's check applies.
 
-**Three things outside the manifest are written, each only when absent**, all read by a fresh
-tree's first session before anything has been written into it: the delivery status, in the words
-the ticket mechanism ships beside its record's shape, which the install places and composes
-nothing of; a store's roots, into a store holding no entry, which the questions mechanism's
-script writes from its shelf, the install only calling it; and the product document, which the
-product mechanism's script writes from its shelf the same way. A tree that already has any of them
-keeps it untouched, overwrite included: from its first line each is the instance's. A product
+**Two things outside the manifest are written, each only when absent**, both read by a fresh
+tree's first session before anything has been written into it: a store's roots, into a store
+holding no entry, which the questions mechanism's script writes from its shelf, the install only
+calling it; and the product document, which the product mechanism's script writes from its shelf
+the same way. A tree that already has either keeps it untouched, overwrite included: from its
+first line each is the instance's. A product
 document there in another form is named in the report, since its check fails *(the user,
-2026-10-14)*. **A fourth is
+2026-10-14)*. **A third is
 merged rather than written**: each host's shared, committed hook file, never a local settings
 file, receives core's hook entries beside the project's own *(the user, 2026-10-09)*. The entries'
 words are the questions mechanism's shelf, shipped as core; an update replaces core's entries and
@@ -134,7 +133,6 @@ is not a part: it never ships, and a recipient has its own.
 | re-checking a recipient's copy against its ref in a maintain pass | — | <straw-dog question="q-0037.0006.0012">not yet</straw-dog> |
 | knowing an update is available | — | unowned by design — a person asks for one; nothing polls the repository |
 | verifying that a host reads the loader link | — | <straw-dog question="q-0037.0006.0004.0001">not yet</straw-dog> |
-| writing a fresh tree's delivery status | `.agents/scripts/gw/harness.py` | |
 | opening a fresh tree's store with its roots, by the store's seed | `.agents/scripts/gw/harness.py` | |
 | writing a tree's empty product document, by the product seed | `.agents/scripts/gw/harness.py` | |
 | merging core's hook wiring into each host's file | `.agents/scripts/gw/harness.py` | |
@@ -167,7 +165,6 @@ would otherwise fail the shape check for the same absence the report already nam
 |---|---|---|
 | the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
 | citation reader | `.agents/scripts/gw/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |
-| the delivery status's arrival state | `.agents/skills/ticket/QUEUE-ARRIVAL.md` | `ticket`, which owns the record and words it |
 | the store's seed, its shelf and its reader | `.agents/scripts/gw/questions.py` | `questions`, which owns the store and words its roots |
 | the product document's seed, its shelf and the reader of its form | `.agents/scripts/gw/product.py` | `product`, which owns the document and words it |
 | the hook wiring's directory, each file at its host file's path | `.agents/scripts/gw/questions.py` | `questions`, which words the hooks |
@@ -184,9 +181,6 @@ would otherwise fail the shape check for the same absence the report already nam
   `--update` to know what was installed, and by the shape check to know it stands in a recipient.
 - **The report** — *what exists* — read by whoever ran the script. Its `pending` lines are read by
   the person who runs them.
-- **A fresh tree's delivery status** — *what it intends to become* — read by the first session's `/recall`, which runs before
-  anything has been written into the queue; worded by the `ticket` mechanism, placed here, and the
-  instance's from its first line.
 - **The stamped repository line** — *what must always hold* — read by the script whenever a run is given no `--from`,
   including the recipient's own copy at its own `--check`; and by a person or a fork asking where
   this tree's core comes from, or pointing it somewhere else.
