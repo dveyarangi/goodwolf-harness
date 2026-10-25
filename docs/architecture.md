@@ -80,7 +80,7 @@ worktree per session where it offers one — not the harness's: it locks nothing
 read. *(the user, 2026-10-11)*
 Whatever stands on the shared main may be published; work the person holds back stays on its own
 branch until they release it. *(the user, 2026-10-12)*
-<straw-dog question="q-0037.0017.0002.0001">
+<straw-dog question="q-0037.0017.0005.0001">
 Sessions share one checkout and its main. A branch per session comes only together with a
 question store that does not travel through git. *(the user, 2026-10-12)*
 </straw-dog>
