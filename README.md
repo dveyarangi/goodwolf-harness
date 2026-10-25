@@ -88,14 +88,17 @@ Whatever comes back wrong is what GoodWolf is for.
   "for now" does not quietly become "always". *In your project: how much of your docs says "for
   now", and what would tell you it no longer holds?*
 - **A rule the agent ignored becomes a record.** The miss is logged with the rule that was in
-  place, the rule is reworded in one reviewable commit, and the next miss shows whether the
-  rewording worked. *In your project: do the gates your rules name all run, and does each check
+  place, and the rule is amended in the strongest form that will hold — a check, a hook or a gate
+  where one can hold it, a rewording where none can — in one reviewable commit; a miss that comes
+  back gets a mechanical fix. *In your project: do the gates your rules name all run, and does each check
   what its rule claims? What share of your fixes did a person find, not a check?*
-- **You where it matters, and nowhere else.** A decision whose mistake would break several parts
-  of the project comes to you with options and a recommendation; anything smaller the agent settles
-  and reports. You draw the line between the two, once, on a short list. You can think out loud:
-  whatever you say lands under the question it belongs to and comes back when that topic does.
-  *In your project: of the last ten things your agent asked you, how many needed you?*
+- **You where it matters, and nowhere else.** You draw the line once, on a ladder ordered by how
+  far a decision reaches: below it the agent acts, at it the agent shows you first, above it you
+  decide, with options and a recommendation. You can think out loud: whatever you say lands under
+  the question it belongs to and comes back when that topic does. *In your project: take your
+  last twenty merged changes — which decisions did an agent take on its own that, by how far they
+  reach, should have come to you, and where is the line written that would have told it? And of
+  the last ten things it asked you, how many needed you?*
 - **Checking and keeping are two questions.** Whether finished work keeps the promises its ticket
   and plan made, and whether the documents still agree with each other and with the code, are asked
   separately, so neither hides behind the other. A disagreement a session meets is repaired there,
