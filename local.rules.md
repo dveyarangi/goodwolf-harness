@@ -22,11 +22,13 @@ with overwrite; the block in a target is never the place.
 ## L1 — what this repository is
 
 - **target** `AGENTS.md`
-- **authority** the user, 2026-09-07 and 2026-09-20
+- **authority** the user, 2026-09-07, 2026-09-20 and 2026-10-25
 
 <rule>
-This repository develops the shared dev harness using its own loop; its own architecture and
-progress live in docs/ like any other project's — the instance half doing its job, not a leak.
+This repository develops the harness, whose purpose docs/product.md states, using its own loop —
+software development, the first method built on the harness and the one it is tested by; its own
+architecture and progress live in docs/ like any other project's — the instance half doing its
+job, not a leak.
 Terms: docs/glossary.md, this project's own; the method's are .agents/glossary.md's. What each
 version of the entry contract changed: docs/research/entry-contract-findings.md.
 </rule>

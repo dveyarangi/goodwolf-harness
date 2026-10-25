@@ -11,7 +11,7 @@ itself authorize new process machinery.
 ## Language
 
 **Harness**:
-The development instructions and supporting mechanisms through which projects define, implement, verify and maintain software, including the harness itself.
+The instructions, records and scripts around an agent's runtime that keep its work coherent — a user harness — and the core a project's own method is built on, including the harness itself. Not the runtime that runs the model and its tools.
 
 **Mechanism**:
 A part of how the work gets done, on which other work relies, together with its instructions, producers, consumers, checks and records. It owns one or more instruction files, each a skill no other mechanism owns, and may span many other files. What the project produces is not one.

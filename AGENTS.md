@@ -306,8 +306,10 @@ not core's, and a redeploy preserves it.
 </installed>
 
 <installed by="local">
-**L1** This repository develops the shared dev harness using its own loop; its own architecture and
-progress live in docs/ like any other project's — the instance half doing its job, not a leak.
+**L1** This repository develops the harness, whose purpose docs/product.md states, using its own loop —
+software development, the first method built on the harness and the one it is tested by; its own
+architecture and progress live in docs/ like any other project's — the instance half doing its
+job, not a leak.
 Terms: docs/glossary.md, this project's own; the method's are .agents/glossary.md's. What each
 version of the entry contract changed: docs/research/entry-contract-findings.md.
 
