@@ -88,7 +88,7 @@ text its settings call for*; *Setting* in the method's glossary.
   the stop's form is landed; its ticket, 01-0020.0020, waits on a judge reading a live session.
 - [q-0037.0009.0021](../questions/q-0037.0009.0021-which-mechanism-owns-how-a-reply-is-laid-out-for-its-reader-debugging-or-interaction-and-what-does-it-own.md) —
   the debugging mechanism now exists with one rule; the rest of what debug shows moves under
-  [01-0016.0020](../tickets/01-0016.0020-what-debug-shows-is-installed-not-read.md), unblocked.
+  [01-0016.0020](../tickets/done/01-0016.0020-what-debug-shows-is-installed-not-read.md), unblocked.
 - The dial from the settings table waits on
   [q-0037.0010.0002.0005](../questions/q-0037.0010.0002.0005-what-does-the-practice-mechanism-own.md),
   the ladder mechanisms' declaration.

@@ -7,11 +7,11 @@ for the debugging mechanism that question decided, and nothing more.
 
 ## What was done
 
-- [01-0016.0020 what-debug-shows-is-installed-not-read](../tickets/01-0016.0020-what-debug-shows-is-installed-not-read.md)
+- [01-0016.0020 what-debug-shows-is-installed-not-read](../tickets/done/01-0016.0020-what-debug-shows-is-installed-not-read.md)
   minted under [01-0016](../tickets/01-0016-each-skill-owns-its-own-responsibility.md), on the
   user's yes to the draft as shown; committed `5e2be3a`, pushed.
 - Its question,
-  [q-0037.0009.0021.0001](../questions/q-0037.0009.0021.0001-how-does-what-debug-shows-reach-a-tree-as-the-debugging-mechanisms-installed-blocks-and-how-does-a-tree-switch-it-on-and-off.md),
+  [q-0037.0009.0021.0001](../questions/done/q-0037.0009.0021.0001-how-does-what-debug-shows-reach-a-tree-as-the-debugging-mechanisms-installed-blocks-and-how-does-a-tree-switch-it-on-and-off.md),
   opened under q-0037.0009.0021 and assigned to it; the split's impact is recorded in its body.
   Three questions under it, each holding its argument: who switches debugging (.0001), whether a
   retracted block needs a plain counterpart (.0002), how a script learns debugging is installed
