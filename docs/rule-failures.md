@@ -142,7 +142,9 @@ Drafted through `/skill-up` on the person's question: the first draft enumerated
 pain, a goal*; the umbrella *an id in place of what it names* replaces it, and a question's or a
 ticket's id shown beside its words, as their rules ask, stays outside it.
 
-**Disposition:** open; the amendment waits on the person.
+**Disposition:** closed 2026-10-25 — landed in the entry file's *A reply speaks the method*, v122,
+as *It says what a thing is, never an id in its place*: the speech rule, which stands whatever
+`debug` is, not the debugging rule proposed above *(the user)*.
 
 **Renumbered 2026-10-25.** Registered as a second 74, nine hours after the first; its commit,
 318cd02, keeps the old number. The race strikes 75 again.

@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v121, 2026-10-25.
+Entry contract: v122, 2026-10-25.
 
 ## General rules
 
@@ -39,8 +39,9 @@ nothing about being load-bearing — an implementation method is a shape too. �
 <straw-dog question="q-0037.0010.0012">
 **A reply speaks the method:** which question the work is on, the method's step as the person would
 name it, what is decided, what is next, where it stops, what it needs from the person; what more
-the person hears at an occasion, a skill's `What the person hears` says. It never retells a
-report: an outcome is one sentence, a failure is what the person does. A stop at or above a ladder's dial is said once — `✋ <the decision, as the ladder shows it>` — the ladder's and the rung's names
+the person hears at an occasion, a skill's `What the person hears` says. It says what a thing is,
+never an id in its place. It never retells a report: an outcome is one sentence, a failure is what
+the person does. A stop at or above a ladder's dial is said once — `✋ <the decision, as the ladder shows it>` — the ladder's and the rung's names
 in it nowhere.
 </straw-dog>
 

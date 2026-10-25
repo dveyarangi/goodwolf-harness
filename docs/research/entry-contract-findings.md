@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v122 — 2026-10-25
+
+**A thing is said by what it is** — *A reply speaks the method* gains *it says what a thing is,
+never an id in its place*, in the speech rule that stands whatever `debug` is, not in debugging's
+keep-it-out rule, which stands only at `off`. Occasion: rule failure 81, a reply in a record's row
+ids, struck the same day by a reply in the debugging rules' ids *(the user, 2026-10-25)*.
+
 ## v121 — 2026-10-25
 
 **What debug shows is installed, not read** — the reply form's `debug=on` parts leave the entry
