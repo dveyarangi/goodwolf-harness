@@ -99,7 +99,8 @@ roles, is an open question of the store.
 | writing a question's argument, the body after its parts, by hand | `.agents/skills/questions/QUESTION-FORMAT.md` | |
 | landing a decision an align makes, and holding one with nowhere to land yet | `.agents/skills/align/SKILL.md` | |
 | checking the store | `.agents/scripts/gw/questions.py` | |
-| reading the store at a session's wake: the most struck, the deferred, the straw dogs due | `.agents/scripts/gw/questions.py` | |
+| reading the store at a session's wake: the most struck, what asks the person, the deferred, the straw dogs due | `.agents/scripts/gw/questions.py` | |
+| marking an open question as asking the person, shown by every wake until it closes, closed on the person's word | `.agents/skills/questions/SKILL.md` | |
 | <straw-dog question="q-0037.0019">reading the path ahead at the wake and on request: the work in hand, what was touched lately with no ticket, the candidates with their reasons, the roots</straw-dog> | `.agents/scripts/gw/questions.py` | |
 | writing the session's leans | `.agents/skills/conclude/SKILL.md` | |
 | archiving the subtree a closure finishes | `.agents/scripts/gw/questions.py` | |
@@ -153,7 +154,8 @@ roles, is an open question of the store.
   question's trace link — a part the store keeps as written and never resolves.
 - **The window** — *what exists* — read by the agent before every message, from the host's hook or the rule.
 - **The wake's read** — *what exists* — read by the agent at session start, from the hook or `/recall`; it names
-  the straw dogs due, whose text `/maintain` rewrites.
+  the straw dogs due, whose text `/maintain` rewrites, and every open question asking the person, which
+  `/recall` puts to them as a decision until it closes *(the user, 2026-10-25 and 2026-10-26)*.
 - **The fingerprint of each session's last window**, outside the tree — *what exists* — read by the script alone,
   to tell whether anything moved; a compaction clears it.
 - **The hook wiring** — *what must always hold* — read by the installer, which merges each shelf

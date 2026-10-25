@@ -20,9 +20,10 @@ Your goal is to find out the actual state of the project and the current and/or 
 ## Installed from other mechanisms
 
 <installed by="questions">
-**Q2** Take from the wake's read what is suspect, which deferrals may now be due, and which straw dogs
-are due; take this session's position from the person or estimate it, and place it with `at`;
-then read the path as this skill says.
+**Q2** Take from the wake's read what asks the person, what is suspect, which deferrals may now be due,
+and which straw dogs are due; put each question asking the person to them as a decision, one
+still branching through its children; take this session's position from the person or estimate
+it, and place it with `at`; then read the path as this skill says.
 </installed>
 
 <installed by="ticket">
@@ -47,8 +48,8 @@ happened does not drift.
 
 At once, before the heavier reads: a greeting, and in a few words, that you
 are recalling where things stand. Then where the work stands — what was finished,
-what is unfinished and who is on it, what is next — with the decisions that bear on it and the one
-thing you need from them, if any. <straw-dog question="q-0037.0019">Then the path: how many pieces of work are in hand
+what is unfinished and who is on it, what is next — with the decisions that bear on it and what
+they are asked. <straw-dog question="q-0037.0019">Then the path: how many pieces of work are in hand
 against the limit they set, what was touched lately and has no ticket, which candidates the path
 shows and what each would give them — said as what it moves for them, never as an answer's code
 or a count of a record's parts — and whether a root has gone thin. Asked where to go, the same

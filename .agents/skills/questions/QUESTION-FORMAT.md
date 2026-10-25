@@ -21,6 +21,7 @@ depends on, a deferred or suspect entry counting as open; it is never deleted.
 - **realizes** A7 "The question store"
 - **rung** development: load-bearing
 - **lean** the flat directory, for insertion cost
+- **asks** the person, 2026-10-26
 - **struck** 2, last 2026-10-02T19:40Z
 
 ## Where it stands
@@ -32,7 +33,9 @@ depends on, a deferred or suspect entry counting as open; it is never deleted.
 a closed entry carries its **answer**. **realizes** is the trace link, kept as written and never
 resolved; a question without one carries its nearest ancestor's. **rung** is the question's
 highest rung on each ladder it touches, `<ladder>: <rung>`, comma-separated, each ladder once; the
-rungs' names and order are each ladder's. The state is `open` or
+rungs' names and order are each ladder's. **asks** is `the person, <date>`: an open question
+waiting on the person's decision, shown by every wake until it closes; a close ends it, a merge or
+a supersession carries it to its open target. The state is `open` or
 `closed:<kind>`, with `, suspect` after it at most.
 
 **The id is the place**: a root is `q-NNNN`, a child its parent's id and one more position. A

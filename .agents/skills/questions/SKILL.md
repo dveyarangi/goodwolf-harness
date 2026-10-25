@@ -38,6 +38,7 @@ after a call says what it takes.
 | `close q-N <kind> '<pointer>'` | the closure, below |
 | `suspect q-N` · `clear q-N` | the suspect flag |
 | `lean q-N '<line>'` | the lean |
+| `ask q-N` | the open question asks the person: every wake shows it until it closes |
 | `assign q-N <path>` | the owner, the record of the work that answers the question |
 | `realize q-N '<link>'` | the trace link, `A7 "<name>", …` or `derived`, replacing the one it carried |
 
@@ -116,6 +117,8 @@ is made irrelevant, or one is replaced. **Do** `close` with its kind and pointer
 | `deferred` | `until <condition>, meanwhile <default>` |
 | `merged` · `superseded` | the id it points to |
 | `pruned` · `moot` | a one-line reason; a longer one goes to the entry's body |
+
+A question asking the person is closed on the person's word alone, whatever its kind.
 
 The answer is never the deliberation itself. `suspect` every open child and dependent whose
 assumption the answer changes; call `at` on the parent first if the closed question was current.
