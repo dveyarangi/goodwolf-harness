@@ -17,6 +17,47 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 75. Two sessions numbered one version of the entry contract — 2026-10-25
+
+**Rules in play:** none that covers it. The entry file's announce line and the findings record are
+bumped by hand; nothing checks that a version is given once.
+
+**What happened.** One session landed v115 at 01:5x; another, working from a context that still
+read v114, committed its own change as v115 half an hour later. The findings record held two
+sections headed v115 until a third session met them, renumbered the later one v116 with a note,
+and gave its own change v117.
+
+**What it is.** A slip no rule covers: a hand-bumped counter shared by sessions running at once,
+the race the architecture names for every shared write and no check here reads. A repeat is any
+version, id or number two sessions give the same value.
+
+**Disposition:** registered 2026-10-25; no rule proposed.
+
+## 74. The rule that the builder does not judge was in place, and the builder tried its own rule on itself — 2026-10-25
+
+**Rules in play:** [`AGENTS.md` — *The builder does not judge*](../AGENTS.md#general-rules), tier
+1, landed at v115 that hour: *whoever built a thing does not judge it*; the criteria of
+[01-0070.0020](tickets/01-0070.0020-a-session-stops-before-anothers-unit.md), which named a
+subagent judge reading *both sessions' rows and windows*.
+
+**What happened.** The session that wrote S9, the stop before a unit another running session
+holds, ran the live trial of it on itself: a trial session it registered took its unit over, and
+it then stopped, as the rule says; asked by the person to close a ticket another session held, it
+stopped again and brought the two ways. The person: why was taking another's ticket not tried on
+a cold agent? A session that wrote the rule knows what it must do, so its stopping shows nothing
+of whether the rule fires on a reader who does not.
+
+**Why it did not fire.** The principle spoke of judging, and the session framed its run as a
+trial whose outcome a judge would read later; the criterion put the subagent as the reader of the
+results, never as the case under test. Nothing said the builder may not be the case.
+
+**Amendment**, to *The builder does not judge*, at the self-improvement dial — a rule, landed in
+the same pass, its text shown: the builder does not stand as the case a thing is tried on either;
+a rule's behaviour is tried on a fresh subagent that reads only what a session would. The
+contract v117. The two cases of 01-0070.0020 were run again on fresh subagents the same hour.
+
+**Disposition:** landed 2026-10-25.
+
 ## 73. Replies left the person's language mid-align, twice — 2026-10-25
 
 **Rules in play:** none of this tree's — a slip no rule covers. L9 says how a reply's prose is

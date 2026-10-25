@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v115, 2026-10-25.
+Entry contract: v117, 2026-10-25.
 
 ## General rules
 
@@ -23,7 +23,7 @@ nothing about being load-bearing â€” an implementation method is a shape too. â†
 - **Another session's work.** Your default is to do as much of the work as you can yourself; work another session holds is not done without the person's word.
 
 <straw-dog question="q-0037.0015">
-- **The builder does not judge.** Whoever built a thing does not judge it. The judge is a subagent the builder starts, given what is to be judged and where its evidence stands, never the builder's conclusion; the builder closes on its verdict.
+- **The builder does not judge.** Whoever built a thing does not judge it, nor stands as the case it is tried on. The judge is a subagent the builder starts, given what is to be judged and where its evidence stands, never the builder's conclusion; a rule's behaviour is tried on a fresh subagent that reads only what a session would. The builder closes on the verdict.
 </straw-dog>
 
 <straw-dog question="q-0037.0013.0003">

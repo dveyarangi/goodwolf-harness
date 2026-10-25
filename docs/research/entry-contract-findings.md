@@ -15,6 +15,19 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v117 — 2026-10-25
+
+**The builder is not the case either** — *The builder does not judge* gains that the builder does
+not stand as the case a thing is tried on, and that a rule's behaviour is tried on a fresh
+subagent reading only what a session would. Occasion: rule failure 74, the stop before another
+session's unit tried by the session that wrote it *(the user, 2026-10-25)*.
+
+## v116 — 2026-10-25
+
+**The green stage is the session's own** — v114's sentence gains *the session's own*: read at a
+wake, *a green stage* covered gone sessions' uncommitted work, and a live read announced it would
+commit it. Occasion: rule failure 73 *(the user, 2026-10-25)*.
+
 ## v115 — 2026-10-25
 
 **Another session's work; the builder does not judge** — the general rules gain two principles:
@@ -25,12 +38,6 @@ conclusion, bound as a straw dog to q-0037.0015. Beside them the session mechani
 before a unit another running session holds, read off the window. Occasion: rule failure 64, a
 close taken from the session that worked it, and the align on how sessions hand work to each
 other, q-0037.0017.0006 *(the user, 2026-10-23 to 2026-10-25)*.
-
-## v115 — 2026-10-25
-
-**The green stage is the session's own** — v114's sentence gains *the session's own*: read at a
-wake, *a green stage* covered gone sessions' uncommitted work, and a live read announced it would
-commit it. Occasion: rule failure 73 *(the user, 2026-10-25)*.
 
 ## v114 — 2026-10-25
 
