@@ -860,6 +860,37 @@ written somewhere.* Second wording:
 
 **Disposition:** landed as v104, 2026-10-22, the second wording, a straw dog bound to q-0037.0013.0005.0007 on the user's word. The queue's line repaired the same day.
 
+**Struck 2026-10-25 — a wait brought by another session's message.** The session on
+[q-0037.0018.0005](questions/q-0037.0018.0005-is-a-projects-root-readme-generated-from-its-product-document-and-edge-records-or-written.md),
+the README's align, received from the session on
+[q-0037.0019.0004](questions/q-0037.0019.0004-what-would-put-strikes-on-the-product-on-what-the-project-is-for-so-that-the-paths-order.md)
+a note that `/product`'s goal 4 still speaks of the written queue after decision 7 of
+[q-0037.0019](questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the.md),
+and that the queue's fate, removed or kept as bookmarks without order, is still the person's. It
+left goal 4 alone, rightly, and put *the fate of the written queue* under ⚖️ in that reply and the
+next, reasoning that the decision rewrites goal 4 of a skill it held. The user: *the fate of the
+written queue is not your task at all — why did you take it?* The boundary is the one this entry
+found, whose waits count, met through a message this time and not a record. The second wording
+says how long a wait is carried, while the session stands on the question it belongs to, but not
+how that question is read. The agent read it from what the answer would rewrite. S9 sends what a
+session finds in another running session's subtree to that session and keeps it out of that
+session's records, but here the other session was the one telling, and a reply's table is not a
+record. Tried on two fresh agents given the case, one on the second wording and one on the
+amended: both kept the queue's fate out, the first by *Another session's work* and S9, the second
+by the new clauses — a short context does not reproduce the slip, met more than a thousand
+messages into a session.
+
+**Proposed amendment**, to the second wording, at the self-improvement dial — a rule, shown before
+it lands:
+
+> carried in every reply while the session stands on the question it belongs to, read from what it
+> decides, never from what its answer would rewrite; one on a question another running session is
+> on is that session's to put, though its message brings it; once the session has moved to another
+> question subtree a wait leaves the table, provided it is written where its question keeps it
+
+**Disposition of the strike:** open; the amendment waits on the person, who asked to have it
+explained before deciding.
+
 ## 54. A better abstraction was met and the reply said *build nothing for it* — 2026-10-20
 
 **Rules in play, both loaded:**
