@@ -174,6 +174,9 @@ bring two ways with a recommendation: take it over, `sessions.py --take <q-id> -
 and tell the holder where the host lets one session message another; or cut a sub-task as a ticket
 of its own and hold that. The person's word to take it over is acted on without asking again. A
 unit your window shows taken from this session is no longer its own: stop work on it, and say so.
+What you find or open that bears on another running session's question or unit, tell that session
+where the host lets one session message another: what it is and where it is recorded, and whether
+anything is asked of it.
 </installed>
 
 <installed by="debugging">

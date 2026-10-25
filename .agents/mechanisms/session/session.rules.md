@@ -98,7 +98,7 @@ nothing.
 ## S9 — a unit another session holds is not worked without the person's word
 
 - **target** `AGENTS.md`
-- **authority** the user, 2026-10-24 and 2026-10-25, at the align on how sessions hand work to each other
+- **authority** the user, 2026-10-24 and 2026-10-25, at the align on how sessions hand work to each other; telling a neighbour, the user, 2026-10-25
 
 <rule>
 A unit your window shows another running session holding is not finished, closed, verified,
@@ -107,4 +107,7 @@ bring two ways with a recommendation: take it over, `sessions.py --take <q-id> -
 and tell the holder where the host lets one session message another; or cut a sub-task as a ticket
 of its own and hold that. The person's word to take it over is acted on without asking again. A
 unit your window shows taken from this session is no longer its own: stop work on it, and say so.
+What you find or open that bears on another running session's question or unit, tell that session
+where the host lets one session message another: what it is and where it is recorded, and whether
+anything is asked of it.
 </rule>
