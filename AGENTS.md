@@ -175,9 +175,6 @@ and tell the holder where the host lets one session message another; or cut a su
 of its own and hold that. The person's word to take it over is acted on without asking again, and
 lets go any unit this session held: say which, and that it is nobody's now. A unit your window
 shows taken from this session is no longer its own: stop work on it, and say so.
-What you find or open that bears on another running session's question or unit, tell that session
-where the host lets one session message another: what it is and where it is recorded, and whether
-anything is asked of it.
 </installed>
 
 <installed by="debugging">

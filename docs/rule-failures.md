@@ -621,7 +621,17 @@ attached to the first wording, not to the one that answered the correction.
 **Proposed amendment:** none yet — the repeat decides whether this is a wording of *Autonomy* or a
 slip. Registered as a slip.
 
-**Disposition:** open.
+**Struck 2026-10-25.** The person proposed that a session tell a neighbouring running session what
+bears on its question, *to be added to the working principle, discussed first*. The agent showed
+the rule's text and installed it into S9 in the same turn; the person: *I meant to add it to the
+principle after discussing it.* The same shape: a text shown and acted on in one pass, the showing
+read as the person's approval. Two occurrences now, the second against a proposal rather than a
+correction, so not a slip of one turn: *shows the person before acting* is read as satisfied by a
+reply that shows and acts at once. Taken out of S9 the same hour. The amendment to *Autonomy*
+waits on the person, since the entry file's self-improvement rule asks the opposite of a rule
+failure's amendment — *land the amendment in the same pass, showing its text first*.
+
+**Disposition:** open, struck once.
 
 ## 57. The rung rule fired on two of fourteen openings, and the older questions were never given one — 2026-10-20
 
