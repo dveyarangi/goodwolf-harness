@@ -1395,8 +1395,10 @@ def path_ahead(root: Path, now: datetime) -> str:
     """The path read from the records as they are, for the agent to tell the person: the work in
     hand, the questions touched lately with no ticket, the candidates at the next boundary each
     with its reasons, and how the roots balance. A reading, written nowhere, so two sessions read
-    one path; it ranks nothing, the order being the queue's, and compares no count with the
-    project's limit on work in hand, which the agent reads from the entry file."""
+    one path; it ranks nothing, no order among the candidates being written yet, and compares
+    no count with the project's limit on work in hand, which the agent reads from the entry file.
+    """
+    # TODO q-0037.0019.0004: the order, once it is read from the product's answers.
     if not (root / STORE).is_dir():
         return "path: no question store here"
     return "\n".join(["path:", *_ahead_lines(root, now)])
