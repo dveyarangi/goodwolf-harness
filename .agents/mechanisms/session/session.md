@@ -67,8 +67,9 @@ lock it to one method, and a role may grant its skill set and rights; the row ad
 seam, and nothing writes either yet *(the user, 2026-10-22)*.
 
 **Delivery.** The hook wiring and the hook's entry are the questions mechanism's, relied on here:
-one hook serves both, the session's half — registered, seen, silent, reopened — one call into the
-session script, the window's half the question script's own. No recipient's host file changes
+<straw-dog question="q-0037.0006.0024.0003">one hook serves both, the question script's hook
+calling the session script for the session's half — its tag, registered, seen, silent, reopened,
+the rows — and drawing the window's half itself.</straw-dog> No recipient's host file changes
 for this mechanism.
 
 ## Moments

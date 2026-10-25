@@ -16,10 +16,13 @@ store from before keeps its rows under `docs/questions/sessions.d/`, or every ro
 file `docs/questions/sessions`; both are carried into the folder at the first write, by links
 that never overwrite.
 
-The question script imports this one and never the reverse: what the row's life needs of the
-store — the entry index for a position's check, the store's own types for what it reports — is
-taken as an argument or imported inside the function that uses it, so the row stands without the
-store. `--end` is the conclude's last act; `--hold`, `--take` and `--release` take, take over and let
+The question script imports this one at module level; this one takes from the store only inside
+the functions that use it — its types for what it reports, the id pattern, the store's reading —
+or as an argument, as the entry index for a position's check, so neither imports the other at
+load.
+TODO q-0037.0006.0024.0003: the direction of this dependency, and so these sentences, change
+with its answer — the store may stand without this script, the row on the store.
+`--end` is the conclude's last act; `--hold`, `--take` and `--release` take, take over and let
 go the unit a session works, named by the question it answers; `--check` is the rows' maintainer, format never content.
 """
 
