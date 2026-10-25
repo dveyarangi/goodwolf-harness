@@ -36,6 +36,21 @@ GoodWolf answers all three from your own files: plain Markdown and a few standar
 scripts, in Claude Code, Codex and Cursor. Fewer steps, each more precise: at every step the agent
 knows what is needed now — which rule, which record, which question — and does that, not the rest.
 
+## It works, or it seems to work
+
+If your project keeps rules, plans and a memory of its own, much of what follows will sound
+familiar. The question is not whether you have it, but whether it works — and a project rarely
+checks that about itself. Before comparing lists, have your agent find out:
+
+- **Pick one check your project trusts** — a test run, a gate, a closing criterion — and make it
+  fail on purpose. Does it? A suite that finds no tests can still exit green.
+- **Find the next step of the work.** Is it written down, and when was the last one taken?
+- **Open whatever holds the questions waiting on you.** How many, and how old is the oldest?
+- **Start a fresh session and ask where the work stands.** How much does it read, and is its
+  answer right?
+
+Whatever comes back wrong is what GoodWolf is for.
+
 ## Where you start
 
 - **New work.** The first session works out with you what the work is and how it should be done;
@@ -85,8 +100,8 @@ knows what is needed now — which rule, which record, which question — and do
 - **Checking and keeping are two questions.** Whether finished work keeps the promises its ticket
   and plan made, and whether the documents still agree with each other and with the code, are asked
   separately, so neither hides behind the other. A disagreement a session meets is repaired there,
-  not left for an audit<straw-dog question="q-0037.0010.0009.0009">, and `/maintain` is made to run on its own as a scheduled task, so drift no
-  session meets is swept as well</straw-dog>. *In your project: when were the docs last checked against the
+  not left for an audit, and you can schedule `/maintain` with your host so that drift no session
+  meets is swept as well. *In your project: when were the docs last checked against the
   code?*
 - **A method that looks like ceremony and works as speed.** A piece of work moves ticket → plan →
   build → verify → maintain, each step as heavy as the work — for a small change, a few lines and
