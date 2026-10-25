@@ -151,8 +151,11 @@ session's work, so it lands there, sent by message:
 
 > A reply tells nothing of the machinery behind it: what the work read, ran or wrote on the way,
 > or will read next — no script, call, check, report, hook, commit or its hash, rule's id, skill's
-> name or record's internals; and no record's id stands for what it names — an answer, a pain, a
-> goal is said by what it is.
+> name, record's internals, or an id in place of what it names.
+
+Drafted through `/skill-up` on the person's question: the first draft enumerated *an answer, a
+pain, a goal*; the umbrella *an id in place of what it names* replaces it, and a question's or a
+ticket's id shown beside its words, as their rules ask, stays outside it.
 
 **Disposition:** open; the amendment waits on the person.
 
