@@ -55,7 +55,7 @@ lands:
 > A green stage of the session's own work in progress is committed as it stands; what a failed
 > criterion puts to the person is that criterion, never the commit.
 
-**Disposition:** open; the amendment waits on the person.
+**Disposition:** landed 2026-10-25 in the entry file's Autonomy, v115, on the user's yes.
 
 ## 72. The commits table and the counters line were put at the reply's end — 2026-10-25
 

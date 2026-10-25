@@ -26,6 +26,12 @@ before a unit another running session holds, read off the window. Occasion: rule
 close taken from the session that worked it, and the align on how sessions hand work to each
 other, q-0037.0017.0006 *(the user, 2026-10-23 to 2026-10-25)*.
 
+## v115 — 2026-10-25
+
+**The green stage is the session's own** — v114's sentence gains *the session's own*: read at a
+wake, *a green stage* covered gone sessions' uncommitted work, and a live read announced it would
+commit it. Occasion: rule failure 73 *(the user, 2026-10-25)*.
+
 ## v114 — 2026-10-25
 
 **A green stage commits; a failed criterion is what waits** — Autonomy gains one sentence after

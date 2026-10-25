@@ -254,8 +254,8 @@ two rungs takes the higher.
 A question carries its highest rung on each ladder it touches and stops for the person while that
 rung is at or above the ladder's dial. Mending a violation is the work of the rung the mended thing
 is on. Work closes with its commit once `/verify` passes on it; a push follows the project's way of
-working with git, as its local file states. A green stage of work in progress is committed as it
-stands; what a failed criterion puts to the person is that criterion, never the commit.
+working with git, as its local file states. A green stage of the session's own work in progress is
+committed as it stands; what a failed criterion puts to the person is that criterion, never the commit.
 
 The project sets each dial in its local block; an unset dial is at the lowest rung. The agent never
 writes its dial<straw-dog question="q-0037.0006.0005">, and the host refuses an edit that changes it</straw-dog>.
