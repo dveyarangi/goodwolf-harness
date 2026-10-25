@@ -7,9 +7,9 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python 3.12+](https://img.shields.io/badge/python-3.12%2B-3776AB?logo=python&logoColor=white)](#use-it-instructions-for-your-agent)
 [![Dependencies: standard library only](https://img.shields.io/badge/dependencies-stdlib%20only-brightgreen.svg)](#use-it-instructions-for-your-agent)
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-supported-D97757?logo=claude&logoColor=white)](#where-it-stands)
-[![Codex](https://img.shields.io/badge/Codex-supported-412991?logo=openai&logoColor=white)](#where-it-stands)
-[![Cursor](https://img.shields.io/badge/Cursor-supported-000000?logo=cursor&logoColor=white)](#where-it-stands)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-supported-D97757?logo=claude&logoColor=white)](#use-it-instructions-for-your-agent)
+[![Codex](https://img.shields.io/badge/Codex-supported-412991?logo=openai&logoColor=white)](#use-it-instructions-for-your-agent)
+[![Cursor](https://img.shields.io/badge/Cursor-supported-000000?logo=cursor&logoColor=white)](#use-it-instructions-for-your-agent)
 [![Last commit](https://img.shields.io/github/last-commit/dveyarangi/goodwolf-harness)](https://github.com/dveyarangi/goodwolf-harness/commits/main)
 
 Work with an agent comes apart over time: the memory fills with clutter, the instructions stop
@@ -55,10 +55,10 @@ Whatever comes back wrong is what GoodWolf is for.
 
 - **New work.** The first session works out with you what the work is and how it should be done;
   the memory and the method grow with it from there, so nothing piles up to be cleaned later.
-- **Work that has lived.** The install stops before writing anything and offers a study: your
-  agent reads how your rules, decisions and history are kept, measures what it costs a newcomer to
-  recover where things stand, and writes one report — what GoodWolf would change here, what it would
-  cost you, in what order. Nothing is moved; you decide on the report.
+- **Work that has lived.** A study comes first, and it installs nothing: your agent reads how your
+  rules, decisions and history are kept, measures what it costs a newcomer to recover where things
+  stand, and writes one report — what GoodWolf would change here, what it would cost you, in what
+  order. Nothing is moved; you decide on the report.
 - **A method of your own.** If you have built a setup of your own — Markdown files, prompts, a
   project to learn with — you know how it ends: it grows complicated and starts to tangle. Build it
   on GoodWolf instead, with `/mechanism`, and the checks that hold the shipped method hold yours.
@@ -67,8 +67,7 @@ Whatever comes back wrong is what GoodWolf is for.
 
 - **A memory that stays true.** Not notes an agent keeps, but the project's working mind, held
   together:
-  - every fact in one home, held there by maintenance<straw-dog question="q-0037.0010.0009.0008">,
-    with a check of its own being built, and instructions kept out of records the same way</straw-dog>;
+  - every fact in one home, held there by maintenance;
   - every record knowing whether it says what will be, what must always hold, what is, or what
     was — and so which side wins when it and the code disagree;
   - every decision linked to what it rests on, so that when an answer changes, what stood on it
@@ -109,6 +108,17 @@ Whatever comes back wrong is what GoodWolf is for.
   criteria and the state are already written, so the next step is short and right the first time.
   *In your project: how much does every session read before it starts, and has anyone measured
   it?*
+- **What you decide gets built, and stays built.** A plan pulls the code toward it until the work
+  matches. A decision about the architecture binds the code from then on: code that drifts from it
+  is brought back, never the decision bent to fit the code, and it changes only when you decide
+  again. *In your project: pick a decision your docs record — does the code still follow it?*
+- **Done means checked.** Each change becomes a ticket with checkable criteria and a written plan,
+  is built test-first, and is verified against the ticket, the plan and your tests before it
+  counts as done. *In your project: pick a change marked done last month — what checked it, and
+  would that check have failed if the change were wrong?*
+- **You can see what it stands on.** Every step leaves a short record you can read, so checking the
+  agent's work is cheap and trusting it isn't blind. *In your project: for the agent's last
+  change, can you tell from the record why it chose what it did?*
 - **A second opinion from outside.** Before a big decision, a separate agent that has not read the
   project is asked how things like it usually go wrong elsewhere, so the answer is not only the one
   the project already believes.
@@ -126,43 +136,6 @@ commit convention and your pull requests stay yours, and what it brings sits bes
 its place, if you would rather: decided on the report. The step prefixes in this repository's own
 history are its local rule and do not travel. Whether your project needs it is answered by the study, in
 numbers from your own repository.
-
-## What it does about each
-
-**So the work is what you meant, and it works:**
-
-- **What you decide gets built, and stays built.** A plan pulls the code toward it until the work
-  matches. A decision about the architecture binds the code from then on: code that drifts from it
-  is brought back, never the decision bent to fit the code, and it changes only when you decide
-  again.
-- **Done means checked.** Each change becomes a ticket with checkable criteria and a written plan,
-  is built test-first, and is verified against the ticket, the plan and your tests before it
-  counts as done.
-- **Instructions that reach the agent.** Each rule lives in one place and is copied by a script to
-  wherever it is read, and a check fails if a copy drifts. So the agent isn't working from
-  scattered, contradictory instructions.
-
-**So you stop paying twice:**
-
-- **A memory of the project, not just of the code.** What was decided and why, what is half-built
-  and at which step, and what is still undecided are kept as files. Every session starts from them,
-  so "continue" is enough.
-- **Nothing you raise is lost.** Every open question is kept until it is answered, with where the
-  thinking had got to, and the ones you keep returning to come up first. Each message is placed
-  under the question it is about, so a side remark is noted instead of derailing the work.
-
-**So you are where it matters, and nowhere else:**
-
-- **Decisions go by their weight.** A decision whose mistake would break several parts of the
-  project comes to you, with the agent's recommendation. Anything smaller the agent settles and
-  tells you about. When it is unsure which one it is, it asks.
-- **You set the line.** You say where the agent stops for your yes, on one short list of decisions
-  from writing code to what the project is for: below the line it acts, at it it shows you first,
-  above it you decide.
-- **You can see what it stands on.** Every step leaves a short record you can read, so checking the
-  agent's work is cheap and trusting it isn't blind.
-- **You can think out loud.** Jump from topic to topic. What you say lands under the question it
-  belongs to and comes back when that topic does.
 
 ## A morning with it
 
@@ -210,11 +183,8 @@ It is for **steering an agent on work that lasts**, in one session or several at
 product, a refactor, a course of study, a research line, a diary, new or long-lived — wherever
 forgetting would cost you. It is not for a one-off script.
 
-- **Several sessions at once, yes; keeping them apart is your host's job.** Sessions in one tree
-  see where the others stand, and the harness's own scripts refuse a write to an entry that moved
-  since it was read. Nothing here locks a file: that is your host's — its edit tool refuses to
-  write over a file that changed since the agent read it, and where it offers a worktree per
-  session, each works in its own.
+- **Several sessions at once.** Each sees where the others stand, and the scripts refuse a write
+  over an entry that moved since it was read.
 - **Everything it adds is files.** Reverting the install commit removes the harness; what it wrote
   under `docs/` afterwards stays until you delete it.
 
@@ -234,8 +204,7 @@ messages under the open question it belongs to. On 5 October, new sessions kept 
 under questions that only sounded similar. Each time, the miss was logged and the rule tightened —
 four times that day — until it said: file a message under the narrowest question that actually
 covers it, never under one that merely looks alike. The sessions after that got it right. The
-harness has been built with itself since September, in 66 sessions, and its log holds 63 misses
-so far.
+harness has been built with itself since September, in 66 sessions.
 
 To override a shipped rule, add a section naming it.
 
@@ -272,23 +241,18 @@ usually go wrong elsewhere.
 
 The rules are in [AGENTS.md](AGENTS.md) and every skill is under [`.agents/skills/`](.agents/skills/).
 
-## Where it stands
-
-**Works today**, in Claude Code, Codex and Cursor:
-
-- Installing into a project, updating it, and checking that the installed copy is intact, with
-  your own rules applied last.
-- Meeting a project that already has a method: the install stops before writing, and the agent
-  studies the project and writes the report you decide on.
-- Arriving in a project that already has code: the first session after install works out with
-  you what the project is, and writes its architecture, decisions and glossary from that
-  conversation, deepening as the work reaches each part.
-- The open-question tree, with every message placed in it before the reply.
-- Each rule kept in one place, and checks on the harness's own files, run at install and update.
-
 ## Use it (instructions for your agent)
 
-Asked to install the harness into a project, or asked whether the project needs it:
+Asked whether the project needs it:
+
+0. Answer the four questions under *It works, or it seems to work* for this project, and tell the
+   person what came back.
+1. Offer the study, which installs and runs nothing: read
+   [`.agents/skills/harness/MEETING.md`](.agents/skills/harness/MEETING.md) here and follow it on the
+   project. It writes nothing there; the report goes where the person says, and the person decides
+   on it.
+
+Asked to install it:
 
 1. Clone this repository beside the project, never into it. Already cloned into the folder where
    the project was meant to be? From that folder,
