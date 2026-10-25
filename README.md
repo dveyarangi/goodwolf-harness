@@ -12,7 +12,8 @@
 [![Cursor](https://img.shields.io/badge/Cursor-supported-000000?logo=cursor&logoColor=white)](#where-it-stands)
 [![Last commit](https://img.shields.io/github/last-commit/dveyarangi/goodwolf-harness)](https://github.com/dveyarangi/goodwolf-harness/commits/main)
 
-Project memory and a working method for coding agents.
+Project memory that stays true, and a method of your own that amends itself — for agents on work
+whose goal keeps moving. Built and tested on software development.
 
 *The deeper the woods, the meaner the wolves*, says the proverb. A project that has lived for
 months is deep woods: hundreds of decisions, rules with their reasons, work stopped halfway, questions
@@ -30,6 +31,11 @@ GoodWolf answers all three from your repository: plain Markdown and a few standa
 scripts, in Claude Code, Codex and Cursor. Fewer steps, each more precise: at every step the agent
 knows what is needed now — which rule, which record, which question — and does that, not the rest.
 
+Development is the first method built on it and the one it is tested by. The core — the memory,
+your place in the work, rules that reach their occasion and amend themselves — serves any long
+work with a moving target, research or a diary as well, and a method you build for your own work
+gets all of it in turn.
+
 ## What it gives you
 
 - **A memory that stays true.** Not notes an agent keeps, but the project's working mind, held
@@ -46,10 +52,7 @@ knows what is needed now — which rule, which record, which question — and do
   - where each piece of work stopped, at which step, and why.
 
   It reaches the agent before every message, not when the agent thinks to look; a disagreement is
-  repaired where a session meets it. And it extends: a mechanism you build with the harness for
-  your own work gets a memory of the same kind — each record with its kind and its end, its rules
-  installed where they are read, held by the same checks and the same maintenance. "Continue" is
-  enough.
+  repaired where a session meets it. "Continue" is enough.
 - **A rule the agent ignored becomes a record.** The miss is logged with the rule that was in
   place, the rule is reworded in one reviewable commit, and the next miss shows whether the
   rewording worked.
