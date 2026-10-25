@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v120, 2026-10-25.
+Entry contract: v121, 2026-10-25.
 
 ## General rules
 
@@ -38,41 +38,30 @@ nothing about being load-bearing — an implementation method is a shape too. �
 
 <straw-dog question="q-0037.0010.0012">
 **A reply speaks the method:** which question the work is on, the method's step as the person would
-name it, what is decided, what is next, where it stops, what it needs from the person. What the
-work read, ran or wrote on the way, and what it will read next, is not told; what more the person
-hears at an occasion, a skill's `What the person hears` says. It names no script,
-call, check, report, record's internals or hook, and never retells a report: an outcome is one
-sentence, a failure is what the person does. A stop at or above a ladder's dial is said once — `✋ <the decision, as the ladder shows it>` — the ladder's and the rung's names
-in it nowhere. <straw-dog question="q-0037.0009.0021">Under `debug=on` the machinery is shown as well.</straw-dog>
+name it, what is decided, what is next, where it stops, what it needs from the person; what more
+the person hears at an occasion, a skill's `What the person hears` says. It never retells a
+report: an outcome is one sentence, a failure is what the person does. A stop at or above a ladder's dial is said once — `✋ <the decision, as the ladder shows it>` — the ladder's and the rung's names
+in it nowhere.
 </straw-dog>
 
 <straw-dog question="q-0037.0009.0021">
 **A paragraph shows what it stands on.** Every principle, and every classification applied by
-judgement, is named at its authored home and cited by that name. Under `debug=on`, an item shown
-for debugging alone and carrying no glyph of its own opens with 🐛:
+judgement, is named at its authored home.
 
-- A paragraph that claims or recommends ends with `(💡 [*<the principle governing it, named as its
-  home names it>*](<its home>:<line>))`, the name a link to the line its text stands on, never a
-  rule's id; one following a principle that stands in a document, where no skill brings it into
-  reach, `(🕯️ …)` in the same form — a harness error; rarely, one following a principle the list
-  lacks, `(無 *<that principle>*)`; one with none at work, nothing.
-- Text proposed for, or written this session into, a doc or code stands as written, in a
-  blockquote under a header naming what it is and the file it goes into:
-  `🧩 **Proposed rule — [<file>](<its path>) · <its section>**` for an
-  instruction, drafted through `/skill-up` before the frame is drawn — any text an agent acts by,
-  a skill's body and the entry file's included —,
-  `⚓ **Proposed invariant — …**` for an invariant, `✏️ **Proposed change — …**` for
-  any other text, the file linked by its path from the tree's root, the section named where the
-  text has one; `Proposed` read `Landed` once the text is written, never both; always for an
-  instruction, an invariant or a load-bearing doc, elsewhere where the reply shows it; the
-  blockquote holds the whole text, never a placeholder or a pointer standing for it. Once
-  written, the reply reporting it shows it again under its landed header, though a proposal
-  earlier in the turn showed it.
-- What a claim rests on from outside this session — a decision, evidence, the user's word — is a
-  footnote naming its record, or who and when.
-- A stop names its machinery after the sentence that says it, `(🐛 <ladder>=<rung>)`, never on its own.
+Text proposed for, or written this session into, a doc or code stands as written, in a
+blockquote under a header naming what it is and the file it goes into:
+`🧩 **Proposed rule — [<file>](<its path>) · <its section>**` for an
+instruction, drafted through `/skill-up` before the frame is drawn — any text an agent acts by,
+a skill's body and the entry file's included —,
+`⚓ **Proposed invariant — …**` for an invariant, `✏️ **Proposed change — …**` for
+any other text, the file linked by its path from the tree's root, the section named where the
+text has one; `Proposed` read `Landed` once the text is written, never both; always for an
+instruction, an invariant or a load-bearing doc, elsewhere where the reply shows it; the
+blockquote holds the whole text, never a placeholder or a pointer standing for it. Once
+written, the reply reporting it shows it again under its landed header, though a proposal
+earlier in the turn showed it.
 
-Debug or not, a row each, and a table only where it has one: what waits on the user's decision,
+A row each, and a table only where it has one: what waits on the user's decision,
 under `| ⚖️ Decisions |`, the next step the reply stops before among it, with nothing said of why
 it waits — never one already taken, the agent's own included, which the reply reports as taken and
 the user overturns by saying so<straw-dog question="q-0037.0013.0005.0007">, carried in every
@@ -93,15 +82,6 @@ is goodwolf-harness's own.
 
 A turn that completes a step of the delivery ring adds a row to the head table:
 `| 🔁 <the ticket, linked with its slug> · ✅ <each step this turn completed> |`.
-Under `debug=on`, a turn that read a skill's instructions closes the head table with a row
-`| ⚙️ <each such skill, as /name, in the order read> |`; a turn that read none has no row.
-
-A commit is machinery: with debug off, a reply shows no commit table and no commit's hash. Under
-`debug=on`, a turn that made commits follows the 🪢 table with a table of its own,
-`| 🪶 Commits |`, a row each in order: the short hash and the subject's head; then the window's
-counters line — its glyphs, numbers and changes copied character for character from this turn's
-window, never words standing for them — a one-cell table of its own; the head table comes after
-them.
 </straw-dog>
 
 <installed by="ticket">
@@ -184,6 +164,26 @@ its work.
 
 <installed by="debugging">
 **D1** Open your first reply of every session with the entry file's `Entry contract:` line, verbatim.
+
+**D3** A reply shows the machinery behind it beside the method; an item shown for that alone and
+carrying no glyph of its own opens with 🐛.
+
+- A paragraph that claims or recommends ends with `(💡 [*<the principle governing it, named as
+  its home names it>*](<its home>:<line>))`, the name a link to the line its text stands on,
+  never a rule's id; one following a principle that stands in a document, where no skill brings
+  it into reach, `(🕯️ …)` in the same form — a harness error; rarely, one following a principle
+  the list lacks, `(無 *<that principle>*)`; one with none at work, nothing.
+- What a claim rests on from outside this session — a decision, evidence, the user's word — is a
+  footnote naming its record, or who and when.
+- A stop names its machinery after the sentence that says it, `(🐛 <ladder>=<rung>)`, never on
+  its own.
+- A turn that made commits opens the reply, after the 🪢 table where one stands, with a table
+  `| 🪶 Commits |`, a row each in order: the short hash and the subject's head; then the window's
+  counters line — its glyphs, numbers and changes copied character for character from this
+  turn's window, never words standing for them — a one-cell table of its own. The head table
+  comes after them.
+- A turn that read a skill's instructions closes the head table with a row `| ⚙️ <each such
+  skill, as /name, in the order read> |`.
 </installed>
 
 ## Document load-bearing, code&comment the rest
@@ -312,8 +312,6 @@ Terms: docs/glossary.md, this project's own; the method's are .agents/glossary.m
 version of the entry contract changed: docs/research/entry-contract-findings.md.
 
 **L2** development=a feature · self-improvement=a rule. Push each commit as it lands.
-
-**L4** debug=on
 
 **L5** Run a Python script with `uv run --offline --no-project python <script>`.
 

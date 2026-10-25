@@ -15,6 +15,16 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v121 — 2026-10-25
+
+**What debug shows is installed, not read** — the reply form's `debug=on` parts leave the entry
+file for the debugging mechanism as a pair swapped by the `debug` setting: D2 at `off`, a reply
+keeping its machinery out — taking *A reply speaks the method*'s *not told* and *names no script*
+sentences; D3 at `on`, the 💡 🕯️ 無 marks, the footnotes, 🐛, the 🪶 commits table opening the
+reply after the 🪢 table, and the ⚙️ row. The commit paragraph, the ⚙️ sentence and *Debug or not*
+go; L4 goes from the local block. The frames stay plain, the autonomy dial's. Occasion:
+01-0016.0020; rule failure 72's amendment lands in D3 *(the user, 2026-10-25)*.
+
 ## v120 — 2026-10-25
 
 **A neighbour is told** — S9 gains that what a session finds or opens in the subtree of the

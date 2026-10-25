@@ -578,8 +578,7 @@ def todo_bindings_sheared(text: str) -> str:
 
 
 def stamped(text: str, ref: Ref) -> str:
-    """The announce line names where core came from; a recipient's session repeats it under debug=on."""
-    # TODO q-0037.0009.0021: who repeats the line follows debugging's final shape.
+    """The announce line names where core came from."""
     line = ANNOUNCE.search(text)
     if line is None:
         raise Refused(f"ship: {ENTRY_FILE} at {ref.announced} has no announce line; this is not the harness")

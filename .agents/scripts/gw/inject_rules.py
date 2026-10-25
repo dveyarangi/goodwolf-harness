@@ -154,10 +154,10 @@ class RulesFile:
             return None
         return f'<installed by="{self.slug}">\n' + "\n\n".join(paragraphs) + f"\n{INSTALLED_CLOSING}"
 
-    def paragraphs(self, rows: tuple[str, ...]) -> set[str]:
+    def paragraphs(self, rows: tuple[str, ...]) -> tuple[str, ...]:
         """Every paragraph a rule of this file could put in a file the rows reach, whatever the
-        settings."""
-        return {rule.paragraph for rule in self.rules if set(rows) & set(rule.targets)}
+        settings, in file order."""
+        return tuple(rule.paragraph for rule in self.rules if set(rows) & set(rule.targets))
 
 
 @dataclass(frozen=True)
@@ -918,11 +918,21 @@ def _differs_by_settings_alone(found: str, rules: RulesFile, rows: tuple[str, ..
     which of them it holds is the settings' doing, not an edit's nor an amendment's, so it is
     re-rendered without being asked."""
     inside = found.replace("\r\n", "\n").split("\n", 1)[1].rsplit("\n", 1)[0]
-    held = {paragraph for paragraph in inside.split("\n\n") if paragraph}
     # Both sides normalised, as `matches` normalises them: a rules file kept in CRLF renders
     # bodies with CRLF, and a block in an LF target is still its own.
-    could = {paragraph.replace("\r\n", "\n") for paragraph in rules.paragraphs(rows)}
-    return bool(held) and held <= could
+    could = [paragraph.replace("\r\n", "\n") for paragraph in rules.paragraphs(rows)]
+    return bool(inside) and _joined_from(inside, could)
+
+
+def _joined_from(text: str, rules: list[str]) -> bool:
+    """The text is some of these rules, in their order, each once, a blank line between: a rule's
+    own blank lines are its own, so the block is matched rule by rule, never cut at every one."""
+    for at, rule in enumerate(rules):
+        if text == rule:
+            return True
+        if text.startswith(rule + "\n\n") and _joined_from(text[len(rule) + 2:], rules[at + 1:]):
+            return True
+    return False
 
 
 def _dropped_targets(root: Path, rules: RulesFile, files: set[str]) -> list[str]:

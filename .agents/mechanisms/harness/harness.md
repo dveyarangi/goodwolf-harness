@@ -53,7 +53,7 @@ recipient's own; it refuses an entry file still carrying a retired `<project-loc
 content is the project's.
 
 **The announce line is the revision.** A recipient's entry file reads
-`Entry contract: <repository>@<ref>, <date>.`; <straw-dog question="q-0037.0009.0021">a session there announces it under `debug=on`,</straw-dog> the check reads
+`Entry contract: <repository>@<ref>, <date>.`; a session there announces it while debugging's D1 stands in its entry file, the check reads
 it, and the shape check reads its `@` to know it stands in a recipient — where an unbound
 `not yet` is upstream's gap and draws nothing. No record file: integrity is asked of the source,
 by cloning the announced ref again and comparing. A change to the transformation therefore reads
@@ -180,7 +180,7 @@ would otherwise fail the shape check for the same absence the report already nam
 
 - **The recipient's core** — *what exists* — read by its every session, through the loader links its hosts
   follow.
-- **The stamped announce line** — *what exists* — <straw-dog question="q-0037.0009.0021">announced by the recipient's first reply under `debug=on`;</straw-dog> read by `--check` and
+- **The stamped announce line** — *what exists* — announced by the recipient's first reply while debugging's D1 stands there; read by `--check` and
   `--update` to know what was installed, and by the shape check to know it stands in a recipient.
 - **The report** — *what exists* — read by whoever ran the script. Its `pending` lines are read by
   the person who runs them.

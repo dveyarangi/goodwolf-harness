@@ -168,8 +168,7 @@ uv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/
 ## What the person hears
 
 At the end of the pass, in a few lines: that it is done, over what; each thing
-that was out of agreement, named in a few words, now right<straw-dog question="q-0037.0009.0021"> — what was wrong in it told only under
-`debug=on`</straw-dog>; what is left for someone to take up and whose it is; and what waits on their decision. Each is said as where the work stands, never as what the pass
+that was out of agreement, named in a few words, now right; what is left for someone to take up and whose it is; and what waits on their decision. Each is said as where the work stands, never as what the pass
 did or did not do, nor how a check found it. What moved and why, what was read against what, what
 agreed, the marks and the checks stay in the records and the commit, said on request.
 

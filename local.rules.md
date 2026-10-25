@@ -41,17 +41,6 @@ version of the entry contract changed: docs/research/entry-contract-findings.md.
 development=a feature · self-improvement=a rule. Push each commit as it lands.
 </rule>
 
-<straw-dog question="q-0037.0009.0021">
-## L4 — the working is shown
-
-- **target** `AGENTS.md`
-- **authority** the user, 2026-09-29
-
-<rule>
-debug=on
-</rule>
-</straw-dog>
-
 ## L5 — how Python runs here
 
 - **target** `AGENTS.md`

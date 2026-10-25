@@ -1077,6 +1077,24 @@ class TheSettings(RepositoryCase):
         self.run_installer("--install")
         self.assertEqual(once, self.snapshot(), "run twice, the second run changes nothing")
 
+    def test_a_rule_of_several_paragraphs_moves_both_ways_without_overwrite(self) -> None:
+        self.write(DECLARING_RULES, declaring_file().replace(
+            "<rule>\nOnly while debugging.\n</rule>", "<rule>\nOnly while debugging.\n\n- and its list.\n</rule>"
+        ))
+        self.run_installer("--install")
+        self.assertIn("**D2** Only while debugging.\n\n- and its list.", self.read(TARGET))
+
+        self.write(LOCAL_FILE, local_with_value("off"))
+        status, report = self.run_installer("--install")
+
+        self.assertEqual(0, status, report)
+        self.assertIn(BLOCK_OFF, self.read(TARGET), "a blank line inside a rule is not an edit")
+
+        self.write(LOCAL_FILE, local_with_value("on"))
+        status, report = self.run_installer("--install")
+        self.assertEqual(0, status, report)
+        self.assertIn("**D2** Only while debugging.\n\n- and its list.", self.read(TARGET))
+
     def test_a_target_emptied_by_its_conditions_loses_its_block_and_the_report_says_removed(self) -> None:
         self.write(DECLARING_RULES, declaring_file().replace("## D1 — always", "## D1 — also while debugging").replace(
             "- **authority** the user, 2026-10-23\n\n<rule>\nAlways here.", "- **when** debug=on\n- **authority** the user, 2026-10-23\n\n<rule>\nAlways here."

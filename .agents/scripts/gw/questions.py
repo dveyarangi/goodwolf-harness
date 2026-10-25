@@ -1926,10 +1926,9 @@ def _called(root: Path, argv: list[str], today: date, now: datetime) -> int:
     return 0
 
 
-# TODO q-0037.0009.0021: read under `debug=on` until debugging installs its own blocks.
 def _landed(root: Path, current: str | None, left: str | None) -> str:
-    """Where an `at` placed the session, as a person reads it under `debug=on`: the question, and
-    the one it left when it moved (the user, 2026-10-03, amending parent decision 25)."""
+    """Where an `at` placed the session: the question, and the one it left when it moved (the user,
+    2026-10-03, amending parent decision 25)."""
     index = read_store(root).index
 
     def titled(identity: str) -> str:
