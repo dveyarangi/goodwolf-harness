@@ -43,7 +43,7 @@ a long paragraph. `/verify` read the slice against its ticket and RFC, which car
 > Each choice the RFC takes names the line of the governing question's accepted `Where it stands`
 > it keeps; a choice that keeps none, or crosses one, goes to `/align` before it is planned.
 
-**Disposition:** open; the amendment waits on the person.
+**Disposition:** landed 2026-10-25 in `/plan`, on the user's yes.
 
 ## A rule was drafted into the entry file's own text, its mechanism never looked for — 2026-10-25
 

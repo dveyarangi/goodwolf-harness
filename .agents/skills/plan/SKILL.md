@@ -85,6 +85,10 @@ description: >-
   Architecture must lead code shape even if code disagrees. Do not expose
   public methods or create flows that are not in architecture.
 
+- Each choice the RFC takes names the line of the governing question's accepted
+  `Where it stands` it keeps; a choice that keeps none, or crosses one, goes to
+  `/align` before it is planned.
+
 - If planned code includes a temporary solution that is dissolved by future
   development, add RFC instruction to append TODO comment to code that flags
   this. Otherwise code changes can start relying or considering the temporal
