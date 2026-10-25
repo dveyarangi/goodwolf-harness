@@ -871,7 +871,8 @@ sessions run would hold it mechanically:
 > stage nothing ahead of the commit; never a directory, a glob, `-A` or a bare `git commit` — in a
 > tree where other sessions run, the index is shared.
 
-**Disposition:** open, struck once.
+**Disposition:** landed 2026-10-25 on the user's word, in the session mechanism's S5, whose work
+it governs, installed into `/commit`; the strike stays open on the hook.
 
 ## 55. A decision abandoned twelve days earlier was carried as waiting in six replies running — 2026-10-20
 
@@ -1403,6 +1404,13 @@ touched is named as not a step, with the two cases that drew it: a rule landed a
 local practice*; so the rule left core `/commit`, which now asks for the project's own convention,
 and stands as the local rules file's L8, installed into `/commit`. Graded by the next commits: no
 prefix outside the list.
+
+**Struck 2026-10-25.** A session registering rule failures gave two commits, 674b679 and f775c7b,
+the prefix `REGISTER` — a name for the record touched, outside L8's list. It committed without
+invoking `/commit`, where L8 is installed, so the closed list was never read: the skill's moment,
+*committing or pushing*, was met and the skill not opened. The list held; the means was too weak.
+**Proposed amendment**, the strongest that will hold: a commit-msg hook refusing a subject whose
+prefix is not in L8's list. **Disposition:** open, struck once.
 
 ## 36. Landed changes were retold in prose, and instructions framed as other text — 2026-10-11
 

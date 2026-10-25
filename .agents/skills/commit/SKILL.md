@@ -33,7 +33,9 @@ description: >-
 <installed by="session">
 **S5** Commit the work of the current session only: another session's changes may be its work in
 progress, and in doubt ask the person. Work on a unit this session took over is its own, the
-holder's uncommitted changes to it included.
+holder's uncommitted changes to it included. Commit with the paths named, `git commit -- <file>…`,
+each one this session wrote or moved, and stage nothing ahead of the commit; never a directory, a
+glob, `-A` or a bare `git commit` — in a tree where other sessions run, the index is shared.
 </installed>
 
 <installed by="local">

@@ -74,12 +74,14 @@ resumes under a new id is the same conversation: its context holds the recall it
 ## S5 — a commit holds one session's work
 
 - **target** `.agents/skills/commit/SKILL.md`
-- **authority** in /commit since 2026-09-07; the session's since 2026-10-22; a unit taken over, the user, 2026-10-25
+- **authority** in /commit since 2026-09-07; the session's since 2026-10-22; a unit taken over, the user, 2026-10-25; the paths named, the user, 2026-10-25
 
 <rule>
 Commit the work of the current session only: another session's changes may be its work in
 progress, and in doubt ask the person. Work on a unit this session took over is its own, the
-holder's uncommitted changes to it included.
+holder's uncommitted changes to it included. Commit with the paths named, `git commit -- <file>…`,
+each one this session wrote or moved, and stage nothing ahead of the commit; never a directory, a
+glob, `-A` or a bare `git commit` — in a tree where other sessions run, the index is shared.
 </rule>
 
 ## S7 — a step that works a unit holds it
