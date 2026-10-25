@@ -91,7 +91,10 @@ NAME_LIMIT = 255
 CLONE_ROOM = 128
 # The highest four-digit position a child takes; a root's id may grow a digit, as it always could.
 LAST_POSITION = 9999
-PARTS = ("record of", "part of", "depends on", "state", "owner", "answer", "realizes", "rung", "lean", "struck")
+# `asks`: an open question waits on the person's decision and every wake shows it until it closes
+# (q-0037.0010.0009.0009.0001, the user, 2026-10-25).
+PARTS = ("record of", "part of", "depends on", "state", "owner", "answer", "realizes", "rung", "lean", "asks", "struck")
+_ASKS = re.compile(r"^the person, (\d{4}-\d{2}-\d{2})$")
 # A trace link names each answer by its reference and its name, as a ticket is named by id and
 # slug, or states that the question realizes none (the user, 2026-10-13).
 DERIVED = "derived"
@@ -484,6 +487,7 @@ def _read(name: str, text: str) -> tuple[Entry, list[Diagnostic]]:
         + _trace_link_problems(read)
         + _rung_problems(read)
         + _strike_problems(read)
+        + _asks_problems(read)
     )
 
 
@@ -560,6 +564,19 @@ def _rung_problems(read: Entry) -> list[Diagnostic]:
 
 
 _NOT_A_RUNG = "not a rung: `<ladder>: <rung>`, comma-separated, each ladder once"
+
+
+def _asks_problems(read: Entry) -> list[Diagnostic]:
+    """An entry asks the person in one form and only while it is open: a closed one carrying the
+    part says the person was asked of a question already settled."""
+    said = read.parts.get("asks")
+    if said is None:
+        return []
+    if not _ASKS.match(said.value):
+        return [Diagnostic(read.record, said.line, f"asks is `{said.value}`, not `the person, YYYY-MM-DD`")]
+    if read.state is not None and not read.open:
+        return [Diagnostic(read.record, said.line, "asks the person and is closed; a closed question asks nobody")]
+    return []
 
 
 def _relation_form_problems(read: Entry) -> list[Diagnostic]:
@@ -1355,6 +1372,7 @@ def _wake_read(root: Path, held: sessions.Session, header: str, now: datetime) -
     return "\n".join(
         [header, ""]
         + _section("most struck, open:", [f"  {_line(read)}" for read in _most_struck(live)])
+        + _asking_section(store, live, others)
         + _section("sessions:", [f"  {sessions.state(other)}{_holding(store, other)}" for other in others])
         + _section(
             "deferred, to re-check whether each condition is met:",
@@ -1365,6 +1383,30 @@ def _wake_read(root: Path, held: sessions.Session, header: str, now: datetime) -
         + _section("path:", _ahead_lines(root, now))
         + [window(root, held.tag, full=True)]
     )
+
+
+ASKING = "asking the person, each to put to them as a decision:"
+
+
+def _asking_section(store: Store, live: list[Entry], others: list[sessions.Session]) -> list[str]:
+    """Every open question asking the person, by its date then its id, none held back — a wait
+    behind a count would sink; one in another running session's work names that session, whose
+    it is to put. No heading where none asks."""
+    asking = [read for read in live if read.open and "asks" in read.parts and _ASKS.match(read.parts["asks"].value)]
+    if not asking:
+        return []
+    asking.sort(key=lambda read: (_ASKS.match(read.parts["asks"].value).group(1), _order(read)))
+    return _section(ASKING, [f"  {read.identity} {read.question} ({_ASKS.match(read.parts['asks'].value).group(1)}){_whose(store, read, others)}" for read in asking])
+
+
+def _whose(store: Store, read: Entry, others: list[sessions.Session]) -> str:
+    """The running session whose work holds the question — it stands on it or above it, or holds
+    it or a question above it — or nothing."""
+    above = {each.identity for each in _ancestry(store.index, read.identity or "")}
+    for other in others:
+        if other.current in above or (other.holds and other.holds in above):
+            return f" — in {other.tag}'s work"
+    return ""
 
 
 def _straw_dogs_due(root: Path, store: Store) -> list[str]:
@@ -1968,7 +2010,7 @@ class Clause:
 _RECORD_ID = re.compile(r"^\d{2}-\d{4}(?:\.\d{4})*")
 EVENTS = (
     "at", "open", "move", "reword", "depend", "undepend", "close", "suspect", "clear", "lean", "assign", "realize",
-    "rung",
+    "rung", "ask",
 )
 
 
@@ -1981,6 +2023,8 @@ def _called(root: Path, argv: list[str], today: date, now: datetime) -> int:
         return stopped.code if isinstance(stopped.code, int) else 2
     left = sessions.held(root, said.session).current
     written = declare(root, said.session, [_clause(said)], today, now=now)
+    if said.event == "ask" and not written.entries:
+        print(f"{said.question} already asks the person; nothing written")
     for record in written.entries:
         print(f"wrote {record}")
     for identity in written.opened:
@@ -2025,7 +2069,7 @@ def _clause(said: argparse.Namespace) -> Clause:
         return Clause("closes", said.question, other=said.kind, text=said.pointer)
     if said.event in ("lean", "assign", "reword", "realize", "rung"):
         return Clause(f"{said.event}s", said.question, text=said.text)
-    return Clause({"at": "at", "suspect": "suspects", "clear": "clears"}[said.event], said.question)
+    return Clause({"at": "at", "suspect": "suspects", "clear": "clears", "ask": "asks"}[said.event], said.question)
 
 
 def _calls() -> argparse.ArgumentParser:
@@ -2062,6 +2106,7 @@ def _calls() -> argparse.ArgumentParser:
     closing.add_argument("pointer", nargs="?", help="what the questions skill's Closing names for the kind")
     of_question("suspect", "mark a question's answer to be re-read")
     of_question("clear", "lift the mark")
+    of_question("ask", "mark an open question as asking the person, shown by every wake until it closes")
     of_question("lean", "write a question's lean").add_argument("text")
     of_question("assign", "name the record of the work that answers a question").add_argument("text", metavar="path")
     of_question("realize", 'write the answers a question realizes, `A7 "<name>", ...`, or `derived`').add_argument(
@@ -2491,17 +2536,41 @@ class _Draft:
                 f"everyone who needs it{successor}"
             )
         state = f"closed:{kind}" + (", suspect" if closing.suspect else "")
-        closed = _with(closing, state=state, answer=clause.text)
+        closed = _with(closing, state=state, answer=clause.text, asks=None)
         problems = _answer_problems(self.root, closed)
         if problems:
             raise Refused(f"`close {closing.identity} {kind}`: {problems[0].problem}")
         if closed.points_to:
             self._existing(closed.points_to)
+        if "asks" in closing.parts and kind in ("merged", "superseded"):
+            self._carry_asking(closing, kind, closed.points_to or "")
         self._put(closed)
+
+    def _carry_asking(self, closing: Entry, kind: str, target_id: str) -> None:
+        """A question that goes on in another takes the person's wait with it, the earlier date
+        kept; a closed one cannot take it, so the close refuses."""
+        target = self._existing(target_id)
+        if not target.open:
+            raise Refused(
+                f"`close {closing.identity} {kind}`: {closing.identity} asks the person, and {target_id} is "
+                "closed; a decision waiting on the person goes on only in an open question"
+            )
+        dates = [said.value for said in (closing.parts["asks"], target.parts.get("asks")) if said is not None]
+        self._put(_with(target, asks=min(dates, key=lambda value: value.rsplit(", ", 1)[-1])))
 
     def _suspects(self, clause: Clause) -> None:
         read = self._existing(clause.question or "")
         self._put(_with(read, state=f"{read.state.group(1) if read.state else 'open'}, suspect"))
+
+    def _asks(self, clause: Clause) -> None:
+        """An open question marked as asking the person, dated the day of the call; one already
+        asking stays as it is."""
+        read = self._existing(clause.question or "")
+        if not read.open:
+            state = read.parts["state"].value
+            raise Refused(f"`ask {read.identity}`: {read.identity} is {state}; only an open question asks the person")
+        if "asks" not in read.parts:
+            self._put(_with(read, asks=f"the person, {self.now:%Y-%m-%d}"))
 
     def _clears(self, clause: Clause) -> None:
         read = self._existing(clause.question or "")

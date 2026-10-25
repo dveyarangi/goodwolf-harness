@@ -2503,3 +2503,162 @@ class ALeanWithARelativeId(Declared):
         written = next(Path(self.root, STORE).glob("q-0004-*.md")).read_text(encoding="utf-8")
         self.assertEqual(1, len([line for line in written.splitlines() if "q-0004.0003" in line]))
 
+
+
+class AQuestionAskingThePerson(Declared):
+    """A decision left for the person is an open question carrying `asks`: every wake shows it
+    until it closes, and the close is the person's (01-0011.0110.0090)."""
+
+    SECTION = "asking the person, each to put to them as a decision:"
+
+    def asks(self, question: str) -> str | None:
+        """The part on the live entry whose question reads so, wherever a write moved it."""
+        store = questions.read_store(self.root)
+        found = [read for read in store.index.values() if read.question == question and not read.archived]
+        self.assertEqual(1, len(found), question)
+        said = found[0].parts.get("asks")
+        return said.value if said else None
+
+    def wake(self) -> str:
+        return self.said("--wake", "--session", "s-alpha")[1]
+
+    def test_ask_marks_an_open_question_as_asking_the_person(self) -> None:
+        self.called("ask", "q-0007")
+
+        self.assertEqual("the person, 2026-09-29", self.asks("Who moves a subtree?"))
+        self.assertNotIn("asks", self.said("--check")[1], "the fixture's flat ids fail the check; no finding names the part")
+
+    def test_ask_on_a_closed_question_is_refused_and_writes_nothing(self) -> None:
+        self.assertRefused("closed", "ask", "q-0005")
+
+    def test_ask_on_a_question_already_asking_writes_nothing_and_says_so(self) -> None:
+        self.called("ask", "q-0007")
+        written = self.snapshot()
+
+        status, said = self.call("ask", "q-0007", now=NOW + timedelta(days=2))
+
+        self.assertEqual(0, status, said)
+        self.assertIn("already asks", said)
+        self.assertEqual(written, self.snapshot())
+
+    def test_every_other_write_of_the_entry_keeps_it(self) -> None:
+        self.called("ask", "q-0007")
+        later = NOW
+        for argv in (
+            ("at", "q-0007"),
+            ("lean", "q-0007", "the mover"),
+            ("rung", "q-0007", "development: a feature"),
+            ("suspect", "q-0007"),
+            ("clear", "q-0007"),
+            ("depend", "q-0007", "--on", "q-0010"),
+            ("undepend", "q-0007", "--on", "q-0010"),
+            ("assign", "q-0007", "docs/record.md"),
+            ("realize", "q-0007", "derived"),
+        ):
+            later += timedelta(hours=13)
+            status, said = self.call(*argv, now=later)
+            self.assertEqual(0, status, (argv, said))
+            self.assertEqual("the person, 2026-09-29", self.asks("Who moves a subtree?"), argv)
+        self.called("reword", "q-0007", "Who moves a subtree, and when?")
+        self.assertEqual("the person, 2026-09-29", self.asks("Who moves a subtree, and when?"))
+
+    def test_a_move_of_it_or_of_its_parent_keeps_it(self) -> None:
+        self.called("ask", "q-0007")
+
+        self.called("move", "q-0003", "--under", "q-0010")
+        self.assertEqual("the person, 2026-09-29", self.asks("Who moves a subtree?"))
+        moved = next(read.identity for read in questions.read_store(self.root).index.values() if read.question == "Who moves a subtree?")
+        self.called("move", moved, "--to-root")
+        self.assertEqual("the person, 2026-09-29", self.asks("Who moves a subtree?"))
+
+    def test_a_decided_close_ends_it_and_the_wake_shows_it_no_more(self) -> None:
+        self.called("ask", "q-0007")
+        self.assertIn(self.SECTION, self.wake())
+
+        self.called("close", "q-0007", "decided", "[the record](../record.md) — the user, 2026-09-29")
+
+        self.assertNotIn(self.SECTION, self.wake())
+
+    def test_a_merge_carries_it_to_an_open_target_the_earlier_date_kept(self) -> None:
+        self.called("ask", "q-0007")
+        self.call("ask", "q-0010", now=NOW + timedelta(days=3))
+
+        self.called("close", "q-0007", "merged", "q-0010")
+
+        self.assertEqual("the person, 2026-09-29", self.asks("How do sessions reach each other?"))
+        self.assertNotIn("asks", self.said("--check")[1], "the closed one no longer carries it")
+
+    def test_a_merge_carries_it_to_an_open_target_that_asked_nothing(self) -> None:
+        self.called("ask", "q-0007")
+
+        self.called("close", "q-0007", "superseded", "q-0010")
+
+        self.assertEqual("the person, 2026-09-29", self.asks("How do sessions reach each other?"))
+
+    def test_a_merge_into_a_closed_target_is_refused_while_it_asks(self) -> None:
+        self.called("ask", "q-0007")
+
+        self.assertRefused("asks", "close", "q-0007", "merged", "q-0005")
+
+    def test_a_closed_entry_carrying_it_fails_the_check(self) -> None:
+        self.place(
+            "q-0005-is-the-id-a-path",
+            "Is the id a path?",
+            {
+                "part of": "q-0002",
+                "state": "closed:decided",
+                "answer": "[the record](../record.md) — the user, 2026-09-29",
+                "asks": "the person, 2026-09-29",
+            },
+        )
+
+        status, said = self.said("--check")
+
+        self.assertEqual(1, status)
+        self.assertIn("asks the person and is closed", said)
+
+    def test_a_value_not_of_its_form_fails_the_check(self) -> None:
+        self.place(
+            "q-0007-who-moves-a-subtree",
+            "Who moves a subtree?",
+            {"part of": "q-0003", "state": "open", "asks": "someone, soon"},
+        )
+
+        status, said = self.said("--check")
+
+        self.assertEqual(1, status)
+        self.assertIn("asks is `someone, soon`", said)
+
+    def test_the_wake_lists_every_one_after_the_most_struck_by_date_then_id(self) -> None:
+        for identity in ("q-0010", "q-0004", "q-0003", "q-0002", "q-0001"):
+            self.called("ask", identity)
+        self.call("ask", "q-0007", now=NOW - timedelta(days=1))
+
+        text = self.wake()
+
+        listed = [line.split()[0] for line in self.section(text, self.SECTION).splitlines()[1:]]
+        self.assertEqual(["q-0007", "q-0001", "q-0002", "q-0003", "q-0004", "q-0010"], listed)
+        self.assertTrue(text.index("most struck, open:") < text.index(self.SECTION) < text.index("sessions:"))
+
+    def test_one_in_another_running_sessions_work_carries_its_tag(self) -> None:
+        self.write(
+            SESSIONS,
+            "s-alpha running 2026-09-29T11:30Z q-0004 q-0002,q-0001\n"
+            "s-beta running 2026-09-29T11:00Z q-0010 holds q-0003\n"
+            "s-gamma ended 2026-09-28 q-0011\n",
+        )
+        self.place(
+            "q-0010.0001-who-answers-first", "Who answers first?", {"part of": "q-0010", "state": "open"}
+        )
+        for identity in ("q-0010", "q-0010.0001", "q-0007", "q-0001", "q-0004"):
+            self.called("ask", identity)
+
+        lines = {line.split()[0]: line for line in self.section(self.wake(), self.SECTION).splitlines()[1:]}
+
+        for theirs in ("q-0010", "q-0010.0001", "q-0007"):
+            self.assertIn("s-beta", lines[theirs], theirs)
+        for none in ("q-0001", "q-0004"):
+            self.assertNotIn("s-beta", lines[none], none)
+
+    def test_with_none_asking_the_wake_has_no_such_heading(self) -> None:
+        self.assertNotIn(self.SECTION, self.wake())
