@@ -18,7 +18,6 @@ Your goal is to find out the actual state of the project and the current and/or 
 <straw-dog question="q-0037.0019.0004">
 - The candidates for what is next are the path's; recommend one and say why, taking no order from a written queue. A last session's handoff is a list of candidates, not an order.
 </straw-dog>
-- Report drift you hit while reading (stale headers, docs the tree has outrun) rather than fixing it — fixing is outside recall's scope. A dated snapshot — a session record, a done ticket — does not drift: what the tree has since moved past in it is history, not drift.
 
 ## Installed from other mechanisms
 
@@ -37,6 +36,13 @@ then read the queue as this skill says.
 `questions.py --wake --session <tag>` with the tag that read named; a bare `--wake` registers a new
 session, and is for a host whose hook registered none. Take from it where the other sessions
 stand, and re-rank nothing another running session is on.
+</installed>
+
+<installed by="maintain">
+**M2** Drift — a record out of agreement with what it is of, or silent on which side wins — is repaired
+where met, by a subagent, below the dial, in your own work or nobody's. In another session's work
+it is told to that session; at or above the dial it is a decision marked 🍂. A record of what
+happened does not drift.
 </installed>
 
 ## What the person hears

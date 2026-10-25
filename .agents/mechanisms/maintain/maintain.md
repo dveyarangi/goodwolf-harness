@@ -78,6 +78,7 @@ the dial sets it, recording the cause in the evidence.
 | moment | instructed by | kind, and why |
 |---|---|---|
 | declaring a scope and running a pass over it | `.agents/skills/maintain/SKILL.md` | |
+| repairing drift met in passing, any session at any step | M2, installed in `AGENTS.md` and `.agents/skills/recall/SKILL.md` | |
 | re-checking derived work when what governs it moved — a doc against the meta-rules, an implementation against its doc, records against their format | `.agents/skills/maintain/SKILL.md` | |
 | holding a landed slice to its governing docs, both ways | — | elsewhere — landing-time agreement is verification, `.agents/skills/verify/SKILL.md` |
 | knowing a re-check is due | `.agents/skills/maintain/SKILL.md` | |

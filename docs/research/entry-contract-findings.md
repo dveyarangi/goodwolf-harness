@@ -15,6 +15,15 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v123 — 2026-10-25
+
+**Drift is repaired where met** — the maintenance mechanism's M2 installed under *General rules*
+and into `/recall`: drift, a record silent on which side wins among it, is repaired where met by a
+subagent, below the dial, in one's own work or nobody's; in another session's work it is told to
+that session; at or above the dial it is a decision marked 🍂. `/recall` loses *report drift rather
+than fixing it*. Occasion: q-0037.0010.0009.0007, the front page promising repair where a session
+meets it while the rules forbade it or let it be listed *(the user, 2026-10-25)*.
+
 ## v122 — 2026-10-25
 
 **A thing is said by what it is** — *A reply speaks the method* gains *it says what a thing is,
