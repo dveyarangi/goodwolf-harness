@@ -12,8 +12,9 @@
 [![Cursor](https://img.shields.io/badge/Cursor-supported-000000?logo=cursor&logoColor=white)](#where-it-stands)
 [![Last commit](https://img.shields.io/github/last-commit/dveyarangi/goodwolf-harness)](https://github.com/dveyarangi/goodwolf-harness/commits/main)
 
-Project memory that stays true, and a method of your own that amends itself — for agents on work
-whose goal keeps moving. Built and tested on software development.
+A harness for your own harnesses — for code, study, research, a diary — whose memory stays clean,
+whose instructions get followed, and whose goal holds while it moves. Built and tested on software
+development.
 
 *The deeper the woods, the meaner the wolves*, says the proverb. A project that has lived for
 months is deep woods: hundreds of decisions, rules with their reasons, work stopped halfway, questions
@@ -31,10 +32,13 @@ GoodWolf answers all three from your repository: plain Markdown and a few standa
 scripts, in Claude Code, Codex and Cursor. Fewer steps, each more precise: at every step the agent
 knows what is needed now — which rule, which record, which question — and does that, not the rest.
 
-Development is the first method built on it and the one it is tested by. The core — the memory,
-your place in the work, rules that reach their occasion and amend themselves — serves any long
-work with a moving target, research or a diary as well, and a method you build for your own work
-gets all of it in turn.
+If you have built a setup of your own — Markdown files, prompts, a project to learn with — you
+know how it ends: it grows complicated and starts to tangle, the memory fills with clutter, the
+instructions stop being followed, the goal slips. GoodWolf is the harness underneath:
+meta-instructions and scripts for writing any instructions so that their memory stays coherent,
+and a way to find your bearings in the space of any task. Development is the first method built
+on it, and the one it is tested by — the hardest case; a method you build for your own work gets
+all of it in turn.
 
 ## What it gives you
 
