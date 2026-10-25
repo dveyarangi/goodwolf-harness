@@ -1392,9 +1392,9 @@ def _ahead_lines(root: Path, now: datetime) -> list[str]:
     return [
         *ahead.in_work(),
         *ahead.touched_lately_lines(lately),
-        "  ready, in id order; the order is the queue's:",
+        "  ready, in id order, none ranked above another:",
         *_or_none(line for ticket in ahead.ready()[:AHEAD_READY] for line in ahead.ticket_lines(ticket)),
-        "  most struck, no ticket:",
+        "  most struck, no ticket, past those touched lately:",
         *_or_none(line for read in ahead.most_struck(lately)[:AHEAD_STRUCK] for line in ahead.question_lines(read)),
         "  roots:",
         *ahead.roots(),

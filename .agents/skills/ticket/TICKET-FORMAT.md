@@ -188,6 +188,7 @@ sit in the same folder state. Only names are read; nothing inside an RFC is.
 
 ## The queue
 
+<straw-dog question="q-0037.0019.0004">
 The queue is `docs/tickets/README.md`: the order of the work, a numbered
 list, one line an item — a live ticket or an open question, with the
 person's word that placed it. It names nothing closed: the pass that closes
@@ -197,3 +198,4 @@ live tickets only through `tickets.py --list`. It is of the kind *what it
 intends to become*, and carries `- **record of** what it intends to become`
 on the line after its title; `tickets.py --check` holds the mark and refuses
 a link into `done/`, where the queue exists.
+</straw-dog>

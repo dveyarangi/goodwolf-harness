@@ -669,7 +669,7 @@ class ThePathAhead(RepositoryCase):
     def test_the_most_struck_question_with_no_ticket_is_a_candidate_and_a_root_never_is(self) -> None:
         self.a_tree()
 
-        struck = self.under(self.path()[1], "most struck, no ticket:")
+        struck = self.under(self.path()[1], "most struck, no ticket, past those touched lately:")
 
         self.assertEqual(
             ["    Does the path read? — q-0002.0004", "      serves unread · struck 3 · 0 straw dogs · unlocks —"],
