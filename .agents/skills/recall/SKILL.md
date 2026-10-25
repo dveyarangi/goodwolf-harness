@@ -15,8 +15,8 @@ Your goal is to find out the actual state of the project and the current and/or 
 - Build a compact summary of current state of the project and bring up all relevant items for current or next task, including the decisions already taken that bear on it, each with its reference.
 
 - In case of ambiguity, present it too user. In case when continuation requires decision making, invoke /align skill.
-<straw-dog question="q-0037.0013">
-- Read the next item from the order the queue states; do not re-rank it. Check whether, since that order was set, priorities or product requirements changed, the order came to contradict itself — a dependency, a status or another statement of it — or a HITL resolution found complexity or a split the order does not yet reflect. Name each such occasion and put the reordering to the user. A last session's handoff is a list of candidates, not an order.
+<straw-dog question="q-0037.0019.0004">
+- The candidates for what is next are the path's; recommend one and say why, taking no order from a written queue. A last session's handoff is a list of candidates, not an order.
 </straw-dog>
 - Report drift you hit while reading (stale headers, docs the tree has outrun) rather than fixing it — fixing is outside recall's scope. A dated snapshot — a session record, a done ticket — does not drift: what the tree has since moved past in it is history, not drift.
 
