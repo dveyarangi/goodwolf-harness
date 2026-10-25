@@ -32,22 +32,22 @@ knows what is needed now — which rule, which record, which question — and do
 
 ## What it gives you
 
-- **A memory of the project, kept in the repository.** What was decided and why, what each
-  decision still waits on, what is half-built and at which step, every question you raised with
-  where the thinking got to. A session starts from these files, so "continue" is enough, and
-  "we settled that on Tuesday — has something changed?" is a thing the agent can say.
-- **Every record knows what it is, and so which side wins.** A plan says what will be, the
-  architecture what must always hold, a generated list what is, a session record what was. When a
-  record and the code disagree, the kind decides which one is fixed: code is brought to the
-  architecture, a generated list is rebuilt from the code, a record of the past is left alone. A
-  decision once accepted is not reopened without new evidence.
-- **Each rule in one home.** A rule is written once and copied by a script to every place an agent
-  reads it; a check fails when a copy drifts, and an update stops rather than overwrite a copy you
-  edited by hand. Your own answers live in one file, `local.rules.md`, applied last and never
-  touched.
-- **Provisional decisions tied to what will change them.** A rule or a document written while a
-  question is still open is bound to that question. When it is answered, everything that rested on
-  it comes up to be rewritten, so "for now" does not quietly become forever.
+- **A memory that stays true.** Not notes an agent keeps, but the project's working mind, held
+  together:
+  - every fact and every rule in one home, copied by script to wherever it is read;
+  - every record knowing whether it says what will be, what must always hold, what is, or what
+    was — and so which side wins when it and the code disagree;
+  - every decision linked to what it rests on, so that when an answer changes, what stood on it
+    comes up;
+  - the questions still open and the ideas on the way, each with where the thinking got to, so
+    nothing you raise sinks;
+  - where each piece of work stopped, at which step, and why.
+
+  It reaches the agent before every message, not when the agent thinks to look; a disagreement is
+  repaired where a session meets it. And it extends: a mechanism you build with the harness for
+  your own work gets a memory of the same kind — each record with its kind and its end, its rules
+  installed where they are read, held by the same checks and the same maintenance. "Continue" is
+  enough.
 - **A rule the agent ignored becomes a record.** The miss is logged with the rule that was in
   place, the rule is reworded in one reviewable commit, and the next miss shows whether the
   rewording worked.

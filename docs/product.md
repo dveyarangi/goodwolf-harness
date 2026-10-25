@@ -15,6 +15,10 @@ what answers each?".
 **What it does, in one line.** Fewer steps, each more precise: at every step the agent knows what
 is needed now — which rule, which record, which question — and does that, not the rest. The
 project's own practices stay its own, by its choice; the harness fits into them and replaces none.
+Its memory stays true: one home for every fact, every record knowing which side wins against the
+code, what rests on what linked, the open questions kept with the thinking on them, the whole
+reaching the agent before every message — and any mechanism built with the method gets a memory of
+the same kind.
 
 ## Pains
 
