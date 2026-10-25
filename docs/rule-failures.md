@@ -47,7 +47,7 @@ lands:
 
 Whether the host refuses a rule proposed without the skill read is q-0037.0006.0005.0001's.
 
-**Disposition:** open; the amendment waits on the person.
+**Disposition:** closed 2026-10-25 — the amendment landed as written, v118 *(the user)*.
 
 ## 75. Two sessions numbered one version of the entry contract — 2026-10-25
 

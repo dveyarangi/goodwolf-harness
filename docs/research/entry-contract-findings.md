@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v118 — 2026-10-25
+
+**A proposed rule is drafted, whole** — the 🧩 frame's *written through `/skill-up`* reads
+*drafted through `/skill-up` before the frame is drawn*, and the blockquote holds the whole text,
+never a placeholder or a pointer standing for it. Occasion: rule failure 76, two rules shown at an
+align without the skill, one of them a placeholder *(the user, 2026-10-25)*.
+
 ## v117 — 2026-10-25
 
 **The builder is not the case either** — *The builder does not judge* gains that the builder does

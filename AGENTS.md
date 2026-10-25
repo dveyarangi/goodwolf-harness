@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v117, 2026-10-25.
+Entry contract: v118, 2026-10-25.
 
 ## General rules
 
@@ -59,12 +59,13 @@ for debugging alone and carrying no glyph of its own opens with 🐛:
 - Text proposed for, or written this session into, a doc or code stands as written, in a
   blockquote under a header naming what it is and the file it goes into:
   `🧩 **Proposed rule — [<file>](<its path>) · <its section>**` for an
-  instruction, written through `/skill-up` — any text an agent acts by, a skill's body and the
-  entry file's included —,
+  instruction, drafted through `/skill-up` before the frame is drawn — any text an agent acts by,
+  a skill's body and the entry file's included —,
   `⚓ **Proposed invariant — …**` for an invariant, `✏️ **Proposed change — …**` for
   any other text, the file linked by its path from the tree's root, the section named where the
   text has one; `Proposed` read `Landed` once the text is written, never both; always for an
-  instruction, an invariant or a load-bearing doc, elsewhere where the reply shows it. Once
+  instruction, an invariant or a load-bearing doc, elsewhere where the reply shows it; the
+  blockquote holds the whole text, never a placeholder or a pointer standing for it. Once
   written, the reply reporting it shows it again under its landed header, though a proposal
   earlier in the turn showed it.
 - What a claim rests on from outside this session — a decision, evidence, the user's word — is a
