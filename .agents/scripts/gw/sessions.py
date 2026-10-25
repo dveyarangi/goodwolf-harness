@@ -482,15 +482,20 @@ def take(root: Path, tag: str, unit: str, index: dict, now: datetime) -> tuple[S
     unit enters this session's row, and the holder's keeps the mark of who took it in its place,
     so a holder still alive learns its unit is gone. The same word lets go the unit this session
     held, which is then nobody's (the user, 2026-10-25). Says from whom it was taken and what was
-    let go. Refused, writing nothing: a question that is no unit, and a unit no running session
-    holds, which `--hold` takes."""
+    let go. An ended row still naming the unit is marked too, as at a hold. Refused, writing
+    nothing: a question that is no unit; a unit this session holds already; and a unit no running
+    session holds, which `--hold` takes."""
     held_row = held(root, tag)
     _refuse_unless_a_unit(index, unit)
-    holder = next((each for each in rows(root)[0] if each.running and each.holds == unit and each.tag != tag), None)
+    if held_row.holds == unit:
+        _refuse(f"{tag} holds {unit} already")
+    others = [each for each in rows(root)[0] if each.holds == unit and each.tag != tag]
+    holder = next((each for each in others if each.running), None)
     if holder is None:
         _refuse(f"no running session holds {unit}; `--hold` takes it")
-    let_go = held_row.holds if held_row.holds != unit else None
-    _mark_taken(root, holder, tag)
+    let_go = held_row.holds
+    for other in others:
+        _mark_taken(root, other, tag)
     return _take_into(root, held_row, unit, now), holder.tag, let_go
 
 

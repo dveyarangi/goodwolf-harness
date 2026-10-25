@@ -1133,6 +1133,32 @@ class TakingOver(Rendered):
         self.assertIn("taken: q-0004 by s-beta", text)
         self.assertNotIn("holding:", text)
 
+    def test_a_takeover_after_the_holders_last_window_draws_its_next_one_whole(self) -> None:
+        self.said("--window", "--session", "s-alpha")
+        self.said_to_sessions("--take", "q-0004", "--session", "s-beta")
+
+        _, text = self.said("--window", "--session", "s-alpha")
+
+        self.assertIn("taken: q-0004 by s-beta", text)
+
+    def test_another_sessions_hold_after_a_window_draws_the_next_one_whole(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 holds q-0004\ns-beta running 2026-09-29T11:00Z q-0010\n")
+        self.said("--window", "--session", "s-alpha")
+        self.said_to_sessions("--hold", "q-0007", "--session", "s-beta")
+
+        _, text = self.said("--window", "--session", "s-alpha")
+
+        self.assertIn("holding q-0007", text)
+
+    def test_another_sessions_move_alone_still_leaves_the_window_unchanged(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 holds q-0004\ns-beta running 2026-09-29T11:00Z q-0010\n")
+        self.said("--window", "--session", "s-alpha")
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 holds q-0004\ns-beta running 2026-09-29T11:40Z q-0003 q-0010\n")
+
+        _, text = self.said("--window", "--session", "s-alpha")
+
+        self.assertIn("window unchanged since your last one", text)
+
     def test_the_holders_next_hold_release_or_end_clears_the_mark(self) -> None:
         for argv in (("--hold", "q-0007", "--session", "s-alpha"), ("--release", "--session", "s-alpha"), ("--end", "--session", "s-alpha")):
             with self.subTest(argv=argv[0]):
@@ -1151,6 +1177,22 @@ class TakingOver(Rendered):
         self.assertEqual("q-0002.0001", sessions.renamed(alpha, {"q-0004": "q-0002.0001"}).taken)
         sessions.tend(self.root, NOW + timedelta(hours=4), "s-new")
         self.assertTrue(self.line("s-alpha").endswith(" taken q-0004 by s-beta"), self.line("s-alpha"))
+        sessions.seen(self.root, "s-alpha", NOW + timedelta(hours=5))
+        self.assertTrue(self.line("s-alpha").endswith(" taken q-0004 by s-beta"), self.line("s-alpha"))
+        sessions.tend(self.root, NOW + timedelta(hours=9), "s-new")
+        sessions.arrive(self.root, "s-alpha", NOW + timedelta(hours=10))
+        self.assertTrue(self.line("s-alpha").endswith(" taken q-0004 by s-beta"), self.line("s-alpha"))
+
+    def test_taking_over_what_this_session_holds_already_is_refused(self) -> None:
+        self.assertRefusedWritingNothing("already", "--take", "q-0004", "--session", "s-alpha")
+
+    def test_a_takeover_marks_an_ended_row_still_naming_the_unit(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 holds q-0004\ns-beta running 2026-09-29T11:00Z q-0010\ns-gamma ended 2026-09-29T10:00Z q-0004 holds q-0004\n")
+
+        status, said = self.said_to_sessions("--take", "q-0004", "--session", "s-beta")
+
+        self.assertEqual(0, status, said)
+        self.assertEqual("s-gamma ended 2026-09-29T10:00Z q-0004 taken q-0004 by s-beta", self.line("s-gamma"))
 
     def test_a_mark_naming_no_entry_is_reported(self) -> None:
         self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 taken q-0099 by s-beta\n")

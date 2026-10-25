@@ -1150,7 +1150,8 @@ def window(root: Path, tag: str, full: bool = False) -> str:
 
     Every window drawn stays in the conversation, so one is drawn only when something moved: when
     neither this session's position nor any entry changed since the last one, a single line says
-    so (parent decision 44). Another session's position alone is not a change.
+    so (parent decision 44). Another session's position alone is not a change; a unit held, or
+    taken from this session, is.
 
     Either form ends with the counters, since a ticket or a straw dog moves while no entry does.
     """
@@ -1160,7 +1161,7 @@ def window(root: Path, tag: str, full: bool = False) -> str:
     store = read_store(root, seen)
     held = sessions.held(root, tag)
     counters = _counters(root, store, tag)
-    fingerprint = _fingerprint(held, seen)
+    fingerprint = _fingerprint(held, seen, store.sessions)
     memory = sessions.memory(root, tag)
     if not full and memory.is_file() and memory.read_text(encoding="utf-8") == fingerprint:
         # The one line in front of most turns names the act, since "nothing moved" read as nothing
@@ -1733,9 +1734,14 @@ def tree(root: Path, identity: str | None = None) -> str:
     return "\n".join(lines)
 
 
-def _fingerprint(held: sessions.Session, seen: dict[str, bytes]) -> str:
-    """What a window was drawn from: this session's position and every entry's bytes."""
-    digest = hashlib.sha256(f"{held.current}\n".encode())
+def _fingerprint(held: sessions.Session, seen: dict[str, bytes], others: list[sessions.Session]) -> str:
+    """What a window was drawn from: this session's position, the unit it holds or the mark of one
+    taken from it, every other running session's held unit, and every entry's bytes. Another
+    session's position alone is not a change; a hold or a takeover is, since a session reads the
+    holds off its window before it acts on a unit."""
+    holds = sorted(f"{other.tag}={other.holds}" for other in others if other.running and other.holds and other.tag != held.tag)
+    own = f"{held.current}\n{held.holds}\n{held.taken}\n{held.taken_by}\n{','.join(holds)}\n"
+    digest = hashlib.sha256(own.encode())
     for name in sorted(seen):
         digest.update(name.encode() + b"\0" + seen[name] + b"\0")
     return digest.hexdigest()
