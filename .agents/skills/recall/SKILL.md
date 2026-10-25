@@ -24,11 +24,11 @@ Your goal is to find out the actual state of the project and the current and/or 
 <installed by="questions">
 **Q2** Take from the wake's read what is suspect, which deferrals may now be due, and which straw dogs
 are due; take this session's position from the person or estimate it, and place it with `at`;
-then read the queue as this skill says.
+then read the path as this skill says.
 </installed>
 
 <installed by="ticket">
-**P12** Read the live tickets with `tickets.py --list` before ordering the queue or minting a ticket.
+**P12** Read the live tickets with `tickets.py --list` before minting a ticket.
 </installed>
 
 <installed by="session">

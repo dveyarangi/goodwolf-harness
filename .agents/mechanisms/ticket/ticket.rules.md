@@ -60,7 +60,7 @@ diagnostic is a finding; repair it at the rung of what it mends.
 - **authority** the user, 2026-10-10
 
 <rule>
-Read the live tickets with `tickets.py --list` before ordering the queue or minting a ticket.
+Read the live tickets with `tickets.py --list` before minting a ticket.
 </rule>
 
 ## P6 — an RFC is named by its ticket

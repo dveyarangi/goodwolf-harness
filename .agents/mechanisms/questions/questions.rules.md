@@ -65,7 +65,7 @@ drop, read the questions skill.
 <rule>
 Take from the wake's read what is suspect, which deferrals may now be due, and which straw dogs
 are due; take this session's position from the person or estimate it, and place it with `at`;
-then read the queue as this skill says.
+then read the path as this skill says.
 </rule>
 
 ## Q3 — the conclude writes the leans

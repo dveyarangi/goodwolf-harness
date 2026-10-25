@@ -34,7 +34,7 @@ the file. When the parent is the chunk of work under discussion, there is no
 file — the tickets must then carry their own context.
 
 <installed by="ticket">
-**P12** Read the live tickets with `tickets.py --list` before ordering the queue or minting a ticket.
+**P12** Read the live tickets with `tickets.py --list` before minting a ticket.
 </installed>
 
 ### 2. Explore the codebase (optional)
@@ -125,8 +125,7 @@ Each child carries a one-line pointer to the parent's recorded `/impact`
 assessment.
 
 Minted, the work goes on with the ticket — its align or its plan — unless the
-person queues it. In doubt, say why, and ask one thing: go on, or queue it at
-the position you propose.
+person sets it aside. In doubt, say why, and ask one thing: go on, or set it aside.
 
 ### Decision-bearing work
 

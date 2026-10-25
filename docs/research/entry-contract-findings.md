@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v126 — 2026-10-25
+
+**Drift met at the dial, repaired** — the reply form loses *a record out of agreement … under
+`| 🍂 Drift |`*, which M2 replaced; and three rules stop reading the written queue as the order of
+the work, after q-0037.0019's decision 7: Q2 reads the path, P12 reads the live tickets before
+minting, `/ticket` lets the person set a ticket aside rather than queue it *(the user, 2026-10-25)*.
+
 ## v125 — 2026-10-25
 
 **Found drift is sought everywhere** — M2 gains *and the same drift is then sought wherever it can

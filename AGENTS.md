@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v125, 2026-10-25.
+Entry contract: v126, 2026-10-25.
 
 ## General rules
 
@@ -68,8 +68,7 @@ it waits — never one already taken, the agent's own included, which the reply 
 the user overturns by saying so<straw-dog question="q-0037.0013.0005.0007">, carried in every
 reply while the session stands on the question it belongs to; once the session has moved to
 another question subtree a wait leaves the table, provided it is written where its question keeps
-it</straw-dog>; a record out of agreement with what it is of, met and not repaired,
-under `| 🍂 Drift |`; the 🪢 table of the sessions this one runs beside is the session mechanism's
+it</straw-dog>; the 🪢 table of the sessions this one runs beside is the session mechanism's
 rule, installed below.
 
 Head the reply with a one-cell table holding a row for each of the turn's store
