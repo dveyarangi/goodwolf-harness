@@ -99,7 +99,7 @@ nothing.
 ## S9 — a unit another session holds is not worked without the person's word
 
 - **target** `AGENTS.md`
-- **authority** the user, 2026-10-24 and 2026-10-25, at the align on how sessions hand work to each other; telling a neighbour, discussed and accepted, 2026-10-25
+- **authority** the user, 2026-10-24 and 2026-10-25, at the align on how sessions hand work to each other; telling a neighbour, discussed and accepted, 2026-10-25; a neighbour's decision left to it, 2026-10-25
 
 <rule>
 A unit your window shows another running session holding is not finished, closed, verified,
@@ -112,5 +112,7 @@ shows taken from this session is no longer its own: stop work on it, and say so.
 open that falls in the subtree of the question another running session stands on, or in the unit
 it holds, tell that session without asking: what it is and where it is recorded, where the host
 lets one session message another. Write nothing into its question or records: that is acting on
-its work.
+its work. A decision on another running session's question or unit, read from what it decides,
+is that session's to put to the person, though its message brings it: it enters no table of
+your replies.
 </rule>

@@ -915,8 +915,10 @@ it lands:
 > on is that session's to put, though its message brings it; once the session has moved to another
 > question subtree a wait leaves the table, provided it is written where its question keeps it
 
-**Disposition of the strike:** open; the amendment waits on the person, who asked to have it
-explained before deciding.
+**Disposition of the strike:** the amendment moved, on the person's word, from the ⚖️ clause to
+the session mechanism's S9, whose work it governs, and landed there 2026-10-25: *A decision on
+another running session's question or unit, read from what it decides, is that session's to put
+to the person, though its message brings it: it enters no table of your replies.*
 
 ## 54. A better abstraction was met and the reply said *build nothing for it* — 2026-10-20
 

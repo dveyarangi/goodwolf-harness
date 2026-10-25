@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v129 — 2026-10-25
+
+**A neighbour's decision is left to it** — S9 gains that a decision on another running session's
+question or unit, read from what it decides, is that session's to put to the person, though its
+message brings it, and enters no table of this session's replies: rule failure 55, struck by a
+session that tabled the written queue's fate when the session on that question told it of a
+drift; reinstalled from the session mechanism *(the user, 2026-10-25)*.
+
 ## v128 — 2026-10-25
 
 **A change is shown before and after** — the proposed-text form gains that a change to text

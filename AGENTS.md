@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v128, 2026-10-25.
+Entry contract: v129, 2026-10-25.
 
 ## General rules
 
@@ -161,7 +161,9 @@ shows taken from this session is no longer its own: stop work on it, and say so.
 open that falls in the subtree of the question another running session stands on, or in the unit
 it holds, tell that session without asking: what it is and where it is recorded, where the host
 lets one session message another. Write nothing into its question or records: that is acting on
-its work.
+its work. A decision on another running session's question or unit, read from what it decides,
+is that session's to put to the person, though its message brings it: it enters no table of
+your replies.
 </installed>
 
 <installed by="debugging">
