@@ -43,6 +43,11 @@ reaching the agent before every message.
    The right point puts the person at the decisions that bear load and where models are known to
    be weak, and nowhere else. There the person can think freely, jumping from topic to topic,
    and lose nothing.
+4. **I don't know what works and what doesn't.** Not in my own project — a check I trust may run
+   nothing, a rule may never reach its moment, the next step may be written nowhere — and not in
+   what I am offered, which I cannot try without letting it in. A comparison of lists stands in
+   for an answer, and I decide on how a thing describes itself rather than on what it does in my
+   work.
 
 ## Goals with no guarantee yet
 
@@ -84,75 +89,78 @@ Each answer serves several pains. Its coverage — absent, in progress, present 
 `product.py --coverage`'s, read from the questions whose trace links name it. An answer not chosen
 yet waits on its purpose question, bound to it in *waits on*.
 
-| answer | causes | 1 | 2 | 3 | G1 | G2 | waits on |
-|---|---|---|---|---|---|---|---|
-| **The shared exploration space** — memory keeps it; alignment keeps it matching the person's ideas | | | | | | | |
-| **A1 The question store** — the question store: open questions as a tree, each with its lean and what it waits on; every message placed on its question before the reply; questions returned to rise | C3, C4 | ● | ● | ● |  |  |  |
-| **A2 The store handed over every message** — the store's neighbourhood handed over at session start and before every message; by hooks an install merges into each host's file; Cursor's hooks can add context at session start only, so there the agent fetches it before a message by rule | C4 | ● | ● | ● |  |  |  |
-| **A3 A position kept through compaction and resume** — a position kept through a compaction and a resume under a new identity | C4 | ● | ● |  |  |  |  |
-| **A4 A session resumes at its step** — a session resumes the work at the step it stopped | C4 | ● | ● |  |  |  |  |
-| **A5 Provisional text bound to its question** — provisional text bound to the question it waits on; answers under a changed answer marked suspect | C3, C6 |  |  | ● | ● |  |  |
-| **A6 A question split before it is answered** — a question split into the parts it needs before anyone answers it | C2, C3 | ● | ● |  |  |  |  |
-| **A7 An outside judge of where a message belongs** — a judge outside the agent for where a message belongs | C3 | ● |  | ● |  |  |  |
-| **A8 No question left to sink** — a question nobody reaches kept from sinking | C4 |  |  | ● |  |  |  |
-| **Alignment of intent** | | | | | | | |
-| **A9 Alignment one question at a time** — `/align`: one question at a time, each with a recommended answer; facts looked up, decisions put to the person; opens on the present customer, the observable problem, and why what exists cannot serve | C3, C9, C11 | ● | ● | ● |  |  |  |
-| **A10 A shared glossary, terms defined before use** — one vocabulary for the person and the agent, defined before a term lands in a record | C3 | ● |  | ● |  |  |  |
-| **A11 A task takes its form before its ticket** — a task takes its form in its question before a ticket is minted from it; a decision lands as it is made, provisional ones bound to the question that will change them | C3 | ● | ● |  |  |  |  |
-| **Decisions placed by their weight** | | | | | | | |
-| **A12 The load-bearing test** — the load-bearing test: `/impact` routes load-bearing work to the person and an align on its question, local work to the agent and a ticket; a raised decision that bears no load is settled and reported, one that does goes to the person, and doubt counts as load | C2, C8, C9 | ● | ● | ● |  |  |  |
-| **A13 Human checkpoints and the dial** — HITL or AFK on every ticket; a question's `Where it stands` accepted; a dial on each method's ladder — below it the agent acts, at it shows first, above it the person decides — and a question's highest rung saying where it stops | C2, C9, C12 | ● | ● | ● |  | ● |  |
-| **A14 The project names its stopping decisions** — the project says which kinds of decision stop for the person, by the dial it sets on each ladder | C9 |  | ● | ● |  |  |  |
-| **A15 A record of model weaknesses** — a record of where models are known to be weak, deciding which decisions go to the person | C2, C9 | ● |  | ● |  |  | <straw-dog question="q-0033.0001">✗</straw-dog> |
-| **Visible footing** | | | | | | | |
-| **A16 Each reply shows its footing** — each reply shows the question it stands on, the principle it reasons by, what waits on the person and drift met, in plain words; every step leaves a record | C10, C2 | ● |  | ● |  |  |  |
-| **Guards on known model weaknesses** | | | | | | | |
-| **A17 Guards on model reasoning** — an outside view before saying what a thing is (`/discover`); a plan probed by the cheapest example that could prove it wrong; one case is not a class; the fewest parts, removing before adding; no reopening a settled decision without new evidence | C2, C11 | ● | ● | ● |  |  |  |
-| **A18 Guards on the checks** — guards on the checks themselves: a check written before what it checks and seen to fail; a run with no tests is not a pass; a fixture built the way the real thing came to be | C7 | ● |  |  | ● |  |  |
-| **Delivery and evaluation** | | | | | | | |
-| **A19 Delivery against criteria** — a ticket with checkable criteria; thin vertical slices; a plan validated against the governing docs; test-first; `/verify` against the ticket, the plan, the docs and the project's checks; checks run before a commit | C3, C7 | ● | ● |  |  |  |  |
-| **A20 The project's checks, guarded** — the project's checks, and a rule on who may change them | C7 | ● |  |  |  |  |  |
-| **A21 A failure traced to its cause** — a failure traced to its cause, so that what let it through is corrected | C7 | ● |  |  | ● |  | <straw-dog question="q-0033.0003">✗</straw-dog> |
-| **A22 Every mechanism graded from outside** — every mechanism names what would show it working, graded by someone who did not build it | C7 |  |  |  | ● |  |  |
-| **A23 Tests that catch what they promise** — the harness's own tests catch what their names promise | C7 |  |  |  | ● |  |  |
-| **Instructions that reach the agent** | | | | | | | |
-| **A24 Each rule written once, installed where it is read** — one home per rule, copied by the rules installer into every place that reads it, at the tier its occasion is read at, and checked | C1 | ● | ● |  | ● |  |  |
-| **A25 Rules in a followable form** — rules written to a form an agent follows: an occasion and a checkable outcome, no overlap, no contradiction | C1 | ● |  |  | ● |  |  |
-| **A26 Each skill owns only its own** — each skill states only what it owns, and everything a mechanism produces has a reader — usually an agent, not the person, except the top summaries | C1 | ● | ● |  |  |  |  |
-| **A27 Rules observed reaching their occasion** — whether a rule reaches its occasion observed, not asserted | C1 | ● |  |  |  |  |  |
-| **A28 A document informs, never instructs** — a document informs and never instructs, so text in one is not taken as a command | C1, C12 | ● |  |  |  | ● |  |
-| **One source of truth between decisions and code** | | | | | | | |
-| **A29 Decisions in the records** — decisions in the architecture, its records and the glossary; who decided each rule, and when | C1, C6 | ● |  | ● | ● |  |  |
-| **A30 Every record says which side wins** — every record says which side wins when it and the code disagree | C6 | ● |  |  | ● |  |  |
-| **A31 Load-bearing written, the rest in code** — what bears load is written down, the rest lives in code and its comments | C6, C8 | ● | ● |  | ● |  |  |
-| **A32 An edited thing carries its mark back** — an edited thing carries its mark back to the record that governs it | C6 | ● |  |  | ● |  |  |
-| **A33 The path read from the records** — what comes next read from the records: the work in hand, the ready work and what each serves, the roots' balance; its order the product roadmap's, no written queue | C6, C9 |  | ● | ● |  |  |  |
-| **A34 A contract per edge** — a contract per edge, for those who consume the system and those who extend it, its outward text derived from it | C6, C10 | ● |  |  | ● |  |  |
-| **Maintenance** | | | | | | | |
-| **A35 Maintenance** — `/maintain`: records against each other and against the code, a clock of what is due, finished records archived | C6, C8 | ● | ● |  | ● |  |  |
-| **Self-improvement — the seed of a test suite for instructions** | | | | | | | |
-| **A36 The rule-failure register** — a register of rules that were in place and did not fire; the next occurrence grades the rewording | C7, C1 | ● |  |  | ● |  |  |
-| **A37 Failures replayed as tests** — a recorded failure replayed as a test against the amended rule | C7, C1 | ● |  |  | ● |  |  |
-| **A38 The method measured against none** — the method measured on the same tasks with and without it | C7 | ● |  |  | ● |  |  |
-| **A39 Its cost counted** — its cost counted, and what it saves | C7, C8 |  | ● |  | ● |  |  |
-| **A40 A free reading of the record** — a free reading of the record for what is missing, redundant or out of balance (`/dream`, `/advise`) | C7 |  |  |  | ● |  |  |
-| **Coordination between sessions** | | | | | | | |
-| **A41 Sessions collaborate** — each session sees where the others stand; the question store refuses a write to an entry that moved; a commit holds only its own session's work | C5, C12 | ● | ● |  |  | ● |  |
-| **A42 No session overwrites another** — no session overwrites another's write; the host's: its edit tool refuses a write over a file changed since it was read, and a worktree per session where it offers one; the harness locks nothing (the user, 2026-10-11) | C5, C12 | ● | ● |  |  | ● |  |
-| **A43 A starting session takes a free area** — a starting session takes an area no other session is in | C5 |  | ● |  |  |  |  |
-| **A51 Several people develop one project together** — their queue, their decisions, their branches | C5 |  |  | ● |  |  | <straw-dog question="q-0033.0004">✗</straw-dog> |
-| **Process weighed to the work** | | | | | | | |
-| **A44 One step per reply** — one step per reply, with a point to reassess at its end | C8, C9 |  | ● | ● |  |  |  |
-| **A45 Work weighed to its shape** — the work's shape recommended, and a lighter path for small work and a heavier one for large | C8 |  | ● | ● |  |  |  |
-| **Refusing harm** | | | | | | | |
-| **A46 Writes that refuse** — writes that refuse rather than overwrite: a refusal writes nothing, interference is a failure, a removal needs the fingerprint it expects, push waits for a yes; the harness's own scripts refuse; an agent's own edits are guarded by the host — its stale-write refusal, its worktrees — not by the harness | C12 |  |  |  |  | ● |  |
-| **A47 Agent roles** — an agent's role bounding its permissions, its rights over the records and its skills | C12, C5 |  |  |  |  | ● |  |
-| **A48 The host refuses forbidden actions** — the host refuses an action a rule forbids | C12 |  |  |  |  | ● |  |
-| **The project's own account** | | | | | | | |
-| **A50 The product document kept in step with the work** — this document's answers numbered, the questions that build each linked to it, its coverage read from them, and drift between them found | C6, C10 | ● |  | ● | ● |  |  |
-| **A52 The front page tells a newcomer what the harness is for** — the account above, told to a reader who arrives cold | C10 |  |  | ● |  |  | <straw-dog question="q-0033.0008">✗</straw-dog> |
-| **Adopting the harness** | | | | | | | |
-| **A49 Installs and updates without losing the project's own rules** — the answer to the pain below: the project's own rules file applied last and kept, an update that stops rather than overwrite a hand edit, a check of the installed copy | | | | | | ● | |
+| answer | causes | 1 | 2 | 3 | 4 | G1 | G2 | waits on |
+|---|---|---|---|---|---|---|---|---|
+| **The shared exploration space** — memory keeps it; alignment keeps it matching the person's ideas | | | | | | | | |
+| **A1 The question store** — the question store: open questions as a tree, each with its lean and what it waits on; every message placed on its question before the reply; questions returned to rise | C3, C4 | ● | ● | ● | |  |  |  |
+| **A2 The store handed over every message** — the store's neighbourhood handed over at session start and before every message; by hooks an install merges into each host's file; Cursor's hooks can add context at session start only, so there the agent fetches it before a message by rule | C4 | ● | ● | ● | |  |  |  |
+| **A3 A position kept through compaction and resume** — a position kept through a compaction and a resume under a new identity | C4 | ● | ● |  | |  |  |  |
+| **A4 A session resumes at its step** — a session resumes the work at the step it stopped | C4 | ● | ● |  | |  |  |  |
+| **A5 Provisional text bound to its question** — provisional text bound to the question it waits on; answers under a changed answer marked suspect | C3, C6 |  |  | ● | | ● |  |  |
+| **A6 A question split before it is answered** — a question split into the parts it needs before anyone answers it | C2, C3 | ● | ● |  | |  |  |  |
+| **A7 An outside judge of where a message belongs** — a judge outside the agent for where a message belongs | C3 | ● |  | ● | |  |  |  |
+| **A8 No question left to sink** — a question nobody reaches kept from sinking | C4 |  |  | ● | |  |  |  |
+| **Alignment of intent** | | | | | | | | |
+| **A9 Alignment one question at a time** — `/align`: one question at a time, each with a recommended answer; facts looked up, decisions put to the person; opens on the present customer, the observable problem, and why what exists cannot serve | C3, C9, C11 | ● | ● | ● | |  |  |  |
+| **A10 A shared glossary, terms defined before use** — one vocabulary for the person and the agent, defined before a term lands in a record | C3 | ● |  | ● | |  |  |  |
+| **A11 A task takes its form before its ticket** — a task takes its form in its question before a ticket is minted from it; a decision lands as it is made, provisional ones bound to the question that will change them | C3 | ● | ● |  | |  |  |  |
+| **Decisions placed by their weight** | | | | | | | | |
+| **A12 The load-bearing test** — the load-bearing test: `/impact` routes load-bearing work to the person and an align on its question, local work to the agent and a ticket; a raised decision that bears no load is settled and reported, one that does goes to the person, and doubt counts as load | C2, C8, C9 | ● | ● | ● | |  |  |  |
+| **A13 Human checkpoints and the dial** — HITL or AFK on every ticket; a question's `Where it stands` accepted; a dial on each method's ladder — below it the agent acts, at it shows first, above it the person decides — and a question's highest rung saying where it stops | C2, C9, C12 | ● | ● | ● | |  | ● |  |
+| **A14 The project names its stopping decisions** — the project says which kinds of decision stop for the person, by the dial it sets on each ladder | C9 |  | ● | ● | |  |  |  |
+| **A15 A record of model weaknesses** — a record of where models are known to be weak, deciding which decisions go to the person | C2, C9 | ● |  | ● | |  |  | <straw-dog question="q-0033.0001">✗</straw-dog> |
+| **Visible footing** | | | | | | | | |
+| **A16 Each reply shows its footing** — each reply shows the question it stands on, the principle it reasons by, what waits on the person and drift met, in plain words; every step leaves a record | C10, C2 | ● |  | ● | |  |  |  |
+| **Guards on known model weaknesses** | | | | | | | | |
+| **A17 Guards on model reasoning** — an outside view before saying what a thing is (`/discover`); a plan probed by the cheapest example that could prove it wrong; one case is not a class; the fewest parts, removing before adding; no reopening a settled decision without new evidence | C2, C11 | ● | ● | ● | |  |  |  |
+| **A18 Guards on the checks** — guards on the checks themselves: a check written before what it checks and seen to fail; a run with no tests is not a pass; a fixture built the way the real thing came to be | C7 | ● |  |  | | ● |  |  |
+| **Delivery and evaluation** | | | | | | | | |
+| **A19 Delivery against criteria** — a ticket with checkable criteria; thin vertical slices; a plan validated against the governing docs; test-first; `/verify` against the ticket, the plan, the docs and the project's checks; checks run before a commit | C3, C7 | ● | ● |  | |  |  |  |
+| **A20 The project's checks, guarded** — the project's checks, and a rule on who may change them | C7 | ● |  |  | |  |  |  |
+| **A21 A failure traced to its cause** — a failure traced to its cause, so that what let it through is corrected | C7 | ● |  |  | | ● |  | <straw-dog question="q-0033.0003">✗</straw-dog> |
+| **A22 Every mechanism graded from outside** — every mechanism names what would show it working, graded by someone who did not build it | C7 |  |  |  | | ● |  |  |
+| **A23 Tests that catch what they promise** — the harness's own tests catch what their names promise | C7 |  |  |  | | ● |  |  |
+| **Instructions that reach the agent** | | | | | | | | |
+| **A24 Each rule written once, installed where it is read** — one home per rule, copied by the rules installer into every place that reads it, at the tier its occasion is read at, and checked | C1 | ● | ● |  | | ● |  |  |
+| **A25 Rules in a followable form** — rules written to a form an agent follows: an occasion and a checkable outcome, no overlap, no contradiction | C1 | ● |  |  | | ● |  |  |
+| **A26 Each skill owns only its own** — each skill states only what it owns, and everything a mechanism produces has a reader — usually an agent, not the person, except the top summaries | C1 | ● | ● |  | |  |  |  |
+| **A27 Rules observed reaching their occasion** — whether a rule reaches its occasion observed, not asserted | C1 | ● |  |  | |  |  |  |
+| **A28 A document informs, never instructs** — a document informs and never instructs, so text in one is not taken as a command | C1, C12 | ● |  |  | |  | ● |  |
+| **One source of truth between decisions and code** | | | | | | | | |
+| **A29 Decisions in the records** — decisions in the architecture, its records and the glossary; who decided each rule, and when | C1, C6 | ● |  | ● | | ● |  |  |
+| **A30 Every record says which side wins** — every record says which side wins when it and the code disagree | C6 | ● |  |  | | ● |  |  |
+| **A31 Load-bearing written, the rest in code** — what bears load is written down, the rest lives in code and its comments | C6, C8 | ● | ● |  | | ● |  |  |
+| **A32 An edited thing carries its mark back** — an edited thing carries its mark back to the record that governs it | C6 | ● |  |  | | ● |  |  |
+| **A33 The path read from the records** — what comes next read from the records: the work in hand, the ready work and what each serves, the roots' balance; its order the product roadmap's, no written queue | C6, C9 |  | ● | ● | |  |  |  |
+| **A34 A contract per edge** — a contract per edge, for those who consume the system and those who extend it, its outward text derived from it | C6, C10 | ● |  |  | | ● |  |  |
+| **Maintenance** | | | | | | | | |
+| **A35 Maintenance** — `/maintain`: records against each other and against the code, a clock of what is due, finished records archived | C6, C8 | ● | ● |  | | ● |  |  |
+| **Self-improvement — the seed of a test suite for instructions** | | | | | | | | |
+| **A36 The rule-failure register** — a register of rules that were in place and did not fire; the next occurrence grades the rewording | C7, C1 | ● |  |  | | ● |  |  |
+| **A37 Failures replayed as tests** — a recorded failure replayed as a test against the amended rule | C7, C1 | ● |  |  | | ● |  |  |
+| **A38 The method measured against none** — the method measured on the same tasks with and without it | C7 | ● |  |  | | ● |  |  |
+| **A39 Its cost counted** — its cost counted, and what it saves | C7, C8 |  | ● |  | | ● |  |  |
+| **A40 A free reading of the record** — a free reading of the record for what is missing, redundant or out of balance (`/dream`, `/advise`) | C7 |  |  |  | | ● |  |  |
+| **Coordination between sessions** | | | | | | | | |
+| **A41 Sessions collaborate** — each session sees where the others stand; the question store refuses a write to an entry that moved; a commit holds only its own session's work | C5, C12 | ● | ● |  | |  | ● |  |
+| **A42 No session overwrites another** — no session overwrites another's write; the host's: its edit tool refuses a write over a file changed since it was read, and a worktree per session where it offers one; the harness locks nothing (the user, 2026-10-11) | C5, C12 | ● | ● |  | |  | ● |  |
+| **A43 A starting session takes a free area** — a starting session takes an area no other session is in | C5 |  | ● |  | |  |  |  |
+| **A51 Several people develop one project together** — their queue, their decisions, their branches | C5 |  |  | ● | |  |  | <straw-dog question="q-0033.0004">✗</straw-dog> |
+| **Process weighed to the work** | | | | | | | | |
+| **A44 One step per reply** — one step per reply, with a point to reassess at its end | C8, C9 |  | ● | ● | |  |  |  |
+| **A45 Work weighed to its shape** — the work's shape recommended, and a lighter path for small work and a heavier one for large | C8 |  | ● | ● | |  |  |  |
+| **Refusing harm** | | | | | | | | |
+| **A46 Writes that refuse** — writes that refuse rather than overwrite: a refusal writes nothing, interference is a failure, a removal needs the fingerprint it expects, push waits for a yes; the harness's own scripts refuse; an agent's own edits are guarded by the host — its stale-write refusal, its worktrees — not by the harness | C12 |  |  |  | |  | ● |  |
+| **A47 Agent roles** — an agent's role bounding its permissions, its rights over the records and its skills | C12, C5 |  |  |  | |  | ● |  |
+| **A48 The host refuses forbidden actions** — the host refuses an action a rule forbids | C12 |  |  |  | |  | ● |  |
+| **Knowing what works** | | | | | | | | |
+| **A53 Checks put to the reader about their own project** — questions the front page asks of the reader's project beside each strength, each to be run there: does a trusted check fail when it should, is the next step written, how old is the oldest waiting question, how much does a fresh session read, which decisions should have come to the person | C7, C10 |  |  |  | ● |  |  |  |
+| **A54 The study** — the reader's agent follows the study's text on its own project, installing and running nothing of the harness's, and writes one report: what the harness would change there, at what cost, in what order, and what it costs a newcomer to recover where things stand | C7, C10 |  |  |  | ● |  |  |  |
+| **The project's own account** | | | | | | | | |
+| **A50 The product document kept in step with the work** — this document's answers numbered, the questions that build each linked to it, its coverage read from them, and drift between them found | C6, C10 | ● |  | ● | | ● |  |  |
+| **A52 The front page tells a newcomer what the harness is for** — the account above, told to a reader who arrives cold | C10 |  |  | ● | |  |  | <straw-dog question="q-0033.0008">✗</straw-dog> |
+| **Adopting the harness** | | | | | | | | |
+| **A49 Installs and updates without losing the project's own rules** — the answer to the pain below: the project's own rules file applied last and kept, an update that stops rather than overwrite a hand edit, a check of the installed copy | | | | | | | ● | |
 
 <straw-dog question="q-0033">
 Read by column:
