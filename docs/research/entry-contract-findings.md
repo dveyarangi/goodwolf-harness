@@ -15,6 +15,15 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v127 — 2026-10-25
+
+**An amendment takes the strongest form that will hold** — Self-improvement's first rule no longer
+assumes a missed rule was worded wrong: the amendment is a check, a hook or a gate where one can
+hold the rule, a rewording where none can, and an entry struck a second time takes a mechanical
+amendment. The evaluating agent in xuanxue-cabinet set the register against the project's rule
+*an error is fixed with its cause and a mechanism* and found the register's answer the weaker; of
+37 landed amendments about 13 were mechanical *(the user, 2026-10-25)*.
+
 ## v126 — 2026-10-25
 
 **Drift met at the dial, repaired** — the reply form loses *a record out of agreement … under

@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v126, 2026-10-25.
+Entry contract: v127, 2026-10-25.
 
 ## General rules
 
@@ -245,7 +245,7 @@ Do not reopen an accepted decision without new evidence.
 ## Self-improvement
 
 <straw-dog question="q-0037.0012">
-- A rule that was in place and did not fire was usually worded wrong. Register the failure in docs/rule-failures.md, or strike the entry it repeats, and propose the amendment that would have made it fire; /mechanism and /skill-up hold the means. Land the amendment in the same pass, showing its text first.
+- A rule that was in place and did not fire was worded wrong or held by too weak a means. Register the failure in docs/rule-failures.md, or strike the entry it repeats, and propose the amendment that would have made it fire, in the strongest form that will hold: a check, a hook or a gate where one can hold it, a rewording where none can; an entry struck a second time takes a mechanical amendment. /mechanism and /skill-up hold the means. Land the amendment in the same pass, showing its text first.
 - A slip no rule covers is registered there too, described broadly enough to recognise its repeat;
   one proposes no rule.
 - Keeping the register: an entry is headed by what failed and its date, with no number, and is cited by that heading; it names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.
