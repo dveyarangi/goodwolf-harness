@@ -32,6 +32,10 @@ python <target>/.agents/scripts/gw/harness.py . --check [--from REPOSITORY]
 python <target>/.agents/scripts/gw/harness.py . --links
 ```
 
+The scripts need Python 3 and its standard library alone. On Windows a bare `python` may be the
+Microsoft Store stub, which runs nothing: run them with the `py` launcher, `py -3`. The link step
+records the interpreter it ran under, and the hooks run that one.
+
 `--from` defaults to the harness's own repository; `--at` to its default branch's head, and takes
 a branch, a tag or a commit. To try a ref before it is pushed, pass a local clone's path as
 `--from`: its committed `HEAD` is then the ref. The target is the top level of a git work tree.
@@ -182,8 +186,8 @@ method keeps, `tickets.py`, `questions.py`, `edges.py`, `product.py`, `maintain.
 itself, `mechanisms.py` and `inject_rules.py`, only for a project that means to change the harness.
 Then `inject_rules.py local --install`, and `--check`; once it passes, the install closes with its
 commit, named in the project's own convention where it states one.
-`uv run --offline --no-project python` is the harness's own habit; the scripts need only the
-standard library, so a bare `python` works.
+`uv run --offline --no-project python` is the harness's own habit; write the set with the
+interpreter the install ran under.
 
 ## What the person hears
 

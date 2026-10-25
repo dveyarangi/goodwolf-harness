@@ -37,7 +37,7 @@ fi
 
 # No interpreter: say which step makes the record, in the form the host reads, and exit 0 — a
 # failing prompt hook can hold back the person's message.
-notice="This clone has no interpreter recorded for its hooks; run \`python .agents/scripts/gw/harness.py . --links\` once."
+notice="This clone has no interpreter recorded for its hooks; run \`python .agents/scripts/gw/harness.py . --links\` once, on Windows with \`py -3\` for \`python\`, which may be the Store stub."
 case "$host" in
     cursor) printf '{"additional_context": "%s"}\n' "$notice" ;;
     *) printf '%s\n' "$notice" ;;

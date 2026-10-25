@@ -1959,6 +1959,12 @@ class Strikes(Declared):
 
 
 class Naming(Declared):
+    """The slug's own cut, the clone's room set aside: `ThePath` holds the fit."""
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.enterContext(mock.patch.object(questions, "CLONE_ROOM", 0))
+
     def test_names_a_long_question_with_every_word(self) -> None:
         question = (
             "Does a question whose words run well past the old forty character cut keep every one "
@@ -1970,6 +1976,30 @@ class Naming(Declared):
         self.called("open", question)
 
         self.assertTrue((self.root / STORE / f"q-0014-{slug}.md").is_file())
+
+    def test_names_a_question_in_another_script_with_its_own_words(self) -> None:
+        """A question asked in Russian keeps its words, lower-cased, in the name a listing shows."""
+        self.called("open", "Где хранится Ёлка 2026?")
+
+        self.assertTrue((self.root / STORE / "q-0014-где-хранится-ёлка-2026.md").is_file())
+        self.assertEqual([], [note.problem for note in self.checked().diagnostics if note.record.startswith(f"{STORE}/q-0014-")])
+
+    def test_keeps_the_marks_a_script_writes_its_words_with(self) -> None:
+        self.called("open", "हिन्दी में प्रश्न?")
+
+        self.assertTrue((self.root / STORE / "q-0014-हिन्दी-में-प्रश्न.md").is_file())
+
+    def test_cuts_a_question_written_without_spaces_to_fit_a_clone_and_a_file_name(self) -> None:
+        """Chinese and Japanese write a clause as one word; the fit cuts inside it, and keeps the
+        name within the 255 bytes a Linux or macOS filesystem allows."""
+        with mock.patch.object(questions, "CLONE_ROOM", 128):
+            self.called("open", "问题存储在哪里" * 20 + "？")
+
+        [named] = [name.name for name in (self.root / STORE).glob("q-0014-*.md")]
+        self.assertLessEqual(len(named.encode("utf-8")), 255)
+        self.assertLessEqual(128 + len(f"/{STORE}/done/{named}"), questions.PATH_LIMIT)
+        self.assertTrue(named.startswith("q-0014-问题存储在哪里"), named)
+        self.assertEqual([], [note.problem for note in self.checked().diagnostics if note.record.startswith(f"{STORE}/q-0014-")])
 
     def test_cuts_a_question_past_the_length_at_a_word_boundary(self) -> None:
         words = [f"word{number:02d}" for number in range(40)]
@@ -1998,8 +2028,14 @@ class ThePath(Store):
         self.assertEqual(0, status, said.getvalue())
 
     def limited(self, name: str, slug_room: int):
+        """A limit measured from this tree's own root, the clone's room set aside."""
         prefix = str(self.root / STORE / "done" / f"{name}-")
-        return mock.patch.object(questions, "PATH_LIMIT", len(prefix) + slug_room + len(".md"))
+        limit = mock.patch.object(questions, "PATH_LIMIT", len(prefix) + slug_room + len(".md"))
+        room = mock.patch.object(questions, "CLONE_ROOM", 0)
+        stack = contextlib.ExitStack()
+        stack.enter_context(limit)
+        stack.enter_context(room)
+        return stack
 
     def test_an_opened_question_is_named_with_the_words_that_fit_and_checks_clean(self) -> None:
         with self.limited("q-0002", 10):
@@ -2016,6 +2052,23 @@ class ThePath(Store):
 
             self.assertTrue((self.root / STORE / "q-0001.0002-who-moves.md").is_file())
             self.assertEqual([], self.problems())
+
+    def test_a_name_an_earlier_fit_cut_from_this_trees_own_root_stays_valid(self) -> None:
+        with self.limited("q-0002", 10):
+            self.called("open", "Does a long question fit?")
+
+            with mock.patch.object(questions, "CLONE_ROOM", len(str(self.root)) + 5):
+                self.assertEqual([], self.problems())
+
+    def test_a_name_fits_a_clone_standing_deeper_than_this_tree(self) -> None:
+        """A clone into a session's scratch folder under the user's profile stands about 120
+        characters deep, and Windows' long paths are off by default: a name written here must
+        still check out there."""
+        self.called("open", " ".join(f"word{number:02d}" for number in range(40)) + "?", "--under", "q-0001.0001")
+
+        [named] = [name.name for name in (self.root / STORE).glob("q-0001.0001.0001-*.md")]
+        self.assertLessEqual(len("c" * 128) + len(f"/{STORE}/done/{named}"), questions.PATH_LIMIT)
+        self.assertEqual([], self.problems())
 
 
 class ClosingByKind(Declared):

@@ -153,6 +153,15 @@ def corpus(root: Path) -> list[str]:
     return list(seen)
 
 
+def committed(root: Path, folder: str) -> list[str]:
+    """Every file `HEAD` holds under `folder`, read from the commit rather than the index, which a
+    checkout that stopped short never wrote; none before the first commit."""
+    listing = subprocess.run(
+        ["git", "ls-tree", "-r", "-z", "--name-only", "HEAD", "--", folder], cwd=root, capture_output=True, encoding="utf-8"
+    )
+    return [name for name in listing.stdout.split("\0") if name] if listing.returncode == 0 else []
+
+
 def with_citations_retargeted(text: str, retarget) -> str:
     """Every prose citation re-aimed by `retarget`; a `None` answer leaves that citation alone.
 

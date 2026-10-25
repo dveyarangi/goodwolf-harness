@@ -447,6 +447,50 @@ class TheHook(Hooked):
                 self.assertIn("questions hook", said)
 
 
+class ACheckoutCutShort(Hooked):
+    """A clone on Windows without long paths leaves out every entry whose path passes the limit:
+    the hook says so and why, rather than draw a window from part of the store."""
+
+    proves_a_process = True
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.commit()
+        # Git stops such a checkout before it writes the index: every committed file reads as
+        # deleted, and those it did write as untracked.
+        self.left_out = max((self.root / STORE).glob("*.md"), key=lambda entry: len(str(entry)))
+        self.left_out.unlink()
+        (self.root / ".git" / "index").unlink()
+
+    def answers(self, limited: bool) -> list[str]:
+        with (
+            mock.patch.object(questions, "PATH_LIMIT", len(str(self.left_out)) - 1),
+            mock.patch.object(questions, "_paths_limited", lambda: limited),
+            mock.patch.dict(os.environ, {"GW_NOTICE": "the installer's line"}),
+        ):
+            return [
+                self.context(self.hook("claude-code", {"session_id": "s-alpha", "hook_event_name": event, "source": "resume"})[1])
+                for event in ("SessionStart", "UserPromptSubmit")
+            ]
+
+    def test_names_the_cause_and_the_remedy_at_a_start_and_a_message(self) -> None:
+        start, message = self.answers(limited=True)
+
+        for said in (start, message):
+            self.assertIn("not in this checkout", said)
+            self.assertIn(f"past Windows' {len(str(self.left_out)) - 1}-character limit with long paths off, the longest {len(str(self.left_out))};", said)
+            self.assertIn("core.longpaths", said)
+            self.assertNotIn("s-alpha", said, "no window drawn from part of the store")
+        self.assertIn("the installer's line", start)
+
+    def test_where_the_platform_holds_long_paths_a_missing_entry_is_no_short_checkout(self) -> None:
+        """Linux, macOS, or Windows with long paths on: an entry missing there was moved or deleted,
+        a close not yet committed among them."""
+        start, _ = self.answers(limited=False)
+
+        self.assertIn("session: s-alpha, already registered", start)
+
+
 class TheAgentsOwnWindow(Hooked):
     def test_says_unchanged_when_nothing_moved_and_draws_it_whole_on_request(self) -> None:
         self.said("--window", "--session", "s-alpha")

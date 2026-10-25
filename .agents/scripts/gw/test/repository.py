@@ -108,15 +108,14 @@ class RepositoryCase(unittest.TestCase):
         included — which a script first imported during the case binds from. When the case ends,
         every binding to the folder's listing gets Git's back, so none outlives it into a case
         that proves the real one."""
-        git_listing = docs_corpus.corpus
-
-        def rebound(listing, to) -> None:
+        def rebound(name: str, listing, to) -> None:
             for module in list(sys.modules.values()):
-                if getattr(module, "corpus", None) is listing:
-                    module.corpus = to
+                if getattr(module, name, None) is listing:
+                    setattr(module, name, to)
 
-        rebound(git_listing, folder_listing)
-        self.addCleanup(rebound, folder_listing, git_listing)
+        for name, git_listing, own in (("corpus", docs_corpus.corpus, folder_listing), ("committed", docs_corpus.committed, folder_committed)):
+            rebound(name, git_listing, own)
+            self.addCleanup(rebound, name, own, git_listing)
 
     def _patch(self, owner: object, name: str, value: object) -> None:
         patcher = mock.patch.object(owner, name, value)
@@ -152,6 +151,11 @@ class RepositoryCase(unittest.TestCase):
         if not self._proves_a_process():
             return files
         return {**files, "<index>": self.git("ls-files", "--stage").encode()}
+
+
+def folder_committed(root: Path, folder: str) -> list[str]:
+    """What the scripts' listing of a commit names under `folder` for a tree with no Git: its files."""
+    return [name for name in folder_listing(root) if name.startswith(f"{folder}/")]
 
 
 def folder_listing(root: Path) -> list[str]:

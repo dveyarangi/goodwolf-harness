@@ -1894,6 +1894,7 @@ class TheWrapper(RepositoryCase):
                 if host == "cursor":
                     said = json.loads(said)["additional_context"]
                 self.assertIn("harness.py . --links", said)
+                self.assertIn("`py -3`", said, "a bare `python` on Windows may be the Store stub")
 
 
 class TheOriginsOwnHostFiles(unittest.TestCase):

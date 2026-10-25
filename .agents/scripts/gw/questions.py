@@ -40,6 +40,7 @@ import os
 import posixpath
 import re
 import sys
+import unicodedata
 from collections import Counter
 from collections.abc import Callable
 from dataclasses import dataclass, field
@@ -56,6 +57,7 @@ from docs_corpus import (  # noqa: E402  (path set above)
     cited_record,
     citations,
     corpus,
+    committed,
     in_straw_dog_scope,
     question_bindings,
     read_text,
@@ -80,6 +82,12 @@ TWIN_SHARED_WORDS = 3
 SLUG_LENGTH = 160
 # The longest absolute path an entry may take: Windows' limit less its terminating null.
 PATH_LIMIT = 259
+# The longest file name, in UTF-8 bytes, that Linux and macOS filesystems hold.
+NAME_LIMIT = 255
+# The deepest folder a clone of the tree is fitted for, since a name written here is checked out
+# there and Windows' long paths are off by default: a clone into a session's scratch folder under
+# the user's profile stands about 120 characters deep.
+CLONE_ROOM = 128
 # The highest four-digit position a child takes; a root's id may grow a digit, as it always could.
 LAST_POSITION = 9999
 PARTS = ("record of", "part of", "depends on", "state", "owner", "answer", "realizes", "rung", "lean", "struck")
@@ -121,7 +129,10 @@ _BULLET = re.compile(r"^- \*\*([^*]+)\*\* ?(.*)$")
 _CONTINUATION = re.compile(r"^\s+\S")
 _STATE = re.compile(rf"^(open|closed:({'|'.join(KINDS)}))(, suspect)?$")
 _IDENTITY = re.compile(rf"^{_ID}$")
-_ENTRY_NAME = re.compile(rf"^{STORE}/(?:done/)?({_ID})-([a-z0-9]+(?:-[a-z0-9]+)*)\.md$")
+# A slug's word as a name holds it: anything but a separator; the check compares it with the
+# question's own words.
+_WORD = r"[^\s/._-]+"
+_ENTRY_NAME = re.compile(rf"^{STORE}/(?:done/)?({_ID})-({_WORD}(?:-{_WORD})*)\.md$")
 _DEFERRAL = re.compile(r"^until \S.*, meanwhile \S.*$")
 _STRIKE = re.compile(r"^(\d+), last (\d{4}-\d{2}-\d{2}T\d{2}:\d{2})Z$")
 _ANSWER_NAMED = r'([A-Za-z0-9][A-Za-z0-9._-]*) "(\S(?:[^"]*\S)?)"'
@@ -604,7 +615,8 @@ def _name_problems(root: Path, read: Entry, stem: re.Match[str]) -> list[Diagnos
             Diagnostic(read.record, 1, f"is named {stem.group(1)} and its title says {read.identity}")
         ]
     wanted = _slug(read.question)
-    if stem.group(2) not in (wanted, _fitted_slug(root, read.identity, read.question)):
+    fitted = (_fitted_slug(root, read.identity, read.question, clone) for clone in (True, False))
+    if stem.group(2) != wanted and stem.group(2) not in fitted:
         return [
             Diagnostic(
                 read.record,
@@ -616,8 +628,11 @@ def _name_problems(root: Path, read: Entry, stem: re.Match[str]) -> list[Diagnos
 
 
 def _words(text: str) -> list[str]:
-    """A text's words as a slug spells them: lower case, an apostrophe dropped inside a word."""
-    return re.findall(r"[a-z0-9]+", re.sub(r"['’]", "", text.lower()))
+    """A text's words as a slug spells them, in any script: its letters, digits and the marks
+    written on them, lower case, composed so a name reads the same from a filesystem that
+    decomposes it, an apostrophe dropped inside a word."""
+    text = unicodedata.normalize("NFC", re.sub(r"['’]", "", text.lower()))
+    return "".join(c if c.isalnum() or unicodedata.category(c)[0] == "M" else " " for c in text).split()
 
 
 # --- the answer ---------------------------------------------------------------------------------
@@ -1649,6 +1664,8 @@ def hook(root: Path, host_name: str, payload: str, now: datetime) -> str:
         if event in host.compactions:
             sessions.forget_window(root, tag)
             return host.quiet
+        if event in (host.starts, host.messages):
+            _refuse_a_store_cut_short(root)
         if event == host.starts:
             return host.answer(event, _noticed(_started(root, tag, sent.get("source"), now)), tag)
         registered = tag in {held.tag for held in sessions.rows(root)[0]}
@@ -1667,9 +1684,43 @@ def hook(root: Path, host_name: str, payload: str, now: datetime) -> str:
         return ""
     except Exception as problem:  # noqa: BLE001 — the boundary to a host: nothing may escape it
         notice = f"questions hook: {problem}"
-        if host is not None and event in (host.starts, host.messages, host.signs_of_life):
+        if host is not None and event == host.starts:
+            return host.answer(event, _noticed(notice), "")
+        if host is not None and event in (host.messages, host.signs_of_life):
             return host.answer(event, notice, "")
         return notice
+
+
+def _paths_limited() -> bool:
+    """Whether this machine stops a path at `PATH_LIMIT`: Windows, unless its long paths are on."""
+    if os.name != "nt":
+        return False
+    import winreg
+
+    try:
+        with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"SYSTEM\CurrentControlSet\Control\FileSystem") as key:
+            return winreg.QueryValueEx(key, "LongPathsEnabled")[0] != 1
+    except OSError:
+        return True
+
+
+def _refuse_a_store_cut_short(root: Path) -> None:
+    """On a machine that stops paths at `PATH_LIMIT`, a committed entry past it was never checked
+    out, or cannot be read if it was, and a window drawn from the rest would be wrong without a
+    word: the hook says why instead. Elsewhere a missing entry was moved or deleted."""
+    if not _paths_limited():
+        return
+    short = [name for name in committed(root, STORE) if len(str(root / name)) > PATH_LIMIT]
+    if not short:
+        return
+    one = len(short) == 1
+    raise Refused(
+        f"{len(short)} {'entry' if one else 'entries'} of {STORE}/ {'is' if one else 'are'} not in this checkout, "
+        f"{'its path' if one else 'their paths'} past Windows' {PATH_LIMIT}-character limit with long paths "
+        f"off, the longest {max(len(str(root / name)) for name in short)}; no window is drawn from part of the "
+        f"store. Clone into a shorter folder, or turn long paths on in Windows (`LongPathsEnabled`) and in Git "
+        f"(`git config --global core.longpaths true`) and clone again."
+    )
 
 
 def _noticed(context: str) -> str:
@@ -2585,14 +2636,19 @@ def _slug(question: str) -> str:
     return "-".join(slug) or "question"
 
 
-def _fitted_slug(root: Path, identity: str, question: str) -> str:
-    """The question's slug, cut further at a word boundary while the entry's path in `done/` — the
-    longer of its two homes — would pass `PATH_LIMIT`. The id is never cut (the user, 2026-10-03);
-    a single word that still does not fit is kept, and the platform says so when it is written."""
-    words = _slug(question).split("-")
-    while len(words) > 1 and len(str(root / STORE / "done" / f"{identity}-{'-'.join(words)}.md")) > PATH_LIMIT:
-        words.pop()
-    return "-".join(words)
+def _fitted_slug(root: Path, identity: str, question: str, clone: bool = True) -> str:
+    """The question's slug, cut further while the entry's path in `done/` — the longer of its two
+    homes — would pass `PATH_LIMIT` from this tree's root or, with `clone`, from a clone's
+    `CLONE_ROOM`, whichever is deeper, or its name `NAME_LIMIT`: at a word boundary, and inside the
+    one word left, as a script written without spaces needs. The id is never cut (the user,
+    2026-10-03). Without `clone` it is the fit names were written by before the clone's room."""
+    room = PATH_LIMIT - max(len(str(root)), CLONE_ROOM if clone else 0)
+    slug = _slug(question)
+    while len(slug) > 1 and (
+        len(f"/{STORE}/done/{identity}-{slug}.md") > room or len(f"{identity}-{slug}.md".encode("utf-8")) > NAME_LIMIT
+    ):
+        slug = slug.rsplit("-", 1)[0] if "-" in slug else slug[:-1]
+    return slug
 
 
 if __name__ == "__main__":
