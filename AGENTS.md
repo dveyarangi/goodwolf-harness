@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v124, 2026-10-25.
+Entry contract: v125, 2026-10-25.
 
 ## General rules
 
@@ -189,8 +189,8 @@ carrying no glyph of its own opens with 🐛.
 
 <installed by="maintain">
 **M2** Drift — a record out of agreement with what it is of, or silent on which side wins — is repaired
-where met, by a subagent, below the dial, in your own work or nobody's. In another session's work
-it is told to that session; at or above the dial it is a decision marked 🍂. A record of what
+where met, by a subagent, below the dial, in your own work or nobody's, and the same drift is then
+sought wherever it can stand. In another session's work it is told to that session; at or above the dial it is a decision marked 🍂. A record of what
 happened does not drift.
 </installed>
 

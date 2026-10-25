@@ -15,6 +15,12 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v125 — 2026-10-25
+
+**Found drift is sought everywhere** — M2 gains *and the same drift is then sought wherever it can
+stand*: the agent found one rule still reading the withdrawn queue and missed four more until
+another session showed them *(the user, 2026-10-25)*.
+
 ## v124 — 2026-10-25
 
 **A register entry carries no number** — *Keeping the register* gains that an entry is headed by
