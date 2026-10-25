@@ -15,6 +15,14 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v120 — 2026-10-25
+
+**A neighbour is told** — S9 gains that what a session finds or opens in the subtree of the
+question another running session stands on, or in the unit it holds, it tells that session
+without asking, and writes nothing into its question or records. Occasion: the pathfinder and the
+product session working one matter unknowing; decision 13 of q-0037.0017.0006, discussed and
+accepted *(the user, 2026-10-25)*.
+
 ## v119 — 2026-10-25
 
 **A takeover lets the taker's own unit go** — the session mechanism's S9, installed among the general
