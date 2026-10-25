@@ -7,8 +7,8 @@ description: >-
 Mechanism: session
 
 First go over the session once more for what it left undone — a step a reply promised and did not
-take, a decision not landed in its home, a change of its own not committed, drift met and not
-reported — and finish or name each.
+take, a decision not landed in its home, a change of its own not committed, drift met and left
+unrepaired, untold and undecided — and finish or name each.
 
 Write one session record under `docs/sessions/`: the account of what happened, for a reader who
 has the tree and not the transcript. Substance before form — a session that produced decisions

@@ -86,7 +86,7 @@ included *(the user, 2026-09-20)*.
 - Removable as written: retraction leaves the target byte-identical.
 - **No default mode.** A bare invocation refuses.
 - **Refuse rather than guess** — missing target, missing anchor, block present and differing.
-  A hand-edited block is drift to report, not a second opinion.
+  A hand-edited block is drift, not a second opinion: its change is routed to the rules file.
 - A rules file's block is installed in every target it names, each member of a group included, or
   the check fails.
 
