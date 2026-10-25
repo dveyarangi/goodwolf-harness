@@ -266,3 +266,16 @@ a decision boundary, a task's form.
 onboarding and lifecycle — a pain of the harness itself, not of developing with agents.* It can be
 named on the page, but not as a root pain. Its home is q-0037.0006 "How do projects share one
 development method without losing their own conventions?".
+
+## What it is for, 2026-10-25
+
+**The user:** *I work mainly on memory, the space of ideas and self-improvement; development is a
+convenient domain for testing. A modular harness and an organisation of meta-instructions that can
+rebuild itself for any task that needs a coherent memory and holds a moving target — research,
+learning.* And: *development is the method we test our product by.* Added in the same pass: a
+diary among the tasks; instructions reaching their occasion and being carried out there as one of
+what the harness gives; and a method of one's own built on it, receiving all of it in turn.
+
+Landed as the product document's opening, *What it is for*
+→ [product.md](../product.md). The front page still speaks to a developer; whom it presents the
+product to is q-0033.0010's.

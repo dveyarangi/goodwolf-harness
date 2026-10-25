@@ -4,21 +4,28 @@
 format. How much of each answer is built is read from the questions that realize it, never
 written here.
 
+**What it is for.** A harness that keeps an agent's work coherent on any task that needs a memory
+of its own and holds a moving target — research, learning, a diary, development. It gives that
+work the memory of the exploration space, the person's place in it, and instructions that reach
+the occasion they are for and can be carried out there. And it lets your own method be built on
+it: a memory of its own, its instructions reaching their occasions, and its amendment by the same
+means as the harness amends itself. It is modular: a core of memory and self-improvement, and the
+method for the work at hand installed on it. Software development is the first such method, and
+the one the product is tested by *(the user, 2026-10-25)*: this tree develops the harness with the
+harness, and every project that takes it is a trial.
+
 The leading product document. The project's goals and its front page are derived from it, and a
 piece of work earns its place by the pain it relieves. It was found, not designed: at the
 front-page align of 2026-10-08 every attempt to say what the harness *is* came out as its
 implementation, until the user named the pains. The argument is in
-[q-0033](questions/q-0033-what-is-this-project-for.md)
-"Which pains of developing software with coding agents does the harness exist to relieve, and
-what answers each?".
+[q-0033](questions/q-0033-what-is-this-project-for.md) "What is this project for?".
 
 **What it does, in one line.** Fewer steps, each more precise: at every step the agent knows what
 is needed now — which rule, which record, which question — and does that, not the rest. The
 project's own practices stay its own, by its choice; the harness fits into them and replaces none.
 Its memory stays true: one home for every fact, every record knowing which side wins against the
 code, what rests on what linked, the open questions kept with the thinking on them, the whole
-reaching the agent before every message — and any mechanism built with the method gets a memory of
-the same kind.
+reaching the agent before every message.
 
 ## Pains
 
