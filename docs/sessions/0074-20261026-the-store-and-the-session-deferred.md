@@ -1,4 +1,4 @@
-# Session 0073 — the store and the session, deferred
+# Session 0074 — the store and the session, deferred
 
 - **record of** what happened
 
