@@ -33,6 +33,30 @@ than staying with the person's last message.
 **Disposition:** registered, no rule proposed; a repeat strikes it and is the second shape a rule
 would need.
 
+## 73. A rule landed the same day read as leave to commit other sessions' work — 2026-10-25
+
+**Rule in play, loaded:** the entry file, Autonomy, v114: *"A green stage of work in progress is
+committed as it stands; what a failed criterion puts to the person is that criterion, never the
+commit."*
+
+**What happened.** On the live read of 01-0060.0010's telling, an agent playing `/recall` found two
+other sessions' uncommitted work in the tree, their sessions gone, and announced: *both stages are
+green, and I will commit them as they stand at the first step of the work* — citing v114, the
+commit kept out of the decisions table. The judge, told nothing of the project, named it the one
+thing to stop before it is done.
+
+**Why it did not fire.** v114 says *a green stage*, not *the session's own*; read at a wake, where
+the work in the tree is many sessions', it covers whatever is green. The amendment of rule failure
+71 was worded against one slip, asking, and opened another, taking.
+
+**Proposed amendment**, to v114's sentence, at the self-improvement dial — a rule, shown before it
+lands:
+
+> A green stage of the session's own work in progress is committed as it stands; what a failed
+> criterion puts to the person is that criterion, never the commit.
+
+**Disposition:** open; the amendment waits on the person.
+
 ## 72. The commits table and the counters line were put at the reply's end — 2026-10-25
 
 **Rule in play, loaded:** the entry file, *A paragraph shows what it stands on*: *"Under `debug=on`,
