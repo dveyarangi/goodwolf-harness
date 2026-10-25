@@ -38,6 +38,7 @@ import hashlib
 import json
 import os
 import posixpath
+import collections
 import re
 import sys
 import unicodedata
@@ -1410,7 +1411,7 @@ def _ahead_lines(root: Path, now: datetime) -> list[str]:
     return [
         *ahead.in_work(),
         *ahead.touched_lately_lines(lately),
-        "  ready, in id order, none ranked above another:",
+        "  ready, the answer with the most open work first:",
         *_or_none(line for ticket in ahead.ready()[:AHEAD_READY] for line in ahead.ticket_lines(ticket)),
         "  most struck, no ticket, past those touched lately:",
         *_or_none(line for read in ahead.most_struck(lately)[:AHEAD_STRUCK] for line in ahead.question_lines(read)),
@@ -1476,7 +1477,28 @@ class _Ahead:
     # --- the candidates ---
 
     def ready(self) -> list:
-        return [ticket for ticket in self.tickets if _status_of(ticket) == "Ready"]
+        """The Ready tickets, those whose answer has the most open work first: the roadmap starts
+        where the most is unfinished (q-0037.0019.0004, decision 2); a ticket serving no answer the
+        records name stands last, ties in id order."""
+        # TODO q-0037.0019.0004: the order, once the product document says which answers lead.
+        work = self.open_work()
+        def unfinished(ticket) -> int:
+            link = realizes(self.live, _answers_of(ticket)) if _answers_of(ticket) in self.live else None
+            return max((work[reference] for reference, _ in link.answers), default=0) if link else 0
+        ready = [ticket for ticket in self.tickets if _status_of(ticket) == "Ready"]
+        return sorted(ready, key=lambda ticket: -unfinished(ticket))
+
+    def open_work(self) -> "collections.Counter[str]":
+        """How many open questions below a root reach each answer, through their own trace link or
+        an ancestor's."""
+        work: collections.Counter[str] = collections.Counter()
+        for read in self.live.values():
+            if not read.open or read.parent is None:
+                continue
+            link = realizes(self.live, read.identity)
+            for reference, _ in (link.answers if link else ()):
+                work[reference] += 1
+        return work
 
     def most_struck(self, lately: list[Entry]) -> list[Entry]:
         """The open questions no ticket owns that came back most, roots left out — a root is struck
@@ -1508,7 +1530,9 @@ class _Ahead:
     def _serves(self, identity: str | None) -> str:
         link = realizes(self.live, identity) if identity in self.live else None
         if link and link.answers:
-            return "; ".join(f"{reference} {name}, {self.coverage.get(reference, 'unread')}" for reference, name in link.answers)
+            work = self.open_work()
+            return "; ".join(f"{reference} {name}, {self.coverage.get(reference, 'unread')}, {work[reference]} open"
+                             for reference, name in link.answers)
         return "derived" if link and link.derived else "unread"
 
     # --- the roots ---
