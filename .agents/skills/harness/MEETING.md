@@ -35,7 +35,8 @@ to hold once it has, counted and quoted in the tree's own words:
    instructions in records the entry file names only as a whole, which reach a reader only if that
    record is opened.
 3. *One fact in several homes* — the same rule or fact stated twice, and where the two have parted;
-   what was met on the way, never claimed as all there is.
+   what was met on the way, never claimed as all there is; each parted pair named as the pair GoodWolf's
+   maintenance would hold — what is written, and what it is of.
 4. *What no one records* — the tree's memory of its own operation: sessions, handovers, why a piece
    of work stopped; the gap shows as history leaking into rules and as work no record explains.
 5. *Where the project does not follow its own rules* — a rule stated and a case against it standing
