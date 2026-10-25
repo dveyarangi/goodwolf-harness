@@ -1,24 +1,24 @@
 # Sessions hand work to each other, and none takes what another holds
 
-- **record of** what it intends to become
-- **Status:** Partial (2026-10-25, both slices Done; its live case and one word of the stop wait)
+- **record of** what happened
+- **Status:** Done (2026-10-25, verified by a fresh judge; its live case in q-0037.0017.0006.0002.0001)
 - **Type:** HITL
 - **Minted:** 2026-10-24
-- **Answers:** [q-0037.0017.0006](../questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what-another-is-on.md)
+- **Answers:** [q-0037.0017.0006](../../questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what-another-is-on.md)
 - **Outcome:** A session about to act on a unit another running session holds stops and puts two
   ways to act to the person, and a unit taken over leaves its holder the mark of who took it, so no
   session finishes, closes or commits another's work by default.
 
 ## Parent
 
-The session mechanism, [session.md](../../.agents/mechanisms/session/session.md), which owns every
+The session mechanism, [session.md](../../../.agents/mechanisms/session/session.md), which owns every
 rule on how sessions interact. The work's shape is
-[its question's *Where it stands*](../questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what-another-is-on.md#where-it-stands),
+[its question's *Where it stands*](../../questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what-another-is-on.md#where-it-stands),
 accepted by the person 2026-10-24 and rewritten to their decisions of 2026-10-25; the split's impact is
-[in the same question](../questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what-another-is-on.md#impact-of-the-split--2026-10-24).
+[in the same question](../../questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what-another-is-on.md#impact-of-the-split--2026-10-24).
 The end-state of two slices:
-[01-0070.0010 a-sessions-row-names-the-unit-it-holds](./done/01-0070.0010-a-sessions-row-names-the-unit-it-holds.md)
-and [01-0070.0020 a-session-stops-before-anothers-unit](./done/01-0070.0020-a-session-stops-before-anothers-unit.md).
+[01-0070.0010 a-sessions-row-names-the-unit-it-holds](./01-0070.0010-a-sessions-row-names-the-unit-it-holds.md)
+and [01-0070.0020 a-session-stops-before-anothers-unit](./01-0070.0020-a-session-stops-before-anothers-unit.md).
 
 ## What to build
 
@@ -39,14 +39,17 @@ file's general rules.
 ## Acceptance criteria
 
 - [x] Both slices are Done — 2026-10-25, judged pass.
-- [ ] In a live tree with two running sessions, one holding a ticket In progress, the other asked
+- [x] In a live tree with two running sessions, one holding a ticket In progress, the other asked
       by the person to close it stops with the two ways, and the close is made by the holder or by
-      the way the person named — read by a subagent judge, from the rows and the windows.
-- [ ] `/verify` passes against this ticket and its slices.
+      the way the person named — read by a subagent judge, from the rows and the windows —
+      2026-10-25, not met live: the stop seen in cold cases and trial rows, judged; the live case
+      moved to q-0037.0017.0006.0002.0001 by the person's word, the parent closed as its slices
+      were, to be checked by the first real takeover.
+- [x] `/verify` passes against this ticket and its slices — 2026-10-25, a fresh judge's second pass, the eight checks and 934 tests green.
 
 ## Out of scope
 
-- How a role is declared — [q-0037.0005](../questions/q-0037.0005-what-is-an-agent-role-and-which-mechanism-keeps-roles.md).
+- How a role is declared — [q-0037.0005](../../questions/q-0037.0005-what-is-an-agent-role-and-which-mechanism-keeps-roles.md).
 - A session's plan read as the questions one feature links — decision 1 of the question, later.
 - A messaging protocol of the method's own: messaging is the host's seam,
-  [the hosts edge](../edge/hosts.md).
+  [the hosts edge](../../edge/hosts.md).
