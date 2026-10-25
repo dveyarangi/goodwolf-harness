@@ -17,6 +17,38 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 76. Rules were proposed in a reply without `/skill-up`, one of them a placeholder — 2026-10-25
+
+**Rules in play, loaded:** `/skill-up`'s description, *"Use whenever writing any agent
+instructions, whether to a file or directly in a reply"*; the entry file, *A paragraph shows what
+it stands on*: *"Text proposed for … a doc or code stands as written … `🧩 **Proposed rule — …**`
+for an instruction, written through `/skill-up`"*.
+
+**What happened.** At the align on q-0037.0009.0021.0001.0002 the agent showed two rules for the
+debugging mechanism's rules file in 🧩 frames without reading `/skill-up`. The second rule's body
+was a placeholder in angle brackets — *the 🪶 table … as they stand today, with rule failure 72's
+amendment* — pointing at two other texts instead of being one. The person: *where are the rules
+themselves? did you use skill-up to propose them? if not, why?*
+
+**Why it did not fire.** The agent took the frames for an illustration of an option, not for an
+instruction proposed; the description's *in a reply* covers exactly that case and was not weighed.
+In the entry file, *written through `/skill-up`* stands mid-clause between the header's form and
+an aside, and reads as a label of what kind of text goes in the frame, not as a step taken before
+it is drawn; *stands as written* says nothing against a placeholder or a pointer standing for the
+text.
+
+**Proposed amendment**, to that clause, at the self-improvement dial — a rule, shown before it
+lands:
+
+> `🧩 **Proposed rule — [<file>](<its path>) · <its section>**` for an instruction, drafted
+> through `/skill-up` before the frame is drawn — any text an agent acts by, a skill's body and
+> the entry file's included —, […]; the blockquote holds the whole text, never a placeholder or a
+> pointer standing for it.
+
+Whether the host refuses a rule proposed without the skill read is q-0037.0006.0005.0001's.
+
+**Disposition:** open; the amendment waits on the person.
+
 ## 75. Two sessions numbered one version of the entry contract — 2026-10-25
 
 **Rules in play:** none that covers it. The entry file's announce line and the findings record are
