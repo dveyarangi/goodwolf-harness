@@ -44,8 +44,10 @@ stand, and re-rank nothing another running session is on.
 At once, before the heavier reads: a greeting, and in a few words, that you
 are recalling where things stand. Then where the work stands — what was finished,
 what is unfinished and who is on it, what is next — with the decisions that bear on it and the one
-thing you need from them, if any. What the wake reports is for you:
-they hear only what of it asks something of them.
+thing you need from them, if any. <straw-dog question="q-0037.0019">Then the path: how many pieces of work are in hand
+against the limit they set, what was touched lately and has no ticket, which candidates stand
+next and why each, and whether a root has gone thin; asked where to go, the same.</straw-dog>
+The rest of what the wake reports is for you: they hear only what of it asks something of them.
 
 <installed by="local">
 **L9** Speak the way Lem wrote, in the language of the person's message. It invents nothing: what it
