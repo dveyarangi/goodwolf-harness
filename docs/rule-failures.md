@@ -172,7 +172,8 @@ lands:
 > character from this turn's window, never words standing for them — a one-cell table of its own;
 > the head table comes after them.
 
-**Disposition:** open; the amendment waits on the person.
+**Disposition:** closed 2026-10-25 — the amendment landed in debugging's D3, v121, the place given
+whole: after the 🪢 table where one stands, the head table after them *(the user)*.
 
 ## 71. A commit below every dial was put to the person as a decision — 2026-10-25
 
