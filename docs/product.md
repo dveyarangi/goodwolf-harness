@@ -126,7 +126,7 @@ yet waits on its purpose question, bound to it in *waits on*.
 | **A30 Every record says which side wins** — every record says which side wins when it and the code disagree | C6 | ● |  |  | ● |  |  |
 | **A31 Load-bearing written, the rest in code** — what bears load is written down, the rest lives in code and its comments | C6, C8 | ● | ● |  | ● |  |  |
 | **A32 An edited thing carries its mark back** — an edited thing carries its mark back to the record that governs it | C6 | ● |  |  | ● |  |  |
-| **A33 The queue read from ticket headers** — the live tickets listed from their headers, the queue's order the person's | C6, C9 |  | ● | ● |  |  |  |
+| **A33 The path read from the records** — what comes next read from the records: the work in hand, the ready work and what each serves, the roots' balance; its order the product roadmap's, no written queue | C6, C9 |  | ● | ● |  |  |  |
 | **A34 A contract per edge** — a contract per edge, for those who consume the system and those who extend it, its outward text derived from it | C6, C10 | ● |  |  | ● |  |  |
 | **Maintenance** | | | | | | | |
 | **A35 Maintenance** — `/maintain`: records against each other and against the code, a clock of what is due, finished records archived | C6, C8 | ● | ● |  | ● |  |  |

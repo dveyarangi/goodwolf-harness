@@ -42,7 +42,7 @@ _ARRIVAL_BLOCK = re.compile(r"^```product-document\n(?P<said>.*?)^```", re.M | r
 # root it owns — the purpose root this one, the structure root the development method.
 PURPOSE_ROOT = "What is this project for?"
 STRUCTURE_ROOT = "How is this project built?"
-_USAGE = "usage: product.py --check | --coverage | --queue"
+_USAGE = "usage: product.py --check | --coverage | --tickets"
 _LEAD = re.compile(r"^\*\*(A\d+) +([^*]*[^*\s])\*\*")
 _PAIN = re.compile(r"^(\d+)\. \*\*([^*]+)\*\*", re.M)
 _GOAL = re.compile(r"\*\*(G\d+) ([^*]+)\*\*")
@@ -98,8 +98,8 @@ def main(argv: list[str], root: Path) -> int:
         }
         print(json.dumps(report, indent=2, ensure_ascii=False))
         return 1 if diagnostics else 0
-    if argv in (["--coverage"], ["--queue"]):
-        for line in (coverage if argv == ["--coverage"] else queue)(root):
+    if argv in (["--coverage"], ["--tickets"]):
+        for line in (coverage if argv == ["--coverage"] else tickets_beside)(root):
             print(line)
         return 0
     print(_USAGE)
@@ -135,10 +135,10 @@ def coverage(root: Path) -> list[str]:
     return [_coverage_line(found, realizing.get(found.identity, [])) for found in answers]
 
 
-def queue(root: Path) -> list[str]:
-    """Beside the queue and never in it, for the person ordering the work: what each item realizes,
-    then the answers left out — neither present nor realized by an item — under every pain and goal
-    their row serves. Nothing is ranked; the order stays the person's (q-0037.0018, decision 7)."""
+def tickets_beside(root: Path) -> list[str]:
+    """For the person choosing the work: what each live ticket realizes, then the answers no ticket
+    realizes — neither present nor realized by a ticket — under every pain and goal their row
+    serves. It ranks nothing (q-0037.0018, decision 7)."""
     path = root / DOCUMENT
     if not path.is_file():
         return []
@@ -301,7 +301,7 @@ def _present(realizing: list[questions.Entry]) -> bool:
     return bool(realizing) and not any(_counts_as_open(read) for read in realizing)
 
 
-# --- beside the queue ---------------------------------------------------------------------------
+# --- the tickets beside it ----------------------------------------------------------------------
 
 
 @dataclass(frozen=True)

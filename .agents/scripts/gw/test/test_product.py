@@ -175,7 +175,7 @@ class Coverage(Product):
         self.assertIn("A2 Still being built — in progress: q-0001", self.lines())
 
 
-QUEUED = (
+TICKETED = (
     "# What the project is for\n\n## Pains\n\n1. **It hurts.** Badly.\n2. **It costs.** Too much.\n\n"
     "## Goals\n\n- **G1 Keep it.** Never lose it.\n\n"
     "## Answers\n\n| answer | causes | 1 | 2 | G1 | G9 | waits on |\n|---|---|---|---|---|---|---|\n"
@@ -188,10 +188,10 @@ QUEUED = (
 )
 
 
-class TheQueue(Product):
+class TheTickets(Product):
     def setUp(self) -> None:
         super().setUp()
-        self.write(DOCUMENT, QUEUED)
+        self.write(DOCUMENT, TICKETED)
         self.place("q-0001", question("q-0001", realizes='A1 "Built by an item"', owner="tickets/01-0001-first.md"))
         self.place("q-0001.0001", question("q-0001.0001", parent="q-0001", owner="tickets/01-0001.0010-second.md"))
         self.place(
@@ -205,7 +205,7 @@ class TheQueue(Product):
         self.place("q-0006", question("q-0006", realizes='A6 "Unnamed goal"', owner="tickets/done/01-0000-old.md"))
 
     def shown(self) -> list[str]:
-        status, said = self.run_script("--queue")
+        status, said = self.run_script("--tickets")
         self.assertEqual(0, status)
         return said.splitlines()
 

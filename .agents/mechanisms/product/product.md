@@ -1,6 +1,6 @@
 # product — keeps one account of what the project is for, and reads from the work how much of it is built
 
-- **instruction** `.agents/skills/product/SKILL.md` — the act: keeping the product document, seeing each answer's coverage and the queue beside it
+- **instruction** `.agents/skills/product/SKILL.md` — the act: keeping the product document, seeing each answer's coverage and the tickets beside it
 - **state** installed
 - **record of** what must always hold
 
@@ -38,8 +38,8 @@ allocated the same way.
 It is **installed**. <straw-dog question="q-0037.0006.0024">It ships with core like every mechanism,
 since a project cannot yet take one alone.</straw-dog> Its rules carry no condition: a tree that has
 the mechanism keeps the document. **An install or an update writes it where none is**, empty, in
-the words of its arrival shelf, by this mechanism's script — the third record written when absent,
-after the delivery status and the store's roots. From its first line it is the project's: one
+the words of its arrival shelf, by this mechanism's script — the second record written when absent,
+after the store's roots. From its first line it is the project's: one
 already there, in the format or not, is left, and the install names one that is not, which the
 check fails.
 
@@ -64,7 +64,7 @@ check fails.
 | keeping the product document | `.agents/skills/product/SKILL.md` | |
 | writing the document to its shape | `.agents/skills/product/PRODUCT-FORMAT.md` | |
 | seeing each answer's coverage | `.agents/skills/product/SKILL.md` | |
-| seeing, beside the queue, what each item realizes and which answers are left out | `.agents/skills/product/SKILL.md` | |
+| seeing, beside the tickets, what each realizes and which answers are left out | `.agents/skills/product/SKILL.md` | |
 | saying what the project is, or what sets it apart, by its own account | `.agents/skills/product/SKILL.md` | |
 | checking the document's form | `.agents/scripts/gw/product.py` | |
 | checking the document in a maintenance pass | `.agents/skills/maintain/SKILL.md` | |
@@ -109,9 +109,9 @@ check fails.
   project is for, and by whoever opens a building question for an answer.
 - **The coverage rendering** — *what exists* — read by the person ordering the work, on request;
   never committed.
-- **The queue rendering** — *what exists* — what each live ticket realizes, read through the
+- **The tickets rendering** — *what exists* — what each live ticket realizes, read through the
   store's owner part and the trace link, and the answers left out under each pain and goal; read
-  by the person ordering the work, on request, never written into the queue.
+  by the person choosing the work, on request, written nowhere.
 - **The maintainer's report** — *what exists* — read by `/maintain` under U1. Its exit status is
   the verdict; its JSON is for the person reading a failure. It writes nothing.
 - **The rules file** — *what must always hold* — read by the installer alone, and by whoever amends
