@@ -68,7 +68,7 @@ Each item is read against this tree as it stands on 2026-10-25.
    before the count, and two runs must be identical. Here `/verify` checks work against its ticket,
    and the benches under `docs/research/` were run once each, with no exam of the bench itself and
    no thresholds written in advance. This bears on
-   [q-0038.0001](../questions/q-0038.0001-does-working-under-the-harness-deliver-software-better-than-working-without-it-measured-on-the-same-tasks.md)'s
+   [q-0038.0001](../questions/q-0038.0001-does-working-under-the-harness-deliver-software-better-than-working-without-it-measured-on-the.md)'s
    design.
 4. **A registry of hypotheses with verdicts.** The question store closes a question with a kind and
    an answer, but a guess tested and killed has no row of its own with *instrument unfit* as a

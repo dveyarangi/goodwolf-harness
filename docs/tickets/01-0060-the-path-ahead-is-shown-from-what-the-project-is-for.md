@@ -4,12 +4,12 @@
 - **Status:** Planned (the end-state of q-0037.0019's accepted `Where it stands`; its first slice, 01-0060.0010, done 2026-10-25)
 - **Type:** HITL
 - **Minted:** 2026-10-23
-- **Answers:** [q-0037.0019](../questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three-roots-and-the-next-shown-with-its-unit-as-the-installed.md)
+- **Answers:** [q-0037.0019](../questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the.md)
 - **Outcome:** The person sees, at every session's start and whenever they ask, which questions are in work against the cap, which the cap held back, which candidates stand at the next boundary and why, and how the three roots balance; what enters work is their word at a boundary, never the last idea said.
 
 ## Parent
 
-[q-0037.0019](../questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three-roots-and-the-next-shown-with-its-unit-as-the-installed.md),
+[q-0037.0019](../questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the.md),
 whose `Where it stands` the user accepted on 2026-10-23. This ticket is that picture's end-state;
 its children are the slices, the first carved the same day. The question keeps the argument, the
 discoveries and the open parts: the weighing, the time-axis picture, the ring mark (deferred as

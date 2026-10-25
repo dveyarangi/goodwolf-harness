@@ -19,7 +19,7 @@ holding no copy of anything a ticket says.
   `docs/sessions/`. The pointer of 2026-10-07 was revised on that evidence: the line went whole,
   from the queue and the arrival state, and the format says the queue keeps no account of steps
   done. The user chose a separate edit. Its home is the ticket format; the reasoning sits in
-  [q-0037.0010.0009](../questions/q-0037.0010.0009-what-kinds-of-written-thing-does-a-tree-hold-and-which-of-them-does-maintain-hold-in-agreement.md).
+  [q-0037.0010.0009](../questions/q-0037.0010.0009-what-kinds-of-written-thing-does-a-tree-hold-and-which-of-them-does-maintain-hold-in.md).
 
 ### The ticket list is rendered, never copied — 01-0011.0040
 

@@ -1,6 +1,6 @@
 # Red and green — `/harness`'s first install and `/maintain`'s report, 2026-10-18
 
-The second slice of [q-0037.0010.0012.0001](../../../questions/q-0037.0010.0012.0001-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person-about-that-work-and-how-is-a-reply-tested-for-keeping-them-apart.md).
+The second slice of [q-0037.0010.0012.0001](../../../questions/q-0037.0010.0012.0001-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person.md).
 Rules at `0e3233f` for red; the two skills' `What the person hears` for green.
 
 ## The bench as run

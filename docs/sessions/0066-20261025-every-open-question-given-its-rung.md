@@ -3,7 +3,7 @@
 - **record of** what happened
 
 Session `local_aed9a887`, 2026-10-20 to 2026-10-25, a side session started by the pathfinder's
-session (`local_1b2487c9`) to carry one step of [q-0037.0019](../questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three-roots-and-the-next-shown-with-its-unit-as-the-installed.md)'s
+session (`local_1b2487c9`) to carry one step of [q-0037.0019](../questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the.md)'s
 align: the rung back-fill, decided there by the user on 2026-10-20. Commit `f147307`.
 
 ## Decisions, and what chose them
@@ -46,7 +46,7 @@ queue; if the person is to decide less, it is the dial that must move.
 
 ## Open questions touched
 
-- [q-0037.0019](../questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three-roots-and-the-next-shown-with-its-unit-as-the-installed.md)
+- [q-0037.0019](../questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the.md)
   — open, the starting session's. Its back-fill step is done. The weighing and the picture wait
   on the cap and the cadence being watched. Its lean was left to that session, which still runs.
 

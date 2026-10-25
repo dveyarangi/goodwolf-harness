@@ -10,7 +10,7 @@ three skills and the entry file amended, and Q2 reworded. Every turn under `debu
 
 ## Decisions
 
-All on [q-0037.0010.0012.0001](../questions/q-0037.0010.0012.0001-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person-about-that-work-and-how-is-a-reply-tested-for-keeping-them-apart.md),
+All on [q-0037.0010.0012.0001](../questions/q-0037.0010.0012.0001-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person.md),
 opened this session under the question of where the method ends and the machinery begins.
 
 - **Speech is marked, work is not.** Marking both kinds was weighed and refused: hundreds of rules
@@ -41,7 +41,7 @@ opened this session under the question of where the method ends and the machiner
   reader first.** The first reader failed the good reply three times in three — for the user's own
   *recalling* — and was right about two other faults in it. Without the control the bench would
   have measured a reader that flags everything. The bench is now
-  [q-0037.0012.0009](../questions/q-0037.0012.0009-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen-how-run-with-no-instruction-the-standing-one-and-the-new-one.md)'s
+  [q-0037.0012.0009](../questions/q-0037.0012.0009-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen.md)'s
   material too.
 - **A word that names both a script's output and the agent's words to the person carries the
   narration.** *Report* in Q2, F2 and elsewhere read as speech; the store's words — *suspect*,
@@ -76,7 +76,7 @@ opened this session under the question of where the method ends and the machiner
 
 ## Open questions touched
 
-- [q-0037.0010.0012.0001](../questions/q-0037.0010.0012.0001-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person-about-that-work-and-how-is-a-reply-tested-for-keeping-them-apart.md)
+- [q-0037.0010.0012.0001](../questions/q-0037.0010.0012.0001-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person.md)
   — open. Three skills and the entry file speak from the split. Waits on: a case for the reply
   after `/recall`'s reads, where Q2 bears; `/maintain`'s report, two in five still in the store's
   words; the other speech sites, as each is next touched.

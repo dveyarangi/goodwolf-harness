@@ -92,14 +92,14 @@ bumped the contract meanwhile — and a second maintenance pass over the whole t
 
 ## Open questions touched
 
-- [q-0037.0006.0025](../questions/q-0037.0006.0025-what-is-a-method-a-root-question-with-the-ring-that-works-it-and-the-records-it-keeps-and-what-is-a-practice-to-it-so-that-study-research-or-a-personal.md)
+- [q-0037.0006.0025](../questions/q-0037.0006.0025-what-is-a-method-a-root-question-with-the-ring-that-works-it-and-the-records-it-keeps-and.md)
   — three decisions landed, the discovery filed; waits on its align, the glossary words.
-- [q-0037.0006.0025.0001](../questions/q-0037.0006.0025.0001-which-root-a-research-or-study-method-asks-in-place-of-how-is-this-project-built-and-whether-the-structure-root-is-the-methods-to-word.md)
+- [q-0037.0006.0025.0001](../questions/q-0037.0006.0025.0001-which-root-a-research-or-study-method-asks-in-place-of-how-is-this-project-built-and.md)
   — opened, reworded to the method; waits on the parent.
 - [q-0037.0017.0004](../questions/q-0037.0017.0004-how-does-a-conversation-keep-its-position-when-its-host-resumes-it-under-a-new-session-id.md)
   and [q-0037.0017.0005](../questions/q-0037.0017.0005-how-do-running-sessions-reach-each-other-beyond-one-working-directory.md)
   — gathered under the closed session question; `not yet` rows of the session doc.
-- [q-0037.0009.0021.0001](../questions/done/q-0037.0009.0021.0001-how-does-what-debug-shows-reach-a-tree-as-the-debugging-mechanisms-installed-blocks-and-how-does-a-tree-switch-it-on-and-off.md)
+- [q-0037.0009.0021.0001](../questions/done/q-0037.0009.0021.0001-how-does-what-debug-shows-reach-a-tree-as-the-debugging-mechanisms-installed-blocks.md)
   — its ticket now carries the fork the 🪢 block forces: the debugging mechanism switches a block
   another mechanism owns, or the debug half of S4 becomes its own rule.
 

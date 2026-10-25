@@ -1,7 +1,7 @@
 # The meeting, run 4 on xuanxue-cabinet — every objection against installing, with what answers it
 
 - **record of** what happened
-- **evidence for** [q-0037.0006.0020.0001.0004](../questions/q-0037.0006.0020.0001.0004-how-does-the-install-read-a-tree-with-a-method-and-report-what-goodwolf-would-change-there-before-anything-is-written.md), [q-0033.0008](../questions/q-0033.0008-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md)
+- **evidence for** [q-0037.0006.0020.0001.0004](../questions/q-0037.0006.0020.0001.0004-how-does-the-install-read-a-tree-with-a-method-and-report-what-goodwolf-would.md), [q-0033.0008](../questions/q-0033.0008-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md)
 
 2026-10-25. A fresh session in xuanxue-cabinet was asked *do we need this here?*, answered *no*
 from the README, explained its reasoning when asked, then ran a study of its own with four agents

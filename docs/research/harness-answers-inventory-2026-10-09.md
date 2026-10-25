@@ -12,11 +12,11 @@ item.
 1. [docs/product.md](../product.md) — the matrix (48 rows), C1–C12, pains 1–3, G1–G2, the harness-pain section.
 2. [product-audit-2026-10-09](product-audit-2026-10-09.md) — a read-only sweep of the tree.
 3. [q-0033](../questions/q-0033-what-is-this-project-for.md) — earlier sortings, the answers table, the chain with Today/Missing.
-4. [q-0037.0018.0001](../questions/done/q-0037.0018.0001-how-does-the-product-document-stay-true-as-mechanisms-and-work-appear-without-the-question-tree-being-forced-into-it.md) — the matrix rows sorted into eight categories.
+4. [q-0037.0018.0001](../questions/done/q-0037.0018.0001-how-does-the-product-document-stay-true-as-mechanisms-and-work-appear-without-the-question.md) — the matrix rows sorted into eight categories.
 5. [discover-recall-structure-2026-10-08](discover-recall-structure-2026-10-08.md) — two outside passes: **5A** read the repository cold, **5B** had a functional description only.
 6. [peer-capabilities-2026-10-08](peer-capabilities-2026-10-08.md) — the harness's row and the notes on what is rare.
 7. [front-page-review-by-outside-agents-2026-10-08](front-page-review-by-outside-agents-2026-10-08.md) — two rounds of cold readers.
-8. **8a** [q-0037.0006.0011.0004](../questions/q-0037.0006.0011.0004-how-does-an-arrival-find-what-a-project-exists-to-solve-and-the-answers-it-already-has-in-its-documents-and-its-code.md), **8b** [q-0037.0013.0002](../questions/done/q-0037.0013.0002-which-questions-stop-for-a-human.md).
+8. **8a** [q-0037.0006.0011.0004](../questions/q-0037.0006.0011.0004-how-does-an-arrival-find-what-a-project-exists-to-solve-and-the-answers-it-already.md), **8b** [q-0037.0013.0002](../questions/done/q-0037.0013.0002-which-questions-stop-for-a-human.md).
 
 **T** marks a claim spot-checked against the tree in this run, by grep or a file read, at
 `01cbb85`. Checked: 19 of 24 skills carry `Mechanism: not yet`; five declared mechanisms

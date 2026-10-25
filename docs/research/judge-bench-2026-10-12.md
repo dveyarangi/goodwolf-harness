@@ -1,7 +1,7 @@
 # The judge bench — sixteen drafts a judge is graded on, 2026-10-12
 
 A bench for the judge of
-[q-0037.0001.0020.0001 does-a-judge-outside-the-agent-flag-the-drafts-that-hid-parts](../questions/done/q-0037.0001.0020.0001-does-a-judge-outside-the-agent-flag-the-drafts-that-hid-parts-and-pass-the-ones-that-did-not-on-the-recorded-cases.md):
+[q-0037.0001.0020.0001 does-a-judge-outside-the-agent-flag-the-drafts-that-hid-parts](../questions/done/q-0037.0001.0020.0001-does-a-judge-outside-the-agent-flag-the-drafts-that-hid-parts-and-pass-the-ones-that.md):
 a reader outside the agent, given one of the agent's draft replies, says whether the draft commits
 to a shape while leaving a load-bearing part of it unexamined. Built while probing that question,
 preliminary to [01-0011.0100.0050 a-question-branches-before-it-is-answered](../tickets/01-0011.0100.0050-a-question-branches-before-it-is-answered.md),

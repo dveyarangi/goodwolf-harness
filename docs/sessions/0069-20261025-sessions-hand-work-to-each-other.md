@@ -68,7 +68,7 @@ own stop on itself; the person: *why didn't you check taking another's ticket wi
 [01-0070.0020](../tickets/done/01-0070.0020-a-session-stops-before-anothers-unit.md) — `--take` and
 the `taken` mark, S7 and S9, S5 amended, the two principles, the hosts edge's messaging check.
 [01-0070](../tickets/done/01-0070-sessions-hand-work-over.md), the parent. Six cold cases and five
-judge passes, filed in [q-0037.0017.0006.0002](../questions/q-0037.0017.0006.0002-what-does-a-session-do-when-its-turn-would-act-on-a-unit-another-running-session-holds.md).
+judge passes, filed in [q-0037.0017.0006.0002](../questions/q-0037.0017.0006.0002-what-does-a-session-do-when-its-turn-would-act-on-a-unit-another-running-session.md).
 The settings ticket's close handed to its holder and closed there.
 
 ## What went wrong, and what it taught
@@ -95,13 +95,13 @@ The settings ticket's close handed to its holder and closed there.
 
 ## Open questions touched
 
-- [q-0037.0017.0006](../questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what-another-is-on.md)
+- [q-0037.0017.0006](../questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one.md)
   — its decisions landed; open while its child is.
-- [q-0037.0017.0006.0002.0001](../questions/q-0037.0017.0006.0002.0001-does-a-takeover-between-two-live-sessions-hold-the-holder-sees-the-mark-before-it-clears-and-the-taker-commits-the-units-work.md)
+- [q-0037.0017.0006.0002.0001](../questions/q-0037.0017.0006.0002.0001-does-a-takeover-between-two-live-sessions-hold-the-holder-sees-the-mark-before.md)
   — the live remainder of all three tickets; checked by the first real takeover.
 - [q-0037.0017.0005](../questions/q-0037.0017.0005-how-do-running-sessions-reach-each-other-beyond-one-working-directory.md)
   — three decisions; the shared place itself is its work.
-- [q-0037.0015](../questions/q-0037.0015-how-is-produced-work-gone-over-again-over-what-scope-by-what-criteria-by-whom-and-to-what-result.md)
+- [q-0037.0015](../questions/q-0037.0015-how-is-produced-work-gone-over-again-over-what-scope-by-what-criteria-by-whom-and-to-what.md)
   — the judge's principle stands in its list; no mechanism yet makes a judge happen.
 
 Left unrepaired and named: no instruction reaches `--release`, the person's drop of a unit; 22 rows

@@ -4,7 +4,7 @@
 - **Status:** Done (2026-10-25, verified by a fresh judge; its live case in q-0037.0017.0006.0002.0001)
 - **Type:** HITL
 - **Minted:** 2026-10-24
-- **Answers:** [q-0037.0017.0006](../../questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what-another-is-on.md)
+- **Answers:** [q-0037.0017.0006](../../questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one.md)
 - **Outcome:** A session about to act on a unit another running session holds stops and puts two
   ways to act to the person, and a unit taken over leaves its holder the mark of who took it, so no
   session finishes, closes or commits another's work by default.
@@ -13,9 +13,9 @@
 
 The session mechanism, [session.md](../../../.agents/mechanisms/session/session.md), which owns every
 rule on how sessions interact. The work's shape is
-[its question's *Where it stands*](../../questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what-another-is-on.md#where-it-stands),
+[its question's *Where it stands*](../../questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one.md#where-it-stands),
 accepted by the person 2026-10-24 and rewritten to their decisions of 2026-10-25; the split's impact is
-[in the same question](../../questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what-another-is-on.md#impact-of-the-split--2026-10-24).
+[in the same question](../../questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one.md#impact-of-the-split--2026-10-24).
 The end-state of two slices:
 [01-0070.0010 a-sessions-row-names-the-unit-it-holds](./01-0070.0010-a-sessions-row-names-the-unit-it-holds.md)
 and [01-0070.0020 a-session-stops-before-anothers-unit](./01-0070.0020-a-session-stops-before-anothers-unit.md).

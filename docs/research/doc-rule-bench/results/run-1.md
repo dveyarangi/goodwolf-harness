@@ -1,6 +1,6 @@
 # Run 1 — red at `26f4e37`, green the first compressed text, 2026-10-19
 
-For [q-0037.0012.0006](../../../questions/q-0037.0012.0006-which-sentences-of-the-entry-file-are-meta-rules-the-mechanism-shape-should-hold-in-its-skill-and-which-are-meta-principles-the-entry-file-keeps.md):
+For [q-0037.0012.0006](../../../questions/q-0037.0012.0006-which-sentences-of-the-entry-file-are-meta-rules-the-mechanism-shape-should-hold-in-its.md):
 the entry file's *A document informs* and *Core and instance* merged into one rule, skill-up's
 *Project-local divergence* cut to a pointer at it. Writers and auditors on the session model, judges Sonnet, five runs a
 side. Every output is in [run-1.json](run-1.json).

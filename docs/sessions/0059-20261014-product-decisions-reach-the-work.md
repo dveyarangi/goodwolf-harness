@@ -10,12 +10,12 @@ done — `.0030`, `.0035`, `.0050` — one minted on the way, and 01-0010.0175 r
 - **The product mechanism's rules carry no condition** *(the user: "if we turn the product
   mechanism on, it must create the document; if we don't, the rule is not injected")*. The plan had
   written *where the project keeps a product document* into U2 and U3, following decision 11 of
-  [q-0037.0018](../questions/q-0037.0018-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the-projects-work-in-agreement-both-ways.md);
+  [q-0037.0018](../questions/q-0037.0018-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it.md);
   the user called the condition meaningless. Decision 11 amended, the spec's straw dog and story 26
   rewritten.
 - **An existing project and its document** *(the user: "the file is either absent or not in the
   format — we have to take care of it")*, opened as
-  [q-0037.0018.0012](../questions/q-0037.0018.0012-how-does-a-project-that-already-exists-come-to-a-product-document-in-its-format-when-it-has-none-or-has-one-in-another-form.md).
+  [q-0037.0018.0012](../questions/q-0037.0018.0012-how-does-a-project-that-already-exists-come-to-a-product-document-in-its-format-when-it.md).
   The install writes only what needs no judgement: an empty document where none is; one in another
   form left and named, the check failing it. Bringing an account into the format — numbering and
   naming answers — is the person's with the agent, the recipe of reading a tree's existing material.
@@ -63,11 +63,11 @@ done — `.0030`, `.0035`, `.0050` — one minted on the way, and 01-0010.0175 r
 
 ## Open questions touched
 
-- [q-0037.0018](../questions/q-0037.0018-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the-projects-work-in-agreement-both-ways.md)
+- [q-0037.0018](../questions/q-0037.0018-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it.md)
   — `.0060` and `.0070` left.
-- [q-0037.0018.0012](../questions/q-0037.0018.0012-how-does-a-project-that-already-exists-come-to-a-product-document-in-its-format-when-it-has-none-or-has-one-in-another-form.md)
+- [q-0037.0018.0012](../questions/q-0037.0018.0012-how-does-a-project-that-already-exists-come-to-a-product-document-in-its-format-when-it.md)
   — waits on 01-0010.0175.
-- [q-0037.0006.0011](../questions/q-0037.0006.0011-how-does-a-trees-existing-material-become-its-glossary-architecture-skeleton-and-product-document.md)
+- [q-0037.0006.0011](../questions/q-0037.0006.0011-how-does-a-trees-existing-material-become-its-glossary-architecture-skeleton-and-product.md)
   — reworded; its ticket re-cut.
 - [q-0037.0011](../questions/q-0037.0011-does-each-rule-reach-the-occasion-it-is-for.md) — U3 recorded
   as a case: a plain `open` does not read the questions skill.

@@ -4,7 +4,7 @@
 - **Status:** Partial (2026-10-25: `.0010`–`.0050` done, `.0060` Planned, `.0070` in progress; the end state, no RFC of its own)
 - **Type:** HITL
 - **Minted:** 2026-10-13
-- **Answers:** [q-0037.0018](../questions/q-0037.0018-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the-projects-work-in-agreement-both-ways.md)
+- **Answers:** [q-0037.0018](../questions/q-0037.0018-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it.md)
 - **Outcome:** A project's product document, its root README and its release notes tell one
   account of what the project is for, kept in agreement with its question store both ways — a
   decided answer opens its building, the building's questions realize it, and what drifts is found.
@@ -13,7 +13,7 @@
 
 [The accepted spec](../spec/01-0040-a-projects-account-stays-in-agreement-with-its-work.md), from
 the align on q-0037.0018 and its eleven decisions. Split assessed in
-[q-0037.0018's impact of the split](../questions/q-0037.0018-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the-projects-work-in-agreement-both-ways.md#impact-of-the-split-2026-10-13).
+[q-0037.0018's impact of the split](../questions/q-0037.0018-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it.md#impact-of-the-split-2026-10-13).
 
 ## What to build
 

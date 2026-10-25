@@ -95,10 +95,10 @@ collaborate, no?*, *people don't share a project, they develop it together*.
 
 ## Open questions touched
 
-- [q-0037.0018](../questions/q-0037.0018-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the-projects-work-in-agreement-both-ways.md) — `.0010`, `.0015`, `.0020`, `.0040` done; `.0030`, `.0050`, `.0060`, `.0070` left.
+- [q-0037.0018](../questions/q-0037.0018-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it.md) — `.0010`, `.0015`, `.0020`, `.0040` done; `.0030`, `.0050`, `.0060`, `.0070` left.
 - [q-0033](../questions/q-0033-what-is-this-project-for.md) — now the purpose root; its open
   questions wait as undecided answers A15, A21, A51, A52.
-- [q-0037.0010.0009.0004.0002.0001](../questions/q-0037.0010.0009.0004.0002.0001-how-does-code-in-one-repository-name-a-rule-that-a-record-in-another-repository-states.md)
+- [q-0037.0010.0009.0004.0002.0001](../questions/q-0037.0010.0009.0004.0002.0001-how-does-code-in-one-repository-name-a-rule-that-a-record-in-another.md)
   — opened from the trial's collector; untouched since.
 - [q-0037.0011](../questions/q-0037.0011-does-each-rule-reach-the-occasion-it-is-for.md) — Q5 amended at v88; graded by the next table a session draws.
 

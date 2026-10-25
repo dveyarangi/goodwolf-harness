@@ -11,7 +11,7 @@ the question's own argument; this record is the fork's alone.
 
 **A question's home is read from what it asks, not from the mechanism named to carry it out**
 *(the user, 2026-10-22)*. The fork's question had been opened under the installer's question,
-[q-0037.0006.0020](../questions/q-0037.0006.0020-how-does-core-reach-a-recipient-tree-and-leave-it-working-at-a-first-install-and-at-each-update.md),
+[q-0037.0006.0020](../questions/q-0037.0006.0020-how-does-core-reach-a-recipient-tree-and-leave-it-working-at-a-first-install-and-at-each.md),
 because the user's proposal spoke of installing and uninstalling; what it asked was which of the
 method's text a project's tree carries — the project's own conventions, q-0037.0006. The same
 principle *Autonomy* already states for a decision's rung, read from what it decides and never

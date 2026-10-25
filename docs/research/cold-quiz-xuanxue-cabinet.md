@@ -1,7 +1,7 @@
 # Что сбруя изменила бы в xuanxue-cabinet — отчёт по беглому чтению
 
 - **record of** what happened
-- **evidence for** [q-0038.0001](../questions/q-0038.0001-does-working-under-the-harness-deliver-software-better-than-working-without-it-measured-on-the-same-tasks.md), point 1; the report's form is [q-0037.0006.0020.0001](../questions/q-0037.0006.0020.0001-how-does-an-install-meet-a-tree-that-already-has-a-method-without-losing-it.md)'s, written by hand this once
+- **evidence for** [q-0038.0001](../questions/q-0038.0001-does-working-under-the-harness-deliver-software-better-than-working-without-it-measured-on-the.md), point 1; the report's form is [q-0037.0006.0020.0001](../questions/q-0037.0006.0020.0001-how-does-an-install-meet-a-tree-that-already-has-a-method-without-losing-it.md)'s, written by hand this once
 
 2026-10-23. Репозиторий `xuanxue-cabinet` на `20128fbd`: монорепо api/web/shared, 572 коммита с
 2026-09-04, свой свод правил на 579 строк, 184 ADR, план на 3427 строк, 103 проверочных скрипта,

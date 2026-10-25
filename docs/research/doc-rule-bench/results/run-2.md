@@ -29,5 +29,5 @@ One more, on skill-up's new paragraph: it restates R7 in its own words and point
 document informs*, which does not state it — 2 of 5 (and once in run 1's green). The paragraph is
 cut to its two sentences without the restatement for run 3. `/implement`'s citation rule against
 core's (1 / 5 here, 1 / 5 in red) is
-[q-0037.0009.0011.0001](../../../questions/q-0037.0009.0011.0001-how-does-core-code-name-the-architecture-rule-it-follows-when-core-may-not-cite-a-record-under-docs.md)'s,
+[q-0037.0009.0011.0001](../../../questions/q-0037.0009.0011.0001-how-does-core-code-name-the-architecture-rule-it-follows-when-core-may-not-cite-a.md)'s,
 open before this change.

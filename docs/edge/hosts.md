@@ -138,7 +138,7 @@ Each sidecar names its own parts.
 - [q-0037.0006.0004.0001](../questions/q-0037.0006.0004.0001-how-is-it-observed-that-a-host-reads-the-loader-link.md)
   — whether a host reads the loader link is not observable from inside a tree; **Skills** is the
   nearest check, and Codex has no link to read.
-- [q-0037.0006.0005.0001](../questions/q-0037.0006.0005.0001-which-skill-must-be-read-before-a-file-is-edited-or-a-rule-proposed-and-how-does-the-host-refuse-the-act-made-without-it.md)
+- [q-0037.0006.0005.0001](../questions/q-0037.0006.0005.0001-which-skill-must-be-read-before-a-file-is-edited-or-a-rule-proposed-and-how-does-the.md)
   — the guard on the files a mechanism controls; here, how each host loads and keeps a skill, read
   from **Skill load** and **Skill lifetime**, and which hosts can refuse an edit at all.
 

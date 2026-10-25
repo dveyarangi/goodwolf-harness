@@ -107,7 +107,7 @@ and a quit-and-relaunch of the app.
 
 - [q-0037.0006.0023](../questions/q-0037.0006.0023-how-does-the-harness-reach-more-hosts-than-claude-code-codex-and-cursor.md)
   — which host comes fourth, open.
-- [q-0037.0006.0023.0002](../questions/q-0037.0006.0023.0002-which-text-a-hosts-user-meets-is-derived-from-the-hosts-edge-record-and-what-holds-it-a-subset-of-the-record.md)
+- [q-0037.0006.0023.0002](../questions/q-0037.0006.0023.0002-which-text-a-hosts-user-meets-is-derived-from-the-hosts-edge-record-and-what-holds-it.md)
   — what text is derived from the hosts record, opened here, waiting.
 - [q-0037.0013](../questions/q-0037.0013-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md)
   — the resume case settled; the question stays open for its other children.

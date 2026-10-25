@@ -66,11 +66,11 @@ able to pass on Windows.
 
 ## Open questions touched
 
-- [q-0037.0015](../questions/q-0037.0015-how-is-produced-work-gone-over-again-over-what-scope-by-what-criteria-by-whom-and-to-what-result.md)
+- [q-0037.0015](../questions/q-0037.0015-how-is-produced-work-gone-over-again-over-what-scope-by-what-criteria-by-whom-and-to-what.md)
   — the evidence that an outside pass's findings need a path into the work; open.
-- [q-0037.0009.0011.0001](../questions/q-0037.0009.0011.0001-how-does-core-code-name-the-architecture-rule-it-follows-when-core-may-not-cite-a-record-under-docs.md)
+- [q-0037.0009.0011.0001](../questions/q-0037.0009.0011.0001-how-does-core-code-name-the-architecture-rule-it-follows-when-core-may-not-cite-a.md)
   — opened: `/implement`'s pointer rule against *Core and instance*.
-- [q-0038.0001](../questions/q-0038.0001-does-working-under-the-harness-deliver-software-better-than-working-without-it-measured-on-the-same-tasks.md)
+- [q-0038.0001](../questions/q-0038.0001-does-working-under-the-harness-deliver-software-better-than-working-without-it-measured-on-the.md)
   — the audit's main point and next step; not taken up.
 - The audit's other findings have no home yet: the injection's unbounded growth (the wake listing
   every ended session), the path-encoded id and its renames, *struck* counting visits, the reply

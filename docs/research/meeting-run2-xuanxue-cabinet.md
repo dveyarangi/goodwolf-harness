@@ -1,7 +1,7 @@
 # The meeting, run 2 on xuanxue-cabinet — the report the draft rules produced, and its check
 
 - **record of** what happened
-- **evidence for** [q-0037.0006.0020.0001](../questions/q-0037.0006.0020.0001-how-does-an-install-meet-a-tree-that-already-has-a-method-without-losing-it.md); the ledger also for [q-0038.0001](../questions/q-0038.0001-does-working-under-the-harness-deliver-software-better-than-working-without-it-measured-on-the-same-tasks.md)
+- **evidence for** [q-0037.0006.0020.0001](../questions/q-0037.0006.0020.0001-how-does-an-install-meet-a-tree-that-already-has-a-method-without-losing-it.md); the ledger also for [q-0038.0001](../questions/q-0038.0001-does-working-under-the-harness-deliver-software-better-than-working-without-it-measured-on-the.md)
 
 2026-10-23. A fresh Opus agent was given one instruction file, the draft
 [MEETING.md](../../.agents/skills/harness/MEETING.md) as it stood that evening, and the repository

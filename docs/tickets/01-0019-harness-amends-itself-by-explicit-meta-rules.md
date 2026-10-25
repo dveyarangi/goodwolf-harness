@@ -49,7 +49,7 @@ Not yet determined; the align decides it. What is known to be in scope:
 - **The meta-rules themselves** — what registration requires, who may reword a rule and on what
   evidence, and what distinguishes a rule that was disobeyed from one that could not fire.
 - **How an amendment is tested** — decided at
-  [q-0037.0012.0009](../questions/q-0037.0012.0009-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen-how-run-with-no-instruction-the-standing-one-and-the-new-one.md#where-it-stands), its *Where it stands* accepted 2026-10-21:
+  [q-0037.0012.0009](../questions/q-0037.0012.0009-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen.md#where-it-stands), its *Where it stands* accepted 2026-10-21:
   two layers, cases drawn along one chain from a noticed failure, three modes, blind judges, four
   verdicts, runs staged through a host adapter. Its first form was the user's of 2026-09-26 — a new
   session under the amended ruleset given the failing request word for word, a control under the

@@ -1,7 +1,7 @@
 # The meeting, run 3 on xuanxue-cabinet — eight readings, no /advise, GoodWolf by name
 
 - **record of** what happened
-- **evidence for** [q-0037.0006.0020.0001](../questions/q-0037.0006.0020.0001-how-does-an-install-meet-a-tree-that-already-has-a-method-without-losing-it.md); the ledger also for [q-0038.0001](../questions/q-0038.0001-does-working-under-the-harness-deliver-software-better-than-working-without-it-measured-on-the-same-tasks.md)
+- **evidence for** [q-0037.0006.0020.0001](../questions/q-0037.0006.0020.0001-how-does-an-install-meet-a-tree-that-already-has-a-method-without-losing-it.md); the ledger also for [q-0038.0001](../questions/q-0038.0001-does-working-under-the-harness-deliver-software-better-than-working-without-it-measured-on-the.md)
 
 2026-10-23, after [run 2](meeting-run2-xuanxue-cabinet.md). The same setting — a fresh Opus agent,
 [MEETING.md](../../.agents/skills/harness/MEETING.md) alone, the repository at `20128fbd` read-only,

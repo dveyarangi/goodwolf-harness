@@ -1,7 +1,7 @@
 # The meeting, run 5 on GoodWolf's own tree — the study read on the repository that writes it
 
 - **record of** what happened
-- **evidence for** [q-0037.0006.0020.0001.0004](../questions/q-0037.0006.0020.0001.0004-how-does-the-install-read-a-tree-with-a-method-and-report-what-goodwolf-would-change-there-before-anything-is-written.md), [q-0037.0006.0020.0001.0004.0001](../questions/q-0037.0006.0020.0001.0004.0001-in-a-tree-that-runs-goodwolf-does-the-blind-run-answer-as-one-of-its.md)
+- **evidence for** [q-0037.0006.0020.0001.0004](../questions/q-0037.0006.0020.0001.0004-how-does-the-install-read-a-tree-with-a-method-and-report-what-goodwolf-would.md), [q-0037.0006.0020.0001.0004.0001](../questions/q-0037.0006.0020.0001.0004.0001-in-a-tree-that-runs-goodwolf-does-the-blind-run-answer-as-one-of-its.md)
 
 2026-10-25. A fresh agent ran [MEETING.md](../../.agents/skills/harness/MEETING.md) as written on
 this repository, main at `ec60b81`, checked out with other sessions' uncommitted changes in place.

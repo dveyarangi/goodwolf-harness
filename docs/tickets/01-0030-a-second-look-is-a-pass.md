@@ -4,7 +4,7 @@
 - **Status:** Planned (decision-bearing; its own align precedes the feature)
 - **Type:** HITL
 - **Minted:** 2026-10-05
-- **Answers:** [q-0037.0015](../questions/q-0037.0015-how-is-produced-work-gone-over-again-over-what-scope-by-what-criteria-by-whom-and-to-what-result.md)
+- **Answers:** [q-0037.0015](../questions/q-0037.0015-how-is-produced-work-gone-over-again-over-what-scope-by-what-criteria-by-whom-and-to-what.md)
 - **Outcome:** Whether going over produced work again has one shape — the pass — is decided by
   the user against its formalization, and what is decided is landed in its durable home, so
   the work that would declare it can be planned.

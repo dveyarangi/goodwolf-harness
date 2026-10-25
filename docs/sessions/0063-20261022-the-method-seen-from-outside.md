@@ -4,7 +4,7 @@
 
 2026-10-22. A side session, started from the one standing at q-0037.0017, to run a discovery on
 what this tree's method actually is, for
-[q-0037.0006.0025](../questions/q-0037.0006.0025-what-is-a-method-a-root-question-with-the-ring-that-works-it-and-the-records-it-keeps-and-what-is-a-practice-to-it-so-that-study-research-or-a-personal.md),
+[q-0037.0006.0025](../questions/q-0037.0006.0025-what-is-a-method-a-root-question-with-the-ring-that-works-it-and-the-records-it-keeps-and.md),
 and to decide nothing: the terms land in the glossary at that question's align.
 
 ## What was done
@@ -48,5 +48,5 @@ None. The session was asked for material, and brought material.
 The question's align, where the user reads the two passes and the terms are worded. The second
 pass's first and sixth findings — the roots' standing to each other, and whether a method's
 identity is its root question or its held layer — bear on
-[q-0037.0006.0025.0001](../questions/q-0037.0006.0025.0001-which-root-a-research-or-study-method-asks-in-place-of-how-is-this-project-built-and-whether-the-structure-root-is-the-methods-to-word.md)
+[q-0037.0006.0025.0001](../questions/q-0037.0006.0025.0001-which-root-a-research-or-study-method-asks-in-place-of-how-is-this-project-built-and.md)
 directly.

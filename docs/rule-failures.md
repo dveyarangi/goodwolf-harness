@@ -593,7 +593,7 @@ the handover it meant. A repeat is any session finishing or committing a unit an
 on without the person's word to take it.
 
 **Amendment.** None proposed; the question is opened —
-[q-0037.0017.0006](questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what-another-is-on.md),
+[q-0037.0017.0006](questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one.md),
 how sessions hand work to each other and when one may take over what another is on.
 
 **Disposition:** open, with the question.
@@ -997,7 +997,7 @@ immediate interesting status* and *output wake/recall updates as the stages are 
 order the narration the first forbids; the specific won. Every amendment so far landed in
 `/harness` alone, so the shape came back at the next skill that speaks. The user: some rules are
 work done unseen, others say how to speak of it, and the two should be told apart — with tests.
-Open at [q-0037.0010.0012.0001](questions/q-0037.0010.0012.0001-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person-about-that-work-and-how-is-a-reply-tested-for-keeping-them-apart.md).
+Open at [q-0037.0010.0012.0001](questions/q-0037.0010.0012.0001-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person.md).
 
 **Amendment landed**, the user, 2026-10-18: `/recall`'s speech moved into its `What the person
 hears` section, and the entry file's *A reply speaks the method* tells the method's step and never

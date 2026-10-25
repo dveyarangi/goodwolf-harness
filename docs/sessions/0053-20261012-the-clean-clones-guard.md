@@ -12,7 +12,7 @@ exposed: nothing says how a session's work gets from its branch into main.
 - **The guard was repaired directly under repair=report**, not through /plan. The rule was explicit
   and cited: a clone holding anything of the person's is refused (the install skill, the
   docstrings of `run` and `_clean_clone_head`). Code and record:
-  [q-0037.0006.0020](../questions/q-0037.0006.0020-how-does-core-reach-a-recipient-tree-and-leave-it-working-at-a-first-install-and-at-each-update.md),
+  [q-0037.0006.0020](../questions/q-0037.0006.0020-how-does-core-reach-a-recipient-tree-and-leave-it-working-at-a-first-install-and-at-each.md),
   *The clean clone's guard, repaired 2026-10-12*. The mechanism doc's target paragraph now states
   what a replaced clone may not hold.
 - **Ignored files are refused except what running the script leaves**: the loader links and

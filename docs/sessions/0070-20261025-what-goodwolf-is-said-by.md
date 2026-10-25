@@ -83,7 +83,7 @@ answers what silence leaves open. The README is not this session's to edit — i
   — open; the lean is the three principles; it waits on the page being told by 01-0040.0070.
 - [q-0037.0013.0005](../questions/q-0037.0013.0005-which-of-the-agents-acts-need-the-persons-yes-and-which-does-it-do-on-its-own.md)
   — open, placed on for the dials, answered from the entry file; its lean of 2026-10-15 stands.
-- [q-0033.0011](../questions/done/q-0033.0011-what-kind-of-thing-is-the-harness-in-the-words-of-the-landscape-it-is-read-in-and-what-noun-names-it.md)
+- [q-0033.0011](../questions/done/q-0033.0011-what-kind-of-thing-is-the-harness-in-the-words-of-the-landscape-it-is-read-in-and-what-noun.md)
   — closed by the product session: the user harness.
 - The store's check suspects q-0033.0008 and q-0033.0008.0001 of being one question; met, not
   touched.

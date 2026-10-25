@@ -1,7 +1,7 @@
 # An outside audit of the whole project — 2026-10-13
 
 A second pass over the whole tree by a reviewer outside it, brought by the user into the session
-on [q-0037.0015](../questions/q-0037.0015-how-is-produced-work-gone-over-again-over-what-scope-by-what-criteria-by-whom-and-to-what-result.md)
+on [q-0037.0015](../questions/q-0037.0015-how-is-produced-work-gone-over-again-over-what-scope-by-what-criteria-by-whom-and-to-what.md)
 on 2026-10-13 and kept as they gave it, in Russian, below. By its own account it ran the store's
 and the installer's code by hand in copies, read all 24 skills, the architecture, the history of
 735 commits and every research record. It follows the earlier outside audit,

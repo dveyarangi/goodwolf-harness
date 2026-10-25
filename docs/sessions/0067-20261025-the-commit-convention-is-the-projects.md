@@ -4,7 +4,7 @@
 
 ## Decision
 
-[q-0037.0009.0005.0001](../questions/done/q-0037.0009.0005.0001-which-commit-subject-convention-does-commit-write-where-a-project-states-none-and-how-does-it-find-the-one-a-project-keeps-without-stating-it.md)
+[q-0037.0009.0005.0001](../questions/done/q-0037.0009.0005.0001-which-commit-subject-convention-does-commit-write-where-a-project-states-none-and-how.md)
 was decided by the user: /commit writes the subject in the project's convention, the one it
 states, else the one its tooling enforces, else the one its recent history keeps; where a project
 has none of these, Conventional Commits. The front page now lists the commit convention among
@@ -29,7 +29,7 @@ How the answer turned:
 The complaint relayed as *the harness will not let us replace the convention and imposes its own*
 turned out, once read, to be xuanxue-cabinet's agent reading this repository without installing,
 the live case 1 already recorded under
-[q-0037.0006.0020.0001.0004](../questions/q-0037.0006.0020.0001.0004-how-does-the-install-read-a-tree-with-a-method-and-report-what-goodwolf-would-change-there-before-anything-is-written.md).
+[q-0037.0006.0020.0001.0004](../questions/q-0037.0006.0020.0001.0004-how-does-the-install-read-a-tree-with-a-method-and-report-what-goodwolf-would.md).
 It took this repository's history of `IMPLEMENT:`/`VERIFY:` subjects for the harness's format.
 The install would have carried none of it: L8 has been local since 2026-10-11 (`b3e8fc2`), and
 the installer strips the origin's local blocks. The front page was silent, so the history was the

@@ -16,14 +16,14 @@ mechanism of the method aligned, specified and decomposed:
   failure 34 and two user stories — a correction landed in one session reaching the others, a
   tightened switch reaching running work. The user's reframing: this tree amends its entry file
   about ten times an evening (v60 to v84 in two days); a recipient's rules seldom move
-  mid-session. Landed as [q-0037.0012.0007](../questions/q-0037.0012.0007-what-does-the-harness-need-while-its-own-rules-are-amended-many-times-a-day-under-sessions-still-running.md),
+  mid-session. Landed as [q-0037.0012.0007](../questions/q-0037.0012.0007-what-does-the-harness-need-while-its-own-rules-are-amended-many-times-a-day-under-sessions.md),
   the ticket out of the regular order, the announce-line question moved under it.
 - **Every mention of a question or a ticket is a link** — entry contract v85. The user, after a
   reply that put bare ids under ⚖️: *I have no idea what these numbers are*; then: *let's add a rule
   to ALWAYS show question and ticket numbers as links*. Rule failure 17 struck a third time.
 - **The product document leads nothing yet.** Asked *is it leading?*, the agent found it named the
   leading document and read by the front page alone. The align that followed, on
-  [q-0037.0018](../questions/q-0037.0018-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the-projects-work-in-agreement-both-ways.md),
+  [q-0037.0018](../questions/q-0037.0018-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it.md),
   turned the customer from this tree to every project: *the customer is not only me — I'd like a
   product method for all users; first the mechanism itself working properly both ways* — and *not
   core, method*. Its eleven decisions are in that question's list; the turns that chose them:
@@ -83,7 +83,7 @@ mechanism of the method aligned, specified and decomposed:
   re-cut in place: no releases mechanism.
 - The store's shelf of root words wrapped as a straw dog bound to q-0037.0018; 367 store and harness
   tests green after.
-- [q-0037.0006.0024](../questions/q-0037.0006.0024-how-does-a-project-take-one-of-the-methods-mechanisms-or-go-without-it-instead-of-taking-core-whole-from-cores-repository-or-from-a-second-one.md)
+- [q-0037.0006.0024](../questions/q-0037.0006.0024-how-does-a-project-take-one-of-the-methods-mechanisms-or-go-without-it-instead-of-taking.md)
   opened for the gap q-0037.0006's lean named without a question.
 
 ## What went wrong
@@ -99,11 +99,11 @@ mechanism of the method aligned, specified and decomposed:
 
 ## Open questions touched
 
-- [q-0037.0018](../questions/q-0037.0018-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the-projects-work-in-agreement-both-ways.md) — decided in eleven parts, its slices' questions `.0006`–`.0011` owned by 01-0040's children.
-- [q-0037.0018.0004](../questions/q-0037.0018.0004-how-is-a-pain-in-a-projects-product-document-measured-what-is-counted-from-which-record-and-who-takes-the-readings.md) — a pain's measure, parked by the user with three forms and candidate indicators kept.
-- [q-0037.0018.0005](../questions/q-0037.0018.0005-is-a-projects-root-readme-generated-from-its-product-document-and-edge-records-or-written-by-hand-and-checked-against-them.md) — the README, the align of 01-0040.0070; another session stood on q-0033.0008, the front page, at the end of this one.
-- [q-0037.0006.0024](../questions/q-0037.0006.0024-how-does-a-project-take-one-of-the-methods-mechanisms-or-go-without-it-instead-of-taking-core-whole-from-cores-repository-or-from-a-second-one.md) — taking a mechanism alone; binds the product rules' condition.
-- [q-0037.0012.0007](../questions/q-0037.0012.0007-what-does-the-harness-need-while-its-own-rules-are-amended-many-times-a-day-under-sessions-still-running.md) — the high-frequency regime, waiting for the user to take it up whole.
+- [q-0037.0018](../questions/q-0037.0018-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it.md) — decided in eleven parts, its slices' questions `.0006`–`.0011` owned by 01-0040's children.
+- [q-0037.0018.0004](../questions/q-0037.0018.0004-how-is-a-pain-in-a-projects-product-document-measured-what-is-counted-from-which-record.md) — a pain's measure, parked by the user with three forms and candidate indicators kept.
+- [q-0037.0018.0005](../questions/q-0037.0018.0005-is-a-projects-root-readme-generated-from-its-product-document-and-edge-records-or-written.md) — the README, the align of 01-0040.0070; another session stood on q-0033.0008, the front page, at the end of this one.
+- [q-0037.0006.0024](../questions/q-0037.0006.0024-how-does-a-project-take-one-of-the-methods-mechanisms-or-go-without-it-instead-of-taking.md) — taking a mechanism alone; binds the product rules' condition.
+- [q-0037.0012.0007](../questions/q-0037.0012.0007-what-does-the-harness-need-while-its-own-rules-are-amended-many-times-a-day-under-sessions.md) — the high-frequency regime, waiting for the user to take it up whole.
 
 ## Left undone, named
 

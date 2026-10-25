@@ -31,7 +31,7 @@ asked what it was for; removal chosen over pointing at the mechanism doc.
 **A proposed or landed text names the file it goes into** (v97), at the user's word.
 
 **Testing an amendment before it lands** —
-[q-0037.0012.0009](../questions/q-0037.0012.0009-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen-how-run-with-no-instruction-the-standing-one-and-the-new-one.md),
+[q-0037.0012.0009](../questions/q-0037.0012.0009-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen.md),
 *Where it stands* accepted 2026-10-21. The user proposed the order of work — write the methodology
 in three parts (dataset, subset, runs with no instruction / standing / new), discover how others do
 it, plan the mechanism, cost it, and only then return. Each decision with its turn:
@@ -92,7 +92,7 @@ tickets minted, 01-0019.0020 to .0070, each answering a question under q-0037.00
 
 ## Open questions touched
 
-- [q-0037.0012.0006](../questions/q-0037.0012.0006-which-sentences-of-the-entry-file-are-meta-rules-the-mechanism-shape-should-hold-in-its-skill-and-which-are-meta-principles-the-entry-file-keeps.md) — *A capable reader*, *Tier*, *Self-improvement* still unweighed.
+- [q-0037.0012.0006](../questions/q-0037.0012.0006-which-sentences-of-the-entry-file-are-meta-rules-the-mechanism-shape-should-hold-in-its.md) — *A capable reader*, *Tier*, *Self-improvement* still unweighed.
 - [q-0037.0006.0017](../questions/q-0037.0006.0017-does-the-leak-check-catch-a-ticket-named-by-a-bare-id-in-core.md) — an expected-failure test holds it.
 - q-0037.0012.0009.0002 (types of failure and behaviour) and .0003 (a fresh author) wait on the
   family's first runs.

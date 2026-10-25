@@ -86,7 +86,7 @@ text its settings call for*; *Setting* in the method's glossary.
 
 - [q-0037.0013.0005.0007](../questions/q-0037.0013.0005.0007-how-does-a-reply-report-by-the-agents-dial.md) —
   the stop's form is landed; its ticket, 01-0020.0020, waits on a judge reading a live session.
-- [q-0037.0009.0021](../questions/q-0037.0009.0021-which-mechanism-owns-how-a-reply-is-laid-out-for-its-reader-debugging-or-interaction-and-what-does-it-own.md) —
+- [q-0037.0009.0021](../questions/q-0037.0009.0021-which-mechanism-owns-how-a-reply-is-laid-out-for-its-reader-debugging-or-interaction-and.md) —
   the debugging mechanism now exists with one rule; the rest of what debug shows moves under
   [01-0016.0020](../tickets/done/01-0016.0020-what-debug-shows-is-installed-not-read.md), unblocked.
 - The dial from the settings table waits on
