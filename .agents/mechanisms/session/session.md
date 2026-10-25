@@ -58,7 +58,7 @@ messages between sessions stand in for that place, each unreliable, and nothing 
 beyond what they are used for below.</straw-dog>
 
 **Sessions see each other** through the rows alone: the window names the other running sessions
-and their positions, and the wake's read lists them. <straw-dog question="q-0037.0017.0005">A host may let one session message another; the method uses it to tell a holder its unit was taken, and relies on it for nothing.</straw-dog> One folder in
+and their positions, and the wake's read lists them. <straw-dog question="q-0037.0017.0005">A host may let one session message another; the method uses it to tell a holder its unit was taken, and a session what another found or opened in the subtree of the question it stands on or in the unit it holds *(the user, 2026-10-25)*, and relies on it for nothing.</straw-dog> One folder in
 the working tree is how they see each other, so sessions that do not share the directory do not.
 
 **Free unless locked.** A session is not of one method: the question it stands on names its root,

@@ -195,13 +195,16 @@ would otherwise fail the shape check for the same absence the report already nam
 - **The interpreter record**, in the clone's Git directory — *what exists* — read by the hooks'
   wrapper before every hook; made by the link step, so `--links` is the one step a fresh clone runs.
 - **The pending command** — *what exists* — read by a person, once, in an elevated prompt.
-- **The report**, in a tree that has a method — *what happened*, the body of that tree's own
-  question, what the harness would change there — read by the person at the second stop, and by
-  the migration for its plan; its ledger read again after the migration, on the same sample, and
-  by the method's own measure.
+<straw-dog question="q-0037.0006.0020.0001">
+- **The report**, in a tree that has a method — *what happened*, what the harness would change
+  there — a working document kept where the host keeps the session's files, never written into
+  the tree by the study; read by the person at the second stop, and on a yes by the migration for
+  its plan, entering the tree with it; its ledger read again after the migration, on the same
+  sample, and by the method's own measure *(the user, 2026-10-24)*.
+</straw-dog>
 
-No record of its own in this tree. The two stamped lines are the recipient's, and the report is the
-recipient's record — the first of its sessions — never this mechanism's.
+No record of its own in this tree. The two stamped lines are the recipient's, and the report, once
+a migration takes it in, is the recipient's record, never this mechanism's.
 
 ## Not yet at the shape
 
