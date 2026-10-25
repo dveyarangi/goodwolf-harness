@@ -1248,6 +1248,7 @@ def _came_and_went(earlier: list | None, named: list) -> str:
 
 
 def _tally(root: Path, store: Store, known: dict[str, tuple[int, int, list[tuple[int, str]]]]) -> Counted:
+    # TODO q-0037.0006.0024.0001: the ticket count is the method's to add, not the store's to read.
     # The ticket mechanism says what a live ticket is; imported here, since it imports this module.
     import tickets
 
@@ -1437,6 +1438,7 @@ class _Ahead:
 
     @staticmethod
     def read(root: Path) -> "_Ahead":
+        # TODO q-0037.0006.0024.0001: the path reads questions only; readiness is the method's to add.
         import product  # noqa: PLC0415  (it imports this module)
         import tickets  # noqa: PLC0415  (it imports this module)
 

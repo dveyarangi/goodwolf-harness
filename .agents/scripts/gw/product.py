@@ -135,6 +135,7 @@ def coverage(root: Path) -> list[str]:
     return [_coverage_line(found, realizing.get(found.identity, [])) for found in answers]
 
 
+# TODO q-0037.0006.0024.0001: tickets beside the product are the method's rendering, not this mechanism's.
 def tickets_beside(root: Path) -> list[str]:
     """For the person choosing the work: what each live ticket realizes, then the answers no ticket
     realizes — neither present nor realized by a ticket — under every pain and goal their row
