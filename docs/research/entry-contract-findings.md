@@ -15,6 +15,13 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v124 — 2026-10-25
+
+**A register entry carries no number** — *Keeping the register* gains that an entry is headed by
+what failed and its date, with no number, and is cited by that heading. Occasion: five numbers of
+the rule-failure register given twice in four days by sessions running at once, each pair met as
+drift and renumbered by hand; older entries keep their numbers *(the user, 2026-10-25)*.
+
 ## v123 — 2026-10-25
 
 **Drift is repaired where met** — the maintenance mechanism's M2 installed under *General rules*
