@@ -11,9 +11,11 @@ has: docs are derived work of the meta-rules and take their format; a record and
 of agree, repaired in the direction its kind gives — the thing to a record of *what must always
 hold*, a record of *what exists* regenerated from the thing; live records are derived work of
 their declared format; **every fact has one home**.
-Its occasion is **drift** — a governing side that moved with no landing behind it, or a sum of
-clean landings that no longer agrees. Agreement over a landed slice is verification's, at
-`/verify`, and this mechanism does not repeat it.
+Its occasion is **drift** — a governing side that moved with no landing behind it, a sum of clean
+landings that no longer agrees, or a record silent on which side wins. Drift is met two ways: by a
+pass over a declared scope, and by any session in passing, which repairs it by M2 *(the user,
+2026-10-25)*. Agreement over a landed slice is verification's, at `/verify`, and this mechanism
+does not repeat it.
 
 It is **installed**. A tree without it still runs its ring, unmaintained; the parts table below is
 what an installer adds and an uninstaller removes. It is reached from the ring in the entry file
