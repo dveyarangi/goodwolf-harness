@@ -67,6 +67,13 @@ Whether the host refuses a rule proposed without the skill read is q-0037.0006.0
 
 **Disposition:** closed 2026-10-25 — the amendment landed as written, v118 *(the user)*.
 
+**Struck 2026-10-25, the same day, under v121.** Another session showed the amendment of rule
+failure 74 in a 🧩 frame without reading `/skill-up`; drawn through it afterwards, the text lost an
+enumeration for an umbrella. The session had loaded the entry file at v112 and never read v118's
+*drafted through `/skill-up` before the frame is drawn*: the amendment had landed under it. The
+person: *did you use skill-up?* What a session reads of a rule that moved after its start is
+01-0018.0010's.
+
 ## 75. Two sessions numbered one version of the entry contract — 2026-10-25
 
 **Rules in play:** none that covers it. The entry file's announce line and the findings record are
