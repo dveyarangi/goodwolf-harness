@@ -25,7 +25,7 @@ and [01-0070.0020 a-session-stops-before-anothers-unit](./done/01-0070.0020-a-se
 What holds once both slices land. A session's row names the unit it holds, by the question the
 unit answers, and the ticket names no session, since sessions are lost and records stay, and the
 session mechanism cannot stand on another mechanism's format. A turn that would finish, close,
-commit, continue or duplicate a unit another running session holds stops: it says whose the unit
+verify, commit or continue a unit another running session holds stops: it says whose the unit
 is and where the two touch, brings two ways to act — this session takes the unit over, leaving the
 holder the mark of who took it, or a sub-task is cut and taken here — with a recommendation, and
 does nothing on the unit until the person names one; the person's word to take it over is acted
