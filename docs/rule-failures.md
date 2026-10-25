@@ -17,6 +17,36 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 78. What the project is was said without its product document — 2026-10-25
+
+**Rules in play:** the entry file's *The shape's context*, *"Look in this tree and in every tree
+core reaches"*; `/discover`'s description, *"Use when about to say what something is, how it
+compares with its peers, or what sets it apart"*; `/product`'s description, *"when writing or
+reading the product document"*.
+
+**What happened.** Asked whether GoodWolf is a harness by an outside article's definition — the
+runtime that parses a model's tool calls, runs them and returns the result — the agent read the
+glossary and the front page, never `docs/product.md`, the document the front page is derived from.
+Over three replies it called GoodWolf a configuration, then an active one, then memory across
+sessions, a way of working, coordination and self-correction: its implementation, the trap the
+product document records it was found against. The person: *after all our product work you still
+position it as just memory across sessions?*
+
+**Why it did not fire.** `/product`'s description names the document's keeping and reading, never
+the occasion of saying what the project is. `/discover`'s names that occasion, but for the outside
+view, and the outside view was in hand — the article — so it read as served. *The shape's context*
+was followed as far as the glossary, whose one line was taken for the account.
+
+**Proposed amendment**, to `/product`'s description, at the self-improvement dial — a rule, shown
+before it lands: the occasion *about to say what the project is or what sets it apart by its own
+account* named among its uses, beside `/discover`'s outside view; a goal in its body to read the
+document first and tell the project by its pains and answers, never by its mechanisms; the product
+mechanism's Moments given its row. Tried on two fresh judges: the first found the occasion firing
+and the clause a rival to `/discover`'s, the body silent on it; the second, on the revision, found
+the two complements and the goal actionable, short of saying to read the document.
+
+**Disposition:** registered 2026-10-25; the amendment shown, waiting on the person.
+
 ## 77. A clause an open question will change could not be wrapped where it is authored — 2026-10-25
 
 **Rules in play:** the entry file's *Straw dogs*, tier 1: *wrap anything an open question's answer
