@@ -69,7 +69,10 @@ seam, and nothing writes either yet *(the user, 2026-10-22)*.
 **Delivery.** The hook wiring and the hook's entry are the questions mechanism's, relied on here:
 <straw-dog question="q-0037.0006.0024.0003">one hook serves both, the question script's hook
 calling the session script for the session's half — its tag, registered, seen, silent, reopened,
-the rows — and drawing the window's half itself.</straw-dog> No recipient's host file changes
+the rows — and drawing the window's half itself. The direction is decided and its cut deferred:
+the session sits on the store, which imports nothing of it, and the hooks' wrapper runs each
+installed mechanism's hook in turn; while the store, the session and maintain install as one
+package, the code stays as it is *(the user, 2026-10-26)*.</straw-dog> No recipient's host file changes
 for this mechanism.
 
 ## Moments
