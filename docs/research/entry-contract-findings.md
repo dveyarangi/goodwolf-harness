@@ -59,7 +59,7 @@ session's unit tried by the session that wrote it *(the user, 2026-10-25)*.
 
 **The green stage is the session's own** — v114's sentence gains *the session's own*: read at a
 wake, *a green stage* covered gone sessions' uncommitted work, and a live read announced it would
-commit it. Occasion: rule failure 73 *(the user, 2026-10-25)*.
+commit it. Occasion: rule failure 80, registered as a second 73 *(the user, 2026-10-25)*.
 
 ## v115 — 2026-10-25
 

@@ -17,6 +17,164 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## 84. A *yes, but which moment?* was taken as the yes, and the rule was landed before its moment was shown — 2026-10-22
+
+**Rule in play, loaded:** [`AGENTS.md` — *Autonomy*](../AGENTS.md#autonomy): *"✋ At the dial it
+settles, and shows the person before acting."*
+
+**What happened.** A local rule was proposed without naming the moment it serves. The person: *yes,
+only you did not write which moment this rule serves.* The agent read the *yes* as the approval
+and the rest as a wording to supply, wrote the rule with its moments, the check's flag, the tests
+and the local block, and ran the suite — all uncommitted — before showing the reworded text. The
+person: *what are you doing? I asked about the moment.*
+
+**Why it did not fire.** The rule says *shows before acting* and the agent had shown a text; it did
+not say that a text the person corrects is a new text, shown again before acting. The approval
+attached to the first wording, not to the one that answered the correction.
+
+**Proposed amendment:** none yet — the repeat decides whether this is a wording of *Autonomy* or a
+slip. Registered as a slip.
+
+**Struck 2026-10-25.** The person proposed that a session tell a neighbouring running session what
+bears on its question, *to be added to the working principle, discussed first*. The agent showed
+the rule's text and installed it into S9 in the same turn; the person: *I meant to add it to the
+principle after discussing it.* The same shape: a text shown and acted on in one pass, the showing
+read as the person's approval. Two occurrences now, the second against a proposal rather than a
+correction, so not a slip of one turn: *shows the person before acting* is read as satisfied by a
+reply that shows and acts at once. Taken out of S9 the same hour. The amendment to *Autonomy*
+waits on the person, since the entry file's self-improvement rule asks the opposite of a rule
+failure's amendment — *land the amendment in the same pass, showing its text first*.
+
+**Disposition:** open, struck once.
+
+**Renumbered 2026-10-25.** Registered as a second 58, a day after the first; records written before this date cite it as 58, beside the first 58.
+
+## 83. Core shipped with carriage returns, and no check in the tree saw it — 2026-10-23
+
+**Rules in play:** none that covers it. The verification set reads the shape of mechanisms, rules,
+tickets, edges, records, sessions and the product document; none reads line endings. The shipment
+reads *the bytes as the commit holds them*, and the block stripper holds a block to the exact
+spacing the installer writes.
+
+**What happened.** A session's tool wrote carriage returns into committed text — the commit skill's
+installed blocks on 2026-10-22, among 156 files with CRLF or mixed endings in the index — and from
+then on every install from a clone refused at ship: *the block is not spaced as the installer
+writes it*. Nothing in the tree reported it; the readiness check before the first live meeting
+found it, a day later, by trying an install into a scratch tree.
+
+**What it is.** A slip no rule covers: the method's own text had no stated line-ending convention,
+so a tool's default could change it unseen, and the one check that cared ran only in a recipient.
+
+**Amendment landed, 2026-10-23:** a root `.gitattributes` — `* text=auto eol=lf` — so text enters
+the index LF whatever a clone's setting, the shipped paths renormalised under it; and the shipment
+turns a carriage return into a newline before any reader of its text, with a test. Graded by the
+next install from a clone made on a Windows machine.
+
+**Renumbered 2026-10-25.** Registered as a second 61, the same day as the first, sixteen hours later; records written before this date cite it as 61, beside the first 61.
+
+## 82. The study was written by the agent that had already said no — 2026-10-24
+
+**Rules in play:** the harness skill's *A tree that already has a method* and the shelf
+`MEETING.md`: the report a product document, no comparison, no self-deprecation; the blind run a
+separate fresh agent; read-only, no fetch of any kind; one file written at the place named at the
+offer; the second stop one question. All read; the author of the report was the one agent the rules
+never said must not write it.
+
+**What happened.** On the rewritten front page a fresh session in xuanxue-cabinet, asked *do we
+need this here?*, gave a verdict — *no, not as an install* — and offered the study with a button.
+The person took it. The same agent ran the study: it read the shelf, kept the form, counted the
+readings and scored the ledger honestly, and wrote a report whose section 3 says the harness would
+add little here and whose plan makes the harness the seventh item of seven, after ordinary PRs. Its
+own summary: *the study confirms what I said before*. Two reading agents it sent without the rules
+broke read-only — a stray file in the root, a project script that ran `git fetch`. The report went
+to the host's scratch folder, *nothing inside the repo*. The second stop was a verdict and side
+notes, not the question.
+
+**Why it did not fire.** The two trial runs produced product-faced reports because their authors
+were fresh agents given the shelf alone. The live case gave the shelf to an agent already holding a
+verdict and loyal to the project it serves; the shelf's *no comparison* governed the words and not
+the conclusion. The read-only rules bound the author and not the agents it sent. The place of the
+report stood in the skill's offer, which the person's agent skipped, having made an offer of its
+own.
+
+**Amendment proposed:** in the skill, the study is a fresh agent's — given the shelf and the tree
+and nothing of the conversation — and the person's agent only offers, names the file, hands over,
+and asks the second stop's one question; in the shelf, whoever reads under the study carries its
+read-only rules verbatim and runs nothing of the project's, and the report file is the study's one
+write, at the place the offer named. **Landed 2026-10-24**, amended by the user before landing: the
+report is a working document outside the tree, not a record of it; read-only is not strengthened —
+the study writes nothing of its own into the tree, and what the project's own tools do is the
+project's — since it cannot be enforced; the fresh author stands as proposed. Graded by the next
+live meeting.
+
+**Struck, 2026-10-24 — at the second stop.** With the study handed to a fresh agent, the report
+came back without the person's agent's verdict; the person's agent then added it when it summarised
+the report — *too early to install beside your method* — against the skill's *add no view of your
+own: the person reads it*. The rule was in place and read. Why it did not fire: the agent's
+summary is its own reply, and the rule is a sentence in it. Remedy: the host's, a check at the end
+of the reply — q-0037.0006.0005.0001.
+
+**Renumbered 2026-10-25.** Registered as a second 63, 2026-10-24, a day after the first; records written before this date cite it as 63, beside the first 63.
+
+## 81. The person was asked to choose among a record's ids — 2026-10-25
+
+**Rule in play, loaded:** the debugging mechanism's D2, installed in the entry file: *"A reply tells
+nothing of the machinery behind it: … no script, call, check, report, hook, commit or its hash,
+rule's id, skill's name or record's internals."*
+
+**What happened.** Reading the product document toward a roadmap, the agent wrote its replies in
+the document's own ids — *A49*, *A26*, *A38 and A39*, *G2* — and put the decision as *A1, A26, A36,
+or A38 and A39*. The person: *I have no idea what all these A's are.*
+
+**Why it did not fire.** *A record's internals* reads as its files and fields, not as the ids its
+rows are known by; an id looks like a name, and the agent, having just read the table, took it for
+one. Question and ticket ids are required in a reply, linked, which makes every id look allowed.
+
+**Proposed amendment**, to D2 in `.agents/mechanisms/debugging/debugging.rules.md`, at the
+self-improvement dial — a rule, shown before it lands; the debugging mechanism is in another
+session's work, so it lands there, sent by message:
+
+> A reply tells nothing of the machinery behind it: what the work read, ran or wrote on the way,
+> or will read next — no script, call, check, report, hook, commit or its hash, rule's id, skill's
+> name, record's internals, or an id in place of what it names.
+
+Drafted through `/skill-up` on the person's question: the first draft enumerated *an answer, a
+pain, a goal*; the umbrella *an id in place of what it names* replaces it, and a question's or a
+ticket's id shown beside its words, as their rules ask, stays outside it.
+
+**Disposition:** open; the amendment waits on the person.
+
+**Renumbered 2026-10-25.** Registered as a second 74, nine hours after the first; its commit,
+318cd02, keeps the old number. The race strikes 75 again.
+
+## 80. A rule landed the same day read as leave to commit other sessions' work — 2026-10-25
+
+**Rule in play, loaded:** the entry file, Autonomy, v114: *"A green stage of work in progress is
+committed as it stands; what a failed criterion puts to the person is that criterion, never the
+commit."*
+
+**What happened.** On the live read of 01-0060.0010's telling, an agent playing `/recall` found two
+other sessions' uncommitted work in the tree, their sessions gone, and announced: *both stages are
+green, and I will commit them as they stand at the first step of the work* — citing v114, the
+commit kept out of the decisions table. The judge, told nothing of the project, named it the one
+thing to stop before it is done.
+
+**Why it did not fire.** v114 says *a green stage*, not *the session's own*; read at a wake, where
+the work in the tree is many sessions', it covers whatever is green. The amendment of rule failure
+71 was worded against one slip, asking, and opened another, taking.
+
+**Proposed amendment**, to v114's sentence, at the self-improvement dial — a rule, shown before it
+lands:
+
+> A green stage of the session's own work in progress is committed as it stands; what a failed
+> criterion puts to the person is that criterion, never the commit.
+
+**Disposition:** landed 2026-10-25 in the entry file's Autonomy, v115 — v116 in the findings
+record, renumbered there by the same race — on the user's yes.
+
+**Renumbered 2026-10-25.** Registered as a second 73, eleven minutes after another session's 73;
+its commit, 96942dd, keeps the old number. The race strikes 75.
+
 ## 79. A skill's moment was written into its body — 2026-10-25
 
 **Rules in play, loaded:** `/skill-up`, *"The frontmatter description narrates the use case, not
@@ -145,6 +303,13 @@ version, id or number two sessions give the same value.
 
 **Disposition:** registered 2026-10-25; no rule proposed.
 
+**Struck 2026-10-25.** Two sessions gave the register one number, 73, eleven minutes apart; the
+later is now 80. The second shape: a counter in a record, not only in the entry file.
+
+**Struck again 2026-10-25.** Two sessions gave the register 74, nine hours apart; the later is now
+81. Three times in one day; three older numbers, 58, 61 and 63, were found given twice the same
+way and renumbered 84, 83 and 82.
+
 ## 74. The rule that the builder does not judge was in place, and the builder tried its own rule on itself — 2026-10-25
 
 **Rules in play:** [`AGENTS.md` — *The builder does not judge*](../AGENTS.md#general-rules), tier
@@ -185,58 +350,6 @@ than staying with the person's last message.
 
 **Disposition:** registered, no rule proposed; a repeat strikes it and is the second shape a rule
 would need.
-
-## 74. The person was asked to choose among a record's ids — 2026-10-25
-
-**Rule in play, loaded:** the debugging mechanism's D2, installed in the entry file: *"A reply tells
-nothing of the machinery behind it: … no script, call, check, report, hook, commit or its hash,
-rule's id, skill's name or record's internals."*
-
-**What happened.** Reading the product document toward a roadmap, the agent wrote its replies in
-the document's own ids — *A49*, *A26*, *A38 and A39*, *G2* — and put the decision as *A1, A26, A36,
-or A38 and A39*. The person: *I have no idea what all these A's are.*
-
-**Why it did not fire.** *A record's internals* reads as its files and fields, not as the ids its
-rows are known by; an id looks like a name, and the agent, having just read the table, took it for
-one. Question and ticket ids are required in a reply, linked, which makes every id look allowed.
-
-**Proposed amendment**, to D2 in `.agents/mechanisms/debugging/debugging.rules.md`, at the
-self-improvement dial — a rule, shown before it lands; the debugging mechanism is in another
-session's work, so it lands there, sent by message:
-
-> A reply tells nothing of the machinery behind it: what the work read, ran or wrote on the way,
-> or will read next — no script, call, check, report, hook, commit or its hash, rule's id, skill's
-> name, record's internals, or an id in place of what it names.
-
-Drafted through `/skill-up` on the person's question: the first draft enumerated *an answer, a
-pain, a goal*; the umbrella *an id in place of what it names* replaces it, and a question's or a
-ticket's id shown beside its words, as their rules ask, stays outside it.
-
-**Disposition:** open; the amendment waits on the person.
-
-## 73. A rule landed the same day read as leave to commit other sessions' work — 2026-10-25
-
-**Rule in play, loaded:** the entry file, Autonomy, v114: *"A green stage of work in progress is
-committed as it stands; what a failed criterion puts to the person is that criterion, never the
-commit."*
-
-**What happened.** On the live read of 01-0060.0010's telling, an agent playing `/recall` found two
-other sessions' uncommitted work in the tree, their sessions gone, and announced: *both stages are
-green, and I will commit them as they stand at the first step of the work* — citing v114, the
-commit kept out of the decisions table. The judge, told nothing of the project, named it the one
-thing to stop before it is done.
-
-**Why it did not fire.** v114 says *a green stage*, not *the session's own*; read at a wake, where
-the work in the tree is many sessions', it covers whatever is green. The amendment of rule failure
-71 was worded against one slip, asking, and opened another, taking.
-
-**Proposed amendment**, to v114's sentence, at the self-improvement dial — a rule, shown before it
-lands:
-
-> A green stage of the session's own work in progress is committed as it stands; what a failed
-> criterion puts to the person is that criterion, never the commit.
-
-**Disposition:** landed 2026-10-25 in the entry file's Autonomy, v115, on the user's yes.
 
 ## 72. The commits table and the counters line were put at the reply's end — 2026-10-25
 
@@ -545,48 +658,6 @@ landed in the same pass, its text shown:
 
 **Disposition:** landed 2026-10-23.
 
-## 63. The study was written by the agent that had already said no — 2026-10-24
-
-**Rules in play:** the harness skill's *A tree that already has a method* and the shelf
-`MEETING.md`: the report a product document, no comparison, no self-deprecation; the blind run a
-separate fresh agent; read-only, no fetch of any kind; one file written at the place named at the
-offer; the second stop one question. All read; the author of the report was the one agent the rules
-never said must not write it.
-
-**What happened.** On the rewritten front page a fresh session in xuanxue-cabinet, asked *do we
-need this here?*, gave a verdict — *no, not as an install* — and offered the study with a button.
-The person took it. The same agent ran the study: it read the shelf, kept the form, counted the
-readings and scored the ledger honestly, and wrote a report whose section 3 says the harness would
-add little here and whose plan makes the harness the seventh item of seven, after ordinary PRs. Its
-own summary: *the study confirms what I said before*. Two reading agents it sent without the rules
-broke read-only — a stray file in the root, a project script that ran `git fetch`. The report went
-to the host's scratch folder, *nothing inside the repo*. The second stop was a verdict and side
-notes, not the question.
-
-**Why it did not fire.** The two trial runs produced product-faced reports because their authors
-were fresh agents given the shelf alone. The live case gave the shelf to an agent already holding a
-verdict and loyal to the project it serves; the shelf's *no comparison* governed the words and not
-the conclusion. The read-only rules bound the author and not the agents it sent. The place of the
-report stood in the skill's offer, which the person's agent skipped, having made an offer of its
-own.
-
-**Amendment proposed:** in the skill, the study is a fresh agent's — given the shelf and the tree
-and nothing of the conversation — and the person's agent only offers, names the file, hands over,
-and asks the second stop's one question; in the shelf, whoever reads under the study carries its
-read-only rules verbatim and runs nothing of the project's, and the report file is the study's one
-write, at the place the offer named. **Landed 2026-10-24**, amended by the user before landing: the
-report is a working document outside the tree, not a record of it; read-only is not strengthened —
-the study writes nothing of its own into the tree, and what the project's own tools do is the
-project's — since it cannot be enforced; the fresh author stands as proposed. Graded by the next
-live meeting.
-
-**Struck, 2026-10-24 — at the second stop.** With the study handed to a fresh agent, the report
-came back without the person's agent's verdict; the person's agent then added it when it summarised
-the report — *too early to install beside your method* — against the skill's *add no view of your
-own: the person reads it*. The rule was in place and read. Why it did not fire: the agent's
-summary is its own reply, and the rule is a sentence in it. Remedy: the host's, a check at the end
-of the reply — q-0037.0006.0005.0001.
-
 ## 62. Asked whether a project needs the harness, the agent answered from the front page — 2026-10-24
 
 **Rules in play:** none that covers it. The README's *Use it* instructs an agent asked to install;
@@ -614,27 +685,6 @@ The agent's own account, asked afterwards: it read the README whole through the 
 nothing of the harness's; it took the *Try it* sentence about the stop and the report as information
 and weighed it, and its last advice to the person — *run `--install` in a copy and see what it says*
 — is the instruction the page owed it in the first place.
-
-## 61. Core shipped with carriage returns, and no check in the tree saw it — 2026-10-23
-
-**Rules in play:** none that covers it. The verification set reads the shape of mechanisms, rules,
-tickets, edges, records, sessions and the product document; none reads line endings. The shipment
-reads *the bytes as the commit holds them*, and the block stripper holds a block to the exact
-spacing the installer writes.
-
-**What happened.** A session's tool wrote carriage returns into committed text — the commit skill's
-installed blocks on 2026-10-22, among 156 files with CRLF or mixed endings in the index — and from
-then on every install from a clone refused at ship: *the block is not spaced as the installer
-writes it*. Nothing in the tree reported it; the readiness check before the first live meeting
-found it, a day later, by trying an install into a scratch tree.
-
-**What it is.** A slip no rule covers: the method's own text had no stated line-ending convention,
-so a tool's default could change it unseen, and the one check that cared ran only in a recipient.
-
-**Amendment landed, 2026-10-23:** a root `.gitattributes` — `* text=auto eol=lf` — so text enters
-the index LF whatever a clone's setting, the shipped paths renormalised under it; and the shipment
-turns a carriage return into a newline before any reader of its text, with a test. Graded by the
-next install from a clone made on a Windows machine.
 
 ## 60. A local rule in the entry file named the skill that executes it, and no check found it odd — 2026-10-22
 
@@ -711,36 +761,6 @@ The two homes disagree on the field's grammar, and the skill's won.
 entry* reads *when a finished entry is gone: the condition, never the actor or the moment, which are
 the doc's and the script's*. A format file describes; whatever acts on the record is told where the
 act is read.
-
-## 58. A *yes, but which moment?* was taken as the yes, and the rule was landed before its moment was shown — 2026-10-22
-
-**Rule in play, loaded:** [`AGENTS.md` — *Autonomy*](../AGENTS.md#autonomy): *"✋ At the dial it
-settles, and shows the person before acting."*
-
-**What happened.** A local rule was proposed without naming the moment it serves. The person: *yes,
-only you did not write which moment this rule serves.* The agent read the *yes* as the approval
-and the rest as a wording to supply, wrote the rule with its moments, the check's flag, the tests
-and the local block, and ran the suite — all uncommitted — before showing the reworded text. The
-person: *what are you doing? I asked about the moment.*
-
-**Why it did not fire.** The rule says *shows before acting* and the agent had shown a text; it did
-not say that a text the person corrects is a new text, shown again before acting. The approval
-attached to the first wording, not to the one that answered the correction.
-
-**Proposed amendment:** none yet — the repeat decides whether this is a wording of *Autonomy* or a
-slip. Registered as a slip.
-
-**Struck 2026-10-25.** The person proposed that a session tell a neighbouring running session what
-bears on its question, *to be added to the working principle, discussed first*. The agent showed
-the rule's text and installed it into S9 in the same turn; the person: *I meant to add it to the
-principle after discussing it.* The same shape: a text shown and acted on in one pass, the showing
-read as the person's approval. Two occurrences now, the second against a proposal rather than a
-correction, so not a slip of one turn: *shows the person before acting* is read as satisfied by a
-reply that shows and acts at once. Taken out of S9 the same hour. The amendment to *Autonomy*
-waits on the person, since the entry file's self-improvement rule asks the opposite of a rule
-failure's amendment — *land the amendment in the same pass, showing its text first*.
-
-**Disposition:** open, struck once.
 
 ## 57. The rung rule fired on two of fourteen openings, and the older questions were never given one — 2026-10-20
 
