@@ -147,7 +147,7 @@ An illustration: the project is made up; the steps are what the harness does.
 **You:** continue
 
 **Agent:** Picking up from yesterday. The export endpoint landed, but one of its acceptance checks
-is still open: the CSV header test was never written. Next in the queue is the import endpoint.
+is still open: the CSV header test was never written. After it comes the import endpoint.
 And your question from Tuesday — do retries need idempotency keys? — is still open; we were
 leaning yes. Close out the export first?
 
@@ -270,9 +270,8 @@ Asked to install it:
    and checking the installed copy are in the same skill.
 
 What lands in a fresh repository: `.agents/` (the skills, the scripts and their tests), `AGENTS.md`
-(the rules every session reads), a one-line `CLAUDE.md` pointing to it, and a starting work queue
-in `docs/tickets/`. `local.rules.md` and the rest of `docs/` — architecture, decisions, questions,
-session notes — are written as you work. A repository with a method of its own keeps everything it
+(the rules every session reads) and a one-line `CLAUDE.md` pointing to it. `local.rules.md` and
+`docs/` — architecture, decisions, questions, tickets, session notes — are written as you work. A repository with a method of its own keeps everything it
 has: nothing lands there until you have read the report and said so. Claude Code and Cursor reach
 the skills through symbolic links the install makes in each clone; on Windows, where creating one
 may need an elevated prompt, it prints the command to run.
