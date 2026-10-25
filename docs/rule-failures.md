@@ -11,11 +11,39 @@ shape a rule would need.
 
 Entries are struck when a later occurrence repeats one, and counted. Nothing here authorises
 deleting a rule: occurrences accumulate and what to do about a rule that keeps failing is
-[q-0037.0012.0001 is-harness-self-amendment-its-own-mechanism](questions/q-0037.0012.0001-is-harness-self-amendment-its-own-mechanism.md)'s,
+[q-0037.0012.0001 is-harness-self-amendment-its-own-mechanism](questions/done/q-0037.0012.0001-is-harness-self-amendment-its-own-mechanism.md)'s,
 unresolved on purpose.
 
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
+
+## A plan built across a boundary its question's accepted shape had drawn — 2026-10-25
+
+**Rules in play, loaded:** `/plan` — *Architecture must lead code shape even if code disagrees* and
+*do not stick blindly … raise concern*; `/verify` — *code that contradicts an accepted decision is a
+code finding*. The accepted shape: q-0037.0019's `Where it stands`, *its unit of work as the
+installed method names it, `/ticket` here, installed into the pathfinder by the method, not looked
+up*.
+
+**What happened.** The plan of 01-0060.0010 took, among its own choices, *the path lives in the
+store's script*, and the path read the development method's records directly — tickets In
+progress for the work in hand, tickets Ready for the candidates — importing the ticket mechanism
+into the question store's. `/verify` passed it. On 2026-10-25 the agent renamed the product
+mechanism's ticket rendering `--tickets`, writing the same crossing into a name. The person:
+*tickets are the method; it must not cross the mechanisms that can work without it. How did we
+get here?*
+
+**Why it did not fire.** The plan's own choices were weighed against the code and the docs it read,
+not line by line against the accepted shape of the question it served; the crossing was argued as
+local convenience — *the pathfinder has no mechanism yet* — and the shape's one clause on it sat in
+a long paragraph. `/verify` read the slice against its ticket and RFC, which carried the choice.
+
+**Proposed amendment**, to `/plan`, at the self-improvement dial — a rule, shown before it lands:
+
+> Each choice the RFC takes names the line of the governing question's accepted `Where it stands`
+> it keeps; a choice that keeps none, or crosses one, goes to `/align` before it is planned.
+
+**Disposition:** open; the amendment waits on the person.
 
 ## A rule was drafted into the entry file's own text, its mechanism never looked for — 2026-10-25
 
@@ -911,7 +939,7 @@ written somewhere.* Second wording:
 **Struck 2026-10-25 — a wait brought by another session's message.** The session on
 [q-0037.0018.0005](questions/q-0037.0018.0005-is-a-projects-root-readme-generated-from-its-product-document-and-edge-records-or-written.md),
 the README's align, received from the session on
-[q-0037.0019.0004](questions/q-0037.0019.0004-what-would-put-strikes-on-the-product-on-what-the-project-is-for-so-that-the-paths-order.md)
+[q-0037.0019.0004](questions/done/q-0037.0019.0004-what-would-put-strikes-on-the-product-on-what-the-project-is-for-so-that-the-paths-order.md)
 a note that `/product`'s goal 4 still speaks of the written queue after decision 7 of
 [q-0037.0019](questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the.md),
 and that the queue's fate, removed or kept as bookmarks without order, is still the person's. It
@@ -2521,7 +2549,7 @@ inside either** — the class that raises no error anywhere, because each rule i
 
 **Disposition:** [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md) minted
 the same day; concern 3 reduced to its contact surface, since folded into the question store as
-[q-0037.0012.0001](questions/q-0037.0012.0001-is-harness-self-amendment-its-own-mechanism.md). The amendment to `/align` is
+[q-0037.0012.0001](questions/done/q-0037.0012.0001-is-harness-self-amendment-its-own-mechanism.md). The amendment to `/align` is
 not yet made — `/align`'s glossary and concerns rules are both moving under
 [01-0017.0010](tickets/01-0017.0010-terms-defined-before-they-land.md) and this wording should land
 with them rather than ahead of them.
