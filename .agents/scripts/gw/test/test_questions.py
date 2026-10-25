@@ -658,15 +658,15 @@ class ThePathAhead(RepositoryCase):
 
         self.assertEqual(
             [
-                "    The cap is read — 01-0030 → q-0002.0005",
-                "      serves A1 The question store, in progress, 3 open · struck 0 · 2 straw dogs · unlocks —",
                 "    A ticket closes — 01-0020 → q-0002.0002",
                 "      serves unread · struck 0 · 0 straw dogs · unlocks After close",
+                "    The cap is read — 01-0030 → q-0002.0005",
+                "      serves A1 The question store, in progress, 3 open · struck 0 · 2 straw dogs · unlocks —",
             ],
             ready[1:],
         )
 
-    def test_the_ready_candidates_stand_by_the_open_work_of_the_answer_they_serve_most_first(self) -> None:
+    def test_the_ready_candidates_stand_in_id_order_each_saying_the_open_work_of_its_answer(self) -> None:
         self.a_tree()
         self.question("q-0002.0007", "How is a rule installed?", parent="q-0002",
                       owner="01-0050-a-rule-installs", realizes='A2 "Rules installed"')
@@ -674,14 +674,15 @@ class ThePathAhead(RepositoryCase):
 
         ready = self.under(self.path()[1], "ready")
 
-        self.assertEqual("  ready, the answer with the most open work first:", ready[0])
+        self.assertEqual("  ready, in id order, none ranked above another:", ready[0])
         candidates = [line.strip() for line in ready[1:] if not line.startswith("      ")]
         self.assertEqual(
-            ["The cap is read — 01-0030 → q-0002.0005",
-             "A rule installs — 01-0050 → q-0002.0007",
-             "A ticket closes — 01-0020 → q-0002.0002"],
+            ["A ticket closes — 01-0020 → q-0002.0002",
+             "The cap is read — 01-0030 → q-0002.0005",
+             "A rule installs — 01-0050 → q-0002.0007"],
             candidates,
         )
+        self.assertIn("serves A2 Rules installed, unread, 1 open", " ".join(ready))
 
     def test_the_most_struck_question_with_no_ticket_is_a_candidate_and_a_root_never_is(self) -> None:
         self.a_tree()

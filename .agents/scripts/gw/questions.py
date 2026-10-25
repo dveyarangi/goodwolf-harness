@@ -1399,7 +1399,7 @@ def path_ahead(root: Path, now: datetime) -> str:
     one path; it ranks nothing, no order among the candidates being written yet, and compares
     no count with the project's limit on work in hand, which the agent reads from the entry file.
     """
-    # TODO q-0037.0019.0004: the order, once it is read from the product's answers.
+    # TODO q-0033.0012: the order, once the product roadmap gives one.
     if not (root / STORE).is_dir():
         return "path: no question store here"
     return "\n".join(["path:", *_ahead_lines(root, now)])
@@ -1411,7 +1411,7 @@ def _ahead_lines(root: Path, now: datetime) -> list[str]:
     return [
         *ahead.in_work(),
         *ahead.touched_lately_lines(lately),
-        "  ready, the answer with the most open work first:",
+        "  ready, in id order, none ranked above another:",
         *_or_none(line for ticket in ahead.ready()[:AHEAD_READY] for line in ahead.ticket_lines(ticket)),
         "  most struck, no ticket, past those touched lately:",
         *_or_none(line for read in ahead.most_struck(lately)[:AHEAD_STRUCK] for line in ahead.question_lines(read)),
@@ -1477,16 +1477,10 @@ class _Ahead:
     # --- the candidates ---
 
     def ready(self) -> list:
-        """The Ready tickets, those whose answer has the most open work first: the roadmap starts
-        where the most is unfinished (q-0037.0019.0004, decision 2); a ticket serving no answer the
-        records name stands last, ties in id order."""
-        # TODO q-0037.0019.0004: the order, once the product document says which answers lead.
-        work = self.open_work()
-        def unfinished(ticket) -> int:
-            link = realizes(self.live, _answers_of(ticket)) if _answers_of(ticket) in self.live else None
-            return max((work[reference] for reference, _ in link.answers), default=0) if link else 0
-        ready = [ticket for ticket in self.tickets if _status_of(ticket) == "Ready"]
-        return sorted(ready, key=lambda ticket: -unfinished(ticket))
+        """The Ready tickets, in id order: none stands above another until the product's roadmap
+        orders them."""
+        # TODO q-0033.0012: stand them by the product roadmap once it exists.
+        return [ticket for ticket in self.tickets if _status_of(ticket) == "Ready"]
 
     def open_work(self) -> "collections.Counter[str]":
         """How many open questions below a root reach each answer, through their own trace link or
