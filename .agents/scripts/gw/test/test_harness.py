@@ -1878,6 +1878,181 @@ class TheOriginsOwnHostFiles(unittest.TestCase):
                 self.assertTrue(harness.holds_wiring(held, shelf.read_text(encoding="utf-8")))
 
 
+class TheCommitCheck(RepositoryCase):
+    proves_a_process = True
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.write(".agents/skills/sample/SKILL.md", "# Sample\n")
+        for name in ("questions", "sessions", "tickets", "product", "edges", "mechanisms", "inject_rules", "maintain"):
+            self.check_says(name, {"diagnostics": []})
+        self.write("code.py", "pass\n")
+        self.commit()
+        self.write("docs/tickets/carried.md", "# Carried\n")
+        self.git("add", "--", "docs/tickets/carried.md")
+
+    def check_says(self, name: str, report: dict, status: int = 0) -> None:
+        self.write(f".agents/scripts/gw/{name}.py", f"import sys\nprint({json.dumps(report, ensure_ascii=False)!r})\nsys.exit({status})\n")
+
+    def run_check(self, *groups: str) -> tuple[int, str]:
+        said = io.StringIO()
+        with contextlib.redirect_stdout(said):
+            status = harness.main([str(self.root), "--commit", *groups])
+        return status, said.getvalue()
+
+    def test_a_broken_carried_record_refuses_and_names_its_file_and_line(self) -> None:
+        record = "docs/tickets/01-0001-broken.md"
+        self.write(record, "# Broken\n")
+        self.git("add", "--", record)
+        self.check_says("tickets", {"diagnostics": [{"record": record, "line": 3, "problem": "missing Status"}]}, 1)
+
+        status, said = self.run_check("records")
+
+        self.assertEqual(1, status, said)
+        self.assertIn(f"{record}:3", said)
+        self.assertIn("missing Status", said)
+        self.assertIn("tickets", said)
+
+    def test_an_unreadable_carried_record_is_not_silently_allowed(self) -> None:
+        record = "docs/edge/граница.md"
+        self.write(record, "unreadable to the check\n")
+        self.git("add", "--", record)
+        self.check_says("edges", {"diagnostics": [], "skipped": [{"record": record, "why": "not UTF-8"}]}, 1)
+
+        status, said = self.run_check("records")
+
+        self.assertEqual(1, status, said)
+        self.assertIn(record, said)
+        self.assertIn("not UTF-8", said)
+
+    def test_another_sessions_broken_record_is_a_warning_and_a_clean_tree_is_silent(self) -> None:
+        self.check_says("tickets", {"diagnostics": [{"record": "docs/tickets/other.md", "problem": "half written"}]}, 1)
+        status, said = self.run_check("records")
+        self.assertEqual(0, status, said)
+        self.assertIn("warning: tickets:", said)
+        self.assertIn("half written", said)
+
+        self.check_says("tickets", {"diagnostics": []})
+        self.assertEqual((0, ""), self.run_check("records"))
+
+    def test_a_store_uses_questions_combined_session_verdict_without_a_second_pass(self) -> None:
+        (self.root / "docs/questions").mkdir()
+        self.write(".agents/scripts/gw/sessions.py", "raise RuntimeError('duplicate session check')\n")
+        self.assertEqual((0, ""), self.run_check("records"))
+
+    def test_without_a_store_the_standalone_sessions_check_still_runs(self) -> None:
+        self.check_says("sessions", {"diagnostics": [{"record": "docs/sessions/rows/other", "problem": "bad row"}]}, 1)
+        status, said = self.run_check("records")
+        self.assertEqual(0, status, said)
+        self.assertIn("warning: sessions:", said)
+        self.assertIn("bad row", said)
+
+    def test_a_record_directory_covers_a_carried_sidecar(self) -> None:
+        record = "docs/edge/orphan/host.md"
+        self.write(record, "# Orphan\n")
+        self.git("add", "--", record)
+        self.check_says("edges", {"diagnostics": [{"record": "docs/edge/orphan/", "problem": "edge has no record"}]}, 1)
+
+        status, said = self.run_check("records")
+
+        self.assertEqual(1, status, said)
+        self.assertIn("refused: edges:", said)
+
+    def test_a_finding_with_no_record_and_a_crashed_check_refuse(self) -> None:
+        self.check_says("maintain", {"diagnostics": [{"problem": "unplaced failure"}]}, 1)
+        status, said = self.run_check("core")
+        self.assertEqual(1, status, said)
+        self.assertIn("unplaced failure", said)
+
+        self.write(".agents/scripts/gw/maintain.py", "raise RuntimeError('check exploded')\n")
+        status, said = self.run_check("core")
+        self.assertEqual(1, status, said)
+        self.assertIn("check exploded", said)
+
+    def test_all_checks_start_before_any_waits_for_its_peer(self) -> None:
+        barrier = (
+            "import json, sys, time\nfrom pathlib import Path\n"
+            "name = Path(__file__).stem\nPath(name + '.started').touch()\n"
+            "deadline = time.monotonic() + 5\n"
+            "while not all(Path(p + '.started').exists() for p in ('mechanisms', 'inject_rules', 'maintain')):\n"
+            "    if time.monotonic() > deadline: raise RuntimeError('checks ran sequentially')\n"
+            "    time.sleep(0.01)\nprint(json.dumps({'diagnostics': []}))\n"
+        )
+        for name in ("mechanisms", "inject_rules", "maintain"):
+            self.write(f".agents/scripts/gw/{name}.py", barrier)
+        self.assertEqual((0, ""), self.run_check("core"))
+
+    def test_the_public_cli_preserves_a_unicode_warning_under_a_windows_pipe_encoding(self) -> None:
+        self.check_says("tickets", {"diagnostics": [{"record": "docs/tickets/чужой.md", "problem": "half written"}]}, 1)
+        environment = {**os.environ, "PYTHONUTF8": "0", "PYTHONIOENCODING": "cp1252"}
+
+        done = subprocess.run([sys.executable, str(SCRIPTS / "harness.py"), str(self.root), "--commit", "records"],
+                              capture_output=True, encoding="utf-8", env=environment)
+
+        self.assertEqual(0, done.returncode, done.stdout + done.stderr)
+        self.assertIn("docs/tickets/чужой.md", done.stdout)
+        self.assertIn("half written", done.stdout)
+
+
+class TheCommitHook(RepositoryCase):
+    proves_a_process = True
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.write(".agents/scripts/gw/hook.sh", (SCRIPTS / "hook.sh").read_text(encoding="utf-8"))
+        spy = self.write("spy-python", '#!/bin/sh\nprintf "%s\\n" "$@" >> interpreter-calls\n')
+        spy.chmod(0o755)
+        self.write(".git/gw-interpreter", f"{spy.as_posix()}\n")
+        self.write("code.py", "pass\n")
+        self.commit()
+        hook = self.write(".git/hooks/pre-commit", "#!/bin/sh\nexec sh .agents/scripts/gw/hook.sh pre-commit\n")
+        hook.chmod(0o755)
+
+    def named_commit(self, path: str) -> subprocess.CompletedProcess:
+        return subprocess.run(["git", "commit", "-m", "change", "--", path], cwd=self.root,
+                              capture_output=True, encoding="utf-8", input="", timeout=15)
+
+    def test_a_code_only_commit_never_starts_the_recorded_interpreter(self) -> None:
+        self.write("code.py", "value = 1\n")
+
+        done = self.named_commit("code.py")
+
+        self.assertEqual(0, done.returncode, done.stderr)
+        self.assertFalse((self.root / "interpreter-calls").exists())
+
+    def test_record_roots_wake_only_their_group_with_unicode_paths(self) -> None:
+        for path, group in (("docs/questions/вопрос.md", "records"), ("docs/tickets/a.md", "records"),
+                            ("docs/rfc/a.md", "records"), ("docs/sessions/a.md", "records"),
+                            ("docs/product.md", "records"), ("docs/edge/граница.md", "records"),
+                            (".agents/skills/a.md", "core"), ("docs/mechanisms/a.md", "core"),
+                            ("AGENTS.md", "core"), ("CLAUDE.md", "core"), ("local.rules.md", "core")):
+            with self.subTest(path=path):
+                self.write(path, "changed\n")
+                self.git("add", "--", path)
+                done = self.named_commit(path)
+                self.assertEqual(0, done.returncode, done.stderr)
+                calls = self.read("interpreter-calls").splitlines()
+                self.assertEqual([".agents/scripts/gw/harness.py", ".", "--commit", group], calls)
+                (self.root / "interpreter-calls").unlink()
+
+    def test_a_foreign_staged_record_does_not_wake_a_named_code_commit(self) -> None:
+        self.write("docs/tickets/foreign.md", "half written\n")
+        self.git("add", "--", "docs/tickets/foreign.md")
+        self.write("code.py", "value = 2\n")
+        done = self.named_commit("code.py")
+        self.assertEqual(0, done.returncode, done.stderr)
+        self.assertFalse((self.root / "interpreter-calls").exists())
+        self.assertIn("docs/tickets/foreign.md", self.git("diff", "--cached", "--name-only"))
+
+    def test_without_an_interpreter_a_record_commit_warns_and_passes(self) -> None:
+        (self.root / ".git/gw-interpreter").unlink()
+        self.write("docs/product.md", "changed\n")
+        self.git("add", "--", "docs/product.md")
+        done = self.named_commit("docs/product.md")
+        self.assertEqual(0, done.returncode, done.stderr)
+        self.assertIn("harness.py . --links", done.stderr)
+
+
 class TheCommandLine(unittest.TestCase):
     def run_main(self, *operands: str) -> int:
         with contextlib.redirect_stdout(io.StringIO()):
@@ -1909,6 +2084,46 @@ class TheLinkStep(TwoTrees):
 
     def recorded(self) -> str:
         return (self.target / ".git" / harness.INTERPRETER_RECORD).read_text(encoding="utf-8").strip()
+
+    def test_writes_the_commit_hook_in_the_clones_git_directory(self) -> None:
+        self.run_harness("--install")
+
+        status, report = self.run_links()
+
+        hook = self.target / ".git/hooks/pre-commit"
+        self.assertTrue(hook.is_file(), report)
+        self.assertIn("exec sh .agents/scripts/gw/hook.sh pre-commit", hook.read_text(encoding="utf-8"))
+        self.assertNotIn(b"\r", hook.read_bytes())
+        self.assertEqual("kept", report["hook"]["state"])
+
+    def test_rewrites_its_own_hook_and_preserves_another_hook_byte_exactly(self) -> None:
+        self.run_harness("--install")
+        hook = self.target / ".git/hooks/pre-commit"
+        hook.write_text("#!/bin/sh\n" + harness.COMMIT_HOOK_MARK + "\nexit 0\n", encoding="utf-8")
+        _, report = self.run_links()
+        self.assertEqual("written", report["hook"]["state"])
+        self.assertIn(harness.COMMIT_HOOK_LINE, hook.read_text(encoding="utf-8"))
+
+        foreign = b"#!/bin/sh\r\n# project \xff\r\necho project gate\r\n"
+        hook.write_bytes(foreign)
+        _, report = self.run_links()
+        self.assertEqual(foreign, hook.read_bytes())
+        self.assertEqual("beside", report["hook"]["state"])
+        self.assertEqual(".git/hooks/pre-commit", report["hook"]["place"])
+
+    @proves_a_process
+    def test_honours_huskys_hook_path_and_names_its_authored_file(self) -> None:
+        self.run_harness("--install")
+        subprocess.run(["git", "-C", str(self.target), "config", "core.hooksPath", ".husky/_"], check=True)
+        hook = self.target / ".husky/_/pre-commit"
+        hook.parent.mkdir(parents=True)
+        hook.write_bytes(b"#!/bin/sh\necho husky\n")
+
+        _, report = self.run_links()
+
+        self.assertEqual(b"#!/bin/sh\necho husky\n", hook.read_bytes())
+        self.assertEqual(".husky/_/pre-commit", report["hook"]["path"])
+        self.assertEqual(".husky/pre-commit", report["hook"]["place"])
 
     def test_records_the_interpreter_running_it_in_the_clones_git_directory(self) -> None:
         self.run_harness("--install")
