@@ -6,8 +6,8 @@
     "skipped": 3,
     "expected_failures": 1,
     "duration_s": 187.776,
-    "log_sha256": "70fd47de4a6900b59d1df7c89596594d2c714d6fb9902bc14e4aa9568f02d53c",
-    "log": "final-tests-2.log"
+    "log": "final-tests-2.log",
+    "log_sha256_normalized_lf": "6dcbf995186e52349b4bc15987ec43e7dfdcac0d62a3581c2c3e48e4d28c9e6e"
   },
   "checks": [
     {
