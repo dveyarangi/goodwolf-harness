@@ -46,6 +46,27 @@ mechanism and the method glossary agree with it.
 banter control. The original omission did not recur in either first-greeting replay, so these
 runs establish no reduction in its occurrence.
 
+**Struck, 2026-10-26 — the next live greeting.** The user opened a new Codex chat,
+“Ответить на приветствие” (`01a177d0-cd8b-75d3-ad62-c3286d6932a1`), and brought its final reply.
+The chat announced v130, read `/recall` in full, git state and history, the hook's wake and window,
+an older session record and part of the architecture. It finished under `banter` with:
+“Привет! Контекст восстановил: в работе четыре направления при лимите восемь. Здесь задача ещё
+не выбрана.” No next candidate or recommendation was presented. An independent reader confirmed
+the incomplete result from the chat's tool trace; the required recommendation was in the skill
+the chat read. The clarification did not prevent this live recurrence.
+
+The earlier replays supplied the stage after the initial greeting and reads, then asked for the
+final response. They did not test the autonomous path from the first message to completion.
+Their before/after difference cannot establish that the clarification holds that path.
+
+**Disposition after the strike:** reopened on the live counterexample. No further instruction or
+hook has been accepted.
+
+<straw-dog question="q-0037.0010.0012.0001">
+**Proposed next amendment:** a completion check outside the drafting agent; its scope and
+implementation remain undecided.
+</straw-dog>
+
 ## A drift repair's subagent sent into another session's uncommitted work — 2026-10-26
 
 **Rules in play, loaded:** the maintenance mechanism's M2: *"repaired where met, by a subagent, below

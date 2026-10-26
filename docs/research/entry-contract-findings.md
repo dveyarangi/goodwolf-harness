@@ -30,6 +30,12 @@ process. A third reader under v130, with `/recall` already completed and no requ
 answered an ordinary thank-you as banter. The original omission was not reproduced; these runs
 do not establish a change in its frequency or verify every claim in the readers' project reports.
 
+**Live counterexample, 2026-10-26.** The next fresh Codex chat announced v130 and read `/recall`,
+but ended under `banter` with only the count in work and the absence of a chosen task. The person
+brought the reply; an independent reader checked its tool trace. The recommendation was omitted
+again. The clarification did not prevent this recurrence; the three earlier replays had not
+tested the autonomous path from the first greeting to completion.
+
 ## v129 — 2026-10-25
 
 **A neighbour's decision is left to it** — S9 gains that a decision on another running session's
