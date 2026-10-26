@@ -1626,13 +1626,11 @@ the request for simpler prose is not evidence that the existing form was waived.
 the independent reading are in
 [q-0037.0009.0021.0003 What keeps the required reply form from being omitted?](questions/q-0037.0009.0021.0003-what-keeps-the-required-reply-form-from-being-omitted.md).
 
-<straw-dog question="q-0037.0009.0021.0003">
-**Proposed mechanical amendment:** a host-bound check of the existing required tables' presence
-and order, using the turn's conditions, with an omitted required element returning the answer to
-work. A Stop-hook attachment is the candidate, not an accepted installation. Its scope and live
-failure behaviour require the person's decision. The owners and wording of the existing rules
-stay at their authored homes; another prose prohibition is not the proposed remedy.
-</straw-dog>
+**Amendment refused, 2026-10-26:** the user rejected the proposed machine check because Claude
+Code already follows the form without it. The proposed Stop attachment was not installed.
+The project configuration checked afterwards has no Stop check for either host; both receive
+the same entry file and use the same window producer. This does not establish the cause of
+the behavioural difference. The failure remains observed; its proposed remedy was refused.
 
 ## 34. A first install ended in a technical report, and asked for a commit the switch allowed — 2026-10-11
 
