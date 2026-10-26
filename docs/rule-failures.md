@@ -17,6 +17,28 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## An explanation of a failure ended without the next move — 2026-10-26
+
+**Rules in play, loaded:** *A reply speaks the method* includes what is next and what the person
+must decide; *Self-improvement* requires a failed rule to be registered and a repair proposed.
+
+**What happened.** In Codex chat `01a177e0-ff53-7c93-9cd3-bcdb4c70db5c`, a completed recall
+recommended checking the voice. Asked why the reply did not sound like Lem, the next reply
+acknowledged the failure, withdrew that recommendation and ended without a replacement next
+move, repair proposal or registration. The user asked why work had stopped. An independent
+reader confirmed the omission; the case and its limits are in
+[q-0037.0013](questions/q-0037.0013-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md#evidence--a-correction-ended-the-next-move-2026-10-26).
+
+**Why it did not fire.** The observable boundary is the correction: the first reply offered work,
+the explanation that followed did not. The model-internal cause is not established. This is not
+the first-greeting recall omission recorded below.
+
+<straw-dog question="q-0037.0013">
+**Proposed amendment to investigate:** an outside completion check that also covers the move
+after a correction. The existing outside-check proposal belongs to another session; this case
+does not establish its design or authorise changing it. No amendment has been accepted here.
+</straw-dog>
+
 ## A recall stopped after reading, without its result — 2026-10-26
 
 **Rules in play, loaded:** the session mechanism's S6 requires `/recall` at every conversation's
@@ -1307,6 +1329,15 @@ person's words before it reaches them, and an argument is never broken into a ta
 *roll the rule back, it will not work; what interests me is Lem's voice, not what you wrote.* A
 list of the drift's shapes describes the failure, not the voice; the rule stands as it was, and
 the voice is the reply's to find.
+
+**Struck, 2026-10-26 — the voice was delivered but not heard.** The recall in Codex chat
+`01a177e0-ff53-7c93-9cd3-bcdb4c70db5c` carried L9 in its entry context and read skills, but
+the user questioned whether it spoke like Lem and the agent acknowledged a failure. A fresh
+reader judged the original prose not recognisably Lem's, and a separate writer's pass under
+unchanged L9 more connected but still not confidently recognisable as Lem. The limited
+experiment is in
+[the voice question](questions/q-0037.0009.0021.0002-is-the-voice-a-reply-speaks-in-its-own-mechanism-owning-how-everything-the-person.md#evidence--an-isolated-second-pass-2026-10-26).
+The refused description and examples were not reintroduced; no new voice rule was installed.
 
 ## 47. A decision not to act was landed as three rules — 2026-10-14
 
