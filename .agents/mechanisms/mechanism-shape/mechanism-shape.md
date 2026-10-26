@@ -59,6 +59,7 @@ absence is honestly classified, are judgements it records and never makes.
 | installing a declared mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
 | removing one declared mechanism from a tree | — | <straw-dog question="q-0037.0006.0013.0002">not yet</straw-dog> |
 | checking that a declaration is true | `.agents/scripts/gw/mechanisms.py` | |
+| refusing an edit to a file a mechanism declares while the skill it names is not loaded — this mechanism's, since the declarations it holds the edit to and the hooks' wrapper that launches it are, the host's row read from `HOSTS` | — | <straw-dog question="q-0037.0006.0005.0001.0001">not yet</straw-dog> |
 | installing a mechanism's rules into skills, its own included, and the project's local file after every mechanism's | `.agents/scripts/gw/inject_rules.py` | |
 | retracting them | `.agents/scripts/gw/inject_rules.py` | |
 | running the installer over every source under the tree's settings, so a changed setting brings the tree to match | `.agents/scripts/gw/inject_rules.py` | |
