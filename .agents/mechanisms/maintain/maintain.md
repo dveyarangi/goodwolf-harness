@@ -143,8 +143,9 @@ the dial sets it, recording the cause in the evidence.
 - **The listing script's guesses** — *what exists* — read by the maintainer at T3 over a declared scope, and by
   `/verify` over the files a slice touched; never by a check, since a guess is judged and never
   fails a run.
-- **The rules file** — *what must always hold* — one rule, M1, targeting `/mechanism`'s *Incept*, read by the installer
-  alone and installed there as this mechanism's block.
+- **The rules file** — *what must always hold* — two rules, M1, targeting `/mechanism`'s *Incept*, and M2,
+  targeting the entry file's general rules and `/recall`; read by the installer alone and installed
+  there as this mechanism's blocks.
 - **The marks**, `docs/mechanisms/maintenance.md` — *what exists* — read by the clock at every pass. The
   instance's record: a recipient keeps its own, and the origin's never ships.
 - **The clock's report** — *what exists* — read by `/maintain` at the start of every pass, a due
