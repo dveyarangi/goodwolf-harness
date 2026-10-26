@@ -25,6 +25,8 @@ _LEDGER_LOCK = threading.Lock()
 
 
 def validate_case(case):
+    if case.get("format") == "failure-capture-1":
+        raise ValueError("prepare a separate experiment from this failure capture before running it")
     questions = case.get("questions", [])
     names = [q["id"] for q in questions]
     if not names or len(set(names)) != len(names):

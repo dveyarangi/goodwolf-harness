@@ -97,6 +97,10 @@ PAINTED_DOORS = frozenset(
         "docs/product.md",
         # TODO q-0037.0012: the register.
         "docs/rule-failures.md",
+        # TODO q-0037.0010.0004: failure captures are declared in the shape's format shelf;
+        # this row goes when record-bearing declarations are parsed.
+        "docs/cases/",
+        "docs/cases/done/",
     )
 )
 KINDS = ("elsewhere", "embedded", "unowned by design", "not yet")

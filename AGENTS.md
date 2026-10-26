@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v130, 2026-10-26.
+Entry contract: v131, 2026-10-26.
 
 ## General rules
 
@@ -256,6 +256,18 @@ Do not reopen an accepted decision without new evidence.
 - Keeping the register: an entry is headed by what failed and its date, with no number, and is cited by that heading; it names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.
 </straw-dog>
 
+<installed by="mechanism-shape">
+**R7** A project's own answers and overrides are authored in one file beside the entry file,
+`local.rules.md`, in the rules-file format, and reach a file only as the local block — the
+installed block whose owner is `local` — which the installer writes after every mechanism's block
+there, so the project's answer is what a reader meets after core's rule. An override names the rule it
+overrides. A local change to a rule is written in the local file, never into a skill or the entry
+file, and re-installed. The local block is the project's,
+not core's, and a redeploy preserves it.
+
+**R9** When a rule failure is noticed, capture it through /mechanism before changing the instructions; the register entry or strike links the capture. Missing or reconstructed evidence is labelled, never passed off as observed.
+</installed>
+
 ## Autonomy
 
 Autonomy is a dial on a ladder. A method whose decisions differ in how far their consequences
@@ -306,16 +318,6 @@ An install proposes the dial at *a rule*.
 </straw-dog>
 
 ## Project-local
-
-<installed by="mechanism-shape">
-**R7** A project's own answers and overrides are authored in one file beside the entry file,
-`local.rules.md`, in the rules-file format, and reach a file only as the local block — the
-installed block whose owner is `local` — which the installer writes after every mechanism's block
-there, so the project's answer is what a reader meets after core's rule. An override names the rule it
-overrides. A local change to a rule is written in the local file, never into a skill or the entry
-file, and re-installed. The local block is the project's,
-not core's, and a redeploy preserves it.
-</installed>
 
 <installed by="local">
 **L1** This repository develops the harness, whose purpose docs/product.md states, using its own loop —

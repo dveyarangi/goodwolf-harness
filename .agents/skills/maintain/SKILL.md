@@ -79,20 +79,6 @@ One pass over a declared scope. The scope decides which rules apply.
 
 ## Installed from other mechanisms
 
-<installed by="mechanism-shape">
-**R1** Check a record-bearing mechanism's records with its maintainer script — format never
-content, live rows only. Where the script is missing, write it: that is the maintenance.
-
-**R2** Compare a mechanism against what governs it with line endings normalised, its evidence
-excluded, and installed blocks excluded.
-
-**R3** Move story out of a doc into its evidence.
-
-**R4** Render an index on request; never commit one beside its records. A file listing what other
-files each say for themselves is an index, whatever it is called — an allowlist, a register,
-a manifest — and each entry belongs at its authored home, wrapped there if provisional.
-</installed>
-
 <installed by="ticket">
 **P1** A ticket is finished when every acceptance box is checked, the verification box included.
 
@@ -131,6 +117,22 @@ finding; repair it at the rung of what it mends.
 **S3** Check the rows with `sessions.py --check`; a diagnostic is a finding, repaired at the rung of what
 it mends. Commit with the pass each row a wake ended or removed in another session's file under
 `docs/sessions/rows/`; a file whose row reads `running` stays out.
+</installed>
+
+<installed by="mechanism-shape">
+**R1** Check a record-bearing mechanism's records with its maintainer script — format never
+content, live rows only. Where the script is missing, write it: that is the maintenance.
+
+**R2** Compare a mechanism against what governs it with line endings normalised, its evidence
+excluded, and installed blocks excluded.
+
+**R3** Move story out of a doc into its evidence.
+
+**R4** Render an index on request; never commit one beside its records. A file listing what other
+files each say for themselves is an index, whatever it is called — an allowlist, a register,
+a manifest — and each entry belongs at its authored home, wrapped there if provisional.
+
+**R10** Check live failure captures under `docs/cases/` with `.agents/scripts/gw/capture.py --check`. A diagnostic is a finding.
 </installed>
 
 ## Finish

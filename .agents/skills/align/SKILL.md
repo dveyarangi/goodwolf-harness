@@ -137,13 +137,6 @@ When high-level architecture of this project changes, update `architecture.md`. 
 
 Land each resolution the moment it is made, as the blocks below say.
 
-<installed by="mechanism-shape">
-**R5** Before writing a rule into AGENTS.md, find the mechanism whose work it governs. Land a
-mechanism's rule in AGENTS.md only as an installed block from its rules file. While the
-mechanism is undeclared, write the rule by hand and wrap it as a straw dog bound to the question
-of what the mechanism owns, as you write it.
-</installed>
-
 <installed by="ticket">
 **P7** Rewrite the ticket in place to what the align's landed decisions make true.
 
@@ -176,6 +169,13 @@ things in one step:
    row's number and name.
 
 A decision that changes, replaces or retires an answer is written by `/product` the same way.
+</installed>
+
+<installed by="mechanism-shape">
+**R5** Before writing a rule into AGENTS.md, find the mechanism whose work it governs. Land a
+mechanism's rule in AGENTS.md only as an installed block from its rules file. While the
+mechanism is undeclared, write the rule by hand and wrap it as a straw dog bound to the question
+of what the mechanism owns, as you write it.
 </installed>
 
 <straw-dog question="q-0037.0010.0002.0005">

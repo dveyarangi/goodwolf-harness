@@ -4,7 +4,8 @@ description: >-
   Method is mechanism work: use before changing how the work is done here — a
   skill, a check, a record, the loop itself — before building or amending a
   mechanism, and before changing a rule inside an `<installed>` block, whose
-  home is its mechanism's rules file. Not for what the project produces.
+  home is its mechanism's rules file; and when capturing a noticed rule failure.
+  Not for what the project produces.
 ---
 
 Mechanism: mechanism-shape
@@ -71,6 +72,16 @@ instruction or a stated kind of absence, and either way a clause saying why.
 
 There is no *none needed*: if nobody acts, it is not a moment. The verdict is per moment,
 never per mechanism.
+
+## Capture a noticed failure
+
+Prepare a draft to [FAILURE-FORMAT.md](./FAILURE-FORMAT.md), using the evidence still available in the session. Run `capture.py --capture <draft.json> --output docs/cases/<slug>/failure.json`, the script under `.agents/scripts/gw/`. Link the resulting capture from the register entry or strike.
+
+Preserve loaded contents from the failing turn, including uncommitted text; a later disk read is not proof of what was loaded. Label absent or reconstructed evidence in the draft.
+
+Prepare an executable experiment separately for `amendment.py`; its provenance names the capture and its digest. Keep the original capture unchanged.
+
+Judge the original observed failure separately from a fresh standing-condition run. If the fresh run passes, report that the failure was not reproduced; never rewrite the capture to force reproduction.
 
 ## Rules, injection and retraction
 
@@ -152,6 +163,8 @@ shebang where there is one. Write the line as you add the file; no list holds it
 
 **R8** Name no skill of a mechanism whose state is `installed` in another skill's own text: what it asks
 of that skill reaches it as an installed block from its rules file.
+
+**R9** When a rule failure is noticed, capture it through /mechanism before changing the instructions; the register entry or strike links the capture. Missing or reconstructed evidence is labelled, never passed off as observed.
 </installed>
 
 ## Incept

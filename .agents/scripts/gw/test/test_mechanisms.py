@@ -901,6 +901,12 @@ class CoreStandsAlone(Declared):
         self.assertEqual([(CITING, 3, DOCUMENT)], self.leaks())
         self.assertEqual(["docs/tickets/"], self.standing("painted door"))
 
+    def test_failure_captures_have_a_record_directory_without_admitting_an_individual_case(self) -> None:
+        self.write(CITING, "# Notes\n\n`docs/cases/` holds `docs/cases/example/failure.json`.\n")
+
+        self.assertEqual(["docs/cases/"], self.standing("painted door"))
+        self.assertEqual([(CITING, 3, "docs/cases/example/failure.json")], self.leaks())
+
     def test_a_citation_inside_the_local_block_is_skipped_and_reported(self) -> None:
         self.write(CITING, f'# Notes\n\n<installed by="local">\nSee [it](../../../{DOCUMENT}).\n</installed>\n')
 

@@ -9,7 +9,7 @@ install it with overwrite; the block in a target is never the place.
 | `.agents/skills/mechanism/SKILL.md` | `## Records` |
 | `.agents/skills/align/SKILL.md` | `### Land resolutions as they are made` |
 | `.agents/skills/skill-up/SKILL.md` | `## Installed from other mechanisms` |
-| `AGENTS.md` | `## Project-local` |
+| `AGENTS.md` | `## Self-improvement` |
 | `.agents/skills/verify/SKILL.md` | `## The verification set` |
 
 ## R1 — records are checked by their maintainer script
@@ -108,4 +108,24 @@ not core's, and a redeploy preserves it.
 <rule>
 Name no skill of a mechanism whose state is `installed` in another skill's own text: what it asks
 of that skill reaches it as an installed block from its rules file.
+</rule>
+
+## R9 — a noticed failure is captured before its context changes
+
+- **target** `AGENTS.md`
+- **target** `.agents/skills/mechanism/SKILL.md`
+- **authority** the user, 2026-10-26
+
+<rule>
+When a rule failure is noticed, capture it through /mechanism before changing the instructions; the register entry or strike links the capture. Missing or reconstructed evidence is labelled, never passed off as observed.
+</rule>
+
+## R10 — live failure captures are checked
+
+- **target** `.agents/skills/maintain/SKILL.md`
+- **target** `.agents/skills/verify/SKILL.md`
+- **authority** the user, 2026-10-26
+
+<rule>
+Check live failure captures under `docs/cases/` with `.agents/scripts/gw/capture.py --check`. A diagnostic is a finding.
 </rule>
