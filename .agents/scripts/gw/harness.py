@@ -32,7 +32,6 @@ import stat  # noqa: E402
 import subprocess  # noqa: E402
 import tarfile  # noqa: E402
 import tempfile  # noqa: E402
-from concurrent.futures import ThreadPoolExecutor  # noqa: E402
 from dataclasses import dataclass, field  # noqa: E402
 from datetime import datetime, timezone  # noqa: E402
 from pathlib import Path, PurePosixPath  # noqa: E402
@@ -67,8 +66,6 @@ LINKS = (".claude/skills", ".cursor/skills")
 # The interpreter every core hook runs under, one line in the clone's Git directory: per clone by
 # construction, so no commit carries a path that is true on one machine only.
 INTERPRETER_RECORD = "gw-interpreter"
-COMMIT_HOOK_MARK = "# goodwolf: written by harness.py --links; the checks of the method's records at commit"
-COMMIT_HOOK_LINE = "exec sh .agents/scripts/gw/hook.sh pre-commit"
 LINK_TARGET = "../.agents/skills"
 SKILLS = ".agents/skills"
 HARNESS_SKILL = f"{SKILLS}/harness/SKILL.md"
@@ -83,7 +80,6 @@ _USAGE = (
     "       harness.py <target> --update [--overwrite] [--from REPOSITORY] [--at REF]\n"
     "       harness.py <target> --check [--from REPOSITORY]\n"
     "       harness.py <target> --links"
-    "\n       harness.py <target> --commit <records|core> ..."
 )
 
 
@@ -127,7 +123,6 @@ class Report:
     excluded: list[str] = field(default_factory=list)
     links_resolve: dict = field(default_factory=dict)
     interpreter: dict = field(default_factory=dict)
-    hook: dict = field(default_factory=dict)
     notes: list[str] = field(default_factory=list)
     refusals: list[str] = field(default_factory=list)
     arrived: bool = False
@@ -142,8 +137,6 @@ class Report:
 
 
 def main(argv: list[str]) -> int:
-    if "--commit" in argv:
-        return _at_commit(argv)
     parsed = _parsed(argv)
     if parsed is None:
         print(_USAGE)
@@ -171,57 +164,6 @@ def main(argv: list[str]) -> int:
     if mode == "--links":
         return 0 if not report.pending and not report.refusals else 1
     return 0 if report.arrived else 1
-
-
-def _at_commit(argv: list[str]) -> int:
-    """Run the selected checks on the shared checkout, judging only this commit's paths.
-
-    (.agents/mechanisms/harness/harness.md: "At commit.")
-    """
-    operands = [word for word in argv if word != "--commit"]
-    groups = {
-        "records": ("questions", "sessions", "tickets", "product", "edges"),
-        "core": ("mechanisms", "inject_rules", "maintain"),
-    }
-    if (argv.count("--commit") != 1 or len(operands) < 2
-            or any(group not in groups for group in operands[1:])):
-        print(_USAGE)
-        return 2
-    try:
-        target = _work_tree_root(Path(operands[0]), source=None)
-        if not (target / SKILLS).is_dir():
-            raise Refused(f"commit: {target} holds no {SKILLS} — --install first")
-        listed = _git_said(target, "diff", "--cached", "--name-only", "--no-renames", "-z")
-        if listed.returncode:
-            raise Refused(f"commit: cannot read the commit's files: {listed.stderr.strip()}")
-        carried = set(listed.stdout.split("\0")) - {""}
-        checks = dict.fromkeys(name for group in operands[1:] for name in groups[group])
-        # questions.check includes sessions.check and its unreadable rows. Without a store,
-        # it returns early, so the standalone sessions check still has work to do.
-        if "questions" in checks and (target / questions.STORE).is_dir():
-            checks.pop("sessions", None)
-        failed = False
-        with ThreadPoolExecutor(max_workers=len(checks)) as pool:
-            running = {name: pool.submit(_python, target, [str(target / SCRIPTS / f"{name}.py"), "--check"])
-                       for name in checks}
-            for name, future in running.items():
-                done = future.result()
-                if done.returncode == 0:
-                    continue
-                notes = _diagnostics(done) or ["check failed without a diagnostic"]
-                for note in notes:
-                    record = note.get("record") if isinstance(note, dict) else None
-                    # A check may name a record directory, as for orphaned edge sidecars.
-                    own = not record or any(path == record or path.startswith(record.rstrip("/") + "/")
-                                            for path in carried)
-                    failed |= own
-                    place = f"{record}:{note.get('line') or '-'}: " if record else ""
-                    reason = note.get("problem", note.get("why", str(note))) if isinstance(note, dict) else note
-                    print(f"{'refused' if own else 'warning'}: {name}: {place}{reason}")
-        return 1 if failed else 0
-    except (Refused, OSError, UnicodeError) as problem:
-        print(f"refused: commit: {problem}")
-        return 1
 
 
 def _handed_off(source: Source, wanted: Ref, target: str, overwrite: bool) -> int:
@@ -259,7 +201,6 @@ def link(target: Path, report: Report) -> None:
     _make_links(target, plan, report)
     _exclude_links(target, plan, report)
     _record_interpreter(target, report)
-    _commit_hook(target, report)
     report.links_resolve = _links_resolve(target)
 
 
@@ -304,7 +245,6 @@ def run(
     _make_links(target, plan, report)
     _exclude_links(target, plan, report)
     _record_interpreter(target, report)
-    _commit_hook(target, report)
     _inject(target, report)
     _gate(target, shipment, report)
 
@@ -1232,35 +1172,6 @@ def _record_interpreter(target: Path, report: Report) -> None:
     report.interpreter = {"record": sys.executable, "state": "written"}
 
 
-def _commit_hook(target: Path, report: Report) -> None:
-    """Own only the marked hook; an existing project gate gets an attachment report.
-
-    (.agents/mechanisms/harness/harness.md: "At commit.")
-    """
-    named = _git_in(target, "rev-parse", "--git-path", "hooks/pre-commit")
-    if named is None:
-        raise Refused("links: Git named no pre-commit hook path")
-    hook = target / named
-    wanted = f"#!/bin/sh\n{COMMIT_HOOK_MARK}\n{COMMIT_HOOK_LINE}\n"
-    held = hook.read_bytes() if hook.is_file() else None
-    report.hook = {"path": named, "line": COMMIT_HOOK_LINE}
-    if hook.is_symlink() or (held is not None and COMMIT_HOOK_MARK.encode("ascii") not in held.splitlines()):
-        place = named
-        if ".husky" in Path(named).parts:
-            place = ".husky/pre-commit"
-        else:
-            for config in ("lefthook.yml", ".pre-commit-config.yaml"):
-                if (target / config).is_file():
-                    place = config
-                    break
-        report.hook.update(state="beside", place=place)
-        return
-    if held != wanted.encode("utf-8"):
-        _write_text(hook, wanted)
-    hook.chmod(hook.stat().st_mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH)
-    report.hook["state"] = "kept" if held == wanted.encode("utf-8") else "written"
-
-
 def _remove_link(path: Path) -> None:
     # Windows removes a directory symlink through rmdir, not unlink; the link itself goes, never its target.
     try:
@@ -1425,7 +1336,7 @@ def _diagnostics(done: subprocess.CompletedProcess) -> list:
     except json.JSONDecodeError:
         report = None
     if isinstance(report, dict) and isinstance(report.get("diagnostics"), list):
-        return report["diagnostics"] + report.get("skipped", [])
+        return report["diagnostics"]
     return _last_lines(done.stdout or done.stderr)
 
 
@@ -1438,7 +1349,7 @@ def _links_resolve(target: Path) -> dict[str, bool]:
 
 
 def _python(target: Path, arguments: list[str]) -> subprocess.CompletedProcess:
-    environment = {**os.environ, "PYTHONDONTWRITEBYTECODE": "1", "PYTHONIOENCODING": "utf-8"}
+    environment = {**os.environ, "PYTHONDONTWRITEBYTECODE": "1"}
     return subprocess.run(
         [sys.executable, *arguments], cwd=target, capture_output=True, encoding="utf-8", env=environment
     )
@@ -1507,5 +1418,4 @@ def _write_text(path: Path, text: str) -> None:
 
 
 if __name__ == "__main__":
-    sys.stdout.reconfigure(encoding="utf-8")
     sys.exit(main(sys.argv[1:]))

@@ -67,7 +67,6 @@ absence is honestly classified, are judgements it records and never makes.
 | changing one of the tree's settings and bringing the tree to match | `.agents/scripts/gw/inject_rules.py` | |
 | rendering the tree's settings as one table, on request | `.agents/scripts/gw/inject_rules.py` | |
 | telling a session at its start that the tree's blocks are out of step with its settings | `.agents/scripts/gw/hook.sh` | |
-| choosing which checks a commit's paths wake, without starting an interpreter for other files | `.agents/scripts/gw/hook.sh` | |
 | reporting a retired tag left in core | `.agents/scripts/gw/mechanisms.py` | |
 | writing a mechanism's rule where a session reads it, the entry file included, at `/align` or here | `.agents/skills/mechanism/SKILL.md` | |
 | re-checking a mechanism when what governs it has moved | — | elsewhere — re-checking derived work against a changed source is maintenance, `.agents/skills/maintain/SKILL.md` |
@@ -159,9 +158,10 @@ Apart from these experiment files, it writes no records beyond the mechanism dir
 ## Not yet at the shape
 
 <straw-dog question="q-0037.0006.0004">
-**The declaration check does not run at wake.** It runs on request, through the project's
-verification set at `/verify`, and through the [harness's commit hook](../harness/harness.md) when
-the commit's paths select the core checks.
+**Nothing runs the check unasked.** It runs when a person types it, or when the project's
+verification set is run, which happens at `/verify`. That is better than remembering and weaker
+than a mechanism that speaks at wake; this tree has no hook to speak from. A run that stays quiet
+because nobody started it is indistinguishable from one that passed.
 </straw-dog>
 
 **Absence is not clearance.** A clean run means nothing was caught. It never means the tree obeys.
