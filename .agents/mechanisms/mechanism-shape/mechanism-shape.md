@@ -89,6 +89,8 @@ absence is honestly classified, are judgements it records and never makes.
 | the installer's tests | `.agents/scripts/gw/test/test_inject_rules.py` |
 | the hooks' wrapper, launched by a Git alias, running every mechanism's hook line | `.agents/scripts/gw/hook.sh` |
 | the test harness's tests | `.agents/scripts/gw/test/test_repository.py` |
+| one-case instruction experiment | `.agents/scripts/gw/amendment.py` |
+| the experiment's tests | `.agents/scripts/gw/test/test_amendment.py` |
 | citation reader | `.agents/scripts/gw/docs_corpus.py` |
 | test harness | `.agents/scripts/gw/test/repository.py` |
 
