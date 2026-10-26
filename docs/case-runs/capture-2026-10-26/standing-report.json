@@ -1,0 +1,119 @@
+{
+  "kind": "standing-only reconstructed continuation",
+  "status": "complete",
+  "observed_original": {
+    "applicable": true,
+    "pass": false,
+    "target": "D:/Dev/AI/agents/.agents/mechanism-shape/mechanism-shape.rules.md",
+    "quote": "🧩 **Proposed rule — [mechanism-shape.rules.md](D:/Dev/AI/agents/.agents/mechanism-shape/mechanism-shape.rules.md) · R10 · −0 +1**"
+  },
+  "observations": [
+    {
+      "call": "48bd4245a43f4ee684e372493f9795aa",
+      "host_status": "ok",
+      "assessment": {
+        "applicable": true,
+        "pass": true,
+        "target": ".agents/mechanisms/mechanism-shape/mechanism-shape.rules.md",
+        "quote": "🧩 **Proposed rule — [.agents/mechanisms/mechanism-shape/mechanism-shape.rules.md](.agents/mechanisms/mechanism-shape/mechanism-shape.rules.md) · R10 → .agents/skills/verify/SKILL.md · −0 +1**"
+      }
+    },
+    {
+      "call": "11faa18ca68442469bccedb98f15f533",
+      "host_status": "ok",
+      "assessment": {
+        "applicable": true,
+        "pass": true,
+        "target": ".agents/mechanisms/mechanism-shape/mechanism-shape.rules.md",
+        "quote": "🧩 **Proposed rule — [.agents/mechanisms/mechanism-shape/mechanism-shape.rules.md](.agents/mechanisms/mechanism-shape/mechanism-shape.rules.md) · R10 для /verify · −0 +1**"
+      }
+    },
+    {
+      "call": "6ebf2d8b46184d97816903c832f193be",
+      "host_status": "ok",
+      "assessment": {
+        "applicable": true,
+        "pass": true,
+        "target": ".agents/mechanisms/mechanism-shape/mechanism-shape.rules.md",
+        "quote": "🧩 **Proposed rule — [.agents/mechanisms/mechanism-shape/mechanism-shape.rules.md](.agents/mechanisms/mechanism-shape/mechanism-shape.rules.md) · R10 → .agents/skills/verify/SKILL.md · −0 +1**"
+      }
+    }
+  ],
+  "failure_reproduced": false,
+  "source_capture_sha256": "12ca0977191ed776586ae53130a3356c139ab3b175e75f786ff9622e404392f3",
+  "host_version": "codex-cli 0.162.1",
+  "requested_model": "gpt-6.1-sol",
+  "planned_calls": 4,
+  "actual_calls": 4,
+  "calls": [
+    {
+      "status": "ok",
+      "text": "{\"marker\":\"98ccf98ad7f844aa96efe5d003354ddc\",\"outside\":null}",
+      "usage": {
+        "input_tokens": 11526,
+        "cached_input_tokens": 5632,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 109,
+        "reasoning_output_tokens": 0
+      },
+      "model": "gpt-6.1-sol",
+      "duration_s": 8.577425499999663,
+      "exit_code": 0,
+      "denied_image_read": true,
+      "id": "ef17c612aae54e079b9b981d8a05ee72",
+      "purpose": "health"
+    },
+    {
+      "status": "ok",
+      "text": "Entry contract: v130, 2026-10-26.\n\n🧩 **Proposed rule — [.agents/mechanisms/mechanism-shape/mechanism-shape.rules.md](.agents/mechanisms/mechanism-shape/mechanism-shape.rules.md) · R10 → .agents/skills/verify/SKILL.md · −0 +1**\n\n> **R10** Check live failure captures under docs/cases/ with `.agents/scripts/gw/capture.py --check`. A diagnostic is a finding.",
+      "usage": {
+        "input_tokens": 11433,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 168,
+        "reasoning_output_tokens": 52
+      },
+      "model": "gpt-6.1-sol",
+      "duration_s": 9.906110399999307,
+      "exit_code": 0,
+      "denied_image_read": false,
+      "id": "48bd4245a43f4ee684e372493f9795aa",
+      "purpose": "standing"
+    },
+    {
+      "status": "ok",
+      "text": "Entry contract: v130, 2026-10-26.\n\n🧩 **Proposed rule — [.agents/mechanisms/mechanism-shape/mechanism-shape.rules.md](.agents/mechanisms/mechanism-shape/mechanism-shape.rules.md) · R10 для /verify · −0 +1**\n\n> Check live failure captures under docs/cases/ with .agents/scripts/gw/capture.py --check. A diagnostic is a finding.",
+      "usage": {
+        "input_tokens": 11429,
+        "cached_input_tokens": 3840,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 250,
+        "reasoning_output_tokens": 146
+      },
+      "model": "gpt-6.1-sol",
+      "duration_s": 13.96603970000433,
+      "exit_code": 0,
+      "denied_image_read": false,
+      "id": "11faa18ca68442469bccedb98f15f533",
+      "purpose": "standing"
+    },
+    {
+      "status": "ok",
+      "text": "Entry contract: v130, 2026-10-26.\n\n| ⚙️ Предложение · проверка сохранённых случаев сбоя |\n|---|\n\n🧩 **Proposed rule — [.agents/mechanisms/mechanism-shape/mechanism-shape.rules.md](.agents/mechanisms/mechanism-shape/mechanism-shape.rules.md) · R10 → .agents/skills/verify/SKILL.md · −0 +1**\n\n> Check live failure captures under docs/cases/ with .agents/scripts/gw/capture.py --check. A diagnostic is a finding.",
+      "usage": {
+        "input_tokens": 11435,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 270,
+        "reasoning_output_tokens": 139
+      },
+      "model": "gpt-6.1-sol",
+      "duration_s": 13.091178099995886,
+      "exit_code": 0,
+      "denied_image_read": false,
+      "id": "6ebf2d8b46184d97816903c832f193be",
+      "purpose": "standing"
+    }
+  ],
+  "limits": "The supplied occasion and source inventory reconstruct the proposal task. Passing continuations do not erase the observed original failure or estimate its frequency."
+}

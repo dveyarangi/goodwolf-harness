@@ -1,0 +1,57 @@
+{
+  "kind": "explicitly synthetic instruction trial",
+  "scenario_author": "independent outside_view agent",
+  "reader": "fresh notice_reader agent, no inherited conversation",
+  "task": "TASK.md in trial.zip",
+  "instruction": "AGENTS.md copied from entry contract v131",
+  "result": "capture and linked register entry produced without a direct capture request",
+  "production_failure_or_standing_reproduction": false,
+  "files": [
+    {
+      "path": ".agents/scripts/gw/capture.py",
+      "sha256": "eb53dcbb8b1db811abac48d5592ef4abc0b5fc110bff143434dae0d2c4d936fb",
+      "bytes": 6819
+    },
+    {
+      "path": ".agents/skills/mechanism/FAILURE-FORMAT.md",
+      "sha256": "495341819ba40c2706050b018cd235bde428a78d1b34c8acbf178e3ef7d587e4",
+      "bytes": 2798
+    },
+    {
+      "path": ".agents/skills/mechanism/SKILL.md",
+      "sha256": "525858a654d72aff3d533197ea04b3c79f3dbf231dfafab969c0d4eada5d2dc3",
+      "bytes": 12166
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "dc38f9efe12147d606fd159317ecef47f079ff1c74242895b465a8215400910f",
+      "bytes": 23629
+    },
+    {
+      "path": "docs/cases/invoice-q7-premature-completion/draft.json",
+      "sha256": "3ce00b2f3398cd8fa11b87fa438881be46d0bc179763a38c750e3d04147a9fd4",
+      "bytes": 25818
+    },
+    {
+      "path": "docs/cases/invoice-q7-premature-completion/failure.json",
+      "sha256": "3d11ce2cb8612f884189741a7392b4e384a93223c6594c3fa5ed8aeb159eae8d",
+      "bytes": 25950
+    },
+    {
+      "path": "docs/rule-failures.md",
+      "sha256": "2266e1f0bccbc58841e6418b5d920159d9130fff391575c0678fec593935d2f2",
+      "bytes": 2873
+    },
+    {
+      "path": "export-status.rule.txt",
+      "sha256": "c4bb2c8e622ea1d1143eab80de378a7866037c918de88ad733c0f84abcd7ca02",
+      "bytes": 284
+    },
+    {
+      "path": "TASK.md",
+      "sha256": "d6dcd68ef01393b1c666eae143b1038565068fa6a2b9ffe588edbc7c384d79f2",
+      "bytes": 1683
+    }
+  ],
+  "excluded_runtime_cache": ".trial-uv-cache"
+}

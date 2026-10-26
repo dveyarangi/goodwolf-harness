@@ -1,0 +1,13 @@
+{
+  "record_of": "what happened",
+  "reason": "Independent comparison with the original agentMessage.text showed the first capture misquoted the path. The original used .agents/mechanism-shape/, not .agents/skills/mechanism-shape/.",
+  "invalid_capture": "docs/cases/proposal-source-path/failure.json",
+  "invalid_sha256": "f3ced821a6354cebfe600c61a43b99a254900bdcd9f25f33c852013ad6cc3b9f",
+  "corrected_capture": "docs/cases/proposal-source-link-verified/failure.json",
+  "corrected_sha256": "12ca0977191ed776586ae53130a3356c139ab3b175e75f786ff9622e404392f3",
+  "source": "docs/case-runs/capture-2026-10-26/original-proposal.json",
+  "source_item": "msg_0c8ab1d2cea89990016adf90402f5081919ff86904475836d3",
+  "invalid_capture_is_evidence_of_capture_error_not_a_test_case": true,
+  "rejected_artifact": "docs/case-runs/capture-2026-10-26/rejected-capture.json",
+  "original_location": "docs/cases/proposal-source-path/failure.json"
+}
