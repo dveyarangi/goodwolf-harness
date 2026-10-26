@@ -105,5 +105,5 @@ tickets minted, 01-0019.0020 to .0070, each answering a question under q-0037.00
 
 The queue: [01-0060.0010](../tickets/done/01-0060.0010-what-the-path-shows-at-every-recall.md), then one
 align on the front page and the README (q-0033.0008 with q-0037.0018.0005). The testing family
-starts at [01-0019.0020](../tickets/01-0019.0020-one-amendment-is-tested-end-to-end.md), whose first
+starts at [01-0019.0020](../tickets/done/01-0019.0020-one-amendment-is-tested-end-to-end.md), whose first
 step is writing rule failure 53's case.

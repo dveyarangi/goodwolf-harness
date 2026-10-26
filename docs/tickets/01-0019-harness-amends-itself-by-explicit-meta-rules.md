@@ -11,8 +11,9 @@
 - **Answers:** [q-0037.0012](../questions/q-0037.0012-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md)
 - **Outcome:** Amending the harness's own rules follows stated meta-rules — how a failure is
   registered, when a rule is reworded, what counts as evidence that it did not work — instead of a
-  judgement made afresh each time; and whether that is its own mechanism is answered from strikes
-  rather than from argument.
+  judgement made afresh each time, owned by the mechanism shape under
+  [q-0037.0012](../questions/q-0037.0012-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md#decisions)
+  decision 1, the user, 2026-10-25.
 
 ## Parent
 
@@ -22,6 +23,10 @@ around a rule the entry file had just gained, and it is minted early on the user
 fast minting for later alignment is what this project should encourage.
 
 ## Why it is minted before it can be decided
+
+This section records the position at minting. Ownership was subsequently settled by
+[q-0037.0012](../questions/q-0037.0012-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md#decisions)
+decision 1, the user, 2026-10-25: self-improvement belongs to the mechanism shape.
 
 The entry file now carries a standing rule — *a rule present that did not fire was phrased wrong;
 register the failure and propose the rewording.* The register is
@@ -44,7 +49,9 @@ catching itself at.
 
 ## What to build
 
-Not yet determined; the align decides it. What is known to be in scope:
+The mechanism shape owns this work under
+[q-0037.0012](../questions/q-0037.0012-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md#decisions)
+decision 1, the user, 2026-10-25. What is known to be in scope:
 
 - **The meta-rules themselves** — what registration requires, who may reword a rule and on what
   evidence, and what distinguishes a rule that was disobeyed from one that could not fire.
@@ -53,21 +60,26 @@ Not yet determined; the align decides it. What is known to be in scope:
   two layers, cases drawn along one chain from a noticed failure, three modes, blind judges, four
   verdicts, runs staged through a host adapter. Its first form was the user's of 2026-09-26 — a new
   session under the amended ruleset given the failing request word for word, a control under the
-  old one, the `claude` CLI headless. Built by the slices
-  [01-0019.0020 one-amendment-is-tested-end-to-end](./01-0019.0020-one-amendment-is-tested-end-to-end.md) to
+  old one, the `claude` CLI headless. For the first slice the user selected Codex on 2026-10-26;
+  its adapter is specified in the [first slice's RFC](../rfc/done/01-0019.0020-one-amendment-is-tested-end-to-end.md#host-choice).
+  Built by the slices
+  [01-0019.0020 one-amendment-is-tested-end-to-end](./done/01-0019.0020-one-amendment-is-tested-end-to-end.md) to
   [01-0019.0070 every-amendment-is-tested-before-it-lands](./01-0019.0070-every-amendment-is-tested-before-it-lands.md).
-- **The register's shape**, if it stays: today `rule-failures.md` has a written form and no
+- **The register's shape**: today `rule-failures.md` has a written form and no
   declared format, which is the same gap
   [01-0017.0020](./01-0017.0020-practice-swaps-in-one-edit.md) found for sessions and dreams.
-- **Whether this is a mechanism**, answered from the register rather than from this text.
+- **Ownership**, settled by
+  [q-0037.0012](../questions/q-0037.0012-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md#decisions)
+  decision 1, the user, 2026-10-25: self-improvement is the mechanism shape's, not a separate mechanism.
 - **One strike is not evidence.** Whatever this ticket concludes, it concludes from a register with
   more than one entry, or it concludes that the register was not worth keeping.
 
 ## Acceptance criteria — provisional, firmed at the align
 
 - [ ] The meta-rules governing self-amendment are stated in a durable home, with their provenance.
-- [ ] Whether self-amendment is its own mechanism is answered, citing the register's entries as the
-      evidence for the answer.
+- [ ] Ownership follows
+      [q-0037.0012](../questions/q-0037.0012-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md#decisions)
+      decision 1, the user, 2026-10-25: self-improvement belongs to the mechanism shape.
 - [ ] The register has a declared format, or is retired with its reason.
 - [ ] Every entry in the register has a disposition: amendment made, amendment refused with a
       reason, or struck as repeated.

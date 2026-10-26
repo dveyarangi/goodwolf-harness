@@ -11,11 +11,13 @@ shape a rule would need.
 
 Entries are struck when a later occurrence repeats one, and counted. Nothing here authorises
 deleting a rule: occurrences accumulate and what to do about a rule that keeps failing is
-[q-0037.0012.0001 is-harness-self-amendment-its-own-mechanism](questions/done/q-0037.0012.0001-is-harness-self-amendment-its-own-mechanism.md)'s,
+[q-0037.0012](questions/q-0037.0012-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md)'s,
 unresolved on purpose.
 
-Whether this register and its rules become their own mechanism is
-[01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
+This register and its rules belong to the mechanism shape under
+[q-0037.0012](questions/q-0037.0012-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md#decisions)
+decision 1, the user, 2026-10-25. The move is
+[01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
 ## An explanation of a failure ended without the next move — 2026-10-26
 
