@@ -162,6 +162,24 @@ a long paragraph. `/verify` read the slice against its ticket and RFC, which car
 
 **Disposition:** landed 2026-10-25 in `/plan`, on the user's yes.
 
+**Struck 2026-10-26 — once.** The user selected
+[01-0019.0040 a-noticed-failure-leaves-a-case](tickets/01-0019.0040-a-noticed-failure-leaves-a-case.md).
+Its RFC introduced a separate immutable observation record, its lifecycle and a later transition
+to an executable experiment. The parent had accepted capturing failures, not this particular
+form among compatible alternatives. The agent wrote the child's `Where it stands`, showed rule
+texts, implemented the form and pushed it without the person's acceptance of that whole.
+
+The repeated omission was in the plan's authority check: a general reference to the accepted
+chain stood in for checking the new boundary against an accepted clause. Technical consultation
+and tests assessed the design and implementation; neither constituted human acceptance. Local
+code choices were authorised, but the new boundary was treated as one of them.
+
+On the user's explicit rollback request, commits `18ab3918` and `a7f76d0b` were reversed by
+`1ae9b2dc`, preserving the earlier experiment and other work. The ticket returned to Planned.
+The rollback passed 1007 tests and all eight project checks; it was independently compared with
+the prior state. **Disposition after this repeat:** open, struck once. A replacement preventive
+control has not been selected with the person; none is introduced by this record.
+
 ## A rule was drafted into the entry file's own text, its mechanism never looked for — 2026-10-25
 
 **Rules in play:** R5 of the mechanism-shape mechanism, *land a mechanism's rule in AGENTS.md only
