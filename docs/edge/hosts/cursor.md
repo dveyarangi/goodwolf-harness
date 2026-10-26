@@ -12,7 +12,7 @@
   `_cursor_answer`, the session's tag handed on as `env` `QUESTIONS_SESSION`.
 - The hook's input is decoded by its byte-order mark in `_hook_input`: on Windows the host wrote
   input the console's code page could not read.
-- Its hook cases in `.agents/scripts/gw/test/test_questions.py`, its merge in
+- Its hook cases in `.agents/scripts/gw/test/test_sessions.py`, its merge in
   `.agents/scripts/gw/test/test_harness.py`.
 - Version in use 2026-10-02: 3.22.7. The host's Hooks output channel is where a hook's run is seen.
 

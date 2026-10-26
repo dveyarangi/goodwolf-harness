@@ -123,8 +123,9 @@ claimant is the always-on mechanism, so no uninstall can remove what another mec
 
 - **Its rules file** — *what must always hold* — `mechanism-shape.rules.md`, read by the installer alone, and by whoever
   amends a rule of the shape that other skills read. Its block is installed in `/maintain`, in
-  `/align`, in this mechanism's own skill, which reads R1 and R4 at incept and R5 when a rule
-  is written, and — R7, the local file — in the entry file, where every session reads where a
+  `/align`, in this mechanism's own skill, which reads R1 and R4 at incept, R5 when a rule
+  is written and R6 and R8 when a skill is, in `/skill-up`, which reads R5, R6 and R8 when a skill or a rule is written, and —
+  R7, the local file — in the entry file, where every session reads where a
   project's answers live, and in `/verify`, where the check that holds a local block to its
   source is run and a drifted one is routed to the file rather than edited in place. **A rule two occasions read is installed everywhere it is read, the owner's own
   skill included** *(the user, 2026-09-20)*: the rules file is read by nobody at session time and
@@ -166,9 +167,10 @@ mechanism cannot be retired. The shape's block absent from `/mechanism` under `-
 signal that the always-on mechanism has lost what it installed into itself, and the check is
 what says it happened.
 
-**Six declared mechanisms are still thin evidence for a shape.** The first three each forced
-amendments to it, the fourth passed its check unedited and sharpened one word — what each one
-forced is in the evidence; the fifth and sixth left no account there — and
+**Nine declared mechanisms are still thin evidence for a shape.** The first three each forced
+amendments to it, the fourth passed its check unedited and sharpened one word, the session's
+loosened one skill per mechanism to one owner per skill — what each one forced is in the
+evidence; the other four left no account there — and
 <straw-dog question="q-0037.0010">the rest of the corpus meets it at once</straw-dog>.
 
 ## What retires this

@@ -16,9 +16,10 @@ that pointed at them; the maintainer holds every live ticket to the shelf's shap
 **Paired close is a behavior of this mechanism and `/maintain` is its actor.** The duty that a
 finished ticket moves is written once, in this mechanism's rules file, and reaches `/maintain` as
 an installed block; `/maintain` is not a part of this mechanism, it is the target the duty is
-installed into. Two other skills act on a ticket rule in their own work and receive it the same
-way: `/plan` names an RFC by its ticket, and `/align` rewrites the ticket in place to what its
-landed decisions make true.
+installed into. Four other skills act on a ticket rule in their own work and receive it the same
+way: `/plan` names an RFC by its ticket, `/align` rewrites the ticket in place to what its landed
+decisions make true, and `/recall` and `/ticket` read the live tickets from the list before a
+ticket is minted.
 
 **A ticket holds what is actual for the work** *(the user, 2026-09-08; 2026-10-11)*. It is minted
 from the body of the question it answers once the work's form is seen and its `Where it stands` accepted, and keeps the work and its
@@ -50,7 +51,7 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | P9 — a ticket is named by a link, or by a slug and its state | the user, 2026-09-21; the slug in the link text, 2026-09-26; each reply on its own, 2026-10-10; every mention a link, 2026-10-12 |
 | P10 — an align opens with what its work is | the user, 2026-09-27; its work, ticket or not, 2026-10-11 |
 | P11 — the question's body and the ticket are swept when the align ends | `/align`'s own text, moved here 2026-09-29; the body, the user, 2026-10-11 |
-| P12 — the live tickets are read from the list | the user, 2026-10-10 |
+| P12 — the live tickets are read from the list | the user, 2026-10-10; before minting alone, the written queue withdrawn, 2026-10-25 |
 | the record's shape — one header form, `Type` required, `Kind` gone, `Outcome` one sentence | the user, 2026-09-08 |
 | the contract; `Minted` required and the shape read from it; the named sections alone, the stage and the narrative gone | the user, 2026-10-11; `Parent scope addressed` gone, four left, 2026-10-15 |
 | the status vocabulary, numbering and one basename per work item | with the selected skills, 2026-09-06 |
@@ -112,8 +113,8 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
   for the criteria, by `/maintain` for whether each is finished, by the questions mechanism's
   window, which counts the live ones through `tickets.live_tickets`, and through citations from
   every record that cites work by its slug.
-- **The list** — *what exists* — read under P12 by whoever orders the work or is about to mint a
-  ticket; rendered from the headers on request by `tickets.py --list` and never committed.
+- **The list** — *what exists* — read under P12 by whoever is about to mint a ticket, and by whoever
+  orders the work; rendered from the headers on request by `tickets.py --list` and never committed.
 - **The maintainer's report** — *what exists* — read by `/verify` through the verification set and by `/maintain`
   under P5. Its exit status is what the set consumes; its JSON is for the person reading a
   failure. It writes nothing.
@@ -129,7 +130,7 @@ index of it.
 
 ## Not yet at the shape
 
-**Two `not yet` rows**, each bound to an open question: the pacer, the installer.
+**One `not yet` row**, bound to an open question: the installer.
 
 **The maintainer reads names in `done/` and nothing else there.** A half-closed pair is caught by
 name; an archived record written under an older shelf is never reported, and that is the

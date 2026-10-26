@@ -9,7 +9,7 @@
   `.agents/scripts/gw/hook.sh` as `gw-hook codex`.
 - The host's row `codex` in `HOSTS`, `.agents/scripts/gw/questions.py`: `session_id`, and
   `PostCompact` as its compaction.
-- Its hook cases in `.agents/scripts/gw/test/test_questions.py`, its merge in
+- Its hook cases in `.agents/scripts/gw/test/test_sessions.py`, its merge in
   `.agents/scripts/gw/test/test_harness.py`.
 - From outside the tree: `features.hooks=true`, and each hook definition trusted
   ([OpenAI's hook trust guidance](https://learn.chatgpt.com/docs/hooks#review-and-trust-hooks)).

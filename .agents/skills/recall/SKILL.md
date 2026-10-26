@@ -14,7 +14,7 @@ Your goal is to find out the actual state of the project and the current and/or 
 - Every question you surface as open must cite where it is *still* open — in a maintained doc (the question store, architecture, ADRs, glossary, edge records) or in the working tree. Otherwise it is settled: cite the deciding artifact instead, including the code where the code settled it. A question with no home at all is a documentation gap, so report it as one.
 - Build a compact summary of current state of the project and bring up all relevant items for current or next task, including the decisions already taken that bear on it, each with its reference.
 
-- In case of ambiguity, present it too user. In case when continuation requires decision making, invoke /align skill.
+- In case of ambiguity, present it to the user. In case when continuation requires decision making, invoke /align skill.
 - The candidates for what is next are the path's; recommend one and say why. A last session's handoff is a list of candidates, not an order.
 
 ## Installed from other mechanisms

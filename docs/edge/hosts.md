@@ -66,7 +66,7 @@ check reads them there.
   every shelf it finds there into the recipient's file of the same path, with no list to amend;
 - a loader link in `LINKS`, `.agents/scripts/gw/harness.py`, unless the host reads `.agents/skills`
   natively, and a stub like `CLAUDE.md` unless it reads `AGENTS.md` natively;
-- its hook cases in `.agents/scripts/gw/test/test_questions.py`, and its merge in
+- its hook cases in `.agents/scripts/gw/test/test_sessions.py`, and its merge in
   `.agents/scripts/gw/test/test_harness.py`.
 
 Each sidecar names its own parts.
@@ -74,7 +74,7 @@ Each sidecar names its own parts.
 ## Invariants
 
 - A hook's unreadable input becomes a line of context — *validated by:*
-  `.agents/scripts/gw/test/test_questions.py`, the hook's unreadable-input case
+  `.agents/scripts/gw/test/test_sessions.py`, the hook's unreadable-input case
 - The hook exits clean whatever its input, so it never fails the host — **⚠ unguarded**: no test
   asserts its exit status
 - A session is registered under the host's own session id — *validated by:* live —

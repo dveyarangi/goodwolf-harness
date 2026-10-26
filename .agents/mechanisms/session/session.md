@@ -141,6 +141,9 @@ for this mechanism.
   silent session from a quiet one; a compaction empties it and keeps its time.
 - **The check's report** — *what exists* — read by `/maintain` at its pass and by `/verify` through
   the verification set.
+- **The rules file** — *what must always hold* — read by the installer alone. Its blocks sit in
+  `/recall` (S1), `/conclude` (S2), `/maintain` (S3), the entry file's general rules (S4, S6, S9),
+  `/commit` (S5), and `/plan` and `/implement` (S7).
 
 ## Not yet at the shape
 

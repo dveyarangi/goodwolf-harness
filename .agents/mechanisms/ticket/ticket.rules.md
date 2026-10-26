@@ -57,7 +57,7 @@ diagnostic is a finding; repair it at the rung of what it mends.
 
 - **target** `.agents/skills/recall/SKILL.md`
 - **target** `.agents/skills/ticket/SKILL.md`
-- **authority** the user, 2026-10-10
+- **authority** the user, 2026-10-10; before minting alone, 2026-10-25, q-0037.0019 decision 7
 
 <rule>
 Read the live tickets with `tickets.py --list` before minting a ticket.
