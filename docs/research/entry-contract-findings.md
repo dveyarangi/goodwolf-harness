@@ -15,6 +15,20 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v131 — 2026-10-27
+
+**Local usefulness does not authorize bypass** — the user added, word for word, a general
+meta-principle: "A locally plausible or useful action does not authorize bypassing an applicable
+harness directive." The addition followed work that extended commit-refusal behavior without
+presenting the choice, omitted required displays of instruction changes, and published code whose
+referenced governing section remained uncommitted. That work was reverted. The autonomy dial
+remains in force; this addition introduces no approval stop at every phase of the delivery ring.
+
+A fresh reader given only the amended entry file rejected a helpful, reversible shortcut that
+would omit a required presentation or checkpoint despite passing tests, and found no requirement
+for permission at every ring phase. This single reading does not establish reliable compliance
+in a long session or provide mechanical enforcement.
+
 ## v130 — 2026-10-26
 
 **Banter preserves required work** — Q1 limits the absence of writes and decisions to answering

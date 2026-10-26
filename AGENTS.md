@@ -1,8 +1,10 @@
 # Entry contract
 
-Entry contract: v130, 2026-10-26.
+Entry contract: v131, 2026-10-27.
 
 ## General rules
+
+- A locally plausible or useful action does not authorize bypassing an applicable harness directive.
 
 A **shape** is whatever is under consideration, held between an idea and a thing: formed enough
 to have a context and a structure, not yet exhausted by any one realization. Being a shape says
