@@ -55,6 +55,7 @@ absence is honestly classified, are judgements it records and never makes.
 | incepting one | `.agents/skills/mechanism/SKILL.md` | |
 | telling an inceptor what to hand `/maintain` | `.agents/skills/mechanism/SKILL.md` | |
 | amending a declared one, editing a skill that is an instruction file included | `.agents/skills/mechanism/SKILL.md` | |
+| running one instruction case in three conditions with blind calibrated judging | `.agents/scripts/gw/amendment.py` | |
 | retiring a declared one | `.agents/skills/mechanism/SKILL.md` | |
 | installing a declared mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
 | removing one declared mechanism from a tree | — | <straw-dog question="q-0037.0006.0013.0002">not yet</straw-dog> |
@@ -150,8 +151,9 @@ claimant is the always-on mechanism, so no uninstall can remove what another mec
   mechanism: it is the file's own line, and no file lists them *(the user, 2026-09-20; every part
   that names its mechanism, 2026-10-11)*.
 
-Nothing else is emitted. It writes no records beyond the mechanism directories that are its
-records.
+- **An instruction experiment's files** — *what happened* — written to the caller's explicit output directory: staged inputs, events and process results, the invocation ledger, condition key and final report. The caller reads the report; an independent reader checks it against the raw files. The runner refuses an existing output directory and preserves failed calls.
+
+Apart from these experiment files, it writes no records beyond the mechanism directories that are its records.
 
 ## Not yet at the shape
 
