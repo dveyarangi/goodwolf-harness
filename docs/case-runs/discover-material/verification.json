@@ -1,0 +1,62 @@
+{
+  "tests": {
+    "command": "uv run --offline --no-project python -m unittest discover -v -b -s .agents/scripts/gw/test -p 'test_*.py'",
+    "count": 991,
+    "result": "OK",
+    "skipped": 3,
+    "expected_failures": 1,
+    "duration_s": 187.776,
+    "log_sha256": "70fd47de4a6900b59d1df7c89596594d2c714d6fb9902bc14e4aa9568f02d53c",
+    "log": "final-tests-2.log"
+  },
+  "checks": [
+    {
+      "check": "mechanisms",
+      "exit": 0,
+      "diagnostics": [],
+      "findings_count": 0
+    },
+    {
+      "check": "inject_rules",
+      "exit": 0,
+      "diagnostics": [],
+      "findings_count": 0
+    },
+    {
+      "check": "tickets",
+      "exit": 0,
+      "diagnostics": [],
+      "findings_count": 0
+    },
+    {
+      "check": "edges",
+      "exit": 0,
+      "diagnostics": [],
+      "findings_count": 0
+    },
+    {
+      "check": "maintain",
+      "exit": 0,
+      "diagnostics": [],
+      "findings_count": 0
+    },
+    {
+      "check": "questions",
+      "exit": 0,
+      "diagnostics": [],
+      "findings_count": 89
+    },
+    {
+      "check": "sessions",
+      "exit": 0,
+      "diagnostics": [],
+      "findings_count": 0
+    },
+    {
+      "check": "product",
+      "exit": 0,
+      "diagnostics": [],
+      "findings_count": 5
+    }
+  ]
+}
