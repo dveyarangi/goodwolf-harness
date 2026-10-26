@@ -1,0 +1,13 @@
+{
+  "recorded_case_basis": "Independent /root/judge_stop_cases verdict before the prototype; supplied conversation excerpts, not complete host transcripts.",
+  "constructed_case_basis": "Independent /root/author_replay_controls authored the three controls and their expected outcomes without reading this prototype.",
+  "expected": {
+    "case-a": "allow",
+    "case-b": "return",
+    "case-c": "allow",
+    "case-d": "allow",
+    "case-e": "return",
+    "case-f": "allow",
+    "case-g": "unknown"
+  }
+}
