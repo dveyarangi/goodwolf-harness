@@ -17,6 +17,28 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## A decision above the dial put to the person without options or a recommendation — 2026-10-26
+
+**Rules in play, loaded:** the entry file, Autonomy: *"Above it, it settles nothing: it brings the
+options and a recommendation, and the person decides"*; the questions mechanism's Q2, in `/recall`:
+*"put each question asking the person to them as a decision"*.
+
+**What happened.** In the live read of 01-0011.0110.0090, a fresh session put the question asking
+the person — what an agent role is, and which mechanism keeps roles, a load-bearing decision — as
+*accept the provisional answer, amend it, or leave it open*: a procedure to choose, no option of
+what a role is, no recommendation. The judge, who built nothing: put as a decision, yes, weakly.
+
+**Why it did not fire.** Q2 said *as a decision* and nothing of what a decision brings; Autonomy
+says it, at tier 1, as a property of the ladder, and the session read Q2's step as complete.
+
+**Amendment**, to Q2, at the self-improvement dial, shown to the person and landed on their word:
+
+> put each question asking the person to them as a decision, with its options and your
+> recommendation, one still branching through its children;
+
+**Disposition:** landed 2026-10-26 in the questions mechanism's Q2, reinstalled into `/recall`
+*(the user)*.
+
 ## A plan built across a boundary its question's accepted shape had drawn — 2026-10-25
 
 **Rules in play, loaded:** `/plan` — *Architecture must lead code shape even if code disagrees* and

@@ -21,8 +21,8 @@ Your goal is to find out the actual state of the project and the current and/or 
 
 <installed by="questions">
 **Q2** Take from the wake's read what asks the person, what is suspect, which deferrals may now be due,
-and which straw dogs are due; put each question asking the person to them as a decision, one
-still branching through its children; take this session's position from the person or estimate
+and which straw dogs are due; put each question asking the person to them as a decision, with
+its options and your recommendation, one still branching through its children; take this session's position from the person or estimate
 it, and place it with `at`; then read the path as this skill says.
 </installed>
 

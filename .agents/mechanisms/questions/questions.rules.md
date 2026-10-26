@@ -60,12 +60,12 @@ drop, read the questions skill.
 ## Q2 — the wake opens at where the work stands
 
 - **target** `.agents/skills/recall/SKILL.md`
-- **authority** the user, 2026-09-29 to 2026-10-04; *take from it*, not *report*, 2026-10-20; the sessions' part the session mechanism's, 2026-10-22; what asks the person, 2026-10-26
+- **authority** the user, 2026-09-29 to 2026-10-04; *take from it*, not *report*, 2026-10-20; the sessions' part the session mechanism's, 2026-10-22; what asks the person, 2026-10-26, with its options and a recommendation, 2026-10-26
 
 <rule>
 Take from the wake's read what asks the person, what is suspect, which deferrals may now be due,
-and which straw dogs are due; put each question asking the person to them as a decision, one
-still branching through its children; take this session's position from the person or estimate
+and which straw dogs are due; put each question asking the person to them as a decision, with
+its options and your recommendation, one still branching through its children; take this session's position from the person or estimate
 it, and place it with `at`; then read the path as this skill says.
 </rule>
 
