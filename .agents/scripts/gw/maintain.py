@@ -3,6 +3,8 @@
 
     uv run --offline --no-project python .agents/scripts/gw/maintain.py --check
     uv run --offline --no-project python .agents/scripts/gw/maintain.py --mark <mechanism> <level> <outcome>
+    uv run --offline --no-project python .agents/scripts/gw/maintain.py --landed
+    uv run --offline --no-project python .agents/scripts/gw/maintain.py --mark '*' decisions <outcome> <commit>
 
 A record is due when what it depends on moved, and a mechanism has two dependences, so it is
 checked at two levels. At `parts` its doc is due when a part it owns moved since its mark — the
@@ -29,6 +31,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import subprocess
 import sys
 from dataclasses import dataclass, field
 from datetime import date
@@ -62,7 +65,18 @@ OUTCOMES = ("amended", "repaired", "nothing to change")
 COLUMNS = ("mechanism", "level", "fingerprint", "date", "outcome")
 FILE_COLUMNS = ("mechanism", "level", "file", "fingerprint")
 _FINGERPRINT = re.compile(r"^[0-9a-f]{64}$")
-_USAGE = "usage: maintain.py --check | --mark <mechanism> <level> <outcome>"
+_USAGE = (
+    "usage: maintain.py --check | --mark <mechanism> <level> <outcome> | --landed"
+    " | --mark '*' decisions <outcome> <commit>"
+)
+# The tree-wide mark of a pass with no person: the commit the decisions were last swept through
+# (q-0037.0010.0009.0009, decision 2). `*` is no slug a mechanism can take.
+SWEEP = ("*", "decisions")
+_COMMIT = re.compile(r"^(?:[0-9a-f]{40}|[0-9a-f]{64})$")
+_GIVEN_COMMIT = re.compile(r"^[0-9a-f]{4,64}$")
+# Where decisions land, the homes a sweep reads (q-0037.0010.0009.0009's Where it stands).
+DECISION_HOMES = ("docs/questions", ":(glob).agents/mechanisms/*/*.rules.md", "local.rules.md", "AGENTS.md")
+_CHANGES = {"A": "added", "M": "modified", "D": "deleted", "R": "renamed", "C": "copied", "T": "modified"}
 
 
 class Refused(Exception):
@@ -147,6 +161,14 @@ def main(argv: list[str], root: Path, today: date | None = None) -> int:
         checked = check(root)
         print(json.dumps(checked.as_record(), indent=2))
         return 1 if checked.diagnostics else 0
+    if argv == ["--landed"]:
+        report = landed(root)
+        print(json.dumps(report, indent=2, ensure_ascii=False))
+        return 1 if report.get("refusals") else 0
+    if argv[:1] == ["--mark"] and len(argv) >= 3 and tuple(argv[1:3]) == SWEEP:
+        report = mark_sweep(root, argv[3:], today or date.today())
+        print(json.dumps(report, indent=2))
+        return 1 if report.get("refusals") else 0
     if len(argv) == 4 and argv[0] == "--mark":
         report = mark(root, *argv[1:], today or date.today())
         print(json.dumps(report, indent=2))
@@ -164,7 +186,7 @@ def check(root: Path) -> Checked:
     return Checked(
         standings,
         built_in=[one.slug for one in _built_in(root, declared)],
-        undeclared=[held for held in held_marks if held.mechanism not in _slugs(clocked)],
+        undeclared=[held for held in held_marks if held.mechanism not in _slugs(clocked) and _key(held) != SWEEP],
         diagnostics=unreadable_marks + unreadable_surfaces,
     )
 
@@ -191,8 +213,12 @@ def _kept(held_marks: list[Mark], clocked: list[Declaration], written: Mark) -> 
     longer declared, which is how such a row leaves."""
     return [
         held for held in held_marks
-        if held.mechanism in _slugs(clocked) and (held.mechanism, held.level) != (written.mechanism, written.level)
+        if (held.mechanism in _slugs(clocked) or _key(held) == SWEEP) and _key(held) != _key(written)
     ]
+
+
+def _key(held: Mark) -> tuple[str, str]:
+    return held.mechanism, held.level
 
 
 def _standings(
@@ -220,7 +246,10 @@ def _slugs(mechanisms: list[Declaration]) -> set[str]:
 
 def _markable(root: Path, declared: list[Declaration], mechanism: str, level: str, outcome: str) -> Declaration:
     if level not in LEVELS:
-        raise Refused(f"{level} is not a level; a mark is at {' or '.join(LEVELS)}")
+        raise Refused(
+            f"{level} is not a level; a mark is at {' or '.join(LEVELS)}, and only `*` at `decisions`, "
+            "with the commit swept through"
+        )
     if outcome not in OUTCOMES:
         raise Refused(f"{outcome} is not an outcome; a maintenance ends {' or '.join(OUTCOMES)}")
     if mechanism in _slugs(_built_in(root, declared)):
@@ -371,6 +400,103 @@ def _authored(name: str, text: str) -> str:
     return text
 
 
+# --- the sweep of a pass with no person -------------------------------------------------------
+
+
+def landed(root: Path) -> dict:
+    """Every file in the decisions' homes that changed between the commit last swept through and
+    the head of the history — never the working tree — with how it changed. What a change
+    decides is the agent's to read; the listing parses nothing, so no format can stop it."""
+    held_marks, unreadable = _read_marks(root)
+    if unreadable:
+        return {"refusals": [f"the marks do not read — {unreadable[0]}; repair them first"]}
+    swept = next((held for held in held_marks if _key(held) == SWEEP), None)
+    start = "`maintain.py --mark '*' decisions nothing to change <the head>`"
+    if swept is None:
+        return {"refusals": [f"no sweep has been marked; start the record with {start}, sweeping nothing"]}
+    if not _is_commit(root, swept.fingerprint):
+        return {"refusals": [
+            f"the history lacks {swept.fingerprint}, the commit last swept through; whether the gap is "
+            f"to be swept is the person's to say — then {start} starts the record again"
+        ]}
+    through = _git(root, "rev-parse", "HEAD").strip()
+    return {"since": swept.fingerprint, "through": through, "changed": _changed(root, swept.fingerprint, through)}
+
+
+def mark_sweep(root: Path, rest: list[str], today: date) -> dict:
+    """The sweep's row: the commit a listing read through, resolved to its full hex — a name, a
+    commit off the head's history, or one before the commit already marked refused."""
+    if len(rest) != 2:
+        return {"refusals": ["`--mark '*' decisions <outcome> <commit>`: the commit swept through is needed"]}
+    outcome, given = rest
+    held_marks, unreadable = _read_marks(root)
+    try:
+        if unreadable:
+            raise Refused(f"the marks do not read — {unreadable[0]}; repair them before marking over them")
+        if outcome not in OUTCOMES:
+            raise Refused(f"{outcome} is not an outcome; a maintenance ends {' or '.join(OUTCOMES)}")
+        commit = _resolved(root, given)
+        swept = next((held for held in held_marks if _key(held) == SWEEP), None)
+        if swept is not None and _is_commit(root, swept.fingerprint) and swept.fingerprint != commit and _is_ancestor(root, commit, swept.fingerprint):
+            raise Refused(f"{given} comes before {swept.fingerprint}, the commit already swept through")
+    except Refused as refusal:
+        return {"refusals": [str(refusal)]}
+    written = Mark(SWEEP[0], SWEEP[1], commit, today.isoformat(), outcome)
+    _write_marks(root, [held for held in held_marks if _key(held) != SWEEP] + [written])
+    return {"marked": written.row}
+
+
+def _resolved(root: Path, given: str) -> str:
+    if not _GIVEN_COMMIT.match(given):
+        raise Refused(f"{given} is not a commit's hex; give the commit the listing read through")
+    found = subprocess.run(
+        ["git", "rev-parse", "--verify", "--quiet", f"{given}^{{commit}}"],
+        cwd=root, capture_output=True, encoding="utf-8",
+    )
+    if found.returncode != 0:
+        raise Refused(f"{given} names no single commit")
+    commit = found.stdout.strip()
+    if not _is_ancestor(root, commit, "HEAD"):
+        raise Refused(f"{given} is not in the head's history")
+    return commit
+
+
+def _is_commit(root: Path, commit: str) -> bool:
+    return subprocess.run(
+        ["git", "cat-file", "-e", f"{commit}^{{commit}}"], cwd=root, capture_output=True
+    ).returncode == 0
+
+
+def _is_ancestor(root: Path, older: str, newer: str) -> bool:
+    return subprocess.run(
+        ["git", "merge-base", "--is-ancestor", older, newer], cwd=root, capture_output=True
+    ).returncode == 0
+
+
+def _changed(root: Path, since: str, through: str) -> list[dict]:
+    """Git's name-status between two commits over the homes, NUL-separated so a path in any script
+    stays whole; a rename carries where it came from and its similarity."""
+    fields = _git(root, "diff", "-z", "--name-status", "--find-renames", since, through, "--", *DECISION_HOMES).split("\0")
+    rows: list[dict] = []
+    at = 0
+    while at < len(fields) and fields[at]:
+        status = fields[at]
+        kind = _CHANGES.get(status[0], status)
+        if status[0] in ("R", "C"):
+            rows.append({"path": fields[at + 2], "change": kind, "from": fields[at + 1], "similarity": int(status[1:] or 0)})
+            at += 3
+        else:
+            rows.append({"path": fields[at + 1], "change": kind})
+            at += 2
+    return rows
+
+
+def _git(root: Path, *arguments: str) -> str:
+    return subprocess.run(
+        ["git", "-c", "core.quotepath=off", *arguments], cwd=root, capture_output=True, encoding="utf-8", check=True
+    ).stdout
+
+
 # --- the marks --------------------------------------------------------------------------------
 
 
@@ -439,9 +565,14 @@ def _row(cells: list[str], seen: set[tuple[str, str]]) -> tuple[Mark | None, str
     if len(cells) != len(COLUMNS):
         return None, f"a row holds {len(cells)} cells, not {len(COLUMNS)}"
     read = Mark(*cells)
-    if read.level not in LEVELS:
+    if read.mechanism == SWEEP[0] or read.level == SWEEP[1]:
+        if _key(read) != SWEEP:
+            return None, "`*` is marked at `decisions` alone, and no mechanism is"
+        if not _COMMIT.match(read.fingerprint):
+            return None, f"{read.fingerprint} is not a commit — its full lowercase hex"
+    elif read.level not in LEVELS:
         return None, f"{read.level} is not a level"
-    if not _FINGERPRINT.match(read.fingerprint):
+    elif not _FINGERPRINT.match(read.fingerprint):
         return None, f"{read.fingerprint} is not a fingerprint — 64 lowercase hex"
     if not _is_date(read.date):
         return None, f"{read.date} is not a date — YYYY-MM-DD"
@@ -464,7 +595,7 @@ def _is_date(written: str) -> bool:
 
 
 def _write_marks(root: Path, marks: list[Mark]) -> None:
-    ordered = sorted(marks, key=lambda held: (held.mechanism, LEVELS.index(held.level)))
+    ordered = sorted(marks, key=lambda held: (_key(held) == SWEEP, held.mechanism, LEVELS.index(held.level) if held.level in LEVELS else 0))
     kept = [row for held in ordered for row in held.file_rows]
     text = (
         "# Maintenance marks\n\n"

@@ -9,7 +9,7 @@ import json
 import unittest
 from datetime import date
 
-from repository import RepositoryCase
+from repository import RepositoryCase, proves_a_process
 
 import inject_rules
 import maintain
@@ -571,6 +571,197 @@ class ARefusedMark(Clocked):
 
     def test_names_an_outcome_that_is_not_one(self) -> None:
         self.assert_refused_naming("fixed is not an outcome", "sample", "parts", "fixed")
+
+
+RECIPIENT_ENTRY = "# Entry\n\nEntry contract: goodwolf-harness@0e3233f, 2026-10-18.\n\n## General rules\n\n- Be clear.\n"
+ENTRY = "docs/questions/q-0001-what-is-it.md"
+ARCHIVED = "docs/questions/done/q-0001-what-is-it.md"
+LOCAL = "local.rules.md"
+
+
+class TheSweep(Clocked):
+    """The tree-wide mark of a pass with no person: the commit the decisions were last swept
+    through, and the files in the decisions' homes that changed since (01-0011.0110.0100)."""
+
+    proves_a_process = True
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.write(ENTRY, "# q-0001 What is it?\n\n- **state** open\n\n## Decisions\n\n1. It is a thing.\n")
+        self.write(LOCAL, "# local — rules\n\n## L1 — a rule\n")
+        self.write("docs/tickets/01-0010-a-ticket.md", "# A ticket\n")
+        self.commit("the start")
+
+    def commit(self, message: str) -> str:
+        self.git("add", "-A")
+        self.git("commit", "-q", "-m", message)
+        return self.head()
+
+    def head(self) -> str:
+        return self.git("rev-parse", "HEAD").strip()
+
+    def sweep_row(self) -> str | None:
+        return next((row for row in self.mark_rows() if row.startswith("| * |")), None)
+
+    def landed(self) -> tuple[int, dict]:
+        return self.run_maintain("--landed")
+
+    def test_the_mark_writes_the_commits_full_hex_and_a_level_mark_keeps_it_after_the_mechanisms(self) -> None:
+        start = self.head()
+
+        status, report = self.run_maintain("--mark", "*", "decisions", "amended", start[:10])
+        self.run_maintain("--mark", "sample", "parts", "nothing to change")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual(f"| * | decisions | {start} | 2026-09-27 | amended |", self.sweep_row())
+        self.assertEqual(self.sweep_row(), self.mark_rows()[-1])
+
+    def test_the_check_reads_the_row_lists_it_nowhere_and_passes(self) -> None:
+        self.run_maintain("--mark", "*", "decisions", "nothing to change", self.head())
+
+        status, report = self.run_maintain("--check")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual([], report["undeclared"])
+        self.assertNotIn("*", {row["mechanism"] for row in report["mechanisms"]})
+
+    def test_the_mark_refuses_what_is_no_commit_of_the_heads_past_or_goes_back(self) -> None:
+        first = self.head()
+        self.git("checkout", "-q", "-b", "aside")
+        self.write("aside.md", "aside\n")
+        aside = self.commit("aside")
+        self.git("checkout", "-q", "main")
+        self.write(ENTRY, self.read(ENTRY) + "2. It is two things.\n")
+        second = self.commit("a decision")
+        self.run_maintain("--mark", "*", "decisions", "amended", second)
+
+        for given in ("HEAD", "main", aside, first, "zz"):
+            with self.subTest(given=given):
+                status, report = self.run_maintain("--mark", "*", "decisions", "amended", given)
+                self.assertEqual(1, status, report)
+                self.assertTrue(report["refusals"], report)
+        self.assertIn(second, self.sweep_row())
+
+    def test_the_star_takes_no_other_level_no_mechanism_takes_decisions_and_the_commit_is_needed(self) -> None:
+        for argv in (("*", "parts", "amended", self.head()), ("sample", "decisions", "amended"), ("*", "decisions", "amended")):
+            with self.subTest(argv=argv):
+                printed = io.StringIO()
+                with contextlib.redirect_stdout(printed):
+                    status = maintain.main(["--mark", *argv], self.root, date.fromisoformat("2026-09-27"))
+                self.assertNotEqual(0, status, printed.getvalue())
+        self.assertIsNone(self.sweep_row() if (self.root / MARKS).is_file() else None)
+
+    def test_a_malformed_row_fails_the_check(self) -> None:
+        self.run_maintain("--mark", "*", "decisions", "amended", self.head())
+        self.write(MARKS, self.read(MARKS).replace(self.head(), "not-a-commit"))
+
+        status, report = self.run_maintain("--check")
+
+        self.assertEqual(1, status)
+        self.assertTrue(report["diagnostics"])
+
+    def test_with_no_row_the_listing_refuses_and_names_the_call_that_starts_the_record(self) -> None:
+        status, report = self.landed()
+
+        self.assertEqual(1, status, report)
+        self.assertIn("--mark '*' decisions", report["refusals"][0])
+
+    def test_a_row_whose_commit_the_history_lacks_refuses_too_and_the_check_still_passes(self) -> None:
+        self.run_maintain("--mark", "*", "decisions", "amended", self.head())
+        self.write(MARKS, self.read(MARKS).replace(self.head(), "0" * 40))
+
+        status, report = self.landed()
+
+        self.assertEqual(1, status, report)
+        self.assertIn("history", report["refusals"][0])
+        self.assertEqual(0, self.run_maintain("--check")[0])
+
+    def test_the_listing_names_each_changed_file_in_the_homes_and_nothing_else(self) -> None:
+        start = self.head()
+        self.run_maintain("--mark", "*", "decisions", "nothing to change", start)
+        self.write(ENTRY, self.read(ENTRY) + "2. It is two things.\n")
+        self.write("docs/questions/q-0002-а-это-что.md", "# q-0002 А это что?\n\n- **state** open\n")
+        self.write(SAMPLE_RULES, "# sample — rules\n\n## S1 — a rule, changed\n")
+        self.write(LOCAL, "# local — rules\n")
+        self.write("AGENTS.md", ORIGIN_ENTRY + "- Be brief.\n")
+        self.write("docs/tickets/01-0010-a-ticket.md", "# A ticket, edited\n")
+        through = self.commit("decisions and a ticket")
+        self.write("docs/questions/q-0003-uncommitted.md", "# q-0003 Uncommitted?\n")
+
+        status, report = self.landed()
+
+        self.assertEqual(0, status, report)
+        self.assertEqual((start, through), (report["since"], report["through"]))
+        changed = {row["path"]: row["change"] for row in report["changed"]}
+        self.assertEqual(
+            {
+                ENTRY: "modified",
+                "docs/questions/q-0002-а-это-что.md": "added",
+                SAMPLE_RULES: "modified",
+                LOCAL: "modified",
+                "AGENTS.md": "modified",
+            },
+            changed,
+        )
+
+    def test_an_archive_is_listed_as_a_rename_with_its_similarity_or_as_a_deletion_and_an_addition(self) -> None:
+        self.run_maintain("--mark", "*", "decisions", "nothing to change", self.head())
+        (self.root / "docs/questions/done").mkdir(parents=True, exist_ok=True)
+        self.git("mv", ENTRY, ARCHIVED)
+        self.commit("archived")
+
+        _, report = self.landed()
+
+        rows = report["changed"]
+        renamed = [row for row in rows if row["change"] == "renamed"]
+        if renamed:
+            self.assertEqual([(ENTRY, ARCHIVED, 100)], [(row["from"], row["path"], row["similarity"]) for row in renamed])
+        else:
+            self.assertEqual({ENTRY: "deleted", ARCHIVED: "added"}, {row["path"]: row["change"] for row in rows})
+
+    def test_the_listing_writes_nothing_and_repeats_until_the_sweep_is_marked(self) -> None:
+        self.run_maintain("--mark", "*", "decisions", "nothing to change", self.head())
+        self.write(ENTRY, self.read(ENTRY) + "2. It is two things.\n")
+        self.commit("a decision")
+        marks = self.read(MARKS)
+
+        first, second = self.landed()[1], self.landed()[1]
+
+        self.assertEqual(first, second)
+        self.assertEqual(marks, self.read(MARKS))
+
+    def test_a_decision_committed_between_the_listing_and_the_mark_is_listed_next_time(self) -> None:
+        self.run_maintain("--mark", "*", "decisions", "nothing to change", self.head())
+        self.write(ENTRY, self.read(ENTRY) + "2. It is two things.\n")
+        self.commit("a decision")
+        read_through = self.landed()[1]["through"]
+        self.write(SAMPLE_RULES, "# sample — rules\n\n## S1 — a rule, meanwhile\n")
+        self.commit("meanwhile")
+
+        self.run_maintain("--mark", "*", "decisions", "amended", read_through)
+
+        self.assertEqual([SAMPLE_RULES], [row["path"] for row in self.landed()[1]["changed"]])
+
+    def test_in_a_recipient_the_row_is_its_own(self) -> None:
+        self.write("AGENTS.md", RECIPIENT_ENTRY)
+        head = self.commit("a recipient")
+
+        status, report = self.run_maintain("--mark", "*", "decisions", "nothing to change", head)
+
+        self.assertEqual(0, status, report)
+        self.assertEqual(0, self.run_maintain("--check")[0])
+
+
+class TheCheckWithASweepRow(Clocked):
+    """The check reads the row's form alone and starts no process."""
+
+    def test_passes_on_a_well_formed_row_with_no_process_run(self) -> None:
+        self.write(MARKS, "# Maintenance marks\n\n| mechanism | level | fingerprint | date | outcome |\n|---|---|---|---|---|\n"
+                          f"| * | decisions | {'a' * 40} | 2026-09-27 | amended |\n")
+
+        status, report = self.run_maintain("--check")
+
+        self.assertEqual(0, status, report)
 
 
 if __name__ == "__main__":
