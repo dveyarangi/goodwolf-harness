@@ -33,8 +33,8 @@ other sessions — and says what the turn is: on a question, placed on the lowes
 the message and never on one that only resembles it, nor on a far one that holds it only as it
 holds everything beneath it, where the parent is missing and is opened; a process, the agent carrying out what it
 knows how to do, which is placed nowhere; uncharted, a question whose home the person settles; or
-banter, a message that asks nothing of the work, answered by a reply that writes and settles
-nothing.
+banter, a message that asks nothing of the work. Answering that message writes and settles nothing;
+work already required in the session continues and determines what the turn is.
 What it places it writes by calling the script, one call per event, each
 validated and written whole; the script gives a new question its id, nested under its parent's,
 and a re-parent renames the subtree that moves, so an id always says where its question sits; a

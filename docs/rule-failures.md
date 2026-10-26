@@ -17,6 +17,35 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## A recall stopped after reading, without its result — 2026-10-26
+
+**Rules in play, loaded:** the session mechanism's S6 requires `/recall` at every conversation's
+start, whatever the first message says; `/recall` requires the state of work and a recommended
+next candidate with its reason, and names these in `What the person hears`; Q1 classifies a
+message asking nothing of the work as banter and said that its reply writes and settles nothing.
+
+**What happened.** In Codex conversation `01a17792-eb83-75d1-9fc4-dedb2eed8589`, a greeting led
+to reading the skill, the wake and git state. The final reply was marked `banter` and ended with
+“Контекст прочитал, я здесь.” The person asked why nothing was proposed. An independent reader
+confirmed that the required reads and the result were incomplete.
+
+**Why it did not fire.** The session applied banter to the whole final reply, treated reading
+context as sufficient completion and gave the greeting's brevity precedence over the skill's
+required result. This is the session's account, consistent with its actions, not an independently
+established model-internal cause. The existing speech bench tests the opening before the reads;
+it is not a full recall test and does not establish this failure's cause.
+
+**Amendment**, accepted by the user, 2026-10-26, and landed in
+[Q1](../.agents/mechanisms/questions/questions.rules.md#q1--every-message-is-placed-before-it-is-answered):
+answering banter writes and settles nothing; work already required in the session still runs
+and determines the turn. Installed in entry contract v130; its descriptions in the questions
+mechanism and the method glossary agree with it.
+
+**Disposition:** amendment landed. Three fresh reader replays are recorded with
+[v130](research/entry-contract-findings.md#v130--2026-10-26): one before, one after and one ordinary
+banter control. The original omission did not recur in either first-greeting replay, so these
+runs establish no reduction in its occurrence.
+
 ## A drift repair's subagent sent into another session's uncommitted work — 2026-10-26
 
 **Rules in play, loaded:** the maintenance mechanism's M2: *"repaired where met, by a subagent, below

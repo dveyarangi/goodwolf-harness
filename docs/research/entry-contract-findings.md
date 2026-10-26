@@ -15,6 +15,21 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v130 — 2026-10-26
+
+**Banter preserves required work** — Q1 limits the absence of writes and decisions to answering
+the message itself; work already required in the session still runs and determines the turn.
+A first greeting led an agent to read part of `/recall` and omit its result; the person accepted
+this clarification at the boundary between the message and the session's obligations. Reinstalled
+from the questions mechanism *(the user, 2026-10-26)*.
+
+Three fresh reader replays used snapshots of the entry file, the same `/recall` and the first
+greeting's wake and git evidence: one with v129, one with v130, both at the final reply after the
+reads. Both supplied work state and a recommendation; v129 marked the turn banter, v130 a
+process. A third reader under v130, with `/recall` already completed and no required work left,
+answered an ordinary thank-you as banter. The original omission was not reproduced; these runs
+do not establish a change in its frequency or verify every claim in the readers' project reports.
+
 ## v129 — 2026-10-25
 
 **A neighbour's decision is left to it** — S9 gains that a decision on another running session's

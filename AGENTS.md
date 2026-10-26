@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v129, 2026-10-25.
+Entry contract: v130, 2026-10-26.
 
 ## General rules
 
@@ -115,8 +115,9 @@ hook put in your context, or `questions.py --window --session <tag>`, the script
 - **Uncharted**, a question whose home you cannot settle: no call. Ask the user where it belongs,
   in every reply until answered.
 - **Banter**, a message that asks nothing of the work — no question about the project, nothing
-  to do or decide: no call. Answer it. The reply writes nothing and settles nothing; a doubt, or
-  an answer that would do either, makes the turn another kind.
+  to do or decide: no call. Answering it writes nothing and settles nothing; a doubt, or an
+  answer that would do either, makes the turn another kind. Work already required in the
+  session still runs; place the turn by that work.
 
 In the ring — a unit taken into work and held until the person drops it — a message that raises a
 new question has it opened, placed and given its rung as a side question, and the session stays on
