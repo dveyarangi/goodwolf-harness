@@ -22,8 +22,8 @@ what the agent reads before placing a message; `--wake` registers a session, end
 silent, and reads where the work stands; `--tree` draws the live tree for a person; `--path` reads the path ahead, which the wake carries; `--seed`
 opens the roots of a store that holds no entry, as the install does, and is how a person resumes
 an install that stopped there. Each
-event of a turn is its own call — `at`, `open`, `move`, `depend`, `undepend`, `close`, `suspect`,
-`clear`, `lean`, `assign`, `realize`, `rung` — validated and written whole (parent decision 56); `--help`
+event of a turn is its own call — `at`, `open`, `move`, `reword`, `depend`, `undepend`, `close`,
+`suspect`, `clear`, `lean`, `assign`, `realize`, `rung`, `ask` — validated and written whole (parent decision 56); `--help`
 after any of them says what it takes.
 
 `realizes` answers what a question realizes, for whichever mechanism keeps the answers: the store
