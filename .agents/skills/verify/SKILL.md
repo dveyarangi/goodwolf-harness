@@ -48,8 +48,6 @@ there, so the project's answer is what a reader meets after core's rule. An over
 overrides. A local change to a rule is written in the local file, never into a skill or the entry
 file, and re-installed. The local block is the project's,
 not core's, and a redeploy preserves it.
-
-**R10** Check live failure captures under `docs/cases/` with `.agents/scripts/gw/capture.py --check`. A diagnostic is a finding.
 </installed>
 
 <installed by="local">

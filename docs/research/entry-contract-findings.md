@@ -15,16 +15,6 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
-## v131 — 2026-10-26
-
-**A noticed failure is captured before its context changes.** Mechanism-shape R9 now reaches
-the detection moment through Self-improvement and the capture act through the mechanism skill.
-The record preserves the message, ordered context, loaded text, observation and expectation;
-missing or reconstructed inputs are labelled. The register entry or strike links the capture.
-The user selected this work on 2026-10-26. The mechanism's single installed entry block moved
-from Project-local to Self-improvement; R7 moved with it unchanged. Neither the three earlier
-self-improvement paragraphs nor the autonomy ladder changed meaning.
-
 ## v130 — 2026-10-26
 
 **Banter preserves required work** — Q1 limits the absence of writes and decisions to answering

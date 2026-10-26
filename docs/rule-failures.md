@@ -19,35 +19,6 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
-## A proposed rule pointed to a nonexistent authored home — 2026-10-26
-
-**Rules in play, loaded:** *A paragraph shows what it stands on* requires a proposed instruction's
-header to name its authored file and link its path from the tree root.
-
-**What happened.** While implementing failure capture, the proposal for mechanism-shape R10
-linked `.agents/mechanism-shape/mechanism-shape.rules.md`. The authored file is under
-`.agents/mechanisms/mechanism-shape/`; the proposed target did not exist. The preceding R9
-proposal used the correct home. This was noticed in the same working turn after installation,
-before an amendment to the affected reporting rule. The [capture](cases/proposal-source-link-verified/failure.json)
-preserves the original message, erroneous header and expected behaviour. Its old entry-file
-snapshot was recovered from the known committed revision and is explicitly labelled reconstructed.
-
-Independent comparison with the original message caught a misquoted path in the first capture.
-That record is preserved as invalid input, with its [correction and exact source](case-runs/capture-2026-10-26/correction.json);
-the register points to the newly saved corrected capture, not to the rejected observation.
-
-**Why it did not fire.** The header was formatted, but its target was not checked against the
-authored file. This states the observable omission, not a model-internal cause. The rule's
-source and installed text used the proper path; the failure was in the proposal shown to the person.
-
-<straw-dog question="q-0037.0009.0021.0002.0001">
-**Proposed amendment:** mechanically validate local source links in proposed-rule headers before
-showing them. The design and integration point remain undecided; this proposal adds no gate.
-</straw-dog>
-
-The original failed observation and a fresh standing-condition reproduction are separate evidence.
-No fresh reproduction is claimed by the saved capture.
-
 ## An explanation of a failure ended without the next move — 2026-10-26
 
 **Rules in play, loaded:** *A reply speaks the method* includes what is next and what the person

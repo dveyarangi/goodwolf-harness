@@ -55,8 +55,6 @@ absence is honestly classified, are judgements it records and never makes.
 | incepting one | `.agents/skills/mechanism/SKILL.md` | |
 | telling an inceptor what to hand `/maintain` | `.agents/skills/mechanism/SKILL.md` | |
 | amending a declared one, editing a skill that is an instruction file included | `.agents/skills/mechanism/SKILL.md` | |
-| capturing a noticed rule failure before its context changes | `.agents/skills/mechanism/SKILL.md` | |
-| checking live failure captures | `.agents/scripts/gw/capture.py` | |
 | running one instruction case in three conditions with blind calibrated judging | `.agents/scripts/gw/amendment.py` | |
 | retiring a declared one | `.agents/skills/mechanism/SKILL.md` | |
 | installing a declared mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
@@ -95,9 +93,6 @@ absence is honestly classified, are judgements it records and never makes.
 | the test harness's tests | `.agents/scripts/gw/test/test_repository.py` |
 | one-case instruction experiment | `.agents/scripts/gw/amendment.py` |
 | the experiment's tests | `.agents/scripts/gw/test/test_amendment.py` |
-| failure capture format | `.agents/skills/mechanism/FAILURE-FORMAT.md` |
-| failure capture and check | `.agents/scripts/gw/capture.py` |
-| the capture's tests | `.agents/scripts/gw/test/test_capture.py` |
 | citation reader | `.agents/scripts/gw/docs_corpus.py` |
 | test harness | `.agents/scripts/gw/test/repository.py` |
 
@@ -159,9 +154,7 @@ claimant is the always-on mechanism, so no uninstall can remove what another mec
 
 - **An instruction experiment's files** — *what happened* — written to the caller's explicit output directory: staged inputs, events and process results, the invocation ledger, condition key and final report. The caller reads the report; an independent reader checks it against the raw files. The runner refuses an existing output directory and preserves failed calls.
 
-- **Failure captures** under `docs/cases/` — *what happened* — read by the author preparing a replay and by its independent reviewer. Their fields, tier and retirement are [FAILURE-FORMAT.md](../../skills/mechanism/FAILURE-FORMAT.md)'s. They preserve the observed failure independently of a later experiment; the register entry or strike carries their reference. R9 reaches detection through the entry file and the capture act through the mechanism skill. R10 reaches their form check through maintain and verify.
-
-Apart from experiment files and failure captures, it writes no records beyond the mechanism directories that are its records.
+Apart from these experiment files, it writes no records beyond the mechanism directories that are its records.
 
 ## Not yet at the shape
 
