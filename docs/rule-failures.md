@@ -1612,6 +1612,28 @@ window's fix held; the rule gave the reply leave to skip the place the words wer
 **Amendment landed** in the entry file, v89: the 🪢 table stands whenever another session runs, its
 header enough with no collision under it. Graded by the next reply with neighbours and no collision.
 
+**Struck a second time, 2026-10-26 — required form omitted across several replies.** In Codex
+chat `01a177e0-ff53-7c93-9cd3-bcdb4c70db5c`, the housekeeping reply, the explanation of four
+commits and the following plain-language explanation omitted the neighbours' table although
+the supplied windows showed other running sessions. The latter two replies also omitted the
+head table required by *A paragraph shows what it stands on*. The session had used the full form
+earlier; it did not keep it consistently.
+
+Asked why, the assistant attributed the omission to the request for a simpler explanation. The
+user pointed out that it had happened before that request. A fresh reader confirmed the
+chronological contradiction and the missing tables. It established no deeper cause or intent;
+the request for simpler prose is not evidence that the existing form was waived. The case and
+the independent reading are in
+[q-0037.0009.0021.0003 What keeps the required reply form from being omitted?](questions/q-0037.0009.0021.0003-what-keeps-the-required-reply-form-from-being-omitted.md).
+
+<straw-dog question="q-0037.0009.0021.0003">
+**Proposed mechanical amendment:** a host-bound check of the existing required tables' presence
+and order, using the turn's conditions, with an omitted required element returning the answer to
+work. A Stop-hook attachment is the candidate, not an accepted installation. Its scope and live
+failure behaviour require the person's decision. The owners and wording of the existing rules
+stay at their authored homes; another prose prohibition is not the proposed remedy.
+</straw-dog>
+
 ## 34. A first install ended in a technical report, and asked for a commit the switch allowed — 2026-10-11
 
 **Rules in play:** the entry file's `commit` switch, *`auto`: commit when `/verify` has passed on
