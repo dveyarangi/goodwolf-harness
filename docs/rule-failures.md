@@ -17,6 +17,27 @@ unresolved on purpose.
 Whether this register and its rules become their own mechanism is
 [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).
 
+## A drift repair's subagent sent into another session's uncommitted work — 2026-10-26
+
+**Rules in play, loaded:** the maintenance mechanism's M2: *"repaired where met, by a subagent, below
+the dial, in your own work or nobody's … In another session's work it is told to that session"*.
+
+**What happened.** Seeking the same drift across the mechanisms' docs, as M2 asks, the session briefed
+its subagent to fix every doc that disagreed with its rules file, and named no limit of whose work a
+file was. The subagent edited a paragraph of the mechanism shape's doc that another session had
+already changed and not committed, laying its fix over the other's. The session saw it in the diff,
+put the paragraph back as the other had left it, and told that session the finding.
+
+**Why it did not fire.** M2 binds the session; a subagent reads only its brief, and the brief carried
+the repair without the boundary. *By a subagent* moves the hands, not the rule.
+
+**Proposed amendment**, to M2, at the self-improvement dial — a rule, shown before it lands:
+
+> … repaired where met, by a subagent briefed with the same bounds, below the dial, in your own work
+> or nobody's — a file another session has changed and not committed is that session's work …
+
+**Disposition:** open; the amendment waits on the person.
+
 ## A decision above the dial put to the person without options or a recommendation — 2026-10-26
 
 **Rules in play, loaded:** the entry file, Autonomy: *"Above it, it settles nothing: it brings the
