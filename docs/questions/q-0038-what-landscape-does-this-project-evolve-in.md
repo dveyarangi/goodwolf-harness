@@ -70,3 +70,93 @@ The user asked for an assessment and comparison. A fresh reader was given the re
 >
 > Не беру **«полноценный CRM против harness»** как сравнение готовых продуктов: CRM в CharmOS представлен моделью и синтетическими примерами; соответствующей задачи у GoodWolf нет. Это различие намерений, не состязание реализаций.
 >
+
+## 2026-10-26 — mechanisms to learn from BMAD
+
+The user asked whether BMAD contains useful mechanisms for this harness. This is a source
+inspection, not a trial of their effect. The inspected `main` tree was
+[`61e01f82644c4bb533750cfa0d6d61ab61d2cc9b`](https://github.com/bmad-code-org/BMAD-METHOD/tree/61e01f82644c4bb533750cfa0d6d61ab61d2cc9b).
+Its README calls this line v7 preview alpha and keeps stable v6.12 separately. The earlier
+[peer comparison](../research/peer-capabilities-2026-10-08.md#bmad-method-bmad-code-orgbmad-method)
+and [context counts](../research/context-tax-peers-2026-10-11.md) remain dated observations;
+their counts were not remeasured here. No BMAD workflow or test was executed.
+
+Candidate transfers, not adopted decisions:
+
+- **Lossless review triage.**
+  [Triage](https://github.com/bmad-code-org/BMAD-METHOD/blob/61e01f82644c4bb533750cfa0d6d61ab61d2cc9b/skills/bmad-code-review/step-03-triage.md)
+  records every raw finding before deduplication, verifies its particular claim before assigning
+  severity, retains refutations and uncertainty, then groups by shared root cause with links back
+  to raw findings. The useful unit here is that accounting discipline, not a new reviewer role.
+  The [edge-case lens](https://github.com/bmad-code-org/BMAD-METHOD/blob/61e01f82644c4bb533750cfa0d6d61ab61d2cc9b/skills/bmad-build/review-prompts/edge-case-hunter.md)
+  traces code before reading the plan's claims. Review is already being reconsidered under
+  [q-0037.0015](q-0037.0015-how-is-produced-work-gone-over-again-over-what-scope-by-what-criteria-by-whom-and-to-what.md);
+  this inspection settles none of that work. Limit: triage automatically trusts verification-gap
+  findings, and that lens excludes prompts, skills and documents from its test-gap screen; those
+  choices do not establish their suitability for a repository whose product includes instructions.
+- **Executable skill evaluations, particularly activation.**
+  [bmad-eval](https://github.com/bmad-code-org/BMAD-METHOD/blob/61e01f82644c4bb533750cfa0d6d61ab61d2cc9b/skills/bmad-eval/SKILL.md)
+  provides baseline, variant, quality and trigger modes, with runner scripts and script tests in
+  the source tree. The inspected runners stage separate workspaces and record transcripts and
+  run status. The [description loop](https://github.com/bmad-code-org/BMAD-METHOD/blob/61e01f82644c4bb533750cfa0d6d61ab61d2cc9b/skills/bmad-eval/references/description-optimization.md)
+  uses near-miss positive and negative queries, a fixed stratified train/test split, repeated runs
+  and a score hidden from the description's author. That same set selects the winning variant
+  and helps determine stopping, so its score is not an independent final test of the winner.
+  The no-instruction/standing/new comparison is already accepted in
+  [q-0037.0012.0009](q-0037.0012.0009-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen.md);
+  BMAD offers implementation material, not a reason to reopen that decision. Its trigger runner
+  uses an output canary as a proxy for activation. A clean workspace is not containment: its
+  documented Codex harness example bypasses approvals and the sandbox. Three runs are BMAD's
+  stated reporting threshold, not evidence of statistical sufficiency.
+- **A light path with an explicit return to planning.**
+  [Oneshot](https://github.com/bmad-code-org/BMAD-METHOD/blob/61e01f82644c4bb533750cfa0d6d61ab61d2cc9b/skills/bmad-build/step-oneshot.md)
+  keeps the intent and records the baseline revision and implementation notes. With automatic
+  routing it returns to full planning when implementation exposes a user-visible gap; an explicitly
+  pinned oneshot instead stops and asks the person. This is a concrete reference
+  for the still-open
+  [q-0037.0013.0003](q-0037.0013.0003-how-does-the-method-lighten-for-small-work-and-weigh-more-for-large.md),
+  not a proposed second delivery ring. Route selection and review depth are separate settings;
+  the light route does not inherently mean skipping review.
+- **A research evidence boundary.**
+  [Deep Recon](https://github.com/bmad-code-org/BMAD-METHOD/blob/61e01f82644c4bb533750cfa0d6d61ab61d2cc9b/skills/bmad-deep-recon/SKILL.md)
+  lets project context shape the questions but forbids treating it as evidence of external truth;
+  research children receive only their brief unless named documents are explicitly granted.
+  Our [discover](../../.agents/skills/discover/SKILL.md) already isolates an outside reading.
+  The distinct candidate is the evidence boundary across ordinary external research, where a
+  project's own account can otherwise return disguised as independent confirmation.
+- **Mining repeated corrections, as a reserve source.**
+  [From logs](https://github.com/bmad-code-org/BMAD-METHOD/blob/61e01f82644c4bb533750cfa0d6d61ab61d2cc9b/skills/bmad-toolsmith/approaches/from-logs.md)
+  extracts repeated requests, tool sequences and verbatim corrections, excludes installed
+  coverage and proposes at most three skill candidates. This can recover missed cases, but our
+  accepted evaluation design already keeps retrospective transcript reading as a reserve behind
+  capturing failures when they happen. It supplies no reason to add a parallel failure register.
+
+The independent reading below received only the question of choosing practices from another
+AI development process for an existing process that preserves decisions between sessions. It
+was forbidden to read this repository and was given neither BMAD nor this session's candidate
+list. Its material follows verbatim; it provides alternative frames, not evidence that any
+candidate improves this harness.
+
+> ## Families
+>
+> **1. Перенос между средами.** Шкала: *копирование при одинаковых условиях → адаптация при частичном совпадении → изобретение по мотивам*. Заимствование из чужого процесса обычно лежит посередине: переносится предполагаемая причина пользы, а её воплощение меняется. Структурное соответствие — одинаковая проблема при сопоставимых ограничениях; одинаковые файлы, команды и названия ролей его не доказывают. Провалы: перенести средство без проблемы, принять успех команды за эффект практики, не заметить, что принимающий процесс уже решает задачу другим способом. **Уверенность:** высокая в различении; низкая в положении конкретной практики без сведений о двух средах.
+>
+> **2. Проверка причинного эффекта.** Шкала: *правдоподобный рассказ → наблюдаемое совместное изменение → различимый эффект вмешательства*. Чужой удачный пример находится ближе к началу шкалы: он даёт гипотезу, которую можно испытывать на собственных случаях. Структурное соответствие появляется, когда можно назвать ожидаемое изменение поведения и отличить его от последствий других изменений. Провалы: одновременно заменить несколько практик; выбрать удобные случаи; считать объём записей или число проверок мерой качества; измерить ближайший выигрыш, пропустив стоимость следующих сессий. **Уверенность:** высокая в ограничениях свидетельства; средняя в возможности достаточно чистого испытания рабочего процесса.
+>
+> **3. Надёжность при отказах.** Шкала: *предотвращение ошибки → обнаружение → ограничение ущерба → восстановление*. Заимствование занимает место по тому, какой отказ оно обслуживает. Например, сохранённое решение помогает восстановить контекст; независимая проверка может обнаруживать ошибки — это разные функции. Структурное соответствие требует совпадения самого отказа и пути его распространения. Сходство с «памятью» или «контуром обратной связи» само по себе ничего не даёт. Провалы: добавить ещё одну проверку того, что уже проверяется; сохранить ошибочное решение надолго; усилить контроль настолько, что обход правил станет дешевле соблюдения. **Уверенность:** высокая в функциональном различении; средняя в переносимости отдельных средств защиты.
+>
+> **4. Изменение распределения власти.** Шкала: *личный приём → общая договорённость → обязательное правило → изменение права принимать решения*. Практика располагается здесь по своим последствиям: кто получает возможность разрешать, запрещать и пересматривать работу. Даже небольшой файл может оказаться далеко справа. Структурное соответствие — совпадение отношений между решением, его владельцем и исполнителем; сходство организационных названий недостаточно. Провалы: два конкурирующих источника истины; сохранённая рекомендация незаметно становится приказом; право пересмотра исчезает; стоимость правила оплачивает каждая сессия. **Уверенность:** высокая в полезности этого различения; низкая в оценке конкретного изменения без разбора действующих полномочий.
+>
+> ## What the tasking smuggled in
+>
+> Постановка предполагает, что:
+>
+> - работающий процесс стоит сохранять, хотя его работоспособность ещё не равна пригодности;
+> - чужую практику можно отделить от навыков людей, инструментов и остальных договорённостей;
+> - сохранение решений между сессиями — преимущество, хотя оно также сохраняет ошибки;
+> - выбирать следует отдельные практики, хотя полезный эффект иногда принадлежит сочетанию;
+> - заимствование вообще нужно: наблюдаемая трудность может требовать удаления собственного механизма.
+>
+> ## Nothing to take
+>
+> Заимствовать нечего, если не удаётся назвать собственную неудовлетворённую потребность, соответствующий ей механизм чужой практики и условия, при которых он перестаёт помогать. Тогда остаётся материал для вопросов. Общее присутствие ИИ, Markdown, ролей и нескольких сессий структурного соответствия не устанавливает.
