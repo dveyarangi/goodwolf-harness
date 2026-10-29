@@ -4,6 +4,8 @@
     python .agents/scripts/gw/harness.py <target> --install [--from REPOSITORY] [--at REF]
     python .agents/scripts/gw/harness.py <target> --update [--overwrite] [--from REPOSITORY] [--at REF]
     python .agents/scripts/gw/harness.py <target> --check [--from REPOSITORY]
+    python .agents/scripts/gw/harness.py <target> --links
+    python .agents/scripts/gw/harness.py <target> --pre-push [REMOTE] < <the ref lines Git hands a pre-push hook>
 
 The source is always the repository, cloned whole and without a checkout into a temporary
 directory and read through git, so what a recipient receives is what a commit holds and never a
@@ -27,11 +29,13 @@ import io  # noqa: E402
 import json  # noqa: E402
 import os  # noqa: E402
 import re  # noqa: E402
+import secrets  # noqa: E402
 import shutil  # noqa: E402
 import stat  # noqa: E402
 import subprocess  # noqa: E402
 import tarfile  # noqa: E402
 import tempfile  # noqa: E402
+import time  # noqa: E402
 from dataclasses import dataclass, field  # noqa: E402
 from datetime import datetime, timezone  # noqa: E402
 from pathlib import Path, PurePosixPath  # noqa: E402
@@ -79,7 +83,8 @@ _USAGE = (
     "usage: harness.py <target> --install [--replace-clone] [--from REPOSITORY] [--at REF]\n"
     "       harness.py <target> --update [--overwrite] [--from REPOSITORY] [--at REF]\n"
     "       harness.py <target> --check [--from REPOSITORY]\n"
-    "       harness.py <target> --links"
+    "       harness.py <target> --links\n"
+    "       harness.py <target> --pre-push [REMOTE]  (the ref lines on standard input)"
 )
 
 
@@ -123,12 +128,15 @@ class Report:
     excluded: list[str] = field(default_factory=list)
     links_resolve: dict = field(default_factory=dict)
     interpreter: dict = field(default_factory=dict)
+    hook: dict = field(default_factory=dict)
     notes: list[str] = field(default_factory=list)
     refusals: list[str] = field(default_factory=list)
     arrived: bool = False
 
     def as_record(self) -> dict:
         record = dict(self.__dict__)
+        if not self.hook:
+            del record["hook"]
         if self.mode == "links":
             # No gate ran: a verdict printed false would read as an install that failed.
             for verdict in ("arrived", "gates", "ref"):
@@ -137,6 +145,8 @@ class Report:
 
 
 def main(argv: list[str]) -> int:
+    if len(argv) in (2, 3) and argv[1] == "--pre-push":
+        return pre_push(Path(argv[0]), argv[2] if len(argv) == 3 else "", sys.stdin.read())
     parsed = _parsed(argv)
     if parsed is None:
         print(_USAGE)
@@ -201,6 +211,7 @@ def link(target: Path, report: Report) -> None:
     _make_links(target, plan, report)
     _exclude_links(target, plan, report)
     _record_interpreter(target, report)
+    _write_push_hook(target, report)
     report.links_resolve = _links_resolve(target)
 
 
@@ -1172,6 +1183,61 @@ def _record_interpreter(target: Path, report: Report) -> None:
     report.interpreter = {"record": sys.executable, "state": "written"}
 
 
+def _write_push_hook(target: Path, report: Report) -> None:
+    """The clone's `pre-push`, written where Git names it and only inside the project — its Git
+    directory, or a hooks folder of its own work tree — and only where none stands or the one
+    standing is core's. Beside another's hook, in husky's folder, or where Git names a folder
+    outside the project, nothing is written and the report gives the line and its place: husky
+    writes its folder anew at each install, and a folder outside the project serves every
+    repository of the machine."""
+    named = _git_in(target, "rev-parse", "--path-format=absolute", "--git-path", f"hooks/{PUSH_HOOK}")
+    common = _git_in(target, "rev-parse", "--path-format=absolute", "--git-common-dir")
+    if named is None or common is None:
+        report.notes.append("git named no place for the pre-push hook: pushes here are checked by CI alone")
+        return
+    hook = Path(named)
+    inside = _within(hook, Path(common)) or _within(hook, target)
+    if not inside:
+        report.hook = {"path": str(hook), "state": "outside",
+                       "said": "a hooks folder outside the project: this clone is checked by CI alone until a person places the line",
+                       "line": SHARED_INPUT_LINES}
+        return
+    if _within(hook, target / ".husky"):
+        report.hook = {"path": str(hook), "state": "beside", "tool": "husky",
+                       "place": str(target / ".husky" / PUSH_HOOK) + ", first", "line": SHARED_INPUT_LINES}
+        return
+    held = _read(hook) if hook.is_file() else None
+    if held is not None and held not in CORE_PUSH_HOOKS:
+        report.hook = {"path": str(hook), "state": "beside", **_beside(held, hook)}
+        return
+    if held == PUSH_HOOK_TEXT:
+        report.hook = {"path": str(hook), "state": "kept"}
+        return
+    _write_text(hook, PUSH_HOOK_TEXT)
+    os.chmod(hook, os.stat(hook).st_mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH)
+    report.hook = {"path": str(hook), "state": "written"}
+
+
+def _beside(held: str, hook: Path) -> dict:
+    """Another tool's hook, told by what it holds: lefthook and the pre-commit framework write the
+    hook file themselves, and the framework hands a hook no ref lines."""
+    if "lefthook" in held:
+        return {"tool": "lefthook", "place": "lefthook.yml, a pre-push command with use_stdin: true",
+                "line": LEFTHOOK_LINE}
+    if "pre-commit.com" in held or "pre_commit" in held:
+        return {"tool": "pre-commit", "place": None,
+                "said": "it hands a hook no ref lines: this clone is checked by CI alone", "line": None}
+    return {"tool": None, "place": f"{hook}, first", "line": SHARED_INPUT_LINES}
+
+
+def _within(path: Path, folder: Path) -> bool:
+    try:
+        path.resolve().relative_to(folder.resolve())
+    except ValueError:
+        return False
+    return True
+
+
 def _remove_link(path: Path) -> None:
     # Windows removes a directory symlink through rmdir, not unlink; the link itself goes, never its target.
     try:
@@ -1349,14 +1415,348 @@ def _links_resolve(target: Path) -> dict[str, bool]:
 
 
 def _python(target: Path, arguments: list[str]) -> subprocess.CompletedProcess:
-    environment = {**os.environ, "PYTHONDONTWRITEBYTECODE": "1"}
     return subprocess.run(
-        [sys.executable, *arguments], cwd=target, capture_output=True, encoding="utf-8", env=environment
+        [sys.executable, *arguments], cwd=target, capture_output=True, encoding="utf-8", env=_child_environment()
     )
+
+
+def _python_started(target: Path, arguments: list[str], output, errors, environment: dict) -> subprocess.Popen:
+    """A check started and left running, writing to the files it is handed; on POSIX it leads a
+    session of its own, so its whole group can be ended."""
+    return subprocess.Popen(
+        [sys.executable, *arguments], cwd=target, stdout=output, stderr=errors,
+        env=_child_environment(environment), start_new_session=os.name != "nt",
+    )
+
+
+def _child_environment(base: dict | None = None) -> dict:
+    """A child writes UTF-8 whatever the platform's code page: on Windows a piped stdout otherwise
+    takes the code page, and a check printing a character outside it gave its reader nothing."""
+    return {**(os.environ if base is None else base), "PYTHONDONTWRITEBYTECODE": "1", "PYTHONUTF8": "1"}
 
 
 def _last_lines(text: str | None, keep: int = 3) -> list[str]:
     return [line for line in (text or "").strip().splitlines() if line][-keep:]
+
+
+# --- the push's check ------------------------------------------------------------------------
+
+# The method's roots: a push that carries a path under one of them wakes the checks, one that
+# carries none runs nothing. `hook.sh` matches the same roots before an interpreter starts.
+# TODO q-0037.0006.0005.0001: the roots stand here and in `hook.sh` until each mechanism's table of
+# its records carries them.
+METHOD_DIRECTORIES = ("docs/", ".agents/")
+METHOD_FILES = (ENTRY_FILE, HOST_STUB, LOCAL_FILE)
+PUSH_CHECKS = ("questions", "sessions", "tickets", "product", "edges", "mechanisms", "inject_rules", "maintain")
+CHECK_LIMIT = 60.0  # seconds a check may run, counted from its start
+COPY_MARK = "gw-push-"
+# The tree's names are fitted to a clone 128 deep: on Windows a copy no deeper than that holds every
+# name the tree carries.
+COPY_DEPTH = 128
+PUSH_HOOK = "pre-push"
+PUSH_HOOK_MARK = "# goodwolf: written by harness.py --links; the checks of the method's records at push"
+PUSH_HOOK_TEXT = (
+    "#!/bin/sh\n"
+    f"{PUSH_HOOK_MARK}\n"
+    "[ -f .agents/scripts/gw/hook.sh ] && [ -f .agents/scripts/gw/harness.py ] || exit 0\n"
+    'exec sh .agents/scripts/gw/hook.sh pre-push "$@"\n'
+)
+# Every form a link step has written; a hook holding exactly one of them is core's to rewrite.
+CORE_PUSH_HOOKS = (PUSH_HOOK_TEXT,)
+# Beside another's hook: read the ref lines once, and hand them to every command that reads them.
+SHARED_INPUT_LINES = (
+    "refs=$(cat)\n"
+    'printf \'%s\\n\' "$refs" | sh .agents/scripts/gw/hook.sh pre-push "$@" || exit 1\n'
+    "# then, for each command below that reads the ref lines:  printf '%s\\n' \"$refs\" | <that command>\n"
+)
+LEFTHOOK_LINE = "sh .agents/scripts/gw/hook.sh pre-push {1}"
+
+
+def pre_push(target: Path, remote: str, ref_lines: str) -> int:
+    """A push is checked in a copy of what it sends: each commit it sends that carries a path under
+    the method's roots is checked out on its own, the checks its core has run there side by side,
+    and any finding refuses the push. What is checked is what is sent, and no other session's
+    unfinished write is in it."""
+    _speak_utf8()
+    target = _work_tree_root(target, source=None)
+    if not (target / SCRIPTS).is_dir():
+        print(f"pre-push: {target} holds no {SCRIPTS}; nothing to check")
+        return 0
+    _sweep_abandoned_copies(target)
+    refusals: list[str] = []
+    for commit in _woken_commits(target, remote, ref_lines):
+        refusals += _refusals_in_a_copy(target, commit)
+    for refusal in refusals:
+        print(f"refused: {refusal}")
+    return 1 if refusals else 0
+
+
+def _woken_commits(target: Path, remote: str, ref_lines: str) -> list[str]:
+    """Each distinct commit a pushed ref sends whose listing carries a path under the method's
+    roots, or cannot be listed: what cannot be listed is checked. A deletion, and a ref that names
+    no commit, send nothing to check."""
+    woken: list[str] = []
+    for line in ref_lines.splitlines():
+        fields = line.split()
+        if len(fields) != 4 or _is_zero(fields[1]):
+            continue
+        commit = _git_in(target, "rev-parse", "--verify", "--quiet", f"{fields[1]}^{{commit}}")
+        if commit is None or commit in woken:
+            continue
+        paths = _carried_paths(target, commit, fields[3], remote)
+        if paths is None or any(_under_the_method(path) for path in paths):
+            woken.append(commit)
+    return woken
+
+
+def _carried_paths(target: Path, commit: str, remote_sha: str, remote: str) -> list[str] | None:
+    """What lands: for a ref the remote has, its tree moved to this one, so a force push back to an
+    older tree is listed by what it changes; for a ref it lacks, every commit it does not have, a
+    root commit's files and a merge's resolution counted. None when Git cannot list it."""
+    if _is_zero(remote_sha):
+        listing = ["log", "--root", "--no-renames", "--diff-merges=first-parent", "--name-only",
+                   "-z", "--format=", commit, "--not", f"--remotes={remote}" if remote else "--remotes"]
+    else:
+        listing = ["diff", "--no-renames", "--name-only", "-z", remote_sha, commit]
+    done = _git_said(target, *listing)
+    if done.returncode != 0:
+        return None
+    return [path for path in done.stdout.split("\0") if path]
+
+
+def _under_the_method(path: str) -> bool:
+    return path.startswith(METHOD_DIRECTORIES) or path in METHOD_FILES
+
+
+def _is_zero(sha: str) -> bool:
+    return set(sha) == {"0"}
+
+
+def _refusals_in_a_copy(target: Path, commit: str) -> list[str]:
+    """The commit checked out on its own, its checks run there, and the copy removed whatever they
+    did. On Windows a copy deeper than the tree's names are fitted to refuses by name: a push that
+    cannot be checked is never passed as clean."""
+    copy = Path(tempfile.gettempdir()) / f"{COPY_MARK}{os.getpid()}-{int(time.time())}-{secrets.token_hex(3)}"
+    if os.name == "nt" and len(str(copy)) > COPY_DEPTH:
+        return [f"the copy of {commit[:12]} would stand at {copy}, deeper than {COPY_DEPTH} characters"]
+    with tempfile.TemporaryDirectory(prefix="gw-out-") as outputs:
+        made = _git_said_plainly(
+            target, {"GIT_LFS_SKIP_SMUDGE": "1"}, "-c", f"core.hooksPath={outputs}",
+            "worktree", "add", "--detach", "--lock", str(copy), commit,
+        )
+        if made.returncode != 0:
+            return [f"the copy of {commit[:12]} could not be made: {_last_lines(made.stderr)}"]
+        try:
+            return _refusals_of_the_checks(copy, commit, Path(outputs))
+        finally:
+            _remove_copy(target, copy)
+
+
+def _refusals_of_the_checks(copy: Path, commit: str, outputs: Path) -> list[str]:
+    """The checks the copy's core has, every one started before any is read; a commit with no
+    core has nothing to check, and one whose core lacks a check runs the others and says which."""
+    present = [name for name in PUSH_CHECKS if (copy / SCRIPTS / f"{name}.py").is_file()]
+    if not present:
+        print(f"pre-push: {commit[:12]} holds no {SCRIPTS}; nothing to check")
+        return []
+    lacking = [name for name in PUSH_CHECKS if name not in present]
+    if lacking:
+        print(f"pre-push: {commit[:12]}'s core has no {', '.join(lacking)}; the others run")
+    environment = _checks_environment(copy)
+    with _ProcessTrees() as trees:
+        running = [(name, _started_check(copy, name, outputs, environment, trees)) for name in present]
+        return [refusal for name, run in running for refusal in _refusals_of(name, run, commit)]
+
+
+@dataclass
+class _Run:
+    process: subprocess.Popen
+    started: float
+    output: Path
+    errors: Path
+
+
+def _started_check(copy: Path, name: str, outputs: Path, environment: dict, trees: "_ProcessTrees") -> _Run:
+    """A check writes to a file of its own: `tickets` and `mechanisms` print past a pipe's buffer,
+    and a check blocked on a full pipe would spend its limit waiting to be read."""
+    output, errors = outputs / f"{name}.out", outputs / f"{name}.err"
+    with output.open("wb") as said, errors.open("wb") as complained:
+        process = _python_started(copy, [str(copy / SCRIPTS / f"{name}.py"), "--check"], said, complained, environment)
+    trees.add(process)
+    return _Run(process, time.monotonic(), output, errors)
+
+
+def _refusals_of(name: str, run: _Run, commit: str) -> list[str]:
+    """Any check that exits non-zero refuses, its entries named; one that cannot be read, or runs
+    past its limit, refuses with its last lines — a check that cannot be read is never clean."""
+    try:
+        status = run.process.wait(timeout=max(0.0, run.started + CHECK_LIMIT - time.monotonic()))
+    except subprocess.TimeoutExpired:
+        return [f"{name} did not finish in {CHECK_LIMIT:.0f} s at {commit[:12]}"]
+    said = run.output.read_bytes()
+    if status == 0:
+        return []
+    try:
+        text = said.decode("utf-8")
+        report = json.loads(text)
+    except (UnicodeDecodeError, json.JSONDecodeError):
+        text, report = said.decode("utf-8", "replace"), None
+    entries = (report.get("diagnostics") or []) + (report.get("skipped") or []) if isinstance(report, dict) else []
+    if not entries:
+        last = _last_lines(text) or _last_lines(run.errors.read_bytes().decode("utf-8", "replace"))
+        return [f"{name} failed at {commit[:12]}: {' / '.join(last) or f'exit {status}'}"]
+    return [f"{name}: {_entry(entry)}" for entry in entries]
+
+
+def _entry(entry: object) -> str:
+    """A check's entry as the person reads it: its file and line where it has them, then the
+    problem. `inject_rules` and `maintain` report strings, `mechanisms` a mechanism."""
+    if not isinstance(entry, dict):
+        return str(entry)
+    place = entry.get("record") or entry.get("mechanism") or ""
+    if place and entry.get("line"):
+        place = f"{place}:{entry['line']}"
+    problem = entry.get("problem") or entry.get("why") or json.dumps(entry, ensure_ascii=False)
+    return f"{place}: {problem}" if place else str(problem)
+
+
+def _checks_environment(copy: Path) -> dict:
+    """What Git exports to its hooks would send a check's own Git calls to the clone, not the copy:
+    `GIT_DIR` from a linked worktree, `GIT_INDEX_FILE` from a commit hook. Git's own list of them is
+    cleared."""
+    environment = dict(os.environ)
+    for name in _local_git_variables(copy):
+        environment.pop(name, None)
+    return environment
+
+
+def _local_git_variables(where: Path) -> list[str]:
+    done = subprocess.run(["git", "rev-parse", "--local-env-vars"], cwd=where, capture_output=True, encoding="utf-8")
+    return done.stdout.split() if done.returncode == 0 else ["GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE"]
+
+
+def _git_said_plainly(target: Path, setting: dict, *arguments: str) -> subprocess.CompletedProcess:
+    """A Git call that makes or removes a copy: `GIT_INDEX_FILE`, as a commit hook exports it, would
+    have the copy's index written into that file and leave the copy none."""
+    environment = {key: value for key, value in os.environ.items() if key != "GIT_INDEX_FILE"}
+    environment.update(setting)
+    return subprocess.run(["git", "-C", str(target), *arguments], capture_output=True, encoding="utf-8", env=environment)
+
+
+def _remove_copy(target: Path, copy: Path) -> None:
+    """Git deletes its own record of a copy even when the folder will not go, so the folder is then
+    deleted here; a removal that still fails is said, with the folder, and the verdict stands."""
+    _git_said_plainly(target, {}, "worktree", "remove", "-f", "-f", str(copy))
+    if copy.exists():
+        try:
+            shutil.rmtree(copy, onexc=_writable_then_retry)
+        except OSError:
+            pass
+    if copy.exists():
+        print(f"pre-push: the copy at {copy} could not be removed")
+
+
+def _sweep_abandoned_copies(target: Path) -> None:
+    """Copies a killed push left: each named by this mode's mark, whose process is no longer alive,
+    in the temporary directory and in Git's own list. A copy a live push holds is never touched, and
+    no other worktree of the clone is pruned."""
+    marked = {path for path in Path(tempfile.gettempdir()).glob(f"{COPY_MARK}*")}
+    listed = _git_in(target, "worktree", "list", "--porcelain") or ""
+    marked |= {Path(line[len("worktree "):]) for line in listed.splitlines()
+               if line.startswith("worktree ") and Path(line[len("worktree "):]).name.startswith(COPY_MARK)}
+    for copy in marked:
+        owner = _copy_owner(copy.name)
+        if owner is not None and not _alive(*owner):
+            _remove_copy(target, copy)
+
+
+def _copy_owner(name: str) -> tuple[int, float] | None:
+    match = re.fullmatch(rf"{re.escape(COPY_MARK)}(\d+)-(\d+)-[0-9a-f]+", name)
+    return (int(match.group(1)), float(match.group(2))) if match else None
+
+
+def _alive(pid: int, made_at: float) -> bool:
+    """Whether the push that made a copy still runs. On Windows a pid is soon reused, so the
+    process must also have started before the copy was made."""
+    if os.name != "nt":
+        try:
+            os.kill(pid, 0)
+        except ProcessLookupError:
+            return False
+        except PermissionError:
+            return True
+        return True
+    import ctypes
+    from ctypes import wintypes
+
+    kernel = ctypes.WinDLL("kernel32", use_last_error=True)
+    handle = kernel.OpenProcess(0x1000, False, pid)  # PROCESS_QUERY_LIMITED_INFORMATION
+    if not handle:
+        return ctypes.get_last_error() == 5  # access denied: someone's process, alive
+    try:
+        code = wintypes.DWORD()
+        kernel.GetExitCodeProcess(handle, ctypes.byref(code))
+        if code.value != 259:  # STILL_ACTIVE
+            return False
+        times = [wintypes.FILETIME() for _ in range(4)]
+        kernel.GetProcessTimes(handle, *(ctypes.byref(each) for each in times))
+        started = ((times[0].dwHighDateTime << 32) | times[0].dwLowDateTime) / 1e7 - 11644473600
+        return started <= made_at + 1
+    finally:
+        kernel.CloseHandle(handle)
+
+
+class _ProcessTrees:
+    """Every check started in a copy is ended with every process it started before the copy goes:
+    a grandchild holding a file open keeps Windows from deleting the copy. On Windows each check
+    is put in one Job Object, terminated on leaving; elsewhere each leads a session of its own,
+    whose group is ended."""
+
+    def __enter__(self) -> "_ProcessTrees":
+        self.processes: list[subprocess.Popen] = []
+        self.job = None
+        if os.name == "nt":
+            import ctypes
+
+            self.kernel = ctypes.WinDLL("kernel32", use_last_error=True)
+            self.kernel.CreateJobObjectW.restype = ctypes.c_void_p
+            self.job = self.kernel.CreateJobObjectW(None, None)
+        return self
+
+    def add(self, process: subprocess.Popen) -> None:
+        self.processes.append(process)
+        if self.job:
+            import ctypes
+
+            self.kernel.AssignProcessToJobObject(ctypes.c_void_p(self.job), ctypes.c_void_p(int(process._handle)))
+
+    def __exit__(self, *_: object) -> None:
+        if self.job:
+            import ctypes
+
+            self.kernel.TerminateJobObject(ctypes.c_void_p(self.job), 1)
+            self.kernel.CloseHandle(ctypes.c_void_p(self.job))
+        else:
+            import signal
+
+            for process in self.processes:
+                try:
+                    os.killpg(process.pid, signal.SIGKILL)
+                except (ProcessLookupError, PermissionError):
+                    pass
+        for process in self.processes:
+            try:
+                process.wait(timeout=10)
+            except subprocess.TimeoutExpired:
+                pass
+
+
+def _speak_utf8() -> None:
+    """The mode prints the paths its checks name through the pipe an agent's tool reads; on Windows
+    that pipe's default code page cannot hold them all."""
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
 
 
 # --- helpers ---------------------------------------------------------------------------------

@@ -94,7 +94,12 @@ the clone's own copy with no source; whatever plans a link names it in the clone
 which Git locates. The same step records the interpreter that ran it in the clone's Git directory,
 which no commit carries: every core hook runs through a wrapper that reads it, so a hook needs no
 `uv` and no `python` on the path, and a clone without the record is told which step makes it *(the
-user, 2026-10-09)*. A run that fails after it began writing stops, reports what it wrote, what was
+user, 2026-10-09)*. <straw-dog question="q-0037.0006.0022">The same step writes the clone's
+`pre-push`, which checks a push in a copy of what it sends and refuses it on a record of the method
+that fails its check, a push of code starting no interpreter: only inside the project — its Git
+directory, or a hooks folder of its own work tree — and only where none or core's stands; beside
+another's hook, in husky's folder or in one outside the project it writes nothing, and the report
+gives the line and its place *(the user, 2026-10-26 and 2026-10-29)*.</straw-dog> A run that fails after it began writing stops, reports what it wrote, what was
 pending and the path that failed, and rolls nothing back: the person recovers from the files as
 they stand.
 
@@ -137,6 +142,8 @@ is not a part: it never ships, and a recipient has its own.
 | writing a tree's empty product document, by the product seed | `.agents/scripts/gw/harness.py` | |
 | merging core's hook wiring into each host's file | `.agents/scripts/gw/harness.py` | |
 | recording, per clone, the interpreter the hooks run under | `.agents/scripts/gw/harness.py` | |
+| writing the clone's `pre-push` inside the project, or giving the line beside another's hook | `.agents/scripts/gw/harness.py` | |
+| checking a push in a copy of what it sends, and refusing it on a finding | `.agents/scripts/gw/harness.py` | |
 | removing one mechanism from a tree | — | <straw-dog question="q-0037.0006.0013.0002">not yet</straw-dog> |
 | turning a clean clone of the origin, standing where the project was meant, into an install | `.agents/scripts/gw/harness.py` | |
 | sending a change back to the repository | — | <straw-dog question="q-0037.0006.0018">not yet</straw-dog> |
@@ -186,6 +193,10 @@ would otherwise fail the shape check for the same absence the report already nam
   this tree's core comes from, or pointing it somewhere else.
 - **Each host's hook file, core's entries merged in** — *what exists* — read by that host at session
   start and before each message, and by `--check`, which compares core's entries alone.
+- **The clone's `pre-push`** — *what exists* — in its Git directory or a hooks folder of the
+  project's own work tree, run by Git at each push, which it refuses while what the push sends holds a
+  record of the method that fails its check; made by the link step, never where husky keeps its
+  hooks nor outside the project, where the report gives the line and its place.
 - **The interpreter record**, in the clone's Git directory — *what exists* — read by the hooks'
   wrapper before every hook; made by the link step, so `--links` is the one step a fresh clone runs.
 - **The pending command** — *what exists* — read by a person, once, in an elevated prompt.

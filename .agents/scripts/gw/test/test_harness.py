@@ -10,11 +10,14 @@ import io
 import json
 import os
 import shutil
+import stat
 import subprocess
 import sys
 import tempfile
+import time
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from repository import SCRIPTS, RepositoryCase, folder_listing, proves_a_process
 
@@ -2026,6 +2029,364 @@ class TheLinkStep(TwoTrees):
             self.assertTrue(all(report["links_resolve"].values()))
         else:
             self.assertEqual(["pending", "pending"], [link["state"] for link in report["links"]])
+
+
+
+# A check as the copy holds it: it reads the record named, and finds it broken when its text says so.
+JUDGING_CHECK = (
+    "import json, sys\nfrom pathlib import Path\n"
+    "broken = [str(p.as_posix()) for p in Path('docs').rglob('*.md') if 'broken' in p.read_text(encoding='utf-8')]\n"
+    "print(json.dumps({'diagnostics': [{'record': name, 'line': 1, 'problem': 'broken here'} for name in broken]}, ensure_ascii=False))\n"
+    "sys.exit(1 if broken else 0)\n"
+)
+CLEAN_CHECK = "import json\nprint(json.dumps({'diagnostics': []}))\n"
+
+
+class ThePushCheck(RepositoryCase):
+    """A push checked in a copy of what it sends: the mode, given the ref lines Git hands a
+    `pre-push` hook."""
+
+    proves_a_process = True
+
+    def setUp(self) -> None:
+        super().setUp()
+        for name in harness.PUSH_CHECKS:
+            self.write(f".agents/scripts/gw/{name}.py", CLEAN_CHECK)
+        self.write(".agents/scripts/gw/tickets.py", JUDGING_CHECK)
+        self.write("docs/tickets/one.md", "# One\n")
+        self.commit("first")
+        self.remote = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, self.remote, False, harness._writable_then_retry)
+        subprocess.run(["git", "init", "-q", "--bare", str(self.remote)], check=True)
+        self.git("remote", "add", "origin", str(self.remote))
+        self.git("push", "-q", "origin", "HEAD:refs/heads/main")
+        self.pushed = self.git("rev-parse", "HEAD").strip()
+
+    def refs(self, local: str | None = None, remote: str | None = None) -> str:
+        local = local or self.git("rev-parse", "HEAD").strip()
+        return f"refs/heads/main {local} refs/heads/main {remote or self.pushed}\n"
+
+    def pushing(self, ref_lines: str) -> tuple[int, str]:
+        said = io.StringIO()
+        with mock.patch.object(sys, "stdin", io.StringIO(ref_lines)), contextlib.redirect_stdout(said):
+            status = harness.main([str(self.root), "--pre-push", "origin"])
+        return status, said.getvalue()
+
+    def copies(self) -> list[Path]:
+        return [path for path in Path(tempfile.gettempdir()).glob(f"{harness.COPY_MARK}{os.getpid()}-*")]
+
+    def test_a_record_broken_in_the_pushed_commit_refuses_and_names_its_file_and_line(self) -> None:
+        self.write("docs/tickets/one.md", "# One, broken\n")
+        self.commit("break")
+
+        status, said = self.pushing(self.refs())
+
+        self.assertEqual(1, status, said)
+        self.assertIn("tickets: docs/tickets/one.md:1: broken here", said)
+        self.assertEqual([], self.copies())
+
+    def test_what_is_judged_is_the_commit_not_the_working_tree(self) -> None:
+        self.write("docs/tickets/one.md", "# One, broken\n")
+        self.commit("break")
+        self.write("docs/tickets/one.md", "# One, mended on disk only\n")
+        self.assertEqual(1, self.pushing(self.refs())[0])
+
+        self.write("docs/tickets/one.md", "# One\n")
+        self.commit("mend")
+        self.write("docs/tickets/two.md", "# Two, broken by another session, unstaged\n")
+        self.assertEqual((0, ""), self.pushing(self.refs()))
+
+    def test_a_push_of_code_alone_or_of_nothing_wakes_no_check(self) -> None:
+        self.write(".agents/scripts/gw/tickets.py", "raise SystemExit('should not have run')\n")
+        self.git("add", "-A")
+        self.git("commit", "-qm", "a check that would fail", "--no-verify")
+        self.git("push", "-q", "origin", "HEAD:refs/heads/main")
+        self.pushed = self.git("rev-parse", "HEAD").strip()
+        self.write("code.py", "pass\n")
+        self.commit("code")
+
+        self.assertEqual((0, ""), self.pushing(self.refs()))
+        self.assertEqual((0, ""), self.pushing(""))
+        zero = "0" * 40
+        self.assertEqual((0, ""), self.pushing(f"(delete) {zero} refs/heads/main {self.pushed}\n"))
+
+    def test_a_force_push_back_to_an_older_tree_is_listed_by_what_it_changes(self) -> None:
+        self.write("docs/tickets/one.md", "# One, broken\n")
+        self.commit("break")
+        broken = self.git("rev-parse", "HEAD").strip()
+        self.write("docs/tickets/one.md", "# One\n")
+        self.commit("mend")
+        mended = self.git("rev-parse", "HEAD").strip()
+        self.git("reset", "-q", "--hard", broken)
+        self.write("code.py", "pass\n")
+        self.commit("code on the broken tree")
+
+        status, said = self.pushing(self.refs(remote=mended))
+
+        self.assertEqual(1, status, said)
+
+    def test_a_failure_only_in_skipped_and_an_unreadable_check_refuse(self) -> None:
+        self.write("docs/tickets/one.md", "# One, touched\n")
+        self.commit("touch")
+        self.write(".agents/scripts/gw/edges.py",
+                   "import json, sys\nprint(json.dumps({'diagnostics': [], 'skipped': [{'record': 'docs/edge/x.md', 'why': 'not UTF-8'}]}))\nsys.exit(1)\n")
+        self.write(".agents/scripts/gw/maintain.py", "import sys\nprint('no report at all')\nsys.exit(3)\n")
+        self.write(".agents/scripts/gw/inject_rules.py",
+                   "import json, sys\nprint(json.dumps({'diagnostics': ['ticket: drifted block in AGENTS.md']}))\nsys.exit(1)\n")
+        self.commit("checks that fail three ways")
+
+        status, said = self.pushing(self.refs())
+
+        self.assertEqual(1, status, said)
+        self.assertIn("edges: docs/edge/x.md: not UTF-8", said)
+        self.assertIn("maintain failed", said)
+        self.assertIn("no report at all", said)
+        self.assertIn("inject_rules: ticket: drifted block in AGENTS.md", said)
+        self.assertNotIn("Traceback", said)
+
+    def test_a_check_past_its_limit_refuses_and_leaves_no_copy(self) -> None:
+        self.write(".agents/scripts/gw/edges.py", "import time\ntime.sleep(30)\n")
+        self.commit("a hanging check")
+
+        with mock.patch.object(harness, "CHECK_LIMIT", 1.0):
+            status, said = self.pushing(self.refs())
+
+        self.assertEqual(1, status, said)
+        self.assertIn("edges did not finish in 1 s", said)
+        self.assertEqual([], self.copies())
+
+    def test_every_check_starts_before_any_is_read(self) -> None:
+        meeting = (
+            "import json, os, sys, time\nfrom pathlib import Path\n"
+            "here = Path(os.environ['GW_TEST_MEETING'])\n"
+            "(here / Path(__file__).stem).touch()\n"
+            "deadline = time.monotonic() + 20\n"
+            f"while len(list(here.iterdir())) < {len(harness.PUSH_CHECKS)}:\n"
+            "    if time.monotonic() > deadline: sys.exit('ran one after another')\n"
+            "    time.sleep(0.02)\n"
+            "print(json.dumps({'diagnostics': []}))\n"
+        )
+        for name in harness.PUSH_CHECKS:
+            self.write(f".agents/scripts/gw/{name}.py", meeting)
+        self.commit("checks that meet")
+        meeting_place = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, meeting_place, True)
+
+        with mock.patch.dict(os.environ, {"GW_TEST_MEETING": meeting_place}):
+            self.assertEqual((0, ""), self.pushing(self.refs()))
+
+    def test_a_commit_without_core_has_nothing_to_check_and_a_core_lacking_a_check_runs_the_rest(self) -> None:
+        self.git("rm", "-q", "-r", "--", ".agents/scripts/gw")
+        self.write("docs/tickets/one.md", "# One, broken but core is gone\n")
+        self.commit("no core")
+        status, said = self.pushing(self.refs())
+        self.assertEqual(0, status, said)
+        self.assertIn("nothing to check", said)
+
+        self.git("reset", "-q", "--hard", self.pushed)
+        self.git("rm", "-q", "--", ".agents/scripts/gw/sessions.py")
+        self.write("docs/tickets/one.md", "# One, broken\n")
+        self.commit("an older core")
+        status, said = self.pushing(self.refs())
+        self.assertEqual(1, status, said)
+        self.assertIn("has no sessions", said)
+
+    def test_an_abandoned_copy_is_swept_and_a_live_one_kept(self) -> None:
+        dead = Path(tempfile.gettempdir()) / f"{harness.COPY_MARK}999999-1-abcdef"
+        live = Path(tempfile.gettempdir()) / f"{harness.COPY_MARK}{os.getpid()}-{int(time.time())}-fedcba"
+        for folder in (dead, live):
+            folder.mkdir()
+            self.addCleanup(shutil.rmtree, folder, True)
+
+        harness._sweep_abandoned_copies(self.root)
+
+        self.assertFalse(dead.exists())
+        self.assertTrue(live.exists())
+
+    def test_a_commit_hooks_index_file_does_not_take_the_copys_index(self) -> None:
+        self.write("docs/tickets/one.md", "# One, broken\n")
+        self.commit("break")
+        foreign = self.root / ".git" / "foreign-index"
+
+        with mock.patch.dict(os.environ, {"GIT_INDEX_FILE": str(foreign)}):
+            status, said = self.pushing(self.refs())
+
+        self.assertEqual(1, status, said)
+        self.assertIn("docs/tickets/one.md", said)
+        self.assertFalse(foreign.exists())
+
+    def test_a_finding_in_a_cyrillic_path_prints_through_a_pipe(self) -> None:
+        self.write("docs/tickets/вопрос.md", "# Вопрос, broken\n")
+        self.commit("break, in Cyrillic")
+        harness_script = SCRIPTS / "harness.py"
+
+        done = subprocess.run(
+            [sys.executable, str(harness_script), str(self.root), "--pre-push", "origin"],
+            input=self.refs(), capture_output=True, encoding="utf-8",
+            env={key: value for key, value in os.environ.items() if key != "PYTHONUTF8"},
+        )
+
+        self.assertEqual(1, done.returncode, done.stderr)
+        self.assertIn("docs/tickets/вопрос.md", done.stdout)
+
+    def test_a_grandchild_holding_a_file_open_leaves_no_copy(self) -> None:
+        self.write(".agents/scripts/gw/edges.py", (
+            "import json, subprocess, sys\n"
+            "subprocess.Popen([sys.executable, '-c', 'import time; f = open(\"AGENTS.md\", \"w\"); time.sleep(30)'])\n"
+            "print(json.dumps({'diagnostics': []}))\n"
+        ))
+        self.write("AGENTS.md", "# Entry\n")
+        self.write("docs/tickets/one.md", "# One, touched\n")
+        self.commit("a check that leaves a child")
+
+        self.assertEqual((0, ""), self.pushing(self.refs()))
+        self.assertEqual([], self.copies())
+
+
+class ThePushHook(RepositoryCase):
+    """The clone's `pre-push` and `hook.sh`'s branch, through a real `git push`, the mode a stub
+    that says it was called and what it was handed."""
+
+    proves_a_process = True
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.write(".agents/scripts/gw/hook.sh", (SCRIPTS / "hook.sh").read_text(encoding="utf-8"))
+        self.write(".agents/scripts/gw/harness.py",
+                   "import sys\nfrom pathlib import Path\n"
+                   "Path('.git/called').write_text(' '.join(sys.argv[1:]) + '\\n' + sys.stdin.read(), encoding='utf-8')\n")
+        self.write("docs/tickets/one.md", "# One\n")
+        self.commit("first")
+        (self.root / ".git" / harness.INTERPRETER_RECORD).write_text(f"{sys.executable}\n", encoding="utf-8")
+        hook = self.root / ".git" / "hooks" / "pre-push"
+        hook.parent.mkdir(exist_ok=True)
+        hook.write_text(harness.PUSH_HOOK_TEXT, encoding="utf-8", newline="\n")
+        os.chmod(hook, 0o755)
+        self.remote = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, self.remote, False, harness._writable_then_retry)
+        subprocess.run(["git", "init", "-q", "--bare", str(self.remote)], check=True)
+        self.git("remote", "add", "origin", str(self.remote))
+        self.push()
+        self.forget_the_call()
+
+    def push(self, *arguments: str) -> subprocess.CompletedProcess:
+        return subprocess.run(["git", "push", "-q", "origin", *(arguments or ("HEAD:refs/heads/main",))],
+                              cwd=self.root, capture_output=True, encoding="utf-8")
+
+    def called(self) -> str | None:
+        called = self.root / ".git" / "called"
+        return called.read_text(encoding="utf-8") if called.exists() else None
+
+    def forget_the_call(self) -> None:
+        (self.root / ".git" / "called").unlink(missing_ok=True)
+
+    def test_a_push_of_code_starts_no_interpreter(self) -> None:
+        self.write("code.py", "pass\n")
+        self.commit("code")
+        self.assertEqual(0, self.push().returncode)
+        self.assertIsNone(self.called())
+
+    def test_a_push_of_a_record_hands_the_mode_its_ref_lines(self) -> None:
+        self.write("docs/tickets/вопрос.md", "# Вопрос\n")
+        self.commit("a record")
+        done = self.push()
+        self.assertEqual(0, done.returncode, done.stderr)
+        called = self.called()
+        self.assertTrue(called.startswith(". --pre-push origin\n"), called)
+        self.assertIn(self.git("rev-parse", "HEAD").strip(), called)
+
+    def test_a_new_branch_lists_only_what_the_remote_lacks_and_a_deletion_nothing(self) -> None:
+        self.write("code.py", "pass\n")
+        self.commit("code on a branch")
+        self.assertEqual(0, self.push("HEAD:refs/heads/side").returncode)
+        self.assertIsNone(self.called())
+        self.assertEqual(0, self.push(":refs/heads/side").returncode)
+        self.assertIsNone(self.called())
+
+    def test_no_interpreter_recorded_warns_and_passes(self) -> None:
+        (self.root / ".git" / harness.INTERPRETER_RECORD).unlink()
+        self.write("docs/tickets/two.md", "# Two\n")
+        self.commit("a record")
+        done = self.push()
+        self.assertEqual(0, done.returncode)
+        self.assertIn("no interpreter recorded", done.stderr)
+        self.assertIsNone(self.called())
+
+    def test_a_tree_without_core_pushes(self) -> None:
+        self.git("rm", "-q", "-r", "--", ".agents")
+        self.write("docs/tickets/two.md", "# Two\n")
+        self.commit("core removed")
+        self.assertEqual(0, self.push().returncode)
+        self.assertIsNone(self.called())
+
+    def test_the_shared_input_form_hands_the_ref_lines_to_core_and_to_a_second_reader(self) -> None:
+        hook = self.root / ".git" / "hooks" / "pre-push"
+        hook.write_text("#!/bin/sh\n" + harness.SHARED_INPUT_LINES.replace(
+            "# then, for each command below that reads the ref lines:  printf '%s\\n' \"$refs\" | <that command>\n",
+            "printf '%s\\n' \"$refs\" > .git/second-reader\n"), encoding="utf-8", newline="\n")
+        self.write("docs/tickets/two.md", "# Two\n")
+        self.commit("a record")
+        head = self.git("rev-parse", "HEAD").strip()
+
+        self.assertEqual(0, self.push().returncode)
+
+        self.assertIn(head, self.called())
+        self.assertIn(head, (self.root / ".git" / "second-reader").read_text(encoding="utf-8"))
+
+
+class TheLinkStepWritesThePushHook(RepositoryCase):
+    """`--links` writes the clone's `pre-push` only inside the project, and beside another's hook
+    gives the line instead."""
+
+    proves_a_process = True
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.write(".agents/skills/sample/SKILL.md", "# Sample\n")
+        self.commit("core")
+
+    def linked(self) -> dict:
+        said = io.StringIO()
+        with contextlib.redirect_stdout(said):
+            harness.main([str(self.root), "--links"])
+        return json.loads(said.getvalue())["hook"]
+
+    def test_written_where_none_stands_in_lf_and_kept_the_second_time(self) -> None:
+        hook = self.root / ".git" / "hooks" / "pre-push"
+
+        self.assertEqual("written", self.linked()["state"])
+        self.assertEqual(harness.PUSH_HOOK_TEXT.encode("utf-8"), hook.read_bytes())
+        if os.name != "nt":
+            self.assertTrue(os.stat(hook).st_mode & stat.S_IXUSR)
+        self.assertEqual("kept", self.linked()["state"])
+
+    def test_another_hook_and_one_holding_the_mark_beside_a_persons_lines_are_left_as_they_are(self) -> None:
+        hook = self.root / ".git" / "hooks" / "pre-push"
+        hook.parent.mkdir(exist_ok=True)
+        for theirs in ("#!/bin/sh\ngit lfs pre-push \"$@\"\n", "#!/bin/sh\ngit lfs pre-push \"$@\"\n" + harness.PUSH_HOOK_TEXT[10:]):
+            hook.write_bytes(theirs.encode("utf-8"))
+
+            entry = self.linked()
+
+            self.assertEqual(theirs.encode("utf-8"), hook.read_bytes())
+            self.assertEqual("beside", entry["state"])
+            self.assertEqual(harness.SHARED_INPUT_LINES, entry["line"])
+
+    def test_a_hooks_folder_of_the_project_is_written_and_huskys_or_one_outside_is_not(self) -> None:
+        self.git("config", "core.hooksPath", ".githooks")
+        self.assertEqual("written", self.linked()["state"])
+        self.assertTrue((self.root / ".githooks" / "pre-push").is_file())
+
+        self.git("config", "core.hooksPath", ".husky/_")
+        entry = self.linked()
+        self.assertEqual(("beside", "husky"), (entry["state"], entry["tool"]))
+        self.assertFalse((self.root / ".husky" / "_" / "pre-push").exists())
+
+        outside = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, outside, True)
+        self.git("config", "core.hooksPath", str(outside))
+        self.assertEqual("outside", self.linked()["state"])
+        self.assertEqual([], list(outside.iterdir()))
 
 
 if __name__ == "__main__":

@@ -67,6 +67,7 @@ absence is honestly classified, are judgements it records and never makes.
 | changing one of the tree's settings and bringing the tree to match | `.agents/scripts/gw/inject_rules.py` | |
 | rendering the tree's settings as one table, on request | `.agents/scripts/gw/inject_rules.py` | |
 | telling a session at its start that the tree's blocks are out of step with its settings | `.agents/scripts/gw/hook.sh` | |
+| deciding at a push whether what it sends wakes the method's checks | `.agents/scripts/gw/hook.sh` | |
 | reporting a retired tag left in core | `.agents/scripts/gw/mechanisms.py` | |
 | writing a mechanism's rule where a session reads it, the entry file included, at `/align` or here | `.agents/skills/mechanism/SKILL.md` | |
 | re-checking a mechanism when what governs it has moved | — | elsewhere — re-checking derived work against a changed source is maintenance, `.agents/skills/maintain/SKILL.md` |
@@ -88,7 +89,7 @@ absence is honestly classified, are judgements it records and never makes.
 | the check's tests | `.agents/scripts/gw/test/test_mechanisms.py` |
 | the installer | `.agents/scripts/gw/inject_rules.py` |
 | the installer's tests | `.agents/scripts/gw/test/test_inject_rules.py` |
-| the hooks' wrapper, launched by a Git alias, running every mechanism's hook line | `.agents/scripts/gw/hook.sh` |
+| the hooks' wrapper — a host's hooks launched by a Git alias, Git's `pre-push` by the clone's hook file — running every mechanism's hook line | `.agents/scripts/gw/hook.sh` |
 | the test harness's tests | `.agents/scripts/gw/test/test_repository.py` |
 | one-case instruction experiment | `.agents/scripts/gw/amendment.py` |
 | the experiment's tests | `.agents/scripts/gw/test/test_amendment.py` |
