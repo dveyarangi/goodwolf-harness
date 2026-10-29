@@ -2035,6 +2035,8 @@ def _called(root: Path, argv: list[str], today: date, now: datetime) -> int:
         print(f"reworded {identity} {read_store(root).index[identity].question}")
     if written.archived:
         print(f"moved {', '.join(written.archived)} to done/")
+    for announcement in written.carried:
+        print(announcement)
     if written.session is not None:
         print(_landed(root, written.session.current, left))
     if written.archive_refused:
@@ -2127,7 +2129,9 @@ def _question_id(given: str) -> str:
 @dataclass
 class Written:
     """What one declaration wrote, in the order it was written, the ids it opened, each id a
-    re-parent renamed, with the one it took, and the ids whose questions it reworded."""
+    re-parent renamed, with the one it took, the ids whose questions it reworded, and every file the
+    entries' moves and the repair of what cites them wrote besides, said as the mover says it — a
+    session commits by path what it is told it wrote."""
 
     entries: list[str]
     session: sessions.Session | None
@@ -2136,6 +2140,7 @@ class Written:
     reworded: list[str] = field(default_factory=list)
     archived: list[str] = field(default_factory=list)
     archive_refused: str | None = None
+    carried: list[str] = field(default_factory=list)
 
 
 class Taken(Refused):
@@ -2194,8 +2199,9 @@ def _declared(
         between()
     draft.recheck(seen)
     written = draft.write()
+    carried: list[str] = []
     if draft.moves:
-        written = _carry_renames(root, draft.moves, draft.renames, written)
+        written = _carry_renames(root, draft.moves, draft.renames, written, carried.append)
         held = sessions.renamed(held, draft.renames)
     moved = sessions.moved(held, position, now)
     if moved is not None:
@@ -2205,8 +2211,8 @@ def _declared(
             raise WriteInterrupted(written, sessions.ROWS, error) from error
     opened = [identity for identity in draft.changed if identity in draft.new]
     closed = [draft.renames.get(clause.question or "", clause.question or "") for clause in clauses if clause.verb == "closes"]
-    archived, refused = _archive_finished(root, closed, written) if closed else ([], None)
-    return Written(written, moved, opened, dict(draft.renames), list(draft.reworded), archived, refused)
+    archived, refused = _archive_finished(root, closed, written, carried.append) if closed else ([], None)
+    return Written(written, moved, opened, dict(draft.renames), list(draft.reworded), archived, refused, carried)
 
 
 def seed(root: Path, now: datetime) -> list[str]:
@@ -2241,7 +2247,9 @@ def arrival_roots(shelf: str) -> list[str]:
     return roots
 
 
-def _archive_finished(root: Path, closed: list[str], written: list[str]) -> tuple[list[str], str | None]:
+def _archive_finished(
+    root: Path, closed: list[str], written: list[str], say: Callable[[str], None]
+) -> tuple[list[str], str | None]:
     """The subtrees these closures finished, moved to `done/` in one invocation of the mover —
     the same one a rename carries its entries with — and the ids moved, or why the mover refused.
     The closures stand either way: they are the decisions, and the maintainer sweeps what stays."""
@@ -2260,7 +2268,7 @@ def _archive_finished(root: Path, closed: list[str], written: list[str]) -> tupl
     if why:
         return [], why
     try:
-        move_doc.perform(root, pairs)
+        move_doc.perform(root, pairs, announce=say)
     except move_doc.CloseInterrupted as stopped:
         raise WriteInterrupted(written, "the finished subtree's move to done/", stopped) from stopped
     return [read.identity or "" for read in moving], None
@@ -2275,21 +2283,24 @@ def _subtree(entries: list[Entry], top: Entry) -> list[Entry]:
 
 
 def _carry_renames(
-    root: Path, moves: list[tuple[str, str]], renames: dict[str, str], written: list[str]
+    root: Path, moves: list[tuple[str, str]], renames: dict[str, str], written: list[str], say: Callable[[str], None]
 ) -> list[str]:
     """After the renamed entries are written in place: move them, which repairs every link to
-    them, then rewrite their bare ids — so nothing under `docs/` names an id that is gone."""
+    them, then rewrite their bare ids — so nothing under `docs/` names an id that is gone. Each
+    file either step writes is said once, in the mover's words."""
     try:
-        move_doc.perform(root, moves)
+        changed = move_doc.perform(root, moves, announce=say)
     except move_doc.CloseInterrupted as stopped:
         raise WriteInterrupted(written, "the renamed entries' move", stopped) from stopped
     landed = dict(moves)
     if renames:
-        _rewrite_ids(root, renames)
+        for name in _rewrite_ids(root, renames):
+            if name not in changed:
+                say(f"repaired citations in {name}")
     return [landed.get(record, record) for record in written]
 
 
-def _rewrite_ids(root: Path, renames: dict[str, str]) -> None:
+def _rewrite_ids(root: Path, renames: dict[str, str]) -> list[str]:
     """Every renamed id written outside a link, in the records under `docs/` and the sessions' rows,
     and every straw dog's binding to one, wherever the straw dogs stand.
 
@@ -2298,8 +2309,10 @@ def _rewrite_ids(root: Path, renames: dict[str, str]) -> None:
     is not — it holds samples, whose ids are examples, never references (the user, 2026-10-03).
     Elsewhere only a binding moves: core names a record of this tree in a straw dog's binding and
     nowhere else, so an id in its prose is an example. Each file is read and replaced in one
-    rename; a person editing it at that moment can still lose the race, as with the mover.
+    rename; a person editing it at that moment can still lose the race, as with the mover. Returns
+    the records it rewrote.
     """
+    rewrote = []
     for name in _records_naming_ids(root):
         path = root / name
         text = path.read_bytes().decode("utf-8")
@@ -2309,6 +2322,8 @@ def _rewrite_ids(root: Path, renames: dict[str, str]) -> None:
             rewritten = with_question_bindings_retargeted(name, text, renames.get)
         if rewritten != text:
             _replace(path, rewritten)
+            rewrote.append(name)
+    return rewrote
 
 
 def _records_naming_ids(root: Path) -> list[str]:

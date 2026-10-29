@@ -1449,6 +1449,13 @@ class Renaming(Declared):
 
         self.assertEqual(sample.replace("After q-0007.", "After q-0002.0001."), self.read("docs/sample.md"))
 
+    def test_a_record_whose_bare_id_alone_changed_is_named_among_the_files_it_wrote(self) -> None:
+        self.write("docs/notes.md", "Only q-0007 here.\n")
+
+        said = self.called("move", "q-0007", "--under", "q-0002")
+
+        self.assertIn("repaired citations in docs/notes.md", said)
+
     def test_relations_and_every_sessions_line_name_the_new_ids(self) -> None:
         self.called("depend", "q-0004", "--on", "q-0007")
         self.write(
@@ -1566,6 +1573,16 @@ class Rewording(Declared):
         )
         self.assertEqual(sessions, session_lines(self.root))
         self.assertEqual([], [told for told in self.run_check()[1]["diagnostics"] if "slug" in told["problem"]])
+
+    def test_every_file_it_wrote_is_named_so_a_commit_by_path_carries_the_whole_change(self) -> None:
+        self.write("docs/tickets/01-0007-carry.md", "# Carry\n\nFor [q-0007](../questions/q-0007-who-moves-a-subtree.md).\n")
+
+        said = self.called("reword", "q-0007", "Who carries a finished subtree away?")
+
+        self.assertIn(
+            f"moved {STORE}/q-0007-who-moves-a-subtree.md -> {STORE}/q-0007-who-carries-a-finished-subtree-away.md", said
+        )
+        self.assertIn("repaired citations in docs/tickets/01-0007-carry.md", said)
 
     def test_words_that_leave_the_file_name_as_it_is_rewrite_the_title_alone(self) -> None:
         self.called("reword", "q-0007", "Who moves a subtree!")
@@ -1863,6 +1880,7 @@ class ArchivingAtClosure(Declared):
         self.assertEqual(
             "See [the sessions](questions/done/q-0010-how-do-sessions-reach-each-other.md).\n", self.read("docs/notes.md")
         )
+        self.assertIn("repaired citations in docs/notes.md", said)
 
     def test_a_close_with_an_open_child_moves_nothing_until_the_child_closes_then_both(self) -> None:
         self.called("open", "Across machines?", "--under", "q-0010")
