@@ -186,7 +186,11 @@ an amended source still refuses. The run over every source, mechanisms then loca
 idempotent and is what an install, an update and a changed setting all run; the agent is the
 interface to the values, by one call that refuses, writes, runs and reports, and a hand edit is
 drift the next session's start reports and repairs *(the user, 2026-10-22 and 2026-10-23,
-q-0037.0006.0026)*. The settings table is rendered on request and never committed.
+q-0037.0006.0026)*. The settings table is rendered on request and never committed. A setting a
+script reads at run time is read from the main checkout's local file — the working tree of the
+project's common Git directory — and not from the session's own branch, which may carry another
+value; it is set there *(the user, 2026-10-30,
+[q-0037.0017.0005.0001](questions/q-0037.0017.0005.0001-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of.md) decision 12)*.
 
 ### Installing
 
