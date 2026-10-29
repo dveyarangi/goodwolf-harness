@@ -55,7 +55,7 @@ a precise internal cause or an intent behind them.
 - [q-0037.0013.0005 Which of the agent's acts need the person's yes, and which does it do on its own?](../questions/q-0037.0013.0005-which-of-the-agents-acts-need-the-persons-yes-and-which-does-it-do-on-its-own.md):
   the dial remains; the new meta-principle prevents usefulness from serving as an exception.
   No new enforcement mechanism was agreed.
-- [q-0037.0006.0022.0004.0001 Does a commit in this tree that carries a broken record of the method stop and name it, while a commit of code runs nothing?](../questions/q-0037.0006.0022.0004.0001-does-a-push-from-this-tree-that-carries-a-broken-record-of-the-method-stop-and.md):
+- [q-0037.0006.0022.0004.0001 Does a commit in this tree that carries a broken record of the method stop and name it, while a commit of code runs nothing?](../questions/done/q-0037.0006.0022.0004.0001-does-a-push-from-this-tree-that-carries-a-broken-record-of-the-method-stop-and.md):
   the implementation was rolled back; its ticket remains Ready.
 - [q-0037.0012 How does the harness amend its own rules by stated meta-rules?](../questions/q-0037.0012-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md):
   the offline replay result remains; this session authorized no additional live guard.
