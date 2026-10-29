@@ -24,11 +24,12 @@ written into `/maintain` by hand.
 
 - **target** `AGENTS.md`
 - **target** `.agents/skills/recall/SKILL.md`
-- **authority** the user, 2026-10-25, q-0037.0010.0009.0007
+- **authority** the user, 2026-10-25, q-0037.0010.0009.0007; its subagent's bounds, the user, 2026-10-29
 
 <rule>
 Drift — a record out of agreement with what it is of, or silent on which side wins — is repaired
-where met, by a subagent, below the dial, in your own work or nobody's, and the same drift is then
-sought wherever it can stand. In another session's work it is told to that session; at or above the dial it is a decision marked 🍂. A record of what
+where met, by a subagent briefed with the same bounds, below the dial, in your own work or
+nobody's — a file another session has changed and not committed is that session's work — and the
+same drift is then sought wherever it can stand. In another session's work it is told to that session; at or above the dial it is a decision marked 🍂. A record of what
 happened does not drift.
 </rule>

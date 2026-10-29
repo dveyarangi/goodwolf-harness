@@ -15,6 +15,15 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v132 — 2026-10-29
+
+**A drift repair's subagent carries the bounds** — M2 gains *by a subagent briefed with the same
+bounds* and *a file another session has changed and not committed is that session's work*: a
+subagent sent to seek the same drift across the mechanisms' docs, its brief naming no limit of whose
+work a file was, wrote over a paragraph another session had changed and not committed *(the user,
+2026-10-29)*. The scheduled pass's section of `/maintain`, G1 and G2, carried the same two bounds
+and was tried five times that day on a clone; M2 itself was not tried apart.
+
 ## v131 — 2026-10-27
 
 **Local usefulness does not authorize bypass** — the user added, word for word, a general
