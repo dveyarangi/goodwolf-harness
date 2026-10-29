@@ -193,10 +193,12 @@ would otherwise fail the shape check for the same absence the report already nam
   this tree's core comes from, or pointing it somewhere else.
 - **Each host's hook file, core's entries merged in** — *what exists* — read by that host at session
   start and before each message, and by `--check`, which compares core's entries alone.
+<straw-dog question="q-0037.0006.0022">
 - **The clone's `pre-push`** — *what exists* — in its Git directory or a hooks folder of the
   project's own work tree, run by Git at each push, which it refuses while what the push sends holds a
   record of the method that fails its check; made by the link step, never where husky keeps its
   hooks nor outside the project, where the report gives the line and its place.
+</straw-dog>
 - **The interpreter record**, in the clone's Git directory — *what exists* — read by the hooks'
   wrapper before every hook; made by the link step, so `--links` is the one step a fresh clone runs.
 - **The pending command** — *what exists* — read by a person, once, in an elevated prompt.

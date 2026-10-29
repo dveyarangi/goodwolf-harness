@@ -1206,7 +1206,7 @@ def _write_push_hook(target: Path, report: Report) -> None:
         report.hook = {"path": str(hook), "state": "beside", "tool": "husky",
                        "place": str(target / ".husky" / PUSH_HOOK) + ", first", "line": SHARED_INPUT_LINES}
         return
-    held = _read(hook) if hook.is_file() else None
+    held = hook.read_bytes().decode("utf-8", "replace") if hook.is_file() else None
     if held is not None and held not in CORE_PUSH_HOOKS:
         report.hook = {"path": str(hook), "state": "beside", **_beside(held, hook)}
         return
@@ -1450,6 +1450,7 @@ METHOD_FILES = (ENTRY_FILE, HOST_STUB, LOCAL_FILE)
 PUSH_CHECKS = ("questions", "sessions", "tickets", "product", "edges", "mechanisms", "inject_rules", "maintain")
 CHECK_LIMIT = 60.0  # seconds a check may run, counted from its start
 COPY_MARK = "gw-push-"
+OUTPUTS_SUFFIX = "-out"  # beside each copy, the files its checks write
 # The tree's names are fitted to a clone 128 deep: on Windows a copy no deeper than that holds every
 # name the tree carries.
 COPY_DEPTH = 128
@@ -1539,17 +1540,21 @@ def _refusals_in_a_copy(target: Path, commit: str) -> list[str]:
     copy = Path(tempfile.gettempdir()) / f"{COPY_MARK}{os.getpid()}-{int(time.time())}-{secrets.token_hex(3)}"
     if os.name == "nt" and len(str(copy)) > COPY_DEPTH:
         return [f"the copy of {commit[:12]} would stand at {copy}, deeper than {COPY_DEPTH} characters"]
-    with tempfile.TemporaryDirectory(prefix="gw-out-") as outputs:
+    outputs = copy.with_name(f"{copy.name}{OUTPUTS_SUFFIX}")
+    outputs.mkdir()
+    try:
         made = _git_said_plainly(
             target, {"GIT_LFS_SKIP_SMUDGE": "1"}, "-c", f"core.hooksPath={outputs}",
             "worktree", "add", "--detach", "--lock", str(copy), commit,
         )
         if made.returncode != 0:
-            return [f"the copy of {commit[:12]} could not be made: {_last_lines(made.stderr)}"]
+            return [f"the copy of {commit[:12]} could not be made: {' / '.join(_last_lines(made.stderr))}"]
         try:
-            return _refusals_of_the_checks(copy, commit, Path(outputs))
+            return _refusals_of_the_checks(copy, commit, outputs)
         finally:
             _remove_copy(target, copy)
+    finally:
+        shutil.rmtree(outputs, ignore_errors=True)
 
 
 def _refusals_of_the_checks(copy: Path, commit: str, outputs: Path) -> list[str]:
@@ -1592,7 +1597,8 @@ def _refusals_of(name: str, run: _Run, commit: str) -> list[str]:
     try:
         status = run.process.wait(timeout=max(0.0, run.started + CHECK_LIMIT - time.monotonic()))
     except subprocess.TimeoutExpired:
-        return [f"{name} did not finish in {CHECK_LIMIT:.0f} s at {commit[:12]}"]
+        last = _last_lines(run.output.read_bytes().decode("utf-8", "replace"))
+        return [f"{name} did not finish in {CHECK_LIMIT:.0f} s at {commit[:12]}" + (f": {' / '.join(last)}" if last else "")]
     said = run.output.read_bytes()
     if status == 0:
         return []
@@ -1660,18 +1666,37 @@ def _sweep_abandoned_copies(target: Path) -> None:
     """Copies a killed push left: each named by this mode's mark, whose process is no longer alive,
     in the temporary directory and in Git's own list. A copy a live push holds is never touched, and
     no other worktree of the clone is pruned."""
-    marked = {path for path in Path(tempfile.gettempdir()).glob(f"{COPY_MARK}*")}
+    common = _git_in(target, "rev-parse", "--path-format=absolute", "--git-common-dir")
+    marked = {path for path in Path(tempfile.gettempdir()).glob(f"{COPY_MARK}*") if _of_this_clone(path, common)}
     listed = _git_in(target, "worktree", "list", "--porcelain") or ""
     marked |= {Path(line[len("worktree "):]) for line in listed.splitlines()
                if line.startswith("worktree ") and Path(line[len("worktree "):]).name.startswith(COPY_MARK)}
     for copy in marked:
         owner = _copy_owner(copy.name)
-        if owner is not None and not _alive(*owner):
+        if owner is None or _alive(*owner):
+            continue
+        if copy.name.endswith(OUTPUTS_SUFFIX):
+            shutil.rmtree(copy, ignore_errors=True)
+        else:
             _remove_copy(target, copy)
 
 
+def _of_this_clone(folder: Path, common: str | None) -> bool:
+    """A copy names the clone it was made from in its `.git` file; one of another clone is left to
+    that clone's next push. An output folder, or a copy whose checkout never finished, names none
+    and is anyone's to sweep."""
+    pointer = folder / ".git"
+    if not pointer.is_file():
+        return True
+    try:
+        named = pointer.read_text(encoding="utf-8").strip().removeprefix("gitdir:").strip()
+    except OSError:
+        return False
+    return common is not None and _within(Path(named), Path(common))
+
+
 def _copy_owner(name: str) -> tuple[int, float] | None:
-    match = re.fullmatch(rf"{re.escape(COPY_MARK)}(\d+)-(\d+)-[0-9a-f]+", name)
+    match = re.fullmatch(rf"{re.escape(COPY_MARK)}(\d+)-(\d+)-[0-9a-f]+(?:{re.escape(OUTPUTS_SUFFIX)})?", name)
     return (int(match.group(1)), float(match.group(2))) if match else None
 
 
@@ -1714,6 +1739,7 @@ class _ProcessTrees:
 
     def __enter__(self) -> "_ProcessTrees":
         self.processes: list[subprocess.Popen] = []
+        self.outside: list[subprocess.Popen] = []  # those the job would not take, ended by `taskkill`
         self.job = None
         if os.name == "nt":
             import ctypes
@@ -1728,7 +1754,8 @@ class _ProcessTrees:
         if self.job:
             import ctypes
 
-            self.kernel.AssignProcessToJobObject(ctypes.c_void_p(self.job), ctypes.c_void_p(int(process._handle)))
+            if not self.kernel.AssignProcessToJobObject(ctypes.c_void_p(self.job), ctypes.c_void_p(int(process._handle))):
+                self.outside.append(process)
 
     def __exit__(self, *_: object) -> None:
         if self.job:
@@ -1736,6 +1763,8 @@ class _ProcessTrees:
 
             self.kernel.TerminateJobObject(ctypes.c_void_p(self.job), 1)
             self.kernel.CloseHandle(ctypes.c_void_p(self.job))
+            for process in self.outside:
+                subprocess.run(["taskkill", "/F", "/T", "/PID", str(process.pid)], capture_output=True)
         else:
             import signal
 

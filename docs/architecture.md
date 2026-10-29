@@ -197,8 +197,9 @@ what an install and an update refuse, the loader links and the interpreter recor
 the check. [The install spec](spec/01-0010.0130-harness-installs-into-another-tree.md) owns the
 decisions behind it. The project's verification set is the project's: arrival runs none of it.
 <straw-dog question="q-0037.0006.0022">A clone's push runs the method's checks through a hook the
-link step writes beside the project's own and never over it, and is refused only on a record it
-carries; the decision is
+link step writes only inside the project and never over the project's own; a push that carries a
+file of the method is checked in a temporary copy of what it sends, and any finding in that copy
+refuses it; the decision is
 [q-0037.0006.0022.0004](questions/q-0037.0006.0022.0004-how-do-the-harnesss-checks-run-without-the-agent-at-push-and-in-the-projects-ci.md)'s.</straw-dog>
 
 **The edge, and what crosses it.** The core–instance interaction is everything an instance must

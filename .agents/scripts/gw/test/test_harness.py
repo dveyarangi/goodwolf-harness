@@ -2243,6 +2243,46 @@ class ThePushCheck(RepositoryCase):
         self.assertEqual([], self.copies())
 
 
+
+    def test_a_child_writes_utf8_whatever_the_code_page(self) -> None:
+        done = harness._python(self.root, ["-c", "print('\u2014 \u2192 \u6f22')"])
+
+        self.assertEqual("\u2014 \u2192 \u6f22", done.stdout.strip(), done.stderr)
+
+    def test_a_removal_that_fails_is_said_with_its_folder(self) -> None:
+        stuck = Path(tempfile.mkdtemp(prefix="stuck-"))
+        self.addCleanup(shutil.rmtree, stuck, True)
+        said = io.StringIO()
+
+        with mock.patch.object(harness.shutil, "rmtree", side_effect=OSError("held open")), \
+                contextlib.redirect_stdout(said):
+            harness._remove_copy(self.root, stuck)
+
+        self.assertIn(f"the copy at {stuck} could not be removed", said.getvalue())
+
+    @unittest.skipUnless(os.name == "nt", "the depth bound is Windows'")
+    def test_a_copy_deeper_than_the_trees_names_are_fitted_to_refuses_by_name(self) -> None:
+        self.write("docs/tickets/one.md", "# One, touched\n")
+        self.commit("touch")
+        deep = Path(tempfile.gettempdir()) / ("d" * 120)
+
+        with mock.patch.object(harness.tempfile, "gettempdir", return_value=str(deep)):
+            status, said = self.pushing(self.refs())
+
+        self.assertEqual(1, status, said)
+        self.assertIn(f"deeper than {harness.COPY_DEPTH} characters", said)
+
+    def test_a_copy_of_another_clone_is_left_to_it(self) -> None:
+        theirs = Path(tempfile.gettempdir()) / f"{harness.COPY_MARK}999998-1-abcdef"
+        theirs.mkdir()
+        self.addCleanup(shutil.rmtree, theirs, True)
+        (theirs / ".git").write_text("gitdir: C:/elsewhere/.git/worktrees/x\n", encoding="utf-8")
+
+        harness._sweep_abandoned_copies(self.root)
+
+        self.assertTrue(theirs.exists())
+
+
 class ThePushHook(RepositoryCase):
     """The clone's `pre-push` and `hook.sh`'s branch, through a real `git push`, the mode a stub
     that says it was called and what it was handed."""
@@ -2253,8 +2293,8 @@ class ThePushHook(RepositoryCase):
         super().setUp()
         self.write(".agents/scripts/gw/hook.sh", (SCRIPTS / "hook.sh").read_text(encoding="utf-8"))
         self.write(".agents/scripts/gw/harness.py",
-                   "import sys\nfrom pathlib import Path\n"
-                   "Path('.git/called').write_text(' '.join(sys.argv[1:]) + '\\n' + sys.stdin.read(), encoding='utf-8')\n")
+                   "import os, sys\nfrom pathlib import Path\n"
+                   "Path(os.environ.get('GW_TEST_CALLED', '.git/called')).write_text(' '.join(sys.argv[1:]) + '\\n' + sys.stdin.read(), encoding='utf-8')\n")
         self.write("docs/tickets/one.md", "# One\n")
         self.commit("first")
         (self.root / ".git" / harness.INTERPRETER_RECORD).write_text(f"{sys.executable}\n", encoding="utf-8")
@@ -2334,6 +2374,24 @@ class ThePushHook(RepositoryCase):
         self.assertIn(head, (self.root / ".git" / "second-reader").read_text(encoding="utf-8"))
 
 
+
+    def test_a_push_from_a_linked_worktree_uses_the_clones_interpreter(self) -> None:
+        side = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, side, False, harness._writable_then_retry)
+        self.git("worktree", "add", "-q", "-b", "side", str(side / "tree"))
+        tree = side / "tree"
+        (tree / "docs" / "tickets" / "two.md").write_text("# Two\n", encoding="utf-8")
+        subprocess.run(["git", "add", "-A"], cwd=tree, check=True)
+        subprocess.run(["git", "commit", "-qm", "a record on a side branch"], cwd=tree, check=True)
+
+        done = subprocess.run(["git", "push", "-q", "origin", "side"], cwd=tree, capture_output=True, encoding="utf-8",
+                              env={**os.environ, "GW_TEST_CALLED": str(self.root / ".git" / "called")})
+
+        self.assertEqual(0, done.returncode, done.stderr)
+        self.assertNotIn("no interpreter recorded", done.stderr)
+        self.assertIsNotNone(self.called())
+
+
 class TheLinkStepWritesThePushHook(RepositoryCase):
     """`--links` writes the clone's `pre-push` only inside the project, and beside another's hook
     gives the line instead."""
@@ -2371,6 +2429,7 @@ class TheLinkStepWritesThePushHook(RepositoryCase):
             self.assertEqual(theirs.encode("utf-8"), hook.read_bytes())
             self.assertEqual("beside", entry["state"])
             self.assertEqual(harness.SHARED_INPUT_LINES, entry["line"])
+            self.assertEqual(f"{hook}, first", entry["place"])
 
     def test_a_hooks_folder_of_the_project_is_written_and_huskys_or_one_outside_is_not(self) -> None:
         self.git("config", "core.hooksPath", ".githooks")
@@ -2380,6 +2439,7 @@ class TheLinkStepWritesThePushHook(RepositoryCase):
         self.git("config", "core.hooksPath", ".husky/_")
         entry = self.linked()
         self.assertEqual(("beside", "husky"), (entry["state"], entry["tool"]))
+        self.assertEqual(str(self.root / ".husky" / "pre-push") + ", first", entry["place"])
         self.assertFalse((self.root / ".husky" / "_" / "pre-push").exists())
 
         outside = Path(tempfile.mkdtemp())
@@ -2387,6 +2447,41 @@ class TheLinkStepWritesThePushHook(RepositoryCase):
         self.git("config", "core.hooksPath", str(outside))
         self.assertEqual("outside", self.linked()["state"])
         self.assertEqual([], list(outside.iterdir()))
+
+
+    def test_lefthook_and_the_pre_commit_framework_are_told_by_their_markers(self) -> None:
+        hook = self.root / ".git" / "hooks" / "pre-push"
+        hook.parent.mkdir(exist_ok=True)
+
+        hook.write_text("#!/bin/sh\n# generated by lefthook\nlefthook run pre-push\n", encoding="utf-8")
+        entry = self.linked()
+        self.assertEqual(("beside", "lefthook", harness.LEFTHOOK_LINE), (entry["state"], entry["tool"], entry["line"]))
+        self.assertIn("use_stdin: true", entry["place"])
+
+        hook.write_text("#!/usr/bin/env python3\n# https://pre-commit.com\nimport pre_commit\n", encoding="utf-8")
+        entry = self.linked()
+        self.assertEqual(("beside", "pre-commit", None), (entry["state"], entry["tool"], entry["line"]))
+        self.assertIn("CI alone", entry["said"])
+
+    def test_a_hook_file_that_is_not_utf8_is_left_as_it_is(self) -> None:
+        hook = self.root / ".git" / "hooks" / "pre-push"
+        hook.parent.mkdir(exist_ok=True)
+        hook.write_bytes(b"#!/bin/sh\n# \xff\xfe\nexit 0\n")
+
+        self.assertEqual("beside", self.linked()["state"])
+        self.assertEqual(b"#!/bin/sh\n# \xff\xfe\nexit 0\n", hook.read_bytes())
+
+    def test_from_a_linked_worktree_the_clones_one_hook_is_written(self) -> None:
+        side = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, side, False, harness._writable_then_retry)
+        self.git("worktree", "add", "-q", "-b", "side", str(side / "tree"))
+        said = io.StringIO()
+
+        with contextlib.redirect_stdout(said):
+            harness.main([str(side / "tree"), "--links"])
+
+        self.assertEqual("written", json.loads(said.getvalue())["hook"]["state"])
+        self.assertTrue((self.root / ".git" / "hooks" / "pre-push").is_file())
 
 
 if __name__ == "__main__":
