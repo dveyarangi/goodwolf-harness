@@ -14,6 +14,7 @@ import stat
 import subprocess
 import sys
 import tempfile
+import threading
 import time
 import unittest
 from pathlib import Path
@@ -2242,10 +2243,10 @@ class ThePushCheck(RepositoryCase):
         self.assertEqual((0, ""), self.pushing(self.refs()))
         self.assertEqual([], self.copies())
 
-
-
     def test_a_child_writes_utf8_whatever_the_code_page(self) -> None:
-        done = harness._python(self.root, ["-c", "print('\u2014 \u2192 \u6f22')"])
+        with mock.patch.dict(os.environ):
+            os.environ.pop("PYTHONUTF8", None)
+            done = harness._python(self.root, ["-c", "print('\u2014 \u2192 \u6f22')"])
 
         self.assertEqual("\u2014 \u2192 \u6f22", done.stdout.strip(), done.stderr)
 
@@ -2281,6 +2282,121 @@ class ThePushCheck(RepositoryCase):
         harness._sweep_abandoned_copies(self.root)
 
         self.assertTrue(theirs.exists())
+
+
+    def test_a_check_printing_past_a_pipes_buffer_is_read_whole(self) -> None:
+        self.write(".agents/scripts/gw/edges.py", (
+            "import json, sys\n"
+            "print(json.dumps({'padding': 'x' * 300000, 'diagnostics': [{'record': 'docs/edge/far.md', 'problem': 'at the end'}]}))\n"
+            "sys.exit(1)\n"
+        ))
+        self.write("docs/tickets/one.md", "# One, touched\n")
+        self.commit("a loud check")
+
+        status, said = self.pushing(self.refs())
+
+        self.assertEqual(1, status, said)
+        self.assertIn("edges: docs/edge/far.md: at the end", said)
+
+    def test_the_copy_is_gone_after_the_mode_itself_fails(self) -> None:
+        self.write("docs/tickets/one.md", "# One, touched\n")
+        self.commit("touch")
+
+        with mock.patch.object(harness, "_refusals_of_the_checks", side_effect=RuntimeError("the mode broke")):
+            with self.assertRaises(RuntimeError):
+                self.pushing(self.refs())
+
+        self.assertEqual([], self.copies())
+        self.assertNotIn(harness.COPY_MARK, self.git("worktree", "list"))
+
+    def test_a_copy_whose_folder_is_already_gone_is_taken_as_removed(self) -> None:
+        gone = Path(tempfile.gettempdir()) / f"{harness.COPY_MARK}999997-1-abcdef"
+        self.git("worktree", "add", "-q", "--detach", "--lock", str(gone), "HEAD")
+        shutil.rmtree(gone, onexc=harness._writable_then_retry)
+
+        harness._sweep_abandoned_copies(self.root)
+
+        self.assertNotIn(gone.name, self.git("worktree", "list", "--porcelain"))
+
+    def test_git_dir_and_config_as_git_exports_them_reach_neither_the_copy_nor_its_checks(self) -> None:
+        self.write("docs/tickets/one.md", "# One, broken\n")
+        self.commit("break")
+
+        exported = {"GIT_DIR": str(self.root / ".git"), "GIT_CONFIG_PARAMETERS": "'core.bare'='true'"}
+        with mock.patch.dict(os.environ, exported):
+            status, said = self.pushing(self.refs())
+
+        self.assertEqual(1, status, said)
+        self.assertIn("tickets: docs/tickets/one.md:1: broken here", said)
+
+    def test_several_refs_naming_one_commit_check_it_once(self) -> None:
+        tally = Path(tempfile.mkdtemp()) / "runs"
+        self.addCleanup(shutil.rmtree, tally.parent, True)
+        self.write(".agents/scripts/gw/edges.py", (
+            "import json, os\nwith open(os.environ['GW_TEST_TALLY'], 'a') as f: f.write('run\\n')\n"
+            "print(json.dumps({'diagnostics': []}))\n"
+        ))
+        self.write("docs/tickets/one.md", "# One, touched\n")
+        self.commit("touch")
+        head = self.git("rev-parse", "HEAD").strip()
+        zero = "0" * 40
+
+        with mock.patch.dict(os.environ, {"GW_TEST_TALLY": str(tally)}):
+            status, said = self.pushing(f"refs/heads/main {head} refs/heads/main {self.pushed}\n"
+                                        f"refs/tags/v1 {head} refs/tags/v1 {zero}\n")
+
+        self.assertEqual(0, status, said)
+        self.assertEqual("run\n", tally.read_text(encoding="utf-8"))
+
+    def test_adds_and_commits_beside_a_real_copy_go_through(self) -> None:
+        self.write(".agents/scripts/gw/edges.py", "import json, time\ntime.sleep(4)\nprint(json.dumps({'diagnostics': []}))\n")
+        self.write("docs/tickets/one.md", "# One, touched\n")
+        self.commit("a slow check")
+        verdict: list = []
+        pushing = threading.Thread(target=lambda: verdict.append(self.pushing(self.refs())))
+        pushing.start()
+        deadline = time.monotonic() + 30
+        while not self.copies() and time.monotonic() < deadline:
+            time.sleep(0.05)
+        self.assertTrue(self.copies(), "no copy was made")
+
+        self.write("side.txt", "beside\n")
+        added = subprocess.run(["git", "add", "--", "side.txt"], cwd=self.root, capture_output=True, encoding="utf-8")
+        committed = subprocess.run(["git", "commit", "-qm", "beside", "--", "side.txt"], cwd=self.root,
+                                   capture_output=True, encoding="utf-8")
+        still_copying = bool(self.copies())
+        pushing.join()
+
+        self.assertEqual((0, 0), (added.returncode, committed.returncode), added.stderr + committed.stderr)
+        self.assertTrue(still_copying)
+        self.assertEqual((0, ""), verdict[0])
+
+    def test_the_verdict_stands_when_the_copy_will_not_go(self) -> None:
+        self.write("docs/tickets/one.md", "# One, broken\n")
+        self.commit("break")
+        real_git = harness._git_said_plainly
+        real_rmtree = shutil.rmtree
+
+        def refusing_removal(target, setting, *arguments):
+            if arguments[:2] == ("worktree", "remove"):
+                return subprocess.CompletedProcess(arguments, 255, "", "held open")
+            return real_git(target, setting, *arguments)
+
+        def refusing_rmtree(path, *args, **kwargs):
+            if Path(path).name.startswith(harness.COPY_MARK) and not str(path).endswith(harness.OUTPUTS_SUFFIX):
+                raise OSError("held open")
+            return real_rmtree(path, *args, **kwargs)
+
+        with mock.patch.object(harness, "_git_said_plainly", refusing_removal), \
+                mock.patch.object(harness.shutil, "rmtree", refusing_rmtree):
+            status, said = self.pushing(self.refs())
+        for copy in self.copies():
+            real_git(self.root, {}, "worktree", "remove", "-f", "-f", str(copy))
+            real_rmtree(copy, ignore_errors=True)
+
+        self.assertEqual(1, status, said)
+        self.assertIn("tickets: docs/tickets/one.md:1: broken here", said)
+        self.assertIn("could not be removed", said)
 
 
 class ThePushHook(RepositoryCase):
@@ -2373,8 +2489,6 @@ class ThePushHook(RepositoryCase):
         self.assertIn(head, self.called())
         self.assertIn(head, (self.root / ".git" / "second-reader").read_text(encoding="utf-8"))
 
-
-
     def test_a_push_from_a_linked_worktree_uses_the_clones_interpreter(self) -> None:
         side = Path(tempfile.mkdtemp())
         self.addCleanup(shutil.rmtree, side, False, harness._writable_then_retry)
@@ -2389,6 +2503,74 @@ class ThePushHook(RepositoryCase):
 
         self.assertEqual(0, done.returncode, done.stderr)
         self.assertNotIn("no interpreter recorded", done.stderr)
+        self.assertIsNotNone(self.called())
+
+
+    def test_an_up_to_date_push_of_another_branch_calls_nothing(self) -> None:
+        self.git("checkout", "-q", "-b", "side")
+        self.write("docs/tickets/two.md", "# Two, unpushed on a side branch\n")
+        self.commit("a record on a side branch")
+        self.git("checkout", "-q", "-")
+
+        self.assertEqual(0, self.push("HEAD:refs/heads/main").returncode)
+        self.assertIsNone(self.called())
+
+    def test_a_force_push_back_to_an_older_tree_with_a_record_calls_the_mode(self) -> None:
+        self.write("docs/tickets/one.md", "# One, changed\n")
+        self.commit("change a record")
+        self.push()
+        self.forget_the_call()
+        self.git("reset", "-q", "--hard", "HEAD~1")
+
+        self.assertEqual(0, self.push("-f", "HEAD:refs/heads/main").returncode)
+        self.assertIsNotNone(self.called())
+
+    def test_a_root_commit_and_a_merges_resolution_are_listed(self) -> None:
+        self.git("checkout", "-q", "--orphan", "fresh")
+        self.git("rm", "-q", "-r", "--cached", "--", "docs")
+        self.commit("a root commit")
+        self.assertEqual(0, self.push("HEAD:refs/heads/fresh").returncode)
+        self.assertIsNotNone(self.called(), "the root commit's files were not listed")
+        self.forget_the_call()
+
+        self.git("checkout", "-q", "-f", "main" if "main" in self.git("branch") else "master")
+        self.git("checkout", "-q", "-b", "code-only")
+        self.write("code.py", "pass\n")
+        self.commit("code")
+        self.push("HEAD:refs/heads/code-only")
+        self.git("checkout", "-q", "-")
+        self.git("merge", "-q", "--no-commit", "--no-ff", "code-only")
+        self.write("docs/tickets/merged.md", "# Merged\n")
+        self.git("add", "--", "docs/tickets/merged.md")
+        self.git("commit", "-qm", "a merge that adds a record")
+        self.forget_the_call()
+
+        self.assertEqual(0, self.push().returncode)
+        self.assertIsNotNone(self.called(), "the merge's resolution was not listed")
+
+    @unittest.skipIf(os.name == "nt", "Windows forbids a double quote in a file's name")
+    def test_a_path_holding_a_quote_is_matched(self) -> None:
+        self.write('docs/tickets/a"b.md', "# Quoted\n")
+        self.commit("a quoted name")
+        self.assertEqual(0, self.push().returncode)
+        self.assertIsNotNone(self.called())
+
+    def test_a_tag_on_a_tree_sends_nothing(self) -> None:
+        self.git("tag", "a-tree", self.git("rev-parse", "HEAD^{tree}").strip())
+        self.assertEqual(0, self.push("refs/tags/a-tree").returncode)
+        self.assertIsNone(self.called())
+
+    def test_a_listing_that_fails_calls_the_mode(self) -> None:
+        elsewhere = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, elsewhere, False, harness._writable_then_retry)
+        subprocess.run(["git", "clone", "-q", "-b", "main", str(self.remote), str(elsewhere / "c")], check=True)
+        subprocess.run(["git", "-c", "user.name=x", "-c", "user.email=x@example.invalid", "commit", "-q",
+                        "--allow-empty", "-m", "unseen here"], cwd=elsewhere / "c", check=True)
+        subprocess.run(["git", "push", "-q", "--no-verify", "origin", "HEAD:refs/heads/main"], cwd=elsewhere / "c", check=True)
+        self.write("code.py", "pass\n")
+        self.commit("code over a remote sha this clone never fetched")
+
+        self.assertEqual(0, self.push("-f", "HEAD:refs/heads/main").returncode)
         self.assertIsNotNone(self.called())
 
 
@@ -2461,7 +2643,7 @@ class TheLinkStepWritesThePushHook(RepositoryCase):
         hook.write_text("#!/usr/bin/env python3\n# https://pre-commit.com\nimport pre_commit\n", encoding="utf-8")
         entry = self.linked()
         self.assertEqual(("beside", "pre-commit", None), (entry["state"], entry["tool"], entry["line"]))
-        self.assertIn("CI alone", entry["said"])
+        self.assertIn("go unchecked", entry["said"])
 
     def test_a_hook_file_that_is_not_utf8_is_left_as_it_is(self) -> None:
         hook = self.root / ".git" / "hooks" / "pre-push"

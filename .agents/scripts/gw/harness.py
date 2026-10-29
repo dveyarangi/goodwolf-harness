@@ -201,9 +201,10 @@ def _handed_off(source: Source, wanted: Ref, target: str, overwrite: bool) -> in
 
 
 def link(target: Path, report: Report) -> None:
-    """The per-clone step: a clone of a tree that holds core has no loader links until this makes
-    them, from the tree's own copy, with no source and no network. The links are the install's
-    link step run alone; a pending one is the same accepted state, and the exit says it is left."""
+    """The per-clone step: a clone of a tree that holds core has no loader links, no interpreter
+    record and no `pre-push` until this makes them, from the tree's own copy, with no source and no
+    network. The links are the install's link step run alone; a pending one is the same accepted
+    state, and the exit says it is left."""
     target = _work_tree_root(target, source=None)
     if not (target / SKILLS).is_dir():
         raise Refused(f"links: {target} holds no {SKILLS} — --install first")
@@ -1193,20 +1194,20 @@ def _write_push_hook(target: Path, report: Report) -> None:
     named = _git_in(target, "rev-parse", "--path-format=absolute", "--git-path", f"hooks/{PUSH_HOOK}")
     common = _git_in(target, "rev-parse", "--path-format=absolute", "--git-common-dir")
     if named is None or common is None:
-        report.notes.append("git named no place for the pre-push hook: pushes here are checked by CI alone")
+        report.notes.append("git named no place for the pre-push hook: pushes from this clone go unchecked")
         return
     hook = Path(named)
     inside = _within(hook, Path(common)) or _within(hook, target)
     if not inside:
         report.hook = {"path": str(hook), "state": "outside",
-                       "said": "a hooks folder outside the project: this clone is checked by CI alone until a person places the line",
+                       "said": "a hooks folder outside the project: pushes from this clone go unchecked until a person places the line",
                        "line": SHARED_INPUT_LINES}
         return
     if _within(hook, target / ".husky"):
         report.hook = {"path": str(hook), "state": "beside", "tool": "husky",
                        "place": str(target / ".husky" / PUSH_HOOK) + ", first", "line": SHARED_INPUT_LINES}
         return
-    held = hook.read_bytes().decode("utf-8", "replace") if hook.is_file() else None
+    held = hook.read_bytes().decode("utf-8", "replace").replace("\r\n", "\n") if hook.is_file() else None
     if held is not None and held not in CORE_PUSH_HOOKS:
         report.hook = {"path": str(hook), "state": "beside", **_beside(held, hook)}
         return
@@ -1226,7 +1227,7 @@ def _beside(held: str, hook: Path) -> dict:
                 "line": LEFTHOOK_LINE}
     if "pre-commit.com" in held or "pre_commit" in held:
         return {"tool": "pre-commit", "place": None,
-                "said": "it hands a hook no ref lines: this clone is checked by CI alone", "line": None}
+                "said": "it hands a hook no ref lines: pushes from this clone go unchecked", "line": None}
     return {"tool": None, "place": f"{hook}, first", "line": SHARED_INPUT_LINES}
 
 
@@ -1715,6 +1716,8 @@ def _alive(pid: int, made_at: float) -> bool:
     from ctypes import wintypes
 
     kernel = ctypes.WinDLL("kernel32", use_last_error=True)
+    kernel.OpenProcess.restype = wintypes.HANDLE
+    kernel.OpenProcess.argtypes = (wintypes.DWORD, wintypes.BOOL, wintypes.DWORD)
     handle = kernel.OpenProcess(0x1000, False, pid)  # PROCESS_QUERY_LIMITED_INFORMATION
     if not handle:
         return ctypes.get_last_error() == 5  # access denied: someone's process, alive
