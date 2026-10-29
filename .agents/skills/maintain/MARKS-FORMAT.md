@@ -19,6 +19,11 @@ This shelf owns the format of the marks, the maintain mechanism's one record:
   record — or `nothing to change`. `rules` was a level until 2026-10-11, the doc against the
   meta-rules; its rows left the marks by hand at the landing that retired it, the one write not
   `--mark`'s.
+- One row of the first table is the tree's, not a mechanism's: `*` at the level `decisions`, its
+  `fingerprint` the full lowercase hex of the commit a pass with no person last swept the decisions
+  through, written only by `--mark '*' decisions <outcome> <commit>`. It is kept by every mark,
+  sorted after every mechanism, has no files in the second table, and in a recipient is the
+  recipient's own. `*` takes no other level, and no mechanism takes `decisions`.
 - The second table: one row per file a level was checked against, with that file's fingerprint,
   so a level falling due names the files that moved, were added or went. A first-table row with no
   files was written before a mark kept them: it reads, and when due names none.

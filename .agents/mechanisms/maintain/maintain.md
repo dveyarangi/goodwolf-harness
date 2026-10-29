@@ -18,8 +18,9 @@ pass over a declared scope, and by any session in passing, which repairs it by M
 does not repeat it.
 
 It is **installed**. A tree without it still runs its ring, unmaintained; the parts table below is
-what an installer adds and an uninstaller removes. It is reached from the ring in the entry file
-and from `/verify` naming it. Nothing in the entry file is its part: the ring belongs to the loop,
+what an installer adds and an uninstaller removes. It is reached from the ring in the entry file,
+from `/verify` naming it, and from a host's scheduler as a pass with no person, the host's task
+one line calling the skill's section for it *(the user, 2026-10-25)*. Nothing in the entry file is its part: the ring belongs to the loop,
 and this mechanism sits on it. The harness mechanism places it in a tree with the rest of core;
 removing it alone is declared below as a gap, not assumed away.
 
@@ -38,6 +39,14 @@ a mechanism doc. A mark fingerprints the surface as it stands when written, so w
 the re-check and the mark is cleared unread; marking is therefore the step that closes the
 re-check. It fingerprints each file of the surface too, so a level falling due names what moved,
 was added or went, and the re-check reads those rather than guessing *(the user, 2026-10-11)*.
+
+A pass with no person sweeps the whole tree, across mechanisms, for what contradicts the decisions
+landed since its last sweep, besides what is due — dueness follows a mechanism's own files and
+crosses into no other *(the user, 2026-10-25)*. Its point is one row of the marks that is the
+tree's, the commit the decisions were last swept through, moved only by the pass that closes the
+sweep *(the user, 2026-10-25)*; `maintain.py --landed` lists every file in the decisions' homes
+that changed between that commit and the head, and the agent reads what each change decides.
+What it leaves at or above the dial is a question asking the person, which every wake shows.
 
 In a recipient the mechanisms that came with core are maintained where core is made: the clock
 leaves them out and a mark refuses them, and the origin's marks never ship.
@@ -72,6 +81,7 @@ the dial sets it, recording the cause in the evidence.
 | B3 | a maintenance pass, 2026-09-07, from `TICKET-FORMAT` stating the duty unconditionally |
 | C2 | the user, 2026-10-04 — whether a straw dog is due is the store's to say |
 | C3 | the install RFC of 2026-09-06 |
+| G1–G4 | the user, 2026-10-25 — a sweep across mechanisms, its tree-wide mark, the section of its own; their text, the user, 2026-10-29 |
 | E1–E3 | `/denoise` as selected, 2026-09-05 |
 | the mechanism shape's block, R1–R4 | the user, 2026-09-07, in the shape's rules file; installed here |
 | the ticket mechanism's block, P1, P2, P3, P5 | in the ticket mechanism's rules file, where each rule carries its own authority; installed here |
@@ -84,6 +94,8 @@ the dial sets it, recording the cause in the evidence.
 | re-checking derived work when what governs it moved — a doc against the meta-rules, an implementation against its doc, records against their format | `.agents/skills/maintain/SKILL.md` | |
 | holding a landed slice to its governing docs, both ways | — | elsewhere — landing-time agreement is verification, `.agents/skills/verify/SKILL.md` |
 | knowing a re-check is due | `.agents/skills/maintain/SKILL.md` | |
+| sweeping the tree, with no person, for what the decisions landed since the last sweep contradict | `.agents/skills/maintain/SKILL.md` | |
+| listing the files in the decisions' homes changed since the last sweep | `.agents/scripts/gw/maintain.py` | |
 | marking a level re-checked | `.agents/skills/maintain/SKILL.md` | |
 | rewriting a straw dog that is due, and retiring the block | `.agents/skills/maintain/SKILL.md` | |
 | guessing where a straw dog nobody wrapped stands, and judging each guess | `.agents/scripts/gw/straw_dogs.py` | |
@@ -134,7 +146,8 @@ the dial sets it, recording the cause in the evidence.
 ## What it produces, and who reads it
 
 - **The pass's report** — *what happened* — read by the person who asked for the pass, and by `/conclude` when
-  the session is recorded.
+  the session is recorded. A pass with no person leaves what waits on the person as questions
+  asking them, read at every wake.
 - **Repaired files** — *its format's* — read by whoever reads them next; the report names each thing that was out
   of agreement, now right, and the commit the rule each repair restored.
 - **Moved records** — *its format's* — read through their repaired citations; the mover reports what it
@@ -146,8 +159,11 @@ the dial sets it, recording the cause in the evidence.
 - **The rules file** — *what must always hold* — two rules, M1, targeting `/mechanism`'s *Incept*, and M2,
   targeting the entry file's general rules and `/recall`; read by the installer alone and installed
   there as this mechanism's blocks.
-- **The marks**, `docs/mechanisms/maintenance.md` — *what exists* — read by the clock at every pass. The
-  instance's record: a recipient keeps its own, and the origin's never ships.
+- **The marks**, `docs/mechanisms/maintenance.md` — *what exists* — read by the clock at every pass, the
+  tree's row by the listing. The instance's record: a recipient keeps its own, and the origin's
+  never ships.
+- **The listing of what landed**, `maintain.py --landed` — *what exists* — read by a pass with no
+  person, each file it names by its diff.
 - **The clock's report** — *what exists* — read by `/maintain` at the start of every pass, a due
   level naming the files that moved, were added or went since its mark, which the re-check reads;
   and by `/verify` through the verification set, where only an unreadable mark or surface fails it.

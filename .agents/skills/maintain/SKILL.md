@@ -4,8 +4,10 @@ description: >-
   Use to hold a declared scope of the tree in agreement — docs to the
   meta-rules, docs to their implementation, records to their format, every
   fact to one home — and to repair the drift; also to retire an expired straw
-  dog or archive a finished record. Drift only: a landed slice is verified,
-  not maintained.
+  dog or archive a finished record; and to run as a pass with no person, on a
+  host's schedule, sweeping the whole tree for what the decisions landed since
+  the last sweep contradict. Drift only: a landed slice is verified, not
+  maintained.
 ---
 
 Mechanism: maintain
@@ -76,6 +78,31 @@ One pass over a declared scope. The scope decides which rules apply.
   A straw dog holding a nested one is refused: dispose of the children, scan again.
 - **T3** Guess with `--guess` over the scope you declared, and judge each candidate: wrap and
   bind it, or leave the claim it is.
+
+## A pass with no person
+
+- **G1** A pass with no person re-checks what is due and sweeps what changed: read each file
+  `maintain.py --landed` lists by its diff between the two commits, passing a rename at full
+  similarity; for each decision that landed or changed there, find by subagents briefed with these
+  bounds every text across the tree that contradicts it — records of what happened aside, save an
+  earlier decision the new one overturns or narrows without saying so.
+- **G2** Repair what stands below the dial, in your own work or nobody's: bringing a record to a
+  decision the person has taken, in that decision's own words and adding nothing, decides nothing
+  new — what the decision leaves unsaid is asked, and so is an earlier decision it overturns or
+  narrows; what landed before the mark is not this sweep's; a text that describes an instruction
+  you leave for the person stays as it is until the instruction moves. In another running
+  session's work, or a file it has changed and not committed, tell that session and write nothing
+  there. Leave each decision at or above the dial, asking no one, as a question of its own asking
+  the person, opened under the lowest question that contains it, its body naming the decision,
+  every text that contradicts it and where — the rule and what describes it alike — the options
+  and your recommendation; then `questions.py ask`.
+- **G3** Commit and push what you changed as the project's way of working with git says; then mark
+  the sweep with `maintain.py --mark '*' decisions <outcome> <the commit --landed read through>`,
+  and commit and push the mark the same way. A pass that cannot finish its sweep, or whose commit
+  or push is refused, leaves the sweep unmarked; repairs a refused commit leaves undone are
+  discarded and asked of the person.
+- **G4** With no mark, start the record at the head and sweep nothing that night. A mark whose
+  commit the history lacks is asked of the person, never written over by the pass.
 
 ## Installed from other mechanisms
 
