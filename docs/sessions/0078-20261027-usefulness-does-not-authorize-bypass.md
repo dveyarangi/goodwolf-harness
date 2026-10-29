@@ -19,7 +19,7 @@ The user ordered the commit-hook work rolled back, and ended by adding one meta-
   displays of instruction changes, and published code whose referenced governing section remained
   uncommitted. The published changes were reverted by `179da584`; the owned local hook was
   removed, the task's uncommitted changes restored, and unrelated dirty files preserved.
-  [01-0010.0240.0010 a-commit-with-a-broken-record-stops](../tickets/01-0010.0240.0010-a-push-with-a-broken-record-stops.md)
+  [01-0010.0240.0010 a-commit-with-a-broken-record-stops](../tickets/done/01-0010.0240.0010-a-push-with-a-broken-record-stops.md)
   returned to Ready and this session released its unit. No restart was authorized.
 - **No new reply-form guard was accepted.** The user refused the proposed check because Claude
   Code already followed the form. The bounded project-configuration comparison and the refusal
