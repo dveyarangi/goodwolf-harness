@@ -2399,6 +2399,48 @@ class ThePushCheck(RepositoryCase):
         self.assertIn("could not be removed", said)
 
 
+    def test_the_checks_git_sees_the_copy_and_not_the_clone(self) -> None:
+        self.write(".agents/scripts/gw/edges.py", (
+            "import json, subprocess, sys\n"
+            "seen = subprocess.run(['git', 'ls-files', 'docs'], capture_output=True, encoding='utf-8').stdout\n"
+            "wrong = 'staged-only' in seen or 'one.md' not in seen\n"
+            "print(json.dumps({'diagnostics': [{'record': 'docs', 'problem': 'git saw ' + seen.replace(chr(10), ' ')}] if wrong else []}))\n"
+            "sys.exit(1 if wrong else 0)\n"
+        ))
+        self.write("docs/tickets/one.md", "# One, touched\n")
+        self.commit("a check that asks Git")
+        self.write("docs/tickets/staged-only.md", "# Staged in the clone, never committed\n")
+        self.git("add", "--", "docs/tickets/staged-only.md")
+
+        exported = {"GIT_DIR": str(self.root / ".git"), "GIT_WORK_TREE": str(self.root),
+                    "GIT_CONFIG_PARAMETERS": "'core.bare'='true'"}
+        with mock.patch.dict(os.environ, exported):
+            self.assertEqual((0, ""), self.pushing(self.refs()))
+
+    def test_an_annotated_tag_is_peeled_to_its_commit_and_checked_once_beside_its_branch(self) -> None:
+        tally = Path(tempfile.mkdtemp()) / "runs"
+        self.addCleanup(shutil.rmtree, tally.parent, True)
+        self.write(".agents/scripts/gw/edges.py", (
+            "import json, os\nwith open(os.environ['GW_TEST_TALLY'], 'a') as f: f.write('run\\n')\n"
+            "print(json.dumps({'diagnostics': []}))\n"
+        ))
+        self.write("docs/tickets/one.md", "# One, broken\n")
+        self.commit("break")
+        self.git("tag", "-a", "v1", "-m", "a release")
+        tag = self.git("rev-parse", "v1").strip()
+        head = self.git("rev-parse", "HEAD").strip()
+        zero = "0" * 40
+
+        with mock.patch.dict(os.environ, {"GW_TEST_TALLY": str(tally)}):
+            status, said = self.pushing(f"refs/heads/main {head} refs/heads/main {self.pushed}\n"
+                                        f"refs/tags/v1 {tag} refs/tags/v1 {zero}\n")
+
+        self.assertNotEqual(tag, head)
+        self.assertEqual(1, status, said)
+        self.assertEqual(1, said.count("tickets: docs/tickets/one.md:1: broken here"), said)
+        self.assertEqual("run\n", tally.read_text(encoding="utf-8"))
+
+
 class ThePushHook(RepositoryCase):
     """The clone's `pre-push` and `hook.sh`'s branch, through a real `git push`, the mode a stub
     that says it was called and what it was handed."""
@@ -2574,6 +2616,15 @@ class ThePushHook(RepositoryCase):
         self.assertIsNotNone(self.called())
 
 
+    def test_an_annotated_tag_on_a_new_record_calls_the_mode(self) -> None:
+        self.write("docs/tickets/two.md", "# Two\n")
+        self.commit("a record only a tag sends")
+        self.git("tag", "-a", "v1", "-m", "a release")
+
+        self.assertEqual(0, self.push("refs/tags/v1").returncode)
+        self.assertIsNotNone(self.called())
+
+
 class TheLinkStepWritesThePushHook(RepositoryCase):
     """`--links` writes the clone's `pre-push` only inside the project, and beside another's hook
     gives the line instead."""
@@ -2664,6 +2715,15 @@ class TheLinkStepWritesThePushHook(RepositoryCase):
 
         self.assertEqual("written", json.loads(said.getvalue())["hook"]["state"])
         self.assertTrue((self.root / ".git" / "hooks" / "pre-push").is_file())
+
+
+    def test_a_core_hook_checked_out_with_crlf_is_core_s_and_rewritten_in_lf(self) -> None:
+        hook = self.root / ".git" / "hooks" / "pre-push"
+        hook.parent.mkdir(exist_ok=True)
+        hook.write_bytes(harness.PUSH_HOOK_TEXT.replace("\n", "\r\n").encode("utf-8"))
+
+        self.assertEqual("written", self.linked()["state"])
+        self.assertEqual(harness.PUSH_HOOK_TEXT.encode("utf-8"), hook.read_bytes())
 
 
 if __name__ == "__main__":

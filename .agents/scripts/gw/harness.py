@@ -1211,7 +1211,7 @@ def _write_push_hook(target: Path, report: Report) -> None:
     if held is not None and held not in CORE_PUSH_HOOKS:
         report.hook = {"path": str(hook), "state": "beside", **_beside(held, hook)}
         return
-    if held == PUSH_HOOK_TEXT:
+    if hook.is_file() and hook.read_bytes() == PUSH_HOOK_TEXT.encode("utf-8"):
         report.hook = {"path": str(hook), "state": "kept"}
         return
     _write_text(hook, PUSH_HOOK_TEXT)
