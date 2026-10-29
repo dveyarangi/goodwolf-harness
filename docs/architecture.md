@@ -196,10 +196,10 @@ merged outside it, the transformation, the announce and repository lines, what a
 what an install and an update refuse, the loader links and the interpreter record, and arrival as
 the check. [The install spec](spec/01-0010.0130-harness-installs-into-another-tree.md) owns the
 decisions behind it. The project's verification set is the project's: arrival runs none of it.
-<straw-dog question="q-0037.0006.0022">A clone's commit runs the method's checks through a hook the
+<straw-dog question="q-0037.0006.0022">A clone's push runs the method's checks through a hook the
 link step writes beside the project's own and never over it, and is refused only on a record it
 carries; the decision is
-[q-0037.0006.0022.0004](questions/q-0037.0006.0022.0004-how-do-the-harnesss-checks-run-without-the-agent-at-commit-and-in-the-projects-ci.md)'s.</straw-dog>
+[q-0037.0006.0022.0004](questions/q-0037.0006.0022.0004-how-do-the-harnesss-checks-run-without-the-agent-at-push-and-in-the-projects-ci.md)'s.</straw-dog>
 
 **The edge, and what crosses it.** The core–instance interaction is everything an instance must
 know to integrate core, customise it and stay coherent across core changes: a rule id, a target
