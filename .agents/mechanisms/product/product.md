@@ -112,7 +112,8 @@ check fails.
 - **The tickets rendering** — *what exists* — what each live ticket realizes, read through the
   store's owner part and the trace link, and the answers left out under each pain and goal; read
   by the person choosing the work, on request, written nowhere.
-- **The maintainer's report** — *what exists* — read by `/maintain` under U1. Its exit status is
+- **The maintainer's report** — *what exists* — read by `/maintain` under U1 and by
+  the pre-push check, `harness.py --pre-push`, at a push that carries a file of the method. Its exit status is
   the verdict; its JSON is for the person reading a failure. It writes nothing.
 - **The rules file** — *what must always hold* — read by the installer alone, and by whoever amends
   a rule of this mechanism that another skill reads. Its blocks sit in `/maintain`, `/align` and

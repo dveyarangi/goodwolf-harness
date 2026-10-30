@@ -166,7 +166,8 @@ the dial sets it, recording the cause in the evidence.
   person, each file it names by its diff.
 - **The clock's report** — *what exists* — read by `/maintain` at the start of every pass, a due
   level naming the files that moved, were added or went since its mark, which the re-check reads;
-  and by `/verify` through the verification set, where only an unreadable mark or surface fails it.
+  and by `/verify` through the verification set and by the pre-push check, `harness.py --pre-push`,
+  at a push that carries a file of the method, where only an unreadable mark or surface fails it.
 
 Nothing else; no index.
 

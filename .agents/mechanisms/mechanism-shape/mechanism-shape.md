@@ -116,8 +116,8 @@ claimant is the always-on mechanism, so no uninstall can remove what another mec
 - **The evidence**, one file per mechanism under `docs/mechanisms/`, named by the slug — *what happened* — read at amend time,
   by whoever is about to change this doc and needs to know what was already refuted. Never read
   during ordinary work, which is why it lives outside `.agents/` and is excluded from re-checks.
-- **`--check`'s report** — *what exists* — read by `/verify` through the verification set, and by anyone who runs
-  it. Its exit status is what the set consumes; its JSON is for the person reading a failure.
+- **`--check`'s report** — *what exists* — read by `/verify` through the verification set, by
+  the pre-push check, `harness.py --pre-push`, at a push that carries a file of the method, and by anyone who runs it. Its exit status is what the set consumes; its JSON is for the person reading a failure.
   Its `core cites` key lists every path under `docs/` a core file names and where it stands —
   a painted door, skipped inside an instance-owned block, or a leak — read by whoever ports
   core: an exclusion nobody can see is the review the check replaces, so all three are shown
@@ -137,8 +137,8 @@ claimant is the always-on mechanism, so no uninstall can remove what another mec
   no body restates a rule, so installation is the only path such a rule has into its owner's body.
   The alternative — authored in the owner, installed elsewhere — puts one rule in two files and
   leaves the check nothing to compare the authored copy against.
-- **The installer's `--check` report** — *what exists* — read by `/verify` through the verification set, and by
-  anyone who runs it. Its exit status is what the set consumes; a block absent, drifted or
+- **The installer's `--check` report** — *what exists* — read by `/verify` through the verification set, by
+  the pre-push check, `harness.py --pre-push`, at a push that carries a file of the method, and by anyone who runs it. Its exit status is what the set consumes; a block absent, drifted or
   owned by nothing is what it fails on, and a block outside the section its anchor heads, a local
   block that is not last in its file, or an override naming a rule that is not installed where the
   override is.
@@ -159,9 +159,11 @@ Apart from these experiment files, it writes no records beyond the mechanism dir
 ## Not yet at the shape
 
 <straw-dog question="q-0037.0006.0004">
-**Nothing runs the check unasked.** It runs when a person types it, or when the project's
-verification set is run, which happens at `/verify`. That is better than remembering and weaker
-than a mechanism that speaks at wake; this tree has no hook to speak from. A run that stays quiet
+**Only a push runs the check unasked.** It runs when a person types it, when the project's
+verification set is run, which happens at `/verify`, and at every push that carries a file of the
+method, through the pre-push hook and `harness.py --pre-push`; nothing else runs it. That is
+better than remembering and weaker than a mechanism that speaks at wake; the hook it speaks from
+runs at push. A run that stays quiet
 because nobody started it is indistinguishable from one that passed.
 </straw-dog>
 

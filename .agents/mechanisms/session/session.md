@@ -120,7 +120,7 @@ for this mechanism.
 | the shelf of Claude Code's hook wiring | `.agents/skills/questions/hooks/.claude/settings.json` | `questions` |
 | the shelf of Codex's hook wiring | `.agents/skills/questions/hooks/.codex/hooks.json` | `questions` |
 | the shelf of Cursor's hook wiring | `.agents/skills/questions/hooks/.cursor/hooks.json` | `questions` |
-| the hooks' wrapper, launched by a Git alias | `.agents/scripts/gw/hook.sh` | `mechanism-shape` |
+| the hooks' wrapper — a host's hooks launched by a Git alias, Git's `pre-push` by the clone's hook file | `.agents/scripts/gw/hook.sh` | `mechanism-shape` |
 | the mover | `.agents/scripts/gw/move_doc.py` | `ticket` |
 | the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |
 | the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
@@ -139,8 +139,8 @@ for this mechanism.
   same of the other running sessions, and of its own.
 - **The sign of life**, outside the tree — *what exists* — read by the script alone, to tell a
   silent session from a quiet one; a compaction empties it and keeps its time.
-- **The check's report** — *what exists* — read by `/maintain` at its pass and by `/verify` through
-  the verification set.
+- **The check's report** — *what exists* — read by `/maintain` at its pass, by `/verify` through
+  the verification set and by the pre-push check, `harness.py --pre-push`, at a push that carries a file of the method.
 - **The rules file** — *what must always hold* — read by the installer alone. Its blocks sit in
   `/recall` (S1), `/conclude` (S2), `/maintain` (S3), the entry file's general rules (S4, S6, S9),
   `/commit` (S5), and `/plan` and `/implement` (S7).

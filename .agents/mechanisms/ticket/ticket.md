@@ -115,8 +115,8 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
   every record that cites work by its slug.
 - **The list** — *what exists* — read under P12 by whoever is about to mint a ticket, and by whoever
   orders the work; rendered from the headers on request by `tickets.py --list` and never committed.
-- **The maintainer's report** — *what exists* — read by `/verify` through the verification set and by `/maintain`
-  under P5. Its exit status is what the set consumes; its JSON is for the person reading a
+- **The maintainer's report** — *what exists* — read by `/verify` through the verification set, by `/maintain`
+  under P5 and by the pre-push check, `harness.py --pre-push`, at a push that carries a file of the method. Its exit status is what the set consumes; its JSON is for the person reading a
   failure. It writes nothing.
 - **The mover's report** — *what happened* — read by the maintainer who ran it: what moved, what was repaired, what
   it could not rewrite, and a source edited after the move was derived, which stops the close as

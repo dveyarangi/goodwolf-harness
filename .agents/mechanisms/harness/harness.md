@@ -95,8 +95,8 @@ which Git locates. The same step records the interpreter that ran it in the clon
 which no commit carries: every core hook runs through a wrapper that reads it, so a hook needs no
 `uv` and no `python` on the path, and a clone without the record is told which step makes it *(the
 user, 2026-10-09)*. <straw-dog question="q-0037.0006.0022">The same step writes the clone's
-`pre-push`, which checks a push in a copy of what it sends and refuses it on a record of the method
-that fails its check, a push of code starting no interpreter: only inside the project — its Git
+`pre-push`, which checks a push in a copy of what it sends and refuses it on any finding in that
+copy, a push of code starting no interpreter: only inside the project — its Git
 directory, or a hooks folder of its own work tree — and only where none or core's stands; beside
 another's hook, in husky's folder or in one outside the project it writes nothing, and the report
 gives the line and its place *(the user, 2026-10-26 and 2026-10-29)*.</straw-dog> A run that fails after it began writing stops, reports what it wrote, what was
@@ -176,6 +176,11 @@ would otherwise fail the shape check for the same absence the report already nam
 | the product document's seed, its shelf and the reader of its form | `.agents/scripts/gw/product.py` | `product`, which owns the document and words it |
 | the hook wiring's directory, each file at its host file's path | `.agents/scripts/gw/questions.py` | `questions`, which words the hooks |
 | the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |
+| the hooks' wrapper, which the written `pre-push` runs | `.agents/scripts/gw/hook.sh` | `mechanism-shape` |
+| a check the push runs | `.agents/scripts/gw/sessions.py` | `session` |
+| a check the push runs | `.agents/scripts/gw/tickets.py` | `ticket` |
+| a check the push runs | `.agents/scripts/gw/edges.py` | `edge` |
+| a check the push runs | `.agents/scripts/gw/maintain.py` | `maintain` |
 | test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |
 | the listing script | `.agents/scripts/gw/straw_dogs.py` | `maintain` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
@@ -195,8 +200,8 @@ would otherwise fail the shape check for the same absence the report already nam
   start and before each message, and by `--check`, which compares core's entries alone.
 <straw-dog question="q-0037.0006.0022">
 - **The clone's `pre-push`** — *what exists* — in its Git directory or a hooks folder of the
-  project's own work tree, run by Git at each push, which it refuses while what the push sends holds a
-  record of the method that fails its check; made by the link step, never where husky keeps its
+  project's own work tree, run by Git at each push, which it refuses on any finding in a copy of
+  what the push sends; made by the link step, never where husky keeps its
   hooks nor outside the project, where the report gives the line and its place.
 </straw-dog>
 - **The interpreter record**, in the clone's Git directory — *what exists* — read by the hooks'

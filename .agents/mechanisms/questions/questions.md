@@ -139,7 +139,7 @@ roles, is an open question of the store.
 | test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |
 | the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |
 | the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
-| the hooks' wrapper, launched by a Git alias, which runs the store's hook and hands it the installer's line | `.agents/scripts/gw/hook.sh` | `mechanism-shape` |
+| the hooks' wrapper — a host's hooks launched by a Git alias, Git's `pre-push` by the clone's hook file — which runs the store's hook and hands it the installer's line | `.agents/scripts/gw/hook.sh` | `mechanism-shape` |
 | the interpreter record the wrapper reads, made by the link step | `.agents/scripts/gw/harness.py` | `harness` |
 | the rows' script, for each session's position | `.agents/scripts/gw/sessions.py` | `session` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
@@ -161,8 +161,8 @@ roles, is an open question of the store.
 - **The hook wiring** — *what must always hold* — read by the installer, which merges each shelf
   file into the host file at its own path beside the project's hooks, and by each host from there.
 - **The hook's answers** — *what exists* — read by the host, which places them in the agent's context.
-- **The check's report** — *what exists* — read by `/maintain` at its pass and by `/verify` through the
-  verification set.
+- **The check's report** — *what exists* — read by `/maintain` at its pass, by `/verify` through the
+  verification set and by the pre-push check, `harness.py --pre-push`, at a push that carries a file of the method.
 - **The rules file** — *what must always hold* — read by the installer alone. Its blocks sit in the
   entry file, `/recall`, `/conclude`, `/maintain` and `/align`.
 

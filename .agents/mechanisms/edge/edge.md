@@ -114,8 +114,8 @@ installer adds and an uninstaller removes.
   text derived for a consumer or an extender.
 - **The sidecars** — *what exists* — read by whoever attaches or re-checks that extension, by
   `/verify` under E4, and by `/maintain` under E2; each result is an observation as of its date, never a promise.
-- **The maintainer's report** — *what exists* — read by `/verify` through the verification set and
-  by `/maintain` under E1. Its exit status is what the set consumes; its JSON is for the person
+- **The maintainer's report** — *what exists* — read by `/verify` through the verification set,
+  by `/maintain` under E1 and by the pre-push check, `harness.py --pre-push`, at a push that carries a file of the method. Its exit status is what the set consumes; its JSON is for the person
   reading a failure. It writes nothing.
 - **The rules file** — *what must always hold* — read by the installer alone, and by whoever amends
   a rule of this mechanism that another skill reads. Its blocks sit in `/maintain`, `/align` and
