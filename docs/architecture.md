@@ -124,19 +124,18 @@ is written by hand, and every call keeps it as it found it
 ([decision 3](tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md#decisions-landed-at-this-tickets-align)).
 A write re-reads every entry it changes and refuses one that moved since it was read — a hand edit
 included; detected interference is a failure, as in
-[interruption and recovery](#interruption-and-recovery). A new question's id is the script's to
-draw, and one another session took meanwhile is drawn again. An id says where the question sits —
-a root `q-NNNN`, a child its parent's id and one more position — and stays true: a re-parent
-renames the moved subtree in the same call, its files and every id and link to them across the
-records under `docs/`, mechanically and without forwarding the old ids
-([decision 6](tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md#decisions-landed-at-this-tickets-align)).
+[interruption and recovery](#interruption-and-recovery). <straw-dog question="q-0037.0017.0005.0001.0019">A new question's id is six random characters
+of base32, `q-7f3k2a`, drawn by whoever writes it and never changed; one already taken is drawn
+again. Its file is named by the id alone, and its place in the tree is its `part of` header alone,
+so a move rewrites that one line and no link anywhere. The tree's structure is drawn from those
+headers wherever the store is shown, siblings in the order they were opened; no address is kept
+([decision 6](questions/q-0037.0017.0005.0001-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of.md#decisions)).</straw-dog>
 A session's row is [the session mechanism](../.agents/mechanisms/session/session.md)'s, and the
 mechanism manages every session from any one of them: any session writes any row through the
 session script *(the user, 2026-10-25)*. A row is one file, replaced in one rename, so a reader
-never meets half of it and nothing is locked; a wake ends the silent and removes the long ended, a
-rename rewrites the ids a row names, and a takeover moves a held unit and leaves its mark in the
-holder's row *(the user, 2026-10-10 and 2026-10-25)*. A wholly closed subtree moves to `done/` with the mover in the `close` call that
-finishes it; the maintainer's move is the sweep for what a closure left behind. A host's hook
+never meets half of it and nothing is locked; a wake ends the silent and removes the long ended, and a takeover moves a held unit and leaves its mark in the
+holder's row *(the user, 2026-10-10 and 2026-10-25)*. <straw-dog question="q-0037.0017.0005.0001.0019">A closed question stays where it is; a subtree
+whose questions are all closed is finished, and the window leaves it out.</straw-dog> A host's hook
 delivers the window and registers the session under the host's steadiest id, and never fails
 the host: a problem becomes a line of context. Everything else is
 [the questions mechanism](../.agents/mechanisms/questions/questions.md)'s.
