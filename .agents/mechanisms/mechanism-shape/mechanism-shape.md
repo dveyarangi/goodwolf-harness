@@ -93,6 +93,8 @@ absence is honestly classified, are judgements it records and never makes.
 | the test harness's tests | `.agents/scripts/gw/test/test_repository.py` |
 | one-case instruction experiment | `.agents/scripts/gw/amendment.py` |
 | the experiment's tests | `.agents/scripts/gw/test/test_amendment.py` |
+| the rule-failure register's attribution check | `.agents/scripts/gw/rule_failures.py` |
+| the attribution check's tests | `.agents/scripts/gw/test/test_rule_failures.py` |
 | citation reader | `.agents/scripts/gw/docs_corpus.py` |
 | test harness | `.agents/scripts/gw/test/repository.py` |
 
@@ -122,6 +124,11 @@ claimant is the always-on mechanism, so no uninstall can remove what another mec
   a painted door, skipped inside an instance-owned block, or a leak — read by whoever ports
   core: an exclusion nobody can see is the review the check replaces, so all three are shown
   and never a total.
+- **`rule_failures.py --check`'s report** — *what exists* — that every occurrence in the
+  rule-failure register names its host, model and time, and its case agrees; read by anyone who
+  runs it, its exit status for a gate and its JSON for the person reading a failure.
+  <straw-dog question="q-0037.0012.0011">Nothing runs it unasked yet: the register's attribution
+  stands uncommitted, and the check joins the verification set once it lands.</straw-dog>
 - **`--index`'s render** — *what exists* — read on request by someone asking what is declared. **Nothing runs it
   unasked**, and nothing consumes its output: it exists so the register never becomes a file, and
   a register nobody asks for is a register nobody needed.
