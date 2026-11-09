@@ -342,16 +342,6 @@ class NestedIds(Store):
             questions.tree(self.root).splitlines(),
         )
 
-    def test_a_child_whose_id_is_not_under_its_parents_is_reported(self) -> None:
-        self.place("q-0003-a-flat-child", "A flat child?", {"part of": "q-0001", "state": "open"})
-
-        self.assertEqual(["q-0003 is part of q-0001, so its id is q-0001.NNNN"], self.problems())
-
-    def test_a_root_whose_id_is_nested_is_reported(self) -> None:
-        self.place("q-0002.0001-a-lost-one", "A lost one?", {"state": "open"})
-
-        self.assertEqual(["q-0002.0001 is part of nothing, so its id is q-NNNN"], self.problems())
-
     def test_an_orphans_id_is_not_judged_since_its_parent_is_reported_missing(self) -> None:
         self.place("q-0001.0002-an-orphan", "An orphan?", {"part of": "q-0009", "state": "open"})
 
@@ -1361,18 +1351,19 @@ class TheCalls(Declared):
 
         self.assertRefused("no free position under q-0004", "open", "One more?", "--under", "q-0004")
 
-    def test_open_between_two_questions_reparents_the_lower(self) -> None:
+    def test_open_between_two_questions_reparents_the_lower_and_nothing_else(self) -> None:
         self.called("open", "What must an entry hold?", "--between", "q-0002", "q-0004")
 
         self.assertEqual("q-0002", self.part("q-0002.0001-what-must-an-entry-hold", "part of"))
-        self.assertEqual("q-0002.0001", self.part("q-0002.0001.0001-which-parts-are-optional", "part of"))
+        self.assertEqual("q-0002.0001", self.part("q-0004-which-parts-are-optional", "part of"))
+        self.assertEqual("q-0004", self.part("q-0008-is-the-lean-optional", "part of"))
 
     def test_move_under_another_and_to_root(self) -> None:
         self.called("move", "q-0007", "--under", "q-0002")
-        self.assertEqual("q-0002", self.part("q-0002.0001-who-moves-a-subtree", "part of"))
+        self.assertEqual("q-0002", self.part("q-0007-who-moves-a-subtree", "part of"))
 
-        self.called("move", "q-0002.0001", "--to-root")
-        self.assertIsNone(self.part("q-0013-who-moves-a-subtree", "part of"), "q-0013 went with the first move, freed")
+        self.called("move", "q-0007", "--to-root")
+        self.assertIsNone(self.part("q-0007-who-moves-a-subtree", "part of"))
 
     def test_depend_on_another(self) -> None:
         self.called("depend", "q-0004", "--on", "q-0010")
@@ -1466,149 +1457,40 @@ class TheCalls(Declared):
         self.assertTrue((self.root / STORE / "q-0004.0002-my-question.md").is_file())
 
 
-class Renaming(Declared):
-    """A re-parent renames the subtree that moves, so every id keeps saying where its question
-    sits (the user, 2026-10-03): files, links, relations, session lines and bare ids follow."""
+class Moving(Declared):
+    """A move rewrites the moved question's *part of* and nothing else: its id, its file and every
+    link to it stand, and the tree shows it under its new parent (docs/architecture.md: "Question
+    store")."""
 
-    def stems(self, folder: str = STORE) -> set[str]:
-        return {path.stem for path in (self.root / folder).glob("q-*.md")}
-
-    def test_a_move_renames_its_subtree_keeping_nested_positions_and_seating_flat_ones_after_them(self) -> None:
-        self.called("open", "Who runs the mover?", "--under", "q-0007")
-        self.question("q-0007.0002-is-it-archived", "Is it archived?", "q-0007", "closed:moot", "gone", folder=f"{STORE}/done")
+    def test_a_move_keeps_the_id_the_file_and_every_link(self) -> None:
+        self.write("docs/notes.md", "See [who moves](questions/q-0007-who-moves-a-subtree.md), q-0007 and q-0013.\n")
 
         said = self.called("move", "q-0007", "--under", "q-0002")
 
-        self.assertIn("renamed q-0007 → q-0002.0001", said)
-        live, archived = self.stems(), self.stems(f"{STORE}/done")
-        self.assertLessEqual(
-            {
-                "q-0002.0001-who-moves-a-subtree",
-                "q-0002.0001.0001-who-runs-the-mover",
-                "q-0002.0001.0003-does-the-mover-repair-links",
-            },
-            live,
-        )
-        self.assertIn("q-0002.0001.0002-is-it-archived", archived)
-        self.assertEqual([], [stem for stem in live | archived if stem.startswith("q-0007") or stem.startswith("q-0013")])
-        self.assertEqual("q-0002.0001", self.part("q-0002.0001.0003-does-the-mover-repair-links", "part of"))
+        self.assertEqual("q-0002", self.part("q-0007-who-moves-a-subtree", "part of"))
+        self.assertEqual("q-0007", self.part("q-0013-does-the-mover-repair-links", "part of"))
+        self.assertEqual("See [who moves](questions/q-0007-who-moves-a-subtree.md), q-0007 and q-0013.\n", self.read("docs/notes.md"))
+        self.assertNotIn("renamed", said)
+        _, text = self.said("--tree", "q-0002")
+        self.assertIn("  q-0007 [open] Who moves a subtree?", text.splitlines())
 
-    def test_links_and_bare_ids_across_the_docs_follow_the_rename_and_nothing_longer_is_touched(self) -> None:
-        self.called("open", "Who runs the mover?", "--under", "q-0007")
-        self.write(
-            "docs/notes.md",
-            "See [the subtree](questions/q-0007-who-moves-a-subtree.md), q-0007 and `q-0007.0001`,\n"
-            "not q-00070, faq-0007 or q-0070.\n",
-        )
-
-        self.called("move", "q-0007", "--under", "q-0002")
-
-        self.assertEqual(
-            "See [the subtree](questions/q-0002.0001-who-moves-a-subtree.md), q-0002.0001 and `q-0002.0001.0001`,\n"
-            "not q-00070, faq-0007 or q-0070.\n",
-            self.read("docs/notes.md"),
-        )
-
-    def test_an_id_inside_a_fenced_block_is_an_example_and_is_left_as_written(self) -> None:
-        sample = "Before.\n\n```md\n# q-0041 A sample\n\n- **part of** q-0007\n```\n\nAfter q-0007.\n"
-        self.write("docs/sample.md", sample)
-
-        self.called("move", "q-0007", "--under", "q-0002")
-
-        self.assertEqual(sample.replace("After q-0007.", "After q-0002.0001."), self.read("docs/sample.md"))
-
-    def test_a_record_whose_bare_id_alone_changed_is_named_among_the_files_it_wrote(self) -> None:
-        self.write("docs/notes.md", "Only q-0007 here.\n")
-
+    def test_a_move_writes_the_moved_entry_alone(self) -> None:
         said = self.called("move", "q-0007", "--under", "q-0002")
 
-        self.assertIn("repaired citations in docs/notes.md", said)
+        self.assertEqual([f"wrote {STORE}/q-0007-who-moves-a-subtree.md"], [line for line in said.splitlines() if line.startswith("wrote ")])
 
-    def test_relations_and_every_sessions_line_name_the_new_ids(self) -> None:
-        self.called("depend", "q-0004", "--on", "q-0007")
-        self.write(
-            SESSIONS,
-            session_lines(self.root).replace("s-beta running 2026-09-29T11:00Z q-0010", "s-beta running 2026-09-29T11:00Z q-0007 q-0013,q-0010"),
-        )
+    def test_a_move_to_the_root_takes_its_part_of_away(self) -> None:
+        self.called("move", "q-0007", "--to-root")
 
-        self.called("move", "q-0007", "--under", "q-0002")
+        self.assertIsNone(self.part("q-0007-who-moves-a-subtree", "part of"))
 
-        self.assertEqual("q-0002.0001", self.part("q-0004-which-parts-are-optional", "depends on"))
-        self.assertEqual(
-            "s-gamma ended 2026-09-28 q-0003\n"
-            "s-beta running 2026-09-29T11:00Z q-0002.0001 q-0002.0001.0001,q-0010\n"
-            "s-alpha running 2026-09-29T11:30Z q-0004 q-0002,q-0001\n",
-            session_lines(self.root),
-        )
+    def test_a_move_under_its_own_parent_writes_nothing(self) -> None:
+        said = self.called("move", "q-0007", "--under", "q-0003")
 
-    def test_between_renames_the_lower_subtree_under_the_new_question(self) -> None:
-        self.called("open", "What must an entry hold?", "--between", "q-0002", "q-0004")
+        self.assertNotIn("wrote ", said)
 
-        self.assertLessEqual(
-            {
-                "q-0002.0001-what-must-an-entry-hold",
-                "q-0002.0001.0001-which-parts-are-optional",
-                "q-0002.0001.0001.0001-is-the-lean-optional",
-            },
-            self.stems(),
-        )
-        self.assertEqual("s-alpha running 2026-09-29T11:30Z q-0002.0001.0001 q-0002,q-0001", self.own_line())
-
-    def test_a_move_to_the_parent_a_fitting_question_already_has_writes_nothing(self) -> None:
-        self.called("open", "Is the owner optional?", "--under", "q-0002")
-        untouched = self.snapshot()
-
-        self.called("move", "q-0002.0001", "--under", "q-0002")
-
-        self.assertEqual(untouched, self.snapshot())
-
-    def test_a_move_to_its_own_parent_seats_a_flat_id(self) -> None:
-        self.called("move", "q-0004", "--under", "q-0002")
-
-        self.assertIn("q-0002.0001-which-parts-are-optional", self.stems())
-        self.assertIn("q-0002.0001.0001-is-the-lean-optional", self.stems())
-
-    def test_a_rename_the_mover_refuses_writes_nothing(self) -> None:
-        (self.root / "docs" / "unreadable.md").write_bytes(b"\xff\xfe not utf-8\n")
-
-        self.assertRefused("not UTF-8", "move", "q-0007", "--under", "q-0002")
-
-    def test_a_later_clause_naming_an_id_the_rename_changed_refuses_the_declaration(self) -> None:
-        untouched = self.snapshot()
-
-        with self.assertRaises(questions.Refused) as refused:
-            questions.declare(
-                self.root,
-                "s-alpha",
-                [questions.Clause("moves", "q-0007", other="q-0002"), questions.Clause("leans", "q-0007", text="late")],
-                TODAY,
-            )
-
-        self.assertIn("no entry holds q-0007", str(refused.exception))
-        self.assertEqual(untouched, self.snapshot())
-
-    def test_a_straw_dogs_binding_in_core_and_in_code_follows_and_an_example_keeps_its_id(self) -> None:
-        self.called("open", "Who runs the mover?", "--under", "q-0007")
-        skill = (
-            '<straw-dog question="q-0007">Held for now.</straw-dog>\n\n'
-            'Write `<straw-dog question="q-0007">` around it; q-0007 is an example here.\n\n'
-            '```md\n<straw-dog question="q-0007">Sample.</straw-dog>\n```\n'
-        )
-        self.write(".agents/skills/keeper/SKILL.md", skill)
-        self.write("AGENTS.md", '<straw-dog question="q-0007.0001">Rule.</straw-dog>\n')
-        self.write(".agents/scripts/keeper.py", '# TODO q-0007: the move.\n# TODO q-00070: no id of ours.\nNAME = "q-0007"\n')
-
-        self.called("move", "q-0007", "--under", "q-0002")
-
-        self.assertEqual(
-            skill.replace('question="q-0007">Held', 'question="q-0002.0001">Held', 1),
-            self.read(".agents/skills/keeper/SKILL.md"),
-        )
-        self.assertEqual('<straw-dog question="q-0002.0001.0001">Rule.</straw-dog>\n', self.read("AGENTS.md"))
-        self.assertEqual(
-            '# TODO q-0002.0001: the move.\n# TODO q-00070: no id of ours.\nNAME = "q-0007"\n',
-            self.read(".agents/scripts/keeper.py"),
-        )
+    def test_a_move_into_its_own_subtree_is_refused(self) -> None:
+        self.assertRefused("makes a cycle in part of", "move", "q-0003", "--under", "q-0013")
 
 
 class Rewording(Declared):
@@ -1797,14 +1679,13 @@ class TheBody(Declared):
         self.assertIn("- **struck** 1,", self.entry_text("q-0007-who-moves-a-subtree"))
         self.assertEqual(self.BODY, self.body_of("q-0007-who-moves-a-subtree"))
 
-    def test_survives_a_rename_its_renamed_ids_rewritten_outside_fences(self) -> None:
+    def test_survives_a_move_as_written(self) -> None:
         self.argue("q-0007-who-moves-a-subtree", "Argued against q-0013.\n\n```\nq-0013 as a sample\n```\n")
 
         self.called("move", "q-0007", "--under", "q-0002")
 
         self.assertEqual(
-            "Argued against q-0002.0001.0001.\n\n```\nq-0013 as a sample\n```\n",
-            self.body_of("q-0002.0001-who-moves-a-subtree"),
+            "Argued against q-0013.\n\n```\nq-0013 as a sample\n```\n", self.body_of("q-0007-who-moves-a-subtree")
         )
 
     def test_a_line_shaped_like_a_part_in_the_body_is_not_one(self) -> None:
@@ -1926,9 +1807,9 @@ class TheDecisionsList(Declared):
         self.argue(body)
 
         self.called("move", "q-0007", "--under", "q-0002")
-        self.called("reword", "q-0002.0001", "Who carries a subtree away?")
+        self.called("reword", "q-0007", "Who carries a subtree away?")
 
-        self.assertTrue(self.entry_text("q-0002.0001-who-carries-a-subtree-away").endswith("\n" + body))
+        self.assertTrue(self.entry_text("q-0007-who-carries-a-subtree-away").endswith("\n" + body))
 
 
 class ClosingInPlace(Declared):
@@ -2136,15 +2017,6 @@ class ThePath(Store):
             self.assertTrue((self.root / STORE / "q-0002-does-a.md").is_file())
             self.assertEqual([], self.problems())
 
-    def test_a_rename_that_deepens_past_the_limit_cuts_the_same_way(self) -> None:
-        self.place("q-0002-who-moves-a-subtree", "Who moves a subtree?", {"state": "open"})
-
-        with self.limited("q-0001.0002", len("who-moves")):
-            self.called("move", "q-0002", "--under", "q-0001")
-
-            self.assertTrue((self.root / STORE / "q-0001.0002-who-moves.md").is_file())
-            self.assertEqual([], self.problems())
-
     def test_a_name_an_earlier_fit_cut_from_this_trees_own_root_stays_valid(self) -> None:
         with self.limited("q-0002", 10):
             self.called("open", "Does a long question fit?")
@@ -2278,10 +2150,8 @@ class TheRung(Declared):
 class Refusals(Declared):
     """What the store refuses whatever form the call takes."""
 
-    def test_an_id_a_rename_took_away_says_to_draw_the_window_again(self) -> None:
-        self.called("move", "q-0007", "--under", "q-0002")
-
-        self.assertRefused("draw the window again", "at", "q-0007")
+    def test_an_id_no_entry_holds_says_to_draw_the_window_again(self) -> None:
+        self.assertRefused("draw the window again", "at", "q-0099")
 
     def test_a_question_nobody_holds(self) -> None:
         self.assertRefused("no entry holds q-0099", "lean", "q-0099", "a lean")
@@ -2548,35 +2418,6 @@ class Seeding(RepositoryCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-
-class ARelativeId(Store):
-    """An id in an entry is whole. One already written is a finding for maintenance; one offered to
-    the writer in a lean is refused."""
-
-    def relative(self) -> list[str]:
-        return [note.finding for note in questions.check(self.root).findings if "relative id" in note.finding]
-
-    def test_in_a_lean_already_written_is_a_finding_not_a_problem(self) -> None:
-        self.place("q-0090-which-store", "Which store?", {"state": "open", "lean": "open as .0003 since"})
-        self.assertEqual([], self.problems())
-        self.assertEqual(1, len(self.relative()), self.relative())
-
-    def test_inside_a_fenced_block_is_not_read(self) -> None:
-        fenced = chr(10).join(["", "```", ".0003", "```", ""])
-        self.write(f"{STORE}/q-0090-which-store.md", entry("q-0090", "Which store?", {"state": "open"}) + fenced)
-        self.assertEqual([], self.relative())
-
-
-class ALeanWithARelativeId(Declared):
-    def test_is_refused_and_nothing_is_written(self) -> None:
-        self.assertRefused("relative id", "lean", "q-0004", "the user, 2026-10-23: open as .0003")
-
-    def test_a_whole_id_is_written(self) -> None:
-        self.called("lean", "q-0004", "the user, 2026-10-23: open as q-0004.0003")
-        written = next(Path(self.root, STORE).glob("q-0004-*.md")).read_text(encoding="utf-8")
-        self.assertEqual(1, len([line for line in written.splitlines() if "q-0004.0003" in line]))
-
 
 
 class AQuestionAskingThePerson(Declared):

@@ -962,11 +962,6 @@ class AHeldUnit(Rendered):
 
         self.assertEqual(("q-0003", "q-0004"), (moved.current, moved.holds))
 
-    def test_a_rename_renames_the_held_unit(self) -> None:
-        renamed = sessions.renamed(self.row("s-alpha"), {"q-0004": "q-0002.0001"})
-
-        self.assertEqual("q-0002.0001", renamed.holds)
-
     def test_the_end_lets_the_unit_go(self) -> None:
         sessions.end(self.root, "s-alpha", NOW)
 
@@ -1218,7 +1213,6 @@ class TakingOver(Rendered):
         alpha = next(each for each in sessions.rows(self.root)[0] if each.tag == "s-alpha")
 
         self.assertEqual(("q-0004", "s-beta"), (sessions.moved(alpha, "q-0003", NOW).taken, sessions.moved(alpha, "q-0003", NOW).taken_by))
-        self.assertEqual("q-0002.0001", sessions.renamed(alpha, {"q-0004": "q-0002.0001"}).taken)
         sessions.tend(self.root, NOW + timedelta(hours=4), "s-new")
         self.assertTrue(self.line("s-alpha").endswith(" taken q-0004 by s-beta"), self.line("s-alpha"))
         sessions.seen(self.root, "s-alpha", NOW + timedelta(hours=5))

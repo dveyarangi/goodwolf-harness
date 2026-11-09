@@ -599,15 +599,6 @@ def moved(held_row: Session, position: str | None, now: datetime) -> Session | N
     return dataclasses.replace(held_row, running=True, wrote=minute(now), current=position, recent=recent[:4])
 
 
-def renamed(held_row: Session, renames: dict[str, str]) -> Session:
-    """This session's row as a rename left it, so its own write does not put old ids back."""
-    current = renames.get(held_row.current or "", held_row.current)
-    recent = [renames.get(identity, identity) for identity in held_row.recent]
-    holds = renames.get(held_row.holds or "", held_row.holds)
-    taken = renames.get(held_row.taken or "", held_row.taken)
-    return dataclasses.replace(held_row, current=current, recent=recent, holds=holds, taken=taken)
-
-
 def records(root: Path) -> list[str]:
     """Every file a rename reads for the ids a row names: each session's file, wherever it stands,
     and the single file of a store from before."""
