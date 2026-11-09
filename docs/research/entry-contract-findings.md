@@ -15,6 +15,16 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v133 — 2026-11-09
+
+**Every occurrence names its host and model** — *Self-improvement*'s keeping of the register gains
+that each occurrence, the first and every strike, names the host, the model and the time it
+happened under, as its source recorded them, in one line under a `**Source**` label, linked to its
+case where it has one; `rule_failures.py --check` checks the form. The user asked that the model
+behind each violation be recorded, and chose the single line over a separate attribution paragraph
+*(the user, 2026-11-09)*. That the check runs by hand until it joins the verification set is a
+straw dog bound to q-0037.0012.0011.
+
 ## v132 — 2026-10-29
 
 **A drift repair's subagent carries the bounds** — M2 gains *by a subagent briefed with the same
