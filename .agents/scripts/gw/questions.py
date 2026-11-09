@@ -93,6 +93,10 @@ NAME_LIMIT = 255
 # the user's profile stands about 120 characters deep.
 CLONE_ROOM = 128
 # The highest four-digit position a child takes; a root's id may grow a digit, as it always could.
+# The table of the ids the store's migration replaced, old to new, which history is read through;
+# no entry. TODO q-0037.0017.0005.0001.0019: written by the migration, read while old ids may be met.
+FORMER_IDS = f"{STORE}/former-ids.md"
+_FORMER_ROW = re.compile(r"^\| *(q-\d{4,}(?:\.\d{4})*) *\| *(q-[a-z2-7]{6}) *\|")
 # RFC 4648's base32 alphabet, lowercase, which an id draws from.
 ID_ALPHABET = "abcdefghijklmnopqrstuvwxyz234567"
 # `asks`: an open question waits on the person's decision and every wake shows it until it closes
@@ -408,8 +412,33 @@ def check(root: Path) -> Checked:
         + _likely_twins(entries)
         + _unstated(entries, index)
         + _unrunged(entries)
+        + _former_ids_named(root, entries)
     )
     return Checked(True, len(entries), diagnostics, findings, skipped + unreadable)
+
+
+def _former_ids_named(root: Path, entries: list[Entry]) -> list[Finding]:
+    """Each id the migration replaced, still named in an entry, a session's row or a straw dog's
+    binding — what a branch made before the migration brings back when it merges — with the id it
+    is now. Fenced blocks hold examples and are not read. A finding: the migration, run again on that
+    branch, rewrites it."""
+    table = former_ids(root)
+    if not table:
+        return []
+    findings: list[Finding] = []
+    for name in [read.record for read in entries] + sessions.records(root):
+        inside = False
+        for number, line in enumerate((root / name).read_text(encoding="utf-8").splitlines(), 1):
+            if _FENCE.match(line):
+                inside = not inside
+                continue
+            for found in [] if inside else _BARE_ID.findall(line):
+                if found in table:
+                    findings.append(Finding(name, number, f"names {found}, which is now {table[found]}"))
+    for name, number, identity in question_bindings(root):
+        if identity in table:
+            findings.append(Finding(name, number, f"binds {identity}, which is now {table[identity]}"))
+    return findings
 
 
 def _entries(
@@ -487,10 +516,28 @@ def _finished(entries: list[Entry]) -> set[str]:
 
 
 def _entry_files(root: Path) -> list[str]:
-    """Every markdown file under the store. The sessions file is not markdown and not an entry."""
+    """Every markdown file under the store but the table of former ids. The sessions file is not
+    markdown and not an entry."""
     return sorted(
-        name for name in corpus(root) if name.startswith(f"{STORE}/") and name.endswith(".md")
+        name
+        for name in corpus(root)
+        if name.startswith(f"{STORE}/") and name.endswith(".md") and name != FORMER_IDS
     )
+
+
+def former_ids(root: Path) -> dict[str, str]:
+    """Each id the migration replaced, with the one it gave; empty in a tree that never ran it."""
+    path = root / FORMER_IDS
+    if not path.is_file():
+        return {}
+    rows = (_FORMER_ROW.match(line) for line in path.read_text(encoding="utf-8").splitlines())
+    return {row.group(1): row.group(2) for row in rows if row}
+
+
+def now_called(root: Path, identity: str) -> str:
+    """What to tell one who names an id the migration replaced: the id it gave, or nothing."""
+    given = former_ids(root).get(identity)
+    return f"; {identity} is now {given}" if given else ""
 
 
 # --- reading an entry ---------------------------------------------------------------------------
@@ -2530,7 +2577,8 @@ class _Draft:
         read = self.index.get(identity)
         if read is None:
             raise Refused(
-                f"no entry holds {identity} — draw the window again, `--window --session <tag> --full`"
+                f"no entry holds {identity}{now_called(self.root, identity)} — draw the window again, "
+                "`--window --session <tag> --full`"
             )
         return read
 

@@ -469,7 +469,7 @@ def hold(root: Path, tag: str, unit: str, index: dict, now: datetime) -> tuple[S
     held_row = held(root, tag)
     if held_row.holds == unit:
         return held_row, None
-    _refuse_unless_a_unit(index, unit)
+    _refuse_unless_a_unit(root, index, unit)
     let_go = held_row.holds
     others = [each for each in rows(root)[0] if each.holds == unit and each.tag != tag]
     holder = next((each for each in others if each.running), None)
@@ -489,7 +489,7 @@ def take(root: Path, tag: str, unit: str, index: dict, now: datetime) -> tuple[S
     nothing: a question that is no unit; a unit this session holds already; and a unit no running
     session holds, which `--hold` takes."""
     held_row = held(root, tag)
-    _refuse_unless_a_unit(index, unit)
+    _refuse_unless_a_unit(root, index, unit)
     if held_row.holds == unit:
         _refuse(f"{tag} holds {unit} already")
     others = [each for each in rows(root)[0] if each.holds == unit and each.tag != tag]
@@ -542,10 +542,12 @@ def owner_of(index: dict, unit: str | None) -> str:
     return linked.group(1) if linked else owner.value
 
 
-def _refuse_unless_a_unit(index: dict, unit: str) -> None:
+def _refuse_unless_a_unit(root: Path, index: dict, unit: str) -> None:
     entry = index.get(unit)
     if entry is None:
-        _refuse(f"no entry holds {unit}")
+        from questions import now_called  # noqa: PLC0415  (it imports this module)
+
+        _refuse(f"no entry holds {unit}{now_called(root, unit)}")
     if not entry.open:
         _refuse(f"{unit} is closed, and a closed question is no unit")
     if "owner" not in entry.parts:
