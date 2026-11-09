@@ -24,7 +24,7 @@ The user ordered the commit-hook work rolled back, and ended by adding one meta-
 - **No new reply-form guard was accepted.** The user refused the proposed check because Claude
   Code already followed the form. The bounded project-configuration comparison and the refusal
   are in
-  [q-0037.0009.0021.0003 What keeps the required reply form from being omitted?](../questions/q-0037.0009.0021.0003-what-keeps-the-required-reply-form-from-being-omitted.md).
+  [q-0037.0009.0021.0003 What keeps the required reply form from being omitted?](../questions/done/q-0037.0009.0021.0003-what-keeps-the-required-reply-form-from-being-omitted.md).
   Equal project instructions and window production did not establish a cause for the observed
   difference between hosts.
 
