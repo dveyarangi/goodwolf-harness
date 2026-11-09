@@ -268,7 +268,11 @@ def _question(root: Path, read: Ticket, entries: dict[str, "questions.Entry"]) -
     if len(written) != 1:
         return _DASH
     entry = entries.get(cited_record(root, read.record, target_of(written[0])) or "")
-    return _named_link(entry.record) if entry else _DASH
+    if entry is None:
+        return _DASH
+    named = _NAMED.match(posixpath.splitext(posixpath.basename(entry.record))[0])
+    # A question's file named by its id alone says nothing of it, so its words come from its title.
+    return _named_link(entry.record) if named else f"[{entry.identity} {entry.question}]({entry.record})"
 
 
 # --- reading a ticket ---------------------------------------------------------------------------

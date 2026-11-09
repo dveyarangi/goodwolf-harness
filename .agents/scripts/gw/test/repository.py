@@ -71,9 +71,21 @@ class RepositoryCase(unittest.TestCase):
 
     def setUp(self) -> None:
         self.root = self._fresh_tree()
+        self._draw_ids_in_order()
         if not self._proves_a_process():
             self._refuse_processes()
             self._answer_listings_from_the_folder()
+
+    def _draw_ids_in_order(self) -> None:
+        """The ids a case's questions are opened under, in the order opened: `q-open2a`, then
+        `q-open3a` and on, so a case can name what it opened. A case that tests the draw itself
+        patches it again."""
+        import questions  # noqa: PLC0415  (the fixture serves every script's tests)
+
+        drawn = (f"q-open{digit}{letter}" for letter in "abcdefghijklmnopqrstuvwxyz" for digit in "234567")
+        patcher = mock.patch.object(questions, "draw_id", lambda: next(drawn))
+        patcher.start()
+        self.addCleanup(patcher.stop)
 
     def another_repository(self) -> Path:
         """A second fresh tree beside `self.root`, for a case whose subject acts across two

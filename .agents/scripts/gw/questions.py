@@ -41,6 +41,7 @@ import os
 import posixpath
 import collections
 import re
+import secrets
 import sys
 import unicodedata
 from collections import Counter
@@ -54,6 +55,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import move_doc  # noqa: E402  (path set above)
 import sessions  # noqa: E402  (path set above)
 from docs_corpus import (  # noqa: E402  (path set above)
+    QUESTION_ID,
     STRAW_DOG_SCOPE,
     bindings_in,
     cited_record,
@@ -91,7 +93,8 @@ NAME_LIMIT = 255
 # the user's profile stands about 120 characters deep.
 CLONE_ROOM = 128
 # The highest four-digit position a child takes; a root's id may grow a digit, as it always could.
-LAST_POSITION = 9999
+# RFC 4648's base32 alphabet, lowercase, which an id draws from.
+ID_ALPHABET = "abcdefghijklmnopqrstuvwxyz234567"
 # `asks`: an open question waits on the person's decision and every wake shows it until it closes
 # (q-0037.0010.0009.0009.0001, the user, 2026-10-25).
 PARTS = ("record of", "part of", "depends on", "state", "owner", "answer", "realizes", "rung", "lean", "asks", "opened", "struck")
@@ -126,9 +129,7 @@ _STOPWORDS = frozenset(
     "a an and are as at be by can do does for from how in is it of on or should the this to we "
     "what when where whether which who why will with".split()
 )
-# An id says where its question sits: a root's position, then one four-digit position per level
-# below it, as a ticket's id nests (the user, 2026-10-03).
-_ID = r"q-\d{4,}(?:\.\d{4})*"
+_ID = QUESTION_ID
 _TITLE = re.compile(rf"^# ({_ID}) (\S.*)$")
 _BULLET = re.compile(r"^- \*\*([^*]+)\*\* ?(.*)$")
 _CONTINUATION = re.compile(r"^\s+\S")
@@ -137,7 +138,8 @@ _IDENTITY = re.compile(rf"^{_ID}$")
 # A slug's word as a name holds it: anything but a separator; the check compares it with the
 # question's own words.
 _WORD = r"[^\s/._-]+"
-_ENTRY_NAME = re.compile(rf"^{STORE}/(?:done/)?({_ID})-({_WORD}(?:-{_WORD})*)\.md$")
+# A file named by its id alone; an old one, by its id and its slug.
+_ENTRY_NAME = re.compile(rf"^{STORE}/(?:done/)?({_ID})(?:-({_WORD}(?:-{_WORD})*))?\.md$")
 _DEFERRAL = re.compile(r"^until \S.*, meanwhile \S.*$")
 _STRIKE = re.compile(r"^(\d+), last (\d{4}-\d{2}-\d{2}T\d{2}:\d{2})Z$")
 _OPENED = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
@@ -426,7 +428,7 @@ def _entries(
         stem = _ENTRY_NAME.match(name)
         if stem is None:
             diagnostics.append(
-                Diagnostic(name, None, f"is not named `q-NNNN-<slug>.md` in {STORE}/ or its done/")
+                Diagnostic(name, None, f"is not named `<id>.md` in {STORE}/")
             )
             continue
         raw = (root / name).read_bytes()
@@ -688,27 +690,11 @@ def _opened_problems(read: Entry) -> list[Diagnostic]:
 
 
 def _name_problems(root: Path, read: Entry, stem: re.Match[str]) -> list[Diagnostic]:
-    """The filename's id is the title's, and its slug is the whole question, as the writer names it
-    (parent decision 55), so a name shortened or left behind by a reworded question is caught. A
-    slug the writer cut so the path fits this tree is the writer's name too."""
-    if read.identity is None:
+    """The filename's id is the title's. The words may change while the file keeps its name, so
+    the name says nothing of them."""
+    if read.identity is None or stem.group(1) == read.identity:
         return []
-    if stem.group(1) != read.identity:
-        return [
-            Diagnostic(read.record, 1, f"is named {stem.group(1)} and its title says {read.identity}")
-        ]
-    wanted = _slug(read.question)
-    fitted = (_fitted_slug(root, read.identity, read.question, clone) for clone in (True, False))
-    if stem.group(2) != wanted and stem.group(2) not in fitted:
-        return [
-            Diagnostic(
-                read.record,
-                1,
-                f"its slug `{stem.group(2)}` is not the question's words; name it `{read.identity}-{wanted}.md`",
-            )
-        ]
-    return []
-
+    return [Diagnostic(read.record, 1, f"is named {stem.group(1)} and its title says {read.identity}")]
 
 def _words(text: str) -> list[str]:
     """A text's words as a slug spells them, in any script: its letters, digits and the marks
@@ -1081,26 +1067,18 @@ class Store:
         return sorted(found, key=_order)
 
 
-def _next_free(index: dict[str, Entry], parent: str | None) -> str:
-    """The id a question placed under `parent`, or among the roots, takes: the one after every
-    position at that level, live or archived (the user, 2026-10-03). No gaps are left, since a
-    question's place among its siblings carries no order to insert into, so it steps by one where
-    a ticket's position steps by ten.
-
-    An id freed by a rename may come back below the highest; nothing forwards it, so an old commit
-    message naming it may then read wrongly — accepted with the decision.
-    """
-    level = [_positions(identity)[-1] for identity in index if _parent_of(identity) == parent]
-    position = max(level, default=0) + 1
-    if position > LAST_POSITION and parent is not None:
-        raise Refused(f"no free position under {parent}: four digits end at {LAST_POSITION}")
-    return f"{parent}.{position:04d}" if parent else f"q-{position:04d}"
+def draw_id() -> str:
+    """One id at random (docs/architecture.md: "Question store"). A module function, so a test can
+    draw its own."""
+    return _random_id(secrets.choice)
 
 
-def _parent_of(identity: str) -> str | None:
-    """The parent an id names, or `None` for a root's — a flat id from before ids nested is read as
-    a root's, so the roots continue past it."""
-    return identity.rsplit(".", 1)[0] if "." in identity else None
+def _random_id(choice: Callable[[str], str]) -> str:
+    """Six characters of the alphabet, drawn again until they hold a letter and a digit."""
+    while True:
+        drawn = "".join(choice(ID_ALPHABET) for _ in range(6))
+        if any(each.isalpha() for each in drawn) and any(each.isdigit() for each in drawn):
+            return f"q-{drawn}"
 
 
 def _ancestry(index: dict[str, Entry], identity: str) -> list[Entry]:
@@ -2127,7 +2105,7 @@ def _calls() -> argparse.ArgumentParser:
 
 def _question_id(given: str) -> str:
     if not _IDENTITY.match(given):
-        raise argparse.ArgumentTypeError(f"`{given}` is not a question id, `q-NNNN` or `q-NNNN.NNNN`")
+        raise argparse.ArgumentTypeError(f"`{given}` is not a question id, `q-` and six base32 characters")
     return given
 
 
@@ -2201,8 +2179,6 @@ def _declared(
     draft.recheck(seen)
     written = draft.write()
     carried: list[str] = []
-    if draft.moves:
-        written = _carry_renames(root, draft.moves, {}, written, carried.append)
     moved = sessions.moved(held, position, now)
     if moved is not None:
         try:
@@ -2331,16 +2307,8 @@ class _Draft:
         self.now = now
         self.changed: list[str] = []
         self.new: set[str] = set()
-        # Where each reworded entry's file sits on disk until its new name moves it.
-        # TODO q-0037.0017.0005.0001.0019: a reword moves no file once the file is named by its id alone.
-        self.origin: dict[str, str] = {}
         # The ids whose questions were reworded: the id stays, and only the file's name may move.
         self.reworded: list[str] = []
-
-    @property
-    def moves(self) -> list[tuple[str, str]]:
-        """Each reworded entry's file, from where it sits to where its new name puts it."""
-        return [(self.origin[identity], self.index[identity].record) for identity in self.origin]
 
     def apply(self, clause: Clause) -> None:
         getattr(self, f"_{clause.verb}")(clause)
@@ -2372,11 +2340,11 @@ class _Draft:
         still free, or `declare` draws again."""
         if clause.other:
             self._existing(clause.other)
-        identity = _next_free(self.index, clause.other)
+        identity = self._free_id()
         parts = {"state": "open", "opened": self._opened_under(clause.other), "struck": Strike(0, self.now).text}
         if clause.other:
             parts = {"part of": clause.other} | parts
-        record = f"{STORE}/{identity}-{_fitted_slug(self.root, identity, clause.text or '')}.md"
+        record = f"{STORE}/{identity}.md"
         self._put(Entry(record, identity, clause.text or "", {n: Part(v, 0) for n, v in parts.items()}))
         self.new.add(identity)
         if clause.lower:
@@ -2384,6 +2352,13 @@ class _Draft:
             if lower.parent != clause.other:
                 raise Refused(f"`open --between {clause.other} {clause.lower}`: {clause.lower} is not part of {clause.other}")
             self._seat(lower, identity)
+
+    def _free_id(self) -> str:
+        """An id no question holds, drawn again on one already taken."""
+        while True:
+            drawn = draw_id()
+            if drawn not in self.index and not _files_holding(self.root, drawn):
+                return drawn
 
     def _opened_under(self, parent: str | None) -> str:
         """The second a new question opens: now, or one after the latest sibling's, so siblings
@@ -2405,8 +2380,8 @@ class _Draft:
     def _rewords(self, clause: Clause) -> None:
         """An open question takes new words and keeps its id, its parts and its body (the user,
         2026-10-05): the same question means the same answers, never the same wording. The file
-        is named by the words, so it moves when they change its slug, and the mover repairs every
-        link to it. A closed question keeps the words it was answered under."""
+        keeps its name, so every link to it holds. A closed question keeps the words it was answered
+        under."""
         read = self._existing(clause.question or "")
         identity = read.identity or ""
         words = " ".join((clause.text or "").split())
@@ -2417,11 +2392,8 @@ class _Draft:
             raise Refused(f"`reword {identity}`: {identity} is {state}; it keeps the words it was answered under")
         if words == read.question:
             raise Refused(f"`reword {identity}`: it already reads so")
-        record = posixpath.join(posixpath.dirname(read.record), f"{identity}-{_fitted_slug(self.root, identity, words)}.md")
-        if record != read.record and identity not in self.new:
-            self.origin.setdefault(identity, read.record)
         self.reworded.append(identity)
-        self._put(Entry(record, identity, words, read.parts, read.body))
+        self._put(dataclasses.replace(read, question=words))
 
     def _seat(self, read: Entry, parent: str | None) -> None:
         """Give a question its parent: its *part of* and nothing else, so its id, its file and every
@@ -2572,27 +2544,22 @@ class _Draft:
         still free — under any slug, since another session names its question in its own words;
         then the mover has no reason to refuse the renamed entries' move."""
         for identity in self.changed:
-            taking = identity in self.new or (identity in self.origin and identity not in self.reworded)
-            if taking and _files_holding(self.root, identity):
+            if identity in self.new and _files_holding(self.root, identity):
                 raise Taken(f"{identity} was written by another session since this call read the store")
             if identity in self.new:
                 continue
-            record = self.origin.get(identity, self.index[identity].record)
+            record = self.index[identity].record
             now = (self.root / record).read_bytes() if (self.root / record).is_file() else None
             if now != seen.get(record):
                 raise Refused(f"{record} changed since this call read it; call it again")
-        why = move_doc.refusal(self.root, self.moves) if self.moves else None
-        if why:
-            raise Refused(f"the renamed entries cannot move: {why}")
 
     def write(self) -> list[str]:
-        """The changed entries, in the order the clauses changed them — a renamed one where its file
-        still sits, for the mover to carry. A failure stops the run and says what was written:
-        nothing is rolled back."""
+        """The changed entries, in the order the clauses changed them. A failure stops the run and
+        says what was written: nothing is rolled back."""
         written: list[str] = []
         for identity in self.changed:
             read = self.index[identity]
-            record = self.origin.get(identity, read.record)
+            record = read.record
             try:
                 path = self.root / record
                 path.parent.mkdir(parents=True, exist_ok=True)
@@ -2618,7 +2585,7 @@ def _files_holding(root: Path, identity: str) -> list[Path]:
         path
         for folder in (root / STORE, root / STORE / "done")
         if folder.is_dir()
-        for path in folder.glob(f"{identity}-*.md")
+        for path in (*folder.glob(f"{identity}.md"), *folder.glob(f"{identity}-*.md"))
     ]
 
 
@@ -2643,32 +2610,6 @@ def _entry_text(read: Entry) -> str:
     bullets = [f"- **{name}** {parts[name].value}" for name in PARTS if name in parts]
     parts = "\n".join([f"# {read.identity} {read.question}", "", *bullets]) + "\n"
     return parts + ("\n" + read.body if read.body else "")
-
-
-def _slug(question: str) -> str:
-    """Every word of the question, cut at a word boundary only past `SLUG_LENGTH` characters, so a
-    person reading a listing reads the whole question (parent decision 55)."""
-    slug: list[str] = []
-    for word in _words(question):
-        if slug and len("-".join(slug + [word])) > SLUG_LENGTH:
-            break
-        slug.append(word)
-    return "-".join(slug) or "question"
-
-
-def _fitted_slug(root: Path, identity: str, question: str, clone: bool = True) -> str:
-    """The question's slug, cut further while the entry's path in `done/` — the longer of its two
-    homes — would pass `PATH_LIMIT` from this tree's root or, with `clone`, from a clone's
-    `CLONE_ROOM`, whichever is deeper, or its name `NAME_LIMIT`: at a word boundary, and inside the
-    one word left, as a script written without spaces needs. The id is never cut (the user,
-    2026-10-03). Without `clone` it is the fit names were written by before the clone's room."""
-    room = PATH_LIMIT - max(len(str(root)), CLONE_ROOM if clone else 0)
-    slug = _slug(question)
-    while len(slug) > 1 and (
-        len(f"/{STORE}/done/{identity}-{slug}.md") > room or len(f"{identity}-{slug}.md".encode("utf-8")) > NAME_LIMIT
-    ):
-        slug = slug.rsplit("-", 1)[0] if "-" in slug else slug[:-1]
-    return slug
 
 
 if __name__ == "__main__":

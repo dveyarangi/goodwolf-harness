@@ -274,26 +274,10 @@ class TheFilename(Store):
         self.assertEqual(1, len(problems), problems)
         self.assertIn("q-0004", problems[0])
 
-    def test_whose_slug_is_not_the_questions_words_is_reported(self) -> None:
-        self.write(f"{STORE}/q-0003-something-else.md", entry("q-0003", "A question?", {"state": "open"}))
-
-        problems = self.problems()
-
-        self.assertEqual(1, len(problems), problems)
-        self.assertIn("slug", problems[0])
-
     def test_holds_every_word_of_the_question_an_apostrophe_dropped(self) -> None:
         self.place("q-0003-what-the-tickets-align-holds", "What the ticket's align holds?", {"state": "open"})
 
         self.assertEqual([], self.problems())
-
-    def test_that_stops_short_of_the_whole_question_is_reported_with_the_name_it_needs(self) -> None:
-        self.place("q-0003-which-package-manager", "Which package manager do we use?", {"state": "open"})
-
-        problems = self.problems()
-
-        self.assertEqual(1, len(problems), problems)
-        self.assertIn("q-0003-which-package-manager-do-we-use.md", problems[0])
 
     def test_that_is_not_an_entrys_name_is_reported(self) -> None:
         self.write(f"{STORE}/notes.md", "# Notes\n")
@@ -301,7 +285,7 @@ class TheFilename(Store):
         problems = self.problems()
 
         self.assertEqual(1, len(problems), problems)
-        self.assertIn("q-NNNN-", problems[0])
+        self.assertIn("`<id>.md`", problems[0])
 
     def test_one_id_held_by_two_files_is_reported(self) -> None:
         self.place(
@@ -1271,6 +1255,30 @@ class Declared(Rendered):
         return next(line for line in session_lines(self.root).splitlines() if line.startswith("s-alpha "))
 
 
+class TheId(Store):
+    """An id is `q-` and six characters of RFC 4648's base32, lowercase, a letter and a digit among
+    them (docs/architecture.md: "Question store")."""
+
+    def test_a_draw_is_six_base32_characters_holding_a_letter_and_a_digit(self) -> None:
+        script = iter("aaaaaa" + "222222" + "a2b3c4")
+
+        self.assertEqual("q-a2b3c4", questions._random_id(lambda _: next(script)))
+
+    def test_the_id_pattern_reads_a_new_id_whole_and_no_word_as_one(self) -> None:
+        self.assertEqual("q-2345ab", questions._FIRST_ID.search("[q-2345ab](../questions/q-2345ab.md)").group(0))
+        self.assertIsNone(questions._IDENTITY.match("q-values"))
+
+    def test_a_todo_naming_a_new_id_is_bound_to_it(self) -> None:
+        import docs_corpus  # noqa: PLC0415
+
+        self.assertEqual("q-7f3k2a", docs_corpus.TODO_QUESTION.match("# TODO q-7f3k2a: when it lands").group(2))
+
+    def test_a_file_named_by_its_id_alone_checks_clean(self) -> None:
+        self.write(f"{STORE}/q-7f3k2a.md", entry("q-7f3k2a", "Named by its id?", {"state": "open"}))
+
+        self.assertEqual([], self.problems())
+
+
 class OpenedAt(Declared):
     """`open` says when, to the second, and never ties a sibling (01-0010.0250.0100)."""
 
@@ -1320,42 +1328,37 @@ class TheCalls(Declared):
         self.assertIn("at q-0004 Which parts are optional?", said)
         self.assertNotIn("(from", said)
 
-    def test_open_takes_the_next_free_id_under_its_parent_prints_it_and_leaves_the_session_where_it_stands(self) -> None:
+    def test_open_draws_an_id_names_the_file_by_it_prints_it_and_leaves_the_session_where_it_stands(self) -> None:
         said = self.called("open", "Is the owner optional?", "--under", "q-0004")
 
-        self.assertIn("opened q-0004.0001", said)
+        self.assertIn("opened q-open2a", said)
         self.assertEqual(
-            "# q-0004.0001 Is the owner optional?\n\n- **record of** what it intends to become\n"
+            "# q-open2a Is the owner optional?\n\n- **record of** what it intends to become\n"
             "- **part of** q-0004\n- **state** open\n- **opened** 2026-09-29T12:00:00Z\n"
             "- **struck** 0, last 2026-09-29T12:00Z\n",
-            self.read(f"{STORE}/q-0004.0001-is-the-owner-optional.md"),
+            self.read(f"{STORE}/q-open2a.md"),
         )
         self.assertEqual("s-alpha running 2026-09-29T11:30Z q-0004 q-0002,q-0001", self.own_line())
 
-    def test_open_takes_the_position_after_every_child_live_or_in_done(self) -> None:
-        self.called("open", "Is the owner optional?", "--under", "q-0004")
-        self.question("q-0004.0003-an-archived-child", "An archived child?", "q-0004", "closed:moot", "gone", folder=f"{STORE}/done")
+    def test_an_id_already_held_is_drawn_again(self) -> None:
+        self.write(f"{STORE}/q-open2a.md", entry("q-open2a", "Held already?", {"state": "open"}))
 
-        said = self.called("open", "Is the owner required?", "--under", "q-0004")
+        said = self.called("open", "Is the owner optional?", "--under", "q-0004")
 
-        self.assertIn("opened q-0004.0004", said)
+        self.assertIn("opened q-open3a", said)
+        self.assertTrue((self.root / STORE / "q-open3a.md").is_file())
 
-    def test_open_a_root_takes_the_position_after_every_root_level_id(self) -> None:
+    def test_open_a_root_has_no_part_of(self) -> None:
         said = self.called("open", "Is there a third root?")
 
-        self.assertIn("opened q-0014", said)
-        self.assertIsNone(self.part("q-0014-is-there-a-third-root", "part of"))
-
-    def test_open_where_no_four_digit_position_is_left_is_refused(self) -> None:
-        self.question("q-0004.9999-the-last-child", "The last child?", "q-0004")
-
-        self.assertRefused("no free position under q-0004", "open", "One more?", "--under", "q-0004")
+        self.assertIn("opened q-open2a", said)
+        self.assertIsNone(self.part("q-open2a", "part of"))
 
     def test_open_between_two_questions_reparents_the_lower_and_nothing_else(self) -> None:
         self.called("open", "What must an entry hold?", "--between", "q-0002", "q-0004")
 
-        self.assertEqual("q-0002", self.part("q-0002.0001-what-must-an-entry-hold", "part of"))
-        self.assertEqual("q-0002.0001", self.part("q-0004-which-parts-are-optional", "part of"))
+        self.assertEqual("q-0002", self.part("q-open2a", "part of"))
+        self.assertEqual("q-open2a", self.part("q-0004-which-parts-are-optional", "part of"))
         self.assertEqual("q-0004", self.part("q-0008-is-the-lean-optional", "part of"))
 
     def test_move_under_another_and_to_root(self) -> None:
@@ -1441,21 +1444,20 @@ class TheCalls(Declared):
     def test_at_a_closed_question_is_refused(self) -> None:
         self.assertRefused("a position is an open question", "at", "q-0005")
 
-    def test_open_raced_by_another_session_takes_the_id_after_theirs(self) -> None:
-        theirs = entry("q-0004.0001", "Their question?", {"part of": "q-0004", "state": "open"})
+    def test_open_raced_by_another_session_to_its_id_draws_another(self) -> None:
+        theirs = entry("q-open2a", "Their question?", {"part of": "q-0004", "state": "open"})
 
         written = questions.declare(
             self.root,
             "s-alpha",
             [questions.Clause("opens", other="q-0004", text="My question?")],
             TODAY,
-            between=lambda: self.write(f"{STORE}/q-0004.0001-their-question.md", theirs),
+            between=lambda: self.write(f"{STORE}/q-open2a.md", theirs),
         )
 
-        self.assertEqual(["q-0004.0002"], written.opened)
-        self.assertEqual(theirs, self.read(f"{STORE}/q-0004.0001-their-question.md"))
-        self.assertTrue((self.root / STORE / "q-0004.0002-my-question.md").is_file())
-
+        self.assertEqual(["q-open3a"], written.opened)
+        self.assertEqual(theirs, self.read(f"{STORE}/q-open2a.md"))
+        self.assertTrue((self.root / STORE / "q-open3a.md").is_file())
 
 class Moving(Declared):
     """A move rewrites the moved question's *part of* and nothing else: its id, its file and every
@@ -1497,42 +1499,34 @@ class Rewording(Declared):
     """A question's words follow the discussion and its id stays (the user, 2026-10-05): the same
     question means the same answers, never the same wording."""
 
-    def test_the_title_and_the_file_take_the_new_words_and_everything_else_is_kept(self) -> None:
+    def test_the_title_takes_the_new_words_and_the_file_and_everything_else_are_kept(self) -> None:
         self.called("lean", "q-0007", "the closer")
         before = self.entry_text("q-0007-who-moves-a-subtree")
 
         said = self.called("reword", "q-0007", "Who carries a finished subtree away?")
 
         self.assertIn("reworded q-0007 Who carries a finished subtree away?", said)
-        self.assertFalse((self.root / STORE / "q-0007-who-moves-a-subtree.md").exists())
         self.assertEqual(
             before.replace("# q-0007 Who moves a subtree?", "# q-0007 Who carries a finished subtree away?"),
-            self.entry_text("q-0007-who-carries-a-finished-subtree-away"),
+            self.entry_text("q-0007-who-moves-a-subtree"),
         )
         self.assertEqual("q-0007", self.part("q-0013-does-the-mover-repair-links", "part of"))
 
-    def test_every_link_to_the_entry_follows_and_bare_ids_and_sessions_are_left_as_they_were(self) -> None:
+    def test_every_link_to_the_entry_and_every_session_line_are_left_as_they_were(self) -> None:
         self.write("docs/notes.md", "See [q-0007](questions/q-0007-who-moves-a-subtree.md) and q-0007.\n")
         sessions = session_lines(self.root)
 
         self.called("reword", "q-0007", "Who carries a finished subtree away?")
 
-        self.assertEqual(
-            "See [q-0007](questions/q-0007-who-carries-a-finished-subtree-away.md) and q-0007.\n",
-            self.read("docs/notes.md"),
-        )
+        self.assertEqual("See [q-0007](questions/q-0007-who-moves-a-subtree.md) and q-0007.\n", self.read("docs/notes.md"))
         self.assertEqual(sessions, session_lines(self.root))
-        self.assertEqual([], [told for told in self.run_check()[1]["diagnostics"] if "slug" in told["problem"]])
+        self.assertEqual([], self.run_check()[1]["diagnostics"])
 
-    def test_every_file_it_wrote_is_named_so_a_commit_by_path_carries_the_whole_change(self) -> None:
-        self.write("docs/tickets/01-0007-carry.md", "# Carry\n\nFor [q-0007](../questions/q-0007-who-moves-a-subtree.md).\n")
-
+    def test_it_writes_the_entry_alone(self) -> None:
         said = self.called("reword", "q-0007", "Who carries a finished subtree away?")
 
-        self.assertIn(
-            f"moved {STORE}/q-0007-who-moves-a-subtree.md -> {STORE}/q-0007-who-carries-a-finished-subtree-away.md", said
-        )
-        self.assertIn("repaired citations in docs/tickets/01-0007-carry.md", said)
+        self.assertEqual([f"wrote {STORE}/q-0007-who-moves-a-subtree.md"], [line for line in said.splitlines() if line.startswith("wrote ")])
+        self.assertNotIn("moved", said)
 
     def test_words_that_leave_the_file_name_as_it_is_rewrite_the_title_alone(self) -> None:
         self.called("reword", "q-0007", "Who moves a subtree!")
@@ -1809,7 +1803,7 @@ class TheDecisionsList(Declared):
         self.called("move", "q-0007", "--under", "q-0002")
         self.called("reword", "q-0007", "Who carries a subtree away?")
 
-        self.assertTrue(self.entry_text("q-0007-who-carries-a-subtree-away").endswith("\n" + body))
+        self.assertTrue(self.entry_text("q-0007-who-moves-a-subtree").endswith("\n" + body))
 
 
 class ClosingInPlace(Declared):
@@ -1833,14 +1827,14 @@ class ClosingInPlace(Declared):
         self.called("close", "q-0010", "moot", "one tree, one directory")
 
         self.assertFalse(questions.read_store(self.root).index["q-0010"].archived)
-        self.called("close", "q-0010.0001", "moot", "no second machine")
+        self.called("close", "q-open2a", "moot", "no second machine")
 
         index = questions.read_store(self.root).index
-        self.assertTrue(index["q-0010"].archived and index["q-0010.0001"].archived)
+        self.assertTrue(index["q-0010"].archived and index["q-open2a"].archived)
 
     def test_a_deferred_child_keeps_its_subtree_live(self) -> None:
         self.called("open", "Across machines?", "--under", "q-0010")
-        self.called("close", "q-0010.0001", "deferred", "until a second machine, meanwhile one tree")
+        self.called("close", "q-open2a", "deferred", "until a second machine, meanwhile one tree")
 
         self.called("close", "q-0010", "moot", "one tree, one directory")
 
@@ -1860,9 +1854,9 @@ class Strikes(Declared):
 
     def test_opening_stamps_zero_and_an_at_soon_after_does_not_strike(self) -> None:
         self.called("open", "Is the owner optional?", "--under", "q-0004")
-        self.at("q-0004.0001", hours=0.02)
+        self.at("q-open2a", hours=0.02)
 
-        self.assertEqual(self.stamped(0), self.part("q-0004.0001-is-the-owner-optional", "struck"))
+        self.assertEqual(self.stamped(0), self.part("q-open2a", "struck"))
 
     def test_an_entry_older_than_the_count_is_stamped_at_its_first_reach_and_not_struck(self) -> None:
         self.at("q-0007")
@@ -1931,61 +1925,6 @@ class Strikes(Declared):
         self.assertEqual(theirs, self.entry_text("q-0007-who-moves-a-subtree"))
 
 
-class Naming(Declared):
-    """The slug's own cut, the clone's room set aside: `ThePath` holds the fit."""
-
-    def setUp(self) -> None:
-        super().setUp()
-        self.enterContext(mock.patch.object(questions, "CLONE_ROOM", 0))
-
-    def test_names_a_long_question_with_every_word(self) -> None:
-        question = (
-            "Does a question whose words run well past the old forty character cut keep every one "
-            "of them in its name when the listing shows it?"
-        )
-        slug = "-".join(questions._words(question))
-        self.assertTrue(120 < len(slug) <= questions.SLUG_LENGTH, len(slug))
-
-        self.called("open", question)
-
-        self.assertTrue((self.root / STORE / f"q-0014-{slug}.md").is_file())
-
-    def test_names_a_question_in_another_script_with_its_own_words(self) -> None:
-        """A question asked in Russian keeps its words, lower-cased, in the name a listing shows."""
-        self.called("open", "Где хранится Ёлка 2026?")
-
-        self.assertTrue((self.root / STORE / "q-0014-где-хранится-ёлка-2026.md").is_file())
-        self.assertEqual([], [note.problem for note in self.checked().diagnostics if note.record.startswith(f"{STORE}/q-0014-")])
-
-    def test_keeps_the_marks_a_script_writes_its_words_with(self) -> None:
-        self.called("open", "हिन्दी में प्रश्न?")
-
-        self.assertTrue((self.root / STORE / "q-0014-हिन्दी-में-प्रश्न.md").is_file())
-
-    def test_cuts_a_question_written_without_spaces_to_fit_a_clone_and_a_file_name(self) -> None:
-        """Chinese and Japanese write a clause as one word; the fit cuts inside it, and keeps the
-        name within the 255 bytes a Linux or macOS filesystem allows."""
-        with mock.patch.object(questions, "CLONE_ROOM", 128):
-            self.called("open", "问题存储在哪里" * 20 + "？")
-
-        [named] = [name.name for name in (self.root / STORE).glob("q-0014-*.md")]
-        self.assertLessEqual(len(named.encode("utf-8")), 255)
-        self.assertLessEqual(128 + len(f"/{STORE}/done/{named}"), questions.PATH_LIMIT)
-        self.assertTrue(named.startswith("q-0014-问题存储在哪里"), named)
-        self.assertEqual([], [note.problem for note in self.checked().diagnostics if note.record.startswith(f"{STORE}/q-0014-")])
-
-    def test_cuts_a_question_past_the_length_at_a_word_boundary(self) -> None:
-        words = [f"word{number:02d}" for number in range(40)]
-
-        self.called("open", f"{' '.join(words)}?")
-
-        [named] = [name.name for name in (self.root / STORE).glob("q-0014-*.md")]
-        slug = named[len("q-0014-") : -len(".md")]
-        self.assertLessEqual(len(slug), questions.SLUG_LENGTH)
-        self.assertGreater(len(slug) + len("-word00"), questions.SLUG_LENGTH, "cut no earlier than it must")
-        self.assertEqual(words[: len(slug.split("-"))], slug.split("-"), "whole words, the question's first")
-
-
 class ThePath(Store):
     """A path that would pass the platform's limit cuts the slug at a word boundary, never the id;
     the limit is measured in `done/`, the longer of an entry's two homes."""
@@ -2010,30 +1949,12 @@ class ThePath(Store):
         stack.enter_context(room)
         return stack
 
-    def test_an_opened_question_is_named_with_the_words_that_fit_and_checks_clean(self) -> None:
-        with self.limited("q-0002", 10):
-            self.called("open", "Does a long question fit?")
-
-            self.assertTrue((self.root / STORE / "q-0002-does-a.md").is_file())
-            self.assertEqual([], self.problems())
-
     def test_a_name_an_earlier_fit_cut_from_this_trees_own_root_stays_valid(self) -> None:
         with self.limited("q-0002", 10):
             self.called("open", "Does a long question fit?")
 
             with mock.patch.object(questions, "CLONE_ROOM", len(str(self.root)) + 5):
                 self.assertEqual([], self.problems())
-
-    def test_a_name_fits_a_clone_standing_deeper_than_this_tree(self) -> None:
-        """A clone into a session's scratch folder under the user's profile stands about 120
-        characters deep, and Windows' long paths are off by default: a name written here must
-        still check out there."""
-        self.called("open", " ".join(f"word{number:02d}" for number in range(40)) + "?", "--under", "q-0001.0001")
-
-        [named] = [name.name for name in (self.root / STORE).glob("q-0001.0001.0001-*.md")]
-        self.assertLessEqual(len("c" * 128) + len(f"/{STORE}/done/{named}"), questions.PATH_LIMIT)
-        self.assertEqual([], self.problems())
-
 
 class ClosingByKind(Declared):
     """The kinds `TheCalls` does not close by: each takes its own pointer."""
@@ -2203,15 +2124,15 @@ class Interference(Declared):
         self.assertEqual(before, after, "nothing else was written")
 
     def test_an_open_raced_past_its_attempts_is_refused_and_writes_nothing_of_its_own(self) -> None:
-        theirs = entry("q-0014", "Their question?", {"state": "open"})
+        theirs = entry("q-open2a", "Their question?", {"state": "open"})
 
         with mock.patch.object(questions, "OPEN_ATTEMPTS", 1), self.assertRaises(questions.Taken):
             self.declare_with(
                 [questions.Clause("opens", text="My question?")],
-                lambda: self.write(f"{STORE}/q-0014-their-question.md", theirs),
+                lambda: self.write(f"{STORE}/q-open2a.md", theirs),
             )
 
-        self.assertEqual([], list((self.root / STORE).glob("*-my-question.md")))
+        self.assertEqual([], [path for path in (self.root / STORE).glob("*.md") if "My question?" in path.read_text(encoding="utf-8")])
 
     def test_a_sessions_at_changes_its_own_line_and_keeps_one_another_session_wrote_meanwhile(self) -> None:
         def beta_moves() -> None:
@@ -2248,22 +2169,22 @@ class InOrder(Declared):
             self.root,
             "s-alpha",
             [
-                questions.Clause("at", "q-0004.0002"),
+                questions.Clause("at", "q-open3a"),
                 questions.Clause("opens", other="q-0004", text="Is the owner optional?"),
                 questions.Clause("opens", other="q-0004", text="Is the owner required at birth?"),
-                questions.Clause("closes", "q-0004.0001", other="merged", text="q-0004.0002"),
+                questions.Clause("closes", "q-open2a", other="merged", text="q-open3a"),
             ],
             TODAY,
         )
 
-        self.assertEqual(["q-0004.0001", "q-0004.0002"], written.opened)
+        self.assertEqual(["q-open2a", "q-open3a"], written.opened)
         self.assertIn(
-            "- **state** closed:merged\n- **answer** q-0004.0002",
-            self.read(f"{STORE}/q-0004.0001-is-the-owner-optional.md"),
+            "- **state** closed:merged\n- **answer** q-open3a",
+            self.read(f"{STORE}/q-open2a.md"),
             "the merge finished its subtree, which stays where it is",
         )
-        self.assertIn("- **state** open", self.entry_text("q-0004.0002-is-the-owner-required-at-birth"))
-        self.assertEqual("q-0004.0002", self.own_line().split()[3])
+        self.assertIn("- **state** open", self.entry_text("q-open3a"))
+        self.assertEqual("q-open3a", self.own_line().split()[3])
 
     def test_a_prune_goes_through_once_the_child_that_stands_alone_is_moved_out_first(self) -> None:
         self.called("move", "q-0007", "--to-root")
@@ -2278,17 +2199,17 @@ class ARoundTrip(Declared):
 
         for call in (
             ("open", "Is the owner optional?", "--under", "q-0004"),
-            ("at", "q-0004.0001"),
-            ("open", "Must an owner exist at birth?", "--under", "q-0004.0001"),
-            ("close", "q-0004.0001.0001", "decided", "[the record](../record.md) — the user, 2026-09-29"),
+            ("at", "q-open2a"),
+            ("open", "Must an owner exist at birth?", "--under", "q-open2a"),
+            ("close", "q-open3a", "decided", "[the record](../record.md) — the user, 2026-09-29"),
             ("at", "q-0004"),
-            ("close", "q-0004.0001", "pruned", "the store keeps no owner rule"),
+            ("close", "q-open2a", "pruned", "the store keeps no owner rule"),
         ):
             self.called(*call)
 
         self.assertEqual(before, self.problems(), "the fixture's flat ids are reported as before, and nothing more")
-        self.assertIn("closed:pruned", self.read(f"{STORE}/q-0004.0001-is-the-owner-optional.md"))
-        self.assertNotIn("q-0004.0001", self.said("--tree", "q-0004")[1], "the finished subtree left the live tree")
+        self.assertIn("closed:pruned", self.read(f"{STORE}/q-open2a.md"))
+        self.assertNotIn("q-open2a", self.said("--tree", "q-0004")[1], "the finished subtree left the live tree")
 
 
 class NoStoreToDraw(RepositoryCase):
@@ -2342,7 +2263,7 @@ class Seeding(RepositoryCase):
 
         store = questions.read_store(self.root)
         self.assertEqual(3, len(written))
-        self.assertEqual(["q-0001", "q-0002", "q-0003"], [read.identity for read in store.roots])
+        self.assertEqual(["q-open2a", "q-open3a", "q-open4a"], [read.identity for read in store.roots])
         self.assertEqual(list(FIXTURE_ROOTS), [read.question for read in store.roots])
         self.assertTrue(all(read.open and read.parent is None for read in store.roots))
         self.assertEqual({}, store.children)
@@ -2402,7 +2323,7 @@ class Seeding(RepositoryCase):
             left = questions.main(["--seed"], root=self.root, today=TODAY, now=NOW)
 
         self.assertEqual(0, seeded)
-        self.assertEqual(3, first.getvalue().count("wrote docs/questions/q-000"))
+        self.assertEqual(3, first.getvalue().count("wrote docs/questions/q-open"))
         self.assertEqual(0, left)
         self.assertIn("holds entries; left as it stands", second.getvalue())
 

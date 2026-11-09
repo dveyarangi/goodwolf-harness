@@ -22,8 +22,13 @@ _INLINE = re.compile(r'(!?\[[^\]]*\]\(\s*)(<[^>]*>|[^)\s]+)((?:\s+(?:"[^"]*"|\'[
 _DEFINITION = re.compile(r'(^[ ]{0,3}\[[^\]]+\]:[ \t]*)(<[^>]*>|\S+)((?:[ \t]+(?:"[^"]*"|\'[^\']*\'|\([^)]*\)))?[ \t]*$)', re.M)
 # A straw dog binds to the question whose answer will rewrite it, by that question's id.
 _QUESTION_BINDING = re.compile(r'(<straw-dog\b[^<>]*?\bquestion\s*=\s*")([^"]*)(")', re.S)
-# In code the binding is the id a `TODO` comment line names first: `# TODO q-0018.0010: …`.
-TODO_QUESTION = re.compile(r"^(\s*#\s*TODO\s+)(q-[\d.]*\d)(?![\w.])")
+# A question's id: `q-` and six characters of RFC 4648's base32 alphabet, lowercase, at least one
+# a letter and one a digit, so no id reads as a word (docs/architecture.md: "Question store").
+# One group, so every pattern built on it keeps its own.
+# TODO q-0037.0017.0005.0001.0019: the dotted form is read until the store's migration has run.
+QUESTION_ID = r"(?:q-(?=[a-z2-7]{0,5}[a-z])(?=[a-z2-7]{0,5}[2-7])[a-z2-7]{6}(?![a-z0-9])|q-\d{4,}(?:\.\d{4})*)"
+# In code the binding is the id a `TODO` comment line names first: `# TODO q-7f3k2a: …`.
+TODO_QUESTION = re.compile(rf"^(\s*#\s*TODO\s+)({QUESTION_ID})(?![\w.])")
 # A straw dog's attribute, as written: the question it waits on. One grammar for the lister and
 # the mechanism check, so both read what a rename rewrites.
 ATTRIBUTE = re.compile(r'\b(question)\s*=\s*"([^"]*)"', re.S)

@@ -601,6 +601,18 @@ class TheList(Records):
         after = [line for line in lines if line and not line.startswith("|")]
         return status, rows, after
 
+    def test_a_question_named_by_its_id_alone_shows_its_words(self) -> None:
+        self.write(
+            "docs/questions/q-7f3k2a.md",
+            "# q-7f3k2a What is it for?\n\n- **record of** what it intends to become\n- **state** open\n",
+        )
+        answering = BEFORE.replace("- **Outcome:**", "- **Answers:** [q-7f3k2a](../questions/q-7f3k2a.md)\n- **Outcome:**")
+        self.write("docs/tickets/01-0004-named.md", ticket(answering, title="# Named"))
+
+        _, rows, _ = self.listed()
+
+        self.assertIn("[q-7f3k2a What is it for?](docs/questions/q-7f3k2a.md) |", next(row for row in rows if "01-0004" in row))
+
     def test_names_every_live_ticket_in_id_order_with_the_question_it_answers(self) -> None:
         self.write("docs/tickets/01-0002.0010-child.md", ticket(BEFORE, title="# A child"))
         self.write("docs/tickets/done/01-0000-closed.md", ticket(BEFORE, title="# Closed"))
