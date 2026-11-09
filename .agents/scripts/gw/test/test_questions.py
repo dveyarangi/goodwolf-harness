@@ -489,67 +489,61 @@ class LikelyTwins(Store):
         self.assertEqual([], self.findings())
 
 
-class ReadyForDone(Store):
-    """A wholly closed subtree nothing open depends on is ready to move (parent decision 34); a
-    deferred or suspect entry counts as open, since the wake reads it in the live store."""
+class Finished(Store):
+    """A subtree is finished when it and everything under it is neither open, deferred nor suspect
+    and nothing held open depends on any of it; it stays where it is and the window leaves it out
+    (docs/architecture.md: "Question store")."""
 
-    def ready(self) -> list[str]:
-        return [
-            note.finding
-            for note in questions.check(self.root).findings
-            if "done/" in note.finding
-        ]
+    def finished(self) -> set[str]:
+        return {identity for identity, read in questions.read_store(self.root).index.items() if read.archived}
 
     def close(self, stem: str, question: str, state: str = "closed:moot", **parts: str) -> None:
         answer = "until the store grows, meanwhile flat" if "deferred" in state else "overtaken"
         self.place(stem, question, parts | {"state": state, "answer": answer})
 
-    def test_a_closed_subtree_under_an_open_parent_is_ready_at_its_own_root(self) -> None:
+    def test_a_closed_subtree_under_an_open_parent_is_finished_where_it_stands(self) -> None:
         self.close("q-0001.0001-what-an-entry-holds", "What an entry holds?", **{"part of": "q-0001"})
         self.close("q-0001.0001.0001-its-parts", "Its parts?", **{"part of": "q-0001.0001"})
 
-        ready = self.ready()
+        self.assertEqual({"q-0001.0001", "q-0001.0001.0001"}, self.finished())
+        self.assertTrue((self.root / STORE / "q-0001.0001-what-an-entry-holds.md").is_file())
 
-        self.assertEqual(1, len(ready), ready)
-        self.assertIn("q-0001.0001 and", ready[0])
-
-    def test_a_wholly_closed_tree_is_ready_once_at_its_root(self) -> None:
-        self.close("q-0001-which-store-holds-the-questions", "Which store holds the questions?")
+    def test_a_finished_subtree_is_left_out_of_the_tree(self) -> None:
         self.close("q-0001.0001-what-an-entry-holds", "What an entry holds?", **{"part of": "q-0001"})
 
-        ready = self.ready()
+        self.assertEqual([], questions.read_store(self.root).children.get("q-0001", []))
 
-        self.assertEqual(1, len(ready), ready)
-        self.assertIn("q-0001 and", ready[0])
+    def test_a_closed_question_with_an_open_child_is_not_finished(self) -> None:
+        self.close("q-0001-which-store-holds-the-questions", "Which store holds the questions?")
 
-    def test_a_deferred_leaf_is_never_ready(self) -> None:
+        self.assertEqual(set(), self.finished())
+
+    def test_a_deferred_leaf_is_never_finished(self) -> None:
         self.close(
             "q-0001.0001-what-an-entry-holds", "What an entry holds?", "closed:deferred", **{"part of": "q-0001"}
         )
 
-        self.assertEqual([], self.ready())
+        self.assertEqual(set(), self.finished())
 
-    def test_a_subtree_holding_a_suspect_entry_is_never_ready(self) -> None:
+    def test_a_subtree_holding_a_suspect_entry_is_never_finished(self) -> None:
         self.close("q-0001.0001-what-an-entry-holds", "What an entry holds?", **{"part of": "q-0001"})
         self.close(
             "q-0001.0001.0001-its-parts", "Its parts?", "closed:moot, suspect", **{"part of": "q-0001.0001"}
         )
 
-        self.assertEqual([], self.ready())
+        self.assertEqual(set(), self.finished())
 
-    def test_a_subtree_an_open_question_depends_on_is_not_ready(self) -> None:
+    def test_a_subtree_an_open_question_depends_on_is_not_finished(self) -> None:
         self.close("q-0001.0001-what-an-entry-holds", "What an entry holds?", **{"part of": "q-0001"})
         self.place("q-0003-a-later-one", "A later one?", {"depends on": "q-0001.0001", "state": "open"})
 
-        self.assertEqual([], self.ready())
+        self.assertEqual(set(), self.finished())
 
-    def test_ready_leaves_the_exit_status_at_zero(self) -> None:
-        self.close("q-0001.0001-what-an-entry-holds", "What an entry holds?", **{"part of": "q-0001"})
+    def test_a_cycle_in_part_of_is_read_and_never_finished(self) -> None:
+        self.close("q-0003-one", "One?", **{"part of": "q-0004"})
+        self.close("q-0004-two", "Two?", **{"part of": "q-0003"})
 
-        status, report = self.run_check()
-
-        self.assertEqual(0, status)
-        self.assertEqual(1, len(report["findings"]))
+        self.assertEqual(set(), self.finished() & {"q-0003", "q-0004"})
 
 
 PATH_NOW = datetime(2026, 9, 29, 12, 0, tzinfo=timezone.utc)
@@ -955,12 +949,12 @@ class TheWindow(Rendered):
 
         self.assertIn("q-0002 [open] What an entry holds?  ~ eight parts", text)
 
-    def test_the_frontier_holds_every_child_of_the_path_closed_ones_with_their_kind(self) -> None:
+    def test_the_frontier_holds_every_child_of_the_path_held_ones_with_their_kind_finished_ones_left_out(self) -> None:
         _, text = self.said("--window", "--session", "s-alpha")
 
         frontier = self.section(text, "frontier (children of each question on the path):")
         self.assertIn("under q-0001: q-0003 [open]", frontier)
-        self.assertIn("under q-0002: q-0005 [closed:decided]", frontier)
+        self.assertNotIn("q-0005", frontier)
         self.assertIn("under q-0002: q-0006 [closed:deferred]", frontier)
         self.assertIn("under q-0004: q-0008 [closed:decided, suspect]", frontier)
 
@@ -981,7 +975,7 @@ class TheWindow(Rendered):
         _, text = self.said("--window", "--session", "s-alpha")
 
         roots = self.section(text, "other roots:").strip().splitlines()
-        self.assertEqual(["q-0010 [open] How do sessions reach each other?", "q-0011 [closed:pruned] Is height depth?"], [line.strip() for line in roots])
+        self.assertEqual(["q-0010 [open] How do sessions reach each other?"], [line.strip() for line in roots])
 
     def test_names_the_recent_positions_and_the_other_running_sessions(self) -> None:
         _, text = self.said("--window", "--session", "s-alpha")
@@ -1127,7 +1121,8 @@ class TheCount(Rendered):
 
         roots = self.section(text, "other roots:")
         self.assertIn("q-0010 [open] How do sessions reach each other? (struck 2)", roots)
-        self.assertNotIn("struck", roots.split("q-0011")[1])
+        listed = self.section(text, "open questions under this root")
+        self.assertNotIn("struck", next(line for line in listed.splitlines() if "q-0003" in line))
 
     def test_the_roots_open_questions_show_their_count(self) -> None:
         self.strike("q-0007-who-moves-a-subtree", "Who moves a subtree?", 1, parent="q-0003")
@@ -1150,7 +1145,7 @@ class TheCount(Rendered):
 
 
 class TheTree(Rendered):
-    def test_draws_every_live_root_and_everything_under_it_indented_in_id_order(self) -> None:
+    def test_draws_every_live_root_and_everything_under_it_indented_in_the_walks_order(self) -> None:
         status, text = self.said("--tree")
 
         self.assertEqual(0, status)
@@ -1160,14 +1155,12 @@ class TheTree(Rendered):
                 "  q-0002 [open] What an entry holds?  ~ eight parts",
                 "    q-0004 [open] Which parts are optional?",
                 "      q-0008 [closed:decided, suspect] Is the lean optional?",
-                "    q-0005 [closed:decided] Is the id a path?",
                 "    q-0006 [closed:deferred] Is the directory partitioned by root?",
                 "  q-0003 [open] How is a subtree archived?",
                 "    q-0007 [open] Who moves a subtree?",
                 "      q-0013 [closed:decided, suspect] Does the mover repair links?",
                 "    q-0009 [closed:deferred] Are twins found by embeddings?",
                 "q-0010 [open] How do sessions reach each other?",
-                "q-0011 [closed:pruned] Is height depth?",
             ],
             text.splitlines(),
         )
@@ -1917,7 +1910,7 @@ class TheDecisionsList(Declared):
         self.called("close", "q-0007", "moot", "overtaken")
 
     def test_the_check_reports_a_live_closed_entry_holding_a_decision_with_no_home(self) -> None:
-        self.argue("## Decisions\n\n- Sweep by hand\n", stem="q-0005-is-the-id-a-path")
+        self.argue("## Decisions\n\n- Sweep by hand\n", stem="q-0008-is-the-lean-optional")
 
         self.assertTrue(any('no home yet: "Sweep by hand' in problem for problem in self.problems()), self.problems())
 
@@ -1938,51 +1931,39 @@ class TheDecisionsList(Declared):
         self.assertTrue(self.entry_text("q-0002.0001-who-carries-a-subtree-away").endswith("\n" + body))
 
 
-class ArchivingAtClosure(Declared):
-    """A `close` that finishes a subtree moves it to `done/` in the same call; the maintainer's
-    move is the sweep for what a closure left behind (parent decision 34, amended)."""
+class ClosingInPlace(Declared):
+    """A `close` moves no file: a question stays where it is, every link to it holds, and the window
+    leaves a finished subtree out (docs/architecture.md: "Question store")."""
 
-    def archived(self) -> set[str]:
-        return {path.stem for path in (self.root / STORE / "done").glob("q-*.md")}
-
-    def test_a_close_that_finishes_a_subtree_moves_it_and_every_link_follows(self) -> None:
+    def test_a_close_that_finishes_a_subtree_moves_nothing_and_every_link_holds(self) -> None:
         self.write("docs/notes.md", "See [the sessions](questions/q-0010-how-do-sessions-reach-each-other.md).\n")
 
         said = self.called("close", "q-0010", "moot", "one tree, one directory")
 
-        self.assertIn("moved q-0010 to done/", said)
-        self.assertIn("q-0010-how-do-sessions-reach-each-other", self.archived())
+        self.assertNotIn("moved", said)
+        self.assertEqual("closed:moot", self.part("q-0010-how-do-sessions-reach-each-other", "state"))
         self.assertEqual(
-            "See [the sessions](questions/done/q-0010-how-do-sessions-reach-each-other.md).\n", self.read("docs/notes.md")
+            "See [the sessions](questions/q-0010-how-do-sessions-reach-each-other.md).\n", self.read("docs/notes.md")
         )
-        self.assertIn("repaired citations in docs/notes.md", said)
+        self.assertTrue(questions.read_store(self.root).index["q-0010"].archived)
 
-    def test_a_close_with_an_open_child_moves_nothing_until_the_child_closes_then_both(self) -> None:
+    def test_a_close_with_an_open_child_leaves_both_live_until_the_child_closes(self) -> None:
         self.called("open", "Across machines?", "--under", "q-0010")
+        self.called("close", "q-0010", "moot", "one tree, one directory")
 
-        self.assertNotIn("moved", self.called("close", "q-0010", "moot", "one tree, one directory"))
-        said = self.called("close", "q-0010.0001", "moot", "no second machine")
+        self.assertFalse(questions.read_store(self.root).index["q-0010"].archived)
+        self.called("close", "q-0010.0001", "moot", "no second machine")
 
-        self.assertIn("moved q-0010, q-0010.0001 to done/", said)
-        self.assertLessEqual({"q-0010-how-do-sessions-reach-each-other", "q-0010.0001-across-machines"}, self.archived())
+        index = questions.read_store(self.root).index
+        self.assertTrue(index["q-0010"].archived and index["q-0010.0001"].archived)
 
     def test_a_deferred_child_keeps_its_subtree_live(self) -> None:
         self.called("open", "Across machines?", "--under", "q-0010")
         self.called("close", "q-0010.0001", "deferred", "until a second machine, meanwhile one tree")
 
-        said = self.called("close", "q-0010", "moot", "one tree, one directory")
+        self.called("close", "q-0010", "moot", "one tree, one directory")
 
-        self.assertNotIn("moved", said)
-        self.assertEqual(set(), self.archived() & {"q-0010-how-do-sessions-reach-each-other"})
-
-    def test_a_move_the_mover_refuses_leaves_the_closure_written_and_says_why(self) -> None:
-        (self.root / "docs" / "unreadable.md").write_bytes(b"\xff\xfe not utf-8\n")
-
-        status, said = self.call("close", "q-0010", "moot", "one tree, one directory")
-
-        self.assertEqual(1, status, said)
-        self.assertIn("not UTF-8", said)
-        self.assertEqual("closed:moot", self.part("q-0010-how-do-sessions-reach-each-other", "state"))
+        self.assertFalse(questions.read_store(self.root).index["q-0010"].archived)
 
 
 class Strikes(Declared):
@@ -2408,8 +2389,8 @@ class InOrder(Declared):
         self.assertEqual(["q-0004.0001", "q-0004.0002"], written.opened)
         self.assertIn(
             "- **state** closed:merged\n- **answer** q-0004.0002",
-            self.read(f"{STORE}/done/q-0004.0001-is-the-owner-optional.md"),
-            "the merge finished its subtree, so it moved",
+            self.read(f"{STORE}/q-0004.0001-is-the-owner-optional.md"),
+            "the merge finished its subtree, which stays where it is",
         )
         self.assertIn("- **state** open", self.entry_text("q-0004.0002-is-the-owner-required-at-birth"))
         self.assertEqual("q-0004.0002", self.own_line().split()[3])
@@ -2436,7 +2417,7 @@ class ARoundTrip(Declared):
             self.called(*call)
 
         self.assertEqual(before, self.problems(), "the fixture's flat ids are reported as before, and nothing more")
-        self.assertIn("closed:pruned", self.read(f"{STORE}/done/q-0004.0001-is-the-owner-optional.md"))
+        self.assertIn("closed:pruned", self.read(f"{STORE}/q-0004.0001-is-the-owner-optional.md"))
         self.assertNotIn("q-0004.0001", self.said("--tree", "q-0004")[1], "the finished subtree left the live tree")
 
 

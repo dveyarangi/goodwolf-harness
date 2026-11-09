@@ -185,6 +185,10 @@ class Entry:
     # it, so a flat sort by it is the tree's order. Set by the reader; empty for an entry the
     # writer has just made, which then sorts by its own key alone.
     walk: tuple = ()
+    # Whether its subtree is done with — the architecture's *finished*: it and every question below
+    # it neither open, deferred nor suspect, and none of them depended on by a question held open.
+    # Set by the reader over the whole store; a closed question stays where it is.
+    archived: bool = False
 
     @property
     def state(self) -> re.Match[str] | None:
@@ -213,10 +217,6 @@ class Entry:
     def dependencies(self) -> list[str]:
         said = self.parts.get("depends on")
         return (_ids(said.value) or []) if said else []
-
-    @property
-    def archived(self) -> bool:
-        return self.record.startswith(f"{STORE}/done/")
 
     @property
     def held_open(self) -> bool:
@@ -405,7 +405,6 @@ def check(root: Path) -> Checked:
     findings = (
         row_findings
         + _likely_twins(entries)
-        + _ready_for_done(entries, index)
         + _unstated(entries, index)
         + _unrunged(entries)
         + _relative_ids(root, entries)
@@ -446,15 +445,45 @@ def _entries(
 
 
 def _in_walk(entries: list[Entry]) -> list[Entry]:
-    """Every entry with where the tree's walk reaches it: from its root down by *part of*, a cycle
-    or a missing parent ending the climb where it would repeat or break."""
+    """Every entry with where the tree's walk reaches it — from its root down by *part of*, a cycle
+    or a missing parent ending the climb where it would repeat or break — and whether it is
+    finished."""
     index = {read.identity: read for read in entries if read.identity}
+    finished = _finished(entries)
     return [
         dataclasses.replace(
-            read, walk=tuple(_sibling_key(at) for at in reversed(_ancestry(index, read.identity or ""))) or (_sibling_key(read),)
+            read,
+            walk=tuple(_sibling_key(at) for at in reversed(_ancestry(index, read.identity or ""))) or (_sibling_key(read),),
+            archived=read.identity in finished,
         )
         for read in entries
     ]
+
+
+def _finished(entries: list[Entry]) -> set[str]:
+    """The ids whose subtrees are done with (docs/architecture.md: "Question store"): neither held
+    open nor depended on by a question held open, and every question below them likewise. A cycle in
+    *part of* is never finished, so a broken store still reads."""
+    children: dict[str, list[Entry]] = {}
+    for read in entries:
+        if read.parent:
+            children.setdefault(read.parent, []).append(read)
+    leaning = {identity for read in entries if read.held_open for identity in read.dependencies}
+    judged: dict[str, bool] = {}
+
+    def done_with(read: Entry) -> bool:
+        identity = read.identity or ""
+        if identity in judged:
+            return judged[identity]
+        judged[identity] = False
+        judged[identity] = (
+            not read.held_open
+            and identity not in leaning
+            and all(done_with(child) for child in children.get(identity, []))
+        )
+        return judged[identity]
+
+    return {read.identity for read in entries if read.identity and done_with(read)}
 
 
 def _entry_files(root: Path) -> list[str]:
@@ -993,16 +1022,6 @@ def _likely_twins(entries: list[Entry]) -> list[Finding]:
     return notes
 
 
-def _ready_for_done(entries: list[Entry], index: dict[str, Entry]) -> list[Finding]:
-    """The live roots of wholly closed subtrees that nothing held open depends on, each reported
-    once at its highest root — what a closure left behind, for `/maintain` to sweep (parent
-    decision 34, amended: a `close` that finishes a subtree moves it itself)."""
-    return [
-        Finding(read.record, 1, f"{read.identity} and everything under it are closed and ready for done/")
-        for read in _ready_roots(entries, index)
-    ]
-
-
 def _unstated(entries: list[Entry], index: dict[str, Entry]) -> list[Finding]:
     """Each live open question at the top of the work its owner answers that has no `Where it
     stands` — the one its ticket's `Answers` names, read from the store's parts alone: a child its
@@ -1064,31 +1083,6 @@ def _owner(read: Entry) -> str | None:
     if target is None:
         return None
     return posixpath.normpath(posixpath.join(posixpath.dirname(read.record), target.group(1)))
-
-
-def _ready_roots(entries: list[Entry], index: dict[str, Entry]) -> list[Entry]:
-    """Each live root of a wholly closed subtree nothing held open depends on, at its highest; a
-    deferred or suspect entry counts as open, since the wake reads it in the live store."""
-    children: dict[str, list[Entry]] = {}
-    for read in entries:
-        if read.parent:
-            children.setdefault(read.parent, []).append(read)
-    leaning = {identity for read in entries if read.held_open for identity in read.dependencies}
-
-    def movable(read: Entry) -> bool:
-        return (
-            not read.held_open
-            and read.identity not in leaning
-            and all(movable(child) for child in children.get(read.identity or "", []))
-        )
-
-    def moves_with_its_parent(read: Entry) -> bool:
-        parent = index.get(read.parent or "")
-        return parent is not None and not parent.archived and movable(parent)
-
-    return [
-        read for read in entries if not read.archived and movable(read) and not moves_with_its_parent(read)
-    ]
 
 
 # --- the window ---------------------------------------------------------------------------------
@@ -2264,9 +2258,7 @@ def _declared(
         except OSError as error:
             raise WriteInterrupted(written, sessions.ROWS, error) from error
     opened = [identity for identity in draft.changed if identity in draft.new]
-    closed = [draft.renames.get(clause.question or "", clause.question or "") for clause in clauses if clause.verb == "closes"]
-    archived, refused = _archive_finished(root, closed, written, carried.append) if closed else ([], None)
-    return Written(written, moved, opened, dict(draft.renames), list(draft.reworded), archived, refused, carried)
+    return Written(written, moved, opened, dict(draft.renames), list(draft.reworded), [], None, carried)
 
 
 def seed(root: Path, now: datetime) -> list[str]:
@@ -2299,41 +2291,6 @@ def arrival_roots(shelf: str) -> list[str]:
     if not roots:
         raise Refused(f"seed: {STORE_ARRIVAL}'s `roots` block names no root")
     return roots
-
-
-def _archive_finished(
-    root: Path, closed: list[str], written: list[str], say: Callable[[str], None]
-) -> tuple[list[str], str | None]:
-    """The subtrees these closures finished, moved to `done/` in one invocation of the mover —
-    the same one a rename carries its entries with — and the ids moved, or why the mover refused.
-    The closures stand either way: they are the decisions, and the maintainer sweeps what stays."""
-    entries, _, _ = _entries(root)
-    index = {read.identity: read for read in entries if read.identity}
-    finished = [
-        top
-        for top in _ready_roots(entries, index)
-        if any(top in _ancestry(index, identity) for identity in closed)
-    ]
-    moving = sorted((read for top in finished for read in _subtree(entries, top) if not read.archived), key=_order)
-    pairs = [(read.record, f"{STORE}/done/{posixpath.basename(read.record)}") for read in moving]
-    if not pairs:
-        return [], None
-    why = move_doc.refusal(root, pairs)
-    if why:
-        return [], why
-    try:
-        move_doc.perform(root, pairs, announce=say)
-    except move_doc.CloseInterrupted as stopped:
-        raise WriteInterrupted(written, "the finished subtree's move to done/", stopped) from stopped
-    return [read.identity or "" for read in moving], None
-
-
-def _subtree(entries: list[Entry], top: Entry) -> list[Entry]:
-    """The question and every question below it, by *part of*."""
-    found = [top]
-    for read in found:
-        found += [child for child in entries if child.parent == read.identity and child not in found]
-    return found
 
 
 def _carry_renames(
@@ -2781,7 +2738,7 @@ def _with(read: Entry, **changes: str | None) -> Entry:
             parts.pop(name, None)
         else:
             parts[name] = Part(value, 0)
-    return Entry(read.record, read.identity, read.question, parts, read.body)
+    return dataclasses.replace(read, parts=parts)
 
 
 def _entry_text(read: Entry) -> str:

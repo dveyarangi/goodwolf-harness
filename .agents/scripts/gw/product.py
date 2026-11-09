@@ -403,7 +403,7 @@ def _root(store: questions.Store, words: str) -> str | None:
 
 
 def _live(store: questions.Store) -> list[questions.Entry]:
-    return [read for _, read in sorted(store.index.items()) if not read.archived]
+    return sorted((read for read in store.index.values() if not read.archived), key=questions._order)
 
 
 def _lineage(index: dict[str, questions.Entry], identity: str, root: str) -> list[str]:
