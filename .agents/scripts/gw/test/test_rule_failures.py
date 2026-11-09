@@ -149,6 +149,31 @@ class RuleFailures(RepositoryCase):
         path.write_bytes(b"\x97{")
         self.assertEqual(["case does not parse"], self.problems())
 
+    def test_a_bare_source_line_stands_for_an_occurrence_with_no_case_yet(self) -> None:
+        self.write("## A thing failed — 2026-11-09\n\n**Source:**\n\n"
+                   "- Codex Desktop · gpt-6.1-sol · 2026-11-09T07:41:43.186Z, chat 01a17c92.\n\n", {})
+        self.assertEqual([], self.problems())
+
+    def test_a_bare_source_line_without_a_model_is_flagged(self) -> None:
+        self.write("## A thing failed — 2026-11-09\n\n**Source:**\n\n"
+                   "- Codex Desktop · 2026-11-09T07:41:43.186Z\n\n", {})
+        self.assertEqual(["source line is not host · model · time"], self.problems())
+
+    def test_a_bare_source_line_with_a_loose_time_is_flagged(self) -> None:
+        self.write("## A thing failed — 2026-11-09\n\n**Source:**\n\n"
+                   "- Codex Desktop · gpt-6.1-sol · this morning\n\n", {})
+        self.assertEqual(["time is not an ISO instant"], self.problems())
+
+    def test_a_bullet_after_the_source_list_is_not_a_source(self) -> None:
+        self.write("## A thing failed — 2026-10-25\n\n" + source("a") + "- **A finding.** Prose.\n\n",
+                   {"a": case("a")})
+        self.assertEqual([], self.problems())
+
+    def test_an_attribution_paragraph_is_not_a_source_line(self) -> None:
+        self.write("## A thing failed — 2026-11-09\n\n**Attribution:** host **Codex Desktop**; model "
+                   "**`gpt-6.1-sol`**, `2026-11-09T07:41:43.186Z`.\n\n", {})
+        self.assertEqual(["occurrence names no host and model"], self.problems())
+
     def test_an_unknown_model_may_be_written_out_in_its_case(self) -> None:
         self.write("## A thing failed — 2026-10-25\n\n" + source("a", "Cursor", "unknown"),
                    {"a": case("a", "Cursor", "unknown")})

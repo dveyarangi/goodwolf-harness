@@ -4,8 +4,10 @@ names the host, the model and the time it happened under, and the case it links 
 
     uv run --offline --no-project python .agents/scripts/gw/rule_failures.py --check
 
-An occurrence names them in a source line, `- [<host> · <model> · <time>](cases/<id>/case.json)`,
-or stands on a line `- [Evidence gap](...)` where no source survives. A model the source does not
+An occurrence names them in a source line under its `**Source…` label: one form, linked to the
+occurrence's case where it has one — `- [<host> · <model> · <time>](cases/<id>/case.json)` — and
+bare where it has none yet — `- <host> · <model> · <time>`, what follows the time free. Where no
+source survives it stands on a line `- [Evidence gap](...)`. A model the source does not
 record is written `unknown`, in its case as well or as `null`; a model named carries the place in the
 source it was read from. Format, never content: whether the source says what the case reads from
 it is the extraction's to show.
@@ -26,7 +28,8 @@ _USAGE = "usage: rule_failures.py --check"
 _ENTRY = re.compile(r"^## ")
 _STRIKE = re.compile(r"^\*\*Struck\b")
 _SOURCE = re.compile(r"^- \[(?P<text>[^\]]*)\]\((?P<link>[^)]*)\)")
-_LABEL = re.compile(r"^\*\*Source cases?\b")
+_BARE = re.compile(r"^- (?!\[)(?P<text>.+)$")
+_LABEL = re.compile(r"^\*\*Source\b")
 _TIME = re.compile(r"^\d{4}-\d\d-\d\dT\d\d:\d\d(:\d\d(\.\d+)?)?(Z|[+-]\d\d:\d\d)$")
 _GAP = "Evidence gap"
 
@@ -70,12 +73,16 @@ def check(root: Path) -> Checked:
                 checked.diagnostics.extend(_against_gap(number, register.parent, link))
                 continue
             parts = [part.strip() for part in text.split("·")]
+            if len(parts) == 3 and not link:
+                parts[2] = parts[2].split(maxsplit=1)[0].rstrip(".,;") if parts[2] else ""
             if len(parts) != 3 or not all(parts):
                 checked.diagnostics.append(Note(number, "source line is not host · model · time", text))
                 continue
             checked.unknown += parts[1] == UNKNOWN
             if not _TIME.match(parts[2]):
                 checked.diagnostics.append(Note(number, "time is not an ISO instant", parts[2]))
+            if not link:
+                continue
             target = (register.parent / link.split("#")[0]).resolve()
             if target in linked:
                 checked.diagnostics.append(Note(number, "case stands for a second occurrence",
@@ -89,8 +96,9 @@ def check(root: Path) -> Checked:
 
 
 def _occurrences(lines: list[str]) -> list[tuple[int, list[tuple[int, str, str]]]]:
-    """Each occurrence's first line and the source lines under its `**Source case…` label, in the
-    register's order; the preamble before the first entry holds none."""
+    """Each occurrence's first line and the source lines under its `**Source…` label, each with
+    its link or `""` where it is bare, in the register's order; the preamble before the first entry
+    holds none."""
     found: list[tuple[int, list[tuple[int, str, str]]]] = []
     listing = False
     for number, line in enumerate(lines, 1):
@@ -98,10 +106,14 @@ def _occurrences(lines: list[str]) -> list[tuple[int, list[tuple[int, str, str]]
             found.append((number, []))
             listing = False
         elif found and _LABEL.match(line):
-            listing = True
+            listing, read = True, False
         elif listing and (match := _SOURCE.match(line)):
             found[-1][1].append((number, match["text"].strip(), match["link"]))
-        elif listing and line.strip():
+            read = True
+        elif listing and (match := _BARE.match(line)):
+            found[-1][1].append((number, match["text"].strip(), ""))
+            read = True
+        elif listing and (line.strip() or read):
             listing = False
     return found
 
