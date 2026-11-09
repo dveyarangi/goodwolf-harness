@@ -1192,6 +1192,52 @@ class TheTree(Rendered):
         self.assertIn("q-0012", text)
 
 
+class TheWalk(Rendered):
+    """The tree is walked by *part of*, siblings by when they were opened: those that never said
+    first, in their old positions, then by `opened`, then by id (01-0010.0250.0100)."""
+
+    def test_siblings_that_say_when_they_opened_follow_those_that_do_not_in_that_order(self) -> None:
+        self.question("q-0014-opened-second", "Opened second?", "q-0010")
+        self.question("q-0015-opened-first", "Opened first?", "q-0010")
+        self.question("q-0016-opened-never", "Opened never?", "q-0010")
+        self.write(
+            f"{STORE}/q-0014-opened-second.md",
+            entry("q-0014", "Opened second?", {"part of": "q-0010", "state": "open", "opened": "2026-09-29T10:00:05Z"}),
+        )
+        self.write(
+            f"{STORE}/q-0015-opened-first.md",
+            entry("q-0015", "Opened first?", {"part of": "q-0010", "state": "open", "opened": "2026-09-29T10:00:01Z"}),
+        )
+
+        _, text = self.said("--tree", "q-0010")
+
+        self.assertEqual(
+            [
+                "q-0010 [open] How do sessions reach each other?",
+                "  q-0016 [open] Opened never?",
+                "  q-0015 [open] Opened first?",
+                "  q-0014 [open] Opened second?",
+            ],
+            text.splitlines(),
+        )
+
+    def test_a_question_is_within_another_by_part_of_whatever_its_id_says(self) -> None:
+        index = questions.read_store(self.root).index
+
+        self.assertTrue(questions._within(index, "q-0013", "q-0003"))
+        self.assertTrue(questions._within(index, "q-0003", "q-0003"))
+        self.assertFalse(questions._within(index, "q-0003", "q-0003", strictly=True))
+        self.assertFalse(questions._within(index, "q-0013", "q-0002"))
+
+    def test_an_opened_that_cannot_be_read_is_reported(self) -> None:
+        self.write(
+            f"{STORE}/q-0010-how-do-sessions-reach-each-other.md",
+            entry("q-0010", "How do sessions reach each other?", {"state": "open", "opened": "yesterday"}),
+        )
+
+        self.assertIn("opened is `yesterday`, not `<YYYY-MM-DDTHH:MM:SSZ>`", [note.problem for note in questions.check(self.root).diagnostics])
+
+
 class ItsOutput(Rendered):
     def test_is_utf8_whatever_the_consoles_encoding_so_any_title_prints(self) -> None:
         self.place("q-0010-how-do-sessions-reach-each-other", "How do sessions reach each other → remotely?", {"state": "open"})
@@ -1242,6 +1288,34 @@ class Declared(Rendered):
         return next(line for line in session_lines(self.root).splitlines() if line.startswith("s-alpha "))
 
 
+class OpenedAt(Declared):
+    """`open` says when, to the second, and never ties a sibling (01-0010.0250.0100)."""
+
+    def opened_of(self, question: str) -> str | None:
+        for name in self.listing():
+            text = self.read(name)
+            if question in text.splitlines()[0]:
+                return next((line.split("** ", 1)[1] for line in text.splitlines() if line.startswith("- **opened** ")), None)
+        return None
+
+    def listing(self) -> list[str]:
+        return [f"{STORE}/{path.name}" for path in (self.root / STORE).glob("*.md")]
+
+    def test_open_writes_when_it_opened(self) -> None:
+        self.called("open", "Who reads the window?", "--under", "q-0010")
+
+        self.assertEqual("2026-09-29T12:00:00Z", self.opened_of("Who reads the window?"))
+
+    def test_two_opens_in_one_second_are_a_second_apart_in_the_order_made(self) -> None:
+        self.called("open", "First of two?", "--under", "q-0010")
+        self.called("open", "Second of two?", "--under", "q-0010")
+
+        self.assertEqual("2026-09-29T12:00:00Z", self.opened_of("First of two?"))
+        self.assertEqual("2026-09-29T12:00:01Z", self.opened_of("Second of two?"))
+        _, text = self.said("--tree", "q-0010")
+        self.assertLess(text.index("First of two?"), text.index("Second of two?"))
+
+
 class TheCalls(Declared):
     """Each event of a turn is its own call."""
 
@@ -1269,7 +1343,8 @@ class TheCalls(Declared):
         self.assertIn("opened q-0004.0001", said)
         self.assertEqual(
             "# q-0004.0001 Is the owner optional?\n\n- **record of** what it intends to become\n"
-            "- **part of** q-0004\n- **state** open\n- **struck** 0, last 2026-09-29T12:00Z\n",
+            "- **part of** q-0004\n- **state** open\n- **opened** 2026-09-29T12:00:00Z\n"
+            "- **struck** 0, last 2026-09-29T12:00Z\n",
             self.read(f"{STORE}/q-0004.0001-is-the-owner-optional.md"),
         )
         self.assertEqual("s-alpha running 2026-09-29T11:30Z q-0004 q-0002,q-0001", self.own_line())
@@ -2647,7 +2722,7 @@ class AQuestionAskingThePerson(Declared):
         self.assertEqual(1, status)
         self.assertIn("asks is `someone, soon`", said)
 
-    def test_the_wake_lists_every_one_after_the_most_struck_by_date_then_id(self) -> None:
+    def test_the_wake_lists_every_one_after_the_most_struck_by_date_then_in_the_trees_order(self) -> None:
         for identity in ("q-0010", "q-0004", "q-0003", "q-0002", "q-0001"):
             self.called("ask", identity)
         self.call("ask", "q-0007", now=NOW - timedelta(days=1))
@@ -2655,7 +2730,7 @@ class AQuestionAskingThePerson(Declared):
         text = self.wake()
 
         listed = [line.split()[0] for line in self.section(text, self.SECTION).splitlines()[1:]]
-        self.assertEqual(["q-0007", "q-0001", "q-0002", "q-0003", "q-0004", "q-0010"], listed)
+        self.assertEqual(["q-0007", "q-0001", "q-0002", "q-0004", "q-0003", "q-0010"], listed)
         self.assertTrue(text.index("most struck, open:") < text.index(self.SECTION) < text.index("sessions:"))
 
     def test_one_in_another_running_sessions_work_carries_its_tag(self) -> None:

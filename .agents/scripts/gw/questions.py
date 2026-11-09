@@ -33,6 +33,7 @@ keeps the trace link as written and never resolves it (the user, 2026-10-13).
 from __future__ import annotations
 
 import argparse
+import dataclasses
 import codecs
 import hashlib
 import json
@@ -93,7 +94,7 @@ CLONE_ROOM = 128
 LAST_POSITION = 9999
 # `asks`: an open question waits on the person's decision and every wake shows it until it closes
 # (q-0037.0010.0009.0009.0001, the user, 2026-10-25).
-PARTS = ("record of", "part of", "depends on", "state", "owner", "answer", "realizes", "rung", "lean", "asks", "struck")
+PARTS = ("record of", "part of", "depends on", "state", "owner", "answer", "realizes", "rung", "lean", "asks", "opened", "struck")
 _ASKS = re.compile(r"^the person, (\d{4}-\d{2}-\d{2})$")
 # A trace link names each answer by its reference and its name, as a ticket is named by id and
 # slug, or states that the question realizes none (the user, 2026-10-13).
@@ -139,6 +140,8 @@ _WORD = r"[^\s/._-]+"
 _ENTRY_NAME = re.compile(rf"^{STORE}/(?:done/)?({_ID})-({_WORD}(?:-{_WORD})*)\.md$")
 _DEFERRAL = re.compile(r"^until \S.*, meanwhile \S.*$")
 _STRIKE = re.compile(r"^(\d+), last (\d{4}-\d{2}-\d{2}T\d{2}:\d{2})Z$")
+_OPENED = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
+OPENED_FORMAT = "%Y-%m-%dT%H:%M:%SZ"
 _ANSWER_NAMED = r'([A-Za-z0-9][A-Za-z0-9._-]*) "(\S(?:[^"]*\S)?)"'
 _TRACE_LINK = re.compile(rf"^{_ANSWER_NAMED}(?:, *{_ANSWER_NAMED})*$")
 # A question's highest rung on each ladder it touches, `<ladder>: <rung>` (the user, 2026-10-15).
@@ -178,6 +181,10 @@ class Entry:
     question: str
     parts: dict[str, Part]
     body: str = ""
+    # Where the store's walk reaches it: the sibling key of every question from its root down to
+    # it, so a flat sort by it is the tree's order. Set by the reader; empty for an entry the
+    # writer has just made, which then sorts by its own key alone.
+    walk: tuple = ()
 
     @property
     def state(self) -> re.Match[str] | None:
@@ -231,6 +238,15 @@ class Entry:
         what it realizes through an ancestor is `realizes`'s."""
         said = self.parts.get("realizes")
         return _trace_link(said.value) if said else None
+
+    @property
+    def opened(self) -> datetime | None:
+        """When it was opened, to the second, or `None` when it never said or its form cannot be
+        read."""
+        said = self.parts.get("opened")
+        if said is None or not _OPENED.match(said.value):
+            return None
+        return datetime.strptime(said.value, OPENED_FORMAT).replace(tzinfo=timezone.utc)
 
     @property
     def strike(self) -> Strike | None:
@@ -426,7 +442,19 @@ def _entries(
             continue
         entries.append(read)
         diagnostics += problems + _name_problems(root, read, stem)
-    return entries, diagnostics, skipped
+    return _in_walk(entries), diagnostics, skipped
+
+
+def _in_walk(entries: list[Entry]) -> list[Entry]:
+    """Every entry with where the tree's walk reaches it: from its root down by *part of*, a cycle
+    or a missing parent ending the climb where it would repeat or break."""
+    index = {read.identity: read for read in entries if read.identity}
+    return [
+        dataclasses.replace(
+            read, walk=tuple(_sibling_key(at) for at in reversed(_ancestry(index, read.identity or ""))) or (_sibling_key(read),)
+        )
+        for read in entries
+    ]
 
 
 def _entry_files(root: Path) -> list[str]:
@@ -487,6 +515,7 @@ def _read(name: str, text: str) -> tuple[Entry, list[Diagnostic]]:
         + _trace_link_problems(read)
         + _rung_problems(read)
         + _strike_problems(read)
+        + _opened_problems(read)
         + _asks_problems(read)
     )
 
@@ -620,6 +649,15 @@ def _strike_problems(read: Entry) -> list[Diagnostic]:
     if said is None or read.strike is not None:
         return []
     return [Diagnostic(read.record, said.line, f"struck is `{said.value}`, not `<n>, last <YYYY-MM-DDTHH:MMZ>`")]
+
+
+def _opened_problems(read: Entry) -> list[Diagnostic]:
+    """`opened` is optional, since entries written before it have none; when written, it reads as
+    the writer writes it."""
+    said = read.parts.get("opened")
+    if said is None or read.opened is not None:
+        return []
+    return [Diagnostic(read.record, said.line, f"opened is `{said.value}`, not `<YYYY-MM-DDTHH:MM:SSZ>`")]
 
 
 def _name_problems(root: Path, read: Entry, stem: re.Match[str]) -> list[Diagnostic]:
@@ -1474,6 +1512,7 @@ class _Ahead:
     the straw dogs' bindings — each mechanism's records through that mechanism's reader."""
 
     live: dict[str, Entry]
+    index: dict[str, Entry]
     tickets: list
     coverage: dict[str, str]
     bindings: list[str]
@@ -1484,9 +1523,10 @@ class _Ahead:
         import product  # noqa: PLC0415  (it imports this module)
         import tickets  # noqa: PLC0415  (it imports this module)
 
-        live = {identity: read for identity, read in read_store(root).index.items() if not read.archived}
+        index = read_store(root).index
+        live = {identity: read for identity, read in index.items() if not read.archived}
         bindings = [identity for _, _, identity in question_bindings(root)]
-        return _Ahead(live, tickets.check(root).records, product.coverage_words(root), bindings)
+        return _Ahead(live, index, tickets.check(root).records, product.coverage_words(root), bindings)
 
     # --- the work in hand ---
 
@@ -1559,9 +1599,9 @@ class _Ahead:
         records do not hold reads `unread`, never guessed."""
         read = self.live.get(identity or "")
         struck = read.strike.count if read and read.strike else 0
-        dogs = sum(1 for bound in self.bindings if identity and _within(bound, identity))
+        dogs = sum(1 for bound in self.bindings if identity and _within(self.index, bound, identity))
         dependents = [other.identity for other in self.live.values() if other.open and identity
-                      and any(_within(needed, identity) for needed in other.dependencies)]
+                      and any(_within(self.index, needed, identity) for needed in other.dependencies)]
         unlocks = ", ".join([*waiting, *(dependent or "" for dependent in dependents)]) or "—"
         return f"      serves {self._serves(identity)} · struck {struck} · {dogs} straw dogs · unlocks {unlocks}"
 
@@ -1580,7 +1620,8 @@ class _Ahead:
         open questions and none with a ticket is thin."""
         lines = []
         for root in sorted((read for read in self.live.values() if read.parent is None), key=_order):
-            under = [read for read in self.live.values() if read.open and _within(read.identity or "", f"{root.identity}.")]
+            under = [read for read in self.live.values()
+                     if read.open and _within(self.index, read.identity or "", root.identity or "", strictly=True)]
             ticketed = [read for read in under if self._owned(read.identity or "")]
             thin = ", thin" if under and not ticketed else ""
             lines.append(f"    {root.question} — {root.identity}: open {len(under)}, with a ticket {len(ticketed)}{thin}")
@@ -1600,10 +1641,12 @@ class _Ahead:
         return f"    {_title_of(ticket)} — {_ticket_id(ticket)} → {_answers_of(ticket) or 'unread'}"
 
 
-def _within(identity: str, ancestor: str) -> bool:
-    """Whether an id is the ancestor's own or one under it; an ancestor ending in `.` names its
-    children alone."""
-    return identity.startswith(ancestor) if ancestor.endswith(".") else identity == ancestor or identity.startswith(f"{ancestor}.")
+def _within(index: dict[str, Entry], identity: str, ancestor: str, strictly: bool = False) -> bool:
+    """Whether a question is the ancestor itself or one under it by *part of*, finished ones
+    included; `strictly` leaves the ancestor itself out. An id the index does not hold is under
+    nothing."""
+    climb = _ancestry(index, identity)
+    return any(read.identity == ancestor for read in (climb[1:] if strictly else climb))
 
 
 def _status_of(ticket) -> str:
@@ -1978,9 +2021,20 @@ def _section(heading: str, lines: list[str]) -> list[str]:
     return [heading] + (lines or ["  (none)"]) + [""]
 
 
-def _order(read: Entry) -> tuple[int, ...]:
-    """Tree order: a child after its parent and before the parent's next sibling."""
-    return _positions(read.identity or "q-0")
+def _order(read: Entry) -> tuple:
+    """Tree order: a child after its parent and before the parent's next sibling, siblings by
+    when they were opened (docs/architecture.md: "Question store")."""
+    return read.walk or (_sibling_key(read),)
+
+
+def _sibling_key(read: Entry) -> tuple:
+    """Where a question stands among its siblings: those that never said when they opened first,
+    by their old positions, then by `opened`, then by id — one key for every mix of the two."""
+    # TODO q-0037.0017.0005.0001.0019: the old positions leave once no entry lacks `opened`.
+    opened = read.parts.get("opened")
+    identity = read.identity or "q-0"
+    dotted = all(part.isdigit() for part in identity[2:].split("."))
+    return (opened is not None, opened.value if opened else "", _positions(identity) if dotted else (), identity)
 
 
 def _positions(identity: str) -> tuple[int, ...]:
@@ -2411,7 +2465,7 @@ class _Draft:
         if clause.other:
             self._existing(clause.other)
         identity = _next_free(self.index, clause.other)
-        parts = {"state": "open", "struck": Strike(0, self.now).text}
+        parts = {"state": "open", "opened": self._opened_under(clause.other), "struck": Strike(0, self.now).text}
         if clause.other:
             parts = {"part of": clause.other} | parts
         record = f"{STORE}/{identity}-{_fitted_slug(self.root, identity, clause.text or '')}.md"
@@ -2422,6 +2476,15 @@ class _Draft:
             if lower.parent != clause.other:
                 raise Refused(f"`open --between {clause.other} {clause.lower}`: {clause.lower} is not part of {clause.other}")
             self._seat(lower, identity)
+
+    def _opened_under(self, parent: str | None) -> str:
+        """The second a new question opens: now, or one after the latest sibling's, so siblings
+        never tie and sort as made."""
+        latest = max((read.opened for read in self.index.values() if read.parent == parent and read.opened), default=None)
+        stamp = self.now.replace(microsecond=0)
+        if latest is not None and latest + timedelta(seconds=1) > stamp:
+            stamp = latest + timedelta(seconds=1)
+        return stamp.strftime(OPENED_FORMAT)
 
     def _moves(self, clause: Clause) -> None:
         moving = self._existing(clause.question or "")
