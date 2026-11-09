@@ -19,6 +19,36 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## A waiting decision reached the person without its options — 2026-11-09
+
+**Source, no case yet:**
+
+- Claude Code · claude-opus-5-5 · 2026-11-09T10:58:11.753Z — chat `d6e32568-d0bd-5f0b-9894-7a6acd869960`, assistant message `msg_011CgsEbYDxGgCjQVxpFe7db`; the model is the transcript's recorded identifier, not an attested backend version.
+
+**Goal missed:** at wake, every decision waiting on the person reaches them ready to decide — its
+options and a recommendation — in the first reply.
+
+**Rules in play, loaded:** the questions mechanism's Q2, installed in `/recall`: *"put each question
+asking the person to them as a decision, with its options and your recommendation"*.
+
+**What happened.** The wake listed two questions asking the person. The recall reply named them by
+title only and said their entries were unread. One entry already held its two options and a
+recommendation; the other had been answered by the person's refusal of 2026-10-26 and only waited
+to be closed. The person spent two turns getting what the first reply owed them, and one claim
+made without the read — that the second question lay in another session's subtree — was wrong.
+
+**Why it did not fire.** The person had also asked for a count of the context the recall used; the
+session kept the recall light to keep the count small, and the measurement won over Q2. This is the
+session's reported reading; no model-internal cause is established. Q2 asks for a read the wake
+does not carry, so it costs a step the session can skip.
+
+**Proposed amendment**, mechanical: `questions.py --wake` prints, under each question asking the
+person, its options and recommendation from the entry's body, so the wake carries what Q2 asks for
+and no further read is needed.
+
+**Disposition:** the reply-form question closed on the person's word, 2026-11-09. The amendment is
+not made: `questions.py` is being reworked by the session on the shared question store.
+
 ## An explanation of a failure ended without the next move — 2026-10-26
 
 **Rules in play, loaded:** *A reply speaks the method* includes what is next and what the person
@@ -1642,7 +1672,7 @@ user pointed out that it had happened before that request. A fresh reader confir
 chronological contradiction and the missing tables. It established no deeper cause or intent;
 the request for simpler prose is not evidence that the existing form was waived. The case and
 the independent reading are in
-[q-0037.0009.0021.0003 What keeps the required reply form from being omitted?](questions/q-0037.0009.0021.0003-what-keeps-the-required-reply-form-from-being-omitted.md).
+[q-0037.0009.0021.0003 What keeps the required reply form from being omitted?](questions/done/q-0037.0009.0021.0003-what-keeps-the-required-reply-form-from-being-omitted.md).
 
 **Amendment refused, 2026-10-26:** the user rejected the proposed machine check because Claude
 Code already follows the form without it. The proposed Stop attachment was not installed.
