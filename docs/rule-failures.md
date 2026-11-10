@@ -19,6 +19,45 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## A decision's purpose was dropped where its mechanism was removed — 2026-11-09
+
+**Source, no case yet:**
+
+- Claude Code · claude-opus-5-5 · 2026-11-09T22:14:45Z — chat `93035cf8-48af-476e-bdfd-ede52295255c`, commit a537e371; the model is the one the session reported itself running on, not an attested backend version.
+
+**Goal missed:** a question reads to an agent wherever it is cited: its words stood in every
+link's path and every listing of files.
+
+**Rules in play, loaded:** `/plan`: *"Explore documentation in depth, follow links in it to find
+all decisions relevant to current task"*; the entry file: *"Do not reopen an accepted decision
+without new evidence"*; `/impact`: *"Find what actually depends on the subject … Do not just
+search mentions."*
+
+**What happened.** Decision 55 of
+[01-0011.0100 the-open-questions-are-kept-by-a-mechanism](tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)
+(the user, 2026-10-02) made an entry's file name carry the whole question, for whoever reads a
+listing. Decision 23 of [q-7ebz2f](questions/q-7ebz2f.md), 2026-10-30, named the file by its id
+alone, to end renames, and said nothing of what that took away. On 2026-11-09 the premises derived
+anew dropped requirement 1.3's *"A question reads easily to an agent and to the person"*; the plan
+of [01-0010.0250.0100 a-questions-id-never-changes](tickets/01-0010.0250.0100-a-questions-id-never-changes.md)
+listed the slug's code among what goes; its stage 4 removed the check that cited decision 55, with
+its tests; three fresh reviews read the plan against the code, and one reported the ticket listing
+losing the question's words, which was mended in that listing alone. The person asked on
+2026-11-10 whether the slug would still show; 365 entries had been renamed by then.
+
+**Why it did not fire.** Each step asked what the code depended on and never what a reader lost:
+the impact mapped where the slug is written and checked, no step read the decision the removed
+check cited, and the reviewers were briefed to hold the plan against the code, which put the
+purpose outside their brief. A finding about one place was mended in that place and not sought in
+its kind. This is the session's reading; no model-internal cause is established.
+
+**Proposed amendment**, a rewording in `/plan`, no check being able to hold it: before a plan
+removes a check, a test or a rule that names the decision it keeps, the plan reads that decision
+and says what it was for and what serves that after the removal, or takes the removal to `/align`.
+
+**Disposition:** open. The amendment is shown to the person before it lands; whether the file's
+name carries the question's words again is put to them on [q-7ebz2f](questions/q-7ebz2f.md).
+
 ## A waiting decision reached the person without its options — 2026-11-09
 
 **Source, no case yet:**
