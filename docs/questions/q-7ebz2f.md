@@ -126,6 +126,7 @@ history at a8923621.*
       shown, never lost.
    4. The questions are files inside the project's folder, with no folder beside it to go to;
       agents edit them, the person seldom; a file links to a question, and a question to a file.
+      A question reads easily to an agent and to the person wherever it is cited.
    5. History is kept in git: who changed what, and when. A question outlives the branch it was
       opened on; an id never changes once the cut-over has converted today's ids.
    6. Python's standard library only; nothing to set up on one machine.
@@ -154,9 +155,13 @@ history at a8923621.*
    together. The person's edit of a file, its read-only flag lifted, is a change too: the
    server finds the file changed and takes it on the version it last wrote, by the same rule.
 6. **An id is six random characters of base32** *(1.2, 1.3, 1.5; the tree and the migration, the
-   user, 2026-11-09)*: `q-7f3k2a`, given by whoever writes, the server or not; about a billion
-   values, so a clash needs no rule of its own and the store's check reports one. A file is named
-   by its id alone, its place only in its `part of`. The tree's structure stays visible wherever
+   user, 2026-11-09; the file's name, the user, 2026-11-10)*: `q-7f3k2a`, given by whoever writes,
+   the server or not; about a billion values, so a clash needs no rule of its own and the store's
+   check reports one. A file is named by its id and the question's words as it was opened,
+   `<id>-<slug>.md`, and keeps that name for good, a reword changing the title alone: an agent
+   reads what a question is about in every link's path and every listing, which the name by the
+   id alone took away (decision 55 of 01-0011.0100, the user, 2026-10-02), and no rename reaches a
+   link on another branch. Its place is only in its `part of`. The tree's structure stays visible wherever
    the store is shown, drawn from the `part of` headers; no address is kept or derived, today's
    dotted ones included. No `done/` folder. Every link, binding, `Answers` and lean names the id.
    Today's ids are converted once, by a migration run in each of the person's trees — the harness

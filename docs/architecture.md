@@ -128,7 +128,8 @@ A write re-reads every entry it changes and refuses one that moved since it was 
 included; detected interference is a failure, as in
 [interruption and recovery](#interruption-and-recovery). <straw-dog question="q-2jheaw">A new question's id is six random characters
 of base32, `q-7f3k2a`, drawn by whoever writes it and never changed; one already taken is drawn
-again. Its file is named by the id alone, and its place in the tree is its `part of` header alone,
+again. Its file is named by the id and the words it was opened with, kept for good, so a link's
+path says what the question is about; its place in the tree is its `part of` header alone,
 so a move rewrites that one line and no link anywhere. The tree's structure is drawn from those
 headers wherever the store is shown, siblings in the order they were opened; no address is kept
 ([decision 6](questions/q-7ebz2f.md#decisions)).</straw-dog>
