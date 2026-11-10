@@ -1,14 +1,18 @@
 """The question store's one-time migration from ids that say where a question sits to ids that never
 change (docs/architecture.md: "Question store").
 
-Every entry with a dotted id, live or in `done/`, is moved to `docs/questions/<new id>.md` by the
-mover, which re-points every citation and rebases each moved entry's own links; its title takes the
+Every entry with a dotted id, live or in `done/`, is moved to
+`docs/questions/<new id>-<its words>.md` by the mover, which re-points every citation and rebases each moved entry's own links; its title takes the
 new id and its header an `opened`, siblings keeping today's order; then every id written in the
 records, the rows and the straw dogs' bindings is rewritten through the table of former ids, which
 is written last. Run once in each of the person's trees; run again, it gives each question the id
 the table already holds, and on a store with no dotted id it changes nothing.
 
     uv run --offline --no-project python .agents/scripts/gw/migrate_ids.py [--dry-run] [--leave <folder>]...
+    uv run --offline --no-project python .agents/scripts/gw/migrate_ids.py --words [--dry-run] [--leave <folder>]...
+
+`--words` is for a tree migrated while a file was named by its id alone: it gives each such entry
+the name the writer gives one now, its id and its words, and repairs what cites it.
 
 `--leave` names a folder of evidence whose files must keep agreeing with one another, whatever
 their extension, so no id in it is rewritten; a tree names its own.
@@ -35,10 +39,12 @@ import questions  # noqa: E402
 import sessions  # noqa: E402
 from docs_corpus import citations, cited_record, corpus, target_of, with_question_bindings_retargeted  # noqa: E402
 
-_USAGE = "usage: migrate_ids.py [--dry-run] [--leave <folder>]..."
+_USAGE = "usage: migrate_ids.py [--words] [--dry-run] [--leave <folder>]..."
 _DOTTED = re.compile(r"^q-\d{4,}(?:\.\d{4})*$")
 # A path written whole, outside a link the mover repairs: `q-0037.0017-the-words.md`.
 _DOTTED_PATH = re.compile(r"(?<![\w.])(q-\d{4,}(?:\.\d{4})*)-[A-Za-z0-9][A-Za-z0-9-]*\.md")
+# A file named by its id alone, written whole outside a link: `q-7f3k2a.md`.
+_BARE_NAME = re.compile(r"(?<![\w.-])(q-[a-z2-7]{6})\.md")
 
 
 @dataclass
@@ -59,18 +65,22 @@ class Refused(Exception):
 
 def main(argv: list[str], root: Path) -> int:
     dry_run = "--dry-run" in argv
-    rest = [said for said in argv if said != "--dry-run"]
+    words = "--words" in argv
+    rest = [said for said in argv if said not in ("--dry-run", "--words")]
     if len(rest) % 2 or any(said != "--leave" for said in rest[::2]):
         print(_USAGE)
         return 2
     left_alone = tuple(f"{folder.rstrip('/')}/" for folder in rest[1::2])
     try:
-        migrated = migrate(root, datetime.now(timezone.utc), dry_run=dry_run, left_alone=left_alone)
+        if words:
+            migrated = name_by_words(root, dry_run=dry_run, left_alone=left_alone)
+        else:
+            migrated = migrate(root, datetime.now(timezone.utc), dry_run=dry_run, left_alone=left_alone)
     except Refused as why:
         print(f"refused: {why}")
         return 2
     if migrated is None:
-        print("no dotted id; nothing to migrate")
+        print("no entry named by its id alone; nothing to rename" if words else "no dotted id; nothing to migrate")
         return 0
     _report(migrated, dry_run)
     return 1 if migrated.broken else 0
@@ -91,7 +101,7 @@ def migrate(
     if not dotted:
         return None
     table = _table_for(root, entries, dotted)
-    pairs = [(read.record, f"{questions.STORE}/{table[read.identity or '']}.md") for read in dotted]
+    pairs = [(read.record, _named(root, table[read.identity or ""], read.question)) for read in dotted]
     touched = _touched(root, pairs, table, left_alone)
     left = (unsettled or _unsettled)(root, touched)
     if left:
@@ -109,11 +119,64 @@ def migrate(
     if done.is_dir() and not any(done.iterdir()):
         done.rmdir()
     _name_and_open(root, dotted, table, now, first_added or _first_added)
-    migrated.rewritten = _rewritten_through(root, table, left_alone)
+    migrated.rewritten = _rewritten_through(root, table, _names(pairs), left_alone)
     _write_table(root, table, {read.identity: read.question for read in entries})
     _forget_windows(root)
     migrated.broken = _unresolved(root, left_alone)
     return migrated
+
+
+def name_by_words(
+    root: Path,
+    dry_run: bool = False,
+    unsettled: Callable[[Path, list[str]], list[str]] | None = None,
+    left_alone: tuple[str, ...] = (),
+) -> Migrated | None:
+    """Each entry named by its id alone renamed to its id and its words, and whatever cites it
+    repaired; `None` when no entry is so named."""
+    entries, _, _ = questions._entries(root)
+    bare = [read for read in entries if posixpath.basename(read.record) == f"{read.identity}.md"]
+    if not bare:
+        return None
+    pairs = [(read.record, _named(root, read.identity or "", read.question)) for read in bare]
+    names = _names(pairs)
+    naming = [
+        name for name in _scope(root, left_alone)
+        if name.startswith("docs/") and (root / name).is_file() and _BARE_NAME.search((root / name).read_text(encoding="utf-8"))
+    ]
+    touched = sorted({operation.subject for operation in move_doc._change_set(root, pairs)} | set(naming) | {source for source, _ in pairs})
+    left = (unsettled or _unsettled)(root, touched)
+    if left:
+        raise Refused("uncommitted or untracked, so the run could not be read back on its own: " + ", ".join(left))
+    why = move_doc.refusal(root, pairs)
+    if why:
+        raise Refused(why)
+    migrated = Migrated({}, pairs, touched if dry_run else [])
+    if dry_run:
+        return migrated
+    move_doc.perform(root, pairs, announce=lambda said: None)
+    migrated.unrepaired = move_doc.unrepaired_mentions(root, pairs)
+    for name in _scope(root, left_alone):
+        path = root / name
+        if not name.startswith("docs/") or not path.is_file():
+            continue
+        text = path.read_bytes().decode("utf-8")
+        rewritten = questions._outside_fences(text, lambda line: _BARE_NAME.sub(lambda found: names.get(found.group(1), found.group(0)), line))
+        if rewritten != text:
+            questions._replace(path, rewritten)
+            migrated.rewritten.append(name)
+    migrated.broken = _unresolved(root, left_alone)
+    return migrated
+
+
+def _named(root: Path, identity: str, question: str) -> str:
+    """The record a question stands in: its id and its words, as the writer names one."""
+    return f"{questions.STORE}/{questions.entry_name(root, identity, question)}"
+
+
+def _names(pairs: list[tuple[str, str]]) -> dict[str, str]:
+    """Each moved entry's file name, by its id."""
+    return {posixpath.basename(target)[: len("q-") + 6]: posixpath.basename(target) for _, target in pairs}
 
 
 # --- the table --------------------------------------------------------------------------------
@@ -214,7 +277,7 @@ def _name_and_open(
                 stamp = before + timedelta(seconds=1)
             before = stamp
             new = table[read.identity or ""]
-            record = f"{questions.STORE}/{new}.md"
+            record = _named(root, new, read.question)
             text = (root / record).read_text(encoding="utf-8")
             moved, _ = questions._read(record, text)
             parts = dict(moved.parts)
@@ -224,13 +287,13 @@ def _name_and_open(
             )
 
 
-def _rewritten_through(root: Path, table: dict[str, str], left_alone: tuple[str, ...]) -> list[str]:
+def _rewritten_through(root: Path, table: dict[str, str], names: dict[str, str], left_alone: tuple[str, ...]) -> list[str]:
     """Every id the table replaces, rewritten where today's rename rewrites one: under `docs/`,
     outside fenced blocks, a path written whole first and then the bare id; elsewhere a straw dog's
     or a `TODO`'s binding alone."""
 
     def renamed(line: str) -> str:
-        line = _DOTTED_PATH.sub(lambda found: f"{table[found.group(1)]}.md" if found.group(1) in table else found.group(0), line)
+        line = _DOTTED_PATH.sub(lambda found: names[table[found.group(1)]] if found.group(1) in table else found.group(0), line)
         return questions._BARE_ID.sub(lambda found: table.get(found.group(0), found.group(0)), line)
 
     rewrote = []

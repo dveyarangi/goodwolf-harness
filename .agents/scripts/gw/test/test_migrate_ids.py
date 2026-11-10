@@ -64,19 +64,28 @@ class AMigratedTree(RepositoryCase):
     def new(self, old: str) -> str:
         return self.table[old]
 
+    def name(self, old: str) -> str:
+        """The file the question that was `old` stands in now: its new id and its words."""
+        [found] = [path.name for path in (self.root / STORE).glob(f"{self.new(old)}-*.md")]
+        return found
+
+    def record(self, old: str) -> str:
+        return f"{STORE}/{self.name(old)}"
+
     def test_every_dotted_id_has_a_new_one_in_the_table(self) -> None:
         self.assertEqual({"q-0001", "q-0001.0001", "q-0001.0002", "q-0002"}, set(self.table))
         self.assertTrue(all(questions._IDENTITY.match(new) and "." not in new for new in self.table.values()))
         self.assertEqual(self.table, questions.former_ids(self.root))
 
-    def test_every_entry_is_named_by_its_new_id_and_done_is_gone(self) -> None:
+    def test_every_entry_is_named_by_its_new_id_and_its_words_and_done_is_gone(self) -> None:
         names = sorted(path.name for path in (self.root / STORE).glob("*.md"))
 
-        self.assertEqual(sorted([f"{new}.md" for new in self.table.values()] + ["former-ids.md"]), names)
+        wanted = {"q-0001": "which-store", "q-0001.0001": "child-one", "q-0001.0002": "child-two", "q-0002": "gone"}
+        self.assertEqual(sorted([f"{self.new(old)}-{words}.md" for old, words in wanted.items()] + ["former-ids.md"]), names)
         self.assertFalse((self.root / STORE / "done").exists())
 
     def test_a_title_and_its_relations_name_the_new_ids(self) -> None:
-        child = self.text(f"{STORE}/{self.new('q-0001.0002')}.md")
+        child = self.text(self.record("q-0001.0002"))
 
         self.assertTrue(child.startswith(f"# {self.new('q-0001.0002')} Child two?\n"))
         self.assertIn(f"- **part of** {self.new('q-0001')}\n", child)
@@ -92,15 +101,17 @@ class AMigratedTree(RepositoryCase):
         )
 
     def test_every_link_resolves_its_fragment_kept(self) -> None:
-        self.assertIn(f"[q-0001.0001](../questions/{self.new('q-0001.0001')}.md#where-it-stands)".replace("[q-0001.0001]", f"[{self.new('q-0001.0001')}]"), self.text("docs/tickets/01-0001-carry.md"))
-        self.assertIn(f"]({self.new('q-0001')}.md#decisions)", self.text(f"{STORE}/{self.new('q-0002')}.md"))
-        self.assertIn(f"]({self.new('q-0002')}.md)", self.text(f"{STORE}/{self.new('q-0001')}.md"))
+        self.assertIn(
+            f"[{self.new('q-0001.0001')}](../questions/{self.name('q-0001.0001')}#where-it-stands)", self.text("docs/tickets/01-0001-carry.md")
+        )
+        self.assertIn(f"]({self.name('q-0001')}#decisions)", self.text(self.record("q-0002")))
+        self.assertIn(f"]({self.name('q-0002')})", self.text(self.record("q-0001")))
         self.assertEqual([], self.migrated.broken)
 
     def test_a_path_in_a_code_span_becomes_the_new_file_and_a_fence_is_left_as_written(self) -> None:
         notes = self.text("docs/notes.md")
 
-        self.assertIn(f"`docs/questions/{self.new('q-0001.0002')}.md`", notes)
+        self.assertIn(f"`docs/questions/{self.name('q-0001.0002')}`", notes)
         self.assertIn(f"and {self.new('q-0001.0001')}.", notes)
         self.assertIn("```\nq-0001 as a sample\n```", notes)
 
@@ -139,11 +150,52 @@ class AMigratedTree(RepositoryCase):
         self.assertIn(f"q-0001.0001 is now {self.new('q-0001.0001')}", said.getvalue())
 
     def test_an_old_id_brought_back_by_a_merge_is_a_finding(self) -> None:
-        self.put(self.root, "docs/questions/" + f"{self.new('q-0001')}.md", self.text(f"{STORE}/{self.new('q-0001')}.md") + "\nAlso q-0001.0001.\n")
+        self.put(self.root, self.record("q-0001"), self.text(self.record("q-0001")) + "\nAlso q-0001.0001.\n")
 
         findings = [note.finding for note in questions.check(self.root).findings]
 
         self.assertIn(f"names q-0001.0001, which is now {self.new('q-0001.0001')}", findings)
+
+
+class NamedByWords(RepositoryCase):
+    """A tree migrated while a file was named by its id alone gets each such entry its id and its
+    words, and what cites it follows."""
+
+    def setUp(self) -> None:
+        super().setUp()
+        put = lambda name, text: AMigratedTree.put(self, self.root, name, text)
+        put(f"{STORE}/q-7f3k2a.md", entry("q-7f3k2a", "Which store holds them?", {"record of": "what it intends to become", "state": "open"}, "See [the child](q-m4x2pq.md#decisions).\n"))
+        put(f"{STORE}/q-m4x2pq.md", entry("q-m4x2pq", "What an entry holds?", {"record of": "what it intends to become", "part of": "q-7f3k2a", "state": "open"}))
+        put(f"{STORE}/q-c3vn5h-named-already.md", entry("q-c3vn5h", "Named already?", {"record of": "what it intends to become", "state": "open"}))
+        put("docs/tickets/01-0001-carry.md", "# Carry\n\n- **Answers:** [q-7f3k2a](../questions/q-7f3k2a.md)\n")
+        put("docs/notes.md", "Read `docs/questions/q-m4x2pq.md`.\n\n```\nq-7f3k2a.md as a sample\n```\n")
+        self.renamed = migrate_ids.name_by_words(self.root, unsettled=lambda root, names: [])
+
+    def text(self, name: str) -> str:
+        return (self.root / name).read_text(encoding="utf-8")
+
+    def test_each_entry_named_by_its_id_alone_takes_its_words(self) -> None:
+        self.assertEqual(
+            ["q-7f3k2a-which-store-holds-them.md", "q-c3vn5h-named-already.md", "q-m4x2pq-what-an-entry-holds.md"],
+            sorted(path.name for path in (self.root / STORE).glob("*.md")),
+        )
+
+    def test_every_link_follows_its_fragment_kept(self) -> None:
+        self.assertIn("[q-7f3k2a](../questions/q-7f3k2a-which-store-holds-them.md)", self.text("docs/tickets/01-0001-carry.md"))
+        self.assertIn("](q-m4x2pq-what-an-entry-holds.md#decisions)", self.text(f"{STORE}/q-7f3k2a-which-store-holds-them.md"))
+        self.assertEqual([], self.renamed.broken)
+
+    def test_a_path_in_a_code_span_follows_and_a_fence_is_left_as_written(self) -> None:
+        notes = self.text("docs/notes.md")
+
+        self.assertIn("`docs/questions/q-m4x2pq-what-an-entry-holds.md`", notes)
+        self.assertIn("```\nq-7f3k2a.md as a sample\n```", notes)
+
+    def test_a_second_run_has_nothing_to_rename(self) -> None:
+        self.assertIsNone(migrate_ids.name_by_words(self.root, unsettled=lambda root, names: []))
+
+    def test_the_store_checks_clean_after(self) -> None:
+        self.assertEqual([], [note.problem for note in questions.check(self.root).diagnostics])
 
 
 class Refusals(RepositoryCase):

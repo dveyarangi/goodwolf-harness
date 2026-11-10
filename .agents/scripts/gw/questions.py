@@ -737,8 +737,8 @@ def _opened_problems(read: Entry) -> list[Diagnostic]:
 
 
 def _name_problems(root: Path, read: Entry, stem: re.Match[str]) -> list[Diagnostic]:
-    """The filename's id is the title's. The words may change while the file keeps its name, so
-    the name says nothing of them."""
+    """The filename's id is the title's. The name keeps the words the question was opened with
+    while a reword changes the title, so the slug is never held to the words."""
     if read.identity is None or stem.group(1) == read.identity:
         return []
     return [Diagnostic(read.record, 1, f"is named {stem.group(1)} and its title says {read.identity}")]
@@ -2391,7 +2391,7 @@ class _Draft:
         parts = {"state": "open", "opened": self._opened_under(clause.other), "struck": Strike(0, self.now).text}
         if clause.other:
             parts = {"part of": clause.other} | parts
-        record = f"{STORE}/{identity}.md"
+        record = f"{STORE}/{entry_name(self.root, identity, clause.text or '')}"
         self._put(Entry(record, identity, clause.text or "", {n: Part(v, 0) for n, v in parts.items()}))
         self.new.add(identity)
         if clause.lower:
@@ -2427,8 +2427,8 @@ class _Draft:
     def _rewords(self, clause: Clause) -> None:
         """An open question takes new words and keeps its id, its parts and its body (the user,
         2026-10-05): the same question means the same answers, never the same wording. The file
-        keeps its name, so every link to it holds. A closed question keeps the words it was answered
-        under."""
+        keeps the name it was opened under, so every link to it holds. A closed question keeps the
+        words it was answered under."""
         read = self._existing(clause.question or "")
         identity = read.identity or ""
         words = " ".join((clause.text or "").split())
@@ -2658,6 +2658,38 @@ def _entry_text(read: Entry) -> str:
     bullets = [f"- **{name}** {parts[name].value}" for name in PARTS if name in parts]
     parts = "\n".join([f"# {read.identity} {read.question}", "", *bullets]) + "\n"
     return parts + ("\n" + read.body if read.body else "")
+
+
+def entry_name(root: Path, identity: str, question: str) -> str:
+    """The file a question is opened under: its id, then the words it was opened with, so a link's
+    path and a listing say what it is about (docs/architecture.md: "Question store"). Kept for
+    good: a reword never renames it."""
+    return f"{identity}-{_fitted_slug(root, identity, question)}.md"
+
+
+def _slug(question: str) -> str:
+    """Every word of the question, cut at a word boundary only past `SLUG_LENGTH` characters, so
+    whoever reads a listing reads the whole question."""
+    slug: list[str] = []
+    for word in _words(question):
+        if slug and len("-".join(slug + [word])) > SLUG_LENGTH:
+            break
+        slug.append(word)
+    return "-".join(slug) or "question"
+
+
+def _fitted_slug(root: Path, identity: str, question: str) -> str:
+    """The question's slug, cut further while the entry's path would pass `PATH_LIMIT` from this
+    tree's root or from a clone's `CLONE_ROOM`, whichever is deeper, or its name `NAME_LIMIT`: at a
+    word boundary, and inside the one word left, as a script written without spaces needs. The id
+    is never cut."""
+    room = PATH_LIMIT - max(len(str(root)), CLONE_ROOM)
+    slug = _slug(question)
+    while len(slug) > 1 and (
+        len(f"/{STORE}/{identity}-{slug}.md") > room or len(f"{identity}-{slug}.md".encode("utf-8")) > NAME_LIMIT
+    ):
+        slug = slug.rsplit("-", 1)[0] if "-" in slug else slug[:-1]
+    return slug
 
 
 if __name__ == "__main__":

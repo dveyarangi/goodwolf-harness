@@ -1328,7 +1328,7 @@ class TheCalls(Declared):
         self.assertIn("at q-0004 Which parts are optional?", said)
         self.assertNotIn("(from", said)
 
-    def test_open_draws_an_id_names_the_file_by_it_prints_it_and_leaves_the_session_where_it_stands(self) -> None:
+    def test_open_draws_an_id_names_the_file_by_it_and_the_words_prints_it_and_leaves_the_session_where_it_stands(self) -> None:
         said = self.called("open", "Is the owner optional?", "--under", "q-0004")
 
         self.assertIn("opened q-open2a", said)
@@ -1336,28 +1336,28 @@ class TheCalls(Declared):
             "# q-open2a Is the owner optional?\n\n- **record of** what it intends to become\n"
             "- **part of** q-0004\n- **state** open\n- **opened** 2026-09-29T12:00:00Z\n"
             "- **struck** 0, last 2026-09-29T12:00Z\n",
-            self.read(f"{STORE}/q-open2a.md"),
+            self.read(f"{STORE}/q-open2a-is-the-owner-optional.md"),
         )
         self.assertEqual("s-alpha running 2026-09-29T11:30Z q-0004 q-0002,q-0001", self.own_line())
 
     def test_an_id_already_held_is_drawn_again(self) -> None:
-        self.write(f"{STORE}/q-open2a.md", entry("q-open2a", "Held already?", {"state": "open"}))
+        self.write(f"{STORE}/q-open2a-held-already.md", entry("q-open2a", "Held already?", {"state": "open"}))
 
         said = self.called("open", "Is the owner optional?", "--under", "q-0004")
 
         self.assertIn("opened q-open3a", said)
-        self.assertTrue((self.root / STORE / "q-open3a.md").is_file())
+        self.assertTrue((self.root / STORE / "q-open3a-is-the-owner-optional.md").is_file())
 
     def test_open_a_root_has_no_part_of(self) -> None:
         said = self.called("open", "Is there a third root?")
 
         self.assertIn("opened q-open2a", said)
-        self.assertIsNone(self.part("q-open2a", "part of"))
+        self.assertIsNone(self.part("q-open2a-is-there-a-third-root", "part of"))
 
     def test_open_between_two_questions_reparents_the_lower_and_nothing_else(self) -> None:
         self.called("open", "What must an entry hold?", "--between", "q-0002", "q-0004")
 
-        self.assertEqual("q-0002", self.part("q-open2a", "part of"))
+        self.assertEqual("q-0002", self.part("q-open2a-what-must-an-entry-hold", "part of"))
         self.assertEqual("q-open2a", self.part("q-0004-which-parts-are-optional", "part of"))
         self.assertEqual("q-0004", self.part("q-0008-is-the-lean-optional", "part of"))
 
@@ -1452,12 +1452,12 @@ class TheCalls(Declared):
             "s-alpha",
             [questions.Clause("opens", other="q-0004", text="My question?")],
             TODAY,
-            between=lambda: self.write(f"{STORE}/q-open2a.md", theirs),
+            between=lambda: self.write(f"{STORE}/q-open2a-their-question.md", theirs),
         )
 
         self.assertEqual(["q-open3a"], written.opened)
-        self.assertEqual(theirs, self.read(f"{STORE}/q-open2a.md"))
-        self.assertTrue((self.root / STORE / "q-open3a.md").is_file())
+        self.assertEqual(theirs, self.read(f"{STORE}/q-open2a-their-question.md"))
+        self.assertTrue((self.root / STORE / "q-open3a-my-question.md").is_file())
 
 class Moving(Declared):
     """A move rewrites the moved question's *part of* and nothing else: its id, its file and every
@@ -1856,7 +1856,7 @@ class Strikes(Declared):
         self.called("open", "Is the owner optional?", "--under", "q-0004")
         self.at("q-open2a", hours=0.02)
 
-        self.assertEqual(self.stamped(0), self.part("q-open2a", "struck"))
+        self.assertEqual(self.stamped(0), self.part("q-open2a-is-the-owner-optional", "struck"))
 
     def test_an_entry_older_than_the_count_is_stamped_at_its_first_reach_and_not_struck(self) -> None:
         self.at("q-0007")
@@ -1923,6 +1923,72 @@ class Strikes(Declared):
             )
 
         self.assertEqual(theirs, self.entry_text("q-0007-who-moves-a-subtree"))
+
+
+class Naming(Declared):
+    """A question is opened under its id and its words, every one of them, cut only past the
+    slug's length and to fit the path; a reword leaves the name as it was (docs/architecture.md:
+    "Question store")."""
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.enterContext(mock.patch.object(questions, "CLONE_ROOM", 0))
+
+    def test_names_a_long_question_with_every_word(self) -> None:
+        question = (
+            "Does a question whose words run well past the old forty character cut keep every one "
+            "of them in its name when the listing shows it?"
+        )
+        slug = "-".join(questions._words(question))
+        self.assertTrue(120 < len(slug) <= questions.SLUG_LENGTH, len(slug))
+
+        self.called("open", question)
+
+        self.assertTrue((self.root / STORE / f"q-open2a-{slug}.md").is_file())
+
+    def test_names_a_question_in_another_script_with_its_own_words(self) -> None:
+        """A question asked in Russian keeps its words, lower-cased, in the name a listing shows."""
+        self.called("open", "Где хранится Ёлка 2026?")
+
+        self.assertTrue((self.root / STORE / "q-open2a-где-хранится-ёлка-2026.md").is_file())
+        self.assertEqual([], [note.problem for note in self.checked().diagnostics if note.record.startswith(f"{STORE}/q-open2a-")])
+
+    def test_keeps_the_marks_a_script_writes_its_words_with(self) -> None:
+        self.called("open", "हिन्दी में प्रश्न?")
+
+        self.assertTrue((self.root / STORE / "q-open2a-हिन्दी-में-प्रश्न.md").is_file())
+
+    def test_cuts_a_question_written_without_spaces_to_fit_a_clone_and_a_file_name(self) -> None:
+        """Chinese and Japanese write a clause as one word; the fit cuts inside it, and keeps the
+        name within the 255 bytes a Linux or macOS filesystem allows."""
+        with mock.patch.object(questions, "CLONE_ROOM", 128):
+            self.called("open", "问题存储在哪里" * 20 + "？")
+
+        [named] = [name.name for name in (self.root / STORE).glob("q-open2a-*.md")]
+        self.assertLessEqual(len(named.encode("utf-8")), 255)
+        self.assertLessEqual(128 + len(f"/{STORE}/{named}"), questions.PATH_LIMIT)
+        self.assertTrue(named.startswith("q-open2a-问题存储在哪里"), named)
+        self.assertEqual([], [note.problem for note in self.checked().diagnostics if note.record.startswith(f"{STORE}/q-open2a-")])
+
+    def test_cuts_a_question_past_the_length_at_a_word_boundary(self) -> None:
+        words = [f"word{number:02d}" for number in range(40)]
+
+        self.called("open", f"{' '.join(words)}?")
+
+        [named] = [name.name for name in (self.root / STORE).glob("q-open2a-*.md")]
+        slug = named[len("q-open2a-") : -len(".md")]
+        self.assertLessEqual(len(slug), questions.SLUG_LENGTH)
+        self.assertGreater(len(slug) + len("-word00"), questions.SLUG_LENGTH, "cut no earlier than it must")
+        self.assertEqual(words[: len(slug.split("-"))], slug.split("-"), "whole words, the question's first")
+
+
+    def test_a_reword_leaves_the_name_it_was_opened_under(self) -> None:
+        self.called("open", "Is the owner optional?", "--under", "q-0004")
+
+        self.called("reword", "q-open2a", "May an entry go without an owner?")
+
+        self.assertTrue(self.entry_text("q-open2a-is-the-owner-optional").startswith("# q-open2a May an entry go without an owner?\n"))
+        self.assertEqual([], [note.problem for note in self.checked().diagnostics if "q-open2a" in note.record])
 
 
 class ThePath(Store):
@@ -2129,7 +2195,7 @@ class Interference(Declared):
         with mock.patch.object(questions, "OPEN_ATTEMPTS", 1), self.assertRaises(questions.Taken):
             self.declare_with(
                 [questions.Clause("opens", text="My question?")],
-                lambda: self.write(f"{STORE}/q-open2a.md", theirs),
+                lambda: self.write(f"{STORE}/q-open2a-their-question.md", theirs),
             )
 
         self.assertEqual([], [path for path in (self.root / STORE).glob("*.md") if "My question?" in path.read_text(encoding="utf-8")])
@@ -2180,10 +2246,10 @@ class InOrder(Declared):
         self.assertEqual(["q-open2a", "q-open3a"], written.opened)
         self.assertIn(
             "- **state** closed:merged\n- **answer** q-open3a",
-            self.read(f"{STORE}/q-open2a.md"),
+            self.read(f"{STORE}/q-open2a-is-the-owner-optional.md"),
             "the merge finished its subtree, which stays where it is",
         )
-        self.assertIn("- **state** open", self.entry_text("q-open3a"))
+        self.assertIn("- **state** open", self.entry_text("q-open3a-is-the-owner-required-at-birth"))
         self.assertEqual("q-open3a", self.own_line().split()[3])
 
     def test_a_prune_goes_through_once_the_child_that_stands_alone_is_moved_out_first(self) -> None:
@@ -2208,7 +2274,7 @@ class ARoundTrip(Declared):
             self.called(*call)
 
         self.assertEqual(before, self.problems(), "the fixture's flat ids are reported as before, and nothing more")
-        self.assertIn("closed:pruned", self.read(f"{STORE}/q-open2a.md"))
+        self.assertIn("closed:pruned", self.read(f"{STORE}/q-open2a-is-the-owner-optional.md"))
         self.assertNotIn("q-open2a", self.said("--tree", "q-0004")[1], "the finished subtree left the live tree")
 
 
