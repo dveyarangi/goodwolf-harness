@@ -35,7 +35,7 @@ hand-bumped entry contract version conflicts on merge.
 
 ## What was done
 
-- [q-0037.0017.0002](../questions/q-0037.0017.0002-how-does-a-sessions-landed-work-get-from-its-branch-into-main.md)
+- [q-0037.0017.0002](../questions/done/q-0037.0017.0002-how-does-a-sessions-landed-work-get-from-its-branch-into-main.md)
   opened on the guard session's relay — it could not reach the main checkout's store from its
   worktree — and closed decided; its body holds the evidence and the reasoning.
 - q-0037.0017.0002.0001 opened and deferred.

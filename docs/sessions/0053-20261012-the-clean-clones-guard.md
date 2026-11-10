@@ -45,7 +45,7 @@ exposed: nothing says how a session's work gets from its branch into main.
 - **One session's push carried another's held-back work.** The guard merge, kept local as the
   user asked, went to origin when the next session committed on that main and pushed it whole
   under `push=auto`. That also marked PR #5 merged. Recorded in
-  [q-0037.0017.0002](../questions/q-0037.0017.0002-how-does-a-sessions-landed-work-get-from-its-branch-into-main.md).
+  [q-0037.0017.0002](../questions/done/q-0037.0017.0002-how-does-a-sessions-landed-work-get-from-its-branch-into-main.md).
 - **The suite's guard on the live question store failed a test** because this session edited a
   question record while the suite ran. It passed when re-run alone. This is the case q-0037.0007.0002
   is about.

@@ -2,7 +2,7 @@
 
 - **record of** what it intends to become
 - **state** open
-- **struck** 4, last 2026-10-26T10:32Z
+- **struck** 5, last 2026-10-28T18:36Z
 
 **A peer harness built by one person for their own work, the user, 2026-10-25** — its agent's
 account of itself, filed as
