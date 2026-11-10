@@ -1,0 +1,216 @@
+{
+  "id": "rf-in-the-ring-the-agent-offered-to-e85dea4b5e",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "69. In the ring, the agent offered to leave its unit and took a one-word yes as the drop — 2026-10-24",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "one unit-switch episode, not four occurrences for its continuation turns"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1455",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.308"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/1455/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-24T10:09:32.753Z",
+    "chat_id": "70d575d7-50f7-4af7-8313-c69b241a42f5",
+    "trigger_message_id": null,
+    "trigger_record_id": "3e71f734-b305-42b6-b864-2d871f42905d",
+    "failure_message_id": "msg_011CgLswhqQaPTFyn5v1jytY",
+    "failure_record_id": "ae8219c6-3c80-4817-b157-76a7fd6e2ca3",
+    "transcript": "70d575d7-50f7-4af7-8313-c69b241a42f5.jsonl"
+  },
+  "observed_failure": {
+    "description": "While holding the pathfinder slice, the agent offers an immediate switch to the voice alignment and interprets ambiguous 'давай' as a drop of its unit.",
+    "events": [
+      {
+        "source": "source.json#/records/1455",
+        "message_id": "msg_011CgLswhqQaPTFyn5v1jytY",
+        "record_id": "ae8219c6-3c80-4817-b157-76a7fd6e2ca3",
+        "timestamp": "2026-10-24T10:09:32.753Z",
+        "text": "| 🪢 Tangle · [q-0037.0019.0002](docs/questions/q-0037.0019.0002-what-does-the-agent-show-of-the-path-at-every-recall-and-on-request-the-count-in-work-against-the-cap-and-what-it-held-back-the-candidates-at-the-next-boundary.md) · [q-0037.0019](docs/questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three-roots-and-the-next-shown-with-its-unit-as-the-installed.md) · [q-0033.0008](docs/questions/q-0033.0008-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md) · — |\n|---|\n\n| 🪶 Commits |\n|---|\n| `fb7cc3d` ALIGN: a side question opened in the ring — is the voice a reply speaks its own mechanism |\n\n| 🎫 50 · ❓ 185 · 🐕 172 |\n|---|\n\n| 🌱 **q-0037.0009.0021.0002** · Is the voice a reply speaks in its own mechanism, owning how everything the person hears is said, apart from the voice instructions and records are written in? |\n|---|\n| 📍 **q-0037.0019.0002** · What does the agent show of the path at every /recall and on request: the count in work against the cap and what it held back, the candidates at the next boundary with their reasons, the three roots balance? |\n\nДумаю, вы правы, и дерево это подтверждает. Вопрос открыт сторонним, без перехода: сессия держит путь, по новому правилу кольца.\n\n**Что сейчас происходит с голосом.** Во входном файле три голоса, и ни один не знает своей границы:\n\n- **Голос инструкций и записей.** «Пиши для способной модели: правило и указатель». Верно для скиллов и документов. Но стоит в общих правилах, без оговорки, и агент читает его как правило и для ответов. Отсюда плотные ответы со слагами, на которые вы жалуетесь не первый раз.\n- **Голос речи.** L9, голос Лема, локальное правило проекта. Рядом правило о том, что ответ говорит и чего не говорит. И разделы «что слышит человек» в трёх скиллах, где написано то «в их словах», то «в их терминах». Каждая такая фраза тянет в свою сторону и сбивает L9.\n- **Показанная машинерия.** Механизм отладки, объявлен два дня назад. Это противоположный полюс: что показывать сверх речи.\n\nВопрос о том, кто владеет формой ответа, уже назвал двух хозяев: отладку или взаимодействие. Отладку построили, взаимодействие так и не открыли. Голос и есть эта половина.\n\n**Как я вижу механизм голоса.** Он владеет тем, *как* сказано всё, что слышит человек: в любом ответе, в отчёте, внутри скилла и вне его. Голос проекта становится его настройкой: здесь Лем, в другом проекте другой. Он не владеет тем, *что* сказано в данный момент: это остаётся разделам «что слышит человек» в скиллах, потому что только скилл знает свой момент. Так что не управляющий этими разделами, а управляющий их речью. Сами разделы теряют «в их словах» и «в их терминах»: голос прикладывается ко всей речи сразу.\n\nЧто из этого следует сразу, без механизма: «пиши для способной модели» получает границу, инструкции и записи; это его дом в скилле о написании инструкций, а не общие правила.\n\n**Чего бы я не делал.** Не делал бы голос списком запретов: «не слаги, не номера, не имена записей». Это опыт сессии 15 октября: правило не может сделать голос, список форм сбоя описывает сбой, а не голос. Голос задаётся образцом, Лемом, и одним требованием: сказанное понятно человеку без файлов. Остальное приходит из образца (💡 [*Occam*](AGENTS.md:30)).\n\n**Что это значит для пути.** Правку в `/recall`, которую я предлагал, теперь писать не надо: «в их словах и словах продукта» как раз из тех фраз, что сбивают голос. Срез пути остаётся как есть, а его рассказ ждёт голоса.\n\n| ⚖️ Decisions |\n|---|\n| Голос отдельным механизмом: алайн на этом вопросе сейчас, или после реализации пути |\n| Раздел нумерации тикетов в предложенной редакции |\n| `/implement` 01-0060.0010 по исправленному RFC |"
+      },
+      {
+        "source": "source.json#/records/1461",
+        "message_id": "msg_011CgM2J4enNB49JYzKodKVW",
+        "record_id": "50c7390d-1bcc-4a12-aaaa-0a972c42b760",
+        "timestamp": "2026-10-24T11:58:59.092Z",
+        "text": "Беру «давай» как слово начать алайн голоса сейчас; путь ждёт своего `/implement`."
+      },
+      {
+        "source": "source.json#/records/1477",
+        "message_id": "msg_011CgM2LzDTsa1ueBqTTRmEv",
+        "record_id": "a80a24c6-18cf-4642-80a6-d5cc9607400c",
+        "timestamp": "2026-10-24T11:59:56.491Z",
+        "text": "| 🪢 Tangle · [q-0037.0009.0021.0002](docs/questions/q-0037.0009.0021.0002-is-the-voice-a-reply-speaks-in-its-own-mechanism-owning-how-everything-the-person-hears-is-said-apart-from-the-voice-instructions-and-records-are-written-in.md) · [q-0037.0019](docs/questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three-roots-and-the-next-shown-with-its-unit-as-the-installed.md) · [q-0033.0008](docs/questions/q-0033.0008-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md) · — |\n|---|\n\n| 📍 **q-0037.0009.0021.0002** · Is the voice a reply speaks in its own mechanism, owning how everything the person hears is said, apart from the voice instructions and records are written in? |\n|---|\n| ⚙️ /align |\n\n**Что за работа.** Голос это то, *как* звучит всё, что слышит человек: ответ в разговоре, отчёт после прохода, рассказ при старте сессии. Не *что* сказано, а каким языком: ритм, точность, отношение к читателю. У этого проекта голос выбран: Лем, правило L9. Работа в том, чтобы у голоса был один дом, и чтобы другие тексты перестали его сбивать.\n\n**Ворота необходимости.**\n\nЗаказчик вы. Наблюдаемая беда, по записям:\n\n- **14 октября**, сбой 48. За сорок ходов ответы ушли от голоса Лема: таблицы вместо рассуждения, слова, введённые и не объяснённые, агент, пересказывающий свои шаги. Поправку списком таких форм вы откатили: *меня интересует голос Лема, а не то, что ты написал*.\n- **Эта сессия.** Вы несколько раз не поняли ответы: варианты, куда ставятся правила, наконец сегодняшний вывод пути, *нечитаемо*.\n- **Сегодня** вы назвали источник: фразы «в их словах», «пиши для способной модели» сбивают настройку голоса.\n\nПочему нынешнее не справляется. У голоса три дома, и они спорят:\n\n| где | что говорит | кому верно |\n|---|---|---|\n| общие правила входного файла | пиши для способной модели: правило и указатель | инструкциям и записям |\n| пять фраз в скиллах и входном файле | «в их словах», «в их терминах», «на их языке» | никому точно |\n| L9, локальное правило | голос Лема | речи этого проекта |\n\nИ решающий факт: ядро отдаёт получателям первые два дома, а третий нет. L9 локальное, в другой проект оно не едет. Значит, каждый получатель получает спор без голоса. Ворота, по-моему, проходятся.\n\n**Первый вопрос: нужен ли механизм, или хватит уборки.** Общая предпосылка обоих вариантов: голос выбирает проект, ядро только даёт ему место.\n\n- **А. Только уборка.** «Способную модель» ограничить инструкциями и записями, пять фраз убрать, L9 оставить локальным правилом. Дёшево, и голос в этом дереве перестанут сбивать. Но получатель по-прежнему не получает никакого голоса и никакого места для своего.\n- **Б. Маленький механизм голоса.** Он объявляет одну настройку, голос речи, как механизм отладки объявляет `debug`. Значение настройки принадлежит проекту: здесь это нынешний текст L9, у получателя то, что он выберет, а до выбора нейтральное «просто и ясно для человека». И он ставит одно правило в входной файл: всё, что слышит человек, сказано этим голосом. Уборка из А входит в него же.\n\nРекомендую **Б**. Решает не изящество, а факт выше: без места для голоса в ядре каждый получатель остаётся со спором и без голоса, а у нас голос висит на локальном правиле, которое соседние фразы ядра перебивают. И одно, чего я делать не стал бы ни в А, ни в Б: описывать голос списком запретов. Это сбой 48, откат был ваш (💡 [*Occam*](AGENTS.md:30)).\n\nА, Б, или предпосылка неверна?"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Keep the held unit unless the person explicitly drops it; record the voice issue as a side question without offering an ambiguous unit switch.",
+    "source_evidence": [
+      "source.json#/records/1322",
+      "source.json#/records/1457",
+      "source.json#/records/1601",
+      "source.json#/records/1609",
+      "source.json#/records/1615",
+      "source.json#/records/1322"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Keep the held unit unless the person explicitly drops it; record the voice issue as a side question without offering an ambiguous unit switch.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1479",
+      "source.json#/records/1481",
+      "source.json#/records/1483",
+      "source.json#/records/1484",
+      "source.json#/records/1488",
+      "source.json#/records/1489",
+      "source.json#/records/1494",
+      "source.json#/records/1495",
+      "source.json#/records/1499",
+      "source.json#/records/1500",
+      "source.json#/records/1504",
+      "source.json#/records/1505",
+      "source.json#/records/1509",
+      "source.json#/records/1510",
+      "source.json#/records/1514",
+      "source.json#/records/1515",
+      "source.json#/records/1520",
+      "source.json#/records/1521",
+      "source.json#/records/1525",
+      "source.json#/records/1526",
+      "source.json#/records/1531",
+      "source.json#/records/1532",
+      "source.json#/records/1536",
+      "source.json#/records/1537",
+      "source.json#/records/1540",
+      "source.json#/records/1541",
+      "source.json#/records/1546",
+      "source.json#/records/1547",
+      "source.json#/records/1551",
+      "source.json#/records/1553",
+      "source.json#/records/1555",
+      "source.json#/records/1557",
+      "source.json#/records/1558",
+      "source.json#/records/1561",
+      "source.json#/records/1563",
+      "source.json#/records/1564",
+      "source.json#/records/1566",
+      "source.json#/records/1567",
+      "source.json#/records/1570",
+      "source.json#/records/1571",
+      "source.json#/records/1574",
+      "source.json#/records/1576",
+      "source.json#/records/1578",
+      "source.json#/records/1580",
+      "source.json#/records/1581",
+      "source.json#/records/1582",
+      "source.json#/records/1586",
+      "source.json#/records/1587",
+      "source.json#/records/1591",
+      "source.json#/records/1592",
+      "source.json#/records/1595",
+      "source.json#/records/1596",
+      "source.json#/records/1599",
+      "source.json#/records/1601",
+      "source.json#/records/1603",
+      "source.json#/records/1605",
+      "source.json#/records/1606",
+      "source.json#/records/1609",
+      "source.json#/records/1611",
+      "source.json#/records/1613",
+      "source.json#/records/1615",
+      "source.json#/records/1617"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "While holding the pathfinder slice, the agent offers an immediate switch to the voice alignment and interprets ambiguous 'давай' as a drop of its unit.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1455",
+      "after": "source.json#/records/1451",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/1428",
+      "source.json#/records/1430",
+      "source.json#/records/1434",
+      "source.json#/records/1436",
+      "source.json#/records/1440",
+      "source.json#/records/1441",
+      "source.json#/records/1445",
+      "source.json#/records/1446",
+      "source.json#/records/1450",
+      "source.json#/records/1451"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/1322"
+      ],
+      "native_context_records": [
+        "source.json#/records/1322",
+        "source.json#/records/1432",
+        "source.json#/records/1438"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/1438",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\4fef7758-4d63-4cbb-a2d5-98b8709a0be5\\tool-results\\hook-d5094c2e-dc6d-4651-b41a-79d03306c849-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-d5094c2e-dc6d-4651-b41a-79d03306c849-1-additionalContext.txt",
+          "sha256": "966f5b83bd796bf6661f6c220b27e3c33e27df3b60ab13c035e909ab810e5c34",
+          "bytes": 49529,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1962,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-24T10:08:11.579990+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1455",
+        "source.json#/records/1461",
+        "source.json#/records/1477"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

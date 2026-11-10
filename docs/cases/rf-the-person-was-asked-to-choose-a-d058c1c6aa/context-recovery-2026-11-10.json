@@ -1,0 +1,44 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-the-person-was-asked-to-choose-a-d058c1c6aa",
+  "scope": "Recovery and integration of public API input order; no behavioral replay or all-case semantic sufficiency verdict.",
+  "request": "api-input.json#/request",
+  "request_message_count": 393,
+  "recovered_message_count": 393,
+  "unresolved_input_positions": [],
+  "structured_private_blocks_omitted": 129,
+  "unsupported_public_fields_or_blocks": 0,
+  "superseded_export_gap_count": 5,
+  "native_context_records_retained_as_evidence": [
+    "source.json#/records/3764",
+    "source.json#/records/5272",
+    "source.json#/records/5306",
+    "source.json#/records/5346"
+  ],
+  "existing_source_qualifications_and_blocked_checks_preserved": true,
+  "current_source_gap_count": 0,
+  "historical_validation_reports_unchanged": true,
+  "executor_support": {
+    "status": "unsupported",
+    "behavior_verdict": null,
+    "reasons": [
+      "The current combined-input runner cannot prepare native recorded histories or execute these action-bounded cases."
+    ]
+  },
+  "public_hook_artifact_recovery": {
+    "scope": "Exact public hook artifacts referenced by retained native evidence; recorded API actor input and order unchanged.",
+    "referenced_artifact_count": 2,
+    "referenced_artifacts_recovered": 2,
+    "referenced_artifacts_unavailable": 0,
+    "recorded_api_input_sha256_unchanged": "b1e936c2b1153d15acb4b2f6efa146a6b7999d1b65c568e7baf73aa9b1ead0a6",
+    "replay_input_start_limits_unchanged": true,
+    "snapshot_scope": "API input fingerprint at artifact-copy time, before the separately recorded public optional-field projection repair."
+  },
+  "remaining_source_gap_kinds": [],
+  "public_api_projection_update": {
+    "report": "api-projection-repair-2026-11-10.json",
+    "current_api_input_sha256": "327210b056058c33e81a41edce14e672b69c90202faded9b3f7a19acc1b86211",
+    "source": "Independent review found public output_config/clear_at fields omitted by the earlier projection; request order and message role/content stayed unchanged."
+  }
+}

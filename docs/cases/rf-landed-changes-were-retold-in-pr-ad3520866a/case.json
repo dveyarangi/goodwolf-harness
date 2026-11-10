@@ -1,0 +1,130 @@
+{
+  "id": "rf-landed-changes-were-retold-in-pr-ad3520866a",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "36. Landed changes were retold in prose, and instructions framed as other text — 2026-10-11",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "unframed-instruction349"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/349",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/349/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-11T09:12:01.759Z",
+    "chat_id": "f621c092-f5f3-49c9-96d9-05a5e7752430",
+    "trigger_message_id": null,
+    "trigger_record_id": "fbb9ce85-a14b-4f71-a589-9b30ec0c3c24",
+    "failure_message_id": "msg_011CfvC36Z2Y7eWxuYWn9AV3",
+    "failure_record_id": "44add0a2-9929-4325-ab8c-e4e69b467e03",
+    "transcript": "f621c092-f5f3-49c9-96d9-05a5e7752430.jsonl"
+  },
+  "observed_failure": {
+    "description": "The original reporting reply either retells just-landed instruction changes in prose without the landed block, or frames skill instructions as other text.",
+    "events": [
+      {
+        "source": "source.json#/records/349",
+        "message_id": "msg_011CfvC36Z2Y7eWxuYWn9AV3",
+        "record_id": "44add0a2-9929-4325-ab8c-e4e69b467e03",
+        "timestamp": "2026-10-11T09:12:01.759Z",
+        "text": "| ⚙️ **process** · drift in the loop's checkpoints and the split of the harness's checks, both landed |\n|---|\n\nОбе правки готовы. Шесть проверок прошли, всё запушено.\n\n- **Дрифт.** Строка в AGENTS.md теперь говорит, что решения на `/align` и принятие спецификации всегда за тобой, а разбивка, коммит, пуш и следующий цикл зависят от переключателей. Версия entry-файла поднялась до v69, коммит `0d2d112`.\n- **Скилл `harness`.** Проверки харнесса теперь предлагаются двумя группами, у каждой своя причина. Проверки записей (`tickets`, `questions`, `edges`, `maintain`) нужны любому проекту, который работает по методу. Проверки ядра (`mechanisms`, `inject_rules`) нужны тому, кто собирается менять сам харнесс. Коммит `7846f19`.\n\n**Что ещё можно сделать, по убыванию пользы:**\n\n1. **Дать ставящей сессии прочитать AGENTS.md.** Это главное, что показало интервью. После установки сессия уже работает под харнессом: хук срабатывает, вопросы q-0001…q-0003 видны. Но правил агент не знает, потому что AGENTS.md пришёл посреди сессии. Коммит — только один из симптомов. Ту же природу имеют лишний `--wake` и ответы по-английски без шапки. Я бы добавил в скилл одну фразу: entry-файл пришёл посреди сессии, прочитай его сейчас, с этого момента его правила действуют. (💡 [*Tier is paid by every session*](AGENTS.md:37))\n\n2. **Проверить правку сейчас, а не ждать следующей установки.** Можно поставить харнесс в пустую временную папку и отдать установку свежему субагенту, который правил не писал. Твои ответы я подставлю заранее. Потом сравним его первое сообщение с новым абзацем скилла. Так правку оценит кто-то со стороны, как и задумано в записи 34.\n\n3. **README.** Там написано «It installs, then asks for your test commands and where it should stop for your yes». Это описание старого порядка, где сначала вопросы, а теперь агент сначала представляется. Строка мелкая, но README — первое, что видит человек, и агент в интервью на него ссылался.\n\n4. **Язык ответа.** Ставящий агент всю сессию отвечал по-английски человеку, который писал по-русски. Сейчас правило о языке есть только в абзаце о знакомстве. Можно сделать его общим, одной строкой в entry-файле. Это стоит немного в каждой сессии, поэтому решать тебе.\n\nЯ бы начал с первых двух: первое закрывает причину, второе проверяет, что правка работает."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "The user requests required formatting showing what changed in the skill. Just-written instruction text needs its landed rule frame in the reporting reply itself.",
+    "source_evidence": [
+      "source.json#/records/351",
+      "source.json#/records/68"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: The user requests required formatting showing what changed in the skill. Just-written instruction text needs its landed rule frame in the reporting reply itself.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/351"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The original reporting reply either retells just-landed instruction changes in prose without the landed block, or frames skill instructions as other text.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/349",
+      "after": "source.json#/records/345",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/305",
+      "source.json#/records/309",
+      "source.json#/records/310",
+      "source.json#/records/315",
+      "source.json#/records/316",
+      "source.json#/records/317",
+      "source.json#/records/318",
+      "source.json#/records/321",
+      "source.json#/records/322",
+      "source.json#/records/323",
+      "source.json#/records/324",
+      "source.json#/records/329",
+      "source.json#/records/330",
+      "source.json#/records/333",
+      "source.json#/records/334",
+      "source.json#/records/335",
+      "source.json#/records/336",
+      "source.json#/records/337",
+      "source.json#/records/338",
+      "source.json#/records/343",
+      "source.json#/records/344",
+      "source.json#/records/345"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/68"
+      ],
+      "native_context_records": [
+        "source.json#/records/68",
+        "source.json#/records/307"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/349"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

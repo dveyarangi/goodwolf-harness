@@ -1,0 +1,132 @@
+{
+  "id": "rf-a-copy-step-was-landed-in-the-ar-42672fe896",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "11. A copy step was landed in the architecture because a sentence there listed its neighbours — 2026-09-26",
+    "occurrence": "repeat",
+    "occurrence_heading": "**Struck, 2026-10-04 — one repeat.** Planning",
+    "detail": "fat straw-dog architecture proposal"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1555",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/1555/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-03T23:16:37.492Z",
+    "chat_id": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+    "trigger_message_id": null,
+    "trigger_record_id": "1133b2a8-277b-478a-888f-bf1b66209a43",
+    "failure_message_id": "msg_011Cfg9zGrnLJ8vnrg7qAaqR",
+    "failure_record_id": "79715999-55bb-4927-b98f-c006422609fd",
+    "transcript": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965.jsonl"
+  },
+  "observed_failure": {
+    "description": "The original proposed architecture replacement expands the straw-dog section into a large mechanism account.",
+    "events": [
+      {
+        "source": "source.json#/records/1555",
+        "message_id": "msg_011Cfg9zGrnLJ8vnrg7qAaqR",
+        "record_id": "79715999-55bb-4927-b98f-c006422609fd",
+        "timestamp": "2026-10-03T23:16:37.492Z",
+        "text": "| ↳ **q-0001.0019** · How is a straw dog bound to the question it waits on? |\n|---|\n\nРешение 9 записано: в тикет, в RFC (признак «созрела» и этап 4: P7 и skill вопросов, P7 переустанавливается в `/align`) и в отдельный критерий приёмки.\n\n## Архитектура: предлагаемый текст\n\nВ [architecture.md](docs/architecture.md:82) меняются три места. В файл я ещё ничего не писал.\n\n**1. Первый абзац *Straw dogs* — заменить целиком.**\n\nСейчас:\n> [The entry contract](../AGENTS.md#straw-dogs) owns the `<straw-dog>` syntax, ticket binding, expiry, and the duty to wrap when writing. Listing provides source locations and the written condition and owner; the maintainer establishes whether the condition holds from evidence. Unknown conditions remain unresolved. Mechanical removal follows that disposition and preserves surviving agreements. Examples describing the syntax are distinct from operative statements.\n\nСтанет:\n> [The entry contract](../AGENTS.md#straw-dogs) owns the `<straw-dog>` syntax and the duty to wrap when writing. A straw dog is provisional text bound to the question of the store whose answer will rewrite it, `question=\"q-N\"`, and to no ticket: the store is core's own record and the ticket method is swappable, so the binding is the one place core names a record of this tree, and the record it names is a question. It carries no condition of its own. It is *due* when its question is closed `decided` with an `answer` citing a file other than its `owner`'s, or closed `moot` or `pruned`; a binding to a merged or superseded question follows its successor. Dueness is derived from the store at every look, never stored, and the maintainer judges only whether and how the text is rewritten. A question closed against a decision that has not landed is first assigned to the record holding it, so dueness can tell decided from landed. A rename of the store's ids rewrites every binding, in core and in code. ([01-0011.0100.0030 a-straw-dog-is-bound-to-the-question-it-waits-on](tickets/01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md#decisions-landed-at-this-tickets-align), decisions 1 to 9.) Mechanical removal follows the maintainer's disposition and preserves surviving agreements. Examples describing the syntax are distinct from operative statements.\n\n**2. Абзац про код.**\n\nСейчас:\n> In code the marking is a comment line beginning `TODO`: one naming its ticket is listed as a straw dog with that owner, and leaves with the code rather than through the tool.\n\nСтанет:\n> In code the marking is a comment line beginning `TODO` that names its question, `q-N`: it is listed as a straw dog bound to that question, and leaves with the code rather than through the tool.\n\nПлюс в абзаце про угадывание «a `TODO` that names no ticket» станет «…that names no question».\n\n**3. Абзац про установку (строка 171).** «every `TODO`'s ticket binding sheared» станет «every `TODO`'s question binding sheared». Получатель не хранит id этого дерева.\n\n## Одна тонкость\n\nРаздел будет описывать модель, которой в коде ещё нет. У этого repo есть прецедент: архитектуру `.0020` (решения 3 и 6) записали на `/plan`, со ссылками на решения тикета, а код пришёл на `/implement`. Делаю так же. Пока `.0030` не закрыт, старое описание и новое расходятся только во времени, а не по смыслу.\n\n**Записываю раздел так?**"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "State the architectural invariant and needed pointer for a capable model; routine behavior stays at its home.",
+    "source_evidence": [
+      "source.json#/records/19",
+      "source.json#/records/1501",
+      "source.json#/records/1506",
+      "source.json#/records/19"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: State the architectural invariant and needed pointer for a capable model; routine behavior stays at its home.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1559"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The original proposed architecture replacement expands the straw-dog section into a large mechanism account.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1555",
+      "after": "source.json#/records/1552",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/1501",
+      "source.json#/records/1506",
+      "source.json#/records/1510",
+      "source.json#/records/1511",
+      "source.json#/records/1515",
+      "source.json#/records/1516",
+      "source.json#/records/1517",
+      "source.json#/records/1522",
+      "source.json#/records/1525",
+      "source.json#/records/1529",
+      "source.json#/records/1534",
+      "source.json#/records/1535",
+      "source.json#/records/1536",
+      "source.json#/records/1537",
+      "source.json#/records/1538",
+      "source.json#/records/1539",
+      "source.json#/records/1544",
+      "source.json#/records/1545",
+      "source.json#/records/1546",
+      "source.json#/records/1547",
+      "source.json#/records/1551",
+      "source.json#/records/1552"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/19"
+      ],
+      "native_context_records": [
+        "source.json#/records/19",
+        "source.json#/records/1531"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1555"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

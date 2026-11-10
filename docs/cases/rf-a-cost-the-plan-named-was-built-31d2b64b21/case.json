@@ -1,0 +1,195 @@
+{
+  "id": "rf-a-cost-the-plan-named-was-built-31d2b64b21",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "42. A cost the plan named was built around instead of removed — 2026-10-13",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "one-migration-episode"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1071",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.295"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/1071/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-13T08:31:50.221Z",
+    "chat_id": "1be50348-3601-46de-a78e-668bb5d2155e",
+    "trigger_message_id": null,
+    "trigger_record_id": "86781d2c-655d-4192-8f1a-2966fb918193",
+    "failure_message_id": "msg_011CfyvbL9Pc2gregTA4iJBS",
+    "failure_record_id": "e5c9e22a-3475-4c14-b089-06c543d993e0",
+    "transcript": "1be50348-3601-46de-a78e-668bb5d2155e.jsonl"
+  },
+  "observed_failure": {
+    "description": "The user selects one file per session in a common subfolder. One migration episode comprises an RFC directory at the old file path and rename/retry/recovery implementation; keep these related actions together.",
+    "events": [
+      {
+        "source": "source.json#/records/1071",
+        "message_id": "msg_011CfyvbL9Pc2gregTA4iJBS",
+        "record_id": "e5c9e22a-3475-4c14-b089-06c543d993e0",
+        "timestamp": "2026-10-13T08:31:50.221Z",
+        "text": "Write {\"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\docs\\\\rfc\\\\01-0035.0040-session-lines-written-at-once-all-survive.md\", \"content\": \"# Session lines written at once all survive — implementation plan\\n\\n- **record of** what it intends to become\\n\\n**Authored:** 2026-10-13\\n\\nImplements [01-0035.0040 session-lines-written-at-once-all-survive](../tickets/01-0035.0040-session-lines-written-at-once-all-survive.md).\\n\\n## What governs it\\n\\n[q-0036.0004's decision](../questions/q-0036.0004-how-do-session-lines-written-at-once-all-survive-when-the-harness-locks-nothing.md#decision):\\na file per session under `docs/questions/sessions/`, named by its tag; a store holding the single\\nfile carried over at its first write. The questions mechanism's doc and skill state the folder.\\n[Interruption and recovery](../architecture.md#interruption-and-recovery): nothing is locked.\\n\\n## The change, in `questions.py`\\n\\n- **Reading.** `_sessions` reads the folder: each file one line in today's form, its tag the\\n  file's name; a file of another form, or naming another tag, is a diagnostic on that file, and one\\n  not UTF-8 is skipped and reported, as the single file was. Sessions are listed by when their line\\n  was last written, then by tag. A store still holding the single file is read as before. A\\n  `Session` remembers the record it was read from, so the check names the session's own file.\\n- **Writing.** `_write_line` writes the session's own file through a staging file beside it and\\n  one rename. The only writes to another session's file stay the two there are today: the wake\\n  ending a silent session, and a rename rewriting ids.\\n- **Carrying over.** Before the first write into a store that holds the single file, the writer\\n  takes it by renaming it aside — one rename, so of two first writers one takes it and the other\\n  finds it gone — makes the folder, and writes each of its lines to that session's file unless the\\n  session already wrote its own meanwhile, which is newer. A line the form does not admit is kept,\\n  under a name of its own, for the check to report; nothing is dropped. The taken file is removed\\n  last. A rename refused because a reader holds the file open is tried again, briefly.\\n- **Renames.** `_records_naming_ids` names each session's file; `_rewrite_ids` treats them as it\\n  treated the single file.\\n- The docstrings that describe the single file say the folder.\\n\\n## Stages\\n\\n1. **Red.** `test_questions.py`: twenty registrations started at once, on threads released\\n   together, leave twenty sessions; today some are lost. Two first writes at once over a store\\n   holding the single file keep every line it held and both new ones.\\n2. **Green.** The folder read and written, the carry-over.\\n3. **The suite moves to the folder.** The tests that read the sessions file whole read the folder\\n   through one helper that gives its lines in the store's order; those that write the single file\\n   to set a case up keep doing so, which proves the legacy read and the carry-over on every one of\\n   them.\\n\\n## Impact\\n\\n**Impact.** `questions.py`'s sessions read, write and rename paths; `test_questions.py`.\\n`mechanisms.py`'s painted door already names the folder. **Hidden edges.** Every installed tree\\nholds the single file and is carried over by its first session after the update, in place; the\\nfile and the folder share one path, so the carry-over must rename before it makes the folder. A\\ncase-insensitive file system folds two tags differing by case into one file; host ids are not\\ncased that way. The committed tree changes shape once: the conclude stages the folder by the same\\npath. **Leave alone.** The line's form; the silent-session rule; the window. **Recommendation.**\\nProceed.\\n\"}"
+      },
+      {
+        "source": "source.json#/records/1152",
+        "message_id": "msg_011CfyviBmoLbNHtqLKws9f4",
+        "record_id": "1150503e-8480-4904-bbe8-ff4cf11d0755",
+        "timestamp": "2026-10-13T08:33:19.773Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\scripts\\\\gw\\\\questions.py\", \"old_string\": \"    \\\"\\\"\\\"Replace one session's line and no other, appending it where there is none.\\n\\n    The file is re-read just before the write, so a line another session wrote a moment ago is\\n    kept as found: one session's write is never a refusal of another's (RFC item 10). The new\\n    text replaces the old in one rename, so a reader never meets half a file. The line is the\\n    writing session's own, except when a wake ends a silent one.\\n    \\\"\\\"\\\"\\n    path = root / SESSIONS\\n    lines = path.read_text(encoding=\\\"utf-8\\\").splitlines() if path.is_file() else []\\n    mine = [at for at, line in enumerate(lines) if line.split(\\\" \\\", 1)[0] == held.tag]\\n    if mine:\\n        lines[mine[0]] = _session_line(held)\\n    else:\\n        lines.append(_session_line(held))\\n    path.parent.mkdir(parents=True, exist_ok=True)\\n    staging = path.with_name(f\\\".{path.name}.{held.tag}.tmp\\\")\\n    try:\\n        staging.write_text(\\\"\\\\n\\\".join(lines) + \\\"\\\\n\\\", encoding=\\\"utf-8\\\", newline=\\\"\\\\n\\\")\\n        staging.replace(path)\\n    finally:\\n        staging.unlink(missing_ok=True)\", \"new_string\": \"    \\\"\\\"\\\"Write one session's line to its own file and touch no other, so however many sessions write\\n    at once none undoes another's, and nothing is locked. The line replaces the old in one rename,\\n    so a reader never meets half a file. It is the writing session's own, except when a wake ends a\\n    silent one or a rename rewrites the ids it names.\\\"\\\"\\\"\\n    _write_session_file(_sessions_folder(root), held.tag, _session_line(held))\\n\\n\\ndef _write_session_file(folder: Path, name: str, line: str) -> None:\\n    path = folder / name\\n    staging = folder / f\\\".{name}.{secrets.token_hex(4)}.tmp\\\"\\n    try:\\n        staging.write_text(line + \\\"\\\\n\\\", encoding=\\\"utf-8\\\", newline=\\\"\\\\n\\\")\\n        staging.replace(path)\\n    finally:\\n        staging.unlink(missing_ok=True)\\n\\n\\ndef _sessions_folder(root: Path) -> Path:\\n    \\\"\\\"\\\"The folder, made at its first need; a store from before, holding the single file, has it\\n    carried over first.\\\"\\\"\\\"\\n    folder = root / SESSIONS\\n    if folder.is_file():\\n        _carry_over(root)\\n    folder.mkdir(parents=True, exist_ok=True)\\n    return folder\\n\\n\\ndef _carry_over(root: Path) -> None:\\n    \\\"\\\"\\\"The single file's lines, each to its session's own file. The file is taken by renaming it\\n    aside, one rename, so of two first writers one takes it and the other finds it gone and goes on\\n    to its own line. A line whose session wrote its own file meanwhile is older and gives way; a\\n    line the form does not admit keeps a name of its own, for the check to report.\\\"\\\"\\\"\\n    single = root / SESSIONS\\n    taken = single.with_name(f\\\".sessions.{secrets.token_hex(4)}.carried\\\")\\n    for attempt in range(CARRY_ATTEMPTS):\\n        try:\\n            single.rename(taken)\\n            break\\n        except FileNotFoundError:\\n            return\\n        except PermissionError:\\n            # Windows refuses to rename a file another process holds open; a reader's hold is brief.\\n            if attempt == CARRY_ATTEMPTS - 1:\\n                raise\\n            time.sleep(CARRY_PAUSE)\\n    folder = root / SESSIONS\\n    folder.mkdir(exist_ok=True)\\n    lines = [line for line in taken.read_text(encoding=\\\"utf-8\\\").splitlines() if line.strip()]\\n    for number, line in enumerate(lines, start=1):\\n        read = _session(line, number)\\n        name = read.tag if read is not None else f\\\"unreadable-{number}\\\"\\n        try:\\n            with (folder / name).open(\\\"x\\\", encoding=\\\"utf-8\\\", newline=\\\"\\\\n\\\") as written:\\n                written.write(line + \\\"\\\\n\\\")\\n        except FileExistsError:\\n            continue\\n    taken.unlink()\"}"
+      },
+      {
+        "source": "source.json#/records/1188",
+        "message_id": "msg_011CfyvozhD6z69TKuoZtEix",
+        "record_id": "e3ac3312-c362-4ae7-b1ba-492be0df121c",
+        "timestamp": "2026-10-13T08:34:52.977Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\scripts\\\\gw\\\\questions.py\", \"old_string\": \"            time.sleep(CARRY_PAUSE)\\n    folder = root / SESSIONS\\n    folder.mkdir(exist_ok=True)\", \"new_string\": \"            time.sleep(CARRY_PAUSE)\\n    folder = root / SESSIONS\\n    if taken.is_dir():\\n        # Another writer carried the file over between this one's look and its rename, which took\\n        # the new folder instead: it goes back, with whatever was written into it.\\n        _give_back(taken, folder)\\n        return\\n    folder.mkdir(exist_ok=True)\"}"
+      },
+      {
+        "source": "source.json#/records/1189",
+        "message_id": "msg_011CfyvozhD6z69TKuoZtEix",
+        "record_id": "3d965376-d7a3-44bd-bf0f-c3fba77f6e54",
+        "timestamp": "2026-10-13T08:34:55.577Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\scripts\\\\gw\\\\questions.py\", \"old_string\": \"        except FileExistsError:\\n            continue\\n    taken.unlink()\", \"new_string\": \"        except FileExistsError:\\n            continue\\n    taken.unlink()\\n\\n\\ndef _give_back(taken: Path, folder: Path) -> None:\\n    \\\"\\\"\\\"A folder taken by mistake, returned to its path; where a writer has made the folder anew\\n    meanwhile, each file goes back unless its session wrote it again there, which is newer.\\\"\\\"\\\"\\n    try:\\n        taken.rename(folder)\\n        return\\n    except OSError:\\n        pass\\n    folder.mkdir(exist_ok=True)\\n    for path in taken.iterdir():\\n        try:\\n            os.link(path, folder / path.name)\\n        except FileExistsError:\\n            pass\\n        path.unlink()\\n    taken.rmdir()\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Does the migration avoid the known collision between the old sessions file path and the new sessions directory, using a distinct directory name instead of adding rename/retry/recovery machinery around that avoidable collision?",
+    "source_evidence": [
+      "source.json#/records/943",
+      "source.json#/records/1206",
+      "source.json#/records/1465",
+      "source.json#/records/20"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the migration avoid the known collision between the old sessions file path and the new sessions directory, using a distinct directory name instead of adding rename/retry/recovery machinery around that avoidable collision?",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1190",
+      "source.json#/records/1195",
+      "source.json#/records/1196",
+      "source.json#/records/1197",
+      "source.json#/records/1201",
+      "source.json#/records/1204",
+      "source.json#/records/1206",
+      "source.json#/records/1465"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The user selects one file per session in a common subfolder. One migration episode comprises an RFC directory at the old file path and rename/retry/recovery implementation; keep these related actions together.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1071",
+      "after": "source.json#/records/1070",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/943",
+      "source.json#/records/952",
+      "source.json#/records/953",
+      "source.json#/records/954",
+      "source.json#/records/957",
+      "source.json#/records/958",
+      "source.json#/records/959",
+      "source.json#/records/964",
+      "source.json#/records/967",
+      "source.json#/records/968",
+      "source.json#/records/975",
+      "source.json#/records/976",
+      "source.json#/records/977",
+      "source.json#/records/978",
+      "source.json#/records/985",
+      "source.json#/records/986",
+      "source.json#/records/987",
+      "source.json#/records/988",
+      "source.json#/records/989",
+      "source.json#/records/990",
+      "source.json#/records/992",
+      "source.json#/records/993",
+      "source.json#/records/994",
+      "source.json#/records/997",
+      "source.json#/records/998",
+      "source.json#/records/1004",
+      "source.json#/records/1005",
+      "source.json#/records/1008",
+      "source.json#/records/1009",
+      "source.json#/records/1013",
+      "source.json#/records/1014",
+      "source.json#/records/1016",
+      "source.json#/records/1017",
+      "source.json#/records/1025",
+      "source.json#/records/1026",
+      "source.json#/records/1029",
+      "source.json#/records/1030",
+      "source.json#/records/1031",
+      "source.json#/records/1033",
+      "source.json#/records/1034",
+      "source.json#/records/1038",
+      "source.json#/records/1039",
+      "source.json#/records/1045",
+      "source.json#/records/1046",
+      "source.json#/records/1049",
+      "source.json#/records/1050",
+      "source.json#/records/1052",
+      "source.json#/records/1053",
+      "source.json#/records/1056",
+      "source.json#/records/1057",
+      "source.json#/records/1061",
+      "source.json#/records/1062",
+      "source.json#/records/1067",
+      "source.json#/records/1070"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/20"
+      ],
+      "native_context_records": [
+        "source.json#/records/20",
+        "source.json#/records/945"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1071",
+        "source.json#/records/1152",
+        "source.json#/records/1188",
+        "source.json#/records/1189"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

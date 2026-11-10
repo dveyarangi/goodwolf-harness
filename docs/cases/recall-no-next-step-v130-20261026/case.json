@@ -1,0 +1,115 @@
+{
+  "id": "recall-no-next-step-v130-20261026",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "A recall stopped after reading, without its result — 2026-10-26",
+    "occurrence": "repeat",
+    "occurrence_heading": "**Struck, 2026-10-26 — the next live greeting.** The user opened a new Codex chat,",
+    "detail": null
+  },
+  "provenance": {
+    "host": "Codex Desktop",
+    "host_source": "source.json#/records/1/payload/originator",
+    "model": "gpt-6.1-sol",
+    "model_source": "source.json#/records/10/payload/model",
+    "model_evidence_kind": "recorded turn model identifier",
+    "occurred_at": "2026-10-26T10:46:33.776Z",
+    "chat_id": "01a177d0-cd8b-75d3-ad62-c3286d6932a1",
+    "trigger_message_id": "msg_01a177d1-0325-7c92-872e-3375c3566cea",
+    "failure_message_id": "msg_00dd706e08298757016adf2f8366008191813f6e5f76d99d63",
+    "transcript": "rollout-2026-10-26T12-45-35-01a177d0-cd8b-75d3-ad62-c3286d6932a1.jsonl"
+  },
+  "observed_failure": {
+    "description": "The first-greeting recall names the work count but ends with no recommended concrete task or reason, under v130.",
+    "events": [
+      {
+        "source": "source.json#/records/47",
+        "message_id": "msg_00dd706e08298757016adf2f8366008191813f6e5f76d99d63",
+        "timestamp": "2026-10-26T10:46:33.776Z",
+        "text": "| 🪢 Tangle · — · [q-0037.0010.0009.0009.0002](/D:/Dev/AI/agents/docs/questions/q-0037.0010.0009.0009.0002-how-does-a-pass-with-no-person-sweep-the-tree-for-what-the-decisions-landed.md) · [q-0037.0006.0020.0001.0006](/D:/Dev/AI/agents/docs/questions/q-0037.0006.0020.0001.0006-what-turned-the-evaluating-agent-against-installing-and-what-answers-each.md) · [q-0037.0006.0005.0001.0001](/D:/Dev/AI/agents/docs/questions/q-0037.0006.0005.0001.0001-how-does-claude-code-refuse-an-edit-to-a-declared-file-while-its-skill-is-not.md) · [q-0037.0017.0005.0001](/D:/Dev/AI/agents/docs/questions/q-0037.0017.0005.0001-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of.md) · [q-0033.0012](/D:/Dev/AI/agents/docs/questions/q-0033.0012-what-is-the-harnesss-product-roadmap-which-of-the-products-answers-come-next-in-what-order-by.md) · [q-0037.0006.0022.0004.0001](/D:/Dev/AI/agents/docs/questions/q-0037.0006.0022.0004.0001-does-a-commit-in-this-tree-that-carries-a-broken-record-of-the-method-stop-and.md) · [q-0037.0010.0012.0001](/D:/Dev/AI/agents/docs/questions/q-0037.0010.0012.0001-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person.md) · [q-0038.0003](/D:/Dev/AI/agents/docs/questions/q-0038.0003-what-does-this-project-session-history-show-about-continuity-reliable-change-and-lasting.md) · [q-0037.0015](/D:/Dev/AI/agents/docs/questions/q-0037.0015-how-is-produced-work-gone-over-again-over-what-scope-by-what-criteria-by-whom-and-to-what.md) · — |\n|---|\n\n| 🐺 **banter** |\n|---|\n| ⚙️ /recall |\n\nПривет! Контекст восстановил: в работе четыре направления при лимите восемь. Здесь задача ещё не выбрана."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Complete the recall result with a concrete supported next candidate and the reason for recommending it.",
+    "source_evidence": [
+      "source.json#/records/54",
+      "source.json#/records/8"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the response recommend a concrete next candidate supported by the supplied work evidence?",
+        "expected_for_recorded_failure": false
+      },
+      {
+        "id": "requirement_2",
+        "question": "Does the response explain why that candidate should be next?",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Cite the selected response/action and its preserved source context for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Relevant original public records and host/model metadata are preserved; private reasoning and platform system/developer instructions outside the project's hook context are excluded.",
+    "reference_only_records": [
+      "source.json#/records/53",
+      "source.json#/records/54"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The first-greeting recall names the work count but ends with no recommended concrete task or reason, under v130.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/47",
+      "after": "source.json#/records/42",
+      "description": "Immediately before the selected failing response/action; preserved earlier public records supply the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/8",
+      "source.json#/records/12",
+      "source.json#/records/16",
+      "source.json#/records/18",
+      "source.json#/records/20",
+      "source.json#/records/21",
+      "source.json#/records/24",
+      "source.json#/records/28",
+      "source.json#/records/33",
+      "source.json#/records/37",
+      "source.json#/records/42"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/8"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/47"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Instruction evidence, host metadata and reference-only records do not become additional actor messages.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role."
+    ],
+    "source_metadata_records": [
+      "source.json#/records/1",
+      "source.json#/records/10"
+    ]
+  },
+  "source_gaps": []
+}

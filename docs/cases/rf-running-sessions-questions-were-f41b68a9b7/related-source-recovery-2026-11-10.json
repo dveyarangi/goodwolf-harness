@@ -1,0 +1,53 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-running-sessions-questions-were-f41b68a9b7",
+  "scope": "Expansion of already-selected related-source public payloads; no new unselected records or inferred actor roles.",
+  "sources": [
+    {
+      "related_source": "859b596cf1",
+      "transcript": "a58f78ae-91ed-41e2-9811-230354197278.jsonl",
+      "records_checked": 1
+    },
+    {
+      "related_source": "70e7ca7e17",
+      "transcript": "fd35afcb-b7fd-43f7-b105-a7efec8fd7b3.jsonl",
+      "records_checked": 1
+    },
+    {
+      "related_source": "0f799f8817",
+      "transcript": "50d88569-12cf-400d-9992-9e97262f34fc.jsonl",
+      "records_checked": 1
+    },
+    {
+      "related_source": "4be3c6320c",
+      "transcript": "30efb13a-a18d-4b28-ad8a-11c7537dfe7b.jsonl",
+      "records_checked": 1
+    }
+  ],
+  "selected_records_checked": 4,
+  "records_expanded": [
+    {
+      "related_source": "859b596cf1",
+      "record": 1811
+    },
+    {
+      "related_source": "70e7ca7e17",
+      "record": 732
+    },
+    {
+      "related_source": "0f799f8817",
+      "record": 866
+    },
+    {
+      "related_source": "4be3c6320c",
+      "record": 131
+    }
+  ],
+  "structured_private_blocks_omitted": 0,
+  "unsupported_public_fields_or_records": [],
+  "source_paths_unavailable": [],
+  "original_record_hashes_verified": true,
+  "unselected_records_decoded": 0,
+  "replay_and_api_input_unchanged": true
+}

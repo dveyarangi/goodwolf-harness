@@ -1,0 +1,127 @@
+{
+  "id": "cursor-03206aca-unwrapped-write",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "3. The straw-dog rule sat at tier 1 and three straw dogs went unwrapped — 2026-09-14",
+    "occurrence": "original",
+    "detail": "ticket-skill-not-yet-recommend"
+  },
+  "provenance": {
+    "host": "Cursor",
+    "host_evidence": "Native Cursor SQLite chat/message keys, corroborated by public transcript exports where retained.",
+    "model": "unknown",
+    "model_source": null,
+    "model_evidence_kind": "No actual assistant model field retained. User-message requested model metadata is preserved separately and not promoted to actor attribution.",
+    "occurred_at": "2026-09-05T22:14:53.947Z",
+    "chat_id": "03206aca-0eaf-48c8-936a-26b722f7f881",
+    "failure_message_id": "0291e9e2-6bce-4b7f-b788-92101052a7e2",
+    "trigger_message_id": "0a00a8a2-7b91-4625-8153-286ce68e6dbe",
+    "requested_model": "grok-4.6",
+    "requested_model_source": "source.json#/recovered_public_evidence/trigger/model_field",
+    "timestamp_note": "Original action $.createdAt=2026-09-05T22:14:53.947Z; no registration date substituted."
+  },
+  "observed_failure": {
+    "description": "Exact completed original write located and hash-matched; the not-yet recommendation passage is ordinary skill text without a temporary wrapper.",
+    "events": [
+      {
+        "source": "source.json#/recovered_public_evidence/original_action",
+        "message_id": "0291e9e2-6bce-4b7f-b788-92101052a7e2",
+        "timestamp": "2026-09-05T22:14:53.947Z",
+        "text": "{\"path\": \"d:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\skills\\\\ticket\\\\SKILL.md\", \"contents\": \"---\\nname: ticket\\ndescription: >-\\n  Use to decompose a parent work into independently-workable child tickets.\\n  Use to mint ticket(s), possibly a single one, when planning implementation\\n  without one.\\n---\\n\\n# Decompose into tickets\\n\\nBreak a parent work into independently-grabbable tickets using vertical slices\\n(tracer bullets), written as local markdown files under `docs/tickets/`. The\\nparent is a **PRD** at inception, a **coarse ticket** when zooming in; or the\\ncurrently discussed/referenced chunk of work; the same slicing principles apply\\nat every resolution.\\n\\n## Layout\\n\\nThe shape of a ticket, and where it is named and registered, is\\n[TICKET-FORMAT.md](./TICKET-FORMAT.md)'s. Read it before writing one, and\\nrestate none of it here.\\n\\n- **Active tickets** live flat in `docs/tickets`; **completed tickets** move to\\n  `docs/tickets/done/` (all acceptance boxes checked). The filename never\\n  changes, only the folder.\\n- The **parent** is referenced by its own path — a spec, or a coarser ticket;\\n  child tickets do not duplicate it.\\n\\n## Process\\n\\n### 1. Locate the parent\\n\\nAsk the user for the parent work item's path, unless it is already clear from\\ncontext.\\n\\nIf the parent is a document not already in your context window, read it from\\nthe file. When the parent is the chunk of work under discussion, there is no\\nfile — the tickets must then carry their own context.\\n\\n### 2. Explore the codebase (optional)\\n\\nIf you have not already explored the codebase, do so to understand the current\\nstate of the code.\\n\\n### 3. Draft vertical slices\\n\\nBreak the parent into **tracer bullet** tickets. Each ticket is a thin vertical\\nslice that cuts through ALL integration layers end-to-end, NOT a horizontal\\nslice of one layer. Slice at the parent's own resolution: a coarse ticket's\\nchildren are thinner passes through the same territory, still demoable or\\nverifiable on their own.\\n\\nSlices may be 'HITL' or 'AFK'. HITL slices require human interaction, such as\\nan architectural decision or a design review. AFK slices can be implemented\\nand merged without human interaction. Prefer AFK over HITL where possible.\\n\\nA ticket blocked on unresolved product or architectural decisions may begin as\\na **decision-bearing HITL ticket**. It is the eventual feature ticket in an\\nearlier phase, not a separate decision slice; name it for the product outcome\\nit will deliver.\\n\\n<vertical-slice-rules>\\n- The goal is to break down into small deliverables that can be tested by\\n  user, before the entire schema/service/UI is built. Vertical step-by-step.\\n- Each slice delivers a narrow but COMPLETE path through every layer\\n  (schema, API, UI, tests)\\n- A completed slice is demoable or verifiable on its own\\n- Prefer many thin slices over few thick ones\\n- A chunk that is already ticket-sized yields a single ticket — a valid\\n  outcome, not a failed decomposition\\n</vertical-slice-rules>\\n\\n### 3.1 Impact the proposed split\\n\\nRun [/impact](../impact/SKILL.md) on the draft split. Record its output on\\nthe parent. If the recommendation is narrow or rethink, revise the draft and\\nrun `/impact` again until the split is what you will present.\\n\\n`/impact`'s current output is whether the split is balanced (proceed, narrow,\\nrethink, postpone). Record that. It does not yet recommend spec / ticket /\\nRFC / re-slice; that extension is the parent's, not this skill's.\\n\\n### 4. Quiz the user\\n\\nPresent the **post-impact** breakdown as a numbered list, plus the impact\\nnote. For each slice, show:\\n\\n- **Title**: short descriptive name\\n- **Interaction**: HITL / AFK\\n- **Depends on**: which other slices (if any) must complete first\\n- **Parent scope covered**: which user stories or acceptance criteria of the\\n  parent this addresses\\n\\nAsk the user:\\n\\n- Does the granularity feel right? (too coarse / too fine)\\n- Are the dependency relationships correct?\\n- Should any slices be merged or split further?\\n- Are the correct slices marked as HITL and AFK?\\n\\nRead `breakdown` from `AGENTS.md`'s `<project-local>` block. When it is `ask`,\\ndo not mint until the user approves this presentation. That approval is what\\ngets minted. Ask again only if a later `/impact` would change membership,\\ngranularity, or dependencies. Recording the impact text, or copy-edits, is\\nnot a new approval. When `breakdown` is `auto`, mint the post-impact\\nbreakdown without waiting.\\n\\nIterate until the user approves the breakdown (or `auto` applies).\\n\\n### 5. Create the ticket files\\n\\nFor each approved slice, write the ticket under `docs/tickets/`, named and\\nregistered per [TICKET-FORMAT.md](./TICKET-FORMAT.md).\\n\\nCreate tickets in dependency order (blockers first) so you can reference real\\nfilenames in the `Depends on` field. A blocker that is already complete lives\\nin `docs/tickets/done/` — reference it there.\\n\\nWrite each file to [TICKET-FORMAT.md](./TICKET-FORMAT.md) — its skeleton,\\nheader block, section rules, and citation conventions. A freshly minted slice\\nneeds at minimum `Outcome`, `Parent`, `What to build`, and\\n`Acceptance criteria`. Each child carries a one-line pointer to the parent's\\nrecorded `/impact` assessment.\\n\\n### Decision-bearing ticket lifecycle\\n\\nA decision-bearing ticket is the working document for an\\n[/align](../align/SKILL.md) session and then becomes the implementation-ready\\nfeature ticket for the same outcome. Do not mint separate decision and\\nimplementation tickets for that outcome.\\n\\n- **At minting:** `Outcome`, `What to build`, and `Acceptance criteria`\\n  describe the alignment exit: the decision is landed in its durable home and\\n  the feature is unblocked. Hold the decision tree — evidence, alternatives,\\n  and open questions — in the ticket.\\n- **Concern promotion:** leave only the architectural contact surface in\\n  `concerns.md` under its stable anchor, add `→ queued as <ticket-slug>`, and\\n  move the deliberation into the ticket.\\n- **During alignment:** follow [/align](../align/SKILL.md)'s inline\\n  resolution rule; the ticket is the live working document.\\n- **At resolution:** land decisions in their durable homes, remove the\\n  resolved concern entry (or retain separately-scoped residue), and rewrite\\n  the same ticket in place to feature altitude\\n  ([TICKET-FORMAT.md](./TICKET-FORMAT.md)). Keep its place in the order unless\\n  the resolved dependencies require moving it.\\n- **If the resolved feature is too coarse for one RFC:** retain the ticket as\\n  the parent/end-state and decompose it through `/ticket`; do not create a\\n  sibling merely to hold the implementation.\\n- **If alignment eliminates the feature:** complete the ticket as a landed\\n  decision; this is the only case where it closes without becoming an\\n  implementation ticket.\\n\\n### Altitude decides whether a slice is a ticket\\n\\nCriteria state observable behavior; code shape is the RFC's\\n(→ [Acceptance criteria](./TICKET-FORMAT.md#acceptance-criteria)).\\n\\n- A refactor too large for one RFC splits into subtickets, one RFC per child.\\n- A slice whose criteria cannot be written at that altitude is not yet a\\n  ticket → `/align` first.\\n\\n### 6. Completing a ticket\\n\\nWhen every acceptance box is checked, move the ticket to `docs/tickets/done/`\\nmechanically, per [one basename per work item](./TICKET-FORMAT.md#one-basename-per-work-item)\\n— the move repairs the citations that pointed at it.\\n\\nDo NOT close or modify the parent; a parent ticket completes on its own\\nacceptance criteria, not by its children emptying out.\\n\\n<project-local>\\nTickets live under `docs/tickets/`; the queue is `docs/tickets/README.md`.\\nNaming, status, ticket shape, and how to amend the queue table:\\n[TICKET-FORMAT.md](./TICKET-FORMAT.md). The `breakdown` switch is in\\n`AGENTS.md`'s `<project-local>` block.\\n</project-local>\\n\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Wrap provisional instruction text under the contemporaneous straw-dog duty, if that duty was already in force and delivered.",
+    "source_evidence": [
+      "source.json#/recovered_public_evidence/gaps"
+    ]
+  },
+  "check": {
+    "kind": "source-grounded response/action review with explicit evidence gap",
+    "status": "blocked pending contemporaneous instruction/exposure evidence",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Wrap provisional instruction text under the contemporaneous straw-dog duty, if that duty was already in force and delivered.",
+        "expected_for_recorded_failure": null
+      }
+    ]
+  },
+  "bounds": {
+    "evidence_gaps": [
+      "Actual assistant message model field is absent.",
+      "The original pre-write AGENTS read is retained, but result only says totalLinesInFile61. Its contemporaneous straw-dog duty body is not retained in selected public fields.",
+      "The write itself does not establish which future ticket owns the provisional passage; a later register assignment is not silently imported as original instruction."
+    ],
+    "model_metadata": "Original triggering user bubble0a00a8a2 records $.modelInfo.modelName=grok-4.6. The assistant write has no modelInfo. This does not establish an assistant model field.",
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "Exact completed original write located and hash-matched; the not-yet recommendation passage is ordinary skill text without a temporary wrapper.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/recovered_public_evidence/original_action",
+      "after": null,
+      "description": "Before the recovered public response/action. The duty body is not fully recoverable."
+    },
+    "input_records": [],
+    "unresolved_input_records": [
+      "source.json#/recovered_public_evidence/trigger",
+      "source.json#/recovered_public_evidence/pre_failure_public_context"
+    ],
+    "initial_state": {
+      "recorded_instruction_evidence": []
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/recovered_public_evidence/original_action"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Instruction evidence, host metadata and reference-only records do not become additional actor messages.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role."
+    ]
+  },
+  "source_gaps": [
+    {
+      "kind": "existing source qualification",
+      "detail": "Actual assistant message model field is absent."
+    },
+    {
+      "kind": "existing source qualification",
+      "detail": "The original pre-write AGENTS read is retained, but result only says totalLinesInFile61. Its contemporaneous straw-dog duty body is not retained in selected public fields."
+    },
+    {
+      "kind": "existing source qualification",
+      "detail": "The write itself does not establish which future ticket owns the provisional passage; a later register assignment is not silently imported as original instruction."
+    },
+    {
+      "kind": "native replay context incomplete",
+      "source": "source.json#/recovered_public_evidence/trigger",
+      "detail": "The native bubble type and public text are retained, but a complete native role-separated delivery sequence is not retained; no replacement message is invented."
+    },
+    {
+      "kind": "native replay context incomplete",
+      "source": "source.json#/recovered_public_evidence/pre_failure_public_context",
+      "detail": "The retained block contains recovered public context fragments, not a complete native role-separated delivery sequence; no replacement sequence is invented."
+    },
+    {
+      "kind": "native replay context absent",
+      "detail": "No complete native pre-failure message sequence is retained."
+    },
+    {
+      "kind": "existing check evidence block",
+      "detail": "blocked pending contemporaneous instruction/exposure evidence"
+    }
+  ]
+}

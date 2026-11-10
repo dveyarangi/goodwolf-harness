@@ -1,0 +1,672 @@
+{
+  "transcript": "d4406b99-8ee7-4e49-8d84-5621c2fd5766.jsonl",
+  "chat_id": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+  "transcript_bytes": 10177547,
+  "transcript_sha256": "ecb82aebe29eff5e5a000541eae093c2912100f2b055a0f4b4f0bf31565c709a",
+  "record_numbering": "one-based JSONL records in the original transcript",
+  "delivery_context": null,
+  "records": {
+    "27": {
+      "timestamp": "2026-10-02T16:27:55.520Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "afd7cb24-4751-4e0b-91d5-0ed6b325f378",
+        "parentUuid": "a193261d-b0a3-429d-86e2-6483cf6ebcdc",
+        "timestamp": "2026-10-02T16:27:55.520Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "instructions",
+          "files": [
+            {
+              "path": "D:\\Dev\\AI\\agents\\CLAUDE.md",
+              "type": "Project",
+              "content": "@AGENTS.md"
+            },
+            {
+              "path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+              "type": "Project",
+              "content": "# Entry contract\n\nEntry contract: v18, 2026-10-02.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<straw-dog until=\"01-0020 is done\" ticket=\"docs/tickets/01-0020-pacer.md\">\nRun /recall first in every session, whatever the first message says.\n</straw-dog>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n- Clarity and simplicity first — Occam's razor: take the shape with the fewest parts that does the job, and remove before you add.\n\n- Write for a capable model: state the rule and its pointer. The definition the glossary owns, the example that motivated it and what it implies stay out.\n\n<straw-dog until=\"01-0018 declares the mechanism that owns tiering\" ticket=\"docs/tickets/01-0018-reachability-coherent.md\">\n- A skill's description is its tier-1 surface: name there every use case the skill serves, and nothing else — never its method or how it is built. Write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session.\n</straw-dog>\n\n<installed by=\"ticket\">\n**P9** The first time a record or a reply names a ticket, name it by a link to its record whose text\ncarries its slug — the id may lead it; later mentions may be the id alone. Name one that has no\nrecord yet by a slug and its state word.\n</installed>\n\n<installed by=\"questions\">\n**Q1** Before drafting a reply, place the message in the question store: read this turn's window — the\none the host's hook put in your context, or `questions.py --window --session <tag>` — and declare\nwhere the message lands with `questions.py --declare \"<line>\" --session <tag>`, again whenever\nthe turn's own work settles, opens or moves a question:\n\n- `at q-0004`\n- `at q-0014; opens q-0014 under q-0004: <question>`\n- `at q-0002; closes q-0004: decided, [link](../path.md)`\n- `nothing`\n\nA message that answers nothing near the current question opens what that question cannot be\nanswered without. Only the working agent declares, never a helper. Under `debug=on`, show each\ndeclared line where it happened. For any other form, a closure, a branching or a drop, read the\nquestions skill.\n</installed>\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. A core file\nmay name a path under `docs/` only when that path is a record a mechanism declares — the directory\nthat holds a kind of record, or a file that is one — never a particular record inside such a\ndirectory: `docs/tickets/` and `docs/glossary.md` are painted doors; one particular ticket inside\n`docs/tickets/` is a document only this project has. Content inside the\n[local block](#project-local) is the instance's, not core's. A `<straw-dog>` exempts\nnothing: its wrapper is stripped on install and whatever it wrapped ships. Core names a ticket\nonly in a straw dog's binding — never in a link, never as a bare id in prose — since a recipient\ncan resolve neither.\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog until=\"the practice mechanism owns how architecture is documented\" ticket=\"docs/tickets/01-0017.0020-practice-swaps-in-one-edit.md\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n\n## Self-improvement\n\n<straw-dog until=\"01-0019 is done\" ticket=\"docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md\">\n- A rule that was in place and did not fire was usually worded wrong. Register the failure in docs/rule-failures.md, or strike the entry it repeats, and propose the amendment that would have made it fire; /mechanism and /skill-up hold the means. Land the amendment in the same pass, showing its text first.\n- Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.\n</straw-dog>\n\n## Autonomy\n\nThe project sets each switch in its local block, under *Project-local*; skills defer to those values.\nA switch the project has not set is `ask`.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n`repair=report` holds only when all four are true: the governing rule is explicit, and cited; the\nrepair restores compliance inside the authorized work and keeps every other agreed contract; the\naffected behaviour is understood well enough to say so; the result is verifiable against the\nrule. Otherwise `/align`. *(the user, 2026-09-05)*\n\n## Project-local\n\n<installed by=\"mechanism-shape\">\n**R7** A project's own answers and overrides are authored in one file beside the entry file,\n`local.rules.md`, in the rules-file format, and reach a file only as the local block — the\ninstalled block whose owner is `local` — which the installer writes after every mechanism's block\nthere, so the project's answer is what a reader meets after core's rule. An override names the rule it\noverrides. A local change to a rule is written in the local file, never into a skill or the entry\nfile: `inject_rules.py --check` fails on a block that differs from its source and on a block\nnothing owns, and the repair is the local file, re-installed. The local block is the project's,\nnot core's, and a redeploy preserves it.\n</installed>\n\n<installed by=\"local\">\n**L1** This repository develops the shared dev harness using its own loop; its own architecture and\nprogress live in docs/ like any other project's — the instance half doing its job, not a leak.\nTerms: docs/glossary.md, this project's own; the method's are .agents/glossary.md's. What each\nversion of the entry contract changed: docs/research/entry-contract-findings.md.\n\n**L2** commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n\n**L4** debug=on\n</installed>\n\n## Straw dogs\n\nWrap anything a live ticket will change, as you write it — or, for text already written, in the\npass that mints the ticket or decides that it will change it:\n`<straw-dog until=\"condition\" ticket=\"path\">`, or in code a `TODO` naming the ticket. Treat *not\nyet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find\nthe ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.\nMake the condition testable and the ticket path repository-relative. Write the body to stand on\nits own: it is what a recipient receives once the wrapper is stripped, so it reads whole without\nthe condition and names no ticket — the binding does. Leave what no ticket would change\nunwrapped.\n\nFollow a straw dog like any other rule until its condition is visibly met; then act on reality,\nreport the stale block, and do not treat the contradiction as a violation."
+            },
+            {
+              "path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\memory\\MEMORY.md",
+              "type": "AutoMem",
+              "content": "# Memory\n\n- [Edit with edit tools, not scripts](edit-with-edit-tools-not-scripts.md) — a script's diff is invisible in the transcript; the user reads changes as they happen."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "073033c3d2b4d33bd2cf9cdd4c677ec62629a9829f906b96c70ab81028c393a2",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "549": {
+      "timestamp": "2026-10-02T20:57:15.190Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "b8b23f3a-a8bc-41d0-981b-2e9669dc3c07",
+        "parentUuid": "90f9ef18-bf46-4020-91e9-c88631262fe7",
+        "timestamp": "2026-10-02T20:57:15.190Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "lets run A"
+        },
+        "promptId": "a758ecaf-d03a-4c3e-ac4c-5ed8b987571f"
+      },
+      "original_record_sha256": "35035887c54c7752cef9b6a074b5edd5810dc9c2a1f59bcf63905b4a10678d08",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "551": {
+      "timestamp": "2026-10-02T20:57:15.971Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "de6274b7-9665-4824-a3a0-4e5e2a825911",
+        "parentUuid": "6a4a51b5-cccb-4dd0-8ad5-25e052b1f3f7",
+        "timestamp": "2026-10-02T20:57:15.971Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "hook_additional_context",
+          "content": [
+            "window unchanged since your last one: d4406b99-8ee7-4e49-8d84-5621c2fd5766 at q-0018; `questions.py --window --session d4406b99-8ee7-4e49-8d84-5621c2fd5766 --full` draws it again"
+          ],
+          "hookName": "UserPromptSubmit",
+          "toolUseID": "hook-e64a7e47-8a3a-4c56-acd6-fac5c78f7758",
+          "hookEvent": "UserPromptSubmit"
+        }
+      },
+      "original_record_sha256": "5e85b86a879e2658f93021e62dbbc2dd8bb3303792ebfd151cbd3bfe099749e5",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "553": {
+      "timestamp": "2026-10-02T20:57:25.697Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "2928e3a8-b9e8-4f63-af0a-5aca5778c025",
+        "parentUuid": "de6274b7-9665-4824-a3a0-4e5e2a825911",
+        "timestamp": "2026-10-02T20:57:25.697Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe5ZoWbJGVVoTKgdJZ66",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_011aj468VPLuTfiXbuVAsH1K",
+              "name": "Skill",
+              "input": {
+                "skill": "ticket",
+                "args": "Draft (do not mint; breakdown=ask) one slice under 01-0011.0100: 01-0011.0100.0011 — the agent calls a subcommand per event and the script assigns ids (decision 56). Lands after .0017, before .0012 and .0015. Run /impact on the draft and present both as a suggestion."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "f000820b364f4afb6294ae9aa520e4be5d747dbaab17ef761307b5e7d4d11d2a",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "554": {
+      "timestamp": "2026-10-02T20:57:25.760Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "d87f4c79-30ff-4aaa-8dc0-61b7cceec3ae",
+        "parentUuid": "2928e3a8-b9e8-4f63-af0a-5aca5778c025",
+        "timestamp": "2026-10-02T20:57:25.760Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_011aj468VPLuTfiXbuVAsH1K",
+              "content": "Launching skill: ticket"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "success": true,
+          "commandName": "ticket"
+        },
+        "sourceToolAssistantUUID": "2928e3a8-b9e8-4f63-af0a-5aca5778c025",
+        "promptId": "a758ecaf-d03a-4c3e-ac4c-5ed8b987571f"
+      },
+      "original_record_sha256": "2f99213a2ab0419d44bd1f79a3d334186bcc864780642cc600431538854113df",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "555": {
+      "timestamp": "2026-10-02T20:57:25.749Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "68291076-d470-4519-b225-26c873296f6a",
+        "parentUuid": "d87f4c79-30ff-4aaa-8dc0-61b7cceec3ae",
+        "timestamp": "2026-10-02T20:57:25.749Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Base directory for this skill: D:\\Dev\\AI\\agents\\.claude\\skills\\ticket\n\n# Decompose into tickets\r\n\r\nBreak a parent work into independently-grabbable tickets using vertical slices\r\n(tracer bullets), written as local markdown files under `docs/tickets/`. The\r\nparent is a **PRD** at inception, a **coarse ticket** when zooming in; or the\r\ncurrently discussed/referenced chunk of work; the same slicing principles apply\r\nat every resolution.\r\n\r\n## Layout\r\n\r\nThe shape of a ticket — its name, its folders, its header and sections, what\r\nfinishes it and what removes it — is [TICKET-FORMAT.md](./TICKET-FORMAT.md)'s,\r\nunder *The record*. Read it before writing one, and restate none of it here.\r\n\r\n## Process\r\n\r\n### 1. Locate the parent\r\n\r\nAsk the user for the parent work item's path, unless it is already clear from\r\ncontext.\r\n\r\nIf the parent is a document not already in your context window, read it from\r\nthe file. When the parent is the chunk of work under discussion, there is no\r\nfile — the tickets must then carry their own context.\r\n\r\n### 2. Explore the codebase (optional)\r\n\r\nIf you have not already explored the codebase, do so to understand the current\r\nstate of the code.\r\n\r\n### 3. Draft vertical slices\r\n\r\nBreak the parent into **tracer bullet** tickets. Each ticket is a thin vertical\r\nslice that cuts through ALL integration layers end-to-end, NOT a horizontal\r\nslice of one layer. Slice at the parent's own resolution: a coarse ticket's\r\nchildren are thinner passes through the same territory, still demoable or\r\nverifiable on their own.\r\n\r\nSlices may be 'HITL' or 'AFK'. HITL slices require human interaction, such as\r\nan architectural decision or a design review. AFK slices can be implemented\r\nand merged without human interaction. Prefer AFK over HITL where possible.\r\n\r\nA ticket blocked on unresolved product or architectural decisions may begin as\r\na **decision-bearing HITL ticket**. It is the eventual feature ticket in an\r\nearlier phase, not a separate decision slice; name it for the product outcome\r\nit will deliver.\r\n\r\n<vertical-slice-rules>\r\n- The goal is to break down into small deliverables that can be tested by\r\n  user, before the entire schema/service/UI is built. Vertical step-by-step.\r\n- Each slice delivers a narrow but COMPLETE path through every layer\r\n  (schema, API, UI, tests)\r\n- A completed slice is demoable or verifiable on its own\r\n- Prefer many thin slices over few thick ones\r\n- A chunk that is already ticket-sized yields a single ticket — a valid\r\n  outcome, not a failed decomposition\r\n</vertical-slice-rules>\r\n\r\n### 3.1 Impact the proposed split\r\n\r\nRun [/impact](../impact/SKILL.md) on the draft split. Record its output on\r\nthe parent. If the recommendation is narrow or rethink, revise the draft and\r\nrun `/impact` again until the split is what you will present.\r\n\r\n<straw-dog until=\"01-0010.0080 is done\" ticket=\"docs/tickets/01-0010.0080-impact-work-shape.md\">\r\n`/impact`'s current output is whether the split is balanced (proceed, narrow,\r\nrethink, postpone). Record that. It does not yet recommend spec / ticket /\r\nRFC / re-slice; that extension is the parent's, not this skill's.\r\n</straw-dog>\r\n\r\n### 4. Quiz the user\r\n\r\nPresent the **post-impact** breakdown as a numbered list, plus the impact\r\nnote. For each slice, show:\r\n\r\n- **Title**: short descriptive name\r\n- **Interaction**: HITL / AFK\r\n- **Depends on**: which other slices (if any) must complete first\r\n- **Parent scope covered**: which user stories or acceptance criteria of the\r\n  parent this addresses\r\n\r\nAsk the user:\r\n\r\n- Does the granularity feel right? (too coarse / too fine)\r\n- Are the dependency relationships correct?\r\n- Should any slices be merged or split further?\r\n- Are the correct slices marked as HITL and AFK?\r\n\r\nRead `breakdown` from `AGENTS.md`'s local block. When it is `ask`,\r\ndo not mint until the user approves this presentation. That approval is what\r\ngets minted. Ask again only if a later `/impact` would change membership,\r\ngranularity, or dependencies. Recording the impact text, or copy-edits, is\r\nnot a new approval. When `breakdown` is `auto`, mint the post-impact\r\nbreakdown without waiting.\r\n\r\nIterate until the user approves the breakdown (or `auto` applies).\r\n\r\n### 5. Create the ticket files\r\n\r\nFor each approved slice, write the ticket under `docs/tickets/`, named and\r\nregistered per [TICKET-FORMAT.md](./TICKET-FORMAT.md).\r\n\r\nCreate tickets in dependency order (blockers first) so you can reference real\r\nfilenames in the `Depends on` field. A blocker that is already complete lives\r\nin `docs/tickets/done/` — reference it there.\r\n\r\nWrite each file to [The record](./TICKET-FORMAT.md#the-record) — the header,\r\nits fields, the sections the stage admits, and the citation conventions. A\r\nfreshly minted slice is incepted: it needs `Status`, `Type`, `Outcome`,\r\n`What to build` and `Acceptance criteria`, and may host whatever else it has.\r\nEach child carries a one-line pointer to the parent's recorded `/impact`\r\nassessment.\r\n\r\n### Decision-bearing ticket lifecycle\r\n\r\nA decision-bearing ticket is the working document for an\r\n[/align](../align/SKILL.md) session and then becomes the implementation-ready\r\nfeature ticket for the same outcome. Do not mint separate decision and\r\nimplementation tickets for that outcome.\r\n\r\n- **At minting:** `Outcome`, `What to build`, and `Acceptance criteria`\r\n  describe the alignment exit: the decision is landed in its durable home and\r\n  the feature is unblocked. Hold the decision tree — evidence, alternatives,\r\n  and open questions — in the ticket.\r\n<straw-dog until=\"a ticket's open issues are entries of the question store\" ticket=\"docs/tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md\">\r\n- **Question promotion:** an open question in `docs/questions/` that becomes\r\n  work is assigned to the ticket with `assigns`, and its deliberation moves into\r\n  the ticket.\r\n</straw-dog>\r\n- **During alignment:** follow [/align](../align/SKILL.md)'s inline\r\n  resolution rule; the ticket is the live working document.\r\n<straw-dog until=\"a ticket's open issues are entries of the question store\" ticket=\"docs/tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md\">\r\n- **At resolution:** land decisions in their durable homes, close each question\r\n  they answer with a pointer to that home (or open a new one for\r\n  separately-scoped residue), and rewrite the same ticket in place to feature\r\n  altitude ([TICKET-FORMAT.md](./TICKET-FORMAT.md)). Keep its place in the order\r\n  unless the resolved dependencies require moving it.\r\n</straw-dog>\r\n- **If the resolved feature is too coarse for one RFC:** retain the ticket as\r\n  the parent/end-state and decompose it through `/ticket`; do not create a\r\n  sibling merely to hold the implementation.\r\n- **If alignment eliminates the feature:** complete the ticket as a landed\r\n  decision; this is the only case where it closes without becoming an\r\n  implementation ticket.\r\n\r\n### Altitude decides whether a slice is a ticket\r\n\r\nCriteria state observable behavior; code shape is the RFC's\r\n(→ [Acceptance criteria](./TICKET-FORMAT.md#acceptance-criteria)).\r\n\r\n- A refactor too large for one RFC splits into subtickets, one RFC per child.\r\n- A slice whose criteria cannot be written at that altitude is not yet a\r\n  ticket → `/align` first.\r\n\r\n### 6. Completing a ticket\r\n\r\nA ticket is finished and closed per the shelf's [The record](./TICKET-FORMAT.md#the-record);\r\n`/maintain` carries the duty. Do NOT close or modify the parent; a parent\r\nticket completes on its own acceptance criteria, not by its children emptying\r\nout.\r\n\n\nARGUMENTS: Draft (do not mint; breakdown=ask) one slice under 01-0011.0100: 01-0011.0100.0011 — the agent calls a subcommand per event and the script assigns ids (decision 56). Lands after .0017, before .0012 and .0015. Run /impact on the draft and present both as a suggestion."
+            }
+          ]
+        },
+        "promptId": "a758ecaf-d03a-4c3e-ac4c-5ed8b987571f"
+      },
+      "original_record_sha256": "1972569a65d3fd14ab7b4f0e997be684c0733b9d82046cd22539894f12c7be4c",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "559": {
+      "timestamp": "2026-10-02T20:57:35.728Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "1f0f03f2-08f1-452b-9ef4-c03d8ad751ea",
+        "parentUuid": "663a8705-65cc-4113-b016-aa920c28a61f",
+        "timestamp": "2026-10-02T20:57:35.728Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe5aWVvwCNVKSmY8EXcW",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_011taQXojkrhgARQQ33Q9tPi",
+              "name": "Bash",
+              "input": {
+                "command": "grep -c \"declare\\|parse(\" .agents/scripts/gw/test/test_questions.py; grep -rn -- \"--declare\\|declared line\" .agents --include=*.md --include=*.py --include=*.json | grep -v \"/test/\" | cut -c1-160 | head -30; cat .codex/hooks.json .cursor/hooks.json | grep -o \"questions.py[^\\\"]*\" | sort -u",
+                "description": "Find every caller and mention of the declared line"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "58cc3fae86749cb1886b8b8596c2849731066294d54339a06d3fe13fa5fa79c2",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "560": {
+      "timestamp": "2026-10-02T20:57:36.961Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "8b5577d1-dd68-4967-a847-27139bd423a0",
+        "parentUuid": "1f0f03f2-08f1-452b-9ef4-c03d8ad751ea",
+        "timestamp": "2026-10-02T20:57:36.961Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_011taQXojkrhgARQQ33Q9tPi",
+              "is_error": false,
+              "content": "20\ngrep: --include=*.md: No such file or directory\ngrep: --include=*.py: No such file or directory\ngrep: --include=*.json: No such file or directory\n.agents/mechanisms/questions/questions.md:3:- **instruction** `.agents/skills/questions/SKILL.md` — the formats, the declared line, and closing, branching and\n.agents/mechanisms/questions/questions.md:59:| writing entries and the position from a declared line | `.agents/scripts/gw/questions.py` | |\n.agents/mechanisms/questions/questions.md:131:Or its own measure: over a stated span, the declared lines and suspect marks led to no amendment\n.agents/mechanisms/questions/questions.md:140:1. Drift deliberately in a chat: does the declared line name the shift in the same turn?\n.agents/mechanisms/questions/questions.rules.md:21:where the message lands with `questions.py --declare \"<line>\" --session <tag>`, again whenever\n.agents/mechanisms/questions/questions.rules.md:31:declared line where it happened. For any other form, a closure, a branching or a drop, read the\n.agents/mechanisms/questions/questions.rules.md:54:a declared line with its `at` — and nothing else: placements and closures were written as they\n.agents/README.md:27:the wake, the declared line and its check, and the hosts' hooks — and `docs_corpus.py` is the one view of the\n.agents/scripts/gw/questions.py:50:    \"| --end --session <tag> | --tree [<q-id>] | --declare \\\"<line>\\\" --session <tag>\"\n.agents/scripts/gw/questions.py:214:        if len(argv) == 4 and argv[0] == \"--declare\" and argv[2] == \"--session\":\n.agents/scripts/gw/questions.py:1169:    \"\"\"One event of a declared line, as the writer applies it.\n.agents/scripts/gw/questions.py:1199:    \"\"\"A declared line as clauses, in the order written; `nothing` alone is a turn that placed\n.agents/scripts/gw/questions.py:1206:            raise Refused(f\"`{written}` holds a `;`, which free text in a declared line may not\")\n.agents/scripts/gw/questions.py:1210:        raise Refused(\"a declared line names its session's position with exactly one `at`, or is `nothing`\")\n.agents/scripts/gw/questions.py:1227:    raise Refused(f\"`{written}` is not a clause of the declared line; the clauses are:\\n{FORMS}\")\n.agents/scripts/gw/questions.py:1230:# The declared line's clauses, printed with a refusal so a malformed line is fixed in the same turn.\n.agents/scripts/gw/questions.py:1265:    \"\"\"Apply a declared line's clauses in order to the store, validate the result whole, then\n.agents/scripts/gw/questions.py:1306:    \"\"\"The store as a declared line leaves it, held in memory until the whole line validates.\"\"\"\nBinary file .agents/scripts/gw/__pycache__/questions.cpython-314.pyc matches\n.agents/skills/conclude/SKILL.md:21:a declared line with its `at` — and nothing else: placements and closures were written as they\n.agents/skills/questions/SKILL.md:3:description: See where the work stands among the open questions, or re-parent, merge or prune questions by hand. Read mid-tu\n.agents/skills/questions/SKILL.md:17:- With an argument: the tidy-up asked for, as a declared line — re-parent with `moves`, merge\n.agents/skills/questions/SKILL.md:22:## The declared line\n.agents/skills/questions/SKILL.md:24:`questions.py --declare \"<line>\" --session <tag>`. Clauses are separated by `; ` and apply left\n.agents/skills/questions/SKILL.md:41:and declare again in the same turn. Under `debug=on` the first declared line heads the reply, after\n.agents/skills/questions/SKILL.md:66:**Then** the reply's declared line names the closure.\nquestions.py --hook codex\nquestions.py --hook cursor"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "20\ngrep: --include=*.md: No such file or directory\ngrep: --include=*.py: No such file or directory\ngrep: --include=*.json: No such file or directory\n.agents/mechanisms/questions/questions.md:3:- **instruction** `.agents/skills/questions/SKILL.md` — the formats, the declared line, and closing, branching and\n.agents/mechanisms/questions/questions.md:59:| writing entries and the position from a declared line | `.agents/scripts/gw/questions.py` | |\n.agents/mechanisms/questions/questions.md:131:Or its own measure: over a stated span, the declared lines and suspect marks led to no amendment\n.agents/mechanisms/questions/questions.md:140:1. Drift deliberately in a chat: does the declared line name the shift in the same turn?\n.agents/mechanisms/questions/questions.rules.md:21:where the message lands with `questions.py --declare \"<line>\" --session <tag>`, again whenever\n.agents/mechanisms/questions/questions.rules.md:31:declared line where it happened. For any other form, a closure, a branching or a drop, read the\n.agents/mechanisms/questions/questions.rules.md:54:a declared line with its `at` — and nothing else: placements and closures were written as they\n.agents/README.md:27:the wake, the declared line and its check, and the hosts' hooks — and `docs_corpus.py` is the one view of the\n.agents/scripts/gw/questions.py:50:    \"| --end --session <tag> | --tree [<q-id>] | --declare \\\"<line>\\\" --session <tag>\"\n.agents/scripts/gw/questions.py:214:        if len(argv) == 4 and argv[0] == \"--declare\" and argv[2] == \"--session\":\n.agents/scripts/gw/questions.py:1169:    \"\"\"One event of a declared line, as the writer applies it.\n.agents/scripts/gw/questions.py:1199:    \"\"\"A declared line as clauses, in the order written; `nothing` alone is a turn that placed\n.agents/scripts/gw/questions.py:1206:            raise Refused(f\"`{written}` holds a `;`, which free text in a declared line may not\")\n.agents/scripts/gw/questions.py:1210:        raise Refused(\"a declared line names its session's position with exactly one `at`, or is `nothing`\")\n.agents/scripts/gw/questions.py:1227:    raise Refused(f\"`{written}` is not a clause of the declared line; the clauses are:\\n{FORMS}\")\n.agents/scripts/gw/questions.py:1230:# The declared line's clauses, printed with a refusal so a malformed line is fixed in the same turn.\n.agents/scripts/gw/questions.py:1265:    \"\"\"Apply a declared line's clauses in order to the store, validate the result whole, then\n.agents/scripts/gw/questions.py:1306:    \"\"\"The store as a declared line leaves it, held in memory until the whole line validates.\"\"\"\nBinary file .agents/scripts/gw/__pycache__/questions.cpython-314.pyc matches\n.agents/skills/conclude/SKILL.md:21:a declared line with its `at` — and nothing else: placements and closures were written as they\n.agents/skills/questions/SKILL.md:3:description: See where the work stands among the open questions, or re-parent, merge or prune questions by hand. Read mid-tu\n.agents/skills/questions/SKILL.md:17:- With an argument: the tidy-up asked for, as a declared line — re-parent with `moves`, merge\n.agents/skills/questions/SKILL.md:22:## The declared line\n.agents/skills/questions/SKILL.md:24:`questions.py --declare \"<line>\" --session <tag>`. Clauses are separated by `; ` and apply left\n.agents/skills/questions/SKILL.md:41:and declare again in the same turn. Under `debug=on` the first declared line heads the reply, after\n.agents/skills/questions/SKILL.md:66:**Then** the reply's declared line names the closure.\nquestions.py --hook codex\nquestions.py --hook cursor",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "1f0f03f2-08f1-452b-9ef4-c03d8ad751ea",
+        "promptId": "a758ecaf-d03a-4c3e-ac4c-5ed8b987571f"
+      },
+      "original_record_sha256": "9aca172dba4d77efd8df21587e77a33f0f3295df906c1c99e1e1ae83f56664ce",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "569": {
+      "timestamp": "2026-10-02T20:57:43.879Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "98de0b56-9b27-4572-b8d4-f02e7df211b5",
+        "parentUuid": "1e8e428d-166f-4bcd-a230-53b8d90f07e4",
+        "timestamp": "2026-10-02T20:57:43.879Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe5bJsTvCfcGaYj46bCR",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "I've collected the footprint. Now running `/impact` on the drafted slice."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "f37ab7fd900ae9d1c749038763a420b095fb5dac085a1d16b52e7d352b9ab192",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "570": {
+      "timestamp": "2026-10-02T20:57:45.487Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "eacd5a6f-7a00-4d8b-b9c1-c9fadf9bc75f",
+        "parentUuid": "98de0b56-9b27-4572-b8d4-f02e7df211b5",
+        "timestamp": "2026-10-02T20:57:45.487Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe5bJsTvCfcGaYj46bCR",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_019jQcFZvnTxsYjJ18ky7xyf",
+              "name": "Skill",
+              "input": {
+                "skill": "impact",
+                "args": "Draft slice 01-0011.0100.0011 \"the agent calls a subcommand per event, and the script assigns ids\" (decision 56 on 01-0011.0100): questions.py gains subcommands at/open/close/move/depend/undepend/suspect/clear/lean/assign with --session; open assigns and prints the id; the declared-line grammar (parse, FORMS, --declare) goes; Q1's examples, Q3's wording, the skill's table/description, the mechanism doc and the writer's tests move to calls; lands after .0017, before .0012 and .0015, whose RFCs get a validation pass."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "14ab800c50884a99ae703e14af2750e05795a8a5b10c0113c957367919c1c866",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "571": {
+      "timestamp": "2026-10-02T20:57:45.524Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "6403283e-da73-4370-ac18-8ed387ea1d06",
+        "parentUuid": "eacd5a6f-7a00-4d8b-b9c1-c9fadf9bc75f",
+        "timestamp": "2026-10-02T20:57:45.524Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_019jQcFZvnTxsYjJ18ky7xyf",
+              "content": "Launching skill: impact"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "success": true,
+          "commandName": "impact"
+        },
+        "sourceToolAssistantUUID": "eacd5a6f-7a00-4d8b-b9c1-c9fadf9bc75f",
+        "promptId": "a758ecaf-d03a-4c3e-ac4c-5ed8b987571f"
+      },
+      "original_record_sha256": "a8f7b2ce9081f4d881dfeae5d98bbb39d6c4dd929ada63e82a694cf9ae32035f",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "572": {
+      "timestamp": "2026-10-02T20:57:45.515Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "e763dee4-62f5-41e8-b080-19b1e7668800",
+        "parentUuid": "6403283e-da73-4370-ac18-8ed387ea1d06",
+        "timestamp": "2026-10-02T20:57:45.515Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Base directory for this skill: D:\\Dev\\AI\\agents\\.claude\\skills\\impact\n\n<straw-dog until=\"01-0017 declares the impact mechanism\" ticket=\"docs/tickets/01-0017-io-graph-coherent.md\">Mechanism: not yet</straw-dog>\n\nFind what actually depends on the subject being shaped, behaving, or meaning\nwhat it currently does.\n\nDo not just search mentions. Follow semantic dependencies until the picture\nconverges.\n\nCheck:\n\n- durable docs and decisions\n- product/API behavior\n- code and composition\n- tests, fixtures, parity/reference readers\n- active tickets, open questions, RFCs\n- upcoming work likely to depend on it\n- historical context and records; history is maintained mechanically like everything else (`/mechanism`, *Mechanical by construction*), not exempted from repair\n\nDistinguish:\n\n- must change\n- must verify\n- may simplify\n- hidden risk\n- historical only\n- probably unaffected\n\nLook especially for assumptions shared across docs, code, and tests: internal\nagreement does not prove external correctness.\n\nChallenge the proposed change too:\n- is it solving a demonstrated problem?\n- can it be narrower?\n- does it introduce a general abstraction?\n- if so, what second materially different concrete shape justifies it?\n\nThe assessment is these four sections and nothing else. That governs its shape, never the\nturn: called from another skill, hand them back and carry on with the step that called.\n\n## Impact\nMain blast radius.\n\n## Hidden edges\nNon-obvious dependencies or risks.\n\n## Leave alone\nRelated things that should not change.\n\n## Recommendation\nProceed, narrow, rethink, or postpone, and why.\n\n\nARGUMENTS: Draft slice 01-0011.0100.0011 \"the agent calls a subcommand per event, and the script assigns ids\" (decision 56 on 01-0011.0100): questions.py gains subcommands at/open/close/move/depend/undepend/suspect/clear/lean/assign with --session; open assigns and prints the id; the declared-line grammar (parse, FORMS, --declare) goes; Q1's examples, Q3's wording, the skill's table/description, the mechanism doc and the writer's tests move to calls; lands after .0017, before .0012 and .0015, whose RFCs get a validation pass."
+            }
+          ]
+        },
+        "promptId": "a758ecaf-d03a-4c3e-ac4c-5ed8b987571f"
+      },
+      "original_record_sha256": "b48860ee1be62b158fa600ca925e7f65aa25f8b29ba4bfd6f4dabe0a66ada874",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "576": {
+      "timestamp": "2026-10-02T20:57:53.547Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "0720b357-f52a-48bc-a9fd-17960cc70f3d",
+        "parentUuid": "d59cc316-0c04-43a1-9b6a-f9aa61233a59",
+        "timestamp": "2026-10-02T20:57:53.547Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe5bzCavutgzMDHbqoS9",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01CDAdCawJDfDzczcKvE9d9d",
+              "name": "Bash",
+              "input": {
+                "command": "grep -rln \"declared line\" docs/tickets/*.md docs/glossary.md .agents/glossary.md docs/research/*.md docs/pacer.md 2>/dev/null; grep -n \"declared line\" .agents/glossary.md docs/glossary.md | head; grep -n \"declare\\b\\|declares\" .agents/mechanisms/questions/questions.rules.md AGENTS.md | head",
+                "description": "Find records and glossaries that depend on the declared line"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "e88f3b581e3a25820da262075653df48ba42576ca6276887b35a7ec3d81e28ca",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "577": {
+      "timestamp": "2026-10-02T20:57:54.671Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "d8d52b04-646a-44ae-9aab-abe5aec53b2f",
+        "parentUuid": "0720b357-f52a-48bc-a9fd-17960cc70f3d",
+        "timestamp": "2026-10-02T20:57:54.671Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01CDAdCawJDfDzczcKvE9d9d",
+              "is_error": false,
+              "content": "docs/tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md\ndocs/tickets/01-0011.0100.0010-the-store-and-questions-writes-it.md\ndocs/tickets/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md\ndocs/tickets/01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md\ndocs/tickets/README.md\ndocs/research/entry-contract-findings.md\n.agents/mechanisms/questions/questions.rules.md:20:one the host's hook put in your context, or `questions.py --window --session <tag>` — and declare\n.agents/mechanisms/questions/questions.rules.md:21:where the message lands with `questions.py --declare \"<line>\" --session <tag>`, again whenever\n.agents/mechanisms/questions/questions.rules.md:30:answered without. Only the working agent declares, never a helper. Under `debug=on`, show each\n.agents/mechanisms/questions/questions.rules.md:44:declare it. Re-rank nothing another running session is on; then read the queue as this skill says.\nAGENTS.md:31:<straw-dog until=\"01-0018 declares the mechanism that owns tiering\" ticket=\"docs/tickets/01-0018-reachability-coherent.md\">\nAGENTS.md:43:one the host's hook put in your context, or `questions.py --window --session <tag>` — and declare\nAGENTS.md:44:where the message lands with `questions.py --declare \"<line>\" --session <tag>`, again whenever\nAGENTS.md:53:answered without. Only the working agent declares, never a helper. Under `debug=on`, show each\nAGENTS.md:65:may name a path under `docs/` only when that path is a record a mechanism declares — the directory"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "docs/tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md\ndocs/tickets/01-0011.0100.0010-the-store-and-questions-writes-it.md\ndocs/tickets/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md\ndocs/tickets/01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md\ndocs/tickets/README.md\ndocs/research/entry-contract-findings.md\n.agents/mechanisms/questions/questions.rules.md:20:one the host's hook put in your context, or `questions.py --window --session <tag>` — and declare\n.agents/mechanisms/questions/questions.rules.md:21:where the message lands with `questions.py --declare \"<line>\" --session <tag>`, again whenever\n.agents/mechanisms/questions/questions.rules.md:30:answered without. Only the working agent declares, never a helper. Under `debug=on`, show each\n.agents/mechanisms/questions/questions.rules.md:44:declare it. Re-rank nothing another running session is on; then read the queue as this skill says.\nAGENTS.md:31:<straw-dog until=\"01-0018 declares the mechanism that owns tiering\" ticket=\"docs/tickets/01-0018-reachability-coherent.md\">\nAGENTS.md:43:one the host's hook put in your context, or `questions.py --window --session <tag>` — and declare\nAGENTS.md:44:where the message lands with `questions.py --declare \"<line>\" --session <tag>`, again whenever\nAGENTS.md:53:answered without. Only the working agent declares, never a helper. Under `debug=on`, show each\nAGENTS.md:65:may name a path under `docs/` only when that path is a record a mechanism declares — the directory",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "0720b357-f52a-48bc-a9fd-17960cc70f3d",
+        "promptId": "a758ecaf-d03a-4c3e-ac4c-5ed8b987571f"
+      },
+      "original_record_sha256": "adafdfe61e3b1f979ecc210c4072a0d87321b31d6ea1ab6e520aaf246cd3f0e6",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "581": {
+      "timestamp": "2026-10-02T20:58:24.320Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "9e53f4cb-6e59-4f23-a913-0dde1350f0ee",
+        "parentUuid": "ab4ebfe0-0b20-44ee-b357-9d046ed04b35",
+        "timestamp": "2026-10-02T20:58:24.320Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe5ccyfpumwNmSR12R56",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01BTh5S4Jc1bNrihBvNmo1B3",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md",
+                "old_string": "## Acceptance criteria — firmed at the align, 2026-09-29",
+                "new_string": "## Impact — 2026-10-02, the subcommand slice for decision 56\n\n**Impact.** One slice, `.0011`, through every layer the declared line reaches:\n- **`questions.py`'s command line:** `--declare` and its parser go — `parse`, `_clause`, `FORMS`,\n  the one-`at` rule — and the event subcommands take their place, each building the same\n  `Clause` the writer applies today, so the writer and its interference recheck keep their\n  shape.\n- **`open`:** assigns the id and prints it.\n- **Q1 in `questions.rules.md`:** its examples become calls, `nothing` goes, and \"declared line\"\n  becomes \"call\". Reinstalled, it moves the entry contract to v19, with its findings line.\n- **Q2 and Q3:** Q2's *declare it* and Q3's *in a declared line with its `at`*.\n- **The questions skill:** its description, *Invoked by a person*, the table under *The declared\n  line*, and *Closing*'s last line.\n- **The mechanism doc:** the instruction line, the moments row, *What retires this*, and graded\n  test 1.\n- **The writer's tests that build lines:** some twenty call sites.\n- **The two RFCs planned before this decision:** `.0012` says v19 and repoints by a declared line;\n  `.0015` adds `undepends` to the grammar and closes q-0008 by a line. Both take a validation pass\n  after `.0011` lands.\n\n**Hidden edges.**\n- **Two sessions opening at once.** With the agent naming the id, the second is refused, \"declare\n  it again with the next free id\". With the script naming it, the script itself takes the next free\n  id and retries, so that refusal goes. The existing race test changes from refusal to retry.\n- **The window's *next free id* line** was there for the agent to name an id. The agent no longer\n  names one, so the line can go.\n- **Free text still passes through the shell.** That was true of the line too. Under bash, a\n  backtick or `$` inside double quotes is expanded, which matters for a closure link whose text\n  holds code spans. Must verify: the skill's examples quote safely in the shells the hosts run.\n- **The verb *declare* stays the act's name.** *declared line* is in no glossary, so only prose\n  moves.\n- **Parent decisions 25, 32, 39 and 45** keep their text as provenance. Decision 39 gains a\n  pointer to 56.\n\n**Leave alone.**\n- The read and lifecycle flags `--check`, `--window`, `--wake`, `--tree`, `--end` and `--hook`:\n  they are not the grammar. Three hosts' hook files, the verification set, and Q2 and Q4 name them,\n  so making them subcommands too is a separate tidy-up with no failure behind it.\n- The `Clause` front door, which the judge's typed value will use.\n- Historical records: session records, the findings record's v18 section, and `.0010`'s RFC.\n- `.0017`, which touches the slug and not the command line.\n\n**Recommendation.** Proceed, narrowed to the event writes. The problem is demonstrated: a lean\nholding `; ` was refused at this align, the id race is refused by design, and the parser's reason\n— a hook reading the reply — never shipped. One slice; AFK, since decision 56 settles every choice\nit carries. It lands after `.0017` and before `.0012` and `.0015`, so both are built on the\nsubcommands rather than migrated.\n\n## Acceptance criteria — firmed at the align, 2026-09-29"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "36bd51c7883171f58d652035fc21982414595fa912c19235f58ddb8cd0652248",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "582": {
+      "timestamp": "2026-10-02T20:58:24.459Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "04a343eb-626a-4e58-9657-80d27748efb5",
+        "parentUuid": "9e53f4cb-6e59-4f23-a913-0dde1350f0ee",
+        "timestamp": "2026-10-02T20:58:24.459Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01BTh5S4Jc1bNrihBvNmo1B3",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md has been updated successfully."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md",
+          "oldString": "## Acceptance criteria — firmed at the align, 2026-09-29",
+          "newString": "## Impact — 2026-10-02, the subcommand slice for decision 56\n\n**Impact.** One slice, `.0011`, through every layer the declared line reaches:\n- **`questions.py`'s command line:** `--declare` and its parser go — `parse`, `_clause`, `FORMS`,\n  the one-`at` rule — and the event subcommands take their place, each building the same\n  `Clause` the writer applies today, so the writer and its interference recheck keep their\n  shape.\n- **`open`:** assigns the id and prints it.\n- **Q1 in `questions.rules.md`:** its examples become calls, `nothing` goes, and \"declared line\"\n  becomes \"call\". Reinstalled, it moves the entry contract to v19, with its findings line.\n- **Q2 and Q3:** Q2's *declare it* and Q3's *in a declared line with its `at`*.\n- **The questions skill:** its description, *Invoked by a person*, the table under *The declared\n  line*, and *Closing*'s last line.\n- **The mechanism doc:** the instruction line, the moments row, *What retires this*, and graded\n  test 1.\n- **The writer's tests that build lines:** some twenty call sites.\n- **The two RFCs planned before this decision:** `.0012` says v19 and repoints by a declared line;\n  `.0015` adds `undepends` to the grammar and closes q-0008 by a line. Both take a validation pass\n  after `.0011` lands.\n\n**Hidden edges.**\n- **Two sessions opening at once.** With the agent naming the id, the second is refused, \"declare\n  it again with the next free id\". With the script naming it, the script itself takes the next free\n  id and retries, so that refusal goes. The existing race test changes from refusal to retry.\n- **The window's *next free id* line** was there for the agent to name an id. The agent no longer\n  names one, so the line can go.\n- **Free text still passes through the shell.** That was true of the line too. Under bash, a\n  backtick or `$` inside double quotes is expanded, which matters for a closure link whose text\n  holds code spans. Must verify: the skill's examples quote safely in the shells the hosts run.\n- **The verb *declare* stays the act's name.** *declared line* is in no glossary, so only prose\n  moves.\n- **Parent decisions 25, 32, 39 and 45** keep their text as provenance. Decision 39 gains a\n  pointer to 56.\n\n**Leave alone.**\n- The read and lifecycle flags `--check`, `--window`, `--wake`, `--tree`, `--end` and `--hook`:\n  they are not the grammar. Three hosts' hook files, the verification set, and Q2 and Q4 name them,\n  so making them subcommands too is a separate tidy-up with no failure behind it.\n- The `Clause` front door, which the judge's typed value will use.\n- Historical records: session records, the findings record's v18 section, and `.0010`'s RFC.\n- `.0017`, which touches the slug and not the command line.\n\n**Recommendation.** Proceed, narrowed to the event writes. The problem is demonstrated: a lean\nholding `; ` was refused at this align, the id race is refused by design, and the parser's reason\n— a hook reading the reply — never shipped. One slice; AFK, since decision 56 settles every choice\nit carries. It lands after `.0017` and before `.0012` and `.0015`, so both are built on the\nsubcommands rather than migrated.\n\n## Acceptance criteria — firmed at the align, 2026-09-29",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 706,
+              "oldLines": 6,
+              "newStart": 706,
+              "newLines": 54,
+              "lines": [
+                " text and the other two AFK. None depends on another: the rename moves entries the lookup slice",
+                " repoints, and the mover carries the links whichever lands first.",
+                " ",
+                "+## Impact — 2026-10-02, the subcommand slice for decision 56",
+                "+",
+                "+**Impact.** One slice, `.0011`, through every layer the declared line reaches:",
+                "+- **`questions.py`'s command line:** `--declare` and its parser go — `parse`, `_clause`, `FORMS`,",
+                "+  the one-`at` rule — and the event subcommands take their place, each building the same",
+                "+  `Clause` the writer applies today, so the writer and its interference recheck keep their",
+                "+  shape.",
+                "+- **`open`:** assigns the id and prints it.",
+                "+- **Q1 in `questions.rules.md`:** its examples become calls, `nothing` goes, and \"declared line\"",
+                "+  becomes \"call\". Reinstalled, it moves the entry contract to v19, with its findings line.",
+                "+- **Q2 and Q3:** Q2's *declare it* and Q3's *in a declared line with its `at`*.",
+                "+- **The questions skill:** its description, *Invoked by a person*, the table under *The declared",
+                "+  line*, and *Closing*'s last line.",
+                "+- **The mechanism doc:** the instruction line, the moments row, *What retires this*, and graded",
+                "+  test 1.",
+                "+- **The writer's tests that build lines:** some twenty call sites.",
+                "+- **The two RFCs planned before this decision:** `.0012` says v19 and repoints by a declared line;",
+                "+  `.0015` adds `undepends` to the grammar and closes q-0008 by a line. Both take a validation pass",
+                "+  after `.0011` lands.",
+                "+",
+                "+**Hidden edges.**",
+                "+- **Two sessions opening at once.** With the agent naming the id, the second is refused, \"declare",
+                "+  it again with the next free id\". With the script naming it, the script itself takes the next free",
+                "+  id and retries, so that refusal goes. The existing race test changes from refusal to retry.",
+                "+- **The window's *next free id* line** was there for the agent to name an id. The agent no longer",
+                "+  names one, so the line can go.",
+                "+- **Free text still passes through the shell.** That was true of the line too. Under bash, a",
+                "+  backtick or `$` inside double quotes is expanded, which matters for a closure link whose text",
+                "+  holds code spans. Must verify: the skill's examples quote safely in the shells the hosts run.",
+                "+- **The verb *declare* stays the act's name.** *declared line* is in no glossary, so only prose",
+                "+  moves.",
+                "+- **Parent decisions 25, 32, 39 and 45** keep their text as provenance. Decision 39 gains a",
+                "+  pointer to 56.",
+                "+",
+                "+**Leave alone.**",
+                "+- The read and lifecycle flags `--check`, `--window`, `--wake`, `--tree`, `--end` and `--hook`:",
+                "+  they are not the grammar. Three hosts' hook files, the verification set, and Q2 and Q4 name them,",
+                "+  so making them subcommands too is a separate tidy-up with no failure behind it.",
+                "+- The `Clause` front door, which the judge's typed value will use.",
+                "+- Historical records: session records, the findings record's v18 section, and `.0010`'s RFC.",
+                "+- `.0017`, which touches the slug and not the command line.",
+                "+",
+                "+**Recommendation.** Proceed, narrowed to the event writes. The problem is demonstrated: a lean",
+                "+holding `; ` was refused at this align, the id race is refused by design, and the parser's reason",
+                "+— a hook reading the reply — never shipped. One slice; AFK, since decision 56 settles every choice",
+                "+it carries. It lands after `.0017` and before `.0012` and `.0015`, so both are built on the",
+                "+subcommands rather than migrated.",
+                "+",
+                " ## Acceptance criteria — firmed at the align, 2026-09-29",
+                " ",
+                " - [ ] The `questions` mechanism is declared to the shape and `mechanisms.py --check` is clean"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false,
+          "contentNotInModelContext": true
+        },
+        "sourceToolAssistantUUID": "9e53f4cb-6e59-4f23-a913-0dde1350f0ee",
+        "promptId": "a758ecaf-d03a-4c3e-ac4c-5ed8b987571f"
+      },
+      "original_record_sha256": "8ca60509b3b9705f71bfa9d6e8dd19a9a0da93128b6941c8763b8205b9ff9fc1",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "591": {
+      "timestamp": "2026-10-02T20:58:35.578Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "3972c2b4-113c-4987-bd2c-90d065609aaa",
+        "parentUuid": "0b0e03ca-4eff-4945-a0c2-b0a074cc2942",
+        "timestamp": "2026-10-02T20:58:35.578Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe5epCevgEx9iVzPj7d8",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "I recorded the impact on [the parent ticket](docs/tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md). Here's the slice I propose, not minted until you approve (breakdown=ask).\n\n**1. `01-0011.0100.0011`: the agent calls a subcommand per event, and the script assigns ids**\n- **Interaction:** AFK. Decision 56 settles every choice it carries.\n- **Depends on:** `.0010` (the store and its writer). It lands after `.0017`, and before `.0012` and `.0015`.\n- **Parent scope covered:** decision 56.\n- **Outcome:** each event of a turn is recorded by calling `questions.py` with a subcommand, and a new question's id is the script's to assign. The declared line and its grammar are gone, and nothing the store promised is lost.\n- **Acceptance criteria (draft):**\n  - Each event — `at`, `open`, `close`, `move`, `depend`, `undepend`, `suspect`, `clear`, `lean`, `assign` — is written by its subcommand with `--session`. A bad call is refused with standard usage and writes nothing. Tested.\n  - `open` assigns the next free id and prints it. Two sessions opening at once both succeed, with different ids. Tested.\n  - `--declare` and its grammar no longer exist.\n  - Q1 shows calls, not lines. The entry contract announces v19. Q2, Q3, the skill and the mechanism doc speak of calls. `inject_rules.py --check`, `mechanisms.py --check` and `questions.py --check` are clean.\n  - `/verify` has been run.\n\n**What the impact found, briefly:**\n- **Recommendation:** proceed, narrowed to the event writes. The problem is demonstrated: my lean holding `; ` was refused at this align, the id race is refused by design, and the parser's original reason never shipped.\n- **The race simplifies:** when two sessions open questions at once, the script takes the next free id and retries instead of refusing.\n- **The window's *next free id* line goes,** since the agent no longer names ids.\n- **Must verify:** free text still passes through the shell. Backticks and `$` inside double quotes get expanded under bash, which matters for closure links that contain code spans.\n- **Leave alone:** `--check`, `--window`, `--wake`, `--tree`, `--end` and `--hook` stay as flags. Three hosts' hook files and the verification set name them, and nothing has failed there.\n- **Knock-on:** `.0012` (its v19 becomes v20, and its repointing becomes `close` calls) and `.0015` (`undepends` becomes the `undepend` subcommand) each get a validation pass after `.0011` lands.\n\nDoes one slice feel right? Is the dependency order right: `.0017` → `.0011` → `.0012` and `.0015`? Is AFK correct? If you approve, I'll mint it, register it in the queue, and close q-0018 against decision 56."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "401d9930942b588801908dee256ca136993a96a98acaf74a575604f8dff37717",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "595": {
+      "timestamp": "2026-10-02T21:06:04.609Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "524fbf79-7924-47d3-ab57-4f4e38a5eac5",
+        "parentUuid": "423bdfb2-746d-4586-8767-b8a3ba265a7e",
+        "timestamp": "2026-10-02T21:06:04.609Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "yes. whats 0017?"
+        },
+        "promptId": "678984f6-021f-4594-9bf9-8ada90077842"
+      },
+      "original_record_sha256": "a6fd5fde16a3b90725caf6cf8c373ccd41c0863bddfa4b23165ebd4df422567d",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    }
+  }
+}

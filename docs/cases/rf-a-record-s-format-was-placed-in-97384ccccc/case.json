@@ -1,0 +1,165 @@
+{
+  "id": "rf-a-record-s-format-was-placed-in-97384ccccc",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "15. A record's format was placed in a mechanism's doc — 2026-09-27",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "mark format in descriptive doc"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/786",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.281"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/786/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-09-27T11:16:34.095Z",
+    "chat_id": "019d56a5-08d3-4cc6-a571-19a8e2d0c100",
+    "trigger_message_id": null,
+    "trigger_record_id": "a2c87c9a-b6a4-44fe-90a0-eed008b58aed",
+    "failure_message_id": "msg_011CfTrDpv4qsTPrgKX1KvY4",
+    "failure_record_id": "ddc91cd9-bcbc-44fd-a991-d6df1976a39c",
+    "transcript": "019d56a5-08d3-4cc6-a571-19a8e2d0c100.jsonl"
+  },
+  "observed_failure": {
+    "description": "Planning recommends maintain.md for the marks format via the shelf fallback.",
+    "events": [
+      {
+        "source": "source.json#/records/786",
+        "message_id": "msg_011CfTrDpv4qsTPrgKX1KvY4",
+        "record_id": "ddc91cd9-bcbc-44fd-a991-d6df1976a39c",
+        "timestamp": "2026-09-27T11:16:34.095Z",
+        "text": "Recorded: trigger 2 now covers the doc, rules file and skill directory. Due records are the live ones, plus historical ones where a mechanical change stays inside the tree.\n\n## Plan question 2: where is the marks file's format written down?\n\n**Context:** `docs/mechanisms/maintenance.md` holds one row per mechanism per level: fingerprint, date, outcome. A small checker reports a malformed row. Some text has to say what a valid row is, so the checker and a human reader agree.\n\n**The contradiction:**\n- The ticket says the marks *\"declare their own shape inside their own file\"*: a preamble at the top of `maintenance.md` describing the columns.\n- MECHANISM-FORMAT §Records, the later and more specific rule, says a mechanism declares a record's format *\"where that record's format is declared — its format shelf, or its doc where it has no shelf.\"* The maintain mechanism has no shelf, so that means `maintain.md`.\n\n**What decides it:** the marks file lives in `docs/`, which belongs to the project, and a fresh tree has none.\n- **In the file:** the script has to hold a copy of the preamble to write into each new file. That's two homes for the format, and a recipient's old preamble goes stale when core changes it.\n- **In `maintain.md`:** the format lives once, in core, and reaches every recipient on update. The marks file holds only rows under a heading. That's how tickets already work: their format is in `TICKET-FORMAT.md`, not repeated inside each ticket.\n\n**My recommendation:** the format goes in `maintain.md`'s records declaration, with the three fields §Records asks for and the columns. `maintenance.md` holds only its table. The ticket's line changes to match.\n\nDeclare the format in `maintain.md`?"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Put actionable format in a format file linked by skill/doc, or in the skill when small; report contradictory guidance.",
+    "source_evidence": [
+      "source.json#/records/16",
+      "source.json#/records/692",
+      "source.json#/records/703",
+      "source.json#/records/704",
+      "source.json#/records/16"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Put actionable format in a format file linked by skill/doc, or in the skill when small; report contradictory guidance.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/787"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "Planning recommends maintain.md for the marks format via the shelf fallback.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/786",
+      "after": "source.json#/records/782",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/688",
+      "source.json#/records/690",
+      "source.json#/records/691",
+      "source.json#/records/692",
+      "source.json#/records/696",
+      "source.json#/records/697",
+      "source.json#/records/698",
+      "source.json#/records/701",
+      "source.json#/records/702",
+      "source.json#/records/703",
+      "source.json#/records/704",
+      "source.json#/records/705",
+      "source.json#/records/706",
+      "source.json#/records/709",
+      "source.json#/records/710",
+      "source.json#/records/713",
+      "source.json#/records/714",
+      "source.json#/records/715",
+      "source.json#/records/716",
+      "source.json#/records/719",
+      "source.json#/records/720",
+      "source.json#/records/723",
+      "source.json#/records/724",
+      "source.json#/records/727",
+      "source.json#/records/728",
+      "source.json#/records/729",
+      "source.json#/records/730",
+      "source.json#/records/731",
+      "source.json#/records/735",
+      "source.json#/records/736",
+      "source.json#/records/737",
+      "source.json#/records/738",
+      "source.json#/records/741",
+      "source.json#/records/742",
+      "source.json#/records/745",
+      "source.json#/records/746",
+      "source.json#/records/749",
+      "source.json#/records/750",
+      "source.json#/records/754",
+      "source.json#/records/755",
+      "source.json#/records/756",
+      "source.json#/records/757",
+      "source.json#/records/761",
+      "source.json#/records/762",
+      "source.json#/records/766",
+      "source.json#/records/768",
+      "source.json#/records/771",
+      "source.json#/records/772",
+      "source.json#/records/776",
+      "source.json#/records/777",
+      "source.json#/records/778",
+      "source.json#/records/779",
+      "source.json#/records/780",
+      "source.json#/records/781",
+      "source.json#/records/782"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/16"
+      ],
+      "native_context_records": [
+        "source.json#/records/16"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/786"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

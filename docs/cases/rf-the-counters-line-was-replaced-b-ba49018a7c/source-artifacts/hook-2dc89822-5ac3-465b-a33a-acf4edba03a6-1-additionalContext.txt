@@ -1,0 +1,73 @@
+session: local_540b00a6-1431-48a8-b56b-03ff4a4107c4
+current: q-0024.0009
+
+path (root to current):
+  q-0024 [open] Who produces and who consumes each skill and document?
+    q-0024.0009 [open] What kinds of written thing does a tree hold, and which of them does /maintain hold in agreement? (struck 5)  ~ 2026-10-11: the four kinds stand, a mechanism's doc what must always hold; the mark says how a record is treated, drift goes to declared pairs with a detector, q-0024.0009.0006  <- current
+
+frontier (children of each question on the path):
+  under q-0024: q-0024.0001 [open] How is a term kept out of a record until the glossary defines it?
+  under q-0024: q-0024.0002 [open] How does a project change how it builds in one edit?
+  under q-0024: q-0024.0003 [open] What notices a new skill an existing rules file should now name?
+  under q-0024: q-0024.0004 [open] Where does a mechanism declare the records it writes, so a script can read them?
+  under q-0024: q-0024.0005 [open] How are links checked outside a close?
+  under q-0024: q-0024.0008 [open] Does every mechanism that governs what is written owe /maintain a re-check of it, installed from its own rules?  ~ the user, 2026-10-05: not any writing — /maintain is for load-bearing records, not logs, research or drafts; three mechanisms already install a re-check there, the mechanism shape, the ticket and the questions mechanisms; waits on the classification of what is written; kept for later
+  under q-0024: q-0024.0011 [open] How does a new task find the live ticket it belongs to, before another is minted?  ~ opened 2026-10-10: P12 has the minter read tickets.py --list first; the matching method is unwritten
+  under q-0024: q-0024.0012 [open] Where is the line between the method a person works by — the questions, the steps, the stops, the reply's form — and the machinery beneath it that nobody works by hand, and how is the machinery kept out of what an agent says to them?  ~ the user, 2026-10-11: three layers — method (what self-improvement promises to improve: the loop, the stops, the reply's form, the questions, the tickets' acts), practice (what a project swaps), machinery (what carries both, shown only under debug); the line runs inside a skill, whose instructions keep every call they need, so it is drawn in what the reply says — v77's *A reply speaks the method*, a straw dog bound here, graded by the seventh install: it holds, the residue the gate retold in plain words, a file and an interpreter by name; the entry file's own machinery is q-0026.0006's; open: the lamps under debug (q-0030), and the decisions here land once the method mechanism is declared (01-0017)
+  under q-0024.0009: q-0024.0009.0003 [open] How do the ticket and the queue hold what comes next alone, with the draft in the question's body? (struck 2)  ~ 2026-10-12: 01-0011.0110.0040 verified and open on its first criterion alone, no check reading an RFC's mark until /plan is a mechanism; story 19 moved to q-0034
+  under q-0024.0009: q-0024.0009.0004 [closed:decided] How does a thing an agent edits carry the mark back to the record that governs it, inside core and instance? (struck 2)  ~ 2026-10-12: the core half landed by 01-0011.0110.0050 — every skill, script, test and hook a mechanism owns names it, held both ways; the project-code half is q-0024.0009.0004.0002, 01-0011.0110.0055's, its align next
+
+open questions under this root (q-0024), with their parent:
+  q-0024.0001 (parent q-0024) How is a term kept out of a record until the glossary defines it?
+  q-0024.0001.0001 (parent q-0024.0001) What does the glossary mechanism own?
+  q-0024.0002 (parent q-0024) How does a project change how it builds in one edit?
+  q-0024.0002.0001 (parent q-0024.0002) How many of the load-bearing factors make a thing load-bearing, or which suffice alone?
+  q-0024.0002.0002 (parent q-0024.0002) Does the entry file's domain example ship to recipients?
+  q-0024.0002.0003 (parent q-0024.0002) What does docs/process.md keep once method text leaves it?  ~ under the entry file at v31 its method text in instruction form is drift: a document informs and never instructs, so what stays is information, and each instruction moves to the skill that owns it or goes
+  q-0024.0002.0004 (parent q-0024.0002) Is the practice one mechanism with two corpora, or two mechanisms?
+  q-0024.0002.0005 (parent q-0024.0002) What does the practice mechanism own?
+  q-0024.0003 (parent q-0024) What notices a new skill an existing rules file should now name?
+  q-0024.0004 (parent q-0024) Where does a mechanism declare the records it writes, so a script can read them?
+  q-0024.0005 (parent q-0024) How are links checked outside a close?
+  q-0024.0008 (parent q-0024) Does every mechanism that governs what is written owe /maintain a re-check of it, installed from its own rules?  ~ the user, 2026-10-05: not any writing — /maintain is for load-bearing records, not logs, research or drafts; three mechanisms already install a re-check there, the mechanism shape, the ticket and the questions mechanisms; waits on the classification of what is written; kept for later
+  q-0024.0009 (parent q-0024) What kinds of written thing does a tree hold, and which of them does /maintain hold in agreement? (struck 5)  ~ 2026-10-11: the four kinds stand, a mechanism's doc what must always hold; the mark says how a record is treated, drift goes to declared pairs with a detector, q-0024.0009.0006
+  q-0024.0009.0003 (parent q-0024.0009) How do the ticket and the queue hold what comes next alone, with the draft in the question's body? (struck 2)  ~ 2026-10-12: 01-0011.0110.0040 verified and open on its first criterion alone, no check reading an RFC's mark until /plan is a mechanism; story 19 moved to q-0034
+  q-0024.0009.0003.0001 (parent q-0024.0009.0003) How does every record an agent edits show what it is a record of? (struck 2)  ~ the ticket, the queue, the question entry, the RFC and the mechanism doc carry `- **record of** <kind>`, held by their checks and turned to what happened at close, 2026-10-10 by 01-0011.0110.0040.0010; the edge records and the records without a format wait on q-0024.0009.0003.0001.0001
+  q-0024.0009.0003.0001.0001 (parent q-0024.0009.0003.0001) How do the records outside the ticket, the queue, the question entry, the RFC and the mechanism doc show what they are a record of?  ~ edge records, a mechanism's evidence and records without a format carry no mark; unweighed
+  q-0024.0009.0003.0002.0002 (parent q-0024.0009.0003.0002) Must a project's own board link each of its items to the question it answers, and how?  ~ opened 2026-10-11 from the ticket contract: the clause stands in the format as a straw dog bound here; to be thought through
+  q-0024.0009.0003.0004 (parent q-0024.0009.0003) What is the queue's file called once it holds the order and no status?  ~ the file, its heading and harness.py DELIVERY_STATUS still say delivery status; a rename crosses the installer and every recipient
+  q-0024.0009.0004.0002.0001 (parent q-0024.0009.0004.0002) How does code in one repository name a rule that a record in another repository states?
+  q-0024.0011 (parent q-0024) How does a new task find the live ticket it belongs to, before another is minted?  ~ opened 2026-10-10: P12 has the minter read tickets.py --list first; the matching method is unwritten
+  q-0024.0012 (parent q-0024) Where is the line between the method a person works by — the questions, the steps, the stops, the reply's form — and the machinery beneath it that nobody works by hand, and how is the machinery kept out of what an agent says to them?  ~ the user, 2026-10-11: three layers — method (what self-improvement promises to improve: the loop, the stops, the reply's form, the questions, the tickets' acts), practice (what a project swaps), machinery (what carries both, shown only under debug); the line runs inside a skill, whose instructions keep every call they need, so it is drawn in what the reply says — v77's *A reply speaks the method*, a straw dog bound here, graded by the seventh install: it holds, the residue the gate retold in plain words, a file and an interpreter by name; the entry file's own machinery is q-0026.0006's; open: the lamps under debug (q-0030), and the decisions here land once the method mechanism is declared (01-0017)
+
+suspect under this root:
+  q-0024.0009.0004.0001 [closed:superseded, suspect] How does a project's own code name the record that governs it?  ~ deferral struck by its own premise, 2026-10-11: eight recipients on this machine hold their own code under their own architecture docs — frost_map 34 files in src, meteoscape 106 own files — and almost none names the doc that governs it; the second shape exists
+
+other roots:
+  q-0001 [open] How are the open questions of this tree kept, so that none is lost? (struck 3)  ~ the store holds every live ticket's open questions under the question the ticket answers, and every straw dog is bound to the question it waits on; ids nest by step one and a closure archives what it finishes; the turn steered from the store, .0040, is next
+  q-0005 [open] How does a group install target resolve to a file and an anchor in each member?  ~ membership declared from both ends, the group in the rules file and the file and anchor in each member
+  q-0006 [closed:deferred] Could the rule set be composite, with no pure core anywhere?  ~ reachable a section at a time, as Project-local already is
+  q-0007 [open] Can a notion of abstraction height be established, and what is it?  ~ 01-0012's four levels — intent, strategy, behaviour, action — as the candidate
+  q-0016 [open] What is an agent role, and which mechanism keeps roles?  ~ a role is set when an agent starts and grants its permissions, its rights over the store and their scope, and its skill set
+  q-0017 [open] Does working under the harness deliver software better than working without it, measured on the same tasks? (struck 1)
+  q-0018 [open] How do projects share one development method without losing their own conventions? (struck 2)  ~ the user, 2026-10-11: research-harness, the first recipient with a method of its own, stands on five things open here — q-0018.0019, 01-0020, 01-0017.0020, mechanisms from a second repository (no question yet), q-0017; its architecture read as this queue's order, the reordering the user's
+  q-0021 [open] Do the tests catch the regressions their names promise? (struck 2)
+  q-0022 [open] What is scope, in one account the whole harness points at?
+  q-0023 [open] Does each skill state only what it owns?
+  q-0025 [open] Does each rule reach the occasion it is for? (struck 4)  ~ 2026-10-11: failures 34 (a first install reported machinery, commit asked under auto), 35, 36, 40 this session, 37–39 beside it; 33 struck; the recipient agent's misses — EQUIP, the origin's switch values, both hosts' links — traced to the install skill's own words
+  q-0026 [open] How does the harness amend its own rules by stated meta-rules? (struck 2)  ~ rule failure 30 landed as v58: commit=auto commits when /verify passed, the verification set and the work read against what governs it
+  q-0027 [open] How does each turn know its next step, and each session where to resume? (struck 2)  ~ session 49: a Claude Code session is keyed on the desktop app own id for the conversation, so a reopening under a new id resumes it; observed passing in the app and the terminal; the transcript match removed
+  q-0028 [open] Must a rules-file section name its moment and outcome, or be refused?
+  q-0029 [open] How is produced work gone over again: over what scope, by what criteria, by whom, and to what result? (struck 1)  ~ 2026-10-13: an outside audit's findings went unhomed for two weeks; this session's became 01-0035 through /ticket by hand — the pass still has no path from finding to work
+  q-0030 [open] How does a reply show the principles each of its claims stands on, and where are the principles named for it? (struck 5)  ~ the form at v83 — lamp names a principle as its home names it, never a rule id, 無 for a missing one; proposed or landed text framed by its statement, 🧩 a rule, ⚓ an invariant, ✏️ any other change, Proposed or Landed never both; a switch written 🛠️ <switch>=<value>; ⚖️ decisions with the next step stopped before, 🍂 drift, a table only with a row; the reply opens with 🪢, every session question id linked on its header line then each collision, then 🪶 Commits, then the window counters, then the head table; 🔁 for a completed step; ⚡ kept for urgency, unassigned
+  q-0031 [open] What is the harness, said to a reader who arrives cold, and what of it does the front page carry? (struck 3)  ~ 2026-10-13: the README's install promise brought to the installer — an existing CLAUDE.md stops it; counts 57 sessions, 41 misses
+  q-0033 [open] Which pains of developing software with coding agents does the harness exist to relieve, and what answers each? (struck 1)  ~ the user, 2026-10-09: the answer lives in docs/product.md; from 2026-10-13 this tree's purpose root (q-0035 decision 2), its rows to be numbered and bound under it by [01-0040.0040 this-trees-account-runs-on-the-mechanism](../tickets/01-0040.0040-this-trees-account-runs-on-the-mechanism.md)
+  q-0034 [open] What is a session to the harness, and which mechanism keeps its lifecycle? (struck 1)  ~ 2026-10-12: q-0034.0002 closed — main publishable, held-back work on its own branch; a branch per session waits with a store outside git, q-0034.0002.0001 deferred; its align next: the border with the pacer, the five questions to gather
+  q-0035 [open] What is a project's product document to the method, and which of the method's mechanisms keeps it and the project's work in agreement both ways?  ~ decisions 1–11, the user, 2026-10-12/13; its spec accepted and [01-0040](../tickets/01-0040-a-projects-account-stays-in-agreement-with-its-work.md) minted with seven slices, .0010 Ready; its place in the order the user's; open: the README (.0005), the measure (.0004, parked)
+
+other running sessions:
+  local_8a5ef97a-c714-4205-9e76-d64a63a436e1 at no position yet (last wrote 2026-10-13T07:06Z)
+
+recently attached: q-0024.0009.0004, q-0024.0009.0004.0002, q-0035
+
+🎫 41 (-3) · ❓ 162 (+1-4) · 🐕 176

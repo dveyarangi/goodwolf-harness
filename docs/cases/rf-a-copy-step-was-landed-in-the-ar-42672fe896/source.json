@@ -1,0 +1,1117 @@
+{
+  "transcript": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965.jsonl",
+  "chat_id": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+  "transcript_bytes": 8458091,
+  "transcript_sha256": "b86dd387ce719d2284e742665da5c8ebc887b81e1deb470aa2cfa3e54efb17c6",
+  "record_numbering": "one-based JSONL records in the original transcript",
+  "delivery_context": null,
+  "records": {
+    "19": {
+      "timestamp": "2026-10-03T11:38:22.383Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "d1214ea1-e1ad-4c47-ab98-7607866fd6a8",
+        "parentUuid": "beb7aca3-8065-4eb3-81eb-a1d81f01d03c",
+        "timestamp": "2026-10-03T11:38:22.383Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "instructions",
+          "files": [
+            {
+              "path": "D:\\Dev\\AI\\agents\\CLAUDE.md",
+              "type": "Project",
+              "content": "@AGENTS.md"
+            },
+            {
+              "path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+              "type": "Project",
+              "content": "# Entry contract\n\nEntry contract: v24, 2026-10-03.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<straw-dog until=\"01-0020 is done\" ticket=\"docs/tickets/01-0020-pacer.md\">\nRun /recall first in every session, whatever the first message says.\n</straw-dog>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n- Clarity and simplicity first — Occam's razor: take the shape with the fewest parts that does the job, and remove before you add.\n\n- Write for a capable model: state the rule and its pointer. The definition the glossary owns, the example that motivated it, what it implies, and what a script already does for the reader stay out.\n\n<straw-dog until=\"01-0018 declares the mechanism that owns tiering\" ticket=\"docs/tickets/01-0018-reachability-coherent.md\">\n- A skill's description is its tier-1 surface: name there every use case the skill serves, and nothing else — never its method or how it is built. Write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session.\n</straw-dog>\n\n<installed by=\"ticket\">\n**P9** The first time a record or a reply names a ticket, name it by a link to its record whose text\ncarries its slug — the id may lead it; later mentions may be the id alone. Name one that has no\nrecord yet by a slug and its state word.\n</installed>\n\n<installed by=\"questions\">\n**Q1** Before drafting a reply, place the message in the question store: read this turn's window — the\none the host's hook put in your context, or `questions.py --window --session <tag>`, the script\nbeing `.agents/scripts/gw/questions.py` — and call `questions.py at q-N --session <tag>` where the\nmessage lands, and the store's other calls whenever the turn's own work settles, opens or moves a\nquestion:\n\n- `questions.py at q-0004 --session <tag>`\n- `questions.py open '<question>' --under q-0004 --session <tag>`, which prints the id it gave\n- `questions.py close q-0004 decided '[link](../path.md) — who, date' --session <tag>`\n\nBefore opening a question, look for its answer in the docs and the code: found, point to it and\nopen nothing; not found, open it. A message that lands nowhere makes no call. Only the working\nagent calls, never a helper. Under `debug=on`, head the reply with a one-cell table holding a row\nfor each question the turn stood on, in order, the first over `|---|`: `| ↳ **q-N** · <its\nquestion as the window writes it> |` for the one the turn ends on, `| ✓ **q-N** · <question>\n(<kind>: <its answer>) |` for one closed in it, the question alone for one it left open. For any\nother call, a closure, a branching or a drop, read the questions skill.\n\n**Q5** The first time a reply names a question, write its id with its question as the window writes it;\nlater mentions may be the id alone. A question the store does not hold yet is written out, never\nnamed after the ticket it will belong to.\n</installed>\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. A core file\nmay name a path under `docs/` only when that path is a record a mechanism declares — the directory\nthat holds a kind of record, or a file that is one — never a particular record inside such a\ndirectory: `docs/tickets/` and `docs/glossary.md` are painted doors; one particular ticket inside\n`docs/tickets/` is a document only this project has. Content inside the\n[local block](#project-local) is the instance's, not core's. A `<straw-dog>` exempts\nnothing: its wrapper is stripped on install and whatever it wrapped ships. Core names a ticket\nonly in a straw dog's binding — never in a link, never as a bare id in prose — since a recipient\ncan resolve neither.\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog until=\"the practice mechanism owns how architecture is documented\" ticket=\"docs/tickets/01-0017.0020-practice-swaps-in-one-edit.md\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n\n## Self-improvement\n\n<straw-dog until=\"01-0019 is done\" ticket=\"docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md\">\n- A rule that was in place and did not fire was usually worded wrong. Register the failure in docs/rule-failures.md, or strike the entry it repeats, and propose the amendment that would have made it fire; /mechanism and /skill-up hold the means. Land the amendment in the same pass, showing its text first.\n- Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.\n</straw-dog>\n\n## Autonomy\n\nThe project sets each switch in its local block, under *Project-local*; skills defer to those values.\nA switch the project has not set is `ask`.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n`repair=report` holds only when all four are true: the governing rule is explicit, and cited; the\nrepair restores compliance inside the authorized work and keeps every other agreed contract; the\naffected behaviour is understood well enough to say so; the result is verifiable against the\nrule. Otherwise `/align`. *(the user, 2026-09-05)*\n\n## Project-local\n\n<installed by=\"mechanism-shape\">\n**R7** A project's own answers and overrides are authored in one file beside the entry file,\n`local.rules.md`, in the rules-file format, and reach a file only as the local block — the\ninstalled block whose owner is `local` — which the installer writes after every mechanism's block\nthere, so the project's answer is what a reader meets after core's rule. An override names the rule it\noverrides. A local change to a rule is written in the local file, never into a skill or the entry\nfile, and re-installed. The local block is the project's,\nnot core's, and a redeploy preserves it.\n</installed>\n\n<installed by=\"local\">\n**L1** This repository develops the shared dev harness using its own loop; its own architecture and\nprogress live in docs/ like any other project's — the instance half doing its job, not a leak.\nTerms: docs/glossary.md, this project's own; the method's are .agents/glossary.md's. What each\nversion of the entry contract changed: docs/research/entry-contract-findings.md.\n\n**L2** commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n\n**L4** debug=on\n\n**L5** Run a Python script with `uv run --offline --no-project python <script>`.\n</installed>\n\n## Straw dogs\n\nWrap anything a live ticket will change, as you write it — or, for text already written, in the\npass that mints the ticket or decides that it will change it:\n`<straw-dog until=\"condition\" ticket=\"path\">`, or in code a `TODO` naming the ticket. Treat *not\nyet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find\nthe ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.\nMake the condition testable and the ticket path repository-relative. Write the body to stand on\nits own: it is what a recipient receives once the wrapper is stripped, so it reads whole without\nthe condition and names no ticket — the binding does. Leave what no ticket would change\nunwrapped.\n\nFollow a straw dog like any other rule until its condition is visibly met; then act on reality,\nreport the stale block, and do not treat the contradiction as a violation."
+            },
+            {
+              "path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\memory\\MEMORY.md",
+              "type": "AutoMem",
+              "content": "# Memory\n\n- [Edit with edit tools, not scripts](edit-with-edit-tools-not-scripts.md) — a script's diff is invisible in the transcript; the user reads changes as they happen."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "9ac75e527977bf27d256367046cbd3e612be40460472f3bd6626759a88b5b734",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1501": {
+      "timestamp": "2026-10-03T23:13:27.889Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "735f4ad2-8cb7-47e4-9dc5-8e0cf9f7f0b8",
+        "parentUuid": "c0555e31-0e4f-4109-ad30-9c990e99b881",
+        "timestamp": "2026-10-03T23:13:27.889Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfg9kw4JDs9kpoBBLyPac",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01Rc6SescBKqoayRP56jWmfG",
+              "name": "Bash",
+              "input": {
+                "command": "sed -n '80,102p;165,175p' docs/architecture.md",
+                "description": "Read the architecture's straw-dog section and the shear"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "b99dafa8077940427c9ef06b9f92d31ea6d3a584f8958e2be88bcf61570f3be7",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1506": {
+      "timestamp": "2026-10-03T23:13:29.318Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "77c41c28-15c6-48c0-b218-629722a6a122",
+        "parentUuid": "735f4ad2-8cb7-47e4-9dc5-8e0cf9f7f0b8",
+        "timestamp": "2026-10-03T23:13:29.318Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01Rc6SescBKqoayRP56jWmfG",
+              "is_error": false,
+              "content": "install adds no separate recovery mechanism.\n\n### Straw dogs\n\n[The entry contract](../AGENTS.md#straw-dogs) owns the `<straw-dog>` syntax, ticket binding,\nexpiry, and the duty to wrap when writing. Listing provides source locations and the written\ncondition and owner; the maintainer establishes whether the condition holds from evidence.\nUnknown conditions remain unresolved. Mechanical removal follows that disposition and preserves\nsurviving agreements. Examples describing the syntax are distinct from operative statements.\n\nA removal request identifies an entire obsolete statement; the mechanical tool does not\ndecide whether nested statements have also expired. Reject an outer-block removal while it\ncontains nested blocks. The maintainer disposes of children first and rescans before another\nremoval; active children and enduring agreements require preservation before the outer\nstatement can be removed.\n\nIn code the marking is a comment line beginning `TODO`: one naming its ticket is listed as a\nstraw dog with that owner, and leaves with the code rather than through the tool.\n\nThe listing tool may also guess, from the words a sentence carries or a `TODO` that names no\nticket, where a straw dog stands unwrapped. A guess is a finding for the maintainer, never a\ndiagnostic, and never moves the run's status; what has no named successor is a claim and is\nleft as written.\nwhich a fresh tree's first session reads before anything has been written into it. Its words are\nthe ticket mechanism's, declared with the record's shape and carried in the shipment; the install\nplaces them and composes nothing. A tree that already has one keeps it untouched, overwrite\nincluded — from its first line that record is the instance's.\n\nWhat ships is transformed before it is written: the origin's own local blocks removed, every\nstraw-dog wrapper and every `TODO`'s ticket binding sheared with its content kept, the entry\nfile's announce line stamped `<repository>@<ref>, <date>`, the harness skill's repository line\nstamped with the source the run actually read, and the result held to the same leak rule the\norigin's check applies. A tree whose announce line carries the `@` is a recipient; the line is\nits only revision record, and integrity is asked of the source: a check clones the announced ref"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "install adds no separate recovery mechanism.\n\n### Straw dogs\n\n[The entry contract](../AGENTS.md#straw-dogs) owns the `<straw-dog>` syntax, ticket binding,\nexpiry, and the duty to wrap when writing. Listing provides source locations and the written\ncondition and owner; the maintainer establishes whether the condition holds from evidence.\nUnknown conditions remain unresolved. Mechanical removal follows that disposition and preserves\nsurviving agreements. Examples describing the syntax are distinct from operative statements.\n\nA removal request identifies an entire obsolete statement; the mechanical tool does not\ndecide whether nested statements have also expired. Reject an outer-block removal while it\ncontains nested blocks. The maintainer disposes of children first and rescans before another\nremoval; active children and enduring agreements require preservation before the outer\nstatement can be removed.\n\nIn code the marking is a comment line beginning `TODO`: one naming its ticket is listed as a\nstraw dog with that owner, and leaves with the code rather than through the tool.\n\nThe listing tool may also guess, from the words a sentence carries or a `TODO` that names no\nticket, where a straw dog stands unwrapped. A guess is a finding for the maintainer, never a\ndiagnostic, and never moves the run's status; what has no named successor is a claim and is\nleft as written.\nwhich a fresh tree's first session reads before anything has been written into it. Its words are\nthe ticket mechanism's, declared with the record's shape and carried in the shipment; the install\nplaces them and composes nothing. A tree that already has one keeps it untouched, overwrite\nincluded — from its first line that record is the instance's.\n\nWhat ships is transformed before it is written: the origin's own local blocks removed, every\nstraw-dog wrapper and every `TODO`'s ticket binding sheared with its content kept, the entry\nfile's announce line stamped `<repository>@<ref>, <date>`, the harness skill's repository line\nstamped with the source the run actually read, and the result held to the same leak rule the\norigin's check applies. A tree whose announce line carries the `@` is a recipient; the line is\nits only revision record, and integrity is asked of the source: a check clones the announced ref",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "735f4ad2-8cb7-47e4-9dc5-8e0cf9f7f0b8",
+        "promptId": "7990c493-ee3c-4a59-9577-159e630d28e0"
+      },
+      "original_record_sha256": "556e29623dfc7addcac284e0d442037787c216c47e945437f8364cec5bacfc9e",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1510": {
+      "timestamp": "2026-10-03T23:14:06.650Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "200a416c-dd09-46f4-8ece-4011dde612fa",
+        "parentUuid": "5e373416-ed70-482a-aa75-199de5154572",
+        "timestamp": "2026-10-03T23:14:06.650Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfg9mCQ2stavV7N4dhESW",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01WMutDS9qVpjCcd75hTCNsc",
+              "name": "Bash",
+              "input": {
+                "command": "grep -n -E 'def _records_in|Refused\\(|def wake|def _wake_read' .agents/scripts/gw/questions.py | head; grep -n -i -A3 'never fails' docs/architecture.md | head -8",
+                "description": "Check the wake's failure rule against a missing scope path"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "65a9ee7590d0224bf043d3344e14131b8e51246c69df288299393767104abf02",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1511": {
+      "timestamp": "2026-10-03T23:14:08.142Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "1f83cf28-b9f7-488d-b9e2-d12433748edf",
+        "parentUuid": "200a416c-dd09-46f4-8ece-4011dde612fa",
+        "timestamp": "2026-10-03T23:14:08.142Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01WMutDS9qVpjCcd75hTCNsc",
+              "is_error": false,
+              "content": "242:class Refused(Exception):\n883:            raise Refused(f\"no session {tag} is registered in {SESSIONS}; `--wake` registers one\")\n899:        raise Refused(f\"no free position under {parent}: four digits end at {LAST_POSITION}\")\n983:def wake(root: Path, today: date, tag: str | None = None) -> str:\n998:def _wake_read(root: Path, held: Session, header: str) -> str:\n1113:            raise Refused(f\"no host `{host_name}`; the hosts are {', '.join(HOSTS)}\")\n1141:        raise Refused(\n1167:        raise Refused(\"the hook's input names no session\")\n1200:            raise Refused(f\"no live entry holds {identity}\")\n1663:            raise Refused(f\"`at {identity}`: {identity} is {state}; a position is an open question\")\n122:delivers the window and registers the session under the host's own session id, and never fails\n123-the host: a problem becomes a line of context. Everything else is\n124-[the questions mechanism](../.agents/mechanisms/questions/questions.md)'s.\n125-"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "242:class Refused(Exception):\n883:            raise Refused(f\"no session {tag} is registered in {SESSIONS}; `--wake` registers one\")\n899:        raise Refused(f\"no free position under {parent}: four digits end at {LAST_POSITION}\")\n983:def wake(root: Path, today: date, tag: str | None = None) -> str:\n998:def _wake_read(root: Path, held: Session, header: str) -> str:\n1113:            raise Refused(f\"no host `{host_name}`; the hosts are {', '.join(HOSTS)}\")\n1141:        raise Refused(\n1167:        raise Refused(\"the hook's input names no session\")\n1200:            raise Refused(f\"no live entry holds {identity}\")\n1663:            raise Refused(f\"`at {identity}`: {identity} is {state}; a position is an open question\")\n122:delivers the window and registers the session under the host's own session id, and never fails\n123-the host: a problem becomes a line of context. Everything else is\n124-[the questions mechanism](../.agents/mechanisms/questions/questions.md)'s.\n125-",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "200a416c-dd09-46f4-8ece-4011dde612fa",
+        "promptId": "7990c493-ee3c-4a59-9577-159e630d28e0"
+      },
+      "original_record_sha256": "df4f49658aa756ea752ecbb97dffaf5510aff0a160a8937c2ebe069a2d628677",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1515": {
+      "timestamp": "2026-10-03T23:14:12.433Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "2f28e3ee-24b7-4b2b-84dd-57621f725f2d",
+        "parentUuid": "290ca30b-3175-49a8-b92b-5200864c6bc8",
+        "timestamp": "2026-10-03T23:14:12.433Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfg9p4HD1xDCd2oNWRUrq",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01EhNSoXpbdQLVueYEJKZwKE",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md",
+                "old_string": "**Authored:** 2026-10-04\n",
+                "new_string": "**Authored:** 2026-10-04\n**Last amended:** 2026-10-04\n"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "30ff27f078ecd7bf0001aa8b0faec0ec054581a0b9e3d91c275b245c2bea6739",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1516": {
+      "timestamp": "2026-10-03T23:14:15.204Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "be4ff85f-58f3-4dc7-87f8-25d3a1c10ebe",
+        "parentUuid": "2f28e3ee-24b7-4b2b-84dd-57621f725f2d",
+        "timestamp": "2026-10-03T23:14:15.204Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfg9p4HD1xDCd2oNWRUrq",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01XZBK7wgA3kSjYqfAWaAmfB",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md",
+                "old_string": "  the same scope `/maintain` lists: `docs`, `AGENTS.md`, `local.rules.md`, `.agents`,\n  `README.md`.",
+                "new_string": "  the same scope `/maintain` lists: `docs`, `AGENTS.md`, `local.rules.md`, `.agents`,\n  `README.md`. A path of that scope the tree lacks is skipped, never refused — a recipient may\n  hold no `local.rules.md` — since a host's hook never fails the host\n  ([architecture](../architecture.md), *the questions mechanism*); the listing, which a person\n  runs over a scope they declared, keeps refusing a path that names nothing."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "d589798bead410392fd81a75507d086a69e3c3f54d3b46c1872e262565754073",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1517": {
+      "timestamp": "2026-10-03T23:14:15.277Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "9be7b1bb-62bc-49ce-9b6f-a753836f83fb",
+        "parentUuid": "2f28e3ee-24b7-4b2b-84dd-57621f725f2d",
+        "timestamp": "2026-10-03T23:14:15.277Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01EhNSoXpbdQLVueYEJKZwKE",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md has been updated successfully."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md",
+          "oldString": "**Authored:** 2026-10-04\n",
+          "newString": "**Authored:** 2026-10-04\n**Last amended:** 2026-10-04\n",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 1,
+              "oldLines": 6,
+              "newStart": 1,
+              "newLines": 7,
+              "lines": [
+                " # A straw dog is bound to the question it waits on — implementation plan",
+                " ",
+                " **Authored:** 2026-10-04",
+                "+**Last amended:** 2026-10-04",
+                " ",
+                " Implements [01-0011.0100.0030 a-straw-dog-is-bound-to-the-question-it-waits-on](../tickets/01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md).",
+                " "
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false,
+          "contentNotInModelContext": true
+        },
+        "sourceToolAssistantUUID": "2f28e3ee-24b7-4b2b-84dd-57621f725f2d",
+        "promptId": "7990c493-ee3c-4a59-9577-159e630d28e0"
+      },
+      "original_record_sha256": "bcbe41b56b0fbcee452ba5a9352f166ef84cd75302c9d03e4754dd58d4eeb122",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1522": {
+      "timestamp": "2026-10-03T23:14:15.359Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "37c4db20-8696-4a24-9507-add7853ed024",
+        "parentUuid": "be4ff85f-58f3-4dc7-87f8-25d3a1c10ebe",
+        "timestamp": "2026-10-03T23:14:15.359Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01XZBK7wgA3kSjYqfAWaAmfB",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md has been updated successfully."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md",
+          "oldString": "  the same scope `/maintain` lists: `docs`, `AGENTS.md`, `local.rules.md`, `.agents`,\n  `README.md`.",
+          "newString": "  the same scope `/maintain` lists: `docs`, `AGENTS.md`, `local.rules.md`, `.agents`,\n  `README.md`. A path of that scope the tree lacks is skipped, never refused — a recipient may\n  hold no `local.rules.md` — since a host's hook never fails the host\n  ([architecture](../architecture.md), *the questions mechanism*); the listing, which a person\n  runs over a scope they declared, keeps refusing a path that names nothing.",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 59,
+              "oldLines": 7,
+              "newStart": 59,
+              "newLines": 10,
+              "lines": [
+                " - **The wake**: a section after *deferred*, `straw dogs due:`, one line per straw dog —",
+                "   `<path>:<line> → <the question's window line>`. It reads bindings through `docs_corpus`, over",
+                "   the same scope `/maintain` lists: `docs`, `AGENTS.md`, `local.rules.md`, `.agents`,",
+                "-  `README.md`.",
+                "+  `README.md`. A path of that scope the tree lacks is skipped, never refused — a recipient may",
+                "+  hold no `local.rules.md` — since a host's hook never fails the host",
+                "+  ([architecture](../architecture.md), *the questions mechanism*); the listing, which a person",
+                "+  runs over a scope they declared, keeps refusing a path that names nothing.",
+                " - **The rename** rewrites, beside the bare ids under `docs/` it rewrites today, every binding in",
+                "   that scope — the `question=` attribute in a document, the `q-N` on a TODO line in code — and",
+                "   nothing else in core: a prose id in core is not a binding, and core names no other record."
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false,
+          "contentNotInModelContext": true
+        },
+        "sourceToolAssistantUUID": "be4ff85f-58f3-4dc7-87f8-25d3a1c10ebe",
+        "promptId": "7990c493-ee3c-4a59-9577-159e630d28e0"
+      },
+      "original_record_sha256": "a9033cce8417a7314c6a684da1453b007acd0e269cc318e16f7a0af7af24b937",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1525": {
+      "timestamp": "2026-10-03T23:14:29.786Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "d545c343-cd0a-44bc-bf7e-882d5fbf54b7",
+        "parentUuid": "2e2eeb5f-a6aa-47e4-80e6-552e85dccc00",
+        "timestamp": "2026-10-03T23:14:29.786Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfg9pbbNYvU3GApQ3X3Fh",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "| ↳ **q-0001.0019** · How is a straw dog bound to the question it waits on? |\n|---|\n\nПлан закоммичен (`465d8b5`). Второй проход по RFC нашёл три вещи: одну исправил сам, одну нужно добавить в архитектуру, а одна требует твоего решения.\n\n## 1. Исправил сам: сводка не должна падать на отсутствующем пути\n\nСводка в начале сессии будет читать собак по тому же scope, что и `/maintain`: `docs`, `AGENTS.md`, `local.rules.md`, `.agents`, `README.md`. Но листинг собак **отказывается** работать, если путь не существует, а у получателя `local.rules.md` может и не быть. Хук хоста по архитектуре «never fails the host». Поэтому сводка отсутствующий путь пропускает. Листинг, который человек запускает на свой scope, по-прежнему отказывается. Это записано в RFC.\n\n## 2. Архитектура описывает старую модель\n\nВ разделе *Straw dogs* [architecture.md](docs/architecture.md:82) написано: entry-файл владеет «ticket binding, expiry», листинг выдаёт «the written condition and owner», а сопровождающий сам решает, выполнено ли условие. В абзаце про установку (строка 171) срезается «every `TODO`'s ticket binding».\n\nПравило `/plan` такое: RFC не может описывать архитектуру, которой нет в архитектурных документах. Её нужно сначала туда положить. Поэтому до `/implement` я перепишу раздел под решения 1–8: привязка к вопросу, признак «созрела» вычисляется скриптом из store, сопровождающий решает только, как переписать текст. Это не новые решения, а запись принятых на их постоянное место. Покажу текст, но сначала нужен ответ на пункт 3: от него зависит формулировка.\n\n## 3. Нужно твоё решение: решения 3 и 6 конфликтуют\n\n**Сценарий.** У вопроса S-commit «What does /commit own?» владельца нет (решение 6). На align тикета 01-0017 его закрывают против «01-0017 decision N». Сам механизм ещё не объявлен.\n\n**Что получится.** По решению 3 собака созревает, когда `answer` ведёт в файл, отличный от файла `owner`. Владельца нет, значит любой ответ — «в другом месте», и «Mechanism: not yet» у `/commit` **созревает сразу**. Но это неправда: механизма ещё нет. Хуже того, `mechanisms.py --check` выдаёт диагностику на созревший `not yet`, и набор проверок краснеет. Так будет со всеми 29 новыми записями, у которых нет владельца.\n\nБез владельца скрипт не может отличить «решено в тикете» от «воплощено».\n\n**A. Правило: закрывая вопрос против решения в записи работы, сначала назначь эту запись владельцем (рекомендую).**\n- В P7 и в разделе skill вопросов про закрытие добавляется одна фраза: «a question closed against a decision that has not landed is first assigned to the record that holds it».\n- Владелец появляется ровно в тот момент, когда он нужен для решения 3. Решение 6 остаётся в силе: открыть вопрос и обернуть текст по-прежнему можно без работы.\n- Минус: это правило для агента, а не для скрипта. Забытое `assign` даст ложное созревание. Зато ошибка шумная: набор проверок покраснеет, а не промолчит.\n\n**B. Скрипт: `close decided` у вопроса без владельца отказывается.**\n- Минус: закрыть вопрос сразу против постоянного места, например против архитектуры, без всякого тикета — законный ход. Этот вариант его запрещает.\n\n**C. Без владельца `decided` не созревает никогда.**\n- Минус: собаки на таких вопросах остаются навсегда, и решение 3 для них не работает.\n\n**Берём A?** После этого я покажу новый раздел архитектуры и допишу правило в RFC (этап 4: P7 и skill вопросов)."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "1ea9b927feb1f1175fd62d1d2a8420c479abfcebaf339b5365f381c70b24fd45",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1529": {
+      "timestamp": "2026-10-03T23:16:03.629Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "1133b2a8-277b-478a-888f-bf1b66209a43",
+        "parentUuid": "b7180f1d-6a78-448a-86dc-63b070ed82cc",
+        "timestamp": "2026-10-03T23:16:03.629Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "да, A, показывай архитектуру"
+        },
+        "promptId": "64ea72d2-5bd9-4143-ad60-9092c771c474"
+      },
+      "original_record_sha256": "217406350ec0184bc15bd654cdf573814da147e7b2b3ba05f9b1704b16bbe88d",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1531": {
+      "timestamp": "2026-10-03T23:16:04.337Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "d0733b33-72af-43f3-afda-3ff2a7412496",
+        "parentUuid": "cf7b2d27-5104-4dc2-aae6-db1517302f42",
+        "timestamp": "2026-10-03T23:16:04.337Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "hook_additional_context",
+          "content": [
+            "window unchanged since your last one: 5bab93a2-b640-4ce2-a0d8-623d0fd7f965 at q-0001.0019; place this message with `questions.py at q-0001.0019 --session 5bab93a2-b640-4ce2-a0d8-623d0fd7f965`, or `--window --session 5bab93a2-b640-4ce2-a0d8-623d0fd7f965 --full` to draw it again"
+          ],
+          "hookName": "UserPromptSubmit",
+          "toolUseID": "hook-3e7392c7-21fe-42fc-847c-b6a57cada21e",
+          "hookEvent": "UserPromptSubmit"
+        }
+      },
+      "original_record_sha256": "c9fb01c78598ac78ed8f3d4fdb373830031f78b8df396e79b403146ada6f93da",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1534": {
+      "timestamp": "2026-10-03T23:16:15.822Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "cfa0590c-af72-419b-a98e-dee6196af49d",
+        "parentUuid": "3e3bb88e-8b7d-4d97-b18c-e50ad3f884e6",
+        "timestamp": "2026-10-03T23:16:15.822Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfg9xdyESnKt94Tsapdee",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01KntqgB8V4pJZv6zp9jsvSr",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md",
+                "old_string": "   that drifts apart on the first rename.\n",
+                "new_string": "   that drifts apart on the first rename.\n9. **A question closed against a decision that has not landed is first assigned to the record\n   that holds it** *(the user, 2026-10-04)*, so decision 3 can tell decided from landed: with no\n   owner, any cited answer reads as elsewhere, and an ownerless S-*x* closed at 01-0017's align\n   against that ticket's decision would bring its *Mechanism: not yet* due — and the declaration\n   check red — before the mechanism is declared. A rule for the agent in P7 and the questions\n   skill; decision 6 stands, since opening a question and wrapping text still need no owner.\n   Refused: `close decided` refusing an ownerless entry, which forbids closing straight against a\n   durable home; an ownerless decided question never due, which strands its straw dogs.\n"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "3c0b40b829faacb98ad5661e02d8b4b8c42115bed4005a9a4b3d6d1ffa112234",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1535": {
+      "timestamp": "2026-10-03T23:16:18.226Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "c22a0de1-1b7a-496b-a9f0-15464f3a4d03",
+        "parentUuid": "cfa0590c-af72-419b-a98e-dee6196af49d",
+        "timestamp": "2026-10-03T23:16:18.226Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfg9xdyESnKt94Tsapdee",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01JTjfaPEEhRmnzboX5hJ1fN",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md",
+                "old_string": "  - `decided` — due when its `answer` cites a file other than the one its `owner` cites, both\n    resolved from the entry's own file as `_resolves` does, so an archived entry reads the same;\n    with no owner (decision 6), any cited answer is elsewhere;",
+                "new_string": "  - `decided` — due when its `answer` cites a file other than the one its `owner` cites, both\n    resolved from the entry's own file as `_resolves` does, so an archived entry reads the same;\n    with no owner (decision 6), any cited answer is elsewhere — which is why a question closed\n    against a decision that has not landed is first assigned to the record holding it (decision 9);"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "7d25de5f1a66d8790561b093f4e6458089ca6762f5a9dd0ec0210392f775aaab",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1536": {
+      "timestamp": "2026-10-03T23:16:20.276Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "624e12a4-6fe0-44b8-8160-90b88d32a3ac",
+        "parentUuid": "c22a0de1-1b7a-496b-a9f0-15464f3a4d03",
+        "timestamp": "2026-10-03T23:16:20.276Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfg9xdyESnKt94Tsapdee",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_011qEfkjVXcjRwiruwbRsGmM",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md",
+                "old_string": "  *Mechanism: not yet* line; R5 and R6 in the shape's rules file, reinstalled; `/maintain`'s C2",
+                "new_string": "  *Mechanism: not yet* line; R5 and R6 in the shape's rules file, reinstalled; P7 in the ticket\n  mechanism's rules file and the questions skill's closing section, both carrying decision 9, P7\n  reinstalled into `/align`; `/maintain`'s C2"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "665b8c94eaa05cbdc0ae783869110708375d5d0e06784f668140159b174a83a4",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1537": {
+      "timestamp": "2026-10-03T23:16:21.627Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "6f2dcd01-99f7-491e-abad-729e72cd940d",
+        "parentUuid": "624e12a4-6fe0-44b8-8160-90b88d32a3ac",
+        "timestamp": "2026-10-03T23:16:21.627Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfg9xdyESnKt94Tsapdee",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_018Hwi5eCv22hJ9z1pWa3TSi",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md",
+                "old_string": "- The ticket's decisions 1 to 8: a straw dog",
+                "new_string": "- The ticket's decisions 1 to 9: a straw dog"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "2934c156ea383186a7e87c70fb45dd2db07faa0f0deb4de772b1578574afaf49",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1538": {
+      "timestamp": "2026-10-03T23:16:22.935Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "e3e42cdb-3f32-4ab1-a791-b90cb541abe3",
+        "parentUuid": "6f2dcd01-99f7-491e-abad-729e72cd940d",
+        "timestamp": "2026-10-03T23:16:22.935Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfg9xdyESnKt94Tsapdee",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01UvFc2nAMmFjqFfb2vewTEN",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md",
+                "old_string": "  question; a `not yet` row's reason is its question's words.",
+                "new_string": "  question; a `not yet` row's reason is its question's words; a question closed against a\n  decision that has not landed is first assigned to the record holding it."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "fb9da673cca95b4fad2ad323a285f09d9bf0582ed72a72321740c9f81159d072",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1539": {
+      "timestamp": "2026-10-03T23:16:22.994Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "b36811eb-edc7-405b-99bf-770a8a254bc0",
+        "parentUuid": "cfa0590c-af72-419b-a98e-dee6196af49d",
+        "timestamp": "2026-10-03T23:16:22.994Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01KntqgB8V4pJZv6zp9jsvSr",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md",
+          "oldString": "   that drifts apart on the first rename.\n",
+          "newString": "   that drifts apart on the first rename.\n9. **A question closed against a decision that has not landed is first assigned to the record\n   that holds it** *(the user, 2026-10-04)*, so decision 3 can tell decided from landed: with no\n   owner, any cited answer reads as elsewhere, and an ownerless S-*x* closed at 01-0017's align\n   against that ticket's decision would bring its *Mechanism: not yet* due — and the declaration\n   check red — before the mechanism is declared. A rule for the agent in P7 and the questions\n   skill; decision 6 stands, since opening a question and wrapping text still need no owner.\n   Refused: `close decided` refusing an ownerless entry, which forbids closing straight against a\n   durable home; an ownerless decided question never due, which strands its straw dogs.\n",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 96,
+              "oldLines": 6,
+              "newStart": 96,
+              "newLines": 14,
+              "lines": [
+                "    stays stray. With decision 7 the reason loses nothing — it is the old `until`, phrased as the",
+                "    question it was. Refused: a reason in the body beside the binding, one thought written twice",
+                "    that drifts apart on the first rename.",
+                "+9. **A question closed against a decision that has not landed is first assigned to the record",
+                "+   that holds it** *(the user, 2026-10-04)*, so decision 3 can tell decided from landed: with no",
+                "+   owner, any cited answer reads as elsewhere, and an ownerless S-*x* closed at 01-0017's align",
+                "+   against that ticket's decision would bring its *Mechanism: not yet* due — and the declaration",
+                "+   check red — before the mechanism is declared. A rule for the agent in P7 and the questions",
+                "+   skill; decision 6 stands, since opening a question and wrapping text still need no owner.",
+                "+   Refused: `close decided` refusing an ownerless entry, which forbids closing straight against a",
+                "+   durable home; an ownerless decided question never due, which strands its straw dogs.",
+                " ",
+                " ## What to build",
+                " "
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "cfa0590c-af72-419b-a98e-dee6196af49d",
+        "promptId": "64ea72d2-5bd9-4143-ad60-9092c771c474"
+      },
+      "original_record_sha256": "cb23cdc7e83a0aeb7137646696020af98141bd19b0cb4e68c355863e77c52a41",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1544": {
+      "timestamp": "2026-10-03T23:16:23.065Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "83fa8812-ad88-4821-8c6a-4fbcbb4c11d3",
+        "parentUuid": "c22a0de1-1b7a-496b-a9f0-15464f3a4d03",
+        "timestamp": "2026-10-03T23:16:23.065Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01JTjfaPEEhRmnzboX5hJ1fN",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md has been updated successfully."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md",
+          "oldString": "  - `decided` — due when its `answer` cites a file other than the one its `owner` cites, both\n    resolved from the entry's own file as `_resolves` does, so an archived entry reads the same;\n    with no owner (decision 6), any cited answer is elsewhere;",
+          "newString": "  - `decided` — due when its `answer` cites a file other than the one its `owner` cites, both\n    resolved from the entry's own file as `_resolves` does, so an archived entry reads the same;\n    with no owner (decision 6), any cited answer is elsewhere — which is why a question closed\n    against a decision that has not landed is first assigned to the record holding it (decision 9);",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 47,
+              "oldLines": 7,
+              "newStart": 47,
+              "newLines": 8,
+              "lines": [
+                "   live and archived, since a decided question is usually already in `done/`:",
+                "   - `decided` — due when its `answer` cites a file other than the one its `owner` cites, both",
+                "     resolved from the entry's own file as `_resolves` does, so an archived entry reads the same;",
+                "-    with no owner (decision 6), any cited answer is elsewhere;",
+                "+    with no owner (decision 6), any cited answer is elsewhere — which is why a question closed",
+                "+    against a decision that has not landed is first assigned to the record holding it (decision 9);",
+                "   - `moot`, `pruned` — due: the question no longer stands, so the text that waited on it is",
+                "     re-read;",
+                "   - `merged`, `superseded` — never due: the binding follows the successor, and the listing"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false,
+          "contentNotInModelContext": true
+        },
+        "sourceToolAssistantUUID": "c22a0de1-1b7a-496b-a9f0-15464f3a4d03",
+        "promptId": "64ea72d2-5bd9-4143-ad60-9092c771c474"
+      },
+      "original_record_sha256": "b0ba75662eab4ba9c5f671325a3ed5160073fd332ac26f12ae250fee35e8cacc",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1545": {
+      "timestamp": "2026-10-03T23:16:23.146Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "b252619c-942d-4485-8a0e-a32159af1123",
+        "parentUuid": "624e12a4-6fe0-44b8-8160-90b88d32a3ac",
+        "timestamp": "2026-10-03T23:16:23.146Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_011qEfkjVXcjRwiruwbRsGmM",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md has been updated successfully."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md",
+          "oldString": "  *Mechanism: not yet* line; R5 and R6 in the shape's rules file, reinstalled; `/maintain`'s C2",
+          "newString": "  *Mechanism: not yet* line; R5 and R6 in the shape's rules file, reinstalled; P7 in the ticket\n  mechanism's rules file and the questions skill's closing section, both carrying decision 9, P7\n  reinstalled into `/align`; `/maintain`'s C2",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 120,
+              "oldLines": 7,
+              "newStart": 120,
+              "newLines": 9,
+              "lines": [
+                "    the method glossary's *Straw dog*, and its *Due*, which gains the straw dog's sense — derived at",
+                "    every look, as a mechanism's is; Q2, so the wake's report names the due straw dogs beside the",
+                "    deferrals, reinstalled into `/recall`; `MECHANISM-FORMAT.md`'s `not yet` section and the",
+                "-   *Mechanism: not yet* line; R5 and R6 in the shape's rules file, reinstalled; `/maintain`'s C2",
+                "+   *Mechanism: not yet* line; R5 and R6 in the shape's rules file, reinstalled; P7 in the ticket",
+                "+  mechanism's rules file and the questions skill's closing section, both carrying decision 9, P7",
+                "+  reinstalled into `/align`; `/maintain`'s C2",
+                "    and T1 to T3; the questions skill and doc — the binding, dueness, the wake's section, the",
+                "    parts row; `/implement`'s TODO sentence; the harness doc's and skill's shear sentence.",
+                " "
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false,
+          "contentNotInModelContext": true
+        },
+        "sourceToolAssistantUUID": "624e12a4-6fe0-44b8-8160-90b88d32a3ac",
+        "promptId": "64ea72d2-5bd9-4143-ad60-9092c771c474"
+      },
+      "original_record_sha256": "9f4f2a73d160ee1203a3cf112ce2bf9109caf14bd9a937bf7e1ed99e8d58dae0",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1546": {
+      "timestamp": "2026-10-03T23:16:23.217Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "a8fecf31-9361-413b-b268-968e51c681e7",
+        "parentUuid": "6f2dcd01-99f7-491e-abad-729e72cd940d",
+        "timestamp": "2026-10-03T23:16:23.217Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_018Hwi5eCv22hJ9z1pWa3TSi",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md has been updated successfully."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md",
+          "oldString": "- The ticket's decisions 1 to 8: a straw dog",
+          "newString": "- The ticket's decisions 1 to 9: a straw dog",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 7,
+              "oldLines": 7,
+              "newStart": 7,
+              "newLines": 7,
+              "lines": [
+                " ",
+                " ## What governs it",
+                " ",
+                "-- The ticket's decisions 1 to 8: a straw dog is provisional text bound to a question, never a",
+                "+- The ticket's decisions 1 to 9: a straw dog is provisional text bound to a question, never a",
+                "   question itself; it binds to the question whose answer will rewrite its text and carries no",
+                "   `until`; it is due when that question is closed and its `answer` links to a file other than",
+                "   its `owner`'s; the binding is `question=\"q-N\"`, rewritten by every rename; the rebinding is"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false,
+          "contentNotInModelContext": true
+        },
+        "sourceToolAssistantUUID": "6f2dcd01-99f7-491e-abad-729e72cd940d",
+        "promptId": "64ea72d2-5bd9-4143-ad60-9092c771c474"
+      },
+      "original_record_sha256": "fee40e45ecede370f7b31ee2787af0772ecf4f8834e1c5ecdbc2ffb4491bbe3e",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1547": {
+      "timestamp": "2026-10-03T23:16:23.287Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "2d794f70-cb8e-47df-a15f-de7360de9c6c",
+        "parentUuid": "e3e42cdb-3f32-4ab1-a791-b90cb541abe3",
+        "timestamp": "2026-10-03T23:16:23.287Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01UvFc2nAMmFjqFfb2vewTEN",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md has been updated successfully."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md",
+          "oldString": "  question; a `not yet` row's reason is its question's words.",
+          "newString": "  question; a `not yet` row's reason is its question's words; a question closed against a\n  decision that has not landed is first assigned to the record holding it.",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 12,
+              "oldLines": 7,
+              "newStart": 12,
+              "newLines": 8,
+              "lines": [
+                "   `until`; it is due when that question is closed and its `answer` links to a file other than",
+                "   its `owner`'s; the binding is `question=\"q-N\"`, rewritten by every rename; the rebinding is",
+                "   reviewed by family in this RFC; the question needs no owner; a narrow `until` becomes its own",
+                "-  question; a `not yet` row's reason is its question's words.",
+                "+  question; a `not yet` row's reason is its question's words; a question closed against a",
+                "+  decision that has not landed is first assigned to the record holding it.",
+                " - Parent decisions 30 (the store is core's own record; the ticket method is swappable), 38 as",
+                "   amended by decision 1, 43 (a closed question links to its answer) and 50 (a closure follows",
+                "   its decision home, and is repointed when the decision lands)."
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false,
+          "contentNotInModelContext": true
+        },
+        "sourceToolAssistantUUID": "e3e42cdb-3f32-4ab1-a791-b90cb541abe3",
+        "promptId": "64ea72d2-5bd9-4143-ad60-9092c771c474"
+      },
+      "original_record_sha256": "8b32be6fb125889569f81370cbedb23dd5b77e433a385523b83ee7079799e56e",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1551": {
+      "timestamp": "2026-10-03T23:16:26.611Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "83fa6590-4c58-4c2d-8827-905770b08051",
+        "parentUuid": "2cc068b5-78c1-4ced-978a-e6b06c410741",
+        "timestamp": "2026-10-03T23:16:26.611Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfg9z2v9CtvJsnMVkCBKc",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01EwBuB2Av5qQQJDTBdM9k5n",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md",
+                "old_string": "- [ ] Nothing under core names a ticket.",
+                "new_string": "- [ ] Nothing under core names a ticket.\n- [ ] P7 and the questions skill say that a question closed against a decision that has not\n  landed is first assigned to the record holding it (decision 9)."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "9a7b5febd8cb495e7134ebb4eac0b963dd5223f1497fab6e2ab301656a65b97f",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1552": {
+      "timestamp": "2026-10-03T23:16:26.684Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "1c5e1c06-1786-4de1-b543-3478aa6c3af4",
+        "parentUuid": "83fa6590-4c58-4c2d-8827-905770b08051",
+        "timestamp": "2026-10-03T23:16:26.684Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01EwBuB2Av5qQQJDTBdM9k5n",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md",
+          "oldString": "- [ ] Nothing under core names a ticket.",
+          "newString": "- [ ] Nothing under core names a ticket.\n- [ ] P7 and the questions skill say that a question closed against a decision that has not\n  landed is first assigned to the record holding it (decision 9).",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 135,
+              "oldLines": 6,
+              "newStart": 135,
+              "newLines": 8,
+              "lines": [
+                "   tree's straw dogs bind as the tables say, and none was lost — the set before and after is one,",
+                "   place for place.",
+                " - [ ] Nothing under core names a ticket.",
+                "+- [ ] P7 and the questions skill say that a question closed against a decision that has not",
+                "+  landed is first assigned to the record holding it (decision 9).",
+                " - [ ] `/verify` has been run on this ticket against its ticket, RFC, and governing docs.",
+                " ",
+                " ## Out of scope"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "83fa6590-4c58-4c2d-8827-905770b08051",
+        "promptId": "64ea72d2-5bd9-4143-ad60-9092c771c474"
+      },
+      "original_record_sha256": "2207db34e93c2e6ac32fd871dfb4acedd8de775b99555ae1a731459801806cab",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1555": {
+      "timestamp": "2026-10-03T23:16:37.492Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "79715999-55bb-4927-b98f-c006422609fd",
+        "parentUuid": "cf17f0b1-fc85-4bc7-a83a-92f28df72859",
+        "timestamp": "2026-10-03T23:16:37.492Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfg9zGrnLJ8vnrg7qAaqR",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "| ↳ **q-0001.0019** · How is a straw dog bound to the question it waits on? |\n|---|\n\nРешение 9 записано: в тикет, в RFC (признак «созрела» и этап 4: P7 и skill вопросов, P7 переустанавливается в `/align`) и в отдельный критерий приёмки.\n\n## Архитектура: предлагаемый текст\n\nВ [architecture.md](docs/architecture.md:82) меняются три места. В файл я ещё ничего не писал.\n\n**1. Первый абзац *Straw dogs* — заменить целиком.**\n\nСейчас:\n> [The entry contract](../AGENTS.md#straw-dogs) owns the `<straw-dog>` syntax, ticket binding, expiry, and the duty to wrap when writing. Listing provides source locations and the written condition and owner; the maintainer establishes whether the condition holds from evidence. Unknown conditions remain unresolved. Mechanical removal follows that disposition and preserves surviving agreements. Examples describing the syntax are distinct from operative statements.\n\nСтанет:\n> [The entry contract](../AGENTS.md#straw-dogs) owns the `<straw-dog>` syntax and the duty to wrap when writing. A straw dog is provisional text bound to the question of the store whose answer will rewrite it, `question=\"q-N\"`, and to no ticket: the store is core's own record and the ticket method is swappable, so the binding is the one place core names a record of this tree, and the record it names is a question. It carries no condition of its own. It is *due* when its question is closed `decided` with an `answer` citing a file other than its `owner`'s, or closed `moot` or `pruned`; a binding to a merged or superseded question follows its successor. Dueness is derived from the store at every look, never stored, and the maintainer judges only whether and how the text is rewritten. A question closed against a decision that has not landed is first assigned to the record holding it, so dueness can tell decided from landed. A rename of the store's ids rewrites every binding, in core and in code. ([01-0011.0100.0030 a-straw-dog-is-bound-to-the-question-it-waits-on](tickets/01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md#decisions-landed-at-this-tickets-align), decisions 1 to 9.) Mechanical removal follows the maintainer's disposition and preserves surviving agreements. Examples describing the syntax are distinct from operative statements.\n\n**2. Абзац про код.**\n\nСейчас:\n> In code the marking is a comment line beginning `TODO`: one naming its ticket is listed as a straw dog with that owner, and leaves with the code rather than through the tool.\n\nСтанет:\n> In code the marking is a comment line beginning `TODO` that names its question, `q-N`: it is listed as a straw dog bound to that question, and leaves with the code rather than through the tool.\n\nПлюс в абзаце про угадывание «a `TODO` that names no ticket» станет «…that names no question».\n\n**3. Абзац про установку (строка 171).** «every `TODO`'s ticket binding sheared» станет «every `TODO`'s question binding sheared». Получатель не хранит id этого дерева.\n\n## Одна тонкость\n\nРаздел будет описывать модель, которой в коде ещё нет. У этого repo есть прецедент: архитектуру `.0020` (решения 3 и 6) записали на `/plan`, со ссылками на решения тикета, а код пришёл на `/implement`. Делаю так же. Пока `.0030` не закрыт, старое описание и новое расходятся только во времени, а не по смыслу.\n\n**Записываю раздел так?**"
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "7bc8cfb441e113bec5c034ccbe9f179c5e635a2dfd3a9e56bb3d0a6c15b77465",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1559": {
+      "timestamp": "2026-10-03T23:21:14.506Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "14e82085-a4b6-46bd-8aba-f709d2538594",
+        "parentUuid": "31d3e110-ec8c-47f7-a41d-2208ea285fb6",
+        "timestamp": "2026-10-03T23:21:14.506Z",
+        "sessionId": "5bab93a2-b640-4ce2-a0d8-623d0fd7f965",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "почему по собакам так толсто? это для умной модели написано?"
+        },
+        "promptId": "46d5d4f3-b935-473b-86dc-98e1c3d04957"
+      },
+      "original_record_sha256": "1c6b5dc0b6188038a53b47c1c9b781d5ce6e1918d726192dc9a8b29650e6b322",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    }
+  }
+}

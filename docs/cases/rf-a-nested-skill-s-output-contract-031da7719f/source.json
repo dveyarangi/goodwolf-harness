@@ -1,0 +1,541 @@
+{
+  "transcript": "85ded642-4a06-47ff-9a3d-b79f98dfb226.jsonl",
+  "chat_id": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+  "transcript_bytes": 4213754,
+  "transcript_sha256": "a90737970208199c681c0a22296fa424707ce4cf615dec38355fd0b9e5351c3d",
+  "record_numbering": "one-based JSONL records in the original transcript",
+  "delivery_context": null,
+  "records": {
+    "40": {
+      "timestamp": "2026-09-22T17:44:37.719Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "aa4864dd-b6fe-4af7-88e3-1223182a10aa",
+        "parentUuid": "14d6b725-c175-4f8f-a084-57817f707c20",
+        "timestamp": "2026-09-22T17:44:37.719Z",
+        "sessionId": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.280",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "instructions",
+          "files": [
+            {
+              "path": "D:\\Dev\\AI\\agents\\CLAUDE.md",
+              "type": "Project",
+              "content": "@AGENTS.md"
+            },
+            {
+              "path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+              "type": "Project",
+              "content": "# Entry contract\n\nEntry contract: v16, 2026-09-21.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<straw-dog until=\"01-0020 is done\" ticket=\"docs/tickets/01-0020-pacer.md\">\nRun /recall first in every session, whatever the first message says.\n</straw-dog>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n- Clarity and simplicity first — Occam's razor: take the shape with the fewest parts that does the job, and remove before you add.\n\n<straw-dog until=\"01-0018 declares the mechanism that owns tiering\" ticket=\"docs/tickets/01-0018-reachability-coherent.md\">\n- A skill's description is its tier-1 surface: name there every occasion the skill serves, with the context that makes it fire, and nothing else. Write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session.\n</straw-dog>\n\n<installed by=\"ticket\">\n**P9** Name a ticket by a link to its record; one that has no record yet, by a slug and its state word.\n</installed>\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. A core file\nmay name a path under `docs/` only when that path is a record a mechanism declares — the directory\nthat holds a kind of record, or a file that is one — never a particular record inside such a\ndirectory: `docs/tickets/` and `docs/glossary.md` are painted doors; one particular ticket inside\n`docs/tickets/` is a document only this project has. Content inside the\n[local block](#project-local) is the instance's, not core's. A `<straw-dog>` exempts\nnothing: its wrapper is stripped on install and whatever it wrapped ships. Core names a ticket\nonly in a straw dog's binding — never in a link, never as a bare id in prose — since a recipient\ncan resolve neither.\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog until=\"01-0012 is done\" ticket=\"docs/tickets/01-0012-hierarchy-coherent.md\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n- /dream is an experimental second \"lobe\" of the harness, aiming to reassess load-bearingness. It is optional, runs after /conclude, and writes dreams that /maintain and /align may pick up; it never amends rules.\n\n## Self-improvement\n\n<straw-dog until=\"01-0019 is done\" ticket=\"docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md\">\n- The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)\n- Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.\n</straw-dog>\n\n## Autonomy\n\nThe project sets each switch in its local block, under *Project-local*; skills defer to those values.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n`repair=report` holds only when all four are true: the governing rule is explicit, and cited; the\nrepair restores compliance inside the authorized work and keeps every other agreed contract; the\naffected behaviour is understood well enough to say so; the result is verifiable against the\nrule. Otherwise `/align`. *(the user, 2026-09-05)*\n\n## Project-local\n\n<installed by=\"mechanism-shape\">\n**R7** A project's own answers and overrides are authored in one file beside the entry file,\n`local.rules.md`, in the rules-file format, and reach a file only as the local block — the\ninstalled block whose owner is `local` — which the installer writes after every mechanism's block\nthere, so the project's answer is what a reader meets after core's rule. An override names the rule it\noverrides. A local change to a rule is written in the local file, never into a skill or the entry\nfile: `inject_rules.py --check` fails on a block that differs from its source and on a block\nnothing owns, and the repair is the local file, re-installed. The local block is the project's,\nnot core's, and a redeploy preserves it.\n</installed>\n\n<installed by=\"local\">\n**L1** This repository develops the shared dev harness using its own loop; its own architecture and\nprogress live in docs/ like any other project's — the instance half doing its job, not a leak.\nTerms: docs/glossary.md, this project's own; the method's are .agents/glossary.md's. What each\nversion of the entry contract changed: docs/research/entry-contract-findings.md.\n\n**L2** commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n</installed>\n\n## Straw dogs\n\nWrap anything a live ticket will change, as you write it — or, for text already written, in the\npass that mints the ticket or decides that it will change it:\n`<straw-dog until=\"condition\" ticket=\"path\">`, or in code a `TODO` naming the ticket. Treat *not\nyet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find\nthe ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.\nMake the condition testable and the ticket path repository-relative. Write the body to stand on\nits own: it is what a recipient receives once the wrapper is stripped, so it reads whole without\nthe condition and names no ticket — the binding does. Leave what no ticket would change\nunwrapped.\n\nFollow a straw dog like any other rule until its condition is visibly met; then act on reality,\nreport the stale block, and do not treat the contradiction as a violation."
+            },
+            {
+              "path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\memory\\MEMORY.md",
+              "type": "AutoMem",
+              "content": "# Memory\n\n- [Edit with edit tools, not scripts](edit-with-edit-tools-not-scripts.md) — a script's diff is invisible in the transcript; the user reads changes as they happen.\n- [Write for a capable model](write-for-a-capable-model.md) — I pad rules with the definition, the example and the implication; all three get cut.\n- [Problem before machinery](problem-before-machinery.md) — open an align with the concrete failures and the user's own prior words; a coined term or a design question first loses them.\n- [Fix the cause, not just the register](fix-the-cause-not-just-the-register.md) — a rule failure entry ending in \"not landed\" ends the turn short; find the decisive fact and land the amendment in the same pass.\n- [Deliver rules through the installer](deliver-rules-through-the-installer.md) — a mechanism's rule lands as an installed block into every occasion that reads it, never as hand-written prose; \"otherwise you make it tier 3\"."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "48bb2d0cf4d9351d3bc04c86f27b3938570a1e2e0791675296cbf1d5b14e0b6a",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "303": {
+      "timestamp": "2026-09-23T10:44:42.685Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "c0a1fde5-f693-42e7-ad9e-77d4549afdcf",
+        "parentUuid": "0a5a5cbc-f1db-41fa-81fd-daa110266d47",
+        "timestamp": "2026-09-23T10:44:42.685Z",
+        "sessionId": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.280",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "ok"
+        },
+        "promptId": "8302b754-1356-4991-8eca-4d663798c392"
+      },
+      "original_record_sha256": "0f2016600e639e53ec205b718e1f504ea03c3b275cfc9a88782a0950637d082f",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "306": {
+      "timestamp": "2026-09-23T10:45:19.532Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "f6982392-3fe7-4a48-b708-e086b7ada6b1",
+        "parentUuid": "3a3abac8-53eb-41d8-bd4f-423c93c53df4",
+        "timestamp": "2026-09-23T10:45:19.532Z",
+        "sessionId": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.280",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfLEa6tamYBmzr4gRX5WV",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "**Q9: pointer.**\n\n## Q10 dissolves on inspection\n\n\"How does the step know the tree is non-empty\" doesn't need an answer — it follows from Q4. The recipe runs the same everywhere; what varies is its yield:\n\n- **grounded something** → write the file, stamp the rest *unread*\n- **grounded nothing** → write no file; the lazy rule holds\n\nNo size test, no tree classification, no opt-in. And it keeps the three claims distinct: *deferred* (looked, chose not to specify), *unread* (there is something there, nobody looked), *absent* (there is nothing there yet). An all-unread `architecture.md` in a codeless tree would assert the wrong one of the three, which is why the file simply isn't written.\n\n`ai-game-1` is the middle case and lands correctly: no code, but six documents — the recipe grounds Purpose, Scope and Core concepts from them, and stamps Major components, contract surfaces and data flow *unread*.\n\nSay if you read that differently. Otherwise the design side is closed:\n\n1. Sequence: install+gate → L1/L2 → setup → quicklook → L3 → inject → check\n2. Doors: containers created empty by the install; `tickets/README.md` with an arrival state; the rest lazy\n3. Quicklook: one fixed recipe, *unread* ≠ *deferred*, into `architecture.md` and `glossary.md`\n4. Ownership: harness owns every moment; `setup-devops` `elsewhere` and relied-on; the record rules arrive as an installed block from whoever owns the format\n5. Local file: split extraction, switches before setup\n6. `git init`: a Refusals bullet; no remote unless offered and accepted\n7. L3: a pointer to `docs/cicd.md`, core's gates additive only, empty is a stated state\n\nNow the decomposition — which is `/ticket`'s, with `/impact` on the draft split, presented as a suggestion since `breakdown=ask`."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "403c2f50157fa210c72f9fe9df9e7b1fbb1e7dd008f82923588789724e9db818",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "307": {
+      "timestamp": "2026-09-23T10:45:19.735Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "a3e79b75-6cd8-47b5-8ae3-6d88add5ce59",
+        "parentUuid": "f6982392-3fe7-4a48-b708-e086b7ada6b1",
+        "timestamp": "2026-09-23T10:45:19.735Z",
+        "sessionId": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.280",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfLEa6tamYBmzr4gRX5WV",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01BLmo31aL1HhNUCQZnYWgyT",
+              "name": "Skill",
+              "input": {
+                "skill": "ticket"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "34aa0123073970352c3c7479d6d038b8fe7cc07d4c2943ded7be4e851864b435",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "308": {
+      "timestamp": "2026-09-23T10:45:19.784Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "b5e22204-882a-44b9-94f1-10bc7a930f94",
+        "parentUuid": "a3e79b75-6cd8-47b5-8ae3-6d88add5ce59",
+        "timestamp": "2026-09-23T10:45:19.784Z",
+        "sessionId": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.280",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01BLmo31aL1HhNUCQZnYWgyT",
+              "content": "Launching skill: ticket"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "success": true,
+          "commandName": "ticket"
+        },
+        "sourceToolAssistantUUID": "a3e79b75-6cd8-47b5-8ae3-6d88add5ce59",
+        "promptId": "8302b754-1356-4991-8eca-4d663798c392"
+      },
+      "original_record_sha256": "1c14e2a895b25cacc806a839c5c70c04ba4f5a05b97f2a30007a96e8a571ec39",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "309": {
+      "timestamp": "2026-09-23T10:45:19.776Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "22e1dbf1-9a64-4532-95ef-6cdde5d85765",
+        "parentUuid": "b5e22204-882a-44b9-94f1-10bc7a930f94",
+        "timestamp": "2026-09-23T10:45:19.776Z",
+        "sessionId": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.280",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Base directory for this skill: D:\\Dev\\AI\\agents\\.claude\\skills\\ticket\n\n# Decompose into tickets\r\n\r\nBreak a parent work into independently-grabbable tickets using vertical slices\r\n(tracer bullets), written as local markdown files under `docs/tickets/`. The\r\nparent is a **PRD** at inception, a **coarse ticket** when zooming in; or the\r\ncurrently discussed/referenced chunk of work; the same slicing principles apply\r\nat every resolution.\r\n\r\n## Layout\r\n\r\nThe shape of a ticket — its name, its folders, its header and sections, what\r\nfinishes it and what removes it — is [TICKET-FORMAT.md](./TICKET-FORMAT.md)'s,\r\nunder *The record*. Read it before writing one, and restate none of it here.\r\n\r\n## Process\r\n\r\n### 1. Locate the parent\r\n\r\nAsk the user for the parent work item's path, unless it is already clear from\r\ncontext.\r\n\r\nIf the parent is a document not already in your context window, read it from\r\nthe file. When the parent is the chunk of work under discussion, there is no\r\nfile — the tickets must then carry their own context.\r\n\r\n### 2. Explore the codebase (optional)\r\n\r\nIf you have not already explored the codebase, do so to understand the current\r\nstate of the code.\r\n\r\n### 3. Draft vertical slices\r\n\r\nBreak the parent into **tracer bullet** tickets. Each ticket is a thin vertical\r\nslice that cuts through ALL integration layers end-to-end, NOT a horizontal\r\nslice of one layer. Slice at the parent's own resolution: a coarse ticket's\r\nchildren are thinner passes through the same territory, still demoable or\r\nverifiable on their own.\r\n\r\nSlices may be 'HITL' or 'AFK'. HITL slices require human interaction, such as\r\nan architectural decision or a design review. AFK slices can be implemented\r\nand merged without human interaction. Prefer AFK over HITL where possible.\r\n\r\nA ticket blocked on unresolved product or architectural decisions may begin as\r\na **decision-bearing HITL ticket**. It is the eventual feature ticket in an\r\nearlier phase, not a separate decision slice; name it for the product outcome\r\nit will deliver.\r\n\r\n<vertical-slice-rules>\r\n- The goal is to break down into small deliverables that can be tested by\r\n  user, before the entire schema/service/UI is built. Vertical step-by-step.\r\n- Each slice delivers a narrow but COMPLETE path through every layer\r\n  (schema, API, UI, tests)\r\n- A completed slice is demoable or verifiable on its own\r\n- Prefer many thin slices over few thick ones\r\n- A chunk that is already ticket-sized yields a single ticket — a valid\r\n  outcome, not a failed decomposition\r\n</vertical-slice-rules>\r\n\r\n### 3.1 Impact the proposed split\r\n\r\nRun [/impact](../impact/SKILL.md) on the draft split. Record its output on\r\nthe parent. If the recommendation is narrow or rethink, revise the draft and\r\nrun `/impact` again until the split is what you will present.\r\n\r\n<straw-dog until=\"01-0010.0080 is done\" ticket=\"docs/tickets/01-0010.0080-impact-work-shape.md\">\r\n`/impact`'s current output is whether the split is balanced (proceed, narrow,\r\nrethink, postpone). Record that. It does not yet recommend spec / ticket /\r\nRFC / re-slice; that extension is the parent's, not this skill's.\r\n</straw-dog>\r\n\r\n### 4. Quiz the user\r\n\r\nPresent the **post-impact** breakdown as a numbered list, plus the impact\r\nnote. For each slice, show:\r\n\r\n- **Title**: short descriptive name\r\n- **Interaction**: HITL / AFK\r\n- **Depends on**: which other slices (if any) must complete first\r\n- **Parent scope covered**: which user stories or acceptance criteria of the\r\n  parent this addresses\r\n\r\nAsk the user:\r\n\r\n- Does the granularity feel right? (too coarse / too fine)\r\n- Are the dependency relationships correct?\r\n- Should any slices be merged or split further?\r\n- Are the correct slices marked as HITL and AFK?\r\n\r\nRead `breakdown` from `AGENTS.md`'s local block. When it is `ask`,\r\ndo not mint until the user approves this presentation. That approval is what\r\ngets minted. Ask again only if a later `/impact` would change membership,\r\ngranularity, or dependencies. Recording the impact text, or copy-edits, is\r\nnot a new approval. When `breakdown` is `auto`, mint the post-impact\r\nbreakdown without waiting.\r\n\r\nIterate until the user approves the breakdown (or `auto` applies).\r\n\r\n### 5. Create the ticket files\r\n\r\nFor each approved slice, write the ticket under `docs/tickets/`, named and\r\nregistered per [TICKET-FORMAT.md](./TICKET-FORMAT.md).\r\n\r\nCreate tickets in dependency order (blockers first) so you can reference real\r\nfilenames in the `Depends on` field. A blocker that is already complete lives\r\nin `docs/tickets/done/` — reference it there.\r\n\r\nWrite each file to [The record](./TICKET-FORMAT.md#the-record) — the header,\r\nits fields, the sections the stage admits, and the citation conventions. A\r\nfreshly minted slice is incepted: it needs `Status`, `Type`, `Outcome`,\r\n`What to build` and `Acceptance criteria`, and may host whatever else it has.\r\nEach child carries a one-line pointer to the parent's recorded `/impact`\r\nassessment.\r\n\r\n### Decision-bearing ticket lifecycle\r\n\r\nA decision-bearing ticket is the working document for an\r\n[/align](../align/SKILL.md) session and then becomes the implementation-ready\r\nfeature ticket for the same outcome. Do not mint separate decision and\r\nimplementation tickets for that outcome.\r\n\r\n- **At minting:** `Outcome`, `What to build`, and `Acceptance criteria`\r\n  describe the alignment exit: the decision is landed in its durable home and\r\n  the feature is unblocked. Hold the decision tree — evidence, alternatives,\r\n  and open questions — in the ticket.\r\n- **Concern promotion:** leave only the architectural contact surface in\r\n  `concerns.md` under its stable anchor, add `→ queued as <ticket-slug>`, and\r\n  move the deliberation into the ticket.\r\n- **During alignment:** follow [/align](../align/SKILL.md)'s inline\r\n  resolution rule; the ticket is the live working document.\r\n- **At resolution:** land decisions in their durable homes, remove the\r\n  resolved concern entry (or retain separately-scoped residue), and rewrite\r\n  the same ticket in place to feature altitude\r\n  ([TICKET-FORMAT.md](./TICKET-FORMAT.md)). Keep its place in the order unless\r\n  the resolved dependencies require moving it.\r\n- **If the resolved feature is too coarse for one RFC:** retain the ticket as\r\n  the parent/end-state and decompose it through `/ticket`; do not create a\r\n  sibling merely to hold the implementation.\r\n- **If alignment eliminates the feature:** complete the ticket as a landed\r\n  decision; this is the only case where it closes without becoming an\r\n  implementation ticket.\r\n\r\n### Altitude decides whether a slice is a ticket\r\n\r\nCriteria state observable behavior; code shape is the RFC's\r\n(→ [Acceptance criteria](./TICKET-FORMAT.md#acceptance-criteria)).\r\n\r\n- A refactor too large for one RFC splits into subtickets, one RFC per child.\r\n- A slice whose criteria cannot be written at that altitude is not yet a\r\n  ticket → `/align` first.\r\n\r\n### 6. Completing a ticket\r\n\r\nA ticket is finished and closed per the shelf's [The record](./TICKET-FORMAT.md#the-record);\r\n`/maintain` carries the duty. Do NOT close or modify the parent; a parent\r\nticket completes on its own acceptance criteria, not by its children emptying\r\nout.\r\n"
+            }
+          ]
+        },
+        "promptId": "8302b754-1356-4991-8eca-4d663798c392"
+      },
+      "original_record_sha256": "5e2aee8603e08c81c36aec7d5744b9a04342dde8b517c28ddfea434482611ebb",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "313": {
+      "timestamp": "2026-09-23T10:45:56.548Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "f07a65dc-6e46-477e-ac2c-f1e1b78dc62c",
+        "parentUuid": "9c83916d-ba76-45de-8de9-14c792d3f40f",
+        "timestamp": "2026-09-23T10:45:56.548Z",
+        "sessionId": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.280",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfLEcq8dZUuLsU88uwwLH",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Draft split ready. Running `/impact` on it before presenting, as the chain requires."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "8969e0f3803b55f5723c5e30187119e76e98a445536376ba2227c8b64fd91cfe",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "314": {
+      "timestamp": "2026-09-23T10:46:00.115Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "47f2768d-0c26-48d7-afb3-0583d7183105",
+        "parentUuid": "f07a65dc-6e46-477e-ac2c-f1e1b78dc62c",
+        "timestamp": "2026-09-23T10:46:00.115Z",
+        "sessionId": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.280",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfLEcq8dZUuLsU88uwwLH",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01UD2CaMeo5sEf2fWLyGubPp",
+              "name": "Skill",
+              "input": {
+                "skill": "impact",
+                "args": "Draft split for recipient bootstrap, child slices of 01-0010: (1) painted doors arrive with the tree — harness.py creates every door directory and writes docs/tickets/README.md with an arrival state; (2) the first install's last step becomes a sequence — harness/SKILL.md: L1+L2 extracted before setup, setup-devops relied-on, L3 last as a pointer to docs/cicd.md, core's gates additive only, a git-init refusal bullet, and setup-devops's \"setup initial GitHub repository if missing\" narrowed to offer-only; (3) the quicklook — harness/SKILL.md instructs one fixed skeletal read into architecture.md and glossary.md, ARCH-FORMAT and GLOSSARY-FORMAT gain the unread stamp distinct from deferred, hand-written and straw-dogged since align is undeclared; (4) harness gains a rules file naming what /maintain must check for it."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "adbe1173a93848feba7563812865efa17928ddc4250a1bec77cafc8d03e1b770",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "315": {
+      "timestamp": "2026-09-23T10:46:00.174Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "b2166e89-7ece-49d3-98e8-eb512a2db1a3",
+        "parentUuid": "47f2768d-0c26-48d7-afb3-0583d7183105",
+        "timestamp": "2026-09-23T10:46:00.174Z",
+        "sessionId": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.280",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01UD2CaMeo5sEf2fWLyGubPp",
+              "content": "Launching skill: impact"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "success": true,
+          "commandName": "impact"
+        },
+        "sourceToolAssistantUUID": "47f2768d-0c26-48d7-afb3-0583d7183105",
+        "promptId": "8302b754-1356-4991-8eca-4d663798c392"
+      },
+      "original_record_sha256": "1f86b9c2c469e213d51dc9be3a4aecae427bad697c71146d824d8d239fa98541",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "316": {
+      "timestamp": "2026-09-23T10:46:00.166Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "47bf283e-2346-423f-83d0-55ce2301d801",
+        "parentUuid": "b2166e89-7ece-49d3-98e8-eb512a2db1a3",
+        "timestamp": "2026-09-23T10:46:00.166Z",
+        "sessionId": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.280",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Base directory for this skill: D:\\Dev\\AI\\agents\\.claude\\skills\\impact\n\n<straw-dog until=\"01-0017 declares the impact mechanism\" ticket=\"docs/tickets/01-0017-io-graph-coherent.md\">Mechanism: not yet</straw-dog>\n\nFind what actually depends on the subject being shaped, behaving, or meaning\nwhat it currently does.\n\nDo not just search mentions. Follow semantic dependencies until the picture\nconverges.\n\nCheck:\n\n- durable docs and decisions\n- product/API behavior\n- code and composition\n- tests, fixtures, parity/reference readers\n- active tickets, concerns, RFCs\n- upcoming work likely to depend on it\n- historical context and records; history is maintained mechanically like everything else (`/mechanism`, *Mechanical by construction*), not exempted from repair\n\nDistinguish:\n\n- must change\n- must verify\n- may simplify\n- hidden risk\n- historical only\n- probably unaffected\n\nLook especially for assumptions shared across docs, code, and tests: internal\nagreement does not prove external correctness.\n\nChallenge the proposed change too:\n- is it solving a demonstrated problem?\n- can it be narrower?\n- does it introduce a general abstraction?\n- if so, what second materially different concrete shape justifies it?\n\nOutput only:\n\n## Impact\nMain blast radius.\n\n## Hidden edges\nNon-obvious dependencies or risks.\n\n## Leave alone\nRelated things that should not change.\n\n## Recommendation\nProceed, narrow, rethink, or postpone, and why.\n\n\nARGUMENTS: Draft split for recipient bootstrap, child slices of 01-0010: (1) painted doors arrive with the tree — harness.py creates every door directory and writes docs/tickets/README.md with an arrival state; (2) the first install's last step becomes a sequence — harness/SKILL.md: L1+L2 extracted before setup, setup-devops relied-on, L3 last as a pointer to docs/cicd.md, core's gates additive only, a git-init refusal bullet, and setup-devops's \"setup initial GitHub repository if missing\" narrowed to offer-only; (3) the quicklook — harness/SKILL.md instructs one fixed skeletal read into architecture.md and glossary.md, ARCH-FORMAT and GLOSSARY-FORMAT gain the unread stamp distinct from deferred, hand-written and straw-dogged since align is undeclared; (4) harness gains a rules file naming what /maintain must check for it."
+            }
+          ]
+        },
+        "promptId": "8302b754-1356-4991-8eca-4d663798c392"
+      },
+      "original_record_sha256": "29f00bfd8af673ec0d73e4057a73cfadb2e6bb3e183fbd3990b6d3e9dc904083",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "320": {
+      "timestamp": "2026-09-23T10:46:25.525Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "989e5072-2341-4ab0-a249-c4efc0715f24",
+        "parentUuid": "cc6fd85f-6f03-45a3-89f1-c59b944be132",
+        "timestamp": "2026-09-23T10:46:25.525Z",
+        "sessionId": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.280",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfLEfodvek8e9G2UVirpu",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01SQbgVaCYXa2riQmVMEuhzQ",
+              "name": "Bash",
+              "input": {
+                "command": "grep -n \"architecture\\|format\\|record\" .agents/skills/maintain/SKILL.md | head -14",
+                "description": "Check what maintain holds docs against"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "a0fce3423e09eef264ece0ab41520f4ba9c3c6a10ba8abd10da0d1c9b2291f91",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "321": {
+      "timestamp": "2026-09-23T10:46:26.176Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "bec6713d-0e5e-4bf1-a7ea-6ce84663a383",
+        "parentUuid": "989e5072-2341-4ab0-a249-c4efc0715f24",
+        "timestamp": "2026-09-23T10:46:26.176Z",
+        "sessionId": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.280",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01SQbgVaCYXa2riQmVMEuhzQ",
+              "is_error": false,
+              "content": "5:  meta-rules, docs to their implementation, records to their format, every\n7:  dog or archive a finished record. Drift only: a landed slice is verified,\n15:- **A1** Hold four things in agreement: docs to the meta-rules and their format; docs to their\n16:  implementation, both ways; live records to their declared format; every fact to one home.\n20:  shape, then a mechanism's doc and rules, then its records. Do not stop at the link you were\n26:doc against the shape, its instruction file against its doc, its records against their format.\n34:  outside the scope to the record that owns its subject — the open issue that already holds it,\n37:- **B3** Archive every finished record, whatever scope you declared. The record's format says\n42:- **C1** Decide that a record is finished yourself; scripts move and check form, never decide.\n50:- **D3** Preserve the facts an archived record records. Never invent a past fact; never imply a\n59:- **E2** Let live records carry duplicate context; their indexes may not.\n60:- **E3** Do not cite a record for architecture in a core document.\n81:**R1** Check a record-bearing mechanism's records with its maintainer script — format never\n89:**R4** Render an index on request; never commit one beside its records. A file listing what other"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "5:  meta-rules, docs to their implementation, records to their format, every\n7:  dog or archive a finished record. Drift only: a landed slice is verified,\n15:- **A1** Hold four things in agreement: docs to the meta-rules and their format; docs to their\n16:  implementation, both ways; live records to their declared format; every fact to one home.\n20:  shape, then a mechanism's doc and rules, then its records. Do not stop at the link you were\n26:doc against the shape, its instruction file against its doc, its records against their format.\n34:  outside the scope to the record that owns its subject — the open issue that already holds it,\n37:- **B3** Archive every finished record, whatever scope you declared. The record's format says\n42:- **C1** Decide that a record is finished yourself; scripts move and check form, never decide.\n50:- **D3** Preserve the facts an archived record records. Never invent a past fact; never imply a\n59:- **E2** Let live records carry duplicate context; their indexes may not.\n60:- **E3** Do not cite a record for architecture in a core document.\n81:**R1** Check a record-bearing mechanism's records with its maintainer script — format never\n89:**R4** Render an index on request; never commit one beside its records. A file listing what other",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "989e5072-2341-4ab0-a249-c4efc0715f24",
+        "promptId": "8302b754-1356-4991-8eca-4d663798c392"
+      },
+      "original_record_sha256": "df2b1cd2182103d7786e3cef9968a347af1411553b0b28c20787a2190cc22542",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "324": {
+      "timestamp": "2026-09-23T10:46:59.918Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "65bd7998-9da7-4b34-ac41-1af53d3722c7",
+        "parentUuid": "03d1df9f-b708-4283-ae6c-5204b5dca8b7",
+        "timestamp": "2026-09-23T10:46:59.918Z",
+        "sessionId": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.280",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfLEhiyhRpJYBueQt1cEH",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "## Impact\n\n**Must change**\n\n- `.agents/scripts/gw/harness.py` — door creation, and the door list it needs.\n- `.agents/skills/harness/SKILL.md` — the sequence, the `git init` refusal bullet, the quicklook instruction.\n- `.agents/mechanisms/harness/harness.md` — five Moments rows (three new, one `elsewhere`, one `embedded`), the parts table for a new rules file, and *What it produces, and who reads it*.\n- `.agents/skills/align/ARCH-FORMAT.md`, `GLOSSARY-FORMAT.md` — the *unread* stamp.\n- `.agents/skills/setup-devops/SKILL.md` — one clause narrowed to offer-only.\n\n**Must verify**\n\n- `mechanisms.py --check` after the Moments and parts changes; a new `not yet`/`embedded` row needs a live ticket.\n- A live install into a scratch tree, and a second into a tree that already has `docs/`.\n- `frost_map`'s existing pointer-form L3 still reads correctly against the rewritten instruction.\n\n**May simplify** — `ai-game-1`'s L3 becomes a pointer and stops naming `.agents/scripts/`, removing one instance of the breakage [01-0010.0160](docs/tickets/01-0010.0160-harness-edge-changes-reach-an-update.md) exists for.\n\n## Hidden edges\n\n1. **The door list would get a second home.** [mechanisms.py:49-76](.agents/scripts/gw/mechanisms.py:49) already holds every painted door by hand, for the leak check. Slice 1 needs the same list to create them. Two copies violates *every fact to one home* (maintain **A1**) and will drift silently — the leak check and the creator disagreeing is undetectable by either.\n\n2. **Door creation breaks \"every refusal writes nothing.\"** Creating directories is a write. If a later step refuses, the doors are left behind and the tree is neither clean nor installed. The atomicity promise at [harness.md:23](.agents/mechanisms/harness/harness.md:23) has to be restated or the creation has to move after the gate.\n\n3. **`unread` collides with maintain.** **A1** holds *\"docs to their implementation, both ways.\"* A skeletal `architecture.md` disagrees with the code by construction — that is the whole point. Without maintain being told that *unread* is a tolerated state, every bootstrapped project's first maintain pass reports the architecture as drift, and the repair it would attempt *is* the quicklook, unbounded. Slice 3 cannot land without touching maintain.\n\n4. **Slice 1 overlaps [01-0010.0150](docs/tickets/01-0010.0150-harness-meets-a-tree-with-a-method.md).** A tree with its own `docs/tickets/` is a collision, and that ticket owns collisions and the inventory refusal. Creating doors blind would write into territory `.0150` is planning to inventory first.\n\n5. **Slice 4 depends on 1–3.** Harness can only tell maintain what to re-check once it owns the doors and the sequence.\n\n## Leave alone\n\n- The manifest, the stamp, the gate's three checks, and `--check`'s comparison. None of this touches what core ships or how arrival is judged.\n- `setup-devops`'s declaration status. Narrowing one clause does not require declaring the mechanism; pulling that in imports [01-0017](docs/tickets/01-0017-io-graph-coherent.md).\n- The announce line and the local file's format. Both already work.\n\n## Recommendation\n\n**Proceed on 1, 2 and 4 — narrow 3.**\n\nSlices 1, 2 and 4 are forced by a demonstrated failure with a named customer, and each is verifiable by one install into a scratch tree.\n\nSlice 3 is a generalization from **one** shape, and the project's own rule forbids that. The quicklook's codebase-reading half has **zero** real cases: `frost_map` arrived already described, and `ai-game-1` has no code — its material is six prose documents. So the recipe would be designed against a tree that does not exist yet. Narrow slice 3 to what `ai-game-1` actually demonstrates — harvesting `glossary.md` and a Purpose/Scope skeleton from existing *documents* — and leave the read-the-codebase recipe unbuilt until a recipient with undescribed code forces it. That also defers hidden edge 3, since a prose-sourced glossary does not put `architecture.md` in disagreement with code.\n\nSlice 1 should be re-slid behind or merged with `.0150`'s inventory, or explicitly scoped to \"no `docs/` collision\" with the collision case left to `.0150`."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "5de8c46e7505eb413313f9db4eb2a7791126971e46d749ad0964dd0480349919",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "326": {
+      "timestamp": "2026-09-23T10:47:22.945Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "80438bcd-7f9a-495c-b2fa-54916dc341b6",
+        "parentUuid": "6eaf27c6-6dd4-43d2-b387-bb26dd263eee",
+        "timestamp": "2026-09-23T10:47:22.945Z",
+        "sessionId": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.280",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "what are the slices, you did not name them"
+        },
+        "promptId": "8302b754-1356-4991-8eca-4d663798c392"
+      },
+      "original_record_sha256": "e1568a1009cc74eea57d4313a25c3fc4e83bd3c2faa238f7feb9cc0a8d5c0a53",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "329": {
+      "timestamp": "2026-09-23T10:48:05.230Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "215c56a8-c2a1-4cd2-9eff-111e77fc89cc",
+        "parentUuid": "141f9aaf-a731-4a6b-9421-9c9f2479ee78",
+        "timestamp": "2026-09-23T10:48:05.230Z",
+        "sessionId": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.280",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfLEmvAGGgcsYD9fdRgwp",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "You're right — I gave you the impact and skipped the breakdown. Here it is, post-impact (slice 3 narrowed, slice 1 re-scoped).\n\n---\n\n**1. A fresh tree arrives with its painted doors**\n*Slug:* `01-0010.0165-doors-arrive-with-the-tree` · **AFK** · *Depends on:* — (coordinates with `.0150`)\n`harness.py` creates every painted-door directory and writes `docs/tickets/README.md` with its arrival state — core arrived at this ref, nothing in flight, next step is setup. The door list stays in one home, shared with the leak check rather than copied. Creation runs after the gate so a refusal still writes nothing. A tree that already holds a door is a collision and belongs to `.0150`, not here.\n*Parent scope:* makes [glossary.md:97](.agents/glossary.md:97)'s *\"every recipient has [a door] because installing the mechanism creates it\"* true; gives `/recall` something to read on a fresh tree's first session.\n\n**2. The first install's last step becomes a sequence**\n*Slug:* `01-0010.0170-arrival-becomes-a-sequence` · **AFK** · *Depends on:* 1\n`harness/SKILL.md`'s *After the first install* rewritten: the missing `git init` refusal bullet; L1 and L2 extracted **before** setup so the step has identity and authority; `setup-devops` invoked as relied-on, with its *\"setup initial GitHub repository if missing\"* narrowed to offer-only; L3 extracted **last**, as a pointer to `docs/cicd.md`; core's own gates additive only; an empty verification set a stated state rather than a slot to fill.\n*Parent scope:* the `ai-game-1` failure directly — the set can no longer fall back to verifying core.\n\n**3. A tree's existing material becomes its glossary and a skeleton**\n*Slug:* `01-0010.0175-arrival-describes-what-it-finds` · **HITL** · *Depends on:* 2\nNarrowed per the impact: **prose-sourced only.** Existing documents yield `glossary.md` and a Purpose/Scope/Core-concepts skeleton; every ungrounded section stamped **unread**, which `ARCH-FORMAT` and `GLOSSARY-FORMAT` gain as a state distinct from *deferred*. `/maintain` is told *unread* is tolerated, or hidden edge 3 makes every bootstrapped project's first pass report drift. Hand-written and straw-dogged to [01-0017.0010](docs/tickets/01-0017.0010-terms-defined-before-they-land.md), since align is undeclared and cannot inject yet; the moment is marked `embedded`. **The read-the-codebase recipe is not built** — no recipient with undescribed code exists.\n*Parent scope:* a non-empty tree arrives described instead of blank.\n\n**4. Harness tells `/maintain` what to check for it**\n*Slug:* `01-0010.0180-harness-names-its-maintenance` · **AFK** · *Depends on:* 1, 2, 3\nHarness's first rules file: the doors still exist, the announce line still matches, a recipient's local file still resolves. Closes the gap registered in [rule-failure 7](docs/rule-failures.md).\n*Parent scope:* harness stops being the one mechanism that names nothing to maintain.\n\n---\n\n**Impact note:** proceed on 1, 2, 4; 3 narrowed because the codebase-reading recipe would generalize from zero cases — `frost_map` arrived described, `ai-game-1` has no code. Narrowing also defers the maintain collision.\n\nParent is [01-0010](docs/tickets/01-0010-dev-harness-shared-and-local.md), alongside `.0150`/`.0155`/`.0160`.\n\n`breakdown=ask`, so nothing is minted. Four questions:\n\n1. Granularity — right, too coarse, too fine?\n2. Dependencies — is 3→2→1 right, and should 4 really wait on 3?\n3. Merge or split — 1 and 2 both land in one install run; worth merging?\n4. HITL/AFK — I marked only 3 HITL. Does 2 need you in the loop, since it's the slice that rewrites the instruction that failed?"
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "b320537fa2ac86cc94bedf2c0b7cedf0a140c1e8c36549eecb0b05c912faa633",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "331": {
+      "timestamp": "2026-09-23T10:48:38.246Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "cc1af129-bcb1-4c48-bcf3-fb1a552ee33d",
+        "parentUuid": "af6b6304-2f74-4282-9607-ca9951c90885",
+        "timestamp": "2026-09-23T10:48:38.246Z",
+        "sessionId": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.280",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "a sidestroll - why4 did you skip the breakdown? is there no rule to show it?\notherwise, agreed"
+        },
+        "promptId": "8302b754-1356-4991-8eca-4d663798c392"
+      },
+      "original_record_sha256": "0eb822dda76c52403cdf87c8b7dfebd126f99a86d062a323221ccc44df3e576c",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "334": {
+      "timestamp": "2026-09-23T10:49:02.434Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "09a61113-7045-41db-b10a-50241e93b9cf",
+        "parentUuid": "0af64371-4b59-48b1-a448-3ff7240afc14",
+        "timestamp": "2026-09-23T10:49:02.434Z",
+        "sessionId": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.280",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfLEsTTa3NdLRHFGANo1G",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Good catch, and there is a rule — explicit.\n\n`/ticket` **step 4**: *\"Present the post-impact breakdown as a numbered list, plus the impact note.\"* And **step 3.1** also says *\"Record its output on the parent,\"* which I likewise didn't do.\n\nWhy it didn't fire: `/impact`'s body ends with **\"Output only:\"** followed by its four sections. That is an exclusive output contract, and it arrived last, so I treated it as ending the turn. It's correct phrasing for a *direct* `/impact` invocation and wrong when `/impact` is called from inside `/ticket` step 3.1 — where the caller must keep going. A nested skill's output contract swallowed its caller's next step.\n\nSame family as rule-failure 7: present, phrased for one occasion, silently wrong in another. Landing the fix before minting."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "f0000fa75e48bc5e3276956b44c7b27055074b78bfe20982ba63e8f7ee96e639",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    }
+  }
+}

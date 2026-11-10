@@ -1,0 +1,18 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-landed-instruction-framed-as-change-20261011-003803",
+  "scope": "Separate register failure criterion over an existing public source event.",
+  "source_event_shared_with": "rf-running-sessions-questions-were-f41b68a9b7",
+  "source_provenance_unchanged": true,
+  "original_source_case_sha256": "3cbc9ecf18d671da078bd2852932ac5ab823f260b83dafd26a921608be244835",
+  "criterion": "Does the reporting reply frame the just-written harness skill instruction as a landed rule, rather than as an other-text change?",
+  "criterion_scope_qualification": "This case assesses the instruction frame in the same reply that also supplies the separate neighboring-title case. It does not assess those title labels.",
+  "historical_validation_reports_copied": false,
+  "source_gaps_preserved": [],
+  "executor_support": {
+    "status": "unsupported",
+    "behavior_verdict": null
+  },
+  "independent_semantic_validation_claimed": false
+}

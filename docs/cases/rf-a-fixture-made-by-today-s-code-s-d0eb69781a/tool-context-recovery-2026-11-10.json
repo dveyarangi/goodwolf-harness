@@ -1,0 +1,25 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-a-fixture-made-by-today-s-code-s-d0eb69781a",
+  "scope": "Exact public tool-ID counterpart recovery and native delivery classification, not all-context sufficiency or behavior judgment.",
+  "pre_checkpoint_counterparts_recovered": [],
+  "known_later_results_reference_only": [
+    {
+      "call_id": "toolu_01MCtHNvCsZBk91q56aGNTCa",
+      "call_source": "source.json#/records/819",
+      "known_later_result_source": "source.json#/records/830",
+      "assistant_message_id": "msg_011CfvL5xpxt66vWobbH53ae",
+      "checkpoint_within_same_assistant_message": true,
+      "result_available_at_checkpoint": false
+    }
+  ],
+  "incoming_native_host_deliveries": [],
+  "source_gap_count": 0,
+  "executor_support": {
+    "status": "unsupported",
+    "behavior_verdict": null
+  },
+  "no_call_ids_or_roles_invented": true,
+  "original_source_record_hashes_recorded": true
+}

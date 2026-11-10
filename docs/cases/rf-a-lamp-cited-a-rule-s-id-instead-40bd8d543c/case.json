@@ -1,0 +1,130 @@
+{
+  "id": "rf-a-lamp-cited-a-rule-s-id-instead-40bd8d543c",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "22. A lamp cited a rule's id instead of a principle's name — 2026-10-08",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "opaque-lamps-Workshop-verify"
+  },
+  "provenance": {
+    "host": "Codex Desktop",
+    "host_source": "source.json#/records/1/payload/originator",
+    "model": "gpt-6.1-sol",
+    "model_source": "source.json#/records/167/payload/model",
+    "model_evidence_kind": "recorded turn model identifier",
+    "occurred_at": "2026-10-08T07:32:24.531Z",
+    "chat_id": "01a11a58-894d-7d52-af3b-008b2c32b221",
+    "trigger_message_id": "msg_01a11a6a-e187-7843-abdd-002d0f14d136",
+    "failure_message_id": "msg_0bf3798488db3311016ac74701a8848191b8fb1ce9d067c35f",
+    "transcript": "rollout-2026-10-08T10-09-33-01a11a58-894d-7d52-af3b-008b2c32b221.jsonl.zst"
+  },
+  "observed_failure": {
+    "description": "During one original Codex verification episode in xuanxue-workshop, paragraphs cite L14/L5 as lamp labels. The registration statement that this occurred in this tree is not adopted.",
+    "events": [
+      {
+        "source": "source.json#/records/218",
+        "message_id": "msg_0bf3798488db3311016ac74701a8848191b8fb1ce9d067c35f",
+        "timestamp": "2026-10-08T07:32:24.531Z",
+        "text": "Установленные файлы Cabinet и Daychi совпали с опубликованным источником после заявленных адаптаций. У Cabinet подтвердился известный дефект: ссылка из companion-файла на CONTRACT-SHAPE не разрешается в его репозитории; Daychi заменил её на ссылку к тому же неизменяемому исходнику. (💡 *L14*)\n\nТеперь проверяю код и выполненные CI-проверки, на которых основано принятие провайдера Cabinet. Параллельно идёт полный набор тестов harness. (💡 *L5*)\n"
+      },
+      {
+        "source": "source.json#/records/295",
+        "message_id": "msg_0bf3798488db3311016ac747d54edc8191a9781d5f3c602c90",
+        "timestamp": "2026-10-08T07:35:55.835Z",
+        "text": "Полный прогон обнаружил реальный сбой: из 555 тестов один падает, два пропущены. Падает проверка отказа Git при чужом владельце репозитория; отдельный повтор воспроизвёл ошибку. Сейчас проверю, где причина — в harness или в тестовом окружении. (💡 *L5*)\n\nКод провайдера и CI подтвердили принятую реализацию; свежие GET-проверки также подтвердили staging `868a4ed` и production `fc2dee2`. (💡 *L14*)\n"
+      },
+      {
+        "source": "source.json#/records/363",
+        "message_id": "msg_0bf3798488db3311016ac7495e84688191981dc5d08a456ab7",
+        "timestamp": "2026-10-08T07:42:29.081Z",
+        "text": "Полный прогон с исправлением в памяти прошёл: 555 тестов, без ошибок, два пропуска из-за прав на symlink. Исходный тест пока остаётся неисправленным; готовый патч сохранён отдельно. (💡 *L5*)\n\nНашёл ещё одну неточность: текущий `CLAUDE.md` Cabinet ссылается на старую версию публичного контракта, хотя код и assignment используют принятую новую версию. Зафиксирую этот результат в исходном issue по правилу review. (💡 *L14*)\n"
+      },
+      {
+        "source": "source.json#/records/389",
+        "message_id": "msg_0bf3798488db3311016ac749c0de588191a000250d92a963ef",
+        "timestamp": "2026-10-08T07:44:14.543Z",
+        "text": "| ↳ **q-0002.0005.0002** · Does ordinary Workshop session entry invoke and exercise assignment review? |\n|---|\n\nСам перепроверил. Нашёл ошибку в тесте harness: полный прогон — **555 тестов, один сбой, два пропуска**. Причина установлена; с подготовленным исправлением в памяти весь набор проходит. [Результаты](D:/Dev/workspaces/taichi_workspace/xuanxue-workshop/docs/mechanisms/harness.evidence.md:173). (💡 *L5*)\n\nУстановки, код Cabinet, выполненные CI-проверки и живой API подтвердились. Устаревшую ссылку в инструкциях Cabinet передал в [исходный issue](https://github.com/dveyarangi/xuanxue-workshop/issues/5#issuecomment-6055167031) через [/review-assignments](D:/Dev/workspaces/taichi_workspace/xuanxue-workshop/.agents/skills/review-assignments/SKILL.md). (💡 *L14*)\n\n| 🍂 Drift |\n|---|\n| Ошибка теста остаётся в исходнике; исправление проверено отдельно. |\n| Опубликованные инструкции Workshop и ссылка Cabinet требуют обновления. |\n| Запись вопроса содержит устаревший статус установок. |\n\n| ⚖️ Decisions |\n|---|\n| Применение [готового патча теста](D:/Dev/workspaces/taichi_workspace/xuanxue-workshop/.local/readiness-verification-20261008/harness-ownership-test.patch) требует разрешения по `repair=ask`. |\n| Независимая оценка review остаётся отдельным критерием закрытия readiness. |\n\nПроверка завершена, но текущий исходник нельзя объявить полностью чистым. (💡 *L1*)"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "A lamp should name a content-bearing principle in words rather than an opaque rule id; this expectation comes from the corrective user message, not the Claude registrar model.",
+    "source_evidence": [
+      "source.json#/records/6",
+      "source.json#/related_sources/c7d0f1d2ac/records/927"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: A lamp should name a content-bearing principle in words rather than an opaque rule id; this expectation comes from the corrective user message, not the Claude registrar model.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Cite the selected response/action and its preserved source context for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Relevant original public records and host/model metadata are preserved; private reasoning and platform system/developer instructions outside the project's hook context are excluded.",
+    "reference_only_records": [],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "During one original Codex verification episode in xuanxue-workshop, paragraphs cite L14/L5 as lamp labels. The registration statement that this occurred in this tree is not adopted.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/218",
+      "after": "source.json#/records/213",
+      "description": "Immediately before the selected failing response/action; preserved earlier public records supply the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/6",
+      "source.json#/records/9",
+      "source.json#/records/168",
+      "source.json#/records/170",
+      "source.json#/records/172",
+      "source.json#/records/173",
+      "source.json#/records/176",
+      "source.json#/records/180",
+      "source.json#/records/190",
+      "source.json#/records/194",
+      "source.json#/records/205",
+      "source.json#/records/209",
+      "source.json#/records/213"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/6"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/218",
+        "source.json#/records/295",
+        "source.json#/records/363",
+        "source.json#/records/389"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Instruction evidence, host metadata and reference-only records do not become additional actor messages.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role."
+    ],
+    "source_metadata_records": [
+      "source.json#/records/1",
+      "source.json#/records/167"
+    ]
+  },
+  "source_gaps": []
+}

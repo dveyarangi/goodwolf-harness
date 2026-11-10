@@ -1,0 +1,43 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-a-rule-was-landed-with-a-filter-40a495fbcb",
+  "scope": "Recovery and integration of public API input order; no behavioral replay or all-case semantic sufficiency verdict.",
+  "request": "api-input.json#/request",
+  "request_message_count": 1242,
+  "recovered_message_count": 1242,
+  "unresolved_input_positions": [],
+  "structured_private_blocks_omitted": 153,
+  "unsupported_public_fields_or_blocks": 0,
+  "superseded_export_gap_count": 4,
+  "native_context_records_retained_as_evidence": [
+    "source.json#/records/1944",
+    "source.json#/records/3456",
+    "source.json#/records/3504"
+  ],
+  "existing_source_qualifications_and_blocked_checks_preserved": true,
+  "current_source_gap_count": 0,
+  "historical_validation_reports_unchanged": true,
+  "executor_support": {
+    "status": "unsupported",
+    "behavior_verdict": null,
+    "reasons": [
+      "The current combined-input runner cannot prepare native recorded histories or execute these action-bounded cases."
+    ]
+  },
+  "public_hook_artifact_recovery": {
+    "scope": "Exact public hook artifacts referenced by retained native evidence; recorded API actor input and order unchanged.",
+    "referenced_artifact_count": 2,
+    "referenced_artifacts_recovered": 2,
+    "referenced_artifacts_unavailable": 0,
+    "recorded_api_input_sha256_unchanged": "014795a31ce86863b72fee576383a7db7a409c79a0c07aa6be64a317fa11f0a8",
+    "replay_input_start_limits_unchanged": true,
+    "snapshot_scope": "API input fingerprint at artifact-copy time, before the separately recorded public optional-field projection repair."
+  },
+  "remaining_source_gap_kinds": [],
+  "public_api_projection_update": {
+    "report": "api-projection-repair-2026-11-10.json",
+    "current_api_input_sha256": "819fde0d0bb07f76c8befee491f82a3dab15d121cedde44d1405ee529810113f",
+    "source": "Independent review found public output_config/clear_at fields omitted by the earlier projection; request order and message role/content stayed unchanged."
+  }
+}

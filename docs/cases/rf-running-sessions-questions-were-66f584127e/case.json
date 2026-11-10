@@ -1,0 +1,113 @@
+{
+  "id": "rf-running-sessions-questions-were-66f584127e",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "35. Running sessions' questions were named in words the window never wrote — 2026-10-11",
+    "occurrence": "repeat",
+    "occurrence_heading": "**Struck a second time, 2026-10-26 — required form omitted across several replies.** In Codex",
+    "detail": "chronologically-false-cause"
+  },
+  "provenance": {
+    "host": "Codex Desktop",
+    "host_source": "source.json#/records/1/payload/originator",
+    "model": "gpt-6.1-sol",
+    "model_source": "source.json#/records/1483/payload/model",
+    "model_evidence_kind": "recorded turn model identifier",
+    "occurred_at": "2026-10-26T16:44:35.410Z",
+    "chat_id": "01a177e0-ff53-7c93-9cd3-bcdb4c70db5c",
+    "trigger_message_id": "msg_01a17919-4757-7b90-8ee8-1db9b16d2c0a",
+    "failure_message_id": "msg_0a2987dba2acbcb3016adf8371d5a8819197acffdbf73c61f5",
+    "transcript": "rollout-2026-10-26T13-03-16-01a177e0-ff53-7c93-9cd3-bcdb4c70db5c.jsonl"
+  },
+  "observed_failure": {
+    "description": "An October26 Codex reply omits required turn-form tables. The chronology includes omissions before the request to explain more simply; a subsequent causal attribution to that request is separately identified.",
+    "events": [
+      {
+        "source": "source.json#/records/1488",
+        "message_id": "msg_0a2987dba2acbcb3016adf8371d5a8819197acffdbf73c61f5",
+        "timestamp": "2026-10-26T16:44:35.410Z",
+        "text": "Я принял просьбу объяснить проще за разрешение убрать обязательное оформление хода. Ты такого разрешения не давал. Проверю, какая прежняя запись охватывает этот повтор, и подготовлю поправку к инструкции.\n"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Mandatory tables were not waived by simpler prose. The user correction and subsequent admission establish that omissions already preceded that request; a deeper cause remains unestablished.",
+    "source_evidence": [
+      "source.json#/records/1504",
+      "source.json#/records/1510",
+      "source.json#/records/8"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Mandatory tables were not waived by simpler prose. The user correction and subsequent admission establish that omissions already preceded that request; a deeper cause remains unestablished.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Cite the selected response/action and its preserved source context for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Relevant original public records and host/model metadata are preserved; private reasoning and platform system/developer instructions outside the project's hook context are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1489",
+      "source.json#/records/1493",
+      "source.json#/records/1497",
+      "source.json#/records/1500",
+      "source.json#/records/1504",
+      "source.json#/records/1506",
+      "source.json#/records/1510"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "An October26 Codex reply omits required turn-form tables. The chronology includes omissions before the request to explain more simply; a subsequent causal attribution to that request is separately identified.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1488",
+      "after": "source.json#/records/1486",
+      "description": "Immediately before the selected failing response/action; preserved earlier public records supply the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/8",
+      "source.json#/records/12",
+      "source.json#/records/115",
+      "source.json#/records/334",
+      "source.json#/records/495",
+      "source.json#/records/1424",
+      "source.json#/records/1484",
+      "source.json#/records/1486"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/8"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1488"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Instruction evidence, host metadata and reference-only records do not become additional actor messages.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role."
+    ],
+    "source_metadata_records": [
+      "source.json#/records/1",
+      "source.json#/records/1483"
+    ]
+  },
+  "source_gaps": []
+}

@@ -1,0 +1,109 @@
+{
+  "id": "rf-four-skills-were-changed-without-b47fe922ed",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "50. Four skills were changed without `/skill-up`, which asks nothing about growth — 2026-10-15",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "discover instruction amendment"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1339",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.295"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/1339/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-14T21:41:55.528Z",
+    "chat_id": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5",
+    "trigger_message_id": null,
+    "trigger_record_id": "cdc6a8e4-7d8e-4819-a0e7-87c0caea2559",
+    "failure_message_id": "msg_011Cg2rfCVRHZ722Nto9wR48",
+    "failure_record_id": "61d93fbe-9f53-4f92-a5b4-7d4c9a88d762",
+    "transcript": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5.jsonl"
+  },
+  "observed_failure": {
+    "description": "The discover skill is amended directly after the user asks for the fix.",
+    "events": [
+      {
+        "source": "source.json#/records/1339",
+        "message_id": "msg_011Cg2rfCVRHZ722Nto9wR48",
+        "record_id": "61d93fbe-9f53-4f92-a5b4-7d4c9a88d762",
+        "timestamp": "2026-10-14T21:41:55.528Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\skills\\\\discover\\\\SKILL.md\", \"old_string\": \"**Describe the shape functionally, in nobody's vocabulary.** No local file names, no local\\nrule numbers, no local record names, no house terms.\", \"new_string\": \"**Ask the question the shape answers, not the shape:** what it is for, the situation it serves,\\nwithout how this tree meets it — a shape described, in anyone's words, sends its frame along. No\\nlocal file names, no local rule numbers, no local record names, no house terms.\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Apply skill-up when changing the discover instruction; the user's authorization to fix does not establish the skill read.",
+    "source_evidence": [
+      "source.json#/records/241"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Apply skill-up when changing the discover instruction; the user's authorization to fix does not establish the skill read.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1340",
+      "source.json#/records/1341"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The discover skill is amended directly after the user asks for the fix.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1339",
+      "after": "source.json#/records/1334",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/1334"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/241"
+      ],
+      "native_context_records": [
+        "source.json#/records/241",
+        "source.json#/records/1336"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1339"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

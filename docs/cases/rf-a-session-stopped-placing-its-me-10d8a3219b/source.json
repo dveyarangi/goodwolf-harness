@@ -1,0 +1,1232 @@
+{
+  "transcript": "d4406b99-8ee7-4e49-8d84-5621c2fd5766.jsonl",
+  "chat_id": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+  "transcript_bytes": 10177547,
+  "transcript_sha256": "ecb82aebe29eff5e5a000541eae093c2912100f2b055a0f4b4f0bf31565c709a",
+  "record_numbering": "one-based JSONL records in the original transcript",
+  "delivery_context": null,
+  "records": {
+    "27": {
+      "timestamp": "2026-10-02T16:27:55.520Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "afd7cb24-4751-4e0b-91d5-0ed6b325f378",
+        "parentUuid": "a193261d-b0a3-429d-86e2-6483cf6ebcdc",
+        "timestamp": "2026-10-02T16:27:55.520Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "instructions",
+          "files": [
+            {
+              "path": "D:\\Dev\\AI\\agents\\CLAUDE.md",
+              "type": "Project",
+              "content": "@AGENTS.md"
+            },
+            {
+              "path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+              "type": "Project",
+              "content": "# Entry contract\n\nEntry contract: v18, 2026-10-02.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<straw-dog until=\"01-0020 is done\" ticket=\"docs/tickets/01-0020-pacer.md\">\nRun /recall first in every session, whatever the first message says.\n</straw-dog>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n- Clarity and simplicity first — Occam's razor: take the shape with the fewest parts that does the job, and remove before you add.\n\n- Write for a capable model: state the rule and its pointer. The definition the glossary owns, the example that motivated it and what it implies stay out.\n\n<straw-dog until=\"01-0018 declares the mechanism that owns tiering\" ticket=\"docs/tickets/01-0018-reachability-coherent.md\">\n- A skill's description is its tier-1 surface: name there every use case the skill serves, and nothing else — never its method or how it is built. Write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session.\n</straw-dog>\n\n<installed by=\"ticket\">\n**P9** The first time a record or a reply names a ticket, name it by a link to its record whose text\ncarries its slug — the id may lead it; later mentions may be the id alone. Name one that has no\nrecord yet by a slug and its state word.\n</installed>\n\n<installed by=\"questions\">\n**Q1** Before drafting a reply, place the message in the question store: read this turn's window — the\none the host's hook put in your context, or `questions.py --window --session <tag>` — and declare\nwhere the message lands with `questions.py --declare \"<line>\" --session <tag>`, again whenever\nthe turn's own work settles, opens or moves a question:\n\n- `at q-0004`\n- `at q-0014; opens q-0014 under q-0004: <question>`\n- `at q-0002; closes q-0004: decided, [link](../path.md)`\n- `nothing`\n\nA message that answers nothing near the current question opens what that question cannot be\nanswered without. Only the working agent declares, never a helper. Under `debug=on`, show each\ndeclared line where it happened. For any other form, a closure, a branching or a drop, read the\nquestions skill.\n</installed>\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. A core file\nmay name a path under `docs/` only when that path is a record a mechanism declares — the directory\nthat holds a kind of record, or a file that is one — never a particular record inside such a\ndirectory: `docs/tickets/` and `docs/glossary.md` are painted doors; one particular ticket inside\n`docs/tickets/` is a document only this project has. Content inside the\n[local block](#project-local) is the instance's, not core's. A `<straw-dog>` exempts\nnothing: its wrapper is stripped on install and whatever it wrapped ships. Core names a ticket\nonly in a straw dog's binding — never in a link, never as a bare id in prose — since a recipient\ncan resolve neither.\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog until=\"the practice mechanism owns how architecture is documented\" ticket=\"docs/tickets/01-0017.0020-practice-swaps-in-one-edit.md\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n\n## Self-improvement\n\n<straw-dog until=\"01-0019 is done\" ticket=\"docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md\">\n- A rule that was in place and did not fire was usually worded wrong. Register the failure in docs/rule-failures.md, or strike the entry it repeats, and propose the amendment that would have made it fire; /mechanism and /skill-up hold the means. Land the amendment in the same pass, showing its text first.\n- Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.\n</straw-dog>\n\n## Autonomy\n\nThe project sets each switch in its local block, under *Project-local*; skills defer to those values.\nA switch the project has not set is `ask`.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n`repair=report` holds only when all four are true: the governing rule is explicit, and cited; the\nrepair restores compliance inside the authorized work and keeps every other agreed contract; the\naffected behaviour is understood well enough to say so; the result is verifiable against the\nrule. Otherwise `/align`. *(the user, 2026-09-05)*\n\n## Project-local\n\n<installed by=\"mechanism-shape\">\n**R7** A project's own answers and overrides are authored in one file beside the entry file,\n`local.rules.md`, in the rules-file format, and reach a file only as the local block — the\ninstalled block whose owner is `local` — which the installer writes after every mechanism's block\nthere, so the project's answer is what a reader meets after core's rule. An override names the rule it\noverrides. A local change to a rule is written in the local file, never into a skill or the entry\nfile: `inject_rules.py --check` fails on a block that differs from its source and on a block\nnothing owns, and the repair is the local file, re-installed. The local block is the project's,\nnot core's, and a redeploy preserves it.\n</installed>\n\n<installed by=\"local\">\n**L1** This repository develops the shared dev harness using its own loop; its own architecture and\nprogress live in docs/ like any other project's — the instance half doing its job, not a leak.\nTerms: docs/glossary.md, this project's own; the method's are .agents/glossary.md's. What each\nversion of the entry contract changed: docs/research/entry-contract-findings.md.\n\n**L2** commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n\n**L4** debug=on\n</installed>\n\n## Straw dogs\n\nWrap anything a live ticket will change, as you write it — or, for text already written, in the\npass that mints the ticket or decides that it will change it:\n`<straw-dog until=\"condition\" ticket=\"path\">`, or in code a `TODO` naming the ticket. Treat *not\nyet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find\nthe ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.\nMake the condition testable and the ticket path repository-relative. Write the body to stand on\nits own: it is what a recipient receives once the wrapper is stripped, so it reads whole without\nthe condition and names no ticket — the binding does. Leave what no ticket would change\nunwrapped.\n\nFollow a straw dog like any other rule until its condition is visibly met; then act on reality,\nreport the stale block, and do not treat the contradiction as a violation."
+            },
+            {
+              "path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\memory\\MEMORY.md",
+              "type": "AutoMem",
+              "content": "# Memory\n\n- [Edit with edit tools, not scripts](edit-with-edit-tools-not-scripts.md) — a script's diff is invisible in the transcript; the user reads changes as they happen."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "073033c3d2b4d33bd2cf9cdd4c677ec62629a9829f906b96c70ab81028c393a2",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1314": {
+      "timestamp": "2026-10-02T21:45:53.775Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "4d03feeb-2241-47aa-9edc-2d6bc5ad647d",
+        "parentUuid": "9bd74db9-c255-4c00-8276-debfa27c62dd",
+        "timestamp": "2026-10-02T21:45:53.775Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "you can add project local rule for finding python interpreter (very short one).\nafter that, do another /plan pass"
+        },
+        "promptId": "9c6f2816-537e-4ba9-87da-a4c80f1adbaa"
+      },
+      "original_record_sha256": "aae491a79ff99521e13aa5b4897c87b5d1884ce57a34366e17d42ecf3f18bfc0",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1316": {
+      "timestamp": "2026-10-02T21:45:54.373Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "eefe998a-ab6a-43c1-b96a-f0c9f43e4d08",
+        "parentUuid": "dbe91af6-a165-452e-86a1-990e2586d674",
+        "timestamp": "2026-10-02T21:45:54.373Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "hook_additional_context",
+          "content": [
+            "window unchanged since your last one: d4406b99-8ee7-4e49-8d84-5621c2fd5766 at q-0001; `questions.py --window --session d4406b99-8ee7-4e49-8d84-5621c2fd5766 --full` draws it again"
+          ],
+          "hookName": "UserPromptSubmit",
+          "toolUseID": "hook-f8014421-6109-41de-8bdf-d70ec5e9d528",
+          "hookEvent": "UserPromptSubmit"
+        }
+      },
+      "original_record_sha256": "1ad61dd9044042d0b868e546f12bd8a1ce4505fabc6f09f057f54685843b85f8",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1319": {
+      "timestamp": "2026-10-02T21:46:01.573Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "e3681756-e49f-408b-aa04-e3599062b232",
+        "parentUuid": "82701349-8154-47ef-b5a5-4c618b8909cc",
+        "timestamp": "2026-10-02T21:46:01.573Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe9GtTzaZAajkS3qALLz",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01QnSYQtp58QQEPNwWqAHEZL",
+              "name": "Read",
+              "input": {
+                "file_path": "D:\\Dev\\AI\\agents\\local.rules.md",
+                "offset": 28
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "016ce6deb4bb1dd1ec7cba3b3b719fd5d232e05285697fd18271b67601d458ad",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1320": {
+      "timestamp": "2026-10-02T21:46:01.615Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "b96ab961-2838-4d3a-90c3-5c162131a211",
+        "parentUuid": "e3681756-e49f-408b-aa04-e3599062b232",
+        "timestamp": "2026-10-02T21:46:01.615Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01QnSYQtp58QQEPNwWqAHEZL",
+              "content": "28\t\n29\t<rule>\n30\tcommit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n31\t</rule>\n32\t\n33\t## L4 — the working is shown\n34\t\n35\t- **target** `AGENTS.md`\n36\t- **authority** the user, 2026-09-29\n37\t\n38\t<rule>\n39\tdebug=on\n40\t</rule>\n41\t\n42\t## L3 — the verification set\n43\t\n44\t- **target** `.agents/skills/verify/SKILL.md`\n45\t- **authority** the user, 2026-09-05\n46\t\n47\t<rule>\n48\tThe verification set:\n49\t\n50\t```\n51\tuv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/test -p \"test_*.py\"\n52\tuv run --offline --no-project python .agents/scripts/gw/mechanisms.py --check\n53\tuv run --offline --no-project python .agents/scripts/gw/inject_rules.py --check\n54\tuv run --offline --no-project python .agents/scripts/gw/tickets.py --check\n55\tuv run --offline --no-project python .agents/scripts/gw/maintain.py --check\n56\tuv run --offline --no-project python .agents/scripts/gw/questions.py --check\n57\t```\n58\t</rule>\n59\t"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "type": "text",
+          "file": {
+            "filePath": "D:\\Dev\\AI\\agents\\local.rules.md",
+            "content": "\n<rule>\ncommit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n</rule>\n\n## L4 — the working is shown\n\n- **target** `AGENTS.md`\n- **authority** the user, 2026-09-29\n\n<rule>\ndebug=on\n</rule>\n\n## L3 — the verification set\n\n- **target** `.agents/skills/verify/SKILL.md`\n- **authority** the user, 2026-09-05\n\n<rule>\nThe verification set:\n\n```\nuv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/test -p \"test_*.py\"\nuv run --offline --no-project python .agents/scripts/gw/mechanisms.py --check\nuv run --offline --no-project python .agents/scripts/gw/inject_rules.py --check\nuv run --offline --no-project python .agents/scripts/gw/tickets.py --check\nuv run --offline --no-project python .agents/scripts/gw/maintain.py --check\nuv run --offline --no-project python .agents/scripts/gw/questions.py --check\n```\n</rule>\n",
+            "numLines": 32,
+            "startLine": 28,
+            "totalLines": 59
+          }
+        },
+        "sourceToolAssistantUUID": "e3681756-e49f-408b-aa04-e3599062b232",
+        "promptId": "9c6f2816-537e-4ba9-87da-a4c80f1adbaa"
+      },
+      "original_record_sha256": "ae3744382d6769a9ef47d5b08b48469e8d43507fcd4701cc6b55597702a12386",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1322": {
+      "timestamp": "2026-10-02T21:46:06.306Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "ae387a75-32d4-4668-991f-8e10a1d19d52",
+        "parentUuid": "d1903c3f-0fc3-49b8-b9ed-8bd86a47b4ec",
+        "timestamp": "2026-10-02T21:46:06.306Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe9HSGRKGiUBJt6K4Pzj",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01XhwHixnL1LQtkEjo17cy3L",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\local.rules.md",
+                "old_string": "<rule>\ndebug=on\n</rule>\n",
+                "new_string": "<rule>\ndebug=on\n</rule>\n\n## L5 — how Python runs here\n\n- **target** `AGENTS.md`\n- **authority** the user, 2026-10-03\n\n<rule>\nRun a Python script with `uv run --offline --no-project python <script>`.\n</rule>\n"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "2c707632d09bc44b104c3ddacf137b3ef0561ffd3012fa58aa76453cd0e94b2a",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1323": {
+      "timestamp": "2026-10-02T21:46:07.382Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "bfd4c6ed-78a2-41f1-ad3b-240525d23cc3",
+        "parentUuid": "ae387a75-32d4-4668-991f-8e10a1d19d52",
+        "timestamp": "2026-10-02T21:46:07.382Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe9HSGRKGiUBJt6K4Pzj",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_016LBdBnd2Zz1QQUVfgsPrNj",
+              "name": "Bash",
+              "input": {
+                "command": "uv run --offline --no-project python .agents/scripts/gw/inject_rules.py local --install --overwrite && uv run --offline --no-project python .agents/scripts/gw/inject_rules.py --check > /dev/null; echo \"inject_rules check exit $?\"; sed -n '/<installed by=\"local\">/,/<\\/installed>/p' AGENTS.md",
+                "description": "Install the local rule and check the installed blocks"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "d263184738ec7820a7e229e15a4e0cb32c788d7719c79a4a0a67c871dd904bbe",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1325": {
+      "timestamp": "2026-10-02T21:46:08.092Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "2616df78-9583-40ce-a5d5-6c44d90bb8c8",
+        "parentUuid": "ae387a75-32d4-4668-991f-8e10a1d19d52",
+        "timestamp": "2026-10-02T21:46:08.092Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01XhwHixnL1LQtkEjo17cy3L",
+              "content": "The file D:\\Dev\\AI\\agents\\local.rules.md has been updated successfully."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\local.rules.md",
+          "oldString": "<rule>\ndebug=on\n</rule>\n",
+          "newString": "<rule>\ndebug=on\n</rule>\n\n## L5 — how Python runs here\n\n- **target** `AGENTS.md`\n- **authority** the user, 2026-10-03\n\n<rule>\nRun a Python script with `uv run --offline --no-project python <script>`.\n</rule>\n",
+          "originalFile": "# local — this project's rules, installed into core\n\nMachine input for the installer, read by nobody at session time: what this repository answers\nand overrides, in the grammar a mechanism's rules file uses. Amend a rule here, then install it\nwith overwrite; the block in a target is never the place.\n\n| target | anchor |\n|---|---|\n| `AGENTS.md` | `## Project-local` |\n| `.agents/skills/verify/SKILL.md` | `## The verification set` |\n\n## L1 — what this repository is\n\n- **target** `AGENTS.md`\n- **authority** the user, 2026-09-07 and 2026-09-20\n\n<rule>\nThis repository develops the shared dev harness using its own loop; its own architecture and\nprogress live in docs/ like any other project's — the instance half doing its job, not a leak.\nTerms: docs/glossary.md, this project's own; the method's are .agents/glossary.md's. What each\nversion of the entry contract changed: docs/research/entry-contract-findings.md.\n</rule>\n\n## L2 — the switches\n\n- **target** `AGENTS.md`\n- **authority** the user, 2026-09-05\n\n<rule>\ncommit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n</rule>\n\n## L4 — the working is shown\n\n- **target** `AGENTS.md`\n- **authority** the user, 2026-09-29\n\n<rule>\ndebug=on\n</rule>\n\n## L3 — the verification set\n\n- **target** `.agents/skills/verify/SKILL.md`\n- **authority** the user, 2026-09-05\n\n<rule>\nThe verification set:\n\n```\nuv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/test -p \"test_*.py\"\nuv run --offline --no-project python .agents/scripts/gw/mechanisms.py --check\nuv run --offline --no-project python .agents/scripts/gw/inject_rules.py --check\nuv run --offline --no-project python .agents/scripts/gw/tickets.py --check\nuv run --offline --no-project python .agents/scripts/gw/maintain.py --check\nuv run --offline --no-project python .agents/scripts/gw/questions.py --check\n```\n</rule>\n",
+          "structuredPatch": [
+            {
+              "oldStart": 39,
+              "oldLines": 6,
+              "newStart": 39,
+              "newLines": 15,
+              "lines": [
+                " debug=on",
+                " </rule>",
+                " ",
+                "+## L5 — how Python runs here",
+                "+",
+                "+- **target** `AGENTS.md`",
+                "+- **authority** the user, 2026-10-03",
+                "+",
+                "+<rule>",
+                "+Run a Python script with `uv run --offline --no-project python <script>`.",
+                "+</rule>",
+                "+",
+                " ## L3 — the verification set",
+                " ",
+                " - **target** `.agents/skills/verify/SKILL.md`"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false,
+          "contentNotInModelContext": true
+        },
+        "sourceToolAssistantUUID": "ae387a75-32d4-4668-991f-8e10a1d19d52",
+        "promptId": "9c6f2816-537e-4ba9-87da-a4c80f1adbaa"
+      },
+      "original_record_sha256": "33e250388461aaef4373a0b527435faf8130f1482bd7bb6d39fc1b9a20ece710",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1326": {
+      "timestamp": "2026-10-02T21:46:14.908Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "d944035a-4441-4fbe-85f2-0e11113701e7",
+        "parentUuid": "bfd4c6ed-78a2-41f1-ad3b-240525d23cc3",
+        "timestamp": "2026-10-02T21:46:14.908Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_016LBdBnd2Zz1QQUVfgsPrNj",
+              "is_error": false,
+              "content": "{\r\n  \"slug\": \"local\",\r\n  \"mode\": \"install\",\r\n  \"targets\": [\r\n    {\r\n      \"target\": \"AGENTS.md\",\r\n      \"state\": \"overwritten\",\r\n      \"replaced\": \"<installed by=\\\"local\\\">\\n**L1** This repository develops the shared dev harness using its own loop; its own architecture and\\nprogress live in docs/ like any other project's \\u2014 the instance half doing its job, not a leak.\\nTerms: docs/glossary.md, this project's own; the method's are .agents/glossary.md's. What each\\nversion of the entry contract changed: docs/research/entry-contract-findings.md.\\n\\n**L2** commit=ask \\u00b7 push=ask \\u00b7 next-cycle=ask \\u00b7 breakdown=ask \\u00b7 repair=report\\n\\n**L4** debug=on\\n</installed>\"\r\n    },\r\n    {\r\n      \"target\": \".agents/skills/verify/SKILL.md\",\r\n      \"state\": \"present\"\r\n    }\r\n  ],\r\n  \"refusals\": []\r\n}\r\ninject_rules check exit 0\n<installed by=\"local\">\n**L1** This repository develops the shared dev harness using its own loop; its own architecture and\nprogress live in docs/ like any other project's — the instance half doing its job, not a leak.\nTerms: docs/glossary.md, this project's own; the method's are .agents/glossary.md's. What each\nversion of the entry contract changed: docs/research/entry-contract-findings.md.\n\n**L2** commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n\n**L4** debug=on\n\n**L5** Run a Python script with `uv run --offline --no-project python <script>`.\n</installed>"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "{\r\n  \"slug\": \"local\",\r\n  \"mode\": \"install\",\r\n  \"targets\": [\r\n    {\r\n      \"target\": \"AGENTS.md\",\r\n      \"state\": \"overwritten\",\r\n      \"replaced\": \"<installed by=\\\"local\\\">\\n**L1** This repository develops the shared dev harness using its own loop; its own architecture and\\nprogress live in docs/ like any other project's \\u2014 the instance half doing its job, not a leak.\\nTerms: docs/glossary.md, this project's own; the method's are .agents/glossary.md's. What each\\nversion of the entry contract changed: docs/research/entry-contract-findings.md.\\n\\n**L2** commit=ask \\u00b7 push=ask \\u00b7 next-cycle=ask \\u00b7 breakdown=ask \\u00b7 repair=report\\n\\n**L4** debug=on\\n</installed>\"\r\n    },\r\n    {\r\n      \"target\": \".agents/skills/verify/SKILL.md\",\r\n      \"state\": \"present\"\r\n    }\r\n  ],\r\n  \"refusals\": []\r\n}\r\ninject_rules check exit 0\n<installed by=\"local\">\n**L1** This repository develops the shared dev harness using its own loop; its own architecture and\nprogress live in docs/ like any other project's — the instance half doing its job, not a leak.\nTerms: docs/glossary.md, this project's own; the method's are .agents/glossary.md's. What each\nversion of the entry contract changed: docs/research/entry-contract-findings.md.\n\n**L2** commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n\n**L4** debug=on\n\n**L5** Run a Python script with `uv run --offline --no-project python <script>`.\n</installed>",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false,
+          "bashEditDiff": {
+            "files": [
+              {
+                "filePath": "D:\\Dev\\AI\\agents\\AGENTS.md",
+                "hunks": [
+                  {
+                    "oldStart": 164,
+                    "oldLines": 6,
+                    "newStart": 164,
+                    "newLines": 8,
+                    "lines": [
+                      " **L2** commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report",
+                      " ",
+                      " **L4** debug=on",
+                      "+",
+                      "+**L5** Run a Python script with `uv run --offline --no-project python <script>`.",
+                      " </installed>",
+                      " ",
+                      " ## Straw dogs"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "moreFiles": 0,
+            "changedFiles": [
+              "D:\\Dev\\AI\\agents\\AGENTS.md"
+            ]
+          }
+        },
+        "sourceToolAssistantUUID": "bfd4c6ed-78a2-41f1-ad3b-240525d23cc3",
+        "promptId": "9c6f2816-537e-4ba9-87da-a4c80f1adbaa"
+      },
+      "original_record_sha256": "13e6550de42fc39d339e86cdc6c94e9b8c9d3060648559beb9cf9e8046029012",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1330": {
+      "timestamp": "2026-10-02T21:46:29.961Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "e4333449-2c10-4b56-97fd-2330a97a0bc0",
+        "parentUuid": "87544cb2-bc0f-49a4-8fdd-e2b748319631",
+        "timestamp": "2026-10-02T21:46:29.961Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe9JRixuF3GDCLWMdJj9",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "L5 is installed in the local block, and `inject_rules.py --check` is clean. The local block changes without a contract bump. Starting the third `/plan` pass."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "8f2cef3b8e3802e024945f8e10f0c50b20817859ad92900c4278a05aa7ef6680",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1331": {
+      "timestamp": "2026-10-02T21:46:30.503Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "febb6845-d5dd-4483-8a8b-3fe89f0a9d93",
+        "parentUuid": "e4333449-2c10-4b56-97fd-2330a97a0bc0",
+        "timestamp": "2026-10-02T21:46:30.503Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe9JRixuF3GDCLWMdJj9",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01Jf4LpZ2d81KEkLeR8R5ZQd",
+              "name": "Skill",
+              "input": {
+                "skill": "plan",
+                "args": "validation pass 3 over docs/rfc/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "7ee691efc4c0d9e6db997be557ffba261f87298f1723a13c0cb9a1bb0740ae09",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1332": {
+      "timestamp": "2026-10-02T21:46:30.597Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "2b1b5f7f-d577-46b1-894d-ceb1a2f708e4",
+        "parentUuid": "febb6845-d5dd-4483-8a8b-3fe89f0a9d93",
+        "timestamp": "2026-10-02T21:46:30.597Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01Jf4LpZ2d81KEkLeR8R5ZQd",
+              "content": "Launching skill: plan"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "success": true,
+          "commandName": "plan"
+        },
+        "sourceToolAssistantUUID": "febb6845-d5dd-4483-8a8b-3fe89f0a9d93",
+        "promptId": "9c6f2816-537e-4ba9-87da-a4c80f1adbaa"
+      },
+      "original_record_sha256": "376924f510ee692a5ded7041f07fc779847496c4c8787788bcea9dc89d11f91a",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1333": {
+      "timestamp": "2026-10-02T21:46:30.577Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "3e795d11-29c3-4e15-ab7c-3ad84823825f",
+        "parentUuid": "2b1b5f7f-d577-46b1-894d-ceb1a2f708e4",
+        "timestamp": "2026-10-02T21:46:30.577Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "(Re-invocation of /plan — the skill instructions were previously loaded; the arguments or dynamic output below are new.)"
+        },
+        "promptId": "9c6f2816-537e-4ba9-87da-a4c80f1adbaa"
+      },
+      "original_record_sha256": "b7c9ce37bcc559295ba88231d35e70c24d4adb7fcdb8bbb405a8b6e92c1ddfa5",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1334": {
+      "timestamp": "2026-10-02T21:46:30.576Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "2be111a9-2876-4355-850c-e0ae7530aa72",
+        "parentUuid": "3e795d11-29c3-4e15-ab7c-3ad84823825f",
+        "timestamp": "2026-10-02T21:46:30.576Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Base directory for this skill: D:\\Dev\\AI\\agents\\.claude\\skills\\plan\n\n<straw-dog until=\"01-0017 declares the plan mechanism\" ticket=\"docs/tickets/01-0017-io-graph-coherent.md\">Mechanism: not yet</straw-dog>\n\n- Explore documentation in depth, follow links in it to find all decisions\n  relevant to current task. Find out which documented boundaries are involved,\n  and whether implementation challenges them.\n\n- If the ticket at hand is too coarse to yield a single unambiguous RFC, stop\n  planning and decompose it into sub-tickets via\n  [/ticket](../ticket/SKILL.md) first; then plan the first child.\n\n- An RFC implements a ticket — no ticketless RFCs. If the task at hand has no\n  ticket, create it first per `/ticket`; its behavior-altitude rule governs\n  the criteria (shape stays in the RFC).\n\n- When incepting, ask yourself - what is the cheapest real example that could\n  prove this design assumption wrong?\n\n- Run [/impact](../impact/SKILL.md) on the planned change. Record its output on\n  the RFC.\n\n- Establish implementation scope, pinpoint and mention affected boundaries,\n  contracts, ownership. Present main code shapes - especially ones that\n  represent documented boundaries. Present code flows.\n\n- Detect implementation challenges and use [/align](../align/SKILL.md) to\n  resolve them with the user.\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a\n  second materially different shape forces the same concept.\n\n- Do not select implementation shapes just because \"that how it is usually\n  done\" or based on first idea. Promote simplicity, look for elegant solutions,\n  prefer removing over expanding, prefer conciseness over verbosity.\n\n- Do not invent impl nouns or verbs that are not discussed or approved by\n  user. Use existing vocabulary.\n\n- If you see a concern, first check deeper how the existing architecture\n  documentation describes it - it most probably already does. Read\n  architecture.md, ADRs and the question store for this.\n\n- Major goal of this planning is to find inconsistencies in the pre-planned\n  architecture. Do this diligently. If such inconsistency found, do not stick\n  blindly for architectural decision - instead raise concern with user to\n  resolve it - either in code or in arch docs.\n\n- Make the RFC determinate where a choice shapes observable behavior, a\n  boundary or interface, ownership, failure semantics, compatibility,\n  migration, or another non-local constraint. State the shaping fact with a\n  reference to its durable owner; never rely on session context. Leave\n  reversible implementation-local choices to `/tdd` and `/implement` unless\n  they become load-bearing.\n\n- The RFC (original or amended) must not describe load-bearing architecture\n  absent from the architecture docs — land the decision in the docs first\n  (`/align` when needed), then reference it from the RFC. What fails the entry\n  file's load-bearing counter-test belongs in code and its comments, however\n  closely an architecture sentence already describes it.\n\n- Describe the implementation stages; allocate them according to `/tdd`\n  rules. Look at stages to make sure each of them keeps the tests green; in\n  case that would take too much temporary effort, allow red, note about test\n  status and compact reason for it.\n\n- Map out scope-specific limitations, follow-ups and related out-of-scope\n  concerns.\n\n- Prefer reuse and reduction of existing nouns, verbs and adjectives; when\n  adding shape - make sure documentation supports it, if in any doubt - `/align`\n  with user.\n\n- Any wrinkle against architecture should be resolved; when solution is not\n  found or following first-principles makes the code weird - align with user.\n  Architecture must lead code shape even if code disagrees. Do not expose\n  public methods or create flows that are not in architecture.\n\n- If planned code includes a temporary solution that is dissolved by future\n  development, add RFC instruction to append TODO comment to code that flags\n  this. Otherwise code changes can start relying or considering the temporal\n  code, which can be hard to disentangle later.\n\n- Repeated invocations are validation passes over the same RFC. Re-read\n  the ticket, RFC, durable docs, and relevant code; challenge the plan against\n  new evidence and amend it in place. Do not create a replacement RFC merely\n  because the plan changed before implementation.\n\n- As an additional pass, try to explain things to yourself simply, as if you\n  are teaching the architecture, and being asked reasonable question and look\n  for areas that evade simple or common-sense explanation.\n\n- Validate the RFC adversarially on every pass:\n  - Probe each boundary and stage with counterexamples, including empty, partial,\n    faulting, and raced outcomes where relevant.\n  - Make every planned test prove the intended behavior and failure reason, not\n    merely that the path succeeds or raises.\n  - Separate sourced facts and existing invariants from assumptions; verify\n    facts in code or authoritative sources and surface load-bearing assumptions\n    for `/align`.\n  - Reject pseudocode or prescribed structure that introduces undocumented\n    architecture or freezes a reversible local choice.\n  - Check that every new promise names how it will be validated, and that\n    the stages collectively prove the ticket's acceptance criteria.\n\n- Repeat validation using this skill until no load-bearing ambiguity,\n  contradiction, or unverified assumption remains. The RFC may permit multiple\n  equivalent local implementations when they preserve the same documented shape\n  and proof.\n\n- If repeated validation keep bringing up gaps, take a step back and look\n  at what causes this oscillation. The architecture, ADRs, tickets are not\n  carved in stone, they can have real contradictions or inconsistencies that cause\n  it. Look into the core reasons and `/align` on them again if needed.\n\n- Overall, always consider future development and potential code reuse when\n  selecting code shapes.\n\n- Cover migrations, compatibility, rollout, failure handling, and observability\n  when relevant.\n\n- Record the plan as an RFC; its name and home are installed below.\n\n- RFC header: H1 is the ticket's title plus ` — implementation plan`; then\n  `**Authored:** YYYY-MM-DD`, and `**Last amended:** YYYY-MM-DD` once a later\n  pass changes the plan; then one line stating what it implements, linking the\n  ticket.\n\n- DO NOT CHANGE THE CODE!\n\n## Installed from other mechanisms\n\n<installed by=\"ticket\">\n**P6** Name the RFC by the owning ticket's basename, under `docs/rfc/`, with no serial of its own; it\nmoves to `docs/rfc/done/` with the ticket.\n</installed>\n\n\nARGUMENTS: validation pass 3 over docs/rfc/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md"
+            }
+          ]
+        },
+        "promptId": "9c6f2816-537e-4ba9-87da-a4c80f1adbaa"
+      },
+      "original_record_sha256": "e06c2da84980e6b2bc5d1cd6fb2af4ff950a15e4f8bfe82f2ee7c02eed29737f",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1342": {
+      "timestamp": "2026-10-02T21:46:36.252Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "98dfee07-852b-40ba-b402-a3f32362f7e5",
+        "parentUuid": "fff54db8-f784-4753-abcc-a77f3a54c381",
+        "timestamp": "2026-10-02T21:46:36.252Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe9KcPRrnW93xyiD7dKj",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01TWEjgfN4fy9jo7ZDDU3KhL",
+              "name": "Bash",
+              "input": {
+                "command": "ls -la .cursor/skills | head -5; cat .cursor/hooks.json | head -20; grep -rn \"declar\" .codex .cursor 2>/dev/null | head; sed -n '/^class Interference/,/^class InOrder/p' .agents/scripts/gw/test/test_questions.py | head -30; grep -n \"^class Refusals\" -A20 .agents/scripts/gw/test/test_questions.py | head -24",
+                "description": "Check host copies, and read the interference and refusal tests"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "4fcc84be6ab9f705e991e112232ecdc69829f1be0c3b3a84b1e82d6b6956e285",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1343": {
+      "timestamp": "2026-10-02T21:46:38.611Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "1779d7f4-2678-46b1-91eb-65d31f827626",
+        "parentUuid": "98dfee07-852b-40ba-b402-a3f32362f7e5",
+        "timestamp": "2026-10-02T21:46:38.611Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01TWEjgfN4fy9jo7ZDDU3KhL",
+              "is_error": false,
+              "content": "lrwxrwxrwx 1 fimar 197609 17 Sep  5 22:03 .cursor/skills -> ../.agents/skills\n{\n  \"version\": 1,\n  \"hooks\": {\n    \"sessionStart\": [\n      { \"command\": \"uv run --offline --no-project python .agents/scripts/gw/questions.py --hook cursor\" }\n    ],\n    \"preCompact\": [\n      { \"command\": \"uv run --offline --no-project python .agents/scripts/gw/questions.py --hook cursor\" }\n    ]\n  }\n}\nclass Interference(Declared):\n    \"\"\"What another writer does between this line's validation and its write.\"\"\"\n\n    def declare_with(self, line: str, meanwhile) -> None:\n        questions.declare(self.root, \"s-alpha\", questions.parse(line), TODAY, between=meanwhile)\n\n    def test_an_entry_changed_on_disk_refuses_the_line_and_keeps_the_other_writers_text(self) -> None:\n        intruder = entry(\"q-0004\", \"Which parts are optional?\", {\"part of\": \"q-0002\", \"state\": \"open\", \"lean\": \"theirs\"})\n        before = self.snapshot()\n\n        with self.assertRaises(questions.Refused) as refused:\n            self.declare_with(\n                \"at q-0004; leans q-0004: mine\",\n                lambda: self.write(f\"{STORE}/q-0004-which-parts-are-optional.md\", intruder),\n            )\n\n        self.assertIn(\"changed since this line was read\", str(refused.exception))\n        self.assertEqual(intruder, self.entry_text(\"q-0004-which-parts-are-optional\"))\n        after = self.snapshot()\n        del before[f\"{STORE}/q-0004-which-parts-are-optional.md\"], after[f\"{STORE}/q-0004-which-parts-are-optional.md\"]\n        self.assertEqual(before, after, \"nothing else was written\")\n\n    def test_a_second_session_taking_the_id_just_written_is_refused(self) -> None:\n        theirs = entry(\"q-0014\", \"Their question?\", {\"state\": \"open\"})\n\n        with self.assertRaises(questions.Refused) as refused:\n            self.declare_with(\n                \"at q-0014; opens q-0014: My question?\",\n                lambda: self.write(f\"{STORE}/q-0014-their-question.md\", theirs),\n            )\n980:class Refusals(Declared):\n981-    \"\"\"A refused line names its reason and writes nothing at all.\"\"\"\n982-\n983-    def assertRefused(self, line: str, reason: str, session: str = \"s-alpha\") -> None:\n984-        untouched = self.snapshot()\n985-\n986-        status, said = self.declare(line, session)\n987-\n988-        self.assertEqual(2, status, said)\n989-        self.assertIn(reason, said)\n990-        self.assertEqual(untouched, self.snapshot())\n991-\n992-    def test_a_malformed_clause(self) -> None:\n993-        self.assertRefused(\"at q-0004; go to q-0010\", \"`go to q-0010` is not a clause\")\n994-\n995-    def test_a_semicolon_in_free_text(self) -> None:\n996-        self.assertRefused(\"at q-0004; leans q-0004: this;that\", \"`;`\")\n997-\n998-    def test_a_line_without_its_position(self) -> None:\n999-        self.assertRefused(\"leans q-0004: the required ones\", \"exactly one `at`\")\n1000-"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "lrwxrwxrwx 1 fimar 197609 17 Sep  5 22:03 .cursor/skills -> ../.agents/skills\n{\n  \"version\": 1,\n  \"hooks\": {\n    \"sessionStart\": [\n      { \"command\": \"uv run --offline --no-project python .agents/scripts/gw/questions.py --hook cursor\" }\n    ],\n    \"preCompact\": [\n      { \"command\": \"uv run --offline --no-project python .agents/scripts/gw/questions.py --hook cursor\" }\n    ]\n  }\n}\nclass Interference(Declared):\n    \"\"\"What another writer does between this line's validation and its write.\"\"\"\n\n    def declare_with(self, line: str, meanwhile) -> None:\n        questions.declare(self.root, \"s-alpha\", questions.parse(line), TODAY, between=meanwhile)\n\n    def test_an_entry_changed_on_disk_refuses_the_line_and_keeps_the_other_writers_text(self) -> None:\n        intruder = entry(\"q-0004\", \"Which parts are optional?\", {\"part of\": \"q-0002\", \"state\": \"open\", \"lean\": \"theirs\"})\n        before = self.snapshot()\n\n        with self.assertRaises(questions.Refused) as refused:\n            self.declare_with(\n                \"at q-0004; leans q-0004: mine\",\n                lambda: self.write(f\"{STORE}/q-0004-which-parts-are-optional.md\", intruder),\n            )\n\n        self.assertIn(\"changed since this line was read\", str(refused.exception))\n        self.assertEqual(intruder, self.entry_text(\"q-0004-which-parts-are-optional\"))\n        after = self.snapshot()\n        del before[f\"{STORE}/q-0004-which-parts-are-optional.md\"], after[f\"{STORE}/q-0004-which-parts-are-optional.md\"]\n        self.assertEqual(before, after, \"nothing else was written\")\n\n    def test_a_second_session_taking_the_id_just_written_is_refused(self) -> None:\n        theirs = entry(\"q-0014\", \"Their question?\", {\"state\": \"open\"})\n\n        with self.assertRaises(questions.Refused) as refused:\n            self.declare_with(\n                \"at q-0014; opens q-0014: My question?\",\n                lambda: self.write(f\"{STORE}/q-0014-their-question.md\", theirs),\n            )\n980:class Refusals(Declared):\n981-    \"\"\"A refused line names its reason and writes nothing at all.\"\"\"\n982-\n983-    def assertRefused(self, line: str, reason: str, session: str = \"s-alpha\") -> None:\n984-        untouched = self.snapshot()\n985-\n986-        status, said = self.declare(line, session)\n987-\n988-        self.assertEqual(2, status, said)\n989-        self.assertIn(reason, said)\n990-        self.assertEqual(untouched, self.snapshot())\n991-\n992-    def test_a_malformed_clause(self) -> None:\n993-        self.assertRefused(\"at q-0004; go to q-0010\", \"`go to q-0010` is not a clause\")\n994-\n995-    def test_a_semicolon_in_free_text(self) -> None:\n996-        self.assertRefused(\"at q-0004; leans q-0004: this;that\", \"`;`\")\n997-\n998-    def test_a_line_without_its_position(self) -> None:\n999-        self.assertRefused(\"leans q-0004: the required ones\", \"exactly one `at`\")\n1000-",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "98dfee07-852b-40ba-b402-a3f32362f7e5",
+        "promptId": "9c6f2816-537e-4ba9-87da-a4c80f1adbaa"
+      },
+      "original_record_sha256": "145e21f05fdef35db46a5548a92c52b7df72c2269f659824d1e9db49e0b9e826",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1348": {
+      "timestamp": "2026-10-02T21:46:57.648Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "ff9a1ab7-20ec-423a-8495-935616fcea06",
+        "parentUuid": "f702246e-ebde-48b4-8dee-84a3829bddac",
+        "timestamp": "2026-10-02T21:46:57.648Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe9LAfQ8eLfLWJewRxrj",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01J76jdBJ1HY1C8a9aoFq1WM",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md",
+                "old_string": "  - `open` raced: the other session writes the next free id between read and recheck, and this\n    call takes the id after it, leaving the other entry as that session wrote it.",
+                "new_string": "  - `open` raced: the other session writes the next free id between read and recheck, and this\n    call takes the id after it, leaving the other entry as that session wrote it. This one goes\n    through `declare` with a `Clause` list, not `main`, since the hook that acts as the other\n    writer, `between`, is on `declare` alone."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "29c12546397bfd55a186ff5d2e7628e8a3b61841850720a4db8d6e0addde79a8",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1349": {
+      "timestamp": "2026-10-02T21:47:00.142Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "b3ba59a1-65d0-4e6a-829b-b0b6fd20429b",
+        "parentUuid": "ff9a1ab7-20ec-423a-8495-935616fcea06",
+        "timestamp": "2026-10-02T21:47:00.142Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe9LAfQ8eLfLWJewRxrj",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01AKGE92hWoAk6fJmvYSRWsG",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md",
+                "old_string": "  - the recheck's *read it again and declare anew* becomes *call it again*.\n- Migrate every test that builds a line: the `Declared` helper becomes a call helper.",
+                "new_string": "  - the recheck's *changed since this line was read; read it again and declare anew* becomes\n    *changed since this call read it; call it again*.\n- Migrate every test that builds a line: the `Declared` helper becomes a call helper, and\n  `Interference`, which reaches `declare` with `questions.parse`, builds its `Clause` lists\n  directly."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "e9997db64d7b592d97ed46fec769d78d80a914dafb2d9d8040102a0e3681fe71",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1350": {
+      "timestamp": "2026-10-02T21:47:02.103Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "5fe9788b-75d1-4eab-b5ca-ecaf04ef4826",
+        "parentUuid": "b3ba59a1-65d0-4e6a-829b-b0b6fd20429b",
+        "timestamp": "2026-10-02T21:47:02.103Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe9LAfQ8eLfLWJewRxrj",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_017HBX7oePCBmBff2QPdjKhv",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md",
+                "old_string": "  - *The declared line* becomes **The calls**, the table above with what each writes;",
+                "new_string": "  - *The declared line* becomes **The calls**, the table above with what each writes, and one\n    sentence on what the old line did in one go: `open` does not move the session, so standing\n    on the new question is an `at` on the id it printed;"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "7e35039458620b91673d66bd9c6da09927458da9c26d3142cf34fef1eb36f7db",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1351": {
+      "timestamp": "2026-10-02T21:47:03.951Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "a4e35116-dd6e-4af8-bdfb-acf955286f79",
+        "parentUuid": "5fe9788b-75d1-4eab-b5ca-ecaf04ef4826",
+        "timestamp": "2026-10-02T21:47:03.951Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe9LAfQ8eLfLWJewRxrj",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01CBGPeUmL3aBeGXsAWPUeXu",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md",
+                "old_string": "The path is core's and the same in every tree. The interpreter is the\n    machine's, so it stays out of the rule.",
+                "new_string": "The path is core's and the same in every tree. The interpreter is the\n    machine's, so it stays out of the rule. This project names its own in the local block, L5\n    *(the user, 2026-10-03)*."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "b040ccffaebabe56939014dd75ce8c125b153c030a2d1654f1102ae4f908607d",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1352": {
+      "timestamp": "2026-10-02T21:47:06.394Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "d9ca5c55-5600-45f6-8e4d-6c1050521459",
+        "parentUuid": "a4e35116-dd6e-4af8-bdfb-acf955286f79",
+        "timestamp": "2026-10-02T21:47:06.394Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe9LAfQ8eLfLWJewRxrj",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_011EAwGXLQpFbYBDXwXBhwyy",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md",
+                "old_string": "- **The argument parser's exit is caught**, or a malformed call would end a test run in the same\n  process.",
+                "new_string": "- **The argument parser's exit is caught**, or a malformed call would end a test run in the same\n  process. It prints its usage to stderr, so the usage tests read both streams.\n- **A write without an `at` no longer moves the session's line.** The old grammar forced an `at`\n  into every line, so every write refreshed the session's date. Now only `at` does, and Q1 makes\n  one every turn, so the stale-session finding keeps its footing."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "3535bc7dc4ad39c22881c3ce3489612933ee6db7e57907cbafa2336e1c2e219b",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1353": {
+      "timestamp": "2026-10-02T21:47:06.753Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "b59ea657-eb66-415f-95e4-41f6ff25a1d6",
+        "parentUuid": "d9ca5c55-5600-45f6-8e4d-6c1050521459",
+        "timestamp": "2026-10-02T21:47:06.753Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe9LAfQ8eLfLWJewRxrj",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01JX3wCUeqwWaYazcwH9QnbE",
+              "name": "Bash",
+              "input": {
+                "command": "uv run --offline --no-project python .agents/scripts/gw/tickets.py --check > /dev/null; echo \"tickets exit $?\"",
+                "description": "Re-run the ticket check"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "f2deb24b2d810790f8af0c8ca2aa36484e13b4d6505d746f35de3365490564ee",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1359": {
+      "timestamp": "2026-10-02T21:47:07.693Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "7c040f68-329c-4fca-b0b9-820821b53206",
+        "parentUuid": "ff9a1ab7-20ec-423a-8495-935616fcea06",
+        "timestamp": "2026-10-02T21:47:07.693Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01J76jdBJ1HY1C8a9aoFq1WM",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md",
+          "oldString": "  - `open` raced: the other session writes the next free id between read and recheck, and this\n    call takes the id after it, leaving the other entry as that session wrote it.",
+          "newString": "  - `open` raced: the other session writes the next free id between read and recheck, and this\n    call takes the id after it, leaving the other entry as that session wrote it. This one goes\n    through `declare` with a `Clause` list, not `main`, since the hook that acts as the other\n    writer, `between`, is on `declare` alone.",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 89,
+              "oldLines": 7,
+              "newStart": 89,
+              "newLines": 9,
+              "lines": [
+                "   - `undepend` covers one of two dependencies, the last one (removing the part), and an absent one",
+                "     (refused);",
+                "   - `open` raced: the other session writes the next free id between read and recheck, and this",
+                "-    call takes the id after it, leaving the other entry as that session wrote it.",
+                "+    call takes the id after it, leaving the other entry as that session wrote it. This one goes",
+                "+    through `declare` with a `Clause` list, not `main`, since the hook that acts as the other",
+                "+    writer, `between`, is on `declare` alone.",
+                " ",
+                " **2. The line removed.**",
+                " "
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "ff9a1ab7-20ec-423a-8495-935616fcea06",
+        "promptId": "9c6f2816-537e-4ba9-87da-a4c80f1adbaa"
+      },
+      "original_record_sha256": "6b3007cc7eaa457ecc8aaa986d4daed437b28a12af4a8f62d06b3e366b9ad225",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1360": {
+      "timestamp": "2026-10-02T21:47:08.132Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "0cb49ead-c9a5-4f02-ad4c-b6da49703119",
+        "parentUuid": "b3ba59a1-65d0-4e6a-829b-b0b6fd20429b",
+        "timestamp": "2026-10-02T21:47:08.132Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01AKGE92hWoAk6fJmvYSRWsG",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md",
+          "oldString": "  - the recheck's *read it again and declare anew* becomes *call it again*.\n- Migrate every test that builds a line: the `Declared` helper becomes a call helper.",
+          "newString": "  - the recheck's *changed since this line was read; read it again and declare anew* becomes\n    *changed since this call read it; call it again*.\n- Migrate every test that builds a line: the `Declared` helper becomes a call helper, and\n  `Interference`, which reaches `declare` with `questions.parse`, builds its `Clause` lists\n  directly.",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 102,
+              "oldLines": 8,
+              "newStart": 102,
+              "newLines": 11,
+              "lines": [
+                " - The user-facing strings that speak of a line change:",
+                "   - the window's *current: none yet — the first declared `at` places it*, which every hook shows,",
+                "     becomes *the first `at` call places it*;",
+                "-  - the recheck's *read it again and declare anew* becomes *call it again*.",
+                "-- Migrate every test that builds a line: the `Declared` helper becomes a call helper. Tests of",
+                "+  - the recheck's *changed since this line was read; read it again and declare anew* becomes",
+                "+    *changed since this call read it; call it again*.",
+                "+- Migrate every test that builds a line: the `Declared` helper becomes a call helper, and",
+                "+  `Interference`, which reaches `declare` with `questions.parse`, builds its `Clause` lists",
+                "+  directly. Tests of",
+                "   the grammar itself (`go to q-0010 is not a clause`, the `;` ban, the wrong next id) are removed",
+                "   with what they tested. Their replacements are stage 1's usage tests.",
+                " - `_USAGE` names the calls."
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "b3ba59a1-65d0-4e6a-829b-b0b6fd20429b",
+        "promptId": "9c6f2816-537e-4ba9-87da-a4c80f1adbaa"
+      },
+      "original_record_sha256": "60e8a56edf20ca7a5072e687eaf22c9a2ff986d75fa904d9b1f05b62801aae0a",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1361": {
+      "timestamp": "2026-10-02T21:47:08.429Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "278592d6-6811-4c89-824c-b909159075cf",
+        "parentUuid": "5fe9788b-75d1-4eab-b5ca-ecaf04ef4826",
+        "timestamp": "2026-10-02T21:47:08.429Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_017HBX7oePCBmBff2QPdjKhv",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md",
+          "oldString": "  - *The declared line* becomes **The calls**, the table above with what each writes;",
+          "newString": "  - *The declared line* becomes **The calls**, the table above with what each writes, and one\n    sentence on what the old line did in one go: `open` does not move the session, so standing\n    on the new question is an `at` on the id it printed;",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 148,
+              "oldLines": 7,
+              "newStart": 148,
+              "newLines": 9,
+              "lines": [
+                " - [The questions skill](../../.agents/skills/questions/SKILL.md):",
+                "   - its description: *a declared line's other forms* becomes *the store's other calls*;",
+                "   - *Invoked by a person*: the tidy-ups as calls;",
+                "-  - *The declared line* becomes **The calls**, the table above with what each writes;",
+                "+  - *The declared line* becomes **The calls**, the table above with what each writes, and one",
+                "+    sentence on what the old line did in one go: `open` does not move the session, so standing",
+                "+    on the new question is an `at` on the id it printed;",
+                "   - the placing, branching and closing sections name `--between`, `depend` and `close`;",
+                "   - the `debug=on` sentence: each call is shown where it happened;",
+                "   - one sentence on quoting (below)."
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "5fe9788b-75d1-4eab-b5ca-ecaf04ef4826",
+        "promptId": "9c6f2816-537e-4ba9-87da-a4c80f1adbaa"
+      },
+      "original_record_sha256": "dec92a73ff3af0645946637807351fe9cacfb036fa6971cc97bbc0fca27b45a6",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1362": {
+      "timestamp": "2026-10-02T21:47:08.724Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "89a1540c-ab6a-436b-9e1d-630c6772fc20",
+        "parentUuid": "a4e35116-dd6e-4af8-bdfb-acf955286f79",
+        "timestamp": "2026-10-02T21:47:08.724Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01CBGPeUmL3aBeGXsAWPUeXu",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md",
+          "oldString": "The path is core's and the same in every tree. The interpreter is the\n    machine's, so it stays out of the rule.",
+          "newString": "The path is core's and the same in every tree. The interpreter is the\n    machine's, so it stays out of the rule. This project names its own in the local block, L5\n    *(the user, 2026-10-03)*.",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 134,
+              "oldLines": 7,
+              "newStart": 134,
+              "newLines": 8,
+              "lines": [
+                "     **Q1 names the script's path, never its interpreter** *(the user, 2026-10-03, at this RFC's",
+                "     second pass)*. A session started here ran `python`, which the machine lacks, then had to search",
+                "     for the script. The path is core's and the same in every tree. The interpreter is the",
+                "-    machine's, so it stays out of the rule.",
+                "+    machine's, so it stays out of the rule. This project names its own in the local block, L5",
+                "+    *(the user, 2026-10-03)*.",
+                "   - **Q2:** *declare it* becomes *place it with `at`*.",
+                "   - **Q3:** `` `leans q-N: <line>`, in a declared line with its `at` `` becomes",
+                "     `` `questions.py lean q-N '<line>' --session <tag>` ``."
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "a4e35116-dd6e-4af8-bdfb-acf955286f79",
+        "promptId": "9c6f2816-537e-4ba9-87da-a4c80f1adbaa"
+      },
+      "original_record_sha256": "7d69312907a28f53e5daee6bd495d8020e002cbc0ca523b5cbdc607988fcc2b4",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1363": {
+      "timestamp": "2026-10-02T21:47:09.203Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "7f3a1fd0-b930-4ec8-bb2c-58cb8dfdd1ad",
+        "parentUuid": "d9ca5c55-5600-45f6-8e4d-6c1050521459",
+        "timestamp": "2026-10-02T21:47:09.203Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_011EAwGXLQpFbYBDXwXBhwyy",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md",
+          "oldString": "- **The argument parser's exit is caught**, or a malformed call would end a test run in the same\n  process.",
+          "newString": "- **The argument parser's exit is caught**, or a malformed call would end a test run in the same\n  process. It prints its usage to stderr, so the usage tests read both streams.\n- **A write without an `at` no longer moves the session's line.** The old grammar forced an `at`\n  into every line, so every write refreshed the session's date. Now only `at` does, and Q1 makes\n  one every turn, so the stale-session finding keeps its footing.",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 198,
+              "oldLines": 7,
+              "newStart": 198,
+              "newLines": 10,
+              "lines": [
+                " - **`AGENTS.md`'s general rules change in two places in one version:** Q1's installed block and",
+                "   the authored rule.",
+                " - **The argument parser's exit is caught**, or a malformed call would end a test run in the same",
+                "-  process.",
+                "+  process. It prints its usage to stderr, so the usage tests read both streams.",
+                "+- **A write without an `at` no longer moves the session's line.** The old grammar forced an `at`",
+                "+  into every line, so every write refreshed the session's date. Now only `at` does, and Q1 makes",
+                "+  one every turn, so the stale-session finding keeps its footing.",
+                " - **The sessions file and the entries don't change format.** Nothing to migrate.",
+                " ",
+                " ## Leave alone"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "d9ca5c55-5600-45f6-8e4d-6c1050521459",
+        "promptId": "9c6f2816-537e-4ba9-87da-a4c80f1adbaa"
+      },
+      "original_record_sha256": "3dc32213956d7c929b56a4a9301da5da3f2b7fec2232940fc6df70b455773324",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1364": {
+      "timestamp": "2026-10-02T21:47:14.821Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "a6786b71-cece-44be-a8fc-ea889e42642f",
+        "parentUuid": "b59ea657-eb66-415f-95e4-41f6ff25a1d6",
+        "timestamp": "2026-10-02T21:47:14.821Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01JX3wCUeqwWaYazcwH9QnbE",
+              "is_error": false,
+              "content": "tickets exit 0"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "tickets exit 0",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "b59ea657-eb66-415f-95e4-41f6ff25a1d6",
+        "promptId": "9c6f2816-537e-4ba9-87da-a4c80f1adbaa"
+      },
+      "original_record_sha256": "f679ec320ac3958f668558f7d74ef20f1dd065ea3cd71d8d9668e1a36647dafa",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1368": {
+      "timestamp": "2026-10-02T21:47:23.258Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "04709a23-b897-4b35-819c-5931d4405f9d",
+        "parentUuid": "93cba260-d0a7-43e8-9586-99784dc1c940",
+        "timestamp": "2026-10-02T21:47:23.258Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfe9NrDirXVUwBeHSpMDJ",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "I added the local rule, then ran the third `/plan` pass on `.0011`. Nothing load-bearing is left open, and the ticket check is clean.\n\n**The local rule** is L5 in [local.rules.md](local.rules.md), installed into `AGENTS.md`'s local block: *Run a Python script with `uv run --offline --no-project python <script>`.* The local block changes without a contract bump, and `inject_rules.py --check` is clean.\n\n**What the third pass changed in the RFC:**\n- **Race test:** it now goes through `declare` with `Clause` lists, because the other-writer hook lives only there. The existing interference tests that build their lines with `questions.parse` are migrated the same way.\n- **One more string to rewrite:** *\"changed since this line was read; read it again and declare anew\"* becomes *\"changed since this call read it; call it again\"*.\n- **`open` doesn't move the session.** The old line opened a question and stood on it in one go; now that takes two calls. The skill gets one sentence saying so.\n- **Usage messages go to stderr,** so the usage tests read both output streams.\n- **The session's date now moves only with `at`.** Before, every line carried an `at`, so every write refreshed it. Q1 still makes an `at` every turn, so the stale-session warning still works.\n- **L5 is cited** next to your \"no interpreter in the rule\" decision.\n\n**Still uncommitted:**\n- the `.0011` RFC;\n- the ticket and queue updates;\n- the register note that you approved the amendment for v19;\n- L5.\n\nShall I commit these and start `/implement` on `.0011`?"
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "79f8c0c0615a45c0fc7e6fb8658c4425968e29ce85670a41eb53927a4914c6e0",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1372": {
+      "timestamp": "2026-10-02T21:48:58.187Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "6db57697-47e0-4be1-87cb-a5e4b1daecb1",
+        "parentUuid": "9443b6ab-2d89-44e8-983c-f61f99ead5b2",
+        "timestamp": "2026-10-02T21:48:58.187Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "commit and implement"
+        },
+        "promptId": "0877368a-0d01-469a-9829-3bdf8c742e71"
+      },
+      "original_record_sha256": "3591b517abaff68e4158ca28cd27be6ab9cab1c50412bea1f5e34da1a97b747e",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    }
+  }
+}

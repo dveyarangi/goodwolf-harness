@@ -1,0 +1,159 @@
+{
+  "id": "skill-moment-in-body-20261025",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "79. A skill's moment was written into its body — 2026-10-25",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": null
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/445",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.308"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/445/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-25T12:39:04.943Z",
+    "chat_id": "98f0208f-e9e2-4f52-aef6-0e93e989f663",
+    "trigger_message_id": null,
+    "trigger_record_id": "d08f09e1-b1a1-4a37-a854-df0323f9a014",
+    "failure_message_id": "msg_011CgNyAZwqbqbQivi6oaYft",
+    "failure_record_id": "25eb7968-b97a-456c-a170-368fc18bdccb",
+    "transcript": "98f0208f-e9e2-4f52-aef6-0e93e989f663.jsonl"
+  },
+  "observed_failure": {
+    "description": "The proposed product-skill body repeats a loading occasion (Before saying what the project is), where it cannot trigger skill loading.",
+    "events": [
+      {
+        "source": "source.json#/records/445",
+        "message_id": "msg_011CgNyAZwqbqbQivi6oaYft",
+        "record_id": "25eb7968-b97a-456c-a170-368fc18bdccb",
+        "timestamp": "2026-10-25T12:39:04.943Z",
+        "text": "| 🪢 [q-0037.0006.0020.0001.0006](docs/questions/q-0037.0006.0020.0001.0006-what-turned-the-evaluating-agent-against-installing-and-what-answers-each-objection.md) · [q-0037.0019.0004](docs/questions/q-0037.0019.0004-what-would-put-strikes-on-the-product-on-what-the-project-is-for-so-that-the-paths-order-is-read-from-them-rather-than-from-a-written-queue.md) · — · [q-0033](docs/questions/q-0033-what-is-this-project-for.md) · — · — · [q-0037.0012](docs/questions/q-0037.0012-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md) · [q-0037.0009.0021](docs/questions/q-0037.0009.0021-which-mechanism-owns-how-a-reply-is-laid-out-for-its-reader-debugging-or-interaction-and-what-does-it-own.md) · [q-0033.0008](docs/questions/q-0033.0008-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md) |\n|---|\n\n| 🪶 Commits |\n|---|\n| `7195b1b` FIX: rule failure 78 registered |\n\n| 🎫 49 · ❓ 187 · 🐕 181 |\n|---|\n\n| ⚙️ **self-improvement** · rule failure 78 and its amendment |\n|---|\n| ⚙️ /skill-up, /commit |\n\nI registered the miss as [entry 78](docs/rule-failures.md) and pushed it. I drafted the amendment through `/skill-up` and tried it on two fresh judges.\n\n**What the judges found:**\n- **First judge.** The new occasion fired: it loaded `/product` and read `docs/product.md` before answering. But my clause nearly copied `/discover`'s trigger, so the two read as rivals, and the body gave that occasion no instruction.\n- **Second judge,** on the revision. \"By its own account\" sets the two apart as complements, the inside account and the outside view. The new goal could be acted on, except that it never said to read the document. I've added that to the text below.\n\nThe change removes nothing and adds about 45 words to a 308-word body.\n\n🧩 **Proposed rule — [.agents/skills/product/SKILL.md](.agents/skills/product/SKILL.md) · description**\n\n> Keep the project's product document — the pains it relieves, its goals, the causes and the answers — and see how much of each answer is built. Use when a decision about what the project is for lands as an answer, when writing or reading the product document, when about to say what the project is or what sets it apart by its own account, or when asked which answers are built, being built, or not started, or what each queued ticket builds and which answers no ticket does.\n\n🧩 **Proposed rule — [.agents/skills/product/SKILL.md](.agents/skills/product/SKILL.md) · Goals**\n\n> 5. **Tell the project from it.** Before saying what the project is or what sets it apart, read the\n>    document; tell it by the pains it relieves and the answers it gives, never by its mechanisms.\n\n✏️ **Proposed change — [.agents/mechanisms/product/product.md](.agents/mechanisms/product/product.md) · Moments**\n\n> | saying what the project is, or what sets it apart, by its own account | `.agents/skills/product/SKILL.md` | |\n\nThe first judge also named older faults in the description: it describes the document's format, and it gives linking a question to its answer and `--check` no trigger. They lie outside this miss, so I've left them.\n\n✋ Land the amendment to `/product` as shown (🐛 self-improvement=a rule)\n\n| ⚖️ Decisions |\n|---|\n| Land the description, goal 5 and the Moments row; reinstall the skill's copies; close rule failure 78 |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Put the skill loading occasion in its description and keep the body to the act performed after loading.",
+    "source_evidence": [
+      "source.json#/records/449",
+      "source.json#/records/18"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Is the loading occasion stated only in the description, with the body describing what to do once loaded?",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/449"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The proposed product-skill body repeats a loading occasion (Before saying what the project is), where it cannot trigger skill loading.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/445",
+      "after": "source.json#/records/443",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/282",
+      "source.json#/records/287",
+      "source.json#/records/288",
+      "source.json#/records/289",
+      "source.json#/records/290",
+      "source.json#/records/291",
+      "source.json#/records/300",
+      "source.json#/records/301",
+      "source.json#/records/306",
+      "source.json#/records/307",
+      "source.json#/records/312",
+      "source.json#/records/317",
+      "source.json#/records/322",
+      "source.json#/records/323",
+      "source.json#/records/333",
+      "source.json#/records/334",
+      "source.json#/records/335",
+      "source.json#/records/339",
+      "source.json#/records/341",
+      "source.json#/records/350",
+      "source.json#/records/351",
+      "source.json#/records/352",
+      "source.json#/records/353",
+      "source.json#/records/358",
+      "source.json#/records/359",
+      "source.json#/records/360",
+      "source.json#/records/361",
+      "source.json#/records/369",
+      "source.json#/records/374",
+      "source.json#/records/378",
+      "source.json#/records/379",
+      "source.json#/records/384",
+      "source.json#/records/391",
+      "source.json#/records/392",
+      "source.json#/records/394",
+      "source.json#/records/395",
+      "source.json#/records/401",
+      "source.json#/records/406",
+      "source.json#/records/410",
+      "source.json#/records/411",
+      "source.json#/records/412",
+      "source.json#/records/417",
+      "source.json#/records/418",
+      "source.json#/records/427",
+      "source.json#/records/428",
+      "source.json#/records/436",
+      "source.json#/records/437",
+      "source.json#/records/442",
+      "source.json#/records/443"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/18"
+      ],
+      "native_context_records": [
+        "source.json#/records/18",
+        "source.json#/records/283",
+        "source.json#/records/375",
+        "source.json#/records/407"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/445"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

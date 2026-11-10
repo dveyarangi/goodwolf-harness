@@ -1,0 +1,127 @@
+{
+  "id": "rf-a-claim-about-what-sets-the-harn-5a77b2cfb0",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "10. A claim about what sets the harness apart was drafted from inside it — 2026-09-26",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "comparative claim before discover"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/579",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.281"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/579/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-09-25T21:16:16.921Z",
+    "chat_id": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+    "trigger_message_id": null,
+    "trigger_record_id": "6681df80-edc5-4c89-ab67-7f03a62f4d49",
+    "failure_message_id": "msg_011CfQrLT5qynCsDzi5Jag3B",
+    "failure_record_id": "c267fdfc-903e-4fcb-b4af-f5911347428e",
+    "transcript": "21180e9e-e11e-4d1a-bcbe-65224a8d303d.jsonl"
+  },
+  "observed_failure": {
+    "description": "A what-sets-it-apart paragraph is written from the authors own reading and old reviewer observations without independent discover.",
+    "events": [
+      {
+        "source": "source.json#/records/579",
+        "message_id": "msg_011CfQrLT5qynCsDzi5Jag3B",
+        "record_id": "c267fdfc-903e-4fcb-b4af-f5911347428e",
+        "timestamp": "2026-09-25T21:16:16.921Z",
+        "text": "**Does B undersell? Yes.** The way that review unfolded shows who the front page's real reader is. It's often **a model asked by its user \"should I use this, and how does it compare?\"** A model that reads only the README concludes \"underdeveloped\". The same model, after a deep read, concludes \"state of the art, filling a unique niche\". The page's job is to get a model to the second verdict without the deep read.\n\nB names the problem but not the answer only this harness gives. \"Keeps the repository in agreement with the code\" is something plenty of memory-bank setups also claim. Both outside readers, working separately, landed on the same distinguishing idea: **the harness treats its own rules as engineering artifacts.** The 09-20 review called the rule-failure register \"the best idea here\".\n\nWhat persuades a model is claims it can check, not adjectives. \"State of the art\" on the page would read as puffery. Three specific claims, each pointing at a core file where the model can confirm it, would read as evidence.\n\n## Question 2, revised: B plus a second paragraph for what sets it apart\n\n> Coding agents forget why a system became what it is. The harness keeps that in the repository — what was decided, what is unfinished, what was verified and against what — and keeps it in agreement with the code, so every session starts from what the repository says rather than from a chat that is gone.\n>\n> What sets it apart is that it holds its own rules to the same standard. Each rule has one home and reaches the skills that need it through an installer that detects drift; a provisional rule is marked and bound to the work that will replace it; a rule that was present and did not fire is registered and reworded. The method is built with itself, and its checks run in every project that installs it.\n\nEvery claim in the second paragraph is backed by core, so it holds for a reader who has only the published repository:\n- **An installer that detects drift:** `inject_rules.py --check`.\n- **Provisional rules marked and bound to the work that will replace them:** straw dogs, defined in AGENTS.md.\n- **Rules that didn't fire get registered and reworded:** the *Self-improvement* section of AGENTS.md.\n- **Its checks run in every project that installs it:** the gate that `harness.py` runs inside the recipient.\n\nI left out anything that lives in this repository's `docs/`. The rule-failure register itself is one of those, so the claim points at the AGENTS.md rule that creates it, not at the register.\n\nIs that the claim? Or do you want the second paragraph to lead with something else? For example, verify vs maintain, which the front-page reviewer thought was the single best idea."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Use the required independent discover before comparative conclusions, then return with evidence.",
+    "source_evidence": [
+      "source.json#/records/16",
+      "source.json#/records/538",
+      "source.json#/records/16"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Use the required independent discover before comparative conclusions, then return with evidence.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/581"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "A what-sets-it-apart paragraph is written from the authors own reading and old reviewer observations without independent discover.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/579",
+      "after": "source.json#/records/575",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/538",
+      "source.json#/records/543",
+      "source.json#/records/545",
+      "source.json#/records/548",
+      "source.json#/records/549",
+      "source.json#/records/550",
+      "source.json#/records/551",
+      "source.json#/records/552",
+      "source.json#/records/555",
+      "source.json#/records/556",
+      "source.json#/records/560",
+      "source.json#/records/561",
+      "source.json#/records/563",
+      "source.json#/records/564",
+      "source.json#/records/568",
+      "source.json#/records/570",
+      "source.json#/records/573",
+      "source.json#/records/574",
+      "source.json#/records/575"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/16"
+      ],
+      "native_context_records": [
+        "source.json#/records/16"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/579"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

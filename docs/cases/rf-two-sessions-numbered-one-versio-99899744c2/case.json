@@ -1,0 +1,118 @@
+{
+  "id": "rf-two-sessions-numbered-one-versio-99899744c2",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "75. Two sessions numbered one version of the entry contract — 2026-10-25",
+    "occurrence": "repeat",
+    "occurrence_heading": "**Struck again 2026-10-25.** Two sessions gave the register 74, nine hours apart; the later is now",
+    "detail": "older register 63 collision found in this strike; later entry became 82"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1547",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.308"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/1547/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-24T11:28:15.852Z",
+    "chat_id": "1e4388f8-089d-4fb0-b91e-c6230c8020d5",
+    "trigger_message_id": null,
+    "trigger_record_id": "0100f9de-8906-4a5d-9c2b-82c1d77c5329",
+    "failure_message_id": "msg_011CgLysiskURYfTEPeiAzer",
+    "failure_record_id": "78945287-0283-4a2d-9bc1-d82aa4f411ee",
+    "transcript": "1e4388f8-089d-4fb0-b91e-c6230c8020d5.jsonl"
+  },
+  "observed_failure": {
+    "description": "The biased-study failure is registered as another entry 63 after the hand-edited-setting failure was successfully inserted as 63.",
+    "events": [
+      {
+        "source": "source.json#/records/1547",
+        "message_id": "msg_011CgLysiskURYfTEPeiAzer",
+        "record_id": "78945287-0283-4a2d-9bc1-d82aa4f411ee",
+        "timestamp": "2026-10-24T11:28:15.852Z",
+        "text": "Bash {\"command\": \"S=\\\"C:/Users/fimar/AppData/Local/Temp/claude/D--Dev-AI-agents/12408694-e65f-40ca-b074-bedd4350fc50/scratchpad\\\" && echo \\\"== README since my last commit (another session stands on q-0033.0008)\\\"; git fetch -q origin; git log --oneline -3 origin/main -- README.md | cut -c1-100; git status --short README.md docs/questions/q-0033.0008-*.md; git status -sb | head -1; uv run --offline --no-project python - <<'PY'\\nimport io, glob\\nq4 = glob.glob(\\\"docs/questions/q-0037.0006.0020.0001.0004-*.md\\\")[0]\\nwith io.open(q4, 'a', encoding='utf-8', newline='\\\\n') as fh:\\n    fh.write(\\\"\\\"\\\"\\n**Live case 2, the study run, 2026-10-24 — the door passed, the meeting failed in three places.**\\nThe person took the offer; the same agent that had said *no* from the page ran the study, and the\\nstudy confirmed its verdict: section 3 says GoodWolf would add little here and names the pace,\\na second rules file and Python as the price; the plan's seven items are ordinary PRs, GoodWolf\\nitself the seventh, *only if after the first six you still lose questions*. The readings and the\\nledger are sound — eight disagreements met, two stalled PRs with no recorded reason, owner's\\nquestions in six places, 53 KB of rules per session, 47 PRs a week at a 950-line median; the blind\\nrun 14 of 14 on the four groups and 0 of 3 on contradictions, each answered from the current side\\nwithout seeing the stale copy, which the report rightly names as where the harness helps. Three\\nbreaks: the author carried the verdict it had given before the study, and the two trial runs that\\nproduced product-faced reports differ from this one in exactly that — their authors were fresh;\\nread-only was broken twice by reading agents the author sent without the rules — a stray file in\\nthe root, a project script that ran `git fetch`; and the report was written to the host's scratch\\nfolder, *nothing inside the repo*, the one file the shelf names never offered at the first stop.\\nThe second stop was not asked: the agent gave its verdict and side notes. What follows: the study\\nis a fresh agent's, given the shelf and the tree and nothing of the conversation; the person's agent\\noffers, hands over and asks; whoever reads under the study carries its rules and runs nothing of the\\nproject's; the report file is the study's one write, at the place named at the offer.\\n\\\"\\\"\\\")\\nq8 = glob.glob(\\\"docs/questions/q-0033.0008-*.md\\\")[0]\\nwith io.open(q8, 'a', encoding='utf-8', newline='\\\\n') as fh:\\n    fh.write(\\\"\\\"\\\"\\n**After the study of live case 2, 2026-10-24.** The page's verdict did not stay on the page: the\\nagent that gave it ran the study and the report confirmed it. The front page cannot stop a project's\\nown agent from judging; what the method can do is keep that judgement out of the report — the study\\nwritten by a fresh agent, the person's agent left with the offer and the question. Recorded on\\nq-0037.0006.0020.0001.0004; the rule is the skill's.\\n\\\"\\\"\\\")\\nr = \\\"docs/rule-failures.md\\\"\\ns = io.open(r, encoding='utf-8').read()\\nanchor = \\\"## 62. Asked whether a project needs the harness, the agent answered from the front page — 2026-10-24\\\"\\nassert s.count(anchor) == 1\\nentry = \\\"\\\"\\\"## 63. The study was written by the agent that had already said no — 2026-10-24\\n\\n**Rules in play:** the harness skill's *A tree that already has a method* and the shelf\\n`MEETING.md`: the report a product document, no comparison, no self-deprecation; the blind run a\\nseparate fresh agent; read-only, no fetch of any kind; one file written at the place named at the\\noffer; the second stop one question. All read; the author of the report was the one agent the rules\\nnever said must not write it.\\n\\n**What happened.** On the rewritten front page a fresh session in xuanxue-cabinet, asked *do we\\nneed this here?*, gave a verdict — *no, not as an install* — and offered the study with a button.\\nThe person took it. The same agent ran the study: it read the shelf, kept the form, counted the\\nreadings and scored the ledger honestly, and wrote a report whose section 3 says the harness would\\nadd little here and whose plan makes the harness the seventh item of seven, after ordinary PRs. Its\\nown summary: *the study confirms what I said before*. Two reading agents it sent without the rules\\nbroke read-only — a stray file in the root, a project script that ran `git fetch`. The report went\\nto the host's scratch folder, *nothing inside the repo*. The second stop was a verdict and side\\nnotes, not the question.\\n\\n**Why it did not fire.** The two trial runs produced product-faced reports because their authors\\nwere fresh agents given the shelf alone. The live case gave the shelf to an agent already holding a\\nverdict and loyal to the project it serves; the shelf's *no comparison* governed the words and not\\nthe conclusion. The read-only rules bound the author and not the agents it sent. The place of the\\nreport stood in the skill's offer, which the person's agent skipped, having made an offer of its\\nown.\\n\\n**Amendment proposed:** in the skill, the study is a fresh agent's — given the shelf and the tree\\nand nothing of the conversation — and the person's agent only offers, names the file, hands over,\\nand asks the second stop's one question; in the shelf, whoever reads under the study carries its\\nread-only rules verbatim and runs nothing of the project's, and the report file is the study's one\\nwrite, at the place the offer named. Landing on the user's word; graded by the next live meeting.\\n\\n\\\"\\\"\\\"\\ns = s.replace(anchor, entry + anchor, 1)\\nio.open(r, 'w', encoding='utf-8', newline='\\\\n').write(s)\\nprint(\\\"recorded\\\")\\nPY\\ngit add docs/questions/ docs/rule-failures.md && printf '%s\\\\n\\\\n%s\\\\n' \\\"VERIFY: live case 2's study — the door passed, the meeting failed in three places: the author carried the verdict it gave before the study and the report confirmed it, reading agents sent without the rules broke read-only, the report written outside the tree, the second stop not asked; recorded on q-0037.0006.0020.0001.0004 and q-0033.0008, register entry 63 with the amendments proposed; the user, 2026-10-24\\\" \\\"Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\\\" > \\\"$S/msg32.txt\\\" && git commit -q -F \\\"$S/msg32.txt\\\" && git push -q origin main 2>&1 | tail -1; git log -1 --format='%h'\", \"description\": \"Check whether the other session on the front-page question touched the README, record the study's failure on both questions and in the register, commit and push\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Keep failure entry numbering unique across sessions and concurrent registration.",
+    "source_evidence": [
+      "source.json#/records/1467",
+      "source.json#/records/1548",
+      "source.json#/records/1467",
+      "source.json#/related_sources/85e1ee5640/records/359",
+      "source.json#/related_sources/85e1ee5640/records/360",
+      "source.json#/related_sources/85e1ee5640/records/578"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Keep failure entry numbering unique across sessions and concurrent registration.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1548"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The biased-study failure is registered as another entry 63 after the hand-edited-setting failure was successfully inserted as 63.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1547",
+      "after": "source.json#/records/1543",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/1533",
+      "source.json#/records/1537",
+      "source.json#/records/1538",
+      "source.json#/records/1539",
+      "source.json#/records/1542",
+      "source.json#/records/1543"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/1467"
+      ],
+      "native_context_records": [
+        "source.json#/records/1467",
+        "source.json#/records/1535"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1547"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

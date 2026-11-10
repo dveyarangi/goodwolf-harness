@@ -1,0 +1,201 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "scope": "Public-source recovery and extraction-record repair for the same 212 historical occurrence folders; later register additions and execution-tooling development are outside this pass.",
+  "cases": 212,
+  "hosts": {
+    "Claude Code": 198,
+    "Codex Desktop": 11,
+    "Cursor": 3
+  },
+  "source_reported_models": {
+    "claude-fable-5-1": 47,
+    "gpt-6.1-sol": 11,
+    "unknown": 3,
+    "claude-opus-5-5": 140,
+    "claude-opus-5": 9,
+    "claude-sonnet-5-5": 2
+  },
+  "api_input_recovery": {
+    "cases": 32,
+    "message_positions": 10963,
+    "unresolved_positions": 0,
+    "unsupported_public_fields_or_blocks": 0,
+    "private_blocks_excluded_before_decoding": 2632
+  },
+  "selected_public_source_comparison": {
+    "record_of": "what happened",
+    "date": "2026-11-10",
+    "scope": "Selected Claude/Codex public row projections and original byte hashes; case source-pointer resolution. Unselected original rows not JSON-decoded. Cursor source storage and semantic case sufficiency are outside this comparison.",
+    "cases": 212,
+    "hosts": {
+      "Claude Code": 198,
+      "Codex Desktop": 11,
+      "Cursor": 3
+    },
+    "counts": {
+      "selected_records_checked": 10973,
+      "selected_public_payloads_compared": 10973,
+      "case_source_pointers_checked": 33943,
+      "actor_input_references": 16469
+    },
+    "source_gap_kinds": {
+      "existing source qualification": 9,
+      "native replay context incomplete": 4,
+      "native replay context absent": 3,
+      "existing check evidence block": 9,
+      "referenced public artifact unavailable": 11
+    },
+    "blocked_checks": 9,
+    "unsupported_comparisons": [],
+    "errors": []
+  },
+  "cases_with_recorded_gaps": 14,
+  "case_gap_entries": 36,
+  "case_gap_kinds": {
+    "existing source qualification": 9,
+    "native replay context incomplete": 4,
+    "native replay context absent": 3,
+    "existing check evidence block": 9,
+    "referenced public artifact unavailable": 11
+  },
+  "blocked_case_checks": [
+    {
+      "case": "cursor-03206aca-unwrapped-write",
+      "status": "blocked pending contemporaneous instruction/exposure evidence"
+    },
+    {
+      "case": "cursor-5fba085e-window",
+      "status": "blocked pending contemporaneous instruction/exposure evidence"
+    },
+    {
+      "case": "cursor-8ada0e2a-unwrapped-write",
+      "status": "blocked pending contemporaneous instruction/exposure evidence"
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-1a1fde94d1",
+      "status": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-41a058cc97",
+      "status": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-bf77f24310",
+      "status": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-d72afa98f3",
+      "status": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-e7bb93ce46",
+      "status": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+    },
+    {
+      "case": "rf-the-straw-dog-rule-sat-at-tier-1-6749bbf867",
+      "status": "blocked by missing contemporaneous duty/exposure evidence"
+    }
+  ],
+  "portable_artifact_references_retained": 87,
+  "portable_artifact_files": 87,
+  "unavailable_artifact_references": 11,
+  "unavailable_artifact_cases": [
+    "rf-a-reply-named-what-it-asked-abou-39066f4cc4",
+    "rf-answers-proposed-four-times-on-a-34512db5f3",
+    "rf-answers-proposed-four-times-on-a-797b8ba07c",
+    "rf-answers-proposed-four-times-on-a-8f3d2b3b00",
+    "rf-answers-proposed-four-times-on-a-ef04bb2b47"
+  ],
+  "artifact_limits": "Stored artifact hashes describe recovered copies. Literal original previews and current recorded-path copies match; independent historical full-file hashes were not recorded. Necessity of unavailable artifacts for the case checks remains unestablished.",
+  "original_account_coverage": {
+    "register_accounts": 126,
+    "original_headings": 90,
+    "recorded_strikes": 36,
+    "case_associations": 218,
+    "gap_accounts": 16,
+    "gap_descriptions": 18
+  },
+  "original_account_gap_record": "gaps.json",
+  "historical_snapshot_rule": "Earlier dated validation reports and experiments remain historical; this recovery does not rewrite them as current behavior results.",
+  "independent_reviews": [
+    "native-recovery-review-2026-11-10.md",
+    "api-recovery-review-2026-11-10.md",
+    "public-source-recovery-review-2026-11-10.md"
+  ],
+  "validation_limit": "Whole-corpus source/provenance/structure checks and bounded semantic reviews do not establish all-case context sufficiency, check discrimination or behavioral validity.",
+  "executor_support": {
+    "status": "unsupported",
+    "behavior_verdict": null,
+    "scope": "The existing combined-input runner has no native-history/action path for these recovered cases. No runner/rule change or instruction-effect experiment was made."
+  },
+  "verification": {
+    "record_of": "what happened",
+    "date": "2026-11-10",
+    "started_utc": "2026-11-09T22:50:06.198513+00:00",
+    "finished_utc": "2026-11-09T23:05:34.804076+00:00",
+    "scope": "Project verification commands after public case-source recovery; does not establish semantic case validity or executor compatibility.",
+    "results": [
+      {
+        "check": "mechanisms",
+        "exit_code": 0,
+        "diagnostics": []
+      },
+      {
+        "check": "inject_rules",
+        "exit_code": 0,
+        "diagnostics": []
+      },
+      {
+        "check": "tickets",
+        "exit_code": 0,
+        "diagnostics": []
+      },
+      {
+        "check": "edges",
+        "exit_code": 0,
+        "diagnostics": []
+      },
+      {
+        "check": "maintain",
+        "exit_code": 0,
+        "diagnostics": []
+      },
+      {
+        "check": "questions",
+        "exit_code": 0,
+        "diagnostics": []
+      },
+      {
+        "check": "sessions",
+        "exit_code": 0,
+        "diagnostics": []
+      },
+      {
+        "check": "product",
+        "exit_code": 0,
+        "diagnostics": []
+      },
+      {
+        "check": "unittest",
+        "exit_code": 0,
+        "tail": "\n...........................................................................................s.........................................................s............................................s....................................s..............................................................................................................................................................................................................................................x.....................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................\r\n----------------------------------------------------------------------\r\nRan 1068 tests in 912.587s\r\n\r\nOK (skipped=4, expected failures=1)\r\n"
+      }
+    ]
+  },
+  "subsequent_register_integration": {
+    "report": "occurrence-integration-2026-11-10.json",
+    "independent_review": "register-integration-review-2026-11-10.md",
+    "current_case_folders": 217,
+    "additional_criterion_specific_cases": 5,
+    "shared_source_event_note": "Different recorded failure criteria can concern the same original response/action. New case folders do not represent new actors, messages or timestamps.",
+    "additional_unresolved_source_association": 1,
+    "manual_v133_register_check": {
+      "occurrences": 128,
+      "unknown_models": 3,
+      "evidence_gaps": 17,
+      "diagnostics": []
+    },
+    "scope_note": "The original 212-case source-recovery statistics/reviews above remain their examined snapshot. Five separate failure criteria now have portable case folders; an unsupported earlier association is an explicit gap."
+  }
+}

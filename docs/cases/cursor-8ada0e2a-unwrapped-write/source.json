@@ -1,0 +1,350 @@
+{
+  "host": "Cursor",
+  "chat_id": "8ada0e2a-3d50-4352-acc1-622ce653d1a1",
+  "source_kind": "Selected original Cursor SQLite records and public transcript export",
+  "native_records": {
+    "bubbleId:8ada0e2a-3d50-4352-acc1-622ce653d1a1:eb22b250-3dbb-42e1-8883-0f4c835df154": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "6c911b1b5d96f257b20e897a279f3401210aa2b840470e199550630da648d18b",
+      "selected_metadata": {
+        "bubbleId": "eb22b250-3dbb-42e1-8883-0f4c835df154",
+        "type": 2,
+        "createdAt": "2026-09-05T22:43:58.926Z"
+      }
+    },
+    "bubbleId:8ada0e2a-3d50-4352-acc1-622ce653d1a1:6dbe7c7c-932e-4d5c-ac8b-94069e428b37": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "a3d8509f72d8ad667b6873f2e1a2a39698430383bd869f8d0f93a78288dbf8bc",
+      "selected_metadata": {
+        "bubbleId": "6dbe7c7c-932e-4d5c-ac8b-94069e428b37",
+        "type": 2,
+        "createdAt": "2026-09-06T00:11:17.337Z"
+      }
+    },
+    "composerData:8ada0e2a-3d50-4352-acc1-622ce653d1a1": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "06925d6b9f1e1088325a5bb643e02648814f0a128239ca988ee65ed2327bdc5a",
+      "selected_metadata": {
+        "createdAt": 1788646853133
+      }
+    },
+    "bubbleId:8ada0e2a-3d50-4352-acc1-622ce653d1a1:d2e5b03d-72fb-4f32-9fd9-85b17f5c3feb": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "24f74cc244f00454a5e5df6d9fd336e2fcc1b42bf2c6288c08f11b952cd648af",
+      "selected_metadata": {
+        "bubbleId": "d2e5b03d-72fb-4f32-9fd9-85b17f5c3feb",
+        "type": 1,
+        "createdAt": "2026-09-06T00:11:17.095Z"
+      }
+    },
+    "bubbleId:8ada0e2a-3d50-4352-acc1-622ce653d1a1:32a7136b-a0c2-4f2c-a2ac-c349e73a30d7": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "7d487f1a2175756d5e9a4be78099536178c912dec1b6e9592fd53b7b249567e9",
+      "selected_metadata": {
+        "bubbleId": "32a7136b-a0c2-4f2c-a2ac-c349e73a30d7",
+        "type": 2,
+        "createdAt": "2026-09-06T00:11:17.092Z"
+      }
+    },
+    "bubbleId:8ada0e2a-3d50-4352-acc1-622ce653d1a1:ff145501-c61e-44ea-ba36-4d161e9e937f": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "986a7c31b55fd3d4eebef4a901aefff8c56e33a2d6984456acdfbdf702f1e5d3",
+      "selected_metadata": {
+        "bubbleId": "ff145501-c61e-44ea-ba36-4d161e9e937f",
+        "type": 2,
+        "createdAt": "2026-09-06T00:11:17.150Z"
+      }
+    },
+    "bubbleId:8ada0e2a-3d50-4352-acc1-622ce653d1a1:0dfcb61a-9e84-4472-98bf-a4b6cb6cccc6": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "4d5732d1ec4d8755f2dc73f8ab4c5ab09165c54eed771b5563ab4ab9cdcab383",
+      "selected_metadata": {
+        "bubbleId": "0dfcb61a-9e84-4472-98bf-a4b6cb6cccc6",
+        "type": 2,
+        "createdAt": "2026-09-06T00:11:17.102Z"
+      }
+    },
+    "bubbleId:8ada0e2a-3d50-4352-acc1-622ce653d1a1:1ca6aad4-2701-4b69-b2f5-af4900a476a6": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "1da35d7d2ece0c4d3a4dacab2d7cd47e2f2966ab879f4409e035321d055d3dae",
+      "selected_metadata": {
+        "bubbleId": "1ca6aad4-2701-4b69-b2f5-af4900a476a6",
+        "type": 2,
+        "createdAt": "2026-09-06T00:11:17.106Z"
+      }
+    }
+  },
+  "recovered_public_evidence": {
+    "index": 121,
+    "detail": "delivery-status-until-pacer-exists",
+    "verdict": "original_write_identified_with_actor_model_and_duty_gaps",
+    "host": "Cursor",
+    "chat_id": "8ada0e2a-3d50-4352-acc1-622ce653d1a1",
+    "original_action": {
+      "table": "cursorDiskKV",
+      "key": "bubbleId:8ada0e2a-3d50-4352-acc1-622ce653d1a1:eb22b250-3dbb-42e1-8883-0f4c835df154",
+      "chat_id": "8ada0e2a-3d50-4352-acc1-622ce653d1a1",
+      "message_id": "eb22b250-3dbb-42e1-8883-0f4c835df154",
+      "type": 2,
+      "model_field": {
+        "path": "$.modelInfo.modelName",
+        "present": false,
+        "value": null
+      },
+      "timestamp_fields": [
+        {
+          "path": "$.createdAt",
+          "value": "2026-09-05T22:43:58.926Z"
+        }
+      ],
+      "public_tool_action": {
+        "name": "edit_file_v2",
+        "toolCallId": "call-9c1d7233-88fd-470e-becf-f4a835f0082c-111\nfc_0f906c6b-825a-952e-a600-39bd31157b71_0",
+        "modelCallId": "",
+        "status": "completed",
+        "params": {
+          "relativeWorkspacePath": "d:\\Dev\\AI\\agents\\docs\\tickets\\README.md",
+          "noCodeblock": true,
+          "cloudAgentEdit": false
+        },
+        "result": {
+          "beforeContentId": "composer.content.71ab28041291a1d566645f2d28604d45e40298c0dec982861ce0517407f01dad",
+          "afterContentId": "composer.content.7464763b544369ce457242ff59faafaaeda0d5919ae7ec602d525adde3e879d6"
+        }
+      }
+    },
+    "active_copied_action": {
+      "table": "cursorDiskKV",
+      "key": "bubbleId:8ada0e2a-3d50-4352-acc1-622ce653d1a1:6dbe7c7c-932e-4d5c-ac8b-94069e428b37",
+      "chat_id": "8ada0e2a-3d50-4352-acc1-622ce653d1a1",
+      "message_id": "6dbe7c7c-932e-4d5c-ac8b-94069e428b37",
+      "type": 2,
+      "model_field": {
+        "path": "$.modelInfo.modelName",
+        "present": false,
+        "value": null
+      },
+      "timestamp_fields": [
+        {
+          "path": "$.createdAt",
+          "value": "2026-09-06T00:11:17.337Z"
+        }
+      ],
+      "public_tool_action": {
+        "name": "edit_file_v2",
+        "toolCallId": "call-9c1d7233-88fd-470e-becf-f4a835f0082c-111\nfc_0f906c6b-825a-952e-a600-39bd31157b71_0",
+        "modelCallId": "call-9c1d7233-88fd-470e-becf-f4a835f0082c-111\nfc_0f906c6b-825a-952e-a600-39bd31157b71_0",
+        "status": "completed",
+        "params": {
+          "relativeWorkspacePath": "d:\\Dev\\AI\\agents\\docs\\tickets\\README.md",
+          "noCodeblock": true
+        },
+        "rawArgs": {
+          "path": "d:\\Dev\\AI\\agents\\docs\\tickets\\README.md",
+          "streamContent": "# Delivery status\n\n**Last updated:** 2026-09-06\n\n**Completed step:** [01-0010.0030](done/01-0010.0030-install-ticket.md) minted [01-0010.0035](01-0010.0035-install-spec.md) and is Done (2026-09-06). **Current pass:** [01-0010.0035](01-0010.0035-install-spec.md) is Ready — install `/spec`, then use it to develop the spec for completing the delivery ring; ring skills follow that spec. Remaining `<temporary>` blocks: the pacer to [01-0010.0040](01-0010.0040-pacer.md), `/edge` to the parent's remaining corpus.\n\n**Working documents:** [Harness spec — draft](../spec/01-0010-dev-harness-shared-and-local.md), [working glossary](../../glossary.md), and [pacer.md](../pacer.md), which holds the pacer's core rules resolved so far until `0040` carries them. `docs/process.md` is preliminary under a `<temporary>` block; the pacer owns it once it exists. Local overrides remain a deferred open issue. No implementation spec or RFC is approved.\n**Current stage:** entry contract at v2 (temporary blocks name their ticket). Wake lands on `/align` until the pacer exists. Resume by opening a fresh session here, checking its first line says v2, and taking the current pass above.\n\n| Ticket | Status | Type | Outcome |\n|---|---|---|---|\n| [Shared harness across projects](01-0010-dev-harness-shared-and-local.md) | In progress | HITL | A canonical dev harness improves across projects while preserving local behavior and remaining usable in all three frameworks. |\n| [Align on harness work in Codex, Cursor and Claude Code](done/01-0010.0020-live-alignment-across-hosts.md) | Done (2026-09-06) | HITL | The user can open this repository in any of the three hosts and align on its current work with the same installed `/align` and `/impact`, with evidence of what each host made available. |\n| [Install /ticket](done/01-0010.0030-install-ticket.md) | Done (2026-09-06) | HITL | `/ticket` is installed under `.agents/skills` from the accepted selection, discoverable in Claude Code, and used once here to mint a real slice, with `/impact` called from it as the entry file says. |\n| [Install /spec](01-0010.0035-install-spec.md) | Ready | HITL | `/spec` is installed from the accepted selection, discoverable, and used once to develop the spec for completing this harness's delivery ring; `/plan`, `/implement`, `/verify` and `/maintain` follow that spec. |\n| [Pacer](01-0010.0040-pacer.md) | Planned | HITL | The agent knows on every turn what it does after `/recall` and what the reply is scoped to, and a session resumes the ring where the last one stopped. |\n| [Life informs the dev harness](done/01-0010.0010-life-informs-dev-harness.md) | Done (2026-09-05) | HITL | Evidence from Life informs a smaller dev loop, with explicit instruction delivery and an agreed change propagation model. |\n\nThe [initial comparison](../../audit-2026-09-05/REPORT.md) is complete. Decisions, rather than missing comparison evidence, now gate extraction. No implementation RFC is approved yet.\n\n[The adoption shortlist](01-0010-dev-harness-shared-and-local.md#adoption-shortlist--recommendations-awaiting-alignment) retains the broader open design decisions. [Life findings](../research/life-harness-findings.md) supply the supporting evidence; the completed research ticket does not remain open for implementation decisions owned by the parent.\n"
+        },
+        "result": {
+          "beforeContentId": "composer.content.71ab28041291a1d566645f2d28604d45e40298c0dec982861ce0517407f01dad",
+          "afterContentId": "composer.content.7464763b544369ce457242ff59faafaaeda0d5919ae7ec602d525adde3e879d6"
+        }
+      },
+      "streamingContent_sha256": "7464763b544369ce457242ff59faafaaeda0d5919ae7ec602d525adde3e879d6"
+    },
+    "active_order_source": {
+      "table": "cursorDiskKV",
+      "key": "composerData:8ada0e2a-3d50-4352-acc1-622ce653d1a1",
+      "field_path": "$.fullConversationHeadersOnly[159]",
+      "bubbleId": "6dbe7c7c-932e-4d5c-ac8b-94069e428b37",
+      "serverBubbleId": "66daf32d-bf42-5af9-947a-84ff772881f0",
+      "createdAt": "2026-09-06T00:11:17.337Z"
+    },
+    "export_action": {
+      "file": "8ada0e2a-3d50-4352-acc1-622ce653d1a1.jsonl",
+      "line": 39,
+      "role": "assistant",
+      "tool_name": "Write",
+      "public_input": {
+        "contents": "# Delivery status\n\n**Last updated:** 2026-09-06\n\n**Completed step:** [01-0010.0030](done/01-0010.0030-install-ticket.md) minted [01-0010.0035](01-0010.0035-install-spec.md) and is Done (2026-09-06). **Current pass:** [01-0010.0035](01-0010.0035-install-spec.md) is Ready — install `/spec`, then use it to develop the spec for completing the delivery ring; ring skills follow that spec. Remaining `<temporary>` blocks: the pacer to [01-0010.0040](01-0010.0040-pacer.md), `/edge` to the parent's remaining corpus.\n\n**Working documents:** [Harness spec — draft](../spec/01-0010-dev-harness-shared-and-local.md), [working glossary](../../glossary.md), and [pacer.md](../pacer.md), which holds the pacer's core rules resolved so far until `0040` carries them. `docs/process.md` is preliminary under a `<temporary>` block; the pacer owns it once it exists. Local overrides remain a deferred open issue. No implementation spec or RFC is approved.\n**Current stage:** entry contract at v2 (temporary blocks name their ticket). Wake lands on `/align` until the pacer exists. Resume by opening a fresh session here, checking its first line says v2, and taking the current pass above.\n\n| Ticket | Status | Type | Outcome |\n|---|---|---|---|\n| [Shared harness across projects](01-0010-dev-harness-shared-and-local.md) | In progress | HITL | A canonical dev harness improves across projects while preserving local behavior and remaining usable in all three frameworks. |\n| [Align on harness work in Codex, Cursor and Claude Code](done/01-0010.0020-live-alignment-across-hosts.md) | Done (2026-09-06) | HITL | The user can open this repository in any of the three hosts and align on its current work with the same installed `/align` and `/impact`, with evidence of what each host made available. |\n| [Install /ticket](done/01-0010.0030-install-ticket.md) | Done (2026-09-06) | HITL | `/ticket` is installed under `.agents/skills` from the accepted selection, discoverable in Claude Code, and used once here to mint a real slice, with `/impact` called from it as the entry file says. |\n| [Install /spec](01-0010.0035-install-spec.md) | Ready | HITL | `/spec` is installed from the accepted selection, discoverable, and used once to develop the spec for completing this harness's delivery ring; `/plan`, `/implement`, `/verify` and `/maintain` follow that spec. |\n| [Pacer](01-0010.0040-pacer.md) | Planned | HITL | The agent knows on every turn what it does after `/recall` and what the reply is scoped to, and a session resumes the ring where the last one stopped. |\n| [Life informs the dev harness](done/01-0010.0010-life-informs-dev-harness.md) | Done (2026-09-05) | HITL | Evidence from Life informs a smaller dev loop, with explicit instruction delivery and an agreed change propagation model. |\n\nThe [initial comparison](../../audit-2026-09-05/REPORT.md) is complete. Decisions, rather than missing comparison evidence, now gate extraction. No implementation RFC is approved yet.\n\n[The adoption shortlist](01-0010-dev-harness-shared-and-local.md#adoption-shortlist--recommendations-awaiting-alignment) retains the broader open design decisions. [Life findings](../research/life-harness-findings.md) supply the supporting evidence; the completed research ticket does not remain open for implementation decisions owned by the parent.\n",
+        "path": "d:\\Dev\\AI\\agents\\docs\\tickets\\README.md"
+      },
+      "contents_sha256": "7464763b544369ce457242ff59faafaaeda0d5919ae7ec602d525adde3e879d6"
+    },
+    "match_evidence": {
+      "native_original_afterContentId": "composer.content.7464763b544369ce457242ff59faafaaeda0d5919ae7ec602d525adde3e879d6",
+      "export_contents_sha256": "7464763b544369ce457242ff59faafaaeda0d5919ae7ec602d525adde3e879d6",
+      "original_and_copy_same_toolCallId": true,
+      "original_and_copy_same_before_after_content_ids": true,
+      "copy_streamingContent_matches_export": true,
+      "method": "Original/copy joined by exact toolCallId and before/after content ids, not inferred from timestamps or settings."
+    },
+    "trigger_in_copied_order": {
+      "table": "cursorDiskKV",
+      "key": "bubbleId:8ada0e2a-3d50-4352-acc1-622ce653d1a1:d2e5b03d-72fb-4f32-9fd9-85b17f5c3feb",
+      "chat_id": "8ada0e2a-3d50-4352-acc1-622ce653d1a1",
+      "message_id": "d2e5b03d-72fb-4f32-9fd9-85b17f5c3feb",
+      "type": 1,
+      "model_field": {
+        "path": "$.modelInfo.modelName",
+        "present": false,
+        "value": null
+      },
+      "timestamp_fields": [
+        {
+          "path": "$.createdAt",
+          "value": "2026-09-06T00:11:17.095Z"
+        }
+      ],
+      "public_text": "spec mint and loop completion requirements do not contradict each other. we install spec, mint the spec for the loop completion and take the natural course.\nof course plan can be planned with plan, you can read the plan skill, can't you?\nspec should go firsrt, then we will build on it"
+    },
+    "pre_failure_public_context": [
+      {
+        "table": "cursorDiskKV",
+        "key": "bubbleId:8ada0e2a-3d50-4352-acc1-622ce653d1a1:32a7136b-a0c2-4f2c-a2ac-c349e73a30d7",
+        "chat_id": "8ada0e2a-3d50-4352-acc1-622ce653d1a1",
+        "message_id": "32a7136b-a0c2-4f2c-a2ac-c349e73a30d7",
+        "type": 2,
+        "model_field": {
+          "path": "$.modelInfo.modelName",
+          "present": false,
+          "value": null
+        },
+        "timestamp_fields": [
+          {
+            "path": "$.createdAt",
+            "value": "2026-09-06T00:11:17.092Z"
+          }
+        ],
+        "public_text": "The five-slice split was the contradiction; spec-first and loop completion are one path. I'll record that, re-impact a single Install `/spec` slice, and mint it."
+      },
+      {
+        "table": "cursorDiskKV",
+        "key": "bubbleId:8ada0e2a-3d50-4352-acc1-622ce653d1a1:ff145501-c61e-44ea-ba36-4d161e9e937f",
+        "chat_id": "8ada0e2a-3d50-4352-acc1-622ce653d1a1",
+        "message_id": "ff145501-c61e-44ea-ba36-4d161e9e937f",
+        "type": 2,
+        "model_field": {
+          "path": "$.modelInfo.modelName",
+          "present": false,
+          "value": null
+        },
+        "timestamp_fields": [
+          {
+            "path": "$.createdAt",
+            "value": "2026-09-06T00:11:17.150Z"
+          }
+        ],
+        "public_text": "The five-slice split was wrong. I'll record spec-first, mint that one ticket, and remove the leftover 0020 copy that didn't move cleanly."
+      }
+    ],
+    "instruction_reads_in_copied_order": [
+      {
+        "table": "cursorDiskKV",
+        "key": "bubbleId:8ada0e2a-3d50-4352-acc1-622ce653d1a1:0dfcb61a-9e84-4472-98bf-a4b6cb6cccc6",
+        "chat_id": "8ada0e2a-3d50-4352-acc1-622ce653d1a1",
+        "message_id": "0dfcb61a-9e84-4472-98bf-a4b6cb6cccc6",
+        "type": 2,
+        "model_field": {
+          "path": "$.modelInfo.modelName",
+          "present": false,
+          "value": null
+        },
+        "timestamp_fields": [
+          {
+            "path": "$.createdAt",
+            "value": "2026-09-06T00:11:17.102Z"
+          }
+        ],
+        "public_tool_action": {
+          "name": "read_file_v2",
+          "toolCallId": "call-8889251a-51c9-43ca-a1a9-550fd0ffdf44-5\nfc_5efd0ace-3cd7-9de6-b68f-fbc91fcebc0c_5",
+          "modelCallId": "call-8889251a-51c9-43ca-a1a9-550fd0ffdf44-5\nfc_5efd0ace-3cd7-9de6-b68f-fbc91fcebc0c_5",
+          "status": "completed",
+          "params": {
+            "targetFile": "d:\\Dev\\AI\\agents\\AGENTS.md",
+            "charsLimit": 1000000,
+            "effectiveUri": "d:\\Dev\\AI\\agents\\AGENTS.md"
+          },
+          "rawArgs": {
+            "path": "d:\\Dev\\AI\\agents\\AGENTS.md"
+          },
+          "result": {
+            "totalLinesInFile": 59
+          }
+        }
+      },
+      {
+        "table": "cursorDiskKV",
+        "key": "bubbleId:8ada0e2a-3d50-4352-acc1-622ce653d1a1:1ca6aad4-2701-4b69-b2f5-af4900a476a6",
+        "chat_id": "8ada0e2a-3d50-4352-acc1-622ce653d1a1",
+        "message_id": "1ca6aad4-2701-4b69-b2f5-af4900a476a6",
+        "type": 2,
+        "model_field": {
+          "path": "$.modelInfo.modelName",
+          "present": false,
+          "value": null
+        },
+        "timestamp_fields": [
+          {
+            "path": "$.createdAt",
+            "value": "2026-09-06T00:11:17.106Z"
+          }
+        ],
+        "public_tool_action": {
+          "name": "read_file_v2",
+          "toolCallId": "call-c3887cf9-0de4-411d-baee-097c9fe29adb-7\nfc_45bc70b3-d92a-9689-aba5-9695cf5f133e_1",
+          "modelCallId": "call-c3887cf9-0de4-411d-baee-097c9fe29adb-7\nfc_45bc70b3-d92a-9689-aba5-9695cf5f133e_1",
+          "status": "completed",
+          "params": {
+            "targetFile": "d:\\Dev\\AI\\agents\\.agents\\skills\\ticket\\SKILL.md",
+            "charsLimit": 1000000,
+            "effectiveUri": "d:\\Dev\\AI\\agents\\.agents\\skills\\ticket\\SKILL.md"
+          },
+          "rawArgs": {
+            "path": "d:\\Dev\\AI\\agents\\.agents\\skills\\ticket\\SKILL.md"
+          },
+          "result": {
+            "totalLinesInFile": 177
+          }
+        }
+      }
+    ],
+    "actor_model": null,
+    "model_metadata_note": "Both original/copy assistant action and copied trigger lack $.modelInfo.modelName. Other user records model metadata is not used to attribute this earlier write.",
+    "timestamp_note": "Retained original action $.createdAt=2026-09-05T22:43:58.926Z. Active copied action $.createdAt=2026-09-06T00:11:17.337Z. Original bubble is outside current ordered headers, but its duplicate action is connected by exact toolCallId/content ids. Copied time is not substituted for original.",
+    "provisional_passages": [
+      {
+        "quote": "**Working documents:** [Harness spec — draft](../spec/01-0010-dev-harness-shared-and-local.md), [working glossary](../../glossary.md), and [pacer.md](../pacer.md), which holds the pacer's core rules resolved so far until `0040` carries them. `docs/process.md` is preliminary under a `<temporary>` block; the pacer owns it once it exists. Local overrides remain a deferred open issue. No implementation spec or RFC is approved.",
+        "source": "export39 Write input.contents",
+        "wrapper_present_around_passage": false
+      },
+      {
+        "quote": "**Current stage:** entry contract at v2 (temporary blocks name their ticket). Wake lands on `/align` until the pacer exists. Resume by opening a fresh session here, checking its first line says v2, and taking the current pass above.",
+        "source": "export39 Write input.contents",
+        "wrapper_present_around_passage": false
+      }
+    ],
+    "finding": "Exact completed original delivery-status write is retained and hash-matched. Two provisional pacer statements lack wrappers around their passages.",
+    "gaps": [
+      "Actual assistant model field is absent on original/copy action; copied triggering user message also has no modelInfo. No model is inferred from other messages.",
+      "Original trigger is retained as copied public text/order with copied timestamp; its uncopied original timestamp was not recovered.",
+      "Contemporaneous AGENTS/straw-dog duty body is not retained in selected read results; the text omission is established, but grading an instruction violation requires separate duty evidence."
+    ]
+  },
+  "export": {
+    "transcript": "8ada0e2a-3d50-4352-acc1-622ce653d1a1.jsonl",
+    "record": 39,
+    "original_record_sha256": "c695fb5ec7eecda06e7d7f2b30ba8ff1624a93e099a01c8c87a2a48a1c8e3eb9",
+    "public_input": {
+      "contents": "# Delivery status\n\n**Last updated:** 2026-09-06\n\n**Completed step:** [01-0010.0030](done/01-0010.0030-install-ticket.md) minted [01-0010.0035](01-0010.0035-install-spec.md) and is Done (2026-09-06). **Current pass:** [01-0010.0035](01-0010.0035-install-spec.md) is Ready — install `/spec`, then use it to develop the spec for completing the delivery ring; ring skills follow that spec. Remaining `<temporary>` blocks: the pacer to [01-0010.0040](01-0010.0040-pacer.md), `/edge` to the parent's remaining corpus.\n\n**Working documents:** [Harness spec — draft](../spec/01-0010-dev-harness-shared-and-local.md), [working glossary](../../glossary.md), and [pacer.md](../pacer.md), which holds the pacer's core rules resolved so far until `0040` carries them. `docs/process.md` is preliminary under a `<temporary>` block; the pacer owns it once it exists. Local overrides remain a deferred open issue. No implementation spec or RFC is approved.\n**Current stage:** entry contract at v2 (temporary blocks name their ticket). Wake lands on `/align` until the pacer exists. Resume by opening a fresh session here, checking its first line says v2, and taking the current pass above.\n\n| Ticket | Status | Type | Outcome |\n|---|---|---|---|\n| [Shared harness across projects](01-0010-dev-harness-shared-and-local.md) | In progress | HITL | A canonical dev harness improves across projects while preserving local behavior and remaining usable in all three frameworks. |\n| [Align on harness work in Codex, Cursor and Claude Code](done/01-0010.0020-live-alignment-across-hosts.md) | Done (2026-09-06) | HITL | The user can open this repository in any of the three hosts and align on its current work with the same installed `/align` and `/impact`, with evidence of what each host made available. |\n| [Install /ticket](done/01-0010.0030-install-ticket.md) | Done (2026-09-06) | HITL | `/ticket` is installed under `.agents/skills` from the accepted selection, discoverable in Claude Code, and used once here to mint a real slice, with `/impact` called from it as the entry file says. |\n| [Install /spec](01-0010.0035-install-spec.md) | Ready | HITL | `/spec` is installed from the accepted selection, discoverable, and used once to develop the spec for completing this harness's delivery ring; `/plan`, `/implement`, `/verify` and `/maintain` follow that spec. |\n| [Pacer](01-0010.0040-pacer.md) | Planned | HITL | The agent knows on every turn what it does after `/recall` and what the reply is scoped to, and a session resumes the ring where the last one stopped. |\n| [Life informs the dev harness](done/01-0010.0010-life-informs-dev-harness.md) | Done (2026-09-05) | HITL | Evidence from Life informs a smaller dev loop, with explicit instruction delivery and an agreed change propagation model. |\n\nThe [initial comparison](../../audit-2026-09-05/REPORT.md) is complete. Decisions, rather than missing comparison evidence, now gate extraction. No implementation RFC is approved yet.\n\n[The adoption shortlist](01-0010-dev-harness-shared-and-local.md#adoption-shortlist--recommendations-awaiting-alignment) retains the broader open design decisions. [Life findings](../research/life-harness-findings.md) supply the supporting evidence; the completed research ticket does not remain open for implementation decisions owned by the parent.\n",
+      "path": "d:\\Dev\\AI\\agents\\docs\\tickets\\README.md"
+    },
+    "content_match": {
+      "native_original_afterContentId": "composer.content.7464763b544369ce457242ff59faafaaeda0d5919ae7ec602d525adde3e879d6",
+      "export_contents_sha256": "7464763b544369ce457242ff59faafaaeda0d5919ae7ec602d525adde3e879d6",
+      "original_and_copy_same_toolCallId": true,
+      "original_and_copy_same_before_after_content_ids": true,
+      "copy_streamingContent_matches_export": true,
+      "method": "Original/copy joined by exact toolCallId and before/after content ids, not inferred from timestamps or settings."
+    }
+  }
+}

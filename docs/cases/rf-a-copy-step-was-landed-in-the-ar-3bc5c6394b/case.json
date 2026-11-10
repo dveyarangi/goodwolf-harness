@@ -1,0 +1,195 @@
+{
+  "id": "rf-a-copy-step-was-landed-in-the-ar-3bc5c6394b",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "11. A copy step was landed in the architecture because a sentence there listed its neighbours — 2026-09-26",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "license copy promoted to architecture"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1153",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.281"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/1153/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-09-25T22:52:26.923Z",
+    "chat_id": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+    "trigger_message_id": null,
+    "trigger_record_id": "a46aabf1-0472-4c65-87e8-25c9cd64cbae",
+    "failure_message_id": "msg_011CfQyg4Lygj1iPqrTeK8gZ",
+    "failure_record_id": "4fb2465d-ab53-4215-a38a-a7cca44902b0",
+    "transcript": "21180e9e-e11e-4d1a-bcbe-65224a8d303d.jsonl"
+  },
+  "observed_failure": {
+    "description": "Actual architecture edit records the root-license copy location and old-ref behavior as a durable decision.",
+    "events": [
+      {
+        "source": "source.json#/records/1153",
+        "message_id": "msg_011CfQyg4Lygj1iPqrTeK8gZ",
+        "record_id": "4fb2465d-ab53-4215-a38a-a7cca44902b0",
+        "timestamp": "2026-09-25T22:52:26.923Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\docs\\\\architecture.md\", \"old_string\": \"fork. The manifest is every file under the core directory at that ref plus the entry file\\nand the host stub, and nothing else; the project's local rules file is never in it and never\\nwritten.\", \"new_string\": \"fork. The manifest is every file under the core directory at that ref plus the entry file\\nand the host stub, and the license, and nothing else; the project's local rules file is never in\\nit and never written. The license has one home, the source's root `LICENSE`, and is placed under\\nthe core directory as `.agents/LICENSE`, since its notice must travel with every copy and a\\nrecipient's root is its own *(the user, 2026-09-26)*; a ref that has no license ships none.\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Keep locally changeable copy mechanics with their implementation unless a supported cross-boundary invariant needs architecture.",
+    "source_evidence": [
+      "source.json#/records/16",
+      "source.json#/records/1154",
+      "source.json#/records/1156",
+      "source.json#/records/16"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Keep locally changeable copy mechanics with their implementation unless a supported cross-boundary invariant needs architecture.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1154",
+      "source.json#/records/1155",
+      "source.json#/records/1156",
+      "source.json#/records/1160",
+      "source.json#/records/1161",
+      "source.json#/records/1162",
+      "source.json#/records/1163",
+      "source.json#/records/1168",
+      "source.json#/records/1169",
+      "source.json#/records/1174",
+      "source.json#/records/1175",
+      "source.json#/records/1176",
+      "source.json#/records/1177",
+      "source.json#/records/1178",
+      "source.json#/records/1179",
+      "source.json#/records/1182",
+      "source.json#/records/1183",
+      "source.json#/records/1188",
+      "source.json#/records/1189",
+      "source.json#/records/1194",
+      "source.json#/records/1195",
+      "source.json#/records/1196",
+      "source.json#/records/1199",
+      "source.json#/records/1200",
+      "source.json#/records/1201",
+      "source.json#/records/1204",
+      "source.json#/records/1205",
+      "source.json#/records/1206",
+      "source.json#/records/1207",
+      "source.json#/records/1211",
+      "source.json#/records/1212",
+      "source.json#/records/1215",
+      "source.json#/records/1216"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "Actual architecture edit records the root-license copy location and old-ref behavior as a durable decision.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1153",
+      "after": "source.json#/records/1149",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/1051",
+      "source.json#/records/1054",
+      "source.json#/records/1055",
+      "source.json#/records/1056",
+      "source.json#/records/1057",
+      "source.json#/records/1058",
+      "source.json#/records/1062",
+      "source.json#/records/1063",
+      "source.json#/records/1067",
+      "source.json#/records/1068",
+      "source.json#/records/1069",
+      "source.json#/records/1074",
+      "source.json#/records/1075",
+      "source.json#/records/1078",
+      "source.json#/records/1079",
+      "source.json#/records/1080",
+      "source.json#/records/1081",
+      "source.json#/records/1082",
+      "source.json#/records/1086",
+      "source.json#/records/1087",
+      "source.json#/records/1090",
+      "source.json#/records/1091",
+      "source.json#/records/1092",
+      "source.json#/records/1093",
+      "source.json#/records/1094",
+      "source.json#/records/1095",
+      "source.json#/records/1096",
+      "source.json#/records/1097",
+      "source.json#/records/1098",
+      "source.json#/records/1099",
+      "source.json#/records/1100",
+      "source.json#/records/1104",
+      "source.json#/records/1105",
+      "source.json#/records/1109",
+      "source.json#/records/1110",
+      "source.json#/records/1111",
+      "source.json#/records/1112",
+      "source.json#/records/1115",
+      "source.json#/records/1116",
+      "source.json#/records/1117",
+      "source.json#/records/1118",
+      "source.json#/records/1119",
+      "source.json#/records/1120",
+      "source.json#/records/1124",
+      "source.json#/records/1126",
+      "source.json#/records/1129",
+      "source.json#/records/1130",
+      "source.json#/records/1135",
+      "source.json#/records/1136",
+      "source.json#/records/1137",
+      "source.json#/records/1142",
+      "source.json#/records/1143",
+      "source.json#/records/1148",
+      "source.json#/records/1149"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/16"
+      ],
+      "native_context_records": [
+        "source.json#/records/16"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1153"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

@@ -1,0 +1,161 @@
+{
+  "id": "rf-landed-header-kept-proposed-20261011-115247",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "38. Landed text was headed Proposed under a Landed heading — 2026-10-11",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "The reporting reply labels completed text Landed while retaining Proposed change in the same block header."
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/683",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/683/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-11T11:52:47.999Z",
+    "chat_id": "e5a0f888-dd0c-4cb8-a7fb-106977f0778c",
+    "trigger_message_id": null,
+    "trigger_record_id": "af748f92-56be-46f7-b7de-1e7fbe40cff7",
+    "failure_message_id": "msg_011CfvQJFx9WeWUaJJTx4YrF",
+    "failure_record_id": "9a117320-eb80-4aa2-980e-87d184fd5bfb",
+    "transcript": "e5a0f888-dd0c-4cb8-a7fb-106977f0778c.jsonl"
+  },
+  "observed_failure": {
+    "description": "The reporting reply labels completed text Landed while retaining Proposed change in the same block header.",
+    "events": [
+      {
+        "source": "source.json#/records/683",
+        "message_id": "msg_011CfvQJFx9WeWUaJJTx4YrF",
+        "record_id": "9a117320-eb80-4aa2-980e-87d184fd5bfb",
+        "timestamp": "2026-10-11T11:52:47.999Z",
+        "text": "| 📍 **q-0024.0009.0006** · How is a record paired with the thing it is of, so that drift between them is noticed? |\n|---|\n| 🔁 [01-0011.0110.0080 a-doc-is-due-when-its-parts-move](docs/tickets/01-0011.0110.0080-a-doc-is-due-when-its-parts-move.md) · ✅ /plan, validation pass |\n\nПлан закрыт: четыре выбора записаны как решение 8 в теле q-0024.0009.0006 — их дом (формат меток, док maintain) ещё не написан, стрелка появится при приземлении. RFC дополнен провенансом, проверки зелёные. Следующий шаг — `/implement` по трём стадиям RFC: `parts`, потом `output` со складкой shape, потом слова и ручное удаление строк `rules`.\n\n**Landed**\n\n✏️ **Proposed change — q-0024.0009.0006, Decisions**\n> 8. **How the marks key the two levels** *(the user, 2026-10-11, at 01-0011.0110.0080's plan)*: `parts` reads every `where` of the doc's *Install adds, uninstall removes* table but the doc itself, whole files; `output` keeps today's surface and joins the mechanism shape's doc, rules file and skill files, so the shape's outputs are read one mechanism at a time in that mechanism's own row and no third row kind exists; the entry file leaves the surface, the harness mechanism's `parts` naming it; the marks' outcome takes `repaired` as a third word; this tree's `rules` rows leave the marks by hand at the landing, the one exception to *written only by `--mark`*.\n\n| 🪶 Commits |\n|---|\n| 1718973 · PLAN: 01-0011.0110.0080, validation pass |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "After text is written, its block header identifies it as Landed without retaining Proposed alongside that status.",
+    "source_evidence": [
+      "source.json#/records/19",
+      "source.json#/related_sources/status_header_feedback/records/1333",
+      "source.json#/related_sources/status_header_feedback/records/1372"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the header for the just-written decision text use Landed without also retaining Proposed in or above that same block?",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/related_sources/status_header_feedback/records/1333",
+      "source.json#/related_sources/status_header_feedback/records/1372"
+    ],
+    "validation": "Occurrence-specific extraction; independent semantic validation and behavioral execution are not established by this integration repair.",
+    "criterion_scope_qualification": "The source entry contract says to report written text under Landed; the later direct user correction disambiguates replacement of Proposed. The case does not claim that this later clarification was already installed."
+  },
+  "related_failures": [
+    {
+      "register": "../../rule-failures.md",
+      "heading": "38. Landed text was headed Proposed under a Landed heading — 2026-10-11",
+      "occurrence": "original",
+      "occurrence_heading": "original",
+      "detail": "mixed-header-original683"
+    }
+  ],
+  "related_failure_dimensions": [
+    {
+      "failure": {
+        "register": "../../rule-failures.md",
+        "heading": "38. Landed text was headed Proposed under a Landed heading — 2026-10-11",
+        "occurrence": "original",
+        "occurrence_heading": "original",
+        "detail": "mixed-header-original683"
+      },
+      "observed": "The reporting reply shows written text under a Proposed header with a Landed suffix, or under a separate Landed heading. Each separately prompted original reply is an occurrence.",
+      "expected": "The user rejects simultaneous Proposed and Landed status; after writing, replace Proposed in that block header with Landed."
+    }
+  ],
+  "description": "The reporting reply labels completed text Landed while retaining Proposed change in the same block header.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/683",
+      "after": "source.json#/records/678",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/647",
+      "source.json#/records/657",
+      "source.json#/records/658",
+      "source.json#/records/659",
+      "source.json#/records/662",
+      "source.json#/records/663",
+      "source.json#/records/664",
+      "source.json#/records/666",
+      "source.json#/records/667",
+      "source.json#/records/672",
+      "source.json#/records/677",
+      "source.json#/records/678"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/19"
+      ],
+      "native_context_records": [
+        "source.json#/records/19",
+        "source.json#/records/650"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/650",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\e5a0f888-dd0c-4cb8-a7fb-106977f0778c\\tool-results\\hook-f884cea3-191c-4f16-84ed-638b69049f5c-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-f884cea3-191c-4f16-84ed-638b69049f5c-1-additionalContext.txt",
+          "sha256": "216a2734d94a97e4385fb0be4ce9f0bf69b45f9842b4f8fb1ef55b68ae4537c8",
+          "bytes": 14159,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1994,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-11T11:51:25.434377+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/683"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

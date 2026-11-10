@@ -1,0 +1,203 @@
+{
+  "id": "rf-six-turns-of-seven-showed-a-ques-74b0b2862d",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "18. Six turns of seven showed a question the turn did not stand on — 2026-10-05",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "misplaced-turn-176"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/176",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/176/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-04T20:55:13.778Z",
+    "chat_id": "17658ee1-78ee-410c-871e-86e722da27fe",
+    "trigger_message_id": null,
+    "trigger_record_id": "fe77aab6-b070-45f3-a21b-a8f0105a7348",
+    "failure_message_id": "msg_011Cfhs1TMs6mf6GGyJxcucJ",
+    "failure_record_id": "2bb2955c-edcd-44fd-9c33-e61bb9a4a9f0",
+    "transcript": "17658ee1-78ee-410c-871e-86e722da27fe.jsonl"
+  },
+  "observed_failure": {
+    "description": "The separately prompted original reply displays a stale or merely resembling question. The original source audit distinguishes greeting/maintenance stale display from forcing installer-update turns onto a first-install reporting question.",
+    "events": [
+      {
+        "source": "source.json#/records/176",
+        "message_id": "msg_011Cfhs1TMs6mf6GGyJxcucJ",
+        "record_id": "2bb2955c-edcd-44fd-9c33-e61bb9a4a9f0",
+        "timestamp": "2026-10-04T20:55:13.778Z",
+        "text": "| ↳ **q-0018.0010** · What does a first install say when something stops it? |\n|---|\n\nRight — it should not have deleted them. The installer removes a link it has decided to \"repoint\" before it knows it can create the replacement, so when Windows refuses the symlink you are left with nothing.\n\n## What the code does\n\n- **The decision** ([harness.py:696](.agents/scripts/gw/harness.py:696)): an existing symlink is `keep` only if it resolves to the tree's `.agents/skills` and is a directory. Anything else, including any error while resolving, becomes `repoint`.\n- **The damage** ([harness.py:713](.agents/scripts/gw/harness.py:713)): `repoint` deletes the old link first, then tries `os.symlink`. Without symlink privilege that fails, the link is reported `pending`, and the old one is already gone.\n- **No coverage**: no test and no doc mentions `repoint` at all. It is the one branch of the link step that destroys something, and nothing exercises it.\n\n## What I could not establish\n\nI can't tell why your links were judged `repoint` rather than `keep`, because they are gone. In xuanxue-workshop both `.claude/skills` and `.cursor/skills` are now absent (removed at 23:51). The likely candidates are:\n- the links were file symlinks rather than directory ones (made without `/D`), so the \"is a directory\" test failed;\n- resolving them raised an error, which the code silently treats as \"points elsewhere\".\n\nIf you still have the update's report, the `links` entries would say `pending` with the OS error, but not the reason for the repoint. That reason is never reported, which is a second gap.\n\n## Fix I'd make\n\n1. Never remove before the replacement exists: create the new link under a temporary name, and only then swap it in. If creation is refused, leave the old link standing and report `pending`.\n2. Say in the report why a link was judged `repoint` (where it pointed, or the error).\n3. Add tests for the branch: a correct link is kept, a wrong one is replaced, and a refused creation leaves the old one in place.\n\nThis lands under [01-0010.0172 a-first-install-says-what-stopped-it](docs/tickets/01-0010.0172-a-first-install-says-what-stopped-it.md), which already owns the loader-link reporting, or as a standalone `FIX` if you'd rather not wait for that ticket.\n\nTo restore the recipient now, run these once in an elevated prompt from `D:\\Dev\\workspaces\\taichi_workspace\\xuanxue-workshop`, then `harness.py . --check`:\n\n```bash\ncmd //c 'mklink /D \".claude\\skills\" \"..\\.agents\\skills\"'\n```\n\n```bash\ncmd //c 'mklink /D \".cursor\\skills\" \"..\\.agents\\skills\"'\n```\n\nShall I make the fix as a `FIX` now? The `/maintain` changes from the previous turn are also still uncommitted."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Place by containment and distinguish a process from a question. The original user challenges prior placements and the assistant audit classifies six of seven as wrong.",
+    "source_evidence": [
+      "source.json#/records/306",
+      "source.json#/records/314",
+      "source.json#/records/35"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Place by containment and distinguish a process from a question. The original user challenges prior placements and the assistant audit classifies six of seven as wrong.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/177",
+      "source.json#/records/180",
+      "source.json#/records/182",
+      "source.json#/records/183",
+      "source.json#/records/186",
+      "source.json#/records/187",
+      "source.json#/records/190",
+      "source.json#/records/191",
+      "source.json#/records/193",
+      "source.json#/records/194",
+      "source.json#/records/197",
+      "source.json#/records/199",
+      "source.json#/records/200",
+      "source.json#/records/203",
+      "source.json#/records/204",
+      "source.json#/records/205",
+      "source.json#/records/206",
+      "source.json#/records/208",
+      "source.json#/records/209",
+      "source.json#/records/212",
+      "source.json#/records/213",
+      "source.json#/records/216",
+      "source.json#/records/217",
+      "source.json#/records/221",
+      "source.json#/records/222",
+      "source.json#/records/225",
+      "source.json#/records/226",
+      "source.json#/records/227",
+      "source.json#/records/228",
+      "source.json#/records/229",
+      "source.json#/records/230",
+      "source.json#/records/233",
+      "source.json#/records/234",
+      "source.json#/records/235",
+      "source.json#/records/236",
+      "source.json#/records/239",
+      "source.json#/records/240",
+      "source.json#/records/241",
+      "source.json#/records/242",
+      "source.json#/records/243",
+      "source.json#/records/244",
+      "source.json#/records/245",
+      "source.json#/records/246",
+      "source.json#/records/247",
+      "source.json#/records/250",
+      "source.json#/records/251",
+      "source.json#/records/254",
+      "source.json#/records/255",
+      "source.json#/records/257",
+      "source.json#/records/258",
+      "source.json#/records/259",
+      "source.json#/records/260",
+      "source.json#/records/263",
+      "source.json#/records/264",
+      "source.json#/records/266",
+      "source.json#/records/268",
+      "source.json#/records/269",
+      "source.json#/records/271",
+      "source.json#/records/272",
+      "source.json#/records/273",
+      "source.json#/records/276",
+      "source.json#/records/277",
+      "source.json#/records/279",
+      "source.json#/records/281",
+      "source.json#/records/282",
+      "source.json#/records/284",
+      "source.json#/records/285",
+      "source.json#/records/287",
+      "source.json#/records/288",
+      "source.json#/records/289",
+      "source.json#/records/292",
+      "source.json#/records/293",
+      "source.json#/records/295",
+      "source.json#/records/296",
+      "source.json#/records/297",
+      "source.json#/records/298",
+      "source.json#/records/300",
+      "source.json#/records/301",
+      "source.json#/records/304",
+      "source.json#/records/306",
+      "source.json#/records/307",
+      "source.json#/records/309",
+      "source.json#/records/310",
+      "source.json#/records/311",
+      "source.json#/records/312",
+      "source.json#/records/314"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The separately prompted original reply displays a stale or merely resembling question. The original source audit distinguishes greeting/maintenance stale display from forcing installer-update turns onto a first-install reporting question.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/176",
+      "after": "source.json#/records/173",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/161",
+      "source.json#/records/164",
+      "source.json#/records/165",
+      "source.json#/records/167",
+      "source.json#/records/168",
+      "source.json#/records/169",
+      "source.json#/records/170",
+      "source.json#/records/172",
+      "source.json#/records/173"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/35"
+      ],
+      "native_context_records": [
+        "source.json#/records/35",
+        "source.json#/records/162"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/176"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

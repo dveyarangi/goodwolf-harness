@@ -1,0 +1,117 @@
+{
+  "id": "rf-running-sessions-questions-were-54951379f3",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "35. Running sessions' questions were named in words the window never wrote — 2026-10-11",
+    "occurrence": "repeat",
+    "occurrence_heading": "**Struck a second time, 2026-10-26 — required form omitted across several replies.** In Codex",
+    "detail": "plain-explanation-missing-tables"
+  },
+  "provenance": {
+    "host": "Codex Desktop",
+    "host_source": "source.json#/records/1/payload/originator",
+    "model": "gpt-6.1-sol",
+    "model_source": "source.json#/records/1468/payload/model",
+    "model_evidence_kind": "recorded turn model identifier",
+    "occurred_at": "2026-10-26T15:37:14.467Z",
+    "chat_id": "01a177e0-ff53-7c93-9cd3-bcdb4c70db5c",
+    "trigger_message_id": "msg_01a178da-d6ac-7d42-8a1d-64b07b996708",
+    "failure_message_id": "msg_0a2987dba2acbcb3016adf73a1f3388191ad103410b0c40633",
+    "transcript": "rollout-2026-10-26T13-03-16-01a177e0-ff53-7c93-9cd3-bcdb4c70db5c.jsonl"
+  },
+  "observed_failure": {
+    "description": "An October26 Codex reply omits required turn-form tables. The chronology includes omissions before the request to explain more simply; a subsequent causal attribution to that request is separately identified.",
+    "events": [
+      {
+        "source": "source.json#/records/1477",
+        "message_id": "msg_0a2987dba2acbcb3016adf73a1f3388191ad103410b0c40633",
+        "timestamp": "2026-10-26T15:37:14.467Z",
+        "text": "**Я пока не исправил сам сбой — сделал пробу того, как его обнаруживать.** Объяснил это слишком сложно.\n\nПроблема была такой: я признал ошибку, но остановился, хотя ещё должен был записать её и подготовить исправление.\n\nЯ сделал три вещи:\n\n1. Собрал семь примеров: где агент бросил работу, где законно ждёт решения человека, а где уже ответил на просьбу.\n2. Дал их двум отдельно запущенным агентам. Оба правильно различили эти случаи.\n3. Написал небольшую программу, которая проверяет их ответы и показывает, когда стоило бы потребовать продолжения работы.\n\n**Сейчас эта проверка автоматически в нашем разговоре не запускается. Голос Лема она тоже не чинит.**\n\nСледующий шаг — дать проверяющему полный журнал разговора без готового пояснения «вот здесь агент ничего не записал». Тогда станет видно, способен ли он сам обнаружить пропуск. Нынешняя проба этого ещё не доказала."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Mandatory tables were not waived by simpler prose. The user correction and subsequent admission establish that omissions already preceded that request; a deeper cause remains unestablished.",
+    "source_evidence": [
+      "source.json#/records/1484",
+      "source.json#/records/1504",
+      "source.json#/records/8"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Mandatory tables were not waived by simpler prose. The user correction and subsequent admission establish that omissions already preceded that request; a deeper cause remains unestablished.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Cite the selected response/action and its preserved source context for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Relevant original public records and host/model metadata are preserved; private reasoning and platform system/developer instructions outside the project's hook context are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1483",
+      "source.json#/records/1484",
+      "source.json#/records/1486",
+      "source.json#/records/1488",
+      "source.json#/records/1489",
+      "source.json#/records/1493",
+      "source.json#/records/1497",
+      "source.json#/records/1500",
+      "source.json#/records/1504",
+      "source.json#/records/1506",
+      "source.json#/records/1510"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "An October26 Codex reply omits required turn-form tables. The chronology includes omissions before the request to explain more simply; a subsequent causal attribution to that request is separately identified.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1477",
+      "after": "source.json#/records/1471",
+      "description": "Immediately before the selected failing response/action; preserved earlier public records supply the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/8",
+      "source.json#/records/12",
+      "source.json#/records/115",
+      "source.json#/records/334",
+      "source.json#/records/495",
+      "source.json#/records/1424",
+      "source.json#/records/1469",
+      "source.json#/records/1471"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/8"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1477"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Instruction evidence, host metadata and reference-only records do not become additional actor messages.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role."
+    ],
+    "source_metadata_records": [
+      "source.json#/records/1",
+      "source.json#/records/1468"
+    ]
+  },
+  "source_gaps": []
+}

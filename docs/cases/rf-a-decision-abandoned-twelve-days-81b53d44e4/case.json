@@ -1,0 +1,206 @@
+{
+  "id": "rf-a-decision-abandoned-twelve-days-81b53d44e4",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "55. A decision abandoned twelve days earlier was carried as waiting in six replies running — 2026-10-20",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "stale wait in public response 316"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/316",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.299"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/316/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-19T22:23:40.972Z",
+    "chat_id": "4fef7758-4d63-4cbb-a2d5-98b8709a0be5",
+    "trigger_message_id": null,
+    "trigger_record_id": "3b87e2f3-6896-4fcd-92fc-a5238a82ab62",
+    "failure_message_id": "msg_011CgCNrwDGxMu2NnRqCrrAg",
+    "failure_record_id": "54e11f91-0500-4381-b1bf-c6f58e91dbf1",
+    "transcript": "4fef7758-4d63-4cbb-a2d5-98b8709a0be5.jsonl"
+  },
+  "observed_failure": {
+    "description": "A reply carries the abandoned entry-contract-version decision as a current user wait.",
+    "events": [
+      {
+        "source": "source.json#/records/316",
+        "message_id": "msg_011CgCNrwDGxMu2NnRqCrrAg",
+        "record_id": "54e11f91-0500-4381-b1bf-c6f58e91dbf1",
+        "timestamp": "2026-10-19T22:23:40.972Z",
+        "text": "| 🪢 Tangle · [q-0037.0013](docs/questions/q-0037.0013-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md) · [q-0037.0012.0009](docs/questions/q-0037.0012.0009-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen-how-run-with-no-instruction-the-standing-one-and-the-new-one.md) · — · — |\n|---|\n\n| 📍 **q-0037.0013** · How does each turn know its next step, and each session where to resume? |\n|---|\n\n**It is the pacer's straw dog.** The straw dog tool reads one statement in the queue, lines 15 to 17, bound to q-0037.0013, not due. That is the pacer's question, and the paragraph's own last sentence says the pacer owns the ordering once it exists.\n\n**No agent acts on it.** The check for any rule in a document is the one the entry file gives: a document reaches the work only through the instruction that reads it, so find the instructions that read the record and see what they do with it (💡 [*A document informs*](AGENTS.md:25)). Three read the queue:\n\n- `/recall` reads the order and its candidate and never re-ranks. It names occasions for a reordering, a contradicted dependency or status, changed priorities, a split, and puts them to you. The compounding criterion is not among its occasions, so it would never propose a reorder on that basis (💡 [*Read the next item from the order the queue states*](.claude/skills/recall/SKILL.md:19)).\n- `/ticket` creates tickets in dependency order and keeps a ticket's place when it is re-sliced. Where a new ticket goes in the queue is yours: every minting commit says so.\n- `/product` renders what each live ticket realizes, for the person ordering the work, and ranks nothing.\n\nSo the rule's only actor is you, by hand, which is what the paragraph says of itself. It is a record of your criterion, and it informs you when you order. The queue's history agrees: every reordering in it carries your name and a date, none an agent's proposal. As a rule for an agent it fires nowhere, and that is not a failure of wording. It directs no agent, so it is not the drift the entry file names either.\n\n**Whether that is right.** Two shapes, and the choice is above the dial, since it decides who says what gets built next:\n\n- **Leave it.** The ordering stays yours; the paragraph records why; the pacer takes it up when built. The rewording is then only a better record of your criterion.\n- **Make the agent apply it.** A local rule installed into `/recall` and `/ticket`: the agent proposes a new ticket's place and names a reorder by the compounding criterion, you decide. Cheap to install, but it moves part of a product-slice decision toward the agent, and it is what the pacer is meant to do properly.\n\nI would leave it. The rule is doing the one thing a tier-2 record can: tell the person their own criterion. Nothing was lost by its not firing.\n\n**How to check in general.** There is no mechanical check for text in `docs/` reaching an occasion. What exists is narrower: the injection check finds a rules-file section that no file installs, which covers tier 1 slices only. The general question, whether each rule reaches the occasion it is for, is [q-0037.0011](docs/questions/q-0037.0011-does-each-rule-reach-the-occasion-it-is-for.md), owned by [01-0018 rules-reach-the-occasion-they-are-for](docs/tickets/01-0018-rules-reach-the-occasion-they-are-for.md), Planned. Until it is built, the check is the reading I did above.\n\n| ⚖️ Decisions |\n|---|\n| The queue's ordering rule: left as your criterion, or a local rule the agent applies at `/recall` and `/ticket` |\n| The rewording to *develop itself better*, landing in the queue on your yes |\n| Take [01-0010.0175](docs/tickets/01-0010.0175-arrival-describes-what-it-finds.md) next, its `/plan` |\n| [q-0037.0012.0003](docs/questions/q-0037.0012.0003-what-does-an-entry-contract-version-cover.md) waits at `/align`, as the queue has held since 2026-10-08 |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Keep this turn's actual decision boundary separate from a stale queue claim. The user explicitly says this abandoned question is not being worked here.",
+    "source_evidence": [
+      "source.json#/records/522",
+      "source.json#/records/51"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Keep this turn's actual decision boundary separate from a stale queue claim. The user explicitly says this abandoned question is not being worked here.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/318",
+      "source.json#/records/320",
+      "source.json#/records/322",
+      "source.json#/records/323",
+      "source.json#/records/326",
+      "source.json#/records/328",
+      "source.json#/records/329",
+      "source.json#/records/331",
+      "source.json#/records/335",
+      "source.json#/records/336",
+      "source.json#/records/341",
+      "source.json#/records/342",
+      "source.json#/records/347",
+      "source.json#/records/349",
+      "source.json#/records/351",
+      "source.json#/records/353",
+      "source.json#/records/354",
+      "source.json#/records/355",
+      "source.json#/records/360",
+      "source.json#/records/361",
+      "source.json#/records/365",
+      "source.json#/records/366",
+      "source.json#/records/369",
+      "source.json#/records/370",
+      "source.json#/records/372",
+      "source.json#/records/374",
+      "source.json#/records/375",
+      "source.json#/records/376",
+      "source.json#/records/381",
+      "source.json#/records/382",
+      "source.json#/records/386",
+      "source.json#/records/388",
+      "source.json#/records/390",
+      "source.json#/records/392",
+      "source.json#/records/393",
+      "source.json#/records/394",
+      "source.json#/records/399",
+      "source.json#/records/400",
+      "source.json#/records/404",
+      "source.json#/records/406",
+      "source.json#/records/408",
+      "source.json#/records/410",
+      "source.json#/records/411",
+      "source.json#/records/415",
+      "source.json#/records/416",
+      "source.json#/records/420",
+      "source.json#/records/422",
+      "source.json#/records/424",
+      "source.json#/records/426",
+      "source.json#/records/427",
+      "source.json#/records/431",
+      "source.json#/records/432",
+      "source.json#/records/436",
+      "source.json#/records/438",
+      "source.json#/records/440",
+      "source.json#/records/442",
+      "source.json#/records/443",
+      "source.json#/records/448",
+      "source.json#/records/449",
+      "source.json#/records/454",
+      "source.json#/records/455",
+      "source.json#/records/460",
+      "source.json#/records/462",
+      "source.json#/records/465",
+      "source.json#/records/467",
+      "source.json#/records/468",
+      "source.json#/records/472",
+      "source.json#/records/474",
+      "source.json#/records/476",
+      "source.json#/records/478",
+      "source.json#/records/479",
+      "source.json#/records/480",
+      "source.json#/records/481",
+      "source.json#/records/482",
+      "source.json#/records/486",
+      "source.json#/records/487",
+      "source.json#/records/491",
+      "source.json#/records/492",
+      "source.json#/records/493",
+      "source.json#/records/494",
+      "source.json#/records/495",
+      "source.json#/records/496",
+      "source.json#/records/501",
+      "source.json#/records/502",
+      "source.json#/records/506",
+      "source.json#/records/507",
+      "source.json#/records/511",
+      "source.json#/records/512",
+      "source.json#/records/513",
+      "source.json#/records/514",
+      "source.json#/records/519",
+      "source.json#/records/520",
+      "source.json#/records/521",
+      "source.json#/records/522"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "A reply carries the abandoned entry-contract-version decision as a current user wait.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/316",
+      "after": "source.json#/records/311",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/300",
+      "source.json#/records/304",
+      "source.json#/records/305",
+      "source.json#/records/310",
+      "source.json#/records/311"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/51"
+      ],
+      "native_context_records": [
+        "source.json#/records/51",
+        "source.json#/records/302"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/316"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

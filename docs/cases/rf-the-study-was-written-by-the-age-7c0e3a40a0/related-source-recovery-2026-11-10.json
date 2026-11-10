@@ -1,0 +1,30 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-the-study-was-written-by-the-age-7c0e3a40a0",
+  "scope": "Expansion of already-selected related-source public payloads; no new unselected records or inferred actor roles.",
+  "sources": [
+    {
+      "related_source": "8388ba0c8b",
+      "transcript": "agent-af969a8013379c444.jsonl",
+      "records_checked": 2
+    }
+  ],
+  "selected_records_checked": 2,
+  "records_expanded": [
+    {
+      "related_source": "8388ba0c8b",
+      "record": 45
+    },
+    {
+      "related_source": "8388ba0c8b",
+      "record": 314
+    }
+  ],
+  "structured_private_blocks_omitted": 0,
+  "unsupported_public_fields_or_records": [],
+  "source_paths_unavailable": [],
+  "original_record_hashes_verified": true,
+  "unselected_records_decoded": 0,
+  "replay_and_api_input_unchanged": true
+}

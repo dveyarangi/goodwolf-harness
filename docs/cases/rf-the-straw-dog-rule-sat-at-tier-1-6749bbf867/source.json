@@ -1,0 +1,626 @@
+{
+  "transcript": "6edc8a68-5643-4ab9-a6e0-e4fac184ecab.jsonl",
+  "chat_id": "6edc8a68-5643-4ab9-a6e0-e4fac184ecab",
+  "transcript_bytes": 3826909,
+  "transcript_sha256": "22663cdbb6f5aef4aa625ee56d828e38ba9d204a9084e87725780eddacd4d6ae",
+  "record_numbering": "one-based JSONL records in the original transcript",
+  "delivery_context": null,
+  "records": {
+    "980": {
+      "timestamp": "2026-09-07T18:23:48.382Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "510fe604-957e-4b70-a866-30ffbc791dcf",
+        "parentUuid": "cead143d-b73e-4545-b3d7-e40ea3dc5820",
+        "timestamp": "2026-09-07T18:23:48.382Z",
+        "sessionId": "6edc8a68-5643-4ab9-a6e0-e4fac184ecab",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "ok, mechanism script stays deployed. lets move on"
+        },
+        "promptId": "9a13274f-0c20-4510-8f13-c3db8e52e665"
+      },
+      "original_record_sha256": "96d060629469915a4e252b05a377f657fe68a5ed03de9d33923593638b18952d",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "984": {
+      "timestamp": "2026-09-07T18:23:59.926Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "33585e2c-885b-4c35-9b15-082c12af0025",
+        "parentUuid": "bc4c6c81-7512-4be9-9ec0-86166b4e5f74",
+        "timestamp": "2026-09-07T18:23:59.926Z",
+        "sessionId": "6edc8a68-5643-4ab9-a6e0-e4fac184ecab",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CepYe6DzamjASxD4Kqiau",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01CyNpK8JxdYq5eYoSjetvjL",
+              "name": "Bash",
+              "input": {
+                "command": "cat -n .agents/README.md",
+                "description": "Read the file stage 4 prunes"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "6e4766443d95db29a9fb70f6531e05cd6ba6501aee17f53a9c29804097ef2935",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "985": {
+      "timestamp": "2026-09-07T18:24:06.994Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "ff408159-bb95-4c71-b969-27d08f0a0075",
+        "parentUuid": "33585e2c-885b-4c35-9b15-082c12af0025",
+        "timestamp": "2026-09-07T18:24:06.994Z",
+        "sessionId": "6edc8a68-5643-4ab9-a6e0-e4fac184ecab",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01CyNpK8JxdYq5eYoSjetvjL",
+              "is_error": false,
+              "content": "     1\t# Installed harness\n     2\t\n     3\t**The real skill files live in [`skills/`](./skills/).** Loaders are directory links to that folder:\n     4\t\n     5\t- Codex — reads `.agents/skills` natively; no link needed.\n     6\t- Claude Code — `.claude/skills` → `../.agents/skills`\n     7\t- Cursor — `.cursor/skills` → `../.agents/skills`\n     8\t\n     9\tThis repository consumes its own method the way a recipient project does: the same `.agents/skills`\n    10\tlayout as Meteoscape and Forecast Collector, with this project's facts in `<project-local>` blocks.\n    11\t\n    12\tThe links are tracked as symlinks (mode 120000). Git for Windows writes `core.symlinks=false` on\n    13\tclone, so they check out as text files. After clone, in this repo only:\n    14\t\n    15\t```\n    16\tgit config --local core.symlinks true\n    17\tgit checkout -- .claude/skills .cursor/skills\n    18\t```\n    19\t\n    20\tWindows needs Developer Mode (Settings → System → For developers) or an elevated prompt to create\n    21\ta directory symlink. If checkout still yields a file, delete it and run\n    22\t`mklink /D .claude\\skills ..\\.agents\\skills` (likewise for `.cursor\\skills`). Creating these links\n    23\tis part of the installer's job once it exists; a junction is not an acceptable substitute, git\n    24\twould track it as a directory.\n    25\t\n    26\tWhich links are actually required is untested. Codex needs none; Cursor documents reading\n    27\t`.agents/skills` directly; Claude Code may too. The host trials in\n    28\t[01-0010.0020](../docs/tickets/done/01-0010.0020-live-alignment-across-hosts.md) settle it.\n    29\t\n    30\t## What is installed\n    31\t\n    32\tBootstrap slices [01-0010.0020](../docs/tickets/done/01-0010.0020-live-alignment-across-hosts.md),\n    33\t[01-0010.0030](../docs/tickets/done/01-0010.0030-install-ticket.md),\n    34\t[01-0010.0035](../docs/tickets/done/01-0010.0035-install-spec.md),\n    35\t[01-0010.0040](../docs/tickets/done/01-0010.0040-install-plan.md),\n    36\t[01-0010.0050](../docs/tickets/done/01-0010.0050-install-implement.md),\n    37\t[01-0010.0060](../docs/tickets/done/01-0010.0060-install-verify.md), and\n    38\t[01-0010.0070](../docs/tickets/done/01-0010.0070-install-maintain.md): `align` (with its ADR, ARCH, EDGE\n    39\tand GLOSSARY format shelf), `impact`, `ticket` (with `TICKET-FORMAT.md`), `spec`, `plan`,\n    40\t`implement`, `tdd` (with its five files), `improve-comments`, `verify`, and `maintain`, from\n    41\tMeteoscape with the Forecast Collector `/plan` body, per the\n    42\t[source selection](../docs/tickets/01-0010-dev-harness-shared-and-local.md#bootstrap-corpus-selection).\n    43\t`maintain` composes the selected `denoise` and `sync-arch` and adds the `<temporary>` enumerator.\n    44\t\n    45\t[01-0010.0090](../docs/tickets/done/01-0010.0090-install-discover.md) adds `discover` (with its\n    46\t`EVIDENCE.md`). It came from a different estate and so is not in the audited source selection above,\n    47\twhich records only what was taken from Meteoscape, Forecast Collector and DriftSense; that ticket is\n    48\tits authority. It is used the way `impact` is — run it, use what comes back in the work at hand —\n    49\tand files nothing.\n    50\t\n    51\t[01-0010.0100](../docs/tickets/01-0010.0100-remaining-named-corpus.md) adds `advise`,\n    52\t`celebrate`, `commit` and `skill-up`, brought in by the user on 2026-09-07 ahead of that\n    53\tticket's align because they are useful as they stand. They are installed and listed here; what\n    54\tthe ticket still owes for them is on the ticket, and `/edge` — its fifth — has not arrived.\n    55\t`commit`'s `<project-local>` block arrived carrying another project's gate set; it was deleted\n    56\trather than rewritten, because only global practice belongs in a core skill.\n    57\t\n    58\t`dream` arrived the same day. It is not one of `01-0010.0100`'s five — it comes from the parent's\n    59\town backlog, beside `/recall`, `/conclude`, `/review-architecture` and `/setup-devops`, of which\n    60\tthe other four have not arrived. [AGENTS.md](../AGENTS.md) already describes it: optional, runs\n    61\tafter `/conclude`, writes dreams that `/maintain` and `/align` may pick up, never amends rules.\n    62\t\n    63\tThe pre-audit July corpus is kept under [`legacy/skills`](../legacy/skills/) as evidence only. Nothing loads it.\n    64\t\n    65\t## Mechanical support\n    66\t\n    67\t[`scripts/`](./scripts/) holds what `/maintain` derives and repairs mechanically: `move_doc.py`\n    68\tcloses a ticket and its RFC together and repairs the citations, `temporary_statements.py` reads\n    69\tand retires expiring statements, and `docs_corpus.py` is the one view of the tree they share.\n    70\tThey run on the standard library alone. Their behavioral tests are in [`tests/`](../tests/) and\n    71\tare part of the project's [verification set](../docs/process.md#verification)."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "     1\t# Installed harness\n     2\t\n     3\t**The real skill files live in [`skills/`](./skills/).** Loaders are directory links to that folder:\n     4\t\n     5\t- Codex — reads `.agents/skills` natively; no link needed.\n     6\t- Claude Code — `.claude/skills` → `../.agents/skills`\n     7\t- Cursor — `.cursor/skills` → `../.agents/skills`\n     8\t\n     9\tThis repository consumes its own method the way a recipient project does: the same `.agents/skills`\n    10\tlayout as Meteoscape and Forecast Collector, with this project's facts in `<project-local>` blocks.\n    11\t\n    12\tThe links are tracked as symlinks (mode 120000). Git for Windows writes `core.symlinks=false` on\n    13\tclone, so they check out as text files. After clone, in this repo only:\n    14\t\n    15\t```\n    16\tgit config --local core.symlinks true\n    17\tgit checkout -- .claude/skills .cursor/skills\n    18\t```\n    19\t\n    20\tWindows needs Developer Mode (Settings → System → For developers) or an elevated prompt to create\n    21\ta directory symlink. If checkout still yields a file, delete it and run\n    22\t`mklink /D .claude\\skills ..\\.agents\\skills` (likewise for `.cursor\\skills`). Creating these links\n    23\tis part of the installer's job once it exists; a junction is not an acceptable substitute, git\n    24\twould track it as a directory.\n    25\t\n    26\tWhich links are actually required is untested. Codex needs none; Cursor documents reading\n    27\t`.agents/skills` directly; Claude Code may too. The host trials in\n    28\t[01-0010.0020](../docs/tickets/done/01-0010.0020-live-alignment-across-hosts.md) settle it.\n    29\t\n    30\t## What is installed\n    31\t\n    32\tBootstrap slices [01-0010.0020](../docs/tickets/done/01-0010.0020-live-alignment-across-hosts.md),\n    33\t[01-0010.0030](../docs/tickets/done/01-0010.0030-install-ticket.md),\n    34\t[01-0010.0035](../docs/tickets/done/01-0010.0035-install-spec.md),\n    35\t[01-0010.0040](../docs/tickets/done/01-0010.0040-install-plan.md),\n    36\t[01-0010.0050](../docs/tickets/done/01-0010.0050-install-implement.md),\n    37\t[01-0010.0060](../docs/tickets/done/01-0010.0060-install-verify.md), and\n    38\t[01-0010.0070](../docs/tickets/done/01-0010.0070-install-maintain.md): `align` (with its ADR, ARCH, EDGE\n    39\tand GLOSSARY format shelf), `impact`, `ticket` (with `TICKET-FORMAT.md`), `spec`, `plan`,\n    40\t`implement`, `tdd` (with its five files), `improve-comments`, `verify`, and `maintain`, from\n    41\tMeteoscape with the Forecast Collector `/plan` body, per the\n    42\t[source selection](../docs/tickets/01-0010-dev-harness-shared-and-local.md#bootstrap-corpus-selection).\n    43\t`maintain` composes the selected `denoise` and `sync-arch` and adds the `<temporary>` enumerator.\n    44\t\n    45\t[01-0010.0090](../docs/tickets/done/01-0010.0090-install-discover.md) adds `discover` (with its\n    46\t`EVIDENCE.md`). It came from a different estate and so is not in the audited source selection above,\n    47\twhich records only what was taken from Meteoscape, Forecast Collector and DriftSense; that ticket is\n    48\tits authority. It is used the way `impact` is — run it, use what comes back in the work at hand —\n    49\tand files nothing.\n    50\t\n    51\t[01-0010.0100](../docs/tickets/01-0010.0100-remaining-named-corpus.md) adds `advise`,\n    52\t`celebrate`, `commit` and `skill-up`, brought in by the user on 2026-09-07 ahead of that\n    53\tticket's align because they are useful as they stand. They are installed and listed here; what\n    54\tthe ticket still owes for them is on the ticket, and `/edge` — its fifth — has not arrived.\n    55\t`commit`'s `<project-local>` block arrived carrying another project's gate set; it was deleted\n    56\trather than rewritten, because only global practice belongs in a core skill.\n    57\t\n    58\t`dream` arrived the same day. It is not one of `01-0010.0100`'s five — it comes from the parent's\n    59\town backlog, beside `/recall`, `/conclude`, `/review-architecture` and `/setup-devops`, of which\n    60\tthe other four have not arrived. [AGENTS.md](../AGENTS.md) already describes it: optional, runs\n    61\tafter `/conclude`, writes dreams that `/maintain` and `/align` may pick up, never amends rules.\n    62\t\n    63\tThe pre-audit July corpus is kept under [`legacy/skills`](../legacy/skills/) as evidence only. Nothing loads it.\n    64\t\n    65\t## Mechanical support\n    66\t\n    67\t[`scripts/`](./scripts/) holds what `/maintain` derives and repairs mechanically: `move_doc.py`\n    68\tcloses a ticket and its RFC together and repairs the citations, `temporary_statements.py` reads\n    69\tand retires expiring statements, and `docs_corpus.py` is the one view of the tree they share.\n    70\tThey run on the standard library alone. Their behavioral tests are in [`tests/`](../tests/) and\n    71\tare part of the project's [verification set](../docs/process.md#verification).",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "33585e2c-885b-4c35-9b15-082c12af0025",
+        "promptId": "9a13274f-0c20-4510-8f13-c3db8e52e665"
+      },
+      "original_record_sha256": "1eee1d1de9e3874beb81b7fbffb5ee425611ee9d52bac4c4245108b9ec5ecc4d",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "989": {
+      "timestamp": "2026-09-07T18:24:25.253Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "c3faa8ae-54e6-40e3-8631-3bed80b74742",
+        "parentUuid": "538066b1-3d51-4fab-bbb9-957d5ae57c45",
+        "timestamp": "2026-09-07T18:24:25.253Z",
+        "sessionId": "6edc8a68-5643-4ab9-a6e0-e4fac184ecab",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CepYfTaAMjoq2VzYNhyVy",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Stage 4 — cutting the copies from `.agents/README.md`."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "10f64ca2052e589b8845555eef96eac7264b23bd03985995d213a0730ccfed20",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "990": {
+      "timestamp": "2026-09-07T18:24:25.818Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "cff938c6-5cc8-49e4-8b69-28f6b6e5e5f4",
+        "parentUuid": "c3faa8ae-54e6-40e3-8631-3bed80b74742",
+        "timestamp": "2026-09-07T18:24:25.818Z",
+        "sessionId": "6edc8a68-5643-4ab9-a6e0-e4fac184ecab",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CepYfTaAMjoq2VzYNhyVy",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01PVqwunQjaKa7NbMq3uP84S",
+              "name": "Bash",
+              "input": {
+                "command": "grep -rn \"agents/README.md\" --include=\"*.md\" . | grep -v \"^./docs/sessions\\|^./docs/rfc\\|^./docs/tickets/done\" | head",
+                "description": "Find live citations of the file being pruned"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "88d53761962b7330eab6a2c45bb5ee5f2a3e0c9086b026d5cab39c08444c01f8",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "991": {
+      "timestamp": "2026-09-07T18:24:26.406Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "215b0627-2813-4aab-8bda-f08df9763662",
+        "parentUuid": "cff938c6-5cc8-49e4-8b69-28f6b6e5e5f4",
+        "timestamp": "2026-09-07T18:24:26.406Z",
+        "sessionId": "6edc8a68-5643-4ab9-a6e0-e4fac184ecab",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01PVqwunQjaKa7NbMq3uP84S",
+              "is_error": false,
+              "content": "./docs/architecture.md:13:`.agents/skills`, with host access described in [the installed harness](../.agents/README.md).\n./docs/mechanisms/mechanism-shape.evidence.md:30:**A file holding the register.** Carried through four planning passes as `.agents/README.md`, and\n./docs/research/life-harness-findings.md:270:- Life `CLAUDE.md`; `core/README.md`, `core/process.md`, `core/glossary.md`; `.agents/README.md`; `memory/README.md`, `memory/skills.md`; `docs/rules-evidence.md`.\n./docs/spec/01-0011-mechanism-shape.md:17:and no file holds it**, superseding *the register is `.agents/README.md`*. Two corrections of fact\n./docs/spec/01-0011-mechanism-shape.md:217:`TICKET-FORMAT`'s four queue citations, and `.agents/README.md`, which three consecutive slices\n./docs/spec/01-0011-mechanism-shape.md:405:- ~~**The register is `.agents/README.md`** *(the user, 2026-09-06)*.~~ **Superseded 2026-09-07 by\n./docs/spec/01-0011-mechanism-shape.md:417:  Consequence: `.agents/README.md` keeps loaders, layout and symlink recovery, all of which\n./docs/tickets/01-0010-dev-harness-shared-and-local.md:152:**Main blast radius.** One child: install `/spec` and use it once on the existing harness spec so that spec requires completing the delivery ring here. Catalog, `AGENTS.md` installed-list, and `.agents/README.md` change when that ticket is implemented. `/ticket` → `/plan` → `/implement` → `/verify` → `/maintain` for the ring skills are sliced from that spec, not from this pass.\n./docs/tickets/01-0010.0100-remaining-named-corpus.md:26:[`.agents/README.md`](../../.agents/README.md).\n./docs/tickets/01-0010.0100-remaining-named-corpus.md:104:- [x] ~~`AGENTS.md`'s local block and `.agents/README.md` list them.~~ **Dissolved 2026-09-07**"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "./docs/architecture.md:13:`.agents/skills`, with host access described in [the installed harness](../.agents/README.md).\n./docs/mechanisms/mechanism-shape.evidence.md:30:**A file holding the register.** Carried through four planning passes as `.agents/README.md`, and\n./docs/research/life-harness-findings.md:270:- Life `CLAUDE.md`; `core/README.md`, `core/process.md`, `core/glossary.md`; `.agents/README.md`; `memory/README.md`, `memory/skills.md`; `docs/rules-evidence.md`.\n./docs/spec/01-0011-mechanism-shape.md:17:and no file holds it**, superseding *the register is `.agents/README.md`*. Two corrections of fact\n./docs/spec/01-0011-mechanism-shape.md:217:`TICKET-FORMAT`'s four queue citations, and `.agents/README.md`, which three consecutive slices\n./docs/spec/01-0011-mechanism-shape.md:405:- ~~**The register is `.agents/README.md`** *(the user, 2026-09-06)*.~~ **Superseded 2026-09-07 by\n./docs/spec/01-0011-mechanism-shape.md:417:  Consequence: `.agents/README.md` keeps loaders, layout and symlink recovery, all of which\n./docs/tickets/01-0010-dev-harness-shared-and-local.md:152:**Main blast radius.** One child: install `/spec` and use it once on the existing harness spec so that spec requires completing the delivery ring here. Catalog, `AGENTS.md` installed-list, and `.agents/README.md` change when that ticket is implemented. `/ticket` → `/plan` → `/implement` → `/verify` → `/maintain` for the ring skills are sliced from that spec, not from this pass.\n./docs/tickets/01-0010.0100-remaining-named-corpus.md:26:[`.agents/README.md`](../../.agents/README.md).\n./docs/tickets/01-0010.0100-remaining-named-corpus.md:104:- [x] ~~`AGENTS.md`'s local block and `.agents/README.md` list them.~~ **Dissolved 2026-09-07**",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "cff938c6-5cc8-49e4-8b69-28f6b6e5e5f4",
+        "promptId": "9a13274f-0c20-4510-8f13-c3db8e52e665"
+      },
+      "original_record_sha256": "a7adb6b168ca261dbbfd8396978f4b01104e14ec0a52ebb7e784ab24436a2961",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "994": {
+      "timestamp": "2026-09-07T18:24:30.415Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "024c82c3-ab00-47de-9e7f-c330f83bc011",
+        "parentUuid": "a1931394-467f-4f91-9aee-204d0d38c280",
+        "timestamp": "2026-09-07T18:24:30.415Z",
+        "sessionId": "6edc8a68-5643-4ab9-a6e0-e4fac184ecab",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CepYgrvsgUoZG43BYKtyi",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01Rjbnyf7m36y6aoX9ytnt43",
+              "name": "Bash",
+              "input": {
+                "command": "sed -n '20,30p' docs/tickets/01-0010.0100-remaining-named-corpus.md",
+                "description": "Read the ticket citation that may lose its referent"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "380794952e4d77407484e5890df151f3dba7b8822218d8481fc05dd5395ef0bf",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "995": {
+      "timestamp": "2026-09-07T18:24:31.016Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "7a8c6928-cd27-4733-a65d-b6eee93b36e5",
+        "parentUuid": "024c82c3-ab00-47de-9e7f-c330f83bc011",
+        "timestamp": "2026-09-07T18:24:31.016Z",
+        "sessionId": "6edc8a68-5643-4ab9-a6e0-e4fac184ecab",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01Rjbnyf7m36y6aoX9ytnt43",
+              "is_error": false,
+              "content": "The user installed `/advise`, `/celebrate`, `/commit` and `/skill-up` directly, ahead of this\nticket's align, on the ground that they are useful as they stand. That is a decision, not a\nviolation — but it lands the files without the adaptations this ticket exists to apply, so what\nremains is recorded here rather than assumed done.\n\n**Landed:** the four skill bodies, listed in `AGENTS.md`'s local block and\n[`.agents/README.md`](../../.agents/README.md).\n\n**Repaired on landing, under repair-and-report, and then repaired again the same day.**\n`/commit`'s `<project-local>` block carried another project's gate set — `ruff check`,\n`ruff format --check`, `pyright`, `pytest`, and a `docs/cicd.md` this project does not have."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "The user installed `/advise`, `/celebrate`, `/commit` and `/skill-up` directly, ahead of this\nticket's align, on the ground that they are useful as they stand. That is a decision, not a\nviolation — but it lands the files without the adaptations this ticket exists to apply, so what\nremains is recorded here rather than assumed done.\n\n**Landed:** the four skill bodies, listed in `AGENTS.md`'s local block and\n[`.agents/README.md`](../../.agents/README.md).\n\n**Repaired on landing, under repair-and-report, and then repaired again the same day.**\n`/commit`'s `<project-local>` block carried another project's gate set — `ruff check`,\n`ruff format --check`, `pyright`, `pytest`, and a `docs/cicd.md` this project does not have.",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "024c82c3-ab00-47de-9e7f-c330f83bc011",
+        "promptId": "9a13274f-0c20-4510-8f13-c3db8e52e665"
+      },
+      "original_record_sha256": "bf5b1f1bc2382b412251e2b0df0676097adde491211b40da42f05ac7d1b18c52",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "998": {
+      "timestamp": "2026-09-07T18:24:47.854Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "9b06a5c4-4ace-4066-a999-8ccd3508aea2",
+        "parentUuid": "4815f76c-089b-411e-9326-3b9b6eab349d",
+        "timestamp": "2026-09-07T18:24:47.854Z",
+        "sessionId": "6edc8a68-5643-4ab9-a6e0-e4fac184ecab",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CepYhCqwqyuL15cv9y3Lp",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_018smwUee22PxTJU6nTBoRn5",
+              "name": "Write",
+              "input": {
+                "file_path": "D:\\Dev\\AI\\agents\\.agents\\README.md",
+                "content": "# Installed harness\n\n**The real skill files live in [`skills/`](./skills/).** Loaders are directory links to that folder:\n\n- Codex — reads `.agents/skills` natively; no link needed.\n- Claude Code — `.claude/skills` → `../.agents/skills`\n- Cursor — `.cursor/skills` → `../.agents/skills`\n\nThe links are tracked as symlinks (mode 120000). Git for Windows writes `core.symlinks=false` on\nclone, so they check out as text files. After clone:\n\n```\ngit config --local core.symlinks true\ngit checkout -- .claude/skills .cursor/skills\n```\n\nWindows needs Developer Mode (Settings → System → For developers) or an elevated prompt to create\na directory symlink. If checkout still yields a file, delete it and run\n`mklink /D .claude\\skills ..\\.agents\\skills` (likewise for `.cursor\\skills`). Creating these links\nis part of the installer's job once it exists; a junction is not an acceptable substitute, git\nwould track it as a directory.\n\nWhich links are actually required is untested. Codex needs none; Cursor documents reading\n`.agents/skills` directly; Claude Code may too.\n\n## Mechanical support\n\n[`scripts/`](./scripts/) holds what the harness derives and repairs mechanically: `move_doc.py`\ncloses a ticket and its RFC together and repairs the citations that pointed at them,\n`temporary_statements.py` reads and retires expiring statements, `mechanisms.py` says whether a\nmechanism's declaration is true and renders the register from\n[`mechanisms/`](./mechanisms/), and `docs_corpus.py` is the one view of the tree they share. They\nrun on the standard library alone, and their behavioral tests are in [`tests/`](../tests/).\n"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "1193b64edb5be4025274ab61dc2d4175e524b81247b82de6f08b2cc3153054f1",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "999": {
+      "timestamp": "2026-09-07T18:24:48.056Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "fedbfbd3-5e29-4966-9f24-43217b3e6798",
+        "parentUuid": "9b06a5c4-4ace-4066-a999-8ccd3508aea2",
+        "timestamp": "2026-09-07T18:24:48.056Z",
+        "sessionId": "6edc8a68-5643-4ab9-a6e0-e4fac184ecab",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_018smwUee22PxTJU6nTBoRn5",
+              "content": "The file D:\\Dev\\AI\\agents\\.agents\\README.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "type": "update",
+          "filePath": "D:\\Dev\\AI\\agents\\.agents\\README.md",
+          "content": "# Installed harness\n\n**The real skill files live in [`skills/`](./skills/).** Loaders are directory links to that folder:\n\n- Codex — reads `.agents/skills` natively; no link needed.\n- Claude Code — `.claude/skills` → `../.agents/skills`\n- Cursor — `.cursor/skills` → `../.agents/skills`\n\nThe links are tracked as symlinks (mode 120000). Git for Windows writes `core.symlinks=false` on\nclone, so they check out as text files. After clone:\n\n```\ngit config --local core.symlinks true\ngit checkout -- .claude/skills .cursor/skills\n```\n\nWindows needs Developer Mode (Settings → System → For developers) or an elevated prompt to create\na directory symlink. If checkout still yields a file, delete it and run\n`mklink /D .claude\\skills ..\\.agents\\skills` (likewise for `.cursor\\skills`). Creating these links\nis part of the installer's job once it exists; a junction is not an acceptable substitute, git\nwould track it as a directory.\n\nWhich links are actually required is untested. Codex needs none; Cursor documents reading\n`.agents/skills` directly; Claude Code may too.\n\n## Mechanical support\n\n[`scripts/`](./scripts/) holds what the harness derives and repairs mechanically: `move_doc.py`\ncloses a ticket and its RFC together and repairs the citations that pointed at them,\n`temporary_statements.py` reads and retires expiring statements, `mechanisms.py` says whether a\nmechanism's declaration is true and renders the register from\n[`mechanisms/`](./mechanisms/), and `docs_corpus.py` is the one view of the tree they share. They\nrun on the standard library alone, and their behavioral tests are in [`tests/`](../tests/).\n",
+          "structuredPatch": [
+            {
+              "oldStart": 6,
+              "oldLines": 11,
+              "newStart": 6,
+              "newLines": 8,
+              "lines": [
+                " - Claude Code — `.claude/skills` → `../.agents/skills`",
+                " - Cursor — `.cursor/skills` → `../.agents/skills`",
+                " ",
+                "-This repository consumes its own method the way a recipient project does: the same `.agents/skills`",
+                "-layout as Meteoscape and Forecast Collector, with this project's facts in `<project-local>` blocks.",
+                "-",
+                " The links are tracked as symlinks (mode 120000). Git for Windows writes `core.symlinks=false` on",
+                "-clone, so they check out as text files. After clone, in this repo only:",
+                "+clone, so they check out as text files. After clone:",
+                " ",
+                " ```",
+                " git config --local core.symlinks true"
+              ]
+            },
+            {
+              "oldStart": 24,
+              "oldLines": 48,
+              "newStart": 21,
+              "newLines": 13,
+              "lines": [
+                " would track it as a directory.",
+                " ",
+                " Which links are actually required is untested. Codex needs none; Cursor documents reading",
+                "-`.agents/skills` directly; Claude Code may too. The host trials in",
+                "-[01-0010.0020](../docs/tickets/done/01-0010.0020-live-alignment-across-hosts.md) settle it.",
+                "+`.agents/skills` directly; Claude Code may too.",
+                " ",
+                "-## What is installed",
+                "-",
+                "-Bootstrap slices [01-0010.0020](../docs/tickets/done/01-0010.0020-live-alignment-across-hosts.md),",
+                "-[01-0010.0030](../docs/tickets/done/01-0010.0030-install-ticket.md),",
+                "-[01-0010.0035](../docs/tickets/done/01-0010.0035-install-spec.md),",
+                "-[01-0010.0040](../docs/tickets/done/01-0010.0040-install-plan.md),",
+                "-[01-0010.0050](../docs/tickets/done/01-0010.0050-install-implement.md),",
+                "-[01-0010.0060](../docs/tickets/done/01-0010.0060-install-verify.md), and",
+                "-[01-0010.0070](../docs/tickets/done/01-0010.0070-install-maintain.md): `align` (with its ADR, ARCH, EDGE",
+                "-and GLOSSARY format shelf), `impact`, `ticket` (with `TICKET-FORMAT.md`), `spec`, `plan`,",
+                "-`implement`, `tdd` (with its five files), `improve-comments`, `verify`, and `maintain`, from",
+                "-Meteoscape with the Forecast Collector `/plan` body, per the",
+                "-[source selection](../docs/tickets/01-0010-dev-harness-shared-and-local.md#bootstrap-corpus-selection).",
+                "-`maintain` composes the selected `denoise` and `sync-arch` and adds the `<temporary>` enumerator.",
+                "-",
+                "-[01-0010.0090](../docs/tickets/done/01-0010.0090-install-discover.md) adds `discover` (with its",
+                "-`EVIDENCE.md`). It came from a different estate and so is not in the audited source selection above,",
+                "-which records only what was taken from Meteoscape, Forecast Collector and DriftSense; that ticket is",
+                "-its authority. It is used the way `impact` is — run it, use what comes back in the work at hand —",
+                "-and files nothing.",
+                "-",
+                "-[01-0010.0100](../docs/tickets/01-0010.0100-remaining-named-corpus.md) adds `advise`,",
+                "-`celebrate`, `commit` and `skill-up`, brought in by the user on 2026-09-07 ahead of that",
+                "-ticket's align because they are useful as they stand. They are installed and listed here; what",
+                "-the ticket still owes for them is on the ticket, and `/edge` — its fifth — has not arrived.",
+                "-`commit`'s `<project-local>` block arrived carrying another project's gate set; it was deleted",
+                "-rather than rewritten, because only global practice belongs in a core skill.",
+                "-",
+                "-`dream` arrived the same day. It is not one of `01-0010.0100`'s five — it comes from the parent's",
+                "-own backlog, beside `/recall`, `/conclude`, `/review-architecture` and `/setup-devops`, of which",
+                "-the other four have not arrived. [AGENTS.md](../AGENTS.md) already describes it: optional, runs",
+                "-after `/conclude`, writes dreams that `/maintain` and `/align` may pick up, never amends rules.",
+                "-",
+                "-The pre-audit July corpus is kept under [`legacy/skills`](../legacy/skills/) as evidence only. Nothing loads it.",
+                "-",
+                " ## Mechanical support",
+                " ",
+                "-[`scripts/`](./scripts/) holds what `/maintain` derives and repairs mechanically: `move_doc.py`",
+                "-closes a ticket and its RFC together and repairs the citations, `temporary_statements.py` reads",
+                "-and retires expiring statements, and `docs_corpus.py` is the one view of the tree they share.",
+                "-They run on the standard library alone. Their behavioral tests are in [`tests/`](../tests/) and",
+                "-are part of the project's [verification set](../docs/process.md#verification).",
+                "+[`scripts/`](./scripts/) holds what the harness derives and repairs mechanically: `move_doc.py`",
+                "+closes a ticket and its RFC together and repairs the citations that pointed at them,",
+                "+`temporary_statements.py` reads and retires expiring statements, `mechanisms.py` says whether a",
+                "+mechanism's declaration is true and renders the register from",
+                "+[`mechanisms/`](./mechanisms/), and `docs_corpus.py` is the one view of the tree they share. They",
+                "+run on the standard library alone, and their behavioral tests are in [`tests/`](../tests/)."
+              ]
+            }
+          ],
+          "originalFile": "# Installed harness\n\n**The real skill files live in [`skills/`](./skills/).** Loaders are directory links to that folder:\n\n- Codex — reads `.agents/skills` natively; no link needed.\n- Claude Code — `.claude/skills` → `../.agents/skills`\n- Cursor — `.cursor/skills` → `../.agents/skills`\n\nThis repository consumes its own method the way a recipient project does: the same `.agents/skills`\nlayout as Meteoscape and Forecast Collector, with this project's facts in `<project-local>` blocks.\n\nThe links are tracked as symlinks (mode 120000). Git for Windows writes `core.symlinks=false` on\nclone, so they check out as text files. After clone, in this repo only:\n\n```\ngit config --local core.symlinks true\ngit checkout -- .claude/skills .cursor/skills\n```\n\nWindows needs Developer Mode (Settings → System → For developers) or an elevated prompt to create\na directory symlink. If checkout still yields a file, delete it and run\n`mklink /D .claude\\skills ..\\.agents\\skills` (likewise for `.cursor\\skills`). Creating these links\nis part of the installer's job once it exists; a junction is not an acceptable substitute, git\nwould track it as a directory.\n\nWhich links are actually required is untested. Codex needs none; Cursor documents reading\n`.agents/skills` directly; Claude Code may too. The host trials in\n[01-0010.0020](../docs/tickets/done/01-0010.0020-live-alignment-across-hosts.md) settle it.\n\n## What is installed\n\nBootstrap slices [01-0010.0020](../docs/tickets/done/01-0010.0020-live-alignment-across-hosts.md),\n[01-0010.0030](../docs/tickets/done/01-0010.0030-install-ticket.md),\n[01-0010.0035](../docs/tickets/done/01-0010.0035-install-spec.md),\n[01-0010.0040](../docs/tickets/done/01-0010.0040-install-plan.md),\n[01-0010.0050](../docs/tickets/done/01-0010.0050-install-implement.md),\n[01-0010.0060](../docs/tickets/done/01-0010.0060-install-verify.md), and\n[01-0010.0070](../docs/tickets/done/01-0010.0070-install-maintain.md): `align` (with its ADR, ARCH, EDGE\nand GLOSSARY format shelf), `impact`, `ticket` (with `TICKET-FORMAT.md`), `spec`, `plan`,\n`implement`, `tdd` (with its five files), `improve-comments`, `verify`, and `maintain`, from\nMeteoscape with the Forecast Collector `/plan` body, per the\n[source selection](../docs/tickets/01-0010-dev-harness-shared-and-local.md#bootstrap-corpus-selection).\n`maintain` composes the selected `denoise` and `sync-arch` and adds the `<temporary>` enumerator.\n\n[01-0010.0090](../docs/tickets/done/01-0010.0090-install-discover.md) adds `discover` (with its\n`EVIDENCE.md`). It came from a different estate and so is not in the audited source selection above,\nwhich records only what was taken from Meteoscape, Forecast Collector and DriftSense; that ticket is\nits authority. It is used the way `impact` is — run it, use what comes back in the work at hand —\nand files nothing.\n\n[01-0010.0100](../docs/tickets/01-0010.0100-remaining-named-corpus.md) adds `advise`,\n`celebrate`, `commit` and `skill-up`, brought in by the user on 2026-09-07 ahead of that\nticket's align because they are useful as they stand. They are installed and listed here; what\nthe ticket still owes for them is on the ticket, and `/edge` — its fifth — has not arrived.\n`commit`'s `<project-local>` block arrived carrying another project's gate set; it was deleted\nrather than rewritten, because only global practice belongs in a core skill.\n\n`dream` arrived the same day. It is not one of `01-0010.0100`'s five — it comes from the parent's\nown backlog, beside `/recall`, `/conclude`, `/review-architecture` and `/setup-devops`, of which\nthe other four have not arrived. [AGENTS.md](../AGENTS.md) already describes it: optional, runs\nafter `/conclude`, writes dreams that `/maintain` and `/align` may pick up, never amends rules.\n\nThe pre-audit July corpus is kept under [`legacy/skills`](../legacy/skills/) as evidence only. Nothing loads it.\n\n## Mechanical support\n\n[`scripts/`](./scripts/) holds what `/maintain` derives and repairs mechanically: `move_doc.py`\ncloses a ticket and its RFC together and repairs the citations, `temporary_statements.py` reads\nand retires expiring statements, and `docs_corpus.py` is the one view of the tree they share.\nThey run on the standard library alone. Their behavioral tests are in [`tests/`](../tests/) and\nare part of the project's [verification set](../docs/process.md#verification).\n",
+          "userModified": false
+        },
+        "sourceToolAssistantUUID": "9b06a5c4-4ace-4066-a999-8ccd3508aea2",
+        "promptId": "9a13274f-0c20-4510-8f13-c3db8e52e665"
+      },
+      "original_record_sha256": "1423f042edbef109fea40de6578e82462e43f5ebaf14dc8b81bd0fe96e6be5ed",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1001": {
+      "timestamp": "2026-09-07T18:24:52.637Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "ffeb858c-c59e-4247-b823-d95bc613e799",
+        "parentUuid": "6b2b1a71-01f8-4d6d-a604-e908c82a77ef",
+        "timestamp": "2026-09-07T18:24:52.637Z",
+        "sessionId": "6edc8a68-5643-4ab9-a6e0-e4fac184ecab",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CepYiUBhmUWruSU4nGZsy",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_0159WXqLTJGE4VHWTu5rzxKD",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0010.0100-remaining-named-corpus.md",
+                "old_string": "**Landed:** the four skill bodies, listed in `AGENTS.md`'s local block and\n[`.agents/README.md`](../../.agents/README.md).",
+                "new_string": "**Landed:** the four skill bodies, under [`.agents/skills/`](../../.agents/skills/). They were\nlisted in `AGENTS.md`'s local block and in `.agents/README.md`; both rosters were deleted on\n2026-09-07 as copies of what the host lists every session."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "f88ee6423cf66a2a1723b731e9b9746ec20051e1cac52c17c578e2b7388e5efa",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1002": {
+      "timestamp": "2026-09-07T18:24:52.689Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "177a79b3-4881-484e-ad73-55f892bb6c3a",
+        "parentUuid": "ffeb858c-c59e-4247-b823-d95bc613e799",
+        "timestamp": "2026-09-07T18:24:52.689Z",
+        "sessionId": "6edc8a68-5643-4ab9-a6e0-e4fac184ecab",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_0159WXqLTJGE4VHWTu5rzxKD",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\tickets\\01-0010.0100-remaining-named-corpus.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0010.0100-remaining-named-corpus.md",
+          "oldString": "**Landed:** the four skill bodies, listed in `AGENTS.md`'s local block and\n[`.agents/README.md`](../../.agents/README.md).",
+          "newString": "**Landed:** the four skill bodies, under [`.agents/skills/`](../../.agents/skills/). They were\nlisted in `AGENTS.md`'s local block and in `.agents/README.md`; both rosters were deleted on\n2026-09-07 as copies of what the host lists every session.",
+          "originalFile": "# The remaining named corpus arrives\n\n- **Status:** Partial (four of five installed 2026-09-07; nothing else met)\n- **Type:** HITL\n- **Depends on:** [Each skill owns its own responsibility](./01-0016-responsibility-coherent.md)\n  (so five new skills inherit settled vocabulary and stated ownership rather than adding to the\n  restatement)\n- **Outcome:** `/advise`, `/skill-up`, `/commit`, `/celebrate` and `/edge` are installed from the\n  accepted selection, discoverable, each used once, and the core changes they owe are landed with\n  them.\n\n## Parent\n\n[Shared harness across projects](./01-0010-dev-harness-shared-and-local.md), from\n[the bootstrap corpus selection](./01-0010-dev-harness-shared-and-local.md#bootstrap-corpus-selection).\n`/impact`: [the 2026-09-06 split assessment](./01-0010-dev-harness-shared-and-local.md#third-bootstrap-delivery--2026-09-06).\n\n## Four arrived early, 2026-09-07\n\nThe user installed `/advise`, `/celebrate`, `/commit` and `/skill-up` directly, ahead of this\nticket's align, on the ground that they are useful as they stand. That is a decision, not a\nviolation — but it lands the files without the adaptations this ticket exists to apply, so what\nremains is recorded here rather than assumed done.\n\n**Landed:** the four skill bodies, listed in `AGENTS.md`'s local block and\n[`.agents/README.md`](../../.agents/README.md).\n\n**Repaired on landing, under repair-and-report, and then repaired again the same day.**\n`/commit`'s `<project-local>` block carried another project's gate set — `ruff check`,\n`ruff format --check`, `pyright`, `pytest`, and a `docs/cicd.md` this project does not have.\n*\"The selection forbids copying another project's test or release commands\"* is this ticket's own\nrule, below. The first repair substituted this project's commands into the same block, which the\nuser corrected: **only global practice belongs in a core skill, and a `<project-local>` block should\navoid being an override.** `/commit`'s body already carries the global practice — *run the checks\nthe repository defines for itself* — so the block was deleted rather than rewritten, and the body\nnow says explicitly that a commit skill must read a project's commands from where the project states\nthem and never carry them. How a project's facts arrive at all is a larger question and now has its\nown ticket: [01-0010.0110](./01-0010.0110-project-facets-injected.md).\n\n**Still owed, and none of it is done:**\n\n- Each of the four used once on real work here.\n- `/commit` reads the autonomy switches from the entry file's local block instead of carrying its\n  own absolute *never commit without permission* rule. It still carries the absolute form.\n- `/skill-up` documents `<temporary until=\"...\">` alongside `<project-local>`. It documents\n  neither.\n- ~~**New, found on landing:** `/commit`'s body tags commits `DOCS` / `CODE` / `CICD` / `SKILL`,\n  while every commit in this repository is prefixed with the loop's stage. Two vocabularies for one\n  field.~~ **Settled 2026-09-07 by the user:** the loop step wins, and it is now defined in\n  `/commit`'s body as a global practice — the step that produced the work, uppercase, plus `FIX`\n  and `EQUIP` outside the ring (`EQUIP` chosen over `HARNESS` on 2026-09-07: every other prefix is\n  a verb, and *to harness* is a verb meaning something else). The prefix says which step produced the work, never which files it\n  touched; the diff already shows the second.\n- `/skill-up`'s blanket appendix preservation, which the selection says cannot survive.\n- `/edge`, which has not arrived, and the `docs/edge/` question below.\n- Whether `/celebrate` earns installation at all — now moot as a gate, since it is installed, but\n  the selection's reasoning still wants an answer before it is treated as load-bearing.\n\n## Why this exists\n\nTen of the twenty selected commands remain uninstalled. The user named five of them on 2026-09-06;\n`/conclude`, `/recall`, `/dream`, `/review-architecture` and `/setup-devops` stay in the parent's\nbacklog and are not this ticket's.\n\nThree of the five carry\n[core changes owed by later installs](./01-0010-dev-harness-shared-and-local.md#core-changes-owed-by-later-installs),\ndecided 2026-09-05 and unlanded:\n\n- `/commit`, and any skill gating on permission, reads the autonomy switches from the entry file's\n  local block instead of carrying its own absolute rule.\n- `/skill-up` documents `<temporary until=\"...\">` alongside `<project-local>`.\n- `/edge` reconciles its callers with the actual document inventory — this project has no\n  `docs/edge/`, which makes `/maintain`'s Edge-record check currently unguarded prose.\n\n## What to build\n\nThis is the decision-bearing phase. Its align decides the split and order; it then decomposes into\nchildren through `/ticket`, one per skill or per mechanism where several belong together — the\nprecedent being [01-0010.0050](./done/01-0010.0050-install-implement.md), which installed `/implement`,\n`/tdd` and `/improve-comments` as one mechanism.\n\n- Selection adaptations named in the corpus table are applied per skill, not assumed.\n- `/commit` supplies this project's real checks locally; the selection forbids copying another\n  project's test or release commands.\n- `/skill-up`'s blanket appendix preservation cannot survive, per the selection; the unresolved\n  override policy stays explicit rather than being quietly chosen.\n- `/edge` does not create or declare normative Edge records for this project by being installed.\n\n## Decisions this ticket's align owns\n\n- The order and grouping of the five, and whether any belong together as one mechanism.\n- Whether `/edge` arriving requires `docs/edge/` to exist, or whether the capability installs\n  against an empty inventory with `/maintain`'s check explicitly unguarded until a record exists.\n- Whether `/celebrate` earns installation at all — the selection says to retain the capability\n  \"without making celebration a completion requirement\", which is close to saying it changes nothing.\n\n## Acceptance criteria\n\n- [ ] The five are installed under `.agents/skills/`, and a fresh session lists them the way it\n  lists `/spec`. **Partial, 2026-09-07:** four landed and are listed; `/edge` has not arrived.\n- [ ] Each is used once on real work in this repository.\n- [ ] The three owed core changes are landed with their skills, and the parent's owed-changes list\n  reflects it.\n- [x] ~~`AGENTS.md`'s local block and `.agents/README.md` list them.~~ **Dissolved 2026-09-07**\n  during [01-0011.0010](./01-0011.0010-mechanism-declared.md)'s `/plan`, on the user's decision.\n  Both rosters were copies — of `.agents/skills/` and of each other — and the host lists the set\n  every session. `AGENTS.md`'s `Installed:` line is deleted; `.agents/README.md`'s narrative goes\n  with the register. A skill is installed by being in `.agents/skills/`, and nothing restates it.\n  The half this loses — *named in the loop but not installed here*, which was `/recall`,\n  `/conclude`, `/edge` — is derivable from the entry file's own body against that directory, and\n  **nothing derives it today**. Recorded as this ticket's, since `/edge` is one of its five.\n- [x] `/commit`'s two vocabularies are reconciled. **2026-09-07:** the loop step wins, defined in\n  `/commit`'s body rather than in a local block, because it is a global practice.\n- [ ] `/maintain`'s Edge-record check either has records to check or says it has none.\n- [ ] `/verify` has been run on this ticket against its ticket, RFC, and governing docs.\n\n## Out of scope\n\n`/conclude`, `/recall`, `/dream`, `/review-architecture`, `/setup-devops` — still the parent's.\nThe four rule refactors. Cross-project distribution.\n\n## Parent scope addressed\n\nFive of the ten remaining selected commands; three of the six owed core changes.\n",
+          "structuredPatch": [
+            {
+              "oldStart": 22,
+              "oldLines": 8,
+              "newStart": 22,
+              "newLines": 9,
+              "lines": [
+                " violation — but it lands the files without the adaptations this ticket exists to apply, so what",
+                " remains is recorded here rather than assumed done.",
+                " ",
+                "-**Landed:** the four skill bodies, listed in `AGENTS.md`'s local block and",
+                "-[`.agents/README.md`](../../.agents/README.md).",
+                "+**Landed:** the four skill bodies, under [`.agents/skills/`](../../.agents/skills/). They were",
+                "+listed in `AGENTS.md`'s local block and in `.agents/README.md`; both rosters were deleted on",
+                "+2026-09-07 as copies of what the host lists every session.",
+                " ",
+                " **Repaired on landing, under repair-and-report, and then repaired again the same day.**",
+                " `/commit`'s `<project-local>` block carried another project's gate set — `ruff check`,"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "ffeb858c-c59e-4247-b823-d95bc613e799",
+        "promptId": "9a13274f-0c20-4510-8f13-c3db8e52e665"
+      },
+      "original_record_sha256": "a2767bc67cc836f1484e988a482d16c91938bf177e8819b41036b2f8fcb220c0",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1004": {
+      "timestamp": "2026-09-07T18:24:57.167Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "3063804d-4e32-430f-9cc2-5c64ba3a809b",
+        "parentUuid": "54646af9-bc56-4271-a631-68e3544991fe",
+        "timestamp": "2026-09-07T18:24:57.167Z",
+        "sessionId": "6edc8a68-5643-4ab9-a6e0-e4fac184ecab",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CepYioQ76SkwPtaGyuCa5",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01JW7sGgqnnfndN2k1aqhqsj",
+              "name": "Bash",
+              "input": {
+                "command": "echo \"docs/ citations in .agents/README.md:\"; grep -n \"docs/\" .agents/README.md || echo \"  none\"; echo; echo \"project-local blocks:\"; grep -n \"project-local\" .agents/README.md || echo \"  none\"; echo; echo \"links resolve:\"; uv run --offline --no-project python - <<'PY'\nimport re, pathlib\np = pathlib.Path('.agents/README.md')\nfor m in re.finditer(r'\\]\\(([^)#]+)(#[^)]*)?\\)', p.read_text(encoding='utf-8')):\n    t = m.group(1)\n    print(('OK  ' if (p.parent/t).resolve().exists() else 'MISS'), t)\nPY",
+                "description": "Verify the pruned README meets the RFC's proof"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "27aab3bac254192776d0d1c9289629c532a8309c3cd1ede16c07c1a7b47c342d",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1005": {
+      "timestamp": "2026-09-07T18:25:00.989Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "bb110dbd-6001-48a5-8d73-4721efc92a39",
+        "parentUuid": "3063804d-4e32-430f-9cc2-5c64ba3a809b",
+        "timestamp": "2026-09-07T18:25:00.989Z",
+        "sessionId": "6edc8a68-5643-4ab9-a6e0-e4fac184ecab",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01JW7sGgqnnfndN2k1aqhqsj",
+              "is_error": false,
+              "content": "docs/ citations in .agents/README.md:\n  none\n\nproject-local blocks:\n  none\n\nlinks resolve:\nOK   ./skills/\r\nOK   ./scripts/\r\nOK   ./mechanisms/\r\nOK   ../tests/"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "docs/ citations in .agents/README.md:\n  none\n\nproject-local blocks:\n  none\n\nlinks resolve:\nOK   ./skills/\r\nOK   ./scripts/\r\nOK   ./mechanisms/\r\nOK   ../tests/",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "3063804d-4e32-430f-9cc2-5c64ba3a809b",
+        "promptId": "9a13274f-0c20-4510-8f13-c3db8e52e665"
+      },
+      "original_record_sha256": "4b0edf37e28f65d0d5ef105c89ef9eec00d2f3dd5bf36ff142a6a32ed57ae8d8",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    }
+  }
+}

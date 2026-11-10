@@ -1,0 +1,206 @@
+{
+  "id": "rf-landed-text-was-headed-proposed-08f67f1765",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "38. Landed text was headed Proposed under a Landed heading — 2026-10-11",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "mixed-header-original360"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/360",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/360/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-11T11:10:34.830Z",
+    "chat_id": "e5a0f888-dd0c-4cb8-a7fb-106977f0778c",
+    "trigger_message_id": null,
+    "trigger_record_id": "fe3570b9-0c90-4af9-a1c8-2f33e130f7f4",
+    "failure_message_id": "msg_011CfvM4FX7LwxYJKW9wCQFh",
+    "failure_record_id": "f473b040-eb94-4a89-81a3-1c68ea6546dc",
+    "transcript": "e5a0f888-dd0c-4cb8-a7fb-106977f0778c.jsonl"
+  },
+  "observed_failure": {
+    "description": "The reporting reply shows written text under a Proposed header with a Landed suffix, or under a separate Landed heading. Each separately prompted original reply is an occurrence.",
+    "events": [
+      {
+        "source": "source.json#/records/360",
+        "message_id": "msg_011CfvM4FX7LwxYJKW9wCQFh",
+        "record_id": "f473b040-eb94-4a89-81a3-1c68ea6546dc",
+        "timestamp": "2026-10-11T11:10:34.830Z",
+        "text": "| 📍 **q-0024.0009.0003** · How do the ticket and the queue hold what comes next alone, with the draft in the question's body? |\n|---|\n| 🔁 [01-0011.0110.0040 the-ticket-and-the-queue-are-what-comes-next](docs/tickets/01-0011.0110.0040-the-ticket-and-the-queue-are-what-comes-next.md) · ✅ /verify |\n\n**Итог.** `/verify` прошёл: шесть проверок зелёные, набор тестов 704 OK. Пять из семи критериев держатся с тестами на обе полярности; галочка `/verify` поставлена. Тикет остаётся In progress: первый критерий не закрыт и закрыть его сейчас нечем (💡 [*A ticket is finished when every acceptance box is checked*](.agents/mechanisms/ticket/ticket.rules.md:15)).\n\n**Что нашёл.**\n\n- **Критерий 1 — метка RFC никем не читается.** Тикет и запись вопроса проверяются и тестируются; RFC несёт метку руками, и формат прямо говорит, что внутрь RFC никто не смотрит (💡 [*Only names are read; nothing inside an RFC is*](.agents/skills/ticket/TICKET-FORMAT.md:183)). Ждёт того, чтобы `/plan` стал механизмом. Смягчать критерий verify не вправе (💡 [*Do not … relax acceptance criteria*](.claude/skills/verify/SKILL.md:110)).\n- **История 19 спека не покрыта ни одним срезом.** «Запись сессии — четвёртого рода и ничего более»: сессии 50 и 51 несут метку руками, 48 — нет, `/conclude` о ней молчит. Тикет заявляет её в «Parent scope addressed», а записи без формата ушли в открытый q-0024.0009.0003.0001.0001.\n- **Q6 в /align лежал внутри чужого straw-dog** (q-0024.0002.0005, про ADR): установщик дописал блок в конец секции, а открывающий тег стоял перед ним. Починено — тег перенесён под блок; `inject_rules --check` зелёный (💡 [*Leave what no open question would change unwrapped*](AGENTS.md:259)).\n- **Тикет и спек отставали от решения.** Оба говорили «записи до спека приводятся к роду при следующем касании», а .0010 по вашему решению 10 октября пометил все живые записи разом; при касании теперь ждёт только форма тикета. Оба амендированы с провенансом (💡 [*repair=report holds only when all four are true*](AGENTS.md:217)).\n- **Первый прогон тестов упал** (2 failures, 2 errors в `test_harness`) на незакоммиченных правках harness из сессии q-0031.0001; та сессия закоммитила, повтор зелёный (💡 [*A failed check is unfinished work*](.claude/skills/verify/SKILL.md:38)). Сессия 51 уже отмечала падения под нагрузкой параллельных сессий.\n- **Не ремонтировал:** [01-0011.0040 the-ticket-list-is-rendered-never-copied](docs/tickets/done/01-0011.0040-the-ticket-list-is-rendered-never-copied.md) в `done/` без метки — архив освобождён от проверки (💡 [*Archived records … exempt from everything else*](.agents/skills/ticket/TICKET-FORMAT.md:87)). Straw-dog кандидаты в тронутых файлах — всё обычные «until», оборачивать нечего.\n\n**Landed**\n\n✏️ **Proposed change — ticket 01-0011.0110.0040, What to build**\n> Every live record was brought to its kind at once by `.0010`, not at its next touch *(the user, 2026-10-10, at its plan: a check cannot tell an old unmarked record from a new one)*; only a ticket's shape — the sections the narrowed format admits — waits for its next touch.\n\n✏️ **Proposed change — spec 01-0011.0110, Implementation Decisions**\n> Records written before this spec were brought to their kind at once, every live record marked in 01-0011.0110.0040.0010's pass *(the user, 2026-10-10, at its plan, reversing the next-touch rule: a check cannot tell an old unmarked record from a new one)*; a ticket's shape — the sections the narrowed format admits — is brought to the format at its next touch.\n\n✏️ **Proposed change — spec 01-0011.0110, Out of Scope**\n> Rewriting the thirty-one live tickets to the narrowed shape in one pass. Each at its next touch; their mark alone landed at once *(the user, 2026-10-10)*.\n\n✏️ **Proposed change — /align SKILL.md**: тег `<straw-dog question=\"q-0024.0002.0005\">` перенесён с места перед блоком `<installed by=\"questions\">` на место после него, текст Q6 не менялся.\n\n| ⚖️ Decisions |\n|---|\n| Критерий 1 (метка RFC проверяется): тикет стоит In progress до того, как `/plan` станет механизмом, или критерий сужается на `/align`? |\n| История 19 (запись сессии — четвёртого рода): строка в `/conclude` отдельным срезом, или снять её из «Parent scope addressed» тикета в пользу q-0024.0009.0003.0001.0001? |\n| Следующий цикл: `/plan` для [01-0011.0110.0080 a-doc-is-due-when-its-parts-move](docs/tickets/01-0011.0110.0080-a-doc-is-due-when-its-parts-move.md) — нужен кивок, 🛠️ next-cycle=ask. |\n\n| 🪶 Commits |\n|---|\n| 9a85bd9 · VERIFY: 01-0011.0110.0040 — the six checks and the suite at 704 green |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "The user rejects simultaneous Proposed and Landed status; after writing, replace Proposed in that block header with Landed.",
+    "source_evidence": [
+      "source.json#/records/19",
+      "source.json#/related_sources/0f799f8817/records/1333"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: The user rejects simultaneous Proposed and Landed status; after writing, replace Proposed in that block header with Landed.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The reporting reply shows written text under a Proposed header with a Landed suffix, or under a separate Landed heading. Each separately prompted original reply is an occurrence.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/360",
+      "after": "source.json#/records/356",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/107",
+      "source.json#/records/112",
+      "source.json#/records/113",
+      "source.json#/records/114",
+      "source.json#/records/122",
+      "source.json#/records/123",
+      "source.json#/records/124",
+      "source.json#/records/128",
+      "source.json#/records/129",
+      "source.json#/records/130",
+      "source.json#/records/136",
+      "source.json#/records/141",
+      "source.json#/records/152",
+      "source.json#/records/153",
+      "source.json#/records/163",
+      "source.json#/records/164",
+      "source.json#/records/169",
+      "source.json#/records/170",
+      "source.json#/records/181",
+      "source.json#/records/182",
+      "source.json#/records/193",
+      "source.json#/records/194",
+      "source.json#/records/200",
+      "source.json#/records/205",
+      "source.json#/records/215",
+      "source.json#/records/216",
+      "source.json#/records/227",
+      "source.json#/records/228",
+      "source.json#/records/238",
+      "source.json#/records/239",
+      "source.json#/records/246",
+      "source.json#/records/251",
+      "source.json#/records/255",
+      "source.json#/records/256",
+      "source.json#/records/262",
+      "source.json#/records/263",
+      "source.json#/records/270",
+      "source.json#/records/272",
+      "source.json#/records/277",
+      "source.json#/records/278",
+      "source.json#/records/279",
+      "source.json#/records/280",
+      "source.json#/records/281",
+      "source.json#/records/282",
+      "source.json#/records/283",
+      "source.json#/records/284",
+      "source.json#/records/294",
+      "source.json#/records/295",
+      "source.json#/records/296",
+      "source.json#/records/297",
+      "source.json#/records/299",
+      "source.json#/records/300",
+      "source.json#/records/302",
+      "source.json#/records/307",
+      "source.json#/records/312",
+      "source.json#/records/313",
+      "source.json#/records/316",
+      "source.json#/records/317",
+      "source.json#/records/322",
+      "source.json#/records/323",
+      "source.json#/records/332",
+      "source.json#/records/333",
+      "source.json#/records/334",
+      "source.json#/records/339",
+      "source.json#/records/340",
+      "source.json#/records/346",
+      "source.json#/records/351",
+      "source.json#/records/355",
+      "source.json#/records/356"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/19"
+      ],
+      "native_context_records": [
+        "source.json#/records/19",
+        "source.json#/records/109",
+        "source.json#/records/234"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/109",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\e5a0f888-dd0c-4cb8-a7fb-106977f0778c\\tool-results\\hook-f86be5bb-1f66-459b-9a43-76e1c66c0468-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-f86be5bb-1f66-459b-9a43-76e1c66c0468-1-additionalContext.txt",
+          "sha256": "e9764f39e503b88670f5ac48115d34bcd745886e75cb3ed07c2565aedcf58415",
+          "bytes": 12770,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1994,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-11T10:56:35.804720+00:00"
+        },
+        {
+          "referenced_by": "source.json#/records/234",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\e5a0f888-dd0c-4cb8-a7fb-106977f0778c\\tool-results\\hook-b21f5968-6aaf-47f4-b68f-8e71d1c1d99b-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-b21f5968-6aaf-47f4-b68f-8e71d1c1d99b-1-additionalContext.txt",
+          "sha256": "0a274276a1726b2c3bd05671a24abf0d52001d7e8069ba7c785910437373347c",
+          "bytes": 13697,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1788,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-11T11:05:44.809556+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/360"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

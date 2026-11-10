@@ -1,0 +1,141 @@
+{
+  "id": "rf-a-concern-was-written-where-a-ti-a1c9c558f7",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "1. A concern was written where a ticket was wanted — 2026-09-10",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "work decisions filed as concerns"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/831",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.260"
+    },
+    "model": "claude-opus-5",
+    "model_source": "source.json#/records/831/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-09-10T07:34:00.446Z",
+    "chat_id": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+    "trigger_message_id": null,
+    "trigger_record_id": "30866960-db92-4fe6-bf1c-2f8363ea6cbf",
+    "failure_message_id": "msg_011CeuNVf3YsRogVyQNbF6Z9",
+    "failure_record_id": "ffe1f468-8ea2-4f2d-85fb-bb97b4239112",
+    "transcript": "f9c29566-e7aa-4e23-afb2-47255d8f6b90.jsonl"
+  },
+  "observed_failure": {
+    "description": "The group-target and self-amendment decisions go to concerns during align despite loaded decision-bearing-ticket option.",
+    "events": [
+      {
+        "source": "source.json#/records/831",
+        "message_id": "msg_011CeuNVf3YsRogVyQNbF6Z9",
+        "record_id": "ffe1f468-8ea2-4f2d-85fb-bb97b4239112",
+        "timestamp": "2026-09-10T07:34:00.446Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\docs\\\\concerns.md\", \"old_string\": \"## 1. The rule set could be composite, with no pure core anywhere\", \"new_string\": \"## 3. Whether harness self-amendment is its own mechanism\\n\\n**Kind:** open classification, deliberately unresolved while evidence accumulates; no owner ·\\n**Refs:** [`AGENTS.md` — Self-improvement](../AGENTS.md#self-improvement),\\n[`/mechanism`](../.agents/skills/mechanism/SKILL.md), [`/skill-up`](../.agents/skills/skill-up/SKILL.md)\\n\\n*(the user, 2026-09-10)*\\n\\nThe entry file now carries a standing rule: a rule that was present and did not fire was phrased\\nwrong, and the failure is registered and the rule reworded. What is wanted around it is **a set of\\nexplicit meta-rules governing how the harness amends itself.**\\n\\n**Today that is `/mechanism`'s responsibility**, and `/skill-up` is its neighbour. Whether it\\ndeserves separation into its own mechanism is left open on purpose: the argument for it is that the\\noccasion (*a rule failed to fire*) and the record (`docs/rule-failures.md`) belong to neither, and\\nthe argument against is that one wish is one shape. **The decision waits on accumulated strikes**\\nrather than on argument.\\n\\n**Deliberately not adopted: deletion.** An early proposal was that a rule with repeated registered\\nfailures becomes a deletion candidate. Removing is destructive, and an unaligned deletion rule is a\\nloaded weapon pointed at rules still wanted *(the user, 2026-09-10)*. Occurrences are counted and\\nevidence is collected; what to do with a rule that keeps failing is decided when there is something\\nto decide it on.\\n\\n## 2. A group install target needs a denominator on both sides\\n\\n**Kind:** design gap in a shape three mechanisms want; blocked, no owner ·\\n**Refs:** [01-0017.0010](tickets/01-0017.0010-terms-defined-before-they-land.md),\\n[01-0011.0050](tickets/01-0011.0050-shape-checked.md),\\n[architecture — installed blocks](architecture.md#installed-blocks)\\n\\n*(the user, 2026-09-10)*\\n\\nA rules file today names an explicit `target` file and an `anchor` line within it. Three mechanisms\\nnow want to name a **group** instead — vocabulary into everything, a dev-method corpus into the\\nskills that carry practice, and `/maintain` wanting a *maintain yourself* line in every recording\\nmechanism. That clears the entry file's bar against generalising from one shape.\\n\\n**The missing piece is that a group name alone is not an address.** \\\"Install into the dev-method\\ngroup\\\" says nothing about *where inside each member* the block lands. So group membership has to be\\n**declared from both ends**: the rules file names the group, and each member mechanism declares, in\\nits own instance, that belonging to this group means *this file and this anchor in me*. Without the\\nsecond half a group target cannot resolve to a write, and the installer's guarantee that a refusal\\nchanges no file cannot hold.\\n\\n**Also blocked on membership.** A group over mechanisms reaches three skills of twenty-two today —\\na transition state rather than a ceiling, but until\\n[01-0011.0050](tickets/01-0011.0050-shape-checked.md) closes membership a group is not a set anyone\\ncan enumerate.\\n\\nKept out of [01-0017.0010](tickets/01-0017.0010-terms-defined-before-they-land.md) deliberately: it\\nis broader than the glossary, and the glossary ships on explicit targets without it.\\n\\n## 1. The rule set could be composite, with no pure core anywhere\"}"
+      },
+      {
+        "source": "source.json#/records/846",
+        "message_id": "msg_011CeuNYjgTEuSZfvxkB2qRa",
+        "record_id": "1ed8b995-1f12-40f9-8941-ecee692e4338",
+        "timestamp": "2026-09-10T07:34:57.359Z",
+        "text": "Green across the board, 16 straw dogs — your block is unwrapped.\n\n**Dispositions recorded**\n\n- **Group injection** moved out of `01-0017.0010` into [concern 2](docs/concerns.md), with your denominator insight as its core: a group name is not an address, so membership is declared from both ends — the rules file names the group, each member declares what file and anchor the group means *in it*. Without that second half a group target cannot resolve to a write, and the installer's \"a refusal changes no file\" guarantee can't hold. The glossary ships on explicit targets and doesn't wait.\n- **Self-amendment** is [concern 3](docs/concerns.md): `/mechanism`'s responsibility today, `/skill-up` its neighbour, separation left open pending strikes rather than argument. Deletion recorded as **deliberately not adopted**, in your words — removing is destructive, and an unaligned deletion rule is a loaded weapon pointed at rules still wanted. Count occurrences, collect evidence, decide later.\n- **Your `AGENTS.md` block is unwrapped.** With the decision deliberately open and no ticket to name, it is a claim by the entry file's own rule — *what has no named successor is a claim, and is not wrapped* — so it now stands as an operative rule rather than as scaffolding. That's what turned the suite green. `docs/rule-failures.md` survives the trip as a path convention, same class as `docs/glossary.md`.\n\n## maintain-yourself: yes, and it's not a new idea\n\n`/maintain`'s **B3** reads:\n\n> *Archive every finished record, whatever scope you declared. **The record's format says what finished means and where it goes.***\n\nB3 delegates its own trigger to the record's format. Two formats supply it — `TICKET-FORMAT` (*what removes an entry: paired close*) and `MECHANISM-FORMAT` (*the mechanism being retired*). Nothing else in the tree does. `/conclude` and `/dream` declare no format at all.\n\n| records | files | lines | declares what finishes it |\n|---|---|---|---|\n| tickets + RFCs | 24 | 4,670 | yes |\n| mechanism directories | 3 | 430 | yes |\n| **sessions** | **14** | **958** | **no** |\n| **dreams** | **2** | **481** | **no** |\n| **research** | **6** | **2,854** | **no** |\n\n**B3 is inert over 4,293 lines.** The single largest file in the repository — the 2026-09-05 audit's `EVIDENCE.md`, 1,903 lines — sits in a research set whose comparison is complete and which no rule can retire. Sessions grow by one per session with no retention rule; that is the population that will be 200 files while the rule that should have archived them cannot fire.\n\nSo the use case is real, and it's sharper than \"maintain yourself\": **the generic maintainer structurally cannot know when someone else's record is finished, and B3 already says so.** The missing half is that a record-bearing mechanism must declare it. That also gives the `record-bearing` field its first real job — a check that enumerates record-bearing mechanisms and fails on one that has not declared what finishes its records.\n\n## The question that follows\n\nFinding the use case also undercuts why it was raised. You floated it as *a line injected into every recording mechanism* — but what I've found isn't a rule that needs distributing to N places. It's a **field every mechanism's format already requires of two of them and not the rest.**\n\n`MECHANISM-FORMAT` is the shelf every mechanism obeys. Adding *\"a record-bearing mechanism declares what finishes its records and where they go\"* there reaches every mechanism that exists and every one that ever will, with no injection, no group, and no denominator problem.\n\nIf that's right, **maintain-yourself stops being a case for group targets** — leaving glossary and dev-method as the two that want them, which still clears the bar, but honestly rather than by inflated count.\n\n**Is this a format requirement in `MECHANISM-FORMAT`, or did you mean something that genuinely needs to be injected per-mechanism** — cadence, say, where each mechanism's *rate* differs and the shelf can only demand the field, not fill it?"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Intended work gets a ticket carrying open decisions; a concern keeps the contact surface.",
+    "source_evidence": [
+      "source.json#/records/17",
+      "source.json#/records/453",
+      "source.json#/records/753",
+      "source.json#/records/855",
+      "source.json#/records/861",
+      "source.json#/records/753"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Intended work gets a ticket carrying open decisions; a concern keeps the contact surface.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/850",
+      "source.json#/records/854",
+      "source.json#/records/855",
+      "source.json#/records/861",
+      "source.json#/records/864"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The group-target and self-amendment decisions go to concerns during align despite loaded decision-bearing-ticket option.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/831",
+      "after": "source.json#/records/824",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/453",
+      "source.json#/records/790",
+      "source.json#/records/792",
+      "source.json#/records/794",
+      "source.json#/records/795",
+      "source.json#/records/797",
+      "source.json#/records/798",
+      "source.json#/records/801",
+      "source.json#/records/810",
+      "source.json#/records/814",
+      "source.json#/records/815",
+      "source.json#/records/816",
+      "source.json#/records/817",
+      "source.json#/records/818",
+      "source.json#/records/821",
+      "source.json#/records/822",
+      "source.json#/records/824"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/753"
+      ],
+      "native_context_records": [
+        "source.json#/records/17",
+        "source.json#/records/753"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/831",
+        "source.json#/records/846"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

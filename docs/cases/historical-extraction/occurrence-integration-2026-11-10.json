@@ -1,0 +1,136 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "scope": "Repair six shared register case associations after source-line validation; existing case records and historical coverage/validation reports are preserved.",
+  "governing_decisions": "One portable case per historical failure occurrence; source-grounded criteria; mark a source gap and continue. No new identity rule is introduced.",
+  "historical_case_count_before": 212,
+  "new_case_count": 5,
+  "historical_case_count_after": 217,
+  "shared_source_event_note": "Different recorded failure criteria can concern the same original response/action. New case folders do not represent new actors, messages or timestamps.",
+  "changes": [
+    {
+      "register_heading": "54. A better abstraction was met and the reply said *build nothing for it* — 2026-10-20",
+      "old_case": "rf-a-decision-abandoned-twelve-days-a91cd343e0",
+      "new_case": "rf-better-abstraction-left-scattered-20261019-231722",
+      "same_source_message_id": "msg_011CgCSxfwPDFnQEbionyoVX",
+      "source_time": "2026-10-19T23:17:22.881Z",
+      "criterion": "Does the response consider realigning the existing expressions through the proposed unifying abstraction rather than dismissing that work solely because those expressions already exist?",
+      "criterion_source_evidence": [
+        "source.json#/records/422",
+        "source.json#/records/438",
+        "source.json#/records/462"
+      ]
+    },
+    {
+      "register_heading": "38. Landed text was headed Proposed under a Landed heading — 2026-10-11",
+      "old_case": "rf-a-next-step-inside-a-ticket-was-c03d886641",
+      "new_case": "rf-landed-header-kept-proposed-20261011-115247",
+      "same_source_message_id": "msg_011CfvQJFx9WeWUaJJTx4YrF",
+      "source_time": "2026-10-11T11:52:47.999Z",
+      "criterion": "Does the header for the just-written decision text use Landed without also retaining Proposed in or above that same block?",
+      "criterion_source_evidence": [
+        "source.json#/records/19",
+        "source.json#/related_sources/status_header_feedback/records/1333",
+        "source.json#/related_sources/status_header_feedback/records/1372"
+      ]
+    },
+    {
+      "register_heading": "36. Landed changes were retold in prose, and instructions framed as other text — 2026-10-11",
+      "old_case": "rf-running-sessions-questions-were-f41b68a9b7",
+      "new_case": "rf-landed-instruction-framed-as-change-20261011-003803",
+      "same_source_message_id": "msg_011CfuWrX6p6eYx8id1jA8jM",
+      "source_time": "2026-10-11T00:38:03.852Z",
+      "criterion": "Does the reporting reply frame the just-written harness skill instruction as a landed rule, rather than as an other-text change?",
+      "criterion_source_evidence": [
+        "source.json#/records/68"
+      ]
+    },
+    {
+      "register_heading": "29. A reply closed on an empty tangle table — 2026-10-10",
+      "old_case": "rf-landed-text-was-headed-proposed-1539dfa2cb",
+      "new_case": "rf-empty-tangle-footer-20261010-004432",
+      "same_source_message_id": "msg_011CfsdY59APUkSKRApDNN7d",
+      "source_time": "2026-10-10T00:44:32.548Z",
+      "criterion": "Does the response omit an empty Tangle footer instead of displaying a table whose only body row is a dash?",
+      "criterion_source_evidence": [
+        "source.json#/records/67",
+        "source.json#/records/402"
+      ]
+    },
+    {
+      "register_heading": "3. The straw-dog rule sat at tier 1 and three straw dogs went unwrapped — 2026-09-14",
+      "old_case": "rf-the-wake-rule-sat-in-a-diagram-a-c15b0ef74a",
+      "new_case": "rf-unwrapped-wake-rule-by-ownership-20260920-033835",
+      "same_source_message_id": "msg_011CfDzeccU6vLCi3F6csDB1",
+      "source_time": "2026-09-20T03:38:35.232Z",
+      "criterion": "Does the entry-file edit mark the temporarily hand-authored mechanism-owned wake instruction as provisional under its owning work rather than writing it as an unwrapped permanent rule?",
+      "criterion_source_evidence": [
+        "source.json#/records/16",
+        "source.json#/records/106",
+        "source.json#/records/158",
+        "source.json#/records/159"
+      ]
+    }
+  ],
+  "gaps": {
+    "better-abstraction-earlier-occurrence-unresolved": {
+      "register_heading": "54. A better abstraction was met and the reply said *build nothing for it* — 2026-10-20",
+      "detail": "The register and later public source response 460 report two build-nothing slips. Exact public text-block search in the one identified transcript before response 436 found no earlier literal occurrence. Previously linked response404 concerns the pacer as rules alone and driver ownership; it does not establish the claimed earlier abstraction/consolidation failure.",
+      "retained_public_evidence": "../rf-a-decision-abandoned-twelve-days-f1df6e7bb3/source.json#/records/460",
+      "rejected_source_candidate": "../rf-a-decision-abandoned-twelve-days-f1df6e7bb3/source.json#/records/404",
+      "host": "Claude Code",
+      "model": "unknown",
+      "occurred_at": null,
+      "search_scope": "Public text blocks before native record436 in 4fef7758-4d63-4cbb-a2d5-98b8709a0be5.jsonl; unselected/private blocks not decoded."
+    }
+  },
+  "q6_source_attribution_added": {
+    "host": "Codex Desktop",
+    "model": "gpt-6.1-sol",
+    "occurred_at": "2026-11-09T07:41:43.186Z",
+    "new_case_created": false
+  },
+  "executor_support": {
+    "status": "unsupported",
+    "behavior_verdict": null
+  },
+  "independent_semantic_validation_claimed": false,
+  "criterion_source_evidence_repair": {
+    "date": "2026-11-10",
+    "scope": "Remove two unrelated expected-source pointers after independent review; historical actor evidence, criteria and replay input remain unchanged.",
+    "repairs": [
+      {
+        "case": "rf-landed-instruction-framed-as-change-20261011-003803",
+        "before": [
+          "source.json#/records/68",
+          "source.json#/records/188"
+        ],
+        "after": [
+          "source.json#/records/68"
+        ],
+        "reason": "Record188 is unrelated interviewing of an installing agent; the preserved instruction snapshot68 supports this criterion.",
+        "criterion_and_replay_unchanged": true,
+        "original_source_rows_preserved": true
+      },
+      {
+        "case": "rf-unwrapped-wake-rule-by-ownership-20260920-033835",
+        "before": [
+          "source.json#/records/16",
+          "source.json#/records/106",
+          "source.json#/records/113",
+          "source.json#/records/158",
+          "source.json#/records/159"
+        ],
+        "after": [
+          "source.json#/records/16",
+          "source.json#/records/106",
+          "source.json#/records/158",
+          "source.json#/records/159"
+        ],
+        "reason": "Record113 is the general align procedure, without ownership/wrapping guidance; records16,106,158,159 remain relevant.",
+        "criterion_and_replay_unchanged": true,
+        "original_source_rows_preserved": true
+      }
+    ]
+  }
+}

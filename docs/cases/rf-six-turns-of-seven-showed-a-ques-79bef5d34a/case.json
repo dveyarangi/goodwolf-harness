@@ -1,0 +1,181 @@
+{
+  "id": "rf-six-turns-of-seven-showed-a-ques-79bef5d34a",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "18. Six turns of seven showed a question the turn did not stand on — 2026-10-05",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "misplaced-turn-266"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/266",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/266/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-04T21:41:47.261Z",
+    "chat_id": "17658ee1-78ee-410c-871e-86e722da27fe",
+    "trigger_message_id": null,
+    "trigger_record_id": "4302d639-2f3e-49eb-be64-1fdaac293ea2",
+    "failure_message_id": "msg_011CfhvZn6ESFqw9gmoWi2Jg",
+    "failure_record_id": "862b9a02-aa48-4be6-bb47-0dc4e923f76f",
+    "transcript": "17658ee1-78ee-410c-871e-86e722da27fe.jsonl"
+  },
+  "observed_failure": {
+    "description": "The separately prompted original reply displays a stale or merely resembling question. The original source audit distinguishes greeting/maintenance stale display from forcing installer-update turns onto a first-install reporting question.",
+    "events": [
+      {
+        "source": "source.json#/records/266",
+        "message_id": "msg_011CfhvZn6ESFqw9gmoWi2Jg",
+        "record_id": "862b9a02-aa48-4be6-bb47-0dc4e923f76f",
+        "timestamp": "2026-10-04T21:41:47.261Z",
+        "text": "| ↳ **q-0018.0010** · What does a first install say when something stops it? |\n|---|\n\nThe fix is written and the suite passes (532 tests, 2 skipped), but nothing is committed. I went ahead without an explicit go from you, so say if you'd rather I back it out.\n\n## What the Codex report shows\n\n- **The removal happened at the update.** `.claude` and `.cursor` were last modified at 23:51, the same minute as `update-report.json`. If the links had been missing beforehand, a refused creation would not have touched those directories.\n- **The report cannot say why.** Both links are `pending` with `WinError 1314`, and the report doesn't record whether the installer was making or repointing them, nor where they pointed.\n- **The cause is still unproven.** Codex's sandbox being unable to see through the links is the best fit, but its check on 2026-10-05 did see through the repaired links, so I can't confirm it. A full-path link to the same tree would have been kept either way.\n\n## What changed\n\n- **No removal before replacement** ([harness.py:705](.agents/scripts/gw/harness.py:705)): a repoint creates the new link under a temporary name and swaps only on success. If the platform refuses, the old link stays.\n- **A correctly written link is kept** even when the process cannot follow it: the installer now also reads the link's own text, not only where it resolves.\n- **The report says more**: a repointed or refused link carries `was` (where it pointed) and `stands`. The pending command for a replace is `rmdir … && mklink …`.\n- **Tests**: three new ones in [test_harness.py](.agents/scripts/gw/test/test_harness.py). The first failed before the fix by reproducing your bug. The third, for the kept link, is skipped on this machine because it cannot create symlinks.\n- **Doc**: one sentence in [harness.md](.agents/mechanisms/harness/harness.md) stating both behaviours.\n\n## Open after this\n\n- **`harness` output level is now due** on the maintenance clock, because its doc moved. It needs a `/maintain` re-check before marking.\n- **The successful swap path is untested here**: no test on this machine can create a link to replace.\n- **xuanxue-workshop still runs the old installer** until it takes an update that includes this.\n- The earlier `/maintain` changes are already committed as `e3c8593`.\n\nCommit this as a `FIX`?"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Place by containment and distinguish a process from a question. The original user challenges prior placements and the assistant audit classifies six of seven as wrong.",
+    "source_evidence": [
+      "source.json#/records/306",
+      "source.json#/records/314",
+      "source.json#/records/35"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Place by containment and distinguish a process from a question. The original user challenges prior placements and the assistant audit classifies six of seven as wrong.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/268",
+      "source.json#/records/269",
+      "source.json#/records/271",
+      "source.json#/records/272",
+      "source.json#/records/273",
+      "source.json#/records/276",
+      "source.json#/records/277",
+      "source.json#/records/279",
+      "source.json#/records/281",
+      "source.json#/records/282",
+      "source.json#/records/284",
+      "source.json#/records/285",
+      "source.json#/records/287",
+      "source.json#/records/288",
+      "source.json#/records/289",
+      "source.json#/records/292",
+      "source.json#/records/293",
+      "source.json#/records/295",
+      "source.json#/records/296",
+      "source.json#/records/297",
+      "source.json#/records/298",
+      "source.json#/records/300",
+      "source.json#/records/301",
+      "source.json#/records/304",
+      "source.json#/records/306",
+      "source.json#/records/307",
+      "source.json#/records/309",
+      "source.json#/records/310",
+      "source.json#/records/311",
+      "source.json#/records/312",
+      "source.json#/records/314"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The separately prompted original reply displays a stale or merely resembling question. The original source audit distinguishes greeting/maintenance stale display from forcing installer-update turns onto a first-install reporting question.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/266",
+      "after": "source.json#/records/264",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/199",
+      "source.json#/records/203",
+      "source.json#/records/204",
+      "source.json#/records/205",
+      "source.json#/records/206",
+      "source.json#/records/208",
+      "source.json#/records/209",
+      "source.json#/records/212",
+      "source.json#/records/213",
+      "source.json#/records/216",
+      "source.json#/records/217",
+      "source.json#/records/221",
+      "source.json#/records/222",
+      "source.json#/records/225",
+      "source.json#/records/226",
+      "source.json#/records/227",
+      "source.json#/records/228",
+      "source.json#/records/229",
+      "source.json#/records/230",
+      "source.json#/records/233",
+      "source.json#/records/234",
+      "source.json#/records/235",
+      "source.json#/records/236",
+      "source.json#/records/239",
+      "source.json#/records/240",
+      "source.json#/records/241",
+      "source.json#/records/242",
+      "source.json#/records/243",
+      "source.json#/records/244",
+      "source.json#/records/245",
+      "source.json#/records/246",
+      "source.json#/records/247",
+      "source.json#/records/250",
+      "source.json#/records/251",
+      "source.json#/records/254",
+      "source.json#/records/255",
+      "source.json#/records/257",
+      "source.json#/records/258",
+      "source.json#/records/259",
+      "source.json#/records/260",
+      "source.json#/records/263",
+      "source.json#/records/264"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/35"
+      ],
+      "native_context_records": [
+        "source.json#/records/35",
+        "source.json#/records/200"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/266"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

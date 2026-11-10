@@ -1,0 +1,1250 @@
+{
+  "transcript": "f9c29566-e7aa-4e23-afb2-47255d8f6b90.jsonl",
+  "chat_id": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+  "transcript_bytes": 3272613,
+  "transcript_sha256": "206ec8eaed5bf0225f22168facbae0386545f549f4ae341838ca40569f0ea2c0",
+  "record_numbering": "one-based JSONL records in the original transcript",
+  "delivery_context": null,
+  "records": {
+    "17": {
+      "timestamp": "2026-09-09T21:16:31.451Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "e9fccc82-00d2-41d6-a4b8-3bc8f837933e",
+        "parentUuid": "320b685e-45f3-46e9-aa88-fc0a7ae39632",
+        "timestamp": "2026-09-09T21:16:31.451Z",
+        "sessionId": "29b38823-41ba-45c1-a110-fa9a88af4013",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "instructions",
+          "files": [
+            {
+              "path": "D:\\Dev\\AI\\agents\\CLAUDE.md",
+              "type": "Project",
+              "content": "@AGENTS.md"
+            },
+            {
+              "path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+              "type": "Project",
+              "content": "# Entry contract\n\nEntry contract: v8, 2026-09-09.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<project-local>\nThis repository develops the shared dev harness using its own loop. Terms: docs/glossary.md, this\nproject's own; the method's are .agents/glossary.md's.\nWhat each version of this contract changed: docs/research/entry-contract-findings.md.\n</project-local>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\n<project-local>\nThis repository's own architecture and progress live in docs/ like any other project's — the\ninstance half doing its job, not a leak.\n</project-local>\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. Naming a path\nconvention the harness imposes — `docs/tickets/`, `docs/glossary.md` — is not a reference to a\nfile; pointing at a document only this project has is. Two blocks are exempt: a `<straw-dog>`,\nbound to a ticket and expiring, and a [`<project-local>`](#project-local).\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog until=\"01-0012 is done\" ticket=\"docs/tickets/01-0012-hierarchy-coherent.md\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n- /dream is an experimental second \"lobe\" of the harness, aiming to reassess load-bearingness. It is optional, runs after /conclude, and writes dreams that /maintain and /align may pick up; it never amends rules.\n\n## Autonomy\n\nThe project sets each switch in its local block below; skills defer to those values.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n## Project-local\n\nA recipient replaces every `<project-local>` block with its own → [glossary](.agents/glossary.md).\n\n- Carry one only for a fact that would differ in another project. Harness layout and the switch\n  lookup are shared.\n- One block per local fact, beside the rule it answers.\n- An unavoidable core reference into `docs/` goes in one, so it does not travel.\n\n## Straw dogs\n\nWhat you write to serve only until a named ticket replaces it is a straw dog. Wrap it as you\nwrite it, wherever it sits: `<straw-dog until=\"condition\" ticket=\"path\">`, or in code a `TODO`\nnaming the ticket. Wrap it at its authored home, never where the harness installs or derives it:\nwhat lands there takes the content, not the tag. The condition is testable and the ticket path is\nfrom the repository root. What has no named successor is a claim, and is not wrapped.\n\nFollow a straw dog like any other rule until its condition is visibly met; then act on reality,\nreport the stale block, and do not treat the contradiction as a violation.\n\n<project-local>\ncommit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n</project-local>"
+            },
+            {
+              "path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\memory\\MEMORY.md",
+              "type": "AutoMem",
+              "content": "# Memory\n\n- [Edit with edit tools, not scripts](edit-with-edit-tools-not-scripts.md) — a script's diff is invisible in the transcript; the user reads changes as they happen.\n- [Write for a capable model](write-for-a-capable-model.md) — I pad rules with the definition, the example and the implication; all three get cut."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "25a9887a25ced819888b0b5ee1b15f2a0690bc1fb13bddc71cdb60dedb28e527",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "453": {
+      "timestamp": "2026-09-10T05:27:08.655Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "de559638-b4a6-4c3c-ad93-3cdb0efe3c04",
+        "parentUuid": "2635f601-1cf5-4fc6-a59b-b10955267f38",
+        "timestamp": "2026-09-10T05:27:08.655Z",
+        "sessionId": "29b38823-41ba-45c1-a110-fa9a88af4013",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Base directory for this skill: D:\\Dev\\AI\\agents\\.claude\\skills\\align\n\n<what-to-do>\r\n\r\nBegin every alignment with a **necessity gate**: name the present customer, the observable problem, and why existing behaviour cannot satisfy it. An accepted requirement or ADR passes by citation. Weak evidence means narrow, postpone, or eliminate — settle that before exploring design. The gate fires late too: a mechanism whose name will not settle is evidence it should not exist. [/impact](../impact/SKILL.md) traces consequences once the need holds.\r\n\r\nInterview me relentlessly about every aspect of current work until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer. If there are alternatives, show pros/cons/tradeoffs between them.\r\n\r\nAsk the questions one at a time, waiting for feedback on each question before continuing. Asking multiple questions at once is bewildering. Do not use platform (Cursor/Claude Code) question format, output plain md.\r\n\r\nIf a *fact* can be found by exploring the doc corpus or codebase, look it up rather than asking me. The *decisions*, though, are mine - put each one to me and wait for my answer.\r\n\r\nDecomposing the work during an align is [/ticket](../ticket/SKILL.md)'s, and it calls\r\n[/impact](../impact/SKILL.md) on the draft split. Run that chain and present what it returns as a\r\nsuggestion; do not mint. A breakdown reached by unaided grouping is not that chain's output,\r\nhowever ticket-shaped it looks.\r\n\r\nDo not enact the plan before I confirm we have reached a shared understanding.\r\n\r\n\r\n</what-to-do>\r\n\r\n<supporting-info>\r\n\r\n## Good architecture\r\n\r\nGoal of architecture is to reduce work on creation and maintenance of the system.\r\n\r\nIdentify the load-bearing assumption behind the proposed shape; ask yourself - what is the cheapest real example that could prove this design assumption wrong? \r\n\r\nCheck it when practical, preferably against external reality rather than our own docs/tests.\r\n\r\nIf falsified, realign.\r\nIf unverified and load-bearing, preserve the uncertainty explicitly.\r\n\r\n## Domain awareness\r\n\r\nDuring codebase exploration, also look for existing documentation:\r\n\r\n### File structure\r\n\r\nMost repos have a single context:\r\n\r\n```\r\n/\r\n├── docs/\r\n│   ├── adr/\r\n│   │   ├── 0001-event-sourced-orders.md\r\n│   │   └── 0002-postgres-for-write-model.md\r\n│   ├── architecture.md\r\n│   └── glossary.md\r\n└── src/\r\n```\r\n\r\nCreate files lazily — only when you have something to write. If no `docs/glossary.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.\r\n\r\n## During the session\r\n\r\n### Challenge against the glossary\r\n\r\nWhen the user uses a term that conflicts with the existing language in `docs/glossary.md`, call it out immediately. \"Your glossary defines 'cancellation' as X, but you seem to mean Y — which is it?\"\r\n\r\nThis cuts both ways: before *you* propose a name, check the glossary yourself — including its _Avoid_ lists, which are reservations, not suggestions. If every synonym for a concept is avoided, that is a designed constraint telling you which word the project has chosen; work within it rather than proposing around it.\r\n\r\n### Challenge against the Edge records\r\n\r\nWhen the plan touches a product edge, check that surface's Edge record\r\n(`docs/edge/<surface>.md`) — the seam document aggregating the edge's contract, invariants,\r\nconcerns, and staged roadmap. A contradiction with its Contract or Invariants is either a plan\r\nbug or a deliberate contract change — and a contract change must be named **breaking or\r\ncompatible** out loud before proceeding. Update the record inline as decisions land, using the\r\nformat in [EDGE-FORMAT.md](./EDGE-FORMAT.md): contract changes in `Contract`/`Invariants` (a\r\npromise without a validating test is marked **⚠ unguarded**), newly surfaced edge-scoped\r\nconcerns as pointers in `Concerns`, staging shifts in `Roadmap`.\r\n\r\n### Check whether it was already decided\r\n\r\nBefore treating a question as open, search the ADRs and architecture docs for it. A surprising amount of \"open\" questions are accepted decisions the code drifted from — the answer then is \"implement the ADR\", not a fresh trade-off analysis. Cite the deciding document when you find one.\r\n\r\n### Lead with the decisive fact\r\n\r\nWhen recommending between alternatives, find the fact that settles it — a reader count, an import direction, an existing invariant, what a test actually asserts — and lead with it. A pros/cons menu with no decisive fact means you haven't explored enough yet; go look before asking.\r\n\r\n### Name the shared assumption\r\n\r\nWhen posing an A-or-B fork, state the assumption both branches share. The user's best answer may dissolve the fork rather than pick a branch — treat \"the premise is wrong\" as a first-class outcome, not a detour. If a fork keeps resisting resolution, that is usually the sign.\r\n\r\n### Sharpen fuzzy language\r\n\r\nWhen the user uses vague or overloaded terms, propose a precise canonical term. \"You're saying 'account' — do you mean the Customer or the User? Those are different things.\"\r\n\r\n### Discuss concrete scenarios\r\n\r\nWhen domain relationships are being discussed, stress-test them with specific scenarios. Invent scenarios that probe edge cases and force the user to be precise about the boundaries between concepts.\r\n\r\n### Cross-reference with code\r\n\r\nWhen the user states how something works, check whether the code agrees. If you find a contradiction, surface it: \"Your code cancels entire Orders, but you just said partial cancellation is possible — which is right?\"\r\n\r\n### Update glossary.md inline\r\n\r\nWhen a term is resolved, update `docs/glossary.md` right there. Don't batch these up — capture them as they happen. Use the format in [GLOSSARY-FORMAT.md](./GLOSSARY-FORMAT.md).\r\n\r\n`docs/glossary.md` should be totally devoid of implementation details. Do not treat it as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.\r\n\r\n### Update architecture.md inline\r\n\r\nWhen high-level architecture of this project changes, update `architecture.md`. Use format in [ARCH-FORMAT.md](./ARCH-FORMAT.md).\r\n\r\n`architecture.md` document captures the **high-level architecture**. Lower-level concerns are intentionally **deferred** and listed at the end.\r\n> Scope note: everything here is at the architecture/contract level. Where a concrete shape would prematurely lock a deferred decision, we define only the *seam*.\r\n> You should guide the user toward deep modules with simple boundaries.\r\n\r\n\r\n### Extract open questions and risks\r\n\r\nOpen questions and risks live in `docs/concerns.md`, this skill's artifact:\r\n\r\n- Ordered by priority, highest first — how much it blocks the current build, and how hard it is to absorb later.\r\n- Entry is `## N. Title`, then `**Kind:** {sort of pressure, and whether a driver exists} · **Refs:** {ADRs, architecture sections, sibling concerns}`, then the pressure.\r\n- Numbers are stable IDs, not ranks. A settled concern moves out to its owning ADR or architecture section, leaving a gap. Never renumber, never resolve in place.\r\n- A concern queued as work keeps only its architectural contact surface plus `→ queued as <ticket-slug>`; the deliberation moves into the ticket.\r\n- The file holds unresolved pressure — not delivery sequencing, not decisions.\r\n\r\n### Record resolutions in the owning ticket inline\r\n\n<installed by=\"ticket\">\n**P7** Land a resolved decision in its durable home with its provenance, and rewrite the ticket in\nplace to what is now true; list under `Open issues` only what stays unresolved.\n</installed>\n\r\nWhen the plan under review is a ticket, record each resolution the moment it lands, as the block below says; sweep the ticket for internal consistency at the end, since an early section may still assert what a later resolution changed.\r\n\r\n### Offer ADRs sparingly\r\n\r\nOnly offer to create an ADR when all three are true:\r\n\r\n1. **Hard to reverse** — the cost of changing your mind later is meaningful\r\n2. **Surprising without context** — a future reader will wonder \"why did they do it this way?\"\r\n3. **The result of a real trade-off** — there were genuine alternatives and you picked one for specific reasons\r\n\r\nIf any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](./ADR-FORMAT.md).\r\n\r\n</supporting-info>\r\n\n\nARGUMENTS: Joint align of 01-0010.0130 (the harness installs into a tree that is not its own) and 01-0010.0110 (a project's local facts are answered once and installed). Both traced to one question seen from opposite ends: a `<project-local>` block is either core text that travels or a project's answer that must be preserved, and only the first can be injected."
+            }
+          ]
+        },
+        "promptId": "98ad2fa1-6747-47c8-a3d5-2f1bb223a13d"
+      },
+      "original_record_sha256": "3cd64ce546f757a60f241828dce41366eddab54b0675779b9f35b1e5459e7716",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "753": {
+      "timestamp": "2026-09-10T07:10:26.069Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "3984c2a0-ba17-4971-9fe9-878b1976060d",
+        "parentUuid": "fa0363ef-aef4-43b6-baed-789ab187065a",
+        "timestamp": "2026-09-10T07:10:26.069Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "instructions",
+          "files": [
+            {
+              "path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+              "type": "Project",
+              "content": "# Entry contract\n\nEntry contract: v8, 2026-09-09.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<project-local>\nThis repository develops the shared dev harness using its own loop. Terms: docs/glossary.md, this\nproject's own; the method's are .agents/glossary.md's.\nWhat each version of this contract changed: docs/research/entry-contract-findings.md.\n</project-local>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\n<project-local>\nThis repository's own architecture and progress live in docs/ like any other project's — the\ninstance half doing its job, not a leak.\n</project-local>\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. Naming a path\nconvention the harness imposes — `docs/tickets/`, `docs/glossary.md` — is not a reference to a\nfile; pointing at a document only this project has is. Two blocks are exempt: a `<straw-dog>`,\nbound to a ticket and expiring, and a [`<project-local>`](#project-local).\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog until=\"01-0012 is done\" ticket=\"docs/tickets/01-0012-hierarchy-coherent.md\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n- /dream is an experimental second \"lobe\" of the harness, aiming to reassess load-bearingness. It is optional, runs after /conclude, and writes dreams that /maintain and /align may pick up; it never amends rules.\n\n## Self-improvement\n\n<straw-dog until=\"self-improvement mechanism is properly demarkated\" >\n- The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)\n</straw-dog>\n\n## Autonomy\n\nThe project sets each switch in its local block below; skills defer to those values.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n## Project-local\n\nA recipient replaces every `<project-local>` block with its own → [glossary](.agents/glossary.md).\n\n- Carry one only for a fact that would differ in another project. Harness layout and the switch\n  lookup are shared.\n- One block per local fact, beside the rule it answers.\n- An unavoidable core reference into `docs/` goes in one, so it does not travel.\n\n## Straw dogs\n\nWhat you write to serve only until a named ticket replaces it is a straw dog. Wrap it as you\nwrite it, wherever it sits: `<straw-dog until=\"condition\" ticket=\"path\">`, or in code a `TODO`\nnaming the ticket. Wrap it at its authored home, never where the harness installs or derives it:\nwhat lands there takes the content, not the tag. The condition is testable and the ticket path is\nfrom the repository root. What has no named successor is a claim, and is not wrapped.\n\nFollow a straw dog like any other rule until its condition is visibly met; then act on reality,\nreport the stale block, and do not treat the contradiction as a violation.\n\n<project-local>\ncommit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n</project-local>"
+            }
+          ],
+          "changed": true,
+          "reason": "session_start"
+        }
+      },
+      "original_record_sha256": "0eaef16594d502fc581ae6fae618fde313409007ed7b0da70b3f99213260fe4e",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "790": {
+      "timestamp": "2026-09-10T07:25:13.698Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "92456763-e34e-47eb-b08d-3a89b0e92e6c",
+        "parentUuid": "b3ac6955-5798-498f-b289-d92ba738875e",
+        "timestamp": "2026-09-10T07:25:13.698Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CeuMpRdaL1LNh6cTnq6wP",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01X4mQRSAgAo7CXLatLfJ4Sk",
+              "name": "Write",
+              "input": {
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\concerns.md",
+                "content": "# Concerns\n\nUnresolved pressure on this project's architecture — open questions and risks that have no\ndisposition yet. Not delivery sequencing, which is the [queue](tickets/README.md)'s, and not\ndecisions, which live in their owning ticket, ADR or architecture section.\n\nNumbers are stable identifiers, not ranks. A settled concern moves out to the document that owns\nits answer, leaving its number behind.\n\nCreated 2026-09-10, at the align that produced its first entry. Until then this file was named by\n`/align`, `/edge`, `/ticket` and three format shelves and did not exist — a reference\n[01-0017](tickets/01-0017-io-graph-coherent.md) holds as a defect, and this is half of its repair.\n\n## 1. The rule set could be composite, with no pure core anywhere\n\n**Kind:** structural alternative, raised as more interesting than the design being built; no driver,\nno owner · **Refs:** [01-0017.0020](tickets/01-0017.0020-practice-swaps-in-one-edit.md),\n[01-0018](tickets/01-0018-reachability-coherent.md),\n[ADR-0001](adr/0001-agents-is-runtime-docs-is-construction.md)\n\n*(the user, 2026-09-10, at the dev-method align)*\n\nThe shape currently being built assumes a mechanism owns a body of text and injects rules from it\ninto the skills that need them. Core is a thing that exists, and mechanisms add to it.\n\nThe alternative inverts that: **the entire rule set is composite — no \"pure core\" anywhere, every\nrule owned by some installed skill, and the loop expressed dynamically by what is installed** rather\nthan stated in one place and distributed from it. The entry contract would then be a rendering of\nwhat is present, not an authored document that mechanisms write into.\n\nWhy it is not idle: the harness already has the machinery. Rules have one authored home, the\ninstaller writes them into targets it does not own, and `inject_rules.py --check` can tell an\ninstalled block from a hand-edited one. What is missing is the inversion — today the composition is\nimplicit and `AGENTS.md` is written by hand.\n\nWhy it is not queued: nothing forces it. Every ticket that would touch it has an ordinary reading\nthat works, and adopting the composite reading would reopen the entry contract, tier 1 and the\ninjection contract at once. It is recorded so that the ordinary reading is understood as a choice\nrather than as the only shape available, and so the next design that strains against a hand-written\n`AGENTS.md` can find this.\n\n**What would move it:** a second mechanism whose rules cannot be expressed as a block injected into\na hand-authored tier 1 — that is, a case where the composition itself has to be derived. One does\nnot exist yet.\n"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "c7b78192c1a51d9a6100a91d1fa3c0a10c0d1fa88f7bea7baeb98770050d15fe",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "792": {
+      "timestamp": "2026-09-10T07:25:13.752Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "66239286-ff77-4a04-8019-1f78a11586ff",
+        "parentUuid": "92456763-e34e-47eb-b08d-3a89b0e92e6c",
+        "timestamp": "2026-09-10T07:25:13.752Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01X4mQRSAgAo7CXLatLfJ4Sk",
+              "content": "File created successfully at: D:\\Dev\\AI\\agents\\docs\\concerns.md (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "type": "create",
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\concerns.md",
+          "content": "# Concerns\n\nUnresolved pressure on this project's architecture — open questions and risks that have no\ndisposition yet. Not delivery sequencing, which is the [queue](tickets/README.md)'s, and not\ndecisions, which live in their owning ticket, ADR or architecture section.\n\nNumbers are stable identifiers, not ranks. A settled concern moves out to the document that owns\nits answer, leaving its number behind.\n\nCreated 2026-09-10, at the align that produced its first entry. Until then this file was named by\n`/align`, `/edge`, `/ticket` and three format shelves and did not exist — a reference\n[01-0017](tickets/01-0017-io-graph-coherent.md) holds as a defect, and this is half of its repair.\n\n## 1. The rule set could be composite, with no pure core anywhere\n\n**Kind:** structural alternative, raised as more interesting than the design being built; no driver,\nno owner · **Refs:** [01-0017.0020](tickets/01-0017.0020-practice-swaps-in-one-edit.md),\n[01-0018](tickets/01-0018-reachability-coherent.md),\n[ADR-0001](adr/0001-agents-is-runtime-docs-is-construction.md)\n\n*(the user, 2026-09-10, at the dev-method align)*\n\nThe shape currently being built assumes a mechanism owns a body of text and injects rules from it\ninto the skills that need them. Core is a thing that exists, and mechanisms add to it.\n\nThe alternative inverts that: **the entire rule set is composite — no \"pure core\" anywhere, every\nrule owned by some installed skill, and the loop expressed dynamically by what is installed** rather\nthan stated in one place and distributed from it. The entry contract would then be a rendering of\nwhat is present, not an authored document that mechanisms write into.\n\nWhy it is not idle: the harness already has the machinery. Rules have one authored home, the\ninstaller writes them into targets it does not own, and `inject_rules.py --check` can tell an\ninstalled block from a hand-edited one. What is missing is the inversion — today the composition is\nimplicit and `AGENTS.md` is written by hand.\n\nWhy it is not queued: nothing forces it. Every ticket that would touch it has an ordinary reading\nthat works, and adopting the composite reading would reopen the entry contract, tier 1 and the\ninjection contract at once. It is recorded so that the ordinary reading is understood as a choice\nrather than as the only shape available, and so the next design that strains against a hand-written\n`AGENTS.md` can find this.\n\n**What would move it:** a second mechanism whose rules cannot be expressed as a block injected into\na hand-authored tier 1 — that is, a case where the composition itself has to be derived. One does\nnot exist yet.\n",
+          "structuredPatch": [],
+          "originalFile": null,
+          "userModified": false
+        },
+        "sourceToolAssistantUUID": "92456763-e34e-47eb-b08d-3a89b0e92e6c",
+        "promptId": "70b254f8-c0d6-4e30-b7e3-2e28f71c9696"
+      },
+      "original_record_sha256": "eb326a8864340a142cd1113ea9c8896faf64a5d5689103223853b62b2c8c1332",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "794": {
+      "timestamp": "2026-09-10T07:25:18.590Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "bdbe33d9-3872-448f-9db4-b2b6c4bae565",
+        "parentUuid": "cf695571-bbbb-4bd9-b93c-dc2c90c5484d",
+        "timestamp": "2026-09-10T07:25:18.590Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CeuMrC5YT5WutJXZVwf1c",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01BLpzKKWtwioXc3xby5USey",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\tickets\\README.md",
+                "old_string": "| [Rules reach the occasion they are for](01-0018-reachability-coherent.md) | Planned (responsibility precedes) | HITL |",
+                "new_string": "| [Changing how the project builds is one edit](01-0017.0020-practice-swaps-in-one-edit.md) | In progress (align underway) | HITL | The transferable practice this harness carries — how tests are written, how architecture is documented — has one owner, so adopting a different practice is an edit to one mechanism instead of a refactor across scattered skills, and what belongs to that corpus rather than to the harness's own loop is settled rather than assumed. |\n| [Rules reach the occasion they are for](01-0018-reachability-coherent.md) | Planned (responsibility precedes) | HITL |"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "c2539b4ea39fbe1467caad61ccf309f4fb19f00f8f5cae2f18f0774c0e126531",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "795": {
+      "timestamp": "2026-09-10T07:25:18.678Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "85fbd4f5-1d9e-42af-b9b9-d58c947e48a6",
+        "parentUuid": "bdbe33d9-3872-448f-9db4-b2b6c4bae565",
+        "timestamp": "2026-09-10T07:25:18.678Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01BLpzKKWtwioXc3xby5USey",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\tickets\\README.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\tickets\\README.md",
+          "oldString": "| [Rules reach the occasion they are for](01-0018-reachability-coherent.md) | Planned (responsibility precedes) | HITL |",
+          "newString": "| [Changing how the project builds is one edit](01-0017.0020-practice-swaps-in-one-edit.md) | In progress (align underway) | HITL | The transferable practice this harness carries — how tests are written, how architecture is documented — has one owner, so adopting a different practice is an edit to one mechanism instead of a refactor across scattered skills, and what belongs to that corpus rather than to the harness's own loop is settled rather than assumed. |\n| [Rules reach the occasion they are for](01-0018-reachability-coherent.md) | Planned (responsibility precedes) | HITL |",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 58,
+              "oldLines": 6,
+              "newStart": 58,
+              "newLines": 7,
+              "lines": [
+                " | [Each skill owns its own responsibility](01-0016-responsibility-coherent.md) | Planned (hierarchy and scope precede) | HITL | Every skill states only what it owns and links for the rest; a rule appears once, in the skill responsible for it; contradictions between skills are resolved rather than coexisting. |",
+                " | [Every skill and document has named producers and consumers](01-0017-io-graph-coherent.md) | Planned (the first mechanism precedes) | HITL | Every mechanism in this tree is declared to the shape paired close proved, every installed skill is named by one or allowlisted with its reason, and the documents four skills transact against either exist with an owner or stop being referenced. |",
+                " | [A term reaches a record only if the glossary defines it](01-0017.0010-terms-defined-before-they-land.md) | In progress (align underway) | HITL | A term used as shared vocabulary is either defined in the glossary or is stopped as a decision before it reaches a record, every glossary rule has one authored home, and the rule that enforces this is where the occasion is rather than inside one skill nobody had invoked. |",
+                "+| [Changing how the project builds is one edit](01-0017.0020-practice-swaps-in-one-edit.md) | In progress (align underway) | HITL | The transferable practice this harness carries — how tests are written, how architecture is documented — has one owner, so adopting a different practice is an edit to one mechanism instead of a refactor across scattered skills, and what belongs to that corpus rather than to the harness's own loop is settled rather than assumed. |",
+                " | [Rules reach the occasion they are for](01-0018-reachability-coherent.md) | Planned (responsibility precedes) | HITL | A rule or skill that applies at an occasion is actually in front of the agent at that occasion, and where it cannot be, the gap is named rather than assumed away. |",
+                " | [A project's local facts are answered once and installed](01-0010.0110-project-facets-injected.md) | Ready (aligns with 01-0010.0130) | HITL | A project answers the harness's questions about its own facets once — its verification set, its gate commands, its host loaders — and those answers are installed into the places that need them, so no core skill carries a hand-written override and a recipient project has one place to answer rather than a corpus to edit. |",
+                " | [The harness installs into a tree that is not its own](01-0010.0130-harness-installs-into-another-tree.md) | Ready (aligns with 01-0010.0110) | HITL | A project that is not this one receives the harness by a repeatable install rather than by hand: what arrived is identified by a core revision, the recipient's own facts survive redeployment, the shipped checks pass on arrival, and an install that cannot complete stops and says why instead of substituting something that fits. |"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "bdbe33d9-3872-448f-9db4-b2b6c4bae565",
+        "promptId": "70b254f8-c0d6-4e30-b7e3-2e28f71c9696"
+      },
+      "original_record_sha256": "ba4aeda0e238e805e634cbfca27aae476ccfd0552689c8ac6158ee4d13e20e97",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "797": {
+      "timestamp": "2026-09-10T07:25:21.740Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "24717870-ef8f-467f-8b96-2f04518ab121",
+        "parentUuid": "1ac44a37-4430-4188-8d91-8e06d892c671",
+        "timestamp": "2026-09-10T07:25:21.740Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CeuMrZA4wKpkkcGSSQue5",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_0123u4p6hQnzXnJ4G7aVDBB5",
+              "name": "Bash",
+              "input": {
+                "command": "cd \"D:\\Dev\\AI\\agents\" && for s in mechanisms inject_rules tickets; do uv run --offline --no-project python .agents/scripts/$s.py --check >/dev/null 2>&1; echo \"$s rc=$?\"; done; echo \"--- concerns referenced by core, now exists ---\"; ls -la docs/concerns.md",
+                "description": "Run checks after minting the second ticket"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "76b7e84e5ba33295d6b964f008a9d500de165325977dc327143c2c384192be52",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "798": {
+      "timestamp": "2026-09-10T07:25:26.658Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "e637e6ea-8408-4b3e-908e-517e9beed9b4",
+        "parentUuid": "24717870-ef8f-467f-8b96-2f04518ab121",
+        "timestamp": "2026-09-10T07:25:26.658Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_0123u4p6hQnzXnJ4G7aVDBB5",
+              "is_error": false,
+              "content": "mechanisms rc=0\ninject_rules rc=0\ntickets rc=0\n--- concerns referenced by core, now exists ---\n-rw-r--r-- 1 fimar 197609 2648 Sep 10 10:25 docs/concerns.md"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "mechanisms rc=0\ninject_rules rc=0\ntickets rc=0\n--- concerns referenced by core, now exists ---\n-rw-r--r-- 1 fimar 197609 2648 Sep 10 10:25 docs/concerns.md",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "24717870-ef8f-467f-8b96-2f04518ab121",
+        "promptId": "70b254f8-c0d6-4e30-b7e3-2e28f71c9696"
+      },
+      "original_record_sha256": "ae0d1170bbd356b9c3939d5a8dd3bb54916136bb4433606b531d7cf10144224f",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "801": {
+      "timestamp": "2026-09-10T07:25:59.436Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "6f5a37c9-225e-453b-8fde-f9b8dfe0c7d8",
+        "parentUuid": "840510e9-8e01-4629-a541-f66a5a47eef3",
+        "timestamp": "2026-09-10T07:25:59.436Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CeuMsACxqtKjcYaM9Prtr",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Both minted, checks green.\n\n**[01-0017.0020 — Changing how the project builds is one edit](docs/tickets/01-0017.0020-practice-swaps-in-one-edit.md)**, with your exclusion binding: the process loop is out, named as the harness's own opinionated method and as a materially larger task. The boundary is written as the align's *first* question and stated as a test rather than a list — `/tdd` and the architecture-documentation shelves are recorded as examples explicitly labelled \"not the boundary\", so the minting doesn't presume membership.\n\n**Your (b) is filed as [concern 1](docs/concerns.md)** — the composite rule set, with what would move it: *a mechanism whose rules cannot be expressed as a block injected into a hand-authored tier 1.* Writing it created `docs/concerns.md`, which six core files have been pointing at since before this session and which did not exist. That's half of `01-0017`'s painted-door finding closed by using the door.\n\n**One correction I owe on my own earlier work.** `01-0010.0140` proposes wrapping `/verify`'s and `/implement`'s `docs/process.md` links in `<project-local>`. For `#verification` that's right. For `#autonomy-and-repair` it would make the check pass *and entrench the defect*, by declaring the repair policy project-local when it's core. Recorded on the new ticket so `.0140` can't quietly take the blanket repair.\n\n## Question — self-improvement, and what its record is for\n\nApplying the shape's own test: it has an occasion nothing else owns (*a rule was present and did not fire*), an instruction (register, then rephrase), and a record no existing mechanism has (`docs/rule-failures.md`). It is not `/mechanism`, which owns *how you change a rule*, not *how you notice one failed*. It is not `/maintain`, which repairs drift between documents — here the documents agree and the behaviour didn't follow, which is a different failure class. And `/dream` is explicitly forbidden from amending rules.\n\nSo I think yes. But the interesting part is what its record would be, and I want to put that to you rather than assume it.\n\n**`rule-failures.md` would be the only thing in this harness that measures whether a rule *works*, as opposed to whether it *exists*.** Every check you have today is structural — does the block match, does the ticket have its fields, does the link resolve. None observes adherence. That gap is the one both outside passes named independently, and this mechanism closes it without anyone setting out to.\n\nWhich raises the question that decides its shape: **is the record only an input to rephrasing, or is it also the deletion criterion?**\n\n- **Input only** — a failure is registered, the rule gets reworded, the entry is closed. Simple, and the corpus keeps growing.\n- **Also a deletion criterion** — a rule with repeated registered failures and no rewording that fixes them is a rule that doesn't work, and the honest move is to *remove* it. This is the mechanism family H says these corpora never have, which is why they grow monotonically: every incident adds a rule and nothing removes one.\n\n**My recommendation is the second**, and I'd want it in the mechanism from the start rather than added later, because a register that can only ever justify more text is the failure mode its own family is known for. The cost is real — a deletion rule is a loaded weapon pointed at rules you may still want — which is why the threshold and the decision should be HITL, like the wording call.\n\nIs self-improvement its own mechanism, and does its record carry the deletion criterion or only the rephrasing?"
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "34892584d2fad26ce9d3a2d2eb95eaf71ba88bb059a94b7fb332a209726256d3",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "810": {
+      "timestamp": "2026-09-10T07:32:30.666Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "30866960-db92-4fe6-bf1c-2f8363ea6cbf",
+        "parentUuid": "83de0f32-375c-4444-ada6-132be6209a9a",
+        "timestamp": "2026-09-10T07:32:30.666Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "the second mechanism was injection to a group, no? that is also broader than glossary, should not be part of it right now. basically, the injection group target needs another denominator besides group name - as mechanism group should have reflection in the mechanism instance itself - it should tell that \"dev method\" as install target means specific file and anchor in this specific instance.\n\nself-improvement is basically /mechanism responsibility right now. what we want is - set of explicit meta-rules that govern harness self-amendment. It is also related to skill-up. removing is a destructive move. evidence should be collected, occurences counted; but we should not add an unaligned deletion at this point.\nnot yet sure if it is own mechanism. lets leave this decision open, and accumulate evidence/strikes\n\nmaintain-yourself was an idea for now, not sure there is a real usecase, can you find one?"
+        },
+        "promptId": "d2816809-f92d-4762-b1f8-4a40921051d8"
+      },
+      "original_record_sha256": "2493721331d181d6c9b5baf85584d59649002873c8b24835cbb3177bbb3c6bc6",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "814": {
+      "timestamp": "2026-09-10T07:33:05.903Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "f464716b-d008-4f39-8145-6b9b1d6db481",
+        "parentUuid": "3254b6c0-db42-4678-b0e4-0344947e15cb",
+        "timestamp": "2026-09-10T07:33:05.903Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CeuNQRKfRcLmMnKFQzCy5",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Let me actually go look for the maintain-yourself case rather than guess."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "92b3fc1bfa7548986ab264d1c716b3e4cec1cb7f6c93220c1db03f39d73a695e",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "815": {
+      "timestamp": "2026-09-10T07:33:05.908Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "85c0c8e9-8172-4f69-a782-9a600d70aa44",
+        "parentUuid": "f464716b-d008-4f39-8145-6b9b1d6db481",
+        "timestamp": "2026-09-10T07:33:05.908Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CeuNQRKfRcLmMnKFQzCy5",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01WAiNw1VauPLrtcZ5z57AeX",
+              "name": "Bash",
+              "input": {
+                "command": "cd \"D:\\Dev\\AI\\agents\" && echo \"=== does any format declare what finishes a session record / dream / evidence? ===\"; grep -n -i \"archiv\\|finished\\|retire\\|retention\\|removes an entry\" .agents/skills/conclude/SKILL.md .agents/skills/dream/SKILL.md 2>/dev/null; echo \"--- records declared by the three mechanisms ---\"; grep -n -i \"what removes an entry\\|Tier 2\\|A record is\" .agents/skills/ticket/TICKET-FORMAT.md .agents/skills/mechanism/MECHANISM-FORMAT.md | head",
+                "description": "Check whether non-ticket records declare what finishes them"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "d33470b10e74ea8036f2aaf651ee3dc57705d864a0604a592d49b63ebd1ee254",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "816": {
+      "timestamp": "2026-09-10T07:33:06.376Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "12d0e0a0-a2e1-4b65-a71e-70fffe45099d",
+        "parentUuid": "85c0c8e9-8172-4f69-a782-9a600d70aa44",
+        "timestamp": "2026-09-10T07:33:06.376Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01WAiNw1VauPLrtcZ5z57AeX",
+              "is_error": false,
+              "content": "=== does any format declare what finishes a session record / dream / evidence? ===\n--- records declared by the three mechanisms ---\n.agents/skills/ticket/TICKET-FORMAT.md:74:  close moves it to `done/`. **Tier 2**: read when the ticket is planned,\n.agents/skills/ticket/TICKET-FORMAT.md:75:  implemented or verified, or through a citation. **What removes an entry**:\n.agents/skills/mechanism/MECHANISM-FORMAT.md:203:- **Tier 2** — read when installing, amending or debugging a mechanism.\n.agents/skills/mechanism/MECHANISM-FORMAT.md:204:- **What removes an entry**: the mechanism being retired. A directory that outlives its"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "=== does any format declare what finishes a session record / dream / evidence? ===\n--- records declared by the three mechanisms ---\n.agents/skills/ticket/TICKET-FORMAT.md:74:  close moves it to `done/`. **Tier 2**: read when the ticket is planned,\n.agents/skills/ticket/TICKET-FORMAT.md:75:  implemented or verified, or through a citation. **What removes an entry**:\n.agents/skills/mechanism/MECHANISM-FORMAT.md:203:- **Tier 2** — read when installing, amending or debugging a mechanism.\n.agents/skills/mechanism/MECHANISM-FORMAT.md:204:- **What removes an entry**: the mechanism being retired. A directory that outlives its",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "85c0c8e9-8172-4f69-a782-9a600d70aa44",
+        "promptId": "d2816809-f92d-4762-b1f8-4a40921051d8"
+      },
+      "original_record_sha256": "c486395eb0d39e44d203faa075c63fc88a860fd401f19fa4d232861ea26947e1",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "817": {
+      "timestamp": "2026-09-10T07:33:07.210Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "72a2a893-88d1-4cde-b02c-acc932c15b0d",
+        "parentUuid": "12d0e0a0-a2e1-4b65-a71e-70fffe45099d",
+        "timestamp": "2026-09-10T07:33:07.210Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CeuNQRKfRcLmMnKFQzCy5",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01JfReRika1x2QLQukYQofCt",
+              "name": "Bash",
+              "input": {
+                "command": "cd \"D:\\Dev\\AI\\agents\" && echo \"=== record populations ===\"; for d in docs/sessions docs/dreams docs/mechanisms docs/research docs/rfc/done docs/tickets/done; do echo \"$d: $(ls $d 2>/dev/null | wc -l) files, $(find $d -name '*.md' | xargs wc -l 2>/dev/null | tail -1 | awk '{print $1}') lines\"; done; echo \"=== oldest/newest session ===\"; ls docs/sessions | head -1; ls docs/sessions | tail -1",
+                "description": "Measure which record sets accumulate"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "c9dfbcd8e9ea7c0ebd082898baaabecbf27f8d6b3bf3e9f250afd438213919ee",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "818": {
+      "timestamp": "2026-09-10T07:33:14.542Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "23d399f3-d85e-4bc0-bd65-cfea8a4a9764",
+        "parentUuid": "72a2a893-88d1-4cde-b02c-acc932c15b0d",
+        "timestamp": "2026-09-10T07:33:14.542Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01JfReRika1x2QLQukYQofCt",
+              "is_error": false,
+              "content": "=== record populations ===\ndocs/sessions: 14 files, 958 lines\ndocs/dreams: 2 files, 481 lines\ndocs/mechanisms: 3 files, 430 lines\ndocs/research: 6 files, 2854 lines\ndocs/rfc/done: 10 files, 2522 lines\ndocs/tickets/done: 14 files, 2148 lines\n=== oldest/newest session ===\n0001-20260905-shared-harness-inception.md\n0014-20260910-separation-gets-its-ticket-and-the-premise-answers-to-eight-families.md"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "=== record populations ===\ndocs/sessions: 14 files, 958 lines\ndocs/dreams: 2 files, 481 lines\ndocs/mechanisms: 3 files, 430 lines\ndocs/research: 6 files, 2854 lines\ndocs/rfc/done: 10 files, 2522 lines\ndocs/tickets/done: 14 files, 2148 lines\n=== oldest/newest session ===\n0001-20260905-shared-harness-inception.md\n0014-20260910-separation-gets-its-ticket-and-the-premise-answers-to-eight-families.md",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "72a2a893-88d1-4cde-b02c-acc932c15b0d",
+        "promptId": "d2816809-f92d-4762-b1f8-4a40921051d8"
+      },
+      "original_record_sha256": "a73f92d4749b088378b0d1a5caff4f5cb43d885b78d68379adf341c1999931a5",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "821": {
+      "timestamp": "2026-09-10T07:33:41.563Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "0c84b82c-d24c-4c5b-9bce-6aec1525f96b",
+        "parentUuid": "122b9c3b-f86a-4dd8-870f-4c001c953e8d",
+        "timestamp": "2026-09-10T07:33:41.563Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CeuNTe7C49NPNYwfqu95b",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Found it, and it's not hypothetical — it's a rule you already ship that structurally cannot run."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "d5b6f7283c70a56443c30c90e7d0c346a1f813bf6f2ac8e15833869fe2b53590",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "822": {
+      "timestamp": "2026-09-10T07:33:41.570Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "c0f7ee25-8917-425a-84a4-dc7ba9231cd4",
+        "parentUuid": "0c84b82c-d24c-4c5b-9bce-6aec1525f96b",
+        "timestamp": "2026-09-10T07:33:41.570Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CeuNTe7C49NPNYwfqu95b",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01Wr2NnrvpFLcWfcz7QzdB9F",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+                "old_string": "<straw-dog until=\"self-improvement mechanism is properly demarkated\" >\n- The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)\n</straw-dog>",
+                "new_string": "- The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "90daf0d3b81455d3469c3c08e5418364d7d8fea78acb4e92d7b540ec01bb6cb9",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "824": {
+      "timestamp": "2026-09-10T07:33:41.699Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "bb3bd612-99dc-47e4-98ad-3eef037759ee",
+        "parentUuid": "c0f7ee25-8917-425a-84a4-dc7ba9231cd4",
+        "timestamp": "2026-09-10T07:33:41.699Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01Wr2NnrvpFLcWfcz7QzdB9F",
+              "content": "The file D:\\Dev\\AI\\agents\\AGENTS.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\AGENTS.md",
+          "oldString": "<straw-dog until=\"self-improvement mechanism is properly demarkated\" >\n- The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)\n</straw-dog>",
+          "newString": "- The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)",
+          "originalFile": "# Entry contract\n\nEntry contract: v8, 2026-09-09.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<project-local>\nThis repository develops the shared dev harness using its own loop. Terms: docs/glossary.md, this\nproject's own; the method's are .agents/glossary.md's.\nWhat each version of this contract changed: docs/research/entry-contract-findings.md.\n</project-local>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\n<project-local>\nThis repository's own architecture and progress live in docs/ like any other project's — the\ninstance half doing its job, not a leak.\n</project-local>\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. Naming a path\nconvention the harness imposes — `docs/tickets/`, `docs/glossary.md` — is not a reference to a\nfile; pointing at a document only this project has is. Two blocks are exempt: a `<straw-dog>`,\nbound to a ticket and expiring, and a [`<project-local>`](#project-local).\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog until=\"01-0012 is done\" ticket=\"docs/tickets/01-0012-hierarchy-coherent.md\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n- /dream is an experimental second \"lobe\" of the harness, aiming to reassess load-bearingness. It is optional, runs after /conclude, and writes dreams that /maintain and /align may pick up; it never amends rules.\n\n## Self-improvement\n\n<straw-dog until=\"self-improvement mechanism is properly demarkated\" >\n- The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)\n</straw-dog>\n\n## Autonomy\n\nThe project sets each switch in its local block below; skills defer to those values.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n## Project-local\n\nA recipient replaces every `<project-local>` block with its own → [glossary](.agents/glossary.md).\n\n- Carry one only for a fact that would differ in another project. Harness layout and the switch\n  lookup are shared.\n- One block per local fact, beside the rule it answers.\n- An unavoidable core reference into `docs/` goes in one, so it does not travel.\n\n## Straw dogs\n\nWhat you write to serve only until a named ticket replaces it is a straw dog. Wrap it as you\nwrite it, wherever it sits: `<straw-dog until=\"condition\" ticket=\"path\">`, or in code a `TODO`\nnaming the ticket. Wrap it at its authored home, never where the harness installs or derives it:\nwhat lands there takes the content, not the tag. The condition is testable and the ticket path is\nfrom the repository root. What has no named successor is a claim, and is not wrapped.\n\nFollow a straw dog like any other rule until its condition is visibly met; then act on reality,\nreport the stale block, and do not treat the contradiction as a violation.\n\n<project-local>\ncommit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n</project-local>\n",
+          "structuredPatch": [
+            {
+              "oldStart": 91,
+              "oldLines": 9,
+              "newStart": 91,
+              "newLines": 7,
+              "lines": [
+                " ",
+                " ## Self-improvement",
+                " ",
+                "-<straw-dog until=\"self-improvement mechanism is properly demarkated\" >",
+                " - The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)",
+                "-</straw-dog>",
+                " ",
+                " ## Autonomy",
+                " "
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "c0f7ee25-8917-425a-84a4-dc7ba9231cd4",
+        "promptId": "d2816809-f92d-4762-b1f8-4a40921051d8"
+      },
+      "original_record_sha256": "59ce42046257dbdb792c0775617adb07825ce40fd38d7837a0a17a9a06ebc066",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "831": {
+      "timestamp": "2026-09-10T07:34:00.446Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "ffe1f468-8ea2-4f2d-85fb-bb97b4239112",
+        "parentUuid": "9cbe94db-0dfe-4dad-912b-f3aed634c58c",
+        "timestamp": "2026-09-10T07:34:00.446Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CeuNVf3YsRogVyQNbF6Z9",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01RqG1fFR8CHziZ2BJRACEsJ",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\concerns.md",
+                "old_string": "## 1. The rule set could be composite, with no pure core anywhere",
+                "new_string": "## 3. Whether harness self-amendment is its own mechanism\n\n**Kind:** open classification, deliberately unresolved while evidence accumulates; no owner ·\n**Refs:** [`AGENTS.md` — Self-improvement](../AGENTS.md#self-improvement),\n[`/mechanism`](../.agents/skills/mechanism/SKILL.md), [`/skill-up`](../.agents/skills/skill-up/SKILL.md)\n\n*(the user, 2026-09-10)*\n\nThe entry file now carries a standing rule: a rule that was present and did not fire was phrased\nwrong, and the failure is registered and the rule reworded. What is wanted around it is **a set of\nexplicit meta-rules governing how the harness amends itself.**\n\n**Today that is `/mechanism`'s responsibility**, and `/skill-up` is its neighbour. Whether it\ndeserves separation into its own mechanism is left open on purpose: the argument for it is that the\noccasion (*a rule failed to fire*) and the record (`docs/rule-failures.md`) belong to neither, and\nthe argument against is that one wish is one shape. **The decision waits on accumulated strikes**\nrather than on argument.\n\n**Deliberately not adopted: deletion.** An early proposal was that a rule with repeated registered\nfailures becomes a deletion candidate. Removing is destructive, and an unaligned deletion rule is a\nloaded weapon pointed at rules still wanted *(the user, 2026-09-10)*. Occurrences are counted and\nevidence is collected; what to do with a rule that keeps failing is decided when there is something\nto decide it on.\n\n## 2. A group install target needs a denominator on both sides\n\n**Kind:** design gap in a shape three mechanisms want; blocked, no owner ·\n**Refs:** [01-0017.0010](tickets/01-0017.0010-terms-defined-before-they-land.md),\n[01-0011.0050](tickets/01-0011.0050-shape-checked.md),\n[architecture — installed blocks](architecture.md#installed-blocks)\n\n*(the user, 2026-09-10)*\n\nA rules file today names an explicit `target` file and an `anchor` line within it. Three mechanisms\nnow want to name a **group** instead — vocabulary into everything, a dev-method corpus into the\nskills that carry practice, and `/maintain` wanting a *maintain yourself* line in every recording\nmechanism. That clears the entry file's bar against generalising from one shape.\n\n**The missing piece is that a group name alone is not an address.** \"Install into the dev-method\ngroup\" says nothing about *where inside each member* the block lands. So group membership has to be\n**declared from both ends**: the rules file names the group, and each member mechanism declares, in\nits own instance, that belonging to this group means *this file and this anchor in me*. Without the\nsecond half a group target cannot resolve to a write, and the installer's guarantee that a refusal\nchanges no file cannot hold.\n\n**Also blocked on membership.** A group over mechanisms reaches three skills of twenty-two today —\na transition state rather than a ceiling, but until\n[01-0011.0050](tickets/01-0011.0050-shape-checked.md) closes membership a group is not a set anyone\ncan enumerate.\n\nKept out of [01-0017.0010](tickets/01-0017.0010-terms-defined-before-they-land.md) deliberately: it\nis broader than the glossary, and the glossary ships on explicit targets without it.\n\n## 1. The rule set could be composite, with no pure core anywhere"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "00d029b290e0c59b97fbe9220bab7f04b359d64bf08bbc916bea18bf824f16f6",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "832": {
+      "timestamp": "2026-09-10T07:34:00.509Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "e5af3032-f7c6-4ab2-8eba-33e3c5ae9f35",
+        "parentUuid": "ffe1f468-8ea2-4f2d-85fb-bb97b4239112",
+        "timestamp": "2026-09-10T07:34:00.509Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01RqG1fFR8CHziZ2BJRACEsJ",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\concerns.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\concerns.md",
+          "oldString": "## 1. The rule set could be composite, with no pure core anywhere",
+          "newString": "## 3. Whether harness self-amendment is its own mechanism\n\n**Kind:** open classification, deliberately unresolved while evidence accumulates; no owner ·\n**Refs:** [`AGENTS.md` — Self-improvement](../AGENTS.md#self-improvement),\n[`/mechanism`](../.agents/skills/mechanism/SKILL.md), [`/skill-up`](../.agents/skills/skill-up/SKILL.md)\n\n*(the user, 2026-09-10)*\n\nThe entry file now carries a standing rule: a rule that was present and did not fire was phrased\nwrong, and the failure is registered and the rule reworded. What is wanted around it is **a set of\nexplicit meta-rules governing how the harness amends itself.**\n\n**Today that is `/mechanism`'s responsibility**, and `/skill-up` is its neighbour. Whether it\ndeserves separation into its own mechanism is left open on purpose: the argument for it is that the\noccasion (*a rule failed to fire*) and the record (`docs/rule-failures.md`) belong to neither, and\nthe argument against is that one wish is one shape. **The decision waits on accumulated strikes**\nrather than on argument.\n\n**Deliberately not adopted: deletion.** An early proposal was that a rule with repeated registered\nfailures becomes a deletion candidate. Removing is destructive, and an unaligned deletion rule is a\nloaded weapon pointed at rules still wanted *(the user, 2026-09-10)*. Occurrences are counted and\nevidence is collected; what to do with a rule that keeps failing is decided when there is something\nto decide it on.\n\n## 2. A group install target needs a denominator on both sides\n\n**Kind:** design gap in a shape three mechanisms want; blocked, no owner ·\n**Refs:** [01-0017.0010](tickets/01-0017.0010-terms-defined-before-they-land.md),\n[01-0011.0050](tickets/01-0011.0050-shape-checked.md),\n[architecture — installed blocks](architecture.md#installed-blocks)\n\n*(the user, 2026-09-10)*\n\nA rules file today names an explicit `target` file and an `anchor` line within it. Three mechanisms\nnow want to name a **group** instead — vocabulary into everything, a dev-method corpus into the\nskills that carry practice, and `/maintain` wanting a *maintain yourself* line in every recording\nmechanism. That clears the entry file's bar against generalising from one shape.\n\n**The missing piece is that a group name alone is not an address.** \"Install into the dev-method\ngroup\" says nothing about *where inside each member* the block lands. So group membership has to be\n**declared from both ends**: the rules file names the group, and each member mechanism declares, in\nits own instance, that belonging to this group means *this file and this anchor in me*. Without the\nsecond half a group target cannot resolve to a write, and the installer's guarantee that a refusal\nchanges no file cannot hold.\n\n**Also blocked on membership.** A group over mechanisms reaches three skills of twenty-two today —\na transition state rather than a ceiling, but until\n[01-0011.0050](tickets/01-0011.0050-shape-checked.md) closes membership a group is not a set anyone\ncan enumerate.\n\nKept out of [01-0017.0010](tickets/01-0017.0010-terms-defined-before-they-land.md) deliberately: it\nis broader than the glossary, and the glossary ships on explicit targets without it.\n\n## 1. The rule set could be composite, with no pure core anywhere",
+          "originalFile": "# Concerns\n\nUnresolved pressure on this project's architecture — open questions and risks that have no\ndisposition yet. Not delivery sequencing, which is the [queue](tickets/README.md)'s, and not\ndecisions, which live in their owning ticket, ADR or architecture section.\n\nNumbers are stable identifiers, not ranks. A settled concern moves out to the document that owns\nits answer, leaving its number behind.\n\nCreated 2026-09-10, at the align that produced its first entry. Until then this file was named by\n`/align`, `/edge`, `/ticket` and three format shelves and did not exist — a reference\n[01-0017](tickets/01-0017-io-graph-coherent.md) holds as a defect, and this is half of its repair.\n\n## 1. The rule set could be composite, with no pure core anywhere\n\n**Kind:** structural alternative, raised as more interesting than the design being built; no driver,\nno owner · **Refs:** [01-0017.0020](tickets/01-0017.0020-practice-swaps-in-one-edit.md),\n[01-0018](tickets/01-0018-reachability-coherent.md),\n[ADR-0001](adr/0001-agents-is-runtime-docs-is-construction.md)\n\n*(the user, 2026-09-10, at the dev-method align)*\n\nThe shape currently being built assumes a mechanism owns a body of text and injects rules from it\ninto the skills that need them. Core is a thing that exists, and mechanisms add to it.\n\nThe alternative inverts that: **the entire rule set is composite — no \"pure core\" anywhere, every\nrule owned by some installed skill, and the loop expressed dynamically by what is installed** rather\nthan stated in one place and distributed from it. The entry contract would then be a rendering of\nwhat is present, not an authored document that mechanisms write into.\n\nWhy it is not idle: the harness already has the machinery. Rules have one authored home, the\ninstaller writes them into targets it does not own, and `inject_rules.py --check` can tell an\ninstalled block from a hand-edited one. What is missing is the inversion — today the composition is\nimplicit and `AGENTS.md` is written by hand.\n\nWhy it is not queued: nothing forces it. Every ticket that would touch it has an ordinary reading\nthat works, and adopting the composite reading would reopen the entry contract, tier 1 and the\ninjection contract at once. It is recorded so that the ordinary reading is understood as a choice\nrather than as the only shape available, and so the next design that strains against a hand-written\n`AGENTS.md` can find this.\n\n**What would move it:** a second mechanism whose rules cannot be expressed as a block injected into\na hand-authored tier 1 — that is, a case where the composition itself has to be derived. One does\nnot exist yet.\n",
+          "structuredPatch": [
+            {
+              "oldStart": 11,
+              "oldLines": 6,
+              "newStart": 11,
+              "newLines": 59,
+              "lines": [
+                " `/align`, `/edge`, `/ticket` and three format shelves and did not exist — a reference",
+                " [01-0017](tickets/01-0017-io-graph-coherent.md) holds as a defect, and this is half of its repair.",
+                " ",
+                "+## 3. Whether harness self-amendment is its own mechanism",
+                "+",
+                "+**Kind:** open classification, deliberately unresolved while evidence accumulates; no owner ·",
+                "+**Refs:** [`AGENTS.md` — Self-improvement](../AGENTS.md#self-improvement),",
+                "+[`/mechanism`](../.agents/skills/mechanism/SKILL.md), [`/skill-up`](../.agents/skills/skill-up/SKILL.md)",
+                "+",
+                "+*(the user, 2026-09-10)*",
+                "+",
+                "+The entry file now carries a standing rule: a rule that was present and did not fire was phrased",
+                "+wrong, and the failure is registered and the rule reworded. What is wanted around it is **a set of",
+                "+explicit meta-rules governing how the harness amends itself.**",
+                "+",
+                "+**Today that is `/mechanism`'s responsibility**, and `/skill-up` is its neighbour. Whether it",
+                "+deserves separation into its own mechanism is left open on purpose: the argument for it is that the",
+                "+occasion (*a rule failed to fire*) and the record (`docs/rule-failures.md`) belong to neither, and",
+                "+the argument against is that one wish is one shape. **The decision waits on accumulated strikes**",
+                "+rather than on argument.",
+                "+",
+                "+**Deliberately not adopted: deletion.** An early proposal was that a rule with repeated registered",
+                "+failures becomes a deletion candidate. Removing is destructive, and an unaligned deletion rule is a",
+                "+loaded weapon pointed at rules still wanted *(the user, 2026-09-10)*. Occurrences are counted and",
+                "+evidence is collected; what to do with a rule that keeps failing is decided when there is something",
+                "+to decide it on.",
+                "+",
+                "+## 2. A group install target needs a denominator on both sides",
+                "+",
+                "+**Kind:** design gap in a shape three mechanisms want; blocked, no owner ·",
+                "+**Refs:** [01-0017.0010](tickets/01-0017.0010-terms-defined-before-they-land.md),",
+                "+[01-0011.0050](tickets/01-0011.0050-shape-checked.md),",
+                "+[architecture — installed blocks](architecture.md#installed-blocks)",
+                "+",
+                "+*(the user, 2026-09-10)*",
+                "+",
+                "+A rules file today names an explicit `target` file and an `anchor` line within it. Three mechanisms",
+                "+now want to name a **group** instead — vocabulary into everything, a dev-method corpus into the",
+                "+skills that carry practice, and `/maintain` wanting a *maintain yourself* line in every recording",
+                "+mechanism. That clears the entry file's bar against generalising from one shape.",
+                "+",
+                "+**The missing piece is that a group name alone is not an address.** \"Install into the dev-method",
+                "+group\" says nothing about *where inside each member* the block lands. So group membership has to be",
+                "+**declared from both ends**: the rules file names the group, and each member mechanism declares, in",
+                "+its own instance, that belonging to this group means *this file and this anchor in me*. Without the",
+                "+second half a group target cannot resolve to a write, and the installer's guarantee that a refusal",
+                "+changes no file cannot hold.",
+                "+",
+                "+**Also blocked on membership.** A group over mechanisms reaches three skills of twenty-two today —",
+                "+a transition state rather than a ceiling, but until",
+                "+[01-0011.0050](tickets/01-0011.0050-shape-checked.md) closes membership a group is not a set anyone",
+                "+can enumerate.",
+                "+",
+                "+Kept out of [01-0017.0010](tickets/01-0017.0010-terms-defined-before-they-land.md) deliberately: it",
+                "+is broader than the glossary, and the glossary ships on explicit targets without it.",
+                "+",
+                " ## 1. The rule set could be composite, with no pure core anywhere",
+                " ",
+                " **Kind:** structural alternative, raised as more interesting than the design being built; no driver,"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "ffe1f468-8ea2-4f2d-85fb-bb97b4239112",
+        "promptId": "d2816809-f92d-4762-b1f8-4a40921051d8"
+      },
+      "original_record_sha256": "49c619b74495e3e3be23b1cafa04ec69090a3ff99eb55eba940807b7f98dc385",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "834": {
+      "timestamp": "2026-09-10T07:34:12.070Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "9396fd66-b588-4650-95b9-cc51648b20cf",
+        "parentUuid": "f34e8940-abcc-405c-a665-6758273ed76d",
+        "timestamp": "2026-09-10T07:34:12.070Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CeuNX27bw1XtjY9kD4Lai",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01NiHKJ726LvBNLqezRoAViF",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0017.0010-terms-defined-before-they-land.md",
+                "old_string": "- **Group targets are justified and blocked.** Three materially different shapes want them: this\n  mechanism (vocabulary into everything), a *dev method* mechanism so that changing the method is\n  not a refactor across scattered skills, and `/maintain` wanting a *maintain yourself* line in\n  every recording mechanism *(the user, 2026-09-10)*. That clears the entry file's bar against\n  generalising from one shape. They stay unbuilt because a group cannot resolve while nineteen of\n  twenty-two skills belong to no mechanism —\n  [01-0011.0050](./01-0011.0050-shape-checked.md)'s gate, and a transition state rather than a\n  ceiling.\n- **The eventual group is `recording`, and today it selects everything.** The reason is that a\n  skewed term in a conversation dies with the session and a skewed term in a record is quoted for a\n  year. But all three declared mechanisms are record-bearing, so the class has no discriminating\n  power until the first non-record-bearing declaration — `/impact`, `/discover` and `/advise` are\n  the candidates, each returning material into someone else's record and owning none.\n  *record-bearing* is already used by R1 and is **not a declared field**; promoting it to one is the\n  work. It is judged once, by a person, at declaration, and derived every time after.",
+                "new_string": "- ~~**Group targets.**~~ **Moved out 2026-09-10, the user: broader than the glossary and not part\n  of it right now.** Filed as [concern 2](../concerns.md), with the design gap the user named —\n  a group name is not an address, so membership must be declared from both ends, the rules file\n  naming the group and each member declaring what file and anchor the group means *in it*. This\n  ticket ships on explicit targets and does not wait for it.\n- **The eventual group is `recording`, and today it selects everything.** Kept here because the\n  class is this mechanism's reason rather than the group machinery's: a skewed term in a\n  conversation dies with the session and a skewed term in a record is quoted for a year. All three\n  declared mechanisms are record-bearing, so the class has no discriminating power until the first\n  non-record-bearing declaration — `/impact`, `/discover` and `/advise` are the candidates, each\n  returning material into someone else's record and owning none. *record-bearing* is already used\n  by R1 and is **not a declared field**; promoting it to one is the work. It is judged once, by a\n  person, at declaration, and derived every time after."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "4d9ca2e9de97dbdf3680dc54e3e440c8b67792b829c0af37647c18a76abc0c9d",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "835": {
+      "timestamp": "2026-09-10T07:34:12.136Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "19cece67-a60a-4a5c-a79c-960d26ab7d40",
+        "parentUuid": "9396fd66-b588-4650-95b9-cc51648b20cf",
+        "timestamp": "2026-09-10T07:34:12.136Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01NiHKJ726LvBNLqezRoAViF",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\tickets\\01-0017.0010-terms-defined-before-they-land.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0017.0010-terms-defined-before-they-land.md",
+          "oldString": "- **Group targets are justified and blocked.** Three materially different shapes want them: this\n  mechanism (vocabulary into everything), a *dev method* mechanism so that changing the method is\n  not a refactor across scattered skills, and `/maintain` wanting a *maintain yourself* line in\n  every recording mechanism *(the user, 2026-09-10)*. That clears the entry file's bar against\n  generalising from one shape. They stay unbuilt because a group cannot resolve while nineteen of\n  twenty-two skills belong to no mechanism —\n  [01-0011.0050](./01-0011.0050-shape-checked.md)'s gate, and a transition state rather than a\n  ceiling.\n- **The eventual group is `recording`, and today it selects everything.** The reason is that a\n  skewed term in a conversation dies with the session and a skewed term in a record is quoted for a\n  year. But all three declared mechanisms are record-bearing, so the class has no discriminating\n  power until the first non-record-bearing declaration — `/impact`, `/discover` and `/advise` are\n  the candidates, each returning material into someone else's record and owning none.\n  *record-bearing* is already used by R1 and is **not a declared field**; promoting it to one is the\n  work. It is judged once, by a person, at declaration, and derived every time after.",
+          "newString": "- ~~**Group targets.**~~ **Moved out 2026-09-10, the user: broader than the glossary and not part\n  of it right now.** Filed as [concern 2](../concerns.md), with the design gap the user named —\n  a group name is not an address, so membership must be declared from both ends, the rules file\n  naming the group and each member declaring what file and anchor the group means *in it*. This\n  ticket ships on explicit targets and does not wait for it.\n- **The eventual group is `recording`, and today it selects everything.** Kept here because the\n  class is this mechanism's reason rather than the group machinery's: a skewed term in a\n  conversation dies with the session and a skewed term in a record is quoted for a year. All three\n  declared mechanisms are record-bearing, so the class has no discriminating power until the first\n  non-record-bearing declaration — `/impact`, `/discover` and `/advise` are the candidates, each\n  returning material into someone else's record and owning none. *record-bearing* is already used\n  by R1 and is **not a declared field**; promoting it to one is the work. It is judged once, by a\n  person, at declaration, and derived every time after.",
+          "originalFile": "# A term reaches a record only if the glossary defines it\n\n- **Status:** In progress (align underway)\n- **Type:** HITL\n- **Related:** [01-0018](./01-0018-reachability-coherent.md) — owns whether a shared fact may be\n  restated at tier 1 *because* it is needed there, which is the same question this ticket's\n  tier-1-plus-injection shape asks; [01-0011.0050](./01-0011.0050-shape-checked.md) — group\n  targets cannot resolve until every skill is named by a mechanism or allowlisted\n- **Outcome:** A term used as shared vocabulary is either defined in the glossary or is stopped as\n  a decision before it reaches a record, every glossary rule has one authored home, and the rule\n  that enforces this is where the occasion is rather than inside one skill nobody had invoked.\n\n## Parent\n\n[Every skill and document has named producers and consumers](./01-0017-io-graph-coherent.md),\nwhich owns declaring every mechanism in this tree. This is its first conversion carved out with\nits own decisions, on the user's direction that each skill-to-mechanism conversion eventually gets\na ticket. The parent keeps the sweep, the allowlist and the remaining conversions.\n\n## The rule was loaded, and it lost\n\nOn 2026-09-10, mid-align, I used **facet** through three exchanges as though it were settled\nvocabulary until the user stopped and said they were missing the context. The word is in neither\nglossary. `/align` was in my context the whole time, and it carries this:\n\n> *When the user uses a term that **conflicts with** the existing language in `docs/glossary.md`,\n> call it out immediately.*\n> *This cuts both ways: before **you propose a name**, check the glossary yourself.*\n\n**Both clauses fire on conflict with something present. Neither can fire on absence.** \"Facet\"\nconflicted with nothing, because it was not there. And nothing was experienced as *proposing a\nname*: the word was lifted off [01-0010.0110](./01-0010.0110-project-facets-injected.md)'s title,\nso it arrived already feeling like vocabulary. The rule guards **coining**; the observed failure\nmode is **inheriting**.\n\nUnder the entry file's *Self-improvement* rule — a rule present that did not fire was phrased\nwrong — this is a phrasing defect and not a placement one alone. The proposed rephrasing, which\nfires on the specimen where the current text does not:\n\n> **A term used as if it were shared vocabulary is either in the glossary or is not vocabulary\n> yet.** Appearing in a ticket, a title or a doc is not being in the glossary. Using one that is\n> not there is a decision, not a wording choice — stop and ask.\n\n**What is deliberately not a defect.** The glossary records themselves, their format, and the\ncollision rule between the method's vocabulary and a project's, which have all held. What failed\nis that no rule fires at the moment a word is used, and no single place owns the ones that exist.\n\n## What to build\n\nThis is the decision-bearing phase. Its `/align` produces the mechanism; `/mechanism` governs the\ndeclaration and `/ticket` decomposes what remains.\n\n- **A glossary mechanism, declared to the shape.** Its instruction file is a `/glossary` skill\n  that does not exist yet: aligning a term and writing it to the glossary file inline is what that\n  skill defines. `GLOSSARY-FORMAT.md` leaves `/align`'s shelf and becomes this mechanism's.\n- **Two records, opposite ownership.** The method's vocabulary in `.agents/glossary.md` travels\n  with core; a project's own in `docs/glossary.md` is the instance's outright. One mechanism holds\n  both, and the ownership rule settled at\n  [01-0010.0110](./01-0010.0110-project-facets-injected.md#ownership-is-one-axis-who-owns-the-content--2026-09-10-the-user)\n  says what redeployment may do to each.\n- **The rule lands at tier 1, in its shortest form**, because the occasion for *use the project's\n  words* is every output rather than every `/align`. Tier 1 is 126 lines and its scarcity is why it\n  works, so the `AGENTS.md` block is the shortest thing this mechanism writes. This is the first\n  injection into `AGENTS.md` by any mechanism; every rules file today targets a `SKILL.md`.\n- **The longer form reaches the point of use by injection**, because per-skill text can carry more\n  than tier-1 compactness allows *(the user, 2026-09-10)* — tier 1 carries the trigger, the\n  injected block carries the procedure.\n- **Six homes collapse to one.** `/align`'s two sections, the format shelf, the two glossaries'\n  preambles, the one-liners in `/implement`, `/tdd`, `/dream`, `/edge`, `/skill-up`, `/recall` and\n  `TICKET-FORMAT`, and the relied-on row in three mechanism docs.\n- **A wording inconsistency is a HITL call** *(the user, 2026-09-10)*, not a repair the agent takes\n  under repair-and-report: choosing the project's word is a decision.\n- **Explicit targets now.** Group targets — inject into every mechanism of a kind — are recorded\n  below as a justified concept and are not built here.\n\n## Open issues\n\n- **Group targets are justified and blocked.** Three materially different shapes want them: this\n  mechanism (vocabulary into everything), a *dev method* mechanism so that changing the method is\n  not a refactor across scattered skills, and `/maintain` wanting a *maintain yourself* line in\n  every recording mechanism *(the user, 2026-09-10)*. That clears the entry file's bar against\n  generalising from one shape. They stay unbuilt because a group cannot resolve while nineteen of\n  twenty-two skills belong to no mechanism —\n  [01-0011.0050](./01-0011.0050-shape-checked.md)'s gate, and a transition state rather than a\n  ceiling.\n- **The eventual group is `recording`, and today it selects everything.** The reason is that a\n  skewed term in a conversation dies with the session and a skewed term in a record is quoted for a\n  year. But all three declared mechanisms are record-bearing, so the class has no discriminating\n  power until the first non-record-bearing declaration — `/impact`, `/discover` and `/advise` are\n  the candidates, each returning material into someone else's record and owning none.\n  *record-bearing* is already used by R1 and is **not a declared field**; promoting it to one is the\n  work. It is judged once, by a person, at declaration, and derived every time after.\n- **Injection completeness when a new target appears.** `inject_rules.py --check` verifies every\n  target a rules file *names*; nothing notices when a new skill appears that an existing rules file\n  should now name *(the user, 2026-09-10)*. With explicit targets that gap is permanent drift.\n  The duty belongs in `mechanism-shape`'s rules file targeting `/maintain`, beside R6, and this\n  ticket does not decide its wording.\n- **Whether the tier-1 line and the injected block are one fact in two homes.** E1 reads a\n  restatement as duplication; the argument here is that they carry different amounts and serve\n  different occasions. [01-0018](./01-0018-reachability-coherent.md) owns the rule and has not\n  settled it; this ticket must not settle it ahead of that one.\n- **`AGENTS.md` has no installer and no declared home**, which\n  [01-0010.0130](./01-0010.0130-harness-installs-into-another-tree.md) already carries. Injecting\n  into it makes that gap this ticket's dependency rather than a neighbour's problem.\n\n## Acceptance criteria — provisional, firmed at the align\n\n- [ ] The glossary mechanism is declared to the shape and `mechanisms.py --check` passes over it.\n- [ ] A `/glossary` skill exists as its one instruction file, and it defines aligning a term and\n      writing it to the glossary inline.\n- [ ] Every glossary rule in the tree is either in that mechanism's rules file or is an installed\n      block written from it; none is a hand-written restatement.\n- [ ] `AGENTS.md` carries the rule as an installed block, and the block is shorter than any other\n      section of the entry file.\n- [ ] The rephrased rule fires on the recorded specimen: a term present in a ticket title and\n      absent from the glossary is stopped.\n- [ ] A wording inconsistency raises a human decision rather than an agent-taken repair.\n- [ ] `GLOSSARY-FORMAT.md` sits with its mechanism and `/align` no longer shelves it.\n- [ ] `/verify` has been run on this ticket against its ticket, RFC, and governing docs.\n\n## Out of scope\n\nGroup targets and any mechanism classification field — recorded above, gated on\n[01-0011.0050](./01-0011.0050-shape-checked.md). Whether a shared fact may be restated at tier 1 —\n[01-0018](./01-0018-reachability-coherent.md). The remaining skill-to-mechanism conversions —\n[01-0017](./01-0017-io-graph-coherent.md). The entry file's installer —\n[01-0010.0130](./01-0010.0130-harness-installs-into-another-tree.md). The facet set itself, which\nis [01-0010.0110](./01-0010.0110-project-facets-injected.md)'s and is the align that produced this\nticket's specimen.\n\n## Parent scope addressed\n\nThe parent's first conversion: one more mechanism in this tree declared to the shape, with the\nrules it scatters brought into a single authored home.\n",
+          "structuredPatch": [
+            {
+              "oldStart": 75,
+              "oldLines": 21,
+              "newStart": 75,
+              "newLines": 19,
+              "lines": [
+                " ",
+                " ## Open issues",
+                " ",
+                "-- **Group targets are justified and blocked.** Three materially different shapes want them: this",
+                "-  mechanism (vocabulary into everything), a *dev method* mechanism so that changing the method is",
+                "-  not a refactor across scattered skills, and `/maintain` wanting a *maintain yourself* line in",
+                "-  every recording mechanism *(the user, 2026-09-10)*. That clears the entry file's bar against",
+                "-  generalising from one shape. They stay unbuilt because a group cannot resolve while nineteen of",
+                "-  twenty-two skills belong to no mechanism —",
+                "-  [01-0011.0050](./01-0011.0050-shape-checked.md)'s gate, and a transition state rather than a",
+                "-  ceiling.",
+                "-- **The eventual group is `recording`, and today it selects everything.** The reason is that a",
+                "-  skewed term in a conversation dies with the session and a skewed term in a record is quoted for a",
+                "-  year. But all three declared mechanisms are record-bearing, so the class has no discriminating",
+                "-  power until the first non-record-bearing declaration — `/impact`, `/discover` and `/advise` are",
+                "-  the candidates, each returning material into someone else's record and owning none.",
+                "-  *record-bearing* is already used by R1 and is **not a declared field**; promoting it to one is the",
+                "-  work. It is judged once, by a person, at declaration, and derived every time after.",
+                "+- ~~**Group targets.**~~ **Moved out 2026-09-10, the user: broader than the glossary and not part",
+                "+  of it right now.** Filed as [concern 2](../concerns.md), with the design gap the user named —",
+                "+  a group name is not an address, so membership must be declared from both ends, the rules file",
+                "+  naming the group and each member declaring what file and anchor the group means *in it*. This",
+                "+  ticket ships on explicit targets and does not wait for it.",
+                "+- **The eventual group is `recording`, and today it selects everything.** Kept here because the",
+                "+  class is this mechanism's reason rather than the group machinery's: a skewed term in a",
+                "+  conversation dies with the session and a skewed term in a record is quoted for a year. All three",
+                "+  declared mechanisms are record-bearing, so the class has no discriminating power until the first",
+                "+  non-record-bearing declaration — `/impact`, `/discover` and `/advise` are the candidates, each",
+                "+  returning material into someone else's record and owning none. *record-bearing* is already used",
+                "+  by R1 and is **not a declared field**; promoting it to one is the work. It is judged once, by a",
+                "+  person, at declaration, and derived every time after.",
+                " - **Injection completeness when a new target appears.** `inject_rules.py --check` verifies every",
+                "   target a rules file *names*; nothing notices when a new skill appears that an existing rules file",
+                "   should now name *(the user, 2026-09-10)*. With explicit targets that gap is permanent drift."
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "9396fd66-b588-4650-95b9-cc51648b20cf",
+        "promptId": "d2816809-f92d-4762-b1f8-4a40921051d8"
+      },
+      "original_record_sha256": "e5661552f9071b74bb1e42f03728ea63fa1a3c544d42077674790f3e0a35b4ea",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "842": {
+      "timestamp": "2026-09-10T07:34:17.818Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "2e21fb21-0c10-4f8d-b9fc-2358595348a4",
+        "parentUuid": "832905ea-dacc-4849-804d-106a6975bf68",
+        "timestamp": "2026-09-10T07:34:17.818Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CeuNXsjbj7HzxZj3sq8G2",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01VCXHMp2WAcPn1WwuiP7LEq",
+              "name": "Bash",
+              "input": {
+                "command": "cd \"D:\\Dev\\AI\\agents\" && for s in mechanisms inject_rules tickets; do uv run --offline --no-project python .agents/scripts/$s.py --check >/dev/null 2>&1; echo \"$s rc=$?\"; done; uv run --offline --no-project python .agents/scripts/straw_dogs.py docs AGENTS.md .agents >/dev/null 2>&1; echo \"straw_dogs rc=$?\"; uv run --offline --no-project python .agents/scripts/straw_dogs.py docs AGENTS.md .agents 2>&1 | grep -c '\"path\":'",
+                "description": "Full check set — expect green"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "18f22f1c226152ecfe8b53d830cc6cf482b5143d781b534e0eeba7f0aab98b92",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "843": {
+      "timestamp": "2026-09-10T07:34:23.613Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "677ba0cf-b29e-4224-bf62-32ba79d92d8e",
+        "parentUuid": "2e21fb21-0c10-4f8d-b9fc-2358595348a4",
+        "timestamp": "2026-09-10T07:34:23.613Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01VCXHMp2WAcPn1WwuiP7LEq",
+              "is_error": false,
+              "content": "mechanisms rc=0\ninject_rules rc=0\ntickets rc=0\nstraw_dogs rc=0\n16"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "mechanisms rc=0\ninject_rules rc=0\ntickets rc=0\nstraw_dogs rc=0\n16",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "2e21fb21-0c10-4f8d-b9fc-2358595348a4",
+        "promptId": "d2816809-f92d-4762-b1f8-4a40921051d8"
+      },
+      "original_record_sha256": "da6c01c5b7ef1639e6fee5054515b5705cdb22b1f2f08301eed90248aff52d22",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "846": {
+      "timestamp": "2026-09-10T07:34:57.359Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "1ed8b995-1f12-40f9-8941-ecee692e4338",
+        "parentUuid": "c5d6e3fe-730e-4d79-9683-c5621140591b",
+        "timestamp": "2026-09-10T07:34:57.359Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CeuNYjgTEuSZfvxkB2qRa",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Green across the board, 16 straw dogs — your block is unwrapped.\n\n**Dispositions recorded**\n\n- **Group injection** moved out of `01-0017.0010` into [concern 2](docs/concerns.md), with your denominator insight as its core: a group name is not an address, so membership is declared from both ends — the rules file names the group, each member declares what file and anchor the group means *in it*. Without that second half a group target cannot resolve to a write, and the installer's \"a refusal changes no file\" guarantee can't hold. The glossary ships on explicit targets and doesn't wait.\n- **Self-amendment** is [concern 3](docs/concerns.md): `/mechanism`'s responsibility today, `/skill-up` its neighbour, separation left open pending strikes rather than argument. Deletion recorded as **deliberately not adopted**, in your words — removing is destructive, and an unaligned deletion rule is a loaded weapon pointed at rules still wanted. Count occurrences, collect evidence, decide later.\n- **Your `AGENTS.md` block is unwrapped.** With the decision deliberately open and no ticket to name, it is a claim by the entry file's own rule — *what has no named successor is a claim, and is not wrapped* — so it now stands as an operative rule rather than as scaffolding. That's what turned the suite green. `docs/rule-failures.md` survives the trip as a path convention, same class as `docs/glossary.md`.\n\n## maintain-yourself: yes, and it's not a new idea\n\n`/maintain`'s **B3** reads:\n\n> *Archive every finished record, whatever scope you declared. **The record's format says what finished means and where it goes.***\n\nB3 delegates its own trigger to the record's format. Two formats supply it — `TICKET-FORMAT` (*what removes an entry: paired close*) and `MECHANISM-FORMAT` (*the mechanism being retired*). Nothing else in the tree does. `/conclude` and `/dream` declare no format at all.\n\n| records | files | lines | declares what finishes it |\n|---|---|---|---|\n| tickets + RFCs | 24 | 4,670 | yes |\n| mechanism directories | 3 | 430 | yes |\n| **sessions** | **14** | **958** | **no** |\n| **dreams** | **2** | **481** | **no** |\n| **research** | **6** | **2,854** | **no** |\n\n**B3 is inert over 4,293 lines.** The single largest file in the repository — the 2026-09-05 audit's `EVIDENCE.md`, 1,903 lines — sits in a research set whose comparison is complete and which no rule can retire. Sessions grow by one per session with no retention rule; that is the population that will be 200 files while the rule that should have archived them cannot fire.\n\nSo the use case is real, and it's sharper than \"maintain yourself\": **the generic maintainer structurally cannot know when someone else's record is finished, and B3 already says so.** The missing half is that a record-bearing mechanism must declare it. That also gives the `record-bearing` field its first real job — a check that enumerates record-bearing mechanisms and fails on one that has not declared what finishes its records.\n\n## The question that follows\n\nFinding the use case also undercuts why it was raised. You floated it as *a line injected into every recording mechanism* — but what I've found isn't a rule that needs distributing to N places. It's a **field every mechanism's format already requires of two of them and not the rest.**\n\n`MECHANISM-FORMAT` is the shelf every mechanism obeys. Adding *\"a record-bearing mechanism declares what finishes its records and where they go\"* there reaches every mechanism that exists and every one that ever will, with no injection, no group, and no denominator problem.\n\nIf that's right, **maintain-yourself stops being a case for group targets** — leaving glossary and dev-method as the two that want them, which still clears the bar, but honestly rather than by inflated count.\n\n**Is this a format requirement in `MECHANISM-FORMAT`, or did you mean something that genuinely needs to be injected per-mechanism** — cadence, say, where each mechanism's *rate* differs and the shelf can only demand the field, not fill it?"
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "ad34c0916abaeb75a1aeb5a3bded053b951a8b5dfb757dea780bce461d106b06",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "850": {
+      "timestamp": "2026-09-10T07:36:22.992Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "c208eff8-3736-4ce2-8514-8e3a61b970dc",
+        "parentUuid": "a02dd046-4091-4873-846b-d039b2535a67",
+        "timestamp": "2026-09-10T07:36:22.992Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "why not keep the self-dev as a ticket with open decision - is there something in our rules that fights such tickets? I believe we should be encouraging it - minting fast ticket for future alignment on it's shape\n\nformat requirement in mechanism format seems right for now, though what is the requirement?"
+        },
+        "promptId": "7a8bb95b-b3bc-4fc1-9703-2e1bf936b45c"
+      },
+      "original_record_sha256": "040028773a6172d924d5b38b239741e2d6371acf9c217f2e0e9db01640ca5316",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "854": {
+      "timestamp": "2026-09-10T07:36:53.250Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "b62e48da-089e-4ec9-bbf6-70b0e19fbd00",
+        "parentUuid": "9eae6c2f-e0f6-4888-a09c-6e13947a213d",
+        "timestamp": "2026-09-10T07:36:53.250Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CeuNhZ8wq9TwqigYmjpMx",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Let me check whether anything actually fights it, rather than assert."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "87cc749701293bd484c5a155a8f224f28fab546a0427f84ce8dc15875dc62dc9",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "855": {
+      "timestamp": "2026-09-10T07:36:53.256Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "3cca4e4b-3a71-4091-85f9-d51958bab6d0",
+        "parentUuid": "b62e48da-089e-4ec9-bbf6-70b0e19fbd00",
+        "timestamp": "2026-09-10T07:36:53.256Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CeuNhZ8wq9TwqigYmjpMx",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01Q4LGZ9mJ7CATmcfAxLALLP",
+              "name": "Bash",
+              "input": {
+                "command": "cd \"D:\\Dev\\AI\\agents\" && sed -n '185,207p' .agents/skills/mechanism/MECHANISM-FORMAT.md; echo \"=== records section header ===\"; grep -n \"^## \\|^### \" .agents/skills/mechanism/MECHANISM-FORMAT.md | tail -8",
+                "description": "Read MECHANISM-FORMAT's record declaration"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "9e1d26f46d7e697485afa808e31f1f62745bc65950256c81db40b827f0800dd7",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "861": {
+      "timestamp": "2026-09-10T07:36:53.748Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "6dd0af5b-6f34-4c99-84eb-cd6e030a1efc",
+        "parentUuid": "3cca4e4b-3a71-4091-85f9-d51958bab6d0",
+        "timestamp": "2026-09-10T07:36:53.748Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01Q4LGZ9mJ7CATmcfAxLALLP",
+              "is_error": false,
+              "content": "- Cells split on unescaped `|`; a literal pipe is `\\|`.\n- A row whose cell count differs from its header is a diagnostic, not a silent\n  misparse.\n- Every path is backticked and repo-relative, **except** a `not yet` referent, which is\n  a markdown link so moving its ticket repairs it.\n- An absence cell's referent is its link, else its **first** code span. So the cell\n  carries exactly one code span, the referent, and names other skills in words — a\n  backticked skill name before the path is read as the referent and reported.\n- Prose, the taxonomy's correctness, and whether a moment should exist are judgment. A\n  script records them and rules on none of them.\n\n## The mechanism set is its own register\n\nNo file holds the register. `.agents/mechanisms/<slug>/` is the enumeration, and the\nindex is rendered from the directories on request.\n\n- **A record** is one mechanism directory; its fields are the header bullets above and\n  its shape is this document.\n- **Tier 2** — read when installing, amending or debugging a mechanism.\n- **What removes an entry**: the mechanism being retired. A directory that outlives its\n  mechanism is drift.\n- **The index is derived and never committed.** A doc edit shows on the next render; a\n  doc that cannot be parsed is reported rather than dropped.\n=== records section header ===\n111:## Not yet at the shape\n113:## What retires this\n115:## What would show it working, graded by someone who did not build it\n126:### Header bullets\n140:## Moments\n157:## The two tables\n183:## Parsing\n196:## The mechanism set is its own register"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "- Cells split on unescaped `|`; a literal pipe is `\\|`.\n- A row whose cell count differs from its header is a diagnostic, not a silent\n  misparse.\n- Every path is backticked and repo-relative, **except** a `not yet` referent, which is\n  a markdown link so moving its ticket repairs it.\n- An absence cell's referent is its link, else its **first** code span. So the cell\n  carries exactly one code span, the referent, and names other skills in words — a\n  backticked skill name before the path is read as the referent and reported.\n- Prose, the taxonomy's correctness, and whether a moment should exist are judgment. A\n  script records them and rules on none of them.\n\n## The mechanism set is its own register\n\nNo file holds the register. `.agents/mechanisms/<slug>/` is the enumeration, and the\nindex is rendered from the directories on request.\n\n- **A record** is one mechanism directory; its fields are the header bullets above and\n  its shape is this document.\n- **Tier 2** — read when installing, amending or debugging a mechanism.\n- **What removes an entry**: the mechanism being retired. A directory that outlives its\n  mechanism is drift.\n- **The index is derived and never committed.** A doc edit shows on the next render; a\n  doc that cannot be parsed is reported rather than dropped.\n=== records section header ===\n111:## Not yet at the shape\n113:## What retires this\n115:## What would show it working, graded by someone who did not build it\n126:### Header bullets\n140:## Moments\n157:## The two tables\n183:## Parsing\n196:## The mechanism set is its own register",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "3cca4e4b-3a71-4091-85f9-d51958bab6d0",
+        "promptId": "7a8bb95b-b3bc-4fc1-9703-2e1bf936b45c"
+      },
+      "original_record_sha256": "2d7597be5efe5a20a216e407474b0db4d0a6f77282b0e1999154bdb98efdee33",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "864": {
+      "timestamp": "2026-09-10T07:37:25.783Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "0db32120-aad2-4438-b17a-9c4d2dab6b7d",
+        "parentUuid": "413f6a65-7458-45b6-9d41-3b4157df1c3e",
+        "timestamp": "2026-09-10T07:37:25.783Z",
+        "sessionId": "f9c29566-e7aa-4e23-afb2-47255d8f6b90",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.260",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CeuNjo8rwxv8jBKA8JgWh",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing fights it — and the rule that should have told me so was loaded at the time.\n\n`TICKET-FORMAT` says plainly: *\"A ticket blocked on unresolved product or architectural decisions **may begin as a decision-bearing HITL ticket**\"*, and an incepted ticket *\"hosts chunks: routed inputs, ideas, open questions, any section.\"* That is the encouragement you're describing, already written down. The only real friction is that a ticket demands a **position** — a pacing claim — where a concern demands nothing.\n\nI reached for the concern because `/align`'s own text says *\"Open questions and risks live in `docs/concerns.md`, this skill's artifact\"* — and I was inside `/align`. Two rules, both in context, pulling opposite ways, and the one belonging to the skill I was running won. That is your new rule's first case, so I'm registering it rather than just fixing it."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "414b984c324b4a7b5ebf1d2e4ef81be9f46d7d7e67fafca267159b15c836b913",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    }
+  }
+}

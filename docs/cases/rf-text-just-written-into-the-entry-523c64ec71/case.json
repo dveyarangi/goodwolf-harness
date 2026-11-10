@@ -1,0 +1,197 @@
+{
+  "id": "rf-text-just-written-into-the-entry-523c64ec71",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "24. Text just written into the entry file was quoted without its 🧩 — 2026-10-09",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "landed-entry-text-unframed"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/296",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/296/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-08T21:53:55.024Z",
+    "chat_id": "eb103bd9-b897-4bb6-a7fc-ac75fdc7c701",
+    "trigger_message_id": null,
+    "trigger_record_id": "259c50a2-6b69-40ae-a848-727839254bd7",
+    "failure_message_id": "msg_011CfqWiequErdHJXfHjUE9T",
+    "failure_record_id": "751e665c-b5a9-4f1d-b203-dd8a178d4606",
+    "transcript": "eb103bd9-b897-4bb6-a7fc-ac75fdc7c701.jsonl"
+  },
+  "observed_failure": {
+    "description": "The implementation report quotes the just-written entry instruction under a bare The rule heading rather than its landed frame.",
+    "events": [
+      {
+        "source": "source.json#/records/296",
+        "message_id": "msg_011CfqWiequErdHJXfHjUE9T",
+        "record_id": "751e665c-b5a9-4f1d-b203-dd8a178d4606",
+        "timestamp": "2026-10-08T21:53:55.024Z",
+        "text": "| 📍 **q-0001.0006** · How does a conversation keep its position when its host resumes it under a new session id? |\n|---|\n\nIt's fixed and committed in `bb16f5f`. After a rollback the conversation now keeps its place in the store, and nobody gets told to run recall again. All 207 tests pass, and I checked the lookup on your real transcripts. What's still unconfirmed is whether it works at the moment a rollback actually happens.\n\n**The hook** ([questions.py](.agents/scripts/gw/questions.py)). When a session starts under an id the store doesn't know, the hook looks at the first message in that session's transcript. It then searches the other registered sessions' transcripts (Claude Code keeps them side by side) for that same message. A rollback copies the old messages into the new transcript and keeps their ids, which is how the old session is found. On a match:\n- the new id takes over the old session's position and the old session is marked ended;\n- instead of the full wake, the hook says the conversation was resumed and no new recall is needed, then shows the current question.\n\nWithout a match it's a normal new session, as before. (💡 *Occam*)\n\n**A bug I found while testing.** On the first run against real data the hook matched the wrong session: this one. My own transcript quoted the uuid I was searching for, in the output of my grep. The hook now only counts a message's own id field, not the id quoted inside text. There's a test for this case. I checked the result on real data: `a9b67b24` → `693642b7`, your rollback today, found in 0.03 s. Fresh sessions find no predecessor in about 0.5 s.\n\n**The rule.** The straw dog in [AGENTS.md](AGENTS.md) now reads:\n\n> Run /recall first in every conversation, whatever the first message says. A conversation the host resumes under a new id is the same conversation: its context holds the recall it ran.\n\nThe entry contract is now v43. This is [rule failure 23](docs/rule-failures.md), and it is closed by this change. The mechanism doc [questions.md](.agents/mechanisms/questions/questions.md) has a paragraph on resuming. (💡 *A rule that was in place and did not fire was usually worded wrong*)\n\n**What's not confirmed:** whether the app has already written the new transcript by the time the session-start hook runs. If it hasn't, the hook won't find the predecessor and will register the session as new, which is how it behaved before the fix. Your next rollback will show which: the first hook output should say `resumes <old id>`. That's why q-0001.0006 stays open, and its lean records this. Codex and Cursor aren't covered: their transcripts are laid out differently.\n\n| 🍂 Drift |\n|---|\n| The row for `693642b7` is still marked running in the store. The fix only acts when a session starts, so it doesn't clean up rows from earlier rollbacks. It's another session's row, so I didn't touch it. |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Text planned to be added or just added must receive the instruction-change frame; the original user explicitly names both cases.",
+    "source_evidence": [
+      "source.json#/records/300",
+      "source.json#/records/19"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Text planned to be added or just added must receive the instruction-change frame; the original user explicitly names both cases.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/300"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The implementation report quotes the just-written entry instruction under a bare The rule heading rather than its landed frame.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/296",
+      "after": "source.json#/records/292",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/81",
+      "source.json#/records/90",
+      "source.json#/records/91",
+      "source.json#/records/94",
+      "source.json#/records/95",
+      "source.json#/records/98",
+      "source.json#/records/99",
+      "source.json#/records/100",
+      "source.json#/records/108",
+      "source.json#/records/109",
+      "source.json#/records/112",
+      "source.json#/records/113",
+      "source.json#/records/114",
+      "source.json#/records/115",
+      "source.json#/records/116",
+      "source.json#/records/121",
+      "source.json#/records/124",
+      "source.json#/records/125",
+      "source.json#/records/126",
+      "source.json#/records/133",
+      "source.json#/records/134",
+      "source.json#/records/138",
+      "source.json#/records/139",
+      "source.json#/records/142",
+      "source.json#/records/143",
+      "source.json#/records/146",
+      "source.json#/records/151",
+      "source.json#/records/155",
+      "source.json#/records/156",
+      "source.json#/records/161",
+      "source.json#/records/162",
+      "source.json#/records/163",
+      "source.json#/records/166",
+      "source.json#/records/167",
+      "source.json#/records/168",
+      "source.json#/records/174",
+      "source.json#/records/175",
+      "source.json#/records/180",
+      "source.json#/records/181",
+      "source.json#/records/185",
+      "source.json#/records/186",
+      "source.json#/records/187",
+      "source.json#/records/188",
+      "source.json#/records/189",
+      "source.json#/records/190",
+      "source.json#/records/191",
+      "source.json#/records/193",
+      "source.json#/records/198",
+      "source.json#/records/199",
+      "source.json#/records/200",
+      "source.json#/records/201",
+      "source.json#/records/202",
+      "source.json#/records/206",
+      "source.json#/records/207",
+      "source.json#/records/208",
+      "source.json#/records/213",
+      "source.json#/records/214",
+      "source.json#/records/215",
+      "source.json#/records/220",
+      "source.json#/records/224",
+      "source.json#/records/225",
+      "source.json#/records/226",
+      "source.json#/records/227",
+      "source.json#/records/232",
+      "source.json#/records/233",
+      "source.json#/records/234",
+      "source.json#/records/235",
+      "source.json#/records/236",
+      "source.json#/records/238",
+      "source.json#/records/243",
+      "source.json#/records/245",
+      "source.json#/records/247",
+      "source.json#/records/251",
+      "source.json#/records/252",
+      "source.json#/records/255",
+      "source.json#/records/256",
+      "source.json#/records/264",
+      "source.json#/records/265",
+      "source.json#/records/267",
+      "source.json#/records/268",
+      "source.json#/records/270",
+      "source.json#/records/272",
+      "source.json#/records/277",
+      "source.json#/records/278",
+      "source.json#/records/279",
+      "source.json#/records/283",
+      "source.json#/records/288",
+      "source.json#/records/291",
+      "source.json#/records/292"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/19"
+      ],
+      "native_context_records": [
+        "source.json#/records/19",
+        "source.json#/records/83"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/296"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

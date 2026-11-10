@@ -1,0 +1,114 @@
+{
+  "id": "rf-four-skills-were-changed-without-64c25b9673",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "50. Four skills were changed without `/skill-up`, which asks nothing about growth — 2026-10-15",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "harness format-pointer amendment"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/586",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.295"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/586/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-14T15:48:33.571Z",
+    "chat_id": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5",
+    "trigger_message_id": null,
+    "trigger_record_id": "69acdec6-c605-48cf-885c-163c6157f668",
+    "failure_message_id": "msg_011Cg2PhiaaMxUVjwFswseVk",
+    "failure_record_id": "43db82ac-4564-4619-8d9d-68a76e7d4bae",
+    "transcript": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5.jsonl"
+  },
+  "observed_failure": {
+    "description": "The harness-format pointer is amended as instruction without the instruction-writing skill.",
+    "events": [
+      {
+        "source": "source.json#/records/586",
+        "message_id": "msg_011Cg2PhiaaMxUVjwFswseVk",
+        "record_id": "43db82ac-4564-4619-8d9d-68a76e7d4bae",
+        "timestamp": "2026-10-14T15:48:33.571Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\skills\\\\harness\\\\SKILL.md\", \"old_string\": \"in the rules-file format the entry file's *Project-local* section describes, from\", \"new_string\": \"in the [rules-file format](../mechanism/MECHANISM-FORMAT.md#the-rules-file), from\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Apply skill-up when changing an instruction, including a small pointer correction.",
+    "source_evidence": [
+      "source.json#/records/241"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Apply skill-up when changing an instruction, including a small pointer correction.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/587"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The harness-format pointer is amended as instruction without the instruction-writing skill.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/586",
+      "after": "source.json#/records/582",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/570",
+      "source.json#/records/574",
+      "source.json#/records/575",
+      "source.json#/records/576",
+      "source.json#/records/577",
+      "source.json#/records/581",
+      "source.json#/records/582"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/241"
+      ],
+      "native_context_records": [
+        "source.json#/records/241",
+        "source.json#/records/572"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/586"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

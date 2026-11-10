@@ -1,0 +1,137 @@
+{
+  "id": "rf-six-turns-of-seven-showed-a-ques-b1c19188b6",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "18. Six turns of seven showed a question the turn did not stand on — 2026-10-05",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "misplaced-turn-279"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/279",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/279/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-04T21:43:31.742Z",
+    "chat_id": "17658ee1-78ee-410c-871e-86e722da27fe",
+    "trigger_message_id": null,
+    "trigger_record_id": "4135c25f-14b1-4ef4-b851-df4b2e4cda0b",
+    "failure_message_id": "msg_011CfhvhtywKR39zcVV41Z9h",
+    "failure_record_id": "0850b5a4-2733-4841-9b7a-5662ff25fec4",
+    "transcript": "17658ee1-78ee-410c-871e-86e722da27fe.jsonl"
+  },
+  "observed_failure": {
+    "description": "The separately prompted original reply displays a stale or merely resembling question. The original source audit distinguishes greeting/maintenance stale display from forcing installer-update turns onto a first-install reporting question.",
+    "events": [
+      {
+        "source": "source.json#/records/279",
+        "message_id": "msg_011CfhvhtywKR39zcVV41Z9h",
+        "record_id": "0850b5a4-2733-4841-9b7a-5662ff25fec4",
+        "timestamp": "2026-10-04T21:43:31.742Z",
+        "text": "| ↳ **q-0018.0010** · What does a first install say when something stops it? |\n|---|\n\nCommitted as two `FIX` commits on `main`, not pushed (`push=ask`):\n\n- `c0829db` — the installer and its tests: a loader link is removed only once its replacement exists.\n- `bcf2724` — the sentence in the harness doc, with this session's question-store positions riding along.\n\nThe working tree is clean and `main` is two commits ahead of `origin/main`.\n\nTwo things remain from the fix:\n- The `harness` output level is due on the maintenance clock and needs a `/maintain` re-check before it can be marked.\n- xuanxue-workshop only gets the fix once this is pushed and it takes another update.\n\nPush?"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Place by containment and distinguish a process from a question. The original user challenges prior placements and the assistant audit classifies six of seven as wrong.",
+    "source_evidence": [
+      "source.json#/records/306",
+      "source.json#/records/314",
+      "source.json#/records/35"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Place by containment and distinguish a process from a question. The original user challenges prior placements and the assistant audit classifies six of seven as wrong.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/281",
+      "source.json#/records/282",
+      "source.json#/records/284",
+      "source.json#/records/285",
+      "source.json#/records/287",
+      "source.json#/records/288",
+      "source.json#/records/289",
+      "source.json#/records/292",
+      "source.json#/records/293",
+      "source.json#/records/295",
+      "source.json#/records/296",
+      "source.json#/records/297",
+      "source.json#/records/298",
+      "source.json#/records/300",
+      "source.json#/records/301",
+      "source.json#/records/304",
+      "source.json#/records/306",
+      "source.json#/records/307",
+      "source.json#/records/309",
+      "source.json#/records/310",
+      "source.json#/records/311",
+      "source.json#/records/312",
+      "source.json#/records/314"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The separately prompted original reply displays a stale or merely resembling question. The original source audit distinguishes greeting/maintenance stale display from forcing installer-update turns onto a first-install reporting question.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/279",
+      "after": "source.json#/records/277",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/268",
+      "source.json#/records/271",
+      "source.json#/records/272",
+      "source.json#/records/273",
+      "source.json#/records/276",
+      "source.json#/records/277"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/35"
+      ],
+      "native_context_records": [
+        "source.json#/records/35",
+        "source.json#/records/269"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/279"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

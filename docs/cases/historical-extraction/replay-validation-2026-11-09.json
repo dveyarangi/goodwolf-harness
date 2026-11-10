@@ -1,0 +1,73 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-09",
+  "reviewer": "fresh independent review agent",
+  "scope": "remaining replay-record conversion after the separately reviewed pilot",
+  "excluded": [
+    "recall-no-next-step-20261026-093907 pilot",
+    "legacy discover-material case and historical run artifacts"
+  ],
+  "verdict": "No remaining structural conversion defect detected in retained public records after two repaired findings; full source sufficiency, per-case check discrimination and behavioural validity are not established.",
+  "counts": {
+    "cases": 211,
+    "hosts": {"Claude Code": 198, "Codex Desktop": 10, "Cursor": 3},
+    "actor_input_references": 6129,
+    "resolved_case_source_pointers": 13075,
+    "unresolved_context_references": 593,
+    "cases_with_source_gaps": 202,
+    "source_gap_entries": 625,
+    "source_gap_kinds": {
+      "native replay context incomplete": 593,
+      "existing source qualification": 9,
+      "native replay context absent": 3,
+      "existing check evidence block": 9,
+      "unpaired native tool call": 5,
+      "unpaired native tool result": 3,
+      "tool pairing identifier absent": 3
+    },
+    "blocked_checks_preserved_in_reports": 9,
+    "executor_unsupported_and_unscored": 211,
+    "unresolved_category_diagnoses_rechecked": {
+      "host_attachment": 523,
+      "api_request_snapshot": 66,
+      "cursor_bubble_object": 2,
+      "recovered_fragment_list": 2
+    }
+  },
+  "structural_checks": [
+    "case-source pointer resolution",
+    "native actor record classification and recorded role consistency",
+    "source-record order and call-before-result order",
+    "selected failure exclusion and pre-failure actor boundaries",
+    "declared missing call/result pairing and identifier gaps",
+    "dated report counts, unsupported status and null behaviour verdict",
+    "exact existing check blocks carried into gap/status reports",
+    "no experiment variant fields in converted cases"
+  ],
+  "remaining_structural_findings": [],
+  "repaired_findings": [
+    {
+      "finding": "Generic gap text overstated absent delivery-role evidence",
+      "example": "rf-a-commit-below-every-dial-was-pu-63aa8532b5/source.json#/records/3724",
+      "evidence": "API snapshot retains payload.message.role=user but only instruction excerpts rather than complete content",
+      "recheck": "All 593 unresolved-context diagnoses now distinguish their retained evidence and missing reconstruction"
+    },
+    {
+      "finding": "Existing duty-source block was absent from conversion source-gap status",
+      "example": "rf-the-straw-dog-rule-sat-at-tier-1-6749bbf867",
+      "recheck": "All 9 check.status blocks are carried exactly into source_gaps and dated reports; September 7 case remains ungraded"
+    }
+  ],
+  "limits": [
+    "Retained-public-record review does not independently establish raw source-byte hashes or complete public-payload fidelity against original transcripts",
+    "Automatic approval review rejected the raw-transcript command because full bytes could include private reasoning outside scope; it was not executed or retried",
+    "No immutable pre-conversion Git baseline was available for these untracked converted files",
+    "Representative semantic review and known blocked cases do not establish per-case context sufficiency or check discrimination for all 211 cases",
+    "No constructed-control calibration, behavioural replay, instruction experiment, current-runner compatibility or successful experiment is established"
+  ],
+  "behaviour_verdict": null,
+  "writes": [
+    "docs/cases/historical-extraction/replay-validation-2026-11-09.md",
+    "docs/cases/historical-extraction/replay-validation-2026-11-09.json"
+  ]
+}

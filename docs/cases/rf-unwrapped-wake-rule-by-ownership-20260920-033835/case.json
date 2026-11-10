@@ -1,0 +1,131 @@
+{
+  "id": "rf-unwrapped-wake-rule-by-ownership-20260920-033835",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "3. The straw-dog rule sat at tier 1 and three straw dogs went unwrapped — 2026-09-14",
+    "occurrence": "repeat",
+    "occurrence_heading": "**Struck, 2026-09-20 — one repeat, and the grade is in.** The amended rule was read at session",
+    "detail": "The edit hand-authors the undeclared wake mechanism rule in the entry file without a provisional ownership wrapper."
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/162",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.275"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/162/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-09-20T03:38:35.232Z",
+    "chat_id": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+    "trigger_message_id": null,
+    "trigger_record_id": "e09e934e-baaf-4ec1-8198-86f6c8e29d97",
+    "failure_message_id": "msg_011CfDzeccU6vLCi3F6csDB1",
+    "failure_record_id": "64af588f-4d10-4641-ac92-4d963907b158",
+    "transcript": "5c608335-777b-4b0e-aeb9-5d686a074db6.jsonl"
+  },
+  "observed_failure": {
+    "description": "The edit hand-authors the undeclared wake mechanism rule in the entry file without a provisional ownership wrapper.",
+    "events": [
+      {
+        "source": "source.json#/records/162",
+        "message_id": "msg_011CfDzeccU6vLCi3F6csDB1",
+        "record_id": "64af588f-4d10-4641-ac92-4d963907b158",
+        "timestamp": "2026-09-20T03:38:35.232Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\AGENTS.md\", \"old_string\": \"Entry contract: v8, 2026-09-09.\\n\\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\", \"new_string\": \"Entry contract: v9, 2026-09-20.\\n\\nOpen your first reply of every session with the `Entry contract:` line above, verbatim, and start\\nevery session by running /recall, whatever the first message says.\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Keep a temporarily hand-authored mechanism-owned wake instruction explicitly provisional under its owning work, even when the instruction wording itself sounds permanent.",
+    "source_evidence": [
+      "source.json#/records/16",
+      "source.json#/records/106",
+      "source.json#/records/158",
+      "source.json#/records/159"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the entry-file edit mark the temporarily hand-authored mechanism-owned wake instruction as provisional under its owning work rather than writing it as an unwrapped permanent rule?",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/170",
+      "source.json#/records/174",
+      "source.json#/records/175",
+      "source.json#/records/179",
+      "source.json#/records/180",
+      "source.json#/records/183",
+      "source.json#/records/185"
+    ],
+    "validation": "Occurrence-specific extraction; independent semantic validation and behavioral execution are not established by this integration repair.",
+    "criterion_scope_qualification": "The source mechanism instructions contain the competing general-rule home and mechanism-ownership guidance described in the register. This case isolates the ownership/wrapping issue, not whether the wake imperative was buried in the announce sentence."
+  },
+  "related_failures": [
+    {
+      "register": "../../rule-failures.md",
+      "heading": "3. The straw-dog rule sat at tier 1 and three straw dogs went unwrapped — 2026-09-14",
+      "occurrence": "repeat",
+      "occurrence_heading": "**Struck, 2026-09-20 — one repeat, and the grade is in.** The amended rule was read at session",
+      "detail": "wake rule has no ownership wrapper"
+    }
+  ],
+  "description": "The edit hand-authors the undeclared wake mechanism rule in the entry file without a provisional ownership wrapper.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/162",
+      "after": "source.json#/records/159",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/106",
+      "source.json#/records/113",
+      "source.json#/records/153",
+      "source.json#/records/157",
+      "source.json#/records/158",
+      "source.json#/records/159"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/16"
+      ],
+      "native_context_records": [
+        "source.json#/records/16"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/162"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

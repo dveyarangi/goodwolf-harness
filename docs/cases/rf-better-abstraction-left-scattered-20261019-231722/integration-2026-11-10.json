@@ -1,0 +1,18 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-better-abstraction-left-scattered-20261019-231722",
+  "scope": "Separate register failure criterion over an existing public source event.",
+  "source_event_shared_with": "rf-a-decision-abandoned-twelve-days-a91cd343e0",
+  "source_provenance_unchanged": true,
+  "original_source_case_sha256": "824401413568fc94fa9c17f807a27e146ba13816cd053410dddbbe0ae1619355",
+  "criterion": "Does the response consider realigning the existing expressions through the proposed unifying abstraction rather than dismissing that work solely because those expressions already exist?",
+  "criterion_scope_qualification": "The later user correction grounds the intended behavior. This case does not retroactively claim that the later Occam amendment was already installed at the checkpoint.",
+  "historical_validation_reports_copied": false,
+  "source_gaps_preserved": [],
+  "executor_support": {
+    "status": "unsupported",
+    "behavior_verdict": null
+  },
+  "independent_semantic_validation_claimed": false
+}

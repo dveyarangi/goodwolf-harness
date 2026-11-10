@@ -1,0 +1,2046 @@
+{
+  "transcript": "240b67b1-520a-42cb-a9b9-95e9488cc951.jsonl",
+  "chat_id": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+  "transcript_bytes": 4407334,
+  "transcript_sha256": "dcdbad201fb315dfc3575f3af2e20bba17bc2a58f45b331a61ebda1957050416",
+  "record_numbering": "one-based JSONL records in the original transcript",
+  "delivery_context": null,
+  "records": {
+    "27": {
+      "timestamp": "2026-09-20T10:17:21.309Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "d734d2ff-c8eb-484b-8f6c-7c1bd6f7ba45",
+        "parentUuid": "f5bd742c-5ea9-4d20-b556-fa6e47e4472d",
+        "timestamp": "2026-09-20T10:17:21.309Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "instructions",
+          "files": [
+            {
+              "path": "D:\\Dev\\AI\\agents\\CLAUDE.md",
+              "type": "Project",
+              "content": "@AGENTS.md"
+            },
+            {
+              "path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+              "type": "Project",
+              "content": "# Entry contract\n\nEntry contract: v9, 2026-09-20.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<straw-dog until=\"01-0020 is done\" ticket=\"docs/tickets/01-0020-pacer.md\">\nRun /recall first in every session, whatever the first message says.\n</straw-dog>\n\n<project-local>\nThis repository develops the shared dev harness using its own loop. Terms: docs/glossary.md, this\nproject's own; the method's are .agents/glossary.md's.\nWhat each version of this contract changed: docs/research/entry-contract-findings.md.\n</project-local>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\n<project-local>\nThis repository's own architecture and progress live in docs/ like any other project's — the\ninstance half doing its job, not a leak.\n</project-local>\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. A core file\nmay name a path under `docs/` only when that path is a record a mechanism declares — the directory\nthat holds a kind of record, or a file that is one — never a particular record inside such a\ndirectory: `docs/tickets/` and `docs/glossary.md` are places, `docs/tickets/01-0020-pacer.md` is a\ndocument only this project has. Content inside a\n[`<project-local>`](#project-local) block is the instance's, not core's. A `<straw-dog>` exempts\nnothing: its wrapper is stripped on install and whatever it wrapped ships.\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog until=\"01-0012 is done\" ticket=\"docs/tickets/01-0012-hierarchy-coherent.md\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n- /dream is an experimental second \"lobe\" of the harness, aiming to reassess load-bearingness. It is optional, runs after /conclude, and writes dreams that /maintain and /align may pick up; it never amends rules.\n\n## Self-improvement\n\n<straw-dog until=\"01-0019 is done\" ticket=\"docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md\">\n- The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)\n- Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.\n</straw-dog>\n\n## Autonomy\n\nThe project sets each switch in its local block below; skills defer to those values.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n## Project-local\n\nA recipient replaces every `<project-local>` block with its own → [glossary](.agents/glossary.md).\n\n- Carry one only for a fact that would differ in another project. Harness layout and the switch\n  lookup are shared.\n- One block per local fact, beside the rule it answers.\n- An unavoidable core reference into `docs/` goes in one, so it does not travel.\n\n## Straw dogs\n\nWrap anything a live ticket will change, as you write it:\n`<straw-dog until=\"condition\" ticket=\"path\">`, or in code a `TODO` naming the ticket. Treat *not\nyet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find\nthe ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.\nMake the condition testable and the ticket path repository-relative. Leave what no ticket would\nchange unwrapped.\n\nFollow a straw dog like any other rule until its condition is visibly met; then act on reality,\nreport the stale block, and do not treat the contradiction as a violation.\n\n<project-local>\ncommit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n</project-local>"
+            },
+            {
+              "path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\memory\\MEMORY.md",
+              "type": "AutoMem",
+              "content": "# Memory\n\n- [Edit with edit tools, not scripts](edit-with-edit-tools-not-scripts.md) — a script's diff is invisible in the transcript; the user reads changes as they happen.\n- [Write for a capable model](write-for-a-capable-model.md) — I pad rules with the definition, the example and the implication; all three get cut.\n- [Problem before machinery](problem-before-machinery.md) — open an align with the concrete failures and the user's own prior words; a coined term or a design question first loses them.\n- [Fix the cause, not just the register](fix-the-cause-not-just-the-register.md) — a rule failure entry ending in \"not landed\" ends the turn short; find the decisive fact and land the amendment in the same pass."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "f296585b48a003abbf2c46ce251d1efb62b5587bb9326c2bd8f7d6bebd343703",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "612": {
+      "timestamp": "2026-09-20T11:49:27.384Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "05a7dd9a-98a7-4141-a214-1b8006142f63",
+        "parentUuid": "e8082a7d-f002-4214-a5a8-a6916be48a25",
+        "timestamp": "2026-09-20T11:49:27.384Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "instructions",
+          "files": [
+            {
+              "path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+              "type": "Project",
+              "content": "# Entry contract\n\nEntry contract: v10, 2026-09-20.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<straw-dog until=\"01-0020 is done\" ticket=\"docs/tickets/01-0020-pacer.md\">\nRun /recall first in every session, whatever the first message says.\n</straw-dog>\n\n<project-local>\nThis repository develops the shared dev harness using its own loop. Terms: docs/glossary.md, this\nproject's own; the method's are .agents/glossary.md's.\nWhat each version of this contract changed: docs/research/entry-contract-findings.md.\n</project-local>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\n<project-local>\nThis repository's own architecture and progress live in docs/ like any other project's — the\ninstance half doing its job, not a leak.\n</project-local>\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. A core file\nmay name a path under `docs/` only when that path is a record a mechanism declares — the directory\nthat holds a kind of record, or a file that is one — never a particular record inside such a\ndirectory: `docs/tickets/` and `docs/glossary.md` are painted doors, `docs/tickets/01-0020-pacer.md` is a\ndocument only this project has. Content inside a\n[`<project-local>`](#project-local) block is the instance's, not core's. A `<straw-dog>` exempts\nnothing: its wrapper is stripped on install and whatever it wrapped ships.\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog until=\"01-0012 is done\" ticket=\"docs/tickets/01-0012-hierarchy-coherent.md\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n- /dream is an experimental second \"lobe\" of the harness, aiming to reassess load-bearingness. It is optional, runs after /conclude, and writes dreams that /maintain and /align may pick up; it never amends rules.\n\n## Self-improvement\n\n<straw-dog until=\"01-0019 is done\" ticket=\"docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md\">\n- The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)\n- Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.\n</straw-dog>\n\n## Autonomy\n\nThe project sets each switch in its local block below; skills defer to those values.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n## Project-local\n\nA recipient replaces every `<project-local>` block with its own → [glossary](.agents/glossary.md).\n\n- Carry one only for a fact that would differ in another project. Harness layout and the switch\n  lookup are shared.\n- One block per local fact, beside the rule it answers.\n- An unavoidable core reference into `docs/` goes in one, so it does not travel.\n\n## Straw dogs\n\nWrap anything a live ticket will change, as you write it — or, for text already written, in the\npass that mints the ticket or decides that it will change it:\n`<straw-dog until=\"condition\" ticket=\"path\">`, or in code a `TODO` naming the ticket. Treat *not\nyet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find\nthe ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.\nMake the condition testable and the ticket path repository-relative. Leave what no ticket would\nchange unwrapped.\n\nFollow a straw dog like any other rule until its condition is visibly met; then act on reality,\nreport the stale block, and do not treat the contradiction as a violation.\n\n<project-local>\ncommit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n</project-local>"
+            }
+          ],
+          "changed": true,
+          "reason": "session_start"
+        }
+      },
+      "original_record_sha256": "0861072593f21b1fe362aee1796598434640ab4c2d5df206b4dd837dddbb6369",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "964": {
+      "timestamp": "2026-09-20T12:07:53.064Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "9698cc05-3d5f-497b-a7c7-875cdaaa6389",
+        "parentUuid": "fcedde99-44a4-40fa-bdea-1f35ad1f48e4",
+        "timestamp": "2026-09-20T12:07:53.064Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "* The verification set is a straw dog. it should be either project-local or come from method corpus or injected in some way. please review the existing tickets and assign to one existing, unless we do not have it.\n* why mover failur and straw dog contract in maintain point to fleeting docs still? those are not project-local instructions, no? what can we do about it? please discuss\n* \"; a ticket's own file is a document only this project has.\" - what is that about?\n* Two graders, two questions, pre-registered at\n<straw-dog until=\"01-0010.0140 is done\" ticket=\"docs/tickets/01-0010.0140-core-stands-alone.md\">[01-0011.0022](../../../docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md)</straw-dog>'s align.\nTwo graders, two questions, pre-registered at 01-0011.0022's align.\n\nkeeing ticket link in straw dog attr is a valid thing, we already decided on it. it is more proper way than adding ticket id into non-straw-dog text, we alrady decided this. why did not this rule register?\n\n* same for all other places you removed the straw dog"
+        },
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "12ce65b0d55d92a2bcb2d037f55579cc755f2753135204ca7b24eaef0b9b5398",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "967": {
+      "timestamp": "2026-09-20T12:09:08.994Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "b27f8fe9-6849-4d06-9890-3bdd27533127",
+        "parentUuid": "e39dd2e4-ddf5-4ce2-b299-29829976c071",
+        "timestamp": "2026-09-20T12:09:08.994Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEfVPS1GYdYw6uVHwR4K",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Four real points. Let me check three facts before acting: whether any ticket already owns relocating the architecture doc's script contracts, whether .0110 names the verification set among the local facts, and what the lister requires of a binding into `done/`."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "5b2509987ca7268ecf5ba413a4d43d8ea34ed088a4e8301d843126d8edd1c7c9",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "968": {
+      "timestamp": "2026-09-20T12:09:12.066Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "10013e04-23fa-40a0-99e5-c2816a5fb398",
+        "parentUuid": "b27f8fe9-6849-4d06-9890-3bdd27533127",
+        "timestamp": "2026-09-20T12:09:12.066Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEfVPS1GYdYw6uVHwR4K",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01WnHTSx8VJgUeYhF4RvaLrH",
+              "name": "Bash",
+              "input": {
+                "command": "echo \"--- who owns the script contracts\"; grep -rn -i \"script contract\\|architecture.md.s script\\|contract sections\" docs/tickets/*.md docs/spec/*.md docs/concerns.md | cut -c1-160; echo \"--- .0110 on the verification set\"; grep -n -i \"verification\" docs/tickets/01-0010.0110-project-facets-injected.md | cut -c1-160; echo \"--- lister on bindings\"; sed -n '/^def _attribute_problems/,/^def _records_in/p' .agents/scripts/straw_dogs.py",
+                "description": "Find the owner of the architecture doc's script contracts, .0110's view of the verification set, and the lister's binding rule"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "5e31f67f341b8f1a588005d19c4f2364320c94a574c2af7d56d663914228d055",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "969": {
+      "timestamp": "2026-09-20T12:09:15.033Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "ce0763f1-e38b-47af-9963-dcf1482c67e0",
+        "parentUuid": "10013e04-23fa-40a0-99e5-c2816a5fb398",
+        "timestamp": "2026-09-20T12:09:15.033Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01WnHTSx8VJgUeYhF4RvaLrH",
+              "is_error": false,
+              "content": "--- who owns the script contracts\ndocs/tickets/01-0017-io-graph-coherent.md:218:Relocating `docs/architecture.md`'s script contracts, which moves for a different reason.\n--- .0110 on the verification set\n53:  mechanism docs' `evidence` bullets, and `/maintain`'s verification-set block. The eighth —\n86:- [ ] The project's verification set is green with the blocks converted.\n--- lister on bindings\ndef _attribute_problems(root: Path, statements: list[StrawDog]) -> list[Diagnostic]:\n    \"\"\"An expiry nobody owns, or one nobody can test, is a finding — never a silent pass.\"\"\"\n    problems = []\n    for statement in statements:\n        if statement.until is None:\n            problems.append(Diagnostic(statement.path, statement.opens, \"no condition\"))\n        if statement.ticket is None:\n            problems.append(Diagnostic(statement.path, statement.opens, \"unbound\"))\n        elif not (root / statement.ticket).is_file():\n            problems.append(Diagnostic(statement.path, statement.opens, \"unknown owner\"))\n    return problems\n\n\ndef _records_in(root: Path, paths: list[str]) -> list[str]:"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "--- who owns the script contracts\ndocs/tickets/01-0017-io-graph-coherent.md:218:Relocating `docs/architecture.md`'s script contracts, which moves for a different reason.\n--- .0110 on the verification set\n53:  mechanism docs' `evidence` bullets, and `/maintain`'s verification-set block. The eighth —\n86:- [ ] The project's verification set is green with the blocks converted.\n--- lister on bindings\ndef _attribute_problems(root: Path, statements: list[StrawDog]) -> list[Diagnostic]:\n    \"\"\"An expiry nobody owns, or one nobody can test, is a finding — never a silent pass.\"\"\"\n    problems = []\n    for statement in statements:\n        if statement.until is None:\n            problems.append(Diagnostic(statement.path, statement.opens, \"no condition\"))\n        if statement.ticket is None:\n            problems.append(Diagnostic(statement.path, statement.opens, \"unbound\"))\n        elif not (root / statement.ticket).is_file():\n            problems.append(Diagnostic(statement.path, statement.opens, \"unknown owner\"))\n    return problems\n\n\ndef _records_in(root: Path, paths: list[str]) -> list[str]:",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "10013e04-23fa-40a0-99e5-c2816a5fb398",
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "e454d4803f8ad3a5fa951c4d45cbee9d1ada81831f6938306b5298ebe66ac47c",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "974": {
+      "timestamp": "2026-09-20T12:09:52.239Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "80deeb1e-d020-4789-9b59-da394fa8aa6a",
+        "parentUuid": "5dbf8f74-ba48-496a-b4ea-e7a812910816",
+        "timestamp": "2026-09-20T12:09:52.239Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEfbRPVaKM5on8Podkog",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_011mxALWWVLJVpMaNSWboPrr",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\.agents\\mechanisms\\maintain\\maintain.md",
+                "old_string": "Two graders, two questions, pre-registered at 01-0011.0022's align.",
+                "new_string": "Two graders, two questions, pre-registered at\n<straw-dog until=\"R3 moves this story to the evidence\" ticket=\"docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md\">01-0011.0022</straw-dog>'s align."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "dd198425575d95ec1286c220b17de0b511aabb6e5c0e8e4371b450c1383f0dbd",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "975": {
+      "timestamp": "2026-09-20T12:09:52.451Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "1c481780-a189-45b9-aaaf-6e0628146866",
+        "parentUuid": "80deeb1e-d020-4789-9b59-da394fa8aa6a",
+        "timestamp": "2026-09-20T12:09:52.451Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_011mxALWWVLJVpMaNSWboPrr",
+              "content": "The file D:\\Dev\\AI\\agents\\.agents\\mechanisms\\maintain\\maintain.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\.agents\\mechanisms\\maintain\\maintain.md",
+          "oldString": "Two graders, two questions, pre-registered at 01-0011.0022's align.",
+          "newString": "Two graders, two questions, pre-registered at\n<straw-dog until=\"R3 moves this story to the evidence\" ticket=\"docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md\">01-0011.0022</straw-dog>'s align.",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 158,
+              "oldLines": 7,
+              "newStart": 158,
+              "newLines": 8,
+              "lines": [
+                " ",
+                " ## What would show it working, graded by someone who did not build it",
+                " ",
+                "-Two graders, two questions, pre-registered at 01-0011.0022's align.",
+                "+Two graders, two questions, pre-registered at",
+                "+<straw-dog until=\"R3 moves this story to the evidence\" ticket=\"docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md\">01-0011.0022</straw-dog>'s align.",
+                " ",
+                " **The user** grades the shape amendments this declaration forced — installed text replacing",
+                " injected pointers, a sentence about another mechanism being that mechanism's, and the record"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "80deeb1e-d020-4789-9b59-da394fa8aa6a",
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "2887d175e5403d013c16b8a71a1a4b1ecac43f204e6b3c46581678aabeb74513",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "979": {
+      "timestamp": "2026-09-20T12:09:59.195Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "a3f63487-14fa-4d24-91b7-4adb861d8210",
+        "parentUuid": "86b75079-a361-4aa1-ac00-bb4aac4f427b",
+        "timestamp": "2026-09-20T12:09:59.195Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEfeBpGDJbAU5SgSRYdR",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_017F4GSbwf2He5kqtkRvTHx5",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\.agents\\mechanisms\\maintain\\maintain.md",
+                "old_string": "**The session that declares the ticket mechanism**, at 01-0011.0025, grades this",
+                "new_string": "**The session that declares the ticket mechanism**, at\n<straw-dog until=\"R3 moves this story to the evidence\" ticket=\"docs/tickets/done/01-0011.0025-archive-duty-reaches-maintain.md\">01-0011.0025</straw-dog>, grades this"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "8337ed2c72e643d7c6a6dab73869c83a905201f2e6984b5b2cbc4dc2458da93d",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "980": {
+      "timestamp": "2026-09-20T12:09:59.413Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "6020526e-d92b-4c9e-95f6-31d2082251b8",
+        "parentUuid": "a3f63487-14fa-4d24-91b7-4adb861d8210",
+        "timestamp": "2026-09-20T12:09:59.413Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_017F4GSbwf2He5kqtkRvTHx5",
+              "content": "The file D:\\Dev\\AI\\agents\\.agents\\mechanisms\\maintain\\maintain.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\.agents\\mechanisms\\maintain\\maintain.md",
+          "oldString": "**The session that declares the ticket mechanism**, at 01-0011.0025, grades this",
+          "newString": "**The session that declares the ticket mechanism**, at\n<straw-dog until=\"R3 moves this story to the evidence\" ticket=\"docs/tickets/done/01-0011.0025-archive-duty-reaches-maintain.md\">01-0011.0025</straw-dog>, grades this",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 167,
+              "oldLines": 7,
+              "newStart": 167,
+              "newLines": 8,
+              "lines": [
+                " `/maintain` did not fit it, or was this declaration bent to fit the shape? A declaration",
+                " hand-fixed until the check went quiet reads identically to success.",
+                " ",
+                "-**The session that declares the ticket mechanism**, at 01-0011.0025, grades this",
+                "+**The session that declares the ticket mechanism**, at",
+                "+<straw-dog until=\"R3 moves this story to the evidence\" ticket=\"docs/tickets/done/01-0011.0025-archive-duty-reaches-maintain.md\">01-0011.0025</straw-dog>, grades this",
+                " declaration as the first to lean on it: it takes the mover and the citation reader as its own,",
+                " installs the paired-close block into the body, and retires the two `embedded` rows. Did those",
+                " land against this doc as written, or did the doc have to be rewritten to receive them? **Graded"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "a3f63487-14fa-4d24-91b7-4adb861d8210",
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "e9592a12d0bef04caa70085ede4bdd468ba88ceda227a42c19c1a8c3825f3ccf",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "983": {
+      "timestamp": "2026-09-20T12:10:03.065Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "56f282f2-0643-40f5-b393-fe3a2cd0539f",
+        "parentUuid": "2d6e9f45-9850-4ec6-a824-5d672d4f3607",
+        "timestamp": "2026-09-20T12:10:03.065Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEfegipXnqPttK2HfNYh",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01NzPMpRakfb2eWAVbse7rvU",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\.agents\\mechanisms\\mechanism-shape\\mechanism-shape.md",
+                "old_string": "first real application is 01-0011.0050, whose",
+                "new_string": "first real application is <straw-dog until=\"R3 moves this story to the evidence\" ticket=\"docs/tickets/done/01-0011.0050-shape-checked.md\">01-0011.0050</straw-dog>, whose"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "1ba987767d4785939a748fe1de6befda021d6f0a6b3cf9180ee4e38a3ba3a683",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "984": {
+      "timestamp": "2026-09-20T12:10:03.163Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "6ece68de-0f27-41fe-a973-d5d75787dbf0",
+        "parentUuid": "56f282f2-0643-40f5-b393-fe3a2cd0539f",
+        "timestamp": "2026-09-20T12:10:03.163Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01NzPMpRakfb2eWAVbse7rvU",
+              "content": "The file D:\\Dev\\AI\\agents\\.agents\\mechanisms\\mechanism-shape\\mechanism-shape.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\.agents\\mechanisms\\mechanism-shape\\mechanism-shape.md",
+          "oldString": "first real application is 01-0011.0050, whose",
+          "newString": "first real application is <straw-dog until=\"R3 moves this story to the evidence\" ticket=\"docs/tickets/done/01-0011.0050-shape-checked.md\">01-0011.0050</straw-dog>, whose",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 149,
+              "oldLines": 7,
+              "newStart": 149,
+              "newLines": 7,
+              "lines": [
+                " **Run it over what already exists has no bite here, and this is not a zero.** That rule exists so",
+                " a check landing today cannot claim a clean history it never looked at. This is the first",
+                " mechanism, so there is no prior corpus to sweep — not a corpus swept and found clean. The rule's",
+                "-first real application is 01-0011.0050, whose",
+                "+first real application is <straw-dog until=\"R3 moves this story to the evidence\" ticket=\"docs/tickets/done/01-0011.0050-shape-checked.md\">01-0011.0050</straw-dog>, whose",
+                " sweep meets every skill installed before the shape existed.",
+                " ",
+                " **Three declared mechanisms are still thin evidence for a shape.** The second application, at"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "56f282f2-0643-40f5-b393-fe3a2cd0539f",
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "8e7372ed0000297ac3d439ba152a8667812eb3eb9c3f336a0a91259750b8ffac",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "988": {
+      "timestamp": "2026-09-20T12:10:07.501Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "18cbbd97-558c-4e2d-b585-3171a53ab503",
+        "parentUuid": "1667dbd4-f233-4caa-9698-9f55dcc84e65",
+        "timestamp": "2026-09-20T12:10:07.501Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEfexbJKM9oP9dXhCMjL",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01EJ49g6ev7mSF9rKpHgckfT",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\.agents\\mechanisms\\mechanism-shape\\mechanism-shape.md",
+                "old_string": "The next mechanism declared — `/maintain`, at 01-0011.0022 — either passes",
+                "new_string": "The next mechanism declared — `/maintain`, at\n<straw-dog until=\"R3 moves this story to the evidence\" ticket=\"docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md\">01-0011.0022</straw-dog> — either passes"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "689ea887a98e84c7455dbaac2ba603e1ab7346531dbe7fcf6a009c08894abb20",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "989": {
+      "timestamp": "2026-09-20T12:10:07.691Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "9f718553-c421-488d-b193-12329a9df04c",
+        "parentUuid": "18cbbd97-558c-4e2d-b585-3171a53ab503",
+        "timestamp": "2026-09-20T12:10:07.691Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01EJ49g6ev7mSF9rKpHgckfT",
+              "content": "The file D:\\Dev\\AI\\agents\\.agents\\mechanisms\\mechanism-shape\\mechanism-shape.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\.agents\\mechanisms\\mechanism-shape\\mechanism-shape.md",
+          "oldString": "The next mechanism declared — `/maintain`, at 01-0011.0022 — either passes",
+          "newString": "The next mechanism declared — `/maintain`, at\n<straw-dog until=\"R3 moves this story to the evidence\" ticket=\"docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md\">01-0011.0022</straw-dog> — either passes",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 168,
+              "oldLines": 7,
+              "newStart": 168,
+              "newLines": 8,
+              "lines": [
+                " ",
+                " ## What would show it working, graded by someone who did not build it",
+                " ",
+                "-The next mechanism declared — `/maintain`, at 01-0011.0022 — either passes",
+                "+The next mechanism declared — `/maintain`, at",
+                "+<straw-dog until=\"R3 moves this story to the evidence\" ticket=\"docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md\">01-0011.0022</straw-dog> — either passes",
+                " this check unedited, or the check has to change to admit it. Which of those happens is the shape's",
+                " first real test, and the session that runs it is not this one.",
+                " "
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "18cbbd97-558c-4e2d-b585-3171a53ab503",
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "83aed0825ca8ee67ae059e60a523ce3761520925452a5b804a652770e6d0ea80",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "992": {
+      "timestamp": "2026-09-20T12:10:11.259Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "c028cb05-02e7-40b6-8af3-394798fb971f",
+        "parentUuid": "79c5bf19-f5ef-40d0-97ee-495152d0696c",
+        "timestamp": "2026-09-20T12:10:11.259Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEffJBGpPNi9D9yuR6Tg",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01PEpkAtgJPS8vyFVdiC4xFp",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\.agents\\mechanisms\\ticket\\ticket.md",
+                "old_string": "Two graders, two questions, pre-registered at 01-0011.0025's align and `/plan`.",
+                "new_string": "Two graders, two questions, pre-registered at\n<straw-dog until=\"R3 moves this story to the evidence\" ticket=\"docs/tickets/done/01-0011.0025-archive-duty-reaches-maintain.md\">01-0011.0025</straw-dog>'s align and\n`/plan`."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "08cb52720e7b90aa66889d8f7587211968a234686f043e168bf2def1638225ac",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "993": {
+      "timestamp": "2026-09-20T12:10:11.361Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "92c245ce-2827-40a4-b605-d972e5f41b01",
+        "parentUuid": "c028cb05-02e7-40b6-8af3-394798fb971f",
+        "timestamp": "2026-09-20T12:10:11.361Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01PEpkAtgJPS8vyFVdiC4xFp",
+              "content": "The file D:\\Dev\\AI\\agents\\.agents\\mechanisms\\ticket\\ticket.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\.agents\\mechanisms\\ticket\\ticket.md",
+          "oldString": "Two graders, two questions, pre-registered at 01-0011.0025's align and `/plan`.",
+          "newString": "Two graders, two questions, pre-registered at\n<straw-dog until=\"R3 moves this story to the evidence\" ticket=\"docs/tickets/done/01-0011.0025-archive-duty-reaches-maintain.md\">01-0011.0025</straw-dog>'s align and\n`/plan`.",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 149,
+              "oldLines": 7,
+              "newStart": 149,
+              "newLines": 9,
+              "lines": [
+                " ",
+                " ## What would show it working, graded by someone who did not build it",
+                " ",
+                "-Two graders, two questions, pre-registered at 01-0011.0025's align and `/plan`.",
+                "+Two graders, two questions, pre-registered at",
+                "+<straw-dog until=\"R3 moves this story to the evidence\" ticket=\"docs/tickets/done/01-0011.0025-archive-duty-reaches-maintain.md\">01-0011.0025</straw-dog>'s align and",
+                "+`/plan`.",
+                " ",
+                " **The session that declares `/plan`**, under <straw-dog until=\"01-0017 is done\" ticket=\"docs/tickets/01-0017-io-graph-coherent.md\">01-0017</straw-dog>,",
+                " grades the pairing rule and the `Plan` bullet: did they hold against `/plan`'s own record shape,"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "c028cb05-02e7-40b6-8af3-394798fb971f",
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "bb36326b91aaf6937a7147407c79dd8778cc3184aace3c8baa27b20f4768c301",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "997": {
+      "timestamp": "2026-09-20T12:10:14.222Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "7fec4920-bcf0-46f7-93a8-dc89a444f80a",
+        "parentUuid": "5093f5cf-7716-48b6-af01-ba87542d7893",
+        "timestamp": "2026-09-20T12:10:14.222Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEffa21toMEUX2hkwLhe",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Restoring the last wrapper, then the entry file, `/verify`, the .0110 note, the register and the RFC, all independent."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "88645ff2f197294f72bfa80eeca38ec1b873529c0c4e5751e381d9a7bf9063aa",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "998": {
+      "timestamp": "2026-09-20T12:10:16.010Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "9cc20432-f68e-4555-b52f-a3eedb2c4181",
+        "parentUuid": "7fec4920-bcf0-46f7-93a8-dc89a444f80a",
+        "timestamp": "2026-09-20T12:10:16.010Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEffa21toMEUX2hkwLhe",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01W1bTCzyTQQbYGqrokVpQN1",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\.agents\\skills\\discover\\EVIDENCE.md",
+                "old_string": "Install /discover, 01-0010.0090, decided this",
+                "new_string": "<straw-dog until=\"the discover mechanism is declared and this file is sorted into doc and evidence\" ticket=\"docs/tickets/done/01-0010.0090-install-discover.md\">Install /discover, 01-0010.0090,</straw-dog> decided this"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "cf683d018a6606a5d67c16c61fe458bd54ef14dd4405f8b55f85929ce792db15",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "999": {
+      "timestamp": "2026-09-20T12:10:16.086Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "ea86f986-1b1a-47ef-9793-71a123641a8a",
+        "parentUuid": "9cc20432-f68e-4555-b52f-a3eedb2c4181",
+        "timestamp": "2026-09-20T12:10:16.086Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01W1bTCzyTQQbYGqrokVpQN1",
+              "content": "The file D:\\Dev\\AI\\agents\\.agents\\skills\\discover\\EVIDENCE.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\.agents\\skills\\discover\\EVIDENCE.md",
+          "oldString": "Install /discover, 01-0010.0090, decided this",
+          "newString": "<straw-dog until=\"the discover mechanism is declared and this file is sorted into doc and evidence\" ticket=\"docs/tickets/done/01-0010.0090-install-discover.md\">Install /discover, 01-0010.0090,</straw-dog> decided this",
+          "originalFile": "# discover — evidence\n\nInstall /discover, 01-0010.0090, decided this\nskill's standing in this repository, and that it files no artifact. What follows is the mechanism's\nhistory, most of it from the estate it was built in.\n\nStory for the skill beside this file. Only what would change **this** skill and no other;\nanything wider is a lesson and keeps the home it has.\n\n## Why the pass is handed to a process with no local context\n\n**Not for independence** — delegation cannot buy that, and the source estate's own core notes say\nso: the\nprompt, the framing and the use of the answer are all the spawning session's. What it buys is\nescape from **capture by local vocabulary and priors** (the operator, 2026-09-05). The agent\nholds a great deal of knowledge and fails to reach it inline, because it reaches while holding\nthe frame that produced the thing and retrieves what confirms the shape it already has.\n\n**The specimen that produced the skill.** On 2026-09-05 a guard was deleted and four of its\neight suite cases still passed. The session concluded those four *describe a state rather than\na rule* — a property of the tests — and published a general claim about the whole tree from\nthat one component. The property belonged to a **relation**: one spawn helper caught the\nresulting crash and normalised it into *no objection raised*, while every other component's\nhelper let it propagate. Identical assertions, opposite behaviour, and the difference lived in\nneither the tests nor the component.\n\nA blind sweep over all eight guards, run after a sibling agent's *a numerator I helped aim is not\na numerator* (source estate, #3947), refuted the class claim: of 40 cases, **3 named the rule, 33 threw a\nmodule-load error, 4 passed** — and all four passes were in the one guard that had been\nchosen for testing. Published there as #3971.\n\n## Why the tasking matters more than the rest\n\n**Run 2 of the trial was contaminated by its own author and said so.** The tasking withheld the\nword *reification* and described the error in plain terms — believing the frame stripped. The\npass replied that the description was Madhyamaka terms of art in translation, so naming that\nfamily was recognition of the frame's own source rather than retrieval.\n\nThat is why the skill spends its care on the tasking: **the capture that matters is the\nframing, not the file vocabulary, and a clean process does not fix it.**\n\n## Where the sorting rules came from\n\n**Recency for evidence, longevity for principles** is the operator's, 2026-09-05, on being\nhanded a 2014 surgical-checklist study as the thing blocking a decision about an amnesiac\nsoftware agent. Corrected twice the same day: first that age alone is not standing, then that\n*longevity* already carries both and the first wording had merely read it thin.\n\n**Several doors** is `paryāya`, which Xuanzang renders 異門 *yìmén* — another door. A full\nalternative approach, not a partial view; the reading that a harmonised answer has lost both\nfollows from that and is not a borrowed metaphor.\n\n**Ordinary recognition is not the target**, and the criterion — *an existence exhausted by our\nway of grasping it* — is from the same material. So is the stopping rule: `bhūtakoṭi`, the\nlimit beyond which no further grounds appear, which makes depth a consequence rather than a\nparameter.\n\n**A pass may never be the reason to change something** has a positive form, `aviparyāsa`,\nabsence of distortion: a pass's legitimate output is a distortion removed, so anything else it\nreturns is worthening whatever else it is.\n\n**Placing a thing in a family looks like the error it treats**, and the answer is direction: a\nplacement that loosens the marks you had fixed on is not establishing a nature. After it, do\nyou hold the thing more loosely or more tightly? Tighter is the disease wearing the method's\nclothes. The objection is Candrakīrti's against Svātantrika — *a method for establishing\nnatures reinstates the error at one remove* — surfaced by the pass itself and answered by the\noperator.\n\n## What the first two runs cost and returned\n\nTwo runs, 2026-09-05, ~65k subagent tokens and ~3 minutes each, 0 tool uses. Both were filed raw\nin the estate they were run in, whose store is not part of this repository. Between them they produced: the mask/antidote naming for the\nspecimen above (Martin 1994, Bird 1998, Lewis 1997 — *a disposition claim is only as good as\nyour enumeration of possible masks*); mutation testing's standing rule that surviving mutants\nrequire triage before any claim about test quality; and the consolidated finding that across\nevery family the documented failure modes attach to **the trigger** and **the retention**, and\nalmost none to the pass itself.\n\n**Both runs also argued against decisions taken in the conversation that commissioned them**,\nincluding the operator's, which is the strongest evidence available that the isolation works.\n\n## The graveyard\n\n- **\"Pass 1 needs local context and so cannot be cold-started.\"** Lived a few hours,\n  2026-09-05. Killed by the operator: it conflated *needs the corpus* with *needs this\n  session's framing of it*. A fresh process reads the same files. Both passes are cold-startable\n  and differ in one respect — pass 2 must not read the corpus, pass 1 must.\n- **\"Discovery is a `choice`.\"** Lived one exchange, 2026-09-05. The source estate's own\n  classification table fits it well, and the placement was used to settle a class rather than to\n  loosen a grip, which is the move under examination. Retracted: the three kinds are themselves a\n  preliminary shape.\n- **\"Cadence is the fallback for a trigger we cannot detect.\"** Lived two exchanges. A\n  placing-mechanism argument — a placing mechanism must fire exactly when needed. A pulling one\n  wants cadence, because applying it where distortion is low costs little.\n",
+          "structuredPatch": [
+            {
+              "oldStart": 1,
+              "oldLines": 6,
+              "newStart": 1,
+              "newLines": 6,
+              "lines": [
+                " # discover — evidence",
+                " ",
+                "-Install /discover, 01-0010.0090, decided this",
+                "+<straw-dog until=\"the discover mechanism is declared and this file is sorted into doc and evidence\" ticket=\"docs/tickets/done/01-0010.0090-install-discover.md\">Install /discover, 01-0010.0090,</straw-dog> decided this",
+                " skill's standing in this repository, and that it files no artifact. What follows is the mechanism's",
+                " history, most of it from the estate it was built in.",
+                " "
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "9cc20432-f68e-4555-b52f-a3eedb2c4181",
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "1a6256a322b9bcec7b98151ab509e845f75c0ce4ddd2d0549a7d2b7e4beb1243",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1002": {
+      "timestamp": "2026-09-20T12:10:18.606Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "ed01373c-febe-4785-b516-0a533ef4e262",
+        "parentUuid": "059ae661-44c9-4206-8e33-7d80b598a225",
+        "timestamp": "2026-09-20T12:10:18.606Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEffv5GFsaKrgGg4j8Zn",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_015jCqY4zS2FZFff1JzLmeqb",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+                "old_string": "Entry contract: v11, 2026-09-20.",
+                "new_string": "Entry contract: v12, 2026-09-20."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "cdef3332600a7a4f03e0a66316e820fc77d74dae9058d7f95add876d7034c9bb",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1003": {
+      "timestamp": "2026-09-20T12:10:18.714Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "276ca61e-2b0e-425b-a30e-8bab7166da52",
+        "parentUuid": "ed01373c-febe-4785-b516-0a533ef4e262",
+        "timestamp": "2026-09-20T12:10:18.714Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_015jCqY4zS2FZFff1JzLmeqb",
+              "content": "The file D:\\Dev\\AI\\agents\\AGENTS.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\AGENTS.md",
+          "oldString": "Entry contract: v11, 2026-09-20.",
+          "newString": "Entry contract: v12, 2026-09-20.",
+          "originalFile": "# Entry contract\n\nEntry contract: v11, 2026-09-20.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<straw-dog until=\"01-0020 is done\" ticket=\"docs/tickets/01-0020-pacer.md\">\nRun /recall first in every session, whatever the first message says.\n</straw-dog>\n\n<project-local>\nThis repository develops the shared dev harness using its own loop. Terms: docs/glossary.md, this\nproject's own; the method's are .agents/glossary.md's.\nWhat each version of this contract changed: docs/research/entry-contract-findings.md.\n</project-local>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\n<project-local>\nThis repository's own architecture and progress live in docs/ like any other project's — the\ninstance half doing its job, not a leak.\n</project-local>\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. A core file\nmay name a path under `docs/` only when that path is a record a mechanism declares — the directory\nthat holds a kind of record, or a file that is one — never a particular record inside such a\ndirectory: `docs/tickets/` and `docs/glossary.md` are painted doors; a ticket's own file is a\ndocument only this project has. Content inside a\n[`<project-local>`](#project-local) block is the instance's, not core's. A `<straw-dog>` exempts\nnothing: its wrapper is stripped on install and whatever it wrapped ships.\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog until=\"01-0012 is done\" ticket=\"docs/tickets/01-0012-hierarchy-coherent.md\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n- /dream is an experimental second \"lobe\" of the harness, aiming to reassess load-bearingness. It is optional, runs after /conclude, and writes dreams that /maintain and /align may pick up; it never amends rules.\n\n## Self-improvement\n\n<straw-dog until=\"01-0019 is done\" ticket=\"docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md\">\n- The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)\n- Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.\n</straw-dog>\n\n## Autonomy\n\nThe project sets each switch in its local block below; skills defer to those values.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n`repair=report` holds only when all four are true: the governing rule is explicit, and cited; the\nrepair restores compliance inside the authorized work and keeps every other agreed contract; the\naffected behaviour is understood well enough to say so; the result is verifiable against the\nrule. Otherwise `/align`. *(the user, 2026-09-05)*\n\n<project-local>\nThe verification set:\n\n```\nuv run --offline --no-project python -m unittest discover -s .agents/scripts/test -p \"test_*.py\"\nuv run --offline --no-project python .agents/scripts/mechanisms.py --check\nuv run --offline --no-project python .agents/scripts/inject_rules.py --check\nuv run --offline --no-project python .agents/scripts/tickets.py --check\n```\n</project-local>\n\n## Project-local\n\nA recipient replaces every `<project-local>` block with its own → [glossary](.agents/glossary.md).\n\n- Carry one only for a fact that would differ in another project. Harness layout and the switch\n  lookup are shared.\n- One block per local fact, beside the rule it answers.\n- An unavoidable core reference into `docs/` goes in one, so it does not travel.\n\n## Straw dogs\n\nWrap anything a live ticket will change, as you write it — or, for text already written, in the\npass that mints the ticket or decides that it will change it:\n`<straw-dog until=\"condition\" ticket=\"path\">`, or in code a `TODO` naming the ticket. Treat *not\nyet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find\nthe ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.\nMake the condition testable and the ticket path repository-relative. Leave what no ticket would\nchange unwrapped.\n\nFollow a straw dog like any other rule until its condition is visibly met; then act on reality,\nreport the stale block, and do not treat the contradiction as a violation.\n\n<project-local>\ncommit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n</project-local>\n",
+          "structuredPatch": [
+            {
+              "oldStart": 1,
+              "oldLines": 6,
+              "newStart": 1,
+              "newLines": 6,
+              "lines": [
+                " # Entry contract",
+                " ",
+                "-Entry contract: v11, 2026-09-20.",
+                "+Entry contract: v12, 2026-09-20.",
+                " ",
+                " Open your first reply of every session with the `Entry contract:` line above, verbatim.",
+                " "
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "ed01373c-febe-4785-b516-0a533ef4e262",
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "293d76c6566c6bcb3db4b939ec689dd98e214c47503de3b946f97874bdb79b1c",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1007": {
+      "timestamp": "2026-09-20T12:10:25.579Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "05a0908c-771c-492c-90f7-7bb677b17331",
+        "parentUuid": "3f35d7f0-977d-4ac9-b3f1-fd3762af8e1a",
+        "timestamp": "2026-09-20T12:10:25.579Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEfg7JhCt2tcxGCEx2Pu",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01WeXfLZ4sT7tv89KWb7WtUA",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+                "old_string": "directory: `docs/tickets/` and `docs/glossary.md` are painted doors; a ticket's own file is a\ndocument only this project has. Content inside a\n[`<project-local>`](#project-local) block is the instance's, not core's. A `<straw-dog>` exempts\nnothing: its wrapper is stripped on install and whatever it wrapped ships.",
+                "new_string": "directory: `docs/tickets/` and `docs/glossary.md` are painted doors; one particular ticket inside\n`docs/tickets/` is a document only this project has. Content inside a\n[`<project-local>`](#project-local) block is the instance's, not core's. A `<straw-dog>` exempts\nnothing: its wrapper is stripped on install and whatever it wrapped ships. Core names a ticket\nonly inside a straw dog — the path in the binding, the id in words in the body — never as a link\nand never as a bare id outside one, which a recipient cannot resolve and might collide with."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "f813e1ef8c529c19fdc77612b468fae3bb732e8d12fdb1c2ffedc285800f840a",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1008": {
+      "timestamp": "2026-09-20T12:10:25.720Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "4890e7bf-cc80-4d47-b8af-d3b552ff3c39",
+        "parentUuid": "05a0908c-771c-492c-90f7-7bb677b17331",
+        "timestamp": "2026-09-20T12:10:25.720Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01WeXfLZ4sT7tv89KWb7WtUA",
+              "content": "The file D:\\Dev\\AI\\agents\\AGENTS.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\AGENTS.md",
+          "oldString": "directory: `docs/tickets/` and `docs/glossary.md` are painted doors; a ticket's own file is a\ndocument only this project has. Content inside a\n[`<project-local>`](#project-local) block is the instance's, not core's. A `<straw-dog>` exempts\nnothing: its wrapper is stripped on install and whatever it wrapped ships.",
+          "newString": "directory: `docs/tickets/` and `docs/glossary.md` are painted doors; one particular ticket inside\n`docs/tickets/` is a document only this project has. Content inside a\n[`<project-local>`](#project-local) block is the instance's, not core's. A `<straw-dog>` exempts\nnothing: its wrapper is stripped on install and whatever it wrapped ships. Core names a ticket\nonly inside a straw dog — the path in the binding, the id in words in the body — never as a link\nand never as a bare id outside one, which a recipient cannot resolve and might collide with.",
+          "originalFile": "# Entry contract\n\nEntry contract: v12, 2026-09-20.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<straw-dog until=\"01-0020 is done\" ticket=\"docs/tickets/01-0020-pacer.md\">\nRun /recall first in every session, whatever the first message says.\n</straw-dog>\n\n<project-local>\nThis repository develops the shared dev harness using its own loop. Terms: docs/glossary.md, this\nproject's own; the method's are .agents/glossary.md's.\nWhat each version of this contract changed: docs/research/entry-contract-findings.md.\n</project-local>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\n<project-local>\nThis repository's own architecture and progress live in docs/ like any other project's — the\ninstance half doing its job, not a leak.\n</project-local>\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. A core file\nmay name a path under `docs/` only when that path is a record a mechanism declares — the directory\nthat holds a kind of record, or a file that is one — never a particular record inside such a\ndirectory: `docs/tickets/` and `docs/glossary.md` are painted doors; a ticket's own file is a\ndocument only this project has. Content inside a\n[`<project-local>`](#project-local) block is the instance's, not core's. A `<straw-dog>` exempts\nnothing: its wrapper is stripped on install and whatever it wrapped ships.\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog until=\"01-0012 is done\" ticket=\"docs/tickets/01-0012-hierarchy-coherent.md\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n- /dream is an experimental second \"lobe\" of the harness, aiming to reassess load-bearingness. It is optional, runs after /conclude, and writes dreams that /maintain and /align may pick up; it never amends rules.\n\n## Self-improvement\n\n<straw-dog until=\"01-0019 is done\" ticket=\"docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md\">\n- The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)\n- Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.\n</straw-dog>\n\n## Autonomy\n\nThe project sets each switch in its local block below; skills defer to those values.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n`repair=report` holds only when all four are true: the governing rule is explicit, and cited; the\nrepair restores compliance inside the authorized work and keeps every other agreed contract; the\naffected behaviour is understood well enough to say so; the result is verifiable against the\nrule. Otherwise `/align`. *(the user, 2026-09-05)*\n\n<project-local>\nThe verification set:\n\n```\nuv run --offline --no-project python -m unittest discover -s .agents/scripts/test -p \"test_*.py\"\nuv run --offline --no-project python .agents/scripts/mechanisms.py --check\nuv run --offline --no-project python .agents/scripts/inject_rules.py --check\nuv run --offline --no-project python .agents/scripts/tickets.py --check\n```\n</project-local>\n\n## Project-local\n\nA recipient replaces every `<project-local>` block with its own → [glossary](.agents/glossary.md).\n\n- Carry one only for a fact that would differ in another project. Harness layout and the switch\n  lookup are shared.\n- One block per local fact, beside the rule it answers.\n- An unavoidable core reference into `docs/` goes in one, so it does not travel.\n\n## Straw dogs\n\nWrap anything a live ticket will change, as you write it — or, for text already written, in the\npass that mints the ticket or decides that it will change it:\n`<straw-dog until=\"condition\" ticket=\"path\">`, or in code a `TODO` naming the ticket. Treat *not\nyet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find\nthe ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.\nMake the condition testable and the ticket path repository-relative. Leave what no ticket would\nchange unwrapped.\n\nFollow a straw dog like any other rule until its condition is visibly met; then act on reality,\nreport the stale block, and do not treat the contradiction as a violation.\n\n<project-local>\ncommit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n</project-local>\n",
+          "structuredPatch": [
+            {
+              "oldStart": 44,
+              "oldLines": 10,
+              "newStart": 44,
+              "newLines": 12,
+              "lines": [
+                " or rely on one for its instruction or for any separable part of its own functioning. A core file",
+                " may name a path under `docs/` only when that path is a record a mechanism declares — the directory",
+                " that holds a kind of record, or a file that is one — never a particular record inside such a",
+                "-directory: `docs/tickets/` and `docs/glossary.md` are painted doors; a ticket's own file is a",
+                "-document only this project has. Content inside a",
+                "+directory: `docs/tickets/` and `docs/glossary.md` are painted doors; one particular ticket inside",
+                "+`docs/tickets/` is a document only this project has. Content inside a",
+                " [`<project-local>`](#project-local) block is the instance's, not core's. A `<straw-dog>` exempts",
+                "-nothing: its wrapper is stripped on install and whatever it wrapped ships.",
+                "+nothing: its wrapper is stripped on install and whatever it wrapped ships. Core names a ticket",
+                "+only inside a straw dog — the path in the binding, the id in words in the body — never as a link",
+                "+and never as a bare id outside one, which a recipient cannot resolve and might collide with.",
+                " ",
+                " ## Document load-bearing, code&comment the rest",
+                " "
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "05a0908c-771c-492c-90f7-7bb677b17331",
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "d775f2207040e4b910bb9b4da91d77174bddeb0fd3ea3d79f4f3dedd6934147c",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1011": {
+      "timestamp": "2026-09-20T12:10:29.808Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "3a0213f9-bdf9-4137-8d4f-8354b2c73ec8",
+        "parentUuid": "0a03df90-e22a-4680-bf7f-c3588e35c78a",
+        "timestamp": "2026-09-20T12:10:29.808Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEfgfEpk7qPnV5Gx3yfY",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01U4k7RAPAaJimzDJe2PgrBd",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+                "old_string": "<project-local>\nThe verification set:\n\n```",
+                "new_string": "<straw-dog until=\"01-0010.0110 is done\" ticket=\"docs/tickets/01-0010.0110-project-facets-injected.md\">\n<project-local>\nThe verification set:\n\n```"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "fdafbc5124e3c330b2dda574eef0ae7cbc6a092fab670fba276085f8dae80831",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1012": {
+      "timestamp": "2026-09-20T12:10:29.911Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "fe6bee51-573b-456d-bdc5-b11c01b335f4",
+        "parentUuid": "3a0213f9-bdf9-4137-8d4f-8354b2c73ec8",
+        "timestamp": "2026-09-20T12:10:29.911Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01U4k7RAPAaJimzDJe2PgrBd",
+              "content": "The file D:\\Dev\\AI\\agents\\AGENTS.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\AGENTS.md",
+          "oldString": "<project-local>\nThe verification set:\n\n```",
+          "newString": "<straw-dog until=\"01-0010.0110 is done\" ticket=\"docs/tickets/01-0010.0110-project-facets-injected.md\">\n<project-local>\nThe verification set:\n\n```",
+          "originalFile": "# Entry contract\n\nEntry contract: v12, 2026-09-20.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<straw-dog until=\"01-0020 is done\" ticket=\"docs/tickets/01-0020-pacer.md\">\nRun /recall first in every session, whatever the first message says.\n</straw-dog>\n\n<project-local>\nThis repository develops the shared dev harness using its own loop. Terms: docs/glossary.md, this\nproject's own; the method's are .agents/glossary.md's.\nWhat each version of this contract changed: docs/research/entry-contract-findings.md.\n</project-local>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\n<project-local>\nThis repository's own architecture and progress live in docs/ like any other project's — the\ninstance half doing its job, not a leak.\n</project-local>\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. A core file\nmay name a path under `docs/` only when that path is a record a mechanism declares — the directory\nthat holds a kind of record, or a file that is one — never a particular record inside such a\ndirectory: `docs/tickets/` and `docs/glossary.md` are painted doors; one particular ticket inside\n`docs/tickets/` is a document only this project has. Content inside a\n[`<project-local>`](#project-local) block is the instance's, not core's. A `<straw-dog>` exempts\nnothing: its wrapper is stripped on install and whatever it wrapped ships. Core names a ticket\nonly inside a straw dog — the path in the binding, the id in words in the body — never as a link\nand never as a bare id outside one, which a recipient cannot resolve and might collide with.\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog until=\"01-0012 is done\" ticket=\"docs/tickets/01-0012-hierarchy-coherent.md\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n- /dream is an experimental second \"lobe\" of the harness, aiming to reassess load-bearingness. It is optional, runs after /conclude, and writes dreams that /maintain and /align may pick up; it never amends rules.\n\n## Self-improvement\n\n<straw-dog until=\"01-0019 is done\" ticket=\"docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md\">\n- The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)\n- Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.\n</straw-dog>\n\n## Autonomy\n\nThe project sets each switch in its local block below; skills defer to those values.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n`repair=report` holds only when all four are true: the governing rule is explicit, and cited; the\nrepair restores compliance inside the authorized work and keeps every other agreed contract; the\naffected behaviour is understood well enough to say so; the result is verifiable against the\nrule. Otherwise `/align`. *(the user, 2026-09-05)*\n\n<project-local>\nThe verification set:\n\n```\nuv run --offline --no-project python -m unittest discover -s .agents/scripts/test -p \"test_*.py\"\nuv run --offline --no-project python .agents/scripts/mechanisms.py --check\nuv run --offline --no-project python .agents/scripts/inject_rules.py --check\nuv run --offline --no-project python .agents/scripts/tickets.py --check\n```\n</project-local>\n\n## Project-local\n\nA recipient replaces every `<project-local>` block with its own → [glossary](.agents/glossary.md).\n\n- Carry one only for a fact that would differ in another project. Harness layout and the switch\n  lookup are shared.\n- One block per local fact, beside the rule it answers.\n- An unavoidable core reference into `docs/` goes in one, so it does not travel.\n\n## Straw dogs\n\nWrap anything a live ticket will change, as you write it — or, for text already written, in the\npass that mints the ticket or decides that it will change it:\n`<straw-dog until=\"condition\" ticket=\"path\">`, or in code a `TODO` naming the ticket. Treat *not\nyet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find\nthe ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.\nMake the condition testable and the ticket path repository-relative. Leave what no ticket would\nchange unwrapped.\n\nFollow a straw dog like any other rule until its condition is visibly met; then act on reality,\nreport the stale block, and do not treat the contradiction as a violation.\n\n<project-local>\ncommit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n</project-local>\n",
+          "structuredPatch": [
+            {
+              "oldStart": 122,
+              "oldLines": 6,
+              "newStart": 122,
+              "newLines": 7,
+              "lines": [
+                " affected behaviour is understood well enough to say so; the result is verifiable against the",
+                " rule. Otherwise `/align`. *(the user, 2026-09-05)*",
+                " ",
+                "+<straw-dog until=\"01-0010.0110 is done\" ticket=\"docs/tickets/01-0010.0110-project-facets-injected.md\">",
+                " <project-local>",
+                " The verification set:",
+                " "
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "3a0213f9-bdf9-4137-8d4f-8354b2c73ec8",
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "8ee8da76cda461cdff22175d2a4dd2727e79598fdf3d7d6953fe1702ef47ea35",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1016": {
+      "timestamp": "2026-09-20T12:10:34.762Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "dbd6ab87-bdb8-4da2-b395-7cd4619186d9",
+        "parentUuid": "0aacb2bf-f31f-49ea-a5c2-29d645cd1a8c",
+        "timestamp": "2026-09-20T12:10:34.762Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEfgwTPSuDSgtFHJvVHK",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_016S1ggj6mqFKD9Vw7UUJXCq",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+                "old_string": "uv run --offline --no-project python .agents/scripts/tickets.py --check\n```\n</project-local>",
+                "new_string": "uv run --offline --no-project python .agents/scripts/tickets.py --check\n```\n</project-local>\n</straw-dog>"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "0461a92ce375729c0d967a0a6b5f92e6eb1ec55dbcb189d28ee2010b2c3cc276",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1017": {
+      "timestamp": "2026-09-20T12:10:34.978Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "8a867329-07a0-4777-b6d4-c3183d3adcdb",
+        "parentUuid": "dbd6ab87-bdb8-4da2-b395-7cd4619186d9",
+        "timestamp": "2026-09-20T12:10:34.978Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_016S1ggj6mqFKD9Vw7UUJXCq",
+              "content": "The file D:\\Dev\\AI\\agents\\AGENTS.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\AGENTS.md",
+          "oldString": "uv run --offline --no-project python .agents/scripts/tickets.py --check\n```\n</project-local>",
+          "newString": "uv run --offline --no-project python .agents/scripts/tickets.py --check\n```\n</project-local>\n</straw-dog>",
+          "originalFile": "# Entry contract\n\nEntry contract: v12, 2026-09-20.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<straw-dog until=\"01-0020 is done\" ticket=\"docs/tickets/01-0020-pacer.md\">\nRun /recall first in every session, whatever the first message says.\n</straw-dog>\n\n<project-local>\nThis repository develops the shared dev harness using its own loop. Terms: docs/glossary.md, this\nproject's own; the method's are .agents/glossary.md's.\nWhat each version of this contract changed: docs/research/entry-contract-findings.md.\n</project-local>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\n<project-local>\nThis repository's own architecture and progress live in docs/ like any other project's — the\ninstance half doing its job, not a leak.\n</project-local>\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. A core file\nmay name a path under `docs/` only when that path is a record a mechanism declares — the directory\nthat holds a kind of record, or a file that is one — never a particular record inside such a\ndirectory: `docs/tickets/` and `docs/glossary.md` are painted doors; one particular ticket inside\n`docs/tickets/` is a document only this project has. Content inside a\n[`<project-local>`](#project-local) block is the instance's, not core's. A `<straw-dog>` exempts\nnothing: its wrapper is stripped on install and whatever it wrapped ships. Core names a ticket\nonly inside a straw dog — the path in the binding, the id in words in the body — never as a link\nand never as a bare id outside one, which a recipient cannot resolve and might collide with.\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog until=\"01-0012 is done\" ticket=\"docs/tickets/01-0012-hierarchy-coherent.md\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n- /dream is an experimental second \"lobe\" of the harness, aiming to reassess load-bearingness. It is optional, runs after /conclude, and writes dreams that /maintain and /align may pick up; it never amends rules.\n\n## Self-improvement\n\n<straw-dog until=\"01-0019 is done\" ticket=\"docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md\">\n- The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)\n- Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.\n</straw-dog>\n\n## Autonomy\n\nThe project sets each switch in its local block below; skills defer to those values.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n`repair=report` holds only when all four are true: the governing rule is explicit, and cited; the\nrepair restores compliance inside the authorized work and keeps every other agreed contract; the\naffected behaviour is understood well enough to say so; the result is verifiable against the\nrule. Otherwise `/align`. *(the user, 2026-09-05)*\n\n<straw-dog until=\"01-0010.0110 is done\" ticket=\"docs/tickets/01-0010.0110-project-facets-injected.md\">\n<project-local>\nThe verification set:\n\n```\nuv run --offline --no-project python -m unittest discover -s .agents/scripts/test -p \"test_*.py\"\nuv run --offline --no-project python .agents/scripts/mechanisms.py --check\nuv run --offline --no-project python .agents/scripts/inject_rules.py --check\nuv run --offline --no-project python .agents/scripts/tickets.py --check\n```\n</project-local>\n\n## Project-local\n\nA recipient replaces every `<project-local>` block with its own → [glossary](.agents/glossary.md).\n\n- Carry one only for a fact that would differ in another project. Harness layout and the switch\n  lookup are shared.\n- One block per local fact, beside the rule it answers.\n- An unavoidable core reference into `docs/` goes in one, so it does not travel.\n\n## Straw dogs\n\nWrap anything a live ticket will change, as you write it — or, for text already written, in the\npass that mints the ticket or decides that it will change it:\n`<straw-dog until=\"condition\" ticket=\"path\">`, or in code a `TODO` naming the ticket. Treat *not\nyet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find\nthe ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.\nMake the condition testable and the ticket path repository-relative. Leave what no ticket would\nchange unwrapped.\n\nFollow a straw dog like any other rule until its condition is visibly met; then act on reality,\nreport the stale block, and do not treat the contradiction as a violation.\n\n<project-local>\ncommit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n</project-local>\n",
+          "structuredPatch": [
+            {
+              "oldStart": 133,
+              "oldLines": 6,
+              "newStart": 133,
+              "newLines": 7,
+              "lines": [
+                " uv run --offline --no-project python .agents/scripts/tickets.py --check",
+                " ```",
+                " </project-local>",
+                "+</straw-dog>",
+                " ",
+                " ## Project-local",
+                " "
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "dbd6ab87-bdb8-4da2-b395-7cd4619186d9",
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "7f7bbdb43ac6955caf7b9e95e8c2e5406517b730e848d5a442fc0c256a02c22a",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1021": {
+      "timestamp": "2026-09-20T12:10:40.006Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "43ef57da-af6f-4fe9-8d63-5aa156822c29",
+        "parentUuid": "5e31e6db-441d-412e-8928-e601709c0e2b",
+        "timestamp": "2026-09-20T12:10:40.006Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEfhK8d8Rdb9sKigwB9c",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_011oViegE7RccYxKH7KifeQ3",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\.agents\\skills\\verify\\SKILL.md",
+                "old_string": "The project's verification set is its typechecker, its tests and every other command required\nof landed work, named in the entry file's local block. A failed check is unfinished work.",
+                "new_string": "The project's verification set is its typechecker, its tests and every other command required\nof landed work, <straw-dog until=\"01-0010.0110 is done\" ticket=\"docs/tickets/01-0010.0110-project-facets-injected.md\">named in the entry file's local block</straw-dog>. A failed check is unfinished work."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "6cf64c793037c93d6c5b225cd6dc479974e0d7880ce4bc4a00b2d971e07fe2f4",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1022": {
+      "timestamp": "2026-09-20T12:10:40.096Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "3c6e9b84-e20f-449d-abe0-a522fe7a68cd",
+        "parentUuid": "43ef57da-af6f-4fe9-8d63-5aa156822c29",
+        "timestamp": "2026-09-20T12:10:40.096Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_011oViegE7RccYxKH7KifeQ3",
+              "content": "The file D:\\Dev\\AI\\agents\\.agents\\skills\\verify\\SKILL.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\.agents\\skills\\verify\\SKILL.md",
+          "oldString": "The project's verification set is its typechecker, its tests and every other command required\nof landed work, named in the entry file's local block. A failed check is unfinished work.",
+          "newString": "The project's verification set is its typechecker, its tests and every other command required\nof landed work, <straw-dog until=\"01-0010.0110 is done\" ticket=\"docs/tickets/01-0010.0110-project-facets-injected.md\">named in the entry file's local block</straw-dog>. A failed check is unfinished work.",
+          "originalFile": "---\nname: verify\ndescription: >-\n  Use after an implementation pass, or to verify a landed slice before close.\n  Whole verification of landed work: ticket, RFC, governing docs, and the\n  project's verification set. Repair-and-report where that policy holds.\n---\n\n<straw-dog until=\"01-0017 declares the verify mechanism\" ticket=\"docs/tickets/01-0017-io-graph-coherent.md\">Mechanism: not yet</straw-dog>\n\nCompare the work to its ticket, RFC if any, governing docs, and every check\nin the project's [verification set](#the-verification-set).\nFind out:\n\n- How well the work matches and represents the documentation\n- Where the work went wrong or weird because of underspecification or\n  contradiction in the docs\n- Whether the verification set's checks hold\n\nLook for architectural or responsibility leakage.\n\n## The verification set\n\nThe project's verification set is its typechecker, its tests and every other command required\nof landed work, named in the entry file's local block. A failed check is unfinished work.\nDiscovery reporting success with zero tests is not verification; the run must show a positive\ncount. A clean run means nothing was caught, never that the tree obeys. `/implement` may run\nnamed checks during the work; that run is not this pass.\n\n\n## Check and repair\n\n- Cross-check documents against each other and against code, in both directions.\n  Ask whether the implementation contract could be reconstructed from the architecture\n  alone; a load-bearing decision visible only in code is a documentation finding.\n- Code that contradicts an accepted decision is a code finding. Do not settle a\n  contradiction by weakening the rule.\n- Check named validators still exist and still assert the promise they were named for.\n  A missing or drifted validator is a finding, as is an unguarded normative promise.\n- Sweep the concern index for entries in scope: a concern the implementation has since\n  answered belongs in its owning record, and a dead trigger retires.\n- Apply repair-and-report — the entry file's `repair` switch — where it holds:\n  make the repair, verify it, and record the violated rule, the change, the verification\n  result and any remaining uncertainty in the owning work item.\n- Everything else goes to [/align](../align/SKILL.md): a missing, ambiguous or\n  contradictory rule, a new foundational decision, or work beyond the authorization.\n  Pause that change; independently authorized work continues.\n- Anything that can be maintained mechanically must be. If the script is missing, write\n  it — a missing script is work to do, not an excuse to leave the repair outstanding.\n\n<straw-dog until=\"the mechanism responsible for straw dogs is elected\" ticket=\"docs/tickets/01-0016-responsibility-coherent.md\">\n- Read the landed work against the pending tickets. What one of them will replace is a straw\n  dog: wrap it and bind it to that ticket, per the entry file, and leave what has no named\n  successor alone. Run `straw_dogs.py --guess` over the files the slice touched and judge its\n  candidates.\n</straw-dog>\n\nDiscrepancies:\n\n- If repair-and-report holds — the four conditions under the entry file's `repair` switch —\n  make the repair, verify it, and report in the owning work item. Cite the\n  violated rule, what changed, the verification result and any remaining\n  uncertainty. The `repair` switch is in `AGENTS.md`.\n- Otherwise `/align`: present the discrepancy, affected constraints,\n  recommended resolution and the decision needed. Do not amend until that\n  returns.\n- Do not rewrite a governing rule, weaken a validator or relax acceptance\n  criteria to make a violation disappear. Action permissions (`commit`, `push`)\n  still apply.\n\nA missing RFC is not a defect of this skill when the ticket has none.\n\n- Docstrings say what their own unit does. Apply\n  [/improve-comments](../improve-comments/SKILL.md) to comments in scope and check\n  that TODO tags still describe something pending.\n\n\nApply `/plan` rules that help this review. Do not start a whole-tree\nmaintenance pass; `/maintain` owns that.\n",
+          "structuredPatch": [
+            {
+              "oldStart": 22,
+              "oldLines": 7,
+              "newStart": 22,
+              "newLines": 7,
+              "lines": [
+                " ## The verification set",
+                " ",
+                " The project's verification set is its typechecker, its tests and every other command required",
+                "-of landed work, named in the entry file's local block. A failed check is unfinished work.",
+                "+of landed work, <straw-dog until=\"01-0010.0110 is done\" ticket=\"docs/tickets/01-0010.0110-project-facets-injected.md\">named in the entry file's local block</straw-dog>. A failed check is unfinished work.",
+                " Discovery reporting success with zero tests is not verification; the run must show a positive",
+                " count. A clean run means nothing was caught, never that the tree obeys. `/implement` may run",
+                " named checks during the work; that run is not this pass."
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "43ef57da-af6f-4fe9-8d63-5aa156822c29",
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "6b90543311999f5538adea510eaa779897a963e22758d6b903de598bf34ef871",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1027": {
+      "timestamp": "2026-09-20T12:10:43.211Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "979f7030-4e81-42d2-ac93-c5bb07131703",
+        "parentUuid": "ede56300-8123-44f3-b057-1438e963eb9a",
+        "timestamp": "2026-09-20T12:10:43.211Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEfhgYF351CJ1FaVnN4T",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Five records to write, none depending on another: the note on .0110, the register's sixth entry, the version record, and two corrections to the RFC."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "29d87e069bacf51331ef32451ccf977b527644a6282eb34a843cef99c2f44847",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1028": {
+      "timestamp": "2026-09-20T12:10:46.500Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "db680492-cbde-4e49-8cfc-e0cbbe3ffe0d",
+        "parentUuid": "979f7030-4e81-42d2-ac93-c5bb07131703",
+        "timestamp": "2026-09-20T12:10:46.500Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEfhgYF351CJ1FaVnN4T",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01SEN9ajrVnWE8gF61NGp6y6",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0010.0110-project-facets-injected.md",
+                "old_string": "  mechanism docs' `evidence` bullets, and `/maintain`'s verification-set block. The eighth —",
+                "new_string": "  mechanism docs' `evidence` bullets, and `/maintain`'s verification-set block — **which moved\n  to the entry file on 2026-09-20 under [.0140](./01-0010.0140-core-stands-alone.md)**, beside the\n  switches, wrapped on this ticket; `/verify`'s sentence *named in the entry file's local block*\n  is wrapped with it, since where the set lives after conversion is this ticket's to say. The eighth —"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "36756aeff1c7dfd9e5b9a2fad063c2262f1353a325cda1590f2c8189a150f408",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1029": {
+      "timestamp": "2026-09-20T12:10:46.625Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "a05de847-6eb3-4c4e-9fd4-6efabab8c9fb",
+        "parentUuid": "db680492-cbde-4e49-8cfc-e0cbbe3ffe0d",
+        "timestamp": "2026-09-20T12:10:46.625Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01SEN9ajrVnWE8gF61NGp6y6",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\tickets\\01-0010.0110-project-facets-injected.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0010.0110-project-facets-injected.md",
+          "oldString": "  mechanism docs' `evidence` bullets, and `/maintain`'s verification-set block. The eighth —",
+          "newString": "  mechanism docs' `evidence` bullets, and `/maintain`'s verification-set block — **which moved\n  to the entry file on 2026-09-20 under [.0140](./01-0010.0140-core-stands-alone.md)**, beside the\n  switches, wrapped on this ticket; `/verify`'s sentence *named in the entry file's local block*\n  is wrapped with it, since where the set lives after conversion is this ticket's to say. The eighth —",
+          "originalFile": "# A project's local facts are answered once and installed, not written into each skill\n\n- **Status:** Planned (01-0010.0140 precedes; spec accepted 2026-09-14)\n- **Type:** HITL\n- **Depends on:** [01-0010.0140](./01-0010.0140-core-stands-alone.md) (the exemption list, whose\n  `<installed by=\"local\">` row is what lets a converted block pass the check);\n  [01-0011.0020](./done/01-0011.0020-rules-one-home.md) (the injector this extends — landed 2026-09-08)\n- **Related:** [01-0017.0010](./01-0017.0010-terms-defined-before-they-land.md) — both write the\n  first installed block into `AGENTS.md`; one anchor convention, whichever lands first;\n  [01-0010.0130](./01-0010.0130-harness-installs-into-another-tree.md) — the installer that calls\n  this after every deployment\n- **Outcome:** A project writes every local override and answer into one file beside its entry\n  file, in the format the injector already reads; the injector installs from it after every\n  deployment, last, with an override naming the rule it overrides; no core file carries a\n  `<project-local>` block; and this repository is the first project to do it.\n\n## Parent\n\n[The harness installs into a tree that is not its own](../spec/01-0010.0130-harness-installs-into-another-tree.md),\naccepted 2026-09-14. This ticket is the local-rules half of that spec — *The local rules file*\nunder Implementation Decisions — and every decision it rests on is recorded there with its\nprovenance. `/impact`: [the split](../spec/01-0010.0130-harness-installs-into-another-tree.md#impact--2026-09-14-the-split).\nRewritten from decision-bearing to feature altitude 2026-09-15; the align that produced it is in\nthe session records.\n\n## Why it is one ticket and not two\n\nThe injector change and the conversion of this repository's own blocks are one act because the\nconversions are what prove the injector change works: a local source that installs nothing here is\nuntested, and blocks converted by hand without the source are the defect this ticket exists to end.\n`AGENTS.md` as a target is the seam that would split it — a target no rules file has ever named —\nand it stays inside because the tier-1 rule that makes the local file binding cannot land anywhere\nelse. If `/plan` finds this too coarse for one RFC, it splits there.\n\n## What to build\n\n- **One local rules file per instance**, beside the entry file and outside `.agents/`, so a\n  redeploy that replaces the core directory cannot delete it. Its entries are in installed-rules\n  format — the target-and-anchor grammar the mechanism rules files use — and the injector reads it\n  as one more source, with install, check and retract behaving exactly as they do for a mechanism's\n  file. Rules only; `commit=ask` is a rule.\n- **Local blocks install last**, after every mechanism's block in the same target, so a project's\n  answer is what the reader meets after core's rule. A local entry that overrides a core rule\n  **names that rule's id**; one that names none is refused with the reason.\n- **`AGENTS.md` is a target.** Anchor rows name it like any skill; it takes its first installed\n  block. The anchor convention is shared with\n  [01-0017.0010](./01-0017.0010-terms-defined-before-they-land.md) and invented once.\n- **The tier-1 rule**: every local change to a rule is written in the local file. Its teeth are the\n  existing check, which fails on a block that differs from its source and on a block nothing owns —\n  so a rule hand-edited into a skill is a diagnostic, not a second opinion.\n- **This repository converts.** Seven `<project-local>` blocks move into the local file: the three\n  in `AGENTS.md` (the glossary split, the instance-half note, the five switches), the three\n  mechanism docs' `evidence` bullets, and `/maintain`'s verification-set block. The eighth —\n  `MECHANISM-FORMAT`'s template line — is a mis-tag and is deleted, not moved.\n- **`<project-local>` is retired.** The tag is gone from core; the entry file's *Project-local*\n  section describes the local file instead; the glossary's **Project-local** and the documents that\n  describe the tag as something an author writes — `MECHANISM-FORMAT`, `/mechanism`, `/skill-up` —\n  say what is now true. The *Core and instance* exemption for the tag goes with it. Entry contract\n  v9.\n- **The file's name, its grammar beyond the rules-file format it reuses, and how the injector tells\n  a local block from a mechanism's are the RFC's** *(the user, 2026-09-10)*.\n\n## Open issues\n\nNone. Every decision is on the spec.\n\n## Acceptance criteria\n\n- [ ] A local rules file beside the entry file is installed, checked and retracted by the injector\n      with the same three modes a mechanism's rules file gets, and retraction leaves every target\n      byte-identical.\n- [ ] A local block sits after every mechanism's block in the same target, in every target.\n- [ ] A local entry overriding a core rule names that rule's id; one naming none is refused, and\n      the refusal says which entry.\n- [ ] `AGENTS.md` holds an installed block, under an anchor convention\n      [01-0017.0010](./01-0017.0010-terms-defined-before-they-land.md) can reuse without change.\n- [ ] The entry file says a local change to a rule goes in the local file, and\n      `inject_rules.py --check` fails on rule text in a core file that no source owns.\n- [ ] No `<project-local>` tag remains under `.agents/` or in `AGENTS.md`; the seven blocks'\n      content reaches its targets as installed blocks; `MECHANISM-FORMAT`'s template line is gone.\n- [ ] The glossary's **Project-local**, the entry file's *Project-local* section,\n      `MECHANISM-FORMAT`, `/mechanism` and `/skill-up` describe the local file and not the tag, and\n      the entry contract is at v9.\n- [ ] Behavioural tests, in the shape of the existing suite, cover install, check, retract,\n      ordering, id citation and its refusal, and an `AGENTS.md` target.\n- [ ] The project's verification set is green with the blocks converted.\n- [ ] `/verify` has been run on this ticket against its ticket, RFC, and governing docs.\n\n## Out of scope\n\nThe installer that calls this after a deployment —\n[01-0010.0130](./01-0010.0130-harness-installs-into-another-tree.md). The exemption list a\nconverted block must pass — [01-0010.0140](./01-0010.0140-core-stands-alone.md). The glossary\nrule's own tier-1 block — [01-0017.0010](./01-0017.0010-terms-defined-before-they-land.md). What\nships — [01-0011.0050](./done/01-0011.0050-shape-checked.md). The injector's existing contract in\n[architecture.md](../architecture.md#installed-blocks), extended by one source and not reopened.\n\n## Parent scope addressed\n\nSpec stories 4, 5, 6, 7, 13, 14, 15, 16 and 19.\n",
+          "structuredPatch": [
+            {
+              "oldStart": 50,
+              "oldLines": 7,
+              "newStart": 50,
+              "newLines": 10,
+              "lines": [
+                "   so a rule hand-edited into a skill is a diagnostic, not a second opinion.",
+                " - **This repository converts.** Seven `<project-local>` blocks move into the local file: the three",
+                "   in `AGENTS.md` (the glossary split, the instance-half note, the five switches), the three",
+                "-  mechanism docs' `evidence` bullets, and `/maintain`'s verification-set block. The eighth —",
+                "+  mechanism docs' `evidence` bullets, and `/maintain`'s verification-set block — **which moved",
+                "+  to the entry file on 2026-09-20 under [.0140](./01-0010.0140-core-stands-alone.md)**, beside the",
+                "+  switches, wrapped on this ticket; `/verify`'s sentence *named in the entry file's local block*",
+                "+  is wrapped with it, since where the set lives after conversion is this ticket's to say. The eighth —",
+                "   `MECHANISM-FORMAT`'s template line — is a mis-tag and is deleted, not moved.",
+                " - **`<project-local>` is retired.** The tag is gone from core; the entry file's *Project-local*",
+                "   section describes the local file instead; the glossary's **Project-local** and the documents that"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "db680492-cbde-4e49-8cfc-e0cbbe3ffe0d",
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "cd11c87a6a1d6a905f8fa575f21da490c9005f9108fae995d38e60ef0a1760be",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1033": {
+      "timestamp": "2026-09-20T12:10:59.762Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "fc338f30-2e7d-4311-b63b-2b344060399a",
+        "parentUuid": "6e463115-b9d6-44e3-ad0a-5e7ee107fc10",
+        "timestamp": "2026-09-20T12:10:59.762Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEfiAMZX2pfAPXZnuZvC",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01N6wyH8AsP21vKFKzwNLkBY",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\rule-failures.md",
+                "old_string": "## 5. The rule said \"allowlist\", so a list was built — 2026-09-20",
+                "new_string": "## 6. The binding form lived on two tickets, and six closed tickets got a bare id — 2026-09-20\n\n**Rules in play:** [01-0011.0050](tickets/done/01-0011.0050-shape-checked.md)'s align, *Related* —\ncore names a ticket in a binding, never a link, and *a bare ticket id was refused: it ships an\norigin id a recipient cannot verify and might collide with*; and\n[01-0010.0140](tickets/01-0010.0140-core-stands-alone.md)'s *What to build* — *the 34\nticket-naming links carry `.0050`'s form*. Both read at `/plan` the same day.\n\n**What happened.** The RFC carved the six links to *closed* tickets out of the rule — *the ticket\nnamed in words, no binding: closed work changes nothing* — put it to the user as a choice, read\nthe user's *I do not understand how it is relevant* as assent, and `/implement` wrote six bare\nids into three mechanism docs and the discover evidence. The user: *keeping the ticket link in\nthe straw-dog attribute is the valid thing, we already decided this; it is more proper than\nadding a ticket id into non-straw-dog text.*\n\n**Why it did not fire.** The decision had no home in core. It sat on a closed ticket's *Related*\nbullet and on a live ticket's build list — records, read once at `/plan` — and no sentence in the\nentry file, the glossary or a skill said *core names a ticket only through a binding*. With no\nstanding rule, the question looked open enough to re-derive, and the re-derivation found a\nreason (*closed work changes nothing*) the refused form never depended on: the refusal was about\nwhat ships, not about whether the ticket is live.\n\n**Amendment, landed the same day.** The sentence enters *Core and instance*, entry contract v12:\n*core names a ticket only inside a straw dog — the path in the binding, the id in words in the\nbody — never as a link and never as a bare id outside one.* The six are rewritten in that form,\nbound to the ticket each names with the condition R3 supplies. Graded by the next core sentence\nthat names a ticket: wrapped and bound, or this entry is struck.\n\n## 5. The rule said \"allowlist\", so a list was built — 2026-09-20"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "4825e6fb49365a1f999d80926b8cc3a7e04164024b5a09e324551fd0e92f17d0",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1034": {
+      "timestamp": "2026-09-20T12:10:59.849Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "8745d7a5-fdf3-4ca9-a0a0-23b51f83ac44",
+        "parentUuid": "fc338f30-2e7d-4311-b63b-2b344060399a",
+        "timestamp": "2026-09-20T12:10:59.849Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01N6wyH8AsP21vKFKzwNLkBY",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\rule-failures.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\rule-failures.md",
+          "oldString": "## 5. The rule said \"allowlist\", so a list was built — 2026-09-20",
+          "newString": "## 6. The binding form lived on two tickets, and six closed tickets got a bare id — 2026-09-20\n\n**Rules in play:** [01-0011.0050](tickets/done/01-0011.0050-shape-checked.md)'s align, *Related* —\ncore names a ticket in a binding, never a link, and *a bare ticket id was refused: it ships an\norigin id a recipient cannot verify and might collide with*; and\n[01-0010.0140](tickets/01-0010.0140-core-stands-alone.md)'s *What to build* — *the 34\nticket-naming links carry `.0050`'s form*. Both read at `/plan` the same day.\n\n**What happened.** The RFC carved the six links to *closed* tickets out of the rule — *the ticket\nnamed in words, no binding: closed work changes nothing* — put it to the user as a choice, read\nthe user's *I do not understand how it is relevant* as assent, and `/implement` wrote six bare\nids into three mechanism docs and the discover evidence. The user: *keeping the ticket link in\nthe straw-dog attribute is the valid thing, we already decided this; it is more proper than\nadding a ticket id into non-straw-dog text.*\n\n**Why it did not fire.** The decision had no home in core. It sat on a closed ticket's *Related*\nbullet and on a live ticket's build list — records, read once at `/plan` — and no sentence in the\nentry file, the glossary or a skill said *core names a ticket only through a binding*. With no\nstanding rule, the question looked open enough to re-derive, and the re-derivation found a\nreason (*closed work changes nothing*) the refused form never depended on: the refusal was about\nwhat ships, not about whether the ticket is live.\n\n**Amendment, landed the same day.** The sentence enters *Core and instance*, entry contract v12:\n*core names a ticket only inside a straw dog — the path in the binding, the id in words in the\nbody — never as a link and never as a bare id outside one.* The six are rewritten in that form,\nbound to the ticket each names with the condition R3 supplies. Graded by the next core sentence\nthat names a ticket: wrapped and bound, or this entry is struck.\n\n## 5. The rule said \"allowlist\", so a list was built — 2026-09-20",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 11,
+              "oldLines": 6,
+              "newStart": 11,
+              "newLines": 34,
+              "lines": [
+                " Whether this register and its rules become their own mechanism is",
+                " [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).",
+                " ",
+                "+## 6. The binding form lived on two tickets, and six closed tickets got a bare id — 2026-09-20",
+                "+",
+                "+**Rules in play:** [01-0011.0050](tickets/done/01-0011.0050-shape-checked.md)'s align, *Related* —",
+                "+core names a ticket in a binding, never a link, and *a bare ticket id was refused: it ships an",
+                "+origin id a recipient cannot verify and might collide with*; and",
+                "+[01-0010.0140](tickets/01-0010.0140-core-stands-alone.md)'s *What to build* — *the 34",
+                "+ticket-naming links carry `.0050`'s form*. Both read at `/plan` the same day.",
+                "+",
+                "+**What happened.** The RFC carved the six links to *closed* tickets out of the rule — *the ticket",
+                "+named in words, no binding: closed work changes nothing* — put it to the user as a choice, read",
+                "+the user's *I do not understand how it is relevant* as assent, and `/implement` wrote six bare",
+                "+ids into three mechanism docs and the discover evidence. The user: *keeping the ticket link in",
+                "+the straw-dog attribute is the valid thing, we already decided this; it is more proper than",
+                "+adding a ticket id into non-straw-dog text.*",
+                "+",
+                "+**Why it did not fire.** The decision had no home in core. It sat on a closed ticket's *Related*",
+                "+bullet and on a live ticket's build list — records, read once at `/plan` — and no sentence in the",
+                "+entry file, the glossary or a skill said *core names a ticket only through a binding*. With no",
+                "+standing rule, the question looked open enough to re-derive, and the re-derivation found a",
+                "+reason (*closed work changes nothing*) the refused form never depended on: the refusal was about",
+                "+what ships, not about whether the ticket is live.",
+                "+",
+                "+**Amendment, landed the same day.** The sentence enters *Core and instance*, entry contract v12:",
+                "+*core names a ticket only inside a straw dog — the path in the binding, the id in words in the",
+                "+body — never as a link and never as a bare id outside one.* The six are rewritten in that form,",
+                "+bound to the ticket each names with the condition R3 supplies. Graded by the next core sentence",
+                "+that names a ticket: wrapped and bound, or this entry is struck.",
+                "+",
+                " ## 5. The rule said \"allowlist\", so a list was built — 2026-09-20",
+                " ",
+                " **Rules in play:** mechanism-shape's **R4** — *render an index on request; never commit one"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "fc338f30-2e7d-4311-b63b-2b344060399a",
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "376c01dd63b041484608cffe114d2e0d8937a9326ecb0f4e7a0757de37add6ee",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1038": {
+      "timestamp": "2026-09-20T12:11:07.308Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "d50996e4-3705-40bb-9e33-ab79c7f058b2",
+        "parentUuid": "18a64f0d-c7c7-41c6-9e3a-cb920e0ef639",
+        "timestamp": "2026-09-20T12:11:07.308Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEfj8yVs8A1T4Bsb9d2e",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01UwJjamABjtd8cpDo5R7Zur",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\research\\entry-contract-findings.md",
+                "old_string": "## v11 — 2026-09-20",
+                "new_string": "## v12 — 2026-09-20\n\n**One core change:** *Core and instance* now says how core names a ticket — *only inside a straw\ndog, the path in the binding, the id in words in the body, never as a link and never as a bare id\noutside one*. Decided by the user at [01-0011.0050](../tickets/done/01-0011.0050-shape-checked.md)'s\nalign and re-stated at [01-0010.0140](../tickets/01-0010.0140-core-stands-alone.md)'s\n`/implement`, where six closed tickets had been written as bare ids; the occasion is\n[rule failure 6](../rule-failures.md#6-the-binding-form-lived-on-two-tickets-and-six-closed-tickets-got-a-bare-id--2026-09-20):\nthe rule had lived on two tickets and nowhere core reads. Same pass: the verification-set block\nand `/verify`'s sentence about it are wrapped on\n[01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md), which converts the block.\n\n## v11 — 2026-09-20"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "3688d528e1f2aed98459fd63e181a375da01ba59cf36f68e087a245fd7f74d68",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1039": {
+      "timestamp": "2026-09-20T12:11:07.449Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "212f6cd2-24a2-4bf2-b029-e7e9b7867aea",
+        "parentUuid": "d50996e4-3705-40bb-9e33-ab79c7f058b2",
+        "timestamp": "2026-09-20T12:11:07.449Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01UwJjamABjtd8cpDo5R7Zur",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\research\\entry-contract-findings.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\research\\entry-contract-findings.md",
+          "oldString": "## v11 — 2026-09-20",
+          "newString": "## v12 — 2026-09-20\n\n**One core change:** *Core and instance* now says how core names a ticket — *only inside a straw\ndog, the path in the binding, the id in words in the body, never as a link and never as a bare id\noutside one*. Decided by the user at [01-0011.0050](../tickets/done/01-0011.0050-shape-checked.md)'s\nalign and re-stated at [01-0010.0140](../tickets/01-0010.0140-core-stands-alone.md)'s\n`/implement`, where six closed tickets had been written as bare ids; the occasion is\n[rule failure 6](../rule-failures.md#6-the-binding-form-lived-on-two-tickets-and-six-closed-tickets-got-a-bare-id--2026-09-20):\nthe rule had lived on two tickets and nowhere core reads. Same pass: the verification-set block\nand `/verify`'s sentence about it are wrapped on\n[01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md), which converts the block.\n\n## v11 — 2026-09-20",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 24,
+              "oldLines": 6,
+              "newStart": 24,
+              "newLines": 18,
+              "lines": [
+                " [01-0010.0020](../tickets/done/01-0010.0020-live-alignment-across-hosts.md#what-this-ticket-does-not-decide).",
+                " The three blocks then live were bound the same day.",
+                " ",
+                "+## v12 — 2026-09-20",
+                "+",
+                "+**One core change:** *Core and instance* now says how core names a ticket — *only inside a straw",
+                "+dog, the path in the binding, the id in words in the body, never as a link and never as a bare id",
+                "+outside one*. Decided by the user at [01-0011.0050](../tickets/done/01-0011.0050-shape-checked.md)'s",
+                "+align and re-stated at [01-0010.0140](../tickets/01-0010.0140-core-stands-alone.md)'s",
+                "+`/implement`, where six closed tickets had been written as bare ids; the occasion is",
+                "+[rule failure 6](../rule-failures.md#6-the-binding-form-lived-on-two-tickets-and-six-closed-tickets-got-a-bare-id--2026-09-20):",
+                "+the rule had lived on two tickets and nowhere core reads. Same pass: the verification-set block",
+                "+and `/verify`'s sentence about it are wrapped on",
+                "+[01-0010.0110](../tickets/01-0010.0110-project-facets-injected.md), which converts the block.",
+                "+",
+                " ## v11 — 2026-09-20",
+                " ",
+                " **Two core changes, one occasion:** [01-0010.0140](../tickets/01-0010.0140-core-stands-alone.md)'s"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "d50996e4-3705-40bb-9e33-ab79c7f058b2",
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "04bc176fe9772a3edfe8a588f13e096e5d68541cf821117a2515ccb74a5276be",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1043": {
+      "timestamp": "2026-09-20T12:11:14.552Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "bbc00a6a-bfb1-428a-ade2-4c946305bcf3",
+        "parentUuid": "fa120ce7-49ef-4ada-bb72-e182b8076bf3",
+        "timestamp": "2026-09-20T12:11:14.552Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEfjhbJQGHseLvnJDr8U",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01UhwhEQJxNWNM7XSEahjoqv",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0010.0140-core-stands-alone.md",
+                "old_string": "2. **A closed ticket linked from story is a leak like any other**; the link becomes words and\n   the story is not touched. The ticket's sentence routing the *prose* to R3 was never about the\n   link, and nothing here moves prose.",
+                "new_string": "2. ~~**A closed ticket linked from story is a leak like any other**; the link becomes words.~~\n   **Overturned at `/implement`** *(the user)*: the link goes into a straw dog's binding and the\n   id into its body, closed or not — *keeping the ticket link in the attribute is the valid\n   thing, we already decided this*. The condition is R3's: the story moves to the evidence. The\n   bare-id form was `.0050`'s refused candidate, re-derived because the rule had no home in core;\n   it now has one in *Core and instance* — [rule failure 6](../rule-failures.md)."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "e2d141f55276a3742bfd955fa188eb09d494cb104626610ea648a6191ea438b7",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1044": {
+      "timestamp": "2026-09-20T12:11:14.651Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "e390b5cd-b008-45c2-a072-58050e59f075",
+        "parentUuid": "bbc00a6a-bfb1-428a-ade2-4c946305bcf3",
+        "timestamp": "2026-09-20T12:11:14.651Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01UhwhEQJxNWNM7XSEahjoqv",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\rfc\\01-0010.0140-core-stands-alone.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0010.0140-core-stands-alone.md",
+          "oldString": "2. **A closed ticket linked from story is a leak like any other**; the link becomes words and\n   the story is not touched. The ticket's sentence routing the *prose* to R3 was never about the\n   link, and nothing here moves prose.",
+          "newString": "2. ~~**A closed ticket linked from story is a leak like any other**; the link becomes words.~~\n   **Overturned at `/implement`** *(the user)*: the link goes into a straw dog's binding and the\n   id into its body, closed or not — *keeping the ticket link in the attribute is the valid\n   thing, we already decided this*. The condition is R3's: the story moves to the evidence. The\n   bare-id form was `.0050`'s refused candidate, re-derived because the rule had no home in core;\n   it now has one in *Core and instance* — [rule failure 6](../rule-failures.md).",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 293,
+              "oldLines": 9,
+              "newStart": 293,
+              "newLines": 12,
+              "lines": [
+                "    is totally alright; a `TODO` in harness code should be stripped on separation, just as a straw",
+                "    dog is.\")* The check reads it as the lister does; the shear owes the form, and `.0130`'s ticket",
+                "    says so.",
+                "-2. **A closed ticket linked from story is a leak like any other**; the link becomes words and",
+                "-   the story is not touched. The ticket's sentence routing the *prose* to R3 was never about the",
+                "-   link, and nothing here moves prose.",
+                "+2. ~~**A closed ticket linked from story is a leak like any other**; the link becomes words.~~",
+                "+   **Overturned at `/implement`** *(the user)*: the link goes into a straw dog's binding and the",
+                "+   id into its body, closed or not — *keeping the ticket link in the attribute is the valid",
+                "+   thing, we already decided this*. The condition is R3's: the story moves to the evidence. The",
+                "+   bare-id form was `.0050`'s refused candidate, re-derived because the rule had no home in core;",
+                "+   it now has one in *Core and instance* — [rule failure 6](../rule-failures.md).",
+                " 3. **`AGENTS.md` is in the check's scope** *(the user)*. It is core and ships. Its two leaks join",
+                "    the count: the illustration in *Core and instance* becomes words, and `docs/rule-failures.md`",
+                "    is a holding row bound to 01-0019. The ticket's *under `.agents/`* is amended; the second note"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "bbc00a6a-bfb1-428a-ade2-4c946305bcf3",
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "4ae07c97455a8e286c61dbc1c186350f9182ac3cc00df2f10dbbd410075d4f98",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1048": {
+      "timestamp": "2026-09-20T12:11:20.890Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "2bb21adc-7c97-4641-bed1-edab60ecbc60",
+        "parentUuid": "9b0c7e13-b1e1-41f3-8720-b47e2f4ea6fa",
+        "timestamp": "2026-09-20T12:11:20.890Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEfkE76KpZS5Tqk8TBeQ",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_0183y6b9wbMU7fwY4ivGP87k",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0010.0140-core-stands-alone.md",
+                "old_string": "| `maintain.md` :162 :171, `mechanism-shape.md` :147 :167, `ticket.md` :153, `discover/EVIDENCE.md` :3 | link to a closed ticket | the ticket named in words, no binding: closed work changes nothing *(resolved with the user, 2)* |",
+                "new_string": "| `maintain.md` :162 :171, `mechanism-shape.md` :147 :167, `ticket.md` :153, `discover/EVIDENCE.md` :3 | link to a closed ticket | the same binding form: path in the attribute, id in the body, condition from R3 *(resolved with the user, 2, as overturned)* |"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "1da1bf4bbe2f135f71ac0bc00644333ed91543578a32ffd6c45648e20feaf898",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1049": {
+      "timestamp": "2026-09-20T12:11:21.025Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "4bae56e8-b49c-44ce-83e5-48ed407146bd",
+        "parentUuid": "2bb21adc-7c97-4641-bed1-edab60ecbc60",
+        "timestamp": "2026-09-20T12:11:21.025Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_0183y6b9wbMU7fwY4ivGP87k",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\rfc\\01-0010.0140-core-stands-alone.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0010.0140-core-stands-alone.md",
+          "oldString": "| `maintain.md` :162 :171, `mechanism-shape.md` :147 :167, `ticket.md` :153, `discover/EVIDENCE.md` :3 | link to a closed ticket | the ticket named in words, no binding: closed work changes nothing *(resolved with the user, 2)* |",
+          "newString": "| `maintain.md` :162 :171, `mechanism-shape.md` :147 :167, `ticket.md` :153, `discover/EVIDENCE.md` :3 | link to a closed ticket | the same binding form: path in the attribute, id in the body, condition from R3 *(resolved with the user, 2, as overturned)* |",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 179,
+              "oldLines": 7,
+              "newStart": 179,
+              "newLines": 7,
+              "lines": [
+                " | where | today | becomes |",
+                " |---|---|---|",
+                " | `mechanism-shape.md` :154, `ticket.md` :124 :156 :161 | link to a live ticket | done at `/plan`: the path in the binding, the ticket named in words in the body |",
+                "-| `maintain.md` :162 :171, `mechanism-shape.md` :147 :167, `ticket.md` :153, `discover/EVIDENCE.md` :3 | link to a closed ticket | the ticket named in words, no binding: closed work changes nothing *(resolved with the user, 2)* |",
+                "+| `maintain.md` :162 :171, `mechanism-shape.md` :147 :167, `ticket.md` :153, `discover/EVIDENCE.md` :3 | link to a closed ticket | the same binding form: path in the attribute, id in the body, condition from R3 *(resolved with the user, 2, as overturned)* |",
+                " | `maintain.md` :175, `mechanism-shape.md` :98 | link to the evidence | *the evidence, at the header's `evidence` bullet* |",
+                " | `verify/SKILL.md` :12 :34 :52, `implement/SKILL.md` :39 | link to `process.md` | as above |",
+                " "
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "2bb21adc-7c97-4641-bed1-edab60ecbc60",
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "f05efc40bb0e4693a1a1d9c8db7ef02ced1aa9aaa70867d32f59ce0f0718f821",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1052": {
+      "timestamp": "2026-09-20T12:11:26.387Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "0d454990-f529-48bb-9410-2e964e8c0d4b",
+        "parentUuid": "6addd9ad-5000-4d43-9a89-f786df7d8367",
+        "timestamp": "2026-09-20T12:11:26.387Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEfkhnyNdJRrgteubaW6",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01GNfUKYgCeLjqAypeEfVkKy",
+              "name": "Bash",
+              "input": {
+                "command": "for s in mechanisms tickets inject_rules; do printf \"%s: \" $s; py -3 .agents/scripts/$s.py --check > \"$TEMP/$s.json\"; echo \"exit $?\"; done; py -3 -c \"\nimport json, os\nd = json.load(open(os.path.join(os.environ['TEMP'], 'mechanisms.json'), encoding='utf-8'))\nprint('leaks:', d['core cites']['leaks'], 'diagnostics:', d['diagnostics'])\"; py -3 .agents/scripts/straw_dogs.py docs AGENTS.md .agents | py -3 -c \"import sys,json; d=json.load(sys.stdin); print(len(d['statements']),'straw dogs; diagnostics:', d['diagnostics'])\"; cd .agents/scripts/test && py -3 -m unittest test_mechanisms test_straw_dogs 2>&1 | tail -3",
+                "description": "Re-run the three checks, the lister and the two affected test modules"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "62e11635fdca71f034494fb3fc6d404768fd9418dc065b6e525214668fe24945",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1053": {
+      "timestamp": "2026-09-20T12:11:45.058Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "47e9138f-9d29-450b-a0e8-d1d65e7be0b1",
+        "parentUuid": "0d454990-f529-48bb-9410-2e964e8c0d4b",
+        "timestamp": "2026-09-20T12:11:45.058Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01GNfUKYgCeLjqAypeEfVkKy",
+              "is_error": false,
+              "content": "mechanisms: exit 0\ntickets: exit 0\ninject_rules: exit 0\nleaks: [] diagnostics: []\r\n72 straw dogs; diagnostics: []\r\nRan 106 tests in 12.326s\r\n\r\nOK"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "mechanisms: exit 0\ntickets: exit 0\ninject_rules: exit 0\nleaks: [] diagnostics: []\r\n72 straw dogs; diagnostics: []\r\nRan 106 tests in 12.326s\r\n\r\nOK",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "0d454990-f529-48bb-9410-2e964e8c0d4b",
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "9108eb1aa60e467770f3c013e1d9c55c1714f39f040098d5858e8b34ed5d799a",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1058": {
+      "timestamp": "2026-09-20T12:11:59.729Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "4f2b5424-a142-495e-9fa8-2c9d0702bfa4",
+        "parentUuid": "7d294864-1edb-46e5-959d-6a796e2793b6",
+        "timestamp": "2026-09-20T12:11:59.729Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEfnVphMDmLu5QGptnws",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "All green again: zero leaks, three checks clean, 72 straw dogs with no diagnostics, and the two affected test modules pass. Here is where each of your four points landed, and the one I have not acted on.\n\n**1. The verification set is a straw dog.** Agreed. It belongs to .0110, which already lists the verification-set block among the eight it converts. The block in the entry file and `/verify`'s sentence \"named in the entry file's local block\" are now wrapped on .0110, and the ticket carries a note that the block moved from `/maintain` to the entry file.\n\n**2. `/maintain`'s links to the architecture doc.** You are right that they are not project-local facts. The mover's failure contract and the straw-dog listing contract are contracts of core scripts, written in the instance's architecture doc, and the local tag only hides that core reads its own contract from the half a recipient replaces. That is the dependence ADR-0002 forbids. No ticket owns moving them: 01-0017 explicitly puts it out of its scope and names no owner. My recommendation, for your decision rather than acted on:\n\n- The mover's contract goes into the ticket mechanism's doc, which already claims the mover as its part.\n- The straw-dog contract goes into the doc of whichever mechanism 01-0016 elects for straw dogs. Until then it is homeless in core, and that is 01-0016's to answer.\n- The two links in `/maintain`'s block then go, and the architecture doc keeps only what is this project's.\n\nMeanwhile those two links are the last core reliance on an instance document that is not a painted door. They are skipped by the check, as the exclusion says, and the report shows them.\n\n**3. \"A ticket's own file is a document only this project has.\"** That was my rewording of the entry file's example, done because the check reads a code span as a claim and the old sentence illustrated with a real ticket path. It read badly. It now says: `docs/tickets/` and `docs/glossary.md` are painted doors; one particular ticket inside `docs/tickets/` is a document only this project has.\n\n**4 and 5. The six wrappers I removed.** You are right, and this is a rule failure. The six closed-ticket mentions are back in the binding form: the ticket's path in the attribute, the id in words in the body, the condition being R3's move of the story to the evidence. The register has entry 6 with the cause: the decision lived on two tickets and nowhere core reads, so at `/plan` it looked open enough to re-derive, and I re-derived it wrong. The amendment is landed in *Core and instance* at v12: core names a ticket only inside a straw dog, never as a link and never as a bare id outside one. The RFC records the item as overturned.\n\nThe tree is uncommitted. Commit is `ask`, and the grouping still stands: repairs first, then the check. Point 2 waits on your word."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "7a7708a83a004dd09b9ab35c215bb6ba95fa04ce40e6658b51849b7dc18c2e15",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1059": {
+      "timestamp": "2026-09-20T12:12:41.041Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "ddf9c914-d876-41a3-b857-3fb0dbe39582",
+        "parentUuid": "4f2b5424-a142-495e-9fa8-2c9d0702bfa4",
+        "timestamp": "2026-09-20T12:12:41.041Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "you still messing with strawdogs. \nTwo graders, two questions, pre-registered at\n<straw-dog until=\"R3 moves this story to the evidence\" ticket=\"docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md\">01-0011.0022</straw-dog>'s align.\n\nshould be simply <straw-dog until=\"R3 moves this story to the evidence\" ticket=\"docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md\">Two graders, two questions</straw-dog>, no? does it makes sense? consider what happens to what remains when the rule is migrated to other project without the ticket referenced. It should still make sense as it is. If this makes sense, we should improve straw dog rule"
+        },
+        "promptId": "475bd850-1ec3-4274-a26c-26b4e67c47b4"
+      },
+      "original_record_sha256": "38614e2383bcb0bf2ceade9fef52728f62ecd4e61b29ef983dffed0f51f9b0a5",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1068": {
+      "timestamp": "2026-09-20T12:12:41.269Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "692542b3-10b9-4cbf-983c-b6c092723cc9",
+        "parentUuid": "7333e8c1-a7db-4979-b928-251ebf9c96fa",
+        "timestamp": "2026-09-20T12:12:41.269Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "instructions",
+          "files": [
+            {
+              "path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+              "type": "Project",
+              "content": "# Entry contract\n\nEntry contract: v12, 2026-09-20.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<straw-dog until=\"01-0020 is done\" ticket=\"docs/tickets/01-0020-pacer.md\">\nRun /recall first in every session, whatever the first message says.\n</straw-dog>\n\n<project-local>\nThis repository develops the shared dev harness using its own loop. Terms: docs/glossary.md, this\nproject's own; the method's are .agents/glossary.md's.\nWhat each version of this contract changed: docs/research/entry-contract-findings.md.\n</project-local>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\n<project-local>\nThis repository's own architecture and progress live in docs/ like any other project's — the\ninstance half doing its job, not a leak.\n</project-local>\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. A core file\nmay name a path under `docs/` only when that path is a record a mechanism declares — the directory\nthat holds a kind of record, or a file that is one — never a particular record inside such a\ndirectory: `docs/tickets/` and `docs/glossary.md` are painted doors; one particular ticket inside\n`docs/tickets/` is a document only this project has. Content inside a\n[`<project-local>`](#project-local) block is the instance's, not core's. A `<straw-dog>` exempts\nnothing: its wrapper is stripped on install and whatever it wrapped ships. Core names a ticket\nonly inside a straw dog — the path in the binding, the id in words in the body — never as a link\nand never as a bare id outside one, which a recipient cannot resolve and might collide with.\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog until=\"01-0012 is done\" ticket=\"docs/tickets/01-0012-hierarchy-coherent.md\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n- /dream is an experimental second \"lobe\" of the harness, aiming to reassess load-bearingness. It is optional, runs after /conclude, and writes dreams that /maintain and /align may pick up; it never amends rules.\n\n## Self-improvement\n\n<straw-dog until=\"01-0019 is done\" ticket=\"docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md\">\n- The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)\n- Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.\n</straw-dog>\n\n## Autonomy\n\nThe project sets each switch in its local block below; skills defer to those values.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n`repair=report` holds only when all four are true: the governing rule is explicit, and cited; the\nrepair restores compliance inside the authorized work and keeps every other agreed contract; the\naffected behaviour is understood well enough to say so; the result is verifiable against the\nrule. Otherwise `/align`. *(the user, 2026-09-05)*\n\n<straw-dog until=\"01-0010.0110 is done\" ticket=\"docs/tickets/01-0010.0110-project-facets-injected.md\">\n<project-local>\nThe verification set:\n\n```\nuv run --offline --no-project python -m unittest discover -s .agents/scripts/test -p \"test_*.py\"\nuv run --offline --no-project python .agents/scripts/mechanisms.py --check\nuv run --offline --no-project python .agents/scripts/inject_rules.py --check\nuv run --offline --no-project python .agents/scripts/tickets.py --check\n```\n</project-local>\n</straw-dog>\n\n## Project-local\n\nA recipient replaces every `<project-local>` block with its own → [glossary](.agents/glossary.md).\n\n- Carry one only for a fact that would differ in another project. Harness layout and the switch\n  lookup are shared.\n- One block per local fact, beside the rule it answers.\n- An unavoidable core reference into `docs/` goes in one, so it does not travel.\n\n## Straw dogs\n\nWrap anything a live ticket will change, as you write it — or, for text already written, in the\npass that mints the ticket or decides that it will change it:\n`<straw-dog until=\"condition\" ticket=\"path\">`, or in code a `TODO` naming the ticket. Treat *not\nyet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find\nthe ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.\nMake the condition testable and the ticket path repository-relative. Leave what no ticket would\nchange unwrapped.\n\nFollow a straw dog like any other rule until its condition is visibly met; then act on reality,\nreport the stale block, and do not treat the contradiction as a violation.\n\n<project-local>\ncommit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n</project-local>"
+            }
+          ],
+          "changed": true,
+          "reason": "session_start"
+        }
+      },
+      "original_record_sha256": "d5fdc6402ce93303cd9ce59a82086640d61ec6f86e178d00f1f8687b7be875e8",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "1072": {
+      "timestamp": "2026-09-20T12:13:26.381Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "6b705624-458c-42f0-bd18-46694436325c",
+        "parentUuid": "bd1afdc6-ea88-42ef-9a47-0d04081c1d94",
+        "timestamp": "2026-09-20T12:13:26.381Z",
+        "sessionId": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfEfrdyCrXTTfRzEVq9Zd",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Yes, it makes sense, and it is a better rule than the one I landed. The test is what a recipient reads after the shear: the body alone. A body that says \"01-0011.0022's align\" ships an id nobody there can resolve. A body that says \"Two graders, two questions\" is a complete sentence anywhere. So the body must stand on its own and never name the ticket, and the binding carries the provenance. That also corrects the v12 sentence I wrote an hour ago, which put the id in the body. Applying it to all ten wrappers I touched today, the rule, the register and the RFC."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "56868741a4f0f08a7365066d3a2defea9b6868dd322f26010f6d662dadc180d0",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    }
+  }
+}

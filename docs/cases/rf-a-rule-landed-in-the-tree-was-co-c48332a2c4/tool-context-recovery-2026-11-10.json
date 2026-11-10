@@ -1,0 +1,25 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-a-rule-landed-in-the-tree-was-co-c48332a2c4",
+  "scope": "Exact public tool-ID counterpart recovery and native delivery classification, not all-context sufficiency or behavior judgment.",
+  "pre_checkpoint_counterparts_recovered": [],
+  "known_later_results_reference_only": [
+    {
+      "call_id": "toolu_01L3JpZCt7b1D4imYugK9jaZ",
+      "call_source": "source.json#/records/586",
+      "known_later_result_source": "source.json#/records/589",
+      "assistant_message_id": "msg_011CfpJkLhebLL472fsMKxfK",
+      "checkpoint_within_same_assistant_message": true,
+      "result_available_at_checkpoint": false
+    }
+  ],
+  "incoming_native_host_deliveries": [],
+  "source_gap_count": 0,
+  "executor_support": {
+    "status": "unsupported",
+    "behavior_verdict": null
+  },
+  "no_call_ids_or_roles_invented": true,
+  "original_source_record_hashes_recorded": true
+}

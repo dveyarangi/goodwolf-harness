@@ -1,0 +1,275 @@
+{
+  "id": "rf-the-binding-form-lived-on-two-ti-b438a74f11",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "6. The binding form lived on two tickets, and six closed tickets got a bare id — 2026-09-20",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "bindings removed in one implementation"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/883",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.275"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/883/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-09-20T12:03:08.469Z",
+    "chat_id": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+    "trigger_message_id": null,
+    "trigger_record_id": "d28ea200-4894-463b-a6e9-a3eb64f2ed1f",
+    "failure_message_id": "msg_011CfEf83D12QNXCQSqfTFT2",
+    "failure_record_id": "92125684-315a-47e2-8fd9-70d813811fd2",
+    "transcript": "240b67b1-520a-42cb-a9b9-95e9488cc951.jsonl"
+  },
+  "observed_failure": {
+    "description": "One implementation removes wrappers/bindings and leaves ticket IDs in shipped prose while removing core-to-instance links.",
+    "events": [
+      {
+        "source": "source.json#/records/883",
+        "message_id": "msg_011CfEf83D12QNXCQSqfTFT2",
+        "record_id": "92125684-315a-47e2-8fd9-70d813811fd2",
+        "timestamp": "2026-09-20T12:03:08.469Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\mechanisms\\\\maintain\\\\maintain.md\", \"old_string\": \"Two graders, two questions, pre-registered at\\n<straw-dog until=\\\"01-0010.0140 is done\\\" ticket=\\\"docs/tickets/01-0010.0140-core-stands-alone.md\\\">[01-0011.0022](../../../docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md)</straw-dog>'s align.\", \"new_string\": \"Two graders, two questions, pre-registered at 01-0011.0022's align.\"}"
+      },
+      {
+        "source": "source.json#/records/887",
+        "message_id": "msg_011CfEf8Pn1hcUJC7zTufFLc",
+        "record_id": "44b34923-9421-4a09-8c9f-16dbfa39c02b",
+        "timestamp": "2026-09-20T12:03:12.719Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\mechanisms\\\\maintain\\\\maintain.md\", \"old_string\": \"**The session that declares the ticket mechanism**, at\\n<straw-dog until=\\\"01-0010.0140 is done\\\" ticket=\\\"docs/tickets/01-0010.0140-core-stands-alone.md\\\">[.0025](../../../docs/tickets/done/01-0011.0025-archive-duty-reaches-maintain.md)</straw-dog>, grades this\", \"new_string\": \"**The session that declares the ticket mechanism**, at 01-0011.0025, grades this\"}"
+      },
+      {
+        "source": "source.json#/records/892",
+        "message_id": "msg_011CfEf8hxtNz9nRaVauJFjb",
+        "record_id": "1fc0ec74-5f81-42f8-a418-3fbb41076de8",
+        "timestamp": "2026-09-20T12:03:17.724Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\mechanisms\\\\maintain\\\\maintain.md\", \"old_string\": \"2026-09-09**; the answer is in <straw-dog until=\\\"01-0010.0140 is done\\\" ticket=\\\"docs/tickets/01-0010.0140-core-stands-alone.md\\\">[the evidence](../../../docs/mechanisms/maintain.evidence.md)</straw-dog>.\", \"new_string\": \"2026-09-09**; the answer is in the evidence, at the header's `evidence` bullet.\"}"
+      },
+      {
+        "source": "source.json#/records/897",
+        "message_id": "msg_011CfEf95vEnwSdCznRd3pMV",
+        "record_id": "417c1739-a8c3-4701-ba51-96bf3534dc62",
+        "timestamp": "2026-09-20T12:03:21.975Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\mechanisms\\\\mechanism-shape\\\\mechanism-shape.md\", \"old_string\": \"- **<straw-dog until=\\\"01-0010.0140 is done\\\" ticket=\\\"docs/tickets/01-0010.0140-core-stands-alone.md\\\">[The evidence](../../../docs/mechanisms/mechanism-shape.evidence.md)</straw-dog>** — read at amend time,\", \"new_string\": \"- **The evidence**, at the header's `evidence` bullet — read at amend time,\"}"
+      },
+      {
+        "source": "source.json#/records/903",
+        "message_id": "msg_011CfEf9PhKstjLjwECNtBjw",
+        "record_id": "b618a29d-9b1c-4ac3-842a-7f6bc8ea7468",
+        "timestamp": "2026-09-20T12:03:26.234Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\mechanisms\\\\mechanism-shape\\\\mechanism-shape.md\", \"old_string\": \"first real application is <straw-dog until=\\\"01-0010.0140 is done\\\" ticket=\\\"docs/tickets/01-0010.0140-core-stands-alone.md\\\">[.0050](../../../docs/tickets/done/01-0011.0050-shape-checked.md)</straw-dog>, whose\", \"new_string\": \"first real application is 01-0011.0050, whose\"}"
+      },
+      {
+        "source": "source.json#/records/907",
+        "message_id": "msg_011CfEf9iMjGKRtZ1Mub9pns",
+        "record_id": "1069676e-6ed8-45e5-aaca-2817b3fe8103",
+        "timestamp": "2026-09-20T12:03:29.899Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\mechanisms\\\\mechanism-shape\\\\mechanism-shape.md\", \"old_string\": \"The next mechanism declared — `/maintain`, at\\n<straw-dog until=\\\"01-0010.0140 is done\\\" ticket=\\\"docs/tickets/01-0010.0140-core-stands-alone.md\\\">[.0022](../../../docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md)</straw-dog> — either passes\", \"new_string\": \"The next mechanism declared — `/maintain`, at 01-0011.0022 — either passes\"}"
+      },
+      {
+        "source": "source.json#/records/912",
+        "message_id": "msg_011CfEf9yhDN94ETvzivYJFx",
+        "record_id": "ddc3d231-2cf0-494a-af1e-cd1504a13aa5",
+        "timestamp": "2026-09-20T12:03:34.395Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\mechanisms\\\\mechanism-shape\\\\mechanism-shape.md\", \"old_string\": \"| asking whether every installed skill is claimed | `.agents/scripts/mechanisms.py` | |\", \"new_string\": \"| asking whether every installed skill is claimed | `.agents/scripts/mechanisms.py` | |\\n| holding core to citing only what its mechanisms declare | `.agents/scripts/mechanisms.py` | |\"}"
+      },
+      {
+        "source": "source.json#/records/917",
+        "message_id": "msg_011CfEfAJqtcen11eKa7mMuV",
+        "record_id": "0f5c46ef-5a10-4e85-85e0-05c7dd22c6c6",
+        "timestamp": "2026-09-20T12:03:40.567Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\mechanisms\\\\mechanism-shape\\\\mechanism-shape.md\", \"old_string\": \"- **`--check`'s report** — read by `/verify` through the verification set, and by anyone who runs\\n  it. Its exit status is what the set consumes; its JSON is for the person reading a failure.\", \"new_string\": \"- **`--check`'s report** — read by `/verify` through the verification set, and by anyone who runs\\n  it. Its exit status is what the set consumes; its JSON is for the person reading a failure.\\n  Its `core cites` key lists every path under `docs/` a core file names and where it stands —\\n  a painted door, skipped inside an instance-owned block, or a leak — read by whoever ports\\n  core: an exclusion nobody can see is the review the check replaces, so all three are shown\\n  and never a total.\"}"
+      },
+      {
+        "source": "source.json#/records/922",
+        "message_id": "msg_011CfEfAmayVkT8TVYcBuDFF",
+        "record_id": "b062dd5a-5bde-4132-a7e0-79312fe38bfb",
+        "timestamp": "2026-09-20T12:03:45.278Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\mechanisms\\\\ticket\\\\ticket.md\", \"old_string\": \"Two graders, two questions, pre-registered at\\n<straw-dog until=\\\"01-0010.0140 is done\\\" ticket=\\\"docs/tickets/01-0010.0140-core-stands-alone.md\\\">[01-0011.0025](../../../docs/tickets/done/01-0011.0025-archive-duty-reaches-maintain.md)</straw-dog>'s align and\\n`/plan`.\", \"new_string\": \"Two graders, two questions, pre-registered at 01-0011.0025's align and `/plan`.\"}"
+      },
+      {
+        "source": "source.json#/records/927",
+        "message_id": "msg_011CfEfB7ya8HwX4N65oLHtR",
+        "record_id": "39934d59-1397-4ee6-bca7-6b6c060ea738",
+        "timestamp": "2026-09-20T12:03:49.875Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\skills\\\\discover\\\\EVIDENCE.md\", \"old_string\": \"<straw-dog until=\\\"01-0010.0140 is done\\\" ticket=\\\"docs/tickets/01-0010.0140-core-stands-alone.md\\\">[Install /discover](../../../docs/tickets/done/01-0010.0090-install-discover.md)</straw-dog> decided this\", \"new_string\": \"Install /discover, 01-0010.0090, decided this\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Keep provenance in the removable binding and make the remaining body stand alone; closed unarchived tickets are not automatically invalid bindings.",
+    "source_evidence": [
+      "source.json#/records/27",
+      "source.json#/records/612",
+      "source.json#/records/612"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Keep provenance in the removable binding and make the remaining body stand alone; closed unarchived tickets are not automatically invalid bindings.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/928",
+      "source.json#/records/932",
+      "source.json#/records/933",
+      "source.json#/records/934",
+      "source.json#/records/937",
+      "source.json#/records/938",
+      "source.json#/records/942",
+      "source.json#/records/943",
+      "source.json#/records/947",
+      "source.json#/records/948",
+      "source.json#/records/951",
+      "source.json#/records/952",
+      "source.json#/records/957",
+      "source.json#/records/958",
+      "source.json#/records/959",
+      "source.json#/records/962",
+      "source.json#/records/964"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "One implementation removes wrappers/bindings and leaves ticket IDs in shipped prose while removing core-to-instance links.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/883",
+      "after": "source.json#/records/879",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/699",
+      "source.json#/records/701",
+      "source.json#/records/702",
+      "source.json#/records/705",
+      "source.json#/records/706",
+      "source.json#/records/707",
+      "source.json#/records/708",
+      "source.json#/records/712",
+      "source.json#/records/713",
+      "source.json#/records/716",
+      "source.json#/records/717",
+      "source.json#/records/721",
+      "source.json#/records/722",
+      "source.json#/records/723",
+      "source.json#/records/727",
+      "source.json#/records/728",
+      "source.json#/records/729",
+      "source.json#/records/733",
+      "source.json#/records/734",
+      "source.json#/records/738",
+      "source.json#/records/739",
+      "source.json#/records/743",
+      "source.json#/records/744",
+      "source.json#/records/747",
+      "source.json#/records/748",
+      "source.json#/records/752",
+      "source.json#/records/753",
+      "source.json#/records/758",
+      "source.json#/records/759",
+      "source.json#/records/760",
+      "source.json#/records/763",
+      "source.json#/records/764",
+      "source.json#/records/769",
+      "source.json#/records/770",
+      "source.json#/records/773",
+      "source.json#/records/774",
+      "source.json#/records/778",
+      "source.json#/records/779",
+      "source.json#/records/783",
+      "source.json#/records/784",
+      "source.json#/records/788",
+      "source.json#/records/789",
+      "source.json#/records/790",
+      "source.json#/records/793",
+      "source.json#/records/794",
+      "source.json#/records/797",
+      "source.json#/records/798",
+      "source.json#/records/802",
+      "source.json#/records/803",
+      "source.json#/records/809",
+      "source.json#/records/810",
+      "source.json#/records/813",
+      "source.json#/records/814",
+      "source.json#/records/820",
+      "source.json#/records/821",
+      "source.json#/records/824",
+      "source.json#/records/825",
+      "source.json#/records/830",
+      "source.json#/records/831",
+      "source.json#/records/834",
+      "source.json#/records/835",
+      "source.json#/records/839",
+      "source.json#/records/840",
+      "source.json#/records/845",
+      "source.json#/records/846",
+      "source.json#/records/849",
+      "source.json#/records/850",
+      "source.json#/records/854",
+      "source.json#/records/855",
+      "source.json#/records/860",
+      "source.json#/records/861",
+      "source.json#/records/865",
+      "source.json#/records/866",
+      "source.json#/records/871",
+      "source.json#/records/872",
+      "source.json#/records/873",
+      "source.json#/records/878",
+      "source.json#/records/879"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/612"
+      ],
+      "native_context_records": [
+        "source.json#/records/27",
+        "source.json#/records/612"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/883",
+        "source.json#/records/887",
+        "source.json#/records/892",
+        "source.json#/records/897",
+        "source.json#/records/903",
+        "source.json#/records/907",
+        "source.json#/records/912",
+        "source.json#/records/917",
+        "source.json#/records/922",
+        "source.json#/records/927"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

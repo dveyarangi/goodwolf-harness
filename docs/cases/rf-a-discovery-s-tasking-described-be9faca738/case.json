@@ -1,0 +1,129 @@
+{
+  "id": "rf-a-discovery-s-tasking-described-be9faca738",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "49. A discovery's tasking described the method it was meant to step outside — 2026-10-15",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "spec discovery proposal"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1288",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.295"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/1288/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-14T21:38:00.447Z",
+    "chat_id": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5",
+    "trigger_message_id": null,
+    "trigger_record_id": "ca5992d6-788f-4bd4-9a11-4f1d09dc3ff8",
+    "failure_message_id": "msg_011Cg2rLjPW2zWUcWVAZ6oPH",
+    "failure_record_id": "569f2dc6-39cb-4d40-932a-a180ce72003f",
+    "transcript": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5.jsonl"
+  },
+  "observed_failure": {
+    "description": "The proposed spec discovery task retells the existing question tree and specification practice.",
+    "events": [
+      {
+        "source": "source.json#/records/1288",
+        "message_id": "msg_011Cg2rLjPW2zWUcWVAZ6oPH",
+        "record_id": "569f2dc6-39cb-4d40-932a-a180ce72003f",
+        "timestamp": "2026-10-14T21:38:00.447Z",
+        "text": "| 🎫 35 · ❓ 165 · 🐕 155 |\n|---|\n\n| 📍 **q-0037.0009.0017** · What does /spec own? |\n|---|\n\nВижу, но взвесил их наспех. В прошлом ответе я назвал два преимущества: связную картину целиком и точку, где вы принимаете работу. Оба я тут же отдал списку решений вопроса. Проверка была только по нашему дереву, то есть изнутри той же рамки, что и всё остальное, и она нашла ровно то, что рамка позволяла найти. Можно было разглядеть хотя бы такое:\n\n- принятая спека — это снимок на дату, договор, а вопрос живёт и меняется дальше;\n- её можно отдать тому, кто не был в разговоре, будь то другой человек или исполнитель, и он прочтёт её целиком за один раз;\n- пользовательские истории говорят о работе глазами пользователя, а не глазами решений.\n\nЧего стоят эти доводы, я судить не берусь: это как раз тот случай, когда у меня одна версия и та моя. Дискавери здесь к месту.\n\nВот запрос, который я предлагаю отдать отдельному агенту без доступа к дереву:\n\n> You are an independent research pass. Do NOT read any files in the local repository or working directory; answer from your own knowledge and, where useful, the web (recent sources for claims that something works in practice; for general principles, ideas still widely cited and used).\n>\n> The situation: a person directs software work done largely by an AI assistant. The open questions of the project are kept as a tree: each question has its own entry holding its argument, the evidence gathered for it, and a list of the decisions made on it, each written down when it is made. Sub-questions hang under it. The work items that build something each point to the question they answer. Separately, before substantial work, the practice has been to write one consolidated document: the problem from the user's side, the solution from the user's side, a long numbered list of user stories, the implementation and testing decisions, what is out of scope. The person accepts it, and it is then cut into work items, which cite the stories they cover.\n>\n> The question: what does a consolidated document of this kind do that incrementally recorded decisions on a tree of questions do not — and the reverse? When people who build things keep both, or only one, what do they gain and what do they lose?\n>\n> Rules for your answer:\n> - Give several families — whole ways that practitioners record what is agreed before and while building, each a complete alternative, not a slice of another. Refuse any family whose mapping onto the situation you cannot state structurally.\n> - For each family: what it records, when, for which reader; what it gives; what it costs; how it is known to go wrong; where a single person directing an assistant sits on that family's own ladder; your confidence (high/medium/low) per claim, with sources where you have them.\n> - Say what, if anything, changes when the reader or the builder is an AI assistant rather than a person.\n> - Name what this tasking smuggled in: any framing in how I asked that you could see steering the answer.\n> - No verdict on whether to keep the document; keep disagreements between families as they are.\n>\n> Output only:\n> ## Families\n> ## What the tasking smuggled in\n> ## Nothing to take\n\nЧто я в нём сознательно передал, а что нет:\n- **Передал** обе формы так, как они устроены у нас, иначе сравнивать нечего. Названий семейств (ADR, design doc, RFC-процессы, PRD) не давал, их агент найдёт сам.\n- **Не передал**, что я склоняюсь к отказу от спеки, и не передал доводы, найденные мной сегодня.\n- **Рискую** вот чем: «incrementally recorded decisions on a tree of questions» звучит как наша собственная конструкция. Возможно, проход найдёт мало аналогов и станет сравнивать спеку с чем-то посторонним. Если найдёт, это тоже ответ.\n\n| ⚖️ Decisions |\n|---|\n| Запустить дискавери с этим запросом как есть или поправить его |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Ask independently how working documents are organized from small to large tasks, without teaching the current method to the independent researcher.",
+    "source_evidence": [
+      "source.json#/records/1297",
+      "source.json#/records/1306",
+      "source.json#/records/241"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Ask independently how working documents are organized from small to large tasks, without teaching the current method to the independent researcher.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1297",
+      "source.json#/records/1299",
+      "source.json#/records/1302",
+      "source.json#/records/1306"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The proposed spec discovery task retells the existing question tree and specification practice.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1288",
+      "after": "source.json#/records/1283",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/1283"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/241"
+      ],
+      "native_context_records": [
+        "source.json#/records/241",
+        "source.json#/records/1285"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/1285",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5\\tool-results\\hook-dc3b88ba-e184-4064-8d86-88d1aa5af005-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-dc3b88ba-e184-4064-8d86-88d1aa5af005-1-additionalContext.txt",
+          "sha256": "26adb25f408e2960caa4d9be36e07aa2ae023d73c9e4de7b6fdbb9cf2113568c",
+          "bytes": 41618,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1945,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-14T21:37:37.798141+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1288"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

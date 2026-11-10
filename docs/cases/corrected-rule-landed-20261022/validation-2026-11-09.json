@@ -1,0 +1,19 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-09",
+  "case": "corrected-rule-landed-20261022",
+  "validation_scope": "Replay-input preparation after the independent pilot validation; native pointers and call/result pairing checked mechanically. Original case checks are preserved, not individually re-graded by this preparation.",
+  "source_status": "explicit gaps",
+  "source_gap_count": 3,
+  "input_record_count": 19,
+  "unresolved_input_record_count": 3,
+  "executor_support": {
+    "executor": "amendment.py / CodexHost",
+    "status": "unsupported",
+    "reasons": [
+      "The combined-input validator requires experiment instruction variants inside the case.",
+      "The current adapter has no native role/tool-history replay path and no action-execution support."
+    ],
+    "behaviour_verdict": null
+  }
+}

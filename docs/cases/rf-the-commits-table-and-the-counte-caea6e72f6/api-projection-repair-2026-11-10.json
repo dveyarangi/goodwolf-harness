@@ -1,0 +1,18 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "scope": "Restored previously omitted public message-level config/metadata; no change to request order, role/content, source provenance or case criteria.",
+  "before_api_input_sha256": "ad518e3ba29347e4f1695f6c19beebde76bdd11b2d5ed8ab1664345aacd8e53a",
+  "after_api_input_sha256": "4e98b4d1f89b98673dfb06c82d6f851d22c6535da7784afc0da5e6b65dda75e6",
+  "changed_positions": [
+    {
+      "position": 1,
+      "source_record": 3725,
+      "fields_restored": [
+        "output_config"
+      ]
+    }
+  ],
+  "unknown_message_fields_reported_without_decoding": true,
+  "unsupported_public_fields_or_blocks": 0
+}

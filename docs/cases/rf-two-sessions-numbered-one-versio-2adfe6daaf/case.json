@@ -1,0 +1,199 @@
+{
+  "id": "rf-two-sessions-numbered-one-versio-2adfe6daaf",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "75. Two sessions numbered one version of the entry contract — 2026-10-25",
+    "occurrence": "repeat",
+    "occurrence_heading": "**Struck again 2026-10-25.** Two sessions gave the register 74, nine hours apart; the later is now",
+    "detail": "older register 61 collision found in this strike; later entry became 83"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1347",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.308"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/1347/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-23T15:31:01.218Z",
+    "chat_id": "1e4388f8-089d-4fb0-b91e-c6230c8020d5",
+    "trigger_message_id": null,
+    "trigger_record_id": "66b1baa3-51a8-44a9-bcfd-bfd0cd2297a0",
+    "failure_message_id": "msg_011CgKQeikbAjCE8ta1Q8N9t",
+    "failure_record_id": "fe505fc1-5d33-46ac-849b-7fae3470b01d",
+    "transcript": "1e4388f8-089d-4fb0-b91e-c6230c8020d5.jsonl"
+  },
+  "observed_failure": {
+    "description": "The CRLF failure is registered as another entry 61 after the just-minted ticket-order failure already took 61.",
+    "events": [
+      {
+        "source": "source.json#/records/1347",
+        "message_id": "msg_011CgKQeikbAjCE8ta1Q8N9t",
+        "record_id": "fe505fc1-5d33-46ac-849b-7fae3470b01d",
+        "timestamp": "2026-10-23T15:31:01.218Z",
+        "text": "Bash {\"command\": \"S=\\\"C:/Users/fimar/AppData/Local/Temp/claude/D--Dev-AI-agents/12408694-e65f-40ca-b074-bedd4350fc50/scratchpad\\\" && uv run --offline --no-project python - <<'PY'\\nimport io\\np = \\\"docs/rule-failures.md\\\"\\ns = io.open(p, encoding='utf-8').read()\\nanchor = \\\"## 60. A local rule in the entry file named the skill that executes it, and no check found it odd — 2026-10-22\\\"\\nassert s.count(anchor) == 1\\nentry = \\\"\\\"\\\"## 61. Core shipped with carriage returns, and no check in the tree saw it — 2026-10-23\\n\\n**Rules in play:** none that covers it. The verification set reads the shape of mechanisms, rules,\\ntickets, edges, records, sessions and the product document; none reads line endings. The shipment\\nreads *the bytes as the commit holds them*, and the block stripper holds a block to the exact\\nspacing the installer writes.\\n\\n**What happened.** A session's tool wrote carriage returns into committed text — the commit skill's\\ninstalled blocks on 2026-10-22, among 156 files with CRLF or mixed endings in the index — and from\\nthen on every install from a clone refused at ship: *the block is not spaced as the installer\\nwrites it*. Nothing in the tree reported it; the readiness check before the first live meeting\\nfound it, a day later, by trying an install into a scratch tree.\\n\\n**What it is.** A slip no rule covers: the method's own text had no stated line-ending convention,\\nso a tool's default could change it unseen, and the one check that cared ran only in a recipient.\\n\\n**Amendment landed, 2026-10-23:** a root `.gitattributes` — `* text=auto eol=lf` — so text enters\\nthe index LF whatever a clone's setting, the shipped paths renormalised under it; and the shipment\\nturns a carriage return into a newline before any reader of its text, with a test. Graded by the\\nnext install from a clone made on a Windows machine.\\n\\n\\\"\\\"\\\"\\ns = s.replace(anchor, entry + anchor, 1)\\nio.open(p, 'w', encoding='utf-8', newline='\\\\n').write(s)\\nprint(\\\"registered\\\")\\nPY\\ngit add docs/rule-failures.md && printf '%s\\\\n\\\\n%s\\\\n' \\\"FIX: register entry 61 — core shipped with carriage returns and no check in the tree saw it; the amendment landed as the root .gitattributes and the shipment's normalisation; the user, 2026-10-23\\\" \\\"Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\\\" > \\\"$S/msg26.txt\\\" && git commit -q -F \\\"$S/msg26.txt\\\" && git push -q origin main 2>&1 | tail -1; git log -1 --format='%h'\", \"description\": \"Register the carriage-return slip with its landed amendment, commit and push\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Do not give distinct failures the same live register number.",
+    "source_evidence": [
+      "source.json#/records/1152",
+      "source.json#/records/1348",
+      "source.json#/records/1152",
+      "source.json#/related_sources/8508516a5b/records/554",
+      "source.json#/related_sources/8508516a5b/records/555"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Do not give distinct failures the same live register number.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1348"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The CRLF failure is registered as another entry 61 after the just-minted ticket-order failure already took 61.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1347",
+      "after": "source.json#/records/1341",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/1179",
+      "source.json#/records/1183",
+      "source.json#/records/1184",
+      "source.json#/records/1185",
+      "source.json#/records/1188",
+      "source.json#/records/1189",
+      "source.json#/records/1194",
+      "source.json#/records/1195",
+      "source.json#/records/1200",
+      "source.json#/records/1201",
+      "source.json#/records/1206",
+      "source.json#/records/1207",
+      "source.json#/records/1212",
+      "source.json#/records/1213",
+      "source.json#/records/1217",
+      "source.json#/records/1218",
+      "source.json#/records/1219",
+      "source.json#/records/1225",
+      "source.json#/records/1226",
+      "source.json#/records/1229",
+      "source.json#/records/1230",
+      "source.json#/records/1234",
+      "source.json#/records/1235",
+      "source.json#/records/1240",
+      "source.json#/records/1241",
+      "source.json#/records/1247",
+      "source.json#/records/1248",
+      "source.json#/records/1253",
+      "source.json#/records/1254",
+      "source.json#/records/1259",
+      "source.json#/records/1260",
+      "source.json#/records/1265",
+      "source.json#/records/1266",
+      "source.json#/records/1271",
+      "source.json#/records/1272",
+      "source.json#/records/1277",
+      "source.json#/records/1278",
+      "source.json#/records/1286",
+      "source.json#/records/1287",
+      "source.json#/records/1293",
+      "source.json#/records/1294",
+      "source.json#/records/1299",
+      "source.json#/records/1300",
+      "source.json#/records/1305",
+      "source.json#/records/1306",
+      "source.json#/records/1312",
+      "source.json#/records/1313",
+      "source.json#/records/1319",
+      "source.json#/records/1320",
+      "source.json#/records/1323",
+      "source.json#/records/1324",
+      "source.json#/records/1328",
+      "source.json#/records/1329",
+      "source.json#/records/1334",
+      "source.json#/records/1335",
+      "source.json#/records/1340",
+      "source.json#/records/1341"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/1152"
+      ],
+      "native_context_records": [
+        "source.json#/records/1152",
+        "source.json#/records/1181",
+        "source.json#/records/1280"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/1181",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\12408694-e65f-40ca-b074-bedd4350fc50\\tool-results\\hook-51d94b8e-041f-461b-8f66-8574f9300b55-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-51d94b8e-041f-461b-8f66-8574f9300b55-1-additionalContext.txt",
+          "sha256": "38609362e1ea6c0ba1fe453add1d9a8eae1f1b91cdab70ca14026ef9d9201916",
+          "bytes": 53212,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1684,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-23T15:13:47.275954+00:00"
+        },
+        {
+          "referenced_by": "source.json#/records/1280",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\12408694-e65f-40ca-b074-bedd4350fc50\\tool-results\\hook-3b0252d9-5aa1-4bcc-b507-555ab3691b6f-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-3b0252d9-5aa1-4bcc-b507-555ab3691b6f-1-additionalContext.txt",
+          "sha256": "9ea06f58473366f1c014ca4290cc8b198d383bb787387b50b9b2e2215e7dd465",
+          "bytes": 54468,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1684,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-23T15:22:40.288989+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1347"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

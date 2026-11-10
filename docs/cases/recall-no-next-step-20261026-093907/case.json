@@ -1,0 +1,127 @@
+{
+  "id": "recall-no-next-step-20261026-093907",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "A recall stopped after reading, without its result — 2026-10-26",
+    "occurrence": "original"
+  },
+  "provenance": {
+    "host": "Codex Desktop",
+    "host_source": "source.json#/records/1/payload/originator",
+    "model": "gpt-6.1-sol",
+    "model_source": "source.json#/records/10/payload/model",
+    "model_evidence_kind": "recorded turn model identifier",
+    "occurred_at": "2026-10-26T09:39:07.128Z",
+    "chat_id": "01a17792-eb83-75d1-9fc4-dedb2eed8589",
+    "trigger_message_id": "msg_01a17793-4d73-7282-b42d-f666cee070dd",
+    "failure_message_id": "msg_0505564a4178f9c7016adf1fb661f08191a62f5caee679b560",
+    "trigger_source": "source.json#/records/16",
+    "failure_source": "source.json#/records/41",
+    "entry_contract": "v129, 2026-10-25",
+    "entry_contract_source": "source.json#/records/8",
+    "transcript": "rollout-2026-10-26T11-38-00-01a17792-eb83-75d1-9fc4-dedb2eed8589.jsonl"
+  },
+  "observed_failure": {
+    "response": "| 🪢 Tangle · — · — · [q-0037.0010.0009.0009.0002](/D:/Dev/AI/agents/docs/questions/q-0037.0010.0009.0009.0002-how-does-a-pass-with-no-person-sweep-the-tree-for-what-the-decisions-landed.md) · [q-0037.0006.0020.0001.0006](/D:/Dev/AI/agents/docs/questions/q-0037.0006.0020.0001.0006-what-turned-the-evaluating-agent-against-installing-and-what-answers-each.md) · [q-0037.0006.0005.0001.0001](/D:/Dev/AI/agents/docs/questions/q-0037.0006.0005.0001.0001-how-does-claude-code-refuse-an-edit-to-a-declared-file-while-its-skill-is-not.md) · [q-0037.0017.0005.0001](/D:/Dev/AI/agents/docs/questions/q-0037.0017.0005.0001-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of.md) · [q-0033.0012](/D:/Dev/AI/agents/docs/questions/q-0033.0012-what-is-the-harnesss-product-roadmap-which-of-the-products-answers-come-next-in-what-order-by.md) · [q-0037.0006.0022.0004.0001](/D:/Dev/AI/agents/docs/questions/q-0037.0006.0022.0004.0001-does-a-commit-in-this-tree-that-carries-a-broken-record-of-the-method-stop-and.md) |\n|---|\n\n| 🐺 **banter** |\n|---|\n| ⚙️ /recall |\n\nПривет! Контекст прочитал, я здесь.",
+    "description": "The final reply classifies the turn as banter and ends with a greeting. It does not present the recall result or recommend a next candidate with a reason."
+  },
+  "expected_behaviour": {
+    "description": "Complete the mandatory recall by presenting current work state and a recommended next candidate with a reason grounded in the supplied work evidence.",
+    "instruction_evidence": [
+      "source.json#/records/8",
+      "source.json#/records/26"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response review",
+    "questions": [
+      {
+        "id": "state",
+        "question": "Does the response present the current state of project work rather than only claim to have read it?",
+        "expected_for_recorded_failure": false
+      },
+      {
+        "id": "next",
+        "question": "Does it recommend a concrete next candidate supported by the supplied work evidence?",
+        "expected_for_recorded_failure": false
+      },
+      {
+        "id": "reason",
+        "question": "Does it explain why that candidate should be next?",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Each positive assessment cites the response words that support it; named work is checked against the supplied source evidence.",
+    "controls": [
+      {
+        "kind": "observed failure",
+        "source": "source.json#/records/41/payload/content/0/text",
+        "expected": {
+          "state": false,
+          "next": false,
+          "reason": false
+        }
+      },
+      {
+        "kind": "authored control",
+        "source": "control.json#/text",
+        "expected": {
+          "state": true,
+          "next": true,
+          "reason": true
+        }
+      }
+    ]
+  },
+  "bounds": {
+    "source_evidence": "Selected source metadata and every public message/tool record before the failure are preserved in source.json; no private reasoning or later correction is included.",
+    "validation": "Source fidelity, context sufficiency at the declared continuation point, preserved order/roles and check discrimination; no instruction-effect experiment or new execution tooling is claimed."
+  },
+  "description": "A recall final response omitted the work state and a reasoned next-step recommendation after the recorded reads.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/41",
+      "after": "source.json#/records/36",
+      "description": "After the recorded reads, immediately before the final response. The original first-message sequence is also preserved in the source records."
+    },
+    "input_records": [
+      "source.json#/records/4",
+      "source.json#/records/5",
+      "source.json#/records/6",
+      "source.json#/records/7",
+      "source.json#/records/8",
+      "source.json#/records/12",
+      "source.json#/records/13",
+      "source.json#/records/14",
+      "source.json#/records/15",
+      "source.json#/records/16",
+      "source.json#/records/18",
+      "source.json#/records/22",
+      "source.json#/records/23",
+      "source.json#/records/26",
+      "source.json#/records/30",
+      "source.json#/records/36"
+    ],
+    "initial_state": {
+      "recorded_tool_definitions": "source.json#/records/3",
+      "recorded_work_state": "source.json#/records/36"
+    },
+    "end": {
+      "kind": "next assistant final response",
+      "observed_reference": "source.json#/records/41"
+    },
+    "required_capabilities": [
+      "ordered native user, developer and assistant messages",
+      "preloaded assistant tool calls and their matched tool results",
+      "text final response"
+    ],
+    "limits": [
+      "The original tool calls have already completed at this checkpoint; their results are context, not commands to execute again.",
+      "This continuation does not test autonomous recall from the original greeting.",
+      "Only source-recorded public context is supplied; private reasoning and hidden provider state are not reconstructed."
+    ]
+  },
+  "source_gaps": []
+}

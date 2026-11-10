@@ -1,0 +1,132 @@
+{
+  "id": "rf-an-instruction-was-proposed-into-fc3387a256",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "58. An instruction was proposed into a format file — 2026-10-21",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "original public event"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/292",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.299"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/292/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-21T08:39:21.933Z",
+    "chat_id": "4b528c27-1a59-4ad4-99d2-b0045214b540",
+    "trigger_message_id": null,
+    "trigger_record_id": "ecacf5c5-b2e4-4a97-a655-16566f29af90",
+    "failure_message_id": "msg_011CgF5cAt9vZkHVVcyY3Qhz",
+    "failure_record_id": "2adb16b8-3f6b-49b4-8743-1e730baf5caa",
+    "transcript": "4b528c27-1a59-4ad4-99d2-b0045214b540.jsonl"
+  },
+  "observed_failure": {
+    "description": "The proposed format change tells a wake what to remove and what to read.",
+    "events": [
+      {
+        "source": "source.json#/records/292",
+        "message_id": "msg_011CgF5cAt9vZkHVVcyY3Qhz",
+        "record_id": "2adb16b8-3f6b-49b4-8743-1e730baf5caa",
+        "timestamp": "2026-10-21T08:39:21.933Z",
+        "text": "| 🪢 Tangle — [q-0037.0019](docs/questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three-roots-and-the-next-shown-with-its-unit-as-the-installed-method-names-it.md) · [q-0038.0001](docs/questions/q-0038.0001-does-working-under-the-harness-deliver-software-better-than-working-without-it-measured-on-the-same-tasks.md) · [q-0037.0019](docs/questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three-roots-and-the-next-shown-with-its-unit-as-the-installed-method-names-it.md) · [q-0037.0017](docs/questions/q-0037.0017-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md) |\n|---|\n\n| 🎫 39 · ❓ 173 · 🐕 169 |\n|---|\n\n| 📍 **[q-0037.0017](docs/questions/q-0037.0017-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md)** · What is a session to the harness, and which mechanism keeps its lifecycle? |\n|---|\n\nNothing deletes them. Today a row is written once and changed forever after, never removed, and the format says so on purpose. The one thing the history buys turned out to be more than I said two replies ago, so I correct that first.\n\n**What an old row is for.** The desktop app names a conversation by one id in every process it starts, and the hook registers the session under that id. So a conversation you reopen a day later finds its own row, turns it running again, keeps its position and is told no new recall is needed. That is a real use, and it covers the desktop host too, not the terminal alone.[^1] Everything older than a reopen could plausibly reach, which is days, buys nothing: the account of what each session did is its record under `docs/sessions/`, and the wake prints the rest into every session's context for no reader.\n\n**The shape with the fewest parts.** A row lives while its session could still come back, and the wake removes it after that. One constant, one more step in the wake, which already walks every row to end the silent ones. The wake's read lists running sessions only. The conclude, the silence rule and the carry-over stay as they are. Seven days is my estimate of how long a reopen stays likely, and it is yours to lower or raise. I settled it as the method asks and stop here to show it before touching the format or the script. (🐛 self-improvement=a rule)\n\n🧩 **Proposed rule — [QUESTION-FORMAT.md](.agents/skills/questions/QUESTION-FORMAT.md) · The sessions folder**\n\n> What removes a row: a wake removes each ended row whose session has not returned within seven days, since a conversation the host reopens finds its row under the same id until then. The wake's read lists running sessions only.\n\nThe maintain pass's rule that commits rows a wake ended in other sessions' files will read *ended or removed*, a wording change that follows the rule above. The script change sits in the wake: a removal beside the silence rule, and the report's session list narrowed to running rows. The 125 rows now in the folder go with the first wake after it lands.\n\n✋ Ended session rows removed by the wake after seven days, the wake listing running sessions only, in place of rows kept for good.\n\nYes from you, and I mint the ticket under this question and carry it through plan, implement and verify.\n\n| ⚖️ Decisions |\n|---|\n| Ended rows removed after seven days by the wake, the wake listing running sessions only; or another window than seven days |\n\n[^1]: The host table in `questions.py`: the desktop app keeps its own id for the conversation in every process it starts, 2026-10-09 and 2026-10-10."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "A format describes the record; the user explicitly rejects instructions about session work in QUESTION-FORMAT.",
+    "source_evidence": [
+      "source.json#/records/303",
+      "source.json#/records/310",
+      "source.json#/records/272"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: A format describes the record; the user explicitly rejects instructions about session work in QUESTION-FORMAT.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/303",
+      "source.json#/records/305",
+      "source.json#/records/310"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The proposed format change tells a wake what to remove and what to read.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/292",
+      "after": "source.json#/records/287",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/268",
+      "source.json#/records/281",
+      "source.json#/records/282",
+      "source.json#/records/286",
+      "source.json#/records/287"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/272"
+      ],
+      "native_context_records": [
+        "source.json#/records/270",
+        "source.json#/records/272"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/270",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\4b528c27-1a59-4ad4-99d2-b0045214b540\\tool-results\\hook-32257c93-6475-471a-bed3-e5d097a8270d-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-32257c93-6475-471a-bed3-e5d097a8270d-1-additionalContext.txt",
+          "sha256": "53861b410f47b10cfbe5409d33c438f343722a2e77311cebae3c73a2a32a8b32",
+          "bytes": 42915,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1977,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-21T08:37:50.548897+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/292"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

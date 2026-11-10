@@ -1,0 +1,1045 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "reviewer": "Independent reviewer of the temporary recovery/export implementation and resulting public artifacts",
+  "scope": "32 recorded-API case artifacts, their case/source records, temporary integration code, optional-field repair, native tool chronology, provenance, and referenced public artifacts. No behavioral replay or all-case semantic sufficiency verdict.",
+  "verdict": "PASS within the bounded public-history recovery and integration scope after repair of the independently found optional-field omission",
+  "necessary_fixes_remaining": [],
+  "resolved_findings": [
+    {
+      "finding": "Public message-level fields were silently omitted without unsupported-field reporting",
+      "affected_unique_original_blob_rows": {
+        "output_config": 17,
+        "clear_at": 6
+      },
+      "affected_request_positions": {
+        "output_config": 32,
+        "clear_at": 637
+      },
+      "repair": "Known public output_config and clear_at values retained; unknown API-blob message field names reported without decoding their values",
+      "independent_recheck": "Restored values equal original known-public metadata. Removing only these fields reproduces all 32 pre-repair whole-file SHA-256 values. Six adversarial synthetic assertions passed, including private content and unknown-value decoder guards."
+    }
+  ],
+  "counts": {
+    "cases": 32,
+    "recorded_message_positions": 10963,
+    "local_pointers_checked": 23253,
+    "source_hash_overlaps": 463,
+    "model_comparisons": 0,
+    "tool_calls": 4175,
+    "tool_results": 4175,
+    "private_blocks_omitted": 2632,
+    "original_rows_hashed_opaquely": 7328,
+    "original_model_scalars_compared": 550,
+    "reference_only_rows_checked": 534,
+    "copied_public_artifact_references_checked": 27,
+    "repeated_message_positions_compared": 5732,
+    "unique_safe_projections_checked": 5231,
+    "unique_native_canonical_message_hashes_reproduced": 2594,
+    "current_source_private_typed_nodes": 0,
+    "unresolved_input_positions": 0,
+    "unsupported_public_fields_or_blocks": 0
+  },
+  "checks": {
+    "request_delta_chains": "Every stored base/keep/tail chain reconstructs the exact message-hash order, including duplicates, and anchors to source.delivery_context requestRef/request-record/message-count.",
+    "roles_and_projection": "Recorded roles and public string/block structure preserved. Actual unique messages safely reproject to the saved payloads; repeated positions agree. Provider-private structured blocks skipped before JSON decoding.",
+    "tool_chronology": "All 4175 typed native calls and 4175 results pair by ID in preceding assistant-call to later user/tool-result order; no orphan, duplicate, or unreturned ID was found.",
+    "pointers": "All 23253 local JSON pointers in the 32 case records resolve, including source/related-source and API message/request references.",
+    "provenance": "Source-row numbers/types/SHA structures agree across cases and overlapping selected public records; 7328 specifically referenced raw rows independently hash to their retained SHA values without full-row JSON decoding.",
+    "native_models": "All 550 unique checked original source message.model scalars exactly match retained source values; all case model_source pointers agree with case provenance. Source-reported strings are preserved, not promoted into stronger model-authentication claims.",
+    "evidence_not_extra_actor_input": "All replay actor inputs are API-message pointers in request order. Original selected failure rows and all 534 reference-only rows are absent as additional actor source rows. Native attachments and instruction snapshots remain initial-state evidence.",
+    "artifacts": "All 27 copied artifact references resolve to native public hook evidence; retained file bytes/length/SHA and captured preview prefixes match. Full artifacts are outside additional actor messages.",
+    "optional_repair": "Current API hashes agree with repair/context reports; historical artifact-copy hashes equal the pre-repair API hashes and are explicitly scoped as historical snapshots. Before/after hashes are not conflated.",
+    "executor": "All 32 context reports keep executor support unsupported and behavior verdict null."
+  },
+  "provider_hash_limit": {
+    "recorded_blob_hash_linkage_verified": true,
+    "unique_blob_canonical_full_message_hashes_reproduced": 2042,
+    "unique_blob_full_message_hashes_not_reproduced_under_tested_domain": 595,
+    "interpretation": "The recorded blob hash links the request key to its source blob; raw row SHA and safe projection are independently checked. The complete internal provider hash field-domain/serializer is not established. No claim is made that every provider hash was recomputed from projected JSON."
+  },
+  "historical_comparison_limit": "No complete pre-integration case snapshot exists and these case files were absent from HEAD. A full before/after equality proof of every prior criterion, bound and replay limit is unavailable. Integration code assigns replay/source_gaps, not expected/check/provenance. All expected-source references and meaningful qualification text from selections are retained. Two commit-prefix criteria match earlier repaired source-backed wording documented in repair_recovered_context.py and recovery-71-73.json; the earlier selection spec is not an unconditional latest baseline.",
+  "other_limits": [
+    "Public history does not establish complete system/tool parameters, complete filesystem state, executor compatibility, case-check necessity of every artifact, or semantic sufficiency of every case.",
+    "Primitive serializer spelling, unique schema keys, inner-role interpretation and the 32-message consecutive search window remain helper assumptions; explicit gaps must be preserved if encountered.",
+    "Filtering distinguishes provider private content blocks from arbitrary application/tool-input JSON. It does not identify private material embedded in otherwise public text or reinterpret every private-looking tag in tool arguments.",
+    "Copied artifact SHA authenticates the retained current bytes; the recorded hook preview binds the captured prefix, not an independently recorded historical whole-artifact checksum."
+  ],
+  "behavioral_experiment_performed": false,
+  "runtime_rules_or_git_changed_by_reviewer": false,
+  "supporting_independent_reviews": [
+    "hash-recovery-review.md:29 independent fixture checks",
+    "api-input-export-review.md:53 independent fixture checks, including ten-fragment recovery",
+    "optional-field repair:6 additional independent guarded assertions"
+  ],
+  "cases": [
+    {
+      "case": "rf-a-commit-below-every-dial-was-pu-63aa8532b5",
+      "messages": 116,
+      "request_record": 4251,
+      "request_ref": "657acb5e-2cd4-44f4-91ba-d07e3799060f",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 38,
+      "local_pointers_checked": 318,
+      "source_hash_overlaps": 89,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 71
+      },
+      "tool_calls": 56,
+      "tool_results": 56,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "0689e197541f12b03617c419c8856f41b53c0d475e37bc561792ea4111ca0a6e",
+      "before_optional_repair_api_sha256": "831ed1f080ff8181412a19943fca0287d10da2c6b819c273a7d181229942a16b",
+      "optional_field_repair": {
+        "case": "rf-a-commit-below-every-dial-was-pu-63aa8532b5",
+        "current_api_input_sha256": "0689e197541f12b03617c419c8856f41b53c0d475e37bc561792ea4111ca0a6e",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-a-decision-abandoned-twelve-days-44a2f38b3e",
+      "messages": 594,
+      "request_record": 1863,
+      "request_ref": "f61d8d02-5f46-48ce-9ab4-c3d123c4eec2",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 141,
+      "local_pointers_checked": 1205,
+      "source_hash_overlaps": 2,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 1
+      },
+      "tool_calls": 233,
+      "tool_results": 233,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "313b232df7f8af1da789ed484ca8c82a1e12f5e02eafe47b4e69f7be7c5a6a82",
+      "before_optional_repair_api_sha256": "f99f7b8bf58e78964c11bdb175bd5cf3ad9788ceae2f08bc3fa44346994f76e9",
+      "optional_field_repair": {
+        "case": "rf-a-decision-abandoned-twelve-days-44a2f38b3e",
+        "current_api_input_sha256": "313b232df7f8af1da789ed484ca8c82a1e12f5e02eafe47b4e69f7be7c5a6a82",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-a-decision-abandoned-twelve-days-7748bd8716",
+      "messages": 591,
+      "request_record": 1848,
+      "request_ref": "7f6e8223-fc26-4c11-b4ca-18859dcae5a0",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 140,
+      "local_pointers_checked": 1202,
+      "source_hash_overlaps": 2,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 2
+      },
+      "tool_calls": 233,
+      "tool_results": 233,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "bc3f58d719c10fb8d03f9c067718accec3dd9d33a9fc6ee5269467aa8dd8b7e9",
+      "before_optional_repair_api_sha256": "c032c622f0b36eac1bb5b742370f8670d098f34493b6a62536a275e5a44feb97",
+      "optional_field_repair": {
+        "case": "rf-a-decision-abandoned-twelve-days-7748bd8716",
+        "current_api_input_sha256": "bc3f58d719c10fb8d03f9c067718accec3dd9d33a9fc6ee5269467aa8dd8b7e9",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-a-directory-wide-add-committed-a-6d83511710",
+      "messages": 679,
+      "request_record": 6668,
+      "request_ref": "38765020-ccd4-44d1-843c-3b0c2e071c6f",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 218,
+      "local_pointers_checked": 1377,
+      "source_hash_overlaps": 6,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 6
+      },
+      "tool_calls": 265,
+      "tool_results": 265,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "4ad09eec7ad823d11a11853b7b9d4daf3dbcbfc2457b8fbfa79dbc58b59a6b66",
+      "before_optional_repair_api_sha256": "2170e5faa169315fcbe8407a393285a7d5fc7b21c12c7c939460733b9515af76",
+      "optional_field_repair": {
+        "case": "rf-a-directory-wide-add-committed-a-6d83511710",
+        "current_api_input_sha256": "4ad09eec7ad823d11a11853b7b9d4daf3dbcbfc2457b8fbfa79dbc58b59a6b66",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-a-drift-repair-s-subagent-sent-i-be22c2bccd",
+      "messages": 15,
+      "request_record": 50,
+      "request_ref": "9fbf31ae-600b-4a86-9641-790d199ddc21",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 5,
+      "local_pointers_checked": 59,
+      "source_hash_overlaps": 11,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 11
+      },
+      "tool_calls": 7,
+      "tool_results": 7,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "425c476250a479e1c2f6a50997958de455cb5505cffc092d582b30e009727102",
+      "before_optional_repair_api_sha256": "c9a41be141fa3f46e3899d8152feb4bb7517dbad18f4c1edc114842a9663cab6",
+      "optional_field_repair": {
+        "case": "rf-a-drift-repair-s-subagent-sent-i-be22c2bccd",
+        "current_api_input_sha256": "425c476250a479e1c2f6a50997958de455cb5505cffc092d582b30e009727102",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-a-judge-session-s-verdict-was-pu-2395f763d0",
+      "messages": 628,
+      "request_record": 2056,
+      "request_ref": "d53de411-482b-416c-aef9-e690be638e09",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 105,
+      "local_pointers_checked": 1317,
+      "source_hash_overlaps": 4,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-fable-5-1": 22
+      },
+      "tool_calls": 251,
+      "tool_results": 251,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "dbb8cccb33ad3a41610c697b72214611eb409ffdf8e2b1cc7cd3d50447c746e6",
+      "before_optional_repair_api_sha256": "936eb5e1f72cb01678045494879172af84337cfb0665ad9e4ba0e0f5f78b1ba0",
+      "optional_field_repair": {
+        "case": "rf-a-judge-session-s-verdict-was-pu-2395f763d0",
+        "current_api_input_sha256": "dbb8cccb33ad3a41610c697b72214611eb409ffdf8e2b1cc7cd3d50447c746e6",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1,
+          "clear_at": 123
+        }
+      }
+    },
+    {
+      "case": "rf-a-partial-sweep-was-reported-as-b11081bd61",
+      "messages": 330,
+      "request_record": 5132,
+      "request_ref": "9e284fb2-553a-4a85-b3a5-89a589ab22aa",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 110,
+      "local_pointers_checked": 737,
+      "source_hash_overlaps": 4,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 19
+      },
+      "tool_calls": 140,
+      "tool_results": 140,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "eb891796f565804b92cd8e106b94b1c2bd414693343c54ef138fa6cdbac0dbfb",
+      "before_optional_repair_api_sha256": "f12c1525c03dc5779f3fdd9e8fd3a84472e1ff005b7c78b854769ecf793f6dce",
+      "optional_field_repair": {
+        "case": "rf-a-partial-sweep-was-reported-as-b11081bd61",
+        "current_api_input_sha256": "eb891796f565804b92cd8e106b94b1c2bd414693343c54ef138fa6cdbac0dbfb",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-a-plan-built-across-a-boundary-i-86b2092254",
+      "messages": 609,
+      "request_record": 6292,
+      "request_ref": "d507b49d-c1f9-46fc-9af5-ad18e45d443d",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 187,
+      "local_pointers_checked": 1256,
+      "source_hash_overlaps": 6,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 19
+      },
+      "tool_calls": 237,
+      "tool_results": 237,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "3d9153ac3b917c4d3ca867566059c192591a3b8f65e28ed567f7306dc489df31",
+      "before_optional_repair_api_sha256": "5c5c771151edc092c918e19070f3ad3f39160685ee57f82a6402739005370fd2",
+      "optional_field_repair": {
+        "case": "rf-a-plan-built-across-a-boundary-i-86b2092254",
+        "current_api_input_sha256": "3d9153ac3b917c4d3ca867566059c192591a3b8f65e28ed567f7306dc489df31",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-a-question-was-opened-long-as-a-2357ec4349",
+      "messages": 141,
+      "request_record": 490,
+      "request_ref": "c5f1a288-0f10-44a5-b13d-88b1d87198b1",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 21,
+      "local_pointers_checked": 348,
+      "source_hash_overlaps": 4,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-fable-5-1": 24,
+        "<synthetic>": 1
+      },
+      "tool_calls": 49,
+      "tool_results": 49,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "968a2541917d910973946c9eb9f5d0b6b9c8813874531709fedb1019248e577f",
+      "before_optional_repair_api_sha256": "3337a852d69ffb0e301a63fecc01086abcdeca90b4c4fdb3872965b6a91db710",
+      "optional_field_repair": {
+        "case": "rf-a-question-was-opened-long-as-a-2357ec4349",
+        "current_api_input_sha256": "968a2541917d910973946c9eb9f5d0b6b9c8813874531709fedb1019248e577f",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1,
+          "clear_at": 28
+        }
+      }
+    },
+    {
+      "case": "rf-a-reply-named-what-it-asked-abou-f1a8f025ff",
+      "messages": 444,
+      "request_record": 896,
+      "request_ref": "fa4471ae-ce86-44fa-b1c2-e96b48af789b",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 78,
+      "local_pointers_checked": 934,
+      "source_hash_overlaps": 15,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-fable-5-1": 13
+      },
+      "tool_calls": 95,
+      "tool_results": 95,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "782ba8615b59f62b51daacc9f659515a4e3919d1eb69fd0d8ce45bba4cbec70c",
+      "before_optional_repair_api_sha256": "b28ab43c951f32b8aab30678001d7314c3ddb9a3a133a3fd9552a79ba86f621e",
+      "optional_field_repair": {
+        "case": "rf-a-reply-named-what-it-asked-abou-f1a8f025ff",
+        "current_api_input_sha256": "782ba8615b59f62b51daacc9f659515a4e3919d1eb69fd0d8ce45bba4cbec70c",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1,
+          "clear_at": 82
+        }
+      }
+    },
+    {
+      "case": "rf-a-rule-was-landed-with-a-filter-40a495fbcb",
+      "messages": 1242,
+      "request_record": 3507,
+      "request_ref": "328e57dd-d1b2-463c-a3df-03f7ae6da619",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 153,
+      "local_pointers_checked": 2516,
+      "source_hash_overlaps": 10,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 9
+      },
+      "tool_calls": 432,
+      "tool_results": 432,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "819fde0d0bb07f76c8befee491f82a3dab15d121cedde44d1405ee529810113f",
+      "before_optional_repair_api_sha256": "014795a31ce86863b72fee576383a7db7a409c79a0c07aa6be64a317fa11f0a8",
+      "optional_field_repair": {
+        "case": "rf-a-rule-was-landed-with-a-filter-40a495fbcb",
+        "current_api_input_sha256": "819fde0d0bb07f76c8befee491f82a3dab15d121cedde44d1405ee529810113f",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1,
+          "clear_at": 130
+        }
+      }
+    },
+    {
+      "case": "rf-a-rule-was-landed-with-a-filter-cca9f4a85d",
+      "messages": 1249,
+      "request_record": 3541,
+      "request_ref": "73f9d472-0a8b-41f8-8396-2bb1cf630868",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 156,
+      "local_pointers_checked": 2561,
+      "source_hash_overlaps": 6,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 20
+      },
+      "tool_calls": 435,
+      "tool_results": 435,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "540bb0deed1a705ce63083f0e8ab07806845e8f1dbec44f616413743f4efcee4",
+      "before_optional_repair_api_sha256": "a3bea6462f4a6e624b97bc083c428a51ad70258d6708d94a543ecba3c1548378",
+      "optional_field_repair": {
+        "case": "rf-a-rule-was-landed-with-a-filter-cca9f4a85d",
+        "current_api_input_sha256": "540bb0deed1a705ce63083f0e8ab07806845e8f1dbec44f616413743f4efcee4",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1,
+          "clear_at": 130
+        }
+      }
+    },
+    {
+      "case": "rf-asked-whether-a-project-needs-th-0de6c1cfba",
+      "messages": 10,
+      "request_record": 62,
+      "request_ref": "1e441ac2-4dd1-43b1-84d5-efabbd7c5e37",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 2,
+      "local_pointers_checked": 36,
+      "source_hash_overlaps": 3,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-fable-5-1": 4
+      },
+      "tool_calls": 2,
+      "tool_results": 2,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "ee626e20bdcb6ebe70a9ba1aa7314f0240f87f5196b83188c95ad2d3c3d7af30",
+      "before_optional_repair_api_sha256": "a83940e10b50d0f87f0e53e1b5255ad8ec640526d94d6c79eaa998a94c7c3f32",
+      "optional_field_repair": {
+        "case": "rf-asked-whether-a-project-needs-th-0de6c1cfba",
+        "current_api_input_sha256": "ee626e20bdcb6ebe70a9ba1aa7314f0240f87f5196b83188c95ad2d3c3d7af30",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1,
+          "clear_at": 2
+        }
+      }
+    },
+    {
+      "case": "rf-commits-were-named-after-what-th-9be1e8867a",
+      "messages": 85,
+      "request_record": 330,
+      "request_ref": "9a101bd3-4a1b-42c4-abf3-bf0effce8f19",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 28,
+      "local_pointers_checked": 307,
+      "source_hash_overlaps": 7,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 62
+      },
+      "tool_calls": 39,
+      "tool_results": 39,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "f9889b335d519333cbc2d387b4aad1591f31f7b79796daa96357b6dc00b105d8",
+      "before_optional_repair_api_sha256": "8d949511519280cb4f51410c8c25e1d62acec0abcd42b88477620a5fece4fd50",
+      "optional_field_repair": {
+        "case": "rf-commits-were-named-after-what-th-9be1e8867a",
+        "current_api_input_sha256": "f9889b335d519333cbc2d387b4aad1591f31f7b79796daa96357b6dc00b105d8",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-commits-were-named-after-what-th-d5630d44b6",
+      "messages": 195,
+      "request_record": 663,
+      "request_ref": "9d4591c1-4519-47a1-9ff6-dd22f130655c",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 61,
+      "local_pointers_checked": 411,
+      "source_hash_overlaps": 19,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 14
+      },
+      "tool_calls": 82,
+      "tool_results": 82,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "b3f0bc9b2bfdae28bafa6cd046b470f37d02ba2aa86672c52aec934cd3f19244",
+      "before_optional_repair_api_sha256": "cdb312f54e785351f8cd3c66cd40ce1ba344fc537b5e92d3f220a2c0cc43ff99",
+      "optional_field_repair": {
+        "case": "rf-commits-were-named-after-what-th-d5630d44b6",
+        "current_api_input_sha256": "b3f0bc9b2bfdae28bafa6cd046b470f37d02ba2aa86672c52aec934cd3f19244",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-core-shipped-with-carriage-retur-f0f8d76a6d",
+      "messages": 693,
+      "request_record": 2177,
+      "request_ref": "ecc73d3b-6414-48da-95fa-e01e2ba61da4",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 104,
+      "local_pointers_checked": 1421,
+      "source_hash_overlaps": 28,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-fable-5-1": 27
+      },
+      "tool_calls": 155,
+      "tool_results": 155,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "49fa47a8c23665dc0369dca977b343d5d0e4e4e6dded9c8a1605c39bc0b3c1f2",
+      "before_optional_repair_api_sha256": "1067cf0261400fa1d31d7b2ebf666541f58e8ef37080ae4db801323b2ae8b926",
+      "optional_field_repair": {
+        "case": "rf-core-shipped-with-carriage-retur-f0f8d76a6d",
+        "current_api_input_sha256": "49fa47a8c23665dc0369dca977b343d5d0e4e4e6dded9c8a1605c39bc0b3c1f2",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1,
+          "clear_at": 142
+        }
+      }
+    },
+    {
+      "case": "rf-rules-were-proposed-in-a-reply-w-474ce62787",
+      "messages": 82,
+      "request_record": 342,
+      "request_ref": "b5e9e92d-d0b7-4c9a-98fc-adecbc2407aa",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 23,
+      "local_pointers_checked": 188,
+      "source_hash_overlaps": 5,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 4
+      },
+      "tool_calls": 36,
+      "tool_results": 36,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "85fc786b0616902dd26c5d556997fe59e5645396784436bb873639f32581fd57",
+      "before_optional_repair_api_sha256": "384868c9ca0dec6f6f5e8fd4e0385dcef185dcb3fe7d13d8c1cb38cadab710c1",
+      "optional_field_repair": {
+        "case": "rf-rules-were-proposed-in-a-reply-w-474ce62787",
+        "current_api_input_sha256": "85fc786b0616902dd26c5d556997fe59e5645396784436bb873639f32581fd57",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-rules-were-proposed-in-a-reply-w-a7ada13a87",
+      "messages": 409,
+      "request_record": 5429,
+      "request_ref": "15f4a85b-38c5-4ff6-8cc0-37b7b9a13ce1",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 134,
+      "local_pointers_checked": 868,
+      "source_hash_overlaps": 10,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 13
+      },
+      "tool_calls": 168,
+      "tool_results": 168,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "c543554d8b44180dc96620468d70bd4b642e6315781cf0431cee0cebc2a5dc3d",
+      "before_optional_repair_api_sha256": "cffec37372b7e5ef7a0c89036bde3ca155de3d471c416925b886e82aed7f4861",
+      "optional_field_repair": {
+        "case": "rf-rules-were-proposed-in-a-reply-w-a7ada13a87",
+        "current_api_input_sha256": "c543554d8b44180dc96620468d70bd4b642e6315781cf0431cee0cebc2a5dc3d",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-the-commits-table-and-the-counte-adcf691134",
+      "messages": 129,
+      "request_record": 4314,
+      "request_ref": "477b589b-4663-44d6-8a26-61456c9a3616",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 45,
+      "local_pointers_checked": 298,
+      "source_hash_overlaps": 10,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 16
+      },
+      "tool_calls": 62,
+      "tool_results": 62,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "9f861c842259b2398647a670a14cf993edb10a6bfaab016bb6cdfbcbeba45285",
+      "before_optional_repair_api_sha256": "2776fde953b6c09152bdce09832175609eeb80d9a0fffac7c64ea814c07ac75d",
+      "optional_field_repair": {
+        "case": "rf-the-commits-table-and-the-counte-adcf691134",
+        "current_api_input_sha256": "9f861c842259b2398647a670a14cf993edb10a6bfaab016bb6cdfbcbeba45285",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-the-commits-table-and-the-counte-caea6e72f6",
+      "messages": 10,
+      "request_record": 3754,
+      "request_ref": "ce03ab06-3ac9-4b80-abff-23f073bdfdfd",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 2,
+      "local_pointers_checked": 51,
+      "source_hash_overlaps": 4,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 8
+      },
+      "tool_calls": 3,
+      "tool_results": 3,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "4e98b4d1f89b98673dfb06c82d6f851d22c6535da7784afc0da5e6b65dda75e6",
+      "before_optional_repair_api_sha256": "ad518e3ba29347e4f1695f6c19beebde76bdd11b2d5ed8ab1664345aacd8e53a",
+      "optional_field_repair": {
+        "case": "rf-the-commits-table-and-the-counte-caea6e72f6",
+        "current_api_input_sha256": "4e98b4d1f89b98673dfb06c82d6f851d22c6535da7784afc0da5e6b65dda75e6",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-the-person-was-asked-to-choose-a-6a4e1c3f6d",
+      "messages": 430,
+      "request_record": 1656,
+      "request_ref": "a379a9de-2018-47f8-a9fa-8bef301785a2",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 124,
+      "local_pointers_checked": 899,
+      "source_hash_overlaps": 11,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 13
+      },
+      "tool_calls": 199,
+      "tool_results": 199,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "cc2a260139ed4e69400f6379054826eae0768b887d04fd3a9240eba78b23e0f0",
+      "before_optional_repair_api_sha256": "32d0edac758c63d174e9cfc3c0d9da0574a06d269e68f9cfebd3f838c3649499",
+      "optional_field_repair": {
+        "case": "rf-the-person-was-asked-to-choose-a-6a4e1c3f6d",
+        "current_api_input_sha256": "cc2a260139ed4e69400f6379054826eae0768b887d04fd3a9240eba78b23e0f0",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-the-person-was-asked-to-choose-a-6a4e1c3f6d-peer-message",
+      "messages": 442,
+      "request_record": 1714,
+      "request_ref": "8c0f8702-b60e-4322-ba3f-849303e4b0ab",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 127,
+      "local_pointers_checked": 912,
+      "source_hash_overlaps": 9,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 6
+      },
+      "tool_calls": 202,
+      "tool_results": 202,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "1bb74964e6dbdf6f6435f70aad5fa0c14605800e487f01064c948cb2847a474f",
+      "before_optional_repair_api_sha256": "7eaebf3071431422e2d43586ed401bb642d9990059e62ffa75b385284972ad55",
+      "optional_field_repair": {
+        "case": "rf-the-person-was-asked-to-choose-a-6a4e1c3f6d-peer-message",
+        "current_api_input_sha256": "1bb74964e6dbdf6f6435f70aad5fa0c14605800e487f01064c948cb2847a474f",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-the-person-was-asked-to-choose-a-a1d74846d1",
+      "messages": 399,
+      "request_record": 5393,
+      "request_ref": "70bf64a5-491b-4f30-bbc4-35a2610fc594",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 130,
+      "local_pointers_checked": 822,
+      "source_hash_overlaps": 11,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 7
+      },
+      "tool_calls": 165,
+      "tool_results": 165,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "cd9efb8170c027ceb8db317320a14b1245671c38adf22978382d743d2ac85a92",
+      "before_optional_repair_api_sha256": "1a65992b965bc6c19b835a87170a03d962392c9a46d8ce4a9e13f7857e05518d",
+      "optional_field_repair": {
+        "case": "rf-the-person-was-asked-to-choose-a-a1d74846d1",
+        "current_api_input_sha256": "cd9efb8170c027ceb8db317320a14b1245671c38adf22978382d743d2ac85a92",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-the-person-was-asked-to-choose-a-d058c1c6aa",
+      "messages": 393,
+      "request_record": 5372,
+      "request_ref": "29c1b676-7579-4494-9904-88a91a26b8b3",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 129,
+      "local_pointers_checked": 821,
+      "source_hash_overlaps": 20,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 15
+      },
+      "tool_calls": 164,
+      "tool_results": 164,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "327210b056058c33e81a41edce14e672b69c90202faded9b3f7a19acc1b86211",
+      "before_optional_repair_api_sha256": "b1e936c2b1153d15acb4b2f6efa146a6b7999d1b65c568e7baf73aa9b1ead0a6",
+      "optional_field_repair": {
+        "case": "rf-the-person-was-asked-to-choose-a-d058c1c6aa",
+        "current_api_input_sha256": "327210b056058c33e81a41edce14e672b69c90202faded9b3f7a19acc1b86211",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-the-reader-the-person-named-gave-2db9c8a004",
+      "messages": 10,
+      "request_record": 78,
+      "request_ref": "169c84a7-6c9b-4ea8-b764-8ed87f43e8e8",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 4,
+      "local_pointers_checked": 38,
+      "source_hash_overlaps": 7,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 7
+      },
+      "tool_calls": 6,
+      "tool_results": 6,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "7c8c8ad06aa549b88f2fb9e4537c9d7f0392c80e9daa056923f50b44e3121c41",
+      "before_optional_repair_api_sha256": "56964c7865c50d43eff708353bd5ebe82ef816ccd79ccccfc06ec98c5cfd76f4",
+      "optional_field_repair": {
+        "case": "rf-the-reader-the-person-named-gave-2db9c8a004",
+        "current_api_input_sha256": "7c8c8ad06aa549b88f2fb9e4537c9d7f0392c80e9daa056923f50b44e3121c41",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-the-study-was-written-by-the-age-0c4e95d73c",
+      "messages": 79,
+      "request_record": 252,
+      "request_ref": "002e0300-efa7-424f-826b-a91233d33357",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 36,
+      "local_pointers_checked": 184,
+      "source_hash_overlaps": 48,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-sonnet-5-5": 49
+      },
+      "tool_calls": 44,
+      "tool_results": 44,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "6956f6a2d5f26889fbfbeb5238982e3101f03786e83d1e75b44edab90ffceb40",
+      "before_optional_repair_api_sha256": "8b60c1a498ccb00a0f4165e26c7467a563ad95a61950400cc72cf9c74ebf49fe",
+      "optional_field_repair": {
+        "case": "rf-the-study-was-written-by-the-age-0c4e95d73c",
+        "current_api_input_sha256": "6956f6a2d5f26889fbfbeb5238982e3101f03786e83d1e75b44edab90ffceb40",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-the-study-was-written-by-the-age-395d404336",
+      "messages": 85,
+      "request_record": 351,
+      "request_ref": "6012b38f-2ff9-48ea-b118-4bd9c3151b2e",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 33,
+      "local_pointers_checked": 223,
+      "source_hash_overlaps": 77,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 51
+      },
+      "tool_calls": 43,
+      "tool_results": 43,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "0bf753a6a3765c1377c6a6179941a0358e3b6c9109fde7febf8199764d1bd556",
+      "before_optional_repair_api_sha256": "4b492ffda44138caafcbec120e971a279d24a849b9d320077a69475eace4185b",
+      "optional_field_repair": {
+        "case": "rf-the-study-was-written-by-the-age-395d404336",
+        "current_api_input_sha256": "0bf753a6a3765c1377c6a6179941a0358e3b6c9109fde7febf8199764d1bd556",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-the-study-was-written-by-the-age-7c0e3a40a0",
+      "messages": 27,
+      "request_record": 126,
+      "request_ref": "898b4c2a-b3e2-4f04-9188-b2e77793a6b3",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 10,
+      "local_pointers_checked": 80,
+      "source_hash_overlaps": 15,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 11
+      },
+      "tool_calls": 13,
+      "tool_results": 13,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "eaab3c2dac8adb75c887acfcb685672c3887d9561cb965ad05c187fa3db8c5f0",
+      "before_optional_repair_api_sha256": "cec2707af97552944753dbd6b7c7cc0c9bbf91b858ccff8c1e8e690893454c97",
+      "optional_field_repair": {
+        "case": "rf-the-study-was-written-by-the-age-7c0e3a40a0",
+        "current_api_input_sha256": "eaab3c2dac8adb75c887acfcb685672c3887d9561cb965ad05c187fa3db8c5f0",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-the-study-was-written-by-the-age-e7bba0481b",
+      "messages": 5,
+      "request_record": 28,
+      "request_ref": "34cb7171-8e13-471d-b30e-60309306019a",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 1,
+      "local_pointers_checked": 85,
+      "source_hash_overlaps": 3,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-sonnet-5-5": 33
+      },
+      "tool_calls": 2,
+      "tool_results": 2,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "ef28036a12e7faa72825504a4a35b4612045ddce105ae02e102238df78f71d92",
+      "before_optional_repair_api_sha256": "c71107103a3bb484b0221a4493d0d1884b0f44385668974f0281500cd6340e10",
+      "optional_field_repair": {
+        "case": "rf-the-study-was-written-by-the-age-e7bba0481b",
+        "current_api_input_sha256": "ef28036a12e7faa72825504a4a35b4612045ddce105ae02e102238df78f71d92",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-two-sessions-numbered-one-versio-3e7583f9b1",
+      "messages": 223,
+      "request_record": 4711,
+      "request_ref": "47279020-a7b1-4dd1-8f39-bfc2ab284607",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 79,
+      "local_pointers_checked": 487,
+      "source_hash_overlaps": 8,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 13
+      },
+      "tool_calls": 97,
+      "tool_results": 97,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "554f6a03c42d7ded978f992f003fa4c941fb76fc6939d9b3835c332abe426e7a",
+      "before_optional_repair_api_sha256": "5bc1acf713664d19349d50a9ef5ae7891d13cb1c578863bf10e612e411fd7cbd",
+      "optional_field_repair": {
+        "case": "rf-two-sessions-numbered-one-versio-3e7583f9b1",
+        "current_api_input_sha256": "554f6a03c42d7ded978f992f003fa4c941fb76fc6939d9b3835c332abe426e7a",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-two-sessions-numbered-one-versio-c0c47575b2",
+      "messages": 217,
+      "request_record": 4680,
+      "request_ref": "ad764bfc-4787-47a4-9089-7285008a81e7",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 77,
+      "local_pointers_checked": 461,
+      "source_hash_overlaps": 6,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 5
+      },
+      "tool_calls": 95,
+      "tool_results": 95,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "304d9b4127cf9af70ead820945ae1fdd4bcf8851d04cc7a42266cdde49ca7d9b",
+      "before_optional_repair_api_sha256": "5e8899c5c0b7100ecd2cf4d7e860bf6b2064cd49b5c7f228d069cd80991cbeb3",
+      "optional_field_repair": {
+        "case": "rf-two-sessions-numbered-one-versio-c0c47575b2",
+        "current_api_input_sha256": "304d9b4127cf9af70ead820945ae1fdd4bcf8851d04cc7a42266cdde49ca7d9b",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    },
+    {
+      "case": "rf-two-sessions-numbered-one-versio-f3594b6fdc",
+      "messages": 402,
+      "request_record": 5408,
+      "request_ref": "5348ecff-615a-456d-bf5d-3346d7b56d07",
+      "unresolved": [],
+      "unsupported_positions": [],
+      "private_blocks_omitted": 131,
+      "local_pointers_checked": 831,
+      "source_hash_overlaps": 3,
+      "model_comparisons": 0,
+      "source_models": {
+        "claude-opus-5-5": 5
+      },
+      "tool_calls": 165,
+      "tool_results": 165,
+      "tool_problems": [],
+      "unreturned_call_ids": [],
+      "defects": [],
+      "api_sha256": "f93693db312b0ce1d537ba524da33e7623f0be45368678fe83d04276de58551e",
+      "before_optional_repair_api_sha256": "a20252fdbb1fe44ca964d49e1aa16e3a30b0536fdf0e9119b9bd9c3a2d7f2a64",
+      "optional_field_repair": {
+        "case": "rf-two-sessions-numbered-one-versio-f3594b6fdc",
+        "current_api_input_sha256": "f93693db312b0ce1d537ba524da33e7623f0be45368678fe83d04276de58551e",
+        "before_hash_reconstructed_by_removing_only_restored_fields": true,
+        "restored_field_positions": {
+          "output_config": 1
+        }
+      }
+    }
+  ]
+}

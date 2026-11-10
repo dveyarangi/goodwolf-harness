@@ -1,0 +1,165 @@
+{
+  "id": "rf-a-discovery-was-filed-and-an-ali-984477b7c9",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "53. A discovery was filed and an align opened on it, and the person was told nothing of what it found — 2026-10-19",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "original public event"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/779",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.299"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/779/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-19T20:03:58.209Z",
+    "chat_id": "0b17a15d-5e5d-40e3-96d8-962a4bbf2544",
+    "trigger_message_id": null,
+    "trigger_record_id": "0d5a6add-1e35-411c-9875-43ae595f636b",
+    "failure_message_id": "msg_011CgCCEJ6Rqq41L3y69vLCX",
+    "failure_record_id": "faaa2ebe-6dbe-405f-831b-e19785ff9e45",
+    "transcript": "0b17a15d-5e5d-40e3-96d8-962a4bbf2544.jsonl"
+  },
+  "observed_failure": {
+    "description": "The align asks design questions by numbered discovery families before explaining those families to the person.",
+    "events": [
+      {
+        "source": "source.json#/records/779",
+        "message_id": "msg_011CgCCEJ6Rqq41L3y69vLCX",
+        "record_id": "faaa2ebe-6dbe-405f-831b-e19785ff9e45",
+        "timestamp": "2026-10-19T20:03:58.209Z",
+        "text": "| 📍 **[q-0037.0012.0009](docs/questions/q-0037.0012.0009-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen-how-run-with-no-instruction-the-standing-one-and-the-new-one.md)** · How is an amendment to an instruction tested before it lands: against which cases, chosen how, run with no instruction, the standing one and the new one? |\n|---|\n\n**Что строим.** Способ проверить поправку к инструкциям до того, как она попадёт в дерево. Инструкции здесь — это входной файл, скиллы и файлы правил. Проверка отвечает на три вопроса. Не сломала ли поправка то, что работало? Починила ли то, ради чего её писали? Нужна ли она вообще, то есть меняет ли что-нибудь по сравнению с прогоном без неё? Пока такие проверки собирались руками под каждую поправку: [speech-bench](docs/research/speech-bench/), [doc-rule-bench](docs/research/doc-rule-bench/). Теперь они должны стать механизмом с записанной методологией, ценой и местом в цикле.\n\n**Шлюз необходимости.**\n\n- *Кто заказчик.* Вы и любая сессия, которая правит правила. По реестру [rule-failures](docs/rule-failures.md) и логу это происходит несколько раз в день.\n- *Какая проблема видна.* В этой сессии три мои поправки прошли бы ваше и моё чтение со сломанным текстом, и поймал их только стенд. Два стенда собраны с нуля и друг друга не переиспользуют.\n- *Почему не хватает того, что есть.* Ревью текста ловит не то, что ломается при чтении агентом. Механические проверки видят форму, а не смысл. Ответ продукта [A37](docs/product.md) «Failures replayed as tests» уже принят, и [A22](docs/product.md) «Every mechanism graded from outside» тоже. Шлюз пройден по ссылке.\n\n**Первый вопрос: из чего состоит проверка?** Вы предложили один метод: случаи поведения, прогнанные в трёх режимах. Внешний взгляд принёс восемь семейств и одно замечание: зрелая практика везде — это набор проверок, подобранный по риску, а не выбор одного метода.\n\nРешающий факт из нашего же стенда. За пять прогонов случаи поведения прошли на всех сторонах, 140 из 140, и не поймали ничего. Всё, что было поймано, поймал аудит когерентности. По классификации внешнего взгляда это семейство 5, анализ корпуса без исполнения. Случаи поведения ценны тем, что держат то, что работает, а находить то, что сломалось, в этой правке пришлось аудиту.\n\n- **(А) Один метод — случаи поведения в трёх режимах.** Плюсы: прост, режим «без инструкции» отвечает на вопрос «нужно ли правило». Минусы: не нашёл бы ни одной из трёх ошибок этой сессии.\n- **(Б) Два слоя на старте.** На каждую поправку — аудит корпуса по изменённому тексту и тому, что делит с ним термины. Это дёшево: 5 аудитов ≈ 0.4–0.7M токенов, 3 минуты. На подсет, который задевает поправка, — случаи поведения в трёх режимах. Остальные семейства пока в запасе. Пробы понимания (семейство 4) почти бесплатны, ловят двусмысленность, но не поведение. Наблюдение после переноса (семейство 8) у нас уже есть — реестр rule-failures.\n- **(В) Набор по риску сразу.** Каждая поправка сначала классифицируется, и от класса зависит, какие слои она должна пройти. Это сильнее, но решать это до того, как появятся два работающих слоя, рано.\n\n**Общее допущение у всех трёх.** Проверка стоит у ворот, до переноса. Внешний взгляд его оспаривает: можно принимать дёшево и быстро откатывать. Но для правил «остановись и спроси» один промах дорог, поэтому ворота, по-моему, остаются.\n\n**Рекомендую (Б).** А с (В) соглашусь заранее как с направлением, в которое (Б) вырастет."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Tell the person what the discovery found in understandable terms before asking a decision that depends on it.",
+    "source_evidence": [
+      "source.json#/records/781",
+      "source.json#/records/100"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Tell the person what the discovery found in understandable terms before asking a decision that depends on it.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/781"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The align asks design questions by numbered discovery families before explaining those families to the person.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/779",
+      "after": "source.json#/records/776",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/702",
+      "source.json#/records/706",
+      "source.json#/records/707",
+      "source.json#/records/710",
+      "source.json#/records/711",
+      "source.json#/records/713",
+      "source.json#/records/714",
+      "source.json#/records/717",
+      "source.json#/records/718",
+      "source.json#/records/720",
+      "source.json#/records/721",
+      "source.json#/records/726",
+      "source.json#/records/727",
+      "source.json#/records/729",
+      "source.json#/records/730",
+      "source.json#/records/733",
+      "source.json#/records/735",
+      "source.json#/records/738",
+      "source.json#/records/739",
+      "source.json#/records/740",
+      "source.json#/records/741",
+      "source.json#/records/742",
+      "source.json#/records/746",
+      "source.json#/records/747",
+      "source.json#/records/752",
+      "source.json#/records/753",
+      "source.json#/records/756",
+      "source.json#/records/757",
+      "source.json#/records/759",
+      "source.json#/records/760",
+      "source.json#/records/765",
+      "source.json#/records/766",
+      "source.json#/records/767",
+      "source.json#/records/768",
+      "source.json#/records/769",
+      "source.json#/records/770",
+      "source.json#/records/771",
+      "source.json#/records/775",
+      "source.json#/records/776"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/100"
+      ],
+      "native_context_records": [
+        "source.json#/records/100",
+        "source.json#/records/704",
+        "source.json#/records/737",
+        "source.json#/records/749"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/737",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\52557761-5dea-4154-b450-5f902dcc0838\\tool-results\\hook-5bc0053a-1253-4b1b-af59-c6345a5d0cce-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-5bc0053a-1253-4b1b-af59-c6345a5d0cce-1-additionalContext.txt",
+          "sha256": "92241f2a60fc7a70804e0ff8b1277fc8a64c878e544f1e51aa625b19a52a096b",
+          "bytes": 42266,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1610,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-19T19:59:15.547013+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/779"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

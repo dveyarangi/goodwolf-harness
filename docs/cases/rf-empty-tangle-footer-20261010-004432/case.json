@@ -1,0 +1,165 @@
+{
+  "id": "rf-empty-tangle-footer-20261010-004432",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "29. A reply closed on an empty tangle table — 2026-10-10",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "The response emits a Tangle table whose sole body row is a dash with no collision."
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/400",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/400/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-10T00:44:32.548Z",
+    "chat_id": "50d88569-12cf-400d-9992-9e97262f34fc",
+    "trigger_message_id": null,
+    "trigger_record_id": "d279019b-96ef-4d37-b22e-c8b4d515ea58",
+    "failure_message_id": "msg_011CfsdY59APUkSKRApDNN7d",
+    "failure_record_id": "dd357047-d06f-4b7e-afa5-d17f51d794e1",
+    "transcript": "50d88569-12cf-400d-9992-9e97262f34fc.jsonl"
+  },
+  "observed_failure": {
+    "description": "The response emits a Tangle table whose sole body row is a dash with no collision.",
+    "events": [
+      {
+        "source": "source.json#/records/400",
+        "message_id": "msg_011CfsdY59APUkSKRApDNN7d",
+        "record_id": "dd357047-d06f-4b7e-afa5-d17f51d794e1",
+        "timestamp": "2026-10-10T00:44:32.548Z",
+        "text": "| 📍 **q-0025** · Does each rule reach the occasion it is for? |\n|---|\n\n## Правило не потерялось, я прочитал его неправильно\n\nПравило P9 стояло в `AGENTS.md`: при первом упоминании тикет называется ссылкой со слагом, дальше можно писать один id. Я понял «первое упоминание» как первое за весь разговор. Поэтому со слагом я назвал тикеты только в первом ответе, а потом писал голые `.0040.0010` и `.0060`. Ячейки таблиц я упоминаниями вообще не считал, а относительные id просто копировал из окна вопросов. Ровно этот случай реестр отказов правил уже держал под №17 с пометкой «зачеркнуть, если повторится». (💡 [*A rule that was in place and did not fire was usually worded wrong*](AGENTS.md:156))\n\n> 🧩 **Proposed change — P9, `ticket.rules.md`** · Landed\n> In every reply and every record, the first mention of a ticket — a table's cell included — is a link to its record whose text carries its slug, its whole id leading it if at all; later mentions in that reply or record may be the whole id alone. Name one that has no record yet by a slug and its state word.\n\nПравило я поправил в его доме, файле правил механизма тикетов, и переустановил в `AGENTS.md`. Версия контракта поднята до v54, в реестре зачёркнут №17. Набор проверок зелёный: 618 тестов и все `--check`. Коммит `6974d91`.\n\n## Сам выбор, теперь по-человечески\n\nОба тикета — части одной работы: тикет и очередь должны держать только то, что идёт дальше. От этой работы отрезали три слайса, и они друг от друга не зависят.\n\n- **[01-0011.0110.0040.0010 every-record-shows-what-it-is-a-record-of](docs/tickets/01-0011.0110.0040.0010-every-record-shows-what-it-is-a-record-of.md)**, AFK, следующий шаг `/plan`. Каждая запись, которую правит агент (тикет, RFC, вопрос, рукописная часть очереди), начинается строкой `- **record of** <kind>`. Проверка сообщает, если строки нет или вид не тот. Твоё участие не нужно.\n- **[01-0011.0040 queue-derived-index](docs/tickets/01-0011.0040-queue-derived-index.md)**, HITL, начинается с align. Таблицу очереди рендерит скрипт из шапок тикетов, и рукописная копия больше не может разойтись с тикетами. Сначала нужно твоё решение о том, коммитить ли таблицу. Тикет отвечает на это «да, потому что хуков пробуждения нет», а с сессии 46 хуки есть.\n\nОчередь ставит первым 01-0011.0110.0040.0010: «сначала виды, пока тема свежая». Я бы всё же предложил начать с align по 01-0011.0040. Там нужен ты, и ты сейчас здесь, а разговор и так шёл об очереди. 01-0011.0110.0040.0010 AFK, его можно провести и без тебя. Это меняет порядок очереди, поэтому решать тебе. (💡 [*Read the next item from the order the queue states; do not re-rank it … put the reordering to the user*](.claude/skills/recall/SKILL.md:22))\n\n| ⚖️ Decisions |\n|---|\n| Align по [01-0011.0040 queue-derived-index](docs/tickets/01-0011.0040-queue-derived-index.md) сейчас (моя рекомендация, меняет порядок очереди) или `/plan` по [01-0011.0110.0040.0010 every-record-shows-what-it-is-a-record-of](docs/tickets/01-0011.0110.0040.0010-every-record-shows-what-it-is-a-record-of.md), как стоит в очереди |\n\n| 🍂 Drift |\n|---|\n| Ответ [01-0011.0040 queue-derived-index](docs/tickets/01-0011.0040-queue-derived-index.md:25) на вопрос «коммитить ли таблицу» опирается на «хуков пробуждения нет», а с сессии 46 это неверно |\n\n| 🪢 Tangle |\n|---|\n| — |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Omit a Tangle footer when it has no actual collision row instead of emitting an empty dash row.",
+    "source_evidence": [
+      "source.json#/records/67",
+      "source.json#/records/402"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the response omit an empty Tangle footer instead of displaying a table whose only body row is a dash?",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1333",
+      "source.json#/records/1372",
+      "source.json#/records/402"
+    ],
+    "validation": "Occurrence-specific extraction; independent semantic validation and behavioral execution are not established by this integration repair.",
+    "criterion_scope_qualification": "The direct user complaint grounds the no-empty-table expectation; this does not retroactively claim that the later explicit table-only-where-it-has-one wording was already installed."
+  },
+  "related_failures": [
+    {
+      "register": "../../rule-failures.md",
+      "heading": "29. A reply closed on an empty tangle table — 2026-10-10",
+      "occurrence": "original",
+      "occurrence_heading": "original",
+      "detail": "empty-tangle-footer"
+    }
+  ],
+  "related_failure_dimensions": [
+    {
+      "failure": {
+        "register": "../../rule-failures.md",
+        "heading": "29. A reply closed on an empty tangle table — 2026-10-10",
+        "occurrence": "original",
+        "occurrence_heading": "original",
+        "detail": "empty-tangle-footer"
+      },
+      "observed": "The original reply closes with a Tangle table containing only a dash; the user immediately challenges the empty table.",
+      "expected": "The correction requires a table only where it has an actual row rather than an empty dash footer."
+    }
+  ],
+  "description": "The response emits a Tangle table whose sole body row is a dash with no collision.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/400",
+      "after": "source.json#/records/397",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/329",
+      "source.json#/records/333",
+      "source.json#/records/334",
+      "source.json#/records/337",
+      "source.json#/records/338",
+      "source.json#/records/342",
+      "source.json#/records/343",
+      "source.json#/records/347",
+      "source.json#/records/348",
+      "source.json#/records/352",
+      "source.json#/records/353",
+      "source.json#/records/354",
+      "source.json#/records/360",
+      "source.json#/records/361",
+      "source.json#/records/362",
+      "source.json#/records/363",
+      "source.json#/records/367",
+      "source.json#/records/368",
+      "source.json#/records/372",
+      "source.json#/records/373",
+      "source.json#/records/374",
+      "source.json#/records/375",
+      "source.json#/records/376",
+      "source.json#/records/377",
+      "source.json#/records/381",
+      "source.json#/records/382",
+      "source.json#/records/386",
+      "source.json#/records/387",
+      "source.json#/records/391",
+      "source.json#/records/392",
+      "source.json#/records/396",
+      "source.json#/records/397"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/67"
+      ],
+      "native_context_records": [
+        "source.json#/records/67",
+        "source.json#/records/331"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/400"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

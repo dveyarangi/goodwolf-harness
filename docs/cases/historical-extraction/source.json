@@ -1,0 +1,815 @@
+{
+  "record_of": "what happened",
+  "purpose": "Recovered source references for evidence gaps. These discovery/registration records do not substitute for the missing original failure actor.",
+  "sources": {
+    "9e74399e57b0": {
+      "transcript": "agent-a7e246dfbb1c1d8f7.jsonl",
+      "transcript_bytes": 1265894,
+      "transcript_sha256": "aad4efe6a39e70f366cce0faf2d66c559e6dee53d152dfe4d224f6a395a93319",
+      "records": {
+        "247": {
+          "timestamp": "2026-10-25T03:42:49.269Z",
+          "type": "assistant",
+          "payload": {
+            "type": "assistant",
+            "uuid": "6cd2e512-40c9-473e-9c8f-16f4c94fe744",
+            "parentUuid": "acc65581-4d4c-4da8-ae60-b29982dbcf5b",
+            "timestamp": "2026-10-25T03:42:49.269Z",
+            "sessionId": "c7b1fc0b-5034-4074-b04b-473b9bb9c87e",
+            "entrypoint": "claude-desktop",
+            "isSidechain": true,
+            "version": "2.1.308",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "requestRef": "069fc35f-71da-494a-a460-e3931f488476",
+            "message": {
+              "id": "msg_011CgNGEvfcCD3C344h4auWv",
+              "type": "message",
+              "role": "assistant",
+              "model": "claude-opus-5-5",
+              "stop_reason": "tool_use",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_01VQHdf1WqvyGvMZkYRWZPgt",
+                  "name": "SubagentHandback",
+                  "input": {
+                    "message": "/verify of 01-0070.0020, judged by someone who did not build it. Nothing in the repository was changed. Two probe scripts were written to the scratchpad only (C:\\Users\\fimar\\AppData\\Local\\Temp\\claude\\D--Dev-AI-agents\\c7b1fc0b-5034-4074-b04b-473b9bb9c87e\\scratchpad\\probe\\probe_taken.py and probe_hold.py). Your report of the verification set is taken as given: the eight checks exited 0, and the suite ran 929 tests, OK.\n\n## How well the work matches\n\n- **What matches.** `--take`, the `taken <q-id> by <tag>` mark, `--hold` marking an ended row, and the clearing on hold, release and end match the RFC's \"Taken at /plan\" items 1–3.\n  - The check reports a mark that names no entry, and the row's regex keeps `holds` and `taken` mutually exclusive.\n  - S9 and the amended S5 are installed (`AGENTS.md`, `/commit`), and S9 carries no `when` line.\n  - The two principles are in the general rules, the judge principle wrapped as a straw dog to q-0037.0015, and the findings record covers v115, v117 and v119.\n  - TICKET-FORMAT:168-170 keeps only the judge's role.\n  - The architecture (133-138), the session doc's *Sessions see each other*, *Moments* and *A unit held*, and the hosts edge (29-34, check 15, the three sidecars) carry what RFC items 11 and 12 asked.\n- **Where it falls short.** The mark does not reach a holder that is already running (finding 1). Two records are stale after decisions 14 and 15 (findings 3–5). Criteria 2 and 3 are open, and criterion 1 is checked without its live run (finding 6).\n\n## Findings\n\n1. **Code defect, blocking.** After a takeover, the holder's window does not show the mark. Neither does any other session's window show a hold made after its last one.\n   - `questions.py:1736-1741` `_fingerprint` hashes only the session's own `current` and the entries' bytes. The `window()` docstring at :1153 says \"Another session's position alone is not a change\". No row is part of the fingerprint.\n   - Probe, reproduced in a temp tree: s-alpha draws a window, then s-beta runs `--take q-0004`. s-alpha's next window is \"window unchanged since your last one\", with no `taken: q-0004 by s-beta` line.\n   - A second probe: s-beta runs `--hold q-0007` after s-alpha's window was drawn. s-alpha's next window is again \"unchanged\" and does not name the hold.\n   - Under the hook, the normal case, the holder does not learn its unit is gone. And S9, which reads holds off the window, reads a stale one.\n   - This breaks the ticket's \"a holder still alive learns its unit is gone — from its window\", criteria 2 and 3, and session.md:43-44 (\"which the holder's window shows until its next hold, release or end\") and :46-47 (\"reading the holds off the window\").\n2. **Validator defect.** `test_sessions.py:1128` `test_the_holders_window_shows_who_took_its_unit` draws the holder's first window, with no window memory. It passes because a first window is always drawn whole, not because the window reflects a takeover. No test draws a window, takes over, and draws again.\n3. **Doc and code defect: the row's form omits the mark.** The declaration the session doc points to (session.md:25, \"declared beside `/conclude`\") is `conclude/SKILL.md:32`. It and `ROW_FORM` in `sessions.py:58` both still read `... [holds <q-id>]`, without `| taken <q-id> by <tag>`. The check's diagnostic \"is not one line …\" (sessions.py:188, :214) therefore states a form narrower than the one the code admits. The RFC's Impact lists \"the `taken` field in the row's form\" as must-change.\n4. **Doc defect: the session doc omits two ways a unit is let go.** session.md:36-37 says a unit is let go by \"the person's word … and so does the conclude\". It does not say that a new hold at a step's start, or a takeover, lets the held unit go and names it as nobody's. Both are in the code (`hold`, `take`), in S7, in S9 and in the ticket's bullet *A new unit lets the old go* (decisions 14 and 15).\n   - Minor, same family: session.md:17-19 describes the row without the mark.\n   - Minor, same family: the module docstring at sessions.py:22-23 names `--hold` and `--release` but not `--take`.\n5. **Plan defect: the RFC is stale after decisions 14 and 15.**\n   - The RFC's item 5 says \"S7 stays as written\". S7 was amended in v119, and the RFC records neither decision 15 nor the hold's let-go.\n   - Item 10 names v111; the slice moved the contract at v115, v117 and v119.\n   - Impact says the hosts edge states that S7's refusal is the only stop where the window does not reach (Cursor). The hosts edge says no such thing; it says only that the agent draws the window itself. The ticket's \"where the window does not reach the agent, the refusal at the hold is the stop\" has no home in an edge or mechanism doc.\n   - Minor: the ticket lists \"duplicate\" among the acts that stop. Neither the RFC's S9 nor the rule (session.rules.md:105) names it.\n6. **Ticket record defect.** Criterion 1 requires \"tried live\", yet is checked while its own note says \"a live run of two sessions not tried\". The question body (*The last judge*) records it was checked \"on a judge's pass that listed a live run as not tried\". TICKET-FORMAT says to check a box only for work that satisfied it. Criteria 2 and 3 stay open by the last judge's verdict (partial).\n7. **Promises without a validator.**\n   - S5's \"the holder's uncommitted changes to it included\" is text only; no case committed a taken unit's work.\n   - S9's stop has only cold cases, no live two-session run, and nothing mechanical.\n   - `test_every_rebuild_keeps_the_mark_and_a_rename_rewrites_it` (test_sessions.py:1146) checks `renamed()` on the session's own row. It does not check the store-wide rewrite of another session's row (`_records_naming_ids`, questions.py:2191-2199). The code covers that case by bare-id regex, but no test asserts it.\n   - The test also does not check that `seen` or `arrive` keep the mark. The code keeps it via `dataclasses.replace`.\n8. **Unwrapped straw dogs, doc defects.** Each passage below is text the slice wrote that an open question's answer will change, and none is wrapped as a straw dog.\n   - Bound to q-0037.0017.0005 (sessions reaching each other through one shared place that carries their messages):\n     - session.md:59, \"A host may let one session message another; the method uses it to tell a holder…\". The stand-ins paragraph beside it (54-56) is wrapped; this sentence is not.\n     - hosts.md:29-31, the session-to-session message.\n     - S9's \"tell the holder where the host lets one session message another\" (session.rules.md:107-108).\n   - Bound to q-0037.0015 (by whom produced work is judged):\n     - hosts.md:30-34, the helper used as the judge.\n     - TICKET-FORMAT:168-170, \"names its judge as a role — someone who did not build it\". This also leans on q-0037.0005, which owns roles.\n     - The entry file's judge principle is wrapped; its restatements here are not.\n   - `straw_dogs.py --guess` found only false positives (descriptive *until*).\n9. **Code, minor.**\n   - `take` by a session that already holds the unit is refused with \"no running session holds …; `--hold` takes it\", which misleads.\n   - `take` does not mark an ended row that still names the unit. `hold` does.\n   - `_mark_taken` writes the holder's row from the taker's snapshot, so a position the holder moved in between is overwritten. The RFC accepts last-write-wins, but it describes only the holder's write landing last.\n\n## Load-bearing, visible only in code\n\nThe window's change detection ignores every row, including the session's own unit and mark (finding 1). No doc says so, and the session doc and the ticket both assume the opposite.\n\n## Verdict\n\n**FAIL** on the ticket's `/verify` criterion. Blocking:\n- Finding 1, with the validator in finding 2: the window that S9 and the taken holder rely on does not change when a hold or a mark moves.\n- Findings 3 and 4: the row's declared form and the session doc disagree with the code.\n- Finding 5: the RFC is stale against decisions 14 and 15.\n\nFindings 3–5 are small mends below the dial. Finding 1 is a code change: it needs the session's own row, and other sessions' holds, in the fingerprint, plus a test that draws a window, takes over or holds, and draws again. Finding 6 means criterion 1 should be unchecked or re-dated to what was actually seen."
+                  },
+                  "caller": {
+                    "type": "direct"
+                  }
+                }
+              ]
+            }
+          },
+          "original_record_sha256": "5cb822be102c285c53339aae7873ba99ffebd11c3dfba9d4c53ef977b37c52f8",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        },
+        "284": {
+          "timestamp": "2026-10-25T03:48:45.386Z",
+          "type": "assistant",
+          "payload": {
+            "type": "assistant",
+            "uuid": "8ca3940d-0751-4901-bc62-aed691dedd6f",
+            "parentUuid": "2af5af0f-b039-4b48-beae-016fc060bb52",
+            "timestamp": "2026-10-25T03:48:45.386Z",
+            "sessionId": "c7b1fc0b-5034-4074-b04b-473b9bb9c87e",
+            "entrypoint": "claude-desktop",
+            "isSidechain": true,
+            "version": "2.1.308",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "requestRef": "98d8eaa1-fc42-4c55-8f97-a921f3ba6fe9",
+            "message": {
+              "id": "msg_011CgNGiS8QbDbWmLJ2vPKdh",
+              "type": "message",
+              "role": "assistant",
+              "model": "claude-opus-5-5",
+              "stop_reason": "tool_use",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_01JYkJm8uvitxBtkLm94eKcn",
+                  "name": "SubagentHandback",
+                  "input": {
+                    "message": "Second /verify of 01-0070.0020, read-only, re-read from disk after 36e972a and b94d2fd. Nothing in the repository was changed. Your report of the verification set is taken as given: the eight checks exited 0, and the suite and the session tests pass.\n\n**Verdict on the ticket's `/verify` criterion: PASS.** Nothing left blocks it. Criteria 2 and 3 stay unchecked by the person's word and wait in q-0037.0017.0006.0002.0001, which is a closing matter, not a verify defect.\n\n## What the mends fixed\n\n1. **The window now redraws on a takeover or a new hold.** `_fingerprint` (questions.py:1737) now hashes this session's own position, its held unit or taken mark, and every other running session's held unit, along with the entries. It is the only fingerprint call (questions.py:1164).\n   - I re-ran my two probes against the current code, in a temp tree. The holder's next window after `--take` now shows `taken: q-0004 by s-beta` and is not \"unchanged\". After another session's `--hold`, the next window names that hold.\n   - Another session's move alone still leaves the window \"unchanged\", as decision 44 wants, and a test asserts it.\n2. **The validator now tests the real case.** New tests draw a window, then take over or hold, then draw again (test_sessions.py, in `TakingOver`).\n3. **The row's form includes the mark** in `ROW_FORM` (sessions.py:58) and in the conclude skill's declaration (conclude/SKILL.md:32). Both match the regex.\n4. **The session doc's let-go rule is fixed.** *A unit held* now says a step's hold lets go the unit held before and names it as nobody's. *The row* names the mark. The module docstring names `--take`.\n5. **The RFC is current.** Item 5 now says S7 was amended (decision 15) and the takeover lets go the taker's unit (decision 14). Items 10 and 3 under *Stages* now name v115–v119. The Cursor sentence now has a home in the session doc and the hosts edge.\n6. **The ticket's stop list matches S9:** finish, close, verify, commit or continue.\n7. **`--take` is tighter.** It now refuses a unit the session already holds and marks an ended row that still names the unit. Both have tests. Tests also show `seen` and `arrive` keep the mark.\n8. **Three passages are now wrapped as straw dogs.** session.md's messaging sentence and hosts.md's messaging clause are bound to q-0037.0017.0005. hosts.md's helper-as-judge passage and TICKET-FORMAT's judge sentence are bound to q-0037.0015.\n\n## Findings left, none blocking\n\n- **Doc, minor: the Cursor sentence overstates.** hosts.md:36-37 says that where the window does not reach the agent, as in Cursor, \"a session sees no other's hold\". session.md:49 says the same in shorter form.\n  - But hosts.md:26-27 says a host reached in part has the agent draw the window itself, and the entry file's Q1 gives the call (`questions.py --window`). A Cursor agent that follows Q1 does see holds.\n  - What is true is narrower: the window is not pushed with every message, so a hold shows only when the agent draws it. As written, the sentence understates the stop that S9 still gives there.\n- **Ticket record, minor: criteria 2 and 3 do not say they were moved.** They are unchecked and carry no line naming q-0037.0017.0006.0002.0001, while criterion 1 does. The question's body records the move, but the ticket alone does not show why they may stay open at close.\n  - Also minor: criterion 1's wording still says \"tried live\" while its box is checked and the live run is recorded as moved. That is acceptable as the person's decision, but the criterion text and the evidence differ.\n- **Rule, known: S9's messaging clause is unwrapped.** The clause is \"tell the holder where the host lets one session message another\" (session.rules.md:107-108). q-0037.0017.0005's answer will change it, and the rules file is its authored home.\n  - You stated it as fact, and I confirm it: the rules format carries no straw dog inside a `<rule>`.\n  - The entry contract asks the wrap at the authored home, so this is a gap in the harness's format, not in this slice. It belongs in the rule-failure register or with q-0037.0017.0005.\n- **Validator, known: no test for the store-wide rename of another session's mark.** `test_every_rebuild_keeps_the_mark_and_a_rename_rewrites_it` checks only `renamed()` on a session's own row. The rewrite of other rows' files (`_records_naming_ids`, questions.py) does cover `taken <id>` through the bare-id regex, so the code is right.\n- **Code, minor and accepted by the RFC: last write wins.** `_mark_taken` writes the holder's row from the taker's snapshot, so a holder write landing in between is overwritten. Nothing locks a row, by decision.\n- **Promises still without a mechanical validator.** S9's stop has only cold cases. S5's \"the holder's uncommitted changes to it included\" is text only. Both are recorded as open in q-0037.0017.0006.0002.0001.\n\n## Load-bearing only in code\n\nNothing new. What counts as a change of the window (a hold or a mark counts; another session's position does not) is now stated in the `window()` and `_fingerprint` docstrings. The session doc's \"reading the holds off the window\" (session.md:47) depends on this, but the doc does not say when the window redraws."
+                  },
+                  "caller": {
+                    "type": "direct"
+                  }
+                }
+              ]
+            }
+          },
+          "original_record_sha256": "6e5484a7aa2a37f328f663975ea477e0342a52f6ddf64de2b48381adf0c6af8a",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        }
+      }
+    },
+    "9663ac1908d9": {
+      "transcript": "f18287f4-4a39-41ef-b518-8c1c4896caba.jsonl",
+      "transcript_bytes": 8667815,
+      "transcript_sha256": "7c5e7c12fb80211145ffe33a45cba83882599ca42f7f2e9330805a1e3de6e154",
+      "records": {
+        "105": {
+          "timestamp": "2026-10-23T23:08:45.612Z",
+          "type": "user",
+          "payload": {
+            "type": "user",
+            "uuid": "a890c9f8-d44f-46c1-99dc-f8ea87c4d796",
+            "parentUuid": "32712caf-76a1-41f8-a562-1a164a28b7b6",
+            "timestamp": "2026-10-23T23:08:45.612Z",
+            "sessionId": "f18287f4-4a39-41ef-b518-8c1c4896caba",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.308",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "message": {
+              "role": "user",
+              "content": "во первых как вышло что порядок записан так криво? разве майнтан не вычищает историю из очереди? разве у нас нет формата очереди? \nя уверен что мы работали над этим. это же предусловие пасфайндеру, не? \nпотом пасфайндер но потом надо решать продуктовые задачи"
+            }
+          },
+          "original_record_sha256": "f7386b742ae8acdf464c24494b7e3c796877254f21530d78feffa7fa582f9ee8",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        },
+        "130": {
+          "timestamp": "2026-10-23T23:09:49.378Z",
+          "type": "assistant",
+          "payload": {
+            "type": "assistant",
+            "uuid": "85f87571-2d02-4c99-9ad2-f5557c39fe14",
+            "parentUuid": "b3d6c836-b0fa-4f99-aaf8-c87fd7f9b459",
+            "timestamp": "2026-10-23T23:09:49.378Z",
+            "sessionId": "f18287f4-4a39-41ef-b518-8c1c4896caba",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.308",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "requestRef": "1b216b72-102c-4626-b355-fe70fec2c9d7",
+            "message": {
+              "id": "msg_011CgL1doV9PXMmVYX7cJzXF",
+              "type": "message",
+              "role": "assistant",
+              "model": "claude-opus-5-5",
+              "stop_reason": "tool_use",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нашёл, откуда взялась летопись. Сейчас записываю этот сбой в реестр и готовлю поправку."
+                }
+              ]
+            }
+          },
+          "original_record_sha256": "1a959f510e46ef4e054ff4ea80e7ca3ee2d37bc229095f1b580afbf4136b4b08",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        }
+      }
+    },
+    "9b7606cef76b": {
+      "transcript": "c7b1fc0b-5034-4074-b04b-473b9bb9c87e.jsonl",
+      "transcript_bytes": 10747422,
+      "transcript_sha256": "ebeec2a9484a75ef1db20b16cc7b055a03ee7f795b59b789de474b9b35b4f05c",
+      "records": {
+        "67": {
+          "timestamp": "2026-10-23T15:43:37.918Z",
+          "type": "user",
+          "payload": {
+            "type": "user",
+            "uuid": "034dc2cb-4359-45f2-ae64-4b39e55da3bb",
+            "parentUuid": "c3508b8f-1ec5-4476-99ad-e05c72fa59ed",
+            "timestamp": "2026-10-23T15:43:37.918Z",
+            "sessionId": "c7b1fc0b-5034-4074-b04b-473b9bb9c87e",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.308",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "message": {
+              "role": "user",
+              "content": "хеллоу"
+            }
+          },
+          "original_record_sha256": "28bde5f4ddcd4b4d75d43d5719b4be331117aeca6fd6798b0707c08b6055f7cf",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        },
+        "84": {
+          "timestamp": "2026-10-23T15:43:45.024Z",
+          "type": "assistant",
+          "payload": {
+            "type": "assistant",
+            "uuid": "aeac44d4-5bd6-4815-85d4-29f6255df46d",
+            "parentUuid": "d2ca7a8d-5416-4c2f-aa03-f56981330e3e",
+            "timestamp": "2026-10-23T15:43:45.024Z",
+            "sessionId": "c7b1fc0b-5034-4074-b04b-473b9bb9c87e",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.308",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "requestRef": "784ededa-216a-4ebd-8f95-101077d46378",
+            "message": {
+              "id": "msg_011CgKRe2rrbdyAXxMqStEet",
+              "type": "message",
+              "role": "assistant",
+              "model": "claude-fable-5-1",
+              "stop_reason": "tool_use",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Entry contract: v110, 2026-10-23.\n\nRunning /recall first, as every conversation here starts."
+                }
+              ]
+            }
+          },
+          "original_record_sha256": "d2334638bca36751aa9ca91ef56d555027d8662840a3c06b7ca087b029f7d2ff",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        },
+        "120": {
+          "timestamp": "2026-10-23T15:45:01.324Z",
+          "type": "assistant",
+          "payload": {
+            "type": "assistant",
+            "uuid": "a63c0568-0dab-4d7c-bb7d-c5a3c4ab74c3",
+            "parentUuid": "8a6be8ee-c1d5-489b-a919-337ca11672eb",
+            "timestamp": "2026-10-23T15:45:01.324Z",
+            "sessionId": "c7b1fc0b-5034-4074-b04b-473b9bb9c87e",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.308",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "requestRef": "af9883ae-d18d-487c-bb24-eb4842e68451",
+            "message": {
+              "id": "msg_011CgKRhRxFcxZPJbLjeux1L",
+              "type": "message",
+              "role": "assistant",
+              "model": "claude-fable-5-1",
+              "stop_reason": "tool_use",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_01LKTFevwKdYD6sEhy2yQrQB",
+                  "name": "Bash",
+                  "input": {
+                    "command": "uv run --offline --no-project python .agents/scripts/gw/inject_rules.py --install 2>&1 | tail -15; echo ---CHECK; uv run --offline --no-project python .agents/scripts/gw/inject_rules.py --check 2>&1 | grep -A5 '\"diagnostics\"'; echo ---; git status --short | grep -v sessions/rows; echo ---; grep -n \"debug\\|L4\" AGENTS.md | head",
+                    "description": "Bring the installed blocks to match the settings, then re-check and show what changed"
+                  },
+                  "caller": {
+                    "type": "direct"
+                  }
+                }
+              ]
+            }
+          },
+          "original_record_sha256": "67f478cf9dd710cea9dd551e99c7c0b96dd0ab6ff500b2e22f9f0301897e26ca",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        },
+        "145": {
+          "timestamp": "2026-10-23T15:46:44.175Z",
+          "type": "assistant",
+          "payload": {
+            "type": "assistant",
+            "uuid": "0f425da7-792a-4a3f-b8bf-3a93d395e56f",
+            "parentUuid": "12a318da-3cbe-47fa-94f2-574a00064d55",
+            "timestamp": "2026-10-23T15:46:44.175Z",
+            "sessionId": "c7b1fc0b-5034-4074-b04b-473b9bb9c87e",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.308",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "requestRef": "a3c77426-68e5-45da-b06b-00fc9ce70f38",
+            "message": {
+              "id": "msg_011CgKRr3i3WEVbxWnsgwPt8",
+              "type": "message",
+              "role": "assistant",
+              "model": "claude-fable-5-1",
+              "stop_reason": "end_turn",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "| 📍 **[q-0037.0019.0002](docs/questions/q-0037.0019.0002-what-does-the-agent-show-of-the-path-at-every-recall-and-on-request-the-count-in-work-against-the-cap-and-what-it-held-back-the-candidates-at-the-next-boundary.md)** · What does the agent show of the path at every /recall and on request: the count in work against the cap and what it held back, the candidates at the next boundary with their reasons, the three roots balance? |\n|---|\n\nПривет. Here is where the work stands.\n\n**Finished today.** Three things landed before this chat: core's text normalised to LF, with a register entry for the check that never saw it; [01-0010.0150.0010](docs/tickets/01-0010.0150.0010-the-harness-reads-a-tree-with-a-method-and-reports.md) amended so an install into a tree with a method refuses before writing; and [01-0060.0010](docs/tickets/01-0060.0010-what-the-path-shows-at-every-recall.md) minted as the pathfinder's first slice, placed ahead of [01-0010.0175](docs/tickets/01-0010.0175-arrival-describes-what-it-finds.md) by your word.\n\n**In flight, in other chats.** Five sessions stand beside this one. Two are on the settings ticket, [01-0010.0220](docs/tickets/01-0010.0220-a-tree-carries-the-methods-text-its-settings-call-for.md): its criterion 4 was read by you today, the `debug` switch tried off and on; the criterion that still waits is the one this session just met. One is on the live meeting of [01-0010.0150.0010](docs/tickets/01-0010.0150.0010-the-harness-reads-a-tree-with-a-method-and-reports.md) on xuanxue-cabinet, which is that ticket's grade and waits on you in that tree. One sits at the root question, one at the pathfinder's question since this morning.\n\n**What this session did.** The wake found the entry file out of step with the settings: the local file says `debug` is off, the entry file still carried the two rules that hold only under on. I brought the tree to match, as the settings ticket's last criterion says the next session does, and say so here. The entry file lost the 🪢 table rule and the entry-contract line rule. Nothing is committed: the settings ticket, its question, the local file and the entry file all stand changed in the working tree, most of it another session's. If off was not your intent, switching it back is one call and one word from you.\n\n**Next by the queue.** [01-0060.0010](docs/tickets/01-0060.0010-what-the-path-shows-at-every-recall.md) is Ready and has no plan, so its first step is `/plan`. Beside it, the method question [q-0037.0006.0025](docs/questions/q-0037.0006.0025-what-is-a-method-a-root-question-with-the-ring-that-works-it-and-the-records-it-keeps-and-what-is-a-practice-to-it-so-that-study-research-or-a-personal.md) waits on its align, the glossary words for *method* and *practice* with it. The last session left that choice to you and so do I. One occasion to note: the session at the pathfinder's question has been silent since morning, and if it is the one meant to take the slice, this one should not.\n\n**Deferrals worth a look.** The cap's counting, [q-0037.0019.0001](docs/questions/q-0037.0019.0001-how-does-the-store-tell-a-session-in-the-ring-holding-a-unit-from-one-in-conversation.md), was deferred until the cap is seen to count wrongly. Twelve tickets stand In progress against a cap of eight, several of them parents whose children are the real work. Whether that is a wrong count or a true excess is exactly what the path slice is to make readable, so it belongs in its plan rather than reopened now. The other four deferrals show nothing new.\n\n| 🍂 Drift |\n|---|\n| [local.rules.md](local.rules.md:50) · its L4 rule still reads `debug=on` while its own settings table, which now governs, says off. |\n\n| ⚖️ Decisions |\n|---|\n| Which to take up first: the plan for [01-0060.0010](docs/tickets/01-0060.0010-what-the-path-shows-at-every-recall.md), or the align on [q-0037.0006.0025](docs/questions/q-0037.0006.0025-what-is-a-method-a-root-question-with-the-ring-that-works-it-and-the-records-it-keeps-and-what-is-a-practice-to-it-so-that-study-research-or-a-personal.md). |\n| Whether `debug` off is what you meant, now that the tree matches it. |"
+                }
+              ]
+            }
+          },
+          "original_record_sha256": "2351ae58827e9f8ad876a1ceff9aab5d73044fca0aabc1b9493893bfcbe4cd38",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        },
+        "169": {
+          "timestamp": "2026-10-23T15:49:18.402Z",
+          "type": "user",
+          "payload": {
+            "type": "user",
+            "uuid": "fd736023-2341-4a75-8d8d-20fda3952253",
+            "parentUuid": "16f225d9-419e-475a-a3fb-acf12a1e7a18",
+            "timestamp": "2026-10-23T15:49:18.402Z",
+            "sessionId": "c7b1fc0b-5034-4074-b04b-473b9bb9c87e",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.308",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "message": {
+              "role": "user",
+              "content": "I was testing the manual setting change reception on wake, did it work?"
+            }
+          },
+          "original_record_sha256": "fc3311908e54a4ecf2ac154864411a7dcf06b46fcc534db4524cad538831795a",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        },
+        "194": {
+          "timestamp": "2026-10-23T15:50:19.123Z",
+          "type": "assistant",
+          "payload": {
+            "type": "assistant",
+            "uuid": "1fc4faea-83ed-43da-8768-370dcf4fc299",
+            "parentUuid": "ae2d45d6-4422-460e-85be-766629a9c0a7",
+            "timestamp": "2026-10-23T15:50:19.123Z",
+            "sessionId": "c7b1fc0b-5034-4074-b04b-473b9bb9c87e",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.308",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "requestRef": "dc7811b0-cef1-4681-be2c-ac4835fe2942",
+            "message": {
+              "id": "msg_011CgKS8dkcFHCsdyBvQJcyW",
+              "type": "message",
+              "role": "assistant",
+              "model": "claude-fable-5-1",
+              "stop_reason": "end_turn",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "| 📍 **[q-0037.0006.0026](docs/questions/q-0037.0006.0026-how-does-a-project-choose-which-of-the-methods-text-its-tree-carries.md)** · How does a project choose which of the method's text its tree carries? |\n|---|\n\nIt worked, in the part that matters, and showed two seams.\n\n**What fired.** The wake named the two blocks out of step and told the session to run the installer. The installer ran before the first reply, the check came back clean, and the reply said what the tree now carried. That is the criterion's first half as the ticket words it.\n\n**What did not fire as written.** The rule for this moment lives in the harness skill, [SKILL.md:76](.agents/skills/harness/SKILL.md:76): run the installer before the first reply, say in one line what the tree now carries, then read the entry file again before replying. No wake sends a session to that skill, so what reached me was the hook's line alone, which carries only the install step. The consequences were visible. The report came as a paragraph inside the recall, not one line. The entry file was not re-read, so the first reply opened with the entry-contract line that the install had just removed from it. The rule fired because the hook line was explicit, not because the rule was read. That is a case for the rule-reach question, [q-0037.0011](docs/questions/q-0037.0011-does-each-rule-reach-the-occasion-it-is-for.md): either the wake line carries the whole instruction, or it names the skill.\n\n**What the switch left half-done.** The entry file still says `debug=on` in L4, so a session reading it after the install meets both states. Until L4 goes, the setting is off in the machinery and on in the prose.\n\n**Untested.** The criterion's second half, that `/maintain` reports a hand edit no session met, had no occasion here, since a session met this one.\n\n| ⚖️ Decisions |\n|---|\n| Whether the gap is registered and the wake line amended to carry the one-line report and the re-read. |\n| Whether the L4 leftover is retired now. |"
+                }
+              ]
+            }
+          },
+          "original_record_sha256": "b62d28316899e3cef49279ea33b98290098282bfaeb51d2bd9bc39378de5c15d",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        }
+      }
+    },
+    "f5e3371e937b": {
+      "transcript": "4fef7758-4d63-4cbb-a2d5-98b8709a0be5.jsonl",
+      "transcript_bytes": 10017388,
+      "transcript_sha256": "b163af5b6430e1e700c9f9e79412308998c359799ad04549396fef55477113f7",
+      "records": {
+        "672": {
+          "timestamp": "2026-10-20T10:18:00.557Z",
+          "type": "assistant",
+          "payload": {
+            "type": "assistant",
+            "uuid": "166c0eee-696f-46c4-beb9-c1b76e22ff34",
+            "parentUuid": "0d1fd07c-4bd1-437b-a230-1e14301fa237",
+            "timestamp": "2026-10-20T10:18:00.557Z",
+            "sessionId": "4fef7758-4d63-4cbb-a2d5-98b8709a0be5",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.299",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "message": {
+              "id": "msg_011CgDKJxqGE98VsCWt8AXcQ",
+              "type": "message",
+              "role": "assistant",
+              "model": "claude-fable-5-1",
+              "stop_reason": "end_turn",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "| 🪢 Tangle · [q-0037.0019](docs/questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three-roots-and-the-next-shown-with-its-unit-as-the-installed.md) · [q-0037.0012.0009](docs/questions/q-0037.0012.0009-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen-how-run-with-no-instruction-the-standing-one-and-the-new-one.md) · — · — |\n|---|\n\n| 📍 **q-0037.0019** · How is the path ahead found and shown: the guesses held as questions, each weighed against the three roots, and the next shown with its unit as the installed method names it? |\n|---|\n\n**Что это за работа.** Предел: правило и счётчик, ограничивающие, сколько вещей одновременно ждут вашего решения. «Ждёт вашего решения» значит: открытый вопрос, стоящий на ступени диала или выше, который метод останавливает до вашего слова; сейчас это принятие его `Where it stands`, или да на тикет, или выбор между вариантами. «В работе» значит: на вопросе стоит сессия, или тикет, которому он принадлежит, в состоянии In progress. Предел говорит: больше N таких одновременно не бывает; N+1-й ждёт не вас, а освобождения места. Проблема, которую он решает, ваша же, записанная в теле вопроса: *я много гадаю и мало закрываю; каждая новая идея первая; я не держу в голове прежние догадки* (💡 [*P10*](.claude/skills/align/SKILL.md:150)).\n\n**Ворота необходимости.** Заказчик: вы, единственный, кто решает; всё, что на диале и выше, останавливается ради вас (💡 [*Autonomy*](AGENTS.md:224)). Наблюдаемая беда, в числах дерева на сегодня:\n\n| что ждёт вас | сколько |\n|---|---|\n| вопросы с владельцем-тикетом без принятого `Where it stands` | 43 |\n| строки продуктового документа, ждущие решения | 6 |\n| тикеты HITL в работе | 10 |\n| вопросы, у которых вообще записана ступень | 5 из 173 |\n\nПочему нынешнее поведение не справляется: диал останавливает каждый вопрос по отдельности и не считает их; таблица ⚖️ показывает ожидания одной сессии, и в этой беседе она дошла до шести строк; `/recall` показывает, что чаще всего задевали, а не что ждёт; никакая инструкция не читает число, и ничто не отказывает сорок четвёртому. Ваши слова из записи сессии 0060 о другом случае того же рода: *спрашивать это допрос; спроси, что за проект, и предложи*. Сорок три ожидания принятия это допрос, растянутый на недели. Ворота, по-моему, проходятся: беда наблюдаема, заказчик назван, нынешнее не считает.\n\n**Первый вопрос: что именно считается под пределом.** Общая предпосылка всех вариантов: ограничиваем то, что ждёт вас, а не то, что делают агенты; если это неверно, вопрос другой.\n\n- **А. Вопросы в работе на ступени диала и выше.** Точное определение «ждёт вас». Решающий факт против него сегодня: ступень записана у пяти вопросов из 173, часть пяти дней от роду; считать нечего, пока ступени не заполнены.\n- **Б. Вопросы с владельцем-тикетом без принятого `Where it stands`.** Решающий факт за: проверка хранилища уже считает их, 43 сегодня, ничего строить не надо. Против: среди них те, на которых никто не стоит; это ждущие, а не работающие.\n- **В. Тикеты HITL в работе.** Единица кольца, 10 сегодня. Против: не видит алайнов без тикета, а они и есть то, что ждёт вас дольше всего.\n\nМоя рекомендация: считать **Б, суженное до «в работе»**: вопрос с владельцем без принятого `Where it stands`, на котором стоит сессия или чей тикет In progress. Это считается сегодняшними средствами, это буквально «ждёт вашего принятия» по чекпойнту петли, и это становится **А** само, по мере того как ступени заполняются: тогда определение сужается до диала без смены счётчика. Б без сужения завышает, В занижает.\n\nКакое из трёх, или предпосылка неверна?"
+                }
+              ]
+            }
+          },
+          "original_record_sha256": "49820381954e15972bc848cf6f45a2ff859cbfde55a83943d840dc17c3326009",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        },
+        "674": {
+          "timestamp": "2026-10-20T10:43:28.096Z",
+          "type": "user",
+          "payload": {
+            "type": "user",
+            "uuid": "9a5909ed-70f7-43c9-9be7-c66da230242c",
+            "parentUuid": "2c8980e8-a3de-4611-9b46-6e2d525dd1ae",
+            "timestamp": "2026-10-20T10:43:28.096Z",
+            "sessionId": "4fef7758-4d63-4cbb-a2d5-98b8709a0be5",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.299",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "message": {
+              "role": "user",
+              "content": "почему ступень записала у пяти вопросов из 173 а не у всех?"
+            }
+          },
+          "original_record_sha256": "b940f45fdc7c76acb5ac962ef25af52655938ae6cd2c3a4e8ed5192da3514579",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        }
+      }
+    },
+    "7bf36773dc17": {
+      "transcript": "b5a7e99b-d90e-4a8b-8b3b-6a000b85edef.jsonl",
+      "transcript_bytes": 3225740,
+      "transcript_sha256": "c8be43b9aabb26372282f3785d112cc424ae5d13c8eef667e62c54640de6261b",
+      "records": {
+        "202": {
+          "timestamp": "2026-10-18T09:07:40.329Z",
+          "type": "user",
+          "payload": {
+            "type": "user",
+            "uuid": "3d250085-44d0-47b7-80cc-107d6b104d3b",
+            "parentUuid": "e8e35343-6784-4e8d-84b7-7b32c8ce0354",
+            "timestamp": "2026-10-18T09:07:40.329Z",
+            "sessionId": "b5a7e99b-d90e-4a8b-8b3b-6a000b85edef",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.299",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "message": {
+              "role": "user",
+              "content": "хорошо, а"
+            }
+          },
+          "original_record_sha256": "18fa13f09495ed5b9d521c77d5809f1b78cf91d8ec3b62c38526dd750f62760c",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        },
+        "227": {
+          "timestamp": "2026-10-18T09:08:59.619Z",
+          "type": "assistant",
+          "payload": {
+            "type": "assistant",
+            "uuid": "482915d1-a7ef-405d-869f-03b42e83c641",
+            "parentUuid": "e6f44034-4692-4a58-8a50-cce1f45b1762",
+            "timestamp": "2026-10-18T09:08:59.619Z",
+            "sessionId": "b5a7e99b-d90e-4a8b-8b3b-6a000b85edef",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.299",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "message": {
+              "id": "msg_011Cg9SU7vWoAegpmRTSAzj6",
+              "type": "message",
+              "role": "assistant",
+              "model": "claude-opus-5-5",
+              "stop_reason": "end_turn",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "| 📍 **[q-0037.0010.0012.0001](docs/questions/q-0037.0010.0012.0001-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person-about-that-work-and-how-is-a-reply-tested-for-keeping-them-apart.md)** · How does a rule tell the work an agent does unseen from what it says to the person about that work, and how is a reply tested for keeping them apart? |\n|---|\n\nПонял «а» как вариант (а) из списка. Он записан в вопрос первым решением: помечается только речь, а о работе по умолчанию молчат. Если вы имели в виду «хорошо, а …» и фраза оборвалась, скажите — откачу.\n\n**Вопрос 2. Что ответ может сказать о работе, если речевой блок этого не просит?**\n\nРешает дело ваш собственный пример. «Доброе утро, вспоминаю, что у нас» — это тоже рассказ о том, что агент делает. Но здесь шаг метода назван так, как его назвал бы человек. Плохая фраза рассказывала другое: что прочитано, что зарегистрировано и что будет прочитано дальше. Значит, граница проходит не между «о работе» и «не о работе». Она проходит между шагом метода и внутренностями работы. Во входном файле этому мешает одно слово: в списке того, что говорит ответ, стоит *the step*. Его читают как «мой текущий шаг». (💡 [*A reply speaks the method*](AGENTS.md:41))\n\n- **(а) О работе — ничего.** Только итоги, решения и то, что нужно от человека. Это строже всего, но запрещает и ваше «вспоминаю, что у нас», а утро без него — допрос.\n- **(б) Шаг метода — да, его ход — нет.** Шаг называется словами человека: «вспоминаю, на чём мы стоим», «проверяю сделанное». Не говорится, что работа прочла, запустила или записала и что прочтёт дальше. Речевой блок навыка добавляет то, что человек слышит именно в этом случае.\n- **(в) Ничего не добавлять.** Только поправить *the step* на «шаг метода». Это дешевле, но умолчание тогда держится на одном слове, а именно на таких словах правила и не срабатывали.\n\nРекомендую **(б)**. Вот как будет выглядеть правило:\n\n🧩 **Proposed rule — AGENTS.md, *A reply speaks the method***\n> **A reply speaks the method:** which question the work is on, the method's step as the person would name it, what is decided, what is next, where it stops, what it needs from the person. What the work read, ran or wrote, and what it will read next, is not told; what more the person hears at an occasion, a skill's speech block says, in their words. It names no script, call, check, report, record's internals or hook, and never retells a report: an outcome is one sentence, a failure is what the person does. Under `debug=on` the machinery is shown as well.\n\n(💡 [*Name the shared assumption*](.claude/skills/align/SKILL.md:101))\n\n| ⚖️ Decisions |\n|---|\n| Вопрос 2: что можно сказать о работе — ничего (а), шаг метода без его хода (б) или только поправка слова *the step* (в) |\n\n| 🍂 Drift |\n|---|\n| `.claude/skills/recall/SKILL.md:12`: *Output wake/recall updates as the stages are completed* противоречит правилу входного файла *never retells a report* |"
+                }
+              ]
+            }
+          },
+          "original_record_sha256": "a5f6ab2a8387719698e9cceaeeff6897b103956b588ff9d3e65a0983145b66ef",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        },
+        "231": {
+          "timestamp": "2026-10-18T10:04:06.109Z",
+          "type": "user",
+          "payload": {
+            "type": "user",
+            "uuid": "d3579569-895a-49f0-b9e5-2374a852a048",
+            "parentUuid": "e4cdb73d-866e-4776-8c28-578c8d03df09",
+            "timestamp": "2026-10-18T10:04:06.109Z",
+            "sessionId": "b5a7e99b-d90e-4a8b-8b3b-6a000b85edef",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.299",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "message": {
+              "role": "user",
+              "content": "б, я же это и написал в начале, нет?"
+            }
+          },
+          "original_record_sha256": "fb7f573bc081dee91d44d1ed815acb3cd603b3dbcde905e99a2f478e91b4f35d",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        },
+        "245": {
+          "timestamp": "2026-10-18T10:04:28.436Z",
+          "type": "assistant",
+          "payload": {
+            "type": "assistant",
+            "uuid": "892f7bed-2264-499e-ae39-ad43484eea63",
+            "parentUuid": "3c678bfa-4be5-463e-82e6-151ebd9676bb",
+            "timestamp": "2026-10-18T10:04:28.436Z",
+            "sessionId": "b5a7e99b-d90e-4a8b-8b3b-6a000b85edef",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.299",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "message": {
+              "id": "msg_011Cg9WhvWGgZDFZgiSnFCFY",
+              "type": "message",
+              "role": "assistant",
+              "model": "claude-opus-5-5",
+              "stop_reason": "tool_use",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Да, ваше. Записываю решение 2 и заношу в реестр, что я переспросил уже сказанное."
+                }
+              ]
+            }
+          },
+          "original_record_sha256": "adea10f56bec3bcec77c304e0c88943e37688ff471682796e236d02386f0a929",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        }
+      }
+    },
+    "ffc81e8f9f31": {
+      "transcript": "1e4388f8-089d-4fb0-b91e-c6230c8020d5.jsonl",
+      "transcript_bytes": 9870111,
+      "transcript_sha256": "185687ebfcb0b7bd8e46c25ea2a5cd431f857bc59a33534a6079d8f11b6760cf",
+      "records": {
+        "2214": {
+          "timestamp": "2026-10-24T12:04:05.856Z",
+          "type": "assistant",
+          "payload": {
+            "type": "assistant",
+            "uuid": "916479b1-ada9-4e18-8a41-586f7fbdafb5",
+            "parentUuid": "52d8de2a-3f01-45c4-b7c1-48a876369e68",
+            "timestamp": "2026-10-24T12:04:05.856Z",
+            "sessionId": "1e4388f8-089d-4fb0-b91e-c6230c8020d5",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.308",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "requestRef": "45a6b131-f019-40ba-ae22-a1d014342a86",
+            "message": {
+              "id": "msg_011CgM2fNY9LG5SYq2UewozF",
+              "type": "message",
+              "role": "assistant",
+              "model": "claude-opus-5-5",
+              "stop_reason": "tool_use",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проверяю — и сначала делаю то, чего не сделал: читаю /skill-up, раз я предлагаю правило."
+                }
+              ]
+            }
+          },
+          "original_record_sha256": "90fb730a30e7ea78e961f1d50bddfd74f54f4e1d3b2b73056d8b21fe510f0cf0",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        },
+        "2215": {
+          "timestamp": "2026-10-24T12:04:06.024Z",
+          "type": "assistant",
+          "payload": {
+            "type": "assistant",
+            "uuid": "3f6e710b-9314-45e3-a0dc-85bb491c729f",
+            "parentUuid": "916479b1-ada9-4e18-8a41-586f7fbdafb5",
+            "timestamp": "2026-10-24T12:04:06.024Z",
+            "sessionId": "1e4388f8-089d-4fb0-b91e-c6230c8020d5",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.308",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "requestRef": "45a6b131-f019-40ba-ae22-a1d014342a86",
+            "message": {
+              "id": "msg_011CgM2fNY9LG5SYq2UewozF",
+              "type": "message",
+              "role": "assistant",
+              "model": "claude-opus-5-5",
+              "stop_reason": "tool_use",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_01Gpj3ukfgZdz95SFjGwr8zi",
+                  "name": "Skill",
+                  "input": {
+                    "skill": "skill-up"
+                  },
+                  "caller": {
+                    "type": "direct"
+                  }
+                }
+              ]
+            }
+          },
+          "original_record_sha256": "1c2089a1555dabdc257d220ee564f1e812a1f77c42c5e5fb87c0da9baad87e50",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        }
+      }
+    },
+    "0f799f881744": {
+      "transcript": "50d88569-12cf-400d-9992-9e97262f34fc.jsonl",
+      "transcript_bytes": 8026212,
+      "transcript_sha256": "759edf5daa79571cecce727d584f4071a907e6fd91075475ce5a3f76cd21e300",
+      "records": {
+        "1102": {
+          "timestamp": "2026-10-11T09:17:45.063Z",
+          "type": "user",
+          "payload": {
+            "type": "user",
+            "uuid": "54f5249f-2642-486f-b736-99fed7ca0e72",
+            "parentUuid": "fbab870a-261d-487b-a540-335b9d4cbd3e",
+            "timestamp": "2026-10-11T09:17:45.063Z",
+            "sessionId": "50d88569-12cf-400d-9992-9e97262f34fc",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.286",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "message": {
+              "role": "user",
+              "content": "надо добавить список коммитов шага тоже с иконками"
+            }
+          },
+          "original_record_sha256": "7b6737e1e46de6a59e7a2dff8c84b50866f4cb9497f822597c72cfa7a6878e77",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        },
+        "1121": {
+          "timestamp": "2026-10-11T09:18:29.471Z",
+          "type": "assistant",
+          "payload": {
+            "type": "assistant",
+            "uuid": "a9192848-d632-4133-a940-228bbda51e6a",
+            "parentUuid": "6c468604-48c1-48dd-9780-27257a1c3d31",
+            "timestamp": "2026-10-11T09:18:29.471Z",
+            "sessionId": "50d88569-12cf-400d-9992-9e97262f34fc",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.286",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "message": {
+              "id": "msg_011CfvCYE7zwD3sGmQPkaoJe",
+              "type": "message",
+              "role": "assistant",
+              "model": "claude-opus-5-5",
+              "stop_reason": "end_turn",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "| 📍 **q-0030** · How does a reply show the principles each of its claims stands on, and where are the principles named for it? |\n|---|\n\nПонимаю так: ответ, в котором появились коммиты, заканчивается их списком. В каждой строке значок шага, который произвёл коммит, хеш и начало темы. Шаг уже записан в префиксе коммита, значок просто делает его видимым. Вот как выглядел бы конец ответа о L3, если бы все эти коммиты были в одном ходе:\n\n| 📦 Commits |\n|---|\n| 🪶 `2324fdc` QUESTIONS: q-0018.0022.0001.0001 opened — how long the verification set may take |\n| 🤝 `07788f0` LOCAL: L3 — the checks always, the tests only when a non-markdown file changed |\n| 🤝 `276ecf7` LOCAL: L3 installed in every skill that runs the set; wrapped as a straw dog |\n| 🧹 `37f2781` MAINTAIN: this session's scope — one drift repaired in the method glossary |\n\nЗначки по шагам из [/commit](.agents/skills/commit/SKILL.md:14):\n\n| шаг | значок | | шаг | значок |\n|---|---|---|---|---|\n| ALIGN | 🤝 | | DISCOVER | 🔭 |\n| SPEC | 📐 | | RECALL | 🌅 |\n| TICKET | 🎫 | | CONCLUDE | 🏁 |\n| PLAN | 🗺️ | | FIX | 🩹 |\n| IMPLEMENT | 🔨 | | EQUIP | 🧰 |\n| VERIFY | 🔍 | | DREAM | 💤 |\n| MAINTAIN | 🧹 | | | |\n\nЯ старался не брать значки, которые уже заняты: ⚙️, ⚖️, 🧭, 🧩, ⚓, ✏️, 🛠️ и 🔁. Значок 🪶 в первой строке пояснён ниже.\n\n> 🧩 **Proposed rule — AGENTS.md, the reply's tables**\n> A reply whose turn made commits ends with `| 📦 Commits |`, a row each in order: the icon of the step its prefix names, the short hash, the subject's head.\n\n| ⚖️ Decisions |\n|---|\n| Список коммитов в конце ответа, под 📦, по строке на коммит со значком шага: так подходит? |\n| Набор значков по шагам: этот подходит, или поменять какие-то? |\n\n| 🍂 Drift |\n|---|\n| Префиксы `ENTRY`, `LOCAL`, `QUESTIONS` и `RFC` ходят в логе, всего около 130 коммитов, мои сегодняшние тоже. Но в списке шагов [/commit](.agents/skills/commit/SKILL.md:14) их нет, так что значка шага у них нет. В примере я дал `LOCAL` значок ALIGN, потому что это были решения с тобой, а `QUESTIONS` временно 🪶. Нужно либо внести эти префиксы в `/commit` (вместе со значками), либо писать вместо них шаг, который произвёл работу |"
+                }
+              ]
+            }
+          },
+          "original_record_sha256": "a7830e27be33c5f2bbd28ff45072b2f040988c28ab3e5e3705ca1531ce9a6d29",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        },
+        "1174": {
+          "timestamp": "2026-10-11T09:21:10.688Z",
+          "type": "user",
+          "payload": {
+            "type": "user",
+            "uuid": "f2bcb3ce-2434-46b3-93a3-388370fbef81",
+            "parentUuid": "4cee3b1c-6248-4de6-9fc4-20b9a2ce1dfa",
+            "timestamp": "2026-10-11T09:21:10.688Z",
+            "sessionId": "50d88569-12cf-400d-9992-9e97262f34fc",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.286",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "message": {
+              "role": "user",
+              "content": "всегда писать шаг, который произвёл работу."
+            }
+          },
+          "original_record_sha256": "74e4c7d87478411f87733f7d77384dc3f8a910da22425742867a45ff8dcdd32c",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        }
+      }
+    },
+    "0ba9de6ae966": {
+      "transcript": "2d4781b4-95c5-47c1-8685-81fb75f93180.jsonl",
+      "transcript_bytes": 5388966,
+      "transcript_sha256": "7f497f4637e3b460fd7e3ac7a630be65ef2632605903f0a5e37522c1d4c182f5",
+      "records": {
+        "5": {
+          "timestamp": "2026-10-11T00:28:44.418Z",
+          "type": "user",
+          "payload": {
+            "type": "user",
+            "uuid": "d0233759-8011-4b88-a01d-104bf9d5dfb1",
+            "parentUuid": "e58ebe65-6dd5-418c-9b92-b1f208dd0ab5",
+            "timestamp": "2026-10-11T00:28:44.418Z",
+            "sessionId": "2d4781b4-95c5-47c1-8685-81fb75f93180",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.286",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "message": {
+              "role": "user",
+              "content": "\n\n<pasted_content id=\"17e8\">\nустанови сюда goodwolf-harness\nRan 2 commands\nFound `dveyarangi/goodwolf-harness` on GitHub (updated minutes ago). Let me look at it before installing.\nRan 3 commands\nThe target is an empty folder, so the installer will `git init` it. Running the install with Python 3.14 (`py -3`):\nRan 2 commands\nInstalled. Now for the setup step: the skill says to write `local.rules.md` with your project’s rules. Let me check the format it expects.\nRead the local rules format and example\nThe harness is installed and all gates passed. I still need to set up skill links and your project’s local.rules.md—since the folder’s empty I couldn’t infer test commands automatically, so I have a few questions for you first.\nГде агент должен останавливаться и ждать твоего «да»? (по умолчанию всё — ask)\nCommit+push auto\nКак запускать Python в этом проекте?\npy -3 (Recommended)\nНабор проверок (verification set) для готовой работы?\nПроверки харнесса\nListed harness scripts and tested their checks\nAll six checks pass on the fresh install. Writing `local.rules.md`:\nCreated local.rules.md, ran a command\nGoodWolf Harness ([dveyarangi/goodwolf-harness](https://github.com/dveyarangi/goodwolf-harness)) is installed in `D:\\Dev\\AI\\research-harness`. The final `--check` passed all three checks and ended with `arrived: true`. The folder was empty, so the installer ran `git init` there first.\nWhat was added:\n\n* `.agents/` — the harness’s skills (`recall`, `align`, `ticket`, `plan`, `implement`, `verify`, …) and its scripts\n* AGENTS.md — the rules every session reads; CLAUDE.md just points to it\n* `docs/` — the starting work queue\n* Hooks in `.claude/`, `.codex/` and `.cursor/`\n* local.rules.md — your answers, already merged into `AGENTS.md` and the `verify` skill:\n   * the agent commits and pushes on its own once a change passes verification; starting the next ticket and splitting work into tickets still need your yes\n   * Python runs as `py -3`, because a bare `python` on this machine opens the Microsoft Store\n   * verification is the harness’s six built-in checks; all six pass right now\n\nYou still need to do one thing. Claude Code and Cursor find the skills through links (`.claude/skills` and `.cursor/skills`). Windows wouldn’t let me create them without admin rights, so the skills aren’t connected yet. Open an administrator command prompt (cmd, not PowerShell, since `mklink` is a cmd command) and run:\n\n```\nmklink /D \"D:\\Dev\\AI\\research-harness\\.claude\\skills\" \"..\\.agents\\skills\"\n```\n\n\n```\nmklink /D \"D:\\Dev\\AI\\research-harness\\.cursor\\skills\" \"..\\.agents\\skills\"\n```\n\nThen, in the project folder:\n\n```\npy -3 .agents/scripts/gw/harness.py . --links\n```\n\nIt reports whether each link now works. Turning on Windows Developer Mode also lets these links be created without admin rights.\nNothing has been committed yet and the repository has no remote, so automatic push has nowhere to go for now. The harness counts on the install being one commit: reverting that commit is how you uninstall it. Should I make that commit now?\n\n* local.rules.md+47−0\n\nлинки готовы\nConfirmed the skill links resolve\nBoth links work: `.claude/skills` and `.cursor/skills` now point to `.agents/skills`, and `--links` reports nothing pending.\nThe harness is live in this session. Its 24 skills (`recall`, `align`, `ticket`, `plan`, `verify` and the rest) now appear in Claude Code’s skill list. On your last message its hook registered the session and listed three open starting questions:\n\n* q-0001 What is this project for?\n* q-0002 How is this project built?\n* q-0003 What landscape does this project evolve in?\n\nThe install itself still isn’t committed. Should I make it one commit, so that reverting it removes the harness? After that you can say “continue” (or `/recall`), and we’ll start on q-0001: what `research-harness` is for.\nда, коммить\nRan 3 commands, used a tool\nUpstream tracks the session registry too, so everything goes in one `EQUIP` commit.\nCommitted the harness install\nThe commit succeeded, with Git only warning about LF→CRLF conversion (which doesn’t affect the files on disk). Now I’ll verify the harness copy is still intact.\nVerified commit, clean tree and harness check\nI committed the install as `4bc9d03 EQUIP: install the GoodWolf Harness` on `master`. That’s 95 files and nothing left uncommitted. Reverting that commit removes the harness.\n\n* Before the commit: I ran the six checks from your `local.rules.md`, and all six passed.\n* After the commit: `harness.py --check` still passes all three of its checks and ends with `arrived: true`.\n* Skill links: `.claude/skills` and `.cursor/skills` aren’t in the commit on purpose. They’re machine-specific and listed in `.git/info/exclude`.\n* No push: the repository has no remote yet. Pushing will happen automatically once you add one, because you set push to automatic.\n\nGit printed “LF will be replaced by CRLF” warnings because line-ending conversion is turned on in your system Git config. The files on disk didn’t change. The one file where this would matter, the shell hook `hook.sh`, is pinned to LF by .agents/.gitattributes.\nThe commit’s author is the name and email from your Git config: `triyarangi <dveyarangi@gmail.com>`. If that’s not you, change it with `git config user.name` / `git config user.email` before your next commits.\nNext, say “continue” or `/recall`, and we’ll start with the first open question: what `research-harness` is for.\n</pasted_content id=\"17e8\">\n\nкак тебе кажется, это нормальный первый контак с харнессом для пользователя который впервый раз его видит?  )"
+            }
+          },
+          "original_record_sha256": "6b87d91ca04d19792e13bba4c9567ad0c3edeb29097e705ef302869b3e31a1ee",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        },
+        "91": {
+          "timestamp": "2026-10-11T00:35:36.877Z",
+          "type": "user",
+          "payload": {
+            "type": "user",
+            "uuid": "b1f40958-4cb7-4c18-9b79-54eb88997a31",
+            "parentUuid": "1f6e1e43-9edb-4a27-9927-f97c03c83101",
+            "timestamp": "2026-10-11T00:35:36.877Z",
+            "sessionId": "2d4781b4-95c5-47c1-8685-81fb75f93180",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.286",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "message": {
+              "role": "user",
+              "content": "скажу больше - человек увидел кучу технической инфы в непонятном для него жаргоне, с минимальным пониманием зачем он потратил на это 4 минуты.\n\nкакие-то блоки текста про какие-то тесты, про коммиты, технически описал что теперь есть вопросы, вместо того чтобы представиться, обьяснить что умеешь и задать собственно первый вопрос )\n\nкроме того, первый коммит с коммит=ауто должен был быть автоматическим\nпредложение об установке скриптов харнесса должно было имень продуктовое обьяснение - зачем пользователь может этого хотеть (подсказка - если он собирается активно менять сам харнесс)"
+            }
+          },
+          "original_record_sha256": "32309076e622380d29c6fc19ff4c48863a6e839c170b7263730a4d8071eb9eba",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        }
+      }
+    },
+    "15e5973b463a": {
+      "transcript": "f621c092-f5f3-49c9-96d9-05a5e7752430.jsonl",
+      "transcript_bytes": 6771387,
+      "transcript_sha256": "95fca9df0127466b9567b1dc3a568759e2dabf492d0e6c15cf0e81ae19ae2bbf",
+      "records": {
+        "200": {
+          "timestamp": "2026-10-11T08:13:05.006Z",
+          "type": "user",
+          "payload": {
+            "type": "user",
+            "uuid": "d6ac9ec8-2c7c-4acd-adf8-3a351fd5f369",
+            "parentUuid": "6f1433e3-1ce6-41bc-a0cb-105dbe6d27ae",
+            "timestamp": "2026-10-11T08:13:05.006Z",
+            "sessionId": "f621c092-f5f3-49c9-96d9-05a5e7752430",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.286",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "message": {
+              "role": "user",
+              "content": "ответ:\n\n<pasted_content id=\"17e8\">\nEntry contract: goodwolf-harness@2324fdc, 2026-10-11.\n\n/recall, коротко. Дерево свежее: один коммит 4bc9d03, очередь тикетов пуста, docs/tickets/README.md называет кандидатом «собственная настройка проекта, затем первый /align». Открыты три корневых вопроса q-0001 «What is this project for?», q-0002 «How is this project built?», q-0003 «What landscape does this project evolve in?» — ни один ещё не тронут. Побочный эффект: мой вызов questions.py --wake зарегистрировал вторую сессию s-1011-d8ca рядом с той, что уже завёл хук (local_6d73…); поэтому docs/questions/sessions сейчас изменён. Это одна и та же сессия, лишняя строка — мусор от меня, не от харнесса.\n\nЭтот ход — разбор текста по твоей просьбе, процесс; в хранилище вопросов ничего не ставлю.\n\n1. Блоки моих сообщений и их источники\nСообщение\tБлок\tИсточник\n1\tСписок добавленного (.agents/, AGENTS.md, CLAUDE.md, docs/, хуки)\tВывод ls -la и git status. Формулировка — из README апстрима (в дерево не устанавливается), раздел Use it: «What lands in your repository: .agents/ (the skills, the scripts and their tests), AGENTS.md (the rules every session reads), a one-line CLAUDE.md pointing to it, and a starting work queue in docs/tickets/». Хуки — harness/SKILL.md:44-46: «merges core’s hooks into each host’s shared hook file».\n1\t«--check passed … arrived: true»\tJSON-отчёт harness.py --install и --check; инструкция harness/SKILL.md:48-49: «The report ends arrived: true only when all three hold».\n1\t«папка была пуста, installer сделал git init»\tПоле notes отчёта; harness/SKILL.md:62-63: «empty, the install runs git init there first and says so in its notes».\n1\tПересказ local.rules.md (переключатели, py -3, набор проверок)\tНичего. Содержимое — из твоих ответов на AskUserQuestion; инструкция harness/SKILL.md:92-97 велит файл написать, о том, чтобы пересказать его человеку, не говорит.\n1\tКоманды mklink для админского cmd, затем --links\tПоле pending отчёта; harness/SKILL.md:58-60: «Present them to the person verbatim, to run once in an elevated prompt, then run --links».\n1\t«cmd, а не PowerShell», «Developer Mode снимает требование админа»\tНичего — моё знание Windows.\n1, 2\tВопрос «закоммитить?» и аргумент «харнесс рассчитывает на один коммит»\tНичего из установленного. Аргумент — README апстрима:120 (см. п. 4). На момент вопроса локальный блок с commit=auto уже стоял в AGENTS.md; «спросить» — моё решение, не инструкция и не скрипт.\n2\t«оба линка работают»\tПоле links_resolve из harness.py --links.\n2\t«24 скилла теперь видны Claude Code»\tls .claude/skills; .agents/README.md:3-7 о загрузчиках-ссылках.\n2\tq-0001…q-0003\tВывод хука UserPromptSubmit (hook.sh → questions.py): «roots: q-0001 [open] What is this project for? …». Сами корни — из questions.md:20 «Three roots from the start».\n2\t«скажи continue или /recall»\tAGENTS.md, The loop: «session: wake with /recall → /align → /conclude» — прочитано через grep, целиком AGENTS.md в контексте тогда не было.\n3\tХэш, 95 файлов, чистое дерево\tВывод git.\n3\tПроверки до и после коммита\tcommit/SKILL.md: «When committing a code change, first run the checks the repository defines for itself»; набор — локальный блок L3 в verify/SKILL.md:53-62. Результат — exit-коды скриптов и --check.\n3\t«линки не в коммите, они в .git/info/exclude»\tharness/SKILL.md:33: «the loader links are never committed»; содержимое .git/info/exclude.\n3\t«push произойдёт сам, когда появится remote»\tНичего, и неточно: по conclude/SKILL.md:25-26 непушенные коммиты «are the conclude’s to settle … by the push switch», т. е. пуш делает /conclude, а не «появление remote».\n3\tПредупреждения LF→CRLF, core.autocrlf, hook.sh закреплён LF\tstderr git commit; git config --show-origin; комментарий в .agents/.gitattributes. Инструкции нет.\n3\tАвтор коммита triyarangi <dveyarangi@gmail.com>\tgit config user.name / user.email. Инструкции нет — моя инициатива.\n3\t«откат этого коммита удаляет харнесс»\tСм. п. 4 — в дереве нет.\n2. Что инструкции говорят делать после установки\n\nharness/SKILL.md:92-97:\n\nThe tree has core and no answers. Write local.rules.md beside the entry file, in the rules-file format the entry file’s Project-local section describes, from the environment you stand in: the project’s facts for the entry file, its autonomy switches, and its verification set — its typechecker, its tests, every command required of landed work, read off its own toolchain; a project without one has an empty set, and its local file says so. Then inject_rules.py local --install, and --check.\n\nharness/SKILL.md:5, описание скилла: «and in a freshly installed tree, which has core and none of the project’s own answers yet».\n\nharness/SKILL.md:50-52: «Whether a host reads the link is not observable from inside a tree; the first session announcing the stamped line is the evidence a person reads».\n\nharness.md:69, таблица моментов: «populating the local file after the first install | .agents/skills/harness/SKILL.md».\n\nAGENTS.md, шапка: «Open your first reply of every session with the Entry contract: line above, verbatim» и «Run /recall first in every conversation, whatever the first message says».\n\ndocs/tickets/README.md: «Candidate: the project’s own setup, then its first /align» — это документ, он информирует, не инструктирует.\n\nО том, как представить харнесс человеку — ничего. Ближайшее: в README апстрима (не устанавливается) «It installs the harness, reports what arrived, and sets up your project’s own rules with you» и «It installs, then asks for your test commands and where it should stop for your yes»; в скилле — только «Present them to the person verbatim» про команды mklink. Что такое «reports what arrived» — JSON или человеческий текст, что в нём важно человеку, — не сказано нигде. Отсюда и мой список папок: я пересказал ls.\n\n3. Строки про коммит, относящиеся к коммиту установки\n\n«Коммить сам»:\n\nAGENTS.md, локальный блок: «L2 commit=auto · push=auto · next-cycle=ask · breakdown=ask · repair=report».\nAGENTS.md, таблица Autonomy: «commit — auto: commit when /verify has passed on the work». С оговоркой: auto определён через /verify, а установка через /verify не проходила — буква правила на этот коммит не ложится ни как auto, ни как ask.\n\n«Спроси»:\n\nAGENTS.md, The loop: «Human checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push; next cycle at /maintain → /ticket».\nAGENTS.md, Autonomy: «A switch the project has not set is ask» — действовало до того, как встал локальный блок, т. е. во время самого --install.\ncommit/SKILL.md: «Commit the work in current session only. Do not commit changes of other session that might represent a work in progress. When in doubt, ask user».\n\nНейтральные, отсылают к переключателю:\n\ncommit/SKILL.md: «Commit and push only as the entry file’s commit and push switches allow; a push is its own permission, never implied by a commit’s».\nconclude/SKILL.md:25-26: «The session’s unpushed commits are the conclude’s to settle … by the push switch: under ask, put to the user here; no other reply speaks of it».\n\nВ harness/SKILL.md слово «commit» встречается только как «the loader links are never committed» и «its committed HEAD». О том, коммитить ли установку и как, — ни слова.\n\n4. «Откат этого коммита удаляет харнесс»\n\nВ установленном дереве такой строки нет. Есть только в README апстрима, строка 120, внутри straw-dog, привязанного к q-0018.0013:\n\nNo uninstall command. Everything it adds is files, so reverting the install commit removes the harness. What it wrote under docs/ afterwards stays until you delete it.\n\nREADME в манифест установки не входит, .agents/README.md этого не повторяет. Я принёс фразу из клона, который читал перед установкой, и выдал её так, будто она из дерева.\n\n5. Переписанное сообщение перед коммитом\n\nСсылки работают: .claude/skills и .cursor/skills ведут в .agents/skills, --links ничего не ждёт.\n\nТеперь у тебя в репозитории есть GoodWolf Harness — память проекта и метод работы для агента. Из чего она состоит:\n\nAGENTS.md — правила, которые я читаю в начале каждой сессии. CLAUDE.md просто ссылается на него.\ndocs/ — здесь будет жить то, что обычно теряется между сессиями: открытые вопросы (docs/questions/), очередь работы (docs/tickets/), принятые решения и архитектура. Сейчас там три стартовых вопроса и пустая очередь.\n.agents/ — скиллы и скрипты, которые эти записи ведут и проверяют.\nlocal.rules.md — твои ответы: что здесь считать проверкой готовой работы и где мне останавливаться. Это единственный файл харнесса, который правишь ты; обновления его не трогают.\n\nКак это будет выглядеть в работе. Каждую сессию я начинаю с /recall: читаю, где остановились, и говорю, что дальше. Каждое изменение проходит путь «тикет → план → реализация → проверка», и готовым считается только то, что прошло проверку по тикету и твоему набору команд. Решение, ошибка в котором сломала бы несколько частей проекта, я приношу тебе с рекомендацией; меньшие принимаю сам и сообщаю. Что ты скажешь между делом — записывается под тот вопрос, к которому относится, и всплывёт, когда мы к нему вернёмся.\n\nГде я жду твоего «да», по твоим настройкам:\n\nкоммит и пуш — сам, после прошедшей проверки;\nразбивка работы на тикеты — показываю, ты утверждаешь;\nпереход к следующему тикету — спрашиваю;\nлюбое весомое решение — спрашиваю.\n\nСама установка ещё не закоммичена — сделаю это первым коммитом, чтобы её можно было откатить одним движением.\n\nОчередь пуста, и первый из трёх стартовых вопросов — q-0001 «Для чего этот проект?». Расскажи своими словами: что такое research-harness, для кого он и какую боль снимает?\n\n6. Переписанный вопрос про набор проверок\n\nКакие команды должны пройти, чтобы работа считалась готовой?\n\nПока пустой. Для проекта, в котором ещё нет кода и тулчейна: папка пуста или только документы. Запишем, что набор пуст; когда появятся тесты и линтер, добавим их в local.rules.md.\nПроверки самого харнесса (tickets.py --check, questions.py --check и ещё четыре). Для проекта, где главная ценность — записи в docs/: исследование, документация, спецификации. Они проверяют согласованность тикетов, вопросов и правил, а не код.\nПроверки проекта. Для проекта с существующим кодом: назови его команды — тесты, тайпчекер, линтер — или я прочитаю их из package.json/pyproject.toml/Makefile и покажу тебе список.\nПроверки проекта плюс харнесса. Для кодового проекта, где ты хочешь, чтобы и записи в docs/ держались в порядке автоматически. Самый строгий вариант; каждая проверка — это ещё время на каждый /verify.\n</pasted_content id=\"17e8\">\n"
+            }
+          },
+          "original_record_sha256": "fac4da038e0da2158ca4d65f167c73ecc4ca3344cf07b8205b53917f6d6153da",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        },
+        "233": {
+          "timestamp": "2026-10-11T08:14:21.891Z",
+          "type": "assistant",
+          "payload": {
+            "type": "assistant",
+            "uuid": "c6254520-7afb-40d0-a8c9-e70d60fb4c71",
+            "parentUuid": "332dcaac-b7a4-4192-b330-231ab5b64ef8",
+            "timestamp": "2026-10-11T08:14:21.891Z",
+            "sessionId": "f621c092-f5f3-49c9-96d9-05a5e7752430",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.286",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "message": {
+              "id": "msg_011Cfv7ekTiuyotg4U7U1H4v",
+              "type": "message",
+              "role": "assistant",
+              "model": "claude-opus-5-5",
+              "stop_reason": "tool_use",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_013CbUpJFSvmUurxGTf2ZnzD",
+                  "name": "Edit",
+                  "input": {
+                    "replace_all": false,
+                    "file_path": "D:\\Dev\\AI\\agents\\docs\\rule-failures.md",
+                    "old_string": "here to be counted; one occurrence proposes no rule. A second one — any write run for what it\nprints — is the shape that would.\n",
+                    "new_string": "here to be counted; one occurrence proposes no rule. A second one — any write run for what it\nprints — is the shape that would.\n\n**Struck, 2026-10-11 — the installing session of entry 34.** Its `/recall`, asked about the install\nafterwards, ran `questions.py --wake` with no `--session` beside the session its hook had\nregistered, and registered `s-1011-d8ca`. Here a rule was in play: Q2, installed in `/recall`,\noffered the bare `questions.py --wake` as the wake's read. **Amendment landed** in Q2: the read is\n`--wake --session <tag>` with the tag the hook's read named, a bare `--wake` registering a new\nsession and kept for a host whose hook registered none. Graded by the next `/recall` under a hook.\n"
+                  },
+                  "caller": {
+                    "type": "direct"
+                  }
+                }
+              ]
+            }
+          },
+          "original_record_sha256": "cbd3d3a93b7a61b2e4ce7026ba2cb01f29cfc68f9fa28bb8752ea22805f723e9",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        }
+      }
+    },
+    "0f023bc7e8dd": {
+      "transcript": "17658ee1-78ee-410c-871e-86e722da27fe.jsonl",
+      "transcript_bytes": 2829175,
+      "transcript_sha256": "243f416a9b5f251915fd6a00aa98251584b9a58689deabf15d04619e596da007",
+      "records": {
+        "382": {
+          "timestamp": "2026-10-04T22:13:27.975Z",
+          "type": "assistant",
+          "payload": {
+            "type": "assistant",
+            "uuid": "00b8ef74-d9e4-4e56-b8e3-c3efb32d9edf",
+            "parentUuid": "a89d1616-f442-4cd2-8f9b-2e7bd1cff44d",
+            "timestamp": "2026-10-04T22:13:27.975Z",
+            "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+            "entrypoint": "claude-desktop",
+            "isSidechain": false,
+            "version": "2.1.286",
+            "cwd": "D:\\Dev\\AI\\agents",
+            "message": {
+              "id": "msg_011CfhxyXqPQqVj7qJcvcMQD",
+              "type": "message",
+              "role": "assistant",
+              "model": "claude-fable-5-1",
+              "stop_reason": "tool_use",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_011sfJKe2X4EjY8RbFURg5L3",
+                  "name": "Edit",
+                  "input": {
+                    "replace_all": false,
+                    "file_path": "D:\\Dev\\AI\\agents\\docs\\rule-failures.md",
+                    "old_string": "## 17. A reply named what it asked about by bare ids — 2026-10-03",
+                    "new_string": "## 18. Six turns of seven showed a question the turn did not stand on — 2026-10-05\n\n**Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s Q1, *call `at` where the message\nlands … a message that lands nowhere makes no call*, and its table of *each question the turn\nstood on*.\n\n**What happened.** A maintenance pass over the whole tree made no call and its reply showed the\nsession's stored position, the next ticket's question. An installer defect in an update — loader\nlinks removed and not replaced — was placed on *what a first install says when something stops\nit*, and three more turns carried that. The user: *look at the question selected for the previous\nturns. it was off most of the conversation.*\n\n**Why it did not fire.** The rule has two answers, a question or no call, and no word for what a\nreply then shows; so a process was shown against a stale position. And *where the message lands*\ndoes not say by what: the nearest-looking sibling passed for a landing, when no child contained\nthe message and the parent that would have was missing.\n\n**Amendment proposed:** Q1 reworded to placement by containment and four kinds of turn, each with\nits row — the decisions of [01-0011.0100.0040 the-turn-is-steered-from-the-store](tickets/01-0011.0100.0040-the-turn-is-steered-from-the-store.md)'s\nalign, which lands it.\n\n## 17. A reply named what it asked about by bare ids — 2026-10-03"
+                  },
+                  "caller": {
+                    "type": "direct"
+                  }
+                }
+              ]
+            }
+          },
+          "original_record_sha256": "bca7a144b588dccf90f9804cffe922f98f43152ba1f7d898911a5370f20e43d0",
+          "selection": "public reference evidence; not proof of the missing original failure"
+        }
+      }
+    }
+  }
+}

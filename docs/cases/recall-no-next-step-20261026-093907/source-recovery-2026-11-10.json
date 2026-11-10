@@ -1,0 +1,12 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "scope": "complete selected public payloads, not inferred complete transport context",
+  "records_checked": 20,
+  "records_expanded": [],
+  "structured_private_blocks_omitted": 0,
+  "unsupported_public_fields_or_blocks": [],
+  "native_attachment_role_metadata": [],
+  "original_record_hashes_verified": true,
+  "unselected_records_decoded": 0
+}

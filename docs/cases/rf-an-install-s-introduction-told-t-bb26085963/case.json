@@ -1,0 +1,131 @@
+{
+  "id": "rf-an-install-s-introduction-told-t-bb26085963",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "51. An install's introduction told the person what was copied, and asked everything at once — 2026-10-15",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "original codename_japaka install response"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/108",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.295"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/108/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-15T11:37:28.839Z",
+    "chat_id": "bc21784a-6130-4c49-96e3-bf3ea006e8a3",
+    "trigger_message_id": null,
+    "trigger_record_id": "88f598e2-ee1c-4748-a3c9-807e1418c911",
+    "failure_message_id": "msg_011Cg3xNETxtZbLEDe8ixWr2",
+    "failure_record_id": "e859c7b4-f858-4f55-860d-9ca17e2cd082",
+    "transcript": "bc21784a-6130-4c49-96e3-bf3ea006e8a3.jsonl"
+  },
+  "observed_failure": {
+    "description": "The original install introduction reports internal installer details and bundles or announces later asks.",
+    "events": [
+      {
+        "source": "source.json#/records/108",
+        "message_id": "msg_011Cg3xNETxtZbLEDe8ixWr2",
+        "record_id": "e859c7b4-f858-4f55-860d-9ca17e2cd082",
+        "timestamp": "2026-10-15T11:37:28.839Z",
+        "text": "Entry contract: goodwolf-harness@9f1dba6, 2026-10-15.\n\n| ⚙️ **установка харнеса** · codename_japaka |\n|---|\n\nЯ установил GoodWolf Harness в `codename_japaka`, взял последнюю версию (`9f1dba6`). Все три проверки установщика пройдены. Папка была пустой, поэтому установщик сделал в ней `git init`. Появились [AGENTS.md](AGENTS.md) с правилами, [CLAUDE.md](CLAUDE.md), который ссылается на него, папки `.agents/` и `docs/` и хуки для Claude Code, Codex и Cursor. Ничего ещё не закоммичено.\n\nТеперь я работаю по этому методу. Я буду помнить проект между сессиями: что решено и почему, что недоделано, какие вопросы открыты. Каждая задача идёт так: тикет, план, код по тестам, проверка по критериям. Решения, которые касаются многого, я приношу вам со своей рекомендацией, а мелочи решаю сам и сообщаю о них.\n\n**1. Где я останавливаюсь — разработка.** Назовите номер строки, на которой я показываю вам решение и жду ответа (✋). Предлагаю строку 2.\n1. 🤖 код: пишу код внутри согласованной задачи\n2. ✋ фича: что должна дать одна задача\n3. 💬 несущее решение: архитектура, например границы модулей\n4. 💬 срез продукта: что строим дальше\n5. 💬 продукт целиком: зачем вообще проект\n\n**2. Где я останавливаюсь — улучшение самого метода.** Предлагаю строку 3.\n1. 🤖 переформулировать инструкцию без смены смысла\n2. 🤖 починить скрипт, который исполняет инструкцию\n3. ✋ изменить правило или скилл\n4. 💬 изменить сам способ работы\n\n**3. Git.** Как вам удобнее: коммитить прямо в `main` (а когда появится удалённый репозиторий, пушить каждый коммит) или вести работу в отдельной ветке? Сейчас удалённого репозитория нет.\n\n**4. Ссылки на скиллы.** Windows не дал создать символические ссылки без прав администратора. Без них Claude Code не видит команды `/recall`, `/ticket` и другие. Выполните эти команды один раз в PowerShell, запущенном от администратора:\n\n```bash\ncmd /c mklink /D \"D:\\Dev\\AI\\codename_japaka\\.claude\\skills\" \"..\\.agents\\skills\"\n```\n```bash\ncmd /c mklink /D \"D:\\Dev\\AI\\codename_japaka\\.cursor\\skills\" \"..\\.agents\\skills\"\n```\n\nВторая команда нужна, только если вы работаете в Cursor. Когда выполните, скажите мне, и я проверю, что ссылки работают.\n\n**5. О чём проект?** Что такое `codename_japaka` и на каком стеке? От этого зависит, какие тесты и проверки я впишу в `local.rules.md`. Сейчас в папке нет кода, поэтому своих проверок у проекта пока нет.\n\nКогда ответите, я запишу `local.rules.md`, запущу проверку и закоммичу установку.\n\nДве заметки:\n- **Существующий клон.** Рядом уже лежал клон `D:\\Dev\\AI\\goodwolf-harness`. Я обновил его до последней версии (fast-forward, без своих изменений).\n- **Проблема при клонировании.** На Windows клон харнеса падает из-за слишком длинных имён файлов в `docs/questions/`. Я обошёл это, включив длинные пути только для своих команд, глобальный git-конфиг не менял. Инструкция харнеса велит сразу заводить о таком issue в его репозитории, но это публикация от вашего имени, поэтому без вашего «да» я его не открываю. Завести?"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Report readiness, explain what the user gains, and ask one current question; implementation/commit details are reserved for a request under the contemporaneous install instruction.",
+    "source_evidence": []
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Report readiness, explain what the user gains, and ask one current question; implementation/commit details are reserved for a request under the contemporaneous install instruction.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The original install introduction reports internal installer details and bundles or announces later asks.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/108",
+      "after": "source.json#/records/106",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/3",
+      "source.json#/records/24",
+      "source.json#/records/25",
+      "source.json#/records/26",
+      "source.json#/records/31",
+      "source.json#/records/39",
+      "source.json#/records/40",
+      "source.json#/records/47",
+      "source.json#/records/48",
+      "source.json#/records/51",
+      "source.json#/records/52",
+      "source.json#/records/55",
+      "source.json#/records/56",
+      "source.json#/records/64",
+      "source.json#/records/65",
+      "source.json#/records/66",
+      "source.json#/records/70",
+      "source.json#/records/71",
+      "source.json#/records/73",
+      "source.json#/records/74",
+      "source.json#/records/75",
+      "source.json#/records/76",
+      "source.json#/records/77",
+      "source.json#/records/85",
+      "source.json#/records/86",
+      "source.json#/records/89",
+      "source.json#/records/90",
+      "source.json#/records/95",
+      "source.json#/records/96",
+      "source.json#/records/103",
+      "source.json#/records/104",
+      "source.json#/records/105",
+      "source.json#/records/106"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": []
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/108"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Instruction evidence, host metadata and reference-only records do not become additional actor messages.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role."
+    ],
+    "source_metadata_records": [
+      "source.json#/records/5"
+    ]
+  },
+  "source_gaps": []
+}

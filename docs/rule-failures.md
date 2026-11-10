@@ -49,7 +49,52 @@ and no further read is needed.
 **Disposition:** the reply-form question closed on the person's word, 2026-11-09. The amendment is
 not made: `questions.py` is being reworked by the session on the shared question store.
 
+## Accepted decisions remained only in chat after alignment was declared complete — 2026-11-09
+
+**Source:**
+
+- Codex Desktop · gpt-6.1-sol · 2026-11-09T07:41:43.186Z
+
+**Attribution:** host **Codex Desktop**; source-recorded turn model **`gpt-6.1-sol`**.
+Source fields: `session_meta.payload.originator` and `turn_context.payload.model`.
+Chat `01a17c92-44c8-7c53-b7cd-b79bbaef61cc`; turn `01a1bf40-bf2f-7f42-844e-fbb4c6fea2a3`;
+assistant message `msg_0b30de7fb3727fb9016af1793339d487d297caf9745be7ba8d`,
+`2026-11-09T07:41:43.186Z`. The model is the identifier recorded for that turn, not an attested backend version.
+
+**Rules in play, loaded:** the questions mechanism's [Q6, a decision lands as it is made](../.agents/mechanisms/questions/questions.rules.md#q6--a-decision-lands-as-it-is-made), installed in `/align`; and `/align`'s [Land resolutions as they are made](../.agents/skills/align/SKILL.md#land-resolutions-as-they-are-made).
+
+**What happened.** The user accepted the replay case/experiment shape. The session replied:
+“Схема принята целиком. Согласование завершено; последние решения пока сохранены только в чате.”
+The question's Decisions list still stopped at item 7, and Where it stands still said that storage,
+case structure and integration had not been agreed. Q6 had been read during this alignment.
+
+**Why it did not fire.** The session treated the person's instruction to continue alignment without
+reworking the cases or executor as a pause on recording accepted decisions too. This is the
+session's reported interpretation; no model-internal cause is established. It then declared the
+alignment complete despite the acknowledged missing record.
+
+**Record repair:** the accepted shape and Decisions 8–17 were added to the [replay question](questions/q-0037.0012.0009.0001-how-is-a-recorded-rule-failure-replayed-as-a-test-against-the-amended-rule.md). Cases and execution tooling were left alone.
+
+**Independent record review, 2026-11-09:** `/root/judge_decision_record_repair` confirmed correspondence to the public accepted scheme, source attribution and preservation of Decisions 1–7 and dated evidence. The review does not validate case extraction or instruction effectiveness.
+
+<straw-dog question="q-0037.0012.0012">
+**Proposed amendment to Q6**, not accepted or installed:
+
+> An implementation pause does not defer recording an accepted decision unless the person
+> explicitly pauses its recording too. Before continuing an alignment or declaring it complete,
+> check that its accepted decisions have been recorded. If the person has paused recording,
+> report that pause instead of declaring the alignment complete.
+</straw-dog>
+
+**Disposition:** open on the [prevention question](questions/q-0037.0012.0012-what-prevents-an-accepted-decision-from-remaining-only-in-chat.md). The proposal clarifies the recording boundary and adds an explicit completion check; it is not a mechanical guard or evidence that recurrence is prevented.
+
+**Deferred by the user, 2026-11-09:** leave the rules unchanged and continue the case-extraction work. The missing decision record remains repaired; no proposed instruction was installed.
+
 ## An explanation of a failure ended without the next move — 2026-10-26
+
+**Source cases, retrospective extraction:**
+
+- [Codex Desktop · gpt-6.1-sol · 2026-10-26T11:07:06.740Z](cases/correction-ended-next-move-20261026/case.json).
 
 **Rules in play, loaded:** *A reply speaks the method* includes what is next and what the person
 must decide; *Self-improvement* requires a failed rule to be registered and a repair proposed.
@@ -72,6 +117,10 @@ does not establish its design or authorise changing it. No amendment has been ac
 </straw-dog>
 
 ## A recall stopped after reading, without its result — 2026-10-26
+
+**Source cases, retrospective extraction:**
+
+- [Codex Desktop · gpt-6.1-sol · 2026-10-26T09:39:07.128Z](cases/recall-no-next-step-20261026-093907/case.json).
 
 **Rules in play, loaded:** the session mechanism's S6 requires `/recall` at every conversation's
 start, whatever the first message says; `/recall` requires the state of work and a recommended
@@ -109,6 +158,10 @@ an older session record and part of the architecture. It finished under `banter`
 the incomplete result from the chat's tool trace; the required recommendation was in the skill
 the chat read. The clarification did not prevent this live recurrence.
 
+**Source cases, retrospective extraction:**
+
+- [Codex Desktop · gpt-6.1-sol · 2026-10-26T10:46:33.776Z](cases/recall-no-next-step-v130-20261026/case.json).
+
 The earlier replays supplied the stage after the initial greeting and reads, then asked for the
 final response. They did not test the autonomous path from the first message to completion.
 Their before/after difference cannot establish that the clarification holds that path.
@@ -122,6 +175,10 @@ implementation remain undecided.
 </straw-dog>
 
 ## A drift repair's subagent sent into another session's uncommitted work — 2026-10-26
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-26T08:09:56.975Z](cases/rf-a-drift-repair-s-subagent-sent-i-be22c2bccd/case.json).
 
 **Rules in play, loaded:** the maintenance mechanism's M2: *"repaired where met, by a subagent, below
 the dial, in your own work or nobody's … In another session's work it is told to that session"*.
@@ -144,6 +201,10 @@ the repair without the boundary. *By a subagent* moves the hands, not the rule.
 
 ## A decision above the dial put to the person without options or a recommendation — 2026-10-26
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-25T23:51:12.441Z](cases/decision-without-options-20261025/case.json).
+
 **Rules in play, loaded:** the entry file, Autonomy: *"Above it, it settles nothing: it brings the
 options and a recommendation, and the person decides"*; the questions mechanism's Q2, in `/recall`:
 *"put each question asking the person to them as a decision"*.
@@ -165,6 +226,11 @@ says it, at tier 1, as a property of the ladder, and the session read Q2's step 
 *(the user)*.
 
 ## A plan built across a boundary its question's accepted shape had drawn — 2026-10-25
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-10-23T23:26:00.530Z](cases/rf-a-plan-built-across-a-boundary-i-34fa2dc33d/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-25T20:40:43.512Z](cases/rf-a-plan-built-across-a-boundary-i-86b2092254/case.json).
 
 **Rules in play, loaded:** `/plan` — *Architecture must lead code shape even if code disagrees* and
 *do not stick blindly … raise concern*; `/verify` — *code that contradicts an accepted decision is a
@@ -199,6 +265,10 @@ to an executable experiment. The parent had accepted capturing failures, not thi
 form among compatible alternatives. The agent wrote the child's `Where it stands`, showed rule
 texts, implemented the form and pushed it without the person's acceptance of that whole.
 
+**Source cases, retrospective extraction:**
+
+- [Codex Desktop · gpt-6.1-sol · 2026-10-26T17:33:16.784Z](cases/rf-a-plan-built-across-a-boundary-i-94872062cd/case.json).
+
 The repeated omission was in the plan's authority check: a general reference to the accepted
 chain stood in for checking the new boundary against an accepted clause. Technical consultation
 and tests assessed the design and implementation; neither constituted human acceptance. Local
@@ -211,6 +281,10 @@ the prior state. **Disposition after this repeat:** open, struck once. A replace
 control has not been selected with the person; none is introduced by this record.
 
 ## A rule was drafted into the entry file's own text, its mechanism never looked for — 2026-10-25
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-25T19:58:02.916Z](cases/mechanism-rule-in-entry-20261025/case.json).
 
 **Rules in play:** R5 of the mechanism-shape mechanism, *land a mechanism's rule in AGENTS.md only
 as an installed block from its rules file*, installed into `/align` and `/mechanism` but not into
@@ -239,6 +313,10 @@ the entry file owns from a rule some mechanism's work holds.
 
 ## 84. A *yes, but which moment?* was taken as the yes, and the rule was landed before its moment was shown — 2026-10-22
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-10-22T16:09:11.697Z](cases/corrected-rule-landed-20261022/case.json).
+
 **Rule in play, loaded:** [`AGENTS.md` — *Autonomy*](../AGENTS.md#autonomy): *"✋ At the dial it
 settles, and shows the person before acting."*
 
@@ -265,11 +343,19 @@ reply that shows and acts at once. Taken out of S9 the same hour. The amendment 
 waits on the person, since the entry file's self-improvement rule asks the opposite of a rule
 failure's amendment — *land the amendment in the same pass, showing its text first*.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-25T00:13:24.686Z](cases/rf-a-yes-but-which-moment-was-taken-52104e61e5/case.json).
+
 **Disposition:** open, struck once.
 
 **Renumbered 2026-10-25.** Registered as a second 58, a day after the first; records written before this date cite it as 58, beside the first 58.
 
 ## 83. Core shipped with carriage returns, and no check in the tree saw it — 2026-10-23
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-10-22T09:09:21.535Z](cases/rf-core-shipped-with-carriage-retur-f0f8d76a6d/case.json).
 
 **Rules in play:** none that covers it. The verification set reads the shape of mechanisms, rules,
 tickets, edges, records, sessions and the product document; none reads line endings. The shipment
@@ -293,6 +379,12 @@ next install from a clone made on a Windows machine.
 **Renumbered 2026-10-25.** Registered as a second 61, the same day as the first, sixteen hours later; records written before this date cite it as 61, beside the first 61.
 
 ## 82. The study was written by the agent that had already said no — 2026-10-24
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-24T11:10:00.223Z](cases/rf-the-study-was-written-by-the-age-395d404336/case.json).
+- [Claude Code · claude-sonnet-5-5 · 2026-10-24T10:56:46.395Z](cases/rf-the-study-was-written-by-the-age-e7bba0481b/case.json).
+- [Claude Code · claude-sonnet-5-5 · 2026-10-24T11:03:35.478Z](cases/rf-the-study-was-written-by-the-age-0c4e95d73c/case.json).
 
 **Rules in play:** the harness skill's *A tree that already has a method* and the shelf
 `MEETING.md`: the report a product document, no comparison, no self-deprecation; the blind run a
@@ -334,9 +426,18 @@ own: the person reads it*. The rule was in place and read. Why it did not fire: 
 summary is its own reply, and the rule is a sentence in it. Remedy: the host's, a check at the end
 of the reply — q-0037.0006.0005.0001.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-24T12:16:51.120Z](cases/rf-the-study-was-written-by-the-age-7c0e3a40a0/case.json).
+
 **Renumbered 2026-10-25.** Registered as a second 63, 2026-10-24, a day after the first; records written before this date cite it as 63, beside the first 63.
 
 ## 81. The person was asked to choose among a record's ids — 2026-10-25
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-25T08:58:02.857Z](cases/rf-the-person-was-asked-to-choose-a-d058c1c6aa/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-25T09:38:58.936Z](cases/rf-the-person-was-asked-to-choose-a-a1d74846d1/case.json).
 
 **Rule in play, loaded:** the debugging mechanism's D2, installed in the entry file: *"A reply tells
 nothing of the machinery behind it: … no script, call, check, report, hook, commit or its hash,
@@ -377,7 +478,16 @@ in place of a thing stood at all.
 the debugging rules by their ids — *D2*, *D3*, *D1–D3* — and of a register entry by its number.
 The person: *what is D2 and the rest?*
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-25T16:29:39.924Z](cases/rf-the-person-was-asked-to-choose-a-6a4e1c3f6d/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-25T18:40:55.479Z](cases/rf-the-person-was-asked-to-choose-a-6a4e1c3f6d-peer-message/case.json).
+
 ## 80. A rule landed the same day read as leave to commit other sessions' work — 2026-10-25
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-24T23:59:44.787Z](cases/other-work-commit-proposed-20261024/case.json).
 
 **Rule in play, loaded:** the entry file, Autonomy, v114: *"A green stage of work in progress is
 committed as it stands; what a failed criterion puts to the person is that criterion, never the
@@ -407,6 +517,10 @@ its commit, 96942dd, keeps the old number. The race strikes 75.
 
 ## 79. A skill's moment was written into its body — 2026-10-25
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-25T12:39:04.943Z](cases/skill-moment-in-body-20261025/case.json).
+
 **Rules in play, loaded:** `/skill-up`, *"The frontmatter description narrates the use case, not
 the implementation"*; the entry file's *Tier is paid by every session*, *"name there every use
 case the skill serves, and nothing else — never its method"*.
@@ -430,6 +544,12 @@ moment out of the body, so the judge's finding read as a gap in the body.
 **Disposition:** closed 2026-10-25 — the amendment landed as written *(the user)*.
 
 ## 78. What the project is was said without its product document — 2026-10-25
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-25T12:28:46.090Z](cases/product-account-unread-configuration-20261025/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-25T12:30:14.331Z](cases/product-account-unread-active-configuration-20261025/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-25T12:32:44.761Z](cases/product-account-unread-memory-20261025/case.json).
 
 **Rules in play:** the entry file's *The shape's context*, *"Look in this tree and in every tree
 core reaches"*; `/discover`'s description, *"Use when about to say what something is, how it
@@ -462,6 +582,10 @@ into the goal as well — rule failure 79.
 
 ## 77. A clause an open question will change could not be wrapped where it is authored — 2026-10-25
 
+**Source cases, retrospective extraction:**
+
+- [Evidence gap](cases/historical-extraction/gaps.json#/gaps/account-019): structural format conflict, not an established model-made failure action. Unavailable attribution is stated explicitly.
+
 **Rules in play:** the entry file's *Straw dogs*, tier 1: *wrap anything an open question's answer
 will change … at the authored home, never where the harness installs or derives it*; the rules-file
 format, which admits no straw dog inside a rule's text.
@@ -479,6 +603,10 @@ there. A repeat is any rule text bound to an open question that its rules file c
 **Disposition:** registered 2026-10-25; no rule proposed.
 
 ## 76. Rules were proposed in a reply without `/skill-up`, one of them a placeholder — 2026-10-25
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-25T00:16:32.065Z](cases/rf-rules-were-proposed-in-a-reply-w-474ce62787/case.json).
 
 **Rules in play, loaded:** `/skill-up`'s description, *"Use whenever writing any agent
 instructions, whether to a file or directly in a reply"*; the entry file, *A paragraph shows what
@@ -517,7 +645,15 @@ enumeration for an umbrella. The session had loaded the entry file at v112 and n
 person: *did you use skill-up?* What a session reads of a rule that moved after its start is
 01-0018.0010's.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-25T09:40:50.732Z](cases/rf-rules-were-proposed-in-a-reply-w-a7ada13a87/case.json).
+
 ## 75. Two sessions numbered one version of the entry contract — 2026-10-25
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-25T00:08:30.505Z](cases/rf-two-sessions-numbered-one-versio-3e7583f9b1/case.json).
 
 **Rules in play:** none that covers it. The entry file's announce line and the findings record are
 bumped by hand; nothing checks that a version is given once.
@@ -536,11 +672,27 @@ version, id or number two sessions give the same value.
 **Struck 2026-10-25.** Two sessions gave the register one number, 73, eleven minutes apart; the
 later is now 80. The second shape: a counter in a record, not only in the entry file.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-25T00:01:53.082Z](cases/rf-two-sessions-numbered-one-versio-c0c47575b2/case.json).
+
 **Struck again 2026-10-25.** Two sessions gave the register 74, nine hours apart; the later is now
 81. Three times in one day; three older numbers, 58, 61 and 63, were found given twice the same
 way and renumbered 84, 83 and 82.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-25T09:40:01.209Z](cases/rf-two-sessions-numbered-one-versio-f3594b6fdc/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-22T16:12:38.247Z](cases/rf-two-sessions-numbered-one-versio-0db0910cc1/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-23T15:31:01.218Z](cases/rf-two-sessions-numbered-one-versio-2adfe6daaf/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-24T11:28:15.852Z](cases/rf-two-sessions-numbered-one-versio-99899744c2/case.json).
+
 ## 74. The rule that the builder does not judge was in place, and the builder tried its own rule on itself — 2026-10-25
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-25T00:00:08.115Z](cases/rf-the-rule-that-the-builder-does-n-dd3e2ed876/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-25T00:08:30.145Z](cases/rf-the-rule-that-the-builder-does-n-ca2e027eb9/case.json).
 
 **Rules in play:** [`AGENTS.md` — *The builder does not judge*](../AGENTS.md#general-rules), tier
 1, landed at v115 that hour: *whoever built a thing does not judge it*; the criteria of
@@ -567,6 +719,11 @@ contract v117. The two cases of 01-0070.0020 were run again on fresh subagents t
 
 ## 73. Replies left the person's language mid-align, twice — 2026-10-25
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-24T23:33:16.791Z](cases/rf-replies-left-the-person-s-langua-77397c6fd4/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-24T23:47:36.995Z](cases/rf-replies-left-the-person-s-langua-4c3a54976b/case.json).
+
 **Rules in play:** none of this tree's — a slip no rule covers. L9 says how a reply's prose is
 written, not in which language; the host's own default follows the person.
 
@@ -582,6 +739,11 @@ than staying with the person's last message.
 would need.
 
 ## 72. The commits table and the counters line were put at the reply's end — 2026-10-25
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-24T23:23:58.281Z](cases/rf-the-commits-table-and-the-counte-caea6e72f6/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-24T23:41:08.697Z](cases/rf-the-commits-table-and-the-counte-adcf691134/case.json).
 
 **Rule in play, loaded:** the entry file, *A paragraph shows what it stands on*: *"Under `debug=on`,
 a turn that made commits follows the 🪢 table with a table of its own, `| 🪶 Commits |` …; then the
@@ -610,6 +772,10 @@ whole: after the 🪢 table where one stands, the head table after them *(the us
 
 ## 71. A commit below every dial was put to the person as a decision — 2026-10-25
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-24T23:36:32.494Z](cases/rf-a-commit-below-every-dial-was-pu-63aa8532b5/case.json).
+
 **Rule in play, loaded:** the entry file, [Autonomy](../AGENTS.md#autonomy): *"Below the dial the
 agent settles and acts on its own"* and *"Work closes with its commit once `/verify` passes on it."*
 
@@ -632,6 +798,11 @@ self-improvement dial — a rule, shown before it lands:
 **Disposition:** landed 2026-10-25 in the entry file's Autonomy, v114, on the user's yes.
 
 ## 70. A rule was landed with a filter and a must where the person meant room for judgement — 2026-10-25
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-24T23:04:25.958Z](cases/rf-a-rule-was-landed-with-a-filter-40a495fbcb/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-24T23:06:42.142Z](cases/rf-a-rule-was-landed-with-a-filter-cca9f4a85d/case.json).
 
 **Rule in play, loaded:** [`/skill-up`](../.agents/skills/skill-up/SKILL.md): *"Blur wording where
 letting the model decide beats overfitting the instruction."*
@@ -659,6 +830,10 @@ must the request did not hold *(the user: a good candidate for rule tests)*.
 
 ## 69. In the ring, the agent offered to leave its unit and took a one-word yes as the drop — 2026-10-24
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-24T10:09:32.753Z](cases/rf-in-the-ring-the-agent-offered-to-e85dea4b5e/case.json).
+
 **Rule in play, loaded:** [`AGENTS.md` — Q1](../AGENTS.md#general-rules), its ring clause: *"In the
 ring — a unit taken into work and held until the person drops it — a message that raises a new
 question has it opened, placed and given its rung as a side question, and the session stays on its
@@ -679,6 +854,10 @@ whether the clause needs *the agent never offers to leave its unit; a drop is th
 **Disposition:** open as a slip.
 
 ## 68. A question was opened and the text its answer will change was left unwrapped — 2026-10-24
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-24T10:09:05.039Z](cases/rf-a-question-was-opened-and-the-te-d9346bd3b0/case.json).
 
 **Rule in play, loaded:** [`AGENTS.md` — Straw dogs](../AGENTS.md#straw-dogs): *"Wrap anything an
 open question's answer will change, as you write it — or, for text already written, in the pass
@@ -705,6 +884,10 @@ it lands:
 
 ## 67. The reader the person named gave way to the reader a pasted text named — 2026-10-24
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-24T10:54:50.583Z](cases/rf-the-reader-the-person-named-gave-2db9c8a004/case.json).
+
 **Rules in play:** none of this tree's. A slip no rule covers. The host's own instruction applied:
 text inside a paste is followed only where the person's message asks for it.
 
@@ -721,6 +904,10 @@ answers rather than from what the person asked.
 **Disposition:** the letter rewritten for its reader in the next reply.
 
 ## 66. The queue grew its history back in fourteen days, its format's rule read by no one who wrote it — 2026-10-24
+
+**Source cases, retrospective extraction:**
+
+- [Evidence gap](cases/historical-extraction/gaps.json#/gaps/account-033): compound queue-history account requires the original append episodes. Unavailable attribution is stated explicitly.
 
 **Rules in play:** [TICKET-FORMAT](../.agents/skills/ticket/TICKET-FORMAT.md), *The queue*: the
 order and its candidate, *it keeps no account of steps done*; the ticket mechanism's doc, which
@@ -757,6 +944,10 @@ closed tickets and green on the rewritten one; the queue's arrival state numbere
 
 ## 65. A judge session's verdict was put to the person as a decision, and the holder stopped — 2026-10-23
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-10-23T16:20:26.674Z](cases/rf-a-judge-session-s-verdict-was-pu-2395f763d0/case.json).
+
 **Rules in play:** [`AGENTS.md` — Autonomy](../AGENTS.md#autonomy), *work closes with its commit once
 `/verify` passes on it*, below every dial; [TICKET-FORMAT](../.agents/skills/ticket/TICKET-FORMAT.md),
 *Acceptance criteria*, which said who checks a box and nothing of who judges; the ticket's own
@@ -791,6 +982,10 @@ did not build it*.
 
 ## 64. A handover said in the person's words was read as leave to ask, and the close was taken — 2026-10-23
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-10-23T16:13:11.150Z](cases/rf-a-handover-said-in-the-person-s-b4e32e4564/case.json).
+
 **Rules in play:** [the session mechanism's S4 and S5](../.agents/mechanisms/session/session.rules.md)
 — a collision between sessions is a tangle row; a session commits its own work only, in doubt
 asking the person — and [`/ticket`](../.agents/skills/ticket/SKILL.md), *Completing a ticket*:
@@ -819,6 +1014,10 @@ how sessions hand work to each other and when one may take over what another is 
 **Disposition:** open, with the question.
 
 ## 63. A hand-edited setting was received on wake, and two thirds of its rule stayed in a skill nobody opened — 2026-10-23
+
+**Source cases, retrospective extraction:**
+
+- [Evidence gap](cases/historical-extraction/gaps.json#/gaps/account-036): source-backed temporal discrepancy. Unavailable attribution is stated explicitly.
 
 **Rules in play:** [`/harness`](../.agents/skills/harness/SKILL.md), *A tree whose local file was
 edited by hand*, tier 2: *"run `inject_rules.py --install` before the first reply, at the rung of
@@ -865,6 +1064,11 @@ tests unchanged.
 
 ## 61. A just-minted ticket's place in the order was put to the person as a decision — 2026-10-23
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-10-22T20:09:56.330Z](cases/rf-a-just-minted-ticket-s-place-in-76437a0fa0/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-22T20:12:06.686Z](cases/rf-a-just-minted-ticket-s-place-in-b525026a1e/case.json).
+
 **Rules in play:** [`AGENTS.md` — the ⚖️ clause](../AGENTS.md#general-rules), tier 1: *"what waits
 on the user's decision, under `| ⚖️ Decisions |`, the next step the reply stops before among it"*;
 [`/ticket`](../.agents/skills/ticket/SKILL.md), *Create the ticket files*, tier 2, which ended at
@@ -889,6 +1093,10 @@ landed in the same pass, its text shown:
 **Disposition:** landed 2026-10-23.
 
 ## 62. Asked whether a project needs the harness, the agent answered from the front page — 2026-10-24
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-10-23T23:33:39.082Z](cases/rf-asked-whether-a-project-needs-th-0de6c1cfba/case.json).
 
 **Rules in play:** none that covers it. The README's *Use it* instructs an agent asked to install;
 the harness skill's new section instructs one that has run the install and met the refusal. An
@@ -918,6 +1126,10 @@ and weighed it, and its last advice to the person — *run `--install` in a copy
 
 ## 60. A local rule in the entry file named the skill that executes it, and no check found it odd — 2026-10-22
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-10-22T16:09:56.941Z](cases/rf-a-local-rule-in-the-entry-file-n-17042dc4ab/case.json).
+
 **Rules in play:** none that covers it. The loop section of the entry file names skills by design,
 so no check reads a skill's name there as a smell; the leak check guards records under `docs/`, not
 skills; R8 forbids one skill naming another installed mechanism's skill, and says nothing of the
@@ -933,6 +1145,10 @@ decides whether the entry file needs a rule about naming skills outside the loop
 **Disposition:** open as a slip; no amendment.
 
 ## 59. A question was opened long, as a *how to build*, under the mechanism it named — 2026-10-22
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-10-22T19:11:24.372Z](cases/rf-a-question-was-opened-long-as-a-2357ec4349/case.json).
 
 **Rules in play:**
 
@@ -967,6 +1183,10 @@ a rule, shown before it landed:
 
 ## 58. An instruction was proposed into a format file — 2026-10-21
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-10-21T08:39:21.933Z](cases/rf-an-instruction-was-proposed-into-fc3387a256/case.json).
+
 **Rules in play:** [`AGENTS.md` — A document informs](../AGENTS.md#general-rules), *Instructions
 live in the entry file, a skill or a rules file*; [`/mechanism`](../.agents/skills/mechanism/SKILL.md),
 *the doc takes only what informs*, and its *Records*: a format file declares *what removes a
@@ -993,6 +1213,10 @@ the doc's and the script's*. A format file describes; whatever acts on the recor
 act is read.
 
 ## 57. The rung rule fired on two of fourteen openings, and the older questions were never given one — 2026-10-20
+
+**Source cases, retrospective extraction:**
+
+- [Evidence gap](cases/historical-extraction/gaps.json#/gaps/account-042): many rung-less openings and a distinct backfill omission. Unavailable attribution is stated explicitly.
 
 **Rules in play:**
 
@@ -1022,6 +1246,10 @@ rule, shown before it lands:
 proposed as a step of q-0037.0019's align.
 
 ## 56. A directory-wide add committed another session's work in progress — 2026-10-20
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-10-19T23:47:37.378Z](cases/rf-a-directory-wide-add-committed-a-f49b7305a0/case.json).
 
 **Rule in play, loaded:** [`/commit`](../.claude/skills/commit/SKILL.md): *"Commit the work in
 current session only. Do not commit changes of other session that might represent a work in
@@ -1056,6 +1284,10 @@ cannot obey *commit the work in current session only*, here `git commit` with no
 takes whatever the shared index holds. Staging by name, the amendment above, would not have
 stopped it.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-25T20:10:16.851Z](cases/rf-a-directory-wide-add-committed-a-6d83511710/case.json).
+
 **Proposed amendment**, to `/commit`, replacing the sentence above, at the self-improvement dial —
 a rule, shown before it lands; a host hook refusing a bare `git commit` in a tree where other
 sessions run would hold it mechanically:
@@ -1068,6 +1300,21 @@ sessions run would hold it mechanically:
 it governs, installed into `/commit`; the strike stays open on the hook.
 
 ## 55. A decision abandoned twelve days earlier was carried as waiting in six replies running — 2026-10-20
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-10-19T22:17:40.242Z](cases/rf-a-decision-abandoned-twelve-days-ce092cf278/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-19T22:20:19.798Z](cases/rf-a-decision-abandoned-twelve-days-a349ffa5e4/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-19T22:23:40.972Z](cases/rf-a-decision-abandoned-twelve-days-81b53d44e4/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-19T22:28:24.656Z](cases/rf-a-decision-abandoned-twelve-days-99b3f34893/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-19T22:31:57.405Z](cases/rf-a-decision-abandoned-twelve-days-c655c038f7/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-19T22:38:34.002Z](cases/rf-a-decision-abandoned-twelve-days-2558917e0c/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-19T23:02:59.069Z](cases/rf-a-decision-abandoned-twelve-days-f1df6e7bb3/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-19T23:15:54.238Z](cases/rf-a-decision-abandoned-twelve-days-e2a7af73a4/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-19T23:17:22.881Z](cases/rf-a-decision-abandoned-twelve-days-a91cd343e0/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-19T23:23:15.401Z](cases/rf-a-decision-abandoned-twelve-days-82a511a16c/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-19T23:30:28.287Z](cases/rf-a-decision-abandoned-twelve-days-16dfde2f48/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-19T23:39:20.130Z](cases/rf-a-decision-abandoned-twelve-days-a015ef1f7e/case.json).
 
 **Rules in play, both loaded:**
 
@@ -1121,6 +1368,11 @@ amended: both kept the queue's fate out, the first by *Another session's work* a
 by the new clauses — a short context does not reproduce the slip, met more than a thousand
 messages into a session.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-25T19:30:37.817Z](cases/rf-a-decision-abandoned-twelve-days-7748bd8716/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-25T19:32:46.691Z](cases/rf-a-decision-abandoned-twelve-days-44a2f38b3e/case.json).
+
 **Proposed amendment**, to the second wording, at the self-improvement dial — a rule, shown before
 it lands:
 
@@ -1135,6 +1387,11 @@ another running session's question or unit, read from what it decides, is that s
 to the person, though its message brings it: it enters no table of your replies.*
 
 ## 54. A better abstraction was met and the reply said *build nothing for it* — 2026-10-20
+
+**Source cases, retrospective extraction:**
+
+- [Evidence gap](cases/historical-extraction/occurrence-integration-2026-11-10.json#/gaps/better-abstraction-earlier-occurrence-unresolved): the earlier abstraction refusal is retrospectively reported, but its exact source event and attribution are not established; the previous link identified a different driver/rules-alone reply.
+- [Claude Code · claude-fable-5-1 · 2026-10-19T23:17:22.881Z](cases/rf-better-abstraction-left-scattered-20261019-231722/case.json).
 
 **Rules in play, both loaded:**
 
@@ -1171,6 +1428,10 @@ Second wording:
 
 ## 53. A discovery was filed and an align opened on it, and the person was told nothing of what it found — 2026-10-19
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-19T20:03:58.209Z](cases/rf-a-discovery-was-filed-and-an-ali-984477b7c9/case.json).
+
 **Rules in play:** `/discover`, *put the material into the work as it came back*; `/align`, *open
 with the concrete failures and my own earlier words … before any design question* and *when I do
 not follow, go more concrete*; the entry file's *a reply speaks the method*.
@@ -1197,6 +1458,10 @@ context they hold.
 
 ## 52. An align put to the person, as a question, what their opening message had answered — 2026-10-18
 
+**Source cases, retrospective extraction:**
+
+- [Evidence gap](cases/historical-extraction/gaps.json#/gaps/account-049): claimed failure withdrawn in original conversation. Unavailable attribution is stated explicitly.
+
 **Rules in play:** `/align`, *open with the concrete failures and my own earlier words, read back
 from the records, before any design question*; *do not reopen an accepted decision without new
 evidence*.
@@ -1218,6 +1483,10 @@ put as that answer, for me to confirm, never as a question.*
 opening message did not settle the fork, so the question was not a repeat.
 
 ## 51. An install's introduction told the person what was copied, and asked everything at once — 2026-10-15
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-15T11:37:28.839Z](cases/rf-an-install-s-introduction-told-t-bb26085963/case.json).
 
 **Rules in play:** `/harness`, *After the first install*: *What was copied, gated and registered
 stays in the files and the commit, said on request*; *introduce it … in a few lines*.
@@ -1253,6 +1522,10 @@ from the answers, commit — with *what the run did … is said only on request*
 and the next only once it is answered, never saying what is still to come*, and *who you now are to
 them* gone, the ladder showing where the agent stops.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-15T11:58:39.869Z](cases/rf-an-install-s-introduction-told-t-8caed602b2/case.json).
+
 **Struck again, 2026-10-15 — the fourth install.** It opened with *the installer made `git init`
 itself, all three checks passed, no commits yet*: the run's doings, taken for news because a
 repository and passing checks are not *copied, gated, registered and committed*. Its account of what
@@ -1261,6 +1534,10 @@ workings rather than the person's gain. **Amendment landed**, the user, 2026-10-
 list names *that it made a repository* and *that its checks passed*; what it gives is said *as what
 they will notice and never as how it works*, its three promises in the person's experience, a
 straw dog bound to q-0033.0008; the git ask is numbered as where finished work goes.
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-15T12:43:58.482Z](cases/rf-an-install-s-introduction-told-t-8faaa31899/case.json).
 
 **Struck again, 2026-10-16 — outside the install.** A session's first reply under `/recall`: *Good
 morning, within the recall: the session is registered, no position yet. Reading the wake and what
@@ -1273,6 +1550,10 @@ order the narration the first forbids; the specific won. Every amendment so far 
 work done unseen, others say how to speak of it, and the two should be told apart — with tests.
 Open at [q-0037.0010.0012.0001](questions/q-0037.0010.0012.0001-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person.md).
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-16T11:05:21.041Z](cases/rf-an-install-s-introduction-told-t-4e8142368c/case.json).
+
 **Amendment landed**, the user, 2026-10-18: `/recall`'s speech moved into its `What the person
 hears` section, and the entry file's *A reply speaks the method* tells the method's step and never
 the work's course, v94; graded on the speech bench, red to green.
@@ -1283,6 +1564,13 @@ into its `What the person hears`, the close told as *ready, and the first questi
 replies as cases, the close from three flags in five to two, the rest held by the 🪶 Commits table.
 
 ## 50. Four skills were changed without `/skill-up`, which asks nothing about growth — 2026-10-15
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-14T09:56:16.159Z](cases/rf-four-skills-were-changed-without-18aa38d40b/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-14T15:48:33.571Z](cases/rf-four-skills-were-changed-without-64c25b9673/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-14T21:41:55.528Z](cases/rf-four-skills-were-changed-without-b47fe922ed/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-14T21:56:33.594Z](cases/rf-four-skills-were-changed-without-1dcf952f11/case.json).
 
 **Rules in play:** `/skill-up`'s description, *Use whenever writing any agent instructions*; its
 *Be precise and concise*; the entry file's Occam, *remove before you add*.
@@ -1320,6 +1608,10 @@ was one sentence, and the description's *directly in a reply* was not in reach a
 instruction. **Amendment landed**, the user, 2026-10-20: the header's definition in the entry file
 reads *for an instruction, written through `/skill-up`*; the entry grows by four words, removes none.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-10-20T14:00:51.232Z](cases/rf-four-skills-were-changed-without-2bd778ea67/case.json).
+
 **Struck, 2026-10-24 — a third time, and the amendment is no longer a wording.** A session on the
 meeting and the front page amended the harness skill and its shelf several times after one early
 `/skill-up` read, proposed a new rule for the product skill under the 🧩 header, and rewrote the
@@ -1334,7 +1626,16 @@ file whose owning skill was not read in the session, a reply proposing a rule wi
 read — where it can, and the commit refuses what reached the tree anyway; its design is
 q-0037.0006.0005.0001's.
 
+**Source cases, retrospective extraction:**
+
+- [Evidence gap](cases/historical-extraction/gaps.json#/gaps/account-056): third strike on 2026-10-24. Unavailable attribution is stated explicitly.
+
 ## 49. A discovery's tasking described the method it was meant to step outside — 2026-10-15
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-14T15:55:33.246Z](cases/rf-a-discovery-s-tasking-described-a2b431ed3d/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-14T21:38:00.447Z](cases/rf-a-discovery-s-tasking-described-be9faca738/case.json).
 
 **Rules in play:** `/discover`, *Describe the shape functionally, in nobody's vocabulary* and
 *Transmit the frame as little as the subject allows, and say what you transmitted*.
@@ -1358,6 +1659,16 @@ this tree meets it — a shape described, in anyone's words, sends its frame alo
 next discovery's tasking.
 
 ## 48. A long session's replies left L9's voice and promised to try — 2026-10-14
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-14T17:56:41.837Z](cases/rf-a-long-session-s-replies-left-l9-e7bb93ce46/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-14T18:03:44.016Z](cases/rf-a-long-session-s-replies-left-l9-1a1fde94d1/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-14T18:07:16.735Z](cases/rf-a-long-session-s-replies-left-l9-bf77f24310/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-14T18:10:41.401Z](cases/rf-a-long-session-s-replies-left-l9-41a058cc97/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-14T18:14:29.834Z](cases/rf-a-long-session-s-replies-left-l9-d72afa98f3/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-14T18:19:38.050Z](cases/rf-a-long-session-s-replies-left-l9-0ffd595755/case.json).
+- [Evidence gap](cases/historical-extraction/gaps.json#/gaps/account-058): Five individually selected replies have unestablished voice verdicts. Unavailable attribution is stated explicitly.
 
 **Rules in play:** L9, *plain, exact and dry, an argument the reader can follow … never
 agent-speak, the voice of a tool narrating its own steps*.
@@ -1389,7 +1700,15 @@ experiment is in
 [the voice question](questions/q-0037.0009.0021.0002-is-the-voice-a-reply-speaks-in-its-own-mechanism-owning-how-everything-the-person.md#evidence--an-isolated-second-pass-2026-10-26).
 The refused description and examples were not reintroduced; no new voice rule was installed.
 
+**Source cases, retrospective extraction:**
+
+- [Codex Desktop · gpt-6.1-sol · 2026-10-26T11:04:57.347Z](cases/rf-a-long-session-s-replies-left-l9-256ed06bb8/case.json).
+
 ## 47. A decision not to act was landed as three rules — 2026-10-14
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-14T09:56:16.159Z](cases/rf-a-decision-not-to-act-was-landed-611e8f5ca4/case.json).
 
 **Rules in play:** Occam, *say what need not exist: a rule … that the work would not miss, said
 before it is built*; *A capable reader*; Q6, *land a decision as it is made*, pulling the other way.
@@ -1409,6 +1728,10 @@ removes an act nothing instructed has no text to land, and Occam was not consult
 lands in its question alone.*
 
 ## 46. An install met three frictions and filed none — 2026-10-14
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-14T00:30:40.693Z](cases/rf-an-install-met-three-frictions-a-cc2225fb09/case.json).
 
 **Rules in play:** the harness skill's *Friction goes upstream*, landed the same night and in the
 copy the installing agent read before the run.
@@ -1433,6 +1756,10 @@ first-install section ends with them. Landed with this entry.
 
 ## 45. Figures were written into a record before they were counted — 2026-10-14
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-14T00:21:30.200Z](cases/rf-figures-were-written-into-a-reco-f46a714a94/case.json).
+
 **Rules in play:** L9, *"it invents nothing: what it tells is what happened"* — written for a
 reply's prose; the record that took the figures was an RFC.
 
@@ -1450,6 +1777,10 @@ record is one a run printed; one not yet counted is not written.*
 
 ## 44. A case that answered a call in-process stood for the run that makes it — 2026-10-14
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-13T08:03:38.083Z](cases/rf-a-case-that-answered-a-call-in-p-16fa62e130/case.json).
+
 **Rules in play:** none covers it — a slip, entered so a repeat is seen.
 
 **What happened.** The injection rehearsal, landed 2026-10-13, runs the injector over a scratch
@@ -1464,6 +1795,10 @@ process, a path the host chooses — proven only by cases that stand a fixture i
 place does, or by real cases whose inputs never reach it.
 
 ## 43. The counters line was replaced by words pointing at it — 2026-10-13
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-13T09:00:22.894Z](cases/rf-the-counters-line-was-replaced-b-ba49018a7c/case.json).
 
 **Rules in play:** the entry file's reply form, *under `debug=on`, the window's counters line,
 copied as it stands, a one-cell table of its own*.
@@ -1481,6 +1816,10 @@ numbers and changes copied character for character from this turn's window, neve
 for them*. Graded by the next replies of other sessions.
 
 ## 42. A cost the plan named was built around instead of removed — 2026-10-13
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-13T08:31:50.221Z](cases/rf-a-cost-the-plan-named-was-built-31d2b64b21/case.json).
 
 **Rules in play:** the entry file's *Occam* — the shape with the fewest parts, remove before you
 add; `/plan`'s *Do not select implementation shapes just because "that how it is usually done" or
@@ -1504,6 +1843,10 @@ of name, place or form brings with it reopens that choice before anything is bui
 
 ## 41. A probe of one variant was read as a verdict on the design — 2026-10-12
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-11T21:23:24.849Z](cases/rf-a-probe-of-one-variant-was-read-e66fd224b4/case.json).
+
 **Rules in play:** `/align`'s *Name the shared assumption* — state the assumption both branches
 share, *the premise is wrong* a first-class outcome; its *necessity gate*, weak evidence meaning
 narrow, postpone or eliminate; decision 26 of the open-questions ticket, *the judge reads a window*.
@@ -1525,6 +1868,10 @@ variant's it ran; before reading it as the design's, name what every run held fi
 verdict for that alone.*
 
 ## 40. A mechanism's doc was proposed as the home for a skill's machinery — 2026-10-11
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-10-11T11:54:58.414Z](cases/rf-a-mechanism-s-doc-was-proposed-a-099d560f39/case.json).
 
 **Rules in play:** `/mechanism`'s *Three homes* — *the doc is the instruction's why*, *doc and
 instruction file are never the same file*; the entry file's *A document informs. It never
@@ -1552,6 +1899,10 @@ text.
 
 ## 39. A next step inside a ticket was told in prose, not put as a decision — 2026-10-11
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-10-11T11:52:47.999Z](cases/rf-a-next-step-inside-a-ticket-was-c03d886641/case.json).
+
 **Rules in play:** the next-cycle switch at v72, *the reply puts the next step as a ⚖️ row and
 says nothing of why it waits*; the ⚖️ rule, *what waits on the user's decision*.
 
@@ -1571,6 +1922,22 @@ Graded by the next reply that stops before a step: the step a ⚖️ row.
 
 ## 38. Landed text was headed Proposed under a Landed heading — 2026-10-11
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-10-11T11:10:34.830Z](cases/rf-landed-text-was-headed-proposed-08f67f1765/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-10T00:44:32.548Z](cases/rf-landed-text-was-headed-proposed-1539dfa2cb/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-10T00:51:33.448Z](cases/rf-landed-text-was-headed-proposed-03f67059c6/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-10T01:26:51.872Z](cases/rf-landed-text-was-headed-proposed-050464f95f/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-10T01:34:22.490Z](cases/rf-landed-text-was-headed-proposed-4edfb4461e/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-10T01:38:24.889Z](cases/rf-landed-text-was-headed-proposed-b037054879/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-11T11:52:47.999Z](cases/rf-landed-header-kept-proposed-20261011-115247/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-10T21:58:06.298Z](cases/rf-landed-text-was-headed-proposed-ac005fa152/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-11T00:24:59.863Z](cases/rf-landed-text-was-headed-proposed-f781d04e48/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-11T00:40:16.873Z](cases/rf-landed-text-was-headed-proposed-3d8fff4063/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-11T09:20:22.176Z](cases/rf-landed-text-was-headed-proposed-d403d37a7a/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-11T09:23:46.511Z](cases/rf-landed-text-was-headed-proposed-47ae580101/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-11T10:58:55.262Z](cases/rf-landed-text-was-headed-proposed-f7e01aa9eb/case.json).
+
 **Rules in play:** the entry file's framed texts, *`✏️ **Proposed change — <record>**` … Once
 written, the reply reporting it shows it again under `Landed`*, 36's amendment.
 
@@ -1586,6 +1953,21 @@ written, never both*, and the reply reporting it shows it under its landed heade
 next reply that lands text: one word, `Landed`, in its header.
 
 ## 37. Commits were named after what they touched, not the step that made them — 2026-10-11
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-10T00:20:19.984Z](cases/rf-commits-were-named-after-what-th-bec2c903a6/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-10T00:44:01.289Z](cases/rf-commits-were-named-after-what-th-f93d012c6f/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-10T00:51:24.552Z](cases/rf-commits-were-named-after-what-th-a54c74bb1f/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-10T01:26:41.534Z](cases/rf-commits-were-named-after-what-th-74fb0d73b9/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-10T01:34:13.771Z](cases/rf-commits-were-named-after-what-th-28b04435a6/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-10T01:38:09.892Z](cases/rf-commits-were-named-after-what-th-fc6087584a/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-10T21:57:45.814Z](cases/rf-commits-were-named-after-what-th-aa9a689a35/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-10T23:57:45.926Z](cases/rf-commits-were-named-after-what-th-2ab93e7f60/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-11T00:17:28.724Z](cases/rf-commits-were-named-after-what-th-a6111673cf/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-11T00:24:35.526Z](cases/rf-commits-were-named-after-what-th-d4250327c2/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-11T00:32:27.182Z](cases/rf-commits-were-named-after-what-th-0887d60048/case.json).
+- [Evidence gap](cases/historical-extraction/gaps.json#/gaps/account-070): unresolved-rest-of-historical-commit-population. Unavailable attribution is stated explicitly.
 
 **Rules in play:** `/commit`'s prefix rule, *prefix the subject with the loop step that produced
 the work … the prefix says which step produced the work, never which files it touched*.
@@ -1614,7 +1996,18 @@ invoking `/commit`, where L8 is installed, so the closed list was never read: th
 **Proposed amendment**, the strongest that will hold: a commit-msg hook refusing a subject whose
 prefix is not in L8's list. **Disposition:** open, struck once.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-25T19:53:38.048Z](cases/rf-commits-were-named-after-what-th-9be1e8867a/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-25T20:11:40.716Z](cases/rf-commits-were-named-after-what-th-d5630d44b6/case.json).
+
 ## 36. Landed changes were retold in prose, and instructions framed as other text — 2026-10-11
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-11T00:38:03.852Z](cases/rf-landed-instruction-framed-as-change-20261011-003803/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-11T08:21:52.532Z](cases/rf-landed-changes-were-retold-in-pr-e3c7917198/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-11T09:12:01.759Z](cases/rf-landed-changes-were-retold-in-pr-ad3520866a/case.json).
 
 **Rules in play:** the entry file's framed texts, *always for an instruction … `Landed` once
 written*, a straw dog bound to q-0037.0009.0021; Self-improvement's *showing its text first*.
@@ -1638,6 +2031,10 @@ lands an instruction.
 
 ## 35. Running sessions' questions were named in words the window never wrote — 2026-10-11
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-11T00:38:03.852Z](cases/rf-running-sessions-questions-were-f41b68a9b7/case.json).
+
 **Rules in play:** the entry file's 🪢 table, *the sessions running beside this one come first, a
 row each with the question it stands on as the window writes it*.
 
@@ -1657,6 +2054,10 @@ included. The neighbours went into prose, their questions told in the reply's ow
 and no link, Q5 broken beside it. The user: *why did you not show the neighbours block?* The
 window's fix held; the rule gave the reply leave to skip the place the words were to land.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-14T00:39:08.703Z](cases/rf-running-sessions-questions-were-8c59a70456/case.json).
+
 **Amendment landed** in the entry file, v89: the 🪢 table stands whenever another session runs, its
 header enough with no collision under it. Graded by the next reply with neighbours and no collision.
 
@@ -1666,6 +2067,13 @@ commits and the following plain-language explanation omitted the neighbours' tab
 the supplied windows showed other running sessions. The latter two replies also omitted the
 head table required by *A paragraph shows what it stands on*. The session had used the full form
 earlier; it did not keep it consistently.
+
+**Source cases, retrospective extraction:**
+
+- [Codex Desktop · gpt-6.1-sol · 2026-10-26T14:52:01.547Z](cases/rf-running-sessions-questions-were-8cb2be7731/case.json).
+- [Codex Desktop · gpt-6.1-sol · 2026-10-26T15:08:56.893Z](cases/rf-running-sessions-questions-were-9358464450/case.json).
+- [Codex Desktop · gpt-6.1-sol · 2026-10-26T15:37:14.467Z](cases/rf-running-sessions-questions-were-54951379f3/case.json).
+- [Codex Desktop · gpt-6.1-sol · 2026-10-26T16:44:35.410Z](cases/rf-running-sessions-questions-were-66f584127e/case.json).
 
 Asked why, the assistant attributed the omission to the request for a simpler explanation. The
 user pointed out that it had happened before that request. A fresh reader confirmed the
@@ -1681,6 +2089,10 @@ the same entry file and use the same window producer. This does not establish th
 the behavioural difference. The failure remains observed; its proposed remedy was refused.
 
 ## 34. A first install ended in a technical report, and asked for a commit the switch allowed — 2026-10-11
+
+**Source cases, retrospective extraction:**
+
+- [Evidence gap](cases/historical-extraction/gaps.json#/gaps/account-076): original-first-install-not-retained. Unavailable attribution is stated explicitly.
 
 **Rules in play:** the entry file's `commit` switch, *`auto`: commit when `/verify` has passed on
 the work*, set to `auto` by the install's own local file; `/harness`'s *After the first install*,
@@ -1729,7 +2141,15 @@ the hosts whose message hook reaches the agent, the rule at session start the fl
 and *The shape's context* gains *— in this tree and in every tree core reaches*. Put to the user,
 the first being mechanism work on the window; the second landed as entry contract v80.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-11T20:35:51.243Z](cases/rf-a-first-install-ended-in-a-techn-d672d63b2d/case.json).
+
 ## 33. A command that writes was run to read — 2026-10-11
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-10T23:43:59.210Z](cases/rf-a-command-that-writes-was-run-to-66894be2bf/case.json).
 
 **Rules in play:** none that this broke. `/maintain`'s T1 — list the straw dogs with
 `straw_dogs.py`, its `due` field saying which are due — fired and was followed.
@@ -1752,7 +2172,15 @@ offered the bare `questions.py --wake` as the wake's read. **Amendment landed** 
 `--wake --session <tag>` with the tag the hook's read named, a bare `--wake` registering a new
 session and kept for a host whose hook registered none. Graded by the next `/recall` under a hook.
 
+**Source cases, retrospective extraction:**
+
+- [Evidence gap](cases/historical-extraction/gaps.json#/gaps/account-079): original-installing-session-bare-wake-repeat-missing. Unavailable attribution is stated explicitly.
+
 ## 32. Two switch values went through the whole loop — 2026-10-11
+
+**Source cases, retrospective extraction:**
+
+- [Codex Desktop · gpt-6.1-sol · 2026-10-10T23:23:44.483Z](cases/rf-two-switch-values-went-through-t-976dd044c5/case.json).
 
 **Rules in play:** Occam, *say what need not exist: a rule, mechanism, record or step*; the
 `commit` switch's `auto`, *its verification set, and the work read against what governs it*.
@@ -1771,6 +2199,10 @@ gloss struck. Graded by the next small change under `commit=auto`.
 
 ## 31. A decision the agent had taken was put under ⚖️ for confirmation — 2026-10-11
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-10T22:39:42.777Z](cases/rf-a-decision-the-agent-had-taken-w-aa3d6f97b9/case.json).
+
 **Rules in play:** the entry file's reply tables, *what waits on the user's decision, under
 `| ⚖️ Decisions |`*, a straw dog then bound to q-0037.0016.
 
@@ -1787,6 +2219,11 @@ included, which the reply reports as taken and the user overturns by saying so.*
 next replies: ⚖️ holds only what nothing has settled.
 
 ## 30. Committed on a green verification set, the work never read against what governs it — 2026-10-10
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-10T01:53:26.753Z](cases/rf-committed-on-a-green-verificatio-f28021ddc4/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-10T11:24:23.028Z](cases/rf-committed-on-a-green-verificatio-9497139897/case.json).
 
 **Rules in play:** the entry file's autonomy switch, *`auto`: commit when the work is verified*,
 under L2's `commit=auto`.
@@ -1809,6 +2246,10 @@ work — its verification set, and the work read against what governs it.* Grade
 
 ## 29. A reply closed on an empty tangle table — 2026-10-10
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-10T00:44:32.548Z](cases/rf-empty-tangle-footer-20261010-004432/case.json).
+
 **Rules in play:** the entry file's reply tables, *debug or not, a row each: … under
 `| ⚖️ Decisions |`; … under `| 🍂 Drift |`; … under `| 🪢 Tangle |`*, a straw dog bound to q-0037.0016.
 
@@ -1823,6 +2264,11 @@ absent; *debug or not* reads as *always*, so the three headers were taken as a f
 it has one*. Graded by the next replies: no table without a row.
 
 ## 28. In Cursor the window was not drawn by the rule — 2026-10-10
+
+**Source cases, retrospective extraction:**
+
+- [Cursor · unknown · 2026-10-09T21:09:15.334Z](cases/cursor-5fba085e-window/case.json).
+- [Evidence gap](cases/historical-extraction/gaps.json#/gaps/account-084): Cursor initial-window duty — contemporaneous instruction body and actual assistant model unavailable. Unavailable attribution is stated explicitly.
 
 **Rules in play:** the entry file's Q1 — read this turn's window, the hook's or
 `questions.py --window --session <tag>`; Cursor's prompt hook can inject nothing, so in Cursor the
@@ -1843,6 +2289,10 @@ and stays unreliable; that is q-0037.0011's, with this as its evidence.
 
 ## 27. Another session's claim on the question being worked was filed as drift — 2026-10-10
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-09T21:56:44.122Z](cases/rf-another-session-s-claim-on-the-q-a900d7b5d3/case.json).
+
 **Rules in play:** the entry file's *A paragraph shows what it stands on* — a record out of
 agreement with what it is of under 🍂, one party's work colliding with another's under 🪢.
 
@@ -1861,6 +2311,10 @@ works counts — and a collision outranks the disagreement that shows it: a row 
 under 🪢. **Landed 2026-10-10.**
 
 ## 26. A project with no code got the harness's own check as its verification set — 2026-10-09
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-09T11:46:46.379Z](cases/rf-a-project-with-no-code-got-the-h-043c204f4f/case.json).
 
 **Rules in play:** the harness skill's *After the first install* — the set read off the project's
 own toolchain, and `harness.py . --check` named by a project that wants core re-checked on every
@@ -1887,6 +2341,13 @@ paragraph says the clone. **Landed 2026-10-09.**
 
 ## 25. Answers proposed four times on a question whose parts were not unfolded — 2026-10-09
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-08T22:44:58.649Z](cases/rf-answers-proposed-four-times-on-a-8f3d2b3b00/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-08T22:57:06.281Z](cases/rf-answers-proposed-four-times-on-a-34512db5f3/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-08T23:00:05.417Z](cases/rf-answers-proposed-four-times-on-a-ef04bb2b47/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-08T23:03:18.860Z](cases/rf-answers-proposed-four-times-on-a-797b8ba07c/case.json).
+
 **Rules in play:** /questions' *Branching* — open each hidden part, and no answer lands on the
 parent until its children close; the questions mechanism's own warning that whether a shape hides
 parts is what the agent fails to judge; the entry file's ⚖️ table for what waits on the user.
@@ -1912,6 +2373,10 @@ the parent is put to the person as a proposal or a decision until the children c
 
 ## 24. Text just written into the entry file was quoted without its 🧩 — 2026-10-09
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-08T21:53:55.024Z](cases/rf-text-just-written-into-the-entry-523c64ec71/case.json).
+
 **Rules in play:** the entry file's *A paragraph shows what it stands on* — *text proposed for a
 record of the kind what it intends to become or what must always hold* goes in a blockquote under
 `🧩 **Proposed change — <record>**`.
@@ -1928,6 +2393,10 @@ this session*, the line reading `🧩 **Landed change — <record>**` for the la
 **Landed 2026-10-09**, with the entry contract at v44.
 
 ## 23. A rollback ran /recall a second time over a context that held the first — 2026-10-09
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-08T21:26:55.436Z](cases/rf-a-rollback-ran-recall-a-second-t-371a1d33be/case.json).
 
 **Rules in play:** the entry file's straw dog *Run /recall first in every session, whatever the
 first message says*; the questions hook's start read.
@@ -1946,6 +2415,10 @@ says so, carrying the position over. **Landed 2026-10-09**, with the entry contr
 
 ## 22. A lamp cited a rule's id instead of a principle's name — 2026-10-08
 
+**Source cases, retrospective extraction:**
+
+- [Codex Desktop · gpt-6.1-sol · 2026-10-08T07:32:24.531Z](cases/rf-a-lamp-cited-a-rule-s-id-instead-40bd8d543c/case.json).
+
 **Rules in play:** the entry file's *A paragraph shows what it stands on* — every principle
 *carries a name at its authored home and is cited by that name*, the lamp written
 `(💡 *<principle>*)`.
@@ -1960,6 +2433,10 @@ say which; the sentence on names sat above the bullet that is read when writing 
 its home writes it, never a rule's id. **Landed 2026-10-08**, with the entry contract at v42.
 
 ## 21. A reply spoke of the push the conclude owns — 2026-10-08
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-08T06:51:37.930Z](cases/rf-a-reply-spoke-of-the-push-the-co-b5fb2fc5f1/case.json).
 
 **Rules in play:** the entry file's `push` switch, *`ask`: put to the user once, at /conclude*,
 landed an hour before.
@@ -1976,6 +2453,11 @@ mentions or counts what waits on it; the conclude skill says the same. **Landed 
 with the entry contract at v41.
 
 ## 20. A rule landed in the tree was copied into the host's memory — 2026-10-08
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-08T06:36:14.121Z](cases/rf-a-rule-landed-in-the-tree-was-co-c48332a2c4/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-08T06:44:56.242Z](cases/rf-a-rule-landed-in-the-tree-was-co-1bb6f36afa/case.json).
 
 **Rules in play:** the host's own memory instructions, *don't save what the repo already
 records*; the entry file's *Self-improvement*, which puts a correction into a rule here.
@@ -1995,6 +2477,10 @@ written to the host's memory store. **Landed 2026-10-08**, with the entry contra
 
 ## 19. A session record's stale handoff was reported as drift — 2026-10-08
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-08T06:37:42.584Z](cases/rf-a-session-record-s-stale-handoff-af20a1371d/case.json).
+
 **Rules in play:** [`/recall`](../.agents/skills/recall/SKILL.md)'s *sessions, `tickets/done` and
 `rfc/done` are dated snapshots — read them for why, never for whether*, and its *report drift you
 hit while reading*.
@@ -2010,6 +2496,15 @@ bullet, read when reporting, named what drifts and not what cannot.
 the tree has moved past in it is history. **Landed 2026-10-08**, with the entry contract at v39.
 
 ## 18. Six turns of seven showed a question the turn did not stand on — 2026-10-05
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-10-04T20:43:05.834Z](cases/rf-six-turns-of-seven-showed-a-ques-2ecc02ae92/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-04T20:49:35.213Z](cases/rf-six-turns-of-seven-showed-a-ques-b6c55b27a7/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-04T20:55:13.778Z](cases/rf-six-turns-of-seven-showed-a-ques-74b0b2862d/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-04T20:59:11.595Z](cases/rf-six-turns-of-seven-showed-a-ques-ad4e33f3ae/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-04T21:41:47.261Z](cases/rf-six-turns-of-seven-showed-a-ques-79bef5d34a/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-04T21:43:31.742Z](cases/rf-six-turns-of-seven-showed-a-ques-b1c19188b6/case.json).
 
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s Q1, *call `at` where the message
 lands … a message that lands nowhere makes no call*, and its table of *each question the turn
@@ -2040,6 +2535,10 @@ which Q1 names only for a closure, a branching or a drop, so it was not read bef
 the message only as loosely as it contains everything under it is not its home either — the
 parent is missing, read the skill and open it, or the turn is uncharted. Graded as before.
 
+**Source cases, retrospective extraction:**
+
+- [Evidence gap](cases/historical-extraction/gaps.json#/gaps/account-095): original-v26-missing-parent-repeat-unresolved. Unavailable attribution is stated explicitly.
+
 **Struck, 2026-10-05 — a later session the same day.** The skill was read and the missing parent
 was still put to the user: the agent could word two parents, one the size of the message and one
 the children served, and the skill's *two parents that divide the children differently* took
@@ -2048,6 +2547,10 @@ meaning. **Amendment landed the same day**, in the questions skill's *A missing 
 the children, tested by where one would look, a doubted child left in place, and an ask only when
 two parents would each take the same children. Graded as before.
 
+**Source cases, retrospective extraction:**
+
+- [Evidence gap](cases/historical-extraction/gaps.json#/gaps/account-096): missing-parent repeat not located. Unavailable attribution is stated explicitly.
+
 **Struck, 2026-10-05 — a fresh session the same day.** A message that asked nothing of the work,
 *what kind of person would do the work we do in this repo?*, fit none of the four kinds: it was
 shown as uncharted and its home asked of the user, who answered that it needed none; the next
@@ -2055,6 +2558,11 @@ such message was shown as a process the agent named *banter*, which no rule name
 **Amendment landed the same day**, the entry contract at v29: a fifth kind, banter *(the user)* —
 no call, and a reply that writes nothing and settles nothing, so that no load-bearing work falls
 into it; a doubt makes the turn another kind. Graded as before.
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-10-04T23:40:33.366Z](cases/rf-six-turns-of-seven-showed-a-ques-8f2da10e83/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-04T23:42:39.451Z](cases/rf-six-turns-of-seven-showed-a-ques-87c5526038/case.json).
 
 **Struck, 2026-10-05 — another fresh session the same day.** Asked whether the harness's update
 in a recipient was fixed, the agent rejected four children of q-0037.0006 that resembled the message,
@@ -2066,7 +2574,15 @@ day**, the entry contract at v30 *(the user)*: going up past two or more questio
 the message, their parent is not its home; and a found answer opens nothing for the message, a
 missing parent still opened. Graded as before.
 
+**Source cases, retrospective extraction:**
+
+- [Evidence gap](cases/historical-extraction/gaps.json#/gaps/account-098): broad placement repeat not located. Unavailable attribution is stated explicitly.
+
 ## 17. A reply named what it asked about by bare ids — 2026-10-03
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-03T07:40:34.643Z](cases/rf-a-reply-named-what-it-asked-abou-3395ca12a3/case.json).
 
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s P9, *the first time a record or a
 reply names a ticket, name it by a link to its record whose text carries its slug*; nothing for a
@@ -2104,6 +2620,10 @@ it if at all; later mentions in that reply or record may be the whole id alone.*
 next replies of this session and the next fresh one: no ticket first named in a reply without its
 slug.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-10T00:34:01.341Z](cases/rf-a-reply-named-what-it-asked-abou-39066f4cc4/case.json).
+
 **Struck, 2026-10-12.** A `/recall` session, its sixth reply, put three decisions under ⚖️ naming a
 ticket by its bare id and two questions by bare ids, one with no words at all; the prose above
 named four question ids. The user: *I have no idea what these numbers are.* Q5 and P9 were
@@ -2114,6 +2634,10 @@ at v85, on the user's word: *let's add a rule to ALWAYS show question and ticket
 to them* — every mention, a table's cell included, is a link; the first still carries the words or
 the slug. Graded by the next replies of this session and the next fresh one: no question or ticket
 id in a reply that is not a link.
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-12T14:56:34.148Z](cases/rf-a-reply-named-what-it-asked-abou-eb4d871d13/case.json).
 
 **Struck, 2026-10-13, in records.** A scheduled `/maintain` found 24 bare ticket ids on lines
 written after v85 landed: the leans of q-0037.0006.0024, q-0033 and q-0037.0018 with its seven new parts,
@@ -2127,6 +2651,12 @@ be the id alone, still hold about 60, left for the user's word on whether v85 re
 a link in a live record as a finding, the way the store reports two questions that may be one, so
 every `/maintain` meets it.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-12T23:57:15.989Z](cases/rf-a-reply-named-what-it-asked-abou-cc275c810d/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-12T23:59:27.000Z](cases/rf-a-reply-named-what-it-asked-abou-aa733ba83d/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-13T00:10:21.130Z](cases/rf-a-reply-named-what-it-asked-abou-4a256b88ac/case.json).
+
 **Struck, 2026-10-13, in a reply.** A session proposing names and trace links for 48 answers drew
 a table whose cells named questions by bare id, and for 30 rows wrote *как было* — *as before* — in
 place of the question altogether. The user: *I cannot judge your proposals — questions without
@@ -2134,6 +2664,10 @@ links or slugs.* Q5 was installed and read, its *a table's cell included* among 
 built from a mapping the agent held, ids as data, and a placeholder stood for what the reader had
 never been shown. **Amendment landed:** Q5 says no word stands in for a question the reader has not
 been shown, as v86 said of the counters line. Graded by the next table this session draws.
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-13T17:23:25.276Z](cases/rf-a-reply-named-what-it-asked-abou-dc83faa5fd/case.json).
 
 **Struck, 2026-10-23.** A session on the meeting's rules named the open question on the two stops
 as a bare, relative id — *вопрос .0003*, *открытого вопроса .0003* — in two replies running, no
@@ -2149,7 +2683,33 @@ store's writer refuses a lean holding a relative id; the store's check reports o
 as a finding for `/maintain` — 40 in this tree's entries on the day, bodies written by hand, to be
 repaired where a session meets them. Q5 unchanged. Graded by the next lean any session writes.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-10-22T22:58:54.944Z](cases/rf-a-reply-named-what-it-asked-abou-428737172b/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-10-22T23:13:04.389Z](cases/rf-a-reply-named-what-it-asked-abou-f1a8f025ff/case.json).
+
 ## 16. A session stopped placing its messages once the window said nothing moved — 2026-10-03
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-02T16:41:40.561Z](cases/rf-a-session-stopped-placing-its-me-4e7f6478db/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-02T19:41:58.005Z](cases/rf-a-session-stopped-placing-its-me-27dd982e59/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-02T20:15:26.894Z](cases/rf-a-session-stopped-placing-its-me-ebc1be2b72/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-02T20:58:35.578Z](cases/rf-a-session-stopped-placing-its-me-4281df2c9c/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-02T21:34:55.272Z](cases/rf-a-session-stopped-placing-its-me-6478c4bebe/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-02T21:39:15.793Z](cases/rf-a-session-stopped-placing-its-me-ad99e5f262/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-02T21:42:18.078Z](cases/rf-a-session-stopped-placing-its-me-d2a50f0c98/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-02T21:43:52.375Z](cases/rf-a-session-stopped-placing-its-me-0c24e22212/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-02T21:44:52.240Z](cases/rf-a-session-stopped-placing-its-me-d8ba3657a9/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-02T21:47:23.258Z](cases/rf-a-session-stopped-placing-its-me-10d8a3219b/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-02T22:17:34.524Z](cases/rf-a-session-stopped-placing-its-me-2e6245956d/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-02T22:25:17.715Z](cases/rf-a-session-stopped-placing-its-me-0d448290ee/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-02T22:33:35.225Z](cases/rf-a-session-stopped-placing-its-me-99ad4f7738/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-02T22:39:45.003Z](cases/rf-a-session-stopped-placing-its-me-9fc51c9e75/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-02T22:41:52.356Z](cases/rf-a-session-stopped-placing-its-me-2367ab6ae0/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-02T22:42:50.229Z](cases/rf-a-session-stopped-placing-its-me-5909ef2292/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-02T22:44:53.984Z](cases/rf-a-session-stopped-placing-its-me-231459a0a0/case.json).
+- [Evidence gap](cases/historical-extraction/gaps.json#/gaps/account-105): remaining long-session inventory not certified. Unavailable attribution is stated explicitly.
 
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s Q1, *call `questions.py at q-N` …
 where the message lands* before every reply, with *under `debug=on`, show each call*; parent
@@ -2177,6 +2737,10 @@ since entry 18, a row at the head of every reply, a process turn making no call.
 
 ## 15. A record's format was placed in a mechanism's doc — 2026-09-27
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-09-27T11:16:34.095Z](cases/rf-a-record-s-format-was-placed-in-97384ccccc/case.json).
+
 **Rules in play:** [`/mechanism`](../.agents/skills/mechanism/SKILL.md#three-homes-and-the-chain)'s
 *Three homes* — the doc is the instruction's *why*, and the skill holds every rule read in the work
 it governs; against [MECHANISM-FORMAT §Records](../.agents/skills/mechanism/MECHANISM-FORMAT.md#records)'s
@@ -2199,6 +2763,10 @@ file* stands as the record of what was accepted then. Graded by the next record 
 it lands in a format file or the skill, or this entry is struck. Not yet replayed.
 
 ## 14. A recall recommended the next item by a criterion the queue does not use — 2026-09-27
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-09-27T09:23:32.903Z](cases/rf-a-recall-recommended-the-next-it-3b6b63cb9e/case.json).
 
 **Rules in play:** [the delivery status](tickets/README.md)'s ordering rule *(the user,
 2026-09-07)*, *the governing consideration is which slice hands the next one a tool that makes the
@@ -2230,6 +2798,10 @@ occasion that puts the order to the user, or this entry is struck. Not yet repla
 
 ## 13. Skill descriptions fixed by adding their method — 2026-09-27
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-09-26T23:07:23.104Z](cases/rf-skill-descriptions-fixed-by-addi-4ced4ae560/case.json).
+
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s tiering rule, *name there every
 occasion the skill serves, with the context that makes it fire, and nothing else*.
 
@@ -2249,6 +2821,10 @@ mechanism; what that mechanism asks of it arrives as an installed block. A skill
 a mechanism may be named until it arrives *(the user)*. Not yet replayed.
 
 ## 12. A queue answer named tickets by their position alone — 2026-09-26
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-09-26T19:03:46.989Z](cases/rf-a-queue-answer-named-tickets-by-d5e0a88881/case.json).
 
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#general-rules)'s **P9**, *name a ticket by a link
 to its record*; [`TICKET-FORMAT.md`](../.agents/skills/ticket/TICKET-FORMAT.md#numbering)'s
@@ -2309,6 +2885,10 @@ carries no slug.
 
 ## 11. A copy step was landed in the architecture because a sentence there listed its neighbours — 2026-09-26
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-09-25T22:52:26.923Z](cases/rf-a-copy-step-was-landed-in-the-ar-3bc5c6394b/case.json).
+
 **Rules in play:** [`AGENTS.md`](../AGENTS.md#document-load-bearing-codecomment-the-rest) —
 *document load-bearing, code&comment the rest*, and its counter-test, *if it can be changed
 locally without understanding the rest of the architecture, it is not load-bearing*; against
@@ -2346,7 +2926,15 @@ invariant and its pointer: the reasons stay with the decision that holds them, a
 mechanism or a script owns stays there*. Graded by the next plan that writes into the
 architecture: invariants with their pointers only, or this entry is struck again.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-03T23:16:37.492Z](cases/rf-a-copy-step-was-landed-in-the-ar-42672fe896/case.json).
+
 ## 10. A claim about what sets the harness apart was drafted from inside it — 2026-09-26
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-09-25T21:16:16.921Z](cases/rf-a-claim-about-what-sets-the-harn-5a77b2cfb0/case.json).
 
 **Rules in play:** [`/discover`](../.agents/skills/discover/SKILL.md)'s *for: you are about to say
 what a thing* is; [`/align`](../.agents/skills/align/SKILL.md)'s *identify the load-bearing
@@ -2373,6 +2961,10 @@ Graded by the next time a claim about what something is or how it compares is dr
 runs before the draft, or this entry is struck.
 
 ## 9. A fixture made by today's code stood for a tree made by yesterday's — 2026-09-24
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5 · 2026-09-23T12:50:19.029Z](cases/rf-a-fixture-made-by-today-s-code-s-6fa77d9c3f/case.json).
 
 **Rules in play:** [`/verify`](../.agents/skills/verify/SKILL.md)'s *check named validators still
 exist and still assert the promise they were named for*; against
@@ -2409,6 +3001,10 @@ nothing — it only changes what a tree from before is compared against. Propose
 `/verify`'s bullet: *one the code under test made cannot hold a shape that code now refuses, or
 lack a file that code now ships* — landed the same day.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-11T10:57:20.568Z](cases/rf-a-fixture-made-by-today-s-code-s-d0eb69781a/case.json).
+
 **Amendment, landed the same day.** `/verify`'s validator bullet gains: *a promise about
 something that already exists — a recipient's tree, a stored record — is asserted only by a
 fixture built the way that thing came to be: one the code under test made cannot hold a shape
@@ -2419,6 +3015,10 @@ hand the way the earlier code left it. Graded by the next slice that adds a ship
 an update from the ref before it passes in its tests, or this entry is struck.
 
 ## 8. A nested skill's output contract ended its caller's turn — 2026-09-23
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5 · 2026-09-23T10:46:59.918Z](cases/rf-a-nested-skill-s-output-contract-031da7719f/case.json).
 
 **Rules in play:** [`/ticket`](../.agents/skills/ticket/SKILL.md)'s *3.1* — *record its output on
 the parent* — and its *4* — *present the post-impact breakdown as a numbered list, plus the impact
@@ -2441,6 +3041,12 @@ hand them back and carry on with the step that called.* Graded by the next `/tic
 calls `/impact` — the breakdown presented in the same pass, or this entry is struck.
 
 ## 7. A declaration named its script's verbs, and two arguments were built on it — 2026-09-23
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5 · 2026-09-20T21:33:16.317Z](cases/rf-a-declaration-named-its-script-s-824e1e3f12/case.json).
+- [Claude Code · claude-opus-5 · 2026-09-23T10:27:18.075Z](cases/rf-a-declaration-named-its-script-s-1e95bccf75/case.json).
+- [Claude Code · claude-opus-5 · 2026-09-23T10:33:00.554Z](cases/rf-a-declaration-named-its-script-s-33773e1d0e/case.json).
 
 **Rules in play:** [`AGENTS.md` — Document load-bearing, code&comment the rest](../AGENTS.md#document-load-bearing-codecomment-the-rest),
 whose worked example refuses *Forecasts are stored in MongoDB collection forecast_hourly* in
@@ -2498,7 +3104,17 @@ same day in the v19 of [01-0011.0100.0011 the-agent-calls-a-subcommand-per-event
 Graded by the next skill line written beside its script: it names only what the agent does, or
 this entry is struck again.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-02T16:35:41.693Z](cases/rf-a-declaration-named-its-script-s-8693d16b68/case.json).
+- [Claude Code · claude-opus-5-5 · 2026-10-02T21:12:11.545Z](cases/rf-a-declaration-named-its-script-s-79f1701f73/case.json).
+
 ## 6. The binding form lived on two tickets, and six closed tickets got a bare id — 2026-09-20
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-09-20T12:03:08.469Z](cases/rf-the-binding-form-lived-on-two-ti-b438a74f11/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-09-20T12:09:52.239Z](cases/rf-the-binding-form-lived-on-two-ti-80968532e2/case.json).
 
 **Rules in play:** [01-0011.0050](tickets/done/01-0011.0050-shape-checked.md)'s align, *Related* —
 core names a ticket in a binding, never a link, and *a bare ticket id was refused: it ships an
@@ -2536,6 +3152,10 @@ core sentence that names a ticket: bound, with a body that stands alone, or this
 
 ## 5. The rule said "allowlist", so a list was built — 2026-09-20
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-09-20T07:55:53.016Z](cases/rf-the-rule-said-allowlist-so-a-lis-5c42560358/case.json).
+
 **Rules in play:** mechanism-shape's **R4** — *render an index on request; never commit one
 beside its records* — installed in `/mechanism`, loaded; [`AGENTS.md` — Straw dogs](../AGENTS.md#straw-dogs)
 — *wrap at the authored home, never where the harness installs or derives it*; and the sentence
@@ -2566,6 +3186,11 @@ spec and ticket vocabulary stay as history.
 Graded by the next list anyone proposes for what files can say themselves.
 
 ## 4. The wake rule sat in a diagram, and a greeting was answered with a greeting — 2026-09-20
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-09-14T21:51:20.710Z](cases/rf-the-wake-rule-sat-in-a-diagram-a-4f50aa93f2/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-09-20T03:38:35.232Z](cases/rf-the-wake-rule-sat-in-a-diagram-a-c15b0ef74a/case.json).
 
 **Rule in play:** [`AGENTS.md` — The loop](../AGENTS.md#the-loop), read at the start of every
 session, whose picture has read `session: wake with /recall → /align → /conclude` since v1. Behind
@@ -2598,6 +3223,13 @@ before anything else, or this entry is struck. **Graded 2026-09-20:** the next s
 with "good morning" and its first reply ran `/recall`. The rule fired.
 
 ## 3. The straw-dog rule sat at tier 1 and three straw dogs went unwrapped — 2026-09-14
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5 · 2026-09-07T18:24:47.854Z](cases/rf-the-straw-dog-rule-sat-at-tier-1-6749bbf867/case.json).
+- [Cursor · unknown · 2026-09-05T22:14:53.947Z](cases/cursor-03206aca-unwrapped-write/case.json).
+- [Cursor · unknown · 2026-09-05T22:43:58.926Z](cases/cursor-8ada0e2a-unwrapped-write/case.json).
+- [Evidence gap](cases/historical-extraction/gaps.json#/gaps/account-121): contemporaneous duty not established; ticket-skill-not-yet-recommend — contemporaneous instruction body and actual assistant model unavailable; delivery-status-until-pacer-exists — contemporaneous instruction body and actual assistant model unavailable. Unavailable attribution is stated explicitly.
 
 **Rule in play:** [`AGENTS.md` — Straw dogs](../AGENTS.md#straw-dogs), read at the start of every
 session. As it read until today: *"What you write to serve only until a named ticket replaces it
@@ -2633,6 +3265,10 @@ start, `/mechanism` was loaded in the same turn, and the new wake rule
 ([failure 4](#4-the-wake-rule-sat-in-a-diagram-and-a-greeting-was-answered-with-a-greeting--2026-09-20))
 went into `AGENTS.md` unwrapped. The user asked who owned it. Three causes, none of them the
 2026-09-14 one:
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-fable-5-1 · 2026-09-20T03:38:35.232Z](cases/rf-unwrapped-wake-rule-by-ownership-20260920-033835/case.json).
 
 - **The sentence carried no tell.** It was written as permanent — *Run /recall first in every
   session* — because its content and location are final. What a live ticket will change is its
@@ -2671,12 +3307,21 @@ and became text a live ticket will change the day the ticket was minted. Minting
 and the rule had no sentence for it; the reading-side rule that does exist is `/verify`'s hunt,
 wrapped on 01-0016, which fires at a close and not at a decision.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5 · 2026-09-20T06:50:38.554Z](cases/rf-the-straw-dog-rule-sat-at-tier-1-0588bf97f6/case.json).
+- [Claude Code · claude-fable-5-1 · 2026-09-20T08:13:55.285Z](cases/rf-the-straw-dog-rule-sat-at-tier-1-51a3ede95e/case.json).
+
 **Amendment, landed the same day.** The tier-1 sentence gains the second occasion: *or, for text
 already written, in the pass that mints the ticket or decides that it will change it* — entry
 contract v10. The sixteen are wrapped at `.0140`'s `/plan`. Graded by the next ticket minted
 against existing text: wrapped in the minting pass, or this entry counts three times.
 
 ## 2. A partial sweep was reported as a settled count — 2026-09-10
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5 · 2026-09-10T08:45:23.160Z](cases/rf-a-partial-sweep-was-reported-as-dda5bf55df/case.json).
 
 **Rule in play:** [`/maintain`](../.agents/skills/maintain/SKILL.md) — **B1** *"Declare the scope
 first … and write it into the report"* and **B2** *"Certify only what you examined; mark nothing
@@ -2712,7 +3357,15 @@ the store reads a question's link through its ancestors, and 176 of 182 already 
 The count was of one form of the link, reported as the whole; caught by the agent on the next read,
 before the pass ran.
 
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5-5 · 2026-10-25T00:32:42.333Z](cases/rf-a-partial-sweep-was-reported-as-b11081bd61/case.json).
+
 ## 1. A concern was written where a ticket was wanted — 2026-09-10
+
+**Source cases, retrospective extraction:**
+
+- [Claude Code · claude-opus-5 · 2026-09-10T07:34:00.446Z](cases/rf-a-concern-was-written-where-a-ti-a1c9c558f7/case.json).
 
 **Rules in play, both loaded:**
 

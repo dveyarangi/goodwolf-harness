@@ -1,0 +1,19 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-09",
+  "case": "rf-answers-proposed-four-times-on-a-797b8ba07c",
+  "validation_scope": "Replay-input preparation after the independent pilot validation; native pointers and call/result pairing checked mechanically. Original case checks are preserved, not individually re-graded by this preparation.",
+  "source_status": "explicit gaps",
+  "source_gap_count": 5,
+  "input_record_count": 34,
+  "unresolved_input_record_count": 5,
+  "executor_support": {
+    "executor": "amendment.py / CodexHost",
+    "status": "unsupported",
+    "reasons": [
+      "The combined-input validator requires experiment instruction variants inside the case.",
+      "The current adapter has no native role/tool-history replay path and no action-execution support."
+    ],
+    "behaviour_verdict": null
+  }
+}

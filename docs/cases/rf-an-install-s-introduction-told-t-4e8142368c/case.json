@@ -1,0 +1,114 @@
+{
+  "id": "rf-an-install-s-introduction-told-t-4e8142368c",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "51. An install's introduction told the person what was copied, and asked everything at once — 2026-10-15",
+    "occurrence": "repeat",
+    "occurrence_heading": "**Struck again, 2026-10-16 — outside the install.** A session's first reply under `/recall`: *Good",
+    "detail": "original public event"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/54",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.299"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/54/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-16T11:05:21.041Z",
+    "chat_id": "0b17a15d-5e5d-40e3-96d8-962a4bbf2544",
+    "trigger_message_id": null,
+    "trigger_record_id": "daf70ba1-1d2e-4a6d-a731-dc4eacf85638",
+    "failure_message_id": "msg_011Cg5ojfuCtvHYJS8rswBnw",
+    "failure_record_id": "8c7d7060-08ba-4800-a47e-d7f14826ac0d",
+    "transcript": "0b17a15d-5e5d-40e3-96d8-962a4bbf2544.jsonl"
+  },
+  "observed_failure": {
+    "description": "Recall opens by narrating registration, position and the next files it will read.",
+    "events": [
+      {
+        "source": "source.json#/records/54",
+        "message_id": "msg_011Cg5ojfuCtvHYJS8rswBnw",
+        "record_id": "8c7d7060-08ba-4800-a47e-d7f14826ac0d",
+        "timestamp": "2026-10-16T11:05:21.041Z",
+        "text": "Доброе утро в рамках рекола: сессия зарегистрирована, позиции пока нет. Читаю wake и то, что касается Core and instance."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Use the person's method step and useful context in the opening; the user's later quoted correction supplies the shorter example.",
+    "source_evidence": [
+      "source.json#/records/38"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Use the person's method step and useful context in the opening; the user's later quoted correction supplies the shorter example.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "Recall opens by narrating registration, position and the next files it will read.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/54",
+      "after": "source.json#/records/49",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/28",
+      "source.json#/records/45",
+      "source.json#/records/46",
+      "source.json#/records/47",
+      "source.json#/records/48",
+      "source.json#/records/49"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/38"
+      ],
+      "native_context_records": [
+        "source.json#/records/37",
+        "source.json#/records/38"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/54"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ],
+    "source_metadata_records": [
+      "source.json#/records/30"
+    ]
+  },
+  "source_gaps": []
+}

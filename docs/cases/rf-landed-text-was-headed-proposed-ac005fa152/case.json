@@ -1,0 +1,132 @@
+{
+  "id": "rf-landed-text-was-headed-proposed-ac005fa152",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "38. Landed text was headed Proposed under a Landed heading — 2026-10-11",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "mixed-header-parallel-699"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/699",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/699/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-10T21:58:06.298Z",
+    "chat_id": "50d88569-12cf-400d-9992-9e97262f34fc",
+    "trigger_message_id": null,
+    "trigger_record_id": "452c7f22-98fd-49be-a24c-d9f31147b9c5",
+    "failure_message_id": "msg_011CfuJfQjNUEY2vqWpwH6hB",
+    "failure_record_id": "1a14eabe-7af4-4a3e-875a-3383a8af1c1e",
+    "transcript": "50d88569-12cf-400d-9992-9e97262f34fc.jsonl"
+  },
+  "observed_failure": {
+    "description": "The reporting reply shows written text under a Proposed header with a Landed suffix, or under a separate Landed heading. Each separately prompted original reply is an occurrence.",
+    "events": [
+      {
+        "source": "source.json#/records/699",
+        "message_id": "msg_011CfuJfQjNUEY2vqWpwH6hB",
+        "record_id": "1a14eabe-7af4-4a3e-875a-3383a8af1c1e",
+        "timestamp": "2026-10-10T21:58:06.298Z",
+        "text": "| 📍 **q-0027** · How does each turn know its next step, and each session where to resume? |\n|---|\n| ✅ **q-0027.0004** · How does a reply show which steps of the delivery ring its turn completed? (decided: a 🔁 row in the head table — the ticket with its slug and each step the turn completed, the delivery ring alone) |\n\nГотово, контракт теперь v60. Правило лежит в `AGENTS.md`, рядом с правилами о выводе:\n\n> 🧩 **Proposed rule — AGENTS.md, the reply's head table** · Landed\n> A turn that completes a step of the delivery ring adds a row to the head table:\n> `| 🔁 <the ticket, linked with its slug> · ✅ <each step this turn completed> |`.\n\nНапример, ход, который закончил `/implement`, добавил бы такую строку:\n\n| 🔁 [01-0011.0100.0060 a-silent-session-ends-at-the-next-wake](docs/tickets/01-0011.0100.0060-a-silent-session-ends-at-the-next-wake.md) · ✅ /implement |\n|---|\n\nПравило обёрнуто как straw dog и привязано к q-0027: когда у пейсера появится свой механизм, оно переедет в его файл правил.\n\nПроверки: первый прогон тестов упал на двух тестах-сторожах. Они ловят запись в живое хранилище вопросов, а параллельно работали ещё три сессии. Повторный прогон прошёл целиком, все пять `--check` чистые. Коммит `8f0ea4b`, отправлен в origin вместе с пятью коммитами других сессий: теперь `push=auto`."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "The user rejects simultaneous Proposed and Landed status; after writing, replace Proposed in that block header with Landed.",
+    "source_evidence": [
+      "source.json#/records/1333",
+      "source.json#/records/1372",
+      "source.json#/records/631"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: The user rejects simultaneous Proposed and Landed status; after writing, replace Proposed in that block header with Landed.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1333",
+      "source.json#/records/1372"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The reporting reply shows written text under a Proposed header with a Landed suffix, or under a separate Landed heading. Each separately prompted original reply is an occurrence.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/699",
+      "after": "source.json#/records/696",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/654",
+      "source.json#/records/660",
+      "source.json#/records/661",
+      "source.json#/records/664",
+      "source.json#/records/665",
+      "source.json#/records/666",
+      "source.json#/records/667",
+      "source.json#/records/670",
+      "source.json#/records/671",
+      "source.json#/records/672",
+      "source.json#/records/673",
+      "source.json#/records/674",
+      "source.json#/records/675",
+      "source.json#/records/679",
+      "source.json#/records/680",
+      "source.json#/records/683",
+      "source.json#/records/684",
+      "source.json#/records/689",
+      "source.json#/records/690",
+      "source.json#/records/691",
+      "source.json#/records/695",
+      "source.json#/records/696"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/631"
+      ],
+      "native_context_records": [
+        "source.json#/records/631",
+        "source.json#/records/658"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/699"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

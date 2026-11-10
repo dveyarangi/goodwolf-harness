@@ -1,0 +1,165 @@
+{
+  "id": "rf-replies-left-the-person-s-langua-4c3a54976b",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "73. Replies left the person's language mid-align, twice — 2026-10-25",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "second independently prompted English alignment reply"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/449",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.308"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/449/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-24T23:47:36.995Z",
+    "chat_id": "f18287f4-4a39-41ef-b518-8c1c4896caba",
+    "trigger_message_id": null,
+    "trigger_record_id": "a8037db6-1a37-4489-82fb-1ec2a3fcb7ce",
+    "failure_message_id": "msg_011CgMxL3XQM1yhS4XctgMDf",
+    "failure_record_id": "c306e8a8-4060-4d78-889c-006f7bdcd0a7",
+    "transcript": "f18287f4-4a39-41ef-b518-8c1c4896caba.jsonl"
+  },
+  "observed_failure": {
+    "description": "After a Russian clarification about both README halves, the next alignment reply again switches to English.",
+    "events": [
+      {
+        "source": "source.json#/records/449",
+        "message_id": "msg_011CgMxL3XQM1yhS4XctgMDf",
+        "record_id": "c306e8a8-4060-4d78-889c-006f7bdcd0a7",
+        "timestamp": "2026-10-24T23:47:36.995Z",
+        "text": "| 🪢 [q-0037.0018.0005](docs/questions/q-0037.0018.0005-is-a-projects-root-readme-generated-from-its-product-document-and-edge-records-or-written-by-hand-and-checked-against-them.md) · [q-0037.0006.0020.0001.0004](docs/questions/q-0037.0006.0020.0001.0004-how-does-the-install-read-a-tree-with-a-method-and-report-what-goodwolf-would-change-there-before-anything-is-written.md) · [q-0037.0017.0006.0002](docs/questions/q-0037.0017.0006.0002-what-does-a-session-do-when-its-turn-would-act-on-a-unit-another-running-session-holds.md) · [q-0037.0009.0005](docs/questions/q-0037.0009.0005-what-does-commit-own.md) · [q-0037.0009.0021.0002](docs/questions/q-0037.0009.0021.0002-is-the-voice-a-reply-speaks-in-its-own-mechanism-owning-how-everything-the-person-hears-is-said-apart-from-the-voice-instructions-and-records-are-written-in.md) · [q-0037.0006.0005.0001](docs/questions/q-0037.0006.0005.0001-which-skill-must-be-read-before-a-file-is-edited-or-a-rule-proposed-and-how-does-the-host-refuse-the-act-made-without-it.md) · — |\n|---|\n| Another session is editing the README by hand under [q-0033.0008](docs/questions/q-0033.0008-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md). The marks this align introduces will go into the same file. |\n\n| 🪶 Commits |\n|---|\n| `6f63a64` ALIGN: q-0037.0018.0005 decision 3 — the README's check holds both ways |\n\n| 🎫 54 · ❓ 188 · 🐕 178 |\n|---|\n\n| 📍 **[q-0037.0018.0005](docs/questions/q-0037.0018.0005-is-a-projects-root-readme-generated-from-its-product-document-and-edge-records-or-written-by-hand-and-checked-against-them.md)** · Is a project's root README generated from its product document and edge records, or written by hand and checked against them? |\n|---|\n\n✏️ **Landed change — [q-0037.0018.0005](docs/questions/q-0037.0018.0005-is-a-projects-root-readme-generated-from-its-product-document-and-edge-records-or-written-by-hand-and-checked-against-them.md) · Decisions**\n> 3. **The check holds both ways** *(the user, 2026-10-25)*. Toward the page: a paragraph of the\n>    README that says what the project is for carries a hidden mark naming the answers it stands on;\n>    the check fails on a mark naming no answer of the product document, and on a paragraph without\n>    a mark in a part declared as told from the document — so a new claim enters the document first.\n>    Toward the document: the README comes due for a re-read when the product document or the edge\n>    records move, on the clock that already marks a mechanism's records due, as news and not as a\n>    failure; the re-read closes with a mark. Whether a paragraph says what its answer says is the\n>    re-reader's to judge, never a script's.\n\n## Fourth question: which parts are told from the document\n\nI went through the README section by section. Here is where each one's content comes from:\n\n| section | where it comes from |\n|---|---|\n| opening: the wolf, the badges, the proverb | the page's own framing |\n| What it gives you | answers |\n| How it meets your project | answers |\n| What it does about each | pains and answers |\n| A morning with it | the page's own; it introduces itself as \"An illustration: the project is made up\" |\n| Who it is for, and what it costs | the product document's *Who it is for* section |\n| It changes with your project | answers |\n| How it works | answers: the four kinds of record, the question tree |\n| Where it stands | answers and how far each is built: *Works today* is what is built, *Not yet* is what is not |\n| Use it | edge records. But no edge record yet describes how a project takes the harness: only hosts and settings |\n\n**The decisive fact.** Seven of the ten parts are told from the document. Only two are the page's own, and the eleventh section of a new rewrite will most likely be told from it too. So whichever side is the default decides where the errors fall:\n\n- **Told by default, own parts marked.** A new section without a mark is caught by the check. To take a section out of the document's reach, the writer has to say so explicitly.\n- **Own by default, told parts marked.** A new section that makes claims slips past the check silently, which is exactly today's failure: 10 README edits out of 12 went past the document.\n\n**My recommendation: told by default.** Two parts are marked as the page's own: the opening and *A morning with it*. *Use it* is marked as the page's own for the time being, until an edge record exists for how a project takes the harness. Once it exists, *Use it* is checked against it. That is the next question.\n\nThe *Where it stands* section has a bonus. A mark under *Works today* names answers whose build state the product document already counts. The check can catch an answer that is not built but is listed as working. I'll raise this separately if you want it.\n\n✋ Every part is told from the document by default, and the page's own parts are marked explicitly. (🐛 development=a feature)\n\n| ⚖️ Decisions |\n|---|\n| Told from the document by default, own parts marked; or own by default, told parts marked |\n| Where the six [01-0019](docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md) slices go in the queue |\n\n| 🍂 Drift |\n|---|\n| The product mechanism's README row still reads *not yet* while the README is edited by hand; it closes when this align concludes |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Answer the Russian clarification in Russian.",
+    "source_evidence": [
+      "source.json#/records/258",
+      "source.json#/records/451",
+      "source.json#/records/258"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Answer the Russian clarification in Russian.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/451",
+      "source.json#/records/452",
+      "source.json#/records/454"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "After a Russian clarification about both README halves, the next alignment reply again switches to English.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/449",
+      "after": "source.json#/records/448",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/407",
+      "source.json#/records/410",
+      "source.json#/records/411",
+      "source.json#/records/413",
+      "source.json#/records/414",
+      "source.json#/records/417",
+      "source.json#/records/418",
+      "source.json#/records/420",
+      "source.json#/records/421",
+      "source.json#/records/423",
+      "source.json#/records/424",
+      "source.json#/records/429",
+      "source.json#/records/430",
+      "source.json#/records/432",
+      "source.json#/records/433",
+      "source.json#/records/434",
+      "source.json#/records/436",
+      "source.json#/records/439",
+      "source.json#/records/440",
+      "source.json#/records/443",
+      "source.json#/records/444",
+      "source.json#/records/447",
+      "source.json#/records/448"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/258"
+      ],
+      "native_context_records": [
+        "source.json#/records/258",
+        "source.json#/records/408",
+        "source.json#/records/437"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/408",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\c59b3d61-5b8c-45ec-8cfc-9e3039c6ec2c\\tool-results\\hook-dd0d2712-10cf-4f82-85ab-8ea81d847241-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-dd0d2712-10cf-4f82-85ab-8ea81d847241-1-additionalContext.txt",
+          "sha256": "0a11b4390d19dfe2d69234eed3b4ae2bfd2c30e86c478e1847ac00953d8e8968",
+          "bytes": 51652,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1987,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-24T23:43:20.089538+00:00"
+        },
+        {
+          "referenced_by": "source.json#/records/437",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\c59b3d61-5b8c-45ec-8cfc-9e3039c6ec2c\\tool-results\\hook-4fb608db-d3f3-4590-9a1a-d005f5f437b6-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-4fb608db-d3f3-4590-9a1a-d005f5f437b6-1-additionalContext.txt",
+          "sha256": "df0248c5cce93741c1223894689ab2a3a3b9b45fdbfeabfd4fb0b0fe83290686",
+          "bytes": 51945,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1955,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-24T23:46:32.440416+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/449"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

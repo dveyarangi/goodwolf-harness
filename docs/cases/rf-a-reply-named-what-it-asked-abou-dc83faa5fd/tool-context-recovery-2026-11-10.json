@@ -1,0 +1,23 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-a-reply-named-what-it-asked-abou-dc83faa5fd",
+  "scope": "Exact public tool-ID counterpart recovery and native delivery classification, not all-context sufficiency or behavior judgment.",
+  "pre_checkpoint_counterparts_recovered": [
+    {
+      "call_id": "toolu_01CLKdPqMZE3ELFMu7E9rkcS",
+      "counterpart": "source.json#/records/1997",
+      "block_type": "tool_use",
+      "original_record_sha256": "2fca617bbf124c503bc054875f9f642ecbc6daf1c9383ac1f9612f4344af1437"
+    }
+  ],
+  "known_later_results_reference_only": [],
+  "incoming_native_host_deliveries": [],
+  "source_gap_count": 0,
+  "executor_support": {
+    "status": "unsupported",
+    "behavior_verdict": null
+  },
+  "no_call_ids_or_roles_invented": true,
+  "original_source_record_hashes_recorded": true
+}

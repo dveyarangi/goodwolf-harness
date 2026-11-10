@@ -1,0 +1,155 @@
+{
+  "id": "rf-a-reply-named-what-it-asked-abou-cc275c810d",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "17. A reply named what it asked about by bare ids — 2026-10-03",
+    "occurrence": "repeat",
+    "occurrence_heading": "**Struck, 2026-10-13, in records.** A scheduled `/maintain` found 24 bare ticket ids on lines",
+    "detail": "impact record has bare tickets"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1619",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.295"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/1619/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-12T23:57:15.989Z",
+    "chat_id": "90aa89a5-954c-43fb-b578-8f960006f9d7",
+    "trigger_message_id": null,
+    "trigger_record_id": "2b856204-b997-451c-b45d-911f33b78cb4",
+    "failure_message_id": "msg_011CfyFMPeniDf8J2rXabY7e",
+    "failure_record_id": "3cfdeab7-3bb5-4254-919b-9429994a004b",
+    "transcript": "90aa89a5-954c-43fb-b578-8f960006f9d7.jsonl"
+  },
+  "observed_failure": {
+    "description": "Original impact section appended to q-0035 names 01-0040 and slices as bare IDs.",
+    "events": [
+      {
+        "source": "source.json#/records/1619",
+        "message_id": "msg_011CfyFMPeniDf8J2rXabY7e",
+        "record_id": "3cfdeab7-3bb5-4254-919b-9429994a004b",
+        "timestamp": "2026-10-12T23:57:15.989Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\docs\\\\questions\\\\q-0035-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the-projects-work-in-agreement-both-ways.md\", \"old_string\": \"- None of these families offers evidence that a question tree outperforms other forms for steering AI agents — only principles with continued life: means-ends reasoning, bidirectional traceability, keeping rationale capture light, and closing the loop with evaluation.\", \"new_string\": \"- None of these families offers evidence that a question tree outperforms other forms for steering AI agents — only principles with continued life: means-ends reasoning, bidirectional traceability, keeping rationale capture light, and closing the loop with evaluation.\\n\\n## Impact of the split, 2026-10-13\\n\\nOf the draft split of the accepted spec, 01-0040: the end state, and `.0010` coverage read from\\nthe questions that realize an answer (the trace link, the document's format, the check rendering\\ncoverage, the mechanism declared with `/product`), `.0020` drift found, `.0030` allocation,\\n`.0040` this tree's account on the mechanism, `.0050` the queue shows what each item realizes,\\n`.0060` seeded roots from their mechanisms, `.0070` the README told from the document, `.0080` a\\nrelease note says which answers moved; and the re-cut of the release family.\\n\\n### Impact\\n- **Must change:** the question store — a new part on every entry, read by the parser, the writer,\\n  the store check and the window; the questions mechanism's doc and rules file (the part, the\\n  statement at opening, the seed); `/align`'s and the questions skill's installed blocks; a new\\n  mechanism declared (doc, rules file, `/product`, its script and tests), which the mechanism shape\\n  check and the install's part tables read; this tree's product document, numbered and rebound.\\n- **Must verify:** the store's 258 tests and the harness's 109 — the part is optional, so every\\n  store written before it must read unchanged; the install shipping the new script into a recipient\\n  with no product document, where the check must find nothing.\\n- **Re-cut:** 01-0010.0185 loses *the releases mechanism declared* — its occasion rule comes from\\n  the edge mechanism's rules file; 01-0010.0190's note takes its product half from the coverage\\n  that moved, composed by `/product`; 01-0010.0160's end state reads the same otherwise.\\n\\n### Hidden edges\\n- **Two front pages.** The harness mechanism ships *the front page* into every recipient beside\\n  the harness skill, while this tree's root README never ships. Decision 10 gives the product\\n  mechanism a project's root README; here that README is also the account core ships outward.\\n  `.0070` meets the harness mechanism's row, not only q-0035.0005.\\n- **The harness's doc names who words the roots** — its *Relies on* row says the questions\\n  mechanism *owns the store and words its roots*. `.0060` changes that row.\\n- **No edge line is written for the store's new part.** The occasion rule is 01-0010.0185's, not\\n  built; the part ships to every recipient as `.0145`'s script move did, unannounced. Compatible\\n  because optional — say so in `.0010`, and let 01-0010.0185 replay it.\\n- **The window draws parts.** If it draws the new one, every session pays for it every message.\\n- **frost_map's 27 structure questions** become orphans the day a product document appears there.\\n  That is the finding working, not noise, but its first run will be loud.\\n\\n### Leave alone\\n- The ticket record and `tickets.py`: a ticket reaches the product through its question.\\n- The reply form, q-0030's session's ground.\\n- 01-0018.0010 and the high-frequency regime, out of the order by the user's word.\\n- Publishing a release and the recipient's read before taking it (01-0010.0190's publish, .0195).\\n\\n### Recommendation\\n**Narrow.** `.0080` builds the coverage that moved since a release before any release exists: its\\nonly reader is 01-0010.0190's note, still Planned. Fold it into the re-cut 01-0010.0190, where the\\nreader is built. `.0060` generalises seeding with one concrete shape, the product mechanism's root;\\nit is small, so keep it, late. The rest proceeds.\\n\\n**Second pass, on the narrowed split** (`.0080` folded into 01-0010.0190): proceed — every slice's\\noutput has a reader inside the split or in 01-0010.0190, and the hidden edges above stand.\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Link ticket references in authored impact prose.",
+    "source_evidence": [
+      "source.json#/records/19",
+      "source.json#/records/19"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Link ticket references in authored impact prose.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1620",
+      "source.json#/records/1625",
+      "source.json#/records/1626",
+      "source.json#/records/1630",
+      "source.json#/records/1634"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "Original impact section appended to q-0035 names 01-0040 and slices as bare IDs.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1619",
+      "after": "source.json#/records/1616",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/1508",
+      "source.json#/records/1513",
+      "source.json#/records/1514",
+      "source.json#/records/1515",
+      "source.json#/records/1520",
+      "source.json#/records/1521",
+      "source.json#/records/1525",
+      "source.json#/records/1526",
+      "source.json#/records/1532",
+      "source.json#/records/1533",
+      "source.json#/records/1538",
+      "source.json#/records/1539",
+      "source.json#/records/1540",
+      "source.json#/records/1541",
+      "source.json#/records/1542",
+      "source.json#/records/1547",
+      "source.json#/records/1548",
+      "source.json#/records/1552",
+      "source.json#/records/1556",
+      "source.json#/records/1565",
+      "source.json#/records/1566",
+      "source.json#/records/1567",
+      "source.json#/records/1568",
+      "source.json#/records/1569",
+      "source.json#/records/1570",
+      "source.json#/records/1571",
+      "source.json#/records/1572",
+      "source.json#/records/1577",
+      "source.json#/records/1582",
+      "source.json#/records/1585",
+      "source.json#/records/1586",
+      "source.json#/records/1594",
+      "source.json#/records/1595",
+      "source.json#/records/1596",
+      "source.json#/records/1597",
+      "source.json#/records/1601",
+      "source.json#/records/1602",
+      "source.json#/records/1609",
+      "source.json#/records/1610",
+      "source.json#/records/1614",
+      "source.json#/records/1615",
+      "source.json#/records/1616"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/19"
+      ],
+      "native_context_records": [
+        "source.json#/records/19",
+        "source.json#/records/1510",
+        "source.json#/records/1558"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1619"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

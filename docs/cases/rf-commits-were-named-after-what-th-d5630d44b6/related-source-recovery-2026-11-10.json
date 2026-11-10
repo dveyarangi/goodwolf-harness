@@ -1,0 +1,26 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-commits-were-named-after-what-th-d5630d44b6",
+  "scope": "Expansion of already-selected related-source public payloads; no new unselected records or inferred actor roles.",
+  "sources": [
+    {
+      "related_source": "cbbe52bfa1",
+      "transcript": "edfa0ba2-56f0-4532-ab16-5c7e67f86b0e.jsonl",
+      "records_checked": 1
+    }
+  ],
+  "selected_records_checked": 1,
+  "records_expanded": [
+    {
+      "related_source": "cbbe52bfa1",
+      "record": 239
+    }
+  ],
+  "structured_private_blocks_omitted": 0,
+  "unsupported_public_fields_or_records": [],
+  "source_paths_unavailable": [],
+  "original_record_hashes_verified": true,
+  "unselected_records_decoded": 0,
+  "replay_and_api_input_unchanged": true
+}

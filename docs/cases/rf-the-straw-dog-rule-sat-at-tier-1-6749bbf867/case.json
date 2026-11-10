@@ -1,0 +1,119 @@
+{
+  "id": "rf-the-straw-dog-rule-sat-at-tier-1-6749bbf867",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "3. The straw-dog rule sat at tier 1 and three straw dogs went unwrapped — 2026-09-14",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "README has two provisional passages in one write"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/998",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.260"
+    },
+    "model": "claude-opus-5",
+    "model_source": "source.json#/records/998/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-09-07T18:24:47.854Z",
+    "chat_id": "6edc8a68-5643-4ab9-a6e0-e4fac184ecab",
+    "trigger_message_id": null,
+    "trigger_record_id": "510fe604-957e-4b70-a866-30ffbc791dcf",
+    "failure_message_id": "msg_011CepYhCqwqyuL15cv9y3Lp",
+    "failure_record_id": "9b06a5c4-4ace-4066-a999-8ccd3508aea2",
+    "transcript": "6edc8a68-5643-4ab9-a6e0-e4fac184ecab.jsonl"
+  },
+  "observed_failure": {
+    "description": "One original Claude write contains after-clone once-it-exists and links-is-untested passages.",
+    "events": [
+      {
+        "source": "source.json#/records/998",
+        "message_id": "msg_011CepYhCqwqyuL15cv9y3Lp",
+        "record_id": "9b06a5c4-4ace-4066-a999-8ccd3508aea2",
+        "timestamp": "2026-09-07T18:24:47.854Z",
+        "text": "Write {\"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\README.md\", \"content\": \"# Installed harness\\n\\n**The real skill files live in [`skills/`](./skills/).** Loaders are directory links to that folder:\\n\\n- Codex — reads `.agents/skills` natively; no link needed.\\n- Claude Code — `.claude/skills` → `../.agents/skills`\\n- Cursor — `.cursor/skills` → `../.agents/skills`\\n\\nThe links are tracked as symlinks (mode 120000). Git for Windows writes `core.symlinks=false` on\\nclone, so they check out as text files. After clone:\\n\\n```\\ngit config --local core.symlinks true\\ngit checkout -- .claude/skills .cursor/skills\\n```\\n\\nWindows needs Developer Mode (Settings → System → For developers) or an elevated prompt to create\\na directory symlink. If checkout still yields a file, delete it and run\\n`mklink /D .claude\\\\skills ..\\\\.agents\\\\skills` (likewise for `.cursor\\\\skills`). Creating these links\\nis part of the installer's job once it exists; a junction is not an acceptable substitute, git\\nwould track it as a directory.\\n\\nWhich links are actually required is untested. Codex needs none; Cursor documents reading\\n`.agents/skills` directly; Claude Code may too.\\n\\n## Mechanical support\\n\\n[`scripts/`](./scripts/) holds what the harness derives and repairs mechanically: `move_doc.py`\\ncloses a ticket and its RFC together and repairs the citations that pointed at them,\\n`temporary_statements.py` reads and retires expiring statements, `mechanisms.py` says whether a\\nmechanism's declaration is true and renders the register from\\n[`mechanisms/`](./mechanisms/), and `docs_corpus.py` is the one view of the tree they share. They\\nrun on the standard library alone, and their behavioral tests are in [`tests/`](../tests/).\\n\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Establish the contemporaneous wrapping instruction before grading this write.",
+    "source_evidence": []
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Establish the contemporaneous wrapping instruction before grading this write.",
+        "expected_for_recorded_failure": null
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment.",
+    "status": "blocked by missing contemporaneous duty/exposure evidence"
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/999",
+      "source.json#/records/1001",
+      "source.json#/records/1002",
+      "source.json#/records/1004",
+      "source.json#/records/1005"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "classification": {
+    "kind": "recovered historical write; duty exposure unresolved",
+    "limit": "The selected write is dated 2026-09-07T18:24:47Z, before the register names the wrapping duty on September 8. Source evidence does not establish that this duty governed this write."
+  },
+  "description": "One original Claude write contains after-clone once-it-exists and links-is-untested passages.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/998",
+      "after": "source.json#/records/995",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/980",
+      "source.json#/records/984",
+      "source.json#/records/985",
+      "source.json#/records/989",
+      "source.json#/records/990",
+      "source.json#/records/991",
+      "source.json#/records/994",
+      "source.json#/records/995"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": []
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/998"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Instruction evidence, host metadata and reference-only records do not become additional actor messages.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role."
+    ]
+  },
+  "source_gaps": [
+    {
+      "kind": "existing check evidence block",
+      "detail": "blocked by missing contemporaneous duty/exposure evidence"
+    }
+  ]
+}

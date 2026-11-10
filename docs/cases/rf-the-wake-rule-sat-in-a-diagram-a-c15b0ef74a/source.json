@@ -1,0 +1,1003 @@
+{
+  "transcript": "5c608335-777b-4b0e-aeb9-5d686a074db6.jsonl",
+  "chat_id": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+  "transcript_bytes": 1610531,
+  "transcript_sha256": "7bc16078683354f1862bd92d1f3981ff8d817e2ef12fda21119d8a4d7bee1aa7",
+  "record_numbering": "one-based JSONL records in the original transcript",
+  "delivery_context": null,
+  "records": {
+    "16": {
+      "timestamp": "2026-09-14T21:51:17.205Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "3d22fe91-52d2-467c-a1f7-2c05cff6d321",
+        "parentUuid": "e7ec58bc-1541-4079-bf0f-b7256ff92b35",
+        "timestamp": "2026-09-14T21:51:17.205Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.270",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "instructions",
+          "files": [
+            {
+              "path": "D:\\Dev\\AI\\agents\\CLAUDE.md",
+              "type": "Project",
+              "content": "@AGENTS.md"
+            },
+            {
+              "path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+              "type": "Project",
+              "content": "# Entry contract\n\nEntry contract: v8, 2026-09-09.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<project-local>\nThis repository develops the shared dev harness using its own loop. Terms: docs/glossary.md, this\nproject's own; the method's are .agents/glossary.md's.\nWhat each version of this contract changed: docs/research/entry-contract-findings.md.\n</project-local>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\n<project-local>\nThis repository's own architecture and progress live in docs/ like any other project's — the\ninstance half doing its job, not a leak.\n</project-local>\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. Naming a path\nconvention the harness imposes — `docs/tickets/`, `docs/glossary.md` — is not a reference to a\nfile; pointing at a document only this project has is. Two blocks are exempt: a `<straw-dog>`,\nbound to a ticket and expiring, and a [`<project-local>`](#project-local).\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog until=\"01-0012 is done\" ticket=\"docs/tickets/01-0012-hierarchy-coherent.md\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n- /dream is an experimental second \"lobe\" of the harness, aiming to reassess load-bearingness. It is optional, runs after /conclude, and writes dreams that /maintain and /align may pick up; it never amends rules.\n\n## Self-improvement\n\n<straw-dog until=\"01-0019 is done\" ticket=\"docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md\">\n- The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)\n- Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.\n</straw-dog>\n\n## Autonomy\n\nThe project sets each switch in its local block below; skills defer to those values.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n## Project-local\n\nA recipient replaces every `<project-local>` block with its own → [glossary](.agents/glossary.md).\n\n- Carry one only for a fact that would differ in another project. Harness layout and the switch\n  lookup are shared.\n- One block per local fact, beside the rule it answers.\n- An unavoidable core reference into `docs/` goes in one, so it does not travel.\n\n## Straw dogs\n\nWrap anything a live ticket will change, as you write it:\n`<straw-dog until=\"condition\" ticket=\"path\">`, or in code a `TODO` naming the ticket. Treat *not\nyet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find\nthe ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.\nMake the condition testable and the ticket path repository-relative. Leave what no ticket would\nchange unwrapped.\n\nFollow a straw dog like any other rule until its condition is visibly met; then act on reality,\nreport the stale block, and do not treat the contradiction as a violation.\n\n<project-local>\ncommit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n</project-local>"
+            },
+            {
+              "path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\memory\\MEMORY.md",
+              "type": "AutoMem",
+              "content": "# Memory\n\n- [Edit with edit tools, not scripts](edit-with-edit-tools-not-scripts.md) — a script's diff is invisible in the transcript; the user reads changes as they happen.\n- [Write for a capable model](write-for-a-capable-model.md) — I pad rules with the definition, the example and the implication; all three get cut.\n- [Problem before machinery](problem-before-machinery.md) — open an align with the concrete failures and the user's own prior words; a coined term or a design question first loses them."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "4741bfa47acad19e4056ec1073e5375fcaa585f5196a382a88e32f7aad2a02e7",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "106": {
+      "timestamp": "2026-09-20T03:32:52.517Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "d85aa80d-e94c-40c3-a91a-04a492ec7655",
+        "parentUuid": "56f440d0-acff-4af4-b042-cf4ab90417b1",
+        "timestamp": "2026-09-20T03:32:52.517Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Base directory for this skill: D:\\Dev\\AI\\agents\\.claude\\skills\\mechanism\n\n# Build and amend mechanisms\n\nThe only home of the shape. A rule carrying a name and date is that person's to amend.\n\n## Is it a mechanism\n\nA mechanism is part of **how the work gets done** — the development method and its\nmachinery. What the project produces is not one, however much depends on it.\n\nTest: does other work rely on this as a source of instruction or behavior *about how\nto work*? Then it is a mechanism and owes a declaration.\n\n- A system, never a file. One spans skills, scripts, records, and rules injected into\n  skills it did not write.\n- **One mechanism, one instruction file — a skill** *(the user, 2026-09-06)*. Rules it\n  needs elsewhere are installed as text from its rules file, never second instruction\n  files, and no body restates one *(the user, 2026-09-07)*.\n- Writing an entry into a record is not mechanism work. It belongs to the skill that\n  owns the entry.\n\nA skill belonging to no mechanism goes in the allowlist, with its reason.\n\n## Three homes, and the chain\n\n| home | holds | reaches a session |\n|---|---|---|\n| `AGENTS.md` | meta-rules and general rules | at start, every session |\n| `.agents/skills/<name>/` | the act, and every rule read *in the work it governs* | when the skill is invoked |\n| `.agents/mechanisms/<slug>/` | why the instruction is what it is: parts, moments, and the mechanism's rules in their single home | when installing, amending or debugging |\n\nThe cut is **when is this read**. There is no fourth home.\n\n> The doc is the instruction's *why*. The evidence is the doc's *why*.\n> *(the user, 2026-09-06)*\n\n- Doc and instruction file are never the same file.\n- One evidence per mechanism, belonging to its doc. It lives **outside `.agents/`**, in\n  the project's own document tree, filename carrying the slug *(the user,\n  2026-09-06)* — it cites records that cannot travel — and the doc names its path from\n  inside a `<project-local>` block.\n- A skill's `EVIDENCE.md` predating its declaration is an unsorted mixture: doc\n  material to the doc, the doc's own why to the evidence.\n\nWorking parts stay where the harness needs them — skills, scripts, tests. Directory,\ndoc sections and what a script parses are\n[MECHANISM-FORMAT.md](./MECHANISM-FORMAT.md)'s; restate none of it here.\n\n## Moments\n\nA moment is an occasion at which a person acts on the mechanism. Every one carries an\ninstruction or a stated kind of absence, and either way a clause saying why.\n\n| kind | means | carries |\n|---|---|---|\n| `elsewhere` | instructed, by another mechanism | the instruction file that does it |\n| `embedded` | instructed, from the wrong home | where the instruction sits |\n| `unowned by design` | no rule warranted | its reason, nothing else |\n| `not yet` | a genuine gap | a ticket that exists |\n\nThere is no *none needed*: if nobody acts, it is not a moment. A `not yet` never names\nthe mechanism's own migration ticket. The verdict is per moment, never per mechanism.\n\n## Rules, injection and retraction\n\nA rule lives in one file — `<slug>.rules.md`, in the mechanism's own directory. Nothing\nreads it at session time: a generic core installer, never a per-mechanism one, writes\nits rules into the targets as delimited and visibly owned blocks, and that is the only\nform in which they reach anyone. A copy in a target is **installed, never authored**.\n\n- Removable as written: retraction leaves the target byte-identical.\n- **No default mode.** A bare invocation refuses.\n- **Refuse rather than guess** — missing target, missing anchor, block present and differing.\n  A hand-edited block is drift to report, not a second opinion.\n- A rules file's block is installed in every target it names, or the check fails.\n\nThe installer is `inject_rules.py`: `<slug> --install`, with `--overwrite` when the source has\nmoved; `<slug> --retract`; `--check` over the tree, in the verification set. Grammar and block\nform: [MECHANISM-FORMAT.md](./MECHANISM-FORMAT.md#the-rules-file).\n\nA mechanism that injects nothing has no rules file.\n\n**A sentence about another mechanism is that mechanism's** *(the user, 2026-09-07)*. What\nshapes how mechanisms are built around it — what `/maintain` must be handed at inception, for\none — is a rule in its rules file, installed here, never authored here. Its core function\nreaches a session through its own description, strengthened at tier 1 where warranted; a\nprinciple that resonates through the whole harness may land in `AGENTS.md` — that mechanism's\ndecision, rare, and investigated first.\n\n## Mechanical by construction\n\nA mechanism is designed from inception for mechanical derivation, checking and repair: its\nidentity, governing sources, dependencies and record contracts are explicit enough for a script\nto enumerate what a change affects. Anything that can be maintained mechanically is; a missing\nscript is written as part of the repair; archived records are not exempt *(the user,\n2026-09-05)*.\n\n## What it produces\n\n**Everything a mechanism produces is read by someone, or the doc says why nobody does**\n*(the user, 2026-09-07)*. Name each artifact and its reader: a person at a stated moment, another\nmechanism, a script, a check. An output with no reader is either dead weight or a missing reader,\nand which of the two it is only becomes answerable once it is written down.\n\nThis covers what the mechanism emits as well as what it ships — a report nobody opens, a record\nnothing indexes, a file dropped where nothing looks.\n\n## Records\n\n<installed by=\"mechanism-shape\">\n**R1** Check a record-bearing mechanism's records with its maintainer script — format never\ncontent, live rows only. Where the script is missing, write it: that is the maintenance.\n\n**R4** Render an index on request; never commit one beside its records.\n</installed>\n\nA mechanism with records declares what a record is — its fields, what a row means, its\ntier, what removes a finished entry — inside the record's own file *(the user, 2026-09-07)*.\n\n## Incept\n\n<installed by=\"maintain\">\n**M1** Name what `/maintain` must do for this mechanism — a maintainer script to run, records to\nre-check when its surfaces move — as rules in its rules file targeting `/maintain`. Nothing is\nwritten into `/maintain` by hand.\n</installed>\n\n1. **`/align` first**, on what the mechanism is in plain terms: its moments, its\n   authority, its record shape, its index, the tier of each part, what retires it.\n2. Write the doc to [MECHANISM-FORMAT.md](./MECHANISM-FORMAT.md), naming the parts it\n   owns and the parts it relies on with their owners; and its rules file, installed before\n   the doc is checked.\n3. **Write the check before the thing it checks**, watching every diagnostic fail in\n   both polarities.\n4. **Run it over what already exists** and record the count of prior violations — or\n   state that there was no prior corpus, rather than a manufactured zero.\n5. Name what retires it.\n6. **Name what would show it working, graded by someone who did not build it.**\n   Pre-register it so a later session can answer without asking what was meant.\n\nAbsence is not clearance: a clean run means nothing was caught, never that the tree\nobeys.\n\n## Amend and retire\n\nEditing a skill that is an instruction file is amending its mechanism — run the steps\nstill live, aligning again when the shape itself moves. Amend a rule in its rules file, then\ninstall it with overwrite; the block in a target is never the place. A mechanism is re-checked\nwhen what governs it has moved; which skill does that is its doc's row, not this body's\nsentence.\n\nRetiring runs `--retract` first, then removes the mechanism's parts and its directory, its\nown trigger among them. An always-on mechanism cannot be retired.\n\n## Siblings\n\n- [`/skill-up`](../skill-up/SKILL.md) writes a skill's text; this governs the system it\n  belongs to. Both apply when a skill is an instruction file.\n- [`/impact`](../impact/SKILL.md) traces a change's consequences; this asks whether a\n  mechanism is sound at both ends.\n- [`/maintain`](../maintain/SKILL.md) applies the shape's rules and owns none of them; what it\n  asks of an inceptor is its own rule, installed above.\n- [`/align`](../align/SKILL.md) is called by incept, before anything is built.\n\n\nARGUMENTS: amend AGENTS.md Tier 1 with the pacer's wake rule: run /recall on a session's first message unless it names a step; register tonight's miss in docs/rule-failures.md"
+            }
+          ]
+        },
+        "promptId": "d797d1a0-79fc-44e6-bb32-242533114dc4"
+      },
+      "original_record_sha256": "6690379f0dbab6d8eac23df84ceb4c64670c958674cbc5d1ac3ac12f843f341a",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "111": {
+      "timestamp": "2026-09-20T03:32:59.278Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "bcbe365f-6bc1-4639-8439-5dbd80181a60",
+        "parentUuid": "0b5567ec-1742-4bce-a6c6-8be29da50e92",
+        "timestamp": "2026-09-20T03:32:59.278Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfDzDaFtzFFT7NCMURXQC",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01KmtKoPmN7sTMjYTXL5vANv",
+              "name": "Skill",
+              "input": {
+                "skill": "align",
+                "args": "01-0020 pacer: land the wake rule at Tier 1 — run /recall on a session's first message unless it names a step — and register the 2026-09-15 miss as rule failure 4"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "715bfb7156ade2044b1d6adefbe0b3d723ee6139407f618eb244e5fb53e2fa57",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "112": {
+      "timestamp": "2026-09-20T03:32:59.306Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "3c35a23c-3029-4af2-89a6-b5deec731812",
+        "parentUuid": "bcbe365f-6bc1-4639-8439-5dbd80181a60",
+        "timestamp": "2026-09-20T03:32:59.306Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01KmtKoPmN7sTMjYTXL5vANv",
+              "content": "Launching skill: align"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "success": true,
+          "commandName": "align"
+        },
+        "sourceToolAssistantUUID": "bcbe365f-6bc1-4639-8439-5dbd80181a60",
+        "promptId": "d797d1a0-79fc-44e6-bb32-242533114dc4"
+      },
+      "original_record_sha256": "da47251dbde501e7f77a50fd0fae5b5189dcbdb166c8bd72ead1d48dee211eb1",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "113": {
+      "timestamp": "2026-09-20T03:32:59.297Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "12270210-1684-47d4-8d1a-7cb264632c7f",
+        "parentUuid": "3c35a23c-3029-4af2-89a6-b5deec731812",
+        "timestamp": "2026-09-20T03:32:59.297Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Base directory for this skill: D:\\Dev\\AI\\agents\\.claude\\skills\\align\n\n<what-to-do>\r\n\r\nBegin every alignment with a **necessity gate**: name the present customer, the observable problem, and why existing behaviour cannot satisfy it. An accepted requirement or ADR passes by citation. Weak evidence means narrow, postpone, or eliminate — settle that before exploring design. The gate fires late too: a mechanism whose name will not settle is evidence it should not exist. [/impact](../impact/SKILL.md) traces consequences once the need holds.\r\n\r\nInterview me relentlessly about every aspect of current work until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer. If there are alternatives, show pros/cons/tradeoffs between them.\r\n\r\nAsk the questions one at a time, waiting for feedback on each question before continuing. Asking multiple questions at once is bewildering. Do not use platform (Cursor/Claude Code) question format, output plain md.\r\n\r\nIf a *fact* can be found by exploring the doc corpus or codebase, look it up rather than asking me. The *decisions*, though, are mine - put each one to me and wait for my answer.\r\n\r\nDecomposing the work during an align is [/ticket](../ticket/SKILL.md)'s, and it calls\r\n[/impact](../impact/SKILL.md) on the draft split. Run that chain and present what it returns as a\r\nsuggestion; do not mint. A breakdown reached by unaided grouping is not that chain's output,\r\nhowever ticket-shaped it looks.\r\n\r\nDo not enact the plan before I confirm we have reached a shared understanding.\r\n\r\n\r\n</what-to-do>\r\n\r\n<supporting-info>\r\n\r\n## Good architecture\r\n\r\nGoal of architecture is to reduce work on creation and maintenance of the system.\r\n\r\nIdentify the load-bearing assumption behind the proposed shape; ask yourself - what is the cheapest real example that could prove this design assumption wrong? \r\n\r\nCheck it when practical, preferably against external reality rather than our own docs/tests.\r\n\r\nIf falsified, realign.\r\nIf unverified and load-bearing, preserve the uncertainty explicitly.\r\n\r\n## Domain awareness\r\n\r\nDuring codebase exploration, also look for existing documentation:\r\n\r\n### File structure\r\n\r\nMost repos have a single context:\r\n\r\n```\r\n/\r\n├── docs/\r\n│   ├── adr/\r\n│   │   ├── 0001-event-sourced-orders.md\r\n│   │   └── 0002-postgres-for-write-model.md\r\n│   ├── architecture.md\r\n│   └── glossary.md\r\n└── src/\r\n```\r\n\r\nCreate files lazily — only when you have something to write. If no `docs/glossary.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.\r\n\r\n## During the session\r\n\r\n### Challenge against the glossary\r\n\r\nWhen the user uses a term that conflicts with the existing language in `docs/glossary.md`, call it out immediately. \"Your glossary defines 'cancellation' as X, but you seem to mean Y — which is it?\"\r\n\r\nThis cuts both ways: before *you* propose a name, check the glossary yourself — including its _Avoid_ lists, which are reservations, not suggestions. If every synonym for a concept is avoided, that is a designed constraint telling you which word the project has chosen; work within it rather than proposing around it.\r\n\r\n### Challenge against the Edge records\r\n\r\nWhen the plan touches a product edge, check that surface's Edge record\r\n(`docs/edge/<surface>.md`) — the seam document aggregating the edge's contract, invariants,\r\nconcerns, and staged roadmap. A contradiction with its Contract or Invariants is either a plan\r\nbug or a deliberate contract change — and a contract change must be named **breaking or\r\ncompatible** out loud before proceeding. Update the record inline as decisions land, using the\r\nformat in [EDGE-FORMAT.md](./EDGE-FORMAT.md): contract changes in `Contract`/`Invariants` (a\r\npromise without a validating test is marked **⚠ unguarded**), newly surfaced edge-scoped\r\nconcerns as pointers in `Concerns`, staging shifts in `Roadmap`.\r\n\r\n### Check whether it was already decided\r\n\r\nBefore treating a question as open, search the ADRs and architecture docs for it. A surprising amount of \"open\" questions are accepted decisions the code drifted from — the answer then is \"implement the ADR\", not a fresh trade-off analysis. Cite the deciding document when you find one.\r\n\r\n### Lead with the decisive fact\r\n\r\nWhen recommending between alternatives, find the fact that settles it — a reader count, an import direction, an existing invariant, what a test actually asserts — and lead with it. A pros/cons menu with no decisive fact means you haven't explored enough yet; go look before asking.\r\n\r\n### Name the shared assumption\r\n\r\nWhen posing an A-or-B fork, state the assumption both branches share. The user's best answer may dissolve the fork rather than pick a branch — treat \"the premise is wrong\" as a first-class outcome, not a detour. If a fork keeps resisting resolution, that is usually the sign.\r\n\r\n### Sharpen fuzzy language\r\n\r\nWhen the user uses vague or overloaded terms, propose a precise canonical term. \"You're saying 'account' — do you mean the Customer or the User? Those are different things.\"\r\n\r\n### Discuss concrete scenarios\r\n\r\nWhen domain relationships are being discussed, stress-test them with specific scenarios. Invent scenarios that probe edge cases and force the user to be precise about the boundaries between concepts.\r\n\r\n### Cross-reference with code\r\n\r\nWhen the user states how something works, check whether the code agrees. If you find a contradiction, surface it: \"Your code cancels entire Orders, but you just said partial cancellation is possible — which is right?\"\r\n\r\n### Update glossary.md inline\r\n\r\nWhen a term is resolved, update `docs/glossary.md` right there. Don't batch these up — capture them as they happen. Use the format in [GLOSSARY-FORMAT.md](./GLOSSARY-FORMAT.md).\r\n\r\n`docs/glossary.md` should be totally devoid of implementation details. Do not treat it as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.\r\n\r\n### Update architecture.md inline\r\n\r\nWhen high-level architecture of this project changes, update `architecture.md`. Use format in [ARCH-FORMAT.md](./ARCH-FORMAT.md).\r\n\r\n`architecture.md` document captures the **high-level architecture**. Lower-level concerns are intentionally **deferred** and listed at the end.\r\n> Scope note: everything here is at the architecture/contract level. Where a concrete shape would prematurely lock a deferred decision, we define only the *seam*.\r\n> You should guide the user toward deep modules with simple boundaries.\r\n\r\n\r\n### Extract open questions and risks\r\n\r\nOpen questions and risks live in `docs/concerns.md`, this skill's artifact:\r\n\r\n- Ordered by priority, highest first — how much it blocks the current build, and how hard it is to absorb later.\r\n- Entry is `## N. Title`, then `**Kind:** {sort of pressure, and whether a driver exists} · **Refs:** {ADRs, architecture sections, sibling concerns}`, then the pressure.\r\n- Numbers are stable IDs, not ranks. A settled concern moves out to its owning ADR or architecture section, leaving a gap. Never renumber, never resolve in place.\r\n- A concern queued as work keeps only its architectural contact surface plus `→ queued as <ticket-slug>`; the deliberation moves into the ticket.\r\n- The file holds unresolved pressure — not delivery sequencing, not decisions.\r\n\r\n### Record resolutions in the owning ticket inline\r\n\n<installed by=\"ticket\">\n**P7** Land a resolved decision in its durable home with its provenance, and rewrite the ticket in\nplace to what is now true; list under `Open issues` only what stays unresolved.\n</installed>\n\r\nWhen the plan under review is a ticket, record each resolution the moment it lands, as the block below says; sweep the ticket for internal consistency at the end, since an early section may still assert what a later resolution changed.\r\n\r\n### Offer ADRs sparingly\r\n\r\nOnly offer to create an ADR when all three are true:\r\n\r\n1. **Hard to reverse** — the cost of changing your mind later is meaningful\r\n2. **Surprising without context** — a future reader will wonder \"why did they do it this way?\"\r\n3. **The result of a real trade-off** — there were genuine alternatives and you picked one for specific reasons\r\n\r\nIf any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](./ADR-FORMAT.md).\r\n\r\n</supporting-info>\r\n\n\nARGUMENTS: 01-0020 pacer: land the wake rule at Tier 1 — run /recall on a session's first message unless it names a step — and register the 2026-09-15 miss as rule failure 4"
+            }
+          ]
+        },
+        "promptId": "d797d1a0-79fc-44e6-bb32-242533114dc4"
+      },
+      "original_record_sha256": "8c1cd4cbd2336689978fc3e25122d0688b862bcfcf83fab41e953bc350c61ee6",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "124": {
+      "timestamp": "2026-09-20T03:33:18.954Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "a6f73d1b-d475-4c64-8173-5bea10515180",
+        "parentUuid": "2a2f6ae9-8168-4bce-95ee-493b7e52093e",
+        "timestamp": "2026-09-20T03:33:18.954Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfDzE4rbK1NXebiUprY8F",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01QVpzQ22Ef1zQjHDGWDY1Ld",
+              "name": "Bash",
+              "input": {
+                "command": "grep -n -A6 \"^## Tier 1\\|^### Tier 1\\|\\*\\*Tier 1\\*\\*\\|^## Step\\|\\*\\*Step\\*\\*\\|\\*\\*Turn\\*\\*\\|\\*\\*Wake\\*\\*\\|\\*\\*Session\\*\\*\" docs/glossary.md | head -60; echo =====; sed -n 60,90p AGENTS.md; echo =====; grep -n \"v8\\|v9\" docs/research/entry-contract-findings.md | head; echo =====; grep -n -i \"wake\\|/recall\" docs/process.md .agents/skills/conclude/SKILL.md docs/glossary.md | head -20",
+                "description": "Look up glossary terms, the loop section, and contract-version history"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "8035bce2785ad0a068319a96d201d0a66e556ce8b4ea32ff5bb7bc8e9f928efe",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "125": {
+      "timestamp": "2026-09-20T03:33:26.628Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "b483818d-4424-4095-961e-893e1b0f24f5",
+        "parentUuid": "a6f73d1b-d475-4c64-8173-5bea10515180",
+        "timestamp": "2026-09-20T03:33:26.628Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01QVpzQ22Ef1zQjHDGWDY1Ld",
+              "is_error": false,
+              "content": "=====\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n- /dream is an experimental second \"lobe\" of the harness, aiming to reassess load-bearingness. It is optional, runs after /conclude, and writes dreams that /maintain and /align may pick up; it never amends rules.\n=====\n27:## v8 — 2026-09-09\n31:they are kept apart because v8's decisions were taken after v7's were written and would otherwise\n=====\ndocs/process.md:22:- Sessions preserve the handoff; `/recall` checks maintained documents and current files rather than treating session history as delivery state."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "=====\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n- /dream is an experimental second \"lobe\" of the harness, aiming to reassess load-bearingness. It is optional, runs after /conclude, and writes dreams that /maintain and /align may pick up; it never amends rules.\n=====\n27:## v8 — 2026-09-09\n31:they are kept apart because v8's decisions were taken after v7's were written and would otherwise\n=====\ndocs/process.md:22:- Sessions preserve the handoff; `/recall` checks maintained documents and current files rather than treating session history as delivery state.",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "a6f73d1b-d475-4c64-8173-5bea10515180",
+        "promptId": "d797d1a0-79fc-44e6-bb32-242533114dc4"
+      },
+      "original_record_sha256": "cf0e62bbf9bdaf9f6e724412a654fabb1aa9e1de47189ed9da46a2a83b27fc99",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "128": {
+      "timestamp": "2026-09-20T03:33:30.823Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "0845fdc5-1206-46fc-adc2-fc374df9ef5c",
+        "parentUuid": "21283bf7-6303-4386-a5da-f6df7441d2be",
+        "timestamp": "2026-09-20T03:33:30.823Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfDzG5qSKw3B7Kq98SVCL",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01JiWtN8oJrzFC811y5TYjHC",
+              "name": "Bash",
+              "input": {
+                "command": "grep -n -i \"tier 1\\|^- \\*\\*step\\|^- \\*\\*turn\\|^\\*\\*step\\|^\\*\\*turn\\|^## step\\|^## turn\\|^### step\\|^### turn\" docs/glossary.md | head; echo =====; sed -n 1,45p docs/research/entry-contract-findings.md; echo =====; grep -n \"session\\b\" docs/glossary.md | head -5",
+                "description": "Find glossary entries for Tier 1, step, turn, and the contract findings header"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "6aba26943fa1cbfb72587ef432e1794b64962222a13af4d71dd891f1c2d98d17",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "129": {
+      "timestamp": "2026-09-20T03:33:32.460Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "4b9f81e4-283d-41e9-ac01-e99cee1db749",
+        "parentUuid": "0845fdc5-1206-46fc-adc2-fc374df9ef5c",
+        "timestamp": "2026-09-20T03:33:32.460Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01JiWtN8oJrzFC811y5TYjHC",
+              "is_error": false,
+              "content": "=====\n# Entry contract evidence\n\nEvidence and evolution record for the entry contract — the versioned instructions every host\nsupplies at session start, announced verbatim by the session's first reply. The contract itself is\n[AGENTS.md](../../AGENTS.md); this record holds what changed at each version and why, so a session\nannouncing a version can find out what it announced.\n\nThe version covers the **core** part only: the announce line, the general rules, the loop, the\nswitch roster with its meanings, and the `<straw-dog>` convention — `<temporary>` until v5.\n`<project-local>` values change without a bump.\n\n## v1 — 2026-09-05\n\nThe first entry file. Announce line, the two-ring loop, the autonomy switch roster, and\n`<temporary until=\"condition\">` as an expiring statement followed until visibly met. Written in\n[01-0010.0020](../tickets/done/01-0010.0020-live-alignment-across-hosts.md); the session that produced it\nis [0002](../sessions/0002-20260905-the-harness-gets-a-home-and-an-entry.md).\n\n## v2 — 2026-09-06\n\n**One core change:** every `<temporary>` block also names the ticket whose work meets its condition,\nas a path from the repository root; an unbound block is reported rather than followed silently.\nDecided by the user, recorded in\n[01-0010.0020](../tickets/done/01-0010.0020-live-alignment-across-hosts.md#what-this-ticket-does-not-decide).\nThe three blocks then live were bound the same day.\n\n## v8 — 2026-09-09\n\n**Three core changes, from an `/align` the user opened on a contradiction I had reported in v7's\nown pass.** v7 was never announced by a session; both versions land in one uncommitted change, and\nthey are kept apart because v8's decisions were taken after v7's were written and would otherwise\nbe back-dated into them.\n\n**The load-bearing section names real homes.** `Core docs and ADRs are the home for` became\n`A project's architecture, ADRs and glossary`. The word was the defect: [the\nglossary](../../.agents/glossary.md) reserves **Core** for the accepted shared method at its\ncanonical source — `.agents/` — so the section, read against this project's own vocabulary,\ninstructed the reader to put architecture into core. It worked: during the align I recommended a\nnew `.agents/architecture.md` and argued for it twice before the user refuted it, on the ground\nthat core is what is useful at runtime while architecture is for construction, and a recipient\nneeds the harness's output rather than the record of its building. That layering is now\n[ADR-0001](../adr/0001-agents-is-runtime-docs-is-construction.md), written because two exchanges\nwere spent on a decision nothing recorded.\n\nA sentence follows the list: **a decision forms in its owning ticket and lands in one of these when\n====="
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "=====\n# Entry contract evidence\n\nEvidence and evolution record for the entry contract — the versioned instructions every host\nsupplies at session start, announced verbatim by the session's first reply. The contract itself is\n[AGENTS.md](../../AGENTS.md); this record holds what changed at each version and why, so a session\nannouncing a version can find out what it announced.\n\nThe version covers the **core** part only: the announce line, the general rules, the loop, the\nswitch roster with its meanings, and the `<straw-dog>` convention — `<temporary>` until v5.\n`<project-local>` values change without a bump.\n\n## v1 — 2026-09-05\n\nThe first entry file. Announce line, the two-ring loop, the autonomy switch roster, and\n`<temporary until=\"condition\">` as an expiring statement followed until visibly met. Written in\n[01-0010.0020](../tickets/done/01-0010.0020-live-alignment-across-hosts.md); the session that produced it\nis [0002](../sessions/0002-20260905-the-harness-gets-a-home-and-an-entry.md).\n\n## v2 — 2026-09-06\n\n**One core change:** every `<temporary>` block also names the ticket whose work meets its condition,\nas a path from the repository root; an unbound block is reported rather than followed silently.\nDecided by the user, recorded in\n[01-0010.0020](../tickets/done/01-0010.0020-live-alignment-across-hosts.md#what-this-ticket-does-not-decide).\nThe three blocks then live were bound the same day.\n\n## v8 — 2026-09-09\n\n**Three core changes, from an `/align` the user opened on a contradiction I had reported in v7's\nown pass.** v7 was never announced by a session; both versions land in one uncommitted change, and\nthey are kept apart because v8's decisions were taken after v7's were written and would otherwise\nbe back-dated into them.\n\n**The load-bearing section names real homes.** `Core docs and ADRs are the home for` became\n`A project's architecture, ADRs and glossary`. The word was the defect: [the\nglossary](../../.agents/glossary.md) reserves **Core** for the accepted shared method at its\ncanonical source — `.agents/` — so the section, read against this project's own vocabulary,\ninstructed the reader to put architecture into core. It worked: during the align I recommended a\nnew `.agents/architecture.md` and argued for it twice before the user refuted it, on the ground\nthat core is what is useful at runtime while architecture is for construction, and a recipient\nneeds the harness's output rather than the record of its building. That layering is now\n[ADR-0001](../adr/0001-agents-is-runtime-docs-is-construction.md), written because two exchanges\nwere spent on a decision nothing recorded.\n\nA sentence follows the list: **a decision forms in its owning ticket and lands in one of these when\n=====",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "0845fdc5-1206-46fc-adc2-fc374df9ef5c",
+        "promptId": "d797d1a0-79fc-44e6-bb32-242533114dc4"
+      },
+      "original_record_sha256": "f02cbb9092727689be397ba7b647b97e47a9df8c83196f84f89093201ed26f8d",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "133": {
+      "timestamp": "2026-09-20T03:33:36.213Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "565fc2ce-cfbe-4f50-9922-c97a84dc3f83",
+        "parentUuid": "87ad904d-f5b7-44ca-8b70-8bcefe3983f6",
+        "timestamp": "2026-09-20T03:33:36.213Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfDzGWq6EpcGHQgXhRvGZ",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01XtXfYCMBUZEkuajXuj6XCE",
+              "name": "Bash",
+              "input": {
+                "command": "grep -n -i -B1 -A4 \"tier 1\\|^\\*\\*step\\|^- \\*\\*step\\|^\\*\\*turn\\|^- \\*\\*turn\\|^## step\\|^## turn\" .agents/glossary.md | head -60",
+                "description": "Read the method glossary's Tier 1, step, and turn entries"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "14e4e03043991d0bedf9e876eb25e6b719986bef1eb3cfab0ae9d4f09e95a4af",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "140": {
+      "timestamp": "2026-09-20T03:33:38.352Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "55caab02-1bd5-46ca-8167-8decaaba121f",
+        "parentUuid": "565fc2ce-cfbe-4f50-9922-c97a84dc3f83",
+        "timestamp": "2026-09-20T03:33:38.352Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01XtXfYCMBUZEkuajXuj6XCE",
+              "is_error": false,
+              "content": "104-\n105:**Turn**:\n106-One agent reply, from the user's message to the reply's end. A turn holds at most one execution step; a step may span turns.\n107-\n108-**Archived record**:\n109-A historical account retained after its active role ends, with its disposition explicit. Current work should be understandable from maintained sources without requiring that record; historical investigation and mechanical maintenance may still reach it.\n--\n142-\n143:**Tier 1**:\n144:Context supplied to the agent at the relevant occasion without a separate retrieval action. Intended Tier 1 placement and observed delivery are distinct facts.\n145-\n146-**Tier 2**:\n147:Content retrieved when a Tier 1 trigger or reference makes it relevant. A request to read content does not itself establish retrieval.\n148-\n149-**Rule slice**:\n150-The selected portion of governing instructions relevant to a particular task, stage or event, retaining its source and applicability.\n151-"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "104-\n105:**Turn**:\n106-One agent reply, from the user's message to the reply's end. A turn holds at most one execution step; a step may span turns.\n107-\n108-**Archived record**:\n109-A historical account retained after its active role ends, with its disposition explicit. Current work should be understandable from maintained sources without requiring that record; historical investigation and mechanical maintenance may still reach it.\n--\n142-\n143:**Tier 1**:\n144:Context supplied to the agent at the relevant occasion without a separate retrieval action. Intended Tier 1 placement and observed delivery are distinct facts.\n145-\n146-**Tier 2**:\n147:Content retrieved when a Tier 1 trigger or reference makes it relevant. A request to read content does not itself establish retrieval.\n148-\n149-**Rule slice**:\n150-The selected portion of governing instructions relevant to a particular task, stage or event, retaining its source and applicability.\n151-",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "565fc2ce-cfbe-4f50-9922-c97a84dc3f83",
+        "promptId": "d797d1a0-79fc-44e6-bb32-242533114dc4"
+      },
+      "original_record_sha256": "888c457648778a79e25bb6eb63be813c631e33b7db39f6790e60c7803cbb07cd",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "143": {
+      "timestamp": "2026-09-20T03:33:41.187Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "881dc73a-45bd-42c7-bec5-b5ab3ace9362",
+        "parentUuid": "5fdaa0d2-4695-4faa-93a1-1feb849ea50f",
+        "timestamp": "2026-09-20T03:33:41.187Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfDzGx4tmoionSXhqvUZn",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01V3m24f9bUwTv2tBtMmxMVb",
+              "name": "Bash",
+              "input": {
+                "command": "grep -n -i -A3 \"^\\*\\*execution step\\*\\*\\|^\\*\\*step\\*\\*\\|^\\*\\*session\\*\\*\\|^\\*\\*wake\" .agents/glossary.md | head -20",
+                "description": "Read the glossary's step and session entries"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "297bea54c8e871691bab92ee5ee9212a44270626c44b0df0788f4031fb5d7931",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "144": {
+      "timestamp": "2026-09-20T03:33:42.664Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "980518ee-32de-4f94-88af-f1557c50c0cf",
+        "parentUuid": "881dc73a-45bd-42c7-bec5-b5ab3ace9362",
+        "timestamp": "2026-09-20T03:33:42.664Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01V3m24f9bUwTv2tBtMmxMVb",
+              "is_error": false,
+              "content": "102:**Execution step**:\n103-The execution of a single skill. It has an input state, an immediate purpose, an expected result and a reassessment boundary at its end, and need not complete its owning ticket.\n104-\n105-**Turn**:"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "102:**Execution step**:\n103-The execution of a single skill. It has an input state, an immediate purpose, an expected result and a reassessment boundary at its end, and need not complete its owning ticket.\n104-\n105-**Turn**:",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "881dc73a-45bd-42c7-bec5-b5ab3ace9362",
+        "promptId": "d797d1a0-79fc-44e6-bb32-242533114dc4"
+      },
+      "original_record_sha256": "c976730d1efdf9f826fc7486a92e6ed7c8b2b656a0ea43835577f3aacb923ac1",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "149": {
+      "timestamp": "2026-09-20T03:34:03.246Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "2b294d0e-32da-4f04-bc16-7d7231a6d593",
+        "parentUuid": "7fab4696-a0e1-41b2-88bf-857f6744c744",
+        "timestamp": "2026-09-20T03:34:03.246Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfDzHGYtjEv6w6Ai1g8hf",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Facts are in hand: the method glossary defines an execution step as the execution of a single skill, and the pacer already rules that a turn holds at most one step. One decision is yours.\n\n**Where does the default stop?** Both readings agree the rule fires on \"good evening\", \"what's next\" and \"let's continue\". They differ on a first message that states a task without naming a skill, such as \"fix the typo in the README\".\n\n- **A. Fire only when the message names nothing to do** (recommended). A task request is a step, whether or not it names the skill. The decisive fact is the turn rule you set on 2026-09-06: one turn, one step. Running `/recall` before a stated task would either spend the turn on recall and defer the task, or chain two steps, which is the allowance you said arrives later and not as the default.\n- **B. Fire on every first message that does not invoke a skill.** The agent always reads state before acting, at the cost of a recall pass on every session, and it collides with the turn rule for the reason above.\n\nThe wording I would land under A, in the loop section of `AGENTS.md`, verb first, above the diagram:\n\n> Run `/recall` when a session's first message names nothing to do — a greeting, \"what's next\", \"continue\". A message that names a skill or a task is the step; take it.\n\nThe rest follows without a decision: the contract bumps to v9 with its findings entry, the pacer doc's straw dog stops saying the wake lands on `/align`, the ticket records the resolution, and failure 4 goes into the register with tonight's miss.\n\nA or B?"
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "9b87fe3312788e1617b852d0aa979a7327bbe64c49b78884e41e53088f8ba3ec",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "153": {
+      "timestamp": "2026-09-20T03:38:13.124Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "e09e934e-baaf-4ec1-8198-86f6c8e29d97",
+        "parentUuid": "c8eec3fa-9162-4eca-8cbc-e3a7d2e91049",
+        "timestamp": "2026-09-20T03:38:13.124Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "no need any specifics. any session wake should start with recall"
+        },
+        "promptId": "9b6db830-cbe2-4e8c-a3fa-75dd66aa2869"
+      },
+      "original_record_sha256": "a39e80a48e006b40d69e44fcde21d41aee32b83361989f2a8f2065381e2839d0",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "157": {
+      "timestamp": "2026-09-20T03:38:31.535Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "e0ae395a-1468-48cb-bb35-3ac25b2bb607",
+        "parentUuid": "cbb0075b-ee9d-4295-a940-4fbd61a854a5",
+        "timestamp": "2026-09-20T03:38:31.535Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfDzdFGokZ4mqqJXDDmuE",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Landed as stated: every wake starts with `/recall`, no carve-out. Writing it into the entry file, the contract record, the pacer doc, the ticket and the failure register."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "7c4d11be1adb936d0db2d8d9b52e95a971345df92d4e789f116574ac21d9e4c1",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "158": {
+      "timestamp": "2026-09-20T03:38:32.169Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "86234e4d-d133-4f71-b92c-db0dcbb038cf",
+        "parentUuid": "e0ae395a-1468-48cb-bb35-3ac25b2bb607",
+        "timestamp": "2026-09-20T03:38:32.169Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfDzdFGokZ4mqqJXDDmuE",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_013B1iLR8UxwraEuQMGz4C8w",
+              "name": "Read",
+              "input": {
+                "file_path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+                "limit": 12
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "3f1b990a0b4fe8a318469d86d2b2af56618b09e538ba27c05d7f93a2868697b3",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "159": {
+      "timestamp": "2026-09-20T03:38:32.261Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "55df972e-a95f-495e-a2a5-6e2482c2811d",
+        "parentUuid": "86234e4d-d133-4f71-b92c-db0dcbb038cf",
+        "timestamp": "2026-09-20T03:38:32.261Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_013B1iLR8UxwraEuQMGz4C8w",
+              "content": "1\t# Entry contract\n2\t\n3\tEntry contract: v8, 2026-09-09.\n4\t\n5\tOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n6\t\n7\t<project-local>\n8\tThis repository develops the shared dev harness using its own loop. Terms: docs/glossary.md, this\n9\tproject's own; the method's are .agents/glossary.md's.\n10\tWhat each version of this contract changed: docs/research/entry-contract-findings.md.\n11\t</project-local>\n12\t"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "type": "text",
+          "file": {
+            "filePath": "D:\\Dev\\AI\\agents\\AGENTS.md",
+            "content": "# Entry contract\n\nEntry contract: v8, 2026-09-09.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<project-local>\nThis repository develops the shared dev harness using its own loop. Terms: docs/glossary.md, this\nproject's own; the method's are .agents/glossary.md's.\nWhat each version of this contract changed: docs/research/entry-contract-findings.md.\n</project-local>\n",
+            "numLines": 12,
+            "startLine": 1,
+            "totalLines": 135
+          }
+        },
+        "sourceToolAssistantUUID": "86234e4d-d133-4f71-b92c-db0dcbb038cf",
+        "promptId": "9b6db830-cbe2-4e8c-a3fa-75dd66aa2869"
+      },
+      "original_record_sha256": "7ff507b0a399953c4468e46ad31b8a32baf896a725abff6286b75b1d13f79285",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "162": {
+      "timestamp": "2026-09-20T03:38:35.232Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "64af588f-4d10-4641-ac92-4d963907b158",
+        "parentUuid": "921a19b0-96ef-4220-ad71-2f8668f06906",
+        "timestamp": "2026-09-20T03:38:35.232Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfDzeccU6vLCi3F6csDB1",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_018WmmsprfzaL13CFgX1Xnm5",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+                "old_string": "Entry contract: v8, 2026-09-09.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.",
+                "new_string": "Entry contract: v9, 2026-09-20.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim, and start\nevery session by running /recall, whatever the first message says."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "184489928b7895f188a92da3dbde2253d7acebfbe539f063dfce136850f22cf3",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "170": {
+      "timestamp": "2026-09-20T03:38:35.360Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "0b8ba80e-3824-4a5d-8233-52fd2a9c2f56",
+        "parentUuid": "64af588f-4d10-4641-ac92-4d963907b158",
+        "timestamp": "2026-09-20T03:38:35.360Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_018WmmsprfzaL13CFgX1Xnm5",
+              "content": "The file D:\\Dev\\AI\\agents\\AGENTS.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\AGENTS.md",
+          "oldString": "Entry contract: v8, 2026-09-09.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.",
+          "newString": "Entry contract: v9, 2026-09-20.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim, and start\nevery session by running /recall, whatever the first message says.",
+          "originalFile": "# Entry contract\n\nEntry contract: v8, 2026-09-09.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<project-local>\nThis repository develops the shared dev harness using its own loop. Terms: docs/glossary.md, this\nproject's own; the method's are .agents/glossary.md's.\nWhat each version of this contract changed: docs/research/entry-contract-findings.md.\n</project-local>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\n<project-local>\nThis repository's own architecture and progress live in docs/ like any other project's — the\ninstance half doing its job, not a leak.\n</project-local>\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. Naming a path\nconvention the harness imposes — `docs/tickets/`, `docs/glossary.md` — is not a reference to a\nfile; pointing at a document only this project has is. Two blocks are exempt: a `<straw-dog>`,\nbound to a ticket and expiring, and a [`<project-local>`](#project-local).\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog until=\"01-0012 is done\" ticket=\"docs/tickets/01-0012-hierarchy-coherent.md\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n- /dream is an experimental second \"lobe\" of the harness, aiming to reassess load-bearingness. It is optional, runs after /conclude, and writes dreams that /maintain and /align may pick up; it never amends rules.\n\n## Self-improvement\n\n<straw-dog until=\"01-0019 is done\" ticket=\"docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md\">\n- The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)\n- Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.\n</straw-dog>\n\n## Autonomy\n\nThe project sets each switch in its local block below; skills defer to those values.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n## Project-local\n\nA recipient replaces every `<project-local>` block with its own → [glossary](.agents/glossary.md).\n\n- Carry one only for a fact that would differ in another project. Harness layout and the switch\n  lookup are shared.\n- One block per local fact, beside the rule it answers.\n- An unavoidable core reference into `docs/` goes in one, so it does not travel.\n\n## Straw dogs\n\nWrap anything a live ticket will change, as you write it:\n`<straw-dog until=\"condition\" ticket=\"path\">`, or in code a `TODO` naming the ticket. Treat *not\nyet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find\nthe ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.\nMake the condition testable and the ticket path repository-relative. Leave what no ticket would\nchange unwrapped.\n\nFollow a straw dog like any other rule until its condition is visibly met; then act on reality,\nreport the stale block, and do not treat the contradiction as a violation.\n\n<project-local>\ncommit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n</project-local>\n",
+          "structuredPatch": [
+            {
+              "oldStart": 1,
+              "oldLines": 8,
+              "newStart": 1,
+              "newLines": 9,
+              "lines": [
+                " # Entry contract",
+                " ",
+                "-Entry contract: v8, 2026-09-09.",
+                "+Entry contract: v9, 2026-09-20.",
+                " ",
+                "-Open your first reply of every session with the `Entry contract:` line above, verbatim.",
+                "+Open your first reply of every session with the `Entry contract:` line above, verbatim, and start",
+                "+every session by running /recall, whatever the first message says.",
+                " ",
+                " <project-local>",
+                " This repository develops the shared dev harness using its own loop. Terms: docs/glossary.md, this"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "64af588f-4d10-4641-ac92-4d963907b158",
+        "promptId": "9b6db830-cbe2-4e8c-a3fa-75dd66aa2869"
+      },
+      "original_record_sha256": "1f6501be43c3623c8882f7b010291322c2b4c446a83e88b567ba21ec5aa5f9b9",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "174": {
+      "timestamp": "2026-09-20T03:38:40.511Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "fbbaaf31-a7e9-47e8-96c1-f1011f7c87dd",
+        "parentUuid": "7a1a245b-a1f3-4ded-bc8d-114a6f0d2e0c",
+        "timestamp": "2026-09-20T03:38:40.511Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfDzeqxQW6X5DGKCz5nxG",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01QGTq3Tn8JP5NaxnjD886QM",
+              "name": "Bash",
+              "input": {
+                "command": "grep -n \"^## v\" docs/research/entry-contract-findings.md; wc -l docs/research/entry-contract-findings.md",
+                "description": "List contract versions recorded and file length"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "f65f115735ab9a34ab8b56f2fd1ff966d39cc6e1a0a508b05d337fac2435a632",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "175": {
+      "timestamp": "2026-09-20T03:38:41.383Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "224251a9-e42e-4a75-b9bb-7d09e910f0f4",
+        "parentUuid": "fbbaaf31-a7e9-47e8-96c1-f1011f7c87dd",
+        "timestamp": "2026-09-20T03:38:41.383Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01QGTq3Tn8JP5NaxnjD886QM",
+              "is_error": false,
+              "content": "12:## v1 — 2026-09-05\n19:## v2 — 2026-09-06\n27:## v8 — 2026-09-09\n84:## v7 — 2026-09-09\n125:## v6 — 2026-09-09\n143:## v5 — 2026-09-08\n153:## v4 — 2026-09-08\n161:## v3 — 2026-09-06\n198 docs/research/entry-contract-findings.md"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "12:## v1 — 2026-09-05\n19:## v2 — 2026-09-06\n27:## v8 — 2026-09-09\n84:## v7 — 2026-09-09\n125:## v6 — 2026-09-09\n143:## v5 — 2026-09-08\n153:## v4 — 2026-09-08\n161:## v3 — 2026-09-06\n198 docs/research/entry-contract-findings.md",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "fbbaaf31-a7e9-47e8-96c1-f1011f7c87dd",
+        "promptId": "9b6db830-cbe2-4e8c-a3fa-75dd66aa2869"
+      },
+      "original_record_sha256": "aec5303b114fe88eab50ae16be3ea3c3c275e69b0da8bc2caac53d56630a1839",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "179": {
+      "timestamp": "2026-09-20T03:38:45.176Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "43b844ea-2273-40c6-887b-9045fcb5bc62",
+        "parentUuid": "42421364-a8d4-44be-851c-3d5e9066b091",
+        "timestamp": "2026-09-20T03:38:45.176Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfDzfJPdvC5z6U74DRQeT",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01YWHJQGBDSkCshqY395WLfz",
+              "name": "Read",
+              "input": {
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\research\\entry-contract-findings.md",
+                "offset": 19,
+                "limit": 10
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "4b30b751165d7293ee11d126a6d92c79d729ba29c95011d59dc4bffcab08576b",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "180": {
+      "timestamp": "2026-09-20T03:38:45.251Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "8d64a940-6065-4ae2-9104-73212da9c6b6",
+        "parentUuid": "43b844ea-2273-40c6-887b-9045fcb5bc62",
+        "timestamp": "2026-09-20T03:38:45.251Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01YWHJQGBDSkCshqY395WLfz",
+              "content": "19\t## v2 — 2026-09-06\n20\t\n21\t**One core change:** every `<temporary>` block also names the ticket whose work meets its condition,\n22\tas a path from the repository root; an unbound block is reported rather than followed silently.\n23\tDecided by the user, recorded in\n24\t[01-0010.0020](../tickets/done/01-0010.0020-live-alignment-across-hosts.md#what-this-ticket-does-not-decide).\n25\tThe three blocks then live were bound the same day.\n26\t\n27\t## v8 — 2026-09-09\n28\t"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "type": "text",
+          "file": {
+            "filePath": "D:\\Dev\\AI\\agents\\docs\\research\\entry-contract-findings.md",
+            "content": "## v2 — 2026-09-06\n\n**One core change:** every `<temporary>` block also names the ticket whose work meets its condition,\nas a path from the repository root; an unbound block is reported rather than followed silently.\nDecided by the user, recorded in\n[01-0010.0020](../tickets/done/01-0010.0020-live-alignment-across-hosts.md#what-this-ticket-does-not-decide).\nThe three blocks then live were bound the same day.\n\n## v8 — 2026-09-09\n",
+            "numLines": 10,
+            "startLine": 19,
+            "totalLines": 199
+          }
+        },
+        "sourceToolAssistantUUID": "43b844ea-2273-40c6-887b-9045fcb5bc62",
+        "promptId": "9b6db830-cbe2-4e8c-a3fa-75dd66aa2869"
+      },
+      "original_record_sha256": "e50c93a3b02c901346a561f634fadb7a55c1a38b4d34fb43da1df2d85ce0ee6b",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "183": {
+      "timestamp": "2026-09-20T03:38:53.100Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "a8c62cf1-54a4-4847-acf1-5dae5fdf7ef7",
+        "parentUuid": "ab7aec4d-94a2-4941-b8bf-fc8971ca71e7",
+        "timestamp": "2026-09-20T03:38:53.100Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfDzfaEcut3kFrYaBGAXP",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_0199xyABPEtLj2FJTUD3xEH8",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\research\\entry-contract-findings.md",
+                "old_string": "The three blocks then live were bound the same day.\n\n## v8 — 2026-09-09",
+                "new_string": "The three blocks then live were bound the same day.\n\n## v9 — 2026-09-20\n\n**One core change:** the announce sentence now also says *start every session by running\n`/recall`, whatever the first message says*. Decided by the user on 2026-09-20 at\n[01-0020](../tickets/01-0020-pacer.md)'s align, and the first of the pacer's core rules to land in\nthe entry file. The occasion is\n[rule failure 4](../rule-failures.md#4-the-wake-rule-sat-in-a-diagram-and-a-greeting-was-answered-with-a-greeting--2026-09-20):\nthe loop diagram had said *wake with `/recall`* since v1, and on 2026-09-15 a session opened with\n\"good evening\" was answered with a greeting. The sentence sits beside the announce line rather\nthan in the loop section because it is the one line every session provably reads first — the\nannounce line is the evidence — and it opens with the verb, as\n[failure 3](../rule-failures.md#3-the-straw-dog-rule-sat-at-tier-1-and-three-straw-dogs-went-unwrapped--2026-09-14)'s\namendment taught. The diagram's *wake with `/recall`* stays as the picture of the same rule. The\nuser refused a carve-out for a first message that names a skill or a task; how that sits with\n*one turn, one step* is the pacer's chaining question, still open on the ticket.\n\n## v8 — 2026-09-09"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "e930c2963ba94dd0b288c1684386f3e178810add5e8f093245044b157acb49fa",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "185": {
+      "timestamp": "2026-09-20T03:38:53.311Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "84d35c55-fb0e-4f13-a0ca-84edef662930",
+        "parentUuid": "a8c62cf1-54a4-4847-acf1-5dae5fdf7ef7",
+        "timestamp": "2026-09-20T03:38:53.311Z",
+        "sessionId": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.275",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_0199xyABPEtLj2FJTUD3xEH8",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\research\\entry-contract-findings.md has been updated successfully. (file state is current in your context — no need to Read it back)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\research\\entry-contract-findings.md",
+          "oldString": "The three blocks then live were bound the same day.\n\n## v8 — 2026-09-09",
+          "newString": "The three blocks then live were bound the same day.\n\n## v9 — 2026-09-20\n\n**One core change:** the announce sentence now also says *start every session by running\n`/recall`, whatever the first message says*. Decided by the user on 2026-09-20 at\n[01-0020](../tickets/01-0020-pacer.md)'s align, and the first of the pacer's core rules to land in\nthe entry file. The occasion is\n[rule failure 4](../rule-failures.md#4-the-wake-rule-sat-in-a-diagram-and-a-greeting-was-answered-with-a-greeting--2026-09-20):\nthe loop diagram had said *wake with `/recall`* since v1, and on 2026-09-15 a session opened with\n\"good evening\" was answered with a greeting. The sentence sits beside the announce line rather\nthan in the loop section because it is the one line every session provably reads first — the\nannounce line is the evidence — and it opens with the verb, as\n[failure 3](../rule-failures.md#3-the-straw-dog-rule-sat-at-tier-1-and-three-straw-dogs-went-unwrapped--2026-09-14)'s\namendment taught. The diagram's *wake with `/recall`* stays as the picture of the same rule. The\nuser refused a carve-out for a first message that names a skill or a task; how that sits with\n*one turn, one step* is the pacer's chaining question, still open on the ticket.\n\n## v8 — 2026-09-09",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 24,
+              "oldLines": 6,
+              "newStart": 24,
+              "newLines": 22,
+              "lines": [
+                " [01-0010.0020](../tickets/done/01-0010.0020-live-alignment-across-hosts.md#what-this-ticket-does-not-decide).",
+                " The three blocks then live were bound the same day.",
+                " ",
+                "+## v9 — 2026-09-20",
+                "+",
+                "+**One core change:** the announce sentence now also says *start every session by running",
+                "+`/recall`, whatever the first message says*. Decided by the user on 2026-09-20 at",
+                "+[01-0020](../tickets/01-0020-pacer.md)'s align, and the first of the pacer's core rules to land in",
+                "+the entry file. The occasion is",
+                "+[rule failure 4](../rule-failures.md#4-the-wake-rule-sat-in-a-diagram-and-a-greeting-was-answered-with-a-greeting--2026-09-20):",
+                "+the loop diagram had said *wake with `/recall`* since v1, and on 2026-09-15 a session opened with",
+                "+\"good evening\" was answered with a greeting. The sentence sits beside the announce line rather",
+                "+than in the loop section because it is the one line every session provably reads first — the",
+                "+announce line is the evidence — and it opens with the verb, as",
+                "+[failure 3](../rule-failures.md#3-the-straw-dog-rule-sat-at-tier-1-and-three-straw-dogs-went-unwrapped--2026-09-14)'s",
+                "+amendment taught. The diagram's *wake with `/recall`* stays as the picture of the same rule. The",
+                "+user refused a carve-out for a first message that names a skill or a task; how that sits with",
+                "+*one turn, one step* is the pacer's chaining question, still open on the ticket.",
+                "+",
+                " ## v8 — 2026-09-09",
+                " ",
+                " **Three core changes, from an `/align` the user opened on a contradiction I had reported in v7's"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false
+        },
+        "sourceToolAssistantUUID": "a8c62cf1-54a4-4847-acf1-5dae5fdf7ef7",
+        "promptId": "9b6db830-cbe2-4e8c-a3fa-75dd66aa2869"
+      },
+      "original_record_sha256": "f82cc7269e39e69a30e43b283bf2fd1cf6b40a238e961cb1e30a9186b68343f0",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    }
+  }
+}

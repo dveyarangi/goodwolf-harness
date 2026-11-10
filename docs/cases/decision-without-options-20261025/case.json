@@ -1,0 +1,137 @@
+{
+  "id": "decision-without-options-20261025",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "A decision above the dial put to the person without options or a recommendation — 2026-10-26",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": null
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/63",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.308"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/63/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-25T23:51:12.441Z",
+    "chat_id": "f5e07b2a-84d7-43ae-9b28-a336203584bc",
+    "trigger_message_id": null,
+    "trigger_record_id": "28419047-f0e9-42f4-aabc-314ee0bb7e47",
+    "failure_message_id": "msg_011CgPrPKTkrnKiLfqZFbhHj",
+    "failure_record_id": "76ea85c5-976d-40dc-8bb7-12c53086a52c",
+    "transcript": "agent-aeeea25f55e55eb9b.jsonl"
+  },
+  "observed_failure": {
+    "description": "The live recall report offers accepting, amending or leaving a provisional role answer open, without substantive alternatives or a recommendation.",
+    "events": [
+      {
+        "source": "source.json#/records/63",
+        "message_id": "msg_011CgPrPKTkrnKiLfqZFbhHj",
+        "record_id": "76ea85c5-976d-40dc-8bb7-12c53086a52c",
+        "timestamp": "2026-10-25T23:51:12.441Z",
+        "text": "Entry contract: v129, 2026-10-25.\n\n| 🪢 Tangle · [q-0037.0006.0022.0004](docs/questions/q-0037.0006.0022.0004-how-do-the-harnesss-checks-run-without-the-agent-at-commit-and-in-the-projects-ci.md) · [q-0037.0017.0005.0001](docs/questions/q-0037.0017.0005.0001-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of.md) · — · — |\n|---|\n\n| ⚙️ **recall** · где стоит работа |\n|---|\n| ⚙️ /recall |\n\nДоброе утро. Сейчас посмотрю, где мы остановились.\n\n**Что сделано.** Этой ночью легли две из трёх стадий [01-0011.0110.0090 what-a-pass-leaves-waits-until-settled](docs/tickets/01-0011.0110.0090-what-a-pass-leaves-waits-until-settled.md). Открытый вопрос теперь можно пометить как вопрос к вам. Каждое пробуждение показывает такой вопрос, пока он не закрыт, а /recall кладёт его перед вами как решение.[^1] В сессии 0074 вы решили ставить хранилище, сессию и maintain одним пакетом. Само разделение отложено: [q-0037.0006.0024.0003](docs/questions/q-0037.0006.0024.0003-can-the-store-run-without-the-session-mechanism-the-session-sitting-on-the-store.md) «Can the store run without the session mechanism, the session sitting on the store?» закрыт как отложенный.[^2] Сессия 0073 перевела установку на механизмы. В ней лёг [01-0017.0030 the-installer-holds-each-block-in-its-owners-section](docs/tickets/done/01-0017.0030-the-installer-holds-each-block-in-its-owners-section.md) и появились девять новых тикетов.\n\n**Что не доделано и кто на этом.**\n- 01-0011.0110.0090: код уже в дереве, но ни один критерий не отмечен, статус по-прежнему Ready. Осталась третья стадия: свежая сессия читает живое пробуждение, а судит её тот, кто не строил. После неё нужен /verify. В окне не видно сессии, которая держит этот тикет.\n- Сейчас в работе 3 из 8:\n  - [01-0010.0150.0010 the-harness-reads-a-tree-with-a-method-and-reports](docs/tickets/01-0010.0150.0010-the-harness-reads-a-tree-with-a-method-and-reports.md). Его проверит живая встреча на xuanxue-cabinet. Сессия, которая стояла на его вопросе, завершилась.\n  - [01-0016.0030 the-voice-speaks-every-skill-that-speaks](docs/tickets/01-0016.0030-the-voice-speaks-every-skill-that-speaks.md). Остался речевой стенд на пяти моментах под чужим судом.\n  - [01-0040.0070 the-root-readme-is-told-from-the-product-document](docs/tickets/01-0040.0070-the-root-readme-is-told-from-the-product-document.md). Идёт выравнивание по его вопросу.\n- Рядом работают три сессии. Одна стоит на q-0037.0006.0022.0004 «How do the harness's checks run without the agent — at commit and in the project's CI, beside its own gates?». Другая на q-0037.0017.0005.0001 «How do sessions on separate branches share one question store and one registry of sessions?», у неё ночью легли решения 4 и 5 о сервере-координаторе. Третья пока без позиции. Их работу я не переставляю.\n- [01-0010.0150.0020 the-two-modes-of-taking-a-trees-method-in](docs/tickets/01-0010.0150.0020-the-two-modes-of-taking-a-trees-method-in.md), выбранный следующим в 0073, разбит на четыре тикета, все Planned. Два из них ждут [01-0017.0040 the-entry-file-has-a-section-per-owner](docs/tickets/01-0017.0040-the-entry-file-has-a-section-per-owner.md).\n- Из 0074 остался один шаг. Чтобы решить [q-0037.0006.0020.0001.0006.0001](docs/questions/q-0037.0006.0020.0001.0006.0001-does-a-project-under-node-need-python-for-core-or-do-its-scripts-run-on.md) «Does a project under Node need Python for core, or do its scripts run on…», сначала надо выяснить, какой рантайм есть у получателей.\n- В рабочем дереве не закоммичены метка вопроса к вам и строки сессий.\n\n**О чём вас спрашивают.** Вопрос [q-0037.0005](docs/questions/q-0037.0005-what-is-an-agent-role-and-which-mechanism-keeps-roles.md) «What is an agent role, and which mechanism keeps roles?» помечен как вопрос к вам с 2026-10-25. Пока у него есть только предварительный ответ: роль задаётся при старте агента и даёт ему разрешения, права над хранилищем вместе с их охватом и набор навыков. Решений в нём нет, тикета тоже. Вопрос ещё ветвится через [q-0037.0005.0001](docs/questions/q-0037.0005.0001-how-does-a-starting-agent-pick-an-area-that-does-not-overlap-another-sessions.md) «How does a starting agent pick an area that does not overlap another session's?». Предварительный ответ там такой: область агента входит в охват, который даёт ему роль.\n✋ Несущее архитектурное решение: что такое роль агента и какой механизм держит роли. (🐛 development=load-bearing)\n\n**Путь.** В работе 3 из 8. Без тикета недавно трогали:\n- [q-0037.0017.0006.0003](docs/questions/q-0037.0017.0006.0003-when-is-a-branch-abandoned-and-who-notices-it-and-puts-it-to-the-person.md) «When is a branch abandoned, and who notices it and puts it to the person?»\n- [q-0033.0012](docs/questions/q-0033.0012-what-is-the-harnesss-product-roadmap-which-of-the-products-answers-come-next-in-what-order-by.md) «What is the harness's product roadmap…»\n- [q-0033.0008](docs/questions/q-0033.0008-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md) «What is the harness, said to a reader who arrives cold…»: правило на нём не срабатывало уже пять раз.\n- [q-0033.0010](docs/questions/q-0033.0010-where-does-the-meeting-with-the-harness-the-front-page-the-install-the-first-session-stand-in.md) «Where does the meeting with the harness… stand in the product account…»\n- [q-0037.0017.0006](docs/questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one.md) «How do sessions hand work to each other…»\n- и ещё три.\n\nЧто можно взять и что это даст вам:\n- **Доделать 01-0011.0110.0090.** Решение, которое проход не смог принять сам, будет ждать вас каждое утро, пока вы его не примете. За ним открывается [01-0011.0110.0100 a-pass-with-no-person-sweeps-new-decisions](docs/tickets/01-0011.0110.0100-a-pass-with-no-person-sweeps-new-decisions.md): проход без человека, который сверяет дерево с новыми решениями.\n- [01-0010.0120 what-each-host-says-without-being-asked](docs/tickets/01-0010.0120-what-each-host-says-without-being-asked.md): каждый хост сам, без вопроса, кладёт агенту нужное.\n- [01-0010.0125 the-host-blocks-what-a-rule-forbids](docs/tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md): хост сам не даёт сделать то, что запрещает правило, вместо того чтобы полагаться на агента.\n- [01-0010.0200 a-project-can-remove-the-harness](docs/tickets/01-0010.0200-a-project-can-remove-the-harness.md): проект может снять harness и остаться целым.\n- [01-0011.0090 a-test-catches-what-its-name-promises](docs/tickets/01-0011.0090-a-test-catches-what-its-name-promises.md): каждый тест ловит то, что обещает его имя.\n\nДва корня истончились. В [q-0033](docs/questions/q-0033-what-is-this-project-for.md) «What is this project for?» 8 открытых вопросов, а в [q-0038](docs/questions/q-0038-what-landscape-does-this-project-evolve-in.md) «What landscape does this project evolve in?» 2, и ни у одного нет тикета.\n\nЯ советую сначала доделать 01-0011.0110.0090. Его работа уже в дереве, а не хватает только живого чтения чужими глазами и /verify. Сам я этот тикет не строил, так что могу быть тем свежим читателем. (💡 [*An open ticket or RFC whose work has landed in the tree, but whose acceptance criteria are not all checked, is the next session's first item*](.agents/skills/recall/SKILL.md:12)) Позицию этой сессии я пока не ставил и жду вашего слова.\n\n| ⚖️ Decisions |\n|---|\n| [q-0037.0005](docs/questions/q-0037.0005-what-is-an-agent-role-and-which-mechanism-keeps-roles.md): принять предварительный ответ, поправить его или оставить вопрос открытым |\n| Куда встать: доделать 01-0011.0110.0090, то есть третью стадию и /verify |\n\n[^1]: Коммиты 23c0d3d и 4c33086. Решения 2–4 в q-0037.0010.0009.0009.0001 приняли вы, 2026-10-25 и 2026-10-26.\n[^2]: Вы, 2026-10-26: docs/sessions/0074-20261026-the-store-and-the-session-deferred.md."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Put the actual above-dial decision to the person with substantive options and a recommendation supported by the supplied project evidence.",
+    "source_evidence": [
+      "source.json#/records/1",
+      "source.json#/records/7"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the report give substantive alternatives for what an agent role is, rather than only procedures for handling an answer?",
+        "expected_for_recorded_failure": false
+      },
+      {
+        "id": "requirement_2",
+        "question": "Does the report recommend an answer to that substantive decision?",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The live recall report offers accepting, amending or leaving a provisional role answer open, without substantive alternatives or a recommendation.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/63",
+      "after": "source.json#/records/60",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/1",
+      "source.json#/records/3",
+      "source.json#/records/18",
+      "source.json#/records/19",
+      "source.json#/records/20",
+      "source.json#/records/21",
+      "source.json#/records/29",
+      "source.json#/records/30",
+      "source.json#/records/33",
+      "source.json#/records/34",
+      "source.json#/records/37",
+      "source.json#/records/38",
+      "source.json#/records/41",
+      "source.json#/records/42",
+      "source.json#/records/43",
+      "source.json#/records/44",
+      "source.json#/records/47",
+      "source.json#/records/48",
+      "source.json#/records/51",
+      "source.json#/records/52",
+      "source.json#/records/55",
+      "source.json#/records/56",
+      "source.json#/records/59",
+      "source.json#/records/60"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/7"
+      ],
+      "native_context_records": [
+        "source.json#/records/7"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/63"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ],
+    "source_metadata_records": [
+      "source.json#/records/5"
+    ]
+  },
+  "source_gaps": []
+}

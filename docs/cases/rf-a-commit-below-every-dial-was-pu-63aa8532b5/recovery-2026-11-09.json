@@ -1,0 +1,14 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-09",
+  "source_record": "source.json#/records/3724",
+  "kind": "targeted public source recovery",
+  "role": "user",
+  "text_blocks": 3,
+  "text_characters": 42232,
+  "original_record_hash_verified": true,
+  "original_instruction_excerpts_verified": true,
+  "private_reasoning_records_decoded": 0,
+  "actor_input_changed": false,
+  "remaining_limit": "Complete ordered request reconstruction is not established by recovery of this one message."
+}

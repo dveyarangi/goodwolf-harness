@@ -1,0 +1,1043 @@
+{
+  "host": "Cursor",
+  "chat_id": "5fba085e-5ba4-46e6-bfd9-503956f08c12",
+  "source_kind": "Selected original Cursor SQLite records and public transcript export",
+  "native_records": {
+    "composerData:5fba085e-5ba4-46e6-bfd9-503956f08c12": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "01bdebbeed94c205fba59565c9f70e66f8a92ee20aac316ae695092eb42159aa",
+      "selected_metadata": {
+        "createdAt": 1791579703682
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:ab175304-4fef-43a8-ab5c-ef2c93b8a5c9": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "04fa54a9ed0443b9dd7682635ea1baa93744ceefe4eab43f0f291c746bbf17b6",
+      "selected_metadata": {
+        "bubbleId": "ab175304-4fef-43a8-ab5c-ef2c93b8a5c9",
+        "type": 1,
+        "createdAt": "2026-10-09T21:01:49.830Z",
+        "modelInfo": {
+          "modelName": "grok-4.7"
+        }
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:2b6cde31-1d95-43e2-92ce-83b8d88d15b9": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "3cf6116b6a0d7c9eb6d9226fce5722049d6ba14bf46443d5fddf6dd7eb2da9f0",
+      "selected_metadata": {
+        "bubbleId": "2b6cde31-1d95-43e2-92ce-83b8d88d15b9",
+        "type": 2,
+        "createdAt": "2026-10-09T21:09:15.334Z",
+        "startedAtMs": 1791580155334
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:a19d0107-7a18-4263-bbac-f20216870635": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "0663aba92a090e0a9f1302f5889862081726f3fc5f17222609857947b09876a0",
+      "selected_metadata": {
+        "bubbleId": "a19d0107-7a18-4263-bbac-f20216870635",
+        "type": 2,
+        "createdAt": "2026-10-09T21:09:47.775Z",
+        "startedAtMs": 1791580187775
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:c974bd68-db07-4d1a-bea0-db9f93f7220b": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "25b1731b542855284dc7c7ad2252b4230a9a7ef6eb2049c06e80da3eec0af343",
+      "selected_metadata": {
+        "bubbleId": "c974bd68-db07-4d1a-bea0-db9f93f7220b",
+        "type": 2,
+        "createdAt": "2026-10-09T21:01:54.787Z",
+        "startedAtMs": 1791579714787
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:9b219383-f9b7-4cda-bf98-512f08d06463": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "cecead6053e24f23a43a718942928bc915f47737ede03e07a64f7ad6becce73d",
+      "selected_metadata": {
+        "bubbleId": "9b219383-f9b7-4cda-bf98-512f08d06463",
+        "type": 2,
+        "createdAt": "2026-10-09T21:02:32.835Z",
+        "startedAtMs": 1791579752835
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:7769fe2e-263d-4781-91ca-f08e13321d20": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "2c37ee3a568d06cc2432176e619fac7b648ae30766ea8eff0c2fae5551b4d5a9",
+      "selected_metadata": {
+        "bubbleId": "7769fe2e-263d-4781-91ca-f08e13321d20",
+        "type": 2,
+        "createdAt": "2026-10-09T21:01:54.801Z",
+        "startedAtMs": 1791579714801
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:237e48ed-5a41-4d26-9e42-fe5bc0ae16b8": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "bd75b074a643e1e41c840e498ea67affe45a46872b22eaf8f15191b3eae25b03",
+      "selected_metadata": {
+        "bubbleId": "237e48ed-5a41-4d26-9e42-fe5bc0ae16b8",
+        "type": 2,
+        "createdAt": "2026-10-09T21:02:32.848Z",
+        "startedAtMs": 1791579752848
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:6794e987-f9fa-4919-aee5-60edfaa38060": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "301e43d15b87a64bc2e8ee6bc2bdfd1a6d8532760f0fbb68cc3edd5a0f461af3",
+      "selected_metadata": {
+        "bubbleId": "6794e987-f9fa-4919-aee5-60edfaa38060",
+        "type": 2,
+        "createdAt": "2026-10-09T21:02:32.851Z",
+        "startedAtMs": 1791579752851
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:a3e6f85c-c632-464e-8892-17004f2e954a": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "566fe9ce7e30a78cd4209cd643166166e6c49be08fadda466aefdd6e5e195509",
+      "selected_metadata": {
+        "bubbleId": "a3e6f85c-c632-464e-8892-17004f2e954a",
+        "type": 2,
+        "createdAt": "2026-10-09T21:02:32.857Z",
+        "startedAtMs": 1791579752857
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:8827cd0a-523f-4cde-aac4-688fb8f07628": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "366c89324455bb8242fd88a2e5c90b908b0437706e489bb3ed8037f21d6a3c4c",
+      "selected_metadata": {
+        "bubbleId": "8827cd0a-523f-4cde-aac4-688fb8f07628",
+        "type": 2,
+        "createdAt": "2026-10-09T21:02:38.913Z",
+        "startedAtMs": 1791579758913
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:e909ea4d-a6b8-4eb1-b7af-2cf6d2736c35": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "e710b5ad97aa637b96738619a73238a8126075390a60b5d90bc36a903c88d786",
+      "selected_metadata": {
+        "bubbleId": "e909ea4d-a6b8-4eb1-b7af-2cf6d2736c35",
+        "type": 2,
+        "createdAt": "2026-10-09T21:02:38.919Z",
+        "startedAtMs": 1791579758919
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:98aae506-a921-46cb-91b4-e423281885af": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "3226b11c795978f23be49523af0f44abad280a1e8b275f20df3c231b496cb41d",
+      "selected_metadata": {
+        "bubbleId": "98aae506-a921-46cb-91b4-e423281885af",
+        "type": 2,
+        "createdAt": "2026-10-09T21:02:38.923Z",
+        "startedAtMs": 1791579758923
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:fe5f3c44-4d4a-463c-b0b8-234b1291b0e1": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "4f7737660e15eb8157e445815cc9d470b24f50d3775d39a774100a35c354c257",
+      "selected_metadata": {
+        "bubbleId": "fe5f3c44-4d4a-463c-b0b8-234b1291b0e1",
+        "type": 2,
+        "createdAt": "2026-10-09T21:03:29.166Z",
+        "startedAtMs": 1791579809166
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:0d8a11b0-637b-4746-852d-6a8f3efc9539": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "b791e5a0b1824de564efbc815ec4240fe06a78449368f29f97994c3aeb617332",
+      "selected_metadata": {
+        "bubbleId": "0d8a11b0-637b-4746-852d-6a8f3efc9539",
+        "type": 2,
+        "createdAt": "2026-10-09T21:03:29.173Z",
+        "startedAtMs": 1791579809173
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:2b8c07cc-1387-4e61-89f7-61cd4f57176b": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "dba518a0680864cf4df12ef6fd8ab57d640cddb929b36912f540c5f1c5f4db9d",
+      "selected_metadata": {
+        "bubbleId": "2b8c07cc-1387-4e61-89f7-61cd4f57176b",
+        "type": 2,
+        "createdAt": "2026-10-09T21:03:29.182Z",
+        "startedAtMs": 1791579809182
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:a7b49638-8ec0-4323-ba38-f717d70cbf9d": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "dcd807e08140a29ca80c97c3c5cd8d198d4c3eb27ab3e9847e9e7d6de13171ef",
+      "selected_metadata": {
+        "bubbleId": "a7b49638-8ec0-4323-ba38-f717d70cbf9d",
+        "type": 2,
+        "createdAt": "2026-10-09T21:03:29.187Z",
+        "startedAtMs": 1791579809187
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:438dd9fc-4674-42f8-8f4f-8f3d1362fa67": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "87fbe49d79cb95cfabf4f9c0d12494cdfee33816a3ef5650b815fd41fd496d03",
+      "selected_metadata": {
+        "bubbleId": "438dd9fc-4674-42f8-8f4f-8f3d1362fa67",
+        "type": 2,
+        "createdAt": "2026-10-09T21:03:53.489Z",
+        "startedAtMs": 1791579833489
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:c8773806-f187-4ff5-a7eb-8c1f20ea44c0": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "a359600ebbbb1f1545fb73574d7a9f213df8ac8e4e8fa796b229761e964a0cf0",
+      "selected_metadata": {
+        "bubbleId": "c8773806-f187-4ff5-a7eb-8c1f20ea44c0",
+        "type": 2,
+        "createdAt": "2026-10-09T21:03:53.493Z",
+        "startedAtMs": 1791579833493
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:8fbe7440-4067-4ce9-9a04-3d598372ac3b": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "bfaf1f06e8cd82db0852d5482120b0313eb4ccea76714d0e94db52bd1e0fe842",
+      "selected_metadata": {
+        "bubbleId": "8fbe7440-4067-4ce9-9a04-3d598372ac3b",
+        "type": 2,
+        "createdAt": "2026-10-09T21:03:53.496Z",
+        "startedAtMs": 1791579833496
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:f647a736-38c0-4d2b-a4c9-038e5589a426": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "bdaa3b514cec0c0271f4abebff2d87acc31ad4683d78afc9de14d88628aa58e4",
+      "selected_metadata": {
+        "bubbleId": "f647a736-38c0-4d2b-a4c9-038e5589a426",
+        "type": 2,
+        "createdAt": "2026-10-09T21:03:53.498Z",
+        "startedAtMs": 1791579833498
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:fe960ec0-77e7-4fe2-9834-b6bd7dc5e148": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "4991da27d1144994fe7af4a82134e88e53d7c918b2d70d8ea0f7a441868d49e1",
+      "selected_metadata": {
+        "bubbleId": "fe960ec0-77e7-4fe2-9834-b6bd7dc5e148",
+        "type": 2,
+        "createdAt": "2026-10-09T21:03:53.499Z",
+        "startedAtMs": 1791579833499
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:32b4a75d-1493-4246-8054-58376a2f4519": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "d1cbf47be308e8f318985e99d9c3c4504c7741a219783b4ee25c80c3501f846b",
+      "selected_metadata": {
+        "bubbleId": "32b4a75d-1493-4246-8054-58376a2f4519",
+        "type": 2,
+        "createdAt": "2026-10-09T21:04:39.655Z",
+        "startedAtMs": 1791579879655
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:cbac0f70-d60e-4a57-8df1-63d134f74d18": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "376cdf5e01ae83ec2d16f59d8a022583249b4cd5fa2e02beb5dd6eda7d9f2903",
+      "selected_metadata": {
+        "bubbleId": "cbac0f70-d60e-4a57-8df1-63d134f74d18",
+        "type": 2,
+        "createdAt": "2026-10-09T21:04:39.659Z",
+        "startedAtMs": 1791579879659
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:5d920703-670c-4872-bfcc-40f865eb53b9": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "570d4f04d636cd85e41fc50ee5c09985a42c12578301f0d1624b16cd7712ed9e",
+      "selected_metadata": {
+        "bubbleId": "5d920703-670c-4872-bfcc-40f865eb53b9",
+        "type": 2,
+        "createdAt": "2026-10-09T21:04:39.662Z",
+        "startedAtMs": 1791579879662
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:013dd1df-c88e-4b2e-8f97-c7c0e3e7324a": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "379dcf1e40916674c38663cdce0991807b35f7edd9ffe4344adeaf537f781002",
+      "selected_metadata": {
+        "bubbleId": "013dd1df-c88e-4b2e-8f97-c7c0e3e7324a",
+        "type": 2,
+        "createdAt": "2026-10-09T21:04:39.663Z",
+        "startedAtMs": 1791579879663
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:ed8bec82-3304-42eb-bc76-96bb1bca0bd1": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "8d8e2ed75edb950fae14ad0a3eedc19a0671d5c290a08efc349460653f4d7780",
+      "selected_metadata": {
+        "bubbleId": "ed8bec82-3304-42eb-bc76-96bb1bca0bd1",
+        "type": 2,
+        "createdAt": "2026-10-09T21:04:39.668Z",
+        "startedAtMs": 1791579879668
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:fc41118d-26f8-4b38-b461-94de9f177657": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "ff18405688e7bfbdd36fc9337356bda26920c2f655cfd54a1c1e2673f33516c1",
+      "selected_metadata": {
+        "bubbleId": "fc41118d-26f8-4b38-b461-94de9f177657",
+        "type": 2,
+        "createdAt": "2026-10-09T21:05:47.950Z",
+        "startedAtMs": 1791579947950
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:0a200ff3-5ad0-4d09-8a67-e60beeb36768": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "4d078711b051788ae268c2b58b7b25c80cf134947d9772a5730bddc97259a953",
+      "selected_metadata": {
+        "bubbleId": "0a200ff3-5ad0-4d09-8a67-e60beeb36768",
+        "type": 2,
+        "createdAt": "2026-10-09T21:05:47.954Z",
+        "startedAtMs": 1791579947954
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:c10dd68c-ec6f-4aea-879d-84c9c5c7ad15": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "55327c817126154a14b7c1cceab16f21d2055e31571338639dfcf43e5e98fb92",
+      "selected_metadata": {
+        "bubbleId": "c10dd68c-ec6f-4aea-879d-84c9c5c7ad15",
+        "type": 2,
+        "createdAt": "2026-10-09T21:05:47.956Z",
+        "startedAtMs": 1791579947956
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:46fd5d8a-fe36-4a6d-a465-5c7da8aa3688": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "9053f55ea1669046d4f1a5649f31c50ff72b23bb92db84ab871786d2d26c22cf",
+      "selected_metadata": {
+        "bubbleId": "46fd5d8a-fe36-4a6d-a465-5c7da8aa3688",
+        "type": 2,
+        "createdAt": "2026-10-09T21:05:47.959Z",
+        "startedAtMs": 1791579947959
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:f718d56d-16ae-49ec-bdbb-03360ef0129d": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "ca51dcec38818383b154911fa26b3e65076bd4b88af7af082feb105312d573dd",
+      "selected_metadata": {
+        "bubbleId": "f718d56d-16ae-49ec-bdbb-03360ef0129d",
+        "type": 2,
+        "createdAt": "2026-10-09T21:05:47.963Z",
+        "startedAtMs": 1791579947963
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:5874a205-5f40-45ce-a850-d2df5e8b9fde": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "376e3da68d96bbccdc4bb8001e6f41d0e3ee4f3c5f5e9cf05775485ec64f52d3",
+      "selected_metadata": {
+        "bubbleId": "5874a205-5f40-45ce-a850-d2df5e8b9fde",
+        "type": 2,
+        "createdAt": "2026-10-09T21:06:24.921Z",
+        "startedAtMs": 1791579984921
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:2a6ae37d-7410-4d4b-a5a1-381bf5886526": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "a78da8e6530095810abce3616a26714b5d29b365538412eae4e51c2bdf438262",
+      "selected_metadata": {
+        "bubbleId": "2a6ae37d-7410-4d4b-a5a1-381bf5886526",
+        "type": 2,
+        "createdAt": "2026-10-09T21:06:24.959Z",
+        "startedAtMs": 1791579984959
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:0d36b468-387c-4318-934b-bc0be3791b59": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "4bce944ee0fa8adfb7a2a9c27b585735a79fd71bef767056bc4605acf27dfd66",
+      "selected_metadata": {
+        "bubbleId": "0d36b468-387c-4318-934b-bc0be3791b59",
+        "type": 2,
+        "createdAt": "2026-10-09T21:06:24.975Z",
+        "startedAtMs": 1791579984975
+      }
+    },
+    "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:0cc046d8-36c9-44de-8a2c-0a9fd5cd7bb1": {
+      "table": "cursorDiskKV",
+      "original_value_sha256": "5aa7ed9fe9b8517d1bf0b7c73b3bef9317a36762e9e719d205386518817dac83",
+      "selected_metadata": {
+        "bubbleId": "0cc046d8-36c9-44de-8a2c-0a9fd5cd7bb1",
+        "type": 2,
+        "createdAt": "2026-10-09T21:06:35.462Z",
+        "startedAtMs": 1791579995462
+      }
+    }
+  },
+  "recovered_public_evidence": {
+    "index": 84,
+    "verdict": "original_source_located_with_duty_and_actor_model_gaps",
+    "host": "Cursor",
+    "chat_id": "5fba085e-5ba4-46e6-bfd9-503956f08c12",
+    "order_source": {
+      "table": "cursorDiskKV",
+      "key": "composerData:5fba085e-5ba4-46e6-bfd9-503956f08c12",
+      "path": "$.fullConversationHeadersOnly",
+      "total_headers": 53
+    },
+    "trigger": {
+      "table": "cursorDiskKV",
+      "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:ab175304-4fef-43a8-ab5c-ef2c93b8a5c9",
+      "chat_id": "5fba085e-5ba4-46e6-bfd9-503956f08c12",
+      "message_id": "ab175304-4fef-43a8-ab5c-ef2c93b8a5c9",
+      "type": 1,
+      "model_field": {
+        "path": "$.modelInfo.modelName",
+        "present": true,
+        "value": "grok-4.7"
+      },
+      "timestamp_fields": [
+        {
+          "path": "$.createdAt",
+          "value": "2026-10-09T21:01:49.830Z"
+        }
+      ],
+      "public_text": "hello again, good wolf"
+    },
+    "offending_original_reply": {
+      "table": "cursorDiskKV",
+      "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:2b6cde31-1d95-43e2-92ce-83b8d88d15b9",
+      "chat_id": "5fba085e-5ba4-46e6-bfd9-503956f08c12",
+      "message_id": "2b6cde31-1d95-43e2-92ce-83b8d88d15b9",
+      "type": 2,
+      "model_field": {
+        "path": "$.modelInfo.modelName",
+        "present": false,
+        "value": null
+      },
+      "timestamp_fields": [
+        {
+          "path": "$.createdAt",
+          "value": "2026-10-09T21:09:15.334Z"
+        },
+        {
+          "path": "$.startedAtMs",
+          "value": 1791580155334
+        }
+      ],
+      "public_text": "Entry contract: v50, 2026-10-09.\n\n| 📍 **q-0027** · How does each turn know its next step, and each session where to resume? |\n|---|\n\nHello again. The wake is in. This conversation stands on q-0027 until you name the work.\n\nLanded work whose boxes are still open comes first.[^1] Two tickets share that rank, so both are here.\n\n- [01-0010.0174 each hook finds its interpreter](docs/tickets/01-0010.0174-each-hook-finds-its-interpreter.md) was implemented on 2026-10-09. Three boxes are open: the hooks deliver the window on a clone with no `uv`, each of the three hosts runs them in a live Windows session, and `/verify`. A running session already stands on q-0018.0020.0005.0002 How does each hook find a working interpreter in every clone, under each host's shell? That ticket stays with it.\n- [01-0011.0110.0020 a paragraph shows what it stands on](docs/tickets/01-0011.0110.0020-a-paragraph-shows-what-it-stands-on.md) was verified on 2026-10-08. Two boxes wait on a week of your grading. Running sessions stand on q-0030 How does a reply show the principles each of its claims stands on, and where are the principles named for it?\n\nThe queue’s candidate, once you nod, is [01-0011.0110.0040.0010 every record shows what it is a record of](docs/tickets/01-0011.0110.0040.0010-every-record-shows-what-it-is-a-record-of.md). It is Ready, AFK, and its next step is `/plan`. It answers q-0024.0009.0003.0001 How does every record an agent edits show what it is a record of? One decision also waits at `/align`: q-0026.0003 What does an entry-contract version cover?\n\nThree occasions since that order was set are yours to promote or leave.[^2]\n\n1. On 2026-10-09 you took issue 4 ahead of the queue. The merge has landed. [01-0010.0176 a failed install gate says why it failed](docs/tickets/01-0010.0176-a-failed-gate-says-why.md) is Ready and AFK, and the hooks session’s handoff names it as that session’s next. The queue’s candidate remains `.0040.0010`.\n2. [Session 45](docs/sessions/0045-20261009-what-the-harness-is-for.md) asks whether goals derived from the product document, and [01-0010.0150 the harness meets a tree that already has a method](docs/tickets/01-0010.0150-harness-meets-a-tree-with-a-method.md), should become the candidate.\n3. [Session 44, the roots](docs/sessions/0044-20261009-a-store-opens-with-three-roots.md), left two questions from that work for you, and called [01-0011.0100.0050 a question branches before it is answered](docs/tickets/01-0011.0100.0050-a-question-branches-before-it-is-answered.md) the queue’s next. The candidate paragraph names `.0040.0010`, with `.0050` after those slices.\n\nI stop at this fork. The next cycle waits for your nod. (💡 *Human checkpoints*)\n\nTen other sessions are marked running. Five stand on a question: the interpreter ticket, the merge’s child (that ticket has since closed), q-0018.0020.0003 How does a first install end with the project’s own verification set?, and q-0030 with a child. Five have no position. Nothing is suspect, and no straw dog is due. Two deferrals were re-checked; their conditions are unmet. q-0001.0013 How does the store remember every id it has given, so none is given twice? waits on a stale id landing silently. q-0006 Could the rule set be composite, with no pure core anywhere? waits on a second mechanism whose rules cannot be injected as a block.\n\nThe tree is clean apart from `docs/questions/sessions`, the store’s session rows, including this one.\n\n| | |\n|---|---|\n| ⚖️ Decisions | Which item this session takes. Also still waiting: the grading week on 01-0011.0110.0020, and q-0026.0003 at `/align`. |\n| 🍂 Drift | [Delivery status](docs/tickets/README.md): the completed-step chronicle ends at session 42 on 2026-10-08, and the verification-set line still says 532 tests on 2026-10-05. Session 44 recorded 572 at its close on 2026-10-09. Left as found. |\n| 🪢 Tangle | Two records are both numbered 0044, and several sessions are writing this tree at once. q-0032 How do sessions running at once in one tree keep from overwriting each other’s writes? is open. Left unresolved. |\n\n[^1]: [pacer.md](docs/pacer.md), Core rules — the user, 2026-09-06. A tie at one rank is presented. (💡 *Do not reopen an accepted decision without new evidence*)\n[^2]: The queue’s order, the user, 2026-09-27, reconfirmed 2026-09-29; the candidate set to `.0040.0010` on 2026-10-08, in the delivery status. A last session’s handoff is a list of candidates. The queue states the order."
+    },
+    "related_shell_completion_reply": {
+      "table": "cursorDiskKV",
+      "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:a19d0107-7a18-4263-bbac-f20216870635",
+      "chat_id": "5fba085e-5ba4-46e6-bfd9-503956f08c12",
+      "message_id": "a19d0107-7a18-4263-bbac-f20216870635",
+      "type": 2,
+      "model_field": {
+        "path": "$.modelInfo.modelName",
+        "present": false,
+        "value": null
+      },
+      "timestamp_fields": [
+        {
+          "path": "$.createdAt",
+          "value": "2026-10-09T21:09:47.775Z"
+        },
+        {
+          "path": "$.startedAtMs",
+          "value": 1791580187775
+        }
+      ],
+      "public_text": "| ⚙️ **shell results** · git status, the sessions diff, and placing this session |\n|---|\n\nAll three finished cleanly. Git shows only the sessions file touched, that diff is the store’s own session rows, and this conversation is placed on q-0027."
+    },
+    "pre_failure_public_context": [
+      {
+        "table": "cursorDiskKV",
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:c974bd68-db07-4d1a-bea0-db9f93f7220b",
+        "chat_id": "5fba085e-5ba4-46e6-bfd9-503956f08c12",
+        "message_id": "c974bd68-db07-4d1a-bea0-db9f93f7220b",
+        "type": 2,
+        "model_field": {
+          "path": "$.modelInfo.modelName",
+          "present": false,
+          "value": null
+        },
+        "timestamp_fields": [
+          {
+            "path": "$.createdAt",
+            "value": "2026-10-09T21:01:54.787Z"
+          },
+          {
+            "path": "$.startedAtMs",
+            "value": 1791579714787
+          }
+        ],
+        "public_text": "Entry contract: v50, 2026-10-09.\n\nThis is a fresh session, so I’m running recall first — the wake that says where the project stands — before treating the greeting."
+      },
+      {
+        "table": "cursorDiskKV",
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:9b219383-f9b7-4cda-bf98-512f08d06463",
+        "chat_id": "5fba085e-5ba4-46e6-bfd9-503956f08c12",
+        "message_id": "9b219383-f9b7-4cda-bf98-512f08d06463",
+        "type": 2,
+        "model_field": {
+          "path": "$.modelInfo.modelName",
+          "present": false,
+          "value": null
+        },
+        "timestamp_fields": [
+          {
+            "path": "$.createdAt",
+            "value": "2026-10-09T21:02:32.835Z"
+          },
+          {
+            "path": "$.startedAtMs",
+            "value": 1791579752835
+          }
+        ],
+        "public_text": "The wake is already in this session’s context. I’ll greet from that, then read delivery status, the queue, and git so the picture is the tree’s and not only the hook’s."
+      }
+    ],
+    "public_tool_sequence": [
+      {
+        "order_index": 3,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:7769fe2e-263d-4781-91ca-f08e13321d20",
+        "message_id": "7769fe2e-263d-4781-91ca-f08e13321d20",
+        "name": "read_file_v2",
+        "params": {
+          "targetFile": "d:\\Dev\\AI\\agents\\.cursor\\skills\\recall\\SKILL.md",
+          "effectiveUri": "d:\\Dev\\AI\\agents\\.cursor\\skills\\recall\\SKILL.md"
+        },
+        "rawArgs": {
+          "path": "d:\\Dev\\AI\\agents\\.cursor\\skills\\recall\\SKILL.md"
+        }
+      },
+      {
+        "order_index": 6,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:237e48ed-5a41-4d26-9e42-fe5bc0ae16b8",
+        "message_id": "237e48ed-5a41-4d26-9e42-fe5bc0ae16b8",
+        "name": "glob_file_search",
+        "params": {
+          "targetDirectory": "d:\\Dev\\AI\\agents",
+          "globPattern": "docs/**/*.{md,yml,yaml}"
+        },
+        "rawArgs": {
+          "targetDirectory": "d:\\Dev\\AI\\agents",
+          "globPattern": "docs/**/*.{md,yml,yaml}"
+        }
+      },
+      {
+        "order_index": 7,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:6794e987-f9fa-4919-aee5-60edfaa38060",
+        "message_id": "6794e987-f9fa-4919-aee5-60edfaa38060",
+        "name": "ripgrep_raw_search",
+        "params": {
+          "pattern": "queue|delivery status|in flight",
+          "path": "d:\\Dev\\AI\\agents\\docs"
+        },
+        "rawArgs": {
+          "pattern": "queue|delivery status|in flight",
+          "path": "d:\\Dev\\AI\\agents\\docs",
+          "headLimit": 40,
+          "offset": 0
+        }
+      },
+      {
+        "order_index": 8,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:a3e6f85c-c632-464e-8892-17004f2e954a",
+        "message_id": "a3e6f85c-c632-464e-8892-17004f2e954a",
+        "name": "run_terminal_command_v2",
+        "params": {
+          "command": "git status --short && git log -15 --oneline --date=short --format=\"%h %ad %s\"",
+          "cwd": "",
+          "commandDescription": "Git status and recent commits"
+        }
+      },
+      {
+        "order_index": 10,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:8827cd0a-523f-4cde-aac4-688fb8f07628",
+        "message_id": "8827cd0a-523f-4cde-aac4-688fb8f07628",
+        "name": "glob_file_search",
+        "params": {
+          "targetDirectory": "d:\\Dev\\AI\\agents",
+          "globPattern": "docs/**/*queue*"
+        },
+        "rawArgs": {
+          "targetDirectory": "d:\\Dev\\AI\\agents",
+          "globPattern": "docs/**/*queue*"
+        }
+      },
+      {
+        "order_index": 11,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:e909ea4d-a6b8-4eb1-b7af-2cf6d2736c35",
+        "message_id": "e909ea4d-a6b8-4eb1-b7af-2cf6d2736c35",
+        "name": "read_file_v2",
+        "params": {
+          "targetFile": "d:\\Dev\\AI\\agents\\docs\\tickets\\README.md",
+          "limit": 200,
+          "effectiveUri": "d:\\Dev\\AI\\agents\\docs\\tickets\\README.md"
+        },
+        "rawArgs": {
+          "path": "d:\\Dev\\AI\\agents\\docs\\tickets\\README.md",
+          "limit": 200
+        }
+      },
+      {
+        "order_index": 12,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:98aae506-a921-46cb-91b4-e423281885af",
+        "message_id": "98aae506-a921-46cb-91b4-e423281885af",
+        "name": "run_terminal_command_v2",
+        "params": {
+          "command": "git status --short; git log -15 --date=short --format=\"%h %ad %s\"",
+          "cwd": "",
+          "commandDescription": "Git status and recent commits"
+        }
+      },
+      {
+        "order_index": 14,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:fe5f3c44-4d4a-463c-b0b8-234b1291b0e1",
+        "message_id": "fe5f3c44-4d4a-463c-b0b8-234b1291b0e1",
+        "name": "glob_file_search",
+        "params": {
+          "targetDirectory": "d:\\Dev\\AI\\agents",
+          "globPattern": "docs/sessions/004*.md"
+        },
+        "rawArgs": {
+          "targetDirectory": "d:\\Dev\\AI\\agents",
+          "globPattern": "docs/sessions/004*.md"
+        }
+      },
+      {
+        "order_index": 15,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:0d8a11b0-637b-4746-852d-6a8f3efc9539",
+        "message_id": "0d8a11b0-637b-4746-852d-6a8f3efc9539",
+        "name": "ripgrep_raw_search",
+        "params": {
+          "pattern": "^- \\[[ x]\\]",
+          "path": "d:\\Dev\\AI\\agents\\docs\\tickets\\01-0010.0174-each-hook-finds-its-interpreter.md"
+        },
+        "rawArgs": {
+          "pattern": "^- \\[[ x]\\]",
+          "path": "d:\\Dev\\AI\\agents\\docs\\tickets\\01-0010.0174-each-hook-finds-its-interpreter.md",
+          "offset": 0
+        }
+      },
+      {
+        "order_index": 16,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:2b8c07cc-1387-4e61-89f7-61cd4f57176b",
+        "message_id": "2b8c07cc-1387-4e61-89f7-61cd4f57176b",
+        "name": "read_file_v2",
+        "params": {
+          "targetFile": "d:\\Dev\\AI\\agents\\docs\\pacer.md",
+          "limit": 80,
+          "effectiveUri": "d:\\Dev\\AI\\agents\\docs\\pacer.md"
+        },
+        "rawArgs": {
+          "path": "d:\\Dev\\AI\\agents\\docs\\pacer.md",
+          "limit": 80
+        }
+      },
+      {
+        "order_index": 17,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:a7b49638-8ec0-4323-ba38-f717d70cbf9d",
+        "message_id": "a7b49638-8ec0-4323-ba38-f717d70cbf9d",
+        "name": "read_file_v2",
+        "params": {
+          "targetFile": "C:\\Users\\fimar\\.cursor\\projects\\d-Dev-AI-agents\\terminals\\370277.txt",
+          "limit": 20,
+          "effectiveUri": "C:\\Users\\fimar\\.cursor\\projects\\d-Dev-AI-agents\\terminals\\370277.txt"
+        },
+        "rawArgs": {
+          "path": "C:\\Users\\fimar\\.cursor\\projects\\d-Dev-AI-agents\\terminals\\370277.txt",
+          "limit": 20
+        }
+      },
+      {
+        "order_index": 19,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:438dd9fc-4674-42f8-8f4f-8f3d1362fa67",
+        "message_id": "438dd9fc-4674-42f8-8f4f-8f3d1362fa67",
+        "name": "read_file_v2",
+        "params": {
+          "targetFile": "d:\\Dev\\AI\\agents\\docs\\sessions\\0045-20261009-what-the-harness-is-for.md",
+          "limit": 80,
+          "effectiveUri": "d:\\Dev\\AI\\agents\\docs\\sessions\\0045-20261009-what-the-harness-is-for.md"
+        },
+        "rawArgs": {
+          "path": "d:\\Dev\\AI\\agents\\docs\\sessions\\0045-20261009-what-the-harness-is-for.md",
+          "limit": 80
+        }
+      },
+      {
+        "order_index": 20,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:c8773806-f187-4ff5-a7eb-8c1f20ea44c0",
+        "message_id": "c8773806-f187-4ff5-a7eb-8c1f20ea44c0",
+        "name": "read_file_v2",
+        "params": {
+          "targetFile": "d:\\Dev\\AI\\agents\\docs\\sessions\\0044-20261009-issue-4-hooks-merged-not-local.md",
+          "limit": 80,
+          "effectiveUri": "d:\\Dev\\AI\\agents\\docs\\sessions\\0044-20261009-issue-4-hooks-merged-not-local.md"
+        },
+        "rawArgs": {
+          "path": "d:\\Dev\\AI\\agents\\docs\\sessions\\0044-20261009-issue-4-hooks-merged-not-local.md",
+          "limit": 80
+        }
+      },
+      {
+        "order_index": 21,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:8fbe7440-4067-4ce9-9a04-3d598372ac3b",
+        "message_id": "8fbe7440-4067-4ce9-9a04-3d598372ac3b",
+        "name": "read_file_v2",
+        "params": {
+          "targetFile": "d:\\Dev\\AI\\agents\\docs\\sessions\\0044-20261009-a-store-opens-with-three-roots.md",
+          "limit": 80,
+          "effectiveUri": "d:\\Dev\\AI\\agents\\docs\\sessions\\0044-20261009-a-store-opens-with-three-roots.md"
+        },
+        "rawArgs": {
+          "path": "d:\\Dev\\AI\\agents\\docs\\sessions\\0044-20261009-a-store-opens-with-three-roots.md",
+          "limit": 80
+        }
+      },
+      {
+        "order_index": 22,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:f647a736-38c0-4d2b-a4c9-038e5589a426",
+        "message_id": "f647a736-38c0-4d2b-a4c9-038e5589a426",
+        "name": "read_file_v2",
+        "params": {
+          "targetFile": "d:\\Dev\\AI\\agents\\docs\\tickets\\01-0010.0174-each-hook-finds-its-interpreter.md",
+          "limit": 80,
+          "effectiveUri": "d:\\Dev\\AI\\agents\\docs\\tickets\\01-0010.0174-each-hook-finds-its-interpreter.md"
+        },
+        "rawArgs": {
+          "path": "d:\\Dev\\AI\\agents\\docs\\tickets\\01-0010.0174-each-hook-finds-its-interpreter.md",
+          "limit": 80
+        }
+      },
+      {
+        "order_index": 23,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:fe960ec0-77e7-4fe2-9834-b6bd7dc5e148",
+        "message_id": "fe960ec0-77e7-4fe2-9834-b6bd7dc5e148",
+        "name": "ripgrep_raw_search",
+        "params": {
+          "pattern": "^## |at |process|wake",
+          "path": "d:\\Dev\\AI\\agents\\.cursor\\skills\\questions\\SKILL.md"
+        },
+        "rawArgs": {
+          "pattern": "^## |at |process|wake",
+          "path": "d:\\Dev\\AI\\agents\\.cursor\\skills\\questions\\SKILL.md",
+          "headLimit": 60,
+          "offset": 0
+        }
+      },
+      {
+        "order_index": 25,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:32b4a75d-1493-4246-8054-58376a2f4519",
+        "message_id": "32b4a75d-1493-4246-8054-58376a2f4519",
+        "name": "read_file_v2",
+        "params": {
+          "targetFile": "d:\\Dev\\AI\\agents\\docs\\sessions\\0045-20261009-what-the-harness-is-for.md",
+          "offset": 80,
+          "effectiveUri": "d:\\Dev\\AI\\agents\\docs\\sessions\\0045-20261009-what-the-harness-is-for.md"
+        },
+        "rawArgs": {
+          "path": "d:\\Dev\\AI\\agents\\docs\\sessions\\0045-20261009-what-the-harness-is-for.md",
+          "offset": 80
+        }
+      },
+      {
+        "order_index": 26,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:cbac0f70-d60e-4a57-8df1-63d134f74d18",
+        "message_id": "cbac0f70-d60e-4a57-8df1-63d134f74d18",
+        "name": "read_file_v2",
+        "params": {
+          "targetFile": "d:\\Dev\\AI\\agents\\docs\\sessions\\0044-20261009-a-store-opens-with-three-roots.md",
+          "offset": 80,
+          "effectiveUri": "d:\\Dev\\AI\\agents\\docs\\sessions\\0044-20261009-a-store-opens-with-three-roots.md"
+        },
+        "rawArgs": {
+          "path": "d:\\Dev\\AI\\agents\\docs\\sessions\\0044-20261009-a-store-opens-with-three-roots.md",
+          "offset": 80
+        }
+      },
+      {
+        "order_index": 27,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:5d920703-670c-4872-bfcc-40f865eb53b9",
+        "message_id": "5d920703-670c-4872-bfcc-40f865eb53b9",
+        "name": "read_file_v2",
+        "params": {
+          "targetFile": "d:\\Dev\\AI\\agents\\docs\\sessions\\0043-20261009-a-resumed-conversation-is-the-same-conversation.md",
+          "limit": 40,
+          "effectiveUri": "d:\\Dev\\AI\\agents\\docs\\sessions\\0043-20261009-a-resumed-conversation-is-the-same-conversation.md"
+        },
+        "rawArgs": {
+          "path": "d:\\Dev\\AI\\agents\\docs\\sessions\\0043-20261009-a-resumed-conversation-is-the-same-conversation.md",
+          "limit": 40
+        }
+      },
+      {
+        "order_index": 28,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:013dd1df-c88e-4b2e-8f97-c7c0e3e7324a",
+        "message_id": "013dd1df-c88e-4b2e-8f97-c7c0e3e7324a",
+        "name": "ripgrep_raw_search",
+        "params": {
+          "pattern": "^- \\[[ x]\\]",
+          "path": "d:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0110.0020-a-paragraph-shows-what-it-stands-on.md"
+        },
+        "rawArgs": {
+          "pattern": "^- \\[[ x]\\]",
+          "path": "d:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0110.0020-a-paragraph-shows-what-it-stands-on.md",
+          "offset": 0
+        }
+      },
+      {
+        "order_index": 29,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:ed8bec82-3304-42eb-bc76-96bb1bca0bd1",
+        "message_id": "ed8bec82-3304-42eb-bc76-96bb1bca0bd1",
+        "name": "read_file_v2",
+        "params": {
+          "targetFile": "d:\\Dev\\AI\\agents\\.cursor\\skills\\questions\\SKILL.md",
+          "offset": 23,
+          "limit": 30,
+          "effectiveUri": "d:\\Dev\\AI\\agents\\.cursor\\skills\\questions\\SKILL.md"
+        },
+        "rawArgs": {
+          "path": "d:\\Dev\\AI\\agents\\.cursor\\skills\\questions\\SKILL.md",
+          "offset": 23,
+          "limit": 30
+        }
+      },
+      {
+        "order_index": 31,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:fc41118d-26f8-4b38-b461-94de9f177657",
+        "message_id": "fc41118d-26f8-4b38-b461-94de9f177657",
+        "name": "read_file_v2",
+        "params": {
+          "targetFile": "d:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0110.0040.0010-every-record-shows-what-it-is-a-record-of.md",
+          "limit": 15,
+          "effectiveUri": "d:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0110.0040.0010-every-record-shows-what-it-is-a-record-of.md"
+        },
+        "rawArgs": {
+          "path": "d:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0110.0040.0010-every-record-shows-what-it-is-a-record-of.md",
+          "limit": 15
+        }
+      },
+      {
+        "order_index": 32,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:0a200ff3-5ad0-4d09-8a67-e60beeb36768",
+        "message_id": "0a200ff3-5ad0-4d09-8a67-e60beeb36768",
+        "name": "read_file_v2",
+        "params": {
+          "targetFile": "d:\\Dev\\AI\\agents\\docs\\tickets\\01-0010.0176-a-failed-gate-says-why.md",
+          "limit": 15,
+          "effectiveUri": "d:\\Dev\\AI\\agents\\docs\\tickets\\01-0010.0176-a-failed-gate-says-why.md"
+        },
+        "rawArgs": {
+          "path": "d:\\Dev\\AI\\agents\\docs\\tickets\\01-0010.0176-a-failed-gate-says-why.md",
+          "limit": 15
+        }
+      },
+      {
+        "order_index": 33,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:c10dd68c-ec6f-4aea-879d-84c9c5c7ad15",
+        "message_id": "c10dd68c-ec6f-4aea-879d-84c9c5c7ad15",
+        "name": "read_file_v2",
+        "params": {
+          "targetFile": "d:\\Dev\\AI\\agents\\docs\\questions\\q-0026.0003-what-does-an-entry-contract-version-cover.md",
+          "limit": 8,
+          "effectiveUri": "d:\\Dev\\AI\\agents\\docs\\questions\\q-0026.0003-what-does-an-entry-contract-version-cover.md"
+        },
+        "rawArgs": {
+          "path": "d:\\Dev\\AI\\agents\\docs\\questions\\q-0026.0003-what-does-an-entry-contract-version-cover.md",
+          "limit": 8
+        }
+      },
+      {
+        "order_index": 34,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:46fd5d8a-fe36-4a6d-a465-5c7da8aa3688",
+        "message_id": "46fd5d8a-fe36-4a6d-a465-5c7da8aa3688",
+        "name": "read_file_v2",
+        "params": {
+          "targetFile": "d:\\Dev\\AI\\agents\\docs\\questions\\q-0018.0020.0005.0002-how-does-each-hook-find-a-working-interpreter-in-every-clone-under-each-hosts-shell.md",
+          "limit": 5,
+          "effectiveUri": "d:\\Dev\\AI\\agents\\docs\\questions\\q-0018.0020.0005.0002-how-does-each-hook-find-a-working-interpreter-in-every-clone-under-each-hosts-shell.md"
+        },
+        "rawArgs": {
+          "path": "d:\\Dev\\AI\\agents\\docs\\questions\\q-0018.0020.0005.0002-how-does-each-hook-find-a-working-interpreter-in-every-clone-under-each-hosts-shell.md",
+          "limit": 5
+        }
+      },
+      {
+        "order_index": 35,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:f718d56d-16ae-49ec-bdbb-03360ef0129d",
+        "message_id": "f718d56d-16ae-49ec-bdbb-03360ef0129d",
+        "name": "run_terminal_command_v2",
+        "params": {
+          "command": "git diff --stat -- docs/questions/sessions",
+          "cwd": "",
+          "commandDescription": "See uncommitted sessions-file diff"
+        }
+      },
+      {
+        "order_index": 37,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:5874a205-5f40-45ce-a850-d2df5e8b9fde",
+        "message_id": "5874a205-5f40-45ce-a850-d2df5e8b9fde",
+        "name": "ripgrep_raw_search",
+        "params": {
+          "pattern": "5fba085e",
+          "path": "d:\\Dev\\AI\\agents\\docs\\questions\\sessions"
+        },
+        "rawArgs": {
+          "pattern": "5fba085e",
+          "path": "d:\\Dev\\AI\\agents\\docs\\questions\\sessions",
+          "offset": 0
+        }
+      },
+      {
+        "order_index": 38,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:2a6ae37d-7410-4d4b-a5a1-381bf5886526",
+        "message_id": "2a6ae37d-7410-4d4b-a5a1-381bf5886526",
+        "name": "read_file_v2",
+        "params": {
+          "targetFile": "d:\\Dev\\AI\\agents\\docs\\questions\\q-0024.0009.0003.0001-how-does-every-record-an-agent-edits-show-what-it-is-a-record-of.md",
+          "limit": 4,
+          "effectiveUri": "d:\\Dev\\AI\\agents\\docs\\questions\\q-0024.0009.0003.0001-how-does-every-record-an-agent-edits-show-what-it-is-a-record-of.md"
+        },
+        "rawArgs": {
+          "path": "d:\\Dev\\AI\\agents\\docs\\questions\\q-0024.0009.0003.0001-how-does-every-record-an-agent-edits-show-what-it-is-a-record-of.md",
+          "limit": 4
+        }
+      },
+      {
+        "order_index": 39,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:0d36b468-387c-4318-934b-bc0be3791b59",
+        "message_id": "0d36b468-387c-4318-934b-bc0be3791b59",
+        "name": "read_file_v2",
+        "params": {
+          "targetFile": "d:\\Dev\\AI\\agents\\docs\\questions\\q-0018.0020.0009-how-does-an-install-report-show-why-a-gate-failed.md",
+          "limit": 4,
+          "effectiveUri": "d:\\Dev\\AI\\agents\\docs\\questions\\q-0018.0020.0009-how-does-an-install-report-show-why-a-gate-failed.md"
+        },
+        "rawArgs": {
+          "path": "d:\\Dev\\AI\\agents\\docs\\questions\\q-0018.0020.0009-how-does-an-install-report-show-why-a-gate-failed.md",
+          "limit": 4
+        }
+      },
+      {
+        "order_index": 41,
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:0cc046d8-36c9-44de-8a2c-0a9fd5cd7bb1",
+        "message_id": "0cc046d8-36c9-44de-8a2c-0a9fd5cd7bb1",
+        "name": "run_terminal_command_v2",
+        "params": {
+          "command": "uv run --offline --no-project python .agents/scripts/gw/questions.py at q-0027 --session 5fba085e-5ba4-46e6-bfd9-503956f08c12",
+          "cwd": "d:\\Dev\\AI\\agents",
+          "commandDescription": "Place session on the resume question"
+        }
+      }
+    ],
+    "instruction_read_evidence": [
+      {
+        "table": "cursorDiskKV",
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:7769fe2e-263d-4781-91ca-f08e13321d20",
+        "chat_id": "5fba085e-5ba4-46e6-bfd9-503956f08c12",
+        "message_id": "7769fe2e-263d-4781-91ca-f08e13321d20",
+        "type": 2,
+        "model_field": {
+          "path": "$.modelInfo.modelName",
+          "present": false,
+          "value": null
+        },
+        "timestamp_fields": [
+          {
+            "path": "$.createdAt",
+            "value": "2026-10-09T21:01:54.801Z"
+          },
+          {
+            "path": "$.startedAtMs",
+            "value": 1791579714801
+          },
+          {
+            "path": "$.completedAtMs",
+            "value": 1791579716606
+          }
+        ],
+        "public_tool_action": {
+          "name": "read_file_v2",
+          "toolCallId": "call-edaf720d-f17a-4ec3-9594-7257d98e329a-0\nfc_32642d62-b2fd-9c90-95a7-447a2a59d5b0_0",
+          "modelCallId": "call-edaf720d-f17a-4ec3-9594-7257d98e329a-0\nfc_32642d62-b2fd-9c90-95a7-447a2a59d5b0_0",
+          "status": "completed",
+          "params": {
+            "targetFile": "d:\\Dev\\AI\\agents\\.cursor\\skills\\recall\\SKILL.md",
+            "charsLimit": 1000000,
+            "effectiveUri": "d:\\Dev\\AI\\agents\\.cursor\\skills\\recall\\SKILL.md"
+          },
+          "rawArgs": {
+            "path": "d:\\Dev\\AI\\agents\\.cursor\\skills\\recall\\SKILL.md"
+          },
+          "result": {
+            "totalLinesInFile": 34
+          }
+        }
+      },
+      {
+        "table": "cursorDiskKV",
+        "key": "bubbleId:5fba085e-5ba4-46e6-bfd9-503956f08c12:ed8bec82-3304-42eb-bc76-96bb1bca0bd1",
+        "chat_id": "5fba085e-5ba4-46e6-bfd9-503956f08c12",
+        "message_id": "ed8bec82-3304-42eb-bc76-96bb1bca0bd1",
+        "type": 2,
+        "model_field": {
+          "path": "$.modelInfo.modelName",
+          "present": false,
+          "value": null
+        },
+        "timestamp_fields": [
+          {
+            "path": "$.createdAt",
+            "value": "2026-10-09T21:04:39.668Z"
+          },
+          {
+            "path": "$.startedAtMs",
+            "value": 1791579879668
+          },
+          {
+            "path": "$.completedAtMs",
+            "value": 1791579879989
+          }
+        ],
+        "public_tool_action": {
+          "name": "read_file_v2",
+          "toolCallId": "call-b6baab22-686d-46fd-bfef-aad27e42eddd-20\nfc_ec50cd0c-2a7f-9074-9f33-af7044e7567d_4",
+          "modelCallId": "call-b6baab22-686d-46fd-bfef-aad27e42eddd-20\nfc_ec50cd0c-2a7f-9074-9f33-af7044e7567d_4",
+          "status": "completed",
+          "params": {
+            "targetFile": "d:\\Dev\\AI\\agents\\.cursor\\skills\\questions\\SKILL.md",
+            "offset": 23,
+            "limit": 30,
+            "charsLimit": 1000000,
+            "effectiveUri": "d:\\Dev\\AI\\agents\\.cursor\\skills\\questions\\SKILL.md"
+          },
+          "rawArgs": {
+            "path": "d:\\Dev\\AI\\agents\\.cursor\\skills\\questions\\SKILL.md",
+            "offset": 23,
+            "limit": 30
+          },
+          "result": {
+            "totalLinesInFile": 180
+          }
+        }
+      }
+    ],
+    "model_metadata_note": "Original user bubble ab175304 records $.modelInfo.modelName=grok-4.7. Assistant reply/tool bubbles lack modelInfo. This is request-message metadata, not independently established actual responding-model attribution.",
+    "actor_model": null,
+    "finding": "Original public tool sequence contains exactly one questions.py at command and zero --window invocations before the recall close and its shell-completion follow-up.",
+    "gaps": [
+      "The assistant model field is absent; do not promote the user-request model field to actual assistant attribution.",
+      "Antecedent Q1 duty body and original injected window are not retained in selected public fields. Instruction read results contain totalLinesInFile only. The assistant claim that the wake is already in context is not independent proof of injection.",
+      "The reported four messages in local00:01–00:09 include host-generated shell notifications; the native sequence has one human greeting and a grouped shell-notification follow-up, rather than four independent human requests."
+    ],
+    "quotes": [
+      {
+        "message_id": "9b219383-f9b7-4cda-bf98-512f08d06463",
+        "quote": "The wake is already in this session’s context."
+      },
+      {
+        "message_id": "2b6cde31-1d95-43e2-92ce-83b8d88d15b9",
+        "quote": "Hello again. The wake is in. This conversation stands on q-0027 until you name the work."
+      }
+    ],
+    "export_matches": [
+      {
+        "file": "5fba085e-5ba4-46e6-bfd9-503956f08c12.jsonl",
+        "line": 11,
+        "matched_by": "exact public reply text"
+      }
+    ]
+  }
+}

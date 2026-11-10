@@ -1,0 +1,1735 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "reviewer": "independent subagent judge_public_sources_final",
+  "governing_scope": "docs/questions/q-0037.0012.0009.0001-how-is-a-recorded-rule-failure-replayed-as-a-test-against-the-amended-rule.md — Where it stands and Decisions",
+  "verdict": "no new fidelity, attribution, pointer or retained-artifact integrity defect found in the examined selections",
+  "scope": "All 212 historical occurrence folders with case.json under docs/cases, excluding discover-material; public source fidelity/provenance/pointer/portability checks only.",
+  "privacy": "Already extracted public projections were parsed. Original Claude/Codex rows were hashed opaque and selectively projected through inspected public readers; no full raw provider row/private block was JSON-decoded. Selected Cursor SQLite values were hashed opaque and inspected only at selected public metadata/text/tool-action paths. Known typed private blocks were skipped before decoding. The synthetic private-block decoder probe passed.",
+  "source_comparison": {
+    "record_of": "what happened",
+    "date": "2026-11-10",
+    "scope": "Selected Claude/Codex public row projections and original byte hashes; case source-pointer resolution. Unselected original rows not JSON-decoded. Cursor source storage and semantic case sufficiency are outside this comparison.",
+    "cases": 212,
+    "hosts": {
+      "Claude Code": 198,
+      "Codex Desktop": 11,
+      "Cursor": 3
+    },
+    "counts": {
+      "selected_records_checked": 10973,
+      "selected_public_payloads_compared": 10973,
+      "case_source_pointers_checked": 33943,
+      "actor_input_references": 16469
+    },
+    "source_gap_kinds": {
+      "existing source qualification": 9,
+      "native replay context incomplete": 4,
+      "native replay context absent": 3,
+      "existing check evidence block": 9,
+      "referenced public artifact unavailable": 11
+    },
+    "blocked_checks": 9,
+    "unsupported_comparisons": [],
+    "errors": []
+  },
+  "selected_record_reference_precision": {
+    "selected_record_references": 10973,
+    "unique_transcript_row_pairs": 8468,
+    "transcripts": 76
+  },
+  "supplementary_counts": {
+    "cases": 212,
+    "public_json_pointers": 33943,
+    "literal_model_source_equalities": 209,
+    "claude_failing_turn_attribution": 198,
+    "transcript_source_selections": 231,
+    "artifact_references": 98,
+    "artifacts_matched_to_exact_original_path": 87,
+    "portable_artifact_hash_and_preview_proofs": 87,
+    "codex_native_attribution": 11,
+    "cursor_explicit_unknown_models": 3,
+    "cursor_native_value_hashes": 50,
+    "cursor_public_texts": 11,
+    "cursor_model_field_checks": 19,
+    "cursor_timestamp_fields": 27,
+    "cursor_public_tool_actions": 8,
+    "historical_excerpts": 15,
+    "historical_git_blob_references": 6,
+    "artifacts_explicitly_unavailable": 11
+  },
+  "codex_envelope_check": {
+    "record_of": "what happened",
+    "date": "2026-11-10",
+    "codex_selected_envelope_records_checked": 527,
+    "synthetic_private_block_decoder_probe": true,
+    "errors": []
+  },
+  "additional_attribution_check": {
+    "counts": {
+      "chat_source_equalities": 212,
+      "claude_native_chat_ids": 198,
+      "codex_latest_preserved_contexts": 11
+    },
+    "errors": []
+  },
+  "additional_cursor_public_selection_check": {
+    "record_of": "what happened",
+    "date": "2026-11-10",
+    "counts": {
+      "cursor_export_native_content_hash_equalities": 2,
+      "cursor_public_tool_sequence_entries": 30
+    },
+    "errors": []
+  },
+  "final_pointer_only_pass": {
+    "after_api_public_optional_field_refresh": true,
+    "resolved_case_source_and_api_pointers": 33943,
+    "case_and_source_snapshots_unchanged": true,
+    "errors": []
+  },
+  "findings": [],
+  "limitations": [
+    "This review judges public source fidelity/provenance, structured pointers and retained ancillary integrity only; it does not judge all-case behavioral validity, causal/context sufficiency, check discrimination or executor support.",
+    "The API request input structural/optional-field review and non-API native context semantic review belong to separate judges. A final pointer-only pass ran after the public API optional-field refresh; no API optional-field semantic verdict is supplied here.",
+    "Original transcript byte hashes and selected public row projections were checked; the audit does not establish that every public original row was selected or all provider state was recoverable. Original private reasoning remains excluded.",
+    "A retained ancillary artifact matches its current exact recorded-path file and its historically recorded preview prefix. No independent historical full-content digest is recorded in the hook notice; the artifact SHA256 identifies the recovered full bytes, not a newly proven historical full-byte fingerprint.",
+    "Eleven referenced full public artifacts remain explicitly unavailable. Their necessity for the case checks is not established by this review; the original notice and preview remain evidence.",
+    "The three Cursor cases retain unknown actual assistant model attribution. Requested model metadata is public source evidence and is not actual-model evidence.",
+    "The Codex model-source check establishes the literal native recorded model and latest preserved turn_context before the selected failure; it does not independently identify any unrecorded provider-side routing or state.",
+    "Nine case check status fields retain a blocked prefix. They are not reclassified as behavioral failures or successes by this review."
+  ],
+  "explicitly_unavailable_artifact_references": [
+    {
+      "case": "rf-a-reply-named-what-it-asked-abou-39066f4cc4",
+      "referenced_by": "source.json#/records/225",
+      "artifact_basename": "hook-933ea2fc-6cea-467f-bde8-f2f8f0cd24f0-1-additionalContext.txt",
+      "necessity_for_case_checks": "not established by this recovery"
+    },
+    {
+      "case": "rf-answers-proposed-four-times-on-a-34512db5f3",
+      "referenced_by": "source.json#/records/291",
+      "artifact_basename": "hook-b81013d1-535c-4c5e-8b4d-1994209e56c2-1-additionalContext.txt",
+      "necessity_for_case_checks": "not established by this recovery"
+    },
+    {
+      "case": "rf-answers-proposed-four-times-on-a-34512db5f3",
+      "referenced_by": "source.json#/records/328",
+      "artifact_basename": "hook-9a1e24da-b395-431e-a688-c660b2386e9c-1-additionalContext.txt",
+      "necessity_for_case_checks": "not established by this recovery"
+    },
+    {
+      "case": "rf-answers-proposed-four-times-on-a-797b8ba07c",
+      "referenced_by": "source.json#/records/291",
+      "artifact_basename": "hook-b81013d1-535c-4c5e-8b4d-1994209e56c2-1-additionalContext.txt",
+      "necessity_for_case_checks": "not established by this recovery"
+    },
+    {
+      "case": "rf-answers-proposed-four-times-on-a-797b8ba07c",
+      "referenced_by": "source.json#/records/328",
+      "artifact_basename": "hook-9a1e24da-b395-431e-a688-c660b2386e9c-1-additionalContext.txt",
+      "necessity_for_case_checks": "not established by this recovery"
+    },
+    {
+      "case": "rf-answers-proposed-four-times-on-a-797b8ba07c",
+      "referenced_by": "source.json#/records/352",
+      "artifact_basename": "hook-1a068b8b-c62a-43da-aa4a-bd23a85b5476-1-additionalContext.txt",
+      "necessity_for_case_checks": "not established by this recovery"
+    },
+    {
+      "case": "rf-answers-proposed-four-times-on-a-797b8ba07c",
+      "referenced_by": "source.json#/records/379",
+      "artifact_basename": "hook-ceb6d71d-df1a-4db5-9c5f-4f140571af03-1-additionalContext.txt",
+      "necessity_for_case_checks": "not established by this recovery"
+    },
+    {
+      "case": "rf-answers-proposed-four-times-on-a-8f3d2b3b00",
+      "referenced_by": "source.json#/records/291",
+      "artifact_basename": "hook-b81013d1-535c-4c5e-8b4d-1994209e56c2-1-additionalContext.txt",
+      "necessity_for_case_checks": "not established by this recovery"
+    },
+    {
+      "case": "rf-answers-proposed-four-times-on-a-ef04bb2b47",
+      "referenced_by": "source.json#/records/291",
+      "artifact_basename": "hook-b81013d1-535c-4c5e-8b4d-1994209e56c2-1-additionalContext.txt",
+      "necessity_for_case_checks": "not established by this recovery"
+    },
+    {
+      "case": "rf-answers-proposed-four-times-on-a-ef04bb2b47",
+      "referenced_by": "source.json#/records/328",
+      "artifact_basename": "hook-9a1e24da-b395-431e-a688-c660b2386e9c-1-additionalContext.txt",
+      "necessity_for_case_checks": "not established by this recovery"
+    },
+    {
+      "case": "rf-answers-proposed-four-times-on-a-ef04bb2b47",
+      "referenced_by": "source.json#/records/352",
+      "artifact_basename": "hook-1a068b8b-c62a-43da-aa4a-bd23a85b5476-1-additionalContext.txt",
+      "necessity_for_case_checks": "not established by this recovery"
+    }
+  ],
+  "retained_check_statuses": [
+    {
+      "case": "cursor-03206aca-unwrapped-write",
+      "status": "blocked pending contemporaneous instruction/exposure evidence"
+    },
+    {
+      "case": "cursor-5fba085e-window",
+      "status": "blocked pending contemporaneous instruction/exposure evidence"
+    },
+    {
+      "case": "cursor-8ada0e2a-unwrapped-write",
+      "status": "blocked pending contemporaneous instruction/exposure evidence"
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-1a1fde94d1",
+      "status": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-41a058cc97",
+      "status": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-bf77f24310",
+      "status": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-d72afa98f3",
+      "status": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-e7bb93ce46",
+      "status": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+    },
+    {
+      "case": "rf-the-straw-dog-rule-sat-at-tier-1-6749bbf867",
+      "status": "blocked by missing contemporaneous duty/exposure evidence"
+    }
+  ],
+  "retained_source_qualifications": [
+    {
+      "case": "cursor-03206aca-unwrapped-write",
+      "source_gaps": [
+        {
+          "kind": "existing source qualification",
+          "detail": "Actual assistant message model field is absent."
+        },
+        {
+          "kind": "existing source qualification",
+          "detail": "The original pre-write AGENTS read is retained, but result only says totalLinesInFile61. Its contemporaneous straw-dog duty body is not retained in selected public fields."
+        },
+        {
+          "kind": "existing source qualification",
+          "detail": "The write itself does not establish which future ticket owns the provisional passage; a later register assignment is not silently imported as original instruction."
+        },
+        {
+          "kind": "native replay context incomplete",
+          "source": "source.json#/recovered_public_evidence/trigger",
+          "detail": "The native bubble type and public text are retained, but a complete native role-separated delivery sequence is not retained; no replacement message is invented."
+        },
+        {
+          "kind": "native replay context incomplete",
+          "source": "source.json#/recovered_public_evidence/pre_failure_public_context",
+          "detail": "The retained block contains recovered public context fragments, not a complete native role-separated delivery sequence; no replacement sequence is invented."
+        },
+        {
+          "kind": "native replay context absent",
+          "detail": "No complete native pre-failure message sequence is retained."
+        },
+        {
+          "kind": "existing check evidence block",
+          "detail": "blocked pending contemporaneous instruction/exposure evidence"
+        }
+      ]
+    },
+    {
+      "case": "cursor-5fba085e-window",
+      "source_gaps": [
+        {
+          "kind": "existing source qualification",
+          "detail": "The assistant model field is absent; do not promote the user-request model field to actual assistant attribution."
+        },
+        {
+          "kind": "existing source qualification",
+          "detail": "Antecedent Q1 duty body and original injected window are not retained in selected public fields. Instruction read results contain totalLinesInFile only. The assistant claim that the wake is already in context is not independent proof of injection."
+        },
+        {
+          "kind": "existing source qualification",
+          "detail": "The reported four messages in local00:01–00:09 include host-generated shell notifications; the native sequence has one human greeting and a grouped shell-notification follow-up, rather than four independent human requests."
+        },
+        {
+          "kind": "native replay context incomplete",
+          "source": "source.json#/recovered_public_evidence/trigger",
+          "detail": "The native bubble type and public text are retained, but a complete native role-separated delivery sequence is not retained; no replacement message is invented."
+        },
+        {
+          "kind": "native replay context incomplete",
+          "source": "source.json#/recovered_public_evidence/pre_failure_public_context",
+          "detail": "The retained block contains recovered public context fragments, not a complete native role-separated delivery sequence; no replacement sequence is invented."
+        },
+        {
+          "kind": "native replay context absent",
+          "detail": "No complete native pre-failure message sequence is retained."
+        },
+        {
+          "kind": "existing check evidence block",
+          "detail": "blocked pending contemporaneous instruction/exposure evidence"
+        }
+      ]
+    },
+    {
+      "case": "cursor-8ada0e2a-unwrapped-write",
+      "source_gaps": [
+        {
+          "kind": "existing source qualification",
+          "detail": "Actual assistant model field is absent on original/copy action; copied triggering user message also has no modelInfo. No model is inferred from other messages."
+        },
+        {
+          "kind": "existing source qualification",
+          "detail": "Original trigger is retained as copied public text/order with copied timestamp; its uncopied original timestamp was not recovered."
+        },
+        {
+          "kind": "existing source qualification",
+          "detail": "Contemporaneous AGENTS/straw-dog duty body is not retained in selected read results; the text omission is established, but grading an instruction violation requires separate duty evidence."
+        },
+        {
+          "kind": "native replay context absent",
+          "detail": "No complete native pre-failure message sequence is retained."
+        },
+        {
+          "kind": "existing check evidence block",
+          "detail": "blocked pending contemporaneous instruction/exposure evidence"
+        }
+      ]
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-1a1fde94d1",
+      "source_gaps": [
+        {
+          "kind": "existing check evidence block",
+          "detail": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+        }
+      ]
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-41a058cc97",
+      "source_gaps": [
+        {
+          "kind": "existing check evidence block",
+          "detail": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+        }
+      ]
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-bf77f24310",
+      "source_gaps": [
+        {
+          "kind": "existing check evidence block",
+          "detail": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+        }
+      ]
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-d72afa98f3",
+      "source_gaps": [
+        {
+          "kind": "existing check evidence block",
+          "detail": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+        }
+      ]
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-e7bb93ce46",
+      "source_gaps": [
+        {
+          "kind": "existing check evidence block",
+          "detail": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+        }
+      ]
+    },
+    {
+      "case": "rf-a-reply-named-what-it-asked-abou-39066f4cc4",
+      "source_gaps": [
+        {
+          "kind": "referenced public artifact unavailable",
+          "source": "source.json#/records/225",
+          "detail": "The native hook message retains an exact persisted-output notice and preview. The full referenced public output was not found at its recorded path or by basename in the accessible Claude projects tree; its necessity for this case check is not established.",
+          "artifact_basename": "hook-933ea2fc-6cea-467f-bde8-f2f8f0cd24f0-1-additionalContext.txt",
+          "necessity_for_case_checks": "not established"
+        }
+      ]
+    },
+    {
+      "case": "rf-answers-proposed-four-times-on-a-34512db5f3",
+      "source_gaps": [
+        {
+          "kind": "referenced public artifact unavailable",
+          "source": "source.json#/records/291",
+          "detail": "The native hook message retains an exact persisted-output notice and preview. The full referenced public output was not found at its recorded path or by basename in the accessible Claude projects tree; its necessity for this case check is not established.",
+          "artifact_basename": "hook-b81013d1-535c-4c5e-8b4d-1994209e56c2-1-additionalContext.txt",
+          "necessity_for_case_checks": "not established"
+        },
+        {
+          "kind": "referenced public artifact unavailable",
+          "source": "source.json#/records/328",
+          "detail": "The native hook message retains an exact persisted-output notice and preview. The full referenced public output was not found at its recorded path or by basename in the accessible Claude projects tree; its necessity for this case check is not established.",
+          "artifact_basename": "hook-9a1e24da-b395-431e-a688-c660b2386e9c-1-additionalContext.txt",
+          "necessity_for_case_checks": "not established"
+        }
+      ]
+    },
+    {
+      "case": "rf-answers-proposed-four-times-on-a-797b8ba07c",
+      "source_gaps": [
+        {
+          "kind": "referenced public artifact unavailable",
+          "source": "source.json#/records/291",
+          "detail": "The native hook message retains an exact persisted-output notice and preview. The full referenced public output was not found at its recorded path or by basename in the accessible Claude projects tree; its necessity for this case check is not established.",
+          "artifact_basename": "hook-b81013d1-535c-4c5e-8b4d-1994209e56c2-1-additionalContext.txt",
+          "necessity_for_case_checks": "not established"
+        },
+        {
+          "kind": "referenced public artifact unavailable",
+          "source": "source.json#/records/328",
+          "detail": "The native hook message retains an exact persisted-output notice and preview. The full referenced public output was not found at its recorded path or by basename in the accessible Claude projects tree; its necessity for this case check is not established.",
+          "artifact_basename": "hook-9a1e24da-b395-431e-a688-c660b2386e9c-1-additionalContext.txt",
+          "necessity_for_case_checks": "not established"
+        },
+        {
+          "kind": "referenced public artifact unavailable",
+          "source": "source.json#/records/352",
+          "detail": "The native hook message retains an exact persisted-output notice and preview. The full referenced public output was not found at its recorded path or by basename in the accessible Claude projects tree; its necessity for this case check is not established.",
+          "artifact_basename": "hook-1a068b8b-c62a-43da-aa4a-bd23a85b5476-1-additionalContext.txt",
+          "necessity_for_case_checks": "not established"
+        },
+        {
+          "kind": "referenced public artifact unavailable",
+          "source": "source.json#/records/379",
+          "detail": "The native hook message retains an exact persisted-output notice and preview. The full referenced public output was not found at its recorded path or by basename in the accessible Claude projects tree; its necessity for this case check is not established.",
+          "artifact_basename": "hook-ceb6d71d-df1a-4db5-9c5f-4f140571af03-1-additionalContext.txt",
+          "necessity_for_case_checks": "not established"
+        }
+      ]
+    },
+    {
+      "case": "rf-answers-proposed-four-times-on-a-8f3d2b3b00",
+      "source_gaps": [
+        {
+          "kind": "referenced public artifact unavailable",
+          "source": "source.json#/records/291",
+          "detail": "The native hook message retains an exact persisted-output notice and preview. The full referenced public output was not found at its recorded path or by basename in the accessible Claude projects tree; its necessity for this case check is not established.",
+          "artifact_basename": "hook-b81013d1-535c-4c5e-8b4d-1994209e56c2-1-additionalContext.txt",
+          "necessity_for_case_checks": "not established"
+        }
+      ]
+    },
+    {
+      "case": "rf-answers-proposed-four-times-on-a-ef04bb2b47",
+      "source_gaps": [
+        {
+          "kind": "referenced public artifact unavailable",
+          "source": "source.json#/records/291",
+          "detail": "The native hook message retains an exact persisted-output notice and preview. The full referenced public output was not found at its recorded path or by basename in the accessible Claude projects tree; its necessity for this case check is not established.",
+          "artifact_basename": "hook-b81013d1-535c-4c5e-8b4d-1994209e56c2-1-additionalContext.txt",
+          "necessity_for_case_checks": "not established"
+        },
+        {
+          "kind": "referenced public artifact unavailable",
+          "source": "source.json#/records/328",
+          "detail": "The native hook message retains an exact persisted-output notice and preview. The full referenced public output was not found at its recorded path or by basename in the accessible Claude projects tree; its necessity for this case check is not established.",
+          "artifact_basename": "hook-9a1e24da-b395-431e-a688-c660b2386e9c-1-additionalContext.txt",
+          "necessity_for_case_checks": "not established"
+        },
+        {
+          "kind": "referenced public artifact unavailable",
+          "source": "source.json#/records/352",
+          "detail": "The native hook message retains an exact persisted-output notice and preview. The full referenced public output was not found at its recorded path or by basename in the accessible Claude projects tree; its necessity for this case check is not established.",
+          "artifact_basename": "hook-1a068b8b-c62a-43da-aa4a-bd23a85b5476-1-additionalContext.txt",
+          "necessity_for_case_checks": "not established"
+        }
+      ]
+    },
+    {
+      "case": "rf-the-straw-dog-rule-sat-at-tier-1-6749bbf867",
+      "source_gaps": [
+        {
+          "kind": "existing check evidence block",
+          "detail": "blocked by missing contemporaneous duty/exposure evidence"
+        }
+      ]
+    }
+  ],
+  "case_and_source_snapshots": [
+    {
+      "case": "corrected-rule-landed-20261022",
+      "host": "Claude Code",
+      "case_sha256": "e53d999e5e5efcabffaa29c5cbe2e002c905ae8c2fbc48b93531ec12b73affaa",
+      "source_sha256": "15b2e8fb4334593b4e8262ce668f9249255e3542af3520d81a4d38a133bad637"
+    },
+    {
+      "case": "correction-ended-next-move-20261026",
+      "host": "Codex Desktop",
+      "case_sha256": "479c75e15d7cdecedd51a5d3d2ca3da8bde2c03ecec4e90bbc59426fd27dbb68",
+      "source_sha256": "4f9aeaed130ba48dfbb6eb9919aedc33395388297e9caade16e25a23074e986d"
+    },
+    {
+      "case": "cursor-03206aca-unwrapped-write",
+      "host": "Cursor",
+      "case_sha256": "bb3c7a37c57df98c33ae8bc9dab6e25162b0876e70c2f37ac0bcef34e5537cd6",
+      "source_sha256": "63fbbe7c7a14ddebd85dc91a07ca077ec37df8c74068ae9049d76cde6270b8dd"
+    },
+    {
+      "case": "cursor-5fba085e-window",
+      "host": "Cursor",
+      "case_sha256": "c5845c22d1ecb825ff6ab7abe4baeaf590a92484eaeca421da0ce13c61991764",
+      "source_sha256": "2cbd1b3206ad586bc5fc387609474164cfae08c8c4f5650381f7626982511e7f"
+    },
+    {
+      "case": "cursor-8ada0e2a-unwrapped-write",
+      "host": "Cursor",
+      "case_sha256": "3676e859bdc4b40c0fc27b54cceb259e9aa2393640f215ab1c16ee47d387829c",
+      "source_sha256": "ae1ab87303e93f5802ffdd95d156cd93cf96d223057e31d04a15a8a7ee560161"
+    },
+    {
+      "case": "decision-without-options-20261025",
+      "host": "Claude Code",
+      "case_sha256": "9ec8e2c324fe8fa06948b4c081f365c633c1d5f71d2929f18246b48a180bc899",
+      "source_sha256": "4b495a51b400ef3a9e960305edf4882ebb08b85dc3d549759f5c1d86d8fc3d45"
+    },
+    {
+      "case": "mechanism-rule-in-entry-20261025",
+      "host": "Claude Code",
+      "case_sha256": "0d8f614bb48cef96a8c9dd010129985d7773c6cf5f52cf2530da85fb71a4f929",
+      "source_sha256": "8028c45ba21c8ebc14d542c69e776b00d61479ee4b99c3576abdc189772239aa"
+    },
+    {
+      "case": "other-work-commit-proposed-20261024",
+      "host": "Claude Code",
+      "case_sha256": "3f5a27bf74444e1930f69f1cb812861ae30aa303fa22563fef8e39994d22852e",
+      "source_sha256": "6777c017fb18787cc621438060865eb4177e4a3af2528226cb820eff736dcc06"
+    },
+    {
+      "case": "product-account-unread-active-configuration-20261025",
+      "host": "Claude Code",
+      "case_sha256": "952417bee9ce9bef0243f89ec6dc5d98fe57169b4c9d8feabf305cd77ee9b404",
+      "source_sha256": "4b31b6f7ecfa33443d9e579385449297cd888bdc6c370059819d51e6e8775b35"
+    },
+    {
+      "case": "product-account-unread-configuration-20261025",
+      "host": "Claude Code",
+      "case_sha256": "718c85952e104343b1cf7108cbf41b7998d4b6417b7565c1ea389cbaff0210a5",
+      "source_sha256": "204c7ec0f6b224729820256a7fbdfa9fa6dd1b9c1629bfe6cd9586722bd4bef5"
+    },
+    {
+      "case": "product-account-unread-memory-20261025",
+      "host": "Claude Code",
+      "case_sha256": "d77f44b6658efbd03137cdd380b2eb88c5bf0aea6ad6a38d5e592a50493681bd",
+      "source_sha256": "32efbaeee2f6b8b143d481e5df76374777e385f1212705bec778242749c104d2"
+    },
+    {
+      "case": "recall-no-next-step-20261026-093907",
+      "host": "Codex Desktop",
+      "case_sha256": "f3498301de0ec7f5d2f986366f56897bce710dae25de4984f37ced8f43518b10",
+      "source_sha256": "66587e9086729bbc02f04f851524ec5081867b182cd519d0e1215cdd2776c86e"
+    },
+    {
+      "case": "recall-no-next-step-v130-20261026",
+      "host": "Codex Desktop",
+      "case_sha256": "c4ff5bedba528000bcad9c4436bb69cb3a3ed8057ad1fac2d17530722abc6a6e",
+      "source_sha256": "5f33909c4973cd469b49c555b5ab401d75c3ce1bf705a1af4cca03ff996e396f"
+    },
+    {
+      "case": "rf-a-case-that-answered-a-call-in-p-16fa62e130",
+      "host": "Claude Code",
+      "case_sha256": "cff20b06dda7d702b7996aea49f54cb7ec1f54f806a79c732b2ff2131959735a",
+      "source_sha256": "22e75b620c1fffb1186c080d6015616638c9bb42c8c5e821095e28ce182b9e2e"
+    },
+    {
+      "case": "rf-a-claim-about-what-sets-the-harn-5a77b2cfb0",
+      "host": "Claude Code",
+      "case_sha256": "0679ecf50efb24535bca1ca41472b98c2cd43e2aee697ab0d6f54291c60cda3f",
+      "source_sha256": "3558d525b8370d44f4dc307718205abaf4fb71ba92cef0e6112110a0b04c1646"
+    },
+    {
+      "case": "rf-a-command-that-writes-was-run-to-66894be2bf",
+      "host": "Claude Code",
+      "case_sha256": "2424fbab5e7389e4a9b916f786e00459361eb84b899d28505336fe41219d0108",
+      "source_sha256": "6278001fbb57d9a66d885fb570bd58a9b950e05773e75ab41936da775ba2d0bc"
+    },
+    {
+      "case": "rf-a-commit-below-every-dial-was-pu-63aa8532b5",
+      "host": "Claude Code",
+      "case_sha256": "b107e59105e963c9e5e4a98e4a25c24c582c7e244514eea056b60e46b58ab2d9",
+      "source_sha256": "38f59d82415708384b7625f3c1302cbf981df69d94a23106326a5a97c338d8c6"
+    },
+    {
+      "case": "rf-a-concern-was-written-where-a-ti-a1c9c558f7",
+      "host": "Claude Code",
+      "case_sha256": "ee40db1f978ed389947b25268966de2351d36d19c3e43427ce257fdc6775a394",
+      "source_sha256": "c8c03a330089e230c045a12a302dd8ada3822f7463551ea6b6cb1cd72ab7195b"
+    },
+    {
+      "case": "rf-a-copy-step-was-landed-in-the-ar-3bc5c6394b",
+      "host": "Claude Code",
+      "case_sha256": "41bcdce8cd611c61cef329a56bd65a0bed0539864ae74ffd16b1b6009a49c677",
+      "source_sha256": "2b21f48f5518a32d99b9d704798530875c1eb138962d9de0f70e6e24bf9d8a3b"
+    },
+    {
+      "case": "rf-a-copy-step-was-landed-in-the-ar-42672fe896",
+      "host": "Claude Code",
+      "case_sha256": "3fd4d0da49e5a846f947f3bb9f4f22ed3172837d1471aed1a684747a4deaf052",
+      "source_sha256": "5257d0296289938096246490db88ce608d9a7a9591b261dd29afd6b56a5505f5"
+    },
+    {
+      "case": "rf-a-cost-the-plan-named-was-built-31d2b64b21",
+      "host": "Claude Code",
+      "case_sha256": "c350e831aa3d5224555c73cf541634608070a5505479faf9562c0ac1fbd6e811",
+      "source_sha256": "8995c3850180e04d005a23dc596173ae5c9c9c04ecc8cba87b04570fc090b75a"
+    },
+    {
+      "case": "rf-a-decision-abandoned-twelve-days-16dfde2f48",
+      "host": "Claude Code",
+      "case_sha256": "3d8771c7a7eb2b4d1b86e81239fb56157867b33d7f6ecaf30b99fa3528058828",
+      "source_sha256": "cc4231c7c2aee2b67fa8c6e7254415eb90222491bfaaccb7d0c6240c6a84a9c3"
+    },
+    {
+      "case": "rf-a-decision-abandoned-twelve-days-2558917e0c",
+      "host": "Claude Code",
+      "case_sha256": "d72cea1979cdbc92fdcd2bd9825dfc127a8055a6d58432cf0369fcf0acc156d0",
+      "source_sha256": "062d7220dd9220837f5ffa7323f4623944cfcbe3a64cd255e628550d5b0fb476"
+    },
+    {
+      "case": "rf-a-decision-abandoned-twelve-days-44a2f38b3e",
+      "host": "Claude Code",
+      "case_sha256": "35a513f07b4551bd0979e59acbfd5e2031235df7af90bcfc6a8e49083d4b9c2f",
+      "source_sha256": "130597a719b13bfd366f202d1c42321ff006b38ffd52e738acf69036169f8b2c"
+    },
+    {
+      "case": "rf-a-decision-abandoned-twelve-days-7748bd8716",
+      "host": "Claude Code",
+      "case_sha256": "ffb073b9a571a1c696995ff9e19801de298fa5855f8e81f3acbac8bd4077d1eb",
+      "source_sha256": "77ac65db819ebaf43f5b247f1ee238b1523cb8e471cd9a70b2401af50da0104e"
+    },
+    {
+      "case": "rf-a-decision-abandoned-twelve-days-81b53d44e4",
+      "host": "Claude Code",
+      "case_sha256": "b12f2457c325f5cdaff23323a2ba0665b87109c33b23b7b7b70a3643398e68f1",
+      "source_sha256": "bbbc58729c8217495a07f5ce01e00dd5263ee819803e8e7b6ae85bc095cffb73"
+    },
+    {
+      "case": "rf-a-decision-abandoned-twelve-days-82a511a16c",
+      "host": "Claude Code",
+      "case_sha256": "a0af10738f2f05d2996afe1952d37c9bd52894485b44d4f8944c0346b9c5cd96",
+      "source_sha256": "dfa7e62f01c0c80b9200e54589ca5b6027fdab065b2fbaa0901e362ac6a69135"
+    },
+    {
+      "case": "rf-a-decision-abandoned-twelve-days-99b3f34893",
+      "host": "Claude Code",
+      "case_sha256": "1d94d8442b30e78ec8fc72ffa887d8a7403d95a1850f82998f207c253f398e05",
+      "source_sha256": "37d73abe9e6e87830bd4af27c9b075cf50799055203255add477273224eea908"
+    },
+    {
+      "case": "rf-a-decision-abandoned-twelve-days-a015ef1f7e",
+      "host": "Claude Code",
+      "case_sha256": "a71edbe847f4263756d3f3d07175ef4731c50dd045b691d357858acfc7012c40",
+      "source_sha256": "b6151f0aeda70a8fd698812f617665eb5d5d8b739811bd22a043bf8ce8005bd0"
+    },
+    {
+      "case": "rf-a-decision-abandoned-twelve-days-a349ffa5e4",
+      "host": "Claude Code",
+      "case_sha256": "e6d6d1558d4f9de6015d3d384ca362e36c47414bdab327182cc5013954101799",
+      "source_sha256": "8a0f1caada92d0bdf944674bf049c6561dc88237e45373eaab52d119d54e4d1d"
+    },
+    {
+      "case": "rf-a-decision-abandoned-twelve-days-a91cd343e0",
+      "host": "Claude Code",
+      "case_sha256": "824401413568fc94fa9c17f807a27e146ba13816cd053410dddbbe0ae1619355",
+      "source_sha256": "021392c721f982c4dc32dec919aac869a3b96ea4a4986cec45c738b540e64f9a"
+    },
+    {
+      "case": "rf-a-decision-abandoned-twelve-days-c655c038f7",
+      "host": "Claude Code",
+      "case_sha256": "5497115a68429b051f53b5982f3eb638274ab1656221b6e8090e9b29bf27b1f9",
+      "source_sha256": "4d63a24adae3429bb027dd4af776d0dd2fe2a20693c26bdc9d27ba938d3c7fa0"
+    },
+    {
+      "case": "rf-a-decision-abandoned-twelve-days-ce092cf278",
+      "host": "Claude Code",
+      "case_sha256": "d6efc103956eb31d1f81bcaa075ba861a4be5d4703d9d724af22ce2091743e10",
+      "source_sha256": "ec99fd839646b067034c66d0172996298633abb95ef749a2df58bb10ee51cc38"
+    },
+    {
+      "case": "rf-a-decision-abandoned-twelve-days-e2a7af73a4",
+      "host": "Claude Code",
+      "case_sha256": "4ab847a639a18795965135f97a87f7f8a90f28f7074bdb0270294eb0a79221e0",
+      "source_sha256": "87a80a6ee438683526c6fd893f55985c5f30481e0199ce42feaca01e90c4a231"
+    },
+    {
+      "case": "rf-a-decision-abandoned-twelve-days-f1df6e7bb3",
+      "host": "Claude Code",
+      "case_sha256": "7d94af763ca39c2ed9531fa3de59b3592c990826f9999835ff65cd4a54d19502",
+      "source_sha256": "4dd20ebe338b04e5ab0b2b8cf344c3eb03f03323cbed440e1b3115f0f59e0fc2"
+    },
+    {
+      "case": "rf-a-decision-not-to-act-was-landed-611e8f5ca4",
+      "host": "Claude Code",
+      "case_sha256": "5fb168dbbbd2ac70498d8bb0dd83b3e873e698f25ad83eb2104699aa2cd58791",
+      "source_sha256": "e910e307898af5f637c64f8ada54111ad87508913ef83f10ad6d90f54da1737e"
+    },
+    {
+      "case": "rf-a-decision-the-agent-had-taken-w-aa3d6f97b9",
+      "host": "Claude Code",
+      "case_sha256": "163d4a5de177534ec46bc0bef9e7750523fdc321a5e4d714f92027ece9d7cc71",
+      "source_sha256": "82feed7b0a5d35b7add25562b46b33f8ccf071913ebcdca1c99fdcc19a3693b5"
+    },
+    {
+      "case": "rf-a-declaration-named-its-script-s-1e95bccf75",
+      "host": "Claude Code",
+      "case_sha256": "8a2ad8fb74332558db5cc5831a3dce4a37f99f61efefdfd19cf76b0a9443824e",
+      "source_sha256": "e6e2e092b5ef3f5c9c0151e1d632307e0ecf5c0f23e889495b6ce035c8096a7a"
+    },
+    {
+      "case": "rf-a-declaration-named-its-script-s-33773e1d0e",
+      "host": "Claude Code",
+      "case_sha256": "f13a6eeef75486223c098d09e715bc6dd7f9478d97d44eaf49ff81fa68e937b6",
+      "source_sha256": "10b953428f73f4823b943232253220e0a954db60c9fb1430ab462c1cca25db28"
+    },
+    {
+      "case": "rf-a-declaration-named-its-script-s-79f1701f73",
+      "host": "Claude Code",
+      "case_sha256": "a72f1d2cea8776ea88c3a6d59e190d5fe18db91ddc74a8b7fac5d77f7fdbadf4",
+      "source_sha256": "ab282c8646b8d565980043acaa6c6e30de3bdc940ddd6b1cead09170e712fa2f"
+    },
+    {
+      "case": "rf-a-declaration-named-its-script-s-824e1e3f12",
+      "host": "Claude Code",
+      "case_sha256": "363db5711c5774041e419e6886f811f9ed02d82ce1165faf4a2cf58c7b40f18b",
+      "source_sha256": "d341f613f6b438cdb15625abf01092a1908d8226974be2937eb30094b8921181"
+    },
+    {
+      "case": "rf-a-declaration-named-its-script-s-8693d16b68",
+      "host": "Claude Code",
+      "case_sha256": "883dc0dfcf36c20e1e07d37779271e2cd4713294a991b24ab8c48193b460e1aa",
+      "source_sha256": "ee6f3c065f87e96e2e2731804b701296d50a2a0cd912c6ba90c48d18c99eb467"
+    },
+    {
+      "case": "rf-a-directory-wide-add-committed-a-6d83511710",
+      "host": "Claude Code",
+      "case_sha256": "ff0d1442eb74ba4fe00084bc8472071ae0088f1c86761c62338231acf4a26f21",
+      "source_sha256": "8242ea19d1ff2dcde0e3943642da35aaa0cfdd220051a3a86c025b5a06ac6c20"
+    },
+    {
+      "case": "rf-a-directory-wide-add-committed-a-f49b7305a0",
+      "host": "Claude Code",
+      "case_sha256": "2f1de4379544666891bbb5bd66c1336cafb615f05fbf1ed54ec825ebefddf2d9",
+      "source_sha256": "d6327da44563f3c27d754fd2cd5fe773e3fb5841ef8642ff8ddd3457ad70a6f9"
+    },
+    {
+      "case": "rf-a-discovery-s-tasking-described-a2b431ed3d",
+      "host": "Claude Code",
+      "case_sha256": "d4616323c0a51acc1dc3102a05f9ab6d9cd610aeceaeb4fe297a7780c573b4b6",
+      "source_sha256": "e559f7cd3bcf72b8a8429d737916bdf0b8dd12c219ee4a8946ef7f92f89f5e53"
+    },
+    {
+      "case": "rf-a-discovery-s-tasking-described-be9faca738",
+      "host": "Claude Code",
+      "case_sha256": "1b3e30b850018277c48582910fad953601ccd0b34c76abb8b170da7413237191",
+      "source_sha256": "253e7141cbf9010829cbd18ba1cce932578643db713e172b3e19c14689fd369a"
+    },
+    {
+      "case": "rf-a-discovery-was-filed-and-an-ali-984477b7c9",
+      "host": "Claude Code",
+      "case_sha256": "9b4d991e3bca87910727a60d0422d2d381494c5b311977b736aadc52c90e5e29",
+      "source_sha256": "31da719c174d402616422845d462a55f0750e8c8f3a0a7f730107494ad841a77"
+    },
+    {
+      "case": "rf-a-drift-repair-s-subagent-sent-i-be22c2bccd",
+      "host": "Claude Code",
+      "case_sha256": "d87b277db176a799a7a5b6809e44348fd6270cfc0d544934c9f806badeb81a30",
+      "source_sha256": "239ad79347c3bfe2a5c04a453eddd6f3aa5957d2f6fce76495c8874fb2ec71e9"
+    },
+    {
+      "case": "rf-a-first-install-ended-in-a-techn-d672d63b2d",
+      "host": "Claude Code",
+      "case_sha256": "e9d28c0a55c6f9d7a9f8b6d465b4005eaca41107616e1d3fa0b71b2f4ae57ace",
+      "source_sha256": "361e4ee28d64ba5fa63a73536f88493c6bb529271de1e763fdb141bfab8d4e13"
+    },
+    {
+      "case": "rf-a-fixture-made-by-today-s-code-s-6fa77d9c3f",
+      "host": "Claude Code",
+      "case_sha256": "4ac4b2288d4464a7483506bf34956acf7c1897a5c858e703e97e2ac9345d4fe4",
+      "source_sha256": "e0296005bb420ddbce4138daafc1dada791e12d28397589472e7e4e1ed2d211d"
+    },
+    {
+      "case": "rf-a-fixture-made-by-today-s-code-s-d0eb69781a",
+      "host": "Claude Code",
+      "case_sha256": "a09ca0ea2d5a2e741569b113592eea22c044063e4c5a1c91c7439a8e231e0256",
+      "source_sha256": "d1882e39b5ab4da7dae5e59272de4cc5136d590ebe75272db899a9c28e78b082"
+    },
+    {
+      "case": "rf-a-handover-said-in-the-person-s-b4e32e4564",
+      "host": "Claude Code",
+      "case_sha256": "beb2170990c6df1e048a414ef509e8d034fac92552f0aa7623165ea5480c4d58",
+      "source_sha256": "f1581b2f83c844df79a9f15709747a44a9bbfcb279e65209196dc79eb57d5bc7"
+    },
+    {
+      "case": "rf-a-judge-session-s-verdict-was-pu-2395f763d0",
+      "host": "Claude Code",
+      "case_sha256": "83726ae22113e1eac9c1cc1ac600eb340bd276574465a7b2468d3d100ce56787",
+      "source_sha256": "767d161fe4817f9580c6a8c0dfede03955c550e74a2b29d475f1f0b64a0ec383"
+    },
+    {
+      "case": "rf-a-just-minted-ticket-s-place-in-76437a0fa0",
+      "host": "Claude Code",
+      "case_sha256": "eb440ecb154488248383980d7a9f4677f677296f830927f7e04d116d7533bd3f",
+      "source_sha256": "f5ca51d9d1c62a43ea3ba4cc18ad7ee2f19bbdd8f97caafde1cd3a7368e244c1"
+    },
+    {
+      "case": "rf-a-just-minted-ticket-s-place-in-b525026a1e",
+      "host": "Claude Code",
+      "case_sha256": "541e1fd5aa91f2b981ac3f6e9fa71d0bfd2de06714c791b6f65660313557e6c3",
+      "source_sha256": "b4ce1359e7333a72923cf066fbfd7e197682fb001a9c5f21103d8e996d15a66a"
+    },
+    {
+      "case": "rf-a-lamp-cited-a-rule-s-id-instead-40bd8d543c",
+      "host": "Codex Desktop",
+      "case_sha256": "491f7f2cf072006de9ba9194c071823ce71405ab04dededa84db454c6d119b12",
+      "source_sha256": "39ef39fa60e9f9cb3298e259204272fdd4a5f489bf1810295bcb5629926b65c4"
+    },
+    {
+      "case": "rf-a-local-rule-in-the-entry-file-n-17042dc4ab",
+      "host": "Claude Code",
+      "case_sha256": "32dd0f947c8c4a1470b9713f7485d8cbf7cedccd3fd5bfbd37636d91e577e309",
+      "source_sha256": "fa036c630ada32a8bae834375e89cff172743a16fa8aad22e4e97ae6a79fe1e1"
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-0ffd595755",
+      "host": "Claude Code",
+      "case_sha256": "cf6aee0b11f4aaa5620cb8b036d50a5b80a78ad6aad2f664edc20daef0b946ea",
+      "source_sha256": "8b08a225234394a6e7be62aaa4d2e0ace7f0bf7dc88fbb9f7a08e4a14f0581cc"
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-1a1fde94d1",
+      "host": "Claude Code",
+      "case_sha256": "75713d29f9348d9fe44fca7cab9d47f4f091181b8168b1e5c302c296b06f28e5",
+      "source_sha256": "e7a62c214effdec6e341ae199ab42f9b6151fbf9ad9bc9ec23e09d28fbf3a2f3"
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-256ed06bb8",
+      "host": "Codex Desktop",
+      "case_sha256": "c537dfdfad6600ddf1aed01f0efd8ed1fe637214346d54d2202f39502d2c34d7",
+      "source_sha256": "497daca36856831f8225d03f8201c716e6546d32be4b4282b84dbb4f9972f251"
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-41a058cc97",
+      "host": "Claude Code",
+      "case_sha256": "fec1b5e2540c160c1b26e921ff14ed9c9995b6626ec6a486840c6619ffc5f907",
+      "source_sha256": "f4aef947bc2f6705387ca756288abb86532ca1e108814eaa2b709676c5bd1b21"
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-bf77f24310",
+      "host": "Claude Code",
+      "case_sha256": "07772fd688a565461c5e4ca3f69a6fb34676b3e9aaac893d2d032b2e6b451558",
+      "source_sha256": "dc51eec67c3a979f43fbb031a67bd0b54b7a2e2cd20becf4eddcb546c86fd567"
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-d72afa98f3",
+      "host": "Claude Code",
+      "case_sha256": "27babf193bd17ae33e4b55356a5ae0cd21d0f50f030441b386083be3003b5790",
+      "source_sha256": "e4c2a59605e88feb9d563aac9a8d2a23225a7c4e68049e66509c4932dad7dd31"
+    },
+    {
+      "case": "rf-a-long-session-s-replies-left-l9-e7bb93ce46",
+      "host": "Claude Code",
+      "case_sha256": "84b33becd9e0d15dbaeeb4672026ff9975f25f8c50791be53d9b9f5b963763d9",
+      "source_sha256": "3b271392776379f287563a762d894450de325bb6b5b28cee7c83f9c735af791e"
+    },
+    {
+      "case": "rf-a-mechanism-s-doc-was-proposed-a-099d560f39",
+      "host": "Claude Code",
+      "case_sha256": "ae699861d5eecf7f8f7ba8a4169cafdc2a3ae438a255fcc44645525cfc3f72d9",
+      "source_sha256": "38fb3280b5acb3b71ba836f0839af36db6088021447dcc20369e261cffdd7a1c"
+    },
+    {
+      "case": "rf-a-nested-skill-s-output-contract-031da7719f",
+      "host": "Claude Code",
+      "case_sha256": "07d5f92837ecb05cb28ea2bbde9b5047b6ffb50c5b225f3de2c2643757cdc81a",
+      "source_sha256": "837480bf9c9492dbec7b2e4a28e51be1dee4d0b4dda513e90c5215fa87fb1a92"
+    },
+    {
+      "case": "rf-a-next-step-inside-a-ticket-was-c03d886641",
+      "host": "Claude Code",
+      "case_sha256": "b88783407e43be081c8c1395568b337d17ace5d3570a5d34e6c229c7abac9741",
+      "source_sha256": "af11d2b223666d6d952431ffdc0ee0ed197aabfe7ef1cf0379f1c852097fc314"
+    },
+    {
+      "case": "rf-a-partial-sweep-was-reported-as-b11081bd61",
+      "host": "Claude Code",
+      "case_sha256": "92607225a700174c3a9e71d727f736819b71c9bd2d52813946245a34ffeadb8f",
+      "source_sha256": "4bb922e467893fb5f62d386d2a3134c555c881f5afca86792c0f03460f766a2f"
+    },
+    {
+      "case": "rf-a-partial-sweep-was-reported-as-dda5bf55df",
+      "host": "Claude Code",
+      "case_sha256": "62aec8d8fe8982d7bf06f4726420b4e650f53abfaafc2b044d1ced972330bddd",
+      "source_sha256": "b9825d4680bd7d580942d66fc00db67083da69c9b60363ea406ef9ac4f42a30f"
+    },
+    {
+      "case": "rf-a-plan-built-across-a-boundary-i-34fa2dc33d",
+      "host": "Claude Code",
+      "case_sha256": "bc5d97a429e1e222fe99e0c8f0a4240c090635aa2f5bddd07f3af65386f255a8",
+      "source_sha256": "1d4a3f884939e557f5318337a955af9176d8751c495fa56ff659992722ef7043"
+    },
+    {
+      "case": "rf-a-plan-built-across-a-boundary-i-86b2092254",
+      "host": "Claude Code",
+      "case_sha256": "53e4c6897315a05f2c1c8970fbcc300c870c9e0ec580b379f95d94013e19da0e",
+      "source_sha256": "08c8f8b3d1383a6e5fc50e82a56e78b43161d7d2c825b68ee32ff088c553ad0d"
+    },
+    {
+      "case": "rf-a-plan-built-across-a-boundary-i-94872062cd",
+      "host": "Codex Desktop",
+      "case_sha256": "df365fe23d168077176e27bb49d02aadbd8919b7238d7dbc0cea1b72f86d6829",
+      "source_sha256": "0eb8af237c18b6f7ed4f6e3953c10f6617986210cbb0482bdce78b4503e9f5e7"
+    },
+    {
+      "case": "rf-a-probe-of-one-variant-was-read-e66fd224b4",
+      "host": "Claude Code",
+      "case_sha256": "6dfe251dee07826aa82df476fd8480d165aa33ddb7f4a916150243b8897b121d",
+      "source_sha256": "b25999ec8f589db6faa3211329a34f80571bcd3df3330014fb173b870d7e15b1"
+    },
+    {
+      "case": "rf-a-project-with-no-code-got-the-h-043c204f4f",
+      "host": "Claude Code",
+      "case_sha256": "4ca933a016419b2e89f4c27104cf8cbbe2220a6aa3ad4f3ac88f3b3596b8b1bc",
+      "source_sha256": "c324379213ade0b6c7619a7556084a9b0be5988113cde4ddb4f736f20131d31d"
+    },
+    {
+      "case": "rf-a-question-was-opened-and-the-te-d9346bd3b0",
+      "host": "Claude Code",
+      "case_sha256": "4a823241ccd69a0fb4c4a7c480d2eeb50f26e329d7b9bd0017d410affb6b3777",
+      "source_sha256": "0682037cffb286adc604d2b4ded1c223b8bd0cf0332ee8088ed77a3ad8ba951a"
+    },
+    {
+      "case": "rf-a-question-was-opened-long-as-a-2357ec4349",
+      "host": "Claude Code",
+      "case_sha256": "1d329a882a1891e4deb9e62e9d79d10a89c352868779111b86821adb3fee8ee4",
+      "source_sha256": "0f4b62d88a822ea8bd43c2c7e15b2ea4f25e40eecc1c6cff4ee6e71971fc730c"
+    },
+    {
+      "case": "rf-a-queue-answer-named-tickets-by-d5e0a88881",
+      "host": "Claude Code",
+      "case_sha256": "055b5529d521991f40c053c24d535d54e9d8dba544af3128af53003a816523ed",
+      "source_sha256": "a14904a509ce0676bff12cf4ea67e7f645522aa85785f8f4b3e3f93592f3b843"
+    },
+    {
+      "case": "rf-a-recall-recommended-the-next-it-3b6b63cb9e",
+      "host": "Claude Code",
+      "case_sha256": "4c415279d8b267d5816a6d7027aeb458b5b47cf33c664794ba821c94e745cfef",
+      "source_sha256": "cd5b1f1cff6889ded14e6becfa0bd11a697908efe3f3b49ed9e443154f02fd8a"
+    },
+    {
+      "case": "rf-a-record-s-format-was-placed-in-97384ccccc",
+      "host": "Claude Code",
+      "case_sha256": "3ac63521ac2ea9a52086af5e9e426fecd280a90dee942cec2cc05fdc717e1d52",
+      "source_sha256": "bc855ef39afee0a4561066d4eabde49f28fffc8fadb790bca5a9d8f7fd31b827"
+    },
+    {
+      "case": "rf-a-reply-named-what-it-asked-abou-3395ca12a3",
+      "host": "Claude Code",
+      "case_sha256": "fcd7265ace135de5b390e75a8b6ffd1f7c0933c095bca4f6ed1cf4b43f852cde",
+      "source_sha256": "96b3e8ad48ae3499fb1222b4b8872f3f4ba37d5b6dec4e7e5d467c26215fadb7"
+    },
+    {
+      "case": "rf-a-reply-named-what-it-asked-abou-39066f4cc4",
+      "host": "Claude Code",
+      "case_sha256": "fae09916038e16705948d4174ee0f3770f3151450bc0a721729d018a9132c325",
+      "source_sha256": "8281eecc56acb41485f918ce363652ff711fef896e63b6517aaea85b25f795af"
+    },
+    {
+      "case": "rf-a-reply-named-what-it-asked-abou-428737172b",
+      "host": "Claude Code",
+      "case_sha256": "50b2ec7cf926c258fdf3cf7178065b7fc49aa83a74586502b9b4831ea2473528",
+      "source_sha256": "7cba23e71c4c37624ef2545876eec7cdc736f3e6477f32ef612c379d1e144a88"
+    },
+    {
+      "case": "rf-a-reply-named-what-it-asked-abou-4a256b88ac",
+      "host": "Claude Code",
+      "case_sha256": "bfe3ae5b78097afe64441859cc80019a750b7452741675aaee42388c95481940",
+      "source_sha256": "7b05c3ad536f41f9bce7c96f49d49846a9c54a468af0513972d5871c8a518b6b"
+    },
+    {
+      "case": "rf-a-reply-named-what-it-asked-abou-aa733ba83d",
+      "host": "Claude Code",
+      "case_sha256": "ecd29c4d01bf333978597596e00cfc0057f48d872d2cc7c51ee082638e1b6b65",
+      "source_sha256": "753dc0b80163705c48d120a8918bb4aef2f02846a8485f468ccad86a4f468697"
+    },
+    {
+      "case": "rf-a-reply-named-what-it-asked-abou-cc275c810d",
+      "host": "Claude Code",
+      "case_sha256": "fc984db0c41769c5eb31f0bd3990a7d0062c22f85dbc548e3004bca6dedf10fb",
+      "source_sha256": "d9cf2d99c20b63842ecbbaf101e2063c7bc1e0d2221c6e879ae93771708ed88d"
+    },
+    {
+      "case": "rf-a-reply-named-what-it-asked-abou-dc83faa5fd",
+      "host": "Claude Code",
+      "case_sha256": "f0f214fe0661fcaf387b929fc59b9d4be7c1b9a3441d57f751fc1f3c6cfb064a",
+      "source_sha256": "864d50df058a5aefa3939a018b8c315d69ca4ba3641fbe65d2d9c05cddf718e2"
+    },
+    {
+      "case": "rf-a-reply-named-what-it-asked-abou-eb4d871d13",
+      "host": "Claude Code",
+      "case_sha256": "9189f0044ce91cfa53ac57bf5e2ecc7a1d7132508c94e0c3eb956339f2148cc4",
+      "source_sha256": "e39170549ab51bdc9afd6eae684c85c626faa1c1362d5ce57b9bda0b709c9c62"
+    },
+    {
+      "case": "rf-a-reply-named-what-it-asked-abou-f1a8f025ff",
+      "host": "Claude Code",
+      "case_sha256": "322a09652ec93bc8d0e8577740111e15a8350c73ba7175a096f6a309ee6684ea",
+      "source_sha256": "da74abcc6d0380caa8906530ec7df52e384829f0b3fa69ddbbb0d19a8c8c044f"
+    },
+    {
+      "case": "rf-a-reply-spoke-of-the-push-the-co-b5fb2fc5f1",
+      "host": "Claude Code",
+      "case_sha256": "be9b3e19751123b3abc25e32a828364bf3c9bb9e4a8ba49ab2b69e6f04486e7d",
+      "source_sha256": "1295ed9604d687159cada3b2bc401cb529cc653598eed0f7a0f925863f05fb08"
+    },
+    {
+      "case": "rf-a-rollback-ran-recall-a-second-t-371a1d33be",
+      "host": "Claude Code",
+      "case_sha256": "d892ed7b00c76fe0e5570a6bf93e6e497a5a14188c511026fea2024a6034eb38",
+      "source_sha256": "041698e2f78a3dc16c59b241c55628066b4a7d117ec496e0f948de2d5dd920fc"
+    },
+    {
+      "case": "rf-a-rule-landed-in-the-tree-was-co-1bb6f36afa",
+      "host": "Claude Code",
+      "case_sha256": "bc2db2b7dcf05136fef57ebe03a751e77c2934a6a899e30d4998b780e707f994",
+      "source_sha256": "1f908a26042c1b795e3af5bb2b0fb59a611a481441adc727ff238dbd230164d0"
+    },
+    {
+      "case": "rf-a-rule-landed-in-the-tree-was-co-c48332a2c4",
+      "host": "Claude Code",
+      "case_sha256": "454ef6159cc6042ed1dab08758fe5e989ce194c59e1429f5e07e9896fa4d53df",
+      "source_sha256": "e07e707a8966d75a3abc609a95efb5d0ef188e122e272dfadc044408caea31a5"
+    },
+    {
+      "case": "rf-a-rule-was-landed-with-a-filter-40a495fbcb",
+      "host": "Claude Code",
+      "case_sha256": "f6c01c103d16906f9f77c02830933a8f24c64a46ed8c45769f2177f79ee8417f",
+      "source_sha256": "300dd5d50113f2f43bb133ae1a6581dd0e4aafed7f92547d6edf8bc8f322bd06"
+    },
+    {
+      "case": "rf-a-rule-was-landed-with-a-filter-cca9f4a85d",
+      "host": "Claude Code",
+      "case_sha256": "8fed0c7378aa63e3c5f4131bb2b988960d65b763a5a92970e8c44219dccfd4be",
+      "source_sha256": "2018d653f8ca8c267aa99732f12f99a9a976d29010dee273e96cb705a8260218"
+    },
+    {
+      "case": "rf-a-session-record-s-stale-handoff-af20a1371d",
+      "host": "Claude Code",
+      "case_sha256": "ad90e51a8820fdee6a8ca1bb3c29394482da03810133b499211e5fce56ed6ebb",
+      "source_sha256": "5fd92b58fcc384edbbc7b62efc5101b6d88977fe37d306d363432829944e8d02"
+    },
+    {
+      "case": "rf-a-session-stopped-placing-its-me-0c24e22212",
+      "host": "Claude Code",
+      "case_sha256": "de338f87df968bbab17010357cab5521f0960f477415ebf983cde5be744843fc",
+      "source_sha256": "dd4d12547d9a60c363076e08782b264b6f68e532a5b58dfbc21635696a2bb6b5"
+    },
+    {
+      "case": "rf-a-session-stopped-placing-its-me-0d448290ee",
+      "host": "Claude Code",
+      "case_sha256": "c95bf068ba47d1abe3dadc48dda502c7ba9271d614e2c5fddd2b60355049c4fd",
+      "source_sha256": "c107902ed069b608fe6d81bf487ab3393441b5444d4e362553e06d856165d22b"
+    },
+    {
+      "case": "rf-a-session-stopped-placing-its-me-10d8a3219b",
+      "host": "Claude Code",
+      "case_sha256": "4dcc3754c13842e068b80adffd93f0320012b6307d026e36e250ce006b9ce497",
+      "source_sha256": "4755e037e80251329d5e4446f745cde8dc97f43933783dc5087cbc5d5cbdbf21"
+    },
+    {
+      "case": "rf-a-session-stopped-placing-its-me-231459a0a0",
+      "host": "Claude Code",
+      "case_sha256": "a8b47072880a6043077f676875f3a505974bb959a8728accfb5eabd240079734",
+      "source_sha256": "8c7477608db2622360bd87f430be0a9d55cb4594495897c27ce855947722b468"
+    },
+    {
+      "case": "rf-a-session-stopped-placing-its-me-2367ab6ae0",
+      "host": "Claude Code",
+      "case_sha256": "531ced8d3ec8e93651a3e8311d5ef45be1384c90d4aa303010a487dc256fd49c",
+      "source_sha256": "2942ddbdc2988a78288820c2d97011f8e772b2ce9aab753ecbebe87710deec80"
+    },
+    {
+      "case": "rf-a-session-stopped-placing-its-me-27dd982e59",
+      "host": "Claude Code",
+      "case_sha256": "4584a97b8d2c2dac74b63ed6ea891fa31d94e8690b45adc2bbdebcc02b268048",
+      "source_sha256": "996ba92bda82d5c37a5030d2a4c8cab66e53bcfa7977eef1d83ba3323a0842ce"
+    },
+    {
+      "case": "rf-a-session-stopped-placing-its-me-2e6245956d",
+      "host": "Claude Code",
+      "case_sha256": "ffaa52e3f46a14f44c831030bb7b6b2bd560cc5bc71af49145050f00fb7b5ac1",
+      "source_sha256": "8d4bf9c7a386036d2d159cff19e780cf9165005653c631a4e55cad3ba9f94c52"
+    },
+    {
+      "case": "rf-a-session-stopped-placing-its-me-4281df2c9c",
+      "host": "Claude Code",
+      "case_sha256": "588e6fb0b5455bdb22ecae9f997c0a7f4d681a6ebf641c111e257272979ca040",
+      "source_sha256": "c29ad734a53e4a36b3673cbfd4ad6372daa152000aefefe90eed837611d834d4"
+    },
+    {
+      "case": "rf-a-session-stopped-placing-its-me-4e7f6478db",
+      "host": "Claude Code",
+      "case_sha256": "dd06f80faa513975828f6d5fe6b6a18bc293331471f6d8b181c52d9f522c86d3",
+      "source_sha256": "28bc3b757681a6cda357de57f811b6189a15b38952bd541b9c2af568b1f34392"
+    },
+    {
+      "case": "rf-a-session-stopped-placing-its-me-5909ef2292",
+      "host": "Claude Code",
+      "case_sha256": "7c1a8e6fcf5d6b840527bc5ef2bb896b7dea5f04b2038168b1efce8fa010a9bf",
+      "source_sha256": "8c53090d4aa5f3a6220b2452318acd50a96aca51d42c6f866e8ccccb2e120fc3"
+    },
+    {
+      "case": "rf-a-session-stopped-placing-its-me-6478c4bebe",
+      "host": "Claude Code",
+      "case_sha256": "450e651936e6a6b7a925debab006e055252d68199e2855919377a6ccb84e1d6e",
+      "source_sha256": "7ac8d7fbefac5fbe966fae8d77f579f0ef494c92922071d784bb9ae4bfc7c516"
+    },
+    {
+      "case": "rf-a-session-stopped-placing-its-me-99ad4f7738",
+      "host": "Claude Code",
+      "case_sha256": "a63a1cf8e30eaea2e84f70a7dc55525e0b44f28fe47ef712ca5517d77a6a5613",
+      "source_sha256": "5935d0eb03764b1e2ce7197842f4e7ef6f1ac315e595fe99dae4c52268bc3cb9"
+    },
+    {
+      "case": "rf-a-session-stopped-placing-its-me-9fc51c9e75",
+      "host": "Claude Code",
+      "case_sha256": "310e5cfc97571bb9d393d87a4b4fbd562ee89ebfa44445c81a4023ea7002ee70",
+      "source_sha256": "1cbde75108e534f813800d2aa34ee7f06c93ba9211b8b7ec1703b6f9922792de"
+    },
+    {
+      "case": "rf-a-session-stopped-placing-its-me-ad99e5f262",
+      "host": "Claude Code",
+      "case_sha256": "5800fa49cee9dd69ef23ecdacec71c551c6caf4c5bef6318b6089d45f62cd02e",
+      "source_sha256": "146148804f4778549f846420b50a6dbe65f64b3c44f5962dc5244ef4a91eee22"
+    },
+    {
+      "case": "rf-a-session-stopped-placing-its-me-d2a50f0c98",
+      "host": "Claude Code",
+      "case_sha256": "c15ccd5c9a1de6267b107692c2b362dc9db5ebb79c5cdaeec876cfba55032e15",
+      "source_sha256": "90c6320dfe3594b241355eedb952479e3aa2db89de5b03dd6af0e217add77659"
+    },
+    {
+      "case": "rf-a-session-stopped-placing-its-me-d8ba3657a9",
+      "host": "Claude Code",
+      "case_sha256": "193dada0ebfcbd9ef5f4beeeb0a670641fcf1343514652550ff8951ef524553a",
+      "source_sha256": "b06e86e3ce1c7161893a7e0ae5d78e4a6ef5a41c88e00b36b74b32e33f12a49b"
+    },
+    {
+      "case": "rf-a-session-stopped-placing-its-me-ebc1be2b72",
+      "host": "Claude Code",
+      "case_sha256": "14e76a6a059ebac7dbec5e05c47266b354f02408cd819f8c3ba9f4c509f32a46",
+      "source_sha256": "d0809b94c84f7fb29cb2b1e2a4639a5a4e3ae8f64c74700dacbbfe71a04415df"
+    },
+    {
+      "case": "rf-a-yes-but-which-moment-was-taken-52104e61e5",
+      "host": "Claude Code",
+      "case_sha256": "e0c08caceb2257f9dddb5b3c04348707d64dc7864e52bd78e13a16b161a4ecc8",
+      "source_sha256": "4ac2f2fef6f4a4f43bcce0238bf43b6d3431370750d422a81958bec44ecf2695"
+    },
+    {
+      "case": "rf-an-install-met-three-frictions-a-cc2225fb09",
+      "host": "Claude Code",
+      "case_sha256": "b1f8bcaefd4d2b3e52bcd9116c30d932de21243bc53fe575580aa4e152772eaa",
+      "source_sha256": "53263e50642b23067a7fc1d7f57455ce432f494d273f4d4512f524c48dcf242a"
+    },
+    {
+      "case": "rf-an-install-s-introduction-told-t-4e8142368c",
+      "host": "Claude Code",
+      "case_sha256": "1fcd1e55be0d2211d91a748922e685f4406dbd63b20c5ed5ee8421e1209413f7",
+      "source_sha256": "5be3cf2507dd2a9f820965f2cac0e7583644b13087741deeb59c4e1e44489a3b"
+    },
+    {
+      "case": "rf-an-install-s-introduction-told-t-8caed602b2",
+      "host": "Claude Code",
+      "case_sha256": "d1dbca046f0218ece229a3e8fc49b496a1cf7d701334647caa538a5e627e838b",
+      "source_sha256": "b6c2f69e5294db67ddd63f583c03d61c6f4cf1571e0dc1a35ef45aed46a270e0"
+    },
+    {
+      "case": "rf-an-install-s-introduction-told-t-8faaa31899",
+      "host": "Claude Code",
+      "case_sha256": "e119be1c63e77c6b87782b1c6668e9ca3351a0e24884fe4ce1863255f0fcd85f",
+      "source_sha256": "38a2d5eccc579d5532412eb512259ea739b79cccc15ebc53c5a19ce051240eb3"
+    },
+    {
+      "case": "rf-an-install-s-introduction-told-t-bb26085963",
+      "host": "Claude Code",
+      "case_sha256": "fa96fe963cae66ba2eb1dbb0f22290506ec14019db8942bba662fcff97364dfd",
+      "source_sha256": "811afe53be64ddf154e0023eb61c3a979d0aef7c0625821bf1a5fac71a7f6048"
+    },
+    {
+      "case": "rf-an-instruction-was-proposed-into-fc3387a256",
+      "host": "Claude Code",
+      "case_sha256": "5cf06ec886240ebd6bbba246bb2896fd2f99386b00d812a460fc5afd69b19f94",
+      "source_sha256": "5b6363d05fb211e4e1862708ce079efd6455fe040b22d14483d568557daf175f"
+    },
+    {
+      "case": "rf-another-session-s-claim-on-the-q-a900d7b5d3",
+      "host": "Claude Code",
+      "case_sha256": "fa2bc823e99ec40bdb52eefa41858d925d0076903f01b872228a04e3d24001bc",
+      "source_sha256": "1e87e57f187fe1b8c799ec67aa3c201ceac1a0b79a65be48e9c7f1a7594f027e"
+    },
+    {
+      "case": "rf-answers-proposed-four-times-on-a-34512db5f3",
+      "host": "Claude Code",
+      "case_sha256": "a5b2e66ca6a07b5b55cb5636ab708f9703484ce88a1f1368523bc7a154ff7e82",
+      "source_sha256": "91e2c4f781254f8b412fa867fb8e1dd765be204d52c31f3263670f1f1f9f0d76"
+    },
+    {
+      "case": "rf-answers-proposed-four-times-on-a-797b8ba07c",
+      "host": "Claude Code",
+      "case_sha256": "9fae879dd96aea1dc6111d7d61ebe218ce4dd5fbe12730472d4c35ce0ae38256",
+      "source_sha256": "6912e5567907ef7481a49a69b294b60efcc3e6c8ec101e64a2c8704b0e1d5e92"
+    },
+    {
+      "case": "rf-answers-proposed-four-times-on-a-8f3d2b3b00",
+      "host": "Claude Code",
+      "case_sha256": "404b7f9ee33b4531cc78ee4b71fa2a128ce16d1449d6710e36ac6dbfae28b419",
+      "source_sha256": "abbc3a191566c46b4c05c50546ca25bc30008b65c5a5ba81cdb9e1265ca4d516"
+    },
+    {
+      "case": "rf-answers-proposed-four-times-on-a-ef04bb2b47",
+      "host": "Claude Code",
+      "case_sha256": "b1fd4461f631e671d76f78d7b7175088efb4f60fbb909a0078532eaf1ef5bd0d",
+      "source_sha256": "8772d4f265d46ef79d7722c3856ca37ef138b9fe4ca5a3e8c79d075ed0827269"
+    },
+    {
+      "case": "rf-asked-whether-a-project-needs-th-0de6c1cfba",
+      "host": "Claude Code",
+      "case_sha256": "5cfb4780e874d027934ac54de7131811bd7ddc08ff7401008034abb4ca450b26",
+      "source_sha256": "d457f8de8554c98187641fd3d65ee67835f01344ff9265c26140849e7d2d8c5c"
+    },
+    {
+      "case": "rf-commits-were-named-after-what-th-0887d60048",
+      "host": "Claude Code",
+      "case_sha256": "cf7b98761876db6dabe5cfee6c1d803f73a26c0427b74e7cbde82e16ea948ca6",
+      "source_sha256": "1b105bbbb799b40cb1f46bddb26ec3e1a8aa8924c0c35c9778e0e42532fe243d"
+    },
+    {
+      "case": "rf-commits-were-named-after-what-th-28b04435a6",
+      "host": "Claude Code",
+      "case_sha256": "81c130024ce934f030c137aa45f637baeb816818316ae266c582af34fc411bc4",
+      "source_sha256": "2b16a6c9447113d425ff1428af316394e968671ff2aa767b8b28090fdc731744"
+    },
+    {
+      "case": "rf-commits-were-named-after-what-th-2ab93e7f60",
+      "host": "Claude Code",
+      "case_sha256": "7034b5cacf031b238dc53777338611ce5f37bfa6485c2f3399f8b87d6b9cf6ba",
+      "source_sha256": "e8da78909571ac96b0fa08c2c4bdf34287fdd8827457a9010ea64f25a37773c5"
+    },
+    {
+      "case": "rf-commits-were-named-after-what-th-74fb0d73b9",
+      "host": "Claude Code",
+      "case_sha256": "35b9152b2ba14dd4c788c0f0099af970c1840623f244eff0f331a531bc32bf7b",
+      "source_sha256": "3e22a04dd30edc00f0819eeb0eef959af1f09a89651325d99a475f85b13127fb"
+    },
+    {
+      "case": "rf-commits-were-named-after-what-th-9be1e8867a",
+      "host": "Claude Code",
+      "case_sha256": "fa41db72aa5b4b316eb13e53eef447662e749976e048c5e932629da7ce06b45b",
+      "source_sha256": "b7478f76191cf9f638afc96da18b1e6575f3bbfe41cced6b396c2461cdb3ba09"
+    },
+    {
+      "case": "rf-commits-were-named-after-what-th-a54c74bb1f",
+      "host": "Claude Code",
+      "case_sha256": "5842aa291292b4db4ec47ebdf639bb42d6b61b87bd95ef8ee314313c56882c73",
+      "source_sha256": "019c66d41f6ddb49435e706b61728cedf61cccfa812f943904200e0288c4dc2b"
+    },
+    {
+      "case": "rf-commits-were-named-after-what-th-a6111673cf",
+      "host": "Claude Code",
+      "case_sha256": "0196801399bdb15275a8493df65d28cbf3f4a71ed1c03f607ae5f21925c60390",
+      "source_sha256": "23c51cb0dde72c9528e12e7e47cc92758d9983f3bb279010ceb04379b3dc38e1"
+    },
+    {
+      "case": "rf-commits-were-named-after-what-th-aa9a689a35",
+      "host": "Claude Code",
+      "case_sha256": "56dc16a6ea401c33453f0d7fc5d946108b141bc8cc6ecd6c6c56f15f39efbb30",
+      "source_sha256": "50641d1e4c627a3b6a4f28cbc40635ce59259ce6d8bc85c6c29e63749e3dfedc"
+    },
+    {
+      "case": "rf-commits-were-named-after-what-th-bec2c903a6",
+      "host": "Claude Code",
+      "case_sha256": "4c5c5293bda1a8ce28c62824952f446d8ab2cdc4e79433d7fd956c34cb0ed4e1",
+      "source_sha256": "9ac874319a13355cbeab3f4092b7241d8e61e8c7ebe668e21c58821f163fc13c"
+    },
+    {
+      "case": "rf-commits-were-named-after-what-th-d4250327c2",
+      "host": "Claude Code",
+      "case_sha256": "438caf55eef8566c3b50698f38946ba6c678114b9375f31cf05c14d292eec1bb",
+      "source_sha256": "243b250ea7e8b5265bad765ac5002a91d291d878c36883730dc59a2f3960f4e3"
+    },
+    {
+      "case": "rf-commits-were-named-after-what-th-d5630d44b6",
+      "host": "Claude Code",
+      "case_sha256": "78fa2e6cbe2a35e00907b65a74fe637bed7e069ccb615feec612e876099d85b8",
+      "source_sha256": "8d21e1b8775de6dc82f02c5ec574b85ac7c9dccc19478c712626f5a837232810"
+    },
+    {
+      "case": "rf-commits-were-named-after-what-th-f93d012c6f",
+      "host": "Claude Code",
+      "case_sha256": "3ff612f2460ac4d465d719ea564b9fa9081692065ab6e36317331b37c258572d",
+      "source_sha256": "44879a1ad10da7d5f54d861c9379f6be99aaa1d0e908f7125f3a5a2c3449a177"
+    },
+    {
+      "case": "rf-commits-were-named-after-what-th-fc6087584a",
+      "host": "Claude Code",
+      "case_sha256": "d011076dc6eb31627d7578766a66884a9f7f28c90325670564544a82532525b3",
+      "source_sha256": "2b833dd1747563ca767ed567947f54ebc095e3b141a20e81a39ef131222c3e67"
+    },
+    {
+      "case": "rf-committed-on-a-green-verificatio-9497139897",
+      "host": "Claude Code",
+      "case_sha256": "2a40b6991791c5a9cf973e9a5f87fa71f44393c300e1e24c4b61cfc57e550c5f",
+      "source_sha256": "bca9677edcf79c3357912fefefabdaa87abed8f7734422dd76860fc44071412a"
+    },
+    {
+      "case": "rf-committed-on-a-green-verificatio-f28021ddc4",
+      "host": "Claude Code",
+      "case_sha256": "eb21b7c7cf47e619774d388aa1a6867ddeed474f14c1f2d20b202eb2233e34ef",
+      "source_sha256": "3edf9f574f7330dba882751eaf3a3ee4320c8acb5918205f56c92e942b53df57"
+    },
+    {
+      "case": "rf-core-shipped-with-carriage-retur-f0f8d76a6d",
+      "host": "Claude Code",
+      "case_sha256": "83e5cccada73c2b284745b73833a9521ac5515da5532cf3ce6f45a48d68a2fcc",
+      "source_sha256": "39fc2fbe37cfd2fdbbd3c578e28033002d780ade2e72459a842a798a8723c71c"
+    },
+    {
+      "case": "rf-figures-were-written-into-a-reco-f46a714a94",
+      "host": "Claude Code",
+      "case_sha256": "d843d8c1f52e3a74b67a25ee523570e5ae92e988ab86e12bcb8dc77e035cf09b",
+      "source_sha256": "0ccfcbebf7347f622422e52209b099932339a46f31818f6bb1a9f3c2e4a7fef3"
+    },
+    {
+      "case": "rf-four-skills-were-changed-without-18aa38d40b",
+      "host": "Claude Code",
+      "case_sha256": "605783e9058ce972c8943b3f439aa29a07885b899151bc5731a609ba4505a42d",
+      "source_sha256": "aff23a4b5959681ffc2f36a9903f1d05b6a58a82e6edc23bcae396b24ee036e6"
+    },
+    {
+      "case": "rf-four-skills-were-changed-without-1dcf952f11",
+      "host": "Claude Code",
+      "case_sha256": "841d38429f5ca78f57635ee3b263650d582126e0ae609f94beae1c9f20c3a6f1",
+      "source_sha256": "2ae53e7191811b9904fabd4faaafc052a7b8a0e5305154fda5952f3227bf09bc"
+    },
+    {
+      "case": "rf-four-skills-were-changed-without-2bd778ea67",
+      "host": "Claude Code",
+      "case_sha256": "eaf09eb0d3af6e465a0ee6285d3acdf0bd3126afb562e71fd30262c50534aab6",
+      "source_sha256": "3b226e052d256375e8c3018532e430ab65fe91a3fe41cdad4b6914ed28e64fc5"
+    },
+    {
+      "case": "rf-four-skills-were-changed-without-64c25b9673",
+      "host": "Claude Code",
+      "case_sha256": "e7edbe8638886565335d07fc6112d137c44ec9bc71f36a91f89852847dc7a715",
+      "source_sha256": "b2670ee43b776aa582c6ceab45121657df5ead62657711d12a59f6d8e3eeb777"
+    },
+    {
+      "case": "rf-four-skills-were-changed-without-b47fe922ed",
+      "host": "Claude Code",
+      "case_sha256": "f82d21567a598ea502aaeae03ef209d807d35133abf1c4f1ebcaf2324bb99cbb",
+      "source_sha256": "59ff4c9e89e2c7611339d2f2ef292686e6eb852a57d85df3f9710b8851ef635f"
+    },
+    {
+      "case": "rf-in-the-ring-the-agent-offered-to-e85dea4b5e",
+      "host": "Claude Code",
+      "case_sha256": "103852b32de8d36f046f0e311ef235ccb33f0dd0c811cc15e01970adcb016af4",
+      "source_sha256": "a6cdc448adab89172f542f18d23f1e9781a4995faef08caf783debc80e6cb6ca"
+    },
+    {
+      "case": "rf-landed-changes-were-retold-in-pr-ad3520866a",
+      "host": "Claude Code",
+      "case_sha256": "6ec8618487363d6dbf297e62da3737f646b1dd40cbb6ece2c0df6b2365dcfdcc",
+      "source_sha256": "6ed48f1efcf0869cb419de7d70281667ada1d7c8ce8c5867c6be0849e9ac7e8e"
+    },
+    {
+      "case": "rf-landed-changes-were-retold-in-pr-e3c7917198",
+      "host": "Claude Code",
+      "case_sha256": "031621c31c4b9fb02d93faf42e8dadb5ea96e600af6355cc6ed5315b64a2e012",
+      "source_sha256": "914919939db0701b3d2cc4ab3c0dd6773d9f18861e483e6e639589412cc2c889"
+    },
+    {
+      "case": "rf-landed-text-was-headed-proposed-03f67059c6",
+      "host": "Claude Code",
+      "case_sha256": "2356e4cd207db0b6d03b3791528110ad1c40f51ebb328cdf00b87bb73f89a1d7",
+      "source_sha256": "81948897fe9c842e4a2fcfaf669d36b7ac2b49d0e677c8fae96458aa56c6a9d2"
+    },
+    {
+      "case": "rf-landed-text-was-headed-proposed-050464f95f",
+      "host": "Claude Code",
+      "case_sha256": "a89220986f9d8ef1bb2b066a579d6c12ca352d17cb461cd0f3fcc3790420db7a",
+      "source_sha256": "997267fbd70b6b3a5bee5ea0defe612bcd72a9ae20c426944ae90b2ce397515b"
+    },
+    {
+      "case": "rf-landed-text-was-headed-proposed-08f67f1765",
+      "host": "Claude Code",
+      "case_sha256": "d267e6612c0b690f50b18c5b11b098cd8584fc463c93876fcabce768cfc60e22",
+      "source_sha256": "1b79d75253e37456fc71a831385bfda45ef48b278040bf54f1f16339d82c9fa1"
+    },
+    {
+      "case": "rf-landed-text-was-headed-proposed-1539dfa2cb",
+      "host": "Claude Code",
+      "case_sha256": "08a679aae6ef6425f2a04513cd8b93cf0006f63f680272e6915ec32b4f5dded4",
+      "source_sha256": "78008cc8f809d423fabde797bd3e698cc036ee1be9bfde4fa414560e3833ec77"
+    },
+    {
+      "case": "rf-landed-text-was-headed-proposed-3d8fff4063",
+      "host": "Claude Code",
+      "case_sha256": "985d4921c19a79ae666aedb3396e83e01e6bb3874e95dd29c8cd3b52a2450b2b",
+      "source_sha256": "1c34d75bd11ca0cc8b4014c15d7894acb7a2ebb1c7d81bdee118cabd0d390cd4"
+    },
+    {
+      "case": "rf-landed-text-was-headed-proposed-47ae580101",
+      "host": "Claude Code",
+      "case_sha256": "f60cd1700ffd481931188ab7fe2370381f97579fc5e53d0f73223a24b08b4f1b",
+      "source_sha256": "f74ab1e790e777cefbc9f10a469c9784aa0278795a6c299ae1991f8b3863fe7e"
+    },
+    {
+      "case": "rf-landed-text-was-headed-proposed-4edfb4461e",
+      "host": "Claude Code",
+      "case_sha256": "40a677fb8c0744eb887cba6a895657ebc6c62a3c11adc9e84e9825da6f8d3ba6",
+      "source_sha256": "68ff1ab0760ebe51b5e46a08c64c06d9063d0d9fc2dad2c3f96949aa7626a3ed"
+    },
+    {
+      "case": "rf-landed-text-was-headed-proposed-ac005fa152",
+      "host": "Claude Code",
+      "case_sha256": "0177916f34c1015df6cdc993e06e8114a7939e82821c00e9a75573049d033579",
+      "source_sha256": "383989f54d6852839e5c301cc5e981f16055c2955c4bc43d8fd2dbdb77826e7c"
+    },
+    {
+      "case": "rf-landed-text-was-headed-proposed-b037054879",
+      "host": "Claude Code",
+      "case_sha256": "3aac3c908362d5442dad771e0292b1ed08ab59eb891507bb6d6c63c642bee0be",
+      "source_sha256": "28c2504d15a3ff3f42ed3d7b68a509c3b54dc99b4fbd7b308a342be4b66e8a21"
+    },
+    {
+      "case": "rf-landed-text-was-headed-proposed-d403d37a7a",
+      "host": "Claude Code",
+      "case_sha256": "5d2dcd8769e553877c65bf65237382dd5e4b13d9a6c9e34cda34b11d8d4b7a21",
+      "source_sha256": "8173f8009c4c92c1b8c5f7765ffbe1a16520069df04011c0ff6074153981e6d8"
+    },
+    {
+      "case": "rf-landed-text-was-headed-proposed-f781d04e48",
+      "host": "Claude Code",
+      "case_sha256": "43011bea0eac87abf0fbf5996d3a343abcad1dbddf6fdd402e8044e821169d96",
+      "source_sha256": "b810f6a146207baed152c3edafb0f1f32ad34688d8628636e50b89f3fa2476da"
+    },
+    {
+      "case": "rf-landed-text-was-headed-proposed-f7e01aa9eb",
+      "host": "Claude Code",
+      "case_sha256": "495d8e4b261d3c5405fcb8dc320579e849ea8e49dc3315f2c7275f4dd1aa0b2e",
+      "source_sha256": "76b6c4809cf34560552d88ff999a424baef0efdcbc69db95e0e0d5cf4f7ae9cd"
+    },
+    {
+      "case": "rf-replies-left-the-person-s-langua-4c3a54976b",
+      "host": "Claude Code",
+      "case_sha256": "2f4c77663882a49a9d07159df2f67c6326f5ce01fc3e4f00d1655d90ae4206d7",
+      "source_sha256": "6280fe47b9be1e1a4a678ce6135b4a8cf6d2080efea8ec40d1d93b52348967b9"
+    },
+    {
+      "case": "rf-replies-left-the-person-s-langua-77397c6fd4",
+      "host": "Claude Code",
+      "case_sha256": "74b6aa474439ce2f5ce07042c905ef7ae05597afbd0c7be9b1554993a9d73ba1",
+      "source_sha256": "8f24aeda4c21b08987f464481a8cc5c592ca21bbf0d26707541582dba81d2f90"
+    },
+    {
+      "case": "rf-rules-were-proposed-in-a-reply-w-474ce62787",
+      "host": "Claude Code",
+      "case_sha256": "4b6ce20e5021d4d2da7d41d8293e05ff76da7625fbc7366f57d082a4d0c39d30",
+      "source_sha256": "730fd651706e84656fec7f5a3836932dc51a7c5ee80755fb05443e66cdd1b656"
+    },
+    {
+      "case": "rf-rules-were-proposed-in-a-reply-w-a7ada13a87",
+      "host": "Claude Code",
+      "case_sha256": "9bad9daa7b5c38a574b982db0f73436f2875b06437bc75c8caa563c9ea3be44c",
+      "source_sha256": "3642bc897a637988478acc9b8d7cb581c6b789a1a23b6a2f6a40f9678e135d33"
+    },
+    {
+      "case": "rf-running-sessions-questions-were-54951379f3",
+      "host": "Codex Desktop",
+      "case_sha256": "117af473f47ded19c6634fe57313a6f1f9aed3a82d19460d122d24937570d353",
+      "source_sha256": "16b44ac9373c6ba54c7d7e5d8c2e0ea106bacfc1bdbbd5f18aea6bf553281092"
+    },
+    {
+      "case": "rf-running-sessions-questions-were-66f584127e",
+      "host": "Codex Desktop",
+      "case_sha256": "f2bcdd57afdee829813e957418b1f7b9b8b200ebce03050a74f43dc3509579d6",
+      "source_sha256": "a5e14c3a9ce29ebd5a451d9c6319736357342ace48c9a70e6e5203ced09c9a5b"
+    },
+    {
+      "case": "rf-running-sessions-questions-were-8c59a70456",
+      "host": "Claude Code",
+      "case_sha256": "a0a2f744b2c10b17c95fa8d7f616a0aac6104678204ab6c10fed41d88837a7a6",
+      "source_sha256": "dd5b249c1225bcf97333d79706e8327685f39fe1e447d0476d51dd871f4963b0"
+    },
+    {
+      "case": "rf-running-sessions-questions-were-8cb2be7731",
+      "host": "Codex Desktop",
+      "case_sha256": "1facf6d706e451134e8edff3df97713ee3d779e9b5321aa3489e7927c801126d",
+      "source_sha256": "5ce5fe41d4fabb508c8243f015b6ae35d15ed25473f11435d0dc4acc64aa0df1"
+    },
+    {
+      "case": "rf-running-sessions-questions-were-9358464450",
+      "host": "Codex Desktop",
+      "case_sha256": "d7ab8c6d70f70be0cfb518f91ef481cc3f197c95fb3630c10794bc13cba70de0",
+      "source_sha256": "ff49a5bbfff87939a47069c4c67ed29bafc787a11a997a854f838b7d0a93f445"
+    },
+    {
+      "case": "rf-running-sessions-questions-were-f41b68a9b7",
+      "host": "Claude Code",
+      "case_sha256": "3cbc9ecf18d671da078bd2852932ac5ab823f260b83dafd26a921608be244835",
+      "source_sha256": "a3aa865a679a0104bd1e211651ba87ffd0f61f01b846592fd8a7a12c949e86da"
+    },
+    {
+      "case": "rf-six-turns-of-seven-showed-a-ques-2ecc02ae92",
+      "host": "Claude Code",
+      "case_sha256": "6bf60b8c931868cac2cf10d7370155f659e9e3033aac6427dff028d00d6155a4",
+      "source_sha256": "285f48e07d05ba632e14bb0ec5ee9bcfd25f8aeebe342b0b8f65d028bc436345"
+    },
+    {
+      "case": "rf-six-turns-of-seven-showed-a-ques-74b0b2862d",
+      "host": "Claude Code",
+      "case_sha256": "4e2846d36908a436a8c475b7e4e8c441925c6530aad6516d6d833309967ff4a1",
+      "source_sha256": "3dba70a329eb3a6bf4b9f8836abc711c7a781eb0bb6d07e0c944bff3b8f6c3d5"
+    },
+    {
+      "case": "rf-six-turns-of-seven-showed-a-ques-79bef5d34a",
+      "host": "Claude Code",
+      "case_sha256": "54e9c8cada83ecdd1d5463e178d810446e7513909e7ad638ca073e3940cef711",
+      "source_sha256": "934d6b676a779ba987df8143cd212974b4dfbd3e3df55f07ca347ce1a2f5914e"
+    },
+    {
+      "case": "rf-six-turns-of-seven-showed-a-ques-87c5526038",
+      "host": "Claude Code",
+      "case_sha256": "ad48e047e28a50bfed008c0214e47d980f8bd157faf8c4ba267a159463b0372a",
+      "source_sha256": "ea54fd79d1d96ea0a8f29e5a554f5a189f74e2b85745872d711fbb434d8bc51e"
+    },
+    {
+      "case": "rf-six-turns-of-seven-showed-a-ques-8f2da10e83",
+      "host": "Claude Code",
+      "case_sha256": "5d6b3cf8bc3b7cd4678f2b9e2ac0156223ae06c5886d4217e78964bd652e42db",
+      "source_sha256": "4713576171fbc142546bab6fa5cd97035302ac0d4b5c0c61caef9800d30bfced"
+    },
+    {
+      "case": "rf-six-turns-of-seven-showed-a-ques-ad4e33f3ae",
+      "host": "Claude Code",
+      "case_sha256": "bf38ecdadf727438c7a509e7c80f798c7f1b2a30bcc9a9768a9fb8ac41c0b584",
+      "source_sha256": "cdc3d8bd274e7c5767a76c514dafdc37793591b264b9ba53cd9bd46ef30dcce3"
+    },
+    {
+      "case": "rf-six-turns-of-seven-showed-a-ques-b1c19188b6",
+      "host": "Claude Code",
+      "case_sha256": "68ada87322722809ee145f0c2368f5441ffbcdcaf8faca584c55e831f4683125",
+      "source_sha256": "96132f4cbea6384b1cf2eee6eb4708e5b5496fce539a7c894b2516ec20f2e1ad"
+    },
+    {
+      "case": "rf-six-turns-of-seven-showed-a-ques-b6c55b27a7",
+      "host": "Claude Code",
+      "case_sha256": "76c5534f9bb49e9ac8a2b6267bfabcab1ec1c79be56fb92cbba4eb9a595cb940",
+      "source_sha256": "73e9b4c93ef5a402484269bf645ab5a655f0eb33cbd6afa0194570773578e3c9"
+    },
+    {
+      "case": "rf-skill-descriptions-fixed-by-addi-4ced4ae560",
+      "host": "Claude Code",
+      "case_sha256": "2efd25d149811f093c78d9c7d2abdd6d8382eb5b10284dcf6543360e13052b7e",
+      "source_sha256": "96af2f39fe149c09946611545e0d67b421ebdd8c9d490a0a0e32a795740a7db2"
+    },
+    {
+      "case": "rf-text-just-written-into-the-entry-523c64ec71",
+      "host": "Claude Code",
+      "case_sha256": "1e7e2f88c3934986e151e4ec4a477b2fce73acffece91db92d7d87cf3bd981a4",
+      "source_sha256": "48c2452e33a97c13bf2abf8ef183503a6e4b8c522f66a05dea220c9cddb15e22"
+    },
+    {
+      "case": "rf-the-binding-form-lived-on-two-ti-80968532e2",
+      "host": "Claude Code",
+      "case_sha256": "58b432ae6a02c139b4d7d59de92eec8c6273ccf763e83ad4cf460703d4469f82",
+      "source_sha256": "c538085a12407640bda2134bfa0f33239ad477e213513b94f74cb118828158e1"
+    },
+    {
+      "case": "rf-the-binding-form-lived-on-two-ti-b438a74f11",
+      "host": "Claude Code",
+      "case_sha256": "22546da065f0052ef5c5447ae64a27e607d88f2c8aeff76ffad7df6048811bf5",
+      "source_sha256": "2dcdbdf474c3416440858f24f9b51823503297009ff37293f8256259c526e294"
+    },
+    {
+      "case": "rf-the-commits-table-and-the-counte-adcf691134",
+      "host": "Claude Code",
+      "case_sha256": "b0f0a96092800ce0609e3ae454d151e075d71e311fb53de19162c1b1dc64878b",
+      "source_sha256": "8cbd5fd1b8fd0a91f89fa1b8220ce3604af962541e5e87ddb5f09ee51805c5ef"
+    },
+    {
+      "case": "rf-the-commits-table-and-the-counte-caea6e72f6",
+      "host": "Claude Code",
+      "case_sha256": "fa4be7ada21280bbed9c1208b92456da34b52855e16c5d8b6638b243b0fd83b9",
+      "source_sha256": "a3645a04e321651fadd2cbadd4a414136a84044789ec185d9cfe7b598f3ed647"
+    },
+    {
+      "case": "rf-the-counters-line-was-replaced-b-ba49018a7c",
+      "host": "Claude Code",
+      "case_sha256": "6a141ce422b1e11138a2e4b5aff0d397c1350c89037a146eb279ac733b663b92",
+      "source_sha256": "e9429fa0c3f39232ef1c7d21b3ad2498e3977e728cf4ebf524d85f734405daad"
+    },
+    {
+      "case": "rf-the-person-was-asked-to-choose-a-6a4e1c3f6d",
+      "host": "Claude Code",
+      "case_sha256": "ff52424fabcbcdf1f8cef8b86b9d6c189fe2b32d437383191e114553ad9e4a09",
+      "source_sha256": "f6b00a6cc79d13bad5533ca9e142bd408e5cc535d935ff8885423ac04430e1b3"
+    },
+    {
+      "case": "rf-the-person-was-asked-to-choose-a-6a4e1c3f6d-peer-message",
+      "host": "Claude Code",
+      "case_sha256": "f0ac6eeabc9824ecd68938a90cc023b70e3849b59decbac4ca35c430e7fa1401",
+      "source_sha256": "bd950dd827cc8fa9fa78cc3e914efe1281bcdd962e651484cd7d3070d0503078"
+    },
+    {
+      "case": "rf-the-person-was-asked-to-choose-a-a1d74846d1",
+      "host": "Claude Code",
+      "case_sha256": "97d28f820a83b4ee4d17f00c884a02500089765a0ee2da07479af8f7241d8049",
+      "source_sha256": "0bb215eb2dd762bfbaa945568ffbd8f6220062790944406d0b0cf570b4a91f2c"
+    },
+    {
+      "case": "rf-the-person-was-asked-to-choose-a-d058c1c6aa",
+      "host": "Claude Code",
+      "case_sha256": "e7805b1e296ed7eec6b3006b5a19573f165de39352a51e918b1f71ea72cc0c2a",
+      "source_sha256": "8f0579ff02827491fd0969083e4b6f3fa768cc0acbba3b53b8755f4e9bb45d53"
+    },
+    {
+      "case": "rf-the-reader-the-person-named-gave-2db9c8a004",
+      "host": "Claude Code",
+      "case_sha256": "56b00b917cc82fb7c80d6d554a496485c3f10c5138890d993e08f977c62c2a2c",
+      "source_sha256": "d8e69c1c07707b708548d489c5f0a74cf2da0b109db1dfa24279e5097401e403"
+    },
+    {
+      "case": "rf-the-rule-said-allowlist-so-a-lis-5c42560358",
+      "host": "Claude Code",
+      "case_sha256": "8641c43dad31a00bec2cd95c7434591fac27411378564e67b7622c0908769660",
+      "source_sha256": "a37da65ac2817204b9afab48a55d42e49f4c129a86507ba7bedea6c195e64201"
+    },
+    {
+      "case": "rf-the-rule-that-the-builder-does-n-ca2e027eb9",
+      "host": "Claude Code",
+      "case_sha256": "bca1797168d87f92f2f02e435ba4db28b5f54d62d1f42d1d3ea6280baefbed43",
+      "source_sha256": "cda58dfea2b5e2ad9e20547e7cf4975139ef771906cfdf52132386baf6aa439e"
+    },
+    {
+      "case": "rf-the-rule-that-the-builder-does-n-dd3e2ed876",
+      "host": "Claude Code",
+      "case_sha256": "948246f536dc33bc5e30cc7433798a0b6a1f28c8ea7a3218cd5660cd784ea145",
+      "source_sha256": "341dfdfdb8c1ff659e1b40e28614cafe67f71541a8066a48cc773a1abead3cb6"
+    },
+    {
+      "case": "rf-the-straw-dog-rule-sat-at-tier-1-0588bf97f6",
+      "host": "Claude Code",
+      "case_sha256": "ced38424998f82ec696566ea7121cac1fef451194e85d133c8ccb998c6344f96",
+      "source_sha256": "e90bd17af6c60e6567c3aa948d5c05a82f1b7f52feb628eefd77a0470929d389"
+    },
+    {
+      "case": "rf-the-straw-dog-rule-sat-at-tier-1-51a3ede95e",
+      "host": "Claude Code",
+      "case_sha256": "b27691fb93e071612d27a875e4613c440e1f942a873edc96b071817a2f606a8e",
+      "source_sha256": "083801487829ec93cccf070d0182796c69b38046165a9bcc6db4af358dc2c2b2"
+    },
+    {
+      "case": "rf-the-straw-dog-rule-sat-at-tier-1-6749bbf867",
+      "host": "Claude Code",
+      "case_sha256": "d254696b7ad7f3d1330718f14c798898a3df84410776c543d7d5a48ff9cae7da",
+      "source_sha256": "3fa2604c6e9442ae9658b2c5262e0af55c14cfd1dfc4360ebe572c5875b729d5"
+    },
+    {
+      "case": "rf-the-study-was-written-by-the-age-0c4e95d73c",
+      "host": "Claude Code",
+      "case_sha256": "963cfd24eddb1424a3a179b4fdecfb1dc668484351706bb67aaf0a4a292b4377",
+      "source_sha256": "a7774956080486a123b727c171ed05f6b8f6110b4da7ced0153d07366c488199"
+    },
+    {
+      "case": "rf-the-study-was-written-by-the-age-395d404336",
+      "host": "Claude Code",
+      "case_sha256": "a0213ea68311833348462dfc5656390f1e2ae9aa1e29c1bb8ba3e46b605ace3f",
+      "source_sha256": "603594733cda7a411a772125816dff5834f748cc3f1453a7b1006799027fe16b"
+    },
+    {
+      "case": "rf-the-study-was-written-by-the-age-7c0e3a40a0",
+      "host": "Claude Code",
+      "case_sha256": "15fed93ca7b754afaf2e55c2ea707e87f5d97c484b6710baddbc26f020f40420",
+      "source_sha256": "a8d7d660b529ceb3f10cb7c69ca9e0b6df3eb5749e965dd51ced825d9e52cde6"
+    },
+    {
+      "case": "rf-the-study-was-written-by-the-age-e7bba0481b",
+      "host": "Claude Code",
+      "case_sha256": "be774ce6bf518e52141c1de1e3dc190ae7027877e8779539ba1965eab5ee9823",
+      "source_sha256": "95412bcf9975bfe481a1eaa41e41e6a6fbeea578cd2ac89cc615b88e6ebc35fe"
+    },
+    {
+      "case": "rf-the-wake-rule-sat-in-a-diagram-a-4f50aa93f2",
+      "host": "Claude Code",
+      "case_sha256": "5e6cbcd49d6e90651a68a46cd375417e170d067d466e615ad4fc00d5762f35de",
+      "source_sha256": "7e157359638541f7231ce277223bdeee2dbe7a1470f2665039361074208c2dab"
+    },
+    {
+      "case": "rf-the-wake-rule-sat-in-a-diagram-a-c15b0ef74a",
+      "host": "Claude Code",
+      "case_sha256": "0390d06fe7c31cbc9a24f5a2a9b2d4b657e16d9b252b50cfa92b6a835352581a",
+      "source_sha256": "9329af8bb5d8e86cca6487b84ef8287150f1df70bdfbbb76b42c09f5a582e6ac"
+    },
+    {
+      "case": "rf-two-sessions-numbered-one-versio-0db0910cc1",
+      "host": "Claude Code",
+      "case_sha256": "e1bd79dc603adb3927b2c0aab6d14ff5effa54aee71d3920c5a435f81926f995",
+      "source_sha256": "aaeefc9a516f531398f3b2eb482a1fac58a3f88ea908bd9ed34e19ab8feaa1a0"
+    },
+    {
+      "case": "rf-two-sessions-numbered-one-versio-2adfe6daaf",
+      "host": "Claude Code",
+      "case_sha256": "a83cc3f67ae24f559b677c36ea687f7924031136ff55ce6ec66555b75370c034",
+      "source_sha256": "ff0ebb5e02fd8ed050e7d1b11b8a6ca9ae5f7951cc6dce6243bb867bd35c0a16"
+    },
+    {
+      "case": "rf-two-sessions-numbered-one-versio-3e7583f9b1",
+      "host": "Claude Code",
+      "case_sha256": "d34774d75ca133406b66985e8f13dade148bca9f0d28712e550f7cdefee9d517",
+      "source_sha256": "bd0a6028344d92a383193ca4855dee8e4d2f036083aa788945336e85fd69043b"
+    },
+    {
+      "case": "rf-two-sessions-numbered-one-versio-99899744c2",
+      "host": "Claude Code",
+      "case_sha256": "4c2abcd07009cfe8c939ac177420460cf4fcfceb49d90e6f180da5413d073bd1",
+      "source_sha256": "4dfe59f0527419d03760e24cffeaca0455189860d72b49343b743cd9204a9694"
+    },
+    {
+      "case": "rf-two-sessions-numbered-one-versio-c0c47575b2",
+      "host": "Claude Code",
+      "case_sha256": "983cbbb5ddb813a21ed24b0530221fb810b7b6cca4c4639ef2a3cc6b981479a5",
+      "source_sha256": "3e72203d070621daaa69931ffd6b5ed760d8096a2e7ce2bb03e3ce77eabdbfc1"
+    },
+    {
+      "case": "rf-two-sessions-numbered-one-versio-f3594b6fdc",
+      "host": "Claude Code",
+      "case_sha256": "c9180abed9edcf9fcf911fa22b4c76faa76cbfe05f85bce801af5e0f7db369d4",
+      "source_sha256": "332303a785add127e69752ce8487a84cc686fb791766037c872ca4fc8803f9ad"
+    },
+    {
+      "case": "rf-two-switch-values-went-through-t-976dd044c5",
+      "host": "Codex Desktop",
+      "case_sha256": "e4c427b79db277ca2bae73b6fe85303075d5adf8e896d3208dacef8804701c0f",
+      "source_sha256": "1f7fb58183eeaabff0c99069e412e152155a24430f11b5f0d84f4ad2547176bf"
+    },
+    {
+      "case": "skill-moment-in-body-20261025",
+      "host": "Claude Code",
+      "case_sha256": "c23e447f9016f87cdc53e46644c307443abfb34f63fdeb4221ca5ff61f22741f",
+      "source_sha256": "d9e1a181f3f0afcf58df95d515d5ce9ca2d069afca0dbab7a3199f82385a7146"
+    }
+  ]
+}

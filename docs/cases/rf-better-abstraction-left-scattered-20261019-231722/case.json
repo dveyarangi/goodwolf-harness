@@ -1,0 +1,193 @@
+{
+  "id": "rf-better-abstraction-left-scattered-20261019-231722",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "54. A better abstraction was met and the reply said *build nothing for it* — 2026-10-20",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "The better abstraction is dismissed as building nothing because its moves already exist separately."
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/436",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.299"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/436/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-19T23:17:22.881Z",
+    "chat_id": "4fef7758-4d63-4cbb-a2d5-98b8709a0be5",
+    "trigger_message_id": null,
+    "trigger_record_id": "5ef5690e-7d6e-4e69-a9b2-2d64f1f2aff0",
+    "failure_message_id": "msg_011CgCSxfwPDFnQEbionyoVX",
+    "failure_record_id": "7c55ba48-f987-4677-b5bc-f3f25805f2c7",
+    "transcript": "4fef7758-4d63-4cbb-a2d5-98b8709a0be5.jsonl"
+  },
+  "observed_failure": {
+    "description": "The better abstraction is dismissed as building nothing because its moves already exist separately.",
+    "events": [
+      {
+        "source": "source.json#/records/436",
+        "message_id": "msg_011CgCSxfwPDFnQEbionyoVX",
+        "record_id": "7c55ba48-f987-4677-b5bc-f3f25805f2c7",
+        "timestamp": "2026-10-19T23:17:22.881Z",
+        "text": "| 🪢 Tangle · [q-0037.0013.0006](docs/questions/q-0037.0013.0006-how-is-the-path-ahead-found-and-shown-the-space-of-open-questions-and-tickets-mapped-from-the-roots-the-next-slices-ranked-by-a-stated-criterion-and-the-picture.md) · [q-0037.0012.0009](docs/questions/q-0037.0012.0009-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen-how-run-with-no-instruction-the-standing-one-and-the-new-one.md) · — · — |\n|---|\n\n| 📍 **q-0037.0013.0006** · How is the path ahead found and shown: the space of open questions and tickets mapped from the roots, the next slices ranked by a stated criterion, and the picture the person sees? |\n|---|\n\nYes, and this conversation is the specimen. It began abstract, the pathfinder; derived a method, pacer and driver and weights; and the method bored back into the abstraction: the pacer dissolved, and the question I opened under it no longer fits its wording or its home.\n\nThe tree already holds the moves of that process, only never seen as one:\n\n- **Down.** The general rule on a shape's structure asks the exact question: *does expanding its structure change the contract or even what the shape is?* (💡 [*The shape's structure*](AGENTS.md:22)). And the straw dog binds method text to the open abstraction whose answer will rewrite it, so the dependency is recorded at the moment it is created.\n- **Up.** A missing parent is opened when a message is contained by none of the questions that resemble it. A question is reworded once the work shows its wording outdated, [q-0037.0001.0021](docs/questions/q-0037.0001.0021-how-is-a-question-reworded-once-the-work-shows-its-wording-is-outdated-and-when-does-rewording-replace-opening-a-parent.md). And how a change in one answer reaches what stood on it is [q-0037.0001.0023](docs/questions/q-0037.0001.0023-how-does-a-change-in-one-answer-reach-what-stood-on-it.md), unfolded into six parts and unanswered, which is the backtrack's hardest half.\n- **The turn.** The pacer page's step-end choice, continue, repeat, decompose, *return upstream*, switch, ask. *Return upstream* is the backtrack itself, and it is the one move with no home: it sits in a document no instruction reads.\n\nSo I would build nothing for it. The backtrack is the driver's step-end rule with *return upstream* landed, recorded as the store's moves, open a parent, reword, re-parent, bind a straw dog, and the pathfinder's standing job is to redraw the path after each move (💡 [*Occam*](AGENTS.md:30)). What you perceive as a separate meta-process is the sequence of those moves seen whole. That whole is a picture the pathfinder can draw, the trail of a guess from abstraction to method and back, and a picture is the right form for it, not a mechanism.\n\nOne thing I will not claim: that recording the moves makes the backtrack cheap. Four drafts of q-0037.0001.0023 were reshaped before it unfolded, and it still has no answer. The moves are known; the judgment of when to return upstream is not, and that is what the driver's judges would have to carry.\n\nThe question's body now holds four passes, uncommitted. The next concrete step, if you take the shape, is the same as before: reword and move this question, open the driver's, and let the pathfinder's align begin with a discovery.\n\n| ⚖️ Decisions |\n|---|\n| The split: pathfinder, driver, the ring's rules with *return upstream* landed, the pacer's name retired |\n| Reword and move this question out from under the pacer, and open the driver's beside it |\n| Commit the question's body as it stands |\n| [q-0037.0012.0003](docs/questions/q-0037.0012.0003-what-does-an-entry-contract-version-cover.md) waits at `/align`, as the queue has held since 2026-10-08 |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Evaluate whether the unifying abstraction should consolidate and improve its existing scattered expressions; their prior existence alone is not a reason to leave the corpus untouched.",
+    "source_evidence": [
+      "source.json#/records/422",
+      "source.json#/records/438",
+      "source.json#/records/462"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the response consider realigning the existing expressions through the proposed unifying abstraction rather than dismissing that work solely because those expressions already exist?",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/438",
+      "source.json#/records/440",
+      "source.json#/records/442",
+      "source.json#/records/443",
+      "source.json#/records/448",
+      "source.json#/records/449",
+      "source.json#/records/454",
+      "source.json#/records/455",
+      "source.json#/records/460",
+      "source.json#/records/462",
+      "source.json#/records/465",
+      "source.json#/records/467",
+      "source.json#/records/468",
+      "source.json#/records/472",
+      "source.json#/records/474",
+      "source.json#/records/476",
+      "source.json#/records/478",
+      "source.json#/records/479",
+      "source.json#/records/480",
+      "source.json#/records/481",
+      "source.json#/records/482",
+      "source.json#/records/486",
+      "source.json#/records/487",
+      "source.json#/records/491",
+      "source.json#/records/492",
+      "source.json#/records/493",
+      "source.json#/records/494",
+      "source.json#/records/495",
+      "source.json#/records/496",
+      "source.json#/records/501",
+      "source.json#/records/502",
+      "source.json#/records/506",
+      "source.json#/records/507",
+      "source.json#/records/511",
+      "source.json#/records/512",
+      "source.json#/records/513",
+      "source.json#/records/514",
+      "source.json#/records/519",
+      "source.json#/records/520",
+      "source.json#/records/521",
+      "source.json#/records/522"
+    ],
+    "validation": "Occurrence-specific extraction; independent semantic validation and behavioral execution are not established by this integration repair.",
+    "criterion_scope_qualification": "The later user correction grounds the intended behavior. This case does not retroactively claim that the later Occam amendment was already installed at the checkpoint."
+  },
+  "related_failures": [
+    {
+      "register": "../../rule-failures.md",
+      "heading": "54. A better abstraction was met and the reply said *build nothing for it* — 2026-10-20",
+      "occurrence": "original",
+      "occurrence_heading": "original",
+      "detail": "abstraction-to-method-and-back response"
+    }
+  ],
+  "related_failure_dimensions": [
+    {
+      "failure": {
+        "register": "../../rule-failures.md",
+        "heading": "54. A better abstraction was met and the reply said *build nothing for it* — 2026-10-20",
+        "occurrence": "original",
+        "occurrence_heading": "original",
+        "detail": "abstraction-to-method-and-back response"
+      },
+      "observed": "The answer lists five existing moves and concludes it would build nothing for the unifying abstraction.",
+      "expected": "A better unifying abstraction can justify realigning the existing corpus; the user explicitly asks for that rather than leaving scattered expressions untouched."
+    }
+  ],
+  "description": "The better abstraction is dismissed as building nothing because its moves already exist separately.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/436",
+      "after": "source.json#/records/432",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/422",
+      "source.json#/records/426",
+      "source.json#/records/427",
+      "source.json#/records/431",
+      "source.json#/records/432"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/51"
+      ],
+      "native_context_records": [
+        "source.json#/records/51",
+        "source.json#/records/424"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/424",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\860f6f12-29ee-4e1d-96f5-c4309230eb6c\\tool-results\\hook-c3f65015-4ac7-4495-8e3c-c74833b3b26b-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-c3f65015-4ac7-4495-8e3c-c74833b3b26b-1-additionalContext.txt",
+          "sha256": "b6d83a9299bc52c2fd77ac8ee65d3f6a357b6bb56aec1decb5db0245eed06781",
+          "bytes": 42003,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1720,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-19T23:15:59.329678+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/436"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

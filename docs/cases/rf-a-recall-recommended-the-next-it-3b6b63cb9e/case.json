@@ -1,0 +1,133 @@
+{
+  "id": "rf-a-recall-recommended-the-next-it-3b6b63cb9e",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "14. A recall recommended the next item by a criterion the queue does not use — 2026-09-27",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "recall ranks by recipient urgency"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/46",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.281"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/46/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-09-27T09:23:32.903Z",
+    "chat_id": "019d56a5-08d3-4cc6-a571-19a8e2d0c100",
+    "trigger_message_id": null,
+    "trigger_record_id": "554a8725-8547-418e-87d2-5e6e7f3c8de9",
+    "failure_message_id": "msg_011CfThbByPRjoeDTbWsDAkd",
+    "failure_record_id": "0118566d-22dc-49ed-af49-a51d53fdcf7d",
+    "transcript": "019d56a5-08d3-4cc6-a571-19a8e2d0c100.jsonl"
+  },
+  "observed_failure": {
+    "description": "Recall recommends .0172 because a recipient reported it, taking candidates from the old handoff despite the queue criterion.",
+    "events": [
+      {
+        "source": "source.json#/records/46",
+        "message_id": "msg_011CfThbByPRjoeDTbWsDAkd",
+        "record_id": "0118566d-22dc-49ed-af49-a51d53fdcf7d",
+        "timestamp": "2026-09-27T09:23:32.903Z",
+        "text": "Nothing is in flight. The last session's work is pushed through `7f238b1`. One item is left over: the record of that session, [0026](docs/sessions/0026-20260927-a-reviewer-reads-the-switches-and-the-rules-leave-memory.md), is still uncommitted (`commit=ask`).\n\n## Where things stand\n\n- **Last thing that closed:** [01-0011.0080 a-test-pays-only-for-what-it-proves](docs/tickets/done/01-0011.0080-a-test-pays-only-for-what-it-proves.md) closed with its RFC. There are 289 tests and the suite runs in about 24 s.\n- **Session 26 (today):**\n  - It fixed what an outside reviewer found. `/commit` now respects `commit=auto`, an unset switch reads `ask`, `--update` reports only the files it changed, two tests no longer assume Windows, and the front page no longer overstates what happens on arrival.\n  - It added a rule, R8: a skill may not name another skill once that skill belongs to an installed mechanism.\n  - It moved the critical rules out of private memory and into the harness.\n  - The entry contract is now v17.\n- **You decided:** team memory comes after the scheduled work. It has not been discussed and no ticket exists for it yet (\"team-memory, unminted\"). Source: [delivery status](docs/tickets/README.md).\n- **No open ticket has landed work waiting on unchecked criteria.** The only open RFC is [01-0010.0150 harness-meets-a-tree-with-a-method](docs/rfc/01-0010.0150-harness-meets-a-tree-with-a-method.md). It is authored, and its implementation has not started.\n\n## Next item: you need to pick (`next-cycle=ask`)\n\nThe queue's order is still undecided, per session 0026's open questions. There are three candidates:\n\n1. **[01-0011.0090 a-test-catches-what-its-name-promises](docs/tickets/01-0011.0090-a-test-catches-what-its-name-promises.md)** (Ready, AFK, no decisions needed)\n   - Strengthens the weak tests the audit listed and adds a test for each untested branch.\n   - Runs the suite on Linux (as a plain user and as root) and adds CI on Windows and Linux. This covers the two POSIX fixes from session 26, which have never run on Linux.\n2. **[01-0010.0172 a-first-install-says-what-stopped-it](docs/tickets/01-0010.0172-a-first-install-says-what-stopped-it.md)** (Ready, HITL)\n   - Comes from issue #1: an install refused for Git's ownership check gets the wrong error message, and the report says `arrived: true` even when the links are pending.\n   - Also adds a light step that makes the links in a fresh clone, and keeps the links out of a recipient's commits via `.git/info/exclude`.\n   - It opens with an align on one question: should `arrived` stay the three gates with a clear warning next to it, or be false until the links resolve? Choosing false would reopen the harness doc's decision.\n3. **The releases chain, `.0185` → `.0190` → `.0195`.** The delivery status still names `.0185`'s align as the candidate.\n   - It ranks first by the queue's ordering rule: frost_map is stuck at `2c733f0`, and its verification set still names `.agents/scripts/`, which has moved.\n   - `.0185`'s align decides whether core may name the edge record at all.\n\n**My recommendation:** `.0172` if you're available for its decision on `arrived`, since it fixes a real failure a recipient reported. Otherwise `.0090`, which I can do on my own.\n\n## Other open items\n\n- **Two decisions waiting for `/align`**, both recorded only in the [delivery status](docs/tickets/README.md):\n  - Are ADRs or tickets the home for a decision? The entry file currently says both.\n  - What does an entry-contract version cover? Today it names five of the file's nine sections.\n- **R8 drift:** eight skills name `/ticket` or `/maintain` outside installed blocks. This is tracked on [01-0016 responsibility-coherent](docs/tickets/01-0016-responsibility-coherent.md).\n- **[Rule failure 13](docs/rule-failures.md) has not been replayed** using the method on [01-0019](docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md).\n\n## Problems I found in the docs (not fixed; fixing isn't part of recall)\n\n- **`/dream`'s lost rule (\"a dream never amends rules\")** exists only in session record 0026. That's a documentation gap.\n- **The delivery status's \"Completed step\"** is a growing changelog rather than a single step. Session 0026 already flagged this and it hasn't been repaired.\n- **The delivery status's candidate order** (`.0185` first) and **session 0026's handoff** (`.0090` or `.0172`) disagree. That disagreement is the undecided queue order above.\n\nWhich should we take: `.0172`, `.0090`, or the releases chain? And do you want session record 0026 committed first?"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Read current queue order and its criterion; identify any proposed reorder as a decision.",
+    "source_evidence": [
+      "source.json#/records/16",
+      "source.json#/records/25",
+      "source.json#/records/33",
+      "source.json#/records/34",
+      "source.json#/records/37",
+      "source.json#/records/38",
+      "source.json#/records/41",
+      "source.json#/records/42",
+      "source.json#/records/16"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Read current queue order and its criterion; identify any proposed reorder as a decision.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/48",
+      "source.json#/records/51",
+      "source.json#/records/52",
+      "source.json#/records/56"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "Recall recommends .0172 because a recipient reported it, taking candidates from the old handoff despite the queue criterion.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/46",
+      "after": "source.json#/records/42",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/7",
+      "source.json#/records/22",
+      "source.json#/records/23",
+      "source.json#/records/24",
+      "source.json#/records/25",
+      "source.json#/records/29",
+      "source.json#/records/30",
+      "source.json#/records/33",
+      "source.json#/records/34",
+      "source.json#/records/37",
+      "source.json#/records/38",
+      "source.json#/records/41",
+      "source.json#/records/42"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/16"
+      ],
+      "native_context_records": [
+        "source.json#/records/16"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/46"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ],
+    "source_metadata_records": [
+      "source.json#/records/9"
+    ]
+  },
+  "source_gaps": []
+}

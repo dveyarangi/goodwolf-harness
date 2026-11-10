@@ -1,0 +1,136 @@
+{
+  "id": "rf-running-sessions-questions-were-8c59a70456",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "35. Running sessions' questions were named in words the window never wrote — 2026-10-11",
+    "occurrence": "repeat",
+    "occurrence_heading": "**Struck, 2026-10-14 — the table never came.** A `/recall` under `debug=on`, seven sessions",
+    "detail": "missing-neighbors-October14"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/97",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.295"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/97/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-14T00:39:08.703Z",
+    "chat_id": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5",
+    "trigger_message_id": null,
+    "trigger_record_id": "601344f0-5854-4b62-a54e-06c9ec9c4f83",
+    "failure_message_id": "msg_011Cg1CLt2jFsWPQuZ8jMsZa",
+    "failure_record_id": "d4e19617-51b5-4d7e-8ee8-183e63e7cd3c",
+    "transcript": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5.jsonl"
+  },
+  "observed_failure": {
+    "description": "The October14 recall omits the neighbor table, and the original user asks why the neighbors block was absent.",
+    "events": [
+      {
+        "source": "source.json#/records/97",
+        "message_id": "msg_011Cg1CLt2jFsWPQuZ8jMsZa",
+        "record_id": "d4e19617-51b5-4d7e-8ee8-183e63e7cd3c",
+        "timestamp": "2026-10-14T00:39:08.703Z",
+        "text": "Entry contract: v88, 2026-10-13.\n\n| 🎫 36 · ❓ 160 · 🐕 155 |\n|---|\n\n| ⚙️ **recall** · всё дерево, по правилу входа |\n|---|\n| 🐺 **banter** |\n\nСпасибо. Волк польщён, но учитывает, что «круче» стало в основном от рук пользователя: правила, которые сделали его таким, по большей части продиктованы в чате, а записал их уже волк. Однако по правилу входа сначала идёт обход территории, а комплименты потом, так что вот что видно с этого холма. (💡 [*Run /recall first in every conversation*](AGENTS.md:8))\n\n**Где стоит работа.** Вчера и сегодня закрылась продуктовая линия [01-0040 a-projects-account-stays-in-agreement-with-its-work](docs/tickets/01-0040-a-projects-account-stays-in-agreement-with-its-work.md): готовы срезы [.0030](docs/tickets/done/01-0040.0030-a-decided-purpose-question-opens-its-building.md), [.0035](docs/tickets/done/01-0040.0035-an-existing-project-gets-a-product-document-the-check-can-read.md) и [.0050](docs/tickets/done/01-0040.0050-the-queue-shows-what-each-item-realizes.md), последний проверен на 795 тестах. Рабочее дерево чистое, если не считать файлов других сессий в папке сессий.\n\n**Что дальше по очереди.** Порядок задан пользователем 2026-10-14[^1], я его не меняю. Первым идёт повторное чтение [01-0010.0170 arrival-becomes-a-sequence](docs/tickets/01-0010.0170-arrival-becomes-a-sequence.md) сразу по двум вопросам: [q-0037.0006.0020.0003](docs/questions/q-0037.0006.0020.0003-how-does-a-first-install-end-with-the-projects-own-verification-set.md) «How does a first install end with the project's own verification set?» и [q-0037.0006.0022](docs/questions/q-0037.0006.0022-is-a-projects-environment-its-toolchain-its-checks-its-pipeline-a-mechanism-of-the-method-and-what-does-it-own.md) «Is a project's environment — its toolchain, its checks, its pipeline — a mechanism of the method, and what does it own?». Тикет ещё держится за посылку «L3 — это указатель на `docs/cicd.md`» ([строка 46](docs/tickets/01-0010.0170-arrival-becomes-a-sequence.md:46)), а очередь эту посылку уже перевернула. За ним стоит [01-0010.0175 arrival-describes-what-it-finds](docs/tickets/01-0010.0175-arrival-describes-what-it-finds.md), который зависит от него.\n\n**Соседи.** Кроме этой, работают ещё семь сессий. Пять из них стоят на вопросах: продуктовый документ, вопрос о том, чьей копией скрипта выполняется обновление, связь записей с тем, что они описывают, отправка отчётов о сбоях в репозиторий харнесса, форма ответа. У двух позиции нет. Ни одна не стоит на `.0170`, так что дорогу никто не перебегает.\n\n| ⚖️ Decisions |\n|---|\n| Начать повторное чтение [01-0010.0170](docs/tickets/01-0010.0170-arrival-becomes-a-sequence.md) против [q-0037.0006.0022](docs/questions/q-0037.0006.0022-is-a-projects-environment-its-toolchain-its-checks-its-pipeline-a-mechanism-of-the-method-and-what-does-it-own.md), через `/align` (🛠️ next-cycle=ask) |\n\n[^1]: [docs/tickets/README.md](docs/tickets/README.md:5), строка порядка: «.0175 pulled forward, .0170 ahead of it, re-read first», пользователь, 2026-10-14."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "The user asks for the neighbors block; the correction keeps the table header present even when there are no collision rows.",
+    "source_evidence": [
+      "source.json#/records/99",
+      "source.json#/records/117",
+      "source.json#/records/45"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: The user asks for the neighbors block; the correction keeps the table header present even when there are no collision rows.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/99",
+      "source.json#/records/117"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The October14 recall omits the neighbor table, and the original user asks why the neighbors block was absent.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/97",
+      "after": "source.json#/records/93",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/35",
+      "source.json#/records/52",
+      "source.json#/records/53",
+      "source.json#/records/54",
+      "source.json#/records/60",
+      "source.json#/records/61",
+      "source.json#/records/62",
+      "source.json#/records/63",
+      "source.json#/records/66",
+      "source.json#/records/67",
+      "source.json#/records/69",
+      "source.json#/records/70",
+      "source.json#/records/72",
+      "source.json#/records/73",
+      "source.json#/records/77",
+      "source.json#/records/78",
+      "source.json#/records/79",
+      "source.json#/records/83",
+      "source.json#/records/84",
+      "source.json#/records/87",
+      "source.json#/records/88",
+      "source.json#/records/92",
+      "source.json#/records/93"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/45"
+      ],
+      "native_context_records": [
+        "source.json#/records/44",
+        "source.json#/records/45"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/97"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ],
+    "source_metadata_records": [
+      "source.json#/records/37"
+    ]
+  },
+  "source_gaps": []
+}

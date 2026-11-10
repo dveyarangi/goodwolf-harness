@@ -1,0 +1,196 @@
+{
+  "id": "rf-four-skills-were-changed-without-1dcf952f11",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "50. Four skills were changed without `/skill-up`, which asks nothing about growth — 2026-10-15",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "questions body/decision-format amendments"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1449",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.295"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/1449/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-14T21:56:33.594Z",
+    "chat_id": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5",
+    "trigger_message_id": null,
+    "trigger_record_id": "8e1b38e8-8ddc-4940-b653-e7e872eabf5c",
+    "failure_message_id": "msg_011Cg2sn7SNcskMoyx3N9exn",
+    "failure_record_id": "46b04248-0ab1-4202-910d-10243e260f66",
+    "transcript": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5.jsonl"
+  },
+  "observed_failure": {
+    "description": "The questions skill receives a new body-form paragraph and an extra decision rule without skill-up.",
+    "events": [
+      {
+        "source": "source.json#/records/1449",
+        "message_id": "msg_011Cg2sn7SNcskMoyx3N9exn",
+        "record_id": "46b04248-0ab1-4202-910d-10243e260f66",
+        "timestamp": "2026-10-14T21:56:33.594Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\skills\\\\questions\\\\SKILL.md\", \"old_string\": \"**The body** follows the parts after one blank line: the question's argument — positions,\\nevidence, what was refuted — written by hand with the edit tools, never by the script, which keeps\\nit as it found it on every call. A line in it shaped like a part is not one.\", \"new_string\": \"**The body** follows the parts after one blank line, written by hand with the edit tools, never by\\nthe script, which keeps it as it found it on every call. A line in it shaped like a part is not\\none. It runs in three parts, in this order:\\n\\n- `## Where it stands` — the question as it stands, for a reader arriving cold: the problem, the\\n  shape agreed so far, what is open. Rewritten whole whenever a decision lands; it holds no\\n  history. A question a ticket answers carries it.\\n- `## Decisions` — the list below.\\n- Dated evidence — the case, a discovery's material, an impact — each under its own heading with\\n  its date, appended and never rewritten.\"}"
+      },
+      {
+        "source": "source.json#/records/1450",
+        "message_id": "msg_011Cg2sn7SNcskMoyx3N9exn",
+        "record_id": "18b4f1e9-5d4b-41e1-a183-bdc275da5b3a",
+        "timestamp": "2026-10-14T21:56:35.143Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\skills\\\\questions\\\\SKILL.md\", \"old_string\": \"decision with nowhere to land yet is an item, `- ` or `N. `, and takes `→ <link>` to its home when\\nit lands.\", \"new_string\": \"decision with nowhere to land yet is an item, `- ` or `N. `, and takes `→ <link>` to its home when\\nit lands. A decision that refused an alternative names it and why, after `Not:`.\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Apply skill-up to the instruction change and assess the whole skill's growth before adding more prose.",
+    "source_evidence": [
+      "source.json#/records/1524",
+      "source.json#/records/241"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Apply skill-up to the instruction change and assess the whole skill's growth before adding more prose.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1452",
+      "source.json#/records/1453",
+      "source.json#/records/1458",
+      "source.json#/records/1459",
+      "source.json#/records/1460",
+      "source.json#/records/1464",
+      "source.json#/records/1470",
+      "source.json#/records/1475",
+      "source.json#/records/1476",
+      "source.json#/records/1480",
+      "source.json#/records/1481",
+      "source.json#/records/1484",
+      "source.json#/records/1485",
+      "source.json#/records/1494",
+      "source.json#/records/1495",
+      "source.json#/records/1501",
+      "source.json#/records/1502",
+      "source.json#/records/1506",
+      "source.json#/records/1507",
+      "source.json#/records/1516",
+      "source.json#/records/1523",
+      "source.json#/records/1524"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The questions skill receives a new body-form paragraph and an extra decision rule without skill-up.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1449",
+      "after": "source.json#/records/1446",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/1387",
+      "source.json#/records/1392",
+      "source.json#/records/1393",
+      "source.json#/records/1397",
+      "source.json#/records/1410",
+      "source.json#/records/1421",
+      "source.json#/records/1422",
+      "source.json#/records/1426",
+      "source.json#/records/1427",
+      "source.json#/records/1430",
+      "source.json#/records/1436",
+      "source.json#/records/1440",
+      "source.json#/records/1446"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/241"
+      ],
+      "native_context_records": [
+        "source.json#/records/241",
+        "source.json#/records/1389",
+        "source.json#/records/1409",
+        "source.json#/records/1412"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/1389",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5\\tool-results\\hook-8432ba51-826a-4ecb-a482-90a8837c804e-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-8432ba51-826a-4ecb-a482-90a8837c804e-1-additionalContext.txt",
+          "sha256": "26adb25f408e2960caa4d9be36e07aa2ae023d73c9e4de7b6fdbb9cf2113568c",
+          "bytes": 41618,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1945,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-14T21:48:13.328829+00:00"
+        },
+        {
+          "referenced_by": "source.json#/records/1409",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5\\tool-results\\hook-7dd85d44-ec1b-4a19-bf68-3e526b682c38-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-7dd85d44-ec1b-4a19-bf68-3e526b682c38-1-additionalContext.txt",
+          "sha256": "8dcfcc376205668c03442051f00e8c040678bbeb8f5cf361036e9ea266c41f21",
+          "bytes": 59135,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1636,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-14T21:54:39.489973+00:00"
+        },
+        {
+          "referenced_by": "source.json#/records/1412",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5\\tool-results\\hook-e32b6e20-9bbb-431a-b089-4fbca7545c18-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-e32b6e20-9bbb-431a-b089-4fbca7545c18-1-additionalContext.txt",
+          "sha256": "e4515ae313d6ac50c7b24b4d35799003fefcacb6a22e2d4f9be047eb59a4d01f",
+          "bytes": 41919,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1945,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-14T21:55:20.367258+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1449",
+        "source.json#/records/1450"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

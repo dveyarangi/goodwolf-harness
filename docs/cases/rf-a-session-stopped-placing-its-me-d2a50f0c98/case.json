@@ -1,0 +1,142 @@
+{
+  "id": "rf-a-session-stopped-placing-its-me-d2a50f0c98",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "16. A session stopped placing its messages once the window said nothing moved — 2026-10-03",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "no-placement turn 7: trigger 1165"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1244",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/1244/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-02T21:42:18.078Z",
+    "chat_id": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+    "trigger_message_id": null,
+    "trigger_record_id": "64e38ef8-844f-488a-b4c8-e6e66427e1b5",
+    "failure_message_id": "msg_011Cfe8yygHqk7wA21vjvVAz",
+    "failure_record_id": "b68aa3ff-a619-4273-82f4-8936c4ebc8c4",
+    "transcript": "d4406b99-8ee7-4e49-8d84-5621c2fd5766.jsonl"
+  },
+  "observed_failure": {
+    "description": "An independently prompted work turn has no placement call in its public action span before the reply. The hook still gives an unchanged window.",
+    "events": [
+      {
+        "source": "source.json#/records/1244",
+        "message_id": "msg_011Cfe8yygHqk7wA21vjvVAz",
+        "record_id": "b68aa3ff-a619-4273-82f4-8936c4ebc8c4",
+        "timestamp": "2026-10-02T21:42:18.078Z",
+        "text": "`.0011` is planned. The RFC is [docs/rfc/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md](docs/rfc/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md), and the amendment is recorded as part of this slice's v19 on the ticket and in the register. The ticket, store and mechanism checks are clean.\n\n**The plan, in four stages:**\n1. **New calls first.** The subcommands are added next to `--declare` so nothing breaks yet:\n   - `open` picks the next free id and prints it;\n   - if another session takes that id at the same moment, the call re-reads the store and takes the next one instead of refusing;\n   - `undepend` moves here from `.0015`;\n   - a malformed call prints its usage and writes nothing.\n2. **The old line goes.** `--declare`, its parser, the clause list, the `;` ban and the window's \"next free id\" line are removed, and the tests move to calls.\n3. **The wording.**\n   - Q1, Q2 and Q3 are rewritten in calls and reinstalled.\n   - `AGENTS.md` moves to v19, with your amended \"write for a capable model\".\n   - The findings record gets its v19 section, and the skill, the mechanism doc, the evidence and `.agents/README.md` speak of calls.\n4. **Quoting, tested in a real shell.** The skill's examples use single quotes. I'll run each one literally in Git Bash and in PowerShell, including a closing link with a code span, and record the result on the ticket.\n\n**Two small choices I made:**\n- `depend q-A --on q-B` instead of the positional `depend q-A q-B` from the align sketch, because the positional form doesn't show which question waits for which.\n- `move q-K --to-root`, mirroring the old `to root`.\n\n**Worth reading now rather than at `/verify`: the new Q1 text.** It's tier 1, so every session pays for it:\n\n> Before drafting a reply, place the message in the question store: read this turn's window — the one the host's hook put in your context, or `questions.py --window --session <tag>` — and call `questions.py at q-N --session <tag>` where the message lands, and the store's other calls whenever the turn's own work settles, opens or moves a question:\n>\n> - `questions.py at q-0004 --session <tag>`\n> - `questions.py open '<question>' --under q-0004 --session <tag>`, which prints the id it gave\n> - `questions.py close q-0004 decided '[link](../path.md) — who, date' --session <tag>`\n>\n> A message that answers nothing near the current question opens what that question cannot be answered without; one that lands nowhere makes no call. Only the working agent calls, never a helper. Under `debug=on`, show each call where it happened. For any other call, a closure, a branching or a drop, read the questions skill.\n\n**Knock-on:** `.0015` loses its `undepend` stage. `.0012` still rewrites Q1's newcomer sentence later, as v20.\n\n**Uncommitted:** the RFC, the ticket and queue updates, and the register note. Shall I commit and go on to `/implement`? Or do you want to change the Q1 wording first?"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Place the work message even when the stored position has not moved, showing the call under debug.",
+    "source_evidence": [
+      "source.json#/records/27",
+      "source.json#/records/1167",
+      "source.json#/records/27"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Place the work message even when the stored position has not moved, showing the call under debug.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1251"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "An independently prompted work turn has no placement call in its public action span before the reply. The hook still gives an unchanged window.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1244",
+      "after": "source.json#/records/1240",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/1165",
+      "source.json#/records/1170",
+      "source.json#/records/1171",
+      "source.json#/records/1172",
+      "source.json#/records/1173",
+      "source.json#/records/1174",
+      "source.json#/records/1182",
+      "source.json#/records/1183",
+      "source.json#/records/1185",
+      "source.json#/records/1186",
+      "source.json#/records/1187",
+      "source.json#/records/1188",
+      "source.json#/records/1189",
+      "source.json#/records/1190",
+      "source.json#/records/1191",
+      "source.json#/records/1192",
+      "source.json#/records/1193",
+      "source.json#/records/1203",
+      "source.json#/records/1204",
+      "source.json#/records/1205",
+      "source.json#/records/1209",
+      "source.json#/records/1210",
+      "source.json#/records/1217",
+      "source.json#/records/1221",
+      "source.json#/records/1222",
+      "source.json#/records/1223",
+      "source.json#/records/1224",
+      "source.json#/records/1225",
+      "source.json#/records/1226",
+      "source.json#/records/1232",
+      "source.json#/records/1233",
+      "source.json#/records/1234",
+      "source.json#/records/1240"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/27"
+      ],
+      "native_context_records": [
+        "source.json#/records/27",
+        "source.json#/records/1167"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1244"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

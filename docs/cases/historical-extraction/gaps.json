@@ -1,0 +1,435 @@
+{
+  "record_of": "what happened",
+  "scope": "Evidence that this extraction did not establish; discovery/registration evidence is not substituted for the original failure actor.",
+  "gaps": {
+    "account-019": {
+      "account": 19,
+      "register_heading": "77. A clause an open question will change could not be wrapped where it is authored — 2026-10-25",
+      "kind": "original",
+      "recorded_date": "2026-10-25",
+      "occurrence_marker": "original",
+      "gaps": [
+        {
+          "detail": "structural format conflict, not an established model-made failure action",
+          "missing": "No independently established defect-creation action or model author. Discovery by the verifier or registration by the parent is not the author of the structural contradiction.",
+          "search": "Recovered the verifier's direct handbacks at 247 and 284 and the parent receipt/registration. The account explicitly classifies a format defect where both individual rules can be obeyed.",
+          "reference_evidence": [
+            "source.json#/sources/9e74399e57b0/records/247",
+            "source.json#/sources/9e74399e57b0/records/284"
+          ],
+          "provenance": {
+            "host": "unknown",
+            "model": "unknown",
+            "occurred_at": null,
+            "basis": "The missing original actor is not inferred from the registrar. Case-specific recovered attribution, where available, is in the linked cases."
+          }
+        }
+      ]
+    },
+    "account-033": {
+      "account": 33,
+      "register_heading": "66. The queue grew its history back in fourteen days, its format's rule read by no one who wrote it — 2026-10-24",
+      "kind": "original",
+      "recorded_date": "2026-10-24",
+      "occurrence_marker": "original",
+      "gaps": [
+        {
+          "detail": "compound queue-history account requires the original append episodes",
+          "missing": "The complete set of independently triggering queue appends, each original command, author/model and native timestamp is not established. Do not attribute fourteen days of queue writing to the registrar.",
+          "search": "Read the entire account and its f18287f4 registration window, including the user's complaint. Searched the public index and inspected queue mutation episodes in 4fef7758, including the close/queue update at 238. The supplied registration window establishes the later discovery, not all writers over fourteen days.",
+          "reference_evidence": [
+            "source.json#/sources/9663ac1908d9/records/105",
+            "source.json#/sources/9663ac1908d9/records/130"
+          ],
+          "provenance": {
+            "host": "unknown",
+            "model": "unknown",
+            "occurred_at": null,
+            "basis": "The missing original actor is not inferred from the registrar. Case-specific recovered attribution, where available, is in the linked cases."
+          }
+        }
+      ]
+    },
+    "account-036": {
+      "account": 36,
+      "register_heading": "63. A hand-edited setting was received on wake, and two thirds of its rule stayed in a skill nobody opened — 2026-10-23",
+      "kind": "original",
+      "recorded_date": "2026-10-23",
+      "occurrence_marker": "original",
+      "gaps": [
+        {
+          "detail": "source-backed temporal discrepancy",
+          "missing": "The historical account's stated ordering and its claimed post-install entry-contract-line violation. The public source shows a different chronology.",
+          "search": "Read the original public responses, installer command/result and captured installed-file diff in c7b1fc0b.",
+          "reference_evidence": [
+            "source.json#/sources/9b7606cef76b/records/67",
+            "source.json#/sources/9b7606cef76b/records/84",
+            "source.json#/sources/9b7606cef76b/records/120",
+            "source.json#/sources/9b7606cef76b/records/145",
+            "source.json#/sources/9b7606cef76b/records/169",
+            "source.json#/sources/9b7606cef76b/records/194"
+          ],
+          "provenance": {
+            "host": "unknown",
+            "model": "unknown",
+            "occurred_at": null,
+            "basis": "The missing original actor is not inferred from the registrar. Case-specific recovered attribution, where available, is in the linked cases."
+          }
+        }
+      ]
+    },
+    "account-042": {
+      "account": 42,
+      "register_heading": "57. The rung rule fired on two of fourteen openings, and the older questions were never given one — 2026-10-20",
+      "kind": "original",
+      "recorded_date": "2026-10-20",
+      "occurrence_marker": "original",
+      "gaps": [
+        {
+          "detail": "many rung-less openings and a distinct backfill omission",
+          "missing": "The roughly twelve rung-less opening commands and their actors have not been individually recovered. The 168 older entries are explicitly a missing migration requirement, not 168 proven violations of a rule. Do not use the registrar or a compliant opening as the failing actor.",
+          "search": "Read the compound register account and supplied pathfinder discussion. Public-index search for questions.py open in 2026-10-15 through 20 recovered a pathfinder open at 14869207:376, but that command explicitly sets the rung, so it is not a failing occurrence. Inspected the original complaint at 674.",
+          "reference_evidence": [
+            "source.json#/sources/f5e3371e937b/records/672",
+            "source.json#/sources/f5e3371e937b/records/674"
+          ],
+          "provenance": {
+            "host": "unknown",
+            "model": "unknown",
+            "occurred_at": null,
+            "basis": "The missing original actor is not inferred from the registrar. Case-specific recovered attribution, where available, is in the linked cases."
+          }
+        }
+      ]
+    },
+    "account-049": {
+      "account": 49,
+      "register_heading": "52. An align put to the person, as a question, what their opening message had answered — 2026-10-18",
+      "kind": "original",
+      "recorded_date": "2026-10-18",
+      "occurrence_marker": "original",
+      "gaps": [
+        {
+          "detail": "claimed failure withdrawn in original conversation",
+          "missing": "The central allegation that the earlier user words had already settled the offered fork.",
+          "search": "Read original opening, align question, objection, acknowledgement and original user refusal at 270.",
+          "reference_evidence": [
+            "source.json#/sources/7bf36773dc17/records/202",
+            "source.json#/sources/7bf36773dc17/records/227",
+            "source.json#/sources/7bf36773dc17/records/231",
+            "source.json#/sources/7bf36773dc17/records/245"
+          ],
+          "provenance": {
+            "host": "unknown",
+            "model": "unknown",
+            "occurred_at": null,
+            "basis": "The missing original actor is not inferred from the registrar. Case-specific recovered attribution, where available, is in the linked cases."
+          }
+        }
+      ]
+    },
+    "account-056": {
+      "account": 56,
+      "register_heading": "50. Four skills were changed without `/skill-up`, which asks nothing about growth — 2026-10-15",
+      "kind": "repeat",
+      "recorded_date": "2026-10-24",
+      "occurrence_marker": "**Struck, 2026-10-24 — a third time, and the amendment is no longer a wording.** A session on the",
+      "gaps": [
+        {
+          "detail": "third strike on 2026-10-24",
+          "missing": "The exact pre-correction product-rule proposal, README rewrite and relevant read chronology are not yet recovered. The admission and delegated summary do not establish each original edit, its independent trigger or its model. Do not reuse index 54's older event.",
+          "search": "Searched public original-message FTS for skill-up/product and the user's quoted objection, inspected 1e4388f8 public records 1900–2240, recovered the later admission at 2214 and skill-up invocation at 2215 plus its full attachment 2217, and the delegated background at f3bf2e7f:5.",
+          "reference_evidence": [
+            "source.json#/sources/ffc81e8f9f31/records/2214",
+            "source.json#/sources/ffc81e8f9f31/records/2215"
+          ],
+          "provenance": {
+            "host": "unknown",
+            "model": "unknown",
+            "occurred_at": null,
+            "basis": "The missing original actor is not inferred from the registrar. Case-specific recovered attribution, where available, is in the linked cases."
+          }
+        }
+      ]
+    },
+    "account-058": {
+      "account": 58,
+      "register_heading": "48. A long session's replies left L9's voice and promised to try — 2026-10-14",
+      "kind": "original",
+      "recorded_date": "2026-10-14",
+      "occurrence_marker": "original",
+      "gaps": [
+        {
+          "detail": "Five individually selected replies have unestablished voice verdicts",
+          "missing": "The source criticises the long session generally. It does not establish an individual L9 failure for each of these five replies; their checks remain blocked, with exact source evidence retained.",
+          "search": [
+            "Independent reading of each selected reply, original L9 and later complaint/admission."
+          ],
+          "reference_evidence": [],
+          "provenance": {
+            "host": "unknown",
+            "model": "unknown",
+            "occurred_at": null,
+            "basis": "The missing original actor is not inferred from the registrar. Case-specific recovered attribution, where available, is in the linked cases."
+          }
+        }
+      ]
+    },
+    "account-070": {
+      "account": 70,
+      "register_heading": "37. Commits were named after what they touched, not the step that made them — 2026-10-11",
+      "kind": "original",
+      "recorded_date": "2026-10-11",
+      "occurrence_marker": "original",
+      "gaps": [
+        {
+          "detail": "unresolved-rest-of-historical-commit-population",
+          "missing": "unresolved-rest-of-historical-commit-population",
+          "search": null,
+          "reference_evidence": [
+            "source.json#/sources/0f799f881744/records/1102",
+            "source.json#/sources/0f799f881744/records/1121",
+            "source.json#/sources/0f799f881744/records/1174"
+          ],
+          "provenance": {
+            "host": "unknown",
+            "model": "unknown",
+            "occurred_at": null,
+            "basis": "The missing original actor is not inferred from the registrar. Case-specific recovered attribution, where available, is in the linked cases."
+          }
+        }
+      ]
+    },
+    "account-076": {
+      "account": 76,
+      "register_heading": "34. A first install ended in a technical report, and asked for a commit the switch allowed — 2026-10-11",
+      "kind": "original",
+      "recorded_date": "2026-10-11",
+      "occurrence_marker": "original",
+      "gaps": [
+        {
+          "detail": "original-first-install-not-retained",
+          "missing": "original-first-install-not-retained",
+          "search": null,
+          "reference_evidence": [
+            "source.json#/sources/0ba9de6ae966/records/5",
+            "source.json#/sources/0ba9de6ae966/records/91"
+          ],
+          "provenance": {
+            "host": "unknown",
+            "model": "unknown",
+            "occurred_at": null,
+            "basis": "The missing original actor is not inferred from the registrar. Case-specific recovered attribution, where available, is in the linked cases."
+          }
+        }
+      ]
+    },
+    "account-079": {
+      "account": 79,
+      "register_heading": "33. A command that writes was run to read — 2026-10-11",
+      "kind": "repeat",
+      "recorded_date": "2026-10-11",
+      "occurrence_marker": "**Struck, 2026-10-11 — the installing session of entry 34.** Its `/recall`, asked about the install",
+      "gaps": [
+        {
+          "detail": "original-installing-session-bare-wake-repeat-missing",
+          "missing": "original-installing-session-bare-wake-repeat-missing",
+          "search": null,
+          "reference_evidence": [
+            "source.json#/sources/15e5973b463a/records/200",
+            "source.json#/sources/15e5973b463a/records/233"
+          ],
+          "provenance": {
+            "host": "unknown",
+            "model": "unknown",
+            "occurred_at": null,
+            "basis": "The missing original actor is not inferred from the registrar. Case-specific recovered attribution, where available, is in the linked cases."
+          }
+        }
+      ]
+    },
+    "account-084": {
+      "account": 84,
+      "register_heading": "28. In Cursor the window was not drawn by the rule — 2026-10-10",
+      "kind": "original",
+      "recorded_date": "2026-10-10",
+      "occurrence_marker": "original",
+      "gaps": [
+        {
+          "detail": "Cursor initial-window duty — contemporaneous instruction body and actual assistant model unavailable",
+          "missing": [
+            "The assistant model field is absent; do not promote the user-request model field to actual assistant attribution.",
+            "Antecedent Q1 duty body and original injected window are not retained in selected public fields. Instruction read results contain totalLinesInFile only. The assistant claim that the wake is already in context is not independent proof of injection.",
+            "The reported four messages in local00:01–00:09 include host-generated shell notifications; the native sequence has one human greeting and a grouped shell-notification follow-up, rather than four independent human requests."
+          ],
+          "search": [
+            "Original named Cursor SQLite bubbles, order headers and public transcript exports. Actual assistant model absent; per-user requested models kept separately."
+          ],
+          "reference_evidence": [],
+          "provenance": {
+            "host": "unknown",
+            "model": "unknown",
+            "occurred_at": null,
+            "basis": "The missing original actor is not inferred from the registrar. Case-specific recovered attribution, where available, is in the linked cases."
+          }
+        }
+      ]
+    },
+    "account-095": {
+      "account": 95,
+      "register_heading": "18. Six turns of seven showed a question the turn did not stand on — 2026-10-05",
+      "kind": "repeat",
+      "recorded_date": "2026-10-05",
+      "occurrence_marker": "**Struck, 2026-10-05 — the first session after it.** A message no child contained was taken up",
+      "gaps": [
+        {
+          "detail": "original-v26-missing-parent-repeat-unresolved",
+          "missing": "original-v26-missing-parent-repeat-unresolved",
+          "search": null,
+          "reference_evidence": [
+            "source.json#/sources/0f023bc7e8dd/records/382"
+          ],
+          "provenance": {
+            "host": "unknown",
+            "model": "unknown",
+            "occurred_at": null,
+            "basis": "The missing original actor is not inferred from the registrar. Case-specific recovered attribution, where available, is in the linked cases."
+          }
+        }
+      ]
+    },
+    "account-096": {
+      "account": 96,
+      "register_heading": "18. Six turns of seven showed a question the turn did not stand on — 2026-10-05",
+      "kind": "repeat",
+      "recorded_date": "2026-10-05",
+      "occurrence_marker": "**Struck, 2026-10-05 — a later session the same day.** The skill was read and the missing parent",
+      "gaps": [
+        {
+          "detail": "missing-parent repeat not located",
+          "missing": "The later session response treating nested parent candidates as rivals, its trigger, and actual actor/model remain unestablished. The earlier plan discussion is not this repeat.",
+          "search": [
+            "Reviewed 17658ee1:382, initial registration, and plan/implementation 483-678.",
+            "FTS: two parents, divide the children, same children, nested candidates, count of children, missing parent; Oct 4-5 and wider searches.",
+            "Read e11dbff6:148 registration whose old_string shows this repeat already existed."
+          ],
+          "reference_evidence": [],
+          "provenance": {
+            "host": "unknown",
+            "model": "unknown",
+            "occurred_at": null,
+            "basis": "The missing original actor is not inferred from the registrar. Case-specific recovered attribution, where available, is in the linked cases."
+          }
+        }
+      ]
+    },
+    "account-098": {
+      "account": 98,
+      "register_heading": "18. Six turns of seven showed a question the turn did not stand on — 2026-10-05",
+      "kind": "repeat",
+      "recorded_date": "2026-10-05",
+      "occurrence_marker": "**Struck, 2026-10-05 — another fresh session the same day.** Asked whether the harness's update",
+      "gaps": [
+        {
+          "detail": "broad placement repeat not located",
+          "missing": "Original answer stopping at the broad parent is not established. 5b274edf:105 actually opens q-0018.0020 and its child under v30; it cannot stand for the reported failure.",
+          "search": [
+            "Reviewed 17658ee1:382 registration and 329 earlier discussion.",
+            "FTS harness update, recipient AND fixed, q-0018 AND fixed, update AND question around Oct 4-5.",
+            "Inspected 5b274edf:105 and copied equivalents."
+          ],
+          "reference_evidence": [],
+          "provenance": {
+            "host": "unknown",
+            "model": "unknown",
+            "occurred_at": null,
+            "basis": "The missing original actor is not inferred from the registrar. Case-specific recovered attribution, where available, is in the linked cases."
+          }
+        }
+      ]
+    },
+    "account-105": {
+      "account": 105,
+      "register_heading": "16. A session stopped placing its messages once the window said nothing moved — 2026-10-03",
+      "kind": "original",
+      "recorded_date": "2026-10-03",
+      "occurrence_marker": "original",
+      "gaps": [
+        {
+          "detail": "remaining long-session inventory not certified",
+          "missing": "These seventeen do not certify exhaustion of the long session. Earlier spans before 251 and timing of the late at during 1372-1933 need a full public-turn audit. Scratch-test calls are not live placement.",
+          "search": [
+            "Selected seventeen actual missing-placement spans. Inspected placements 347,431,453,485,510/516,688,702,1923 and live hook 2579."
+          ],
+          "reference_evidence": [],
+          "provenance": {
+            "host": "unknown",
+            "model": "unknown",
+            "occurred_at": null,
+            "basis": "The missing original actor is not inferred from the registrar. Case-specific recovered attribution, where available, is in the linked cases."
+          }
+        }
+      ]
+    },
+    "account-121": {
+      "account": 121,
+      "register_heading": "3. The straw-dog rule sat at tier 1 and three straw dogs went unwrapped — 2026-09-14",
+      "kind": "original",
+      "recorded_date": "2026-09-14",
+      "occurrence_marker": "original",
+      "gaps": [
+        {
+          "detail": "contemporaneous duty not established",
+          "missing": "Original writes identified separately, but exposure to the later Sep 8 wrapping duty is not proven. Cursor model/exact write timestamps absent. A later post-rule rewrite introducing/preserving these as a fresh failure has not been established.",
+          "search": [
+            "Located original ticket Write 03206aca:27, README Write 6edc8a68:998, queue Write 8ada0e2a:39; inspected public timestamps.",
+            "FTS exact phrases which links are actually required, not yet recommend, once it exists, until the pacer exists; read f9c29566:1108."
+          ],
+          "reference_evidence": [],
+          "provenance": {
+            "host": "unknown",
+            "model": "unknown",
+            "occurred_at": null,
+            "basis": "The missing original actor is not inferred from the registrar. Case-specific recovered attribution, where available, is in the linked cases."
+          }
+        },
+        {
+          "detail": "ticket-skill-not-yet-recommend — contemporaneous instruction body and actual assistant model unavailable",
+          "missing": [
+            "Actual assistant message model field is absent.",
+            "The original pre-write AGENTS read is retained, but result only says totalLinesInFile61. Its contemporaneous straw-dog duty body is not retained in selected public fields.",
+            "The write itself does not establish which future ticket owns the provisional passage; a later register assignment is not silently imported as original instruction."
+          ],
+          "search": [
+            "Original named Cursor SQLite bubbles, order headers and public transcript exports. Actual assistant model absent; per-user requested models kept separately."
+          ],
+          "reference_evidence": [],
+          "provenance": {
+            "host": "unknown",
+            "model": "unknown",
+            "occurred_at": null,
+            "basis": "The missing original actor is not inferred from the registrar. Case-specific recovered attribution, where available, is in the linked cases."
+          }
+        },
+        {
+          "detail": "delivery-status-until-pacer-exists — contemporaneous instruction body and actual assistant model unavailable",
+          "missing": [
+            "Actual assistant model field is absent on original/copy action; copied triggering user message also has no modelInfo. No model is inferred from other messages.",
+            "Original trigger is retained as copied public text/order with copied timestamp; its uncopied original timestamp was not recovered.",
+            "Contemporaneous AGENTS/straw-dog duty body is not retained in selected read results; the text omission is established, but grading an instruction violation requires separate duty evidence."
+          ],
+          "search": [
+            "Original named Cursor SQLite bubbles, order headers and public transcript exports. Actual assistant model absent; per-user requested models kept separately."
+          ],
+          "reference_evidence": [],
+          "provenance": {
+            "host": "unknown",
+            "model": "unknown",
+            "occurred_at": null,
+            "basis": "The missing original actor is not inferred from the registrar. Case-specific recovered attribution, where available, is in the linked cases."
+          }
+        }
+      ]
+    }
+  }
+}

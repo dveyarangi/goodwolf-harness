@@ -1,0 +1,148 @@
+{
+  "id": "rf-a-discovery-s-tasking-described-a2b431ed3d",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "49. A discovery's tasking described the method it was meant to step outside — 2026-10-15",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "first git discovery tasking"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/651",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.295"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/651/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-14T15:55:33.246Z",
+    "chat_id": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5",
+    "trigger_message_id": null,
+    "trigger_record_id": "658970ba-13da-40b1-891c-b41ec0cee004",
+    "failure_message_id": "msg_011Cg2QEp6pxajZtsNYX6ySQ",
+    "failure_record_id": "89b39c4e-6006-464d-8493-b436f2f02da7",
+    "transcript": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5.jsonl"
+  },
+  "observed_failure": {
+    "description": "The first git discovery tasking embeds the current two-switch framing in the supposedly independent question.",
+    "events": [
+      {
+        "source": "source.json#/records/651",
+        "message_id": "msg_011Cg2QEp6pxajZtsNYX6ySQ",
+        "record_id": "89b39c4e-6006-464d-8493-b436f2f02da7",
+        "timestamp": "2026-10-14T15:55:33.246Z",
+        "text": "Agent {\"description\": \"Discovery pass on git workflows\", \"subagent_type\": \"general-purpose\", \"prompt\": \"You are an independent research pass. Do NOT read any files in the local repository or working directory; answer from your own knowledge and, where useful, the web (prefer recent sources for claims that something works in practice; for general principles, prefer ideas still widely cited and used).\\n\\nThe shape to account for, described functionally:\\n\\nSomeone writes software alone today, and expects to work with a few others soon. An automated assistant makes changes in the code for them. Each change goes through three possible movements: being recorded locally as a saved point in version history; being sent to a shared remote copy; being joined into the line of history that others build on and that may be released. Right now every change is recorded straight onto that shared line. Two settings decide whether the assistant records on its own and whether it sends to the remote on its own, or asks the person first for each. The person sometimes moves between two computers while working on a line of their own.\\n\\nThe question: how do people who build software actually arrange these three movements — when each happens, who or what must agree before it happens, and what each such agreement protects against? I want the different whole approaches practitioners use (not slices of one), with their strengths and their known ways of failing.\\n\\nRules for your answer:\\n- Give several families — each a complete alternative approach to arranging these movements, not a sub-part of another. Refuse any family whose mapping onto the shape above you cannot state structurally.\\n- For each family: how it arranges the three movements and where the gates sit; where the situation above sits on that family's own ladder (beginner/solo end vs. large-team end, or whatever ladder the family itself uses); what the family's practitioners already know about how it goes wrong; and your confidence (high/medium/low) per claim, with sources where you have them.\\n- Also cover what changes when the one making the changes is an automated assistant rather than a person, if any family has something to say about that.\\n- Name what this tasking smuggled in: any framing in how I asked that you could see steering the answer (for example, assumptions about what a \\\"gate\\\" is, or that the three movements are the right cut).\\n- Do not harmonise the families into one recommendation; disagreements between them are part of the result. No verdict on what this person should do.\\n\\nOutput only these three sections:\\n\\n## Families\\n## What the tasking smuggled in\\n## Nothing to take\\n(families refused for want of a statable mapping; or that nothing usable came back)\", \"run_in_background\": false}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Ask the problem the proposed method answers with minimal inherited construction; report any framing transmitted.",
+    "source_evidence": [
+      "source.json#/records/241"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Ask the problem the proposed method answers with minimal inherited construction; report any framing transmitted.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/652",
+      "source.json#/records/654",
+      "source.json#/records/658",
+      "source.json#/records/659",
+      "source.json#/records/663",
+      "source.json#/records/664",
+      "source.json#/records/668",
+      "source.json#/records/669",
+      "source.json#/records/673",
+      "source.json#/records/675",
+      "source.json#/records/676",
+      "source.json#/records/679",
+      "source.json#/records/680",
+      "source.json#/records/681",
+      "source.json#/records/682",
+      "source.json#/records/687",
+      "source.json#/records/689",
+      "source.json#/records/691",
+      "source.json#/records/693",
+      "source.json#/records/694",
+      "source.json#/records/696",
+      "source.json#/records/698",
+      "source.json#/records/700",
+      "source.json#/records/702",
+      "source.json#/records/704",
+      "source.json#/records/706",
+      "source.json#/records/708"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The first git discovery tasking embeds the current two-switch framing in the supposedly independent question.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/651",
+      "after": "source.json#/records/647",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/616",
+      "source.json#/records/620",
+      "source.json#/records/621",
+      "source.json#/records/625",
+      "source.json#/records/626",
+      "source.json#/records/629",
+      "source.json#/records/630",
+      "source.json#/records/634",
+      "source.json#/records/635",
+      "source.json#/records/639",
+      "source.json#/records/640",
+      "source.json#/records/644",
+      "source.json#/records/645",
+      "source.json#/records/646",
+      "source.json#/records/647"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/241"
+      ],
+      "native_context_records": [
+        "source.json#/records/241",
+        "source.json#/records/618"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/651"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

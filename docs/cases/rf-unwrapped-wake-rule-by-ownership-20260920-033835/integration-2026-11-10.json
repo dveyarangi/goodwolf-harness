@@ -1,0 +1,18 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-unwrapped-wake-rule-by-ownership-20260920-033835",
+  "scope": "Separate register failure criterion over an existing public source event.",
+  "source_event_shared_with": "rf-the-wake-rule-sat-in-a-diagram-a-c15b0ef74a",
+  "source_provenance_unchanged": true,
+  "original_source_case_sha256": "0390d06fe7c31cbc9a24f5a2a9b2d4b657e16d9b252b50cfa92b6a835352581a",
+  "criterion": "Does the entry-file edit mark the temporarily hand-authored mechanism-owned wake instruction as provisional under its owning work rather than writing it as an unwrapped permanent rule?",
+  "criterion_scope_qualification": "The source mechanism instructions contain the competing general-rule home and mechanism-ownership guidance described in the register. This case isolates the ownership/wrapping issue, not whether the wake imperative was buried in the announce sentence.",
+  "historical_validation_reports_copied": false,
+  "source_gaps_preserved": [],
+  "executor_support": {
+    "status": "unsupported",
+    "behavior_verdict": null
+  },
+  "independent_semantic_validation_claimed": false
+}

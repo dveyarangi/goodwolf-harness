@@ -1,0 +1,137 @@
+{
+  "id": "rf-a-decision-abandoned-twelve-days-16dfde2f48",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "55. A decision abandoned twelve days earlier was carried as waiting in six replies running — 2026-10-20",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "stale wait in public response 472"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/472",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.299"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/472/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-19T23:30:28.287Z",
+    "chat_id": "4fef7758-4d63-4cbb-a2d5-98b8709a0be5",
+    "trigger_message_id": null,
+    "trigger_record_id": "7ea3121b-0cfb-4263-a808-e6dfef85855c",
+    "failure_message_id": "msg_011CgCTyBv4Yv8p1ZVR1JNon",
+    "failure_record_id": "e127bdd2-993d-427f-87a1-7c11507962c7",
+    "transcript": "4fef7758-4d63-4cbb-a2d5-98b8709a0be5.jsonl"
+  },
+  "observed_failure": {
+    "description": "A reply carries the abandoned entry-contract-version decision as a current user wait.",
+    "events": [
+      {
+        "source": "source.json#/records/472",
+        "message_id": "msg_011CgCTyBv4Yv8p1ZVR1JNon",
+        "record_id": "e127bdd2-993d-427f-87a1-7c11507962c7",
+        "timestamp": "2026-10-19T23:30:28.287Z",
+        "text": "| 🪢 Tangle · [q-0037.0013.0006](docs/questions/q-0037.0013.0006-how-is-the-path-ahead-found-and-shown-the-space-of-open-questions-and-tickets-mapped-from-the-roots-the-next-slices-ranked-by-a-stated-criterion-and-the-picture.md) · [q-0037.0012.0009](docs/questions/q-0037.0012.0009-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen-how-run-with-no-instruction-the-standing-one-and-the-new-one.md) · — · — |\n|---|\n\n| 📍 **q-0037.0013.0006** · How is the path ahead found and shown: the space of open questions and tickets mapped from the roots, the next slices ranked by a stated criterion, and the picture the person sees? |\n|---|\n\n**Occam, reworded.** Agreed: my sentence restated *every fact to one home*, which is about duplication, and your idea is a different thing, Occam read backwards in time. An abstraction that arrives late does not only shape what comes after it; it rewrites what came before, and the prose contracts. The register's entry 54 now says the first wording was refused and why, and carries the second:\n\n🧩 **Proposed rule — [AGENTS.md](AGENTS.md) · General rules, *Occam***\n\n> Occam reads backwards too: an abstraction that arrives late and unifies parts already written has them rewritten through it, the work paid once and the prose contracted.\n\nAt the dial, 🛠️ self-improvement=a rule, so shown and not landed (💡 [*At the dial it settles, and shows the person before acting*](AGENTS.md:220)).\n\n**Backtrack**: dropped, recorded as refused. Nothing to add.\n\n**What materializes a unit of work.** This is the right gap, and the tree already has the pattern for it, which is why I would not invent a new one. The way a mechanism makes itself known to a skill here is the installed block: a mechanism's rules file installs what it owes, and the skill names nothing of it by hand (💡 [*R7*](AGENTS.md:262)). So of your three options:\n\n- **The ticket suggests itself**: yes, in that form. The practice mechanism declares its unit of work and the instruction that mints one from an accepted question, here `/ticket` once `Where it stands` is accepted, and installs that into the pathfinder's skill.\n- **The pathfinder looks it up**: no. It is method-blind and reads what is installed, as every skill does with the mechanisms it serves.\n- **The user selects**: yes, by installing the method, the way every local answer is selected, and not per question.\n\nThe chain then reads: pathfinder → the next question → the installed method's materialization → a unit → the driver runs the ring over it → the store moves → the pathfinder redraws. The pathfinder's output is *the next question, and its unit as the method names it*. A method with another unit, a study plan or an experiment, installs its own line and nothing in the pathfinder changes.\n\nWhat I cannot settle from the tree: a question whose answer is a decision materializes as an align and no unit at all; one whose answer is a measurement, as an experiment's record rather than a ticket. Whether one method declares several units and what sorts a question among them, and which method takes a question when two are installed, development and study side by side, is open. Recorded as such in the question's body.\n\n| ⚖️ Decisions |\n|---|\n| The amendment to *Occam*, second wording |\n| Materialization as an installed block: the method declares its unit and its minting into the pathfinder |\n| The split: pathfinder, driver, the ring's rules; the pacer's name retired |\n| Reword and move this question out from under the pacer, and open the driver's beside it |\n| Commit the question's body and the register entry as they stand |\n| [q-0037.0012.0003](docs/questions/q-0037.0012.0003-what-does-an-entry-contract-version-cover.md) waits at `/align`, as the queue has held since 2026-10-08 |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Keep this turn's actual decision boundary separate from a stale queue claim. The user explicitly says this abandoned question is not being worked here.",
+    "source_evidence": [
+      "source.json#/records/522",
+      "source.json#/records/51"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Keep this turn's actual decision boundary separate from a stale queue claim. The user explicitly says this abandoned question is not being worked here.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/474",
+      "source.json#/records/476",
+      "source.json#/records/478",
+      "source.json#/records/479",
+      "source.json#/records/480",
+      "source.json#/records/481",
+      "source.json#/records/482",
+      "source.json#/records/486",
+      "source.json#/records/487",
+      "source.json#/records/491",
+      "source.json#/records/492",
+      "source.json#/records/493",
+      "source.json#/records/494",
+      "source.json#/records/495",
+      "source.json#/records/496",
+      "source.json#/records/501",
+      "source.json#/records/502",
+      "source.json#/records/506",
+      "source.json#/records/507",
+      "source.json#/records/511",
+      "source.json#/records/512",
+      "source.json#/records/513",
+      "source.json#/records/514",
+      "source.json#/records/519",
+      "source.json#/records/520",
+      "source.json#/records/521",
+      "source.json#/records/522"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "A reply carries the abandoned entry-contract-version decision as a current user wait.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/472",
+      "after": "source.json#/records/468",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/462",
+      "source.json#/records/467",
+      "source.json#/records/468"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/51"
+      ],
+      "native_context_records": [
+        "source.json#/records/51",
+        "source.json#/records/465"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/472"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

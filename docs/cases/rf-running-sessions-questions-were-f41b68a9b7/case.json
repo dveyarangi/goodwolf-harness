@@ -1,0 +1,197 @@
+{
+  "id": "rf-running-sessions-questions-were-f41b68a9b7",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "35. Running sessions' questions were named in words the window never wrote — 2026-10-11",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "invented-neighbor-wording"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/186",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/186/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-11T00:38:03.852Z",
+    "chat_id": "f621c092-f5f3-49c9-96d9-05a5e7752430",
+    "trigger_message_id": null,
+    "trigger_record_id": "b1f40958-4cb7-4c18-9b79-54eb88997a31",
+    "failure_message_id": "msg_011CfuWrX6p6eYx8id1jA8jM",
+    "failure_record_id": "54dca8bd-10a9-4305-8b82-82fac3e27567",
+    "transcript": "f621c092-f5f3-49c9-96d9-05a5e7752430.jsonl"
+  },
+  "observed_failure": {
+    "description": "Three neighboring question labels are paraphrased. The fourth, q-0017, matches its contemporaneous title.",
+    "events": [
+      {
+        "source": "source.json#/records/186",
+        "message_id": "msg_011CfuWrX6p6eYx8id1jA8jM",
+        "record_id": "54dca8bd-10a9-4305-8b82-82fac3e27567",
+        "timestamp": "2026-10-11T00:38:03.852Z",
+        "text": "| ✅ **q-0018.0020.0010** · What does a person meeting the harness for the first time meet at its install, and does it leave them knowing what they have and what to do next? (decided: [/harness, After the first install](.agents/skills/harness/SKILL.md:92)) |\n|---|\n\nСогласен по всем трём пунктам. Я поправил скилл `harness`, проверки прошли, правка закоммичена (`de2df9e`) и запушена.\n\n**Почему так вышло.** Агент правильно понял, что включено `commit=auto`, но решил, что переключатель действует только на работу внутри цикла, а установка в цикл не входит. К тому же раздел скилла о шаге после установки заканчивался на `--check`, и про коммит там не было ни слова. Как встретить человека, скилл не говорил вовсе, и агент просто отчитался о том, что сделал. Ещё он придумал, что «откат коммита удаляет харнесс», хотя ни одна запись в дереве этого не утверждает. (💡 [*Occam*](AGENTS.md:28))\n\n**Что теперь в скилле:**\n\n✏️ **Landed — .agents/skills/harness/SKILL.md, *After the first install***\n> That check is the install's verification: the `commit` switch just written decides its `EQUIP` commit, as it decides any other.\n>\n> The person asked for a method to work by, not for files. Before asking anything, introduce it in their language, in a few lines: who you now are to them, what you will do for them, and where you stop for their yes. Ask each answer with the reason a project would choose it — the harness's own checks in the verification set, for one, serve a project that means to change the harness itself. End with the first question the work asks. What was copied, gated and registered stays in the files and the commit, said on request.\n\nСам случай записан в журнал провалов правил под номером 34, в [docs/rule-failures.md](docs/rule-failures.md). Работает ли правка, покажет следующая чистая установка.\n\n| 🍂 Drift |\n|---|\n| В [AGENTS.md](AGENTS.md) в разделе *The loop* написано «Human checkpoints: … commit; push» без оговорки про переключатели. Это противоречит таблице Autonomy и могло подтолкнуть агента спросить про коммит вопреки `commit=auto`. Я не правил: это entry-файл, и правка поднимет его версию. |\n\n| 🪢 Tangle |\n|---|\n| local_2d3afbd6 · q-0024.0009.0006 What decides which pairs of records are held in agreement? |\n| local_210f2b79 · q-0017 Does working under the harness deliver software better than working without it, measured on the same tasks? |\n| local_5ee9fe64 · q-0018.0022.0001.0001 How long may the verification set take? |\n| local_f608beca · q-0027.0003 Does weight follow the work? |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Use the contemporaneous complete question titles. The preserved comparison shows three changed titles; q-0017 is verbatim and is not a failure.",
+    "source_evidence": [
+      "source.json#/records/303",
+      "source.json#/records/68",
+      "source.json#/related_sources/859b596cf1/records/1811",
+      "source.json#/related_sources/70e7ca7e17/records/732",
+      "source.json#/related_sources/0f799f8817/records/866",
+      "source.json#/related_sources/4be3c6320c/records/131",
+      "source.json#/records/351"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Do all four neighboring question labels retain the exact contemporaneous title text preserved in the reference reads?",
+        "expected_for_recorded_failure": false
+      },
+      {
+        "id": "account_72_requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: The user requests required formatting showing what changed in the skill. Just-written instruction text needs its landed rule frame in the reporting reply itself.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/188",
+      "source.json#/records/190",
+      "source.json#/records/192",
+      "source.json#/records/194",
+      "source.json#/records/196",
+      "source.json#/records/198",
+      "source.json#/records/200",
+      "source.json#/records/303"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed.",
+    "reference_delivery": "The external captured reads establish the historical titles; they are not evidence that those other sessions' reads reached this actor."
+  },
+  "related_failures": [
+    {
+      "register": "../../rule-failures.md",
+      "heading": "36. Landed changes were retold in prose, and instructions framed as other text — 2026-10-11",
+      "occurrence": "original",
+      "occurrence_heading": "original",
+      "detail": "instruction-pencil-frame186"
+    }
+  ],
+  "related_failure_dimensions": [
+    {
+      "failure": {
+        "register": "../../rule-failures.md",
+        "heading": "36. Landed changes were retold in prose, and instructions framed as other text — 2026-10-11",
+        "occurrence": "original",
+        "occurrence_heading": "original",
+        "detail": "instruction-pencil-frame186"
+      },
+      "observed": "The original reporting reply either retells just-landed instruction changes in prose without the landed block, or frames skill instructions as other text.",
+      "expected": "The user requests required formatting showing what changed in the skill. Just-written instruction text needs its landed rule frame in the reporting reply itself."
+    }
+  ],
+  "description": "Three neighboring question labels are paraphrased. The fourth, q-0017, matches its contemporaneous title.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/186",
+      "after": "source.json#/records/182",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/113",
+      "source.json#/records/118",
+      "source.json#/records/119",
+      "source.json#/records/120",
+      "source.json#/records/124",
+      "source.json#/records/125",
+      "source.json#/records/128",
+      "source.json#/records/129",
+      "source.json#/records/134",
+      "source.json#/records/135",
+      "source.json#/records/136",
+      "source.json#/records/140",
+      "source.json#/records/141",
+      "source.json#/records/144",
+      "source.json#/records/145",
+      "source.json#/records/151",
+      "source.json#/records/152",
+      "source.json#/records/153",
+      "source.json#/records/154",
+      "source.json#/records/157",
+      "source.json#/records/158",
+      "source.json#/records/159",
+      "source.json#/records/160",
+      "source.json#/records/161",
+      "source.json#/records/164",
+      "source.json#/records/165",
+      "source.json#/records/171",
+      "source.json#/records/172",
+      "source.json#/records/176",
+      "source.json#/records/177",
+      "source.json#/records/180",
+      "source.json#/records/181",
+      "source.json#/records/182"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/68"
+      ],
+      "native_context_records": [
+        "source.json#/records/68",
+        "source.json#/records/116"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/116",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\2d4781b4-95c5-47c1-8685-81fb75f93180\\tool-results\\hook-66dcded1-3791-43cc-a2d0-49d8e15aa7af-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-66dcded1-3791-43cc-a2d0-49d8e15aa7af-1-additionalContext.txt",
+          "sha256": "4d96e3784df7ccd43e03f6ce92228bfa7991584d5641df49428d1ba49b6e0c94",
+          "bytes": 18631,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1737,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-11T00:35:39.369618+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/186"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

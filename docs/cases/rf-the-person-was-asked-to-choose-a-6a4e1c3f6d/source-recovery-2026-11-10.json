@@ -1,0 +1,77 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "scope": "complete selected public payloads, not inferred complete transport context",
+  "records_checked": 41,
+  "records_expanded": [
+    29,
+    1477,
+    1608,
+    1609,
+    1614,
+    1615,
+    1620,
+    1626,
+    1632,
+    1633,
+    1637,
+    1638,
+    1639,
+    1648,
+    1649,
+    1654,
+    1655,
+    1657,
+    1669,
+    1670,
+    1672,
+    1688,
+    1689,
+    1693,
+    1694,
+    1696,
+    1700,
+    1701,
+    1711,
+    1712,
+    1715,
+    1719,
+    1720
+  ],
+  "structured_private_blocks_omitted": 0,
+  "unsupported_public_fields_or_blocks": [],
+  "native_attachment_role_metadata": [
+    {
+      "record": 1477,
+      "native_type": "instructions",
+      "recorded_role": null,
+      "role_field_recorded": false
+    },
+    {
+      "record": 1669,
+      "native_type": "hook_additional_context",
+      "recorded_role": null,
+      "role_field_recorded": false
+    },
+    {
+      "record": 1672,
+      "native_type": "hook_additional_context",
+      "recorded_role": null,
+      "role_field_recorded": false
+    },
+    {
+      "record": 1701,
+      "native_type": "hook_additional_context",
+      "recorded_role": null,
+      "role_field_recorded": false
+    },
+    {
+      "record": 1720,
+      "native_type": "hook_additional_context",
+      "recorded_role": null,
+      "role_field_recorded": false
+    }
+  ],
+  "original_record_hashes_verified": true,
+  "unselected_records_decoded": 0
+}

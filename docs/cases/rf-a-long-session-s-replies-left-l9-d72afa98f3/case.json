@@ -1,0 +1,179 @@
+{
+  "id": "rf-a-long-session-s-replies-left-l9-d72afa98f3",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "48. A long session's replies left L9's voice and promised to try — 2026-10-14",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "voice drift response 960"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/960",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.295"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/960/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-14T18:14:29.834Z",
+    "chat_id": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5",
+    "trigger_message_id": null,
+    "trigger_record_id": "9f51f18a-6a18-4fbd-a882-b7eca9bcff3c",
+    "failure_message_id": "msg_011Cg2aq5kXyDxeRjUJYaE1u",
+    "failure_record_id": "c1c2b057-afa4-4a32-9325-4a36e6e9e6e9",
+    "transcript": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5.jsonl"
+  },
+  "observed_failure": {
+    "description": "Selected public reply from the later criticised long session; its individual voice violation is not established by the blanket complaint.",
+    "events": [
+      {
+        "source": "source.json#/records/960",
+        "message_id": "msg_011Cg2aq5kXyDxeRjUJYaE1u",
+        "record_id": "c1c2b057-afa4-4a32-9325-4a36e6e9e6e9",
+        "timestamp": "2026-10-14T18:14:29.834Z",
+        "text": "| 🪶 Commits |\n|---|\n| `2f86ed0` IMPACT: the autonomy dial's draft split — narrow |\n\n| 🎫 35 · ❓ 161 · 🐕 155 |\n|---|\n\n| ⚙️ **ticket** · нарезка работы «автономия — ручка на лестнице» |\n|---|\n| 📍 **q-0037.0013.0005** · Which of the agent's acts need the person's yes, and which does it do on its own? |\n\nОценка последствий (она записана в вопросе) советует сузить первый набросок. Что в нём сдвинулось:\n\n- Ручка самоулучшения — территория [01-0019 harness-amends-itself-by-explicit-meta-rules](docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md), а не 01-0020. Её срез уходит туда.\n- Формат ответа принадлежит [01-0011.0110.0020 a-paragraph-shows-what-it-stands-on](docs/tickets/01-0011.0110.0020-a-paragraph-shows-what-it-stands-on.md), работа над которым идёт. Срез о докладе встаёт после первого и сверяется с ним.\n- Первый срез должен нести и вопрос установки: всё началось именно с того, что установка спрашивает переключатели.\n\nДва скрытых ребра:\n- [q-0037.0013.0002](docs/questions/q-0037.0013.0002-which-questions-stop-for-a-human.md) «Which questions stop for a human?» проводит ту же линию для решений.\n- У [01-0020](docs/tickets/01-0020-each-turn-knows-its-next-step.md) уже есть ваша градация церемонии от 2026-09-26 (мелкое — сразу, простое — тикет, крупное — кольцо целиком) по тому же масштабу. Ручка может задавать и церемонию, и разрешения, а может и не задавать.\n\n**Нарезка после оценки:**\n\n1. **The agent asks at its dial, not by switch** — HITL. Без зависимостей. Закрывает решения 1 и 2 из [q-0037.0013.0005](docs/questions/q-0037.0013.0005-which-of-the-agents-acts-need-the-persons-yes-and-which-does-it-do-on-its-own.md).\n   - Входной файл держит лестницу разработки и смысл ручки вместо `commit`, `push`, `next-cycle`, `breakdown`. Локальный файл ставит ручку. Скиллы commit, conclude, implement, ticket, verify и recall читают её. Установка предлагает ручку словами человека. Это дерево работает на ней. Строки A13 и A14 продуктового документа переписываются.\n   - Его align решает: на каком уровне стоят нарезка и следующий тикет, куда девается `repair`, задаёт ли ручка ещё и церемонию, сводится ли q-0037.0013.0002 к ручке.\n   - Номер `01-0020.0010`.\n2. **A reply reports by its dial** — HITL. Зависит от 1. Закрывает доклад из решения 1: свой уровень, уровень ниже, о нижнем молчание. Сверяется с [01-0011.0110.0020](docs/tickets/01-0011.0110.0020-a-paragraph-shows-what-it-stands-on.md). Номер `01-0020.0020`.\n3. **A recipient's switches become its dial on update** — AFK. Зависит от 1. Пять получателей (meteoscape, goodwolf-harness, research-harness, studies, frost_map) несут строку переключателей, а обновление локальный блок не трогает. Шаг обновления переводит переключатели в ручку и спрашивает только то, что перевести нельзя. Номер `01-0010.0210`, под общим харнессом.\n4. **Self-improvement's dial replaces showing the text first** — HITL. Зависит от 1, от формы лестницы. Закрывает решение 4. Встаёт под [01-0019](docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md), который сейчас Blocked. Номер `01-0019.0010`.\n\nМеханическая проверка необратимых действий остаётся за [01-0010.0125](docs/tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md).\n\nПоследнее. Правка несущая: её читает каждая сессия у каждого получателя. Кольцо направляет такие формы в `/spec`. Четыре решения в вопросе — уже бо́льшая часть спеки, поэтому я бы обошёлся без отдельной, а align первого среза довёл бы остальное. Это тоже ваше решение. (💡 [*The loop*](AGENTS.md:192))\n\n| ⚖️ Decisions |\n|---|\n| Нарезка: подходит ли дробность, верны ли зависимости, что слить или разделить, верно ли разложены HITL и AFK |\n| Обойтись без `/spec`, раз решения уже в вопросе, или написать её перед выпуском тикетов |\n| Место в очереди: перед [01-0010.0175](docs/tickets/01-0010.0175-arrival-describes-what-it-finds.md) или после |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Follow the contemporaneous L9 voice. The user questions whether the agent still writes like Lem, and the agent identifies the drift as tables, unexplained coined terms and untranslated phrasing. This is a source-supported voice complaint, not a validated stylistic scoring rule.",
+    "source_evidence": [
+      "source.json#/records/964",
+      "source.json#/records/1018",
+      "source.json#/records/241"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Follow the contemporaneous L9 voice. The user questions whether the agent still writes like Lem, and the agent identifies the drift as tables, unexplained coined terms and untranslated phrasing. This is a source-supported voice complaint, not a validated stylistic scoring rule.",
+        "expected_for_recorded_failure": null
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment.",
+    "status": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/964",
+      "source.json#/records/966",
+      "source.json#/records/969",
+      "source.json#/records/970",
+      "source.json#/records/971",
+      "source.json#/records/972",
+      "source.json#/records/973",
+      "source.json#/records/982",
+      "source.json#/records/983",
+      "source.json#/records/988",
+      "source.json#/records/989",
+      "source.json#/records/998",
+      "source.json#/records/999",
+      "source.json#/records/1002",
+      "source.json#/records/1009",
+      "source.json#/records/1012",
+      "source.json#/records/1013",
+      "source.json#/records/1014",
+      "source.json#/records/1018",
+      "source.json#/records/1030",
+      "source.json#/records/1031"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "classification": {
+    "kind": "selected reply from a session criticised for voice drift",
+    "limit": "Individual L9 violation is unestablished. The later blanket complaint/admission is retained; table/decision/record forms are exempt under the captured L9 and do not by themselves prove drift."
+  },
+  "description": "Selected public reply from the later criticised long session; its individual voice violation is not established by the blanket complaint.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/960",
+      "after": "source.json#/records/957",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/893",
+      "source.json#/records/898",
+      "source.json#/records/899",
+      "source.json#/records/900",
+      "source.json#/records/904",
+      "source.json#/records/905",
+      "source.json#/records/908",
+      "source.json#/records/909",
+      "source.json#/records/910",
+      "source.json#/records/916",
+      "source.json#/records/920",
+      "source.json#/records/921",
+      "source.json#/records/922",
+      "source.json#/records/926",
+      "source.json#/records/927",
+      "source.json#/records/937",
+      "source.json#/records/938",
+      "source.json#/records/941",
+      "source.json#/records/942",
+      "source.json#/records/946",
+      "source.json#/records/947",
+      "source.json#/records/953",
+      "source.json#/records/956",
+      "source.json#/records/957"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/241"
+      ],
+      "native_context_records": [
+        "source.json#/records/241",
+        "source.json#/records/895"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/895",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5\\tool-results\\hook-82743866-8562-4dc7-bcfc-be91a9173c58-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-82743866-8562-4dc7-bcfc-be91a9173c58-1-additionalContext.txt",
+          "sha256": "12fe241c91fca14c59330dfa6d143ddfbc51dba02dd49fbe50b689985c42bf74",
+          "bytes": 39815,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1787,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-14T18:12:37.886159+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/960"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": [
+    {
+      "kind": "existing check evidence block",
+      "detail": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+    }
+  ]
+}

@@ -1,0 +1,1369 @@
+{
+  "transcript": "d4406b99-8ee7-4e49-8d84-5621c2fd5766.jsonl",
+  "chat_id": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+  "transcript_bytes": 10177547,
+  "transcript_sha256": "ecb82aebe29eff5e5a000541eae093c2912100f2b055a0f4b4f0bf31565c709a",
+  "record_numbering": "one-based JSONL records in the original transcript",
+  "delivery_context": null,
+  "records": {
+    "27": {
+      "timestamp": "2026-10-02T16:27:55.520Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "afd7cb24-4751-4e0b-91d5-0ed6b325f378",
+        "parentUuid": "a193261d-b0a3-429d-86e2-6483cf6ebcdc",
+        "timestamp": "2026-10-02T16:27:55.520Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "instructions",
+          "files": [
+            {
+              "path": "D:\\Dev\\AI\\agents\\CLAUDE.md",
+              "type": "Project",
+              "content": "@AGENTS.md"
+            },
+            {
+              "path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+              "type": "Project",
+              "content": "# Entry contract\n\nEntry contract: v18, 2026-10-02.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<straw-dog until=\"01-0020 is done\" ticket=\"docs/tickets/01-0020-pacer.md\">\nRun /recall first in every session, whatever the first message says.\n</straw-dog>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n- Clarity and simplicity first — Occam's razor: take the shape with the fewest parts that does the job, and remove before you add.\n\n- Write for a capable model: state the rule and its pointer. The definition the glossary owns, the example that motivated it and what it implies stay out.\n\n<straw-dog until=\"01-0018 declares the mechanism that owns tiering\" ticket=\"docs/tickets/01-0018-reachability-coherent.md\">\n- A skill's description is its tier-1 surface: name there every use case the skill serves, and nothing else — never its method or how it is built. Write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session.\n</straw-dog>\n\n<installed by=\"ticket\">\n**P9** The first time a record or a reply names a ticket, name it by a link to its record whose text\ncarries its slug — the id may lead it; later mentions may be the id alone. Name one that has no\nrecord yet by a slug and its state word.\n</installed>\n\n<installed by=\"questions\">\n**Q1** Before drafting a reply, place the message in the question store: read this turn's window — the\none the host's hook put in your context, or `questions.py --window --session <tag>` — and declare\nwhere the message lands with `questions.py --declare \"<line>\" --session <tag>`, again whenever\nthe turn's own work settles, opens or moves a question:\n\n- `at q-0004`\n- `at q-0014; opens q-0014 under q-0004: <question>`\n- `at q-0002; closes q-0004: decided, [link](../path.md)`\n- `nothing`\n\nA message that answers nothing near the current question opens what that question cannot be\nanswered without. Only the working agent declares, never a helper. Under `debug=on`, show each\ndeclared line where it happened. For any other form, a closure, a branching or a drop, read the\nquestions skill.\n</installed>\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. A core file\nmay name a path under `docs/` only when that path is a record a mechanism declares — the directory\nthat holds a kind of record, or a file that is one — never a particular record inside such a\ndirectory: `docs/tickets/` and `docs/glossary.md` are painted doors; one particular ticket inside\n`docs/tickets/` is a document only this project has. Content inside the\n[local block](#project-local) is the instance's, not core's. A `<straw-dog>` exempts\nnothing: its wrapper is stripped on install and whatever it wrapped ships. Core names a ticket\nonly in a straw dog's binding — never in a link, never as a bare id in prose — since a recipient\ncan resolve neither.\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog until=\"the practice mechanism owns how architecture is documented\" ticket=\"docs/tickets/01-0017.0020-practice-swaps-in-one-edit.md\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n\n## Self-improvement\n\n<straw-dog until=\"01-0019 is done\" ticket=\"docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md\">\n- A rule that was in place and did not fire was usually worded wrong. Register the failure in docs/rule-failures.md, or strike the entry it repeats, and propose the amendment that would have made it fire; /mechanism and /skill-up hold the means. Land the amendment in the same pass, showing its text first.\n- Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.\n</straw-dog>\n\n## Autonomy\n\nThe project sets each switch in its local block, under *Project-local*; skills defer to those values.\nA switch the project has not set is `ask`.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n`repair=report` holds only when all four are true: the governing rule is explicit, and cited; the\nrepair restores compliance inside the authorized work and keeps every other agreed contract; the\naffected behaviour is understood well enough to say so; the result is verifiable against the\nrule. Otherwise `/align`. *(the user, 2026-09-05)*\n\n## Project-local\n\n<installed by=\"mechanism-shape\">\n**R7** A project's own answers and overrides are authored in one file beside the entry file,\n`local.rules.md`, in the rules-file format, and reach a file only as the local block — the\ninstalled block whose owner is `local` — which the installer writes after every mechanism's block\nthere, so the project's answer is what a reader meets after core's rule. An override names the rule it\noverrides. A local change to a rule is written in the local file, never into a skill or the entry\nfile: `inject_rules.py --check` fails on a block that differs from its source and on a block\nnothing owns, and the repair is the local file, re-installed. The local block is the project's,\nnot core's, and a redeploy preserves it.\n</installed>\n\n<installed by=\"local\">\n**L1** This repository develops the shared dev harness using its own loop; its own architecture and\nprogress live in docs/ like any other project's — the instance half doing its job, not a leak.\nTerms: docs/glossary.md, this project's own; the method's are .agents/glossary.md's. What each\nversion of the entry contract changed: docs/research/entry-contract-findings.md.\n\n**L2** commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n\n**L4** debug=on\n</installed>\n\n## Straw dogs\n\nWrap anything a live ticket will change, as you write it — or, for text already written, in the\npass that mints the ticket or decides that it will change it:\n`<straw-dog until=\"condition\" ticket=\"path\">`, or in code a `TODO` naming the ticket. Treat *not\nyet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find\nthe ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.\nMake the condition testable and the ticket path repository-relative. Write the body to stand on\nits own: it is what a recipient receives once the wrapper is stripped, so it reads whole without\nthe condition and names no ticket — the binding does. Leave what no ticket would change\nunwrapped.\n\nFollow a straw dog like any other rule until its condition is visibly met; then act on reality,\nreport the stale block, and do not treat the contradiction as a violation."
+            },
+            {
+              "path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\memory\\MEMORY.md",
+              "type": "AutoMem",
+              "content": "# Memory\n\n- [Edit with edit tools, not scripts](edit-with-edit-tools-not-scripts.md) — a script's diff is invisible in the transcript; the user reads changes as they happen."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "073033c3d2b4d33bd2cf9cdd4c677ec62629a9829f906b96c70ab81028c393a2",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2577": {
+      "timestamp": "2026-10-02T22:43:17.209Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "da3f1529-15f0-49db-aa0c-fa74a514fb94",
+        "parentUuid": "6a9dc47e-30d3-429d-996a-a6f644551c97",
+        "timestamp": "2026-10-02T22:43:17.209Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "can you fix the ticket check inline?"
+        },
+        "promptId": "9fe7f8a0-ffe3-47de-92e3-ab4fe11d8241"
+      },
+      "original_record_sha256": "8f7891b31715603aa9840c771d709e5d6d51c94248eacdfdc60f0710c22e8d4d",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2579": {
+      "timestamp": "2026-10-02T22:43:17.907Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "e7009fa5-3d97-4265-be75-c8ffb90d7582",
+        "parentUuid": "a4a3de07-e1b0-4ca1-97c9-1c31306e4afd",
+        "timestamp": "2026-10-02T22:43:17.907Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "hook_additional_context",
+          "content": [
+            "window unchanged since your last one: d4406b99-8ee7-4e49-8d84-5621c2fd5766 at q-0001; `questions.py --window --session d4406b99-8ee7-4e49-8d84-5621c2fd5766 --full` draws it again"
+          ],
+          "hookName": "UserPromptSubmit",
+          "toolUseID": "hook-64e85694-4576-4939-9093-f01456a8b14c",
+          "hookEvent": "UserPromptSubmit"
+        }
+      },
+      "original_record_sha256": "b7046b3f31096a45948841f40c0fc2367d506f635f1d02836d6ea4e19a9b0173",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2587": {
+      "timestamp": "2026-10-02T22:43:20.972Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "76129578-cb18-42e2-a4fb-2f1a064af3fe",
+        "parentUuid": "f7f50bf8-b0bb-46fe-929d-00a7324860c3",
+        "timestamp": "2026-10-02T22:43:20.972Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDejmSThmSyaeZyTDD7",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Yes. Reading how `tickets.py` reads the queue table:"
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "37b5fda91ebc96a3716989cb5295d8d4eaa91fe7b63b4d39b908e171a0507c50",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2588": {
+      "timestamp": "2026-10-02T22:43:22.207Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "475395ad-2e58-4261-b9f6-32428695e579",
+        "parentUuid": "76129578-cb18-42e2-a4fb-2f1a064af3fe",
+        "timestamp": "2026-10-02T22:43:22.207Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDejmSThmSyaeZyTDD7",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01JfA4F7kSWMkjxxsJcRWxzm",
+              "name": "Bash",
+              "input": {
+                "command": "grep -n \"def \\|README\\|queue\\|row\" .agents/scripts/gw/tickets.py | head -60",
+                "description": "Outline tickets.py's queue handling"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "e141216b273b338592c1e9b3552e65c621fc1f5e656380a03c180d47d60dd4c2",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2589": {
+      "timestamp": "2026-10-02T22:43:23.083Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "3f9b6bcf-43a2-41e9-a02d-d34abb7317ac",
+        "parentUuid": "475395ad-2e58-4261-b9f6-32428695e579",
+        "timestamp": "2026-10-02T22:43:23.083Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01JfA4F7kSWMkjxxsJcRWxzm",
+              "is_error": false,
+              "content": "11:Live rows only: an archived record is matched by name for pairing and opened for nothing. The\n31:QUEUE = \"docs/tickets/README.md\"\n85:    def fields(self) -> dict[str, str]:\n89:    def shaped(self) -> bool:\n93:    def as_record(self) -> dict:\n108:    def as_record(self) -> dict:\n114:    \"\"\"A record the check could not read. Reported, never dropped: a narrowed scan is not a pass.\"\"\"\n119:    def as_record(self) -> dict:\n129:    def as_record(self) -> dict:\n137:def main(argv: list[str], root: Path | None = None) -> int:\n147:def check(root: Path) -> Checked:\n167:def _live_tickets(names: list[str]) -> list[str]:\n168:    \"\"\"The records under `docs/tickets/` itself: not the queue, not anything archived.\"\"\"\n176:def _read(root: Path, name: str) -> Ticket | Skipped:\n188:def _header(lines: list[str]) -> tuple[list[Field], bool, int]:\n213:def _sections(lines: list[str], start: int) -> list[Section]:\n226:def _problems(root: Path, read: Ticket, names: list[str]) -> list[Diagnostic]:\n237:def _form_problems(read: Ticket) -> list[Diagnostic]:\n250:def _field_problems(read: Ticket) -> list[Diagnostic]:\n278:def _status_problems(record: str, found: Field) -> list[Diagnostic]:\n301:def _order_problems(read: Ticket) -> list[Diagnostic]:\n325:def _plan_problems(root: Path, read: Ticket, names: list[str]) -> list[Diagnostic]:\n361:def _link_problems(root: Path, read: Ticket) -> list[Diagnostic]:\n381:def _titled(section: Section, name: str) -> bool:\n386:def _section_problems(read: Ticket) -> list[Diagnostic]:\n416:def _criteria_problems(read: Ticket, criteria: Section) -> list[Diagnostic]:\n438:def _pairing_problems(names: list[str]) -> list[Diagnostic]:\n469:def _is_rfc(name: str) -> bool:"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "11:Live rows only: an archived record is matched by name for pairing and opened for nothing. The\n31:QUEUE = \"docs/tickets/README.md\"\n85:    def fields(self) -> dict[str, str]:\n89:    def shaped(self) -> bool:\n93:    def as_record(self) -> dict:\n108:    def as_record(self) -> dict:\n114:    \"\"\"A record the check could not read. Reported, never dropped: a narrowed scan is not a pass.\"\"\"\n119:    def as_record(self) -> dict:\n129:    def as_record(self) -> dict:\n137:def main(argv: list[str], root: Path | None = None) -> int:\n147:def check(root: Path) -> Checked:\n167:def _live_tickets(names: list[str]) -> list[str]:\n168:    \"\"\"The records under `docs/tickets/` itself: not the queue, not anything archived.\"\"\"\n176:def _read(root: Path, name: str) -> Ticket | Skipped:\n188:def _header(lines: list[str]) -> tuple[list[Field], bool, int]:\n213:def _sections(lines: list[str], start: int) -> list[Section]:\n226:def _problems(root: Path, read: Ticket, names: list[str]) -> list[Diagnostic]:\n237:def _form_problems(read: Ticket) -> list[Diagnostic]:\n250:def _field_problems(read: Ticket) -> list[Diagnostic]:\n278:def _status_problems(record: str, found: Field) -> list[Diagnostic]:\n301:def _order_problems(read: Ticket) -> list[Diagnostic]:\n325:def _plan_problems(root: Path, read: Ticket, names: list[str]) -> list[Diagnostic]:\n361:def _link_problems(root: Path, read: Ticket) -> list[Diagnostic]:\n381:def _titled(section: Section, name: str) -> bool:\n386:def _section_problems(read: Ticket) -> list[Diagnostic]:\n416:def _criteria_problems(read: Ticket, criteria: Section) -> list[Diagnostic]:\n438:def _pairing_problems(names: list[str]) -> list[Diagnostic]:\n469:def _is_rfc(name: str) -> bool:",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "475395ad-2e58-4261-b9f6-32428695e579",
+        "promptId": "9fe7f8a0-ffe3-47de-92e3-ab4fe11d8241"
+      },
+      "original_record_sha256": "2ed6c54402cbef80156d738b6d8413d6594c173b9a510c6011f4318cc09d6ede",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2594": {
+      "timestamp": "2026-10-02T22:43:35.032Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "70cd485f-dbc4-4885-8658-8e65bedf63a6",
+        "parentUuid": "1f319378-f5ef-4088-8ea8-7e52a621d714",
+        "timestamp": "2026-10-02T22:43:35.032Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDf7W9ZLkLVMGqUpVeg",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01QoqwyP4EaxkkXLmuDuonho",
+              "name": "Bash",
+              "input": {
+                "command": "sed -n 1,60p .agents/scripts/gw/test/test_tickets.py; grep -n \"^class \\|QUEUE\\|README\" .agents/scripts/gw/test/test_tickets.py | head -30; sed -n 137,175p .agents/scripts/gw/tickets.py",
+                "description": "Read the ticket tests' fixtures and the check's entry"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "22dc2f8a9e0add39e5f89026135d32eb31dd86f2d6465738fd5c6d6429446c7d",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2595": {
+      "timestamp": "2026-10-02T22:43:36.261Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "71aa82fc-822c-46a4-810e-4801ab104896",
+        "parentUuid": "70cd485f-dbc4-4885-8658-8e65bedf63a6",
+        "timestamp": "2026-10-02T22:43:36.261Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01QoqwyP4EaxkkXLmuDuonho",
+              "is_error": false,
+              "content": "\"\"\"Reading a live ticket's header and sections, and saying whether the record keeps its shape.\"\"\"\n\nfrom __future__ import annotations\n\nimport contextlib\nimport io\nimport json\nimport unittest\n\nfrom repository import RepositoryCase\n\nimport tickets\n\nLIVE = \"docs/tickets/01-0002-live.md\"\nPLANNED = \"docs/tickets/01-0003-planned.md\"\nRFC = \"docs/rfc/01-0003-planned.md\"\n\n\ndef ticket(\n    header: str,\n    sections: str = (\n        \"## What to build\\n\\nThe thing.\\n\\n\"\n        \"## Acceptance criteria\\n\\n- [ ] It works.\\n- [ ] `/verify` has been run.\\n\"\n    ),\n    title: str = \"# A ticket\",\n) -> str:\n    return f\"{title}\\n\\n{header}\\n{sections}\"\n\n\nINCEPTED = (\n    \"- **Status:** Ready\\n\"\n    \"- **Type:** HITL\\n\"\n    \"- **Depends on:** [an earlier one](./01-0001-earlier.md) (what it supplies)\\n\"\n    \"- **Outcome:** One sentence saying what lands.\\n\"\n)\nSHAPED = (\n    \"- **Status:** In progress\\n\"\n    \"- **Type:** AFK\\n\"\n    \"- **Plan:** [plan](../rfc/01-0003-planned.md) — what it selected\\n\"\n    \"- **Outcome:** One sentence saying what lands.\\n\"\n)\n\n\nclass Records(RepositoryCase):\n    \"\"\"A tree with one incepted ticket, one shaped ticket and its RFC, all conforming.\"\"\"\n\n    def setUp(self) -> None:\n        super().setUp()\n        self.write(\"docs/tickets/README.md\", \"# Delivery status\\n\\n**Last updated:** never\\n\")\n        self.write(\"docs/tickets/01-0001-earlier.md\", ticket(INCEPTED))\n        self.write(LIVE, ticket(INCEPTED))\n        self.write(PLANNED, ticket(SHAPED))\n        self.write(RFC, \"# A ticket — implementation plan\\n\")\n\n    def checked(self):\n        return tickets.check(self.root)\n\n    def problems(self) -> list[str]:\n        return [note.problem for note in self.checked().diagnostics]\n\n44:class Records(RepositoryCase):\n49:        self.write(\"docs/tickets/README.md\", \"# Delivery status\\n\\n**Last updated:** never\\n\")\n65:class TheHeader(Records):\n195:class ThePlanBullet(Records):\n223:class TheSections(Records):\n305:class Pairing(Records):\n343:class AnUnreadableRecord(Records):\n363:class TheCommandLine(Records):\ndef main(argv: list[str], root: Path | None = None) -> int:\n    root = root or Path(__file__).resolve().parents[3]\n    if argv != [\"--check\"]:\n        print(_USAGE)\n        return 2\n    checked = check(root)\n    print(json.dumps(checked.as_record(), indent=2))\n    return 1 if checked.diagnostics or checked.skipped else 0\n\n\ndef check(root: Path) -> Checked:\n    \"\"\"Every live ticket against the shape, and every RFC against the ticket it is paired with.\"\"\"\n    names = corpus(root)\n    records: list[Ticket] = []\n    diagnostics: list[Diagnostic] = []\n    skipped: list[Skipped] = []\n    for name in _live_tickets(names):\n        read = _read(root, name)\n        if isinstance(read, Skipped):\n            skipped.append(read)\n            continue\n        records.append(read)\n        diagnostics += _problems(root, read, names)\n    diagnostics += _pairing_problems(names)\n    return Checked(records, diagnostics, skipped)\n\n\n# --- reading a ticket ---------------------------------------------------------------------------\n\n\ndef _live_tickets(names: list[str]) -> list[str]:\n    \"\"\"The records under `docs/tickets/` itself: not the queue, not anything archived.\"\"\"\n    return sorted(\n        name\n        for name in names\n        if posixpath.dirname(name) == TICKETS and name.endswith(\".md\") and name != QUEUE\n    )"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "\"\"\"Reading a live ticket's header and sections, and saying whether the record keeps its shape.\"\"\"\n\nfrom __future__ import annotations\n\nimport contextlib\nimport io\nimport json\nimport unittest\n\nfrom repository import RepositoryCase\n\nimport tickets\n\nLIVE = \"docs/tickets/01-0002-live.md\"\nPLANNED = \"docs/tickets/01-0003-planned.md\"\nRFC = \"docs/rfc/01-0003-planned.md\"\n\n\ndef ticket(\n    header: str,\n    sections: str = (\n        \"## What to build\\n\\nThe thing.\\n\\n\"\n        \"## Acceptance criteria\\n\\n- [ ] It works.\\n- [ ] `/verify` has been run.\\n\"\n    ),\n    title: str = \"# A ticket\",\n) -> str:\n    return f\"{title}\\n\\n{header}\\n{sections}\"\n\n\nINCEPTED = (\n    \"- **Status:** Ready\\n\"\n    \"- **Type:** HITL\\n\"\n    \"- **Depends on:** [an earlier one](./01-0001-earlier.md) (what it supplies)\\n\"\n    \"- **Outcome:** One sentence saying what lands.\\n\"\n)\nSHAPED = (\n    \"- **Status:** In progress\\n\"\n    \"- **Type:** AFK\\n\"\n    \"- **Plan:** [plan](../rfc/01-0003-planned.md) — what it selected\\n\"\n    \"- **Outcome:** One sentence saying what lands.\\n\"\n)\n\n\nclass Records(RepositoryCase):\n    \"\"\"A tree with one incepted ticket, one shaped ticket and its RFC, all conforming.\"\"\"\n\n    def setUp(self) -> None:\n        super().setUp()\n        self.write(\"docs/tickets/README.md\", \"# Delivery status\\n\\n**Last updated:** never\\n\")\n        self.write(\"docs/tickets/01-0001-earlier.md\", ticket(INCEPTED))\n        self.write(LIVE, ticket(INCEPTED))\n        self.write(PLANNED, ticket(SHAPED))\n        self.write(RFC, \"# A ticket — implementation plan\\n\")\n\n    def checked(self):\n        return tickets.check(self.root)\n\n    def problems(self) -> list[str]:\n        return [note.problem for note in self.checked().diagnostics]\n\n44:class Records(RepositoryCase):\n49:        self.write(\"docs/tickets/README.md\", \"# Delivery status\\n\\n**Last updated:** never\\n\")\n65:class TheHeader(Records):\n195:class ThePlanBullet(Records):\n223:class TheSections(Records):\n305:class Pairing(Records):\n343:class AnUnreadableRecord(Records):\n363:class TheCommandLine(Records):\ndef main(argv: list[str], root: Path | None = None) -> int:\n    root = root or Path(__file__).resolve().parents[3]\n    if argv != [\"--check\"]:\n        print(_USAGE)\n        return 2\n    checked = check(root)\n    print(json.dumps(checked.as_record(), indent=2))\n    return 1 if checked.diagnostics or checked.skipped else 0\n\n\ndef check(root: Path) -> Checked:\n    \"\"\"Every live ticket against the shape, and every RFC against the ticket it is paired with.\"\"\"\n    names = corpus(root)\n    records: list[Ticket] = []\n    diagnostics: list[Diagnostic] = []\n    skipped: list[Skipped] = []\n    for name in _live_tickets(names):\n        read = _read(root, name)\n        if isinstance(read, Skipped):\n            skipped.append(read)\n            continue\n        records.append(read)\n        diagnostics += _problems(root, read, names)\n    diagnostics += _pairing_problems(names)\n    return Checked(records, diagnostics, skipped)\n\n\n# --- reading a ticket ---------------------------------------------------------------------------\n\n\ndef _live_tickets(names: list[str]) -> list[str]:\n    \"\"\"The records under `docs/tickets/` itself: not the queue, not anything archived.\"\"\"\n    return sorted(\n        name\n        for name in names\n        if posixpath.dirname(name) == TICKETS and name.endswith(\".md\") and name != QUEUE\n    )",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "70cd485f-dbc4-4885-8658-8e65bedf63a6",
+        "promptId": "9fe7f8a0-ffe3-47de-92e3-ab4fe11d8241"
+      },
+      "original_record_sha256": "4bc993393d22e163a700c5a29a824da9c62a89225fd1faa86c789dcdaf9910e4",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2599": {
+      "timestamp": "2026-10-02T22:43:41.023Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "a2d5db04-716c-4615-ad9c-3f057094573c",
+        "parentUuid": "3d7f7237-c63e-4ed8-81ad-04af9b8a07a1",
+        "timestamp": "2026-10-02T22:43:41.023Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDg6f4k5KMrmxBWkGEC",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01Dtv2vm68H2LNR65Jn1yKkz",
+              "name": "Bash",
+              "input": {
+                "command": "sed -n 1,32p .agents/scripts/gw/tickets.py; sed -n 98,112p .agents/scripts/gw/tickets.py; grep -n \"Queue\\|queue\" .claude/skills/ticket/TICKET-FORMAT.md | head",
+                "description": "Read the check's docstring, its Diagnostic, and the queue's declared format"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "bac5c6549535b17c4e90228a604f53d5f9531062e7f684e5b14d6f9d9b9ce211",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2605": {
+      "timestamp": "2026-10-02T22:43:41.986Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "aa537110-a129-4a25-b16e-95b13b744bb7",
+        "parentUuid": "a2d5db04-716c-4615-ad9c-3f057094573c",
+        "timestamp": "2026-10-02T22:43:41.986Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01Dtv2vm68H2LNR65Jn1yKkz",
+              "is_error": false,
+              "content": "\"\"\"What each live ticket declares in its header, and whether the record keeps its declared shape.\n\n    uv run --offline --no-project python .agents/scripts/gw/tickets.py --check\n\nThe shape is the ticket format shelf's, `TICKET-FORMAT.md`, under *The record*: the header's\nfields and their order, the sections a stage admits, the acceptance boxes, and the pairing of an\nRFC with the ticket that shares its basename. This script rules on form alone. Whether a ticket\nshould have been written, whether its status is true, whether an outcome is any good, are\njudgments it records and never makes.\n\nLive rows only: an archived record is matched by name for pairing and opened for nothing. The\nscript writes nothing; its exit status is the verdict and its JSON is for the person reading a\nfailure.\n\"\"\"\n\nfrom __future__ import annotations\n\nimport json\nimport posixpath\nimport re\nimport sys\nfrom dataclasses import dataclass, field\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).resolve().parent))\n\nfrom docs_corpus import cited_record, citations, corpus, target_of  # noqa: E402  (path set above)\n\nTICKETS = \"docs/tickets\"\nRFCS = \"docs/rfc\"\nQUEUE = \"docs/tickets/README.md\"\nSTATUSES = (\"Done\", \"In progress\", \"Ready\", \"Partial\", \"Planned\", \"Blocked\")\n            \"sections\": [section.title for section in self.sections],\n        }\n\n\n@dataclass(frozen=True)\nclass Diagnostic:\n    record: str\n    line: int | None\n    problem: str\n\n    def as_record(self) -> dict:\n        return {\"record\": self.record, \"line\": self.line, \"problem\": self.problem}\n\n\n@dataclass(frozen=True)\n4:ticket as a record, and how to amend the queue table in\n19:  slot on the correct side and note the placement in the queue row. Never\n49:status, no date, no Git index. Eligibility, the ticket header and the queue\n175:- Update the queue in the same pass.\n178:<straw-dog until=\"01-0011.0040 is done\" ticket=\"docs/tickets/01-0011.0040-queue-derived-index.md\">\n179:## The queue\n181:The queue is `docs/tickets/README.md`. `/ticket` amends **the table** in the\n196:| `Ticket` | Relative link to the ticket. The row is deleted when the ticket closes: `done/` enumerates finished work, and the queue is delivery status. |"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "\"\"\"What each live ticket declares in its header, and whether the record keeps its declared shape.\n\n    uv run --offline --no-project python .agents/scripts/gw/tickets.py --check\n\nThe shape is the ticket format shelf's, `TICKET-FORMAT.md`, under *The record*: the header's\nfields and their order, the sections a stage admits, the acceptance boxes, and the pairing of an\nRFC with the ticket that shares its basename. This script rules on form alone. Whether a ticket\nshould have been written, whether its status is true, whether an outcome is any good, are\njudgments it records and never makes.\n\nLive rows only: an archived record is matched by name for pairing and opened for nothing. The\nscript writes nothing; its exit status is the verdict and its JSON is for the person reading a\nfailure.\n\"\"\"\n\nfrom __future__ import annotations\n\nimport json\nimport posixpath\nimport re\nimport sys\nfrom dataclasses import dataclass, field\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).resolve().parent))\n\nfrom docs_corpus import cited_record, citations, corpus, target_of  # noqa: E402  (path set above)\n\nTICKETS = \"docs/tickets\"\nRFCS = \"docs/rfc\"\nQUEUE = \"docs/tickets/README.md\"\nSTATUSES = (\"Done\", \"In progress\", \"Ready\", \"Partial\", \"Planned\", \"Blocked\")\n            \"sections\": [section.title for section in self.sections],\n        }\n\n\n@dataclass(frozen=True)\nclass Diagnostic:\n    record: str\n    line: int | None\n    problem: str\n\n    def as_record(self) -> dict:\n        return {\"record\": self.record, \"line\": self.line, \"problem\": self.problem}\n\n\n@dataclass(frozen=True)\n4:ticket as a record, and how to amend the queue table in\n19:  slot on the correct side and note the placement in the queue row. Never\n49:status, no date, no Git index. Eligibility, the ticket header and the queue\n175:- Update the queue in the same pass.\n178:<straw-dog until=\"01-0011.0040 is done\" ticket=\"docs/tickets/01-0011.0040-queue-derived-index.md\">\n179:## The queue\n181:The queue is `docs/tickets/README.md`. `/ticket` amends **the table** in the\n196:| `Ticket` | Relative link to the ticket. The row is deleted when the ticket closes: `done/` enumerates finished work, and the queue is delivery status. |",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "a2d5db04-716c-4615-ad9c-3f057094573c",
+        "promptId": "9fe7f8a0-ffe3-47de-92e3-ab4fe11d8241"
+      },
+      "original_record_sha256": "9468fb51b06f2e7664a506b4221775cb9e98c813715cfb67b77920ee6c87e963",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2610": {
+      "timestamp": "2026-10-02T22:44:00.170Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "c926abde-bdfa-43ac-9e51-52a7b98d490e",
+        "parentUuid": "a6ecea34-dbe4-41da-b72f-1153c3fd7de5",
+        "timestamp": "2026-10-02T22:44:00.170Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDgW5ixRcBDt9aRUbBF",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_0168cHrjNg6zdtxFdAoGwzV5",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\.agents\\scripts\\gw\\test\\test_tickets.py",
+                "old_string": "class TheHeader(Records):",
+                "new_string": "QUEUE_TABLE = (\n    \"| Ticket | Status | Type | Outcome |\\n\"\n    \"|---|---|---|---|\\n\"\n    \"| [Earlier](01-0001-earlier.md) | Ready | HITL | One sentence. |\\n\"\n    \"| [Live](01-0002-live.md) | Ready | HITL | Another, with `a \\\\| b` escaped. |\\n\"\n)\n\n\nclass TheQueue(Records):\n    \"\"\"The queue's table: every row on a line of its own, as wide as the table's header.\"\"\"\n\n    def queue(self, table: str) -> None:\n        self.write(\"docs/tickets/README.md\", f\"# Delivery status\\n\\n**Last updated:** never\\n\\n{table}\")\n\n    def test_a_table_of_whole_rows_checks_clean(self) -> None:\n        self.queue(QUEUE_TABLE)\n\n        self.assertEqual([], self.problems())\n\n    def test_two_rows_run_together_on_one_line_are_reported_with_their_line(self) -> None:\n        self.queue(QUEUE_TABLE.replace(\" One sentence. |\\n| [Live]\", \" One sentence. || [Live]\"))\n\n        found = self.checked().diagnostics\n\n        self.assertEqual(1, len(found), found)\n        self.assertEqual((\"docs/tickets/README.md\", 7), (found[0].record, found[0].line))\n        self.assertIn(\"8 cells where its table has 4\", found[0].problem)\n\n    def test_a_row_short_of_a_cell_is_reported(self) -> None:\n        self.queue(QUEUE_TABLE.replace(\"| Ready | HITL | One sentence. |\", \"| Ready | One sentence. |\"))\n\n        self.assertIn(\"3 cells where its table has 4\", self.problems()[0])\n\n\nclass TheHeader(Records):"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "08f565343dcda57fccc4de49afc7f4a0d80238c50b58eb8897369237748f2441",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2611": {
+      "timestamp": "2026-10-02T22:44:01.303Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "e5eb99db-5273-46ed-8a8b-e830625e147c",
+        "parentUuid": "c926abde-bdfa-43ac-9e51-52a7b98d490e",
+        "timestamp": "2026-10-02T22:44:01.303Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDgW5ixRcBDt9aRUbBF",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01T4WMHZbwr6fccX8dRrcD5a",
+              "name": "Bash",
+              "input": {
+                "command": "uv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/test -p \"test_tickets.py\" -k TheQueue 2>&1 | grep -E \"^(FAIL|ERROR):|AssertionError|^Ran|^OK|^FAILED\"",
+                "description": "Run the new queue tests to see them fail"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "76e96f0f6b5598263e2351177071393d60807a7c3c207976c67f5f19965ab8f2",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2613": {
+      "timestamp": "2026-10-02T22:44:01.740Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "05efcfb7-a5f9-43d9-8d58-f82fe0b670c2",
+        "parentUuid": "c926abde-bdfa-43ac-9e51-52a7b98d490e",
+        "timestamp": "2026-10-02T22:44:01.740Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_0168cHrjNg6zdtxFdAoGwzV5",
+              "content": "The file D:\\Dev\\AI\\agents\\.agents\\scripts\\gw\\test\\test_tickets.py has been updated successfully."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\.agents\\scripts\\gw\\test\\test_tickets.py",
+          "oldString": "class TheHeader(Records):",
+          "newString": "QUEUE_TABLE = (\n    \"| Ticket | Status | Type | Outcome |\\n\"\n    \"|---|---|---|---|\\n\"\n    \"| [Earlier](01-0001-earlier.md) | Ready | HITL | One sentence. |\\n\"\n    \"| [Live](01-0002-live.md) | Ready | HITL | Another, with `a \\\\| b` escaped. |\\n\"\n)\n\n\nclass TheQueue(Records):\n    \"\"\"The queue's table: every row on a line of its own, as wide as the table's header.\"\"\"\n\n    def queue(self, table: str) -> None:\n        self.write(\"docs/tickets/README.md\", f\"# Delivery status\\n\\n**Last updated:** never\\n\\n{table}\")\n\n    def test_a_table_of_whole_rows_checks_clean(self) -> None:\n        self.queue(QUEUE_TABLE)\n\n        self.assertEqual([], self.problems())\n\n    def test_two_rows_run_together_on_one_line_are_reported_with_their_line(self) -> None:\n        self.queue(QUEUE_TABLE.replace(\" One sentence. |\\n| [Live]\", \" One sentence. || [Live]\"))\n\n        found = self.checked().diagnostics\n\n        self.assertEqual(1, len(found), found)\n        self.assertEqual((\"docs/tickets/README.md\", 7), (found[0].record, found[0].line))\n        self.assertIn(\"8 cells where its table has 4\", found[0].problem)\n\n    def test_a_row_short_of_a_cell_is_reported(self) -> None:\n        self.queue(QUEUE_TABLE.replace(\"| Ready | HITL | One sentence. |\", \"| Ready | One sentence. |\"))\n\n        self.assertIn(\"3 cells where its table has 4\", self.problems()[0])\n\n\nclass TheHeader(Records):",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 62,
+              "oldLines": 6,
+              "newStart": 62,
+              "newLines": 40,
+              "lines": [
+                "         return [(note.record, note.line) for note in self.checked().diagnostics]",
+                " ",
+                " ",
+                "+QUEUE_TABLE = (",
+                "+    \"| Ticket | Status | Type | Outcome |\\n\"",
+                "+    \"|---|---|---|---|\\n\"",
+                "+    \"| [Earlier](01-0001-earlier.md) | Ready | HITL | One sentence. |\\n\"",
+                "+    \"| [Live](01-0002-live.md) | Ready | HITL | Another, with `a \\\\| b` escaped. |\\n\"",
+                "+)",
+                "+",
+                "+",
+                "+class TheQueue(Records):",
+                "+    \"\"\"The queue's table: every row on a line of its own, as wide as the table's header.\"\"\"",
+                "+",
+                "+    def queue(self, table: str) -> None:",
+                "+        self.write(\"docs/tickets/README.md\", f\"# Delivery status\\n\\n**Last updated:** never\\n\\n{table}\")",
+                "+",
+                "+    def test_a_table_of_whole_rows_checks_clean(self) -> None:",
+                "+        self.queue(QUEUE_TABLE)",
+                "+",
+                "+        self.assertEqual([], self.problems())",
+                "+",
+                "+    def test_two_rows_run_together_on_one_line_are_reported_with_their_line(self) -> None:",
+                "+        self.queue(QUEUE_TABLE.replace(\" One sentence. |\\n| [Live]\", \" One sentence. || [Live]\"))",
+                "+",
+                "+        found = self.checked().diagnostics",
+                "+",
+                "+        self.assertEqual(1, len(found), found)",
+                "+        self.assertEqual((\"docs/tickets/README.md\", 7), (found[0].record, found[0].line))",
+                "+        self.assertIn(\"8 cells where its table has 4\", found[0].problem)",
+                "+",
+                "+    def test_a_row_short_of_a_cell_is_reported(self) -> None:",
+                "+        self.queue(QUEUE_TABLE.replace(\"| Ready | HITL | One sentence. |\", \"| Ready | One sentence. |\"))",
+                "+",
+                "+        self.assertIn(\"3 cells where its table has 4\", self.problems()[0])",
+                "+",
+                "+",
+                " class TheHeader(Records):",
+                "     def test_written_bare_rather_than_as_a_bullet_list_is_reported_as_the_form(self) -> None:",
+                "         self.write(LIVE, ticket(INCEPTED.replace(\"- **\", \"**\")))"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false,
+          "contentNotInModelContext": true
+        },
+        "sourceToolAssistantUUID": "c926abde-bdfa-43ac-9e51-52a7b98d490e",
+        "promptId": "9fe7f8a0-ffe3-47de-92e3-ab4fe11d8241"
+      },
+      "original_record_sha256": "80261a45e136672a757b7a088382e984cefc7f2a2d106f066c9a9ba1d2685a0a",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2614": {
+      "timestamp": "2026-10-02T22:44:03.718Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "a4285183-d7a8-4946-8c91-54513ebe62b4",
+        "parentUuid": "e5eb99db-5273-46ed-8a8b-e830625e147c",
+        "timestamp": "2026-10-02T22:44:03.718Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01T4WMHZbwr6fccX8dRrcD5a",
+              "is_error": false,
+              "content": "ERROR: test_a_row_short_of_a_cell_is_reported (test_tickets.TheQueue.test_a_row_short_of_a_cell_is_reported)\r\nFAIL: test_two_rows_run_together_on_one_line_are_reported_with_their_line (test_tickets.TheQueue.test_two_rows_run_together_on_one_line_are_reported_with_their_line)\r\nAssertionError: 1 != 0 : []\r\nRan 3 tests in 0.131s\r\nFAILED (failures=1, errors=1)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "ERROR: test_a_row_short_of_a_cell_is_reported (test_tickets.TheQueue.test_a_row_short_of_a_cell_is_reported)\r\nFAIL: test_two_rows_run_together_on_one_line_are_reported_with_their_line (test_tickets.TheQueue.test_two_rows_run_together_on_one_line_are_reported_with_their_line)\r\nAssertionError: 1 != 0 : []\r\nRan 3 tests in 0.131s\r\nFAILED (failures=1, errors=1)",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "e5eb99db-5273-46ed-8a8b-e830625e147c",
+        "promptId": "9fe7f8a0-ffe3-47de-92e3-ab4fe11d8241"
+      },
+      "original_record_sha256": "f9427169000468a2cb4890667c4c734de5e31665912db74f0552cfde23097174",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2619": {
+      "timestamp": "2026-10-02T22:44:10.595Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "ac88cc94-91b0-494a-a954-a0151b53cc0e",
+        "parentUuid": "3b6066d0-95a9-4637-919b-0ac938f7fea2",
+        "timestamp": "2026-10-02T22:44:10.595Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDi6vkHXY1hBHFRJsmx",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Red, as expected. My expected count was wrong, though: `| … | d || e | … |` has ten unescaped pipes, which makes nine cells, the empty one included. Correcting the test before writing the code:"
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "c36f431fb1f3d366a15e49b4f1206267534f30fd0f50c86788792de9516d0a38",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2620": {
+      "timestamp": "2026-10-02T22:44:11.752Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "4bb4a906-e315-45c2-9df2-a3770508321a",
+        "parentUuid": "ac88cc94-91b0-494a-a954-a0151b53cc0e",
+        "timestamp": "2026-10-02T22:44:11.752Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDi6vkHXY1hBHFRJsmx",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_012XTwzqsWD792qLrQvvDvau",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\.agents\\scripts\\gw\\test\\test_tickets.py",
+                "old_string": "        self.assertIn(\"8 cells where its table has 4\", found[0].problem)",
+                "new_string": "        self.assertIn(\"9 cells where its table has 4\", found[0].problem)"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "dc7adddb411fea23071ea6bdd09fd20762b9737128b6bad20194db9dbd25c4df",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2621": {
+      "timestamp": "2026-10-02T22:44:12.987Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "03ae7c55-8766-405c-9a85-2e2406f9ab56",
+        "parentUuid": "4bb4a906-e315-45c2-9df2-a3770508321a",
+        "timestamp": "2026-10-02T22:44:12.987Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDi6vkHXY1hBHFRJsmx",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01JxxPj3LtyWzFar8QVXmrEj",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\.agents\\scripts\\gw\\tickets.py",
+                "old_string": "        records.append(read)\n        diagnostics += _problems(root, read, names)\n    diagnostics += _pairing_problems(names)\n    return Checked(records, diagnostics, skipped)",
+                "new_string": "        records.append(read)\n        diagnostics += _problems(root, read, names)\n    diagnostics += _pairing_problems(names)\n    diagnostics += _queue_problems(root)\n    return Checked(records, diagnostics, skipped)"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "999cf24add49affa286dd30c4f41fed2ca462ff4e57578b670e655afa8b65fc5",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2622": {
+      "timestamp": "2026-10-02T22:44:14.178Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "8f2b4c04-bbac-48f4-a46a-586c02962d49",
+        "parentUuid": "03ae7c55-8766-405c-9a85-2e2406f9ab56",
+        "timestamp": "2026-10-02T22:44:14.178Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDi6vkHXY1hBHFRJsmx",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01Xh5rwQ8ySuPs5BAeFWJpxe",
+              "name": "Bash",
+              "input": {
+                "command": "sed -n '/^def _pairing_problems/,/^def _is_rfc/p' .agents/scripts/gw/tickets.py | tail -5; sed -n '/^def _is_rfc/,$p' .agents/scripts/gw/tickets.py",
+                "description": "Read the end of the file, where the queue check goes"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "fd15b540de64b2c91ac616cd2b5ab760d0194ecae705f51b40577f339e1d6839",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2623": {
+      "timestamp": "2026-10-02T22:44:14.608Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "f77e8324-0871-4e12-b006-68456906ab00",
+        "parentUuid": "4bb4a906-e315-45c2-9df2-a3770508321a",
+        "timestamp": "2026-10-02T22:44:14.608Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_012XTwzqsWD792qLrQvvDvau",
+              "content": "The file D:\\Dev\\AI\\agents\\.agents\\scripts\\gw\\test\\test_tickets.py has been updated successfully."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\.agents\\scripts\\gw\\test\\test_tickets.py",
+          "oldString": "        self.assertIn(\"8 cells where its table has 4\", found[0].problem)",
+          "newString": "        self.assertIn(\"9 cells where its table has 4\", found[0].problem)",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 88,
+              "oldLines": 7,
+              "newStart": 88,
+              "newLines": 7,
+              "lines": [
+                " ",
+                "         self.assertEqual(1, len(found), found)",
+                "         self.assertEqual((\"docs/tickets/README.md\", 7), (found[0].record, found[0].line))",
+                "-        self.assertIn(\"8 cells where its table has 4\", found[0].problem)",
+                "+        self.assertIn(\"9 cells where its table has 4\", found[0].problem)",
+                " ",
+                "     def test_a_row_short_of_a_cell_is_reported(self) -> None:",
+                "         self.queue(QUEUE_TABLE.replace(\"| Ready | HITL | One sentence. |\", \"| Ready | One sentence. |\"))"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false,
+          "contentNotInModelContext": true
+        },
+        "sourceToolAssistantUUID": "4bb4a906-e315-45c2-9df2-a3770508321a",
+        "promptId": "9fe7f8a0-ffe3-47de-92e3-ab4fe11d8241"
+      },
+      "original_record_sha256": "6638779746d87c83204a1bd0336972a5abc69bec0704bfd019e298a9c945c124",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2630": {
+      "timestamp": "2026-10-02T22:44:14.753Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "a67c7104-d6e3-455f-b19c-0f76ef45db4f",
+        "parentUuid": "03ae7c55-8766-405c-9a85-2e2406f9ab56",
+        "timestamp": "2026-10-02T22:44:14.753Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01JxxPj3LtyWzFar8QVXmrEj",
+              "content": "The file D:\\Dev\\AI\\agents\\.agents\\scripts\\gw\\tickets.py has been updated successfully."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\.agents\\scripts\\gw\\tickets.py",
+          "oldString": "        records.append(read)\n        diagnostics += _problems(root, read, names)\n    diagnostics += _pairing_problems(names)\n    return Checked(records, diagnostics, skipped)",
+          "newString": "        records.append(read)\n        diagnostics += _problems(root, read, names)\n    diagnostics += _pairing_problems(names)\n    diagnostics += _queue_problems(root)\n    return Checked(records, diagnostics, skipped)",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 158,
+              "oldLines": 6,
+              "newStart": 158,
+              "newLines": 7,
+              "lines": [
+                "         records.append(read)",
+                "         diagnostics += _problems(root, read, names)",
+                "     diagnostics += _pairing_problems(names)",
+                "+    diagnostics += _queue_problems(root)",
+                "     return Checked(records, diagnostics, skipped)",
+                " ",
+                " "
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false,
+          "contentNotInModelContext": true
+        },
+        "sourceToolAssistantUUID": "03ae7c55-8766-405c-9a85-2e2406f9ab56",
+        "promptId": "9fe7f8a0-ffe3-47de-92e3-ab4fe11d8241"
+      },
+      "original_record_sha256": "d06557163604efa8b8f1e9ef2fa53e347bad6fb24966a3701a91836e59be18fc",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2631": {
+      "timestamp": "2026-10-02T22:44:16.386Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "08d0b9eb-3e67-4ee7-9278-17c3512d4b73",
+        "parentUuid": "8f2b4c04-bbac-48f4-a46a-586c02962d49",
+        "timestamp": "2026-10-02T22:44:16.386Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01Xh5rwQ8ySuPs5BAeFWJpxe",
+              "is_error": false,
+              "content": "            )\n    return notes\n\n\ndef _is_rfc(name: str) -> bool:\ndef _is_rfc(name: str) -> bool:\n    return posixpath.dirname(name) in (RFCS, f\"{RFCS}/done\") and name.endswith(\".md\")\n\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv[1:]))"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "            )\n    return notes\n\n\ndef _is_rfc(name: str) -> bool:\ndef _is_rfc(name: str) -> bool:\n    return posixpath.dirname(name) in (RFCS, f\"{RFCS}/done\") and name.endswith(\".md\")\n\n\nif __name__ == \"__main__\":\n    sys.exit(main(sys.argv[1:]))",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "8f2b4c04-bbac-48f4-a46a-586c02962d49",
+        "promptId": "9fe7f8a0-ffe3-47de-92e3-ab4fe11d8241"
+      },
+      "original_record_sha256": "40e701b163fa811399a5ca66bacb85f4ad3a5babddcf7c214d0952440eb73fae",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2633": {
+      "timestamp": "2026-10-02T22:44:17.090Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "7f313c09-f55b-4892-acf3-0c6c7f822064",
+        "parentUuid": "5cd9784c-4ad9-45d7-847f-2595d75186e7",
+        "timestamp": "2026-10-02T22:44:17.090Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "hook_additional_context",
+          "content": [
+            "window unchanged since your last one: d4406b99-8ee7-4e49-8d84-5621c2fd5766 at q-0001; `questions.py --window --session d4406b99-8ee7-4e49-8d84-5621c2fd5766 --full` draws it again"
+          ],
+          "hookName": "UserPromptSubmit",
+          "toolUseID": "hook-26dd3ee3-9ab3-47dd-b561-33b663414737",
+          "hookEvent": "UserPromptSubmit"
+        }
+      },
+      "original_record_sha256": "c27cce1ba8ca99de683a1127929e230476686343953b81c31125d1f14a2da34d",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2639": {
+      "timestamp": "2026-10-02T22:44:24.293Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "fb7cbda0-f617-4efb-9a2d-28b657221057",
+        "parentUuid": "f5ee8427-a5ad-4e04-9854-f64f5df83f64",
+        "timestamp": "2026-10-02T22:44:24.293Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDj6NnqDsGcorajK9fA",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01H45L4rv6Lj1J1A2jes7n45",
+              "name": "Bash",
+              "input": {
+                "command": "git diff --stat .agents/scripts/gw/tickets.py .agents/scripts/gw/test/test_tickets.py && git restore .agents/scripts/gw/tickets.py .agents/scripts/gw/test/test_tickets.py && git status --short .agents; cat docs/tickets/01-0011.0040-queue-derived-index.md",
+                "description": "Back out the unfinished queue check and read the .0040 ticket"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "adcff26ab01df63ffc37ad7168fa4fee853d56e48365f9c4db3e23763d5662de",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2640": {
+      "timestamp": "2026-10-02T22:44:26.903Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "dab26d10-5f39-4968-8f99-e086ae3e5c11",
+        "parentUuid": "fb7cbda0-f617-4efb-9a2d-28b657221057",
+        "timestamp": "2026-10-02T22:44:26.903Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01H45L4rv6Lj1J1A2jes7n45",
+              "is_error": false,
+              "content": " .agents/scripts/gw/test/test_tickets.py | 34 +++++++++++++++++++++++++++++++++\n .agents/scripts/gw/tickets.py           |  1 +\n 2 files changed, 35 insertions(+)\n# The queue is read from the tickets rather than transcribed from them\n\n- **Status:** Ready\n- **Type:** HITL\n- **Depends on:** [01-0011.0025](./done/01-0011.0025-archive-duty-reaches-maintain.md) (`/ticket`\n  declared, and the record shape the index is derived from)\n- **Outcome:** The queue's status, type and outcome are derived from the ticket headers that own\n  them, so the queue cannot contradict a ticket, and the pacing prose stays hand-written.\n\n## Parent\n\n[A mechanism has one home for its rules, and a derived index](../spec/01-0011-mechanism-shape.md).\n`/impact`: [the 2026-09-06 split assessment](../spec/01-0011-mechanism-shape.md#impact--2026-09-06).\n\n## Why this exists\n\n[TICKET-FORMAT](../../.agents/skills/ticket/TICKET-FORMAT.md) requires `Outcome` be *copied verbatim\nfrom the ticket header* into the queue table. A copy maintained by hand is not an index; it is a\nsecond home, and it drifts. On 2026-09-06 two rows carried paraphrased outcomes and were repaired by\nhand — and the check that found them exists only because the data is duplicated.\n\n## Decisions this ticket's align owns\n\n- **Whether the rendered table is committed.** The spec says no, on the reasoning that an index kept\n  beside its records is a copy. That reasoning was taken from a tree whose wake hooks inject state\n  into every session. This harness has none, and [AGENTS.md](../../AGENTS.md) routes every session\n  to the queue as the thing that *owns current state and says where to resume*. An uncommitted table\n  makes that routing land on a marker. The live alternative is committed-but-generated with a\n  staleness check, which is not a hand-maintained copy and does not depend on a hook we do not have.\n  Until this is settled the rest of the slice cannot land.\n- What a reader without the tool sees, on the repository host and in a diff.\n- Whether `Last updated` survives at all, given a derived view knows when its records last moved.\n\n## What to build\n\n- The queue declares its own index in its own file, naming the shape and the fields it derives.\n- A renderer that reads `Status`, `Type` and `Outcome` from the ticket headers, and the `done/`\n  segment from where each file actually sits.\n- Pacing prose stays authored. Judgment about where the work stands is not derivable and must not be\n  faked by a generator.\n- `TICKET-FORMAT` loses what nothing copies any more, in every place it says it — ~~all four: the\n  shelf's stated ownership, the placement note, the `Outcome` verbatim rule, and the queue\n  section~~ **five after `.0025`'s rewrite of the shelf, 2026-09-09:** the shelf's stated\n  ownership, the placement note, the queue-row sentence under *One basename per work item*, the\n  *update the queue* convention, and the queue section, now wrapped in a straw dog bound here\n  with the `Outcome` verbatim rule inside it.\n- `/ticket` stops amending a table; `/maintain` stops updating a queue row. **P8 retires with\n  them** *(added 2026-09-09)*: the rule telling the closing pass to delete a row exists only\n  because a person maintains the rows, and a renderer that reads live records drops a closed\n  ticket by construction. Retract it from `ticket.rules.md` rather than leaving it installed.\n- **Whether the render includes archived tickets is already answered**: it does not. The rows for\n  fourteen closed tickets were deleted from the queue by hand on 2026-09-09 *(the user)*, and the\n  shelf now says the row is deleted at close, so the renderer inherits that rule rather than\n  reopening it.\n- `docs/process.md`'s pointer at the removed section is repaired.\n\n## Acceptance criteria\n\n- [ ] The committed-or-not question is settled and recorded here with its reason.\n- [ ] The queue file declares its index, naming shape and fields.\n- [ ] A rendered queue matches every ticket header it derives from.\n- [ ] Editing a ticket's status changes the next render, with no other edit.\n- [ ] A ticket the renderer cannot parse is reported, not omitted.\n- [ ] `TICKET-FORMAT` no longer requires anything to be copied, in any of its ~~four~~ five sites.\n- [ ] Neither `/ticket` nor `/maintain` instructs anyone to amend a table.\n- [ ] The pacing prose is unchanged in kind: still written by whoever ran the pass.\n- [ ] Behavioral tests cover derivation, reflection of an edit, and the unparseable record.\n- [ ] `/verify` has been run on this ticket against its ticket, RFC, and governing docs.\n\n## Out of scope\n\nIndexes for any other register. Wake-time delivery of the index, which needs a hook this harness\ndoes not have — if the align decides an uncommitted table, the reachability gap it opens is named\nand owned rather than assumed away. Session records citing the old table keep their facts.\n\n## Parent scope addressed\n\nStories 8, 9, 10."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": " .agents/scripts/gw/test/test_tickets.py | 34 +++++++++++++++++++++++++++++++++\n .agents/scripts/gw/tickets.py           |  1 +\n 2 files changed, 35 insertions(+)\n# The queue is read from the tickets rather than transcribed from them\n\n- **Status:** Ready\n- **Type:** HITL\n- **Depends on:** [01-0011.0025](./done/01-0011.0025-archive-duty-reaches-maintain.md) (`/ticket`\n  declared, and the record shape the index is derived from)\n- **Outcome:** The queue's status, type and outcome are derived from the ticket headers that own\n  them, so the queue cannot contradict a ticket, and the pacing prose stays hand-written.\n\n## Parent\n\n[A mechanism has one home for its rules, and a derived index](../spec/01-0011-mechanism-shape.md).\n`/impact`: [the 2026-09-06 split assessment](../spec/01-0011-mechanism-shape.md#impact--2026-09-06).\n\n## Why this exists\n\n[TICKET-FORMAT](../../.agents/skills/ticket/TICKET-FORMAT.md) requires `Outcome` be *copied verbatim\nfrom the ticket header* into the queue table. A copy maintained by hand is not an index; it is a\nsecond home, and it drifts. On 2026-09-06 two rows carried paraphrased outcomes and were repaired by\nhand — and the check that found them exists only because the data is duplicated.\n\n## Decisions this ticket's align owns\n\n- **Whether the rendered table is committed.** The spec says no, on the reasoning that an index kept\n  beside its records is a copy. That reasoning was taken from a tree whose wake hooks inject state\n  into every session. This harness has none, and [AGENTS.md](../../AGENTS.md) routes every session\n  to the queue as the thing that *owns current state and says where to resume*. An uncommitted table\n  makes that routing land on a marker. The live alternative is committed-but-generated with a\n  staleness check, which is not a hand-maintained copy and does not depend on a hook we do not have.\n  Until this is settled the rest of the slice cannot land.\n- What a reader without the tool sees, on the repository host and in a diff.\n- Whether `Last updated` survives at all, given a derived view knows when its records last moved.\n\n## What to build\n\n- The queue declares its own index in its own file, naming the shape and the fields it derives.\n- A renderer that reads `Status`, `Type` and `Outcome` from the ticket headers, and the `done/`\n  segment from where each file actually sits.\n- Pacing prose stays authored. Judgment about where the work stands is not derivable and must not be\n  faked by a generator.\n- `TICKET-FORMAT` loses what nothing copies any more, in every place it says it — ~~all four: the\n  shelf's stated ownership, the placement note, the `Outcome` verbatim rule, and the queue\n  section~~ **five after `.0025`'s rewrite of the shelf, 2026-09-09:** the shelf's stated\n  ownership, the placement note, the queue-row sentence under *One basename per work item*, the\n  *update the queue* convention, and the queue section, now wrapped in a straw dog bound here\n  with the `Outcome` verbatim rule inside it.\n- `/ticket` stops amending a table; `/maintain` stops updating a queue row. **P8 retires with\n  them** *(added 2026-09-09)*: the rule telling the closing pass to delete a row exists only\n  because a person maintains the rows, and a renderer that reads live records drops a closed\n  ticket by construction. Retract it from `ticket.rules.md` rather than leaving it installed.\n- **Whether the render includes archived tickets is already answered**: it does not. The rows for\n  fourteen closed tickets were deleted from the queue by hand on 2026-09-09 *(the user)*, and the\n  shelf now says the row is deleted at close, so the renderer inherits that rule rather than\n  reopening it.\n- `docs/process.md`'s pointer at the removed section is repaired.\n\n## Acceptance criteria\n\n- [ ] The committed-or-not question is settled and recorded here with its reason.\n- [ ] The queue file declares its index, naming shape and fields.\n- [ ] A rendered queue matches every ticket header it derives from.\n- [ ] Editing a ticket's status changes the next render, with no other edit.\n- [ ] A ticket the renderer cannot parse is reported, not omitted.\n- [ ] `TICKET-FORMAT` no longer requires anything to be copied, in any of its ~~four~~ five sites.\n- [ ] Neither `/ticket` nor `/maintain` instructs anyone to amend a table.\n- [ ] The pacing prose is unchanged in kind: still written by whoever ran the pass.\n- [ ] Behavioral tests cover derivation, reflection of an edit, and the unparseable record.\n- [ ] `/verify` has been run on this ticket against its ticket, RFC, and governing docs.\n\n## Out of scope\n\nIndexes for any other register. Wake-time delivery of the index, which needs a hook this harness\ndoes not have — if the align decides an uncommitted table, the reachability gap it opens is named\nand owned rather than assumed away. Session records citing the old table keep their facts.\n\n## Parent scope addressed\n\nStories 8, 9, 10.",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false,
+          "bashEditDiff": {
+            "files": [
+              {
+                "filePath": "D:\\Dev\\AI\\agents\\.agents\\scripts\\gw\\test\\test_tickets.py",
+                "hunks": [
+                  {
+                    "oldStart": 62,
+                    "oldLines": 40,
+                    "newStart": 62,
+                    "newLines": 6,
+                    "lines": [
+                      "         return [(note.record, note.line) for note in self.checked().diagnostics]",
+                      " ",
+                      " ",
+                      "-QUEUE_TABLE = (",
+                      "-    \"| Ticket | Status | Type | Outcome |\\n\"",
+                      "-    \"|---|---|---|---|\\n\"",
+                      "-    \"| [Earlier](01-0001-earlier.md) | Ready | HITL | One sentence. |\\n\"",
+                      "-    \"| [Live](01-0002-live.md) | Ready | HITL | Another, with `a \\\\| b` escaped. |\\n\"",
+                      "-)",
+                      "-",
+                      "-",
+                      "-class TheQueue(Records):",
+                      "-    \"\"\"The queue's table: every row on a line of its own, as wide as the table's header.\"\"\"",
+                      "-",
+                      "-    def queue(self, table: str) -> None:",
+                      "-        self.write(\"docs/tickets/README.md\", f\"# Delivery status\\n\\n**Last updated:** never\\n\\n{table}\")",
+                      "-",
+                      "-    def test_a_table_of_whole_rows_checks_clean(self) -> None:",
+                      "-        self.queue(QUEUE_TABLE)",
+                      "-",
+                      "-        self.assertEqual([], self.problems())",
+                      "-",
+                      "-    def test_two_rows_run_together_on_one_line_are_reported_with_their_line(self) -> None:",
+                      "-        self.queue(QUEUE_TABLE.replace(\" One sentence. |\\n| [Live]\", \" One sentence. || [Live]\"))",
+                      "-",
+                      "-        found = self.checked().diagnostics",
+                      "-",
+                      "-        self.assertEqual(1, len(found), found)",
+                      "-        self.assertEqual((\"docs/tickets/README.md\", 7), (found[0].record, found[0].line))",
+                      "-        self.assertIn(\"9 cells where its table has 4\", found[0].problem)",
+                      "-",
+                      "-    def test_a_row_short_of_a_cell_is_reported(self) -> None:",
+                      "-        self.queue(QUEUE_TABLE.replace(\"| Ready | HITL | One sentence. |\", \"| Ready | One sentence. |\"))",
+                      "-",
+                      "-        self.assertIn(\"3 cells where its table has 4\", self.problems()[0])",
+                      "-",
+                      "-",
+                      " class TheHeader(Records):",
+                      "     def test_written_bare_rather_than_as_a_bullet_list_is_reported_as_the_form(self) -> None:",
+                      "         self.write(LIVE, ticket(INCEPTED.replace(\"- **\", \"**\")))"
+                    ]
+                  }
+                ]
+              },
+              {
+                "filePath": "D:\\Dev\\AI\\agents\\.agents\\scripts\\gw\\tickets.py",
+                "hunks": [
+                  {
+                    "oldStart": 158,
+                    "oldLines": 7,
+                    "newStart": 158,
+                    "newLines": 6,
+                    "lines": [
+                      "         records.append(read)",
+                      "         diagnostics += _problems(root, read, names)",
+                      "     diagnostics += _pairing_problems(names)",
+                      "-    diagnostics += _queue_problems(root)",
+                      "     return Checked(records, diagnostics, skipped)",
+                      " ",
+                      " "
+                    ]
+                  }
+                ]
+              }
+            ],
+            "moreFiles": 0,
+            "changedFiles": [
+              "D:\\Dev\\AI\\agents\\.agents\\scripts\\gw\\test\\test_tickets.py",
+              "D:\\Dev\\AI\\agents\\.agents\\scripts\\gw\\tickets.py"
+            ]
+          }
+        },
+        "sourceToolAssistantUUID": "fb7cbda0-f617-4efb-9a2d-28b657221057",
+        "promptId": "9fe7f8a0-ffe3-47de-92e3-ab4fe11d8241"
+      },
+      "original_record_sha256": "3992360044d550a20b8457d1fec6255a48013c04702298bfb1d2c19b152e1adf",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2652": {
+      "timestamp": "2026-10-02T22:44:39.404Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "da8dcbac-74aa-44ca-893e-21f6bd32c335",
+        "parentUuid": "a9c8f82e-4976-49b6-8112-2ac5b6505140",
+        "timestamp": "2026-10-02T22:44:39.404Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDjpPtZF4AqT3bEtuEX",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01YQfBGAvPdGVYNX43eyp6cS",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0040-queue-derived-index.md",
+                "old_string": "- `docs/process.md`'s pointer at the removed section is repaired.\n\n## Acceptance criteria",
+                "new_string": "- `docs/process.md`'s pointer at the removed section is repaired.\n- **The table's rows are whole** *(added 2026-10-03, the user)*: every row of the queue's table\n  holds one ticket on a line of its own, as wide as the table's header, and a row that is not is\n  reported. On 2026-10-03 a hand deletion of one row ran the next two together on one line, which\n  hid `.0020` from the queue, and `tickets.py --check`, which never reads the queue, passed it.\n  Rendered or hand-kept, whatever stands in the committed file is held to this.\n\n## Acceptance criteria"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "ccd65c154382a0f5c22c71ed32114b991ebc2a452c41298642f7237f84ae5f54",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2653": {
+      "timestamp": "2026-10-02T22:44:41.104Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "d73c9f0f-6f9f-4b4b-b160-56f1892b5cee",
+        "parentUuid": "da8dcbac-74aa-44ca-893e-21f6bd32c335",
+        "timestamp": "2026-10-02T22:44:41.104Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDjpPtZF4AqT3bEtuEX",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01ALg3Jcnm46qHVYehLEGC5g",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0040-queue-derived-index.md",
+                "old_string": "- [ ] A ticket the renderer cannot parse is reported, not omitted.",
+                "new_string": "- [ ] A ticket the renderer cannot parse is reported, not omitted.\n- [ ] A row of the committed queue table that is not one ticket on a line of the header's width\n  is reported by the check; tested with two rows run together on one line."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "91b8288a865efb0d5654c7836b668ccff865f9cc7061f6fa0c77512ac417da97",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2654": {
+      "timestamp": "2026-10-02T22:44:41.941Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "1dfbe0e7-55a2-4205-8574-b91579cbd688",
+        "parentUuid": "d73c9f0f-6f9f-4b4b-b160-56f1892b5cee",
+        "timestamp": "2026-10-02T22:44:41.941Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDjpPtZF4AqT3bEtuEX",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01P9LH5C7rydH3tZJDF5twES",
+              "name": "Bash",
+              "input": {
+                "command": "uv run --offline --no-project python .agents/scripts/gw/tickets.py --check > /dev/null; echo \"tickets exit $?\"; git status --short",
+                "description": "Check the ticket records and list the changes"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "664121758301d5c62ed4db2bb1a633d9472dee96fd714f2b3a712a54d7985d2a",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2656": {
+      "timestamp": "2026-10-02T22:44:42.521Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "c07e13fe-27c8-4752-856a-2936b8cd95fa",
+        "parentUuid": "da8dcbac-74aa-44ca-893e-21f6bd32c335",
+        "timestamp": "2026-10-02T22:44:42.521Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01YQfBGAvPdGVYNX43eyp6cS",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0040-queue-derived-index.md has been updated successfully."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0040-queue-derived-index.md",
+          "oldString": "- `docs/process.md`'s pointer at the removed section is repaired.\n\n## Acceptance criteria",
+          "newString": "- `docs/process.md`'s pointer at the removed section is repaired.\n- **The table's rows are whole** *(added 2026-10-03, the user)*: every row of the queue's table\n  holds one ticket on a line of its own, as wide as the table's header, and a row that is not is\n  reported. On 2026-10-03 a hand deletion of one row ran the next two together on one line, which\n  hid `.0020` from the queue, and `tickets.py --check`, which never reads the queue, passed it.\n  Rendered or hand-kept, whatever stands in the committed file is held to this.\n\n## Acceptance criteria",
+          "originalFile": "# The queue is read from the tickets rather than transcribed from them\n\n- **Status:** Ready\n- **Type:** HITL\n- **Depends on:** [01-0011.0025](./done/01-0011.0025-archive-duty-reaches-maintain.md) (`/ticket`\n  declared, and the record shape the index is derived from)\n- **Outcome:** The queue's status, type and outcome are derived from the ticket headers that own\n  them, so the queue cannot contradict a ticket, and the pacing prose stays hand-written.\n\n## Parent\n\n[A mechanism has one home for its rules, and a derived index](../spec/01-0011-mechanism-shape.md).\n`/impact`: [the 2026-09-06 split assessment](../spec/01-0011-mechanism-shape.md#impact--2026-09-06).\n\n## Why this exists\n\n[TICKET-FORMAT](../../.agents/skills/ticket/TICKET-FORMAT.md) requires `Outcome` be *copied verbatim\nfrom the ticket header* into the queue table. A copy maintained by hand is not an index; it is a\nsecond home, and it drifts. On 2026-09-06 two rows carried paraphrased outcomes and were repaired by\nhand — and the check that found them exists only because the data is duplicated.\n\n## Decisions this ticket's align owns\n\n- **Whether the rendered table is committed.** The spec says no, on the reasoning that an index kept\n  beside its records is a copy. That reasoning was taken from a tree whose wake hooks inject state\n  into every session. This harness has none, and [AGENTS.md](../../AGENTS.md) routes every session\n  to the queue as the thing that *owns current state and says where to resume*. An uncommitted table\n  makes that routing land on a marker. The live alternative is committed-but-generated with a\n  staleness check, which is not a hand-maintained copy and does not depend on a hook we do not have.\n  Until this is settled the rest of the slice cannot land.\n- What a reader without the tool sees, on the repository host and in a diff.\n- Whether `Last updated` survives at all, given a derived view knows when its records last moved.\n\n## What to build\n\n- The queue declares its own index in its own file, naming the shape and the fields it derives.\n- A renderer that reads `Status`, `Type` and `Outcome` from the ticket headers, and the `done/`\n  segment from where each file actually sits.\n- Pacing prose stays authored. Judgment about where the work stands is not derivable and must not be\n  faked by a generator.\n- `TICKET-FORMAT` loses what nothing copies any more, in every place it says it — ~~all four: the\n  shelf's stated ownership, the placement note, the `Outcome` verbatim rule, and the queue\n  section~~ **five after `.0025`'s rewrite of the shelf, 2026-09-09:** the shelf's stated\n  ownership, the placement note, the queue-row sentence under *One basename per work item*, the\n  *update the queue* convention, and the queue section, now wrapped in a straw dog bound here\n  with the `Outcome` verbatim rule inside it.\n- `/ticket` stops amending a table; `/maintain` stops updating a queue row. **P8 retires with\n  them** *(added 2026-09-09)*: the rule telling the closing pass to delete a row exists only\n  because a person maintains the rows, and a renderer that reads live records drops a closed\n  ticket by construction. Retract it from `ticket.rules.md` rather than leaving it installed.\n- **Whether the render includes archived tickets is already answered**: it does not. The rows for\n  fourteen closed tickets were deleted from the queue by hand on 2026-09-09 *(the user)*, and the\n  shelf now says the row is deleted at close, so the renderer inherits that rule rather than\n  reopening it.\n- `docs/process.md`'s pointer at the removed section is repaired.\n\n## Acceptance criteria\n\n- [ ] The committed-or-not question is settled and recorded here with its reason.\n- [ ] The queue file declares its index, naming shape and fields.\n- [ ] A rendered queue matches every ticket header it derives from.\n- [ ] Editing a ticket's status changes the next render, with no other edit.\n- [ ] A ticket the renderer cannot parse is reported, not omitted.\n- [ ] `TICKET-FORMAT` no longer requires anything to be copied, in any of its ~~four~~ five sites.\n- [ ] Neither `/ticket` nor `/maintain` instructs anyone to amend a table.\n- [ ] The pacing prose is unchanged in kind: still written by whoever ran the pass.\n- [ ] Behavioral tests cover derivation, reflection of an edit, and the unparseable record.\n- [ ] `/verify` has been run on this ticket against its ticket, RFC, and governing docs.\n\n## Out of scope\n\nIndexes for any other register. Wake-time delivery of the index, which needs a hook this harness\ndoes not have — if the align decides an uncommitted table, the reachability gap it opens is named\nand owned rather than assumed away. Session records citing the old table keep their facts.\n\n## Parent scope addressed\n\nStories 8, 9, 10.\n",
+          "structuredPatch": [
+            {
+              "oldStart": 53,
+              "oldLines": 6,
+              "newStart": 53,
+              "newLines": 11,
+              "lines": [
+                "   shelf now says the row is deleted at close, so the renderer inherits that rule rather than",
+                "   reopening it.",
+                " - `docs/process.md`'s pointer at the removed section is repaired.",
+                "+- **The table's rows are whole** *(added 2026-10-03, the user)*: every row of the queue's table",
+                "+  holds one ticket on a line of its own, as wide as the table's header, and a row that is not is",
+                "+  reported. On 2026-10-03 a hand deletion of one row ran the next two together on one line, which",
+                "+  hid `.0020` from the queue, and `tickets.py --check`, which never reads the queue, passed it.",
+                "+  Rendered or hand-kept, whatever stands in the committed file is held to this.",
+                " ",
+                " ## Acceptance criteria",
+                " "
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false,
+          "contentNotInModelContext": true
+        },
+        "sourceToolAssistantUUID": "da8dcbac-74aa-44ca-893e-21f6bd32c335",
+        "promptId": "9fe7f8a0-ffe3-47de-92e3-ab4fe11d8241"
+      },
+      "original_record_sha256": "c0331028ba289caf7725f14aefa346c60e2ff3030cfb43d974cdeed3aeaa7bde",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2657": {
+      "timestamp": "2026-10-02T22:44:42.765Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "774ea9ab-0642-49c5-a4a1-8e81e6fb89db",
+        "parentUuid": "d73c9f0f-6f9f-4b4b-b160-56f1892b5cee",
+        "timestamp": "2026-10-02T22:44:42.765Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01ALg3Jcnm46qHVYehLEGC5g",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0040-queue-derived-index.md has been updated successfully."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0040-queue-derived-index.md",
+          "oldString": "- [ ] A ticket the renderer cannot parse is reported, not omitted.",
+          "newString": "- [ ] A ticket the renderer cannot parse is reported, not omitted.\n- [ ] A row of the committed queue table that is not one ticket on a line of the header's width\n  is reported by the check; tested with two rows run together on one line.",
+          "originalFile": "# The queue is read from the tickets rather than transcribed from them\n\n- **Status:** Ready\n- **Type:** HITL\n- **Depends on:** [01-0011.0025](./done/01-0011.0025-archive-duty-reaches-maintain.md) (`/ticket`\n  declared, and the record shape the index is derived from)\n- **Outcome:** The queue's status, type and outcome are derived from the ticket headers that own\n  them, so the queue cannot contradict a ticket, and the pacing prose stays hand-written.\n\n## Parent\n\n[A mechanism has one home for its rules, and a derived index](../spec/01-0011-mechanism-shape.md).\n`/impact`: [the 2026-09-06 split assessment](../spec/01-0011-mechanism-shape.md#impact--2026-09-06).\n\n## Why this exists\n\n[TICKET-FORMAT](../../.agents/skills/ticket/TICKET-FORMAT.md) requires `Outcome` be *copied verbatim\nfrom the ticket header* into the queue table. A copy maintained by hand is not an index; it is a\nsecond home, and it drifts. On 2026-09-06 two rows carried paraphrased outcomes and were repaired by\nhand — and the check that found them exists only because the data is duplicated.\n\n## Decisions this ticket's align owns\n\n- **Whether the rendered table is committed.** The spec says no, on the reasoning that an index kept\n  beside its records is a copy. That reasoning was taken from a tree whose wake hooks inject state\n  into every session. This harness has none, and [AGENTS.md](../../AGENTS.md) routes every session\n  to the queue as the thing that *owns current state and says where to resume*. An uncommitted table\n  makes that routing land on a marker. The live alternative is committed-but-generated with a\n  staleness check, which is not a hand-maintained copy and does not depend on a hook we do not have.\n  Until this is settled the rest of the slice cannot land.\n- What a reader without the tool sees, on the repository host and in a diff.\n- Whether `Last updated` survives at all, given a derived view knows when its records last moved.\n\n## What to build\n\n- The queue declares its own index in its own file, naming the shape and the fields it derives.\n- A renderer that reads `Status`, `Type` and `Outcome` from the ticket headers, and the `done/`\n  segment from where each file actually sits.\n- Pacing prose stays authored. Judgment about where the work stands is not derivable and must not be\n  faked by a generator.\n- `TICKET-FORMAT` loses what nothing copies any more, in every place it says it — ~~all four: the\n  shelf's stated ownership, the placement note, the `Outcome` verbatim rule, and the queue\n  section~~ **five after `.0025`'s rewrite of the shelf, 2026-09-09:** the shelf's stated\n  ownership, the placement note, the queue-row sentence under *One basename per work item*, the\n  *update the queue* convention, and the queue section, now wrapped in a straw dog bound here\n  with the `Outcome` verbatim rule inside it.\n- `/ticket` stops amending a table; `/maintain` stops updating a queue row. **P8 retires with\n  them** *(added 2026-09-09)*: the rule telling the closing pass to delete a row exists only\n  because a person maintains the rows, and a renderer that reads live records drops a closed\n  ticket by construction. Retract it from `ticket.rules.md` rather than leaving it installed.\n- **Whether the render includes archived tickets is already answered**: it does not. The rows for\n  fourteen closed tickets were deleted from the queue by hand on 2026-09-09 *(the user)*, and the\n  shelf now says the row is deleted at close, so the renderer inherits that rule rather than\n  reopening it.\n- `docs/process.md`'s pointer at the removed section is repaired.\n- **The table's rows are whole** *(added 2026-10-03, the user)*: every row of the queue's table\n  holds one ticket on a line of its own, as wide as the table's header, and a row that is not is\n  reported. On 2026-10-03 a hand deletion of one row ran the next two together on one line, which\n  hid `.0020` from the queue, and `tickets.py --check`, which never reads the queue, passed it.\n  Rendered or hand-kept, whatever stands in the committed file is held to this.\n\n## Acceptance criteria\n\n- [ ] The committed-or-not question is settled and recorded here with its reason.\n- [ ] The queue file declares its index, naming shape and fields.\n- [ ] A rendered queue matches every ticket header it derives from.\n- [ ] Editing a ticket's status changes the next render, with no other edit.\n- [ ] A ticket the renderer cannot parse is reported, not omitted.\n- [ ] `TICKET-FORMAT` no longer requires anything to be copied, in any of its ~~four~~ five sites.\n- [ ] Neither `/ticket` nor `/maintain` instructs anyone to amend a table.\n- [ ] The pacing prose is unchanged in kind: still written by whoever ran the pass.\n- [ ] Behavioral tests cover derivation, reflection of an edit, and the unparseable record.\n- [ ] `/verify` has been run on this ticket against its ticket, RFC, and governing docs.\n\n## Out of scope\n\nIndexes for any other register. Wake-time delivery of the index, which needs a hook this harness\ndoes not have — if the align decides an uncommitted table, the reachability gap it opens is named\nand owned rather than assumed away. Session records citing the old table keep their facts.\n\n## Parent scope addressed\n\nStories 8, 9, 10.\n",
+          "structuredPatch": [
+            {
+              "oldStart": 66,
+              "oldLines": 6,
+              "newStart": 66,
+              "newLines": 8,
+              "lines": [
+                " - [ ] A rendered queue matches every ticket header it derives from.",
+                " - [ ] Editing a ticket's status changes the next render, with no other edit.",
+                " - [ ] A ticket the renderer cannot parse is reported, not omitted.",
+                "+- [ ] A row of the committed queue table that is not one ticket on a line of the header's width",
+                "+  is reported by the check; tested with two rows run together on one line.",
+                " - [ ] `TICKET-FORMAT` no longer requires anything to be copied, in any of its ~~four~~ five sites.",
+                " - [ ] Neither `/ticket` nor `/maintain` instructs anyone to amend a table.",
+                " - [ ] The pacing prose is unchanged in kind: still written by whoever ran the pass."
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false,
+          "contentNotInModelContext": true
+        },
+        "sourceToolAssistantUUID": "d73c9f0f-6f9f-4b4b-b160-56f1892b5cee",
+        "promptId": "9fe7f8a0-ffe3-47de-92e3-ab4fe11d8241"
+      },
+      "original_record_sha256": "c8abee74b5ca594bbbea3b66c82869bef8bd65c21e4bffcb871d8a76f08dd637",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2658": {
+      "timestamp": "2026-10-02T22:44:46.695Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "eb23a165-ba7e-409f-b4da-e750d03386fc",
+        "parentUuid": "1dfbe0e7-55a2-4205-8574-b91579cbd688",
+        "timestamp": "2026-10-02T22:44:46.695Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01P9LH5C7rydH3tZJDF5twES",
+              "is_error": false,
+              "content": "tickets exit 0\n M docs/mechanisms/maintenance.md\n M docs/questions/sessions\n M docs/research/entry-contract-findings.md\n D docs/rfc/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md\n M docs/rfc/01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md\n M docs/tickets/01-0011.0040-queue-derived-index.md\n M docs/tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md\n D docs/tickets/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md\n M docs/tickets/README.md\n M docs/tickets/done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md\n?? docs/questions/q-0017-does-working-under-the-harness-deliver-software-better-than-working-without-it-measured-on-the-same-tasks.md\n?? docs/rfc/done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md\n?? docs/tickets/done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "tickets exit 0\n M docs/mechanisms/maintenance.md\n M docs/questions/sessions\n M docs/research/entry-contract-findings.md\n D docs/rfc/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md\n M docs/rfc/01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md\n M docs/tickets/01-0011.0040-queue-derived-index.md\n M docs/tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md\n D docs/tickets/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md\n M docs/tickets/README.md\n M docs/tickets/done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md\n?? docs/questions/q-0017-does-working-under-the-harness-deliver-software-better-than-working-without-it-measured-on-the-same-tasks.md\n?? docs/rfc/done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md\n?? docs/tickets/done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "1dfbe0e7-55a2-4205-8574-b91579cbd688",
+        "promptId": "9fe7f8a0-ffe3-47de-92e3-ab4fe11d8241"
+      },
+      "original_record_sha256": "2fb819496a9a8641d7c6a624dffd0585e54ea25fc86ad6a89c95168382732da6",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2666": {
+      "timestamp": "2026-10-02T22:44:53.984Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "6d66ad9c-9580-46cb-9830-cc31993c7514",
+        "parentUuid": "b35925c7-2f04-4355-8379-e58719c53de8",
+        "timestamp": "2026-10-02T22:44:53.984Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDmL5M2ngaJ4EXDXFRm",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "You're right. [01-0011.0040 queue-derived-index](docs/tickets/01-0011.0040-queue-derived-index.md) already owns the queue, so I backed out my half-written check and put the task there instead. The ticket check is clean.\n\n**Backed out:** my uncommitted edits to `tickets.py` and `test_tickets.py`. Neither file had any other changes.\n\n**Added to `.0040`:**\n- **What to build:** every row of the queue table holds one ticket on its own line, as wide as the table's header, and a row that isn't is reported. It applies whether the table is generated or kept by hand. The bullet records today's incident: the merged rows hid `.0020` from the queue, and `tickets.py --check` passed it because it never reads the queue.\n- **Acceptance criterion:** the check reports such a row, tested with two rows run together on one line.\n\n**Something stale in `.0040`, reported rather than edited:** its first open align question argues *\"This harness has none\"* of the wake hooks that inject state into every session. That's no longer true. Since decision 44, the session-start and per-message hooks run on Claude Code, Codex and Cursor. It's new evidence for whichever way that align decides whether the generated table gets committed, so I've left the decision itself alone.\n\n**Uncommitted:** `.0012`'s close, this `/maintain` pass, and the `.0040` addition. The other session's q-0017 and the sessions file stay out. Shall I commit it as `MAINTAIN` and go on to `/implement` on `.0015`?"
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "11bd92ffee127812018889f304309d8f84396d811fcaa98dcd01ba4e36c1c0e2",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2670": {
+      "timestamp": "2026-10-02T22:45:13.938Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "f6b4f103-62b3-4d20-9c3a-574271a67e87",
+        "parentUuid": "e747ba9e-81db-49cf-a77c-9924b4e143da",
+        "timestamp": "2026-10-02T22:45:13.938Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "please commit. before 0015, why I no longer see the ticket \"at\" at start of turn?"
+        },
+        "promptId": "15176ab4-9818-43f9-9992-63577a4495e8"
+      },
+      "original_record_sha256": "725560802810f22853ec5c199168634a927b96d7e702bc3c0e03b71f36ef02c2",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    }
+  }
+}

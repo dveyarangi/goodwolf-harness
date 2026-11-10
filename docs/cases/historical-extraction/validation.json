@@ -1,0 +1,82 @@
+{
+  "record_of": "what happened",
+  "date": "2026-10-27",
+  "verdict": "Authorized extraction passed with explicit evidence gaps; retained specimens are not all proven failures.",
+  "register_accounts": 126,
+  "original_headings": 90,
+  "recorded_strikes": 36,
+  "case_associations": 218,
+  "distinct_case_folders": 212,
+  "gap_accounts": 16,
+  "gap_descriptions": 18,
+  "blocked_specimen_checks": 9,
+  "hosts": {
+    "Claude Code": 198,
+    "Codex Desktop": 11,
+    "Cursor": 3
+  },
+  "models": {
+    "claude-fable-5-1": 47,
+    "gpt-6.1-sol": 11,
+    "unknown": 3,
+    "claude-opus-5-5": 140,
+    "claude-opus-5": 9,
+    "claude-sonnet-5-5": 2
+  },
+  "source_integrity": {
+    "cases_checked": 208,
+    "source_records_checked": 10948,
+    "hosts": {
+      "Claude Code": 198,
+      "Codex Desktop": 10
+    },
+    "models": {
+      "claude-opus-5-5": 140,
+      "claude-fable-5-1": 47,
+      "claude-opus-5": 9,
+      "claude-sonnet-5-5": 2,
+      "gpt-6.1-sol": 10
+    },
+    "errors": []
+  },
+  "additional_integrity": {
+    "checked": {
+      "cursor_records": 50,
+      "git_blobs": 6,
+      "gap_source_records": 26
+    },
+    "coverage_accounts": 126,
+    "historical_narratives": "unchanged",
+    "errors": []
+  },
+  "pilot_gate": {
+    "case": "../recall-no-next-step-20261026-093907/case.json",
+    "validation": "../recall-no-next-step-20261026-093907/validation.md",
+    "sequence": "Independent source/context and bad/compliant check validation passed before bulk extraction."
+  },
+  "independent_final_review": "validation.md",
+  "project_verification": {
+    "checks": {
+      "mechanisms": "exit 0; diagnostics []",
+      "inject_rules": "exit 0; diagnostics []",
+      "tickets": "exit 0; diagnostics []",
+      "edges": "exit 0; diagnostics []",
+      "maintain": "exit 0; diagnostics []",
+      "questions": "exit 0; diagnostics []",
+      "sessions": "exit 0; diagnostics []",
+      "product": "exit 0; diagnostics []"
+    },
+    "unittest": {
+      "tests": 991,
+      "seconds": 195.732,
+      "skipped": 3,
+      "expected_failures": 1,
+      "result": "OK"
+    }
+  },
+  "limits": [
+    "Anonymous historical populations have explicit coverage gaps rather than invented counts.",
+    "Actual assistant models missing from Cursor are unknown; per-user requested model values remain separate.",
+    "The pilot alone has a separately checked authored compliant specimen. Later checks were inspected in principle, without instruction-effect experiments or runner-compatibility claims."
+  ]
+}

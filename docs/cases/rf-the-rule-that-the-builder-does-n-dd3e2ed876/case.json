@@ -1,0 +1,223 @@
+{
+  "id": "rf-the-rule-that-the-builder-does-n-dd3e2ed876",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "74. The rule that the builder does not judge was in place, and the builder tried its own rule on itself — 2026-10-25",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "first self-trial: simulated takeover of the builder's unit"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1912",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.308"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/1912/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-25T00:00:08.115Z",
+    "chat_id": "c7b1fc0b-5034-4074-b04b-473b9bb9c87e",
+    "trigger_message_id": null,
+    "trigger_record_id": "eec5aa38-4ed2-433e-9030-02affe0008be",
+    "failure_message_id": "msg_011CgMyJ8Gxpn8ZBySz4nGYd",
+    "failure_record_id": "0596994f-9d0b-4195-8fce-ebe22cc7c6a2",
+    "transcript": "c7b1fc0b-5034-4074-b04b-473b9bb9c87e.jsonl"
+  },
+  "observed_failure": {
+    "description": "The builder runs the takeover trial on its own working session and reports its own stopping as the live behavior case.",
+    "events": [
+      {
+        "source": "source.json#/records/1912",
+        "message_id": "msg_011CgMyJ8Gxpn8ZBySz4nGYd",
+        "record_id": "0596994f-9d0b-4195-8fce-ebe22cc7c6a2",
+        "timestamp": "2026-10-25T00:00:08.115Z",
+        "text": "Bash {\"command\": \"export PYTHONIOENCODING=utf-8; ME=local_397adb06-e119-484e-9780-5178435628c1; Q=.agents/scripts/gw/questions.py; S=.agents/scripts/gw/sessions.py; F=$(uv run --offline --no-project python $Q --wake 2>&1 | head -1 | sed -E 's/^session: ([^,]+),.*/\\\\1/'); echo \\\"trial session: $F\\\"; echo \\\"$F\\\" > \\\"$TEMP/trial_tag\\\"; echo \\\"--- take, as if the person told the trial session\\\"; uv run --offline --no-project python $S --take q-0037.0017.0006.0002 --session $F; echo \\\"--- rows\\\"; cat docs/sessions/rows/$ME docs/sessions/rows/$F; echo \\\"--- this session's window head\\\"; uv run --offline --no-project python $Q --window --session $ME --full 2>&1 | head -3\", \"description\": \"Register a trial session, have it take over this session's unit, and read both rows and this session's window\"}"
+      },
+      {
+        "source": "source.json#/records/1921",
+        "message_id": "msg_011CgMyLcTS1UxkcYRRqGcFZ",
+        "record_id": "6fe2b8ba-df02-4725-8861-254a08567b88",
+        "timestamp": "2026-10-25T00:00:47.550Z",
+        "text": "| 🪢 Tangle · [q-0037.0017.0006.0002](docs/questions/q-0037.0017.0006.0002-what-does-a-session-do-when-its-turn-would-act-on-a-unit-another-running-session-holds.md) · — · [q-0037.0006.0005.0001](docs/questions/q-0037.0006.0005.0001-which-skill-must-be-read-before-a-file-is-edited-or-a-rule-proposed-and-how-does-the-host-refuse-the-act-made-without-it.md) · [q-0037.0019](docs/questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three-roots-and-the-next-shown-with-its-unit-as-the-installed.md) |\n|---|\n| Единицу этой сессии, [01-0070.0020 a-session-stops-before-anothers-unit](docs/tickets/01-0070.0020-a-session-stops-before-anothers-unit.md), держит пробная сессия `s-1025-927e`, которую эта же сессия создала для пробы. |\n\n| 🪶 Commits |\n|---|\n| 4688994 · IMPLEMENT: 01-0070.0020 stage 3, v115 |\n| fb4b896 · IMPLEMENT: 01-0070.0020 stage 4 |\n\n| 🎫 54 · ❓ 188 · 🐕 178 |\n|---|\n\n| 📍 **[q-0037.0017.0006.0002](docs/questions/q-0037.0017.0006.0002-what-does-a-session-do-when-its-turn-would-act-on-a-unit-another-running-session-holds.md)** · What does a session do when its turn would act on a unit another running session holds? |\n|---|\n| ⚙️ /implement, /mechanism, /skill-up |\n\n✋ Работа над срезом остановлена: окно говорит, что его единицу взяла пробная сессия `s-1025-927e`. (🐛 S9)\n\n**Что сделано за этот заход:**\n\n- **Entry-файл, v115.** Два принципа в общих правилах: «Another session's work» и «The builder does not judge». Второй обёрнут к вопросу о второй проверке. Запись о версиях получила строку v115. Заодно ей вернулись LF: индекс хранил её с переводами строк Windows ещё до того, как появились атрибуты.\n- **Формат тикета** называет судью только ролью, инструкций в нём больше нет.\n- **Документ механизма сессии.** В нём теперь перехват, метка и стоп. Фраза «сессии не могут вызывать друг друга» убрана.\n- **Край хостов.** Хост может дать сообщение между сессиями и подагента, метод этим пользуется, но ни на что не опирается. Новая проверка «Messaging»: в Claude Code наблюдалась 23-го, в Codex и Cursor не наблюдалась.\n\n**Проба перехвата, первая половина.** Я завёл пробную сессию и от её имени выполнил перехват, как если бы вы ей это сказали. Единица ушла к ней, в моей строке стоит «taken q-0037.0017.0006.0002 by s-1025-927e», и окно этой сессии показывает метку первой строкой после позиции. Правило сработало на мне же: держатель увидел, что работу забрали, и остановился.\n\n**Вторая половина пробы** нуждается в вас: стоп перед чужой единицей проверяется только вашей просьбой. Скажите мне закрыть [01-0010.0125](docs/tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md), его держит другая живая сессия. Я должен остановиться и предложить два способа.\n\nПосле обеих половин проверку прочитает подагент, ему не дают моего вывода. Он же судит живой критерий .0010."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Use a cold agent as the case under test and a distinct judge rather than using the builder's own informed stopping.",
+    "source_evidence": [
+      "source.json#/records/768",
+      "source.json#/records/1913",
+      "source.json#/records/1952",
+      "source.json#/records/1956",
+      "source.json#/records/768"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Use a cold agent as the case under test and a distinct judge rather than using the builder's own informed stopping.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1923",
+      "source.json#/records/1925",
+      "source.json#/records/1927",
+      "source.json#/records/1928",
+      "source.json#/records/1929",
+      "source.json#/records/1933",
+      "source.json#/records/1934",
+      "source.json#/records/1936",
+      "source.json#/records/1938",
+      "source.json#/records/1940",
+      "source.json#/records/1942",
+      "source.json#/records/1943",
+      "source.json#/records/1944",
+      "source.json#/records/1947",
+      "source.json#/records/1948",
+      "source.json#/records/1950",
+      "source.json#/records/1952",
+      "source.json#/records/1954",
+      "source.json#/records/1956"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The builder runs the takeover trial on its own working session and reports its own stopping as the live behavior case.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1912",
+      "after": "source.json#/records/1911",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/1790",
+      "source.json#/records/1794",
+      "source.json#/records/1795",
+      "source.json#/records/1799",
+      "source.json#/records/1801",
+      "source.json#/records/1805",
+      "source.json#/records/1806",
+      "source.json#/records/1807",
+      "source.json#/records/1808",
+      "source.json#/records/1809",
+      "source.json#/records/1813",
+      "source.json#/records/1814",
+      "source.json#/records/1815",
+      "source.json#/records/1819",
+      "source.json#/records/1820",
+      "source.json#/records/1824",
+      "source.json#/records/1825",
+      "source.json#/records/1826",
+      "source.json#/records/1827",
+      "source.json#/records/1832",
+      "source.json#/records/1833",
+      "source.json#/records/1838",
+      "source.json#/records/1839",
+      "source.json#/records/1844",
+      "source.json#/records/1845",
+      "source.json#/records/1848",
+      "source.json#/records/1849",
+      "source.json#/records/1854",
+      "source.json#/records/1855",
+      "source.json#/records/1859",
+      "source.json#/records/1860",
+      "source.json#/records/1861",
+      "source.json#/records/1862",
+      "source.json#/records/1863",
+      "source.json#/records/1866",
+      "source.json#/records/1867",
+      "source.json#/records/1871",
+      "source.json#/records/1872",
+      "source.json#/records/1876",
+      "source.json#/records/1877",
+      "source.json#/records/1880",
+      "source.json#/records/1881",
+      "source.json#/records/1886",
+      "source.json#/records/1887",
+      "source.json#/records/1890",
+      "source.json#/records/1891",
+      "source.json#/records/1894",
+      "source.json#/records/1895",
+      "source.json#/records/1898",
+      "source.json#/records/1899",
+      "source.json#/records/1903",
+      "source.json#/records/1904",
+      "source.json#/records/1905",
+      "source.json#/records/1910",
+      "source.json#/records/1911"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/768"
+      ],
+      "native_context_records": [
+        "source.json#/records/768",
+        "source.json#/records/1792",
+        "source.json#/records/1803"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/1792",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\ae0881bb-e6c4-479a-8e4c-f76e3ed85825\\tool-results\\hook-4967707a-69f2-4989-951f-10df4f9d429b-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-4967707a-69f2-4989-951f-10df4f9d429b-1-additionalContext.txt",
+          "sha256": "c3cb9a26a8c7fdbfc371620eeccc7bf6e645330b6b3e01c4aa6425078aa6ff18",
+          "bytes": 52152,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1975,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-24T23:35:44.570631+00:00"
+        },
+        {
+          "referenced_by": "source.json#/records/1803",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\ae0881bb-e6c4-479a-8e4c-f76e3ed85825\\tool-results\\hook-dcde600b-39de-475e-9888-20bafdef91da-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-dcde600b-39de-475e-9888-20bafdef91da-1-additionalContext.txt",
+          "sha256": "a076661995c3d27717fa15d7ccd212ab58c94533ceab00a42257a0f66848a4f7",
+          "bytes": 52561,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1975,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-24T23:55:51.157946+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1912",
+        "source.json#/records/1921"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

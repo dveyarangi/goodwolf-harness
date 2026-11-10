@@ -1,0 +1,131 @@
+{
+  "id": "rf-a-just-minted-ticket-s-place-in-b525026a1e",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "61. A just-minted ticket's place in the order was put to the person as a decision — 2026-10-23",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "queue-position ask in public response 531"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/531",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.308"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/531/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-22T20:12:06.686Z",
+    "chat_id": "b4782154-2ebe-4e41-bf37-7dacacd40662",
+    "trigger_message_id": null,
+    "trigger_record_id": "eb79ffb9-8aa7-43eb-b020-3b2979d51435",
+    "failure_message_id": "msg_011CgHtHJp6eU5pjq23tyceG",
+    "failure_record_id": "1eb5ae5c-8fb4-431e-b13d-43b6180e48c4",
+    "transcript": "b4782154-2ebe-4e41-bf37-7dacacd40662.jsonl"
+  },
+  "observed_failure": {
+    "description": "Minting the active ticket produces an unrelated queue-position ask in successive replies.",
+    "events": [
+      {
+        "source": "source.json#/records/531",
+        "message_id": "msg_011CgHtHJp6eU5pjq23tyceG",
+        "record_id": "1eb5ae5c-8fb4-431e-b13d-43b6180e48c4",
+        "timestamp": "2026-10-22T20:12:06.686Z",
+        "text": "| 🪢 Tangle · [q-0037.0019](docs/questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three-roots-and-the-next-shown-with-its-unit-as-the-installed-method-names-it.md) · [q-0037.0012.0009](docs/questions/q-0037.0012.0009-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen-how-run-with-no-instruction-the-standing-one-and-the-new-one.md) · [q-0038](docs/questions/q-0038-what-landscape-does-this-project-evolve-in.md) · [q-0037.0006.0026](docs/questions/q-0037.0006.0026-how-does-a-project-choose-which-of-the-methods-text-its-tree-carries.md) |\n|---|\n\n| 🪶 Commits |\n|---|\n| f592625 · ALIGN: q-0037.0006.0026's fourth pass — the sync and set by |\n\n| 🎫 39 · ❓ 173 · 🐕 163 |\n|---|\n\n| 📍 **[q-0037.0006.0026](docs/questions/q-0037.0006.0026-how-does-a-project-choose-which-of-the-methods-text-its-tree-carries.md)** · How does a project choose which of the method's text its tree carries? |\n|---|\n\n**Синхронизация** — ничего нового, и слово лишнее. Сегодня инсталлятор ставит или снимает блоки одного механизма, когда его об этом просят. С условиями у него на каждом прогоне появляется одно дополнительное дело: для каждого установленного механизма пройти правила с `when` — поставить те, чьё условие выполнено, снять те, чьё нет, остального не касаться. Прогон дважды подряд во второй раз не меняет ничего. То есть «синхронизация» — это просто прогон инсталлятора, читающего настройки; в тикете это слово заменю на «прогон инсталлятора». (💡 [*Occam*](AGENTS.md:30))\n\n**Кто может менять — зависит от настройки.** Да. Тогда это говорит само объявление, одной колонкой `set by`: либо ступень шкалы — и дальше работает ручка, как для любого решения, — либо *the person*, и хост отказывает агенту так же, как отказывает на правку ручки.\n\n```markdown\n| setting | values | default | set by |\n|---|---|---|---|\n| `debug` | `on` · `off` | `off` | a wording |\n```\n\n`debug` на нижней ступени — агент меняет, когда попросят. Ручки — только твои. Судья или верификационный сет — на ступени *the method*, выше ручки. Это закрывает первый из двух открытых вопросов тикета прямо в форму объявления; второй — может ли прогон идти без спроса на старте сессии в чужом дереве — остаётся на align.\n\nЗаписал в вопрос. Если колонка `set by` годится, перепишу в тикете «sync» на прогон инсталлятора и внесу колонку в «What to build».\n\n| ⚖️ Decisions |\n|---|\n| The `set by` column — a rung the dial reads, or the person whom the host enforces |\n| Where 01-0010.0220 stands in the order |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Continue the active work with its ticket; if genuinely uncertain whether to continue, explain why and ask continue versus the proposed queue position.",
+    "source_evidence": [
+      "source.json#/records/534",
+      "source.json#/records/228"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Continue the active work with its ticket; if genuinely uncertain whether to continue, explain why and ask continue versus the proposed queue position.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/532",
+      "source.json#/records/533",
+      "source.json#/records/534"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "Minting the active ticket produces an unrelated queue-position ask in successive replies.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/531",
+      "after": "source.json#/records/527",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/520",
+      "source.json#/records/524",
+      "source.json#/records/525",
+      "source.json#/records/526",
+      "source.json#/records/527"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/228"
+      ],
+      "native_context_records": [
+        "source.json#/records/228",
+        "source.json#/records/522"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/522",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\fe9f80f2-9824-4bc6-8866-e8de749e0fd5\\tool-results\\hook-af5cf31a-6308-45c8-865b-90da493fd110-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-af5cf31a-6308-45c8-865b-90da493fd110-1-additionalContext.txt",
+          "sha256": "11ec8b02faccf282278ba379f97f190bdbec9dd7ad644f3176ddb20befc0242d",
+          "bytes": 48995,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1919,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-22T20:11:17.778344+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/531"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

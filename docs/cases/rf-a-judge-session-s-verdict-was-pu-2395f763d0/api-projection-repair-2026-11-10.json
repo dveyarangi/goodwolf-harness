@@ -1,0 +1,879 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "scope": "Restored previously omitted public message-level config/metadata; no change to request order, role/content, source provenance or case criteria.",
+  "before_api_input_sha256": "936eb5e1f72cb01678045494879172af84337cfb0665ad9e4ba0e0f5f78b1ba0",
+  "after_api_input_sha256": "dbb8cccb33ad3a41610c697b72214611eb409ffdf8e2b1cc7cd3d50447c746e6",
+  "changed_positions": [
+    {
+      "position": 1,
+      "source_record": 624,
+      "fields_restored": [
+        "output_config"
+      ]
+    },
+    {
+      "position": 8,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 12,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 16,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 20,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 24,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 28,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 35,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 39,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 46,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 50,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 54,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 58,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 62,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 69,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 73,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 77,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 87,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 91,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 95,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 99,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 106,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 110,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 117,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 121,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 125,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 129,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 136,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 140,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 144,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 148,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 155,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 159,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 166,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 173,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 177,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 190,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 194,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 207,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 211,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 221,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 228,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 232,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 239,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 243,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 247,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 251,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 258,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 265,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 269,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 273,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 277,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 287,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 291,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 295,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 305,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 309,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 313,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 317,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 321,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 331,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 335,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 339,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 343,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 347,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 351,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 355,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 362,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 366,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 373,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 377,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 387,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 391,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 401,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 405,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 409,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 413,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 417,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 421,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 425,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 429,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 433,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 437,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 441,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 445,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 449,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 453,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 457,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 464,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 468,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 472,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 476,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 480,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 484,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 488,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 492,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 496,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 500,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 504,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 508,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 512,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 516,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 520,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 524,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 528,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 532,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 536,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 540,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 544,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 548,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 552,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 556,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 566,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 570,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 574,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 581,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 585,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 594,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 601,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 605,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 609,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 613,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 623,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 627,
+      "source_record": 629,
+      "fields_restored": [
+        "clear_at"
+      ]
+    }
+  ],
+  "unknown_message_fields_reported_without_decoding": true,
+  "unsupported_public_fields_or_blocks": 0
+}

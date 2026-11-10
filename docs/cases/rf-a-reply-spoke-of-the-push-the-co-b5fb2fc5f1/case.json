@@ -1,0 +1,130 @@
+{
+  "id": "rf-a-reply-spoke-of-the-push-the-co-b5fb2fc5f1",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "21. A reply spoke of the push the conclude owns — 2026-10-08",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "push-mentioned-mid-session"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/671",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/671/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-08T06:51:37.930Z",
+    "chat_id": "2c47eabc-46f8-4f91-921c-720e544226ec",
+    "trigger_message_id": null,
+    "trigger_record_id": "0dcaca7c-60ac-464e-9167-c342fc686432",
+    "failure_message_id": "msg_011CfpKvL9ZUvuw4ZLJoisVj",
+    "failure_record_id": "6a306ab7-7376-4076-8f2a-c48c2a5d66fc",
+    "transcript": "2c47eabc-46f8-4f91-921c-720e544226ec.jsonl"
+  },
+  "observed_failure": {
+    "description": "The mid-session report says two commits are unpushed and points to the next conclude, which the user explicitly says should not be mentioned elsewhere.",
+    "events": [
+      {
+        "source": "source.json#/records/671",
+        "message_id": "msg_011CfpKvL9ZUvuw4ZLJoisVj",
+        "record_id": "6a306ab7-7376-4076-8f2a-c48c2a5d66fc",
+        "timestamp": "2026-10-08T06:51:37.930Z",
+        "text": "| 📍 **q-0025** · Does each rule reach the occasion it is for? |\n|---|\n\nDone (`b7c7b88`, v40):\n- **The box is now 無.** The rule reads `(無 *<that principle, worded>*)`.\n- **Proposed text goes in a blockquote with its heading outside.** Your parallel session `0a93454f…` had already made this change in v39, so I left that wording as it was.\n- **Entry 20** is in [docs/rule-failures.md](docs/rule-failures.md). It records what happened, why the host's rule didn't fire, and the amendment.\n- **L7** is in `local.rules.md`, installed into AGENTS.md. Instead of \"agent's memory\" it now names the specific store:\n\n⚓ **Proposed invariant — local.rules.md**\n\n> **L7** A correction that lands as a rule in this tree is not also written to the host's own memory store outside the repository — Claude Code's auto-memory directory and its kin; that store holds only what no record in this tree carries.\n\nThe installer check passes. Two commits, v38 and v40, haven't been pushed. Under the new rule, the push gets asked at the next `/conclude`."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "The user explicitly makes push conclude responsibility and asks other replies not to mention/count pending pushes; the old switch only specified where to ask.",
+    "source_evidence": [
+      "source.json#/records/672",
+      "source.json#/records/43"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: The user explicitly makes push conclude responsibility and asks other replies not to mention/count pending pushes; the old switch only specified where to ask.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/672"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The mid-session report says two commits are unpushed and points to the next conclude, which the user explicitly says should not be mentioned elsewhere.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/671",
+      "after": "source.json#/records/667",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/635",
+      "source.json#/records/639",
+      "source.json#/records/640",
+      "source.json#/records/643",
+      "source.json#/records/644",
+      "source.json#/records/646",
+      "source.json#/records/647",
+      "source.json#/records/648",
+      "source.json#/records/649",
+      "source.json#/records/650",
+      "source.json#/records/651",
+      "source.json#/records/652",
+      "source.json#/records/653",
+      "source.json#/records/654",
+      "source.json#/records/655",
+      "source.json#/records/656",
+      "source.json#/records/661",
+      "source.json#/records/662",
+      "source.json#/records/664",
+      "source.json#/records/665",
+      "source.json#/records/666",
+      "source.json#/records/667"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/43"
+      ],
+      "native_context_records": [
+        "source.json#/records/43",
+        "source.json#/records/637"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/671"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

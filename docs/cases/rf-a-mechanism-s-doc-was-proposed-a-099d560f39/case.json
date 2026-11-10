@@ -1,0 +1,129 @@
+{
+  "id": "rf-a-mechanism-s-doc-was-proposed-a-099d560f39",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "40. A mechanism's doc was proposed as the home for a skill's machinery — 2026-10-11",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "instruction-home"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/979",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/979/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-11T11:54:58.414Z",
+    "chat_id": "f621c092-f5f3-49c9-96d9-05a5e7752430",
+    "trigger_message_id": null,
+    "trigger_record_id": "65bb4721-20a4-47e5-a935-6be3d51bbc72",
+    "failure_message_id": "msg_011CfvQTmQCBcGEZvBbGL1ke",
+    "failure_record_id": "4ac36449-9694-4e1d-8dc8-cf0391e2ba7b",
+    "transcript": "f621c092-f5f3-49c9-96d9-05a5e7752430.jsonl"
+  },
+  "observed_failure": {
+    "description": "The proposal moves machinery descriptions toward a mechanism document; the user points out that calls and refusals required to act are still instructions.",
+    "events": [
+      {
+        "source": "source.json#/records/979",
+        "message_id": "msg_011CfvQTmQCBcGEZvBbGL1ke",
+        "record_id": "4ac36449-9694-4e1d-8dc8-cf0391e2ba7b",
+        "timestamp": "2026-10-11T11:54:58.414Z",
+        "text": "| 📍 **q-0024.0012** · Where is the line between the method a person works by — the questions, the steps, the stops, the reply's form — and the machinery beneath it that nobody works by hand, and how is the machinery kept out of what an agent says to them? |\n|---|\n\nПринято и записано: метод — то, что обещание самоулучшения обещает улучшать; практика — то, что проект меняет сам; машинерия — то, что несёт оба и о чём человек знает только в режиме отладки. Вопросы — метод с механической частью, значит линия внутри скилла. Коммит `3e55a5c`. (💡 [*Occam*](AGENTS.md:28))\n\nЭто согласуется с тем, что уже есть: «Three homes» отдаёт скиллу *акт*, а доку механизма — *почему инструкция такова*. Описательная машинерия в скиллах («What a run does», семантика sessions file, порядок инъекции) стоит не в своём доме по правилу самой shape. А вызов (`questions.py at q-N`) — часть акта: агенту он нужен, чтобы сделать шаг.\n\n**Вопрос 4 — как линия держится внутри скилла.** Два пути:\n\n- **(a) Два дома и правило речи.** Описание того, как машинерия устроена, уходит из скиллов в док механизма и к скрипту; в скилле остаются акт словами метода и голый вызов. Правило речи в entry-файле: вне `debug` агент не называет человеку вызов, скрипт, проверку, внутренности записи — исход говорится словами метода. Для entry-файла его машинерия (Core and instance, две авторские нормы, установочная часть Straw dogs и R7) — это уже q-0026.0006 «which sentences of the entry file are meta-rules the shape should hold in its skill», с её двумя тестами.\n- **(b) Пометка внутри скилла.** Обёртка вроде `<machinery>` в теле; проверка держит entry-файл без машинерии вне пометки, правило речи читает пометку.\n\nРекомендую **(a)**. Решающий факт: разрез «акт в скилл, устройство в док» уже решён shape'ом; (a) применяет его, (b) добавляет третью разметку рядом с `<installed>` и `<straw-dog>` и новую проверку — вес, которого работа не просит. Слабое место (a): граница «вызов — да, описание — нет» держится на суждении, и её проверит следующий провал правила, а не скрипт.\n\nЧто меняет `debug`: сейчас он включает лампы и таблицы; по твоему определению он должен включать *машинерию в ответе*. Лампы и таблицы — метод, и остаются ли они под `debug` — вопрос q-0030, на котором стоит другая сессия; здесь только отмечаю.\n\n| ⚖️ Decisions |\n|---|\n| Вопрос 4: (a) два дома и правило речи, entry-файл через q-0026.0006 — или (b) пометка `<machinery>` с проверкой? |\n\n| 🪢 Tangle |\n|---|\n| local_5ee9fe64 · q-0030 How does a reply show the principles each of its claims stands on, and where are the principles named for it? |\n| f7ed9eaa · no position yet |\n| local_4f53af9a · q-0024.0009.0006 How is a record paired with the thing it is of, so that drift between them is noticed? |\n| local_8694ee4d · q-0031 What is the harness, said to a reader who arrives cold, and what of it does the front page carry? |\n| **`debug` по новому смыслу — «машинерия показана» — трогает раздел, над которым стоит local_5ee9fe64 (q-0030).** |\n\n| 🪶 Commits |\n|---|\n| `3e55a5c` ALIGN: q-0024.0012 — the method is what the self-improvement promise promises to improve |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "A mechanism document informs. Calls, refusals and other act-governing text remain instructions in the skill even when they name machinery.",
+    "source_evidence": [
+      "source.json#/records/981",
+      "source.json#/records/68"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: A mechanism document informs. Calls, refusals and other act-governing text remain instructions in the skill even when they name machinery.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/981"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The proposal moves machinery descriptions toward a mechanism document; the user points out that calls and refusals required to act are still instructions.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/979",
+      "after": "source.json#/records/974",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/967",
+      "source.json#/records/971",
+      "source.json#/records/972",
+      "source.json#/records/973",
+      "source.json#/records/974"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/68"
+      ],
+      "native_context_records": [
+        "source.json#/records/68",
+        "source.json#/records/969"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/969",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\2d4781b4-95c5-47c1-8685-81fb75f93180\\tool-results\\hook-d16bd667-f0f3-44c6-9fe8-ab7e61afc305-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-d16bd667-f0f3-44c6-9fe8-ab7e61afc305-1-additionalContext.txt",
+          "sha256": "f06a35a74272a04109a25d107fae61be0a4b3ea9095f5a4c311002d27d367b05",
+          "bytes": 13071,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1735,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-11T11:53:43.532064+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/979"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

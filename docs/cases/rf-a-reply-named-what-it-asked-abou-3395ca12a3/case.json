@@ -1,0 +1,114 @@
+{
+  "id": "rf-a-reply-named-what-it-asked-abou-3395ca12a3",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "17. A reply named what it asked about by bare ids — 2026-10-03",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "four-point clarification by bare IDs"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1761",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/1761/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-03T07:40:34.643Z",
+    "chat_id": "27fb8892-59e6-4bbc-9605-a2d7aa4d3c70",
+    "trigger_message_id": null,
+    "trigger_record_id": "305618d8-5cde-4382-99ea-b6c46a0d218f",
+    "failure_message_id": "msg_011Cfevc1XeuFnTabAJBfG2H",
+    "failure_record_id": "f2f84772-fb1f-4af9-8277-9b6c8103d9bc",
+    "transcript": "27fb8892-59e6-4bbc-9605-a2d7aa4d3c70.jsonl"
+  },
+  "observed_failure": {
+    "description": "Four-point reply names an unminted question through a ticket number and uses bare owner/question IDs.",
+    "events": [
+      {
+        "source": "source.json#/records/1761",
+        "message_id": "msg_011Cfevc1XeuFnTabAJBfG2H",
+        "record_id": "f2f84772-fb1f-4af9-8277-9b6c8103d9bc",
+        "timestamp": "2026-10-03T07:40:34.643Z",
+        "text": "| ↳ **q-0001** · How are the open questions of this tree kept, so that none is lost? |\n|---|\n\nПочти все пункты переносятся просто: «Whether X» превращается в вопрос «Does X?», а сам текст пункта становится телом записи. Четыре случая так не укладываются. Ниже по каждому: что написано в тикете, что я предлагаю и почему.\n\n## 1. Пункт про `/recall` в тикете .0105\n\n**В тикете** [01-0010.0105 backlog-five-arrive](docs/tickets/01-0010.0105-backlog-five-arrive.md) (адаптации пяти навыков) среди открытых вопросов стоит: «является ли `/recall` файлом инструкций пейсера, а не отдельным механизмом». И тут же написано, что вопрос поднят на [01-0020 pacer](docs/tickets/01-0020-pacer.md), решать его здесь — значит разделить один механизм между двумя тикетами.\n\n**Предлагаю:** запись кладётся не под вопрос .0105, а под вопрос 01-0020, владелец — 01-0020. Поэтому в дереве выше её нет. Решение 1 говорит: если пункт указывает на чужой вопрос, он становится записью у настоящего владельца, а не копией в тикете.\n\n**Альтернатива:** оставить под .0105.\n\n## 2. «Who sits on the adoption panel» в тикете .0190\n\n**В тикете** [01-0010.0190 core-is-published-as-a-release](docs/tickets/01-0010.0190-core-is-published-as-a-release.md) (публикация ядра релизами) это длинный пункт про панель читателей, которая оценивает каждый релиз. Внутри смешано два рода текста:\n- **уже решённое тобой 26 сентября:** в панели остаются пятеро читателей; вопрос к ним разделён на два («было бы лучше, и что изменило бы ответ» отдельно от «чему поверить») и никогда не подменяется одним; панель запускается с чистого листа, вне этого репозитория;\n- **открытое:** вердикт панели блокирует публикацию или только информирует её.\n\n**Предлагаю:** решённое уходит в *What to build* тикета дословно, потому что по решению 1 в открытых вопросах не остаётся решённого. Открытая часть становится записью «Do the adoption panel's verdicts gate a publish or only inform it?», а весь пункт целиком — её телом.\n\n**Альтернатива:** весь пункт в тело одной записи, решённое никуда не выносить.\n\n## 3. «The published repository has no front page» в тикете .0190\n\n**В тикете** это не вопрос, а находка: опубликованный репозиторий открывается ничем. Пункт сам говорит, что нужно: главная страница, которая публикуется рядом с манифестом и никогда не устанавливается получателю, проходит правило утечек и несёт рядом лицензию и диаграмму цикла.\n\n**Предлагаю:** это недоделанная работа, поэтому она уходит в *What to build* тикета .0190, а не в запись.\n\n**Альтернатива:** сделать вопрос «Where is the release's front page published from?». Но пункт сам на него отвечает: рядом с манифестом.\n\n## 4. Вопрос про сессии за пределами одной папки\n\n**В хранилище** есть открытый вопрос q-0001.0010 «How do running sessions reach each other beyond one working directory?». Владелец у него 01-0010, потому что работу делает харнесс, но лежит он под q-0001, вопросом самого хранилища.\n\n**Предлагаю:** оставить где лежит, ведь по смыслу это часть вопроса хранилища. Цена: когда смотришь поддерево вопроса 01-0010 (`--tree q-0020`), его там не видно.\n\n**Альтернатива:** перенести под вопрос 01-0010. Тогда он виден из тикета, но уходит из дерева хранилища.\n\n---\n\nПо каждому из четырёх — да или правка? Остальное дерево — как показано выше."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Write the actual unminted question in words; link existing tickets with usable names.",
+    "source_evidence": [
+      "source.json#/records/43",
+      "source.json#/records/1475",
+      "source.json#/records/1475"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Write the actual unminted question in words; link existing tickets with usable names.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1765"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "Four-point reply names an unminted question through a ticket number and uses bare owner/question IDs.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1761",
+      "after": "source.json#/records/1758",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/1743",
+      "source.json#/records/1752",
+      "source.json#/records/1757",
+      "source.json#/records/1758"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/1475"
+      ],
+      "native_context_records": [
+        "source.json#/records/43",
+        "source.json#/records/1475",
+        "source.json#/records/1754"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1761"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

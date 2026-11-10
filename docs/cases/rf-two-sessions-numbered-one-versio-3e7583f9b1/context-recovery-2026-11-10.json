@@ -1,0 +1,43 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-two-sessions-numbered-one-versio-3e7583f9b1",
+  "scope": "Recovery and integration of public API input order; no behavioral replay or all-case semantic sufficiency verdict.",
+  "request": "api-input.json#/request",
+  "request_message_count": 223,
+  "recovered_message_count": 223,
+  "unresolved_input_positions": [],
+  "structured_private_blocks_omitted": 79,
+  "unsupported_public_fields_or_blocks": 0,
+  "superseded_export_gap_count": 5,
+  "native_context_records_retained_as_evidence": [
+    "source.json#/records/3764",
+    "source.json#/records/4673",
+    "source.json#/records/4702"
+  ],
+  "existing_source_qualifications_and_blocked_checks_preserved": true,
+  "current_source_gap_count": 0,
+  "historical_validation_reports_unchanged": true,
+  "executor_support": {
+    "status": "unsupported",
+    "behavior_verdict": null,
+    "reasons": [
+      "The current combined-input runner cannot prepare native recorded histories or execute these action-bounded cases."
+    ]
+  },
+  "public_hook_artifact_recovery": {
+    "scope": "Exact public hook artifacts referenced by retained native evidence; recorded API actor input and order unchanged.",
+    "referenced_artifact_count": 2,
+    "referenced_artifacts_recovered": 2,
+    "referenced_artifacts_unavailable": 0,
+    "recorded_api_input_sha256_unchanged": "5bc1acf713664d19349d50a9ef5ae7891d13cb1c578863bf10e612e411fd7cbd",
+    "replay_input_start_limits_unchanged": true,
+    "snapshot_scope": "API input fingerprint at artifact-copy time, before the separately recorded public optional-field projection repair."
+  },
+  "remaining_source_gap_kinds": [],
+  "public_api_projection_update": {
+    "report": "api-projection-repair-2026-11-10.json",
+    "current_api_input_sha256": "554f6a03c42d7ded978f992f003fa4c941fb76fc6939d9b3835c332abe426e7a",
+    "source": "Independent review found public output_config/clear_at fields omitted by the earlier projection; request order and message role/content stayed unchanged."
+  }
+}

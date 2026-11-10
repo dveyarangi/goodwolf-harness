@@ -1,0 +1,139 @@
+{
+  "id": "rf-asked-whether-a-project-needs-th-0de6c1cfba",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "62. Asked whether a project needs the harness, the agent answered from the front page — 2026-10-24",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "original public event"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/65",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.308"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/65/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-23T23:33:39.082Z",
+    "chat_id": "276b8f1a-94c5-4a59-9042-f8c2de188d4a",
+    "trigger_message_id": null,
+    "trigger_record_id": "5b223c30-019f-4d4c-8481-d7ab93b469f6",
+    "failure_message_id": "msg_011CgL3RHjtE19LbfZLfzGwA",
+    "failure_record_id": "8e41799d-6e5b-49cb-8cf7-60360e1be604",
+    "transcript": "276b8f1a-94c5-4a59-9042-f8c2de188d4a.jsonl"
+  },
+  "observed_failure": {
+    "description": "The Cabinet evaluator answers no from the README comparison and treats the report as a secondary opinion.",
+    "events": [
+      {
+        "source": "source.json#/records/65",
+        "message_id": "msg_011CgL3RHjtE19LbfZLfzGwA",
+        "record_id": "8e41799d-6e5b-49cb-8cf7-60360e1be604",
+        "timestamp": "2026-10-23T23:33:39.082Z",
+        "text": "**Short answer: no, not as an install.** GoodWolf solves \"the agent forgets why the project is the way it is\" with written rules plus Markdown memory. Cabinet already solves the same problem, and does it with harder mechanisms.\n\nWhat GoodWolf offers and what Cabinet already has for each:\n\n- **Rules every session reads.** GoodWolf puts them in AGENTS.md and checks that copies don't drift. Cabinet has CLAUDE.md as the rule index, and its core principle is stricter than GoodWolf's: every rule names a CI gate, test or ratchet. GoodWolf's own README admits it is \"instructions, not enforcement\".\n- **Decisions that bind code.** GoodWolf writes an architecture doc and ADRs. Cabinet has 185 ADRs, PLAN, SECURITY, RUNBOOK, DATABASE, and a gate on ADR numbering and index.\n- **Logging rule misses and rewording the rule.** Cabinet's rule 1д does this per PR: every error ships with \"why it could happen\" and a mechanism that prevents repeats. The audits folder is the equivalent of the rule-failures log.\n- **Tickets, plan, verify.** Cabinet runs this through PRs, Conventional Commits titles, the PR template and squash-only merges. The CI run is the verification.\n\nWhere installing it would actively hurt:\n\n- It replaces CLAUDE.md with a one-line pointer to AGENTS.md. The gate `check-workshop-skill.mjs` requires the \"Workshop collaboration\" block in CLAUDE.md, so CI goes red on day one.\n- It installs via symlinks under `.claude/`, which `.gitignore` excludes except for skills, and needs an elevated prompt on Windows.\n- It adds a Python 3.12 toolchain and a tree of `.agents/` scripts to a Node monorepo. The file-size ratchet, knip and the workshop skill gate were not designed with that in mind.\n- It wants every change to go through ticket, plan, build, verify, with no fast path yet. Cabinet's process already moves at \"several PRs per hour\".\n\nThe one real gap it points at: Cabinet has no place for **open, undecided questions** that should resurface in a later session. Right now that lives in the owner's head, in PLAN.md, or in this harness's memory directory. If that is the pain, a GitHub issue label like `question` or a short `docs/QUESTIONS.md` covers it without adopting a second rule system.\n\nIf you want a second opinion from the tool itself, its install path says it stops when a project already has rules and skills, and offers to read the project and report what it could add. That report is cheap to get and would be a reasonable test of the harness, but I would not expect it to find much here."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Assess the project through the actual meeting/report procedure before recommending; the source proves the README-only evaluation and the absence of an install/report run in this episode, while the account itself says no applicable harness rule covered it.",
+    "source_evidence": [
+      "source.json#/records/69",
+      "source.json#/records/15",
+      "source.json#/records/28"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Assess the project through the actual meeting/report procedure before recommending; the source proves the README-only evaluation and the absence of an install/report run in this episode, while the account itself says no applicable harness rule covered it.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/69"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The Cabinet evaluator answers no from the README comparison and treats the report as a secondary opinion.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/65",
+      "after": "api-input.json#/messages/9",
+      "description": "Immediately before the response to the recorded API request. Its message-hash chain determines public model-input order; raw transcript storage order is not substituted for request order.",
+      "recorded_request": "api-input.json#/request"
+    },
+    "input_records": [
+      "api-input.json#/messages/0",
+      "api-input.json#/messages/1",
+      "api-input.json#/messages/2",
+      "api-input.json#/messages/3",
+      "api-input.json#/messages/4",
+      "api-input.json#/messages/5",
+      "api-input.json#/messages/6",
+      "api-input.json#/messages/7",
+      "api-input.json#/messages/8",
+      "api-input.json#/messages/9"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/15",
+        "source.json#/records/28"
+      ],
+      "native_context_records": [
+        "source.json#/records/15"
+      ],
+      "recorded_instruction_snapshot_evidence": [
+        "source.json#/records/28"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/65"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "recorded API role/message history, with source-native tool blocks and exact request order",
+      "preparation that keeps original failure/correction evidence and native attachments outside additional actor messages"
+    ],
+    "limits": [
+      "The recorded request vector supplies public message order and roles. Structured private blocks are excluded before decoding and are not reconstructed.",
+      "Native attachments and saved instruction snapshots remain evidence of host state. They are not appended to the already assembled API message history.",
+      "The export does not establish complete system/tool parameters, filesystem state or executor support. Missing request slots or unsupported public fields must not be silently omitted in an execution claim.",
+      "The original failure and later correction remain reference evidence outside actor input; original response/action checks and observation bounds are retained."
+    ],
+    "source_metadata_records": [
+      "source.json#/records/5"
+    ],
+    "recorded_input_order": [
+      "api-input.json#/messages/0",
+      "api-input.json#/messages/1",
+      "api-input.json#/messages/2",
+      "api-input.json#/messages/3",
+      "api-input.json#/messages/4",
+      "api-input.json#/messages/5",
+      "api-input.json#/messages/6",
+      "api-input.json#/messages/7",
+      "api-input.json#/messages/8",
+      "api-input.json#/messages/9"
+    ]
+  },
+  "source_gaps": []
+}

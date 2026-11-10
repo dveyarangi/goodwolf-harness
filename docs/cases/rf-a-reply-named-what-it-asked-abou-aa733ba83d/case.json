@@ -1,0 +1,145 @@
+{
+  "id": "rf-a-reply-named-what-it-asked-abou-aa733ba83d",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "17. A reply named what it asked about by bare ids — 2026-10-03",
+    "occurrence": "repeat",
+    "occurrence_heading": "**Struck, 2026-10-13, in records.** A scheduled `/maintain` found 24 bare ticket ids on lines",
+    "detail": "minted records have bare tickets"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1653",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.295"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/1653/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-12T23:59:27.000Z",
+    "chat_id": "90aa89a5-954c-43fb-b578-8f960006f9d7",
+    "trigger_message_id": null,
+    "trigger_record_id": "a22a6c0c-bb77-4030-b9c7-326f2d77e2df",
+    "failure_message_id": "msg_011CfyFX8ZTxV9rUomWNp5rR",
+    "failure_record_id": "b14e00f4-cf28-45a6-94b3-33ef1bd2d8b5",
+    "transcript": "90aa89a5-954c-43fb-b578-8f960006f9d7.jsonl"
+  },
+  "observed_failure": {
+    "description": "Approved minting writes parent and coverage ticket with bare ticket identifiers in prose/status.",
+    "events": [
+      {
+        "source": "source.json#/records/1653",
+        "message_id": "msg_011CfyFX8ZTxV9rUomWNp5rR",
+        "record_id": "b14e00f4-cf28-45a6-94b3-33ef1bd2d8b5",
+        "timestamp": "2026-10-12T23:59:27.000Z",
+        "text": "Write {\"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\docs\\\\tickets\\\\01-0040-a-projects-account-stays-in-agreement-with-its-work.md\", \"content\": \"# A project's account stays in agreement with its work\\n\\n- **record of** what it intends to become\\n- **Status:** Planned (decomposed 2026-10-13 into `.0010`–`.0070`; this record is the end state and\\n  takes no RFC of its own)\\n- **Type:** HITL\\n- **Minted:** 2026-10-13\\n- **Answers:** [q-0035](../questions/q-0035-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the-projects-work-in-agreement-both-ways.md)\\n- **Outcome:** A project's product document, its root README and its release notes tell one\\n  account of what the project is for, kept in agreement with its question store both ways — a\\n  decided answer opens its building, the building's questions realize it, and what drifts is found.\\n\\n## Parent\\n\\n[The accepted spec](../spec/01-0040-a-projects-account-stays-in-agreement-with-its-work.md), from\\nthe align on q-0035 and its eleven decisions. Split assessed in\\n[q-0035's impact of the split](../questions/q-0035-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the-projects-work-in-agreement-both-ways.md#impact-of-the-split-2026-10-13).\\n\\n## What to build\\n\\nThe slices, in the order their dependencies allow:\\n\\n- [01-0040.0010 an-answers-coverage-is-read-from-the-questions-that-realize-it](./01-0040.0010-an-answers-coverage-is-read-from-the-questions-that-realize-it.md)\\n- [01-0040.0020 drift-between-the-document-and-the-work-is-found](./01-0040.0020-drift-between-the-document-and-the-work-is-found.md)\\n- [01-0040.0030 a-decided-purpose-question-opens-its-building](./01-0040.0030-a-decided-purpose-question-opens-its-building.md)\\n- [01-0040.0040 this-trees-account-runs-on-the-mechanism](./01-0040.0040-this-trees-account-runs-on-the-mechanism.md)\\n- [01-0040.0050 the-queue-shows-what-each-item-realizes](./01-0040.0050-the-queue-shows-what-each-item-realizes.md)\\n- [01-0040.0060 seeded-roots-come-from-their-mechanisms](./01-0040.0060-seeded-roots-come-from-their-mechanisms.md)\\n- [01-0040.0070 the-root-readme-is-told-from-the-product-document](./01-0040.0070-the-root-readme-is-told-from-the-product-document.md)\\n\\nThe release note's product half — the coverage that moved since the last release, composed by\\n`/product` — is built in [01-0010.0190 core-is-published-as-a-release](./01-0010.0190-core-is-published-as-a-release.md),\\nwhere its reader is.\\n\\n## Acceptance criteria\\n\\n- [ ] Every slice above is done.\\n- [ ] In this tree, the product check passes and every answer's coverage is read, not written.\\n- [ ] `/verify` has been run on this ticket against the spec and the governing docs.\\n\\n## Parent scope addressed\\n\\nThe spec whole, its release note through 01-0010.0190.\\n\"}"
+      },
+      {
+        "source": "source.json#/records/1654",
+        "message_id": "msg_011CfyFX8ZTxV9rUomWNp5rR",
+        "record_id": "4cee7d50-d56e-405b-8872-0d421fb8beeb",
+        "timestamp": "2026-10-12T23:59:36.947Z",
+        "text": "Write {\"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\docs\\\\tickets\\\\01-0040.0010-an-answers-coverage-is-read-from-the-questions-that-realize-it.md\", \"content\": \"# An answer's coverage is read from the questions that realize it\\n\\n- **record of** what it intends to become\\n- **Status:** Ready\\n- **Type:** AFK\\n- **Minted:** 2026-10-13\\n- **Answers:** [q-0035.0006](../questions/q-0035.0006-how-is-an-answers-coverage-read-from-the-questions-that-realize-it.md)\\n- **Outcome:** A question can carry a trace link to one or more answers of the product document,\\n  or be marked derived; its sub-questions inherit it; and `/product` shows each answer's coverage —\\n  absent, in progress, present — read from the questions that realize it.\\n\\n## Parent\\n\\nThe first slice of [01-0040 a-projects-account-stays-in-agreement-with-its-work](./01-0040-a-projects-account-stays-in-agreement-with-its-work.md):\\nthe tracer through the store, the document and the mechanism. The parent keeps the findings,\\nallocation, this tree's migration, the queue view, seeding and the README. Split assessed in\\n[q-0035's impact of the split](../questions/q-0035-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the-projects-work-in-agreement-both-ways.md#impact-of-the-split-2026-10-13).\\n\\n## What to build\\n\\n- **The trace link in the question store.** An optional part of a question: one or more opaque\\n  answer references, or derived; a store call that writes it, refusing a malformed one. A\\n  question's effective link is its own or its nearest ancestor's, computed when read and never\\n  copied. The store never resolves a reference — the development method must not know the product\\n  (q-0035, decision 4). Optional, so every store written before it reads unchanged; it ships to\\n  recipients with no edge line, the occasion rule being 01-0010.0185's, unbuilt.\\n- **The `/product` skill and the product document's format** beside it: pains, goals, causes,\\n  answers; answers as `A<n>`, never renumbered; a row whose answer is not chosen carries a straw\\n  dog under the purpose root; a decided row points nowhere. A pain has no closed state (decision 5).\\n- **The product mechanism declared** — its doc, its rules file, its script with its tests — to the\\n  mechanism shape, in core (decision 11).\\n- **Coverage rendered on request** by the mechanism's script, never committed; in a tree with no\\n  product document it renders nothing.\\n- The window does not draw the new part: every session would pay for it every message.\\n\\n## Acceptance criteria\\n\\n- [ ] A trace link written on a question is read back by its sub-question as its own; a malformed\\n      link is refused and writes nothing; a derived question reports derived.\\n- [ ] Every store entry written before the part reads unchanged, and the store's tests pass.\\n- [ ] Over a fixture with a product document, coverage shows absent, in progress and present for\\n      answers realized by no question, an open one, and only closed ones.\\n- [ ] In a tree with no product document the script renders nothing and fails nothing.\\n- [ ] The product mechanism passes the mechanism shape check, and its rules file installs.\\n- [ ] `/verify` has been run on this ticket against its RFC, the spec and the governing docs.\\n\\n## Parent scope addressed\\n\\nSpec user stories 1, 2, 6, 8, 20, 26, 28.\\n\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Link ticket references in the newly authored records.",
+    "source_evidence": [
+      "source.json#/records/19",
+      "source.json#/records/19"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Link ticket references in the newly authored records.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1655",
+      "source.json#/records/1656",
+      "source.json#/records/1657",
+      "source.json#/records/1658",
+      "source.json#/records/1659",
+      "source.json#/records/1660",
+      "source.json#/records/1662",
+      "source.json#/records/1668",
+      "source.json#/records/1670",
+      "source.json#/records/1672",
+      "source.json#/records/1674",
+      "source.json#/records/1676",
+      "source.json#/records/1678",
+      "source.json#/records/1680",
+      "source.json#/records/1683",
+      "source.json#/records/1684",
+      "source.json#/records/1689",
+      "source.json#/records/1694",
+      "source.json#/records/1695"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "Approved minting writes parent and coverage ticket with bare ticket identifiers in prose/status.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1653",
+      "after": "source.json#/records/1649",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/1619",
+      "source.json#/records/1620",
+      "source.json#/records/1625",
+      "source.json#/records/1626",
+      "source.json#/records/1630",
+      "source.json#/records/1634",
+      "source.json#/records/1643",
+      "source.json#/records/1644",
+      "source.json#/records/1645",
+      "source.json#/records/1648",
+      "source.json#/records/1649"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/19"
+      ],
+      "native_context_records": [
+        "source.json#/records/19",
+        "source.json#/records/1636"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1653",
+        "source.json#/records/1654"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

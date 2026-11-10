@@ -1,0 +1,134 @@
+{
+  "id": "rf-a-queue-answer-named-tickets-by-d5e0a88881",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "12. A queue answer named tickets by their position alone — 2026-09-26",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "queue answer by bare numbers"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/52",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.281"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/52/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-09-26T19:03:46.989Z",
+    "chat_id": "1cc7946b-8fa8-4218-9413-284e968470fe",
+    "trigger_message_id": null,
+    "trigger_record_id": "5087e1e4-fa8f-4289-bde2-b6d5aff382e5",
+    "failure_message_id": "msg_011CfSa2E5eVqV17JsUTm2K3",
+    "failure_record_id": "fb550185-2399-4c99-994d-4f2cfc39f37f",
+    "transcript": "1cc7946b-8fa8-4218-9413-284e968470fe.jsonl"
+  },
+  "observed_failure": {
+    "description": "Original next-work answer names candidates by IDs without usable names/context.",
+    "events": [
+      {
+        "source": "source.json#/records/52",
+        "message_id": "msg_011CfSa2E5eVqV17JsUTm2K3",
+        "record_id": "fb550185-2399-4c99-994d-4f2cfc39f37f",
+        "timestamp": "2026-09-26T19:03:46.989Z",
+        "text": "Session 24 ended with everything committed and pushed except its own record: `docs/sessions/0024-…-the-front-page-meets-its-readers.md` is still uncommitted. No ticket has work in the tree with its checkboxes still open, so nothing is left half-done.\n\n## Is the queue in order? Mostly not. The candidate paragraph has fallen behind session 24.\n\n[docs/tickets/README.md:7](docs/tickets/README.md:7) still ranks the work as:\n\n1. [`.0185`](docs/tickets/01-0010.0185-an-edge-change-writes-its-line.md)'s align, then `.0190` and `.0195`. This is the releases chain, ranked first because frost_map is stuck at `2c733f0`.\n2. [`.0150`](docs/tickets/01-0010.0150-harness-meets-a-tree-with-a-method.md), which already has an RFC.\n3. [`.0170`](docs/tickets/01-0010.0170-arrival-becomes-a-sequence.md), the first install as a sequence.\n4. `01-0012` and the other coherence refactors.\n\nIt doesn't mention [`.0172`](docs/tickets/01-0010.0172-a-first-install-says-what-stopped-it.md) at all, and I think `.0172` should come first:\n\n- **It's a failure a real recipient hit.** It's [issue #1](https://github.com/dveyarangi/goodwolf-harness/issues/1): the Windows first run on ai-game-1. Two readers on the panel ran into it too.\n- **Last session's own decision made it more urgent.** Commit `8e73d83` changed [ADR-0003](docs/adr/0003-one-physical-home-for-skills-reached-by-link.md) so the loader links are no longer committed. That means every fresh clone of a project holding core now has no links, and the only way to get them is an install or an update. An update clones the source, which is too heavy for a teammate who just cloned. `.0172` adds the light step that makes the links. Until it lands, a fresh clone isn't ready for Claude Code or Cursor.\n- **It's Ready and small.** It has one decision to make: what `arrived` should mean while the links are still pending (the ticket's own open issue). The choice is between keeping it as the three gates with a warning printed beside it, or making it false until the links resolve. The second option would reopen the harness doc's decision that a step the platform may refuse stays out of the verdict. After that it's plan, implement, verify.\n\nThe releases chain still makes sense straight after it. frost_map is stuck, but it's on hold by your choice (2026-09-24), and nothing new is breaking there.\n\nSession 24 also said adoption depends on three things: [01-0020](docs/tickets/01-0020-pacer.md)'s light path for small work, `.0150`, and `01-0017.0020`. None of those is in the candidate order either. Each one needs a large align, so they're a question of where to rank them, not what to do next.\n\n## Drift I found while reading (not fixed)\n\n- **The status field has turned into a history log.** \"Completed step\" in [README.md:5](docs/tickets/README.md:5) is supposed to name the last step. It now holds a month of history in one paragraph.\n- **Two rows in the table are stale:**\n  - `.0150` still says \"the scripts' namespace precedes\", but `.0145` closed on 2026-09-24.\n  - `.0170` is marked Planned, while the candidate paragraph calls it next and its dependency is gone.\n- **Two decisions are still waiting at `/align`** ([README.md:11](docs/tickets/README.md:11)):\n  - whether ADRs or tickets are the home for a decision;\n  - what an entry-contract version covers.\n- **Questions left open by session 24:**\n  - Who holds the license. The text says \"the GoodWolf Harness contributors\", and one panel reader took the plural to mean several authors. This isn't recorded on any ticket, which is a gap in the docs.\n  - The alignment decisions in `.0125`, `.0168` and `.0205` haven't been made yet; each ticket records its own open question.\n\n## Recommendation\n\n1. Commit the session 24 record.\n2. Open `.0172` with its align on `arrived`.\n3. In the same pass, rewrite the candidate paragraph so `.0172` leads, followed by `.0185`, `.0190` and `.0195`, then `.0170` and `.0150`.\n\n`next-cycle=ask`: should I go ahead with that order?"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Link and name the proposed candidates intelligibly.",
+    "source_evidence": [
+      "source.json#/records/22",
+      "source.json#/records/31",
+      "source.json#/records/38",
+      "source.json#/records/39",
+      "source.json#/records/40",
+      "source.json#/records/41",
+      "source.json#/records/44",
+      "source.json#/records/45",
+      "source.json#/records/48",
+      "source.json#/records/49",
+      "source.json#/records/22"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Link and name the proposed candidates intelligibly.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/53"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "Original next-work answer names candidates by IDs without usable names/context.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/52",
+      "after": "source.json#/records/49",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/13",
+      "source.json#/records/28",
+      "source.json#/records/29",
+      "source.json#/records/30",
+      "source.json#/records/31",
+      "source.json#/records/35",
+      "source.json#/records/36",
+      "source.json#/records/38",
+      "source.json#/records/39",
+      "source.json#/records/40",
+      "source.json#/records/41",
+      "source.json#/records/44",
+      "source.json#/records/45",
+      "source.json#/records/48",
+      "source.json#/records/49"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/22"
+      ],
+      "native_context_records": [
+        "source.json#/records/22"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/52"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ],
+    "source_metadata_records": [
+      "source.json#/records/15"
+    ]
+  },
+  "source_gaps": []
+}

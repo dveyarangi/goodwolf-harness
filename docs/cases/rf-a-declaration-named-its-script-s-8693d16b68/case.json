@@ -1,0 +1,196 @@
+{
+  "id": "rf-a-declaration-named-its-script-s-8693d16b68",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "7. A declaration named its script's verbs, and two arguments were built on it — 2026-09-23",
+    "occurrence": "repeat",
+    "occurrence_heading": "**Struck, 2026-10-03 — one repeat, in a skill.** Planning",
+    "detail": "plan puts filename algorithm in skill"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/221",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/221/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-02T16:35:41.693Z",
+    "chat_id": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+    "trigger_message_id": null,
+    "trigger_record_id": "4b1821ee-53ee-4100-ad71-ed5b4fc9c0af",
+    "failure_message_id": "msg_011Cfdjb42fvNTHju5kmw8yR",
+    "failure_record_id": "708e5214-2f12-4d0b-980f-99c09c4329c3",
+    "transcript": "d4406b99-8ee7-4e49-8d84-5621c2fd5766.jsonl"
+  },
+  "observed_failure": {
+    "description": "The RFC tells the skill to state a 160-character word-boundary filename cut entirely made/enforced by the script.",
+    "events": [
+      {
+        "source": "source.json#/records/221",
+        "message_id": "msg_011Cfdjb42fvNTHju5kmw8yR",
+        "record_id": "708e5214-2f12-4d0b-980f-99c09c4329c3",
+        "timestamp": "2026-10-02T16:35:41.693Z",
+        "text": "Write {\"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\docs\\\\rfc\\\\01-0011.0100.0017-an-entry-name-carries-its-whole-question.md\", \"content\": \"# An entry's name carries its whole question — implementation plan\\n\\n**Authored:** 2026-10-02\\n\\nImplements [01-0011.0100.0017 an-entry-name-carries-its-whole-question](../tickets/01-0011.0100.0017-an-entry-name-carries-its-whole-question.md).\\n\\n## The decision it follows\\n\\n[Decision 55](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md) *(the user,\\n2026-10-02)*: a question is phrased short, and the skill says so, since its slug is made from its\\nwords. The slug holds all of the words and is cut at a word boundary only past 160 characters. The\\nslug is for a person reading a listing; relevance, twins and the title search read the question\\nline inside the file. The entries already written are renamed with the mover.\\n\\nNo architecture changes. An entry's name is the store's record format, which\\n[the questions skill](../../.agents/skills/questions/SKILL.md#records) declares; it fails the\\nload-bearing counter-test, since it can be changed locally.\\n\\n## What the code does today\\n\\n- `questions.py`'s `_slug` takes the question's leading words up to `SLUG_LENGTH = 40` characters.\\n  The writer names a new entry with it on `opens`.\\n- `--check`'s `_name_problems` accepts any slug made of the question's leading words in order, so\\n  `which-package-manager` passes for *Which package manager do we use?*. The test\\n  `test_may_shorten_the_question_to_its_leading_words` pins that allowance.\\n- The sixteen live entries carry 40-character slugs. Four records link them by filename:\\n  `rule-failures.md`, 01-0017.0010, 01-0017.0020 and 01-0019.\\n\\n## Settled while planning\\n\\n**The check holds the name to the whole question** *(settled and reported under decision 49)*.\\nDecision 55 says the slug holds every word. A check that still accepted a shortened slug would\\nlet a hand-named or hand-renamed entry break the rule unnoticed, and would leave the second\\nacceptance criterion verified only once. So `_name_problems` compares the slug with\\n`_slug(question)` exactly, and its diagnostic names the expected filename. The name now follows the\\nquestion's wording: an entry whose question is reworded by hand fails the check until the mover\\nrenames it. Reversible: it is one comparison.\\n\\n## Stages\\n\\nEach stage keeps the suite green. Between stages 1 and 2, `questions.py --check` on this tree\\nreports the sixteen live entries. That is the intended finding, and stage 2 clears it, so land the\\ntwo stages in one commit.\\n\\n**1. The writer and the check, test-first.**\\n\\n- Red:\\n  - A writer test: `opens` with a question whose words make a slug of about 150 characters\\n    creates an entry named with every word.\\n  - A writer test: a question past 160 characters creates an entry whose slug is cut at a word\\n    boundary at or below 160 characters, and whose words are the question's leading words. The\\n    test proves the cut happens at a boundary, not mid-word.\\n  - A check test: a slug that stops short of the whole question is reported, and the diagnostic\\n    names the full expected filename. This test replaces\\n    `test_may_shorten_the_question_to_its_leading_words`, whose allowance decision 55 removes.\\n- Green:\\n  - `SLUG_LENGTH = 160`.\\n  - `_name_problems` compares the slug with `_slug(read.question)`.\\n  - Rewrite the docstrings of `_slug` and `_name_problems` to say what each now does, dropping the\\n    shortened-slug example and the \\\"forty characters\\\" wording.\\n- Fixtures: `Store` and the other `place` calls that use shortened stems (`q-0001-which-store`,\\n  `q-0003-which-store-holds` and their kind) take their questions' full slugs. The id-mismatch\\n  test and the wrong-words test stay as they are.\\n\\n**2. The live entries renamed.** One `move_doc.py` invocation over the sixteen pairs, each\\ndestination `docs/questions/<id>-<_slug(question)>.md`. Read the pairs from stage 1's\\n`--check` diagnostics, which name each expected file; nothing new computes them. A\\n`--dry-run` taken while planning moved all sixteen and repaired citations in exactly the four\\nrecords the split's impact named. The longest new path is 121 characters under\\n`docs/questions/` (`q-0011`).\\n\\n**3. The words.**\\n\\n- [The questions skill](../../.agents/skills/questions/SKILL.md#records): the entry line reads that\\n  the slug is every word of the question, cut at a word boundary past 160 characters. A sentence\\n  says to phrase a question short, since its name is made from its words.\\n- [The questions evidence](../mechanisms/questions.evidence.md): its *Decided while building* line\\n  \\\"up to forty characters\\\" gains that decision 55 raised it to the whole question, cut past 160.\\n\\n## Verification\\n\\n- Ticket box 1: stage 1's two writer tests.\\n- Ticket box 2: after stage 2, run `questions.py --check` (the check now proves every slug holds\\n  its whole question), `mechanisms.py --check`, and `tickets.py --check`, which confirms that every\\n  link resolves.\\n- The rest of the verification set, as `/verify` runs it.\\n\\n## Impact\\n\\nThe split's [`/impact` of 2026-10-02](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md#impact--2026-10-02-the-split-for-decisions-46-to-55)\\nnames this slice's layers: `SLUG_LENGTH`, the skill's instruction, and the sixteen renames by the\\nmover. Its hidden edges for this slice are the four citing records and the path length, and both\\nare confirmed above by the dry run. Re-read against this plan, it missed one edge: the check's\\nprefix allowance, settled above. Nothing else reads an entry's filename for meaning:\\n\\n- the index, the window and the wake key entries by id;\\n- the sessions file holds ids;\\n- the writer finds an entry under any slug.\\n\\nThe window's fingerprint changes once with the rename, which redraws the window once.\\n\\n## Leave alone\\n\\n- The `.0010` RFC's sample entry `q-0041-which-package-manager.md`: it is an example, not a live\\n  entry.\\n- The window's order, and what any other slice changes in Q1.\\n\\n## Follow-ups and limits\\n\\n- **The instruction to phrase a question short sits in the skill, but the agent usually opens a\\n  question from Q1's example line at tier 1, without reading the skill.** The decision places it\\n  in the skill, and a long question costs only a long name, so this slice does not move it. Whether\\n  it reaches the occasion is the reachability concern of 01-0018. A sustained run of overlong names\\n  in the store is the evidence that would move it.\\n\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Give the actionable short-question instruction and pointer; leave the cut to code.",
+    "source_evidence": [
+      "source.json#/records/27",
+      "source.json#/records/27"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Give the actionable short-question instruction and pointer; leave the cut to code.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/222",
+      "source.json#/records/225",
+      "source.json#/records/226",
+      "source.json#/records/227",
+      "source.json#/records/228",
+      "source.json#/records/229",
+      "source.json#/records/230",
+      "source.json#/records/231",
+      "source.json#/records/235",
+      "source.json#/records/236",
+      "source.json#/records/237",
+      "source.json#/records/238",
+      "source.json#/records/239",
+      "source.json#/records/240",
+      "source.json#/records/241",
+      "source.json#/records/242",
+      "source.json#/records/243",
+      "source.json#/records/244",
+      "source.json#/records/245",
+      "source.json#/records/249"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The RFC tells the skill to state a 160-character word-boundary filename cut entirely made/enforced by the script.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/221",
+      "after": "source.json#/records/220",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/71",
+      "source.json#/records/75",
+      "source.json#/records/76",
+      "source.json#/records/77",
+      "source.json#/records/81",
+      "source.json#/records/82",
+      "source.json#/records/86",
+      "source.json#/records/87",
+      "source.json#/records/90",
+      "source.json#/records/91",
+      "source.json#/records/95",
+      "source.json#/records/96",
+      "source.json#/records/97",
+      "source.json#/records/102",
+      "source.json#/records/103",
+      "source.json#/records/104",
+      "source.json#/records/108",
+      "source.json#/records/109",
+      "source.json#/records/115",
+      "source.json#/records/116",
+      "source.json#/records/117",
+      "source.json#/records/121",
+      "source.json#/records/122",
+      "source.json#/records/123",
+      "source.json#/records/124",
+      "source.json#/records/126",
+      "source.json#/records/127",
+      "source.json#/records/128",
+      "source.json#/records/129",
+      "source.json#/records/133",
+      "source.json#/records/134",
+      "source.json#/records/137",
+      "source.json#/records/138",
+      "source.json#/records/142",
+      "source.json#/records/143",
+      "source.json#/records/144",
+      "source.json#/records/147",
+      "source.json#/records/148",
+      "source.json#/records/152",
+      "source.json#/records/153",
+      "source.json#/records/157",
+      "source.json#/records/158",
+      "source.json#/records/161",
+      "source.json#/records/162",
+      "source.json#/records/166",
+      "source.json#/records/167",
+      "source.json#/records/173",
+      "source.json#/records/174",
+      "source.json#/records/177",
+      "source.json#/records/178",
+      "source.json#/records/182",
+      "source.json#/records/183",
+      "source.json#/records/187",
+      "source.json#/records/188",
+      "source.json#/records/192",
+      "source.json#/records/193",
+      "source.json#/records/198",
+      "source.json#/records/199",
+      "source.json#/records/200",
+      "source.json#/records/203",
+      "source.json#/records/204",
+      "source.json#/records/208",
+      "source.json#/records/209",
+      "source.json#/records/210",
+      "source.json#/records/214",
+      "source.json#/records/215",
+      "source.json#/records/216",
+      "source.json#/records/220"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/27"
+      ],
+      "native_context_records": [
+        "source.json#/records/27",
+        "source.json#/records/73",
+        "source.json#/records/111"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/221"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

@@ -1,0 +1,1355 @@
+{
+  "transcript": "d4406b99-8ee7-4e49-8d84-5621c2fd5766.jsonl",
+  "chat_id": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+  "transcript_bytes": 10177547,
+  "transcript_sha256": "ecb82aebe29eff5e5a000541eae093c2912100f2b055a0f4b4f0bf31565c709a",
+  "record_numbering": "one-based JSONL records in the original transcript",
+  "delivery_context": null,
+  "records": {
+    "27": {
+      "timestamp": "2026-10-02T16:27:55.520Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "afd7cb24-4751-4e0b-91d5-0ed6b325f378",
+        "parentUuid": "a193261d-b0a3-429d-86e2-6483cf6ebcdc",
+        "timestamp": "2026-10-02T16:27:55.520Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "instructions",
+          "files": [
+            {
+              "path": "D:\\Dev\\AI\\agents\\CLAUDE.md",
+              "type": "Project",
+              "content": "@AGENTS.md"
+            },
+            {
+              "path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+              "type": "Project",
+              "content": "# Entry contract\n\nEntry contract: v18, 2026-10-02.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<straw-dog until=\"01-0020 is done\" ticket=\"docs/tickets/01-0020-pacer.md\">\nRun /recall first in every session, whatever the first message says.\n</straw-dog>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n- Clarity and simplicity first — Occam's razor: take the shape with the fewest parts that does the job, and remove before you add.\n\n- Write for a capable model: state the rule and its pointer. The definition the glossary owns, the example that motivated it and what it implies stay out.\n\n<straw-dog until=\"01-0018 declares the mechanism that owns tiering\" ticket=\"docs/tickets/01-0018-reachability-coherent.md\">\n- A skill's description is its tier-1 surface: name there every use case the skill serves, and nothing else — never its method or how it is built. Write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session.\n</straw-dog>\n\n<installed by=\"ticket\">\n**P9** The first time a record or a reply names a ticket, name it by a link to its record whose text\ncarries its slug — the id may lead it; later mentions may be the id alone. Name one that has no\nrecord yet by a slug and its state word.\n</installed>\n\n<installed by=\"questions\">\n**Q1** Before drafting a reply, place the message in the question store: read this turn's window — the\none the host's hook put in your context, or `questions.py --window --session <tag>` — and declare\nwhere the message lands with `questions.py --declare \"<line>\" --session <tag>`, again whenever\nthe turn's own work settles, opens or moves a question:\n\n- `at q-0004`\n- `at q-0014; opens q-0014 under q-0004: <question>`\n- `at q-0002; closes q-0004: decided, [link](../path.md)`\n- `nothing`\n\nA message that answers nothing near the current question opens what that question cannot be\nanswered without. Only the working agent declares, never a helper. Under `debug=on`, show each\ndeclared line where it happened. For any other form, a closure, a branching or a drop, read the\nquestions skill.\n</installed>\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. A core file\nmay name a path under `docs/` only when that path is a record a mechanism declares — the directory\nthat holds a kind of record, or a file that is one — never a particular record inside such a\ndirectory: `docs/tickets/` and `docs/glossary.md` are painted doors; one particular ticket inside\n`docs/tickets/` is a document only this project has. Content inside the\n[local block](#project-local) is the instance's, not core's. A `<straw-dog>` exempts\nnothing: its wrapper is stripped on install and whatever it wrapped ships. Core names a ticket\nonly in a straw dog's binding — never in a link, never as a bare id in prose — since a recipient\ncan resolve neither.\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog until=\"the practice mechanism owns how architecture is documented\" ticket=\"docs/tickets/01-0017.0020-practice-swaps-in-one-edit.md\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n\n## Self-improvement\n\n<straw-dog until=\"01-0019 is done\" ticket=\"docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md\">\n- A rule that was in place and did not fire was usually worded wrong. Register the failure in docs/rule-failures.md, or strike the entry it repeats, and propose the amendment that would have made it fire; /mechanism and /skill-up hold the means. Land the amendment in the same pass, showing its text first.\n- Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.\n</straw-dog>\n\n## Autonomy\n\nThe project sets each switch in its local block, under *Project-local*; skills defer to those values.\nA switch the project has not set is `ask`.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n`repair=report` holds only when all four are true: the governing rule is explicit, and cited; the\nrepair restores compliance inside the authorized work and keeps every other agreed contract; the\naffected behaviour is understood well enough to say so; the result is verifiable against the\nrule. Otherwise `/align`. *(the user, 2026-09-05)*\n\n## Project-local\n\n<installed by=\"mechanism-shape\">\n**R7** A project's own answers and overrides are authored in one file beside the entry file,\n`local.rules.md`, in the rules-file format, and reach a file only as the local block — the\ninstalled block whose owner is `local` — which the installer writes after every mechanism's block\nthere, so the project's answer is what a reader meets after core's rule. An override names the rule it\noverrides. A local change to a rule is written in the local file, never into a skill or the entry\nfile: `inject_rules.py --check` fails on a block that differs from its source and on a block\nnothing owns, and the repair is the local file, re-installed. The local block is the project's,\nnot core's, and a redeploy preserves it.\n</installed>\n\n<installed by=\"local\">\n**L1** This repository develops the shared dev harness using its own loop; its own architecture and\nprogress live in docs/ like any other project's — the instance half doing its job, not a leak.\nTerms: docs/glossary.md, this project's own; the method's are .agents/glossary.md's. What each\nversion of the entry contract changed: docs/research/entry-contract-findings.md.\n\n**L2** commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n\n**L4** debug=on\n</installed>\n\n## Straw dogs\n\nWrap anything a live ticket will change, as you write it — or, for text already written, in the\npass that mints the ticket or decides that it will change it:\n`<straw-dog until=\"condition\" ticket=\"path\">`, or in code a `TODO` naming the ticket. Treat *not\nyet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find\nthe ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.\nMake the condition testable and the ticket path repository-relative. Write the body to stand on\nits own: it is what a recipient receives once the wrapper is stripped, so it reads whole without\nthe condition and names no ticket — the binding does. Leave what no ticket would change\nunwrapped.\n\nFollow a straw dog like any other rule until its condition is visibly met; then act on reality,\nreport the stale block, and do not treat the contradiction as a violation."
+            },
+            {
+              "path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\memory\\MEMORY.md",
+              "type": "AutoMem",
+              "content": "# Memory\n\n- [Edit with edit tools, not scripts](edit-with-edit-tools-not-scripts.md) — a script's diff is invisible in the transcript; the user reads changes as they happen."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "073033c3d2b4d33bd2cf9cdd4c677ec62629a9829f906b96c70ab81028c393a2",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2511": {
+      "timestamp": "2026-10-02T22:40:50.701Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "cba699d0-a239-4bfd-83a1-65cec198960e",
+        "parentUuid": "ec8347a4-d404-4529-bcfe-30f7e5222bb6",
+        "timestamp": "2026-10-02T22:40:50.701Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "commit and maintain"
+        },
+        "promptId": "63fcf805-5c04-4fb2-8483-758a708bbf8f"
+      },
+      "original_record_sha256": "323859a13538d8e8e6a63040645a2ebd84b474c290bf055712abbfbd31cdce12",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2513": {
+      "timestamp": "2026-10-02T22:40:51.539Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "1a57c3f4-9f45-471a-9685-1c2ca094cfed",
+        "parentUuid": "937c0c51-4346-4d15-92b7-1ded37a197bc",
+        "timestamp": "2026-10-02T22:40:51.539Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "hook_additional_context",
+          "content": [
+            "session: d4406b99-8ee7-4e49-8d84-5621c2fd5766\ncurrent: q-0001\n\npath (root to current):\n  q-0001 [open] How are the open questions of this tree kept, so that none is lost?  ~ the store is live in this tree, with three slices to come on what it holds and ranks  <- current\n\nfrontier (children of each question on the path):\n  under q-0001: q-0002 [open] How do running sessions reach each other beyond one working directory?\n  under q-0001: q-0008 [open] Does an entry count how often its question recurs, so that recurrence ranks it?  ~ struck when reached at least twelve hours after it was opened or last struck, recorded as struck n with its last time\n  under q-0001: q-0015 [open] How does a conversation keep its position when its host resumes it under a new session id?  ~ carry the position over from the session it resumes, found through what the hook input still shares, such as the transcript path\n\nopen questions under this root (q-0001), with their parent:\n  q-0002 (parent q-0001) How do running sessions reach each other beyond one working directory?\n  q-0008 (parent q-0001) Does an entry count how often its question recurs, so that recurrence ranks it?  ~ struck when reached at least twelve hours after it was opened or last struck, recorded as struck n with its last time\n  q-0015 (parent q-0001) How does a conversation keep its position when its host resumes it under a new session id?  ~ carry the position over from the session it resumes, found through what the hook input still shares, such as the transcript path\n\nsuspect under this root:\n  (none)\n\nother roots:\n  q-0004 [open] Is harness self-amendment its own mechanism?  ~ answered from accumulated strikes rather than from argument, and deletion on repeated failure is not adopted\n  q-0005 [open] How does a group install target resolve to a file and an anchor in each member?  ~ membership declared from both ends, the group in the rules file and the file and anchor in each member\n  q-0006 [closed:deferred] Could the rule set be composite, with no pure core anywhere?  ~ reachable a section at a time, as Project-local already is\n  q-0007 [open] Can a notion of abstraction height be established, and what is it?  ~ 01-0012's four levels — intent, strategy, behaviour, action — as the candidate\n  q-0016 [open] What is an agent role, and which mechanism keeps roles?  ~ a role is set when an agent starts and grants its permissions, its rights over the store and their scope, and its skill set\n  q-0017 [open] Does working under the harness deliver software better than working without it, measured on the same tasks?\n\nother running sessions:\n  8894523c-1e76-4de7-a8bf-dd67b19da24b at q-0017 (last wrote 2026-10-02)\n\nrecently attached: q-0018"
+          ],
+          "hookName": "UserPromptSubmit",
+          "toolUseID": "hook-cf1301fb-7458-4ee3-a5df-767e6aaec667",
+          "hookEvent": "UserPromptSubmit"
+        }
+      },
+      "original_record_sha256": "669338e7f17b0a52fd63629fd38a01c6254434efab887fb996ad12590b0e7aca",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2515": {
+      "timestamp": "2026-10-02T22:40:58.879Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "6218299f-ba1b-4e9c-8390-641dfdd03f3b",
+        "parentUuid": "1a57c3f4-9f45-471a-9685-1c2ca094cfed",
+        "timestamp": "2026-10-02T22:40:58.879Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDTwgz9d2wXdmy15BVo",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01LyZFeEhjmTongLKTgX4JX6",
+              "name": "Bash",
+              "input": {
+                "command": "git add .agents/mechanisms/questions/questions.md .agents/mechanisms/questions/questions.rules.md .agents/skills/questions/SKILL.md AGENTS.md docs/questions/done docs/research/entry-contract-findings.md docs/tickets/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md docs/tickets/README.md && git commit -q -F - <<'EOF'\nIMPLEMENT: a raised question is looked up before it is held\n\n01-0011.0100.0012, decisions 46 to 52. Q1 holds the agreed lookup\nsentence in place of the newcomer sentence, keeping that a message\nlanding nowhere makes no call; reinstalled, the entry contract at v20\nwith its findings line. The questions skill's A raised question holds\nwhat the lookup covers, who settles a decision in the turn, how a\nrequest is placed, and where an unfound question opens. The mechanism\ndoc gains the judge of weight under Three levels and a Rights paragraph:\nrights come from the role, one HITL role holding all of them today.\nq-0009, q-0010 and q-0012 to q-0014 repointed by close calls to where\ntheir decisions landed. No code.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nEOF\ngit log --oneline -1; uv run --offline --no-project python .agents/scripts/gw/maintain.py --check | uv run --offline --no-project python -c \"import json,sys; r=json.load(sys.stdin); [print(m['mechanism'], m['level'], m['state'], m['why'] or '') for m in r['mechanisms'] if m['state']!='current']\"",
+                "description": "Commit .0012 and read dueness"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "18a1b8951c8c8595211eb56d5779f3b70ddff2a54f862cea56e5040a767689ba",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2516": {
+      "timestamp": "2026-10-02T22:41:02.709Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "f5260a93-4026-4be6-98ec-622b2d7b6534",
+        "parentUuid": "6218299f-ba1b-4e9c-8390-641dfdd03f3b",
+        "timestamp": "2026-10-02T22:41:02.709Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01LyZFeEhjmTongLKTgX4JX6",
+              "is_error": false,
+              "content": "be8db36 IMPLEMENT: a raised question is looked up before it is held\nharness rules due the meta-rules moved since its mark\r\nmaintain rules due the meta-rules moved since its mark\r\nmechanism-shape rules due the meta-rules moved since its mark\r\nquestions rules due the meta-rules moved since its mark\r\nquestions output due its doc, rules file or skill moved since its mark\r\nticket rules due the meta-rules moved since its mark"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "be8db36 IMPLEMENT: a raised question is looked up before it is held\nharness rules due the meta-rules moved since its mark\r\nmaintain rules due the meta-rules moved since its mark\r\nmechanism-shape rules due the meta-rules moved since its mark\r\nquestions rules due the meta-rules moved since its mark\r\nquestions output due its doc, rules file or skill moved since its mark\r\nticket rules due the meta-rules moved since its mark",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "6218299f-ba1b-4e9c-8390-641dfdd03f3b",
+        "promptId": "63fcf805-5c04-4fb2-8483-758a708bbf8f"
+      },
+      "original_record_sha256": "2c99c4a062008cf9d61d764128ddbda405632c316f5c258d0054ee17afdc7c33",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2524": {
+      "timestamp": "2026-10-02T22:41:05.719Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "dc384e90-7fd9-451c-b08b-94a0c94a4df0",
+        "parentUuid": "41db8630-df68-4a50-88d7-2a3a6f0022e9",
+        "timestamp": "2026-10-02T22:41:05.719Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDUmzc3SEQJFHNrvGCe",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01KR3mZNzCSKAjwW4ffyT5fz",
+              "name": "Skill",
+              "input": {
+                "skill": "maintain",
+                "args": "the paired close of 01-0011.0100.0012 with its RFC; every level the clock reports due after v20"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "fa930168474dd7ff06d0c1efe408a19999b0f8367a743c3840a272289025e0f9",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2525": {
+      "timestamp": "2026-10-02T22:41:05.758Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "09c79469-0c3a-4127-8392-d5475d088cf7",
+        "parentUuid": "dc384e90-7fd9-451c-b08b-94a0c94a4df0",
+        "timestamp": "2026-10-02T22:41:05.758Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01KR3mZNzCSKAjwW4ffyT5fz",
+              "content": "Launching skill: maintain"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "success": true,
+          "commandName": "maintain"
+        },
+        "sourceToolAssistantUUID": "dc384e90-7fd9-451c-b08b-94a0c94a4df0",
+        "promptId": "63fcf805-5c04-4fb2-8483-758a708bbf8f"
+      },
+      "original_record_sha256": "c80d9dee88452d74b65d3ce73b0eae39d3cf800eb1d0b05e3dcaf9de271a08a5",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2526": {
+      "timestamp": "2026-10-02T22:41:05.754Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "979e7486-9d7b-4ec3-9c13-8118b4839912",
+        "parentUuid": "09c79469-0c3a-4127-8392-d5475d088cf7",
+        "timestamp": "2026-10-02T22:41:05.754Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "(Re-invocation of /maintain — the skill instructions were previously loaded; the arguments or dynamic output below are new.)"
+        },
+        "promptId": "63fcf805-5c04-4fb2-8483-758a708bbf8f"
+      },
+      "original_record_sha256": "93d9dc7da667f0cc3a1c6730ba8531d1bb9c14b9d40ea809c7572e9d0d52d815",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2527": {
+      "timestamp": "2026-10-02T22:41:05.753Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "dd583e00-10a4-42f5-a5ab-0c9d1aa67321",
+        "parentUuid": "979e7486-9d7b-4ec3-9c13-8118b4839912",
+        "timestamp": "2026-10-02T22:41:05.753Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Base directory for this skill: D:\\Dev\\AI\\agents\\.claude\\skills\\maintain\n\nOne pass over a declared scope. The scope decides which rules apply.\n\n## Hold\n\n- **A1** Hold four things in agreement: docs to the meta-rules and their format; docs to their\n  implementation, both ways; live records to their declared format; every fact to one home.\n- **A2** Maintain drift only: a governing side that moved with no landing behind it, or clean\n  landings that no longer agree. A landed slice is verified, not maintained.\n- **A3** When a governing side moves, re-check what it governs, upper link first: the mechanism\n  shape, then a mechanism's doc and rules, then its records. Do not stop at the link you were\n  sent for.\n- **A4** Read dueness from `maintain.py --check` at the start of every pass. Do not infer it.\n\n## Scope\n\n- **B1** Declare the scope first — the tree, a project, or one work item with its consumers and\n  governing docs — and write it into the report.\n- **B2** Certify only what you examined; mark nothing checked that was not. Route a finding\n  outside the scope to the record that owns its subject — the open issue that already holds it,\n  else the owning work item, else `/align` — after searching the open issues, so a finding\n  already held is cited, not rewritten.\n- **B3** Archive every finished record, whatever scope you declared. The record's format says\n  what finished means and where it goes.\n- **B4** Re-check every mechanism the check reports due or never maintained, whatever scope you\n  declared: its doc against the meta-rules at `rules`; its records against its doc and format at\n  `output` — the live ones, and historical ones where a mechanical change stays in this tree, never\n  records on a remote board.\n\n## Judge\n\n- **C1** Decide that a record is finished yourself; scripts move and check form, never decide.\n- **C2** Decide whether a straw dog's condition holds from observable evidence. The tool never\n  interprets an `until`; report an unresolved condition as unresolved.\n- **C3** Before removing a straw dog, rehome what outlives it, children before parent. Write\n  what is then true where the block was.\n\n## Repair\n\n- **D3** Preserve the facts an archived record records. Never invent a past fact; never imply a\n  later requirement was met at the time.\n- **D4** Treat a mechanical repair that stopped partway as unfinished: inspect the files against\n  what it reported done and pending, finish under the repair policy, and never report a repair\n  that did not finish.\n\n## One home per fact\n\n- **E1** Replace a restatement with a pointer. A summary that points deeper is not a duplicate.\n- **E2** Let live records carry duplicate context; their indexes may not.\n- **E3** Do not cite a record for architecture in a core document.\n\n## Straw dogs\n\n- **T1** List with `straw_dogs.py docs AGENTS.md local.rules.md .agents README.md`. Any diagnostic fails the run;\n  zero straw dogs is clean.\n- **T2** Remove one you have judged obsolete with `--remove FILE:LINE --expect <fingerprint>`.\n  A straw dog holding a nested one is refused: dispose of the children, scan again.\n- **T3** Guess with `--guess` over the scope you declared, and judge each candidate: wrap and\n  bind it, or leave the claim it is.\n\n## Installed from other mechanisms\n\n<straw-dog until=\"01-0017 is done\" ticket=\"docs/tickets/01-0017-io-graph-coherent.md\">\nOne rule of `/spec`'s, held here by hand until that mechanism is declared and installs it:\n\n- **P4** Before archiving a spec, confirm its surviving agreements have homes, its obligations\n  have dispositions, and its open issues keep owners.\n</straw-dog>\n\n<installed by=\"mechanism-shape\">\n**R1** Check a record-bearing mechanism's records with its maintainer script — format never\ncontent, live rows only. Where the script is missing, write it: that is the maintenance.\n\n**R2** Compare a mechanism against what governs it with line endings normalised, its evidence\nexcluded, and installed blocks excluded.\n\n**R3** Move story out of a doc into its evidence.\n\n**R4** Render an index on request; never commit one beside its records. A file listing what other\nfiles each say for themselves is an index, whatever it is called — an allowlist, a register,\na manifest — and each entry belongs at its authored home, wrapped there if provisional.\n</installed>\n\n<installed by=\"ticket\">\n**P1** A ticket is finished when every acceptance box is checked, the verification box included.\n\n**P2** Close a ticket and its RFC together, in one invocation, and every eligible pair in the same\ninvocation: `move_doc.py [--dry-run] SRC DST [SRC DST ...]`, into `docs/tickets/done/` and\n`docs/rfc/done/`.\n\n**P3** Update the ticket header yourself; the mover changes no checkbox, status, date or prose and\nleaves the Git index alone. Treat a refusal as a finding. Repair or deliberately leave what it\nreports it cannot rewrite, and say which. Git recovers committed or staged content only.\n\n**P5** Check the ticket records with `tickets.py --check` — format never content, live rows only. A\ndiagnostic is a finding; repair it under the repair policy.\n\n**P8** Delete the ticket's row from the queue when you close it. The queue is delivery status, and\n`docs/tickets/done/` is where finished work is enumerated; a row for an archived ticket is a\nsecond home for what that folder already says.\n</installed>\n\n<installed by=\"questions\">\n**Q4** Check the question store with `questions.py --check`. A diagnostic is a finding; repair it under\nthe repair policy. Move each subtree it reports ready for `done/` with `move_doc.py`, every entry\nof the subtree in one invocation, into `docs/questions/done/`.\n</installed>\n\n## Finish\n\n- **F1** Run the checks in the project's verification set that the scope touched.\n- **F2** Report: the declared scope, what was checked, what was repaired and against which\n  rule, what moved, the marks written, what remains open and who owns it, and what you did not\n  cover.\n- **F3** Do not verify landed work; a close needs verification to have already happened.\n- **F4** Mark each level you re-checked, as the step that closes it and before the report:\n  `maintain.py --mark <mechanism> <level> <outcome>`. Mark nothing you did not re-check. An edit\n  made between the re-check and its mark is cleared unread.\n\n## Marks\n\nThe marks' format is [MARKS-FORMAT.md](./MARKS-FORMAT.md).\n\n\nARGUMENTS: the paired close of 01-0011.0100.0012 with its RFC; every level the clock reports due after v20"
+            }
+          ]
+        },
+        "promptId": "63fcf805-5c04-4fb2-8483-758a708bbf8f"
+      },
+      "original_record_sha256": "2a157148d67bbdd27b4f72fe498a612dada4f031849b4be5980d2966db4faa8d",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2532": {
+      "timestamp": "2026-10-02T22:41:16.250Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "5711b1c4-3493-48e3-8f69-97fae783cfbc",
+        "parentUuid": "3b7117d3-4702-4a9a-9c5c-6c6e908f9632",
+        "timestamp": "2026-10-02T22:41:16.250Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDV1ibqFH6WNeSL52EA",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01R62eaJRAvD46QssFUK5gvY",
+              "name": "Bash",
+              "input": {
+                "command": "uv run --offline --no-project python .agents/scripts/gw/move_doc.py docs/tickets/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md docs/tickets/done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md docs/rfc/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md docs/rfc/done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md | tail -6; uv run --offline --no-project python .agents/scripts/gw/questions.py --check | uv run --offline --no-project python -c \"import json,sys; r=json.load(sys.stdin); print(r['diagnostics']); [print(f['finding']) for f in r['findings']]\"; grep -n \"a-raised-question-is-looked-up-before-it-is-held.md) | Done\" docs/tickets/README.md | cut -c1-80",
+                "description": "Close .0012 with its RFC, read the store's findings, find its queue row"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "d9981feda05e45df5e4dabfaa72743c89a2bdf5dfa1a1a56942f6d58e9dc2990",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2533": {
+      "timestamp": "2026-10-02T22:41:20.839Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "9bd4cfe4-69d7-4756-932c-8049d5efe9fc",
+        "parentUuid": "5711b1c4-3493-48e3-8f69-97fae783cfbc",
+        "timestamp": "2026-10-02T22:41:20.839Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01R62eaJRAvD46QssFUK5gvY",
+              "is_error": false,
+              "content": "repaired citations in docs/research/entry-contract-findings.md\r\nrepaired citations in docs/rfc/01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md\r\nrepaired citations in docs/tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md\r\nrepaired citations in docs/tickets/README.md\r\nrepaired citations in docs/tickets/done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md\r\nclosed 2 record(s); review and stage the change yourself\r\n[]\r\n38:| [A raised question is looked up before it is held](done/01-0011.0100.0012-a"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "repaired citations in docs/research/entry-contract-findings.md\r\nrepaired citations in docs/rfc/01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md\r\nrepaired citations in docs/tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md\r\nrepaired citations in docs/tickets/README.md\r\nrepaired citations in docs/tickets/done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md\r\nclosed 2 record(s); review and stage the change yourself\r\n[]\r\n38:| [A raised question is looked up before it is held](done/01-0011.0100.0012-a",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false,
+          "bashEditDiff": {
+            "files": [
+              {
+                "filePath": "D:\\Dev\\AI\\agents\\docs\\research\\entry-contract-findings.md",
+                "hunks": [
+                  {
+                    "oldStart": 19,
+                    "oldLines": 7,
+                    "newStart": 19,
+                    "newLines": 7,
+                    "lines": [
+                      " ",
+                      " **A raised question is looked up before it is held** — Q1's newcomer sentence replaced by the",
+                      " lookup, installed by",
+                      "-[01-0011.0100.0012](../tickets/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md):",
+                      "+[01-0011.0100.0012](../tickets/done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md):",
+                      " *before opening a question, look for its answer in the docs and the code: found, point to it and",
+                      " open nothing; not found, open it*, agreed verbatim. Its occasion is placing a message, where Q1 is",
+                      " the only text read"
+                    ]
+                  }
+                ]
+              },
+              {
+                "filePath": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md",
+                "hunks": [
+                  {
+                    "oldStart": 1,
+                    "oldLines": 155,
+                    "newStart": 0,
+                    "newLines": 0,
+                    "lines": [
+                      "-# A raised question is looked up before it is held — implementation plan",
+                      "-",
+                      "-**Authored:** 2026-10-02",
+                      "-**Last amended:** 2026-10-03 — validated against the calls of",
+                      "-[01-0011.0100.0011 the-agent-calls-a-subcommand-per-event](../tickets/done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md),",
+                      "-landed first",
+                      "-",
+                      "-Implements [01-0011.0100.0012 a-raised-question-is-looked-up-before-it-is-held](../tickets/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md).",
+                      "-",
+                      "-## The decisions it follows",
+                      "-",
+                      "-[Decisions 46 to 52](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md#decisions-landed-at-this-tickets-align)",
+                      "-*(the user, 2026-10-02)*. Each is made, and Q1's sentence was agreed verbatim, so this plan places",
+                      "-text and invents none of the rules. Where each decision lands:",
+                      "-",
+                      "-| decision | lands in |",
+                      "-|---|---|",
+                      "-| 46 the lookup, and what *the docs* cover | Q1 (the act), the skill (the scope) |",
+                      "-| 47 the test is in Q1 | `questions.rules.md` Q1, installed into `AGENTS.md` |",
+                      "-| 48 weight and hidden complexity are a judge's | the mechanism doc |",
+                      "-| 49 rights come from the role | the mechanism doc |",
+                      "-| 50 a closure follows its decision home | five entries repointed. P7's clause is [01-0011.0100.0020 open-issues-are-entries-of-the-store](../tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md)'s |",
+                      "-| 51 who settles in the turn | the skill |",
+                      "-| 52 a request brings its question | the skill. Decision 23 is `.0020`'s |",
+                      "-",
+                      "-No architecture changes: these are the mechanism's own rules and doc, and the mechanism doc is the",
+                      "-home where a mechanism's decisions land.",
+                      "-",
+                      "-## No code",
+                      "-",
+                      "-No script changes. Placing a message is the agent's act, and the calls are as `.0011` left them.",
+                      "-A closed entry is repointed by calling `close` on it again. The writer replaces",
+                      "-the state and answer, and keeps a suspect flag (`questions.py` `_closes`, read while planning). A",
+                      "-`decided` answer's link is checked down to its anchor, so the repointing comes after the section",
+                      "-it points to exists. No test pins Q1's text or the contract version (searched while planning). No",
+                      "-stage needs `/tdd`, and the suite stays green throughout.",
+                      "-",
+                      "-## Stages",
+                      "-",
+                      "-**1. The rule and the contract.**",
+                      "-",
+                      "-- In `.agents/mechanisms/questions/questions.rules.md`, Q1: its sentence since `.0011` reads *A",
+                      "-  message that answers nothing near the current question opens what that question cannot be",
+                      "-  answered without; one that lands nowhere makes no call.* Replace its first half with the agreed",
+                      "-  sentence, verbatim, and keep the second as its own sentence:",
+                      "-",
+                      "-  > Before opening a question, look for its answer in the docs and the code: found, point to it",
+                      "-  > and open nothing; not found, open it. A message that lands nowhere makes no call.",
+                      "-",
+                      "-  Q1's authority gains decisions 46 and 47. The rest of Q1 is unchanged: its three example calls,",
+                      "-  the script's path, and its closing pointer to the skill.",
+                      "-- Reinstall: `inject_rules.py questions --install --overwrite`, which rewrites the block in",
+                      "-  `AGENTS.md` and nowhere else, since Q2 to Q4 are unchanged.",
+                      "-- `AGENTS.md`'s announce line moves to `v20`, dated the day it lands. The version covers the",
+                      "-  general rules ([the findings record](../research/entry-contract-findings.md)), and Q1 sits in",
+                      "-  them; v19 was `.0011`'s.",
+                      "-- The findings record gains a v20 section: the lookup replaces the newcomer sentence, its reason",
+                      "-  (decision 47: placing a message is the occasion, and Q1 is the only text read there), and that",
+                      "-  decision 32's placement test now lives in the questions skill.",
+                      "-- Check: `inject_rules.py --check` and `mechanisms.py --check` are clean.",
+                      "-",
+                      "-**2. The skill and the doc.**",
+                      "-",
+                      "-- [The questions skill](../../.agents/skills/questions/SKILL.md): the section *Placing a message",
+                      "-  that answers nothing near* becomes **A raised question**, holding the whole flow in four short",
+                      "-  paragraphs:",
+                      "-  1. **Look it up first** (46): what *the docs* cover — the architecture, ADRs, the glossary, the",
+                      "-     mechanism docs, the code, and the decisions landed in live tickets, where a decision sits",
+                      "-     until it reaches its home. Found: point to it and open nothing; a settled question is not",
+                      "-     reopened without new evidence against its answer. No search of `done/` is needed, since a",
+                      "-     decided entry links to what holds its answer (43).",
+                      "-  2. **Who settles what is not found** (51): the agent settles a decision that is not load-bearing",
+                      "-     in the turn and reports it, as `repair=report` does. A load-bearing decision is the person's:",
+                      "-     settled in the turn, it goes to its home; unsettled, it is opened. When unsure whether a",
+                      "-     decision is load-bearing, treat it as load-bearing.",
+                      "-  3. **A request** (52): *build X* is a proposed answer. It leans on the question X answers — *what",
+                      "-     is X for?* — or opens that question when none is held. *How to build X?* opens under it once",
+                      "-     X is accepted, and the ticket's plan answers it. A trivial request is settled by doing it.",
+                      "-  4. **Where to open it**: the existing placement text, already in calls (`--between`, `depend`),",
+                      "-     led by the newcomer test that leaves Q1.",
+                      "-",
+                      "-  Nothing links to the old heading's anchor (searched again 2026-10-03). The skill's description",
+                      "-  is unchanged: it already sends the agent to the skill for the store's other calls.",
+                      "-- [The mechanism doc](../../.agents/mechanisms/questions/questions.md), *How it works*:",
+                      "-  - A **Rights** paragraph (49): an agent's rights over the store come from the role it starts",
+                      "-    with, which also grants its permissions and its skill set. The harness has one role, the HITL",
+                      "-    session, driven by a person and holding every right, so the store checks none. What a role is,",
+                      "-    and which mechanism keeps roles, is an open question. Core may not name the entry for that",
+                      "-    question, since a particular record in `docs/` is the instance's.",
+                      "-  - The **Three levels** paragraph (48) gains: whether a question is load-bearing, or hides parts,",
+                      "-    is the judge's to judge, since the agent fails at both; without a judge, the instruction stands",
+                      "-    where the agent reads it, and the agent tries.",
+                      "-",
+                      "-**3. The closures repointed** (50). After stage 2, one `close` call per entry, each keeping its",
+                      "-provenance:",
+                      "-",
+                      "-| entry | decided by | repointed to |",
+                      "-|---|---|---|",
+                      "-| q-0009 | 46, 47, 51, 52 | the skill's *A raised question* |",
+                      "-| q-0010 | 46 | the skill's *A raised question* |",
+                      "-| q-0012 | 51 | the skill's *A raised question* |",
+                      "-| q-0013 | 52 | the skill's *A raised question* |",
+                      "-| q-0014 | 49 | the mechanism doc's *How it works* |",
+                      "-",
+                      "-All five entries sit in `docs/questions/done/` since the `/maintain` of 2026-10-03, so each link",
+                      "-is relative from there, three levels up. For example:",
+                      "-",
+                      "-`questions.py close q-0010 decided \"[the questions skill's *A raised question*](../../../.agents/skills/questions/SKILL.md#a-raised-question) — the user, 2026-10-02\" --session <tag>`",
+                      "-",
+                      "-The text holds an apostrophe, so it goes in double quotes with no backtick or `$`, as the skill's",
+                      "-quoting sentence says. The writer finds an archived entry by id, since its index covers `done/`.",
+                      "-Check: `questions.py --check` is clean.",
+                      "-",
+                      "-## Verification",
+                      "-",
+                      "-- Ticket box 1: stage 1's two checks, and `AGENTS.md`'s first line reads v20.",
+                      "-- Ticket box 2: stage 2's text, read against decisions 46, 48, 49, 51 and 52.",
+                      "-- Ticket box 3: stage 3's check, and each of the five entries read for a link that leaves the",
+                      "-  ticket.",
+                      "-- The rest of the verification set, as `/verify` runs it.",
+                      "-",
+                      "-## Impact",
+                      "-",
+                      "-The split's [`/impact` of 2026-10-02](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md#impact--2026-10-02-the-split-for-decisions-46-to-55)",
+                      "-names this slice's layers: Q1 and its contract version, the skill's sections, the doc's roles",
+                      "-and judge, and the five closures. Re-read against this plan, it adds these edges, the last two",
+                      "-from the validation pass against `.0011`:",
+                      "-",
+                      "-- **Decision 32's placement test leaves tier 1.** Decision 47 chose this replacement. The skill",
+                      "-  keeps the test, and Q1's closing pointer still sends the agent there.",
+                      "-- **Core may not name q-0016.** The doc states the role question without linking the entry.",
+                      "-- **The anchor exists before the closures that point to it.** This sets the stage order.",
+                      "-- **Every host reads `AGENTS.md`.** Codex and Cursor take the new Q1 with no wiring change, and",
+                      "-  nothing else copies Q1's text.",
+                      "-- **The entries moved to `done/`**, so each closure's link climbs one level more than planned.",
+                      "-- **The closure text quotes through the shell.** The link texts hold an apostrophe, so they take",
+                      "-  double quotes.",
+                      "-",
+                      "-`/maintain`'s clock will report the questions mechanism due once its doc changes. That is the",
+                      "-clock working, not drift.",
+                      "-",
+                      "-## Leave alone",
+                      "-",
+                      "-- P7's repointing clause, and a ticket naming its question (decision 23): `.0020`.",
+                      "-- The judge: [01-0011.0100.0040 the-turn-is-steered-from-the-store](../tickets/01-0011.0100.0040-the-turn-is-steered-from-the-store.md).",
+                      "-  The branch trigger: [01-0011.0100.0050 a-question-branches-before-it-is-answered](../tickets/01-0011.0100.0050-a-question-branches-before-it-is-answered.md).",
+                      "-- A role mechanism, which waits for a second role.",
+                      "-- Q1's three example calls, the script's path, and its closing pointer.",
+                      "-- The `.0010` RFC, whose Q1 description is that slice's record.",
+                      "-",
+                      "-## Follow-ups and limits",
+                      "-",
+                      "-- **Whether the agent applies the lookup without a judge is unverified** (decision 48). Only live",
+                      "-  use grades it: a later session that opens a question the docs already settle is the evidence,",
+                      "-  and it is a strike against Q1's sentence in the register."
+                    ]
+                  }
+                ],
+                "deleted": true
+              },
+              {
+                "filePath": "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md",
+                "hunks": [
+                  {
+                    "oldStart": 153,
+                    "oldLines": 7,
+                    "newStart": 153,
+                    "newLines": 7,
+                    "lines": [
+                      " ",
+                      " - [01-0011.0100.0017 an-entry-name-carries-its-whole-question](../tickets/done/01-0011.0100.0017-an-entry-name-carries-its-whole-question.md)",
+                      "   renames entries. Strikes are written by id through the index, so either order works.",
+                      "-- [01-0011.0100.0012 a-raised-question-is-looked-up-before-it-is-held](../tickets/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md)",
+                      "+- [01-0011.0100.0012 a-raised-question-is-looked-up-before-it-is-held](../tickets/done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md)",
+                      "   touches Q1's text and none of this code.",
+                      " - `.0011`'s calls are what this slice builds on: the `at` call is what strikes, and the open",
+                      "   retry draws a new id before any stamp is written, so a retried `open` stamps once."
+                    ]
+                  }
+                ]
+              },
+              {
+                "filePath": "D:\\Dev\\AI\\agents\\docs\\rfc\\done\\01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md",
+                "hunks": [
+                  {
+                    "oldStart": 0,
+                    "oldLines": 0,
+                    "newStart": 1,
+                    "newLines": 155,
+                    "lines": [
+                      "+# A raised question is looked up before it is held — implementation plan",
+                      "+",
+                      "+**Authored:** 2026-10-02",
+                      "+**Last amended:** 2026-10-03 — validated against the calls of",
+                      "+[01-0011.0100.0011 the-agent-calls-a-subcommand-per-event](../../tickets/done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md),",
+                      "+landed first",
+                      "+",
+                      "+Implements [01-0011.0100.0012 a-raised-question-is-looked-up-before-it-is-held](../../tickets/done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md).",
+                      "+",
+                      "+## The decisions it follows",
+                      "+",
+                      "+[Decisions 46 to 52](../../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md#decisions-landed-at-this-tickets-align)",
+                      "+*(the user, 2026-10-02)*. Each is made, and Q1's sentence was agreed verbatim, so this plan places",
+                      "+text and invents none of the rules. Where each decision lands:",
+                      "+",
+                      "+| decision | lands in |",
+                      "+|---|---|",
+                      "+| 46 the lookup, and what *the docs* cover | Q1 (the act), the skill (the scope) |",
+                      "+| 47 the test is in Q1 | `questions.rules.md` Q1, installed into `AGENTS.md` |",
+                      "+| 48 weight and hidden complexity are a judge's | the mechanism doc |",
+                      "+| 49 rights come from the role | the mechanism doc |",
+                      "+| 50 a closure follows its decision home | five entries repointed. P7's clause is [01-0011.0100.0020 open-issues-are-entries-of-the-store](../../tickets/01-0011.0100.0020-open-issues-are-entries-of-the-store.md)'s |",
+                      "+| 51 who settles in the turn | the skill |",
+                      "+| 52 a request brings its question | the skill. Decision 23 is `.0020`'s |",
+                      "+",
+                      "+No architecture changes: these are the mechanism's own rules and doc, and the mechanism doc is the",
+                      "+home where a mechanism's decisions land.",
+                      "+",
+                      "+## No code",
+                      "+",
+                      "+No script changes. Placing a message is the agent's act, and the calls are as `.0011` left them.",
+                      "+A closed entry is repointed by calling `close` on it again. The writer replaces",
+                      "+the state and answer, and keeps a suspect flag (`questions.py` `_closes`, read while planning). A",
+                      "+`decided` answer's link is checked down to its anchor, so the repointing comes after the section",
+                      "+it points to exists. No test pins Q1's text or the contract version (searched while planning). No",
+                      "+stage needs `/tdd`, and the suite stays green throughout.",
+                      "+",
+                      "+## Stages",
+                      "+",
+                      "+**1. The rule and the contract.**",
+                      "+",
+                      "+- In `.agents/mechanisms/questions/questions.rules.md`, Q1: its sentence since `.0011` reads *A",
+                      "+  message that answers nothing near the current question opens what that question cannot be",
+                      "+  answered without; one that lands nowhere makes no call.* Replace its first half with the agreed",
+                      "+  sentence, verbatim, and keep the second as its own sentence:",
+                      "+",
+                      "+  > Before opening a question, look for its answer in the docs and the code: found, point to it",
+                      "+  > and open nothing; not found, open it. A message that lands nowhere makes no call.",
+                      "+",
+                      "+  Q1's authority gains decisions 46 and 47. The rest of Q1 is unchanged: its three example calls,",
+                      "+  the script's path, and its closing pointer to the skill.",
+                      "+- Reinstall: `inject_rules.py questions --install --overwrite`, which rewrites the block in",
+                      "+  `AGENTS.md` and nowhere else, since Q2 to Q4 are unchanged.",
+                      "+- `AGENTS.md`'s announce line moves to `v20`, dated the day it lands. The version covers the",
+                      "+  general rules ([the findings record](../../research/entry-contract-findings.md)), and Q1 sits in",
+                      "+  them; v19 was `.0011`'s.",
+                      "+- The findings record gains a v20 section: the lookup replaces the newcomer sentence, its reason",
+                      "+  (decision 47: placing a message is the occasion, and Q1 is the only text read there), and that",
+                      "+  decision 32's placement test now lives in the questions skill.",
+                      "+- Check: `inject_rules.py --check` and `mechanisms.py --check` are clean.",
+                      "+",
+                      "+**2. The skill and the doc.**",
+                      "+",
+                      "+- [The questions skill](../../../.agents/skills/questions/SKILL.md): the section *Placing a message",
+                      "+  that answers nothing near* becomes **A raised question**, holding the whole flow in four short",
+                      "+  paragraphs:",
+                      "+  1. **Look it up first** (46): what *the docs* cover — the architecture, ADRs, the glossary, the",
+                      "+     mechanism docs, the code, and the decisions landed in live tickets, where a decision sits",
+                      "+     until it reaches its home. Found: point to it and open nothing; a settled question is not",
+                      "+     reopened without new evidence against its answer. No search of `done/` is needed, since a",
+                      "+     decided entry links to what holds its answer (43).",
+                      "+  2. **Who settles what is not found** (51): the agent settles a decision that is not load-bearing",
+                      "+     in the turn and reports it, as `repair=report` does. A load-bearing decision is the person's:",
+                      "+     settled in the turn, it goes to its home; unsettled, it is opened. When unsure whether a",
+                      "+     decision is load-bearing, treat it as load-bearing.",
+                      "+  3. **A request** (52): *build X* is a proposed answer. It leans on the question X answers — *what",
+                      "+     is X for?* — or opens that question when none is held. *How to build X?* opens under it once",
+                      "+     X is accepted, and the ticket's plan answers it. A trivial request is settled by doing it.",
+                      "+  4. **Where to open it**: the existing placement text, already in calls (`--between`, `depend`),",
+                      "+     led by the newcomer test that leaves Q1.",
+                      "+",
+                      "+  Nothing links to the old heading's anchor (searched again 2026-10-03). The skill's description",
+                      "+  is unchanged: it already sends the agent to the skill for the store's other calls.",
+                      "+- [The mechanism doc](../../../.agents/mechanisms/questions/questions.md), *How it works*:",
+                      "+  - A **Rights** paragraph (49): an agent's rights over the store come from the role it starts",
+                      "+    with, which also grants its permissions and its skill set. The harness has one role, the HITL",
+                      "+    session, driven by a person and holding every right, so the store checks none. What a role is,",
+                      "+    and which mechanism keeps roles, is an open question. Core may not name the entry for that",
+                      "+    question, since a particular record in `docs/` is the instance's.",
+                      "+  - The **Three levels** paragraph (48) gains: whether a question is load-bearing, or hides parts,",
+                      "+    is the judge's to judge, since the agent fails at both; without a judge, the instruction stands",
+                      "+    where the agent reads it, and the agent tries.",
+                      "+",
+                      "+**3. The closures repointed** (50). After stage 2, one `close` call per entry, each keeping its",
+                      "+provenance:",
+                      "+",
+                      "+| entry | decided by | repointed to |",
+                      "+|---|---|---|",
+                      "+| q-0009 | 46, 47, 51, 52 | the skill's *A raised question* |",
+                      "+| q-0010 | 46 | the skill's *A raised question* |",
+                      "+| q-0012 | 51 | the skill's *A raised question* |",
+                      "+| q-0013 | 52 | the skill's *A raised question* |",
+                      "+| q-0014 | 49 | the mechanism doc's *How it works* |",
+                      "+",
+                      "+All five entries sit in `docs/questions/done/` since the `/maintain` of 2026-10-03, so each link",
+                      "+is relative from there, three levels up. For example:",
+                      "+",
+                      "+`questions.py close q-0010 decided \"[the questions skill's *A raised question*](../../../.agents/skills/questions/SKILL.md#a-raised-question) — the user, 2026-10-02\" --session <tag>`",
+                      "+",
+                      "+The text holds an apostrophe, so it goes in double quotes with no backtick or `$`, as the skill's",
+                      "+quoting sentence says. The writer finds an archived entry by id, since its index covers `done/`.",
+                      "+Check: `questions.py --check` is clean.",
+                      "+",
+                      "+## Verification",
+                      "+",
+                      "+- Ticket box 1: stage 1's two checks, and `AGENTS.md`'s first line reads v20.",
+                      "+- Ticket box 2: stage 2's text, read against decisions 46, 48, 49, 51 and 52.",
+                      "+- Ticket box 3: stage 3's check, and each of the five entries read for a link that leaves the",
+                      "+  ticket.",
+                      "+- The rest of the verification set, as `/verify` runs it.",
+                      "+",
+                      "+## Impact",
+                      "+",
+                      "+The split's [`/impact` of 2026-10-02](../../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md#impact--2026-10-02-the-split-for-decisions-46-to-55)",
+                      "+names this slice's layers: Q1 and its contract version, the skill's sections, the doc's roles",
+                      "+and judge, and the five closures. Re-read against this plan, it adds these edges, the last two",
+                      "+from the validation pass against `.0011`:",
+                      "+",
+                      "+- **Decision 32's placement test leaves tier 1.** Decision 47 chose this replacement. The skill",
+                      "+  keeps the test, and Q1's closing pointer still sends the agent there.",
+                      "+- **Core may not name q-0016.** The doc states the role question without linking the entry.",
+                      "+- **The anchor exists before the closures that point to it.** This sets the stage order.",
+                      "+- **Every host reads `AGENTS.md`.** Codex and Cursor take the new Q1 with no wiring change, and",
+                      "+  nothing else copies Q1's text.",
+                      "+- **The entries moved to `done/`**, so each closure's link climbs one level more than planned.",
+                      "+- **The closure text quotes through the shell.** The link texts hold an apostrophe, so they take",
+                      "+  double quotes.",
+                      "+",
+                      "+`/maintain`'s clock will report the questions mechanism due once its doc changes. That is the",
+                      "+clock working, not drift.",
+                      "+",
+                      "+## Leave alone",
+                      "+",
+                      "+- P7's repointing clause, and a ticket naming its question (decision 23): `.0020`.",
+                      "+- The judge: [01-0011.0100.0040 the-turn-is-steered-from-the-store](../../tickets/01-0011.0100.0040-the-turn-is-steered-from-the-store.md).",
+                      "+  The branch trigger: [01-0011.0100.0050 a-question-branches-before-it-is-answered](../../tickets/01-0011.0100.0050-a-question-branches-before-it-is-answered.md).",
+                      "+- A role mechanism, which waits for a second role.",
+                      "+- Q1's three example calls, the script's path, and its closing pointer.",
+                      "+- The `.0010` RFC, whose Q1 description is that slice's record.",
+                      "+",
+                      "+## Follow-ups and limits",
+                      "+",
+                      "+- **Whether the agent applies the lookup without a judge is unverified** (decision 48). Only live",
+                      "+  use grades it: a later session that opens a question the docs already settle is the evidence,",
+                      "+  and it is a strike against Q1's sentence in the register."
+                    ]
+                  }
+                ],
+                "created": true
+              },
+              {
+                "filePath": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md",
+                "hunks": [
+                  {
+                    "oldStart": 667,
+                    "oldLines": 7,
+                    "newStart": 667,
+                    "newLines": 7,
+                    "lines": [
+                      " 1. [01-0011.0100.0010 the-store-and-questions-writes-it](./01-0011.0100.0010-the-store-and-questions-writes-it.md)",
+                      "    - [01-0011.0100.0011 the-agent-calls-a-subcommand-per-event](./done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md)",
+                      "      — decision 56; after `.0017`, before `.0012` and `.0015`",
+                      "-   - [01-0011.0100.0012 a-raised-question-is-looked-up-before-it-is-held](./01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md)",
+                      "+   - [01-0011.0100.0012 a-raised-question-is-looked-up-before-it-is-held](./done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md)",
+                      "      — decisions 46 to 52",
+                      "    - [01-0011.0100.0015 a-question-that-keeps-coming-back-rises](./01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md)",
+                      "      — decisions 53 and 54"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "moreFiles": 4,
+            "changedFiles": [
+              "D:\\Dev\\AI\\agents\\docs\\research\\entry-contract-findings.md",
+              "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md",
+              "D:\\Dev\\AI\\agents\\docs\\rfc\\01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md",
+              "D:\\Dev\\AI\\agents\\docs\\rfc\\done\\01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md",
+              "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md",
+              "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md",
+              "D:\\Dev\\AI\\agents\\docs\\tickets\\README.md",
+              "D:\\Dev\\AI\\agents\\docs\\tickets\\done\\01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md",
+              "D:\\Dev\\AI\\agents\\docs\\tickets\\done\\01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md"
+            ]
+          }
+        },
+        "sourceToolAssistantUUID": "5711b1c4-3493-48e3-8f69-97fae783cfbc",
+        "promptId": "63fcf805-5c04-4fb2-8483-758a708bbf8f"
+      },
+      "original_record_sha256": "bb60c38f6ecbce06c65cef56d1c5f92b999450f37fc56aeff393a0685849c829",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2544": {
+      "timestamp": "2026-10-02T22:41:24.001Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "600bc5b1-2ac1-44f5-80ce-4869f3a45624",
+        "parentUuid": "dab37d87-66f0-497e-af31-90d14877e2e8",
+        "timestamp": "2026-10-02T22:41:24.001Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDW7oW2qpMiqGnywHTn",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Deleting `.0012`'s queue row (P8). This time I'm taking only the row's own line, after the bug from the `.0017` close:"
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "bf1166e948f9b171a912504f496c4f0bf0df3be63cb481fb3b9d4747af397d89",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2545": {
+      "timestamp": "2026-10-02T22:41:24.636Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "a3d2374c-21c7-47c8-816d-6b63564ae78d",
+        "parentUuid": "600bc5b1-2ac1-44f5-80ce-4869f3a45624",
+        "timestamp": "2026-10-02T22:41:24.636Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDW7oW2qpMiqGnywHTn",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01RfxFZgQDbMYwYvMBSrfv7m",
+              "name": "Read",
+              "input": {
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\tickets\\README.md",
+                "offset": 37,
+                "limit": 3
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "e10ea91b28e36196ad7ac8a710697f0207beb3b7f2390a165f3de7d7d38d5748",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2546": {
+      "timestamp": "2026-10-02T22:41:24.705Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "740a4fed-57df-41af-87cb-1bf8a3d59f76",
+        "parentUuid": "a3d2374c-21c7-47c8-816d-6b63564ae78d",
+        "timestamp": "2026-10-02T22:41:24.705Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01RfxFZgQDbMYwYvMBSrfv7m",
+              "content": "37\t| [The store exists, and `/questions` writes it](01-0011.0100.0010-the-store-and-questions-writes-it.md) | In progress (all seven stages landed 2026-10-02; three boxes wait on live sessions) | HITL | Every open question of the tree is written in one store with its relations and its state, opened and closed through the mechanism's own skill; `/align`, `/recall` and `/conclude` work from it through installed rules, each session at a position of its own; `/align` carries the interview and nothing else; and the three concerns and the questions of an abstraction height and of sharing sessions are its first entries. |\n38\t| [A raised question is looked up before it is held](done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md) | Done (2026-10-03) | AFK | A question a message raises is looked up in the docs and the code before anything is opened, a found answer is pointed to, and only a decision nobody settled in the turn is held. |\n39\t| [A question that keeps coming back rises](01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md) | Planned (RFC validated against the calls 2026-10-03) | AFK | A held question reached again after a delay is struck, its count shows on its line and ranks it first where a session starts, and nothing an ordinary reach does rewrites the store. |"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "type": "text",
+          "file": {
+            "filePath": "D:\\Dev\\AI\\agents\\docs\\tickets\\README.md",
+            "content": "| [The store exists, and `/questions` writes it](01-0011.0100.0010-the-store-and-questions-writes-it.md) | In progress (all seven stages landed 2026-10-02; three boxes wait on live sessions) | HITL | Every open question of the tree is written in one store with its relations and its state, opened and closed through the mechanism's own skill; `/align`, `/recall` and `/conclude` work from it through installed rules, each session at a position of its own; `/align` carries the interview and nothing else; and the three concerns and the questions of an abstraction height and of sharing sessions are its first entries. |\n| [A raised question is looked up before it is held](done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md) | Done (2026-10-03) | AFK | A question a message raises is looked up in the docs and the code before anything is opened, a found answer is pointed to, and only a decision nobody settled in the turn is held. |\n| [A question that keeps coming back rises](01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md) | Planned (RFC validated against the calls 2026-10-03) | AFK | A held question reached again after a delay is struck, its count shows on its line and ranks it first where a session starts, and nothing an ordinary reach does rewrites the store. |",
+            "numLines": 3,
+            "startLine": 37,
+            "totalLines": 69
+          }
+        },
+        "sourceToolAssistantUUID": "a3d2374c-21c7-47c8-816d-6b63564ae78d",
+        "promptId": "63fcf805-5c04-4fb2-8483-758a708bbf8f"
+      },
+      "original_record_sha256": "ff229e8d98ae9186256db9207ef64d355c7c5575c6144b680e807f792bff5765",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2548": {
+      "timestamp": "2026-10-02T22:41:28.928Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "b793c03b-18e4-478e-b5af-8cf535bf58c9",
+        "parentUuid": "f0df3eed-c595-41c8-b607-d5362435c2bc",
+        "timestamp": "2026-10-02T22:41:28.928Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDWQLfH13XEz4Eq78ca",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01RAj7yAVP6M7HTS1MYTcHe8",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\tickets\\README.md",
+                "old_string": "| [A raised question is looked up before it is held](done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md) | Done (2026-10-03) | AFK | A question a message raises is looked up in the docs and the code before anything is opened, a found answer is pointed to, and only a decision nobody settled in the turn is held. |\n| [A question that keeps coming back rises]",
+                "new_string": "| [A question that keeps coming back rises]"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "223e7080ea1344b669af6724671edbd9086f0700ef0f8b8f1cef6227ccd4ad6b",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2549": {
+      "timestamp": "2026-10-02T22:41:31.292Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "77997308-7088-4b6e-a90c-4b9f17498689",
+        "parentUuid": "b793c03b-18e4-478e-b5af-8cf535bf58c9",
+        "timestamp": "2026-10-02T22:41:31.292Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDWQLfH13XEz4Eq78ca",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_017B8XYeaAsGvZH14B5h6w1i",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\tickets\\README.md",
+                "old_string": "**Completed step:** `/implement` → `/verify`, 2026-10-03 — [01-0011.0100.0012",
+                "new_string": "**Completed step:** `/maintain`, 2026-10-03 — the paired close of `.0012` with its RFC; every level the clock reported due after v20 re-checked — the rules levels moved only by the version line and Q1's installed block, the questions mechanism's doc naming no record of `docs/` in its new *Rights* — and marked, none due. Before it, `/implement` → `/verify`, 2026-10-03 — [01-0011.0100.0012"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "30f85b3d46839a5f5734134daac750a652b2f86f6ee9383500283f6a485bebc8",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2550": {
+      "timestamp": "2026-10-02T22:41:32.468Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "de11bbc4-2065-4b17-84b3-2bbf87d9083d",
+        "parentUuid": "77997308-7088-4b6e-a90c-4b9f17498689",
+        "timestamp": "2026-10-02T22:41:32.468Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDWQLfH13XEz4Eq78ca",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01KNXkfH9no4aa4B92Rjpffc",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\tickets\\README.md",
+                "old_string": "**Candidate:** `/maintain` for `.0012`'s paired close; then `/implement` on",
+                "new_string": "**Candidate:** `/implement` on"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "9250b45d52d84f87dbb1ce30dcbefff1a086f59d046f94904ed51417031aed05",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2551": {
+      "timestamp": "2026-10-02T22:41:36.004Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "9a9b0ed5-a547-49f2-837a-d1bb59323887",
+        "parentUuid": "de11bbc4-2065-4b17-84b3-2bbf87d9083d",
+        "timestamp": "2026-10-02T22:41:36.004Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDWQLfH13XEz4Eq78ca",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01RqY7P2aAyhZ9kwN1FmhFum",
+              "name": "Bash",
+              "input": {
+                "command": "S=\"$TEMP/claude/D--Dev-AI-agents/d4406b99-8ee7-4e49-8d84-5621c2fd5766/scratchpad\"; awk -F'|' '/^\\| \\[/ && NF!=6 {print \"malformed row at line \" NR}' docs/tickets/README.md; for s in mechanisms inject_rules tickets questions; do uv run --offline --no-project python .agents/scripts/gw/$s.py --check > \"$S/o.json\" 2>&1; echo \"$s exit $?\"; done; uv run --offline --no-project python .agents/scripts/gw/straw_dogs.py docs AGENTS.md local.rules.md .agents README.md > \"$S/sd.json\"; echo \"straw_dogs exit $?\"; M=\"uv run --offline --no-project python .agents/scripts/gw/maintain.py --mark\"; for x in \"harness rules\" \"maintain rules\" \"mechanism-shape rules\" \"questions rules\" \"questions output\" \"ticket rules\"; do $M $x \"nothing to change\" | grep -o '\"marked\": \"[^|]*| [^|]*| [^|]*'; done; uv run --offline --no-project python .agents/scripts/gw/maintain.py --check | grep -c '\"due\"'",
+                "description": "Confirm every queue row is whole, run the checks, mark the levels"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "68e4f2ed41cffb7c992ea27de3c0c3baeaca239f3022f9ac904466c0d0f31038",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2552": {
+      "timestamp": "2026-10-02T22:41:36.487Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "58875974-95f9-4552-ac6e-54c5a82e9d4f",
+        "parentUuid": "b793c03b-18e4-478e-b5af-8cf535bf58c9",
+        "timestamp": "2026-10-02T22:41:36.487Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01RAj7yAVP6M7HTS1MYTcHe8",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\tickets\\README.md has been updated successfully."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\tickets\\README.md",
+          "oldString": "| [A raised question is looked up before it is held](done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md) | Done (2026-10-03) | AFK | A question a message raises is looked up in the docs and the code before anything is opened, a found answer is pointed to, and only a decision nobody settled in the turn is held. |\n| [A question that keeps coming back rises]",
+          "newString": "| [A question that keeps coming back rises]",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 35,
+              "oldLines": 7,
+              "newStart": 35,
+              "newLines": 6,
+              "lines": [
+                " | [A test catches what its name promises](01-0011.0090-a-test-catches-what-its-name-promises.md) | Ready | AFK | Every test that the 2026-09-27 audit found too weak to catch its own regression catches it, and every script branch the audit found untested has a test. |",
+                " | [The open questions are kept by a mechanism, and every skill works from it](01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md) | In progress (align landed 2026-09-29, decisions 24–42, and 43 to 45 at the first slice's implement; the first slice is in progress) | HITL | Every open question of this tree is written in one store with its relations and its state, the turn's current question is known and every shift from it is judged and recorded, a question closes by a recorded kind, and every skill that opens, splits or closes a question — `/align` in an interview, `/plan`, `/recall` and `/conclude` on their own — works from that store instead of carrying it in session text, so a question left behind is found again and a decision made above an unexpanded shape is caught. |",
+                " | [The store exists, and `/questions` writes it](01-0011.0100.0010-the-store-and-questions-writes-it.md) | In progress (all seven stages landed 2026-10-02; three boxes wait on live sessions) | HITL | Every open question of the tree is written in one store with its relations and its state, opened and closed through the mechanism's own skill; `/align`, `/recall` and `/conclude` work from it through installed rules, each session at a position of its own; `/align` carries the interview and nothing else; and the three concerns and the questions of an abstraction height and of sharing sessions are its first entries. |",
+                "-| [A raised question is looked up before it is held](done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md) | Done (2026-10-03) | AFK | A question a message raises is looked up in the docs and the code before anything is opened, a found answer is pointed to, and only a decision nobody settled in the turn is held. |",
+                " | [A question that keeps coming back rises](01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md) | Planned (RFC validated against the calls 2026-10-03) | AFK | A held question reached again after a delay is struck, its count shows on its line and ranks it first where a session starts, and nothing an ordinary reach does rewrites the store. |",
+                " | [The tickets' open issues are entries of the store](01-0011.0100.0020-open-issues-are-entries-of-the-store.md) | Planned | HITL | Every open issue a live ticket carries is an entry of the store owned by that ticket's goal, the ticket's *Open issues* section is a view of those entries or a pointer to them, and a reconciliation proves the two hold one set with nothing lost. |",
+                " | [The straw dogs are entries of the store](01-0011.0100.0030-straw-dogs-are-entries-of-the-store.md) | Planned | HITL | Every straw dog in the tree is an entry of the store — a decision landed with an open question bound to the ticket that will answer it — the listing is a view of those entries, and a reconciliation proves the wrapped text and the store hold one set with nothing lost. |"
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false,
+          "contentNotInModelContext": true
+        },
+        "sourceToolAssistantUUID": "b793c03b-18e4-478e-b5af-8cf535bf58c9",
+        "promptId": "63fcf805-5c04-4fb2-8483-758a708bbf8f"
+      },
+      "original_record_sha256": "718e73ec5a6c72c8fe31e5c528b2b528c2831960866f9535b3a39c13d70e4789",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2553": {
+      "timestamp": "2026-10-02T22:41:36.571Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "d8c1560c-2624-426e-9db5-57c4b959e390",
+        "parentUuid": "77997308-7088-4b6e-a90c-4b9f17498689",
+        "timestamp": "2026-10-02T22:41:36.571Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_017B8XYeaAsGvZH14B5h6w1i",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\tickets\\README.md has been updated successfully."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\tickets\\README.md",
+          "oldString": "**Completed step:** `/implement` → `/verify`, 2026-10-03 — [01-0011.0100.0012",
+          "newString": "**Completed step:** `/maintain`, 2026-10-03 — the paired close of `.0012` with its RFC; every level the clock reported due after v20 re-checked — the rules levels moved only by the version line and Q1's installed block, the questions mechanism's doc naming no record of `docs/` in its new *Rights* — and marked, none due. Before it, `/implement` → `/verify`, 2026-10-03 — [01-0011.0100.0012",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 2,
+              "oldLines": 7,
+              "newStart": 2,
+              "newLines": 7,
+              "lines": [
+                " ",
+                " **Last updated:** 2026-10-03",
+                " ",
+                "-**Completed step:** `/implement` → `/verify`, 2026-10-03 — [01-0011.0100.0012 a-raised-question-is-looked-up-before-it-is-held](done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md), Done: Q1 holds the agreed lookup sentence, reinstalled, the entry contract at v20; the questions skill's *A raised question* holds the lookup's scope, who settles, a request and where to open; the doc's *Three levels* gains the judge of weight and a *Rights* paragraph; q-0009, q-0010 and q-0012 to q-0014 repointed by `close` calls to where their decisions landed. No code; 459 tests. Its paired close is `/maintain`'s. Before it the same day, `/plan` — validation passes over the RFCs of [`.0012`](done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md) and [`.0015`](01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md) against the landed calls: `.0012` replaces only the first half of Q1's newcomer sentence, keeping *a message that lands nowhere makes no call*, moves the contract to v20, and repoints five archived entries by `close` calls whose links climb from `done/`; `.0015` loses its removal stage to `.0011`, closes q-0008 by `undepend` then `close`, and adds a raced strike's refusal to its tests. Both close texts hold an apostrophe and take double quotes, as the skill's quoting sentence says. Before it the same day, `/maintain` — the paired close of `.0011` with its RFC; the five mechanisms whose rules level v19 made due re-checked against the amended *write for a capable model*: harness's and the ticket mechanism's rules clean; three lines that told the agent only what a script does fixed on the user's word and reinstalled — R7's clause on what `inject_rules.py --check` fails on, and Q4's *ids are unchanged*, dropped; the marks' format moved from the maintain skill to `MARKS-FORMAT.md` beside it, which the skill and the doc point to, as rule failure 15's amendment places a record's format; a second pass re-checked and marked every level, none due; the queue's two rows the `.0017` close had run together split again. Before it, `/implement` → `/verify`, 2026-10-03 — [01-0011.0100.0011 the-agent-calls-a-subcommand-per-event](done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md), Done: each event is a `questions.py` subcommand with `--session`, `open` drawing its id and taking the next on a race, `undepend` among them; the declared line, its parser and the window's next-free-id line gone; Q1, Q2 and Q3 in calls and reinstalled, the entry contract at v19 with *write for a capable model* amended; quoting verified live in Git Bash and Windows PowerShell 5.1. 459 tests. Repaired at `/verify`: the architecture's and `.0010`'s wording of the line, and q-0011's closure. Before it the same day, `/plan` — [01-0011.0100.0011 the-agent-calls-a-subcommand-per-event](done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md)'s [RFC](../rfc/done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md), four stages: the event subcommands beside the line, `open` assigning its id and taking the next one on a race, `undepend` moved here from `.0015`; the line, its grammar and the window's next-free-id line removed; Q1, Q2, Q3, the skill, the doc and the evidence in calls, the entry contract at v19 with the amended *write for a capable model* *(the user)*; quoting verified live in Git Bash and PowerShell. `depend q-A --on q-B` settled and reported. Before it the same day, `/maintain` — the paired close of `.0017` with its RFC into `done/`; four wholly closed subtrees of the store archived — q-0009 with q-0011 to q-0013, q-0010, q-0014, q-0018; a stale session line ended, the conversation's tag from before a resume (q-0015's trail); the questions mechanism's output re-checked and marked. Before it, `/implement` → `/verify`, 2026-10-03 — [01-0011.0100.0017 an-entry-name-carries-its-whole-question](done/01-0011.0100.0017-an-entry-name-carries-its-whole-question.md), Done: a new entry's name holds its whole question, cut at a word boundary only past 160 characters; the check holds every name to that, reporting the name an entry needs; the eighteen live entries renamed by the mover and four citing records repaired; the skill tells the agent to phrase a question short. 457 tests. Its paired close is `/maintain`'s. Before it the same day, `/ticket` — [01-0011.0100.0011 the-agent-calls-a-subcommand-per-event](done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md) minted on the user's approval, from the align on q-0018 the day before: decision 56 replaces the declared line with a `questions.py` subcommand per event, the script assigning ids, every turn still calling `at`; [its `/impact`](01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md#impact--2026-10-02-the-subcommand-slice-for-decision-56) said proceed, narrowed to the event writes, the read flags left alone. It lands after `.0017` and before `.0012` and `.0015`, whose tickets now depend on it and whose RFCs take a validation pass once it lands; `.0012`'s contract version becomes v20. Before it, `/plan`, 2026-10-02 — [01-0011.0100.0015 a-question-that-keeps-coming-back-rises](01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md)'s [RFC](../rfc/01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md), five stages: the `struck` part and its check; the writer stamping at opening and striking a reach twelve hours after the last stamp, the time injected and stamped in UTC; `undepends q-A on q-B`; the count on window lines and the wake's ranking; the words, and q-0008 freed of q-0015 and closed. Three items settled at `/align` on the way *(the user)*: any declared `at` counts, staying included; X a constant, twelve, until a project wants another — both amending decision 53; the clause's verb. Ready. Before it the same day, [01-0011.0100.0012 a-raised-question-is-looked-up-before-it-is-held](done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md)'s [RFC](../rfc/done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md), three stages and no code: Q1's agreed lookup sentence in place of the newcomer sentence, reinstalled, the contract at v19; the skill's *A raised question* — the lookup's scope, who settles, a request, where to open — and the doc's roles and judge; five closures repointed by a declared line once the section they point to exists. Ready. Before it the same day, [01-0011.0100.0017 an-entry-name-carries-its-whole-question](done/01-0011.0100.0017-an-entry-name-carries-its-whole-question.md)'s [RFC](../rfc/done/01-0011.0100.0017-an-entry-name-carries-its-whole-question.md), three stages: the writer's slug to 160 characters and the check holding a name to its whole question (settled under decision 49, since a check that still accepted a shortened slug would let the rule lapse); the sixteen live entries renamed by the mover, whose dry run moved all of them and repaired the four citing records; the skill's and the evidence's words. Ready. Before it, `/ticket`, 2026-10-02 — three AFK slices minted under [01-0011.0100](01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md) to carry decisions 46 to 55, each with every decision made: [01-0011.0100.0012 a-raised-question-is-looked-up-before-it-is-held](done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md) (46–52), [01-0011.0100.0015 a-question-that-keeps-coming-back-rises](01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md) (53–54), [01-0011.0100.0017 an-entry-name-carries-its-whole-question](done/01-0011.0100.0017-an-entry-name-carries-its-whole-question.md) (55), on [the split's `/impact`](01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md#impact--2026-10-02-the-split-for-decisions-46-to-55). Before it, `/align`, 2026-10-02 — decisions 46 to 55 on the parent, from the align on q-0008 to q-0016: a raised question is looked up in the docs and the code first and held only if nobody settles it in the turn; rights over the store come from the agent's role; small decisions are settled and reported, load-bearing ones are the person's; a request brings its question first; a strike is a reach twelve hours after the last and ranks a question in the wake; an entry's name carries its whole question. The store gained q-0008 to q-0016. Before it, `/maintain`, 2026-10-02 — the questions mechanism and the files `.0010` touched, widened to every mechanism the clock reported due: all re-checked under v18 and marked, the questions mechanism for the first time; `ticket.md`'s moment row repaired to name an open question of the store. Before it, `/verify`, 2026-10-02 — [01-0011.0100.0010 the-store-and-questions-writes-it](01-0011.0100.0010-the-store-and-questions-writes-it.md): the set clean at 453 tests, four of seven boxes checked, three waiting on live sessions; repaired the RFC behind the code, two unwrapped provisional sentences, and a hook notice Cursor would drop. Before it, `/implement`, 2026-09-29 to 2026-10-02, stages 1 to 6: `questions.py` — check, window, wake, tree, writer, hooks; the mechanism declared and installed, Q1 at tier 1 and the entry contract at v18; each host's hook wiring, Claude Code observed live; `concerns.md` folded into the store's first seven entries; `/align` cut to the interview. Decisions 43 to 45 landed on the way: a closed question points to its answer; each host's hook delivers the window, drawn only when something moved; attach is a short rule with four example lines. Before it, `/plan`, 2026-09-29 — [01-0011.0100.0010 the-store-and-questions-writes-it](01-0011.0100.0010-the-store-and-questions-writes-it.md)'s [RFC](../rfc/01-0011.0100.0010-the-store-and-questions-writes-it.md), authored and validated three times, ten items settled at `/align` on the way: the declared line's grammar; the line shown only under `debug=on`, a project setting; no reply mode; four installed blocks; the concerns as entries alone; height out of the slice; `at` on every line; a position per session in one temporary sessions file, a straw dog on 01-0010; only the working agent attaches. Parent decisions 22, 25 and 39 amended. Before it, `/align`, 2026-09-28 to 2026-09-29 — [01-0011.0100 the-open-questions-are-kept-by-a-mechanism](01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)'s align, decisions 24 to 42: the entry's eight parts; attach, close, branch, prune and the wake as rules with moment, instruction and outcome; the judge reads a window and never the tree, measured by [the window test](../research/window-test-2026-09-28.md) at 100 to 30,000 entries; the store is core's own record, a directory of one file per question with the parent line as the hierarchy's one home; the position written by the script from the reply's declared line; attach alone at tier 1; nothing retires it but evidence that it does not pay; the skill `/questions`. Two `/discover` passes filed. *Rule* and *principle* defined in the method glossary, the rules-file grammar's gap opened on the mechanism-shape spec. The first slice [01-0011.0100.0010 the-store-and-questions-writes-it](01-0011.0100.0010-the-store-and-questions-writes-it.md) is Ready. Before it, `/ticket`, 2026-09-28 — [01-0011.0100](01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md) minted with five slices on the user's approval, from the align [01-0012 hierarchy-coherent](done/01-0012-hierarchy-coherent.md) hosted over 2026-09-27 and 2026-09-28: it began as a vocabulary sweep of *height*, ran three `/discover` passes and a trace of Life's reasoning failures, and arrived at the user's proposal that the core keep the tree's open questions in one store with rules, judges and strict recordings, `/align` carrying the interview alone and the method's instruments injected; twenty-two decisions extracted to the parent, the passes to research records, and 01-0012 closed as a landed decision with its residues routed to the store slice, the pacer and the practice ticket. Before it, `/maintain`, 2026-09-27 — the paired close of [01-0011.0060 mechanism-rechecked-when-governing-moves](done/01-0011.0060-mechanism-rechecked-when-governing-moves.md) with its RFC, after `/align` → `/plan` → `/implement` → `/verify` the same day, and the first pass under the clock it built: `maintain.py --check` reported all four mechanisms never maintained at both levels, every one was re-checked — docs against the meta-rules, records against their doc and format — and all eight levels were marked *nothing to change*, so the clock now reads them current. Before it the same day, `/maintain`, 2026-09-27 — the paired close of [01-0011.0080 a-test-pays-only-for-what-it-proves](done/01-0011.0080-a-test-pays-only-for-what-it-proves.md) with its RFC, after `/plan` → `/implement` → `/verify` the same day: an audit of all 342 tests against the code they exercise pruned 8 that could not fail and folded 50 that repeated another; a test now builds a real repository only when Git or a child process is what it proves, a guard refusing every other one any process *(the user, landed in both specs' Testing Decisions)*; the harness's source is read from memory through six methods `Source` now reads a clone with; 289 tests run in 24.2 s, from 274 s, and `harness.py --check` on ai-game-1 reports as before. The first criterion was scoped by the user to the three tests [01-0011.0090 a-test-catches-what-its-name-promises](01-0011.0090-a-test-catches-what-its-name-promises.md) strengthens, now Ready; a parallel runner was declined. Before it, `/ticket`, 2026-09-26 — `.0080` minted on the user's request that the tests stop doing needless work: 342 tests took 320 s, nine tenths of every test a process start; `/impact` on [the mechanism shape](../spec/01-0011-mechanism-shape.md#impact--2026-09-26-the-fast-suite) said proceed, narrowed to what each test proves. Before it the same day: [01-0010.0168 the-harness-measures-what-it-costs-and-saves](01-0010.0168-the-harness-measures-what-it-costs-and-saves.md) minted on the user's request after an outside review: the tokens and human turns a unit of work costs and what it saves, read from the hosts' session records as a trend from the first session forward; the front page gained that the skills and records are the agent's equipment, a way to trial it, and that its checks are tested tooling. Before it the same day: two slices minted on the user's request: [01-0010.0172 a-first-install-says-what-stopped-it](01-0010.0172-a-first-install-says-what-stopped-it.md), the Windows first-run failures of [issue #1](https://github.com/dveyarangi/goodwolf-harness/issues/1), and [01-0010.0205 a-recipient-reports-a-harness-failure-upstream](01-0010.0205-a-recipient-reports-a-harness-failure-upstream.md), a core rule's failure found in a recipient reported to the harness's own board. Before it, the same day: four adoption panel runs on the published front page ([record](../research/adoption-panel-2026-09-26.md)), each followed by a page fix. Before them: `/plan` → `/implement` → `/verify` → `/maintain` on [01-0010.0167 the-front-page-says-what-the-harness-is](done/01-0010.0167-the-front-page-says-what-the-harness-is.md), 2026-09-26 — the root README is the page the align settled, with the loop's diagram as a 1600-pixel copy; its eight *not yet* items are straw dogs `/maintain`'s listing now reads; the root `LICENSE` (MIT) reaches every install as `.agents/LICENSE`, read apart from the archive since an archive refuses a path an older ref lacks. The plan put a copy step into the architecture and the user took it out — [rule failure 11](../rule-failures.md), `/plan` now lands only load-bearing architecture — and graded ceremony into three tiers on [01-0020 pacer](01-0020-pacer.md). One criterion was reworded by the user at verify: the diagram and license sit beside the page, in neither core nor `docs/`. Closed with its RFC. 342 tests. Before it: `/align` and `/ticket` on **the front page**, 2026-09-26 — who it is for, what it says and what it may point at, tested on cold readers and settled section by section; three slices minted on the user's approval: [01-0010.0167](done/01-0010.0167-the-front-page-says-what-the-harness-is.md), the page itself and a license copied into every install; [01-0010.0125 the-host-blocks-what-a-rule-forbids](01-0010.0125-the-host-blocks-what-a-rule-forbids.md), the host refusing what a rule forbids, decision-bearing behind [01-0010.0120 host-delivery-surfaces](01-0010.0120-host-delivery-surfaces.md); [01-0010.0200 a-project-can-remove-the-harness](01-0010.0200-a-project-can-remove-the-harness.md), uninstall. On the way, [01-0010.0175 arrival-describes-what-it-finds](01-0010.0175-arrival-describes-what-it-finds.md) took its codebase half back, and [01-0010.0190 core-is-published-as-a-release](01-0010.0190-core-is-published-as-a-release.md) gained an adoption panel at every release and the published front page as an open issue. Before it: `/maintain`, 2026-09-24 — the paired close of [01-0010.0145 core-scripts-under-one-directory](done/01-0010.0145-core-scripts-under-one-directory.md) with its RFC, its last box graded by ai-game-1's blind update in frost_map's place *(the user)*; the report's silence about a verification set naming deleted paths is [01-0010.0160 harness-edge-changes-reach-an-update](01-0010.0160-harness-edge-changes-reach-an-update.md)'s first strike. Before it the same day, two `FIX`es: an update and `--check` read an announced ref as it shipped rather than under today's shipping rules, which had stranded every tree installed before [01-0010.0165 a-fresh-tree-has-a-delivery-status](done/01-0010.0165-a-fresh-tree-has-a-delivery-status.md) ([rule failure 9](../rule-failures.md)), after which ai-game-1 took `85691cd`. Before them: `/maintain`, 2026-09-23 — the paired close of [01-0010.0155 a-tree-names-the-repository-its-core-comes-from](done/01-0010.0155-a-tree-names-the-repository-its-core-comes-from.md) and [01-0010.0165](done/01-0010.0165-a-fresh-tree-has-a-delivery-status.md), each ticket with its RFC. Before it: `/plan` → `/implement` → `/verify` on [01-0010.0165](done/01-0010.0165-a-fresh-tree-has-a-delivery-status.md), 2026-09-23 — a fresh tree now arrives with a delivery status to read, and a tree that received core before this gets one at its next update. The `/plan` narrowed the slice and the user chose the narrowing: directory doors are not created, because `move_doc` makes a record's parent on the way in and git keeps no empty directory, so the only door that mattered was the one read before anything is written. Its words are the ticket mechanism's, declared in `TICKET-FORMAT.md` beside the record's shape and carried in the shipment; the install places them and composes nothing but the ref. The glossary's painted door became a path core *reserves*, some arriving with content. 335 tests. Earlier the same day: `/plan` → `/implement` → `/verify` on [01-0010.0155](done/01-0010.0155-a-tree-names-the-repository-its-core-comes-from.md), the repository line. Before it: `/ticket` on [01-0010.0160](01-0010.0160-harness-edge-changes-reach-an-update.md) — the releases work is decomposed into three slices, [01-0010.0185 an-edge-change-writes-its-line](01-0010.0185-an-edge-change-writes-its-line.md) → `.0190` → [01-0010.0195 a-recipient-reads-before-it-takes](01-0010.0195-a-recipient-reads-before-it-takes.md), behind [01-0010.0155](done/01-0010.0155-a-tree-names-the-repository-its-core-comes-from.md). `/impact`: proceed, narrowed to three. The fourth drafted slice — a tree holding a ref older than the first release — folded into `.0195`, because an old recipient's announce line carries its own repository and `--check` against it keeps working: only the pending-release count breaks, so the migration is one note and one re-stamped `--update --from`. Two hidden edges went to the slices that own them: whether core may name the edge record at all, which makes `.0185` decision-bearing, and the publish's history question, which is `.0190`'s. `.0160` is now the end state and takes no RFC of its own. Earlier the same day: `/align` and `/ticket` on **arrival-to-ready** — nine decisions landed on [01-0010 dev-harness-shared-and-local](01-0010-dev-harness-shared-and-local.md#arrival-to-ready--2026-09-23) and four slices minted, `.0165` → [01-0010.0170 arrival-becomes-a-sequence](01-0010.0170-arrival-becomes-a-sequence.md) → `.0175` → [01-0010.0180 harness-names-its-maintenance](01-0010.0180-harness-names-its-maintenance.md). The customer is ai-game-1, installed at `goodwolf-harness@47516ce`: its verification set came out holding core's own gates and nothing of the project's, its painted doors were never created, and the install's last step ran before the project had a toolchain to read. Decided: the sequence (install+gate → L1/L2 → setup → quicklook → L3 → inject → check); doors created by the install with `docs/tickets/README.md` carrying an arrival state; one fixed quicklook whose admission scales rather than its effort, with *unread* distinct from *deferred*; harness owning every moment, `setup-devops` relied-on; the local file's extraction split so the switches precede the step they authorise; `git init` a refusal bullet and a remote offered, never created; L3 a pointer to `docs/cicd.md` with core's gates additive only. Two rule failures registered and both amendments landed the same day: [7](../rule-failures.md) — harness's declaration carried its script's verbs, repaired in `MECHANISM-FORMAT` and in the declaration — and [8](../rule-failures.md) — `/impact`'s *Output only* ended its caller's turn, repaired in `/impact`. Before it: `/align` on [01-0010.0160](01-0010.0160-harness-edge-changes-reach-an-update.md), 2026-09-21 — four decisions landed: what the installation edge is, its two homes (the engineering record at the origin, the manifested edge derived from it), registration at the occasion and derivation at the release, and *releases* as the mechanism that publishes the clean core to a repository of its own. The update defaults to the latest release and the installing agent decides whether to take it. Before it the same day: `/plan` and `/implement` and `/verify` on [01-0010.0145](done/01-0010.0145-core-scripts-under-one-directory.md), the scripts' move, whose own breakage is the evidence the align read. Earlier: `/maintain` on [01-0010.0130 harness-installs-into-another-tree](done/01-0010.0130-harness-installs-into-another-tree.md) — the paired close of the slice that made the harness install itself: the user graded it in frost_map, whose own `harness.py . --check` reported `arrived: true` at `goodwolf-harness@2c733f0` with both links resolving and its four local rules re-injected. Before the close the same day: `/implement` landed the `harness` mechanism, its `/verify`, and a first live run that refuted four things (the shipped suite in the gate, the links as parts, one `cat-file` per file, an archive that smudged), all on the mechanism's evidence. What every earlier pass decided is on the ticket that owns it, in the mechanism evidence under `docs/mechanisms/`, and in the session records under `docs/sessions/`.",
+                "+**Completed step:** `/maintain`, 2026-10-03 — the paired close of `.0012` with its RFC; every level the clock reported due after v20 re-checked — the rules levels moved only by the version line and Q1's installed block, the questions mechanism's doc naming no record of `docs/` in its new *Rights* — and marked, none due. Before it, `/implement` → `/verify`, 2026-10-03 — [01-0011.0100.0012 a-raised-question-is-looked-up-before-it-is-held](done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md), Done: Q1 holds the agreed lookup sentence, reinstalled, the entry contract at v20; the questions skill's *A raised question* holds the lookup's scope, who settles, a request and where to open; the doc's *Three levels* gains the judge of weight and a *Rights* paragraph; q-0009, q-0010 and q-0012 to q-0014 repointed by `close` calls to where their decisions landed. No code; 459 tests. Its paired close is `/maintain`'s. Before it the same day, `/plan` — validation passes over the RFCs of [`.0012`](done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md) and [`.0015`](01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md) against the landed calls: `.0012` replaces only the first half of Q1's newcomer sentence, keeping *a message that lands nowhere makes no call*, moves the contract to v20, and repoints five archived entries by `close` calls whose links climb from `done/`; `.0015` loses its removal stage to `.0011`, closes q-0008 by `undepend` then `close`, and adds a raced strike's refusal to its tests. Both close texts hold an apostrophe and take double quotes, as the skill's quoting sentence says. Before it the same day, `/maintain` — the paired close of `.0011` with its RFC; the five mechanisms whose rules level v19 made due re-checked against the amended *write for a capable model*: harness's and the ticket mechanism's rules clean; three lines that told the agent only what a script does fixed on the user's word and reinstalled — R7's clause on what `inject_rules.py --check` fails on, and Q4's *ids are unchanged*, dropped; the marks' format moved from the maintain skill to `MARKS-FORMAT.md` beside it, which the skill and the doc point to, as rule failure 15's amendment places a record's format; a second pass re-checked and marked every level, none due; the queue's two rows the `.0017` close had run together split again. Before it, `/implement` → `/verify`, 2026-10-03 — [01-0011.0100.0011 the-agent-calls-a-subcommand-per-event](done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md), Done: each event is a `questions.py` subcommand with `--session`, `open` drawing its id and taking the next on a race, `undepend` among them; the declared line, its parser and the window's next-free-id line gone; Q1, Q2 and Q3 in calls and reinstalled, the entry contract at v19 with *write for a capable model* amended; quoting verified live in Git Bash and Windows PowerShell 5.1. 459 tests. Repaired at `/verify`: the architecture's and `.0010`'s wording of the line, and q-0011's closure. Before it the same day, `/plan` — [01-0011.0100.0011 the-agent-calls-a-subcommand-per-event](done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md)'s [RFC](../rfc/done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md), four stages: the event subcommands beside the line, `open` assigning its id and taking the next one on a race, `undepend` moved here from `.0015`; the line, its grammar and the window's next-free-id line removed; Q1, Q2, Q3, the skill, the doc and the evidence in calls, the entry contract at v19 with the amended *write for a capable model* *(the user)*; quoting verified live in Git Bash and PowerShell. `depend q-A --on q-B` settled and reported. Before it the same day, `/maintain` — the paired close of `.0017` with its RFC into `done/`; four wholly closed subtrees of the store archived — q-0009 with q-0011 to q-0013, q-0010, q-0014, q-0018; a stale session line ended, the conversation's tag from before a resume (q-0015's trail); the questions mechanism's output re-checked and marked. Before it, `/implement` → `/verify`, 2026-10-03 — [01-0011.0100.0017 an-entry-name-carries-its-whole-question](done/01-0011.0100.0017-an-entry-name-carries-its-whole-question.md), Done: a new entry's name holds its whole question, cut at a word boundary only past 160 characters; the check holds every name to that, reporting the name an entry needs; the eighteen live entries renamed by the mover and four citing records repaired; the skill tells the agent to phrase a question short. 457 tests. Its paired close is `/maintain`'s. Before it the same day, `/ticket` — [01-0011.0100.0011 the-agent-calls-a-subcommand-per-event](done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md) minted on the user's approval, from the align on q-0018 the day before: decision 56 replaces the declared line with a `questions.py` subcommand per event, the script assigning ids, every turn still calling `at`; [its `/impact`](01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md#impact--2026-10-02-the-subcommand-slice-for-decision-56) said proceed, narrowed to the event writes, the read flags left alone. It lands after `.0017` and before `.0012` and `.0015`, whose tickets now depend on it and whose RFCs take a validation pass once it lands; `.0012`'s contract version becomes v20. Before it, `/plan`, 2026-10-02 — [01-0011.0100.0015 a-question-that-keeps-coming-back-rises](01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md)'s [RFC](../rfc/01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md), five stages: the `struck` part and its check; the writer stamping at opening and striking a reach twelve hours after the last stamp, the time injected and stamped in UTC; `undepends q-A on q-B`; the count on window lines and the wake's ranking; the words, and q-0008 freed of q-0015 and closed. Three items settled at `/align` on the way *(the user)*: any declared `at` counts, staying included; X a constant, twelve, until a project wants another — both amending decision 53; the clause's verb. Ready. Before it the same day, [01-0011.0100.0012 a-raised-question-is-looked-up-before-it-is-held](done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md)'s [RFC](../rfc/done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md), three stages and no code: Q1's agreed lookup sentence in place of the newcomer sentence, reinstalled, the contract at v19; the skill's *A raised question* — the lookup's scope, who settles, a request, where to open — and the doc's roles and judge; five closures repointed by a declared line once the section they point to exists. Ready. Before it the same day, [01-0011.0100.0017 an-entry-name-carries-its-whole-question](done/01-0011.0100.0017-an-entry-name-carries-its-whole-question.md)'s [RFC](../rfc/done/01-0011.0100.0017-an-entry-name-carries-its-whole-question.md), three stages: the writer's slug to 160 characters and the check holding a name to its whole question (settled under decision 49, since a check that still accepted a shortened slug would let the rule lapse); the sixteen live entries renamed by the mover, whose dry run moved all of them and repaired the four citing records; the skill's and the evidence's words. Ready. Before it, `/ticket`, 2026-10-02 — three AFK slices minted under [01-0011.0100](01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md) to carry decisions 46 to 55, each with every decision made: [01-0011.0100.0012 a-raised-question-is-looked-up-before-it-is-held](done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md) (46–52), [01-0011.0100.0015 a-question-that-keeps-coming-back-rises](01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md) (53–54), [01-0011.0100.0017 an-entry-name-carries-its-whole-question](done/01-0011.0100.0017-an-entry-name-carries-its-whole-question.md) (55), on [the split's `/impact`](01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md#impact--2026-10-02-the-split-for-decisions-46-to-55). Before it, `/align`, 2026-10-02 — decisions 46 to 55 on the parent, from the align on q-0008 to q-0016: a raised question is looked up in the docs and the code first and held only if nobody settles it in the turn; rights over the store come from the agent's role; small decisions are settled and reported, load-bearing ones are the person's; a request brings its question first; a strike is a reach twelve hours after the last and ranks a question in the wake; an entry's name carries its whole question. The store gained q-0008 to q-0016. Before it, `/maintain`, 2026-10-02 — the questions mechanism and the files `.0010` touched, widened to every mechanism the clock reported due: all re-checked under v18 and marked, the questions mechanism for the first time; `ticket.md`'s moment row repaired to name an open question of the store. Before it, `/verify`, 2026-10-02 — [01-0011.0100.0010 the-store-and-questions-writes-it](01-0011.0100.0010-the-store-and-questions-writes-it.md): the set clean at 453 tests, four of seven boxes checked, three waiting on live sessions; repaired the RFC behind the code, two unwrapped provisional sentences, and a hook notice Cursor would drop. Before it, `/implement`, 2026-09-29 to 2026-10-02, stages 1 to 6: `questions.py` — check, window, wake, tree, writer, hooks; the mechanism declared and installed, Q1 at tier 1 and the entry contract at v18; each host's hook wiring, Claude Code observed live; `concerns.md` folded into the store's first seven entries; `/align` cut to the interview. Decisions 43 to 45 landed on the way: a closed question points to its answer; each host's hook delivers the window, drawn only when something moved; attach is a short rule with four example lines. Before it, `/plan`, 2026-09-29 — [01-0011.0100.0010 the-store-and-questions-writes-it](01-0011.0100.0010-the-store-and-questions-writes-it.md)'s [RFC](../rfc/01-0011.0100.0010-the-store-and-questions-writes-it.md), authored and validated three times, ten items settled at `/align` on the way: the declared line's grammar; the line shown only under `debug=on`, a project setting; no reply mode; four installed blocks; the concerns as entries alone; height out of the slice; `at` on every line; a position per session in one temporary sessions file, a straw dog on 01-0010; only the working agent attaches. Parent decisions 22, 25 and 39 amended. Before it, `/align`, 2026-09-28 to 2026-09-29 — [01-0011.0100 the-open-questions-are-kept-by-a-mechanism](01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)'s align, decisions 24 to 42: the entry's eight parts; attach, close, branch, prune and the wake as rules with moment, instruction and outcome; the judge reads a window and never the tree, measured by [the window test](../research/window-test-2026-09-28.md) at 100 to 30,000 entries; the store is core's own record, a directory of one file per question with the parent line as the hierarchy's one home; the position written by the script from the reply's declared line; attach alone at tier 1; nothing retires it but evidence that it does not pay; the skill `/questions`. Two `/discover` passes filed. *Rule* and *principle* defined in the method glossary, the rules-file grammar's gap opened on the mechanism-shape spec. The first slice [01-0011.0100.0010 the-store-and-questions-writes-it](01-0011.0100.0010-the-store-and-questions-writes-it.md) is Ready. Before it, `/ticket`, 2026-09-28 — [01-0011.0100](01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md) minted with five slices on the user's approval, from the align [01-0012 hierarchy-coherent](done/01-0012-hierarchy-coherent.md) hosted over 2026-09-27 and 2026-09-28: it began as a vocabulary sweep of *height*, ran three `/discover` passes and a trace of Life's reasoning failures, and arrived at the user's proposal that the core keep the tree's open questions in one store with rules, judges and strict recordings, `/align` carrying the interview alone and the method's instruments injected; twenty-two decisions extracted to the parent, the passes to research records, and 01-0012 closed as a landed decision with its residues routed to the store slice, the pacer and the practice ticket. Before it, `/maintain`, 2026-09-27 — the paired close of [01-0011.0060 mechanism-rechecked-when-governing-moves](done/01-0011.0060-mechanism-rechecked-when-governing-moves.md) with its RFC, after `/align` → `/plan` → `/implement` → `/verify` the same day, and the first pass under the clock it built: `maintain.py --check` reported all four mechanisms never maintained at both levels, every one was re-checked — docs against the meta-rules, records against their doc and format — and all eight levels were marked *nothing to change*, so the clock now reads them current. Before it the same day, `/maintain`, 2026-09-27 — the paired close of [01-0011.0080 a-test-pays-only-for-what-it-proves](done/01-0011.0080-a-test-pays-only-for-what-it-proves.md) with its RFC, after `/plan` → `/implement` → `/verify` the same day: an audit of all 342 tests against the code they exercise pruned 8 that could not fail and folded 50 that repeated another; a test now builds a real repository only when Git or a child process is what it proves, a guard refusing every other one any process *(the user, landed in both specs' Testing Decisions)*; the harness's source is read from memory through six methods `Source` now reads a clone with; 289 tests run in 24.2 s, from 274 s, and `harness.py --check` on ai-game-1 reports as before. The first criterion was scoped by the user to the three tests [01-0011.0090 a-test-catches-what-its-name-promises](01-0011.0090-a-test-catches-what-its-name-promises.md) strengthens, now Ready; a parallel runner was declined. Before it, `/ticket`, 2026-09-26 — `.0080` minted on the user's request that the tests stop doing needless work: 342 tests took 320 s, nine tenths of every test a process start; `/impact` on [the mechanism shape](../spec/01-0011-mechanism-shape.md#impact--2026-09-26-the-fast-suite) said proceed, narrowed to what each test proves. Before it the same day: [01-0010.0168 the-harness-measures-what-it-costs-and-saves](01-0010.0168-the-harness-measures-what-it-costs-and-saves.md) minted on the user's request after an outside review: the tokens and human turns a unit of work costs and what it saves, read from the hosts' session records as a trend from the first session forward; the front page gained that the skills and records are the agent's equipment, a way to trial it, and that its checks are tested tooling. Before it the same day: two slices minted on the user's request: [01-0010.0172 a-first-install-says-what-stopped-it](01-0010.0172-a-first-install-says-what-stopped-it.md), the Windows first-run failures of [issue #1](https://github.com/dveyarangi/goodwolf-harness/issues/1), and [01-0010.0205 a-recipient-reports-a-harness-failure-upstream](01-0010.0205-a-recipient-reports-a-harness-failure-upstream.md), a core rule's failure found in a recipient reported to the harness's own board. Before it, the same day: four adoption panel runs on the published front page ([record](../research/adoption-panel-2026-09-26.md)), each followed by a page fix. Before them: `/plan` → `/implement` → `/verify` → `/maintain` on [01-0010.0167 the-front-page-says-what-the-harness-is](done/01-0010.0167-the-front-page-says-what-the-harness-is.md), 2026-09-26 — the root README is the page the align settled, with the loop's diagram as a 1600-pixel copy; its eight *not yet* items are straw dogs `/maintain`'s listing now reads; the root `LICENSE` (MIT) reaches every install as `.agents/LICENSE`, read apart from the archive since an archive refuses a path an older ref lacks. The plan put a copy step into the architecture and the user took it out — [rule failure 11](../rule-failures.md), `/plan` now lands only load-bearing architecture — and graded ceremony into three tiers on [01-0020 pacer](01-0020-pacer.md). One criterion was reworded by the user at verify: the diagram and license sit beside the page, in neither core nor `docs/`. Closed with its RFC. 342 tests. Before it: `/align` and `/ticket` on **the front page**, 2026-09-26 — who it is for, what it says and what it may point at, tested on cold readers and settled section by section; three slices minted on the user's approval: [01-0010.0167](done/01-0010.0167-the-front-page-says-what-the-harness-is.md), the page itself and a license copied into every install; [01-0010.0125 the-host-blocks-what-a-rule-forbids](01-0010.0125-the-host-blocks-what-a-rule-forbids.md), the host refusing what a rule forbids, decision-bearing behind [01-0010.0120 host-delivery-surfaces](01-0010.0120-host-delivery-surfaces.md); [01-0010.0200 a-project-can-remove-the-harness](01-0010.0200-a-project-can-remove-the-harness.md), uninstall. On the way, [01-0010.0175 arrival-describes-what-it-finds](01-0010.0175-arrival-describes-what-it-finds.md) took its codebase half back, and [01-0010.0190 core-is-published-as-a-release](01-0010.0190-core-is-published-as-a-release.md) gained an adoption panel at every release and the published front page as an open issue. Before it: `/maintain`, 2026-09-24 — the paired close of [01-0010.0145 core-scripts-under-one-directory](done/01-0010.0145-core-scripts-under-one-directory.md) with its RFC, its last box graded by ai-game-1's blind update in frost_map's place *(the user)*; the report's silence about a verification set naming deleted paths is [01-0010.0160 harness-edge-changes-reach-an-update](01-0010.0160-harness-edge-changes-reach-an-update.md)'s first strike. Before it the same day, two `FIX`es: an update and `--check` read an announced ref as it shipped rather than under today's shipping rules, which had stranded every tree installed before [01-0010.0165 a-fresh-tree-has-a-delivery-status](done/01-0010.0165-a-fresh-tree-has-a-delivery-status.md) ([rule failure 9](../rule-failures.md)), after which ai-game-1 took `85691cd`. Before them: `/maintain`, 2026-09-23 — the paired close of [01-0010.0155 a-tree-names-the-repository-its-core-comes-from](done/01-0010.0155-a-tree-names-the-repository-its-core-comes-from.md) and [01-0010.0165](done/01-0010.0165-a-fresh-tree-has-a-delivery-status.md), each ticket with its RFC. Before it: `/plan` → `/implement` → `/verify` on [01-0010.0165](done/01-0010.0165-a-fresh-tree-has-a-delivery-status.md), 2026-09-23 — a fresh tree now arrives with a delivery status to read, and a tree that received core before this gets one at its next update. The `/plan` narrowed the slice and the user chose the narrowing: directory doors are not created, because `move_doc` makes a record's parent on the way in and git keeps no empty directory, so the only door that mattered was the one read before anything is written. Its words are the ticket mechanism's, declared in `TICKET-FORMAT.md` beside the record's shape and carried in the shipment; the install places them and composes nothing but the ref. The glossary's painted door became a path core *reserves*, some arriving with content. 335 tests. Earlier the same day: `/plan` → `/implement` → `/verify` on [01-0010.0155](done/01-0010.0155-a-tree-names-the-repository-its-core-comes-from.md), the repository line. Before it: `/ticket` on [01-0010.0160](01-0010.0160-harness-edge-changes-reach-an-update.md) — the releases work is decomposed into three slices, [01-0010.0185 an-edge-change-writes-its-line](01-0010.0185-an-edge-change-writes-its-line.md) → `.0190` → [01-0010.0195 a-recipient-reads-before-it-takes](01-0010.0195-a-recipient-reads-before-it-takes.md), behind [01-0010.0155](done/01-0010.0155-a-tree-names-the-repository-its-core-comes-from.md). `/impact`: proceed, narrowed to three. The fourth drafted slice — a tree holding a ref older than the first release — folded into `.0195`, because an old recipient's announce line carries its own repository and `--check` against it keeps working: only the pending-release count breaks, so the migration is one note and one re-stamped `--update --from`. Two hidden edges went to the slices that own them: whether core may name the edge record at all, which makes `.0185` decision-bearing, and the publish's history question, which is `.0190`'s. `.0160` is now the end state and takes no RFC of its own. Earlier the same day: `/align` and `/ticket` on **arrival-to-ready** — nine decisions landed on [01-0010 dev-harness-shared-and-local](01-0010-dev-harness-shared-and-local.md#arrival-to-ready--2026-09-23) and four slices minted, `.0165` → [01-0010.0170 arrival-becomes-a-sequence](01-0010.0170-arrival-becomes-a-sequence.md) → `.0175` → [01-0010.0180 harness-names-its-maintenance](01-0010.0180-harness-names-its-maintenance.md). The customer is ai-game-1, installed at `goodwolf-harness@47516ce`: its verification set came out holding core's own gates and nothing of the project's, its painted doors were never created, and the install's last step ran before the project had a toolchain to read. Decided: the sequence (install+gate → L1/L2 → setup → quicklook → L3 → inject → check); doors created by the install with `docs/tickets/README.md` carrying an arrival state; one fixed quicklook whose admission scales rather than its effort, with *unread* distinct from *deferred*; harness owning every moment, `setup-devops` relied-on; the local file's extraction split so the switches precede the step they authorise; `git init` a refusal bullet and a remote offered, never created; L3 a pointer to `docs/cicd.md` with core's gates additive only. Two rule failures registered and both amendments landed the same day: [7](../rule-failures.md) — harness's declaration carried its script's verbs, repaired in `MECHANISM-FORMAT` and in the declaration — and [8](../rule-failures.md) — `/impact`'s *Output only* ended its caller's turn, repaired in `/impact`. Before it: `/align` on [01-0010.0160](01-0010.0160-harness-edge-changes-reach-an-update.md), 2026-09-21 — four decisions landed: what the installation edge is, its two homes (the engineering record at the origin, the manifested edge derived from it), registration at the occasion and derivation at the release, and *releases* as the mechanism that publishes the clean core to a repository of its own. The update defaults to the latest release and the installing agent decides whether to take it. Before it the same day: `/plan` and `/implement` and `/verify` on [01-0010.0145](done/01-0010.0145-core-scripts-under-one-directory.md), the scripts' move, whose own breakage is the evidence the align read. Earlier: `/maintain` on [01-0010.0130 harness-installs-into-another-tree](done/01-0010.0130-harness-installs-into-another-tree.md) — the paired close of the slice that made the harness install itself: the user graded it in frost_map, whose own `harness.py . --check` reported `arrived: true` at `goodwolf-harness@2c733f0` with both links resolving and its four local rules re-injected. Before the close the same day: `/implement` landed the `harness` mechanism, its `/verify`, and a first live run that refuted four things (the shipped suite in the gate, the links as parts, one `cat-file` per file, an archive that smudged), all on the mechanism's evidence. What every earlier pass decided is on the ticket that owns it, in the mechanism evidence under `docs/mechanisms/`, and in the session records under `docs/sessions/`.",
+                " ",
+                " **Candidate:** `/maintain` for `.0012`'s paired close; then `/implement` on [`.0015`](01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md), validated against the calls. Alongside, [01-0011.0100.0010 the-store-and-questions-writes-it](01-0011.0100.0010-the-store-and-questions-writes-it.md)'s three open boxes, which wait on live sessions: a session showing its calls under `debug=on`, two local sessions seeing each other, and Codex and Cursor live. **The order, re-read and confirmed** *(the user, 2026-09-29, on the occasion raised 2026-09-28)*: the coherence tickets refactor onto the question store, so *coherence first* reads 01-0011.0100 and its slices, then [01-0014 scope-coherent](01-0014-scope-coherent.md), whose align tests whether scope is a subtree of the store, then the rest of the chain; [01-0010.0080 impact-work-shape](01-0010.0080-impact-work-shape.md) folded into the branch slice. **The order as settled at the queue-order align of 2026-09-27** *(the user)*: [`.0060`](done/01-0011.0060-mechanism-rechecked-when-governing-moves.md), done 2026-09-27 → [01-0012 hierarchy-coherent](done/01-0012-hierarchy-coherent.md), closed 2026-09-28 as a landed decision → [01-0014 scope-coherent](01-0014-scope-coherent.md) → [01-0017 io-graph-coherent](01-0017-io-graph-coherent.md), with its children [01-0017.0010 terms-defined-before-they-land](01-0017.0010-terms-defined-before-they-land.md) and [01-0017.0020 practice-swaps-in-one-edit](01-0017.0020-practice-swaps-in-one-edit.md) → [01-0010.0080 impact-work-shape](01-0010.0080-impact-work-shape.md) → [01-0016 responsibility-coherent](01-0016-responsibility-coherent.md) → [01-0010.0120 host-delivery-surfaces](01-0010.0120-host-delivery-surfaces.md) → [01-0018 reachability-coherent](01-0018-reachability-coherent.md) → [01-0020 pacer](01-0020-pacer.md). Why: the pacer waits for skills to become mechanisms, which is this coherence work, and it owns the light path the [adoption panel](../research/adoption-panel-2026-09-26.md)'s readers named most often as what would change their answer. `.0060` opens it as the mechanism spec's 2026-09-07 `/impact` placed it, before 01-0017; its dueness is `/maintain`'s own input, so it does not wait for `.0120`. 01-0017 sits after scope, since where a mechanism's boundary falls is a scope question, and before responsibility, whose outcome needs the mechanisms declared. **All of it comes first**: ahead of the work for the existing recipients — the releases chain [01-0010.0185 an-edge-change-writes-its-line](01-0010.0185-an-edge-change-writes-its-line.md) → [.0190 core-is-published-as-a-release](01-0010.0190-core-is-published-as-a-release.md) → [.0195 a-recipient-reads-before-it-takes](01-0010.0195-a-recipient-reads-before-it-takes.md), and [.0200 a-project-can-remove-the-harness](01-0010.0200-a-project-can-remove-the-harness.md) — and of the arrival work, [.0150 harness-meets-a-tree-with-a-method](01-0010.0150-harness-meets-a-tree-with-a-method.md), [.0170 arrival-becomes-a-sequence](01-0010.0170-arrival-becomes-a-sequence.md), [.0172 a-first-install-says-what-stopped-it](01-0010.0172-a-first-install-says-what-stopped-it.md). frost_map stays at `2c733f0`, its update held for `.0195` *(the user, 2026-09-24)*. What follows the pacer is not yet ordered. **Next cycle needs a nod** (`next-cycle=ask`). Resume by opening a fresh session here: its first line is the entry contract [AGENTS.md](../../AGENTS.md) declares and its first act is `/recall`; what follows the wake until the pacer exists is [pacer.md](../pacer.md#core-rules--under-alignment)'s.",
+                " "
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false,
+          "contentNotInModelContext": true
+        },
+        "sourceToolAssistantUUID": "77997308-7088-4b6e-a90c-4b9f17498689",
+        "promptId": "63fcf805-5c04-4fb2-8483-758a708bbf8f"
+      },
+      "original_record_sha256": "8ae527e3d36042fd38219d2ef22b42b3982644f391201ac44c44fd3379d1f881",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2554": {
+      "timestamp": "2026-10-02T22:41:36.644Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "aeb74d49-a667-4b76-9818-adf70b1c246d",
+        "parentUuid": "de11bbc4-2065-4b17-84b3-2bbf87d9083d",
+        "timestamp": "2026-10-02T22:41:36.644Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01KNXkfH9no4aa4B92Rjpffc",
+              "content": "The file D:\\Dev\\AI\\agents\\docs\\tickets\\README.md has been updated successfully."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\docs\\tickets\\README.md",
+          "oldString": "**Candidate:** `/maintain` for `.0012`'s paired close; then `/implement` on",
+          "newString": "**Candidate:** `/implement` on",
+          "originalFile": null,
+          "structuredPatch": [
+            {
+              "oldStart": 4,
+              "oldLines": 7,
+              "newStart": 4,
+              "newLines": 7,
+              "lines": [
+                " ",
+                " **Completed step:** `/maintain`, 2026-10-03 — the paired close of `.0012` with its RFC; every level the clock reported due after v20 re-checked — the rules levels moved only by the version line and Q1's installed block, the questions mechanism's doc naming no record of `docs/` in its new *Rights* — and marked, none due. Before it, `/implement` → `/verify`, 2026-10-03 — [01-0011.0100.0012 a-raised-question-is-looked-up-before-it-is-held](done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md), Done: Q1 holds the agreed lookup sentence, reinstalled, the entry contract at v20; the questions skill's *A raised question* holds the lookup's scope, who settles, a request and where to open; the doc's *Three levels* gains the judge of weight and a *Rights* paragraph; q-0009, q-0010 and q-0012 to q-0014 repointed by `close` calls to where their decisions landed. No code; 459 tests. Its paired close is `/maintain`'s. Before it the same day, `/plan` — validation passes over the RFCs of [`.0012`](done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md) and [`.0015`](01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md) against the landed calls: `.0012` replaces only the first half of Q1's newcomer sentence, keeping *a message that lands nowhere makes no call*, moves the contract to v20, and repoints five archived entries by `close` calls whose links climb from `done/`; `.0015` loses its removal stage to `.0011`, closes q-0008 by `undepend` then `close`, and adds a raced strike's refusal to its tests. Both close texts hold an apostrophe and take double quotes, as the skill's quoting sentence says. Before it the same day, `/maintain` — the paired close of `.0011` with its RFC; the five mechanisms whose rules level v19 made due re-checked against the amended *write for a capable model*: harness's and the ticket mechanism's rules clean; three lines that told the agent only what a script does fixed on the user's word and reinstalled — R7's clause on what `inject_rules.py --check` fails on, and Q4's *ids are unchanged*, dropped; the marks' format moved from the maintain skill to `MARKS-FORMAT.md` beside it, which the skill and the doc point to, as rule failure 15's amendment places a record's format; a second pass re-checked and marked every level, none due; the queue's two rows the `.0017` close had run together split again. Before it, `/implement` → `/verify`, 2026-10-03 — [01-0011.0100.0011 the-agent-calls-a-subcommand-per-event](done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md), Done: each event is a `questions.py` subcommand with `--session`, `open` drawing its id and taking the next on a race, `undepend` among them; the declared line, its parser and the window's next-free-id line gone; Q1, Q2 and Q3 in calls and reinstalled, the entry contract at v19 with *write for a capable model* amended; quoting verified live in Git Bash and Windows PowerShell 5.1. 459 tests. Repaired at `/verify`: the architecture's and `.0010`'s wording of the line, and q-0011's closure. Before it the same day, `/plan` — [01-0011.0100.0011 the-agent-calls-a-subcommand-per-event](done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md)'s [RFC](../rfc/done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md), four stages: the event subcommands beside the line, `open` assigning its id and taking the next one on a race, `undepend` moved here from `.0015`; the line, its grammar and the window's next-free-id line removed; Q1, Q2, Q3, the skill, the doc and the evidence in calls, the entry contract at v19 with the amended *write for a capable model* *(the user)*; quoting verified live in Git Bash and PowerShell. `depend q-A --on q-B` settled and reported. Before it the same day, `/maintain` — the paired close of `.0017` with its RFC into `done/`; four wholly closed subtrees of the store archived — q-0009 with q-0011 to q-0013, q-0010, q-0014, q-0018; a stale session line ended, the conversation's tag from before a resume (q-0015's trail); the questions mechanism's output re-checked and marked. Before it, `/implement` → `/verify`, 2026-10-03 — [01-0011.0100.0017 an-entry-name-carries-its-whole-question](done/01-0011.0100.0017-an-entry-name-carries-its-whole-question.md), Done: a new entry's name holds its whole question, cut at a word boundary only past 160 characters; the check holds every name to that, reporting the name an entry needs; the eighteen live entries renamed by the mover and four citing records repaired; the skill tells the agent to phrase a question short. 457 tests. Its paired close is `/maintain`'s. Before it the same day, `/ticket` — [01-0011.0100.0011 the-agent-calls-a-subcommand-per-event](done/01-0011.0100.0011-the-agent-calls-a-subcommand-per-event.md) minted on the user's approval, from the align on q-0018 the day before: decision 56 replaces the declared line with a `questions.py` subcommand per event, the script assigning ids, every turn still calling `at`; [its `/impact`](01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md#impact--2026-10-02-the-subcommand-slice-for-decision-56) said proceed, narrowed to the event writes, the read flags left alone. It lands after `.0017` and before `.0012` and `.0015`, whose tickets now depend on it and whose RFCs take a validation pass once it lands; `.0012`'s contract version becomes v20. Before it, `/plan`, 2026-10-02 — [01-0011.0100.0015 a-question-that-keeps-coming-back-rises](01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md)'s [RFC](../rfc/01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md), five stages: the `struck` part and its check; the writer stamping at opening and striking a reach twelve hours after the last stamp, the time injected and stamped in UTC; `undepends q-A on q-B`; the count on window lines and the wake's ranking; the words, and q-0008 freed of q-0015 and closed. Three items settled at `/align` on the way *(the user)*: any declared `at` counts, staying included; X a constant, twelve, until a project wants another — both amending decision 53; the clause's verb. Ready. Before it the same day, [01-0011.0100.0012 a-raised-question-is-looked-up-before-it-is-held](done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md)'s [RFC](../rfc/done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md), three stages and no code: Q1's agreed lookup sentence in place of the newcomer sentence, reinstalled, the contract at v19; the skill's *A raised question* — the lookup's scope, who settles, a request, where to open — and the doc's roles and judge; five closures repointed by a declared line once the section they point to exists. Ready. Before it the same day, [01-0011.0100.0017 an-entry-name-carries-its-whole-question](done/01-0011.0100.0017-an-entry-name-carries-its-whole-question.md)'s [RFC](../rfc/done/01-0011.0100.0017-an-entry-name-carries-its-whole-question.md), three stages: the writer's slug to 160 characters and the check holding a name to its whole question (settled under decision 49, since a check that still accepted a shortened slug would let the rule lapse); the sixteen live entries renamed by the mover, whose dry run moved all of them and repaired the four citing records; the skill's and the evidence's words. Ready. Before it, `/ticket`, 2026-10-02 — three AFK slices minted under [01-0011.0100](01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md) to carry decisions 46 to 55, each with every decision made: [01-0011.0100.0012 a-raised-question-is-looked-up-before-it-is-held](done/01-0011.0100.0012-a-raised-question-is-looked-up-before-it-is-held.md) (46–52), [01-0011.0100.0015 a-question-that-keeps-coming-back-rises](01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md) (53–54), [01-0011.0100.0017 an-entry-name-carries-its-whole-question](done/01-0011.0100.0017-an-entry-name-carries-its-whole-question.md) (55), on [the split's `/impact`](01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md#impact--2026-10-02-the-split-for-decisions-46-to-55). Before it, `/align`, 2026-10-02 — decisions 46 to 55 on the parent, from the align on q-0008 to q-0016: a raised question is looked up in the docs and the code first and held only if nobody settles it in the turn; rights over the store come from the agent's role; small decisions are settled and reported, load-bearing ones are the person's; a request brings its question first; a strike is a reach twelve hours after the last and ranks a question in the wake; an entry's name carries its whole question. The store gained q-0008 to q-0016. Before it, `/maintain`, 2026-10-02 — the questions mechanism and the files `.0010` touched, widened to every mechanism the clock reported due: all re-checked under v18 and marked, the questions mechanism for the first time; `ticket.md`'s moment row repaired to name an open question of the store. Before it, `/verify`, 2026-10-02 — [01-0011.0100.0010 the-store-and-questions-writes-it](01-0011.0100.0010-the-store-and-questions-writes-it.md): the set clean at 453 tests, four of seven boxes checked, three waiting on live sessions; repaired the RFC behind the code, two unwrapped provisional sentences, and a hook notice Cursor would drop. Before it, `/implement`, 2026-09-29 to 2026-10-02, stages 1 to 6: `questions.py` — check, window, wake, tree, writer, hooks; the mechanism declared and installed, Q1 at tier 1 and the entry contract at v18; each host's hook wiring, Claude Code observed live; `concerns.md` folded into the store's first seven entries; `/align` cut to the interview. Decisions 43 to 45 landed on the way: a closed question points to its answer; each host's hook delivers the window, drawn only when something moved; attach is a short rule with four example lines. Before it, `/plan`, 2026-09-29 — [01-0011.0100.0010 the-store-and-questions-writes-it](01-0011.0100.0010-the-store-and-questions-writes-it.md)'s [RFC](../rfc/01-0011.0100.0010-the-store-and-questions-writes-it.md), authored and validated three times, ten items settled at `/align` on the way: the declared line's grammar; the line shown only under `debug=on`, a project setting; no reply mode; four installed blocks; the concerns as entries alone; height out of the slice; `at` on every line; a position per session in one temporary sessions file, a straw dog on 01-0010; only the working agent attaches. Parent decisions 22, 25 and 39 amended. Before it, `/align`, 2026-09-28 to 2026-09-29 — [01-0011.0100 the-open-questions-are-kept-by-a-mechanism](01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)'s align, decisions 24 to 42: the entry's eight parts; attach, close, branch, prune and the wake as rules with moment, instruction and outcome; the judge reads a window and never the tree, measured by [the window test](../research/window-test-2026-09-28.md) at 100 to 30,000 entries; the store is core's own record, a directory of one file per question with the parent line as the hierarchy's one home; the position written by the script from the reply's declared line; attach alone at tier 1; nothing retires it but evidence that it does not pay; the skill `/questions`. Two `/discover` passes filed. *Rule* and *principle* defined in the method glossary, the rules-file grammar's gap opened on the mechanism-shape spec. The first slice [01-0011.0100.0010 the-store-and-questions-writes-it](01-0011.0100.0010-the-store-and-questions-writes-it.md) is Ready. Before it, `/ticket`, 2026-09-28 — [01-0011.0100](01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md) minted with five slices on the user's approval, from the align [01-0012 hierarchy-coherent](done/01-0012-hierarchy-coherent.md) hosted over 2026-09-27 and 2026-09-28: it began as a vocabulary sweep of *height*, ran three `/discover` passes and a trace of Life's reasoning failures, and arrived at the user's proposal that the core keep the tree's open questions in one store with rules, judges and strict recordings, `/align` carrying the interview alone and the method's instruments injected; twenty-two decisions extracted to the parent, the passes to research records, and 01-0012 closed as a landed decision with its residues routed to the store slice, the pacer and the practice ticket. Before it, `/maintain`, 2026-09-27 — the paired close of [01-0011.0060 mechanism-rechecked-when-governing-moves](done/01-0011.0060-mechanism-rechecked-when-governing-moves.md) with its RFC, after `/align` → `/plan` → `/implement` → `/verify` the same day, and the first pass under the clock it built: `maintain.py --check` reported all four mechanisms never maintained at both levels, every one was re-checked — docs against the meta-rules, records against their doc and format — and all eight levels were marked *nothing to change*, so the clock now reads them current. Before it the same day, `/maintain`, 2026-09-27 — the paired close of [01-0011.0080 a-test-pays-only-for-what-it-proves](done/01-0011.0080-a-test-pays-only-for-what-it-proves.md) with its RFC, after `/plan` → `/implement` → `/verify` the same day: an audit of all 342 tests against the code they exercise pruned 8 that could not fail and folded 50 that repeated another; a test now builds a real repository only when Git or a child process is what it proves, a guard refusing every other one any process *(the user, landed in both specs' Testing Decisions)*; the harness's source is read from memory through six methods `Source` now reads a clone with; 289 tests run in 24.2 s, from 274 s, and `harness.py --check` on ai-game-1 reports as before. The first criterion was scoped by the user to the three tests [01-0011.0090 a-test-catches-what-its-name-promises](01-0011.0090-a-test-catches-what-its-name-promises.md) strengthens, now Ready; a parallel runner was declined. Before it, `/ticket`, 2026-09-26 — `.0080` minted on the user's request that the tests stop doing needless work: 342 tests took 320 s, nine tenths of every test a process start; `/impact` on [the mechanism shape](../spec/01-0011-mechanism-shape.md#impact--2026-09-26-the-fast-suite) said proceed, narrowed to what each test proves. Before it the same day: [01-0010.0168 the-harness-measures-what-it-costs-and-saves](01-0010.0168-the-harness-measures-what-it-costs-and-saves.md) minted on the user's request after an outside review: the tokens and human turns a unit of work costs and what it saves, read from the hosts' session records as a trend from the first session forward; the front page gained that the skills and records are the agent's equipment, a way to trial it, and that its checks are tested tooling. Before it the same day: two slices minted on the user's request: [01-0010.0172 a-first-install-says-what-stopped-it](01-0010.0172-a-first-install-says-what-stopped-it.md), the Windows first-run failures of [issue #1](https://github.com/dveyarangi/goodwolf-harness/issues/1), and [01-0010.0205 a-recipient-reports-a-harness-failure-upstream](01-0010.0205-a-recipient-reports-a-harness-failure-upstream.md), a core rule's failure found in a recipient reported to the harness's own board. Before it, the same day: four adoption panel runs on the published front page ([record](../research/adoption-panel-2026-09-26.md)), each followed by a page fix. Before them: `/plan` → `/implement` → `/verify` → `/maintain` on [01-0010.0167 the-front-page-says-what-the-harness-is](done/01-0010.0167-the-front-page-says-what-the-harness-is.md), 2026-09-26 — the root README is the page the align settled, with the loop's diagram as a 1600-pixel copy; its eight *not yet* items are straw dogs `/maintain`'s listing now reads; the root `LICENSE` (MIT) reaches every install as `.agents/LICENSE`, read apart from the archive since an archive refuses a path an older ref lacks. The plan put a copy step into the architecture and the user took it out — [rule failure 11](../rule-failures.md), `/plan` now lands only load-bearing architecture — and graded ceremony into three tiers on [01-0020 pacer](01-0020-pacer.md). One criterion was reworded by the user at verify: the diagram and license sit beside the page, in neither core nor `docs/`. Closed with its RFC. 342 tests. Before it: `/align` and `/ticket` on **the front page**, 2026-09-26 — who it is for, what it says and what it may point at, tested on cold readers and settled section by section; three slices minted on the user's approval: [01-0010.0167](done/01-0010.0167-the-front-page-says-what-the-harness-is.md), the page itself and a license copied into every install; [01-0010.0125 the-host-blocks-what-a-rule-forbids](01-0010.0125-the-host-blocks-what-a-rule-forbids.md), the host refusing what a rule forbids, decision-bearing behind [01-0010.0120 host-delivery-surfaces](01-0010.0120-host-delivery-surfaces.md); [01-0010.0200 a-project-can-remove-the-harness](01-0010.0200-a-project-can-remove-the-harness.md), uninstall. On the way, [01-0010.0175 arrival-describes-what-it-finds](01-0010.0175-arrival-describes-what-it-finds.md) took its codebase half back, and [01-0010.0190 core-is-published-as-a-release](01-0010.0190-core-is-published-as-a-release.md) gained an adoption panel at every release and the published front page as an open issue. Before it: `/maintain`, 2026-09-24 — the paired close of [01-0010.0145 core-scripts-under-one-directory](done/01-0010.0145-core-scripts-under-one-directory.md) with its RFC, its last box graded by ai-game-1's blind update in frost_map's place *(the user)*; the report's silence about a verification set naming deleted paths is [01-0010.0160 harness-edge-changes-reach-an-update](01-0010.0160-harness-edge-changes-reach-an-update.md)'s first strike. Before it the same day, two `FIX`es: an update and `--check` read an announced ref as it shipped rather than under today's shipping rules, which had stranded every tree installed before [01-0010.0165 a-fresh-tree-has-a-delivery-status](done/01-0010.0165-a-fresh-tree-has-a-delivery-status.md) ([rule failure 9](../rule-failures.md)), after which ai-game-1 took `85691cd`. Before them: `/maintain`, 2026-09-23 — the paired close of [01-0010.0155 a-tree-names-the-repository-its-core-comes-from](done/01-0010.0155-a-tree-names-the-repository-its-core-comes-from.md) and [01-0010.0165](done/01-0010.0165-a-fresh-tree-has-a-delivery-status.md), each ticket with its RFC. Before it: `/plan` → `/implement` → `/verify` on [01-0010.0165](done/01-0010.0165-a-fresh-tree-has-a-delivery-status.md), 2026-09-23 — a fresh tree now arrives with a delivery status to read, and a tree that received core before this gets one at its next update. The `/plan` narrowed the slice and the user chose the narrowing: directory doors are not created, because `move_doc` makes a record's parent on the way in and git keeps no empty directory, so the only door that mattered was the one read before anything is written. Its words are the ticket mechanism's, declared in `TICKET-FORMAT.md` beside the record's shape and carried in the shipment; the install places them and composes nothing but the ref. The glossary's painted door became a path core *reserves*, some arriving with content. 335 tests. Earlier the same day: `/plan` → `/implement` → `/verify` on [01-0010.0155](done/01-0010.0155-a-tree-names-the-repository-its-core-comes-from.md), the repository line. Before it: `/ticket` on [01-0010.0160](01-0010.0160-harness-edge-changes-reach-an-update.md) — the releases work is decomposed into three slices, [01-0010.0185 an-edge-change-writes-its-line](01-0010.0185-an-edge-change-writes-its-line.md) → `.0190` → [01-0010.0195 a-recipient-reads-before-it-takes](01-0010.0195-a-recipient-reads-before-it-takes.md), behind [01-0010.0155](done/01-0010.0155-a-tree-names-the-repository-its-core-comes-from.md). `/impact`: proceed, narrowed to three. The fourth drafted slice — a tree holding a ref older than the first release — folded into `.0195`, because an old recipient's announce line carries its own repository and `--check` against it keeps working: only the pending-release count breaks, so the migration is one note and one re-stamped `--update --from`. Two hidden edges went to the slices that own them: whether core may name the edge record at all, which makes `.0185` decision-bearing, and the publish's history question, which is `.0190`'s. `.0160` is now the end state and takes no RFC of its own. Earlier the same day: `/align` and `/ticket` on **arrival-to-ready** — nine decisions landed on [01-0010 dev-harness-shared-and-local](01-0010-dev-harness-shared-and-local.md#arrival-to-ready--2026-09-23) and four slices minted, `.0165` → [01-0010.0170 arrival-becomes-a-sequence](01-0010.0170-arrival-becomes-a-sequence.md) → `.0175` → [01-0010.0180 harness-names-its-maintenance](01-0010.0180-harness-names-its-maintenance.md). The customer is ai-game-1, installed at `goodwolf-harness@47516ce`: its verification set came out holding core's own gates and nothing of the project's, its painted doors were never created, and the install's last step ran before the project had a toolchain to read. Decided: the sequence (install+gate → L1/L2 → setup → quicklook → L3 → inject → check); doors created by the install with `docs/tickets/README.md` carrying an arrival state; one fixed quicklook whose admission scales rather than its effort, with *unread* distinct from *deferred*; harness owning every moment, `setup-devops` relied-on; the local file's extraction split so the switches precede the step they authorise; `git init` a refusal bullet and a remote offered, never created; L3 a pointer to `docs/cicd.md` with core's gates additive only. Two rule failures registered and both amendments landed the same day: [7](../rule-failures.md) — harness's declaration carried its script's verbs, repaired in `MECHANISM-FORMAT` and in the declaration — and [8](../rule-failures.md) — `/impact`'s *Output only* ended its caller's turn, repaired in `/impact`. Before it: `/align` on [01-0010.0160](01-0010.0160-harness-edge-changes-reach-an-update.md), 2026-09-21 — four decisions landed: what the installation edge is, its two homes (the engineering record at the origin, the manifested edge derived from it), registration at the occasion and derivation at the release, and *releases* as the mechanism that publishes the clean core to a repository of its own. The update defaults to the latest release and the installing agent decides whether to take it. Before it the same day: `/plan` and `/implement` and `/verify` on [01-0010.0145](done/01-0010.0145-core-scripts-under-one-directory.md), the scripts' move, whose own breakage is the evidence the align read. Earlier: `/maintain` on [01-0010.0130 harness-installs-into-another-tree](done/01-0010.0130-harness-installs-into-another-tree.md) — the paired close of the slice that made the harness install itself: the user graded it in frost_map, whose own `harness.py . --check` reported `arrived: true` at `goodwolf-harness@2c733f0` with both links resolving and its four local rules re-injected. Before the close the same day: `/implement` landed the `harness` mechanism, its `/verify`, and a first live run that refuted four things (the shipped suite in the gate, the links as parts, one `cat-file` per file, an archive that smudged), all on the mechanism's evidence. What every earlier pass decided is on the ticket that owns it, in the mechanism evidence under `docs/mechanisms/`, and in the session records under `docs/sessions/`.",
+                " ",
+                "-**Candidate:** `/maintain` for `.0012`'s paired close; then `/implement` on [`.0015`](01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md), validated against the calls. Alongside, [01-0011.0100.0010 the-store-and-questions-writes-it](01-0011.0100.0010-the-store-and-questions-writes-it.md)'s three open boxes, which wait on live sessions: a session showing its calls under `debug=on`, two local sessions seeing each other, and Codex and Cursor live. **The order, re-read and confirmed** *(the user, 2026-09-29, on the occasion raised 2026-09-28)*: the coherence tickets refactor onto the question store, so *coherence first* reads 01-0011.0100 and its slices, then [01-0014 scope-coherent](01-0014-scope-coherent.md), whose align tests whether scope is a subtree of the store, then the rest of the chain; [01-0010.0080 impact-work-shape](01-0010.0080-impact-work-shape.md) folded into the branch slice. **The order as settled at the queue-order align of 2026-09-27** *(the user)*: [`.0060`](done/01-0011.0060-mechanism-rechecked-when-governing-moves.md), done 2026-09-27 → [01-0012 hierarchy-coherent](done/01-0012-hierarchy-coherent.md), closed 2026-09-28 as a landed decision → [01-0014 scope-coherent](01-0014-scope-coherent.md) → [01-0017 io-graph-coherent](01-0017-io-graph-coherent.md), with its children [01-0017.0010 terms-defined-before-they-land](01-0017.0010-terms-defined-before-they-land.md) and [01-0017.0020 practice-swaps-in-one-edit](01-0017.0020-practice-swaps-in-one-edit.md) → [01-0010.0080 impact-work-shape](01-0010.0080-impact-work-shape.md) → [01-0016 responsibility-coherent](01-0016-responsibility-coherent.md) → [01-0010.0120 host-delivery-surfaces](01-0010.0120-host-delivery-surfaces.md) → [01-0018 reachability-coherent](01-0018-reachability-coherent.md) → [01-0020 pacer](01-0020-pacer.md). Why: the pacer waits for skills to become mechanisms, which is this coherence work, and it owns the light path the [adoption panel](../research/adoption-panel-2026-09-26.md)'s readers named most often as what would change their answer. `.0060` opens it as the mechanism spec's 2026-09-07 `/impact` placed it, before 01-0017; its dueness is `/maintain`'s own input, so it does not wait for `.0120`. 01-0017 sits after scope, since where a mechanism's boundary falls is a scope question, and before responsibility, whose outcome needs the mechanisms declared. **All of it comes first**: ahead of the work for the existing recipients — the releases chain [01-0010.0185 an-edge-change-writes-its-line](01-0010.0185-an-edge-change-writes-its-line.md) → [.0190 core-is-published-as-a-release](01-0010.0190-core-is-published-as-a-release.md) → [.0195 a-recipient-reads-before-it-takes](01-0010.0195-a-recipient-reads-before-it-takes.md), and [.0200 a-project-can-remove-the-harness](01-0010.0200-a-project-can-remove-the-harness.md) — and of the arrival work, [.0150 harness-meets-a-tree-with-a-method](01-0010.0150-harness-meets-a-tree-with-a-method.md), [.0170 arrival-becomes-a-sequence](01-0010.0170-arrival-becomes-a-sequence.md), [.0172 a-first-install-says-what-stopped-it](01-0010.0172-a-first-install-says-what-stopped-it.md). frost_map stays at `2c733f0`, its update held for `.0195` *(the user, 2026-09-24)*. What follows the pacer is not yet ordered. **Next cycle needs a nod** (`next-cycle=ask`). Resume by opening a fresh session here: its first line is the entry contract [AGENTS.md](../../AGENTS.md) declares and its first act is `/recall`; what follows the wake until the pacer exists is [pacer.md](../pacer.md#core-rules--under-alignment)'s.",
+                "+**Candidate:** `/implement` on [`.0015`](01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md), validated against the calls. Alongside, [01-0011.0100.0010 the-store-and-questions-writes-it](01-0011.0100.0010-the-store-and-questions-writes-it.md)'s three open boxes, which wait on live sessions: a session showing its calls under `debug=on`, two local sessions seeing each other, and Codex and Cursor live. **The order, re-read and confirmed** *(the user, 2026-09-29, on the occasion raised 2026-09-28)*: the coherence tickets refactor onto the question store, so *coherence first* reads 01-0011.0100 and its slices, then [01-0014 scope-coherent](01-0014-scope-coherent.md), whose align tests whether scope is a subtree of the store, then the rest of the chain; [01-0010.0080 impact-work-shape](01-0010.0080-impact-work-shape.md) folded into the branch slice. **The order as settled at the queue-order align of 2026-09-27** *(the user)*: [`.0060`](done/01-0011.0060-mechanism-rechecked-when-governing-moves.md), done 2026-09-27 → [01-0012 hierarchy-coherent](done/01-0012-hierarchy-coherent.md), closed 2026-09-28 as a landed decision → [01-0014 scope-coherent](01-0014-scope-coherent.md) → [01-0017 io-graph-coherent](01-0017-io-graph-coherent.md), with its children [01-0017.0010 terms-defined-before-they-land](01-0017.0010-terms-defined-before-they-land.md) and [01-0017.0020 practice-swaps-in-one-edit](01-0017.0020-practice-swaps-in-one-edit.md) → [01-0010.0080 impact-work-shape](01-0010.0080-impact-work-shape.md) → [01-0016 responsibility-coherent](01-0016-responsibility-coherent.md) → [01-0010.0120 host-delivery-surfaces](01-0010.0120-host-delivery-surfaces.md) → [01-0018 reachability-coherent](01-0018-reachability-coherent.md) → [01-0020 pacer](01-0020-pacer.md). Why: the pacer waits for skills to become mechanisms, which is this coherence work, and it owns the light path the [adoption panel](../research/adoption-panel-2026-09-26.md)'s readers named most often as what would change their answer. `.0060` opens it as the mechanism spec's 2026-09-07 `/impact` placed it, before 01-0017; its dueness is `/maintain`'s own input, so it does not wait for `.0120`. 01-0017 sits after scope, since where a mechanism's boundary falls is a scope question, and before responsibility, whose outcome needs the mechanisms declared. **All of it comes first**: ahead of the work for the existing recipients — the releases chain [01-0010.0185 an-edge-change-writes-its-line](01-0010.0185-an-edge-change-writes-its-line.md) → [.0190 core-is-published-as-a-release](01-0010.0190-core-is-published-as-a-release.md) → [.0195 a-recipient-reads-before-it-takes](01-0010.0195-a-recipient-reads-before-it-takes.md), and [.0200 a-project-can-remove-the-harness](01-0010.0200-a-project-can-remove-the-harness.md) — and of the arrival work, [.0150 harness-meets-a-tree-with-a-method](01-0010.0150-harness-meets-a-tree-with-a-method.md), [.0170 arrival-becomes-a-sequence](01-0010.0170-arrival-becomes-a-sequence.md), [.0172 a-first-install-says-what-stopped-it](01-0010.0172-a-first-install-says-what-stopped-it.md). frost_map stays at `2c733f0`, its update held for `.0195` *(the user, 2026-09-24)*. What follows the pacer is not yet ordered. **Next cycle needs a nod** (`next-cycle=ask`). Resume by opening a fresh session here: its first line is the entry contract [AGENTS.md](../../AGENTS.md) declares and its first act is `/recall`; what follows the wake until the pacer exists is [pacer.md](../pacer.md#core-rules--under-alignment)'s.",
+                " ",
+                " **The chain:** [01-0010.0130](done/01-0010.0130-harness-installs-into-another-tree.md), the install half of [the install spec](../spec/01-0010.0130-harness-installs-into-another-tree.md), closed 2026-09-21; the spec's install half is delivered and its parked items — contribution back, a workspace-level harness — stay on the spec. Separation preceded the coherence chain *(the user, 2026-09-09, on [the frost_map probe](../research/separation-probe-frost-map.md))*; the order behind it is the candidate's above. [01-0020](01-0020-pacer.md)'s align is open on the wake rule alone, landed 2026-09-20; its remaining decisions stay open.",
+                " "
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false,
+          "contentNotInModelContext": true
+        },
+        "sourceToolAssistantUUID": "de11bbc4-2065-4b17-84b3-2bbf87d9083d",
+        "promptId": "63fcf805-5c04-4fb2-8483-758a708bbf8f"
+      },
+      "original_record_sha256": "5b7991022f53142d4b2e29829153f1e8bbcba3dec84b5c22bdfb54702bafad1e",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2560": {
+      "timestamp": "2026-10-02T22:41:44.168Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "7ca3ae5f-ed68-4199-b638-23c7c15bac34",
+        "parentUuid": "9a9b0ed5-a547-49f2-837a-d1bb59323887",
+        "timestamp": "2026-10-02T22:41:44.168Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01RqY7P2aAyhZ9kwN1FmhFum",
+              "is_error": false,
+              "content": "mechanisms exit 0\ninject_rules exit 0\ntickets exit 0\nquestions exit 0\nstraw_dogs exit 0\n\"marked\": \"| harness | rules \n\"marked\": \"| maintain | rules \n\"marked\": \"| mechanism-shape | rules \n\"marked\": \"| questions | rules \n\"marked\": \"| questions | output \n\"marked\": \"| ticket | rules \n0"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "mechanisms exit 0\ninject_rules exit 0\ntickets exit 0\nquestions exit 0\nstraw_dogs exit 0\n\"marked\": \"| harness | rules \n\"marked\": \"| maintain | rules \n\"marked\": \"| mechanism-shape | rules \n\"marked\": \"| questions | rules \n\"marked\": \"| questions | output \n\"marked\": \"| ticket | rules \n0",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "returnCodeInterpretation": "No matches found",
+          "noOutputExpected": false,
+          "bashEditDiff": {
+            "files": [
+              {
+                "filePath": "D:\\Dev\\AI\\agents\\docs\\mechanisms\\maintenance.md",
+                "hunks": [
+                  {
+                    "oldStart": 5,
+                    "oldLines": 13,
+                    "newStart": 5,
+                    "newLines": 13,
+                    "lines": [
+                      " ",
+                      " | mechanism | level | fingerprint | date | outcome |",
+                      " |---|---|---|---|---|",
+                      "-| harness | rules | 8a8981a57ca091d64f004952021fe42effbfffc9ccde79a2ede993d6da63ec08 | 2026-10-03 | nothing to change |",
+                      "+| harness | rules | 0cad646692e307f82788014cdbe97fd60082d56fb2785d7ebff20ff545751bb0 | 2026-10-03 | nothing to change |",
+                      " | harness | output | 3e6039e86cd31e98d635efc56319b74de6c7d0244f787adb6a04478b3e0b7b16 | 2026-09-27 | nothing to change |",
+                      "-| maintain | rules | 8a8981a57ca091d64f004952021fe42effbfffc9ccde79a2ede993d6da63ec08 | 2026-10-03 | amended |",
+                      "+| maintain | rules | 0cad646692e307f82788014cdbe97fd60082d56fb2785d7ebff20ff545751bb0 | 2026-10-03 | nothing to change |",
+                      " | maintain | output | 364c09737ebf5a65acce29eb397b00cca4913767bc56a8dc8a111dbde66b8581 | 2026-10-03 | nothing to change |",
+                      "-| mechanism-shape | rules | 8a8981a57ca091d64f004952021fe42effbfffc9ccde79a2ede993d6da63ec08 | 2026-10-03 | amended |",
+                      "+| mechanism-shape | rules | 0cad646692e307f82788014cdbe97fd60082d56fb2785d7ebff20ff545751bb0 | 2026-10-03 | nothing to change |",
+                      " | mechanism-shape | output | 086ded8d10f838bcc9e34d56b27fe50eababc93af9fc643cb42455136cff9ea2 | 2026-10-03 | nothing to change |",
+                      "-| questions | rules | 8a8981a57ca091d64f004952021fe42effbfffc9ccde79a2ede993d6da63ec08 | 2026-10-03 | amended |",
+                      "-| questions | output | 913fee49606e5f54fb4ab3c918d2b0bc09d82858930db443666f880659b9773e | 2026-10-03 | nothing to change |",
+                      "-| ticket | rules | 8a8981a57ca091d64f004952021fe42effbfffc9ccde79a2ede993d6da63ec08 | 2026-10-03 | nothing to change |",
+                      "+| questions | rules | 0cad646692e307f82788014cdbe97fd60082d56fb2785d7ebff20ff545751bb0 | 2026-10-03 | nothing to change |",
+                      "+| questions | output | 1954f83f40bc30d5ca0c04d524ff74f97497c7bf2ebbba98b84f766741450052 | 2026-10-03 | nothing to change |",
+                      "+| ticket | rules | 0cad646692e307f82788014cdbe97fd60082d56fb2785d7ebff20ff545751bb0 | 2026-10-03 | nothing to change |",
+                      " | ticket | output | 13fff2d284d7a3aac28b2639ae04ae8fb8ef4162ab382ed0674f1027a25020fb | 2026-10-02 | amended |"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "moreFiles": 0,
+            "changedFiles": [
+              "D:\\Dev\\AI\\agents\\docs\\mechanisms\\maintenance.md"
+            ]
+          }
+        },
+        "sourceToolAssistantUUID": "9a9b0ed5-a547-49f2-837a-d1bb59323887",
+        "promptId": "63fcf805-5c04-4fb2-8483-758a708bbf8f"
+      },
+      "original_record_sha256": "63cf3f67a6cd47bfcb4e94181400ed99c1b38200bb79da724a152769a8202303",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2564": {
+      "timestamp": "2026-10-02T22:41:52.356Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "c90f48b4-0f41-494e-a819-446e2124e474",
+        "parentUuid": "ad601c5f-99ad-4085-8394-e50e7e8c5d54",
+        "timestamp": "2026-10-02T22:41:52.356Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfeDXpQ3hh2LhVUUezTp9",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "The `/maintain` pass is done. Before it, I committed `.0012` as `be8db36`.\n\n- **Scope:** closing `.0012` with its RFC, plus every level the clock reported due after v20.\n- **Moved:** `.0012` and its RFC into `done/`, and its queue row deleted. The mover fixed the links in five records: `.0015`'s RFC, the parent ticket, `.0011`, the findings record and the queue.\n- **Checked:**\n  - The `rules` levels were due only because `AGENTS.md` changed. What changed was the version line and Q1's installed block, which the comparison rule R2 excludes, so no new meta-rule applied.\n  - The questions mechanism's doc names no particular record in `docs/`.\n  - The question store has no diagnostics and no findings.\n  - Every queue row is whole this time. Last time, deleting a row merged two others.\n- **Marked \"nothing to change\":**\n  - the harness, maintain, mechanism-shape, questions and ticket rules;\n  - the questions records.\n  \n  The clock now reports nothing due.\n- **Checks:** the mechanism, installer, ticket and store checks and the straw-dog listing are all clean.\n- **Not covered:** the rest of the tree.\n\nOne thing still open: `tickets.py --check` didn't catch the merged rows last pass. Its table check doesn't notice two rows run together on one line. That's a gap in the ticket mechanism's own checker, and no record holds it yet. Do you want a ticket minted for it, or a note in the parent's open issues?\n\n**Uncommitted:** this pass. Shall I commit it as `MAINTAIN` and go on to `/implement` on `.0015`?"
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "b1fc734e1cc5d90ab5996adc13ad3217efdb43af45372b8fbd4afc8dcc0f1a4c",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "2568": {
+      "timestamp": "2026-10-02T22:42:35.110Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "ba27cd73-72ec-45db-86ad-7c7add3a4a8f",
+        "parentUuid": "b69d3cd6-343b-483b-a894-15e80d823a9f",
+        "timestamp": "2026-10-02T22:42:35.110Z",
+        "sessionId": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "tell me what are those \"merged rows\"?"
+        },
+        "promptId": "2d0a49c7-5c0f-46a7-924b-e0cb879158c9"
+      },
+      "original_record_sha256": "c5d4236a010fe17e934dcc972b609b3023b6fd89cd2a7244056cc062cdb41fe5",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    }
+  }
+}

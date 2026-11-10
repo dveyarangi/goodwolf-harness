@@ -1,0 +1,184 @@
+{
+  "id": "rf-the-binding-form-lived-on-two-ti-80968532e2",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "6. The binding form lived on two tickets, and six closed tickets got a bare id — 2026-09-20",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "first repair keeps IDs in wrapper body"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/974",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.275"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/974/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-09-20T12:09:52.239Z",
+    "chat_id": "240b67b1-520a-42cb-a9b9-95e9488cc951",
+    "trigger_message_id": null,
+    "trigger_record_id": "9698cc05-3d5f-497b-a7c7-875cdaaa6389",
+    "failure_message_id": "msg_011CfEfbRPVaKM5on8Podkog",
+    "failure_record_id": "80deeb1e-d020-4789-9b59-da394fa8aa6a",
+    "transcript": "240b67b1-520a-42cb-a9b9-95e9488cc951.jsonl"
+  },
+  "observed_failure": {
+    "description": "A separate correction produces wrappers around bare ticket IDs plus a rule requiring an ID in the body; sheared prose still needs the absent ticket.",
+    "events": [
+      {
+        "source": "source.json#/records/974",
+        "message_id": "msg_011CfEfbRPVaKM5on8Podkog",
+        "record_id": "80deeb1e-d020-4789-9b59-da394fa8aa6a",
+        "timestamp": "2026-09-20T12:09:52.239Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\mechanisms\\\\maintain\\\\maintain.md\", \"old_string\": \"Two graders, two questions, pre-registered at 01-0011.0022's align.\", \"new_string\": \"Two graders, two questions, pre-registered at\\n<straw-dog until=\\\"R3 moves this story to the evidence\\\" ticket=\\\"docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md\\\">01-0011.0022</straw-dog>'s align.\"}"
+      },
+      {
+        "source": "source.json#/records/979",
+        "message_id": "msg_011CfEfeBpGDJbAU5SgSRYdR",
+        "record_id": "a3f63487-14fa-4d24-91b7-4adb861d8210",
+        "timestamp": "2026-09-20T12:09:59.195Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\mechanisms\\\\maintain\\\\maintain.md\", \"old_string\": \"**The session that declares the ticket mechanism**, at 01-0011.0025, grades this\", \"new_string\": \"**The session that declares the ticket mechanism**, at\\n<straw-dog until=\\\"R3 moves this story to the evidence\\\" ticket=\\\"docs/tickets/done/01-0011.0025-archive-duty-reaches-maintain.md\\\">01-0011.0025</straw-dog>, grades this\"}"
+      },
+      {
+        "source": "source.json#/records/983",
+        "message_id": "msg_011CfEfegipXnqPttK2HfNYh",
+        "record_id": "56f282f2-0643-40f5-b393-fe3a2cd0539f",
+        "timestamp": "2026-09-20T12:10:03.065Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\mechanisms\\\\mechanism-shape\\\\mechanism-shape.md\", \"old_string\": \"first real application is 01-0011.0050, whose\", \"new_string\": \"first real application is <straw-dog until=\\\"R3 moves this story to the evidence\\\" ticket=\\\"docs/tickets/done/01-0011.0050-shape-checked.md\\\">01-0011.0050</straw-dog>, whose\"}"
+      },
+      {
+        "source": "source.json#/records/988",
+        "message_id": "msg_011CfEfexbJKM9oP9dXhCMjL",
+        "record_id": "18cbbd97-558c-4e2d-b585-3171a53ab503",
+        "timestamp": "2026-09-20T12:10:07.501Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\mechanisms\\\\mechanism-shape\\\\mechanism-shape.md\", \"old_string\": \"The next mechanism declared — `/maintain`, at 01-0011.0022 — either passes\", \"new_string\": \"The next mechanism declared — `/maintain`, at\\n<straw-dog until=\\\"R3 moves this story to the evidence\\\" ticket=\\\"docs/tickets/done/01-0011.0022-shape-survives-second-mechanism.md\\\">01-0011.0022</straw-dog> — either passes\"}"
+      },
+      {
+        "source": "source.json#/records/992",
+        "message_id": "msg_011CfEffJBGpPNi9D9yuR6Tg",
+        "record_id": "c028cb05-02e7-40b6-8af3-394798fb971f",
+        "timestamp": "2026-09-20T12:10:11.259Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\mechanisms\\\\ticket\\\\ticket.md\", \"old_string\": \"Two graders, two questions, pre-registered at 01-0011.0025's align and `/plan`.\", \"new_string\": \"Two graders, two questions, pre-registered at\\n<straw-dog until=\\\"R3 moves this story to the evidence\\\" ticket=\\\"docs/tickets/done/01-0011.0025-archive-duty-reaches-maintain.md\\\">01-0011.0025</straw-dog>'s align and\\n`/plan`.\"}"
+      },
+      {
+        "source": "source.json#/records/998",
+        "message_id": "msg_011CfEffa21toMEUX2hkwLhe",
+        "record_id": "9cc20432-f68e-4555-b52f-a3eedb2c4181",
+        "timestamp": "2026-09-20T12:10:16.010Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\skills\\\\discover\\\\EVIDENCE.md\", \"old_string\": \"Install /discover, 01-0010.0090, decided this\", \"new_string\": \"<straw-dog until=\\\"the discover mechanism is declared and this file is sorted into doc and evidence\\\" ticket=\\\"docs/tickets/done/01-0010.0090-install-discover.md\\\">Install /discover, 01-0010.0090,</straw-dog> decided this\"}"
+      },
+      {
+        "source": "source.json#/records/1007",
+        "message_id": "msg_011CfEfg7JhCt2tcxGCEx2Pu",
+        "record_id": "05a0908c-771c-492c-90f7-7bb677b17331",
+        "timestamp": "2026-09-20T12:10:25.579Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\AGENTS.md\", \"old_string\": \"directory: `docs/tickets/` and `docs/glossary.md` are painted doors; a ticket's own file is a\\ndocument only this project has. Content inside a\\n[`<project-local>`](#project-local) block is the instance's, not core's. A `<straw-dog>` exempts\\nnothing: its wrapper is stripped on install and whatever it wrapped ships.\", \"new_string\": \"directory: `docs/tickets/` and `docs/glossary.md` are painted doors; one particular ticket inside\\n`docs/tickets/` is a document only this project has. Content inside a\\n[`<project-local>`](#project-local) block is the instance's, not core's. A `<straw-dog>` exempts\\nnothing: its wrapper is stripped on install and whatever it wrapped ships. Core names a ticket\\nonly inside a straw dog — the path in the binding, the id in words in the body — never as a link\\nand never as a bare id outside one, which a recipient cannot resolve and might collide with.\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "The complete remaining body stands alone; the removable binding carries the ticket identity.",
+    "source_evidence": [
+      "source.json#/records/27",
+      "source.json#/records/612",
+      "source.json#/records/612"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: The complete remaining body stands alone; the removable binding carries the ticket identity.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1008",
+      "source.json#/records/1011",
+      "source.json#/records/1012",
+      "source.json#/records/1016",
+      "source.json#/records/1017",
+      "source.json#/records/1021",
+      "source.json#/records/1022",
+      "source.json#/records/1027",
+      "source.json#/records/1028",
+      "source.json#/records/1029",
+      "source.json#/records/1033",
+      "source.json#/records/1034",
+      "source.json#/records/1038",
+      "source.json#/records/1039",
+      "source.json#/records/1043",
+      "source.json#/records/1044",
+      "source.json#/records/1048",
+      "source.json#/records/1049",
+      "source.json#/records/1052",
+      "source.json#/records/1053",
+      "source.json#/records/1058",
+      "source.json#/records/1059",
+      "source.json#/records/1068",
+      "source.json#/records/1072"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "A separate correction produces wrappers around bare ticket IDs plus a rule requiring an ID in the body; sheared prose still needs the absent ticket.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/974",
+      "after": "source.json#/records/969",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/964",
+      "source.json#/records/967",
+      "source.json#/records/968",
+      "source.json#/records/969"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/612"
+      ],
+      "native_context_records": [
+        "source.json#/records/27",
+        "source.json#/records/612"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/974",
+        "source.json#/records/979",
+        "source.json#/records/983",
+        "source.json#/records/988",
+        "source.json#/records/992",
+        "source.json#/records/998",
+        "source.json#/records/1007"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

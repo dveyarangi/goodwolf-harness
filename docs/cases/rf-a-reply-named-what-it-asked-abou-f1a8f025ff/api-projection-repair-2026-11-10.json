@@ -1,0 +1,592 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "scope": "Restored previously omitted public message-level config/metadata; no change to request order, role/content, source provenance or case criteria.",
+  "before_api_input_sha256": "b28ab43c951f32b8aab30678001d7314c3ddb9a3a133a3fd9552a79ba86f621e",
+  "after_api_input_sha256": "782ba8615b59f62b51daacc9f659515a4e3919d1eb69fd0d8ce45bba4cbec70c",
+  "changed_positions": [
+    {
+      "position": 1,
+      "source_record": 721,
+      "fields_restored": [
+        "output_config"
+      ]
+    },
+    {
+      "position": 8,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 12,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 16,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 20,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 27,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 31,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 35,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 39,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 43,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 47,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 51,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 58,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 65,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 69,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 73,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 80,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 84,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 91,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 98,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 102,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 106,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 116,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 120,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 127,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 134,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 138,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 142,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 146,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 150,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 154,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 158,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 168,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 175,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 185,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 189,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 193,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 197,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 204,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 208,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 212,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 216,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 220,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 230,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 234,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 238,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 242,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 252,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 256,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 260,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 264,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 268,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 278,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 282,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 289,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 293,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 300,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 307,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 314,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 318,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 322,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 326,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 333,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 340,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 347,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 357,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 361,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 368,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 372,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 379,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 383,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 387,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 391,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 395,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 399,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 409,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 413,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 417,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 421,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 425,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 432,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 436,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    },
+    {
+      "position": 443,
+      "source_record": 725,
+      "fields_restored": [
+        "clear_at"
+      ]
+    }
+  ],
+  "unknown_message_fields_reported_without_decoding": true,
+  "unsupported_public_fields_or_blocks": 0
+}

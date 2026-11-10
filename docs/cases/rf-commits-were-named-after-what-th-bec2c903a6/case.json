@@ -1,0 +1,127 @@
+{
+  "id": "rf-commits-were-named-after-what-th-bec2c903a6",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "37. Commits were named after what they touched, not the step that made them — 2026-10-11",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "non-step-commit-175"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/175",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/175/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-10T00:20:19.984Z",
+    "chat_id": "50d88569-12cf-400d-9992-9e97262f34fc",
+    "trigger_message_id": null,
+    "trigger_record_id": "fa0a16e4-d6c8-45c1-8d57-5ff6d6812888",
+    "failure_message_id": "msg_011Cfsbhhav5gBZS5H8iNtPR",
+    "failure_record_id": "050baafa-1a9d-4eb1-9d3e-18a398a31244",
+    "transcript": "50d88569-12cf-400d-9992-9e97262f34fc.jsonl"
+  },
+  "observed_failure": {
+    "description": "The literal original commit command uses QUESTIONS, ENTRY or LOCAL for what was touched, rather than the loop step producing the work.",
+    "events": [
+      {
+        "source": "source.json#/records/175",
+        "message_id": "msg_011Cfsbhhav5gBZS5H8iNtPR",
+        "record_id": "050baafa-1a9d-4eb1-9d3e-18a398a31244",
+        "timestamp": "2026-10-10T00:20:19.984Z",
+        "text": "Bash {\"command\": \"git status --short && git add docs/questions/q-0024.0009.0003.0003-how-does-the-queues-completed-step-stay-true-to-the-last-step-taken.md && git commit -q -m \\\"QUESTIONS: q-0024.0009.0003.0003 opened — the queue's completed step names session 42 while 43 to 46 have concluded; no skill writes it, and the parent's pointer bullet fell out of all three slices\\n\\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\\\" && git log --oneline -1\", \"description\": \"Commit the new question entry\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "The user explicitly requires the step that produced the work, not the record/file touched, in commit naming.",
+    "source_evidence": [
+      "source.json#/records/1174",
+      "source.json#/records/67"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: The user explicitly requires the step that produced the work, not the record/file touched, in commit naming.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1174"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The literal original commit command uses QUESTIONS, ENTRY or LOCAL for what was touched, rather than the loop step producing the work.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/175",
+      "after": "source.json#/records/171",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/132",
+      "source.json#/records/136",
+      "source.json#/records/137",
+      "source.json#/records/138",
+      "source.json#/records/139",
+      "source.json#/records/143",
+      "source.json#/records/144",
+      "source.json#/records/147",
+      "source.json#/records/148",
+      "source.json#/records/152",
+      "source.json#/records/153",
+      "source.json#/records/157",
+      "source.json#/records/158",
+      "source.json#/records/162",
+      "source.json#/records/163",
+      "source.json#/records/167",
+      "source.json#/records/168",
+      "source.json#/records/170",
+      "source.json#/records/171"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/67"
+      ],
+      "native_context_records": [
+        "source.json#/records/67",
+        "source.json#/records/134"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/175"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

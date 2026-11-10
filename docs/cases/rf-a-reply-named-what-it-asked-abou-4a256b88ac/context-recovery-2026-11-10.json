@@ -1,0 +1,28 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-a-reply-named-what-it-asked-abou-4a256b88ac",
+  "scope": "Classification of retained source-native attachments and recovery of their referenced public hook outputs; no all-context sufficiency or behavior result.",
+  "native_context_records_retained": [
+    "source.json#/records/19",
+    "source.json#/records/1783"
+  ],
+  "model_attachment_metadata_records": [],
+  "removed_false_source_gap_count": 2,
+  "referenced_artifact_count": 0,
+  "referenced_artifacts_recovered": 0,
+  "referenced_artifacts_unavailable": 0,
+  "current_source_gap_count": 0,
+  "remaining_source_gap_kinds": [],
+  "no_delivery_roles_invented": true,
+  "known_native_context_not_substituted_by_summary": true,
+  "historical_validation_reports_unchanged": true,
+  "executor_support": {
+    "status": "unsupported",
+    "behavior_verdict": null,
+    "reasons": [
+      "The current combined-input executor has no native history/action path for this recovered case.",
+      "Native attachments require source-aware preparation; their generic provider role/precedence is not manufactured."
+    ]
+  }
+}

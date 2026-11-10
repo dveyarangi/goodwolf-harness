@@ -1,0 +1,188 @@
+{
+  "id": "rf-a-reply-named-what-it-asked-abou-39066f4cc4",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "17. A reply named what it asked about by bare ids — 2026-10-03",
+    "occurrence": "repeat",
+    "occurrence_heading": "**Struck, 2026-10-10.** A `/recall` session linked each ticket with its slug in its first reply,",
+    "detail": "later reply copies relative ticket IDs"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/327",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/327/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-10T00:34:01.341Z",
+    "chat_id": "50d88569-12cf-400d-9992-9e97262f34fc",
+    "trigger_message_id": null,
+    "trigger_record_id": "d840fbf8-a0c0-4ad9-be0d-0cdd0db88b81",
+    "failure_message_id": "msg_011CfscjaNkPtdFJvgBS5b1P",
+    "failure_record_id": "b9e481d6-7601-45b2-b856-28c5d083e88d",
+    "transcript": "50d88569-12cf-400d-9992-9e97262f34fc.jsonl"
+  },
+  "observed_failure": {
+    "description": "Later next-step reply offers relative ticket suffixes and bare numbers despite fuller wake naming.",
+    "events": [
+      {
+        "source": "source.json#/records/327",
+        "message_id": "msg_011CfscjaNkPtdFJvgBS5b1P",
+        "record_id": "b9e481d6-7601-45b2-b856-28c5d083e88d",
+        "timestamp": "2026-10-10T00:34:01.341Z",
+        "text": "| 📍 **q-0024.0009.0003** · How do the ticket and the queue hold what comes next alone, with the draft in the question's body? |\n|---|\n| ✅ **q-0024.0009.0003.0003** · How does the queue's completed step stay true to the last step taken? (decided: the queue keeps no account of steps done, the line removed whole) |\n\n## Что за сжатие до указателя\n\nНаверху очереди лежал абзац `Completed step` — пересказ каждого прошедшего шага, один за другим, примерно на 36 КБ. 7 октября ты решил, что пересказ дублирует записи сессий. Но выбросить его тогда решили не целиком, а сжать до одной строки со ссылкой на последний шаг. Примерно так: «Completed step: `/conclude`, 2026-10-10 — [session 46](…)». Это и было «сжатие до указателя». Сегодня ты решил убрать и эту строку: последнюю сессию и так видно по самому свежему файлу в `docs/sessions/`.\n\n## Что сделано\n\nСделано отдельной правкой, коммит `ac20c13`:\n- **Очередь** ([docs/tickets/README.md](docs/tickets/README.md)): строки `Completed step` больше нет, наверху остались `Last updated` и `Candidate`.\n- **Шаблон новой очереди** ([QUEUE-ARRIVAL.md](.agents/skills/ticket/QUEUE-ARRIVAL.md)): строка убрана и отсюда. Вместе с ней ушла подстановка `{ref}`, которая стояла только в этой строке. Установщик заменяет `{ref}` лишь там, где он встречается, поэтому от её отсутствия ничего не ломается. У проектов, где очередь уже есть, ничего не меняется: она принадлежит им, и установщик её не трогает.\n- **Формат тикета** ([TICKET-FORMAT.md:184](.agents/skills/ticket/TICKET-FORMAT.md:184)): добавлено правило, чтобы строку не вернули по привычке.\n\n  > The queue keeps no account of steps done: the session records hold it.\n\n- **Решение 7 октября** в q-0024.0009 переписано на сегодняшнее, с датой и причиной. Спек и родительский тикет `.0040` говорят теперь то же самое.\n- **Вопрос** q-0024.0009.0003.0003 закрыт как decided.\n\n**Проверка.** Весь набор зелёный: 618 тестов и пять `--check`. `questions.py --check` выдаёт 11 находок вида «эти два вопроса, возможно, один». Они были и до правки, мою ни одна не касается.\n\n| ⚖️ Decisions |\n|---|\n| Брать ли дальше `/plan` по `.0040.0010` или align по 01-0011.0040 (`next-cycle=ask`) |\n\n| 🍂 Drift |\n|---|\n| Ответ 01-0011.0040 на вопрос «коммитить ли таблицу» ([:25](docs/tickets/01-0011.0040-queue-derived-index.md:25)) опирается на «хуков пробуждения нет», а с сессии 46 это неверно |\n\n| 🪢 Tangle |\n|---|\n| В дереве лежат незакоммиченные правки другой сессии, видимо той, что ведёт `.0060`: `questions.py`, его тест, механизм и скилл questions, хуки Cursor, тикет и RFC `.0060`. В коммит я брал только свои файлы |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Name and link the candidate in each reply that puts it to the person.",
+    "source_evidence": [
+      "source.json#/records/67",
+      "source.json#/records/67"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Name and link the candidate in each reply that puts it to the person.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/329"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "Later next-step reply offers relative ticket suffixes and bare numbers despite fuller wake naming.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/327",
+      "after": "source.json#/records/323",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/203",
+      "source.json#/records/208",
+      "source.json#/records/209",
+      "source.json#/records/212",
+      "source.json#/records/213",
+      "source.json#/records/217",
+      "source.json#/records/218",
+      "source.json#/records/221",
+      "source.json#/records/223",
+      "source.json#/records/227",
+      "source.json#/records/228",
+      "source.json#/records/229",
+      "source.json#/records/233",
+      "source.json#/records/234",
+      "source.json#/records/238",
+      "source.json#/records/239",
+      "source.json#/records/244",
+      "source.json#/records/245",
+      "source.json#/records/246",
+      "source.json#/records/247",
+      "source.json#/records/248",
+      "source.json#/records/249",
+      "source.json#/records/253",
+      "source.json#/records/254",
+      "source.json#/records/255",
+      "source.json#/records/256",
+      "source.json#/records/257",
+      "source.json#/records/258",
+      "source.json#/records/259",
+      "source.json#/records/260",
+      "source.json#/records/263",
+      "source.json#/records/264",
+      "source.json#/records/265",
+      "source.json#/records/266",
+      "source.json#/records/267",
+      "source.json#/records/268",
+      "source.json#/records/273",
+      "source.json#/records/274",
+      "source.json#/records/275",
+      "source.json#/records/278",
+      "source.json#/records/279",
+      "source.json#/records/283",
+      "source.json#/records/284",
+      "source.json#/records/288",
+      "source.json#/records/289",
+      "source.json#/records/292",
+      "source.json#/records/293",
+      "source.json#/records/296",
+      "source.json#/records/297",
+      "source.json#/records/302",
+      "source.json#/records/303",
+      "source.json#/records/304",
+      "source.json#/records/308",
+      "source.json#/records/309",
+      "source.json#/records/313",
+      "source.json#/records/314",
+      "source.json#/records/317",
+      "source.json#/records/318",
+      "source.json#/records/322",
+      "source.json#/records/323"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/67"
+      ],
+      "native_context_records": [
+        "source.json#/records/67",
+        "source.json#/records/206",
+        "source.json#/records/225"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/225",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\fcfe212c-0649-4af0-84f3-770d86c3b360\\tool-results\\hook-933ea2fc-6cea-467f-bde8-f2f8f0cd24f0-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "unavailable",
+          "search_scope": "exact recorded path and matching basenames under the accessible Claude projects tree",
+          "available_candidate_count": 0
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/327"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": [
+    {
+      "kind": "referenced public artifact unavailable",
+      "source": "source.json#/records/225",
+      "detail": "The native hook message retains an exact persisted-output notice and preview. The full referenced public output was not found at its recorded path or by basename in the accessible Claude projects tree; its necessity for this case check is not established.",
+      "artifact_basename": "hook-933ea2fc-6cea-467f-bde8-f2f8f0cd24f0-1-additionalContext.txt",
+      "necessity_for_case_checks": "not established"
+    }
+  ]
+}

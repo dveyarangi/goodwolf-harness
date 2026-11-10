@@ -1,0 +1,184 @@
+{
+  "id": "rf-a-long-session-s-replies-left-l9-1a1fde94d1",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "48. A long session's replies left L9's voice and promised to try — 2026-10-14",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "voice drift response 832"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/832",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.295"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/832/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-14T18:03:44.016Z",
+    "chat_id": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5",
+    "trigger_message_id": null,
+    "trigger_record_id": "83694624-cdb9-451f-b35c-603d5fb57a83",
+    "failure_message_id": "msg_011Cg2a1WE6KPFqqP7cwJPdR",
+    "failure_record_id": "1f42f9a4-795f-4f57-9d3b-7d222ed6b3b6",
+    "transcript": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5.jsonl"
+  },
+  "observed_failure": {
+    "description": "Selected public reply from the later criticised long session; its individual voice violation is not established by the blanket complaint.",
+    "events": [
+      {
+        "source": "source.json#/records/832",
+        "message_id": "msg_011Cg2a1WE6KPFqqP7cwJPdR",
+        "record_id": "1f42f9a4-795f-4f57-9d3b-7d222ed6b3b6",
+        "timestamp": "2026-10-14T18:03:44.016Z",
+        "text": "| 🎫 35 · ❓ 161 · 🐕 155 |\n|---|\n\n| 📍 **q-0037.0013.0005** · Which of the agent's acts need the person's yes, and which does it do on its own? |\n|---|\n\nМне это нравится больше всего, что мы перебрали. Вот как я это понимаю и где вижу трещины.\n\n**Что в этом сильного.**\n\n- Вместо пачки переключателей одна ручка, а доклад выводится из неё сам: о своём уровне агент рассказывает, уровень ниже описывает, самый нижний не упоминает. Отдельная ось не нужна, вы правы.\n- Это ложится на два семейства из дискавери сразу. Цели и средства: всё выше ручки — цели, решает человек, ниже — средства. Заработанная автономия: ручку двигают вверх, когда растёт доверие, и вниз после провала.\n- Ручка совпадает с нашим кольцом поставки: срез продукта — это spec или родительский тикет, функционал — тикет, load-bearing — решения на `/align`, обычный код — `/implement`. Уровень ручки говорит, на каком шаге кольца человек входит в работу.\n\n**Трещины.**\n\n1. **Порядок load-bearing и функционала.** По нашему же определению load-bearing — это то, что при нарушении ломает несколько частей системы ([AGENTS.md:184](AGENTS.md:184)). Это больше, чем функционал: несущее решение может задеть несколько функционалов, а функционал можно построить, не тронув ничего несущего. По радиусу поражения выходит так: обычный код < функционал < load-bearing < срез продукта < весь продукт. Возможно, вы имели в виду другой порядок — «load-bearing всё ещё код, а функционал из кода состоит». Тогда это лестница по составу, а не по последствиям, и я бы хотел понять, какая из двух.\n2. **«Выше = 0» относится к решениям, а не к работе.** Если ручка на «функционале», агент всё равно делает работу внутри среза продукта, просто не решает, каким этот срез быть. Я читаю 0 как «не решает, предлагает», а не как «не трогает».\n3. **Действия эта лестница не покрывает.** `reset --hard`, force-push, установка пакетов, письмо человеку не имеют масштаба: их можно сделать при правке одной строки. Их место — короткий постоянный список, который лучше держит хост, а не ручка (это [01-0010.0125 the-host-blocks-what-a-rule-forbids](docs/tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md)). Обычные `commit` и `push` к ручке, наоборот, привязываются: работа ниже ручки закрывается коммитом и push сама.\n\n**Лестница самоулучшения**, первый набросок:\n\n| уровень | что меняется |\n|---|---|\n| формулировка | слова правила, смысл тот же |\n| правило | одно правило: добавить, поменять, убрать |\n| акт скилла | что скилл делает и в каком порядке |\n| механизм | его части, моменты, записи |\n| метод | кольца, принципы, входной контракт |\n\nСегодня на деле ручка стоит на «правиле»: правило меняется после показа текста. Ваша сегодняшняя правка про Q6 прошла как раз так.\n\n**Лестница как атрибут механизма.** Думаю, да. У каждого механизма, который что-то производит, свой масштаб: у поставки — от кода до продукта, у самоулучшения — от формулировки до метода, у харнесса исследования — от источника до направления. Проект ставит ручку на каждом механизме одной строкой в локальном файле, например *«поставка: функционал; самоулучшение: правило»*. Таблица автономии во входном файле уходит. Лестницы для исследования и обучения сейчас не нужны, таких харнессов нет. Достаточно оставить шов, то есть атрибут механизма. (💡 [*Generalize or ask*](AGENTS.md:18))\n\n**Вопрос 1. Лестница поставки по последствиям (код < функционал < load-bearing < срез < продукт) или по составу (код < load-bearing < функционал < срез < продукт)?**\n\n| ⚖️ Decisions |\n|---|\n| Вопрос 1: порядок лестницы поставки — по последствиям или по составу |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Follow the contemporaneous L9 voice. The user questions whether the agent still writes like Lem, and the agent identifies the drift as tables, unexplained coined terms and untranslated phrasing. This is a source-supported voice complaint, not a validated stylistic scoring rule.",
+    "source_evidence": [
+      "source.json#/records/964",
+      "source.json#/records/1018",
+      "source.json#/records/241"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Follow the contemporaneous L9 voice. The user questions whether the agent still writes like Lem, and the agent identifies the drift as tables, unexplained coined terms and untranslated phrasing. This is a source-supported voice complaint, not a validated stylistic scoring rule.",
+        "expected_for_recorded_failure": null
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment.",
+    "status": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/836",
+      "source.json#/records/838",
+      "source.json#/records/841",
+      "source.json#/records/847",
+      "source.json#/records/850",
+      "source.json#/records/851",
+      "source.json#/records/855",
+      "source.json#/records/856",
+      "source.json#/records/860",
+      "source.json#/records/869",
+      "source.json#/records/871",
+      "source.json#/records/874",
+      "source.json#/records/875",
+      "source.json#/records/879",
+      "source.json#/records/880",
+      "source.json#/records/884",
+      "source.json#/records/893",
+      "source.json#/records/895",
+      "source.json#/records/898",
+      "source.json#/records/899",
+      "source.json#/records/900",
+      "source.json#/records/904",
+      "source.json#/records/905",
+      "source.json#/records/908",
+      "source.json#/records/909",
+      "source.json#/records/910",
+      "source.json#/records/916",
+      "source.json#/records/920",
+      "source.json#/records/921",
+      "source.json#/records/922",
+      "source.json#/records/926",
+      "source.json#/records/927",
+      "source.json#/records/937",
+      "source.json#/records/938",
+      "source.json#/records/941",
+      "source.json#/records/942",
+      "source.json#/records/946",
+      "source.json#/records/947",
+      "source.json#/records/953",
+      "source.json#/records/956",
+      "source.json#/records/957",
+      "source.json#/records/960",
+      "source.json#/records/964",
+      "source.json#/records/966",
+      "source.json#/records/969",
+      "source.json#/records/970",
+      "source.json#/records/971",
+      "source.json#/records/972",
+      "source.json#/records/973",
+      "source.json#/records/982",
+      "source.json#/records/983",
+      "source.json#/records/988",
+      "source.json#/records/989",
+      "source.json#/records/998",
+      "source.json#/records/999",
+      "source.json#/records/1002",
+      "source.json#/records/1009",
+      "source.json#/records/1012",
+      "source.json#/records/1013",
+      "source.json#/records/1014",
+      "source.json#/records/1018",
+      "source.json#/records/1030",
+      "source.json#/records/1031"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "classification": {
+    "kind": "selected reply from a session criticised for voice drift",
+    "limit": "Individual L9 violation is unestablished. The later blanket complaint/admission is retained; table/decision/record forms are exempt under the captured L9 and do not by themselves prove drift."
+  },
+  "description": "Selected public reply from the later criticised long session; its individual voice violation is not established by the blanket complaint.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/832",
+      "after": "source.json#/records/829",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/815",
+      "source.json#/records/828",
+      "source.json#/records/829"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/241"
+      ],
+      "native_context_records": [
+        "source.json#/records/241",
+        "source.json#/records/818"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/832"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": [
+    {
+      "kind": "existing check evidence block",
+      "detail": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+    }
+  ]
+}

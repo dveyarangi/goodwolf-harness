@@ -1,0 +1,266 @@
+{
+  "id": "rf-skill-descriptions-fixed-by-addi-4ced4ae560",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "13. Skill descriptions fixed by adding their method — 2026-09-27",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "four description edits in one repair"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/576",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.281"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/576/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-09-26T23:07:23.104Z",
+    "chat_id": "cd035ab9-40da-4dde-8ce0-cca571b29a58",
+    "trigger_message_id": null,
+    "trigger_record_id": "f363ea97-0ed3-4aa2-8e2c-b9b4d778da60",
+    "failure_message_id": "msg_011CfStd9XsF5KhJtBeAKDzi",
+    "failure_record_id": "b56c2b50-866d-4ff4-b4f0-e19ca3c742c5",
+    "transcript": "cd035ab9-40da-4dde-8ce0-cca571b29a58.jsonl"
+  },
+  "observed_failure": {
+    "description": "A review-repair request produces four descriptions containing method, grouping/checking, loop skills or comment-writing method.",
+    "events": [
+      {
+        "source": "source.json#/records/576",
+        "message_id": "msg_011CfStd9XsF5KhJtBeAKDzi",
+        "record_id": "b56c2b50-866d-4ff4-b4f0-e19ca3c742c5",
+        "timestamp": "2026-09-26T23:07:23.104Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\skills\\\\commit\\\\SKILL.md\", \"old_string\": \"description: >-\\n  Rules for committing changes to the code repository. Never commit without explicit instruction or permission from the user.\", \"new_string\": \"description: >-\\n  Use when committing or pushing changes to the repository: how commits are grouped, prefixed and checked, and whether the entry file's `commit` and `push` switches allow it without asking.\"}"
+      },
+      {
+        "source": "source.json#/records/631",
+        "message_id": "msg_011CfSthyH7sLZzxZmJPHCWF",
+        "record_id": "3ae91bc4-dfdf-44bb-a6b5-679872095b02",
+        "timestamp": "2026-09-26T23:08:30.930Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\skills\\\\implement\\\\SKILL.md\", \"old_string\": \"description: Implement the agreed work into code, following its governing docs.\", \"new_string\": \"description: Use to write the code for agreed work — a ticket whose RFC has passed /plan, or a finding /verify sends back — following its governing docs, and to decide whether to commit it.\"}"
+      },
+      {
+        "source": "source.json#/records/632",
+        "message_id": "msg_011CfSthyH7sLZzxZmJPHCWF",
+        "record_id": "d5ae76bc-a359-4f23-b3f3-fc43b9d56b4b",
+        "timestamp": "2026-09-26T23:08:32.476Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\skills\\\\improve-comments\\\\SKILL.md\", \"old_string\": \"description: Write or improve codebase comments\", \"new_string\": \"description: Use when writing or reviewing comments and docstrings in code, including code just written by an agent, so they explain intent, constraints and danger rather than restate the code.\"}"
+      },
+      {
+        "source": "source.json#/records/633",
+        "message_id": "msg_011CfSthyH7sLZzxZmJPHCWF",
+        "record_id": "44736801-586f-4892-89e2-cb4edfe68d15",
+        "timestamp": "2026-09-26T23:08:33.765Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\skills\\\\celebrate\\\\SKILL.md\", \"old_string\": \"description: Use when it is time to celebrate something\", \"new_string\": \"description: Use when the user asks to celebrate, or when a milestone lands — a ticket closes, a spec is accepted, a long chain completes — to mark the achievement or the overall state of things.\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Descriptions state use cases only; method stays below that surface.",
+    "source_evidence": [
+      "source.json#/records/28",
+      "source.json#/records/473",
+      "source.json#/records/481",
+      "source.json#/records/28"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Descriptions state use cases only; method stays below that surface.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/635",
+      "source.json#/records/637",
+      "source.json#/records/639",
+      "source.json#/records/641",
+      "source.json#/records/648",
+      "source.json#/records/652",
+      "source.json#/records/653",
+      "source.json#/records/654",
+      "source.json#/records/658",
+      "source.json#/records/659",
+      "source.json#/records/660",
+      "source.json#/records/661",
+      "source.json#/records/663",
+      "source.json#/records/664",
+      "source.json#/records/665",
+      "source.json#/records/674",
+      "source.json#/records/675",
+      "source.json#/records/676",
+      "source.json#/records/677",
+      "source.json#/records/678",
+      "source.json#/records/679",
+      "source.json#/records/685",
+      "source.json#/records/686",
+      "source.json#/records/692",
+      "source.json#/records/697",
+      "source.json#/records/698",
+      "source.json#/records/702",
+      "source.json#/records/703",
+      "source.json#/records/704",
+      "source.json#/records/710",
+      "source.json#/records/711",
+      "source.json#/records/712",
+      "source.json#/records/713",
+      "source.json#/records/714",
+      "source.json#/records/715",
+      "source.json#/records/716",
+      "source.json#/records/718",
+      "source.json#/records/725",
+      "source.json#/records/727",
+      "source.json#/records/729",
+      "source.json#/records/730",
+      "source.json#/records/731",
+      "source.json#/records/742",
+      "source.json#/records/743",
+      "source.json#/records/744",
+      "source.json#/records/749",
+      "source.json#/records/750",
+      "source.json#/records/755",
+      "source.json#/records/756",
+      "source.json#/records/767",
+      "source.json#/records/768",
+      "source.json#/records/770",
+      "source.json#/records/771",
+      "source.json#/records/775",
+      "source.json#/records/776",
+      "source.json#/records/777",
+      "source.json#/records/779",
+      "source.json#/records/785",
+      "source.json#/records/786",
+      "source.json#/records/789",
+      "source.json#/records/790",
+      "source.json#/records/791",
+      "source.json#/records/795",
+      "source.json#/records/799",
+      "source.json#/records/808",
+      "source.json#/records/809",
+      "source.json#/records/810",
+      "source.json#/records/813",
+      "source.json#/records/814",
+      "source.json#/records/818",
+      "source.json#/records/819",
+      "source.json#/records/825",
+      "source.json#/records/826",
+      "source.json#/records/834",
+      "source.json#/records/838"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "A review-repair request produces four descriptions containing method, grouping/checking, loop skills or comment-writing method.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/576",
+      "after": "source.json#/records/575",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/429",
+      "source.json#/records/432",
+      "source.json#/records/433",
+      "source.json#/records/434",
+      "source.json#/records/435",
+      "source.json#/records/436",
+      "source.json#/records/441",
+      "source.json#/records/442",
+      "source.json#/records/446",
+      "source.json#/records/447",
+      "source.json#/records/450",
+      "source.json#/records/451",
+      "source.json#/records/455",
+      "source.json#/records/456",
+      "source.json#/records/468",
+      "source.json#/records/469",
+      "source.json#/records/470",
+      "source.json#/records/471",
+      "source.json#/records/472",
+      "source.json#/records/473",
+      "source.json#/records/474",
+      "source.json#/records/480",
+      "source.json#/records/481",
+      "source.json#/records/486",
+      "source.json#/records/487",
+      "source.json#/records/491",
+      "source.json#/records/492",
+      "source.json#/records/493",
+      "source.json#/records/499",
+      "source.json#/records/500",
+      "source.json#/records/501",
+      "source.json#/records/504",
+      "source.json#/records/505",
+      "source.json#/records/506",
+      "source.json#/records/507",
+      "source.json#/records/508",
+      "source.json#/records/518",
+      "source.json#/records/519",
+      "source.json#/records/523",
+      "source.json#/records/524",
+      "source.json#/records/534",
+      "source.json#/records/535",
+      "source.json#/records/538",
+      "source.json#/records/539",
+      "source.json#/records/542",
+      "source.json#/records/543",
+      "source.json#/records/544",
+      "source.json#/records/545",
+      "source.json#/records/547",
+      "source.json#/records/553",
+      "source.json#/records/554",
+      "source.json#/records/558",
+      "source.json#/records/559",
+      "source.json#/records/560",
+      "source.json#/records/561",
+      "source.json#/records/563",
+      "source.json#/records/565",
+      "source.json#/records/566",
+      "source.json#/records/575"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/28"
+      ],
+      "native_context_records": [
+        "source.json#/records/28"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/576",
+        "source.json#/records/631",
+        "source.json#/records/632",
+        "source.json#/records/633"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

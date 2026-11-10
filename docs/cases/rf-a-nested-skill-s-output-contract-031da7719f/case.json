@@ -1,0 +1,125 @@
+{
+  "id": "rf-a-nested-skill-s-output-contract-031da7719f",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "8. A nested skill's output contract ended its caller's turn — 2026-09-23",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "nested impact ends ticket caller"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/324",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.280"
+    },
+    "model": "claude-opus-5",
+    "model_source": "source.json#/records/324/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-09-23T10:46:59.918Z",
+    "chat_id": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+    "trigger_message_id": null,
+    "trigger_record_id": "c0a1fde5-f693-42e7-ad9e-77d4549afdcf",
+    "failure_message_id": "msg_011CfLEhiyhRpJYBueQt1cEH",
+    "failure_record_id": "65bd7998-9da7-4b34-ac41-1af53d3722c7",
+    "transcript": "85ded642-4a06-47ff-9a3d-b79f98dfb226.jsonl"
+  },
+  "observed_failure": {
+    "description": "After approval to continue decomposition, final reply ends with impact sections and omits the requested slice list.",
+    "events": [
+      {
+        "source": "source.json#/records/324",
+        "message_id": "msg_011CfLEhiyhRpJYBueQt1cEH",
+        "record_id": "65bd7998-9da7-4b34-ac41-1af53d3722c7",
+        "timestamp": "2026-09-23T10:46:59.918Z",
+        "text": "## Impact\n\n**Must change**\n\n- `.agents/scripts/gw/harness.py` — door creation, and the door list it needs.\n- `.agents/skills/harness/SKILL.md` — the sequence, the `git init` refusal bullet, the quicklook instruction.\n- `.agents/mechanisms/harness/harness.md` — five Moments rows (three new, one `elsewhere`, one `embedded`), the parts table for a new rules file, and *What it produces, and who reads it*.\n- `.agents/skills/align/ARCH-FORMAT.md`, `GLOSSARY-FORMAT.md` — the *unread* stamp.\n- `.agents/skills/setup-devops/SKILL.md` — one clause narrowed to offer-only.\n\n**Must verify**\n\n- `mechanisms.py --check` after the Moments and parts changes; a new `not yet`/`embedded` row needs a live ticket.\n- A live install into a scratch tree, and a second into a tree that already has `docs/`.\n- `frost_map`'s existing pointer-form L3 still reads correctly against the rewritten instruction.\n\n**May simplify** — `ai-game-1`'s L3 becomes a pointer and stops naming `.agents/scripts/`, removing one instance of the breakage [01-0010.0160](docs/tickets/01-0010.0160-harness-edge-changes-reach-an-update.md) exists for.\n\n## Hidden edges\n\n1. **The door list would get a second home.** [mechanisms.py:49-76](.agents/scripts/gw/mechanisms.py:49) already holds every painted door by hand, for the leak check. Slice 1 needs the same list to create them. Two copies violates *every fact to one home* (maintain **A1**) and will drift silently — the leak check and the creator disagreeing is undetectable by either.\n\n2. **Door creation breaks \"every refusal writes nothing.\"** Creating directories is a write. If a later step refuses, the doors are left behind and the tree is neither clean nor installed. The atomicity promise at [harness.md:23](.agents/mechanisms/harness/harness.md:23) has to be restated or the creation has to move after the gate.\n\n3. **`unread` collides with maintain.** **A1** holds *\"docs to their implementation, both ways.\"* A skeletal `architecture.md` disagrees with the code by construction — that is the whole point. Without maintain being told that *unread* is a tolerated state, every bootstrapped project's first maintain pass reports the architecture as drift, and the repair it would attempt *is* the quicklook, unbounded. Slice 3 cannot land without touching maintain.\n\n4. **Slice 1 overlaps [01-0010.0150](docs/tickets/01-0010.0150-harness-meets-a-tree-with-a-method.md).** A tree with its own `docs/tickets/` is a collision, and that ticket owns collisions and the inventory refusal. Creating doors blind would write into territory `.0150` is planning to inventory first.\n\n5. **Slice 4 depends on 1–3.** Harness can only tell maintain what to re-check once it owns the doors and the sequence.\n\n## Leave alone\n\n- The manifest, the stamp, the gate's three checks, and `--check`'s comparison. None of this touches what core ships or how arrival is judged.\n- `setup-devops`'s declaration status. Narrowing one clause does not require declaring the mechanism; pulling that in imports [01-0017](docs/tickets/01-0017-io-graph-coherent.md).\n- The announce line and the local file's format. Both already work.\n\n## Recommendation\n\n**Proceed on 1, 2 and 4 — narrow 3.**\n\nSlices 1, 2 and 4 are forced by a demonstrated failure with a named customer, and each is verifiable by one install into a scratch tree.\n\nSlice 3 is a generalization from **one** shape, and the project's own rule forbids that. The quicklook's codebase-reading half has **zero** real cases: `frost_map` arrived already described, and `ai-game-1` has no code — its material is six prose documents. So the recipe would be designed against a tree that does not exist yet. Narrow slice 3 to what `ai-game-1` actually demonstrates — harvesting `glossary.md` and a Purpose/Scope skeleton from existing *documents* — and leave the read-the-codebase recipe unbuilt until a recipient with undescribed code forces it. That also defers hidden edge 3, since a prose-sourced glossary does not put `architecture.md` in disagreement with code.\n\nSlice 1 should be re-slid behind or merged with `.0150`'s inventory, or explicitly scoped to \"no `docs/` collision\" with the collision case left to `.0150`."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Resume the caller after impact and present the numbered post-impact slices plus the note.",
+    "source_evidence": [
+      "source.json#/records/40",
+      "source.json#/records/309",
+      "source.json#/records/314",
+      "source.json#/records/315",
+      "source.json#/records/316",
+      "source.json#/records/40"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Resume the caller after impact and present the numbered post-impact slices plus the note.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/326",
+      "source.json#/records/329",
+      "source.json#/records/331",
+      "source.json#/records/334"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "After approval to continue decomposition, final reply ends with impact sections and omits the requested slice list.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/324",
+      "after": "source.json#/records/321",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/303",
+      "source.json#/records/306",
+      "source.json#/records/307",
+      "source.json#/records/308",
+      "source.json#/records/309",
+      "source.json#/records/313",
+      "source.json#/records/314",
+      "source.json#/records/315",
+      "source.json#/records/316",
+      "source.json#/records/320",
+      "source.json#/records/321"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/40"
+      ],
+      "native_context_records": [
+        "source.json#/records/40"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/324"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

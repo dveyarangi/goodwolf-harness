@@ -1,0 +1,30 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-two-switch-values-went-through-t-976dd044c5",
+  "scope": "Expansion of already-selected related-source public payloads; no new unselected records or inferred actor roles.",
+  "sources": [
+    {
+      "related_source": "4be3c6320c",
+      "transcript": "30efb13a-a18d-4b28-ad8a-11c7537dfe7b.jsonl",
+      "records_checked": 2
+    }
+  ],
+  "selected_records_checked": 2,
+  "records_expanded": [
+    {
+      "related_source": "4be3c6320c",
+      "record": 75
+    },
+    {
+      "related_source": "4be3c6320c",
+      "record": 79
+    }
+  ],
+  "structured_private_blocks_omitted": 0,
+  "unsupported_public_fields_or_records": [],
+  "source_paths_unavailable": [],
+  "original_record_hashes_verified": true,
+  "unselected_records_decoded": 0,
+  "replay_and_api_input_unchanged": true
+}

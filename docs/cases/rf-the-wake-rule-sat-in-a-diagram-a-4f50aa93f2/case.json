@@ -1,0 +1,111 @@
+{
+  "id": "rf-the-wake-rule-sat-in-a-diagram-a-4f50aa93f2",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "4. The wake rule sat in a diagram, and a greeting was answered with a greeting — 2026-09-20",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "greeting offers recall"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/26",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.270"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/26/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-09-14T21:51:20.710Z",
+    "chat_id": "5c608335-777b-4b0e-aeb9-5d686a074db6",
+    "trigger_message_id": null,
+    "trigger_record_id": "d73e1fe3-d080-41b1-b490-752595106a28",
+    "failure_message_id": "msg_011Cf458B4mwQXErKXhYkUFh",
+    "failure_record_id": "8785796e-6761-48ee-ab4e-3dd8f28cf376",
+    "transcript": "5c608335-777b-4b0e-aeb9-5d686a074db6.jsonl"
+  },
+  "observed_failure": {
+    "description": "Original wake announces the contract and offers recall for later; user must invoke it manually.",
+    "events": [
+      {
+        "source": "source.json#/records/26",
+        "message_id": "msg_011Cf458B4mwQXErKXhYkUFh",
+        "record_id": "8785796e-6761-48ee-ab4e-3dd8f28cf376",
+        "timestamp": "2026-09-14T21:51:20.710Z",
+        "text": "Entry contract: v8, 2026-09-09.\n\nGood evening. The tree is clean on main, last commit concluded session sixteen with the install spec accepted and nothing minted. Say `/recall` when you want to pick up where that left off, or point me at something else."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Run recall at wake even for a greeting.",
+    "source_evidence": [
+      "source.json#/records/16",
+      "source.json#/records/16"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Run recall at wake even for a greeting.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/35"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "Original wake announces the contract and offers recall for later; user must invoke it manually.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/26",
+      "after": "source.json#/records/3",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/3"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/16"
+      ],
+      "native_context_records": [
+        "source.json#/records/16"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/26"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ],
+    "source_metadata_records": [
+      "source.json#/records/5"
+    ]
+  },
+  "source_gaps": []
+}

@@ -1,0 +1,18 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-landed-header-kept-proposed-20261011-115247",
+  "scope": "Separate register failure criterion over an existing public source event.",
+  "source_event_shared_with": "rf-a-next-step-inside-a-ticket-was-c03d886641",
+  "source_provenance_unchanged": true,
+  "original_source_case_sha256": "b88783407e43be081c8c1395568b337d17ace5d3570a5d34e6c229c7abac9741",
+  "criterion": "Does the header for the just-written decision text use Landed without also retaining Proposed in or above that same block?",
+  "criterion_scope_qualification": "The source entry contract says to report written text under Landed; the later direct user correction disambiguates replacement of Proposed. The case does not claim that this later clarification was already installed.",
+  "historical_validation_reports_copied": false,
+  "source_gaps_preserved": [],
+  "executor_support": {
+    "status": "unsupported",
+    "behavior_verdict": null
+  },
+  "independent_semantic_validation_claimed": false
+}

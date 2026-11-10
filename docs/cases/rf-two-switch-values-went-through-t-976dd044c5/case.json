@@ -1,0 +1,134 @@
+{
+  "id": "rf-two-switch-values-went-through-t-976dd044c5",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "32. Two switch values went through the whole loop — 2026-10-11",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "switch-change-whole-loop"
+  },
+  "provenance": {
+    "host": "Codex Desktop",
+    "host_source": "source.json#/records/1/payload/originator",
+    "model": "gpt-6.1-sol",
+    "model_source": "source.json#/records/286/payload/model",
+    "model_evidence_kind": "recorded turn model identifier",
+    "occurred_at": "2026-10-10T23:23:44.483Z",
+    "chat_id": "01a12802-b0d9-7623-b5ff-a1f49ef55699",
+    "trigger_message_id": "msg_01a12820-e645-70e0-a3ac-af2a2ca82e6a",
+    "failure_message_id": "msg_026020b6b640bff5016acac8f9bd1c8191a851c8d50bf5795c",
+    "transcript": "rollout-2026-10-11T01-50-27-01a12802-b0d9-7623-b5ff-a1f49ef55699.jsonl.zst"
+  },
+  "observed_failure": {
+    "description": "For enabling commit/push auto, the original Codex episode reads mechanism/verify/commit material, edits a question record and runs broad checks before publishing switch values.",
+    "events": [
+      {
+        "source": "source.json#/records/293",
+        "message_id": "msg_026020b6b640bff5016acac8f9bd1c8191a851c8d50bf5795c",
+        "timestamp": "2026-10-10T23:23:44.483Z",
+        "text": "| ▶ **Настройка автономии** · автокоммит и автопуш |\n|---|\n\nВключу `commit=auto` и `push=auto`, проверю правила, затем закоммичу и опубликую наши готовые изменения. Использую /mechanism, /verify и /commit."
+      },
+      {
+        "source": "source.json#/records/303",
+        "message_id": "msg_026020b6b640bff5016acac90a954881919eb1b63e3d0a068b",
+        "timestamp": "2026-10-10T23:24:01.132Z",
+        "text": "🧩 **Поправка L3**\n\n> commit=auto · push=auto · next-cycle=ask · breakdown=ask · repair=ask · step=ask\n\nВ L17 уберу фиксированное `push=ask`, чтобы публикация следовала выбранному режиму. Остальные переключатели останутся прежними."
+      },
+      {
+        "source": "source.json#/records/331",
+        "message_id": "msg_026020b6b640bff5016acac94921a08191831a70f76d3fad73",
+        "timestamp": "2026-10-10T23:25:03.474Z",
+        "text": "Автокоммит и автопуш включены. Проверки harness, установленных правил, механизмов и записей вопросов прошли. Опубликую настройки вместе с ранее принятой фразой о содержании действия."
+      },
+      {
+        "source": "source.json#/records/346",
+        "message_id": "msg_026020b6b640bff5016acac96aba4c81918242d6430226a49f",
+        "timestamp": "2026-10-10T23:25:37.762Z",
+        "text": "| ▶ **Автокоммит и автопуш** · включены |\n|---|\n\nУстановлены `commit=auto` и `push=auto`. Проверки прошли; настройки и последняя поправка L15 опубликованы в [33c60f9](https://github.com/dveyarangi/xuanxue-workshop/commit/33c60f9f7ce26392823306f97351ca5d6e6bf83c).\n\nТеперь проверенные изменения коммитятся и отправляются автоматически."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Is the switch change limited to changing the agreed values, reinstalling their local rules and committing them, without opening or editing a question record and running the broad delivery checks for this binary setting change?",
+    "source_evidence": [
+      "source.json#/records/353",
+      "source.json#/records/6",
+      "source.json#/related_sources/4be3c6320c/records/75",
+      "source.json#/related_sources/4be3c6320c/records/79"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Is the switch change limited to changing the agreed values, reinstalling their local rules and committing them, without opening or editing a question record and running the broad delivery checks for this binary setting change?",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Cite the selected response/action and its preserved source context for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Relevant original public records and host/model metadata are preserved; private reasoning and platform system/developer instructions outside the project's hook context are excluded.",
+    "reference_only_records": [
+      "source.json#/records/352",
+      "source.json#/records/353"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "classification": {
+    "kind": "excessive work under conflicting delivered instructions",
+    "limit": "The source registrar says the extra stages followed standing rules. This case records a method failure; it does not establish that the actor disobeyed an unambiguous minimal-work instruction. Elapsed time alone is not the criterion."
+  },
+  "description": "For enabling commit/push auto, the original Codex episode reads mechanism/verify/commit material, edits a question record and runs broad checks before publishing switch values.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/293",
+      "after": "source.json#/records/289",
+      "description": "Immediately before the selected failing response/action; preserved earlier public records supply the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/6",
+      "source.json#/records/9",
+      "source.json#/records/124",
+      "source.json#/records/162",
+      "source.json#/records/212",
+      "source.json#/records/268",
+      "source.json#/records/287",
+      "source.json#/records/289"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/6"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/293",
+        "source.json#/records/303",
+        "source.json#/records/331",
+        "source.json#/records/346"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Instruction evidence, host metadata and reference-only records do not become additional actor messages.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role."
+    ],
+    "source_metadata_records": [
+      "source.json#/records/1",
+      "source.json#/records/286"
+    ]
+  },
+  "source_gaps": []
+}

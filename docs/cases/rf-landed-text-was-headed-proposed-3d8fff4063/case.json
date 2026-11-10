@@ -1,0 +1,156 @@
+{
+  "id": "rf-landed-text-was-headed-proposed-3d8fff4063",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "38. Landed text was headed Proposed under a Landed heading — 2026-10-11",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "mixed-header-parallel-1090"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1090",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/1090/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-11T00:40:16.873Z",
+    "chat_id": "50d88569-12cf-400d-9992-9e97262f34fc",
+    "trigger_message_id": null,
+    "trigger_record_id": "4e26078f-76cf-4838-a0cd-3ce2267f6666",
+    "failure_message_id": "msg_011CfuX27jejaYUbVdk2R5Nm",
+    "failure_record_id": "5cbff774-5cec-4381-aff6-fb9e74e93d5a",
+    "transcript": "50d88569-12cf-400d-9992-9e97262f34fc.jsonl"
+  },
+  "observed_failure": {
+    "description": "The reporting reply shows written text under a Proposed header with a Landed suffix, or under a separate Landed heading. Each separately prompted original reply is an occurrence.",
+    "events": [
+      {
+        "source": "source.json#/records/1090",
+        "message_id": "msg_011CfuX27jejaYUbVdk2R5Nm",
+        "record_id": "5cbff774-5cec-4381-aff6-fb9e74e93d5a",
+        "timestamp": "2026-10-11T00:40:16.873Z",
+        "text": "| ⚙️ **maintain** · что изменила эта сессия: правила ответа v54–v66, P9, L3 в трёх скиллах, удаление строки «Completed step» |\n|---|\n\n**Область прохода.** Всё, что поменяла эта сессия:\n- правила ответа в `AGENTS.md` от v54 до v66;\n- P9 в механизме тикетов;\n- L3, набор проверок, теперь стоящий в `/verify`, `/implement` и `/maintain`;\n- строка «Completed step», убранная из очереди, из шаблона новой очереди и из формата тикета.\n\n**Что проверил:**\n- **Какие механизмы должны.** `maintain.py --check`: из всех механизмов должен только `harness` на уровне output, потому что сдвинулся его [SKILL.md](.agents/skills/harness/SKILL.md). Остальные current. Изменения в P9 и в блоках L3 к этому не ведут: установленные блоки при сверке не учитываются.\n- **Straw dogs.** 170 штук, ни один не должен, диагностик нет. Новая обёртка L3 в списке есть.\n- **Хранилище вопросов.** 207 записей, диагностик 0. Ни одно поддерево не готово к переносу в `done/`. Из 14 находок 13 подсказывают, что два вопроса, возможно, один. Ещё одна про чужую сессию: она стоит на уже закрытом вопросе.\n- **Тикеты и edge-записи.** Тикеты: 34, диагностик 0, ни у одного живого тикета не отмечены все галочки, так что закрывать некого. Edge: 1 запись, чисто.\n- **Пересказы моих правил.** Искал, где они повторены в других документах. Нашёл одно место.\n\n**Что починил** по `repair=report`. Глоссарий метода в статье *Kind of statement* утверждал: «the kinds a reply may mark are principle, classification and the footing». С v56 ответ обрамляет текст и по виду утверждения, а этого статья не знала. Пересказ заменил ссылкой на единственный дом правила:\n\n> ✏️ **Proposed change — .agents/glossary.md, Kind of statement** · Landed\n> A sentence is of one kind; which kinds a reply marks, and how, is the entry file's.\n\n(💡 [*Replace a restatement with a pointer*](.claude/skills/maintain/SKILL.md:59))\n\n**Отметок не ставил.** Должен только `harness`, но его `SKILL.md` прямо сейчас правит другая сессия, и правки не закоммичены. Сверять и отмечать чужую незаконченную правку я не стал. Не покрыл: остальные механизмы вне области прохода и уровень `harness` output.\n\n**Проверки.** Правка только в markdown, поэтому по L3 гонял одни проверки: шесть `--check`, все чистые. Коммит `37f2781`, отправлен.\n\n| 🪢 Tangle |\n|---|\n| `local_434d77b0` · q-0018.0020.0010 · What does a person meeting the harness for the first time meet at its install, and does it leave them knowing what they have and what to do next? |\n| `local_2d3afbd6` · q-0024.0009.0006 · How is a record paired with the thing it is of, so that drift between them is noticed? |\n| `local_210f2b79` · q-0017 · Does working under the harness deliver software better than working without it, measured on the same tasks? |\n| `local_f608beca` · q-0027.0003 · How does the method lighten for small work and weigh more for large? |\n| **`harness` должен из-за незакоммиченной правки `/harness` от `local_434d77b0`.** Эта сессия стоит на вопросе, который сама уже закрыла: его файл лежит в `done/` и тоже не закоммичен. Сверка и отметка уровня `harness` output остаются ей. |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "The user rejects simultaneous Proposed and Landed status; after writing, replace Proposed in that block header with Landed.",
+    "source_evidence": [
+      "source.json#/records/1333",
+      "source.json#/records/1372",
+      "source.json#/records/631"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: The user rejects simultaneous Proposed and Landed status; after writing, replace Proposed in that block header with Landed.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1333",
+      "source.json#/records/1372"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The reporting reply shows written text under a Proposed header with a Landed suffix, or under a separate Landed heading. Each separately prompted original reply is an occurrence.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1090",
+      "after": "source.json#/records/1087",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/1015",
+      "source.json#/records/1019",
+      "source.json#/records/1020",
+      "source.json#/records/1021",
+      "source.json#/records/1025",
+      "source.json#/records/1026",
+      "source.json#/records/1030",
+      "source.json#/records/1031",
+      "source.json#/records/1035",
+      "source.json#/records/1036",
+      "source.json#/records/1039",
+      "source.json#/records/1040",
+      "source.json#/records/1046",
+      "source.json#/records/1047",
+      "source.json#/records/1051",
+      "source.json#/records/1052",
+      "source.json#/records/1056",
+      "source.json#/records/1057",
+      "source.json#/records/1061",
+      "source.json#/records/1062",
+      "source.json#/records/1067",
+      "source.json#/records/1068",
+      "source.json#/records/1073",
+      "source.json#/records/1074",
+      "source.json#/records/1078",
+      "source.json#/records/1079",
+      "source.json#/records/1083",
+      "source.json#/records/1084",
+      "source.json#/records/1086",
+      "source.json#/records/1087"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/631"
+      ],
+      "native_context_records": [
+        "source.json#/records/631",
+        "source.json#/records/1018"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/1018",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\5ee9fe64-bbbd-43dd-8c5b-e4f61fd910ba\\tool-results\\hook-0da7987b-37b8-4272-8503-f2a79159d092-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-0da7987b-37b8-4272-8503-f2a79159d092-1-additionalContext.txt",
+          "sha256": "783e197306320e47df73df0e6d45b4a54ef7c6f87ca852cadc8f92ed8f0e5ced",
+          "bytes": 17878,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1933,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-11T00:37:30.115304+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1090"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

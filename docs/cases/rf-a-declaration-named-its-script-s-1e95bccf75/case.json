@@ -1,0 +1,113 @@
+{
+  "id": "rf-a-declaration-named-its-script-s-1e95bccf75",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "7. A declaration named its script's verbs, and two arguments were built on it — 2026-09-23",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "first ownership argument from implementation"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/198",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.280"
+    },
+    "model": "claude-opus-5",
+    "model_source": "source.json#/records/198/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-09-23T10:27:18.075Z",
+    "chat_id": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+    "trigger_message_id": null,
+    "trigger_record_id": "43de03e3-1cd4-4ae9-a85d-8469fe4083ec",
+    "failure_message_id": "msg_011CfLDCFhS7SccAVXe3P48F",
+    "failure_record_id": "91b886a5-9608-41e7-aae6-3b4735e8ea4e",
+    "transcript": "85ded642-4a06-47ff-9a3d-b79f98dfb226.jsonl"
+  },
+  "observed_failure": {
+    "description": "The author argues against harness ownership because its declared copying operation is seconds/atomic/no decisions.",
+    "events": [
+      {
+        "source": "source.json#/records/198",
+        "message_id": "msg_011CfLDCFhS7SccAVXe3P48F",
+        "record_id": "91b886a5-9608-41e7-aae6-3b4735e8ea4e",
+        "timestamp": "2026-09-23T10:27:18.075Z",
+        "text": "**Q4 resolved:** one fixed quicklook everywhere; `architecture.md` and `glossary.md` populated from it in a non-empty tree; every section it can't ground stamped *unread*, distinct from *deferred*.\n\nThat closes the \"what happens\" branch. The next hinge is **who owns it**, because that decides where every rule so far gets written.\n\n**The decisive fact** is [mechanism/SKILL.md:24](.agents/skills/mechanism/SKILL.md:24): *\"One mechanism, one instruction file — a skill.\"* And there is exactly one occasion here — *core has arrived and the tree cannot yet run the loop*. One occasion wants one door. The `ai-game-1` failure is what an implicit handoff between two doors produces.\n\nThree ways to give it one:\n\n**A. Declare the mechanism `setup-devops`'s skill already half is, widened to the whole step, and rename it.**\nIt already covers the engineering half — package manager, deployment form, CICD, provider repo, dependencies, observability, `docs/cicd.md`, README — and it is already undeclared and queued for declaration under [01-0017](docs/tickets/01-0017-io-graph-coherent.md). Add the quicklook and the doors, rename, declare. **One skill, nothing minted.**\n*Against:* the name. The necessity gate says a mechanism whose name won't settle shouldn't exist, and \"setup-devops\" cannot honestly cover harvesting a glossary from six Russian research documents. The rename is load-bearing, not cosmetic.\n\n**B. Harness's skill owns the sequence and calls the parts.**\nIt is already the door — \"After the first install\" is where the instruction lives and where it failed.\n*Against:* it makes the harness mechanism's own description false. Harness is *\"places a ref of the repository into a tree that is not its own, and checks the copy against it\"* — seconds, atomic, no decisions. Reading a codebase to write an architecture is none of that. Two mechanisms in one skill.\n\n**C. Mint a new mechanism; `setup-devops` becomes a step inside it.**\n*Against:* two skills where one occasion exists, and most of the new one's content is moved out of the old one. Occam argues against.\n\n**My recommendation: A.** It is the fewest parts, it uses a skill that already exists and is already queued for declaration, and it puts the whole step behind one invocable name. The rename is the real work, and the name is the test the gate demands: if we can't name it, the shape is wrong.\n\nCandidates, checked against the glossaries — *recipient* is taken and precise ([glossary.md:93](.agents/glossary.md:93)), *bootstrap* is spoken for by this repository's own bootstrap and would collide:\n\n- `/ground` — the tree gets its footing; nothing else claims the word\n- `/onboard` — plain, but reads as person-onboarding\n- `/prepare` — accurate, forgettable\n\nA, B, or C — and if A, does a name settle for you?"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Determine ownership from purpose and moment/instruction split, not script properties.",
+    "source_evidence": [
+      "source.json#/records/40",
+      "source.json#/records/40"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Determine ownership from purpose and moment/instruction split, not script properties.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/200"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The author argues against harness ownership because its declared copying operation is seconds/atomic/no decisions.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/198",
+      "after": "source.json#/records/195",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/182",
+      "source.json#/records/184",
+      "source.json#/records/189",
+      "source.json#/records/191",
+      "source.json#/records/194",
+      "source.json#/records/195"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/40"
+      ],
+      "native_context_records": [
+        "source.json#/records/40"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/198"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

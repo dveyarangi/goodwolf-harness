@@ -1,0 +1,231 @@
+{
+  "id": "rf-figures-were-written-into-a-reco-f46a714a94",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "45. Figures were written into a record before they were counted — 2026-10-14",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "original public event"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1880",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.295"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/1880/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-14T00:21:30.200Z",
+    "chat_id": "995fecb6-b8ea-477f-8e91-bf084545a497",
+    "trigger_message_id": null,
+    "trigger_record_id": "7d6e2786-659f-42c4-8eca-e701d49e1ae4",
+    "failure_message_id": "msg_011Cg1B29keQzoUDyMA5YLP4",
+    "failure_record_id": "ef9c651b-9275-4640-8b5a-da43e91d8e97",
+    "transcript": "995fecb6-b8ea-477f-8e91-bf084545a497.jsonl"
+  },
+  "observed_failure": {
+    "description": "The RFC is edited to say 71 tickets and 30 answers before the count command runs.",
+    "events": [
+      {
+        "source": "source.json#/records/1880",
+        "message_id": "msg_011Cg1B29keQzoUDyMA5YLP4",
+        "record_id": "ef9c651b-9275-4640-8b5a-da43e91d8e97",
+        "timestamp": "2026-10-14T00:21:30.200Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\docs\\\\rfc\\\\01-0040.0050-the-queue-shows-what-each-item-realizes.md\", \"old_string\": \"## Limits\", \"new_string\": \"## Found while building, 2026-10-14\\n\\n- **An item is a ticket, not each question it owns.** The first render over this tree listed a\\n  ticket once per owned question — 01-0030 six times — since a ticket owns its sub-questions too.\\n  An item is now one line per ticket: its topmost owned questions, those no question of its own\\n  holds, and the answers all its owned questions realize, each once. The test was changed first\\n  and seen to fail.\\n- **One rule of *present*.** Coverage and the queue's left-out list read it from one function.\\n- **This tree, the first render**: 71 live tickets with an owned open question; left out under the\\n  three pains and both goals, 30 answers in all, four of them not decided (A15, A21, A51, A52); none\\n  serving no pain or goal. 01-0010.0175 shows A49 only, inherited from q-0037.0006, though its\\n  re-cut also drafts the product document — its question carries no link of its own.\\n\\n## Limits\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Record counted figures only after the run supplies them. The subsequent count and correction establish 37/24, and the wrong edit is the failure rather than the corrected report.",
+    "source_evidence": [
+      "source.json#/records/1881",
+      "source.json#/records/1893",
+      "source.json#/records/1894",
+      "source.json#/records/19"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Record counted figures only after the run supplies them. The subsequent count and correction establish 37/24, and the wrong edit is the failure rather than the corrected report.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1881",
+      "source.json#/records/1882",
+      "source.json#/records/1888",
+      "source.json#/records/1893",
+      "source.json#/records/1894"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The RFC is edited to say 71 tickets and 30 answers before the count command runs.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1880",
+      "after": "source.json#/records/1879",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/1652",
+      "source.json#/records/1657",
+      "source.json#/records/1658",
+      "source.json#/records/1659",
+      "source.json#/records/1667",
+      "source.json#/records/1668",
+      "source.json#/records/1669",
+      "source.json#/records/1670",
+      "source.json#/records/1680",
+      "source.json#/records/1681",
+      "source.json#/records/1684",
+      "source.json#/records/1685",
+      "source.json#/records/1694",
+      "source.json#/records/1695",
+      "source.json#/records/1698",
+      "source.json#/records/1699",
+      "source.json#/records/1705",
+      "source.json#/records/1706",
+      "source.json#/records/1707",
+      "source.json#/records/1709",
+      "source.json#/records/1716",
+      "source.json#/records/1717",
+      "source.json#/records/1721",
+      "source.json#/records/1722",
+      "source.json#/records/1726",
+      "source.json#/records/1727",
+      "source.json#/records/1730",
+      "source.json#/records/1731",
+      "source.json#/records/1732",
+      "source.json#/records/1733",
+      "source.json#/records/1734",
+      "source.json#/records/1740",
+      "source.json#/records/1741",
+      "source.json#/records/1746",
+      "source.json#/records/1747",
+      "source.json#/records/1748",
+      "source.json#/records/1749",
+      "source.json#/records/1750",
+      "source.json#/records/1758",
+      "source.json#/records/1759",
+      "source.json#/records/1762",
+      "source.json#/records/1763",
+      "source.json#/records/1764",
+      "source.json#/records/1765",
+      "source.json#/records/1766",
+      "source.json#/records/1767",
+      "source.json#/records/1768",
+      "source.json#/records/1774",
+      "source.json#/records/1775",
+      "source.json#/records/1776",
+      "source.json#/records/1777",
+      "source.json#/records/1780",
+      "source.json#/records/1781",
+      "source.json#/records/1782",
+      "source.json#/records/1783",
+      "source.json#/records/1784",
+      "source.json#/records/1788",
+      "source.json#/records/1789",
+      "source.json#/records/1790",
+      "source.json#/records/1791",
+      "source.json#/records/1792",
+      "source.json#/records/1798",
+      "source.json#/records/1799",
+      "source.json#/records/1804",
+      "source.json#/records/1805",
+      "source.json#/records/1806",
+      "source.json#/records/1807",
+      "source.json#/records/1808",
+      "source.json#/records/1819",
+      "source.json#/records/1820",
+      "source.json#/records/1821",
+      "source.json#/records/1822",
+      "source.json#/records/1823",
+      "source.json#/records/1824",
+      "source.json#/records/1825",
+      "source.json#/records/1826",
+      "source.json#/records/1830",
+      "source.json#/records/1831",
+      "source.json#/records/1832",
+      "source.json#/records/1833",
+      "source.json#/records/1834",
+      "source.json#/records/1840",
+      "source.json#/records/1841",
+      "source.json#/records/1842",
+      "source.json#/records/1843",
+      "source.json#/records/1848",
+      "source.json#/records/1849",
+      "source.json#/records/1850",
+      "source.json#/records/1851",
+      "source.json#/records/1857",
+      "source.json#/records/1861",
+      "source.json#/records/1862",
+      "source.json#/records/1863",
+      "source.json#/records/1864",
+      "source.json#/records/1865",
+      "source.json#/records/1866",
+      "source.json#/records/1867",
+      "source.json#/records/1873",
+      "source.json#/records/1874",
+      "source.json#/records/1875",
+      "source.json#/records/1879"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/19"
+      ],
+      "native_context_records": [
+        "source.json#/records/19",
+        "source.json#/records/1654"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/1654",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\995fecb6-b8ea-477f-8e91-bf084545a497\\tool-results\\hook-62199090-0cf0-4ea4-a7ac-f2a65909ff89-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-62199090-0cf0-4ea4-a7ac-f2a65909ff89-1-additionalContext.txt",
+          "sha256": "03fa005987c3ee72117fc05159ed4b058d6f1d5825ba7dd88b59e1573a931ced",
+          "bytes": 40515,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1763,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-14T00:16:45.528413+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1880"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

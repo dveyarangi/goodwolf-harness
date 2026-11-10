@@ -1,0 +1,42 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-core-shipped-with-carriage-retur-f0f8d76a6d",
+  "scope": "Recovery and integration of public API input order; no behavioral replay or all-case semantic sufficiency verdict.",
+  "request": "api-input.json#/request",
+  "request_message_count": 693,
+  "recovered_message_count": 693,
+  "unresolved_input_positions": [],
+  "structured_private_blocks_omitted": 104,
+  "unsupported_public_fields_or_blocks": 0,
+  "superseded_export_gap_count": 4,
+  "native_context_records_retained_as_evidence": [
+    "source.json#/records/272",
+    "source.json#/records/2104"
+  ],
+  "existing_source_qualifications_and_blocked_checks_preserved": true,
+  "current_source_gap_count": 0,
+  "historical_validation_reports_unchanged": true,
+  "executor_support": {
+    "status": "unsupported",
+    "behavior_verdict": null,
+    "reasons": [
+      "The current combined-input runner cannot prepare native recorded histories or execute these action-bounded cases."
+    ]
+  },
+  "public_hook_artifact_recovery": {
+    "scope": "Exact public hook artifacts referenced by retained native evidence; recorded API actor input and order unchanged.",
+    "referenced_artifact_count": 0,
+    "referenced_artifacts_recovered": 0,
+    "referenced_artifacts_unavailable": 0,
+    "recorded_api_input_sha256_unchanged": "1067cf0261400fa1d31d7b2ebf666541f58e8ef37080ae4db801323b2ae8b926",
+    "replay_input_start_limits_unchanged": true,
+    "snapshot_scope": "API input fingerprint at artifact-copy time, before the separately recorded public optional-field projection repair."
+  },
+  "remaining_source_gap_kinds": [],
+  "public_api_projection_update": {
+    "report": "api-projection-repair-2026-11-10.json",
+    "current_api_input_sha256": "49fa47a8c23665dc0369dca977b343d5d0e4e4e6dded9c8a1605c39bc0b3c1f2",
+    "source": "Independent review found public output_config/clear_at fields omitted by the earlier projection; request order and message role/content stayed unchanged."
+  }
+}

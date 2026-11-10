@@ -1,0 +1,190 @@
+{
+  "id": "rf-answers-proposed-four-times-on-a-ef04bb2b47",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "25. Answers proposed four times on a question whose parts were not unfolded — 2026-10-09",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "premature-answer-373"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/373",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/373/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-08T23:00:05.417Z",
+    "chat_id": "de339340-8b19-4267-adf9-e12d9a7b6382",
+    "trigger_message_id": null,
+    "trigger_record_id": "941769ac-7e2d-49e9-93e4-abd46536f71a",
+    "failure_message_id": "msg_011CfqbmZtfmMPE5CjaqS72B",
+    "failure_record_id": "0e1eb594-9262-48c2-9d09-50411bafae48",
+    "transcript": "de339340-8b19-4267-adf9-e12d9a7b6382.jsonl"
+  },
+  "observed_failure": {
+    "description": "Following a user correction that reshapes the relation problem, this reply commits another concrete account and again puts a form or next step to the user. Four separately prompted replies are retained.",
+    "events": [
+      {
+        "source": "source.json#/records/373",
+        "message_id": "msg_011CfqbmZtfmMPE5CjaqS72B",
+        "record_id": "0e1eb594-9262-48c2-9d09-50411bafae48",
+        "timestamp": "2026-10-08T23:00:05.417Z",
+        "text": "| 📍 **q-0001.0023** · How does an answer record the answers it assumes, so that a change in them finds it without blocking anything? |\n|---|\n\nТы прав. «Какую БД взять?» уже предполагает, что данным нужна БД, поэтому ответ «какие данные храним» может этот вопрос снять или превратить в другой при любой формулировке. Моё утверждение, что общая формулировка делает его assumes, было неверным. Я исправил его в записи и закоммитил.\n\n**Тест, который работает.** Мысленно прогоняем B по всем его возможным ответам:\n- Если хоть при одном ответе B вопрос A становится лишним, некорректным или его надо переформулировать, то вопрос A **depends on** B.\n- Если при любом ответе B вопрос A стоит в тех же словах и меняется только лучший ответ на него, то ответ A **assumes** ответ B.\n\nХорошие примеры assumes — вопросы, которые есть у любой вещи такого рода, что бы ни случилось вокруг (💡 *The shape's structure*):\n\n| Вопрос A | Ответ A | assumes ответ B | Если B изменится |\n|---|---|---|---|\n| На каком языке пишем сервис? | Python | «Кто в команде?» — питонисты | у любого сервиса есть язык, вопрос стоит, выбор под сомнением |\n| Какой таймаут у клиента? | 30 с | «Как быстро отвечает upstream?» — до 10 с | у любого клиента есть таймаут, вопрос стоит, число под сомнением |\n| Для чего этот проект? | харнесс для работы с агентами | «В каком ландшафте?» — агенты пишут код, люди теряют ведение | у любого проекта есть назначение, вопрос стоит, цель под сомнением |\n\nДля сравнения, «Какую БД взять?» не проходит: при ответе «ничего постоянного не храним» вопрос исчезает.\n\nОтсюда видно и отношение между связями. Зависимость всегда несёт и допущение: ответ на «какую БД» опирается на данные. А допущение никогда не превращается в зависимость. Последний пример как раз тот, ради которого всё затевалось: корни сами по себе не зависят друг от друга, связаны только их ответы.\n\n| ⚖️ Decisions | Варианты | Моя рекомендация |\n|---|---|---|\n| Принять тест «прогнать B по его возможным ответам» как определение | да · уточнить ещё | да: он отделяет связи по наблюдаемому признаку, а не по моим словам |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Unfold hidden parts before proposing another sharp answer after the user reshapes the question; the final user correction says the complexity remains unresolved.",
+    "source_evidence": [
+      "source.json#/records/397",
+      "source.json#/records/19"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Unfold hidden parts before proposing another sharp answer after the user reshapes the question; the final user correction says the complexity remains unresolved.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/377",
+      "source.json#/records/397"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "Following a user correction that reshapes the relation problem, this reply commits another concrete account and again puts a form or next step to the user. Four separately prompted replies are retained.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/373",
+      "after": "source.json#/records/366",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/285",
+      "source.json#/records/289",
+      "source.json#/records/298",
+      "source.json#/records/299",
+      "source.json#/records/302",
+      "source.json#/records/303",
+      "source.json#/records/305",
+      "source.json#/records/306",
+      "source.json#/records/308",
+      "source.json#/records/313",
+      "source.json#/records/317",
+      "source.json#/records/318",
+      "source.json#/records/322",
+      "source.json#/records/326",
+      "source.json#/records/331",
+      "source.json#/records/336",
+      "source.json#/records/340",
+      "source.json#/records/341",
+      "source.json#/records/342",
+      "source.json#/records/343",
+      "source.json#/records/346",
+      "source.json#/records/350",
+      "source.json#/records/359",
+      "source.json#/records/360",
+      "source.json#/records/363",
+      "source.json#/records/364",
+      "source.json#/records/365",
+      "source.json#/records/366"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/19"
+      ],
+      "native_context_records": [
+        "source.json#/records/19",
+        "source.json#/records/291",
+        "source.json#/records/328",
+        "source.json#/records/352"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/291",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\de339340-8b19-4267-adf9-e12d9a7b6382\\tool-results\\hook-b81013d1-535c-4c5e-8b4d-1994209e56c2-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "unavailable",
+          "search_scope": "exact recorded path and matching basenames under the accessible Claude projects tree",
+          "available_candidate_count": 0
+        },
+        {
+          "referenced_by": "source.json#/records/328",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\de339340-8b19-4267-adf9-e12d9a7b6382\\tool-results\\hook-9a1e24da-b395-431e-a688-c660b2386e9c-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "unavailable",
+          "search_scope": "exact recorded path and matching basenames under the accessible Claude projects tree",
+          "available_candidate_count": 0
+        },
+        {
+          "referenced_by": "source.json#/records/352",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\de339340-8b19-4267-adf9-e12d9a7b6382\\tool-results\\hook-1a068b8b-c62a-43da-aa4a-bd23a85b5476-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "unavailable",
+          "search_scope": "exact recorded path and matching basenames under the accessible Claude projects tree",
+          "available_candidate_count": 0
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/373"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": [
+    {
+      "kind": "referenced public artifact unavailable",
+      "source": "source.json#/records/291",
+      "detail": "The native hook message retains an exact persisted-output notice and preview. The full referenced public output was not found at its recorded path or by basename in the accessible Claude projects tree; its necessity for this case check is not established.",
+      "artifact_basename": "hook-b81013d1-535c-4c5e-8b4d-1994209e56c2-1-additionalContext.txt",
+      "necessity_for_case_checks": "not established"
+    },
+    {
+      "kind": "referenced public artifact unavailable",
+      "source": "source.json#/records/328",
+      "detail": "The native hook message retains an exact persisted-output notice and preview. The full referenced public output was not found at its recorded path or by basename in the accessible Claude projects tree; its necessity for this case check is not established.",
+      "artifact_basename": "hook-9a1e24da-b395-431e-a688-c660b2386e9c-1-additionalContext.txt",
+      "necessity_for_case_checks": "not established"
+    },
+    {
+      "kind": "referenced public artifact unavailable",
+      "source": "source.json#/records/352",
+      "detail": "The native hook message retains an exact persisted-output notice and preview. The full referenced public output was not found at its recorded path or by basename in the accessible Claude projects tree; its necessity for this case check is not established.",
+      "artifact_basename": "hook-1a068b8b-c62a-43da-aa4a-bd23a85b5476-1-additionalContext.txt",
+      "necessity_for_case_checks": "not established"
+    }
+  ]
+}

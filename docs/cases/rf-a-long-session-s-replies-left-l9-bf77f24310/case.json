@@ -1,0 +1,179 @@
+{
+  "id": "rf-a-long-session-s-replies-left-l9-bf77f24310",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "48. A long session's replies left L9's voice and promised to try — 2026-10-14",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "voice drift response 860"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/860",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.295"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/860/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-14T18:07:16.735Z",
+    "chat_id": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5",
+    "trigger_message_id": null,
+    "trigger_record_id": "665d44d0-0e6e-4762-8b4f-ec2f3344b728",
+    "failure_message_id": "msg_011Cg2aHBadek6L9MCjzWEz3",
+    "failure_record_id": "e1a395e4-b4fc-48c5-b086-22d6215addaf",
+    "transcript": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5.jsonl"
+  },
+  "observed_failure": {
+    "description": "Selected public reply from the later criticised long session; its individual voice violation is not established by the blanket complaint.",
+    "events": [
+      {
+        "source": "source.json#/records/860",
+        "message_id": "msg_011Cg2aHBadek6L9MCjzWEz3",
+        "record_id": "e1a395e4-b4fc-48c5-b086-22d6215addaf",
+        "timestamp": "2026-10-14T18:07:16.735Z",
+        "text": "| 🪶 Commits |\n|---|\n| `0943a9b` ALIGN: the agent's autonomy is a dial on a ladder of scale |\n\n| 🎫 35 · ❓ 161 · 🐕 155 |\n|---|\n\n| 📍 **q-0037.0013.0005** · Which of the agent's acts need the person's yes, and which does it do on its own? |\n|---|\n\nЗаписал три решения. Мысль о том, что лестница — атрибут механизма, пока стоит в вопросе открытой: вы сказали «возможно», а не «да».\n\n✏️ **Landed change — [q-0037.0013.0005](docs/questions/q-0037.0013.0005-which-of-the-agents-acts-need-the-persons-yes-and-which-does-it-do-on-its-own.md), Decisions**\n> 1. Autonomy is a dial on a ladder of scale: at the dial the agent asks, below it acts on its own, above it decides nothing and proposes; it reports at its level, describes the level below and leaves the lowest unsaid *(the user, 2026-10-14)*.\n> 2. Development's ladder runs by consequence: code, a feature, load-bearing, a product slice, the whole product *(the user, 2026-10-14)*.\n> 3. An act either belongs to the ladder or is a security setting, held by a mechanical check and not by a rule *(the user, 2026-10-14)* → [q-0037.0006.0005](docs/questions/q-0037.0006.0005-which-forbidden-actions-does-the-host-refuse-instead-of-trusting-the-agent.md).\n\nТретье решение записано и в [q-0037.0006.0005](docs/questions/q-0037.0006.0005-which-forbidden-actions-does-the-host-refuse-instead-of-trusting-the-agent.md) «Which forbidden actions does the host refuse, instead of trusting the agent?». Это вопрос тикета [01-0010.0125](docs/tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md), куда механическая проверка и ляжет.\n\n**Вопрос 2. Лестница самоулучшения.** Строил её так же, по последствиям. Набросок прошлого ответа упустил одну вещь: правка ядра доезжает до всех получателей, а локальное правило остаётся в одном проекте. По последствиям это разные ступени.\n\n| ступень | что меняется | кого задевает |\n|---|---|---|\n| формулировка | слова, смысл тот же | никого |\n| локальное правило | правило в `local.rules.md` | один проект |\n| правило ядра | одно правило ядра | один повод, во всех получателях |\n| акт скилла | что скилл делает и в каком порядке | целый шаг, во всех получателях |\n| механизм | его части, моменты, записи | несколько скиллов и записей |\n| метод | кольца, принципы, входной контракт | каждую сессию везде |\n\nСейчас ручка по факту стоит на «правиле ядра»: правило вносится после показа текста, как сегодня с Q6. Предлагаю принять лестницу и ручку как есть, а когда тикет будет переводить таблицу автономии на ручки, перенести туда и эту.\n\n| ⚖️ Decisions |\n|---|\n| Вопрос 2: лестница самоулучшения — формулировка, локальное правило, правило ядра, акт скилла, механизм, метод; ручка на «правиле ядра» |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Follow the contemporaneous L9 voice. The user questions whether the agent still writes like Lem, and the agent identifies the drift as tables, unexplained coined terms and untranslated phrasing. This is a source-supported voice complaint, not a validated stylistic scoring rule.",
+    "source_evidence": [
+      "source.json#/records/964",
+      "source.json#/records/1018",
+      "source.json#/records/241"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Follow the contemporaneous L9 voice. The user questions whether the agent still writes like Lem, and the agent identifies the drift as tables, unexplained coined terms and untranslated phrasing. This is a source-supported voice complaint, not a validated stylistic scoring rule.",
+        "expected_for_recorded_failure": null
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment.",
+    "status": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/869",
+      "source.json#/records/871",
+      "source.json#/records/874",
+      "source.json#/records/875",
+      "source.json#/records/879",
+      "source.json#/records/880",
+      "source.json#/records/884",
+      "source.json#/records/893",
+      "source.json#/records/895",
+      "source.json#/records/898",
+      "source.json#/records/899",
+      "source.json#/records/900",
+      "source.json#/records/904",
+      "source.json#/records/905",
+      "source.json#/records/908",
+      "source.json#/records/909",
+      "source.json#/records/910",
+      "source.json#/records/916",
+      "source.json#/records/920",
+      "source.json#/records/921",
+      "source.json#/records/922",
+      "source.json#/records/926",
+      "source.json#/records/927",
+      "source.json#/records/937",
+      "source.json#/records/938",
+      "source.json#/records/941",
+      "source.json#/records/942",
+      "source.json#/records/946",
+      "source.json#/records/947",
+      "source.json#/records/953",
+      "source.json#/records/956",
+      "source.json#/records/957",
+      "source.json#/records/960",
+      "source.json#/records/964",
+      "source.json#/records/966",
+      "source.json#/records/969",
+      "source.json#/records/970",
+      "source.json#/records/971",
+      "source.json#/records/972",
+      "source.json#/records/973",
+      "source.json#/records/982",
+      "source.json#/records/983",
+      "source.json#/records/988",
+      "source.json#/records/989",
+      "source.json#/records/998",
+      "source.json#/records/999",
+      "source.json#/records/1002",
+      "source.json#/records/1009",
+      "source.json#/records/1012",
+      "source.json#/records/1013",
+      "source.json#/records/1014",
+      "source.json#/records/1018",
+      "source.json#/records/1030",
+      "source.json#/records/1031"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "classification": {
+    "kind": "selected reply from a session criticised for voice drift",
+    "limit": "Individual L9 violation is unestablished. The later blanket complaint/admission is retained; table/decision/record forms are exempt under the captured L9 and do not by themselves prove drift."
+  },
+  "description": "Selected public reply from the later criticised long session; its individual voice violation is not established by the blanket complaint.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/860",
+      "after": "source.json#/records/856",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/836",
+      "source.json#/records/841",
+      "source.json#/records/847",
+      "source.json#/records/850",
+      "source.json#/records/851",
+      "source.json#/records/855",
+      "source.json#/records/856"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/241"
+      ],
+      "native_context_records": [
+        "source.json#/records/241",
+        "source.json#/records/838"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/860"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": [
+    {
+      "kind": "existing check evidence block",
+      "detail": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+    }
+  ]
+}

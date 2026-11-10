@@ -1,0 +1,52 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "scope": "complete selected public payloads, not inferred complete transport context",
+  "records_checked": 26,
+  "records_expanded": [
+    631,
+    1285,
+    1288,
+    1290,
+    1291,
+    1296,
+    1297,
+    1298,
+    1299,
+    1300,
+    1301,
+    1305,
+    1306,
+    1310,
+    1311,
+    1313,
+    1314,
+    1315,
+    1316,
+    1322,
+    1323,
+    1326,
+    1327,
+    1331,
+    1333,
+    1372
+  ],
+  "structured_private_blocks_omitted": 0,
+  "unsupported_public_fields_or_blocks": [],
+  "native_attachment_role_metadata": [
+    {
+      "record": 631,
+      "native_type": "instructions",
+      "recorded_role": null,
+      "role_field_recorded": false
+    },
+    {
+      "record": 1288,
+      "native_type": "hook_additional_context",
+      "recorded_role": null,
+      "role_field_recorded": false
+    }
+  ],
+  "original_record_hashes_verified": true,
+  "unselected_records_decoded": 0
+}

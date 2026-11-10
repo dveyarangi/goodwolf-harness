@@ -1,0 +1,153 @@
+{
+  "id": "rf-four-skills-were-changed-without-2bd778ea67",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "50. Four skills were changed without `/skill-up`, which asks nothing about growth — 2026-10-15",
+    "occurrence": "repeat",
+    "occurrence_heading": "**Struck, 2026-10-20 — a rule proposed in a reply.** Asked why ended session rows are kept, the",
+    "detail": "original public event"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/117",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.299"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/117/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-20T14:00:51.232Z",
+    "chat_id": "4b528c27-1a59-4ad4-99d2-b0045214b540",
+    "trigger_message_id": null,
+    "trigger_record_id": "fe49ab72-eaa9-4d2e-a58a-8a90db0b07e0",
+    "failure_message_id": "msg_011CgDcJwLx6U8WNhQKDfTys",
+    "failure_record_id": "a0062ebf-a9dc-4cb8-b4dc-a6777e79dfaa",
+    "transcript": "4b528c27-1a59-4ad4-99d2-b0045214b540.jsonl"
+  },
+  "observed_failure": {
+    "description": "The session proposes a format replacement as a rule in its reply without first reading skill-up or mechanism.",
+    "events": [
+      {
+        "source": "source.json#/records/117",
+        "message_id": "msg_011CgDcJwLx6U8WNhQKDfTys",
+        "record_id": "a0062ebf-a9dc-4cb8-b4dc-a6777e79dfaa",
+        "timestamp": "2026-10-20T14:00:51.232Z",
+        "text": "| 🪢 Tangle — [q-0037.0019](docs/questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three-roots-and-the-next-shown-with-its-unit-as-the-installed-method-names-it.md) · [q-0038.0001](docs/questions/q-0038.0001-does-working-under-the-harness-deliver-software-better-than-working-without-it-measured-on-the-same-tasks.md) · [q-0037.0019](docs/questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three-roots-and-the-next-shown-with-its-unit-as-the-installed-method-names-it.md) · [q-0037.0017](docs/questions/q-0037.0017-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md) |\n|---|\n\n| 🎫 39 · ❓ 173 · 🐕 169 |\n|---|\n\n| 📍 **[q-0037.0017](docs/questions/q-0037.0017-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md)** · What is a session to the harness, and which mechanism keeps its lifecycle? |\n|---|\n\nUnderstood: not whether git holds the folder, but why ended rows are kept at all.\n\n**The reason on record is one sentence.** The questions format says what removes a row: nothing, by design, because an ended row lets a later wake offer to resume ([The sessions folder](.agents/skills/questions/QUESTION-FORMAT.md:58)). It was written for the single sessions file and carried into the folder unchanged.\n\n**What an ended row is actually used for.** I read every reader of the rows. There are three, and only one reads an ended row for a purpose:\n\n- **A same-tag restart.** When a host starts a session under a tag the folder already holds, the row turns running again with its old position. That is the resume the sentence promises. It works only where the host keeps its session id across a resume, which the terminal does and the desktop app does not.[^1] A desktop resume gets a new id, and the position moves to it through the transcript, after which the old row ends and is never read again.\n- **The wake report.** Every wake prints every row, running or ended, into the hook context. That is the 19 KB report this session started with, 125 lines of it sessions that will never return.\n- **The window's \"other sessions\" line.** Reads running rows only.\n\nSo the history buys a terminal-only resume, and the terminal has not been this tree's host for weeks.\n\n| ended rows in the folder | 125 |\n|---|---|\n| desktop-app tags, unresumable by tag | 43 |\n| probes, Codex and Cursor ids, pre-folder carry-over | the rest |\n\n**What it costs.** Every session pays the report at its start ([*Tier is paid by every session*](AGENTS.md:40)), the folder grows one file per session for good, and the account of what each session did already lives in its record under `docs/sessions/`. A record kept for a use the host never makes is one Occam says to remove before adding anything ([*Occam*](AGENTS.md:30)). The reopening evidence is the count above, which did not exist when the sentence was written.\n\n**The shape with the fewest parts.** Keep an ended row only while its tag could still return, then let the wake remove it, and have the wake report list the running sessions alone. The terminal resume survives within that window. The conclude, the silence rule, F5 and the carry-over stay as they are. This changes a rule and a script, at your self-improvement dial, so I show it before acting.\n\n🧩 **Proposed rule — [QUESTION-FORMAT.md](.agents/skills/questions/QUESTION-FORMAT.md) · The sessions folder**\n\n> What removes a row: a wake removes each ended row whose session has not returned within seven days, since only a host that keeps its session id across a resume ever returns to one. The wake's read lists running sessions only.\n\n✋ Ended session rows kept seven days and then removed by the wake, the wake report listing running sessions only, in place of rows kept for good. (🐛 self-improvement=a rule)\n\n| ⚖️ Decisions |\n|---|\n| Remove ended rows after seven days and list only running sessions in the wake, or keep every row as the format says |\n\n[^1]: The host table in `questions.py`, its comment on the desktop app's new id on resume, 2026-10-09 and 2026-10-10; q-0037.0001.0006's lean, landed 2026-10-09."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Draft agent instructions through skill-up, and record-format mechanism changes through their governing workflow; the user asks directly whether that happened.",
+    "source_evidence": [
+      "source.json#/records/125",
+      "source.json#/records/141",
+      "source.json#/records/187",
+      "source.json#/records/19"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Draft agent instructions through skill-up, and record-format mechanism changes through their governing workflow; the user asks directly whether that happened.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/125",
+      "source.json#/records/127",
+      "source.json#/records/130",
+      "source.json#/records/131",
+      "source.json#/records/135",
+      "source.json#/records/136",
+      "source.json#/records/141",
+      "source.json#/records/143",
+      "source.json#/records/151",
+      "source.json#/records/152",
+      "source.json#/records/156",
+      "source.json#/records/157",
+      "source.json#/records/166",
+      "source.json#/records/167",
+      "source.json#/records/172",
+      "source.json#/records/173",
+      "source.json#/records/177",
+      "source.json#/records/182",
+      "source.json#/records/187"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The session proposes a format replacement as a rule in its reply without first reading skill-up or mechanism.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/117",
+      "after": "source.json#/records/112",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/86",
+      "source.json#/records/91",
+      "source.json#/records/92",
+      "source.json#/records/96",
+      "source.json#/records/97",
+      "source.json#/records/106",
+      "source.json#/records/107",
+      "source.json#/records/111",
+      "source.json#/records/112"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/19"
+      ],
+      "native_context_records": [
+        "source.json#/records/19",
+        "source.json#/records/88"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/88",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\4b528c27-1a59-4ad4-99d2-b0045214b540\\tool-results\\hook-1f718227-79fa-4750-b101-4057c6ec2acc-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-1f718227-79fa-4750-b101-4057c6ec2acc-1-additionalContext.txt",
+          "sha256": "51f92de478d8cb2b2cf393808f9a9b190e76b9795321835d0a6e79e5a084d09b",
+          "bytes": 43637,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1977,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-20T13:59:34.855541+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/117"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

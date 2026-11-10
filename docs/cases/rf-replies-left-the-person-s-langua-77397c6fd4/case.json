@@ -1,0 +1,156 @@
+{
+  "id": "rf-replies-left-the-person-s-langua-77397c6fd4",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "73. Replies left the person's language mid-align, twice — 2026-10-25",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "first English alignment reply; the immediate selected button message is English, so preserve it rather than claim every recorded user message is literally Russian"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/339",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.308"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/339/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-24T23:33:16.791Z",
+    "chat_id": "f18287f4-4a39-41ef-b518-8c1c4896caba",
+    "trigger_message_id": null,
+    "trigger_record_id": "b5b491ca-e17f-4ea1-8999-79e0469c1fd8",
+    "failure_message_id": "msg_011CgMwEWfmiYot796NjdFWN",
+    "failure_record_id": "253a74d2-0d2e-4fa8-8a45-4b5106512258",
+    "transcript": "f18287f4-4a39-41ef-b518-8c1c4896caba.jsonl"
+  },
+  "observed_failure": {
+    "description": "The first alignment reply switches to English; the person asks for it again in Russian.",
+    "events": [
+      {
+        "source": "source.json#/records/339",
+        "message_id": "msg_011CgMwEWfmiYot796NjdFWN",
+        "record_id": "253a74d2-0d2e-4fa8-8a45-4b5106512258",
+        "timestamp": "2026-10-24T23:33:16.791Z",
+        "text": "| 🪢 [q-0037.0018.0005](docs/questions/q-0037.0018.0005-is-a-projects-root-readme-generated-from-its-product-document-and-edge-records-or-written-by-hand-and-checked-against-them.md) · [q-0037.0006.0020.0001.0004](docs/questions/q-0037.0006.0020.0001.0004-how-does-the-install-read-a-tree-with-a-method-and-report-what-goodwolf-would-change-there-before-anything-is-written.md) · [q-0037.0017.0006.0002](docs/questions/q-0037.0017.0006.0002-what-does-a-session-do-when-its-turn-would-act-on-a-unit-another-running-session-holds.md) · [q-0037.0009.0005](docs/questions/q-0037.0009.0005-what-does-commit-own.md) · [q-0037.0009.0021.0002](docs/questions/q-0037.0009.0021.0002-is-the-voice-a-reply-speaks-in-its-own-mechanism-owning-how-everything-the-person-hears-is-said-apart-from-the-voice-instructions-and-records-are-written-in.md) · [q-0037.0006.0005.0001](docs/questions/q-0037.0006.0005.0001-which-skill-must-be-read-before-a-file-is-edited-or-a-rule-proposed-and-how-does-the-host-refuse-the-act-made-without-it.md) · — |\n|---|\n| Another session has been writing the README by hand under [q-0033.0008](docs/questions/q-0033.0008-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md), most recently on 24 October, while this align decides how the README is supposed to be written at all. |\n\n| 📍 **[q-0037.0018.0005](docs/questions/q-0037.0018.0005-is-a-projects-root-readme-generated-from-its-product-document-and-edge-records-or-written-by-hand-and-checked-against-them.md)** · Is a project's root README generated from its product document and edge records, or written by hand and checked against them? |\n|---|\n| ⚙️ /align |\n\n## What this align settles\n\nThere are three documents involved:\n\n- **The product document** ([product.md](docs/product.md)) is the project's account of itself: the pains it relieves, its goals, their causes, and the answers it gives, numbered A1–A52.\n- **The README** is the front page: what a reader arriving cold sees first.\n- **The edge records** ([docs/edge/](docs/edge/)) describe how the project is taken and extended.\n\nOn 13 October we decided that a single mechanism, `product`, tells the project's account to each of its readers. The README is derived from the product document, and its part about taking and extending the project comes from the edge records. *How* it is derived was never decided, and this align decides it. The work it leads to is [01-0040.0070 the-root-readme-is-told-from-the-product-document](docs/tickets/01-0040.0070-the-root-readme-is-told-from-the-product-document.md). (💡 [*One mechanism, product, tells the project's account to each of its readers*](docs/questions/q-0037.0018-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the-projects-work-in-agreement-both-ways.md:82))\n\n## Is the work needed\n\nYes, and a decision we already accepted says so: decision 10 above. The problem is observable:\n\n- **12** commits have changed the README since 13 October. Only **2** of them also changed the product document.\n- The README does not link the product document anywhere.\n- No check reads the README against anything. The product check compares the document with the question tree and does not look at the README.\n- Yesterday you said the presentation is amended constantly and this has to work already.\n\n## The first fork, and the fact that settles it\n\nOn 13 October the hidden edges of the split recorded *two front pages*. The harness ships its own front page into every project that installs it, while this tree's README was said never to ship.\n\n**The code has since settled this.** Since 14 October the harness ships this tree's root README as the front page, into `.agents/README.md`, unchanged. The installer says so in so many words: the front page is the source repository's own document, shipped as written. So there are not two documents. The page that tells an outside agent about the harness is this repository's README.\n\nThe assumption both branches of the old fork share is that each project has its own account. That assumption stays true. What follows:\n\n- **In this tree** there is one front page, the root README, told from the product document. It also goes out to every installing project as the harness's front page.\n- **In a project that installs the harness** there are two different documents with different owners. `.agents/README.md` is the harness's front page; it ships and is not edited there. The project's root README is the project's own account, told from the project's own product document, if it has one.\n\n**My recommendation: the fork is closed.** Each project has one front page, its root README, and the product mechanism tells it from that project's own product document. The copy in `.agents/` is a shipped copy, not a second page. The harness mechanism's row for the front page stays as it is.\n\nOnce this is decided, the next question is the main one: generated or written by hand and checked.\n\n✋ Close the two-front-pages fork: one front page per project, its root README. (🐛 development=a feature)\n\n| ⚖️ Decisions |\n|---|\n| One front page per project, its root README; the copy shipped into `.agents/` is not a second page |\n| Where the six [01-0019](docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md) slices go in the queue |\n\n| 🍂 Drift |\n|---|\n| [q-0037.0018](docs/questions/q-0037.0018-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the-projects-work-in-agreement-both-ways.md), *Hidden edges* and [q-0037.0018.0005](docs/questions/q-0037.0018.0005-is-a-projects-root-readme-generated-from-its-product-document-and-edge-records-or-written-by-hand-and-checked-against-them.md): both say \"this tree's root README never ships\", but since 14 October it ships as the front page |\n| The product mechanism's README row still reads *not yet*, while the README is edited by hand |\n| 12 tickets In progress against the limit of 8 in L12 |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Continue in the person's chosen Russian rather than copying the agent-authored English button text's language.",
+    "source_evidence": [
+      "source.json#/records/258",
+      "source.json#/records/279",
+      "source.json#/records/341",
+      "source.json#/records/258"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Continue in the person's chosen Russian rather than copying the agent-authored English button text's language.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/341",
+      "source.json#/records/342",
+      "source.json#/records/344"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed.",
+    "source_qualifications": {
+      "language_duty": "The original loaded L9 lacks the later explicit language clause. The case preserves the actual Russian human context and later direct correction; it does not claim the later rule wording was already active."
+    }
+  },
+  "description": "The first alignment reply switches to English; the person asks for it again in Russian.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/339",
+      "after": "source.json#/records/338",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/279",
+      "source.json#/records/299",
+      "source.json#/records/300",
+      "source.json#/records/303",
+      "source.json#/records/304",
+      "source.json#/records/305",
+      "source.json#/records/308",
+      "source.json#/records/309",
+      "source.json#/records/310",
+      "source.json#/records/312",
+      "source.json#/records/314",
+      "source.json#/records/315",
+      "source.json#/records/316",
+      "source.json#/records/317",
+      "source.json#/records/318",
+      "source.json#/records/321",
+      "source.json#/records/322",
+      "source.json#/records/324",
+      "source.json#/records/325",
+      "source.json#/records/328",
+      "source.json#/records/329",
+      "source.json#/records/332",
+      "source.json#/records/333",
+      "source.json#/records/337",
+      "source.json#/records/338"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/258"
+      ],
+      "native_context_records": [
+        "source.json#/records/258",
+        "source.json#/records/313"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/313",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\c59b3d61-5b8c-45ec-8cfc-9e3039c6ec2c\\tool-results\\hook-921560df-2384-4963-b2e0-cf4bb5aa2dc9-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-921560df-2384-4963-b2e0-cf4bb5aa2dc9-1-additionalContext.txt",
+          "sha256": "a3f2a5701f02e62f84a5a008b2b430b1077722792643c469ed1cadffeb07b815",
+          "bytes": 51394,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1866,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-24T23:31:53.786455+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/339"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

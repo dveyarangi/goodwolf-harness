@@ -1,0 +1,30 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-two-sessions-numbered-one-versio-f3594b6fdc",
+  "scope": "Expansion of already-selected related-source public payloads; no new unselected records or inferred actor roles.",
+  "sources": [
+    {
+      "related_source": "9b7606cef7",
+      "transcript": "c7b1fc0b-5034-4074-b04b-473b9bb9c87e.jsonl",
+      "records_checked": 2
+    }
+  ],
+  "selected_records_checked": 2,
+  "records_expanded": [
+    {
+      "related_source": "9b7606cef7",
+      "record": 1967
+    },
+    {
+      "related_source": "9b7606cef7",
+      "record": 1968
+    }
+  ],
+  "structured_private_blocks_omitted": 0,
+  "unsupported_public_fields_or_records": [],
+  "source_paths_unavailable": [],
+  "original_record_hashes_verified": true,
+  "unselected_records_decoded": 0,
+  "replay_and_api_input_unchanged": true
+}

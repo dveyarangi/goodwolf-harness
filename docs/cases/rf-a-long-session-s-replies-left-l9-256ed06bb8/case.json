@@ -1,0 +1,129 @@
+{
+  "id": "rf-a-long-session-s-replies-left-l9-256ed06bb8",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "48. A long session's replies left L9's voice and promised to try — 2026-10-14",
+    "occurrence": "repeat",
+    "occurrence_heading": "**Struck, 2026-10-26 — the voice was delivered but not heard.** The recall in Codex chat",
+    "detail": "original public event"
+  },
+  "provenance": {
+    "host": "Codex Desktop",
+    "host_source": "source.json#/records/1/payload/originator",
+    "model": "gpt-6.1-sol",
+    "model_source": "source.json#/records/10/payload/model",
+    "model_evidence_kind": "recorded turn model identifier",
+    "occurred_at": "2026-10-26T11:04:57.347Z",
+    "chat_id": "01a177e0-ff53-7c93-9cd3-bcdb4c70db5c",
+    "trigger_message_id": "msg_01a177e1-58b4-76c3-b938-526c16fb3293",
+    "failure_message_id": "msg_0a2987dba2acbcb3016adf33c081388191a98ec66a72ecf09b",
+    "transcript": "rollout-2026-10-26T13-03-16-01a177e0-ff53-7c93-9cd3-bcdb4c70db5c.jsonl"
+  },
+  "observed_failure": {
+    "description": "The Codex recall is challenged for failing the named voice despite the delivered rule.",
+    "events": [
+      {
+        "source": "source.json#/records/58",
+        "message_id": "msg_0a2987dba2acbcb3016adf33c081388191a98ec66a72ecf09b",
+        "timestamp": "2026-10-26T11:04:57.347Z",
+        "text": "| 🪢 Tangle · — · — · [q-0037.0010.0009.0009.0002](D:/Dev/AI/agents/docs/questions/q-0037.0010.0009.0009.0002-how-does-a-pass-with-no-person-sweep-the-tree-for-what-the-decisions-landed.md) · [q-0037.0006.0020.0001.0006](D:/Dev/AI/agents/docs/questions/q-0037.0006.0020.0001.0006-what-turned-the-evaluating-agent-against-installing-and-what-answers-each.md) · [q-0037.0006.0005.0001.0001](D:/Dev/AI/agents/docs/questions/q-0037.0006.0005.0001.0001-how-does-claude-code-refuse-an-edit-to-a-declared-file-while-its-skill-is-not.md) · [q-0037.0017.0005.0001](D:/Dev/AI/agents/docs/questions/q-0037.0017.0005.0001-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of.md) · [q-0033.0012](D:/Dev/AI/agents/docs/questions/q-0033.0012-what-is-the-harnesss-product-roadmap-which-of-the-products-answers-come-next-in-what-order-by.md) · [q-0037.0006.0022.0004.0001](D:/Dev/AI/agents/docs/questions/q-0037.0006.0022.0004.0001-does-a-commit-in-this-tree-that-carries-a-broken-record-of-the-method-stop-and.md) · [q-0037.0010.0012.0001](D:/Dev/AI/agents/docs/questions/q-0037.0010.0012.0001-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person.md) · [q-0038.0003](D:/Dev/AI/agents/docs/questions/q-0038.0003-what-does-this-project-session-history-show-about-continuity-reliable-change-and-lasting.md) · [q-0037.0015](D:/Dev/AI/agents/docs/questions/q-0037.0015-how-is-produced-work-gone-over-again-over-what-scope-by-what-criteria-by-whom-and-to-what.md) · [q-0037.0010.0012.0001](D:/Dev/AI/agents/docs/questions/q-0037.0010.0012.0001-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person.md) · — · — |\n|---|\n\n| ⚙️ **Восстановление картины** · состояние проекта и свободная работа |\n|---|\n| ⚙️ /recall · /product |\n\nПриветус. У нас **четыре задачи в работе при пределе восемь**. Проверил живые карточки, последние коммиты и незакоммиченные изменения.\n\n**Закрыто:** Windows-починка — длинные пути, имена на разных письменностях и запуск Python; [01-0010.0230 core-works-on-windows-and-in-any-script](D:/Dev/AI/agents/docs/tickets/done/01-0010.0230-core-works-on-windows-and-in-any-script.md).\n\n**В работе:**\n\n- [01-0010.0150.0010 the-harness-reads-a-tree-with-a-method-and-reports](D:/Dev/AI/agents/docs/tickets/01-0010.0150.0010-the-harness-reads-a-tree-with-a-method-and-reports.md): обследование проекта перед установкой. Испытание на нашем дереве проведено; завершение ждёт частей установки и миграции.\n- [01-0011.0110.0100 a-pass-with-no-person-sweeps-what-new-decisions-contradict](D:/Dev/AI/agents/docs/tickets/01-0011.0110.0100-a-pass-with-no-person-sweeps-what-new-decisions-contradict.md): автоматический поиск противоречий после новых решений. Первый этап закоммичен, продолжает другая сессия.\n- [01-0016.0030 the-voice-speaks-every-skill-that-speaks](D:/Dev/AI/agents/docs/tickets/01-0016.0030-the-voice-speaks-every-skill-that-speaks.md): правило голоса уже доставлено в навыки, но испытание голос Лема не узнало. Проверка не закрыта.\n- [01-0040.0070 the-root-readme-is-told-from-the-product-document](D:/Dev/AI/agents/docs/tickets/01-0040.0070-the-root-readme-is-told-from-the-product-document.md): главная страница ещё на согласовании.\n\nДругие сессии также держат координацию между ветками, защиту редактирования и проверку записей перед коммитом. В рабочем дереве есть их незавершённые изменения.\n\n**Я бы сначала разобрал незакрытую проверку голоса:** реализация уже лежит, а обещанный результат не подтверждён. Это остаток сделанной работы, который /recall велит брать прежде нового строительства. (💡 [*An open ticket or RFC whose work has landed*](D:/Dev/AI/agents/.agents/skills/recall/SKILL.md:12))\n\nИз свободных готовых направлений — [01-0010.0200 a-project-can-remove-the-harness](D:/Dev/AI/agents/docs/tickets/01-0010.0200-a-project-can-remove-the-harness.md), безопасное удаление harness, и [01-0010.0120 what-each-host-says-without-being-asked](D:/Dev/AI/agents/docs/tickets/01-0010.0120-what-each-host-says-without-being-asked.md), выяснение возможностей хостов. По карте сейчас перекос в устройство системы: продуктовые вопросы и внешний ландшафт остаются без собственных задач.\n\n| ⚖️ Decisions |\n|---|\n| Куда идём: рекомендую закрыть вопрос с проверкой голоса; альтернативы — удаление harness или возможности хостов. |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Follow the unchanged L9 voice in the actual recall; evaluate the original prose through an independent reader, retaining uncertainty rather than inferring success from delivery.",
+    "source_evidence": [
+      "source.json#/records/65",
+      "source.json#/records/106",
+      "source.json#/records/8"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Follow the unchanged L9 voice in the actual recall; evaluate the original prose through an independent reader, retaining uncertainty rather than inferring success from delivery.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Cite the selected response/action and its preserved source context for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Relevant original public records and host/model metadata are preserved; private reasoning and platform system/developer instructions outside the project's hook context are excluded.",
+    "reference_only_records": [
+      "source.json#/records/64",
+      "source.json#/records/65",
+      "source.json#/records/67",
+      "source.json#/records/71",
+      "source.json#/records/72",
+      "source.json#/records/77",
+      "source.json#/records/81",
+      "source.json#/records/84",
+      "source.json#/records/89",
+      "source.json#/records/92",
+      "source.json#/records/96",
+      "source.json#/records/99",
+      "source.json#/records/106",
+      "source.json#/records/112",
+      "source.json#/records/113",
+      "source.json#/records/115",
+      "source.json#/records/119"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The Codex recall is challenged for failing the named voice despite the delivered rule.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/58",
+      "after": "source.json#/records/53",
+      "description": "Immediately before the selected failing response/action; preserved earlier public records supply the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/8",
+      "source.json#/records/12",
+      "source.json#/records/16",
+      "source.json#/records/18",
+      "source.json#/records/20",
+      "source.json#/records/21",
+      "source.json#/records/24",
+      "source.json#/records/26",
+      "source.json#/records/33",
+      "source.json#/records/37",
+      "source.json#/records/41",
+      "source.json#/records/46",
+      "source.json#/records/47",
+      "source.json#/records/53"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/8"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/58"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Instruction evidence, host metadata and reference-only records do not become additional actor messages.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role."
+    ],
+    "source_metadata_records": [
+      "source.json#/records/1",
+      "source.json#/records/10"
+    ]
+  },
+  "source_gaps": []
+}

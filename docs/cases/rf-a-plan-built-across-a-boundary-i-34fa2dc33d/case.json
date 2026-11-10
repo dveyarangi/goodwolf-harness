@@ -1,0 +1,183 @@
+{
+  "id": "rf-a-plan-built-across-a-boundary-i-34fa2dc33d",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "A plan built across a boundary its question's accepted shape had drawn — 2026-10-25",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "original RFC-writing episode; verification/building are consequences, not automatically new occurrences"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1304",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.308"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/1304/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-23T23:26:00.530Z",
+    "chat_id": "14869207-0ee1-4aeb-be4b-18255bc719b7",
+    "trigger_message_id": null,
+    "trigger_record_id": "92ee4d44-c0ac-434b-968d-264485f1e0a1",
+    "failure_message_id": "msg_011CgL2mWwq5V9RqaPsyQC1B",
+    "failure_record_id": "67f4460a-ee34-45b8-bc4c-82fbc160cf16",
+    "transcript": "14869207-0ee1-4aeb-be4b-18255bc719b7.jsonl"
+  },
+  "observed_failure": {
+    "description": "The RFC chooses to put pathfinding in questions.py and read method tickets directly despite the accepted shape assigning method-supplied work units rather than looking them up.",
+    "events": [
+      {
+        "source": "source.json#/records/1304",
+        "message_id": "msg_011CgL2mWwq5V9RqaPsyQC1B",
+        "record_id": "67f4460a-ee34-45b8-bc4c-82fbc160cf16",
+        "timestamp": "2026-10-23T23:26:00.530Z",
+        "text": "Write {\"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\docs\\\\rfc\\\\01-0060.0010-what-the-path-shows-at-every-recall.md\", \"content\": \"# What the path shows at every recall — implementation plan\\n\\n- **record of** what it intends to become\\n\\n**Authored:** 2026-10-24\\n\\nImplements [01-0060.0010](../tickets/01-0060.0010-what-the-path-shows-at-every-recall.md): the\\npath read from the records as they are — the count in work, what was raised lately and not taken\\nup, the candidates with their reasons, the three roots' balance — drawn by the store's script at\\nevery wake and on request, and told by `/recall` in the person's words.\\n\\n**Planning state:** authored 2026-10-24 against q-0037.0019's accepted `Where it stands`, its\\ndecisions 1–6, the ticket, the recall skill, the questions mechanism's doc and the four scripts\\nthe path reads. Validated once. Three choices taken here are under *Taken at `/plan`*; one\\ncontradiction found in the governing docs is under *Raised for `/align`* and does not block the\\nslice.\\n\\n## Governing boundaries\\n\\n- **The path is a reading, never a record.** It is computed from what the records already hold\\n  and written nowhere; two sessions compute one path (q-0037.0019, `Where it stands`). The\\n  architecture's rule on scripts holds it: they enumerate and transform, and decide nothing\\n  ([Responsibilities](../architecture.md#responsibilities)).\\n- **The order is the person's; the path re-ranks nothing** (q-0037.0019 decision 1; `/recall`'s\\n  rule, *read the next item from the order the queue states*). The path shows candidates and\\n  their reasons; it does not say which is first.\\n- **The cap's number is the local file's** (L12); no script reads it. The path counts; the agent,\\n  who reads the entry file, compares.\\n- **Sessions' positions are not work** until the ring mark exists (q-0037.0019.0001, deferred); the\\n  count reads tickets In progress and says so.\\n- **The pathfinder is undeclared.** Its instruction into `/recall` and its moment in the store's\\n  doc are written by hand as straw dogs bound to q-0037.0019, as R5 has it for an undeclared\\n  mechanism; when it is declared, they become its installed blocks.\\n- **Every record stays as it is.** No new part of a question, no new field of a ticket, no new\\n  file: the path reads `owner`, `realizes`, `struck`, `depends on`, the tickets' `Status` and\\n  `Answers`, the product document's answers, and the straw dogs' bindings.\\n\\n## Impact\\n\\n**Must change.**\\n\\n- `.agents/scripts/gw/questions.py`: a `--path` reading and its section in the wake; the tickets\\n  and product modules imported inside the function, since both import the store at the top.\\n- `.agents/scripts/gw/test/test_questions.py`: the path's tests.\\n- `.agents/skills/recall/SKILL.md`, *What the person hears*: one sentence telling the path, a straw\\n  dog bound to q-0037.0019.\\n- `.agents/mechanisms/questions/questions.md`, the moments table: a row, *drawing the path at the\\n  wake and on request*, instructed by the store's script, a straw dog bound to q-0037.0019.\\n\\n**Must verify.**\\n\\n- The wake's size: every recipient's hook delivers it at every session start, so the path is\\n  bounded — a handful of candidates, one line each root — the way *most struck* is bounded.\\n- The hook's output in a tree with no `docs/tickets/`, no product document and no rungs: the path\\n  shows what exists and nothing fails (criterion 6).\\n- The verification set green; the tests, since a script changes.\\n\\n**Hidden edges.**\\n\\n- **Circular import.** `tickets.py` and `product.py` import `questions`; the path imports them\\n  inside its function. A module of its own would be cleaner and is a new part of a mechanism to\\n  declare; not for this slice.\\n- **\\\"Raised lately\\\" is an approximation of \\\"since the last boundary\\\".** The store records a\\n  question's last touch, not its opening, and no boundary. The path names the open, unowned\\n  questions touched within the sessions' own horizon of seven days — the constant the session\\n  mechanism already keeps — and calls them *raised lately, not in work*; the exact reading is slice\\n  3's and q-0037.0019.0001's, marked `TODO q-0037.0019.0001` at the line.\\n- **The queue's order is not machine-readable** — see *Raised for `/align`*.\\n- **A recipient's path** reads the same records; one without a product document has every reason\\n  for the answer *unread*, which is the truth of that tree.\\n\\n**Leave alone.** The queue's prose; `product.py --queue`, which renders coverage per item for the\\nperson ordering and stays; the window and the rest of the wake; the dials and L12's number; the\\nstore's grammar.\\n\\n## Raised for `/align`\\n\\nThe ticket format says a position *changes when priority changes*; the queue's order is kept in\\nthe README's prose and has moved without renumbering — `.0175` pulled forward on 2026-10-14,\\n01-0060.0010 put ahead of it on 2026-10-23, both by prose. So the positions do not encode the\\norder, and a path reading positions as the order would show `.0175` first. This slice does not\\nread an order at all: candidates are shown as a set with their reasons, in id order as every\\nlisting is, and the order stays the queue's prose, read by `/recall` as today. Whether the\\npositions should follow the order again, or the format's sentence should go, is the pathfinder's\\nlater slices' — the picture on a time axis — and is put to the person there, not here.\\n\\n## Taken at `/plan`\\n\\n1. **The path lives in the store's script, as a reading beside the wake.** Not a module of its own:\\n   that is a new part to declare, and the pathfinder has no mechanism yet; not in `product.py`:\\n   the path reads four mechanisms' records and the store is where the wake already is.\\n2. **Candidates are the live tickets whose Status is Ready, a handful at most**, in id order, plus\\n   the most struck open questions with no owner, a handful at most. Not: every live ticket — the\\n   path is read at every start; not: an order — the person's.\\n3. **A reason the records do not hold is written `unread`**, never inferred. The reasons: the\\n   answer served and whether it is present, from the trace link and the product document; the\\n   strikes; the straw dogs bound to the question or under it; what depends on it.\\n\\n## Shapes\\n\\n**The reading**, `questions.py --path`, and the same text as a `path:` section of the wake, after\\n*suspect* and before the window:\\n\\n```\\npath:\\n  in work: 10 — tickets In progress; sessions not counted until the ring mark (q-0037.0019.0001)\\n    01-0010 a-shared-harness-improves… → q-0037.0006\\n    …\\n  raised lately, not in work: 3\\n    q-0037.0019.0002 … (struck 1, 2026-10-24)\\n  candidates, in id order, the order the queue's:\\n    01-0060.0010 what-the-path-shows-at-every-recall → q-0037.0019.0002\\n      serves A33 The queue read from ticket headers, in progress · struck 1 · 0 straw dogs · unlocks —\\n    01-0010.0175 arrival-describes-what-it-finds → q-0037.0006.0011\\n      serves unread · struck 0 · 2 straw dogs · unlocks —\\n  roots:\\n    q-0033 what the project is for — open 5, with a ticket 0 — thin\\n    q-0037 how it is built — open 160, with a ticket 76\\n    q-0038 the landscape — open 3, with a ticket 0 — thin\\n```\\n\\nA root is *thin* when it has open questions and no ticket under it. *in progress* / *present* /\\n*absent* is the product script's coverage word for the answer; *unread* where the question has no\\ntrace link or the tree no product document. The counts are integers the agent compares with L12.\\n\\n**The telling**, in `/recall`'s *What the person hears*, as a straw dog bound to q-0037.0019:\\n\\n> Then the path, in their words: how many pieces of work are in hand against the limit they set,\\n> what was raised lately and waits, which candidates stand next and why each, and whether a root\\n> has gone thin; asked where to go, the same.\\n\\n**The moment**, in the questions mechanism's doc, under *Moments*, as a straw dog bound to\\nq-0037.0019:\\n\\n> | drawing the path at the wake and on request | `.agents/scripts/gw/questions.py` | |\\n\\n## Stages\\n\\nEach stage ends green on the verification set; the tests run, a script changing.\\n\\n1. **The reading, red first** in `test_questions.py`, a case class with a store, two tickets and a\\n   product document in the fixture:\\n   - a ticket In progress is counted and named with its question; a Ready one is not;\\n   - an open, unowned question touched within seven days is *raised lately*; an owned or old one\\n     is not;\\n   - a Ready ticket is a candidate with its four reasons read; a reason the records lack reads\\n     `unread`;\\n   - the most struck unowned open question is a candidate too;\\n   - each root's open and ticketed counts, and *thin* where ticketed is zero and open is not;\\n   - a tree with no tickets folder and no product document prints the roots and `unread`, and\\n     exits 0.\\n\\n   Then `--path` and the section in the wake, bounded by two constants beside\\n   `WAKE_STRUCK_LINES`.\\n2. **The wake carries it**: a test that the wake's text holds the `path:` section after\\n   *suspect*; the hook unchanged, since it prints the wake.\\n3. **The telling and the moment**: the sentence in `/recall` and the row in the store's doc, each a\\n   straw dog bound to q-0037.0019; `mechanisms.py --check` and `inject_rules.py --check` green.\\n4. **Read live** (criteria 4 and 5): a `/recall` in this tree and a freeform *where should we go*,\\n   read by the person; an install into an empty folder read for criterion 6.\\n\\n## Proof of the criteria\\n\\n| Criterion | Proven by |\\n|---|---|\\n| the count in work against the cap, from tickets In progress, and what the cap held back | stage 1's first two cases; the live read |\\n| a handful of candidates with reasons, `unread` where unread | stage 1's third and fourth cases |\\n| the roots' counts and a thin root named | stage 1's fifth case |\\n| asked *where should we go*, the same picture | stage 4, read by the person |\\n| the person reads one recall and can say what is next and why | stage 4, read by the person |\\n| an empty install shows what exists and fails on nothing | stage 1's last case; stage 4's install |\\n| `/verify` passes | `/verify` after stage 4 |\\n\\n## Out of scope\\n\\nThe weighing and any ordering of candidates by it — the parent's later slice. The time axis —\\nthe parent's. Counting sessions in the ring — q-0037.0019.0001. The positions and the queue's\\nprose agreeing — *Raised for `/align`*, the parent's. A module of the pathfinder's own — when\\nit is declared.\\n\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Keep the method's record knowledge behind the accepted extension seam; return a crossing choice to alignment.",
+    "source_evidence": [
+      "source.json#/records/1139",
+      "source.json#/records/1170",
+      "source.json#/records/1173",
+      "source.json#/records/1177",
+      "source.json#/records/1182",
+      "source.json#/records/1185",
+      "source.json#/records/1211",
+      "source.json#/records/1287",
+      "source.json#/records/1288",
+      "source.json#/records/1298",
+      "source.json#/records/1139"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Keep the method's record knowledge behind the accepted extension seam; return a crossing choice to alignment.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1305",
+      "source.json#/records/1306",
+      "source.json#/records/1307",
+      "source.json#/records/1311",
+      "source.json#/records/1312"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The RFC chooses to put pathfinding in questions.py and read method tickets directly despite the accepted shape assigning method-supplied work units rather than looking them up.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1304",
+      "after": "source.json#/records/1299",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/1170",
+      "source.json#/records/1173",
+      "source.json#/records/1177",
+      "source.json#/records/1178",
+      "source.json#/records/1182",
+      "source.json#/records/1185",
+      "source.json#/records/1208",
+      "source.json#/records/1211",
+      "source.json#/records/1235",
+      "source.json#/records/1236",
+      "source.json#/records/1237",
+      "source.json#/records/1238",
+      "source.json#/records/1239",
+      "source.json#/records/1240",
+      "source.json#/records/1241",
+      "source.json#/records/1246",
+      "source.json#/records/1247",
+      "source.json#/records/1248",
+      "source.json#/records/1249",
+      "source.json#/records/1254",
+      "source.json#/records/1255",
+      "source.json#/records/1260",
+      "source.json#/records/1261",
+      "source.json#/records/1262",
+      "source.json#/records/1263",
+      "source.json#/records/1269",
+      "source.json#/records/1270",
+      "source.json#/records/1271",
+      "source.json#/records/1272",
+      "source.json#/records/1276",
+      "source.json#/records/1277",
+      "source.json#/records/1278",
+      "source.json#/records/1279",
+      "source.json#/records/1280",
+      "source.json#/records/1284",
+      "source.json#/records/1285",
+      "source.json#/records/1286",
+      "source.json#/records/1287",
+      "source.json#/records/1288",
+      "source.json#/records/1289",
+      "source.json#/records/1294",
+      "source.json#/records/1295",
+      "source.json#/records/1296",
+      "source.json#/records/1297",
+      "source.json#/records/1298",
+      "source.json#/records/1299"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/1139"
+      ],
+      "native_context_records": [
+        "source.json#/records/1139",
+        "source.json#/records/1265"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/1265",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\4fef7758-4d63-4cbb-a2d5-98b8709a0be5\\tool-results\\hook-1ac05de2-1ea8-4ca0-a3e7-9f46895b8afa-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-1ac05de2-1ea8-4ca0-a3e7-9f46895b8afa-1-additionalContext.txt",
+          "sha256": "e9bb378b36d83e7718804e488061e858f669eec6af93b1104e4493d33c978a40",
+          "bytes": 50501,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1719,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-23T23:22:41.623985+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1304"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

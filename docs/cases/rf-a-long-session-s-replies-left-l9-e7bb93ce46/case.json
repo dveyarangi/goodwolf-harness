@@ -1,0 +1,187 @@
+{
+  "id": "rf-a-long-session-s-replies-left-l9-e7bb93ce46",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "48. A long session's replies left L9's voice and promised to try — 2026-10-14",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "voice drift response 814"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/814",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.295"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/814/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-14T17:56:41.837Z",
+    "chat_id": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5",
+    "trigger_message_id": null,
+    "trigger_record_id": "5042dedd-4997-4c49-8f11-00678444f439",
+    "failure_message_id": "msg_011Cg2ZTiPSroc9E3DT4y9a2",
+    "failure_record_id": "142ff44a-8d29-43d6-926a-bfbe1c49d00c",
+    "transcript": "7cfbd0f4-82d1-4ee3-b19a-88f52921a1d5.jsonl"
+  },
+  "observed_failure": {
+    "description": "Selected public reply from the later criticised long session; its individual voice violation is not established by the blanket complaint.",
+    "events": [
+      {
+        "source": "source.json#/records/814",
+        "message_id": "msg_011Cg2ZTiPSroc9E3DT4y9a2",
+        "record_id": "142ff44a-8d29-43d6-926a-bfbe1c49d00c",
+        "timestamp": "2026-10-14T17:56:41.837Z",
+        "text": "| 🎫 35 · ❓ 161 · 🐕 155 |\n|---|\n\n| 📍 **q-0037.0013.0005** · Which of the agent's acts need the person's yes, and which does it do on its own? |\n|---|\n\nВерно. И по той же логике 3 и 4 тоже различаются только докладом: в обоих случаях агент действует сам. Значит, осей две.\n\n**Право** (что агенту позволено):\n\n| | |\n|---|---|\n| 0 | никогда, делает человек |\n| 1 | после «да» |\n| 2 | сам |\n\n**Доклад** (о чём и когда агент сообщает, только при праве «сам»):\n\n| | |\n|---|---|\n| заранее | говорит, что сейчас сделает, и делает |\n| после | сообщает в ответе |\n| в записях | видно только в истории, коммите, записях метода |\n\n**Действия, разложенные по радиусу.** От того, что касается только рабочего дерева, к тому, что выходит за машину. Решения стоят отдельно, потому что это не действия над чем-то.\n\n| круг | область | действия |\n|---|---|---|\n| **1. Рабочее дерево** | код проекта | правка в рамках задачи; правка вне задачи; удаление файлов |\n| | документы проекта | архитектура, глоссарий, продуктовый документ, README |\n| | записи метода | вопросы, тикеты, RFC, реестр сбоев, записи сессий |\n| | ядро харнесса | входной файл, скиллы, правила механизмов, скрипты |\n| | локальные правила проекта | `local.rules.md` |\n| | конфигурация хоста | `.claude/settings.json`, хуки, разрешения |\n| **2. Локальный git** | обычное | коммит, создание и смена ветки, stash |\n| | переписывание | amend, локальный rebase, squash |\n| | уничтожение несохранённого | `reset --hard`, `clean`, `restore`, `checkout --` |\n| **3. Remote** | синхронизация | push своей ветки, pull |\n| | общая линия | push в main, слияние PR |\n| | необратимое | force-push, удаление удалённой ветки |\n| | публикация | тег, релиз, открытие PR |\n| | создание | новый удалённый репозиторий |\n| **4. Машина вне дерева** | инструменты | установка пакетов и зависимостей, глобальные утилиты |\n| | другие деревья | другие репозитории, например получатели харнесса |\n| | процессы и система | запуск серверов, остановка процессов, системные настройки |\n| **5. Внешний мир** | чтение | веб, документация, API на чтение |\n| | запись | issue, комментарий, сообщение человеку, пост |\n| | аккаунты и деньги | регистрация, покупки, ключи |\n| **6. Другие агенты** | свои | запуск субагентов, новых сессий |\n| | чужие | сообщения другой сессии, правка её файлов, её вопросов |\n| **Решения** | что строим | назначение проекта, продуктовые ответы |\n| | как строим | несущее (архитектура, контракты); локальное |\n| | работа | нарезка на тикеты; взять следующую; закрыть свою работу как готовую |\n| | метод | правка правил харнесса; закрыть, отложить или снять вопрос |\n\nКруг 4 наполовину перекрыт правилами самого хоста (сообщения, покупки, системные настройки). Там граница уже задана снаружи, и наша таблица может её только сузить.\n\n**Вопрос 1. Годятся ли две оси (право 0/1/2, доклад заранее/после/в записях) и такая раскладка по радиусу?** Если да, дальше пройдём по кругам и в каждой строке поставим право и доклад.\n\n| ⚖️ Decisions |\n|---|\n| Вопрос 1: две оси, право и доклад, и раскладка действий по радиусу от рабочего дерева до внешнего мира, с решениями отдельно |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Follow the contemporaneous L9 voice. The user questions whether the agent still writes like Lem, and the agent identifies the drift as tables, unexplained coined terms and untranslated phrasing. This is a source-supported voice complaint, not a validated stylistic scoring rule.",
+    "source_evidence": [
+      "source.json#/records/964",
+      "source.json#/records/1018",
+      "source.json#/records/241"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Follow the contemporaneous L9 voice. The user questions whether the agent still writes like Lem, and the agent identifies the drift as tables, unexplained coined terms and untranslated phrasing. This is a source-supported voice complaint, not a validated stylistic scoring rule.",
+        "expected_for_recorded_failure": null
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment.",
+    "status": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/815",
+      "source.json#/records/818",
+      "source.json#/records/828",
+      "source.json#/records/829",
+      "source.json#/records/832",
+      "source.json#/records/836",
+      "source.json#/records/838",
+      "source.json#/records/841",
+      "source.json#/records/847",
+      "source.json#/records/850",
+      "source.json#/records/851",
+      "source.json#/records/855",
+      "source.json#/records/856",
+      "source.json#/records/860",
+      "source.json#/records/869",
+      "source.json#/records/871",
+      "source.json#/records/874",
+      "source.json#/records/875",
+      "source.json#/records/879",
+      "source.json#/records/880",
+      "source.json#/records/884",
+      "source.json#/records/893",
+      "source.json#/records/895",
+      "source.json#/records/898",
+      "source.json#/records/899",
+      "source.json#/records/900",
+      "source.json#/records/904",
+      "source.json#/records/905",
+      "source.json#/records/908",
+      "source.json#/records/909",
+      "source.json#/records/910",
+      "source.json#/records/916",
+      "source.json#/records/920",
+      "source.json#/records/921",
+      "source.json#/records/922",
+      "source.json#/records/926",
+      "source.json#/records/927",
+      "source.json#/records/937",
+      "source.json#/records/938",
+      "source.json#/records/941",
+      "source.json#/records/942",
+      "source.json#/records/946",
+      "source.json#/records/947",
+      "source.json#/records/953",
+      "source.json#/records/956",
+      "source.json#/records/957",
+      "source.json#/records/960",
+      "source.json#/records/964",
+      "source.json#/records/966",
+      "source.json#/records/969",
+      "source.json#/records/970",
+      "source.json#/records/971",
+      "source.json#/records/972",
+      "source.json#/records/973",
+      "source.json#/records/982",
+      "source.json#/records/983",
+      "source.json#/records/988",
+      "source.json#/records/989",
+      "source.json#/records/998",
+      "source.json#/records/999",
+      "source.json#/records/1002",
+      "source.json#/records/1009",
+      "source.json#/records/1012",
+      "source.json#/records/1013",
+      "source.json#/records/1014",
+      "source.json#/records/1018",
+      "source.json#/records/1030",
+      "source.json#/records/1031"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "classification": {
+    "kind": "selected reply from a session criticised for voice drift",
+    "limit": "Individual L9 violation is unestablished. The later blanket complaint/admission is retained; table/decision/record forms are exempt under the captured L9 and do not by themselves prove drift."
+  },
+  "description": "Selected public reply from the later criticised long session; its individual voice violation is not established by the blanket complaint.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/814",
+      "after": "source.json#/records/810",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/810"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/241"
+      ],
+      "native_context_records": [
+        "source.json#/records/241",
+        "source.json#/records/812"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/814"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": [
+    {
+      "kind": "existing check evidence block",
+      "detail": "blocked: blanket session-level voice complaint does not establish this individual reply as a failure"
+    }
+  ]
+}

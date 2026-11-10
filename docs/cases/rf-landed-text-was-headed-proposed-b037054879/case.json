@@ -1,0 +1,119 @@
+{
+  "id": "rf-landed-text-was-headed-proposed-b037054879",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "38. Landed text was headed Proposed under a Landed heading — 2026-10-11",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "mixed-header-parallel-624"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/624",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/624/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-10T01:38:24.889Z",
+    "chat_id": "50d88569-12cf-400d-9992-9e97262f34fc",
+    "trigger_message_id": null,
+    "trigger_record_id": "568ad3ce-4d3a-40d7-b6e2-63d4daf74e59",
+    "failure_message_id": "msg_011CfshewzxNu7F5PUBJZfeC",
+    "failure_record_id": "6ddfc1a5-3fc6-4df9-bbd7-056bed08a5d1",
+    "transcript": "50d88569-12cf-400d-9992-9e97262f34fc.jsonl"
+  },
+  "observed_failure": {
+    "description": "The reporting reply shows written text under a Proposed header with a Landed suffix, or under a separate Landed heading. Each separately prompted original reply is an occurrence.",
+    "events": [
+      {
+        "source": "source.json#/records/624",
+        "message_id": "msg_011CfshewzxNu7F5PUBJZfeC",
+        "record_id": "6ddfc1a5-3fc6-4df9-bbd7-056bed08a5d1",
+        "timestamp": "2026-10-10T01:38:24.889Z",
+        "text": "| 📍 **q-0030** · How does a reply show the principles each of its claims stands on, and where are the principles named for it? |\n|---|\n\nГотово, правило в `AGENTS.md` теперь в этой форме:\n\n> 🧩 **Proposed rule — AGENTS.md, the reply's tables** · Landed\n> Under 🪢, the sessions running beside this one come first, a row each with the question it stands on as the window writes it, then each collision in bold, naming the sessions it involves.\n\nНомер версии не поднимал: v57 появилась несколько минут назад, поэтому я переписал её на месте. В её записи теперь сказано и что вариант с отдельной таблицей сессий пробовали и ты его отклонил. Решение лежит в теле q-0030, коммит `9f69f30`.\n\n| 🪢 Tangle |\n|---|\n| `fcfe212c` · q-0020 · How does the queue stay true to the tickets it lists? (наша же другая ветка) |\n| `a6ab6249` · q-0034 · What is a session to the harness, and which mechanism keeps its lifecycle? |\n| `5fba085e` · q-0027 · How does each turn know its next step, and each session where to resume? |\n| `58bf3b88` · q-0023.0009 · What does /edge own? |\n| `01a1227f` · позиции нет |\n| **Все пять пишут в `docs/questions`.** Тесты-сторожи падают, если во время прогона кто-то пишет в живое хранилище, так что пока они работают, набор не может быть зелёным. Это случай q-0032 «How do sessions running at once in one tree keep from overwriting each other's writes?» |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "The user rejects simultaneous Proposed and Landed status; after writing, replace Proposed in that block header with Landed.",
+    "source_evidence": [
+      "source.json#/records/1333",
+      "source.json#/records/1372",
+      "source.json#/records/475"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: The user rejects simultaneous Proposed and Landed status; after writing, replace Proposed in that block header with Landed.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1333",
+      "source.json#/records/1372"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The reporting reply shows written text under a Proposed header with a Landed suffix, or under a separate Landed heading. Each separately prompted original reply is an occurrence.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/624",
+      "after": "source.json#/records/620",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/607",
+      "source.json#/records/610",
+      "source.json#/records/611",
+      "source.json#/records/612",
+      "source.json#/records/613",
+      "source.json#/records/614",
+      "source.json#/records/615",
+      "source.json#/records/619",
+      "source.json#/records/620"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/475"
+      ],
+      "native_context_records": [
+        "source.json#/records/475",
+        "source.json#/records/609"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/624"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

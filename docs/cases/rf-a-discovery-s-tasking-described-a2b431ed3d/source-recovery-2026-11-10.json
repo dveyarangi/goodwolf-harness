@@ -1,0 +1,101 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "scope": "complete selected public payloads, not inferred complete transport context",
+  "records_checked": 45,
+  "records_expanded": [
+    241,
+    616,
+    618,
+    620,
+    621,
+    625,
+    626,
+    629,
+    630,
+    634,
+    635,
+    639,
+    640,
+    644,
+    645,
+    646,
+    647,
+    651,
+    652,
+    654,
+    658,
+    659,
+    663,
+    664,
+    668,
+    669,
+    673,
+    675,
+    676,
+    679,
+    680,
+    681,
+    682,
+    687,
+    689,
+    691,
+    693,
+    694,
+    696,
+    698,
+    700,
+    702,
+    704,
+    706,
+    708
+  ],
+  "structured_private_blocks_omitted": 0,
+  "unsupported_public_fields_or_blocks": [],
+  "native_attachment_role_metadata": [
+    {
+      "record": 241,
+      "native_type": "instructions",
+      "recorded_role": null,
+      "role_field_recorded": false
+    },
+    {
+      "record": 618,
+      "native_type": "hook_additional_context",
+      "recorded_role": null,
+      "role_field_recorded": false
+    },
+    {
+      "record": 654,
+      "native_type": "hook_additional_context",
+      "recorded_role": null,
+      "role_field_recorded": false
+    },
+    {
+      "record": 673,
+      "native_type": "hook_additional_context",
+      "recorded_role": null,
+      "role_field_recorded": false
+    },
+    {
+      "record": 691,
+      "native_type": "hook_additional_context",
+      "recorded_role": null,
+      "role_field_recorded": false
+    },
+    {
+      "record": 700,
+      "native_type": "hook_additional_context",
+      "recorded_role": null,
+      "role_field_recorded": false
+    },
+    {
+      "record": 706,
+      "native_type": "hook_additional_context",
+      "recorded_role": null,
+      "role_field_recorded": false
+    }
+  ],
+  "original_record_hashes_verified": true,
+  "unselected_records_decoded": 0
+}

@@ -1,0 +1,794 @@
+{
+  "transcript": "21180e9e-e11e-4d1a-bcbe-65224a8d303d.jsonl",
+  "chat_id": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+  "transcript_bytes": 10877386,
+  "transcript_sha256": "4dddbe93f27d537e51d8fdb13825a3d695a397bf952f7e4caea214d75af6a1fa",
+  "record_numbering": "one-based JSONL records in the original transcript",
+  "delivery_context": null,
+  "records": {
+    "16": {
+      "timestamp": "2026-09-23T13:35:51.156Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "25703fa3-da26-4d51-8e68-69ebd2f80498",
+        "parentUuid": "7fcf9bac-25ab-484d-85b7-31ad09ca7a1f",
+        "timestamp": "2026-09-23T13:35:51.156Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "instructions",
+          "files": [
+            {
+              "path": "D:\\Dev\\AI\\agents\\CLAUDE.md",
+              "type": "Project",
+              "content": "@AGENTS.md"
+            },
+            {
+              "path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+              "type": "Project",
+              "content": "# Entry contract\n\nEntry contract: v16, 2026-09-21.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<straw-dog until=\"01-0020 is done\" ticket=\"docs/tickets/01-0020-pacer.md\">\nRun /recall first in every session, whatever the first message says.\n</straw-dog>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n- Clarity and simplicity first — Occam's razor: take the shape with the fewest parts that does the job, and remove before you add.\n\n<straw-dog until=\"01-0018 declares the mechanism that owns tiering\" ticket=\"docs/tickets/01-0018-reachability-coherent.md\">\n- A skill's description is its tier-1 surface: name there every occasion the skill serves, with the context that makes it fire, and nothing else. Write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session.\n</straw-dog>\n\n<installed by=\"ticket\">\n**P9** Name a ticket by a link to its record; one that has no record yet, by a slug and its state word.\n</installed>\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. A core file\nmay name a path under `docs/` only when that path is a record a mechanism declares — the directory\nthat holds a kind of record, or a file that is one — never a particular record inside such a\ndirectory: `docs/tickets/` and `docs/glossary.md` are painted doors; one particular ticket inside\n`docs/tickets/` is a document only this project has. Content inside the\n[local block](#project-local) is the instance's, not core's. A `<straw-dog>` exempts\nnothing: its wrapper is stripped on install and whatever it wrapped ships. Core names a ticket\nonly in a straw dog's binding — never in a link, never as a bare id in prose — since a recipient\ncan resolve neither.\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog until=\"01-0012 is done\" ticket=\"docs/tickets/01-0012-hierarchy-coherent.md\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n- /dream is an experimental second \"lobe\" of the harness, aiming to reassess load-bearingness. It is optional, runs after /conclude, and writes dreams that /maintain and /align may pick up; it never amends rules.\n\n## Self-improvement\n\n<straw-dog until=\"01-0019 is done\" ticket=\"docs/tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md\">\n- The rule was present and did not fire - usually means the rule was phrased wrong. This is a call for registration and rephrasing it - write rule failure to docs/rule-failures.md (or strike if exists) and suggests way to amend the rule to capture (use /mechanism and /skill-up for ideas)\n- Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.\n</straw-dog>\n\n## Autonomy\n\nThe project sets each switch in its local block, under *Project-local*; skills defer to those values.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n`repair=report` holds only when all four are true: the governing rule is explicit, and cited; the\nrepair restores compliance inside the authorized work and keeps every other agreed contract; the\naffected behaviour is understood well enough to say so; the result is verifiable against the\nrule. Otherwise `/align`. *(the user, 2026-09-05)*\n\n## Project-local\n\n<installed by=\"mechanism-shape\">\n**R7** A project's own answers and overrides are authored in one file beside the entry file,\n`local.rules.md`, in the rules-file format, and reach a file only as the local block — the\ninstalled block whose owner is `local` — which the installer writes after every mechanism's block\nthere, so the project's answer is what a reader meets after core's rule. An override names the rule it\noverrides. A local change to a rule is written in the local file, never into a skill or the entry\nfile: `inject_rules.py --check` fails on a block that differs from its source and on a block\nnothing owns, and the repair is the local file, re-installed. The local block is the project's,\nnot core's, and a redeploy preserves it.\n</installed>\n\n<installed by=\"local\">\n**L1** This repository develops the shared dev harness using its own loop; its own architecture and\nprogress live in docs/ like any other project's — the instance half doing its job, not a leak.\nTerms: docs/glossary.md, this project's own; the method's are .agents/glossary.md's. What each\nversion of the entry contract changed: docs/research/entry-contract-findings.md.\n\n**L2** commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n</installed>\n\n## Straw dogs\n\nWrap anything a live ticket will change, as you write it — or, for text already written, in the\npass that mints the ticket or decides that it will change it:\n`<straw-dog until=\"condition\" ticket=\"path\">`, or in code a `TODO` naming the ticket. Treat *not\nyet*, *until*, *once it exists*, *for now*, *untested* in your own text as the same signal: find\nthe ticket, or mint one. Wrap at the authored home, never where the harness installs or derives it.\nMake the condition testable and the ticket path repository-relative. Write the body to stand on\nits own: it is what a recipient receives once the wrapper is stripped, so it reads whole without\nthe condition and names no ticket — the binding does. Leave what no ticket would change\nunwrapped.\n\nFollow a straw dog like any other rule until its condition is visibly met; then act on reality,\nreport the stale block, and do not treat the contradiction as a violation."
+            },
+            {
+              "path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\memory\\MEMORY.md",
+              "type": "AutoMem",
+              "content": "# Memory\n\n- [Edit with edit tools, not scripts](edit-with-edit-tools-not-scripts.md) — a script's diff is invisible in the transcript; the user reads changes as they happen.\n- [Write for a capable model](write-for-a-capable-model.md) — I pad rules with the definition, the example and the implication; all three get cut.\n- [Problem before machinery](problem-before-machinery.md) — open an align with the concrete failures and the user's own prior words; a coined term or a design question first loses them.\n- [Fix the cause, not just the register](fix-the-cause-not-just-the-register.md) — a rule failure entry ending in \"not landed\" ends the turn short; find the decisive fact and land the amendment in the same pass.\n- [Deliver rules through the installer](deliver-rules-through-the-installer.md) — a mechanism's rule lands as an installed block into every occasion that reads it, never as hand-written prose; \"otherwise you make it tier 3\"."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "eedd7f4a48388d665d4f8ced24df043b74eb1f982d2243d3fe10d53493e086b6",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "538": {
+      "timestamp": "2026-09-25T21:10:20.599Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "1d061125-d534-41bd-9170-a97f1f2ec667",
+        "parentUuid": "4cb4e0bc-6e27-455c-b5a0-e894c08f1a62",
+        "timestamp": "2026-09-25T21:10:20.599Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Base directory for this skill: D:\\Dev\\AI\\agents\\.claude\\skills\\align\n\n<straw-dog until=\"01-0017 declares the align mechanism\" ticket=\"docs/tickets/01-0017-io-graph-coherent.md\">Mechanism: not yet</straw-dog>\n\n<what-to-do>\n\nBegin every alignment with a **necessity gate**: name the present customer, the observable problem, and why existing behaviour cannot satisfy it. An accepted requirement or ADR passes by citation. Weak evidence means narrow, postpone, or eliminate — settle that before exploring design. The gate fires late too: a mechanism whose name will not settle is evidence it should not exist. [/impact](../impact/SKILL.md) traces consequences once the need holds.\n\nInterview me relentlessly about every aspect of current work until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer. If there are alternatives, show pros/cons/tradeoffs between them.\n\nAsk the questions one at a time, waiting for feedback on each question before continuing. Asking multiple questions at once is bewildering. Do not use platform (Cursor/Claude Code) question format, output plain md.\n\nIf a *fact* can be found by exploring the doc corpus or codebase, look it up rather than asking me. The *decisions*, though, are mine - put each one to me and wait for my answer.\n\nDecomposing the work during an align is [/ticket](../ticket/SKILL.md)'s, and it calls\n[/impact](../impact/SKILL.md) on the draft split. Run that chain and present what it returns as a\nsuggestion; do not mint. A breakdown reached by unaided grouping is not that chain's output,\nhowever ticket-shaped it looks.\n\nDo not enact the plan before I confirm we have reached a shared understanding.\n\n\n</what-to-do>\n\n<supporting-info>\n\n## Good architecture\n\nGoal of architecture is to reduce work on creation and maintenance of the system.\n\nIdentify the load-bearing assumption behind the proposed shape; ask yourself - what is the cheapest real example that could prove this design assumption wrong? \n\nCheck it when practical, preferably against external reality rather than our own documents and tests.\n\nIf falsified, realign.\nIf unverified and load-bearing, preserve the uncertainty explicitly.\n\n## Domain awareness\n\nDuring codebase exploration, also look for existing documentation:\n\n### File structure\n\nMost repos have a single context:\n\n```\n/\n├── docs/\n│   ├── adr/\n│   │   ├── 0001-event-sourced-orders.md\n│   │   └── 0002-postgres-for-write-model.md\n│   ├── architecture.md\n│   └── glossary.md\n└── src/\n```\n\nCreate files lazily — only when you have something to write. If no `docs/glossary.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.\n\n## During the session\n\n### Challenge against the glossary\n\nWhen the user uses a term that conflicts with the existing language in `docs/glossary.md`, call it out immediately. \"Your glossary defines 'cancellation' as X, but you seem to mean Y — which is it?\"\n\nThis cuts both ways: before *you* propose a name, check the glossary yourself — including its _Avoid_ lists, which are reservations, not suggestions. If every synonym for a concept is avoided, that is a designed constraint telling you which word the project has chosen; work within it rather than proposing around it.\n\n### Challenge against the Edge records\n\nWhen the plan touches a product edge, check that surface's Edge record\n(`docs/edge/<surface>.md`) — the seam document aggregating the edge's contract, invariants,\nconcerns, and staged roadmap. A contradiction with its Contract or Invariants is either a plan\nbug or a deliberate contract change — and a contract change must be named **breaking or\ncompatible** out loud before proceeding. Update the record inline as decisions land, using the\nformat in [EDGE-FORMAT.md](./EDGE-FORMAT.md): contract changes in `Contract`/`Invariants` (a\npromise without a validating test is marked **⚠ unguarded**), newly surfaced edge-scoped\nconcerns as pointers in `Concerns`, staging shifts in `Roadmap`.\n\n### Check whether it was already decided\n\nBefore treating a question as open, search the ADRs and architecture docs for it. A surprising amount of \"open\" questions are accepted decisions the code drifted from — the answer then is \"implement the ADR\", not a fresh trade-off analysis. Cite the deciding document when you find one.\n\n### Lead with the decisive fact\n\nWhen recommending between alternatives, find the fact that settles it — a reader count, an import direction, an existing invariant, what a test actually asserts — and lead with it. A pros/cons menu with no decisive fact means you haven't explored enough yet; go look before asking.\n\n### Name the shared assumption\n\nWhen posing an A-or-B fork, state the assumption both branches share. The user's best answer may dissolve the fork rather than pick a branch — treat \"the premise is wrong\" as a first-class outcome, not a detour. If a fork keeps resisting resolution, that is usually the sign.\n\n### Sharpen fuzzy language\n\nWhen the user uses vague or overloaded terms, propose a precise canonical term. \"You're saying 'account' — do you mean the Customer or the User? Those are different things.\"\n\n### Discuss concrete scenarios\n\nWhen domain relationships are being discussed, stress-test them with specific scenarios. Invent scenarios that probe edge cases and force the user to be precise about the boundaries between concepts.\n\n### Cross-reference with code\n\nWhen the user states how something works, check whether the code agrees. If you find a contradiction, surface it: \"Your code cancels entire Orders, but you just said partial cancellation is possible — which is right?\"\n\n### Update glossary.md inline\n\nWhen a term is resolved, update `docs/glossary.md` right there. Don't batch these up — capture them as they happen. Use the format in [GLOSSARY-FORMAT.md](./GLOSSARY-FORMAT.md).\n\n`docs/glossary.md` should be totally devoid of implementation details. Do not treat it as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.\n\n### Update architecture.md inline\n\nWhen high-level architecture of this project changes, update `architecture.md`. Use format in [ARCH-FORMAT.md](./ARCH-FORMAT.md).\n\n`architecture.md` document captures the **high-level architecture**. Lower-level concerns are intentionally **deferred** and listed at the end.\n> Scope note: everything here is at the architecture/contract level. Where a concrete shape would prematurely lock a deferred decision, we define only the *seam*.\n> You should guide the user toward deep modules with simple boundaries.\n\n\n### Extract open questions and risks\n\nOpen questions and risks live in `docs/concerns.md`, this skill's artifact:\n\n- Ordered by priority, highest first — how much it blocks the current build, and how hard it is to absorb later.\n- Entry is `## N. Title`, then `**Kind:** {sort of pressure, and whether a driver exists} · **Refs:** {ADRs, architecture sections, sibling concerns}`, then the pressure.\n- Numbers are stable IDs, not ranks. A settled concern moves out to its owning ADR or architecture section, leaving a gap. Never renumber, never resolve in place.\n- A concern queued as work keeps only its architectural contact surface plus `→ queued as <ticket-slug>`; the deliberation moves into the ticket.\n- The file holds unresolved pressure — not delivery sequencing, not decisions.\n\n### Record resolutions in the owning ticket inline\n\nWhen the plan under review is a ticket, record each resolution the moment it lands, as the block above says; sweep the ticket for internal consistency at the end, since an early section may still assert what a later resolution changed.\n\n<installed by=\"mechanism-shape\">\n**R5** Land a mechanism's rule in AGENTS.md only as an installed block from its rules file. While the\nmechanism is undeclared, write the rule by hand and wrap it as a straw dog on the inception\nticket as you write it.\n</installed>\n\n<installed by=\"ticket\">\n**P7** Land a resolved decision in its durable home with its provenance, and rewrite the ticket in\nplace to what is now true; list under `Open issues` only what stays unresolved.\n</installed>\n\n### Offer ADRs sparingly\n\nOnly offer to create an ADR when all three are true:\n\n1. **Hard to reverse** — the cost of changing your mind later is meaningful\n2. **Surprising without context** — a future reader will wonder \"why did they do it this way?\"\n3. **The result of a real trade-off** — there were genuine alternatives and you picked one for specific reasons\n\nIf any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](./ADR-FORMAT.md).\n\n</supporting-info>\n\n\nARGUMENTS: The front page: who it is for, what it says, and what it may point at. Evidence: docs/research/external-review-front-page.md. Recorded decisions in play: the install RFC (README for an agent handed the link), 01-0010.0150 (front page, not a second home for the flow), and the user's 2026-09-26 rule that it may point into core, never docs/."
+            }
+          ]
+        },
+        "promptId": "03906333-35fc-4a0b-85c4-f4c8f714e22e"
+      },
+      "original_record_sha256": "4f7bc81bd39d041fe5a8bdb312e6356ed5a9d9ee5ccbe8c0a4f32d6024bc25b2",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "543": {
+      "timestamp": "2026-09-25T21:10:38.764Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "2b3ede28-068b-4071-8bc8-649fc6d2fbfc",
+        "parentUuid": "41d0cf28-7020-4a60-8bbc-c9d975a7b942",
+        "timestamp": "2026-09-25T21:10:38.764Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfQqty4RSw6qsJh66b4Fo",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Starting the front-page align. First the necessity gate, then the first question.\n\n## Is this work needed?\n\n**Who it's for.** Anyone handed the repository link without context. We have two real cases:\n- The front-page reviewer read the README and concluded this was \"a nice collection of disciplined agent skills\". Only reading the skills changed that.\n- The 2026-09-20 reviewer found no root README at all. One was added at .0130.\n\n**The problem you can see.** Nothing in the repository says what the harness is *for*.\n- The README says what it's made of: \"a development method… shipped as skills\".\n- [architecture.md](docs/architecture.md) opens on maintenance boundaries.\n- [.agents/README.md](.agents/README.md) opens on symlinks.\n\nThe reasoning behind it (the repository as the agent's memory, `/recall` rebuilding the current state, verify vs maintain) exists only spread across skill bodies.\n\n**Why what we already have isn't enough, and why the evidence is thin.** [.0150](docs/tickets/01-0010.0150-harness-meets-a-tree-with-a-method.md) already plans the README as \"what this is in two sentences, the clone line, and read the harness skill\". If those two sentences were right, most of the problem would go away. The evidence is one misreading from one reader, and weak evidence means **narrow the work**. So my starting position is not the reviewer's nine-section page. It's fixing what the first screen says, and adding only what that screen can't carry.\n\n## Question 1: who is the front page for?\n\nEvery option below assumes the front page stays one page and never becomes a second copy of the install steps; the harness skill owns those.\n\n- **A. The installing agent only (the current decision, from the .0130 RFC).** Short and operational. But an agent handed the link still has to tell its user what they're agreeing to install, and today the README gives it nothing to say.\n- **B. A person evaluating the repo only.** That's what the reviewer wants, but it demotes the one reader who actually acts on the page.\n- **C. Anyone handed the link, agent or person (my recommendation).** The first screen says what this is and why you'd want it, for both. Then there's one line telling an installing agent to read the harness skill and follow it.\n\nThe deciding fact: both readers need the same first paragraph. The only thing that differs is the one line of what to do next. So C widens the .0130 decision rather than reversing it, and it costs one line more than A.\n\nWhich one?"
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "d9ce6666126e0d0f032f43bf47da3949cea56abc5f1b227b10ba3faa14853704",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "545": {
+      "timestamp": "2026-09-25T21:11:10.377Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "872cbb13-8b6a-4f1a-a200-d016ce0e5179",
+        "parentUuid": "c83a2905-5769-4963-8bf1-702a9ef2b20a",
+        "timestamp": "2026-09-25T21:11:10.377Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "the frontpage is for whoever asks \"what is this\" and then for those that want to use it :)"
+        },
+        "promptId": "03906333-35fc-4a0b-85c4-f4c8f714e22e"
+      },
+      "original_record_sha256": "24a993d0fcfe339db5d4c8526417b79647af22befe50cd865679a57c4fa69329",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "548": {
+      "timestamp": "2026-09-25T21:11:19.227Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "8f5b02c2-fd91-42d8-b546-617672678d53",
+        "parentUuid": "f10576eb-b27b-4b3e-a87d-9740f1d88075",
+        "timestamp": "2026-09-25T21:11:19.227Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfQqxZtkyRqQvqYrBs7X6",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Recorded: the front page is first for whoever asks \"what is this\", then for whoever wants to use it. That order already tells us how the page is laid out. I'm writing the decision into its durable home, the line in the harness doc that says what the README is. Then I'll check the method's glossary before drafting any wording for the \"what is this\" part."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "d31e44d2bd5b9cdb9adf4115e5ca928a1336d85377c6331e1e3391414573dc2a",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "549": {
+      "timestamp": "2026-09-25T21:11:21.236Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "66dcbd11-306d-42f9-8ece-f1fd89fbe1fb",
+        "parentUuid": "8f5b02c2-fd91-42d8-b546-617672678d53",
+        "timestamp": "2026-09-25T21:11:21.236Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfQqxZtkyRqQvqYrBs7X6",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01SBZyioQ2RzmmE6hnE19Xqf",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\.agents\\mechanisms\\harness\\harness.md",
+                "old_string": "It is **installed**; a tree without it holds no core at all. The repository's root `README.md`\nis the way in for an agent handed the link — clone, read the skill, run the install — and is\nnot a part: it never ships, and a recipient has its own.",
+                "new_string": "It is **installed**; a tree without it holds no core at all. The repository's root `README.md`\nis its front page: first for whoever asks what this is, then for whoever wants to use it, who is\nsent to the skill for the install *(the user, 2026-09-26)*. It is not a part: it never ships, and\na recipient has its own."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "9862e7f65d8e6c8ba6022de00129abbcf7a7e36883d108b4613116f4eedce2bb",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "550": {
+      "timestamp": "2026-09-25T21:11:22.212Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "9cd3d808-eb11-4586-9e3f-6b81d1f9b8da",
+        "parentUuid": "66dcbd11-306d-42f9-8ece-f1fd89fbe1fb",
+        "timestamp": "2026-09-25T21:11:22.212Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfQqxZtkyRqQvqYrBs7X6",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01QDajFFgtpBrNNojQ3qPwcq",
+              "name": "Bash",
+              "input": {
+                "command": "grep -n \"^\\*\\*\\|_Avoid_\\|Avoid:\" .agents/glossary.md | cut -c1-160 | head -60",
+                "description": "List the method glossary's terms and avoid lists"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "cfde92c3017cff2b0c49d4f536ca4896140e675aa0786c4dd0eb6bcc503fa843",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "551": {
+      "timestamp": "2026-09-25T21:11:23.384Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "00ebea95-e51b-4ed9-8e05-8cd2c96bff8c",
+        "parentUuid": "66dcbd11-306d-42f9-8ece-f1fd89fbe1fb",
+        "timestamp": "2026-09-25T21:11:23.384Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01SBZyioQ2RzmmE6hnE19Xqf",
+              "content": "The file D:\\Dev\\AI\\agents\\.agents\\mechanisms\\harness\\harness.md has been updated successfully."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\.agents\\mechanisms\\harness\\harness.md",
+          "oldString": "It is **installed**; a tree without it holds no core at all. The repository's root `README.md`\nis the way in for an agent handed the link — clone, read the skill, run the install — and is\nnot a part: it never ships, and a recipient has its own.",
+          "newString": "It is **installed**; a tree without it holds no core at all. The repository's root `README.md`\nis its front page: first for whoever asks what this is, then for whoever wants to use it, who is\nsent to the skill for the install *(the user, 2026-09-26)*. It is not a part: it never ships, and\na recipient has its own.",
+          "originalFile": "# harness — a project that is not the origin holds core whole, at the ref it announces, and can take a later one\n\n- **instruction** `.agents/skills/harness/SKILL.md` — the commands, each refusal and what the person does, the first install's last step\n- **state** installed\n\n## How it works\n\nCore reaches a tree from a fresh clone of its repository at a ref and never from a working tree,\nso what a recipient holds is what a commit holds. The manifest is everything under the core\ndirectory plus the entry file and the host stub; the project's local file is never in it, which\nis what lets a redeploy overwrite core's content and nothing of the project's. What ships is\ntransformed before a byte is written: the origin's local blocks removed, every straw-dog wrapper\nand every `TODO`'s ticket binding sheared with the content kept, the announce line stamped, and\nthe whole held to the leak rule the origin's check applies.\n\n**The announce line is the revision.** A recipient's entry file reads\n`Entry contract: <repository>@<ref>, <date>.`; every session there announces it, the check reads\nit, and the shape check reads its `@` to know it stands in a recipient — where an unbound\n`not yet` is upstream's gap and draws nothing. No record file: integrity is asked of the source,\nby cloning the announced ref again and comparing. A change to the transformation therefore reads\nas an edit in every recipient installed before it, until it updates. What the announced ref\nshipped is read under the transformation alone, never held to today's shipping refusals: those\ngovern what may leave now, and a rule added after a ref shipped would otherwise strand every tree\nthat took it.\n\n**The repository line is the source, as the announce line is the ref.** The harness skill carries\n`Repository: <url>`, the only authored home of where core comes from: the script keeps no\nconstant and reads its default there, an install stamps a recipient's copy with the source the\nrun actually read — a URL verbatim, a path resolved absolute — and a fork edits the line once and\neverything it installs names the fork. Both lines are the recipient's own facts living in core\nfiles, so both are set aside when a copy is compared: a check or an update run from another\n`--from` reads no edit in core. A stamped source is never a citation either, which the citation\nreader settles for every reader of it, so a clone kept under a `docs/` directory does not make a\nrecipient fail its own shape check.\n\n**Every refusal writes nothing**, and the loader links are the one step a person may finish by\nhand: where the platform refuses to create a symlink, the run finishes everything else and ends\nwith the exact elevated command. Nothing is substituted for a link; a junction is refused by name.\n\n**The gate is the check, and it takes seconds.** Arrival and any later day's question are one\nfunction: the copy against the ref, the injector's check, the shape check — the target's own\nscripts, run as subprocesses, so what is checked is what arrived. The loader links are reported\nbeside the verdict and never decide it: a link the platform refused is the person's one\nremaining step, and its command is already in the report. The shipped suite is not run here —\nit costs minutes, and an install is seconds — a recipient that wants it names it in its own\nverification set *(the user, 2026-09-21)*.\n\nIt is **installed**; a tree without it holds no core at all. The repository's root `README.md`\nis the way in for an agent handed the link — clone, read the skill, run the install — and is\nnot a part: it never ships, and a recipient has its own.\n\n## Moments\n\n| moment | instructed by | kind, and why |\n|---|---|---|\n| installing a ref into an empty tree | `.agents/scripts/gw/harness.py` | |\n| updating a tree that has a copy | `.agents/scripts/gw/harness.py` | |\n| checking a copy against the ref it announces | `.agents/scripts/gw/harness.py` | |\n| making a loader link, or handing the person the command | `.agents/scripts/gw/harness.py` | |\n| reading a refusal and resuming | `.agents/skills/harness/SKILL.md` | |\n| populating the local file after the first install | `.agents/skills/harness/SKILL.md` | |\n| pointing a tree at another core, as a fork does | `.agents/skills/harness/SKILL.md` | |\n| knowing an update is available | — | unowned by design — a person asks for one; nothing polls the repository |\n| verifying that a host reads the loader link | — | <straw-dog until=\"a host's delivery is observed rather than assumed\" ticket=\"docs/tickets/01-0010.0120-host-delivery-surfaces.md\">not yet</straw-dog> |\n| writing a fresh tree's delivery status | `.agents/scripts/gw/harness.py` | |\n| removing one mechanism from a tree | — | <straw-dog until=\"the parts tables say what goes and something says how\" ticket=\"docs/tickets/01-0010-dev-harness-shared-and-local.md\">not yet</straw-dog> |\n| sending a change back to the repository | — | <straw-dog until=\"contribution back has a shape\" ticket=\"docs/tickets/01-0010-dev-harness-shared-and-local.md\">not yet</straw-dog> |\n\n## Install adds, uninstall removes\n\n| part | where |\n|---|---|\n| instruction file | `.agents/skills/harness/SKILL.md` |\n| this doc | `.agents/mechanisms/harness/harness.md` |\n| the script | `.agents/scripts/gw/harness.py` |\n| its tests | `.agents/scripts/gw/test/test_harness.py` |\n| the entry file | `AGENTS.md` |\n| the host stub | `CLAUDE.md` |\n\nThe entry file is this mechanism's whole file; two lines inside it are the shape's anchored\nparts, and nothing asks about the overlap. The loader links are made by this mechanism and are\nnot its parts: they are the host's way in, never shipped, and a link a platform has refused\nwould otherwise fail the shape check for the same absence the report already names.\n\n## Relies on, and does not own\n\n| part | where | owner |\n|---|---|---|\n| the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |\n| citation reader | `.agents/scripts/gw/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |\n| the delivery status's arrival state | `.agents/skills/ticket/QUEUE-ARRIVAL.md` | `ticket`, which owns the record and words it |\n| the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |\n| test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |\n| the listing script | `.agents/scripts/gw/straw_dogs.py` | `maintain` |\n| the method's vocabulary | `.agents/glossary.md` | nobody removable |\n\n## What it produces, and who reads it\n\n- **The recipient's core** — read by its every session, through the loader links its hosts\n  follow.\n- **The stamped announce line** — announced by the recipient's first reply; read by `--check` and\n  `--update` to know what was installed, and by the shape check to know it stands in a recipient.\n- **The report** — read by whoever ran the script, and by the recipient's `/verify` where its\n  verification set names the check. Its `pending` lines are read by the person who runs them.\n- **A fresh tree's delivery status** — read by the first session's `/recall`, which runs before\n  anything has been written into the queue; worded by the `ticket` mechanism, placed here, and the\n  instance's from its first line.\n- **The stamped repository line** — read by the script whenever a run is given no `--from`,\n  including the recipient's own copy at its own `--check`; and by a person or a fork asking where\n  this tree's core comes from, or pointing it somewhere else.\n- **The pending command** — read by a person, once, in an elevated prompt.\n\nNo record. The two stamped lines are the tree's, and nothing else is kept.\n\n## Not yet at the shape\n\n**The transformation is unguarded.** A change to the shear, the stamp or the local-block strip\nreaches every recipient as a reported edit; nothing checks a change against the recipients that\nexist.\n\n## What retires this\n\nA host that reads a repository directly at a ref, so that nothing need be copied and the ref is\nthe tree's by construction. Until then a copy is the only way core reaches a tree, and the copy\nneeds a revision and a check.\n\n## What would show it working, graded by someone who did not build it\n\n**The user, in frost_map.** That tree took the harness by hand on 2026-09-09 at a version its\nentry file still announces, refused one core check rather than duplicate its own state, and has\nbuilt on the copy since. It writes its answers into a local file, takes an update from the\nrepository, and the user grades: its local file survives byte-identical and its blocks are\nrestored last; its `docs/` is untouched; its links resolve; its announce line names the ref; the\ngate passes, or says which of the three did not. An install that had to be hand-finished to reach\n`arrived: true` reads identically to success in the report, and only the grader can say which it\nwas.\n",
+          "structuredPatch": [
+            {
+              "oldStart": 46,
+              "oldLines": 8,
+              "newStart": 46,
+              "newLines": 9,
+              "lines": [
+                " verification set *(the user, 2026-09-21)*.",
+                " ",
+                " It is **installed**; a tree without it holds no core at all. The repository's root `README.md`",
+                "-is the way in for an agent handed the link — clone, read the skill, run the install — and is",
+                "-not a part: it never ships, and a recipient has its own.",
+                "+is its front page: first for whoever asks what this is, then for whoever wants to use it, who is",
+                "+sent to the skill for the install *(the user, 2026-09-26)*. It is not a part: it never ships, and",
+                "+a recipient has its own.",
+                " ",
+                " ## Moments",
+                " "
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false,
+          "contentNotInModelContext": true
+        },
+        "sourceToolAssistantUUID": "66dcbd11-306d-42f9-8ece-f1fd89fbe1fb",
+        "promptId": "03906333-35fc-4a0b-85c4-f4c8f714e22e"
+      },
+      "original_record_sha256": "c6716c3e85627ccd93c9e9dd5484f7a8576cbce7377ed04c75044f0d3abf9c13",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "552": {
+      "timestamp": "2026-09-25T21:11:23.886Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "b67e0335-94aa-4400-9de5-5b154e5545fc",
+        "parentUuid": "9cd3d808-eb11-4586-9e3f-6b81d1f9b8da",
+        "timestamp": "2026-09-25T21:11:23.886Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01QDajFFgtpBrNNojQ3qPwcq",
+              "is_error": false,
+              "content": "13:**Harness**:\n16:**Mechanism**:\n19:**Skill**:\n22:**Straw dog**:\n24:_Avoid_: temporary statement, temporary, placeholder, stub, interim, hack.\n26:**Rules file**:\n29:**Installed block**:\n31:_Avoid_: injected pointer, copy.\n33:**Part**:\n35:_Avoid_: component, piece, asset.\n37:**Moment**:\n40:**Doc**:\n42:_Avoid_: manual, reference, spec as a name for this.\n44:**Documentation**:\n46:_Avoid_: spec, manual.\n48:**Implementation**:\n50:_Avoid_: source; product as a synonym.\n52:**Record**:\n54:_Avoid_: log.\n56:**Evidence**:\n58:_Avoid_: sidecar, notes, history, appendix. *Sidecar* describes a file's position, never its contents.\n60:**Provenance**:\n63:**Authority**:\n65:_Avoid_: strict rule, working rule, rule strength.\n67:**Tier**:\n70:**Index**:\n72:_Avoid_: digest, summary, table of contents.\n74:**Core**:\n77:**Project-local**:\n80:**Install** *(of core)*:\n82:_Avoid_: deploy, sync, distribute, port.\n84:**Installation edge**:\n86:_Avoid_: API, surface, interface as names for this.\n88:**Release**:\n90:_Avoid_: version, cut, ship, distribution.\n92:**Recipient**:\n94:_Avoid_: instance as a name for the tree, consumer.\n96:**Painted door**:\n98:_Avoid_: place, path convention.\n100:**Leak**:\n102:_Avoid_: reach, dangling link, cross-reference as names for this.\n104:**Open issue**:\n106:_Avoid_: issue as a generic name for every development document.\n108:**Spec**:\n111:**Architecture**:\n114:**Capture**:\n117:**Routing**:\n120:**Decomposition**:\n123:**Pace**:\n126:**Execution step**:\n129:**Turn**:\n132:**Archived record**:\n135:**Ticket**:\n138:**Ticket stage**:\n140:_Avoid_: dossier, decision log, history as names for a ticket's contents.\n142:**HITL ticket**:\n145:**RFC**:\n148:**Shape**:\n156:_Avoid_: form, construct, entity.\n158:**Seam**:"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "13:**Harness**:\n16:**Mechanism**:\n19:**Skill**:\n22:**Straw dog**:\n24:_Avoid_: temporary statement, temporary, placeholder, stub, interim, hack.\n26:**Rules file**:\n29:**Installed block**:\n31:_Avoid_: injected pointer, copy.\n33:**Part**:\n35:_Avoid_: component, piece, asset.\n37:**Moment**:\n40:**Doc**:\n42:_Avoid_: manual, reference, spec as a name for this.\n44:**Documentation**:\n46:_Avoid_: spec, manual.\n48:**Implementation**:\n50:_Avoid_: source; product as a synonym.\n52:**Record**:\n54:_Avoid_: log.\n56:**Evidence**:\n58:_Avoid_: sidecar, notes, history, appendix. *Sidecar* describes a file's position, never its contents.\n60:**Provenance**:\n63:**Authority**:\n65:_Avoid_: strict rule, working rule, rule strength.\n67:**Tier**:\n70:**Index**:\n72:_Avoid_: digest, summary, table of contents.\n74:**Core**:\n77:**Project-local**:\n80:**Install** *(of core)*:\n82:_Avoid_: deploy, sync, distribute, port.\n84:**Installation edge**:\n86:_Avoid_: API, surface, interface as names for this.\n88:**Release**:\n90:_Avoid_: version, cut, ship, distribution.\n92:**Recipient**:\n94:_Avoid_: instance as a name for the tree, consumer.\n96:**Painted door**:\n98:_Avoid_: place, path convention.\n100:**Leak**:\n102:_Avoid_: reach, dangling link, cross-reference as names for this.\n104:**Open issue**:\n106:_Avoid_: issue as a generic name for every development document.\n108:**Spec**:\n111:**Architecture**:\n114:**Capture**:\n117:**Routing**:\n120:**Decomposition**:\n123:**Pace**:\n126:**Execution step**:\n129:**Turn**:\n132:**Archived record**:\n135:**Ticket**:\n138:**Ticket stage**:\n140:_Avoid_: dossier, decision log, history as names for a ticket's contents.\n142:**HITL ticket**:\n145:**RFC**:\n148:**Shape**:\n156:_Avoid_: form, construct, entity.\n158:**Seam**:",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "9cd3d808-eb11-4586-9e3f-6b81d1f9b8da",
+        "promptId": "03906333-35fc-4a0b-85c4-f4c8f714e22e"
+      },
+      "original_record_sha256": "402ab0dfe176f6968041d415cb1126d537945153ff7ce379c2d20f48ccfc458d",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "555": {
+      "timestamp": "2026-09-25T21:11:26.100Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "0c32bf80-7d92-4791-a315-c9adef532158",
+        "parentUuid": "78185c97-32dc-49aa-bdbd-69554b2e95f1",
+        "timestamp": "2026-09-25T21:11:26.100Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfQqyZGLUDaioZnMY95MN",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01KM4cjnujXm4ZisywGFkw3m",
+              "name": "Bash",
+              "input": {
+                "command": "sed -n 1,24p .agents/glossary.md; sed -n 44,58p .agents/glossary.md; sed -n 132,137p .agents/glossary.md",
+                "description": "Read harness, documentation, record definitions"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "38a6a2747d4ce4b6eb7e586b34064f234fd7c7cf07f47a4ccce4bd855d6c84b0",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "556": {
+      "timestamp": "2026-09-25T21:11:27.391Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "dff3beab-0afe-40a9-a9cd-c0883a8535ff",
+        "parentUuid": "0c32bf80-7d92-4791-a315-c9adef532158",
+        "timestamp": "2026-09-25T21:11:27.391Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01KM4cjnujXm4ZisywGFkw3m",
+              "is_error": false,
+              "content": "# The development method\n\nThe vocabulary the harness itself is written in — the terms its skills, rules, records and checks\nuse. It travels with `.agents/`. A project's own domain vocabulary belongs in `docs/glossary.md`,\nwhich the project owns outright; when a term here and a term there collide, the project's wins\ninside its own domain and this one wins about the method.\n\nThese definitions are a working vocabulary for alignment; a proposed distinction does not by\nitself authorize new process machinery.\n\n## Language\n\n**Harness**:\nThe development instructions and supporting mechanisms through which projects define, implement, verify and maintain software, including the harness itself.\n\n**Mechanism**:\nA part of how the work gets done — the development method and its machinery — on which other work relies, together with its instructions, producers, consumers, checks and records. It has exactly one instruction file and may span many other files. What the project produces is not one.\n\n**Skill**:\nA mechanism's own instruction file, invocable and identified by its purpose and conditions of use. A skill may also host rules installed into it by mechanisms that do not own it.\n\n**Straw dog**:\nText or code a live ticket will change, wrapped in a `<straw-dog>` bound to that ticket at the moment it is written. Unwrapped, it is drift the enumerator cannot see. What no ticket would change is a claim.\n_Avoid_: temporary statement, temporary, placeholder, stub, interim, hack.\n**Documentation**:\nThe role a doc plays for an implementation: what it must do and why. A mechanism's doc for its skill and scripts; a project's architecture for its code.\n_Avoid_: spec, manual.\n\n**Implementation**:\nWhat a documentation describes and must agree with: a mechanism's instruction file and scripts; a project's code.\n_Avoid_: source; product as a synonym.\n\n**Record**:\nWhat a mechanism writes and keeps under a declared format, live until archived: a ticket, an RFC, a session record, the marks. An entry is one row of a record that holds many.\n_Avoid_: log.\n\n**Evidence**:\nThe record of why a doc is what it is: what was tried, what was refuted, what it cost, what it used to be. One per mechanism. Evolution belongs here; provenance does not.\n_Avoid_: sidecar, notes, history, appendix. *Sidecar* describes a file's position, never its contents.\n**Archived record**:\nA historical account retained after its active role ends, with its disposition explicit. Current work should be understandable from maintained sources without requiring that record; historical investigation and mechanical maintenance may still reach it.\n\n**Ticket**:\nA tracked unit of work with an intended outcome and observable completion criteria. It may own unresolved decisions before implementation is ready."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "# The development method\n\nThe vocabulary the harness itself is written in — the terms its skills, rules, records and checks\nuse. It travels with `.agents/`. A project's own domain vocabulary belongs in `docs/glossary.md`,\nwhich the project owns outright; when a term here and a term there collide, the project's wins\ninside its own domain and this one wins about the method.\n\nThese definitions are a working vocabulary for alignment; a proposed distinction does not by\nitself authorize new process machinery.\n\n## Language\n\n**Harness**:\nThe development instructions and supporting mechanisms through which projects define, implement, verify and maintain software, including the harness itself.\n\n**Mechanism**:\nA part of how the work gets done — the development method and its machinery — on which other work relies, together with its instructions, producers, consumers, checks and records. It has exactly one instruction file and may span many other files. What the project produces is not one.\n\n**Skill**:\nA mechanism's own instruction file, invocable and identified by its purpose and conditions of use. A skill may also host rules installed into it by mechanisms that do not own it.\n\n**Straw dog**:\nText or code a live ticket will change, wrapped in a `<straw-dog>` bound to that ticket at the moment it is written. Unwrapped, it is drift the enumerator cannot see. What no ticket would change is a claim.\n_Avoid_: temporary statement, temporary, placeholder, stub, interim, hack.\n**Documentation**:\nThe role a doc plays for an implementation: what it must do and why. A mechanism's doc for its skill and scripts; a project's architecture for its code.\n_Avoid_: spec, manual.\n\n**Implementation**:\nWhat a documentation describes and must agree with: a mechanism's instruction file and scripts; a project's code.\n_Avoid_: source; product as a synonym.\n\n**Record**:\nWhat a mechanism writes and keeps under a declared format, live until archived: a ticket, an RFC, a session record, the marks. An entry is one row of a record that holds many.\n_Avoid_: log.\n\n**Evidence**:\nThe record of why a doc is what it is: what was tried, what was refuted, what it cost, what it used to be. One per mechanism. Evolution belongs here; provenance does not.\n_Avoid_: sidecar, notes, history, appendix. *Sidecar* describes a file's position, never its contents.\n**Archived record**:\nA historical account retained after its active role ends, with its disposition explicit. Current work should be understandable from maintained sources without requiring that record; historical investigation and mechanical maintenance may still reach it.\n\n**Ticket**:\nA tracked unit of work with an intended outcome and observable completion criteria. It may own unresolved decisions before implementation is ready.",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "0c32bf80-7d92-4791-a315-c9adef532158",
+        "promptId": "03906333-35fc-4a0b-85c4-f4c8f714e22e"
+      },
+      "original_record_sha256": "f85749b844b861ea18474db433a33e6f826370cb8889561b6e7805b8d4077def",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "560": {
+      "timestamp": "2026-09-25T21:11:34.449Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "64d2cbb3-f8ff-4415-84c1-080870e59c34",
+        "parentUuid": "6b20b53f-992a-4db5-b362-cd038e5741f2",
+        "timestamp": "2026-09-25T21:11:34.449Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfQqyqCn2bnaLDWDooxza",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01MMX5zxPxkDi5rBda7LYxLB",
+              "name": "Grep",
+              "input": {
+                "pattern": "(?i)goodwolf(?!-harness)",
+                "path": "D:\\Dev\\AI\\agents",
+                "output_mode": "count",
+                "glob": "!docs/research/external-review-front-page.md"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "dbc883be6917920992d32a8145b668b2609d2a3210b61339ad5815b6dbe089ab",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "561": {
+      "timestamp": "2026-09-25T21:11:34.749Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "758d6734-95c5-45dd-b3b8-b67b7a3d443c",
+        "parentUuid": "64d2cbb3-f8ff-4415-84c1-080870e59c34",
+        "timestamp": "2026-09-25T21:11:34.749Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01MMX5zxPxkDi5rBda7LYxLB",
+              "is_error": true,
+              "content": "Search failed — ripgrep rejected the pattern, glob, or file type without searching:\nrg: regex parse error:\n    (?:(?i)goodwolf(?!-harness))\n                   ^^^\nerror: look-around, including look-ahead and look-behind, is not supported\n\nConsider enabling PCRE2 with the --pcre2 flag, which can handle backreferences\nand look-around."
+            }
+          ]
+        },
+        "toolUseResult": "Error: Search failed — ripgrep rejected the pattern, glob, or file type without searching:\nrg: regex parse error:\n    (?:(?i)goodwolf(?!-harness))\n                   ^^^\nerror: look-around, including look-ahead and look-behind, is not supported\n\nConsider enabling PCRE2 with the --pcre2 flag, which can handle backreferences\nand look-around.",
+        "sourceToolAssistantUUID": "64d2cbb3-f8ff-4415-84c1-080870e59c34",
+        "promptId": "03906333-35fc-4a0b-85c4-f4c8f714e22e"
+      },
+      "original_record_sha256": "863555fcf48dddcf9ba6057e4b043ca2eb9554a31717c98615fc4476a97ac67a",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "563": {
+      "timestamp": "2026-09-25T21:11:36.759Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "db5379bb-1e8b-4b91-9cbd-b894409d81c1",
+        "parentUuid": "0305a348-cfa8-4ce6-9736-a816a71b578a",
+        "timestamp": "2026-09-25T21:11:36.759Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfQqzMPjQToShisGyDdLQ",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01UBb4LYbKMo9oZbMALCLqTg",
+              "name": "Bash",
+              "input": {
+                "command": "git grep -i -o -h \"goodwolf[a-z-]*\" -- . ':!docs/research/external-review-front-page.md' | sort | uniq -c",
+                "description": "Count how the name Goodwolf appears in the tree"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "37ecc80c9f3294e302e4766b817a10f92d5a5df0d5fd6bb9d2a98b976671e315",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "564": {
+      "timestamp": "2026-09-25T21:11:38.529Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "cbaee06f-d798-431f-a1f0-5867bfd816ae",
+        "parentUuid": "db5379bb-1e8b-4b91-9cbd-b894409d81c1",
+        "timestamp": "2026-09-25T21:11:38.529Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01UBb4LYbKMo9oZbMALCLqTg",
+              "is_error": false,
+              "content": "     25 goodwolf-harness"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "     25 goodwolf-harness",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "db5379bb-1e8b-4b91-9cbd-b894409d81c1",
+        "promptId": "03906333-35fc-4a0b-85c4-f4c8f714e22e"
+      },
+      "original_record_sha256": "6da3daf72ee5c54ddafec0d793ee02d0b88170a759856aedca3d13bdf06bc595",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "568": {
+      "timestamp": "2026-09-25T21:11:46.437Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "f03f9df7-4d51-48e3-9ccd-fb99165652ac",
+        "parentUuid": "52238838-b3f4-4254-8947-8bf9e0b6c261",
+        "timestamp": "2026-09-25T21:11:46.437Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfQqzemzpSo7joLcLJ24f",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "Your answer also settles the layout: \"what is this\" comes first and the install comes after. The harness doc now records the decision, with you and today's date on it.\n\nOne thing I noticed: the tree never calls this \"Goodwolf\". The only name used is the repository name `goodwolf-harness`, 25 times. The reviewer coined the product name. I'll come back to naming as a later question.\n\n## Question 2: what does the first paragraph claim?\n\nBoth drafts assume the answer to \"what is this\" starts with the problem the harness solves, not with its parts. Today the README and the glossary's entry for \"Harness\" both open with parts, and that's what produced the reviewer's \"collection of skills\".\n\n- **A. The reviewer's framing:** \"turns a repository into the persistent engineering context for coding agents.\" It's accurate. But \"engineering context\" appears nowhere in the tree, so a reader who follows the page into core finds none of its words there.\n- **B. Starting from the problem (my recommendation):**\n\n  > Coding agents forget why a system became what it is. The harness keeps that in the repository — what was decided, what is unfinished, what was verified and against what — and keeps it in agreement with the code, so every session starts from what the repository says rather than from a chat that is gone.\n\n  It's in plain words. It's the reviewer's own conclusion (\"coding agents forget why systems became what they are\"), which was the line that fixed their misreading. And its claims are ones core can back up: `/recall` rebuilds the current state, and `/maintain` holds documents and code in agreement.\n\nThe deciding fact: the one sentence that corrected the reviewer's misunderstanding was the problem statement, not a description of the parts.\n\nA, B, or your own wording?"
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "43b60fc6c37a73dc8b1005d3dc4d98368365e7d4de8dccdf8684ec4a9384cfb8",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "570": {
+      "timestamp": "2026-09-25T21:15:41.154Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "6681df80-edc5-4c89-ab67-7f03a62f4d49",
+        "parentUuid": "8d938b41-ec14-463b-8e3e-96ed59b41654",
+        "timestamp": "2026-09-25T21:15:41.154Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "why does harness needs to know how the readme is made? won't it simply read the readme and see for itself?\nwhat is the usecase for this explanation? is it for building up the harness mechanism or for using the harness?\nB is alright. however does not it undersells? this all recommendation of another model above came up from discussions that was, approximately -\ni asked what this is\nmodel described the readme\nI asked how it compares to peers\nmodel said it underdeveloped\nI asked to investigate the repo in depth\nthe model said it is state of the art filling a unique niche\n\nwhile what it is is for us to declare, is stating what you suggested again undersells it? consider that user will be using models to ask about whether or not to use this harness, and we do want them to prefer it :)"
+        },
+        "promptId": "03906333-35fc-4a0b-85c4-f4c8f714e22e"
+      },
+      "original_record_sha256": "0b0031364fbdd75f98a4546f4a56c71f449ee0842604dfbefbc5a3d5b87494e5",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "573": {
+      "timestamp": "2026-09-25T21:16:04.259Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "b11e03d1-6ac7-4e8e-8e7b-d07ceb8964c0",
+        "parentUuid": "e11e264b-4e1b-4145-821e-0931f26881df",
+        "timestamp": "2026-09-25T21:16:04.259Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfQrJXvzZ8aLvDqaQuY6E",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "You're right on the first point, and I'm taking that edit back.\n\n**Why the harness doc shouldn't say this.** The harness doc is read by whoever builds or changes the harness mechanism. The only fact about the README that matters to them is structural: it isn't one of the harness's parts, and it never ships. Who the README is for isn't a mechanism fact. The README shows it to whoever reads it. Writing it into the harness doc gives it a second home with nothing checking it. The old line had the same problem (\"the way in for an agent handed the link\"), so I'm cutting that too."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "ef71df54561311d6e7173417399d3022f5d617d52df8ac41d6578853fdf0be35",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "574": {
+      "timestamp": "2026-09-25T21:16:05.871Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "2643aadf-03db-4ace-9c3b-dea197a9cb35",
+        "parentUuid": "b11e03d1-6ac7-4e8e-8e7b-d07ceb8964c0",
+        "timestamp": "2026-09-25T21:16:05.871Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfQrJXvzZ8aLvDqaQuY6E",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01GPccHmCYWbbFZca4bZjMVW",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "D:\\Dev\\AI\\agents\\.agents\\mechanisms\\harness\\harness.md",
+                "old_string": "It is **installed**; a tree without it holds no core at all. The repository's root `README.md`\nis its front page: first for whoever asks what this is, then for whoever wants to use it, who is\nsent to the skill for the install *(the user, 2026-09-26)*. It is not a part: it never ships, and\na recipient has its own.",
+                "new_string": "It is **installed**; a tree without it holds no core at all. The repository's root `README.md`\nis not a part: it never ships, and a recipient has its own."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "5b92dc5a4448ba256fddef6e205f4ef746f0a0b4eb083dddc3aaae4548ceb4d3",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "575": {
+      "timestamp": "2026-09-25T21:16:07.135Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "5b5c74c5-e400-4265-b908-4c2d573a3d66",
+        "parentUuid": "2643aadf-03db-4ace-9c3b-dea197a9cb35",
+        "timestamp": "2026-09-25T21:16:07.135Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01GPccHmCYWbbFZca4bZjMVW",
+              "content": "The file D:\\Dev\\AI\\agents\\.agents\\mechanisms\\harness\\harness.md has been updated successfully."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "D:\\Dev\\AI\\agents\\.agents\\mechanisms\\harness\\harness.md",
+          "oldString": "It is **installed**; a tree without it holds no core at all. The repository's root `README.md`\nis its front page: first for whoever asks what this is, then for whoever wants to use it, who is\nsent to the skill for the install *(the user, 2026-09-26)*. It is not a part: it never ships, and\na recipient has its own.",
+          "newString": "It is **installed**; a tree without it holds no core at all. The repository's root `README.md`\nis not a part: it never ships, and a recipient has its own.",
+          "originalFile": "# harness — a project that is not the origin holds core whole, at the ref it announces, and can take a later one\n\n- **instruction** `.agents/skills/harness/SKILL.md` — the commands, each refusal and what the person does, the first install's last step\n- **state** installed\n\n## How it works\n\nCore reaches a tree from a fresh clone of its repository at a ref and never from a working tree,\nso what a recipient holds is what a commit holds. The manifest is everything under the core\ndirectory plus the entry file and the host stub; the project's local file is never in it, which\nis what lets a redeploy overwrite core's content and nothing of the project's. What ships is\ntransformed before a byte is written: the origin's local blocks removed, every straw-dog wrapper\nand every `TODO`'s ticket binding sheared with the content kept, the announce line stamped, and\nthe whole held to the leak rule the origin's check applies.\n\n**The announce line is the revision.** A recipient's entry file reads\n`Entry contract: <repository>@<ref>, <date>.`; every session there announces it, the check reads\nit, and the shape check reads its `@` to know it stands in a recipient — where an unbound\n`not yet` is upstream's gap and draws nothing. No record file: integrity is asked of the source,\nby cloning the announced ref again and comparing. A change to the transformation therefore reads\nas an edit in every recipient installed before it, until it updates. What the announced ref\nshipped is read under the transformation alone, never held to today's shipping refusals: those\ngovern what may leave now, and a rule added after a ref shipped would otherwise strand every tree\nthat took it.\n\n**The repository line is the source, as the announce line is the ref.** The harness skill carries\n`Repository: <url>`, the only authored home of where core comes from: the script keeps no\nconstant and reads its default there, an install stamps a recipient's copy with the source the\nrun actually read — a URL verbatim, a path resolved absolute — and a fork edits the line once and\neverything it installs names the fork. Both lines are the recipient's own facts living in core\nfiles, so both are set aside when a copy is compared: a check or an update run from another\n`--from` reads no edit in core. A stamped source is never a citation either, which the citation\nreader settles for every reader of it, so a clone kept under a `docs/` directory does not make a\nrecipient fail its own shape check.\n\n**Every refusal writes nothing**, and the loader links are the one step a person may finish by\nhand: where the platform refuses to create a symlink, the run finishes everything else and ends\nwith the exact elevated command. Nothing is substituted for a link; a junction is refused by name.\n\n**The gate is the check, and it takes seconds.** Arrival and any later day's question are one\nfunction: the copy against the ref, the injector's check, the shape check — the target's own\nscripts, run as subprocesses, so what is checked is what arrived. The loader links are reported\nbeside the verdict and never decide it: a link the platform refused is the person's one\nremaining step, and its command is already in the report. The shipped suite is not run here —\nit costs minutes, and an install is seconds — a recipient that wants it names it in its own\nverification set *(the user, 2026-09-21)*.\n\nIt is **installed**; a tree without it holds no core at all. The repository's root `README.md`\nis its front page: first for whoever asks what this is, then for whoever wants to use it, who is\nsent to the skill for the install *(the user, 2026-09-26)*. It is not a part: it never ships, and\na recipient has its own.\n\n## Moments\n\n| moment | instructed by | kind, and why |\n|---|---|---|\n| installing a ref into an empty tree | `.agents/scripts/gw/harness.py` | |\n| updating a tree that has a copy | `.agents/scripts/gw/harness.py` | |\n| checking a copy against the ref it announces | `.agents/scripts/gw/harness.py` | |\n| making a loader link, or handing the person the command | `.agents/scripts/gw/harness.py` | |\n| reading a refusal and resuming | `.agents/skills/harness/SKILL.md` | |\n| populating the local file after the first install | `.agents/skills/harness/SKILL.md` | |\n| pointing a tree at another core, as a fork does | `.agents/skills/harness/SKILL.md` | |\n| knowing an update is available | — | unowned by design — a person asks for one; nothing polls the repository |\n| verifying that a host reads the loader link | — | <straw-dog until=\"a host's delivery is observed rather than assumed\" ticket=\"docs/tickets/01-0010.0120-host-delivery-surfaces.md\">not yet</straw-dog> |\n| writing a fresh tree's delivery status | `.agents/scripts/gw/harness.py` | |\n| removing one mechanism from a tree | — | <straw-dog until=\"the parts tables say what goes and something says how\" ticket=\"docs/tickets/01-0010-dev-harness-shared-and-local.md\">not yet</straw-dog> |\n| sending a change back to the repository | — | <straw-dog until=\"contribution back has a shape\" ticket=\"docs/tickets/01-0010-dev-harness-shared-and-local.md\">not yet</straw-dog> |\n\n## Install adds, uninstall removes\n\n| part | where |\n|---|---|\n| instruction file | `.agents/skills/harness/SKILL.md` |\n| this doc | `.agents/mechanisms/harness/harness.md` |\n| the script | `.agents/scripts/gw/harness.py` |\n| its tests | `.agents/scripts/gw/test/test_harness.py` |\n| the entry file | `AGENTS.md` |\n| the host stub | `CLAUDE.md` |\n\nThe entry file is this mechanism's whole file; two lines inside it are the shape's anchored\nparts, and nothing asks about the overlap. The loader links are made by this mechanism and are\nnot its parts: they are the host's way in, never shipped, and a link a platform has refused\nwould otherwise fail the shape check for the same absence the report already names.\n\n## Relies on, and does not own\n\n| part | where | owner |\n|---|---|---|\n| the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |\n| citation reader | `.agents/scripts/gw/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |\n| the delivery status's arrival state | `.agents/skills/ticket/QUEUE-ARRIVAL.md` | `ticket`, which owns the record and words it |\n| the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |\n| test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |\n| the listing script | `.agents/scripts/gw/straw_dogs.py` | `maintain` |\n| the method's vocabulary | `.agents/glossary.md` | nobody removable |\n\n## What it produces, and who reads it\n\n- **The recipient's core** — read by its every session, through the loader links its hosts\n  follow.\n- **The stamped announce line** — announced by the recipient's first reply; read by `--check` and\n  `--update` to know what was installed, and by the shape check to know it stands in a recipient.\n- **The report** — read by whoever ran the script, and by the recipient's `/verify` where its\n  verification set names the check. Its `pending` lines are read by the person who runs them.\n- **A fresh tree's delivery status** — read by the first session's `/recall`, which runs before\n  anything has been written into the queue; worded by the `ticket` mechanism, placed here, and the\n  instance's from its first line.\n- **The stamped repository line** — read by the script whenever a run is given no `--from`,\n  including the recipient's own copy at its own `--check`; and by a person or a fork asking where\n  this tree's core comes from, or pointing it somewhere else.\n- **The pending command** — read by a person, once, in an elevated prompt.\n\nNo record. The two stamped lines are the tree's, and nothing else is kept.\n\n## Not yet at the shape\n\n**The transformation is unguarded.** A change to the shear, the stamp or the local-block strip\nreaches every recipient as a reported edit; nothing checks a change against the recipients that\nexist.\n\n## What retires this\n\nA host that reads a repository directly at a ref, so that nothing need be copied and the ref is\nthe tree's by construction. Until then a copy is the only way core reaches a tree, and the copy\nneeds a revision and a check.\n\n## What would show it working, graded by someone who did not build it\n\n**The user, in frost_map.** That tree took the harness by hand on 2026-09-09 at a version its\nentry file still announces, refused one core check rather than duplicate its own state, and has\nbuilt on the copy since. It writes its answers into a local file, takes an update from the\nrepository, and the user grades: its local file survives byte-identical and its blocks are\nrestored last; its `docs/` is untouched; its links resolve; its announce line names the ref; the\ngate passes, or says which of the three did not. An install that had to be hand-finished to reach\n`arrived: true` reads identically to success in the report, and only the grader can say which it\nwas.\n",
+          "structuredPatch": [
+            {
+              "oldStart": 46,
+              "oldLines": 9,
+              "newStart": 46,
+              "newLines": 7,
+              "lines": [
+                " verification set *(the user, 2026-09-21)*.",
+                " ",
+                " It is **installed**; a tree without it holds no core at all. The repository's root `README.md`",
+                "-is its front page: first for whoever asks what this is, then for whoever wants to use it, who is",
+                "-sent to the skill for the install *(the user, 2026-09-26)*. It is not a part: it never ships, and",
+                "-a recipient has its own.",
+                "+is not a part: it never ships, and a recipient has its own.",
+                " ",
+                " ## Moments",
+                " "
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false,
+          "contentNotInModelContext": true
+        },
+        "sourceToolAssistantUUID": "2643aadf-03db-4ace-9c3b-dea197a9cb35",
+        "promptId": "03906333-35fc-4a0b-85c4-f4c8f714e22e"
+      },
+      "original_record_sha256": "c1f3e2c81252f16bf9569c005f632643bc9ff5c536f7f59c2f4a0356efe6b5b3",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "579": {
+      "timestamp": "2026-09-25T21:16:16.921Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "c267fdfc-903e-4fcb-b4af-f5911347428e",
+        "parentUuid": "36034c04-fd9e-4499-91d7-7cc5d4d3c1e0",
+        "timestamp": "2026-09-25T21:16:16.921Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfQrLT5qynCsDzi5Jag3B",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-opus-5-5",
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "**Does B undersell? Yes.** The way that review unfolded shows who the front page's real reader is. It's often **a model asked by its user \"should I use this, and how does it compare?\"** A model that reads only the README concludes \"underdeveloped\". The same model, after a deep read, concludes \"state of the art, filling a unique niche\". The page's job is to get a model to the second verdict without the deep read.\n\nB names the problem but not the answer only this harness gives. \"Keeps the repository in agreement with the code\" is something plenty of memory-bank setups also claim. Both outside readers, working separately, landed on the same distinguishing idea: **the harness treats its own rules as engineering artifacts.** The 09-20 review called the rule-failure register \"the best idea here\".\n\nWhat persuades a model is claims it can check, not adjectives. \"State of the art\" on the page would read as puffery. Three specific claims, each pointing at a core file where the model can confirm it, would read as evidence.\n\n## Question 2, revised: B plus a second paragraph for what sets it apart\n\n> Coding agents forget why a system became what it is. The harness keeps that in the repository — what was decided, what is unfinished, what was verified and against what — and keeps it in agreement with the code, so every session starts from what the repository says rather than from a chat that is gone.\n>\n> What sets it apart is that it holds its own rules to the same standard. Each rule has one home and reaches the skills that need it through an installer that detects drift; a provisional rule is marked and bound to the work that will replace it; a rule that was present and did not fire is registered and reworded. The method is built with itself, and its checks run in every project that installs it.\n\nEvery claim in the second paragraph is backed by core, so it holds for a reader who has only the published repository:\n- **An installer that detects drift:** `inject_rules.py --check`.\n- **Provisional rules marked and bound to the work that will replace them:** straw dogs, defined in AGENTS.md.\n- **Rules that didn't fire get registered and reworded:** the *Self-improvement* section of AGENTS.md.\n- **Its checks run in every project that installs it:** the gate that `harness.py` runs inside the recipient.\n\nI left out anything that lives in this repository's `docs/`. The rule-failure register itself is one of those, so the claim points at the AGENTS.md rule that creates it, not at the register.\n\nIs that the claim? Or do you want the second paragraph to lead with something else? For example, verify vs maintain, which the front-page reviewer thought was the single best idea."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "7d9a0be6ee1520dbb805ae1dc6d323c702432f57478acf5995fff0c557e033f0",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "581": {
+      "timestamp": "2026-09-25T21:17:36.492Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "6aec1271-9d37-458a-a1aa-798b12dbefc1",
+        "parentUuid": "564a8ff7-5d3f-4775-9a66-5349ca6be55d",
+        "timestamp": "2026-09-25T21:17:36.492Z",
+        "sessionId": "21180e9e-e11e-4d1a-bcbe-65224a8d303d",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.281",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "I think we should run a discovery on this\nactualy, I would expect discovery to trigger automatically on this type of questions, why did it not?"
+        },
+        "promptId": "03906333-35fc-4a0b-85c4-f4c8f714e22e"
+      },
+      "original_record_sha256": "4d701fdc4bac48658d80f607248489f2e923d00c37f7d4f154111a87f87c46ff",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    }
+  }
+}

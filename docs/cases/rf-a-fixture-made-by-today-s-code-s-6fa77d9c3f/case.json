@@ -1,0 +1,187 @@
+{
+  "id": "rf-a-fixture-made-by-today-s-code-s-6fa77d9c3f",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "9. A fixture made by today's code stood for a tree made by yesterday's — 2026-09-24",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "update tested from current-code fixture"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1549",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.280"
+    },
+    "model": "claude-opus-5",
+    "model_source": "source.json#/records/1549/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-09-23T12:50:19.029Z",
+    "chat_id": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+    "trigger_message_id": null,
+    "trigger_record_id": "75cdcda4-fba4-418c-884c-b31e525c7790",
+    "failure_message_id": "msg_011CfLQ9QqZGxZqcywUqk8FC",
+    "failure_record_id": "479252f6-d525-4b22-ac00-1bc019b1dc72",
+    "transcript": "85ded642-4a06-47ff-9a3d-b79f98dfb226.jsonl"
+  },
+  "observed_failure": {
+    "description": "Original implementation expands the shared fixture with the new arrival shelf, adds updates from that fixture, applies the new requirement in shipment construction, and certifies done.",
+    "events": [
+      {
+        "source": "source.json#/records/1549",
+        "message_id": "msg_011CfLQ9QqZGxZqcywUqk8FC",
+        "record_id": "479252f6-d525-4b22-ac00-1bc019b1dc72",
+        "timestamp": "2026-09-23T12:50:19.029Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\scripts\\\\gw\\\\test\\\\test_harness.py\", \"old_string\": \"        self.write(HARNESS_SKILL, HARNESS_SKILL_TEXT)\", \"new_string\": \"        self.write(HARNESS_SKILL, HARNESS_SKILL_TEXT)\\n        self.write(TICKET_SKILL, TICKET_SKILL_TEXT)\\n        self.write(TICKET_FORMAT, TICKET_FORMAT_TEXT)\"}"
+      },
+      {
+        "source": "source.json#/records/1557",
+        "message_id": "msg_011CfLQC6RNRJohFfEuALeeP",
+        "record_id": "a702fb97-eab4-4ff3-aea2-f59e86244bb2",
+        "timestamp": "2026-09-23T12:51:07.780Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\scripts\\\\gw\\\\test\\\\test_harness.py\", \"old_string\": \"class TheCommandLine(unittest.TestCase):\", \"new_string\": \"# --- the one door that arrives with content ---------------------------------------------------\\n\\n\\nclass TheDeliveryStatus(TwoTrees):\\n    \\\"\\\"\\\"A fresh tree's first session reads the queue before anything has been written into it.\\\"\\\"\\\"\\n\\n    def test_an_install_writes_it_in_the_refs_own_words(self) -> None:\\n        self.write(\\n            TICKET_FORMAT,\\n            TICKET_FORMAT_TEXT.replace(\\\"nothing is in flight\\\", \\\"the queue is empty, reworded\\\"),\\n        )\\n        self.commit(\\\"the mechanism rewords its own record\\\")\\n\\n        status, report = self.run_harness(\\\"--install\\\")\\n        written = self.target_text(DELIVERY_STATUS)\\n\\n        self.assertEqual(0, status, report)\\n        self.assertIn(\\\"the queue is empty, reworded\\\", written)\\n        self.assertIn(report[\\\"ref\\\"][\\\"announced\\\"], written)\\n        self.assertNotIn(\\\"{ref}\\\", written)\\n        self.assertIn(DELIVERY_STATUS, report[\\\"written\\\"])\\n\\n    def test_a_record_that_already_exists_is_the_projects_and_is_left(self) -> None:\\n        self.run_harness(\\\"--install\\\")\\n        theirs = \\\"# Delivery status\\\\n\\\\nRows the project wrote.\\\\n\\\"\\n        (self.target / DELIVERY_STATUS).write_text(theirs, encoding=\\\"utf-8\\\", newline=\\\"\\\")\\n\\n        _, report = self.run_harness(\\\"--update\\\", \\\"--overwrite\\\")\\n\\n        self.assertEqual(theirs, self.target_text(DELIVERY_STATUS))\\n        self.assertNotIn(DELIVERY_STATUS, report[\\\"written\\\"])\\n        self.assertTrue(any(DELIVERY_STATUS in note for note in report[\\\"notes\\\"]), report[\\\"notes\\\"])\\n\\n    def test_an_update_gives_one_to_a_tree_that_received_core_without_it(self) -> None:\\n        self.run_harness(\\\"--install\\\")\\n        (self.target / DELIVERY_STATUS).unlink()\\n\\n        _, report = self.run_harness(\\\"--update\\\")\\n\\n        self.assertIn(DELIVERY_STATUS, report[\\\"written\\\"])\\n        self.assertIn(\\\"Core arrived\\\", self.target_text(DELIVERY_STATUS))\\n\\n    def test_a_ref_with_no_shelf_or_no_block_is_refused_and_nothing_is_written(self) -> None:\\n        for spoil, reason in (\\n            (lambda: (self.root / TICKET_FORMAT).unlink(), \\\"this is not the harness\\\"),\\n            (lambda: self.write(TICKET_FORMAT, \\\"# Ticket format\\\\n\\\\nNo block.\\\\n\\\"), \\\"declares no arrival state\\\"),\\n        ):\\n            with self.subTest(reason=reason):\\n                self.write(TICKET_FORMAT, TICKET_FORMAT_TEXT)\\n                spoil()\\n                self.commit(\\\"spoil the shelf\\\")\\n                before = self.target_snapshot()\\n\\n                status, report = self.run_harness(\\\"--install\\\")\\n\\n                self.assertEqual(1, status)\\n                self.assertIn(reason, report[\\\"refusals\\\"][0])\\n                self.assertEqual(before, self.target_snapshot())\\n\\n    def test_the_recipients_check_never_reports_the_record(self) -> None:\\n        self.run_harness(\\\"--install\\\")\\n\\n        _, report = self.run_harness(\\\"--check\\\")\\n\\n        self.assertTrue(report[\\\"gates\\\"][\\\"ref\\\"][\\\"passed\\\"], report[\\\"gates\\\"])\\n        self.assertNotIn(DELIVERY_STATUS, report[\\\"gates\\\"][\\\"ref\\\"][\\\"differs\\\"])\\n        self.assertNotIn(DELIVERY_STATUS, report[\\\"gates\\\"][\\\"ref\\\"][\\\"own\\\"])\\n\\n    def test_an_arrival_state_naming_a_document_still_installs(self) -> None:\\n        # The fence is blanked before the citation reader looks, so what the block names is not a\\n        # citation. Without that, a path under docs/ here would refuse the whole install.\\n        self.write(TICKET_FORMAT, TICKET_FORMAT_TEXT.replace(\\\"in flight.\\\", \\\"in flight; see docs/private/plan.md.\\\"))\\n        self.commit(\\\"an arrival state that names a document\\\")\\n\\n        status, report = self.run_harness(\\\"--install\\\")\\n\\n        self.assertEqual(0, status, report[\\\"refusals\\\"])\\n        self.assertIn(\\\"docs/private/plan.md\\\", self.target_text(DELIVERY_STATUS))\\n\\n\\nclass TheCommandLine(unittest.TestCase):\"}"
+      },
+      {
+        "source": "source.json#/records/1577",
+        "message_id": "msg_011CfLQGqw7FYEbjBnRojvjT",
+        "record_id": "5bc54b0e-18dc-4ea2-b5d7-0994c6254df1",
+        "timestamp": "2026-09-23T12:52:00.746Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\scripts\\\\gw\\\\harness.py\", \"old_string\": \"        if HARNESS_SKILL not in files:\\n            raise Refused(f\\\"ship: {ref.announced} has no {HARNESS_SKILL}; this is not the harness\\\")\\n        return cls(ref, files)\", \"new_string\": \"        if HARNESS_SKILL not in files:\\n            raise Refused(f\\\"ship: {ref.announced} has no {HARNESS_SKILL}; this is not the harness\\\")\\n        return cls(ref, files, arrival_state(files, ref))\"}"
+      },
+      {
+        "source": "source.json#/records/1730",
+        "message_id": "msg_011CfLRD5PkRySCjPs9zKjcn",
+        "record_id": "322f3cf4-9841-4be2-b15c-572626955132",
+        "timestamp": "2026-09-23T13:04:16.992Z",
+        "text": "`/verify` complete. **335 tests, OK, 1 skipped**; the three script checks clean. All seven acceptance boxes checked, status `Done (2026-09-23)`."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Prove update from a real earlier source/ref with what it actually shipped; old comparison is different from incoming arrival validation.",
+    "source_evidence": [
+      "source.json#/records/40",
+      "source.json#/records/1427",
+      "source.json#/records/1429",
+      "source.json#/records/40",
+      "source.json#/historical_code"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Prove update from a real earlier source/ref with what it actually shipped; old comparison is different from incoming arrival validation.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1731",
+      "source.json#/records/1732",
+      "source.json#/records/1734",
+      "source.json#/records/1735",
+      "source.json#/records/1742",
+      "source.json#/records/1743",
+      "source.json#/records/1745"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed.",
+    "historical_comparison": "Static original code from immutable Git blobs establishes the old-comparison caller/context. These references were read during extraction; they are not claimed as original actor-delivered context or an executed regression experiment."
+  },
+  "description": "Original implementation expands the shared fixture with the new arrival shelf, adds updates from that fixture, applies the new requirement in shipment construction, and certifies done.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1549",
+      "after": "source.json#/records/1547",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/1427",
+      "source.json#/records/1429",
+      "source.json#/records/1447",
+      "source.json#/records/1456",
+      "source.json#/records/1460",
+      "source.json#/records/1461",
+      "source.json#/records/1464",
+      "source.json#/records/1465",
+      "source.json#/records/1467",
+      "source.json#/records/1468",
+      "source.json#/records/1476",
+      "source.json#/records/1477",
+      "source.json#/records/1478",
+      "source.json#/records/1480",
+      "source.json#/records/1481",
+      "source.json#/records/1488",
+      "source.json#/records/1489",
+      "source.json#/records/1491",
+      "source.json#/records/1492",
+      "source.json#/records/1494",
+      "source.json#/records/1495",
+      "source.json#/records/1502",
+      "source.json#/records/1503",
+      "source.json#/records/1505",
+      "source.json#/records/1506",
+      "source.json#/records/1507",
+      "source.json#/records/1509",
+      "source.json#/records/1510",
+      "source.json#/records/1512",
+      "source.json#/records/1513",
+      "source.json#/records/1515",
+      "source.json#/records/1517",
+      "source.json#/records/1524",
+      "source.json#/records/1525",
+      "source.json#/records/1526",
+      "source.json#/records/1528",
+      "source.json#/records/1529",
+      "source.json#/records/1531",
+      "source.json#/records/1532",
+      "source.json#/records/1534",
+      "source.json#/records/1535",
+      "source.json#/records/1537",
+      "source.json#/records/1538",
+      "source.json#/records/1540",
+      "source.json#/records/1541",
+      "source.json#/records/1547"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/40"
+      ],
+      "native_context_records": [
+        "source.json#/records/40"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1549",
+        "source.json#/records/1557",
+        "source.json#/records/1577",
+        "source.json#/records/1730"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

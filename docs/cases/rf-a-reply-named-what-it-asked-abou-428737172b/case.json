@@ -1,0 +1,179 @@
+{
+  "id": "rf-a-reply-named-what-it-asked-abou-428737172b",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "17. A reply named what it asked about by bare ids — 2026-10-03",
+    "occurrence": "repeat",
+    "occurrence_heading": "**Struck, 2026-10-23.** A session on the meeting's rules named the open question on the two stops",
+    "detail": "first relative-question reply"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/688",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.308"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/688/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-22T22:58:54.944Z",
+    "chat_id": "12408694-e65f-40ca-b074-bedd4350fc50",
+    "trigger_message_id": null,
+    "trigger_record_id": "8bd1e8f8-6c90-40e7-8fbb-6a035607ba5b",
+    "failure_message_id": "msg_011CgJ6yWcX5qGs4aWKRKtp7",
+    "failure_record_id": "1dfecdd1-507b-4d5f-86bf-c9cebe4e58db",
+    "transcript": "12408694-e65f-40ca-b074-bedd4350fc50.jsonl"
+  },
+  "observed_failure": {
+    "description": "Reply names two stops and advise as открытый вопрос .0003.",
+    "events": [
+      {
+        "source": "source.json#/records/688",
+        "message_id": "msg_011CgJ6yWcX5qGs4aWKRKtp7",
+        "record_id": "1dfecdd1-507b-4d5f-86bf-c9cebe4e58db",
+        "timestamp": "2026-10-22T22:58:54.944Z",
+        "text": "| 🪢 Tangle — [q-0037.0019](docs/questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three-roots-and-the-next-shown-with-its-unit-as-the-installed.md) · [q-0037.0012.0009](docs/questions/q-0037.0012.0009-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen-how-run-with-no-instruction-the-standing-one-and-the-new-one.md) · [q-0038](docs/questions/q-0038-what-landscape-does-this-project-evolve-in.md) · [q-0037.0006.0026](docs/questions/q-0037.0006.0026-how-does-a-project-choose-which-of-the-methods-text-its-tree-carries.md) · [q-0037.0001](docs/questions/q-0037.0001-how-are-the-open-questions-of-this-tree-kept-so-that-none-is-lost.md) · [q-0037.0019](docs/questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three-roots-and-the-next-shown-with-its-unit-as-the-installed.md) · [q-0037.0006.0020.0001](docs/questions/q-0037.0006.0020.0001-how-does-an-install-meet-a-tree-that-already-has-a-method-without-losing-it.md) |\n|---|\n\n| 🪶 Commits |\n|---|\n| `dc1825c` VERIFY: the meeting's draft rules ran on xuanxue-cabinet |\n\n| 🎫 40 · ❓ 174 · 🐕 164 |\n|---|\n\n| 📍 **[q-0037.0006.0020.0001](docs/questions/q-0037.0006.0020.0001-how-does-an-install-meet-a-tree-that-already-has-a-method-without-losing-it.md)** · How does an install meet a tree that already has a method without losing it? |\n|---|\n\nПрогон по правилам прошёл, отчёт проверен, правила поправлены, всё закоммичено. Отчёт целиком, с проверкой перед ним — [docs/research/meeting-run2-xuanxue-cabinet.md](docs/research/meeting-run2-xuanxue-cabinet.md); его стоит прочитать самому, он сильнее того, что я писал руками.\n\n**Проверка по критериям.** Все семь разделов на месте, методология первой — и она читается человеком, не видевшим сбруи: что такое опись, четыре чтения в строку каждое, что такое замер и зачем. Пять групп в выборке, семнадцать вопросов. Ни одного термина сбруи, кроме одного сбоя: в предложении В сказано, что сессия «встаёт на вопрос» — наша фраза без объяснения. Ни одной сравнивающей фразы; пятый раздел прямо говорит, чего отчёт не говорит. Находки поданы как встреченное, а не перечень. Рекомендации и предложения — о записях и правилах проекта, не о кабинете. Русский от начала до конца, «боли» нет; слово harness стоит без перевода.\n\n**Гроссбух.** Слепой агент на семнадцати вопросах:\n\n| группа | результат |\n|---|---|\n| решения | 5 из 5 |\n| в полёте | 3 из 3 |\n| не решено | 2 попал, 1 частично — запись в PLAN 3.14 не нашёл |\n| на противоречивых записях | 2 заметил и сказал, 1 ответил по одной стороне |\n| скрытые инварианты | 3 из 3 восстановил |\n| цена | 222 341 токен, 73 обращения, 7 мин 39 с |\n\nДве новые группы работают: та, что ответил «по одной стороне» — экран оплат, где DATABASE.md, план и комментарий в коде стоят на отменённом ADR-0157, — ровно тот случай, ради которого группу завели. Ключ не правился: прогон ничего в нём не опроверг, зато принёс сверх ключа дырявый гейт подписей DTO — 43 класса из 86 — и устаревшую строку индекса.\n\n**Что правила не сказали.** Агент назвал десять мест; каждое поправлено в [MEETING.md](.agents/skills/harness/MEETING.md): куда ложится отчёт, пока миграция не решена; что вопрос о решении спрашивает «почему» — из-за этого четыре решения засчитаны без довода; чей счёт токенов и чей счёт файлов; что файлы, которые правило велит читать каждую сессию, считаются правилами; что выборка берётся с ветки по умолчанию, а не с прода; что упоминание по случаю в ADR — не записанное правило; что «его сбруя» — метод самого проекта; что чтение быстрое, а ключ — главная цена исследования; что части исследования описываются тем, что они делают, и что наши фразы под запретом так же, как термины. Десятое — не правил: из подагента отчёт в файл не пишется, в живой установке пишет главный агент.\n\nЦена всего исследования — около 236 тысяч токенов и двадцать минут, вместе со слепым прогоном. Правила остаются черновиком под q-0037.0006.0020.0001; две остановки и форма /advise — открытый вопрос .0003, этот прогон их не проверял."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Name and link the whole existing question.",
+    "source_evidence": [
+      "source.json#/records/45",
+      "source.json#/records/167",
+      "source.json#/records/656",
+      "source.json#/records/167"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Name and link the whole existing question.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/690"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "Reply names two stops and advise as открытый вопрос .0003.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/688",
+      "after": "source.json#/records/684",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/598",
+      "source.json#/records/602",
+      "source.json#/records/603",
+      "source.json#/records/604",
+      "source.json#/records/609",
+      "source.json#/records/610",
+      "source.json#/records/615",
+      "source.json#/records/617",
+      "source.json#/records/621",
+      "source.json#/records/622",
+      "source.json#/records/623",
+      "source.json#/records/626",
+      "source.json#/records/627",
+      "source.json#/records/632",
+      "source.json#/records/633",
+      "source.json#/records/637",
+      "source.json#/records/638",
+      "source.json#/records/643",
+      "source.json#/records/644",
+      "source.json#/records/649",
+      "source.json#/records/650",
+      "source.json#/records/654",
+      "source.json#/records/656",
+      "source.json#/records/659",
+      "source.json#/records/660",
+      "source.json#/records/661",
+      "source.json#/records/664",
+      "source.json#/records/665",
+      "source.json#/records/669",
+      "source.json#/records/670",
+      "source.json#/records/673",
+      "source.json#/records/674",
+      "source.json#/records/679",
+      "source.json#/records/680",
+      "source.json#/records/683",
+      "source.json#/records/684"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/167"
+      ],
+      "native_context_records": [
+        "source.json#/records/45",
+        "source.json#/records/167",
+        "source.json#/records/600",
+        "source.json#/records/619",
+        "source.json#/records/657"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/600",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\8fe482b8-0353-46eb-897d-0e8bc43c3262\\tool-results\\hook-589ec4df-c925-4856-b233-eb558900689b-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-589ec4df-c925-4856-b233-eb558900689b-1-additionalContext.txt",
+          "sha256": "582f6901bac45ed3a59a08f10718ef46096941112113a568c66aea93fd41812a",
+          "bytes": 51501,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1799,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-22T22:38:37.184571+00:00"
+        },
+        {
+          "referenced_by": "source.json#/records/657",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\8fe482b8-0353-46eb-897d-0e8bc43c3262\\tool-results\\hook-f09739a6-00a9-43f6-ba57-47adbe123846-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-f09739a6-00a9-43f6-ba57-47adbe123846-1-additionalContext.txt",
+          "sha256": "582f6901bac45ed3a59a08f10718ef46096941112113a568c66aea93fd41812a",
+          "bytes": 51501,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1799,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-22T22:51:35.969055+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/688"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

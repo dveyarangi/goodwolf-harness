@@ -1,0 +1,115 @@
+{
+  "id": "cursor-8ada0e2a-unwrapped-write",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "3. The straw-dog rule sat at tier 1 and three straw dogs went unwrapped — 2026-09-14",
+    "occurrence": "original",
+    "detail": "delivery-status-until-pacer-exists"
+  },
+  "provenance": {
+    "host": "Cursor",
+    "host_evidence": "Native Cursor SQLite chat/message keys, corroborated by public transcript exports where retained.",
+    "model": "unknown",
+    "model_source": null,
+    "model_evidence_kind": "No actual assistant model field retained. User-message requested model metadata is preserved separately and not promoted to actor attribution.",
+    "occurred_at": "2026-09-05T22:43:58.926Z",
+    "chat_id": "8ada0e2a-3d50-4352-acc1-622ce653d1a1",
+    "failure_message_id": "eb22b250-3dbb-42e1-8883-0f4c835df154",
+    "trigger_message_id": null,
+    "requested_model": null,
+    "requested_model_source": "source.json#/recovered_public_evidence/trigger_in_copied_order/model_field",
+    "timestamp_note": "Retained original action $.createdAt=2026-09-05T22:43:58.926Z. Active copied action $.createdAt=2026-09-06T00:11:17.337Z. Original bubble is outside current ordered headers, but its duplicate action is connected by exact toolCallId/content ids. Copied time is not substituted for original."
+  },
+  "observed_failure": {
+    "description": "Exact completed original delivery-status write is retained and hash-matched. Two provisional pacer statements lack wrappers around their passages.",
+    "events": [
+      {
+        "source": "source.json#/recovered_public_evidence/original_action",
+        "message_id": "eb22b250-3dbb-42e1-8883-0f4c835df154",
+        "timestamp": "2026-09-05T22:43:58.926Z",
+        "text": "{\"contents\": \"# Delivery status\\n\\n**Last updated:** 2026-09-06\\n\\n**Completed step:** [01-0010.0030](done/01-0010.0030-install-ticket.md) minted [01-0010.0035](01-0010.0035-install-spec.md) and is Done (2026-09-06). **Current pass:** [01-0010.0035](01-0010.0035-install-spec.md) is Ready — install `/spec`, then use it to develop the spec for completing the delivery ring; ring skills follow that spec. Remaining `<temporary>` blocks: the pacer to [01-0010.0040](01-0010.0040-pacer.md), `/edge` to the parent's remaining corpus.\\n\\n**Working documents:** [Harness spec — draft](../spec/01-0010-dev-harness-shared-and-local.md), [working glossary](../../glossary.md), and [pacer.md](../pacer.md), which holds the pacer's core rules resolved so far until `0040` carries them. `docs/process.md` is preliminary under a `<temporary>` block; the pacer owns it once it exists. Local overrides remain a deferred open issue. No implementation spec or RFC is approved.\\n**Current stage:** entry contract at v2 (temporary blocks name their ticket). Wake lands on `/align` until the pacer exists. Resume by opening a fresh session here, checking its first line says v2, and taking the current pass above.\\n\\n| Ticket | Status | Type | Outcome |\\n|---|---|---|---|\\n| [Shared harness across projects](01-0010-dev-harness-shared-and-local.md) | In progress | HITL | A canonical dev harness improves across projects while preserving local behavior and remaining usable in all three frameworks. |\\n| [Align on harness work in Codex, Cursor and Claude Code](done/01-0010.0020-live-alignment-across-hosts.md) | Done (2026-09-06) | HITL | The user can open this repository in any of the three hosts and align on its current work with the same installed `/align` and `/impact`, with evidence of what each host made available. |\\n| [Install /ticket](done/01-0010.0030-install-ticket.md) | Done (2026-09-06) | HITL | `/ticket` is installed under `.agents/skills` from the accepted selection, discoverable in Claude Code, and used once here to mint a real slice, with `/impact` called from it as the entry file says. |\\n| [Install /spec](01-0010.0035-install-spec.md) | Ready | HITL | `/spec` is installed from the accepted selection, discoverable, and used once to develop the spec for completing this harness's delivery ring; `/plan`, `/implement`, `/verify` and `/maintain` follow that spec. |\\n| [Pacer](01-0010.0040-pacer.md) | Planned | HITL | The agent knows on every turn what it does after `/recall` and what the reply is scoped to, and a session resumes the ring where the last one stopped. |\\n| [Life informs the dev harness](done/01-0010.0010-life-informs-dev-harness.md) | Done (2026-09-05) | HITL | Evidence from Life informs a smaller dev loop, with explicit instruction delivery and an agreed change propagation model. |\\n\\nThe [initial comparison](../../audit-2026-09-05/REPORT.md) is complete. Decisions, rather than missing comparison evidence, now gate extraction. No implementation RFC is approved yet.\\n\\n[The adoption shortlist](01-0010-dev-harness-shared-and-local.md#adoption-shortlist--recommendations-awaiting-alignment) retains the broader open design decisions. [Life findings](../research/life-harness-findings.md) supply the supporting evidence; the completed research ticket does not remain open for implementation decisions owned by the parent.\\n\", \"path\": \"d:\\\\Dev\\\\AI\\\\agents\\\\docs\\\\tickets\\\\README.md\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Wrap provisional instruction text under the contemporaneous straw-dog duty, if that duty was already in force and delivered.",
+    "source_evidence": [
+      "source.json#/recovered_public_evidence/gaps"
+    ]
+  },
+  "check": {
+    "kind": "source-grounded response/action review with explicit evidence gap",
+    "status": "blocked pending contemporaneous instruction/exposure evidence",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Wrap provisional instruction text under the contemporaneous straw-dog duty, if that duty was already in force and delivered.",
+        "expected_for_recorded_failure": null
+      }
+    ]
+  },
+  "bounds": {
+    "evidence_gaps": [
+      "Actual assistant model field is absent on original/copy action; copied triggering user message also has no modelInfo. No model is inferred from other messages.",
+      "Original trigger is retained as copied public text/order with copied timestamp; its uncopied original timestamp was not recovered.",
+      "Contemporaneous AGENTS/straw-dog duty body is not retained in selected read results; the text omission is established, but grading an instruction violation requires separate duty evidence."
+    ],
+    "model_metadata": "Both original/copy assistant action and copied trigger lack $.modelInfo.modelName. Other user records model metadata is not used to attribute this earlier write.",
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed.",
+    "copied_trigger": "source.json#/recovered_public_evidence/trigger_in_copied_order"
+  },
+  "description": "Exact completed original delivery-status write is retained and hash-matched. Two provisional pacer statements lack wrappers around their passages.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/recovered_public_evidence/original_action",
+      "after": null,
+      "description": "Before the recovered public response/action. The duty body is not fully recoverable."
+    },
+    "input_records": [],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": []
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/recovered_public_evidence/original_action"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Instruction evidence, host metadata and reference-only records do not become additional actor messages.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role."
+    ]
+  },
+  "source_gaps": [
+    {
+      "kind": "existing source qualification",
+      "detail": "Actual assistant model field is absent on original/copy action; copied triggering user message also has no modelInfo. No model is inferred from other messages."
+    },
+    {
+      "kind": "existing source qualification",
+      "detail": "Original trigger is retained as copied public text/order with copied timestamp; its uncopied original timestamp was not recovered."
+    },
+    {
+      "kind": "existing source qualification",
+      "detail": "Contemporaneous AGENTS/straw-dog duty body is not retained in selected read results; the text omission is established, but grading an instruction violation requires separate duty evidence."
+    },
+    {
+      "kind": "native replay context absent",
+      "detail": "No complete native pre-failure message sequence is retained."
+    },
+    {
+      "kind": "existing check evidence block",
+      "detail": "blocked pending contemporaneous instruction/exposure evidence"
+    }
+  ]
+}

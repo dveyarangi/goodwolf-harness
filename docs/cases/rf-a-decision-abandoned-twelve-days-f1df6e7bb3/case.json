@@ -1,0 +1,212 @@
+{
+  "id": "rf-a-decision-abandoned-twelve-days-f1df6e7bb3",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "55. A decision abandoned twelve days earlier was carried as waiting in six replies running — 2026-10-20",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "stale wait in public response 404"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/404",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.299"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/404/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-19T23:02:59.069Z",
+    "chat_id": "4fef7758-4d63-4cbb-a2d5-98b8709a0be5",
+    "trigger_message_id": null,
+    "trigger_record_id": "3aec6f52-b460-4fff-8ed9-42f9b426b079",
+    "failure_message_id": "msg_011CgCRrbtGSvgCfQ32Fguw8",
+    "failure_record_id": "15e283d1-01ea-47ea-a6f2-52716345d5d1",
+    "transcript": "4fef7758-4d63-4cbb-a2d5-98b8709a0be5.jsonl"
+  },
+  "observed_failure": {
+    "description": "A reply carries the abandoned entry-contract-version decision as a current user wait.",
+    "events": [
+      {
+        "source": "source.json#/records/404",
+        "message_id": "msg_011CgCRrbtGSvgCfQ32Fguw8",
+        "record_id": "15e283d1-01ea-47ea-a6f2-52716345d5d1",
+        "timestamp": "2026-10-19T23:02:59.069Z",
+        "text": "| 🪢 Tangle · [q-0037.0013.0006](docs/questions/q-0037.0013.0006-how-is-the-path-ahead-found-and-shown-the-space-of-open-questions-and-tickets-mapped-from-the-roots-the-next-slices-ranked-by-a-stated-criterion-and-the-picture.md) · [q-0037.0012.0009](docs/questions/q-0037.0012.0009-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen-how-run-with-no-instruction-the-standing-one-and-the-new-one.md) · — · — |\n|---|\n\n| 📍 **q-0037.0013.0006** · How is the path ahead found and shown: the space of open questions and tickets mapped from the roots, the next slices ranked by a stated criterion, and the picture the person sees? |\n|---|\n\n**The pacer is the method, and it dissolves.** You are right, and the tree says so more sharply than either of us did. The ring stands in the entry file already. Of the pacer's resolved rules, only *recall first* ever left the pacer page; *one turn holds one step* still sits there, a document no instruction reads, the same failure shape as the queue's ordering rule. The ring is the practice mechanism's, which the align skill's straw dogs already bind it to. Resume state is the store's position plus the ticket's status, which `/recall` reads today. What has no home is one rule of a few lines, the choice at a step's end: continue, repeat, decompose, return upstream, switch, ask. That is the practice mechanism's too. [01-0020](docs/tickets/01-0020-each-turn-knows-its-next-step.md) asked itself whether `/pacer` is a skill at all or rules alone; the answer is rules alone, and not its own mechanism (💡 [*Occam*](AGENTS.md:30)). Is there more? Only the step-end choice. Everything else the page claims is either landed or someone else's.\n\n**Align is headless, and nothing gives it a head.** Checked: its text names no subject, only *current work* and *the question's `Where it stands`*, and nothing in the tree sends it to a purpose question. The purpose root's children were seeded by the product line, not chosen. So I take back half of *not the investigator*. The pathfinder runs no investigation, align does; but the pathfinder is the missing agency that says *the next thing is an align on this purpose question*. A headless procedure is the right procedure. Its head was never built, and that is the pathfinder.\n\n**Purpose dictates value; priority is value under means.** Here I still push back. Priority is what to do first, and that is value after dependency, leverage, cost and uncertainty. The most purpose-valuable open question in the tree is whether the harness delivers better at all, [q-0038.0001](docs/questions/q-0038.0001-does-working-under-the-harness-deliver-software-better-than-working-without-it-measured-on-the-same-work.md); it cannot be worked before there is a measure, which is a ticket of its own, and something to measure. Purpose puts it first in worth and means put it later in time. One more thing the tree shows: in this project leverage is itself purpose-derived, because the harness is its own recipient, so *develop itself better* and *serve the purpose* nearly coincide. That is why the compounding criterion was right here and will not transfer unchanged to a recipient. What the person sets is how far means may delay value: the weights.\n\n**Purpose from outside what exists.** Agreed on `/discover`: it says what a thing is an instance of and cannot find a purpose nobody has. Agreed on `/product`: it formalizes and has no agency, by design, a record (💡 [*A document informs*](AGENTS.md:25)). Two sources of purpose remain, and the pathfinder can serve one of them. Your intent is yours alone. Observed pain is in the tree: rule failures, strike counts, recipients' sidecars, every session's *what went wrong*. The product document's first section is pains, so the pathfinder reading pain and offering a candidate pain or a purpose question is grounded, not invention. Choosing stays at 💬.\n\nSo the shape after this pass:\n\n- **Pathfinder**: reads the three roots, the product document's coverage, the live tickets and observed pain; proposes the path and, when the purpose root is thin, the align that should come first; shows it drawn; weights yours in the local file; asked by `/recall` in the loop and by you freeform.\n- **Practice mechanism**: the ring, the step-end choice, one turn one step.\n- **Align**: the headless procedure, as it is.\n- **No pacer.** 01-0020 shrinks to the step-end rule and its question is reworded or closed into the practice mechanism's.\n\nAll of this is 🛠️ self-improvement=the method, so argued, recorded in the question's body, settled nowhere (💡 [*Above it, it settles nothing*](AGENTS.md:221)). If you take it, the question moves out from under the pacer and is reworded to what it has become, and its align opens with a discovery on how projects derive what to do next from what they are for.\n\n| ⚖️ Decisions |\n|---|\n| The pathfinder as above: the agency over which question is worked, purpose questions included, with no investigation of its own |\n| The pacer dissolved into the practice mechanism and the pathfinder, 01-0020 narrowed to the step-end rule |\n| Where the question lives and how it is reworded: its own child of q-0037 |\n| Commit the question's body as it stands |\n| [q-0037.0012.0003](docs/questions/q-0037.0012.0003-what-does-an-entry-contract-version-cover.md) waits at `/align`, as the queue has held since 2026-10-08 |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Keep this turn's actual decision boundary separate from a stale queue claim. The user explicitly says this abandoned question is not being worked here.",
+    "source_evidence": [
+      "source.json#/records/522",
+      "source.json#/records/51",
+      "source.json#/records/406"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Keep this turn's actual decision boundary separate from a stale queue claim. The user explicitly says this abandoned question is not being worked here.",
+        "expected_for_recorded_failure": false
+      },
+      {
+        "id": "account_47_requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Consider the driver that owns independent judges and iterations; the user objects that rules alone do not own that mechanical work.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/406",
+      "source.json#/records/408",
+      "source.json#/records/410",
+      "source.json#/records/411",
+      "source.json#/records/415",
+      "source.json#/records/416",
+      "source.json#/records/420",
+      "source.json#/records/422",
+      "source.json#/records/424",
+      "source.json#/records/426",
+      "source.json#/records/427",
+      "source.json#/records/431",
+      "source.json#/records/432",
+      "source.json#/records/436",
+      "source.json#/records/438",
+      "source.json#/records/440",
+      "source.json#/records/442",
+      "source.json#/records/443",
+      "source.json#/records/448",
+      "source.json#/records/449",
+      "source.json#/records/454",
+      "source.json#/records/455",
+      "source.json#/records/460",
+      "source.json#/records/462",
+      "source.json#/records/465",
+      "source.json#/records/467",
+      "source.json#/records/468",
+      "source.json#/records/472",
+      "source.json#/records/474",
+      "source.json#/records/476",
+      "source.json#/records/478",
+      "source.json#/records/479",
+      "source.json#/records/480",
+      "source.json#/records/481",
+      "source.json#/records/482",
+      "source.json#/records/486",
+      "source.json#/records/487",
+      "source.json#/records/491",
+      "source.json#/records/492",
+      "source.json#/records/493",
+      "source.json#/records/494",
+      "source.json#/records/495",
+      "source.json#/records/496",
+      "source.json#/records/501",
+      "source.json#/records/502",
+      "source.json#/records/506",
+      "source.json#/records/507",
+      "source.json#/records/511",
+      "source.json#/records/512",
+      "source.json#/records/513",
+      "source.json#/records/514",
+      "source.json#/records/519",
+      "source.json#/records/520",
+      "source.json#/records/521",
+      "source.json#/records/522"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "related_failures": [
+    {
+      "register": "../../rule-failures.md",
+      "heading": "54. A better abstraction was met and the reply said *build nothing for it* — 2026-10-20",
+      "occurrence": "original",
+      "occurrence_heading": "original",
+      "detail": "step-end driver precursor"
+    }
+  ],
+  "related_failure_dimensions": [
+    {
+      "failure": {
+        "register": "../../rule-failures.md",
+        "heading": "54. A better abstraction was met and the reply said *build nothing for it* — 2026-10-20",
+        "occurrence": "original",
+        "occurrence_heading": "original",
+        "detail": "step-end driver precursor"
+      },
+      "observed": "The proposed pacer dissolution treats the remaining step-end behavior as only a few rules.",
+      "expected": "Consider the driver that owns independent judges and iterations; the user objects that rules alone do not own that mechanical work."
+    }
+  ],
+  "description": "A reply carries the abandoned entry-contract-version decision as a current user wait.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/404",
+      "after": "source.json#/records/400",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/388",
+      "source.json#/records/392",
+      "source.json#/records/393",
+      "source.json#/records/394",
+      "source.json#/records/399",
+      "source.json#/records/400"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/51"
+      ],
+      "native_context_records": [
+        "source.json#/records/51",
+        "source.json#/records/390"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/390",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\860f6f12-29ee-4e1d-96f5-c4309230eb6c\\tool-results\\hook-52c001d9-f967-45e0-bbe0-edd40a48662f-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-52c001d9-f967-45e0-bbe0-edd40a48662f-1-additionalContext.txt",
+          "sha256": "b6d83a9299bc52c2fd77ac8ee65d3f6a357b6bb56aec1decb5db0245eed06781",
+          "bytes": 42003,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1720,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-19T23:00:19.414284+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/404"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

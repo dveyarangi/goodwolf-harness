@@ -1,0 +1,126 @@
+{
+  "id": "rf-six-turns-of-seven-showed-a-ques-8f2da10e83",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "18. Six turns of seven showed a question the turn did not stand on — 2026-10-05",
+    "occurrence": "repeat",
+    "occurrence_heading": "**Struck, 2026-10-05 — a fresh session the same day.** A message that asked nothing of the work,",
+    "detail": "first joke classified uncharted"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/60",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/60/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-04T23:40:33.366Z",
+    "chat_id": "e11dbff6-95f3-4c29-a40b-b68304644caa",
+    "trigger_message_id": null,
+    "trigger_record_id": "aa9337c7-8f90-4987-8e79-3dab2fd89c8b",
+    "failure_message_id": "msg_011Cfi5czqKngLN7TnUugfSu",
+    "failure_record_id": "ef46c8e9-e114-431b-8a18-705d21c37291",
+    "transcript": "e11dbff6-95f3-4c29-a40b-b68304644caa.jsonl"
+  },
+  "observed_failure": {
+    "description": "Original social probe is classified uncharted and its landing place requested.",
+    "events": [
+      {
+        "source": "source.json#/records/60",
+        "message_id": "msg_011Cfi5czqKngLN7TnUugfSu",
+        "record_id": "ef46c8e9-e114-431b-8a18-705d21c37291",
+        "timestamp": "2026-10-04T23:40:33.366Z",
+        "text": "Entry contract: v28, 2026-10-05.\n\n| ▶ **recall** · where the project stands and what comes next |\n|---|\n| ↳ **q-0001.0016** · How is each turn steered from the store? |\n| ? **uncharted** · What kind of person would do the work we do in this repo? |\n\n## Where the project stands\n\n- **In flight:** [01-0011.0100.0040 the-turn-is-steered-from-the-store](docs/tickets/01-0011.0100.0040-the-turn-is-steered-from-the-store.md) is implemented and verified. One acceptance box is left: a fresh session's wake shows a process row, and its first question shows a `↳` or `+` row. This session is that fresh session.\n- **Uncommitted work:** six files from today's maintenance pass and the closing of q-0024.0006 \"Is an ADR or a ticket the home for a decision?\" (the entry moved to `docs/questions/done/`). Committing needs your word.\n- **One decision waits for you:** q-0026.0003 \"What does an entry-contract version cover?\". Another running session is already on it.\n- **Next in the queue, unchanged:** [01-0011.0100.0050 a-question-branches-before-it-is-answered](docs/tickets/01-0011.0100.0050-a-question-branches-before-it-is-answered.md), starting with its align, then [01-0014 scope-coherent](docs/tickets/01-0014-scope-coherent.md). I found nothing that calls for reordering.\n- **Other sessions:** six are marked running. Four have no position, one is on q-0026.0003, and one is on q-0001.0016. Some may be stale rows.\n- **Nothing due:** no straw dogs are due and nothing is suspect. The two deferred questions (q-0001.0013 on reused ids, q-0006 on a composite rule set) have not met their conditions.\n\n## The validation check\n\n- **Entry line and `/recall` first:** both fired.\n- **Process row at the wake:** shown above.\n- **The `↳` row:** it comes from the wake rule, not from your question. I placed this session on q-0001.0016 because your message as a whole is a check of turn steering.\n- **Your literal question:** no question in the store contains it. The nearest is q-0016 \"What is an agent role, and which mechanism keeps roles?\", but that only resembles it: it is about agents' permissions, not about a person. So I did not open or attach it.\n\nWhether this mixed outcome ticks the last box is your call. The box asks for the first question to get a `↳` or `+` row, and the question itself got a `?` row.\n\n**Where does your question belong?** Either name a parent for it, or say it was only a probe and I will drop it.\n\nMy short answer to it meanwhile: an editor of law more than a programmer. The work here is wording rules so they fire at the right moment, keeping every fact in one home, and refusing to decide anything on top of a question that is still open."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Answer the social question directly; perform required wake work without requiring the joke to have a project home.",
+    "source_evidence": [
+      "source.json#/records/17",
+      "source.json#/records/30",
+      "source.json#/records/31",
+      "source.json#/records/32",
+      "source.json#/records/17"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Answer the social question directly; perform required wake work without requiring the joke to have a project home.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/71"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "Original social probe is classified uncharted and its landing place requested.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/60",
+      "after": "source.json#/records/58",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/5",
+      "source.json#/records/30",
+      "source.json#/records/31",
+      "source.json#/records/32",
+      "source.json#/records/40",
+      "source.json#/records/41",
+      "source.json#/records/42",
+      "source.json#/records/47",
+      "source.json#/records/50",
+      "source.json#/records/51",
+      "source.json#/records/57",
+      "source.json#/records/58"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/17"
+      ],
+      "native_context_records": [
+        "source.json#/records/12",
+        "source.json#/records/17"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/60"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ],
+    "source_metadata_records": [
+      "source.json#/records/7"
+    ]
+  },
+  "source_gaps": []
+}

@@ -1,0 +1,159 @@
+{
+  "id": "rf-a-session-stopped-placing-its-me-6478c4bebe",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "16. A session stopped placing its messages once the window said nothing moved — 2026-10-03",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "no-placement turn 5: trigger 983"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1136",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/1136/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-02T21:34:55.272Z",
+    "chat_id": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+    "trigger_message_id": null,
+    "trigger_record_id": "d64f65c2-08e6-496a-b4b4-7441a1b7f457",
+    "failure_message_id": "msg_011Cfe8Rb28oQDMzNQADt6Ce",
+    "failure_record_id": "40488cc6-3eef-46ef-bb47-31910ca61a85",
+    "transcript": "d4406b99-8ee7-4e49-8d84-5621c2fd5766.jsonl"
+  },
+  "observed_failure": {
+    "description": "An independently prompted work turn has no placement call in its public action span before the reply. The hook still gives an unchanged window.",
+    "events": [
+      {
+        "source": "source.json#/records/1136",
+        "message_id": "msg_011Cfe8Rb28oQDMzNQADt6Ce",
+        "record_id": "40488cc6-3eef-46ef-bb47-31910ca61a85",
+        "timestamp": "2026-10-02T21:34:55.272Z",
+        "text": "The `/maintain` pass is done, and nothing is due on the clock anymore.\n\n**About the line you asked about:** the 160-character cut was the script's behaviour, not an instruction. The agent never names a file, so that clause gave it nothing to do. It came from my own `.0017` plan. The skill now says only *the slug made by the script from the question's words — so phrase a question short*. I registered it as a strike on [rule failure 7](docs/rule-failures.md), which is the same failure: text written next to the script took on the script's behaviour.\n\n**Your call:** the fix that would stop this recurring adds to the entry file's rule \"write for a capable model: state the rule and its pointer\" the words *and what a script already does for the reader*, to the list of what stays out. It changes the general rules, so it moves the entry contract version, which `.0011` also changes. Do you want it, and should it ride with `.0011`'s v19?\n\n**Report:**\n- **Scope:** the paired close of `.0017` and the files it touched. The questions mechanism's records were also re-checked, because the clock reported them due.\n- **Moved:**\n  - `.0017` and its RFC into `done/`, and its queue row deleted.\n  - Four closed question subtrees into `docs/questions/done/`: q-0009 with q-0011 to q-0013 under it, q-0010, q-0014 and q-0018. The mover fixed the links in six records.\n  - `.0012`'s plan re-closes some of these entries. The writer's index includes `done/`, so that still works.\n- **Repaired:** the skill line above. The sessions file still listed this conversation's previous session id as running at a closed question, so I ended it. That's q-0015 again: a resume leaves a stray session behind.\n- **Checked and clean:** 457 tests (one skipped), and the mechanism, installer, ticket and store checks, with no store findings. The straw-dog listing has no diagnostics.\n- **Marked:** the questions mechanism's `output` level, \"nothing to change\", because the records already matched the format.\n- **Not covered:** the rest of the tree. q-0001's lean (\"three slices to come\") is stale, but writing leans belongs to `/conclude`.\n\n**Uncommitted:** everything since `1388c85`. That covers `.0017`'s implementation, the renames, the close and archive, the register entry, and the skill fix. The other session's q-0017 file and the sessions file stay out. Shall I commit it as an `IMPLEMENT` commit and a `MAINTAIN` commit?"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Place the work message even when the stored position has not moved, showing the call under debug.",
+    "source_evidence": [
+      "source.json#/records/27",
+      "source.json#/records/985",
+      "source.json#/records/27"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Place the work message even when the stored position has not moved, showing the call under debug.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1140"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "An independently prompted work turn has no placement call in its public action span before the reply. The hook still gives an unchanged window.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1136",
+      "after": "source.json#/records/1127",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/983",
+      "source.json#/records/988",
+      "source.json#/records/989",
+      "source.json#/records/990",
+      "source.json#/records/998",
+      "source.json#/records/999",
+      "source.json#/records/1004",
+      "source.json#/records/1005",
+      "source.json#/records/1014",
+      "source.json#/records/1015",
+      "source.json#/records/1016",
+      "source.json#/records/1020",
+      "source.json#/records/1021",
+      "source.json#/records/1022",
+      "source.json#/records/1023",
+      "source.json#/records/1026",
+      "source.json#/records/1027",
+      "source.json#/records/1037",
+      "source.json#/records/1038",
+      "source.json#/records/1039",
+      "source.json#/records/1042",
+      "source.json#/records/1043",
+      "source.json#/records/1048",
+      "source.json#/records/1054",
+      "source.json#/records/1060",
+      "source.json#/records/1061",
+      "source.json#/records/1065",
+      "source.json#/records/1066",
+      "source.json#/records/1067",
+      "source.json#/records/1076",
+      "source.json#/records/1077",
+      "source.json#/records/1078",
+      "source.json#/records/1087",
+      "source.json#/records/1088",
+      "source.json#/records/1089",
+      "source.json#/records/1091",
+      "source.json#/records/1092",
+      "source.json#/records/1099",
+      "source.json#/records/1100",
+      "source.json#/records/1104",
+      "source.json#/records/1105",
+      "source.json#/records/1106",
+      "source.json#/records/1115",
+      "source.json#/records/1116",
+      "source.json#/records/1117",
+      "source.json#/records/1120",
+      "source.json#/records/1121",
+      "source.json#/records/1125",
+      "source.json#/records/1126",
+      "source.json#/records/1127"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/27"
+      ],
+      "native_context_records": [
+        "source.json#/records/27",
+        "source.json#/records/985"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1136"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

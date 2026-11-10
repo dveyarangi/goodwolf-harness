@@ -1,0 +1,182 @@
+{
+  "id": "rf-the-commits-table-and-the-counte-caea6e72f6",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "72. The commits table and the counters line were put at the reply's end — 2026-10-25",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "first recovered misplaced commit/counter reply"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/3757",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.308"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/3757/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-24T23:23:58.281Z",
+    "chat_id": "14869207-0ee1-4aeb-be4b-18255bc719b7",
+    "trigger_message_id": null,
+    "trigger_record_id": "a50b1282-04a3-422e-8dfb-6c76b37224f8",
+    "failure_message_id": "msg_011CgMvXm72kd5ZNmrcKtBUs",
+    "failure_record_id": "4ae90998-6d49-4e5b-aac5-165f66935780",
+    "transcript": "14869207-0ee1-4aeb-be4b-18255bc719b7.jsonl"
+  },
+  "observed_failure": {
+    "description": "The commit-producing reply places its commits table and counters at its end, after its method and decisions.",
+    "events": [
+      {
+        "source": "source.json#/records/3757",
+        "message_id": "msg_011CgMvXm72kd5ZNmrcKtBUs",
+        "record_id": "4ae90998-6d49-4e5b-aac5-165f66935780",
+        "timestamp": "2026-10-24T23:23:58.281Z",
+        "text": "| ⚙️ **[rule failure 70](docs/rule-failures.md)** · поправка к /skill-up |\n|---|\n\nПоправка внесена, и запись 70 в реестре закрыта. Строку о «размытой формулировке» заменило правило с более узким назначением:\n\n🧩 **Landed rule — [.agents/skills/skill-up/SKILL.md](.agents/skills/skill-up/SKILL.md) · writing rules**\n\n> - Write a filter, a fixed form or a must only where it always holds; where judgement decides, leave it to the model rather than overfit the instruction.\n\nВ записи 70 случай помечен как кандидат для стенда проверки правил ([q-0037.0012.0009](docs/questions/)). Проверка такая: один и тот же запрос пишется со строкой и без неё. Затем смотрим, появился ли фильтр или «must», которых в запросе не было.¹\n\nРабота над голосом ([01-0016.0030 the-voice-speaks-every-skill-that-speaks](docs/tickets/01-0016.0030-the-voice-speaks-every-skill-that-speaks.md)) стоит на том же месте. Установщик отказывается ставить локальный блок, потому что `.agents/skills/maintain/SKILL.md` один источник достаёт дважды: явной строкой и группой. Правки голоса в восьми файлах пока не закоммичены.\n\n| ⚖️ Decisions |\n|---|\n| Вариант A: если один источник достаёт файл и явной строкой, и группой, место блока задаёт явная строка, а в один блок попадают правила обеих строк. Дальше переустановка `local`, поднятие версии контракта, стенд речи, /verify и коммит |\n\n| 🪶 Commits |\n|---|\n| `4d6f97b` IMPLEMENT: skill-up's writing rules |\n\n| 🎫 54 · ❓ 188 · 🐕 178 |\n|---|\n\n¹ Пользователь, 2026-10-25: «хороший кандидат на тесты правил»."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Place commits and counters in the prescribed opening order before the method head table.",
+    "source_evidence": [
+      "source.json#/records/3697",
+      "source.json#/records/3697",
+      "source.json#/records/3724"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Place commits and counters in the prescribed opening order before the method head table.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/3758",
+      "source.json#/records/3759",
+      "source.json#/records/3762"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The commit-producing reply places its commits table and counters at its end, after its method and decisions.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/3757",
+      "after": "api-input.json#/messages/9",
+      "description": "Immediately before the response to the recorded API request. Its message-hash chain determines public model-input order; raw transcript storage order is not substituted for request order.",
+      "recorded_request": "api-input.json#/request"
+    },
+    "input_records": [
+      "api-input.json#/messages/0",
+      "api-input.json#/messages/1",
+      "api-input.json#/messages/2",
+      "api-input.json#/messages/3",
+      "api-input.json#/messages/4",
+      "api-input.json#/messages/5",
+      "api-input.json#/messages/6",
+      "api-input.json#/messages/7",
+      "api-input.json#/messages/8",
+      "api-input.json#/messages/9"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/3697",
+        "source.json#/records/3724"
+      ],
+      "native_context_records": [
+        "source.json#/records/3648",
+        "source.json#/records/3678",
+        "source.json#/records/3697",
+        "source.json#/records/3714"
+      ],
+      "recorded_instruction_snapshot_evidence": [
+        "source.json#/records/3724",
+        "source.json#/records/3727"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/3678",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\14869207-0ee1-4aeb-be4b-18255bc719b7\\tool-results\\hook-2d3003cb-935f-4f52-93b8-f2877db8cd0d-1-additionalContext.txt",
+          "actor_input": "The native attachment remains source evidence; api-input.json defines the recorded actor request. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-2d3003cb-935f-4f52-93b8-f2877db8cd0d-1-additionalContext.txt",
+          "sha256": "d4bfd5f6111ab294820b43c123c62e4db55cf71e4fbcc10f824b5eba700c9f2b",
+          "bytes": 53014,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1800,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-24T23:21:35.666423+00:00"
+        },
+        {
+          "referenced_by": "source.json#/records/3714",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\14869207-0ee1-4aeb-be4b-18255bc719b7\\tool-results\\hook-2852a203-b6a6-4f3b-acb1-b2e305776e53-2-additionalContext.txt",
+          "actor_input": "The native attachment remains source evidence; api-input.json defines the recorded actor request. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-2852a203-b6a6-4f3b-acb1-b2e305776e53-2-additionalContext.txt",
+          "sha256": "57f14ed56f96ea6df625d413dd082e30483d74a76f3353eaed27861a61950bdb",
+          "bytes": 53435,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1800,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-24T23:23:18.940223+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/3757"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "recorded API role/message history, with source-native tool blocks and exact request order",
+      "preparation that keeps original failure/correction evidence and native attachments outside additional actor messages"
+    ],
+    "limits": [
+      "The recorded request vector supplies public message order and roles. Structured private blocks are excluded before decoding and are not reconstructed.",
+      "Native attachments and saved instruction snapshots remain evidence of host state. They are not appended to the already assembled API message history.",
+      "The export does not establish complete system/tool parameters, filesystem state or executor support. Missing request slots or unsupported public fields must not be silently omitted in an execution claim.",
+      "The original failure and later correction remain reference evidence outside actor input; original response/action checks and observation bounds are retained."
+    ],
+    "source_metadata_records": [
+      "source.json#/records/3650",
+      "source.json#/records/3669",
+      "source.json#/records/3686",
+      "source.json#/records/3691",
+      "source.json#/records/3718",
+      "source.json#/records/3730",
+      "source.json#/records/3742",
+      "source.json#/records/3712"
+    ],
+    "recorded_input_order": [
+      "api-input.json#/messages/0",
+      "api-input.json#/messages/1",
+      "api-input.json#/messages/2",
+      "api-input.json#/messages/3",
+      "api-input.json#/messages/4",
+      "api-input.json#/messages/5",
+      "api-input.json#/messages/6",
+      "api-input.json#/messages/7",
+      "api-input.json#/messages/8",
+      "api-input.json#/messages/9"
+    ]
+  },
+  "source_gaps": []
+}

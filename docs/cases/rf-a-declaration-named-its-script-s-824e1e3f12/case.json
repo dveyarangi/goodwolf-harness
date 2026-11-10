@@ -1,0 +1,199 @@
+{
+  "id": "rf-a-declaration-named-its-script-s-824e1e3f12",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "7. A declaration named its script's verbs, and two arguments were built on it — 2026-09-23",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "original declaration names script verbs"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/747",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.275"
+    },
+    "model": "claude-opus-5",
+    "model_source": "source.json#/records/747/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-09-20T21:33:16.317Z",
+    "chat_id": "51efc50e-ae4d-41a8-b730-a396a74c34d1",
+    "trigger_message_id": null,
+    "trigger_record_id": "5949f9c8-ce2c-468a-a152-f3fd80487299",
+    "failure_message_id": "msg_011CfFQXkeXSnt37YEUEfqno",
+    "failure_record_id": "4d6437f4-1603-4e8c-b4f3-b9d911a25be8",
+    "transcript": "51efc50e-ae4d-41a8-b730-a396a74c34d1.jsonl"
+  },
+  "observed_failure": {
+    "description": "The original declaration, then deploy, defines its mechanism as placing a ref into a tree and checking the copy.",
+    "events": [
+      {
+        "source": "source.json#/records/747",
+        "message_id": "msg_011CfFQXkeXSnt37YEUEfqno",
+        "record_id": "4d6437f4-1603-4e8c-b4f3-b9d911a25be8",
+        "timestamp": "2026-09-20T21:33:16.317Z",
+        "text": "Write {\"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\mechanisms\\\\deploy\\\\deploy.md\", \"content\": \"# deploy — places a ref of the repository into a tree that is not its own, and checks the copy against it\\n\\n- **instruction** `.agents/skills/deploy/SKILL.md` — the commands, each refusal and what the person does, the first deploy's last step\\n- **state** installed\\n\\n## How it works\\n\\nCore reaches a tree from a fresh clone of its repository at a ref and never from a working tree,\\nso what a recipient holds is what a commit holds. The manifest is everything under the core\\ndirectory plus the entry file and the host stub; the project's local file is never in it, which\\nis what lets a redeploy overwrite core's content and nothing of the project's. What ships is\\ntransformed before a byte is written: the origin's local blocks removed, every straw-dog wrapper\\nand every `TODO`'s ticket binding sheared with the content kept, the announce line stamped, and\\nthe whole held to the leak rule the origin's check applies.\\n\\n**The announce line is the revision.** A recipient's entry file reads\\n`Entry contract: <repository>@<ref>, <date>.`; every session there announces it, the check reads\\nit, and the shape check reads its `@` to know it stands in a recipient — where an unbound\\n`not yet` is upstream's gap and draws nothing. No record file: integrity is asked of the source,\\nby cloning the announced ref again and comparing. A change to the transformation therefore reads\\nas an edit in every recipient deployed before it, until it updates.\\n\\n**Every refusal writes nothing**, and the loader links are the one step a person may finish by\\nhand: where the platform refuses to create a symlink, the run finishes everything else and ends\\nwith the exact elevated command. Nothing is substituted for a link; a junction is refused by name.\\n\\n**The gate is the check.** Arrival and any later day's question are one function: the copy\\nagainst the ref, the injector's check, the shape check, the links, the shipped suite — the\\ntarget's own scripts, run as subprocesses, so what is checked is what arrived.\\n\\nIt is **installed**; a tree without it holds no core at all. The repository's root `README.md`\\nis the way in for an agent handed the link — clone, read the skill, run the install — and is\\nnot a part: it never ships, and a recipient has its own.\\n\\n## Moments\\n\\n| moment | instructed by | kind, and why |\\n|---|---|---|\\n| deploying a ref into an empty tree | `.agents/scripts/deploy.py` | |\\n| updating a tree that has a copy | `.agents/scripts/deploy.py` | |\\n| checking a copy against the ref it announces | `.agents/scripts/deploy.py` | |\\n| making a loader link, or handing the person the command | `.agents/scripts/deploy.py` | |\\n| reading a refusal and resuming | `.agents/skills/deploy/SKILL.md` | |\\n| populating the local file after the first deploy | `.agents/skills/deploy/SKILL.md` | |\\n| knowing an update is available | — | unowned by design — a person asks for one; nothing polls the repository |\\n| verifying that a host reads the loader link | — | <straw-dog until=\\\"a host's delivery is observed rather than assumed\\\" ticket=\\\"docs/tickets/01-0010.0120-host-delivery-surfaces.md\\\">not yet</straw-dog> |\\n| creating a fresh tree's painted doors | — | <straw-dog until=\\\"a declaration parses its records, so the doors can be read rather than guessed\\\" ticket=\\\"docs/tickets/01-0017.0010-terms-defined-before-they-land.md\\\">not yet</straw-dog> |\\n| removing one mechanism from a tree | — | <straw-dog until=\\\"the parts tables say what goes and something says how\\\" ticket=\\\"docs/tickets/01-0010-dev-harness-shared-and-local.md\\\">not yet</straw-dog> |\\n| sending a change back to the repository | — | <straw-dog until=\\\"contribution back has a shape\\\" ticket=\\\"docs/tickets/01-0010-dev-harness-shared-and-local.md\\\">not yet</straw-dog> |\\n\\n## Install adds, uninstall removes\\n\\n| part | where |\\n|---|---|\\n| instruction file | `.agents/skills/deploy/SKILL.md` |\\n| this doc | `.agents/mechanisms/deploy/deploy.md` |\\n| the script | `.agents/scripts/deploy.py` |\\n| its tests | `.agents/scripts/test/test_deploy.py` |\\n| the entry file | `AGENTS.md` |\\n| the host stub | `CLAUDE.md` |\\n| a loader link | `.claude/skills` |\\n| a loader link | `.cursor/skills` |\\n\\nThe entry file is this mechanism's whole file; two lines inside it are the shape's anchored\\nparts, and nothing asks about the overlap.\\n\\n## Relies on, and does not own\\n\\n| part | where | owner |\\n|---|---|---|\\n| the installer | `.agents/scripts/inject_rules.py` | `mechanism-shape` |\\n| citation reader | `.agents/scripts/docs_corpus.py` | `mechanism-shape`, the one that cannot leave |\\n| the shape check | `.agents/scripts/mechanisms.py` | `mechanism-shape` |\\n| test harness | `.agents/scripts/test/harness.py` | `mechanism-shape` |\\n| the listing script | `.agents/scripts/straw_dogs.py` | `maintain` |\\n| the method's vocabulary | `.agents/glossary.md` | nobody removable |\\n\\n## What it produces, and who reads it\\n\\n- **The recipient's core** — read by its every session, through the loader links its hosts\\n  follow.\\n- **The stamped announce line** — announced by the recipient's first reply; read by `--check` and\\n  `--update` to know what was installed, and by the shape check to know it stands in a recipient.\\n- **The report** — read by whoever ran the deploy, and by the recipient's `/verify` where its\\n  verification set names the check. Its `pending` lines are read by the person who runs them.\\n- **The pending command** — read by a person, once, in an elevated prompt.\\n\\nNo record. The line is the tree's, and nothing else is kept.\\n\\n## Not yet at the shape\\n\\n**Painted doors are not created.** The glossary says installing a mechanism creates them; no\\ndeclaration parses its records yet, so a fresh tree receives core and no `docs/` at all.\\n\\n**The transformation is unguarded.** A change to the shear, the stamp or the local-block strip\\nreaches every recipient as a reported edit; nothing checks a change against the recipients that\\nexist.\\n\\n## What retires this\\n\\nA host that reads a repository directly at a ref, so that nothing need be copied and the ref is\\nthe tree's by construction. Until then a copy is the only way core reaches a tree, and the copy\\nneeds a revision and a check.\\n\\n## What would show it working, graded by someone who did not build it\\n\\n**The user, in frost_map.** That tree took the harness by hand on 2026-09-09 at a version its\\nentry file still announces, refused one core check rather than duplicate its own state, and has\\nbuilt on the copy since. It writes its answers into a local file, takes an update from the\\nrepository, and the user grades: its local file survives byte-identical and its blocks are\\nrestored last; its `docs/` is untouched; its links resolve; its announce line names the ref; the\\ngate passes, or says which of the five did not. A deploy that had to be hand-finished to reach\\n`arrived: true` reads identically to success in the report, and only the grader can say which it\\nwas.\\n\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Does the declaration's summary/header state the mechanism's purpose or invariant rather than defining it solely as placing a ref and checking the copy?",
+    "source_evidence": [
+      "source.json#/records/27",
+      "source.json#/records/395",
+      "source.json#/records/395"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the declaration's summary/header state the mechanism's purpose or invariant rather than defining it solely as placing a ref and checking the copy?",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/748",
+      "source.json#/records/749",
+      "source.json#/records/750",
+      "source.json#/records/751",
+      "source.json#/records/753",
+      "source.json#/records/762",
+      "source.json#/records/763",
+      "source.json#/records/764",
+      "source.json#/records/765"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "classification": {
+    "kind": "summary/header definition defect",
+    "limit": "The declaration body already contains concrete invariants. This check concerns only the header definition; it does not allege that the whole document lacks invariants."
+  },
+  "description": "The original declaration, then deploy, defines its mechanism as placing a ref into a tree and checking the copy.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/747",
+      "after": "source.json#/records/746",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/591",
+      "source.json#/records/595",
+      "source.json#/records/596",
+      "source.json#/records/597",
+      "source.json#/records/598",
+      "source.json#/records/607",
+      "source.json#/records/608",
+      "source.json#/records/609",
+      "source.json#/records/611",
+      "source.json#/records/612",
+      "source.json#/records/614",
+      "source.json#/records/615",
+      "source.json#/records/616",
+      "source.json#/records/617",
+      "source.json#/records/621",
+      "source.json#/records/622",
+      "source.json#/records/623",
+      "source.json#/records/632",
+      "source.json#/records/633",
+      "source.json#/records/640",
+      "source.json#/records/641",
+      "source.json#/records/643",
+      "source.json#/records/644",
+      "source.json#/records/645",
+      "source.json#/records/647",
+      "source.json#/records/648",
+      "source.json#/records/653",
+      "source.json#/records/654",
+      "source.json#/records/655",
+      "source.json#/records/656",
+      "source.json#/records/657",
+      "source.json#/records/658",
+      "source.json#/records/659",
+      "source.json#/records/660",
+      "source.json#/records/661",
+      "source.json#/records/662",
+      "source.json#/records/663",
+      "source.json#/records/664",
+      "source.json#/records/665",
+      "source.json#/records/666",
+      "source.json#/records/667",
+      "source.json#/records/668",
+      "source.json#/records/669",
+      "source.json#/records/670",
+      "source.json#/records/671",
+      "source.json#/records/672",
+      "source.json#/records/673",
+      "source.json#/records/674",
+      "source.json#/records/680",
+      "source.json#/records/683",
+      "source.json#/records/684",
+      "source.json#/records/685",
+      "source.json#/records/686",
+      "source.json#/records/688",
+      "source.json#/records/692",
+      "source.json#/records/693",
+      "source.json#/records/695",
+      "source.json#/records/703",
+      "source.json#/records/704",
+      "source.json#/records/705",
+      "source.json#/records/706",
+      "source.json#/records/707",
+      "source.json#/records/708",
+      "source.json#/records/709",
+      "source.json#/records/710",
+      "source.json#/records/711",
+      "source.json#/records/714",
+      "source.json#/records/715",
+      "source.json#/records/722",
+      "source.json#/records/724",
+      "source.json#/records/725",
+      "source.json#/records/735",
+      "source.json#/records/736",
+      "source.json#/records/737",
+      "source.json#/records/738",
+      "source.json#/records/744",
+      "source.json#/records/745",
+      "source.json#/records/746"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/395"
+      ],
+      "native_context_records": [
+        "source.json#/records/27",
+        "source.json#/records/395"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/747"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

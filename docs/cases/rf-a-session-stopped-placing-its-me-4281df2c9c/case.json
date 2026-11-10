@@ -1,0 +1,123 @@
+{
+  "id": "rf-a-session-stopped-placing-its-me-4281df2c9c",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "16. A session stopped placing its messages once the window said nothing moved — 2026-10-03",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "no-placement turn 4: trigger 549"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/591",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/591/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-02T20:58:35.578Z",
+    "chat_id": "d4406b99-8ee7-4e49-8d84-5621c2fd5766",
+    "trigger_message_id": null,
+    "trigger_record_id": "b8b23f3a-a8bc-41d0-981b-2e9669dc3c07",
+    "failure_message_id": "msg_011Cfe5epCevgEx9iVzPj7d8",
+    "failure_record_id": "3972c2b4-113c-4987-bd2c-90d065609aaa",
+    "transcript": "d4406b99-8ee7-4e49-8d84-5621c2fd5766.jsonl"
+  },
+  "observed_failure": {
+    "description": "An independently prompted work turn has no placement call in its public action span before the reply. The hook still gives an unchanged window.",
+    "events": [
+      {
+        "source": "source.json#/records/591",
+        "message_id": "msg_011Cfe5epCevgEx9iVzPj7d8",
+        "record_id": "3972c2b4-113c-4987-bd2c-90d065609aaa",
+        "timestamp": "2026-10-02T20:58:35.578Z",
+        "text": "I recorded the impact on [the parent ticket](docs/tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md). Here's the slice I propose, not minted until you approve (breakdown=ask).\n\n**1. `01-0011.0100.0011`: the agent calls a subcommand per event, and the script assigns ids**\n- **Interaction:** AFK. Decision 56 settles every choice it carries.\n- **Depends on:** `.0010` (the store and its writer). It lands after `.0017`, and before `.0012` and `.0015`.\n- **Parent scope covered:** decision 56.\n- **Outcome:** each event of a turn is recorded by calling `questions.py` with a subcommand, and a new question's id is the script's to assign. The declared line and its grammar are gone, and nothing the store promised is lost.\n- **Acceptance criteria (draft):**\n  - Each event — `at`, `open`, `close`, `move`, `depend`, `undepend`, `suspect`, `clear`, `lean`, `assign` — is written by its subcommand with `--session`. A bad call is refused with standard usage and writes nothing. Tested.\n  - `open` assigns the next free id and prints it. Two sessions opening at once both succeed, with different ids. Tested.\n  - `--declare` and its grammar no longer exist.\n  - Q1 shows calls, not lines. The entry contract announces v19. Q2, Q3, the skill and the mechanism doc speak of calls. `inject_rules.py --check`, `mechanisms.py --check` and `questions.py --check` are clean.\n  - `/verify` has been run.\n\n**What the impact found, briefly:**\n- **Recommendation:** proceed, narrowed to the event writes. The problem is demonstrated: my lean holding `; ` was refused at this align, the id race is refused by design, and the parser's original reason never shipped.\n- **The race simplifies:** when two sessions open questions at once, the script takes the next free id and retries instead of refusing.\n- **The window's *next free id* line goes,** since the agent no longer names ids.\n- **Must verify:** free text still passes through the shell. Backticks and `$` inside double quotes get expanded under bash, which matters for closure links that contain code spans.\n- **Leave alone:** `--check`, `--window`, `--wake`, `--tree`, `--end` and `--hook` stay as flags. Three hosts' hook files and the verification set name them, and nothing has failed there.\n- **Knock-on:** `.0012` (its v19 becomes v20, and its repointing becomes `close` calls) and `.0015` (`undepends` becomes the `undepend` subcommand) each get a validation pass after `.0011` lands.\n\nDoes one slice feel right? Is the dependency order right: `.0017` → `.0011` → `.0012` and `.0015`? Is AFK correct? If you approve, I'll mint it, register it in the queue, and close q-0018 against decision 56."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Place the work message even when the stored position has not moved, showing the call under debug.",
+    "source_evidence": [
+      "source.json#/records/27",
+      "source.json#/records/551",
+      "source.json#/records/27"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Place the work message even when the stored position has not moved, showing the call under debug.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/595"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "An independently prompted work turn has no placement call in its public action span before the reply. The hook still gives an unchanged window.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/591",
+      "after": "source.json#/records/582",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/549",
+      "source.json#/records/553",
+      "source.json#/records/554",
+      "source.json#/records/555",
+      "source.json#/records/559",
+      "source.json#/records/560",
+      "source.json#/records/569",
+      "source.json#/records/570",
+      "source.json#/records/571",
+      "source.json#/records/572",
+      "source.json#/records/576",
+      "source.json#/records/577",
+      "source.json#/records/581",
+      "source.json#/records/582"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/27"
+      ],
+      "native_context_records": [
+        "source.json#/records/27",
+        "source.json#/records/551"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/591"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

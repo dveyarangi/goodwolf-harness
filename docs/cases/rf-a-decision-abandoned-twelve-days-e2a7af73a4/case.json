@@ -1,0 +1,176 @@
+{
+  "id": "rf-a-decision-abandoned-twelve-days-e2a7af73a4",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "55. A decision abandoned twelve days earlier was carried as waiting in six replies running — 2026-10-20",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "stale wait in public response 420"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/420",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.299"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/420/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-19T23:15:54.238Z",
+    "chat_id": "4fef7758-4d63-4cbb-a2d5-98b8709a0be5",
+    "trigger_message_id": null,
+    "trigger_record_id": "8f633ac2-73ce-479f-a35c-24f11d73ee97",
+    "failure_message_id": "msg_011CgCSqa9RrLkaX3Bcbdpht",
+    "failure_record_id": "e51a29d7-d261-483a-85ff-6f7aaaed58cb",
+    "transcript": "4fef7758-4d63-4cbb-a2d5-98b8709a0be5.jsonl"
+  },
+  "observed_failure": {
+    "description": "A reply carries the abandoned entry-contract-version decision as a current user wait.",
+    "events": [
+      {
+        "source": "source.json#/records/420",
+        "message_id": "msg_011CgCSqa9RrLkaX3Bcbdpht",
+        "record_id": "e51a29d7-d261-483a-85ff-6f7aaaed58cb",
+        "timestamp": "2026-10-19T23:15:54.238Z",
+        "text": "| 🪢 Tangle · [q-0037.0013.0006](docs/questions/q-0037.0013.0006-how-is-the-path-ahead-found-and-shown-the-space-of-open-questions-and-tickets-mapped-from-the-roots-the-next-slices-ranked-by-a-stated-criterion-and-the-picture.md) · [q-0037.0012.0009](docs/questions/q-0037.0012.0009-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen-how-run-with-no-instruction-the-standing-one-and-the-new-one.md) · — · — |\n|---|\n\n| 📍 **q-0037.0013.0006** · How is the path ahead found and shown: the space of open questions and tickets mapped from the roots, the next slices ranked by a stated criterion, and the picture the person sees? |\n|---|\n\n**The driver: you are right, and the tree already knows its shape.** Rules read by the working agent are judged by that agent; nothing in *rules alone* gives the independence that reiterated planning and verification need. Every mechanism here already has two halves, a judgment half in rules and a script half that runs; the maintain mechanism's doc says so of itself (💡 [*the judgment half and the scripts*](.agents/mechanisms/maintain/maintain.md:161)). The driver is the practice mechanism's script half: it runs the ring's control flow, calls judges that carry none of the working session's context, the pattern the dial's blind case set and the doc-rule bench already used by hand, and decides repeat or continue by what they return. So the pacer was two things under one name: the ring's rules, which exist, and the driver, which does not. Three open questions already circle the driver without naming it: whether placing a message needs a judge outside the agent, [q-0037.0001.0016.0001](docs/questions/q-0037.0001.0016.0001-does-placing-a-message-need-a-judge-outside-the-agent-that-answers-it.md); the pass, [q-0037.0015](docs/questions/q-0037.0015-how-is-produced-work-gone-over-again-over-what-scope-by-what-criteria-by-whom-and-to-what-result.md); and the bench's runner under q-0037.0012.0009. Not a pacer, a driver.\n\n**The pathfinder holds the guesses.** What you describe of yourself is the exact job statement: many guesses, little closure, no memory of the earlier guesses when a new one arrives, and the new one always first. The store already does half of it. Every guess is an open question, and a new one is placed at its home before anything else happens. What the pathfinder adds is the weighing, and the inputs are already recorded:\n\n- which pain or answer the guess serves, its trace link to the product document;\n- how much of that answer is built, the coverage the product script reads;\n- what waits on it, its strike count and the straw dogs bound to it, which [q-0037.0001.0025](docs/questions/q-0037.0001.0025-does-the-number-of-straw-dogs-bound-to-a-question-weighted-by-their-tier-rank-it-beside-its-strikes.md) already asks about as a ranking;\n- what it unlocks, its dependencies and the leverage you named.\n\nA new idea enters with its weight and the path is redrawn. It tops the path only if the weights say so. That is the antidote to recency, and it is not a new idea in the method: at a product slice the agent brings the options and a recommendation and the person decides. The pathfinder is that recommendation, made from everything guessed so far rather than from the last thing said (💡 [*Above it, it settles nothing*](AGENTS.md:221)).\n\nOn *falling on the ladder*: a guess's rung is still read from what it decides, not from how much it advances the purpose. The advance is its weight, not its rung. Keeping the two apart matters, because the rung says who decides and the weight says what to decide first.\n\nSo, after three passes, the question I opened yesterday under the pacer has become three:\n\n1. **The pathfinder**: holds the guesses, weighs each against the three roots, draws the path, gives align its head, recommends at the product-slice rung.\n2. **The driver**: the practice mechanism's script half, running the ring with outside judges.\n3. **The ring's rules**: landed in part, one still sitting in the pacer page unread.\n\nThe body of the question records all three passes, uncommitted. If you agree with the split, the next step is to reword and move this question, open the driver's beside it, and begin the pathfinder's align with a discovery on how others derive what to do next from what they are for (💡 [*The shape's structure*](AGENTS.md:20)).\n\n| ⚖️ Decisions |\n|---|\n| The split: pathfinder, driver, the ring's rules, the pacer's name retired |\n| Reword and move this question out from under the pacer, and open the driver's beside it |\n| Commit the question's body as it stands |\n| [q-0037.0012.0003](docs/questions/q-0037.0012.0003-what-does-an-entry-contract-version-cover.md) waits at `/align`, as the queue has held since 2026-10-08 |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Keep this turn's actual decision boundary separate from a stale queue claim. The user explicitly says this abandoned question is not being worked here.",
+    "source_evidence": [
+      "source.json#/records/522",
+      "source.json#/records/51"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Keep this turn's actual decision boundary separate from a stale queue claim. The user explicitly says this abandoned question is not being worked here.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/422",
+      "source.json#/records/424",
+      "source.json#/records/426",
+      "source.json#/records/427",
+      "source.json#/records/431",
+      "source.json#/records/432",
+      "source.json#/records/436",
+      "source.json#/records/438",
+      "source.json#/records/440",
+      "source.json#/records/442",
+      "source.json#/records/443",
+      "source.json#/records/448",
+      "source.json#/records/449",
+      "source.json#/records/454",
+      "source.json#/records/455",
+      "source.json#/records/460",
+      "source.json#/records/462",
+      "source.json#/records/465",
+      "source.json#/records/467",
+      "source.json#/records/468",
+      "source.json#/records/472",
+      "source.json#/records/474",
+      "source.json#/records/476",
+      "source.json#/records/478",
+      "source.json#/records/479",
+      "source.json#/records/480",
+      "source.json#/records/481",
+      "source.json#/records/482",
+      "source.json#/records/486",
+      "source.json#/records/487",
+      "source.json#/records/491",
+      "source.json#/records/492",
+      "source.json#/records/493",
+      "source.json#/records/494",
+      "source.json#/records/495",
+      "source.json#/records/496",
+      "source.json#/records/501",
+      "source.json#/records/502",
+      "source.json#/records/506",
+      "source.json#/records/507",
+      "source.json#/records/511",
+      "source.json#/records/512",
+      "source.json#/records/513",
+      "source.json#/records/514",
+      "source.json#/records/519",
+      "source.json#/records/520",
+      "source.json#/records/521",
+      "source.json#/records/522"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "A reply carries the abandoned entry-contract-version decision as a current user wait.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/420",
+      "after": "source.json#/records/416",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/406",
+      "source.json#/records/410",
+      "source.json#/records/411",
+      "source.json#/records/415",
+      "source.json#/records/416"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/51"
+      ],
+      "native_context_records": [
+        "source.json#/records/51",
+        "source.json#/records/408"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/408",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\860f6f12-29ee-4e1d-96f5-c4309230eb6c\\tool-results\\hook-286c5740-73de-4634-a635-a6aca5dab6f7-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-286c5740-73de-4634-a635-a6aca5dab6f7-1-additionalContext.txt",
+          "sha256": "b6d83a9299bc52c2fd77ac8ee65d3f6a357b6bb56aec1decb5db0245eed06781",
+          "bytes": 42003,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1720,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-19T23:14:00.066714+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/420"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

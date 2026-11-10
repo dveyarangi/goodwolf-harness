@@ -1,0 +1,127 @@
+{
+  "id": "cursor-5fba085e-window",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "28. In Cursor the window was not drawn by the rule — 2026-10-10",
+    "occurrence": "original",
+    "detail": "original_source_located_with_duty_and_actor_model_gaps"
+  },
+  "provenance": {
+    "host": "Cursor",
+    "host_evidence": "Native Cursor SQLite chat/message keys, corroborated by public transcript exports where retained.",
+    "model": "unknown",
+    "model_source": null,
+    "model_evidence_kind": "No actual assistant model field retained. User-message requested model metadata is preserved separately and not promoted to actor attribution.",
+    "occurred_at": "2026-10-09T21:09:15.334Z",
+    "chat_id": "5fba085e-5ba4-46e6-bfd9-503956f08c12",
+    "failure_message_id": "2b6cde31-1d95-43e2-92ce-83b8d88d15b9",
+    "trigger_message_id": "ab175304-4fef-43a8-ab5c-ef2c93b8a5c9",
+    "requested_model": "grok-4.7",
+    "requested_model_source": "source.json#/recovered_public_evidence/trigger/model_field",
+    "timestamp_note": null
+  },
+  "observed_failure": {
+    "description": "Original public tool sequence contains exactly one questions.py at command and zero --window invocations before the recall close and its shell-completion follow-up.",
+    "events": [
+      {
+        "source": "source.json#/recovered_public_evidence/offending_original_reply",
+        "message_id": "2b6cde31-1d95-43e2-92ce-83b8d88d15b9",
+        "timestamp": "2026-10-09T21:09:15.334Z",
+        "text": "Entry contract: v50, 2026-10-09.\n\n| 📍 **q-0027** · How does each turn know its next step, and each session where to resume? |\n|---|\n\nHello again. The wake is in. This conversation stands on q-0027 until you name the work.\n\nLanded work whose boxes are still open comes first.[^1] Two tickets share that rank, so both are here.\n\n- [01-0010.0174 each hook finds its interpreter](docs/tickets/01-0010.0174-each-hook-finds-its-interpreter.md) was implemented on 2026-10-09. Three boxes are open: the hooks deliver the window on a clone with no `uv`, each of the three hosts runs them in a live Windows session, and `/verify`. A running session already stands on q-0018.0020.0005.0002 How does each hook find a working interpreter in every clone, under each host's shell? That ticket stays with it.\n- [01-0011.0110.0020 a paragraph shows what it stands on](docs/tickets/01-0011.0110.0020-a-paragraph-shows-what-it-stands-on.md) was verified on 2026-10-08. Two boxes wait on a week of your grading. Running sessions stand on q-0030 How does a reply show the principles each of its claims stands on, and where are the principles named for it?\n\nThe queue’s candidate, once you nod, is [01-0011.0110.0040.0010 every record shows what it is a record of](docs/tickets/01-0011.0110.0040.0010-every-record-shows-what-it-is-a-record-of.md). It is Ready, AFK, and its next step is `/plan`. It answers q-0024.0009.0003.0001 How does every record an agent edits show what it is a record of? One decision also waits at `/align`: q-0026.0003 What does an entry-contract version cover?\n\nThree occasions since that order was set are yours to promote or leave.[^2]\n\n1. On 2026-10-09 you took issue 4 ahead of the queue. The merge has landed. [01-0010.0176 a failed install gate says why it failed](docs/tickets/01-0010.0176-a-failed-gate-says-why.md) is Ready and AFK, and the hooks session’s handoff names it as that session’s next. The queue’s candidate remains `.0040.0010`.\n2. [Session 45](docs/sessions/0045-20261009-what-the-harness-is-for.md) asks whether goals derived from the product document, and [01-0010.0150 the harness meets a tree that already has a method](docs/tickets/01-0010.0150-harness-meets-a-tree-with-a-method.md), should become the candidate.\n3. [Session 44, the roots](docs/sessions/0044-20261009-a-store-opens-with-three-roots.md), left two questions from that work for you, and called [01-0011.0100.0050 a question branches before it is answered](docs/tickets/01-0011.0100.0050-a-question-branches-before-it-is-answered.md) the queue’s next. The candidate paragraph names `.0040.0010`, with `.0050` after those slices.\n\nI stop at this fork. The next cycle waits for your nod. (💡 *Human checkpoints*)\n\nTen other sessions are marked running. Five stand on a question: the interpreter ticket, the merge’s child (that ticket has since closed), q-0018.0020.0003 How does a first install end with the project’s own verification set?, and q-0030 with a child. Five have no position. Nothing is suspect, and no straw dog is due. Two deferrals were re-checked; their conditions are unmet. q-0001.0013 How does the store remember every id it has given, so none is given twice? waits on a stale id landing silently. q-0006 Could the rule set be composite, with no pure core anywhere? waits on a second mechanism whose rules cannot be injected as a block.\n\nThe tree is clean apart from `docs/questions/sessions`, the store’s session rows, including this one.\n\n| | |\n|---|---|\n| ⚖️ Decisions | Which item this session takes. Also still waiting: the grading week on 01-0011.0110.0020, and q-0026.0003 at `/align`. |\n| 🍂 Drift | [Delivery status](docs/tickets/README.md): the completed-step chronicle ends at session 42 on 2026-10-08, and the verification-set line still says 532 tests on 2026-10-05. Session 44 recorded 572 at its close on 2026-10-09. Left as found. |\n| 🪢 Tangle | Two records are both numbered 0044, and several sessions are writing this tree at once. q-0032 How do sessions running at once in one tree keep from overwriting each other’s writes? is open. Left unresolved. |\n\n[^1]: [pacer.md](docs/pacer.md), Core rules — the user, 2026-09-06. A tie at one rank is presented. (💡 *Do not reopen an accepted decision without new evidence*)\n[^2]: The queue’s order, the user, 2026-09-27, reconfirmed 2026-09-29; the candidate set to `.0040.0010` on 2026-10-08, in the delivery status. A last session’s handoff is a list of candidates. The queue states the order."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Draw the required initial full questions window before answering; assess against the contemporaneous delivered instruction body.",
+    "source_evidence": [
+      "source.json#/recovered_public_evidence/gaps"
+    ]
+  },
+  "check": {
+    "kind": "source-grounded response/action review with explicit evidence gap",
+    "status": "blocked pending contemporaneous instruction/exposure evidence",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Draw the required initial full questions window before answering; assess against the contemporaneous delivered instruction body.",
+        "expected_for_recorded_failure": null
+      }
+    ]
+  },
+  "bounds": {
+    "evidence_gaps": [
+      "The assistant model field is absent; do not promote the user-request model field to actual assistant attribution.",
+      "Antecedent Q1 duty body and original injected window are not retained in selected public fields. Instruction read results contain totalLinesInFile only. The assistant claim that the wake is already in context is not independent proof of injection.",
+      "The reported four messages in local00:01–00:09 include host-generated shell notifications; the native sequence has one human greeting and a grouped shell-notification follow-up, rather than four independent human requests."
+    ],
+    "model_metadata": "Original user bubble ab175304 records $.modelInfo.modelName=grok-4.7. Assistant reply/tool bubbles lack modelInfo. This is request-message metadata, not independently established actual responding-model attribution.",
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "Original public tool sequence contains exactly one questions.py at command and zero --window invocations before the recall close and its shell-completion follow-up.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/recovered_public_evidence/offending_original_reply",
+      "after": null,
+      "description": "Before the recovered public response/action. The duty body is not fully recoverable."
+    },
+    "input_records": [],
+    "unresolved_input_records": [
+      "source.json#/recovered_public_evidence/trigger",
+      "source.json#/recovered_public_evidence/pre_failure_public_context"
+    ],
+    "initial_state": {
+      "recorded_instruction_evidence": []
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/recovered_public_evidence/offending_original_reply"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Instruction evidence, host metadata and reference-only records do not become additional actor messages.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role."
+    ]
+  },
+  "source_gaps": [
+    {
+      "kind": "existing source qualification",
+      "detail": "The assistant model field is absent; do not promote the user-request model field to actual assistant attribution."
+    },
+    {
+      "kind": "existing source qualification",
+      "detail": "Antecedent Q1 duty body and original injected window are not retained in selected public fields. Instruction read results contain totalLinesInFile only. The assistant claim that the wake is already in context is not independent proof of injection."
+    },
+    {
+      "kind": "existing source qualification",
+      "detail": "The reported four messages in local00:01–00:09 include host-generated shell notifications; the native sequence has one human greeting and a grouped shell-notification follow-up, rather than four independent human requests."
+    },
+    {
+      "kind": "native replay context incomplete",
+      "source": "source.json#/recovered_public_evidence/trigger",
+      "detail": "The native bubble type and public text are retained, but a complete native role-separated delivery sequence is not retained; no replacement message is invented."
+    },
+    {
+      "kind": "native replay context incomplete",
+      "source": "source.json#/recovered_public_evidence/pre_failure_public_context",
+      "detail": "The retained block contains recovered public context fragments, not a complete native role-separated delivery sequence; no replacement sequence is invented."
+    },
+    {
+      "kind": "native replay context absent",
+      "detail": "No complete native pre-failure message sequence is retained."
+    },
+    {
+      "kind": "existing check evidence block",
+      "detail": "blocked pending contemporaneous instruction/exposure evidence"
+    }
+  ]
+}

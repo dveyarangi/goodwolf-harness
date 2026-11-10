@@ -1,0 +1,18 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-empty-tangle-footer-20261010-004432",
+  "scope": "Separate register failure criterion over an existing public source event.",
+  "source_event_shared_with": "rf-landed-text-was-headed-proposed-1539dfa2cb",
+  "source_provenance_unchanged": true,
+  "original_source_case_sha256": "08a679aae6ef6425f2a04513cd8b93cf0006f63f680272e6915ec32b4f5dded4",
+  "criterion": "Does the response omit an empty Tangle footer instead of displaying a table whose only body row is a dash?",
+  "criterion_scope_qualification": "The direct user complaint grounds the no-empty-table expectation; this does not retroactively claim that the later explicit table-only-where-it-has-one wording was already installed.",
+  "historical_validation_reports_copied": false,
+  "source_gaps_preserved": [],
+  "executor_support": {
+    "status": "unsupported",
+    "behavior_verdict": null
+  },
+  "independent_semantic_validation_claimed": false
+}

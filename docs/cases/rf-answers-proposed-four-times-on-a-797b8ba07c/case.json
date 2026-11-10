@@ -1,0 +1,212 @@
+{
+  "id": "rf-answers-proposed-four-times-on-a-797b8ba07c",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "25. Answers proposed four times on a question whose parts were not unfolded — 2026-10-09",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "premature-answer-393"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/393",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/393/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-08T23:03:18.860Z",
+    "chat_id": "de339340-8b19-4267-adf9-e12d9a7b6382",
+    "trigger_message_id": null,
+    "trigger_record_id": "9872f6ef-ccb7-46a2-950b-5a1af9299a7f",
+    "failure_message_id": "msg_011Cfqc1hNzzV6K85zr4REtT",
+    "failure_record_id": "1091a8e0-1002-460d-be2c-6c0e2ed4fe8b",
+    "transcript": "de339340-8b19-4267-adf9-e12d9a7b6382.jsonl"
+  },
+  "observed_failure": {
+    "description": "Following a user correction that reshapes the relation problem, this reply commits another concrete account and again puts a form or next step to the user. Four separately prompted replies are retained.",
+    "events": [
+      {
+        "source": "source.json#/records/393",
+        "message_id": "msg_011Cfqc1hNzzV6K85zr4REtT",
+        "record_id": "1091a8e0-1002-460d-be2c-6c0e2ed4fe8b",
+        "timestamp": "2026-10-08T23:03:18.860Z",
+        "text": "| 📍 **q-0001.0023** · How does an answer record the answers it assumes, so that a change in them finds it without blocking anything? |\n|---|\n\nТы прав, и это ломает весь тест, а не только мои примеры. Любой вопрос что-то предполагает: язык сервиса — что это сервис, назначение — что есть проект. Поэтому деление на depends и assumes нельзя вывести из самой пары вопросов. Записал это и закоммитил.\n\n**Почему так.** Снимет ли изменение B сам вопрос A или только сдвинет его ответ, решает **изменение**, а не связь. Важно, насколько далеко ушёл ответ B:\n- В команду пришёл ещё один разработчик — ответ «на каком языке» под сомнением, вопрос стоит.\n- Команды больше нет — сервиса может не быть вовсе, и вопрос снимается.\n\nСвязь одна и та же, а последствия разные. Когда связь записывается, никто не знает, какое изменение придёт (💡 *The shape's structure*).\n\n**Закостенелость — это и есть твоё наблюдение.** Предпосылки, которые никто не ждёт сдвинуть, — это **почва**, их никто не записывает. Пока проект жидкий, почвы мало: изменение ландшафта может снять вопрос «для чего проект». По мере того как проект обрастает плотью, предпосылки уходят в почву, и то, что раньше снимало вопросы, теперь только сдвигает ответы. Это тот самый сдвиг весов, который ты вынес в отдельный вопрос.\n\n**Что из этого следует для формы** (💡 *Occam*):\n\n🧩 **Proposed change — the questions mechanism, assumes**\n\n> **Assumes.** One link for validity: a question's position — its answer, or its lean while it is open — took another question's position as given. It is written when the position is written, for a position that is still live; a premise nobody expects to move is ground and is not written. When the assumed position changes, each question that assumed it is judged at that change: untouched, its answer in doubt (suspect), or its question in doubt (reworded, split again, or moot). The link never blocks.\n\nУ `depends on` остаётся то, чего у assumes нет: **порядок**, то есть «спрашивай A после B». Это отдельная забота: когда спрашивать, а не на чём стоит ответ.\n\n| ⚖️ Decisions | Варианты | Моя рекомендация |\n|---|---|---|\n| Одна связь assumes, а её последствия решаются при изменении | да · держать два вида связи | да: вид последствия зависит от изменения, связь его не знает |\n| Что делать с `depends on` | оставить как есть · свести к порядку · убрать в пользу assumes | свести к порядку, но не сейчас: сначала посмотреть, как assumes поведёт себя в деле |\n| Следующий шаг | /align по этой форме · ещё покрутить определение | /align: определение теперь не обещает того, чего нельзя знать в момент записи связи |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Unfold hidden parts before proposing another sharp answer after the user reshapes the question; the final user correction says the complexity remains unresolved.",
+    "source_evidence": [
+      "source.json#/records/397",
+      "source.json#/records/19"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Unfold hidden parts before proposing another sharp answer after the user reshapes the question; the final user correction says the complexity remains unresolved.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/397"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "Following a user correction that reshapes the relation problem, this reply commits another concrete account and again puts a form or next step to the user. Four separately prompted replies are retained.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/393",
+      "after": "source.json#/records/389",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/285",
+      "source.json#/records/289",
+      "source.json#/records/298",
+      "source.json#/records/299",
+      "source.json#/records/302",
+      "source.json#/records/303",
+      "source.json#/records/305",
+      "source.json#/records/306",
+      "source.json#/records/308",
+      "source.json#/records/313",
+      "source.json#/records/317",
+      "source.json#/records/318",
+      "source.json#/records/322",
+      "source.json#/records/326",
+      "source.json#/records/331",
+      "source.json#/records/336",
+      "source.json#/records/340",
+      "source.json#/records/341",
+      "source.json#/records/342",
+      "source.json#/records/343",
+      "source.json#/records/346",
+      "source.json#/records/350",
+      "source.json#/records/359",
+      "source.json#/records/360",
+      "source.json#/records/363",
+      "source.json#/records/364",
+      "source.json#/records/365",
+      "source.json#/records/366",
+      "source.json#/records/373",
+      "source.json#/records/377",
+      "source.json#/records/382",
+      "source.json#/records/383",
+      "source.json#/records/384",
+      "source.json#/records/389"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/19"
+      ],
+      "native_context_records": [
+        "source.json#/records/19",
+        "source.json#/records/291",
+        "source.json#/records/328",
+        "source.json#/records/352",
+        "source.json#/records/379"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/291",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\de339340-8b19-4267-adf9-e12d9a7b6382\\tool-results\\hook-b81013d1-535c-4c5e-8b4d-1994209e56c2-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "unavailable",
+          "search_scope": "exact recorded path and matching basenames under the accessible Claude projects tree",
+          "available_candidate_count": 0
+        },
+        {
+          "referenced_by": "source.json#/records/328",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\de339340-8b19-4267-adf9-e12d9a7b6382\\tool-results\\hook-9a1e24da-b395-431e-a688-c660b2386e9c-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "unavailable",
+          "search_scope": "exact recorded path and matching basenames under the accessible Claude projects tree",
+          "available_candidate_count": 0
+        },
+        {
+          "referenced_by": "source.json#/records/352",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\de339340-8b19-4267-adf9-e12d9a7b6382\\tool-results\\hook-1a068b8b-c62a-43da-aa4a-bd23a85b5476-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "unavailable",
+          "search_scope": "exact recorded path and matching basenames under the accessible Claude projects tree",
+          "available_candidate_count": 0
+        },
+        {
+          "referenced_by": "source.json#/records/379",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\de339340-8b19-4267-adf9-e12d9a7b6382\\tool-results\\hook-ceb6d71d-df1a-4db5-9c5f-4f140571af03-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "unavailable",
+          "search_scope": "exact recorded path and matching basenames under the accessible Claude projects tree",
+          "available_candidate_count": 0
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/393"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": [
+    {
+      "kind": "referenced public artifact unavailable",
+      "source": "source.json#/records/291",
+      "detail": "The native hook message retains an exact persisted-output notice and preview. The full referenced public output was not found at its recorded path or by basename in the accessible Claude projects tree; its necessity for this case check is not established.",
+      "artifact_basename": "hook-b81013d1-535c-4c5e-8b4d-1994209e56c2-1-additionalContext.txt",
+      "necessity_for_case_checks": "not established"
+    },
+    {
+      "kind": "referenced public artifact unavailable",
+      "source": "source.json#/records/328",
+      "detail": "The native hook message retains an exact persisted-output notice and preview. The full referenced public output was not found at its recorded path or by basename in the accessible Claude projects tree; its necessity for this case check is not established.",
+      "artifact_basename": "hook-9a1e24da-b395-431e-a688-c660b2386e9c-1-additionalContext.txt",
+      "necessity_for_case_checks": "not established"
+    },
+    {
+      "kind": "referenced public artifact unavailable",
+      "source": "source.json#/records/352",
+      "detail": "The native hook message retains an exact persisted-output notice and preview. The full referenced public output was not found at its recorded path or by basename in the accessible Claude projects tree; its necessity for this case check is not established.",
+      "artifact_basename": "hook-1a068b8b-c62a-43da-aa4a-bd23a85b5476-1-additionalContext.txt",
+      "necessity_for_case_checks": "not established"
+    },
+    {
+      "kind": "referenced public artifact unavailable",
+      "source": "source.json#/records/379",
+      "detail": "The native hook message retains an exact persisted-output notice and preview. The full referenced public output was not found at its recorded path or by basename in the accessible Claude projects tree; its necessity for this case check is not established.",
+      "artifact_basename": "hook-ceb6d71d-df1a-4db5-9c5f-4f140571af03-1-additionalContext.txt",
+      "necessity_for_case_checks": "not established"
+    }
+  ]
+}

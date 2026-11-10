@@ -1,0 +1,23 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-replies-left-the-person-s-langua-77397c6fd4",
+  "scope": "Exact public tool-ID counterpart recovery and native delivery classification, not all-context sufficiency or behavior judgment.",
+  "pre_checkpoint_counterparts_recovered": [
+    {
+      "call_id": "toolu_014e2eF2UmxDKnL2Gv8LY4Kk",
+      "counterpart": "source.json#/records/299",
+      "block_type": "tool_use",
+      "original_record_sha256": "b67e52591f564ebf1686fc3e69c7ea1b651bbe15db70e770e4521ac2cb4002b7"
+    }
+  ],
+  "known_later_results_reference_only": [],
+  "incoming_native_host_deliveries": [],
+  "source_gap_count": 0,
+  "executor_support": {
+    "status": "unsupported",
+    "behavior_verdict": null
+  },
+  "no_call_ids_or_roles_invented": true,
+  "original_source_record_hashes_recorded": true
+}

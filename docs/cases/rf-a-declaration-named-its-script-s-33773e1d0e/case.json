@@ -1,0 +1,113 @@
+{
+  "id": "rf-a-declaration-named-its-script-s-33773e1d0e",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "7. A declaration named its script's verbs, and two arguments were built on it — 2026-09-23",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "second ownership argument repeats implementation"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/225",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.280"
+    },
+    "model": "claude-opus-5",
+    "model_source": "source.json#/records/225/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-09-23T10:33:00.554Z",
+    "chat_id": "85ded642-4a06-47ff-9a3d-b79f98dfb226",
+    "trigger_message_id": null,
+    "trigger_record_id": "e52bc972-cd50-42c0-8df8-77ce317f35df",
+    "failure_message_id": "msg_011CfLDdBtCTueGRAv65Lfcb",
+    "failure_record_id": "4b9fc77c-4621-4cf8-90a4-fc0e1907d8b6",
+    "transcript": "85ded642-4a06-47ff-9a3d-b79f98dfb226.jsonl"
+  },
+  "observed_failure": {
+    "description": "A new explicit request for the argument again receives a boundary based on placing refs and atomic copying.",
+    "events": [
+      {
+        "source": "source.json#/records/225",
+        "message_id": "msg_011CfLDdBtCTueGRAv65Lfcb",
+        "record_id": "4b9fc77c-4621-4cf8-90a4-fc0e1907d8b6",
+        "timestamp": "2026-09-23T10:33:00.554Z",
+        "text": "Fair. I gave you a verdict twice instead of the argument. Here is the actual case against harness, and where it lands.\n\n**1. The description stops being true.** Harness is declared as *\"places a ref of the repository into a tree that is not its own, and checks the copy against it\"* — and its doc leans hard on that being seconds, atomic, refusal-writes-nothing. A quicklook is minutes, non-atomic, judgement-bearing, and its subject is the project's domain, not core's arrival. Owning it widens the description to two subjects.\n\n**2. It puts volatile instruction in the least-changeable mechanism.** Harness is the one thing every recipient holds, and [harness.md:22](.agents/mechanisms/harness/harness.md:22) says a change to it *\"reads as an edit in every recipient installed before it.\"* How to read a codebase and what a skeleton contains is exactly the instruction we'll revise most. Every revision then becomes an installation-edge change needing a release and a migration — the cost [01-0010.0160](docs/tickets/01-0010.0160-harness-edge-changes-reach-an-update.md) exists to contain.\n\n**3. It inverts the core–instance boundary.** Harness is core's mechanism: it knows refs, manifests, the origin. The quicklook's output is *instance content* — this project's architecture, this project's terms. Harness may name `docs/architecture.md` as a painted door, but authoring what goes in it makes the delivery mechanism the author of the instance's own thinking.\n\n**4. The strongest one, which I hadn't said: the occasion is not arrival-shaped.** \"A part of this tree nobody has described\" recurs long after install — a project that acquires a subsystem, or one that installed a year ago and still has no architecture. If harness owns the instruction, that recurrence has no door, and someone will write a second one.\n\n**Where that leaves it.** Reasons 1–3 argue against harness being the *instruction's home*; none of them touch harness owning the *moment*. Reason 4 is the one that actually decides, and it decides against arrival-bound instruction — not in favour of align, which you've correctly ruled out as temporary.\n\nSo the honest answer is: **harness owns it, and harness is not where it will live.** The shape has a word for precisely that state — `embedded`, *\"instructed, from the wrong home,\"* carrying where the instruction sits ([mechanism/SKILL.md:62](.agents/skills/mechanism/SKILL.md:62)). Write the quicklook in `harness/SKILL.md` now, mark the row `embedded`, and it moves to the method mechanism when [01-0017.0010](docs/tickets/01-0017.0010-terms-defined-before-they-land.md) incepts it — a row edit, with the debt visible in the table instead of forgotten.\n\nThat is harness owning it today. What I was wrong about is that this needed a different owner; what I'd still hold is that it needs the `embedded` flag, or reason 4 comes back as a duplicate skill in six months."
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Answer ownership against purpose, checking whether the challenged definition is itself wrong.",
+    "source_evidence": [
+      "source.json#/records/40",
+      "source.json#/records/220",
+      "source.json#/records/40"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Answer ownership against purpose, checking whether the challenged definition is itself wrong.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/227"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "A new explicit request for the argument again receives a boundary based on placing refs and atomic copying.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/225",
+      "after": "source.json#/records/222",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/213",
+      "source.json#/records/216",
+      "source.json#/records/217",
+      "source.json#/records/220",
+      "source.json#/records/222"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/40"
+      ],
+      "native_context_records": [
+        "source.json#/records/40"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/225"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

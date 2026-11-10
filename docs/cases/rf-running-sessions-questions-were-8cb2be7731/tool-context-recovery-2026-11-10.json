@@ -1,0 +1,41 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-running-sessions-questions-were-8cb2be7731",
+  "scope": "Exact public tool-ID counterpart recovery and native delivery classification, not all-context sufficiency or behavior judgment.",
+  "pre_checkpoint_counterparts_recovered": [],
+  "known_later_results_reference_only": [],
+  "incoming_native_host_deliveries": [
+    {
+      "source": "source.json#/records/603",
+      "native_type": "function_call_output",
+      "native_name": "send_message_to_thread",
+      "native_id": "fco_01a1784a-d28a-76d3-9547-993009f96859",
+      "turn_id": "01a17842-dcc8-72c0-a47a-48484748df3e",
+      "basis": "The literal public output is a codex_delegation envelope carrying source_thread_id and input. No local tool call is inferred."
+    },
+    {
+      "source": "source.json#/records/1297",
+      "native_type": "function_call_output",
+      "native_name": "send_message_to_thread",
+      "native_id": "fco_01a17891-975e-7663-9e2f-5b6f045fb201",
+      "turn_id": "01a17891-975e-7663-9e2f-5b5886bbc931",
+      "basis": "The literal public output is a codex_delegation envelope carrying source_thread_id and input. No local tool call is inferred."
+    },
+    {
+      "source": "source.json#/records/1389",
+      "native_type": "function_call_output",
+      "native_name": "send_message_to_thread",
+      "native_id": "fco_01a178b0-04dc-7803-90b5-22f709eabdd6",
+      "turn_id": "01a178b0-04dc-7803-90b5-22e946ca7396",
+      "basis": "The literal public output is a codex_delegation envelope carrying source_thread_id and input. No local tool call is inferred."
+    }
+  ],
+  "source_gap_count": 0,
+  "executor_support": {
+    "status": "unsupported",
+    "behavior_verdict": null
+  },
+  "no_call_ids_or_roles_invented": true,
+  "original_source_record_hashes_recorded": true
+}

@@ -1,0 +1,173 @@
+{
+  "id": "rf-a-local-rule-in-the-entry-file-n-17042dc4ab",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "60. A local rule in the entry file named the skill that executes it, and no check found it odd — 2026-10-22",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "original public event"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/891",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.308"
+    },
+    "model": "claude-fable-5-1",
+    "model_source": "source.json#/records/891/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-22T16:09:56.941Z",
+    "chat_id": "70d575d7-50f7-4af7-8313-c69b241a42f5",
+    "trigger_message_id": null,
+    "trigger_record_id": "583d965e-22da-496e-a29f-dd7c596536c1",
+    "failure_message_id": "msg_011CgHZnzb7KfeFpLqjiiUYp",
+    "failure_record_id": "af4a8874-38a7-4bc9-aff0-7e9a5483b054",
+    "transcript": "70d575d7-50f7-4af7-8313-c69b241a42f5.jsonl"
+  },
+  "observed_failure": {
+    "description": "A local rule whose target is AGENTS.md names /verify as an execution occasion and is installed there.",
+    "events": [
+      {
+        "source": "source.json#/records/891",
+        "message_id": "msg_011CgHZnzb7KfeFpLqjiiUYp",
+        "record_id": "af4a8874-38a7-4bc9-aff0-7e9a5483b054",
+        "timestamp": "2026-10-22T16:09:56.941Z",
+        "text": "Bash {\"command\": \"uv run --offline --no-project python - <<'EOF'\\nimport pathlib\\nq = pathlib.Path(\\\".agents/scripts/gw/questions.py\\\"); s = q.read_text(encoding=\\\"utf-8\\\")\\n# 1. argv: accept --require-rung\\nold = '''        if argv == [\\\"--check\\\"]:\\n            checked = check(root)'''\\nnew = '''        if argv in ([\\\"--check\\\"], [\\\"--check\\\", \\\"--require-rung\\\"]):\\n            checked = check(root, require_rung=len(argv) == 2)'''\\nassert old in s; s = s.replace(old, new, 1)\\n# 2. check signature and findings\\nold = '''def check(root: Path) -> Checked:\\n    \\\"\\\"\\\"Every entry, live and archived, and the sessions' rows against the store's shape; then what\\n    a person should look at in a store that keeps it.\\\"\\\"\\\"'''\\nnew = '''def check(root: Path, require_rung: bool = False) -> Checked:\\n    \\\"\\\"\\\"Every entry, live and archived, and the sessions' rows against the store's shape; then what\\n    a person should look at in a store that keeps it. `require_rung` is a tree's own answer, passed\\n    by its verification set: there every open question carries its rung, and one without is a\\n    finding.\\\"\\\"\\\"'''\\nassert old in s; s = s.replace(old, new, 1)\\nold = '''        + _ready_for_done(entries, index)\\n        + _unstated(entries, index)\\n    )'''\\nnew = '''        + _ready_for_done(entries, index)\\n        + _unstated(entries, index)\\n        + (_unrunged(entries) if require_rung else [])\\n    )'''\\nassert old in s; s = s.replace(old, new, 1)\\n# 3. the finding\\nold = '''def _owner(read: Entry) -> str | None:'''\\nnew = '''def _unrunged(entries: list[Entry]) -> list[Finding]:\\n    \\\"\\\"\\\"Each live open question without a `rung` part, in a tree whose method declares a ladder and\\n    whose local file therefore requires the part (q-0037.0019, decision 2). A finding, not a\\n    diagnostic: another session's question gains its rung at that session's next touch.\\\"\\\"\\\"\\n    return [\\n        Finding(read.record, 1, f\\\"{read.identity} is open and has no rung\\\")\\n        for read in entries\\n        if not read.archived and read.open and \\\"rung\\\" not in read.parts\\n    ]\\n\\n\\ndef _owner(read: Entry) -> str | None:'''\\nassert s.count(old) == 1; s = s.replace(old, new, 1)\\nq.write_text(s, encoding=\\\"utf-8\\\")\\n\\n# 4. the local file: L11 and L3's command\\nl = pathlib.Path(\\\"local.rules.md\\\"); u = l.read_text(encoding=\\\"utf-8\\\")\\nold_l3 = \\\"uv run --offline --no-project python .agents/scripts/gw/questions.py --check\\\\n\\\"\\nassert old_l3 in u\\nu = u.replace(old_l3, \\\"uv run --offline --no-project python .agents/scripts/gw/questions.py --check --require-rung\\\\n\\\", 1)\\nold_auth = \\\"- **authority** the user, 2026-09-05; the tests by what changed, 2026-10-11; in every skill that\\\\n  runs it, 2026-10-11; the product check once the document carried its ids, 2026-10-13\\\"\\nassert old_auth in u\\nu = u.replace(old_auth, old_auth + \\\";\\\\n  the store's check requiring every open question's rung, 2026-10-22\\\", 1)\\nmarker = \\\"## L10 — what core names under docs/\\\"\\nl11 = \\\"\\\"\\\"## L11 — an open question carries its rung\\n\\n- **target** `AGENTS.md`\\n- **authority** the user, 2026-10-22: required where the installed method declares a ladder, which\\n  this tree's does; a tree whose method has none is not asked for it\\n\\n<rule>\\nAt the `open` of a question, give it its highest rung on each ladder it touches, as the entry\\nfile's *Autonomy* reads them; at the verification set's run, an open question without one is the\\nstore's finding.\\n</rule>\\n\\n\\\"\\\"\\\"\\nassert marker in u; u = u.replace(marker, l11 + marker, 1)\\nl.write_text(u, encoding=\\\"utf-8\\\"); print(\\\"code and local file written\\\")\\nEOF\\nuv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/test -p \\\"test_questions.py\\\" -k RungRequired 2>&1 | tail -3\", \"description\": \"Implement the flag and the finding, write L11 and L3's flag, run the new tests\", \"timeout\": 300000}"
+      },
+      {
+        "source": "source.json#/records/910",
+        "message_id": "msg_011CgHZs1UoZ8CPvsCzfrbbe",
+        "record_id": "4b71d92d-d1eb-4dd0-b22d-d95618501238",
+        "timestamp": "2026-10-22T16:10:32.555Z",
+        "text": "Bash {\"command\": \"uv run --offline --no-project python .agents/scripts/gw/inject_rules.py local --install --overwrite 2>&1 | tail -5; echo \\\"## L11 in the entry file\\\"; grep -n 'L11' AGENTS.md | cut -c1-80; echo \\\"## checks\\\"; for s in mechanisms inject_rules tickets edges maintain sessions product; do uv run --offline --no-project python .agents/scripts/gw/$s.py --check > /dev/null 2>&1; echo \\\"$s exit=$?\\\"; done; uv run --offline --no-project python .agents/scripts/gw/questions.py --check --require-rung > \\\"$TEMP/q.json\\\" 2>&1; echo \\\"questions --require-rung exit=$?\\\"; grep -c 'has no rung' \\\"$TEMP/q.json\\\"; grep 'has no rung' \\\"$TEMP/q.json\\\" | grep -o 'q-[0-9.]*' | sort -u | tr '\\\\n' ' '\", \"description\": \"Install the local block and run every check, the questions check with the new flag\", \"timeout\": 300000}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Put the occasion-specific instruction where the occasion reads it; the user asks why the verification instruction was not installed into maintain and why the entry-file skill reference looked acceptable.",
+    "source_evidence": [
+      "source.json#/records/954",
+      "source.json#/records/955",
+      "source.json#/records/981",
+      "source.json#/records/833"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Put the occasion-specific instruction where the occasion reads it; the user asks why the verification instruction was not installed into maintain and why the entry-file skill reference looked acceptable.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/911",
+      "source.json#/records/916",
+      "source.json#/records/917",
+      "source.json#/records/919",
+      "source.json#/records/923",
+      "source.json#/records/924",
+      "source.json#/records/928",
+      "source.json#/records/930",
+      "source.json#/records/931",
+      "source.json#/records/933",
+      "source.json#/records/934",
+      "source.json#/records/937",
+      "source.json#/records/939",
+      "source.json#/records/941",
+      "source.json#/records/943",
+      "source.json#/records/944",
+      "source.json#/records/948",
+      "source.json#/records/950",
+      "source.json#/records/952",
+      "source.json#/records/954",
+      "source.json#/records/955",
+      "source.json#/records/959",
+      "source.json#/records/960",
+      "source.json#/records/962",
+      "source.json#/records/963",
+      "source.json#/records/968",
+      "source.json#/records/969",
+      "source.json#/records/973",
+      "source.json#/records/974",
+      "source.json#/records/979",
+      "source.json#/records/981"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "A local rule whose target is AGENTS.md names /verify as an execution occasion and is installed there.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/891",
+      "after": "source.json#/records/890",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/829",
+      "source.json#/records/836",
+      "source.json#/records/837",
+      "source.json#/records/838",
+      "source.json#/records/839",
+      "source.json#/records/844",
+      "source.json#/records/845",
+      "source.json#/records/850",
+      "source.json#/records/851",
+      "source.json#/records/856",
+      "source.json#/records/857",
+      "source.json#/records/862",
+      "source.json#/records/863",
+      "source.json#/records/864",
+      "source.json#/records/865",
+      "source.json#/records/870",
+      "source.json#/records/871",
+      "source.json#/records/872",
+      "source.json#/records/877",
+      "source.json#/records/878",
+      "source.json#/records/883",
+      "source.json#/records/884",
+      "source.json#/records/888",
+      "source.json#/records/889",
+      "source.json#/records/890"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/833"
+      ],
+      "native_context_records": [
+        "source.json#/records/832",
+        "source.json#/records/833"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/891",
+        "source.json#/records/910"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

@@ -1,0 +1,38 @@
+{
+  "record_of": "what happened",
+  "date": "2026-11-10",
+  "case": "rf-a-drift-repair-s-subagent-sent-i-be22c2bccd",
+  "scope": "Expansion of already-selected related-source public payloads; no new unselected records or inferred actor roles.",
+  "sources": [
+    {
+      "related_source": "e27bb7ce94",
+      "transcript": "f5e07b2a-84d7-43ae-9b28-a336203584bc.jsonl",
+      "records_checked": 4
+    }
+  ],
+  "selected_records_checked": 4,
+  "records_expanded": [
+    {
+      "related_source": "e27bb7ce94",
+      "record": 7539
+    },
+    {
+      "related_source": "e27bb7ce94",
+      "record": 7557
+    },
+    {
+      "related_source": "e27bb7ce94",
+      "record": 7595
+    },
+    {
+      "related_source": "e27bb7ce94",
+      "record": 7608
+    }
+  ],
+  "structured_private_blocks_omitted": 0,
+  "unsupported_public_fields_or_records": [],
+  "source_paths_unavailable": [],
+  "original_record_hashes_verified": true,
+  "unselected_records_decoded": 0,
+  "replay_and_api_input_unchanged": true
+}

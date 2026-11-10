@@ -1,0 +1,161 @@
+{
+  "id": "rf-landed-text-was-headed-proposed-47ae580101",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "38. Landed text was headed Proposed under a Landed heading — 2026-10-11",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "mixed-header-parallel-1283"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/1283",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/1283/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-11T09:23:46.511Z",
+    "chat_id": "50d88569-12cf-400d-9992-9e97262f34fc",
+    "trigger_message_id": null,
+    "trigger_record_id": "f2bcb3ce-2434-46b3-93a3-388370fbef81",
+    "failure_message_id": "msg_011CfvCwe8mbr6BQJEXJNcG6",
+    "failure_record_id": "ba0a6f54-3c4d-4de0-be65-30545a661a85",
+    "transcript": "50d88569-12cf-400d-9992-9e97262f34fc.jsonl"
+  },
+  "observed_failure": {
+    "description": "The reporting reply shows written text under a Proposed header with a Landed suffix, or under a separate Landed heading. Each separately prompted original reply is an occurrence.",
+    "events": [
+      {
+        "source": "source.json#/records/1283",
+        "message_id": "msg_011CfvCwe8mbr6BQJEXJNcG6",
+        "record_id": "ba0a6f54-3c4d-4de0-be65-30545a661a85",
+        "timestamp": "2026-10-11T09:23:46.511Z",
+        "text": "| 📍 **q-0025** · Does each rule reach the occasion it is for? |\n|---|\n\nПравило о префиксе перенёс из ядра в практику этого проекта.\n\n**В ядровом [/commit](.agents/skills/commit/SKILL.md) вместо правила о префиксе теперь шов.** Проекты-получатели больше не получают наши шаги как обязательные:\n\n> 🧩 **Proposed rule — .agents/skills/commit/SKILL.md** · Landed\n> - Write the subject in the project's own convention, where it states one.\n\n**Само соглашение стало L8 в [local.rules.md](local.rules.md).** Оттуда оно установлено в `/commit` локальным блоком. Список шагов закрыт, и прямо сказано, что имя тронутого файла шагом не бывает:\n\n> 🧩 **Proposed rule — local.rules.md, L8** · Landed\n> Prefix the subject with the loop step that produced the work, uppercase, then a colon — one of these and no other: `ALIGN`, `SPEC`, `TICKET`, `PLAN`, `IMPLEMENT`, `VERIFY`, `MAINTAIN`, `DISCOVER`, `RECALL`, `CONCLUDE`; outside the ring, `FIX` for a repair taken on its own, `EQUIP` for a change to the harness's own installation, `DREAM` for a record the second lobe wrote. A name for what the commit touched — the entry file, the local rules, the question store, an RFC — is not a step: a rule landed at an align is `ALIGN`, a question opened while planning is `PLAN`. One prefix per commit; where the work spans two steps, take the dominant one and name the bleed in the message.\n\nЧто ещё сделано:\n- **Реестр отказов правил:** отказ записан под №37. Причина: список читался как примеры, а префикс писали по файлу перед глазами и потом копировали из лога.\n- **Строка для получателей:** записана в вопросе о строках границы, q-0018.0020.0002.0001. Она говорит, что `/commit` больше не задаёт префикс, и проект, который им пользовался, пишет его в свой локальный файл.\n- **Проверки:** по L3 гонял одни `--check`, правка только в markdown. Все шесть чистые.\n\nЕщё одно: из-за сегодняшних правок `AGENTS.md`, в том числе моей v71, почти все механизмы теперь должны на уровне meta-rules. Это работа для следующего `/maintain`.\n\n| 🪶 Commits |\n|---|\n| `b3e8fc2` ALIGN: a commit is named by the step that made it, from a closed list — the project's own practice |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "The user rejects simultaneous Proposed and Landed status; after writing, replace Proposed in that block header with Landed.",
+    "source_evidence": [
+      "source.json#/records/1333",
+      "source.json#/records/1372",
+      "source.json#/records/631"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: The user rejects simultaneous Proposed and Landed status; after writing, replace Proposed in that block header with Landed.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1333",
+      "source.json#/records/1372"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The reporting reply shows written text under a Proposed header with a Landed suffix, or under a separate Landed heading. Each separately prompted original reply is an occurrence.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/1283",
+      "after": "source.json#/records/1279",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/1174",
+      "source.json#/records/1178",
+      "source.json#/records/1179",
+      "source.json#/records/1184",
+      "source.json#/records/1185",
+      "source.json#/records/1186",
+      "source.json#/records/1187",
+      "source.json#/records/1191",
+      "source.json#/records/1192",
+      "source.json#/records/1193",
+      "source.json#/records/1194",
+      "source.json#/records/1202",
+      "source.json#/records/1203",
+      "source.json#/records/1208",
+      "source.json#/records/1209",
+      "source.json#/records/1216",
+      "source.json#/records/1217",
+      "source.json#/records/1218",
+      "source.json#/records/1219",
+      "source.json#/records/1222",
+      "source.json#/records/1223",
+      "source.json#/records/1224",
+      "source.json#/records/1225",
+      "source.json#/records/1230",
+      "source.json#/records/1231",
+      "source.json#/records/1234",
+      "source.json#/records/1235",
+      "source.json#/records/1236",
+      "source.json#/records/1237",
+      "source.json#/records/1242",
+      "source.json#/records/1243",
+      "source.json#/records/1249",
+      "source.json#/records/1250",
+      "source.json#/records/1253",
+      "source.json#/records/1254",
+      "source.json#/records/1258",
+      "source.json#/records/1259",
+      "source.json#/records/1262",
+      "source.json#/records/1263",
+      "source.json#/records/1264",
+      "source.json#/records/1265",
+      "source.json#/records/1268",
+      "source.json#/records/1269",
+      "source.json#/records/1270",
+      "source.json#/records/1271",
+      "source.json#/records/1272",
+      "source.json#/records/1273",
+      "source.json#/records/1277",
+      "source.json#/records/1278",
+      "source.json#/records/1279"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/631"
+      ],
+      "native_context_records": [
+        "source.json#/records/631",
+        "source.json#/records/1176",
+        "source.json#/records/1196"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/1283"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

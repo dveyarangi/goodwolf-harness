@@ -1,0 +1,142 @@
+{
+  "id": "rf-landed-text-was-headed-proposed-050464f95f",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "38. Landed text was headed Proposed under a Landed heading — 2026-10-11",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "mixed-header-parallel-569"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/569",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.286"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/569/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-10T01:26:51.872Z",
+    "chat_id": "50d88569-12cf-400d-9992-9e97262f34fc",
+    "trigger_message_id": null,
+    "trigger_record_id": "2f018bbe-6cbb-4f15-a29a-9718c417ad7d",
+    "failure_message_id": "msg_011CfsgmeseZ9wd5U5Lcq77t",
+    "failure_record_id": "323b32bd-351e-4080-b086-91209329a56c",
+    "transcript": "50d88569-12cf-400d-9992-9e97262f34fc.jsonl"
+  },
+  "observed_failure": {
+    "description": "The reporting reply shows written text under a Proposed header with a Landed suffix, or under a separate Landed heading. Each separately prompted original reply is an occurrence.",
+    "events": [
+      {
+        "source": "source.json#/records/569",
+        "message_id": "msg_011CfsgmeseZ9wd5U5Lcq77t",
+        "record_id": "323b32bd-351e-4080-b086-91209329a56c",
+        "timestamp": "2026-10-10T01:26:51.872Z",
+        "text": "| 📍 **q-0030** · How does a reply show the principles each of its claims stands on, and where are the principles named for it? |\n|---|\n\nГотово, версия контракта поднята до v56. Значок теперь выбирается по тому, что за утверждение в тексте, а не по виду записи, куда он ложится:\n\n> 🧩 **Proposed rule — AGENTS.md, the reply's marks** · Landed\n> - Text proposed for, or written this session into, a doc or code stands as written, in a blockquote under a header naming what it is: `🧩 **Proposed rule — <record>**` for an instruction, `⚓ **Proposed invariant — <record>**` for an invariant, `✏️ **Proposed change — <record>**` for any other text; always for an instruction, an invariant or a load-bearing doc, elsewhere where the reply shows it; `Landed` once written.\n\nРешение записано и в сам вопрос q-0030, вместе с причиной: правило, ложившееся в `AGENTS.md`, получало якорь инварианта. В описании вопроса теперь значится форма v56. Коммит `71f55b3`. (💡 [*A paragraph shows what it stands on*](AGENTS.md:41))\n\n`/verify` и `/maintain` проходят чисто. А вот полный набор тестов зелёным в этом прогоне не был: на двух запусках упало сначала 5 тестов, потом 2. Падают тесты-сторожа: они проверяют, что за время прогона никто не писал в живое хранилище вопросов `docs/questions`, а параллельные сессии туда писали. Два упавших во втором запуске при отдельном прогоне проходят. Какие упали в первом, я не посмотрел, так что за них не поручусь. Моя правка — текст в `AGENTS.md`, тесты её не читают.\n\nЭта ветка разговора теперь про вывод. 01-0011.0040 я не трогаю, это работа другой ветки.\n\n| 🪢 Tangle |\n|---|\n| Тесты-сторожи падают, когда другие сессии пишут в `docs/questions` во время прогона. Пока это так, набор не может быть зелёным, если параллельно работают другие сессии. Это случай q-0032 «How do sessions running at once in one tree keep from overwriting each other's writes?» |"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "The user rejects simultaneous Proposed and Landed status; after writing, replace Proposed in that block header with Landed.",
+    "source_evidence": [
+      "source.json#/records/1333",
+      "source.json#/records/1372",
+      "source.json#/records/475"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: The user rejects simultaneous Proposed and Landed status; after writing, replace Proposed in that block header with Landed.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/1333",
+      "source.json#/records/1372"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The reporting reply shows written text under a Proposed header with a Landed suffix, or under a separate Landed heading. Each separately prompted original reply is an occurrence.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/569",
+      "after": "source.json#/records/566",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/503",
+      "source.json#/records/507",
+      "source.json#/records/508",
+      "source.json#/records/511",
+      "source.json#/records/512",
+      "source.json#/records/513",
+      "source.json#/records/514",
+      "source.json#/records/515",
+      "source.json#/records/516",
+      "source.json#/records/520",
+      "source.json#/records/521",
+      "source.json#/records/524",
+      "source.json#/records/525",
+      "source.json#/records/528",
+      "source.json#/records/529",
+      "source.json#/records/532",
+      "source.json#/records/533",
+      "source.json#/records/534",
+      "source.json#/records/535",
+      "source.json#/records/536",
+      "source.json#/records/541",
+      "source.json#/records/542",
+      "source.json#/records/545",
+      "source.json#/records/546",
+      "source.json#/records/549",
+      "source.json#/records/550",
+      "source.json#/records/553",
+      "source.json#/records/554",
+      "source.json#/records/558",
+      "source.json#/records/559",
+      "source.json#/records/565",
+      "source.json#/records/566"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/475"
+      ],
+      "native_context_records": [
+        "source.json#/records/475",
+        "source.json#/records/505"
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/569"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}

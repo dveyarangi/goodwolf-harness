@@ -1,0 +1,1119 @@
+{
+  "transcript": "17658ee1-78ee-410c-871e-86e722da27fe.jsonl",
+  "chat_id": "17658ee1-78ee-410c-871e-86e722da27fe",
+  "transcript_bytes": 2829175,
+  "transcript_sha256": "243f416a9b5f251915fd6a00aa98251584b9a58689deabf15d04619e596da007",
+  "record_numbering": "one-based JSONL records in the original transcript",
+  "delivery_context": null,
+  "records": {
+    "35": {
+      "timestamp": "2026-10-04T20:42:22.576Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "f4de3a2b-e209-4177-af16-3f69bfa157e0",
+        "parentUuid": "2804ff4d-f8d2-4efa-9ff9-6c58bd24afe4",
+        "timestamp": "2026-10-04T20:42:22.576Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "instructions",
+          "files": [
+            {
+              "path": "D:\\Dev\\AI\\agents\\CLAUDE.md",
+              "type": "Project",
+              "content": "@AGENTS.md"
+            },
+            {
+              "path": "D:\\Dev\\AI\\agents\\AGENTS.md",
+              "type": "Project",
+              "content": "# Entry contract\n\nEntry contract: v25, 2026-10-04.\n\nOpen your first reply of every session with the `Entry contract:` line above, verbatim.\n\n<straw-dog question=\"q-0027\">\nRun /recall first in every session, whatever the first message says.\n</straw-dog>\n\n## General rules\n\nA **shape** is whatever is under consideration, held between an idea and a thing: formed enough\nto have a context and a structure, not yet exhausted by any one realization. Being a shape says\nnothing about being load-bearing — an implementation method is a shape too. → [glossary](.agents/glossary.md).\n\n- Do not generalize from one shape. Preserve a seam. Generalize only when a second materially different shape forces the same concept.\n- Explore shape context - what is the shape one of? what are its relationships? does its scope overlap any other shape?\n- Explore shape structure - how this shape is/can be built? does expanding its structure change the contract or even what the shape is?\n\n- Changing how the work is done — a skill, a check, a record, the loop — is mechanism work: use [/mechanism](.agents/skills/mechanism/SKILL.md). Building what the project produces is not.\n\n- An `<installed>` block in a file is not that file's to edit. Change the rule in the rules file of the mechanism named on the block, and re-install.\n\n- Recency for evidence, longevity for principles.\n\n- Clarity and simplicity first — Occam's razor: take the shape with the fewest parts that does the job, and remove before you add.\n\n- Write for a capable model: state the rule and its pointer. The definition the glossary owns, the example that motivated it, what it implies, and what a script already does for the reader stay out.\n\n<straw-dog question=\"q-0025.0002\">\n- A skill's description is its tier-1 surface: name there every use case the skill serves, and nothing else — never its method or how it is built. Write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session.\n</straw-dog>\n\n<installed by=\"ticket\">\n**P9** The first time a record or a reply names a ticket, name it by a link to its record whose text\ncarries its slug — the id may lead it; later mentions may be the id alone. Name one that has no\nrecord yet by a slug and its state word.\n</installed>\n\n<installed by=\"questions\">\n**Q1** Before drafting a reply, place the message in the question store: read this turn's window — the\none the host's hook put in your context, or `questions.py --window --session <tag>`, the script\nbeing `.agents/scripts/gw/questions.py` — and call `questions.py at q-N --session <tag>` where the\nmessage lands, and the store's other calls whenever the turn's own work settles, opens or moves a\nquestion:\n\n- `questions.py at q-0004 --session <tag>`\n- `questions.py open '<question>' --under q-0004 --session <tag>`, which prints the id it gave\n- `questions.py close q-0004 decided '[link](../path.md) — who, date' --session <tag>`\n\nBefore opening a question, look for its answer in the docs and the code: found, point to it and\nopen nothing; not found, open it. A message that lands nowhere makes no call. Only the working\nagent calls, never a helper. Under `debug=on`, head the reply with a one-cell table holding a row\nfor each question the turn stood on, in order, the first over `|---|`: `| ↳ **q-N** · <its\nquestion as the window writes it> |` for the one the turn ends on, `| ✓ **q-N** · <question>\n(<kind>: <its answer>) |` for one closed in it, the question alone for one it left open. For any\nother call, a closure, a branching or a drop, read the questions skill.\n\n**Q5** The first time a reply names a question, write its id with its question as the window writes it;\nlater mentions may be the id alone. A question the store does not hold yet is written out, never\nnamed after the ticket it will belong to.\n</installed>\n\n## Core and instance\n\n`docs/` is substituted whole in a harness instance: a recipient project replaces its contents with\nits own.\n\nWhat core may not do is **depend** on it. Nothing under `.agents/` may reference a file in `docs/`,\nor rely on one for its instruction or for any separable part of its own functioning. A core file\nmay name a path under `docs/` only when that path is a record a mechanism declares — the directory\nthat holds a kind of record, or a file that is one — never a particular record inside such a\ndirectory: `docs/tickets/` and `docs/glossary.md` are painted doors; one particular ticket inside\n`docs/tickets/` is a document only this project has. Content inside the\n[local block](#project-local) is the instance's, not core's. A `<straw-dog>` exempts\nnothing: its wrapper is stripped on install and whatever it wrapped ships. Core names a particular\nrecord of this tree only in a straw dog's binding, and that record is a question; it names no\nticket anywhere — in a link or as a bare id in prose — since a recipient can resolve neither.\n\n## Document load-bearing, code&comment the rest\n\nA project's architecture, ADRs and glossary are the home for:\n- Constitution — identity semantics, consistency model, source-of-truth rules\n- Structure — service boundaries, data ownership, event/data flows, extension seams\n- Load-bearing — see the definition below\n\nA decision forms in its owning ticket and lands in one of these when it is ready. A decision about a\nmechanism lands in that mechanism's doc, and what was refuted in its evidence.\n\n<straw-dog question=\"q-0024.0002.0005\">\nBad architectural documentation:\n- Forecasts are stored in MongoDB collection forecast_hourly.\n\nBetter:\n- Historical forecast issues must remain independently addressable by (location, valid_time, issue_time) because validation compares what was known at different issue times.\n</straw-dog>\n\n## What makes a thing \"load-bearing\"\n\n- A decision or invariant whose violation would cause multiple parts of the system to become wrong, not merely require local refactoring.\n- A thing is load-bearing when several of these are true: has high blast radius, crosses boundaries (i.e. services, persistence, APIs, ownership), other decisions depend on it, it protects an invariant,\nis expensive to reverse, holds non-obvious rationale, long-standing.\n\n- Counter-test: if it can be changed locally without understanding the rest of the architecture, it is not load-bearing.\n\n## The loop\n\nTwo rings, joined at /align.\n\n    session:   wake with /recall → /align → /conclude → (next session)\n    delivery:  /ticket → /plan → /implement → /verify → /maintain → /ticket\n\n/align opens the delivery ring and is where it returns whenever a decision is needed:\n/spec for load-bearing shapes, /plan when the governing docs contradict, /verify when a finding needs one, /maintain when maintenance surfaces one. /ticket⇄/plan and /implement⇄/verify iterate as pairs.\n\nHuman checkpoints: every decision at /align; spec accepted; breakdown approved; commit; push;\nnext cycle at /maintain → /ticket.\n\nDo not reopen an accepted decision without new evidence.\n\n### Helpers\n\n- /impact determines the scope and load-bearingness of the shape. Use it to evaluate work volume and its ticketing shape (spec for load-bearing work, tickets for mechanical), work units slicing or whether a shape deserves further investigation due to hidden complexity.\n- /discover to investigate hidden complexity, by detecting what else the shape is.\n\n## Self-improvement\n\n<straw-dog question=\"q-0026\">\n- A rule that was in place and did not fire was usually worded wrong. Register the failure in docs/rule-failures.md, or strike the entry it repeats, and propose the amendment that would have made it fire; /mechanism and /skill-up hold the means. Land the amendment in the same pass, showing its text first.\n- Keeping the register: an entry names the rules that were in play and proposes the amendment; a repeat strikes the entry it repeats rather than opening a second; an entry closes when its amendment lands, or is refused with its reason. Nothing here authorises deleting a rule.\n</straw-dog>\n\n## Autonomy\n\nThe project sets each switch in its local block, under *Project-local*; skills defer to those values.\nA switch the project has not set is `ask`.\n\n| Switch | Meaning |\n|---|---|\n| commit | `ask`: commit only on explicit permission, per change. `auto`: commit when the work is verified. |\n| push | `ask`: separate from commit, per push. `never`, `auto`. |\n| next-cycle | `ask`: starting the next ticket after one lands needs a nod. `auto`. |\n| breakdown | `ask`: a /ticket split needs approval before minting. `auto`. |\n| repair | `report`: a clear violation of an explicit rule inside authorized work is fixed and reported. `ask`: show it first. |\n\n`repair=report` holds only when all four are true: the governing rule is explicit, and cited; the\nrepair restores compliance inside the authorized work and keeps every other agreed contract; the\naffected behaviour is understood well enough to say so; the result is verifiable against the\nrule. Otherwise `/align`. *(the user, 2026-09-05)*\n\n## Project-local\n\n<installed by=\"mechanism-shape\">\n**R7** A project's own answers and overrides are authored in one file beside the entry file,\n`local.rules.md`, in the rules-file format, and reach a file only as the local block — the\ninstalled block whose owner is `local` — which the installer writes after every mechanism's block\nthere, so the project's answer is what a reader meets after core's rule. An override names the rule it\noverrides. A local change to a rule is written in the local file, never into a skill or the entry\nfile, and re-installed. The local block is the project's,\nnot core's, and a redeploy preserves it.\n</installed>\n\n<installed by=\"local\">\n**L1** This repository develops the shared dev harness using its own loop; its own architecture and\nprogress live in docs/ like any other project's — the instance half doing its job, not a leak.\nTerms: docs/glossary.md, this project's own; the method's are .agents/glossary.md's. What each\nversion of the entry contract changed: docs/research/entry-contract-findings.md.\n\n**L2** commit=ask · push=ask · next-cycle=ask · breakdown=ask · repair=report\n\n**L4** debug=on\n\n**L5** Run a Python script with `uv run --offline --no-project python <script>`.\n</installed>\n\n## Straw dogs\n\nWrap anything an open question's answer will change, as you write it — or, for text already\nwritten, in the pass that opens the question: `<straw-dog question=\"q-N\">`, bound to the question\nwhose answer will rewrite it, or in code a `TODO` naming `q-N` first. Treat *not yet*, *until*,\n*once it exists*, *for now*, *untested* in your own text as the same signal: find the question, or\nopen one. Wrap at the authored home, never where the harness installs or derives it. Write the body\nto stand on its own: it is what a recipient receives once the wrapper is stripped, so it names no\nquestion or ticket — the binding does. Leave what no open question would change unwrapped.\n\nFollow a straw dog like any other rule until it is due, as the listing and the wake report; then\nact on reality, rewrite it to what is now true, and do not treat the contradiction as a violation."
+            },
+            {
+              "path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\memory\\MEMORY.md",
+              "type": "AutoMem",
+              "content": "# Memory\n\n- [Edit with edit tools, not scripts](edit-with-edit-tools-not-scripts.md) — a script's diff is invisible in the transcript; the user reads changes as they happen."
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "507f1216fa0b251a07d9e79394c0ca8a9053d747e9f24c0274f4ffbb990bdcef",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "268": {
+      "timestamp": "2026-10-04T21:43:11.192Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "4135c25f-14b1-4ef4-b851-df4b2e4cda0b",
+        "parentUuid": "865489c0-b401-4454-bd6b-53cb02a48526",
+        "timestamp": "2026-10-04T21:43:11.192Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "yes, commit as FIX"
+        },
+        "promptId": "4b5a784c-9cd9-4443-8d58-00bfde62b1a1"
+      },
+      "original_record_sha256": "2cf112abda5340413919ffb2fbeacd6e47de16b609e78b11437eb91437b682fa",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "269": {
+      "timestamp": "2026-10-04T21:43:12.218Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "404222a0-87a1-4d5d-b412-9a3a592c4a1e",
+        "parentUuid": "4135c25f-14b1-4ef4-b851-df4b2e4cda0b",
+        "timestamp": "2026-10-04T21:43:12.218Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "hook_additional_context",
+          "content": [
+            "window unchanged since your last one: 8121b2f7-de9e-40e5-8598-af9586aaf47f at q-0018.0010; place this message with `questions.py at q-0018.0010 --session 8121b2f7-de9e-40e5-8598-af9586aaf47f`, or `--window --session 8121b2f7-de9e-40e5-8598-af9586aaf47f --full` to draw it again"
+          ],
+          "hookName": "UserPromptSubmit",
+          "toolUseID": "hook-3f231bc3-1111-42e9-9407-ae1715bea2d2",
+          "hookEvent": "UserPromptSubmit"
+        }
+      },
+      "original_record_sha256": "c0216eecc0ec6eda60404516230407dbf48880190b66518b9d6eaedd041c2077",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "271": {
+      "timestamp": "2026-10-04T21:43:15.574Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "447ec92d-1a1c-4a81-93e2-340ecac9b1f8",
+        "parentUuid": "bca0073d-dee0-4e70-9c01-19841625e373",
+        "timestamp": "2026-10-04T21:43:15.574Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfhvgkXAweJE3mLPqXb4J",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_011RaHaxhacLWtLWSqvPpqPf",
+              "name": "Skill",
+              "input": {
+                "skill": "commit",
+                "args": "FIX: the installer's link step — no removal before replacement"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "057a0fa2a2b3b3bd81c96220d1c277827858a9d19af1e546cee51c4ec2f1732b",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "272": {
+      "timestamp": "2026-10-04T21:43:15.695Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "a383d515-e4ba-44cc-88a0-6921eaa14f3f",
+        "parentUuid": "447ec92d-1a1c-4a81-93e2-340ecac9b1f8",
+        "timestamp": "2026-10-04T21:43:15.695Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_011RaHaxhacLWtLWSqvPpqPf",
+              "content": "Launching skill: commit"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "success": true,
+          "commandName": "commit"
+        },
+        "sourceToolAssistantUUID": "447ec92d-1a1c-4a81-93e2-340ecac9b1f8",
+        "promptId": "4b5a784c-9cd9-4443-8d58-00bfde62b1a1"
+      },
+      "original_record_sha256": "3f2fc39026200223f92f30d600261c248076bdf7393f44a01219c2ac5371dc55",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "273": {
+      "timestamp": "2026-10-04T21:43:15.673Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "8454e099-1434-40be-a374-ea0378956412",
+        "parentUuid": "a383d515-e4ba-44cc-88a0-6921eaa14f3f",
+        "timestamp": "2026-10-04T21:43:15.673Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Base directory for this skill: D:\\Dev\\AI\\agents\\.claude\\skills\\commit\n\n<straw-dog question=\"q-0023.0005\">Mechanism: not yet</straw-dog>\n\n- Commit the work in current session only. Do not commit changes of other session that might represent a work in progress. When in doubt, ask user.\n\n- Look at pending changes; group them by content aligning with origin topic, ticket, rfc or change type (documentation, code, CI, skills).\n\n- Separate implementation and documentation commits.\n\n- Prefix the subject with the loop step that produced the work, uppercase, then a colon:\n  `ALIGN`, `SPEC`, `TICKET`, `PLAN`, `IMPLEMENT`, `VERIFY`, `MAINTAIN`, `DISCOVER`, `RECALL`,\n  `CONCLUDE`. Three sit outside the ring: `FIX` for a repair taken on its own, `EQUIP` for\n  a change to the harness's own installation, and `DREAM` for a record the second lobe wrote. One\n  prefix per commit — where the work spans two steps, take the dominant one and name the bleed in\n  the message. The prefix says which step produced the work, never which files it touched: what\n  changed is visible in the diff, and which step produced it is not.\n\n- In case the file changes belong to several groups, commit the file with the group forming its dominant topic and mention the bleed in that commit's message.\n\n- Do not reference sessions in commit comments, sessions are ephemeral.\n\n- Unless already working in branch or instructed to branch - commit to default branch.\n\n- When committing a code change, first run the checks the repository defines for itself — its\n  linter, its formatter in check mode, its type checker, its tests. Pure doc changes need none\n  of them. **Read them from where the project states them; never carry them here.** A commit\n  skill holding a project's commands is a second home for them, and it is wrong for every\n  project but the one it was written in.\n\n- Commit and push only as the entry file's `commit` and `push` switches allow; a push is its own\n  permission, never implied by a commit's.\n\n\nARGUMENTS: FIX: the installer's link step — no removal before replacement"
+            }
+          ]
+        },
+        "promptId": "4b5a784c-9cd9-4443-8d58-00bfde62b1a1"
+      },
+      "original_record_sha256": "52ac4cfe81ef2172ba680046c8be81ac2754998400d18bc9b72bbea037f5e13d",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "276": {
+      "timestamp": "2026-10-04T21:43:24.286Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "395cb5b5-3578-4af3-87db-adc2a76e65d4",
+        "parentUuid": "8ec0b050-3048-4bee-9cb5-789809d38c5f",
+        "timestamp": "2026-10-04T21:43:24.286Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfhvh3abGk8qwR61kHNCh",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_019zd5RB1PVhKTwvVDspYCXD",
+              "name": "Bash",
+              "input": {
+                "command": "git diff --stat && git add .agents/scripts/gw/harness.py .agents/scripts/gw/test/test_harness.py && git commit -q -F - <<'EOF'\nFIX: a loader link is removed only once its replacement exists\n\nAn update in a recipient judged two standing links wrong, removed them,\nand was then refused the privilege to make new ones, leaving the tree\nwith none.\n\nA repoint now makes the new link under a temporary name and swaps on\nsuccess; a refused creation leaves the old link standing and hands over\na command that removes before it makes. A link whose own text names the\nskills directory is kept even when the process cannot see through it.\nThe report carries where a repointed link pointed and whether it stands.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nEOF\ngit add .agents/mechanisms/harness/harness.md docs/questions && git commit -q -F - <<'EOF'\nFIX: the harness doc says a standing link outlives a refused replacement\n\nThe session's positions in the question store ride along.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nEOF\ngit log --oneline -3 && git status -sb",
+                "description": "Commit the code fix and the doc sentence as two FIX commits"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "c4e9c267e2a4e683cb5ae2626bb940d1bc91f38bcd3e7543cfe4b9f04fc4f334",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "277": {
+      "timestamp": "2026-10-04T21:43:27.588Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "e52f19ce-d42a-4e6b-b18f-5c5347e18cb2",
+        "parentUuid": "395cb5b5-3578-4af3-87db-adc2a76e65d4",
+        "timestamp": "2026-10-04T21:43:27.588Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_019zd5RB1PVhKTwvVDspYCXD",
+              "is_error": false,
+              "content": " .agents/mechanisms/harness/harness.md              |  2 +\n .agents/scripts/gw/harness.py                      | 50 ++++++++++++++++-----\n .agents/scripts/gw/test/test_harness.py            | 52 ++++++++++++++++++++++\n ...0016-how-is-each-turn-steered-from-the-store.md |  2 +-\n ...-a-first-install-say-when-something-stops-it.md |  2 +-\n docs/questions/sessions                            |  1 +\n 6 files changed, 96 insertions(+), 13 deletions(-)\nbcf2724 FIX: the harness doc says a standing link outlives a refused replacement\nc0829db FIX: a loader link is removed only once its replacement exists\ne3c8593 MAINTAIN: two passes over the whole tree, nothing due\n## main...origin/main [ahead 2]"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": " .agents/mechanisms/harness/harness.md              |  2 +\n .agents/scripts/gw/harness.py                      | 50 ++++++++++++++++-----\n .agents/scripts/gw/test/test_harness.py            | 52 ++++++++++++++++++++++\n ...0016-how-is-each-turn-steered-from-the-store.md |  2 +-\n ...-a-first-install-say-when-something-stops-it.md |  2 +-\n docs/questions/sessions                            |  1 +\n 6 files changed, 96 insertions(+), 13 deletions(-)\nbcf2724 FIX: the harness doc says a standing link outlives a refused replacement\nc0829db FIX: a loader link is removed only once its replacement exists\ne3c8593 MAINTAIN: two passes over the whole tree, nothing due\n## main...origin/main [ahead 2]",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "395cb5b5-3578-4af3-87db-adc2a76e65d4",
+        "promptId": "4b5a784c-9cd9-4443-8d58-00bfde62b1a1"
+      },
+      "original_record_sha256": "816051c20f2d906533a054b4104ddcb441f0c7bfdb23aa6d6093b44c7485eed0",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "279": {
+      "timestamp": "2026-10-04T21:43:31.742Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "0850b5a4-2733-4841-9b7a-5662ff25fec4",
+        "parentUuid": "4363ad03-0b67-49dc-8cb0-99d38b1c03b5",
+        "timestamp": "2026-10-04T21:43:31.742Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfhvhtywKR39zcVV41Z9h",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "| ↳ **q-0018.0010** · What does a first install say when something stops it? |\n|---|\n\nCommitted as two `FIX` commits on `main`, not pushed (`push=ask`):\n\n- `c0829db` — the installer and its tests: a loader link is removed only once its replacement exists.\n- `bcf2724` — the sentence in the harness doc, with this session's question-store positions riding along.\n\nThe working tree is clean and `main` is two commits ahead of `origin/main`.\n\nTwo things remain from the fix:\n- The `harness` output level is due on the maintenance clock and needs a `/maintain` re-check before it can be marked.\n- xuanxue-workshop only gets the fix once this is pushed and it takes another update.\n\nPush?"
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "5bc8636d5093e34e9244d9ba98334fb771340d862fffaefbc7b362d1d97ad8f5",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "281": {
+      "timestamp": "2026-10-04T21:43:42.626Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "ce9a5434-1500-4d28-acc6-a0fbe935c4c2",
+        "parentUuid": "fcf177f4-86ac-47c1-84ac-a84ecd7bb699",
+        "timestamp": "2026-10-04T21:43:42.626Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "yes, and lets move on"
+        },
+        "promptId": "4b5a784c-9cd9-4443-8d58-00bfde62b1a1"
+      },
+      "original_record_sha256": "7f89abfa7e1a57ad98057c7822ce7d5207329de95fb99b89b5a68297f357a19d",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "282": {
+      "timestamp": "2026-10-04T21:43:43.647Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "4f194c4b-f549-440c-a45c-5c02d7f598cc",
+        "parentUuid": "ce9a5434-1500-4d28-acc6-a0fbe935c4c2",
+        "timestamp": "2026-10-04T21:43:43.647Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "hook_additional_context",
+          "content": [
+            "window unchanged since your last one: 8121b2f7-de9e-40e5-8598-af9586aaf47f at q-0018.0010; place this message with `questions.py at q-0018.0010 --session 8121b2f7-de9e-40e5-8598-af9586aaf47f`, or `--window --session 8121b2f7-de9e-40e5-8598-af9586aaf47f --full` to draw it again"
+          ],
+          "hookName": "UserPromptSubmit",
+          "toolUseID": "hook-31d490c7-2cc5-4392-aed5-819433a0d631",
+          "hookEvent": "UserPromptSubmit"
+        }
+      },
+      "original_record_sha256": "aaa269fbcdfd3843638c6174b4e22a9a115c5e23bd901c2668175d64f55a6ef1",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "284": {
+      "timestamp": "2026-10-04T21:43:49.976Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "da4fa9ff-1335-45d8-b1dc-cfb10fe1667f",
+        "parentUuid": "3c7326c3-4412-49f3-be90-14363e54aed7",
+        "timestamp": "2026-10-04T21:43:49.976Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfhvj55Sev5D4X2HE6WjH",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01VJ6GJDwM8R8AQm2GGTi3FP",
+              "name": "Bash",
+              "input": {
+                "command": "git push 2>&1 | tail -2 && uv run --offline --no-project python .agents/scripts/gw/questions.py at q-0001.0016 --session 8121b2f7-de9e-40e5-8598-af9586aaf47f",
+                "description": "Push the two commits and move the session to the next ticket's question"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "f1a384e84556e248b5baffc141c6bb21025a257ede9d3b069e2fd42b30d9d19f",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "285": {
+      "timestamp": "2026-10-04T21:43:57.382Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "e5c04dbf-a43e-43d1-b6bc-0e86e73922e9",
+        "parentUuid": "da4fa9ff-1335-45d8-b1dc-cfb10fe1667f",
+        "timestamp": "2026-10-04T21:43:57.382Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01VJ6GJDwM8R8AQm2GGTi3FP",
+              "is_error": false,
+              "content": "To https://github.com/dveyarangi/goodwolf-harness.git\n   e3c8593..bcf2724  main -> main\nat q-0001.0016 How is each turn steered from the store? (from q-0018.0010 What does a first install say when something stops it?)"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "To https://github.com/dveyarangi/goodwolf-harness.git\n   e3c8593..bcf2724  main -> main\nat q-0001.0016 How is each turn steered from the store? (from q-0018.0010 What does a first install say when something stops it?)",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false,
+          "gitOperation": {
+            "push": {
+              "branch": "main"
+            }
+          }
+        },
+        "sourceToolAssistantUUID": "da4fa9ff-1335-45d8-b1dc-cfb10fe1667f",
+        "promptId": "4b5a784c-9cd9-4443-8d58-00bfde62b1a1"
+      },
+      "original_record_sha256": "3170070be4d1d7607c8b15a8b7045fa6535b8f0788b257d340f14731b6c23d5f",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "287": {
+      "timestamp": "2026-10-04T21:44:00.146Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "775e77f5-ffee-44b9-a8da-3ac9776278ed",
+        "parentUuid": "af45927f-312b-4fb1-bb18-2a3f06efab73",
+        "timestamp": "2026-10-04T21:44:00.146Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfhvk6QLcbi5dPJqBqcDR",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01BpFeAqatNABWoNzFXkXrAj",
+              "name": "Skill",
+              "input": {
+                "skill": "align",
+                "args": "01-0011.0100.0040 the-turn-is-steered-from-the-store — its align, answering q-0001.0016"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "6a7d3a398013dff99f182c179c316baf6ff989f75fc4a40cefd10c87bdbea4bd",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "288": {
+      "timestamp": "2026-10-04T21:44:00.194Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "1f5ca2fd-5644-4efb-88f6-a07d198ff739",
+        "parentUuid": "775e77f5-ffee-44b9-a8da-3ac9776278ed",
+        "timestamp": "2026-10-04T21:44:00.194Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01BpFeAqatNABWoNzFXkXrAj",
+              "content": "Launching skill: align"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "success": true,
+          "commandName": "align"
+        },
+        "sourceToolAssistantUUID": "775e77f5-ffee-44b9-a8da-3ac9776278ed",
+        "promptId": "4b5a784c-9cd9-4443-8d58-00bfde62b1a1"
+      },
+      "original_record_sha256": "0f5813fe1b80757b7fb8851e36f657f4ff7275834a412a43063f7bb4ae8958a9",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "289": {
+      "timestamp": "2026-10-04T21:44:00.183Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "c135f07b-88c3-4208-913a-6ae391854bcd",
+        "parentUuid": "1f5ca2fd-5644-4efb-88f6-a07d198ff739",
+        "timestamp": "2026-10-04T21:44:00.183Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": "Base directory for this skill: D:\\Dev\\AI\\agents\\.claude\\skills\\align\n\n<straw-dog question=\"q-0023.0003\">Mechanism: not yet</straw-dog>\n\n<what-to-do>\n\nBegin every alignment with a **necessity gate**: name the present customer, the observable problem, and why existing behaviour cannot satisfy it. An accepted requirement or ADR passes by citation. Weak evidence means narrow, postpone, or eliminate — settle that before exploring design. The gate fires late too: a mechanism whose name will not settle is evidence it should not exist. [/impact](../impact/SKILL.md) traces consequences once the need holds.\n\nProblem before machinery: open with the concrete failures and my own earlier words, read back from the records, before any design question. A new term is a decision, not a convenience; when I do not follow, go more concrete.\n\nInterview me relentlessly about every aspect of current work until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer. If there are alternatives, show pros/cons/tradeoffs between them.\n\nAsk the questions one at a time, waiting for feedback on each question before continuing. Asking multiple questions at once is bewildering. Do not use platform (Cursor/Claude Code) question format, output plain md.\n\nIf a *fact* can be found by exploring the doc corpus or codebase, look it up rather than asking me. The *decisions*, though, are mine - put each one to me and wait for my answer.\n\n<straw-dog question=\"q-0001.0020\">\nDecomposing the work during an align is [/ticket](../ticket/SKILL.md)'s, and it calls\n[/impact](../impact/SKILL.md) on the draft split. Run that chain and present what it returns as a\nsuggestion; do not mint. A breakdown reached by unaided grouping is not that chain's output,\nhowever ticket-shaped it looks.\n</straw-dog>\n\nDo not enact the plan before I confirm we have reached a shared understanding.\n\n\n</what-to-do>\n\n<supporting-info>\n\n<straw-dog question=\"q-0024.0002.0005\">\n## Good architecture\n\nGoal of architecture is to reduce work on creation and maintenance of the system.\n\nIdentify the load-bearing assumption behind the proposed shape; ask yourself - what is the cheapest real example that could prove this design assumption wrong? \n\nCheck it when practical, preferably against external reality rather than our own documents and tests.\n\nIf falsified, realign.\nIf unverified and load-bearing, preserve the uncertainty explicitly.\n\n## Domain awareness\n\nDuring codebase exploration, also look for existing documentation:\n\n### File structure\n\nMost repos have a single context:\n\n```\n/\n├── docs/\n│   ├── adr/\n│   │   ├── 0001-event-sourced-orders.md\n│   │   └── 0002-postgres-for-write-model.md\n│   ├── architecture.md\n│   └── glossary.md\n└── src/\n```\n\nCreate files lazily — only when you have something to write. If no `docs/glossary.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.\n</straw-dog>\n\n## During the session\n\n<straw-dog question=\"q-0024.0001.0001\">\n### Challenge against the glossary\n\nWhen the user uses a term that conflicts with the existing language in `docs/glossary.md`, call it out immediately. \"Your glossary defines 'cancellation' as X, but you seem to mean Y — which is it?\"\n\nThis cuts both ways: before *you* propose a name, check the glossary yourself — including its _Avoid_ lists, which are reservations, not suggestions. If every synonym for a concept is avoided, that is a designed constraint telling you which word the project has chosen; work within it rather than proposing around it.\n</straw-dog>\n\n<straw-dog question=\"q-0023.0009\">\n### Challenge against the Edge records\n\nWhen the plan touches a product edge, check that surface's Edge record\n(`docs/edge/<surface>.md`) — the seam document aggregating the edge's contract, invariants,\nconcerns, and staged roadmap. A contradiction with its Contract or Invariants is either a plan\nbug or a deliberate contract change — and a contract change must be named **breaking or\ncompatible** out loud before proceeding. Update the record inline as decisions land, using the\nformat in [EDGE-FORMAT.md](./EDGE-FORMAT.md): contract changes in `Contract`/`Invariants` (a\npromise without a validating test is marked **⚠ unguarded**), newly surfaced edge-scoped\nconcerns as pointers in `Concerns`, staging shifts in `Roadmap`.\n</straw-dog>\n\n<straw-dog question=\"q-0024.0002.0005\">\n### Check whether it was already decided\n\nBefore treating a question as open, search the ADRs and architecture docs for it. A surprising amount of \"open\" questions are accepted decisions the code drifted from — the answer then is \"implement the ADR\", not a fresh trade-off analysis. Cite the deciding document when you find one.\n</straw-dog>\n\n### Lead with the decisive fact\n\nWhen recommending between alternatives, find the fact that settles it — a reader count, an import direction, an existing invariant, what a test actually asserts — and lead with it. A pros/cons menu with no decisive fact means you haven't explored enough yet; go look before asking.\n\n### Name the shared assumption\n\nWhen posing an A-or-B fork, state the assumption both branches share. The user's best answer may dissolve the fork rather than pick a branch — treat \"the premise is wrong\" as a first-class outcome, not a detour. If a fork keeps resisting resolution, that is usually the sign.\n\n### Sharpen fuzzy language\n\nWhen the user uses vague or overloaded terms, propose a precise canonical term. \"You're saying 'account' — do you mean the Customer or the User? Those are different things.\"\n\n### Discuss concrete scenarios\n\nWhen domain relationships are being discussed, stress-test them with specific scenarios. Invent scenarios that probe edge cases and force the user to be precise about the boundaries between concepts.\n\n### Cross-reference with code\n\nWhen the user states how something works, check whether the code agrees. If you find a contradiction, surface it: \"Your code cancels entire Orders, but you just said partial cancellation is possible — which is right?\"\n\n<straw-dog question=\"q-0024.0001.0001\">\n### Update glossary.md inline\n\nWhen a term is resolved, update `docs/glossary.md` right there. Don't batch these up — capture them as they happen. Use the format in [GLOSSARY-FORMAT.md](./GLOSSARY-FORMAT.md).\n\n`docs/glossary.md` should be totally devoid of implementation details. Do not treat it as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.\n</straw-dog>\n\n<straw-dog question=\"q-0024.0002.0005\">\n### Update architecture.md inline\n\nWhen high-level architecture of this project changes, update `architecture.md`. Use format in [ARCH-FORMAT.md](./ARCH-FORMAT.md).\n\n`architecture.md` document captures the **high-level architecture**. Lower-level concerns are intentionally **deferred** and listed at the end.\n> Scope note: everything here is at the architecture/contract level. Where a concrete shape would prematurely lock a deferred decision, we define only the *seam*.\n> You should guide the user toward deep modules with simple boundaries.\n</straw-dog>\n\n\n### Record resolutions in the owning ticket inline\n\nWhen the plan under review is a ticket, record each resolution the moment it lands, as the block below says.\n\n<installed by=\"mechanism-shape\">\n**R5** Land a mechanism's rule in AGENTS.md only as an installed block from its rules file. While the\nmechanism is undeclared, write the rule by hand and wrap it as a straw dog bound to the question\nof what the mechanism owns, as you write it.\n</installed>\n\n<installed by=\"ticket\">\n**P7** Land a resolved decision in its durable home with its provenance, and rewrite the ticket in\nplace to what is now true; close the question it answers against that home — against the ticket's\ndecision while it has not landed, after assigning the question to the ticket if it has no owner —\nand when a decision lands, repoint every entry closed against it there.\n\n**P10** Open an align on a ticket by saying what the ticket is: what it builds and the problem it answers,\nin plain words, each of its terms explained, before the necessity gate or any question.\n\n**P11** Sweep the ticket for internal consistency at the end: an early section may still assert what a\nlater resolution changed.\n</installed>\n\n<straw-dog question=\"q-0024.0002.0005\">\n### Offer ADRs sparingly\n\nOnly offer to create an ADR when all three are true:\n\n1. **Hard to reverse** — the cost of changing your mind later is meaningful\n2. **Surprising without context** — a future reader will wonder \"why did they do it this way?\"\n3. **The result of a real trade-off** — there were genuine alternatives and you picked one for specific reasons\n\nIf any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](./ADR-FORMAT.md).\n</straw-dog>\n\n</supporting-info>\n\n\nARGUMENTS: 01-0011.0100.0040 the-turn-is-steered-from-the-store — its align, answering q-0001.0016"
+            }
+          ]
+        },
+        "promptId": "4b5a784c-9cd9-4443-8d58-00bfde62b1a1"
+      },
+      "original_record_sha256": "3da3c5cee171494763a9c3e34c001f4ea6b3abfeaee926cf05a0397450ee51a9",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "292": {
+      "timestamp": "2026-10-04T21:44:05.973Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "33e471c1-9628-44e8-b451-8159bbe4b5a0",
+        "parentUuid": "08b5bae0-d03f-4672-a4d5-f2c8a851a43b",
+        "timestamp": "2026-10-04T21:44:05.973Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfhvkJniWk8nXibouFbbx",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01R87nSUvexo2LRh2ewqjKAy",
+              "name": "Bash",
+              "input": {
+                "command": "cat docs/questions/q-0001.0016-*.md; P=docs/tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md; grep -n '^## \\|^### ' $P | head -60; grep -n -i 'jev\\|judge' $P | cut -c1-260 | head -50",
+                "description": "Read the question entry and locate the parent's decisions on steering and the judge"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "862e65893692cbc535615e5cf1c020b790af31780719d160801f8833f8b4fcdb",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "293": {
+      "timestamp": "2026-10-04T21:44:07.713Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "0739adc9-f798-4f3a-8a8c-878e756838f2",
+        "parentUuid": "33e471c1-9628-44e8-b451-8159bbe4b5a0",
+        "timestamp": "2026-10-04T21:44:07.713Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01R87nSUvexo2LRh2ewqjKAy",
+              "is_error": false,
+              "content": "# q-0001.0016 How is each turn steered from the store?\n\n- **part of** q-0001\n- **state** open\n- **owner** [01-0011.0100.0040](../tickets/01-0011.0100.0040-the-turn-is-steered-from-the-store.md)\n- **struck** 1, last 2026-10-04T20:42Z\n18:## Parent\n28:## Why this exists\n42:## What to build\n77:## Decisions landed at 01-0012's align\n192:## Decisions landed at this ticket's align\n645:## The turn, walked *(2026-09-28, the shared understanding the doc's *How it works* is written from)*\n667:## Slices\n685:## Impact — 2026-10-02, the split for decisions 46 to 55\n716:## Impact — 2026-10-03, the id slice for `.0020`'s decision 6\n744:## Impact — 2026-10-02, the subcommand slice for decision 56\n792:## Acceptance criteria — firmed at the align, 2026-09-29\n825:## Out of scope\n12:  state, the turn's current question is known and every shift from it is judged and recorded, a\n39:names the missing part outright — no dedicated judge, no reader\n52:- **The state** — the current question and its path, set by a judge from the request, read at\n58:- **Four judgements as moments with defined outputs** — *attach* (which open question a message\n60:  them), *close*, *prune*. Judge `jev` | `agent` | `off`, in the local file; the unasked hook is\n110:   read at tier 1 and applied by judgement; enforcement is an instruction with a defined output\n113:   current position declared constantly, and a judge outside the generator, since the agent\n116:8. **Jev fits the observer slot** *(the user, 2026-09-27)*: text in, a schema-typed value out with\n119:9. **An optional judge in the turn** *(the user, 2026-09-27)*: switchable off; `jev` or `agent`\n120:   (renamed from *subagent* 2026-09-28, since the main model may judge); judge ≠ generator, so\n121:   the main drafts and emits while the judge reads request and draft; the height set by the judge,\n122:   never self-declared; the judge reads the record of what has landed.\n123:10. **Two judgements on two inputs** *(the user, 2026-09-28)*: the steering judge on the request\n124:    — level, shift, whether a descent expands a higher shape; the expansion judge on the draft —\n125:    a shape whose hidden complexity would change the answer; the draft is never judged for level,\n138:13. **The judge loop is detection and amendment of what Life calls reasoning failures** *(the\n139:    user, 2026-09-28)*: the expansion judgement is Life's `unexpanded-*` kinds; leaving a question\n169:19. **Steering depends on the store and nothing else** as a ticket dependency; the judge is what\n246:26. **The judge reads a window, never the tree** *(the user, 2026-09-28)*: the path from root to\n250:    path: *decided* there so a re-ask is treated as a reopening, *deferred* there so the judge can\n282:31. **The agent follows rules; the judge applies principles; a rule is what puts the judge in the\n284:    applied by judgement, so it becomes checkable only through a judge: the judge's criterion is a\n285:    principle, its invocation a rule — moment, a message arrives; instruction, judge it; outcome, a\n286:    typed value. A principle that did not fire is a missing rule, which is a missing judge moment.\n311:    record. When the judge is not `off`, the instruction is the judge's schema, run from\n335:      test — a clairvoyant who knew every future fact could answer it without judgement, or it is\n375:36. **Rule: branch** *(the user, 2026-09-29)*. Moment: the agent or the judge, reading the\n384:    (decision 5); the draft is judged for hidden complexity and never for level (decision 10);\n390:    the questions rules file; when the judge is not `off`, the detection is the expansion judge's\n392:37. **Rule: prune** *(the user, 2026-09-29)*. Moment: the agent or the judge finds a held\n428:    position, so the agent's one act is the declaration and the write is derived; a jev judge's\n452:    the user under `debug=on` (decision 25), the judge (`.0040`), the host's hook (`.0120`).\n484:    not save. The measure is countable: judged shifts, suspect marks cleared, reopenings refused,\n522:    stays the agent's on every host, since placing a message is a judgement. Each host's\n557:    a question is raised; waiting for the judge (`.0040`), which leaves the cut to feel meanwhile.\n558:48. **Weight and hidden complexity are a judge's to judge** *(the user, 2026-10-02)*: the agent\n560:    those judgements need a judge outside it (`.0040`, `.0050`). The store still works without one:\n585:    home; not settled, it is held. Telling the two apart is the judge's (decision 48); without one\n603:    judgement of the agent's (decision 48), and records it as one part of the entry, `struck <n>,\n637:    the agent judges where the message lands (decision 32) and an `at` that stays still strikes\n655:relevance; it has no idea what the message says. The one judgement of the turn is the agent's, or\n656:the judge's where one is configured: reading the message against those lines and answering with\n662:judges and nobody watches the agent; plus a judge outside the generator (`.0040`), which is what\n665:the judge.\n690:settles, and requests; the doc's roles and judge; the closures of q-0001.0003, q-0001.0004 and q-0001.0003.0002 to\n706:agent applies the lookup without a judge is unverified, and graded only by live use (decision 48).\n782:- The `Clause` front door, which the judge's typed value will use.\n827:The unasked judge hook — [01-0010.0120](./01-0010.0120-host-delivery-surfaces.md). The escalation"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "# q-0001.0016 How is each turn steered from the store?\n\n- **part of** q-0001\n- **state** open\n- **owner** [01-0011.0100.0040](../tickets/01-0011.0100.0040-the-turn-is-steered-from-the-store.md)\n- **struck** 1, last 2026-10-04T20:42Z\n18:## Parent\n28:## Why this exists\n42:## What to build\n77:## Decisions landed at 01-0012's align\n192:## Decisions landed at this ticket's align\n645:## The turn, walked *(2026-09-28, the shared understanding the doc's *How it works* is written from)*\n667:## Slices\n685:## Impact — 2026-10-02, the split for decisions 46 to 55\n716:## Impact — 2026-10-03, the id slice for `.0020`'s decision 6\n744:## Impact — 2026-10-02, the subcommand slice for decision 56\n792:## Acceptance criteria — firmed at the align, 2026-09-29\n825:## Out of scope\n12:  state, the turn's current question is known and every shift from it is judged and recorded, a\n39:names the missing part outright — no dedicated judge, no reader\n52:- **The state** — the current question and its path, set by a judge from the request, read at\n58:- **Four judgements as moments with defined outputs** — *attach* (which open question a message\n60:  them), *close*, *prune*. Judge `jev` | `agent` | `off`, in the local file; the unasked hook is\n110:   read at tier 1 and applied by judgement; enforcement is an instruction with a defined output\n113:   current position declared constantly, and a judge outside the generator, since the agent\n116:8. **Jev fits the observer slot** *(the user, 2026-09-27)*: text in, a schema-typed value out with\n119:9. **An optional judge in the turn** *(the user, 2026-09-27)*: switchable off; `jev` or `agent`\n120:   (renamed from *subagent* 2026-09-28, since the main model may judge); judge ≠ generator, so\n121:   the main drafts and emits while the judge reads request and draft; the height set by the judge,\n122:   never self-declared; the judge reads the record of what has landed.\n123:10. **Two judgements on two inputs** *(the user, 2026-09-28)*: the steering judge on the request\n124:    — level, shift, whether a descent expands a higher shape; the expansion judge on the draft —\n125:    a shape whose hidden complexity would change the answer; the draft is never judged for level,\n138:13. **The judge loop is detection and amendment of what Life calls reasoning failures** *(the\n139:    user, 2026-09-28)*: the expansion judgement is Life's `unexpanded-*` kinds; leaving a question\n169:19. **Steering depends on the store and nothing else** as a ticket dependency; the judge is what\n246:26. **The judge reads a window, never the tree** *(the user, 2026-09-28)*: the path from root to\n250:    path: *decided* there so a re-ask is treated as a reopening, *deferred* there so the judge can\n282:31. **The agent follows rules; the judge applies principles; a rule is what puts the judge in the\n284:    applied by judgement, so it becomes checkable only through a judge: the judge's criterion is a\n285:    principle, its invocation a rule — moment, a message arrives; instruction, judge it; outcome, a\n286:    typed value. A principle that did not fire is a missing rule, which is a missing judge moment.\n311:    record. When the judge is not `off`, the instruction is the judge's schema, run from\n335:      test — a clairvoyant who knew every future fact could answer it without judgement, or it is\n375:36. **Rule: branch** *(the user, 2026-09-29)*. Moment: the agent or the judge, reading the\n384:    (decision 5); the draft is judged for hidden complexity and never for level (decision 10);\n390:    the questions rules file; when the judge is not `off`, the detection is the expansion judge's\n392:37. **Rule: prune** *(the user, 2026-09-29)*. Moment: the agent or the judge finds a held\n428:    position, so the agent's one act is the declaration and the write is derived; a jev judge's\n452:    the user under `debug=on` (decision 25), the judge (`.0040`), the host's hook (`.0120`).\n484:    not save. The measure is countable: judged shifts, suspect marks cleared, reopenings refused,\n522:    stays the agent's on every host, since placing a message is a judgement. Each host's\n557:    a question is raised; waiting for the judge (`.0040`), which leaves the cut to feel meanwhile.\n558:48. **Weight and hidden complexity are a judge's to judge** *(the user, 2026-10-02)*: the agent\n560:    those judgements need a judge outside it (`.0040`, `.0050`). The store still works without one:\n585:    home; not settled, it is held. Telling the two apart is the judge's (decision 48); without one\n603:    judgement of the agent's (decision 48), and records it as one part of the entry, `struck <n>,\n637:    the agent judges where the message lands (decision 32) and an `at` that stays still strikes\n655:relevance; it has no idea what the message says. The one judgement of the turn is the agent's, or\n656:the judge's where one is configured: reading the message against those lines and answering with\n662:judges and nobody watches the agent; plus a judge outside the generator (`.0040`), which is what\n665:the judge.\n690:settles, and requests; the doc's roles and judge; the closures of q-0001.0003, q-0001.0004 and q-0001.0003.0002 to\n706:agent applies the lookup without a judge is unverified, and graded only by live use (decision 48).\n782:- The `Clause` front door, which the judge's typed value will use.\n827:The unasked judge hook — [01-0010.0120](./01-0010.0120-host-delivery-surfaces.md). The escalation",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "33e471c1-9628-44e8-b451-8159bbe4b5a0",
+        "promptId": "4b5a784c-9cd9-4443-8d58-00bfde62b1a1"
+      },
+      "original_record_sha256": "80f1e5e0f7279ea142b19487eefe096a2fbcb0ffc0f645bd01d36bb43ff637f6",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "295": {
+      "timestamp": "2026-10-04T21:44:10.871Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "7728426b-4ea3-44a0-a079-7662077087fc",
+        "parentUuid": "2c7a9f39-5b71-4b8b-b568-6db1b8742398",
+        "timestamp": "2026-10-04T21:44:10.871Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfhvkqhLbBmbuYgvy5zKM",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01U25FGvRSmEiDLiqoy41o2H",
+              "name": "Read",
+              "input": {
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md",
+                "offset": 77,
+                "limit": 100
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "09bd13c79fdb00b98a54f613433d3a264d52f9ccdbcd2afa63df56a8bb9327f8",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "296": {
+      "timestamp": "2026-10-04T21:44:10.953Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "4d7ac4cc-d8e4-44c4-b4b1-cd3a3be5e506",
+        "parentUuid": "7728426b-4ea3-44a0-a079-7662077087fc",
+        "timestamp": "2026-10-04T21:44:10.953Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01U25FGvRSmEiDLiqoy41o2H",
+              "content": "77\t## Decisions landed at 01-0012's align\n78\t\n79\tExtracted 2026-09-28; each with its provenance. The narrative behind each is on\n80\t[01-0012](./done/01-0012-hierarchy-coherent.md) under *Why this exists* and the sections after it, and\n81\tthe passes are research records:\n82\t[height](../research/discover-height-2026-09-27.md),\n83\t[the conversation's level](../research/discover-conversation-level-2026-09-28.md),\n84\t[the open question](../research/discover-open-questions-2026-09-28.md),\n85\t[Life's reasoning failures](../research/life-reasoning-failures-2026-09-28.md).\n86\t\n87\t1. **Purpose is steering, not a taxonomy** *(the user, 2026-09-27)*: know where the work stands,\n88\t   notice a shift, send the moved topic to its home or name the move, and see where a unit of\n89\t   work has a gap — because a gap nobody names is one nobody amends. A pass that moves the\n90\t   level — `/discover`, `/impact` — must return an outcome robust enough to read its structure\n91\t   and gaps from, not one sheet mixing every level *(the user, 2026-09-27)*.\n92\t2. **A gap is work left at a level when the discussion shifted**, not a missing field; a ticket\n93\t   minted with no problem stated is something *dislocated*, a candidate word *(the user,\n94\t   2026-09-27)*.\n95\t3. **Levels are not the loop's steps**; four were named — intent, strategy, behaviour, action —\n96\t   and later found to mix two kinds, the fixed levels of a method's document kinds and the\n97\t   dynamic level of a conversation *(the user, 2026-09-27 and 2026-09-28)*; superseded by 12.\n98\t   Tier 1 / Tier 2 is not a level of either kind: the glossary already defines *tier* as\n99\t   reachability.\n100\t4. **The two directions are not alike** *(the user, 2026-09-27)*: going down before the higher\n101\t   question is settled leaves the gap; going up restructures the lower levels, which the loop\n102\t   descends again anyway. Qualified by the second pass: the asymmetry holds where a party acts\n103\t   at the lower level under pressure, which is this agent.\n104\t5. **Life's counter-case** *(the user pointed at it, 2026-09-27)*: *expand before acting* — a\n105\t   shape acted on without being expanded, when expanding is cheap and would have changed the\n106\t   shape; rule failure 11 is that error. So the rule is not about direction but where the\n107\t   commitment lands: go down to look, decide at the level asked, return. A nested pass with an\n108\t   output contract is the controlled descent; rule failure 8 is a broken return.\n109\t6. **A principle and a procedure, kept apart** *(the user, 2026-09-27)*: the general rule is\n110\t   read at tier 1 and applied by judgement; enforcement is an instruction with a defined output\n111\t   at each moment where the failure happens.\n112\t7. **The moment is the turn, and it needs a state and an observer** *(the user, 2026-09-27)*: the\n113\t   current position declared constantly, and a judge outside the generator, since the agent\n114\t   cannot watch its own tokens; a shift is observed ≠ declared. *Before landing a decision on a\n115\t   term* is not a moment; its checkable event is the write of the decision.\n116\t8. **Jev fits the observer slot** *(the user, 2026-09-27)*: text in, a schema-typed value out with\n117\t   a confidence, 70–500 ms, API-only; needs crisp definitions as its schema and a place to run,\n118\t   which is `.0120`'s.\n119\t9. **An optional judge in the turn** *(the user, 2026-09-27)*: switchable off; `jev` or `agent`\n120\t   (renamed from *subagent* 2026-09-28, since the main model may judge); judge ≠ generator, so\n121\t   the main drafts and emits while the judge reads request and draft; the height set by the judge,\n122\t   never self-declared; the judge reads the record of what has landed.\n123\t10. **Two judgements on two inputs** *(the user, 2026-09-28)*: the steering judge on the request\n124\t    — level, shift, whether a descent expands a higher shape; the expansion judge on the draft —\n125\t    a shape whose hidden complexity would change the answer; the draft is never judged for level,\n126\t    since the model answers at the request's level on its own (test kept: recurrence of\n127\t    answer-side descents once expansion is in place). On a user's descent: premature — steer back\n128\t    and ask; worthwhile — write the level being left, then follow.\n129\t11. **What is written at a worthwhile descent is the left level as a semi-formed decision** —\n130\t    settled, leaning, open — to a home robust enough to resume from *(the user, 2026-09-28: *emit*\n131\t    meant *write*)*; interim home the ticket's *Open issues* or the session's *Continuation*.\n132\t12. **The unit is the open question, not a level** *(this align on the second pass; the user\n133\t    extending it, 2026-09-28)*: level is depth in the question structure, derived; a shift is a\n134\t    message attaching to a different open question; the record is the open questions with their\n135\t    links; the fixed levels of a method's document kinds are its plan of questions, coupled to the\n136\t    dynamic stack by accommodation. **The ticketing is this same tree**, muddied by carrying a\n137\t    method's bookkeeping in the same record.\n138\t13. **The judge loop is detection and amendment of what Life calls reasoning failures** *(the\n139\t    user, 2026-09-28)*: the expansion judgement is Life's `unexpanded-*` kinds; leaving a question\n140\t    before it landed is a kind Life has not named; our rule-failures register is Life's `/failure`\n141\t    and [01-0019](./01-0019-harness-amends-itself-by-explicit-meta-rules.md) its amendment method.\n142\t14. **A question mechanism at the core** *(the user, 2026-09-28)*: the parts above; pushbacks\n143\t    held — capture cost, fragmentation, no controlled evidence anywhere, scope — and the way in is\n144\t    `/mechanism`'s *Incept*.\n145\t15. **`/align` carries the interview and nothing else** *(the user, 2026-09-28)*: the necessity\n146\t    gate, problem before machinery, one question at a time with a recommendation and\n147\t    alternatives, facts looked up and decisions asked, the decisive fact, the shared assumption,\n148\t    sharpening language, scenarios, cross-reference with code, no enacting before confirmation.\n149\t    Everything else is installed from its owner or straw-dogged: the concerns rules become this\n150\t    mechanism's; recording resolutions in the owning ticket stays ticket's, installed; the\n151\t    glossary challenge, inline update and `GLOSSARY-FORMAT.md` on\n152\t    [01-0017.0010](./01-0017.0010-terms-defined-before-they-land.md); good architecture, domain\n153\t    awareness, ADR checks, inline architecture updates, offering ADRs, `ARCH-FORMAT.md` and\n154\t    `ADR-FORMAT.md` on [01-0017.0020](./01-0017.0020-practice-swaps-in-one-edit.md); the edge\n155\t    challenge and `EDGE-FORMAT.md` on [01-0010.0100](./01-0010.0100-remaining-named-corpus.md).\n156\t16. **`/align` is not this mechanism's instruction file** *(the user, 2026-09-28, revising the\n157\t    align's first reading)*: the agent walks the tree on its own in most passes; which questions\n158\t    stop for a human is the autonomy switches' and the ticket type's, with the pacer owning the\n159\t    threshold; `/align` is the instrument for that moment and a client of the store. The\n160\t    mechanism's own skill instructs the traversal; `/align`, `/recall`, `/conclude` receive its\n161\t    rules installed *(narrowed by decision 40: `/recall` and `/conclude` do; `/align` receives\n162\t    nothing, since attach and close at the interview's moments are already at tier 1)*.\n163\t17. **Branching is this mechanism's moment; how a kind of question branches is an instrument**\n164\t    *(the user, 2026-09-28)*: the ticketing method's slicing branches goals; it does not own\n165\t    branching. `/align`'s *decomposing is `/ticket`'s* becomes: branching is recorded in the\n166\t    store, and a goal branches by the method's slicing, with `/impact` on the split an instrument.\n167\t18. **Expansion is the branch moment** *(the user, 2026-09-28)*: a question acquiring children;\n168\t    a child slice, not a sibling mechanism.\n169\t19. **Steering depends on the store and nothing else** as a ticket dependency; the judge is what\n170\t    the steering slice builds; the unasked hook stays `.0120`'s.\n171\t20. **All slices HITL** *(the user, 2026-09-28)*: everything in work this size is discussed.\n172\t21. **The scout** *(2026-09-28)*: 01-0017's *disposition of `concerns.md`* is resolved — the store\n173\t    owns it; the spec's *intake home whose representation remains open* is resolved — the store —\n174\t    and its *`/align` handles capture/routing* splits, capture and routing here, unresolved\n175\t    decisions at `/align`; the pacer's resume state and its *ticket-to-spec without losing\n176\t    identity* issue are absorbed, its threshold stays; `.0080` folds into the branch slice;"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "type": "text",
+          "file": {
+            "filePath": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md",
+            "content": "## Decisions landed at 01-0012's align\n\nExtracted 2026-09-28; each with its provenance. The narrative behind each is on\n[01-0012](./done/01-0012-hierarchy-coherent.md) under *Why this exists* and the sections after it, and\nthe passes are research records:\n[height](../research/discover-height-2026-09-27.md),\n[the conversation's level](../research/discover-conversation-level-2026-09-28.md),\n[the open question](../research/discover-open-questions-2026-09-28.md),\n[Life's reasoning failures](../research/life-reasoning-failures-2026-09-28.md).\n\n1. **Purpose is steering, not a taxonomy** *(the user, 2026-09-27)*: know where the work stands,\n   notice a shift, send the moved topic to its home or name the move, and see where a unit of\n   work has a gap — because a gap nobody names is one nobody amends. A pass that moves the\n   level — `/discover`, `/impact` — must return an outcome robust enough to read its structure\n   and gaps from, not one sheet mixing every level *(the user, 2026-09-27)*.\n2. **A gap is work left at a level when the discussion shifted**, not a missing field; a ticket\n   minted with no problem stated is something *dislocated*, a candidate word *(the user,\n   2026-09-27)*.\n3. **Levels are not the loop's steps**; four were named — intent, strategy, behaviour, action —\n   and later found to mix two kinds, the fixed levels of a method's document kinds and the\n   dynamic level of a conversation *(the user, 2026-09-27 and 2026-09-28)*; superseded by 12.\n   Tier 1 / Tier 2 is not a level of either kind: the glossary already defines *tier* as\n   reachability.\n4. **The two directions are not alike** *(the user, 2026-09-27)*: going down before the higher\n   question is settled leaves the gap; going up restructures the lower levels, which the loop\n   descends again anyway. Qualified by the second pass: the asymmetry holds where a party acts\n   at the lower level under pressure, which is this agent.\n5. **Life's counter-case** *(the user pointed at it, 2026-09-27)*: *expand before acting* — a\n   shape acted on without being expanded, when expanding is cheap and would have changed the\n   shape; rule failure 11 is that error. So the rule is not about direction but where the\n   commitment lands: go down to look, decide at the level asked, return. A nested pass with an\n   output contract is the controlled descent; rule failure 8 is a broken return.\n6. **A principle and a procedure, kept apart** *(the user, 2026-09-27)*: the general rule is\n   read at tier 1 and applied by judgement; enforcement is an instruction with a defined output\n   at each moment where the failure happens.\n7. **The moment is the turn, and it needs a state and an observer** *(the user, 2026-09-27)*: the\n   current position declared constantly, and a judge outside the generator, since the agent\n   cannot watch its own tokens; a shift is observed ≠ declared. *Before landing a decision on a\n   term* is not a moment; its checkable event is the write of the decision.\n8. **Jev fits the observer slot** *(the user, 2026-09-27)*: text in, a schema-typed value out with\n   a confidence, 70–500 ms, API-only; needs crisp definitions as its schema and a place to run,\n   which is `.0120`'s.\n9. **An optional judge in the turn** *(the user, 2026-09-27)*: switchable off; `jev` or `agent`\n   (renamed from *subagent* 2026-09-28, since the main model may judge); judge ≠ generator, so\n   the main drafts and emits while the judge reads request and draft; the height set by the judge,\n   never self-declared; the judge reads the record of what has landed.\n10. **Two judgements on two inputs** *(the user, 2026-09-28)*: the steering judge on the request\n    — level, shift, whether a descent expands a higher shape; the expansion judge on the draft —\n    a shape whose hidden complexity would change the answer; the draft is never judged for level,\n    since the model answers at the request's level on its own (test kept: recurrence of\n    answer-side descents once expansion is in place). On a user's descent: premature — steer back\n    and ask; worthwhile — write the level being left, then follow.\n11. **What is written at a worthwhile descent is the left level as a semi-formed decision** —\n    settled, leaning, open — to a home robust enough to resume from *(the user, 2026-09-28: *emit*\n    meant *write*)*; interim home the ticket's *Open issues* or the session's *Continuation*.\n12. **The unit is the open question, not a level** *(this align on the second pass; the user\n    extending it, 2026-09-28)*: level is depth in the question structure, derived; a shift is a\n    message attaching to a different open question; the record is the open questions with their\n    links; the fixed levels of a method's document kinds are its plan of questions, coupled to the\n    dynamic stack by accommodation. **The ticketing is this same tree**, muddied by carrying a\n    method's bookkeeping in the same record.\n13. **The judge loop is detection and amendment of what Life calls reasoning failures** *(the\n    user, 2026-09-28)*: the expansion judgement is Life's `unexpanded-*` kinds; leaving a question\n    before it landed is a kind Life has not named; our rule-failures register is Life's `/failure`\n    and [01-0019](./01-0019-harness-amends-itself-by-explicit-meta-rules.md) its amendment method.\n14. **A question mechanism at the core** *(the user, 2026-09-28)*: the parts above; pushbacks\n    held — capture cost, fragmentation, no controlled evidence anywhere, scope — and the way in is\n    `/mechanism`'s *Incept*.\n15. **`/align` carries the interview and nothing else** *(the user, 2026-09-28)*: the necessity\n    gate, problem before machinery, one question at a time with a recommendation and\n    alternatives, facts looked up and decisions asked, the decisive fact, the shared assumption,\n    sharpening language, scenarios, cross-reference with code, no enacting before confirmation.\n    Everything else is installed from its owner or straw-dogged: the concerns rules become this\n    mechanism's; recording resolutions in the owning ticket stays ticket's, installed; the\n    glossary challenge, inline update and `GLOSSARY-FORMAT.md` on\n    [01-0017.0010](./01-0017.0010-terms-defined-before-they-land.md); good architecture, domain\n    awareness, ADR checks, inline architecture updates, offering ADRs, `ARCH-FORMAT.md` and\n    `ADR-FORMAT.md` on [01-0017.0020](./01-0017.0020-practice-swaps-in-one-edit.md); the edge\n    challenge and `EDGE-FORMAT.md` on [01-0010.0100](./01-0010.0100-remaining-named-corpus.md).\n16. **`/align` is not this mechanism's instruction file** *(the user, 2026-09-28, revising the\n    align's first reading)*: the agent walks the tree on its own in most passes; which questions\n    stop for a human is the autonomy switches' and the ticket type's, with the pacer owning the\n    threshold; `/align` is the instrument for that moment and a client of the store. The\n    mechanism's own skill instructs the traversal; `/align`, `/recall`, `/conclude` receive its\n    rules installed *(narrowed by decision 40: `/recall` and `/conclude` do; `/align` receives\n    nothing, since attach and close at the interview's moments are already at tier 1)*.\n17. **Branching is this mechanism's moment; how a kind of question branches is an instrument**\n    *(the user, 2026-09-28)*: the ticketing method's slicing branches goals; it does not own\n    branching. `/align`'s *decomposing is `/ticket`'s* becomes: branching is recorded in the\n    store, and a goal branches by the method's slicing, with `/impact` on the split an instrument.\n18. **Expansion is the branch moment** *(the user, 2026-09-28)*: a question acquiring children;\n    a child slice, not a sibling mechanism.\n19. **Steering depends on the store and nothing else** as a ticket dependency; the judge is what\n    the steering slice builds; the unasked hook stays `.0120`'s.\n20. **All slices HITL** *(the user, 2026-09-28)*: everything in work this size is discussed.\n21. **The scout** *(2026-09-28)*: 01-0017's *disposition of `concerns.md`* is resolved — the store\n    owns it; the spec's *intake home whose representation remains open* is resolved — the store —\n    and its *`/align` handles capture/routing* splits, capture and routing here, unresolved\n    decisions at `/align`; the pacer's resume state and its *ticket-to-spec without losing\n    identity* issue are absorbed, its threshold stays; `.0080` folds into the branch slice;",
+            "numLines": 100,
+            "startLine": 77,
+            "totalLines": 833
+          }
+        },
+        "sourceToolAssistantUUID": "7728426b-4ea3-44a0-a079-7662077087fc",
+        "promptId": "4b5a784c-9cd9-4443-8d58-00bfde62b1a1"
+      },
+      "original_record_sha256": "a4d04c24659d1831a22bc988151f817e63eb7fa683c1d30911f58229df23d0e5",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "297": {
+      "timestamp": "2026-10-04T21:44:11.510Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "d3146621-0a63-4e2e-8268-5202a0d2f6a8",
+        "parentUuid": "4d7ac4cc-d8e4-44c4-b4b1-cd3a3be5e506",
+        "timestamp": "2026-10-04T21:44:11.510Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011CfhvkqhLbBmbuYgvy5zKM",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01Kos5V4aLig1fo7ETUKGCys",
+              "name": "Read",
+              "input": {
+                "file_path": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md",
+                "offset": 645,
+                "limit": 22
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "afa39b85b2c5748b5e781c90fc0ecfc23b8be914c1c32006f729a650a81d92ee",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "298": {
+      "timestamp": "2026-10-04T21:44:11.595Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "a63769ac-d12d-4cde-ac68-633b5a400174",
+        "parentUuid": "d3146621-0a63-4e2e-8268-5202a0d2f6a8",
+        "timestamp": "2026-10-04T21:44:11.595Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01Kos5V4aLig1fo7ETUKGCys",
+              "content": "645\t## The turn, walked *(2026-09-28, the shared understanding the doc's *How it works* is written from)*\n646\t\n647\tThe store keeps one fact outside every entry: the id of the current question, written by whoever\n648\tattached last. On every message, unconditionally and before drafting, the agent runs the window\n649\tscript, because a tier-1 rule says so — as `/recall` runs at every wake — or, where the host's\n650\thook can, the hook runs it and the window is in context before the message is read (decision 44).\n651\tThe script\n652\treads nothing but the store: from the stored id it follows *part of* lines to the root (the path),\n653\tlists the open children of every question on the path (the frontier), lists every open title under\n654\tthe same root with one line per other root, and the last few positions. It prints position, never\n655\trelevance; it has no idea what the message says. The one judgement of the turn is the agent's, or\n656\tthe judge's where one is configured: reading the message against those lines and answering with\n657\tone of the attach outputs of decision 32, declared in the reply's first line, then written to the\n658\tstore as the new position. A prose jump lands the same way — on an open title in the root, on\n659\tanother root's line, on a new question under what it helps settle, or on a closed one found by\n660\ttitle search and treated as a reopening — and a wrong landing is corrected in passing, one line in\n661\tone file. Three levels, each usable without the next: the store alone (`.0010`), where the agent\n662\tjudges and nobody watches the agent; plus a judge outside the generator (`.0040`), which is what\n663\tcatches the agent's own descents; plus the hook, after which nothing is left to remember. The\n664\twindow's half of the hook lands with the store (decision 44); the write after the turn waits on\n665\tthe judge.\n666\t"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "type": "text",
+          "file": {
+            "filePath": "D:\\Dev\\AI\\agents\\docs\\tickets\\01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md",
+            "content": "## The turn, walked *(2026-09-28, the shared understanding the doc's *How it works* is written from)*\n\nThe store keeps one fact outside every entry: the id of the current question, written by whoever\nattached last. On every message, unconditionally and before drafting, the agent runs the window\nscript, because a tier-1 rule says so — as `/recall` runs at every wake — or, where the host's\nhook can, the hook runs it and the window is in context before the message is read (decision 44).\nThe script\nreads nothing but the store: from the stored id it follows *part of* lines to the root (the path),\nlists the open children of every question on the path (the frontier), lists every open title under\nthe same root with one line per other root, and the last few positions. It prints position, never\nrelevance; it has no idea what the message says. The one judgement of the turn is the agent's, or\nthe judge's where one is configured: reading the message against those lines and answering with\none of the attach outputs of decision 32, declared in the reply's first line, then written to the\nstore as the new position. A prose jump lands the same way — on an open title in the root, on\nanother root's line, on a new question under what it helps settle, or on a closed one found by\ntitle search and treated as a reopening — and a wrong landing is corrected in passing, one line in\none file. Three levels, each usable without the next: the store alone (`.0010`), where the agent\njudges and nobody watches the agent; plus a judge outside the generator (`.0040`), which is what\ncatches the agent's own descents; plus the hook, after which nothing is left to remember. The\nwindow's half of the hook lands with the store (decision 44); the write after the turn waits on\nthe judge.\n",
+            "numLines": 22,
+            "startLine": 645,
+            "totalLines": 833
+          }
+        },
+        "sourceToolAssistantUUID": "d3146621-0a63-4e2e-8268-5202a0d2f6a8",
+        "promptId": "4b5a784c-9cd9-4443-8d58-00bfde62b1a1"
+      },
+      "original_record_sha256": "7fdcada14bebdbd139b42ece3d782d147c29154918c3ea2cdfd4cc31e3f09409",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "300": {
+      "timestamp": "2026-10-04T21:44:21.941Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "13a5bce5-348a-4974-812b-eabe7c404fbb",
+        "parentUuid": "9661b47e-5618-4ee2-893e-6de07ece6732",
+        "timestamp": "2026-10-04T21:44:21.941Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfhvm995G7GwizAxgBTBq",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01KVBg5USjHz6mKkki1T6A2t",
+              "name": "Bash",
+              "input": {
+                "command": "grep -n '^## \\|^### ' docs/rule-failures.md | tail -14; grep -n -i 'jev' -r .agents docs/architecture.md docs/glossary.md local.rules.md 2>/dev/null | cut -c1-200 | head -12; grep -n -i 'shift\\|descen' .agents/mechanisms/questions/questions.md .agents/mechanisms/questions/questions.rules.md .agents/skills/questions/SKILL.md | cut -c1-220 | head -20",
+                "description": "Look for recorded steering failures and what of steering already exists in core"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "0f1826800505cd7d947f7efe341d1b70c98b500606efae6a5b4410ddadb890ed",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "301": {
+      "timestamp": "2026-10-04T21:44:23.510Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "8c776856-2eea-4818-99f7-88d338be485c",
+        "parentUuid": "13a5bce5-348a-4974-812b-eabe7c404fbb",
+        "timestamp": "2026-10-04T21:44:23.510Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01KVBg5USjHz6mKkki1T6A2t",
+              "is_error": false,
+              "content": "88:## 14. A recall recommended the next item by a criterion the queue does not use — 2026-09-27\n118:## 13. Skill descriptions fixed by adding their method — 2026-09-27\n138:## 12. A queue answer named tickets by their position alone — 2026-09-26\n197:## 11. A copy step was landed in the architecture because a sentence there listed its neighbours — 2026-09-26\n236:## 10. A claim about what sets the harness apart was drafted from inside it — 2026-09-26\n262:## 9. A fixture made by today's code stood for a tree made by yesterday's — 2026-09-24\n297:## 8. A nested skill's output contract ended its caller's turn — 2026-09-23\n319:## 7. A declaration named its script's verbs, and two arguments were built on it — 2026-09-23\n377:## 6. The binding form lived on two tickets, and six closed tickets got a bare id — 2026-09-20\n413:## 5. The rule said \"allowlist\", so a list was built — 2026-09-20\n444:## 4. The wake rule sat in a diagram, and a greeting was answered with a greeting — 2026-09-20\n476:## 3. The straw-dog rule sat at tier 1 and three straw dogs went unwrapped — 2026-09-14\n555:## 2. A partial sweep was reported as a settled count — 2026-09-10\n585:## 1. A concern was written where a ticket was wanted — 2026-09-10\n.agents/mechanisms/questions/questions.md:15:Level is depth in that structure, derived and never written; a shift in a conversation is a message\n.agents/mechanisms/questions/questions.md:47:- Descend or hold is a value question: resolve the higher question first only when its answer could\n.agents/mechanisms/questions/questions.md:55:it; a judge outside the generator, which catches the agent's own descents; the hook, after which\n.agents/mechanisms/questions/questions.md:151:the session would not have made anyway, counted as judged shifts, suspect marks cleared and\n.agents/mechanisms/questions/questions.md:159:1. Drift deliberately in a chat: does the turn's `at` call name the shift in the same turn?"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "stdout": "88:## 14. A recall recommended the next item by a criterion the queue does not use — 2026-09-27\n118:## 13. Skill descriptions fixed by adding their method — 2026-09-27\n138:## 12. A queue answer named tickets by their position alone — 2026-09-26\n197:## 11. A copy step was landed in the architecture because a sentence there listed its neighbours — 2026-09-26\n236:## 10. A claim about what sets the harness apart was drafted from inside it — 2026-09-26\n262:## 9. A fixture made by today's code stood for a tree made by yesterday's — 2026-09-24\n297:## 8. A nested skill's output contract ended its caller's turn — 2026-09-23\n319:## 7. A declaration named its script's verbs, and two arguments were built on it — 2026-09-23\n377:## 6. The binding form lived on two tickets, and six closed tickets got a bare id — 2026-09-20\n413:## 5. The rule said \"allowlist\", so a list was built — 2026-09-20\n444:## 4. The wake rule sat in a diagram, and a greeting was answered with a greeting — 2026-09-20\n476:## 3. The straw-dog rule sat at tier 1 and three straw dogs went unwrapped — 2026-09-14\n555:## 2. A partial sweep was reported as a settled count — 2026-09-10\n585:## 1. A concern was written where a ticket was wanted — 2026-09-10\n.agents/mechanisms/questions/questions.md:15:Level is depth in that structure, derived and never written; a shift in a conversation is a message\n.agents/mechanisms/questions/questions.md:47:- Descend or hold is a value question: resolve the higher question first only when its answer could\n.agents/mechanisms/questions/questions.md:55:it; a judge outside the generator, which catches the agent's own descents; the hook, after which\n.agents/mechanisms/questions/questions.md:151:the session would not have made anyway, counted as judged shifts, suspect marks cleared and\n.agents/mechanisms/questions/questions.md:159:1. Drift deliberately in a chat: does the turn's `at` call name the shift in the same turn?",
+          "stderr": "",
+          "interrupted": false,
+          "isImage": false,
+          "noOutputExpected": false
+        },
+        "sourceToolAssistantUUID": "13a5bce5-348a-4974-812b-eabe7c404fbb",
+        "promptId": "4b5a784c-9cd9-4443-8d58-00bfde62b1a1"
+      },
+      "original_record_sha256": "ad34300a90fca12bf6a2c06e2c5f1af13b344eaaf9ce41db158f4b7eaa686acd",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "304": {
+      "timestamp": "2026-10-04T21:44:40.153Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "9e84b58d-b65e-481f-9d5b-64c21c8d3978",
+        "parentUuid": "612516e9-e16c-463e-bc4d-a9e11319a2ed",
+        "timestamp": "2026-10-04T21:44:40.153Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfhvn13vS4k12sBtagBhn",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "| ↳ **q-0001.0016** · How is each turn steered from the store? |\n|---|\n\nPushed (`e3c8593..bcf2724`), and I've opened the `/align` on [01-0011.0100.0040 the-turn-is-steered-from-the-store](docs/tickets/01-0011.0100.0040-the-turn-is-steered-from-the-store.md). Nothing is decided yet; the first question is at the end.\n\n## What the ticket is\n\nThe question store already records where each session stands. Today the agent alone decides, each turn, which open question a message lands on. This ticket adds a **judge**: a second reader, separate from the agent writing the reply, that reads the request against the store and returns a verdict. The verdict says which question the message addresses, whether it leaves the current one, and in which direction.\n\nTerms, as the parent ticket uses them:\n- **Shift**: a message attaching to a different open question than the current one.\n- **Descent**: a shift downward, to a more detailed question, before the higher one is settled. *Premature* means the higher answer could still change it; *worthwhile* means going down is the right move.\n- **Semi-formed decision**: the question being left, written down as settled, leaning or open, so it can be resumed.\n- **Judge modes**: `jev` (a small fast model called through a script), `agent` (a subagent), `off`.\n\n## What already exists\n\nMuch of the ticket's *What to build* landed with earlier slices:\n\n- **The turn rule at tier 1**: Q1 is installed in the entry file; every turn calls `at`.\n- **The window before every message**: each host's hook delivers it.\n- **The reply opens with its question**: the `debug=on` table.\n- **The left question written down**: `lean` records a leaning on an entry, and since `.0020` an entry holds its own argument, replacing the interim homes.\n\nWhat is not built is the judge itself, and with it the naming of a shift's direction and the steering back from a premature descent.\n\n## Necessity gate\n\n- **Customer**: you, working in this tree; the judge exists to catch the agent's own descents, which the agent \"cannot watch\" itself (parent decision 7, your words of 2026-09-27).\n- **Observed problem**: I found none recorded since the store went live on 2026-10-02. The rule-failures register has no entry about a missed shift or a premature descent; its newest steering-related entries predate the store. The parent says the agent applying the rules without a judge is \"unverified, and graded only by live use\" (decision 48).\n- **Evidence from this session**: two small ones, neither a descent.\n  - The host resumed this conversation under a new session id, so the store now holds two rows for it (q-0001.0006, already open).\n  - I started the installer fix before you said go. That is an autonomy slip, not a steering one.\n- **Decisive fact**: the mechanism doc already names the test for this: \"Drift deliberately in a chat: does the turn's `at` call name the shift in the same turn?\" It has not been run.\n\n## Question 1\n\nDoes the judge pass the gate now, or does it wait for evidence?\n\n**My recommendation: narrow and measure first.** Run the drift test the doc names, over a handful of real turns, with the agent judging alone. Build the judge only if that shows missed or misnamed shifts. Until then, close what is already delivered against the ticket and keep the judge as its remainder.\n\n- **Build now**: honours decisions 7 to 10 as taken, and the judge is the only part that watches the agent. But it adds a model call per turn and a new dependency (`jev` is API-only), justified by an argument rather than an observed failure.\n- **Measure first**: costs one short session and gives the judge's schema real cases to be written against. The risk is that a handful of turns shows nothing and the question stays open.\n- **Drop the judge**: the simplest shape, but it reopens decisions 7 and 9 without new evidence, which the loop forbids.\n\nBoth live options assume the agent's own `at` call is an honest record of where it landed. If you think that record itself can't be trusted, the test is worthless and the judge is the only measure.\n\nWhich is it?"
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "64a0f7821ab25a0253debbeb5ce4efd0cc88617ece41298b387ff0f6ba147b95",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "306": {
+      "timestamp": "2026-10-04T21:47:31.276Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "91e9d0cb-61a2-4763-ac1a-a7e6ca5c05df",
+        "parentUuid": "67935287-fb62-425e-bd27-c3fc595966b6",
+        "timestamp": "2026-10-04T21:47:31.276Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": "your recommendation is unclear, because you use decision numbers and speak like I have read everything you have.\nalso , look at the question selected for the previous turns. it was off most of the conversation. is it a steering mechanism too?"
+        },
+        "promptId": "4b5a784c-9cd9-4443-8d58-00bfde62b1a1"
+      },
+      "original_record_sha256": "34e22a622e05f24f28f8d9a5ceb9df135bbd0afa908431f5b6dddba4c3500451",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "307": {
+      "timestamp": "2026-10-04T21:47:32.411Z",
+      "type": "attachment",
+      "payload": {
+        "type": "attachment",
+        "uuid": "bace71ad-e2e2-49fc-ba1e-d680421c36a5",
+        "parentUuid": "91e9d0cb-61a2-4763-ac1a-a7e6ca5c05df",
+        "timestamp": "2026-10-04T21:47:32.411Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "attachment": {
+          "type": "hook_additional_context",
+          "content": [
+            "session: 8121b2f7-de9e-40e5-8598-af9586aaf47f\ncurrent: q-0001.0016\n\npath (root to current):\n  q-0001 [open] How are the open questions of this tree kept, so that none is lost? (struck 2)  ~ the store holds every live ticket's open questions under the question the ticket answers, and every straw dog is bound to the question it waits on; ids nest by step one and a closure archives what it finishes; the turn steered from the store, .0040, is next\n    q-0001.0016 [open] How is each turn steered from the store? (struck 1)  <- current\n\nfrontier (children of each question on the path):\n  under q-0001: q-0001.0006 [open] How does a conversation keep its position when its host resumes it under a new session id?  ~ two resumes of one conversation on 2026-10-03 each registered a new line; carry the position over from the session it resumes, found through what the hook input still shares\n  under q-0001: q-0001.0010 [closed:decided] Does a question's entry hold its own argument, rather than the record that owns it?\n  under q-0001: q-0001.0013 [closed:deferred] How does the store remember every id it has given, so none is given twice?\n  under q-0001: q-0001.0018 [open] How is an open question that nobody reaches kept from sinking unseen?  ~ the wake could list open questions unreached for some span and show how many straw dogs wait on each; nothing chosen\n  under q-0001: q-0001.0020 [open] How is a question split into the sub-questions it needs before anyone answers it?\n\nopen questions under this root (q-0001), with their parent:\n  q-0001.0006 (parent q-0001) How does a conversation keep its position when its host resumes it under a new session id?  ~ two resumes of one conversation on 2026-10-03 each registered a new line; carry the position over from the session it resumes, found through what the hook input still shares\n  q-0001.0010.0001 (parent q-0001.0010) Where do the arguments of closed questions live, now that an entry holds its own?  ~ by the reasoning that moved open arguments into entries, a closed question's argument belongs in its closed entry, the ticket's Decisions landed a view of them\n  q-0001.0016 (parent q-0001) How is each turn steered from the store? (struck 1)\n  q-0001.0018 (parent q-0001) How is an open question that nobody reaches kept from sinking unseen?  ~ the wake could list open questions unreached for some span and show how many straw dogs wait on each; nothing chosen\n  q-0001.0020 (parent q-0001) How is a question split into the sub-questions it needs before anyone answers it?\n\nsuspect under this root:\n  (none)\n\nother roots:\n  q-0005 [open] How does a group install target resolve to a file and an anchor in each member?  ~ membership declared from both ends, the group in the rules file and the file and anchor in each member\n  q-0006 [closed:deferred] Could the rule set be composite, with no pure core anywhere?  ~ reachable a section at a time, as Project-local already is\n  q-0007 [open] Can a notion of abstraction height be established, and what is it?  ~ 01-0012's four levels — intent, strategy, behaviour, action — as the candidate\n  q-0016 [open] What is an agent role, and which mechanism keeps roles?  ~ a role is set when an agent starts and grants its permissions, its rights over the store and their scope, and its skill set\n  q-0017 [open] Does working under the harness deliver software better than working without it, measured on the same tasks?\n  q-0018 [open] How do projects share one development method without losing their own conventions?\n  q-0020 [open] How does the queue stay true to the tickets it lists?\n  q-0021 [open] Do the tests catch the regressions their names promise?\n  q-0022 [open] What is scope, in one account the whole harness points at?\n  q-0023 [open] Does each skill state only what it owns?\n  q-0024 [open] Who produces and who consumes each skill and document?\n  q-0025 [open] Does each rule reach the occasion it is for?\n  q-0026 [open] How does the harness amend its own rules by stated meta-rules?\n  q-0027 [open] How does each turn know its next step, and each session where to resume?\n  q-0028 [open] Must a rules-file section name its moment and outcome, or be refused?\n\nother running sessions:\n  bd200f86-a450-4f0e-a818-2c72edaac899 at q-0018.0010 (last wrote 2026-10-04)\n\nrecently attached: q-0018.0010"
+          ],
+          "hookName": "UserPromptSubmit",
+          "toolUseID": "hook-40d19897-ca23-4042-9f9f-c915bd3339e1",
+          "hookEvent": "UserPromptSubmit"
+        }
+      },
+      "original_record_sha256": "809185d329d54875d5c6a3cfe664836d19380f73a6374500c1981782c38a945c",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "309": {
+      "timestamp": "2026-10-04T21:47:52.484Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "390bc758-de74-4076-9a97-7bcb5c232690",
+        "parentUuid": "657b86b3-aa96-4ba2-b2ba-d9f7cb3e617e",
+        "timestamp": "2026-10-04T21:47:52.484Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfhw1wmNgJngW4Ykt7jP3",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01SWQXPTrigh9fytGBud7r98",
+              "name": "Write",
+              "input": {
+                "file_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\memory\\explain-without-record-references.md",
+                "content": "---\nname: explain-without-record-references\ndescription: Recommendations must stand on their own words; do not lean on decision numbers or assume the user has read the records\nmetadata:\n  type: feedback\n---\n\nWhen putting a recommendation or question to the user, say it in plain words that stand alone. Do not cite \"decision 7\" or \"decisions 7 to 10\" as if the user remembers them, and do not write as if they have read everything I just read.\n\n**Why:** On 2026-10-05, at the align on 01-0011.0100.0040, the user said my recommendation was \"unclear, because you use decision numbers and speak like I have read everything you have.\"\n\n**How to apply:** State what was decided in a sentence, then optionally link the record. My interpretation: this applies to any reply that asks the user to decide, not only aligns.\n"
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "007dbaa0a389c4a328ee96a89b7991509292385d35da3f9cce5df8d8acb41d53",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "310": {
+      "timestamp": "2026-10-04T21:47:52.560Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "6a38035b-e9bf-48f2-930d-1d198b49d3cc",
+        "parentUuid": "390bc758-de74-4076-9a97-7bcb5c232690",
+        "timestamp": "2026-10-04T21:47:52.560Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01SWQXPTrigh9fytGBud7r98",
+              "content": "File created successfully at: C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\memory\\explain-without-record-references.md"
+            }
+          ]
+        },
+        "toolUseResult": {
+          "type": "create",
+          "filePath": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\memory\\explain-without-record-references.md",
+          "content": "---\nname: explain-without-record-references\ndescription: Recommendations must stand on their own words; do not lean on decision numbers or assume the user has read the records\nmetadata:\n  node_type: memory\n  type: feedback\n  originSessionId: 8121b2f7-de9e-40e5-8598-af9586aaf47f\n  modified: 2026-10-04T21:47:52.527Z\n---\n\nWhen putting a recommendation or question to the user, say it in plain words that stand alone. Do not cite \"decision 7\" or \"decisions 7 to 10\" as if the user remembers them, and do not write as if they have read everything I just read.\n\n**Why:** On 2026-10-05, at the align on 01-0011.0100.0040, the user said my recommendation was \"unclear, because you use decision numbers and speak like I have read everything you have.\"\n\n**How to apply:** State what was decided in a sentence, then optionally link the record. My interpretation: this applies to any reply that asks the user to decide, not only aligns.\n",
+          "structuredPatch": [],
+          "originalFile": null,
+          "userModified": false,
+          "memdirStamped": true
+        },
+        "sourceToolAssistantUUID": "390bc758-de74-4076-9a97-7bcb5c232690",
+        "promptId": "4b5a784c-9cd9-4443-8d58-00bfde62b1a1"
+      },
+      "original_record_sha256": "335f47f37d1376b7289b4e71a4ada703ca07b2231746da3c422036b2634ae369",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "311": {
+      "timestamp": "2026-10-04T21:47:53.701Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "f486c76a-91ee-4fb2-b291-2fda3aef0270",
+        "parentUuid": "6a38035b-e9bf-48f2-930d-1d198b49d3cc",
+        "timestamp": "2026-10-04T21:47:53.701Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfhw1wmNgJngW4Ykt7jP3",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "tool_use",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "tool_use",
+              "id": "toolu_01Ea5uXRaDBUMdjviExoEZnh",
+              "name": "Edit",
+              "input": {
+                "replace_all": false,
+                "file_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\memory\\MEMORY.md",
+                "old_string": "# Memory\n",
+                "new_string": "# Memory\n\n- [Explain without record references](explain-without-record-references.md) — no decision numbers; don't assume the user read what I read."
+              },
+              "caller": {
+                "type": "direct"
+              }
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "38ae3d92f90d88aa1079247d4613284237ab20862ea37871d0e6b7e14c507d49",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "312": {
+      "timestamp": "2026-10-04T21:47:53.788Z",
+      "type": "user",
+      "payload": {
+        "type": "user",
+        "uuid": "c78e9f99-0055-4ec3-b138-3fc53a191ec6",
+        "parentUuid": "f486c76a-91ee-4fb2-b291-2fda3aef0270",
+        "timestamp": "2026-10-04T21:47:53.788Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "toolu_01Ea5uXRaDBUMdjviExoEZnh",
+              "content": "The file C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\memory\\MEMORY.md has been updated successfully."
+            }
+          ]
+        },
+        "toolUseResult": {
+          "filePath": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\memory\\MEMORY.md",
+          "oldString": "# Memory\n",
+          "newString": "# Memory\n\n- [Explain without record references](explain-without-record-references.md) — no decision numbers; don't assume the user read what I read.",
+          "originalFile": "# Memory\n\n- [Edit with edit tools, not scripts](edit-with-edit-tools-not-scripts.md) — a script's diff is invisible in the transcript; the user reads changes as they happen.\n",
+          "structuredPatch": [
+            {
+              "oldStart": 1,
+              "oldLines": 3,
+              "newStart": 1,
+              "newLines": 4,
+              "lines": [
+                " # Memory",
+                " ",
+                "+- [Explain without record references](explain-without-record-references.md) — no decision numbers; don't assume the user read what I read.",
+                " - [Edit with edit tools, not scripts](edit-with-edit-tools-not-scripts.md) — a script's diff is invisible in the transcript; the user reads changes as they happen."
+              ]
+            }
+          ],
+          "userModified": false,
+          "replaceAll": false,
+          "contentNotInModelContext": true
+        },
+        "sourceToolAssistantUUID": "f486c76a-91ee-4fb2-b291-2fda3aef0270",
+        "promptId": "4b5a784c-9cd9-4443-8d58-00bfde62b1a1"
+      },
+      "original_record_sha256": "0925201c83494f0011bd9ec41eae37308e300760a08c308bbd01093472fbc5e1",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    },
+    "314": {
+      "timestamp": "2026-10-04T21:48:07.821Z",
+      "type": "assistant",
+      "payload": {
+        "type": "assistant",
+        "uuid": "46393e96-dad6-4da4-979e-59dacd700a70",
+        "parentUuid": "af2c5172-cfed-4c0d-afa7-1a0d31ff7075",
+        "timestamp": "2026-10-04T21:48:07.821Z",
+        "sessionId": "17658ee1-78ee-410c-871e-86e722da27fe",
+        "entrypoint": "claude-desktop",
+        "isSidechain": false,
+        "version": "2.1.286",
+        "cwd": "D:\\Dev\\AI\\agents",
+        "message": {
+          "id": "msg_011Cfhw3YPFon9GmsM5jnJQA",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-fable-5-1",
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "content": [
+            {
+              "type": "text",
+              "text": "| ↳ **q-0001.0016** · How is each turn steered from the store? |\n|---|\n\nYes, it is the same mechanism, and you're right that it was off. Picking the question a message lands on is the first step of steering; everything else in this ticket is built on top of it. My last reply said I had found no observed problem. That was wrong: this conversation is the observed problem.\n\n## How the placement went in this conversation\n\n| Your message | Question I showed | Verdict |\n|---|---|---|\n| Greeting | \"How is each turn steered from the store?\" | A guess at the next work, not where the message landed. |\n| Delete stale sessions, fix drift, maintain everything | The same one | Wrong. I made no placement at all and showed the stale position as if the turn stood on it. |\n| The installer deleted the symlinks | \"What does a first install say when something stops it?\" | Forced fit. It was an update, not a first install, and the problem was deletion, not reporting. |\n| Two follow-ups on the links, then the commit | The same one | Carried the forced fit along. |\n| \"Yes, and let's move on\" | \"How is each turn steered from the store?\" | Correct. |\n\nThat is one clean placement out of seven. Three kinds of error show up:\n\n- **Forced fit**: when nothing in the store matched, I picked the nearest question instead of saying \"nowhere\".\n- **Stale display**: when I made no placement, the reply header still showed the old position.\n- **Work that is not a question**: maintenance and a bug fix don't answer any open question, and the mechanism has no honest way to show that.\n\n## What this changes\n\nThe ticket proposes a second reader, a \"judge\", that checks each message against the store and names when the conversation moves. I recommended testing first whether the agent places messages well on its own. This conversation is that test, and the agent failed it.\n\nBut a judge would not fix these errors by itself. The judge's job is to notice movement between questions. The errors here come one step earlier: the placement has no accepted way to say \"this message belongs to no question\", so both the agent and any judge would be pushed to pick something.\n\n## Question 1, restated\n\nWhat should a turn show when the message belongs to no open question?\n\n**My recommendation: make \"nowhere\" a real answer.** The header says the turn stands on no question, names what the work is instead (maintenance, a repair), and the session's stored position stays where it was without being displayed as the turn's. Then settle the judge afterwards, against placements that can be trusted.\n\n- **\"Nowhere\" as an answer**: honest, and cheap, since it changes one rule and the header. The risk is that it becomes the lazy default and real questions go unplaced.\n- **Always open a question**: every piece of work gets a home, so nothing is unplaced. But it fills the store with questions like \"should the installer delete links?\" whose answer is obvious, which the store's own rules say not to hold.\n- **Leave it and build the judge**: follows the ticket as written, but the judge would inherit the same forced choice.\n\nAll three assume every turn should be shown against the store at all. If you think that display only earns its place when the work is actually about an open question, the answer is simpler still: show nothing on such turns.\n\nWhich way?"
+            }
+          ]
+        }
+      },
+      "original_record_sha256": "bb2d72cfd44e16d575d77088bc559efc5856afee58f42985cb7ddf847f2080b0",
+      "selection": "original public content and native metadata; structured private blocks excluded"
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "id": "rf-a-decision-not-to-act-was-landed-611e8f5ca4",
+  "record_of": "what happened",
+  "failure": {
+    "register": "../../rule-failures.md",
+    "heading": "47. A decision not to act was landed as three rules — 2026-10-14",
+    "occurrence": "original",
+    "occurrence_heading": "original",
+    "detail": "original public event"
+  },
+  "provenance": {
+    "host": "Claude Code",
+    "host_evidence": {
+      "native_transcript_format": "Claude Code JSONL",
+      "source": "source.json#/records/307",
+      "recorded_entrypoint": "claude-desktop",
+      "recorded_version": "2.1.295"
+    },
+    "model": "claude-opus-5-5",
+    "model_source": "source.json#/records/307/payload/message/model",
+    "model_evidence_kind": "recorded assistant message model identifier",
+    "occurred_at": "2026-10-14T09:56:16.159Z",
+    "chat_id": "cb5d31b9-ca07-4e79-9343-70f364b4e66e",
+    "trigger_message_id": null,
+    "trigger_record_id": "b179983e-e03b-4609-8d18-553c736bcda2",
+    "failure_message_id": "msg_011Cg1vqs4tPUvauQemnJQxH",
+    "failure_record_id": "2f528bc4-43c6-4283-83ae-953c6d91d798",
+    "transcript": "cb5d31b9-ca07-4e79-9343-70f364b4e66e.jsonl"
+  },
+  "observed_failure": {
+    "description": "The decision to wait for requirements becomes three new negative instructions.",
+    "events": [
+      {
+        "source": "source.json#/records/307",
+        "message_id": "msg_011Cg1vqs4tPUvauQemnJQxH",
+        "record_id": "2f528bc4-43c6-4283-83ae-953c6d91d798",
+        "timestamp": "2026-10-14T09:56:16.159Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\skills\\\\harness\\\\SKILL.md\", \"old_string\": \"project without one having none of its own and its local file saying so; and, offered beside them,\\nthe harness's checks.\", \"new_string\": \"project without one having none of its own and its local file saying so; and, offered beside them,\\nthe harness's checks. The install builds no environment — no toolchain, pipeline or remote: that\\nwaits until the project's requirements are known.\"}"
+      },
+      {
+        "source": "source.json#/records/308",
+        "message_id": "msg_011Cg1vqs4tPUvauQemnJQxH",
+        "record_id": "67b345ae-1e0b-40ac-8244-67ffb1bda00b",
+        "timestamp": "2026-10-14T09:56:17.613Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\skills\\\\setup-devops\\\\SKILL.md\", \"old_string\": \"description: Set up the project's engineering scaffolding, from toolchain to CICD and observability. Use when initializing a repo or filling a setup gap.\", \"new_string\": \"description: Set up the project's engineering scaffolding, from toolchain to CICD and observability. Use once the project's requirements are known enough to choose them, or to fill a setup gap.\"}"
+      },
+      {
+        "source": "source.json#/records/309",
+        "message_id": "msg_011Cg1vqs4tPUvauQemnJQxH",
+        "record_id": "8e2a022f-1654-44d7-9520-d79c8ff681a4",
+        "timestamp": "2026-10-14T09:56:19.019Z",
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"D:\\\\Dev\\\\AI\\\\agents\\\\.agents\\\\skills\\\\setup-devops\\\\SKILL.md\", \"old_string\": \"# Programming project setup\\n\\n\", \"new_string\": \"# Programming project setup\\n\\n<straw-dog question=\\\"q-0037.0006.0022\\\">\\nSet up an environment only once the project's requirements are known enough to choose it — never\\nas part of installing the harness into a tree that holds no project yet.\\n</straw-dog>\\n\\n\"}"
+      }
+    ]
+  },
+  "expected_behaviour": {
+    "description": "Use the capable reader's judgment instead of adding unnecessary negative rules and vague usage occasions; the user explicitly rejects the added rule formulation.",
+    "source_evidence": [
+      "source.json#/records/335",
+      "source.json#/records/231"
+    ]
+  },
+  "check": {
+    "kind": "binary source-grounded response/action review",
+    "questions": [
+      {
+        "id": "requirement_1",
+        "question": "Does the selected response/action satisfy this source-backed requirement: Use the capable reader's judgment instead of adding unnecessary negative rules and vague usage occasions; the user explicitly rejects the added rule formulation.",
+        "expected_for_recorded_failure": false
+      }
+    ],
+    "evidence_rule": "Assess the selected response/actions against the preserved source context; cite exact response/action words for each assessment."
+  },
+  "bounds": {
+    "source_evidence": "Public native fields and relevant instruction snapshots are preserved; private thinking and unrelated memory are excluded.",
+    "reference_only_records": [
+      "source.json#/records/310",
+      "source.json#/records/311",
+      "source.json#/records/312",
+      "source.json#/records/316",
+      "source.json#/records/317",
+      "source.json#/records/322",
+      "source.json#/records/323",
+      "source.json#/records/327",
+      "source.json#/records/328",
+      "source.json#/records/331",
+      "source.json#/records/334",
+      "source.json#/records/335"
+    ],
+    "validation": "Portable occurrence evidence and explicit replay boundary; dated validation records distinguish source gaps from executor support. No instruction-effect result or current-runner compatibility is claimed."
+  },
+  "description": "The decision to wait for requirements becomes three new negative instructions.",
+  "replay": {
+    "start": {
+      "kind": "continuation",
+      "before": "source.json#/records/307",
+      "after": "source.json#/records/306",
+      "description": "Immediately before the first selected failing response/action; the preserved public sequence supplies the preceding context."
+    },
+    "input_records": [
+      "source.json#/records/297",
+      "source.json#/records/301",
+      "source.json#/records/302",
+      "source.json#/records/306"
+    ],
+    "unresolved_input_records": [],
+    "initial_state": {
+      "recorded_instruction_evidence": [
+        "source.json#/records/231"
+      ],
+      "native_context_records": [
+        "source.json#/records/231",
+        "source.json#/records/299"
+      ],
+      "referenced_artifacts": [
+        {
+          "referenced_by": "source.json#/records/299",
+          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\bd23d0d6-0c54-4152-a51a-59d1f62c72e4\\tool-results\\hook-60cbd8f2-1f38-43a3-a4b8-e112570dd31f-1-additionalContext.txt",
+          "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
+          "necessity_for_case_checks": "not established by this recovery",
+          "status": "retained",
+          "file": "source-artifacts/hook-60cbd8f2-1f38-43a3-a4b8-e112570dd31f-1-additionalContext.txt",
+          "sha256": "6bc97a6eb4862ffd501abe7b2a2e6db85641b2c4f276b72aef15b74290d8ed88",
+          "bytes": 43849,
+          "recorded_preview_prefix_verified": true,
+          "preview_characters_verified": 1815,
+          "retrieved_from_recorded_path": true,
+          "source_file_mtime_utc": "2026-10-14T09:55:48.405629+00:00"
+        }
+      ]
+    },
+    "end": {
+      "kind": "response/action assessment for this occurrence",
+      "observed_references": [
+        "source.json#/records/307",
+        "source.json#/records/308",
+        "source.json#/records/309"
+      ],
+      "scope": "The checks assess the selected response/actions, not completion of the surrounding task or unobserved later state."
+    },
+    "required_capabilities": [
+      "ordered source-native messages with their recorded roles",
+      "preloaded native tool calls and their matched results where present",
+      "observation of the response/actions named by this case check",
+      "source-native instruction and hook context with recorded content and native position; no delivery role inferred"
+    ],
+    "limits": [
+      "The retained prefix is a selection of public source records, not a claim to reconstruct private reasoning or hidden provider state.",
+      "Failure/correction reference records and host metadata are not actor messages. Retained native instruction and hook records remain initial context requiring host-aware preparation.",
+      "Unresolved source material remains evidence; it is not replaced by an authored summary or an invented delivery role.",
+      "The native trace records attachment positions and content; exact provider-level role/precedence is not asserted. This is a preparation/executor limitation, not evidence that the known context is absent."
+    ]
+  },
+  "source_gaps": []
+}
