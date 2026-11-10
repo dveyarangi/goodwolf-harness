@@ -11,7 +11,7 @@ rewritten from it.
 
 ## What was decided, and what chose it
 
-### The front page says what the harness is, in the reader's terms — q-0033.0008
+### The front page says what the harness is, in the reader's terms — q-osjub2
 
 - **Not "institutional memory", not "cognition".** The user offered *persistent project cognition
   for stateless coding agents*. The agent refused *cognition* on the ground that the harness is
@@ -51,7 +51,7 @@ rewritten from it.
     but that decisions taken get built*;
   - *what's new* — *we need what is*.
 
-### What the harness is for — q-0033, now `docs/product.md`
+### What the harness is for — q-m6unv4, now `docs/product.md`
 
 The user rejected two lists in a row: the agent's implementations, then its general engineering
 claims. *None of this answers the user's pain.* The pains were then found in four sortings, each
@@ -78,13 +78,13 @@ the leading product document, from which goals and the front page are derived. W
 - **The product mark lives on questions, never on tickets or other temporary records** *(the
   user)*. A ticket reaches the product through the question it answers.
 - **Collecting the marks may be the release mechanism reincarnated** *(the user)*. Recorded as an
-  intention on q-0037.0018.0001; 01-0010.0190 carries the note's product half.
+  intention on q-y4mm3y; 01-0010.0190 carries the note's product half.
 - **Built answers.** Answers built through the question store are fine. The harness's own
-  historical rules count as seed, as straw dogs, until q-0037.0012 settles who owns them. An install
+  historical rules count as seed, as straw dogs, until q-tt733j settles who owns them. An install
   into an existing project harvests its answers in two stages. First, an align on what is hard and
   what causes it, gated on at least one solvable difficulty. Then a pass over docs and code that
   writes what it finds as questions, never as marks in code. A found answer is HITL until the
-  person confirms it (q-0037.0006.0011.0004, q-0037.0013.0002).
+  person confirms it (q-id2wgu, q-6p6j63).
 - **The "why" of a found answer is the cause the person recognized** *(the user, correcting the
   agent)*. The agent had run two whys together: why a thing exists, which is the product's, and
   why it was built this way, which is the architecture's.
@@ -92,13 +92,13 @@ the leading product document, from which goals and the front page are derived. W
 ### Smaller decisions
 
 - **Locks between sessions are needed;** the architecture's disclaimer is wrapped as a straw dog
-  (q-0032).
-- **More hosts are needed** (q-0037.0006.0023).
+  (q-3fds32).
+- **More hosts are needed** (q-kecvv7).
 - **Integration with an existing entry file in two modes** — the harness takes over, or is added
-  by one import line — is one of the most important candidates for work (q-0037.0006.0020.0001).
+  by one import line — is one of the most important candidates for work (q-n3pc22).
 - **The front page's review by outside agents is kept as a process,** described rather than made a
   skill ([record](../research/front-page-review-by-outside-agents-2026-10-08.md)). It is a case of
-  q-0037.0015.
+  q-7rmmpw.
 - **A sweep of `docs/product.md` against the whole tree by `/maintain` is premature:** the tree
   also serves structure and evolution.
 
@@ -130,12 +130,12 @@ the leading product document, from which goals and the front page are derived. W
   - [the consolidated inventory](../research/harness-answers-inventory-2026-10-09.md): 157 items,
     78 weaknesses, and the rule-failure register read entry by entry.
 - **Questions opened:**
-  - q-0033.0008, q-0032, q-0033 and its children;
-  - q-0037.0006.0023, q-0037.0006.0011.0004, q-0037.0012.0007.0002;
-  - q-0037.0012.0009.0001 and its child q-0037.0012.0009.0001.0002;
-  - q-0037.0012.0005, q-0037.0009.0020, q-0037.0011.0004, q-0037.0006.0004.0002.
-- **Questions merged and moved:** q-0033.0002 merged into q-0037.0013.0002; q-0026.0002 moved under
-  its missing parent, as q-0037.0012.0009.0001.0001.
+  - q-osjub2, q-3fds32, q-m6unv4 and its children;
+  - q-kecvv7, q-id2wgu, q-vckif3;
+  - q-j5s7gp and its child q-uo7kbk;
+  - q-s6ngtr, q-esfr23, q-k657j6, q-kgpu6x.
+- **Questions merged and moved:** q-5pawsr merged into q-6p6j63; q-0026.0002 moved under
+  its missing parent, as q-sgnh33.
 - **Release tickets:** 01-0010.0185 and .0190 rebuilt. .0185 had briefly carried a product line,
   withdrawn when the mark moved to questions.
 
@@ -155,26 +155,26 @@ the leading product document, from which goals and the front page are derived. W
 - **Two of the agent's own edits went by script** — a `sed` and a heredoc — against the user's
   rule that edits are made with edit tools.
 - **Parallel sessions collided on a session number.** Two records numbered 0044 exist this day,
-  live evidence for q-0032.
+  live evidence for q-3fds32.
 
 ## Open questions touched, and where they stand
 
-- **q-0033.0008** — the front page. Landed from the product document; it waits on the product
+- **q-osjub2** — the front page. Landed from the product document; it waits on the product
   document's own evolution.
-- **q-0033** — the product root; stays open while absent rows remain. Its children:
-  - q-0033.0001 — where models are weak;
-  - q-0033.0003 — tracing a failure to its cause;
-  - q-0033.0004 — teams;
-  - q-0037.0018.0001 — keeping the document true: marks on questions, derivation, collection at
+- **q-m6unv4** — the product root; stays open while absent rows remain. Its children:
+  - q-jv7khp — where models are weak;
+  - q-2wmklw — tracing a failure to its cause;
+  - q-37xc3y — teams;
+  - q-y4mm3y — keeping the document true: marks on questions, derivation, collection at
     release.
-- **q-0037.0006.0011.0004** — an arrival's two-stage harvest and a generated question tree; to be
+- **q-id2wgu** — an arrival's two-stage harvest and a generated question tree; to be
   tested on the harness itself against the inventory, once the person has ruled on its items.
-- **q-0037.0013.0002** — HITL as a mark on questions.
-- **q-0032** — locks. **q-0037.0006.0023** — more hosts. **q-0037.0006.0020.0001** — two integration modes.
-- **q-0037.0012.0007.0002** — the version announcement as a straw dog. The wrap is pending the user, and the
+- **q-6p6j63** — HITL as a mark on questions.
+- **q-3fds32** — locks. **q-kecvv7** — more hosts. **q-n3pc22** — two integration modes.
+- **q-vckif3** — the version announcement as a straw dog. The wrap is pending the user, and the
   entry contract has moved on since.
-- **The five opened for the register's weaknesses:** q-0037.0009.0020, q-0037.0011.0004, q-0037.0012.0005,
-  q-0037.0012.0009.0001.0002, q-0037.0006.0004.0002.
+- **The five opened for the register's weaknesses:** q-esfr23, q-k657j6, q-s6ngtr,
+  q-uo7kbk, q-kgpu6x.
 
 ## What continues
 
@@ -184,4 +184,4 @@ the leading product document, from which goals and the front page are derived. W
 - **The inventory awaits the person's verdicts** before it can serve as the oracle for a mechanism
   that generates a project's question tree.
 - **Entry 22 of the rule-failure register** may have regressed under a later rewrite
-  (q-0037.0012.0009.0001.0002).
+  (q-uo7kbk).

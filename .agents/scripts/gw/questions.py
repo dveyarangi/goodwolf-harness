@@ -652,7 +652,7 @@ def _rung(value: str) -> tuple[tuple[str, str], ...] | None:
 
     Only the form is the store's: the rungs' names and their order are each ladder's mechanism's.
     """
-    # TODO q-0037.0010.0002.0005: a ladder's rungs are checked by name, and a lowering told, once
+    # TODO q-ggpx2r: a ladder's rungs are checked by name, and a lowering told, once
     # its mechanism declares them.
     if not _RUNG.match(value):
         return None
@@ -1286,7 +1286,7 @@ def _came_and_went(earlier: list | None, named: list) -> str:
 
 
 def _tally(root: Path, store: Store, known: dict[str, tuple[int, int, list[tuple[int, str]]]]) -> Counted:
-    # TODO q-0037.0006.0024.0001: the ticket count is the method's to add, not the store's to read.
+    # TODO q-2zouxq: the ticket count is the method's to add, not the store's to read.
     # The ticket mechanism says what a live ticket is; imported here, since it imports this module.
     import tickets
 
@@ -1448,7 +1448,7 @@ def _most_struck(live: list[Entry]) -> list[Entry]:
 
 # --- the path -----------------------------------------------------------------------------------
 
-# TODO q-0037.0019: the path is the pathfinder's, drawn here while that mechanism is undeclared.
+# TODO q-huss2x: the path is the pathfinder's, drawn here while that mechanism is undeclared.
 AHEAD_READY = 5
 AHEAD_STRUCK = 3
 AHEAD_LATELY = 5
@@ -1463,7 +1463,7 @@ def path_ahead(root: Path, now: datetime) -> str:
     one path; it ranks nothing, no order among the candidates being written yet, and compares
     no count with the project's limit on work in hand, which the agent reads from the entry file.
     """
-    # TODO q-0033.0012: the order, once the product roadmap gives one.
+    # TODO q-ojs4jd: the order, once the product roadmap gives one.
     if not (root / STORE).is_dir():
         return "path: no question store here"
     return "\n".join(["path:", *_ahead_lines(root, now)])
@@ -1502,7 +1502,7 @@ class _Ahead:
 
     @staticmethod
     def read(root: Path) -> "_Ahead":
-        # TODO q-0037.0006.0024.0001: the path reads questions only; readiness is the method's to add.
+        # TODO q-2zouxq: the path reads questions only; readiness is the method's to add.
         import product  # noqa: PLC0415  (it imports this module)
         import tickets  # noqa: PLC0415  (it imports this module)
 
@@ -1516,7 +1516,7 @@ class _Ahead:
     def in_work(self) -> list[str]:
         """The tickets In progress with none under them In progress: a parent is in progress
         because a child is, and is counted once, through the child."""
-        # TODO q-0037.0019.0001: sessions in the ring count too once the store can tell them.
+        # TODO q-b3myg2: sessions in the ring count too once the store can tell them.
         going = [ticket for ticket in self.tickets if _status_of(ticket) == "In progress"]
         ids = [_ticket_id(ticket) for ticket in going]
         leaves = [ticket for ticket in going if not any(other.startswith(f"{_ticket_id(ticket)}.") for other in ids)]
@@ -1528,7 +1528,7 @@ class _Ahead:
     def touched_lately(self, now: datetime) -> list[Entry]:
         """The open questions no ticket owns, below a root, stamped within the week the session
         rows also keep — what the store can say of a new idea, which records no boundary."""
-        # TODO q-0037.0019.0001: since the last boundary, once the store records one.
+        # TODO q-b3myg2: since the last boundary, once the store records one.
         horizon = now - sessions.GONE_AFTER
         found = [read for read in self._unowned() if read.strike and read.strike.last >= horizon]
         return sorted(found, key=lambda read: read.strike.last, reverse=True)
@@ -1546,7 +1546,7 @@ class _Ahead:
     def ready(self) -> list:
         """The Ready tickets, in id order: none stands above another until the product's roadmap
         orders them."""
-        # TODO q-0033.0012: stand them by the product roadmap once it exists.
+        # TODO q-ojs4jd: stand them by the product roadmap once it exists.
         return [ticket for ticket in self.tickets if _status_of(ticket) == "Ready"]
 
     def open_work(self) -> "collections.Counter[str]":
@@ -2013,7 +2013,7 @@ def _order(read: Entry) -> tuple:
 def _sibling_key(read: Entry) -> tuple:
     """Where a question stands among its siblings: those that never said when they opened first,
     by their old positions, then by `opened`, then by id — one key for every mix of the two."""
-    # TODO q-0037.0017.0005.0001.0019: the old positions leave once no entry lacks `opened`.
+    # TODO q-2jheaw: the old positions leave once no entry lacks `opened`.
     opened = read.parts.get("opened")
     identity = read.identity or "q-0"
     dotted = all(part.isdigit() for part in identity[2:].split("."))

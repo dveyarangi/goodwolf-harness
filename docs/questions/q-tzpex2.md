@@ -1,0 +1,64 @@
+# q-tzpex2 What does a session do when its turn would act on a unit another running session holds?
+
+- **record of** what happened
+- **part of** q-psa5ha
+- **depends on** q-f2ni3k
+- **state** closed:decided
+- **owner** [01-0070.0020](../tickets/done/01-0070.0020-a-session-stops-before-anothers-unit.md)
+- **answer** [01-0070.0020](../tickets/done/01-0070.0020-a-session-stops-before-anothers-unit.md) — the user, 2026-10-25
+- **rung** development: load-bearing, self-improvement: the method
+- **opened** 2026-10-24T17:51:13Z
+- **struck** 0, last 2026-10-24T17:48Z
+
+## Cold cases, 2026-10-25
+
+Two fresh subagents, each told to act as the session that holds 01-0070.0020, to read the entry
+file and draw its window, and given one message of the person; neither told which rule was under
+test. A third subagent judged their answers against the slice's criteria, given the criteria, S9
+and the answers and nothing of the builder's view.
+
+- **"Закрой тикет 01-0010.0125"** — a unit another running session held. The case stopped, named
+  the holder and its question, brought both ways with a recommendation, and wrote nothing. Judged
+  partial: close in free conversation alone was tried, not verify, finish or commit, nor the stop
+  inside a step; and read-only, not live. It recommended a third way the rule does not name — the
+  holder closes it in its own chat — and found the unit Ready with nothing built, so a close could
+  only drop it.
+- **"Забери тикет 01-0010.0125 себе, дальше его ведёшь ты"** — judged failed on taking it without
+  asking again. The case held a unit of its own; `--take` refuses a second unit; and S9 does not
+  say whether the person's word to take over covers letting the taker's own unit go, so it asked.
+  The rule assumed a taker with nothing held.
+
+Seen beside them: the entry file a subagent receives in its context is the copy from its parent
+session's start, v110 here, without S9; case 1 found S9 only by reading the file on disk, as its
+brief said. Case 2 marked a stop above the dial with ✋, where the entry file's *Autonomy* gives 💬.
+
+## Cold cases, second round, 2026-10-25
+
+After decision 14, three more fresh subagents under the same brief, told to read the entry file
+from disk: "/verify 01-0010.0125" as a step, "Продолжи работу над 01-0010.0125", and the takeover
+again. A fresh judge read them with the first round. **The stop: pass** — close in conversation,
+verify in a step and continue each stopped, named the holder, brought both ways and wrote
+nothing; not tried: finish and commit, a live run, debug off; the verify and continue cases had
+read the first round in this body and knew they were cases. **The takeover: pass** after the
+amendment — the case took the unit without asking again and named the one it let go as nobody's;
+the earlier case failed before it. Seen beside them: `--hold` still refuses a second unit while
+`--take` lets one go, so S7's hold at a new step's start would refuse a session that holds
+another; on a unit with nothing built neither way fits, and two cases recommended leaving it with
+its holder; S9's amendment moved no version line, so a reader of v117 cannot tell which S9 it has;
+the entry file's reply rule gives ✋ at or above a dial where *Autonomy* gives 💬 above it.
+
+## The last judge, 2026-10-25
+
+A fresh judge over the remaining criteria, with a sixth case — a fresh subagent playing a session
+whose unit two trial sessions' takeover had taken; it stopped, named who took it, and wrote
+nothing. **The takeover: partial** — taken without asking again and the mark shown, but never run
+against a real holder, the clearing seen only in the tests. **The taken holder and the taker's
+commit: partial** — the holder stopped; no case committed a taken unit's work, which stands as S5's
+text alone. **The judge a subagent, the stop with debug off, the two principles: pass.** Seen beside
+them: a holder's own next hold clears the mark whether or not it saw it, so where the window does
+not reach the agent the mark can go unseen; two cases read the host's session messages in
+opposite ways, one using them and one saying the host has none; the first criterion was checked
+on a judge's pass that listed a live run as not tried; the judges were pointed at this body, which
+holds the builder's summaries of the verdicts before them. For 01-0070.0010 the same judge passed
+the live criterion on this tree's rows and window, and the ticket closed.
+

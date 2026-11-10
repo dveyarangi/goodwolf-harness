@@ -1,0 +1,8 @@
+# q-o55eqs May a mechanism own more than one skill?
+
+- **record of** what happened
+- **part of** q-zxnc6y
+- **state** closed:decided
+- **answer** [one owner per skill](../mechanisms/mechanism-shape.evidence.md#one-owner-per-skill-not-one-skill-per-mechanism--2026-10-10) — the user, 2026-10-10
+- **opened** 2026-10-09T23:49:41Z
+- **struck** 0, last 2026-10-09T23:49Z

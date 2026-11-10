@@ -23,7 +23,7 @@ push turned it: *after all our product work you still position it as just memory
 sessions?* The agent had never opened `docs/product.md`. Read, it says GoodWolf is a harness that
 keeps an agent's work coherent, against three pains — ineffective, suboptimal, the person's agency
 off its point — a different axis from Theo's: his harness gives the agent hands, this one the reins.
-The noun itself was the product session's to settle: q-0033.0011 closed with the name kept, a
+The noun itself was the product session's to settle: q-hdtp5b closed with the name kept, a
 harness meant as the user harness, after Böckeler, never the runtime; the method's glossary
 rewritten so.
 
@@ -41,8 +41,8 @@ between moment and instruction and know to place them accordingly*. The glossary
 *moment*. Landed in `/skill-up`: the description narrates the skill's moments, the body holds what
 to do at them and never restates when.
 
-**The front page's three principles brought to q-0033.0008** *(the user, 2026-10-25)*. Said at the
-align on q-0037.0006.0020.0001.0006 and sent here by that session: no self-deprecation; the
+**The front page's three principles brought to q-osjub2** *(the user, 2026-10-25)*. Said at the
+align on q-yyr5br and sent here by that session: no self-deprecation; the
 meeting agent brought to a full check of its own project; everything that matters with why, and
 the offer to check. Asked *и это все выводы?*, the agent drew five conclusions, recorded with
 them: the cold reader makes the inside agent's mistake; the noun holds the first line; a check in
@@ -55,7 +55,7 @@ answers what silence leaves open. The README is not this session's to edit — i
 - Rule failures 78 and 79 registered, amended and closed — [docs/rule-failures.md](../rule-failures.md).
 - `/product`'s description and goal 5, its mechanism's Moments row, `/skill-up`'s description
   paragraph.
-- q-0033.0008: the principles as its lean, the conclusions and the settled noun in its body.
+- q-osjub2: the principles as its lean, the conclusions and the settled noun in its body.
 - Findings sent to the product session twice: Theo's definition, which it could not open, and the
   principles and conclusions for 01-0040.0070.
 
@@ -75,17 +75,17 @@ answers what silence leaves open. The README is not this session's to edit — i
 
 - **Two senses of harness meet every reader.** One reading is the runtime, the other the layer
   around it; a page that names neither is read in the reader's sense. The glossary now holds this
-  tree's sense; how the page says it is q-0033.0008's.
+  tree's sense; how the page says it is q-osjub2's.
 
 ## Open questions touched
 
-- [q-0033.0008](../questions/q-0033.0008-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md)
+- [q-osjub2](../questions/q-osjub2.md)
   — open; the lean is the three principles; it waits on the page being told by 01-0040.0070.
-- [q-0037.0013.0005](../questions/q-0037.0013.0005-which-of-the-agents-acts-need-the-persons-yes-and-which-does-it-do-on-its-own.md)
+- [q-xmk75m](../questions/q-xmk75m.md)
   — open, placed on for the dials, answered from the entry file; its lean of 2026-10-15 stands.
-- [q-0033.0011](../questions/done/q-0033.0011-what-kind-of-thing-is-the-harness-in-the-words-of-the-landscape-it-is-read-in-and-what-noun.md)
+- [q-hdtp5b](../questions/q-hdtp5b.md)
   — closed by the product session: the user harness.
-- The store's check suspects q-0033.0008 and q-0033.0008.0001 of being one question; met, not
+- The store's check suspects q-osjub2 and q-4leela of being one question; met, not
   touched.
 
 ## What continues

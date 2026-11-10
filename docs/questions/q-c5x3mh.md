@@ -1,0 +1,20 @@
+# q-c5x3mh Does each rule reach the occasion it is for?
+
+- **record of** what it intends to become
+- **part of** q-fjlob4
+- **state** open
+- **owner** [01-0018](../tickets/01-0018-rules-reach-the-occasion-they-are-for.md)
+- **realizes** A27 "Rules observed reaching their occasion"
+- **rung** development: load-bearing, self-improvement: the method
+- **lean** 2026-10-14: U3 recorded as a case — a plain open does not read the questions skill; the orphan finding catches it
+- **opened** 2026-10-03T11:36:24Z
+- **struck** 4, last 2026-10-11T20:31Z
+
+## Cases
+
+- **U3, 2026-10-14.** The product mechanism's rule that a question opened right under *How is this
+  project built?* gets its trace link at once sits in the questions skill, where a decision of
+  q-5wbvz6 put it; Q1's plain `open` sends an agent to that skill only for a missing parent, a
+  closure, a branching or a drop, so the occasion may pass unread. The orphan finding of
+  `product.py --check` catches it at the next check. Placed by
+  [01-0040.0030's RFC](../rfc/done/01-0040.0030-a-decided-purpose-question-opens-its-building.md).

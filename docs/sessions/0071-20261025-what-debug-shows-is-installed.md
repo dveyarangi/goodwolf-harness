@@ -9,14 +9,14 @@ pair of rules the `debug` setting swaps, and the contract from v118 to v124 acro
 
 ## Decisions, and what chose them
 
-- **What shows under debugging, and what does not** (q-0037.0009.0021, decision 3). The ticket
+- **What shows under debugging, and what does not** (q-l36vii, decision 3). The ticket
   listed the ✏️ 🧩 ⚓ frames among debug's parts, because v48 put them under the same `debug=on`
   colon as the marks. The user: *whether to show the frames depends on the dial, no?* — they show
   a text before it lands, which is ✋'s act. The 🪢 table stays the session mechanism's own rule,
   already conditioned on `debug`.
 - **The rest of the reply form is the voice's** (decision 4), not interaction's — the user: *все
   остальное по-хорошему должно переехать в механизм голоса, включая дрифт и решения*.
-- **A pair, not additions** (q-0037.0009.0021.0001.0002). Recommended first: debug blocks only
+- **A pair, not additions** (q-4dycbp). Recommended first: debug blocks only
   add, the plain text standing and lifted by them. The user: *if it is deleted, what tells the
   agent not to write about commits and the rest? maybe debug should install a rule of what not to
   say when it is off?* With additions, a session at `on` reads the prohibition and its lifting —
@@ -55,7 +55,7 @@ five doubled numbers renumbered 80–84; two records describing the marks repair
 
 ## Open questions touched
 
-- q-0037.0009.0021.0002, the voice: the rest of the reply form now bound there; its session was
+- q-53jkvy, the voice: the rest of the reply form now bound there; its session was
   told of the 🍂 table's removal (M2), its ticket's *interaction half*, and a stale lean.
 
 ## What continues

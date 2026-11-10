@@ -1,0 +1,15 @@
+# q-hih5yp Must a project's own board link each of its items to the question it answers, and how?
+
+- **record of** what it intends to become
+- **part of** q-ukkw6z
+- **state** open
+- **rung** development: load-bearing, self-improvement: a rule
+- **lean** opened 2026-10-11 from the ticket contract: the clause stands in the format as a straw dog bound here; to be thought through
+- **opened** 2026-10-10T22:39:29Z
+- **struck** 0, last 2026-10-10T22:35Z
+
+Opened 2026-10-11 at the plan of 01-0011.0110.0040.0020, from the ticket contract's draft: a
+ticket states the question it answers, which ties a unit of work to the question store. For an
+item of a project's own board — issues, Linear, Jira — it is the heaviest demand of the
+contract, and without it the work comes loose from the tree. To be thought through *(the user)*;
+meanwhile the contract states it, as a straw dog bound here.

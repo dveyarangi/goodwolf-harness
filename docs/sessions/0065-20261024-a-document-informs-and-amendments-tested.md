@@ -31,7 +31,7 @@ asked what it was for; removal chosen over pointing at the mechanism doc.
 **A proposed or landed text names the file it goes into** (v97), at the user's word.
 
 **Testing an amendment before it lands** —
-[q-0037.0012.0009](../questions/q-0037.0012.0009-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen.md),
+[q-7f4anv](../questions/q-7f4anv.md),
 *Where it stands* accepted 2026-10-21. The user proposed the order of work — write the methodology
 in three parts (dataset, subset, runs with no instruction / standing / new), discover how others do
 it, plan the mechanism, cost it, and only then return. Each decision with its turn:
@@ -51,7 +51,7 @@ it, plan the mechanism, cost it, and only then return. Each decision with its tu
   same agent propose the amendment?*, then *I cannot picture this in practice*, then *explain again
   why*. Under the second explanation both arguments proved weaker than presented: overfitting
   threatens through the keep cases, which the run supplies and the author never sees; the frame
-  argument costs the noticing session's context. Left as a hypothesis, q-0037.0012.0009.0003.
+  argument costs the noticing session's context. Left as a hypothesis, q-vux6nw.
 - *A step of the self-amendment mechanism*, not its own mechanism nor part of `/skill-up` or the
   mechanism shape, neither of which keeps cases.
 
@@ -62,7 +62,7 @@ harness*, the user's definition — then the testing family, then the dial.
 
 - **A clause cut on the claim that a check holds it stays until a test shows the check holds it.**
   Three of the first compression's cuts were wrong in exactly this way; the bare-ticket-id clause
-  survived only because its test came back red. Recorded in q-0037.0012.0006's lean; its home is
+  survived only because its test came back red. Recorded in q-4klcmv's lean; its home is
   the self-amendment mechanism's doc once declared.
 - **A fix case must fail on the standing text.** A case that passes on both sides can show only
   that nothing broke. Every behaviour case of the doc-rule bench was of that kind; the fix was
@@ -75,9 +75,9 @@ harness*, the user's definition — then the testing family, then the dial.
 
 The [doc-rule bench](../research/doc-rule-bench/), five runs, results in `results/run-1.md` to
 `run-5.md`: about 370 agent runs, some 23M tokens. Two discovery passes and the Harness² reading
-are in q-0037.0012.0009's body. Rule failure 53 — a discovery filed and an align opened on it with
+are in q-7f4anv's body. Rule failure 53 — a discovery filed and an align opened on it with
 the person told nothing of what it found — registered and its amendment to `/discover` landed. Six
-tickets minted, 01-0019.0020 to .0070, each answering a question under q-0037.0012.0009.
+tickets minted, 01-0019.0020 to .0070, each answering a question under q-7f4anv.
 
 ## What went wrong
 
@@ -92,9 +92,9 @@ tickets minted, 01-0019.0020 to .0070, each answering a question under q-0037.00
 
 ## Open questions touched
 
-- [q-0037.0012.0006](../questions/q-0037.0012.0006-which-sentences-of-the-entry-file-are-meta-rules-the-mechanism-shape-should-hold-in-its.md) — *A capable reader*, *Tier*, *Self-improvement* still unweighed.
-- [q-0037.0006.0017](../questions/q-0037.0006.0017-does-the-leak-check-catch-a-ticket-named-by-a-bare-id-in-core.md) — an expected-failure test holds it.
-- q-0037.0012.0009.0002 (types of failure and behaviour) and .0003 (a fresh author) wait on the
+- [q-4klcmv](../questions/q-4klcmv.md) — *A capable reader*, *Tier*, *Self-improvement* still unweighed.
+- [q-sonc4m](../questions/q-sonc4m.md) — an expected-failure test holds it.
+- q-z2v465 (types of failure and behaviour) and .0003 (a fresh author) wait on the
   family's first runs.
 - Drift reported and not repaired: Q1's example calls name `q-0004`, read by some audits as core
   naming a question; skill-up's *Writing rules — to the mechanism shape …* is an authored sentence
@@ -104,6 +104,6 @@ tickets minted, 01-0019.0020 to .0070, each answering a question under q-0037.00
 ## What continues
 
 The queue: [01-0060.0010](../tickets/done/01-0060.0010-what-the-path-shows-at-every-recall.md), then one
-align on the front page and the README (q-0033.0008 with q-0037.0018.0005). The testing family
+align on the front page and the README (q-osjub2 with q-kkw47n). The testing family
 starts at [01-0019.0020](../tickets/done/01-0019.0020-one-amendment-is-tested-end-to-end.md), whose first
 step is writing rule failure 53's case.

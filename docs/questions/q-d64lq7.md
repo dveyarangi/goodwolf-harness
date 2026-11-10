@@ -1,0 +1,50 @@
+# q-d64lq7 How does the written architecture spare the agent paging through the code for where a change lands and what depends on it?
+
+- **record of** what happened
+- **part of** q-m6unv4
+- **state** closed:decided
+- **answer** [plan](../../.agents/skills/plan/SKILL.md) — the documentation explored first for the decisions and boundaries the work involves, the RFC naming them, /implement working from it; searching the code fell from ≈72 to ≈2 tokens per turn, meteoscape against frost_map — the user, 2026-10-11
+- **lean** the user, 2026-10-11: the architecture is written largely so the agent pages through the code less and finds dependencies from it; the transcripts show no fall in code read, meteoscape before the harness against frost_map under it, while frost_map holds the map; no step sends the agent from the map to the code
+- **opened** 2026-10-11T19:36:29Z
+- **struck** 0, last 2026-10-11T19:35Z
+
+Opened 2026-10-11, at the context-tax measurement under
+[q-pkpo3l](q-pkpo3l.md).
+**The user, 2026-10-11:** most of the point of writing the architecture down is that the agent
+pages through the code less and finds dependencies from the map, not by searching. The entry file
+names this half: *Structure — service boundaries, data ownership, event/data flows, extension
+seams*; the other half, the constitution and what bears load, is what code cannot say.
+
+**What the transcripts show, 2026-10-11.** Every Read, Grep and Glob, and every cat or grep in a
+shell, split by the path it touched, in Claude Code's transcripts:
+
+| | meteoscape, before the harness | frost_map, under it from its first commit |
+|---|---|---|
+| code read per typed turn | ≈620 tokens | ≈590 |
+| code read per 1,000 lines of code changed | ≈82,000 | ≈77,000 |
+| project records read per typed turn | ≈1,470 | ≈850 |
+
+The code read did not fall. frost_map's architecture carries the map — major components, contract
+surfaces, the data flow, extension points — so the map is written and not used to navigate by. Two
+projects at different stages compare nothing causal, and meteoscape had a heavy method of its own
+in markdown; still, no sign of the saving.
+
+What the tree has today: no step sends the agent from the map to the code. `/implement` implements
+*the work described by the relevant architecture decisions*; `/plan` reads the architecture when it
+sees a concern; nothing says to find where a change lands, and what depends on it, in the
+architecture first, and to open only the code it names. Unsettled: whether the map is kept in a
+shape a step can navigate by — paths, modules, who calls whom — or stays prose; whether a step is
+told to read the architecture's structure before searching; and how the saving is measured — the
+code read per change, under the same project before and after.
+
+**Found, the same day.** The claim above that no step sends the agent from the map to the code was
+wrong. `/plan` opens by exploring the documentation for every relevant decision and finding which
+documented boundaries the work involves, then pinpoints the affected boundaries, contracts and
+ownership and presents the code shapes and flows; the RFC records them with references to their
+owners, and `/implement` works from the RFC. The map is navigated by, at plan.
+
+Split by tool, the transcripts agree. Searching the code — Grep, Glob, a shell grep, find or ls —
+fell from ≈72 tokens per typed turn in meteoscape to ≈2 in frost_map, from ≈9,600 to ≈300 per
+thousand lines changed. Reading code files stayed at ≈550 and ≈590 per turn: the files a change
+edits are read whatever the map says. Two projects compare nothing causal; the shape is the one
+the user named.

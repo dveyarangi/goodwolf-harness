@@ -34,7 +34,7 @@ reply showing it. What a reply shows debug or not is not this mechanism's.
 | switching debugging on or off in a tree | `.agents/skills/harness/SKILL.md` | |
 | installing its text into a tree under the tree's settings, and taking it out | `.agents/scripts/gw/inject_rules.py` | |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
-| removing this mechanism from a tree | — | <straw-dog question="q-0037.0006.0013.0002">not yet</straw-dog> |
+| removing this mechanism from a tree | — | <straw-dog question="q-qzeuf3">not yet</straw-dog> |
 
 ## Install adds, uninstall removes
 

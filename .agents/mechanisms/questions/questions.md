@@ -17,7 +17,7 @@ Level is depth in that structure, derived and never written; a shift in a conver
 attaching to a different question. A ticket is a method's goal and stays the method's; the store is
 core's substrate, beneath whatever method a tree runs.
 
-**Three roots from the start.** <straw-dog question="q-0037.0018">A store holding no entry, at a first install or an update, is
+**Three roots from the start.** <straw-dog question="q-5wbvz6">A store holding no entry, at a first install or an update, is
 seeded with three root questions and nothing else — no parts under them, no links between them:
 the purpose, the structure, and the space of neighbours, history and evolution the project moves
 in, worded on the shelf [`STORE-ARRIVAL.md`](../../skills/questions/STORE-ARRIVAL.md).</straw-dog> Each is where a person's
@@ -101,18 +101,18 @@ roles, is an open question of the store.
 | checking the store | `.agents/scripts/gw/questions.py` | |
 | reading the store at a session's wake: the most struck, what asks the person, the deferred, the straw dogs due | `.agents/scripts/gw/questions.py` | |
 | marking an open question as asking the person, shown by every wake until it closes, closed on the person's word | `.agents/skills/questions/SKILL.md` | |
-| <straw-dog question="q-0037.0019">reading the path ahead at the wake and on request: the work in hand, what was touched lately with no ticket, the candidates with their reasons, the roots</straw-dog> | `.agents/scripts/gw/questions.py` | |
+| <straw-dog question="q-huss2x">reading the path ahead at the wake and on request: the work in hand, what was touched lately with no ticket, the candidates with their reasons, the roots</straw-dog> | `.agents/scripts/gw/questions.py` | |
 | writing the session's leans | `.agents/skills/conclude/SKILL.md` | |
 | archiving the subtree a closure finishes | `.agents/scripts/gw/questions.py` | |
 | sweeping a wholly closed subtree a closure left behind | `.agents/skills/maintain/SKILL.md` | |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
 | seeding the roots of a store holding no entry, called by the install | `.agents/scripts/gw/questions.py` | |
-| judging a message outside the agent | — | <straw-dog question="q-0037.0001.0016.0001">not yet</straw-dog> |
-| detecting a shape that hides children | — | <straw-dog question="q-0037.0001.0020">not yet</straw-dog> |
+| judging a message outside the agent | — | <straw-dog question="q-epk7c6">not yet</straw-dog> |
+| detecting a shape that hides children | — | <straw-dog question="q-mro2st">not yet</straw-dog> |
 | holding a ticket's open questions under the question it answers | `.agents/skills/ticket/SKILL.md` | |
 | saying which straw dogs are due, and carrying their bindings through a rename | `.agents/scripts/gw/questions.py` | |
 | carrying the hook wiring into a recipient tree | `.agents/scripts/gw/harness.py` | |
-| removing this mechanism from a tree | — | <straw-dog question="q-0037.0006.0013.0002">not yet</straw-dog> |
+| removing this mechanism from a tree | — | <straw-dog question="q-qzeuf3">not yet</straw-dog> |
 
 ## Install adds, uninstall removes
 
@@ -172,7 +172,7 @@ Nothing else; the tree is rendered on request and never committed.
 
 **Two `not yet` rows**, each bound to an open question.
 
-<straw-dog question="q-0037.0010.0004">
+<straw-dog question="q-la5n2i">
 **The store's paths** are painted doors held by hand in the shape check.
 </straw-dog>
 

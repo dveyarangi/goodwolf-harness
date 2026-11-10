@@ -59,7 +59,7 @@ Artifacts predating this keep their names.
 ## The contract
 
 A ticket is a unit of agreed work. Whatever holds one states its outcome — one sentence of
-observable behaviour; <straw-dog question="q-0037.0010.0009.0003.0002.0002">the question it
+observable behaviour; <straw-dog question="q-hih5yp">the question it
 answers;</straw-dog> what to build; its acceptance criteria, each observably true when done and one
 of them verification; its parent, where it was carved from one; and its status. It is done when
 every criterion holds, verification included.
@@ -92,7 +92,7 @@ never content *(the user, 2026-09-08)*.
   included — filling the picture by references rather than restating it. A
   decision lands where it is made, the story goes to evidence or a session
   record, and the ticket links them. A checked box with its date is the whole
-  verification record. <straw-dog question="q-0037.0010.0009.0003.0002.0003">A ticket
+  verification record. <straw-dog question="q-q6xwpv">A ticket
   minted before 2026-10-11 is held to the required sections and the `/verify`
   box alone, and is brought to this shape at its next touch.</straw-dog>
 
@@ -164,7 +164,7 @@ lines, nothing else.
   all children land.
 - Check a box only for work that satisfied it; a criterion satisfied early is
   checked with a date.
-<straw-dog question="q-0037.0015">
+<straw-dog question="q-7rmmpw">
 - A criterion on live behaviour names its judge as a role — someone who did not
   build it — never the person, unless what it asks is their own judgement. A
   judge's verdict is the box checked with its date and what was seen.

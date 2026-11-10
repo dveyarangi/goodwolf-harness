@@ -1,0 +1,15 @@
+# q-lcv6kc How does Claude Code hold a reply proposing text for a declared file, and the agent's commit, like an edit?
+
+- **record of** what it intends to become
+- **part of** q-5jcptm
+- **state** open
+- **owner** [01-0010.0125.0030](../tickets/01-0010.0125.0030-a-proposed-text-and-a-commit-wait-like-an-edit.md)
+- **rung** development: load-bearing, self-improvement: the method
+- **opened** 2026-10-26T08:44:47Z
+- **struck** 0, last 2026-10-26T08:43Z
+
+## Where it stands
+
+A reply proposing text for a declared file is held at its end, and the agent's `git commit` before
+it runs, by the same table and test as an edit. Waits on 01-0010.0125.0010. Open: where the
+proposing headers are read from while the reply-layout rule is still a straw dog.

@@ -1,0 +1,16 @@
+# q-35acwk Which test holds the hook to exiting clean whatever its input?
+
+- **record of** what it intends to become
+- **part of** q-453b5j
+- **state** open
+- **rung** development: code, self-improvement: a script
+- **lean** the hosts record marks it unguarded; when a test holds it, the mark becomes its validated-by
+- **opened** 2026-10-10T14:04:10Z
+- **struck** 0, last 2026-10-10T14:03Z
+
+Found 2026-10-10 by a `/maintain` pass over the edge mechanism: the hosts record promises that the
+hook exits clean whatever its input, so it never fails the host, and marks it **⚠ unguarded** — no
+test asserts the exit status of `hook.sh` or `questions.py --hook`. The neighbouring promise, that
+unreadable input becomes a line of context, has its test in `test_questions.py`; a hook that began
+exiting non-zero on some input would pass every test and show only as an error, or a refused
+message, in the host. When a test holds it, the record's mark becomes its *validated by*.

@@ -10,7 +10,7 @@
   this ticket's *where it cannot be, the gap is named* assumes an answer about what the hosts can
   deliver that nobody has established. That ticket establishes it; this one decides what to do
   with the gaps that remain.
-- **Answers:** [q-0037.0011](../questions/q-0037.0011-does-each-rule-reach-the-occasion-it-is-for.md)
+- **Answers:** [q-c5x3mh](../questions/q-c5x3mh.md)
 - **Outcome:** A rule or skill that applies at an occasion is actually in front of the agent at that
   occasion, and where it cannot be, the gap is named rather than assumed away.
 
@@ -56,7 +56,7 @@ session removed the queue's path from tier 1: `/recall`'s pointer block went, be
 named is shared rather than local, and the entry file's opening block lost the same pointer for the
 same reason. Both edits were right by the rule they applied. The queue is still declared in core —
 in [`TICKET-FORMAT`](../../.agents/skills/ticket/TICKET-FORMAT.md)'s queue section, which is itself
-inside a straw dog bound to q-0020, the question [01-0011.0040](./done/01-0011.0040-the-ticket-list-is-rendered-never-copied.md)
+inside a straw dog bound to q-cao36l, the question [01-0011.0040](./done/01-0011.0040-the-ticket-list-is-rendered-never-copied.md)
 answers — but a waking
 session now meets it nowhere, and wake still lands on `/align` by the pacer's straw dog rather than
 on the `/recall` installed the same day.

@@ -81,7 +81,7 @@ current one contributes to it; when only the first holds, beside it, under the s
 **Outgrown words.** When the discussion on a question has moved past its words — it took in a
 related topic, or found what it was really asking — `reword` it in the turn that notices, as often
 as that happens: the id stays, so nothing bound to it moves. A closed question is never reworded.
-<straw-dog question="q-0037.0001.0021">
+<straw-dog question="q-5vcrui">
 Reword when everything under the question still belongs under the new words; open a parent when
 the old question stays a distinct part of the wider one.
 </straw-dog>

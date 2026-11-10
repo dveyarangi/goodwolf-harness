@@ -18,7 +18,7 @@ The leading product document. The project's goals and its front page are derived
 piece of work earns its place by the pain it relieves. It was found, not designed: at the
 front-page align of 2026-10-08 every attempt to say what the harness *is* came out as its
 implementation, until the user named the pains. The argument is in
-[q-0033](questions/q-0033-what-is-this-project-for.md) "What is this project for?".
+[q-m6unv4](questions/q-m6unv4.md) "What is this project for?".
 
 **What it does, in one line.** Fewer steps, each more precise: at every step the agent knows what
 is needed now — which rule, which record, which question — and does that, not the rest. The
@@ -108,7 +108,7 @@ yet waits on its purpose question, bound to it in *waits on*.
 | **A12 The load-bearing test** — the load-bearing test: `/impact` routes load-bearing work to the person and an align on its question, local work to the agent and a ticket; a raised decision that bears no load is settled and reported, one that does goes to the person, and doubt counts as load | C2, C8, C9 | ● | ● | ● | |  |  |  |
 | **A13 Human checkpoints and the dial** — HITL or AFK on every ticket; a question's `Where it stands` accepted; a dial on each method's ladder — below it the agent acts, at it shows first, above it the person decides — and a question's highest rung saying where it stops | C2, C9, C12 | ● | ● | ● | |  | ● |  |
 | **A14 The project names its stopping decisions** — the project says which kinds of decision stop for the person, by the dial it sets on each ladder | C9 |  | ● | ● | |  |  |  |
-| **A15 A record of model weaknesses** — a record of where models are known to be weak, deciding which decisions go to the person | C2, C9 | ● |  | ● | |  |  | <straw-dog question="q-0033.0001">✗</straw-dog> |
+| **A15 A record of model weaknesses** — a record of where models are known to be weak, deciding which decisions go to the person | C2, C9 | ● |  | ● | |  |  | <straw-dog question="q-jv7khp">✗</straw-dog> |
 | **Visible footing** | | | | | | | | |
 | **A16 Each reply shows its footing** — each reply shows the question it stands on, the principle it reasons by, what waits on the person and drift met, in plain words; every step leaves a record | C10, C2 | ● |  | ● | |  |  |  |
 | **Guards on known model weaknesses** | | | | | | | | |
@@ -117,7 +117,7 @@ yet waits on its purpose question, bound to it in *waits on*.
 | **Delivery and evaluation** | | | | | | | | |
 | **A19 Delivery against criteria** — a ticket with checkable criteria; thin vertical slices; a plan validated against the governing docs; test-first; `/verify` against the ticket, the plan, the docs and the project's checks; checks run before a commit | C3, C7 | ● | ● |  | |  |  |  |
 | **A20 The project's checks, guarded** — the project's checks, and a rule on who may change them | C7 | ● |  |  | |  |  |  |
-| **A21 A failure traced to its cause** — a failure traced to its cause, so that what let it through is corrected | C7 | ● |  |  | | ● |  | <straw-dog question="q-0033.0003">✗</straw-dog> |
+| **A21 A failure traced to its cause** — a failure traced to its cause, so that what let it through is corrected | C7 | ● |  |  | | ● |  | <straw-dog question="q-2wmklw">✗</straw-dog> |
 | **A22 Every mechanism graded from outside** — every mechanism names what would show it working, graded by someone who did not build it | C7 |  |  |  | | ● |  |  |
 | **A23 Tests that catch what they promise** — the harness's own tests catch what their names promise | C7 |  |  |  | | ● |  |  |
 | **Instructions that reach the agent** | | | | | | | | |
@@ -145,7 +145,7 @@ yet waits on its purpose question, bound to it in *waits on*.
 | **A41 Sessions collaborate** — each session sees where the others stand; the question store refuses a write to an entry that moved; a commit holds only its own session's work | C5, C12 | ● | ● |  | |  | ● |  |
 | **A42 No session overwrites another** — no session overwrites another's write; the host's: its edit tool refuses a write over a file changed since it was read, and a worktree per session where it offers one; the harness locks nothing (the user, 2026-10-11) | C5, C12 | ● | ● |  | |  | ● |  |
 | **A43 A starting session takes a free area** — a starting session takes an area no other session is in | C5 |  | ● |  | |  |  |  |
-| **A51 Several people develop one project together** — their queue, their decisions, their branches | C5 |  |  | ● | |  |  | <straw-dog question="q-0033.0004">✗</straw-dog> |
+| **A51 Several people develop one project together** — their queue, their decisions, their branches | C5 |  |  | ● | |  |  | <straw-dog question="q-37xc3y">✗</straw-dog> |
 | **Process weighed to the work** | | | | | | | | |
 | **A44 One step per reply** — one step per reply, with a point to reassess at its end | C8, C9 |  | ● | ● | |  |  |  |
 | **A45 Work weighed to its shape** — the work's shape recommended, and a lighter path for small work and a heavier one for large | C8 |  | ● | ● | |  |  |  |
@@ -158,11 +158,11 @@ yet waits on its purpose question, bound to it in *waits on*.
 | **A54 The study** — the reader's agent follows the study's text on its own project, installing and running nothing of the harness's, and writes one report: what the harness would change there, at what cost, in what order, and what it costs a newcomer to recover where things stand | C7, C10 |  |  |  | ● |  |  |  |
 | **The project's own account** | | | | | | | | |
 | **A50 The product document kept in step with the work** — this document's answers numbered, the questions that build each linked to it, its coverage read from them, and drift between them found | C6, C10 | ● |  | ● | | ● |  |  |
-| **A52 The front page tells a newcomer what the harness is for** — the account above, told to a reader who arrives cold | C10 |  |  | ● | |  |  | <straw-dog question="q-0033.0008">✗</straw-dog> |
+| **A52 The front page tells a newcomer what the harness is for** — the account above, told to a reader who arrives cold | C10 |  |  | ● | |  |  | <straw-dog question="q-osjub2">✗</straw-dog> |
 | **Adopting the harness** | | | | | | | | |
 | **A49 Installs and updates without losing the project's own rules** — the answer to the pain below: the project's own rules file applied last and kept, an update that stops rather than overwrite a hand edit, a check of the installed copy | | | | | | | ● | |
 
-<straw-dog question="q-0033">
+<straw-dog question="q-m6unv4">
 Read by column:
 
 - **1 Ineffective** has the most answers, and most of them are in place.
@@ -196,7 +196,7 @@ by encounter, not the audit.
 
 Every pain above is framed for a person steering agents on one project, in one session or several
 at once: sessions in one tree see each other's position, and the host keeps their writes apart.
-<straw-dog question="q-0033.0004">Several people sharing one project — their queue, their decisions, their branches — are not served yet.</straw-dog>
+<straw-dog question="q-37xc3y">Several people sharing one project — their queue, their decisions, their branches — are not served yet.</straw-dog>
 
 ## A pain of the harness itself
 
@@ -216,18 +216,18 @@ precise steps, never as a practice removed. The harness answers it with:
 
 Its open parts:
 
-- <straw-dog question="q-0037.0006.0020.0001">An install meets an existing `CLAUDE.md` or `AGENTS.md` by moving it aside, in one mode only.</straw-dog>
-- <straw-dog question="q-0037.0006.0011">An install does not draft an architecture and glossary from the project's code.</straw-dog>
-- <straw-dog question="q-0037.0006.0011.0004">An install does not find what the project exists to solve, or the answers it has already built into its docs and code.</straw-dog>
-- <straw-dog question="q-0037.0006.0019">A project's own mechanisms have no declared home, so they are not checked like the shipped ones.</straw-dog>
-- <straw-dog question="q-0037.0006.0020.0002">An update does not say what changed or what the project has to do about it.</straw-dog>
-- <straw-dog question="q-0037.0006.0014">A harness failure found in a project does not reach the harness.</straw-dog>
-- <straw-dog question="q-0037.0006.0018">An improvement a project makes to the harness does not reach it either.</straw-dog>
-- <straw-dog question="q-0037.0006.0012">What maintenance re-checks for the harness inside a project is not settled.</straw-dog>
-- <straw-dog question="q-0037.0006.0020.0001.0002">A shipped skill's name can collide with a project's own command.</straw-dog>
-- <straw-dog question="q-0037.0010.0002">A project cannot change how it builds in one edit.</straw-dog>
-- <straw-dog question="q-0037.0006.0013">There is no uninstall.</straw-dog>
-- <straw-dog question="q-0037.0006.0023">Three hosts are supported.</straw-dog>
+- <straw-dog question="q-n3pc22">An install meets an existing `CLAUDE.md` or `AGENTS.md` by moving it aside, in one mode only.</straw-dog>
+- <straw-dog question="q-g63szs">An install does not draft an architecture and glossary from the project's code.</straw-dog>
+- <straw-dog question="q-id2wgu">An install does not find what the project exists to solve, or the answers it has already built into its docs and code.</straw-dog>
+- <straw-dog question="q-dsxyi5">A project's own mechanisms have no declared home, so they are not checked like the shipped ones.</straw-dog>
+- <straw-dog question="q-j2ryiq">An update does not say what changed or what the project has to do about it.</straw-dog>
+- <straw-dog question="q-qclm3z">A harness failure found in a project does not reach the harness.</straw-dog>
+- <straw-dog question="q-hgzz3s">An improvement a project makes to the harness does not reach it either.</straw-dog>
+- <straw-dog question="q-7caadu">What maintenance re-checks for the harness inside a project is not settled.</straw-dog>
+- <straw-dog question="q-ai2jzt">A shipped skill's name can collide with a project's own command.</straw-dog>
+- <straw-dog question="q-qmq6ty">A project cannot change how it builds in one edit.</straw-dog>
+- <straw-dog question="q-a2kdwl">There is no uninstall.</straw-dog>
+- <straw-dog question="q-kecvv7">Three hosts are supported.</straw-dog>
 
-Its home is q-0037.0006 "How do projects share one development method without losing their own
+Its home is q-veooj7 "How do projects share one development method without losing their own
 conventions?".

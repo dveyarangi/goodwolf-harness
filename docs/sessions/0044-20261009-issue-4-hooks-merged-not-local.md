@@ -3,7 +3,7 @@
 Session `39bde226`. Asked to look at the new issue on the board:
 [issue 4](https://github.com/dveyarangi/goodwolf-harness/issues/4), every fresh install ending
 `arrived: false` because the three hosts' hook files the questions mechanism declares as parts are
-never carried. The gap was already q-0037.0006.0020.0005; the issue added two things the store did not
+never carried. The gap was already q-oquf3l; the issue added two things the store did not
 hold — a failed gate's report hides its reason, and the hook commands need `uv`.
 
 ## Decisions
@@ -31,9 +31,9 @@ hold — a failed gate's report hides its reason, and the hook commands need `uv
 
 ## What was done
 
-- Opened q-0037.0006.0020.0009, a failed gate saying why, from the issue.
+- Opened q-foa5bi, a failed gate saying why, from the issue.
 - Read each host's documentation on hook files and shells and filed it with sources in
-  q-0037.0006.0020.0005's body.
+  q-oquf3l's body.
 - Recorded the `/impact` on the parent ticket.
 
 ## What went wrong
@@ -44,14 +44,14 @@ A parallel session, branched from this conversation, minted the three tickets
 [`.0176`](../tickets/done/01-0010.0176-a-failed-gate-says-why.md)), aligned `.0173` and wrote its RFC
 while this one was still presenting the breakdown. Nothing was duplicated: the sessions file and
 `git log` showed it before minting. Two sessions carrying one decision path at once is
-q-0032's case; the check that caught it was reading the tree before writing, not a lock.
+q-3fds32's case; the check that caught it was reading the tree before writing, not a lock.
 
 ## Open questions touched
 
-- **q-0037.0006.0020.0005** — the merge is `.0173`'s, under way in another session at
-  q-0037.0006.0020.0005.0001; the interpreter is `.0174`'s, at q-0037.0006.0020.0005.0002, waiting on
+- **q-oquf3l** — the merge is `.0173`'s, under way in another session at
+  q-peb5bn; the interpreter is `.0174`'s, at q-kbtj2w, waiting on
   `.0173` and on each host's Windows shell observed live — Cursor's is undocumented.
-- **q-0037.0006.0020.0009** — `.0176`, Ready, AFK, nobody on it; it edits the installer's gate, which
+- **q-foa5bi** — `.0176`, Ready, AFK, nobody on it; it edits the installer's gate, which
   `.0173` also edits.
 
 ## What continues

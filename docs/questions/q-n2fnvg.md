@@ -1,0 +1,16 @@
+# q-n2fnvg How many of the load-bearing factors make a thing load-bearing, or which suffice alone?
+
+- **record of** what it intends to become
+- **part of** q-qmq6ty
+- **state** open
+- **owner** [01-0017.0020](../tickets/01-0017.0020-practice-swaps-in-one-edit.md)
+- **rung** self-improvement: a rule
+- **opened** 2026-10-03T11:36:20Z
+- **struck** 0, last 2026-10-03T10:17Z
+
+**Two loose ends of the entry file's load-bearing section**, handed from
+[01-0012](../tickets/done/01-0012-hierarchy-coherent.md)'s close, 2026-09-28, since how architecture is
+documented is practice: *a thing is load-bearing when several of these are true* leaves the
+threshold unstated — name a number, or which factors suffice alone; and the section's
+domain-specific example (MongoDB, forecast issue-times) ships to every recipient, kept for now
+*(the user, 2026-09-06)* and wrapped as a straw dog now bound to this ticket.

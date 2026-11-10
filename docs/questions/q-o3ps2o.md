@@ -1,0 +1,23 @@
+# q-o3ps2o How does a project take one of the method's mechanisms, or go without it, instead of taking core whole — from core's repository or from a second one?
+
+- **record of** what it intends to become
+- **part of** q-veooj7
+- **state** open
+- **rung** development: load-bearing, self-improvement: the method
+- **lean** the user, 2026-10-25: important — the harness taken in parts, the memory and questions without the development method; today core arrives whole
+- **opened** 2026-10-13T14:38:30Z
+- **struck** 1, last 2026-10-25T20:53Z
+
+Opened 2026-10-13 at the spec for the product mechanism (q-5wbvz6), when the user asked where its
+scripts would live. Every mechanism's script sits in core's one scripts directory and an install
+takes core whole; but q-5wbvz6 decisions 8 and 10 make the mechanism that owns a root swappable — a
+study project would take a learning mechanism where a product one stands. q-veooj7's lean already
+names the same gap from research-harness's side: mechanisms from a second repository reaching a
+tree that holds core, with no question here until this one; q-dsxyi5, where a recipient
+declares its own mechanisms, is its neighbour.
+
+**Important, the user, 2026-10-25**: a project should be able to take the harness in parts — the
+memory and the questions without the development method among them. Raised by live case 7 of
+q-t2eady, a project with a harness of its own for which only the managing of its own work is
+what the harness would replace. Today core arrives whole; settings switch only the text a
+mechanism declares, `debug` alone.

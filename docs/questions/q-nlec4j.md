@@ -1,0 +1,188 @@
+# q-nlec4j Does every rule of the entry file belong to a mechanism, so that an install adds the method a mechanism at a time?
+
+- **record of** what it intends to become
+- **part of** q-o3ps2o
+- **state** open
+- **owner** [01-0010.0150.0020](../tickets/01-0010.0150.0020-the-two-modes-of-taking-a-trees-method-in.md)
+- **rung** development: a product slice, self-improvement: the method
+- **lean** the user, 2026-10-26: Where it stands accepted, decisions 1-8; split minted after two impact passes — under 01-0017 the entry file's slices, 01-0017.0030 done; under 01-0010.0150.0020 the install by mechanism; next 01-0018.0010, then 01-0017.0040
+- **opened** 2026-10-25T21:34:08Z
+- **struck** 0, last 2026-10-25T21:31Z
+
+Raised at the align of 01-0010.0150.0020 *(the user, 2026-10-25)*: a recipient's method can be tons
+of material, so an install adds mechanisms to the recipient's own `AGENTS.md` or `CLAUDE.md`, one
+at a time as their overlaps are migrated, rather than carrying the method into the local rules
+file; for that, every rule of the entry file is a mechanism's. New evidence against
+q-j2w5rw's deferral, which kept the entry file authored with mechanisms' blocks in it: the
+authored part — 60% of entry contract v129 by characters — can reach a recipient's file only
+whole. The owner of declaring every mechanism in this tree is
+[01-0017](../tickets/01-0017-every-skill-and-document-has-named-producers-and-consumers.md).
+
+## Where it stands
+
+**The problem.** An install that meets a tree with a method of its own stops at the tree's entry
+file, and the step after the person's yes is not carried; live-spec's person, reading the plan,
+asked for it. Carrying the recipient's method into the local rules file would move tons of
+material, and the entry file can reach a recipient only whole: 60% of it by characters belongs to
+no mechanism, and 15 of 25 skills to none.
+
+**The shape.** Every rule of the entry file belongs to a mechanism, and an install adds mechanisms
+to the recipient's own `AGENTS.md` or `CLAUDE.md` one at a time, each after its overlap with the
+recipient's method is migrated; how far and how fast is the person's. A mechanism that overlaps
+nothing and runs alone may be taken by itself; few can today.
+
+**Who owns what** (decision 2). The principles are a mechanism of meta-principles, installed with
+every install, the reply's common frame among them (decisions 3, 7); how instructions are made and
+amended is the mechanism shape's, self-improvement included; the development method is one
+mechanism, its loop and its practice together, which an instance replaces whole (decision 4); the
+session, the store with its straw dogs, the ticket mechanism and maintain keep their own; each part
+of a reply is installed by the mechanism whose occasion it shows (decision 5). A straw dog moves
+with its text.
+
+**The first package** is the store, the session and maintain (decision 1). They read a unit of
+work through a seam, never tickets by name, perhaps one local rule installed into all three and
+kept at every install (decision 6). The session is to sit on the store, the store importing nothing
+of it, deferred while the three install as one package:
+[q-hpwq4t](q-hpwq4t.md).
+
+**Still open.** Whether autonomy, the dial and the human checkpoints are a mechanism of their own,
+[q-x4flb3](q-x4flb3.md);
+the seam through which an installed method's records reach the path and the counters,
+[q-2zouxq](q-2zouxq.md).
+
+**What follows.** The meta-principles and the development method declared; each rule of the entry
+file moved into its mechanism's rules file; the install by mechanism as
+[01-0010.0150.0020](../tickets/01-0010.0150.0020-the-two-modes-of-taking-a-trees-method-in.md),
+xuanxue-cabinet its first case and live-spec a second check. Declaring every mechanism of this tree
+is [01-0017](../tickets/01-0017-every-skill-and-document-has-named-producers-and-consumers.md)'s.
+
+## Decisions
+
+1. **The first package is the store, the session and maintain** *(the user, 2026-10-25)*. Whether
+   the store can stand without the session is
+   [q-hpwq4t](q-hpwq4t.md).
+2. **The entry file's rules by owner**, lines of entry contract v129 *(the user, 2026-10-25)*;
+   every straw dog keeps its wrapper where it moves:
+   - *meta*: what a shape is (7), generalize or ask (11), the shape's context and structure
+     (12–13), recency for evidence (19), Occam (21), the builder does not judge (26), weight follows
+     the work (30), and what makes a thing load-bearing, with no pointer to development (221–227);
+   - *the mechanism shape*: a document informs (16), a capable reader (33), tier is paid by every
+     session (36), self-improvement (249–256) and its ladder (295–305) — the last two already
+     [q-tt733j, decision 1](q-tt733j.md#decisions);
+   - *the session*: another session's work (23), the session ring (231–233);
+   - *the store*: the straw-dog section (343–356), whose dueness the store already reads at the
+     wake ([questions.md](../../.agents/mechanisms/questions/questions.md), its moments);
+   - *the development method*, a default a project may refuse: the delivery ring (234–237, 244–247),
+     development's ladder (281–293), and the homes of load-bearing decisions (200–219);
+   - *open*: a reply's form (40–88), voice proposed; autonomy, the dial and the human checkpoints
+     (239, 242, 258–279), [q-x4flb3](q-x4flb3.md).
+   The ticket mechanism stays a mechanism of its own, beside the development method.
+3. **The principles are a mechanism's, the meta-principles'** *(the user, 2026-10-25)*: the
+   glossary's *meta-principle*, which it gave to the entry file, is a mechanism's of its own and
+   installed with every other; *meta-rule* stays the mechanism shape's.
+   → [.agents/glossary.md](../../.agents/glossary.md), *Meta-rule*, a straw dog bound here
+4. **The development method is one mechanism, its loop and its practice together**, a default an
+   instance replaces whole *(the user, 2026-10-25)*; how the practice is cut from the loop is
+   later work. Revises the user's 2026-09-10 *the process loop is not part of this corpus* in
+   [01-0017.0020](../tickets/01-0017.0020-practice-swaps-in-one-edit.md), on the evidence of two
+   recipients that deliver by a method of their own.
+5. **A reply's form (40–88) moves with its straw dogs**, each part installed by the mechanism whose
+   occasion it shows *(the user, 2026-10-25)*; where it lands while no voice mechanism stands is
+   open, q-53jkvy decision 8 having made the voice one local rule.
+6. **The store, the session and maintain read a unit of work through a seam, never tickets by
+   name** *(the user, 2026-10-25)*: perhaps one local rule installed into all three, saying which
+   records are the tree's units of work; an install must not forget it. Today the path in the
+   wake, `questions.py`'s since 01-0060.0010, counts *tickets In progress* and lists tickets
+   ready, though q-huss2x asks for *its unit as the installed method names it*; L12, which
+   counts by tickets, is this tree's local rule and installs nowhere; P9 is the ticket
+   mechanism's own and leaves with it. The seam is the one
+   [q-2zouxq](q-2zouxq.md)
+   and [q-hpwq4t](q-hpwq4t.md)
+   also need.
+7. **The reply's common frame is the meta-principles'** *(the user, 2026-10-25)*: *A reply speaks
+   the method* (40–48) and the order of a reply's tables, installed with every install; each part
+   inside it is installed by the mechanism whose occasion it shows. Rehomes
+   [q-l36vii, decision 4](q-l36vii.md#decisions),
+   whose voice mechanism q-53jkvy decision 8 withdrew.
+8. **The entry file has one section per mechanism**, for now *(the user, 2026-10-26)*: installing a
+   mechanism adds its section to a recipient's entry file and removing it removes the section; the
+   installer's one place per target stands. Not: several places per target, which spreads a
+   mechanism across a file the recipient wrote.
+
+## Impact — 2026-10-26, the first draft of the split
+
+Run by a fresh agent on the draft: a parent *An install adds the method a mechanism at a time*;
+the meta-principles declared; the other unowned rules into the mechanisms that own them; the
+development method declared; a reply's form installed part by part; 01-0010.0150.0020 rewritten
+in place. **Narrow.**
+
+**Impact.** The installer gives a mechanism one place in a target, at the end of its anchor's
+section (`inject_rules.py`, the anchor table; the architecture's *one block per mechanism per
+target*, the user 2026-10-25), and the owners are spread across sections: meta's under *General
+rules* and *What makes a thing load-bearing*, development's under *Document load-bearing*, *The
+loop* and *Autonomy*, the store's block under *General rules* with the straw-dog section far below,
+the mechanism shape's anchored at *Project-local*. So the entry file is either restructured into one
+section per mechanism, or the installer's contract changes. A rule's body may hold no straw dog —
+the straw-dog rule quotes the tag in a code span and is refused —, no inline wrapper, no citation,
+no heading. The install takes core whole (`harness.py`; `harness.md`, the entry file the harness's
+whole file): an install by mechanism needs a manifest per package, a check over a subset, and
+anchors in the recipient's own entry file.
+
+**Hidden edges.** The draft departed from decision 2: the session ring (231–233) left out, the
+human checkpoints (239–242) put under development though decision 2 leaves them open. The order of
+a reply's tables lives in 76–86, D3 and S4, not in 40–46. Declaring a mechanism is 01-0017's; the
+development method's straw dogs are bound to q-ggpx2r, *what does the practice
+mechanism own?*, which the slice would answer. A reply's form is 01-0016.0030's text and
+q-g2zdu7's. The first package also reads *the dial* (M2), *the ring* (Q1), *a ticket*
+(S9) and the store's head-table rows (76–83). Each move bumps the entry contract under running
+sessions; fragment links to the entry file's sections go dead unnoticed. No test reads the real
+`AGENTS.md`.
+
+**Leave alone.** The installed blocks as they stand, the local block, self-improvement (01-0019's),
+autonomy (q-x4flb3), the seam and the store's cut (other sessions' questions).
+
+**Recommendation.** Narrow: placement decided first, one section per mechanism or several places
+per target, the person's call; the move into existing mechanisms not AFK, the straw-dog refusal a
+script fix; the meta-principles a child of 01-0017; the development method cut to the ring, its
+ladder and the homes, under 01-0017.0020 with q-ggpx2r; a reply's form postponed but
+for one thin slice moving the store's head-table rows into its block; 01-0010.0150.0020 a parent —
+package manifests, a subset check, anchors in a foreign entry file, the xuanxue-cabinet grade, then
+live-spec. The first package reaches xuanxue-cabinet after the placement, the meta-principles, the
+move into existing mechanisms, the head-table slice, and a stand-in for *the dial* in M2.
+
+## Impact — 2026-10-26, the second draft
+
+Run by a fresh agent on the revision: one section per mechanism (decision 8); the restructure with
+the moves into existing mechanisms under 01-0017; the meta-principles under 01-0017; the
+development method under 01-0017.0020; 01-0010.0150.0020 a parent of four. **Narrow, a second
+time; the shape is close.**
+
+**Impact.** Moving a block is a retract and a reinstall: a changed anchor leaves a present block
+where it is, and the check never verifies position. The section order is constrained: the local
+block must be the file's last, so *Project-local* is the last section and the straw dogs' section
+comes before it. Every move into a mechanism's rules file is the self-improvement rung *a rule*,
+this tree's dial, so each is shown before it lands. A subset changes the harness's *holds core
+whole*, a load-bearing contract. The first package needs the meta-principles, installed with every
+other, and not the development method, which an instance replaces whole.
+
+**Hidden edges.** The first package does not run on its own scripts: `questions.py` imports
+`move_doc` at module level, `tickets` on every window and `tickets` and `product` for the path;
+`maintain.py` imports `inject_rules` and `mechanisms`. Its anchor tables reach `align`, `mechanism`
+and `commit`, outside it. Debts still without a home: *a ticket* in S9; a stand-in for the ladder
+Q1 reads as well as for the dial M2 reads; the order of a reply's tables, which also lives at 74,
+in S4 and in D3. A body quoting the straw-dog tag in a code span is refused today; each moved rule
+needs a new id and one authority line, and a citation becomes words. The session ring names
+`/align`. Line 23 repeats S9's second half and may shrink rather than move. Decision 2's range ran
+past the file's end, corrected to 343–356. 01-0010.0150.0020 answers q-5cl4no,
+still open. Mid-move: the hook reports blocks out of step between retract and reinstall; the rules
+files and `AGENTS.md` land in one commit; each move bumps the entry contract under running
+sessions, 01-0018.0010 not landed; the head-table rows sit in 01-0016.0030's straw dog.
+
+**Recommendation.** The installer's fix apart, AFK, test first, with a check that a block stands
+in its owner's section; the restructure and the moves one commit, each move shown, after
+01-0018.0010; the package manifest HITL, naming the cross-mechanism imports or waiting on
+q-2zouxq; the first package after the restructure and the meta-principles, with
+stand-ins for the dial and the ladder, S9's wording, 01-0010.0150.0010 and 01-0010.0150.0030, not
+after the development method; q-5cl4no settled before 01-0010.0150.0020 is
+rewritten.
+

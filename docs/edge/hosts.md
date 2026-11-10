@@ -27,9 +27,9 @@ A host lacking one of the last three is reached in part: the entry file's rule s
 agent draws the window itself.
 
 **Offered by a host, used where it is offered and relied on nowhere:**
-<straw-dog question="q-0037.0017.0005">one session's message to another, by which a session that
+<straw-dog question="q-2gw24v">one session's message to another, by which a session that
 took over a unit tells its holder;</straw-dog>
-<straw-dog question="q-0037.0015">and a helper agent started inside a session, which the method
+<straw-dog question="q-7rmmpw">and a helper agent started inside a session, which the method
 uses as the judge of work its starter built. A helper receives no wake and no window, having no
 start of its own and no message of the person, so a judge reads the entry file and runs the wake
 itself, and the host's delivery of that text is this edge's live check, never the judge's.</straw-dog>
@@ -37,7 +37,7 @@ Where the window does not reach the agent, as in Cursor, a session sees another'
 it draws its window itself, as the entry file's rule asks, and the refusal at a hold is the one
 stop that needs no window.
 
-<straw-dog question="q-0037.0006.0005.0001">
+<straw-dog question="q-5jcptm">
 **Required of a host, to guard the files a mechanism controls** — an edit to such a file refused
 while the skill the mechanism names is not loaded in the session:
 
@@ -87,7 +87,7 @@ Each sidecar names its own parts.
 - In a host whose message hook reaches the agent, every message carries the window or the
   one-line notice that it is unchanged — *validated by:* live — **Window**
 - The host lists the harness's skills and runs one by name — *validated by:* live — **Skills**
-- <straw-dog question="q-0037.0006.0005.0001">An edit to a file a mechanism controls is refused
+- <straw-dog question="q-5jcptm">An edit to a file a mechanism controls is refused
   while the skill it names is not loaded in the session — **⚠ unguarded**: the guard is not
   built</straw-dog>
 
@@ -132,15 +132,15 @@ Each sidecar names its own parts.
 
 ## Concerns
 
-- [q-0037.0006.0023](../questions/q-0037.0006.0023-how-does-the-harness-reach-more-hosts-than-claude-code-codex-and-cursor.md)
+- [q-kecvv7](../questions/q-kecvv7.md)
   — which hosts come next, and by what; here, whether a fourth can pass these checks.
-- [q-0037.0006.0004](../questions/q-0037.0006.0004-what-does-each-host-put-in-front-of-an-agent-without-being-asked.md)
+- [q-of6uro](../questions/q-of6uro.md)
   — what each host places in front of an agent unasked; its observations are this record's
   sidecars.
-- [q-0037.0006.0004.0001](../questions/q-0037.0006.0004.0001-how-is-it-observed-that-a-host-reads-the-loader-link.md)
+- [q-7k6as2](../questions/q-7k6as2.md)
   — whether a host reads the loader link is not observable from inside a tree; **Skills** is the
   nearest check, and Codex has no link to read.
-- [q-0037.0006.0005.0001](../questions/q-0037.0006.0005.0001-which-skill-must-be-read-before-a-file-is-edited-or-a-rule-proposed-and-how-does-the.md)
+- [q-5jcptm](../questions/q-5jcptm.md)
   — the guard on the files a mechanism controls; here, how each host loads and keeps a skill, read
   from **Skill load** and **Skill lifetime**, and which hosts can refuse an edit at all.
 
@@ -148,6 +148,6 @@ Each sidecar names its own parts.
 
 - The three hosts' unwatched checks — compaction, helper ids, Codex's start-hook attribution —
   observed: [01-0010.0120 what-each-host-says-without-being-asked](../tickets/01-0010.0120-what-each-host-says-without-being-asked.md).
-- A fourth host, chosen under q-0037.0006.0023: no ticket yet.
-- The guard on the files a mechanism controls, once q-0037.0006.0005.0001's `Where it stands` is
+- A fourth host, chosen under q-kecvv7: no ticket yet.
+- The guard on the files a mechanism controls, once q-5jcptm's `Where it stands` is
   accepted: [01-0010.0125 the-host-blocks-what-a-rule-forbids](../tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md).

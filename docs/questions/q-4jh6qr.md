@@ -1,7 +1,7 @@
 # q-4jh6qr What do the store decisions derived anew on 2026-11-09 leave unsaid of the earlier decisions they meet without naming?
 
 - **record of** what it intends to become
-- **part of** q-0037.0017.0005.0001
+- **part of** q-7ebz2f
 - **state** open
 - **rung** development: load-bearing, self-improvement: the method
 - **asks** the person, 2026-11-10
@@ -10,14 +10,14 @@
 
 Opened 2026-11-10 by the scheduled `/maintain` pass with no person, sweeping the decisions landed
 since f61c52a0 through fad11189. The decisions of
-[q-0037.0017.0005.0001](q-0037.0017.0005.0001-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of.md)
+[q-7ebz2f](q-7ebz2f.md)
 were derived anew on 2026-11-09 as 1 to 16; the question sits at the load-bearing rung, so the
 pass asks rather than repairs. Below, a bare number is one of those sixteen.
 
 ## What each earlier text says, and where
 
 1. **The git ref and the refusal of a server.**
-   [q-0037.0017.0005.0002](q-0037.0017.0005.0002-what-carries-the-shared-place-every-session-reads-at-each-step.md),
+   [q-crvu5f](q-crvu5f.md),
    its decisions 1 to 4 and its `lean`: "a local mode first", "Not … SQLite, not a server", "A git
    ref carries it", and a chain of citations to decisions 4, 17 and 30 of the old list. Against 1
    (one mode, one server for every tree) and 10 (the rows in the server's `gw.sqlite`). The new
@@ -28,7 +28,7 @@ pass asks rather than repairs. Below, a bare number is one of those sixteen.
    - Recommendation: (a) — 1 leaves no tree without the server, so nothing is left for the ref to
      carry.
 2. **The session's branch in the architecture.** `docs/architecture.md`, *Write safety*, the straw
-   dog bound to q-0037.0017.0005.0001: "A branch per session comes only together with a question
+   dog bound to q-7ebz2f: "A branch per session comes only together with a question
    store that does not travel through git. *(the user, 2026-10-12)*". Against 2: the questions are
    files on a branch of their own of the project's own repository, committed and pushed.
    - Options: (a) the sentence rewritten to 2's words — no code branch carries a question — under
@@ -36,7 +36,7 @@ pass asks rather than repairs. Below, a bare number is one of those sixteen.
    - Recommendation: (a) — the sentence now says the opposite of what was decided, in the document
      every session reads.
 3. **The detached head.**
-   [q-0037.0017.0005.0001.0005](q-0037.0017.0005.0001.0005-does-every-write-of-a-question-go-through-a-server-raised-on-demand.md),
+   [q-d4gf2u](q-d4gf2u.md),
    its `lean`, the user, 2026-10-30: "where the main checkout stands on a detached head the
    coordinator does not commit for now and the window says so; a branch of its own weighed when it
    reaches xuanxue-cabinet". Against 2: the branch is taken, and the server commits there, never
@@ -44,16 +44,16 @@ pass asks rather than repairs. Below, a bare number is one of those sixteen.
    - Options: (a) the lean rewritten to 2; (b) kept, the detached head still a case of its own.
    - Recommendation: (a).
 4. **A deferral whose condition cannot arrive.**
-   [q-0037.0001.0013](q-0037.0001.0013-how-does-the-store-remember-every-id-it-has-given-so-none-is-given-twice.md),
+   [q-f5ixy2](q-f5ixy2.md),
    closed deferred "until a stale id … lands silently on the question its id was given to after a
    rename, meanwhile a new id is checked free against every entry live and in done/". Under 6
    there is no rename and no `done/`.
-   - Options: (a) closed as moot under 6, as q-0037.0017.0005.0001.0008 and .0010 were; (b) kept
+   - Options: (a) closed as moot under 6, as q-frv4bk and .0010 were; (b) kept
      deferred, its condition reworded to what a random id can still collide with.
    - Recommendation: (a) once the ids of this tree are converted; until then the old condition
      still describes the tree.
 5. **The nine checks in CI.**
-   [q-0037.0006.0022.0004](q-0037.0006.0022.0004-how-do-the-harnesss-checks-run-without-the-agent-at-push-and-in-the-projects-ci.md),
+   [q-c2qp5n](q-c2qp5n.md),
    its lean and decision 1: "Nine: `questions.py`, `sessions.py` … In CI all nine run on every
    run", and the push "checked in a copy of what it sends". Narrowed by 13 — CI checks the
    questions from the fetched store branch, and not the rows, which never reach it — and 10,
@@ -70,9 +70,9 @@ pass asks rather than repairs. Below, a bare number is one of those sixteen.
 
 6 in `docs/architecture.md`, *Straw dogs*, and at decisions 24, 34 and 43 of
 [01-0011.0100](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md); 1 in the RFC
-of 01-0010.0250.0020, in q-0037.0010.0009.0009 and, with 10, in q-0037.0017.0005.0003 and as a
-dated note under the decisions of q-0037.0017.0005.0002; the stale numbers in
-q-0037.0017.0005.0004 pointed at 1.2, 4, 5, 7 and 8; the guard of the withdrawn 01-0010.0250.0060
+of 01-0010.0250.0020, in q-3n54ky and, with 10, in q-pl3fwk and as a
+dated note under the decisions of q-crvu5f; the stale numbers in
+q-ntoyr3 pointed at 1.2, 4, 5, 7 and 8; the guard of the withdrawn 01-0010.0250.0060
 out of 01-0010.0250's related line.
 
 ## Left to their own tickets

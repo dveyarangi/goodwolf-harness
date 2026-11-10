@@ -3,7 +3,7 @@
 - **record of** what happened
 
 A fork of the session *UX tweaks* (local_70f41003), opened 2026-10-22 on one remark of the user's:
-*why is this a sub-question of q-0037.0006.0020, and so complex — what led to it?* The mother
+*why is this a sub-question of q-t5vmk3, and so complex — what led to it?* The mother
 session keeps the account of the reply-form changes that preceded the fork (v100 to v105) and of
 the question's own argument; this record is the fork's alone.
 
@@ -11,12 +11,12 @@ the question's own argument; this record is the fork's alone.
 
 **A question's home is read from what it asks, not from the mechanism named to carry it out**
 *(the user, 2026-10-22)*. The fork's question had been opened under the installer's question,
-[q-0037.0006.0020](../questions/q-0037.0006.0020-how-does-core-reach-a-recipient-tree-and-leave-it-working-at-a-first-install-and-at-each.md),
+[q-t5vmk3](../questions/q-t5vmk3.md),
 because the user's proposal spoke of installing and uninstalling; what it asked was which of the
-method's text a project's tree carries — the project's own conventions, q-0037.0006. The same
+method's text a project's tree carries — the project's own conventions, q-veooj7. The same
 principle *Autonomy* already states for a decision's rung, read from what it decides and never
 from the record that holds it. Reworded to *How does a project choose which of the method's text
-its tree carries?* and moved under q-0037.0006 as q-0037.0006.0026, the id kept through the
+its tree carries?* and moved under q-veooj7 as q-b55e5r, the id kept through the
 reword so the mother session's position held, the move renaming it with the mother told; the
 mother session decided and closed it on 2026-10-23 against
 [01-0010.0220](../tickets/done/01-0010.0220-a-tree-carries-only-the-methods-text-its-settings-call-for.md).
@@ -34,17 +34,17 @@ Rule failure 59, repeating 57, which it struck: the question was opened forty-fo
 as a *how to build* carrying the mechanism, three examples and a second question in its title,
 before any *what is it for*. The format's *phrase a question short* and the skill's *A request*
 stood at tier 2, unread by a plain `open`; the store's own long titles taught the habit. The
-same shape q-0037.0011 holds as U3.
+same shape q-c5x3mh holds as U3.
 
 ## Open questions touched
 
-- [q-0037.0001](../questions/q-0037.0001-how-are-the-open-questions-of-this-tree-kept-so-that-none-is-lost.md)
+- [q-dmvmf2](../questions/q-dmvmf2.md)
   — stood on for the fork; open, its lean written.
-- [q-0037.0011](../questions/q-0037.0011-does-each-rule-reach-the-occasion-it-is-for.md) — the
+- [q-c5x3mh](../questions/q-c5x3mh.md) — the
   U3 shape met once more; not stood on, nothing written to it.
 
 ## What continues
 
 Nothing from this fork. The mother session's thread — the fourth shape, settings as `when` lines
 on rules — landed as v110 and closed on 2026-10-23; a mechanism-author edge record was named as a
-candidate for `/edge` in q-0037.0006.0026's body and is not opened.
+candidate for `/edge` in q-b55e5r's body and is not opened.

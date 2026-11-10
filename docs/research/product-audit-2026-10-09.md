@@ -1,7 +1,7 @@
 # The product document audited against the tree — 2026-10-09
 
 The audit of [the product document](../product.md) as it stood at `aa54092`, run at the align on
-[q-0033](../questions/q-0033-what-is-this-project-for.md)
+[q-0033](../questions/q-m6unv4.md)
 when the user asked whether anything was forgotten. One read-only agent swept the tree in a fixed
 order: the skills, the mechanism docs and rules files, the entry file and local rules, the method
 glossary, the open questions, and the queue and tickets. It reported in five sections. It read

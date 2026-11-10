@@ -1,0 +1,86 @@
+# q-kkw47n Is a project's root README generated from its product document and edge records, or written by hand and checked against them?
+
+- **record of** what it intends to become
+- **part of** q-5wbvz6
+- **state** open
+- **owner** [01-0040.0070](../tickets/01-0040.0070-the-root-readme-is-told-from-the-product-document.md)
+- **rung** development: a feature, self-improvement: a rule
+- **lean** the user, 2026-10-25: one front page, the README, the mechanical copy of a hand-written marked source; claims marked with answers, explanations, experiments with their question; checked both ways; 2026-11-09: the page principles are the re-reader brief, decision 5; open: the marks after q-t2eady
+- **opened** 2026-10-12T23:49:52Z
+- **struck** 3, last 2026-11-09T12:41Z
+
+Opened 2026-10-13 at the spec for the product mechanism, whose decision 10 gives it the root README.
+What the align on it meets:
+
+- **Generated or checked.** Generated whole from the product document and the edge records, or
+  written by hand and checked against them.
+- **Two front pages.** Read at the spec as two: the harness's, shipped beside the harness skill,
+  and this tree's root README, said never to ship. Since 2026-10-14 the install ships this tree's
+  root README as the front page itself, as written — one document. Settled as decision 1.
+- **q-osjub2**, what the front page carries to a reader arriving cold, is the content the form serves;
+  a session stood on it 2026-10-12.
+- **Taken to the top of the queue** *(the user, 2026-10-25)*: amendments touching the product's
+  presentation land constantly, and the path from them to what a reader sees must already work —
+  the README and a consistent upkeep of the product document both. The person asked why the
+  product document is not in the README at all: the README today is written by hand under
+  q-osjub2's aligns and links no part of it, the product mechanism's README row standing at
+  *not yet* while this question waits.
+
+## Decisions
+
+1. **One front page per project: its root README**, told by the product mechanism from that
+   project's own product document *(the user, 2026-10-25)*. In this tree it is also the harness's
+   front page, shipped into every recipient as `.agents/README.md` as written; there it is a
+   shipped copy, not a second page, and the recipient's own root README is the recipient's
+   account. The harness mechanism's front-page row stays as it is. Evidence: the install has
+   shipped the root README as the front page since 2026-10-14, the spec's *never ships* premise
+   outrun.
+2. <straw-dog question="q-i3xruh">**Written by hand and checked, not generated**
+   *(the user, 2026-10-25)*: the page is tuned a sentence at a time against cold readers — three
+   live cases on 2026-10-24, each rewording what an evaluating agent read as a concession — and a
+   page assembled from the answers' rows would carry the list and lose the argument. What it says
+   of what the project is for stands on the product document's answers; its argument, order and
+   tone are the page's own; how to take and extend it is the edge records'.</straw-dog>
+3. **The check holds both ways** *(the user, 2026-10-25)*. Toward the page: a paragraph of the
+   README that says what the project is for carries a mark naming the answers it stands on — in the
+   source of decision 4, never in the README;
+   the check fails on a mark naming no answer of the product document, and on a paragraph without
+   a mark in a part declared as told from the document — so a new claim enters the document first.
+   Toward the document: the README comes due for a re-read when the product document or the edge
+   records move, on the clock that already marks a mechanism's records due, as news and not as a
+   failure; the re-read closes with a mark. Whether a paragraph says what its answer says is the
+   re-reader's to judge, never a script's.
+4. <straw-dog question="q-t2eady">**A marked source, and the README its mechanical copy** *(the user, 2026-10-25)*: the front page
+   is written by hand in a source of its own, the marks in it; the README is that source with the
+   marks cut out, written by the product script and never edited by hand — a record of what
+   exists, rebuilt from its source, as the ticket list is; the check fails when the README differs
+   from the source unmarked. Every paragraph of the source is one of three: a claim about the
+   product, marked with its answers; an explanation — an illustration, the framing, how it works —
+   checked against nothing; an experiment, marked with the question it tries, which on that
+   question's decision enters the document as a claim or leaves. A paragraph with no mark fails the
+   check. Not: marks hidden in the README as comments — its first reader, an outside agent, reads
+   the file as text and would read them. The source's path and the marks' syntax are the plan's.</straw-dog>
+5. **The page's principles are the re-reader's brief, not the ticket's criteria** *(the user,
+   2026-11-09)*: the three principles of
+   [q-osjub2](q-osjub2.md)
+   and *measured where benefit is decided* judge what the page says, which no script can; the
+   re-read of decision 3 is made by a fresh reader holding them as its brief, so every re-read
+   applies them, and they stay q-osjub2's to change. The ticket builds the mechanism and closes
+   without a judgement of the page's content.
+   → [01-0040.0070](../tickets/01-0040.0070-the-root-readme-is-told-from-the-product-document.md)
+
+## What the page's content asks of this align, 2026-10-25
+
+Brought here on the user's word from [q-osjub2](q-osjub2.md),
+*Three principles, live case 5, and what they add up to*: no self-deprecation — a hole that
+matters is closed, not listed, what does not yet work kept in the tree's records; the meeting agent
+brought to a full check of its own project by suggestions through the page, each asking how
+reliably that thing works there; everything that matters on the page, each with why, and the offer
+to check one's own project. They reach the page as the re-reader's brief, not as 01-0040.0070's
+criteria — decision 5. The noun its first line waited on is settled — q-hdtp5b, a user
+harness, the name kept.
+
+**Measured where benefit is decided** *(the user, 2026-10-25)*: the page asks the reader's agent to
+measure wherever a measurement in the reader's own project is what tells whether the harness
+benefits it — not only where this tree has not measured. A check in place of a caveat is one case
+of it, not its whole.

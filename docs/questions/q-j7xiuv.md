@@ -1,0 +1,9 @@
+# q-j7xiuv How are the kinds of record and of statement named, so that a reply and a format can cite them?
+
+- **record of** what happened
+- **part of** q-7ld3wt
+- **state** closed:decided
+- **owner** [01-0011.0110.0010](../tickets/done/01-0011.0110.0010-the-kinds-have-names.md)
+- **answer** [the method glossary](../../.agents/glossary.md) — the user, 2026-10-07; landed 2026-10-08 by 01-0011.0110.0010: kind of record, kind of statement, and a name on every general bullet
+- **opened** 2026-10-07T23:06:26Z
+- **struck** 0, last 2026-10-07T22:46Z

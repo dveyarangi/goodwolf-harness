@@ -94,7 +94,7 @@ the clone's own copy with no source; whatever plans a link names it in the clone
 which Git locates. The same step records the interpreter that ran it in the clone's Git directory,
 which no commit carries: every core hook runs through a wrapper that reads it, so a hook needs no
 `uv` and no `python` on the path, and a clone without the record is told which step makes it *(the
-user, 2026-10-09)*. <straw-dog question="q-0037.0006.0022">The same step writes the clone's
+user, 2026-10-09)*. <straw-dog question="q-t3p7na">The same step writes the clone's
 `pre-push`, which checks a push in a copy of what it sends and refuses it on any finding in that
 copy, a push of code starting no interpreter: only inside the project — its Git
 directory, or a hooks folder of its own work tree — and only where none or core's stands; beside
@@ -112,7 +112,7 @@ a link is not observable from inside a tree and is reported as unverified. The s
 it costs minutes, and an install is seconds — a recipient that wants it names it in its own
 verification set *(the user, 2026-09-21)*. The gate itself clones the source whole, over the
 network, at every run. A copy drifting from its ref is maintenance's to find, never
-verification's *(the user, 2026-10-09)*; <straw-dog question="q-0037.0006.0012">no maintain pass runs the
+verification's *(the user, 2026-10-09)*; <straw-dog question="q-7caadu">no maintain pass runs the
 gate: one is offered to the person, with its reason, only once the comparison reads no network and
 takes no clone.</straw-dog>
 
@@ -135,18 +135,18 @@ is not a part: it never ships, and a recipient has its own.
 | changing one of the tree's settings by the agent's call, or showing how the harness is set up here | `.agents/skills/harness/SKILL.md` | |
 | pointing a tree at another core, as a fork does | `.agents/skills/harness/SKILL.md` | |
 | reporting friction met in a run to the repository | `.agents/skills/harness/SKILL.md` | |
-| re-checking a recipient's copy against its ref in a maintain pass | — | <straw-dog question="q-0037.0006.0012">not yet</straw-dog> |
+| re-checking a recipient's copy against its ref in a maintain pass | — | <straw-dog question="q-7caadu">not yet</straw-dog> |
 | knowing an update is available | — | unowned by design — a person asks for one; nothing polls the repository |
-| verifying that a host reads the loader link | — | <straw-dog question="q-0037.0006.0004.0001">not yet</straw-dog> |
+| verifying that a host reads the loader link | — | <straw-dog question="q-7k6as2">not yet</straw-dog> |
 | opening a fresh tree's store with its roots, by the store's seed | `.agents/scripts/gw/harness.py` | |
 | writing a tree's empty product document, by the product seed | `.agents/scripts/gw/harness.py` | |
 | merging core's hook wiring into each host's file | `.agents/scripts/gw/harness.py` | |
 | recording, per clone, the interpreter the hooks run under | `.agents/scripts/gw/harness.py` | |
 | writing the clone's `pre-push` inside the project, or giving the line beside another's hook | `.agents/scripts/gw/harness.py` | |
 | checking a push in a copy of what it sends, and refusing it on a finding | `.agents/scripts/gw/harness.py` | |
-| removing one mechanism from a tree | — | <straw-dog question="q-0037.0006.0013.0002">not yet</straw-dog> |
+| removing one mechanism from a tree | — | <straw-dog question="q-qzeuf3">not yet</straw-dog> |
 | turning a clean clone of the origin, standing where the project was meant, into an install | `.agents/scripts/gw/harness.py` | |
-| sending a change back to the repository | — | <straw-dog question="q-0037.0006.0018">not yet</straw-dog> |
+| sending a change back to the repository | — | <straw-dog question="q-hgzz3s">not yet</straw-dog> |
 
 ## Install adds, uninstall removes
 
@@ -198,7 +198,7 @@ would otherwise fail the shape check for the same absence the report already nam
   this tree's core comes from, or pointing it somewhere else.
 - **Each host's hook file, core's entries merged in** — *what exists* — read by that host at session
   start and before each message, and by `--check`, which compares core's entries alone.
-<straw-dog question="q-0037.0006.0022">
+<straw-dog question="q-t3p7na">
 - **The clone's `pre-push`** — *what exists* — in its Git directory or a hooks folder of the
   project's own work tree, run by Git at each push, which it refuses on any finding in a copy of
   what the push sends; made by the link step, never where husky keeps its
@@ -207,7 +207,7 @@ would otherwise fail the shape check for the same absence the report already nam
 - **The interpreter record**, in the clone's Git directory — *what exists* — read by the hooks'
   wrapper before every hook; made by the link step, so `--links` is the one step a fresh clone runs.
 - **The pending command** — *what exists* — read by a person, once, in an elevated prompt.
-<straw-dog question="q-0037.0006.0020.0001">
+<straw-dog question="q-n3pc22">
 - **The report**, in a tree that has a method — *what happened*, what the harness would change
   there — a working document kept where the host keeps the session's files, never written into
   the tree by the study; read by the person at the second stop, and on a yes by the migration for

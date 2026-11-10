@@ -10,7 +10,7 @@ then to settings as a part of the method, and built that as
 ## Decisions
 
 **A stop is said as the act** —
-[q-0037.0013.0005.0007](../questions/q-0037.0013.0005.0007-how-does-a-reply-report-by-the-agents-dial.md),
+[q-g2zdu7](../questions/q-g2zdu7.md),
 landed as v100 to v102. The user could barely read *At the dial, 🛠️ self-improvement=a rule*.
 Four forms were weighed: the act in the person's words, the glyph alone, the host's next-step box,
 and a gloss beside the old form. The act won; the user then struck its two variants, one for the
@@ -22,7 +22,7 @@ their own. The first explanation of the four forms was not understood; a second,
 the gear the user chose. Commits already showed under debug alone; nothing changed for them.
 
 **A tree carries only the method's text its settings call for** —
-[q-0037.0006.0026](../questions/done/q-0037.0006.0026-how-does-a-project-choose-which-of-the-methods-text-its-tree-carries.md),
+[q-b55e5r](../questions/q-b55e5r.md),
 decided in five passes. The user's proposal: the whole decoration switchable, and its installed
 text removed when off, to save tokens, by external variables marking what installs. The turns:
 
@@ -84,13 +84,13 @@ text its settings call for*; *Setting* in the method's glossary.
 
 ## Open, and where it stands
 
-- [q-0037.0013.0005.0007](../questions/q-0037.0013.0005.0007-how-does-a-reply-report-by-the-agents-dial.md) —
+- [q-g2zdu7](../questions/q-g2zdu7.md) —
   the stop's form is landed; its ticket, 01-0020.0020, waits on a judge reading a live session.
-- [q-0037.0009.0021](../questions/q-0037.0009.0021-which-mechanism-owns-how-a-reply-is-laid-out-for-its-reader-debugging-or-interaction-and.md) —
+- [q-l36vii](../questions/q-l36vii.md) —
   the debugging mechanism now exists with one rule; the rest of what debug shows moves under
   [01-0016.0020](../tickets/done/01-0016.0020-what-debug-shows-is-installed-not-read.md), unblocked.
 - The dial from the settings table waits on
-  [q-0037.0010.0002.0005](../questions/q-0037.0010.0002.0005-what-does-the-practice-mechanism-own.md),
+  [q-ggpx2r](../questions/q-ggpx2r.md),
   the ladder mechanisms' declaration.
 
 ## Drift met, not repaired

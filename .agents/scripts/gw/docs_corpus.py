@@ -25,7 +25,7 @@ _QUESTION_BINDING = re.compile(r'(<straw-dog\b[^<>]*?\bquestion\s*=\s*")([^"]*)(
 # A question's id: `q-` and six characters of RFC 4648's base32 alphabet, lowercase, at least one
 # a letter and one a digit, so no id reads as a word (docs/architecture.md: "Question store").
 # One group, so every pattern built on it keeps its own.
-# TODO q-0037.0017.0005.0001.0019: the dotted form is read until the store's migration has run.
+# TODO q-2jheaw: the dotted form is read until the store's migration has run.
 QUESTION_ID = r"(?:q-(?=[a-z2-7]{0,5}[a-z])(?=[a-z2-7]{0,5}[2-7])[a-z2-7]{6}(?![a-z0-9])|q-\d{4,}(?:\.\d{4})*)"
 # In code the binding is the id a `TODO` comment line names first: `# TODO q-7f3k2a: …`.
 TODO_QUESTION = re.compile(rf"^(\s*#\s*TODO\s+)({QUESTION_ID})(?![\w.])")

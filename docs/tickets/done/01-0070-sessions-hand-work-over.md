@@ -1,10 +1,10 @@
 # Sessions hand work to each other, and none takes what another holds
 
 - **record of** what happened
-- **Status:** Done (2026-10-25, verified by a fresh judge; its live case in q-0037.0017.0006.0002.0001)
+- **Status:** Done (2026-10-25, verified by a fresh judge; its live case in q-7nfty7)
 - **Type:** HITL
 - **Minted:** 2026-10-24
-- **Answers:** [q-0037.0017.0006](../../questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one.md)
+- **Answers:** [q-psa5ha](../../questions/q-psa5ha.md)
 - **Outcome:** A session about to act on a unit another running session holds stops and puts two
   ways to act to the person, and a unit taken over leaves its holder the mark of who took it, so no
   session finishes, closes or commits another's work by default.
@@ -13,9 +13,9 @@
 
 The session mechanism, [session.md](../../../.agents/mechanisms/session/session.md), which owns every
 rule on how sessions interact. The work's shape is
-[its question's *Where it stands*](../../questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one.md#where-it-stands),
+[its question's *Where it stands*](../../questions/q-psa5ha.md#where-it-stands),
 accepted by the person 2026-10-24 and rewritten to their decisions of 2026-10-25; the split's impact is
-[in the same question](../../questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one.md#impact-of-the-split--2026-10-24).
+[in the same question](../../questions/q-psa5ha.md#impact-of-the-split--2026-10-24).
 The end-state of two slices:
 [01-0070.0010 a-sessions-row-names-the-unit-it-holds](./01-0070.0010-a-sessions-row-names-the-unit-it-holds.md)
 and [01-0070.0020 a-session-stops-before-anothers-unit](./01-0070.0020-a-session-stops-before-anothers-unit.md).
@@ -32,7 +32,7 @@ does nothing on the unit until the person names one; the person's word to take i
 on without asking again and lets go the unit the taking session held, as a hold at a step's start
 does *(decisions 14 and 15)*. The stop is one rule read off the window, the refusal at a hold the
 stop where the window does not reach *(decision 11)*, and any session writes any row *(decision
-9)*. Who judges what its builder built is q-0037.0015's, a subagent by the entry file's principle
+9)*. Who judges what its builder built is q-7rmmpw's, a subagent by the entry file's principle
 *(decisions 10 to 12)*. The agent's bias to do as much as it can itself is named in the entry
 file's general rules.
 
@@ -43,13 +43,13 @@ file's general rules.
       by the person to close it stops with the two ways, and the close is made by the holder or by
       the way the person named — read by a subagent judge, from the rows and the windows —
       2026-10-25, not met live: the stop seen in cold cases and trial rows, judged; the live case
-      moved to q-0037.0017.0006.0002.0001 by the person's word, the parent closed as its slices
+      moved to q-7nfty7 by the person's word, the parent closed as its slices
       were, to be checked by the first real takeover.
 - [x] `/verify` passes against this ticket and its slices — 2026-10-25, a fresh judge's second pass, the eight checks and 934 tests green.
 
 ## Out of scope
 
-- How a role is declared — [q-0037.0005](../../questions/q-0037.0005-what-is-an-agent-role-and-which-mechanism-keeps-roles.md).
+- How a role is declared — [q-p4sdnv](../../questions/q-p4sdnv.md).
 - A session's plan read as the questions one feature links — decision 1 of the question, later.
 - A messaging protocol of the method's own: messaging is the host's seam,
   [the hosts edge](../../edge/hosts.md).

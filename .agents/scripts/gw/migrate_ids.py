@@ -14,7 +14,7 @@ the table already holds, and on a store with no dotted id it changes nothing.
 their extension, so no id in it is rewritten; a tree names its own.
 """
 
-# TODO q-0037.0017.0005.0001.0019: this script leaves once every tree of the person's has run it.
+# TODO q-2jheaw: this script leaves once every tree of the person's has run it.
 
 from __future__ import annotations
 

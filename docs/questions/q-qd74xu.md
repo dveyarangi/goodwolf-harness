@@ -1,0 +1,32 @@
+# q-qd74xu How does Claude Code refuse an edit to a declared file while its skill is not loaded?
+
+- **record of** what it intends to become
+- **part of** q-5jcptm
+- **state** open
+- **owner** [01-0010.0125.0010](../tickets/01-0010.0125.0010-an-edit-waits-for-the-skill-that-keeps-its-file.md)
+- **rung** development: load-bearing, self-improvement: the method
+- **opened** 2026-10-26T08:44:45Z
+- **struck** 0, last 2026-10-26T08:43Z
+
+## Where it stands
+
+The guard's tracer: in Claude Code an edit to the root README or to an instruction file waits for
+`/product`, or `/skill-up`, to be loaded. Its form is the parent's accepted `Where it stands`. Open,
+for its plan: what the guard does when it cannot read a declaration or its record of loads; where a
+load is written, the session rows being tracked in git; whether a subagent's edit passes on its
+parent's load; and how the guard reaches the sessions running and the recipients when it lands.
+
+## Decisions
+
+1. The guard is mechanism-shape's, in `mechanisms.py`, launched by the hooks' wrapper `hook.sh`,
+   which is mechanism-shape's already; it reads the host's row from `HOSTS` in `questions.py`,
+   which `mechanisms.py` imports already *(the user, 2026-10-26)*. Not: the store's hook in
+   `questions.py`, which the architecture gives the window and registration alone. →
+   [mechanism-shape's moments](../../.agents/mechanisms/mechanism-shape/mechanism-shape.md#moments),
+   a `not yet` row bound here
+2. A guard that cannot check — a declaration unreadable, no interpreter, the script failing —
+   lets the edit through and puts one line naming the problem in the agent's context; a session
+   with no load recorded is no failure but nothing loaded, and its edit is refused *(the user,
+   2026-10-26)*. Not: refusing on a failure — a guard failing closed guards its own repair, every
+   declared file refused until the person turns the hook off by hand, and it breaks the promise
+   that no hook fails the host. → [hosts edge, Contract](../edge/hosts.md#contract)

@@ -5,7 +5,7 @@
 - **Type:** HITL
 - **Minted:** 2026-10-22
 - **Plan:** [A session is kept by a mechanism of its own RFC](../../rfc/done/01-0050-a-session-is-kept-by-a-mechanism-of-its-own.md) — one script `sessions.py` the question script imports, the hook entry and `--wake` staying on `questions.py`, `--end` and `--check` moving; the shape admitting two instruction bullets; four stages, each one green commit
-- **Answers:** [q-0037.0017](../../questions/q-0037.0017-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md)
+- **Answers:** [q-zxnc6y](../../questions/q-zxnc6y.md)
 - **Outcome:** A session — one chat from its `/recall` to its `/conclude` — is registered, seen,
   ended when silent, reopened under the host's steadiest id, concluded and gone by a mechanism
   declared to the shape, whose rules on how sessions interact reach every file that reads them
@@ -13,9 +13,9 @@
 
 ## Parent
 
-[q-0037.0017](../../questions/q-0037.0017-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md),
+[q-zxnc6y](../../questions/q-zxnc6y.md),
 its *Where it stands* accepted 2026-10-22 and its six decisions; the split assessed in
-[its impact of the split](../../questions/q-0037.0017-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md#impact-of-the-split-2026-10-22)
+[its impact of the split](../../questions/q-zxnc6y.md#impact-of-the-split-2026-10-22)
 — proceed, as one ticket. Minted on the user's word, 2026-10-22.
 
 ## What to build
@@ -54,7 +54,7 @@ decide. The glossary's *Session* stands as landed at the align.
 
 - [x] (2026-10-22) `mechanisms.py --check` lists `session` installed with its two skills, its script and its
   tests as parts, and reports no leak; the folder's painted-door row names `/conclude`'s
-  declaration of the row, bound as before to q-0037.0010.0004.
+  declaration of the row, bound as before to q-la5n2i.
 - [x] (2026-10-22) A session's row is registered, marked seen, ended after three hours' silence, turned running
   again on a reopen under the same id with its position, and ended at `/conclude`, as before,
   with the question script holding none of that code; the questions tests still pass, the moved
@@ -71,7 +71,7 @@ decide. The glossary's *Session* stands as landed at the align.
 
 ## Out of scope
 
-- A lock or a role written in the row — q-0037.0017's seams; the role is q-0037.0005's.
-- A session's position across a resume under a new id where the host keeps none — q-0037.0017.0004.
-- Sessions beyond one working directory — q-0037.0017.0005.
-- What *method* and *practice* are — q-0037.0006.0025.
+- A lock or a role written in the row — q-zxnc6y's seams; the role is q-p4sdnv's.
+- A session's position across a resume under a new id where the host keeps none — q-ou6kps.
+- Sessions beyond one working directory — q-2gw24v.
+- What *method* and *practice* are — q-5jy2c3.

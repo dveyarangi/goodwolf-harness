@@ -1,6 +1,6 @@
 # The meeting — the study and the report
 
-<straw-dog question="q-0037.0006.0020.0001">
+<straw-dog question="q-n3pc22">
 Tier 2: read when an install meets a tree that already has a method — an entry file or an
 `.agents/` of its own. This shelf owns the study and the report; when the install stops for the
 person, and the two modes of taking the tree's method in, are the skill's. The shelf is read twice:
@@ -28,7 +28,7 @@ what the harness does not replace, said in the tree's own names.
 **The readings.** Each is one way a project's knowledge fails to reach the person who needs it, or
 to hold once it has, counted and quoted in the tree's own words:
 
-<straw-dog question="q-0037.0006.0020.0013">
+<straw-dog question="q-3oz6vg">
 1. *What it costs to reach what is written* — files, searches, steps between a question and its
    answer; chains of records that supersede one another; documents readable only by search.
 2. *Kinds of record mixed in one file* — instructions, decisions and history in one place;
@@ -85,7 +85,7 @@ conclusion from them; the table is the ledger's.
 The body of the person's question, *what would the harness change here?*, headed by that question
 in the project's language, and written in the project's names. No term or phrase of the harness's
 own — mechanism, store, straw dog, tier, rung, install block, a session *standing on* a question —
-appears in the harness's sense; a word the project uses itself is the project's, used as it uses it; the harness is named by its name, <straw-dog question="q-0037.0006.0020.0013">GoodWolf</straw-dog>, never by
+appears in the harness's sense; a word the project uses itself is the project's, used as it uses it; the harness is named by its name, <straw-dog question="q-3oz6vg">GoodWolf</straw-dog>, never by
 the bare word; the study's
 parts are described by what they do; what it brings is said as what it does for the project: a home for
 each kind of record; a rule installed where it is read; open questions kept with their state and the
@@ -114,7 +114,7 @@ Sections, in this order, each headed:
    depends on it, size; then the order, each item cut at the project's grain of work as the
    inventory read it. Taking GoodWolf in — beside the project's method or in its place — is the
    first item, and the rest are carried by it; an item GoodWolf has nothing for says so.
-5. **What this report does not say.** No comparison of the tree's method with <straw-dog question="q-0037.0006.0020.0013">GoodWolf</straw-dog>
+5. **What this report does not say.** No comparison of the tree's method with <straw-dog question="q-3oz6vg">GoodWolf</straw-dog>
    before an install, a migration and a real check; no inventory of disagreements; the ledger measures one
    thing, the cost of recovering the project's state on a sample, and is far from the whole harness;
    the second reading, after a migration, is that migration's verification, and nothing is read

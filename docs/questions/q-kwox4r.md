@@ -1,0 +1,8 @@
+# q-kwox4r What does a person meeting the harness for the first time meet at its install, and does it leave them knowing what they have and what to do next?
+
+- **record of** what happened
+- **part of** q-t5vmk3
+- **state** closed:decided, suspect
+- **answer** [/harness, After the first install](../../.agents/skills/harness/SKILL.md) — the user, 2026-10-11
+- **opened** 2026-10-11T00:37:45Z
+- **struck** 0, last 2026-10-11T00:29Z

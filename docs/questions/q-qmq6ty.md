@@ -1,0 +1,15 @@
+# q-qmq6ty How does a project change how it builds in one edit?
+
+- **record of** what it intends to become
+- **part of** q-g6624x
+- **state** open
+- **owner** [01-0017.0020](../tickets/01-0017.0020-practice-swaps-in-one-edit.md)
+- **rung** development: load-bearing, self-improvement: the method
+- **opened** 2026-10-03T11:36:21Z
+- **struck** 0, last 2026-10-03T10:15Z
+
+**The ticket record assumes one maintainer.** Both adoption panels of 2026-09-26
+([record](../research/adoption-panel-2026-09-26.md)) found it: global ticket positions in one
+queue table collide across branches when several developers mint at once, and a team with its
+own tracker would run two. Evidence for the ticket record being practice — the part that yields
+to a project's own tracker — not a decision about how.

@@ -1,0 +1,11 @@
+# q-dmvmf2 How are the open questions of this tree kept, so that none is lost?
+
+- **record of** what it intends to become
+- **part of** q-fjlob4
+- **state** open
+- **owner** [01-0011.0100](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)
+- **realizes** A1 "The question store"
+- **rung** development: load-bearing, self-improvement: the method
+- **lean** 2026-10-25: a question's home is read from what it asks, not the mechanism named to carry it out, and its words are kept short — Q1 amended so (v106), rule failure 59 striking 57; the case q-b55e5r, moved and reworded, since decided
+- **opened** 2026-10-02T00:09:30Z
+- **struck** 4, last 2026-10-22T19:23Z

@@ -4,7 +4,7 @@
 
 ## Decision
 
-[q-0037.0009.0005.0001](../questions/done/q-0037.0009.0005.0001-which-commit-subject-convention-does-commit-write-where-a-project-states-none-and-how.md)
+[q-57vgyu](../questions/q-57vgyu.md)
 was decided by the user: /commit writes the subject in the project's convention, the one it
 states, else the one its tooling enforces, else the one its recent history keeps; where a project
 has none of these, Conventional Commits. The front page now lists the commit convention among
@@ -29,7 +29,7 @@ How the answer turned:
 The complaint relayed as *the harness will not let us replace the convention and imposes its own*
 turned out, once read, to be xuanxue-cabinet's agent reading this repository without installing,
 the live case 1 already recorded under
-[q-0037.0006.0020.0001.0004](../questions/q-0037.0006.0020.0001.0004-how-does-the-install-read-a-tree-with-a-method-and-report-what-goodwolf-would.md).
+[q-d73veg](../questions/q-d73veg.md).
 It took this repository's history of `IMPLEMENT:`/`VERIFY:` subjects for the harness's format.
 The install would have carried none of it: L8 has been local since 2026-10-11 (`b3e8fc2`), and
 the installer strips the origin's local blocks. The front page was silent, so the history was the
@@ -44,7 +44,7 @@ outsider meets it.
 
 ## Open questions touched
 
-- [q-0037.0009.0005](../questions/q-0037.0009.0005-what-does-commit-own.md) What does /commit own?
+- [q-yiygh6](../questions/q-yiygh6.md) What does /commit own?
   It stays open; its skill still reads *Mechanism: not yet*.
 
 ## After the conclude
@@ -61,5 +61,5 @@ interaction's.
 The cabinet's other point stands and was not taken up: the reply's head tables and glyphs come
 from the entry contract itself, so they reach every recipient over its own voice and interface.
 The question is what part of the reply's form is the method's and what part is the tree's, and it
-belongs near q-0037.0009.0021 and q-0037.0010.0012. A first step for the next session that takes
+belongs near q-l36vii and q-awqz6b. A first step for the next session that takes
 it: read those two and decide whether this question is already held there.

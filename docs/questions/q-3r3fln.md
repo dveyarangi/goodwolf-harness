@@ -1,0 +1,15 @@
+# q-3r3fln What notices a new skill an existing rules file should now name?
+
+- **record of** what it intends to become
+- **part of** q-g6624x
+- **state** open
+- **owner** [01-0017](../tickets/01-0017-every-skill-and-document-has-named-producers-and-consumers.md)
+- **rung** development: a feature, self-improvement: a rule
+- **opened** 2026-10-03T11:36:22Z
+- **struck** 0, last 2026-10-03T10:17Z
+
+**Injection completeness when a new target appears.** `inject_rules.py --check` verifies every
+target a rules file *names*; nothing notices when a new skill appears that an existing rules file
+should now name *(the user, 2026-09-10)*. With explicit targets that gap is permanent drift.
+The duty belongs in `mechanism-shape`'s rules file targeting `/maintain`, beside R6, and this
+ticket does not decide its wording.

@@ -53,12 +53,12 @@ and the refusal at a hold is the one stop that needs none.
 networked form, where they run on different machines: one shared place every session checks at
 every step by a fast mechanical script, carrying its own messages and the others' positions *(the
 user, 2026-10-25)*.
-<straw-dog question="q-0037.0017.0005">The rows' folder, the commits in git and a host's own
+<straw-dog question="q-2gw24v">The rows' folder, the commits in git and a host's own
 messages between sessions stand in for that place, each unreliable, and nothing relies on them
 beyond what they are used for below.</straw-dog>
 
 **Sessions see each other** through the rows alone: the window names the other running sessions
-and their positions, and the wake's read lists them. <straw-dog question="q-0037.0017.0005">A host may let one session message another; the method uses it to tell a holder its unit was taken, and a session what another found or opened in the subtree of the question it stands on or in the unit it holds *(the user, 2026-10-25)*, and relies on it for nothing.</straw-dog> One folder in
+and their positions, and the wake's read lists them. <straw-dog question="q-2gw24v">A host may let one session message another; the method uses it to tell a holder its unit was taken, and a session what another found or opened in the subtree of the question it stands on or in the unit it holds *(the user, 2026-10-25)*, and relies on it for nothing.</straw-dog> One folder in
 the working tree is how they see each other, so sessions that do not share the directory do not.
 
 **Free unless locked.** A session is not of one method: the question it stands on names its root,
@@ -67,7 +67,7 @@ lock it to one method, and a role may grant its skill set and rights; the row ad
 seam, and nothing writes either yet *(the user, 2026-10-22)*.
 
 **Delivery.** The hook wiring and the hook's entry are the questions mechanism's, relied on here:
-<straw-dog question="q-0037.0006.0024.0003">one hook serves both, the question script's hook
+<straw-dog question="q-hpwq4t">one hook serves both, the question script's hook
 calling the session script for the session's half — its tag, registered, seen, silent, reopened,
 the rows — and drawing the window's half itself. The direction is decided and its cut deferred:
 the session sits on the store, which imports nothing of it, and the hooks' wrapper runs each
@@ -96,9 +96,9 @@ for this mechanism.
 | a recall re-ranks nothing another running session is on | `.agents/skills/recall/SKILL.md` | |
 | a commit holds one session's work alone | `.agents/skills/commit/SKILL.md` | |
 | checking the rows | `.agents/scripts/gw/sessions.py` | |
-| a chat resumed under a new id its host does not keep steady | — | <straw-dog question="q-0037.0017.0004">not yet</straw-dog> |
-| sessions reaching each other beyond one working directory | — | <straw-dog question="q-0037.0017.0005">not yet</straw-dog> |
-| a session locked to one method, or started with a role | — | <straw-dog question="q-0037.0005">not yet</straw-dog> |
+| a chat resumed under a new id its host does not keep steady | — | <straw-dog question="q-ou6kps">not yet</straw-dog> |
+| sessions reaching each other beyond one working directory | — | <straw-dog question="q-2gw24v">not yet</straw-dog> |
+| a session locked to one method, or started with a role | — | <straw-dog question="q-p4sdnv">not yet</straw-dog> |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
 
 ## Install adds, uninstall removes
@@ -147,12 +147,12 @@ for this mechanism.
 
 ## Not yet at the shape
 
-<straw-dog question="q-0037.0017.0005">
+<straw-dog question="q-2gw24v">
 **The rows' folder** is one folder in the working tree, and that is how sessions see each other;
 sessions that do not share the directory do not see each other.
 </straw-dog>
 
-<straw-dog question="q-0037.0010.0004">
+<straw-dog question="q-la5n2i">
 **The rows' paths** are painted doors held by hand in the shape check.
 </straw-dog>
 

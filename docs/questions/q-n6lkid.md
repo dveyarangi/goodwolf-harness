@@ -1,0 +1,12 @@
+# q-n6lkid Is an ADR or a ticket the home for a decision?
+
+- **record of** what happened
+- **part of** q-g6624x
+- **state** closed:decided
+- **answer** [the entry file](../../AGENTS.md#document-load-bearing-codecomment-the-rest) — the user, 2026-10-05
+- **lean** the entry file answers both ways; waits at an align
+- **opened** 2026-10-24T15:43:24Z
+- **struck** 0, last 2026-10-04T20:48Z
+
+The entry file currently answers both ways. Waits at `/align`; held in the queue's prose until
+2026-10-04, when a `/maintain` pass moved it here.

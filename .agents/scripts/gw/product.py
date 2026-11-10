@@ -38,7 +38,7 @@ DOCUMENT = "docs/product.md"
 ANSWERS = "## Answers"
 ARRIVAL = ".agents/skills/product/PRODUCT-ARRIVAL.md"
 _ARRIVAL_BLOCK = re.compile(r"^```product-document\n(?P<said>.*?)^```", re.M | re.S)
-# TODO q-0037.0018.0011: the store's shelf words these roots too, until each mechanism declares the
+# TODO q-52itgx: the store's shelf words these roots too, until each mechanism declares the
 # root it owns — the purpose root this one, the structure root the development method.
 PURPOSE_ROOT = "What is this project for?"
 STRUCTURE_ROOT = "How is this project built?"
@@ -135,7 +135,7 @@ def coverage(root: Path) -> list[str]:
     return [_coverage_line(found, realizing.get(found.identity, [])) for found in answers]
 
 
-# TODO q-0037.0006.0024.0001: tickets beside the product are the method's rendering, not this mechanism's.
+# TODO q-2zouxq: tickets beside the product are the method's rendering, not this mechanism's.
 def tickets_beside(root: Path) -> list[str]:
     """For the person choosing the work: what each live ticket realizes, then the answers no ticket
     realizes — neither present nor realized by a ticket — under every pain and goal their row

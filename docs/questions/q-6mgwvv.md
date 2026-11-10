@@ -1,0 +1,9 @@
+# q-6mgwvv Are the meta-principles a mechanism of their own, and what record do they keep?
+
+- **record of** what it intends to become
+- **part of** q-g6624x
+- **state** open
+- **owner** [01-0017.0080](../tickets/01-0017.0080-the-meta-principles-are-a-mechanism.md)
+- **rung** development: load-bearing, self-improvement: the method
+- **opened** 2026-10-25T23:16:59Z
+- **struck** 0, last 2026-10-25T22:48Z

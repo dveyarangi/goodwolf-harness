@@ -1,0 +1,9 @@
+# q-gvq7fs What does a changed answer do to what stood on it, and who judges which?
+
+- **record of** what it intends to become
+- **part of** q-2t2gi2
+- **state** open
+- **rung** development: load-bearing, self-improvement: the method
+- **lean** the discover pass: we were wrong against the world changed, rebut against undercut; four families put how far a change reaches on the tolerance of what stood on it, not on the change
+- **opened** 2026-10-08T23:08:38Z
+- **struck** 0, last 2026-10-08T23:08Z

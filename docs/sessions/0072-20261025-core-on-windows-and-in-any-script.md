@@ -11,7 +11,7 @@ word.
 ## Decisions
 
 - **One ticket for three bugs.** [01-0010.0230](../tickets/done/01-0010.0230-core-works-on-windows-and-in-any-script.md)
-  answers [q-0037.0006.0020.0014](../questions/done/q-0037.0006.0020.0014-what-stops-core-working-in-a-recipient-on-windows-or-in-a-language-other-than-english.md).
+  answers [q-kxjoh7](../questions/q-kxjoh7.md).
   Each bug touched a few lines and no record's format, so splitting them would have tripled the
   ceremony for nothing.
 - **A name is fitted to a clone 128 characters deep, not to this tree's root.** The old fit
@@ -35,7 +35,7 @@ word.
   123-character folder checked out whole.
 - **The guard was dropped, the user: "забей".** A check over every tracked path, a store call
   `fit` and a suite test were proposed;
-  [q-0037.0006.0020.0015](../questions/done/q-0037.0006.0020.0015-what-keeps-every-path-a-tree-holds-within-what-a-clone-on-windows-can-check-out.md)
+  [q-zqy5qp](../questions/q-zqy5qp.md)
   was pruned. Nothing fails today if a long name is written by hand.
 
 ## What went wrong
@@ -45,7 +45,7 @@ word.
   root. An independent verifier caught both by reproducing the real case. The lesson: a promise
   about a state the world produces is tested on that state, as `/verify` already says.
 - **A race with another session.** While the rename was being staged, another session closed
-  q-0037.0010.0009.0007 into `done/`. The rename's commit dropped the entry; the restore then put
+  q-scwwz3 into `done/`. The rename's commit dropped the entry; the restore then put
   it in `HEAD` twice. Two small commits settled it. Staging by building each file's blob from
   `HEAD` kept the other sessions' uncommitted edits out of the commits.
 - **Six needless messages.** Six sessions were told their entries' files moved, read from the
@@ -57,7 +57,7 @@ word.
 
 ## Open, and what continues
 
-- [q-0037.0006.0020](../questions/q-0037.0006.0020-how-does-core-reach-a-recipient-tree-and-leave-it-working-at-a-first-install-and-at-each.md)
+- [q-t5vmk3](../questions/q-t5vmk3.md)
   stays open on the loader-link misjudgement and the release flow.
 - The follow-ups the verifier left are in
   [the plan's out-of-scope list](../rfc/done/01-0010.0230-core-works-on-windows-and-in-any-script.md):

@@ -1,0 +1,14 @@
+# q-4fj72c How does a starting agent pick an area that does not overlap another session's?
+
+- **record of** what it intends to become
+- **part of** q-p4sdnv
+- **state** open
+- **realizes** A43 "A starting session takes a free area"
+- **rung** development: load-bearing, self-improvement: the method
+- **lean** an agent's area is part of the scope its role grants at its start
+- **opened** 2026-10-02T00:09:30Z
+
+How sessions' positions reach each other beyond one working directory, and how a starting
+agent picks an area that does not overlap — open questions of the store; the sessions file's
+instructions are a straw dog on [01-0010](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md)
+(decision 39, amended).

@@ -27,12 +27,12 @@ amended four skills. Every turn under `debug=on`.
   the person accepted, and nothing else was built.
 - **The verification-set rule names the file that holds the checks, never the checks** — at first
   a paragraph; *remove the enumerations, the model finds them itself; one short sentence.*
-- **The way of working with git is the environment's** (q-0037.0006.0022.0003): the agent reads it
+- **The way of working with git is the environment's** (q-2djjb2): the agent reads it
   from an existing project, proposes the simplest for an empty one and says when to revisit, takes
   what the person asks. Reached after the agent offered a switch of its own invention, then a
   questionnaire: *the project does not name its scenario; it wants to learn which exist … asking
   is interrogation; ask what the project is and propose.*
-- **Autonomy is a dial on a ladder** (q-0037.0013.0005, nine decisions). The user rejected a
+- **Autonomy is a dial on a ladder** (q-xmk75m, nine decisions). The user rejected a
   general principle (*too general, read differently by each*), then a separate reporting axis
   (*reporting is not an axis*), and set the shape: at the dial the agent asks, below it acts, above
   it proposes; it reports at its rung, describes the one below, says nothing of the lowest.
@@ -45,7 +45,7 @@ amended four skills. Every turn under `debug=on`.
   settings held by a mechanical check. A change's path follows the same ladder. Last, at the
   conclude: *nothing may take on development specifics except by being bound to the future
   mechanism of the development method* — the dial is core, a ladder its method's mechanism's.
-- **A spec is no separate document** (q-0037.0009.0017). A draft spec of 230 lines was written for
+- **A spec is no separate document** (q-hzwok3). A draft spec of 230 lines was written for
   the dial; the user asked whether the questions had not made it redundant, then refused a
   one-sided check (*so you see no advantages?*) and asked for a discovery. Its finding that
   settled it: the choice is which record owns rationale, status and current truth, and the
@@ -69,8 +69,8 @@ amended four skills. Every turn under `debug=on`.
 ## Done
 
 Four discoveries' material, each in the body of its question: git gates and situations
-(q-0037.0013.0005, q-0037.0006.0022.0003), action boundaries (q-0037.0013.0005), working documents
-(q-0037.0009.0017). Five tickets minted on approval —
+(q-xmk75m, q-2djjb2), action boundaries (q-xmk75m), working documents
+(q-hzwok3). Five tickets minted on approval —
 [01-0020.0010 the-agent-asks-at-its-dial](../tickets/done/01-0020.0010-the-agent-asks-at-its-dial.md),
 [01-0020.0020 a-reply-reports-by-its-dial](../tickets/01-0020.0020-a-reply-reports-by-its-dial.md),
 [01-0010.0210 a-recipients-switches-become-its-dial](../tickets/01-0010.0210-a-recipients-switches-become-its-dial.md),
@@ -88,14 +88,14 @@ Four discoveries' material, each in the body of its question: git gates and situ
 
 ## Open questions touched
 
-- q-0037.0013.0005 — decided in nine points; its children .0004 (the dial an install proposes),
-  .0005 (the dial out of the agent's reach), .0007 (the report by rung), and q-0037.0013.0002
+- q-xmk75m — decided in nine points; its children .0004 (the dial an install proposes),
+  .0005 (the dial out of the agent's reach), .0007 (the report by rung), and q-6p6j63
   wait on [01-0020.0010](../tickets/done/01-0020.0010-the-agent-asks-at-its-dial.md)'s align.
-- q-0037.0009.0017 — decided; the work is [01-0016.0010](../tickets/done/01-0016.0010-a-question-is-its-works-working-document.md).
-- q-0037.0009.0021 — debugging is a mechanism; what it owns is open.
-- q-0037.0006.0022.0001, .0002, .0003 — the verification set's pointer decided, its place open;
+- q-hzwok3 — decided; the work is [01-0016.0010](../tickets/done/01-0016.0010-a-question-is-its-works-working-document.md).
+- q-l36vii — debugging is a mechanism; what it owns is open.
+- q-z6agzf, .0002, .0003 — the verification set's pointer decided, its place open;
   setup leaving the set behind; the way of working with git.
-- q-0037.0010.0002.0005, q-0037.0012.0001 — now hold the development and self-improvement ladders.
+- q-ggpx2r, q-clk3dr — now hold the development and self-improvement ladders.
 
 ## Next
 

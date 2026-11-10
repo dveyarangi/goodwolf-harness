@@ -1,0 +1,28 @@
+# q-ocix2p How does a copy of the question store give an id no other copy gives, with no one to ask?
+
+- **record of** what happened
+- **part of** q-7ebz2f
+- **state** closed:decided
+- **answer** [q-7ebz2f, decisions 48 to 51](q-7ebz2f.md#decisions) — the user, 2026-11-09
+- **rung** development: load-bearing, self-improvement: the method
+- **opened** 2026-11-09T07:51:23Z
+- **struck** 1, last 2026-11-05T13:57Z
+
+## Decisions
+
+Moved on 2026-11-09 into
+[q-7ebz2f's list](q-7ebz2f.md#decisions), by its decision 31:
+decisions 1 to 4 are its 48 to 51.
+
+## The problem, 2026-11-05
+
+A write through the server takes decision 23's short count, `q-412`. A write away from it, kept by
+decision 5 of
+[q-7slcca](q-7slcca.md),
+has no one to ask, and an id is stable, so whatever it takes it keeps.
+
+| Way | What it costs |
+|---|---|
+| The count from the server; away from it a short random id, `q-x7f3a` | two forms of id; a clash possible only between writes away from the server, found at the merge |
+| A short random id for every question | one rule and no one asked; no id reads as a count, and decision 23's form goes |
+| A temporary id, replaced at the merge | every link to it rewritten: what stable ids removed |

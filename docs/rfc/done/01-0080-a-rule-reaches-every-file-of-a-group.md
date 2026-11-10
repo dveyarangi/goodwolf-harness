@@ -8,7 +8,7 @@ Implements [01-0080](../../tickets/done/01-0080-a-rule-reaches-every-file-of-a-g
 row whose target is a path pattern names a group, and the installer, its check and the harness's
 rehearsal treat every member as they treat an explicit target.
 
-**Planning state:** authored 2026-10-25 against q-0037.0002's accepted `Where it stands`, its two
+**Planning state:** authored 2026-10-25 against q-2bhjm6's accepted `Where it stands`, its two
 decisions, `inject_rules.py` whole, the harness's injection rehearsal, the rules-file format, the
 mechanism skill and the architecture's *Installed blocks*. Validated once. Two choices taken here
 are under *Taken at `/plan`*.
@@ -24,7 +24,7 @@ are under *Taken at `/plan`*.
   explicit target: drift is refused unless overwritten, an anchor held twice is refused.
 - **A mechanism has one place in a target** (the format's anchor table). A file reached twice — by an
   explicit row and a pattern, or by two patterns — is refused.
-- **Membership from both ends** (q-0037.0002, decision 1): the pattern at the mechanism's end, the
+- **Membership from both ends** (q-2bhjm6, decision 1): the pattern at the mechanism's end, the
   anchor line at the member's. A matching file without the anchor is no member, passed over.
 - **The tree's own listing.** Members are read from the same listing every script uses,
   `docs_corpus.corpus`, tracked and untracked-but-unignored files alike, so a skill written this
@@ -43,13 +43,13 @@ are under *Taken at `/plan`*.
     iterate the resolved files instead of the table's keys;
   - a rendered block selects its rules by the row a file came from, since a rule's `target` bullet
     names the pattern, not the file;
-  - the `TODO q-0037.0002` at the missing-anchor refusal comes out: a pattern row never reaches it.
+  - the `TODO q-2bhjm6` at the missing-anchor refusal comes out: a pattern row never reaches it.
 - `.agents/scripts/gw/harness.py`, `_injection_inputs`: a pattern row is expanded over the files as
   the copy leaves them — shipped and held — so the rehearsal reads every member the real install
   will write.
 - `.agents/skills/mechanism/MECHANISM-FORMAT.md`, the anchor table's paragraph;
   `.agents/skills/mechanism/SKILL.md`, *Refuse rather than guess* and *installed in every target it
-  names*; `docs/architecture.md`, *Installed blocks* — the five straw dogs bound to q-0037.0002,
+  names*; `docs/architecture.md`, *Installed blocks* — the five straw dogs bound to q-2bhjm6,
   rewritten to what lands.
 - `.agents/scripts/gw/test/test_inject_rules.py` and `test_harness.py`: the group's cases.
 
@@ -125,7 +125,7 @@ Each stage ends green on the verification set; the tests run, scripts changing.
    pattern row reaches a member shipped with core and a member the recipient holds; then
    `_injection_inputs` expanded.
 3. **The texts** — the five straw dogs rewritten to what landed, each wrapper removed by
-   `straw_dogs.py --remove`; the `TODO q-0037.0002` gone; `mechanisms.py --check` and
+   `straw_dogs.py --remove`; the `TODO q-2bhjm6` gone; `mechanisms.py --check` and
    `inject_rules.py --check` green.
 
 ## Proof of the criteria

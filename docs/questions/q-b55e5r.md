@@ -1,0 +1,259 @@
+# q-b55e5r How does a project choose which of the method's text its tree carries?
+
+- **record of** what happened
+- **part of** q-veooj7
+- **state** closed:decided
+- **owner** [01-0010.0220](../tickets/done/01-0010.0220-a-tree-carries-the-methods-text-its-settings-call-for.md)
+- **answer** [01-0010.0220](../tickets/done/01-0010.0220-a-tree-carries-the-methods-text-its-settings-call-for.md) — the user, 2026-10-23: a mechanism declares its settings, a rule names its condition, the project sets values in its local file, the installer writes by them; landed and verified, criteria 4 and 6 read by the person
+- **rung** self-improvement: the method
+- **opened** 2026-10-22T19:11:49Z
+- **struck** 1, last 2026-10-23T15:29Z
+
+## Where it stands — 2026-10-22
+
+**The user's proposal.** The whole decoration overlay — not debugging alone — switchable; and the
+installed text removed from the tree when the setting changes, so a session pays no tokens for what
+is off. The means: external variables that install and uninstall the skills and blocks marked with
+them; useful beyond debugging, for another method's blocks too.
+
+**What already stands.** Debugging's half is decided: its text reaches a tree as a mechanism's
+installed blocks, put in, taken out or swapped, never one text read behind `debug=on`
+(q-l36vii, decision 2, the user 2026-10-18; ticket 01-0016.0020, planned, its align
+pending). The injector installs and retracts a mechanism's blocks whole; a mechanism's parts
+table says what an uninstall removes; the local file already holds the project's settings (R7).
+Interaction's share of the layout — the head table, the 🔁 row — is open at q-l36vii.
+
+**What is new.** The binding: a setting's value selecting which mechanisms stand installed, and
+the moment the tree is brought to match. Three shapes:
+
+1. **A setting names its mechanisms, the installer syncs** — recommended. The local file's setting
+   is the variable; each mechanism declares the setting and value it is installed under; one
+   idempotent sync run installs what the settings call for and retracts the rest, run by `/harness`
+   update and by the host's session-start hook when the local file changed. No new mechanism:
+   the injector gains one condition and one sync, and the decoration becomes a mechanism like
+   debugging, so it switches the same way. Fewest parts.
+2. **A variables mechanism of its own**, holding the settings, the marks on skills and blocks,
+   and the sync. Names the thing the user names; but the local file and the injector already are
+   it, so it would be a second home for both.
+3. **Swap only**, no retract: every switchable block has a plain counterpart and the installer
+   swaps them. Already asked at q-4dycbp; answers the token cost less, since
+   a plain counterpart still costs its lines.
+
+**Open under it, whichever shape:** who may change a setting — the person alone, as the dial is —
+and what refuses an agent's change (q-4tscyi asks it for debugging); whether
+the sync may run unasked at session start in a recipient; what *another method* means while the
+harness has one method.
+
+## Second pass — 2026-10-22
+
+**The user's refinement.** A setting is a mechanism's own: the method mechanism is a bundle of
+configurable components — whether a judge runs (none, multipass, a judge agent), when it runs,
+*which* method, *which* verification set. The unit switched is finer than a mechanism. A fourth
+shape: **each installable block states the condition of its own installation**. And an edge shows
+through: how a mechanism's developer learns how to wire a mechanism in.
+
+**Assessment.** Shape 4 is shape 1 at the grain of the rule: a rule in a rules file already names
+its targets and its authority; it would name its condition too — `- **when** <setting>=<value>` —
+and the installer writes it into its targets only while the local file says so. A mechanism-level
+condition is every rule's condition, so shape 1 is a case of shape 4 and needs no form of its
+own. A setting is declared by one mechanism — name, values, default — and set in the local
+file, where the dial (L2) and debug (L4) already stand as settings only agents read; the change
+is that the installer reads them too. The settings the user names belong to mechanisms still
+undeclared: the judge and the verification set to the practice mechanism and the amendment
+bench (q-ggpx2r, q-7f4anv); the condition form does not wait on them.
+
+**What it costs.** A tree now has as many installed states as its settings allow; the check that
+a tree matches its settings is `/maintain`'s, as drift between the local file and the installed
+blocks, and the sync must be idempotent and runnable unasked. Shape 2 falls away: the local file
+and the rules file are the homes. Shape 3 stays a case: a rule whose plain counterpart is another
+rule with the opposite condition.
+
+**The edge.** A mechanism's developer reads the mechanism shape's format shelf
+(`.agents/skills/mechanism/MECHANISM-FORMAT.md`), where the condition's form would land; no edge
+record names mechanism authors yet — `docs/edge/` holds hosts alone. Candidate for `/edge`, not
+settled here.
+
+Recommended: shape 4, the condition on the rule, settings declared by their mechanisms and set in
+the local file. Above the dial; the user decides.
+
+## Decided — 2026-10-22
+
+The fourth shape *(the user, 2026-10-22)*: each installable rule states the condition of its own
+installation, `- **when** <setting>=<value>`; a setting is declared by one mechanism — its name,
+its values, its default — and set in the project's local file; the installer writes a rule into
+its targets only while the local file satisfies its condition, and a sync brings the tree to match
+a changed setting. Shape 1 is this with one condition per mechanism; shape 2 falls away; shape 3
+is a rule with the opposite condition. Open under it: who may change a setting and what refuses
+an agent's change; whether the sync runs unasked at a recipient's session start; the
+mechanism-author edge. Ticketing proposed under 01-0010, beside 01-0016.0020, whose switching
+this shape supplies.
+
+## Third pass — 2026-10-22, a setting changed from a session
+
+**The user's ask.** What happens when the agent is asked to change a setting; and the settings —
+their names, values and the way of setting them — are a product seam, to be drawn out and
+described explicitly.
+
+**The flow, as the decided shape implies it.** The person says *turn debugging off*. The agent
+finds the setting by its declaration — name, values, default, who may set it — which must be
+reachable from tier 1, as `/harness` is. If the setting is the person's alone, as the dial is,
+the agent writes nothing and tells the person the line to change; otherwise it changes it by one
+call, `harness.py set debug=off`, which refuses an unknown name or value, writes the local file,
+runs the sync — installs what the new value calls for, retracts the rest — and reports what the
+tree now carries. The entry file has then moved under the running session; the session hears it
+as 01-0018.0010 says, and the old text in its context stands until the next read. The reply says
+the setting changed and what the tree now shows, in the person's words, and nothing of blocks.
+
+**The seam.** A setting's name is a word of the method's vocabulary; its value one of its declared
+values; the way of setting it one call, or the person's hand where the setting is theirs. Three
+places could describe the seam: each mechanism's doc, where the setting is declared — its one
+home; an edge record `docs/edge/settings.md`, where whoever configures a tree meets the method —
+promised: every setting's name, values, default, owner, who may set it, the call, what changes
+and when it takes effect; and the product document, where the pain it relieves is named. Recommended:
+the declaration stays the home, the edge record is derived from the declarations by the check, as
+an index is (R4), and the product document names the answer. A hand-written edge record would be
+a second home for every setting.
+
+Open, now sharper: which settings are the person's alone — the dial certainly; whether the host
+refuses an agent's `set` on them as it refuses a dial edit (01-0010.0125's shape).
+
+## Proposed forms — 2026-10-22, shown before the ticket is minted
+
+Three places, one fact each.
+
+**The declaration**, in the mechanism's doc, a section of its own beside the parts tables, read by
+the mechanism check and the installer:
+
+```markdown
+## Settings
+
+| setting | values | default | set by | what it decides — as the person is shown it |
+|---|---|---|---|---|
+| `debug` | `on` · `off` | `off` | the person | whether the tree shows its own working |
+```
+
+**The condition**, on a rule in the mechanism's rules file, beside `target` and `authority`; one
+line per condition, all must hold; a rule without one is installed always:
+
+```markdown
+- **when** debug=on
+```
+
+**The value**, in the project's local file, a table beside the anchor table, the one home of every
+value the installer reads; a setting absent from it stands at its default:
+
+```markdown
+| setting | value |
+|---|---|
+| `development` | `a feature` |
+| `self-improvement` | `a rule` |
+| `debug` | `on` |
+```
+
+The dial is a setting like the others, its two ladders two rows; the entry file's dial line is then
+installed from this table rather than hand-written as L2, and L4 goes, since a physical debug
+block needs no `debug=on` to read. The installer refuses a `when` naming a setting no installed
+mechanism declares, or a value its declaration lacks, and a local value likewise.
+
+**Amended the same day** *(the user, 2026-10-22)*: a setting is declared once, in the rules file of
+the mechanism it belongs to — `debug` by the debugging mechanism, once 01-0016.0020 builds it — not
+in the doc, and not in the file of whichever mechanism happens to use it. Any installed
+mechanism's rule may name a declared setting in its `when`; S4, the session's rule for the 🪢
+table, uses `debug` and does not own it, which its mechanism's *Relies on* table records. A `when`
+naming a setting no installed mechanism declares leaves its rule uninstalled, and the installer
+says so; a value the declaration lacks is refused. Values stay the project's, in its local file.
+
+**The consolidated table** *(the user asked, 2026-10-22)*. Not in every session: a session needs
+the whole list of settings at two occasions only — when the person changes one, and when they ask
+how the harness is set up in their tree — and tier 1 is paid by every session. Both occasions are
+`/harness`'s, the skill of the tree's user; its description names them, so a session reaches the
+table when it needs it and never otherwise. The table is derived, never kept by hand: the
+installer reads every installed mechanism's declaration and the local file's values and prints
+one table — setting, values, default, the tree's value, owner, what it decides — and the sync
+writes the same table as the edge record `docs/edge/settings.md`, so a person browsing the tree
+reads it without running anything. Authoring a setting — declaring it, writing a `when` — is
+`/mechanism`'s, the author's seam.
+
+## Impact of the split — 2026-10-22
+
+One ticket, [01-0010.0220](../tickets/done/01-0010.0220-a-tree-carries-the-methods-text-its-settings-call-for.md),
+under 01-0010.
+
+**Impact.** The injector: it parses a declaration table and a `when` line, resolves each against
+the local file's settings table or the default, installs a rule only while its condition holds,
+retracts it otherwise, and syncs a whole tree in one idempotent run. The mechanism check: a
+declaration's form, a `when` naming a declared setting and a declared value. The rules-file
+format shelf, where both forms land. The local file: a settings table, L2's dial line installed
+from it, L4 gone. `/harness`: two occasions in its description, and the table it shows. The edge
+record `docs/edge/settings.md`, written by the sync. `/maintain`: a tree whose installed blocks
+disagree with its settings is drift. Tests for every part.
+
+**Hidden edges.** A recipient updated before its local file has a settings table stands at every
+default — debugging off, the dials at their lowest rung: safe, and loud, so the update says it. A
+recipient's `debug=on` line in L4 is translated into the table or asked, the shape of 01-0010.0210.
+The host's refusal of a dial edit (01-0010.0125) must cover the dial's rows in the table. The
+sync moves the entry file under running sessions (01-0018.0010). The fingerprint of every
+mechanism moves. 01-0016.0020 becomes the first consumer of `when` and waits on this.
+
+**Leave alone.** The debug blocks' content (01-0016.0020); which method a project builds by
+(01-0017.0020); who may set a setting other than the dial, and whether the sync may run unasked
+at a recipient's session start — open under this question, aligned before the RFC.
+
+**Recommendation.** Proceed, one slice: declaration, condition, value, sync and table are one
+contract, and a split would leave a tree that declares what it cannot switch. HITL, its align on
+the two open questions first.
+
+## Fourth pass — 2026-10-22, two questions of the user's
+
+**What the sync is.** Nothing new: the installer's own run, read against the settings. Today it
+installs or retracts one mechanism's blocks when told, `inject_rules.py <slug> --install |
+--retract`. With conditions it has one more thing to do on every run: for each installed
+mechanism, each rule with a `when` — in while the condition holds, out while it does not — and
+nothing else touched. Run twice, the second run changes nothing. So *sync* is the installer's
+update run; the word names no part of its own, and the ticket's text should say *the installer's
+run* where it says *the sync*.
+
+**Who may change a setting depends on the setting** *(the user, 2026-10-22)*. Then the declaration
+says so, one column: `set by` — a rung of a ladder, read by the dial as every decision is, or
+*the person*, which the host refuses to an agent as it refuses a dial edit. `debug` would sit at a
+low rung, changed when asked; the dials are the person's; a judge or a verification set at *the
+method*. This closes the ticket's first open question into the declaration's form; the second,
+whether the installer's run may go unasked at a recipient's session start, stays for the align.
+
+```markdown
+| setting | values | default | set by |
+|---|---|---|---|
+| `debug` | `on` · `off` | `off` | a wording |
+```
+
+**Taken** *(the user, 2026-10-23)*: the `set by` column; the ticket amended with it, and *sync* read as the installer's run.
+
+## Decided — 2026-10-23, the hand edit
+
+The agent is the interface to a tree's settings, never the file *(the user, 2026-10-23: a product
+principle — a hand edit is allowed, since it cannot be forbidden, rare, and the aim is that no one
+ever wants to open a file)*. A hand edit is drift, repaired by running the installer the moment the
+mismatch is noticed: the wake reports it, the session runs it before its first reply and says so.
+q-vzf2tm closed against the ticket; the principle landed as G3 in `docs/product.md`.
+
+## Decided at the plan — 2026-10-23
+
+The first declared setting is `debug`: the debugging mechanism comes to the shape with
+01-0010.0220, its rules file declaring `debug` and owning one rule, the entry file's announce line
+under `when debug=on`; the rules reading *Under debug=on* elsewhere gain the condition; the dial
+from the table waits for the ladder mechanisms as a straw dog *(the user, 2026-10-23)*.
+
+**Landed 2026-10-23** as 01-0010.0220: the condition, the declaration, the values table, the run,
+the call and the table in the installer; the debugging mechanism at the shape, declaring `debug`
+and owning the announce line; the session's 🪢 rule conditioned on it; the wake's line through the
+hook's wrapper; the contract in the architecture, *A tree carries the method's text its settings
+call for*; the term in the method's glossary. Open on the ticket: the person's reading of a live
+session, and the dial from the table once a ladder's mechanism declares it.
+
+The wake's line is the hook script's: after the wake it runs the installer's check and appends
+the check's one line in the host's form; the script becomes a shared part of the always-on
+mechanism *(the user, 2026-10-23)*.
+
+The edge record `docs/edge/settings.md` is committed, written by hand, and holds a pointer to the
+renderer in the table's place; the table is rendered on request and never committed, as R4 says
+*(the user, 2026-10-23)* — amending the earlier line that the installer's run writes it.

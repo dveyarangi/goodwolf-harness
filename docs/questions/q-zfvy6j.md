@@ -1,0 +1,9 @@
+# q-zfvy6j How does a mechanism declare the kind of each output, and how does maintenance repair by kind?
+
+- **record of** what happened
+- **part of** q-7ld3wt
+- **state** closed:decided
+- **owner** [01-0011.0110.0030](../tickets/done/01-0011.0110.0030-an-output-declares-its-kind.md)
+- **answer** [the mechanism format](../../.agents/skills/mechanism/MECHANISM-FORMAT.md) — the user, 2026-10-07 and 2026-10-08; landed by 01-0011.0110.0030: a doc carries its kind, each output names its kind, maintenance repairs by kind
+- **opened** 2026-10-08T05:36:34Z
+- **struck** 0, last 2026-10-07T22:46Z

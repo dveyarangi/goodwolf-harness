@@ -1,0 +1,44 @@
+# q-l36vii Which mechanism owns how a reply is laid out for its reader, debugging or interaction, and what does it own?
+
+- **record of** what happened
+- **part of** q-gbt7cy
+- **state** closed:decided
+- **answer** [debugging.md](../../.agents/mechanisms/debugging/debugging.md) — debugging owns what shows the machinery, its rules swapped by the `debug` setting; the rest of the reply's layout is the voice's, its straw dog rebound to q-53jkvy; built by 01-0016.0020 — the user, 2026-10-25
+- **lean** 2026-10-25: the debugging mechanism exists at the shape, declaring debug and owning the announce line under when debug=on; the rest of what debug shows moves under 01-0016.0020
+- **opened** 2026-10-24T22:59:12Z
+- **struck** 4, last 2026-10-25T11:37Z
+
+Opened 2026-10-11 *(the user)*: the reply's layout — the lamps, the framed texts, the footnotes,
+the ⚖️ 🍂 🪢 tables and the 🔁 row — goes under one straw dog in the entry file, bound here, for a
+future mechanism of debugging or of interaction; which of the two is not yet known. Until v61 the
+block was two straw dogs, bound to q-6kx3m2 and q-p4mcme. At v62 the head table left the questions
+mechanism's Q1 for the same block, with L6's emoji; L6 retired *(the user: all of the layout
+goes under the dog)*.
+
+## Decisions
+
+1. Debugging is a mechanism of its own, not a `debug=on` switch each skill reads as it likes
+   *(the user, 2026-10-14, at q-xmk75m)*; what it shows, a repair among it, is its to own.
+   → [debugging.md](../../.agents/mechanisms/debugging/debugging.md)
+2. **Its final shape is physical** *(the user, 2026-10-18: "the final shape of it should be
+   physically installing/uninstalling - or swapping - debug blocks")*: what debug shows reaches a
+   tree as the debugging mechanism's installed blocks, put in, taken out or swapped for their
+   plain counterparts, never as one text holding both readings behind a `debug=on` a session
+   reads. Built by [01-0016.0020](../tickets/done/01-0016.0020-what-debug-shows-is-installed-not-read.md):
+   debugging's D1, and its pair D2 and D3 swapped by the `debug` setting.
+   → [debugging.md](../../.agents/mechanisms/debugging/debugging.md)
+3. **What shows under debugging, named** *(the user, 2026-10-25, at q-fl3tq4)*: the
+   🪶 commits table and the counters line, 🐛 and the stop's `(🐛 <ladder>=<rung>)`, the ⚙️ row of
+   skills read, *A reply speaks the method*'s last sentence, `/maintain`'s *what was wrong in it*,
+   the 💡 🕯️ 無 marks and the footnotes. The ✏️ 🧩 ⚓ frames are not debugging's: whether a reply
+   shows a text before it lands is the autonomy dial's — ✋ shows it before acting — though v48 put
+   them under the same `debug=on` colon as the marks. The 🪢 table is the session mechanism's S4,
+   already a rule conditioned `when debug=on`, and stays its own.
+   → [debugging.rules.md](../../.agents/mechanisms/debugging/debugging.rules.md)
+4. **The rest of the layout is the voice's** *(the user, 2026-10-25: "все остальное по-хорошему
+   должно переехать в механизм голоса, включая дрифт и решения")*: what a reply shows debug or
+   not — the ⚖️ Decisions and 🍂 Drift tables, the frames, the head table with its 🔁 row, *A reply
+   speaks the method* — moves into the voice mechanism, open at
+   [q-53jkvy](q-53jkvy.md),
+   not interaction's. Its home is work not done: the voice is not yet a mechanism with a rules file.
+   → [AGENTS.md](../../AGENTS.md), the reply form's straw dog bound to q-53jkvy

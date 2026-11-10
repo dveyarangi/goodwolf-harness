@@ -1,0 +1,25 @@
+# q-t4q6fi Which copy of the script runs an update — the tree's own, or the incoming ref's?
+
+- **record of** what happened
+- **part of** q-t5vmk3
+- **state** closed:decided
+- **answer** [the harness mechanism doc, an update is run by the incoming ref's installer](../../.agents/mechanisms/harness/harness.md) — the user, 2026-10-14
+- **opened** 2026-10-13T23:01:59Z
+- **struck** 0, last 2026-10-13T22:57Z
+
+## The case, 2026-10-14
+
+The harness skill prescribes `python <target>/.agents/scripts/gw/harness.py <target> --update`:
+the tree's own copy. A recipient at `06a2afd` (meteoscape) updating to `8208fba` was refused by
+that copy: its check did not know `docs/questions/sessions.d/`, a kind of record a later ref
+brought. The agent ran the incoming ref's script from a clone instead, and the update arrived.
+
+An older script cannot know what a newer ref ships or needs, so a tree's own copy can refuse any
+update that brings a new kind of record. Three shapes are open:
+
+- the skill names a fresh clone at the incoming ref as what runs `--update`;
+- the tree's copy resolves the ref, then hands the run to the incoming ref's script;
+- both: the hand-off, and the skill's line for trees whose copy predates it.
+
+Trees already installed read their own copy of the skill, so neither shape reaches a tree before
+its next update; the first update past it still needs the clone.

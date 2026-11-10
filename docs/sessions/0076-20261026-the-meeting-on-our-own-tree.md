@@ -4,7 +4,7 @@
 
 2026-10-25 to 2026-10-26. The person asked for an evaluation of this tree by its own method,
 [MEETING.md](../../.agents/skills/harness/MEETING.md). The session stood on
-[q-0037.0006.0020.0001.0004](../questions/q-0037.0006.0020.0001.0004-how-does-the-install-read-a-tree-with-a-method-and-report-what-goodwolf-would.md).
+[q-d73veg](../questions/q-d73veg.md).
 The run is live case 5 of the meeting. It came out as
 [meeting-run5-self.md](../research/meeting-run5-self.md), and a maintenance pass followed it.
 
@@ -21,7 +21,7 @@ The run is live case 5 of the meeting. It came out as
   entry file, the recall skill's way and the store's and tickets' read calls. It was told nothing
   of the measurement or the key. The question this raises for every tree after a migration is
   open as
-  [q-0037.0006.0020.0001.0004.0001](../questions/q-0037.0006.0020.0001.0004.0001-in-a-tree-that-runs-goodwolf-does-the-blind-run-answer-as-one-of-its.md),
+  [q-ib22qh](../questions/q-ib22qh.md),
   with the person's lean on it.
 - **Recommendation 1 taken.** The person chose to repair the parted pairs with /maintain.
 - **01-0019 left alone.** The person ended the session without deciding on 01-0019, so its file
@@ -41,19 +41,19 @@ The run is live case 5 of the meeting. It came out as
   - the queue's `next-cycle=ask`, now read by the dial;
   - `process.md`'s verification set, now pointed at L3;
   - the pacer, now dissolved in `pacer.md`, `docs/README.md` and the architecture;
-  - ADR-0001's binding, now q-0037.0013;
+  - ADR-0001's binding, now q-p4mcme;
   - the findings preamble, which now names the dial;
   - the 01-0060 header;
   - the 01-0011.0110.0020 status and Outcome.
 - **Four pairs told to their holders.**
-  - The queue's role went to both pathfinder sessions on q-0037.0019.0004. That session has put it
+  - The queue's role went to both pathfinder sessions on q-s2nyhd. That session has put it
     to the person with the roadmap.
-  - The lean under q-0037.0009.0021 went to the debugging session.
+  - The lean under q-l36vii went to the debugging session.
   - 01-0019's status and register count were asked of the "pathfinder (fork)" session. It is not
     theirs: the uncommitted link repair in it predates them, and its author is unknown.
 - **A note for the report before writing.** At another session's word, the question now records
   the two things the install now writes: the pre-commit line and the workflow file
-  (q-0037.0006.0022.0004).
+  (q-c2qp5n).
 
 ## What went wrong
 
@@ -66,16 +66,16 @@ The run is live case 5 of the meeting. It came out as
 - **What the shelf does not fit on its own tree.** Its vocabulary ban collides with the project's
   own words, and "never a limitation of GoodWolf" cannot fully hold. There is no migration to
   compare against, and PR counts had to be read as commits. These belong to
-  q-0037.0006.0020.0001.0004.0001 and the shelf.
+  q-ib22qh and the shelf.
 
 ## Open, and what it waits on
 
-- **q-0037.0006.0020.0001.0004.** Live case 5 is recorded. The ticket 01-0010.0150.0010 waits on
+- **q-d73veg.** Live case 5 is recorded. The ticket 01-0010.0150.0010 waits on
   .0020 and .0030 as before.
-- **q-0037.0006.0020.0001.0004.0001.** It waits on an align: should the shelf say the blind run on
+- **q-ib22qh.** It waits on an align: should the shelf say the blind run on
   a tree that runs GoodWolf uses GoodWolf, and what then measures before and after a migration?
 - **The report's other recommendations, none started:**
-  - (2) the queue's role, with the person at q-0037.0019.0004;
+  - (2) the queue's role, with the person at q-s2nyhd;
   - (3) checks for the rules held by attention: session numbers, commit subjects, an anchor tested
     under a present block;
   - (4) writing down the commit subject's shape, a decision's non-homes and a ticket's position;

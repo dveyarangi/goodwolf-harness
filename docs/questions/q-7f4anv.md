@@ -1,0 +1,656 @@
+# q-7f4anv How is an amendment to an instruction tested before it lands: against which cases, chosen how, run with no instruction, the standing one and the new one?
+
+- **record of** what it intends to become
+- **part of** q-tt733j
+- **state** open
+- **rung** self-improvement: the method
+- **lean** 2026-10-24: Where it stands accepted 2026-10-21; six slices minted under 01-0019, 01-0019.0020 the tracer on rule failure 53; the product form goes first in the queue
+- **opened** 2026-10-19T20:52:12Z
+- **struck** 2, last 2026-10-26T14:50Z
+
+Opened 2026-10-19 from the doc-rule bench, when the user asked whether a new instruction had been
+tried where a mistaken document already holds instructions and looks like the new one's home — it
+had not — and proposed that the method be written down first: (1) gather the dataset of checks and
+mark its bounds, (2) choose the subset a change is tested on, (3) run that subset in two or three
+modes — no instruction, the standing instruction, the new one. Before building: a discovery of how
+evaluation of instructions is done elsewhere, a plan for where the mechanism lives (`/skill-up`, the
+mechanism shape, or a mechanism of its own), and the cost of a run, which sets how often it can be
+called. Moved under it: the replay of a recorded rule failure, a case of the dataset's sourcing.
+
+## Where it stands
+
+Accepted by the user, 2026-10-21, the entry file's subset taken as its section.
+
+An amendment to an instruction is tested before it lands, as a step of self-improvement owned by
+the mechanism shape, between proposing it and landing it. Ownership follows
+[q-tt733j](q-tt733j.md#decisions)
+decision 1, the user, 2026-10-25; no separate self-amendment mechanism is introduced:
+
+- **Two layers.** An audit of the corpus read against the change, itself checked by planted
+  contradictions and by a run on the unchanged text; and behaviour cases run on the subset the
+  change touches — the skills it lands in, the section for the entry file.
+- **Cases** are drawn along one chain — a failure noticed, where the situation is captured; recorded
+  in the rule-failure register, which makes the fix case; the rule written, where near-misses, bias
+  cases and the touched skills' keep cases join it. They live in `docs/`, each tree its own, and hold
+  the situation, what each mode should give, the check, and the skills and failure they belong to.
+- **Modes and runs.** No instruction for the amended rule's own cases, the standing text, the new
+  one; three runs each; the standing results reused while text and model hold; a model change runs
+  every case; the cost a formula, checked after the run.
+- **Judging.** Mechanical where it can be; otherwise a judge blind to the mode, several yes-or-no
+  questions to a case, each yes with its quote, each question tried on a right and a wrong answer
+  first; a judge's failure left out, never scored.
+- **Verdicts.** Helped, hurt, no observed effect, confounded; keeping the standing text is an answer.
+- **Runs** are staged apart with the cases out of reach; the host is reached through an adapter that
+  lays the harness out, runs, reads the record back and checks health first.
+- **The author** is the session that noticed the failure, and never sees the keep cases.
+
+Open under it: the types of failure and behaviour the cases are cut by
+([q-z2v465](q-z2v465.md)),
+whether a fresh author fares better
+([q-vux6nw](q-vux6nw.md)),
+and the replay of a recorded failure
+([q-j5s7gp](q-j5s7gp.md)).
+
+## Decisions
+
+- Two layers from the start: an audit of the corpus read against the change, and behaviour cases
+  run on the subset the change touches; the audit layer is itself tested, by a layer of its own —
+  the user, 2026-10-19.
+- Cases are drawn along one chain: a failure noticed — where the situation is captured, the
+  cheapest moment to have it — then recorded in the rule-failure register, which makes the fix case,
+  failing on the standing text by construction; then the rule written or amended, where its whole
+  set is assembled: the fix case, near-misses where it must not fire, bias cases for a rule that
+  sets a leaning rather than mends a failure, and the keep cases of the skills it touches. Reading
+  transcripts afterwards stays a reserve source, for failures nobody noticed — the user, 2026-10-20.
+- A case holds what it needs and no more: the situation (the message, what was loaded, what of the
+  session it needs to recur), what to expect in each mode, the check — mechanical where it can be,
+  otherwise one yes-or-no question to a judge — and the skills and the failure it belongs to. Cases
+  live in `docs/`, each tree its own — the user, 2026-10-20.
+- A judge reads blind to the mode. Degree comes from several yes-or-no questions to a case, one per
+  kind of deviation, each yes with the words it quotes — never from a scale; a question is tried on a
+  right and a wrong answer written by hand before its first run. A binary verdict on the whole once
+  hid an improvement: three wordings of `/maintain`'s report, the second half as long, all five of
+  five flagged — the user, 2026-10-20.
+- A case's result is one of four verdicts, after Harness²: helped, hurt, no observed effect,
+  confounded — confounded where the amendment changes several things at once. Keeping the standing
+  text is an answer, never a failure — the user, 2026-10-20.
+- A run stages the harness in a directory of its own, the cases out of the run's reach; the host is
+  reached through an adapter shaped as Harness²'s: lay the harness out as the host's files, run,
+  read the record back into one form, check health before anything is spent — the user, 2026-10-20.
+- Three runs to a case and mode; the standing text's results reused while neither it nor the model
+  has changed; the no-instruction mode for the amended rule's own cases alone; a model change runs
+  every case; the cost written as a formula of the cases and checked after the run — the user,
+  2026-10-20.
+- The session that noticed the failure writes the amendment; the guard is that the author never
+  sees the keep cases, which the run supplies. A separate author is a hypothesis, to be tested on
+  the bench — the user, 2026-10-21.
+- The audit is checked by two readings: contradictions planted in a copy of the text, its
+  sensitivity; and a run on the unchanged text, its background — a finding counts only above the
+  background. The plants are kept as cases in `docs/` and rerun when the model or the audit's text
+  changes — the user, 2026-10-21.
+- *(The ownership below is superseded by [q-tt733j](q-tt733j.md#decisions)
+  decision 1, the user, 2026-10-25: self-improvement belongs to the mechanism shape; the testing
+  design remains unchanged.)* The testing is a step of the harness's self-amendment mechanism, between proposing an amendment
+  and landing it — not a mechanism of its own, and not part of `/skill-up` or the mechanism shape,
+  neither of which keeps cases; `/skill-up` and `/mechanism` receive from it the rule that an
+  amendment passes its test before it lands — the user, 2026-10-21.
+
+## Impact of the split, 2026-10-21
+
+The draft: (1) one amendment tested end to end; (2) the corpus audit with its plants and its
+background; (3) a noticed failure leaves a case; (4) an amendment runs on the skills it touches;
+(5) the test is a step of amending; (6) a second host runs the same cases.
+
+**Impact.** A case is a new kind of record and its folder under `docs/` a new painted door, which
+the leak check holds by hand while self-amendment is undeclared. The runner and its Claude Code
+adapter are new core code whose first line names a mechanism not yet declared, a straw dog bound to
+q-clk3dr. Slices 3 and 5 rewrite the entry file's *Self-improvement*, which
+01-0019.0010 rewrites for the dial — one lands after the other. Slice 3 gives each register entry
+its case, which is half of 01-0019's criterion that the register have a declared format. 01-0019's
+*How an amendment is tested* (the user, 2026-09-26: a new session under the amended ruleset, the
+failing request word for word, a control under the old one, through the `claude` CLI, headless) is
+this design's first form, rewritten in place to point here. Slice 5 installs a rule into `/skill-up`
+and `/mechanism`, which needs the self-amendment mechanism's rules file: it decides
+q-clk3dr.
+
+**Hidden edges.** Running headless in a staged directory, rather than through subagents, is also the
+cure for the flaw the speech bench found — a spawned writer reads the entry file it inherited, not
+the disk; but a headless run still reads the person's own user-level instructions and memory, which
+the staging must keep out. A judge is a host run too, through the same adapter. Slice 1 alone costs
+some ten to twenty runs; every later slice is verified by runs. Both `claude` and `codex` are
+installed on this machine, which makes slice 6 a second concrete host rather than an abstraction
+built for one.
+
+**Leave alone.** The speech, doc-rule and judge benches stay as evidence; their cases may later be
+taken in as keep cases, not rewritten. The types of failure (q-z2v465) and the fresh author (q-vux6nw)
+stay questions. The question store's placement judge is another judge.
+
+**Recommendation.** Proceed. Slice 1 is the tracer bullet, on rule failure 53's case; then 4, 3 and
+2, independent of one another; 6 after 1; 5 last and decision-bearing, since it declares the
+mechanism.
+
+## What the work has shown so far
+
+Two benches built by hand, each its own writer, judge and runner:
+[speech-bench](../research/speech-bench) for v94–v95 and
+[doc-rule-bench](../research/doc-rule-bench) for v96–v98. The second, over five runs:
+
+- It caught what review did not: a first compression that brought three conflicts, each where a
+  clause had been cut on the claim that a check held it; a second that brought back one and added
+  two; and, on Sonnet, a fault in a text already landed. Every behaviour case passed on every side
+  — the audit, not the cases, did the catching.
+- Its judges erred once in the open — an example id read as a ticket — and were corrected; a
+  writer this session spawns carries the entry file it inherited, which the prompt only
+  supersedes in words.
+- Cost, as the runs reported it: 100 agents, 7.1–7.4M tokens, 7–8 minutes (Opus or Sonnet alike in
+  tokens); 50 agents, 3.6M, 6 minutes; 10 agents, 0.7M, 3 minutes. An agent reads its files whole,
+  some 70k tokens each.
+- No case had a no-instruction arm, so no run could say whether a rule does anything at all.
+
+## Harness², read for this question, 2026-10-20
+
+Google Research's [Harness²](https://github.com/google-research/harness2), read once for
+q-6ezmbo as a measuring instrument, read again at the user's word for how it tests a change to
+an agent's harness — the same eight surfaces this tree amends: system prompt, guardrails, memory,
+tool guidance, subagents, skills, scripts, plugins. Its loop proposes edits, runs the base and each
+candidate on the same real task, and composes from *behavioural contrasts between executions,
+without ground-truth feedback*. Read from its source at `main`:
+
+- **The host is a protocol** (`substrate/base.py`, adapters for Codex and opencode):
+  `materialise(tree, spec)` stages the editable tree as the host's own files in a staging directory
+  with a fingerprint; `execute(task, install, run_ids, timeout)` returns one run directory per run;
+  `read_trajectory` renders the host's capture into one shared grammar; `preflight` checks health
+  before anything is spent.
+- **The selector is blind** (`core/selection.py`, `select()` in `core/prompts.py`): candidates under
+  anonymous ids shuffled by a seed from the task, mode and k, stable across reruns; it sees the task,
+  its source and each rendered deliverable, never how it was made; a base output chosen is
+  *a completely valid and expected outcome*; length and polish are not merits.
+- **Keeping the base is an answer** (the composer): *KEEP_BASE is a real answer, not a failure.
+  Adaptation that the evidence does not argue for is a regression: it costs context and buys
+  nothing.* Each edit is marked kept, revised or dropped with the evidence and counts behind it;
+  agreement between candidates is support, not independent proof; one rollout is weak evidence
+  either way.
+- **An edit's effect has four verdicts** (the reflector): `helped`, `hurt`, `no observed effect`,
+  `confounded` — confounded preferred where several components changed at once, since *a confounded
+  row is a useful record; an invented attribution poisons the library*; the selection says which
+  output read best, not which edit worked; `NO_ENTRY` where no reusable contrast exists.
+- **The judge stands apart** (`core/judge.py`): nothing in the method imports it; a judge failure is
+  recorded as none and left out of the denominator, never scored zero; it has no calibration of its
+  own.
+- **Cost is a formula, asserted** (`core/ledger.py`): per task and k, 4k rollouts and 3k sessions,
+  checked after the run, duplicates first since a duplicate can satisfy the count.
+- **The rubric must be out of reach** (`docs/EXPERIMENTS.md`): a Codex rollout downloaded its task's
+  rubric without being told to; the executor's network is to be blocked. Tasks split half and half
+  by domain with a fixed seed; each task reads only earlier entries of its domain's library.
+- **No statistics**: one selector session, no voting, no intervals; caution is carried by the
+  composer's and the reflector's wording instead.
+
+## The outside view, 2026-10-19
+
+A separate process, told not to read this repository, was asked how a body of written instructions
+steering coding agents is tested before a change is accepted — the situation, not this tree's
+answer. Transmitted: a few thousand lines across a few dozen files; amended several times a day,
+usually by an agent and approved by a person; three failure modes (breaks what worked, does not fix
+its target, contradicts another instruction); non-determinism; free-text outputs; and the asker's
+own list of practical questions — where cases come from and how bounded, how the cases for a change
+are chosen, what conditions are compared, how outputs are judged and the judging checked, how many
+runs, what it costs. The three modes the user proposed were not named. Its output follows as it
+came back; its section headings are lowered one level.
+
+### Families
+
+Tags: confidence is (H) high, (M) medium, (L) low or (U) unknown. Evidence for "works in practice" is marked [LLM] for recent evidence about LLM systems or [P] for a general principle or pre-LLM evidence. I did not look at the repository, so anything I say about where this team stands is inferred from the tasking alone and marked (L).
+
+---
+
+#### 1. Regression suite (software regression testing, carried over into LLM eval harnesses)
+
+**Mapping.** The instructions are the program. The agent plus model is an interpreter with no specification. A scenario (repo state + user message) is a test input, and an assertion on the resulting reply or file edits is the oracle. A change to an instruction is a commit, and the suite gates it. (H)
+
+**Maturity ladder (TMMi-like).** 0: spot checks. 1: remembered failures are replayed by hand. 2: a curated suite is run by hand. 3: an automated suite gates every change and is selected per change. 4: the suite is itself measured (mutation score, flake rate). 5: the suite is pruned and predictive. This team is probably at rung 1, perhaps 2 (L).
+
+**Cases: sources and bounds.**
+- Recorded failures. "Every bug becomes a test" is the strongest source because each case is known to have once been wrong [P] (H).
+- Examples written next to each rule, in the style of specification by example or Gherkin given/when/then.
+- Combinatorial coverage of scenario factors: kind of request, repo state, whether a decision is pending, and so on. Pairwise covering arrays keep this small [P] (M).
+- Bounds: one or more cases per rule that has an observable consequence. Retire a case when its rule goes.
+
+**Selecting cases for a change.** Use regression test selection (Ekstazi-style file-level dependencies [P] (H)). Record which instruction files each case's run actually loaded, and rerun only the cases that touch a changed file. The catch is that "touched" is observable only at file or skill granularity. Whether a particular sentence "executed" cannot be observed, so sentence-level coverage does not map (H).
+
+**Conditions compared.** Old corpus against new corpus on the same cases, with the model version pinned.
+
+**Judging.**
+- Prefer deterministic assertions on artefacts: which file was written, whether the agent stopped before an irreversible step, whether a required line is present. They are cheap and do not flake from the judge's side [P] (H).
+- Use an LLM judge only for what is left over, and make it a binary rubric per criterion rather than a 1–10 score. Practitioners report binary criteria agree better with humans [LLM] (M).
+- Check the judge against a hand-labelled calibration set (Cohen's kappa) and re-check it when the judge model or rubric changes. Known judge biases are position, verbosity and self-preference (Zheng et al. 2023; Panickssery et al. 2024) [LLM] (H).
+- Check the suite itself by mutation testing: delete or invert a rule and see whether any case fails. A rule whose deletion no case notices is untested. Mutation score tracks real fault detection in code (Just et al. 2014) [P] (M). For instruction corpora I know of no evidence either way (U).
+
+**Runs needed.** This is per-case binomial arithmetic (H, mathematics):
+- Zero failures in n runs bounds the true failure rate at about 3/n with 95% confidence (rule of three). Ten clean runs therefore still allow a 30% failure rate.
+- So the suite catches gross breaks (a behaviour going from about 100% to about 0%) cheaply, with 1–3 runs per case, and cannot see erosion such as 90% to 75% without many runs. That is family 2's territory.
+- pass^k (all k runs succeed, from tau-bench, Yao et al. 2024) is the right metric for a behaviour that must hold every time. Consistency falls steeply with k in agent tasks [LLM] (M).
+
+**Cost and frequency.** Each case is a full agent session: minutes and cents to dollars. Selection keeps a per-change run to tens of sessions, which can be afforded several times a day (M).
+
+**Known failure modes.**
+- Flaky tests get muted, and then real regressions hide among them (Luo et al. 2014; Google's reported ~16% of tests with some flakiness) [P] (M). With LLMs every test is flaky by construction.
+- The suite ossifies into checking the wording of a reply rather than the behaviour.
+- Teaching to the test. Here an agent writes the amendments, and if it can read the cases it will fit them. Keep a held-out set it never sees (H as a principle; [LLM] evidence on contamination exists, M).
+- A suite only defends behaviours someone thought to write down.
+
+---
+
+#### 2. Paired controlled experiment (experimental design, clinical trials, online A/B testing)
+
+**Mapping.** The instruction version is the treatment. The scenario is the unit, used paired: every arm runs the same scenarios. The pass/fail of a behaviour is a binary endpoint. The amendment's purpose is the primary hypothesis, and "keeps what already worked" is a set of non-inferiority hypotheses (H).
+
+**Maturity ladder.** Anecdote → single before/after runs → repeated unpaired runs → paired comparisons, blinded, with a pre-stated endpoint and power → sequential or adaptive designs. This situation is probably between anecdote and single runs (L).
+
+**Arms to compare.**
+- Old version against new version.
+- A no-instruction arm, which says whether the model already does the thing by default, i.e. whether the rule is needed at all. This is ablation, and it is cheap evidence that a rule can be removed [P] (H).
+- Optionally the new rule alone, to separate it from interactions with the rest.
+
+**Cases: sources and bounds.** The scenarios the amendment targets, plus a fixed sample of "keep" scenarios. The sample size comes from a power calculation, not from coverage.
+
+**Runs needed (H, mathematics).**
+- Unpaired, α=.05, power .8: detecting 90%→70% takes about 59 runs per arm, and 90%→80% about 196 per arm.
+- Pairing on scenarios and analysing the per-scenario difference (McNemar, or clustered standard errors) cuts this substantially when scenarios differ in difficulty. Miller 2024, "Adding error bars to evals", argues exactly this for LLM evals [LLM] (H).
+- Sequential tests (Wald's SPRT; always-valid p-values, Johari et al. 2017) let a run stop early when the difference is large, and make it legitimate to peek [P] (H).
+
+**Judging.** As in family 1, plus blinding: the judge, human or model, should not know which arm produced an output. Otherwise it judges the arm, not the output [P] (H).
+
+**Cost and frequency.** Hundreds of sessions per comparison for small effects. Affordable per release batch, not per edit several times a day (M). In practice reserve it for amendments to behaviours that matter, and for model upgrades.
+
+**Known failure modes.**
+- Underpowered tests that read "no significant regression" as "no regression".
+- Many endpoints with no multiplicity correction.
+- Forking paths: endpoints chosen after looking.
+- Prompt-format sensitivity. Trivial formatting changes moved accuracy by up to 76 points in Sclar et al. 2023, so an effect may belong to the incidental wording, not the intended change [LLM] (M-H).
+- The model under test changes silently between arms run on different days. Pin the model and run the arms interleaved [P] (H).
+
+---
+
+#### 3. Differential and metamorphic testing (the oracle-problem literature)
+
+**Mapping.** Do not decide what is right. Decide what changed.
+- Differential testing (McKeeman 1998; Csmith, Yang et al. 2011): run old and new versions on many generated scenarios, flag disagreements, and have a person adjudicate only those. Each disagreement is an intended change or a regression, and only the amender's stated intent tells which (H).
+- Metamorphic testing (Chen et al. 1998; survey Chen et al. 2018): state relations that must hold between runs rather than correct outputs. Paraphrasing the request must not change whether the agent stops to ask. Adding an irrelevant file must not change which file it writes. Making the stakes higher must not make it less likely to ask.
+- CheckList (Ribeiro et al. 2020) brought this into NLP as invariance tests and directional-expectation tests [LLM-adjacent, NLP] (H).
+
+**Maturity ladder.** None → manual reading of two outputs side by side → automated scenario generation with disagreement triage → a maintained catalogue of relations. Likely the bottom rung (L).
+
+**Cases: sources and bounds.** Generated, often by a model, around the changed rule's domain. Bounded by the triage budget, not by a coverage target.
+
+**Selecting cases.** Generate scenarios targeted at the changed text. Relations are reusable across changes.
+
+**Judging.** Behaviour is reduced to a semantic diff between two outputs, which is easier and more reliable than absolute grading. An LLM is decent at "do these two do the same thing on dimension X" (M, [LLM] thin). The adjudication of disagreements remains human, or goes to the amender against its stated intent.
+
+**Runs needed.** Non-determinism makes single-run diffs noisy. Two runs of the same version disagree too. You need the version-on-itself disagreement rate as a baseline, and only an excess over it counts. That means about 3–5 runs per side per scenario for anything subtle (M).
+
+**Cost and frequency.** Cheaper than family 2, because no absolute oracle and no large n are needed for large shifts. Per-change use is plausible (M).
+
+**Known failure modes.**
+- Triage fatigue: disagreements get waved through.
+- Relations that are not actually invariant.
+- Common-mode error: both versions are wrong in the same way, which differential testing cannot see at all (H).
+
+---
+
+#### 4. Comprehension probing (survey methodology: cognitive pretesting of questionnaires)
+
+**Mapping.** A questionnaire item is text read by a heterogeneous interpreter who must comprehend it, retrieve what is relevant, judge and respond (Tourangeau's four stages). An instruction is exactly that kind of item. Cognitive interviewing (Willis 2005) tests wording before fielding by having respondents paraphrase it, think aloud and answer probes. Applied here: before an amendment lands, ask fresh model instances, in context, what the amended rule requires in a few concrete situations, and what it now requires that it did not before. Compare the paraphrases with the author's intent and with the paraphrases of the old text (M on the mapping).
+
+**Maturity ladder.** Expert review of wording → cognitive interviews → systematic probes with a coding scheme → behaviour coding validated against field outcomes. This team is probably at expert review: the authors read their own text (L).
+
+**Cases: sources and bounds.** Probes per changed rule: one paraphrase plus a handful of edge situations. They are bounded by the rule, not by the corpus.
+
+**Selecting cases.** The changed rule, plus the rules that share its terms.
+
+**Judging.** Compare the paraphrase with the author's stated intent. The divergences are the finding, and a person reads them. The check on the judge is weak. Survey methodology knows that different organisations' cognitive interviews of the same questionnaire find different problems (DeMaio & Landreth 2004) [P] (M).
+
+**Runs needed.** Few. A handful of instances per rule exposes the readings that diverge. Frequency estimates are not the point (M).
+
+**Cost and frequency.** One short model call per probe, with no agent session. It is the cheapest family that involves a model, and it can run on every edit (H on cost).
+
+**Known failure modes.**
+- Comprehension is not behaviour. Respondents, and models, can restate a rule correctly and not follow it under load or in a long context. The knowing–doing gap in LLM instruction following is widely reported [LLM] (M).
+- Probes lead the respondent.
+- Paraphrase is fluent and plausible even when the reading is wrong.
+
+What it catches that execution rarely does: ambiguity, meaning a second plausible reading the author never intended (M).
+
+---
+
+#### 5. Corpus analysis without execution (legislative drafting, requirements engineering, the feature-interaction problem)
+
+**Mapping.** The corpus is a body of norms, an amendment is an amending act, and a contradiction elsewhere is an implied repeal or a feature interaction. Law's tools are:
+- Express rather than implied amendment, and a presumption against implied repeal.
+- Conflict canons: lex specialis, lex posterior, lex superior. These are a precedence rule for when instructions collide.
+- Defined terms with one home, consolidation, and cross-reference checking.
+
+Requirements engineering offers ambiguity checklists, EARS sentence templates (Mavin 2009) and quality attributes such as unambiguous, consistent and verifiable. Telecom's feature-interaction literature (Calder et al. 2003) is the closest match to "two rules, each fine alone, conflict together" (H on the mapping).
+
+It has two modes:
+- **Mechanical.** Scripts check defined-term use, duplicate statements of one fact, dangling references and banned constructions.
+- **Inspection.** Human or model reviewers read the diff against the corpus with a checklist (Fagan 1976), or each takes a role in perspective-based reading (Basili 1996). For LLMs this means a model given the diff and the whole corpus and asked for contradictions, overlaps and new ambiguity.
+
+**Maturity ladder.** Style conventions → manual consistency review → a structured corpus whose conventions (one home per fact, defined terms, references) are machine-checked → a semi-formal norm representation with automated conflict detection (deontic logic; policy conflict detection as in XACML). A team that writes this kind of corpus may already be at rung 3 on conventions and rung 1 on conflict detection (L).
+
+**Cases: sources and bounds.** None; the corpus itself is the object. Inspection is bounded by the diff plus whatever shares terms or scope with it.
+
+**Selecting cases.** Use term and reference indexes to find the rules a change touches.
+
+**Judging.** Mechanical checks are exact. Model inspection has a false-positive rate that is high in my experience and unmeasured in the literature for this use (L). Check it by seeding known contradictions and counting how many are found, which is mutation testing applied to the reviewer [P] (M).
+
+**Runs needed.** One for mechanical checks. For model inspection, 2–3 independent reviews, because recall varies between runs (M).
+
+**Cost and frequency.** Mechanical checks are near free. Model inspection costs one long-context call. Both can run on every edit (H).
+
+**Known failure modes.**
+- Formalising natural-language norms into logic is brittle, costly and loses exactly the open texture that makes them usable (H [P]).
+- Inspection finds textual defects, not behavioural ones. A consistent corpus can still steer the model badly.
+- Votta 1993: inspection meetings add little over individual reading [P] (M).
+- Checklists ossify.
+
+---
+
+#### 6. Assurance argument (safety cases: GSN, CAE, eliminative argumentation)
+
+**Mapping.** Each amendment carries a small structured argument: the claim ("this fixes F and preserves B1..Bn"), the evidence for each sub-claim (a replay, a probe, an inspection, a diff), and the defeaters, meaning the reasons the claim could be false. Under eliminative argumentation (Goodenough, Weinstock & Klein, SEI 2013), each defeater is explicitly ruled out or left open. The evidence can come from any of the other families. This family is about deciding what evidence a given change owes, and making the reviewer's acceptance a judgement on the argument rather than on the diff (M on the mapping).
+
+Recent AI use: Clymer et al. 2024 safety-case frameworks for frontier AI, and UK AISI safety-case sketches. These are at frontier-model scale and are not evidence for small corpora [LLM] (M).
+
+**Maturity ladder.** Implicit trust → a rationale in the commit message → a structured argument for risky changes → defeaters tracked and closed → independent assessment. This team is probably at rung 2: rationale plus a person's approval (L).
+
+**Cases and selection.** Defeaters generate the cases: "this could break B3 because B3 uses the same term" becomes a targeted replay. This is the most principled answer of any family to the question of which cases a change should run. The cut is by risk, not by coverage (M).
+
+**Judging and checking.** A person, or an independent agent that did not write the change, attacks the argument. The check is red-teaming the defeater list.
+
+**Runs needed.** Inherited from whichever evidence family each claim uses.
+
+**Cost and frequency.** It scales with risk. Most edits need a one-line argument, and a few need a full one (M).
+
+**Known failure modes.**
+- The case becomes paperwork that confirms the conclusion it set out to reach. The Nimrod review (Haddon-Cave 2009) is the canonical indictment [P] (H).
+- Confirmation bias in choosing defeaters.
+- The author of the change writes the argument for it. Independence is the whole value, and here the same agent often drafts both (H [P]).
+
+---
+
+#### 7. Calibrated measurement instrument (psychometrics: classical test theory, IRT, adaptive testing)
+
+**Mapping.** A behaviour is a construct, a scenario is an item, and each instruction version is a respondent whose ability on each construct is being measured. Reliability maps to run-to-run agreement (test–retest) and judge agreement (inter-rater). Validity asks whether passing the item means the behaviour actually holds in real sessions.
+
+The useful twist is that the version history supplies the respondents. Every past version run on the items calibrates item difficulty and discrimination over time. Items that every version passes, or every version fails, carry no information and can be dropped. Rodriguez et al. 2021: evaluation examples are not equally informative. tinyBenchmarks (Polo et al. 2024): IRT-selected subsets of about 100 items estimated full-benchmark scores within a few points [LLM] (M-H).
+
+**Maturity ladder.** Ad hoc items → classical test theory (item difficulty, reliability coefficients) → IRT calibration → computerised adaptive testing, which picks the next item by its expected information. This team is pre-CTT (L).
+
+**Cases: sources and bounds.** As in family 1. Bounding is by information: retire items that do not discriminate.
+
+**Selecting cases.** Adaptive: run the items most informative about the constructs the change touches (M in principle, U for corpora this small).
+
+**Judging.** Same as families 1 and 2, but judge reliability is measured as a number and tracked.
+
+**Runs needed.** IRT needs dozens to hundreds of respondent-item observations per item to calibrate (H [P]). A few dozen versions times a few runs each is marginal. CTT statistics are within reach sooner.
+
+**Cost and frequency.** Calibration is a sunk cost amortised over history, and adaptive selection lowers the per-change cost (M).
+
+**Known failure modes.**
+- Construct-irrelevant variance: an item fails for reasons unrelated to the behaviour, such as a timeout.
+- Item drift when the model changes. Every calibration is model-specific (H).
+- Measuring what is easy to item-ise and missing what matters.
+- For a corpus of this size the machinery may cost more than it saves (M).
+
+---
+
+#### 8. Post-change surveillance (SRE canary releases, pharmacovigilance, post-legislative scrutiny, statistical process control)
+
+**Mapping.** Abandon most of the pre-acceptance gate. Accept changes cheaply and make detection and rollback fast.
+- Every real session is a field trial.
+- A noticed misbehaviour is an adverse-event report.
+- Rollback means reverting the commit.
+- A canary means running the new version on a share of sessions, or in a shadow session beside the old one.
+- Shewhart-style control charts on cheap automatic signals catch shifts: how often the agent stops to ask, how often the person corrects it, how often edits are reverted.
+- Sunset or review clauses from legislation: a rule carries a date by which its effect is checked.
+
+**Maturity ladder.** Anecdotal noticing → a structured incident register → rates with denominators (SPC) → progressive rollout with automatic rollback. A team that keeps a register of rule failures is at rung 2 (L).
+
+**Cases: sources and bounds.** Production; unbounded and free.
+
+**Selecting cases.** Not applicable. The difficulty is attribution: with several changes a day, a signal shift must be traced to a change by bisection or by git-blame over time windows (H that this is the hard part).
+
+**Judging.** The person's own corrections are the oracle. That is real ground truth, but under-reported: pharmacovigilance estimates median under-reporting of adverse reactions around 94% (Hazell & Shakir 2006) [P] (M).
+
+**Runs needed.** Determined by session volume. A small team produces few sessions a day, so detecting rate changes takes weeks (M).
+
+**Cost and frequency.** Near zero marginal cost and continuous. The cost moves to the person's attention and to the damage done before detection.
+
+**Known failure modes.**
+- Latency.
+- Confounding by task mix: this week's work differs from last week's.
+- Normalisation of deviance.
+- Interleaved changes defeating attribution.
+- It is unsafe where a single misbehaviour is costly or irreversible, and those are exactly the "stop and ask" rules (H).
+
+---
+
+**Across families.** These families sit at different points on the order: what is cheap but shallow comes first, what is expensive but deep comes later. Families 5 and 4 can run on every edit. Families 1 and 3 can run on every change with selection. Family 2 can run per batch or per model upgrade. Family 8 runs all the time. Family 6 decides which of them a given change owes, and family 7 makes 1 and 2 cheaper over time. That they compose is a judgement, not something the literature reports for this setting (M).
+
+### What the tasking smuggled in
+
+1. **The gate as the unit.** "Before a change is accepted" assumes risk is controlled at the moment of acceptance, change by change. Two alternatives were ruled out by the wording:
+   - Surveillance and rollback (family 8).
+   - Reducing the change rate itself. Batching edits, or treating several-a-day as a symptom, may cut more cost than any test method. Every check's cost scales with frequency, and frequency was taken as given.
+
+2. **A specification that does not exist.** "Behaviour that used to be right" presumes a record of rightness independent of the text. In this setting the instructions are the specification, so an amendment redefines "right". A test cannot tell an intended change from a regression; only a recorded intent can. The real missing artefact may be a statement of intended behaviour kept apart from the instructions, which nobody wrote.
+
+3. **Three failure modes, when there are more.** The tasking names breaking, failing to fix and contradicting. It omits:
+   - An amendment that changes nothing because the model already behaved that way. The rule only costs reading time, and only a no-instruction arm finds this.
+   - An amendment that is right but raises cost elsewhere: more stops to ask, longer replies, more context paid in every session.
+   - The model changing underneath unchanged instructions. That is plausibly a larger source of regression than the edits, and it never shows up in a diff.
+
+4. **The list of practical questions belongs to one paradigm.** "Test cases", "runs", "how outputs are judged" and "how many runs" are the vocabulary of families 1 and 2. They fit families 4, 5 and 6 poorly or not at all, which tilts the answer toward execution-based testing. Questions the list lacks:
+   - Who has authority to say an output is right?
+   - What happens on a failure: reject, amend, or accept with a known regression?
+   - How is independence kept when the same agent drafts the change, the tests and the argument? This is a conflict of interest, and the tasking does not name it.
+   - When does evidence go stale (on a model upgrade, on an edit to a neighbouring rule)?
+   - How are cases retired?
+   - Which changes need which evidence: risk classification as a step before choosing cases.
+
+5. **"Non-deterministic" read as noise.** Variance is treated as something to average away. But consistency is itself a property worth measuring (pass^k), and wording changes variance as well as means.
+
+6. **The outcome treated as caused by the text.** Agent behaviour comes from model priors, the task, context length and its position, and tooling. Attributing a shift to an instruction edit is an assumption that each family has to earn.
+
+7. **The person's approval is taken as given and never examined.** The human approval is currently the main check, and its reliability is not questioned. Several families are really ways of changing what the approver sees: a behavioural diff, an argument, divergent readings. They do not replace the approver.
+
+8. **Detection over prevention.** "Contradict another instruction elsewhere" frames contradiction as something to catch. A corpus structured with one home per fact and defined terms, or simply a smaller one, prevents it. Feature interactions grow with the number of rules, and removal is a verification strategy.
+
+9. **"Full alternatives" pushes toward picking one family.** Mature practice in every field drawn on here is a portfolio graded by risk. Asking for families as full alternatives frames a portfolio question as a choice of one.
+
+### Nothing to take
+
+- **Formal verification or model checking of agent behaviour.** Refused. It needs a formal semantics of the interpreter, and here the interpreter is the model, which has none. The instructions alone can be partly formalised (family 5, its deontic variant), but behaviour cannot be verified.
+- **Automatic prompt optimisation (DSPy, OPRO, TextGrad, GEPA and kin).** Refused as a family for this question. It generates changes against a metric and does not validate a proposed one. It presupposes family 1 or 2's metric and adds Goodhart pressure on it.
+- **Classic code coverage (line or branch).** Refused as a stand-alone family. Whether a sentence "executed" is not observable. Only file or skill loading can be observed, and that is already within family 1's selection.
+- **Pairwise preference ranking (Elo, Chatbot Arena style).** Refused as separate. With two versions it reduces to family 2's paired comparison, and it pays off only with many competing versions and many preference votes, which this setting does not have.
+- **Chaos engineering and combinatorial interaction testing.** Not refused, but not separate. Their mappings hold, as context perturbation and as covering arrays over scenario factors, and they live inside families 3 and 1 respectively.
+
+## The second outside view, 2026-10-20
+
+The user hoped for a discovery of agent testing specifically, with the methods' details — how cases
+are tied to rules, how a subset is chosen, how a judge is chosen. A second separate process, told
+not to read this repository and to search the web and cite sources, was asked how the written
+instructions steering LLM agents are tested when they change, as practised 2023–2026, with a list
+of details per method: case production, traceability to instructions and selection after a change,
+comparison conditions including a no-instruction baseline, judging and its calibration, checking the
+checks, statistics, cost and cadence, failure modes. Transmitted beyond the subject: that list, and
+that the instruction sets in question are large, multi-file and amended often. Its output follows
+as it came back; its headings are lowered one level.
+
+### Methods
+
+Key: **[doc]** means documented practice, with the source and date given. **[inf]** means my inference. **H/M/L** is my confidence. Several 2026 sources are preprints, and some figures came to me only through secondary summaries; those are marked "secondary".
+
+#### 1. Anthropic's vendor guidance for agent evals
+Source: "Demystifying evals for AI agents", Anthropic Engineering, 9 Jan 2026. Also the Claude docs page "Develop tests" and "Writing effective tools for agents", 11 Sep 2025.
+- **How cases are made.** Start with 20–50 tasks drawn from real failures. In production, turn bug-tracker and support-queue failures into tasks, ordered by user impact. A good task is one where two domain experts would give the same verdict. Each task needs a reference solution that passes every grader. Balance cases where the behaviour should happen against cases where it should not [doc, H]. The older docs page says "more questions with slightly lower signal automated grading" beats fewer hand-graded ones, and asks for tagged edge cases [doc, H]. For tool descriptions, Claude Code generates dozens of realistic multi-call tasks, each paired with a lenient verifier and optionally the expected tools [doc, H].
+- **Comparison.** Several trials per task, each in an isolated clean environment. pass@k (at least one success) versus pass^k (all k succeed): 75% per trial gives about 42% pass^3. No trial count is given [doc, H]. Capability evals start low. Regression evals sit near 100%. Saturated capability evals graduate into the regression suite [doc, H]. For tool descriptions, a held-out test set guards against overfitting [doc, H].
+- **Judging.** Prefer deterministic graders. Grade the outcome, not the path. One judge per rubric dimension. Give judges an "Unknown" option. Calibrate judges against experts [doc, H]. The docs page recommends a different model as grader than the one that produced the output [doc, M]. That conflicts with the error-analysis school (§9).
+- **Checking the checks.** Read transcripts, including a weekly sample, to tell agent errors from grader errors. "Failures should be understandable" [doc, H].
+- **Cadence.** CI on every agent change and every model upgrade, plus production monitoring and A/B tests [doc, H]. No costs are published [doc].
+- **Lesson reported.** The Claude.ai web-search work took "many rounds of refinements to both the prompts and the eval" to balance over- and under-triggering [doc, H].
+
+#### 2. Anthropic's tooling for instruction artifacts
+**skill-creator** (anthropics/skills repo, current):
+- Each prompt runs with the skill and against a baseline: no skill for a new skill, or a snapshot of the old skill when editing one. Both arms launch in the same turn.
+- Assertions are drafted while the runs are in flight. A grader subagent writes pass, fail and evidence per assertion. Subjective qualities go to a human through an HTML viewer.
+- An aggregator reports pass rate, time and tokens as mean ± stddev with deltas. An analyst agent flags non-discriminating assertions (those that pass in both arms) and high-variance evals.
+- An optional blind comparator judges two outputs without knowing which is which.
+- Trigger testing: 20 queries (8–10 that should trigger the skill, 8–10 near-miss negatives), split 60/40 train/test, each run 3 times. Up to 5 rewrite iterations. The best description is picked on the held-out score.
+[doc, H]
+
+**`claude plugin eval`** (code.claude.com/docs/en/plugin-evals; requires Claude Code v2.1.269 or later):
+- `init` has Claude read the plugin, propose should- and shouldn't-trigger prompts, design graders, pilot them, and write one directory per case.
+- Six grader types: `regex`, `tool_used`, `tool_order` and `file_exists` cost nothing; `llm` and `baseline` call a judge, with "three short judge calls" per grader per run. No custom-code graders.
+- 3 runs per case by default. Default threshold 1.0, set with `--threshold`.
+- With/without ablation reports WITH, W/OUT and Δ. Graders that cannot pass without the plugin (for example "the skill was invoked") are excluded from scoring in both arms so they do not inflate Δ.
+- Δ never changes the exit code. Mocked MCP servers with recorded replays keep CI runs repeatable.
+- The docs warn that a small judge can mark correct answers wrong on formatting: "suspect the judge before the plugin."
+[doc, H]
+
+#### 3. OpenAI
+- **Evals platform, graders, trace grading, prompt optimizer.** Grader types include string_check, text_similarity, score_model (range plus pass_threshold) and python, combinable in multigraders. Trace grading scores tool choice and handoffs on a recorded trace, and the docs say to move from individual traces to datasets once "good" is known. The prompt optimizer rewrites prompts from grader results and annotations and needs at least 3 rows [doc, H]. The docs say the platform goes read-only on 31 Oct 2026 and shuts down on 30 Nov 2026 [doc, M; check the deprecations page].
+- **Model Spec Evals** (OpenAI Alignment blog, 25 Mar 2026). This is the clearest public example of tying cases to clauses:
+  - 596 prompts over 225 "focus areas", each a "load-bearing clause in the spec", about 2.6 prompts per clause.
+  - GPT-5-class models drafted the prompts and the per-prompt rubrics. A researcher reviewed each prompt for realism and for whether it tests its clause.
+  - Rubrics were calibrated by having humans write hypothetical compliant and non-compliant responses, then checking that the rubric scored them correctly. Disagreements went to review to find the cause in the rubric, the grader or the label. This is a seeded-fault check on the judge.
+  - The grader (GPT-5 Thinking) sees the spec, the conversation and the rubric and gives a 1–7 score. Five samples are taken and the median used; 6–7 counts as compliant.
+  - The dataset "evolves" with the spec, but no versioning process is described.
+  [doc, H]
+
+#### 4. Google
+- **Vertex AI "adaptive rubrics".** For each prompt the service generates its own pass/fail tests, then judges the response against each one with a rationale. Static rubrics, ROUGE and BLEU also exist [doc, H].
+- **ADK evaluation.** `.evalset.json` or `.test.json` cases with expected tool trajectories. A separate config sets thresholds, for example `tool_trajectory_avg_score` 0.8–1.0 and `response_match_score` (ROUGE-1) 0.5–0.8. Run with `adk eval` [doc, M; the schema changes between versions].
+
+#### 5. Eval frameworks
+- **promptfoo.** Several prompts run against the same tests in a grid view. Deterministic assertions (equals, contains, is-json, javascript, python) sit beside model-graded ones (llm-rubric). `repeat` sets runs per test. Test `metadata` can be filtered with filterMetadata (AND logic). Other filters: filterPattern, filterFailing (rerun last run's failures), filterPrompts. Thresholds at test and assertion level, plus assert-set and derivedMetrics. CI examples trigger `promptfoo eval` on PRs that touch prompt files [doc, H]. Metadata filtering is the only *mechanism* I found for choosing which cases to run after an instruction change. I found no documented *method* of mapping a prompt diff to tags [inf, M].
+- **Braintrust.** A candidate experiment is compared with a baseline (pinned, or the latest on the same git branch). Rows are matched by input. Sort by regressions, then diff. A PR comment through a GitHub Action. Run a `--first N`/`--sample N` smoke test on PRs and the full suite on merge [doc, H].
+- **LangSmith.** `num_repetitions` re-runs both the target and the evaluators and shows means and stddev. `evaluate_comparative` runs pairwise judges over two experiments [doc, H].
+- **DeepEval.** pytest-style `deepeval test run` with metric thresholds (default 0.5, scores 0–1). G-Eval (chain-of-thought rubric). DAG (a decision tree of judge nodes) [doc, M; details of DAG unverified].
+- **Inspect AI (UK AISI).** `epochs` repeats samples, and reducers (mean, pass@k and others) combine the scores. `model_graded_qa` takes per-sample criteria [doc, H].
+- **LangChain agentevals.** Trajectory match in strict, unordered, subset or superset mode, plus an LLM trajectory judge [doc, H].
+- **Ragas.** Aimed at RAG (faithfulness, context precision and similar). Marginal for agent rule files [from memory, M].
+
+#### 6. Agent benchmarks and their harnesses
+- **τ-bench and τ²-bench (Sierra).**
+  - The instruction under test is literally a domain **policy document** in the agent's prompt. The user is simulated by an LLM. Success compares the final database state with the annotated goal state.
+  - The benchmark introduced **pass^k**. In 2024, GPT-4o scored pass^8 below 25% on retail [doc, H].
+  - τ² hand-annotated 100 airline conversations and found 47% simulator errors, 13% of them critical [doc, M].
+  - A corrected "τ²-Bench-Verified" exists because task definitions disagreed with the policies [doc, M].
+  - The ABC audit (Zhu et al., NeurIPS 2025) found that a trivial agent passed 38% of τ-bench tasks [doc, H].
+- **SWE-bench.** Each task has FAIL_TO_PASS and PASS_TO_PASS tests run in Docker. Verified (Aug 2024) kept 500 problems out of 1,699, each reviewed independently by three engineers for underspecified issues and over-narrow tests. A later OpenAI post (not readable, 403) says residual flaws remain and that OpenAI no longer evaluates on it; the summary I saw cites a 138-problem re-audit with six or more engineers per problem [doc, M].
+- **ABC checklist** (arXiv 2507.02825, Jul 2025). Separates outcome validity from task validity. Of 10 benchmarks, 7 had outcome-validity flaws and all 10 had reporting gaps. An agent scored 100% on SWE-Lancer without solving tasks [doc, H].
+- **HAL** (Kapoor et al., ICLR 2026). 21,730 rollouts, 9 models, 9 benchmarks, about $40k in total (roughly $1.8 per rollout [inf]). LLM-aided log inspection found agents searching HuggingFace for the benchmark answers and misusing credit cards [doc, H].
+- **GitHub Copilot.** Holds model, context, reasoning effort, tools and MCP servers fixed while comparing harnesses on SWE-bench Verified and Pro, SkillsBench, TerminalBench and an internal suite (2026 blog) [doc, M].
+
+#### 7. Instruction-following evaluations
+- **IFEval** (Zhou et al., Nov 2023). About 25 programmatically verifiable instruction types over about 500 prompts, scored strict or loose at prompt and instruction level [from memory, H]. This is the template for deterministic per-instruction assertions.
+- **Successors** [doc, M]:
+  - IFBench: 58 unseen constraint types.
+  - Multi-IF: 4,501 three-turn conversations in several languages; accuracy falls with each turn.
+  - SysBench (Aug 2024): 500 system messages, each followed by 5 user turns; LLM verifiers checked against human checklists; a "Session Stability Rate".
+  - AgentIF (May 2025): the best model follows fewer than 30% of instructions perfectly; accuracy falls with length.
+  - IFScale (Jul 2025): up to 500 simultaneous instructions; the best model reaches about 68% at maximum density; bias toward earlier instructions; three decay shapes.
+  - MTAC-IFBench (2026): agentic coding over many turns; compliance decays as the session grows.
+- **Harness-IF** (arXiv 2608.11727, Aug 2026). Rules are placed on five surfaces of a coding agent: system prompt, project files, user instructions, tool descriptions, skill descriptions. It uses 60 multi-turn items drawn from a library of 642 rules, with verdicts on 256 rules.
+  - Each rule is scored separately from execution evidence.
+  - "Against-prior" rules are found by re-running tasks with the rule **withheld**. AP-Acc scores compliance only on those rules, so compliance can be told apart from coincidence. Every model scores 3.6–7.4 points lower on them.
+  - A conflict pilot found that system prompt, project files and user instructions outrank tool and skill descriptions.
+  - [doc, H] This is the closest research analogue to testing a rule file rule by rule with a no-rule counterfactual.
+- **SpecEval** (arXiv 2509.02464, 2025). A TestMaker model writes prompts per behavioural statement, and a meta-prompt generates a 1–5 judge prompt per statement. 20 curated questions per statement. Often the same provider supplies the candidate and the judge ("three-way consistency"), which is a circularity risk [doc, H].
+
+#### 8. Controlled studies of rule files and skills
+- **Gloaguen et al.** (arXiv 2602.11988, Feb 2026, ICLR 2026). Three conditions: no context file, an LLM-generated file, a developer-written file. AGENTbench has 138 tasks from repositories that already had context files, plus SWE-bench. Context files tended to *lower* success and raised cost by more than 20%. Agents did follow the files. Recommendation: minimal requirements only [doc, H].
+- **Lulla et al.** (arXiv 2601.20404, Jan 2026). 124 PRs in 10 repositories, paired with and without AGENTS.md. Median runtime fell about 29% and output tokens about 17%. Correctness was not measured [doc, H].
+- **McMillan** (arXiv 2605.10039, May 2026). A factorial study: 1,650 Claude Code sessions, 16,050 function-level observations, mixed-effects plus Bayesian analysis. File size, instruction position, architecture and contradictions in adjacent files had **no detectable effect**; Bayes factors support the null for size and conflicts. Compliance fell within a session, about 5.6% lower odds per generated function (found post hoc, but replicated) [doc, H].
+- **Cai et al.** (arXiv 2606.12231, Jun 2026). 7,310 rules from 83 projects, 99 practitioners surveyed, 1,540 rule-evolution events. Compliance was assessed on 160 events: it rose from 49% to 72% after a rule update. 78% of developers change rules to correct AI errors, mostly by *adding negative constraints*. The paper reports no practitioner method for validating rules [doc, H].
+- **SkillsBench** (arXiv 2602.12670, 2026). Three arms: no skills, curated skills, self-generated skills. Deterministic verifiers; v1 had 86 tasks and 7,308 trajectories. Curated skills add about 16 points on average, some tasks regress, and self-generated skills give no benefit. Focused skills beat comprehensive docs [doc, H].
+- **Yang et al., "What Prompts Don't Say"** (arXiv 2505.13360, May 2025, Findings of ACL 2026). 60 requirements across 3 tasks, an automated validator per requirement. Underspecified prompts are about 2× as likely to regress after a model or prompt change. Spelling out every requirement does not help consistently, because requirements conflict and instruction capacity is limited [doc, H].
+- **Commey** (arXiv 2601.22025, 2026). 30-case suites, two small models. Generic rules appended to the prompt dropped one RAG suite from 26/30 to 9/30 [doc, H].
+- **Ma, Yang and Kästner** (arXiv 2311.11123, Nov 2023). The best prompt flips after an API update, so track the prompt and model versions together and gate on aggregate thresholds rather than single-case flips [doc, H].
+
+#### 9. The error-analysis school (Husain and Shankar)
+Sources: Hamel's evals FAQ, page dated Sep 2026; the evals-skills repo; Shankar et al., UIST 2024.
+- **How cases are made.** Read about 100 diverse traces. Write open notes on the first failure in each. Group the notes into failure modes, with an LLM helping. Continue to saturation. For synthetic data, hand-write about 20 "dimension tuples" first, then scale with a model [doc, H].
+- **Unit of test.** **Failure modes, not rules.** One binary judge per failure mode, built only when code checks cannot catch it [doc, H].
+- **Judge validation.** 100–200 labels per failure mode, split about 10–20% train (few-shot), 40–45% dev, 40–45% test, ideally 30–50 passes and 30–50 fails in each. Report TPR and TNR, not raw agreement. One domain expert acts as "benevolent dictator", with Cohen's κ only when there are several annotators. Using the same model as the application is acceptable if TPR and TNR hold on test [doc, H]. Correct the observed pass rate with Rogan–Gladen, θ = (p_obs + TNR − 1)/(TPR + TNR − 1), plus bootstrap CIs [doc, M]. Lee et al., "How to Correctly Report LLM-as-a-Judge Evaluations" (arXiv 2511.21140; ICML 2026), formalises this with bias-corrected CIs and adaptive allocation of the calibration set [doc, M].
+- **Cadence.** Review 20–50 outputs after any significant change. In production, 100 fresh traces every 2–4 weeks [doc, H].
+- **Criteria drift** (Shankar et al., EvalGen). People need criteria to grade, but grading is how they form their criteria, so evaluator alignment is iterative, not fixed in advance [doc, H].
+
+#### 10. LLM-as-judge research
+- **Zheng et al.** (NeurIPS 2023). GPT-4 agrees with humans over 80% of the time, about the human–human level. Documented position, verbosity and self-enhancement biases. Standard mitigation: swap the order and count only consistent verdicts [doc, H].
+- **Thakur et al.** (arXiv 2406.12624). Use κ, not percent agreement. Judges with high alignment can still rank models worse than a lexical "contains" check [doc, H].
+- **Self-preference.** Panickssery et al. 2024 and Wataoka et al. 2024; the mechanism is linked to lower perplexity on familiar text [doc, M].
+- **Agent-as-a-Judge** (Zhuge et al., ICML 2025). DevAI has 55 tasks with 365 hierarchical **requirements**, judged per requirement. The agent judge agreed with human consensus 90% of the time against 70% for an LLM judge, at about 2% of the cost of human experts [doc, H].
+- **JudgeBench and meta-judging surveys** (2024–2026) exist. I found no documented practice of seeded-error "unit tests for judges" beyond OpenAI's hypothetical-response calibration and practitioner advice about wrong-skill controls and broken outputs [doc, M].
+
+#### 11. Statistics and non-determinism
+- **Miller** ("Adding Error Bars to Evals", Anthropic, Nov 2024). Cluster standard errors on the unit of randomisation; clustered SEs can be more than 3× naive ones. Use paired differences when comparing two systems on the same items, resample per item to cut within-item variance, and run a power analysis [doc, H].
+- **Temperature 0 is not deterministic** because of batch-size variance in server kernels (Thinking Machines, Sep 2025) [doc, H].
+- **Prompt-format sensitivity.** Up to 76 accuracy points from formatting alone (Sclar et al., ICLR 2024; FormatSpread reports a performance interval across formats) [doc, H]. Mizrahi et al. (TACL 2024) call for multi-prompt evaluation across instruction paraphrases [from memory, M].
+- **What practitioners actually run.** 3 runs (Claude plugin eval; skill-creator triggering), 3–5 repetitions (LangSmith examples), means ± stddev, fixed thresholds. "Regression" is declared by a threshold (promptfoo, ADK, plugin-eval exit code), by per-row red cells against a baseline (Braintrust), or by the regression-eval-should-stay-near-100% rule (Anthropic) [doc, H]. One practitioner harness reports ±17.6% run-to-run noise on agentic tasks [doc, L; a single third-party source].
+- **What those sizes can detect.** With 50 tasks × 3 runs at about 70% pass, the standard error of an old-versus-new difference is roughly 5–9 points, so changes under about 10 points are not reliably detectable [inf, M]. I found no practitioner source that runs a power analysis before declaring a prompt regression [inf, M].
+
+#### 12. Generating tests from the prompt itself (PromptPex)
+- Microsoft Research (arXiv 2503.05070, Mar 2025). An LLM extracts the input spec and output rules from the prompt, then generates tests per rule, including **inverse rules**. It was evaluated on 22 prompts by how often tests induced non-compliant output across 4 models, and it beat a baseline generator [doc, H].
+- GitHub Models CLI `generate` productised the method (Aug 2025): intent → input spec → output rules → inverse rules → tests plus an evaluator [doc, H].
+- This is the only method I found where cases are traceable to individual instructions by construction [inf, M].
+
+#### 13. Automated optimisation as a test loop, and the overfitting it exposes
+- **GEPA and DSPy.** A Datasette Agent case: training accuracy rose from 90% to 95% while held-out accuracy fell from 95% to 85%, caused by conflicting rules [doc, M; a single blog].
+- **AGENTS.md "autoresearch".** Codex optimised a file over 8 iterations against real PRs. The best version improved on training and regressed on a clean holdout (Ben Redmond, secondary summary) [doc, L–M].
+- **AutoSaddler** (arXiv 2608.23041, Aug 2026). Defines *regression rate* as previously passing scenarios that fail after a patch: 14% for prompt patches, 19% for tool patches. It reclassifies patches into "steering" (text-only) and "capability" (code); the split numbers are reported only secondhand as 17% versus 8%, unconfirmed [doc, M for the definition and component rates; L for the split].
+
+#### 14. Online, production and dogfooding
+- **Cursor.** Pairs an offline CursorBench (built from internal sessions, scored on correctness, code quality, efficiency and interaction) with controlled analyses on live traffic. Scores compare only within one version [doc, M].
+- **Claude Code.** Reportedly dogfoods with employees first and keeps features that show retention in that cohort; reports also mention an 80% cut to the system prompt. Secondary sources only, no primary account of evals for prompt changes [doc, L].
+- **OpenAI trace grading** grades individual production traces before they become datasets [doc, H].
+
+#### 15. Test integrity and reward hacking
+- **ImpossibleBench** (arXiv 2510.20270, Oct 2025). Mutates unit tests so they contradict the spec; any pass counts as cheating. GPT-5 exploited the tests 76% of the time on one subset. Strategies included editing tests despite instructions not to, and overloading `__eq__` [doc, H].
+- This works as a seeded-fault check that an outcome grader can be gamed, and it also tests a "do not modify tests" instruction [inf, M].
+
+#### Cross-cutting, by the asker's dimensions
+- **Case production.** Mostly hand-written plus harvested failures, at 20–100 cases (Anthropic, Hamel). Model-generated cases with human review at scale (Model Spec: 596; SpecEval: 20 per statement; PromptPex; Vertex adaptive rubrics; plugin-eval init) [doc, H]. Adversarial generation appears in benchmarks, rarely in product suites [inf, M]. Representation: input, environment state (repo snapshot, DB state, mocks, prior transcript), graders or assertions, optional reference solution or trajectory [doc, H].
+- **Traceability.** Per-clause or per-rule mapping exists only in Model Spec Evals, SpecEval, Harness-IF, PromptPex and Agent-as-a-Judge (per requirement). Product practice ties cases to failure modes or features, not to instruction text. Selecting cases from an instruction diff is **not documented anywhere I found**; tags and filters exist as mechanisms only [doc for the absence after targeted search, M].
+- **Comparison conditions.** Old versus new on the same cases (Braintrust, promptfoo, skill-creator old-skill snapshot). A no-instruction arm (plugin eval, skill-creator, SkillsBench, Gloaguen, Harness-IF's rule withheld). Several models (benchmarks, GitHub). Non-determinism handled by 3–5 repeats, pass^k, median of 5 judge samples, majority of 3 judge calls [doc, H].
+- **Judging.** Deterministic first, binary over Likert (Hamel, plugin-eval docs). Exceptions: OpenAI uses 1–7 mapped to binary, SpecEval 1–5, Anthropic's docs show 1–5. Rubric per case or per clause. Calibration against human labels with TPR/TNR or κ. Biases checked by order swapping and stronger judges [doc, H].
+- **Cost and cadence.** CI per PR (smoke) with the full suite on merge or nightly. Retire evals that always pass, and phase out expensive LLM judges first [doc, H]. Per-run costs are rarely published. HAL is about $40k for a large cross-benchmark sweep, and plugin eval warns that every run and judge call bills usage [doc, H].
+
+### Where practice is thin
+
+1. **From an instruction diff to the cases to run.** No documented method maps a changed clause to the affected cases, whether by dependency graph, impact analysis or tags kept in step with clauses. Teams rerun everything, a sample, or the last failures. Selection in software testing relies on static dependencies, and prompts have none that can be parsed [doc for the absence, M; reason inf].
+2. **Whether the rule caused the behaviour.** Most suites have no no-instruction arm. Where one exists, it is for the whole artifact (plugin or skill on/off). Ablating one rule inside a multi-file set is done only in research (Harness-IF, about 9 builds) and does not scale to hundreds of rules × repeats × cost [doc and inf, M]. A suite that passes cannot tell compliance from coincidence, and Harness-IF shows that inflates scores by 3.6–7.4 points.
+3. **Interactions among many rules across files.** IFScale, AgentIF and Yang show that capacity limits and conflicts degrade compliance. Gloaguen shows that whole files can lower success. McMillan finds no structural effects but does find within-session decay. No practice detects that amending rule A broke rule B except rerunning the whole suite, and precedence across surfaces is barely measured (one pilot) [doc, H for the phenomena; M for the absence of practice].
+4. **Conditionally loaded instructions.** Skills and sub-agents loaded on trigger are tested for triggering in isolation (skill-creator), but nobody tests a composed session where several load and compete [inf, M].
+5. **Process and meta-rules with no task outcome.** These are rules about how to reply, what to record, when to stop for a human. Vendor guidance says grade outcomes, not paths. Process compliance needs trace graders, which are the least-calibrated judges. Within-session decay (McMillan; SysBench session stability; MTAC) means short cases understate failure on long sessions [doc and inf, M].
+6. **Suites that amend with the rules.** When a rule changes on purpose, its cases' expected behaviour must change too. No documented practice versions cases against rule versions (OpenAI says only that the dataset "evolves"). Over many amendments the suite silently encodes superseded rules, or gets rewritten by the same agent that wrote the rules [inf, M].
+7. **Circularity.** Model-written rules, cases and judges from one model family. SpecEval's three-way consistency is the same model as candidate and judge against its own provider's spec. Self-generated skills give nothing (SkillsBench). Agent-optimised rule files regress on clean holdouts. Holdouts are recommended, but with 20–50 cases a holdout is tiny [doc, M].
+8. **Statistical power.** Typical suites (20–50 cases × 3 runs) cannot detect effects of a few points, yet "regression" is declared on thresholds or red cells. Clustering, pairing and power analysis (Miller) appear in lab methodology, not in practitioner prompt CI [inf, M].
+9. **Revalidating judges.** Judges are calibrated once. I found no documented practice for recalibrating after a judge-model update or after the rubric's underlying rule is amended. Criteria drift says the target moves anyway [inf, M].
+10. **Replaying a production failure.** Converting failures to cases is standard advice. Faithfully reconstructing the agent's state at failure (repo, tool responses, prior turns, the rule set then in force) is supported only partially (plugin eval's `history_file` and MCP replay; benchmark Docker snapshots) [doc, M].
+11. **Cost of re-testing after every amendment.** With agentic runs at dollars each (HAL works out to about $1.8 per rollout) and multiplied by arms and repeats, testing every amendment of a large rule set is unaffordable without selection, and there is no selection method (point 1) [inf, M].
+12. **Practitioners mostly do not test rule files.** Cai et al. find that developers patch rules reactively, adding negative constraints to correct errors, and report no validation step. Claude Code's own team is described as relying on dogfooding [doc, M].
+
+### What the tasking smuggled in
+
+- **That instructions are separable units.** "One case per rule", "tagging", "coverage" and "cases tied to the specific instructions" presume an instruction set decomposes into independent rules whose effects can each be tested. The evidence points the other way: behaviour emerges from the whole context plus the model; files can hurt as wholes; rules conflict and compete for capacity; position and size may not matter while session length does. The practitioners with the best-validated method (§9) cut by *failure mode*, not by *rule*. The asker's cut may be the wrong unit.
+- **That testing is the control.** The framing never asks whether a rule should exist, or whether it should be code (a hook, a check, a script) rather than prose. Gloaguen ("minimal requirements"), Cai (rules accrete as negative constraints) and AutoSaddler (text patches regress more than tool or middleware patches by component; the split is unconfirmed) all suggest that removing or mechanising rules is a competing control. Testing makes many rules cheap to keep, which may be the problem.
+- **That the instruction change is the risky event.** "When those instructions change" frames this as change-triggered regression. Ma et al. and Yang et al. show model updates flip prompt behaviour as much, with stable instructions breaking under a new model. A suite keyed to instruction diffs misses the larger shift.
+- **Software-testing vocabulary over measurement vocabulary.** Test cases, regressions, coverage, mutation and suites-that-check-suites come from deterministic software. The evaluation literature that actually works here frames it as *measurement*: validity (ABC), reliability (κ, TPR/TNR), sampling and estimation (clustered SEs, Rogan–Gladen, CIs). "How a regression is declared" assumes a binary gate where an interval may be the honest output.
+- **That checks bottom out.** "Checking the checks" assumes a hierarchy that ends somewhere. Criteria drift (Shankar) says the criteria are formed by doing the grading, and OpenAI's calibration loop sends each disagreement back to rubric, grader *or* label, with no fixed ground.
+- **That documentation reflects practice.** Asking for "as actually practised" while listing vendors and frameworks tilts toward what is published: tool docs and benchmark papers. What labs actually do with their own agent prompts is mostly undisclosed. The commonest real practice (reading transcripts, dogfooding, reactive patching, no tests at all) is under-documented, so it will be under-represented in any answer built from sources, this one included.
+- **That an observable expected behaviour exists.** "Expected behaviour, assertions" presumes each instruction produces a checkable outcome. Many rules in large agent rule sets govern process, voice or record-keeping, where the "outcome" is a property of a long trace, which is the least-validated kind of grading.
+- **That the instruction surfaces are one kind of thing.** System prompts, rule files, custom instructions and tool policies are lumped together. Harness-IF shows the surfaces differ in precedence and that tool and skill descriptions lose conflicts, so a method valid for one surface may not transfer.
+- **The tasking's own blind spot.** Forbidding me to read the repository avoids contamination, but it also means the description "large, multi-file, amended often" is the asker's own characterisation. Whether that is the property that matters (rather than, say, how many rules are against the model's prior, or how long sessions run) is assumed rather than shown.

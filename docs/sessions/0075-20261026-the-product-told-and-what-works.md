@@ -22,19 +22,19 @@ the harness is called in the landscape, and how the front page tells it.
   Weighed against keeping the product a development harness with the general aim as direction;
   refuted by the user's own account to a friend: *I work on memory, the space of ideas and
   self-improvement; development is a convenient domain for testing*.
-- **The word *harness*** — q-0033.0011, closed. Two passes: an outside reading found *a harness
+- **The word *harness*** — q-hdtp5b, closed. Two passes: an outside reading found *a harness
   for your own harnesses* absurd under the runtime reading (Theo: the harness is what makes a model
   act); a landscape scan found the word rising for the layer above the runtime, and one source,
   Böckeler, naming the *user harness* apart from the builder's. The user: the name stays, the word
   meant as the user harness; the method's glossary rewritten so, L1 with it.
-- **The README** — q-0037.0018.0005, four decisions: one front page per project, its root README
+- **The README** — q-kkw47n, four decisions: one front page per project, its root README
   (the code had shipped it as the front page since 2026-10-14, outrunning the spec's *never
   ships*); written by hand and checked, *for now*, since it is tuned a sentence at a time against
   cold readers; the check both ways; a marked source with the README its mechanical copy. The
   user turned the hidden-comment marks: *how will the line be invisible? everyone sees it* — the
   first reader is an agent reading the file as text. Paragraphs are claims with their answers,
   explanations, or experiments with their question.
-- **Self-presentation** — q-0033.0010, decision 1, overturned once. Proposed as an answer to a
+- **Self-presentation** — q-t2eady, decision 1, overturned once. Proposed as an answer to a
   pain of its own; the user: it is *about every pain, not one* — it explains the pains and how the
   harness answers them; *I don't know what works and what doesn't* is a pain of its own, answered by
   the questions the page puts to the reader. Landed as pain 4 with A53, the reader checks, and
@@ -64,17 +64,17 @@ the harness is called in the landscape, and how the front page tells it.
 
 ## Live cases
 
-Recorded in q-0033.0010: case 6, two blind readers of the rewritten page — each principle holding
+Recorded in q-t2eady: case 6, two blind readers of the rewritten page — each principle holding
 only partly, the straw-dog tags read as jargon, the study locked behind our code; case 7, a project
 with a harness of its own that said no by comparing lists and then found its own checks broken.
 
 ## Open, and what continues
 
-- q-0033.0010: how the telling marks its questions, and what measures it.
-- q-0037.0018.0005: the ticket's criteria — the three principles and measuring benefit — then
+- q-t2eady: how the telling marks its questions, and what measures it.
+- q-kkw47n: the ticket's criteria — the three principles and measuring benefit — then
   the marked source, its check and its clock.
 - A53 and A54 have no question building them.
-- q-0037.0006.0024, taking the harness in parts, now another session's.
+- q-o3ps2o, taking the harness in parts, now another session's.
 
-First step of the next session: decide how the telling's questions are marked (q-0033.0010), then
+First step of the next session: decide how the telling's questions are marked (q-t2eady), then
 the README ticket's criteria.

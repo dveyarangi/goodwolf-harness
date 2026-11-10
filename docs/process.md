@@ -1,6 +1,6 @@
 # Development process
 
-<straw-dog question="q-0037.0013">
+<straw-dog question="q-p4mcme">
 This document is a suggestion of sequence, not a rulebook. The sequence and the scoping of work are the [pacer's](pacer.md) concern, and the pacer owns this document once it exists. Each step's rules belong in the step's own skill and move there as the skill is installed. Where the installed skills or the [entry file](../AGENTS.md) differ from what follows, they are right.
 </straw-dog>
 
@@ -33,7 +33,7 @@ Ticket names, `done/` moves and citation:
 The policy is the entry file's: [AGENTS.md § Autonomy](../AGENTS.md#autonomy) sets how far the agent
 goes alone by a dial on each ladder, and a repair stands on the rung of what it mends. The dial
 replaced the five switches on 2026-10-15; its decisions are in
-[q-0037.0013.0005](questions/q-0037.0013.0005-which-of-the-agents-acts-need-the-persons-yes-and-which-does-it-do-on-its-own.md).
+[q-xmk75m](questions/q-xmk75m.md).
 
 ## Verification
 

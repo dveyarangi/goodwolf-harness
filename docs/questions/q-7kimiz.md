@@ -1,0 +1,19 @@
+# q-7kimiz Does a project under Node need Python for core, or do its scripts run on Node too?
+
+- **record of** what it intends to become
+- **part of** q-yyr5br
+- **state** open
+- **rung** development: a product slice, self-improvement: a rule
+- **lean** the user, 2026-10-26: copies of the scripts in JavaScript beside the Python weighed — a port once and a double for every change after; one runtime, or Python fetched by the install, weighed against it; left open, waiting on which runtime the recipients have
+- **opened** 2026-10-25T22:29:50Z
+- **struck** 0, last 2026-10-25T22:29Z
+
+Asked by the user, 2026-10-26: what would it cost to keep copies of core's scripts in JavaScript,
+side by side, so that whoever installs under Node need not install Python? A proposed answer to
+objection 20 of [meeting-run4-objections](../research/meeting-run4-objections.md), *Python and uv
+in a TypeScript repository*, not yet decided in its parent.
+
+**What a copy would copy, 2026-10-26.** Twelve scripts under `.agents/scripts/gw/`, 10,242
+lines, the standard library alone; 11,437 lines of tests in seventeen files, which call the
+scripts' functions in-process and so would not test a copy. Every rule and skill names its call as
+`<script>.py`; `hook.sh` runs the interpreter `harness.py --links` recorded.

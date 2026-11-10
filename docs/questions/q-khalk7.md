@@ -1,0 +1,75 @@
+# q-khalk7 Do decisions 23, 24 and 26 of the coordinator overturn its earlier decisions that keep the store in the person's checkout of main?
+
+- **record of** what happened
+- **part of** q-7ebz2f
+- **state** closed:decided
+- **answer** [q-7ebz2f, decisions 23 and 37 to 51, the list kept by decision 31](q-7ebz2f.md#decisions) — the user, 2026-11-09
+- **rung** development: load-bearing, self-improvement: the method
+- **opened** 2026-11-09T07:51:22Z
+- **struck** 0, last 2026-10-31T04:14Z
+
+Opened 2026-10-31 by the scheduled `/maintain` pass with no person, sweeping the decisions landed
+since 42ee3be3. Later decisions of
+[q-7ebz2f](q-7ebz2f.md)
+overturn or narrow earlier ones there without saying so; the question sits at the load-bearing
+rung, so the pass asks rather than repairs.
+
+- The later decisions, the user, 2026-10-30: 23, a question's id stable and no rewrite of ids beyond
+  the store; 24, the questions under `refs/gw/questions`, a ref outside branches, its one checkout
+  the coordinator's; 26, every read through the coordinator, a fresh clone and CI needing no copy
+  of the questions. 24 says it supersedes 3, and 23 that it retires 9; neither names the others.
+- The earlier decisions they meet, in the same entry: 7, "the copy of `docs/questions/` a branch
+  carries … a check refuses a branch that changes it … The truth stays files on main"; 10, the
+  window "drawn from the files in the checkout where the coordinator keeps the truth"; 11, the
+  session script's functions "over the rows' folder in its checkout"; 14, "The coordinator commits
+  in the person's checkout of main, naming its paths"; 18, "a branch's copy of the store is not
+  checked, 01-0010.0250.0060's guard keeping it unchanged"; 19, "the main checkout's scripts".
+  The entry's own shape, item 5, an agent reading a body "in the coordinator's folder", meets 26.
+- Where the earlier decisions still stand as plan:
+  [q-d4gf2u](q-d4gf2u.md)'s
+  lean (a detached head of the main checkout); the RFC and ticket of 01-0010.0250.0030 (commits
+  in the main checkout by path, the window drawn from main's files, the coordinator stopping after
+  thirty minutes idle against decision 16's *always*); 01-0010.0250.0040 (main's store check);
+  01-0010.0250.0060 (a branch's copy of the store guarded); 01-0010.0250.0080 (decision 9's map
+  of renames, which 23 retires); 01-0010.0250 (its child list, and a queue of writes kept for the
+  networked mode against decision 22); the accepted Where it stands of
+  [q-c2qp5n](q-c2qp5n.md)
+  and 01-0010.0240.0020 (the questions and rows checked at push and in CI from the pushed copy,
+  against 18 and 26); `docs/architecture.md`, the Question store section (ids that say where a
+  question sits, a re-parent renaming ids across `docs/`, `done/`), not wrapped as a straw dog.
+
+Options:
+
+1. **Decisions 7, 10, 11, 14, 18 and 19 are marked narrowed by 23, 24 and 26** where they speak
+   of main's checkout, a branch's copy or the rows' folder, and kept for what still holds — one
+   writer, a refusal said plainly, the rows through the coordinator, scripts that restart when
+   they change; the tickets of 01-0010.0250 re-cut to that, and the architecture's store section
+   wrapped as a straw dog bound to q-7ebz2f until the cut-over lands.
+2. **Each is weighed apart at `/align`**, its own words rewritten to the ref.
+
+Recommendation: 1 — the re-cut of 01-0010.0250 the Where it stands already names needs these marks
+to cut from, and what each earlier decision still holds is plain once the place of the store is
+taken out of it.
+
+Decision 29, the user, 2026-10-31, supersedes 22 and reopens 24 and 26 and who gives 23's id, to
+q-ocix2p and q-7slcca; the marks this question asks for wait
+on those two, the re-cut of 01-0010.0250 with them.
+
+Decision 5 of q-7slcca, the user, 2026-11-05, keeps a write where the server
+cannot be reached: option 1's "one writer, a refusal said plainly" then holds for writes through
+the server alone. Decision 9 there settles what CI reads, a fetch of the store's branch.
+
+Decision 1 of q-ocix2p, the user, 2026-11-07, answers who gives 23's id: the
+server, a short count; a write away from it, a short random id, kept for good. It narrows 23's
+"given once by the coordinator" and requirement 1.2's "given once, everywhere" — a clash can
+stand between two writes away from the server until the merge finds it — and 10's refusal, as
+decision 5 of q-7slcca already did; the premise of q-crvu5f that
+reserving an id needs an atomic act holds for the server alone. None of them is marked yet.
+
+Decision 10 of q-7slcca, the user, 2026-11-08: where the one server cannot be
+reached, the machine raises a temporary server of its own, which gives random ids, holds this
+machine's rows and pushes the store's branch for the one server to merge. It narrows 10's refusal
+further — the write is that server's — and stands beside 28's second clone, whose pushes the lease
+refuses, without saying which holds. Neither is marked yet.
+
+The user, 2026-11-09: option 1, carried out in the pass decision 31 of q-7ebz2f sets.

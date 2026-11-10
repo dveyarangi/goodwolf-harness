@@ -58,9 +58,9 @@ absence is honestly classified, are judgements it records and never makes.
 | running one instruction case in three conditions with blind calibrated judging | `.agents/scripts/gw/amendment.py` | |
 | retiring a declared one | `.agents/skills/mechanism/SKILL.md` | |
 | installing a declared mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
-| removing one declared mechanism from a tree | — | <straw-dog question="q-0037.0006.0013.0002">not yet</straw-dog> |
+| removing one declared mechanism from a tree | — | <straw-dog question="q-qzeuf3">not yet</straw-dog> |
 | checking that a declaration is true | `.agents/scripts/gw/mechanisms.py` | |
-| refusing an edit to a file a mechanism declares while the skill it names is not loaded — this mechanism's, since the declarations it holds the edit to and the hooks' wrapper that launches it are, the host's row read from `HOSTS` | — | <straw-dog question="q-0037.0006.0005.0001.0001">not yet</straw-dog> |
+| refusing an edit to a file a mechanism declares while the skill it names is not loaded — this mechanism's, since the declarations it holds the edit to and the hooks' wrapper that launches it are, the host's row read from `HOSTS` | — | <straw-dog question="q-qd74xu">not yet</straw-dog> |
 | installing a mechanism's rules into skills, its own included, and the project's local file after every mechanism's | `.agents/scripts/gw/inject_rules.py` | |
 | retracting them | `.agents/scripts/gw/inject_rules.py` | |
 | running the installer over every source under the tree's settings, so a changed setting brings the tree to match | `.agents/scripts/gw/inject_rules.py` | |
@@ -127,7 +127,7 @@ claimant is the always-on mechanism, so no uninstall can remove what another mec
 - **`rule_failures.py --check`'s report** — *what exists* — that every occurrence in the
   rule-failure register names its host, model and time, and its case agrees; read by anyone who
   runs it, its exit status for a gate and its JSON for the person reading a failure.
-  <straw-dog question="q-0037.0012.0011">Nothing runs it unasked yet: the register's attribution
+  <straw-dog question="q-4xfqcb">Nothing runs it unasked yet: the register's attribution
   stands uncommitted, and the check joins the verification set once it lands.</straw-dog>
 - **`--index`'s render** — *what exists* — read on request by someone asking what is declared. **Nothing runs it
   unasked**, and nothing consumes its output: it exists so the register never becomes a file, and
@@ -165,7 +165,7 @@ Apart from these experiment files, it writes no records beyond the mechanism dir
 
 ## Not yet at the shape
 
-<straw-dog question="q-0037.0006.0004">
+<straw-dog question="q-of6uro">
 **Only a push runs the check unasked.** It runs when a person types it, when the project's
 verification set is run, which happens at `/verify`, and at every push that carries a file of the
 method, through the pre-push hook and `harness.py --pre-push`; nothing else runs it. That is
@@ -186,7 +186,7 @@ what says it happened.
 amendments to it, the fourth passed its check unedited and sharpened one word, the session's
 loosened one skill per mechanism to one owner per skill — what each one forced is in the
 evidence; the other four left no account there — and
-<straw-dog question="q-0037.0010">the rest of the corpus meets it at once</straw-dog>.
+<straw-dog question="q-g6624x">the rest of the corpus meets it at once</straw-dog>.
 
 ## What retires this
 

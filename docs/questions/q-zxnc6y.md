@@ -1,0 +1,163 @@
+# q-zxnc6y What is a session to the harness, and which mechanism keeps its lifecycle?
+
+- **record of** what happened
+- **part of** q-fjlob4
+- **state** closed:decided
+- **owner** [01-0050](../tickets/done/01-0050-a-session-is-kept-by-a-mechanism-of-its-own.md)
+- **answer** [01-0050](../tickets/done/01-0050-a-session-is-kept-by-a-mechanism-of-its-own.md) — the user, 2026-10-22
+- **realizes** A41 "Sessions collaborate"
+- **rung** development: load-bearing, self-improvement: the method
+- **lean** the user, 2026-10-22: Where it stands accepted — a session is a chat from its /recall to its /conclude, kept by a mechanism of its own with the two skills, the row gone seven days after its end and the session record, a script of its own, every rule on how sessions interact; next the inception ticket
+- **opened** 2026-10-09T23:15:03Z
+- **struck** 4, last 2026-10-22T00:05Z
+
+The user, 2026-10-10: a session mechanism of its own — the wake, the conclude and the pacer's
+invocation among its moments — installing into `/maintain` the re-check of the sessions file, the
+conclude adding that a session ended rather than erasing it. Today the sessions file is the
+questions mechanism's, a straw dog bound to q-2gw24v; `/conclude` ends its own row with
+`--end`, keeping the position, and no row is ever removed.
+
+Questions that would gather under it, not yet moved: q-jsj6sb (when a silent row ends),
+q-ou6kps (a conversation resumed under a new id), q-2gw24v (sessions beyond one working
+directory), q-4fj72c (a starting agent picking an area no other session holds), and the
+*where to resume* half of q-p4mcme. Against it, to settle at its align: *one mechanism, one
+instruction file* — `/recall` and `/conclude` are two skills, each with its own open question of
+ownership (q-72bbcs, q-d4pypx); and the user's 2026-09-06 word that resume state is the
+pacer's.
+
+Found 2026-10-10: a row of the sessions file carries an id, a time, a position and its recent
+questions — no host, and no address by which another session could reach it. Running sessions see
+each other only through the store, and cannot call one another. In Claude Desktop a peer session
+is reachable by its title and a short handle, which nothing maps to the host's session id; an id
+of the UUID v7 form, as Codex and Cursor sessions have shown in this tree, names a session no such
+listing holds. A session that opens a question under another's position can only wait for that
+session's window to show it.
+
+## Where it stands
+
+**The problem.** A session's row lived in the question store because it holds a position there,
+and everything about the session rather than the question landed on it for want of a home: rows of
+ended sessions accumulate and nothing removes them, a row another session's wake changed has no
+owner to commit it, the question format holds session instructions, and the resume and silence
+rules sit in the question script under a TODO. Neither glossary defined a session.
+
+**The shape agreed.** A *session* is one chat of a host with the tree, from its `/recall` to its
+`/conclude`, known by the steadiest id the host gives the chat. A mechanism of its own, `session`,
+keeps it — machinery, not method: that a chat exists, is seen, is silent, is reopened, ends, and
+what it leaves. It owns two skills, `/recall` and `/conclude`, the two ends of every session
+whatever method runs between them; a method's rules reach them as installed blocks. It keeps two
+records: the row, one file per session in the sessions folder, gone seven days after its session
+ended; and the session record under `docs/sessions/`, written at the conclude and kept. Its code
+leaves the question script for a script of its own, which the hook calls at start beside the
+question script. A session is free unless locked: the question it stands on names its root, the
+root its method, and a free session runs whichever ring that is; a setting at its start may lock
+it to one. The row admits that setting, and a role's, as a seam, neither built.
+
+**Its moments.** A session starts — the hook registers the row and reads the wake; is seen at each
+message; falls silent, ended by the next wake after three hours; is reopened, running again under
+the same id with its position; concludes, its record written and its row ended; is gone, its row
+removed by a wake seven days after its end. The rows a wake changed in other sessions' files are
+committed by the maintain pass under a rule from this mechanism's rules file; the row's part of
+the rules the questions mechanism installs into `/recall` and `/conclude` today moves to this
+mechanism's, the position's part stays. Every rule on how sessions interact is this
+mechanism's — the 🪢 Tangle block of the reply's layout under debug, the silent row ended at a
+wake, one checkout and one main shared with a commit holding only its own session's work, the
+maintain pass's commit of rows another wake changed, a recall re-ranking nothing another
+session is on — authored in its rules file and installed where read. The row is tier 1 through
+the window and the wake's read; the session record tier 2. Always on: nothing retires it. All of it the agent's; a lock and a role
+are the person's when they come.
+
+**What is open.** How a session keeps its position when its host resumes it under a new id, and
+how sessions reach each other beyond one working directory, gathered here as q-ou6kps and
+q-2gw24v; whose commit carries a row another wake wrote, q-75eghy, closes when the
+maintain rule moves. The single-file carry-over from before the folder, and the hook wiring's
+owner, are the plan's. Next: the inception ticket — doc, rules file, script, check and tests —
+then the row removal and the sessions section's exit from the question format.
+
+## Impact of the split, 2026-10-22
+
+One ticket: the mechanism's inception, with its moments landing in stages of one RFC. A
+split into a declaration slice and a removal slice was weighed and refused — the removal is a
+moment of the mechanism, and declared without it the doc would say *not yet* of a rule already
+decided.
+
+**Impact.** The question script loses the row's whole life — the folder, the `Session` row,
+registering, seen, silence, end, resume, the seven-day removal — to a script of the session
+mechanism's, and keeps the window's line on other sessions by import; its hook wiring calls both
+at start. Its tests move with the code: 215 of the 279 tests in `test_questions.py` name a
+session. The questions mechanism's doc loses the sessions-folder record and the three session
+moments, and gains a *relies on* row; its rules file splits Q2 and Q3 — the wake's read and
+`--end` to the session's rules file, the `at` and the leans staying. `QUESTION-FORMAT.md` loses its
+sessions section whole. `/maintain`'s F5 moves to the session's rules file; the 🪢 block of the
+entry file's reply layout is installed from it under its straw dog. The painted-door row for
+`sessions.d/` in `mechanisms.py` goes with the declaration. `architecture.md`'s two session
+paragraphs point at the mechanism's doc. The 125 ended rows go at the first wake after it lands.
+
+**Hidden edges.** The single-file carry-over from before the folder: the store still reads
+`docs/questions/sessions` when present, and the recipients' stores may still hold one — the mover
+keeps it until no recipient does, a plan decision. The window memory outside the tree is the
+session's sign of life and stays the question script's unless the plan moves it. The desktop
+app's conversation id is the row's key; the resume question q-ou6kps gathers here with
+its unseen case. Recipients take the new mechanism at their next update through the ref
+comparison; a recipient on the old hook wiring keeps registering through the question script
+until then. The two running sessions on q-huss2x and q-6ezmbo write rows while the code
+moves: the folder's form does not change, so their rows survive the move unread.
+
+**Leave alone.** The entries, the window, the position and `at`, the strike count, the roots, the
+check of entries. The session record's format under `docs/sessions/`, `/conclude`'s today. The
+lock and the role: seams, no field written.
+
+**Recommendation.** Proceed, as one ticket; the RFC stages it — declaration and script first,
+rules moved second, the removal and the format's exit last — each stage leaving the checks green.
+
+## Decisions
+
+1. **A session is a chat, from its `/recall` to its `/conclude`** *(the user, 2026-10-21)*: one chat
+   of a host with the tree, known by the steadiest id the host gives the chat — the desktop app's
+   conversation id, which outlives the process ids it starts. Not: a host process, which the
+   desktop app renames on every reopen; a person's stint across chats, which nothing holds.
+   → [the method's glossary](../../.agents/glossary.md#language), *Session*.
+2. **`/recall` and `/conclude` are the session mechanism's** *(the user, 2026-10-22)*: the two
+   ends of every session, whatever method runs between them; each acts on a record the session
+   leaves — the wake registers the row, the conclude ends it and writes the session record. A
+   method's rules reach them as installed blocks, as the questions mechanism's do today. Not: the
+   pacer taking `/recall` — the pacer is method and owns no machinery (q-awqz6b). Closes
+   q-72bbcs and q-d4pypx.
+   → [the session mechanism's doc](../../.agents/mechanisms/session/session.md), its instruction bullets.
+3. **A session is free unless locked** *(the user, 2026-10-22)*: a session is not of one method;
+   the question it stands on drives the method running at each step. A session may be locked to
+   one method by a setting at its start. The row admits that setting, and a role's, as a seam;
+   neither is built here.
+   → [the session mechanism's doc](../../.agents/mechanisms/session/session.md#how-it-works), *Free unless locked*.
+4. **The session mechanism keeps two records** *(the user, 2026-10-22)*: the row, one file per
+   session in the sessions folder, gone seven days after its session ended, since a chat the host
+   reopens finds its row under the same id until then; and the session record under
+   `docs/sessions/`, written at the conclude and kept. The question format declares neither: the
+   row's form and lifetime are the session mechanism's to declare, and leave
+   `QUESTION-FORMAT.md` with the mechanism's inception.
+   → [the conclude skill](../../.agents/skills/conclude/SKILL.md), where both records are declared.
+5. **The session code moves into a script of its own** *(the user, 2026-10-22)*: the folder, the
+   row, registering, seen, silence, end, resume under the host's steadiest id and the seven-day
+   removal leave the question script for the session mechanism's script, which the hook calls at
+   start beside the question script, and which the question script asks for the other sessions'
+   positions. Not: left embedded and declared so — a part is checked by the mechanism's name at
+   its head, which a shared file cannot carry.
+   → [the session mechanism's doc](../../.agents/mechanisms/session/session.md#install-adds-uninstall-removes), the rows' script.
+6. **The rules on how sessions interact are the session mechanism's** *(the user, 2026-10-22)*: the
+   🪢 Tangle block of the reply's layout under debug; the wake's ending of silent rows; one
+   checkout and one main shared, a commit holding only its own session's work; the maintain pass's
+   commit of rows another wake changed; a recall re-ranking nothing another session is on. Each
+   lands in the mechanism's rules file at its inception and is installed where it is read; until
+   then each stands where it is, as a straw dog bound here.
+   → [the session mechanism's rules](../../.agents/mechanisms/session/session.rules.md), S1 to S5.
+7. **The rows' folder moves under `docs/sessions/`** *(the user, 2026-10-22)*: the session
+   mechanism's records share its one directory under `docs/`, the rows in a folder of their own
+   beside the session records, carried from `docs/questions/sessions.d/` by the step that carried
+   the single file. Named `rows` *(the user, 2026-10-22)*: a row is one entry of a record, and the
+   folder holds nothing else.
+   → [the conclude skill](../../.agents/skills/conclude/SKILL.md), the row's declaration.
+8. **A silent row ended by the wake takes the time it was last seen** *(the user, 2026-10-22)*: the
+   later of the row's own time and its sign of life, so the seven days run from the session's end
+   and not from its last `at`. Not: the time kept, as the silence rule had it since 2026-10-10 —
+   a long session that never moved would be gone at the wake that ended it.
+   → [the session mechanism's doc](../../.agents/mechanisms/session/session.md#how-it-works), *A session's life*.

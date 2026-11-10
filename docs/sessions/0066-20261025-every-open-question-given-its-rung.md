@@ -3,7 +3,7 @@
 - **record of** what happened
 
 Session `local_aed9a887`, 2026-10-20 to 2026-10-25, a side session started by the pathfinder's
-session (`local_1b2487c9`) to carry one step of [q-0037.0019](../questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the.md)'s
+session (`local_1b2487c9`) to carry one step of [q-huss2x](../questions/q-huss2x.md)'s
 align: the rung back-fill, decided there by the user on 2026-10-20. Commit `f147307`.
 
 ## Decisions, and what chose them
@@ -11,12 +11,12 @@ align: the rung back-fill, decided there by the user on 2026-10-20. Commit `f147
 **156 open questions given their highest rung on each ladder they touch,** the agent estimating
 and the person lowering. The user accepted all 156 as written on 2026-10-25 (*ok for all*); none
 was lowered. The result's home is each question's `- **rung**` part, and the count stands in
-q-0037.0019's *Where it stands*.
+q-huss2x's *Where it stands*.
 
 **How each was placed.** By what a decision answering the question would decide, never by the
 record that holds it, as *Autonomy* says. Five patterns covered nearly all of them:
 
-- what the project is for → development's *the whole product* (q-0033, q-0033.0008);
+- what the project is for → development's *the whole product* (q-m6unv4, q-osjub2);
 - a mechanism's existence, boundary or ownership → development: *load-bearing* and self-improvement:
   *the method*;
 - what a skill states or owns → self-improvement: *a rule* (the sixteen "what does /X own");
@@ -40,13 +40,13 @@ in the side-session notes folder for the starting session.
 
 **A pattern, with no durable home yet.** Nearly every question of this tree stands at or above its
 ladder's dial. Only three of the 156 stand below the dial on every ladder they touch: a test, a
-one-off fix, and the wording of one example. q-0037.0019's *Where it stands* reads this as the dial working, with the cap counting
+one-off fix, and the wording of one example. q-huss2x's *Where it stands* reads this as the dial working, with the cap counting
 what is in work and the rung saying who decides. A rung back-fill will not thin the person's
 queue; if the person is to decide less, it is the dial that must move.
 
 ## Open questions touched
 
-- [q-0037.0019](../questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the.md)
+- [q-huss2x](../questions/q-huss2x.md)
   — open, the starting session's. Its back-fill step is done. The weighing and the picture wait
   on the cap and the cadence being watched. Its lean was left to that session, which still runs.
 

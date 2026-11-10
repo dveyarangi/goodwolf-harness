@@ -1,0 +1,12 @@
+# q-2ehlfq Does removal take an override for an edited core file, or is it always resolved by hand?
+
+- **record of** what it intends to become
+- **part of** q-a2kdwl
+- **state** open
+- **owner** [01-0010.0200](../tickets/01-0010.0200-a-project-can-remove-the-harness.md)
+- **rung** development: a feature, self-improvement: a script
+- **opened** 2026-10-03T11:36:20Z
+- **struck** 0, last 2026-10-03T10:17Z
+
+Whether an edited core file has an override, as an update's `--overwrite` is, or is always the
+person's to resolve by hand before removing. Decide at `/plan`.

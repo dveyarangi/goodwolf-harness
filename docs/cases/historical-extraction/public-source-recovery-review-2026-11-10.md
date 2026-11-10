@@ -3,7 +3,7 @@
 - **record of** what happened
 - **reviewer** independent subagent `judge_public_sources_final`
 - **scope** all 212 historical occurrence folders with `case.json` under `docs/cases`, excluding `discover-material`
-- **governing acceptance** [How is a recorded rule failure replayed as a test against the amended rule?](../../questions/q-0037.0012.0009.0001-how-is-a-recorded-rule-failure-replayed-as-a-test-against-the-amended-rule.md#where-it-stands), Where it stands and Decisions
+- **governing acceptance** [How is a recorded rule failure replayed as a test against the amended rule?](../../questions/q-j5s7gp.md#where-it-stands), Where it stands and Decisions
 
 ## Verdict
 

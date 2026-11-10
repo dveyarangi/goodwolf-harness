@@ -933,7 +933,7 @@ class CoreStandsAlone(Declared):
 
         self.assertEqual([(CITING, 4, DOCUMENT)], self.leaks())
 
-    # TODO q-0037.0006.0017: the check reads paths, not ticket ids; until it reads them the entry
+    # TODO q-sonc4m: the check reads paths, not ticket ids; until it reads them the entry
     # file's rule says it, and this test stays an expected failure.
     @unittest.expectedFailure
     def test_a_ticket_named_by_its_bare_id_is_a_leak(self) -> None:

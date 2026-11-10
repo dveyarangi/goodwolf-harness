@@ -6,7 +6,7 @@
 put *the fate of the written queue* into its own ⚖️ Decisions table after the pathfinder session
 told it of a drift. The user: *the fate of the written queue is not your task at all, why did you
 take it?* The session stood on
-[q-0037.0013.0005.0007](../questions/q-0037.0013.0005.0007-how-does-a-reply-report-by-the-agents-dial.md).
+[q-g2zdu7](../questions/q-g2zdu7.md).
 
 ## Decisions
 
@@ -21,7 +21,7 @@ take it?* The session stood on
   put to the person, though its message brings it.
 - **Every change is shown Before and After, with `−N +M`.** The user's *первая починка*, after not
   following two proposals shown whole. Weighed: the debugging mechanism as its home; refuted by
-  q-0037.0009.0021's decision 3 — what is shown before landing is the dial's, seen whatever debug
+  q-l36vii's decision 3 — what is shown before landing is the dial's, seen whatever debug
   is. The user: *пока пусть всегда*. Landed in the reply form (v128), bound with it to the voice
   question, the voice not yet a mechanism.
 - **R5 opens with finding the mechanism, and reaches `/skill-up`.** The user: *почему наш скиллап
@@ -52,7 +52,7 @@ take it?* The session stood on
 
 ## Open, and what each waits on
 
-- [q-0037.0013.0005.0007](../questions/q-0037.0013.0005.0007-how-does-a-reply-report-by-the-agents-dial.md):
+- [q-g2zdu7](../questions/q-g2zdu7.md):
   01-0020.0020 still waits on a judge reading a live session.
 - The S5 refinement for a file two sessions edited: set aside by the user; its text in rule
   failure 56's strike.

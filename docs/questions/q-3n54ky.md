@@ -1,0 +1,99 @@
+# q-3n54ky How does /maintain run on its own as a scheduled task — what scope it takes, where it stops, and who reads what it leaves?
+
+- **record of** what it intends to become
+- **part of** q-7ld3wt
+- **state** open
+- **rung** development: load-bearing, self-improvement: the method
+- **lean** 2026-10-29: both slices built — a question asking the person (0090, done), the sweep (0100, waiting on its first real night run); closes with 0100
+- **opened** 2026-10-25T19:00:27Z
+- **struck** 0, last 2026-10-25T18:21Z
+
+Opened 2026-10-25 on the user's word: drift is repaired not only where a session meets it —
+`/maintain` is designed to run as a scheduled task as well. The front page says so, bound here.
+The architecture's deferred decision still reads that the maintenance install defines no scheduler;
+the scheduler is the host's, and what a run takes as its scope, where it stops for the person and
+where its result is read are this question's.
+The front page's line was reworded the same day after live case 7 of q-t2eady read it as
+already running by itself: *you can schedule `/maintain` with your host*.
+The coordinator server
+([q-7ebz2f](q-7ebz2f.md))
+starting `/maintain` was set aside — built without it for now, decided later *(the user,
+2026-10-26)*; that decision is still this question's to take.
+
+## Decisions
+
+1. **A scheduled pass sweeps the tree for what the decisions landed since the last one contradict,
+   across mechanisms** *(the user, 2026-10-25)*, besides the levels its marks call due. Evidence,
+   2026-10-25: the day's pass ran eight hours after q-huss2x's decision 7 withdrew the written
+   queue as the order of work and found none of the four rules still reading it — they stood in
+   the question, ticket, product and session mechanisms, none of whose files had moved; dueness
+   follows a mechanism's own files and crosses into no other. Not: dueness alone; nor the sweep
+   left to the session that met the drift — M2 finds what a session meets, the pass what nobody
+   does.
+   → [maintain.md](../../.agents/mechanisms/maintain/maintain.md), *How it works*
+2. **"Since the last pass" is read from a mark**, one tree-wide row in the maintenance mechanism's
+   marks — the commit the decisions were last swept to — moved only by the pass that closes the
+   sweep *(the user, 2026-10-25)*. Not: the last pass's own commit found by its subject — a
+   commit's subject is the project's convention, and a pass that fails leaves none.
+   → [MARKS-FORMAT.md](../../.agents/skills/maintain/MARKS-FORMAT.md)
+3. **What a pass leaves for the person is a fixed field of its mark, delivered by the wake**
+   *(the user, 2026-10-25)*: closing a level, the pass writes in its mark what it repaired and,
+   in a field of its own, each decision it waits on; the maintenance script reads the field, not
+   prose, and the wake shows a section of what waits from maintenance only while the field holds
+   anything; a rule the maintenance mechanism installs in `/recall` puts each line of that
+   section to the person as a decision. A line goes when the one who settles it writes the mark
+   again with the field empty — not when it is read. Not: an open question per item — the path
+   shows a question touched lately for a week, and one nobody takes sinks; nor a report file of
+   its own — a second record beside the marks; nor the model deciding from a report whether
+   anything was left — what a script can tell, a script tells; nor a rule installed only while
+   items wait — the installer reads settings, not records, and the wake already arrives every time. Its form —
+   a field of the mark — superseded by q-re6h4k's decision 2: an open question
+   marked as waiting, which the wake shows until it closes.
+4. **The pass's instruction is `/maintain`'s, a section of its own for a pass with no person**
+   *(the user, 2026-10-25)*; the host's scheduled task is one line that calls it. Not: the
+   instruction in the host's task — outside the tree, checked by nothing, shipped to no recipient
+   the front page promises a schedule to.
+   → [/maintain](../../.agents/skills/maintain/SKILL.md), *A pass with no person*
+
+## Where it stands
+
+A pass with no person is `/maintain` run by the host's scheduler, its task one line calling the
+skill's section for such a pass. Besides the levels its marks call due, it sweeps the whole tree,
+across mechanisms, for what contradicts the decisions landed since the commit a tree-wide mark
+names, and moves that mark when the sweep closes. Below the dial it repairs, by subagents, and
+commits and pushes; at or above it, it asks nothing: it leaves each decision as an open question
+of the store marked as asking the person. Every wake shows every asking question until it
+closes, and `/recall` puts each to the person as a decision; its decision lands in its body when
+it closes.
+
+To build: the store's part *asks* and the wake's section; `/recall`'s rule; the section in
+`/maintain`; the tree-wide mark and a listing of what landed since it; the host's task cut to one
+line.
+
+## Impact of the split, 2026-10-25
+
+Two slices under 01-0011.0110: what a pass leaves waits in the wake until settled; then a pass with
+no person sweeps what new decisions contradict, depending on the first.
+
+**Impact.** The marks' format (`MARKS-FORMAT.md`) and `maintain.py`, whose outcome is an enum of
+three words checked on every row: the *waits* field is a column of its own, and every existing
+row gains it empty in the pass that lands it, or the check fails the tree. The wake
+(`questions.py`) gains a bounded section, read from the marks the way the path reads tickets and
+the product document. A rule into `/recall` from `maintain.rules.md`. `/maintain` gains its
+section for a pass with no person; the host's task, outside the tree, is cut to one line.
+
+**Hidden edges.** A tree-wide row breaks the marks' key of mechanism and level, and its
+fingerprint, 64 hex of what a level was checked against, is no commit; the second slice's plan
+settles its shape. What landed since the mark is read from the history by a script — decision
+lines added to questions, closures, rules files, the entry file — never by a model. In a
+recipient the core mechanisms' rows are refused, but the tree-wide row and the waits field are its
+own. The wake is read at every start: the section is bounded and absent when empty.
+
+**Leave alone.** Dueness and its fingerprints; the outcome's three words; B4's re-check of
+what is due.
+
+**Recommendation.** Proceed: two thin slices, the first verifiable alone — a hand pass writes a
+waits item, the next wake shows it, `/recall` puts it, settling it clears it.
+
+*2026-10-29:* what landed is not read from the history as decisions — the script lists the files
+in the decisions' homes that changed, and the agent reads what each change decides.

@@ -1,19 +1,19 @@
 # The path ahead is shown from what the project is for
 
 - **record of** what it intends to become
-- **Status:** Planned (the end-state of q-0037.0019's accepted `Where it stands`; its first slice, 01-0060.0010, done 2026-10-25)
+- **Status:** Planned (the end-state of q-huss2x's accepted `Where it stands`; its first slice, 01-0060.0010, done 2026-10-25)
 - **Type:** HITL
 - **Minted:** 2026-10-23
-- **Answers:** [q-0037.0019](../questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the.md)
+- **Answers:** [q-huss2x](../questions/q-huss2x.md)
 - **Outcome:** The person sees, at every session's start and whenever they ask, which questions are in work against the cap, which the cap held back, which candidates stand at the next boundary and why, and how the three roots balance; what enters work is their word at a boundary, never the last idea said.
 
 ## Parent
 
-[q-0037.0019](../questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the.md),
+[q-huss2x](../questions/q-huss2x.md),
 whose `Where it stands` the user accepted on 2026-10-23. This ticket is that picture's end-state;
 its children are the slices, the first carved the same day. The question keeps the argument, the
 discoveries and the open parts: the weighing, the time-axis picture, the ring mark (deferred as
-q-0037.0019.0001), the unit of work across methods.
+q-b3myg2), the unit of work across methods.
 
 ## What to build
 
@@ -35,7 +35,7 @@ slice a complete pass from the records to what the person reads.
 
 ## Out of scope
 
-The driver that runs the ring with outside judges — q-0037.0010.0002.0005.0001. The ring's rules
-and the step-end choice — the practice mechanism's, q-0037.0010.0002.0005. A recipient's
+The driver that runs the ring with outside judges — q-kjd6ej. The ring's rules
+and the step-end choice — the practice mechanism's, q-ggpx2r. A recipient's
 pathfinder with its own method's unit — the seam in the ticket mechanism's doc, bound to
-q-0037.0019.
+q-huss2x.

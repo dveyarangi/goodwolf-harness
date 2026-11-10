@@ -1,0 +1,31 @@
+# q-5cl4no Does an install keep a project's CLAUDE.md and add one import line, rather than move it aside?
+
+- **record of** what happened
+- **part of** q-n3pc22
+- **state** closed:decided
+- **owner** [01-0010.0150.0020](../tickets/01-0010.0150.0020-the-two-modes-of-taking-a-trees-method-in.md)
+- **answer** [q-nlec4j, decisions 1 and 8](q-nlec4j.md#decisions) — the project's CLAUDE.md kept, mechanisms added to it as sections rather than one import line; the user, 2026-10-26
+- **rung** development: a feature, self-improvement: a script
+- **opened** 2026-10-03T11:36:20Z
+- **struck** 1, last 2026-10-25T20:52Z
+
+**Keeping an existing `CLAUDE.md` rather than moving it aside.** The first two adoption panels
+([2026-09-26](../research/adoption-panel-2026-09-26.md)) named the forced migration as the
+blocker most often, and one reader asked for exactly this: leave the project's `CLAUDE.md` where
+it is and add one `@AGENTS.md` import line to it. That would change the stub from a shipped file
+to an edit of the project's own, which the manifest does not do today; weigh it against the
+inventory-and-align flow at the next `/plan`.
+
+**Mechanisms as the unit of an install, the user, 2026-10-25.** Taking a tree's method in by
+carrying it into the local rules file is refused: a recipient's method can be tons of material.
+Instead every rule of the entry file becomes a mechanism's — the principles a mechanism of
+meta-rules, likely the thin base — and an install into a tree with an `AGENTS.md` or `CLAUDE.md` of
+its own adds mechanisms to it, gradually, not as one migration. The modes proposed: a full install
+with the overlaps migrated; mechanisms installed one at a time as the migration goes; only the
+mechanisms that overlap nothing, where they can work alone. Read against the tree the same day:
+60% of the entry file by characters belongs to no mechanism, and 15 of 25 skills say *Mechanism:
+not yet*; the store imports `sessions.py` for every window and wake, and `maintain` reads a straw
+dog's dueness through the store, so the smallest install that works alone is the session and the
+store, `maintain` on them; the third mode is nearly empty, the user agreeing. Both recipients'
+reports put that floor first — the owner's questions in one place, a record of each session.
+Whether becoming the missing mechanisms comes before this work is in work.

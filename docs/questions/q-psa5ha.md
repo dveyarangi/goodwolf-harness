@@ -1,0 +1,308 @@
+# q-psa5ha How do sessions hand work to each other — a verification, a close, a unit — and when may one take over what another is on?
+
+- **record of** what it intends to become
+- **part of** q-zxnc6y
+- **state** open
+- **owner** [01-0070](../tickets/done/01-0070-sessions-hand-work-over.md)
+- **rung** development: load-bearing, self-improvement: the method
+- **lean** the user, 2026-10-25: sixteen decisions landed, S7 S9 S5 and two tier-1 principles; 01-0070 and its slices closed; open while its child, the live takeover, is
+- **opened** 2026-10-23T16:20:38Z
+- **struck** 1, last 2026-10-25T03:49Z
+
+## Where it stands
+
+**The problem.** Several sessions run in one tree. One of them, asked by the person about work
+another holds, takes it: verifies, closes, commits. The overlap was visible — a row in the 🪢
+table — and was read past, by the person and by the session, because a row is information and
+nothing made the session stop. No rule said who closes a unit another session worked, or what a
+session does when the person goes on with another's unit anyway. Under it, the agent's standing
+bias: to do as much as it can itself.
+
+**The shape agreed.**
+
+- **One fact first: who holds the unit.** A unit is an open question with an owner, the record of
+  the work that answers it; its holder is the session whose row names it. A ticket never names a
+  session — sessions are lost and the record stays, and the session mechanism cannot stand on the
+  ticket's format *(the user, 2026-10-24 and 2026-10-25)*. Built as 01-0070.0010. A session's plan
+  — the questions one feature links — is a later reading.
+- **An overlap stops the session.** One rule read off the window, which reaches the session with
+  every message, so it stops every step, free conversation included *(the user, 2026-10-25)*. A turn
+  that would act on a unit another running session holds
+  — finish, close, verify, commit or continue its work — settles nothing there: it
+  says whose the unit is and where the two touch, brings the two ways to act with a
+  recommendation, and does nothing on the unit until the person names one. The weight is not in
+  the prose: nothing proceeds by default. *Serious* is not judged: a held unit stops, an unheld
+  one does not.
+- **Two ways, the person's to name.** This session takes the unit over: the person's word, once
+  said, is acted on without a second ask, and the holder's row keeps the mark of who took it, so a
+  holder still alive learns its unit is gone — from its window, and from a message where the host
+  offers one. Or a sub-task is cut and taken here, the rest left with the holder.
+- **The session mechanism manages every session from any one of them**: any session writes any
+  row through the session script *(the user, 2026-10-25)*.
+- **A judge is a subagent.** The one who built a thing does not judge it; where that applies, the
+  builder starts a subagent, gives it what is to be judged and where its evidence stands — never
+  its own conclusion — and closes on the verdict itself *(the user, 2026-10-25)*. What a new chat
+  receives a subagent reads by running the wake itself; whether the host delivered it is the hosts
+  edge's live check *(the user, 2026-10-25)*. No session
+  judges another running session's unit, so nothing is handed over between sessions to close a
+  unit. The principle is q-7rmmpw's, how produced work is gone over again and by whom.
+- **The bias is named at tier 1.** The entry file's general rules say it: the agent's default is
+  to do as much as it can itself, and work another holds is not done without the person's word.
+
+**What is the method's and what is the host's.** The mark, the stop, the two ways, the takeover's
+mark and the rule against the bias are the session mechanism's and the entry file's; the judge's
+form is the ticket format's. Sending a message, and starting a subagent, are the host's seams.
+
+**Open here.** The plan reading, later.
+
+## Decisions
+
+1. Start from the holder fact; the plan reading waits *(the user, 2026-10-23)*.
+2. The judge is a role; its verdict goes into the record it is of *(the user, 2026-10-23)*. Its form
+   is decision 10's.
+3. A message wakes the holder to do its own closing; where the host has none, the checker closes
+   *(the user, 2026-10-23)*. Superseded by decision 10: no session judges another's unit, so none is
+   woken to close.
+4. A holder that cannot be reached is taken over; one whose row has ended holds nothing
+   *(the user, 2026-10-23; the row's reading, the agent)*.
+5. The rule against the bias is the principle itself, at tier 1 *(the user, 2026-10-23)*.
+6. An overlap on a held unit is a stop with three ways to act, not weightier prose
+   *(the user, 2026-10-24)*. Not: a seriousness judgement — the held unit is the line.
+7. A handover is written into the unit's record first; the message points at it *(the agent,
+   2026-10-24, from decision 3)*. Superseded by decision 10 with decision 3.
+8. The holder mark lives in the session's row, never in the ticket *(the user, 2026-10-24)*. Not:
+   the ticket's header — sessions are lost and the record stays, and a format that may be replaced
+   cannot carry a mechanism of another.
+9. A session takes over another's held unit by the person's word and leaves the mark of the
+   takeover in the holder's row; the session mechanism manages every session from any one of them,
+   so any session writes any row *(the user, 2026-10-25)* → [session.md](../../.agents/mechanisms/session/session.md),
+   [architecture](../architecture.md). Not: the holder releasing only by itself, every row written
+   by its own session alone — the rule of 2026-10-13, given up.
+   While the holder runs, the stop puts the takeover to the person; the person's word to take it
+   is acted on without a second ask *(the user, 2026-10-25)*. A person takes a unit over when the
+   holder no longer serves it — gone stale, stuck, out of context, on another machine, or the work
+   given to another session — and the holder may still be alive, so the mark, and a message where
+   the host offers one, is how it learns its unit is gone *(the agent, 2026-10-25)*.
+10. A judge is a subagent the holder starts, given the criterion and where its evidence stands,
+    never the holder's conclusion; the holder closes on its verdict. The judge as a way to act on another
+    running session's unit is dropped, with the handover to close and the holder's release of a
+    unit waiting on a judge *(the user, 2026-10-25: the session judge is a ceremony that asks the
+    person many acts to close one task)*. Not: a judge session handing its verdict to the holder.
+11. The judge is a meta-rule, the one who built a thing not judging it, not a ticket's rule; its home
+    is q-7rmmpw, where the decision stands in its list. The stop is one rule of the session
+    mechanism in the entry file, read off the window, not rules installed into the steps
+    *(the user, 2026-10-25)*.
+12. No later session judges what a subagent cannot: nothing a judge of the work needs is out of a
+    subagent's reach. A subagent receives no host injection — it has no start of session and no message of the person — but it can read the entry file and run the wake itself, which is the text a new chat receives; whether the host delivered it is the hosts edge's live check, not a judge's *(the user, 2026-10-25)*. Not: a later session for what a host
+    puts in a new chat.
+13. *Proposed by the user, 2026-10-25, to be discussed before it lands:* what a session finds or
+    opens that bears on another running session's question or unit, it tells that session. The
+    case: the pathfinder deciding the path is read from the product while the product session
+    shaped the product document, neither knowing of the other; both told once, by message, the
+    same night. Landed into S9 the same turn without the discussion and taken out again.
+    Under discussion, 2026-10-25: (a) *bears on* means falls in the subtree of the question another
+    running session stands on, or in the unit it holds — both read off the window, so it is checked
+    rather than guessed *(the user, 2026-10-25)*; a link of meaning between two distant branches no
+    session stands near is the pathfinder's or the person's to find. (b) The way a session is told
+    is the shared place of q-2gw24v once it exists; today's stand-ins meanwhile. (c) A
+    session tells without asking, telling being information that changes nothing, and never
+    writes into the neighbour's question or records, which is acting on another's work and takes
+    the person's word as S9 says *(the user, 2026-10-25)*. → S9 of the session rules file, landed
+    2026-10-25 after the discussion.
+14. The person's word to take a unit over lets go the unit the taking session held; the reply says
+    which, and that it is nobody's now *(the user, 2026-10-25, on a cold case that held its own unit
+    and asked again)* → S9 and `sessions.py --take`.
+15. A hold at a step's start lets go the unit the session held, the step being the person's word;
+    the reply says which, and that it is nobody's now *(the user, 2026-10-25, on the judge finding
+    that `--hold` still refused a second unit where `--take` let one go)* → S7 and
+    `sessions.py --hold`.
+16. *Duplicate* is struck from the stop's list: writing another's plan or work is continuing it,
+    and drafts that touch no record bother no one *(the user, 2026-10-25, on the parent's verify
+    judge finding the word in the parent and the question but not in S9)*. A decision not to do; it
+    lands in this question alone.
+
+Opened on a case of 2026-10-23. A ticket, 01-0010.0220, had been landed and worked in one
+session, which still held two of its edits uncommitted. A second session, asked whether the ticket
+could be closed, ran the verification, and when the person said *you can send a message to the
+holding session*, read that as leave to ask the holder about its edits, then verified, moved the
+pair to done, closed the question and prepared the commit itself. The person: the close was to be
+handed to the session that worked the ticket, with the verification's results; the second session
+had taken the work instead of passing it. The close was reverted in the working tree and handed
+over by message.
+
+What stands: S4 names a collision between sessions and says it is reported as a tangle; S5 says a
+session commits its own work only and in doubt asks the person; the ticket's close is a duty
+`/maintain` carries, said of no session in particular. None says who closes a ticket another
+session worked, what a handover carries — the verification's results, the criteria met, what is
+left — or when a session may take over what another is on. The host's own rules on starting and
+messaging sessions are the host's, not the method's.
+
+Candidates: the session on a unit owns its close until the person moves it; a verification run
+elsewhere is handed to the owner as results, in a message or a record; a session takes over only
+by the person's word, said to it, and says so in its first reply on the unit. Which of these is a
+rule of the session mechanism and which the host's seam is the question.
+
+## First pass — 2026-10-23, the person's shape and the agent's counter
+
+**The person** *(2026-10-23)*: the slip happened because nothing says how to hand over or talk to
+another session, and the agent's default bias is to do as much as it can itself. The work is the
+session mechanism's, on two preconditions. (1) Every session has a plan of work chosen at its
+start — not a bare open question but a block of linked questions of a stated scale it means to
+take — so another can read how busy it is and whether it will carry the work itself; this may be
+the pathfinder's and the person's to set rather than the session mechanism's. (2) A rule of
+talking between sessions: passing information — the pathfinder session would want to know of the
+plan idea — and returning work where a new or separate session judges another's. The judging
+should be explicit: a new session may take as its work the closing of another session's open
+judgements or behavioural approvals — not the question, the checks; and where the mother session
+is gone, the checking session may close itself. All of it tentative, offered for argument.
+
+**The agent's counter.** On (1): a plan at start is heavier than the need. What the handover
+needed was not a forecast of the holder's busyness but one readable fact — *who holds this unit*.
+The ring already defines a session's plan as the unit it holds and the subtree under its
+question; the pathfinder chooses the unit, the session takes one. A holder mark on the unit — the
+ticket's or the row's — answers *is she on it, will she carry it* without a plan, and sessions are
+chats that end, cheap to start again. The same mark is what q-b3myg2 deferred, the ring
+mark, until the cap counted wrongly; the handover is a second symptom of the one gap, and the
+deferral's condition should widen to it. On (2): agreed that the judge is made explicit, but as a
+role, not a message protocol — q-p4sdnv holds roles, and q-kjd6ej already
+names judges outside the working agent. A judge's rule is short: it writes its verdict into the
+record it is of — the ticket's criteria, the evidence — and neither closes nor commits what the
+holder holds. A holder whose row has ended leaves the unit unheld, and an unheld unit is taken as
+any unit is, by the person's word; no special leave for the checker. On talking: the method should
+own no messaging — that is the host's seam, and a host may have none — the records are the
+channel: a verdict goes into the ticket, a position into the row, a question someone else should
+see is opened under the parent whose session will meet it in its window. A message is a nudge,
+never the content. On the bias: the rule that would have held is S5 widened from the commit to the
+unit — a unit another running session holds is not finished, closed or committed; results are
+handed to the holder in the record; the person's word moves the unit — its wording through
+`/skill-up` at the align.
+
+## Decided — 2026-10-23
+
+1. **Start from one fact: who holds the unit** *(the user, 2026-10-23)*. The holder mark is the
+   first thing built. A session's plan is not the ring: it is which questions one feature links,
+   and it says whether the session means to go on with suspended work, has set it aside for a
+   while, or has dropped it. That reading waits; the holder fact comes first.
+2. **The judge is a role; its verdict goes into the record it is of** *(the user, 2026-10-23)*:
+   the ticket's criteria, the evidence. Roles are q-p4sdnv's; judges outside the working agent
+   stand in q-kjd6ej.
+3. **A message wakes the holder to do its own closing; the records alone are not enough**
+   *(the user, 2026-10-23)*. The point of a message is to bring the mother session back so it does
+   the mechanical work. Writing into the tree that the checks passed and the ticket can close is
+   the close itself, so where the host has no messaging the checking session closes and sends
+   nothing.
+4. **Holding is not absolute** *(the user, 2026-10-23)*. A session may be old and still hold
+   work. Where it can be messaged to release the unit or to take the verification, it is; where it
+   cannot, the stale session's work is taken over. The agent's precision: the method already ends
+   a row silent three hours at the next wake, so *stale* has a reading in the row — ended or
+   silent past the mechanism's limit — and the host's reachability is the host's seam.
+5. **The rule against the bias is the bias principle itself, in the general rules**
+   *(the user, 2026-10-23)*: the agent's default is to do as much as it can itself; the entry file
+   names that, at tier 1, worded through `/skill-up`.
+
+What the align lands, once *Where it stands* is accepted: the holder mark, widening or reopening
+q-b3myg2; the judge's rule and the handover in the session mechanism's rules; the close
+by the checker where no message can reach the holder, in the ticket's close; the bias principle
+in the entry file.
+
+## Second pass — 2026-10-24, the case taken apart and the shape the person wants
+
+**The person** *(2026-10-24)*: decision 3 is not about an old session; the signals may be an
+over-complication. What happened has to be laid out as causes and effects and a wanted outcome
+chosen. In any case the work of other sessions is to be taken more seriously: when a session
+begins work that overlaps with, or takes over, another's, it must (a) see that there is an
+overlap and assess where it is problematic; (b) if that is serious, or if it duplicates or
+continues another session's work, tell the person and go from their reaction — and since the
+person can easily ignore it, two sides are needed: weightier prose at the overlap's start, harder
+to ignore; (c) a clear procedure when the person goes on with the overlapping or problematic part
+anyway — signals to the other session, and a set of ways to act: the parallel session gives the
+work up, or the current session is the parallel one's judge, or a definite sub-task is chosen.
+
+**The case, taken apart.**
+
+| cause | effect |
+|---|---|
+| The overlap was seen and said: the 🪢 table of the reply before the ask listed two sessions at the settings question and a row saying this one had changed files on that ticket's ground. It was a row in a table, information, not a stop. | The person read past it and asked for the close; the session took the ask as its own. |
+| No rule said what a session does when the person goes on with a unit another holds. S4 ends at the row; S5 speaks of the commit only; the close is `/maintain`'s, said of no session. | The session proceeded as if the unit were its own: verified, moved, closed. |
+| No form of handover existed — what it carries, who it goes to, what the receiver does. | The message sent was a question about uncommitted edits, not a handover; the handover came only after the person's correction. |
+| The agent's default is to do as much as it can itself, and the person's sentence was read for the smallest act it permitted. | *You can send a message to the holding session* became *ask it about its edits*. |
+| Effects: the close done in the wrong session, reverted; entry 64; this question. | |
+
+**The wanted outcome, as the agent reads the person's shape.**
+
+1. **Seeing the overlap.** An overlap is readable from the store: this session's turn is on a
+   question another running session is at or under, or on a unit — a ticket In progress — whose
+   holder is another session (decision 1's mark); the assessment names what both touch, the
+   records and files, what stands uncommitted in the other's hands, and whether this session would
+   duplicate, continue or finish the other's work.
+2. **The stop with weight.** A serious overlap, a duplication or a continuation is a decision
+   above the dial — 💬 — not a table row: the session settles nothing on the overlapped unit,
+   brings the options with a recommendation, and does nothing there until the person chooses.
+   That is the method's own form for *hard to ignore*: the weight is not in the prose but in the
+   refusal to proceed by default. S4's row stays for collisions that bear no work. *(the agent)*
+3. **The ways to act when the person goes on.** Three, and the person names one: the parallel
+   session releases the unit — the holder mark moves, the other session told where the host can
+   tell it; this session judges the parallel one's unit — the role of decision 2, verdict into the
+   record, no close, the holder told; a sub-task is cut — a child ticket or question taken here,
+   the rest left to the holder. The signal to the other session is the record first — the mark,
+   the verdict — and a message where the host has one, as decision 3 says.
+4. **The handover form.** What a handover carries: the unit, what was verified or done and its
+   evidence, what is left, who holds it now. Written into the unit's record; the message, where
+   one can be sent, points at it.
+
+Open after this pass: whether the overlap stop is a rung of development's ladder or a stop of its
+own; what *serious* is, read from the records rather than judged; whether decisions 3 and 4 on
+waking and staleness survive this shape or fold into it.
+
+## Impact of the split — 2026-10-24
+
+The draft: two slices. **(1) The session's row names the unit it holds** — a ticket In progress
+is read as held by the session whose row names it, shown in the wake and the window beside the
+session's position; the ticket itself names no session *(the user, 2026-10-24)*. **(2) An overlap stops the session** — a turn that would act on a unit another
+running session holds stops with the three ways to act; the handover written into the unit's
+record; the checker closes where no message can reach the holder; the bias named in the entry
+file's general rules.
+
+### Impact
+
+- **Must change.** The record that carries the mark — the ticket's header or the session's row,
+  `id state time question recent` today — and its check, `tickets.py` or `sessions.py`; the wake
+  and the window, which show positions and would show holders; S4 in the session mechanism's
+  rules, which ends at the 🪢 row and gains the stop; the entry file's general rules, one
+  principle; `/maintain`'s close rules P1–P3 and `/commit`'s S5, which speak of the commit and
+  the close without a holder — each gains the holder's name or the handover's record.
+- **Must verify.** L12's count of what is in work, read from tickets In progress; 01-0060.0010,
+  which reads the same count and would read the holder with it; Q1's ring clause, whose *unit
+  taken into work* becomes readable; the hosts edge, since the stop's *where the host can tell
+  it* is per host — Claude Code can message a session, Cursor has no wake at all.
+- **May simplify.** q-b3myg2's deferral, the ring mark, is slice 1 under another name:
+  its condition widens or it closes against slice 1. Decisions 3 and 4 on waking and staleness
+  fold into the handover's rule and the row's ending; no staleness signal is built.
+- **Hidden risk.** A mark in the row ends with the row — its three-hour silence and seven-day
+  removal already run — so a dead session holds nothing by construction; the row's format and
+  `sessions.py` are the only things that change for slice 1. The 🪢 rule is conditioned on `debug=on`; the stop must
+  not be, or a tree with debug off loses it.
+- **Historical only.** Entry 64; the session record of this chat; the first and second pass above.
+- **Probably unaffected.** The question store's ids and closures; the installer; the edges other
+  than hosts.
+
+### Hidden edges
+
+The judge's verdict is already what `/verify` writes — the checked box with its date is the whole
+verification record — so the judge way builds nothing new in the record, only the rule that it
+closes nothing. The sub-task way is `/ticket`'s existing cut. A host that cannot message makes the
+checker the closer, which is today's behaviour everywhere; the stop is the only new behaviour a
+Cursor tree sees.
+
+### Leave alone
+
+Roles and their declaration — q-p4sdnv. The plan reading of a session — the questions one
+feature links — waits as decision 1 says. Any messaging protocol of the method's own: the host's.
+The weighing of candidates and the cap's number.
+
+### Recommendation
+
+Proceed, two slices, slice 1 before slice 2 since the stop reads the mark. Narrow against: a
+staleness signal, a seriousness judgement, a message format. No general abstraction is introduced;
+the mark is one field and the stop one rule.
+

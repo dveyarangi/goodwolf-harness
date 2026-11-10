@@ -4,7 +4,7 @@
 - **Status:** Done (2026-10-13)
 - **Type:** HITL
 - **Minted:** 2026-10-13
-- **Answers:** [q-0036](../../questions/done/q-0036-does-the-harness-ever-lose-the-persons-work-or-leave-it-half-written.md)
+- **Answers:** [q-io7a43](../../questions/q-io7a43.md)
 - **Outcome:** No script of the harness overwrites, drops or half-writes what a person or another
   session wrote: each one either finishes whole or refuses before its first write.
 
@@ -13,7 +13,7 @@
 [Interruption and recovery](../../architecture.md#interruption-and-recovery), which owns the
 contract; the findings come from [the outside audit of 2026-10-13](../../research/external-audit-2026-10-13.md)
 and [the audit of 2026-09-30](../../research/project-evaluation-2026-09-30/REPORT.md) (E1, E2, E3).
-Split assessed in [q-0036's impact of the split](../../questions/done/q-0036-does-the-harness-ever-lose-the-persons-work-or-leave-it-half-written.md#impact-of-the-split-2026-10-13).
+Split assessed in [q-io7a43's impact of the split](../../questions/q-io7a43.md#impact-of-the-split-2026-10-13).
 
 ## What to build
 
@@ -39,4 +39,4 @@ Each loss found is closed by a regression test that reproduces it, so it cannot 
   [01-0010.0150 harness-meets-a-tree-with-a-method](../01-0010.0150-harness-meets-a-tree-with-a-method.md).
 - A lock, or safe simultaneous writers in general — ruled out by
   [Interruption and recovery](../../architecture.md#interruption-and-recovery).
-- The window experiment's reproducibility (R1 of 2026-09-30) — with q-0038.0001's experiment.
+- The window experiment's reproducibility (R1 of 2026-09-30) — with q-6ezmbo's experiment.

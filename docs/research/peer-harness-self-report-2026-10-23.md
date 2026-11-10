@@ -2,7 +2,7 @@
 
 **Kind:** evidence: a dated account of another harness. The account was written by that harness's
 own agent and sent to this project's user, who passed it on. It is filed under
-[q-0038](../questions/q-0038-what-landscape-does-this-project-evolve-in.md) at the user's word,
+[q-0038](../questions/q-rulm4h.md) at the user's word,
 2026-10-25. The text is the peer's and private, so it is summarized here, not reproduced. People
 and the peer's subject matter go unnamed: this tree is public.
 
@@ -62,13 +62,13 @@ Each item is read against this tree as it stands on 2026-10-25.
 2. **A budget ledger.** The real cost of each run is recorded, under an overall ceiling, and a live
    run reserves its own ceiling against its process id, so parallel runs cannot overspend. Here,
    cost is an open question,
-   [q-0037.0006.0008](../questions/q-0037.0006.0008-what-does-the-harness-cost-and-save-counted-rather-than-guessed.md),
+   [q-0037.0006.0008](../questions/q-pkpo3l.md),
    and nothing is metered.
 3. **An instrument examined before it is used.** A known answer comes first, thresholds are fixed
    before the count, and two runs must be identical. Here `/verify` checks work against its ticket,
    and the benches under `docs/research/` were run once each, with no exam of the bench itself and
    no thresholds written in advance. This bears on
-   [q-0038.0001](../questions/q-0038.0001-does-working-under-the-harness-deliver-software-better-than-working-without-it-measured-on-the.md)'s
+   [q-0038.0001](../questions/q-6ezmbo.md)'s
    design.
 4. **A registry of hypotheses with verdicts.** The question store closes a question with a kind and
    an answer, but a guess tested and killed has no row of its own with *instrument unfit* as a
@@ -90,7 +90,7 @@ Each item is read against this tree as it stands on 2026-10-25.
 ## Where the two meet
 
 The peer's account, written independently, arrives at the same wall this tree records in
-[q-0037.0012](../questions/q-0037.0012-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md):
+[q-0037.0012](../questions/q-tt733j.md):
 the person catches every failure, and a rule is the remedy. Both prefer a mechanism to a promise.
 Both forbid showing the person an internal number without saying what it stands for. Both lose
 detail across a handoff. The peer has nothing like the question tree, straw dogs, the four kinds

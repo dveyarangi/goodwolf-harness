@@ -1,0 +1,10 @@
+# q-eppbq3 Where does a ticket's open issue keep its argument once its question is an entry of the store?
+
+- **record of** what happened
+- **part of** q-6ute6t
+- **depends on** q-ph4szo
+- **state** closed:superseded
+- **owner** [01-0011.0100.0020](../tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md)
+- **answer** q-ph4szo
+- **opened** 2026-10-13T14:38:25Z
+- **struck** 0, last 2026-10-03T00:12Z

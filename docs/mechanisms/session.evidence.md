@@ -1,7 +1,7 @@
 # session — evidence
 
 Declared by [01-0050 a-session-is-kept-by-a-mechanism-of-its-own](../tickets/done/01-0050-a-session-is-kept-by-a-mechanism-of-its-own.md),
-from the align on [q-0037.0017](../questions/q-0037.0017-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md)
+from the align on [q-zxnc6y](../questions/q-zxnc6y.md)
 and its eight decisions, 2026-10-21 to 2026-10-22. Why the doc is what it is: the decisions'
 refusals, and what the inception found.
 
@@ -21,7 +21,7 @@ violation this mechanism clears: at the first wake after it landed, 2026-10-22, 
 - **A session as a host process.** The desktop app renames a conversation's process on every
   reopen (2026-10-09, 2026-10-10); a row keyed on it loses its position. A session is the chat,
   known by the steadiest id the host gives it.
-- **The pacer taking `/recall`.** The pacer is method and owns no machinery (q-0037.0010.0012); a
+- **The pacer taking `/recall`.** The pacer is method and owns no machinery (q-awqz6b); a
   session's two ends are the session's whatever method runs between them, and the method's rules
   reach them as installed blocks.
 - **The rows kept in the question format.** A format file describes a record; an instruction on a
@@ -38,7 +38,7 @@ violation this mechanism clears: at the first wake after it landed, 2026-10-22, 
 ## What the inception found
 
 The shape read one `instruction` bullet; this is the first mechanism owning two skills, and the
-format's straw dog on one bullet, bound to q-0037.0017, was rewritten at stage 1. The shape check
+format's straw dog on one bullet, bound to q-zxnc6y, was rewritten at stage 1. The shape check
 refuses a script naming a mechanism no declaration lists it under, so the declaration landed with
 the script at stage 2, a stage earlier than planned, its rule moments `not yet` until the rules.
 The installer places a mechanism's block before the local block in the same section, so the

@@ -3,7 +3,7 @@
 **2026-10-08.** Claude Code, the conversation [session 41](0041-20261008-the-marks-get-out-of-the-texts-way.md)
 concluded, continued after its conclude; the host restarted it under `2c47eabc…` midway. Entry
 contract v37 at the start, v42 at the close. Parallel sessions landed v39 (`0a93454f…`, the 🍂
-table and the blockquoted proposal) and q-0032 in the same tree; their files were left alone.
+table and the blockquoted proposal) and q-3fds32 in the same tree; their files were left alone.
 
 ## What was decided, and what chose it
 
@@ -76,16 +76,16 @@ HITL. The record of the split is `.0040`'s *Split impact* section.
 - **A mention of the push** an hour after it moved to the conclude.
 - **`sed` once more** on the findings.
 - **Two test failures** on one run, the live-store guard firing while a parallel session wrote
-  to `docs/questions` — not this session's change; q-0032 now asks for locks.
+  to `docs/questions` — not this session's change; q-3fds32 now asks for locks.
 
 ## Open questions the session touched
 
-- q-0037.0016 "How does a reply show the principles each of its claims stands on, and where are the
+- q-6kx3m2 "How does a reply show the principles each of its claims stands on, and where are the
   principles named for it?" — the form at v42; `.0020` waits on the week of grading.
-- q-0037.0010.0009.0003 "How do the ticket and the queue hold what comes next alone, with the draft in
+- q-quomi5 "How do the ticket and the queue hold what comes next alone, with the draft in
   the question's body?" — split; its children .0001 and .0002 own the two minted slices.
-- q-0037.0009.0006 "What does /conclude own?" — now the push, besides the record.
-- q-0037.0011 "Does each rule reach the occasion it is for?" — three failures this session, each a
+- q-d4pypx "What does /conclude own?" — now the push, besides the record.
+- q-c5x3mh "Does each rule reach the occasion it is for?" — three failures this session, each a
   loose placeholder.
 
 ## What continues

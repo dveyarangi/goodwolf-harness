@@ -1,0 +1,10 @@
+# q-wwmn4e How does a first install end with the project's own verification set?
+
+- **record of** what happened
+- **part of** q-t5vmk3
+- **state** closed:decided
+- **owner** [01-0010.0170](../tickets/done/01-0010.0170-arrival-becomes-a-sequence.md)
+- **answer** [the harness skill, After the first install: the set read off what exists, none stated where there is none](../../.agents/skills/harness/SKILL.md) — the user, 2026-10-14, at 01-0010.0170's re-read
+- **lean** 2026-10-14, the user: a first install builds no environment — no toolchain, pipeline or remote; the environment waits until the project's requirements are known; the set is written from what exists, an empty one stated; .0170's setup step, its split extraction and its cicd.md pointer gone with it
+- **opened** 2026-10-03T10:07:57Z
+- **struck** 3, last 2026-10-14T09:43Z

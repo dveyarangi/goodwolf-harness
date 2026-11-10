@@ -25,7 +25,7 @@ record kept one sentence.
 **A trace link names its answer by id and name.** The plan had a bare `A7`; the user: *A7 tells no
 one anything unless they see the whole picture.* As a ticket is named by id and slug, the link
 became `A7 "<name>"`, the id matched and the name checked word for word
-([q-0037.0018.0006](../questions/done/q-0037.0018.0006-how-is-an-answers-coverage-read-from-the-questions-that-realize-it.md)).
+([q-lui5nw](../questions/q-lui5nw.md)).
 **Only open and decided questions realize** — a pruned question built nothing — settled by the agent
 as reversible, coverage never being stored.
 
@@ -33,16 +33,16 @@ as reversible, coverage never being stored.
 purpose root in the document, and asking links of every question outside it, since this tree had
 twenty roots and no structure root. The user turned it: *shouldn't we redo our roots? massive, but
 I think it will be useful.* With the seeded roots everywhere, the purpose-root line need not exist,
-and the orphan scope became the spec's own. q-0033 took the words *What is this project for?*, with
+and the orphan scope became the spec's own. q-m6unv4 took the words *What is this project for?*, with
 the front-page question under it (*q-0031 is a product question*); *How is this project built?*
-(q-0037) took eighteen roots; *What landscape does this project evolve in?* (q-0038) took the
+(q-fjlob4) took eighteen roots; *What landscape does this project evolve in?* (q-rulm4h) took the
 measurement question and, later, abstraction height (*that is landscape*). Decisions in
-[q-0037.0018.0009.0001](../questions/done/q-0037.0018.0009.0001-how-does-this-trees-store-take-the-three-seeded-roots.md),
+[q-2ydspq](../questions/q-2ydspq.md),
 landed in [the spec](../spec/01-0040-a-projects-account-stays-in-agreement-with-its-work.md).
 
 **What is broken fails the check; what is missing is reported** — the agent's recommendation, the
 user's agreement
-([q-0037.0018.0007](../questions/done/q-0037.0018.0007-how-is-drift-between-a-product-document-and-the-work-found.md)):
+([q-uw6pim](../questions/q-uw6pim.md)):
 an unrealized answer is a state, not an error, and a check that failed on it would stop every
 commit.
 
@@ -95,12 +95,12 @@ collaborate, no?*, *people don't share a project, they develop it together*.
 
 ## Open questions touched
 
-- [q-0037.0018](../questions/q-0037.0018-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it.md) — `.0010`, `.0015`, `.0020`, `.0040` done; `.0030`, `.0050`, `.0060`, `.0070` left.
-- [q-0033](../questions/q-0033-what-is-this-project-for.md) — now the purpose root; its open
+- [q-5wbvz6](../questions/q-5wbvz6.md) — `.0010`, `.0015`, `.0020`, `.0040` done; `.0030`, `.0050`, `.0060`, `.0070` left.
+- [q-m6unv4](../questions/q-m6unv4.md) — now the purpose root; its open
   questions wait as undecided answers A15, A21, A51, A52.
-- [q-0037.0010.0009.0004.0002.0001](../questions/q-0037.0010.0009.0004.0002.0001-how-does-code-in-one-repository-name-a-rule-that-a-record-in-another.md)
+- [q-qbym6r](../questions/q-qbym6r.md)
   — opened from the trial's collector; untouched since.
-- [q-0037.0011](../questions/q-0037.0011-does-each-rule-reach-the-occasion-it-is-for.md) — Q5 amended at v88; graded by the next table a session draws.
+- [q-c5x3mh](../questions/q-c5x3mh.md) — Q5 amended at v88; graded by the next table a session draws.
 
 ## What continues
 

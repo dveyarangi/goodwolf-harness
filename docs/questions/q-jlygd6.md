@@ -1,0 +1,19 @@
+# q-jlygd6 How does a project's verification set follow its environment once one is set up?
+
+- **record of** what it intends to become
+- **part of** q-t3p7na
+- **state** open
+- **rung** development: a feature, self-improvement: a rule
+- **lean** 2026-10-14: opened from 01-0010.0170's re-read — setup-devops writes docs/cicd.md and leaves the set behind; the trial's installing agent wrapped its own L3 as a straw dog for the same reason
+- **opened** 2026-10-14T14:46:45Z
+- **struck** 0, last 2026-10-14T14:38Z
+
+## The case, 2026-10-14
+
+A first install into an empty tree builds no environment and writes a verification set that says
+the project has no checks of its own (the user, 2026-10-14, at 01-0010.0170's re-read). When the
+project's requirements are known and setup-devops builds a toolchain, it records its decisions in
+`docs/cicd.md` and leaves the set untouched — so the tests it adds are never run by `/implement`
+or `/verify`, which still read *no checks of its own*. The set's home is the local rules file and
+no document, decided 2026-10-07 under q-z6agzf; setup-devops writing `docs/cicd.md`
+is the older shape.

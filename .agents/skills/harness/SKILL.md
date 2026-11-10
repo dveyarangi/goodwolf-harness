@@ -127,7 +127,7 @@ Every refusal writes nothing and names its step.
 
 ## Friction goes upstream
 
-<straw-dog question="q-0037.0006.0014">
+<straw-dog question="q-qclm3z">
 File any friction in a run — a crash, a workaround, a step this skill did not foresee — as an issue
 on the harness's repository: the ref, the command, the platform, the step, the error verbatim, the
 workaround. Nothing of the project's own. A workaround
@@ -144,7 +144,7 @@ them. A tree whose `.agents/` holds files of its own at none of core's paths is 
 itself, nor are a host's hook files: the install integrates into the one and merges into the
 other.
 
-<straw-dog question="q-0037.0006.0020.0001.0003">
+<straw-dog question="q-fw6ac4">
 **The offer.** Say what the read is and what it costs — a study by search and sampling, with a
 blind run by a separate agent, on the order of half an hour and a few hundred thousand tokens —
 and that it writes nothing in the tree: the report is a working document, kept where the host
@@ -160,7 +160,7 @@ whether the migration runs, which of its plan, in which mode. Speak of the repor
 it, and add no view of your own: the person reads it.
 </straw-dog>
 
-<straw-dog question="q-0037.0006.0020.0001">
+<straw-dog question="q-n3pc22">
 **After.** On no, nothing more: the tree is as it was, and the report is the person's to keep or
 drop. On yes, the tree's method is taken in — by inventory, or by one line from its own entry file
 — the report's plan becomes open work in the tree's own records, cut at the grain of work the study
@@ -193,7 +193,7 @@ interpreter the install ran under.
 
 After the first install. They asked for a method to work by, not for files: tell
 them that it is installed and what it spares them, and how — concrete troubles and the answer to
-each, never as slogans<straw-dog question="q-0033.0008">: work called done that does not work, or is
+each, never as slogans<straw-dog question="q-osjub2">: work called done that does not work, or is
 not what was meant — each piece of work gets checkable criteria and a plan and counts as done only
 once checked against them and the project's tests, and an accepted architectural decision binds the
 code, so code that drifts from it is brought back, never the decision bent; paying twice, in time,
@@ -210,7 +210,7 @@ never saying what is still to come: each ladder of the entry file's *Autonomy* a
 without the rungs' names, numbered, the line it proposes marked ✋, and one sentence: below it the
 agent acts on its own, at it shows them first, above it they decide — the person naming the line
 for ✋; their way of working with git, asked as where finished work goes, numbered, in their
-terms<straw-dog question="q-0037.0006.0022.0003"> — *1. straight into the shared repository, always
+terms<straw-dog question="q-2djjb2"> — *1. straight into the shared repository, always
 current on any machine; 2. the agent prepares it, they look and let it in; 3. it stays on this
 computer*</straw-dog>, never as a setting's name, a remote named where there is none yet, the
 origin's own answers offered as no default; the links the platform refused, as the commands to run

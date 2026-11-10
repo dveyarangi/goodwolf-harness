@@ -4,7 +4,7 @@
 - **date** 2026-11-09
 - **reviewer** fresh review agent; it did not extract or convert these cases
 - **scope** the 211 case folders with `case.json` and `source.json`, excluding the separately reviewed `recall-no-next-step-20261026-093907` pilot
-- **basis** the accepted replay boundary in [q-0037.0012.0009.0001 — How is a recorded rule failure replayed as a test against the amended rule?](../../questions/q-0037.0012.0009.0001-how-is-a-recorded-rule-failure-replayed-as-a-test-against-the-amended-rule.md), Where it stands and decisions 8–17
+- **basis** the accepted replay boundary in [q-0037.0012.0009.0001 — How is a recorded rule failure replayed as a test against the amended rule?](../../questions/q-j5s7gp.md), Where it stands and decisions 8–17
 
 ## Result and scope of the result
 

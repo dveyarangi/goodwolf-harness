@@ -1,0 +1,15 @@
+# q-xlq467 How does a script whose output differs under debugging learn that debugging is installed, with no debug=on to read?
+
+- **record of** what happened
+- **part of** q-fl3tq4
+- **state** closed:moot
+- **answer** no script reads `debug`: `questions.py`'s `at` line and `harness.py`'s stamped announce line print always, only their comments name debugging; what reaches the person is the installed text's — [01-0016.0020](../tickets/done/01-0016.0020-what-debug-shows-is-installed-not-read.md), the user, 2026-10-25
+- **lean** 2026-10-20: open; read the blocks' presence, or always print and let an installed rule relay it
+- **opened** 2026-10-19T23:47:42Z
+- **struck** 1, last 2026-10-25T00:32Z
+
+Two scripts behave by debugging today: `questions.py`'s `_landed`, the `at` line a person reads
+under `debug=on`, and `harness.py`'s `stamped`, whose announce line a recipient's session repeats
+under it. Each carries a TODO bound to q-l36vii. With the dial gone, a script can read
+whether the mechanism is installed — its blocks present in their targets — or always print and
+leave showing it to an installed rule that tells the agent to relay it.

@@ -1,0 +1,10 @@
+# q-rch4fv How does the installer hold each block in its owner's section, and let a rule quote the straw-dog tag?
+
+- **record of** what happened
+- **part of** q-g6624x
+- **state** closed:decided
+- **owner** [01-0017.0030](../tickets/done/01-0017.0030-the-installer-holds-each-block-in-its-owners-section.md)
+- **answer** [01-0017.0030](../tickets/done/01-0017.0030-the-installer-holds-each-block-in-its-owners-section.md) — the check reports a block outside its anchor's section, an install refuses to call it present, a body may quote the straw-dog tag in code; the user, 2026-10-26
+- **rung** development: load-bearing, self-improvement: the method
+- **opened** 2026-10-25T23:16:54Z
+- **struck** 0, last 2026-10-25T22:48Z

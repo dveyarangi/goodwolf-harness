@@ -50,10 +50,10 @@ What it leaves at or above the dial is a question asking the person, which every
 
 In a recipient the mechanisms that came with core are maintained where core is made: the clock
 leaves them out and a mark refuses them, and the origin's marks never ship.
-<straw-dog question="q-0037.0006.0019">
+<straw-dog question="q-dsxyi5">
 A recipient's own mechanisms have no home yet, so its clock reads an empty set.
 </straw-dog>
-<straw-dog question="q-0037.0006.0004">
+<straw-dog question="q-of6uro">
 The due list is read at every pass and printed by the check; it is not announced, so a tree
 where no pass runs is not told.
 </straw-dog>
@@ -105,11 +105,11 @@ the dial sets it, recording the cause in the evidence.
 | checking a mechanism's records against their declared format, the ticket records among them | `.agents/skills/maintain/SKILL.md` | |
 | repairing mechanically, history included | — | elsewhere — a meta-rule, read where it lives, `.agents/skills/mechanism/SKILL.md` |
 | disposing of a concern | — | elsewhere — a concern is an open question of the store, closed by a recorded kind that points to the ADR, architecture section or code that owns its answer, `.agents/skills/questions/SKILL.md` |
-| checking links outside a close | — | <straw-dog question="q-0037.0010.0005">not yet</straw-dog> |
+| checking links outside a close | — | <straw-dog question="q-mwof7i">not yet</straw-dog> |
 | cleaning inline comments in scope | — | elsewhere — verification applies the comment skill to landed work, `.agents/skills/verify/SKILL.md` |
 | running the verification set the scope touched | `.agents/skills/maintain/SKILL.md` | |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
-| removing this mechanism from a tree | — | <straw-dog question="q-0037.0006.0013.0002">not yet</straw-dog> |
+| removing this mechanism from a tree | — | <straw-dog question="q-qzeuf3">not yet</straw-dog> |
 | picking up a dream | — | unowned by design — the entry file says *may*, a permission and not a duty, while the dream skill is experimental |
 
 ## Install adds, uninstall removes

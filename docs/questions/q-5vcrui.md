@@ -1,0 +1,9 @@
+# q-5vcrui How is a question reworded once the work shows its wording is outdated, and when does rewording replace opening a parent?
+
+- **record of** what it intends to become
+- **part of** q-dmvmf2
+- **state** open
+- **rung** self-improvement: a rule, development: a feature
+- **lean** the call landed 2026-10-05: reword gives an open question new words under the id it has, and the skill says to use it in the turn that notices; first used on q-7rmmpw. The user, 2026-10-05: a name should be adjusted fluidly, widening each turn to take in related uncharted topics. Still open: when rewording replaces opening a parent — the skill holds a first line on it, and whether the earlier parent extractions dissolve into editing
+- **opened** 2026-10-13T14:38:25Z
+- **struck** 0, last 2026-10-05T10:40Z

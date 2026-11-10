@@ -1444,7 +1444,7 @@ def _last_lines(text: str | None, keep: int = 3) -> list[str]:
 
 # The method's roots: a push that carries a path under one of them wakes the checks, one that
 # carries none runs nothing. `hook.sh` matches the same roots before an interpreter starts.
-# TODO q-0037.0006.0005.0001: the roots stand here and in `hook.sh` until each mechanism's table of
+# TODO q-5jcptm: the roots stand here and in `hook.sh` until each mechanism's table of
 # its records carries them.
 METHOD_DIRECTORIES = ("docs/", ".agents/")
 METHOD_FILES = (ENTRY_FILE, HOST_STUB, LOCAL_FILE)

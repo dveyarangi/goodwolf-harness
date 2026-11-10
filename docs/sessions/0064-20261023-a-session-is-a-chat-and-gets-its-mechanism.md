@@ -17,8 +17,8 @@ session's two ends. Landed as the term in the method's glossary.
 
 **`/recall` and `/conclude` are the session mechanism's; the pacer takes neither.** The agent
 found the revision the user half-remembered: the pacer had been cut into tier-1 method rules
-(the wake, the turn, the dial), the pathfinder as its ordering half (q-0037.0019), and the stepping
-half left in q-0037.0013; and on 2026-10-11 the user had drawn the line *sessions are machinery*.
+(the wake, the turn, the dial), the pathfinder as its ordering half (q-huss2x), and the stepping
+half left in q-p4mcme; and on 2026-10-11 the user had drawn the line *sessions are machinery*.
 A session therefore runs the method but is not of it: the pacer is method and owns no machinery.
 Two ownership questions closed with it.
 
@@ -26,12 +26,12 @@ Two ownership questions closed with it.
 that the harness ships *agent modes*, the pathfinder in core and the rest swappable. The agent
 pushed back: the unit of a mode is neither the turn nor the session but a stretch, and the loop
 already names the two stretches — the align on a question and the delivery ring on its tickets —
-readable from the store, set by nobody; what is set at start is a role (q-0037.0005). The user
+readable from the store, set by nobody; what is set at start is a role (q-p4sdnv). The user
 let the modes go and kept the seam: *a session can be locked into one method by a setting, or be
 free*. Landed as decision 3, the lock and a role seams in the row, nothing built.
 
 **A method is the machinery of a root question; core is what methods share; a practice is what a
-project swaps inside a method** *(the user, 2026-10-22)*, in a new question, q-0037.0006.0025,
+project swaps inside a method** *(the user, 2026-10-22)*, in a new question, q-5jy2c3,
 with the roots each worked by a mechanism of their own — product for purpose, discovery for
 landscape — so the agent's first cut, which put two roots into core, was wrong and corrected the
 same hour. The user asked for a discovery on what the method actually is before the words land in
@@ -84,22 +84,22 @@ bumped the contract meanwhile — and a second maintenance pass over the whole t
 ## Principles with no durable home yet
 
 - A mode of working — investigating, delivering — is where a session stands in the loop, derived
-  from the store, set by nobody; what is set at a session's start is a role. q-0037.0005 is the
+  from the store, set by nobody; what is set at a session's start is a role. q-p4sdnv is the
   nearest home.
 - Self-improvement creates methods and not only amends one: minting a method is a moment of the
-  mechanism shape. q-0037.0006.0025's align should place it.
+  mechanism shape. q-5jy2c3's align should place it.
 - A decision row in a reply says the whole choice, never a pointer to a thing decided earlier.
 
 ## Open questions touched
 
-- [q-0037.0006.0025](../questions/q-0037.0006.0025-what-is-a-method-a-root-question-with-the-ring-that-works-it-and-the-records-it-keeps-and.md)
+- [q-5jy2c3](../questions/q-5jy2c3.md)
   — three decisions landed, the discovery filed; waits on its align, the glossary words.
-- [q-0037.0006.0025.0001](../questions/q-0037.0006.0025.0001-which-root-a-research-or-study-method-asks-in-place-of-how-is-this-project-built-and.md)
+- [q-w5ijmk](../questions/q-w5ijmk.md)
   — opened, reworded to the method; waits on the parent.
-- [q-0037.0017.0004](../questions/q-0037.0017.0004-how-does-a-conversation-keep-its-position-when-its-host-resumes-it-under-a-new-session-id.md)
-  and [q-0037.0017.0005](../questions/q-0037.0017.0005-how-do-running-sessions-reach-each-other-beyond-one-working-directory.md)
+- [q-ou6kps](../questions/q-ou6kps.md)
+  and [q-2gw24v](../questions/q-2gw24v.md)
   — gathered under the closed session question; `not yet` rows of the session doc.
-- [q-0037.0009.0021.0001](../questions/done/q-0037.0009.0021.0001-how-does-what-debug-shows-reach-a-tree-as-the-debugging-mechanisms-installed-blocks.md)
+- [q-fl3tq4](../questions/q-fl3tq4.md)
   — its ticket now carries the fork the 🪢 block forces: the debugging mechanism switches a block
   another mechanism owns, or the debug half of S4 becomes its own rule.
 

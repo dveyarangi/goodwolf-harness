@@ -80,7 +80,7 @@ worktree per session where it offers one — not the harness's: it locks nothing
 read. *(the user, 2026-10-11)*
 Whatever stands on the shared main may be published; work the person holds back stays on its own
 branch until they release it. *(the user, 2026-10-12)*
-<straw-dog question="q-0037.0017.0005.0001">
+<straw-dog question="q-7ebz2f">
 Sessions share one checkout and its main. A branch per session comes only together with a
 question store that does not travel through git. *(the user, 2026-10-12)*
 </straw-dog>
@@ -98,9 +98,9 @@ install adds no separate recovery mechanism.
 A straw dog binds to a question of the store, never to a ticket — the one record of this tree
 core names. Whether it is due is derived from the store at every look; the maintainer decides
 how its text is rewritten.
-<straw-dog question="q-0037.0017.0005.0001.0019">Every binding names the id, which never changes; a
+<straw-dog question="q-2jheaw">Every binding names the id, which never changes; a
 move rewrites the one `part of` line and no link anywhere
-([decision 6](questions/q-0037.0017.0005.0001-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of.md#decisions)).</straw-dog>
+([decision 6](questions/q-7ebz2f.md#decisions)).</straw-dog>
 Mechanical removal follows the maintainer's disposition and preserves surviving agreements.
 Examples describing the syntax are distinct from operative statements.
 
@@ -126,17 +126,17 @@ is written by hand, and every call keeps it as it found it
 ([decision 3](tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md#decisions-landed-at-this-tickets-align)).
 A write re-reads every entry it changes and refuses one that moved since it was read — a hand edit
 included; detected interference is a failure, as in
-[interruption and recovery](#interruption-and-recovery). <straw-dog question="q-0037.0017.0005.0001.0019">A new question's id is six random characters
+[interruption and recovery](#interruption-and-recovery). <straw-dog question="q-2jheaw">A new question's id is six random characters
 of base32, `q-7f3k2a`, drawn by whoever writes it and never changed; one already taken is drawn
 again. Its file is named by the id alone, and its place in the tree is its `part of` header alone,
 so a move rewrites that one line and no link anywhere. The tree's structure is drawn from those
 headers wherever the store is shown, siblings in the order they were opened; no address is kept
-([decision 6](questions/q-0037.0017.0005.0001-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of.md#decisions)).</straw-dog>
+([decision 6](questions/q-7ebz2f.md#decisions)).</straw-dog>
 A session's row is [the session mechanism](../.agents/mechanisms/session/session.md)'s, and the
 mechanism manages every session from any one of them: any session writes any row through the
 session script *(the user, 2026-10-25)*. A row is one file, replaced in one rename, so a reader
 never meets half of it and nothing is locked; a wake ends the silent and removes the long ended, and a takeover moves a held unit and leaves its mark in the
-holder's row *(the user, 2026-10-10 and 2026-10-25)*. <straw-dog question="q-0037.0017.0005.0001.0019">A closed question stays where it is; a subtree
+holder's row *(the user, 2026-10-10 and 2026-10-25)*. <straw-dog question="q-2jheaw">A closed question stays where it is; a subtree
 whose questions are all closed is finished, and the window leaves it out.</straw-dog> A host's hook
 delivers the window and registers the session under the host's steadiest id, and never fails
 the host: a problem becomes a line of context. Everything else is
@@ -187,7 +187,7 @@ an amended source still refuses. The run over every source, mechanisms then loca
 idempotent and is what an install, an update and a changed setting all run; the agent is the
 interface to the values, by one call that refuses, writes, runs and reports, and a hand edit is
 drift the next session's start reports and repairs *(the user, 2026-10-22 and 2026-10-23,
-q-0037.0006.0026)*. The settings table is rendered on request and never committed.
+q-b55e5r)*. The settings table is rendered on request and never committed.
 
 ### Installing
 
@@ -197,11 +197,11 @@ merged outside it, the transformation, the announce and repository lines, what a
 what an install and an update refuse, the loader links and the interpreter record, and arrival as
 the check. [The install spec](spec/01-0010.0130-harness-installs-into-another-tree.md) owns the
 decisions behind it. The project's verification set is the project's: arrival runs none of it.
-<straw-dog question="q-0037.0006.0022">A clone's push runs the method's checks through a hook the
+<straw-dog question="q-t3p7na">A clone's push runs the method's checks through a hook the
 link step writes only inside the project and never over the project's own; a push that carries a
 file of the method is checked in a temporary copy of what it sends, and any finding in that copy
 refuses it; the decision is
-[q-0037.0006.0022.0004](questions/q-0037.0006.0022.0004-how-do-the-harnesss-checks-run-without-the-agent-at-push-and-in-the-projects-ci.md)'s.</straw-dog>
+[q-c2qp5n](questions/q-c2qp5n.md)'s.</straw-dog>
 
 **The edge, and what crosses it.** The core–instance interaction is everything an instance must
 know to integrate core, customise it and stay coherent across core changes: a rule id, a target
@@ -213,14 +213,14 @@ own, each publish carrying a note written for an instance — what moved, from w
 the instance amends. A recipient reads the notes standing between its ref and the latest before it
 takes them, and whether to take them is the installing agent's decision with its user, never the
 script's. *(The user, 2026-09-21.)*
-<straw-dog question="q-0037.0006.0020.0002.0002">
+<straw-dog question="q-m3pldh">
 Nothing does this yet: core is shared from the working tree and an update crosses an edge change
 in silence, leaving what a recipient must amend to whoever reads the manifest diff.
 </straw-dog>
 
 ## Deferred decisions
 
-- The pacer dissolved (q-0037.0019): the ring's rules are the practice mechanism's, which work
+- The pacer dissolved (q-huss2x): the ring's rules are the practice mechanism's, which work
   comes next is the pathfinder's; where a session resumes is the session mechanism's. This
   maintenance install does not define a scheduler or an automatic next cycle.
 - Cross-project distribution, generalized local overrides and dependency tracking retain

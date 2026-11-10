@@ -7,7 +7,7 @@ fresh study folder, `D:\Dev\AI\studies`, and the questions it raised.
 
 ## What was decided, and what chose it
 
-### The core-copy check is maintenance, never verification — q-0037.0006.0012
+### The core-copy check is maintenance, never verification — q-7caadu
 
 - The installing agent had put `harness.py . --check` into the study tree's verification set.
   Measured: five seconds, all of it a whole clone of the harness repository over the network, on
@@ -66,7 +66,7 @@ block from every file the rules file no longer names, by retraction's cut.
 - Live: an install from a scratch clone into an empty folder arrived; an update of a copy of the
   study tree left its hand-copied hooks unchanged; the hooks delivered the window in all three
   hosts and with neither `uv` nor `python` on the path.
-- The front page's `uv` caveat and the product matrix's partial row retired with q-0037.0006.0020.0005.
+- The front page's `uv` caveat and the product matrix's partial row retired with q-oquf3l.
 - Charts of tickets and questions over the git history, for the user: 80 tickets, 36 live; 142
   questions open, 39 closed, the open count growing faster than closures.
 
@@ -84,15 +84,15 @@ this belongs — `/plan`'s *cheapest real example*, or a rule of its own — is 
   standing preference that edits be visible as they happen.
 - The suite's guard against a test touching the live question store tripped on parallel sessions'
   writes three or four times per run, a different test each time; each passed alone. It is
-  q-0032's.
+  q-3fds32's.
 
 ## Open questions touched
 
-- **q-0037.0006.0020.0003** — a first install's verification set: the skill now leaves it empty without
-  a toolchain; its shape still waits on q-0037.0006.0022.0001.
-- **q-0037.0006.0012** — what `/maintain` re-checks for the harness: the core-copy re-check, fast and
+- **q-wwmn4e** — a first install's verification set: the skill now leaves it empty without
+  a toolchain; its shape still waits on q-z6agzf.
+- **q-7caadu** — what `/maintain` re-checks for the harness: the core-copy re-check, fast and
   offered, waits on 01-0010.0180.
-- **q-0037.0006.0020** — the hook wiring is done; the loader-link misjudgement, the first install's last
+- **q-t5vmk3** — the hook wiring is done; the loader-link misjudgement, the first install's last
   step and the release flow remain.
 
 ## What continues

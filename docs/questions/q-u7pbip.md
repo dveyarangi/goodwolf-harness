@@ -1,0 +1,8 @@
+# q-u7pbip When does a question raised in a message become an entry, rather than be answered in the turn?
+
+- **record of** what happened
+- **part of** q-dmvmf2
+- **state** closed:decided
+- **answer** [the questions skill's *A raised question*](../../.agents/skills/questions/SKILL.md#a-raised-question) — the user, 2026-10-02
+- **lean** decision 33's test of a question worth holding, given to the agent where it places a message
+- **opened** 2026-10-02T16:26:22Z

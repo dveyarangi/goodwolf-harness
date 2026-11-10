@@ -1,0 +1,10 @@
+# q-gn6qmj How is the corpus audit run against a change, and checked by planted contradictions and a run on the unchanged text?
+
+- **record of** what it intends to become
+- **part of** q-7f4anv
+- **state** open
+- **owner** [01-0019.0030](../tickets/01-0019.0030-the-audit-is-checked-against-planted-contradictions.md)
+- **rung** self-improvement: the method
+- **lean** 2026-10-24: minted as its slice of 01-0019, Planned
+- **opened** 2026-10-26T15:07:45Z
+- **struck** 0, last 2026-10-23T22:57Z

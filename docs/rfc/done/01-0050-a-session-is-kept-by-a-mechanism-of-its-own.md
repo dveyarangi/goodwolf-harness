@@ -11,7 +11,7 @@ Implements [01-0050 a-session-is-kept-by-a-mechanism-of-its-own](../../tickets/d
 
 ## What governs it
 
-[q-0037.0017's six decisions and its accepted *Where it stands*](../../questions/q-0037.0017-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md#where-it-stands):
+[q-zxnc6y's six decisions and its accepted *Where it stands*](../../questions/q-zxnc6y.md#where-it-stands):
 a session is one chat from its `/recall` to its `/conclude`, known by the host's steadiest id; a
 mechanism of its own keeps it, machinery and not method, with the two skills, the row gone seven
 days after its end and the session record, its code in a script of its own, every rule on how
@@ -21,7 +21,7 @@ where read, records declared beside the skill, a part's claim at its head, the i
 steps. [Interruption and recovery](../../architecture.md#interruption-and-recovery): nothing is
 locked, a write refuses interference; [the question store](../../architecture.md#question-store):
 each session replaces its own row and no other, a rename the one write touching every row.
-[The sessions folder's decision](../../questions/done/q-0036.0004-how-do-session-lines-written-at-once-all-survive-when-the-harness-locks-nothing.md#decision):
+[The sessions folder's decision](../../questions/q-w4tqtr.md#decision):
 one file per session, the single file from before carried over by copies that never overwrite.
 
 ## The shape
@@ -75,8 +75,8 @@ the shape check and installer (`mechanism-shape`), the test harness. Moments: a 
 is seen; falls silent; is reopened; concludes; is gone; rows a wake changed in other sessions'
 files are committed; a reply's 🪢 table; a recall re-ranking nothing another session is on; a
 commit holding one session's work. Not yet: sessions beyond one working directory
-(q-0037.0017.0005), the position across a resume under a new id a host does not keep
-(q-0037.0017.0004), a lock and a role (q-0037.0017's seams, bound to q-0037.0005 for the role).
+(q-2gw24v), the position across a resume under a new id a host does not keep
+(q-ou6kps), a lock and a role (q-zxnc6y's seams, bound to q-p4sdnv for the role).
 Nothing retires it. Graded: four yes-or-no tests, pre-registered below.
 
 The format admits the second `instruction` bullet: its straw dog on one bullet, bound to this
@@ -120,7 +120,7 @@ under S3. The painted-door row for the folder takes the new path.
   `sessions.py --check`*. The verification set in the local rules file gains that check.
 - **S4** → `AGENTS.md`, under `## General rules`, after the questions and ticket blocks: the 🪢
   table's two sentences, moved verbatim from the reply-layout paragraph, which keeps its pointer
-  that the 🪢 table opens the reply. The paragraph's straw dog on q-0037.0009.0021 stays around
+  that the 🪢 table opens the reply. The paragraph's straw dog on q-l36vii stays around
   what remains; the block carries no wrapper, since the rule is decided.
 - **S5** → `/commit`: *Commit the work in the current session only; another session's changes may
   be work in progress, and in doubt ask the person* — from the skill's body, anchored on the line
@@ -128,13 +128,13 @@ under S3. The painted-door row for the folder takes the new path.
   block in the same section, so the project's answer stays last.
 
 The architecture's two paragraphs on the sessions file under *Question store*, one wrapped on
-q-0037.0017 and due, become one: the row is the session mechanism's, each session writing its
+q-zxnc6y and due, become one: the row is the session mechanism's, each session writing its
 own and the wake alone touching another's, with a link to the doc; the *Deferred decisions* line
 giving the pacer session resumption is struck as what this mechanism now holds. The questions
 doc loses its three session moments and the sessions-folder output, gains `sessions.py` under
 *relies on*, and its *not yet* on the folder moves to the session doc. Both skills open with
 `Mechanism: session`. The painted-door rows for the folder and the single file in the shape check
-stay, their comment naming `/conclude`'s declaration, bound as before to q-0037.0010.0004.
+stay, their comment naming `/conclude`'s declaration, bound as before to q-la5n2i.
 
 **The seams**: the row's form takes no new field. A lock and a role are named in the doc's *not
 yet* rows and nowhere in code.
@@ -167,7 +167,7 @@ this file at its next message, so no commit leaves the script half-moved.
    questions rules Q2 and Q3 amended and re-installed with overwrite, F5 and the commit rule
    lifted from their bodies, the 🪢 sentences moved, `Mechanism: session` on both skills, the
    format and the architecture edited, `questions.py --end` removed, the entry contract bumped
-   with its line in the findings record; q-0037.0017.0003 closed against S3, and the straw dog
+   with its line in the findings record; q-75eghy closed against S3, and the straw dog
    on it around F5 goes with the rule. Red first: the shape check
    reports the session doc until its parts resolve; the installer refuses until every target
    carries its block.
@@ -196,7 +196,7 @@ days registers with no position and the wake says *registered now*; the rule to 
 first stands and costs one recall. The shape's painted doors still hold the folder's path, since
 record declarations are not parsed. A Windows reader holding a row file defers its removal by one
 wake. The desktop app's conversation id is the row's key; a host that keys on nothing steadier
-than its process id loses the position on every reopen, which q-0037.0017.0004 holds.
+than its process id loses the position on every reopen, which q-ou6kps holds.
 
 **Leave alone.** The entries and their check; the window, its fingerprint and the counters; the
 hook wiring, `hook.sh`, the interpreter record; the carry-over of the single file, which moves
@@ -220,6 +220,6 @@ glossary's *Session*.
 
 - A lock or a role written in the row — the doc's *not yet* rows.
 - A session's position across a resume under a new id where the host keeps none —
-  q-0037.0017.0004.
-- Sessions beyond one working directory — q-0037.0017.0005.
-- Parsing record declarations, so the painted doors go — q-0037.0010.0004.
+  q-ou6kps.
+- Sessions beyond one working directory — q-2gw24v.
+- Parsing record declarations, so the painted doors go — q-la5n2i.

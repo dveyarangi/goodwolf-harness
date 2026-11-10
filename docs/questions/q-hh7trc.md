@@ -1,0 +1,10 @@
+# q-hh7trc How does a pass with no person sweep the tree for what the decisions landed since its last sweep contradict?
+
+- **record of** what it intends to become
+- **part of** q-3n54ky
+- **state** open
+- **owner** [01-0011.0110.0100](../tickets/01-0011.0110.0100-a-pass-with-no-person-sweeps-new-decisions.md)
+- **rung** development: load-bearing, self-improvement: the method
+- **lean** 2026-10-29: /maintain's section G1–G4 landed, the tree's sweep record started at 2950f835, the host's task one line; waits on the first real night run read by a judge, then /verify and the close of 01-0011.0110.0100
+- **opened** 2026-10-25T20:00:44Z
+- **struck** 0, last 2026-10-25T19:59Z

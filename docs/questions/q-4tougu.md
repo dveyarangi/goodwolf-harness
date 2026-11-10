@@ -1,0 +1,10 @@
+# q-4tougu How does a decided purpose question open the building of its answer?
+
+- **record of** what happened
+- **part of** q-5wbvz6
+- **state** closed:decided
+- **owner** [01-0040.0030](../tickets/done/01-0040.0030-a-decided-purpose-question-opens-its-building.md)
+- **answer** [the product mechanism, U2 and U3](../../.agents/mechanisms/product/product.md) — the user, 2026-10-13 and 2026-10-14
+- **lean** minted as [01-0040.0030](../tickets/done/01-0040.0030-a-decided-purpose-question-opens-its-building.md), 2026-10-13; answered by its RFC
+- **opened** 2026-10-13T23:46:35Z
+- **struck** 1, last 2026-10-13T22:39Z

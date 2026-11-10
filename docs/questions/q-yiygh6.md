@@ -1,0 +1,9 @@
+# q-yiygh6 What does /commit own?
+
+- **record of** what it intends to become
+- **part of** q-gbt7cy
+- **state** open
+- **rung** self-improvement: a rule
+- **lean** the user, 2026-10-25: the subject convention decided in q-57vgyu — the project's, else its tooling's, else its history's, Conventional Commits where none; the skill's mechanism still not named
+- **opened** 2026-10-04T08:19:50Z
+- **struck** 1, last 2026-10-24T22:33Z

@@ -1,0 +1,9 @@
+# q-lv4l6m Does an entry count how often its question recurs, so that recurrence ranks it?
+
+- **record of** what happened
+- **part of** q-dmvmf2
+- **state** closed:decided
+- **owner** [01-0011.0100.0015](../tickets/done/01-0011.0100.0015-a-question-that-keeps-coming-back-rises.md)
+- **answer** [the questions mechanism's *How it works*](../../.agents/mechanisms/questions/questions.md#how-it-works) — the user, 2026-10-02
+- **lean** struck when reached at least twelve hours after it was opened or last struck, recorded as struck n with its last time
+- **opened** 2026-10-02T16:26:21Z

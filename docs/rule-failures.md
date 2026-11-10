@@ -11,11 +11,11 @@ shape a rule would need.
 
 Entries are struck when a later occurrence repeats one, and counted. Nothing here authorises
 deleting a rule: occurrences accumulate and what to do about a rule that keeps failing is
-[q-0037.0012](questions/q-0037.0012-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md)'s,
+[q-tt733j](questions/q-tt733j.md)'s,
 unresolved on purpose.
 
 This register and its rules belong to the mechanism shape under
-[q-0037.0012](questions/q-0037.0012-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md#decisions)
+[q-tt733j](questions/q-tt733j.md#decisions)
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
@@ -73,11 +73,11 @@ reworking the cases or executor as a pause on recording accepted decisions too. 
 session's reported interpretation; no model-internal cause is established. It then declared the
 alignment complete despite the acknowledged missing record.
 
-**Record repair:** the accepted shape and Decisions 8–17 were added to the [replay question](questions/q-0037.0012.0009.0001-how-is-a-recorded-rule-failure-replayed-as-a-test-against-the-amended-rule.md). Cases and execution tooling were left alone.
+**Record repair:** the accepted shape and Decisions 8–17 were added to the [replay question](questions/q-j5s7gp.md). Cases and execution tooling were left alone.
 
 **Independent record review, 2026-11-09:** `/root/judge_decision_record_repair` confirmed correspondence to the public accepted scheme, source attribution and preservation of Decisions 1–7 and dated evidence. The review does not validate case extraction or instruction effectiveness.
 
-<straw-dog question="q-0037.0012.0012">
+<straw-dog question="q-iedka3">
 **Proposed amendment to Q6**, not accepted or installed:
 
 > An implementation pause does not defer recording an accepted decision unless the person
@@ -86,7 +86,7 @@ alignment complete despite the acknowledged missing record.
 > report that pause instead of declaring the alignment complete.
 </straw-dog>
 
-**Disposition:** open on the [prevention question](questions/q-0037.0012.0012-what-prevents-an-accepted-decision-from-remaining-only-in-chat.md). The proposal clarifies the recording boundary and adds an explicit completion check; it is not a mechanical guard or evidence that recurrence is prevented.
+**Disposition:** open on the [prevention question](questions/q-iedka3.md). The proposal clarifies the recording boundary and adds an explicit completion check; it is not a mechanical guard or evidence that recurrence is prevented.
 
 **Deferred by the user, 2026-11-09:** leave the rules unchanged and continue the case-extraction work. The missing decision record remains repaired; no proposed instruction was installed.
 
@@ -104,13 +104,13 @@ recommended checking the voice. Asked why the reply did not sound like Lem, the 
 acknowledged the failure, withdrew that recommendation and ended without a replacement next
 move, repair proposal or registration. The user asked why work had stopped. An independent
 reader confirmed the omission; the case and its limits are in
-[q-0037.0013](questions/q-0037.0013-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md#evidence--a-correction-ended-the-next-move-2026-10-26).
+[q-p4mcme](questions/q-p4mcme.md#evidence--a-correction-ended-the-next-move-2026-10-26).
 
 **Why it did not fire.** The observable boundary is the correction: the first reply offered work,
 the explanation that followed did not. The model-internal cause is not established. This is not
 the first-greeting recall omission recorded below.
 
-<straw-dog question="q-0037.0013">
+<straw-dog question="q-p4mcme">
 **Proposed amendment to investigate:** an outside completion check that also covers the move
 after a correction. The existing outside-check proposal belongs to another session; this case
 does not establish its design or authorise changing it. No amendment has been accepted here.
@@ -169,7 +169,7 @@ Their before/after difference cannot establish that the clarification holds that
 **Disposition after the strike:** reopened on the live counterexample. No further instruction or
 hook has been accepted.
 
-<straw-dog question="q-0037.0010.0012.0001">
+<straw-dog question="q-4xhel7">
 **Proposed next amendment:** a completion check outside the drafting agent; its scope and
 implementation remain undecided.
 </straw-dog>
@@ -234,7 +234,7 @@ says it, at tier 1, as a property of the ladder, and the session read Q2's step 
 
 **Rules in play, loaded:** `/plan` — *Architecture must lead code shape even if code disagrees* and
 *do not stick blindly … raise concern*; `/verify` — *code that contradicts an accepted decision is a
-code finding*. The accepted shape: q-0037.0019's `Where it stands`, *its unit of work as the
+code finding*. The accepted shape: q-huss2x's `Where it stands`, *its unit of work as the
 installed method names it, `/ticket` here, installed into the pathfinder by the method, not looked
 up*.
 
@@ -424,7 +424,7 @@ came back without the person's agent's verdict; the person's agent then added it
 the report — *too early to install beside your method* — against the skill's *add no view of your
 own: the person reads it*. The rule was in place and read. Why it did not fire: the agent's
 summary is its own reply, and the rule is a sentence in it. Remedy: the host's, a check at the end
-of the reply — q-0037.0006.0005.0001.
+of the reply — q-5jcptm.
 
 **Source cases, retrospective extraction:**
 
@@ -591,7 +591,7 @@ will change … at the authored home, never where the harness installs or derive
 format, which admits no straw dog inside a rule's text.
 
 **What happened.** S9, the session mechanism's stop before another's unit, tells a session to
-*tell the holder where the host lets one session message another*. q-0037.0017.0005's answer —
+*tell the holder where the host lets one session message another*. q-2gw24v's answer —
 one shared place, the host's messages a stand-in — will change that clause. Its authored home is
 the rules file, inside a `<rule>`, where the format carries no wrapper, so the clause stands
 unwrapped; a verify judge found it, and its installed copy in the entry file stands unwrapped too.
@@ -613,7 +613,7 @@ instructions, whether to a file or directly in a reply"*; the entry file, *A par
 it stands on*: *"Text proposed for … a doc or code stands as written … `🧩 **Proposed rule — …**`
 for an instruction, written through `/skill-up`"*.
 
-**What happened.** At the align on q-0037.0009.0021.0001.0002 the agent showed two rules for the
+**What happened.** At the align on q-4dycbp the agent showed two rules for the
 debugging mechanism's rules file in 🧩 frames without reading `/skill-up`. The second rule's body
 was a placeholder in angle brackets — *the 🪶 table … as they stand today, with rule failure 72's
 amendment* — pointing at two other texts instead of being one. The person: *where are the rules
@@ -634,7 +634,7 @@ lands:
 > the entry file's included —, […]; the blockquote holds the whole text, never a placeholder or a
 > pointer standing for it.
 
-Whether the host refuses a rule proposed without the skill read is q-0037.0006.0005.0001's.
+Whether the host refuses a rule proposed without the skill read is q-5jcptm's.
 
 **Disposition:** closed 2026-10-25 — the amendment landed as written, v118 *(the user)*.
 
@@ -727,7 +727,7 @@ contract v117. The two cases of 01-0070.0020 were run again on fresh subagents t
 **Rules in play:** none of this tree's — a slip no rule covers. L9 says how a reply's prose is
 written, not in which language; the host's own default follows the person.
 
-**What happened.** The person wrote in Russian throughout. Two align replies on q-0037.0018.0005
+**What happened.** The person wrote in Russian throughout. Two align replies on q-kkw47n
 came in English — each after a turn whose next-step buttons the agent had written in English —
 and twice the person asked for the reply again in Russian.
 
@@ -825,7 +825,7 @@ dial — a rule, shown before it lands:
 > it to the model rather than overfit the instruction.
 
 **Disposition:** landed 2026-10-25 in `/skill-up`, on the user's yes. A case for the bench of
-q-0037.0012.0009: the same request written with and without the line, judged for a filter or a
+q-7f4anv: the same request written with and without the line, judged for a filter or a
 must the request did not hold *(the user: a good candidate for rule tests)*.
 
 ## 69. In the ring, the agent offered to leave its unit and took a one-word yes as the drop — 2026-10-24
@@ -912,7 +912,7 @@ answers rather than from what the person asked.
 **Rules in play:** [TICKET-FORMAT](../.agents/skills/ticket/TICKET-FORMAT.md), *The queue*: the
 order and its candidate, *it keeps no account of steps done*; the ticket mechanism's doc, which
 leaves *ordering the queue and writing its pacing prose* with no instructing file, a straw dog
-bound to q-0037.0013; `tickets.py --check`, which holds the queue's mark and nothing of its body.
+bound to q-p4mcme; `tickets.py --check`, which holds the queue's mark and nothing of its body.
 
 **What happened.** The completed-step narrative was removed from the queue whole on 2026-10-10,
 by 01-0011.0040, and the criterion of 01-0011.0110.0040 checked. By 2026-10-24 the queue was again
@@ -967,7 +967,7 @@ nothing said that a criterion's judge is a role, or that a judge's verdict is ac
 gave it. The mirror of 64: there the checker took the close, here the holder would not take it.
 
 **Amendment**, to TICKET-FORMAT's *Acceptance criteria*, at the self-improvement dial — a rule,
-landed in the same pass, its text shown; beside decision 2 of q-0037.0017.0006, the judge a role
+landed in the same pass, its text shown; beside decision 2 of q-psa5ha, the judge a role
 whose verdict goes into the record:
 
 > A criterion on live behaviour names its judge as a role — someone who did not build it, a later
@@ -1008,7 +1008,7 @@ the handover it meant. A repeat is any session finishing or committing a unit an
 on without the person's word to take it.
 
 **Amendment.** None proposed; the question is opened —
-[q-0037.0017.0006](questions/q-0037.0017.0006-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one.md),
+[q-psa5ha](questions/q-psa5ha.md),
 how sessions hand work to each other and when one may take over what another is on.
 
 **Disposition:** open, with the question.
@@ -1161,12 +1161,12 @@ decides whether the entry file needs a rule about naming skills outside the loop
   lowest question that contains it, and call `at` on it."*
 
 **What happened.** The user proposed a mechanism of external variables that install and uninstall
-marked skills. The agent opened q-0037.0006.0020.0013 under the installer's question, forty-four
+marked skills. The agent opened q-3oz6vg under the installer's question, forty-four
 words long, a *how* with the mechanism, three examples and a second question in its title, before
-any *what is it for*. The user: *why is it a sub-question of q-0037.0006.0020 and so complex?* The
+any *what is it for*. The user: *why is it a sub-question of q-t5vmk3 and so complex?* The
 question's home is what it asks — which of the method's text a project's tree carries, the project's
-own conventions, q-0037.0006 — not the mechanism named to carry it out. Reworded and moved to
-q-0037.0006.0026 the same day.
+own conventions, q-veooj7 — not the mechanism named to carry it out. Reworded and moved to
+q-b55e5r the same day.
 
 **Why it did not fire.** As 57: the three rules stand at tier 2, and a plain `open` reads none of
 them; Q1 names the call and not how to make it. The store's own long titles taught the habit.
@@ -1232,7 +1232,7 @@ nothing reports an absent one. The user, at the pathfinder's align: *why five of
 
 **Why it did not fire.** The rule stands at tier 2, read only when the questions skill is read; the
 occasion, an `open`, is named at tier 1 by Q1, which lists the two calls and not the third. A plain
-`open` does not read the skill — the shape q-0037.0011 already holds as U3 — so the rule reached
+`open` does not read the skill — the shape q-c5x3mh already holds as U3 — so the rule reached
 two openings in fourteen. The missing back-fill is no rule's failure: no instruction ever asked
 for it; it is a pass to run once, which the pathfinder's align now needs for its definition of
 what waits on the person.
@@ -1243,7 +1243,7 @@ rule, shown before it lands:
 > `open` it under the lowest question that contains it, give it its rung, and call `at` on it.
 
 **Disposition:** struck 2026-10-22 by 59, whose amendment carries the rung; the back-fill stays
-proposed as a step of q-0037.0019's align.
+proposed as a step of q-huss2x's align.
 
 ## 56. A directory-wide add committed another session's work in progress — 2026-10-20
 
@@ -1257,7 +1257,7 @@ progress. When in doubt, ask user."*
 
 **What happened.** After the store renamed a question and its file, the session staged
 `docs/questions/` whole to catch the rename, then unstaged the two files it knew were another
-session's. A third session's uncommitted work under q-0037.0009.0021 — its entry's edit and four
+session's. A third session's uncommitted work under q-l36vii — its entry's edit and four
 new questions — went in with the commit and was pushed; a `FIX` commit took them back out of the
 repository a minute later, the working tree untouched.
 
@@ -1324,7 +1324,7 @@ it governs, installed into `/commit`; the strike stays open on the hook.
 - [`/recall`](../.claude/skills/recall/SKILL.md): *"Every question you surface as open must cite
   where it is still open — in a maintained doc (delivery status, the question store, …)."*
 
-**What happened.** The queue's status line said *one decision waits at `/align`*, q-0037.0012.0003,
+**What happened.** The queue's status line said *one decision waits at `/align`*, q-kfoy62,
 since 2026-10-08. `/recall` read it, and six replies in a row carried it as the last row of the
 ⚖️ table, *as the queue has held since 2026-10-08*. The user: *we are not doing it here at all, it
 is long abandoned and the session took a different turn.*
@@ -1346,14 +1346,14 @@ written somewhere.* Second wording:
 > question it belongs to; once the session has moved to another question subtree a wait leaves the
 > table, provided it is written where its question keeps it
 
-**Disposition:** landed as v104, 2026-10-22, the second wording, a straw dog bound to q-0037.0013.0005.0007 on the user's word. The queue's line repaired the same day.
+**Disposition:** landed as v104, 2026-10-22, the second wording, a straw dog bound to q-g2zdu7 on the user's word. The queue's line repaired the same day.
 
 **Struck 2026-10-25 — a wait brought by another session's message.** The session on
-[q-0037.0018.0005](questions/q-0037.0018.0005-is-a-projects-root-readme-generated-from-its-product-document-and-edge-records-or-written.md),
+[q-kkw47n](questions/q-kkw47n.md),
 the README's align, received from the session on
-[q-0037.0019.0004](questions/done/q-0037.0019.0004-what-would-put-strikes-on-the-product-on-what-the-project-is-for-so-that-the-paths-order.md)
+[q-s2nyhd](questions/q-s2nyhd.md)
 a note that `/product`'s goal 4 still speaks of the written queue after decision 7 of
-[q-0037.0019](questions/q-0037.0019-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the.md),
+[q-huss2x](questions/q-huss2x.md),
 and that the queue's fate, removed or kept as bookmarks without order, is still the person's. It
 left goal 4 alone, rightly, and put *the fate of the written queue* under ⚖️ in that reply and the
 next, reasoning that the decision rewrites goal 4 of a skill it held. The user: *the fate of the
@@ -1436,7 +1436,7 @@ Second wording:
 with the concrete failures and my own earlier words … before any design question* and *when I do
 not follow, go more concrete*; the entry file's *a reply speaks the method*.
 
-**What happened.** At q-0037.0012.0009 a discovery pass returned eight families and nine framings
+**What happened.** At q-7f4anv a discovery pass returned eight families and nine framings
 the tasking smuggled in. The material went whole into the question's body; the next reply opened
 `/align` with its gate and a first question whose options leaned on *families 4, 5 and 8* by number.
 The user: *you decided not to tell me at all what you dug up, and bury me in agent-speak with no
@@ -1466,7 +1466,7 @@ context they hold.
 from the records, before any design question*; *do not reopen an accepted decision without new
 evidence*.
 
-**What happened.** At q-0037.0010.0012.0001 the second question asked what a reply may still say of
+**What happened.** At q-4xhel7 the second question asked what a reply may still say of
 the work, with three options. The person's message that opened the question had answered it, with
 the example the question then quoted as its decisive fact: *good morning, recalling what we have*.
 The user: *b — I wrote exactly that at the start, no?*
@@ -1509,7 +1509,7 @@ ready; what was copied, gated and registered stays in the files and the commit, 
 so does how the run got round a platform's trouble. Then introduce it … what it gives them, who you
 now are to them, and where you stop for their yes. Then ask what the install still needs, one
 question at a time, each after the last is answered.* What the introduction says the harness gives
-is [q-0033.0008](questions/q-0033.0008-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md)'s.
+is [q-osjub2](questions/q-osjub2.md)'s.
 
 **Struck, 2026-10-15 — the next install, an hour later.** Under the amendment the introduction
 opened better and still reported the commit `f07af78` and every line of `local.rules.md`, then said
@@ -1533,7 +1533,7 @@ the harness gives was the amendment's own three lines, read by the user as thin 
 workings rather than the person's gain. **Amendment landed**, the user, 2026-10-15: the on-request
 list names *that it made a repository* and *that its checks passed*; what it gives is said *as what
 they will notice and never as how it works*, its three promises in the person's experience, a
-straw dog bound to q-0033.0008; the git ask is numbered as where finished work goes.
+straw dog bound to q-osjub2; the git ask is numbered as where finished work goes.
 
 **Source cases, retrospective extraction:**
 
@@ -1548,7 +1548,7 @@ immediate interesting status* and *output wake/recall updates as the stages are 
 order the narration the first forbids; the specific won. Every amendment so far landed in
 `/harness` alone, so the shape came back at the next skill that speaks. The user: some rules are
 work done unseen, others say how to speak of it, and the two should be told apart — with tests.
-Open at [q-0037.0010.0012.0001](questions/q-0037.0010.0012.0001-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person.md).
+Open at [q-4xhel7](questions/q-4xhel7.md).
 
 **Source cases, retrospective extraction:**
 
@@ -1558,7 +1558,7 @@ Open at [q-0037.0010.0012.0001](questions/q-0037.0010.0012.0001-how-does-a-rule-
 hears` section, and the entry file's *A reply speaks the method* tells the method's step and never
 the work's course, v94; graded on the speech bench, red to green.
 
-**Amendment landed**, 2026-10-18, under q-0037.0010.0012.0001's decisions: `/harness`'s speech moved
+**Amendment landed**, 2026-10-18, under q-4xhel7's decisions: `/harness`'s speech moved
 into its `What the person hears`, the close told as *ready, and the first question the work asks*,
 *that their answers are written down* said only on request; graded on this entry's three install
 replies as cases, the close from three flags in five to two, the rest held by the 🪶 Commits table.
@@ -1624,7 +1624,7 @@ salience again, as at both strikes before; three rewordings have not moved it. *
 proposed**, at the self-improvement ladder's *the method*: the host refuses the act — an edit to a
 file whose owning skill was not read in the session, a reply proposing a rule with no `/skill-up`
 read — where it can, and the commit refuses what reached the tree anyway; its design is
-q-0037.0006.0005.0001's.
+q-5jcptm's.
 
 **Source cases, retrospective extraction:**
 
@@ -1697,7 +1697,7 @@ the user questioned whether it spoke like Lem and the agent acknowledged a failu
 reader judged the original prose not recognisably Lem's, and a separate writer's pass under
 unchanged L9 more connected but still not confidently recognisable as Lem. The limited
 experiment is in
-[the voice question](questions/q-0037.0009.0021.0002-is-the-voice-a-reply-speaks-in-its-own-mechanism-owning-how-everything-the-person.md#evidence--an-isolated-second-pass-2026-10-26).
+[the voice question](questions/q-53jkvy.md#evidence--an-isolated-second-pass-2026-10-26).
 The refused description and examples were not reintroduced; no new voice rule was installed.
 
 **Source cases, retrospective extraction:**
@@ -1803,7 +1803,7 @@ place does, or by real cases whose inputs never reach it.
 **Rules in play:** the entry file's reply form, *under `debug=on`, the window's counters line,
 copied as it stands, a one-cell table of its own*.
 
-**What happened.** A session on q-0037.0018 headed its reply with the cell *🎫 / ❓ / 🐕 как в окне* —
+**What happened.** A session on q-5wbvz6 headed its reply with the cell *🎫 / ❓ / 🐕 как в окне* —
 the glyphs, and in place of the numbers a note that they are as in the window. The user: *получил
 … вместо чисел.*
 
@@ -1851,7 +1851,7 @@ of name, place or form brings with it reopens that choice before anything is bui
 share, *the premise is wrong* a first-class outcome; its *necessity gate*, weak evidence meaning
 narrow, postpone or eliminate; decision 26 of the open-questions ticket, *the judge reads a window*.
 
-**What happened.** Probing q-0037.0001.0020.0001, two runs gave sixteen drafts to a judge, every run the
+**What happened.** Probing q-ctb74s, two runs gave sixteen drafts to a judge, every run the
 same prompt, written once by the agent and never shown. Fourteen were flagged, and the reply read
 it as the ticket's premise refuted: *an outside judge does not see hidden parts better than
 almost everywhere*, recommending the judge be postponed. The user: *nothing follows from it; maybe
@@ -1877,7 +1877,7 @@ verdict for that alone.*
 instruction file are never the same file*; the entry file's *A document informs. It never
 instructs an agent.*
 
-**What happened.** Aligning q-0037.0010.0012, the reply proposed that *the description of how the
+**What happened.** Aligning q-awqz6b, the reply proposed that *the description of how the
 machinery is built* leave the skills for the mechanism's doc and the script, the skill keeping
 *the act and the bare call*. The user: *how can we pull the machinery out of the skills without
 breaking them — they have to know; the mechanism doc is no place for instructions.* Most of what
@@ -2010,7 +2010,7 @@ prefix is not in L8's list. **Disposition:** open, struck once.
 - [Claude Code · claude-opus-5-5 · 2026-10-11T09:12:01.759Z](cases/rf-landed-changes-were-retold-in-pr-ad3520866a/case.json).
 
 **Rules in play:** the entry file's framed texts, *always for an instruction … `Landed` once
-written*, a straw dog bound to q-0037.0009.0021; Self-improvement's *showing its text first*.
+written*, a straw dog bound to q-l36vii; Self-improvement's *showing its text first*.
 
 **What happened.** Reporting the v69 checkpoint line and the split of `/harness`'s checks, the
 reply showed each text only mid-turn, as a proposal before its edit, then summarised both in
@@ -2039,7 +2039,7 @@ lands an instruction.
 row each with the question it stands on as the window writes it*.
 
 **What happened.** Reporting the amendment of entry 34, a reply listed the three running sessions
-under 🪢 with wordings of its own for q-0037.0010.0009.0006, q-0037.0006.0022.0001.0001 and q-0037.0013.0003, none
+under 🪢 with wordings of its own for q-bgak4p, q-o7qgmw and q-p2tgdv, none
 of them the store's.
 
 **Why it did not fire.** The window wrote each other session's position as a bare id, so the words
@@ -2080,7 +2080,7 @@ user pointed out that it had happened before that request. A fresh reader confir
 chronological contradiction and the missing tables. It established no deeper cause or intent;
 the request for simpler prose is not evidence that the existing form was waived. The case and
 the independent reading are in
-[q-0037.0009.0021.0003 What keeps the required reply form from being omitted?](questions/done/q-0037.0009.0021.0003-what-keeps-the-required-reply-form-from-being-omitted.md).
+[q-6b6232 What keeps the required reply form from being omitted?](questions/q-6b6232.md).
 
 **Amendment refused, 2026-10-26:** the user rejected the proposed machine check because Claude
 Code already follows the form without it. The proposed Stop attachment was not installed.
@@ -2204,7 +2204,7 @@ gloss struck. Graded by the next small change under `commit=auto`.
 - [Claude Code · claude-opus-5-5 · 2026-10-10T22:39:42.777Z](cases/rf-a-decision-the-agent-had-taken-w-aa3d6f97b9/case.json).
 
 **Rules in play:** the entry file's reply tables, *what waits on the user's decision, under
-`| ⚖️ Decisions |`*, a straw dog then bound to q-0037.0016.
+`| ⚖️ Decisions |`*, a straw dog then bound to q-6kx3m2.
 
 **What happened.** Closing the plan of 01-0011.0110.0040.0020, the reply named a choice it had made
 itself — a line with nowhere to land moves to the successor on a `merged` or `superseded` close —
@@ -2251,7 +2251,7 @@ work — its verification set, and the work read against what governs it.* Grade
 - [Claude Code · claude-opus-5-5 · 2026-10-10T00:44:32.548Z](cases/rf-empty-tangle-footer-20261010-004432/case.json).
 
 **Rules in play:** the entry file's reply tables, *debug or not, a row each: … under
-`| ⚖️ Decisions |`; … under `| 🍂 Drift |`; … under `| 🪢 Tangle |`*, a straw dog bound to q-0037.0016.
+`| ⚖️ Decisions |`; … under `| 🍂 Drift |`; … under `| 🪢 Tangle |`*, a straw dog bound to q-6kx3m2.
 
 **What happened.** A `/recall` session ended every reply with all three tables. When the other
 session's uncommitted files had been committed, its 🪢 table held a single dash. The user: *why an
@@ -2285,7 +2285,7 @@ one sentence, and nothing in Cursor's turn puts it in front of the agent.
 
 **Amendment proposed:** the sign of life stops resting on it — Cursor's message hook records the
 session as seen, landing with 01-0011.0100.0060. The window's own reach into Cursor stays a rule
-and stays unreliable; that is q-0037.0011's, with this as its evidence.
+and stays unreliable; that is q-c5x3mh's, with this as its evidence.
 
 ## 27. Another session's claim on the question being worked was filed as drift — 2026-10-10
 
@@ -2297,8 +2297,8 @@ and stays unreliable; that is q-0037.0011's, with this as its evidence.
 agreement with what it is of under 🍂, one party's work colliding with another's under 🪢.
 
 **What happened.** The wake read ten session rows as running, most silent since 2026-10-07; the
-recall listed them under 🍂. Two of them stood at q-0037.0016 and q-0037.0016.0001, and the next turn
-amended q-0037.0016's own rule with no row saying so. The user: *it is not drift but a tangle — why
+recall listed them under 🍂. Two of them stood at q-6kx3m2 and q-3fm3dz, and the next turn
+amended q-6kx3m2's own rule with no row saying so. The user: *it is not drift but a tangle — why
 did it not go there?*
 
 **Why it did not fire.** The rows fit 🍂's words literally — the file says running, the session is
@@ -2352,7 +2352,7 @@ paragraph says the clone. **Landed 2026-10-09.**
 parent until its children close; the questions mechanism's own warning that whether a shape hides
 parts is what the agent fails to judge; the entry file's ⚖️ table for what waits on the user.
 
-**What happened.** On q-0037.0001.0023 the agent drafted a relation, then put a form and a next step to
+**What happened.** On q-2t2gi2 the agent drafted a relation, then put a form and a next step to
 the user four replies running. Each time the user's answer reshaped the question — the link's ends
 are answers; both relations point at an answer; *which database* presupposes a database; every
 question presupposes something, and which kind holds tracks how set the project is — and each
@@ -2565,8 +2565,8 @@ into it; a doubt makes the turn another kind. Graded as before.
 - [Claude Code · claude-fable-5-1 · 2026-10-04T23:42:39.451Z](cases/rf-six-turns-of-seven-showed-a-ques-87c5526038/case.json).
 
 **Struck, 2026-10-05 — another fresh session the same day.** Asked whether the harness's update
-in a recipient was fixed, the agent rejected four children of q-0037.0006 that resembled the message,
-went up to q-0037.0006 and placed the turn there; the answer was in the docs, so it opened nothing.
+in a recipient was fixed, the agent rejected four children of q-veooj7 that resembled the message,
+went up to q-veooj7 and placed the turn there; the answer was in the docs, so it opened nothing.
 v27's *only as loosely as it contains everything under it* is a judgement with nothing to count,
 and the count — two or more children that resemble — sat in the skill, which was not opened;
 *found, point to it and open nothing* read as the end of placing. **Amendment landed the same
@@ -2592,7 +2592,7 @@ question's id.
 fold, a reply put four points to the user. One said an entry goes *under 01-0020's question* —
 the question the pacer ticket will answer, which the store does not hold yet, named by a ticket id
 and a phrase coined in the turn; another named its owner as a bare *01-0010*, and a question as a
-bare *q-0037.0001*. The user: *what is 01-0020's question? where did the instruction to put the slug
+bare *q-dmvmf2*. The user: *what is 01-0020's question? where did the instruction to put the slug
 beside the id go? the same for point 4.* Two replies were spent re-explaining.
 
 **Why it did not fire.** P9 speaks of naming a ticket; *a ticket's question* is a new thing the
@@ -2640,8 +2640,8 @@ id in a reply that is not a link.
 - [Claude Code · claude-opus-5-5 · 2026-10-12T14:56:34.148Z](cases/rf-a-reply-named-what-it-asked-abou-eb4d871d13/case.json).
 
 **Struck, 2026-10-13, in records.** A scheduled `/maintain` found 24 bare ticket ids on lines
-written after v85 landed: the leans of q-0037.0006.0024, q-0033 and q-0037.0018 with its seven new parts,
-q-0037.0018's impact section, and two of the
+written after v85 landed: the leans of q-o3ps2o, q-m6unv4 and q-5wbvz6 with its seven new parts,
+q-5wbvz6's impact section, and two of the
 [01-0040 a-projects-account-stays-in-agreement-with-its-work](tickets/01-0040-a-projects-account-stays-in-agreement-with-its-work.md)
 tickets, all written by the session that minted [01-0040](tickets/01-0040-a-projects-account-stays-in-agreement-with-its-work.md). P9 reads *every record*, and was installed and read; the grading above looked only at
 replies, and the store's leans are passed to the script as plain text, where nothing meets the
@@ -3396,7 +3396,7 @@ inside either** — the class that raises no error anywhere, because each rule i
 
 **Disposition:** [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md) minted
 the same day; concern 3 reduced to its contact surface, since folded into the question store as
-[q-0037.0012.0001](questions/done/q-0037.0012.0001-is-harness-self-amendment-its-own-mechanism.md). The amendment to `/align` is
+[q-clk3dr](questions/q-clk3dr.md). The amendment to `/align` is
 not yet made — `/align`'s glossary and concerns rules are both moving under
 [01-0017.0010](tickets/01-0017.0010-terms-defined-before-they-land.md) and this wording should land
 with them rather than ahead of them.

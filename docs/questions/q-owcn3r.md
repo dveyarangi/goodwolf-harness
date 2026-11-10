@@ -1,0 +1,9 @@
+# q-owcn3r Are the tickets' open questions kept in the store, with their arguments?
+
+- **record of** what happened
+- **part of** q-dmvmf2
+- **state** closed:decided
+- **owner** [01-0011.0100.0020](../tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md)
+- **answer** [TICKET-FORMAT's sections](../../.agents/skills/ticket/TICKET-FORMAT.md#the-sections) — the user, 2026-10-03
+- **opened** 2026-10-10T23:45:11Z
+- **struck** 0, last 2026-10-03T10:15Z

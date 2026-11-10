@@ -1,0 +1,9 @@
+# q-c4xjxl Does the first package run in xuanxue-cabinet beside its own method?
+
+- **record of** what it intends to become
+- **part of** q-nlec4j
+- **state** open
+- **owner** [01-0010.0150.0020.0030](../tickets/01-0010.0150.0020.0030-the-first-package-runs-in-xuanxue-cabinet.md)
+- **rung** development: a product slice, self-improvement: the method
+- **opened** 2026-10-25T22:52:53Z
+- **struck** 0, last 2026-10-25T22:48Z

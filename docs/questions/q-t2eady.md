@@ -1,0 +1,123 @@
+# q-t2eady Where does the meeting with the harness — the front page, the install, the first session — stand in the product account, if it relieves no pain itself but presents every answer; and is it the outside product's or the harness's own?
+
+- **record of** what it intends to become
+- **part of** q-m6unv4
+- **state** open
+- **rung** development: the whole product
+- **lean** the user, 2026-10-26: self-presentation is the account told, explaining every pain and how the harness answers each, not an answer to a pain; pain 4, not knowing what works, answered by A53 the reader checks and A54 the study; open: how the telling marks its questions, and what measures it
+- **opened** 2026-10-25T08:53:40Z
+- **struck** 0, last 2026-10-25T08:53Z
+
+## The product session's reading, 2026-10-25
+
+Accepted as a reading by the user, 2026-10-25; the form is not decided.
+
+- **Already grounded.** q-5wbvz6's decision 10 has one mechanism tell the project's account to
+  each of its readers — the product document inside, the root README to a reader arriving cold,
+  the release note to one updating. Self-presentation is that telling, split by reader; what the
+  product document lacks is its place: the table knows pains and answers, not readers.
+- **A form it suggests.** A section of the product document beside *Who it is for* and
+  *Correction and evaluation, together*: the meetings, each by who meets the project — the front
+  page and a reader arriving cold; the install and first session and the agent deciding whether to
+  install; a release and a project that already holds it. A meeting's answer is measured by what
+  the one meeting it understood and did — as the front page is measured now, by live cases — not
+  by a pain relieved.
+- **What it reaches.** q-kkw47n's decision 4 marks each paragraph of the front page's
+  source with the answers it stands on; with a section of meetings, a paragraph may name its
+  meeting as well. Settled here before that align goes on.
+- **Its questions marked too** *(the user, 2026-10-25)*: the questions that belong to
+  self-presentation carry its mark as the others carry an answer's — a meeting named by a
+  question's trace link as an answer is — so a reading by label sees self-presentation's open work
+  apart from the answers', A49's fifty among them.
+
+## An experiment on the front page, 2026-10-25
+
+On the user's word, ahead of this question's decision, rewritten the same day as *still weak*:
+the README's line under the badges reads *A harness for your own harnesses — for code, study,
+research, a diary — whose memory stays clean, whose instructions get followed, and whose goal holds
+while it moves. Built and tested on software development.*; a paragraph after *GoodWolf answers all
+three…* tells the builder's pain — a setup of one's own that tangles, the memory cluttered, the
+instructions not followed, the goal slipping — and the harness underneath, development the first
+method and its hardest test, a method of one's own receiving all of it;
+the sentence *And it extends…* in *What it gives you* removed as its second home. An experiment
+in decision 4's sense of q-kkw47n: on this question's decision its claims enter the
+product document's account of the meeting, or leave. Graded by the next live case.
+
+**A case: a reader from outside development, 2026-10-25.** A friend of the user, told of the
+harness, asked whether the user keeps harnesses for other subjects — work, study — and said he had
+begun the day before to build one of his own on local Markdown files, to learn with and to switch
+between models, not knowing whether he was doing it right. The user's answer named the pain in the
+builder's words: *everything grew complicated and began to tangle — the memory gets cluttered, the
+instructions are not carried out, the goal is not held* — and the product as *a harness for
+harnesses*: meta-instructions and scripts for writing any instructions so their memory stays
+coherent, and a way to navigate the space of any task. The first reader seen who is a builder of
+his own harness rather than a developer with a project; the page's two opening lines now speak to
+him, the three pains under the proverb still to a developer. Which reader the page puts first is
+this question's.
+
+**The page rewritten to the user's three principles, 2026-10-25.** The page is now this session's,
+its earlier holder closed. The opening tells the pains of any work with an agent and keeps the
+proverb, the woods growing with every session rather than standing for old work alone; *Where you
+start* gives three cases — new work, work that has lived, a method of one's own; every strength
+of *What it gives you* carries why and, where benefit is decided by measuring, a check to run in
+the reader's project, the provisional decision and the outside second opinion among them; the
+lists of what does not work yet — *Not yet*, *Two goals it can't promise yet*, *so far it is you
+who notices a miss*, *the report is where the install stops today* — left the page, their detail
+kept in their questions; *what it saves has not been measured* became *measure it in your project*.
+Graded by the next live case.
+
+**Live case 6, the rewritten page read cold, 2026-10-25.** Two subagents, each reading README.md
+alone, neither shown the builder's conclusions.
+
+*A cold reader*, asked by its person *do we need this here?* for a year-old web app with a
+CLAUDE.md of its own: **check first, don't run the installer yet.** The study needs our script run
+in its repository — *let their agent judge whether we need them* — so it would answer the page's
+questions itself first, and took four of them as its own: do the gates run, do duplicated rules
+agree, how much provisional text still holds, is the reason for the last stall written. Pushed
+toward no by: the only evidence the tool's own history — 63 misses in 66 sessions, one rule
+tightened four times a day; *works as speed* unshown while it asks the reader *has anyone measured
+it?*; the reach — code, study, research, a diary — for a young tool; raw `<straw-dog …>` markup and
+*a check of its own being built*; *or takes its place*; the cost per message unknown. Still unclear
+to it: what the study produces and costs, how a message reaches the tree, how it sits beside an
+existing CLAUDE.md, several people and review, the default line, what lands in `docs/`.
+
+*A grader*, against the three principles: **each holds partly.** No self-deprecation: *a check of
+its own being built*, the host's-job paragraph, the 63 misses, a *Works today* heading implying a
+hidden not-yet list. The check through the page: seven *In your project* prompts, but none on the
+second opinion or *What it does about each*, claims that invite measuring without a measuring task,
+and the study firing only where the install refuses — a fresh or code-only project gets no check.
+Everything with why: several items with no check. Contradictions: *work that has lived* is offered
+a study the install gives only to a project with rules or a method; *a few lines and a few minutes*
+against a ticket, plan and tests per change; *Works today* against *What it gives you*. Eleven
+repeats, mostly *What it does about each* against *What it gives you*. Jargon: the raw straw-dog
+tags, *the study's door*, *gates*, *sessions in one tree*. Its ranked changes: a step anyone can
+take — answer every *In your project* question or run the study, in any project; delete *Where it
+stands* and the listed holes, the tags with them; merge *What it does about each* into *What it
+gives you*, each item one why and one check.
+
+**Live case 7, another project with a method of its own, 2026-10-25.** Pasted by the user: a
+session in live-spec — a harness of its own, 13 skills, a plan, a decisions log, an inbox, hooks —
+asked *do we need goodwolf-harness here?* First answer: **no**, the same thing twice in one tree,
+two homes for one fact, by a comparison of feature lists. The person: *so we have no problems?*
+The agent then looked at its own project and found its orientation script broken on that machine,
+the plan empty with no next step for seven weeks, 78 closed steps owed a re-check, stale evals,
+three inbox notes unread since September — one a closing check that ran zero tests and exited 0.
+It withdrew the first answer: it had compared what each has, not asked whether its own works; it
+split its project into the product it ships and the managing of its own work, and placed the
+harness on the second. It took the page's *`/maintain` … made to run on its own as a scheduled
+task* as already running by itself. Its remaining doubt: a young tool proven mostly on itself;
+the study again behind cloning and running foreign code.
+
+The user, reading it: the opening block is what such a project can already do; the page must make
+the reading project ask itself not only whether it can, but whether it has checked that what it
+thinks it can do actually works.
+
+## Decisions
+
+1. **Self-presentation is the account told, not an answer to a pain** *(the user, 2026-10-26,
+   overturning the day before's wording)*: it is about every pain — it explains the pains and how
+   the harness answers each, to whoever meets the product: the front page, the study's report, the
+   installing agent's words, the release notes. It is the telling q-5wbvz6's decision 10 gives
+   the product mechanism, and its questions are marked as the telling's, not as an answer's.
+   *I don't know what works and what doesn't* is a pain of its own, and what answers it is the
+   questions put to the reader about their own project — the page's checks — and the study.

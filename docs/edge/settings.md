@@ -27,7 +27,7 @@ settings, never the file ([product](../product.md), G3).
 **Required of a setting:** declared once, by the mechanism it belongs to, in its rules file;
 set only in the project's local file; its `set by` a rung of a ladder, read by the dial as every
 decision is, or the person — **⚠ pending — 01-0010.0125**: the host refuses an agent's change of a
-person's setting as it refuses a dial edit<straw-dog question="q-0037.0006.0005">; until then the
+person's setting as it refuses a dial edit<straw-dog question="q-bsd3ga">; until then the
 rule stands in the agent's hands</straw-dog>.
 
 ## Invariants
@@ -46,14 +46,14 @@ rule stands in the agent's hands</straw-dog>.
 
 ## Concerns
 
-- [q-0037.0010.0002.0005](../questions/q-0037.0010.0002.0005-what-does-the-practice-mechanism-own.md)
+- [q-ggpx2r](../questions/q-ggpx2r.md)
   — the dial as a setting waits on the ladder mechanisms' declaring it; until then the dial is
   set as L2 and not through the table.
 
 ## Roadmap
 
 - The dial's two rows in the table, once a ladder's mechanism declares them —
-  [q-0037.0010.0002.0005](../questions/q-0037.0010.0002.0005-what-does-the-practice-mechanism-own.md),
+  [q-ggpx2r](../questions/q-ggpx2r.md),
   deferred from [01-0010.0220](../tickets/done/01-0010.0220-a-tree-carries-the-methods-text-its-settings-call-for.md).
 - The host refusing an agent's change of a person's setting —
   [01-0010.0125](../tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md).

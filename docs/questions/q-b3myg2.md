@@ -1,0 +1,13 @@
+# q-b3myg2 How does the store tell a session in the ring, holding a unit, from one in conversation?
+
+- **record of** what happened
+- **part of** q-huss2x
+- **state** closed:deferred
+- **answer** until the cap of L12 is seen to count wrongly, a session in the ring uncounted or one in conversation counted, meanwhile the count reads tickets In progress and Q1's ring clause runs on the agent's judgement; three marks weighed in q-huss2x, the unit, an explicit mark, the ring's skill as the host reports it — the user, 2026-10-23
+- **rung** self-improvement: the method
+- **opened** 2026-10-23T10:16:28Z
+- **struck** 0, last 2026-10-23T10:15Z
+
+## Evidence, 2026-10-24
+
+The ring mark is being built elsewhere: [01-0070.0010 a-sessions-row-names-the-unit-it-holds](../tickets/done/01-0070.0010-a-sessions-row-names-the-unit-it-holds.md), minted on q-psa5ha, writes the unit a session holds into its row. The deferral's condition, the cap seen to count wrongly, is not met; whether L12 counts from the row once it lands, and whether this question then closes against that ticket, is this question's, re-read when the ticket lands.

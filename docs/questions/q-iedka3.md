@@ -1,0 +1,19 @@
+# q-iedka3 What prevents an accepted decision from remaining only in chat?
+
+- **record of** what happened
+- **part of** q-tt733j
+- **state** closed:deferred
+- **answer** until the user resumes changing the decision-recording rule, meanwhile Q6 remains unchanged and the accepted decisions stay recorded — the user, 2026-11-09
+- **rung** development: load-bearing, self-improvement: the method
+- **opened** 2026-11-10T08:27:35Z
+- **struck** 0, last 2026-11-09T07:51Z
+
+## Where it stands
+
+Q6 was loaded, but accepted replay-case decisions remained only in chat and the session declared
+alignment complete. The [failure](../rule-failures.md#accepted-decisions-remained-only-in-chat-after-alignment-was-declared-complete--2026-11-09)
+records Codex Desktop, the source turn model `gpt-6.1-sol`, the failing message and the session's
+reported interpretation of an implementation pause. The missing decision record has been repaired.
+The proposed Q6 addition separates pausing implementation from pausing recording and requires
+checking recorded acceptances before continuing or declaring completion. It has not been accepted
+or installed. No mechanical guard has been designed or demonstrated by this repair.

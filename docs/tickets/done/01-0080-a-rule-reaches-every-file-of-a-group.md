@@ -7,14 +7,14 @@
 - **Plan:** [the RFC](../../rfc/done/01-0080-a-rule-reaches-every-file-of-a-group.md) — a pattern
   row resolved to its members over the tree's listing, one resolution for install, retract, the
   check and the harness's rehearsal
-- **Answers:** [q-0037.0002](../../questions/done/q-0037.0002-how-does-a-group-install-target-resolve-to-a-file-and-an-anchor-in-each-member.md)
+- **Answers:** [q-2bhjm6](../../questions/q-2bhjm6.md)
 - **Outcome:** A rules file names a group of files by a path pattern and a heading, and its rules are installed in, held in and retracted from every file the pattern matches that holds the heading, whether or not the rules file knew of that file when it was written.
 
 ## Parent
 
-[q-0037.0002](../../questions/done/q-0037.0002-how-does-a-group-install-target-resolve-to-a-file-and-an-anchor-in-each-member.md),
+[q-2bhjm6](../../questions/q-2bhjm6.md),
 whose `Where it stands` the user accepted on 2026-10-25. Impact:
-[in the question](../../questions/done/q-0037.0002-how-does-a-group-install-target-resolve-to-a-file-and-an-anchor-in-each-member.md#impact-of-the-split-2026-10-25).
+[in the question](../../questions/q-2bhjm6.md#impact-of-the-split-2026-10-25).
 
 ## What to build
 

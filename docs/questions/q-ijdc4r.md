@@ -1,0 +1,10 @@
+# q-ijdc4r How does the migration run after a yes — the plan as open work at the project's grain, the method carried in, a second reading as its verification?
+
+- **record of** what it intends to become
+- **part of** q-n3pc22
+- **state** open
+- **owner** [01-0010.0150.0030](../tickets/01-0010.0150.0030-the-migration-as-open-work.md)
+- **rung** development: a product slice, self-improvement: a rule
+- **lean** the user, 2026-10-23: minted as 01-0010.0150.0030 — the plan's items at the project's own grain, a ticket each or one; the second reading on the same sample is the migration's verification and q-6ezmbo's second point
+- **opened** 2026-10-23T00:20:39Z
+- **struck** 0, last 2026-10-23T00:20Z

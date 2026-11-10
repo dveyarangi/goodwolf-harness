@@ -59,11 +59,11 @@ FRONT_PAGE = ".agents/skills/harness/README.md"
 # gone the check reads declarations alone.
 PAINTED_DOORS = frozenset(
     (
-        # TODO q-0037.0010.0004: the ticket mechanism's records and the shape's evidence are declared in
+        # TODO q-la5n2i: the ticket mechanism's records and the shape's evidence are declared in
         # prose; these rows go when `record-bearing` parses.
         "docs/tickets/",
         "docs/tickets/done/",
-        # TODO q-0037.0010.0004: the question store's entries are declared in the questions skill's
+        # TODO q-la5n2i: the question store's entries are declared in the questions skill's
         # prose, the sessions' rows beside the conclude's; these rows go when `record-bearing` parses.
         "docs/questions/",
         "docs/questions/done/",
@@ -72,30 +72,30 @@ PAINTED_DOORS = frozenset(
         # The single sessions file a store from before holds, read until its first write carries it.
         "docs/questions/sessions",
         "docs/mechanisms/",
-        # TODO q-0037.0010.0004: the maintain mechanism's marks, declared in its skill's prose until each
+        # TODO q-la5n2i: the maintain mechanism's marks, declared in its skill's prose until each
         # mechanism's records are declared where a script reads them.
         "docs/mechanisms/maintenance.md",
-        # TODO q-0037.0010.0001.0001: the glossary's, which goes with the glossary mechanism's declaration.
+        # TODO q-pdmw3a: the glossary's, which goes with the glossary mechanism's declaration.
         "docs/glossary.md",
-        # TODO q-0037.0010.0002.0005: the practice's, which go with its declaration.
+        # TODO q-ggpx2r: the practice's, which go with its declaration.
         "docs/architecture.md",
         "docs/adr/",
-        # TODO q-0037.0009.0013: /plan's, which go with its declaration.
+        # TODO q-oehis2: /plan's, which go with its declaration.
         "docs/rfc/",
         "docs/rfc/done/",
-        # TODO q-0037.0009.0006: /conclude's, which goes with its declaration.
+        # TODO q-d4pypx: /conclude's, which goes with its declaration.
         "docs/sessions/",
-        # TODO q-0037.0009.0008: /dream's, which goes with its declaration.
+        # TODO q-h4dbp3: /dream's, which goes with its declaration.
         "docs/dreams/",
-        # TODO q-0037.0009.0015: /setup-devops's, which goes with its declaration.
+        # TODO q-3cx2m3: /setup-devops's, which goes with its declaration.
         "docs/cicd.md",
-        # TODO q-0037.0010.0004: the edge mechanism's records, declared in its format shelf's prose;
+        # TODO q-la5n2i: the edge mechanism's records, declared in its format shelf's prose;
         # this row goes when `record-bearing` parses.
         "docs/edge/",
-        # TODO q-0037.0010.0004: the product mechanism's document, declared in its format shelf's prose;
+        # TODO q-la5n2i: the product mechanism's document, declared in its format shelf's prose;
         # this row goes when `record-bearing` parses.
         "docs/product.md",
-        # TODO q-0037.0012: the register.
+        # TODO q-tt733j: the register.
         "docs/rule-failures.md",
     )
 )

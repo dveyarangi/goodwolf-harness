@@ -1,0 +1,13 @@
+# q-gpal3m Does the local-file check belong to 01-0010.0180, or to 01-0010.0160's migration check?
+
+- **record of** what it intends to become
+- **part of** q-7caadu
+- **state** open
+- **owner** [01-0010.0180](../tickets/01-0010.0180-harness-names-its-maintenance.md)
+- **rung** development: a feature, self-improvement: a script
+- **opened** 2026-10-03T11:36:20Z
+- **struck** 0, last 2026-10-03T10:16Z
+
+Whether the local-file check belongs here or is the same check
+[01-0010.0160](../tickets/01-0010.0160-harness-edge-changes-reach-an-update.md) will own once an edge
+change is a trackable migration. If [01-0010.0160](../tickets/01-0010.0160-harness-edge-changes-reach-an-update.md) lands first, this rule may reduce to citing it.

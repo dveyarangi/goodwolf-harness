@@ -1,0 +1,18 @@
+# q-sonc4m Does the leak check catch a ticket named by a bare id in core?
+
+- **record of** what it intends to become
+- **part of** q-veooj7
+- **state** open
+- **owner** [01-0010](../tickets/01-0010-a-shared-harness-improves-without-losing-project-conventions.md)
+- **rung** development: a feature, self-improvement: a rule
+- **lean** 2026-10-19: a test holds it as an expected failure — the check reads paths, not ticket ids; L10 says it meanwhile
+- **opened** 2026-10-03T11:36:20Z
+- **struck** 0, last 2026-10-03T10:33Z
+
+Found at [01-0011.0100.0020](../tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md)'s verify, 2026-10-03. The entry file's *Core and instance* says core names a
+ticket only in a straw dog's binding, never as a bare id in prose. The check holds every path under
+`docs/` that core names, and nothing holds a bare id: fourteen comments citing "[01-0011.0100.0020](../tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md)'s
+decision N" passed it through [01-0011.0100.0018](../tickets/done/01-0011.0100.0018-a-question-id-says-where-it-sits.md)'s verify and were repaired by hand at [01-0011.0100.0020](../tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md)'s. Older ones
+stand — the questions and ticket rules files' *authority* lines name `01-0011.0100`, and the
+maintain doc names `01-0011.0060` — so either the rule admits an authority line, and says so, or
+the check learns to read a bare id and those lines change.

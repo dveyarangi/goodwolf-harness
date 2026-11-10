@@ -35,7 +35,7 @@ carry one; one that forgets is an orphan at the next check, never refused. Build
 answer or its causes must change opens a purpose question like any other, and its decision is
 allocated the same way.
 
-It is **installed**. <straw-dog question="q-0037.0006.0024">It ships with core like every mechanism,
+It is **installed**. <straw-dog question="q-o3ps2o">It ships with core like every mechanism,
 since a project cannot yet take one alone.</straw-dog> Its rules carry no condition: a tree that has
 the mechanism keeps the document. **An install or an update writes it where none is**, empty, in
 the words of its arrival shelf, by this mechanism's script — the second record written when absent,
@@ -70,14 +70,14 @@ check fails.
 | checking the document in a maintenance pass | `.agents/skills/maintain/SKILL.md` | |
 | a purpose decision landing as an answer, its building question opened with a trace link | `.agents/skills/align/SKILL.md` | |
 | a question opened right under the structure root stating its trace link | `.agents/skills/questions/SKILL.md` | |
-| the root README told from the document | — | <straw-dog question="q-0037.0018.0005">not yet</straw-dog> |
-| a release note's product half gathered from the coverage that moved | — | <straw-dog question="q-0037.0006.0020.0002.0002">not yet</straw-dog> |
+| the root README told from the document | — | <straw-dog question="q-kkw47n">not yet</straw-dog> |
+| a release note's product half gathered from the coverage that moved | — | <straw-dog question="q-m3pldh">not yet</straw-dog> |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
 | an install into a tree with no product document writing an empty one in the format | `.agents/scripts/gw/product.py` | |
 | wording the empty document an install writes | `.agents/skills/product/PRODUCT-ARRIVAL.md` | |
 | an install meeting a product document in another form: left as the project's and reported, and the check saying it is not in the format | `.agents/scripts/gw/harness.py` | |
-| a project's existing account of what it is for brought into the format, by the person and the agent | — | <straw-dog question="q-0037.0018.0012">not yet</straw-dog> |
-| removing this mechanism from a tree | — | <straw-dog question="q-0037.0006.0013.0002">not yet</straw-dog> |
+| a project's existing account of what it is for brought into the format, by the person and the agent | — | <straw-dog question="q-3o5xai">not yet</straw-dog> |
+| removing this mechanism from a tree | — | <straw-dog question="q-qzeuf3">not yet</straw-dog> |
 
 ## Install adds, uninstall removes
 

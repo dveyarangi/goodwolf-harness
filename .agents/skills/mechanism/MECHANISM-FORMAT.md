@@ -255,7 +255,7 @@ Three fields:
 A record declared without all three is a diagnostic, and so is a mechanism that writes records and
 declares none.
 
-<straw-dog question="q-0037.0010.0004">
+<straw-dog question="q-la5n2i">
 Neither diagnostic is emitted yet: finding a mechanism that owes a record declaration needs
 `record-bearing` to be a declared field, which it is not. Until then the two sentences above are a
 rule with no check behind them.
