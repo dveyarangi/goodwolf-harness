@@ -97,8 +97,10 @@ install adds no separate recovery mechanism.
 [The entry contract](../AGENTS.md#straw-dogs) owns the `<straw-dog>` syntax and the duty to wrap.
 A straw dog binds to a question of the store, never to a ticket — the one record of this tree
 core names. Whether it is due is derived from the store at every look; the maintainer decides
-how its text is rewritten. A rename of the store's ids carries every binding
-([01-0011.0100.0030 a-straw-dog-is-bound-to-the-question-it-waits-on](tickets/done/01-0011.0100.0030-a-straw-dog-is-bound-to-the-question-it-waits-on.md#decisions-landed-at-this-tickets-align)).
+how its text is rewritten.
+<straw-dog question="q-0037.0017.0005.0001.0019">Every binding names the id, which never changes; a
+move rewrites the one `part of` line and no link anywhere
+([decision 6](questions/q-0037.0017.0005.0001-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of.md#decisions)).</straw-dog>
 Mechanical removal follows the maintainer's disposition and preserves surviving agreements.
 Examples describing the syntax are distinct from operative statements.
 
