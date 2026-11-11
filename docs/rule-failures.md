@@ -11,11 +11,11 @@ shape a rule would need.
 
 Entries are struck when a later occurrence repeats one, and counted. Nothing here authorises
 deleting a rule: occurrences accumulate and what to do about a rule that keeps failing is
-[q-tt733j](questions/q-tt733j.md)'s,
+[q-tt733j](questions/q-tt733j-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md)'s,
 unresolved on purpose.
 
 This register and its rules belong to the mechanism shape under
-[q-tt733j](questions/q-tt733j.md#decisions)
+[q-tt733j](questions/q-tt733j-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md#decisions)
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
@@ -36,7 +36,7 @@ search mentions."*
 **What happened.** Decision 55 of
 [01-0011.0100 the-open-questions-are-kept-by-a-mechanism](tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md)
 (the user, 2026-10-02) made an entry's file name carry the whole question, for whoever reads a
-listing. Decision 23 of [q-7ebz2f](questions/q-7ebz2f.md), 2026-10-30, named the file by its id
+listing. Decision 23 of [q-7ebz2f](questions/q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md), 2026-10-30, named the file by its id
 alone, to end renames, and said nothing of what that took away. On 2026-11-09 the premises derived
 anew dropped requirement 1.3's *"A question reads easily to an agent and to the person"*; the plan
 of [01-0010.0250.0100 a-questions-id-never-changes](tickets/01-0010.0250.0100-a-questions-id-never-changes.md)
@@ -56,7 +56,7 @@ removes a check, a test or a rule that names the decision it keeps, the plan rea
 and says what it was for and what serves that after the removal, or takes the removal to `/align`.
 
 **Disposition:** open. The amendment is shown to the person before it lands; whether the file's
-name carries the question's words again is put to them on [q-7ebz2f](questions/q-7ebz2f.md).
+name carries the question's words again is put to them on [q-7ebz2f](questions/q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md).
 
 ## A waiting decision reached the person without its options — 2026-11-09
 
@@ -112,7 +112,7 @@ reworking the cases or executor as a pause on recording accepted decisions too. 
 session's reported interpretation; no model-internal cause is established. It then declared the
 alignment complete despite the acknowledged missing record.
 
-**Record repair:** the accepted shape and Decisions 8–17 were added to the [replay question](questions/q-j5s7gp.md). Cases and execution tooling were left alone.
+**Record repair:** the accepted shape and Decisions 8–17 were added to the [replay question](questions/q-j5s7gp-how-is-a-recorded-rule-failure-replayed-as-a-test-against-the-amended-rule.md). Cases and execution tooling were left alone.
 
 **Independent record review, 2026-11-09:** `/root/judge_decision_record_repair` confirmed correspondence to the public accepted scheme, source attribution and preservation of Decisions 1–7 and dated evidence. The review does not validate case extraction or instruction effectiveness.
 
@@ -125,7 +125,7 @@ alignment complete despite the acknowledged missing record.
 > report that pause instead of declaring the alignment complete.
 </straw-dog>
 
-**Disposition:** open on the [prevention question](questions/q-iedka3.md). The proposal clarifies the recording boundary and adds an explicit completion check; it is not a mechanical guard or evidence that recurrence is prevented.
+**Disposition:** open on the [prevention question](questions/q-iedka3-what-prevents-an-accepted-decision-from-remaining-only-in-chat.md). The proposal clarifies the recording boundary and adds an explicit completion check; it is not a mechanical guard or evidence that recurrence is prevented.
 
 **Deferred by the user, 2026-11-09:** leave the rules unchanged and continue the case-extraction work. The missing decision record remains repaired; no proposed instruction was installed.
 
@@ -143,7 +143,7 @@ recommended checking the voice. Asked why the reply did not sound like Lem, the 
 acknowledged the failure, withdrew that recommendation and ended without a replacement next
 move, repair proposal or registration. The user asked why work had stopped. An independent
 reader confirmed the omission; the case and its limits are in
-[q-p4mcme](questions/q-p4mcme.md#evidence--a-correction-ended-the-next-move-2026-10-26).
+[q-p4mcme](questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md#evidence--a-correction-ended-the-next-move-2026-10-26).
 
 **Why it did not fire.** The observable boundary is the correction: the first reply offered work,
 the explanation that followed did not. The model-internal cause is not established. This is not
@@ -1047,7 +1047,7 @@ the handover it meant. A repeat is any session finishing or committing a unit an
 on without the person's word to take it.
 
 **Amendment.** None proposed; the question is opened —
-[q-psa5ha](questions/q-psa5ha.md),
+[q-psa5ha](questions/q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what.md),
 how sessions hand work to each other and when one may take over what another is on.
 
 **Disposition:** open, with the question.
@@ -1388,11 +1388,11 @@ written somewhere.* Second wording:
 **Disposition:** landed as v104, 2026-10-22, the second wording, a straw dog bound to q-g2zdu7 on the user's word. The queue's line repaired the same day.
 
 **Struck 2026-10-25 — a wait brought by another session's message.** The session on
-[q-kkw47n](questions/q-kkw47n.md),
+[q-kkw47n](questions/q-kkw47n-is-a-projects-root-readme-generated-from-its-product-document-and-edge-records-or-written-by-hand-and.md),
 the README's align, received from the session on
-[q-s2nyhd](questions/q-s2nyhd.md)
+[q-s2nyhd](questions/q-s2nyhd-what-would-put-strikes-on-the-product-on-what-the-project-is-for-so-that-the-paths-order-is-read-from.md)
 a note that `/product`'s goal 4 still speaks of the written queue after decision 7 of
-[q-huss2x](questions/q-huss2x.md),
+[q-huss2x](questions/q-huss2x-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three.md),
 and that the queue's fate, removed or kept as bookmarks without order, is still the person's. It
 left goal 4 alone, rightly, and put *the fate of the written queue* under ⚖️ in that reply and the
 next, reasoning that the decision rewrites goal 4 of a skill it held. The user: *the fate of the
@@ -1548,7 +1548,7 @@ ready; what was copied, gated and registered stays in the files and the commit, 
 so does how the run got round a platform's trouble. Then introduce it … what it gives them, who you
 now are to them, and where you stop for their yes. Then ask what the install still needs, one
 question at a time, each after the last is answered.* What the introduction says the harness gives
-is [q-osjub2](questions/q-osjub2.md)'s.
+is [q-osjub2](questions/q-osjub2-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md)'s.
 
 **Struck, 2026-10-15 — the next install, an hour later.** Under the amendment the introduction
 opened better and still reported the commit `f07af78` and every line of `local.rules.md`, then said
@@ -1587,7 +1587,7 @@ immediate interesting status* and *output wake/recall updates as the stages are 
 order the narration the first forbids; the specific won. Every amendment so far landed in
 `/harness` alone, so the shape came back at the next skill that speaks. The user: some rules are
 work done unseen, others say how to speak of it, and the two should be told apart — with tests.
-Open at [q-4xhel7](questions/q-4xhel7.md).
+Open at [q-4xhel7](questions/q-4xhel7-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person-about-that-work-and.md).
 
 **Source cases, retrospective extraction:**
 
@@ -1736,7 +1736,7 @@ the user questioned whether it spoke like Lem and the agent acknowledged a failu
 reader judged the original prose not recognisably Lem's, and a separate writer's pass under
 unchanged L9 more connected but still not confidently recognisable as Lem. The limited
 experiment is in
-[the voice question](questions/q-53jkvy.md#evidence--an-isolated-second-pass-2026-10-26).
+[the voice question](questions/q-53jkvy-is-the-voice-a-reply-speaks-in-its-own-mechanism-owning-how-everything-the-person-hears-is-said-apart.md#evidence--an-isolated-second-pass-2026-10-26).
 The refused description and examples were not reintroduced; no new voice rule was installed.
 
 **Source cases, retrospective extraction:**
@@ -2119,7 +2119,7 @@ user pointed out that it had happened before that request. A fresh reader confir
 chronological contradiction and the missing tables. It established no deeper cause or intent;
 the request for simpler prose is not evidence that the existing form was waived. The case and
 the independent reading are in
-[q-6b6232 What keeps the required reply form from being omitted?](questions/q-6b6232.md).
+[q-6b6232 What keeps the required reply form from being omitted?](questions/q-6b6232-what-keeps-the-required-reply-form-from-being-omitted.md).
 
 **Amendment refused, 2026-10-26:** the user rejected the proposed machine check because Claude
 Code already follows the form without it. The proposed Stop attachment was not installed.
@@ -3435,7 +3435,7 @@ inside either** — the class that raises no error anywhere, because each rule i
 
 **Disposition:** [01-0019](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md) minted
 the same day; concern 3 reduced to its contact surface, since folded into the question store as
-[q-clk3dr](questions/q-clk3dr.md). The amendment to `/align` is
+[q-clk3dr](questions/q-clk3dr-is-harness-self-amendment-its-own-mechanism.md). The amendment to `/align` is
 not yet made — `/align`'s glossary and concerns rules are both moving under
 [01-0017.0010](tickets/01-0017.0010-terms-defined-before-they-land.md) and this wording should land
 with them rather than ahead of them.

@@ -4,7 +4,7 @@
 - **Status:** Done (2026-10-25, verified by a fresh judge; its live case in q-7nfty7)
 - **Type:** HITL
 - **Minted:** 2026-10-24
-- **Answers:** [q-psa5ha](../../questions/q-psa5ha.md)
+- **Answers:** [q-psa5ha](../../questions/q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what.md)
 - **Outcome:** A session about to act on a unit another running session holds stops and puts two
   ways to act to the person, and a unit taken over leaves its holder the mark of who took it, so no
   session finishes, closes or commits another's work by default.
@@ -13,9 +13,9 @@
 
 The session mechanism, [session.md](../../../.agents/mechanisms/session/session.md), which owns every
 rule on how sessions interact. The work's shape is
-[its question's *Where it stands*](../../questions/q-psa5ha.md#where-it-stands),
+[its question's *Where it stands*](../../questions/q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what.md#where-it-stands),
 accepted by the person 2026-10-24 and rewritten to their decisions of 2026-10-25; the split's impact is
-[in the same question](../../questions/q-psa5ha.md#impact-of-the-split--2026-10-24).
+[in the same question](../../questions/q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what.md#impact-of-the-split--2026-10-24).
 The end-state of two slices:
 [01-0070.0010 a-sessions-row-names-the-unit-it-holds](./01-0070.0010-a-sessions-row-names-the-unit-it-holds.md)
 and [01-0070.0020 a-session-stops-before-anothers-unit](./01-0070.0020-a-session-stops-before-anothers-unit.md).
@@ -49,7 +49,7 @@ file's general rules.
 
 ## Out of scope
 
-- How a role is declared — [q-p4sdnv](../../questions/q-p4sdnv.md).
+- How a role is declared — [q-p4sdnv](../../questions/q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md).
 - A session's plan read as the questions one feature links — decision 1 of the question, later.
 - A messaging protocol of the method's own: messaging is the host's seam,
   [the hosts edge](../../edge/hosts.md).

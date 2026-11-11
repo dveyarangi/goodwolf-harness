@@ -3,9 +3,9 @@
 - **record of** what happened
 
 Read once, at the reality check that opened the work on
-[q-0037.0006.0008](../../questions/q-pkpo3l.md)
+[q-0037.0006.0008](../../questions/q-pkpo3l-what-does-the-harness-cost-and-save-counted-rather-than-guessed.md)
 "What does the harness cost and save, counted rather than guessed?" and
-[q-0038.0001](../../questions/q-6ezmbo.md).
+[q-0038.0001](../../questions/q-6ezmbo-does-working-under-the-harness-deliver-software-better-than-working-without-it-measured-on-the-same.md).
 Evidence for the align of
 [01-0010.0168 the-harness-measures-what-it-costs-and-saves](../../tickets/01-0010.0168-the-harness-measures-what-it-costs-and-saves.md),
 not a decision. The scripts are one-off reads, kept so the numbers can be read again; none is a
@@ -42,7 +42,7 @@ the method's other skills about 23%.
 the user. Per closing: 47M tokens, 130k generated, 145 steps, 22 typed turns. 2026-10-10 the first
 day closing more than it opened, and the cheapest: 30M tokens, 103 steps, 12 turns per closing.
 The ratio reads the project's stage, not the work's worth (the user, 2026-10-11), and is carried by
-[q-0037.0001.0022.0001](../../questions/q-wrsf46.md).
+[q-0037.0001.0022.0001](../../questions/q-wrsf46-how-does-the-weight-of-each-root-shift-as-a-project-moves-from-choosing-its-direction-to-building-it.md).
 
 **Product projects.** JSON and lock files are left out of code.
 

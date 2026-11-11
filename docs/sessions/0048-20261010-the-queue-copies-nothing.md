@@ -19,7 +19,7 @@ holding no copy of anything a ticket says.
   `docs/sessions/`. The pointer of 2026-10-07 was revised on that evidence: the line went whole,
   from the queue and the arrival state, and the format says the queue keeps no account of steps
   done. The user chose a separate edit. Its home is the ticket format; the reasoning sits in
-  [q-7ld3wt](../questions/q-7ld3wt.md).
+  [q-7ld3wt](../questions/q-7ld3wt-what-kinds-of-written-thing-does-a-tree-hold-and-which-of-them-does-maintain-hold-in-agreement.md).
 
 ### The ticket list is rendered, never copied — 01-0011.0040
 
@@ -35,7 +35,7 @@ decisions; how they turned:
   process just isn't written anywhere.* Two readers, unwritten: whoever orders the queue, and
   whoever is about to mint. So the list exists, on request, and P12 tells both to read it; the
   ordering method stays q-p4mcme's, the finding method
-  [q-3htljm](../questions/q-3htljm.md)'s.
+  [q-3htljm](../questions/q-3htljm-how-does-a-new-task-find-the-live-ticket-it-belongs-to-before-another-is-minted.md)'s.
 - **A recipient's table.** The user: *in a foreign project the person will look at their own
   table as they already do; either you tell them what is happening, or the file list is visible —
   that is enough.* No migration; a note waits on the edge-line question, q-xk6nkk.
@@ -96,7 +96,7 @@ decisions; how they turned:
 - **Messaging another session was overpromised.** Desktop sessions are reachable by title and a
   short handle; the store knows sessions only by the host's id, and a UUID v7 id has belonged to
   Codex and Cursor here. Recorded in
-  [q-zxnc6y](../questions/q-zxnc6y.md).
+  [q-zxnc6y](../questions/q-zxnc6y-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md).
 
 ## Open questions touched
 

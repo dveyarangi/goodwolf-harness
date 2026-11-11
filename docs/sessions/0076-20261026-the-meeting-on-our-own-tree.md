@@ -4,7 +4,7 @@
 
 2026-10-25 to 2026-10-26. The person asked for an evaluation of this tree by its own method,
 [MEETING.md](../../.agents/skills/harness/MEETING.md). The session stood on
-[q-d73veg](../questions/q-d73veg.md).
+[q-d73veg](../questions/q-d73veg-how-does-the-install-read-a-tree-with-a-method-and-report-what-goodwolf-would-change-there-before.md).
 The run is live case 5 of the meeting. It came out as
 [meeting-run5-self.md](../research/meeting-run5-self.md), and a maintenance pass followed it.
 
@@ -21,7 +21,7 @@ The run is live case 5 of the meeting. It came out as
   entry file, the recall skill's way and the store's and tickets' read calls. It was told nothing
   of the measurement or the key. The question this raises for every tree after a migration is
   open as
-  [q-ib22qh](../questions/q-ib22qh.md),
+  [q-ib22qh](../questions/q-ib22qh-in-a-tree-that-runs-goodwolf-does-the-blind-run-answer-as-one-of-its-sessions-would-with-goodwolf-in.md),
   with the person's lean on it.
 - **Recommendation 1 taken.** The person chose to repair the parted pairs with /maintain.
 - **01-0019 left alone.** The person ended the session without deciding on 01-0019, so its file

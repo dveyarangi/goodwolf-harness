@@ -4,7 +4,7 @@
 - **Status:** Partial (2026-10-25: the wake rule landed 2026-09-20; the align resumes when taken)
 - **Type:** HITL
 - **Minted:** 2026-09-06
-- **Answers:** [q-p4mcme](../questions/q-p4mcme.md)
+- **Answers:** [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md)
 - **Outcome:** The agent knows, on every turn, what it does after `/recall` and what
   the turn's reply is scoped to, from Tier 1 rules in the entry file; and after a
   session break the next session resumes the delivery ring at the step it stopped,

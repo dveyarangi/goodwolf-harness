@@ -9,7 +9,7 @@ minted, and the first slice landed.
 ## Decisions
 
 **Live-spec as live case 5** — recorded on
-[q-d73veg](../questions/q-d73veg.md),
+[q-d73veg](../questions/q-d73veg-how-does-the-install-read-a-tree-with-a-method-and-report-what-goodwolf-would-change-there-before.md),
 its report kept as [meeting-live-spec-2026-10-25](../research/meeting-live-spec-2026-10-25.md) on
 the user's word. What it showed: the meeting now reaches the yes on a tree with a method, and the
 step after it is not built; the person asked for it in their own words — *ты же можешь прочитать
@@ -27,7 +27,7 @@ The three modes the user proposed collapsed to one with a pace the person sets; 
 the mechanisms that overlap nothing) nearly empty, since almost every mechanism reads the store.
 
 **Who owns what** — the user classified the entry file line by line, landed as
-[q-nlec4j](../questions/q-nlec4j.md)'s
+[q-nlec4j](../questions/q-nlec4j-does-every-rule-of-the-entry-file-belong-to-a-mechanism-so-that-an-install-adds-the-method-a-mechanism.md)'s
 decisions 1–8: the store, the session and maintain the first package; the principles a mechanism
 of meta-principles (the glossary's *meta-principle*, which gave them to the entry file, wrapped);
 the development method one mechanism with its loop and practice, replaced whole — revising the
@@ -40,7 +40,7 @@ recipient: a mechanism is added and removed as one section of a file the recipie
 `Where it stands` accepted 2026-10-26.
 
 **The store under the session** — decided in its own session
-([q-hpwq4t](../questions/q-hpwq4t.md)):
+([q-hpwq4t](../questions/q-hpwq4t-can-the-store-run-without-the-session-mechanism-the-session-sitting-on-the-store.md)):
 the direction agreed, the cut deferred while the three install as one package.
 
 **The split**, after two fresh-agent `/impact` passes, both *narrow*: the installer fix apart;
@@ -69,9 +69,9 @@ Recorded on the question, both impacts in its body.
 
 ## Open, and where they wait
 
-- [q-x4flb3](../questions/q-x4flb3.md)
+- [q-x4flb3](../questions/q-x4flb3-is-autonomy-the-dial-the-ladders-read-by-it-the-human-checkpoints-a-mechanism-of-its-own-carrying-the.md)
   — autonomy and the human checkpoints as a mechanism; the user unsure.
-- [q-2zouxq](../questions/q-2zouxq.md)
+- [q-2zouxq](../questions/q-2zouxq-how-does-an-installed-method-put-its-own-records-into-the-path-and-the-counters-so-that-the-store-and.md)
   — the seam for the unit of work; another session stands on it.
 - q-j2w5rw, suspect: its deferral's premise struck by the recipient's own tier 1.
 - Told to no one yet: the restructure's collisions with 01-0016.0030's straw dog and with

@@ -1,0 +1,201 @@
+# q-n3pc22 How does an install meet a tree that already has a method without losing it?
+
+- **record of** what it intends to become
+- **part of** q-t5vmk3
+- **state** open
+- **owner** [01-0010.0150](../tickets/01-0010.0150-harness-meets-a-tree-with-a-method.md)
+- **rung** development: a product slice, self-improvement: a rule
+- **lean** the user, 2026-10-23: MEETING.md ran twice on xuanxue-cabinet and produced the report it describes — methodology first, eight readings counted, no comparison, the project's language; eighteen unclear places amended over the two runs; whether two stops are needed is open as q-fw6ac4; the name and the readings wait on q-3oz6vg; next the /plan pass on 01-0010.0150
+- **opened** 2026-10-03T10:07:55Z
+- **struck** 2, last 2026-10-25T20:33Z
+
+**Two modes, the user, 2026-10-08**, at the front-page align (q-osjub2). Every cold reader of the
+page that day named the moved-aside `CLAUDE.md` as what stops them installing. The user: *one of
+the most important candidates for work, perhaps in two modes*:
+
+- **The harness takes over.** It replaces the project's entry file and carries the project's own
+  rules into itself — into the local rules file, its facts into the glossary and architecture,
+  its skills beside the shipped ones. This is the flow the
+  [2026-09-21 RFC](../rfc/01-0010.0150-harness-meets-a-tree-with-a-method.md) planned: an
+  inventory, then the collisions settled at `/align`.
+- **The harness is added by reference.** The project's `CLAUDE.md` or `AGENTS.md` stays where it
+  is and authoritative, and gains one line that imports the harness's entry file. This is
+  q-5cl4no "Does an install keep a project's CLAUDE.md and add one import line,
+  rather than move it aside?".
+
+The RFC predates the second mode, so the ticket needs another `/plan` pass before `/implement`.
+Unsettled:
+
+- **Which rules win** in the second mode, when the project's file and the harness's disagree.
+- **What updates and checks read**, when the entry file is the project's own and no longer a
+  shipped file.
+- **Who chooses the mode**: the person at install, or the install from what it finds.
+
+**The meeting as a flow with two stops, the user, 2026-10-23.** An install that meets an entry
+file or an `.agents/` writes nothing and stops: it offers to read the repository and write up what
+it finds, names the one file it would write and where, and waits. The person accepts, or names
+another place.
+
+**What it writes is the body of the person's own question** — *what would the harness change
+here?* — in the project's language and none of the harness's: the evidence, the argument, the
+options. Three sections. *What was found*: how the tree keeps its rules, its decisions and its
+history, read along four axes taken from the product document's causes — kinds of record mixed in
+one file, instructions out of the agent's reach, one fact in several homes, no record of the tree's
+own operation — counted and quoted in the tree's own words, and beside them what the tree has that
+the harness does not replace: its gates, scripts, skills and coordinators. *What clearly improves,
+and what the person will likely give up*: two columns. *Proposals*: each concrete, with its impact
+and size, closing with a recommendation.
+
+**The second stop** says it in /advise's form — what is good, what is good enough, what hurts,
+what first — and asks whether the migration runs, which proposals, in which mode. The reply speaks
+of the body; it does not retell it.
+
+**Either answer closes the question**, and its body stays: a closed question is archived, never
+erased, and *no* is a decision whose reasons will be wanted later. On *yes*, the question is the
+recipient's first, closed decided, and its proposals become tickets; the migration ends with the
+cold quiz's second point
+([q-6ezmbo](q-6ezmbo-does-working-under-the-harness-deliver-software-better-than-working-without-it-measured-on-the-same.md)).
+On *no*, it is the one record the method leaves there.
+
+The harness mechanism owns the flow and the report; the product mechanism's causes are read, not
+owned. The report is the skill's work, no script until the numbers it needs are known. Issue
+[goodwolf-harness#6](https://github.com/dveyarangi/goodwolf-harness/issues/6) gives the first stop
+its reason: an agent asked whether the harness is needed should read this body, not the README.
+The [2026-09-21 RFC](../rfc/01-0010.0150-harness-meets-a-tree-with-a-method.md) takes another
+`/plan` pass for the two modes and the two stops; whether the study is its own slice ahead of the
+migration is decided there. First subject: xuanxue-cabinet.
+
+**The report's stance, the user, 2026-10-23** — amendments after the first report was written by
+hand on xuanxue-cabinet
+([cold-quiz-xuanxue-cabinet](../research/cold-quiz-xuanxue-cabinet.md), the form's specimen):
+
+- **A product document.** The report shows the harness's strengths and finds where it can help —
+  the pains: the cost and time of entry, instructions out of reach, contradictions and drift,
+  decisions lost between sessions. It makes no groundless comparison and no self-deprecation.
+- **Proposals are about the project's harness and documentation**, never about the project's
+  substance.
+- **A quick read, said so.** The read reaches some of the tree, not all of it; what it found is
+  what it met on the way, not an inventory. The harness repairs drift as it is met, every session
+  meeting its own — that is the method, and the report says so.
+- **No comparison before the fact.** The report does not say where the existing arrangement is
+  better or worse than the harness: there is nothing to compare until the harness is installed,
+  the project migrated and a real check has run.
+- **The ledger stays, in a real install too**, as the report's appendix: the quiz's sample, key,
+  hits, tokens, calls, time, and what the project's method asks of a change today — gates,
+  checklist, rules read per session, ADRs per PR — as numbers, so the same tasks can be measured
+  again after migration.
+  The install says plainly that this ledger measures one thing, the cost of recovering the
+  project's state, and is far from the whole harness.
+- **What the method asks of a change is structure, not ceremony**, and it stays the project's own,
+  kept by its choice: the harness integrates with it and replaces none of it. How much it asks
+  today is a metric, not a claim, counted and put in the ledger; the same count after a migration
+  shows what the harness is for — fewer steps, each more precise, because at each step what is
+  needed is known.
+- **The post-migration check is its own stage**, optional: the same sample, re-run; it is
+  [q-6ezmbo](q-6ezmbo-does-working-under-the-harness-deliver-software-better-than-working-without-it-measured-on-the-same.md)'s
+  point 2.
+
+The ledger's format and the cost it counts are
+[q-pkpo3l](q-pkpo3l-what-does-the-harness-cost-and-save-counted-rather-than-guessed.md)'s;
+the `/plan` pass on 01-0010.0150 takes these amendments with the two modes and the two stops.
+
+**The two stops and the /advise form are not accepted, the user, 2026-10-23** — they stand in the draft rules ([MEETING.md](../../.claude/skills/harness/MEETING.md)) as the shape under trial, and whether the meeting needs them at all is open as [q-fw6ac4](q-fw6ac4-does-the-meeting-need-two-stops-and-the-advise-form-at-the-second.md); the trial on xuanxue-cabinet is its first case.
+
+**Owed once the trials are done, the user, 2026-10-23** — the harness skill's install rules describe
+the meeting for the agent that installs: the report first, the person's decision on it, then the
+install, the migration and the re-check on the same sample; and the front page offers the same to an
+agent reading it, in brief ([q-osjub2](q-osjub2-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md)).
+The product document carries the stance the report stands on — *What it does, in one line*, the
+integration stance under *A pain of the harness itself*, repair by encounter, and C4's cost of
+reaching what is written — landed 2026-10-23; the skill's four readings and that document are a
+pair to be declared for `/maintain` once the rules leave draft.
+
+**Run 2 of the draft rules, 2026-10-23** — a fresh Opus agent given MEETING.md alone and
+xuanxue-cabinet produced the report the rules describe, in Russian, methodology first, all seven
+sections, a 17-item sample in five groups, no comparison, proposals about the project's own method
+only; one slip of the harness's phrasing. The ledger: decisions 5/5, in flight 3/3, undecided 2 and
+1 partial, contradictory records 2 noticed and 1 answered from one side, hidden invariants 3/3;
+222,341 tokens, 73 calls, 459 s for the blind run, about 235,800 tokens and 20 minutes for the whole
+study. Ten places where the rules were unclear, each now amended in MEETING.md. The report and the
+check: [meeting-run2-xuanxue-cabinet](../research/meeting-run2-xuanxue-cabinet.md).
+
+**Run 3 of the draft rules, 2026-10-23** — eight readings, no `/advise`, GoodWolf by name: the
+report came back in the form, the title its question, every reading counted; readings 5 to 8 each
+found something the first four had not — rules held by review where no PR of the last forty had
+one, a boundary written outside and unwritten inside, twenty-two items waiting on the owner in
+seven places, a decision whose reason lapsed with its status unchanged. One slip: the count was
+judged in the body. The ledger 17 of 17 on a fresh sample, 219,461 tokens, 60 calls, 534 s; the
+study about 235,000 tokens and 27 minutes. Eight unclear places amended. The report and the check:
+[meeting-run3-xuanxue-cabinet](../research/meeting-run3-xuanxue-cabinet.md).
+
+## Impact — 2026-10-23, the split of 01-0010.0150 at `/plan`
+
+The ticket as minted on 2026-09-21 planned one mode — the inventory refusal and a flow that carries
+the project's method into the instance. Since then it has gained the second mode (2026-10-08), the
+meeting with its study, report and stops (2026-10-23), and the ledger. Too coarse for one RFC; the
+split proposed: **01-0010.0150.0010** the meeting — the install reads a tree with a method and writes the
+report; **01-0010.0150.0020** the two modes of taking the method in — the inventory refusal, and the harness
+added by one line from the project's own entry file, with which rules win, what an update and a
+check read, and who chooses; **01-0010.0150.0030** the migration as open work — the plan's items as tickets in
+the recipient's store, the project's method carried in under the flow, the re-check on the same
+sample reading the migration's state.
+
+**Impact.** The harness skill: its description gains the occasion, MEETING.md becomes its shelf,
+the flow section lands as the 2026-09-21 RFC planned. `harness.py`: the inventory refusal (01-0010.0150.0020);
+in the second mode the host stub stops being a shipped file and the project's `CLAUDE.md` gains one
+import line — the manifest, the stub's comparison on update and `--check` all read that. The
+mechanism's doc gains the moments. The product document already carries the stance. The ledger is
+q-6ezmbo's instrument. The live case is xuanxue-cabinet, graded by the user in that tree.
+
+**Hidden edges.** In the second mode the project's `CLAUDE.md` is the project's own file with one
+line of ours: an update must never rewrite it, and the hand-edit rule already stops an overwrite —
+but the stub's *is this ours* comparison is written for a shipped stub and must learn the line.
+`.claude/skills/` in xuanxue-cabinet is a real directory holding `collaborate`, where the loader
+link goes: even by reference, the project's one skill moves under `.agents/skills/` with a claim
+line or the link cannot be made — ADR-0003's one physical home meets a real tree on the first
+case. The study's inventory and readings overlap the arrival of 01-0010.0175, which reads the
+same tree to draft its glossary, skeleton and product document: [01-0010.0175](../tickets/01-0010.0175-arrival-describes-what-it-finds.md) stays its own and runs after
+a yes, fed by the report, never before it. A report written before the install and a question
+store that does not exist yet: the report is a file until the store seeds, then the store's first
+entry — the handover is 01-0010.0150.0030's. The two stops are open as q-fw6ac4 and the
+first live meeting is their first case; 01-0010.0150.0010 ships the two as drafted and the question decides on
+evidence.
+
+**Leave alone.** The recipient's gates, scripts, rules and Workshop contracts. `inject_rules.py`:
+the entry file it installs into is `AGENTS.md` in both modes. The question store's shape. 01-0010.0160,
+what an update says about what moved. 01-0010.0175, the arrival. The ledger's recipe, q-6ezmbo's.
+
+**Recommendation.** Proceed, three slices in this order. 01-0010.0150.0010 first: it changes no script, its
+rules have run twice, and its live run on xuanxue-cabinet is the first case for the two stops.
+01-0010.0150.0020 is decision-bearing and waits on 01-0010.0150.0010's report, which recommends the mode. 01-0010.0150.0030 last, on
+both.
+
+**The stops are the skill's, the user, 2026-10-23** — taken out of MEETING.md, which is the study and the report alone and is read twice, before an install and after a migration as its verification; the plan's items are cut at the project's own grain of work, which the inventory now reads from its history. The stops' text as drafted, for the skill's flow at 01-0010.0150.0010:
+
+> ## The two stops
+>
+> **First.** Offer to read the repository and write up what the harness would change here; name the
+> one file it would write and where — the next free session record under the tree's `docs/sessions/`, `<NNNN>-<YYYYMMDD>-<slug>.md`,
+> named by its number, the day and the question's words; a tree without `docs/` takes the place the
+> person names — and
+> wait. Silence takes the offer; another
+> place named takes that place. Nothing else in the tree changes before or after.
+>
+> **Second.** Show the report's main recommendations and ask one thing: whether the migration runs,
+> which of its plan, in which mode. Speak of the report; do not retell it.
+>
+> **After a yes.** Once the harness is installed, the migration plan is offered again as open work in
+> the tree's own records — a task each, with what it depends on — and the re-check on the same sample
+> is taken against it: a check run while the migration is unfinished says which of the plan has
+> landed and which has not, and its ledger is read in that light, never as the harness's measure. Either answer closes the person's question — *what would the harness
+> change here?* — and the report, its body, stays: on *yes* as the tree's first record, its proposals
+> becoming tickets; on *no* as the one record the method leaves.
+
+**After the first live meeting, the user, 2026-10-24** — three amendments to the meeting, landed in
+the skill and the shelf: the report is a working document outside the tree, named to the person
+and kept where the host keeps the session's files, entering the tree only with a migration; the
+study is a fresh agent's, given the shelf, the tree and the report's path and nothing of the
+conversation, the person's agent left with the offer and the one question; and read-only is said
+once and not enforced — the study writes nothing of its own into the tree, what the project's own
+tools do is the project's. The stops' earlier draft above, naming a file under `docs/sessions/`, is
+superseded by the skill's text.

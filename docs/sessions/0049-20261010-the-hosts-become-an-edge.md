@@ -105,13 +105,13 @@ and a quit-and-relaunch of the app.
 
 ## Open questions touched
 
-- [q-kecvv7](../questions/q-kecvv7.md)
+- [q-kecvv7](../questions/q-kecvv7-how-does-the-harness-reach-more-hosts-than-claude-code-codex-and-cursor.md)
   — which host comes fourth, open.
-- [q-5prhbl](../questions/q-5prhbl.md)
+- [q-5prhbl](../questions/q-5prhbl-which-text-a-hosts-user-meets-is-derived-from-the-hosts-edge-record-and-what-holds-it-a-subset-of-the.md)
   — what text is derived from the hosts record, opened here, waiting.
-- [q-p4mcme](../questions/q-p4mcme.md)
+- [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md)
   — the resume case settled; the question stays open for its other children.
-- [q-tt733j](../questions/q-tt733j.md)
+- [q-tt733j](../questions/q-tt733j-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md)
   — v58 landed.
 - Closed here: q-r3sxle, q-ziwdk4, q-k5b6as, q-4baege.
 

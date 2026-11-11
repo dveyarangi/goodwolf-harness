@@ -3,9 +3,9 @@
 - **record of** what happened
 
 2026-10-25 to 2026-10-26. Started by the session on
-[q-5cl4no](../questions/q-5cl4no.md)
+[q-5cl4no](../questions/q-5cl4no-does-an-install-keep-a-projects-claude-md-and-add-one-import-line-rather-than-move-it-aside.md)
 to align with the user on how to cut
-[q-hpwq4t](../questions/q-hpwq4t.md),
+[q-hpwq4t](../questions/q-hpwq4t-can-the-store-run-without-the-session-mechanism-the-session-sitting-on-the-store.md),
 the store running without the session, and to carry the cut through the ring. The user had
 already taken the direction: the session sits on the store, and the store imports nothing of it.
 The question was decided as far as its direction and deferred; no ticket was minted, and no code
@@ -25,7 +25,7 @@ the question.
    listeners the store calls, and against the session taking over the store's entry points
    (`hook.sh` and Q1 calling `sessions.py`). The session had recommended the listener list, first
    as one seam shared with
-   [q-2zouxq](../questions/q-2zouxq.md);
+   [q-2zouxq](../questions/q-2zouxq-how-does-an-installed-method-put-its-own-records-into-the-path-and-the-counters-so-that-the-store-and.md);
    that argument fell when the user's word on the unit of work (q-nlec4j decision 6,
    a local rule, not a call) left the seam one user. The user: *each hook in turn sounds the most
    right* — the listener list was still a call from the store, hidden.
@@ -59,7 +59,7 @@ the question.
 - The reading in the question's body re-checked against the code: it held; its two disagreeing
   records had been repaired in `a118773`; it had weighed too lightly that the hook's entry and
   `at` are the store's.
-- [q-7kimiz](../questions/q-7kimiz.md)
+- [q-7kimiz](../questions/q-7kimiz-does-a-project-under-node-need-python-for-core-or-do-its-scripts-run-on-node-too.md)
   opened: the user asked what JavaScript copies of core's scripts beside the Python would cost. A
   proposed answer to objection 20 of the run-4 meeting. The session's estimate: the port is once,
   the double is every change after, and the tests, calling Python in-process, would not test a
@@ -71,11 +71,11 @@ the question.
 
 ## Open questions touched
 
-- [q-hpwq4t](../questions/q-hpwq4t.md)
+- [q-hpwq4t](../questions/q-hpwq4t-can-the-store-run-without-the-session-mechanism-the-session-sitting-on-the-store.md)
   — closed deferred; due when the store is to be installed without the session.
-- [q-7kimiz](../questions/q-7kimiz.md)
+- [q-7kimiz](../questions/q-7kimiz-does-a-project-under-node-need-python-for-core-or-do-its-scripts-run-on-node-too.md)
   — open; waits on which runtime the recipients have.
-- [q-nlec4j](../questions/q-nlec4j.md)'s
+- [q-nlec4j](../questions/q-nlec4j-does-every-rule-of-the-entry-file-belong-to-a-mechanism-so-that-an-install-adds-the-method-a-mechanism.md)'s
   body still says q-hpwq4t is *in work*, and q-crvu5f's says the cut is
   *proposed*; both are the other sessions' to correct: the second was told, the first goes in this session's report to the session that started it.
 

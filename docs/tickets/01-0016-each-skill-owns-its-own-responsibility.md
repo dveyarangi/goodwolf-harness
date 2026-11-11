@@ -12,7 +12,7 @@
   [01-0017 every-skill-and-document-has-named-producers-and-consumers](./01-0017-every-skill-and-document-has-named-producers-and-consumers.md) (the mechanisms declared, so what one
   asks of a skill can arrive installed) *(the user, 2026-09-27)*
 - **Blocks:** [Rules reach the occasion they are for](./01-0018-rules-reach-the-occasion-they-are-for.md)
-- **Answers:** [q-gbt7cy](../questions/q-gbt7cy.md)
+- **Answers:** [q-gbt7cy](../questions/q-gbt7cy-does-each-skill-state-only-what-it-owns.md)
 - **Outcome:** Every skill states only what it owns; what an installed mechanism asks of it arrives
   installed, and it names another skill only while that skill is on its way to a mechanism; a rule
   appears once, in the skill responsible for it; contradictions between skills are resolved rather

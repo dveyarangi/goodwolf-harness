@@ -341,7 +341,7 @@ recipient is kept clean by the ship's refusal, the invariant stays in the mechan
 L10 names `TODO q-N` beside a straw dog's binding. skill-up's sentence narrowed — a shipped skill
 carries a project fact only in the local block its installer writes. The user: the v96 text *has a
 lot of redundancies and ambiguities still*.
-[q-0037.0012.0006](../questions/q-4klcmv.md),
+[q-0037.0012.0006](../questions/q-4klcmv-which-sentences-of-the-entry-file-are-meta-rules-the-mechanism-shape-should-hold-in-its-skill-and-which.md),
 [run 4](./doc-rule-bench/results/run-4.md) — the examples replaced by *never what an agent does*
 brought the RFC conflict back and a new one on the rule-failure register, the core clause alone read
 as a mechanism's rule written by hand — and [run 5](./doc-rule-bench/results/run-5.md), Sonnet,
@@ -356,7 +356,7 @@ proposed for, or written into, a doc or code reads `🧩 **Proposed rule — [<f
 text has one; it said `<record>`, and replies wrote *skill-up* or *mechanism-shape doc*, a name
 the reader cannot open. The user: *I want our landed/proposed rule/invariant etc to have the target
 file in the title row.*
-[q-0037.0016](../questions/q-6kx3m2.md).
+[q-0037.0016](../questions/q-6kx3m2-how-does-a-reply-show-the-principles-each-of-its-claims-stands-on-and-where-are-the-principles-named.md).
 
 ## v96 — 2026-10-19
 
@@ -371,7 +371,7 @@ for what it holds*. The invariant — core works the same over any `docs/` whose
 declared shapes — went to the mechanism shape's doc, and the leak check now names the merged rule.
 Raised by a coherence audit in another project; the user: the instance should follow the rule too,
 *no instructions in docs*.
-[q-0037.0012.0006](../questions/q-4klcmv.md),
+[q-0037.0012.0006](../questions/q-4klcmv-which-sentences-of-the-entry-file-are-meta-rules-the-mechanism-shape-should-hold-in-its-skill-and-which.md),
 [the bench](./doc-rule-bench/results/run-3.md): four behaviour cases held on both sides; the
 skill-up conflict five of five audits to none; a first compression brought three conflicts, each
 where a clause had been cut on the claim that a check held it, and the clauses came back.
@@ -382,12 +382,12 @@ where a clause had been cut on the claim that a check held it, and the clauses c
 since v71, now stands only where the machinery is shown, beside the counters line, said as its own sentence — *a commit is machinery: with debug off, a reply shows no commit table and no commit's hash*; a clause folded into the table's sentence was read as covering the counters line alone. On the speech
 bench the reader took it for the work's record in most replies that committed; the user: *commits
 is told as the table in the debug mode*.
-[q-0037.0010.0012.0001](../questions/q-4xhel7.md),
+[q-0037.0010.0012.0001](../questions/q-4xhel7-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person-about-that-work-and.md),
 [the second slice's results](./speech-bench/results/install-and-maintain.md).
 
 **Every debug text a straw dog** — the announce line and *A reply speaks the method*'s *Under
 `debug=on` the machinery is shown as well* wrapped, bound to
-[q-0037.0009.0021](../questions/q-l36vii.md)
+[q-0037.0009.0021](../questions/q-l36vii-which-mechanism-owns-how-a-reply-is-laid-out-for-its-reader-debugging-or-interaction-and-what-does-it.md)
 beside the reply form's block already there; the user: debug's final shape is *physically
 installing/uninstalling - or swapping - debug blocks*.
 
@@ -400,7 +400,7 @@ saying what more the person hears at its occasion. A session's first reply under
 the wake and announced its next read; the user: *the whole first sentence can be replaced with
 "good morning, recalling what we have"*. Rule failure 51's third strike, the first outside
 `/harness`;
-[q-0037.0010.0012.0001](../questions/q-4xhel7.md),
+[q-0037.0010.0012.0001](../questions/q-4xhel7-how-does-a-rule-tell-the-work-an-agent-does-unseen-from-what-it-says-to-the-person-about-that-work-and.md),
 graded on [the speech bench](./speech-bench/).
 
 ## v93 — 2026-10-15
@@ -420,7 +420,7 @@ commit and a push follows the project's way with git; an unset dial is at the lo
 agent never writes its own. Development's and self-improvement's ladders stand beside it as straw
 dogs bound to their mechanisms' questions. The *Human checkpoints* line and the reply's `🛠️` read
 the dial. The user, 2026-10-14 and 2026-10-15, on
-[q-0037.0013.0005](../questions/q-xmk75m.md),
+[q-0037.0013.0005](../questions/q-xmk75m-which-of-the-agents-acts-need-the-persons-yes-and-which-does-it-do-on-its-own.md),
 decisions 1–13: the switches contradicted each other at an install — the installing agent had to
 say where it stops while only `/conclude` could speak of a push. Landed by
 [01-0020.0010](../tickets/done/01-0020.0010-the-agent-asks-at-its-dial.md).
@@ -432,7 +432,7 @@ question until its `Where it stands` is accepted, where it sent it to `/spec`; t
 accepted* reads *a question's `Where it stands` accepted*; `/impact`'s ticketing shape names an
 align on the question for load-bearing work. Both routes are wrapped as straw dogs bound to
 q-0037.0010.0002.0005, the path being development's. The user, 2026-10-15, on
-[q-0037.0009.0017](../questions/q-hzwok3.md): *the filling of the
+[q-0037.0009.0017](../questions/q-hzwok3-what-does-spec-own.md): *the filling of the
 high-level questions is the spec, isn't it?* Landed by
 [01-0016.0010](../tickets/done/01-0016.0010-a-question-is-its-works-working-document.md).
 
@@ -680,7 +680,7 @@ built.* A reality check on the tree: 552 commits in 26 days, about 548k words of
 nearly four to one; the agent named its own part — it turns each intuition into a rule, an id and
 a mechanism, and rarely says that one need not exist. The user: *let us add this rule to Occam —
 say what need not exist.* It bears on
-[q-0037.0012.0005](../questions/q-s6ngtr.md),
+[q-0037.0012.0005](../questions/q-s6ngtr-what-keeps-the-rules-from-only-growing-when-every-amendment-adds-text-and-none-removes-any.md),
 which it does not close: it asks before a part is built, and removes nothing already built.
 
 ## v58 — 2026-10-10
@@ -728,7 +728,7 @@ user: *I have no idea what these numbers are — did we lose that rule?* Rule fa
 lamp's form, linked to its line: a light not wired into the harness. The user: catch such a
 principle, *but not as 無* — instructions must not lie in documents, and one there lies at the
 third tier, out of a skill's reach; *in effect a harness error*. No table of its own: *used just
-as the lamp is*. [q-0037.0016.0002](../questions/q-chx6mh.md)
+as the lamp is*. [q-0037.0016.0002](../questions/q-chx6mh-how-does-a-reply-mark-a-principle-it-acts-on-from-a-document-where-no-skill-brings-it-into-reach.md)
 holds what the class was found to cover.
 
 ## v52 — 2026-10-10

@@ -5,7 +5,7 @@
 - **Type:** HITL
 - **Minted:** 2026-10-22
 - **Plan:** [A session is kept by a mechanism of its own RFC](../../rfc/done/01-0050-a-session-is-kept-by-a-mechanism-of-its-own.md) — one script `sessions.py` the question script imports, the hook entry and `--wake` staying on `questions.py`, `--end` and `--check` moving; the shape admitting two instruction bullets; four stages, each one green commit
-- **Answers:** [q-zxnc6y](../../questions/q-zxnc6y.md)
+- **Answers:** [q-zxnc6y](../../questions/q-zxnc6y-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md)
 - **Outcome:** A session — one chat from its `/recall` to its `/conclude` — is registered, seen,
   ended when silent, reopened under the host's steadiest id, concluded and gone by a mechanism
   declared to the shape, whose rules on how sessions interact reach every file that reads them
@@ -13,9 +13,9 @@
 
 ## Parent
 
-[q-zxnc6y](../../questions/q-zxnc6y.md),
+[q-zxnc6y](../../questions/q-zxnc6y-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md),
 its *Where it stands* accepted 2026-10-22 and its six decisions; the split assessed in
-[its impact of the split](../../questions/q-zxnc6y.md#impact-of-the-split-2026-10-22)
+[its impact of the split](../../questions/q-zxnc6y-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md#impact-of-the-split-2026-10-22)
 — proceed, as one ticket. Minted on the user's word, 2026-10-22.
 
 ## What to build

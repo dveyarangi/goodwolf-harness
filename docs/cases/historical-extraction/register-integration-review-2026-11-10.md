@@ -7,7 +7,7 @@
 
 ## What was examined
 
-The reviewer used the exact occurrence-integration manifest and [dated integration record](occurrence-integration-2026-11-10.json), inspected each new case and its exported public source, and applied the already accepted [q-0037.0012.0009.0001 How is a recorded rule failure replayed as a test against the amended rule?](../../questions/q-j5s7gp.md), Where it stands and Decisions 8–17. The review did not decode raw native transcripts or private reasoning, change a case or register entry, or re-audit the historical corpus. Its companion JSON identifies the final case/source snapshots.
+The reviewer used the exact occurrence-integration manifest and [dated integration record](occurrence-integration-2026-11-10.json), inspected each new case and its exported public source, and applied the already accepted [q-0037.0012.0009.0001 How is a recorded rule failure replayed as a test against the amended rule?](../../questions/q-j5s7gp-how-is-a-recorded-rule-failure-replayed-as-a-test-against-the-amended-rule.md), Where it stands and Decisions 8–17. The review did not decode raw native transcripts or private reasoning, change a case or register entry, or re-audit the historical corpus. Its companion JSON identifies the final case/source snapshots.
 
 Each new folder associates a different registered failure criterion with an already recorded response/action. Its actor, message/record IDs, model, timestamp and chat identity match the actual selected exported record. These folders do not claim five new historical response events. The earlier case records and earlier dated reviews remain historical evidence.
 

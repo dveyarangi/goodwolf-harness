@@ -18,7 +18,7 @@ The leading product document. The project's goals and its front page are derived
 piece of work earns its place by the pain it relieves. It was found, not designed: at the
 front-page align of 2026-10-08 every attempt to say what the harness *is* came out as its
 implementation, until the user named the pains. The argument is in
-[q-m6unv4](questions/q-m6unv4.md) "What is this project for?".
+[q-m6unv4](questions/q-m6unv4-what-is-this-project-for.md) "What is this project for?".
 
 **What it does, in one line.** Fewer steps, each more precise: at every step the agent knows what
 is needed now — which rule, which record, which question — and does that, not the rest. The

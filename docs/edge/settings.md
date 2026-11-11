@@ -46,14 +46,14 @@ rule stands in the agent's hands</straw-dog>.
 
 ## Concerns
 
-- [q-ggpx2r](../questions/q-ggpx2r.md)
+- [q-ggpx2r](../questions/q-ggpx2r-what-does-the-practice-mechanism-own.md)
   — the dial as a setting waits on the ladder mechanisms' declaring it; until then the dial is
   set as L2 and not through the table.
 
 ## Roadmap
 
 - The dial's two rows in the table, once a ladder's mechanism declares them —
-  [q-ggpx2r](../questions/q-ggpx2r.md),
+  [q-ggpx2r](../questions/q-ggpx2r-what-does-the-practice-mechanism-own.md),
   deferred from [01-0010.0220](../tickets/done/01-0010.0220-a-tree-carries-the-methods-text-its-settings-call-for.md).
 - The host refusing an agent's change of a person's setting —
   [01-0010.0125](../tickets/01-0010.0125-the-host-blocks-what-a-rule-forbids.md).

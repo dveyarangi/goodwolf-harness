@@ -8,11 +8,11 @@
   today and [`/skill-up`](../../.agents/skills/skill-up/SKILL.md) is its neighbour;
   [01-0017.0010](./01-0017.0010-terms-defined-before-they-land.md) — the first registered failure
   proposes an amendment to `/align` that should land with that ticket's rewrites, not ahead of them
-- **Answers:** [q-tt733j](../questions/q-tt733j.md)
+- **Answers:** [q-tt733j](../questions/q-tt733j-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md)
 - **Outcome:** Amending the harness's own rules follows stated meta-rules — how a failure is
   registered, when a rule is reworded, what counts as evidence that it did not work — instead of a
   judgement made afresh each time, owned by the mechanism shape under
-  [q-tt733j](../questions/q-tt733j.md#decisions)
+  [q-tt733j](../questions/q-tt733j-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md#decisions)
   decision 1, the user, 2026-10-25.
 
 ## Parent
@@ -25,7 +25,7 @@ fast minting for later alignment is what this project should encourage.
 ## Why it is minted before it can be decided
 
 This section records the position at minting. Ownership was subsequently settled by
-[q-tt733j](../questions/q-tt733j.md#decisions)
+[q-tt733j](../questions/q-tt733j-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md#decisions)
 decision 1, the user, 2026-10-25: self-improvement belongs to the mechanism shape.
 
 The entry file now carries a standing rule — *a rule present that did not fire was phrased wrong;
@@ -50,13 +50,13 @@ catching itself at.
 ## What to build
 
 The mechanism shape owns this work under
-[q-tt733j](../questions/q-tt733j.md#decisions)
+[q-tt733j](../questions/q-tt733j-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md#decisions)
 decision 1, the user, 2026-10-25. What is known to be in scope:
 
 - **The meta-rules themselves** — what registration requires, who may reword a rule and on what
   evidence, and what distinguishes a rule that was disobeyed from one that could not fire.
 - **How an amendment is tested** — decided at
-  [q-7f4anv](../questions/q-7f4anv.md#where-it-stands), its *Where it stands* accepted 2026-10-21:
+  [q-7f4anv](../questions/q-7f4anv-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen-how-run-with-no.md#where-it-stands), its *Where it stands* accepted 2026-10-21:
   two layers, cases drawn along one chain from a noticed failure, three modes, blind judges, four
   verdicts, runs staged through a host adapter. Its first form was the user's of 2026-09-26 — a new
   session under the amended ruleset given the failing request word for word, a control under the
@@ -69,7 +69,7 @@ decision 1, the user, 2026-10-25. What is known to be in scope:
   declared format, which is the same gap
   [01-0017.0020](./01-0017.0020-practice-swaps-in-one-edit.md) found for sessions and dreams.
 - **Ownership**, settled by
-  [q-tt733j](../questions/q-tt733j.md#decisions)
+  [q-tt733j](../questions/q-tt733j-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md#decisions)
   decision 1, the user, 2026-10-25: self-improvement is the mechanism shape's, not a separate mechanism.
 - **One strike is not evidence.** Whatever this ticket concludes, it concludes from a register with
   more than one entry, or it concludes that the register was not worth keeping.
@@ -78,7 +78,7 @@ decision 1, the user, 2026-10-25. What is known to be in scope:
 
 - [ ] The meta-rules governing self-amendment are stated in a durable home, with their provenance.
 - [ ] Ownership follows
-      [q-tt733j](../questions/q-tt733j.md#decisions)
+      [q-tt733j](../questions/q-tt733j-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md#decisions)
       decision 1, the user, 2026-10-25: self-improvement belongs to the mechanism shape.
 - [ ] The register has a declared format, or is retired with its reason.
 - [ ] Every entry in the register has a disposition: amendment made, amendment refused with a
@@ -89,4 +89,4 @@ decision 1, the user, 2026-10-25. What is known to be in scope:
 
 Deleting a rule on accumulated failures, refused at minting. The glossary mechanism and the
 dev-method mechanism, which are [01-0017](./01-0017-every-skill-and-document-has-named-producers-and-consumers.md)'s children. Group install
-targets — [q-2bhjm6](../questions/q-2bhjm6.md).
+targets — [q-2bhjm6](../questions/q-2bhjm6-how-does-a-group-install-target-resolve-to-a-file-and-an-anchor-in-each-member.md).

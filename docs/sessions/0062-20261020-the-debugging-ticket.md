@@ -11,7 +11,7 @@ for the debugging mechanism that question decided, and nothing more.
   minted under [01-0016](../tickets/01-0016-each-skill-owns-its-own-responsibility.md), on the
   user's yes to the draft as shown; committed `5e2be3a`, pushed.
 - Its question,
-  [q-fl3tq4](../questions/q-fl3tq4.md),
+  [q-fl3tq4](../questions/q-fl3tq4-how-does-what-debug-shows-reach-a-tree-as-the-debugging-mechanisms-installed-blocks-and-how-does-a-tree.md),
   opened under q-l36vii and assigned to it; the split's impact is recorded in its body.
   Three questions under it, each holding its argument: who switches debugging (.0001), whether a
   retracted block needs a plain counterpart (.0002), how a script learns debugging is installed

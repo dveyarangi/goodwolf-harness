@@ -1,7 +1,7 @@
 # The meeting on live-spec — the study's report, kept as written
 
 - **record of** what happened
-- **evidence for** [q-0037.0006.0020.0001.0004](../questions/q-d73veg.md), live case 5; [q-0037.0006.0024.0002](../questions/q-nlec4j.md)
+- **evidence for** [q-0037.0006.0020.0001.0004](../questions/q-d73veg-how-does-the-install-read-a-tree-with-a-method-and-report-what-goodwolf-would-change-there-before.md), live case 5; [q-0037.0006.0024.0002](../questions/q-nlec4j-does-every-rule-of-the-entry-file-belong-to-a-mechanism-so-that-an-install-adds-the-method-a-mechanism.md)
 
 2026-10-25. The report a fresh agent wrote of live-spec at `6389cb9f` under the harness's study,
 saved unchanged by the person's agent into that session's scratch folder, copied here on the

@@ -2,9 +2,9 @@
 
 Why [the doc](../../.agents/mechanisms/edge/edge.md) is what it is. Declared 2026-10-10 in session
 `58bf3b88`, answering
-[q-r3sxle](../questions/q-r3sxle.md) "What does /edge own?"; no ticket
+[q-r3sxle](../questions/q-r3sxle-what-does-edge-own.md) "What does /edge own?"; no ticket
 declared it. The first record, [hosts](../edge/hosts.md), answers
-[q-ziwdk4](../questions/q-ziwdk4.md).
+[q-ziwdk4](../questions/q-ziwdk4-where-does-the-contract-a-host-must-meet-live-with-each-hosts-standing-against-it-and-the-procedure.md).
 
 ## How it came to be declared
 

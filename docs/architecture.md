@@ -100,7 +100,7 @@ core names. Whether it is due is derived from the store at every look; the maint
 how its text is rewritten.
 <straw-dog question="q-2jheaw">Every binding names the id, which never changes; a
 move rewrites the one `part of` line and no link anywhere
-([decision 6](questions/q-7ebz2f.md#decisions)).</straw-dog>
+([decision 6](questions/q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md#decisions)).</straw-dog>
 Mechanical removal follows the maintainer's disposition and preserves surviving agreements.
 Examples describing the syntax are distinct from operative statements.
 
@@ -132,7 +132,7 @@ again. Its file is named by the id and the words it was opened with, kept for go
 path says what the question is about; its place in the tree is its `part of` header alone,
 so a move rewrites that one line and no link anywhere. The tree's structure is drawn from those
 headers wherever the store is shown, siblings in the order they were opened; no address is kept
-([decision 6](questions/q-7ebz2f.md#decisions)).</straw-dog>
+([decision 6](questions/q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md#decisions)).</straw-dog>
 A session's row is [the session mechanism](../.agents/mechanisms/session/session.md)'s, and the
 mechanism manages every session from any one of them: any session writes any row through the
 session script *(the user, 2026-10-25)*. A row is one file, replaced in one rename, so a reader
@@ -202,7 +202,7 @@ decisions behind it. The project's verification set is the project's: arrival ru
 link step writes only inside the project and never over the project's own; a push that carries a
 file of the method is checked in a temporary copy of what it sends, and any finding in that copy
 refuses it; the decision is
-[q-c2qp5n](questions/q-c2qp5n.md)'s.</straw-dog>
+[q-c2qp5n](questions/q-c2qp5n-how-do-the-harnesss-checks-run-without-the-agent-at-push-and-in-the-projects-ci-beside-its-own-gates.md)'s.</straw-dog>
 
 **The edge, and what crosses it.** The core–instance interaction is everything an instance must
 know to integrate core, customise it and stay coherent across core changes: a rule id, a target

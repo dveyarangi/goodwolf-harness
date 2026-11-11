@@ -11,7 +11,7 @@ word.
 ## Decisions
 
 - **One ticket for three bugs.** [01-0010.0230](../tickets/done/01-0010.0230-core-works-on-windows-and-in-any-script.md)
-  answers [q-kxjoh7](../questions/q-kxjoh7.md).
+  answers [q-kxjoh7](../questions/q-kxjoh7-what-stops-core-working-in-a-recipient-on-windows-or-in-a-language-other-than-english.md).
   Each bug touched a few lines and no record's format, so splitting them would have tripled the
   ceremony for nothing.
 - **A name is fitted to a clone 128 characters deep, not to this tree's root.** The old fit
@@ -35,7 +35,7 @@ word.
   123-character folder checked out whole.
 - **The guard was dropped, the user: "забей".** A check over every tracked path, a store call
   `fit` and a suite test were proposed;
-  [q-zqy5qp](../questions/q-zqy5qp.md)
+  [q-zqy5qp](../questions/q-zqy5qp-what-keeps-every-path-a-tree-holds-within-what-a-clone-on-windows-can-check-out.md)
   was pruned. Nothing fails today if a long name is written by hand.
 
 ## What went wrong
@@ -57,7 +57,7 @@ word.
 
 ## Open, and what continues
 
-- [q-t5vmk3](../questions/q-t5vmk3.md)
+- [q-t5vmk3](../questions/q-t5vmk3-how-does-core-reach-a-recipient-tree-and-leave-it-working-at-a-first-install-and-at-each-update.md)
   stays open on the loader-link misjudgement and the release flow.
 - The follow-ups the verifier left are in
   [the plan's out-of-scope list](../rfc/done/01-0010.0230-core-works-on-windows-and-in-any-script.md):

@@ -6,7 +6,7 @@
 voice and the telling of the path, through the roadmap read from product labels, to the drift
 mechanism, and spent most of its length on the maintenance pass the host's scheduler runs with no
 person present. It stood last on
-[q-hh7trc](../questions/q-hh7trc.md),
+[q-hh7trc](../questions/q-hh7trc-how-does-a-pass-with-no-person-sweep-the-tree-for-what-the-decisions-landed-since-its-last-sweep.md),
 holding [01-0011.0110.0100](../tickets/01-0011.0110.0100-a-pass-with-no-person-sweeps-new-decisions.md).
 
 ## Decisions
@@ -28,7 +28,7 @@ holding [01-0011.0110.0100](../tickets/01-0011.0110.0100-a-pass-with-no-person-s
   `/recall`; then *найденный дрифт ищется везде* (v125).
 - **A scheduled pass sweeps across mechanisms.** The daily scheduled pass had not found four rules
   still reading the withdrawn queue: dueness follows a mechanism's own files only. Decisions 1–4
-  of [q-3n54ky](../questions/q-3n54ky.md):
+  of [q-3n54ky](../questions/q-3n54ky-how-does-maintain-run-on-its-own-as-a-scheduled-task-what-scope-it-takes-where-it-stops-and-who-reads.md):
   a sweep besides dueness, a tree-wide mark, what a pass leaves for the person, a section of
   `/maintain` called by a one-line host task.
 - **What a pass leaves is read mechanically.** The user refused a model reading the last report to
@@ -78,9 +78,9 @@ holding [01-0011.0110.0100](../tickets/01-0011.0110.0100-a-pass-with-no-person-s
 
 ## Open questions touched
 
-- [q-hh7trc](../questions/q-hh7trc.md)
+- [q-hh7trc](../questions/q-hh7trc-how-does-a-pass-with-no-person-sweep-the-tree-for-what-the-decisions-landed-since-its-last-sweep.md)
   — built; waits on the first real night run read by a judge, then `/verify` and the close.
-- [q-3n54ky](../questions/q-3n54ky.md)
+- [q-3n54ky](../questions/q-3n54ky-how-does-maintain-run-on-its-own-as-a-scheduled-task-what-scope-it-takes-where-it-stops-and-who-reads.md)
   — closes with 0100.
 - The register's entry *A drift repair's subagent sent into another session's uncommitted work —
   2026-10-26* still reads open: its amendment landed (5db3707c), but `docs/rule-failures.md` holds

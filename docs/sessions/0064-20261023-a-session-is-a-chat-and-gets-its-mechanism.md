@@ -92,14 +92,14 @@ bumped the contract meanwhile — and a second maintenance pass over the whole t
 
 ## Open questions touched
 
-- [q-5jy2c3](../questions/q-5jy2c3.md)
+- [q-5jy2c3](../questions/q-5jy2c3-what-is-a-method-a-root-question-with-the-ring-that-works-it-and-the-records-it-keeps-and-what-is-a.md)
   — three decisions landed, the discovery filed; waits on its align, the glossary words.
-- [q-w5ijmk](../questions/q-w5ijmk.md)
+- [q-w5ijmk](../questions/q-w5ijmk-which-root-a-research-or-study-method-asks-in-place-of-how-is-this-project-built-and-whether-the.md)
   — opened, reworded to the method; waits on the parent.
-- [q-ou6kps](../questions/q-ou6kps.md)
-  and [q-2gw24v](../questions/q-2gw24v.md)
+- [q-ou6kps](../questions/q-ou6kps-how-does-a-conversation-keep-its-position-when-its-host-resumes-it-under-a-new-session-id.md)
+  and [q-2gw24v](../questions/q-2gw24v-how-do-running-sessions-reach-each-other-beyond-one-working-directory.md)
   — gathered under the closed session question; `not yet` rows of the session doc.
-- [q-fl3tq4](../questions/q-fl3tq4.md)
+- [q-fl3tq4](../questions/q-fl3tq4-how-does-what-debug-shows-reach-a-tree-as-the-debugging-mechanisms-installed-blocks-and-how-does-a-tree.md)
   — its ticket now carries the fork the 🪢 block forces: the debugging mechanism switches a block
   another mechanism owns, or the debug half of S4 becomes its own rule.
 

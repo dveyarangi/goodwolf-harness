@@ -25,7 +25,7 @@ record kept one sentence.
 **A trace link names its answer by id and name.** The plan had a bare `A7`; the user: *A7 tells no
 one anything unless they see the whole picture.* As a ticket is named by id and slug, the link
 became `A7 "<name>"`, the id matched and the name checked word for word
-([q-lui5nw](../questions/q-lui5nw.md)).
+([q-lui5nw](../questions/q-lui5nw-how-is-an-answers-coverage-read-from-the-questions-that-realize-it.md)).
 **Only open and decided questions realize** — a pruned question built nothing — settled by the agent
 as reversible, coverage never being stored.
 
@@ -37,12 +37,12 @@ and the orphan scope became the spec's own. q-m6unv4 took the words *What is thi
 the front-page question under it (*q-0031 is a product question*); *How is this project built?*
 (q-fjlob4) took eighteen roots; *What landscape does this project evolve in?* (q-rulm4h) took the
 measurement question and, later, abstraction height (*that is landscape*). Decisions in
-[q-2ydspq](../questions/q-2ydspq.md),
+[q-2ydspq](../questions/q-2ydspq-how-does-this-trees-store-take-the-three-seeded-roots.md),
 landed in [the spec](../spec/01-0040-a-projects-account-stays-in-agreement-with-its-work.md).
 
 **What is broken fails the check; what is missing is reported** — the agent's recommendation, the
 user's agreement
-([q-uw6pim](../questions/q-uw6pim.md)):
+([q-uw6pim](../questions/q-uw6pim-how-is-drift-between-a-product-document-and-the-work-found.md)):
 an unrealized answer is a state, not an error, and a check that failed on it would stop every
 commit.
 
@@ -95,12 +95,12 @@ collaborate, no?*, *people don't share a project, they develop it together*.
 
 ## Open questions touched
 
-- [q-5wbvz6](../questions/q-5wbvz6.md) — `.0010`, `.0015`, `.0020`, `.0040` done; `.0030`, `.0050`, `.0060`, `.0070` left.
-- [q-m6unv4](../questions/q-m6unv4.md) — now the purpose root; its open
+- [q-5wbvz6](../questions/q-5wbvz6-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the.md) — `.0010`, `.0015`, `.0020`, `.0040` done; `.0030`, `.0050`, `.0060`, `.0070` left.
+- [q-m6unv4](../questions/q-m6unv4-what-is-this-project-for.md) — now the purpose root; its open
   questions wait as undecided answers A15, A21, A51, A52.
-- [q-qbym6r](../questions/q-qbym6r.md)
+- [q-qbym6r](../questions/q-qbym6r-how-does-code-in-one-repository-name-a-rule-that-a-record-in-another-repository-states.md)
   — opened from the trial's collector; untouched since.
-- [q-c5x3mh](../questions/q-c5x3mh.md) — Q5 amended at v88; graded by the next table a session draws.
+- [q-c5x3mh](../questions/q-c5x3mh-does-each-rule-reach-the-occasion-it-is-for.md) — Q5 amended at v88; graded by the next table a session draws.
 
 ## What continues
 

@@ -16,14 +16,14 @@ mechanism of the method aligned, specified and decomposed:
   failure 34 and two user stories — a correction landed in one session reaching the others, a
   tightened switch reaching running work. The user's reframing: this tree amends its entry file
   about ten times an evening (v60 to v84 in two days); a recipient's rules seldom move
-  mid-session. Landed as [q-kt3ntt](../questions/q-kt3ntt.md),
+  mid-session. Landed as [q-kt3ntt](../questions/q-kt3ntt-what-does-the-harness-need-while-its-own-rules-are-amended-many-times-a-day-under-sessions-still.md),
   the ticket out of the regular order, the announce-line question moved under it.
 - **Every mention of a question or a ticket is a link** — entry contract v85. The user, after a
   reply that put bare ids under ⚖️: *I have no idea what these numbers are*; then: *let's add a rule
   to ALWAYS show question and ticket numbers as links*. Rule failure 17 struck a third time.
 - **The product document leads nothing yet.** Asked *is it leading?*, the agent found it named the
   leading document and read by the front page alone. The align that followed, on
-  [q-5wbvz6](../questions/q-5wbvz6.md),
+  [q-5wbvz6](../questions/q-5wbvz6-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the.md),
   turned the customer from this tree to every project: *the customer is not only me — I'd like a
   product method for all users; first the mechanism itself working properly both ways* — and *not
   core, method*. Its eleven decisions are in that question's list; the turns that chose them:
@@ -83,7 +83,7 @@ mechanism of the method aligned, specified and decomposed:
   re-cut in place: no releases mechanism.
 - The store's shelf of root words wrapped as a straw dog bound to q-5wbvz6; 367 store and harness
   tests green after.
-- [q-o3ps2o](../questions/q-o3ps2o.md)
+- [q-o3ps2o](../questions/q-o3ps2o-how-does-a-project-take-one-of-the-methods-mechanisms-or-go-without-it-instead-of-taking-core-whole.md)
   opened for the gap q-veooj7's lean named without a question.
 
 ## What went wrong
@@ -99,11 +99,11 @@ mechanism of the method aligned, specified and decomposed:
 
 ## Open questions touched
 
-- [q-5wbvz6](../questions/q-5wbvz6.md) — decided in eleven parts, its slices' questions `.0006`–`.0011` owned by 01-0040's children.
-- [q-ac5jru](../questions/q-ac5jru.md) — a pain's measure, parked by the user with three forms and candidate indicators kept.
-- [q-kkw47n](../questions/q-kkw47n.md) — the README, the align of 01-0040.0070; another session stood on q-osjub2, the front page, at the end of this one.
-- [q-o3ps2o](../questions/q-o3ps2o.md) — taking a mechanism alone; binds the product rules' condition.
-- [q-kt3ntt](../questions/q-kt3ntt.md) — the high-frequency regime, waiting for the user to take it up whole.
+- [q-5wbvz6](../questions/q-5wbvz6-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the.md) — decided in eleven parts, its slices' questions `.0006`–`.0011` owned by 01-0040's children.
+- [q-ac5jru](../questions/q-ac5jru-how-is-a-pain-in-a-projects-product-document-measured-what-is-counted-from-which-record-and-who-takes.md) — a pain's measure, parked by the user with three forms and candidate indicators kept.
+- [q-kkw47n](../questions/q-kkw47n-is-a-projects-root-readme-generated-from-its-product-document-and-edge-records-or-written-by-hand-and.md) — the README, the align of 01-0040.0070; another session stood on q-osjub2, the front page, at the end of this one.
+- [q-o3ps2o](../questions/q-o3ps2o-how-does-a-project-take-one-of-the-methods-mechanisms-or-go-without-it-instead-of-taking-core-whole.md) — taking a mechanism alone; binds the product rules' condition.
+- [q-kt3ntt](../questions/q-kt3ntt-what-does-the-harness-need-while-its-own-rules-are-amended-many-times-a-day-under-sessions-still.md) — the high-frequency regime, waiting for the user to take it up whole.
 
 ## Left undone, named
 

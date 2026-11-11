@@ -6,7 +6,7 @@
 put *the fate of the written queue* into its own ⚖️ Decisions table after the pathfinder session
 told it of a drift. The user: *the fate of the written queue is not your task at all, why did you
 take it?* The session stood on
-[q-g2zdu7](../questions/q-g2zdu7.md).
+[q-g2zdu7](../questions/q-g2zdu7-how-does-a-reply-report-by-the-agents-dial.md).
 
 ## Decisions
 
@@ -52,7 +52,7 @@ take it?* The session stood on
 
 ## Open, and what each waits on
 
-- [q-g2zdu7](../questions/q-g2zdu7.md):
+- [q-g2zdu7](../questions/q-g2zdu7-how-does-a-reply-report-by-the-agents-dial.md):
   01-0020.0020 still waits on a judge reading a live session.
 - The S5 refinement for a file two sessions edited: set aside by the user; its text in rule
   failure 56's strike.

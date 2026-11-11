@@ -79,11 +79,11 @@ answers what silence leaves open. The README is not this session's to edit — i
 
 ## Open questions touched
 
-- [q-osjub2](../questions/q-osjub2.md)
+- [q-osjub2](../questions/q-osjub2-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md)
   — open; the lean is the three principles; it waits on the page being told by 01-0040.0070.
-- [q-xmk75m](../questions/q-xmk75m.md)
+- [q-xmk75m](../questions/q-xmk75m-which-of-the-agents-acts-need-the-persons-yes-and-which-does-it-do-on-its-own.md)
   — open, placed on for the dials, answered from the entry file; its lean of 2026-10-15 stands.
-- [q-hdtp5b](../questions/q-hdtp5b.md)
+- [q-hdtp5b](../questions/q-hdtp5b-what-kind-of-thing-is-the-harness-in-the-words-of-the-landscape-it-is-read-in-and-what-noun-names-it.md)
   — closed by the product session: the user harness.
 - The store's check suspects q-osjub2 and q-4leela of being one question; met, not
   touched.

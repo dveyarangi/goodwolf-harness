@@ -4,7 +4,7 @@
 - **Status:** Partial (2026-10-25: its slices in work or queued, the umbrella not itself in work)
 - **Type:** HITL
 - **Minted:** 2026-09-05
-- **Answers:** [q-veooj7](../questions/q-veooj7.md)
+- **Answers:** [q-veooj7](../questions/q-veooj7-how-do-projects-share-one-development-method-without-losing-their-own-conventions.md)
 - **Outcome:** Projects share a canonical development method, contribute improvements to it, and receive accepted changes mechanically while preserving project-specific behavior across Claude Code, Codex and Cursor.
 
 ## What to build

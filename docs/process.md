@@ -33,7 +33,7 @@ Ticket names, `done/` moves and citation:
 The policy is the entry file's: [AGENTS.md § Autonomy](../AGENTS.md#autonomy) sets how far the agent
 goes alone by a dial on each ladder, and a repair stands on the rung of what it mends. The dial
 replaced the five switches on 2026-10-15; its decisions are in
-[q-xmk75m](questions/q-xmk75m.md).
+[q-xmk75m](questions/q-xmk75m-which-of-the-agents-acts-need-the-persons-yes-and-which-does-it-do-on-its-own.md).
 
 ## Verification
 

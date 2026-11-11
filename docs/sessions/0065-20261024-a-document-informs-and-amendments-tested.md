@@ -31,7 +31,7 @@ asked what it was for; removal chosen over pointing at the mechanism doc.
 **A proposed or landed text names the file it goes into** (v97), at the user's word.
 
 **Testing an amendment before it lands** —
-[q-7f4anv](../questions/q-7f4anv.md),
+[q-7f4anv](../questions/q-7f4anv-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen-how-run-with-no.md),
 *Where it stands* accepted 2026-10-21. The user proposed the order of work — write the methodology
 in three parts (dataset, subset, runs with no instruction / standing / new), discover how others do
 it, plan the mechanism, cost it, and only then return. Each decision with its turn:
@@ -92,8 +92,8 @@ tickets minted, 01-0019.0020 to .0070, each answering a question under q-7f4anv.
 
 ## Open questions touched
 
-- [q-4klcmv](../questions/q-4klcmv.md) — *A capable reader*, *Tier*, *Self-improvement* still unweighed.
-- [q-sonc4m](../questions/q-sonc4m.md) — an expected-failure test holds it.
+- [q-4klcmv](../questions/q-4klcmv-which-sentences-of-the-entry-file-are-meta-rules-the-mechanism-shape-should-hold-in-its-skill-and-which.md) — *A capable reader*, *Tier*, *Self-improvement* still unweighed.
+- [q-sonc4m](../questions/q-sonc4m-does-the-leak-check-catch-a-ticket-named-by-a-bare-id-in-core.md) — an expected-failure test holds it.
 - q-z2v465 (types of failure and behaviour) and .0003 (a fresh author) wait on the
   family's first runs.
 - Drift reported and not repaired: Q1's example calls name `q-0004`, read by some audits as core

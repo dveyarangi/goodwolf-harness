@@ -132,15 +132,15 @@ Each sidecar names its own parts.
 
 ## Concerns
 
-- [q-kecvv7](../questions/q-kecvv7.md)
+- [q-kecvv7](../questions/q-kecvv7-how-does-the-harness-reach-more-hosts-than-claude-code-codex-and-cursor.md)
   — which hosts come next, and by what; here, whether a fourth can pass these checks.
-- [q-of6uro](../questions/q-of6uro.md)
+- [q-of6uro](../questions/q-of6uro-what-does-each-host-put-in-front-of-an-agent-without-being-asked.md)
   — what each host places in front of an agent unasked; its observations are this record's
   sidecars.
-- [q-7k6as2](../questions/q-7k6as2.md)
+- [q-7k6as2](../questions/q-7k6as2-how-is-it-observed-that-a-host-reads-the-loader-link.md)
   — whether a host reads the loader link is not observable from inside a tree; **Skills** is the
   nearest check, and Codex has no link to read.
-- [q-5jcptm](../questions/q-5jcptm.md)
+- [q-5jcptm](../questions/q-5jcptm-which-skill-must-be-read-before-a-file-is-edited-or-a-rule-proposed-and-how-does-the-host-refuse-the.md)
   — the guard on the files a mechanism controls; here, how each host loads and keeps a skill, read
   from **Skill load** and **Skill lifetime**, and which hosts can refuse an edit at all.
 

@@ -10,7 +10,7 @@ by the current adapter**. No source gap was found within that declared scope. Th
 not establish autonomous recall from the greeting, whole-harness compliance, runner
 compatibility or the effectiveness of an amendment.
 
-The governing boundary is the [accepted case scheme](../../questions/q-j5s7gp.md),
+The governing boundary is the [accepted case scheme](../../questions/q-j5s7gp-how-is-a-recorded-rule-failure-replayed-as-a-test-against-the-amended-rule.md),
 Where it stands and Decisions 8–17. Case and source references below are folder-local.
 
 ## Source fidelity and provenance

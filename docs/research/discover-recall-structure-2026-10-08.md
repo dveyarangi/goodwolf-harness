@@ -1,7 +1,7 @@
 # How a fresh session reaches earlier work — two `/discover` passes, 2026-10-08
 
 Run at the front-page align on
-[q-0033.0008](../questions/q-osjub2.md)
+[q-0033.0008](../questions/q-osjub2-what-is-the-harness-said-to-a-reader-who-arrives-cold-and-what-of-it-does-the-front-page-carry.md)
 "What is the harness, said to a reader who arrives cold, and what of it does the front page
 carry?", after the user struck two of the agent's claims: that the harness is not a memory
 architecture, and that its retrieval differs from the field's by not using embeddings, which the

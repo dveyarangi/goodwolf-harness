@@ -1,0 +1,25 @@
+# q-5s6son How are historical failure occurrences recovered as portable cases?
+
+- **record of** what happened
+- **part of** q-j5s7gp
+- **state** closed:decided
+- **owner** [01-0019.0090](../tickets/done/01-0019.0090-historical-failures-carry-source-grounded-cases.md)
+- **answer** [independent extraction review](../cases/historical-extraction/validation.md) — accepted scope completed, 2026-10-27
+- **rung** self-improvement: the method
+- **opened** 2026-11-10T08:19:06Z
+- **struck** 0, last 2026-10-27T13:33Z
+
+## Where it stands
+
+The [accepted retrospective scope](q-j5s7gp-how-is-a-recorded-rule-failure-replayed-as-a-test-against-the-amended-rule.md#where-it-stands)
+is delivered by [01-0019.0090 historical-failures-carry-source-grounded-cases](../tickets/done/01-0019.0090-historical-failures-carry-source-grounded-cases.md).
+Its first extracted case is independently validated before the remaining occurrences are recovered.
+
+## Evidence — retrospective extraction, 2026-10-27
+
+The [register](../rule-failures.md) links each of its 90 original accounts and 36 strikes to
+retained source cases or explicit evidence gaps. The extraction retained 212 case folders;
+18 gap descriptions cover 16 accounts, and nine specimens have blocked checks.
+The [independent review](../cases/historical-extraction/validation.md) passed the bounded
+extraction after source/context repairs; the [verification record](../cases/historical-extraction/validation.json)
+holds attribution counts, integrity comparisons and the project checks.

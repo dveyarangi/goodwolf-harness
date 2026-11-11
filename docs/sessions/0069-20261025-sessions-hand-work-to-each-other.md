@@ -68,7 +68,7 @@ own stop on itself; the person: *why didn't you check taking another's ticket wi
 [01-0070.0020](../tickets/done/01-0070.0020-a-session-stops-before-anothers-unit.md) — `--take` and
 the `taken` mark, S7 and S9, S5 amended, the two principles, the hosts edge's messaging check.
 [01-0070](../tickets/done/01-0070-sessions-hand-work-over.md), the parent. Six cold cases and five
-judge passes, filed in [q-tzpex2](../questions/q-tzpex2.md).
+judge passes, filed in [q-tzpex2](../questions/q-tzpex2-what-does-a-session-do-when-its-turn-would-act-on-a-unit-another-running-session-holds.md).
 The settings ticket's close handed to its holder and closed there.
 
 ## What went wrong, and what it taught
@@ -95,13 +95,13 @@ The settings ticket's close handed to its holder and closed there.
 
 ## Open questions touched
 
-- [q-psa5ha](../questions/q-psa5ha.md)
+- [q-psa5ha](../questions/q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what.md)
   — its decisions landed; open while its child is.
-- [q-7nfty7](../questions/q-7nfty7.md)
+- [q-7nfty7](../questions/q-7nfty7-does-a-takeover-between-two-live-sessions-hold-the-holder-sees-the-mark-before-it-clears-and-the-taker.md)
   — the live remainder of all three tickets; checked by the first real takeover.
-- [q-2gw24v](../questions/q-2gw24v.md)
+- [q-2gw24v](../questions/q-2gw24v-how-do-running-sessions-reach-each-other-beyond-one-working-directory.md)
   — three decisions; the shared place itself is its work.
-- [q-7rmmpw](../questions/q-7rmmpw.md)
+- [q-7rmmpw](../questions/q-7rmmpw-how-is-produced-work-gone-over-again-over-what-scope-by-what-criteria-by-whom-and-to-what-result.md)
   — the judge's principle stands in its list; no mechanism yet makes a judge happen.
 
 Left unrepaired and named: no instruction reaches `--release`, the person's drop of a unit; 22 rows

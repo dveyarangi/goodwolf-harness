@@ -11,7 +11,7 @@ Implements [01-0050 a-session-is-kept-by-a-mechanism-of-its-own](../../tickets/d
 
 ## What governs it
 
-[q-zxnc6y's six decisions and its accepted *Where it stands*](../../questions/q-zxnc6y.md#where-it-stands):
+[q-zxnc6y's six decisions and its accepted *Where it stands*](../../questions/q-zxnc6y-what-is-a-session-to-the-harness-and-which-mechanism-keeps-its-lifecycle.md#where-it-stands):
 a session is one chat from its `/recall` to its `/conclude`, known by the host's steadiest id; a
 mechanism of its own keeps it, machinery and not method, with the two skills, the row gone seven
 days after its end and the session record, its code in a script of its own, every rule on how
@@ -21,7 +21,7 @@ where read, records declared beside the skill, a part's claim at its head, the i
 steps. [Interruption and recovery](../../architecture.md#interruption-and-recovery): nothing is
 locked, a write refuses interference; [the question store](../../architecture.md#question-store):
 each session replaces its own row and no other, a rename the one write touching every row.
-[The sessions folder's decision](../../questions/q-w4tqtr.md#decision):
+[The sessions folder's decision](../../questions/q-w4tqtr-how-do-session-lines-written-at-once-all-survive-when-the-harness-locks-nothing.md#decision):
 one file per session, the single file from before carried over by copies that never overwrite.
 
 ## The shape

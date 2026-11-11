@@ -2,7 +2,7 @@
 
 **Status:** **Accepted by the user, 2026-10-13**, with its modules and its testing decisions —
 developed through `/spec` from the align on
-[q-5wbvz6](../questions/q-5wbvz6.md),
+[q-5wbvz6](../questions/q-5wbvz6-what-is-a-projects-product-document-to-the-method-and-which-of-the-methods-mechanisms-keeps-it-and-the.md),
 whose eleven decisions it rests on and does not restate. The id is the one `/ticket` is to mint
 for it.
 

@@ -35,7 +35,7 @@ hand-bumped entry contract version conflicts on merge.
 
 ## What was done
 
-- [q-eb2osh](../questions/q-eb2osh.md)
+- [q-eb2osh](../questions/q-eb2osh-how-does-a-sessions-landed-work-get-from-its-branch-into-main.md)
   opened on the guard session's relay — it could not reach the main checkout's store from its
   worktree — and closed decided; its body holds the evidence and the reasoning.
 - q-ziqx5n opened and deferred.

@@ -11,7 +11,7 @@ the question's own argument; this record is the fork's alone.
 
 **A question's home is read from what it asks, not from the mechanism named to carry it out**
 *(the user, 2026-10-22)*. The fork's question had been opened under the installer's question,
-[q-t5vmk3](../questions/q-t5vmk3.md),
+[q-t5vmk3](../questions/q-t5vmk3-how-does-core-reach-a-recipient-tree-and-leave-it-working-at-a-first-install-and-at-each-update.md),
 because the user's proposal spoke of installing and uninstalling; what it asked was which of the
 method's text a project's tree carries — the project's own conventions, q-veooj7. The same
 principle *Autonomy* already states for a decision's rung, read from what it decides and never
@@ -38,9 +38,9 @@ same shape q-c5x3mh holds as U3.
 
 ## Open questions touched
 
-- [q-dmvmf2](../questions/q-dmvmf2.md)
+- [q-dmvmf2](../questions/q-dmvmf2-how-are-the-open-questions-of-this-tree-kept-so-that-none-is-lost.md)
   — stood on for the fork; open, its lean written.
-- [q-c5x3mh](../questions/q-c5x3mh.md) — the
+- [q-c5x3mh](../questions/q-c5x3mh-does-each-rule-reach-the-occasion-it-is-for.md) — the
   U3 shape met once more; not stood on, nothing written to it.
 
 ## What continues

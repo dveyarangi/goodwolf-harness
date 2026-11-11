@@ -1,7 +1,7 @@
 # The meeting, run 5 on GoodWolf's own tree — the study read on the repository that writes it
 
 - **record of** what happened
-- **evidence for** [q-0037.0006.0020.0001.0004](../questions/q-d73veg.md), [q-0037.0006.0020.0001.0004.0001](../questions/q-ib22qh.md)
+- **evidence for** [q-0037.0006.0020.0001.0004](../questions/q-d73veg-how-does-the-install-read-a-tree-with-a-method-and-report-what-goodwolf-would-change-there-before.md), [q-0037.0006.0020.0001.0004.0001](../questions/q-ib22qh-in-a-tree-that-runs-goodwolf-does-the-blind-run-answer-as-one-of-its-sessions-would-with-goodwolf-in.md)
 
 2026-10-25. A fresh agent ran [MEETING.md](../../.agents/skills/harness/MEETING.md) as written on
 this repository, main at `ec60b81`, checked out with other sessions' uncommitted changes in place.
@@ -10,7 +10,7 @@ this record. The person changed one thing for this tree: the blind run did not c
 nothing of GoodWolf. It answered as one of this tree's own sessions would, using GoodWolf's read
 calls (`questions.py --wake --session`, `--tree`, `--path`, `--check`, `tickets.py --list`,
 `--check`), and was told nothing of the measurement or the key
-([q-0037.0006.0020.0001.0004.0001](../questions/q-ib22qh.md),
+([q-0037.0006.0020.0001.0004.0001](../questions/q-ib22qh-in-a-tree-that-runs-goodwolf-does-the-blind-run-answer-as-one-of-its-sessions-would-with-goodwolf-in.md),
 lean the user, 2026-10-25). Cost of the study, by the host's account: 244,389 tokens, 133 tool
 calls, 1,554 s. Cost of the blind run, by the host's account: 231,610 tokens, 51 tool calls, 547 s.
 
@@ -409,7 +409,7 @@ The order is 2, 3 and 4 first, as repairs at the project's grain; then 5, which 
     `tickets.py --list` and `--check`.
 - **How it differs from runs 2 to 4,** whose blind agents were told nothing of GoodWolf: this mode
   is the person's choice for GoodWolf's own tree, held as
-  [q-0037.0006.0020.0001.0004.0001](../questions/q-ib22qh.md).
+  [q-0037.0006.0020.0001.0004.0001](../questions/q-ib22qh-in-a-tree-that-runs-goodwolf-does-the-blind-run-answer-as-one-of-its-sessions-would-with-goodwolf-in.md).
 - **The key:** built from the code and the records before the run, and corrected only where the run
   proved it wrong. It proved no key wrong. Where it proved a key incomplete, the addition is marked
   *Addition from the run*, and no score changed.

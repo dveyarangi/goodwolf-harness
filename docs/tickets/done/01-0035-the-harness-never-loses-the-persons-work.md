@@ -4,7 +4,7 @@
 - **Status:** Done (2026-10-13)
 - **Type:** HITL
 - **Minted:** 2026-10-13
-- **Answers:** [q-io7a43](../../questions/q-io7a43.md)
+- **Answers:** [q-io7a43](../../questions/q-io7a43-does-the-harness-ever-lose-the-persons-work-or-leave-it-half-written.md)
 - **Outcome:** No script of the harness overwrites, drops or half-writes what a person or another
   session wrote: each one either finishes whole or refuses before its first write.
 
@@ -13,7 +13,7 @@
 [Interruption and recovery](../../architecture.md#interruption-and-recovery), which owns the
 contract; the findings come from [the outside audit of 2026-10-13](../../research/external-audit-2026-10-13.md)
 and [the audit of 2026-09-30](../../research/project-evaluation-2026-09-30/REPORT.md) (E1, E2, E3).
-Split assessed in [q-io7a43's impact of the split](../../questions/q-io7a43.md#impact-of-the-split-2026-10-13).
+Split assessed in [q-io7a43's impact of the split](../../questions/q-io7a43-does-the-harness-ever-lose-the-persons-work-or-leave-it-half-written.md#impact-of-the-split-2026-10-13).
 
 ## What to build
 

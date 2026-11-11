@@ -1,6 +1,6 @@
 # Pacer
 
-**Status:** Dissolved, 2026-10-23, at [q-huss2x](questions/q-huss2x.md) (*Not the pacer*): the ring's rules are the practice mechanism's, a driver that runs the ring is q-kjd6ej, which work comes next is the pathfinder's, and where a session resumes is the session mechanism's. What follows is the idea as it stood.
+**Status:** Dissolved, 2026-10-23, at [q-huss2x](questions/q-huss2x-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three.md) (*Not the pacer*): the ring's rules are the practice mechanism's, a driver that runs the ring is q-kjd6ej, which work comes next is the pathfinder's, and where a session resumes is the session mechanism's. What follows is the idea as it stood.
 
 ## Need
 

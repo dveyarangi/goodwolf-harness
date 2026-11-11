@@ -22,7 +22,7 @@ toward it. Kept once explained. P3 was amended to name the exception, then rever
 mover from.
 
 **A mechanism's doc stays `what must always hold`**
-([q-bd22sm](../questions/q-bd22sm.md)).
+([q-bd22sm](../questions/q-bd22sm-is-a-mechanisms-doc-a-record-of-what-must-always-hold-or-of-what-exists.md)).
 The user opened it: *docs change from time to time and are not the source of truth; they describe
 the existing state*. Taken first as `what exists`, which forced the glossary's *never edited by
 hand* to go (*the glossary spoke without thinking — we have no mechanical way to make docs*).
@@ -38,7 +38,7 @@ these labels give a direction — they do not look relative*. A unary label has 
 spec had asked every record to name its referent, and the slice had dropped it. Direction and drift
 go to pairs with a detector.
 
-**[q-bgak4p](../questions/q-bgak4p.md)'s
+**[q-bgak4p](../questions/q-bgak4p-how-is-a-record-paired-with-the-thing-it-is-of-so-that-drift-between-them-is-noticed.md)'s
 seven decisions**, the align's account in its body. The ones a reasoning turned:
 
 - *Only its own parts*, so one edit makes one doc due.
@@ -89,7 +89,7 @@ seven decisions**, the align's account in its body. The ones a reasoning turned:
   A recommendation the user cannot read cold is a question put badly.
 - **Flaky tests under load.** One full run failed six tests, another one; each passed alone. Other
   sessions were running beside. It belongs to
-  [q-453b5j](../questions/q-453b5j.md)'s ground.
+  [q-453b5j](../questions/q-453b5j-do-the-tests-catch-the-regressions-their-names-promise.md)'s ground.
 - **The host resumed this conversation under a new id** (`local_…`); the questions mechanism's
   change of the same day keyed it on the app's id, and it found itself registered.
 

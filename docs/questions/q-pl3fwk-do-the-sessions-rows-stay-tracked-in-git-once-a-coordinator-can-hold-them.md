@@ -1,0 +1,55 @@
+# q-pl3fwk Do the sessions rows stay tracked in git once a coordinator can hold them?
+
+- **record of** what it intends to become
+- **part of** q-2gw24v
+- **state** open
+- **owner** [01-0010.0250.0090](../tickets/01-0010.0250.0090-the-rows-live-in-a-database.md)
+- **rung** development: load-bearing, self-improvement: the method
+- **lean** the discover pass, 2026-10-26: a session position is ephemeral and wants a lease, no merge or history; the session record /conclude writes is what is kept
+- **opened** 2026-10-26T09:36:09Z
+- **struck** 1, last 2026-10-29T23:05Z
+
+## Evidence, 2026-10-30
+
+Since 2026-10-23, 42 of 444 commits touched the rows; 55 rows stood changed and uncommitted in the
+shared checkout, other sessions' rows a wake had rewritten, which S3 has `/maintain` commit.
+Nothing reads the rows' history: the session script reads the current file alone. Sharing does not
+need git — in the first mode every session reads one folder, in the second the coordinator holds
+them.
+
+## Decisions
+
+1. **The rows leave git for a SQLite database, in both modes** *(the user, 2026-10-30; one way
+   since q-7ebz2f decision 17, superseded by its decision 30; the rows in the local
+   folder mode asked in q-33lrbn)*: one writer now holds them in the second mode,
+   and sessions of one machine share a local database file in the first; a hold moved by a take is one
+   transaction, and who is alive, who holds what and who fell silent are queries. `sqlite3` is in
+   Python's standard library. Not: the questions with them — a question is a document, linked from
+   350 places, written by hand and read on GitHub, and Beads found two representations of one truth
+   the pain; nor, for now, a derived index of the questions. q-crvu5f's refusal of
+   SQLite stood on many writers with no server, not this.
+   — superseded by decisions 1 and 10 of
+   [q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md#decisions),
+   2026-11-09: a tree has one holder of the truth, a server; one mode; the rows live in the
+   server's `gw.sqlite`.
+2. **The window memory, the sign of life and the coordinator's map of renames share that
+   database** *(the user, 2026-10-30; the map of renames retired by q-7ebz2f
+   decision 6)*: one file in the project's common Git directory, beside the
+   interpreter record, read by every worktree and tracked by no branch. The window memory is keyed
+   today by the tree's path, so each worktree keeps its own; the sign of life must sit where the
+   coordinator's wake reads it. Messages between sessions are thought over later, at
+   q-2gw24v; a question's counters are their own question.
+3. **Only the sign of life joins the rows; the window memory stays the hook's cache** *(the user,
+   2026-10-30)*: the fingerprint of the last window and the counters are read by the session they
+   belong to alone, so they stay files in the temp folder; the sign of life, today their file's
+   time, becomes a field of the row, read by every worktree's wake. The database is the harness's,
+   `gw.sqlite`, a table to each owner — the rows' `sessions`, the session script's. Narrows
+   decision 2.
+
+## Where it stands
+
+The rows leave git: they and each session's sign of life live in `gw.sqlite`, one SQLite database
+in the project's common Git directory, shared by every worktree and in no commit; the window
+memory stays the hook's cache; the questions stay files. Carried by
+[01-0010.0250.0090](../tickets/01-0010.0250.0090-the-rows-live-in-a-database.md); messages between
+sessions and a question's counters are thought over apart.
