@@ -8,7 +8,7 @@
 - **rung** self-improvement: the method
 - **lean** 2026-10-24: minted as its slice of 01-0019, Planned
 - **opened** 2026-10-08T21:43:24Z
-- **struck** 8, last 2026-11-09T20:50Z
+- **struck** 9, last 2026-11-10T18:16Z
 
 ## Where it stands
 
