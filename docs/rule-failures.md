@@ -55,8 +55,10 @@ its kind. This is the session's reading; no model-internal cause is established.
 removes a check, a test or a rule that names the decision it keeps, the plan reads that decision
 and says what it was for and what serves that after the removal, or takes the removal to `/align`.
 
-**Disposition:** open. The amendment is shown to the person before it lands; whether the file's
-name carries the question's words again is put to them on [q-7ebz2f](questions/q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md).
+**Disposition:** open. The amendment is shown to the person and waits on their word. The file's
+name carries the question's words again, by decision 6 of
+[q-7ebz2f](questions/q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md),
+the user, 2026-11-10; the store's 366 entries were renamed so on 2026-11-11.
 
 ## A waiting decision reached the person without its options — 2026-11-09
 
