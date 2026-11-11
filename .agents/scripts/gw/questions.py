@@ -142,7 +142,8 @@ _IDENTITY = re.compile(rf"^{_ID}$")
 # A slug's word as a name holds it: anything but a separator; the check compares it with the
 # question's own words.
 _WORD = r"[^\s/._-]+"
-# A file named by its id alone; an old one, by its id and its slug.
+# A file named by its id and the words it was opened with; by its id alone where a tree was
+# migrated while the name held no words.
 _ENTRY_NAME = re.compile(rf"^{STORE}/(?:done/)?({_ID})(?:-({_WORD}(?:-{_WORD})*))?\.md$")
 _DEFERRAL = re.compile(r"^until \S.*, meanwhile \S.*$")
 _STRIKE = re.compile(r"^(\d+), last (\d{4}-\d{2}-\d{2}T\d{2}:\d{2})Z$")
@@ -2354,7 +2355,7 @@ class _Draft:
         self.now = now
         self.changed: list[str] = []
         self.new: set[str] = set()
-        # The ids whose questions were reworded: the id stays, and only the file's name may move.
+        # The ids whose questions were reworded: the id and the file's name stay, the title alone moves.
         self.reworded: list[str] = []
 
     def apply(self, clause: Clause) -> None:

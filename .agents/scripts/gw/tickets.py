@@ -271,7 +271,8 @@ def _question(root: Path, read: Ticket, entries: dict[str, "questions.Entry"]) -
     if entry is None:
         return _DASH
     named = _NAMED.match(posixpath.splitext(posixpath.basename(entry.record))[0])
-    # A question's file named by its id alone says nothing of it, so its words come from its title.
+    # A question's file keeps the words it was opened with, or none where it is named by its id
+    # alone, so its words come from its title.
     return _named_link(entry.record) if named else f"[{entry.identity} {entry.question}]({entry.record})"
 
 

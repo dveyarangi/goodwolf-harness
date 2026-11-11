@@ -83,3 +83,46 @@ The shipped text that still has the id as the place, a move renaming and a close
 the RFC of 01-0010.0250.0100; stages 2 to 4 are committed, so until stage 7 that text disagrees
 with the code as well. `migrate_ids.py` and its test carry no `# Mechanism:` line, and
 `docs/questions/former-ids.md` is declared by no mechanism: the RFC names no stage for either.
+
+## Decision 6 as changed on 2026-11-10 — the file's name
+
+Added 2026-11-11 by the scheduled `/maintain` pass with no person, sweeping 118788eb through
+118d77a4. Decision 6 now names a file by its id and the question's words as it was opened,
+`<id>-<slug>.md`, kept for good, a reword changing the title alone; 1.4 gained "A question reads
+easily to an agent and to the person wherever it is cited".
+
+6. **The link's path in decision 3.** [q-7ebz2f](q-7ebz2f.md#decisions), decision 3: "A link to a
+   question, `docs/q/<id>.md`, is the same everywhere"; and
+   [01-0010.0250.0110 the-questions-live-on-a-branch-of-their-own](../tickets/01-0010.0250.0110-the-questions-live-on-a-branch-of-their-own.md),
+   *What to build*: "links into the store become `docs/q/<id>.md`". Against 6: the file, and so the
+   link's path, carries the words. The split's wording of 2026-11-09 in the same entry, "Random
+   ids, files named by them" and the slug budget under *May simplify*, is the same narrowing.
+   - Options: (a) decision 3 and the ticket read `docs/q/<id>-<slug>.md`, under the date of 6's
+     change; (b) left, the link's form settled when .0110 is planned.
+   - Recommendation: (a) — 6 leaves nothing else the path could be.
+7. **Whose words the slug holds.** Decision 55 of
+   [01-0011.0100 the-open-questions-are-kept-by-a-mechanism](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md):
+   "the slug holds all of them … The entries already written are renamed with the mover". 6 cites
+   it and narrows it: the slug holds the words as opened, not the words a reword gave. In this
+   tree the entries are still named by the id alone, and `migrate_ids.py --words` names each by
+   its title as it stands today — for a question reworded since it was opened, not the words it
+   was opened with.
+   - Options: (a) a note at decision 55 that 6 narrows it, and today's title taken as the opening
+     words for the entries converted, said in 6; (b) the opening words recovered from history for
+     each reworded entry.
+   - Recommendation: (a) — the name is kept for good from the conversion on, which is what 6 is
+     for; recovering 366 first wordings buys a reader nothing.
+
+Brought to 6 by this pass, in its own words: the note at decisions 24, 34 and 43 of 01-0011.0100,
+and three comments in `questions.py` and `tickets.py`.
+
+Left to [01-0010.0250.0100 a-questions-id-never-changes](../tickets/01-0010.0250.0100-a-questions-id-never-changes.md):
+its RFC carries 6 in *What governs it* and *The file* and still plans the name by the id alone in
+*What goes* (the slug budget and `_fitted_slug` leaving, `_files_holding` on `<id>.md`), *The
+migration* steps 3 and 4, and stages 4 and 5, its *Last amended* still 2026-11-09; it names no
+stage for the `--words` run, and this tree's 366 entries are still named by the id alone. In the
+code: the finding "is not named `<id>.md`" and the test that holds it, `recheck`'s docstring on
+renamed entries, `test_a_file_named_by_its_id_alone_checks_clean`, and `questions.py`'s module
+docstring, which still tells the dotted model. The shipped text — the question format's "A reword
+changes the words and the file's name", the skill's "its file takes the words" — is stage 7, as
+above.
