@@ -128,7 +128,7 @@ claimant is the always-on mechanism, so no uninstall can remove what another mec
   rule-failure register names its host, model and time, and its case agrees; read by anyone who
   runs it, its exit status for a gate and its JSON for the person reading a failure.
   <straw-dog question="q-4xfqcb">Nothing runs it unasked yet: the register's attribution
-  stands uncommitted, and the check joins the verification set once it lands.</straw-dog>
+  is committed, and the check has still to join the verification set.</straw-dog>
 - **`--index`'s render** — *what exists* — read on request by someone asking what is declared. **Nothing runs it
   unasked**, and nothing consumes its output: it exists so the register never becomes a file, and
   a register nobody asks for is a register nobody needed.

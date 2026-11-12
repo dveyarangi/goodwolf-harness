@@ -37,7 +37,7 @@ if [ "$host" = "pre-push" ]; then
     # nothing sent; a deletion sends nothing. A push whose paths fall under none of the method's
     # roots starts no interpreter; a listing that fails wakes the checks, since what cannot be
     # listed is checked.
-    # TODO q-0037.0006.0005.0001: the roots stand here and in harness.py until each mechanism's
+    # TODO q-5jcptm: the roots stand here and in harness.py until each mechanism's
     # table of its records carries them.
     remote="$2"
     refs=$(cat)

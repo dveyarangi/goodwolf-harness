@@ -170,7 +170,7 @@ Nothing else; the tree is rendered on request and never committed.
 
 ## Not yet at the shape
 
-**Two `not yet` rows**, each bound to an open question.
+**Three `not yet` rows**, each bound to an open question.
 
 <straw-dog question="q-la5n2i">
 **The store's paths** are painted doors held by hand in the shape check.

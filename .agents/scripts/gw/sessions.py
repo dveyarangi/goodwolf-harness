@@ -20,7 +20,7 @@ The question script imports this one at module level; this one takes from the st
 the functions that use it — its types for what it reports, the id pattern, the store's reading —
 or as an argument, as the entry index for a position's check, so neither imports the other at
 load.
-TODO q-0037.0006.0024.0003: the direction of this dependency, and so these sentences, change
+TODO q-hpwq4t: the direction of this dependency, and so these sentences, change
 with its answer — the store may stand without this script, the row on the store.
 `--end` is the conclude's last act; `--hold`, `--take` and `--release` take, take over and let
 go the unit a session works, named by the question it answers; `--check` is the rows' maintainer, format never content.

@@ -94,7 +94,7 @@ NAME_LIMIT = 255
 CLONE_ROOM = 128
 # The highest four-digit position a child takes; a root's id may grow a digit, as it always could.
 # The table of the ids the store's migration replaced, old to new, which history is read through;
-# no entry. TODO q-0037.0017.0005.0001.0019: written by the migration, read while old ids may be met.
+# no entry. TODO q-2jheaw: written by the migration, read while old ids may be met.
 FORMER_IDS = f"{STORE}/former-ids.md"
 _FORMER_ROW = re.compile(r"^\| *(q-\d{4,}(?:\.\d{4})*) *\| *(q-[a-z2-7]{6}) *\|")
 # RFC 4648's base32 alphabet, lowercase, which an id draws from.
