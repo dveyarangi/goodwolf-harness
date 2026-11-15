@@ -263,3 +263,21 @@ A fresh tree needs: nothing here beyond core; a plan is judged by a subagent tha
 it before the person is asked to accept it, and what it reads one way in an accepted line is
 shown to the person as a reading.
 </straw-dog>
+
+## 16. A recipient asks which form to take before core has one — 2026-11-15
+
+game-delta's keeper, told by its person that the cut of the architecture by session is the work
+of the part core is building, asked core's keeper which form to take meanwhile, so the move to
+core's costs least. Core's keeper answered from the plan and the code: who holds what in one
+home, shaped as the roles' record and kept where it already stands; no file at the path core's
+record will take; no field or format core has not decided; the tree's own rule in its local
+rules file, what core's answer will change wrapped as a straw dog bound to a question of the
+tree's own store, core's questions named in that question's body. The person then asked whether
+the question under it — how an architecture is cut — is answered. It is not: it stands open,
+outside the planned ticket, and the recipient's cut is entered there as its case.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: a tree that cuts its records by area before core's part reaches it keeps who
+holds what in one list — a role's name, what it owns, its brief —, adds no field or format of
+its own, and binds its temporary rule to a question of its own store.
+</straw-dog>
