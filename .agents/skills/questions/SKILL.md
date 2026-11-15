@@ -31,9 +31,9 @@ after a call says what it takes.
 |---|---|
 | `at q-N` | this session's position, an open question |
 | `open '<question>'` · `--under q-P` | a new open question, a root or under q-P; prints the id it was given |
-| `open '<question>' --between q-U q-L` | a new question under q-U, with q-L moved under it and renamed; q-L must be part of q-U |
-| `move q-K --under q-P` · `move q-K --to-root` | a new parent, q-K and everything under it renamed; a cycle is refused |
-| `reword q-N '<question>'` | an open question's new words; its id, parts and body stay, and its file takes the words |
+| `open '<question>' --between q-U q-L` | a new question under q-U, with q-L moved under it, its `part of` alone rewritten; q-L must be part of q-U |
+| `move q-K --under q-P` · `move q-K --to-root` | a new parent, q-K's `part of` alone rewritten; a cycle is refused |
+| `reword q-N '<question>'` | an open question's new words, in its title alone; its id, file, parts and body stay |
 | `depend q-A --on q-B` · `undepend q-A --on q-B` | q-A cannot be asked until q-B is answered, or no longer waits; a cycle is refused |
 | `close q-N <kind> '<pointer>'` | the closure, below |
 | `suspect q-N` · `clear q-N` | the suspect flag |

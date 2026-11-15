@@ -103,14 +103,13 @@ roles, is an open question of the store.
 | marking an open question as asking the person, shown by every wake until it closes, closed on the person's word | `.agents/skills/questions/SKILL.md` | |
 | <straw-dog question="q-huss2x">reading the path ahead at the wake and on request: the work in hand, what was touched lately with no ticket, the candidates with their reasons, the roots</straw-dog> | `.agents/scripts/gw/questions.py` | |
 | writing the session's leans | `.agents/skills/conclude/SKILL.md` | |
-| archiving the subtree a closure finishes | `.agents/scripts/gw/questions.py` | |
-| sweeping a wholly closed subtree a closure left behind | `.agents/skills/maintain/SKILL.md` | |
+| leaving a finished subtree out of the window, where it stands | `.agents/scripts/gw/questions.py` | |
 | installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
 | seeding the roots of a store holding no entry, called by the install | `.agents/scripts/gw/questions.py` | |
 | judging a message outside the agent | — | <straw-dog question="q-epk7c6">not yet</straw-dog> |
 | detecting a shape that hides children | — | <straw-dog question="q-mro2st">not yet</straw-dog> |
 | holding a ticket's open questions under the question it answers | `.agents/skills/ticket/SKILL.md` | |
-| saying which straw dogs are due, and carrying their bindings through a rename | `.agents/scripts/gw/questions.py` | |
+| saying which straw dogs are due | `.agents/scripts/gw/questions.py` | |
 | carrying the hook wiring into a recipient tree | `.agents/scripts/gw/harness.py` | |
 | removing this mechanism from a tree | — | <straw-dog question="q-qzeuf3">not yet</straw-dog> |
 
@@ -134,7 +133,6 @@ roles, is an open question of the store.
 
 | part | where | owner |
 |---|---|---|
-| the mover | `.agents/scripts/gw/move_doc.py` | `ticket` |
 | citation reader | `.agents/scripts/gw/docs_corpus.py` | `mechanism-shape` |
 | test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |
 | the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |

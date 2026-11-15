@@ -125,7 +125,7 @@ PAIN  work called done that does not work, or is not what was meant
   ├─ cause  the task was set wrong
   │     └─ → (proposed) the task takes its form in the open question before it is minted
   └─ cause  agents out of sync with each other
-        └─ → coordination between sessions (locks: q-0032)
+        └─ → coordination between sessions (locks: q-3fds32)
 
 PAIN  time and tokens
   └─ the same causes: rework after each of the above, and duplicated work between agents

@@ -9,12 +9,11 @@
     uv run --offline --no-project python .agents/scripts/gw/questions.py --seed
     uv run --offline --no-project python .agents/scripts/gw/questions.py <event> ... --session <tag>
 
-The store is `docs/questions/`: one file per question, its id nested under its parent's and its
-parent line the one the check holds that id against, wholly closed subtrees in
-`docs/questions/done/`. Each session's position is its row, the session mechanism's, kept by
-`sessions.py`, which this script imports for every window and wake. A re-parent renames the
-subtree that moves, across the records under `docs/` (the user, 2026-10-03). The formats are the
-questions skill's.
+The store is `docs/questions/`: one file per question, named by an id given once and never
+changed and the words it was opened with. Its place is its `part of` alone, so a re-parent
+rewrites that line and nothing else; a finished subtree stays where it is and the window leaves it
+out. Each session's position is its row, the session mechanism's, kept by `sessions.py`, which
+this script imports for every window and wake. The formats are the questions skill's.
 
 `--check` is the maintainer. It writes nothing; its exit status is the verdict and its JSON is for
 the person reading a failure. A tree with no store has nothing to check and passes. `--window` is
@@ -52,7 +51,6 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-import move_doc  # noqa: E402  (path set above)
 import sessions  # noqa: E402  (path set above)
 from docs_corpus import (  # noqa: E402  (path set above)
     QUESTION_ID,
@@ -66,7 +64,6 @@ from docs_corpus import (  # noqa: E402  (path set above)
     question_bindings,
     read_text,
     target_of,
-    with_question_bindings_retargeted,
 )
 
 STORE = "docs/questions"
@@ -92,7 +89,6 @@ NAME_LIMIT = 255
 # there and Windows' long paths are off by default: a clone into a session's scratch folder under
 # the user's profile stands about 120 characters deep.
 CLONE_ROOM = 128
-# The highest four-digit position a child takes; a root's id may grow a digit, as it always could.
 # The table of the ids the store's migration replaced, old to new, which history is read through;
 # no entry. TODO q-2jheaw: written by the migration, read while old ids may be met.
 FORMER_IDS = f"{STORE}/former-ids.md"
@@ -127,7 +123,7 @@ _USAGE = (
     "| --tree [<q-id>] | --seed | <event> ... --session <tag>, the events "
     "at, open, move, reword, depend, undepend, close, suspect, clear, lean, assign, realize, rung"
 )
-# How many times an `open` takes the next free id again when another session took the one it drew.
+# How many times an `open` draws an id again when another session took the one it drew.
 OPEN_ATTEMPTS = 3
 _STOPWORDS = frozenset(
     "a an and are as at be by can do does for from how in is it of on or should the this to we "
@@ -931,9 +927,8 @@ def _identity_problems(entries: list[Entry]) -> list[Diagnostic]:
 
 
 def _relation_problems(entries: list[Entry], index: dict[str, Entry]) -> list[Diagnostic]:
-    """Relations are ids resolved over the live store and `done/` together: an id says where its
-    question sits and never which folder holds it, so an archived question is still the same
-    question."""
+    """Relations are ids resolved over every entry, finished ones included: a finished question is
+    still the same question."""
     return _orphans(entries, index) + _cycles(index) + _unmarked_suspects(entries, index)
 
 
@@ -1012,8 +1007,8 @@ def _unmarked_suspects(entries: list[Entry], index: dict[str, Entry]) -> list[Di
 def _likely_twins(entries: list[Entry]) -> list[Finding]:
     """Live title pairs sharing enough content words to be one question asked twice.
 
-    Only the live store is paired: it tracks the open count, while `done/` grows without bound and
-    is searched by title when a question looks asked before (parent decision 43). Merging is a
+    Only live entries are paired: they track the open count, while finished ones grow without bound
+    and are searched by title when a question looks asked before (parent decision 43). Merging is a
     person's call, so a pair is a finding and never a failure.
     """
     live = [
@@ -1073,8 +1068,8 @@ def _unrunged(entries: list[Entry]) -> list[Finding]:
 
 
 def _owner(read: Entry) -> str | None:
-    """The file an entry's owner links, from the tree's root, so links written from the live store
-    and from `done/` name one owner alike."""
+    """The file an entry's owner links, from the tree's root, so links written from different
+    depths name one owner alike."""
     said = read.parts.get("owner")
     target = _LINK_TARGET.search(said.value) if said else None
     if target is None:
@@ -1089,9 +1084,8 @@ def _owner(read: Entry) -> str | None:
 class Store:
     """The live questions as a tree, with every id resolvable and every session's row.
 
-    The tree is the live directory alone: `done/` holds wholly closed subtrees, which no window
-    draws. Ids still resolve over both, since an id says where a question sits, never which
-    folder holds it.
+    The tree is the live entries alone: a finished subtree stays in the store and no window draws
+    it. Ids still resolve over every entry, finished ones included.
     """
 
     index: dict[str, Entry]
@@ -2033,7 +2027,7 @@ class Clause:
 
     A call makes one from its arguments; a judge's typed value will be turned into the same list
     without parsing (parent decision 39), so the writer has one front door for both. An `opens`
-    carries no id: the writer takes the next free one.
+    carries no id: the writer draws one.
     """
 
     verb: str
@@ -2188,7 +2182,7 @@ def declare(
     Nothing is written unless everything validates. Just before writing, every entry file the
     clauses change is read again, and one that moved since it was read refuses them: detected
     interference is a failure, never authority to overwrite. The one exception is an id drawn for
-    an `opens` that another session took meanwhile: the store is read again and the next free id
+    an `opens` that another session took meanwhile: the store is read again and another id
     drawn, up to `OPEN_ATTEMPTS` times, since the other session's entry is untouched either way.
     The rows are outside the recheck, since each session replaces only its own.
     `between` runs after validation and before that last read — the moment another writer may act.
@@ -2268,53 +2262,9 @@ def arrival_roots(shelf: str) -> list[str]:
     return roots
 
 
-def _carry_renames(
-    root: Path, moves: list[tuple[str, str]], renames: dict[str, str], written: list[str], say: Callable[[str], None]
-) -> list[str]:
-    """After the renamed entries are written in place: move them, which repairs every link to
-    them, then rewrite their bare ids — so nothing under `docs/` names an id that is gone. Each
-    file either step writes is said once, in the mover's words."""
-    try:
-        changed = move_doc.perform(root, moves, announce=say)
-    except move_doc.CloseInterrupted as stopped:
-        raise WriteInterrupted(written, "the renamed entries' move", stopped) from stopped
-    landed = dict(moves)
-    if renames:
-        for name in _rewrite_ids(root, renames):
-            if name not in changed:
-                say(f"repaired citations in {name}")
-    return [landed.get(record, record) for record in written]
-
-
-def _rewrite_ids(root: Path, renames: dict[str, str]) -> list[str]:
-    """Every renamed id written outside a link, in the records under `docs/` and the sessions' rows,
-    and every straw dog's binding to one, wherever the straw dogs stand.
-
-    An id is matched whole, so a longer one that starts the same way is never touched. Under
-    `docs/` a code span is rewritten, since an id there names this store's question; a fenced block
-    is not — it holds samples, whose ids are examples, never references (the user, 2026-10-03).
-    Elsewhere only a binding moves: core names a record of this tree in a straw dog's binding and
-    nowhere else, so an id in its prose is an example. Each file is read and replaced in one
-    rename; a person editing it at that moment can still lose the race, as with the mover. Returns
-    the records it rewrote.
-    """
-    rewrote = []
-    for name in _records_naming_ids(root):
-        path = root / name
-        text = path.read_bytes().decode("utf-8")
-        if name.startswith("docs/"):
-            rewritten = _outside_fences(text, lambda line: _BARE_ID.sub(lambda found: renames.get(found.group(0), found.group(0)), line))
-        else:
-            rewritten = with_question_bindings_retargeted(name, text, renames.get)
-        if rewritten != text:
-            _replace(path, rewritten)
-            rewrote.append(name)
-    return rewrote
-
-
 def _records_naming_ids(root: Path) -> list[str]:
-    """The records a rename reads: the documents under `docs/`, each session's row wherever it
-    stands, and the documents and scripts where straw dogs stand outside `docs/`."""
+    """The records the migration rewrites an old id in: the documents under `docs/`, each session's
+    row wherever it stands, and the documents and scripts where straw dogs stand outside `docs/`."""
     names = [
         name
         for name in corpus(root)
@@ -2383,8 +2333,8 @@ class _Draft:
         """Checked once every clause has applied, by `place`."""
 
     def _opens(self, clause: Clause) -> None:
-        """A new question takes the next free position under its parent; the recheck finds it
-        still free, or `declare` draws again."""
+        """A new question takes an id drawn at random; the recheck finds it still free, or
+        `declare` draws again."""
         if clause.other:
             self._existing(clause.other)
         identity = self._free_id()
@@ -2588,9 +2538,8 @@ class _Draft:
             self.changed.append(read.identity or "")
 
     def recheck(self, seen: dict[str, bytes]) -> None:
-        """Every entry the clauses change is as it was read, and every id they open or rename to is
-        still free — under any slug, since another session names its question in its own words;
-        then the mover has no reason to refuse the renamed entries' move."""
+        """Every entry the clauses change is as it was read, and every id they open is still free —
+        under any slug, since another session names its question in its own words."""
         for identity in self.changed:
             if identity in self.new and _files_holding(self.root, identity):
                 raise Taken(f"{identity} was written by another session since this call read the store")

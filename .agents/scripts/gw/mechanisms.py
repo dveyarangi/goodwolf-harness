@@ -66,6 +66,7 @@ PAINTED_DOORS = frozenset(
         # TODO q-la5n2i: the question store's entries are declared in the questions skill's
         # prose, the sessions' rows beside the conclude's; these rows go when `record-bearing` parses.
         "docs/questions/",
+        # TODO q-2jheaw: goes when dotted ids stop being read; an unmigrated tree still holds this folder.
         "docs/questions/done/",
         "docs/questions/sessions.d/",
         "docs/sessions/rows/",

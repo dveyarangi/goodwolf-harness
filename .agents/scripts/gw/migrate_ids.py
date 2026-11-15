@@ -58,12 +58,14 @@ _BARE_NAME = re.compile(r"(?<![\w.-])(q-[a-z2-7]{6})\.md")
 @dataclass
 class Migrated:
     """What a run did: the table it holds now, the entries it moved, the files it rewrote, the
-    mentions the mover could not repair and the citations that resolve to nothing after it."""
+    mentions the mover could not repair, the ids it left in fenced blocks, and the citations that
+    resolve to nothing after it."""
 
     table: dict[str, str]
     moved: list[tuple[str, str]] = field(default_factory=list)
     rewritten: list[str] = field(default_factory=list)
     unrepaired: list[str] = field(default_factory=list)
+    fenced: list[str] = field(default_factory=list)
     broken: list[str] = field(default_factory=list)
 
 
@@ -120,6 +122,7 @@ def migrate(
     migrated = Migrated(table, pairs)
     if dry_run:
         migrated.rewritten = touched
+        migrated.fenced = _left_in_fences(root, table, left_alone)
         return migrated
     move_doc.perform(root, pairs, announce=lambda said: None)
     migrated.unrepaired = move_doc.unrepaired_mentions(root, pairs)
@@ -128,6 +131,7 @@ def migrate(
         done.rmdir()
     _name_and_open(root, dotted, table, now, first_added or _first_added)
     migrated.rewritten = _rewritten_through(root, table, _names(pairs), left_alone)
+    migrated.fenced = _left_in_fences(root, table, left_alone)
     _write_table(root, table, {read.identity: read.question for read in entries})
     _forget_windows(root)
     migrated.broken = _unresolved(root, left_alone)
@@ -227,8 +231,8 @@ def _write_table(root: Path, table: dict[str, str], words: dict[str | None, str]
 
 
 def _scope(root: Path, left_alone: tuple[str, ...]) -> list[str]:
-    """The records the run rewrites ids in: today's rename scope, the evidence and the table left
-    out."""
+    """The records the run rewrites ids in: those `questions._records_naming_ids` reads, the evidence
+    and the table left out."""
     named = [
         name
         for name in questions._records_naming_ids(root)
@@ -316,8 +320,9 @@ def _name_and_open(
 
 
 def _rewritten_through(root: Path, table: dict[str, str], names: dict[str, str], left_alone: tuple[str, ...]) -> list[str]:
-    """Every id the table replaces, rewritten where today's rename rewrites one: under `docs/` and in
-    the tree's own rules — the local file and its installed block — outside fenced blocks, a path
+    """Every id the table replaces, rewritten where a move's rename rewrote one before ids stopped
+    changing: under `docs/` and in the tree's own rules — the local file and its installed block —
+    outside fenced blocks, a path
     written whole first and then the bare id; elsewhere a straw dog's or a `TODO`'s binding, and
     every id on a comment line holding a `TODO` in any form."""
 
@@ -347,6 +352,26 @@ def _rewritten_through(root: Path, table: dict[str, str], names: dict[str, str],
             questions._replace(path, rewritten)
             rewrote.append(name)
     return rewrote
+
+
+def _left_in_fences(root: Path, table: dict[str, str], left_alone: tuple[str, ...]) -> list[str]:
+    """Each line inside a fenced block of a record the run rewrites outside fences that still names
+    an id the table replaces, as `record:line: ids`. A fence is read as a sample and left as
+    written, but a diagram drawn in one may cite a real question: the person decides."""
+    found = []
+    for name in _scope(root, left_alone):
+        path = root / name
+        if not (name.startswith("docs/") or name == LOCAL_RULES) or not path.is_file():
+            continue
+        inside = False
+        for number, line in enumerate(path.read_bytes().decode("utf-8").splitlines(), 1):
+            if questions._FENCE.match(line):
+                inside = not inside
+            elif inside:
+                named = [said for said in _DOTTED_ID.findall(line) if said in table]
+                if named:
+                    found.append(f"{name}:{number}: {' '.join(named)}")
+    return found
 
 
 def _forget_windows(root: Path) -> None:
@@ -387,6 +412,8 @@ def _report(migrated: Migrated, dry_run: bool) -> None:
     print(f"{verb} {len(migrated.moved)} entries; {'would rewrite' if dry_run else 'rewrote'} {len(migrated.rewritten)} files")
     for mention in migrated.unrepaired:
         print(f"left as written: {mention}")
+    for line in migrated.fenced:
+        print(f"in a fence, left as written — a sample, or a reference to rewrite through former-ids.md: {line}")
     for citation in migrated.broken:
         print(f"resolves to nothing: {citation}")
     if not dry_run:

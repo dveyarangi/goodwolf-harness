@@ -122,6 +122,9 @@ class AMigratedTree(RepositoryCase):
         self.assertIn(f"and {self.new('q-0001.0001')}.", notes)
         self.assertIn("```\nq-0001 as a sample\n```", notes)
 
+    def test_an_id_left_in_a_fence_is_named_for_the_person(self) -> None:
+        self.assertEqual(["docs/notes.md:4: q-0001"], self.migrated.fenced)
+
     def test_a_binding_moves_and_an_example_keeps_its_id(self) -> None:
         self.assertTrue(
             self.text("AGENTS.md").startswith(f'<straw-dog question="{self.new("q-0001.0002")}">Waits.</straw-dog> An example: q-0001.\n')

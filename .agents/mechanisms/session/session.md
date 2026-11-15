@@ -19,8 +19,8 @@ one line: its tag, whether it runs, when the row was last written, its current q
 four recent ones, and the unit it holds or the mark of one another session took from it. A file per session keeps one write from undoing another's, and nothing is locked *(the user,
 2026-10-13)*; the mechanism manages every session from any one of them, so any session writes
 any row through the session script *(the user, 2026-10-25)*.
-Besides its own session's, a row is written by a wake ending a silent session, a rename rewriting
-the ids it names, and a takeover, which moves a held unit and leaves the mark of it. A store from before kept the rows under the question store, and before that every
+Besides its own session's, a row is written by a wake ending a silent session, the id migration
+rewriting the old ids it names, and a takeover, which moves a held unit and leaves the mark of it. A store from before kept the rows under the question store, and before that every
 row in one file; each is carried into the folder at the first write, by links that never overwrite,
 and read until then. The row's form and lifetime are declared beside `/conclude`.
 
@@ -130,8 +130,8 @@ for this mechanism.
 ## What it produces, and who reads it
 
 - **The rows** — *what exists* — read by the script for every window and wake, so each session
-  sees where the others stand; by the rows' check at the maintain pass; by a rename, for the ids
-  a row names.
+  sees where the others stand; by the rows' check at the maintain pass; by the id migration, for
+  the old ids a row names.
 - **The session record** — *what happened* — read by the next session's `/recall` and by a person
   reading what a session did; the account of a session, where the row is only its position.
 - **The wake's lines on sessions** — *what exists* — read by the agent at session start, through

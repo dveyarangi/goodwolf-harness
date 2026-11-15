@@ -292,8 +292,8 @@ def state(held_row: Session) -> str:
 def write_row(root: Path, held_row: Session) -> None:
     """Write one session's row to its own file and touch no other. The line replaces the old in one
     rename, so a reader never meets half a file, and nothing is locked: two writes to one row at
-    once leave the later. Besides its own session, a wake ending a silent row, a rename rewriting
-    the ids it names and a takeover marking the holder's row write it."""
+    once leave the later. Besides its own session, a wake ending a silent row, the id
+    migration rewriting the old ids it names and a takeover marking the holder's row write it."""
     _write_row_file(folder(root), held_row.tag, row_line(held_row))
 
 
@@ -407,7 +407,7 @@ def tend(root: Path, now: datetime, waking: str) -> None:
     2026-10-10 and 2026-10-22); a row that already read ended for `GONE_AFTER` is removed — ended at
     this wake, gone at a later one. A running row is never removed.
 
-    The writes to a row not its own, besides a rename: safe because a silent session has no
+    The writes to a row not its own, besides the id migration's: safe because a silent session has no
     write of its own to meet. The session's next message turns an ended row running again; a
     removed one is registered anew when its host returns.
     """
@@ -602,7 +602,7 @@ def moved(held_row: Session, position: str | None, now: datetime) -> Session | N
 
 
 def records(root: Path) -> list[str]:
-    """Every file a rename reads for the ids a row names: each session's file, wherever it stands,
+    """Every file the id migration reads for the old ids a row names: each session's file, wherever it stands,
     and the single file of a store from before."""
     named = []
     for folder_name in (ROWS, FORMER_ROWS):

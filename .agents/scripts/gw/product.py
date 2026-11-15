@@ -195,7 +195,7 @@ def arrival_document(shelf: str) -> str:
 def _link_problems(store: questions.Store, answers: list[Answer]) -> list[Note]:
     """Each live question's own link held to the answers: a reference no answer holds, or a name
     its answer no longer has. Only the link a question writes is held, so one broken link is
-    reported once, where it is written; a closed question in `done/` is history."""
+    reported once, where it is written; a finished question is history."""
     names = {found.identity: found.name for found in answers}
     notes = []
     for read in _live(store):

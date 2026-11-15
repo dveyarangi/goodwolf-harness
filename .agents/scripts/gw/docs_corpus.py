@@ -30,7 +30,7 @@ QUESTION_ID = r"(?:q-(?=[a-z2-7]{0,5}[a-z])(?=[a-z2-7]{0,5}[2-7])[a-z2-7]{6}(?![
 # In code the binding is the id a `TODO` comment line names first: `# TODO q-7f3k2a: …`.
 TODO_QUESTION = re.compile(rf"^(\s*#\s*TODO\s+)({QUESTION_ID})(?![\w.])")
 # A straw dog's attribute, as written: the question it waits on. One grammar for the lister and
-# the mechanism check, so both read what a rename rewrites.
+# the mechanism check, so both read what the id migration rewrites.
 ATTRIBUTE = re.compile(r'\b(question)\s*=\s*"([^"]*)"', re.S)
 _WRAPPED_WHOLE = re.compile(r"^<straw-dog\b([^<>]*)>(.*)</straw-dog\s*>$", re.S)
 # The installed block's tag, shared with the injector that writes it and the listing that skips it.
@@ -62,7 +62,7 @@ _WRAPPER_OPENING = re.compile(r"<straw-dog\b[^<>]*>")
 ANNOUNCE = re.compile(r"^Entry contract: (?P<revision>[^,\r\n]+), (?P<date>\d{4}-\d{2}-\d{2})\.[ \t]*\r?$", re.M)
 ENTRY_FILE = "AGENTS.md"
 # Where a tree's straw dogs stand: what `/maintain` lists, what the wake reads for the due ones,
-# and where a rename carries their bindings.
+# and where the id migration rewrites their bindings.
 STRAW_DOG_SCOPE = ("docs", "AGENTS.md", "local.rules.md", ".agents", "README.md")
 # Core's scripts sit under a directory of their own, so an install into a tree that already has
 # scripts beside them writes next to the project's and never over one.
