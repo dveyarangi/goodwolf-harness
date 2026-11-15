@@ -33,10 +33,20 @@ Options:
 2. **An orchestrator role in core**, with its duties — rules, ids, arbitration, the survey of the
    sessions it serves.
 3. **As it is**: each project decides alone.
+4. **A keeper of the harness as one area among the others**, raised by the user 2026-11-15 ("нужна
+   сессия которая будет ответственна за правки харнесса и арбитраж, не? … какие-то части ее это
+   безусловно механизмы"). It directs no work. It owns the rules, the mechanisms, the rule-failure
+   register and the updates from core; the other sessions register a failure and hand its
+   amendment to it rather than land it themselves. Its arbitration is finding where areas
+   collide — contradicting records, a boundary gone stale — and bringing each to the person as a
+   decision, never settling one on another area's question. Merging into main is a second
+   such area, the lander. Mechanism takes what needs no judgement: ids, lines kept apart by a
+   worktree per writing session, landing through the lander, a notice of changed rules to running
+   sessions, the scheduled sweep.
 
-Recommendation: 1 — the orchestrator's lapsed duties, ids and the nightly sweep, are those a
-mechanism holds and a session does not, as game-delta's own commit gate showed after its rule
-failed five times; most of its load pays for the shared checkout.
+Recommendation: 4 — one writer of the rules ends the stream of amendments landing mid-work from
+many hands; arbitration as deciding stays the person's, and arbitration as finding needs one
+session that reads across areas; what option 1 gave to mechanism stays mechanism.
 
 Neighbours: [q-psa5ha](q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what.md)
 (hand-over between sessions), [q-37xc3y](q-37xc3y-how-does-the-harness-serve-several-people-steering-agents-in-one-project.md)
