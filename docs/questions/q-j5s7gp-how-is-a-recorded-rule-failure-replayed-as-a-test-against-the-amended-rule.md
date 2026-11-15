@@ -337,7 +337,8 @@ keeper of the harness at the person's word and re-checked against HEAD on 2026-1
 subagent: 14 still contradict, one (mechanism-shape.md's straw dog) was mended in 7aab7fe5. The
 subtree's rung is the method, above the dial, so every repair waits on the person.
 
-Mechanical, the text catching up with the decisions — proposed as one batch:
+Mechanical, the text catching up with the decisions — landed as one batch on the person's word,
+2026-11-15, the line on 01-0019.0060 left for its choice below:
 - q-7f4anv's Decisions gains a first note that where a decision there differs from this
   question's decisions 1–17, these govern (covers its lines on per-mode expectations, transcripts
   as a reserve source, what a case holds).

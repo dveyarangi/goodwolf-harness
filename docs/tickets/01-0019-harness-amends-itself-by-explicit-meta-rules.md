@@ -57,8 +57,11 @@ decision 1, the user, 2026-10-25. What is known to be in scope:
   evidence, and what distinguishes a rule that was disobeyed from one that could not fire.
 - **How an amendment is tested** — decided at
   [q-7f4anv](../questions/q-7f4anv-how-is-an-amendment-to-an-instruction-tested-before-it-lands-against-which-cases-chosen-how-run-with-no.md#where-it-stands), its *Where it stands* accepted 2026-10-21:
-  two layers, cases drawn along one chain from a noticed failure, three modes, blind judges, four
-  verdicts, runs staged through a host adapter. Its first form was the user's of 2026-09-26 — a new
+  two layers, cases drawn along one chain from a noticed failure and from the source chats of
+  recorded ones
+  ([q-j5s7gp](../questions/q-j5s7gp-how-is-a-recorded-rule-failure-replayed-as-a-test-against-the-amended-rule.md#decisions)),
+  three modes, blind judges, four verdicts and none for a case its executor cannot run, runs staged
+  through a host adapter. Its first form was the user's of 2026-09-26 — a new
   session under the amended ruleset given the failing request word for word, a control under the
   old one, the `claude` CLI headless. For the first slice the user selected Codex on 2026-10-26;
   its adapter is specified in the [first slice's RFC](../rfc/done/01-0019.0020-one-amendment-is-tested-end-to-end.md#host-choice).

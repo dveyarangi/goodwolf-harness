@@ -32,14 +32,19 @@ decision 1, the user, 2026-10-25; no separate self-amendment mechanism is introd
 - **Cases** are drawn along one chain — a failure noticed, where the situation is captured; recorded
   in the rule-failure register, which makes the fix case; the rule written, where near-misses, bias
   cases and the touched skills' keep cases join it. They live in `docs/`, each tree its own, and hold
-  the situation, what each mode should give, the check, and the skills and failure they belong to.
+  the situation, the expected behaviour and its checks, and the skills and failure they belong to;
+  a recorded failure's case holds what
+  [q-j5s7gp](q-j5s7gp-how-is-a-recorded-rule-failure-replayed-as-a-test-against-the-amended-rule.md#where-it-stands)
+  states.
 - **Modes and runs.** No instruction for the amended rule's own cases, the standing text, the new
-  one; three runs each; the standing results reused while text and model hold; a model change runs
-  every case; the cost a formula, checked after the run.
+  one; three runs each; the standing results reused while text, model, input and criteria hold; a
+  model change runs every case; the cost a formula, checked after the run.
 - **Judging.** Mechanical where it can be; otherwise a judge blind to the mode, several yes-or-no
-  questions to a case, each yes with its quote, each question tried on a right and a wrong answer
+  questions to a case, each yes with its quote, each question tried on a right and a wrong answer,
+  a constructed one attributed, independently reviewed and never taken as the only right one,
   first; a judge's failure left out, never scored.
 - **Verdicts.** Helped, hurt, no observed effect, confounded; keeping the standing text is an answer.
+  A case its executor cannot run gets no verdict and stays in the corpus.
 - **Runs** are staged apart with the cases out of reach; the host is reached through an adapter that
   lays the harness out, runs, reads the record back and checks health first.
 - **The author** is the session that noticed the failure, and never sees the keep cases.
@@ -53,6 +58,10 @@ and the replay of a recorded failure
 
 ## Decisions
 
+- *(Where a decision below differs from
+  [q-j5s7gp](q-j5s7gp-how-is-a-recorded-rule-failure-replayed-as-a-test-against-the-amended-rule.md#decisions)
+  decisions 1–17, the user, 2026-10-27 to 2026-11-09 — what a case holds, its checks and controls,
+  transcripts as a source, reuse of results, a case its executor cannot run — those govern.)*
 - Two layers from the start: an audit of the corpus read against the change, and behaviour cases
   run on the subset the change touches; the audit layer is itself tested, by a layer of its own —
   the user, 2026-10-19.
