@@ -54,3 +54,23 @@ The one other session running here, on the store's coordinator, was told what th
 A fresh tree needs: a session taking a role names it in its title and its row, and the role's
 brief lives where a successor finds it without this chat.
 </straw-dog>
+
+## 4. The first traffic to the keeper — 2026-11-15
+
+Within the hour the keeper was asked from two sides. game-delta's orchestrator, told by the
+person to turn to the keeper freely, asked what core does with its commit and doc gates, which
+sit in core's files against R7, and how core sees an architecture document five sessions write.
+The keeper answered with its view and left both decisions to the person in game-delta's session:
+move the project's gates out of core's files now; take worktrees and landing through one lander
+rather than build the gate further; split the architecture by area, the index keeping the
+contracts between areas. The coordinator's session here asked whether its rule texts collided
+with the keeper's before committing them — none were in flight — and handed over, at the person's
+word, a sweep list of fifteen places contradicting decisions of
+[q-j5s7gp](../questions/q-j5s7gp-how-is-a-recorded-rule-failure-replayed-as-a-test-against-the-amended-rule.md),
+left by a session that ended 2026-11-10 and so belong to nobody.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: a session that lands a rule text asks the keeper first; a recipient's keeper
+turns to core's keeper with what its tree changed in core's files or would offer to core; drift
+left by a session that ended comes to the keeper.
+</straw-dog>
