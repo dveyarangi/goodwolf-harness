@@ -19,6 +19,40 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## A question's whole left out a reason the person had given in a question under it — 2026-11-15
+
+**Source, no case yet:**
+
+- Claude Code · claude-fable-5-2 · 2026-11-15T12:20Z — chat `0f594c30-677f-4225-877b-6010250847fa`, commit 2ee7eb2f; the model is the one the session reported itself running on, not an attested backend version.
+
+**Goal missed:** what the person accepts as the whole of a question holds every reason they gave
+for it.
+
+**Rules in play, loaded:** `/align`: *"Problem before machinery: open with the concrete failures
+and my own earlier words, read back from the records"*; the entry file: *"Explore shape context
+… does its scope overlap any other shape?"*
+
+**What happened.** The `Where it stands` of
+[q-ja5mp4](questions/q-ja5mp4-does-the-method-have-one-session-direct-the-others-an-orchestrator-and-what-does-it-owe-the-sessions-it.md),
+written for the standing sessions' part of the session mechanism, gave one reason for cutting the
+work into roles: sessions colliding. The person had given a second the same day, kept in
+[q-gus5k2](questions/q-gus5k2-how-is-each-areas-knowledge-kept-apart-so-a-session-holds-its-own-areas-context-and-the-boundary-stays.md)
+two levels under it — each session holds its own area's context and is not cluttered by the rest,
+named there a prerequisite of the cut. The whole named that question's parent among what is open
+and read nothing under it. The person accepted the whole and said the second reason was missing.
+
+**Why it did not fire.** "The records" names no bound: the session read the person's words back
+from the question it stood on, whose decisions it had written itself, and took that for the
+reading; the questions under it were listed from the memory of opening them, not read. This is
+the session's reading; no model-internal cause is established.
+
+**Proposed amendment**, a rewording in `/align`, no check being able to hold it: the person's
+earlier words are read back from the records, the question and every open question under it
+first.
+
+**Disposition:** open — the whole amended in the same turn, the second reason and its question
+named in it; the amendment put to the person, not landed.
+
 ## A decision's purpose was dropped where its mechanism was removed — 2026-11-09
 
 **Source, no case yet:**
