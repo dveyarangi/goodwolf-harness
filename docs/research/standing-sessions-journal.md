@@ -254,7 +254,9 @@ could not show *untold*, since the tree's own records tell the collision; a rule
 role's session read its area whole would have counted more reading, not less; the plan read "a
 section of the doc" as less than a section without saying so; the order of its first stage
 could not pass the check. The plan was rewritten, the readings it takes of accepted lines put
-in a section of their own for the person, and it was sent back to the same judge.
+in a section of their own for the person, and it was sent back to the same judge twice more:
+the second pass found the first proof now ran where the collision had left no evidence, and one
+accepted line narrowed unsaid; the third found the plan ready to put to the person.
 
 <straw-dog question="q-wit7by">
 A fresh tree needs: nothing here beyond core; a plan is judged by a subagent that did not write

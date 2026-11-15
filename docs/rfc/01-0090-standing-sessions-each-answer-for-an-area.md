@@ -3,7 +3,7 @@
 - **record of** what it intends to become
 
 **Authored:** 2026-11-15
-**Last amended:** 2026-11-15, after a first validation by a judge that did not write it
+**Last amended:** 2026-11-15, after two validations by a judge that did not write it
 
 Implements [01-0090](../tickets/01-0090-standing-sessions-each-answer-for-an-area.md).
 
@@ -21,8 +21,8 @@ owner of every shape below; each choice names the line of it that it keeps.
 
 ## Where the plan reads an accepted line one way
 
-Four readings the person sees before the plan is accepted; each is the narrowest that the code
-and the records allow.
+Six readings the person sees before the plan is accepted; each is the narrowest that the code
+and the records allow, and the last has an alternative.
 
 1. **"A section of its doc"** is a subsection of *How it works*, `### Standing sessions`, holding
    all of the part's prose. Its rows stand in the doc's shared tables and its skill in the header:
@@ -36,9 +36,24 @@ and the records allow.
    it (S10). The opening words of
    [q-mvd4pi](../questions/q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md)
    place a brief in a skill or a rules file; decision 5 and the accepted whole, later and the
-   person's, place it in the record, and the plan follows them. S10 is bound to that question.
+   person's, place it in the record, and the plan follows them — without decision 5's holder,
+   which the accepted whole dropped. S10 is bound to that question.
 4. **"The harness offers to start the default session"**: on a yes, the session the install ran
    in takes the keeper's role, unless the person names another chat for it. `/pack` starts none.
+   The offer is a sentence in the reply that says the install is ready and asks for no answer,
+   so it stands in no order with the first question the work asks.
+5. **"Its own area whole"** is a bound and no reading list: the session's reading stays inside
+   its map, and nothing has it read the whole of its area at its wake. Read whole, the keeper's
+   area alone is more than any free session reads, and the whole's fourth test asks for less.
+6. **Two files have two writers.** The session mechanism's doc and rules file are written by the
+   session that keeps the rows and by the one that keeps this part, each its own passages, each
+   telling the other before it lands.
+   [q-dyc63i](../questions/q-dyc63i-which-standing-roles-does-this-tree-have-where-every-session-develops-the-harness-itself.md)'s
+   decision 1 has an owner hand a change in another's mechanism to its owner; the alternative
+   that keeps it to the letter is the keeper handing the part's passages to the rows' session to
+   land. The plan takes the first: the part's text is shown to the person by the session that
+   wrote it and lands on their word, with no session between; decision 6 named what the overlap
+   would show — collisions repeating there call for the part to leave.
 
 ## The shape
 
@@ -58,32 +73,32 @@ the whole's four tests under the grading, a sentence on what retires the part �
 its sessions' areas itself, or its leaving as a mechanism — and three rules after the last one.
 Nothing in the rows' script changes.
 
-**Two files are shared, knowingly.** The session mechanism's doc and rules file are written by
-the session that keeps the rows and by the one that keeps this part. Decision 6 took that with
-its eyes open and named what it would show: collisions repeating there call for the part to
-leave. Until then a change to either file is told to the other session before it lands, and this
-tree's roles name both files in both maps as shared. The shape check's script is nobody's
-standing area today; the one line the plan adds to it is said in the reply that lands it.
+**Two files have two writers**, by the sixth reading: this tree's roles name each of the two
+files in both maps, each entry narrowed by words to its own passages. The shape check's script
+has been changed by both sessions; the one line the plan adds to it is told with them.
 
 **The record: `docs/roles.md`.** The format is the shelf's:
 
 - the title, and `- **record of** what must always hold` — the cut is the person's decision and
   changes only by one; a map that names something gone is redrawn by decision, never regenerated;
-- a `## ` section per role, headed by the role's name, opening with one line of what it answers
-  for;
+- a `## ` section per role, headed by the role's name, and no other `## ` section: every one is
+  read as a role;
 - `### Owns` — the map, a bullet each: a path or a path pattern in a code span, a mechanism by
   its slug, a question by its link, standing for the questions under it, or, for what no path
-  names — the landing on main —, words;
+  names — the landing on main —, words; words after an entry narrow it to a part of what it
+  names;
 - `### Brief` — prose a successor reads without the chat that held the role before.
 
-It names no session. *Keeps:* "the record … names no session"; decision 5. Tier 2: read when a
-session takes a role and when `/pack` reads the cut. A role's section is removed when the person
-closes the role.
+It names no session. *Keeps:* "the record … names no session". Tier 2: read when a session
+takes a role and when `/pack` reads the cut. A role's section is removed when the person closes
+the role. One session writes the file — the one whose map holds it, the keeper where a tree has
+one: another role's session hands it a change to its own brief, so no two sessions' lines meet
+there.
 
 **The check: `roles.py --check`, the format and nothing of the content.** It refuses a file
-without the kind's mark, and a role with no name, with no bullet under `### Owns`, or with an
-empty `### Brief`. A tree with no `docs/roles.md` has nothing to check and passes: a tree with
-one session needs no roles. It does not rule on two maps that overlap — an overlap may be the cut
+without the kind's mark, and a role whose heading is empty, with no bullet under `### Owns`, or
+with an empty `### Brief`. A tree with no `docs/roles.md`, or with one that holds no role, has
+nothing to check and passes: a tree with one session needs no roles. It does not rule on two maps that overlap — an overlap may be the cut
 the person chose — nor on a map entry that names nothing: a check that failed there would refuse
 one role's push over a path it moved inside its own area, on a record another role keeps. Both
 are `/pack`'s read. The script reads the tree's files alone and nothing of the question store.
@@ -117,8 +132,9 @@ so the tree's local block there stays the last.
   tree, and the session takes it by S10.
 - *A session takes a role.* S10, installed here as in `/recall`.
 
-It recommends, and writes the record only on the person's decision; it starts and ends no
-session, hands out no work, and writes nothing in another role's area — the record is its own.
+It recommends, and the record is written only on the person's decision, by the session that
+keeps it; it starts and ends no session, hands out no work, and writes nothing in another role's
+area.
 *Keeps:* "`/pack` recommends and the person decides"; *Its moments*.
 
 **The default role's shelf, `KEEPER.md`.** The keeper of the harness as core ships it to a tree
@@ -149,9 +165,10 @@ says how landing is done. Its text is wrapped as a straw dog bound to
   whole. The role comes by the person's word alone: no row or title is read for it. Wrapped
   around its section as a straw dog bound to q-mvd4pi. *Keeps:* "A session takes a role"; the
   second reason — a session holds its own area and is not cluttered by the rest.
-- **S11** — once the install closes and the person has heard it is ready, offer the default
-  session, as its own ask, in one sentence: something a tree with more than one standing session
-  wants; a yes is carried out through `/pack`, a no writes nothing and is not asked again.
+- **S11** — in the reply that says the install is ready, offer the default session in one
+  sentence that asks for no answer: something a tree with more than one standing session wants;
+  a yes is carried out through `/pack`, and silence or a no writes nothing and is not followed
+  up.
   Wrapped around its section as a straw dog bound to q-wit7by. The anchor is a heading of the
   install's skill, named in the doc's *Relies on* so a renamed heading fails the check; that
   skill names `/pack` nowhere in its own text (R8). *Keeps:* "offered, never required".
@@ -180,23 +197,25 @@ through `/skill-up` and shown to the person before it lands. Each stage writes i
 
 0. **The cheapest example first.** Before anything is built: this tree's roles written to the
    format in the scratchpad, and a fresh subagent handed them and the draft of `/pack`'s first
-   moment, in a clone at the last commit before any record tells the morning's collision — does
-   it name the overlapping area and a way to separate it? A no reopens the record's form before
-   a script is written around it.
-1. **The declaration, the skill, its shelves, S10 and S11.** The doc's header bullet,
+   moment, in the clone the first proof below describes — does it name the overlapping area and
+   a way to separate it? A no reopens the record's form before a script is written around it.
+1. **The declaration, the skill, its shelves and S10.** The doc's header bullet,
    subsection, the rows of the three moments the skill instructs, the skill's and shelves' parts,
    the relied-on heading, the roles and `/pack`'s report under *What it produces*, the four
-   tests, what retires the part; the glossary's entry; the skill and its two shelves;
-   `docs/roles.md` added to the shape check's painted doors beside a `TODO` naming q-la5n2i; S10
-   and S11 in the rules file with their rows, installed before the doc is checked, and the local
-   file installed again for the new skill's own block. Proof: `mechanisms.py --check` and
+   tests, what retires the part; the glossary's entry; the skill and its two shelves, naming no
+   check yet; `docs/roles.md` added to the shape check's painted doors beside a `TODO` naming
+   q-la5n2i; S10 in the rules file with its row, installed before the doc is checked, and the
+   local file installed again for the new skill's own block. Proof: `mechanisms.py --check` and
    `inject_rules.py --check` pass; the tests pass.
 2. **The record's check.** `test_roles.py` first, each refusal watched to fail in both
    polarities — a file without its mark; a role lacking its name, its map, its brief; a tree with
    no file passing; a push that carries a role without its brief refused — then `roles.py`, its
-   parts' rows and the check's moment in the doc, `PUSH_CHECKS`, S12 with its row, and L3
-   through the local file and the installer, which re-renders its block in `/verify`,
-   `/implement` and `/maintain`. The run over what exists: no prior corpus, stated so.
+   parts' rows and the check's moment in the doc, the format shelf's sentence naming the check,
+   `PUSH_CHECKS`, S12 and S11 with their rows, and L3 through the local file and the installer,
+   which re-renders its block in `/verify`, `/implement` and `/maintain`. The offer at install
+   lands here and not before, so no ref offers a record that nothing checks; between the two
+   stages `/pack` can write one, checked from the next ref. The run over what exists: no prior
+   corpus, stated so.
 3. **This tree.** `/pack` is run here: the sessions the person actually runs, and this tree's
    roles written to the record — core's keeper, the merging, and an owner for each family of
    mechanisms a standing session holds — each shown, the cut the person's; `docs/README.md`
@@ -206,12 +225,12 @@ through `/skill-up` and shown to the person before it lands. Each stage writes i
 
 | criterion | proof |
 |---|---|
-| the morning's collision named untold | a fresh subagent running `/pack` in a clone at the last commit before any record tells the collision, the part's files copied in, given the words "two sessions collided this morning" and nothing else; a second subagent, given the collision's true account, judges the area and the way to separate it, and reads the first one's list of files read for any that tells it |
+| the morning's collision named untold | a fresh subagent running `/pack` in a clone that holds no ref later than `e1b2ec36` — the second of the two commits that met in the questions and the session mechanisms' docs, `3a15e79a` the first — with every file that tells the collision put back to its state before `3a15e79a`, the journal first, the two sessions' rows copied in as they stand and the part's files added; it is given the words "two sessions collided this morning" and nothing else. What tells the collision is withheld by construction, and what shows it — the two commits — is there. A second subagent, given the collision's true account, judges the area and the way to separate it |
 | the roles record and its check | `docs/roles.md` in this tree; `test_roles.py`; the check run over it |
 | the sessions actually run, a role only where a collision came twice | `/pack`'s report at stage 3, judged by the person |
-| a role's session reads its own first, counted | two fresh subagents handed what a session is handed at its start, one given a role by word, one free, the same question from that role's area; each reports the files it read, whose bytes are summed from the tree, beside the token total the host reports for each; a third judges both answers. Both numbers are reported whichever way they fall |
-| the default session offered, a no leaves nothing | a fresh subagent given a freshly installed, committed tree and the install's skill alone, answered no: the offer is made once, and the tree's status is unchanged across that turn |
-| the declaration holds the part | `mechanisms.py --check` |
+| a role's session reads its own first, counted | two fresh subagents handed what a session is handed at its start, one given a role by word, one free, the same question from that role's area; the count is the token total the host reports for each subagent, with the files each says it read, their bytes summed from the tree, beside it as its own account; a third judges both answers. Both numbers are reported whichever way they fall |
+| the default session offered, a no leaves nothing | a fresh subagent given a freshly installed, committed tree and the install's skill alone: its reply that the install is ready carries the offer once; answered no, and again with no answer, the tree's status is unchanged |
+| the declaration holds the part | `mechanisms.py --check`, and `/verify`'s read of the doc's tables against the part's files, since the check holds no shelf and no moment's row to anything |
 | texts shown before landing | each under its header in the reply before the commit that lands it |
 | `/verify` | the pass itself |
 
@@ -225,7 +244,9 @@ one new record.
 
 **Hidden edges.**
 
-- The two shared files, above.
+- The two files with two writers, and the shape check's script, above.
+- A subsection inside *How it works* is new to the mechanisms' docs: the format leaves that
+  section's prose unparsed and the check refuses no heading there, and no doc has one yet.
 - A skill whose `## Installed from other mechanisms` followed its `## What the person hears`
   would put a mechanism's block after the local one, refused here and in every recipient that
   installs a local rule into every skill's closing section; the order is fixed above.
@@ -258,7 +279,7 @@ local rules.
 
 - Which session holds a role is said by its title alone, and no rule reads a title, until the row
   has a field ([01-0010.0250.0090](../tickets/01-0010.0250.0090-the-rows-live-in-a-database.md)).
-- A brief is rewritten through `/pack` at the person's word until q-mvd4pi says how a role is
-  handed on, and where a brief lives.
+- A brief is rewritten by the session that keeps the record, at the person's word, until
+  q-mvd4pi says how a role is handed on, and where a brief lives.
 - The lander as a role of its own waits on q-7ebz2f.
 - The window per role's area, where most of the reading is saved, is q-gus5k2's.
