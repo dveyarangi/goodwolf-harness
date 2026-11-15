@@ -42,8 +42,15 @@ class AMigratedTree(RepositoryCase):
                                                             "Was under [the root](../q-0001-which-store.md#decisions).\n"))
         self.put(root, "docs/tickets/01-0001-carry.md", "# Carry\n\n- **Answers:** [q-0001.0001](../questions/q-0001.0001-child-one.md#where-it-stands)\n")
         self.put(root, "docs/notes.md", "Read `docs/questions/q-0001.0002-child-two.md` and q-0001.0001.\n\n```\nq-0001 as a sample\n```\n")
-        self.put(root, "AGENTS.md", '<straw-dog question="q-0001.0002">Waits.</straw-dog> An example: q-0001.\n')
+        self.put(
+            root,
+            "AGENTS.md",
+            '<straw-dog question="q-0001.0002">Waits.</straw-dog> An example: q-0001.\n\n'
+            '<installed by="local">\n**L1** Its own rule, under q-0001.0001.\n</installed>\n',
+        )
+        self.put(root, "local.rules.md", "# Local\n\n<rule>\nIts own rule, under q-0001.0001.\n</rule>\n")
         self.put(root, ".agents/scripts/gw/later.py", "# TODO q-0001.0001: when it lands\nX = 1\n")
+        self.put(root, "src/game.py", "# TODO(q-0001.0002): when the child lands\nY = 2  # TODO(q-0001): the root\n")
         self.put(root, "docs/research/run.md", "Judged q-0001.0001.\n")
         self.put(root, "docs/research/run.txt", "q-0001.0001\n")
         self.put(root, f"{sessions.ROWS}/s-alpha", "s-alpha running 2026-11-09T11:30Z q-0001.0001 q-0001\n")
@@ -116,8 +123,20 @@ class AMigratedTree(RepositoryCase):
         self.assertIn("```\nq-0001 as a sample\n```", notes)
 
     def test_a_binding_moves_and_an_example_keeps_its_id(self) -> None:
-        self.assertEqual(f'<straw-dog question="{self.new("q-0001.0002")}">Waits.</straw-dog> An example: q-0001.\n', self.text("AGENTS.md"))
+        self.assertTrue(
+            self.text("AGENTS.md").startswith(f'<straw-dog question="{self.new("q-0001.0002")}">Waits.</straw-dog> An example: q-0001.\n')
+        )
         self.assertTrue(self.text(".agents/scripts/gw/later.py").startswith(f"# TODO {self.new('q-0001.0001')}: when it lands\n"))
+
+    def test_the_trees_own_rules_name_the_new_ids_in_their_file_and_their_installed_block(self) -> None:
+        self.assertIn(f"Its own rule, under {self.new('q-0001.0001')}.", self.text("local.rules.md"))
+        self.assertIn(f"**L1** Its own rule, under {self.new('q-0001.0001')}.", self.text("AGENTS.md"))
+
+    def test_a_todo_naming_its_question_in_parentheses_follows(self) -> None:
+        self.assertEqual(
+            f"# TODO({self.new('q-0001.0002')}): when the child lands\nY = 2  # TODO({self.new('q-0001')}): the root\n",
+            self.text("src/game.py"),
+        )
 
     def test_the_rows_name_the_new_ids(self) -> None:
         self.assertEqual(

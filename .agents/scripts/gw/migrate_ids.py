@@ -43,6 +43,14 @@ _USAGE = "usage: migrate_ids.py [--words] [--dry-run] [--leave <folder>]..."
 _DOTTED = re.compile(r"^q-\d{4,}(?:\.\d{4})*$")
 # A path written whole, outside a link the mover repairs: `q-0037.0017-the-words.md`.
 _DOTTED_PATH = re.compile(r"(?<![\w.])(q-\d{4,}(?:\.\d{4})*)-[A-Za-z0-9][A-Za-z0-9-]*\.md")
+# A dotted id as a bare word, the form the migration replaces.
+_DOTTED_ID = re.compile(r"(?<![\w.])q-\d{4,}(?:\.\d{4})*(?!\w)")
+# A comment line holding a `TODO` in any form — `# TODO q-…`, `# TODO(q-…)`, one after code.
+_TODO_LINE = re.compile(r"#.*\bTODO\b")
+# The tree's own rules, which name its questions as references: the local file, and the block the
+# installer writes from it into the entry file.
+LOCAL_RULES = "local.rules.md"
+_LOCAL_BLOCK = re.compile(r'(<installed by="local">)(.*?)(</installed>)', re.S)
 # A file named by its id alone, written whole outside a link: `q-7f3k2a.md`.
 _BARE_NAME = re.compile(r"(?<![\w.-])(q-[a-z2-7]{6})\.md")
 
@@ -221,11 +229,31 @@ def _write_table(root: Path, table: dict[str, str], words: dict[str | None, str]
 def _scope(root: Path, left_alone: tuple[str, ...]) -> list[str]:
     """The records the run rewrites ids in: today's rename scope, the evidence and the table left
     out."""
-    return [
+    named = [
         name
         for name in questions._records_naming_ids(root)
         if not name.startswith(left_alone) and name != questions.FORMER_IDS
     ]
+    return named + [name for name in _todo_files(root, left_alone) if name not in named]
+
+
+def _todo_files(root: Path, left_alone: tuple[str, ...]) -> list[str]:
+    """Every other text file of the tree with a `TODO` comment naming a dotted id — a project's own
+    code binds its questions there, in whatever form its authors wrote."""
+    found = []
+    for name in corpus(root):
+        if name.startswith(left_alone) or name.startswith("docs/"):
+            continue
+        path = root / name
+        try:
+            if path.stat().st_size > 1_000_000:
+                continue
+            text = path.read_bytes().decode("utf-8")
+        except (OSError, UnicodeDecodeError):
+            continue
+        if any(_TODO_LINE.search(line) and _DOTTED_ID.search(line) for line in text.splitlines()):
+            found.append(name)
+    return found
 
 
 def _touched(root: Path, pairs: list[tuple[str, str]], table: dict[str, str], left_alone: tuple[str, ...]) -> list[str]:
@@ -288,9 +316,10 @@ def _name_and_open(
 
 
 def _rewritten_through(root: Path, table: dict[str, str], names: dict[str, str], left_alone: tuple[str, ...]) -> list[str]:
-    """Every id the table replaces, rewritten where today's rename rewrites one: under `docs/`,
-    outside fenced blocks, a path written whole first and then the bare id; elsewhere a straw dog's
-    or a `TODO`'s binding alone."""
+    """Every id the table replaces, rewritten where today's rename rewrites one: under `docs/` and in
+    the tree's own rules — the local file and its installed block — outside fenced blocks, a path
+    written whole first and then the bare id; elsewhere a straw dog's or a `TODO`'s binding, and
+    every id on a comment line holding a `TODO` in any form."""
 
     def renamed(line: str) -> str:
         line = _DOTTED_PATH.sub(lambda found: names[table[found.group(1)]] if found.group(1) in table else found.group(0), line)
@@ -302,10 +331,18 @@ def _rewritten_through(root: Path, table: dict[str, str], names: dict[str, str],
         if not path.is_file():
             continue
         text = path.read_bytes().decode("utf-8")
-        if name.startswith("docs/"):
+        if name.startswith("docs/") or name == LOCAL_RULES:
             rewritten = questions._outside_fences(text, renamed)
         else:
             rewritten = with_question_bindings_retargeted(name, text, table.get)
+            rewritten = "".join(
+                _DOTTED_ID.sub(lambda found: table.get(found.group(0), found.group(0)), line) if _TODO_LINE.search(line) else line
+                for line in rewritten.splitlines(keepends=True)
+            )
+            if name == "AGENTS.md":
+                rewritten = _LOCAL_BLOCK.sub(
+                    lambda block: block.group(1) + questions._outside_fences(block.group(2), renamed) + block.group(3), rewritten
+                )
         if rewritten != text:
             questions._replace(path, rewritten)
             rewrote.append(name)
