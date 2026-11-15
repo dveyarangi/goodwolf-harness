@@ -30,9 +30,10 @@ decision 1, the user, 2026-10-25; no separate self-amendment mechanism is introd
   contradictions and by a run on the unchanged text; and behaviour cases run on the subset the
   change touches — the skills it lands in, the section for the entry file.
 - **Cases** are drawn along one chain — a failure noticed, where the situation is captured; recorded
-  in the rule-failure register, which makes the fix case; the rule written, where near-misses, bias
-  cases and the touched skills' keep cases join it. They live in `docs/`, each tree its own, and hold
-  the situation, the expected behaviour and its checks, and the skills and failure they belong to;
+  in the rule-failure register, which makes a case of each occurrence, the fix case of an amendment
+  that answers it; the rule written, where near-misses, bias cases and the touched skills' keep
+  cases join it. They live in `docs/`, each tree its own, and hold the situation, the expected
+  behaviour and its checks, and the skills and failure they belong to;
   a recorded failure's case holds what
   [q-j5s7gp](q-j5s7gp-how-is-a-recorded-rule-failure-replayed-as-a-test-against-the-amended-rule.md#where-it-stands)
   states.

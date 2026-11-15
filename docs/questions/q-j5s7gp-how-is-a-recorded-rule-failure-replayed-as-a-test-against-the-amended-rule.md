@@ -375,3 +375,9 @@ Asking the person, the keeper's recommendation first:
    D8 and D11 as new evidence.
 
 Noted outside 1–17: 01-0019 lines 68–69 say the register has no declared format; it has one now.
+
+Decided 2026-11-15 by the person: 1–3 as (a), 4 as (a), 5 as (a) — landed; the transcripts are the
+person's to commit at this stage, and a working tree holding the cases is to stand apart from a
+clean public repository of core — written into 01-0010.0168, its future clause a straw dog on
+q-m3pldh. q-7f4anv's dated decision of 2026-10-20 keeps its words; the note heading its Decisions
+says these decisions govern.

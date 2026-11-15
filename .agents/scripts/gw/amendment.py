@@ -24,6 +24,9 @@ import zlib
 _LEDGER_LOCK = threading.Lock()
 
 
+# TODO q-j5s7gp: this validates the combined experiment input, which holds both instruction
+# versions; under q-j5s7gp a case holds neither — they belong to the experiment copy built from
+# a case — and that split is not built yet.
 def validate_case(case):
     questions = case.get("questions", [])
     names = [q["id"] for q in questions]
