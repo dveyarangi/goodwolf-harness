@@ -7,6 +7,7 @@
 - **realizes** A37 "Failures replayed as tests"
 - **rung** self-improvement: the method
 - **lean** 2026-10-24: minted as its slice of 01-0019, Planned
+- **asks** the person, 2026-11-15 — drift against decisions 1–17, below
 - **opened** 2026-10-08T21:43:24Z
 - **struck** 9, last 2026-11-10T18:16Z
 
@@ -327,3 +328,49 @@ This family can find a faithful replay inadequate because historical fidelity al
 
 No conclusion follows about the adequacy of the available recordings, the feasibility of replay, the validity of a proposed test, or the cause of any incident. These families supply competing questions to ask of evidence; they supply no verdict on an uninspected project.
 ```
+
+## Drift against decisions 1–17, 2026-11-15 — waiting on the person
+
+A `/maintain` sweep through 56419a89 (session local_641bd2e2, 2026-11-10) listed 15 places
+contradicting decisions 1–17, left by session 01a17c92, which ended 2026-11-10; handed to the
+keeper of the harness at the person's word and re-checked against HEAD on 2026-11-15 by a
+subagent: 14 still contradict, one (mechanism-shape.md's straw dog) was mended in 7aab7fe5. The
+subtree's rung is the method, above the dial, so every repair waits on the person.
+
+Mechanical, the text catching up with the decisions — proposed as one batch:
+- q-7f4anv's Decisions gains a first note that where a decision there differs from this
+  question's decisions 1–17, these govern (covers its lines on per-mode expectations, transcripts
+  as a reserve source, what a case holds).
+- q-7f4anv's Where it stands: a case holds the expected behaviour and its checks (D14), not what
+  each mode should give; a right and a wrong answer — a constructed one attributed, independently
+  reviewed, never the only right one (D14); results reused while text, model, input and criteria
+  hold (D16); a case its executor cannot run gets no verdict and stays in the corpus (D15).
+- 01-0019.0040 line 31: cases drawn from transcripts are those 01-0019.0090 extracted (D2, D8).
+- 01-0019 lines 59–61: cases also from the source chats of recorded failures; no verdict for a
+  case its executor cannot run (D2, D8, D15).
+- 01-0019.0060 line 23: "Rule failure 53's case" → the case 01-0019.0020 ran (D3); follows the
+  choice on that ticket below.
+
+Asking the person, the keeper's recommendation first:
+1. q-7f4anv "which makes the fix case" (D3, D12): (a) a case per occurrence, the fix case of an
+   amendment that answers it; (b) drop the term; (c) define it in the glossary.
+2. q-7f4anv "failing on the standing text by construction" (D12, D15, D16): (a) its checks reject
+   the recorded failing response; (b) keep it as the expected result with D15's exception;
+   (c) drop the claim.
+3. 01-0019.0040's acceptance (follows 1 and 2; also its case shape from 01-0019.0020 against
+   D11–D13): (a) the case's checks reject the recorded response and accept an attributed,
+   independently reviewed control; (b) keep "fails when run", unless its executor cannot run it;
+   (c) hold the ticket until 1 and 2 are decided.
+4. 01-0019.0060 "nothing names a host", "unchanged on Codex" (D2, D9, D11): (a) nothing in a
+   case's checks, expected behaviour or judge questions names a host; the same cases run on a
+   second host through its own adapter; (b) the adapter translates host-shaped input; (c) only
+   cases whose input names no host.
+5. amendment.py `validate_case` requires both instruction versions in the case (D12, D13):
+   (a) a TODO naming this question, no change in behaviour; (b) a ticket for building the
+   experiment copy from a case and an experiment; (c) rename it to validate the experiment input.
+6. 01-0010.0168 "transcripts are the person's and private" (D8, D11): (a) scoped to that
+   feature's trend, replay cases carrying public excerpts under D8 and D11; (b) a general policy:
+   private except public messages and tool results committed as case evidence; (c) raised against
+   D8 and D11 as new evidence.
+
+Noted outside 1–17: 01-0019 lines 68–69 say the register has no declared format; it has one now.

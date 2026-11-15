@@ -69,3 +69,13 @@ Neighbours: [q-psa5ha](q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verifi
 (several sessions of one person are one judge with several hands),
 [q-2gw24v](q-2gw24v-how-do-running-sessions-reach-each-other-beyond-one-working-directory.md)
 (how sessions reach each other).
+4. **The roles' first draft is the ground for the keeper's brief** — the user, 2026-11-15, "а так
+   черновик ок". Core ships two standing roles to a tree with more than one standing session, the
+   keeper of the harness and the lander, the lander folded into the keeper in a small tree; judges,
+   discovery and audits are subagents. The maintenance sweep is a session too, but no standing
+   one: the host's schedule starts it, and the keeper owns what it leaves — in this tree the task
+   "GoodWolf Maintenance" runs it nightly; game-delta has no schedule, so the sweep its
+   orchestrator was given by hand never ran. A project cuts its own roles by the rule of
+   [q-jz3mlm](q-jz3mlm-how-does-a-project-cut-its-work-into-standing-sessions-and-how-does-the-cut-change-as-the-project-grows.md);
+   a role carries its skill, the map of what it owns, and its name. In this tree the keeper is
+   also core's own, the one a recipient's keeper turns to.
