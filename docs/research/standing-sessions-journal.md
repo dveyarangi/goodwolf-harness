@@ -163,3 +163,20 @@ A fresh tree needs: its roles cut by what the harness is to it — the product, 
 mechanism writes its rules, or a tool serving another product, where a limit on writing them stands
 in the keeper's skill or the local rules —; the nightly sweep's task made at install.
 </straw-dog>
+
+## 10. A recipient's own mechanism asks where it lives — 2026-11-15
+
+game-delta's performance session landed a mechanism of the project's own beside core's, with the
+person's word there, and its keeper asked core's whether that home is rightful and why the shape
+check refuses its records. The keeper read the code before answering: the update keeps such a
+mechanism and reports it as the recipient's own; the shape check reads it as core, and the local
+rule the recipient wrote is the way that stands today. What core should do about the second is an
+open question nobody had touched
+([q-dsxyi5](../questions/q-dsxyi5-where-does-a-recipient-declare-its-own-mechanisms.md)); the
+keeper wrote the case into it and brought it to the person rather than answer for core.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: a project's own mechanism stands beside core's, its rules file with it, and
+names its own records through a local rule; what core's check refuses of it goes to core's keeper
+as a case, never mended in core's script in place.
+</straw-dog>
