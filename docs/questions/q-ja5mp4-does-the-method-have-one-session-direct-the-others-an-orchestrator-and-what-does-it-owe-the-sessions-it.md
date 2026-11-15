@@ -14,6 +14,10 @@ what this harness should add or change, and whether such a way of working is wan
 Widened the same day: how well the harness's mechanisms hold in such work — its rules, the
 question store and the others — and how often sessions collide.
 
+Evidence: [an outside read of game-delta](../research/game-delta-orchestration-audit-2026-11-15.md),
+2026-11-15 — nine sessions in one shared tree and index; a commit carrying another session's lines
+8 times, master red for every session at least 5 times, 4 id collisions under hand-given ids.
+
 Neighbours: [q-psa5ha](q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what.md)
 (hand-over between sessions), [q-37xc3y](q-37xc3y-how-does-the-harness-serve-several-people-steering-agents-in-one-project.md)
 (several sessions of one person are one judge with several hands),
