@@ -213,3 +213,17 @@ A fresh tree needs: the cut into roles judged by two measures, collisions betwee
 what each session has to read; a whole put to the person read back from every open question under
 the one it stands on.
 </straw-dog>
+
+## 13. The pack becomes a ticket — 2026-11-15
+
+On the person's word the part was minted as one ticket, the question promoted to it. The trace of
+what the ticket touches found that the row's seam for a role was a sentence of the doc and no
+field of the row: the accepted whole had said the holder is read from the rows, and was corrected
+to say the session's title names it until the rows' script gives the row a field. The window cut
+by area and that field were left out of the ticket, each with the question or ticket that holds
+it.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: nothing here beyond core; what a whole says of the code is checked against
+the code before the whole is put to the person.
+</straw-dog>

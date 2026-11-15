@@ -3,6 +3,7 @@
 - **record of** what it intends to become
 - **part of** q-zxnc6y
 - **state** open
+- **owner** [01-0090](../tickets/01-0090-standing-sessions-each-answer-for-an-area.md)
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-11-15T00:05:13Z
 - **struck** 0, last 2026-11-15T00:05Z
@@ -134,8 +135,8 @@ the work one standing session answers for across chats: its name, the map of wha
 paths, mechanisms, questions — and its brief, which a successor reads without the chat that held
 the role before. The map is also what the role's session reads: its own area whole, the rest of
 the tree through what is shared and the contracts between areas, never held. Which session holds
-a role now is read from the rows, through the seam the row already has, so the record names no
-session. `/pack` recommends and the person decides: it starts and ends no session, hands out no
+a role now is no part of the record, which names no session: the session's title says it, and
+the row will once the rows' script gives it a field. `/pack` recommends and the person decides: it starts and ends no session, hands out no
 work and writes nothing in another role's area.
 
 **Its moments.**
@@ -183,3 +184,41 @@ this tree ([q-jz3mlm](q-jz3mlm-how-does-a-project-cut-its-work-into-standing-ses
 **Next.** A ticket for the part — the skill, the rules, the record's format and its check — taken
 through the ring, each instruction's text shown before it lands; then `/pack` is run on this
 tree.
+
+## Impact of the split — 2026-11-15
+
+One ticket,
+[01-0090 standing-sessions-each-answer-for-an-area](../tickets/01-0090-standing-sessions-each-answer-for-an-area.md),
+not split: the parts are one mechanism's, and none shows anything without the skill.
+
+**Impact.** The session mechanism's declaration, its rules file and a new skill; the method's
+glossary, which defines no role; one new record with its format and its check; an installed block
+in the install's skill. No script of the session mechanism changes.
+
+**Hidden edges.**
+
+- The row has no slot for a role: the seam is the doc's sentence, and the rows' script writes
+  nothing of it. A field there is the rows' script's, in the unit the coordinator's session holds
+  and bound for the server
+  ([01-0010.0250.0090 the-rows-live-in-a-database](../tickets/01-0010.0250.0090-the-rows-live-in-a-database.md));
+  this ticket leaves the holder to the session's title.
+- The word *role* has two accounts — an area a session answers for, here, and what an agent is
+  granted at its start, in [q-p4sdnv](q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md); the glossary's entry lands bound to that question.
+- The install's skill has no anchor for other mechanisms' blocks, and the session mechanism is
+  `installed`, so its skill is named there by a block alone.
+- The record's file is a new painted door where core names the file and not its folder; that
+  list is the shape check's, held by hand.
+- A check of the record written into the rows' script lands in the coordinator's unit; a script
+  of its own adds a line to this tree's verification set.
+- Recipients receive the skill at their next update; game-delta keeps its roles in local rules,
+  which then stand beside core's record.
+- The count of what a session with a role starts with moves little until the window is cut by
+  area ([q-gus5k2](q-gus5k2-how-is-each-areas-knowledge-kept-apart-so-a-session-holds-its-own-areas-context-and-the-boundary-stays.md)): an instruction narrows what the session reads at its wake, not what
+  the hook hands it.
+
+**Leave alone.** The row's lifecycle and the holds; the window and the wake's script; the rules
+on who writes a rule; the coordinator's server tickets; a role's rights.
+
+**Recommendation.** Proceed as one ticket, the row's field and the window left out; the plan
+stages it — the skill and the declaration, the record with its check and this tree's roles, the
+two installed rules.
