@@ -50,6 +50,9 @@ _TODO_LINE = re.compile(r"#.*\bTODO\b")
 # The tree's own rules, which name its questions as references: the local file, and the block the
 # installer writes from it into the entry file.
 LOCAL_RULES = "local.rules.md"
+# Core's own directory. It arrives in a tree already migrated, by the update before the run; a
+# dotted id left in it is a sample, a test's fixture, and core's links are checked at the origin.
+CORE = ".agents/"
 _LOCAL_BLOCK = re.compile(r'(<installed by="local">)(.*?)(</installed>)', re.S)
 # A file named by its id alone, written whole outside a link: `q-7f3k2a.md`.
 _BARE_NAME = re.compile(r"(?<![\w.-])(q-[a-z2-7]{6})\.md")
@@ -231,12 +234,12 @@ def _write_table(root: Path, table: dict[str, str], words: dict[str | None, str]
 
 
 def _scope(root: Path, left_alone: tuple[str, ...]) -> list[str]:
-    """The records the run rewrites ids in: those `questions._records_naming_ids` reads, the evidence
-    and the table left out."""
+    """The records the run rewrites ids in: those `questions._records_naming_ids` reads, the evidence,
+    the table and core left out."""
     named = [
         name
         for name in questions._records_naming_ids(root)
-        if not name.startswith(left_alone) and name != questions.FORMER_IDS
+        if not name.startswith(left_alone + (CORE,)) and name != questions.FORMER_IDS
     ]
     return named + [name for name in _todo_files(root, left_alone) if name not in named]
 
@@ -246,7 +249,7 @@ def _todo_files(root: Path, left_alone: tuple[str, ...]) -> list[str]:
     code binds its questions there, in whatever form its authors wrote."""
     found = []
     for name in corpus(root):
-        if name.startswith(left_alone) or name.startswith("docs/"):
+        if name.startswith(left_alone + (CORE, "docs/")):
             continue
         path = root / name
         try:
@@ -383,10 +386,10 @@ def _forget_windows(root: Path) -> None:
 
 
 def _unresolved(root: Path, left_alone: tuple[str, ...]) -> list[str]:
-    """Every citation of a markdown record that resolves to no file, as `record: target`."""
+    """Every citation of a markdown record outside core that resolves to no file, as `record: target`."""
     broken = []
     for name in corpus(root):
-        if not name.endswith(".md") or name.startswith(left_alone):
+        if not name.endswith(".md") or name.startswith(left_alone + (CORE,)):
             continue
         for written in citations((root / name).read_text(encoding="utf-8")):
             target = cited_record(root, name, target_of(written))
