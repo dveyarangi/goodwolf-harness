@@ -23,7 +23,7 @@ file under `.agents/mechanisms/`, its skill under `.agents/skills/`, two rules i
   mechanism naming its own record under `docs/` is a leak there. The local block alone excuses a
   path, so game-delta moved its skill's pointers into a local rule that targets the skill.
 
-Not settled: whether core tells a recipient's mechanism from a shipped one, and by what. The tree
+What was asked: whether core tells a recipient's mechanism from a shipped one, and by what. The tree
 keeps no manifest, so the check cannot know what shipped. Ways seen:
 
 - a mark in the mechanism's declaration, its parts found by the claim each already carries on its
@@ -33,3 +33,12 @@ keeps no manifest, so the check cannot know what shipped. Ways seen:
 - the painted doors read from every declaration in the tree, as the check already intends for
   core's — which opens a directory or one file, never a particular record, and a mechanism that
   travels nowhere has no reason to be held to that.
+
+## Decisions
+
+1. **A mark in the mechanism's declaration tells a project's own mechanism from a shipped one** —
+   the user, 2026-11-15, on the keeper's recommendation ("по твоей рекоммендации все остальное"):
+   its parts are found by the claim each carries on its first line; what a marked mechanism names
+   under `docs/` is the project's and no leak; the same mark keeps an origin's own mechanism from
+   shipping. Its home is the mechanism shape's format and the shape check, work not done; until
+   it lands a recipient names its records through a local rule.

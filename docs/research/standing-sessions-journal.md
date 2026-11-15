@@ -180,3 +180,21 @@ A fresh tree needs: a project's own mechanism stands beside core's, its rules fi
 names its own records through a local rule; what core's check refuses of it goes to core's keeper
 as a case, never mended in core's script in place.
 </straw-dog>
+
+## 11. The pack: the session mechanism's own part — 2026-11-15
+
+The person gave the keeper its task: a skill for the moment sessions step on each other, which
+finds the overlap of areas behind a collision and recommends how to separate the code and the
+sessions, and a standing role where one is needed; the same work reads which sessions the person
+actually runs and says what the cut lacks. Asked whether this was the session mechanism itself,
+the keeper measured that mechanism, found it no larger than its neighbours and already holding
+the seam for a role, and recommended a part of it kept apart; the person took that and named the
+skill `/pack`. The whole is written as the question's `Where it stands` and waits for the
+person's acceptance before anything is built. The same message settled how core tells a
+project's own mechanism from a shipped one: a mark in its declaration.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: nothing added for standing sessions beyond core — the session mechanism
+carries the skill and the roles' record; the default session offered at install; a mechanism of
+the project's own marked so in its declaration.
+</straw-dog>

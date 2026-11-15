@@ -102,3 +102,70 @@ Neighbours: [q-psa5ha](q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verifi
    [q-p4sdnv](q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md)'s. The user then
    asked whether this is the session mechanism itself, or whether that one is already overloaded
    — not settled.
+6. **It is the session mechanism's, a part kept apart, and its skill is `/pack`** — the user,
+   2026-11-15: "pack, по твоей рекоммендации все остальное", on the keeper's recommendation: the
+   session mechanism already keeps every rule on how sessions interact and holds a seam for a
+   role, and a mechanism of its own would own one skill and one record and rely on the rest. The
+   part has a skill, a record and a section of the doc of its own, so it can leave as a mechanism
+   at the cost of a move; collisions repeating between the sessions that write the session
+   mechanism are the evidence that would call for it. Decision 5's "a mechanism of its own" reads
+   so from here.
+
+## Where it stands
+
+Put to the user 2026-11-15; not accepted yet.
+
+**The problem.** One person runs several standing sessions in one tree, and they step on each
+other: one session's lines in another's commit, two writing one file, a rule landing mid-work from
+several hands. Each collision is mended where it happened, so its cause — two areas of
+responsibility that overlap — stays and returns. Nothing in the method says which standing
+sessions a project needs, what each answers for, or when that cut should change: game-delta cut
+its nine by hand, and this tree found its three by the person naming them.
+
+**The shape agreed.** The session mechanism keeps the standing sessions as a part of its own: the
+skill `/pack`, one record — the tree's roles — and a section of its doc. A *role* is an area of
+the work one standing session answers for across chats: its name, the map of what it owns —
+paths, mechanisms, questions — and its brief, which a successor reads without the chat that held
+the role before. Which session holds a role now is read from the rows, through the seam the row
+already has, so the record names no session. `/pack` recommends and the person decides: it starts
+and ends no session, hands out no work and writes nothing in another role's area.
+
+**Its moments.**
+
+- *Sessions step on each other.* `/pack` says why: which areas overlapped, read from what the
+  tree already keeps — the rows, the session records, git history, the sessions' own words — and
+  from a read by someone outside. One collision is mended where it happened. A collision repeated
+  in one area brings a proposal: the code or the records separated so the areas stop sharing
+  them, the roles' map redrawn, or a new standing role, named for what it answers for.
+- *The cut is read against the work.* On the person's ask, `/pack` reads which sessions the
+  person actually runs against the roles, and proposes what the cut lacks or no longer needs: a
+  role opened, a role closed, two merged.
+- *A tree is installed.* The harness offers to start the default session, the keeper of the
+  harness; it is offered, never required, and a tree with one session needs no roles.
+- *A session takes a role.* It names the role in its title and its row, and reads the brief.
+
+**Two trees, one skill.** Where the harness is a tool serving another product, the default session
+keeps the harness first — the updates from core, what the sweep leaves, the tree's own rules —
+and the sessions beside it. In this tree, where the owners of mechanisms write their rules
+themselves, it keeps the sessions first, and the boundary with the other trees.
+
+**What is not its own.** A role's rights and skill set ([q-p4sdnv](q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md)); how sessions reach each
+other ([q-2gw24v](q-2gw24v-how-do-running-sessions-reach-each-other-beyond-one-working-directory.md)); handing a unit over ([q-psa5ha](q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what.md)); a worktree per writing session and
+the landing on main ([q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md)).
+
+**What is open.** How many collisions in one area count as repeated, set after the first read of
+this tree ([q-jz3mlm](q-jz3mlm-how-does-a-project-cut-its-work-into-standing-sessions-and-how-does-the-cut-change-as-the-project-grows.md)); how a role is handed on and what its brief must hold
+([q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md)); what a fresh tree is given at install ([q-wit7by](q-wit7by-what-does-a-fresh-tree-under-the-harness-need-to-set-up-standing-sessions-by-itself.md)).
+
+**What would show it working**, graded by someone who did not build it:
+
+1. Given this morning's collision — two sessions editing the same two mechanism docs — does a
+   fresh session running `/pack` name the overlapping area and a way to separate it, untold?
+2. Run over this tree, does it name the sessions the person actually runs, and propose a new role
+   only where a collision repeated?
+3. In a freshly installed tree, is the default session offered, and does declining it leave
+   nothing behind?
+
+**Next.** The session holding the session mechanism's files is told; the skill, the rules and the
+record's format are written through `/mechanism` and `/skill-up`, each text shown before it
+lands; then `/pack` is run on this tree.
