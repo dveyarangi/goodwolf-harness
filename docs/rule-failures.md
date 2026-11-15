@@ -19,6 +19,44 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## A recipient built a mechanism unnamed, its skill called unowned by design, and nothing refused it — 2026-11-15
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-15T14:51+02:00 — the instant of the recipient's commit entering it, its own entry saying 12:20 with no zone; observed in a recipient, game-delta, and passed to core's keeper by that tree's keeper; its register holds the account, "Built the frame check as tools and called its skill unowned, never through /mechanism — 2026-11-15" (game-delta af183f4, 64bed80).
+
+**Goal missed:** a part of how the work is done names the mechanism it belongs to, so an agent
+editing it meets the doc that governs it.
+
+**Rules in play, loaded:** R6: *"A skill no mechanism names opens it with `Mechanism:` then
+`not yet` … or `unowned by design` with its reason. A script, test or hook a mechanism owns opens
+with `# Mechanism: <slug>`"*; `/mechanism`'s description: *"use before changing how the work is
+done here — a skill, a check, a record"*.
+
+**What happened.** A session of the recipient built how its sessions' work is judged for frame
+drops — a nightly check, a baseline, the levels measured, who a drop goes to — as scripts under
+the project's own `tools/` and a document, never through `/mechanism` and with no claim on any
+file. Asked for a skill to hold its rules, it opened the draft `Mechanism: unowned by design`,
+reasoned as the project's own skill. The person there caught it.
+
+**Why it did not fire.** Two gaps, both read from core's code. The shape check holds the claim
+only on a skill under the skills' folder and on code under core's scripts' folder; a part of how
+the work is done standing anywhere else in a tree is read by nothing. And R6 says when a skill
+may claim `unowned by design` only by asking for a reason: any reason passes the rule and the
+check alike, so the kind meant for a skill no mechanism could own served one whose mechanism had
+records and scripts.
+
+**Proposed amendment.** For the first, a check: what a mechanism's declaration lists as a part is
+held to its claim wherever it stands — the same reading the mark of a project's own mechanism
+needs, and built with it
+([q-dsxyi5](questions/q-dsxyi5-where-does-a-recipient-declare-its-own-mechanisms.md)). For the
+second, a rewording of R6 with a check behind it: `unowned by design` is for a skill that acts on
+no record and runs no script, and the shape check refuses it on a skill whose folder holds a
+script.
+
+**Disposition:** open — the recipient holds both by its own commit gate meanwhile; the first
+routed to the work on the mark, the second put to the person, not landed.
+
 ## A question's whole left out a reason the person had given in a question under it — 2026-11-15
 
 **Source, no case yet:**
