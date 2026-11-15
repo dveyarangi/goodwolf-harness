@@ -42,3 +42,12 @@ keeps no manifest, so the check cannot know what shipped. Ways seen:
    under `docs/` is the project's and no leak; the same mark keeps an origin's own mechanism from
    shipping. Its home is the mechanism shape's format and the shape check, work not done; until
    it lands a recipient names its records through a local rule.
+
+## What the recipient met next — 2026-11-15
+
+The same mechanism's scripts stand under the project's own `tools/`, outside the core directory,
+and carried no claim: the shape check reads a claim only on code under core's scripts' folder and
+on a skill, so a part a declaration lists anywhere else is held to nothing. game-delta now refuses
+such a part at its own commit gate (64bed80). The mark's work reads the parts of a marked
+mechanism by their claims, so it holds a declared part to its claim wherever it stands; the
+account is in [the register](../rule-failures.md), under the recipient's unnamed mechanism.

@@ -227,3 +227,19 @@ it.
 A fresh tree needs: nothing here beyond core; what a whole says of the code is checked against
 the code before the whole is put to the person.
 </straw-dog>
+
+## 14. A recipient's rule failure comes up to core — 2026-11-15
+
+game-delta's keeper passed up, at its person's word, a failure of a core rule met there: a session
+built a mechanism unnamed and called its skill unowned by design, and neither the rule nor core's
+check refused it. The recipient mended its own side with its commit gate and sent core the two
+gaps. Core's keeper checked both against the code — one was narrower than reported: core does
+refuse a skill that claims nothing — entered the failure in core's register under the recipient's
+source line, routed the gap in the check to the work already carved for a project's own
+mechanism, and put the rule's rewording to the person.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: a failure of a core rule registered where it happened and passed to core's
+keeper with what the tree did meanwhile; core's keeper checks it against core's code and enters
+it in core's register under the recipient's source.
+</straw-dog>
