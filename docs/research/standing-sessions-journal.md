@@ -91,3 +91,22 @@ A fresh tree needs: a change a mechanism ships to the recipients goes from the m
 session, naming itself, and the keeper is told where it went; a recipient that runs a keeper
 receives it through its keeper.
 </straw-dog>
+
+## 6. A recipient takes the way of working in order — 2026-11-15
+
+The person accepted in game-delta the whole order its orchestrator drew from the keeper's advice:
+the project's own gates and its S5 rewordings out of core's files; core updated; the store's ids
+migrated; a worktree per writing session; the architecture cut by area. Step one was built and
+went to a judge: the gates moved to `tools/gates/` behind their own `gates.sh`, called from the
+host's settings by a command of their own so an update leaves them be; the S5 wording became a
+local rule that names S5 as the one it overrides; core's files went back to the installed ref.
+For step two the keeper advised updating from the public repository at a pinned commit, without
+`--overwrite` first, letting the update's refusal name any file still edited, and checking after.
+The orchestrator offered core a change to `/discover`'s description that its person had accepted
+there; the keeper took it as a proposal to bring to this tree's person.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: an update of core pinned to a commit and run without `--overwrite` first; a
+project's own mechanism kept outside core's files and hooked by a command of its own; a change a
+recipient makes to a core skill offered back to core's keeper instead of kept in place.
+</straw-dog>
