@@ -12,6 +12,10 @@ description: >-
   relevant to current task. Find out which documented boundaries are involved,
   and whether implementation challenges them.
 
+- Before the plan removes a check, a test or a rule that names the decision it
+  keeps, read that decision: the plan says what the decision was for and what
+  serves that after the removal, or the removal goes to `/align`.
+
 - If the ticket at hand is too coarse to yield a single unambiguous RFC, stop
   planning and decompose it into sub-tickets via
   [/ticket](../ticket/SKILL.md) first; then plan the first child.
