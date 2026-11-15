@@ -110,3 +110,20 @@ A fresh tree needs: an update of core pinned to a commit and run without `--over
 project's own mechanism kept outside core's files and hooked by a command of its own; a change a
 recipient makes to a core skill offered back to core's keeper instead of kept in place.
 </straw-dog>
+
+## 7. Traffic both ways — 2026-11-15
+
+The person accepted `/discover`'s new use case here, and core took it (5a63b969): the first change
+a recipient sent up through its keeper. game-delta then did its steps one to three: its gates out
+of core's files (65b78ed), core updated without `--overwrite` (b0bcb05), the store's ids migrated
+in a commit of their own (d5ac4a8). On the way its keeper met a core bug — under
+`core.autocrlf=true` an untouched AGENTS.md read as an edit in core — which core fixed with a test
+(8531f359), and two gaps in the migration, which the keeper here passed to the session holding the
+migration rather than mending them. It declined to mark a maintenance sweep that never ran: the
+tree has no schedule for one.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: a bug a recipient meets in core goes to core's keeper with how to reproduce it;
+core's keeper routes it to the session that holds that work, or mends it with a test where nobody
+does; the scheduled sweep set up at install, not given to a session's hands.
+</straw-dog>
