@@ -50,6 +50,9 @@ _TODO_LINE = re.compile(r"#.*\bTODO\b")
 # The tree's own rules, which name its questions as references: the local file, and the block the
 # installer writes from it into the entry file.
 LOCAL_RULES = "local.rules.md"
+# The entry files, where core's installed text stands beside the tree's: their bindings and the local
+# block are rewritten, never an example core wrote.
+ENTRY_FILES = ("AGENTS.md", "CLAUDE.md")
 # Core's own directory. It arrives in a tree already migrated, by the update before the run; a
 # dotted id left in it is a sample, a test's fixture, and core's links are checked at the origin.
 CORE = ".agents/"
@@ -241,7 +244,30 @@ def _scope(root: Path, left_alone: tuple[str, ...]) -> list[str]:
         for name in questions._records_naming_ids(root)
         if not name.startswith(left_alone + (CORE,)) and name != questions.FORMER_IDS
     ]
-    return named + [name for name in _todo_files(root, left_alone) if name not in named]
+    found = _todo_files(root, left_alone) + _other_documents(root, left_alone)
+    return named + [name for name in dict.fromkeys(found) if name not in named]
+
+
+def _document(name: str) -> bool:
+    """Whether a record is one of the tree's documents, read whole: under `docs/`, the local rules,
+    or any other markdown outside core and the entry files, which hold core's text beside the tree's."""
+    return name.startswith("docs/") or name == LOCAL_RULES or (name.endswith(".md") and name not in ENTRY_FILES)
+
+
+def _other_documents(root: Path, left_alone: tuple[str, ...]) -> list[str]:
+    """Every markdown record outside `docs/` and core naming a dotted id — a project's notes cite its
+    questions there, a link's words as well as its target."""
+    found = []
+    for name in corpus(root):
+        if not _document(name) or name.startswith(left_alone + (CORE, "docs/")):
+            continue
+        try:
+            text = (root / name).read_bytes().decode("utf-8")
+        except (OSError, UnicodeDecodeError):
+            continue
+        if _DOTTED_ID.search(text):
+            found.append(name)
+    return found
 
 
 def _todo_files(root: Path, left_alone: tuple[str, ...]) -> list[str]:
@@ -339,7 +365,7 @@ def _rewritten_through(root: Path, table: dict[str, str], names: dict[str, str],
         if not path.is_file():
             continue
         text = path.read_bytes().decode("utf-8")
-        if name.startswith("docs/") or name == LOCAL_RULES:
+        if _document(name):
             rewritten = questions._outside_fences(text, renamed)
         else:
             rewritten = with_question_bindings_retargeted(name, text, table.get)
@@ -364,7 +390,7 @@ def _left_in_fences(root: Path, table: dict[str, str], left_alone: tuple[str, ..
     found = []
     for name in _scope(root, left_alone):
         path = root / name
-        if not (name.startswith("docs/") or name == LOCAL_RULES) or not path.is_file():
+        if not _document(name) or not path.is_file():
             continue
         inside = False
         for number, line in enumerate(path.read_bytes().decode("utf-8").splitlines(), 1):

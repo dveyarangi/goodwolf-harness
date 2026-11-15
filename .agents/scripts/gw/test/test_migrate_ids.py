@@ -49,7 +49,8 @@ class AMigratedTree(RepositoryCase):
             '<installed by="local">\n**L1** Its own rule, under q-0001.0001.\n</installed>\n',
         )
         self.put(root, "local.rules.md", "# Local\n\n<rule>\nIts own rule, under q-0001.0001.\n</rule>\n")
-        self.put(root, "src/later.py", "# TODO q-0001.0001: when it lands\nX = 1\n")
+        self.put(root, "attempts/one/README.md", "Tried under [q-0001.0001](../../docs/questions/q-0001.0001-child-one.md).\n")
+        self.put(root, "src/later.py","# TODO q-0001.0001: when it lands\nX = 1\n")
         self.put(root, ".agents/scripts/gw/test/fixture.py", "# TODO q-0001.0001: a fixture's sample\nZ = 3\n")
         self.put(root, ".agents/skills/harness/README.md", "See [the license](LICENSE).\n")
         self.put(root, "src/game.py", "# TODO(q-0001.0002): when the child lands\nY = 2  # TODO(q-0001): the root\n")
@@ -132,6 +133,12 @@ class AMigratedTree(RepositoryCase):
             self.text("AGENTS.md").startswith(f'<straw-dog question="{self.new("q-0001.0002")}">Waits.</straw-dog> An example: q-0001.\n')
         )
         self.assertTrue(self.text("src/later.py").startswith(f"# TODO {self.new('q-0001.0001')}: when it lands\n"))
+
+    def test_a_note_outside_docs_names_the_new_id_in_its_link_words_and_target(self) -> None:
+        self.assertEqual(
+            f"Tried under [{self.new('q-0001.0001')}](../../docs/questions/{self.name('q-0001.0001')}).\n",
+            self.text("attempts/one/README.md"),
+        )
 
     def test_core_is_left_as_it_arrived(self) -> None:
         self.assertEqual("# TODO q-0001.0001: a fixture's sample\nZ = 3\n", self.text(".agents/scripts/gw/test/fixture.py"))
