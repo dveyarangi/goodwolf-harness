@@ -198,3 +198,18 @@ A fresh tree needs: nothing added for standing sessions beyond core — the sess
 carries the skill and the roles' record; the default session offered at install; a mechanism of
 the project's own marked so in its declaration.
 </straw-dog>
+
+## 12. The whole accepted, with the reason it had left out — 2026-11-15
+
+The person accepted the pack's `Where it stands` and named what it lacked: the second reason for
+the cut, that each session sees its own context. They had said so that morning, and the store kept
+it in a question two levels under the one the whole was written on; the keeper had not read under
+it. The whole was rewritten with both reasons — a role's map is also what its session reads — a
+fourth test added, counting what a session with a role starts with, and the slip entered in the
+rule-failure register with a rewording of `/align` put to the person.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: the cut into roles judged by two measures, collisions between sessions and
+what each session has to read; a whole put to the person read back from every open question under
+the one it stands on.
+</straw-dog>

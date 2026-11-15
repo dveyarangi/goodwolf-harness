@@ -113,22 +113,30 @@ Neighbours: [q-psa5ha](q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verifi
 
 ## Where it stands
 
-Put to the user 2026-11-15; not accepted yet.
+Accepted by the user 2026-11-15 ("да"), with the second reason added at their word: "ты пропустил
+вторую причину для этого механизма - чтобы каждая сессия видела свой контекст - это оптимизация".
 
-**The problem.** One person runs several standing sessions in one tree, and they step on each
-other: one session's lines in another's commit, two writing one file, a rule landing mid-work from
-several hands. Each collision is mended where it happened, so its cause — two areas of
-responsibility that overlap — stays and returns. Nothing in the method says which standing
-sessions a project needs, what each answers for, or when that cut should change: game-delta cut
-its nine by hand, and this tree found its three by the person naming them.
+**The problem.** Two things, and one cut answers both. One person runs several standing sessions
+in one tree, and they step on each other: one session's lines in another's commit, two writing one
+file, a rule landing mid-work from several hands. Each collision is mended where it happened, so
+its cause — two areas of responsibility that overlap — stays and returns. And a session that
+answers for everything holds everything: each session here is handed the whole store's window,
+some 55 KB, at its start and again after a compaction, whatever it works on. The person named
+this the point of dividing the work at all — each session holds the context of its own area and
+is not cluttered by the rest, which asks a clean separation, kept clean
+([q-gus5k2](q-gus5k2-how-is-each-areas-knowledge-kept-apart-so-a-session-holds-its-own-areas-context-and-the-boundary-stays.md)). Nothing in the method says which standing sessions a project needs, what each
+answers for, or when that cut should change: game-delta cut its nine by hand, and this tree found
+its three by the person naming them.
 
 **The shape agreed.** The session mechanism keeps the standing sessions as a part of its own: the
 skill `/pack`, one record — the tree's roles — and a section of its doc. A *role* is an area of
 the work one standing session answers for across chats: its name, the map of what it owns —
 paths, mechanisms, questions — and its brief, which a successor reads without the chat that held
-the role before. Which session holds a role now is read from the rows, through the seam the row
-already has, so the record names no session. `/pack` recommends and the person decides: it starts
-and ends no session, hands out no work and writes nothing in another role's area.
+the role before. The map is also what the role's session reads: its own area whole, the rest of
+the tree through what is shared and the contracts between areas, never held. Which session holds
+a role now is read from the rows, through the seam the row already has, so the record names no
+session. `/pack` recommends and the person decides: it starts and ends no session, hands out no
+work and writes nothing in another role's area.
 
 **Its moments.**
 
@@ -136,13 +144,15 @@ and ends no session, hands out no work and writes nothing in another role's area
   tree already keeps — the rows, the session records, git history, the sessions' own words — and
   from a read by someone outside. One collision is mended where it happened. A collision repeated
   in one area brings a proposal: the code or the records separated so the areas stop sharing
-  them, the roles' map redrawn, or a new standing role, named for what it answers for.
+  them, which is also what lets each session read its own and no more; the roles' map redrawn; or
+  a new standing role, named for what it answers for.
 - *The cut is read against the work.* On the person's ask, `/pack` reads which sessions the
   person actually runs against the roles, and proposes what the cut lacks or no longer needs: a
   role opened, a role closed, two merged.
 - *A tree is installed.* The harness offers to start the default session, the keeper of the
   harness; it is offered, never required, and a tree with one session needs no roles.
-- *A session takes a role.* It names the role in its title and its row, and reads the brief.
+- *A session takes a role.* It names the role in its title and its row, reads the brief, and
+  reads the tree by the role's map.
 
 **Two trees, one skill.** Where the harness is a tool serving another product, the default session
 keeps the harness first — the updates from core, what the sweep leaves, the tree's own rules —
@@ -153,7 +163,9 @@ themselves, it keeps the sessions first, and the boundary with the other trees.
 other ([q-2gw24v](q-2gw24v-how-do-running-sessions-reach-each-other-beyond-one-working-directory.md)); handing a unit over ([q-psa5ha](q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what.md)); a worktree per writing session and
 the landing on main ([q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md)).
 
-**What is open.** How many collisions in one area count as repeated, set after the first read of
+**What is open.** How each area's knowledge is kept apart and what holds the boundary — the
+records cut by area, the window drawn for a role's area, a rule or a check at landing
+([q-gus5k2](q-gus5k2-how-is-each-areas-knowledge-kept-apart-so-a-session-holds-its-own-areas-context-and-the-boundary-stays.md)); how many collisions in one area count as repeated, set after the first read of
 this tree ([q-jz3mlm](q-jz3mlm-how-does-a-project-cut-its-work-into-standing-sessions-and-how-does-the-cut-change-as-the-project-grows.md)); how a role is handed on and what its brief must hold
 ([q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md)); what a fresh tree is given at install ([q-wit7by](q-wit7by-what-does-a-fresh-tree-under-the-harness-need-to-set-up-standing-sessions-by-itself.md)).
 
@@ -165,7 +177,9 @@ this tree ([q-jz3mlm](q-jz3mlm-how-does-a-project-cut-its-work-into-standing-ses
    only where a collision repeated?
 3. In a freshly installed tree, is the default session offered, and does declining it leave
    nothing behind?
+4. Does a session that took a role start with less in its context than a free session in the same
+   tree, counted, and still answer a question of its own area rightly?
 
-**Next.** The session holding the session mechanism's files is told; the skill, the rules and the
-record's format are written through `/mechanism` and `/skill-up`, each text shown before it
-lands; then `/pack` is run on this tree.
+**Next.** A ticket for the part — the skill, the rules, the record's format and its check — taken
+through the ring, each instruction's text shown before it lands; then `/pack` is run on this
+tree.
