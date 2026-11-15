@@ -344,6 +344,25 @@ the answer link into an unmerged branch. Each slice leaves the tree working.
 01-0010.0250.0020 stands, AFK, independent. 01-0010.0250.0060 and 01-0010.0250.0080 are withdrawn,
 moot under decisions 2 and 6.
 
+## Nine sessions in one checkout, from a recipient, 2026-11-15
+
+game-delta, on core a766d691 (2026-11-05), ran nine sessions in one checkout on `master` with one
+index, read from outside by the session on q-ja5mp4
+([the audit](../research/game-delta-orchestration-audit-2026-11-15.md)). What bears here:
+
+- Eight commits carried another session's lines and `master` went red for everyone at least five
+  times, all from direct commits; the writers asked, unprompted, for a worktree per writing
+  session and code into `master` through one lander — the case this question was opened for.
+- In a worktree `questions.py at` and `open` failed, no session being registered there, so that
+  session's position reached nobody: [01-0010.0250.0020 the-harness-runs-in-a-worktree](../tickets/01-0010.0250.0020-the-harness-runs-in-a-worktree.md)
+  and [01-0010.0250.0090 the-rows-live-in-a-database](../tickets/01-0010.0250.0090-the-rows-live-in-a-database.md).
+- Rows stood `running` for sessions silent since the day before, a resumed session's new id
+  leaving the old row's claims live: the session mechanism's, under q-2gw24v.
+- Ids handed out by hand collided two to four times, the store's and the tickets': the first is
+  what decision 6 removes; the tickets' is q-6up5fc's.
+- A session's `git reset --hard master` in its worktree dropped commits not yet landed; they ask
+  for a guard. Not this question's: what a worktree may throw away is the landing's.
+
 ## Checking out an old commit through the link, tried 2026-11-09
 
 Git 2.32 for Windows, a scratch repository: a first commit tracking `docs/questions/q-old.md`, a
