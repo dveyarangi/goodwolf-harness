@@ -68,9 +68,9 @@ decision 1, the user, 2026-10-25. What is known to be in scope:
   Built by the slices
   [01-0019.0020 one-amendment-is-tested-end-to-end](./done/01-0019.0020-one-amendment-is-tested-end-to-end.md) to
   [01-0019.0070 every-amendment-is-tested-before-it-lands](./01-0019.0070-every-amendment-is-tested-before-it-lands.md).
-- **The register's shape**: today `rule-failures.md` has a written form and no
-  declared format, which is the same gap
-  [01-0017.0020](./01-0017.0020-practice-swaps-in-one-edit.md) found for sessions and dreams.
+- **The register's shape**: `rule-failures.md`'s format is declared in the entry file's
+  [*Self-improvement*](../../AGENTS.md#self-improvement), *Keeping the register*, and checked by
+  `.agents/scripts/gw/rule_failures.py --check`.
 - **Ownership**, settled by
   [q-tt733j](../questions/q-tt733j-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md#decisions)
   decision 1, the user, 2026-10-25: self-improvement is the mechanism shape's, not a separate mechanism.

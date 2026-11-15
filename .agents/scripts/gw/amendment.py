@@ -1,5 +1,5 @@
 # Mechanism: mechanism-shape
-"""Run one instruction case in three conditions, separately from its blind judgement.
+"""Run one experiment, a case under three instruction conditions, separately from its blind judgement.
 
 An explicit case and output path keep project evidence out of the shipped implementation.
 """

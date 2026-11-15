@@ -127,3 +127,22 @@ A fresh tree needs: a bug a recipient meets in core goes to core's keeper with h
 core's keeper routes it to the session that holds that work, or mends it with a test where nobody
 does; the scheduled sweep set up at install, not given to a session's hands.
 </straw-dog>
+
+## 8. The sweep's findings reach the keeper — 2026-11-15
+
+The nightly sweep, its session running with no person, sent the keeper what the keeper's own
+decisions contradict and what the q-j5s7gp subtree the keeper took over still holds, writing
+nothing in either itself. The coordinator's session sent a wording fix to a rules file, found by
+the same sweep, for the keeper to land, and repaired the rest of what fell in its own unit; the
+two sessions told each other which paragraphs of the two mechanism docs both were editing, and
+each stages only its own hunks. The keeper checked each finding against its text before acting:
+the mechanical ones went to a subagent, the role texts were wrapped as straw dogs and their
+tension recorded in the open question of what a role is, and what changes the rules — who lands
+an amendment, who repairs a rule file, whom the sweep's leftovers go to, who lands on main — went
+to the person as one decision.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: the sweep sends what falls in a session's area to that session and the rest to
+the keeper, writing nothing in another's area; a session holding a mechanism sends a rule change to
+the keeper rather than landing it; two sessions editing one file say which parts each holds.
+</straw-dog>

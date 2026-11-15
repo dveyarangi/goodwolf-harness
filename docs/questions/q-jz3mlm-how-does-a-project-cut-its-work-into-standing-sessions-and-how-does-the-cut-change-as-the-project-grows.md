@@ -13,6 +13,11 @@ the game's domains, then added "a file has one owner" when two sessions met in o
 97edc01). Which signs say a cut has gone stale, who proposes a new one, and who accepts it.
 Evidence: [the outside read](../research/game-delta-orchestration-audit-2026-11-15.md).
 
+Neighbours: [q-4fj72c](q-4fj72c-how-does-a-starting-agent-pick-an-area-that-does-not-overlap-another-sessions.md)
+(how a starting agent picks an area that does not overlap another session's) and
+[A43](../product.md) "a starting session takes a free area" assume an area taken at a session's
+start; a standing session holds its area across chats.
+
 The user, 2026-11-15: "нам надо реально подумать какие роли например есть у нас, какие есть у
 общего ядра, а какие сочиняются для проекта и как … метаправило выделения ролей такое" — read
 by the keeper as naming the rule given just before: a role is cut where a body of context — an

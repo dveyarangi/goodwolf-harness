@@ -63,8 +63,8 @@ the working tree is how they see each other, so sessions that do not share the d
 
 **Free unless locked.** A session is not of one method: the question it stands on names its root,
 the root its method, and a free session runs whichever ring that is. A setting at its start may
-lock it to one method, and a role may grant its skill set and rights; the row admits both as a
-seam, and nothing writes either yet *(the user, 2026-10-22)*.
+lock it to one method, and <straw-dog question="q-p4sdnv">a role may grant its skill set and rights; the row admits both as a
+seam, and nothing writes either yet *(the user, 2026-10-22)*.</straw-dog>
 
 **Delivery.** The hook wiring and the hook's entry are the questions mechanism's, relied on here:
 <straw-dog question="q-hpwq4t">one hook serves both, the question script's hook

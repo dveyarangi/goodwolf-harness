@@ -55,7 +55,7 @@ absence is honestly classified, are judgements it records and never makes.
 | incepting one | `.agents/skills/mechanism/SKILL.md` | |
 | telling an inceptor what to hand `/maintain` | `.agents/skills/mechanism/SKILL.md` | |
 | amending a declared one, editing a skill that is an instruction file included | `.agents/skills/mechanism/SKILL.md` | |
-| running one instruction case in three conditions with blind calibrated judging | `.agents/scripts/gw/amendment.py` | |
+| running one experiment, a case run under three instruction conditions, with blind calibrated judging | `.agents/scripts/gw/amendment.py` | |
 | retiring a declared one | `.agents/skills/mechanism/SKILL.md` | |
 | installing a declared mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
 | removing one declared mechanism from a tree | — | <straw-dog question="q-qzeuf3">not yet</straw-dog> |

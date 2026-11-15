@@ -81,7 +81,7 @@ Write a lean line on each question the session touched and left open —
 happened.
 </rule>
 
-## Q4 — the store is checked, and finished subtrees archived
+## Q4 — the store is checked
 
 - **target** `.agents/skills/maintain/SKILL.md`
 - **authority** the user, 2026-09-29, for M1's duty

@@ -82,8 +82,8 @@ judge, since the agent fails at both; without a judge the instruction stands whe
 it, and the agent tries.
 
 **Rights.** An agent's rights over the store come from the role it starts with, which also grants
-its permissions and its skill set. The harness has one role, the HITL session, driven by a person
-and holding every right, so the store checks none. What a role is, and which mechanism keeps
+its permissions and its skill set. <straw-dog question="q-p4sdnv">The harness has one role, the HITL session, driven by a person
+and holding every right, so the store checks none.</straw-dog> What a role is, and which mechanism keeps
 roles, is an open question of the store.
 
 ## Moments
