@@ -136,8 +136,7 @@ diagnostic is a finding; repair it at the rung of what it mends.
 </installed>
 
 <installed by="questions">
-**Q4** Check the question store with `questions.py --check`. A diagnostic is a finding; repair it at the rung of what it mends. Move each subtree it reports ready for `done/` with `move_doc.py`, every entry
-of the subtree in one invocation, into `docs/questions/done/`.
+**Q4** Check the question store with `questions.py --check`. A diagnostic is a finding; repair it at the rung of what it mends.
 </installed>
 
 <installed by="edge">

@@ -112,7 +112,7 @@ one-off field anywhere before `Outcome`, `Outcome` last:
 - **Plan:** [{title} RFC](../rfc/{basename}.md) — what it selected
 - **Depends on:** [{title}](./RR-NNNN-slug.md) ({what it supplies})
 - **Blocks:** [{title}](./RR-NNNN-slug.md) — {why}
-- **Answers:** [q-NNNN](../questions/q-NNNN-{slug}.md)
+- **Answers:** [q-{id}](../questions/q-{id}-{slug}.md)
 - **Outcome:** {the delivered change, one sentence}
 ```
 
@@ -124,7 +124,7 @@ one-off field anywhere before `Outcome`, `Outcome` last:
 | `Plan` | exactly when an RFC with the ticket's basename exists under `docs/rfc/` or its `done/` | its link resolves to that RFC | plus one clause on what it selected |
 | `Depends on` | optional | every link resolves | blockers, each with a parenthetical naming what it supplies — not a bare link |
 | `Blocks` | optional | every link resolves | only when the blocking relation is itself an argument; carries its `— why` |
-| `Answers` | required | one link to an entry of the question store, live or in `done/`, whose `owner` is this ticket | the question the ticket's goal answers — its *what for*; its open questions sit under that entry, and a child ticket's question under its parent's |
+| `Answers` | required | one link to an entry of the question store whose `owner` is this ticket | the question the ticket's goal answers — its *what for*; its open questions sit under that entry, and a child ticket's question under its parent's |
 | one-off fields | optional | every link resolves | `Trigger`, `Related`, `Owning decision` and the like, when the ticket carries that fact |
 | `Outcome` | required, last | one sentence | observable behavior, never code shape |
 

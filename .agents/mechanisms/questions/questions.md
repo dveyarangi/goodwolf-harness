@@ -36,8 +36,8 @@ knows how to do, which is placed nowhere; uncharted, a question whose home the p
 banter, a message that asks nothing of the work. Answering that message writes and settles nothing;
 work already required in the session continues and determines what the turn is.
 What it places it writes by calling the script, one call per event, each
-validated and written whole; the script gives a new question its id, nested under its parent's,
-and a re-parent renames the subtree that moves, so an id always says where its question sits; a
+validated and written whole; the script gives a new question an id that never changes, and its
+place is its *part of* alone, so a move rewrites that line and nothing else; a
 reword gives an open question new words under the id it has, since the same question means the
 same answers and never the same wording. The
 window prints position,

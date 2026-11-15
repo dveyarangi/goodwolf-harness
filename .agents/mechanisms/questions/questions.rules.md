@@ -49,9 +49,9 @@ its unit: `open` without `at`.
 
 The calls:
 
-- `questions.py at q-0004 --session <tag>`
-- `questions.py open '<question>' --under q-0004 --session <tag>`, which prints the id it gave
-- `questions.py close q-0004 decided '[link](../path.md) — who, date' --session <tag>`
+- `questions.py at q-7f3k2a --session <tag>`
+- `questions.py open '<question>' --under q-7f3k2a --session <tag>`, which prints the id it gave
+- `questions.py close q-7f3k2a decided '[link](../path.md) — who, date' --session <tag>`
 
 The store's other calls are made whenever the turn's own work settles, opens or moves a question.
 Only the working agent calls, never a helper. For any other call, a closure, a branching or a
@@ -87,8 +87,7 @@ happened.
 - **authority** the user, 2026-09-29, for M1's duty
 
 <rule>
-Check the question store with `questions.py --check`. A diagnostic is a finding; repair it at the rung of what it mends. Move each subtree it reports ready for `done/` with `move_doc.py`, every entry
-of the subtree in one invocation, into `docs/questions/done/`.
+Check the question store with `questions.py --check`. A diagnostic is a finding; repair it at the rung of what it mends.
 </rule>
 
 ## Q5 — a question is named by a link and its words

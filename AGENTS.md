@@ -127,9 +127,9 @@ its unit: `open` without `at`.
 
 The calls:
 
-- `questions.py at q-0004 --session <tag>`
-- `questions.py open '<question>' --under q-0004 --session <tag>`, which prints the id it gave
-- `questions.py close q-0004 decided '[link](../path.md) — who, date' --session <tag>`
+- `questions.py at q-7f3k2a --session <tag>`
+- `questions.py open '<question>' --under q-7f3k2a --session <tag>`, which prints the id it gave
+- `questions.py close q-7f3k2a decided '[link](../path.md) — who, date' --session <tag>`
 
 The store's other calls are made whenever the turn's own work settles, opens or moves a question.
 Only the working agent calls, never a helper. For any other call, a closure, a branching or a

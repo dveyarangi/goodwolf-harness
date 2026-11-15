@@ -139,7 +139,7 @@ def coverage(root: Path) -> list[str]:
 def tickets_beside(root: Path) -> list[str]:
     """For the person choosing the work: what each live ticket realizes, then the answers no ticket
     realizes — neither present nor realized by a ticket — under every pain and goal their row
-    serves. It ranks nothing (q-0037.0018, decision 7)."""
+    serves. It ranks nothing (q-5wbvz6, decision 7)."""
     path = root / DOCUMENT
     if not path.is_file():
         return []

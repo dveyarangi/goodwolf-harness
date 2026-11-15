@@ -70,11 +70,11 @@ _USAGE = (
     " | --mark '*' decisions <outcome> <commit>"
 )
 # The tree-wide mark of a pass with no person: the commit the decisions were last swept through
-# (q-0037.0010.0009.0009, decision 2). `*` is no slug a mechanism can take.
+# (q-3n54ky, decision 2). `*` is no slug a mechanism can take.
 SWEEP = ("*", "decisions")
 _COMMIT = re.compile(r"^(?:[0-9a-f]{40}|[0-9a-f]{64})$")
 _GIVEN_COMMIT = re.compile(r"^[0-9a-f]{4,64}$")
-# Where decisions land, the homes a sweep reads (q-0037.0010.0009.0009's Where it stands).
+# Where decisions land, the homes a sweep reads (q-3n54ky's Where it stands).
 DECISION_HOMES = ("docs/questions", ":(glob).agents/mechanisms/*/*.rules.md", "local.rules.md", "AGENTS.md")
 _CHANGES = {"A": "added", "M": "modified", "D": "deleted", "R": "renamed", "C": "copied", "T": "modified"}
 

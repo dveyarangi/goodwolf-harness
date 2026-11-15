@@ -100,7 +100,7 @@ _FORMER_ROW = re.compile(r"^\| *(q-\d{4,}(?:\.\d{4})*) *\| *(q-[a-z2-7]{6}) *\|"
 # RFC 4648's base32 alphabet, lowercase, which an id draws from.
 ID_ALPHABET = "abcdefghijklmnopqrstuvwxyz234567"
 # `asks`: an open question waits on the person's decision and every wake shows it until it closes
-# (q-0037.0010.0009.0009.0001, the user, 2026-10-25).
+# (q-re6h4k, the user, 2026-10-25).
 PARTS = ("record of", "part of", "depends on", "state", "owner", "answer", "realizes", "rung", "lean", "asks", "opened", "struck")
 _ASKS = re.compile(r"^the person, (\d{4}-\d{2}-\d{2})$")
 # A trace link names each answer by its reference and its name, as a ticket is named by id and
@@ -157,11 +157,10 @@ _RUNG = re.compile(rf"^{_RUNG_NAMED}(?:, {_RUNG_NAMED})*$")
 # An owner as `assign` writes it: a markdown link, its label the record's id.
 _LINK_LABEL = re.compile(r"^\[([^\]]+)\]")
 _LINK_TARGET = re.compile(r"\]\(([^)\s]+)\)")
-# An id in prose: never part of a word or a longer id, so `faq-0007` and `q-00070` are not ids.
+# An id in prose: never part of a word or a longer id, so `faq-7f3k2a` and `q-7f3k2ab` are not ids.
 _BARE_ID = re.compile(rf"(?<![\w.]){_ID}(?!\w)")
 _HEADING = re.compile(r"^#{1,6} +(.*?)(?: +#+)? *$")
-# A relative id — `.0003` standing for q-0037.0006.0020.0001.0003 — names nothing a reader can follow;
-# an id in an entry is written whole (rule failure 17, struck 2026-10-23).
+# A fenced block holds samples, whose ids are examples and never references.
 _FENCE = re.compile(r"^\s*(```|~~~)")
 _ITEM = re.compile(r"^(?:-|\d+\.) +(\S.*)$")
 _ROOTS_BLOCK = re.compile(r"^```roots\n(?P<said>.*?)^```", re.MULTILINE | re.DOTALL)
@@ -1041,7 +1040,7 @@ def _unstated(entries: list[Entry], index: dict[str, Entry]) -> list[Finding]:
     """Each live open question at the top of the work its owner answers that has no `Where it
     stands` — the one its ticket's `Answers` names, read from the store's parts alone: a child its
     owner also owns is held by the parent's picture. A finding, since the questions written before
-    the rule get theirs at their next touch (q-0037.0009.0017, decision 2)."""
+    the rule get theirs at their next touch (q-hzwok3, decision 2)."""
     notes = []
     for read in entries:
         owner = _owner(read)
@@ -1060,7 +1059,7 @@ def _unstated(entries: list[Entry], index: dict[str, Entry]) -> list[Finding]:
 def _unrunged(entries: list[Entry]) -> list[Finding]:
     """Each live open question without a `rung` part, in a store that uses the part: one whose
     method declares a ladder has given some question a rung, and then every open one carries its
-    own (q-0037.0019, decision 2). A store with no rung anywhere has no ladder, and is asked
+    own (q-huss2x, decision 2). A store with no rung anywhere has no ladder, and is asked
     nothing. A finding, not a diagnostic: another session's question gains its rung at that
     session's next touch."""
     live = [read for read in entries if not read.archived]

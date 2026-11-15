@@ -55,7 +55,7 @@ apostrophe goes in double quotes, with no backtick or `$` inside.
 waiting in the `## Decisions` lists of the questions' bodies, where a decision sits until it has
 a home. Found, point to it and open nothing; a settled question is not reopened without new evidence against its answer. An
 answer that leaves part unsettled is found only in part: the rest is a raised question of its
-own. There is no need to search `done/`: a decided entry links to what holds its answer.
+own. A decided entry links to what holds its answer.
 
 **Who settles what is not found.** The dial does, as the entry file's *Autonomy* says: a decision
 below its ladder's dial, settle in the turn and report it; at the dial, settle it and show it before
@@ -122,8 +122,8 @@ A question asking the person is closed on the person's word alone, whatever its 
 
 The answer is never the deliberation itself. `suspect` every open child and dependent whose
 assumption the answer changes; call `at` on the parent first if the closed question was current.
-A `close` that finishes a subtree moves it to `docs/questions/done/` itself and says so; a closed
-question with an open, deferred or suspect child stays live until that child closes. A `close`
+A `close` moves no file; a closed question with an open, deferred or suspect child stays in the
+window until that child closes. A `close`
 refuses while the question's `## Decisions` list holds a decision with no home: land it, or move
 it to the nearest open question above that holds everyone who needs it — on a merge or a
 supersession, to the question it points to. Closing against a

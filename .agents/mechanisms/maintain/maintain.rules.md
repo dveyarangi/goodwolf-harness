@@ -24,7 +24,7 @@ written into `/maintain` by hand.
 
 - **target** `AGENTS.md`
 - **target** `.agents/skills/recall/SKILL.md`
-- **authority** the user, 2026-10-25, q-0037.0010.0009.0007; its subagent's bounds, the user, 2026-10-29
+- **authority** the user, 2026-10-25, q-scwwz3; its subagent's bounds, the user, 2026-10-29
 
 <rule>
 Drift — a record out of agreement with what it is of, or silent on which side wins — is repaired
