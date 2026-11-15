@@ -26,6 +26,6 @@ Third-party services (Stripe, Twilio, etc.) you don't control. Mock at the bound
 
 The core principle: **replace, don't layer.**
 
-- Old unit tests on shallow modules are waste once boundary tests exist — delete them
+- Old unit tests on shallow modules are waste once boundary tests exist — delete them, save one that names the decision it keeps, which goes as [/plan](../plan/SKILL.md) says
 - Write new tests at the deepened module's interface boundary
 - Test shape rules → [tdd/tests.md](../tdd/tests.md)

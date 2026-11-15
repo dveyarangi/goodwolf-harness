@@ -146,3 +146,20 @@ A fresh tree needs: the sweep sends what falls in a session's area to that sessi
 the keeper, writing nothing in another's area; a session holding a mechanism sends a rule change to
 the keeper rather than landing it; two sessions editing one file say which parts each holds.
 </straw-dog>
+
+## 9. This tree's roles, and a recipient's sweep on a schedule — 2026-11-15
+
+The person doubted that a keeper as the one writer of the rules belongs in this tree, where the
+rules are the product, and asked first which roles the tree has
+([q-dyc63i](../questions/q-dyc63i-which-standing-roles-does-this-tree-have-where-every-session-develops-the-harness-itself.md)).
+They took three: owners of mechanisms, who write their mechanisms' rules themselves; core's keeper,
+on the boundary with the other trees; and the merging into main. The four rules the sweep had
+found against the keeper stay as they are. The same day the keeper set up game-delta's nightly
+sweep on the person's machine, its task copied from this tree's and pointed at that tree's own
+`/maintain`.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: its roles cut by what the harness is to it — the product, where an owner of a
+mechanism writes its rules, or a tool serving another product, where a limit on writing them stands
+in the keeper's skill or the local rules —; the nightly sweep's task made at install.
+</straw-dog>
