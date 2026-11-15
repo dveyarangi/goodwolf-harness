@@ -7,7 +7,7 @@
 - **realizes** A37 "Failures replayed as tests"
 - **rung** self-improvement: the method
 - **lean** 2026-10-24: minted as its slice of 01-0019, Planned
-- **asks** the person, 2026-11-15 — drift against decisions 1–17, below
+- **asks** the person, 2026-11-15
 - **opened** 2026-10-08T21:43:24Z
 - **struck** 9, last 2026-11-10T18:16Z
 
