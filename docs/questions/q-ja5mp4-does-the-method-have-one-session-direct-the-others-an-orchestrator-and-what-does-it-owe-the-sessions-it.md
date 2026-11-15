@@ -91,3 +91,14 @@ Neighbours: [q-psa5ha](q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verifi
    рефактор для разведения кода и сессий, и если нужно - добавления стабильной ролевой сессии."
    Its name and its edges are not settled ("как-то так"); the keeper's additions are put to the
    person before it is declared.
+   The keeper's additions, accepted by the user the same day ("ага"): sessions notice a collision
+   and this work says why it happened; a collision repeated in one area is what calls for a
+   proposal, a single one does not; the cut goes stale both ways, so a role is also closed or two
+   merged; it recommends and the person decides, starting and ending no session and handing out no
+   work; its evidence is what the tree already keeps — rows, session records, git history, the
+   sessions' own words and an outside read; one record, the tree's roles, each with its name, the
+   map of what it owns, its brief and its holder; the default session is offered at install, never
+   required; standing roles are kept here, the rights of a role staying
+   [q-p4sdnv](q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md)'s. The user then
+   asked whether this is the session mechanism itself, or whether that one is already overloaded
+   — not settled.
