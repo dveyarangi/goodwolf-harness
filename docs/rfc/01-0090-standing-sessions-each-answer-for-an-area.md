@@ -201,7 +201,8 @@ through `/skill-up` and shown to the person before it lands. Each stage writes i
    a way to separate it? A no reopens the record's form before a script is written around it.
 1. **The declaration, the skill, its shelves and S10.** The doc's header bullet,
    subsection, the rows of the three moments the skill instructs, the skill's and shelves' parts,
-   the relied-on heading, the roles and `/pack`'s report under *What it produces*, the four
+   the relied-on heading, the sentence on the row's seam made true, the roles and `/pack`'s
+   report under *What it produces*, the four
    tests, what retires the part; the glossary's entry; the skill and its two shelves, naming no
    check yet; `docs/roles.md` added to the shape check's painted doors beside a `TODO` naming
    q-la5n2i; S10 in the rules file with its row, installed before the doc is checked, and the
@@ -264,8 +265,11 @@ one new record.
 - The count for a session with a role may move little: both are handed the same window, and the
   rule narrows only what the wake reads
   ([q-gus5k2](../questions/q-gus5k2-how-is-each-areas-knowledge-kept-apart-so-a-session-holds-its-own-areas-context-and-the-boundary-stays.md)).
-- The doc's sentence that the row admits a role as a seam says more than the rows' script does;
-  it is the other session's to mend, and is told to it.
+- The doc's sentence that the row admits a role as a seam says more than the rows' script does:
+  the row's form ends at the unit it holds. The rows' session, told, left the sentence to this
+  plan; stage 1 rewrites it, inside its straw dog, to what the script holds — the row admits
+  neither a role nor a lock yet. A field for a role is asked of the rows' session when one is
+  needed.
 - `/maintain`'s marks for the session mechanism, the shape and the install go stale as their
   parts move; the next pass re-marks them, and its check does not fail meanwhile.
 
