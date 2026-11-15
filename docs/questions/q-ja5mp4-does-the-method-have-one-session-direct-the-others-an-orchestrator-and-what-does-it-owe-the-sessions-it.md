@@ -79,3 +79,15 @@ Neighbours: [q-psa5ha](q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verifi
    [q-jz3mlm](q-jz3mlm-how-does-a-project-cut-its-work-into-standing-sessions-and-how-does-the-cut-change-as-the-project-grows.md);
    a role carries its skill, the map of what it owns, and its name. In this tree the keeper is
    also core's own, the one a recipient's keeper turns to.
+5. **A mechanism of its own keeps the standing sessions, the keeper its first session** — the
+   user, 2026-11-15: "ты заводишь себе механизм /swarm или как-то так. будешь работать в двух
+   режимах: дефолтная сессия, которую харнес предлагает запустить в инсталляции, для управления
+   харнессом и агентами; в этом дереве, ты будешь меньше управлять харнесс, больше сессиями;
+   будешь решать какие сессии нужны - анализируя какие сессии пользователь использует … и
+   запутывается ли работа в сессиях пользователя достаточно сильно для того чтобы оправдать
+   новую выделенную постоянную правильно проименованную сессию; сварм скил обьявляет себя как
+   скил который используют если сессии наступают друг-другу на пятки. его задача понять какое
+   смешение зон ответстенности привело к тому что сессии мешают друг другу, и рекомендовать
+   рефактор для разведения кода и сессий, и если нужно - добавления стабильной ролевой сессии."
+   Its name and its edges are not settled ("как-то так"); the keeper's additions are put to the
+   person before it is declared.
