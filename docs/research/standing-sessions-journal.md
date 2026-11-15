@@ -74,3 +74,20 @@ A fresh tree needs: a session that lands a rule text asks the keeper first; a re
 turns to core's keeper with what its tree changed in core's files or would offer to core; drift
 left by a session that ended comes to the keeper.
 </straw-dog>
+
+## 5. A mechanism's change carried to the recipients — 2026-11-15
+
+The coordinator's session, on the person's word, carried the store's migration to ids that never
+change to every tree carrying the harness. game-delta's orchestrator got the steps by message,
+naming its sender as the coordinator's session and the keeper's earlier advice as coming first;
+an uncommitted HARNESS-MIGRATION.md went to the root of each tree with no session running —
+ai-game-1, xuanxue-workshop, codename_japaka, game-gamma, game_beta, research-harness, studies,
+jobs; the three clones of this tree get it by a pull. The keeper asked beforehand only to be told,
+and was. The ticket's next stage waits until all nine trees report migrated; that tally is the
+ticket's, held by the coordinator's session.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: a change a mechanism ships to the recipients goes from the mechanism's own
+session, naming itself, and the keeper is told where it went; a recipient that runs a keeper
+receives it through its keeper.
+</straw-dog>
