@@ -894,8 +894,10 @@ def _differs(target: Path, path: str, shipped: dict[str, str]) -> bool:
     copy = target / path
     if not copy.is_file():
         return path not in (INSTALLED_LICENSE, INSTALLED_FRONT_PAGE)
-    text = _read(copy)
-    shipped_text = shipped[path]
+    # Normalised before the blocks are read: a checkout under core.autocrlf=true holds CRLF lines
+    # around the LF block its installer wrote, which the block reader would refuse as an edit.
+    text = _normalised(_read(copy))
+    shipped_text = _normalised(shipped[path])
     if path.endswith(".md"):
         try:
             text = without_recipients_blocks(target, path, text, shipped)
@@ -903,7 +905,7 @@ def _differs(target: Path, path: str, shipped: dict[str, str]) -> bool:
             return True
         text = without_repository_line(path, text)
         shipped_text = without_repository_line(path, shipped_text)
-    return _normalised(text) != _normalised(shipped_text)
+    return text != shipped_text
 
 
 def _normalised(text: str) -> str:

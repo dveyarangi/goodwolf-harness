@@ -1108,6 +1108,29 @@ class AnInstall(TwoTrees):
 
         self.assertEqual([], report["gates"]["ref"]["differs"])
 
+    def test_a_crlf_entry_file_holding_the_installers_lf_block_is_not_an_edit(self) -> None:
+        (self.target / "local.rules.md").write_text(
+            "# local\n\n| target | anchor |\n|---|---|\n| `AGENTS.md` | `## Project-local` |\n\n"
+            "## L1 — ours\n\n- **target** `AGENTS.md`\n- **authority** the user, 2026-09-21\n\n"
+            "<rule>\nOur answer.\n</rule>\n",
+            encoding="utf-8",
+        )
+        self.run_harness("--install")
+        entry = self.target / "AGENTS.md"
+        text = entry.read_bytes().decode("utf-8")
+        start = text.index('<installed by="local">')
+        end = text.index("</installed>", start) + len("</installed>\n")
+        crlf = text.replace("\n", "\r\n")
+        # What core.autocrlf=true leaves: the checkout's lines CRLF, the injector's block LF.
+        mixed = text[:start].replace("\n", "\r\n") + text[start:end] + text[end:].replace("\n", "\r\n")
+        for name, copy in (("crlf", crlf), ("mixed", mixed)):
+            with self.subTest(name):
+                entry.write_bytes(copy.encode("utf-8"))
+
+                status, report = self.run_harness("--check")
+
+                self.assertEqual([], report["gates"]["ref"]["differs"])
+
 
 # --- update --------------------------------------------------------------------------------------
 

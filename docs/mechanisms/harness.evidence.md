@@ -91,6 +91,15 @@ After the four: five seconds, 65 files, three gates.
   refusal is proved against Git's message as issue 1 recorded it, and the knob's test skips where
   Git predates the check, so a newer Git proves it through Git itself.
 
+## Refuted at a recipient's update, 2026-11-15
+
+- **A recipient's checkout smudges too.** game-delta's clone runs `core.autocrlf=true`: its
+  AGENTS.md came out with CRLF lines around the LF block its installer wrote, the block reader
+  refused the mixed text, and the comparison counted the refusal as an edit in core — `--update`
+  refused on a file nobody had edited. Found by the recipient's own keeper. The comparison now
+  normalises line endings before it reads the blocks; a test holds a CRLF and a mixed copy. A
+  refusal there still reads as an edit in core rather than naming its cause.
+
 ## The prior corpus
 
 One copy of core existed outside this repository before the mechanism did: frost_map, installed
