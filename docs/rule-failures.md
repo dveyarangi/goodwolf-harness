@@ -801,7 +801,7 @@ without saying what pulls against it.
 language of the person's latest message, whatever language the records, a summary, another
 session's message or the agent's own last text is in."*
 
-**Disposition after the strike:** open, struck once.
+**Disposition after the strike:** the amendment refused by the person, 2026-11-15 ("Не надо"), no reason given; open, struck once.
 
 ## 72. The commits table and the counters line were put at the reply's end — 2026-10-25
 
