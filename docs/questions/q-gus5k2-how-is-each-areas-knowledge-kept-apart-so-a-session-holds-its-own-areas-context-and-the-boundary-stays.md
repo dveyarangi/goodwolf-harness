@@ -73,3 +73,13 @@ The user, 2026-11-15, asked which goes first — this question's align or the bu
    [q-jz3mlm](q-jz3mlm-how-does-a-project-cut-its-work-into-standing-sessions-and-how-does-the-cut-change-as-the-project-grows.md),
    decision 1: the roles recorded where they are seen, the attribution of instructions and zones
    visible to all and kept true, a zone shifted by the harness.
+3. **A role is given paths, and a file several roles write is allowed while it is marked** — the
+   user, 2026-11-15, asked whether a role is given paths alone or parts of files too: "роли
+   приписываются пути. но давай не будем делать это жестким - если система не доконца
+   мигрировала, это ок файлу принадлежать нескольким ролям, если это эксплицитно указано как
+   собака, и пользователю сказано о последствиях. т.е конечная идеальная форма - свои файлы
+   роли. вероятная частая - файлы меняют несколько ролей, до миграции." A role is given paths,
+   never a part of a file. The form the cut is moved towards is every file one role's; a file
+   that several roles write stands in each of their maps as a straw dog, said so in the record,
+   with the person told what follows from it. That state is expected to be common until a tree's
+   files have been moved apart.
