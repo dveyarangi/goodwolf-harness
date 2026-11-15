@@ -6,7 +6,8 @@ description: >-
   so it answers in other people's vocabulary rather than yours. Use when about to
   say what something is, how it compares with its peers, or what sets it apart;
   when a shape is in front of you and your account of it is the only one you have;
-  when about to generalise from one case; or when asked to look at something properly.
+  when about to generalise from one case; when asked to research how others do or teach a thing
+  like it; or when asked to look at something properly.
   Returns material, never a verdict.
 ---
 
