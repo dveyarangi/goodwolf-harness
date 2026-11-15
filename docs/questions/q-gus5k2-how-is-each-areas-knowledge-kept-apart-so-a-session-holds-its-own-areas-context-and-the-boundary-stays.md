@@ -52,3 +52,20 @@ The person, the same day: "у нас есть подлежащий вопрос,
 what it asks, not the person's words: by what an architecture is cut — who writes a sentence,
 what it describes, or whom it binds — and which of the two cuts, the sessions' and the
 architecture's, follows the other.
+
+The user, 2026-11-15, asked which goes first — this question's align or the building of
+[01-0090 standing-sessions-each-answer-for-an-area](../tickets/01-0090-standing-sessions-each-answer-for-an-area.md):
+"Да, сначала разрез". The align runs here; the ticket's plan waits unaccepted until it lands.
+
+## Decisions
+
+1. **The architecture is cut where its load-bearing seams pass, and the roles follow the cut** —
+   the user, 2026-11-15, asked whether an architecture is cut by what it describes or by who
+   writes it: "режем по тому, где проходят load-bearing швы )) или не знаю как тебе сказать - если
+   есть напрашивающийся модуль - инкапсулируем его? вот по этому принципу. чтобы можно было писать
+   в основном свое в свои файлы, и только чуть чуть в общие. это зависит от домена, а не от того
+   кто пишет." A module that suggests itself is encapsulated; a session writes mostly in its own
+   module's files and a little in the shared ones; the cut depends on the domain, never on who
+   writes. A role owns whole modules, so re-cutting the roles moves no text. *Seam* is
+   [the method's glossary](../../.agents/glossary.md)'s word, and *load-bearing seam* its
+   proposed definition, which this decision stands on.
