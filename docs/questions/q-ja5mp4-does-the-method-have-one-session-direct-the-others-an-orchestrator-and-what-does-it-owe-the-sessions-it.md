@@ -48,6 +48,22 @@ Recommendation: 4 — one writer of the rules ends the stream of amendments land
 many hands; arbitration as deciding stays the person's, and arbitration as finding needs one
 session that reads across areas; what option 1 gave to mechanism stays mechanism.
 
+## Decisions
+
+1. **Option 4: a keeper of the harness, one area among the others** — the user, 2026-11-15:
+   "давай сразу начнем, прям с тебя, ты будешь одной из сессией из нового способа работы нашего
+   харнесса. мы будем его предлагать." The way of working is built first in this tree, with the
+   session local_aa6167bc as its first keeper, and offered to every tree.
+2. **Reproducible, not added and forgotten** — the user, same message: how it was built is
+   written down step by step, each step with the rule a fresh tree under the harness would need to
+   set itself up the same way; the cut into sessions differs between projects and changes as a
+   project grows, and onboarding is not to be lost. The journal:
+   [standing-sessions-journal.md](../research/standing-sessions-journal.md).
+3. **The keeper does not raise the coordinator.** The first call that finds none raises it
+   ([q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md),
+   decision 9), so no session is the server's single point of failure; the keeper sees that it
+   runs, and its address across machines is the person's.
+
 Neighbours: [q-psa5ha](q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what.md)
 (hand-over between sessions), [q-37xc3y](q-37xc3y-how-does-the-harness-serve-several-people-steering-agents-in-one-project.md)
 (several sessions of one person are one judge with several hands),
