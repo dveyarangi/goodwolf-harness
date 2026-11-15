@@ -90,7 +90,7 @@ NAME_LIMIT = 255
 # the user's profile stands about 120 characters deep.
 CLONE_ROOM = 128
 # The table of the ids the store's migration replaced, old to new, which history is read through;
-# no entry. TODO q-2jheaw: written by the migration, read while old ids may be met.
+# no entry. TODO q-ubd6uz: written by the migration, read while old ids may be met.
 FORMER_IDS = f"{STORE}/former-ids.md"
 _FORMER_ROW = re.compile(r"^\| *(q-\d{4,}(?:\.\d{4})*) *\| *(q-[a-z2-7]{6}) *\|")
 # RFC 4648's base32 alphabet, lowercase, which an id draws from.
@@ -2007,7 +2007,7 @@ def _order(read: Entry) -> tuple:
 def _sibling_key(read: Entry) -> tuple:
     """Where a question stands among its siblings: those that never said when they opened first,
     by their old positions, then by `opened`, then by id — one key for every mix of the two."""
-    # TODO q-2jheaw: the old positions leave once no entry lacks `opened`.
+    # TODO q-ubd6uz: the old positions leave once no entry lacks `opened`.
     opened = read.parts.get("opened")
     identity = read.identity or "q-0"
     dotted = all(part.isdigit() for part in identity[2:].split("."))

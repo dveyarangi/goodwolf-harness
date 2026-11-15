@@ -98,9 +98,9 @@ install adds no separate recovery mechanism.
 A straw dog binds to a question of the store, never to a ticket — the one record of this tree
 core names. Whether it is due is derived from the store at every look; the maintainer decides
 how its text is rewritten.
-<straw-dog question="q-2jheaw">Every binding names the id, which never changes; a
+Every binding names the id, which never changes; a
 move rewrites the one `part of` line and no link anywhere
-([decision 6](questions/q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md#decisions)).</straw-dog>
+([decision 6](questions/q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md#decisions)).
 Mechanical removal follows the maintainer's disposition and preserves surviving agreements.
 Examples describing the syntax are distinct from operative statements.
 
@@ -126,19 +126,20 @@ is written by hand, and every call keeps it as it found it
 ([decision 3](tickets/done/01-0011.0100.0020-open-issues-are-entries-of-the-store.md#decisions-landed-at-this-tickets-align)).
 A write re-reads every entry it changes and refuses one that moved since it was read — a hand edit
 included; detected interference is a failure, as in
-[interruption and recovery](#interruption-and-recovery). <straw-dog question="q-2jheaw">A new question's id is six random characters
+[interruption and recovery](#interruption-and-recovery). A new question's id is six random characters
 of base32, `q-7f3k2a`, drawn by whoever writes it and never changed; one already taken is drawn
 again. Its file is named by the id and the words it was opened with, kept for good, so a link's
 path says what the question is about; its place in the tree is its `part of` header alone,
 so a move rewrites that one line and no link anywhere. The tree's structure is drawn from those
 headers wherever the store is shown, siblings in the order they were opened; no address is kept
-([decision 6](questions/q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md#decisions)).</straw-dog>
+([decision 6](questions/q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md#decisions)).
 A session's row is [the session mechanism](../.agents/mechanisms/session/session.md)'s, and the
 mechanism manages every session from any one of them: any session writes any row through the
 session script *(the user, 2026-10-25)*. A row is one file, replaced in one rename, so a reader
 never meets half of it and nothing is locked; a wake ends the silent and removes the long ended, and a takeover moves a held unit and leaves its mark in the
-holder's row *(the user, 2026-10-10 and 2026-10-25)*. <straw-dog question="q-2jheaw">A closed question stays where it is; a subtree
-whose questions are all closed is finished, and the window leaves it out.</straw-dog> A host's hook
+holder's row *(the user, 2026-10-10 and 2026-10-25)*. A closed question stays where it is; a subtree
+none of whose questions is held open, or leaned on by one held open, is finished, and the window
+leaves it out. A host's hook
 delivers the window and registers the session under the host's steadiest id, and never fails
 the host: a problem becomes a line of context. Everything else is
 [the questions mechanism](../.agents/mechanisms/questions/questions.md)'s.
