@@ -11,6 +11,8 @@ The user, 2026-11-15: ask the orchestrator session of game-delta how it works wi
 sessions, which problems arose and were solved and which were not, and have it ask the sessions it
 directs where its orchestration is missing or too much — an audit by those it directs; then weigh
 what this harness should add or change, and whether such a way of working is wanted at all.
+Widened the same day: how well the harness's mechanisms hold in such work — its rules, the
+question store and the others — and how often sessions collide.
 
 Neighbours: [q-psa5ha](q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what.md)
 (hand-over between sessions), [q-37xc3y](q-37xc3y-how-does-the-harness-serve-several-people-steering-agents-in-one-project.md)
