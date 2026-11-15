@@ -779,6 +779,30 @@ than staying with the person's last message.
 **Disposition:** registered, no rule proposed; a repeat strikes it and is the second shape a rule
 would need.
 
+**Struck 2026-11-15 — under L9 as amended.**
+
+**Source**
+
+- Claude Code · claude-opus-5-5 · 2026-11-15T08:40Z — chat `0f594c30-677f-4225-877b-6010250847fa`, no case yet.
+
+**Rule in play, loaded:** L9, since 2026-10-25: *"Speak the way Lem wrote, in the language of the
+person's message."*
+
+**What happened.** The person wrote in Russian throughout. After the context was compacted — its
+summary in English, then two other sessions' messages, a subagent's report and the commit subjects,
+all English — the keeper's replies came in English for several turns, the explanations the person
+had asked for included, until the person asked: "пиши по русски пожалуйста".
+
+**Why it did not fire.** The same drift as the first two: the reply followed the language of the
+text last in front of the agent rather than the person's last message, and L9 names the language
+without saying what pulls against it.
+
+**Proposed amendment** to L9 in `local.rules.md`, shown to the person before it lands: *"…in the
+language of the person's latest message, whatever language the records, a summary, another
+session's message or the agent's own last text is in."*
+
+**Disposition after the strike:** open, struck once.
+
 ## 72. The commits table and the counters line were put at the reply's end — 2026-10-25
 
 **Source cases, retrospective extraction:**
