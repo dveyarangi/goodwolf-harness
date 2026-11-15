@@ -243,3 +243,21 @@ A fresh tree needs: a failure of a core rule registered where it happened and pa
 keeper with what the tree did meanwhile; core's keeper checks it against core's code and enters
 it in core's register under the recipient's source.
 </straw-dog>
+
+## 15. The pack is planned, and the plan is judged by another — 2026-11-15
+
+The keeper planned the ticket: the part's own files — a skill, two shelves, a script — the roles
+in one record, three installed rules and none in the entry file. It handed the plan to a judge
+that did not write it, given the plan and where its evidence stands, never its conclusion. The
+judge returned thirteen findings; the ones that changed the plan: the proof of the first test
+could not show *untold*, since the tree's own records tell the collision; a rule that had a
+role's session read its area whole would have counted more reading, not less; the plan read "a
+section of the doc" as less than a section without saying so; the order of its first stage
+could not pass the check. The plan was rewritten, the readings it takes of accepted lines put
+in a section of their own for the person, and it was sent back to the same judge.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: nothing here beyond core; a plan is judged by a subagent that did not write
+it before the person is asked to accept it, and what it reads one way in an accepted line is
+shown to the person as a reading.
+</straw-dog>

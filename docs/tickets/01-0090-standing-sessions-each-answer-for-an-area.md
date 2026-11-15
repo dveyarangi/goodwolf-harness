@@ -4,6 +4,9 @@
 - **Status:** Ready (aligned 2026-11-15)
 - **Type:** HITL
 - **Minted:** 2026-11-15
+- **Plan:** [A tree's standing sessions each answer for an area RFC](../rfc/01-0090-standing-sessions-each-answer-for-an-area.md) —
+  a skill, two shelves and a script of the part's own, the roles in one file, `docs/roles.md`, and
+  three installed rules, none in the entry file
 - **Answers:** [q-ja5mp4](../questions/q-ja5mp4-does-the-method-have-one-session-direct-the-others-an-orchestrator-and-what-does-it-owe-the-sessions-it.md)
 - **Outcome:** When a tree's standing sessions collide, or its cut no longer fits the work, `/pack`
   names the areas that overlap and proposes how to separate them, against a record of the tree's
