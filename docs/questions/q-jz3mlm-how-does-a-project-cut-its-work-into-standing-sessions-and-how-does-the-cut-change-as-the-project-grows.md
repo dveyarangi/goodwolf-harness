@@ -5,7 +5,7 @@
 - **state** open
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-11-15T00:43:20Z
-- **struck** 0, last 2026-11-15T00:43Z
+- **struck** 1, last 2026-11-15T18:31Z
 
 What a standing session is cut along — a domain of the product, a layer of the code, a process such as
 merging — differs between projects and changes as a project grows: game-delta cut nine sessions by
@@ -25,3 +25,16 @@ area of code, of records, of anything — can be held by one session and kept ou
 ([q-gus5k2](q-gus5k2-how-is-each-areas-knowledge-kept-apart-so-a-session-holds-its-own-areas-context-and-the-boundary-stays.md)).
 Three kinds to tell apart: the roles core ships to every tree, the roles of this tree, and the
 roles a project composes for itself, with how it composes them.
+
+## Decisions
+
+1. **The cut is rebuilt reliably, not held** — the user, 2026-11-15, in the align of
+   [q-gus5k2](q-gus5k2-how-is-each-areas-knowledge-kept-apart-so-a-session-holds-its-own-areas-context-and-the-boundary-stays.md):
+   "это не жесткая структура. вся идея в том чтобы ее можно было надежно перестраивать, а не
+   держать. надежно перестраивать это значит что роли записаны там где их видят, атрибуция
+   инструкций и зон ответственности ролей понята и видна всем, и это поддерживается при
+   изменении или вообще работе. зоны могут быть сдвинуты и харнес должен уметь это сделать".
+   Three things make a rebuild reliable: the roles are recorded where they are seen; which role
+   an instruction and a zone belong to is understood and visible to every session; and that
+   attribution is kept true as the cut changes and as the work goes on. Shifting a zone is
+   something the harness itself can do.

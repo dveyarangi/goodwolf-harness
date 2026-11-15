@@ -69,3 +69,7 @@ The user, 2026-11-15, asked which goes first — this question's align or the bu
    writes. A role owns whole modules, so re-cutting the roles moves no text. *Seam* is
    [the method's glossary](../../.agents/glossary.md)'s word, and *load-bearing seam* its
    proposed definition, which this decision stands on.
+2. **The cut is rebuilt reliably, not held** →
+   [q-jz3mlm](q-jz3mlm-how-does-a-project-cut-its-work-into-standing-sessions-and-how-does-the-cut-change-as-the-project-grows.md),
+   decision 1: the roles recorded where they are seen, the attribution of instructions and zones
+   visible to all and kept true, a zone shifted by the harness.
