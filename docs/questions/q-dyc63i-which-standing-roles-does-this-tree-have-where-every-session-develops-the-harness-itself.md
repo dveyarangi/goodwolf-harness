@@ -150,3 +150,14 @@ decision 2). Proposed for this tree now, four standing sessions, each a zone of 
 
 Not opened: the landing on main, until sessions work in worktrees of their own. Not standing:
 the nightly sweep, and a chat started for one task, which ends with it.
+
+## Decisions of 2026-11-16
+
+2. **Four standing sessions now, a fifth cut off after the align** — the user, 2026-11-16: "да,
+   открывай", of Практика as the fourth, written into local rule L13 the same day; and "да", of
+   cutting the work on how rules are made — the mechanism shape, the rule-failure register,
+   self-improvement — off the keeper into a session of its own once the align of
+   [q-gus5k2](q-gus5k2-how-is-each-areas-knowledge-kept-apart-so-a-session-holds-its-own-areas-context-and-the-boundary-stays.md)
+   has its whole accepted. The keeper had said why: its zone named three unrelated things, six
+   threads ran through its chat in two days, and ten decisions stood waiting on the person. What
+   the keeper keeps after the cut is put to the person.
