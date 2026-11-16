@@ -1,10 +1,10 @@
 # q-ntoyr3 Does the coordinator, the store's one writer, retire the product answer that the harness locks nothing?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-2gw24v
-- **state** open
+- **state** closed:decided
+- **answer** [product.md](../product.md), A42 narrowed: the store and the rows written through the coordinator alone, every other file the host's — the user, 2026-11-16
 - **rung** development: a product slice, self-improvement: the method
-- **asks** the person, 2026-10-30
 - **opened** 2026-10-30T04:16:19Z
 - **struck** 0, last 2026-10-30T04:12Z
 

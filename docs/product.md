@@ -143,7 +143,7 @@ yet waits on its purpose question, bound to it in *waits on*.
 | **A40 A free reading of the record** — a free reading of the record for what is missing, redundant or out of balance (`/dream`, `/advise`) | C7 |  |  |  | | ● |  |  |
 | **Coordination between sessions** | | | | | | | | |
 | **A41 Sessions collaborate** — each session sees where the others stand; the question store refuses a write to an entry that moved; a commit holds only its own session's work | C5, C12 | ● | ● |  | |  | ● |  |
-| **A42 No session overwrites another** — no session overwrites another's write; the host's: its edit tool refuses a write over a file changed since it was read, and a worktree per session where it offers one; the harness locks nothing (the user, 2026-10-11) | C5, C12 | ● | ● |  | |  | ● |  |
+| **A42 No session overwrites another** — no session overwrites another's write; the question store and the sessions' rows are written through the coordinator alone, which refuses a write made on a stale read (the user, 2026-11-16, on q-7ebz2f's decisions); every other file is the host's: its edit tool refuses a write over a file changed since it was read, and a worktree per session where it offers one (the user, 2026-10-11) | C5, C12 | ● | ● |  | |  | ● |  |
 | **A43 A starting session takes a free area** — a starting session takes an area no other session is in | C5 |  | ● |  | |  |  |  |
 | **A51 Several people develop one project together** — their queue, their decisions, their branches | C5 |  |  | ● | |  |  | <straw-dog question="q-37xc3y">✗</straw-dog> |
 | **Process weighed to the work** | | | | | | | | |
