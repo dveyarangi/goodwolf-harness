@@ -19,6 +19,38 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## A neighbour's decision was put to the person by a second session — 2026-11-16
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-fable-5-2 · 2026-11-16T21:10Z — chat `0f594c30-677f-4225-877b-6010250847fa`, the keeper's, in three replies running; the model is the one the session reported itself running on, not an attested backend version.
+
+**Goal missed:** a decision reaches the person once, from the session whose work it is.
+
+**Rules in play, loaded:** S9: *"A decision on another running session's question or unit, read
+from what it decides, is that session's to put to the person, though its message brings it: it
+enters no table of your replies."*
+
+**What happened.** The session that holds the sessions' rows built, on its own ticket, a row
+that bears the name of the role its session holds, and put the behaviour to the person, who
+decided it there. The step still wanted a rule, and that session asked the keeper for its text;
+the keeper drafted it and carried it in the decisions table of three replies as a decision of its
+own to put. The person: "почему это решение здесь а не у сессии хранилища? вы оба об этом
+спрашиваете, и это шум и должен решаться правилами."
+
+**Why it did not fire.** S9 reads whose a decision is from the unit it belongs to, and the unit
+was the neighbour's. Both sessions read it from the kind of file instead: this tree's rule of
+roles gave the keeper *how rules are made*, and the neighbour's own decision gave the keeper
+*the method's — rules*, so a rule's text in the neighbour's mechanism read as the keeper's to
+write and to ask about. This is the session's reading; no model-internal cause is established.
+
+**Proposed amendment**, a rewording of this tree's rule of roles, no check being able to hold
+it: a mechanism's rules, skills and scripts are written, and put to the person, by the session
+whose zone holds it; the keeper holds the rules no zone's mechanism owns.
+
+**Disposition:** closed 2026-11-16 — the amendment landed in the local rule of roles in the same
+pass, on the person's word that it be settled by rules.
+
 ## A criterion the person had set aside kept a working ticket open, and a second ticket was made to wait on it — 2026-11-16
 
 **Source, no case yet:**
