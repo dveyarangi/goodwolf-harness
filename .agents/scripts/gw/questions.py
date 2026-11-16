@@ -1222,10 +1222,23 @@ def window(root: Path, tag: str, full: bool = False) -> str:
             f"one that contains the message; a process, no call — "
             f"or `--window --session {held.tag} --full` to draw it again\n{counters}"
         )
-    drawn = _drawn(store, held)
+    drawn = _drawn(store, held) + _own_copy(root)
     memory.parent.mkdir(parents=True, exist_ok=True)
     memory.write_text(fingerprint, encoding="utf-8")
     return f"{drawn}\n\n{counters}"
+
+
+def _own_copy(root: Path) -> str:
+    """In a linked worktree — a `.git` file where a main checkout holds the folder — the store read
+    and written is that branch's own copy, which the main checkout does not see until the branch is
+    merged: said once in each drawn window."""
+    # TODO q-4seese: leaves once the questions live on a branch of their own, seen alike from every worktree.
+    if not (root / ".git").is_file():
+        return ""
+    return (
+        "\n\nthis worktree reads and writes its own branch's copy of the store: what it opens or closes "
+        "reaches the other sessions only when the branch is merged"
+    )
 
 
 # --- the counters -------------------------------------------------------------------------------

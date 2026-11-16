@@ -239,6 +239,8 @@ def plain_target_git(target: Path, *arguments: str) -> subprocess.CompletedProce
         return subprocess.CompletedProcess(arguments, 0, str(target), "")
     if arguments[:2] == ("rev-parse", "--git-path") and len(arguments) == 3:
         return subprocess.CompletedProcess(arguments, 0, f".git/{arguments[2]}", "")
+    if arguments == ("rev-parse", "--path-format=absolute", "--git-common-dir"):
+        return subprocess.CompletedProcess(arguments, 0, (target / ".git").as_posix(), "")
     return subprocess.CompletedProcess(arguments, 1, "", "")
 
 
@@ -1987,6 +1989,7 @@ HOOK_COMMAND = 'git -c "alias.gw-hook=!sh .agents/scripts/gw/hook.sh" gw-hook'
 ECHOING_QUESTIONS = "import sys\nprint('asked', ' '.join(sys.argv[1:]), 'handed', sys.stdin.read())\n"
 NOTICING_QUESTIONS = "import os, sys\nprint('noticed', repr(os.environ.get('GW_NOTICE', '')), 'handed', sys.stdin.read())\n"
 LINE_SAYING_INJECTOR = "import sys\nprint('out of step' if sys.argv[1:] == ['--check', '--line'] else 'asked ' + ' '.join(sys.argv[1:]))\n"
+LINKING_HARNESS = "import sys\nprint('linked ' + ' '.join(sys.argv[1:]))\n"
 
 
 class TheWrapper(RepositoryCase):
@@ -2040,6 +2043,49 @@ class TheWrapper(RepositoryCase):
 
         self.assertEqual(0, started.returncode, started.stderr)
         self.assertTrue(started.stdout.startswith("noticed ''"), started.stdout)
+
+    def test_in_a_linked_worktree_it_runs_under_the_clones_record(self) -> None:
+        self.record(sys.executable)
+        self.commit("the hook and its script")
+        side = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, side, False, harness._writable_then_retry)
+        self.git("worktree", "add", "-q", "-b", "side", str(side / "tree"))
+
+        done = subprocess.run(
+            f"{HOOK_COMMAND} codex", shell=True, cwd=side / "tree", input='{"hook_event_name": "UserPromptSubmit"}',
+            capture_output=True, encoding="utf-8",
+        )
+
+        self.assertEqual(0, done.returncode, done.stderr)
+        self.assertEqual('asked --hook codex handed {"hook_event_name": "UserPromptSubmit"}', done.stdout.strip())
+
+    def test_at_a_start_a_missing_host_link_runs_the_link_step_and_its_line_joins_the_installers(self) -> None:
+        self.record(sys.executable)
+        self.write(".agents/scripts/gw/questions.py", NOTICING_QUESTIONS)
+        self.write(".agents/scripts/gw/inject_rules.py", LINE_SAYING_INJECTOR)
+        self.write(".agents/scripts/gw/harness.py", LINKING_HARNESS)
+        self.write(".agents/skills/sample/SKILL.md", "# Sample\n")
+
+        started = self.run_hook("claude-code", '{"hook_event_name": "SessionStart"}')
+        messaged = self.run_hook("claude-code", '{"hook_event_name": "UserPromptSubmit"}')
+
+        self.assertEqual(0, started.returncode, started.stderr)
+        self.assertTrue(started.stdout.startswith("noticed 'out of step\\nlinked . --links --line'"), started.stdout)
+        self.assertTrue(messaged.stdout.startswith("noticed ''"), messaged.stdout)
+
+    def test_at_a_start_a_standing_link_or_a_host_with_none_runs_no_link_step(self) -> None:
+        self.record(sys.executable)
+        self.write(".agents/scripts/gw/questions.py", NOTICING_QUESTIONS)
+        self.write(".agents/scripts/gw/harness.py", LINKING_HARNESS)
+        self.write(".agents/skills/sample/SKILL.md", "# Sample\n")
+        self.write(".claude/skills/sample/SKILL.md", "# Standing\n")
+
+        for host in ("claude-code", "codex"):
+            with self.subTest(host=host):
+                started = self.run_hook(host, '{"hook_event_name": "SessionStart"}')
+
+                self.assertEqual(0, started.returncode, started.stderr)
+                self.assertTrue(started.stdout.startswith("noticed ''"), started.stdout)
 
     def test_without_a_record_it_names_the_step_in_the_hosts_form_and_holds_nothing_back(self) -> None:
         for host, gone in (("claude-code", None), ("cursor", "C:/gone/python.exe")):
@@ -2222,6 +2268,52 @@ class TheLinkStep(TwoTrees):
 
         self.assertEqual(["pending", "pending"], [link["state"] for link in report["links"]])
         self.assertEqual(list(harness.LINKS), report["excluded"])
+
+    def start_line(self) -> str:
+        said = io.StringIO()
+        with contextlib.redirect_stdout(said):
+            status = harness.main([str(self.target), "--links", "--line"])
+        self.assertEqual(0, status, "a start's link step never fails the hook")
+        return said.getvalue().strip()
+
+    def test_at_a_start_missing_links_are_made_and_said_and_nothing_of_the_clones_is_written(self) -> None:
+        self.run_harness("--install")
+        for link in harness.LINKS:
+            if (self.target / link).is_symlink():
+                harness._remove_link(self.target / link)
+        (self.target / ".git" / harness.INTERPRETER_RECORD).unlink()
+
+        line = self.start_line()
+
+        if platform_makes_symlinks():
+            self.assertEqual("The skills are linked now and load from this worktree's next session.", line)
+            self.assertTrue(all((self.target / link).is_symlink() for link in harness.LINKS))
+        else:
+            self.assertTrue(line.startswith("This worktree's skills are not linked; run once: "), line)
+        self.assertFalse((self.target / ".git" / harness.INTERPRETER_RECORD).exists())
+
+    def test_at_a_start_links_that_stand_say_nothing(self) -> None:
+        self.run_harness("--install")
+        if not platform_makes_symlinks():
+            self.skipTest("this platform makes no symlinks, so none stands")
+
+        self.assertEqual("", self.start_line())
+
+    def test_at_a_start_a_link_the_platform_refuses_names_the_command(self) -> None:
+        self.run_harness("--install")
+        for link in harness.LINKS:
+            if (self.target / link).is_symlink():
+                harness._remove_link(self.target / link)
+
+        def refuse(*arguments: object, **options: object) -> None:
+            raise OSError("a required privilege is not held")
+
+        self._patch(os, "symlink", refuse)
+
+        line = self.start_line()
+
+        self.assertTrue(line.startswith("This worktree's skills are not linked; run once: "), line)
+        self.assertIn("mklink /D" if os.name == "nt" else "ln -s", line)
 
     def test_a_fresh_clone_of_a_recipient_gets_its_links_from_the_step(self) -> None:
         self.run_harness("--install")
@@ -2923,6 +3015,18 @@ class TheLinkStepWritesThePushHook(RepositoryCase):
 
         self.assertEqual("written", json.loads(said.getvalue())["hook"]["state"])
         self.assertTrue((self.root / ".git" / "hooks" / "pre-push").is_file())
+
+    def test_from_a_linked_worktree_the_interpreter_is_recorded_for_the_whole_clone(self) -> None:
+        side = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, side, False, harness._writable_then_retry)
+        self.git("worktree", "add", "-q", "-b", "side", str(side / "tree"))
+        (self.root / ".git" / harness.INTERPRETER_RECORD).unlink(missing_ok=True)
+
+        with contextlib.redirect_stdout(io.StringIO()):
+            harness.main([str(side / "tree"), "--links"])
+
+        self.assertEqual(sys.executable, (self.root / ".git" / harness.INTERPRETER_RECORD).read_text(encoding="utf-8").strip())
+        self.assertFalse((self.root / ".git" / "worktrees" / "tree" / harness.INTERPRETER_RECORD).exists())
 
 
     def test_a_core_hook_checked_out_with_crlf_is_core_s_and_rewritten_in_lf(self) -> None:

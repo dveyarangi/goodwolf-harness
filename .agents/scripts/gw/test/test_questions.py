@@ -8,6 +8,7 @@ import io
 import json
 import os
 import re
+import shutil
 import tempfile
 import unittest
 from datetime import date, datetime, timedelta, timezone
@@ -917,6 +918,16 @@ class TheWindow(Rendered):
         self.assertEqual(0, status)
         self.assertEqual(["q-0001", "q-0002", "q-0004"], [line.split()[0] for line in path.strip().splitlines()])
         self.assertIn("<- current", path.splitlines()[-1])
+
+    def test_in_a_linked_worktree_it_says_the_store_is_that_branchs_own_copy(self) -> None:
+        _, in_main = self.said("--window", "--session", "s-alpha")
+        shutil.rmtree(self.root / ".git", ignore_errors=True)
+        (self.root / ".git").write_text("gitdir: D:/elsewhere/.git/worktrees/side\n", encoding="utf-8")
+
+        _, in_worktree = self.said("--window", "--session", "s-alpha", "--full")
+
+        self.assertNotIn("its own branch's copy of the store", in_main)
+        self.assertIn("this worktree reads and writes its own branch's copy of the store", in_worktree)
 
     def test_each_line_carries_its_state_and_its_lean(self) -> None:
         _, text = self.said("--window", "--session", "s-alpha")

@@ -45,7 +45,9 @@ a branch, a tag or a commit. To try a ref before it is pushed, pass a local clon
 project that holds core runs it once, from the clone's own copy, with no source and no network.
 It makes or repairs both links, names them in the clone's `.git/info/exclude`, and reports whether
 each resolves; where the platform refuses, it prints the elevated commands and exits non-zero
-until they have been run.
+until they have been run. A worktree of a clone shares its interpreter record; one that lacks its
+host's link gets it at its session's start, through `--links --line`, which makes the links and
+their exclude entries alone and says one line, or the command, in the wake.
 
 ## What a run does
 

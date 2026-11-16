@@ -17,8 +17,8 @@
 host="$1"
 
 interpreter() {
-    # The worktree's own record, then the common directory's, so a push from a linked worktree is
-    # checked under the clone's interpreter.
+    # The worktree's own record, then the common directory's, so a session or a push in a linked
+    # worktree runs under the clone's interpreter.
     for record in "$(git rev-parse --git-path gw-interpreter 2>/dev/null)" \
                   "$(git rev-parse --git-common-dir 2>/dev/null)/gw-interpreter"; do
         if [ -n "$record" ] && [ -f "$record" ]; then
@@ -67,12 +67,7 @@ EOF
     exit $?
 fi
 
-record=$(git rev-parse --git-path gw-interpreter 2>/dev/null)
-python=""
-if [ -n "$record" ] && [ -f "$record" ]; then
-    python=$(head -n 1 "$record" | tr -d '\r')
-fi
-if [ -n "$python" ] && [ -f "$python" ]; then
+if python=$(interpreter); then
     # The payload is kept whole for the store's hook; it is read here only to tell a session's
     # start, where the installer's check runs and its one line — a tree whose installed blocks
     # are out of step with its rules files and settings — is handed to the wake, which prints it
@@ -80,10 +75,27 @@ if [ -n "$python" ] && [ -f "$python" ]; then
     # nothing.
     payload=$(mktemp 2>/dev/null || echo "${TMPDIR:-/tmp}/gw-hook-$$")
     cat > "$payload"
+    # At a start in a worktree that lacks its host's link to the skills — a new worktree has none,
+    # the links being outside every commit — the link step makes them, and its line joins the
+    # installer's. Codex reads the skills in place and has no link.
     notice=""
-    if grep -qiE 'hook_event_name"[[:space:]]*:[[:space:]]*"sessionstart"' "$payload" 2>/dev/null \
-        && [ -f .agents/scripts/gw/inject_rules.py ]; then
-        notice=$("$python" .agents/scripts/gw/inject_rules.py --check --line 2>/dev/null)
+    if grep -qiE 'hook_event_name"[[:space:]]*:[[:space:]]*"sessionstart"' "$payload" 2>/dev/null; then
+        if [ -f .agents/scripts/gw/inject_rules.py ]; then
+            notice=$("$python" .agents/scripts/gw/inject_rules.py --check --line 2>/dev/null)
+        fi
+        case "$host" in
+            claude-code) link=.claude/skills ;;
+            cursor) link=.cursor/skills ;;
+            *) link="" ;;
+        esac
+        if [ -n "$link" ] && [ -d .agents/skills ] && [ -f .agents/scripts/gw/harness.py ] \
+            && [ ! -e "$link" ] && [ ! -L "$link" ]; then
+            linked=$("$python" .agents/scripts/gw/harness.py . --links --line 2>/dev/null)
+            if [ -n "$linked" ]; then
+                notice="${notice:+$notice
+}$linked"
+            fi
+        fi
     fi
     GW_NOTICE="$notice" "$python" .agents/scripts/gw/questions.py --hook "$host" < "$payload"
     status=$?

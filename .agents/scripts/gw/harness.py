@@ -83,7 +83,7 @@ _USAGE = (
     "usage: harness.py <target> --install [--replace-clone] [--from REPOSITORY] [--at REF]\n"
     "       harness.py <target> --update [--overwrite] [--from REPOSITORY] [--at REF]\n"
     "       harness.py <target> --check [--from REPOSITORY]\n"
-    "       harness.py <target> --links\n"
+    "       harness.py <target> --links [--line]\n"
     "       harness.py <target> --pre-push [REMOTE]  (the ref lines on standard input)"
 )
 
@@ -147,6 +147,8 @@ class Report:
 def main(argv: list[str]) -> int:
     if len(argv) in (2, 3) and argv[1] == "--pre-push":
         return pre_push(Path(argv[0]), argv[2] if len(argv) == 3 else "", sys.stdin.read())
+    if argv[1:] == ["--links", "--line"]:
+        return links_at_start(Path(argv[0]))
     parsed = _parsed(argv)
     if parsed is None:
         print(_USAGE)
@@ -214,6 +216,37 @@ def link(target: Path, report: Report) -> None:
     _record_interpreter(target, report)
     _write_push_hook(target, report)
     report.links_resolve = _links_resolve(target)
+
+
+def links_at_start(target: Path) -> int:
+    """The link step a session's start runs in a worktree whose host link is missing: the loader
+    links and their exclude entries alone — the interpreter record and the `pre-push` hook are the
+    clone's, which `--links` writes once — and one line for the wake, or nothing. A host reads its
+    skills before its start hook runs, so links made now load from the next session. It never
+    fails the hook: a refusal is its line."""
+    report = Report(str(target), "links", "")
+    try:
+        target = _work_tree_root(target, source=None)
+        plan = _link_plan(target)
+        _make_links(target, plan, report)
+        _exclude_links(target, plan, report)
+    except Refused as refusal:
+        print(f"links: {refusal}")
+        return 0
+    line = _start_line(report)
+    if line:
+        print(line)
+    return 0
+
+
+def _start_line(report: Report) -> str:
+    """What the wake says of the links a start made: the command where the platform refused one,
+    the next session where one was made, nothing where all stood."""
+    if report.pending:
+        return "This worktree's skills are not linked; run once: " + " ; ".join(report.pending)
+    if any(entry["state"] in ("made", "repointed") for entry in report.links):
+        return "The skills are linked now and load from this worktree's next session."
+    return ""
 
 
 def run(
@@ -1208,13 +1241,15 @@ def _exclude_links(target: Path, plan: dict[str, str], report: Report) -> None:
 def _record_interpreter(target: Path, report: Report) -> None:
     """The interpreter running this step, which runs by that fact, recorded for the hooks: a bare
     `python` may be the Windows Store stub, macOS and Linux may carry only `python3`, and `uv` is
-    one machine's habit. A record naming an interpreter that still exists is the person's choice
-    and stays; one naming a missing path is rewritten."""
-    named = _git_in(target, "rev-parse", "--git-path", INTERPRETER_RECORD)
-    if named is None:
+    one machine's habit. It is the clone's, written in its common Git directory, so a session in any
+    worktree of the clone finds it, as the pre-push hook already looks. A record naming an
+    interpreter that still exists is the person's choice and stays; one naming a missing path is
+    rewritten."""
+    common = _git_in(target, "rev-parse", "--path-format=absolute", "--git-common-dir")
+    if common is None:
         report.notes.append("git named no directory for the interpreter record: the hooks will say so")
         return
-    record = target / named if not Path(named).is_absolute() else Path(named)
+    record = Path(common) / INTERPRETER_RECORD
     held = _read(record).strip() if record.is_file() else ""
     if held and Path(held).is_file():
         report.interpreter = {"record": held, "state": "kept"}
