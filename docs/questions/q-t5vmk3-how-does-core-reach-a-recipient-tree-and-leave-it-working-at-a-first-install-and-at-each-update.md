@@ -82,9 +82,11 @@ migrated; the session that ran the migrations passed up what each met.
 - **Mended.** The front page ships as written and lands beside the harness skill, where its six
   links written from the origin's root resolved to nothing. They are whole addresses now, and a
   test holds the page to it.
-- **Open.** `--from` naming a clone on disk whose folder is not the repository's name is refused
-  — "the tree announces goodwolf-harness; --from names agents" — so no tree updates from this
-  clone by `--from`; a run with no `--from` takes the tree's own source and passes.
+- **Left as it is.** `--from` naming a clone on disk whose folder is not the repository's name is
+  refused — "the tree announces goodwolf-harness; --from names agents" — so no tree updates from
+  this clone by `--from`; a run with no `--from` takes the tree's own source and passes. The
+  user, 2026-11-16: "нет, только из репозитория. ничего не надо менять, пользователь не будет
+  устанавливать из локальной папки, это происходит только у меня".
 - **Open.** The citation reader takes `s[k,i→j](t)` inside an indented code block for a link:
   noise in a migration's report so far, a refusal once a check meets it.
 - **Open.** A plain clone of the origin fails on Windows with long paths off, on the names under
