@@ -109,3 +109,12 @@ migrated; the session that ran the migrations passed up what each met.
   tree. The same tree met the refusal of `--from` by a folder's name, and went around it and
   the long names under `docs/cases` at once by cloning without a checkout into a folder named
   as the repository is.
+- **Being mended.** fimonitor's update from `04e18cab` refused a file it had never touched as
+  edited in core. Its install commit holds every `TODO` line of core's scripts with its question's
+  id, though an installer at that ref shears them: the tree was written by an older clone's
+  installer, whose grammar knew only the dotted form of an id, and a first install is not handed
+  to the incoming ref's own installer as an update is. Today's reading of what that ref shipped
+  then differs from the tree by those ids alone. The comparison now shears a copy's `TODO` ids
+  as the shipment's are sheared, so such lines read as no edit and the next write brings them to
+  form. **Open** beside it: a first install run from an older clone writes a tree in that
+  clone's transformations, whatever ref it installs.

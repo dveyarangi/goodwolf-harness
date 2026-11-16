@@ -71,3 +71,20 @@ roles a project composes for itself, with how it composes them.
    holds the harness, so a tree with one session writes nothing; the table is installed into the
    entry file, where every session reads it. It is a table of its own: the settings' table takes
    only values a mechanism declared beforehand, and sessions' names are each project's.
+
+## The case from fimonitor: three sessions in one zone — 2026-11-16
+
+fimonitor, told by core's keeper that a zone is paths cut at the domain's seams and that a
+ticket is no role, wrote six zones and named its sessions by them; its three task sessions on the
+collector — one a final check away from done, two on a ticket each, all on the same file and its
+tests, one after another — became three sessions of one zone. The person there, as its harness
+session relays it, 2026-11-16: "зачем нам столько трекер-сессий — у каждой действительно
+планируется продолжительный и большой объём работ?" The answer was no.
+
+What the decisions above did not say, and the keeper's advice with them: how many sessions a
+zone holds, and how much work a session of its own is worth. A session to a ticket inside one
+zone was forbidden by nothing, and renaming the sessions by zone made it the cut.
+
+The criterion the person gave there, relayed, put to the person here and not decided in this
+tree: a zone holds one session; a second stands only for a large, long, planned body of work on
+paths of its own; a session whose unit is done is closed, never renamed into the zone.
