@@ -352,6 +352,9 @@ person for its role.
   journal of the way of working.
 - **Продукт**: the product mechanism and `docs/product.md`. Every session sends it what the
   person says of what the project is for, in the person's words, dated.
+- **Сервер хранилища**: the shared state and its coordination — the question store and its push,
+  copies that diverge, the links a record's move breaks, where each session stands, what it
+  holds and where two collide. A collision that repeats it hands to Хранитель as a rule's failure.
 - **Слияние**: the landing on main. No session holds it yet.
 
 A mechanism no role here names is written by whoever works in it.
