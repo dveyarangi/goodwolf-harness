@@ -1,3 +1,4 @@
+# Mechanism: questions
 """The store's one-time migration to ids that never change (01-0010.0250.0100, stage 5)."""
 
 from __future__ import annotations

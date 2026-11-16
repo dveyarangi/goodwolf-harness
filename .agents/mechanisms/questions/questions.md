@@ -111,6 +111,7 @@ roles, is an open question of the store.
 | holding a ticket's open questions under the question it answers | `.agents/skills/ticket/SKILL.md` | |
 | saying which straw dogs are due | `.agents/scripts/gw/questions.py` | |
 | carrying the hook wiring into a recipient tree | `.agents/scripts/gw/harness.py` | |
+| migrating a store whose ids say where a question sits to ids that never change, once in each tree | `.agents/scripts/gw/migrate_ids.py` | |
 | removing this mechanism from a tree | — | <straw-dog question="q-qzeuf3">not yet</straw-dog> |
 
 ## Install adds, uninstall removes
@@ -124,6 +125,8 @@ roles, is an open question of the store.
 | its rules file | `.agents/mechanisms/questions/questions.rules.md` |
 | the store's script | `.agents/scripts/gw/questions.py` |
 | its tests | `.agents/scripts/gw/test/test_questions.py` |
+| the one-time migration | `.agents/scripts/gw/migrate_ids.py` |
+| its tests | `.agents/scripts/gw/test/test_migrate_ids.py` |
 | the shelf of Claude Code's hook wiring | `.agents/skills/questions/hooks/.claude/settings.json` |
 | the shelf of Codex's hook wiring | `.agents/skills/questions/hooks/.codex/hooks.json` |
 | the shelf of Cursor's hook wiring | `.agents/skills/questions/hooks/.cursor/hooks.json` |
@@ -140,6 +143,7 @@ roles, is an open question of the store.
 | the hooks' wrapper — a host's hooks launched by a Git alias, Git's `pre-push` by the clone's hook file — which runs the store's hook and hands it the installer's line | `.agents/scripts/gw/hook.sh` | `mechanism-shape` |
 | the interpreter record the wrapper reads, made by the link step | `.agents/scripts/gw/harness.py` | `harness` |
 | the rows' script, for each session's position | `.agents/scripts/gw/sessions.py` | `session` |
+| the mover, which the migration moves the entries with | `.agents/scripts/gw/move_doc.py` | `ticket` |
 | the method's vocabulary | `.agents/glossary.md` | nobody removable |
 
 ## What it produces, and who reads it
@@ -161,6 +165,9 @@ roles, is an open question of the store.
 - **The hook's answers** — *what exists* — read by the host, which places them in the agent's context.
 - **The check's report** — *what exists* — read by `/maintain` at its pass, by `/verify` through the
   verification set and by the pre-push check, `harness.py --pre-push`, at a push that carries a file of the method.
+- **The former ids** — *what happened* — `docs/questions/former-ids.md`, written once by the
+  migration: each old id beside the id it has now, read by the script to tell a session naming an
+  old id where it went, and by a person reading history.
 - **The rules file** — *what must always hold* — read by the installer alone. Its blocks sit in the
   entry file, `/recall`, `/conclude`, `/maintain` and `/align`.
 

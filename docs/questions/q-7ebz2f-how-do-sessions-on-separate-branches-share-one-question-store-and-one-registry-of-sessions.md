@@ -7,7 +7,7 @@
 - **rung** development: load-bearing, self-improvement: the method
 - **lean** the user, 2026-11-09: sixteen decisions derived from what the store rests on — one server, the questions on a branch of their own linked read-only at docs/q, random ids, a write committed before its answer; one machine built first, the other machines at q-56s4ar; next /impact and the re-cut of 01-0010.0250
 - **opened** 2026-10-25T20:22:01Z
-- **struck** 2, last 2026-11-09T06:36Z
+- **struck** 3, last 2026-11-15T17:36Z
 
 Asked first as q-ziqx5n, deferred 2026-10-12 until separate branches per session were
 taken up, meanwhile nothing leaving git and every session sharing the main checkout. Taken up on

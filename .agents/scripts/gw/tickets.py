@@ -64,6 +64,7 @@ MARK = "record of"
 FORMER_MARK = "kind"
 RECORD_KIND = "what it intends to become"
 _USAGE = "usage: tickets.py --check | --list"
+# TODO q-ubd6uz: a question named by a dotted id is read while a tree not yet migrated holds one.
 _NAMED = re.compile(r"^(\d{2}-\d{4}(?:\.\d{4})*|q-\d{4}(?:\.\d{4})*)-(.+)$")
 _DASH = "—"
 _BULLET = re.compile(r"^- \*\*([^*]+?):\*\* ?(.*)$")

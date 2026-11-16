@@ -285,7 +285,7 @@ class TheFilename(Store):
         problems = self.problems()
 
         self.assertEqual(1, len(problems), problems)
-        self.assertIn("`<id>.md`", problems[0])
+        self.assertIn("`<id>-<words>.md`", problems[0])
 
     def test_one_id_held_by_two_files_is_reported(self) -> None:
         self.place(

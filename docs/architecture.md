@@ -138,8 +138,9 @@ mechanism manages every session from any one of them: any session writes any row
 session script *(the user, 2026-10-25)*. A row is one file, replaced in one rename, so a reader
 never meets half of it and nothing is locked; a wake ends the silent and removes the long ended, and a takeover moves a held unit and leaves its mark in the
 holder's row *(the user, 2026-10-10 and 2026-10-25)*. A closed question stays where it is; a subtree
-none of whose questions is held open, or leaned on by one held open, is finished, and the window
-leaves it out. A host's hook
+none of whose questions is open, deferred or suspect, or depended on by one that is, is finished,
+and the window leaves it out. A tree's ids from before were converted once; the table of them,
+old beside new, is kept for good, and history is read through it. A host's hook
 delivers the window and registers the session under the host's steadiest id, and never fails
 the host: a problem becomes a line of context. Everything else is
 [the questions mechanism](../.agents/mechanisms/questions/questions.md)'s.

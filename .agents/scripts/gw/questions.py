@@ -90,7 +90,7 @@ NAME_LIMIT = 255
 # the user's profile stands about 120 characters deep.
 CLONE_ROOM = 128
 # The table of the ids the store's migration replaced, old to new, which history is read through;
-# no entry. TODO q-ubd6uz: written by the migration, read while old ids may be met.
+# no entry. Written once by the migration and kept for good.
 FORMER_IDS = f"{STORE}/former-ids.md"
 _FORMER_ROW = re.compile(r"^\| *(q-\d{4,}(?:\.\d{4})*) *\| *(q-[a-z2-7]{6}) *\|")
 # RFC 4648's base32 alphabet, lowercase, which an id draws from.
@@ -140,6 +140,7 @@ _IDENTITY = re.compile(rf"^{_ID}$")
 _WORD = r"[^\s/._-]+"
 # A file named by its id and the words it was opened with; by its id alone where a tree was
 # migrated while the name held no words.
+# TODO q-ubd6uz: `done/` is read while a tree not yet migrated holds it.
 _ENTRY_NAME = re.compile(rf"^{STORE}/(?:done/)?({_ID})(?:-({_WORD}(?:-{_WORD})*))?\.md$")
 _DEFERRAL = re.compile(r"^until \S.*, meanwhile \S.*$")
 _STRIKE = re.compile(r"^(\d+), last (\d{4}-\d{2}-\d{2}T\d{2}:\d{2})Z$")
@@ -453,7 +454,7 @@ def _entries(
         stem = _ENTRY_NAME.match(name)
         if stem is None:
             diagnostics.append(
-                Diagnostic(name, None, f"is not named `<id>.md` in {STORE}/")
+                Diagnostic(name, None, f"is not named `<id>-<words>.md` in {STORE}/")
             )
             continue
         raw = (root / name).read_bytes()
@@ -1098,7 +1099,7 @@ class Store:
         return list(reversed(_ancestry(self.index, identity)))
 
     def under(self, identity: str) -> list[Entry]:
-        """Every live question below this one, in id order."""
+        """Every live question below this one, in the walk's order."""
         found: list[Entry] = []
         waiting = list(self.children.get(identity, []))
         while waiting:
@@ -2062,8 +2063,6 @@ def _called(root: Path, argv: list[str], today: date, now: datetime) -> int:
         print(f"opened {identity}")
     for identity in written.reworded:
         print(f"reworded {identity} {read_store(root).index[identity].question}")
-    for announcement in written.carried:
-        print(announcement)
     if written.session is not None:
         print(_landed(root, written.session.current, left))
     return 0
@@ -2152,15 +2151,14 @@ def _question_id(given: str) -> str:
 
 @dataclass
 class Written:
-    """What one declaration wrote, in the order it was written, the ids it opened, the ids whose
-    questions it reworded, and every file the entries' moves and the repair of what cites them wrote
-    besides, said as the mover says it — a session commits by path what it is told it wrote."""
+    """What one declaration wrote: the entries, in the order written, so a session commits by path
+    what it is told it wrote; the session's row it moved; the ids it opened; the ids whose
+    questions it reworded."""
 
     entries: list[str]
     session: sessions.Session | None
     opened: list[str]
     reworded: list[str] = field(default_factory=list)
-    carried: list[str] = field(default_factory=list)
 
 
 class Taken(Refused):
@@ -2219,7 +2217,6 @@ def _declared(
         between()
     draft.recheck(seen)
     written = draft.write()
-    carried: list[str] = []
     moved = sessions.moved(held, position, now)
     if moved is not None:
         try:
@@ -2227,7 +2224,7 @@ def _declared(
         except OSError as error:
             raise WriteInterrupted(written, sessions.ROWS, error) from error
     opened = [identity for identity in draft.changed if identity in draft.new]
-    return Written(written, moved, opened, list(draft.reworded), carried)
+    return Written(written, moved, opened, list(draft.reworded))
 
 
 def seed(root: Path, now: datetime) -> list[str]:
@@ -2578,6 +2575,7 @@ class WriteInterrupted(Exception):
 
 
 def _files_holding(root: Path, identity: str) -> list[Path]:
+    # TODO q-ubd6uz: `done/` is searched while a tree not yet migrated holds it.
     return [
         path
         for folder in (root / STORE, root / STORE / "done")

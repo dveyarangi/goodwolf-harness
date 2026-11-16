@@ -1,3 +1,4 @@
+# Mechanism: questions
 """The question store's one-time migration from ids that say where a question sits to ids that never
 change (docs/architecture.md: "Question store").
 

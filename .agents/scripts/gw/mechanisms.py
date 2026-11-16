@@ -68,6 +68,8 @@ PAINTED_DOORS = frozenset(
         "docs/questions/",
         # TODO q-ubd6uz: goes when dotted ids stop being read; an unmigrated tree still holds this folder.
         "docs/questions/done/",
+        # The table of the ids a tree's migration replaced, which the store's script reads.
+        "docs/questions/former-ids.md",
         "docs/questions/sessions.d/",
         "docs/sessions/rows/",
         # The single sessions file a store from before holds, read until its first write carries it.
