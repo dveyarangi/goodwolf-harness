@@ -88,8 +88,8 @@ the session's reading; no model-internal cause is established.
 earlier words are read back from the records, the question and every open question under it
 first.
 
-**Disposition:** open — the whole amended in the same turn, the second reason and its question
-named in it; the amendment put to the person, not landed.
+**Disposition:** closed 2026-11-16 — the whole amended in the same turn, the second reason and
+its question named in it; the amendment landed in `/align` on the person's word, 2026-11-16.
 
 ## A decision's purpose was dropped where its mechanism was removed — 2026-11-09
 
