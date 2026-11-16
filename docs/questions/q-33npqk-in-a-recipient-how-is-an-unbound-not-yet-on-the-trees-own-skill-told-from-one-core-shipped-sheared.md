@@ -2,6 +2,7 @@
 
 - **record of** what it intends to become
 - **part of** q-veooj7
+- **depends on** q-gbt7cy
 - **state** open
 - **rung** development: a product slice, self-improvement: the method
 - **opened** 2026-11-16T13:12:22Z
@@ -26,3 +27,14 @@ Two parts, of different weight:
   told from it only by knowing what shipped, which the tree does not record. The mark of
   [a project's own mechanism](../tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)
   does not reach it: a skill claiming `not yet` belongs to no mechanism, marked or not.
+
+## What the decision of 2026-11-16 changes
+
+Every skill has a mechanism, with its doc at the least — decision 1 of
+[q-gbt7cy](q-gbt7cy-does-each-skill-state-only-what-it-owns.md#decisions), the user. A skill's
+`not yet` is then a state on the way out. For the bare line this names the end: once core ships
+no skill that says `not yet`, nothing sheared arrives on a skill, the recipient's pass has no
+skill's line left to excuse, and a skill of the tree's own is named by a mechanism the tree
+declares and marks as its own. That waits on core's sixteen, which are that question's. Until
+then the bare line passes. The pass on a moment's row is untouched: shipped declarations keep
+their `not yet` rows, sheared. What the shear cannot have left is refusable now, as above.
