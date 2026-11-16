@@ -136,13 +136,15 @@ history at a8923621.*
    session's tag and the machine's hash in each message and no commit hook of the project's; it
    pushes through the project's own `pre-push`. No code branch and
    no pull request carries a question, so no copy drifts with the code.
-3. **`docs/q/` is a link to that checkout** *(1.4)*: in every code worktree, a junction on
-   Windows, which asks for no rights, ignored by the code branches, at a path no commit has ever
+3. **`docs/q/` is a link to that checkout** *(1.4)*: in every code worktree, a symbolic link —
+   on Windows too, where the person allows them, since an agent does not see through a junction
+   ([ADR-0003](../adr/0003-one-physical-home-for-skills-reached-by-link.md); the user, 2026-11-16,
+   in place of the junction first chosen) — ignored by the code branches, at a path no commit has ever
    held — a checkout of a commit that tracks the path writes its files through the link into the
    store, and leaving it deletes them and the link, as tried below; `docs/questions/` stays in the
    history. The files are read-only, the server alone writing them; the server makes it where a
    worktree has none, the harness's hook in a cloud session. A link to a question,
-   `docs/q/<id>.md`, is the same everywhere, and nothing is rewritten when a question
+   `docs/q/<id>-<slug>.md` (decision 6), is the same everywhere, and nothing is rewritten when a question
    moves. A link out of a question is resolved by its text against the main checkout, never
    through the link. On the remote's web view, links into the store from a code branch and out of
    it from the store's branch lead nowhere: the price.
@@ -213,6 +215,21 @@ history at a8923621.*
 16. **One machine is built first; across machines only the seam** *(the user, 2026-11-09)*:
     decisions 4, 7, 8 and 9's address stand as the seam, and how a machine meets the one server is
     settled before they are built, at q-56s4ar.
+17. **Until the server runs, the scripts write and a session holds the server's role** *(1.2; the
+    user, 2026-11-16)*: `questions.py` writes, commits and pushes the store itself, as decision 7
+    lets it where no process is kept; one session, given the role, does what a server would do with
+    judgement — watches the store and its push, brings diverging copies together and shows the
+    person what the rules leave, repairs links a move breaks, makes a worktree's link, and
+    coordinates the sessions. When the process comes, its mechanical part goes into code and the
+    session keeps the coordinating. Which session holds the role is open. Not: every write sent to
+    that session as a message, which no step of every session could wait on.
+18. **A record's move repairs the links in the questions through the store's writer** *(1.2, 3;
+    the user, 2026-11-16)*: the mover finds which links in the store a move breaks — an `owner` or
+    `answer` to a ticket going to `done/` — and the writer rewrites and commits them, so the
+    store keeps one writer.
+19. **The store is pushed after every write, checked before its commit** *(12, 13; the user,
+    2026-11-16: the questions are a moving status, not a deployment)*: no code push carries it;
+    a broken entry is refused before its commit, so no check of the store's push is needed.
 
 ## A ref outside branches, tried on GitHub, 2026-10-30
 
