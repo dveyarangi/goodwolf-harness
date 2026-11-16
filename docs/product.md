@@ -115,7 +115,7 @@ yet waits on its purpose question, bound to it in *waits on*.
 | **A17 Guards on model reasoning** — an outside view before saying what a thing is (`/discover`); a plan probed by the cheapest example that could prove it wrong; one case is not a class; the fewest parts, removing before adding; no reopening a settled decision without new evidence | C2, C11 | ● | ● | ● | |  |  |  |
 | **A18 Guards on the checks** — guards on the checks themselves: a check written before what it checks and seen to fail; a run with no tests is not a pass; a fixture built the way the real thing came to be | C7 | ● |  |  | | ● |  |  |
 | **Delivery and evaluation** | | | | | | | | |
-| **A19 Delivery against criteria** — a ticket with checkable criteria; thin vertical slices; a plan validated against the governing docs; test-first; `/verify` against the ticket, the plan, the docs and the project's checks; checks run before a commit | C3, C7 | ● | ● |  | |  |  |  |
+| **A19 Delivery against criteria** — a ticket with checkable criteria; thin vertical slices; a plan validated against the governing docs; test-first; `/verify` against the ticket, the plan, the docs and the project's checks; checks run before a commit, and on a copy of what a push sends, refusing it on any finding | C3, C7 | ● | ● |  | |  |  |  |
 | **A20 The project's checks, guarded** — the project's checks, and a rule on who may change them | C7 | ● |  |  | |  |  |  |
 | **A21 A failure traced to its cause** — a failure traced to its cause, so that what let it through is corrected | C7 | ● |  |  | | ● |  | <straw-dog question="q-2wmklw">✗</straw-dog> |
 | **A22 Every mechanism graded from outside** — every mechanism names what would show it working, graded by someone who did not build it | C7 |  |  |  | | ● |  |  |
@@ -134,7 +134,7 @@ yet waits on its purpose question, bound to it in *waits on*.
 | **A33 The path read from the records** — what comes next read from the records: the work in hand, the ready work and what each serves, the roots' balance; its order the product roadmap's, no written queue | C6, C9 |  | ● | ● | |  |  |  |
 | **A34 A contract per edge** — a contract per edge, for those who consume the system and those who extend it, its outward text derived from it | C6, C10 | ● |  |  | | ● |  |  |
 | **Maintenance** | | | | | | | | |
-| **A35 Maintenance** — `/maintain`: records against each other and against the code, a clock of what is due, finished records archived | C6, C8 | ● | ● |  | | ● |  |  |
+| **A35 Maintenance** — `/maintain`: records against each other and against the code, a clock of what is due, finished records archived; a pass with no person, on the host's schedule, sweeping the whole tree for what the decisions landed since its last sweep contradict | C6, C8 | ● | ● |  | | ● |  |  |
 | **Self-improvement — the seed of a test suite for instructions** | | | | | | | | |
 | **A36 The rule-failure register** — a register of rules that were in place and did not fire; the next occurrence grades the rewording | C7, C1 | ● |  |  | | ● |  |  |
 | **A37 Failures replayed as tests** — a recorded failure replayed as a test against the amended rule | C7, C1 | ● |  |  | | ● |  |  |
@@ -142,7 +142,7 @@ yet waits on its purpose question, bound to it in *waits on*.
 | **A39 Its cost counted** — its cost counted, and what it saves | C7, C8 |  | ● |  | | ● |  |  |
 | **A40 A free reading of the record** — a free reading of the record for what is missing, redundant or out of balance (`/dream`, `/advise`) | C7 |  |  |  | | ● |  |  |
 | **Coordination between sessions** | | | | | | | | |
-| **A41 Sessions collaborate** — each session sees where the others stand; the question store refuses a write to an entry that moved; a commit holds only its own session's work | C5, C12 | ● | ● |  | |  | ● |  |
+| **A41 Sessions collaborate** — each session, in the tree or a worktree of it, sees where the others stand; the question store refuses a write to an entry that moved; a commit holds only its own session's work; standing sessions each answer for an area of the tree and hand the rest to its holder | C5, C12 | ● | ● |  | |  | ● |  |
 | **A42 No session overwrites another** — no session overwrites another's write; the question store and the sessions' rows are written through the coordinator alone, which refuses a write made on a stale read (the user, 2026-11-16, on q-7ebz2f's decisions); every other file is the host's: its edit tool refuses a write over a file changed since it was read, and a worktree per session where it offers one (the user, 2026-10-11) | C5, C12 | ● | ● |  | |  | ● |  |
 | **A43 A starting session takes a free area** — a starting session takes an area no other session is in | C5 |  | ● |  | |  |  |  |
 | **A51 Several people develop one project together** — their queue, their decisions, their branches | C5 |  |  | ● | |  |  | <straw-dog question="q-37xc3y">✗</straw-dog> |
@@ -166,15 +166,20 @@ yet waits on its purpose question, bound to it in *waits on*.
 Read by column:
 
 - **1 Ineffective** has the most answers, and most of them are in place.
-- **2 Suboptimal** waits on the two absent rows that weigh most: no session overwriting
-  another's write, and a lighter path for small work.
+- **2 Suboptimal** has no session overwriting another's write; it waits most on a lighter path for
+  small work, and on its cost counted.
 - **3 Agency** rests on the load-bearing test, HITL and the dial, visible footing and the exploration
   space. The dial lets the person move the point on the scale; its absent row is a record of where
   models are weak.
-- **G1** rests on one source of truth, maintenance and self-improvement, and nothing measures
-  whether it holds.
-- **G2** has guarded writes and the dial, and neither of the two things that would bound the
-  agent: roles, the host refusing. Locks are the host's, not the harness's.
+- **4 Not knowing what works** rests on the checks the front page puts to the reader and the
+  study; no question traces either yet, so coverage reads both absent, though the page carries the
+  checks and the study's text ships.
+- **G1** rests on one source of truth, maintenance — now with a pass that sweeps the tree with no
+  person — and self-improvement, and nothing measures whether it holds.
+- **G2** has guarded writes, the dial, and a push refused on a broken record. Roles have begun as
+  areas the standing sessions hold, an edit in another's area told and recorded, never refused;
+  the host refusing a forbidden action is not built. The question store's writes refuse a stale
+  read; every other file's are the host's.
 </straw-dog>
 
 ## Correction and evaluation, together
@@ -189,13 +194,15 @@ cause above, and corrects both the work and whatever let it through: an instruct
 boundary, a task's form.
 
 A disagreement between records, or between a record and the code, is repaired where a session
-meets it, and every session meets its own. No pass reads the whole tree; the method is the repair
-by encounter, not the audit.
+meets it, and every session meets its own. What no session meets, a pass with no person sweeps for
+on the host's schedule: whatever the decisions landed since its last sweep contradict. The repair
+by encounter stays the method; the sweep catches what it leaves.
 
 ## Who it is for
 
 Every pain above is framed for a person steering agents on one project, in one session or several
-at once: sessions in one tree see each other's position, and the host keeps their writes apart.
+at once: sessions in one tree and its worktrees see each other's position; the question store
+refuses a write on a stale read, and the host keeps their other writes apart.
 <straw-dog question="q-37xc3y">Several people sharing one project — their queue, their decisions, their branches — are not served yet.</straw-dog>
 
 ## A pain of the harness itself

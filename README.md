@@ -124,10 +124,12 @@ Whatever comes back wrong is what GoodWolf is for.
   change, can you tell from the record why it chose what it did?*
 - **A second opinion from outside.** Before a big decision, a separate agent that has not read the
   project is asked how things like it usually go wrong elsewhere, so the answer is not only the one
-  the project already believes.
+  the project already believes. *In your project: for your last big decision, what view from outside
+  the project was asked, and did it change anything?*
 
 Plain Markdown and standard-library Python, MIT-licensed, in Claude Code, Codex and Cursor. Its
-scripts refuse rather than guess, and leave nothing behind when they refuse.
+scripts refuse rather than guess, and leave nothing behind when they refuse; a Git hook stops a push
+whose records fail those checks before it leaves.
 
 The study asks these of your project and answers them in numbers from your own repository — run it
 before you decide.
@@ -186,8 +188,8 @@ It is for **steering an agent on work that lasts**, in one session or several at
 product, a refactor, a course of study, a research line, a diary, new or long-lived — wherever
 forgetting would cost you. It is not for a one-off script.
 
-- **Several sessions at once.** Each sees where the others stand, and the scripts refuse a write
-  over an entry that moved since it was read.
+- **Several sessions at once.** Each sees where the others stand, in the repository or in a
+  worktree of it, and the scripts refuse a write over an entry that moved since it was read.
 - **Everything it adds is files.** Reverting the install commit removes the harness; what it wrote
   under `docs/` afterwards stays until you delete it.
 
@@ -207,7 +209,7 @@ messages under the open question it belongs to. On 5 October, new sessions kept 
 under questions that only sounded similar. Each time, the miss was logged and the rule tightened —
 four times that day — until it said: file a message under the narrowest question that actually
 covers it, never under one that merely looks alike. The sessions after that got it right. The
-harness has been built with itself since September, in 66 sessions.
+harness has been built with itself since September; 79 of its sessions are on record.
 
 To override a shipped rule, add a section naming it.
 
