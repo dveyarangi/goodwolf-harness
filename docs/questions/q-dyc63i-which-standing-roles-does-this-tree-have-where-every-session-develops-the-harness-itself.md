@@ -5,7 +5,7 @@
 - **state** open
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-11-15T08:33:21Z
-- **struck** 0, last 2026-11-15T08:33Z
+- **struck** 1, last 2026-11-16T13:08Z
 
 The user, 2026-11-15: "я вот подумал, весь этот проект занят же развитием харнесс, может нет
 смысла здесь ограничивать в этом сессии? надо сначала понять какие роли тут будут". Here the rules
@@ -34,3 +34,13 @@ one file. A rule written here also changes, at once, how every running session h
    scheduled task, no role; what it finds goes to the owner of the mechanism it falls in. No
    session here is kept from writing rules; a tree where the harness serves another product
    writes such a limit into its keeper's skill or its local rules, never into core's common rules.
+
+The user, 2026-11-16: "у нас есть продуктовая сессия? если нет, давай выберем ту, что ближе и
+заведем? чтобы не терять продуктовые сигналы. и надо будет как-то записать ее роль - где мы
+записываем роли? если еще нет - запишем временно, как соломенную собаку". No session of this
+tree answers for the product: its running and recent sessions are the keeper, the session on the
+store and the sessions' rows, two started for one task each, and the scheduled sweeps. No record
+holds the roles yet — decision 1 above names them, and the roles' record is planned under
+[01-0090 standing-sessions-each-answer-for-an-area](../tickets/01-0090-standing-sessions-each-answer-for-an-area.md).
+Put to the person: a session of its own for the product, and the roles written meanwhile as a
+local rule wrapped as a straw dog.
