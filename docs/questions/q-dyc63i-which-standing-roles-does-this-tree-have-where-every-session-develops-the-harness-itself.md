@@ -83,7 +83,7 @@ The cut proposed, a role to a family of mechanisms, three of them without a sess
   from `/align` to `/verify`, with `/tdd`, `/impact`, `/commit`, `/improve-comments`,
   `/review-architecture` and `/setup-devops`. No session yet.
 - **Продукт** — product; `/advise` and `/discover` as its outward reading. Held.
-- **Сервер хранилища** — questions, session. Held.
+- **Хранилище** — questions, session. Held.
 - **Слияние** — the landing on main. No session yet.
 
 Left unplaced: `/dream` and `/celebrate`. Not decided; put to the person.

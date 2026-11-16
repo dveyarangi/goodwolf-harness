@@ -156,7 +156,7 @@ straw dog's binding or a `TODO q-N`; a ticket never.
 - **target** `AGENTS.md`
 - **authority** the user, 2026-11-15: owners of mechanisms, core's keeper, the merging; the
   product session, and the roles written here until a record of their own holds them, 2026-11-16;
-  the store's server, 2026-11-16
+  the store's role, named Хранилище, 2026-11-16
 
 <rule>
 This tree keeps standing sessions, each titled `🐺 <role> — <its area>`. A session works its
@@ -168,7 +168,7 @@ person for its role.
   journal of the way of working.
 - **Продукт**: the product mechanism and `docs/product.md`. Every session sends it what the
   person says of what the project is for, in the person's words, dated.
-- **Сервер хранилища**: the shared state and its coordination — the question store and its push,
+- **Хранилище**: the shared state and its coordination — the question store and its push,
   copies that diverge, the links a record's move breaks, where each session stands, what it
   holds and where two collide. A collision that repeats it hands to Хранитель as a rule's failure.
 - **Слияние**: the landing on main. No session holds it yet.
