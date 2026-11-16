@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v135, 2026-11-16.
+Entry contract: v136, 2026-11-16.
 
 ## General rules
 
@@ -33,6 +33,10 @@ nothing about being load-bearing — an implementation method is a shape too. �
 </straw-dog>
 
 - **A capable reader.** Write instructions and records for a capable model: state the rule and its pointer. The definition the glossary owns, the example that motivated it, what it implies, and what a script already does for the reader stay out.
+
+<straw-dog question="q-oi4qsx">
+- **A rule closes its loop.** Where a rule has one party produce what another relies on — a record and its reader, a hand-off and its taker, a question and its answer — it says what each does, or names the rule that tells the other.
+</straw-dog>
 
 <straw-dog question="q-3hjxcn">
 - **Tier is paid by every session.** A skill's description is its tier-1 surface: name there every use case the skill serves, and nothing else — never its method or how it is built. Write every rule at the tier its occasion reads, and no higher: what sits at tier 1 is paid for by every session.

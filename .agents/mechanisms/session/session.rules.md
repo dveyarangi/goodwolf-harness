@@ -154,3 +154,15 @@ asks of them, a change in the work, something you told them that no longer holds
 not retold unasked.
 </rule>
 </straw-dog>
+
+## S11 — a session that holds a role names its row
+
+- **target** `.agents/skills/recall/SKILL.md`
+- **authority** the user, 2026-11-16: a row bears the name of the role its session holds, is not ended by silence and not removed; the step's text, the same day
+
+<rule>
+A session that holds a role writes the role's name on its row before anything else: `sessions.py
+--name <name> --session <tag>`, the name as the person gave it. Taking a name from a concluded row
+takes that row's position and hold with it. A refusal naming a running row means another live chat
+holds the name: stop, and tell the person.
+</rule>

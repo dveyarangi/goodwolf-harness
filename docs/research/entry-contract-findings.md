@@ -15,6 +15,16 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v136 — 2026-11-16
+
+**A rule closes its loop** — a new principle among the general rules: where a rule has one party
+produce what another relies on — a record and its reader, a hand-off and its taker, a question
+and its answer — it says what each does, or names the rule that tells the other. The rule on
+messages had told the sender what to write and nothing of what the receiver owes, and the person
+supplied the other half by hand; asked for as a root principle, and widened by them from an
+exchange of messages to any producer and consumer *(the user, 2026-11-16)*. A straw dog while
+it is open which rules about rules the mechanism shape takes from the entry file.
+
 ## v135 — 2026-11-16
 
 **The rule on messages closes its circle** — S10 reworded the day it landed, on four gaps the
