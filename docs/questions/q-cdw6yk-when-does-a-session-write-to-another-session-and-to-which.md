@@ -82,3 +82,11 @@ each note from a neighbour was retold to the person at length.
 
 Put to the person, not landed: S10 reworded on all three; and, told to the session that holds
 the rows, that a row whose session holds a role is neither ended by silence nor removed.
+
+The user, the same day, of the rule's rewording: "по правилу сообщений, нужно закрыть круг и
+симметрию. если спросившая сессия попросила ответ - надо отвечать. если не попросила, но выглядит
+так что она ждет работы или решения адресата - надо отвечать. если же нет, то пустую конфирмацию
+не надо. спросившая сессия же должна говорить нужна ли ей конфирмация или ждет ли она
+результатов работы." The rule as landed spoke of the sender alone. A fourth gap, taken into the
+rewording: the sender says what it waits for; the receiver answers what asks for an answer and
+what waits on its work or decision unsaid, and sends nothing to the rest.
