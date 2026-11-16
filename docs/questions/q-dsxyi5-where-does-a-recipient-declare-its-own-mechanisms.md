@@ -3,9 +3,10 @@
 - **record of** what it intends to become
 - **part of** q-veooj7
 - **state** open
+- **owner** [01-0010.0260](../tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-10-13T14:38:26Z
-- **struck** 0, last 2026-10-04T07:23Z
+- **struck** 1, last 2026-11-16T12:54Z
 
 ## What a recipient met — 2026-11-15
 
@@ -51,3 +52,32 @@ on a skill, so a part a declaration lists anywhere else is held to nothing. game
 such a part at its own commit gate (64bed80). The mark's work reads the parts of a marked
 mechanism by their claims, so it holds a declared part to its claim wherever it stands; the
 account is in [the register](../rule-failures.md), under the recipient's unnamed mechanism.
+
+## Impact of the mark, one ticket — 2026-11-16
+
+**Impact.** The declaration's header gains one bullet, so its readers move with it: the shape
+check, which sorts what a file under the core directory names under `docs/`; the installer, which
+builds the manifest from everything under the core directory; and the maintain clock, which in a
+recipient reads no mechanism at all until this lands. The format shelf, the shape's doc, the
+harness's doc and its evidence say what each now does. Three straw dogs are bound here and fall
+due at the close: the clock's empty set in the maintain mechanism's doc and script, and the open
+part under the product document's answer on installs.
+
+**Hidden edges.** A file is the project's by its claim, and the claim is already held both ways
+against the declaration, so no file excuses itself by naming a marked mechanism that does not list
+it. What ships may still name a part of a marked mechanism — a relied-on row, a moment's referent
+— and would arrive pointing at nothing; the origin's own check has to say so before a ship does.
+A part outside the core directory is held to its claim for the first time, in a format the check
+has not read before: game-delta's stand in shell, Python, GDScript and awk, all with `#`. A ref
+installed before the mark holds no marked mechanism, so the changed transformation reads no edit
+in any tree that exists. The uncommitted amendment of R6 by another session stands in the same
+files and lines.
+
+**Leave alone.** How an update tells a recipient's own block — a rules file standing in the tree
+and never shipped — and its report of the recipient's own files: both work without the mark and
+keep doing so for a tree that has not written it. The painted doors and their hand-held list.
+The local block's standing. `state`, which says how the parts table reads and nothing of whose
+the mechanism is.
+
+**Recommendation.** Proceed, as one ticket: the mark, its three readers and their docs are one
+path, and none of them is verifiable without the others.
