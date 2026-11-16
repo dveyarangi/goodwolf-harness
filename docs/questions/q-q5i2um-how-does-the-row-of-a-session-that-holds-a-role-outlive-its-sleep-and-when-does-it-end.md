@@ -3,6 +3,7 @@
 - **record of** what it intends to become
 - **part of** q-jz3mlm
 - **state** open
+- **owner** [01-0100](../tickets/01-0100-a-standing-session-keeps-its-row-while-it-sleeps.md)
 - **opened** 2026-11-16T20:26:47Z
 - **struck** 0, last 2026-11-16T20:26Z
 
@@ -25,7 +26,7 @@ decision 5 — which session holds which role is a table in the tree's local fil
 by its name, never a chat's id; nothing of it is built. The row is where that name meets the id a
 host gives.
 
-## Proposed — 2026-11-16, put to the user
+## Decided — the user, 2026-11-16: "Да, все четыре"
 
 1. A row carries the name of the session that holds a role, written by the session when it takes
    the role; a name stands on one row at a time.
