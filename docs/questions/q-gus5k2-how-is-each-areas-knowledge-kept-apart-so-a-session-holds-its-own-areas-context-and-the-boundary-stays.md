@@ -5,7 +5,7 @@
 - **state** open
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-11-15T00:53:18Z
-- **struck** 1, last 2026-11-15T17:37Z
+- **struck** 2, last 2026-11-16T13:19Z
 
 The user, 2026-11-15: "смысл в разделении обязанностей - чтобы каждая сессия держала контекст своей
 области кода или доков или еще чего - и не сильно захламляла контекст всем остальным. это
@@ -83,3 +83,15 @@ The user, 2026-11-15, asked which goes first — this question's align or the bu
    that several roles write stands in each of their maps as a straw dog, said so in the record,
    with the person told what follows from it. That state is expected to be common until a tree's
    files have been moved apart.
+4. **A session editing a file in another role's path is told, and the edit is recorded; it is not
+   refused** — the user, 2026-11-16: "Б", of three ways put to them. At the moment of the edit the
+   harness tells the session whose path it is; who touched the file is written where its owner
+   sees it; a crossing repeated on one path is ground to propose shifting the zone or marking the
+   file shared. Refusing was set aside as making the cut rigid, against decision 2. An
+   instruction alone was set aside on the evidence: under such a rule in game-delta the largest
+   group of messages that were needed and never sent gathered — uncommitted work left in a file
+   another session works in, before any commit
+   ([the count](../research/inter-session-messages-2026-11-15.md), "Where a message was
+   missing"). It is built in parts: saying it at the edit needs a host's hook on file edits, and
+   falls back to the commit where a host has none; the record of who touched a file waits on the
+   store's server; counting the crossings is the pack's.
