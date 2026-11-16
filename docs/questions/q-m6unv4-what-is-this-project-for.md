@@ -5,7 +5,7 @@
 - **rung** development: the whole product
 - **lean** 2026-10-13: the purpose root by its words; its open questions wait as undecided answers A15, A21, A51 and A52 in docs/product.md
 - **opened** 2026-10-10T12:19:56Z
-- **struck** 2, last 2026-10-25T09:25Z
+- **struck** 3, last 2026-11-16T13:15Z
 
 Opened 2026-10-09 from the front-page align (q-osjub2). Each list of what the harness *is* came
 out as either its implementation or general engineering claims. The user: *none of this answers
@@ -280,3 +280,32 @@ what the harness gives; and a method of one's own built on it, receiving all of 
 Landed as the product document's opening, *What it is for*
 → [product.md](../product.md). The front page still speaks to a developer; whom it presents the
 product to is q-t2eady's.
+
+## Product signals, gathered 2026-11-16
+
+Gathered by the product session at its waking as the tree's standing product session; each in the
+person's words where they said it, with where it stands.
+
+- *Install from the repository only* — "пользователь не будет устанавливать из локальной папки,
+  это происходит только у меня" (2026-11, q-t5vmk3).
+- *Standing sessions, each holding its own area's context, not cluttered by the rest* — beside
+  collisions (2026-11-15/16, q-gus5k2, q-jz3mlm).
+- *Every skill owned* — "no unowned by design ever. must be owned" (2026-11, R6, 51c430d7).
+- *Agents know when to write to which session* (2026-11-15, q-cdw6yk).
+- *Ceremony*, fimonitor, 2026-11-16: "это не правильно - блокировать продвижение из-за минорного
+  критерия уже рабочей функциональности. и вообще, это как раз настоящий церемониал, который
+  мешает. надо как-то харнес на эту тему проинструктировать". The product side: C8, the process
+  weighing the same for small and large work, answered by A45, in progress.
+- *Rules only grow*, game-delta, 2026-11: "ок, но почему у нас правила только растут?) проверь что
+  не зря"; and "не давать запускать свою версию означает что я долго не могу увидеть релевантный
+  результат".
+- *Versions per session*, game-delta, 2026-11: "мы что, теряем код при интеракции или переносе кода
+  из сессии в сессию? такое ощущение что у нас несколько версий у каждой сессии своя".
+- *Replies not followed*, research-harness and game-delta, 2026-11: "что такое механизмы?", "что за
+  86 требований?", "ничего не понял. заново, по русски, проще и полностью".
+- *A harness for research*, research-harness, 2026-10-11: on whether the tree is a harness for
+  research rather than code — "думаю, второй ) а потом используем для первого, например, но не
+  только"; and on what it lacks: "нам надо бы разобраться с требованиями прежде чем решать чего не
+  хватает".
+- *Process became product*, xuanxue-workshop's own `/advise`, 2026-11: tier 1 about 14 KB, most
+  skills "Mechanism: not yet" — an outside reading, not the person's words.
