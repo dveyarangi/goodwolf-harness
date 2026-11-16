@@ -6,7 +6,7 @@ description: >-
   project's verification set.
 ---
 
-<straw-dog question="q-54kvny">Mechanism: not yet</straw-dog>
+Mechanism: delivery
 
 Compare the work to its ticket, RFC if any, governing docs, and every check
 in the project's [verification set](#the-verification-set).
@@ -113,7 +113,7 @@ A missing RFC is not a defect of this skill when the ticket has none.
 - Docstrings say what their own unit does. Apply
   [/improve-comments](../improve-comments/SKILL.md) to comments in scope and check
   that TODO tags still describe something pending.
-<straw-dog question="q-jbv3d6">
+<straw-dog question="q-dagpe4">
 - Read the pointers in the slice's code: each names, word for word, a heading or a bold lead that
   the record it points into holds. One that does not is a finding.
 </straw-dog>

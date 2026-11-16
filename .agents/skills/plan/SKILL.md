@@ -6,7 +6,7 @@ description: >-
   needs an RFC, or an existing RFC needs another validation pass.
 ---
 
-<straw-dog question="q-oehis2">Mechanism: not yet</straw-dog>
+Mechanism: delivery
 
 - Explore documentation in depth, follow links in it to find all decisions
   relevant to current task. Find out which documented boundaries are involved,
