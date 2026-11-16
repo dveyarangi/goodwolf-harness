@@ -118,3 +118,10 @@ migrated; the session that ran the migrations passed up what each met.
   as the shipment's are sheared, so such lines read as no edit and the next write brings them to
   form. **Open** beside it: a first install run from an older clone writes a tree in that
   clone's transformations, whatever ref it installs.
+- **Open, found by the judge of the mend above.** A tree's announce line names its ref by the
+  short commit git gave on the day of its install; as the repository grows git abbreviates the
+  same commit longer. studies announces `goodwolf-harness@b048a88`; today's clone names that
+  commit `b048a88e`, so the entry file as shipped today differs from the tree's by one
+  character of the stamp, reads as an edit in core, and its update would be refused. The
+  mechanism's doc says the announce line is set aside when a copy is compared; the comparison
+  sets aside the repository line and relies on the stamps being equal. Not mended.
