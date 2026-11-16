@@ -1,10 +1,10 @@
 # q-xm6haj Do this tree's owners of mechanisms retire the keeper as the one writer of the rules and the holder of what the sweep leaves?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-ja5mp4
-- **state** open
+- **state** closed:decided
+- **answer** [q-ja5mp4, decision 7](q-ja5mp4-does-the-method-have-one-session-direct-the-others-an-orchestrator-and-what-does-it-owe-the-sessions-it.md#decisions) — the user, 2026-11-16: in this tree other sessions write their own mechanisms too; the sweep routes a finding to its owner once the roles are recorded
 - **rung** development: load-bearing, self-improvement: the method
-- **asks** the person, 2026-11-16
 - **opened** 2026-11-16T04:12:11Z
 - **struck** 0, last 2026-11-16T04:12Z
 

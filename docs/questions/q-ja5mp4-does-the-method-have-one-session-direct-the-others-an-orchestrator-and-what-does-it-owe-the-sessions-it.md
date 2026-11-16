@@ -111,6 +111,14 @@ Neighbours: [q-psa5ha](q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verifi
    at the cost of a move; collisions repeating between the sessions that write the session
    mechanism are the evidence that would call for it. Decision 5's "a mechanism of its own" reads
    so from here.
+7. **Decisions 1 and 4 narrowed for this tree** — the user, 2026-11-16, asked whether the
+   keeper stays the one writer of the rules here: "да, в этом дереве другие сессии тоже могут
+   править свои механизмы". Where the harness serves another product the keeper is the one
+   writer of the rules and holds what the sweep leaves; in this tree an owner writes its own
+   mechanism's rules, skills and scripts, as
+   [q-dyc63i](q-dyc63i-which-standing-roles-does-this-tree-have-where-every-session-develops-the-harness-itself.md)'s
+   decision 1 says, and what the sweep finds goes to the owner of the mechanism it falls in
+   once a record of the roles can say who that is.
 
 ## Where it stands
 

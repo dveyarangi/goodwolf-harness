@@ -44,3 +44,46 @@ holds the roles yet — decision 1 above names them, and the roles' record is pl
 [01-0090 standing-sessions-each-answer-for-an-area](../tickets/01-0090-standing-sessions-each-answer-for-an-area.md).
 Put to the person: a session of its own for the product, and the roles written meanwhile as a
 local rule wrapped as a straw dog.
+
+## What this tree's sessions stood on, and a cut proposed from it — 2026-11-16
+
+The user, 2026-11-16: "посмотри на чем стоят все наши сессии, включая старые и предложи роли на
+основании них. возможно по механизмам, включая несуществующие?" Read: the 122 sessions of this
+tree the host lists, back to 2026-09-24, by their titles; the eighty session records, back to
+2026-09-05, by theirs; the nine declared mechanisms; the sixteen skills no mechanism names; and
+the mechanisms an accepted whole already names without a declaration
+([q-nlec4j](q-nlec4j-does-every-rule-of-the-entry-file-belong-to-a-mechanism-so-that-an-install-adds-the-method-a-mechanism.md):
+the meta-principles, the development method as one mechanism) or an open question asks after —
+the glossary, the environment, the voice, autonomy. The grouping is the keeper's, by title,
+approximate; no transcript was read for it.
+
+| what the sessions stood on | sessions, about | mechanisms there | declared |
+|---|---|---|---|
+| the scheduled sweep | 45 | maintain | yes — a task, no role |
+| the question store and the queue | 20 | questions | yes |
+| how sessions meet: rows, wake, collisions | 9 | session | yes |
+| how rules are made and amended: the entry file, the dial, straw dogs, the register, what debug shows, the reply's form | 22 | mechanism-shape, debugging; the meta-principles, autonomy, the voice, the glossary | two of six |
+| the install, the hosts, recipients' trees | 14 | harness, edge | yes |
+| what the project is for: the product document, the front page, readings of peers | 16 | product | yes |
+| the delivery ring's own steps | 4 | ticket; the development method with the ring's skills, the environment | one of three |
+
+Two things the count shows. The delivery ring's skills — the most used of all — had almost no
+session of their own, and ten of the sixteen unnamed skills are there. And the largest working
+group, how rules are made, has been the keeper's by default, beside the boundary with other
+trees.
+
+The cut proposed, a role to a family of mechanisms, three of them without a session yet:
+
+- **Хранитель** — harness, edge: core's boundary with the other trees, the entry file, the local
+  rules, the journal.
+- **Метод** — mechanism-shape, debugging, and the meta-principles, autonomy, the voice and the
+  method's glossary once declared; the rule-failure register. Held by Хранитель until a session
+  takes it.
+- **Практика** — ticket, maintain, and the development method once declared: the ring's skills
+  from `/align` to `/verify`, with `/tdd`, `/impact`, `/commit`, `/improve-comments`,
+  `/review-architecture` and `/setup-devops`. No session yet.
+- **Продукт** — product; `/advise` and `/discover` as its outward reading. Held.
+- **Сервер хранилища** — questions, session. Held.
+- **Слияние** — the landing on main. No session yet.
+
+Left unplaced: `/dream` and `/celebrate`. Not decided; put to the person.
