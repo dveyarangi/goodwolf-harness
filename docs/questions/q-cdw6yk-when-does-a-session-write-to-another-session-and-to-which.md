@@ -112,3 +112,8 @@ session came back delivered, the turn started. A session in another permission m
 message for its person's approval, and a remote or cloud session reports nothing. So where
 sessions run in the desktop app a sleeper reads a message at once, and the clause would bear
 only on the routes that hold a message. Not added to the rule.
+
+The user, the same day, of where the block's detail goes: "всю необходимую в моменте инструкцию
+должна нести agents.md, но сжато и с ссылками". So the detail does not leave for a skill a
+session must remember to open: the entry file carries the whole instruction a session needs at
+the moment, compressed, and links what it compresses.

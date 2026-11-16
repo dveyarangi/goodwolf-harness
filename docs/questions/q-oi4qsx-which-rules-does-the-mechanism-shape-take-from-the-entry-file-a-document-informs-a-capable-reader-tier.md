@@ -24,3 +24,11 @@ A wording put to the person, not landed: *A rule closes its loop. A rule with mo
 party — one that asks and one that answers, one that hands over and one that takes — says what
 each does, or names the rule that tells the other.* It is a rule about how rules are written,
 and stands with the ones this question asks after.
+
+The user, the same day, of that wording: "one that asks and one that answers - слишком
+специфично. как насчет one that reads and one that writes, or one that produces and one that
+consumes? - это тоже случаи того-же." The principle is wider than an exchange of messages: it
+holds wherever one party produces what another relies on, which is the method's own word for a
+seam. Reworded and put again, not landed: *A rule closes its loop. Where a rule has one party
+produce what another relies on — a record and its reader, a hand-off and its taker, a question
+and its answer — it says what each does, or names the rule that tells the other.*
