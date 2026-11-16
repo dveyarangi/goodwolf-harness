@@ -314,3 +314,18 @@ A fresh tree needs: nothing here beyond core; a rule of behaviour is tried on tw
 one without it, before it lands, and the reader's own list of what it could read two ways is
 taken as findings.
 </straw-dog>
+
+## 19. A third tree's session asks how to begin — 2026-11-16
+
+A recipient a few days old, with five task sessions and no standing ones, was given a session to
+keep its harness, and that session asked core's keeper how it is named, by what the work is cut,
+how sessions are kept in step and what to do first. Everything it asked had an answer in the
+decisions of the last two days; nothing of it stood where that tree's session could read it.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs, where its harness session reads them: the form of a session's name, with the
+glyph the person's to choose; that a zone is paths cut where the domain's seams pass, and that a
+ticket is no role; that the harness session hands out no work; which rules on sessions are
+installed and which are not built; and the first step — one proposal to the person on whether
+standing roles are wanted.
+</straw-dog>
