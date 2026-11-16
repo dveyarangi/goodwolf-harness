@@ -15,6 +15,22 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v134 — 2026-11-16
+
+**What one session writes to another** — the session mechanism's S10 joins the general rules: a
+question, and what the receiver must act on or would go wrong without — uncommitted work in a file
+it works in, a break made in what it runs, a step of an agreed order done, the person's decision
+in its area once settled — to the id its row gives and never to an ended session; a claim checked
+before it is sent, a guess sent as a question, one message per occasion, no acknowledgement and no
+status nobody waits on. Written from
+[a count of 1,011 messages between sessions](inter-session-messages-2026-11-15.md), each judged by
+what its receiver did next, and of 98 that were needed and never sent, in a recipient with nine
+standing sessions and in this tree. Tried on a fresh reader beside one that had only S9 and the
+commit rule, over ten situations drawn from the count, and judged by a third: five situations
+improved, none worsened, five rewordings taken. Shared state — a hold while a suite runs, a
+broken main — is left out as a record every session reads, never a message to each, and a change
+to a contract others read is left out untried *(the user, 2026-11-16)*.
+
 ## v133 — 2026-11-09
 
 **Every occurrence names its host and model** — *Self-improvement*'s keeping of the register gains

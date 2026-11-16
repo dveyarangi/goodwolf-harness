@@ -88,6 +88,7 @@ for this mechanism.
 | a step that works a unit holds it, at its implementation | `.agents/skills/implement/SKILL.md` | |
 | a session takes over a unit another holds, and leaves its mark | `.agents/scripts/gw/sessions.py` | |
 | a step stops before a unit another running session holds | `AGENTS.md` | |
+| a session writes to another what it must act on, and nothing it need not | `AGENTS.md` | |
 | a session concludes: its record written, its leans, its row ended | `.agents/skills/conclude/SKILL.md` | |
 | a session wakes and reads where the work stands | `.agents/skills/recall/SKILL.md` | |
 | a conversation starts with its recall, and one the host resumes under a new id is the same session | `AGENTS.md` | |
@@ -143,7 +144,7 @@ for this mechanism.
 - **The check's report** — *what exists* — read by `/maintain` at its pass, by `/verify` through
   the verification set and by the pre-push check, `harness.py --pre-push`, at a push that carries a file of the method.
 - **The rules file** — *what must always hold* — read by the installer alone. Its blocks sit in
-  `/recall` (S1), `/conclude` (S2), `/maintain` (S3), the entry file's general rules (S4, S6, S9),
+  `/recall` (S1), `/conclude` (S2), `/maintain` (S3), the entry file's general rules (S4, S6, S9, S10),
   `/commit` (S5), and `/plan` and `/implement` (S7).
 
 ## Not yet at the shape

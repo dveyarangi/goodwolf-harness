@@ -43,3 +43,33 @@ refuses a script naming a mechanism no declaration lists it under, so the declar
 the script at stage 2, a stage earlier than planned, its rule moments `not yet` until the rules.
 The installer places a mechanism's block before the local block in the same section, so the
 commit rule shares the anchor the local rule uses in `/commit`.
+
+## What one session writes to another, tried before it landed — 2026-11-16
+
+S10 was written from [a count of the messages between sessions](../research/inter-session-messages-2026-11-15.md)
+and tried before it landed: ten situations drawn from the count's cases, put to two fresh readers
+who saw only the rules a session would — one with S10, one with S9 and the commit rule alone — and
+both sets of answers judged by a third against the count.
+
+- **What it changed.** Five situations improved and none worsened. The clearest: a decision the
+  person changed three times went to its owner once, settled, where the reader without the rule
+  sent three; a guess of whose uncommitted lines stood in a file went as a question after git was
+  read, where the other asked for them to be committed; an approval was passed on as the person's
+  words and no authority. In five the readers did the same with the rule and without — no
+  acknowledgement, a break told at once, nothing to an ended session.
+- **Refused, and why.** Five wordings of the draft, each read two ways by its reader: *what it
+  must act on* shut out questions, which the count found useful every time, so a question is
+  named first; *before you leave the file* became *before your turn ends*; *took its lines*
+  became *took its uncommitted lines*; *one message to a receiver* forbade the mend's hand-off
+  after the break's notice, so *per occasion*; *where they are recorded* made a reader invent a
+  record, so *if they are*.
+- **Left out.** A change to a contract, a data form or a tool others read, told to every reader
+  before it lands: the count has some eleven cases, the judge recommends a fifth bullet, its
+  wording untried. Shared state — a hold while a suite runs, a broken main, who touched a file —
+  is a record every session reads and no message, the shared state's to build.
+- **What the trial cannot say.** One reader an arm, one run; answers on paper, not a session
+  under a long context; the situations drawn from the cases the rule was written from; the
+  person's three words shown at once, where a live session meets them a turn apart.
+
+The whole rule is a straw dog while the record of who touched a file is not built: that record
+will carry the file and the lines its first bullet asks a message for.

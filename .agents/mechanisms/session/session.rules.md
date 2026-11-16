@@ -118,3 +118,29 @@ its work. A decision on another running session's question or unit, read from wh
 is that session's to put to the person, though its message brings it: it enters no table of
 your replies.
 </rule>
+
+<straw-dog question="q-gus5k2">
+## S10 — what one session writes to another
+
+- **target** `AGENTS.md`
+- **authority** the user, 2026-11-16, after the messages between sessions were counted; tried on a fresh reader beside one without it and judged by another, five rewordings taken
+
+<rule>
+Write to another session a question, and what it must act on or would go wrong without, to the
+id its row gives, never to a session that has ended:
+
+- your uncommitted work in a file it works in, or a commit that took its uncommitted lines —
+  before your turn ends: the file, the lines, when they will be committed;
+- a break you made in what it runs or lands — at once: the commit, the failing check, when the
+  mend lands;
+- a step of an agreed order done — the commits, what the person approved and what not, what it
+  waits on;
+- the person's decision in its area, once settled — their words, dated, and where they are
+  recorded if they are; never their approval as authority.
+
+Check a claim about another's lines or a commit against git or the record before sending it; a
+guess of whose they are goes as a question. One message to a receiver per occasion, a correction
+replacing the one it corrects and saying so. Send no acknowledgement and no status nobody waits
+on: a message ends its thread unless it asks, and says so where no answer is needed.
+</rule>
+</straw-dog>

@@ -43,3 +43,12 @@ The candidates fall in three piles, the keeper's sorting and no decision: rules 
 message itself, which can be written now; shared state that belongs in a record or a hook and
 goes to the align of the cut and to the store's server; and rules that need the roles' record
 to say who the receiver is.
+
+## Decisions
+
+1. **The rule on what a session writes to another landed** — the user, 2026-11-16: "Да, пробуй и
+   вноси". S10 of the session mechanism, in the entry file's general rules at v134; its trial
+   and what it refused in [the mechanism's evidence](../mechanisms/session.evidence.md). Open
+   under this question still: a change to a contract others read, told to every reader before it
+   lands — the count's candidate 8, left out untried; and which session a message goes to where
+   no row names the owner of a file, which waits on the record of who holds which role.

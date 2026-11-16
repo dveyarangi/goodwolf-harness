@@ -298,3 +298,19 @@ A fresh tree needs: before a rule on what sessions send each other, a count of w
 and of what went unsent, each message judged by what its receiver did next; a recipient's own
 rule and count are read first.
 </straw-dog>
+
+## 18. The rule on messages is tried on a reader without it — 2026-11-16
+
+The rule drawn from the count was not landed as drafted. Two fresh readers answered ten
+situations from the count's own cases, one with the rule and one without, and a third judged both
+against the count: the difference between the two readers is what the rule does, and where both
+did the same the rule earns nothing. The reader with the rule also listed every phrase it could
+read two ways; five were real and were reworded. The session that keeps the sessions' rows was
+shown the text first, and one line was marked to be rewritten when the shared record it will
+build exists.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: nothing here beyond core; a rule of behaviour is tried on two fresh readers,
+one without it, before it lands, and the reader's own list of what it could read two ways is
+taken as findings.
+</straw-dog>
