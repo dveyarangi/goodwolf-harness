@@ -103,9 +103,10 @@ PAINTED_DOORS = frozenset(
     )
 )
 KINDS = ("elsewhere", "embedded", "unowned by design", "not yet")
-# A skill's own claim says nothing owns it; a kind that points at what does is not that claim.
+# A skill's own claim says no mechanism names it yet. Every skill is owned (the user, 2026-11-16):
+# `unowned by design` is a moment's kind and no claim, and a kind that points at an owner is not one.
 CLAIM = "Mechanism:"
-CLAIM_KINDS = ("not yet", "unowned by design")
+CLAIM_KINDS = ("not yet",)
 GRADING = "## What would show it working"
 PRODUCES = "## What it produces, and who reads it"
 STATES = ("always on", "installed")
@@ -726,7 +727,7 @@ def _after_frontmatter(lines: list[str]) -> str:
 def _skill_problems(
     root: Path, skills: list[Skill], recipient: bool, held: dict[str, questions.Entry]
 ) -> list[Diagnostic]:
-    """A skill is one mechanism's instruction file, or says so itself — never both, never neither."""
+    """A skill is one mechanism's instruction file, or says none names it yet — never both, never neither."""
     notes = []
     for skill in skills:
         where = skill.directory
@@ -738,15 +739,22 @@ def _skill_problems(
             continue
         if skill.named_by:
             # A named skill's line names its mechanism, held by the parts' naming check; only a
-            # line saying nothing owns it is a second claim.
+            # line saying none names it yet is a second claim.
             if skill.claim.kind is not None:
                 notes.append(Diagnostic(where, f"named by {', '.join(skill.named_by)} and claims {skill.claim.kind}"))
             continue
         if skill.claim.kind is None:
             notes.append(Diagnostic(where, f"names {skill.claim.why}, whose declaration does not name it"))
             continue
-        if skill.claim.kind is not None and skill.claim.kind not in CLAIM_KINDS:
-            notes.append(Diagnostic(where, f"claims {skill.claim.kind}; a claim says nothing owns the skill"))
+        if skill.claim.kind == "unowned by design":
+            notes.append(Diagnostic(
+                where,
+                "claims unowned by design; every skill is owned — name its mechanism, or say `not yet` "
+                "bound to the question of what it owns",
+            ))
+            continue
+        if skill.claim.kind not in CLAIM_KINDS:
+            notes.append(Diagnostic(where, f"claims {skill.claim.kind}; a claim says no mechanism names the skill yet"))
             continue
         claim = skill.claim
         claimed = Moment(f"{CLAIM} line", None, claim.kind, claim.why, claim.referent)
@@ -769,7 +777,7 @@ def _naming_problems(root: Path, declared: list[Declaration], skills: list[Skill
             if carrier in lines:
                 claim = lines[carrier]
                 if claim is not None and claim.kind is not None:
-                    continue  # a named skill saying nothing owns it is a second claim, reported as one
+                    continue  # a named skill saying none names it yet is a second claim, reported as one
                 named = claim.why if claim else None
             else:
                 named = _named_in_code(root / carrier)

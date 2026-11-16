@@ -54,8 +54,10 @@ second, a rewording of R6 with a check behind it: `unowned by design` is for a s
 no record and runs no script, and the shape check refuses it on a skill whose folder holds a
 script.
 
-**Disposition:** open — the recipient holds both by its own commit gate meanwhile; the first
-routed to the work on the mark, the second put to the person, not landed.
+**Disposition:** open — the recipient holds the first by its own commit gate meanwhile, and it
+is routed to the work on the mark. The second landed 2026-11-16, stronger than proposed, on the
+person's word — "no unowned by design ever. must be owned": the claim left R6, and the shape
+check refuses it on any skill.
 
 ## A question's whole left out a reason the person had given in a question under it — 2026-11-15
 

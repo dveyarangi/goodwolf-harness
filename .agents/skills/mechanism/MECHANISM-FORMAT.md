@@ -294,8 +294,8 @@ Code opens with it as a comment, after a shebang where there is one:
 ```
 
 The slug resolves to the doc by the directory rule above, so the line never names a path under
-`docs/`. A skill no declaration names says so in the same place, with `Mechanism:` then the
-moments grammar, `not yet` or `unowned by design` only:
+`docs/`. A skill no declaration names yet says so in the same place, with `Mechanism:` then the
+moments grammar, `not yet` only — every skill is owned:
 
 ```md
 <straw-dog question="q-N">Mechanism: not yet</straw-dog>

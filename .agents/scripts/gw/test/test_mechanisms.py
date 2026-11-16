@@ -709,7 +709,7 @@ CLAIMING = '<straw-dog question="q-0002">Mechanism: not yet</straw-dog>\n\n# Str
 
 
 class TheReversePass(Declared):
-    """Every installed skill is one mechanism's instruction file, or says on its first line that none is."""
+    """Every installed skill is one mechanism's instruction file, or says on its first line that none names it yet."""
 
     def test_a_skill_nothing_names_that_claims_nothing_fails_the_run(self) -> None:
         self.write(STRAY, FRONTMATTER + "# Stray\n")
@@ -772,10 +772,13 @@ class TheReversePass(Declared):
         self.assertEqual(1, len(problems))
         self.assertIn("unbound", problems[0])
 
-    def test_unowned_by_design_is_a_claim_that_is_kept(self) -> None:
+    def test_no_skill_claims_to_be_unowned_by_design(self) -> None:
         self.write(STRAY, FRONTMATTER + "Mechanism: unowned by design — a one-off nobody relies on\n")
 
-        self.assertEqual([], self.checked().diagnostics)
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems))
+        self.assertIn("every skill is owned", problems[0])
 
     def test_a_skill_naming_a_mechanism_whose_declaration_does_not_name_it_is_reported(self) -> None:
         self.write(STRAY, FRONTMATTER + f"Mechanism: {SLUG}\n")
@@ -909,7 +912,7 @@ class CoreStandsAlone(Declared):
 
     def test_the_front_page_beside_the_harness_skill_is_the_origins_document_and_its_citations_are_skipped(self) -> None:
         # Beside a skill the fixture claims, as the real one stands beside the harness skill.
-        self.write(".agents/skills/harness/SKILL.md", "Mechanism: unowned by design — a fixture.\n")
+        self.write(".agents/skills/harness/SKILL.md", '<straw-dog question="q-0002">Mechanism: not yet</straw-dog>\n')
         self.write(mechanisms.FRONT_PAGE, f"# Front\n\nThe evidence: [panel]({DOCUMENT}).\n")
 
         self.assertEqual([], self.problems())

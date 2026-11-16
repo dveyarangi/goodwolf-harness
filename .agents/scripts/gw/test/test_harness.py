@@ -36,13 +36,13 @@ HARNESS_SKILL = ".agents/skills/harness/SKILL.md"
 TICKET_SKILL = ".agents/skills/ticket/SKILL.md"
 TICKET_SKILL_TEXT = (
     "---\nname: ticket\ndescription: mints tickets\n---\n\n"
-    "Mechanism: unowned by design — this fixture's core declares only sample\n\n"
+    '<straw-dog question="q-0002">Mechanism: not yet</straw-dog>\n\n'
     "Mint them.\n"
 )
 QUESTIONS_SKILL = ".agents/skills/questions/SKILL.md"
 QUESTIONS_SKILL_TEXT = (
     "---\nname: questions\ndescription: keeps the open questions\n---\n\n"
-    "Mechanism: unowned by design — this fixture's core declares only sample\n\n"
+    '<straw-dog question="q-0002">Mechanism: not yet</straw-dog>\n\n'
     "Keep them.\n"
 )
 STORE_ARRIVAL = ".agents/skills/questions/STORE-ARRIVAL.md"
@@ -50,7 +50,7 @@ STORE = "docs/questions"
 PRODUCT_SKILL = ".agents/skills/product/SKILL.md"
 PRODUCT_SKILL_TEXT = (
     "---\nname: product\ndescription: keeps the product document\n---\n\n"
-    "Mechanism: unowned by design — this fixture's core declares only sample\n\n"
+    '<straw-dog question="q-0002">Mechanism: not yet</straw-dog>\n\n'
     "Keep it.\n"
 )
 PRODUCT_ARRIVAL = ".agents/skills/product/PRODUCT-ARRIVAL.md"
@@ -92,7 +92,7 @@ def without_mechanism_line(text: str) -> str:
 
 HARNESS_SKILL_TEXT = (
     "---\nname: harness\ndescription: places core\n---\n\n"
-    "Mechanism: unowned by design — this fixture's core declares only sample\n\n"
+    '<straw-dog question="q-0002">Mechanism: not yet</straw-dog>\n\n'
     "Repository: https://github.com/example/placed-by-the-fixture.git\n\n"
     "The claim line comes first because the shape check reads the body's first line; the\n"
     "repository line sits below it, which is what core's own harness skill does.\n"
@@ -1426,7 +1426,7 @@ class AnUpdate(TwoTrees):
         self.assertFalse((self.target / ".agents/scripts/gw/test").exists())
 
     def test_reports_the_recipients_own_files_under_core_and_leaves_them(self) -> None:
-        self.write_target(".agents/skills/theirs/SKILL.md", "Mechanism: unowned by design — theirs\n\n# Theirs\n")
+        self.write_target(".agents/skills/theirs/SKILL.md", "Mechanism: not yet\n\n# Theirs\n")
 
         status, report = self.run_harness("--update")
 
@@ -1560,7 +1560,7 @@ class AGroupInARecipient(AnUpdate):
         self.commit("core speaks")
 
     def test_the_install_reaches_a_shipped_member_and_the_recipient_s_own(self) -> None:
-        self.write_target(".agents/skills/theirs/SKILL.md", f"Mechanism: unowned by design — theirs\n\n# Theirs\n\n{SPEAKING}")
+        self.write_target(".agents/skills/theirs/SKILL.md", f"Mechanism: not yet\n\n# Theirs\n\n{SPEAKING}")
         self.ship_the_group()
 
         status, report = self.run_harness("--update")
@@ -1572,7 +1572,7 @@ class AGroupInARecipient(AnUpdate):
     def test_a_recipient_s_member_the_install_would_refuse_stops_the_update_before_it_writes(self) -> None:
         self.write_target(
             ".agents/skills/theirs/SKILL.md",
-            f"Mechanism: unowned by design — theirs\n\n# Theirs\n\n{SPEAKING}\n{SPEAKING}",
+            f"Mechanism: not yet\n\n# Theirs\n\n{SPEAKING}\n{SPEAKING}",
         )
         self.ship_the_group()
 

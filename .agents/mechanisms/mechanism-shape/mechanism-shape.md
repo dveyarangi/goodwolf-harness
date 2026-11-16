@@ -72,7 +72,7 @@ absence is honestly classified, are judgements it records and never makes.
 | writing a mechanism's rule where a session reads it, the entry file included, at `/align` or here | `.agents/skills/mechanism/SKILL.md` | |
 | re-checking a mechanism when what governs it has moved | — | elsewhere — re-checking derived work against a changed source is maintenance, `.agents/skills/maintain/SKILL.md` |
 | writing or changing a skill's text | — | elsewhere — a sibling mechanism's subject, and both apply when a skill is an instruction file, `.agents/skills/skill-up/SKILL.md` |
-| recording that an installed skill belongs to no mechanism | `.agents/skills/skill-up/SKILL.md` | |
+| recording that no mechanism names an installed skill yet | `.agents/skills/skill-up/SKILL.md` | |
 | asking whether every installed skill is claimed, and every part a mechanism owns names it | `.agents/scripts/gw/mechanisms.py` | |
 | holding core to citing only what its mechanisms declare | `.agents/scripts/gw/mechanisms.py` | |
 | finding a mechanism's doc, or asking what is declared at all | — | unowned by design — the directory is a routing table and the index renders it on request; looking something up needs no rule |
@@ -150,8 +150,8 @@ claimant is the always-on mechanism, so no uninstall can remove what another mec
   block that is not last in its file, or an override naming a rule that is not installed where the
   override is.
 
-- **A part's claim** — *what it intends to become, what must always hold once it names a mechanism
-  or says unowned by design* — the `Mechanism:` line a file an agent edits opens
+- **A part's claim** — *what it intends to become, what must always hold once it names a
+  mechanism* — the `Mechanism:` line a file an agent edits opens
   with: a skill a declaration names, and every script, test and hook a mechanism owns, naming its
   slug, so the agent meets the doc that governs the file where it works; a skill none names, `not
   yet` as a straw dog at its authored home. Written by whoever adds the file, through R6; read by

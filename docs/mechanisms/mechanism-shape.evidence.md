@@ -495,3 +495,22 @@ once, and an inventory on 2026-10-11 took it for the harness's definition of its
 both homes; the membership test — *how the work gets done, never what the project produces* —
 stands as decided. The line between method and machinery is q-awqz6b's *(the user,
 2026-10-11)*.
+
+## No skill is unowned by design — 2026-11-16
+
+R6 let a skill no mechanism names open with `Mechanism: unowned by design` and a reason. A
+session of a recipient used it for the skill of a mechanism it had built unnamed, with scripts
+and a record of its own; any reason passed the rule and the check alike
+([the register](../rule-failures.md), "A recipient built a mechanism unnamed, its skill called
+unowned by design, and nothing refused it"). The keeper proposed narrowing the claim to a skill
+that acts on no record and runs no script, with the check refusing it where the skill's folder
+holds a script. The person refused the narrowing for the stronger form: "no unowned by design
+ever. must be owned". The claim left R6, and the shape check refuses it on every skill, at the
+origin and in a recipient. The moment's kind of the same name stays, on the person's word the
+same day: it says a moment needs no rule, and nothing of who owns a file.
+
+Still open, and older than the change: in a recipient an unbound `not yet` passes on a skill of
+the tree's own, since the exemption written for the lines core ships sheared cannot tell a
+shipped skill from the tree's. It goes with the mark that tells a project's own mechanism from a
+shipped one
+([01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](../tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)).
