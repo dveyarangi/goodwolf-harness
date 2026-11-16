@@ -10,7 +10,7 @@
 ## What was found — 2026-11-16
 
 Found by the judge of
-[01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](../tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md),
+[01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](../tickets/done/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md),
 and older than that work. Where a later ref no longer ships a mechanism that has a rules file,
 an update deletes the mechanism's files in a recipient and leaves the block it installed in a
 core skill: the comparison takes the block for the recipient's own, because its rules file

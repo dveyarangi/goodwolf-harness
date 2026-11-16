@@ -513,14 +513,14 @@ Still open, and older than the change: in a recipient an unbound `not yet` passe
 the tree's own, since the exemption written for the lines core ships sheared cannot tell a
 shipped skill from the tree's. It goes with the mark that tells a project's own mechanism from a
 shipped one
-([01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](../tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)).
+([01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](../tickets/done/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)).
 
 ## A mechanism names its owner — 2026-11-16
 
 A recipient, game-delta, declared a mechanism of its own; the update kept it, and the shape check
 read every file of it as core's, so its doc and skill naming the project's own records were
 leaks, and the recipient moved its pointers into a local rule to pass
-([01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](../tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)).
+([01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](../tickets/done/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)).
 The tree keeps no manifest, so the check could not know what shipped.
 
 Refused on the way to the bullet:

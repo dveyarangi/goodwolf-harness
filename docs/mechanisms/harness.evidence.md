@@ -107,7 +107,7 @@ After the four: five seconds, 65 files, three gates.
   from core's only by its absence from a manifest the tree does not keep. The declaration now
   names its owner, and a `local` one leaves the shipment with its directory, the folders of its
   skills, its parts and the blocks it installed
-  ([01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](../tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)).
+  ([01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](../tickets/done/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)).
 - **Halting the run on a local mechanism** was weighed and refused: an origin that may hold one
   must still ship. The run halts only where a declaration that ships names a file left behind,
   which would arrive pointing at nothing.

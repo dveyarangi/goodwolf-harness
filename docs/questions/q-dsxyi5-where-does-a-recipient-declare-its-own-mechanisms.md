@@ -3,7 +3,7 @@
 - **record of** what happened
 - **part of** q-veooj7
 - **state** closed:decided
-- **owner** [01-0010.0260](../tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)
+- **owner** [01-0010.0260](../tickets/done/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)
 - **answer** [the format's header bullets](../../.agents/skills/mechanism/MECHANISM-FORMAT.md#header-bullets) — the user, 2026-11-15, the bullet's words 2026-11-16
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-10-13T14:38:26Z

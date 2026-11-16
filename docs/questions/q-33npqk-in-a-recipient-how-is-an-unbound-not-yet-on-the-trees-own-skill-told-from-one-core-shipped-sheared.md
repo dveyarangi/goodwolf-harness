@@ -25,7 +25,7 @@ Two parts, of different weight:
   refuse them by form.
 - **The bare line.** A skill of the tree's own that says exactly what a sheared one says is
   told from it only by knowing what shipped, which the tree does not record. The mark of
-  [a project's own mechanism](../tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)
+  [a project's own mechanism](../tickets/done/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)
   does not reach it: a skill claiming `not yet` belongs to no mechanism, marked or not.
 
 ## What the decision of 2026-11-16 changes
@@ -38,5 +38,5 @@ skill's line left to excuse, and a skill of the tree's own is named by a mechani
 declares and marks as its own. That waits on core's sixteen, which are that question's. Until
 then the bare line passes. The pass on a moment's row is untouched: shipped declarations keep
 their `not yet` rows, sheared. What the shear cannot have left is refused since
-[01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](../tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md):
+[01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](../tickets/done/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md):
 the first part is answered, and the bare line is what this question still asks.

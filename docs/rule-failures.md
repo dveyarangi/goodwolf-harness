@@ -93,7 +93,7 @@ script.
 
 **Disposition:** closed 2026-11-16 — both amendments landed. The first with the owner of a
 mechanism
-([01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)):
+([01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](tickets/done/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)):
 the shape check holds every declared part to its claim wherever it stands, the scripts' folder
 or outside the core directory. The second the same day, stronger than proposed, on the person's
 word — "no unowned by design ever. must be owned": the claim left R6, and the shape check

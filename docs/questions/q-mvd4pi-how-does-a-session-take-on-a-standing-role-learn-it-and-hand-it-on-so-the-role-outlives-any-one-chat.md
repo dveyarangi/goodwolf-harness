@@ -41,7 +41,7 @@ reads the cut. Two things it leaves unsolved: a mechanism's parts are the method
 and never what the project produces, so a zone of the project's own code has no place in a
 declaration yet; and a role's mechanism in a recipient is the project's own, told from a shipped
 one by a mark that is being built
-([01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](../tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)).
+([01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](../tickets/done/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)).
 
 The first of the two things left unsolved is withdrawn. The user, 2026-11-16, of a role such as
 game-delta's Музыка: "ее скил будет описывать что делает сессия. ее архитектура - в файле

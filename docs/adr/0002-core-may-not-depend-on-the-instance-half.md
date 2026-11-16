@@ -17,7 +17,7 @@ refused at install — the exemption had moved the failure to the port, not remo
 ownership is the only exclusion, and it is read mechanically from the enclosing block.
 
 **Amended 2026-11-16** *(the user, decision 1 of [q-dsxyi5](../questions/q-dsxyi5-where-does-a-recipient-declare-its-own-mechanisms.md), built under
-[01-0010.0260](../tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md))*: a mechanism names its owner, `core` or
+[01-0010.0260](../tickets/done/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md))*: a mechanism names its owner, `core` or
 `local`. One whose owner is `local` is the instance's although its files stand under
 `.agents/`: what they name under `docs/` is no leak, and neither is what a rule it installed into
 a core file names. Instance ownership stays the only exclusion; it is read from the enclosing
