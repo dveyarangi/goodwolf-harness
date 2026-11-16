@@ -3,7 +3,7 @@
 - **record of** what it intends to become
 - **part of** q-qmq6ty
 - **state** open
-- **owner** [01-0017.0020.0010](../tickets/01-0017.0020.0010-delivery-is-a-mechanism-its-steps-name.md)
+- **owner** [01-0017.0020.0030](../tickets/01-0017.0020.0030-delivery-takes-its-text-from-the-entry-file.md)
 - **realizes** A31 "Load-bearing written, the rest in code"
 - **rung** development: load-bearing, self-improvement: the method
 - **lean** 2026-10-15: development's autonomy ladder and its change path are this mechanism's, held as straw dogs bound here until it is declared (q-xmk75m)
@@ -17,7 +17,7 @@ the ring's form from its practice. The draft: (1) the ring is declared a mechani
 steps claim it; (2) the practice is declared, `/tdd` and `/improve-comments` claim it, and the
 coding in the steps moves into its rules file; (3) the ring takes its text from the entry file.
 
-**Impact.** Must change: [01-0017.0020.0010](../tickets/01-0017.0020.0010-delivery-is-a-mechanism-its-steps-name.md),
+**Impact.** Must change: [01-0017.0020.0010](../tickets/done/01-0017.0020.0010-delivery-is-a-mechanism-its-steps-name.md),
 rewritten to the declaration, its wait on the entry file's sections moving to slice 3; its parent
 [01-0017.0020](../tickets/01-0017.0020-practice-swaps-in-one-edit.md), whose 2026-10-26 paragraph
 says one mechanism; two tickets and two questions opened. Must verify: `mechanisms.py --check`
