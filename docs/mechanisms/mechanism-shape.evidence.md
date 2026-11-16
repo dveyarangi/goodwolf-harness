@@ -534,7 +534,8 @@ Refused on the way to the bullet:
   header bullet is a name and its value. `scope` as the name was refused for a word an open
   question is still settling.
 - **Absent meaning core's** — the same day the person had every skill owned; a declaration that
-  names no owner is told the line to write. A recipient's own mechanism declared before the
+  names no owner is told the line to write. First the builder's reading of "да, или owner core",
+  then the person's word: "Да, обязательна". A recipient's own mechanism declared before the
   bullet therefore fails its next update's gate until one line is added.
 
 What the check now holds, and what it does not. A file is a local mechanism's by its place or by

@@ -43,7 +43,7 @@ keeps no manifest, so the check cannot know what shipped. Ways seen:
    its parts are found by the claim each carries on its first line; what a marked mechanism names
    under `docs/` is the project's and no leak; the same mark keeps an origin's own mechanism from
    shipping. The mark's words are the user's, 2026-11-16: a required header bullet, `owner`,
-   `core` or `local` — "а почему не просто local", "можно добавить KV", "да, или owner core".
+   `core` or `local` — "а почему не просто local", "можно добавить KV", "да, или owner core"; required, never core's by silence — "Да, обязательна".
    → [the format's header bullets](../../.agents/skills/mechanism/MECHANISM-FORMAT.md#header-bullets)
 
 ## What the recipient met next — 2026-11-15
