@@ -89,7 +89,7 @@ note. For each slice, show:
 
 - **Title**: short descriptive name
 - **Interaction**: HITL / AFK
-- **Depends on**: which other slices (if any) must complete first
+- **Depends on**: which other slices (if any) bring a thing this one uses, named as the format names it
 
 Ask the user:
 

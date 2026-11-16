@@ -110,7 +110,7 @@ one-off field anywhere before `Outcome`, `Outcome` last:
 - **Type:** HITL | AFK
 - **Minted:** YYYY-MM-DD
 - **Plan:** [{title} RFC](../rfc/{basename}.md) — what it selected
-- **Depends on:** [{title}](./RR-NNNN-slug.md) ({what it supplies})
+- **Depends on:** [{title}](./RR-NNNN-slug.md) ({the thing it brings that this work uses})
 - **Blocks:** [{title}](./RR-NNNN-slug.md) — {why}
 - **Answers:** [q-{id}](../questions/q-{id}-{slug}.md)
 - **Outcome:** {the delivered change, one sentence}
@@ -122,7 +122,7 @@ one-off field anywhere before `Outcome`, `Outcome` last:
 | `Type` | required | `HITL` or `AFK` | `HITL` needs a human decision or review; `AFK` merges unattended. |
 | `Minted` | required | a day, `YYYY-MM-DD` | the day the ticket was written; its shape is read from it |
 | `Plan` | exactly when an RFC with the ticket's basename exists under `docs/rfc/` or its `done/` | its link resolves to that RFC | plus one clause on what it selected |
-| `Depends on` | optional | every link resolves | blockers, each with a parenthetical naming what it supplies — not a bare link |
+| `Depends on` | optional | every link resolves | only what this work will use and does not exist yet, the parenthetical naming that thing — a decision, a format, a command — never the other ticket's state; that a ticket is still open, or that two touch one file, is no dependency |
 | `Blocks` | optional | every link resolves | only when the blocking relation is itself an argument; carries its `— why` |
 | `Answers` | required | one link to an entry of the question store whose `owner` is this ticket | the question the ticket's goal answers — its *what for*; its open questions sit under that entry, and a child ticket's question under its parent's |
 | one-off fields | optional | every link resolves | `Trigger`, `Related`, `Owning decision` and the like, when the ticket carries that fact |
