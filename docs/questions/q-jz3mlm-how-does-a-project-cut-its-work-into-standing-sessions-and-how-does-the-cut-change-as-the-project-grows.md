@@ -88,3 +88,12 @@ zone was forbidden by nothing, and renaming the sessions by zone made it the cut
 The criterion the person gave there, relayed, put to the person here and not decided in this
 tree: a zone holds one session; a second stands only for a large, long, planned body of work on
 paths of its own; a session whose unit is done is closed, never renamed into the zone.
+
+The same day that tree's harness session relayed more: the person decided there that one session
+to a zone becomes the rule in fimonitor and in core, and asked that the words agree. The words
+the keeper sent, for that tree's local rule now and as a draft for core, not yet confirmed by
+the person here: "A zone has one session; a second stands only for a large, long body of planned
+work on paths of its own. A session whose unit is done concludes; it is not renamed into a zone.
+Zones can outnumber sessions: a session may hold several." *Concludes* is the method's word for
+a session ending — its record written, its row ended; archiving a chat is the host's
+housekeeping. Core has nowhere to carry the rule until the part on standing sessions is built.
