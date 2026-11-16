@@ -349,13 +349,16 @@ person for its role.
 
 - **Хранитель**: core's boundary with the other trees — their updates, what their keepers send
   up, what core carries down — the entry file, the local rules, the rule-failure register and the
-  journal of the way of working.
+  journal of the way of working; and, until a session is cut off for them, how rules are made
+  and how the person is spoken to.
+- **Практика**: the tickets, the maintenance, and the skills of the delivery ring from `/align`
+  to `/verify`.
 - **Продукт**: the product mechanism and `docs/product.md`. Every session sends it what the
   person says of what the project is for, in the person's words, dated.
 - **Хранилище**: the shared state and its coordination — the question store and its push,
   copies that diverge, the links a record's move breaks, where each session stands, what it
   holds and where two collide. A collision that repeats it hands to Хранитель as a rule's failure.
-- **Слияние**: the landing on main. No session holds it yet.
+- **Слияние**: the landing on main. Not opened while every session commits to main itself.
 
 A mechanism no role here names is written by whoever works in it.
 </installed>
