@@ -42,3 +42,14 @@ and never what the project produces, so a zone of the project's own code has no 
 declaration yet; and a role's mechanism in a recipient is the project's own, told from a shipped
 one by a mark that is being built
 ([01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](../tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)).
+
+The first of the two things left unsolved is withdrawn. The user, 2026-11-16, of a role such as
+game-delta's Музыка: "ее скил будет описывать что делает сессия. ее архитектура - в файле
+сессии. ее результат в коде. не вижу противоречия. в нашем дереве механизмы часто производят
+механизмы, но в клиентских деревьях механизмы чаще производят код или записи". The keeper had
+looked for the zone's code among a mechanism's parts, which are what an install adds; the
+format already has the place — *What it produces, and who reads it*: the code and the area's
+architecture file are what the role's mechanism produces, and who reads each is the seam with
+the neighbouring zone. What remains a detail of the plan and no contradiction: an output is
+named there in words today, and the harness can say whose path a file is only where the output
+names its paths.
