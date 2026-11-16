@@ -116,7 +116,7 @@ easily to an agent and to the person wherever it is cited".
 Brought to 6 by this pass, in its own words: the note at decisions 24, 34 and 43 of 01-0011.0100,
 and three comments in `questions.py` and `tickets.py`.
 
-Left to [01-0010.0250.0100 a-questions-id-never-changes](../tickets/01-0010.0250.0100-a-questions-id-never-changes.md):
+Left to [01-0010.0250.0100 a-questions-id-never-changes](../tickets/done/01-0010.0250.0100-a-questions-id-never-changes.md):
 its RFC carries 6 in *What governs it* and *The file* and still plans the name by the id alone in
 *What goes* (the slug budget and `_fitted_slug` leaving, `_files_holding` on `<id>.md`), *The
 migration* steps 3 and 4, and stages 4 and 5, its *Last amended* still 2026-11-09; it names no

@@ -111,7 +111,7 @@ search mentions."*
 listing. Decision 23 of [q-7ebz2f](questions/q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md), 2026-10-30, named the file by its id
 alone, to end renames, and said nothing of what that took away. On 2026-11-09 the premises derived
 anew dropped requirement 1.3's *"A question reads easily to an agent and to the person"*; the plan
-of [01-0010.0250.0100 a-questions-id-never-changes](tickets/01-0010.0250.0100-a-questions-id-never-changes.md)
+of [01-0010.0250.0100 a-questions-id-never-changes](tickets/done/01-0010.0250.0100-a-questions-id-never-changes.md)
 listed the slug's code among what goes; its stage 4 removed the check that cited decision 55, with
 its tests; three fresh reviews read the plan against the code, and one reported the ticket listing
 losing the question's words, which was mended in that listing alone. The person asked on

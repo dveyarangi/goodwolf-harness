@@ -7,11 +7,11 @@
 - **opened** 2026-11-15T18:18:28Z
 - **struck** 0, last 2026-11-15T18:18Z
 
-The residue of [01-0010.0250.0100](../tickets/01-0010.0250.0100-a-questions-id-never-changes.md): its
+The residue of [01-0010.0250.0100](../tickets/done/01-0010.0250.0100-a-questions-id-never-changes.md): its
 stage 6, set apart so the ticket closes without waiting on every tree *(the user, 2026-11-15: "давай
 не будем ждать остальных, продолжаем работу")*. Core reads the dotted form beside the new one
 while a tree of the person's may still hold it, because `migrate_ids.py` reads another tree's store
-through the store's own reader; the stage's work is in [the RFC](../rfc/01-0010.0250.0100-a-questions-id-never-changes.md#stages).
+through the store's own reader; the stage's work is in [the RFC](../rfc/done/01-0010.0250.0100-a-questions-id-never-changes.md#stages).
 
 ## Where the trees stand, 2026-11-15
 
