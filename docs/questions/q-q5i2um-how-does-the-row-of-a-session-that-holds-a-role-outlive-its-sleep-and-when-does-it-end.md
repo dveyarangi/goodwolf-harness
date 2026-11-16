@@ -1,9 +1,10 @@
 # q-q5i2um How does the row of a session that holds a role outlive its sleep, and when does it end?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-jz3mlm
-- **state** open
-- **owner** [01-0100](../tickets/01-0100-a-standing-session-keeps-its-row-while-it-sleeps.md)
+- **state** closed:decided
+- **owner** [01-0100](../tickets/done/01-0100-a-standing-session-keeps-its-row-while-it-sleeps.md)
+- **answer** [01-0100](../tickets/done/01-0100-a-standing-session-keeps-its-row-while-it-sleeps.md) — the user, 2026-11-16
 - **opened** 2026-11-16T20:26:47Z
 - **struck** 0, last 2026-11-16T20:26Z
 

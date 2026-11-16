@@ -226,7 +226,9 @@ history at a8923621.*
     session stands, what it holds, where two collide — and its coordination; the method's — rules,
     the failure register, core and its delivery to other trees — stays the keeper's; a collision
     that repeats is handed to the keeper as a rule's failure *(the user, 2026-11-16: held by the
-    session that built the store's ids, local_641bd2e2)*.
+    session that built the store's ids, local_641bd2e2)*. Narrowed the same day by L13 (75659e76): a mechanism's rules,
+    skills and scripts are the session's whose zone holds it, so the session and question
+    mechanisms' rules are this role's; the keeper keeps the rules no zone's mechanism owns.
 18. **A record's move repairs the links in the questions through the store's writer** *(1.2, 3;
     the user, 2026-11-16)*: the mover finds which links in the store a move breaks — an `owner` or
     `answer` to a ticket going to `done/` — and the writer rewrites and commits them, so the

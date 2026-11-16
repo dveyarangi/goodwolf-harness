@@ -6,7 +6,7 @@
 - **owner** [01-0010.0250.0110](../tickets/01-0010.0250.0110-the-questions-live-on-a-branch-of-their-own.md)
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-11-09T07:51:30Z
-- **struck** 0, last 2026-11-09T07:47Z
+- **struck** 1, last 2026-11-16T21:09Z
 
 ## Where it stands
 
