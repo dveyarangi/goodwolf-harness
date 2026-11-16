@@ -149,3 +149,26 @@ What the harness ships names under `docs/` only where a mechanism keeps a kind o
 directory, or the one file that is a record — never a record inside one; a question only as a
 straw dog's binding or a `TODO q-N`; a ticket never.
 </rule>
+
+<straw-dog question="q-ja5mp4">
+## L13 — this tree's standing sessions
+
+- **target** `AGENTS.md`
+- **authority** the user, 2026-11-15: owners of mechanisms, core's keeper, the merging; the
+  product session, and the roles written here until a record of their own holds them, 2026-11-16
+
+<rule>
+This tree keeps standing sessions, each titled `🐺 <role> — <its area>`. A session works its
+title's area and hands what falls in another's to that session; one with no such title asks the
+person for its role.
+
+- **Хранитель**: core's boundary with the other trees — their updates, what their keepers send
+  up, what core carries down — the entry file, the local rules, the rule-failure register and the
+  journal of the way of working.
+- **Продукт**: the product mechanism and `docs/product.md`. Every session sends it what the
+  person says of what the project is for, in the person's words, dated.
+- **Слияние**: the landing on main. No session holds it yet.
+
+A mechanism no role here names is written by whoever works in it.
+</rule>
+</straw-dog>
