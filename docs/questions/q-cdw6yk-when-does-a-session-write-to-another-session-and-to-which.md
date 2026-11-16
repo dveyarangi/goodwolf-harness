@@ -52,3 +52,33 @@ to say who the receiver is.
    under this question still: a change to a contract others read, told to every reader before it
    lands — the count's candidate 8, left out untried; and which session a message goes to where
    no row names the owner of a file, which waits on the record of who holds which role.
+
+## Three gaps the person found in the landed rule — 2026-11-16
+
+The user, 2026-11-16, of S10 an hour after it landed: "что такое 'session that has ended'? у нас
+иногда ролевые сессии могут спать днями, это тоже их закроет? может надо убедиться что майнтайн и
+никто другой не вытирает ролевую сессию (только когда она на самом деле изменилась или закрылась
+из-за изменения ролей?) и еще как мы избедим ненужной болтовни? надо указать когда не писать
+тоже, наверное?" — and: "и еще не хватает что писать пользователю".
+
+What the code says of the first. A row reads *ended* in two cases the row does not tell apart:
+the session concluded, or nothing was seen of it for three hours, when another session's wake
+writes its row so (`sessions.py`, `SILENT_AFTER`); a row ended for seven days is removed
+(`GONE_AFTER`), and a session that returns after that is registered anew, its position and what
+it held gone. So a session that holds a role and sleeps an afternoon reads *ended*, and S10's
+"never to a session that has ended" would have a neighbour keep from it what it must act on;
+asleep a week, its row is wiped. The count's waste was mail to a session that had *concluded*;
+the rule took the row's word for it, and the trial told its readers that *ended* means not
+running, so it could not catch this.
+
+Of the second: the rule names two things not to send, an acknowledgement and a status nobody
+waits on. The count's largest reason a message was not worth sending is neither — what the
+receiver could read from git or a record without the sender, 37 of 182 — and a broadcast that
+changes nothing for its receiver is a fourth, 12.
+
+Of the third: the rule says nothing of what a session tells its person about a message it sent
+or received. In the count every receiver retold a broadcast rule to its person; in this session
+each note from a neighbour was retold to the person at length.
+
+Put to the person, not landed: S10 reworded on all three; and, told to the session that holds
+the rows, that a row whose session holds a role is neither ended by silence nor removed.
