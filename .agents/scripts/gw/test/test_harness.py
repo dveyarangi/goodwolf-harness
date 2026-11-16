@@ -1213,6 +1213,54 @@ class AnInstall(TwoTrees):
         self.assertEqual([KEEPER], report["gates"]["ref"]["differs"])
         self.assertFalse(report["arrived"])
 
+    def test_a_todo_s_question_id_an_older_installer_left_in_code_is_not_an_edit(self) -> None:
+        noted = ".agents/scripts/gw/noted.py"
+        self.write(noted, "x = 1\n# TODO q-ab2cde: the note stays, its id goes.\n")
+        self.commit("a note bound to a question")
+        self.run_harness("--install")
+        held = self.target / noted
+        self.assertNotIn("q-ab2cde", held.read_text(encoding="utf-8"))
+        # What an installer from before the id's form was known wrote: the line as the origin has it.
+        held.write_bytes((self.source / noted).read_bytes())
+
+        status, report = self.run_harness("--check")
+
+        self.assertEqual([], report["gates"]["ref"]["differs"])
+
+        held.write_bytes((self.source / noted).read_bytes() + b"y = 2\n")
+
+        status, report = self.run_harness("--check")
+
+        self.assertEqual([noted], report["gates"]["ref"]["differs"])
+
+    def test_an_update_takes_such_a_tree_without_overwrite_and_shears_the_id(self) -> None:
+        noted = ".agents/scripts/gw/noted.py"
+        self.write(noted, "x = 1\n# TODO q-ab2cde: the note stays, its id goes.\n")
+        self.commit("a note bound to a question")
+        self.run_harness("--install")
+        held = self.target / noted
+        held.write_bytes((self.source / noted).read_bytes())
+        self.write(KEEPER, f"{KEEPER_NAMES}# Keeper\n\nKeep more things.\n")
+        self.commit("core moved")
+
+        status, report = self.run_harness("--update")
+
+        self.assertEqual([], report["refusals"])
+        self.assertEqual([], report["replaced"])
+        self.assertNotIn("q-ab2cde", held.read_text(encoding="utf-8"))
+
+    def test_a_line_bound_to_two_questions_is_not_an_edit_on_an_untouched_install(self) -> None:
+        # One pass of the shear takes the first id and leaves the second: the shipped file is
+        # no fixed point of it, and the comparison shears both sides alike.
+        noted = ".agents/scripts/gw/noted.py"
+        self.write(noted, "x = 1\n# TODO q-ab2cde q-cd3efg: bound to two questions.\n")
+        self.commit("a note bound to two questions")
+        self.run_harness("--install")
+
+        status, report = self.run_harness("--check")
+
+        self.assertEqual([], report["gates"]["ref"]["differs"])
+
     def test_a_crlf_copy_of_a_shipped_file_is_not_an_edit(self) -> None:
         self.run_harness("--install")
         copy = self.target / KEEPER

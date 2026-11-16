@@ -1037,6 +1037,13 @@ def _differs(target: Path, path: str, shipped: dict[str, str]) -> bool:
         shipped_text = without_repository_line(path, shipped_text)
         text = without_settings_blocks(path, text, shipped)
         shipped_text = without_settings_blocks(path, shipped_text, shipped)
+    elif path.endswith(".py"):
+        # A tree written by an installer older than the ref it installed holds the ids that
+        # installer did not know for ids. Both sides are sheared here, the shipment a second time,
+        # since one pass leaves the second of two ids a line names: lines that differ by a
+        # `TODO`'s question id alone are no edit, and the next write shears them.
+        text = todo_bindings_sheared(text)
+        shipped_text = todo_bindings_sheared(shipped_text)
     return text != shipped_text
 
 
