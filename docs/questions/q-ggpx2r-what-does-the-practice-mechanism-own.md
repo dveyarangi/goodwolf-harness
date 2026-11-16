@@ -8,4 +8,4 @@
 - **rung** development: load-bearing, self-improvement: the method
 - **lean** 2026-10-15: development's autonomy ladder and its change path are this mechanism's, held as straw dogs bound here until it is declared (q-xmk75m)
 - **opened** 2026-10-04T08:19:46Z
-- **struck** 0, last 2026-10-04T07:23Z
+- **struck** 1, last 2026-11-16T15:04Z

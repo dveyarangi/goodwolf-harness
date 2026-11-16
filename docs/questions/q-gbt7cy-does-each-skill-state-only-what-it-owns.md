@@ -8,7 +8,7 @@
 - **rung** development: load-bearing, self-improvement: the method
 - **lean** 2026-10-25: q-l36vii closed — debugging owns what shows the machinery, a pair of rules swapped by the debug setting; the rest of the reply form is the voice's, bound to q-53jkvy
 - **opened** 2026-10-03T11:36:22Z
-- **struck** 2, last 2026-10-25T18:43Z
+- **struck** 3, last 2026-11-16T14:47Z
 
 ## Decisions
 
