@@ -894,6 +894,158 @@ class TheGone(Hooked):
         return said
 
 
+class ANamedRow(Hooked):
+    """A session that holds a role bears its name on its row: a wake neither ends it for silence
+    nor removes it, and a chat that takes the name takes the row with it (the user, 2026-11-16,
+    q-q5i2um)."""
+
+    def rows(self) -> list[str]:
+        return sorted(held.tag for held in sessions.rows(self.root)[0])
+
+    def line(self, tag: str) -> str:
+        return next(line for line in session_lines(self.root).splitlines() if line.startswith(f"{tag} "))
+
+    def start(self, tag: str) -> None:
+        self.hook("claude-code", {"session_id": tag, "hook_event_name": "SessionStart", "source": "startup"})
+
+    def said_to_sessions(self, *argv: str) -> tuple[int, str]:
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out):
+            status = sessions.main(list(argv), root=self.root, now=NOW)
+        return status, out.getvalue()
+
+    def test_a_named_row_silent_for_days_reads_after_a_wake_as_it_did_before(self) -> None:
+        self.write(SESSIONS, "s-keeper running 2026-09-20T10:00Z q-0010 holds q-0010 as Хранилище\n")
+
+        self.start("s-new")
+
+        self.assertEqual("s-keeper running 2026-09-20T10:00Z q-0010 holds q-0010 as Хранилище", self.line("s-keeper"))
+
+    def test_a_named_row_is_not_removed_however_long_it_sleeps(self) -> None:
+        self.write(SESSIONS, "s-keeper running 2026-08-01T10:00Z q-0010 as Хранилище\n")
+
+        self.start("s-new")
+        self.start("s-newer")
+
+        self.assertEqual(["s-keeper", "s-new", "s-newer"], self.rows())
+
+    def test_an_unnamed_row_beside_it_is_still_ended(self) -> None:
+        self.write(SESSIONS, "s-keeper running 2026-09-20T10:00Z q-0010 as Хранилище\ns-other running 2026-09-20T10:00Z q-0010\n")
+
+        self.start("s-new")
+
+        self.assertEqual("s-other ended 2026-09-20T10:00Z q-0010", self.line("s-other"))
+
+    def test_a_session_writes_its_name_on_its_own_row(self) -> None:
+        status, said = self.said_to_sessions("--name", "Хранилище", "--session", "s-alpha")
+
+        self.assertEqual((0, "s-alpha is Хранилище\n"), (status, said))
+        self.assertEqual("s-alpha running 2026-09-29T12:00Z q-0004 q-0002,q-0001 as Хранилище", self.line("s-alpha"))
+
+    def test_a_name_off_a_silent_row_takes_its_position_and_hold_and_ends_it(self) -> None:
+        """A resume under a new id is the same conversation (S6)."""
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004\ns-old running 2026-09-20T10:00Z q-0010 q-0003 holds q-0010 as Хранилище\n")
+
+        status, said = self.said_to_sessions("--name", "Хранилище", "--session", "s-alpha")
+
+        self.assertEqual((0, "s-alpha is Хранилище, taken from s-old\n"), (status, said))
+        self.assertEqual("s-alpha running 2026-09-29T12:00Z q-0010 q-0003 holds q-0010 as Хранилище", self.line("s-alpha"))
+        self.assertEqual("s-old ended 2026-09-29T12:00Z q-0010 q-0003", self.line("s-old"))
+
+    def test_a_name_on_a_row_seen_within_three_hours_does_not_pass(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004\ns-old running 2026-09-29T09:30Z q-0010 as Хранилище\n")
+
+        status, said = self.said_to_sessions("--name", "Хранилище", "--session", "s-alpha")
+
+        self.assertEqual(2, status)
+        self.assertIn("s-old", said)
+        self.assertEqual("s-alpha running 2026-09-29T11:30Z q-0004", self.line("s-alpha"))
+        self.assertEqual("s-old running 2026-09-29T09:30Z q-0010 as Хранилище", self.line("s-old"))
+
+    def test_a_named_row_concluded_is_removed_seven_days_later(self) -> None:
+        self.write(SESSIONS, "s-old ended 2026-09-21T11:00Z q-0010 as Хранилище\n")
+
+        self.start("s-new")
+
+        self.assertNotIn("s-old", self.rows())
+
+    def test_a_name_on_a_row_whose_window_was_drawn_within_three_hours_does_not_pass(self) -> None:
+        """A live session on one question rewrites no row; its windows are its sign of life."""
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004\ns-old running 2026-09-20T10:00Z q-0010 as Хранилище\n")
+        memory = sessions.memory(self.root, "s-old")
+        memory.parent.mkdir(parents=True, exist_ok=True)
+        memory.write_text("drawn", encoding="utf-8")
+        when = (NOW - timedelta(minutes=30)).timestamp()
+        os.utime(memory, (when, when))
+
+        status, said = self.said_to_sessions("--name", "Хранилище", "--session", "s-alpha")
+
+        self.assertEqual(2, status)
+        self.assertIn("s-old", said)
+
+    def test_a_name_on_a_concluded_row_passes_at_once(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004\ns-old ended 2026-09-29T11:00Z q-0010 as Хранилище\n")
+
+        status, _ = self.said_to_sessions("--name", "Хранилище", "--session", "s-alpha")
+
+        self.assertEqual(0, status)
+        self.assertEqual("s-alpha running 2026-09-29T12:00Z q-0010 as Хранилище", self.line("s-alpha"))
+
+    def test_a_unit_of_the_takers_own_is_let_go_for_the_rows_and_said(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 holds q-0004\ns-old running 2026-09-20T10:00Z q-0010 holds q-0010 as Хранилище\n")
+
+        status, said = self.said_to_sessions("--name", "Хранилище", "--session", "s-alpha")
+
+        self.assertEqual(0, status)
+        self.assertIn("let go q-0004", said)
+        self.assertEqual("s-alpha running 2026-09-29T12:00Z q-0010 holds q-0010 as Хранилище", self.line("s-alpha"))
+
+    def test_the_takers_own_unit_stays_where_the_row_held_none(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 holds q-0004\ns-old running 2026-09-20T10:00Z q-0010 taken q-0004 by s-alpha as Хранилище\n")
+
+        self.said_to_sessions("--name", "Хранилище", "--session", "s-alpha")
+
+        self.assertEqual("s-alpha running 2026-09-29T12:00Z q-0010 holds q-0004 as Хранилище", self.line("s-alpha"))
+        self.assertEqual("s-old ended 2026-09-29T12:00Z q-0010 taken q-0004 by s-alpha", self.line("s-old"))
+
+    def test_bearing_the_name_already_writes_nothing(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 as Хранилище\n")
+
+        status, said = self.said_to_sessions("--name", "Хранилище", "--session", "s-alpha")
+
+        self.assertEqual((0, "s-alpha is Хранилище\n"), (status, said))
+        self.assertEqual("s-alpha running 2026-09-29T11:30Z q-0004 as Хранилище", self.line("s-alpha"))
+
+    def test_a_new_name_drops_the_one_borne_before_and_says_so(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 as Практика\n")
+
+        _, said = self.said_to_sessions("--name", "Хранилище", "--session", "s-alpha")
+
+        self.assertEqual("s-alpha is Хранилище, no longer Практика\n", said)
+
+    def test_the_conclude_keeps_the_name_on_the_ended_row(self) -> None:
+        self.said_to_sessions("--name", "Хранилище", "--session", "s-alpha")
+
+        self.said_to_sessions("--end", "--session", "s-alpha")
+
+        self.assertEqual("s-alpha ended 2026-09-29T12:00Z q-0004 q-0002,q-0001 as Хранилище", self.line("s-alpha"))
+
+    def test_check_refuses_one_name_on_two_rows(self) -> None:
+        self.write(SESSIONS, "s-one running 2026-09-29T11:00Z q-0010 as Хранилище\ns-two running 2026-09-29T11:00Z q-0010 as Хранилище\n")
+
+        status, said = self.said_to_sessions("--check")
+
+        self.assertEqual(1, status)
+        self.assertIn("Хранилище", json.dumps(json.loads(said)["diagnostics"], ensure_ascii=False))
+
+    def test_check_passes_a_named_row(self) -> None:
+        self.write(SESSIONS, "s-one running 2026-09-29T11:00Z q-0010 as Хранилище\n")
+
+        status, said = self.said_to_sessions("--check")
+
+        self.assertEqual((0, []), (status, json.loads(said)["diagnostics"]))
+
+
 class TheInstallersLine(unittest.TestCase):
     """What the hooks' wrapper hands the store's hook at a session's start is printed last."""
 

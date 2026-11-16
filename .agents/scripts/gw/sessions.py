@@ -5,13 +5,14 @@
     uv run --offline --no-project python .agents/scripts/gw/sessions.py --hold <q-id> --session <tag>
     uv run --offline --no-project python .agents/scripts/gw/sessions.py --take <q-id> --session <tag>
     uv run --offline --no-project python .agents/scripts/gw/sessions.py --release --session <tag>
+    uv run --offline --no-project python .agents/scripts/gw/sessions.py --name <name> --session <tag>
     uv run --offline --no-project python .agents/scripts/gw/sessions.py --check
 
 A session is one chat of a host with the tree, from its `/recall` to its `/conclude`, known by the
 steadiest id the host gives the chat. Its row is one file under `docs/sessions/rows/`, named by
 its tag and holding one line — its tag, whether it runs, when the row was last written, its
-current question or `-`, up to four recent ones, and the unit it holds or the mark of one taken
-from it. Any session writes any row: the mechanism manages every session from any one of them. A
+current question or `-`, up to four recent ones, the unit it holds or the mark of one taken
+from it, and the name of a session that holds a role. Any session writes any row: the mechanism manages every session from any one of them. A
 store from before keeps its rows under `docs/questions/sessions.d/`, or every row in the single
 file `docs/questions/sessions`; both are carried into the folder at the first write, by links
 that never overwrite.
@@ -23,7 +24,8 @@ load.
 TODO q-hpwq4t: the direction of this dependency, and so these sentences, change
 with its answer — the store may stand without this script, the row on the store.
 `--end` is the conclude's last act; `--hold`, `--take` and `--release` take, take over and let
-go the unit a session works, named by the question it answers; `--check` is the rows' maintainer, format never content.
+go the unit a session works, named by the question it answers; `--name` writes the name of a
+session that holds a role on its row; `--check` is the rows' maintainer, format never content.
 """
 
 from __future__ import annotations
@@ -58,10 +60,12 @@ GONE_AFTER = timedelta(days=7)
 # Where the fingerprint of each session's last window is kept, the session's sign of life; `None`
 # is the machine's temp folder.
 WINDOW_MEMORY: str | None = None
-ROW_FORM = "`<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four] [holds <q-id> | taken <q-id> by <tag>]`"
+# A session's name, as a row holds it: one word, the role's own language's letters included.
+_NAME = r"\w[\w-]*"
+ROW_FORM = "`<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four] [holds <q-id> | taken <q-id> by <tag>] [as <name>]`"
 _USAGE = (
     "usage: sessions.py --end --session <tag> | --hold <q-id> --session <tag> | --take <q-id> --session <tag>"
-    " | --release --session <tag> | --check"
+    " | --release --session <tag> | --name <name> --session <tag> | --check"
 )
 
 
@@ -71,7 +75,8 @@ class Session:
     written, in UTC to the minute. `record` is the file it was read from, for the check to name.
     `holds` is the unit the session holds, by the question the unit answers, or `None`; `taken`
     and `taken_by`, where `holds` would stand, the unit another session took over from it and
-    that session's tag, until this session next holds, releases or ends."""
+    that session's tag, until this session next holds, releases or ends. `name` is the name of a
+    session that holds a role, which keeps its row through any silence (q-q5i2um)."""
 
     tag: str
     running: bool
@@ -83,6 +88,7 @@ class Session:
     holds: str | None = None
     taken: str | None = None
     taken_by: str | None = None
+    name: str | None = None
 
 
 def main(argv: list[str], root: Path, now: datetime | None = None) -> int:
@@ -107,6 +113,11 @@ def main(argv: list[str], root: Path, now: datetime | None = None) -> int:
             holding, holder, let_go = take(root, argv[3], argv[1], index, now)
             print(f"{holding.tag} holds {holding.holds} ({owner_of(index, holding.holds)}), taken from {holder}")
             _say_let_go(index, let_go)
+            return 0
+        if len(argv) == 4 and argv[0] == "--name" and argv[2] == "--session":
+            named, former, let_go, dropped = take_name(root, argv[3], argv[1], now)
+            print(f"{named.tag} is {named.name}" + (f", taken from {former}" if former else "") + (f", no longer {dropped}" if dropped else ""))
+            _say_let_go(_index(root), let_go)
             return 0
         if len(argv) == 3 and argv[:2] == ["--release", "--session"]:
             released = release(root, argv[2], now)
@@ -229,7 +240,7 @@ def _form() -> re.Pattern[str]:
 
     return re.compile(
         rf"^([A-Za-z0-9][\w.-]*) (running|ended) (\d{{4}}-\d{{2}}-\d{{2}})(?:T(\d{{2}}:\d{{2}})Z)? ({_ID}|-)"
-        rf"(?: ({_ID}(?:,{_ID}){{0,3}}))?(?: holds ({_ID})| taken ({_ID}) by ([A-Za-z0-9][\w.-]*))?$"
+        rf"(?: ({_ID}(?:,{_ID}){{0,3}}))?(?: holds ({_ID})| taken ({_ID}) by ([A-Za-z0-9][\w.-]*))?(?: as ({_NAME}))?$"
     )
 
 
@@ -255,6 +266,7 @@ def _row(line: str, number: int) -> Session | None:
         holds=said.group(7),
         taken=said.group(8),
         taken_by=said.group(9),
+        name=said.group(10),
     )
 
 
@@ -267,7 +279,8 @@ def row_line(held_row: Session) -> str:
         unit = f" taken {held_row.taken} by {held_row.taken_by}"
     else:
         unit = ""
-    return f"{held_row.tag} {state} {stamp(held_row.wrote)} {held_row.current or '-'}{recent}{unit}"
+    name = f" as {held_row.name}" if held_row.name else ""
+    return f"{held_row.tag} {state} {stamp(held_row.wrote)} {held_row.current or '-'}{recent}{unit}{name}"
 
 
 def stamp(moment: datetime) -> str:
@@ -282,8 +295,9 @@ def minute(now: datetime) -> datetime:
 def state(held_row: Session) -> str:
     """One session as the wake's read lists it."""
     running = "running" if held_row.running else "ended"
+    name = f" ({held_row.name})" if held_row.name else ""
     recent = f" (recent {', '.join(held_row.recent)})" if held_row.recent else ""
-    return f"{held_row.tag} {running}, last wrote {stamp(held_row.wrote)}, at {held_row.current or 'no position yet'}{recent}"
+    return f"{held_row.tag}{name} {running}, last wrote {stamp(held_row.wrote)}, at {held_row.current or 'no position yet'}{recent}"
 
 
 # --- writing a row ------------------------------------------------------------------------------
@@ -293,7 +307,8 @@ def write_row(root: Path, held_row: Session) -> None:
     """Write one session's row to its own file and touch no other. The line replaces the old in one
     rename, so a reader never meets half a file, and nothing is locked: two writes to one row at
     once leave the later. Besides its own session, a wake ending a silent row, the id
-    migration rewriting the old ids it names and a takeover marking the holder's row write it."""
+    migration rewriting the old ids it names, a takeover marking the holder's row and a chat taking
+    a name ending the row it leaves write it."""
     _write_row_file(folder(root), held_row.tag, row_line(held_row))
 
 
@@ -401,11 +416,12 @@ def arrive(root: Path, tag: str, now: datetime) -> tuple[Session, bool]:
 
 
 def tend(root: Path, now: datetime, waking: str) -> None:
-    """What a wake does to the other sessions' rows, and says nothing of: a running row whose
-    session nothing has seen for `SILENT_AFTER` reads ended, its position kept and its time the
+    """What a wake does to the other sessions' rows, and says nothing of: a running row of a
+    session that bears no name and that nothing has seen for `SILENT_AFTER` reads ended, its position kept and its time the
     moment it was last seen, so the days until it is gone run from the session's end (the user,
     2026-10-10 and 2026-10-22); a row that already read ended for `GONE_AFTER` is removed — ended at
-    this wake, gone at a later one. A running row is never removed.
+    this wake, gone at a later one. A running row is never removed, and a named one is never ended
+    for its silence: a session that holds a role may sleep for days (the user, 2026-11-16, q-q5i2um).
 
     The writes to a row not its own, besides the id migration's: safe because a silent session has no
     write of its own to meet. The session's next message turns an ended row running again; a
@@ -413,6 +429,8 @@ def tend(root: Path, now: datetime, waking: str) -> None:
     """
     for held_row in rows(root)[0]:
         if held_row.tag == waking:
+            continue
+        if held_row.running and held_row.name:
             continue
         if held_row.running:
             seen_at = last_seen(root, held_row)
@@ -511,6 +529,40 @@ def release(root: Path, tag: str, now: datetime) -> Session:
     released = dataclasses.replace(held_row, running=True, wrote=minute(now), holds=None, taken=None, taken_by=None)
     write_row(root, released)
     return released
+
+
+def take_name(root: Path, tag: str, name: str, now: datetime) -> tuple[Session, str | None, str | None, str | None]:
+    """The session writes the name of the role it holds on its row; one name stands on one row, and
+    a name it bore before is dropped. A name another row bears passes to this chat with that row's
+    position and hold, a resume under a new id being the same conversation (S6): a unit this chat
+    held is let go for it, where that row held one, and a mark of one taken from that row stays
+    with the row it leaves, which ends nameless and holding nothing. Says from whom the name was
+    taken, the unit let go and the name dropped. Bearing it already writes nothing. Refused,
+    writing nothing: a name out of the row's form, and a name on a running row seen within
+    `SILENT_AFTER`, so two live chats never share one role (the user, 2026-11-16, q-q5i2um)."""
+    if not re.fullmatch(_NAME, name):
+        _refuse(f"{name!r} is not a name a row can bear: one word of letters, digits, hyphens and underscores")
+    held_row = held(root, tag)
+    if held_row.name == name:
+        return held_row, None, None, None
+    dropped = held_row.name
+    bearer = next((each for each in rows(root)[0] if each.name == name and each.tag != tag), None)
+    if bearer is None:
+        named = dataclasses.replace(held_row, running=True, wrote=minute(now), name=name)
+        write_row(root, named)
+        return named, None, None, dropped
+    seen_at = last_seen(root, bearer)
+    if bearer.running and now - seen_at < SILENT_AFTER:
+        _refuse(f"{name} stands on {bearer.tag}, running and seen at {stamp(seen_at)}; a name passes from a row silent three hours")
+    holds = bearer.holds or held_row.holds
+    let_go = held_row.holds if held_row.holds and held_row.holds != holds else None
+    named = dataclasses.replace(
+        held_row, running=True, wrote=minute(now), current=bearer.current, recent=bearer.recent,
+        holds=holds, taken=None if holds else held_row.taken, taken_by=None if holds else held_row.taken_by, name=name,
+    )
+    write_row(root, named)
+    write_row(root, dataclasses.replace(bearer, running=False, wrote=minute(now), holds=None, name=None))
+    return named, bearer.tag, let_go, dropped
 
 
 def _take_into(root: Path, held_row: Session, unit: str, now: datetime) -> Session:
@@ -624,7 +676,11 @@ def records(root: Path) -> list[str]:
 def check(root: Path, index: dict) -> tuple[list, list, list]:
     """Every row against its form, and against the store: a position naming no entry is a
     diagnostic; a running session whose question closed under it is a finding, shown in that
-    session's next window. A silent session is no finding — the next wake ends it."""
+    session's next window. A silent session is no finding — the next wake ends it, or it bears a
+    name and sleeps. One name borne
+    by two rows is a diagnostic.
+    TODO q-jz3mlm: once the table of which session holds which role exists, a named row the table
+    does not name is reported too."""
     from questions import Diagnostic, Finding  # noqa: PLC0415
 
     sessions, problems, unreadable = rows(root)
@@ -633,6 +689,11 @@ def check(root: Path, index: dict) -> tuple[list, list, list]:
         for held_row in sessions
         for identity in ([held_row.current] if held_row.current else []) + held_row.recent + [unit for unit in (held_row.holds, held_row.taken) if unit]
         if identity not in index
+    ]
+    problems += [
+        Diagnostic(held_row.record, held_row.line, f"{held_row.tag} bears {held_row.name}, which {', '.join(others)} bears too")
+        for held_row in sessions
+        if held_row.name and (others := [other.tag for other in sessions if other.name == held_row.name and other.tag != held_row.tag])
     ]
     findings = [
         Finding(held_row.record, held_row.line, f"{held_row.tag} stands at {held_row.current}, which is closed")

@@ -29,9 +29,11 @@ never repaired, never copied into a record of another kind. It holds:
 Session files live under `docs/sessions/`, named `NNNN-<YYYYMMDD>-<name>` with a constantly incrementing number:
 the session record, tier 2, read by the next session's `/recall` and kept. The session mechanism's
 other record is the row, one file per session under `docs/sessions/rows/`, named by its tag and
-holding `<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four] [holds <q-id> | taken <q-id> by <tag>]`;
+holding `<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four] [holds <q-id> | taken <q-id> by <tag>] [as <name>]`;
 tier 1 through
-the window and the wake's read; gone when it reads ended and its time is seven days or older.
+the window and the wake's read; gone when it reads ended and its time is seven days or older. A
+row bearing a name, a session that holds a role, is not ended by its silence; the conclude keeps
+the name on it, and a chat that takes the name ends the row it leaves.
 The script writes it, never a hand.
 
 The session's unpushed commits are the conclude's to settle, once the ended row is committed, as

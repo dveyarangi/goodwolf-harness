@@ -17,11 +17,13 @@ machinery, not method: a person works by the questions and the steps, never by a
 
 **The row.** Each session keeps one file under `docs/sessions/rows/`, named by its tag, holding
 one line: its tag, whether it runs, when the row was last written, its current question, up to
-four recent ones, and the unit it holds or the mark of one another session took from it. A file per session keeps one write from undoing another's, and nothing is locked *(the user,
+four recent ones, the unit it holds or the mark of one another session took from it, and the name
+of a session that holds a role. A file per session keeps one write from undoing another's, and nothing is locked *(the user,
 2026-10-13)*; the mechanism manages every session from any one of them, so any session writes
 any row through the session script *(the user, 2026-10-25)*.
 Besides its own session's, a row is written by a wake ending a silent session, the id migration
-rewriting the old ids it names, and a takeover, which moves a held unit and leaves the mark of it. A store from before kept the rows under the question store, and before that every
+rewriting the old ids it names, a takeover, which moves a held unit and leaves the mark of it,
+and a chat taking a name another row bears, which ends that row. A store from before kept the rows under the question store, and before that every
 row in one file; each is carried into the folder at the first write, by links that never overwrite,
 and read until then. The row's form and lifetime are declared beside `/conclude`.
 
@@ -29,7 +31,12 @@ and read until then. The row's form and lifetime are declared beside `/conclude`
 finds it and turns it running again with its position kept, and reads the wake; every message is
 a sign of life, kept outside the tree so the committed file does not move with every turn. A
 running row nothing has seen for three hours is ended by the next wake, quietly *(the user,
-2026-10-10)*; the session's next message turns it running again. The conclude writes the session
+2026-10-10)*; the session's next message turns it running again. A session that holds a role
+bears its name on its row, written by the session script's `--name`, one name on one row; no
+silence ends that row and no wake removes it while it runs. A chat that takes the name takes the
+row's position and hold, letting go a unit of its own for it, and the row it leaves ends
+nameless; the name does not pass from a running row seen in the last three hours *(the user,
+2026-11-16)*. The conclude keeps the name on the ended row. The conclude writes the session
 record under `docs/sessions/` and ends the row, its position kept, so a chat the host reopens finds
 where it stopped. A row that reads ended for seven days is removed by a wake, since a reopen rarely
 comes later *(the user, 2026-10-22)*; the wake's read lists running sessions only.
@@ -93,6 +100,7 @@ for this mechanism.
 | a session wakes and reads where the work stands | `.agents/skills/recall/SKILL.md` | |
 | a conversation starts with its recall, and one the host resumes under a new id is the same session | `AGENTS.md` | |
 | a row ended for seven days is removed | `.agents/scripts/gw/sessions.py` | |
+| a session that holds a role names its row, and the name passes with the row | `.agents/scripts/gw/sessions.py` | |
 | rows a wake changed in other sessions' files are committed | `.agents/skills/maintain/SKILL.md` | |
 | a reply shows the sessions it runs beside, under debug | `AGENTS.md` | |
 | a recall re-ranks nothing another running session is on | `.agents/skills/recall/SKILL.md` | |
@@ -170,8 +178,9 @@ Four yes-or-no tests, pre-registered at the align that incepted it:
 
 1. Open a chat, conclude it, reopen it the next day: does the wake say *already registered* and
    draw the window at its last position?
-2. Leave a chat silent four hours and open another: does the first's row read ended, and the
-   second's wake say nothing of it?
+2. Leave a chat that bears no name silent four hours and open another: does the first's row read
+   ended, and the second's wake say nothing of it? One that bears a name: does its row read as it
+   did?
 3. Eight days after a chat ended, open another: is the first's row gone, and the wake's list of
    sessions free of it?
 4. Change a rule in the rules file and re-install: does the target's block change and nothing else

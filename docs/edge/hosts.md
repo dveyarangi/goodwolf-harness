@@ -108,7 +108,7 @@ Each sidecar names its own parts.
 8. **Helper** — a helper agent spawned in a session registers no session of its own and leaves the
    session's window as it was: the session's next message carries what it would have without it.
 9. **Silence** — a row silent three hours is ended by the next wake, and one message turns it
-   running again.
+   running again; a row bearing the name of a session that holds a role is not ended by silence.
 10. **Offline tests** — the host's hook cases and its merge are in the test files the integration
     names, and pass in the verification set.
 11. **Resume** — a conversation closed and reopened in the host keeps its session: the sessions
