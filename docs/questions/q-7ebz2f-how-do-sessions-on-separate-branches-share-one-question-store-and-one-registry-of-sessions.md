@@ -221,8 +221,12 @@ history at a8923621.*
     judgement — watches the store and its push, brings diverging copies together and shows the
     person what the rules leave, repairs links a move breaks, makes a worktree's link, and
     coordinates the sessions. When the process comes, its mechanical part goes into code and the
-    session keeps the coordinating. Which session holds the role is open. Not: every write sent to
-    that session as a message, which no step of every session could wait on.
+    session keeps the coordinating. Not: every write sent to that session as a message, which no
+    step of every session could wait on. The role is the shared state's — the questions, where each
+    session stands, what it holds, where two collide — and its coordination; the method's — rules,
+    the failure register, core and its delivery to other trees — stays the keeper's; a collision
+    that repeats is handed to the keeper as a rule's failure *(the user, 2026-11-16: held by the
+    session that built the store's ids, local_641bd2e2)*.
 18. **A record's move repairs the links in the questions through the store's writer** *(1.2, 3;
     the user, 2026-11-16)*: the mover finds which links in the store a move breaks — an `owner` or
     `answer` to a ticket going to `done/` — and the writer rewrites and commits them, so the
