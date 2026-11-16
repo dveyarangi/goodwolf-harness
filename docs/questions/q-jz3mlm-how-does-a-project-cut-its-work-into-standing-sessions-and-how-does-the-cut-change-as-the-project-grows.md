@@ -57,3 +57,10 @@ roles a project composes for itself, with how it composes them.
    sessions and its skill are held here with the store's role, and in a tree that installed the
    harness by the session that holds the harness. A shift has two sizes: a role passes whole to
    another session, no path moving; or paths pass from one role to another.
+4. **Which session holds which role is recorded, as the tree's own settings with defaults** — the
+   user, 2026-11-16: "кто-то должен знать как механизмы/роли распределены по сессиям, это таки
+   да должно быть записано. например у нас стая записана хранилищу, у клиента - если он решил
+   подключить - в сессии харнес. это локальные настройки с дефолтами". Core ships the default,
+   a tree's own answer replaces it. In this tree the cut into sessions and its skill are held
+   with the store; in a tree that installed the harness and took that part, by the session that
+   holds the harness.

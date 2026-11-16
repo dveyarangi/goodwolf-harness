@@ -53,3 +53,12 @@ architecture file are what the role's mechanism produces, and who reads each is 
 the neighbouring zone. What remains a detail of the plan and no contradiction: an output is
 named there in words today, and the harness can say whose path a file is only where the output
 names its paths.
+
+## Decisions
+
+1. **Every role has a mechanism of its own** — the user, 2026-11-16: "да, у каждой роли свой
+   механизм". The role's skill is its brief, its mechanism's parts and what it produces are its
+   zone, and who reads what it produces are its seams. A record of the roles' maps and briefs
+   apart from the mechanisms is not kept. What is kept apart is which session holds which —
+   [q-jz3mlm](q-jz3mlm-how-does-a-project-cut-its-work-into-standing-sessions-and-how-does-the-cut-change-as-the-project-grows.md),
+   decision 4.
