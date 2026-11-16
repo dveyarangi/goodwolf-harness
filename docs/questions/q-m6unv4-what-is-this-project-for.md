@@ -309,6 +309,15 @@ person's words where they said it, with where it stands.
   хватает".
 - *Process became product*, xuanxue-workshop's own `/advise`, 2026-11: tier 1 about 14 KB, most
   skills "Mechanism: not yet" — an outside reading, not the person's words.
+- *A generic ring, the practice swapped in*, 2026-11-16, sent by the practice session: "вообще идея
+  была такая - харнес позволяет сконструировать генерное кольцо. в нем например /plan это скил
+  который нужен во первых не только для кодинга, а во вторых в нем может быть разная практика. как
+  и у имплементации и верификации. так вот форму кольца я думал что у нас называется методом, а
+  наполнение - отдельныхй механизм который инжектит в генерные элементы кольца конкретную
+  локальную практику - например tdd - собственно практикой". Not yet a decision: held as an align
+  on q-ggpx2r. The product side: *What it is for* already names a method of one's own built on
+  the harness; this would say the ring serves work beyond coding and its practice is the
+  project's own.
 
 **How a complaint is read** *(the user, 2026-11-16)*: "непонятно было бы лучше без харнесс )) я
 считаю что нет, он держит линию хотябы. оптимальность это не только про вес. и не всякая жалоба
