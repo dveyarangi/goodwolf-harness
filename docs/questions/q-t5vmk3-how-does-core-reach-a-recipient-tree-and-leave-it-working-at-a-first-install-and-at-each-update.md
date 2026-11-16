@@ -100,3 +100,12 @@ migrated; the session that ran the migrations passed up what each met.
   same ref included, and the injector re-render it: the outcome is right and the report names a
   file nothing changed in. Whether a copy already holds what ships is not yet read the way the
   comparison is.
+- **Met once, mended there by hand.** xuanxue-workshop, updated to `b1c55c76` on 2026-11-15,
+  kept its debugging in a local rule written before settings existed — a rule's prose saying
+  `debug=on`. The settings read only the local file's table, so the update left the tree at the
+  default, off, with nothing said; its ref gate then read the entry file as edited, the fault
+  mended since, until `--set debug=on` was run. Of the trees on this machine it alone held the
+  old form; the rest hold the table or set nothing. No change is proposed while it stays one
+  tree. The same tree met the refusal of `--from` by a folder's name, and went around it and
+  the long names under `docs/cases` at once by cloning without a checkout into a folder named
+  as the repository is.
