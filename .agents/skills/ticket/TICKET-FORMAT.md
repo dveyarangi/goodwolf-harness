@@ -147,7 +147,7 @@ one-off field anywhere before `Outcome`, `Outcome` last:
   done; one names `/verify`. Provisional criteria say so in the heading, after
   a dash, and are firmed in place at the align.
 - `Out of scope` — what a reader expects and won't find, each with its actual
-  home.
+  home; and each criterion the person set aside.
 
 A ticket holds the four sections named above and nothing else; its
 `Acceptance criteria` holds checkbox lines, their continuations and blank
@@ -164,6 +164,9 @@ lines, nothing else.
   all children land.
 - Check a box only for work that satisfied it; a criterion satisfied early is
   checked with a date.
+- A criterion the person sets aside leaves the list for `Out of scope`, with
+  who set it aside, the date and what it leaves unconfirmed; the ticket
+  closes on the rest.
 <straw-dog question="q-7rmmpw">
 - A criterion on live behaviour names its judge as a role — someone who did not
   build it — never the person, unless what it asks is their own judgement. A
