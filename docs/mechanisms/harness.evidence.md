@@ -100,6 +100,22 @@ After the four: five seconds, 65 files, three gates.
   normalises line endings before it reads the blocks; a test holds a CRLF and a mixed copy. A
   refusal there still reads as an edit in core rather than naming its cause.
 
+## A local mechanism stays where it was made, 2026-11-16
+
+- **Everything under the core directory ships.** The manifest was the core directory whole, so
+  an origin could hold no mechanism of its own without shipping it, and a recipient's was told
+  from core's only by its absence from a manifest the tree does not keep. The declaration now
+  names its owner, and a `local` one leaves the shipment with its directory, the folders of its
+  skills, its parts and the blocks it installed
+  ([01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](../tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)).
+- **Halting the run on a local mechanism** was weighed and refused: an origin that may hold one
+  must still ship. The run halts only where a declaration that ships names a file left behind,
+  which would arrive pointing at nothing.
+- **The update was left alone.** It tells a recipient's own block by a rules file standing in
+  the tree and never shipped, and its own files by their absence from the manifest; both hold
+  for a tree that has not named an owner yet. What changes for such a tree is its gate: the
+  shape check says its own mechanism names no owner until one line is written.
+
 ## The prior corpus
 
 One copy of core existed outside this repository before the mechanism did: frost_map, installed

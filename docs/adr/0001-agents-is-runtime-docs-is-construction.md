@@ -7,6 +7,10 @@ the scripts — and travels; `docs/` holds what is read while *building* the har
 tickets, RFCs, evidence, sessions — and is replaced whole by a recipient. A recipient needs the
 harness's output, not the record of its construction.
 
+**Amended 2026-11-16** *(the user, decision 1 of [q-dsxyi5](../questions/q-dsxyi5-where-does-a-recipient-declare-its-own-mechanisms.md))*: what travels is
+core — under `.agents/`, everything but the mechanisms a tree declares `local`, which are the
+project's own and stay where they were made, with their skills and their parts.
+
 ## Considered options
 
 **A core architecture document, `.agents/architecture.md`, travelling with the scripts it describes.**

@@ -37,4 +37,6 @@ no skill that says `not yet`, nothing sheared arrives on a skill, the recipient'
 skill's line left to excuse, and a skill of the tree's own is named by a mechanism the tree
 declares and marks as its own. That waits on core's sixteen, which are that question's. Until
 then the bare line passes. The pass on a moment's row is untouched: shipped declarations keep
-their `not yet` rows, sheared. What the shear cannot have left is refusable now, as above.
+their `not yet` rows, sheared. What the shear cannot have left is refused since
+[01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](../tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md):
+the first part is answered, and the bare line is what this question still asks.

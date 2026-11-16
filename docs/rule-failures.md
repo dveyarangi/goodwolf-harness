@@ -91,10 +91,13 @@ second, a rewording of R6 with a check behind it: `unowned by design` is for a s
 no record and runs no script, and the shape check refuses it on a skill whose folder holds a
 script.
 
-**Disposition:** open — the recipient holds the first by its own commit gate meanwhile, and it
-is routed to the work on the mark. The second landed 2026-11-16, stronger than proposed, on the
-person's word — "no unowned by design ever. must be owned": the claim left R6, and the shape
-check refuses it on any skill.
+**Disposition:** closed 2026-11-16 — both amendments landed. The first with the owner of a
+mechanism
+([01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)):
+the shape check holds every declared part to its claim wherever it stands, the scripts' folder
+or outside the core directory. The second the same day, stronger than proposed, on the person's
+word — "no unowned by design ever. must be owned": the claim left R6, and the shape check
+refuses it on any skill.
 
 ## A question's whole left out a reason the person had given in a question under it — 2026-11-15
 

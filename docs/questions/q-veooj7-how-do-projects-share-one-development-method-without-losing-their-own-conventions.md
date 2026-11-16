@@ -8,7 +8,7 @@
 - **rung** development: a product slice, self-improvement: the method
 - **lean** the user, 2026-10-11: research-harness, the first recipient with a method of its own, stands on five things open here — q-dsxyi5, 01-0020, 01-0017.0020, mechanisms from a second repository (no question yet), q-6ezmbo; its architecture read as this queue's order, the reordering the user's
 - **opened** 2026-10-03T10:07:55Z
-- **struck** 2, last 2026-10-11T20:40Z
+- **struck** 3, last 2026-11-16T15:27Z
 
 ## The first recipient with a method of its own, 2026-10-11
 

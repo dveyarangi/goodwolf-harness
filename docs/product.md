@@ -219,7 +219,6 @@ Its open parts:
 - <straw-dog question="q-n3pc22">An install meets an existing `CLAUDE.md` or `AGENTS.md` by moving it aside, in one mode only.</straw-dog>
 - <straw-dog question="q-g63szs">An install does not draft an architecture and glossary from the project's code.</straw-dog>
 - <straw-dog question="q-id2wgu">An install does not find what the project exists to solve, or the answers it has already built into its docs and code.</straw-dog>
-- <straw-dog question="q-dsxyi5">A project's own mechanisms have no declared home, so they are not checked like the shipped ones.</straw-dog>
 - <straw-dog question="q-j2ryiq">An update does not say what changed or what the project has to do about it.</straw-dog>
 - <straw-dog question="q-qclm3z">A harness failure found in a project does not reach the harness.</straw-dog>
 - <straw-dog question="q-hgzz3s">An improvement a project makes to the harness does not reach it either.</straw-dog>

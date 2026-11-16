@@ -1,9 +1,10 @@
 # q-dsxyi5 Where does a recipient declare its own mechanisms?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-veooj7
-- **state** open
+- **state** closed:decided
 - **owner** [01-0010.0260](../tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)
+- **answer** [the format's header bullets](../../.agents/skills/mechanism/MECHANISM-FORMAT.md#header-bullets) — the user, 2026-11-15, the bullet's words 2026-11-16
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-10-13T14:38:26Z
 - **struck** 1, last 2026-11-16T12:54Z
@@ -41,8 +42,9 @@ keeps no manifest, so the check cannot know what shipped. Ways seen:
    the user, 2026-11-15, on the keeper's recommendation ("по твоей рекоммендации все остальное"):
    its parts are found by the claim each carries on its first line; what a marked mechanism names
    under `docs/` is the project's and no leak; the same mark keeps an origin's own mechanism from
-   shipping. Its home is the mechanism shape's format and the shape check, work not done; until
-   it lands a recipient names its records through a local rule.
+   shipping. The mark's words are the user's, 2026-11-16: a required header bullet, `owner`,
+   `core` or `local` — "а почему не просто local", "можно добавить KV", "да, или owner core".
+   → [the format's header bullets](../../.agents/skills/mechanism/MECHANISM-FORMAT.md#header-bullets)
 
 ## What the recipient met next — 2026-11-15
 

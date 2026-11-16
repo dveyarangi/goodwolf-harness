@@ -514,3 +514,38 @@ the tree's own, since the exemption written for the lines core ships sheared can
 shipped skill from the tree's. It goes with the mark that tells a project's own mechanism from a
 shipped one
 ([01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](../tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)).
+
+## A mechanism names its owner — 2026-11-16
+
+A recipient, game-delta, declared a mechanism of its own; the update kept it, and the shape check
+read every file of it as core's, so its doc and skill naming the project's own records were
+leaks, and the recipient moved its pointers into a local rule to pass
+([01-0010.0260 a-projects-own-mechanism-is-told-from-a-shipped-one](../tickets/01-0010.0260-a-projects-own-mechanism-is-told-from-a-shipped-one.md)).
+The tree keeps no manifest, so the check could not know what shipped.
+
+Refused on the way to the bullet:
+
+- **A list of the project's mechanisms in its local rules file** — a second home for what the
+  declaration already is.
+- **The painted doors read from every declaration** — that opens a directory or one file, never
+  a particular record, and a mechanism that travels nowhere has no reason to be held to it.
+- **`belongs to` with `the project` as its one value**, then **the bare word `local`** — the
+  person, 2026-11-16: the method already says `local` for what is the project's own, and a
+  header bullet is a name and its value. `scope` as the name was refused for a word an open
+  question is still settling.
+- **Absent meaning core's** — the same day the person had every skill owned; a declaration that
+  names no owner is told the line to write. A recipient's own mechanism declared before the
+  bullet therefore fails its next update's gate until one line is added.
+
+What the check now holds, and what it does not. A file is a local mechanism's by its place or by
+its claim, never by the declaration's word alone: a row naming a file of core's would otherwise
+excuse it. A declared part outside the core directory is held to its claim for the first time;
+the formats that carry none are a list in the check, and a format the list lacks is held and
+fails. In a recipient the pass on an unbound `not yet` is narrowed to what the shear leaves, the
+kind alone; the bare line on a skill of the tree's own still passes, since a skill claiming
+`not yet` belongs to no mechanism and the owner does not reach it.
+
+Refuted by the judge's reading, the same day, each mended: sorting a citation by the citing file
+alone left a local mechanism's own rule, installed into a core skill, a leak; a part of a local
+mechanism in another skill's folder shipped unseen; a bound claim with a reason passed at the
+origin and failed sheared; *a file that is not text carries none* was written and not built.
