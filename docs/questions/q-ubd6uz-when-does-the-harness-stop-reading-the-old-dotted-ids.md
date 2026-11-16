@@ -13,13 +13,14 @@ stage 6, set apart so the ticket closes without waiting on every tree *(the user
 while a tree of the person's may still hold it, because `migrate_ids.py` reads another tree's store
 through the store's own reader; the stage's work is in [the RFC](../rfc/done/01-0010.0250.0100-a-questions-id-never-changes.md#stages).
 
-## Where the trees stand, 2026-11-15
+## Where the trees stand, 2026-11-16
 
-- Migrated: this tree, game-delta, research-harness, codename_japaka, game-gamma, jobs; each found
-  a gap the script then closed.
+- Migrated: this tree, game-delta, research-harness, codename_japaka, game-gamma, jobs,
+  xuanxue-workshop (6dfb691, 2026-11-16); each found a gap the script then closed or the keeper
+  took.
 - Waiting, the note `HARNESS-MIGRATION.md` left at their root: frost_map and
   DriftSense/workspace/agents, each with a core update left uncommitted to sort out with the person
-  first; xuanxue-workshop, whose session has not started on it.
+  first.
 - Not migrated, by the person's word: studies, reinstalled for each test of the install; ai-game-1
   and game_beta; meteoscape, whose install was reverted on 2026-10-15.
 
@@ -34,5 +35,9 @@ Found by the verification of 01-0010.0250.0100, 2026-11-15:
   unless the lookup moves ahead of the pattern, in `_question_id` and in `--hold`/`--take`.
 - The dotted half of `QUESTION_ID` has no closing lookahead: `q-2345ab7` reads as the dotted
   `q-2345`. It leaves with the dotted half; the all-digit test comes in then.
+- A dry run counts every file naming an old id as one it would rewrite, more than a run rewrites
+  where ids stand only in fences, and it names neither what the mover leaves nor what then
+  resolves to nothing; xuanxue-workshop met both, a dry run of 157 against a run of 82. The mover
+  repairs a link to a moved entry in every record, a folder given to `--leave` included.
 - The table of former ids stays: history is read through it for good. What leaves is reading the
   old form in the store, its `done/` and the `TODO`s bound here.

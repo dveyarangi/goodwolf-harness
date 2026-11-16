@@ -439,7 +439,9 @@ def _first_added(root: Path, record: str) -> datetime | None:
 
 def _report(migrated: Migrated, dry_run: bool) -> None:
     verb = "would move" if dry_run else "moved"
-    print(f"{verb} {len(migrated.moved)} entries; {'would rewrite' if dry_run else 'rewrote'} {len(migrated.rewritten)} files")
+    print(f"{verb} {len(migrated.moved)} entries; {'would touch at most' if dry_run else 'rewrote'} {len(migrated.rewritten)} files")
+    if dry_run:
+        print("a dry run names no mention the mover would leave and no link left resolving to nothing: the run does")
     for mention in migrated.unrepaired:
         print(f"left as written: {mention}")
     for line in migrated.fenced:
