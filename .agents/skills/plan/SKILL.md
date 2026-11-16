@@ -31,8 +31,7 @@ Mechanism: delivery
   the RFC.
 
 - Establish implementation scope, pinpoint and mention affected boundaries,
-  contracts, ownership. Present main code shapes - especially ones that
-  represent documented boundaries. Present code flows.
+  contracts, ownership.
 
 - Detect implementation challenges and use [/align](../align/SKILL.md) to
   resolve them with the user.
@@ -61,8 +60,8 @@ Mechanism: delivery
   boundary or interface, ownership, failure semantics, compatibility,
   migration, or another non-local constraint. State the shaping fact with a
   reference to its durable owner; never rely on session context. Leave
-  reversible implementation-local choices to `/tdd` and `/implement` unless
-  they become load-bearing.
+  reversible implementation-local choices to `/implement` unless they become
+  load-bearing.
 
 - The RFC (original or amended) must not describe load-bearing architecture
   absent from the architecture docs — land the decision in the docs first
@@ -72,10 +71,7 @@ Mechanism: delivery
   landed there as its invariant and its pointer: the reasons stay with the
   decision that holds them, and what a mechanism or a script owns stays there.
 
-- Describe the implementation stages; allocate them according to `/tdd`
-  rules. Look at stages to make sure each of them keeps the tests green; in
-  case that would take too much temporary effort, allow red, note about test
-  status and compact reason for it.
+- Describe the implementation stages.
 
 - Map out scope-specific limitations, follow-ups and related out-of-scope
   concerns.
@@ -86,17 +82,11 @@ Mechanism: delivery
 
 - Any wrinkle against architecture should be resolved; when solution is not
   found or following first-principles makes the code weird - align with user.
-  Architecture must lead code shape even if code disagrees. Do not expose
-  public methods or create flows that are not in architecture.
+  Architecture must lead code shape even if code disagrees.
 
 - Each choice the RFC takes names the line of the governing question's accepted
   `Where it stands` it keeps; a choice that keeps none, or crosses one, goes to
   `/align` before it is planned.
-
-- If planned code includes a temporary solution that is dissolved by future
-  development, add RFC instruction to append TODO comment to code that flags
-  this. Otherwise code changes can start relying or considering the temporal
-  code, which can be hard to disentangle later.
 
 - Repeated invocations are validation passes over the same RFC. Re-read
   the ticket, RFC, durable docs, and relevant code; challenge the plan against
@@ -110,8 +100,6 @@ Mechanism: delivery
 - Validate the RFC adversarially on every pass:
   - Probe each boundary and stage with counterexamples, including empty, partial,
     faulting, and raced outcomes where relevant.
-  - Make every planned test prove the intended behavior and failure reason, not
-    merely that the path succeeds or raises.
   - Separate sourced facts and existing invariants from assumptions; verify
     facts in code or authoritative sources and surface load-bearing assumptions
     for `/align`.
@@ -130,12 +118,6 @@ Mechanism: delivery
   carved in stone, they can have real contradictions or inconsistencies that cause
   it. Look into the core reasons and `/align` on them again if needed.
 
-- Overall, always consider future development and potential code reuse when
-  selecting code shapes.
-
-- Cover migrations, compatibility, rollout, failure handling, and observability
-  when relevant.
-
 - Record the plan as an RFC; its name and home are installed below.
 
 - RFC header: H1 is the ticket's title plus ` — implementation plan`; then
@@ -143,8 +125,6 @@ Mechanism: delivery
   `what happened` at close; then `**Authored:** YYYY-MM-DD`, and `**Last amended:** YYYY-MM-DD` once a later
   pass changes the plan; then one line stating what it implements, linking the
   ticket.
-
-- DO NOT CHANGE THE CODE!
 
 ## Installed from other mechanisms
 
@@ -159,4 +139,31 @@ moves to `docs/rfc/done/` with the ticket.
 now. A refusal naming another running session stops the step: say whose the unit is, and do
 nothing on it. A refusal saying the question is no unit leaves the step to go on, holding
 nothing.
+</installed>
+
+<installed by="practice">
+**T1** Present main code shapes - especially ones that represent documented boundaries. Present code
+flows.
+
+**T2** Allocate the implementation stages according to `/tdd` rules. Look at stages to make sure each of
+them keeps the tests green; in case that would take too much temporary effort, allow red, note
+about test status and compact reason for it.
+
+**T18** Leave reversible implementation-local choices to `/tdd` as well as to `/implement`, unless they
+become load-bearing.
+
+**T3** On every adversarial validation pass over the RFC, make every planned test prove the intended
+behavior and failure reason, not merely that the path succeeds or raises.
+
+**T4** Do not expose public methods or create flows that are not in architecture.
+
+**T5** If planned code includes a temporary solution that is dissolved by future development, add RFC
+instruction to append TODO comment to code that flags this. Otherwise code changes can start
+relying or considering the temporal code, which can be hard to disentangle later.
+
+**T6** Overall, always consider future development and potential code reuse when selecting code shapes.
+
+**T7** Cover migrations, compatibility, rollout, failure handling, and observability when relevant.
+
+**T8** DO NOT CHANGE THE CODE!
 </installed>

@@ -31,6 +31,18 @@ removed. An extension observed live in this work has what was seen written in it
 not only in the ticket or the session record.
 </installed>
 
+<installed by="practice">
+**T15** Checking named validators: a promise about something that already exists — a recipient's tree, a stored record — is asserted
+only by a fixture built the way that thing came to be: one the code under test made cannot hold a
+shape that code now refuses, or lack a file that code now ships.
+
+**T16** Docstrings say what their own unit does. Apply `/improve-comments` to comments in scope and check
+that TODO tags still describe something pending.
+
+**T17** Read the pointers in the slice's code: each names, word for word, a heading or a bold lead that
+the record it points into holds. One that does not is a finding.
+</installed>
+
 ## The verification set
 
 The project's verification set is its typechecker, its tests and every other command required
@@ -80,9 +92,6 @@ uv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/
   contradiction by weakening the rule.
 - Check named validators still exist and still assert the promise they were named for.
   A missing or drifted validator is a finding, as is an unguarded normative promise.
-  A promise about something that already exists — a recipient's tree, a stored record — is
-  asserted only by a fixture built the way that thing came to be: one the code under test
-  made cannot hold a shape that code now refuses, or lack a file that code now ships.
 - Sweep the question store, `docs/questions/`, for entries in scope: a question the
   implementation has since answered closes with a pointer to its owning record, and a dead
   trigger retires.
@@ -109,14 +118,6 @@ Discrepancies:
   criteria to make a violation disappear.
 
 A missing RFC is not a defect of this skill when the ticket has none.
-
-- Docstrings say what their own unit does. Apply
-  [/improve-comments](../improve-comments/SKILL.md) to comments in scope and check
-  that TODO tags still describe something pending.
-<straw-dog question="q-dagpe4">
-- Read the pointers in the slice's code: each names, word for word, a heading or a bold lead that
-  the record it points into holds. One that does not is a finding.
-</straw-dog>
 
 
 Apply `/plan` rules that help this review. Do not start a whole-tree

@@ -21,8 +21,6 @@ with an outcome and criteria; a step's own text holds for any of them. How a pro
 writes its tests, its code and its comments, and documents its architecture, is its practice — a
 mechanism of its own that reaches the steps as installed text, so a project changes how it builds
 without editing a step *(the user, 2026-11-16)*.
-<straw-dog question="q-dagpe4">Until the practice is declared, its rules still stand in the steps'
-bodies, chiefly `/implement`'s, and are read there.</straw-dog>
 
 **What the ring uses and does not own.** Slicing work into units opens the ring, and it and the
 unit's record are the ticket mechanism's. Bringing a decision to the person, tracing a change's
@@ -90,9 +88,10 @@ Nothing else. The work itself is the project's, not a record of this mechanism.
 
 ## Not yet at the shape
 
-<straw-dog question="q-dagpe4">**The steps still carry practice.** What is true of code alone —
-tests written first, code read as a story, comments and their pointers, a plan's stages kept
-green — stands in their bodies and leaves for the practice's rules file.</straw-dog>
+<straw-dog question="q-ggpx2r">**The steps still say *code* where they mean the work** — `/implement`'s
+description, *architecture must lead code shape* in `/plan`, *documents against code* in
+`/verify`. Each holds for any unit read so; a word for the work that is not code is not
+settled.</straw-dog>
 
 <straw-dog question="q-hrfk7l">**Its text is in the entry file**, authored by hand; it has no rules
 file yet.</straw-dog>

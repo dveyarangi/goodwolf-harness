@@ -1,7 +1,7 @@
 # q-jj43i2 How does core code name the architecture rule it follows, when core may not cite a record under docs/?
 
 - **record of** what it intends to become
-- **part of** q-dagpe4
+- **part of** q-qmq6ty
 - **state** open
 - **rung** development: load-bearing, self-improvement: a rule
 - **opened** 2026-10-13T08:51:57Z

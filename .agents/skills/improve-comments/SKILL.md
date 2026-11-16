@@ -3,7 +3,7 @@ name: improve-comments
 description: Use when writing or reviewing comments and docstrings in code.
 ---
 
-<straw-dog question="q-n72el6">Mechanism: not yet</straw-dog>
+Mechanism: practice
 
 
 # Comment Guide for LLM-Generated Code
