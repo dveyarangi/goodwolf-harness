@@ -66,3 +66,35 @@ seen to fail as the recipient's run did:
 
 The third — the tree's own older script refusing a newer ref — is
 [q-t4q6fi](q-t4q6fi-which-copy-of-the-script-runs-an-update-the-trees-own-or-the-incoming-refs.md).
+
+## The migrations of 2026-11-15 — what the migrated trees met
+
+research-harness, codename_japaka and game-gamma took core at `b1c55c76` while their ids were
+migrated; the session that ran the migrations passed up what each met.
+
+- **Mended.** A tree whose settings differ from the origin's read as edited in core. The entry
+  file ships holding each mechanism's block as the origin's settings rendered it, the tree's
+  installer renders the same rules under its own, and the comparison with the ref read the
+  difference as an edit: a check said *not arrived* after a clean update, and an update asked
+  for `--overwrite`. The comparison now sets such a block aside on both sides; whether it is the
+  one the settings call for stays the injector's gate. Proved on game-gamma, debugging off: the
+  check passes.
+- **Mended.** The front page ships as written and lands beside the harness skill, where its six
+  links written from the origin's root resolved to nothing. They are whole addresses now, and a
+  test holds the page to it.
+- **Open.** `--from` naming a clone on disk whose folder is not the repository's name is refused
+  — "the tree announces goodwolf-harness; --from names agents" — so no tree updates from this
+  clone by `--from`; a run with no `--from` takes the tree's own source and passes.
+- **Open.** The citation reader takes `s[k,i→j](t)` inside an indented code block for a link:
+  noise in a migration's report so far, a refusal once a check meets it.
+- **Open.** A plain clone of the origin fails on Windows with long paths off, on the names under
+  `docs/cases/*/source-artifacts`. The installer's own clone checks nothing out and is not
+  touched by it.
+- **Open.** A first install from the origin's head ends *not arrived* on the shape check —
+  "debugging: local.rules.md does not resolve" — in a tree that has no local file yet. Met by
+  the judge of the mended comparison in a scratch recipient, before and after the mend; not yet
+  traced.
+- **Open.** A tree under its own setting has its entry file written again at every update, the
+  same ref included, and the injector re-render it: the outcome is right and the report names a
+  file nothing changed in. Whether a copy already holds what ships is not yet read the way the
+  comparison is.

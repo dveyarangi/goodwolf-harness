@@ -906,7 +906,7 @@ def _planned(
                 # place first; a matching block then moves by retraction and an install.
                 raise Refused("the block stands outside its anchor's section; retract it, then install")
             return {"target": target, "state": "present"}, None
-        if _differs_by_settings_alone(found.text, rules, place.rows):
+        if differs_by_settings_alone(found.text, rules, place.rows):
             replaced = text[: found.start] + rendered + text[found.end:]
             return {"target": target, "state": "re-rendered", "replaced": found.text}, replaced
         if not overwrite:
@@ -926,11 +926,16 @@ def _planned(
     return {"target": target, "state": "retracted"}, without_block(text, found)
 
 
-def _differs_by_settings_alone(found: str, rules: RulesFile, rows: tuple[str, ...]) -> bool:
+def differs_by_settings_alone(found: str, rules: RulesFile, rows: tuple[str, ...]) -> bool:
     """A block holding nothing but paragraphs of this file's own rules for this target, unedited:
     which of them it holds is the settings' doing, not an edit's nor an amendment's, so it is
     re-rendered without being asked."""
-    inside = found.replace("\r\n", "\n").split("\n", 1)[1].rsplit("\n", 1)[0]
+    lines = found.replace("\r\n", "\n").split("\n")
+    # Each tag alone on its line, as the installer writes a block: words sharing a tag's line are
+    # somebody's own, and a block holding them is edited.
+    if len(lines) < 3 or lines[0] != f'<installed by="{rules.slug}">' or lines[-1] != INSTALLED_CLOSING:
+        return False
+    inside = "\n".join(lines[1:-1])
     # Both sides normalised, as `matches` normalises them: a rules file kept in CRLF renders
     # bodies with CRLF, and a block in an LF target is still its own.
     could = [paragraph.replace("\r\n", "\n") for paragraph in rules.paragraphs(rows)]
@@ -1073,7 +1078,7 @@ def _state(root: Path, rules: RulesFile, place: Reached, settings: Settings = NO
     if found.text is None:
         return "the block opens and never closes"
     if not matches(found.text, rendered):
-        return "out of step with the settings" if _differs_by_settings_alone(found.text, rules, place.rows) else "drifted"
+        return "out of step with the settings" if differs_by_settings_alone(found.text, rules, place.rows) else "drifted"
     if problem := _anchor_problem(text, anchor):
         return problem
     if not in_its_section(text, anchor, found):

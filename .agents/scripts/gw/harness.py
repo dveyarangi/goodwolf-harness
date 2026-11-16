@@ -552,6 +552,41 @@ def without_recipients_blocks(target: Path, path: str, text: str, shipped: dict[
     return text
 
 
+def without_settings_blocks(path: str, text: str, shipped: dict[str, str]) -> str:
+    """Which of a shipped mechanism's rules a block holds is the tree's settings' doing, not an
+    edit in core: the origin ships its blocks as its own settings rendered them, and a
+    recipient's installer renders the same rules under the recipient's. So the block of a shipped
+    mechanism leaves, on either side of the comparison, where a rule it could hold in this file
+    carries a condition and it holds nothing but that file's own rules for this target, unedited
+    — the injector's reading of a block that differs by the settings alone. Whether the block is
+    the one the settings call for is the injector's gate to say. A block no setting can change,
+    one edited or holding a rule of no shipped file, and one the installer's own reading refuses
+    — not spaced as it writes a block, cut short, written twice — stay and read as the edit
+    they are."""
+    for slug in sorted({opening.group(1) for opening in inject_rules.INSTALLED_OPENING.finditer(without_code(text))}):
+        held = shipped.get(f"{inject_rules.MECHANISMS}/{slug}/{slug}.rules.md")
+        if held is None:
+            continue
+        try:
+            rules = inject_rules.parse_rules_file(slug, held)
+            found = inject_rules.locate(text, slug)
+            if found is None or found.text is None:
+                continue
+            # The rows that reach this file as the installer reads them: its own row, or a
+            # group's row whose anchor line the file holds.
+            rows = tuple(
+                row for row, anchor in rules.anchors.items()
+                if row == path
+                or (inject_rules.is_pattern(row) and PurePosixPath(path).full_match(row) and inject_rules.holds_anchor(text, anchor))
+            )
+            settable = any(rule.when for rule in rules.rules if set(rows) & set(rule.targets))
+            if settable and inject_rules.differs_by_settings_alone(found.text, rules, rows):
+                text = inject_rules.without_block(text, found)
+        except inject_rules.Refused:
+            continue  # compared as it stands
+    return text
+
+
 def sheared(path: str, text: str) -> str:
     """Every straw-dog wrapper off, its content kept: a recipient gets the rule and never a
     condition it could not observe. A tag alone on its line takes the line; an inline tag leaves
@@ -905,6 +940,8 @@ def _differs(target: Path, path: str, shipped: dict[str, str]) -> bool:
             return True
         text = without_repository_line(path, text)
         shipped_text = without_repository_line(path, shipped_text)
+        text = without_settings_blocks(path, text, shipped)
+        shipped_text = without_settings_blocks(path, shipped_text, shipped)
     return text != shipped_text
 
 

@@ -4,7 +4,7 @@
 
 # GoodWolf Harness
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/dveyarangi/goodwolf-harness/blob/main/LICENSE)
 [![Python 3.12+](https://img.shields.io/badge/python-3.12%2B-3776AB?logo=python&logoColor=white)](#use-it-instructions-for-your-agent)
 [![Dependencies: standard library only](https://img.shields.io/badge/dependencies-stdlib%20only-brightgreen.svg)](#use-it-instructions-for-your-agent)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-supported-D97757?logo=claude&logoColor=white)](#use-it-instructions-for-your-agent)
@@ -242,7 +242,7 @@ usually go wrong elsewhere.
 
 ![The session steps — /recall, /align, /conclude — joined at /align to the work steps — /ticket, /plan, /implement, /verify, /maintain](https://github.com/dveyarangi/goodwolf-harness/raw/main/dev-skills-readme.png)
 
-The rules are in [AGENTS.md](AGENTS.md) and every skill is under [`.agents/skills/`](.agents/skills/).
+The rules are in [AGENTS.md](https://github.com/dveyarangi/goodwolf-harness/blob/main/AGENTS.md) and every skill is under [`.agents/skills/`](https://github.com/dveyarangi/goodwolf-harness/tree/main/.agents/skills).
 
 ## Use it (instructions for your agent)
 
@@ -251,7 +251,7 @@ Asked whether the project needs it:
 0. Answer the four questions under *It works, or it seems to work* for this project, and tell the
    person what came back.
 1. Offer the study, which installs and runs nothing: read
-   [`.agents/skills/harness/MEETING.md`](.agents/skills/harness/MEETING.md) here and follow it on the
+   [`.agents/skills/harness/MEETING.md`](https://github.com/dveyarangi/goodwolf-harness/blob/main/.agents/skills/harness/MEETING.md) here and follow it on the
    project. It writes nothing there; the report goes where the person says, and the person decides
    on it.
 
@@ -264,7 +264,7 @@ Asked to install it:
 2. From the project's root, run `python <clone>/.agents/scripts/gw/harness.py . --install`. It
    writes nothing if it refuses, and says why. In a project with rules, skills or a method of its
    own it refuses and names what it found: that is the study's door, not a failure.
-3. Read [`.agents/skills/harness/SKILL.md`](.agents/skills/harness/SKILL.md) and follow it: it
+3. Read [`.agents/skills/harness/SKILL.md`](https://github.com/dveyarangi/goodwolf-harness/blob/main/.agents/skills/harness/SKILL.md) and follow it: it
    says how to offer and write the study in a project that has a method, how to report what
    arrived in a fresh one, and how to set up the project's own rules with the person. Updating
    and checking the installed copy are in the same skill.
@@ -276,4 +276,4 @@ has: nothing lands there until you have read the report and said so. Claude Code
 the skills through symbolic links the install makes in each clone; on Windows, where creating one
 may need an elevated prompt, it prints the command to run.
 
-Python 3.12 or later, standard library only. [MIT licensed](LICENSE).
+Python 3.12 or later, standard library only. [MIT licensed](https://github.com/dveyarangi/goodwolf-harness/blob/main/LICENSE).

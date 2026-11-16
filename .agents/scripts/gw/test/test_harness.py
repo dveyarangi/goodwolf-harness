@@ -9,6 +9,7 @@ import hashlib
 import io
 import json
 import os
+import re
 import shutil
 import stat
 import subprocess
@@ -1131,6 +1132,173 @@ class AnInstall(TwoTrees):
 
                 self.assertEqual([], report["gates"]["ref"]["differs"])
 
+TONED_RULES = (
+    "# sample — rules installed into the entry file and the keeper\n\n| target | anchor |\n|---|---|\n"
+    "| `AGENTS.md` | `## General rules` |\n"
+    f"| `{KEEPER}` | `# Keeper` |\n\n"
+    "| setting | values | default | set by |\n|---|---|---|---|\n| `tone` | `on` · `off` | `off` | a wording |\n\n"
+    "## T1 — loud\n\n- **target** `AGENTS.md`\n- **when** tone=on\n- **authority** the user, 2026-11-15\n\n"
+    "<rule>\nSpeak up.\n</rule>\n\n"
+    "## T2 — quiet\n\n- **target** `AGENTS.md`\n- **when** tone=off\n- **authority** the user, 2026-11-15\n\n"
+    "<rule>\nSpeak low.\n</rule>\n\n"
+    "## T3 — plain\n\n- **target** `AGENTS.md`\n- **authority** the user, 2026-11-15\n\n"
+    "<rule>\nSpeak plainly.\n</rule>\n\n"
+    f"## T4 — kept\n\n- **target** `{KEEPER}`\n- **authority** the user, 2026-11-15\n\n"
+    "<rule>\nKeep the tone.\n</rule>\n"
+)
+LOUD_ONLY_RULES = TONED_RULES.replace(
+    "## T2 — quiet\n\n- **target** `AGENTS.md`\n- **when** tone=off\n- **authority** the user, 2026-11-15\n\n"
+    "<rule>\nSpeak low.\n</rule>\n\n"
+    "## T3 — plain\n\n- **target** `AGENTS.md`\n- **authority** the user, 2026-11-15\n\n"
+    "<rule>\nSpeak plainly.\n</rule>\n\n",
+    "",
+)
+
+
+class ATreeUnderItsOwnSetting(TwoTrees):
+    """The origin's entry file ships holding its mechanisms' blocks as the origin's settings
+    rendered them, and a recipient's installer renders the same rules under the recipient's own.
+    Which of a mechanism's rules a block holds is the settings' doing and the injector's gate to
+    judge: the comparison with the ref reads no edit in it, and reads every other change as one."""
+
+    RULES_FILE = ".agents/mechanisms/sample/sample.rules.md"
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.write(self.RULES_FILE, TONED_RULES)
+        self.write("AGENTS.md", ENTRY.replace("## Project-local", "## General rules\n\nThe rules.\n\n## Project-local"))
+        self.write(
+            "local.rules.md",
+            "# local\n\n| target | anchor |\n|---|---|\n| `AGENTS.md` | `## Project-local` |\n\n"
+            "| setting | value |\n|---|---|\n| `tone` | `on` |\n\n"
+            "## L1 — the origin's\n\n- **target** `AGENTS.md`\n- **authority** the user, 2026-09-21\n\n"
+            "<rule>\nThe origin's own answer, which must not travel.\n</rule>\n",
+        )
+        self.commit_as_the_origin_s_installer_leaves_it("core under the origin's setting")
+        self.assertIn("**T1** Speak up.", self.read("AGENTS.md"), "the origin holds its own setting's rule")
+        self.run_harness("--install")
+
+    def commit_as_the_origin_s_installer_leaves_it(self, message: str, amended: bool = False) -> None:
+        installed = inject_rules.install_every(self.source, overwrite=amended)
+        self.assertEqual([], installed["refusals"])
+        self.commit(message)
+
+    def rewrite(self, name: str, change) -> None:
+        """One of the target's files changed byte for byte, no line ending translated."""
+        (self.target / name).write_bytes(change(self.target_text(name)).encode("utf-8"))
+
+    def differing(self) -> list[str]:
+        _, report = self.run_harness("--check")
+        return report["gates"]["ref"]["differs"]
+
+    def test_the_recipient_holds_the_rule_its_own_setting_calls_for(self) -> None:
+        entry = self.target_text("AGENTS.md")
+
+        self.assertIn("**T2** Speak low.", entry)
+        self.assertNotIn("**T1**", entry)
+
+    def test_a_check_reads_no_edit_in_a_block_rendered_under_another_setting(self) -> None:
+        status, report = self.run_harness("--check")
+
+        self.assertEqual([], report["gates"]["ref"]["differs"])
+        self.assertTrue(report["gates"]["injector"]["passed"], report["gates"]["injector"])
+
+    def test_an_update_needs_no_overwrite_and_reads_nothing_replaced(self) -> None:
+        self.write(KEEPER, self.read(KEEPER).replace("Keep things.", "Keep more things."))
+        self.commit_as_the_origin_s_installer_leaves_it("core moved")
+
+        status, report = self.run_harness("--update")
+
+        self.assertEqual([], report["refusals"])
+        self.assertEqual([], report["replaced"])
+        self.assertIn("**T2** Speak low.", self.target_text("AGENTS.md"))
+        self.assertIn("Keep more things.", self.target_text(KEEPER))
+        self.assertTrue(report["gates"]["ref"]["passed"], report["gates"]["ref"])
+
+    def test_a_setting_that_calls_for_no_rule_leaves_no_block_and_no_edit(self) -> None:
+        self.write(self.RULES_FILE, LOUD_ONLY_RULES)
+        self.commit_as_the_origin_s_installer_leaves_it("the quiet rule and the plain one retired", amended=True)
+        self.assertIn('<installed by="sample">', self.read("AGENTS.md"), "the origin's setting still calls for one")
+
+        status, report = self.run_harness("--update")
+
+        self.assertEqual([], report["refusals"])
+        self.assertNotIn('<installed by="sample">', self.target_text("AGENTS.md"))
+        self.assertEqual([], self.differing())
+
+    def test_a_rule_edited_in_the_block_is_still_an_edit(self) -> None:
+        self.rewrite("AGENTS.md", lambda text: text.replace("Speak low.", "Speak as you like."))
+
+        self.assertEqual(["AGENTS.md"], self.differing())
+
+    def test_a_block_holding_a_rule_of_no_shipped_file_is_still_an_edit(self) -> None:
+        self.rewrite("AGENTS.md", lambda text: text.replace("**T2** Speak low.", "**T2** Speak low.\n\n**X1** Somebody's own."))
+
+        self.assertEqual(["AGENTS.md"], self.differing())
+
+    def test_a_block_not_spaced_as_the_installer_writes_it_is_an_edit_and_never_a_crash(self) -> None:
+        written = self.target_text("AGENTS.md")
+        opening = '<installed by="sample">'
+        whole = f"{opening}\n**T2** Speak low.\n\n**T3** Speak plainly.\n</installed>"
+        self.assertIn(whole, written)
+        changes = {
+            "the opening tag indented": written.replace(opening, " " + opening),
+            "words after the closing tag": written.replace(whole, whole + " and more"),
+            "the block on one line": written.replace(whole, f"{opening}**T2** Speak low.</installed>"),
+            "words on the opening tag's line": written.replace(opening, opening + " a note of their own"),
+            "words on the closing tag's line": written.replace(
+                "**T3** Speak plainly.\n</installed>", "**T3** Speak plainly.\na note of their own </installed>"
+            ),
+        }
+        for name, changed in changes.items():
+            with self.subTest(name):
+                (self.target / "AGENTS.md").write_bytes(changed.encode("utf-8"))
+
+                self.assertEqual(["AGENTS.md"], self.differing())
+
+    def test_a_rule_taken_out_of_the_block_is_the_injector_s_to_refuse(self) -> None:
+        self.rewrite("AGENTS.md", lambda text: text.replace("**T2** Speak low.\n\n**T3** Speak plainly.", "**T2** Speak low."))
+
+        status, report = self.run_harness("--check")
+
+        self.assertEqual([], report["gates"]["ref"]["differs"], "which rules a block holds is not the ref's to judge")
+        self.assertFalse(report["gates"]["injector"]["passed"], report["gates"]["injector"])
+        self.assertFalse(report["arrived"])
+
+    def test_a_block_no_setting_can_change_is_compared_as_it_stands(self) -> None:
+        kept = '\n<installed by="sample">\n**T4** Keep the tone.\n</installed>\n'
+        self.assertIn(kept, self.target_text(KEEPER))
+        self.rewrite(KEEPER, lambda text: text.replace(kept, ""))
+
+        self.assertEqual([KEEPER], self.differing())
+
+
+GROUP_RULES_UNDER_A_SETTING = (
+    "# sample — rules installed into every skill that speaks\n\n| target | anchor |\n|---|---|\n"
+    "| `.agents/skills/*/SKILL.md` | `## What the person hears` |\n\n"
+    "| setting | values | default | set by |\n|---|---|---|---|\n| `tone` | `on` · `off` | `off` | a wording |\n\n"
+    "## V1 — the voice\n\n- **target** `.agents/skills/*/SKILL.md`\n- **when** tone=on\n- **authority** the user, 2026-11-15\n\n"
+    "<rule>\nSpeak up.\n</rule>\n"
+)
+
+
+class TheSettingsBlocks(unittest.TestCase):
+    """A group's row reaches a file only where the file holds the row's anchor line, as the
+    installer reads it: a block standing in a file the group does not reach is nobody's to set aside."""
+
+    SHIPPED = {".agents/mechanisms/sample/sample.rules.md": GROUP_RULES_UNDER_A_SETTING}
+    BLOCK = '\n<installed by="sample">\n**V1** Speak up.\n</installed>\n'
+
+    def test_a_member_s_block_leaves_and_a_block_in_a_file_the_group_does_not_reach_stays(self) -> None:
+        member = f"# A skill\n\n## What the person hears\n\nWhat was done.\n{self.BLOCK}"
+        stranger = f"# A skill\n\n## What it does\n\nThings.\n{self.BLOCK}"
+
+        self.assertEqual(
+            "# A skill\n\n## What the person hears\n\nWhat was done.\n",
+            harness.without_settings_blocks(".agents/skills/theirs/SKILL.md", member, self.SHIPPED),
+        )
+        self.assertEqual(stranger, harness.without_settings_blocks(".agents/skills/theirs/SKILL.md", stranger, self.SHIPPED))
+
 
 # --- update --------------------------------------------------------------------------------------
 
@@ -1903,6 +2071,23 @@ class TheOriginsOwnHostFiles(unittest.TestCase):
             with self.subTest(host_file=host_file):
                 held = (origin / host_file).read_text(encoding="utf-8")
                 self.assertTrue(harness.holds_wiring(held, shelf.read_text(encoding="utf-8")))
+
+
+class TheOriginsFrontPage(unittest.TestCase):
+    """The front page ships as written and lands beside the harness skill, where a path written
+    from the origin's root resolves to nothing: every link it holds is a whole address. Read
+    where this tree holds the page — at the origin its root, in a recipient beside the skill."""
+
+    def test_names_nothing_by_a_path_from_the_origin_s_root(self) -> None:
+        tree = SCRIPTS.parents[2]
+        page = tree / (INSTALLED_FRONT_PAGE if harness.announced(tree) else "README.md")
+        if not page.is_file():
+            self.skipTest("a recipient from a ref that shipped no front page holds none")
+        seen = harness.without_code(page.read_text(encoding="utf-8"))
+
+        by_path = [to for to in re.findall(r"\]\(([^)\s]+)", seen) if "://" not in to and not to.startswith("#")]
+
+        self.assertEqual([], by_path)
 
 
 class TheCommandLine(unittest.TestCase):

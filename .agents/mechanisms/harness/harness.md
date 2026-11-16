@@ -79,7 +79,11 @@ everything it installs names the fork. Both lines are the recipient's own facts 
 files, so both are set aside when a copy is compared: a check or an update run from another
 `--from` reads no edit in core. So is every block the recipient's own installer put in a core
 file: its local block, and the block of a mechanism of its own, one whose rules file stands in
-the tree and never shipped. A block no rules file owns is an edit. A stamped source is never a citation either, which the citation
+the tree and never shipped. A block no rules file owns is an edit. A shipped mechanism's block
+is set aside too, on both sides, where it differs by the settings alone: the origin ships its
+blocks as its own settings rendered them, a recipient's installer renders the same rules under
+the recipient's, and whether a block is the one the settings call for is the injector's gate to
+say. A stamped source is never a citation either, which the citation
 reader settles for every reader of it, so a clone kept under a `docs/` directory does not make a
 recipient fail its own shape check.
 
@@ -117,7 +121,8 @@ gate: one is offered to the person, with its reason, only once the comparison re
 takes no clone.</straw-dog>
 
 It is **installed**; a tree without it holds no core at all. The repository's root `README.md`
-is not a part: it never ships, and a recipient has its own.
+is not a part: it ships as the front page beside the harness skill, and a recipient's root has
+its own.
 
 ## Moments
 
