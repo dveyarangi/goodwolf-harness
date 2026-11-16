@@ -87,3 +87,48 @@ The cut proposed, a role to a family of mechanisms, three of them without a sess
 - **Слияние** — the landing on main. No session yet.
 
 Left unplaced: `/dream` and `/celebrate`. Not decided; put to the person.
+
+## The candidates counted wider — 2026-11-16
+
+The user, 2026-11-16, of the cut above: "хорошо. но у нас гораздо больше кандидатов на механизмы
+чем ты перечислил". Counted again from three places the first count had not read: the open
+questions under [How is this project built?](q-fjlob4-how-is-this-project-built.md), two levels
+deep, with how many open questions stand under each; the scripts and what mechanism each names;
+and what each declared mechanism relies on and does not own. Twenty-five candidates no
+declaration holds, each with where it shows today; the number after a question is the open
+questions under it.
+
+| candidate | where it shows today | role proposed |
+|---|---|---|
+| the development method: the ring and its skills | q-qmq6ty (6); nine skills saying `not yet`; an accepted whole names it one mechanism | Практика |
+| a project's environment: toolchain, checks, pipeline | q-t3p7na (7); `/setup-devops`; the checks at push | Практика |
+| the pass: produced work gone over again | q-7rmmpw (5), which asks whether it is a mechanism; `/verify`, the judge | Практика |
+| architecture and decision records | the entry file's section on what is load-bearing; `/review-architecture`; a format beside `/align` | Практика |
+| the glossary | q-da7ghj (1), q-pdmw3a; relied on by every mechanism, owned by none | Практика |
+| the commit convention | `/commit`; a local rule | Практика |
+| whether the tests catch what they name | q-453b5j (1) | Практика |
+| the meta-principles | q-6mgwvv; the entry file's general rules | Правила |
+| self-improvement: the register, the cases, an amendment tested before it lands | q-tt733j (17); two scripts under the mechanism shape; decided the shape's, large enough to leave it | Правила |
+| tiering | q-3hjxcn, q-c5x3mh (3) | Правила |
+| scope | q-frdx34 | Правила |
+| the straw dogs | q-ktwi2e; its syntax in the entry file, its listing under maintain, its due date in the store | Правила |
+| the kinds of written thing | q-7ld3wt (9) | Правила |
+| citations and links | the citation reader, "the one that cannot leave"; q-mwof7i | Правила |
+| the voice and the reply's form | q-awqz6b (1), q-6kx3m2, a closed question that set it apart from debugging | Разговор |
+| autonomy: the dial, the ladders, the stops | q-xmk75m (2), and a question asking whether it is a mechanism | Разговор |
+| what the host refuses | q-bsd3ga (5) | Разговор |
+| how sessions reach each other: messages, hand-offs | q-2gw24v (12), q-psa5ha (2), q-cdw6yk | Хранилище |
+| steering a turn from the store, and the path ahead | q-2hilby (1), q-huss2x (1) | Хранилище |
+| roles and the cut into standing sessions | q-p4sdnv (1), q-ja5mp4 (6); a part of the session mechanism kept apart to leave | Хранитель, until it leaves |
+| releases, and core taken a mechanism at a time | q-o3ps2o (6), a question on publishing releases | Хранитель |
+| what a recipient sends back to core | two questions under q-veooj7 | Хранитель |
+| a tree's existing material taken in | q-g63szs (4); the meeting | Хранитель |
+| what the harness costs and saves, counted | two questions; sessions on metrics and observability | Продукт |
+| reading outward, and looking back | `/discover`, `/advise`; `/dream`, `/celebrate` | Продукт |
+
+What the wider count changes in the cut: the role first named Метод would hold fourteen of these
+and is cut in two along the line an open question already draws
+([q-awqz6b](q-awqz6b-where-is-the-line-between-the-method-a-person-works-by-the-questions-the-steps-the-stops-the-replys.md))
+— **Правила**, how instructions are made, held and amended, and **Разговор**, what the person
+hears and decides. Seven roles: Хранитель, Правила, Разговор, Практика, Продукт, Хранилище,
+Слияние; three held, four without a session. Proposed, not decided.
