@@ -3,6 +3,7 @@
 - **instruction** `.agents/skills/harness/SKILL.md` — the four commands, install, update, check and the per-clone links, each refusal and what the person does, the first install's last step
 - **state** installed
 - **record of** what must always hold
+- **owner** core
 
 ## How it works
 
@@ -12,7 +13,10 @@ directory plus the entry file, the host stub, the license, and the front page be
 skill — what an installing agent introduces the harness from, the origin's own document rather
 than core text, shipped as written with its links the origin's, which the leak rule does not
 read; the project's local file is never
-in it, which is what lets a redeploy overwrite core's content and nothing of the project's. What ships is
+in it, which is what lets a redeploy overwrite core's content and nothing of the project's. Nor
+is a mechanism the origin declares local: its directory, the folders of its skills and its parts
+stay behind, and the blocks it installed leave what ships as the origin's local blocks do. A
+ship is refused where a declaration that ships still names a file left behind. What ships is
 transformed before a byte is written: the origin's local blocks removed, every straw-dog wrapper
 and every `TODO`'s question binding sheared with the content kept, the announce line stamped, and
 the whole held to the leak rule the origin's check applies.
@@ -53,8 +57,8 @@ content is the project's.
 
 **The announce line is the revision.** A recipient's entry file reads
 `Entry contract: <repository>@<ref>, <date>.`; a session there announces it while debugging's D1 stands in its entry file, the check reads
-it, and the shape check reads its `@` to know it stands in a recipient — where an unbound
-`not yet` is upstream's gap and draws nothing. No record file: integrity is asked of the source,
+it, and the shape check reads its `@` to know it stands in a recipient — where a `not yet`
+standing alone, unbound, is upstream's gap and draws nothing. No record file: integrity is asked of the source,
 by cloning the announced ref again and comparing. A change to the transformation therefore reads
 as an edit in every recipient installed before it, until it updates. What the announced ref
 shipped is read under the transformation alone, never held to today's shipping refusals: those
@@ -224,6 +228,13 @@ No record of its own in this tree. The two stamped lines are the recipient's, an
 a migration takes it in, is the recipient's record, never this mechanism's.
 
 ## Not yet at the shape
+
+<straw-dog question="q-4xda6k">
+**A mechanism that leaves core leaves its block behind.** Where a later ref no longer ships a
+mechanism — removed, or declared local after it shipped — an update deletes its files in a
+recipient and reads the block it installed there as the recipient's own, so the gate fails on a
+block nothing owns. A mechanism is declared local before its first ship, never after.
+</straw-dog>
 
 **The transformation is unguarded.** A change to the shear, the stamp or the local-block strip
 reaches every recipient as a reported edit; nothing checks a change against the recipients that

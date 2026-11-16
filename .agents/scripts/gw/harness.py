@@ -10,7 +10,8 @@
 The source is always the repository, cloned whole and without a checkout into a temporary
 directory and read through git, so what a recipient receives is what a commit holds and never a
 working tree. What ships is every file under the core directory at the ref plus the entry file and
-the host stub, transformed in memory before a byte is written: the origin's own local blocks
+the host stub, transformed in memory before a byte is written: the origin's local mechanisms left
+behind with every file of theirs, their blocks and the origin's own local blocks
 removed, every straw-dog wrapper and every TODO's question binding sheared with its content kept, the
 entry file's announce line stamped `<repository>@<ref>, <date>`, and the result held to the leak
 rule the origin's check applies. That line is the recipient's only revision record; a check clones
@@ -58,7 +59,16 @@ from docs_corpus import (  # noqa: E402
     docs_mentioned_in_code,
     without_code,
 )
-from mechanisms import FRONT_PAGE as INSTALLED_FRONT_PAGE, PAINTED_DOORS, TESTS  # noqa: E402
+from mechanisms import (  # noqa: E402
+    FRONT_PAGE as INSTALLED_FRONT_PAGE,
+    PAINTED_DOORS,
+    TESTS,
+    declared_by,
+    LocalFiles,
+    local_files,
+    named_files,
+    rule_targets,
+)
 from straw_dogs import TAG  # noqa: E402
 
 CORE = ".agents/"
@@ -511,30 +521,72 @@ class Shipment:
 
 
 def _transformed(source: Source, ref: Ref, held: bool) -> dict[str, str]:
-    files: dict[str, str] = {}
-    told = resolved(source.repository)
+    held_at_the_ref: dict[str, str] = {}
+    not_text: dict[str, UnicodeDecodeError] = {}
     for path, raw in source.files(ref).items():
         try:
             text = raw.decode("utf-8")
         except UnicodeDecodeError as error:
-            raise Refused(f"ship: {path} at {ref.announced} is not UTF-8 — {error}") from error
+            not_text[path] = error
+            continue
         # Core's text is LF, as its .gitattributes says; a carriage return a Windows tool left in
         # a commit would otherwise stand where the block stripper expects a newline and stop
         # every install. Normalised here, once, for every reader of the shipment.
-        files[path] = shipped(path, text.replace(chr(13) + chr(10), chr(10)), ref, told, held)
+        held_at_the_ref[path] = text.replace(chr(13) + chr(10), chr(10))
+    local = local_files(held_at_the_ref, held_at_the_ref.__getitem__)
+    for path, error in not_text.items():
+        # Only what ships must be text: a local mechanism's file stays, whatever it holds.
+        if not local.owner_of(path):
+            raise Refused(f"ship: {path} at {ref.announced} is not UTF-8 — {error}") from error
+    staying = _staying(held_at_the_ref, local)
+    if held:
+        _refuse_what_leans_on_a_local_mechanism(held_at_the_ref, staying)
+    told = resolved(source.repository)
+    files = {
+        path: shipped(path, text, ref, told, held, local.mechanisms)
+        for path, text in held_at_the_ref.items()
+        if path not in staying
+    }
     if ENTRY_FILE not in files:
         raise Refused(f"ship: {ref.announced} has no {ENTRY_FILE}; this is not the harness")
     return files
 
 
-def shipped(path: str, text: str, ref: Ref, told: str, held: bool = True) -> str:
-    """One file as a recipient receives it. The order matters: local blocks are found by their tag
-    before the shear could touch a wrapper around them, and the leak rule reads the text a
-    recipient will. A stamped source is not a citation, which `docs_corpus` settles for every
+def _staying(held_at_the_ref: dict[str, str], local: LocalFiles) -> dict[str, str]:
+    """The files that do not travel, each with the local mechanism it is of: an origin's own
+    mechanism is its project's, as a recipient's is, and reserves nothing in another tree. The
+    shape check's reading says which files those are."""
+    return {path: slug for path in held_at_the_ref if (slug := local.owner_of(path))}
+
+
+def _refuse_what_leans_on_a_local_mechanism(held_at_the_ref: dict[str, str], staying: dict[str, str]) -> None:
+    """A declaration that ships and still names a file that stays, or a rules file that ships
+    and installs into one, would arrive pointing at nothing; the origin's shape check says the
+    same before a ship does."""
+    for path, text in held_at_the_ref.items():
+        if path in staying:
+            continue
+        if declared_by(path) is not None:
+            leans_on = named_files(text)
+        elif _is_rules_file(path):
+            leans_on = rule_targets(text)
+        else:
+            continue
+        for named in leans_on:
+            if named in staying:
+                raise Refused(
+                    f"ship: {path} names {named}, a file of {staying[named]}, a local mechanism, which does not ship"
+                )
+
+
+def shipped(path: str, text: str, ref: Ref, told: str, held: bool = True, local: tuple[str, ...] = ()) -> str:
+    """One file as a recipient receives it. The order matters: local blocks, and the blocks of
+    the origin's local mechanisms, are found by their tag before the shear could touch a wrapper
+    around them, and the leak rule reads the text a recipient will. A stamped source is not a citation, which `docs_corpus` settles for every
     reader of it rather than each one blanking the line for itself. Unheld, the file is read as an
     earlier ref shipped it: the same transformation, and none of today's refusals."""
     if path.endswith(".md"):
-        text = without_local_blocks(path, text)
+        text = without_blocks_of(path, text, (inject_rules.LOCAL, *local))
         text = sheared(path, text)
         if path == ENTRY_FILE:
             text = stamped(text, ref)
@@ -557,11 +609,18 @@ def shipped(path: str, text: str, ref: Ref, told: str, held: bool = True) -> str
 def without_local_blocks(path: str, text: str) -> str:
     """The origin's own answers do not travel: every local block leaves with the newline the
     installer added, through the installer's own reading of where a block is."""
+    return without_blocks_of(path, text, (inject_rules.LOCAL,))
+
+
+def without_blocks_of(path: str, text: str, owners: tuple[str, ...]) -> str:
+    """The same text with every block the named owners installed taken out: the local file's,
+    and those of the origin's local mechanisms, which stay with the origin as their rules do."""
     try:
-        while (found := inject_rules.locate(text, inject_rules.LOCAL)) is not None:
-            if found.text is None:
-                raise inject_rules.Refused("the local block opens and never closes")
-            text = inject_rules.without_block(text, found)
+        for owner in owners:
+            while (found := inject_rules.locate(text, owner)) is not None:
+                if found.text is None:
+                    raise inject_rules.Refused(f"the {owner} block opens and never closes")
+                text = inject_rules.without_block(text, found)
     except inject_rules.Refused as refusal:
         raise Refused(f"ship: {path}: {refusal}") from refusal
     return text

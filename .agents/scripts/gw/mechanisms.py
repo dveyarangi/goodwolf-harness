@@ -10,10 +10,13 @@ declaration, or does it say on its own first line that none does yet — and rep
 with who claims it; then it holds every skill, script, test and hook a mechanism owns to naming
 that mechanism on its first line, and no script to naming one whose parts omit it, per the
 format's *A part's claim*; then it holds core to citing only what its mechanisms declare — every path
-under `docs/` a core file names is a painted door, is skipped inside an instance-owned block, or
-is a leak that fails the run. In a recipient — a tree whose
-entry file announces `<repository>@<ref>` — a `not yet` with no binding is upstream's gap, since
-the harness mechanism sheared the binding on the way, and draws nothing; at the origin it fails. `--index` renders the register from the same directories; no file holds it, and none is
+under `docs/` a core file names is a painted door, is skipped inside an instance-owned block, is
+local — named by a file of a mechanism whose owner is `local`, the project's own — or is a leak
+that fails the run. In a recipient — a tree whose
+entry file announces `<repository>@<ref>` — a `not yet` standing alone, with no binding, is
+upstream's gap, since the harness mechanism sheared the binding on the way, and draws nothing; one
+with words after it or an empty wrapper is the tree's own writing and fails, as every unbound one
+does at the origin. `--index` renders the register from the same directories; no file holds it, and none is
 written.
 
 The script rules on form alone. Whether a moment should exist, whether an absence is honestly
@@ -110,6 +113,16 @@ CLAIM_KINDS = ("not yet",)
 GRADING = "## What would show it working"
 PRODUCES = "## What it produces, and who reads it"
 STATES = ("always on", "installed")
+# Whose a mechanism is: core's, which ships, or the project's own, which stays where it was made
+# and reserves nothing in another tree (the user, 2026-11-15 and 2026-11-16).
+OWNER = "owner"
+CORE_OWNED = "core"
+LOCAL = "local"
+OWNERS = (CORE_OWNED, LOCAL)
+# A part outside the core directory opens with its mechanism's claim unless its format holds no
+# comment: a document, a data file, a file that is not text.
+CLAIMLESS = (".md", ".txt", ".json", ".jsonl", ".csv", ".tsv")
+COMMENT_LEADERS = ("#", "//", "--", ";")
 # A record's kind by its source of truth, as the method's glossary sorts them. An output that is
 # another mechanism's record takes that format's kind, so the produces section may say only that.
 RECORD_KINDS = ("what it intends to become", "what must always hold", "what exists", "what happened")
@@ -131,6 +144,7 @@ TABLES = {
 _COLUMN = re.compile(r"(?<!\\)\|")
 _LINK = re.compile(r"\[[^\]]*\]\([^)]*\)")
 _CODE = re.compile(r"`[^`]*`")
+_TARGET = re.compile(r"^- \*\*target\*\* `([^`]+)`", re.M)
 _USAGE = "usage: mechanisms.py --check | --index"
 
 
@@ -177,10 +191,17 @@ class Declaration:
     state: str | None
     kind: str | None
     kind_under_former_mark: str | None
+    owner: str | None
     rules: str | None
     moments: list[Moment]
     parts: list[Part]
     relied_on: list[Part]
+
+    @property
+    def local(self) -> bool:
+        """Whether the mechanism is the project's own: it ships nowhere, and the tree that holds
+        it maintains it."""
+        return self.owner == LOCAL
 
     def as_record(self) -> dict:
         return {
@@ -188,6 +209,7 @@ class Declaration:
             "doc": self.doc,
             "instruction": list(self.instructions),
             "state": self.state,
+            "owner": self.owner,
             "rules": self.rules,
             "moments": [moment.as_record() for moment in self.moments],
             "parts": [part.as_record() for part in self.parts],
@@ -213,6 +235,8 @@ class Claim:
     kind: str | None
     why: str
     referent: str | None
+    # A wrapped `not yet` followed by words: the question is the reason, and the body says none.
+    stray: bool = False
 
     def as_record(self) -> dict:
         return {"kind": self.kind, "why": self.why, "referent": self.referent}
@@ -237,7 +261,7 @@ class Skill:
 @dataclass(frozen=True)
 class Citation:
     """One path under `docs/` a core file names, and where it stands: a painted door, skipped
-    inside an instance-owned block, or a leak."""
+    inside an instance-owned block, local in a file of a local mechanism, or a leak."""
 
     file: str
     line: int
@@ -248,7 +272,28 @@ class Citation:
         return {"file": self.file, "line": self.line, "cites": self.cites}
 
 
-STANDINGS = {"painted door": "painted doors", "skipped": "skipped", "leak": "leaks"}
+STANDINGS = {"painted door": "painted doors", "skipped": "skipped", "local": "local", "leak": "leaks"}
+
+
+@dataclass(frozen=True)
+class LocalFiles:
+    """The files of a tree's local mechanisms, each with the mechanism it is of: everything in a
+    local mechanism's directory and in the folder of a skill that claims it, and each part that
+    opens with its claim."""
+
+    folders: dict[str, str]
+    parts: dict[str, str]
+
+    @property
+    def mechanisms(self) -> tuple[str, ...]:
+        """The slugs of the tree's local mechanisms."""
+        return tuple(sorted(set(self.folders.values())))
+
+    def owner_of(self, name: str) -> str | None:
+        """The local mechanism a file is of, or `None` for a file that is core's."""
+        if name in self.parts:
+            return self.parts[name]
+        return next((slug for folder, slug in self.folders.items() if name.startswith(folder)), None)
 
 
 @dataclass(frozen=True)
@@ -261,7 +306,7 @@ class Checked:
     diagnostics: list[Diagnostic]
 
     def as_record(self) -> dict:
-        # Three classes and never a total: an exclusion nobody can see is the review this replaces.
+        # Four classes and never a total: an exclusion nobody can see is the review this replaces.
         return {
             "declarations": [declared.as_record() for declared in self.declarations],
             "skills": [skill.as_record() for skill in self.skills],
@@ -332,9 +377,101 @@ def check(root: Path) -> Checked:
     skills = _skills(root, declared, held)
     diagnostics += _skill_problems(root, skills, recipient, held)
     diagnostics += _naming_problems(root, declared, skills)
-    cites, unreadable = _core_cites(root)
+    local = local_files(corpus(root), lambda name: (root / name).read_bytes().decode("utf-8", errors="replace"))
+    diagnostics += _leaning_problems(root, declared, local) + _stranded_problems(root, declared, local)
+    cites, unreadable = _core_cites(root, local)
     diagnostics += unreadable + _leaks(cites) + _retired_tags(root)
     return Checked(declared, skills, cites, diagnostics)
+
+
+def local_files(names, read) -> LocalFiles:
+    """The files of every local mechanism among `names`, each read through `read`, so a tree on
+    disk and a ref held in memory are sorted by one reading.
+
+    A file is a local mechanism's by its place or by its claim, never by the declaration's word
+    alone: a row naming a file of core's would otherwise excuse it from the painted doors.
+    """
+    held = set(names)
+    folders: dict[str, str] = {}
+    parts: dict[str, str] = {}
+    for name in sorted(held):
+        slug = declared_by(name)
+        if slug is None:
+            continue
+        text = read(name)
+        if _bullets(text).get(OWNER) != LOCAL:
+            continue
+        folders[f"{MECHANISMS}/{slug}/"] = slug
+        for skill in _skills_named(_instructions(text)):
+            if skill in held and _named_in_skill(read(skill)) == slug:
+                folders[skill[: -len("SKILL.md")]] = slug
+        for part in (_part(row).where for row in _rows(text, PARTS_TABLE)):
+            if part in held and not part.endswith(CLAIMLESS) and _named_in_text(read(part)) == slug:
+                parts[part] = slug
+    return LocalFiles(folders, parts)
+
+
+def rule_targets(text: str) -> list[str]:
+    """Every file a rules file installs a rule into, as its rules' `target` bullets name them."""
+    return _TARGET.findall(text)
+
+
+def named_files(text: str) -> list[str]:
+    """Every file a declaration names: its instructions, its parts, what it relies on, and what
+    instructs a moment or stands as its referent."""
+    named = list(_instructions(text))
+    for heading in (PARTS_TABLE, RELIED_ON_TABLE):
+        named += [_part(row).where for row in _rows(text, heading)]
+    for row in _rows(text, MOMENTS_TABLE):
+        named += [path for cell in row[1:3] if (path := _backticked(cell))]
+    return named
+
+
+def declared_by(name: str) -> str | None:
+    """The slug of the mechanism a file is the doc of, or `None` for any other file."""
+    pieces = name.split("/")
+    if name.startswith(MECHANISMS + "/") and len(pieces) == 4 and pieces[3] == f"{pieces[2]}.md":
+        return pieces[2]
+    return None
+
+
+def _leaning_problems(root: Path, declared: list[Declaration], local: LocalFiles) -> list[Diagnostic]:
+    """A core mechanism that names a file of a local one — in its declaration, or as the target
+    of a rule — would ship leaning on what stays."""
+    notes = []
+    for one in declared:
+        if one.local:
+            continue
+        named = named_files((root / one.doc).read_text(encoding="utf-8"))
+        if one.rules:
+            named += rule_targets((root / one.rules).read_text(encoding="utf-8"))
+        for each in dict.fromkeys(named):
+            owner = local.owner_of(each)
+            if owner:
+                notes.append(
+                    Diagnostic(one.slug, f"{each} is {owner}'s, a local mechanism's, which does not ship; core names it")
+                )
+    return notes
+
+
+def _stranded_problems(root: Path, declared: list[Declaration], local: LocalFiles) -> list[Diagnostic]:
+    """A file or a folder a local mechanism names under the core directory and nothing tells as its own —
+    outside its directory and its skills' folders, opening with no claim — would ship with core
+    and be held to core's rules."""
+    notes = []
+    for one in declared:
+        if not one.local:
+            continue
+        for named in dict.fromkeys([*one.instructions, *(part.where for part in one.parts)]):
+            if named.startswith(CORE) and (root / named).exists() and local.owner_of(named) != one.slug:
+                notes.append(
+                    Diagnostic(
+                        one.slug,
+                        f"{named} is a part of {one.slug}, a local mechanism, and nothing tells it as its own: "
+                        "it would ship with core — move it into the mechanism's skill's folder, or open it with its claim",
+                    )
+                )
+    return notes
 
 
 def declarations(root: Path, held: dict[str, questions.Entry] | None = None) -> list[Declaration]:
@@ -356,25 +493,24 @@ def _doc(directory: Path) -> Path:
     return directory / f"{directory.name}.md"
 
 
-def _core_cites(root: Path) -> tuple[list[Citation], list[Diagnostic]]:
-    """Every path under `docs/` a core file names, with its standing; and the scripts that could
-    not be read, which are diagnostics rather than passes."""
+def _core_cites(root: Path, local: LocalFiles) -> tuple[list[Citation], list[Diagnostic]]:
+    """Every path under `docs/` a file under the core directory or the entry file names, with
+    its standing; and the scripts that could not be read, which are diagnostics rather than
+    passes. A rule a local mechanism installed into a core file is the instance's, as the local
+    block is."""
     cites: list[Citation] = []
     unreadable: list[Diagnostic] = []
     for name in _core_files(root):
         text = (root / name).read_text(encoding="utf-8")
         if name.endswith(".md"):
-            mentions = docs_mentioned(root, name, text)
+            mentions = docs_mentioned(root, name, text, local.mechanisms)
         else:
             try:
                 mentions = docs_mentioned_in_code(text)
             except UnreadableCode as error:
                 unreadable.append(Diagnostic(name, f"{name} could not be read for citations: {error}"))
                 continue
-        cites += [
-            Citation(name, seen.line, seen.path, "skipped" if name == FRONT_PAGE else _standing(seen))
-            for seen in mentions
-        ]
+        cites += [Citation(name, seen.line, seen.path, _standing(name, seen, local)) for seen in mentions]
     return cites, unreadable
 
 
@@ -389,9 +525,13 @@ def _core_files(root: Path) -> list[str]:
     ]
 
 
-def _standing(seen) -> str:
-    if seen.instance_owned:
+def _standing(name: str, seen, local: LocalFiles) -> str:
+    """Where one mention stands. A local mechanism travels nowhere, so what its files name under
+    `docs/` is the project's own and reserves nothing in another tree."""
+    if name == FRONT_PAGE or seen.instance_owned:
         return "skipped"
+    if local.owner_of(name):
+        return "local"
     if seen.path in PAINTED_DOORS or seen.path + "/" in PAINTED_DOORS:
         return "painted door"
     return "leak"
@@ -490,6 +630,7 @@ def _declaration(root: Path, directory: Path, text: str, held: dict[str, questio
         state=bullets.get("state"),
         kind=bullets.get(MARK),
         kind_under_former_mark=bullets.get(FORMER_MARK),
+        owner=bullets.get(OWNER),
         rules=_rules_file(root, directory),
         moments=[_moment(row, held) for row in _rows(text, "## Moments")],
         parts=[_part(row) for row in _rows(text, "## Install adds, uninstall removes")],
@@ -499,11 +640,12 @@ def _declaration(root: Path, directory: Path, text: str, held: dict[str, questio
 
 def _header_problems(root: Path, declared: Declaration) -> list[Diagnostic]:
     """The bullets a declaration stands on: its instruction, the state it is in, its kind, its
-    rules file."""
+    owner, its rules file."""
     return (
         _instruction_problems(root, declared)
         + _state_problems(declared)
         + _kind_problems(declared)
+        + _owner_problems(declared)
         + _directory_problems(root, declared)
     )
 
@@ -528,6 +670,17 @@ def _state_problems(declared: Declaration) -> list[Diagnostic]:
         return []
     said = declared.state or "nothing"
     return [Diagnostic(declared.slug, f"the state is {said}, not one of {' or '.join(STATES)}")]
+
+
+def _owner_problems(declared: Declaration) -> list[Diagnostic]:
+    """A declaration says whose the mechanism is: core's, which ships, or local. Nothing is
+    core's by silence, so a doc that names no owner is told the bullet to write."""
+    if declared.owner in OWNERS:
+        return []
+    admitted = " or ".join(f"`- **{OWNER}** {each}`" for each in OWNERS)
+    if declared.owner is None:
+        return [Diagnostic(declared.slug, f"the doc names no owner: its header says {admitted}")]
+    return [Diagnostic(declared.slug, f"the owner is {declared.owner}: the header says {admitted}")]
 
 
 def _kind_problems(declared: Declaration) -> list[Diagnostic]:
@@ -649,9 +802,10 @@ def _absence_problems(
     root: Path, slug: str, moment: Moment, recipient: bool, held: dict[str, questions.Entry]
 ) -> list[Diagnostic]:
     """One absence row's problems — a moment's, or a skill's claim read through the same grammar."""
-    if recipient and moment.kind == "not yet" and not moment.referent:
+    if recipient and moment.kind == "not yet" and moment.referent is None and not moment.why:
         # The harness mechanism sheared the binding on the way in: the gap is upstream's, and the
-        # recipient can neither see its question nor answer it.
+        # recipient can neither see its question nor answer it. The shear leaves the kind alone,
+        # unwrapped; words after it, or a wrapper that binds nothing, are the tree's own writing.
         return []
     notes = _row_problems(slug, moment)
     if moment.kind not in ("elsewhere", "embedded", "not yet"):
@@ -712,7 +866,7 @@ def _claim(instruction: Path, held: dict[str, questions.Entry]) -> Claim | None:
     # Past the label, the line reads through the moments' absence grammar: a wrapped `not yet`
     # keeps its wrapper and loses the label; anything else is the words after the label.
     cell = first.replace(wrapper.body, claimed, 1) if wrapper else claimed
-    return Claim(*_absence(cell, held))
+    return Claim(*_absence(cell, held), stray=_stray_reason(cell))
 
 
 def _after_frontmatter(lines: list[str]) -> str:
@@ -757,6 +911,12 @@ def _skill_problems(
             notes.append(Diagnostic(where, f"claims {skill.claim.kind}; a claim says no mechanism names the skill yet"))
             continue
         claim = skill.claim
+        if claim.stray:
+            # The shear keeps the words and drops the binding, and a recipient's check then reads
+            # them as the tree's own writing: the origin says so first.
+            notes.append(
+                Diagnostic(where, "claims not yet and says why in its body; the reason is the question it is bound to")
+            )
         claimed = Moment(f"{CLAIM} line", None, claim.kind, claim.why, claim.referent)
         notes += _absence_problems(root, where, claimed, recipient, held)
     return notes
@@ -772,7 +932,7 @@ def _naming_problems(root: Path, declared: list[Declaration], skills: list[Skill
     for one in declared:
         for carrier in _carriers(one):
             owners[carrier] = one.slug
-            if not (root / carrier).is_file():
+            if not (root / carrier).is_file() or _is_not_text(root / carrier):
                 continue
             if carrier in lines:
                 claim = lines[carrier]
@@ -792,14 +952,24 @@ def _naming_problems(root: Path, declared: list[Declaration], skills: list[Skill
 
 
 def _carriers(declared: Declaration) -> list[str]:
-    """The parts that name their mechanism: its instruction files, and its parts under the scripts.
-    The doc and rules file sit in the mechanism's own directory and a shelf beside its skill, so
-    their place already says whose they are."""
-    carriers = [
-        named for named in declared.instructions if named.startswith(SKILLS) and named.endswith("/SKILL.md")
-    ]
-    carriers += [part.where for part in declared.parts if part.where.startswith(SCRIPTS_ROOT)]
+    """The parts that name their mechanism: its instruction files, and its parts under the scripts
+    or outside the core directory, wherever they stand. The doc and rules file sit in the
+    mechanism's own directory and a shelf beside its skill, so their place already says whose
+    they are."""
+    carriers = _skills_named(declared.instructions)
+    carriers += [part.where for part in declared.parts if _carries_a_claim(part.where)]
     return list(dict.fromkeys(carriers))
+
+
+def _skills_named(instructions) -> list[str]:
+    return [named for named in instructions if named.startswith(SKILLS) and named.endswith("/SKILL.md")]
+
+
+def _carries_a_claim(where: str) -> bool:
+    """Whether a part's place and format make it open with its mechanism's claim."""
+    if where.startswith(SCRIPTS_ROOT):
+        return True
+    return not where.startswith(CORE) and not where.endswith(CLAIMLESS)
 
 
 def _code_files(root: Path) -> list[str]:
@@ -813,16 +983,38 @@ def _code_files(root: Path) -> list[str]:
     )
 
 
+def _is_not_text(path: Path) -> bool:
+    """Whether a file holds a NUL among its first bytes, as an image or an archive does and text
+    does not: such a part has nowhere to carry a claim."""
+    with path.open("rb") as handle:
+        return b"\0" in handle.read(8192)
+
+
 def _named_in_code(path: Path) -> str | None:
     """The mechanism a code file names on its first line, a comment after any shebang."""
-    lines = path.read_bytes().decode("utf-8", errors="replace").splitlines()
+    return _named_in_text(path.read_bytes().decode("utf-8", errors="replace"))
+
+
+def _named_in_text(text: str) -> str | None:
+    lines = text.splitlines()
     if lines and lines[0].startswith("#!"):
         lines = lines[1:]
     first = lines[0].strip() if lines else ""
-    label = f"# {CLAIM}"
-    if not first.startswith(label):
+    leader = next((each for each in COMMENT_LEADERS if first.startswith(each)), None)
+    said = first[len(leader) :].strip() if leader else ""
+    if not said.startswith(CLAIM):
         return None
-    return first[len(label) :].strip() or None
+    return said[len(CLAIM) :].strip() or None
+
+
+def _named_in_skill(text: str) -> str | None:
+    """The mechanism a skill names on the first line of its body, or `None` where it names none:
+    a line saying `not yet` names no mechanism."""
+    said = _after_frontmatter(text.splitlines()).strip()
+    if not said.startswith(CLAIM):
+        return None
+    named = said[len(CLAIM) :].strip()
+    return None if not named or any(named.startswith(kind) for kind in KINDS) else named
 
 
 def _row_problems(slug: str, moment: Moment) -> list[Diagnostic]:
@@ -934,10 +1126,14 @@ def _absence(cell: str, held: dict[str, questions.Entry]) -> tuple[str | None, s
     if kind is None:
         return None, body, None
     if kind == "not yet" and wrapper:
+        # A wrapper that binds nothing names an empty question, never none: no wrapper at all is
+        # what the shear leaves, and the two are told apart by that.
         waits_on = held.get(wrapper.question or "")
-        return kind, waits_on.question if waits_on else "", wrapper.question
-    referent = None if kind == "not yet" else _backticked(body)
-    return kind, _clause(body[len(kind) :]), referent
+        return kind, waits_on.question if waits_on else "", wrapper.question or ""
+    if kind == "not yet":
+        rest = body[len(kind) :]
+        return kind, _clause(rest) or rest.strip(), None
+    return kind, _clause(body[len(kind) :]), _backticked(body)
 
 
 def _clause(rest: str) -> str:

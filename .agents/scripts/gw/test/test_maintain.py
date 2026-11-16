@@ -35,7 +35,8 @@ def declaration(slug: str, instruction: str, parts: tuple[str, ...] = (), relied
     owned = "".join(f"| a part | `{where}` |\n" for where in parts)
     borrowed = "".join(f"| a part | `{where}` | mechanism-shape |\n" for where in relied_on)
     return (
-        f"# {slug} — what it is\n\n- **instruction** `{instruction}` — the act\n- **state** installed\n\n"
+        f"# {slug} — what it is\n\n- **instruction** `{instruction}` — the act\n- **state** installed\n"
+        "- **owner** core\n\n"
         f"## Install adds, uninstall removes\n\n| part | where |\n|---|---|\n{owned}\n"
         f"## Relies on, and does not own\n\n| part | where | owner |\n|---|---|---|\n{borrowed}"
     )
@@ -535,6 +536,37 @@ class InARecipient(Clocked):
         self.assertEqual([], report["mechanisms"])
         self.assertEqual(["mechanism-shape", "sample"], report["built in"]["mechanisms"])
         self.assertIn("where core is made", report["built in"]["why"])
+
+    def test_a_local_mechanism_is_the_tree_s_own_to_maintain_and_one_that_came_with_core_is_not(self) -> None:
+        # The tree made `sample` itself and says so; the shape came with core.
+        self.write(SAMPLE_DOC, self.read(SAMPLE_DOC).replace("- **owner** core\n", "- **owner** local\n"))
+
+        status, report = self.run_maintain("--check")
+
+        self.assertEqual(0, status, report)
+        self.assertEqual({"sample"}, {row["mechanism"] for row in report["mechanisms"]})
+        self.assertEqual(["mechanism-shape"], report["built in"]["mechanisms"])
+
+    def test_a_mechanism_that_names_no_owner_is_neither_clocked_nor_come_with_core(self) -> None:
+        self.write(SAMPLE_DOC, self.read(SAMPLE_DOC).replace("- **owner** core\n", ""))
+
+        status, report = self.run_maintain("--check")
+
+        self.assertEqual([], report["mechanisms"])
+        self.assertEqual(["mechanism-shape"], report["built in"]["mechanisms"])
+
+        status, report = self.run_maintain("--mark", "sample", "output", "nothing to change")
+
+        self.assertEqual(1, status)
+        self.assertIn("sample names no owner", report["refusals"][0])
+
+    def test_a_local_mechanism_takes_a_mark(self) -> None:
+        self.write(SAMPLE_DOC, self.read(SAMPLE_DOC).replace("- **owner** core\n", "- **owner** local\n"))
+
+        status, report = self.run_maintain("--mark", "sample", "output", "nothing to change")
+
+        self.assertEqual(0, status, report)
+        self.assertIn("| sample | output", self.read(MARKS))
 
     def test_a_mark_on_a_built_in_mechanism_is_refused_and_writes_nothing(self) -> None:
         before = self.snapshot()

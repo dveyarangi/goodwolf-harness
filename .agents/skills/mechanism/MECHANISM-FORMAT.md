@@ -134,6 +134,7 @@ local rule where every mechanism's block precedes it.
 - **instruction** `<path>` — what it holds
 - **state** always on
 - **record of** what must always hold
+- **owner** core
 
 ## How it works
 
@@ -184,6 +185,14 @@ implementation changed.
   instruction is repaired to. This format is the kind's authored home; the bullet is the kind
   where an agent editing the doc meets it, and the check holds the two equal. The bullet's
   earlier name, `kind`, is reported.
+- **owner** — `core` or `local`, and nothing else. Required: a doc that names no owner is a
+  diagnostic, never read as core's. `core` ships with the harness. A `local` mechanism is the
+  project's own: it ships nowhere, the tree that holds it maintains it, and what its files name
+  under `docs/` is the project's, held to no painted door. Its files are its directory, the
+  folder of each skill that claims it, and every part that opens with its claim; a part under
+  the core directory that is none of these is a diagnostic, and so is a core mechanism naming
+  a file of a local one. <straw-dog question="q-4xda6k">A mechanism is declared `local` before
+  it first ships, never after.</straw-dog>
 - There is no evidence bullet. The evidence is a record declared under [Records](#the-evidence-is-a-record-of-the-shape)
   below and found by the slug; the doc never names it, since it is the instance's and a recipient
   does not have it. Which ticket declared the mechanism is the evidence's first paragraph *(the
@@ -212,7 +221,9 @@ A `not yet` row is a straw dog *(the user, 2026-09-20)*:
 
 Body: the kind alone; the referent is the question, and its words are the reason. A row
 waiting on a question that is due, merged or superseded is a diagnostic. Unwrapped is unbound.
-The shear strips the wrapper, so no id of this tree ships. The lister reports the row; this
+The shear strips the wrapper, so no id of this tree ships; in a recipient the kind standing
+alone, unwrapped, is upstream's gap and draws nothing, and any other unbound `not yet` is a
+diagnostic there too. The lister reports the row; this
 check rules on the gap.
 
 ## The two tables
@@ -276,10 +287,11 @@ rule with no check behind them.
 
 A file an agent edits says which mechanism's doc governs it, on its first line, so the agent
 meets the doc where it works. The files that carry it are a mechanism's instruction file and
-every part of its *Install adds, uninstall removes* table under `.agents/scripts/` — its
-scripts, tests and hook. The doc and the rules file sit in the mechanism's own directory and a
-shelf beside its skill, so their place already says whose they are; a file whose format holds
-no comment carries none.
+every part of its *Install adds, uninstall removes* table under `.agents/scripts/` or outside
+the core directory — its scripts, tests and hook, wherever they stand. The doc and the rules
+file sit in the mechanism's own directory and a shelf beside its skill, so their place already
+says whose they are; a document — `.md`, `.txt` — a data file — `.json`, `.jsonl`, `.csv`,
+`.tsv` — and a file that is not text carry none.
 
 A skill a declaration names opens its body, after the frontmatter, with that mechanism's slug:
 
@@ -287,7 +299,7 @@ A skill a declaration names opens its body, after the frontmatter, with that mec
 Mechanism: ticket
 ```
 
-Code opens with it as a comment, after a shebang where there is one:
+Code opens with it as a comment — `#`, `//`, `--` or `;` — after a shebang where there is one:
 
 ```python
 # Mechanism: ticket

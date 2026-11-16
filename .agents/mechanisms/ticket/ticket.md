@@ -3,6 +3,7 @@
 - **instruction** `.agents/skills/ticket/SKILL.md` — the act: sizing, slicing, impacting the split, presenting the breakdown, minting
 - **state** installed
 - **record of** what must always hold
+- **owner** core
 
 ## How it works
 

@@ -41,7 +41,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import inject_rules  # noqa: E402  (path set just above)
 from docs_corpus import INSTALLED_OPENING, announced, without_code  # noqa: E402
-from mechanisms import Declaration, declarations  # noqa: E402
+from mechanisms import CORE_OWNED, Declaration, declarations  # noqa: E402
 
 MARKS = "docs/mechanisms/maintenance.md"
 # The mechanism whose outputs every mechanism's doc and skill are.
@@ -256,6 +256,8 @@ def _markable(root: Path, declared: list[Declaration], mechanism: str, level: st
         raise Refused(f"{mechanism} came with core and is maintained where core is made")
     clocked = {one.slug: one for one in _clocked(root, declared)}
     if mechanism not in clocked:
+        if mechanism in _slugs(declared):
+            raise Refused(f"{mechanism} names no owner; its declaration says `owner` `core` or `local` before it is maintained")
         raise Refused(f"{mechanism} is not a declared mechanism")
     return clocked[mechanism]
 
@@ -282,18 +284,19 @@ def _standing(mechanism: str, level: str, held: Mark | None, texts: dict[str, st
 
 
 def _clocked(root: Path, declared: list[Declaration]) -> list[Declaration]:
-    """The mechanisms this tree maintains: all of them where core is made, and in a recipient
-    none of those under `.agents/`, which came with core."""
-    return [] if _received_core(root) else declared
+    """The mechanisms this tree maintains: all of them where core is made, and in a recipient its
+    local ones, which it made; those that came with core are maintained where core is."""
+    return [one for one in declared if one.local] if _received_core(root) else declared
 
 
 def _built_in(root: Path, declared: list[Declaration]) -> list[Declaration]:
-    return declared if _received_core(root) else []
+    """In a recipient, the mechanisms that came with core: those whose declarations say so. One
+    that names no owner is neither core's nor the tree's until it says which, and the shape
+    check says so."""
+    return [one for one in declared if one.owner == CORE_OWNED] if _received_core(root) else []
 
 
 def _received_core(root: Path) -> bool:
-    # TODO q-dsxyi5: recipient-own-mechanisms, unminted,
-    # settles where a recipient's own mechanisms live; until then every one a recipient holds is core's.
     return announced(root) is not None
 
 

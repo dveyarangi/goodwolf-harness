@@ -3,6 +3,7 @@
 - **instruction** `.agents/skills/maintain/SKILL.md` — the pass: scope, the four things, straw dogs, archiving, finish
 - **state** installed
 - **record of** what must always hold
+- **owner** core
 
 ## How it works
 
@@ -50,9 +51,7 @@ What it leaves at or above the dial is a question asking the person, which every
 
 In a recipient the mechanisms that came with core are maintained where core is made: the clock
 leaves them out and a mark refuses them, and the origin's marks never ship.
-<straw-dog question="q-dsxyi5">
-A recipient's own mechanisms have no home yet, so its clock reads an empty set.
-</straw-dog>
+A recipient's clock reads the mechanisms its declarations name local.
 <straw-dog question="q-of6uro">
 The due list is read at every pass and printed by the check; it is not announced, so a tree
 where no pass runs is not told.

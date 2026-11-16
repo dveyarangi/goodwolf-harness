@@ -83,7 +83,7 @@ _Avoid_: digest, summary, table of contents.
 The accepted shared method and supporting assets governed at their canonical source.
 
 **Project-local**:
-A project's own answers and overrides, authored once in its local rules file beside the entry file and reaching core files only as the local block the installer writes there, after every mechanism's. An override names the rule it overrides and is what the reader follows.
+A project's own answers and overrides, authored once in its local rules file beside the entry file and reaching core files only as the local block the installer writes there, after every mechanism's. An override names the rule it overrides and is what the reader follows. A mechanism whose declaration names `local` its owner is the project's own too: it ships nowhere, the tree that holds it maintains it, and its rules reach core files as its own block.
 
 **Install** *(of core)*:
 Placing a ref of core into a tree that is not core's own repository, from a fresh clone of that repository and never from a working tree; an update is the same over a tree that already holds one, and a check compares a copy against the ref its entry file announces. The mechanism that does all three is `harness`.

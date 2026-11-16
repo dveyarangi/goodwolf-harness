@@ -4,6 +4,7 @@
 - **instruction** `.agents/skills/conclude/SKILL.md` — the conclude: the session record, the leans, the row ended
 - **state** installed
 - **record of** what must always hold
+- **owner** core
 
 ## How it works
 

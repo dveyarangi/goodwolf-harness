@@ -117,7 +117,8 @@ SAMPLE_DOC = (
     "# sample — one line saying what it is\n\n"
     f"- **instruction** `{KEEPER}` — the act\n"
     "- **state** installed\n"
-    "- **record of** what must always hold\n\n"
+    "- **record of** what must always hold\n"
+    "- **owner** core\n\n"
     "## How it works\n\nProse nothing parses.\n\n"
     "## Moments\n\n"
     "| moment | instructed by | kind, and why |\n|---|---|---|\n"
@@ -153,6 +154,52 @@ FRONT_PAGE = (
     "Its evidence: [the panel](docs/research/panel.md), a document only the origin has.\n"
 )
 INSTALLED_FRONT_PAGE = ".agents/skills/harness/README.md"
+# A mechanism of a tree's own, as a project writes one: declared `owner` `local`, with a skill, a
+# shelf beside it, a script among core's, a check under the project's own tools, a rule installed
+# into a core skill, and a record of its own under `docs/` that every file of it names.
+TUNING_DOC = ".agents/mechanisms/tuning/tuning.md"
+TUNING_RULES = ".agents/mechanisms/tuning/tuning.rules.md"
+TUNING_SKILL = ".agents/skills/tuning/SKILL.md"
+TUNING_SHELF = ".agents/skills/tuning/RECORDS.md"
+TUNING_SCRIPT = ".agents/scripts/gw/tuning.py"
+TUNING_CHECK = "tools/tune/check.sh"
+TUNING_RECORD = "docs/performance-audit.md"
+TUNING_BLOCK = '<installed by="tuning">'
+TUNING_UNDER_CORE = (TUNING_DOC, TUNING_RULES, TUNING_SKILL, TUNING_SHELF, TUNING_SCRIPT)
+
+
+def tuning_mechanism(owner: str = "local") -> dict[str, str]:
+    """Every file of the mechanism, by its path from the tree's root."""
+    return {
+        TUNING_DOC: (
+            "# tuning — how fast the thing runs\n\n"
+            f"- **instruction** `{TUNING_SKILL}` — the act\n"
+            "- **state** always on\n"
+            "- **record of** what must always hold\n"
+            f"- **owner** {owner}\n\n"
+            "## How it works\n\nProse nothing parses.\n\n"
+            "## Moments\n\n"
+            f"| moment | instructed by | kind, and why |\n|---|---|---|\n| tuning | `{TUNING_SKILL}` | |\n\n"
+            "## Install adds, uninstall removes\n\n"
+            f"| part | where |\n|---|---|\n| the act | `{TUNING_SKILL}` |\n| the records' format | `{TUNING_SHELF}` |\n"
+            f"| the script | `{TUNING_SCRIPT}` |\n| the check | `{TUNING_CHECK}` |\n\n"
+            f"## What it produces, and who reads it\n\nThe audit, `{TUNING_RECORD}`, read by whoever tunes.\n\n"
+            "## Not yet at the shape\n\nThe honest gaps.\n\n"
+            "## What retires this\n\nA faster thing.\n\n"
+            "## What would show it working, graded by someone who did not build it\n\n"
+            "A drop is caught the night it lands.\n"
+        ),
+        TUNING_RULES: (
+            f"# tuning — the project's own rules\n\n| target | anchor |\n|---|---|\n| `{KEEPER}` | `# Keeper` |\n\n"
+            f"## T1 — theirs\n\n- **target** `{KEEPER}`\n- **authority** the user, 2026-11-16\n\n"
+            f"<rule>\nTune before keeping; the method is `{TUNING_RECORD}`.\n</rule>\n"
+        ),
+        TUNING_SKILL: f"Mechanism: tuning\n\n# Tuning\n\nThe method is `{TUNING_RECORD}`.\n",
+        TUNING_SHELF: f"# Records\n\nEach run is a row of {TUNING_RECORD}.\n",
+        TUNING_SCRIPT: f'# Mechanism: tuning\nMETHOD = "{TUNING_RECORD}"\n',
+        TUNING_CHECK: "#!/bin/sh\n# Mechanism: tuning\n",
+        TUNING_RECORD: "# The audit\n",
+    }
 
 
 def platform_makes_symlinks() -> bool:
@@ -1016,6 +1063,70 @@ class AnInstall(TwoTrees):
         self.assertEqual([], report["refusals"], report)
         self.assertNotIn(chr(13).encode(), (self.target / KEEPER).read_bytes())
 
+    def seed_the_origins_local_mechanism(self) -> None:
+        for name, text in tuning_mechanism().items():
+            self.write(name, text)
+        inject_rules.install(self.source, inject_rules.read_rules_file(self.source, "tuning"), overwrite=False)
+        self.assertIn(TUNING_BLOCK, self.read(KEEPER))
+
+    def test_the_origin_s_local_mechanism_stays_with_every_file_of_it_and_its_block(self) -> None:
+        shipped_keeper = self.read(KEEPER)
+        self.seed_the_origins_local_mechanism()
+        chart = ".agents/skills/tuning/chart.png"
+        (self.source / chart).write_bytes(b"\x89PNG\r\n\x1a\n\xff\x00")
+        self.commit("the origin's own mechanism, a file of it no text")
+
+        status, report = self.run_harness("--install")
+
+        self.assertEqual([], report["refusals"], report)
+        for stays in (*TUNING_UNDER_CORE, chart, TUNING_CHECK, TUNING_RECORD):
+            self.assertFalse((self.target / stays).exists(), stays)
+            self.assertNotIn(stays, report["written"])
+        self.assertEqual(shipped_keeper, self.target_text(KEEPER), "the block leaves and nothing else of the skill moves")
+        self.assertTrue(report["arrived"], report["gates"])
+
+    def test_a_shipped_declaration_naming_a_file_that_stays_refuses_and_writes_nothing(self) -> None:
+        self.seed_the_origins_local_mechanism()
+        self.write(
+            DOC,
+            SAMPLE_DOC.replace(
+                "| corpus reader |", f"| the tuner | `{TUNING_SCRIPT}` | tuning |\n| corpus reader |"
+            ),
+        )
+        self.commit("core leans on the origin's own mechanism")
+
+        status, report = self.run_harness("--install")
+
+        self.assertNotEqual(0, status)
+        self.assertIn(f"ship: {DOC} names {TUNING_SCRIPT}, a file of tuning, a local mechanism", report["refusals"][0])
+        self.assertFalse((self.target / KEEPER).exists(), "a refusal writes nothing")
+
+    def test_a_core_file_that_is_not_text_refuses_and_writes_nothing(self) -> None:
+        (self.source / ".agents/skills/keeper/chart.png").write_bytes(b"\x89PNG\r\n\x1a\n\xff\x00")
+        self.commit("core holds a file that is no text")
+
+        status, report = self.run_harness("--install")
+
+        self.assertNotEqual(0, status)
+        self.assertIn("ship: .agents/skills/keeper/chart.png", report["refusals"][0])
+        self.assertIn("is not UTF-8", report["refusals"][0])
+        self.assertFalse((self.target / KEEPER).exists(), "a refusal writes nothing")
+
+    def test_a_shipped_rule_installed_into_a_file_that_stays_refuses_and_writes_nothing(self) -> None:
+        self.seed_the_origins_local_mechanism()
+        self.write(
+            ".agents/mechanisms/sample/sample.rules.md",
+            f"# sample — rules\n\n| target | anchor |\n|---|---|\n| `{TUNING_SKILL}` | `# Tuning` |\n\n"
+            f"## S1 — a rule\n\n- **target** `{TUNING_SKILL}`\n- **authority** the user, 2026-11-16\n\n<rule>\nKeep first.\n</rule>\n",
+        )
+        self.commit("a core rule installs into the origin's own skill")
+
+        status, report = self.run_harness("--install")
+
+        self.assertNotEqual(0, status)
+        self.assertIn(f"names {TUNING_SKILL}, a file of tuning, a local mechanism", report["refusals"][0])
+        self.assertFalse((self.target / KEEPER).exists(), "a refusal writes nothing")
+
     def test_lands_the_manifest_transformed_and_nothing_outside_it(self) -> None:
         status, report = self.run_harness("--install")
 
@@ -1453,6 +1564,57 @@ class AnUpdate(TwoTrees):
         self.assertNotIn(KEEPER, report["written"])
         self.assertIn('<installed by="theirs">', self.target_text(KEEPER))
         self.assertTrue(report["gates"]["ref"]["passed"], report["gates"]["ref"])
+
+    def give_the_recipient_a_mechanism_of_its_own(self, owner: str = "local") -> None:
+        for name, text in tuning_mechanism(owner).items():
+            self.write_target(name, text)
+        inject_rules.install(self.target, inject_rules.read_rules_file(self.target, "tuning"), overwrite=False)
+
+    def test_a_recipient_s_local_mechanism_names_its_own_record_and_stands_through_an_update(self) -> None:
+        self.give_the_recipient_a_mechanism_of_its_own()
+
+        _, checked = self.run_harness("--check")
+        self.assertTrue(checked["gates"]["shape"]["passed"], checked["gates"]["shape"])
+        self.assertTrue(checked["gates"]["ref"]["passed"], checked["gates"]["ref"])
+
+        self.write(KEEPER, f"{KEEPER_NAMES}# Keeper\n\nKeep more things.\n")
+        self.commit("core moved")
+        _, report = self.run_harness("--update")
+
+        self.assertEqual([], report["refusals"], report)
+        self.assertEqual([], report["replaced"])
+        for own in TUNING_UNDER_CORE:
+            self.assertIn(own, report["own"])
+            self.assertEqual(tuning_mechanism()[own], self.target_text(own))
+        keeper = self.target_text(KEEPER)
+        self.assertIn("Keep more things.", keeper)
+        self.assertIn(f"{TUNING_BLOCK}\n**T1** Tune before keeping; the method is `{TUNING_RECORD}`.\n</installed>", keeper)
+        self.assertTrue(report["arrived"], report["gates"])
+        # What the tree's own check lists: each file of the mechanism names its record as local,
+        # and the rule it installed into a core skill is the instance's.
+        standing = {(cite.file, cite.standing) for cite in mechanisms.check(self.target).cites if cite.cites == TUNING_RECORD}
+        self.assertEqual(
+            {*((own, "local") for own in TUNING_UNDER_CORE), (KEEPER, "skipped")},
+            standing,
+        )
+
+    def test_in_a_tree_made_by_an_install_a_not_yet_with_a_reason_is_the_tree_s_own_and_fails(self) -> None:
+        _, shipped_as_sheared = self.run_harness("--check")
+        self.assertTrue(shipped_as_sheared["gates"]["shape"]["passed"], "core's own claim arrives as the kind alone")
+
+        self.write_target(".agents/skills/theirs/SKILL.md", "Mechanism: not yet — ours, and it needs none\n\n# Theirs\n")
+        _, checked = self.run_harness("--check")
+
+        self.assertFalse(checked["gates"]["shape"]["passed"])
+        self.assertIn("unbound", json.dumps(checked["gates"]["shape"]))
+
+    def test_the_same_mechanism_declared_core_fails_the_shape_gate_as_a_leak(self) -> None:
+        self.give_the_recipient_a_mechanism_of_its_own(owner="core")
+
+        _, checked = self.run_harness("--check")
+
+        self.assertFalse(checked["gates"]["shape"]["passed"])
+        self.assertIn("a document only the instance has", json.dumps(checked["gates"]["shape"]))
 
     def test_a_block_whose_owner_has_no_rules_file_is_an_edit_in_core(self) -> None:
         self.write_target(KEEPER, self.target_text(KEEPER) + '\n<installed by="nobody">\n**N1** A rule.\n</installed>\n')

@@ -3,6 +3,7 @@
 - **instruction** `.agents/skills/questions/SKILL.md` — the calls, and closing, branching and dropping; the entries' shape in `QUESTION-FORMAT.md` beside it
 - **state** installed
 - **record of** what must always hold
+- **owner** core
 
 ## How it works
 

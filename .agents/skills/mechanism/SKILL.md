@@ -159,8 +159,8 @@ of that skill reaches it as an installed block from its rules file.
 1. **`/align` first**, on what the mechanism is: its moments, its
    authority, its record shape, its index, the tier of each part, what retires it.
 2. Write the doc to [MECHANISM-FORMAT.md](./MECHANISM-FORMAT.md), naming the parts it
-   owns and the parts it relies on with their owners; and its rules file, installed before
-   the doc is checked.
+   owns and the parts it relies on with their owners, and its own owner — `local` unless it
+   is core's to ship; and its rules file, installed before the doc is checked.
 3. **Write the check before the thing it checks**, watching every diagnostic fail in
    both polarities.
 4. **Run it over what already exists** and record the count of prior violations — or

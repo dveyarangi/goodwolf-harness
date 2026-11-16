@@ -72,6 +72,7 @@ class Declared(RepositoryCase):
                 f"- **instruction** `{INSTRUCTION}` — the act\n"
                 "- **state** always on\n"
                 "- **record of** what must always hold\n"
+                "- **owner** core\n"
             ),
             "moments": MOMENTS,
             "parts": PARTS,
@@ -100,6 +101,8 @@ class Declared(RepositoryCase):
             bullets += "- **state** always on\n"
         if "**record of**" not in bullets:
             bullets += "- **record of** what must always hold\n"
+        if "**owner**" not in bullets:
+            bullets += "- **owner** core\n"
         return f"# {SLUG} — one line saying what it is\n\n{bullets}"
 
     def checked(self):
@@ -442,6 +445,31 @@ class TheHeader(Declared):
 
         self.assertEqual((INSTRUCTION,), checked.declarations[0].instructions)
         self.assertEqual([], checked.diagnostics)
+
+    def test_names_its_owner_core_or_local_and_never_by_silence(self) -> None:
+        with self.subTest(owner="core"):
+            checked = self.checked()
+
+            self.assertEqual([], checked.diagnostics)
+            self.assertEqual("core", checked.declarations[0].owner)
+            self.assertEqual("core", checked.as_record()["declarations"][0]["owner"])
+
+        with self.subTest(owner="none"):
+            self.write(DOC, self.doc().replace("- **owner** core\n", ""))
+
+            problems = self.problems()
+
+            self.assertEqual(1, len(problems), problems)
+            self.assertIn("names no owner", problems[0])
+            self.assertIn("`- **owner** core` or `- **owner** local`", problems[0])
+
+        with self.subTest(owner="the project"):
+            self.write(DOC, self.doc().replace("- **owner** core", "- **owner** the project"))
+
+            problems = self.problems()
+
+            self.assertEqual(1, len(problems), problems)
+            self.assertIn("the owner is the project", problems[0])
 
     def test_states_one_of_the_two_states_a_mechanism_can_be_in(self) -> None:
         with self.subTest(state="installed"):
@@ -998,18 +1026,245 @@ class CoreStandsAlone(Declared):
 
         self.assertEqual([("AGENTS.md", 1, DOCUMENT)], self.leaks())
 
-    def test_the_report_carries_the_three_classes_and_no_total(self) -> None:
+    def test_the_report_carries_the_four_classes_and_no_total(self) -> None:
         self.write(CITING, f'# Notes\n\n<installed by="local">\n`{DOCUMENT}`\n</installed>\n`docs/adr/` and `{DOCUMENT}`.\n')
 
         report = self.checked().as_record()["core cites"]
 
-        self.assertEqual({"painted doors", "skipped", "leaks"}, set(report))
+        self.assertEqual({"painted doors", "skipped", "local", "leaks"}, set(report))
         self.assertEqual(
             [{"file": CITING, "line": 4, "cites": DOCUMENT}],
             [entry for entry in report["skipped"] if entry["file"] == CITING],
         )
         self.assertEqual([{"file": CITING, "line": 6, "cites": "docs/adr/"}], report["painted doors"])
         self.assertEqual([{"file": CITING, "line": 6, "cites": DOCUMENT}], report["leaks"])
+
+
+LOCAL_SLUG = "tuning"
+LOCAL_DOC = f"{MECHANISMS}/{LOCAL_SLUG}/{LOCAL_SLUG}.md"
+LOCAL_SKILL = ".agents/skills/tuning/SKILL.md"
+LOCAL_SHELF = ".agents/skills/tuning/RECORDS.md"
+LOCAL_SCRIPT = ".agents/scripts/tuning.py"
+OUTSIDE = "tools/tune/check.sh"
+# A record of the project's own, behind no painted door.
+RECORD = "docs/performance-audit.md"
+LOCAL_PARTS = (
+    "| part | where |\n"
+    "|---|---|\n"
+    f"| the act | `{LOCAL_SKILL}` |\n"
+    f"| the records' format | `{LOCAL_SHELF}` |\n"
+    f"| the script | `{LOCAL_SCRIPT}` |\n"
+    f"| the check | `{OUTSIDE}` |\n"
+)
+
+
+class ALocalMechanism(Declared):
+    """A tree holding core's mechanism and one of its own, declared `owner` `local`: its doc, its
+    skill, a shelf beside the skill and a script each name a record of the project's own."""
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.write(LOCAL_SKILL, f"Mechanism: {LOCAL_SLUG}\n\n# Tuning\n\nThe method is `{RECORD}`.\n")
+        self.write(LOCAL_SHELF, f"# Records\n\nEach run is a row of {RECORD}.\n")
+        self.write(LOCAL_SCRIPT, f'# Mechanism: {LOCAL_SLUG}\nMETHOD = "{RECORD}"\n')
+        self.write(OUTSIDE, f"#!/bin/sh\n# Mechanism: {LOCAL_SLUG}\n")
+        self.write(RECORD, "# The audit\n")
+        self.write(LOCAL_DOC, self.local_doc())
+
+    def local_doc(self, owner: str = "local", parts: str = LOCAL_PARTS) -> str:
+        return self.doc(
+            header=(
+                f"# {LOCAL_SLUG} — how fast the thing runs\n\n"
+                f"- **instruction** `{LOCAL_SKILL}` — the act\n"
+                "- **state** always on\n"
+                "- **record of** what must always hold\n"
+                f"- **owner** {owner}\n"
+            ),
+            moments=f"| moment | instructed by | kind, and why |\n|---|---|---|\n| tuning | `{LOCAL_SKILL}` | |\n",
+            parts=parts,
+            produces=f"## What it produces, and who reads it\n\nThe audit, `{RECORD}`, read by whoever tunes.\n",
+        )
+
+    def standing(self, standing: str) -> dict[str, list[str]]:
+        found: dict[str, list[str]] = {}
+        for cite in self.checked().cites:
+            if cite.standing == standing:
+                found.setdefault(cite.file, []).append(cite.cites)
+        return found
+
+    def test_names_its_own_record_and_passes_and_the_report_lists_it_as_local(self) -> None:
+        self.assertEqual([], self.problems())
+        self.assertEqual(
+            {LOCAL_DOC: [RECORD], LOCAL_SKILL: [RECORD], LOCAL_SHELF: [RECORD], LOCAL_SCRIPT: [RECORD]},
+            self.standing("local"),
+        )
+        report = self.checked().as_record()
+        self.assertIn({"file": LOCAL_SKILL, "line": 5, "cites": RECORD}, report["core cites"]["local"])
+        self.assertEqual("local", report["declarations"][1]["owner"])
+
+    def test_declared_core_the_same_files_leak(self) -> None:
+        self.write(LOCAL_DOC, self.local_doc(owner="core"))
+
+        self.assertEqual({}, self.standing("local"))
+        self.assertEqual({LOCAL_DOC, LOCAL_SKILL, LOCAL_SHELF, LOCAL_SCRIPT}, set(self.standing("leak")))
+
+    def test_the_same_record_named_by_a_core_file_is_a_leak(self) -> None:
+        self.write(CITING, f"# Notes\n\nSee `{RECORD}`.\n")
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems), problems)
+        self.assertIn(f"{CITING}:3 cites {RECORD}", problems[0])
+
+    def test_a_skill_that_claims_it_and_is_not_named_stays_cores(self) -> None:
+        self.write(STRAY, FRONTMATTER + f"Mechanism: {LOCAL_SLUG}\n\nSee `{RECORD}`.\n")
+
+        problems = self.problems()
+
+        self.assertTrue(any("whose declaration does not name it" in note for note in problems), problems)
+        self.assertEqual({STRAY: [RECORD]}, self.standing("leak"))
+
+    def test_a_row_naming_a_file_of_cores_does_not_excuse_it(self) -> None:
+        self.write(CITING, f"# Notes\n\nSee `{RECORD}`.\n")
+        self.write(LOCAL_DOC, self.local_doc(parts=LOCAL_PARTS + f"| a borrowed shelf | `{CITING}` |\n"))
+
+        self.assertEqual({CITING: [RECORD]}, self.standing("leak"))
+
+    def test_a_script_under_core_without_its_claim_is_cores_and_leaks(self) -> None:
+        self.write(LOCAL_SCRIPT, f'METHOD = "{RECORD}"\n')
+
+        problems = self.problems()
+
+        self.assertTrue(any(f"{LOCAL_SCRIPT} names no mechanism" in note for note in problems), problems)
+        self.assertEqual({LOCAL_SCRIPT: [RECORD]}, self.standing("leak"))
+
+    def test_a_part_outside_the_core_directory_without_its_claim_fails(self) -> None:
+        self.write(OUTSIDE, "#!/bin/sh\necho measuring\n")
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems), problems)
+        self.assertIn(f"{OUTSIDE} names no mechanism", problems[0])
+
+    def test_a_part_outside_names_it_under_any_comment_leader(self) -> None:
+        for leader in ("#", "//", "--", ";"):
+            with self.subTest(leader=leader):
+                self.write(OUTSIDE, f"{leader} Mechanism: {LOCAL_SLUG}\n")
+
+                self.assertEqual([], self.problems())
+
+    def test_a_part_outside_naming_another_mechanism_fails(self) -> None:
+        self.write(OUTSIDE, f"# Mechanism: {SLUG}\n")
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems), problems)
+        self.assertIn(f"{OUTSIDE} names {SLUG}", problems[0])
+
+    def test_a_document_and_a_data_file_outside_carry_no_claim(self) -> None:
+        self.write("tools/tune/README.md", "# How to tune\n")
+        self.write("tools/tune/levels.json", "{}\n")
+        self.write(
+            LOCAL_DOC,
+            self.local_doc(
+                parts=LOCAL_PARTS + "| the notes | `tools/tune/README.md` |\n| the levels | `tools/tune/levels.json` |\n"
+            ),
+        )
+
+        self.assertEqual([], self.problems())
+
+    def test_a_core_mechanism_naming_a_file_of_it_fails_by_every_way_a_declaration_names_one(self) -> None:
+        leaning = {
+            "a relied-on part": self.doc(relied_on=RELIED_ON + f"| the tuner | `{LOCAL_SCRIPT}` | {LOCAL_SLUG} |\n"),
+            "a part": self.doc(parts=PARTS + f"| the tuner | `{LOCAL_SCRIPT}` |\n"),
+            "a moment's instruction": self.doc(moments=MOMENTS + f"| tuning | `{LOCAL_SCRIPT}` | |\n"),
+            "a moment's referent": self.doc(
+                moments=MOMENTS + f"| tuning | — | elsewhere — the project tunes, `{LOCAL_SCRIPT}` |\n"
+            ),
+        }
+        for way, written in leaning.items():
+            with self.subTest(way=way):
+                self.write(DOC, written)
+
+                problems = self.problems()
+
+                self.assertTrue(
+                    any(f"{LOCAL_SCRIPT} is {LOCAL_SLUG}'s, a local mechanism's, which does not ship" in note for note in problems),
+                    problems,
+                )
+
+    def test_a_core_rule_installed_into_a_file_of_it_fails(self) -> None:
+        self.write(
+            f"{MECHANISMS}/{SLUG}/{SLUG}.rules.md",
+            f"# {SLUG} — rules\n\n| target | anchor |\n|---|---|\n| `{LOCAL_SKILL}` | `# Tuning` |\n\n"
+            f"## S1 — a rule\n\n- **target** `{LOCAL_SKILL}`\n- **authority** the user, 2026-11-16\n\n<rule>\nSample first.\n</rule>\n",
+        )
+
+        problems = self.problems()
+
+        self.assertTrue(any(f"{LOCAL_SKILL} is {LOCAL_SLUG}'s, a local mechanism's" in note for note in problems), problems)
+
+    def test_a_rule_it_installed_into_a_core_file_names_its_record_and_is_skipped_as_the_instance_s(self) -> None:
+        self.write(CITING, f'# Notes\n\n<installed by="{LOCAL_SLUG}">\n**T1** The method is `{RECORD}`.\n</installed>\n')
+
+        self.assertEqual([], self.problems())
+        self.assertEqual({CITING: [RECORD]}, self.standing("skipped"))
+
+    def test_a_block_of_a_mechanism_declared_core_excuses_nothing(self) -> None:
+        self.write(CITING, f'# Notes\n\n<installed by="{SLUG}">\n**S1** The method is `{RECORD}`.\n</installed>\n')
+
+        self.assertEqual({CITING: [RECORD]}, self.standing("leak"))
+
+    def test_a_skill_it_names_that_does_not_claim_it_is_cores_folder_and_all(self) -> None:
+        self.write(LOCAL_SKILL, f"# Tuning\n\nThe method is `{RECORD}`.\n")
+
+        self.assertEqual({LOCAL_SKILL, LOCAL_SHELF}, set(self.standing("leak")))
+
+    def test_a_part_under_core_that_nothing_tells_as_its_own_is_said_to_ship(self) -> None:
+        stranded = ".agents/skills/sample/TUNING.md"
+        self.write(stranded, "# How the sample is tuned\n")
+        self.write(LOCAL_DOC, self.local_doc(parts=LOCAL_PARTS + f"| a shelf in another's folder | `{stranded}` |\n"))
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems), problems)
+        self.assertIn(f"{stranded} is a part of {LOCAL_SLUG}, a local mechanism, and nothing tells it as its own", problems[0])
+
+    def test_a_document_s_heading_is_no_claim_and_a_folder_part_under_core_is_said_to_ship(self) -> None:
+        stranded = ".agents/skills/sample/TUNING.md"
+        self.write(stranded, f"# Mechanism: {LOCAL_SLUG}\n\nA heading that reads like a claim.\n")
+        self.write(".agents/tuning-data/levels.md", "# Levels\n")
+        self.write(
+            LOCAL_DOC,
+            self.local_doc(parts=LOCAL_PARTS + f"| a shelf | `{stranded}` |\n| its data | `.agents/tuning-data/` |\n"),
+        )
+
+        problems = self.problems()
+
+        self.assertEqual(2, len(problems), problems)
+        self.assertTrue(any(f"{stranded} is a part of {LOCAL_SLUG}" in note for note in problems), problems)
+        self.assertTrue(any(f".agents/tuning-data/ is a part of {LOCAL_SLUG}" in note for note in problems), problems)
+
+    def test_an_instruction_it_names_that_is_no_skill_of_its_own_is_said_to_ship(self) -> None:
+        borrowed = ".agents/skills/sample/TUNING.md"
+        self.write(borrowed, "# How the sample is tuned\n")
+        self.write(LOCAL_DOC, self.local_doc().replace(
+            f"- **instruction** `{LOCAL_SKILL}` — the act\n",
+            f"- **instruction** `{LOCAL_SKILL}` — the act\n- **instruction** `{borrowed}` — a second act\n",
+        ))
+
+        self.assertTrue(any(f"{borrowed} is a part of {LOCAL_SLUG}" in note for note in self.problems()), self.problems())
+
+    def test_a_part_outside_that_is_not_text_carries_no_claim(self) -> None:
+        (self.root / "tools/tune").mkdir(parents=True, exist_ok=True)
+        (self.root / "tools/tune/chart.png").write_bytes(b"\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR")
+        self.write("tools/tune/notes.txt", "Plain words.\n")
+        self.write(
+            LOCAL_DOC,
+            self.local_doc(parts=LOCAL_PARTS + "| a chart | `tools/tune/chart.png` |\n| notes | `tools/tune/notes.txt` |\n"),
+        )
+
+        self.assertEqual([], self.problems())
 
 
 class InARecipient(Declared):
@@ -1039,6 +1294,40 @@ class InARecipient(Declared):
         self.write(STRAY, FRONTMATTER + "Mechanism: not yet\n")
 
         self.assertEqual([], self.checked().diagnostics)
+
+    def test_only_the_kind_alone_is_what_the_shear_leaves(self) -> None:
+        # Words after the kind, a wrapper that binds nothing and a longer word are the tree's own
+        # writing: the shear leaves `not yet` and nothing else.
+        for written in (
+            "Mechanism: not yet — it is ours and needs none\n",
+            "<straw-dog>Mechanism: not yet</straw-dog>\n",
+            "Mechanism: not yet-ish\n",
+            "Mechanism: not yet.\n",
+        ):
+            with self.subTest(written=written):
+                self.write(STRAY, FRONTMATTER + written)
+
+                problems = self.problems()
+
+                self.assertTrue(any("unbound" in problem for problem in problems), problems)
+
+    def test_a_row_with_a_reason_after_the_kind_is_the_trees_own(self) -> None:
+        self.write(DOC, self.doc(moments=self.sheared_row().replace("| not yet |", "| not yet — later |")))
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems), problems)
+        self.assertIn("unbound", problems[0])
+
+    def test_at_the_origin_a_bound_claim_that_says_why_in_its_body_is_told_so(self) -> None:
+        # Sheared, the words stay and the binding goes, and a recipient's check then refuses the line.
+        self.write("AGENTS.md", "Entry contract: v14, 2026-09-20.\n\n" + f"- Doing it {TRIGGER} /sample.\n")
+        self.write(STRAY, FRONTMATTER + '<straw-dog question="q-0002">Mechanism: not yet — it waits on the sweep</straw-dog>\n')
+
+        problems = self.problems()
+
+        self.assertEqual(1, len(problems), problems)
+        self.assertIn("claims not yet and says why in its body", problems[0])
 
     def test_the_origin_line_keeps_both_diagnostics(self) -> None:
         self.write("AGENTS.md", "Entry contract: v14, 2026-09-20.\n\n" + f"- Doing it {TRIGGER} /sample.\n")

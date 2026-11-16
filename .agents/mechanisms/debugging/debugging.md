@@ -3,6 +3,7 @@
 - **instruction** `.agents/skills/debugging/SKILL.md` — what a tree shows of its own working, and where that text comes from
 - **state** installed
 - **record of** what must always hold
+- **owner** core
 
 ## How it works
 

@@ -51,7 +51,7 @@ their exclude entries alone and says one line, or the command, in the wake.
 
 ## What a run does
 
-Copies every file under `.agents/` plus `AGENTS.md` and `CLAUDE.md`, the source's root
+Copies every file under `.agents/` but those of a mechanism the origin declares local, plus `AGENTS.md` and `CLAUDE.md`, the source's root
 `LICENSE` as `.agents/LICENSE`, and its root `README.md` beside this skill, with the origin's local blocks removed and every straw-dog wrapper and `TODO` binding sheared so the rule stays and the question it waits on, which only this tree holds, does not;
 stamps the entry file's announce line `<repository>@<ref>, <date>`, which is the tree's only
 revision record and what every session there announces; merges core's hooks into each host's

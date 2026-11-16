@@ -3,6 +3,7 @@
 - **instruction** `.agents/skills/product/SKILL.md` — the act: keeping the product document, seeing each answer's coverage and the tickets beside it
 - **state** installed
 - **record of** what must always hold
+- **owner** core
 
 ## How it works
 

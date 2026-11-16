@@ -3,6 +3,7 @@
 - **instruction** `.agents/skills/mechanism/SKILL.md` — the shape: membership, the three homes, moments, injection, records, incept, amend and retire
 - **state** always on
 - **record of** what must always hold
+- **owner** core
 
 ## How it works
 
@@ -34,6 +35,17 @@ is the brake: a skill acting on none of the mechanism's records is not its own.
 
 **Core works the same over any `docs/` whose records keep their declared shapes**; the check
 holds the part a script can see, the paths a core file names.
+
+**A mechanism names its owner, core or local, and is neither by silence.** A local one is the
+project's own and travels nowhere, so it reserves nothing in another tree: what its files name
+under `docs/` is the project's and no leak, the tree that holds it maintains it, and an origin's
+never ships. The owner sits in the declaration because the tree keeps no manifest: the check
+cannot know what shipped, and a file is told from core's by the claim it already carries *(the
+user, 2026-11-15; the bullet's words, 2026-11-16)*. A core
+mechanism names no file of a local one, in its declaration or as a rule's target, and every file
+or folder a local one names under the core directory is told as its own by its place or its
+claim; prose that links a skill is read by neither rule.
+A rule a local mechanism installs into a core file is the instance's, as the local block is.
 
 **Mechanical by construction**, because a mechanism whose parts a script cannot enumerate cannot be
 checked, and an unchecked declaration is exactly the label this shape exists to prevent.
@@ -121,9 +133,9 @@ claimant is the always-on mechanism, so no uninstall can remove what another mec
 - **`--check`'s report** — *what exists* — read by `/verify` through the verification set, by
   the pre-push check, `harness.py --pre-push`, at a push that carries a file of the method, and by anyone who runs it. Its exit status is what the set consumes; its JSON is for the person reading a failure.
   Its `core cites` key lists every path under `docs/` a core file names and where it stands —
-  a painted door, skipped inside an instance-owned block, or a leak — read by whoever ports
-  core: an exclusion nobody can see is the review the check replaces, so all three are shown
-  and never a total.
+  a painted door, skipped inside an instance-owned block, local in a file of a local mechanism,
+  or a leak — read by whoever ports core: an exclusion nobody can see is the review the check
+  replaces, so all four are shown and never a total.
 - **`rule_failures.py --check`'s report** — *what exists* — that every occurrence in the
   rule-failure register names its host, model and time, and its case agrees; read by anyone who
   runs it, its exit status for a gate and its JSON for the person reading a failure.
@@ -152,8 +164,8 @@ claimant is the always-on mechanism, so no uninstall can remove what another mec
 
 - **A part's claim** — *what it intends to become, what must always hold once it names a
   mechanism* — the `Mechanism:` line a file an agent edits opens
-  with: a skill a declaration names, and every script, test and hook a mechanism owns, naming its
-  slug, so the agent meets the doc that governs the file where it works; a skill none names, `not
+  with: a skill a declaration names, and every script, test and hook a mechanism owns, under
+  the scripts' folder or outside the core directory, naming its slug, so the agent meets the doc that governs the file where it works; a skill none names, `not
   yet` as a straw dog at its authored home. Written by whoever adds the file, through R6; read by
   `--check` on every `/verify`, held to the parts tables both ways. Not a record of this
   mechanism: it is the file's own line, and no file lists them *(the user, 2026-09-20; every part

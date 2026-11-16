@@ -368,7 +368,7 @@ def announced(root: Path) -> Announced | None:
 @dataclass(frozen=True)
 class Mention:
     """One path under `docs/` a core file names — by citation or as a bare literal — and whether an
-    instance-owned block holds it, which is the only thing that excuses it."""
+    instance-owned block holds it: the local block, or the block of a local mechanism."""
 
     line: int
     path: str
@@ -379,7 +379,7 @@ class UnreadableCode(Exception):
     """A script the tokenizer could not read. The caller reports it: a skip is not a pass."""
 
 
-def docs_mentioned(root: Path, citing: str, text: str) -> list[Mention]:
+def docs_mentioned(root: Path, citing: str, text: str, local_mechanisms: tuple[str, ...] = ()) -> list[Mention]:
     """Every path under `docs/` a document names, in document order.
 
     Two readings of one text, positions shared. Tags are found through `without_code`, so a tag
@@ -390,6 +390,10 @@ def docs_mentioned(root: Path, citing: str, text: str) -> list[Mention]:
     """
     tagged = without_code(text)
     owned = [span.span() for span in _INSTANCE_OWNED.finditer(tagged)]
+    # A local mechanism's rules are the project's own, wherever its installer wrote them.
+    for slug in local_mechanisms:
+        block = re.compile(rf'<installed by="{re.escape(slug)}">.*?</installed>', re.S)
+        owned += [span.span() for span in block.finditer(tagged)]
     openings = [span.span() for span in _WRAPPER_OPENING.finditer(tagged)]
     stamped = [span.span() for span in _STAMPED_SOURCE.finditer(tagged)]
     readable = _blanked_spans(_without_fences(text), openings + stamped)
