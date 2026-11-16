@@ -19,6 +19,43 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## A criterion the person had set aside kept a working ticket open, and a second ticket was made to wait on it — 2026-11-16
+
+**Source, no case yet:**
+
+- Claude desktop app · unknown · 2026-11-16T13:07Z — the last activity the app listed for the reporting session before its message; observed in a recipient, fimonitor, and passed to core's keeper by the session that met it, "Анализ собранных данных" (fimonitor b9e1c7d).
+
+**Goal missed:** work that is in use is not held open, and no other work is held behind it, by a
+check the person has set aside.
+
+**Rules in play, loaded:** the ticket format: *"It is done when every criterion holds,
+verification included"*; *"`Depends on` … blockers, each with a parenthetical naming what it
+supplies — not a bare link"*.
+
+**What happened.** A ticket's collector worked and was in use; every criterion held but one the
+person had deferred — that it starts again after a sign-out — and verification. The ticket stayed
+In progress. Minting the next ticket, which touches the same file, the session made it depend on
+the first, because the first was not closed and another session had held it; that session had
+already left it. The person there called blocking work on a minor criterion of something that
+already works ceremony, and asked that the harness be told. The session moved the criterion to
+the ticket's *Out of scope* with the person's word, the date and what it leaves unconfirmed.
+
+**Why it did not fire.** Two things, the first no failure of a rule. The format gives a
+criterion the person sets aside nowhere to go: *done when every criterion holds* was followed as
+written, and what followed was a ticket that could not close. And `Depends on` asks what a
+blocker supplies without saying that a blocker supplies something the work cannot start without:
+"the other ticket is not closed" and "both touch one file" passed as dependencies, where the
+first supplies nothing and the second is a matter of which session writes the file now.
+
+**Proposed amendment**, the recipient's, in the ticket format, no check being able to hold
+either: a criterion the person sets aside leaves the criteria for *Out of scope*, dated, with
+what it leaves unconfirmed, and the ticket closes on the rest; `Depends on` names only what a
+blocker supplies that this work cannot start without — an unfinished check on working code
+supplies nothing, and two tickets touching one file is the sessions' matter, no dependency.
+
+**Disposition:** open — the recipient mended its own ticket; both rewordings put to the person,
+not landed.
+
 ## A recipient built a mechanism unnamed, its skill called unowned by design, and nothing refused it — 2026-11-15
 
 **Source, no case yet:**
