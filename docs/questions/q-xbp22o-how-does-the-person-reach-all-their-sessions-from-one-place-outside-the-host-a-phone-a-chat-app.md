@@ -4,6 +4,7 @@
 - **part of** q-veooj7
 - **state** open
 - **rung** development: a product slice, self-improvement: the method
+- **lean** set aside by the user, 2026-11-16, until the decisions on zones and sessions are taken; the host carries Remote Control, nothing is built
 - **opened** 2026-11-16T20:59:39Z
 - **struck** 0, last 2026-11-16T20:59Z
 
@@ -47,3 +48,6 @@ hop added to every exchange; and a reply cut down for a phone, the decisions tha
 what is cut. By the decisions on zones a relay would be a role held by the tree's harness
 session, not a session of its own. If what a trial leaves wanting is one place showing what
 waits on the person in every session, that is a record a phone reads, and core's to build.
+
+The user, 2026-11-16, of the trial put to them: "давай пока отложим ремот и бота. сначала примем
+по всем остальным решениям решения". Set aside; nothing is tried or built.
