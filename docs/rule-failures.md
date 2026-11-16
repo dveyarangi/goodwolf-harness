@@ -53,10 +53,12 @@ what it leaves unconfirmed, and the ticket closes on the rest; `Depends on` name
 blocker supplies that this work cannot start without — an unfinished check on working code
 supplies nothing, and two tickets touching one file is the sessions' matter, no dependency.
 
-**Disposition:** open — the recipient mended its own ticket. The first rewording landed
-2026-11-16 in the ticket format, acc07896, on the person's word, through the session that holds
-the tickets; the second, redrafted at the person's question of how a ticket names what the work
-cannot start without, waits on their word.
+**Disposition:** closed 2026-11-16 — both rewordings landed in the ticket format on the person's
+word, through the session that holds the tickets: a criterion the person sets aside leaves for
+*Out of scope*, with who, the date and what it leaves unconfirmed, and the ticket closes on the
+rest, acc07896; `Depends on` names only what this work will use and does not exist yet, never
+another ticket's state, ee9b1a42, redrafted at the person's question and tried on a fresh
+reader. The recipient mended its own ticket.
 
 ## A recipient built a mechanism unnamed, its skill called unowned by design, and nothing refused it — 2026-11-15
 
