@@ -1,10 +1,10 @@
 # q-7mj6ax Is a role given paths alone and a cut the harness can shift, where the accepted shape gave it mechanisms and questions and held the cut by decision?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-ja5mp4
-- **state** open
+- **state** closed:decided
+- **answer** [q-gus5k2, decisions 3 and 5](q-gus5k2-how-is-each-areas-knowledge-kept-apart-so-a-session-holds-its-own-areas-context-and-the-boundary-stays.md#decisions) — the user, 2026-11-16: paths, and a mechanism where there is one, standing for its declared paths; questions leave the map; the plan of 01-0090 goes back through /plan
 - **rung** development: load-bearing, self-improvement: the method
-- **asks** the person, 2026-11-16
 - **opened** 2026-11-16T04:12:12Z
 - **struck** 0, last 2026-11-16T04:12Z
 

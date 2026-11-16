@@ -132,7 +132,7 @@ its three by the person naming them.
 **The shape agreed.** The session mechanism keeps the standing sessions as a part of its own: the
 skill `/pack`, one record — the tree's roles — and a section of its doc. A *role* is an area of
 the work one standing session answers for across chats: its name, the map of what it owns —
-paths, mechanisms, questions — and its brief, which a successor reads without the chat that held
+paths, and a mechanism where there is one, standing for the paths it declares (narrowed 2026-11-16 by [q-gus5k2](q-gus5k2-how-is-each-areas-knowledge-kept-apart-so-a-session-holds-its-own-areas-context-and-the-boundary-stays.md)'s decisions 3 and 5; as accepted: "paths, mechanisms, questions") — and its brief, which a successor reads without the chat that held
 the role before. The map is also what the role's session reads: its own area whole, the rest of
 the tree through what is shared and the contracts between areas, never held. Which session holds
 a role now is no part of the record, which names no session: the session's title says it, and

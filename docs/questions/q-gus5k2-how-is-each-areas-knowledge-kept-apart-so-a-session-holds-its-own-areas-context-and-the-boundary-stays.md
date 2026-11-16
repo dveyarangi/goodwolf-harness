@@ -95,3 +95,12 @@ The user, 2026-11-15, asked which goes first — this question's align or the bu
    missing"). It is built in parts: saying it at the edit needs a host's hook on file edits, and
    falls back to the commit where a host has none; the record of who touched a file waits on the
    store's server; counting the crossings is the pack's.
+5. **A role's map holds paths, and a mechanism where there is one** — the user, 2026-11-16, asked
+   whether decision 3 narrows the accepted map of "paths, mechanisms, questions" to paths alone:
+   "пути и механизм, если он есть. но не факт что он есть )) надо сделать чтобы был всегда, даже
+   если это просто скил - но всегда с описанием документа механизма, как минимум, даже если без
+   скриптов". A mechanism named in a map stands for the paths its declaration lists as its
+   parts, read by the script and written nowhere a second time. Questions leave the map: who
+   stands on a question and who holds it is the store's and the rows' to say. That every skill
+   has a mechanism, with its doc at the least, is recorded where the skills' ownership is asked
+   — [q-gbt7cy](q-gbt7cy-does-each-skill-state-only-what-it-owns.md), decision 1.
