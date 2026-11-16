@@ -96,3 +96,11 @@ The user, the same day, of the rule's rewording: "по правилу сообщ
 результатов работы." The rule as landed spoke of the sender alone. A fourth gap, taken into the
 rewording: the sender says what it waits for; the receiver answers what asks for an answer and
 what waits on its work or decision unsaid, and sends nothing to the rest.
+
+The user, 2026-11-16, of the session mechanism's block in the entry file: "правила сессий
+устанавливающиеся в agents.md какие-то огромные. они для умной модели?" Measured the same hour:
+the block is 51 lines and 3,516 characters, the largest any mechanism installs there, and S10
+alone 26 lines — written twice that day, each trial answering an ambiguity with more words. It
+is paid by every session at every turn, and its detail is wanted at one occasion, writing to
+another session. Put to the person, not done: the entry file keeps the rule's few lines, and what
+a message carries on each occasion moves to where it is read at that occasion.
