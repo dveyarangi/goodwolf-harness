@@ -73,3 +73,32 @@ both sets of answers judged by a third against the count.
 
 The whole rule is a straw dog while the record of who touched a file is not built: that record
 will carry the file and the lines its first bullet asks a message for.
+
+## The rule on messages reworded the day it landed — 2026-11-16
+
+The person read S10 within the hour and found four gaps the trial had not: it took a row's word
+that a session had ended, and a row reads so after three hours of silence, so a role's sleeping
+session would be kept from what it must act on; it named two things not to send where the count
+has four; it spoke of the sender alone; and it said nothing of what the person is told. The
+trial could not have caught the first: its situations told the readers that *ended* means not
+running.
+
+Reworded on all four and tried again: a fresh reader with the rule alone, ten further
+situations, most from the receiver's side and with sessions that hold a role beside one that
+does not, judged by another against the count. The reader was right in all ten — it answered
+what asked and what waited unsaid, sent nothing to thanks and to a note that asked for none,
+wrote to a role's session whose row read ended and not to a one-task session's, said what it
+waited for, and told the person of the work and not of the exchanges.
+
+- **Refused, three wordings**, each permitting a second reader otherwise: *what the receiver
+  reads from git or a record without you*, standing alone, covered an answer that happens to
+  stand in a committed file, so it stands under *what nobody waits on*; *in a line* bounded a
+  decision put to the person as well as a retelling, and left; *the rest is not retold* had no
+  exception for a person who asks what a message said, so *unasked*.
+- **Left out, untried.** That a role's sleeping session is written only what will still hold
+  when it wakes: a notice of uncommitted work or of a break is overtaken before a sleeper reads
+  it, and stale on arrival is the waste the count saw grow. Whether a message wakes a sleeping
+  session or waits is the host's, and decides the cost.
+- **What this trial cannot say.** One reader, one run, right at every collision, so the three
+  defects are read from the words; the last paragraph has no ground truth in the count, which
+  judged messages by what the receiving session did, never by what the person was told.

@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v134, 2026-11-16.
+Entry contract: v135, 2026-11-16.
 
 ## General rules
 
@@ -169,7 +169,8 @@ is that session's to put to the person, though its message brings it: it enters 
 your replies.
 
 **S10** Write to another session a question, and what it must act on or would go wrong without, to the
-id its row gives, never to a session that has ended:
+id its row gives. A session that holds a role is written to asleep; any other, only while its
+row reads running:
 
 - your uncommitted work in a file it works in, or a commit that took its uncommitted lines —
   before your turn ends: the file, the lines, when they will be committed;
@@ -182,8 +183,17 @@ id its row gives, never to a session that has ended:
 
 Check a claim about another's lines or a commit against git or the record before sending it; a
 guess of whose they are goes as a question. One message to a receiver per occasion, a correction
-replacing the one it corrects and saying so. Send no acknowledgement and no status nobody waits
-on: a message ends its thread unless it asks, and says so where no answer is needed.
+replacing the one it corrects and saying so. Say what you wait for: an answer, the result of
+work, or nothing.
+
+Answer a message that asks for an answer, and one that waits on your work or your decision
+though it does not say so; to any other send nothing. Do not write: an acknowledgement; what
+nobody waits on — a status, or what the receiver reads from git or a record without you; news
+that changes nothing for it.
+
+Tell the person of a message, sent or received, only what it changes for them — a decision it
+asks of them, a change in the work, something you told them that no longer holds; the rest is
+not retold unasked.
 </installed>
 
 <installed by="debugging">

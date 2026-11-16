@@ -52,6 +52,12 @@ to say who the receiver is.
    under this question still: a change to a contract others read, told to every reader before it
    lands — the count's candidate 8, left out untried; and which session a message goes to where
    no row names the owner of a file, which waits on the record of who holds which role.
+2. **The rule reworded on the four gaps the person found, and landed** — the user, 2026-11-16,
+   who named each gap and what closes it; the wording tried a second time and judged, at the
+   entry contract's v135. Open under this question still, beside decision 1's two: whether a
+   role's sleeping session is written only what will still hold when it wakes; and the rows'
+   own part — a row whose session holds a role neither ended by silence nor removed — which is
+   the rows' session's.
 
 ## Three gaps the person found in the landed rule — 2026-11-16
 

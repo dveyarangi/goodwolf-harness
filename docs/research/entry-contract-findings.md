@@ -15,6 +15,19 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v135 — 2026-11-16
+
+**The rule on messages closes its circle** — S10 reworded the day it landed, on four gaps the
+person found. *Never to a session that has ended* took a row's word, and a row reads ended after
+three hours of silence: a session that holds a role is written to asleep, any other only while
+its row reads running. What is not written gains what the receiver reads from git or a record
+without the sender and news that changes nothing for it — the count's first and fourth reasons a
+message was not worth sending. The sender says what it waits for, and the receiver answers what
+asks for an answer and what waits on its work or decision unsaid, and sends nothing to the rest.
+And a session tells its person of a message only what it changes for them. Tried on a fresh
+reader over ten further situations and judged by another: right in all ten, three rewordings
+taken where the words permitted a second reader otherwise *(the user, 2026-11-16)*.
+
 ## v134 — 2026-11-16
 
 **What one session writes to another** — the session mechanism's S10 joins the general rules: a
