@@ -32,15 +32,17 @@ leaves the row naming its role to the rows' script. The decision is q-q5i2um's *
 
 ## Acceptance criteria
 
-- [ ] A named row last seen days before a wake still reads as it did after the wake, and is not
-      removed however long it stays silent.
-- [ ] An unnamed row is ended and removed as before.
-- [ ] A chat that takes a name held by a row silent past three hours holds that row's position and
+- [x] A named row last seen days before a wake still reads as it did after the wake, and is not
+      removed however long it stays silent. *(2026-11-16, c637bf62)*
+- [x] An unnamed row is ended and removed as before.
+- [x] A chat that takes a name held by a row silent past three hours holds that row's position and
       unit, and the old row reads ended; a name on a row seen within three hours is refused,
       naming that row.
-- [ ] A named row's `/conclude` ends it as any row's, and it is then removed after seven days.
-- [ ] The session mechanism's doc, `/conclude`'s row form and the hosts' edge say what a name does
+- [x] A named row's `/conclude` ends it as any row's, and it is then removed after seven days.
+- [x] The session mechanism's doc, `/conclude`'s row form and the hosts' edge say what a name does
       to the row.
+- [ ] A session that takes a role is told to write its name, by a rule the keeper lands in
+      `/recall` on the person's word; until then no row gains a name but by hand.
 - [ ] `/verify` passes against this ticket and the governing docs, judged by someone who did not
       build it.
 
