@@ -309,3 +309,10 @@ person's words where they said it, with where it stands.
   хватает".
 - *Process became product*, xuanxue-workshop's own `/advise`, 2026-11: tier 1 about 14 KB, most
   skills "Mechanism: not yet" — an outside reading, not the person's words.
+
+**How a complaint is read** *(the user, 2026-11-16)*: "непонятно было бы лучше без харнесс )) я
+считаю что нет, он держит линию хотябы. оптимальность это не только про вес. и не всякая жалоба
+сразу опровергает. агенты могут жаловаться, но при этом работать лучше". A complaint at a meeting
+is a signal of where to look, not a verdict on an answer; whether the harness makes the work better
+is the measured comparison's, q-6ezmbo, answered by A38. Said against the product session's reading
+of the same day, which took the complaints of weight as the main product finding.
