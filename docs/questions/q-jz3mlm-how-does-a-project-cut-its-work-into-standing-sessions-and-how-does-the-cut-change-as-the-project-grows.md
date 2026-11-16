@@ -71,6 +71,13 @@ roles a project composes for itself, with how it composes them.
    holds the harness, so a tree with one session writes nothing; the table is installed into the
    entry file, where every session reads it. It is a table of its own: the settings' table takes
    only values a mechanism declared beforehand, and sessions' names are each project's.
+6. **A zone has one session and never a second** — the user, 2026-11-16, of the words drafted
+   from fimonitor's case, "a second stands only for a large, long body of planned work": "зона
+   держит не держит вторую сессию - она либо разделяется - проверяется по потоку задач и
+   загруженности, а если все задачи не разделить - начинает использовать подагенты". A zone
+   that one session no longer carries is split, into zones each on paths of its own, and whether
+   to split is read from the flow of its tasks and its load; where its work cannot be split, its
+   session works through subagents. Replaces the draft below.
 
 ## The case from fimonitor: three sessions in one zone — 2026-11-16
 
