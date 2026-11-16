@@ -375,7 +375,7 @@ index, read from outside by the session on q-ja5mp4
   times, all from direct commits; the writers asked, unprompted, for a worktree per writing
   session and code into `master` through one lander — the case this question was opened for.
 - In a worktree `questions.py at` and `open` failed, no session being registered there, so that
-  session's position reached nobody: [01-0010.0250.0020 the-harness-runs-in-a-worktree](../tickets/01-0010.0250.0020-the-harness-runs-in-a-worktree.md)
+  session's position reached nobody: [01-0010.0250.0020 the-harness-runs-in-a-worktree](../tickets/done/01-0010.0250.0020-the-harness-runs-in-a-worktree.md)
   and [01-0010.0250.0090 the-rows-live-in-a-database](../tickets/01-0010.0250.0090-the-rows-live-in-a-database.md).
 - Rows stood `running` for sessions silent since the day before, a resumed session's new id
   leaving the old row's claims live: the session mechanism's, under q-2gw24v.
