@@ -2073,19 +2073,30 @@ class TheWrapper(RepositoryCase):
         self.assertTrue(started.stdout.startswith("noticed 'out of step\\nlinked . --links --line'"), started.stdout)
         self.assertTrue(messaged.stdout.startswith("noticed ''"), messaged.stdout)
 
-    def test_at_a_start_a_standing_link_or_a_host_with_none_runs_no_link_step(self) -> None:
+    def test_at_a_start_codex_with_no_link_runs_no_link_step_and_cursor_runs_it_for_its_own(self) -> None:
+        self.record(sys.executable)
+        self.write(".agents/scripts/gw/questions.py", NOTICING_QUESTIONS)
+        self.write(".agents/scripts/gw/harness.py", LINKING_HARNESS)
+        self.write(".agents/skills/sample/SKILL.md", "# Sample\n")
+
+        codex = self.run_hook("codex", '{"hook_event_name": "SessionStart"}')
+        cursor = self.run_hook("cursor", '{"hook_event_name": "SessionStart"}')
+
+        self.assertEqual(0, codex.returncode, codex.stderr)
+        self.assertTrue(codex.stdout.startswith("noticed ''"), codex.stdout)
+        self.assertTrue(cursor.stdout.startswith("noticed 'linked . --links --line'"), cursor.stdout)
+
+    def test_at_a_start_a_standing_link_runs_no_link_step(self) -> None:
         self.record(sys.executable)
         self.write(".agents/scripts/gw/questions.py", NOTICING_QUESTIONS)
         self.write(".agents/scripts/gw/harness.py", LINKING_HARNESS)
         self.write(".agents/skills/sample/SKILL.md", "# Sample\n")
         self.write(".claude/skills/sample/SKILL.md", "# Standing\n")
 
-        for host in ("claude-code", "codex"):
-            with self.subTest(host=host):
-                started = self.run_hook(host, '{"hook_event_name": "SessionStart"}')
+        started = self.run_hook("claude-code", '{"hook_event_name": "SessionStart"}')
 
-                self.assertEqual(0, started.returncode, started.stderr)
-                self.assertTrue(started.stdout.startswith("noticed ''"), started.stdout)
+        self.assertEqual(0, started.returncode, started.stderr)
+        self.assertTrue(started.stdout.startswith("noticed ''"), started.stdout)
 
     def test_without_a_record_it_names_the_step_in_the_hosts_form_and_holds_nothing_back(self) -> None:
         for host, gone in (("claude-code", None), ("cursor", "C:/gone/python.exe")):
@@ -2282,6 +2293,8 @@ class TheLinkStep(TwoTrees):
             if (self.target / link).is_symlink():
                 harness._remove_link(self.target / link)
         (self.target / ".git" / harness.INTERPRETER_RECORD).unlink()
+        hook = self.target / ".git" / "hooks" / "pre-push"
+        hook_before = hook.read_bytes() if hook.is_file() else None
 
         line = self.start_line()
 
@@ -2289,8 +2302,9 @@ class TheLinkStep(TwoTrees):
             self.assertEqual("The skills are linked now and load from this worktree's next session.", line)
             self.assertTrue(all((self.target / link).is_symlink() for link in harness.LINKS))
         else:
-            self.assertTrue(line.startswith("This worktree's skills are not linked; run once: "), line)
+            self.assertTrue(line.startswith("This worktree's skills are not linked; run once, "), line)
         self.assertFalse((self.target / ".git" / harness.INTERPRETER_RECORD).exists())
+        self.assertEqual(hook_before, hook.read_bytes() if hook.is_file() else None, "the clone's hook is --links' alone")
 
     def test_at_a_start_links_that_stand_say_nothing(self) -> None:
         self.run_harness("--install")
@@ -2312,8 +2326,11 @@ class TheLinkStep(TwoTrees):
 
         line = self.start_line()
 
-        self.assertTrue(line.startswith("This worktree's skills are not linked; run once: "), line)
+        self.assertTrue(line.startswith("This worktree's skills are not linked; run once, "), line)
         self.assertIn("mklink /D" if os.name == "nt" else "ln -s", line)
+        commands = line.split(": ", 1)[1]
+        self.assertEqual(len(harness.LINKS), len(commands.split(" & " if os.name == "nt" else " && ")),
+                         "pasted whole, the line runs in the platform's shell")
 
     def test_a_fresh_clone_of_a_recipient_gets_its_links_from_the_step(self) -> None:
         self.run_harness("--install")

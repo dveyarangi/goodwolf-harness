@@ -223,14 +223,14 @@ def links_at_start(target: Path) -> int:
     links and their exclude entries alone — the interpreter record and the `pre-push` hook are the
     clone's, which `--links` writes once — and one line for the wake, or nothing. A host reads its
     skills before its start hook runs, so links made now load from the next session. It never
-    fails the hook: a refusal is its line."""
+    fails the hook: a refusal, or a file it cannot write, is its line."""
     report = Report(str(target), "links", "")
     try:
         target = _work_tree_root(target, source=None)
         plan = _link_plan(target)
         _make_links(target, plan, report)
         _exclude_links(target, plan, report)
-    except Refused as refusal:
+    except (Refused, OSError) as refusal:
         print(f"links: {refusal}")
         return 0
     line = _start_line(report)
@@ -240,10 +240,13 @@ def links_at_start(target: Path) -> int:
 
 
 def _start_line(report: Report) -> str:
-    """What the wake says of the links a start made: the command where the platform refused one,
-    the next session where one was made, nothing where all stood."""
+    """What the wake says of the links a start made: the commands where the platform refused one,
+    joined so the line runs pasted whole in the platform's shell — `cmd` takes `&`, a POSIX shell
+    `&&` — the next session where one was made, nothing where all stood."""
     if report.pending:
-        return "This worktree's skills are not linked; run once: " + " ; ".join(report.pending)
+        joined = (" & " if os.name == "nt" else " && ").join(report.pending)
+        where = "in an elevated command prompt" if os.name == "nt" else "in a shell"
+        return f"This worktree's skills are not linked; run once, {where}: {joined}"
     if any(entry["state"] in ("made", "repointed") for entry in report.links):
         return "The skills are linked now and load from this worktree's next session."
     return ""
