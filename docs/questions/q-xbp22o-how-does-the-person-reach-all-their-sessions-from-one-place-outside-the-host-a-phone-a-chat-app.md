@@ -23,3 +23,27 @@ What stood that day, as the keeper read it before answering: the person had thre
 on them at once, in different windows; the rule on messages has a session pass the person's
 decision to another as their words and never as authority, and a receiver ask again; a zone has
 one session, and there may be more roles than sessions.
+
+## What the host already carries — read from its documentation, 2026-11-16
+
+- **Remote Control** reaches a session of the desktop app from a phone: switched on in the session
+  itself, then the host's own app lists every connected session by name in one list, messages go
+  both ways, and permission prompts and questions are pushed and wait for an answer. It asks for
+  a subscription login and a machine that stays on. Nothing is built.
+- **Channels**, with an official Telegram plugin, are a research preview. The documentation
+  describes them for a session started in a terminal and is silent on the desktop app; a channel
+  is bound to the session it was started with, and whether one bot serves several sessions is
+  not said. Who can reply through a channel can approve a session's acts.
+- **A bot of one's own** needs a channel server of its own, loaded in the preview only by a
+  development flag in an interactive session; events a session did not take are dropped silently.
+- **Dispatch** is a standing conversation from a phone that hands a task to a session of the
+  desktop app as it judges.
+
+The keeper's view, sent to fimonitor's harness session and put to the person, not decided: begin
+with what the host carries, Remote Control, and no role — it gives one list of sessions, not one
+chat. A relaying session would give one chat at three costs: the person's decisions reaching a
+zone as a retelling, which the rule on messages does not let a receiver take for authority; a
+hop added to every exchange; and a reply cut down for a phone, the decisions that wait among
+what is cut. By the decisions on zones a relay would be a role held by the tree's harness
+session, not a session of its own. If what a trial leaves wanting is one place showing what
+waits on the person in every session, that is a record a phone reads, and core's to build.
