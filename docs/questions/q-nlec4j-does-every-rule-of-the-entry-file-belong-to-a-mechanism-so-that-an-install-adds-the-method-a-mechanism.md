@@ -108,6 +108,12 @@ is [01-0017](../tickets/01-0017-every-skill-and-document-has-named-producers-and
    mechanism adds its section to a recipient's entry file and removing it removes the section; the
    installer's one place per target stands. Not: several places per target, which spreads a
    mechanism across a file the recipient wrote.
+9. **Decision 4 revised: the ring's form and its practice are two mechanisms** *(the user,
+   2026-11-16)* — decided at [q-qmq6ty](q-qmq6ty-how-does-a-project-change-how-it-builds-in-one-edit.md), decision 1: the ring's steps are general and
+   serve work that is not code, and the practice is a mechanism of its own that puts a project's
+   local practice into them. Decision 2's list of owners and *Where it stands* above read the
+   development method as one mechanism; they stand as accepted on 2026-10-26 and are narrowed
+   by this.
 
 ## Impact — 2026-10-26, the first draft of the split
 
