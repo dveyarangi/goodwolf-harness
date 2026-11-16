@@ -38,3 +38,13 @@ roles a project composes for itself, with how it composes them.
    an instruction and a zone belong to is understood and visible to every session; and that
    attribution is kept true as the cut changes and as the work goes on. Shifting a zone is
    something the harness itself can do.
+2. **The rule for choosing and shifting zones is general, and names no mechanism** — the user,
+   2026-11-16, of the keeper's proposal that a role be a mechanism and a shift move a mechanism
+   between sessions: "нет, сдвиг зоны как ты описал подходит только этому дереву. правило про
+   выбор и сдвиг зон должно быть общим, не привязанным к механизмам вообще. в инсталляции у
+   самого харнесса скорее всего будет только одна сессия, как в game-delta". A zone is paths; a
+   shift moves paths from one session's zone to another's. A mechanism in a map is this tree's
+   shorthand for the paths it declares
+   ([q-gus5k2](q-gus5k2-how-is-each-areas-knowledge-kept-apart-so-a-session-holds-its-own-areas-context-and-the-boundary-stays.md),
+   decision 5) and no part of the rule. In a tree that installed the harness, the harness is
+   most likely one session's whole zone.

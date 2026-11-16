@@ -132,3 +132,21 @@ and is cut in two along the line an open question already draws
 — **Правила**, how instructions are made, held and amended, and **Разговор**, what the person
 hears and decides. Seven roles: Хранитель, Правила, Разговор, Практика, Продукт, Хранилище,
 Слияние; three held, four without a session. Proposed, not decided.
+
+## The sessions proposed, said plainly — 2026-11-16
+
+The user, 2026-11-16: "и я так и не увидел что ты сейчас предлагаешь по сессиям". The seven
+roles above were a sorting of mechanisms, not a list of chats, and "a role is a mechanism" was
+refused as this tree's alone
+([q-jz3mlm](q-jz3mlm-how-does-a-project-cut-its-work-into-standing-sessions-and-how-does-the-cut-change-as-the-project-grows.md),
+decision 2). Proposed for this tree now, four standing sessions, each a zone of paths:
+
+- **Хранитель**, this chat: core's install and its edge with hosts and other trees, the entry
+  file, the local rules, the journal; and, until a session is cut off for them, how rules are
+  made and how the person is spoken to.
+- **Хранилище**, the chat that built the store's ids: the question store, the sessions' rows.
+- **Продукт**, the chat that wrote what the project is for: the product document, the front page.
+- **Практика**, to be opened: the tickets, the maintenance, the skills of the delivery ring.
+
+Not opened: the landing on main, until sessions work in worktrees of their own. Not standing:
+the nightly sweep, and a chat started for one task, which ends with it.
