@@ -48,3 +48,12 @@ roles a project composes for itself, with how it composes them.
    ([q-gus5k2](q-gus5k2-how-is-each-areas-knowledge-kept-apart-so-a-session-holds-its-own-areas-context-and-the-boundary-stays.md),
    decision 5) and no part of the rule. In a tree that installed the harness, the harness is
    most likely one session's whole zone.
+3. **There may be more roles than sessions** — the user, 2026-11-16, asked whether the cut into
+   sessions stays the keeper's: "ну можно же сделать больше ролей чем сессий, и те что
+   незагруженные почти, давать сессиям с больше чем одна роль? то есть здесь паком будет
+   владеть хранилище, а в инсталляции - хранитель?" A role is a zone with a name; one session
+   holds a role, and a session may hold several; a role with little work is given to a session
+   that holds another. The same role is then held differently from tree to tree: the cut into
+   sessions and its skill are held here with the store's role, and in a tree that installed the
+   harness by the session that holds the harness. A shift has two sizes: a role passes whole to
+   another session, no path moving; or paths pass from one role to another.
