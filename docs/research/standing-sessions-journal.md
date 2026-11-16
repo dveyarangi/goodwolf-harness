@@ -281,3 +281,20 @@ A fresh tree needs: a tree that cuts its records by area before core's part reac
 holds what in one list — a role's name, what it owns, its brief —, adds no field or format of
 its own, and binds its temporary rule to a question of its own store.
 </straw-dog>
+
+## 17. What one session sends another is counted before it is ruled — 2026-11-16
+
+The person asked for a skill that tells an agent when to write to which session, and for the
+evidence first. The keeper opened the question and started a session for the count: it read
+every message between sessions in a recipient with nine standing sessions and in this tree,
+judged each by what its receiver did next, looked for the messages that were needed and never
+sent, and asked the recipient's keeper once. The recipient had already counted a day of its
+own and written a local rule from it; the count showed what that rule ended, what it left, and
+that the larger loss was the unsent message, most of it about uncommitted work in a file
+another session works in.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: before a rule on what sessions send each other, a count of what they sent
+and of what went unsent, each message judged by what its receiver did next; a recipient's own
+rule and count are read first.
+</straw-dog>
