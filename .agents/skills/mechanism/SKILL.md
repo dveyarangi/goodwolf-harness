@@ -147,8 +147,9 @@ of what the mechanism owns, as you write it.
 **R6** A skill is an instruction file of exactly one mechanism and opens its body with
 `Mechanism: <slug>`. Every skill is owned: one no mechanism names yet opens it with `Mechanism:`
 then `not yet`, wrapped as a straw dog bound to the question of what the skill owns. A script,
-test or hook a mechanism owns opens with `# Mechanism: <slug>`, after a shebang where there is
-one. Write the line as you add the file; no list holds it.
+test or hook a mechanism owns opens with `Mechanism: <slug>` in a comment of its language —
+after `#`, `//`, `--` or `;` — after a shebang where there is one. Write the line as you add
+the file; no list holds it.
 
 **R8** Name no skill of a mechanism whose state is `installed` in another skill's own text: what it asks
 of that skill reaches it as an installed block from its rules file.

@@ -64,3 +64,10 @@ roles a project composes for itself, with how it composes them.
    a tree's own answer replaces it. In this tree the cut into sessions and its skill are held
    with the store; in a tree that installed the harness and took that part, by the session that
    holds the harness.
+5. **The distribution is a table in the tree's local file, a session named by its name** — the
+   user, 2026-11-16, "все да", of the form put to them: the tree's local rules file holds which
+   named session holds which role; a session is named by its name, never by a chat's id, since
+   chats are lost and a name stays; what the table does not name is held by the session that
+   holds the harness, so a tree with one session writes nothing; the table is installed into the
+   entry file, where every session reads it. It is a table of its own: the settings' table takes
+   only values a mechanism declared beforehand, and sessions' names are each project's.

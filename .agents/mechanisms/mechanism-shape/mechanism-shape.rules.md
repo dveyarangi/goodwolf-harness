@@ -73,14 +73,16 @@ of what the mechanism owns, as you write it.
 - **target** `.agents/skills/skill-up/SKILL.md`
 - **target** `.agents/skills/mechanism/SKILL.md`
 - **authority** the user, 2026-09-08; the binding a question, 2026-10-04; one owner, not one skill,
-  2026-10-10; every part naming its mechanism, 2026-10-11; every skill owned, 2026-11-16
+  2026-10-10; every part naming its mechanism, 2026-10-11; every skill owned, and the claim in a
+  comment of the file's own language, 2026-11-16
 
 <rule>
 A skill is an instruction file of exactly one mechanism and opens its body with
 `Mechanism: <slug>`. Every skill is owned: one no mechanism names yet opens it with `Mechanism:`
 then `not yet`, wrapped as a straw dog bound to the question of what the skill owns. A script,
-test or hook a mechanism owns opens with `# Mechanism: <slug>`, after a shebang where there is
-one. Write the line as you add the file; no list holds it.
+test or hook a mechanism owns opens with `Mechanism: <slug>` in a comment of its language —
+after `#`, `//`, `--` or `;` — after a shebang where there is one. Write the line as you add
+the file; no list holds it.
 </rule>
 
 ## R7 — a project's answers live in its local file
