@@ -104,3 +104,11 @@ alone 26 lines — written twice that day, each trial answering an ambiguity wit
 is paid by every session at every turn, and its detail is wanted at one occasion, writing to
 another session. Put to the person, not done: the entry file keeps the rule's few lines, and what
 a message carries on each occasion moves to where it is read at that occasion.
+
+Of the point left open at decision 2 — whether a role's sleeping session is written only what
+will still hold when it wakes — the session that holds the rows answered from what it saw,
+2026-11-16: in the desktop app a message wakes the session it is sent to; its sends to an idle
+session came back delivered, the turn started. A session in another permission mode holds a
+message for its person's approval, and a remote or cloud session reports nothing. So where
+sessions run in the desktop app a sleeper reads a message at once, and the clause would bear
+only on the routes that hold a message. Not added to the rule.
