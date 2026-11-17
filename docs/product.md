@@ -172,8 +172,8 @@ Read by column:
   space. The dial lets the person move the point on the scale; its absent row is a record of where
   models are weak.
 - **4 Not knowing what works** rests on the checks the front page puts to the reader and the
-  study; no question traces either yet, so coverage reads both absent, though the page carries the
-  checks and the study's text ships.
+  study: the page carries the checks and the study's text ships; whether either shows a reader
+  what works is not graded yet.
 - **G1** rests on one source of truth, maintenance — now with a pass that sweeps the tree with no
   person — and self-improvement, and nothing measures whether it holds.
 - **G2** has guarded writes, the dial, and a push refused on a broken record. Roles have begun as

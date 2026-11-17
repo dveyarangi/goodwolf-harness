@@ -4,6 +4,7 @@
 - **part of** q-n3pc22
 - **state** open
 - **owner** [01-0010.0150.0010](../tickets/01-0010.0150.0010-the-harness-reads-a-tree-with-a-method-and-reports.md)
+- **realizes** A54 "The study"
 - **rung** development: a product slice, self-improvement: a rule
 - **lean** 2026-10-26: live case 5 on our own tree, docs/research/meeting-run5-self.md — 11 of 11 plain, 2 of 3 contradictions, 1 of 3 hidden, thirteen parted pairs, nine repaired; the install now writes a pre-commit line and a workflow, for the report to name
 - **opened** 2026-10-23T00:20:38Z
