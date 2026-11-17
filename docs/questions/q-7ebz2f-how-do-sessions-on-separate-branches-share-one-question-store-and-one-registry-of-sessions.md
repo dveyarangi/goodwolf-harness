@@ -136,10 +136,13 @@ history at a8923621.*
    session's tag and the machine's hash in each message and no commit hook of the project's; it
    pushes through the project's own `pre-push`. No code branch and
    no pull request carries a question, so no copy drifts with the code.
-3. **`docs/q/` is a link to that checkout** *(1.4)*: in every code worktree, a symbolic link —
-   on Windows too, where the person allows them, since an agent does not see through a junction
-   ([ADR-0003](../adr/0003-one-physical-home-for-skills-reached-by-link.md); the user, 2026-11-16,
-   in place of the junction first chosen) — ignored by the code branches, at a path no commit has ever
+3. **`docs/q/` is a link to that checkout** *(1.4)*: in every code worktree, a symbolic link, or
+   a junction where Windows refuses one, and no script walks into a link of either kind (the user,
+   2026-11-17, in place of the symlink alone chosen 2026-11-16 on an agent not seeing through a
+   junction: tried 2026-11-17, an agent reads, edits and searches `docs/q` through one, and git
+   lists nothing beneath it, its target a checkout of its own and the path excluded;
+   [ADR-0003](../adr/0003-one-physical-home-for-skills-reached-by-link.md) keeps the loader
+   links symlinks) — ignored by the code branches, at a path no commit has ever
    held — a checkout of a commit that tracks the path writes its files through the link into the
    store, and leaving it deletes them and the link, as tried below; `docs/questions/` stays in the
    history. The files are read-only, the server alone writing them; the server makes it where a

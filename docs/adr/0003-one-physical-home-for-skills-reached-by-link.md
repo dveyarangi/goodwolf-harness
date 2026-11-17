@@ -14,6 +14,12 @@ cloning this repository. Untracked, every clone on every platform behaves alike:
 until the harness makes them, by the light per-clone step
 [01-0010.0172](../tickets/done/01-0010.0172-a-first-install-says-what-stopped-it.md) adds.
 
+**Scoped 2026-11-17: this record's links are the loader links** *(the user)*. Its rejection of a
+junction stands for them, which a loader must see through. The question store's link `docs/q` is
+a junction where Windows refuses a symlink, and no script walks into a link of either kind:
+[q-7ebz2f](../questions/q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md)
+decision 3.
+
 ## Considered options
 
 **A copy per host.** This is what every audited estate actually had, and the
