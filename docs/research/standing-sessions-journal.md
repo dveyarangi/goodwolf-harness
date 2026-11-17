@@ -329,3 +329,15 @@ ticket is no role; that the harness session hands out no work; which rules on se
 installed and which are not built; and the first step — one proposal to the person on whether
 standing roles are wanted.
 </straw-dog>
+
+## 20. A sleeping role is asked about, and needs no rule — 2026-11-17
+
+The keeper put to the person whether the nightly pass repairs in a zone whose session sleeps or
+only tells it. The question was the fault: a role's row was made to outlast silence so that
+nothing would need to know the session sleeps. The person said so, and the decision asked for
+nothing new.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: nothing here beyond core; a role's row reads running while its session
+sleeps, and no rule treats sleep as a case.
+</straw-dog>

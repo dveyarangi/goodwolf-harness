@@ -5,7 +5,7 @@
 - **state** open
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-11-15T00:43:20Z
-- **struck** 1, last 2026-11-15T18:31Z
+- **struck** 2, last 2026-11-17T05:57Z
 
 What a standing session is cut along — a domain of the product, a layer of the code, a process such as
 merging — differs between projects and changes as a project grows: game-delta cut nine sessions by
@@ -78,6 +78,15 @@ roles a project composes for itself, with how it composes them.
    that one session no longer carries is split, into zones each on paths of its own, and whether
    to split is read from the flow of its tasks and its load; where its work cannot be split, its
    session works through subagents. Replaces the draft below.
+7. **A role's session asleep is an ordinary session** — the user, 2026-11-17, asked whether the
+   nightly pass repairs in a zone whose session sleeps or only tells its session: "насчет сессии
+   которая спит - это обычная сессиия и работает как обычно. идея была не удалять строки ролевых
+   сессиий, чтобы они работали как обычно, если только механизм разрезки не решит что нужно
+   что-то поменять". A role's row is kept so that every rule reads its session as running: it
+   is written to, told what falls in its zone, and holds what it held. No rule has a case of its
+   own for sleep, the nightly pass's included: what it does with a finding in a zone is the same
+   asleep or awake. Only the cut changes a role's row — a role passed to another session, or
+   closed.
 
 ## The case from fimonitor: three sessions in one zone — 2026-11-16
 
