@@ -908,6 +908,27 @@ contract v117. The two cases of 01-0070.0020 were run again on fresh subagents t
 
 **Disposition:** landed 2026-10-25.
 
+**Struck, 2026-11-17 — in a recipient, the runner of an experiment read its own results.**
+Observed in fimonitor and passed to core's keeper by that tree's harness session on the person's
+word, "Да, отправить"; registered there as *A session read its own experiment's results itself —
+2026-11-17* (fimonitor c0be158). Aligning posture read from the webcam, a zone's session ran a
+test of what the webcam reads and judged the results itself: from one derivation, which turned
+the change into centimetres through assumed sizes, it told the person the webcam does not read
+the head forward of the shoulders. A ratio free of scale in the same data, head size against
+shoulder width, separated it by six per cent; the person found it by asking whether relative
+values could be compared. **Why it did not fire**, that tree's reading: the principle names a
+thing built and a rule's behaviour, and nothing marks an experiment or a measurement as a thing
+built.
+
+**Source**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-17T20:00Z — as fimonitor's entry records it.
+
+**Proposed amendment**, a rewording, no check being able to hold it; fimonitor's words: "An
+experiment or measurement the agent ran is a thing built; its results are read by a subagent
+given the data and the question it asks, never the runner's reading." The keeper's, put to the
+person: the same, bound to results a decision rests on.
+
 ## 73. Replies left the person's language mid-align, twice — 2026-10-25
 
 **Source cases, retrospective extraction:**
