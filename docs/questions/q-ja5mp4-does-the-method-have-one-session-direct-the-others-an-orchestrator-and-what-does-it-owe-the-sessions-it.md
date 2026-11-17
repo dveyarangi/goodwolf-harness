@@ -122,8 +122,8 @@ Neighbours: [q-psa5ha](q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verifi
 
 ## Where it stands
 
-Accepted by the user 2026-11-15 ("да"), with the second reason added at their word: "ты пропустил
-вторую причину для этого механизма - чтобы каждая сессия видела свой контекст - это оптимизация".
+Put to the user 2026-11-17; not yet accepted. Three of its sentences are the keeper's readings
+of decisions that meet, each marked *(a reading)*.
 
 **The problem.** Two things, and one cut answers both. One person runs several standing sessions
 in one tree, and they step on each other: one session's lines in another's commit, two writing one
@@ -132,66 +132,154 @@ its cause — two areas of responsibility that overlap — stays and returns. An
 answers for everything holds everything: each session here is handed the whole store's window,
 some 55 KB, at its start and again after a compaction, whatever it works on. The person named
 this the point of dividing the work at all — each session holds the context of its own area and
-is not cluttered by the rest, which asks a clean separation, kept clean
-([q-gus5k2](q-gus5k2-how-is-each-areas-knowledge-kept-apart-so-a-session-holds-its-own-areas-context-and-the-boundary-stays.md)). Nothing in the method says which standing sessions a project needs, what each
-answers for, or when that cut should change: game-delta cut its nine by hand, and this tree found
-its three by the person naming them.
+is not cluttered by the rest, which asks a clean separation, kept clean. Nothing in the method
+says which standing sessions a project needs, what each answers for, or when that cut should
+change.
 
-**The shape agreed.** The session mechanism keeps the standing sessions as a part of its own: the
-skill `/pack`, one record — the tree's roles — and a section of its doc. A *role* is an area of
-the work one standing session answers for across chats: its name, the map of what it owns —
-paths, and a mechanism where there is one, standing for the paths it declares (narrowed 2026-11-16 by [q-gus5k2](q-gus5k2-how-is-each-areas-knowledge-kept-apart-so-a-session-holds-its-own-areas-context-and-the-boundary-stays.md)'s decisions 3 and 5; as accepted: "paths, mechanisms, questions") — and its brief, which a successor reads without the chat that held
-the role before. The map is also what the role's session reads: its own area whole, the rest of
-the tree through what is shared and the contracts between areas, never held. Which session holds
-a role now is no part of the record, which names no session: the session's title says it, and
-the row will once the rows' script gives it a field. `/pack` recommends and the person decides: it starts and ends no session, hands out no
-work and writes nothing in another role's area.
+**The cut.** A *zone* is paths. A project's architecture is cut where its load-bearing seams
+pass: a module that suggests itself is encapsulated, so that a session writes mostly in its own
+files and a little in the shared ones. The cut depends on the domain, never on who writes, and
+the roles follow it: a *role* is a zone with a name, answered for across chats, and it owns whole
+modules, so re-cutting the roles moves no text. A role is given paths, never a part of a file.
+The form the cut moves towards is every file one role's. Until a tree's files have been moved
+apart, a file several roles write is allowed, marked as a straw dog where each of those roles'
+zones is written, the person told what follows; that state is expected to be common.
+
+**One session to a zone.** A zone has one session and never a second. A zone one session no
+longer carries is split into zones, each on paths of its own — whether to split is read from the
+flow of its tasks and its load; where its work cannot be split, its session works through
+subagents. Zones can outnumber sessions: a session may hold several roles, and a role with little
+work is given to a session that holds another. A shift has two sizes: a role passes whole to
+another session, no path moving; or paths pass from one role to another.
+
+**What carries a role.** Every role has a mechanism of its own; a role a project composes has
+the project's own. Its skill is the role's brief, which a successor reads without the chat that
+held the role before; its parts and what it produces are the role's zone; who reads what it
+produces are its seams with the other zones. A mechanism may be a skill and its doc and nothing
+more, and no skill is without one. Where what a role produces is itself a mechanism, as in this
+tree, the role's mechanism names it, and the name stands for the paths that mechanism declares.
+The roles' zones and briefs are kept nowhere apart from their mechanisms, and questions are no
+part of a zone: who stands on a question and who holds it is the store's and the rows' to say.
+Zones are chosen and shifted by paths and the domain's seams, the same in every tree, never by
+which of the harness's mechanisms they touch; a role's own mechanism is where the zone, once cut,
+is written, so a shift is decided in paths and recorded there *(a reading)*.
+
+**Who holds which.** Which session holds which role is the tree's own setting: a table in its
+local rules file, installed into the entry file, where every session reads it. A session is
+named there by its name, never by a chat's id. What the table does not name is held by the
+session that holds the harness — the default core ships, which a tree's own table replaces — so
+a tree with one session writes nothing. A standing session writes the name the table gives it on
+its row. No silence ends such a row and no pass removes it, so every rule treats a role's
+sleeping session as any running one. The row ends at its own conclude, or when its name passes
+to another chat, which takes its position and what it held; a name seen in the last three hours
+does not pass. Otherwise only the cut reassigns or closes it.
+
+**Crossing a boundary.** A session that edits a file in another role's path is told at the edit
+whose path it is, and the edit is recorded where that role's session sees it; it is never
+refused. A crossing repeated on one path is ground to propose shifting the zone or marking the
+file shared; the cut's skill counts the crossings. It is built in parts: said at the edit where
+a host has a hook on file edits and at the commit where it has none; the record of who touched a
+file waits on the store's server; and the harness can say whose a path is only where a role's
+mechanism names the paths of what it produces.
+
+**Rebuilt, not fixed.** The cut is no fixed structure; what is asked of it is that it can be
+rebuilt reliably: the roles are recorded where they are seen, which role an instruction and a
+zone belong to is visible to every session, that attribution is kept true as the cut changes and
+as the work goes on, and shifting a zone is something the harness itself can do.
+
+**The skill.** The session mechanism keeps the cut as a part of its own, kept apart so that it
+can leave as a mechanism: the skill `/pack` and a section of its doc. `/pack` recommends and the
+person decides: it starts and ends no session, hands out no work and writes nothing in another
+role's zone. Keeping the cut is itself a role: held in this tree by the session that holds the
+store, and in a tree that installed the harness and took this part, by the session that holds
+the harness. That role is carried by this part of the session mechanism until the part leaves as
+a mechanism of its own *(a reading)*.
+
+**The roles core ships.** To a tree with more than one standing session, two: the one that holds
+the harness, offered at install as the default session, and the lander, folded into the first in
+a small tree. A project composes the rest by this cut. Judges, discovery and audits are
+subagents; the maintenance sweep is a session the host's schedule starts, and no standing one.
 
 **Its moments.**
 
-- *Sessions step on each other.* `/pack` says why: which areas overlapped, read from what the
+- *Sessions step on each other.* `/pack` says why: which zones overlapped, read from what the
   tree already keeps — the rows, the session records, git history, the sessions' own words — and
   from a read by someone outside. One collision is mended where it happened. A collision repeated
-  in one area brings a proposal: the code or the records separated so the areas stop sharing
-  them, which is also what lets each session read its own and no more; the roles' map redrawn; or
-  a new standing role, named for what it answers for.
+  in one zone brings a proposal: the code or the records separated so the zones stop sharing
+  them, which is also what lets each session read its own and no more; paths shifted from one
+  role to another; or a new role, named for what it answers for.
+- *A zone outgrows its session.* `/pack` reads the flow of the zone's tasks and its load and
+  proposes a split; where the work does not split, the zone's session works through subagents.
 - *The cut is read against the work.* On the person's ask, `/pack` reads which sessions the
   person actually runs against the roles, and proposes what the cut lacks or no longer needs: a
-  role opened, a role closed, two merged.
-- *A tree is installed.* The harness offers to start the default session, the keeper of the
-  harness; it is offered, never required, and a tree with one session needs no roles.
-- *A session takes a role.* It names the role in its title and its row, reads the brief, and
-  reads the tree by the role's map.
+  role opened, a role closed, two merged, a role with little work given to a session that holds
+  another.
+- *A tree is installed.* The harness offers to start the default session; it is offered, never
+  required, and a tree with one session needs no roles.
+- *A session takes a role.* It writes its name on its row, reads the role's skill, and reads the
+  tree by the role's zone: its own whole, the rest through what is shared and the contracts
+  between zones, without loading it.
 
-**Two trees, one skill.** Where the harness is a tool serving another product, the default session
-keeps the harness first — the updates from core, what the sweep leaves, the tree's own rules —
-and the sessions beside it. In this tree, where the owners of mechanisms write their rules
-themselves, it keeps the sessions first, and the boundary with the other trees.
+**Two trees.** Where the harness is a tool serving another product, the whole harness is most
+likely one session's, and that session is the one writer of the rules and holds what the sweep
+leaves; such a tree writes that limit into that session's skill or its local rules, never into
+core's common rules. In this tree, where the rules are the product, a role's session writes its
+own mechanisms' rules, skills and scripts and asks a change in another's of that session; what
+the sweep finds goes to the session of the zone it falls in.
+
+**This tree.** Four standing sessions — the keeper of core's boundary with the other trees, the
+store, the product, the practice; the landing on main is a role not opened while every session
+commits to main itself; the work on how rules are made is cut off the keeper into a session of
+its own once this whole is accepted
+([q-dyc63i](q-dyc63i-which-standing-roles-does-this-tree-have-where-every-session-develops-the-harness-itself.md)).
 
 **What is not its own.** A role's rights and skill set ([q-p4sdnv](q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md)); how sessions reach each
-other ([q-2gw24v](q-2gw24v-how-do-running-sessions-reach-each-other-beyond-one-working-directory.md)); handing a unit over ([q-psa5ha](q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what.md)); a worktree per writing session and
+other ([q-2gw24v](q-2gw24v-how-do-running-sessions-reach-each-other-beyond-one-working-directory.md)) and when one writes to another
+([q-cdw6yk](q-cdw6yk-when-does-a-session-write-to-another-session-and-to-which.md)); handing a unit over ([q-psa5ha](q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verification-a-close-a-unit-and-when-may-one-take-over-what.md)); a worktree per writing session and
 the landing on main ([q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md)).
 
-**What is open.** How each area's knowledge is kept apart and what holds the boundary — the
-records cut by area, the window drawn for a role's area, a rule or a check at landing
-([q-gus5k2](q-gus5k2-how-is-each-areas-knowledge-kept-apart-so-a-session-holds-its-own-areas-context-and-the-boundary-stays.md)); how many collisions in one area count as repeated, set after the first read of
-this tree ([q-jz3mlm](q-jz3mlm-how-does-a-project-cut-its-work-into-standing-sessions-and-how-does-the-cut-change-as-the-project-grows.md)); how a role is handed on and what its brief must hold
-([q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md)); what a fresh tree is given at install ([q-wit7by](q-wit7by-what-does-a-fresh-tree-under-the-harness-need-to-set-up-standing-sessions-by-itself.md)).
+**What is open.**
+
+- The window drawn for a role's zone, and whose the files are that stay shared for good — the
+  glossary, the contracts between zones
+  ([q-gus5k2](q-gus5k2-how-is-each-areas-knowledge-kept-apart-so-a-session-holds-its-own-areas-context-and-the-boundary-stays.md)).
+- How many collisions in one zone, and crossings on one path, count as repeated, set after the
+  first read of this tree; and who carries out a shift once the person has decided it
+  ([q-jz3mlm](q-jz3mlm-how-does-a-project-cut-its-work-into-standing-sessions-and-how-does-the-cut-change-as-the-project-grows.md)).
+- What a role's skill must hold for a successor, and who writes it in a tree where one session
+  writes the rules
+  ([q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md)).
+- Which of the skills no mechanism names get one each and which share one
+  ([q-gbt7cy](q-gbt7cy-does-each-skill-state-only-what-it-owns.md)).
+- What a session reads again after its context is compacted
+  ([q-sxrf66](q-sxrf66-what-does-a-session-read-again-after-its-context-is-compacted.md)).
+- What the keeper keeps once the rules leave it, and how a session that holds several roles is
+  named
+  ([q-dyc63i](q-dyc63i-which-standing-roles-does-this-tree-have-where-every-session-develops-the-harness-itself.md)).
+- What a fresh tree is given at install
+  ([q-wit7by](q-wit7by-what-does-a-fresh-tree-under-the-harness-need-to-set-up-standing-sessions-by-itself.md)).
 
 **What would show it working**, graded by someone who did not build it:
 
-1. Given this morning's collision — two sessions editing the same two mechanism docs — does a
-   fresh session running `/pack` name the overlapping area and a way to separate it, untold?
+1. Given a collision — two sessions editing the same two mechanism docs — does a fresh session
+   running `/pack` name the overlapping zones and a way to separate them, untold?
 2. Run over this tree, does it name the sessions the person actually runs, and propose a new role
-   only where a collision repeated?
+   only where a collision repeated or a zone outgrew its session?
 3. In a freshly installed tree, is the default session offered, and does declining it leave
    nothing behind?
 4. Does a session that took a role start with less in its context than a free session in the same
-   tree, counted, and still answer a question of its own area rightly?
+   tree, counted, and still answer a question of its own zone rightly?
+5. Is a session that edits a file in another role's path told whose it is — and, once the record
+   of who touched a file exists, does that role's session see the edit?
+6. After a shift the person decided, do the table and the mechanisms of the roles it touched
+   agree, and does every session read the new cut at its next turn?
 
-**Next.** A ticket for the part — the skill, the rules, the record's format and its check — taken
-through the ring, each instruction's text shown before it lands; then `/pack` is run on this
-tree.
+**Next.** The plan of
+[01-0090 standing-sessions-each-answer-for-an-area](../tickets/01-0090-standing-sessions-each-answer-for-an-area.md)
+goes back through `/plan` under this whole, each step written in
+[the journal](../research/standing-sessions-journal.md) with what a fresh tree would need to do
+the same. The unit is handed to the session that holds the cut in this tree. Then `/pack` is run
+on this tree.
 
 ## Impact of the split — 2026-11-15
 
@@ -230,3 +318,66 @@ on who writes a rule; the coordinator's server tickets; a role's rights.
 **Recommendation.** Proceed as one ticket, the row's field and the window left out; the plan
 stages it — the skill and the declaration, the record with its check and this tree's roles, the
 two installed rules.
+
+## What the whole of 2026-11-17 changes in the one accepted 2026-11-15
+
+Each line names the decision that changed it; the old whole stands in git at 57abdbb7. A judge
+that did not write the whole read it against the decisions, and what it found is in it.
+
+**Changed.**
+
+- **The roles' record is gone.** As accepted: "one record — the tree's roles", each with its
+  name, map and brief. Now every role has a mechanism of its own, its skill the brief and its
+  parts and outputs the zone
+  ([q-mvd4pi](q-mvd4pi-how-does-a-session-take-on-a-standing-role-learn-it-and-hand-it-on-so-the-role-outlives-any-one-chat.md),
+  decision 1; [q-gbt7cy](q-gbt7cy-does-each-skill-state-only-what-it-owns.md), decision 1).
+  Decisions 4, 5, 6 and 7 above read without that record from here: "the map of what it owns",
+  "one record, the tree's roles", "a skill, a record and a section of the doc", "once a record
+  of the roles can say who that is" — the table says who.
+- **Who holds a role is recorded.** As accepted: "which session holds a role now is no part of
+  the record, which names no session: the session's title says it". Now a table in the tree's
+  local file, a session named by its name
+  ([q-jz3mlm](q-jz3mlm-how-does-a-project-cut-its-work-into-standing-sessions-and-how-does-the-cut-change-as-the-project-grows.md),
+  decisions 4 and 5), and the name on its row, which no silence ends
+  ([q-q5i2um](q-q5i2um-how-does-the-row-of-a-session-that-holds-a-role-outlive-its-sleep-and-when-does-it-end.md);
+  q-jz3mlm, decision 7). The title is no longer the sign the whole names.
+- **A zone is paths.** As accepted, a role's map held "paths, mechanisms, questions". Questions
+  left it, and a mechanism named there stands for the paths it declares
+  ([q-gus5k2](q-gus5k2-how-is-each-areas-knowledge-kept-apart-so-a-session-holds-its-own-areas-context-and-the-boundary-stays.md),
+  decisions 3 and 5). The whole says *zone* where the old one said *area* and *map*.
+- **Who keeps the cut in this tree is reversed.** As accepted: in this tree the default session
+  "keeps the sessions first". Now the cut is held here with the store's role (q-jz3mlm,
+  decisions 3 and 4).
+- **The open list, the tests and Next.** Open: "how a role is handed on" is answered by
+  q-q5i2um and by the role's skill being its brief; added are the files shared for good, who
+  carries out a shift, who writes a role's skill where one session writes the rules, the
+  compaction, what the keeper keeps, the name of a session with several roles. Tests 5 and 6 are
+  new. Next no longer mints a ticket: the ticket exists and its plan returns to `/plan`.
+
+**New in the whole:** by what a zone is cut (q-gus5k2, decision 1); one session to a zone, the
+split and the subagents, more roles than sessions, the two sizes of a shift (q-jz3mlm, decisions
+3 and 6); the telling at an edit of another's path (q-gus5k2, decision 4); that the cut is
+rebuilt, not fixed (q-jz3mlm, decision 1); the roles core ships (decision 4 above); this tree's
+four sessions
+([q-dyc63i](q-dyc63i-which-standing-roles-does-this-tree-have-where-every-session-develops-the-harness-itself.md),
+decision 2); and decision 7 above with q-dyc63i's decision 1 in "Two trees".
+
+**The keeper's readings, put to the person with the whole.**
+
+1. "The rule for choosing and shifting zones names no mechanism" (q-jz3mlm, decision 2) beside
+   "every role has a mechanism of its own" (q-mvd4pi, decision 1). Read: the first is said of
+   what a zone is cut and shifted by — paths and the domain's seams, never which of the harness's
+   mechanisms it touches; the second of where a role, once cut, is written and what carries its
+   skill. The person held both in one breath ("да, но в любом дереве, чтобы поддерживать роль
+   нужен скил") and saw no contradiction; that a shift is *recorded* in the roles' mechanisms is
+   the keeper's step from there.
+2. "Every role has a mechanism of its own" beside the cut's role, which decision 6 above keeps
+   as a part of the session mechanism. Read: the part carries that role until it leaves as a
+   mechanism.
+3. q-dyc63i's decision 2 cuts the work on rules off the keeper "once the align of q-gus5k2 has
+   its whole accepted". q-gus5k2 carries no whole of its own; read: this whole is the one meant.
+
+**Not decided, and stated in Next as intent:** that the unit of
+[01-0090](../tickets/01-0090-standing-sessions-each-answer-for-an-area.md) is handed to the
+session that holds the cut here. It follows from who holds the cut; the hand-over itself takes
+the person's word and that session's.

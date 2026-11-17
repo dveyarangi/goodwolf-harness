@@ -88,8 +88,10 @@ roles a project composes for itself, with how it composes them.
    что-то поменять". A role's row is kept so that every rule reads its session as running: it
    is written to, told what falls in its zone, and holds what it held. No rule has a case of its
    own for sleep, the nightly pass's included: what it does with a finding in a zone is the same
-   asleep or awake. Only the cut changes a role's row — a role passed to another session, or
-   closed.
+   asleep or awake. How such a row ends and passes stays as decided at
+   [q-q5i2um](q-q5i2um-how-does-the-row-of-a-session-that-holds-a-role-outlive-its-sleep-and-when-does-it-end.md)
+   — at its own conclude, or its name taken by another chat; otherwise only the cut reassigns or
+   closes it.
 
 ## The case from fimonitor: three sessions in one zone — 2026-11-16
 
