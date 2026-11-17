@@ -77,7 +77,10 @@ roles a project composes for itself, with how it composes them.
    загруженности, а если все задачи не разделить - начинает использовать подагенты". A zone
    that one session no longer carries is split, into zones each on paths of its own, and whether
    to split is read from the flow of its tasks and its load; where its work cannot be split, its
-   session works through subagents. Replaces the draft below.
+   session works through subagents. Replaces the draft below. The draft's sentence on a session
+   whose unit is done — it concludes, and is not renamed into a zone — is dropped: the user,
+   2026-11-17, "Да, убирай", of the keeper's reading that it guards one tree's one case and
+   repeats what concluding a session already does.
 7. **A role's session asleep is an ordinary session** — the user, 2026-11-17, asked whether the
    nightly pass repairs in a zone whose session sleeps or only tells its session: "насчет сессии
    которая спит - это обычная сессиия и работает как обычно. идея была не удалять строки ролевых
