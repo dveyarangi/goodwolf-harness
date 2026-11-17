@@ -202,3 +202,13 @@ not the full original session, so the experiment does not isolate a second pass 
 of that reduction. It establishes neither a reliable voice repair nor a difference between hosts.
 The full task trace and both returned texts remain in that Codex chat. No extra pass was installed
 in the method; the person's judgement of the voice remains open.
+
+## The person, 2026-11-17: the voice stays in the local rules
+
+Asked by core's keeper whether the voice stays a rule of the local file or gets a file of its
+own, after the person had spoken of "наш voice.md" and the tree was found to hold none: "голос
+остается в локальных, меняй принцип о читателях". The entry file's principle on the reader,
+*Two readers* since v138, sends what the person reads to the project's voice, which its local
+rules give; that sentence is wrapped as a straw dog bound to this question. The occasion: a
+text put to the person for acceptance was told in the records' voice, the register's entry on a
+long session's replies leaving the voice struck a second time.

@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v137, 2026-11-17.
+Entry contract: v138, 2026-11-17.
 
 ## General rules
 
@@ -32,7 +32,7 @@ nothing about being load-bearing — an implementation method is a shape too. �
 - **Weight follows the work.** A change costs what it weighs — in checks, records and steps.
 </straw-dog>
 
-- **A capable reader.** Write instructions and records for a capable model: state the rule and its pointer. The definition the glossary owns, the example that motivated it, what it implies, and what a script already does for the reader stay out.
+- **Two readers.** Write what an agent reads — an instruction, a record, a message to another session — for a capable model: state the rule and its pointer. The definition the glossary owns, the example that motivated it, what it implies, and what a script already does for the reader stay out. <straw-dog question="q-53jkvy">Write what the person reads — a reply, and whatever is put to them to decide — in the project's voice, which its local rules give.</straw-dog>
 
 <straw-dog question="q-oi4qsx">
 - **A rule closes its loop.** Where a rule has one party produce what another relies on — a record and its reader, a hand-off and its taker, a question and its answer — it says what each does, or names the rule that tells the other.

@@ -15,6 +15,19 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v138 — 2026-11-17
+
+**The principle on the reader names both readers** — *A capable reader* becomes *Two readers*.
+What an agent reads — an instruction, a record, a message to another session — is written for a
+capable model, as before; what the person reads — a reply, and whatever is put to them to decide
+— is written in the project's voice, which its local rules give. The person's amendment *(the
+user, 2026-11-17)*, after a text put to them for acceptance was told in the records' voice and
+they asked twice what they were to accept: the register's entry on a long session's replies
+leaving the voice, struck a second time. Core still holds no voice: the sentence names where a
+project gives it, and the person said the same day that the voice stays in the local rules.
+Not tried on a fresh reader: the failure is a long session's, which a fresh reader does not
+reproduce.
+
 ## v137 — 2026-11-17
 
 **The rule on messages compressed, its detail on a shelf** — S10 in the entry file is eight lines

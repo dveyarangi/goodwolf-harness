@@ -1942,6 +1942,10 @@ both readers, shown to the person before it lands. A second strike asks a mechan
 is known that holds a voice, and whether one can is
 [the voice question](questions/q-53jkvy-is-the-voice-a-reply-speaks-in-its-own-mechanism-owning-how-everything-the-person-hears-is-said-apart.md)'s.
 
+**Disposition of the strike:** the amendment landed 2026-11-17, the entry contract at v138, on the
+person's word — "голос остается в локальных, меняй принцип о читателях": the principle, now *Two
+readers*, has what the person reads written in the project's voice, which its local rules give.
+
 ## 47. A decision not to act was landed as three rules — 2026-10-14
 
 **Source cases, retrospective extraction:**
