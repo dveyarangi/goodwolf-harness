@@ -278,8 +278,9 @@ the landing on main ([q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-sh
 [01-0090 standing-sessions-each-answer-for-an-area](../tickets/01-0090-standing-sessions-each-answer-for-an-area.md)
 goes back through `/plan` under this whole, each step written in
 [the journal](../research/standing-sessions-journal.md) with what a fresh tree would need to do
-the same. The unit is handed to the session that holds the cut in this tree. Then `/pack` is run
-on this tree.
+the same. The keeper plans it and keeps the unit, asking the session that holds the store for
+what lands in the session mechanism, which that session writes and puts to the person. Then
+`/pack` is run on this tree.
 
 ## Impact of the split — 2026-11-15
 
@@ -383,3 +384,8 @@ showing, the record's English text under a digest, they could not read.
 [01-0090](../tickets/01-0090-standing-sessions-each-answer-for-an-area.md) is handed to the
 session that holds the cut here. It follows from who holds the cut; the hand-over itself takes
 the person's word and that session's.
+
+That session's answer, the same day, asked whether it takes the unit: it holds a unit of
+eleven stages and would let it go, so the keeper keeps this one and plans it, and asks that
+session for whatever lands in the session mechanism. Next says so now; the hand-over is not put
+to the person.

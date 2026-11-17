@@ -118,3 +118,21 @@ work on paths of its own. A session whose unit is done concludes; it is not rena
 Zones can outnumber sessions: a session may hold several." *Concludes* is the method's word for
 a session ending — its record written, its row ended; archiving a chat is the host's
 housekeeping. Core has nowhere to carry the rule until the part on standing sessions is built.
+
+## The case from fimonitor: a role's row read ended, and its session was archived — 2026-11-17
+
+That tree's harness session, to core's keeper: a zone's session there had a row reading ended;
+a second chat took the same zone, the harness session read the row as the zone's session
+having concluded, and archived it on the person's yes to a question that did not name which
+session was meant. The person there, relayed: "ролевые сессии не заканчивают работу". It was
+unarchived.
+
+What the keeper read in that tree: its core is 76976feb, an hour older than the commit that
+lets a row bear a role's name (c637bf62); the row bore none, and no session record followed
+it, so no conclude ran — another session's wake ended the row for three hours' silence. The
+naming answers it once that tree updates. What no rule of core's says, and the case asks: an
+ended row is no sign that a zone is free; and archiving a chat, the host's housekeeping, has
+no rule though it took a role's session out of reach. Words offered for that tree's local
+rule until then: "A zone's session is concluded or archived only on the person's word naming
+that session. A row of a zone's session that reads ended says it sleeps: write to it, and give
+its zone to no other chat."
