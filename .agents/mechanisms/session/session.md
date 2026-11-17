@@ -118,6 +118,7 @@ for this mechanism.
 |---|---|
 | the wake's instruction file | `.agents/skills/recall/SKILL.md` |
 | the conclude's instruction file | `.agents/skills/conclude/SKILL.md` |
+| the messages shelf | `.agents/skills/recall/MESSAGES.md` |
 | this doc | `.agents/mechanisms/session/session.md` |
 | its rules file | `.agents/mechanisms/session/session.rules.md` |
 | the rows' script | `.agents/scripts/gw/sessions.py` |

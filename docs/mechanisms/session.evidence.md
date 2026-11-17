@@ -102,3 +102,33 @@ waited for, and told the person of the work and not of the exchanges.
 - **What this trial cannot say.** One reader, one run, right at every collision, so the three
   defects are read from the words; the last paragraph has no ground truth in the count, which
   judged messages by what the receiving session did, never by what the person was told.
+
+## The rule on messages compressed, its detail on a shelf — 2026-11-17
+
+The session mechanism's block in the entry file had grown to fifty-one lines, S10 twenty-six of
+them, each trial having answered an ambiguity with more words. The person asked whether it was
+written for a capable model, and set the form: the entry file carries the whole instruction a
+session needs at the moment, compressed, with links.
+
+S10 was cut to a paragraph and its tried text moved, under headings, to a shelf beside the wake's
+skill. Tried on two fresh readers who had the paragraph and were free to open the shelf, over the
+twenty situations of the two earlier trials, and judged against the readers of the full text:
+the same outcome in all twenty, and both readers opened the shelf at the first message they had
+to write.
+
+- **Put back into the paragraph**, each a thing decided before a shelf is thought of: that
+  uncommitted work is told *before your turn ends* and a break *at once*; that a message waiting
+  on *your decision* is answered; that *a commit that took its lines* means its uncommitted
+  lines; and the object of *check a claim*, without which a reader looked in git for the
+  person's words.
+- **Changed on the shelf.** A row that bears a name and reads ended was covered by neither of
+  its two cases, and one reader let the shelf's sentence overrule the row it was shown: the row
+  decides, and an ended row, named or not, is not written to. *What it waits on* became *what
+  the next step waits on*; *never their approval as authority* was read rightly by three readers
+  and flagged by all three, and now says what it means.
+- **Refused.** A link in the rule's body: the installer takes no citation there, so the shelf is
+  named by its path.
+- **What the trial cannot say.** Both readers were asked for exact message texts, which itself
+  sends a reader to what a message carries; no reader was denied the shelf, so what the
+  paragraph alone would do is reasoned, not seen. A decision not to write, taken before the
+  shelf is ever opened, was not tried.

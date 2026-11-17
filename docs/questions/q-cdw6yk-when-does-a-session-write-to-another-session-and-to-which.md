@@ -58,6 +58,11 @@ to say who the receiver is.
    role's sleeping session is written only what will still hold when it wakes; and the rows'
    own part — a row whose session holds a role neither ended by silence nor removed — which is
    the rows' session's.
+3. **The rule compressed in the entry file, its detail on a shelf it names** — the user,
+   2026-11-16: "всю необходимую в моменте инструкцию должна нести agents.md, но сжато и с
+   ссылками", accepted the same day; landed 2026-11-17 at the entry contract's v137 after a
+   third trial. The rule and its shelf are the session mechanism's, and pass with it to the
+   session whose zone holds it.
 
 ## Three gaps the person found in the landed rule — 2026-11-16
 

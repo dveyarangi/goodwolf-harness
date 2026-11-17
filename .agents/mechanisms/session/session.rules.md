@@ -123,35 +123,18 @@ your replies.
 ## S10 — what one session writes to another
 
 - **target** `AGENTS.md`
-- **authority** the user, 2026-11-16, after the messages between sessions were counted; tried on a fresh reader beside one without it and judged by another, five rewordings taken; a role's sleeping session, what is not written, the receiver's side and what the person is told, the user the same day, tried again and judged, three rewordings taken
+- **authority** the user, 2026-11-16, after the messages between sessions were counted; tried on a fresh reader beside one without it and judged by another, five rewordings taken; a role's sleeping session, what is not written, the receiver's side and what the person is told, the user the same day, tried again and judged, three rewordings taken; compressed to what a session needs at the moment, its detail on a shelf it links, the user the day after, tried a third time on two readers free to open the shelf and judged
 
 <rule>
-Write to another session a question, and what it must act on or would go wrong without, to the
-id its row gives. A session that holds a role is written to asleep; any other, only while its
-row reads running:
-
-- your uncommitted work in a file it works in, or a commit that took its uncommitted lines —
-  before your turn ends: the file, the lines, when they will be committed;
-- a break you made in what it runs or lands — at once: the commit, the failing check, when the
-  mend lands;
-- a step of an agreed order done — the commits, what the person approved and what not, what it
-  waits on;
-- the person's decision in its area, once settled — their words, dated, and where they are
-  recorded if they are; never their approval as authority.
-
-Check a claim about another's lines or a commit against git or the record before sending it; a
-guess of whose they are goes as a question. One message to a receiver per occasion, a correction
-replacing the one it corrects and saying so. Say what you wait for: an answer, the result of
-work, or nothing.
-
-Answer a message that asks for an answer, and one that waits on your work or your decision
-though it does not say so; to any other send nothing. Do not write: an acknowledgement; what
-nobody waits on — a status, or what the receiver reads from git or a record without you; news
-that changes nothing for it.
-
-Tell the person of a message, sent or received, only what it changes for them — a decision it
-asks of them, a change in the work, something you told them that no longer holds; the rest is
-not retold unasked.
+Write to another session a question, or what it must act on or would go wrong without: your
+uncommitted work in a file it works in or a commit that took its uncommitted lines, before your
+turn ends; a break you made in what it runs, at once; a step of an agreed order done; the
+person's settled decision in its area. Check a claim about its lines or a commit against git
+first; one message per occasion, to the id its row gives while it reads running, saying what you
+wait for. Answer what asks for an answer or waits on your work or your decision; write no
+acknowledgement and nothing nobody waits on. Tell the person of a message only what it changes
+for them. What each message carries: the messages shelf,
+`.agents/skills/recall/MESSAGES.md`.
 </rule>
 </straw-dog>
 

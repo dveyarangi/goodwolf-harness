@@ -15,6 +15,20 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v137 — 2026-11-17
+
+**The rule on messages compressed, its detail on a shelf** — S10 in the entry file is eight lines
+where it was twenty-six: what is written and when, to whom, what is answered, what is not sent,
+what the person is told, and a link to the shelf that says what each message carries. The session
+mechanism's block had become the largest any mechanism installs, and the person asked whether it
+was written for a capable model: the entry file is to carry the whole instruction a session needs
+at the moment, compressed, with links *(the user, 2026-11-16)*. Tried on two fresh readers free to
+open the shelf, over the twenty situations of the two earlier trials, and judged against the
+readers of the full text: the same outcome in all twenty; both opened the shelf at the first
+message they had to write. Three things the judge put back into the paragraph, each decided
+before a shelf is thought of — *before your turn ends*, *at once*, *or your decision* — and the
+object of *check a claim* restored.
+
 ## v136 — 2026-11-16
 
 **A rule closes its loop** — a new principle among the general rules: where a rule has one party
