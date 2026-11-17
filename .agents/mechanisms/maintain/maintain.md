@@ -48,6 +48,8 @@ tree's, the commit the decisions were last swept through, moved only by the pass
 sweep *(the user, 2026-10-25)*; `maintain.py --landed` lists every file in the decisions' homes
 that changed between that commit and the head, and the agent reads what each change decides.
 What it leaves at or above the dial is a question asking the person, which every wake shows.
+What it finds in work another session holds or the project gives to one, it tells that session,
+running or not, and the finding counts as swept *(the user, 2026-11-17)*.
 
 In a recipient the mechanisms that came with core are maintained where core is made: the clock
 leaves them out and a mark refuses them, and the origin's marks never ship.
