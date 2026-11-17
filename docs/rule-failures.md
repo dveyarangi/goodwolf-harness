@@ -927,7 +927,9 @@ built.
 **Proposed amendment**, a rewording, no check being able to hold it; fimonitor's words: "An
 experiment or measurement the agent ran is a thing built; its results are read by a subagent
 given the data and the question it asks, never the runner's reading." The keeper's, put to the
-person: the same, bound to results a decision rests on.
+person: the same, bound to results a decision rests on — refused by the person, 2026-11-17:
+"слишком размашистое правило". A narrower one is put to them: only a finding that a thing cannot
+be done or read, before the person is told it.
 
 ## 73. Replies left the person's language mid-align, twice — 2026-10-25
 
