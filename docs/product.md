@@ -177,7 +177,7 @@ Read by column:
 - **G1** rests on one source of truth, maintenance — now with a pass that sweeps the tree with no
   person — and self-improvement, and nothing measures whether it holds.
 - **G2** has guarded writes, the dial, and a push refused on a broken record. Roles have begun as
-  areas the standing sessions hold, an edit in another's area told and recorded, never refused;
+  areas the standing sessions hold, a change in another's area asked of the session that holds it;
   the host refusing a forbidden action is not built. The question store's writes refuse a stale
   read; every other file's are the host's.
 </straw-dog>
