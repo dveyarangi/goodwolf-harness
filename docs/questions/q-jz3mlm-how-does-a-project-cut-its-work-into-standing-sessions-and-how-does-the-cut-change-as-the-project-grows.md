@@ -5,7 +5,7 @@
 - **state** open
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-11-15T00:43:20Z
-- **struck** 2, last 2026-11-17T05:57Z
+- **struck** 3, last 2026-11-17T18:43Z
 
 What a standing session is cut along — a domain of the product, a layer of the code, a process such as
 merging — differs between projects and changes as a project grows: game-delta cut nine sessions by

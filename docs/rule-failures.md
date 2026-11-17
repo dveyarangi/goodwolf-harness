@@ -1919,6 +1919,29 @@ The refused description and examples were not reintroduced; no new voice rule wa
 
 - [Codex Desktop · gpt-6.1-sol · 2026-10-26T11:04:57.347Z](cases/rf-a-long-session-s-replies-left-l9-256ed06bb8/case.json).
 
+**Struck, 2026-11-17 — a text put to the person to accept was told in the records' voice.** The
+keeper, a long session compacted several times, put a question's rewritten `Where it stands` to
+the person for acceptance under a name it had coined and not explained, *целое по разрезу*, as a
+digest in the record's own vocabulary over the record's English text. The person, in two
+messages: "что значит целое по разрезу?" and "я все еще не вижу что мне нужно принять, можно по
+русски и просто написать?" **Rules in play, loaded:** L9; *A reply speaks the method* — *"It says
+what a thing is, never an id in its place"*; *A capable reader* — *"Write instructions and
+records for a capable model"*. **Why it did not fire**, the session's reading, no model-internal
+cause established: *A capable reader* names one reader, and after a day of writing records the
+reply was written for the same one; L9 lets text proposed for a record keep its form, and nothing
+says that what the person is asked to decide is told to them in their own voice.
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-fable-5-2 · 2026-11-17T18:47Z — chat `1981de0e-7693-4931-aeab-4881f9fa0065`, the keeper's; the model is the one the session reported itself running on, not an attested backend version.
+
+**Proposed amendment**, the person's, 2026-11-17: "надо поменять write for capable model на
+что-то вроде write to agents (instructions or info) as if for capable model; write user-facing
+output in the voice defined in ... (where it is defined)" — *A capable reader* reworded to name
+both readers, shown to the person before it lands. A second strike asks a mechanical means; none
+is known that holds a voice, and whether one can is
+[the voice question](questions/q-53jkvy-is-the-voice-a-reply-speaks-in-its-own-mechanism-owning-how-everything-the-person-hears-is-said-apart.md)'s.
+
 ## 47. A decision not to act was landed as three rules — 2026-10-14
 
 **Source cases, retrospective extraction:**
