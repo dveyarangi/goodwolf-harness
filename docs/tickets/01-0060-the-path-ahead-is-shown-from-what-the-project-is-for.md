@@ -36,6 +36,6 @@ slice a complete pass from the records to what the person reads.
 ## Out of scope
 
 The driver that runs the ring with outside judges — q-kjd6ej. The ring's rules
-and the step-end choice — the practice mechanism's, q-ggpx2r. A recipient's
+and the step-end choice — delivery's, q-ggpx2r. A recipient's
 pathfinder with its own method's unit — the seam in the ticket mechanism's doc, bound to
 q-huss2x.

@@ -28,12 +28,12 @@ criteria. A decision lands where it is made, by the questions mechanism's rule; 
 body holds what has nowhere to land yet, and the session record the align.
 
 <straw-dog question="q-huss2x">
-**The seam between the record and the practice.** What is generic in a unit of work — an outcome,
+**The seam between the record and delivery.** What is generic in a unit of work — an outcome,
 observable criteria, slicing with dependencies, the impact of a split, the question it answers, its
 states from minted to closed, evidence at close, a place in an order — is this mechanism's. What is
-the development practice's — the paired RFC, the ring's step names, Type HITL or AFK, and the names
-*ticket* and *RFC* — stands here on one specimen and moves to the practice mechanism when a
-second method manifests a unit of its own *(the user, 2026-10-20)*.
+the ring's — the paired RFC, the ring's step names, Type HITL or AFK, and the names *ticket* and
+*RFC* — stands here on one specimen and moves to the delivery mechanism when a second method
+manifests a unit of its own *(the user, 2026-10-20; delivery its home, 2026-11-16)*.
 </straw-dog>
 
 It is **installed**. A tree without it tracks work some other way; the parts table below is what
@@ -149,7 +149,7 @@ done, which never arrives. This section states that so nobody re-investigates it
 One grader, pre-registered at the align that declared this mechanism and its `/plan`; a second,
 the session that would have landed an archive listing, went with the listing.
 
-<straw-dog question="q-oehis2">**The session that declares `/plan`**</straw-dog>
-grades the pairing rule and the `Plan` bullet: did they hold against `/plan`'s own record shape,
-or did this doc claim of an RFC what `/plan`'s declaration had to take back? A pairing check that
-had to be moved out of `tickets.py` is this doc having claimed too much.
+**The session that declared `/plan`**, under delivery, graded the pairing rule and the `Plan`
+bullet on 2026-11-16: did they hold against `/plan`'s own record shape, or did this doc claim of an
+RFC what `/plan`'s declaration had to take back? They held: the declaration took nothing of the
+plan back from this mechanism, and the pairing check stays in `tickets.py`.
