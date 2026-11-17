@@ -341,3 +341,17 @@ nothing new.
 A fresh tree needs: nothing here beyond core; a role's row reads running while its session
 sleeps, and no rule treats sleep as a case.
 </straw-dog>
+
+## 21. The whole is accepted, on its second telling — 2026-11-17
+
+The keeper gathered the decisions on the cut into the `Where it stands` of the question the
+part answers, had a judge that did not write it read it against the decisions, and put it to
+the person as the record's text under a short digest. The person could not see what they were
+asked to accept, and said so twice. Retold in their language as fifteen plain statements, the
+keeper's three readings set apart, it was accepted at once.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: what the person is asked to accept is told to them in their language and
+in plain statements they can refuse by number; the record's own text stands beside it, never
+in its place.
+</straw-dog>

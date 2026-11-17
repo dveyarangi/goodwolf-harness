@@ -122,8 +122,8 @@ Neighbours: [q-psa5ha](q-psa5ha-how-do-sessions-hand-work-to-each-other-a-verifi
 
 ## Where it stands
 
-Put to the user 2026-11-17; not yet accepted. Three of its sentences are the keeper's readings
-of decisions that meet, each marked *(a reading)*.
+Accepted by the user, 2026-11-17: "да, все верно" — of this whole retold to them in fifteen points,
+the keeper's three readings of decisions that meet accepted with it.
 
 **The problem.** Two things, and one cut answers both. One person runs several standing sessions
 in one tree, and they step on each other: one session's lines in another's commit, two writing one
@@ -162,7 +162,7 @@ The roles' zones and briefs are kept nowhere apart from their mechanisms, and qu
 part of a zone: who stands on a question and who holds it is the store's and the rows' to say.
 Zones are chosen and shifted by paths and the domain's seams, the same in every tree, never by
 which of the harness's mechanisms they touch; a role's own mechanism is where the zone, once cut,
-is written, so a shift is decided in paths and recorded there *(a reading)*.
+is written, so a shift is decided in paths and recorded there.
 
 **Who holds which.** Which session holds which role is the tree's own setting: a table in its
 local rules file, installed into the entry file, where every session reads it. A session is
@@ -193,7 +193,7 @@ person decides: it starts and ends no session, hands out no work and writes noth
 role's zone. Keeping the cut is itself a role: held in this tree by the session that holds the
 store, and in a tree that installed the harness and took this part, by the session that holds
 the harness. That role is carried by this part of the session mechanism until the part leaves as
-a mechanism of its own *(a reading)*.
+a mechanism of its own.
 
 **The roles core ships.** To a tree with more than one standing session, two: the one that holds
 the harness, offered at install as the default session, and the lander, folded into the first in
@@ -362,7 +362,9 @@ four sessions
 ([q-dyc63i](q-dyc63i-which-standing-roles-does-this-tree-have-where-every-session-develops-the-harness-itself.md),
 decision 2); and decision 7 above with q-dyc63i's decision 1 in "Two trees".
 
-**The keeper's readings, put to the person with the whole.**
+**The keeper's readings, put to the person with the whole, and accepted with it** — the user,
+2026-11-17, "да, все верно", once the whole had been retold in plain Russian: its first
+showing, the record's English text under a digest, they could not read.
 
 1. "The rule for choosing and shifting zones names no mechanism" (q-jz3mlm, decision 2) beside
    "every role has a mechanism of its own" (q-mvd4pi, decision 1). Read: the first is said of
