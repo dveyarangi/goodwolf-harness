@@ -100,6 +100,8 @@ easily to an agent and to the person wherever it is cited".
    - Options: (a) decision 3 and the ticket read `docs/q/<id>-<slug>.md`, under the date of 6's
      change; (b) left, the link's form settled when .0110 is planned.
    - Recommendation: (a) — 6 leaves nothing else the path could be.
+   - Taken: (a) — [decision 3](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md#decisions),
+     as amended on 2026-11-16, reads `docs/q/<id>-<slug>.md`, citing 6.
 7. **Whose words the slug holds.** Decision 55 of
    [01-0011.0100 the-open-questions-are-kept-by-a-mechanism](../tickets/01-0011.0100-the-open-questions-are-kept-by-a-mechanism.md):
    "the slug holds all of them … The entries already written are renamed with the mover". 6 cites

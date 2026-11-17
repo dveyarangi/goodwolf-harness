@@ -76,7 +76,7 @@ last attempted operation can be uncertain and must be checked against the filesy
 This contract does not promise atomic multi-file writes or persisted transaction recovery.
 Nor does it promise safe simultaneous writers. Keeping two sessions out of one file is the host's
 responsibility — its edit tool refusing a write over a file changed since the agent read it, and a
-worktree per session where it offers one — not the harness's: it locks nothing. Its own scripts refuse a write to an entry that moved since it was
+worktree per session where it offers one — not the harness's: <straw-dog question="q-d4gf2u">it locks nothing.</straw-dog> Its own scripts refuse a write to an entry that moved since it was
 read. *(the user, 2026-10-11)*
 Whatever stands on the shared main may be published; work the person holds back stays on its own
 branch until they release it. *(the user, 2026-10-12)*
@@ -223,8 +223,8 @@ in silence, leaving what a recipient must amend to whoever reads the manifest di
 
 ## Deferred decisions
 
-- The pacer dissolved (q-huss2x): the ring's rules are the practice mechanism's, which work
-  comes next is the pathfinder's; where a session resumes is the session mechanism's. This
-  maintenance install does not define a scheduler or an automatic next cycle.
+- The pacer dissolved (q-huss2x): the ring's rules are delivery's, which work comes next is
+  the pathfinder's; where a session resumes is the session mechanism's. This maintenance
+  install does not define a scheduler or an automatic next cycle.
 - Cross-project distribution, generalized local overrides and dependency tracking retain
   their existing owners in the shared-harness work.

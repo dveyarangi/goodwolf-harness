@@ -60,6 +60,9 @@ Either form ends with the counters — the tree's open tickets, open questions a
 with what came and went since the session's previous window, matched by name — since a ticket or
 a straw dog moves while no entry does; the names are remembered outside the tree beside the
 window's own memory, which a compaction empties and they outlive.
+<straw-dog question="q-4seese">In a linked git worktree a drawn window adds a line saying the
+worktree reads and writes its own branch's copy of the store, which reaches the other sessions
+only when the branch is merged.</straw-dog>
 
 **Principles**, behind the rules and never installed:
 
