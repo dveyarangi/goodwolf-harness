@@ -36,3 +36,7 @@ host gives.
    the name takes the row's position and hold with it, a resume under a new id being the same
    conversation. A name whose row was seen within the last three hours does not pass.
 4. Once the table of decision 5 exists, the check reports a named row the table does not name.
+
+Decision 3's `/conclude` amended by the user, 2026-11-18: a role's session is not concluded, and
+the person or the harness at a re-cut ends it —
+[q-g6lj7m](q-g6lj7m-who-ends-the-session-of-a-role-if-not-its-conclude.md).
