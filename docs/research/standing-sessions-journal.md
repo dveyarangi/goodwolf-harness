@@ -384,3 +384,21 @@ A fresh tree needs: the first slice writes the cut where every session reads it,
 that read the cut wait for it; a plan made for a whole since replaced is removed and each slice
 planned anew.
 </straw-dog>
+
+## 24. The first slice's plan, a probe and a judge — 2026-11-18
+
+The keeper drafted the plan of the first slice and, before anything was built, had two things
+done by hands other than its own: a subagent wrote one role's mechanism in a clone and ran it
+through the checks and the ship, and a judge read the plan against the whole, the format and
+the scripts. The probe passed. The judge returned thirteen findings: the zone had lost the
+role's own files; the records of work had no stated place; nothing found the files several
+roles write; the table's reader and form were unnamed; a role could not be closed in the state
+the plan gave it; two choices the whole lists as open had been settled in passing. The plan was
+amended to each, and the two open choices went to the person.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: the form a role is written to is tried on one role in a copy before the
+five are written; a plan that reads an accepted text is read back against it by someone who did
+not write the plan; what the accepted text leaves open goes to the person, never into the plan
+as a reading.
+</straw-dog>
