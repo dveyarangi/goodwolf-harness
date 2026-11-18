@@ -19,6 +19,39 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## Skills name other installed mechanisms' skills, and the shape check passes — 2026-11-18
+
+**Source, no case yet:**
+
+- Claude desktop app · unknown · 2026-11-18T04:07Z — found by the unattended maintenance pass, told to the keeper by the practice's session.
+
+**Goal missed:** what one mechanism asks of another's skill reaches it as an installed block, so a
+skill's own text can be changed without reading every skill that names it.
+
+**Rules in play, installed in `/skill-up`:** R8: *"Name no skill of a mechanism whose state is
+`installed` in another skill's own text: what it asks of that skill reaches it as an installed
+block from its rules file."*
+
+**What happened.** The pass found `/tdd` naming `/plan`, `/commit` naming `/verify`, and
+`/review-architecture` and its reference naming `/plan` and linking `/tdd`'s shelves, with
+`mechanisms.py --check` passing. The keeper read the script: nothing in it reads R8. A count of
+skill names in `/plan`, `/verify` and `/implement` shows the same in each, installed blocks not
+told apart.
+
+**Why it did not fire.** R8 is held by its wording alone and is read when a skill is written. A
+skill written while the skill it names had no mechanism, or a mechanism not yet installed, breaks
+R8 on the day that mechanism is declared installed, when no skill is being written and nobody
+reads the rule. This is the keeper's reading; no model-internal cause is established.
+
+**Proposed amendment**, a check, the rule's wording unchanged: the shape check reads every skill's
+own text outside its installed blocks and fails on the name of, or a link into, a skill of an
+installed mechanism other than its own.
+
+**Disposition:** open. The check is not built: it would fail the verification set of every
+session on lines that stand today, most of them in the practice's zone, which that session puts
+to the person. How it lands is
+[q-43dten](questions/q-43dten-how-does-the-shape-check-hold-a-skill-to-naming-no-skill-of-another-installed-mechanism.md)'s.
+
 ## A neighbour's decision was put to the person by a second session — 2026-11-16
 
 **Source, no case yet:**
