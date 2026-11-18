@@ -276,10 +276,12 @@ the landing on main ([q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-sh
 
 **Next.** The plan of
 [01-0090 standing-sessions-each-answer-for-an-area](../tickets/01-0090-standing-sessions-each-answer-for-an-area.md)
-goes back through `/plan` under this whole, each step written in
+went back through `/plan` under this whole and the ticket was split, 2026-11-18; its first slice,
+[01-0090.0010 each-role-of-this-tree-stands-in-a-mechanism-of-its-own](../tickets/01-0090.0010-each-role-of-this-tree-stands-in-a-mechanism-of-its-own.md),
+is planned next, each step written in
 [the journal](../research/standing-sessions-journal.md) with what a fresh tree would need to do
-the same. The keeper plans it and keeps the unit, asking the session that holds the store for
-what lands in the session mechanism, which that session writes and puts to the person. Then
+the same. The keeper plans the slices and keeps the unit, asking the session that holds the store
+for what lands in the session mechanism, which that session writes and puts to the person. Then
 `/pack` is run on this tree.
 
 ## Impact of the split — 2026-11-15
@@ -442,3 +444,13 @@ their local rules.
 **Recommendation.** Narrow: mint children 1 to 3, in that order, 2 and 3 each after 1. Child 4
 stays a line of the parent until its question is aligned. Child 3 and the guard's first slice
 share one reader of the declarations, built by whichever lands first.
+
+**Minted, 2026-11-18** — the user, of the split as recommended: "Да, режь". The ticket is
+rewritten as the parent's end-state, the whole's six tests its criteria, and three slices are
+minted under it:
+[01-0090.0010 each-role-of-this-tree-stands-in-a-mechanism-of-its-own](../tickets/01-0090.0010-each-role-of-this-tree-stands-in-a-mechanism-of-its-own.md),
+[01-0090.0020 the-cut-is-read-against-the-work](../tickets/01-0090.0020-the-cut-is-read-against-the-work.md)
+and
+[01-0090.0030 a-session-crossing-into-anothers-zone-is-told-whose-it-is](../tickets/01-0090.0030-a-session-crossing-into-anothers-zone-is-told-whose-it-is.md).
+The install's offer stays a line of the parent. The plan written for the whole of 2026-11-15 is
+dissolved: it stands in git at a08b2085, and each slice is planned anew.

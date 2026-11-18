@@ -25,7 +25,8 @@ attribution kept true, a zone shifted by the harness.
 - [q-ja5mp4](q-ja5mp4-does-the-method-have-one-session-direct-the-others-an-orchestrator-and-what-does-it-owe-the-sessions-it.md),
   `Where it stands`, accepted 2026-11-15: a role's map is "paths, mechanisms, questions". An
   earlier accepted record that decision 3 narrows to paths.
-- [The plan of 01-0090](../rfc/01-0090-standing-sessions-each-answer-for-an-area.md), unaccepted
+- The plan of 01-0090 (`docs/rfc/01-0090-standing-sessions-each-answer-for-an-area.md` in git at
+  a08b2085, dissolved 2026-11-18 into its slices' plans), unaccepted
   and waiting on q-gus5k2's align:
   - reading 6 and "Two files have two writers": the session mechanism's doc and rules file are in
     both maps, "each entry narrowed by words to its own passages", with no straw dog in either map

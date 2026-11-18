@@ -369,3 +369,18 @@ A fresh tree needs: a whole accepted after its ticket was minted sends the ticke
 cut again before it is planned; the parts are cut by who writes them as well as by what they
 show.
 </straw-dog>
+
+## 23. The ticket is cut into three slices — 2026-11-18
+
+On the person's word the keeper rewrote the ticket as the end-state of the whole, its six tests
+the criteria, and minted three slices under it, each answering a question of its own under the
+unit's: this tree's roles in mechanisms of their own with the table of who holds which; the
+skill that reads the cut against the work; the telling at an edit in another role's path. The
+install's offer stayed a line of the parent, its question not aligned. The plan written before
+the whole was accepted was removed, not amended: it planned a record the whole no longer has.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: the first slice writes the cut where every session reads it, and the slices
+that read the cut wait for it; a plan made for a whole since replaced is removed and each slice
+planned anew.
+</straw-dog>
