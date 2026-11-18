@@ -16,8 +16,8 @@ since the tree's sweep mark, finds what contradicts each decision, repairs below
 own work or nobody's, tells another session what lies in its work, leaves each decision at or above
 the dial as a question asking the person, and moves the mark once it has finished —
 [/maintain, *A pass with no person*](../../.agents/skills/maintain/SKILL.md). A finding told to the
-session whose work holds it, running or not, is swept. Open: the next night run, swept under that
-rule, read by a judge who did not build it, with the morning's wake.
+session whose work holds it is swept. Open: the next night run, swept under that rule, read by a
+judge who did not build it, with the morning's wake.
 
 ## Decisions
 
@@ -25,6 +25,9 @@ rule, read by a judge who did not build it, with the morning's wake.
    running or not, and counts as swept** — the user, 2026-11-17. Not: the pass repairing in a
    zone and telling after, which writes into another session's work. →
    [/maintain G2](../../.agents/skills/maintain/SKILL.md)
+   2026-11-18: "running or not" dropped from G2 — whom a session is written to is the messages
+   shelf's, where a role's row reads running asleep and an ended row is taken to the person; the
+   person's word, a sleeping zone told, stands.
 
 ## The first night run — 2026-11-17
 

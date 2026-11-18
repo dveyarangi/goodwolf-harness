@@ -57,6 +57,8 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 | the contract; `Minted` required and the shape read from it; the named sections alone, the stage and the narrative gone | the user, 2026-10-11; `Parent scope addressed` gone, four left, 2026-10-15 |
 | the status vocabulary, numbering and one basename per work item | with the selected skills, 2026-09-06 |
 | check-only, and nothing retires this | the user, 2026-09-08 |
+| the shelf's *Out of scope* — a criterion the person sets aside leaves the list for it, with who, when and what it leaves unconfirmed | the user, 2026-11-16 |
+| the shelf's *Depends on* — only what the work will use and does not exist yet, named as the thing it brings | the user, 2026-11-16 |
 
 ## Moments
 

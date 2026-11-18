@@ -83,7 +83,7 @@ PAINTED_DOORS = frozenset(
         "docs/mechanisms/maintenance.md",
         # TODO q-pdmw3a: the glossary's, which goes with the glossary mechanism's declaration.
         "docs/glossary.md",
-        # TODO q-ggpx2r: the practice's, which go with its declaration.
+        # TODO q-hrfk7l: the practice's, which go with the homes of decisions.
         "docs/architecture.md",
         "docs/adr/",
         # TODO q-oehis2: /plan's, which go with its declaration.

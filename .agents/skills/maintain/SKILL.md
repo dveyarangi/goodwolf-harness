@@ -91,11 +91,10 @@ One pass over a declared scope. The scope decides which rules apply.
   new — what the decision leaves unsaid is asked, and so is an earlier decision it overturns or
   narrows; what landed before the mark is not this sweep's; a text that describes an instruction
   you leave for the person stays as it is until the instruction moves. In work another session
-  holds or the project gives to one, running or not, or a file another session has changed and not
-  committed, tell that session and write nothing there; a finding told is swept. Leave each
-  decision at or above the dial, asking no one, as a question of its own asking
-  the person, opened under the lowest question that contains it, its body naming the decision,
-  every text that contradicts it and where — the rule and what describes it alike — the options
+  holds or the project gives to one, or a file another session has changed and not committed,
+  tell that session and write nothing there; a finding told is swept. Leave each decision at or
+  above the dial, asking no one, as a question of its own asking the person, opened under the
+  lowest question that contains it, its body naming the decision, every text that contradicts it and where — the rule and what describes it alike — the options
   and your recommendation; then `questions.py ask`.
 - **G3** Commit and push what you changed as the project's way of working with git says; then mark
   the sweep with `maintain.py --mark '*' decisions <outcome> <the commit --landed read through>`,

@@ -37,7 +37,7 @@ the harness being its own recipient.
   opened, placed, given its rung, not entered. An idea said in conversation captures the session
   only by the person's returning, which `struck` shows. A question enters work at a boundary core
   holds whatever the method — the session's start, the person's word, a unit's close — never at
-  the ring's step ends, which are the practice's.
+  the ring's step ends, which are delivery's.
 
 **The rung.** Every open question carries its rung as the entry file's *Autonomy* says: 156 given
 theirs in one pass on 2026-10-20, a new one at the open by Q1. Where the store uses the part, an open question without one is the store's finding,
@@ -51,7 +51,7 @@ balance, 158 open under *how it is built* and seven under the other two with no 
 2026-10-20. Its unit of output is a question and its unit of work as the installed method names it,
 `/ticket` here, installed into the pathfinder by the method, not looked up.
 
-**Not the pacer.** The pacer dissolved: the ring's rules are the practice mechanism's; a driver
+**Not the pacer.** The pacer dissolved: the ring's rules are delivery's; a driver
 that runs the ring with judges outside the working agent is q-kjd6ej; which
 work comes next is this question's.
 
@@ -98,8 +98,9 @@ methods, a seam marked in the ticket mechanism's doc until a second method manif
    the method: the session's start, where the path is redrawn; the person's explicit word; a unit's
    close. A ring with an entry and an exit, or a pipeline, is in every method, and core holds those
    ends without knowing the ring's content *(the user, 2026-10-23)*. Not: the ring's step ends as
-   boundaries — the practice mechanism's, not core's; nor a calendar cadence — a human reason, the
-   review being dear, where here redrawing is cheap and the boundary near. Consequences: in the ring
+   boundaries — the practice mechanism's, delivery's since the split of 2026-11-16, not core's; nor
+   a calendar cadence — a human reason, the review being dear, where here redrawing is cheap and the
+   boundary near. Consequences: in the ring
    Q1 opens a new question without `at`; L12 counts a session as work only in the ring; how the
    store tells the two states apart is open.
 7. The path is not read from a written queue. The candidates it shows are its own reading — the

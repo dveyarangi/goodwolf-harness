@@ -33,8 +33,8 @@ the lowest. A decision's rung is read from what it decides — the reach of its 
 from the record that holds it; a case between two rungs takes the higher.
 
 The dial is the same for every ladder and carries nothing of any one method. A ladder's rungs are
-its method's mechanism's: development's belong to the practice mechanism (q-ggpx2r),
-whose ladder is written as a straw dog bound to that question while the mechanism is undeclared;
+its method's mechanism's: development's belong to delivery (q-ggpx2r), whose ladder still stands
+in the entry file as a straw dog bound to that question;
 self-improvement's to the mechanism shape ([q-tt733j](q-tt733j-how-does-the-harness-amend-its-own-rules-by-stated-meta-rules.md), decision 1).
 The two ladders known today:
 
@@ -81,8 +81,8 @@ function, tested over every combination recipients hold. The host check is teste
 polarities. An install into an empty folder is read for the dial it proposes and the stops its
 introduction names.
 
-**The path a change takes** follows its method's ladder. On development's, the practice
-mechanism's: code at once, a feature a ticket, load-bearing and above an align on its question until
+**The path a change takes** follows its method's ladder. On development's, delivery's:
+code at once, a feature a ticket, load-bearing and above an align on its question until
 its `Where it stands` is accepted.
 
 **Which questions stop.** A question carries its highest rung on each ladder it touches, estimated
@@ -127,10 +127,12 @@ hook refuses an edit that changes its lines, built with 01-0010.0125.
    ticket, load-bearing and above are aligned on their question until its `Where it stands` is
    accepted *(the user, 2026-10-15)*. Not: a scale of size of its own — the discovery of 2026-10-15
    found the families scaling on risk, reversibility and boundaries crossed, not size. The path is
-   development's, the practice mechanism's; it answers part of q-p2tgdv.
+   development's, the practice mechanism's — delivery's since the split of 2026-11-16; it answers
+   part of q-p2tgdv.
 9. The dial carries nothing of any one method: core holds the ladder, the dial and their meaning;
    a ladder's rungs, and anything else particular to a method, belong to that method's mechanism —
-   development's to the practice mechanism, self-improvement's to self-amendment — written while
+   development's to the practice mechanism (delivery since the split of 2026-11-16),
+   self-improvement's to self-amendment — written while
    those are undeclared as straw dogs bound to their questions *(the user, 2026-10-15: "we do this
    work not only for the development ladder but for all ladders, so nothing may take on development
    specifics except by being bound to the future mechanism of the development method")*. Not:

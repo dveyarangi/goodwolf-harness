@@ -113,8 +113,7 @@ For each approved slice, write the ticket under `docs/tickets/`, named and
 registered per [TICKET-FORMAT.md](./TICKET-FORMAT.md).
 
 Create tickets in dependency order (blockers first) so you can reference real
-filenames in the `Depends on` field. A blocker that is already complete lives
-in `docs/tickets/done/` — reference it there.
+filenames in the `Depends on` field.
 
 Write each file to [The record](./TICKET-FORMAT.md#the-record) — the header,
 its fields, the sections it admits, and the citation conventions; `Minted` is
