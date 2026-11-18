@@ -31,7 +31,7 @@ pattern, its `TODO`s and the painted door for `docs/questions/done/` have left.
 
 Found by the verification of 01-0010.0250.0100, 2026-11-15:
 - `at` answers an old id with its new one through `_existing`, after the id pattern has accepted it.
-  Dropping the dotted half of the pattern refuses `at q-0037…` as no id, and that answer is lost
+  Dropping the dotted half of the pattern refuses `at` on a dotted id as no id, and that answer is lost
   unless the lookup moves ahead of the pattern, in `_question_id` and in `--hold`/`--take`.
 - The dotted half of `QUESTION_ID` has no closing lookahead: `q-2345ab7` reads as the dotted
   `q-2345`. It leaves with the dotted half; the all-digit test comes in then.
