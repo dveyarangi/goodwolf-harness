@@ -78,7 +78,7 @@ absence is honestly classified, are judgements it records and never makes.
 | running the installer over every source under the tree's settings, so a changed setting brings the tree to match | `.agents/scripts/gw/inject_rules.py` | |
 | changing one of the tree's settings and bringing the tree to match | `.agents/scripts/gw/inject_rules.py` | |
 | rendering the tree's settings as one table, on request | `.agents/scripts/gw/inject_rules.py` | |
-| telling a session at its start that the tree's blocks are out of step with its settings | `.agents/scripts/gw/hook.sh` | |
+| telling a session at its start that the tree's blocks are out of step with its settings, and, in a worktree lacking its host's link to the skills, making the links and telling it so | `.agents/scripts/gw/hook.sh` | |
 | deciding at a push whether what it sends wakes the method's checks | `.agents/scripts/gw/hook.sh` | |
 | reporting a retired tag left in core | `.agents/scripts/gw/mechanisms.py` | |
 | writing a mechanism's rule where a session reads it, the entry file included, at `/align` or here | `.agents/skills/mechanism/SKILL.md` | |
