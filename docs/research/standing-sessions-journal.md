@@ -355,3 +355,17 @@ A fresh tree needs: what the person is asked to accept is told to them in their 
 in plain statements they can refuse by number; the record's own text stands beside it, never
 in its place.
 </straw-dog>
+
+## 22. The plan returns to `/plan`, and the ticket is too coarse — 2026-11-18
+
+The whole accepted, the nightly pass told the keeper where the ticket and its plan still stood
+on the roles' record. Read against the whole, one plan no longer holds it: the roles'
+mechanisms are four sessions' text, the skill is the store's session's, the telling at an edit
+is the host's first hook on one, and the install's offer stands on a question still open. The
+keeper drafted a split, traced what each part touches, and put it to the person before minting.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: a whole accepted after its ticket was minted sends the ticket back to be
+cut again before it is planned; the parts are cut by who writes them as well as by what they
+show.
+</straw-dog>

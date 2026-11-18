@@ -6,7 +6,7 @@
 - **owner** [01-0090](../tickets/01-0090-standing-sessions-each-answer-for-an-area.md)
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-11-15T00:05:13Z
-- **struck** 0, last 2026-11-15T00:05Z
+- **struck** 1, last 2026-11-18T04:28Z
 
 The user, 2026-11-15: ask the orchestrator session of game-delta how it works with agents and
 sessions, which problems arose and were solved and which were not, and have it ask the sessions it
@@ -389,3 +389,56 @@ That session's answer, the same day, asked whether it takes the unit: it holds a
 eleven stages and would let it go, so the keeper keeps this one and plans it, and asks that
 session for whatever lands in the session mechanism. Next says so now; the hand-over is not put
 to the person.
+
+## Impact of the split — 2026-11-18
+
+The plan of
+[01-0090 standing-sessions-each-answer-for-an-area](../tickets/01-0090-standing-sessions-each-answer-for-an-area.md)
+went back through `/plan` under the whole accepted 2026-11-17 and is too coarse for one RFC. The
+draft split, put to the person and not minted: the ticket becomes the parent, its end-state the
+whole, with children — (1) this tree's roles each hold a mechanism of their own, and the table of
+who holds which replaces L13's list; (2) `/pack` and the session doc's section, first run on this
+tree; (3) a session that edits a file in another role's path is told whose it is; (4) an install
+offers the default session.
+
+**Impact.** Must change: the ticket's outcome, text and criteria, which still stand on a record
+of the tree's roles; its RFC, which plans `docs/roles.md` and three rules under ids since given
+to other rules, and is dissolved into the children's; L13 in the local rules; the session
+mechanism's doc, rules and a new skill; the first hook on a file edit, where the host's settings
+carry only the session's start and the prompt; the install skill's *After the first install*.
+Must verify: the name on a row and its passing, landed with 01-0100; the nightly pass telling a
+zone's session.
+
+**Hidden edges.**
+
+- No mechanism in this tree is declared local. The four roles' mechanisms are the first, so the
+  shape check's and the ship's rules on a local mechanism meet real files for the first time.
+- A role's mechanism names the mechanisms it produces, the name standing for their paths. The
+  mechanism format has no field for that; adding one is the shape's, the work on rules the keeper
+  still holds.
+- Each role's skill is written by its own session, and `/pack` with the session doc's section by
+  the session that holds the store: children 1 and 2 are the keeper's unit and four sessions'
+  text.
+- Child 3 maps an edited path to the mechanism that declares it, as
+  [01-0010.0125.0010 an-edit-waits-for-the-skill-that-keeps-its-file](../tickets/01-0010.0125.0010-an-edit-waits-for-the-skill-that-keeps-its-file.md)
+  does to refuse an edit. Built apart they are two hooks reading the declarations two ways. It
+  delivers the telling alone: the record of who touched a file waits on the store's server.
+- A path no mechanism declares has no role and falls to the session that holds the harness.
+- Child 4 stands on an open question, what a fresh tree is given at install
+  ([q-wit7by](q-wit7by-what-does-a-fresh-tree-under-the-harness-need-to-set-up-standing-sessions-by-itself.md)),
+  which the journal's steps feed; the lander it would offer has nothing to land with before
+  [q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md).
+- The work on rules is cut off the keeper once the whole is accepted
+  ([q-dyc63i](q-dyc63i-which-standing-roles-does-this-tree-have-where-every-session-develops-the-harness-itself.md),
+  decision 2), which it now is. Child 1's table can name that role before a session is opened
+  for it, a session holding several roles.
+- *Role* still has two accounts in the glossary's reach
+  ([q-p4sdnv](q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md)).
+
+**Leave alone.** The row's lifecycle, its name and its passing; the window; a role's rights; the
+server's tickets; core's common rules on who writes a rule; fimonitor's and game-delta's roles in
+their local rules.
+
+**Recommendation.** Narrow: mint children 1 to 3, in that order, 2 and 3 each after 1. Child 4
+stays a line of the parent until its question is aligned. Child 3 and the guard's first slice
+share one reader of the declarations, built by whichever lands first.
