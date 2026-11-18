@@ -2002,6 +2002,26 @@ is known that holds a voice, and whether one can is
 person's word — "голос остается в локальных, меняй принцип о читателях": the principle, now *Two
 readers*, has what the person reads written in the project's voice, which its local rules give.
 
+**Struck, 2026-11-18 — a plan's decisions were put to the person in the plan's vocabulary, nine
+at once.** The keeper, the same session, put a plan to the person as nine numbered points, in
+their language and refusable by number as the amendment asks, with the records' words left in
+them — *зона*, *механизм*, the roles' slugs, *локальное правило* — a table, an English
+before-and-after of a ticket's criteria, and five rows of waiting decisions. The person:
+"поясни понятнее решения которые я должен принять". **Rules in play, loaded:** *Two readers*;
+L9; *A reply speaks the method*. **Why it did not fire**, the session's reading, no
+model-internal cause established: the amendment settled the language and the form; nothing says
+how much is put at once, or that a decision is told by what it changes for the person and not by
+how the plan writes it down — seven of the nine points were the plan's readings, and two were
+the person's to decide.
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-fable-5-2 · 2026-11-18T07:01Z — chat `1981de0e-7693-4931-aeab-4881f9fa0065`, the keeper's; the model is the one the session reported itself running on, not an attested backend version.
+
+**Proposed amendment**, not yet drafted: a wording for what is put to the person to decide —
+only what is theirs, each told as what it changes for them. It is drafted and shown once the
+decisions in hand are answered, never beside them: the failure is of too much put at once.
+
 ## 47. A decision not to act was landed as three rules — 2026-10-14
 
 **Source cases, retrospective extraction:**
