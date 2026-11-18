@@ -8,8 +8,8 @@
 # cmd — and runs an alias under its own sh from the repository's top level, so one command serves
 # every host and platform, from whatever folder the host's shell stands in. Git's own `pre-push` is
 # launched by the clone's hook file, `sh .agents/scripts/gw/hook.sh pre-push <remote> <url>`, from
-# the same top level. The interpreter is the one the link step recorded in this clone's Git
-# directory: a bare `python` may be the Windows Store stub, and `uv` is one machine's habit.
+# the same top level. The interpreter is the one the link step recorded in this clone's common Git
+# directory, a worktree's own record read first: a bare `python` may be the Windows Store stub, and `uv` is one machine's habit.
 #
 # The host branches never fail the host. The `pre-push` branch is the one that refuses by design:
 # a push that carries a broken record of the method is stopped, and the checks say why.
