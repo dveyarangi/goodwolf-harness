@@ -61,7 +61,7 @@ Ask: "What should the public interface look like? Which behaviors are most impor
 
 **You can't test everything.** Confirm with the user exactly which behaviors matter most. Focus testing effort on critical paths and complex logic, not every possible edge case.
 
-**When an RFC (`/plan`) already fixes the interfaces and behaviors, the planning gate is satisfied** — take the RFC's answers and proceed to the tracer bullet without re-asking.
+**When the unit's plan already fixes the interfaces and behaviors, the planning gate is satisfied** — take the plan's answers and proceed to the tracer bullet without re-asking.
 
 ### 2. Tracer Bullet
 

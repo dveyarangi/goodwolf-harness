@@ -25,3 +25,10 @@ verification set leaves unchecked; offer deepening as refactor tickets; run agai
 grows. Where it meets the install is
 [01-0010.0175](../tickets/01-0010.0175-arrival-describes-what-it-finds.md), whose outcome draws an
 architecture skeleton from a tree's code.
+
+## R8 met, 2026-11-18
+
+The night pass of 2026-11-18 found the skill naming skills of installed mechanisms in its own
+text: SKILL.md:12 links tdd/deep-modules.md, :78 names `/plan`; REFERENCE.md:29 names `/plan`,
+:31 links tdd/tests.md. Left as they stand until the skill is reshaped here: what it asks of
+delivery and the practice reaches it then as installed text, or the names go with the rewrite.

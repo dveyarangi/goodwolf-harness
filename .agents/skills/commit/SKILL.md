@@ -27,7 +27,7 @@ description: >-
   skill holding a project's commands is a second home for them, and it is wrong for every
   project but the one it was written in.
 
-- Commit when the work closes — `/verify` has passed on it. Push as the project's local file states
+- Commit when the work closes — its verification has passed. Push as the project's local file states
   its way of working with git; a push is never implied by a commit.
 
 <installed by="session">
