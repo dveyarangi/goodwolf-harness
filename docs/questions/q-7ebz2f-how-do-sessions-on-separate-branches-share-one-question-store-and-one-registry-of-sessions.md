@@ -145,7 +145,10 @@ history at a8923621.*
    links symlinks) — ignored by the code branches, at a path no commit has ever
    held — a checkout of a commit that tracks the path writes its files through the link into the
    store, and leaving it deletes them and the link, as tried below; `docs/questions/` stays in the
-   history. The files are read-only, the server alone writing them; the server makes it where a
+   history. The files are read-only, the server alone writing them — until
+   [.0070](../tickets/01-0010.0250.0070-a-body-is-edited-on-its-fingerprint.md) they stay
+   writable, and a hand change is committed by the next write as by an unknown hand (the user,
+   2026-11-18); the server makes it where a
    worktree has none, the harness's hook in a cloud session. A link to a question,
    `docs/q/<id>-<slug>.md` (decision 6), is the same everywhere, and nothing is rewritten when a question
    moves. A link out of a question is resolved by its text against the main checkout, never
