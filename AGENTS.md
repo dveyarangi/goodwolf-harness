@@ -228,7 +228,7 @@ as a straw dog while an open question's answer can still change it. A decision a
 mechanism lands in that mechanism's doc, and what was refuted in its evidence.
 </straw-dog>
 
-<straw-dog question="q-ggpx2r">
+<straw-dog question="q-hrfk7l">
 Bad architectural documentation:
 - Forecasts are stored in MongoDB collection forecast_hourly.
 
