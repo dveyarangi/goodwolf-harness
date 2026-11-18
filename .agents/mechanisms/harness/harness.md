@@ -16,7 +16,8 @@ read; the project's local file is never
 in it, which is what lets a redeploy overwrite core's content and nothing of the project's. Nor
 is a mechanism the origin declares local: its directory, the folders of its skills and its parts
 stay behind, and the blocks it installed leave what ships as the origin's local blocks do. A
-ship is refused where a declaration that ships still names a file left behind. What ships is
+ship is refused where a declaration that ships still names a file left behind, or a rules file
+that ships installs into one. What ships is
 transformed before a byte is written: the origin's local blocks removed, every straw-dog wrapper
 and every `TODO`'s question binding sheared with the content kept, the announce line stamped, and
 the whole held to the leak rule the origin's check applies.
@@ -87,7 +88,9 @@ the tree and never shipped. A block no rules file owns is an edit. A shipped mec
 is set aside too, on both sides, where it differs by the settings alone: the origin ships its
 blocks as its own settings rendered them, a recipient's installer renders the same rules under
 the recipient's, and whether a block is the one the settings call for is the injector's gate to
-say. A stamped source is never a citation either, which the citation
+say. A `.py` line that differs by a `TODO`'s question id alone is no edit either: the comparison
+shears the id on both sides, so a copy written by an installer older than its ref reads clean.
+A stamped source is never a citation either, which the citation
 reader settles for every reader of it, so a clone kept under a `docs/` directory does not make a
 recipient fail its own shape check.
 
@@ -96,20 +99,26 @@ hand: where the platform refuses to create a symlink, the run finishes everythin
 with the exact elevated command. Nothing is substituted for a link; a junction, a directory or a
 file in a link's place is refused by name, and a link that already resolves is left alone. A link
 that stands is removed only once its replacement exists, and one written to the skills directory
-is kept even by a process that cannot see through it. The links are made in each clone and never
-committed, so a fresh clone of a recipient gets them from `--links`, the link step run alone from
-the clone's own copy with no source; whatever plans a link names it in the clone's exclude file,
-which Git locates. The same step records the interpreter that ran it in the clone's Git directory,
-which no commit carries: every core hook runs through a wrapper that reads it, so a hook needs no
-`uv` and no `python` on the path, and a clone without the record is told which step makes it *(the
+is kept even by a process that cannot see through it. The links are made in each work tree and
+never committed, so a fresh clone of a recipient gets them from `--links`, the link step run
+alone from the clone's own copy with no source; whatever plans a link names it in the clone's
+exclude file, which Git locates. The same step records the interpreter that ran it in the
+clone's common Git directory, which its worktrees share and no commit carries: every core hook
+runs through a wrapper that reads it, so a hook needs no `uv` and no `python` on the path, and
+a clone without the record is told which step makes it *(the
 user, 2026-10-09)*. <straw-dog question="q-t3p7na">The same step writes the clone's
 `pre-push`, which checks a push in a copy of what it sends and refuses it on any finding in that
 copy, a push of code starting no interpreter: only inside the project — its Git
 directory, or a hooks folder of its own work tree — and only where none or core's stands; beside
 another's hook, in husky's folder or in one outside the project it writes nothing, and the report
-gives the line and its place *(the user, 2026-10-26 and 2026-10-29)*.</straw-dog> A run that fails after it began writing stops, reports what it wrote, what was
-pending and the path that failed, and rolls nothing back: the person recovers from the files as
-they stand.
+gives the line and its place *(the user, 2026-10-26 and 2026-10-29)*.</straw-dog> A worktree of a
+clone shares what the step wrote for the clone and lacks the links: where its host's link is
+missing at a session's start, the wrapper runs `--links --line`, which makes the links and their
+exclude entries alone and never fails the hook; its one line joins the installer's in the wake —
+the command where the platform refused, or that the skills load from the worktree's next session,
+a host reading them before its start hook runs. A run that fails after it began writing stops,
+reports what it wrote, what was pending and the path that failed, and rolls nothing back: the
+person recovers from the files as they stand.
 
 **The gate is the check, and it takes seconds.** Arrival and any later day's question are one
 function: the copy against the ref, the injector's check clean with the local block last, the
@@ -136,6 +145,7 @@ its own.
 | updating a tree that has a copy | `.agents/scripts/gw/harness.py` | |
 | checking a copy against the ref it announces | `.agents/scripts/gw/harness.py` | |
 | making a loader link, or handing the person the command | `.agents/scripts/gw/harness.py` | |
+| making a worktree's loader links at its session's start, where its host's link is missing, and giving the wake its one line | `.agents/scripts/gw/harness.py` | |
 | reading a refusal and resuming | `.agents/skills/harness/SKILL.md` | |
 | offering to read a tree that has a method, and stopping for the person | `.agents/skills/harness/SKILL.md` | |
 | studying a tree that has a method and writing the report | `.agents/skills/harness/MEETING.md` | |
@@ -213,8 +223,10 @@ would otherwise fail the shape check for the same absence the report already nam
   what the push sends; made by the link step, never where husky keeps its
   hooks nor outside the project, where the report gives the line and its place.
 </straw-dog>
-- **The interpreter record**, in the clone's Git directory — *what exists* — read by the hooks'
-  wrapper before every hook; made by the link step, so `--links` is the one step a fresh clone runs.
+- **The interpreter record**, in the clone's common Git directory — *what exists* — shared by the
+  clone's worktrees and read by the hooks' wrapper before every hook; made by the link step, so
+  `--links` is the one step a fresh clone runs, and a worktree of the clone runs none: its links
+  are made, or their command given, at its session's start.
 - **The pending command** — *what exists* — read by a person, once, in an elevated prompt.
 <straw-dog question="q-n3pc22">
 - **The report**, in a tree that has a method — *what happened*, what the harness would change

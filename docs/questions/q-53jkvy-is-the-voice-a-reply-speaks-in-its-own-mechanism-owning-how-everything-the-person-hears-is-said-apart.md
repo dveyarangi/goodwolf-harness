@@ -34,8 +34,8 @@ group row as any rules file does.
 **What changes when it lands.** L9 is shrunk to the name and its two clauses that are not the voice;
 the fourteen places wrapped as straw dogs bound here are rewritten: the voice phrases in `/harness`,
 `/maintain`, `/recall`, `/mechanism`, the align's opening and the entry file go; *A capable reader*
-keeps to instructions and records; `/harness`'s `MEETING.md` loses the Lem passage that stands in
-core.
+keeps to instructions and records, as *Two readers* has it since v138; `/harness`'s `MEETING.md`
+loses the Lem passage that stands in core.
 
 **Open here.** Where *A reply speaks the method* — what a reply outside a skill's moment tells —
 goes, left where it stands.
@@ -101,6 +101,8 @@ goes, left where it stands.
 10. The voice's rule is a default of core, not only this tree's answer; how a default is installed
     and yields to a project's own is a question of its own under q-veooj7; whether Lem stays the
     default is the person's, once they have talked with the new voice *(the user, 2026-10-25)*.
+    *(Overturned 2026-11-17 as to the default of core: the voice stays in the local rules and core
+    holds none — the section of that date, below.)*
 
 ## The case, 2026-10-24
 

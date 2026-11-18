@@ -29,6 +29,10 @@ The user, the same day, of that wording: "one that asks and one that answers - �
 специфично. как насчет one that reads and one that writes, or one that produces and one that
 consumes? - это тоже случаи того-же." The principle is wider than an exchange of messages: it
 holds wherever one party produces what another relies on, which is the method's own word for a
-seam. Reworded and put again, not landed: *A rule closes its loop. Where a rule has one party
+seam. Reworded and put again: *A rule closes its loop. Where a rule has one party
 produce what another relies on — a record and its reader, a hand-off and its taker, a question
 and its answer — it says what each does, or names the rule that tells the other.*
+
+Landed in that wording the same day, on the person's word: a principle among the entry file's
+general rules, the entry contract at v136 (76991b77), a straw dog bound to this question
+*(recorded 2026-11-18)*.
