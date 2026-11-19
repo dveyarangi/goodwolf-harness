@@ -117,6 +117,9 @@ rules moved second, the removal and the format's exit last — each stage leavin
    conversation id, which outlives the process ids it starts. Not: a host process, which the
    desktop app renames on every reopen; a person's stint across chats, which nothing holds.
    → [the method's glossary](../../.agents/glossary.md#language), *Session*.
+   Narrowed by the user, 2026-11-18: a session that holds a role does not end at a `/conclude`;
+   the person, or the harness carrying out a re-cut, ends it —
+   [q-g6lj7m](q-g6lj7m-who-ends-the-session-of-a-role-if-not-its-conclude.md).
 2. **`/recall` and `/conclude` are the session mechanism's** *(the user, 2026-10-22)*: the two
    ends of every session, whatever method runs between them; each acts on a record the session
    leaves — the wake registers the row, the conclude ends it and writes the session record. A
@@ -136,6 +139,8 @@ rules moved second, the removal and the format's exit last — each stage leavin
    row's form and lifetime are the session mechanism's to declare, and leave
    `QUESTION-FORMAT.md` with the mechanism's inception.
    → [the conclude skill](../../.agents/skills/conclude/SKILL.md), where both records are declared.
+   Narrowed by the user, 2026-11-18: the row of a session that holds a role is not ended by a
+   `/conclude` — [q-g6lj7m](q-g6lj7m-who-ends-the-session-of-a-role-if-not-its-conclude.md).
 5. **The session code moves into a script of its own** *(the user, 2026-10-22)*: the folder, the
    row, registering, seen, silence, end, resume under the host's steadiest id and the seven-day
    removal leave the question script for the session mechanism's script, which the hook calls at

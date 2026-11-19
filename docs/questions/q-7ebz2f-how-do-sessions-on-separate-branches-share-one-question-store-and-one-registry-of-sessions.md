@@ -278,8 +278,9 @@ machine.
 A tree has one server, raised by the first call that finds none and found across machines by an
 address the person sets (9). It holds the truth: every change of a question, every id, the
 sessions' rows, the window and the web page go through it (1.2, 5, 10). The questions are files on
-a branch of their own, checked out once in the clone's common Git directory and seen, read-only, in
-every code worktree at `docs/q/` through a link; the server commits them before it answers and
+a branch of their own, checked out once in the clone's common Git directory and seen in every
+code worktree at `docs/q/` through a link, read-only — writable until .0070, a hand change
+committed by the next write as by an unknown hand (3); the server commits them before it answers and
 pushes after, and no code branch carries one (2, 3, 12). Another machine holds a copy its sessions'
 hook keeps fresh (4); one machine is built first, the other machines' part only as a seam (16). An id is six random characters of base32, given by whoever writes; the tree shows where each
 question stands (6). Where the server cannot be reached, a temporary server on that machine
