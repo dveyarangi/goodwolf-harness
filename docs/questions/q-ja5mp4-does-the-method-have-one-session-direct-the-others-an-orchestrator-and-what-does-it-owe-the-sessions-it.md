@@ -172,7 +172,10 @@ a tree with one session writes nothing. A standing session writes the name the t
 its row. No silence ends such a row and no pass removes it, so every rule treats a role's
 sleeping session as any running one. The row ends at its own conclude, or when its name passes
 to another chat, which takes its position and what it held; a name seen in the last three hours
-does not pass. Otherwise only the cut reassigns or closes it.
+does not pass. *(Overturned 2026-11-18 as to "at its own conclude": a role's session is not
+concluded —
+[q-g6lj7m](q-g6lj7m-who-ends-the-session-of-a-role-if-not-its-conclude.md), decision 1.)*
+Otherwise only the cut reassigns or closes it.
 
 **Crossing a boundary.** A session that edits a file in another role's path is told at the edit
 whose path it is, and the edit is recorded where that role's session sees it; it is never
@@ -280,9 +283,9 @@ went back through `/plan` under this whole and the ticket was split, 2026-11-18;
 [01-0090.0010 each-role-of-this-tree-stands-in-a-mechanism-of-its-own](../tickets/01-0090.0010-each-role-of-this-tree-stands-in-a-mechanism-of-its-own.md),
 is planned next, each step written in
 [the journal](../research/standing-sessions-journal.md) with what a fresh tree would need to do
-the same. The keeper plans the slices and keeps the unit, asking the session that holds the store
-for what lands in the session mechanism, which that session writes and puts to the person. Then
-`/pack` is run on this tree.
+the same. The keeper plans the slices and holds each as it plans it, asking the session that
+holds the store for what lands in the session mechanism, which that session writes and puts to
+the person. Then `/pack` is run on this tree.
 
 ## Impact of the split — 2026-11-15
 

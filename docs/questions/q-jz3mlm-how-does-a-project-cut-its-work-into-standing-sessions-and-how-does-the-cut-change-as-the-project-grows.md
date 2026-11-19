@@ -91,7 +91,10 @@ roles a project composes for itself, with how it composes them.
    asleep or awake. How such a row ends and passes stays as decided at
    [q-q5i2um](q-q5i2um-how-does-the-row-of-a-session-that-holds-a-role-outlive-its-sleep-and-when-does-it-end.md)
    — at its own conclude, or its name taken by another chat; otherwise only the cut reassigns or
-   closes it.
+   closes it. *(Overturned 2026-11-18 as to "at its own conclude": a role's session is not
+   concluded; the person, or the harness at a re-cut, ends it —
+   [q-g6lj7m](q-g6lj7m-who-ends-the-session-of-a-role-if-not-its-conclude.md),
+   decisions 1 and 2.)*
 
 ## The case from fimonitor: three sessions in one zone — 2026-11-16
 

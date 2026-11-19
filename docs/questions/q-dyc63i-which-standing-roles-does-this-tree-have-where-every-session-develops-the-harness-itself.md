@@ -42,6 +42,11 @@ tree answers for the product: its running and recent sessions are the keeper, th
 store and the sessions' rows, two started for one task each, and the scheduled sweeps. No record
 holds the roles yet — decision 1 above names them, and the roles' record is planned under
 [01-0090 standing-sessions-each-answer-for-an-area](../tickets/01-0090-standing-sessions-each-answer-for-an-area.md).
+*(Overturned as to "the roles' record": since the whole accepted 2026-11-17 there is no record of
+roles — each role has a mechanism of its own
+([q-ja5mp4](q-ja5mp4-does-the-method-have-one-session-direct-the-others-an-orchestrator-and-what-does-it-owe-the-sessions-it.md),
+"What carries a role"), planned under
+[01-0090.0010 each-role-of-this-tree-stands-in-a-mechanism-of-its-own](../tickets/01-0090.0010-each-role-of-this-tree-stands-in-a-mechanism-of-its-own.md).)*
 Put to the person: a session of its own for the product, and the roles written meanwhile as a
 local rule wrapped as a straw dog.
 
