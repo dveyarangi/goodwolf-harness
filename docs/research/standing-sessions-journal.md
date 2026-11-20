@@ -402,3 +402,18 @@ five are written; a plan that reads an accepted text is read back against it by 
 not write the plan; what the accepted text leaves open goes to the person, never into the plan
 as a reading.
 </straw-dog>
+
+## 25. The person: the cut is derived by `/pack`, never written by hand — 2026-11-20
+
+The keeper put the first cut to the person alone, in plain words: five roles on four sessions.
+The person accepted the cut and refused the way it was to be written — by the keeper's hand,
+into five mechanisms and a table, with `/pack` built afterwards to read them. Their word: the
+cut is derived from `/pack`'s own rules, and `/pack` answers for where it is written, how, who
+reads it and at which moment. The plan of the first slice was marked overturned in part, and
+the slices' new order — `/pack` first, this tree's cut as its first run — went to the person.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: the skill that derives a cut before any cut is written; the skill says where
+the cut stands, its form, its reader and the moment it is read; a cut a person agreed in talk is
+what the skill's first run is checked against, never a text to copy in.
+</straw-dog>
