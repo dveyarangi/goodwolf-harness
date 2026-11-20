@@ -2018,9 +2018,22 @@ the person's to decide.
 
 - Claude desktop app · claude-fable-5-2 · 2026-11-18T07:01Z — chat `1981de0e-7693-4931-aeab-4881f9fa0065`, the keeper's; the model is the one the session reported itself running on, not an attested backend version.
 
+**Struck, 2026-11-20 — two decisions put together, five carried in every reply.** The keeper,
+the same session, put the two decisions that were the person's in one reply, in plain words, and
+then carried five waiting rows under every reply for two days with no answer. The person:
+"поясняй решения по одному". **Rules in play, loaded:** *Two readers*; L9; *A paragraph shows
+what it stands on*, whose table of waiting decisions is carried in every reply. **Why it did not
+fire**, the session's reading, no model-internal cause established: nothing says a decision is
+put alone, and the table a rule asks for reads to the person as five things asked at once.
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-fable-5-2 · 2026-11-20T18:08Z — chat `1981de0e-7693-4931-aeab-4881f9fa0065`, the keeper's; the model is the one the session reported itself running on, not an attested backend version.
+
 **Proposed amendment**, not yet drafted: a wording for what is put to the person to decide —
-only what is theirs, each told as what it changes for them. It is drafted and shown once the
-decisions in hand are answered, never beside them: the failure is of too much put at once.
+only what is theirs, each told as what it changes for them, one at a time *(the user,
+2026-11-20: "поясняй решения по одному")*. It is drafted and shown once the decisions in hand are
+answered, never beside them: the failure is of too much put at once.
 
 ## 47. A decision not to act was landed as three rules — 2026-10-14
 

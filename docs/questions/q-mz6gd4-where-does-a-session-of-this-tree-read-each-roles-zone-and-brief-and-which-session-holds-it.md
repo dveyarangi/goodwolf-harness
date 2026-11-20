@@ -6,4 +6,4 @@
 - **owner** [01-0090.0010](../tickets/01-0090.0010-each-role-of-this-tree-stands-in-a-mechanism-of-its-own.md)
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-11-18T06:07:26Z
-- **struck** 0, last 2026-11-18T06:07Z
+- **struck** 1, last 2026-11-20T18:08Z
