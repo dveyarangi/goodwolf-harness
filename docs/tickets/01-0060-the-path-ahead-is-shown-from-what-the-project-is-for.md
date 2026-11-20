@@ -1,9 +1,10 @@
 # The path ahead is shown from what the project is for
 
 - **record of** what it intends to become
-- **Status:** Planned (the end-state of q-huss2x's accepted `Where it stands`; its first slice, 01-0060.0010, done 2026-10-25)
+- **Status:** Partial (2026-11-20: the end-state of q-huss2x's accepted `Where it stands`; its first slice done 2026-10-25)
 - **Type:** HITL
 - **Minted:** 2026-10-23
+- **Related:** [01-0060.0010-what-the-path-shows-at-every-recall](./done/01-0060.0010-what-the-path-shows-at-every-recall.md) (its first slice)
 - **Answers:** [q-huss2x](../questions/q-huss2x-how-is-the-path-ahead-found-and-shown-the-guesses-held-as-questions-each-weighed-against-the-three.md)
 - **Outcome:** The person sees, at every session's start and whenever they ask, which questions are in work against the cap, which the cap held back, which candidates stand at the next boundary and why, and how the three roots balance; what enters work is their word at a boundary, never the last idea said.
 

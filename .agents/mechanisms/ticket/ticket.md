@@ -133,7 +133,7 @@ index of it.
 
 ## Not yet at the shape
 
-**One `not yet` row**, bound to an open question: the installer.
+**One `not yet` row**, bound to an open question: removing this mechanism from a tree.
 
 **The maintainer reads names in `done/` and nothing else there.** A half-closed pair is caught by
 name; an archived record written under an older shelf is never reported, and that is the

@@ -158,7 +158,6 @@ Criteria state observable behavior; code shape is the RFC's
 
 ### 6. Completing a ticket
 
-A ticket is finished and closed per the shelf's [The record](./TICKET-FORMAT.md#the-record);
-`/maintain` carries the duty. Do NOT close or modify the parent; a parent
-ticket completes on its own acceptance criteria, not by its children emptying
-out.
+A ticket is finished and closed per the shelf's [The record](./TICKET-FORMAT.md#the-record).
+Do NOT close or modify the parent; a parent ticket completes on its own
+acceptance criteria, not by its children emptying out.

@@ -1,7 +1,7 @@
 # Ticket format
 
 This shelf owns ticket naming, delivery-state vocabulary and the shape of a
-ticket as a record. What an RFC *contains* is `/plan`'s.
+ticket as a record.
 
 ## Numbering
 
@@ -39,7 +39,6 @@ uv run --offline --no-project python .agents/scripts/gw/move_doc.py \
 
 The mover repairs citations and touches nothing else — no checkbox, no
 status, no date, no Git index. Eligibility and the ticket header are yours.
-[/maintain](../maintain/SKILL.md) owns the surrounding pass.
 
 Artifacts predating this keep their names.
 
