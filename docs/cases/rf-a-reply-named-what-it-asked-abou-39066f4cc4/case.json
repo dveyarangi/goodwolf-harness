@@ -147,7 +147,7 @@
       "referenced_artifacts": [
         {
           "referenced_by": "source.json#/records/225",
-          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\fcfe212c-0649-4af0-84f3-770d86c3b360\\tool-results\\hook-933ea2fc-6cea-467f-bde8-f2f8f0cd24f0-1-additionalContext.txt",
+          "recorded_path": "C:\\Users\\owner\\.claude\\projects\\D--Dev-AI-agents\\fcfe212c-0649-4af0-84f3-770d86c3b360\\tool-results\\hook-933ea2fc-6cea-467f-bde8-f2f8f0cd24f0-1-additionalContext.txt",
           "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
           "necessity_for_case_checks": "not established by this recovery",
           "status": "unavailable",

@@ -41,7 +41,7 @@ for root in ROOTS:
         if p.name == 'SKILL.md': entrypoints.append(str(p))
         if p.name in {'AGENTS.md','AGENTS.override.md','CLAUDE.md','.cursorrules'} or p.suffix == '.mdc': instructions.append(str(p))
 for framework in ['.agents','.claude','.codex','.cursor']:
-    p=Path('C:/Users/fimar')/framework/'skills'
+    p=Path('C:/Users/owner')/framework/'skills'
     if p.exists():
         for f in walk(p):
             if f.name=='SKILL.md': entrypoints.append(str(f))

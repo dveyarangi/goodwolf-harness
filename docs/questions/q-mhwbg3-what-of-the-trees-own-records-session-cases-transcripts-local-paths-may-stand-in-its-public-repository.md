@@ -14,3 +14,16 @@ so removing them is not free. The ways: keep them as they are; scrub the paths a
 cases; move the cases out of the public tree, now and in history; or close this tree and publish
 core from a repository of its own, as
 [q-m3pldh](q-m3pldh-how-is-core-published-as-releases-to-a-repository-of-its-own.md) asks.
+
+## Decisions
+
+1. The local paths are scrubbed and the cases kept *(the user, 2026-11-20: «Вычистить пути»)*.
+   The local user name is replaced by `owner`, the same length, in every tracked file: 329 files,
+   3982 places. The history still holds the earlier bytes; it is not rewritten. A run report's
+   `case_sha256` names the case as it was run, before the scrub.
+
+## Where it stands
+
+Still open: the person's email address stands in 64 tracked files, most of them the API inputs of
+`docs/cases`, carried there from the host's context; and nothing keeps a new case from bringing
+the path back.

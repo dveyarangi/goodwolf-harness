@@ -127,7 +127,7 @@
       "referenced_artifacts": [
         {
           "referenced_by": "source.json#/records/600",
-          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\8fe482b8-0353-46eb-897d-0e8bc43c3262\\tool-results\\hook-589ec4df-c925-4856-b233-eb558900689b-1-additionalContext.txt",
+          "recorded_path": "C:\\Users\\owner\\.claude\\projects\\D--Dev-AI-agents\\8fe482b8-0353-46eb-897d-0e8bc43c3262\\tool-results\\hook-589ec4df-c925-4856-b233-eb558900689b-1-additionalContext.txt",
           "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
           "necessity_for_case_checks": "not established by this recovery",
           "status": "retained",
@@ -141,7 +141,7 @@
         },
         {
           "referenced_by": "source.json#/records/657",
-          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\8fe482b8-0353-46eb-897d-0e8bc43c3262\\tool-results\\hook-f09739a6-00a9-43f6-ba57-47adbe123846-1-additionalContext.txt",
+          "recorded_path": "C:\\Users\\owner\\.claude\\projects\\D--Dev-AI-agents\\8fe482b8-0353-46eb-897d-0e8bc43c3262\\tool-results\\hook-f09739a6-00a9-43f6-ba57-47adbe123846-1-additionalContext.txt",
           "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
           "necessity_for_case_checks": "not established by this recovery",
           "status": "retained",

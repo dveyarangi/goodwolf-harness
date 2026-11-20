@@ -6,7 +6,7 @@
   "score_as_committed": {
     "exit": 1,
     "stdout": "",
-    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-research-probe-u_v0ra51\\docs\\research\\window-test\\score.py\", line 50, in <module>\n    elif t['rendering'] == 'window' and t['task'] == 'place_far' and g == root_of(t['size'], truth):\n                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-research-probe-u_v0ra51\\docs\\research\\window-test\\score.py\", line 17, in root_of\n    s = store(size)\n        ^^^^^^^^^^^\n  File \"C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-research-probe-u_v0ra51\\docs\\research\\window-test\\score.py\", line 11, in store\n    nodes = json.load(open(os.path.join(OUT, f'store{size}', 'store.json'), encoding='utf-8'))\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-research-probe-u_v0ra51\\\\docs\\\\research\\\\window-test\\\\store100\\\\store.json'\n"
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\owner\\AppData\\Local\\Temp\\goodwolf-research-probe-u_v0ra51\\docs\\research\\window-test\\score.py\", line 50, in <module>\n    elif t['rendering'] == 'window' and t['task'] == 'place_far' and g == root_of(t['size'], truth):\n                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\owner\\AppData\\Local\\Temp\\goodwolf-research-probe-u_v0ra51\\docs\\research\\window-test\\score.py\", line 17, in root_of\n    s = store(size)\n        ^^^^^^^^^^^\n  File \"C:\\Users\\owner\\AppData\\Local\\Temp\\goodwolf-research-probe-u_v0ra51\\docs\\research\\window-test\\score.py\", line 11, in store\n    nodes = json.load(open(os.path.join(OUT, f'store{size}', 'store.json'), encoding='utf-8'))\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\owner\\\\AppData\\\\Local\\\\Temp\\\\goodwolf-research-probe-u_v0ra51\\\\docs\\\\research\\\\window-test\\\\store100\\\\store.json'\n"
   },
   "generate": {
     "exit": 0,
@@ -19,6 +19,6 @@
   "score_after_generate": {
     "exit": 1,
     "stdout": "",
-    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\fimar\\AppData\\Local\\Temp\\goodwolf-research-probe-u_v0ra51\\docs\\research\\window-test\\score.py\", line 39, in <module>\n    got = parse(os.path.join(OUT, 'answers', t['tag'] + '.txt'))\n                                             ~^^^^^^^\nKeyError: 'tag'\n"
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\owner\\AppData\\Local\\Temp\\goodwolf-research-probe-u_v0ra51\\docs\\research\\window-test\\score.py\", line 39, in <module>\n    got = parse(os.path.join(OUT, 'answers', t['tag'] + '.txt'))\n                                             ~^^^^^^^\nKeyError: 'tag'\n"
   }
 }

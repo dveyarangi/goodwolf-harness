@@ -35,7 +35,7 @@
         "message_id": "msg_011Cg1BihoKVxNPNHoRLGNG1",
         "record_id": "4f473d1b-9d1e-4cb0-a32c-5468ebc6ab91",
         "timestamp": "2026-10-14T00:30:40.693Z",
-        "text": "PowerShell {\"command\": \"$d=\\\"C:\\\\Users\\\\fimar\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--Dev-AI-meteoscape\\\\f1331566-82d9-4b31-928c-efdd5522ecfa\\\\scratchpad\\\\gw\\\"; Remove-Item -Recurse -Force $d; git clone -q -c core.longpaths=true https://github.com/dveyarangi/goodwolf-harness.git $d; git -C $d status -sb | Select-Object -First 1; git -C $d log --oneline -1\", \"description\": \"Re-clone harness from remote with long paths\"}"
+        "text": "PowerShell {\"command\": \"$d=\\\"C:\\\\Users\\\\owner\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--Dev-AI-meteoscape\\\\f1331566-82d9-4b31-928c-efdd5522ecfa\\\\scratchpad\\\\gw\\\"; Remove-Item -Recurse -Force $d; git clone -q -c core.longpaths=true https://github.com/dveyarangi/goodwolf-harness.git $d; git -C $d status -sb | Select-Object -First 1; git -C $d log --oneline -1\", \"description\": \"Re-clone harness from remote with long paths\"}"
       },
       {
         "source": "source.json#/records/191",

@@ -266,14 +266,14 @@
     "D:\\Dev\\DriftSense\\workspace\\forecast_collector\\.agents\\skills\\tdd\\SKILL.md",
     "D:\\Dev\\DriftSense\\workspace\\forecast_collector\\.agents\\skills\\to-spec\\SKILL.md",
     "D:\\Dev\\DriftSense\\workspace\\forecast_collector\\.agents\\skills\\to-tickets\\SKILL.md",
-    "C:\\Users\\fimar\\.codex\\skills\\.system\\imagegen\\SKILL.md",
-    "C:\\Users\\fimar\\.codex\\skills\\.system\\openai-docs\\SKILL.md",
-    "C:\\Users\\fimar\\.codex\\skills\\.system\\plugin-creator\\SKILL.md",
-    "C:\\Users\\fimar\\.codex\\skills\\.system\\review-agent\\SKILL.md",
-    "C:\\Users\\fimar\\.codex\\skills\\.system\\skill-creator\\SKILL.md",
-    "C:\\Users\\fimar\\.codex\\skills\\.system\\skill-installer\\SKILL.md",
-    "C:\\Users\\fimar\\.cursor\\skills\\improve-codebase-architecture\\SKILL.md",
-    "C:\\Users\\fimar\\.cursor\\skills\\sentry-issue-triage\\SKILL.md"
+    "C:\\Users\\owner\\.codex\\skills\\.system\\imagegen\\SKILL.md",
+    "C:\\Users\\owner\\.codex\\skills\\.system\\openai-docs\\SKILL.md",
+    "C:\\Users\\owner\\.codex\\skills\\.system\\plugin-creator\\SKILL.md",
+    "C:\\Users\\owner\\.codex\\skills\\.system\\review-agent\\SKILL.md",
+    "C:\\Users\\owner\\.codex\\skills\\.system\\skill-creator\\SKILL.md",
+    "C:\\Users\\owner\\.codex\\skills\\.system\\skill-installer\\SKILL.md",
+    "C:\\Users\\owner\\.cursor\\skills\\improve-codebase-architecture\\SKILL.md",
+    "C:\\Users\\owner\\.cursor\\skills\\sentry-issue-triage\\SKILL.md"
   ],
   "instructions": [
     "D:\\Dev\\AI\\life\\CLAUDE.md",
@@ -5383,7 +5383,7 @@
       "status": {
         "code": 0,
         "out": "?? .claude/settings.local.json",
-        "err": "warning: unable to access 'C:\\Users\\fimar/.config/git/ignore': Permission denied\nwarning: unable to access 'C:\\Users\\fimar/.config/git/ignore': Permission denied"
+        "err": "warning: unable to access 'C:\\Users\\owner/.config/git/ignore': Permission denied\nwarning: unable to access 'C:\\Users\\owner/.config/git/ignore': Permission denied"
       },
       "history": {
         "code": 0,
@@ -5410,7 +5410,7 @@
       "status": {
         "code": 0,
         "out": "",
-        "err": "warning: unable to access 'C:\\Users\\fimar/.config/git/ignore': Permission denied\nwarning: unable to access 'C:\\Users\\fimar/.config/git/ignore': Permission denied"
+        "err": "warning: unable to access 'C:\\Users\\owner/.config/git/ignore': Permission denied\nwarning: unable to access 'C:\\Users\\owner/.config/git/ignore': Permission denied"
       },
       "history": {
         "code": 0,
@@ -5437,7 +5437,7 @@
       "status": {
         "code": 0,
         "out": "",
-        "err": "warning: unable to access 'C:\\Users\\fimar/.config/git/ignore': Permission denied\nwarning: unable to access 'C:\\Users\\fimar/.config/git/ignore': Permission denied"
+        "err": "warning: unable to access 'C:\\Users\\owner/.config/git/ignore': Permission denied\nwarning: unable to access 'C:\\Users\\owner/.config/git/ignore': Permission denied"
       },
       "history": {
         "code": 0,
@@ -5464,7 +5464,7 @@
       "status": {
         "code": 0,
         "out": "?? .claude/settings.local.json",
-        "err": "warning: unable to access 'C:\\Users\\fimar/.config/git/ignore': Permission denied\nwarning: unable to access 'C:\\Users\\fimar/.config/git/ignore': Permission denied"
+        "err": "warning: unable to access 'C:\\Users\\owner/.config/git/ignore': Permission denied\nwarning: unable to access 'C:\\Users\\owner/.config/git/ignore': Permission denied"
       },
       "history": {
         "code": 0,

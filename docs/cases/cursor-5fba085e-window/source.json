@@ -632,12 +632,12 @@
         "message_id": "a7b49638-8ec0-4323-ba38-f717d70cbf9d",
         "name": "read_file_v2",
         "params": {
-          "targetFile": "C:\\Users\\fimar\\.cursor\\projects\\d-Dev-AI-agents\\terminals\\370277.txt",
+          "targetFile": "C:\\Users\\owner\\.cursor\\projects\\d-Dev-AI-agents\\terminals\\370277.txt",
           "limit": 20,
-          "effectiveUri": "C:\\Users\\fimar\\.cursor\\projects\\d-Dev-AI-agents\\terminals\\370277.txt"
+          "effectiveUri": "C:\\Users\\owner\\.cursor\\projects\\d-Dev-AI-agents\\terminals\\370277.txt"
         },
         "rawArgs": {
-          "path": "C:\\Users\\fimar\\.cursor\\projects\\d-Dev-AI-agents\\terminals\\370277.txt",
+          "path": "C:\\Users\\owner\\.cursor\\projects\\d-Dev-AI-agents\\terminals\\370277.txt",
           "limit": 20
         }
       },

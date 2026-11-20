@@ -35,14 +35,14 @@
         "message_id": "msg_011CfpJkLhebLL472fsMKxfK",
         "record_id": "fc4426aa-4378-4152-b9fb-5f8292705607",
         "timestamp": "2026-10-08T06:36:14.121Z",
-        "text": "Write {\"file_path\": \"C:\\\\Users\\\\fimar\\\\.claude\\\\projects\\\\D--Dev-AI-agents\\\\memory\\\\push-asked-once-per-unit.md\", \"content\": \"---\\nname: push-asked-once-per-unit\\ndescription: under push=ask, the push is /conclude's to put to the user — never a row in a mid-session reply\\nmetadata:\\n  type: feedback\\n---\\n\\nUnder `push=ask`, the push is put to the user once, at `/conclude` — the entry file's switch and\\nthe conclude skill now say so (v38). No mid-session reply raises it.\\n\\n**Why:** the user, 2026-10-08: *why is push a decision at every step? annoying*; then *instead of\\nfiltering it out of the table, make it conclude's responsibility.*\\n\\n**How to apply:** let commits accumulate; the conclude settles them after its ended row.\\n\"}"
+        "text": "Write {\"file_path\": \"C:\\\\Users\\\\owner\\\\.claude\\\\projects\\\\D--Dev-AI-agents\\\\memory\\\\push-asked-once-per-unit.md\", \"content\": \"---\\nname: push-asked-once-per-unit\\ndescription: under push=ask, the push is /conclude's to put to the user — never a row in a mid-session reply\\nmetadata:\\n  type: feedback\\n---\\n\\nUnder `push=ask`, the push is put to the user once, at `/conclude` — the entry file's switch and\\nthe conclude skill now say so (v38). No mid-session reply raises it.\\n\\n**Why:** the user, 2026-10-08: *why is push a decision at every step? annoying*; then *instead of\\nfiltering it out of the table, make it conclude's responsibility.*\\n\\n**How to apply:** let commits accumulate; the conclude settles them after its ended row.\\n\"}"
       },
       {
         "source": "source.json#/records/588",
         "message_id": "msg_011CfpJkLhebLL472fsMKxfK",
         "record_id": "7372a5f2-b981-42d9-b199-9d52ff149e52",
         "timestamp": "2026-10-08T06:36:15.263Z",
-        "text": "Edit {\"replace_all\": false, \"file_path\": \"C:\\\\Users\\\\fimar\\\\.claude\\\\projects\\\\D--Dev-AI-agents\\\\memory\\\\MEMORY.md\", \"old_string\": \"— under push=ask, ask at a unit's end or /conclude, not every reply.\", \"new_string\": \"— under push=ask, the push is /conclude's; no mid-session reply raises it.\"}"
+        "text": "Edit {\"replace_all\": false, \"file_path\": \"C:\\\\Users\\\\owner\\\\.claude\\\\projects\\\\D--Dev-AI-agents\\\\memory\\\\MEMORY.md\", \"old_string\": \"— under push=ask, ask at a unit's end or /conclude, not every reply.\", \"new_string\": \"— under push=ask, the push is /conclude's; no mid-session reply raises it.\"}"
       }
     ]
   },

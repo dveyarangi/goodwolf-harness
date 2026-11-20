@@ -15,7 +15,7 @@ The user asked on 2026-10-26 for a retrospective across all of this project's se
 
 A local census covered 300 available top-level transcript files, including the former project folder, and extracted 3,099 user-channel records after exact replay filtering: Claude Code 2,948, Codex 92, Cursor 59. These are not counts of distinct conversations or of human interventions. The review also indexed 79 dated session notes and a register snapshot with 89 classes and 32 explicitly headed strike annotations. Transcript cutoff: 2026-10-26 10:26 UTC; the notes and register were read later as retrospective corroboration. The full corpus was machine screened; selected longitudinal evidence chains were read closely, with successful cases, unflagged messages, and an independent reader. It is not a turn-by-turn adjudication.
 
-[Local report and source inventory](C:/Users/fimar/.codex/visualizations/2026/10/26/01a177be-2c73-7b32-bbeb-c25673eeb5e9/session-values-review.html). The report demonstrates local improvements and persistent failures, while finding no supported aggregate trend for the three whole outcomes. Its sources, limits, and independent evidence review stand beside it. Raw conversation extracts remain local.
+[Local report and source inventory](C:/Users/owner/.codex/visualizations/2026/10/26/01a177be-2c73-7b32-bbeb-c25673eeb5e9/session-values-review.html). The report demonstrates local improvements and persistent failures, while finding no supported aggregate trend for the three whole outcomes. Its sources, limits, and independent evidence review stand beside it. Raw conversation extracts remain local.
 
 ### Separate methodological reading — 2026-10-26
 

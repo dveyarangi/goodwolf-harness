@@ -1345,7 +1345,7 @@
       "referenced_artifacts": [
         {
           "referenced_by": "source.json#/records/3456",
-          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\14869207-0ee1-4aeb-be4b-18255bc719b7\\tool-results\\hook-b71b2077-406d-44c0-9f8f-73fb600406dc-1-additionalContext.txt",
+          "recorded_path": "C:\\Users\\owner\\.claude\\projects\\D--Dev-AI-agents\\14869207-0ee1-4aeb-be4b-18255bc719b7\\tool-results\\hook-b71b2077-406d-44c0-9f8f-73fb600406dc-1-additionalContext.txt",
           "actor_input": "The native attachment remains source evidence; api-input.json defines the recorded actor request. The full artifact is not substituted into actor messages.",
           "necessity_for_case_checks": "not established by this recovery",
           "status": "retained",
@@ -1359,7 +1359,7 @@
         },
         {
           "referenced_by": "source.json#/records/3504",
-          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\14869207-0ee1-4aeb-be4b-18255bc719b7\\tool-results\\hook-63b5d5a6-7cce-4f67-9a4a-6ac7045823be-1-additionalContext.txt",
+          "recorded_path": "C:\\Users\\owner\\.claude\\projects\\D--Dev-AI-agents\\14869207-0ee1-4aeb-be4b-18255bc719b7\\tool-results\\hook-63b5d5a6-7cce-4f67-9a4a-6ac7045823be-1-additionalContext.txt",
           "actor_input": "The native attachment remains source evidence; api-input.json defines the recorded actor request. The full artifact is not substituted into actor messages.",
           "necessity_for_case_checks": "not established by this recovery",
           "status": "retained",

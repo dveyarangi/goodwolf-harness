@@ -22,8 +22,17 @@ and its claims can be re-checked against a later tree *(the user, 2026-11-20)*.
 | An update runs the installer of the fetched commit, unsigned | holds — the commit is resolved and named, nothing verifies it |
 | The person's local home path stands in 328 public files | holds, smaller — 77 tracked files, 74 of them in `docs/cases` (93 MB) |
 
-Not checked: the rule contradictions it names, the glossary's missing terms, the hook's cost per
-message, the ceremony estimate, the commit statistics.
+Checked by the Хранитель session at `4314d5bf`, read-only, through a subagent:
+
+| Claim | Found |
+|---|---|
+| «A push never follows a commit» against L2's «push each commit» | does not hold — the commit skill says a push is never *implied* and defers to the project's local file; L2 is this tree's answer |
+| /verify → /maintain in the loop against «a landed slice is verified, not maintained» | holds in part — no contradiction, but only the maintain skill's body says the ring's step closes the verified unit's records; the entry file is silent |
+| R8 broken by /ticket, /plan, /verify | holds in part — /plan and /verify break it, /ticket does not; align, debugging, mechanism and review-architecture do too; eleven cross-mechanism namings, no script checks it |
+| window, wake, ring, shelf, contains, resembles missing from the glossary | holds — defined in neither glossary |
+| AGENTS.md grown 7.5 → 26.7 KB | holds — 7,474 B on 2026-09-14, 26,709 B now; 44% installed blocks, the hand-authored text doubled |
+
+Not checked: the hook's cost per message, the ceremony estimate, the commit statistics.
 
 ## Where each finding went
 
@@ -31,7 +40,9 @@ message, the ceremony estimate, the commit statistics.
 |---|---|
 | Non-atomic entry write; the re-read-to-write window | the Хранилище session |
 | README's Python version | the Продукт session, with the README's ticket |
-| Rule contradictions, R8 broken by skills, the entry file's growth | the Хранитель session |
+| The loop line silent on maintain after verify; window, wake, ring, shelf undefined; the entry file's growth | the Хранитель session |
+| R8 broken by skills | [q-43dten](../questions/q-43dten-how-does-the-shape-check-hold-a-skill-to-naming-no-skill-of-another-installed-mechanism.md) |
+| «contains» and «resembles» undefined | the Хранилище session, as Q1's test |
 | Local paths and raw session dumps in the public repository | [q-mhwbg3](../questions/q-mhwbg3-what-of-the-trees-own-records-session-cases-transcripts-local-paths-may-stand-in-its-public-repository.md), the person's decision |
 
 ## The audit, as given

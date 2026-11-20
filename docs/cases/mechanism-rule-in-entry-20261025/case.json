@@ -117,7 +117,7 @@
       "referenced_artifacts": [
         {
           "referenced_by": "source.json#/records/343",
-          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\e8a614d1-326c-401c-b9bd-a1840afd2559\\tool-results\\hook-b02a07b2-4a94-4465-86c9-e2a1d3ac61d4-1-additionalContext.txt",
+          "recorded_path": "C:\\Users\\owner\\.claude\\projects\\D--Dev-AI-agents\\e8a614d1-326c-401c-b9bd-a1840afd2559\\tool-results\\hook-b02a07b2-4a94-4465-86c9-e2a1d3ac61d4-1-additionalContext.txt",
           "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
           "necessity_for_case_checks": "not established by this recovery",
           "status": "retained",
@@ -131,7 +131,7 @@
         },
         {
           "referenced_by": "source.json#/records/361",
-          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\e8a614d1-326c-401c-b9bd-a1840afd2559\\tool-results\\hook-8fc6b313-d865-4da9-a0c2-d21a2d71531d-1-additionalContext.txt",
+          "recorded_path": "C:\\Users\\owner\\.claude\\projects\\D--Dev-AI-agents\\e8a614d1-326c-401c-b9bd-a1840afd2559\\tool-results\\hook-8fc6b313-d865-4da9-a0c2-d21a2d71531d-1-additionalContext.txt",
           "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
           "necessity_for_case_checks": "not established by this recovery",
           "status": "retained",
@@ -145,7 +145,7 @@
         },
         {
           "referenced_by": "source.json#/records/379",
-          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\e8a614d1-326c-401c-b9bd-a1840afd2559\\tool-results\\hook-ef50761e-4601-4c08-8c37-3fcf6435037a-1-additionalContext.txt",
+          "recorded_path": "C:\\Users\\owner\\.claude\\projects\\D--Dev-AI-agents\\e8a614d1-326c-401c-b9bd-a1840afd2559\\tool-results\\hook-ef50761e-4601-4c08-8c37-3fcf6435037a-1-additionalContext.txt",
           "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
           "necessity_for_case_checks": "not established by this recovery",
           "status": "retained",

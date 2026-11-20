@@ -8,7 +8,7 @@ and candidate rules, not a verdict.
 
 ## What was read, and how
 
-Transcripts under `C:\Users\fimar\.claude\projects\` were parsed by script. A received message
+Transcripts under `C:\Users\owner\.claude\projects\` were parsed by script. A received message
 is the `<cross-session-message>` wrapper in the receiver's transcript, and a sent one is the
 `SendMessage` / `send_message` call in the sender's. Copies a resumed transcript repeats were
 removed. Each message went into a digest with the first 750 characters of its text, what its

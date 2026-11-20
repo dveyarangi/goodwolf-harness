@@ -8,7 +8,7 @@ The requested future home, **`D:\Dev\AI\agents`, does not exist**. It is distinc
 
 ## 1. Scope and evidence
 
-Recursively inventoried `D:\Dev\AI` and `D:\Dev\DriftSense\workspace`, including hidden directories, without following links into duplicate trees. Excluded Git internals, dependencies, build output, caches and this audit's own output directory; the exact exclusion list is in the inventory. No traversal errors remained within that scope. Also inspected the four user-level skill locations under `C:\Users\fimar`.
+Recursively inventoried `D:\Dev\AI` and `D:\Dev\DriftSense\workspace`, including hidden directories, without following links into duplicate trees. Excluded Git internals, dependencies, build output, caches and this audit's own output directory; the exact exclusion list is in the inventory. No traversal errors remained within that scope. Also inspected the four user-level skill locations under `C:\Users\owner`.
 
 Compared every file in eight physical corpora using SHA-256, decoded text with line endings normalized, and skill bodies with complete `<project-local>` blocks removed. Trailing whitespace was compared separately. Checked actual link targets, file identities and hardlink counts, Git tracking, relevant history, imports and hooks, skill metadata and relative prose links. No application tests or live sessions in the three frameworks were run; discovery conclusions distinguish documented behavior from inspected configuration.
 

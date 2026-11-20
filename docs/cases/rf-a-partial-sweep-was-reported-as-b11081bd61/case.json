@@ -487,7 +487,7 @@
       "referenced_artifacts": [
         {
           "referenced_by": "source.json#/records/5114",
-          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\14869207-0ee1-4aeb-be4b-18255bc719b7\\tool-results\\hook-b347b8d2-c044-47da-9f14-7ad68f1797e3-1-additionalContext.txt",
+          "recorded_path": "C:\\Users\\owner\\.claude\\projects\\D--Dev-AI-agents\\14869207-0ee1-4aeb-be4b-18255bc719b7\\tool-results\\hook-b347b8d2-c044-47da-9f14-7ad68f1797e3-1-additionalContext.txt",
           "actor_input": "The native attachment remains source evidence; api-input.json defines the recorded actor request. The full artifact is not substituted into actor messages.",
           "necessity_for_case_checks": "not established by this recovery",
           "status": "retained",

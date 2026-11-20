@@ -111,7 +111,7 @@
       "referenced_artifacts": [
         {
           "referenced_by": "source.json#/records/884",
-          "recorded_path": "C:\\Users\\fimar\\.claude\\projects\\D--Dev-AI-agents\\5ee9fe64-bbbd-43dd-8c5b-e4f61fd910ba\\tool-results\\hook-776f8a9d-ed7c-4b37-ab8d-b4e43af8a0b1-1-additionalContext.txt",
+          "recorded_path": "C:\\Users\\owner\\.claude\\projects\\D--Dev-AI-agents\\5ee9fe64-bbbd-43dd-8c5b-e4f61fd910ba\\tool-results\\hook-776f8a9d-ed7c-4b37-ab8d-b4e43af8a0b1-1-additionalContext.txt",
           "actor_input": "The recorded preview remains native context. The full artifact is not substituted into actor messages.",
           "necessity_for_case_checks": "not established by this recovery",
           "status": "retained",
