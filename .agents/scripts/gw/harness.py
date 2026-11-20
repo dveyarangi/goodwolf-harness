@@ -39,7 +39,7 @@ import tempfile  # noqa: E402
 import time  # noqa: E402
 from dataclasses import dataclass, field  # noqa: E402
 from datetime import datetime, timezone  # noqa: E402
-from pathlib import Path, PurePosixPath  # noqa: E402
+from pathlib import Path  # noqa: E402
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -672,7 +672,7 @@ def without_settings_blocks(path: str, text: str, shipped: dict[str, str]) -> st
             rows = tuple(
                 row for row, anchor in rules.anchors.items()
                 if row == path
-                or (inject_rules.is_pattern(row) and PurePosixPath(path).full_match(row) and inject_rules.holds_anchor(text, anchor))
+                or (inject_rules.is_pattern(row) and inject_rules.wholly_matches(path, row) and inject_rules.holds_anchor(text, anchor))
             )
             settable = any(rule.when for rule in rules.rules if set(rows) & set(rule.targets))
             if settable and inject_rules.differs_by_settings_alone(found.text, rules, rows):
@@ -1490,7 +1490,7 @@ def _rows_files(row: str, anchor: str, after_copy, candidates: list[str]) -> lis
         return [row]
     return [
         path for path in sorted(set(candidates))
-        if PurePosixPath(path).full_match(row)
+        if inject_rules.wholly_matches(path, row)
         and (text := after_copy(path)) is not None and inject_rules.holds_anchor(text, anchor)
     ]
 

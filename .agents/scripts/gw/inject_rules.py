@@ -36,7 +36,8 @@ import json
 import re
 import sys
 from dataclasses import dataclass, field
-from pathlib import Path, PurePosixPath
+from fnmatch import fnmatchcase
+from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -776,7 +777,7 @@ def reached(root: Path, rules: RulesFile, listed: list[str] | None = None) -> li
             continue
         listed = corpus(root) if listed is None else listed
         for name in listed:
-            if not PurePosixPath(name).full_match(row) or not _holds(root / name, anchor):
+            if not wholly_matches(name, row) or not _holds(root / name, anchor):
                 continue
             if name in named:
                 place = found[name]
@@ -791,6 +792,25 @@ def reached(root: Path, rules: RulesFile, listed: list[str] | None = None) -> li
 def is_pattern(row: str) -> bool:
     """Whether an anchor-table row names a group — a path pattern — rather than one file."""
     return bool(_PATTERN_CHARACTERS.search(row))
+
+
+def wholly_matches(path: str, pattern: str) -> bool:
+    """Whether a group's pattern matches a repo-relative path whole, a segment at a time: `*`, `?`
+    and `[…]` stay inside one segment, and `**` standing as a whole segment is any number of
+    segments. The standard library's `PurePosixPath.full_match` answers the same and is Python
+    3.13's; the scripts run on 3.12."""
+    return _segments_match(path.split("/"), pattern.split("/"))
+
+
+def _segments_match(names: list[str], parts: list[str]) -> bool:
+    if not parts:
+        return not names
+    if parts[0] == "**":
+        if len(parts) == 1:
+            # A trailing `**` needs at least one segment under what stands before it.
+            return bool(names)
+        return any(_segments_match(names[skipped:], parts[1:]) for skipped in range(len(names) + 1))
+    return bool(names) and fnmatchcase(names[0], parts[0]) and _segments_match(names[1:], parts[1:])
 
 
 def holds_anchor(text: str, anchor: str) -> bool:

@@ -9,6 +9,7 @@ import json
 import os
 import stat
 import unittest
+from pathlib import Path
 
 from repository import RepositoryCase
 
@@ -840,6 +841,68 @@ def speaking_skill(name: str, speaks: bool = True) -> str:
     """A skill's file, holding the group's heading or not."""
     heard = f"{HEARS}\n\nWhat was done.\n\n" if speaks else ""
     return f"# {name}\n\nIts work.\n\n{heard}## Finish\n\nDone.\n"
+
+
+class WhollyMatching(unittest.TestCase):
+    """A group's pattern matches a path whole, a segment at a time: `*`, `?` and `[…]` stay inside
+    one segment, `**` standing as a whole segment is any number of segments. The answers are the
+    ones `PurePosixPath.full_match` gives, which Python has only from 3.13."""
+
+    CASES = (
+        (".agents/skills/plan/SKILL.md", ".agents/skills/*/SKILL.md", True),
+        (".agents/skills/plan/sub/SKILL.md", ".agents/skills/*/SKILL.md", False),
+        (".agents/skills/SKILL.md", ".agents/skills/*/SKILL.md", False),
+        (".agents/skills/.hidden/SKILL.md", ".agents/skills/*/SKILL.md", True),
+        ("docs/a/b/c.md", "docs/**/c.md", True),
+        ("docs/c.md", "docs/**/c.md", True),
+        ("docs/a/c.md", "docs/**", True),
+        ("docs", "docs/**", False),
+        ("a/b/c", "**", True),
+        ("a", "**/a", True),
+        ("b/a", "**/a", True),
+        ("a/b", "*", False),
+        ("a/b.md", "b.md", False),
+        ("a/b.md", "*/b.md", True),
+        ("A/b.md", "a/b.md", False),
+        ("x.md", "?.md", True),
+        ("xy.md", "?.md", False),
+        ("a/b.md", "[ab]/b.md", True),
+        ("c/b.md", "[ab]/b.md", False),
+        ("c/b.md", "[!ab]/b.md", True),
+        ("a/b.md", "**.md", False),
+        ("b.md", "**.md", True),
+        ("a/b.md", "a/*.md", True),
+        ("a/b.txt", "a/*.md", False),
+        ("a/b/c.md", "a/**/*.md", True),
+        ("a/c.md", "a/**/*.md", True),
+        ("a/b/c/d.md", "a/**/c/**/d.md", True),
+        ("a/x/y/d.md", "a/**/c/**/d.md", False),
+        ("docs/tickets/done/01.md", "docs/tickets/*.md", False),
+        ("docs/tickets/01.md", "docs/tickets/*.md", True),
+    )
+
+    def test_each_case_is_answered_as_recorded(self) -> None:
+        for path, pattern, expected in self.CASES:
+            with self.subTest(path=path, pattern=pattern):
+                self.assertIs(expected, inject_rules.wholly_matches(path, pattern))
+
+    def test_the_answers_are_the_standard_librarys_where_it_has_them(self) -> None:
+        from pathlib import PurePosixPath
+
+        if not hasattr(PurePosixPath, "full_match"):
+            self.skipTest("this Python has no PurePosixPath.full_match to compare with")
+        for path, pattern, _ in self.CASES:
+            with self.subTest(path=path, pattern=pattern):
+                self.assertIs(
+                    PurePosixPath(path).full_match(pattern), inject_rules.wholly_matches(path, pattern)
+                )
+
+    def test_the_scripts_call_no_matcher_the_lowest_python_lacks(self) -> None:
+        scripts = Path(inject_rules.__file__).resolve().parent
+        calling = [
+            script.name for script in sorted(scripts.glob("*.py")) if ".full_match(" in script.read_text(encoding="utf-8")
+        ]
+        self.assertEqual([], calling)
 
 
 class Grouping(RepositoryCase):
