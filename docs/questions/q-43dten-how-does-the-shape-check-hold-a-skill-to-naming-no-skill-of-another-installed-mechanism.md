@@ -14,3 +14,25 @@ proposes. What it must settle before it lands: which mentions stand today, count
 blocks set aside; whether each becomes an installed block from the naming mechanism's rules file
 or is dropped; and the order, the lines mended before the check joins the verification set, the
 practice's by that session.
+
+## Evidence, 2026-11-20 — an outside audit's claim, checked at 4314d5bf
+
+[The audit of 2026-11-20](../research/external-audit-2026-11-20.md) says `/ticket`, `/plan` and
+`/verify` break R8. A subagent that did not write the rule read every skill's own text, outside
+its installed blocks, against each mechanism's declared state. `/ticket` does not break it;
+`/plan` and `/verify` do, and four skills the audit did not name. No script checks R8.
+
+| skill | names a skill of another installed mechanism | names a sibling of its own mechanism |
+|---|---|---|
+| `plan` | `/ticket` ×2 | `/implement` |
+| `verify` | `/maintain` | `/implement`, `/plan` |
+| `align` | `/ticket` | |
+| `debugging` | `/harness` ×2, one in its description | |
+| `mechanism` | `/maintain` ×2 | |
+| `review-architecture` | `/ticket`, `/plan` | |
+| `implement` | | `/verify` ×5 |
+| `conclude` | | `/recall` |
+
+Eleven cross-mechanism namings in six skills. By R8's letter a sibling is "another skill" too;
+its heading speaks of reaching an installed mechanism by its rules, and delivery has no rules
+file to carry a sibling's sentence — whether R8 binds siblings is not said.
