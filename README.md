@@ -5,7 +5,7 @@
 # GoodWolf Harness
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/dveyarangi/goodwolf-harness/blob/main/LICENSE)
-[![Python 3.13+](https://img.shields.io/badge/python-3.13%2B-3776AB?logo=python&logoColor=white)](#use-it-instructions-for-your-agent)
+[![Python 3.12+](https://img.shields.io/badge/python-3.12%2B-3776AB?logo=python&logoColor=white)](#use-it-instructions-for-your-agent)
 [![Dependencies: standard library only](https://img.shields.io/badge/dependencies-stdlib%20only-brightgreen.svg)](#use-it-instructions-for-your-agent)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-supported-D97757?logo=claude&logoColor=white)](#use-it-instructions-for-your-agent)
 [![Codex](https://img.shields.io/badge/Codex-supported-412991?logo=openai&logoColor=white)](#use-it-instructions-for-your-agent)
@@ -278,4 +278,4 @@ has: nothing lands there until you have read the report and said so. Claude Code
 the skills through symbolic links the install makes in each clone; on Windows, where creating one
 may need an elevated prompt, it prints the command to run.
 
-Python 3.13 or later, standard library only. [MIT licensed](https://github.com/dveyarangi/goodwolf-harness/blob/main/LICENSE).
+Python 3.12 or later, standard library only. [MIT licensed](https://github.com/dveyarangi/goodwolf-harness/blob/main/LICENSE).

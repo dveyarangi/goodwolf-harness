@@ -90,7 +90,8 @@ another session's unstaged write is read by this commit's check.
 only an interpreter beside the project's own toolchain — one `actions/setup-python` step in a Node
 job. Core states no lowest version: run through Python 3.12.13, the system Python of Ubuntu
 24.04, every check passes but `inject_rules.py`, which calls `PurePosixPath.full_match`, new in
-3.13 (`inject_rules.py:771`).
+3.13 (`inject_rules.py:771`). Since 35a9a16c no script calls it, and the suite and the checks pass
+on 3.12.13 *(the keeper, 2026-11-20, on the person's word)*.
 
 **Where it touches the guard.**
 [q-5jcptm](q-5jcptm-which-skill-must-be-read-before-a-file-is-edited-or-a-rule-proposed-and-how-does-the-host-refuse-the.md)'s
