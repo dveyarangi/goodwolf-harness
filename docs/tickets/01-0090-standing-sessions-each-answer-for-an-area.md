@@ -1,7 +1,7 @@
 # A tree's standing sessions each answer for an area, and the cut is kept true
 
 - **record of** what it intends to become
-- **Status:** Ready (split 2026-11-18)
+- **Status:** Ready (split 2026-11-18, its slices re-ordered 2026-11-20)
 - **Type:** HITL
 - **Minted:** 2026-11-15
 - **Answers:** [q-ja5mp4](../questions/q-ja5mp4-does-the-method-have-one-session-direct-the-others-an-orchestrator-and-what-does-it-owe-the-sessions-it.md)
@@ -25,13 +25,18 @@ that cut should change, and a session that answers for everything reads everythi
 *The problem*). The whole is too coarse for one plan and is reached by its slices, each with its
 own text; this ticket keeps the end-state that holds when all have landed.
 
-1. [01-0090.0010 each-role-of-this-tree-stands-in-a-mechanism-of-its-own](./01-0090.0010-each-role-of-this-tree-stands-in-a-mechanism-of-its-own.md)
-   — this tree's roles each in a mechanism of their own, and the table of who holds which in
-   place of the list in the local rules.
-2. [01-0090.0020 the-cut-is-read-against-the-work](./01-0090.0020-the-cut-is-read-against-the-work.md)
-   — `/pack` and the session mechanism's section, first run on this tree.
+1. [01-0090.0020 the-cut-is-read-against-the-work](./01-0090.0020-the-cut-is-read-against-the-work.md)
+   — `/pack` and the session mechanism's section: the rules a cut is derived by, and where its
+   record stands, in what form, who reads it and when; this tree's cut derived by its first run.
+2. [01-0090.0010 each-role-of-this-tree-stands-in-a-mechanism-of-its-own](./01-0090.0010-each-role-of-this-tree-stands-in-a-mechanism-of-its-own.md)
+   — the cut `/pack` derived written where `/pack` says: this tree's roles each in a mechanism of
+   their own, and the table of who holds which in place of the list in the local rules.
 3. [01-0090.0030 a-session-crossing-into-anothers-zone-is-told-whose-it-is](./01-0090.0030-a-session-crossing-into-anothers-zone-is-told-whose-it-is.md)
    — the telling at an edit in another role's path.
+
+The order is the person's, 2026-11-20: a cut is derived by `/pack`'s own rules and never written
+by hand, so `/pack` stands before any cut is written
+([q-mz6gd4](../questions/q-mz6gd4-where-does-a-session-of-this-tree-read-each-roles-zone-and-brief-and-which-session-holds-it.md#decisions)).
 
 Kept here, and cut as a slice once its question is aligned: an install offers the default session
 — the one that holds the harness — and the offer is never a requirement. What a fresh tree is

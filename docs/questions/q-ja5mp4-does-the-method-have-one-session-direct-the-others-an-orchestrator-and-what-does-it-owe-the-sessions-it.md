@@ -279,13 +279,16 @@ the landing on main ([q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-sh
 
 **Next.** The plan of
 [01-0090 standing-sessions-each-answer-for-an-area](../tickets/01-0090-standing-sessions-each-answer-for-an-area.md)
-went back through `/plan` under this whole and the ticket was split, 2026-11-18; its first slice,
-[01-0090.0010 each-role-of-this-tree-stands-in-a-mechanism-of-its-own](../tickets/01-0090.0010-each-role-of-this-tree-stands-in-a-mechanism-of-its-own.md),
-is planned next, each step written in
+went back through `/plan` under this whole and the ticket was split, 2026-11-18; the slices
+were re-ordered on the person's word, 2026-11-20 — a cut is derived by `/pack`'s own rules,
+never written by hand. First
+[01-0090.0020 the-cut-is-read-against-the-work](../tickets/01-0090.0020-the-cut-is-read-against-the-work.md),
+`/pack` with the declaration of where a cut is written, planned and written by the session that
+holds the store and put by it to the person; its first run derives this tree's cut. Then
+[01-0090.0010 each-role-of-this-tree-stands-in-a-mechanism-of-its-own](../tickets/01-0090.0010-each-role-of-this-tree-stands-in-a-mechanism-of-its-own.md)
+writes that cut where `/pack` says, the keeper holding it. Each step is written in
 [the journal](../research/standing-sessions-journal.md) with what a fresh tree would need to do
-the same. The keeper plans the slices and holds each as it plans it, asking the session that
-holds the store for what lands in the session mechanism, which that session writes and puts to
-the person. Then `/pack` is run on this tree.
+the same.
 
 ## Impact of the split — 2026-11-15
 
@@ -457,3 +460,39 @@ and
 [01-0090.0030 a-session-crossing-into-anothers-zone-is-told-whose-it-is](../tickets/01-0090.0030-a-session-crossing-into-anothers-zone-is-told-whose-it-is.md).
 The install's offer stays a line of the parent. The plan written for the whole of 2026-11-15 is
 dissolved: it stands in git at a08b2085, and each slice is planned anew.
+
+## Impact of the re-order — 2026-11-20
+
+The person accepted this tree's first cut and refused its writing by hand: a cut is derived by
+`/pack`'s own rules, and `/pack` says where it is written, in what form, who reads it and when
+([q-mz6gd4](q-mz6gd4-where-does-a-session-of-this-tree-read-each-roles-zone-and-brief-and-which-session-holds-it.md#decisions)).
+The split of 2026-11-18 had the cut written first and `/pack` built after it, reading it.
+
+**Impact.** Must change: the order of the first two slices and what each depends on; the `/pack`
+slice, which gains the rules a cut is derived by and the declaration of the cut's record; the
+slice that writes this tree's roles, which now waits for `/pack` and writes what its run derived;
+that slice's plan, written for the keeper's hand; the parent's list; *Next* above. Must verify:
+that the declaration `/pack` gains states the home the whole already gives — a role's own
+mechanism, a table in the local rules — and no other.
+
+**Hidden edges.**
+
+- The whole says `/pack` writes nothing in another role's zone. Read with the person's word:
+  `/pack` says where and how the cut is written, and each zone's session writes its own.
+- The first slice is now the store's session's to plan and write, and that session holds another
+  unit in work; when it takes this one is its and the person's.
+- What the mechanism format gains to carry a zone — the plan's readings 1 to 7, a probe and a
+  judge's findings — was the keeper's; it becomes material for `/pack`'s declaration, and the
+  reader in the shape check stays the keeper's to build when the cut is written.
+- Two criteria that need a written cut — a session that takes a role, and a shift the person
+  decided — move with the writing to the second slice.
+- A run that derives a cut unlike the accepted one is a finding put to the person, never mended
+  by copying the accepted cut in.
+
+**Leave alone.** The whole's `Where it stands`; the third slice, which still reads the written
+cut; the row's name and its passing; L13's list until the table replaces it.
+
+**Recommendation.** Proceed: `/pack` first, the cut's writing second, the telling third.
+
+**Re-ordered, 2026-11-20** — the user, of the order as recommended: "Да, перестраивай".
+

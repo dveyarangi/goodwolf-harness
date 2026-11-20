@@ -417,3 +417,17 @@ A fresh tree needs: the skill that derives a cut before any cut is written; the 
 the cut stands, its form, its reader and the moment it is read; a cut a person agreed in talk is
 what the skill's first run is checked against, never a text to copy in.
 </straw-dog>
+
+## 26. The slices re-ordered: `/pack` before any cut is written — 2026-11-20
+
+On the person's word the keeper turned the first two slices round. The skill that derives a cut,
+with the declaration of where a cut is written, in what form, who reads it and when, is now the
+first slice, planned and written by the session that holds the store; its first run derives this
+tree's cut, read against the one the person accepted. Writing that cut is the second slice and
+waits for it. The plan written for the keeper's hand stays marked overturned in part.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: the order — the deriving skill, its run, then the writing; a difference
+between what the run derives and what the person agreed in talk goes to the person.
+</straw-dog>
+
