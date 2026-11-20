@@ -962,12 +962,14 @@ class ANamedRow(Hooked):
         self.assertEqual("s-alpha running 2026-09-29T11:30Z q-0004", self.line("s-alpha"))
         self.assertEqual("s-old running 2026-09-29T09:30Z q-0010 as Хранилище", self.line("s-old"))
 
-    def test_a_named_row_concluded_is_removed_seven_days_later(self) -> None:
+    def test_a_named_row_ended_eight_days_ago_is_still_there_after_a_wake(self) -> None:
+        """A role's session lives until the person or a re-cut ends it (the user, 2026-11-18,
+        q-g6lj7m)."""
         self.write(SESSIONS, "s-old ended 2026-09-21T11:00Z q-0010 as Хранилище\n")
 
         self.start("s-new")
 
-        self.assertNotIn("s-old", self.rows())
+        self.assertEqual("s-old ended 2026-09-21T11:00Z q-0010 as Хранилище", self.line("s-old"))
 
     def test_a_name_on_a_row_whose_window_was_drawn_within_three_hours_does_not_pass(self) -> None:
         """A live session on one question rewrites no row; its windows are its sign of life."""
@@ -983,7 +985,7 @@ class ANamedRow(Hooked):
         self.assertEqual(2, status)
         self.assertIn("s-old", said)
 
-    def test_a_name_on_a_concluded_row_passes_at_once(self) -> None:
+    def test_a_name_on_an_ended_row_passes_at_once(self) -> None:
         self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004\ns-old ended 2026-09-29T11:00Z q-0010 as Хранилище\n")
 
         status, _ = self.said_to_sessions("--name", "Хранилище", "--session", "s-alpha")
@@ -1023,12 +1025,42 @@ class ANamedRow(Hooked):
 
         self.assertEqual("s-alpha is Хранилище, no longer Практика\n", said)
 
-    def test_the_conclude_keeps_the_name_on_the_ended_row(self) -> None:
-        self.said_to_sessions("--name", "Хранилище", "--session", "s-alpha")
+    def test_end_of_a_named_row_is_refused_and_writes_nothing(self) -> None:
+        """A role's session is not concluded (the user, 2026-11-18, q-g6lj7m)."""
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 holds q-0004 as Хранилище\n")
 
-        self.said_to_sessions("--end", "--session", "s-alpha")
+        status, said = self.said_to_sessions("--end", "--session", "s-alpha")
 
-        self.assertEqual("s-alpha ended 2026-09-29T12:00Z q-0004 q-0002,q-0001 as Хранилище", self.line("s-alpha"))
+        self.assertEqual(2, status)
+        self.assertIn("--drop-name", said)
+        self.assertEqual("s-alpha running 2026-09-29T11:30Z q-0004 holds q-0004 as Хранилище", self.line("s-alpha"))
+
+    def test_a_session_drops_its_name_keeping_its_position_and_hold(self) -> None:
+        """The person ends a role's session through its drop of the role (the user, 2026-11-20,
+        q-g6lj7m)."""
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 holds q-0004 as Хранилище\n")
+
+        status, said = self.said_to_sessions("--drop-name", "--session", "s-alpha")
+
+        self.assertEqual((0, "s-alpha is no longer Хранилище\n"), (status, said))
+        self.assertEqual("s-alpha running 2026-09-29T12:00Z q-0004 holds q-0004", self.line("s-alpha"))
+
+    def test_a_row_whose_name_is_dropped_is_ended_by_end(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004 as Хранилище\n")
+        self.said_to_sessions("--drop-name", "--session", "s-alpha")
+
+        status, _ = self.said_to_sessions("--end", "--session", "s-alpha")
+
+        self.assertEqual(0, status)
+        self.assertEqual("s-alpha ended 2026-09-29T12:00Z q-0004", self.line("s-alpha"))
+
+    def test_dropping_no_name_writes_nothing(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004\n")
+
+        status, said = self.said_to_sessions("--drop-name", "--session", "s-alpha")
+
+        self.assertEqual((0, "s-alpha bears no name\n"), (status, said))
+        self.assertEqual("s-alpha running 2026-09-29T11:30Z q-0004", self.line("s-alpha"))
 
     def test_check_refuses_one_name_on_two_rows(self) -> None:
         self.write(SESSIONS, "s-one running 2026-09-29T11:00Z q-0010 as Хранилище\ns-two running 2026-09-29T11:00Z q-0010 as Хранилище\n")

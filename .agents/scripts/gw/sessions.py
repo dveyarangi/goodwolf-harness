@@ -6,10 +6,12 @@
     uv run --offline --no-project python .agents/scripts/gw/sessions.py --take <q-id> --session <tag>
     uv run --offline --no-project python .agents/scripts/gw/sessions.py --release --session <tag>
     uv run --offline --no-project python .agents/scripts/gw/sessions.py --name <name> --session <tag>
+    uv run --offline --no-project python .agents/scripts/gw/sessions.py --drop-name --session <tag>
     uv run --offline --no-project python .agents/scripts/gw/sessions.py --check
 
 A session is one chat of a host with the tree, from its `/recall` to its `/conclude`, known by the
-steadiest id the host gives the chat. Its row is one file under `docs/sessions/rows/`, named by
+steadiest id the host gives the chat; a session that holds a role is not concluded, and lives
+until the person or a re-cut ends it. Its row is one file under `docs/sessions/rows/`, named by
 its tag and holding one line — its tag, whether it runs, when the row was last written, its
 current question or `-`, up to four recent ones, the unit it holds or the mark of one taken
 from it, and the name of a session that holds a role. Any session writes any row: the mechanism manages every session from any one of them. A
@@ -23,9 +25,10 @@ or as an argument, as the entry index for a position's check, so neither imports
 load.
 TODO q-hpwq4t: the direction of this dependency, and so these sentences, change
 with its answer — the store may stand without this script, the row on the store.
-`--end` is the conclude's last act; `--hold`, `--take` and `--release` take, take over and let
-go the unit a session works, named by the question it answers; `--name` writes the name of a
-session that holds a role on its row; `--check` is the rows' maintainer, format never content.
+`--end` is the conclude's last act, refused to a row that bears a name; `--hold`, `--take` and
+`--release` take, take over and let go the unit a session works, named by the question it
+answers; `--name` writes the name of a session that holds a role on its row, and `--drop-name`
+wipes it, on the person's word; `--check` is the rows' maintainer, format never content.
 """
 
 from __future__ import annotations
@@ -54,8 +57,9 @@ SINGLE_FILE = "docs/questions/sessions"
 # A running row whose session nothing has seen for this long is ended by the next wake, quietly
 # (the user, 2026-10-10).
 SILENT_AFTER = timedelta(hours=3)
-# A row that has read ended for this long is removed by the next wake: a chat the host reopens
-# finds its row under the same id until then, and rarely comes later (the user, 2026-10-22).
+# A row that bears no name and has read ended for this long is removed by the next wake: a chat
+# the host reopens finds its row under the same id until then, and rarely comes later (the user,
+# 2026-10-22).
 GONE_AFTER = timedelta(days=7)
 # Where the fingerprint of each session's last window is kept, the session's sign of life; `None`
 # is the machine's temp folder.
@@ -65,7 +69,7 @@ _NAME = r"\w[\w-]*"
 ROW_FORM = "`<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four] [holds <q-id> | taken <q-id> by <tag>] [as <name>]`"
 _USAGE = (
     "usage: sessions.py --end --session <tag> | --hold <q-id> --session <tag> | --take <q-id> --session <tag>"
-    " | --release --session <tag> | --name <name> --session <tag> | --check"
+    " | --release --session <tag> | --name <name> --session <tag> | --drop-name --session <tag> | --check"
 )
 
 
@@ -118,6 +122,10 @@ def main(argv: list[str], root: Path, now: datetime | None = None) -> int:
             named, former, let_go, dropped = take_name(root, argv[3], argv[1], now)
             print(f"{named.tag} is {named.name}" + (f", taken from {former}" if former else "") + (f", no longer {dropped}" if dropped else ""))
             _say_let_go(_index(root), let_go)
+            return 0
+        if len(argv) == 3 and argv[:2] == ["--drop-name", "--session"]:
+            unnamed, dropped = drop_name(root, argv[2], now)
+            print(f"{unnamed.tag} is no longer {dropped}" if dropped else f"{unnamed.tag} bears no name")
             return 0
         if len(argv) == 3 and argv[:2] == ["--release", "--session"]:
             released = release(root, argv[2], now)
@@ -421,7 +429,9 @@ def tend(root: Path, now: datetime, waking: str) -> None:
     moment it was last seen, so the days until it is gone run from the session's end (the user,
     2026-10-10 and 2026-10-22); a row that already read ended for `GONE_AFTER` is removed — ended at
     this wake, gone at a later one. A running row is never removed, and a named one is never ended
-    for its silence: a session that holds a role may sleep for days (the user, 2026-11-16, q-q5i2um).
+    for its silence nor removed, ended or not: a session that holds a role may sleep for days, and
+    lives until the person or a re-cut ends it (the user, 2026-11-16 and 2026-11-18, q-q5i2um and
+    q-g6lj7m).
 
     The writes to a row not its own, besides the id migration's: safe because a silent session has no
     write of its own to meet. The session's next message turns an ended row running again; a
@@ -430,7 +440,7 @@ def tend(root: Path, now: datetime, waking: str) -> None:
     for held_row in rows(root)[0]:
         if held_row.tag == waking:
             continue
-        if held_row.running and held_row.name:
+        if held_row.name:
             continue
         if held_row.running:
             seen_at = last_seen(root, held_row)
@@ -469,11 +479,30 @@ def seen(root: Path, tag: str, now: datetime) -> None:
 def end(root: Path, tag: str, now: datetime) -> Session:
     """The conclude's last act: the session is marked ended and keeps its position, so the wake of
     a chat the host reopens finds where it stopped; the unit it held is let go, and the mark of
-    one taken from it cleared."""
+    one taken from it cleared. Refused, writing nothing: a row that bears a name, since a role's
+    session is not concluded — the person ends it, by its drop of the name, or a re-cut does (the
+    user, 2026-11-18 and 2026-11-20, q-g6lj7m)."""
     held_row = held(root, tag)
+    if held_row.name:
+        _refuse(
+            f"{tag} holds the role {held_row.name}, and a role's session is not concluded: the person ends it,"
+            " by telling it to drop the role with `--drop-name`, or a re-cut does"
+        )
     ended = dataclasses.replace(held_row, running=False, wrote=minute(now), holds=None, taken=None, taken_by=None)
     write_row(root, ended)
     return ended
+
+
+def drop_name(root: Path, tag: str, now: datetime) -> tuple[Session, str | None]:
+    """The session drops the role it holds, on the person's word: the name leaves its row, its
+    position and hold kept, and it is then a session like any other, which its conclude ends (the
+    user, 2026-11-20, q-g6lj7m). Says the name dropped; bearing none writes nothing."""
+    held_row = held(root, tag)
+    if held_row.name is None:
+        return held_row, None
+    unnamed = dataclasses.replace(held_row, running=True, wrote=minute(now), name=None)
+    write_row(root, unnamed)
+    return unnamed, held_row.name
 
 
 def hold(root: Path, tag: str, unit: str, index: dict, now: datetime) -> tuple[Session, str | None]:
