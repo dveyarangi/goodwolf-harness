@@ -8,7 +8,7 @@
 - **rung** development: load-bearing, self-improvement: the method
 - **lean** the user, 2026-10-25: the builder does not judge nor stands as the case, the judge a subagent briefed without the builder conclusion; a straw dog at tier 1, no mechanism yet makes a judge happen
 - **opened** 2026-10-05T18:58:35Z
-- **struck** 2, last 2026-10-26T10:41Z
+- **struck** 3, last 2026-11-20T18:22Z
 
 ## Decisions
 
