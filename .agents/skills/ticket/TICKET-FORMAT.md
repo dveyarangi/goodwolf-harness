@@ -26,7 +26,7 @@ docs/tickets/done/01-0090.0030-the-outcome-it-names.md
 A ticket and its RFC share a basename. Cite by slug through a relative link;
 add the `done/` segment when the target completes.
 
-When every acceptance box is checked, including `/verify`, move the ticket to
+When every acceptance box is checked, the verification box included, move the ticket to
 `docs/tickets/done/` and its RFC to `docs/rfc/done/`, and repair the
 citations that pointed at them. A paired close (ticket + RFC) is one pass —
 one invocation, so each moved record cites the other's final home:
@@ -76,7 +76,7 @@ never content *(the user, 2026-09-08)*.
 - **A record** is one ticket file under `docs/tickets/`, live until paired
   close moves it to `done/`. **Tier 2**: read when the ticket is planned,
   implemented or verified, or through a citation. **What removes an entry**:
-  paired close, when every acceptance box is checked, the `/verify` box
+  paired close, when every acceptance box is checked, the verification box
   included. Archived records are matched by name for pairing and exempt from
   everything else; older fields in them are left, and a live record carries
   none.
@@ -92,7 +92,7 @@ never content *(the user, 2026-09-08)*.
   decision lands where it is made, the story goes to evidence or a session
   record, and the ticket links them. A checked box with its date is the whole
   verification record. <straw-dog question="q-q6xwpv">A ticket
-  minted before 2026-10-11 is held to the required sections and the `/verify`
+  minted before 2026-10-11 is held to the required sections and the verification
   box alone, and is brought to this shape at its next touch.</straw-dog>
 
 ### The header
@@ -143,8 +143,8 @@ one-off field anywhere before `Outcome`, `Outcome` last:
   entries of the question store under its `Answers` question, each holding its
   own argument. A reader draws them with `questions.py --tree <its Answers id>`.
 - `Acceptance criteria` — **required**. Checkboxes, each observably true when
-  done; one names `/verify`. Provisional criteria say so in the heading, after
-  a dash, and are firmed in place at the align.
+  done; <straw-dog question="q-hrfk7l">one names `/verify`.</straw-dog> Provisional criteria say so in
+  the heading, after a dash, and are firmed in place at the align.
 - `Out of scope` — what a reader expects and won't find, each with its actual
   home; and each criterion the person set aside.
 
@@ -171,8 +171,10 @@ lines, nothing else.
   build it — never the person, unless what it asks is their own judgement. A
   judge's verdict is the box checked with its date and what was seen.
 </straw-dog>
+<straw-dog question="q-hrfk7l">
 - Every ticket includes a `/verify` criterion. A ticket is not Done until
   `/verify` has been run against it. Do not move to `done/` without it.
+</straw-dog>
 
 ### Pairing
 
