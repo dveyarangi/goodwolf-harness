@@ -135,7 +135,9 @@ headers wherever the store is shown, siblings in the order they were opened; no 
 ([decision 6](questions/q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md#decisions)).
 A session's row is [the session mechanism](../.agents/mechanisms/session/session.md)'s, and the
 mechanism manages every session from any one of them: any session writes any row through the
-session script *(the user, 2026-10-25)*. A row is one file, replaced in one rename, so a reader
+session script *(the user, 2026-10-25)*. <straw-dog question="q-pl3fwk">A clone's rows are one set, kept in its
+main working tree, which the hook and the scripts of every worktree read and write; a clone with a
+separate or bare Git directory keeps them in each tree *(the user, 2026-11-20)*.</straw-dog> A row is one file, replaced in one rename, so a reader
 never meets half of it and nothing is locked; a wake ends the silent — a row bearing the name of
 a session that holds a role aside *(the user, 2026-11-16)* — and removes the long ended, and a
 takeover moves a held unit and leaves its mark in the

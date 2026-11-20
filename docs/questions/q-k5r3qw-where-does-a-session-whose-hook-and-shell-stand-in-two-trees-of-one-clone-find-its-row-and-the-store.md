@@ -1,8 +1,9 @@
 # q-k5r3qw Where does a session whose hook and shell stand in two trees of one clone find its row and the store?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-7ebz2f
-- **state** open
+- **state** closed:decided
+- **answer** [architecture.md, Question store](../architecture.md#question-store) — the user, 2026-11-20
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-11-20T07:38:32Z
 - **struck** 0, last 2026-11-20T07:38Z
@@ -42,7 +43,7 @@ Run every store call from the tree the hook runs in, the shared tree:
 `cd "$(git rev-parse --path-format=absolute --git-common-dir)/.."` first. Its writes then land in
 that tree's files, as the window shows them, and are committed there.
 
-## Options, not yet put to the person
+## Options, put to the person 2026-11-20
 
 1. **The rows are read and written in the main working tree from .0110 on.** The main working
    tree is the parent of the common Git directory, the root .0110's plan already resolves for
@@ -51,3 +52,11 @@ that tree's files, as the window shows them, and are committed there.
    hook and shell agree wherever they stand, until .0090 moves the rows out of git. Recommended:
    one function more in a slice already held, and the interim it closes would last two slices.
 2. **Wait for .0090**, the stop-gap standing until then.
+
+## Decided — the user, 2026-11-20: "да, принимаю"
+
+1. From [01-0010.0250.0110](../tickets/01-0010.0250.0110-the-questions-live-on-a-branch-of-their-own.md)
+   on, a clone's rows are read and written in its main working tree, from whichever worktree the
+   hook or a script runs in; a clone with a separate or bare Git directory keeps them in each
+   tree. Until .0090 moves them out of git.
+   → [architecture.md, Question store](../architecture.md#question-store)
