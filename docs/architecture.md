@@ -139,9 +139,11 @@ session script *(the user, 2026-10-25)*. <straw-dog question="q-pl3fwk">A clone'
 main working tree, which the hook and the scripts of every worktree read and write; a clone with a
 separate or bare Git directory keeps them in each tree *(the user, 2026-11-20)*.</straw-dog> A row is one file, replaced in one rename, so a reader
 never meets half of it and nothing is locked; a wake ends the silent — a row bearing the name of
-a session that holds a role aside *(the user, 2026-11-16)* — and removes the long ended, and a
+a session that holds a role aside *(the user, 2026-11-16)* — and removes the long ended, a named row aside too, and a
 takeover moves a held unit and leaves its mark in the
-holder's row *(the user, 2026-10-10 and 2026-10-25)*. A closed question stays where it is; a subtree
+holder's row *(the user, 2026-10-10 and 2026-10-25)*. A role's session is not concluded: it lives
+until the person ends it, by telling it to drop its role, or a re-cut does *(the user, 2026-11-18
+and 2026-11-20)*. A closed question stays where it is; a subtree
 none of whose questions is open, deferred or suspect, or depended on by one that is, is finished,
 and the window leaves it out. A tree's ids from before were converted once; the table of them,
 old beside new, is kept for good, and history is read through it. A host's hook

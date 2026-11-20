@@ -1,9 +1,10 @@
 # q-g6lj7m Who ends the session of a role, if not its /conclude?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-q5i2um
-- **state** open
-- **owner** [01-0110](../tickets/01-0110-a-roles-session-is-never-concluded.md)
+- **state** closed:decided
+- **owner** [01-0110](../tickets/done/01-0110-a-roles-session-is-never-concluded.md)
+- **answer** [01-0110](../tickets/done/01-0110-a-roles-session-is-never-concluded.md) — the user, 2026-11-18 and 2026-11-20
 - **rung** development: load-bearing, self-improvement: the method
 - **opened** 2026-11-18T07:03:21Z
 - **struck** 1, last 2026-11-20T09:57Z
@@ -19,19 +20,21 @@ days: "conclude должен удалять только временные се
    removes only a session that holds no role. In place of
    [q-q5i2um](q-q5i2um-how-does-the-row-of-a-session-that-holds-a-role-outlive-its-sleep-and-when-does-it-end.md)
    decision 3's "it ends at its own `/conclude`".
+   → [session.md, A session's life](../../.agents/mechanisms/session/session.md#how-it-works)
 2. **A role's session lives until the person or the harness ends it**, the harness when it
    carries out a re-cut the person decided *(the user, 2026-11-18)*. The passing of a name to
    another chat, q-q5i2um decision 3's rest, stands: the row it leaves ends nameless.
+   → [session.md, A session's life](../../.agents/mechanisms/session/session.md#how-it-works)
 3. **The person ends a role's session through its own drop of the role** *(the user,
    2026-11-20: "Да, сначала его", on the slice put to them on 2026-11-19)*. Until a re-cut is built,
    told by the person to drop its role, the session wipes the name from its row, and is then a
    session like any other, which its `/conclude` ends.
-   → [01-0110](../tickets/01-0110-a-roles-session-is-never-concluded.md)
+   → [session.md, A session's life](../../.agents/mechanisms/session/session.md#how-it-works)
 
 ## Where it stands
 
 Accepted by the user, 2026-11-20, with decision 3; the ticket
-[01-0110](../tickets/01-0110-a-roles-session-is-never-concluded.md) carries it out:
+[01-0110](../tickets/done/01-0110-a-roles-session-is-never-concluded.md) carries it out:
 - `/conclude` in a session whose row bears a name ends nothing and says that a role's session is
   ended by the person or by the cut; `sessions.py --end` refuses a named row the same way.
 - A named row is then never ended and never removed by time; the seven days after `/conclude`

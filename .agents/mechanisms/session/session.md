@@ -33,12 +33,14 @@ a sign of life, kept outside the tree so the committed file does not move with e
 running row nothing has seen for three hours is ended by the next wake, quietly *(the user,
 2026-10-10)*; the session's next message turns it running again. A session that holds a role
 bears its name on its row, written by the session script's `--name`, one name on one row; no
-silence ends that row and no wake removes it while it runs. A chat that takes the name takes the
+silence ends that row and no wake removes it. A chat that takes the name takes the
 row's position and hold, letting go a unit of its own for it, and the row it leaves ends
 nameless; the name does not pass from a running row seen in the last three hours *(the user,
-2026-11-16)*. The conclude keeps the name on the ended row. The conclude writes the session
+2026-11-16)*. A role's session is not concluded: it lives until the person or a re-cut ends it,
+the person by telling it to drop its role, the session script's `--drop-name`, after which it
+concludes as any session *(the user, 2026-11-18 and 2026-11-20)*. The conclude writes the session
 record under `docs/sessions/` and ends the row, its position kept, so a chat the host reopens finds
-where it stopped. A row that reads ended for seven days is removed by a wake, since a reopen rarely
+where it stopped. A row bearing no name that reads ended for seven days is removed by a wake, since a reopen rarely
 comes later *(the user, 2026-10-22)*; the wake's read lists running sessions only.
 
 **A unit held.** A step that works a unit takes it into the session's row, by the question the
@@ -97,10 +99,11 @@ for this mechanism.
 | a step stops before a unit another running session holds | `AGENTS.md` | |
 | a session writes to another what it must act on, and nothing it need not | `AGENTS.md` | |
 | a session concludes: its record written, its leans, its row ended | `.agents/skills/conclude/SKILL.md` | |
+| a session that holds a role is not concluded; it drops its role on the person's word | `.agents/skills/conclude/SKILL.md` | |
 | a session wakes and reads where the work stands | `.agents/skills/recall/SKILL.md` | |
 | a session that holds a role writes the role's name on its row, at its wake | `.agents/skills/recall/SKILL.md` | |
 | a conversation starts with its recall, and one the host resumes under a new id is the same session | `AGENTS.md` | |
-| a row ended for seven days is removed | `.agents/scripts/gw/sessions.py` | |
+| a row bearing no name, ended for seven days, is removed | `.agents/scripts/gw/sessions.py` | |
 | a session that holds a role names its row, and the name passes with the row | `.agents/scripts/gw/sessions.py` | |
 | rows a wake changed in other sessions' files are committed | `.agents/skills/maintain/SKILL.md` | |
 | a reply shows the sessions it runs beside, under debug | `AGENTS.md` | |
@@ -176,14 +179,17 @@ then the row is the host's.
 
 ## What would show it working, graded by someone who did not build it
 
-Four yes-or-no tests, pre-registered at the align that incepted it:
+Five yes-or-no tests, the first four pre-registered at the align that incepted it, the fifth when
+a role's session stopped being concluded:
 
 1. Open a chat, conclude it, reopen it the next day: does the wake say *already registered* and
    draw the window at its last position?
 2. Leave a chat that bears no name silent four hours and open another: does the first's row read
    ended, and the second's wake say nothing of it? One that bears a name: does its row read as it
    did?
-3. Eight days after a chat ended, open another: is the first's row gone, and the wake's list of
+3. Eight days after a chat that bears no name ended, open another: is the first's row gone, and the wake's list of
    sessions free of it?
 4. Change a rule in the rules file and re-install: does the target's block change and nothing else
    in it?
+5. In a session that holds a role, run `/conclude`: does it stop, saying the person ends it, with
+   no record written and its row as it was?

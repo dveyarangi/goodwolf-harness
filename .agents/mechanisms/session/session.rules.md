@@ -145,7 +145,7 @@ for them. What each message carries: the messages shelf,
 
 <rule>
 A session that holds a role writes the role's name on its row before anything else: `sessions.py
---name <name> --session <tag>`, the name as the person gave it. Taking a name from a concluded row
+--name <name> --session <tag>`, the name as the person gave it. Taking a name from another row
 takes that row's position and hold with it. A refusal naming a running row means another live chat
 holds the name: stop, and tell the person.
 </rule>

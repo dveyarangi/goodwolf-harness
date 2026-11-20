@@ -1,12 +1,18 @@
 ---
 name: conclude
 description: >-
-  Use when a session ends, or the user asks to conclude the current chat.
+  Use when a session ends, or the user asks to conclude the current chat, or tells a session that
+  holds a role to drop it.
 ---
 
 Mechanism: session
 
-First go over the session once more for what it left undone — a step a reply promised and did not
+Before anything else: a session that holds a role is not concluded. Say that the person ends it
+by telling it to drop its role and then to conclude, or a re-cut does, and stop — nothing below
+runs. Told by the person to drop its role, run `sessions.py --drop-name --session <tag>`: the
+session is then like any other, and goes on below only if the person also asked it to conclude.
+
+Then go over the session once more for what it left undone — a step a reply promised and did not
 take, a decision not landed in its home, a change of its own not committed, drift met and left
 unrepaired, untold and undecided — and finish or name each.
 
@@ -31,9 +37,9 @@ the session record, tier 2, read by the next session's `/recall` and kept. The s
 other record is the row, one file per session under `docs/sessions/rows/`, named by its tag and
 holding `<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four] [holds <q-id> | taken <q-id> by <tag>] [as <name>]`;
 tier 1 through
-the window and the wake's read; gone when it reads ended and its time is seven days or older. A
-row bearing a name, a session that holds a role, is not ended by its silence; the conclude keeps
-the name on it, and a chat that takes the name ends the row it leaves.
+the window and the wake's read; gone when it bears no name, reads ended and its time is seven days or
+older. A row bearing a name, a session that holds a role, is never ended by its silence nor
+removed; a chat that takes the name ends the row it leaves.
 The script writes it, never a hand.
 
 The session's unpushed commits are the conclude's to settle, once the ended row is committed, as

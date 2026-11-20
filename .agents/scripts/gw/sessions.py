@@ -80,7 +80,8 @@ class Session:
     `holds` is the unit the session holds, by the question the unit answers, or `None`; `taken`
     and `taken_by`, where `holds` would stand, the unit another session took over from it and
     that session's tag, until this session next holds, releases or ends. `name` is the name of a
-    session that holds a role, which keeps its row through any silence (q-q5i2um)."""
+    session that holds a role, which keeps its row through any silence, its conclude and time
+    (q-q5i2um and q-g6lj7m)."""
 
     tag: str
     running: bool
@@ -495,12 +496,13 @@ def end(root: Path, tag: str, now: datetime) -> Session:
 
 def drop_name(root: Path, tag: str, now: datetime) -> tuple[Session, str | None]:
     """The session drops the role it holds, on the person's word: the name leaves its row, its
-    position and hold kept, and it is then a session like any other, which its conclude ends (the
-    user, 2026-11-20, q-g6lj7m). Says the name dropped; bearing none writes nothing."""
+    position, hold and running or ended kept, and it is then a session like any other, which its
+    conclude ends (the user, 2026-11-20, q-g6lj7m). Says the name dropped; bearing none writes
+    nothing."""
     held_row = held(root, tag)
     if held_row.name is None:
         return held_row, None
-    unnamed = dataclasses.replace(held_row, running=True, wrote=minute(now), name=None)
+    unnamed = dataclasses.replace(held_row, wrote=minute(now), name=None)
     write_row(root, unnamed)
     return unnamed, held_row.name
 

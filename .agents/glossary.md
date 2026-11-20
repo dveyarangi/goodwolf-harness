@@ -149,7 +149,7 @@ The execution of a single skill. It has an input state, an immediate purpose, an
 One agent reply, from the user's message to the reply's end. A turn holds at most one execution step; a step may span turns.
 
 **Session**:
-One chat of a host with the tree, from its `/recall` to its `/conclude`, known by the steadiest id the host gives the chat. It holds a position in the question store, is seen or silent, and leaves a session record.
+One chat of a host with the tree, from its `/recall` to its `/conclude`, known by the steadiest id the host gives the chat; one that holds a role has no conclude, and lives until the person or a re-cut ends it. It holds a position in the question store, is seen or silent, and leaves a session record at its conclude.
 _Avoid_: a host process, a session id as the session's identity.
 
 **Uncharted**:

@@ -801,8 +801,8 @@ class TheSessionsOwnCommands(Rendered):
 
 
 class TheGone(Hooked):
-    """A row that reads ended for seven days is removed by a wake, since a chat the host reopens
-    rarely comes later; a running row never is (the user, 2026-10-22)."""
+    """A row that bears no name and reads ended for seven days is removed by a wake, since a chat
+    the host reopens rarely comes later; a running row never is (the user, 2026-10-22)."""
 
     def rows(self) -> list[str]:
         return sorted(held.tag for held in sessions.rows(self.root)[0])
@@ -1052,6 +1052,22 @@ class ANamedRow(Hooked):
         status, _ = self.said_to_sessions("--end", "--session", "s-alpha")
 
         self.assertEqual(0, status)
+        self.assertEqual("s-alpha ended 2026-09-29T12:00Z q-0004", self.line("s-alpha"))
+
+    def test_a_row_whose_name_is_dropped_and_ended_goes_seven_days_later(self) -> None:
+        self.write(SESSIONS, "s-alpha ended 2026-09-21T11:00Z q-0004 as Хранилище\n")
+        self.said_to_sessions("--drop-name", "--session", "s-alpha")
+
+        sessions.tend(self.root, NOW + timedelta(days=7), "s-new")
+
+        self.assertNotIn("s-alpha", self.rows())
+
+    def test_a_dropped_name_leaves_an_ended_row_ended(self) -> None:
+        """Any session writes any row: one that drops another's name does not wake it."""
+        self.write(SESSIONS, "s-alpha ended 2026-09-21T11:00Z q-0004 as Хранилище\n")
+
+        self.said_to_sessions("--drop-name", "--session", "s-alpha")
+
         self.assertEqual("s-alpha ended 2026-09-29T12:00Z q-0004", self.line("s-alpha"))
 
     def test_dropping_no_name_writes_nothing(self) -> None:
