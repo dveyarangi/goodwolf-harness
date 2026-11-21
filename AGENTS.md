@@ -172,15 +172,17 @@ its work. A decision on another running session's question or unit, read from wh
 is that session's to put to the person, though its message brings it: it enters no table of
 your replies.
 
-**S10** Write to another session a question, or what it must act on or would go wrong without: your
-uncommitted work in a file it works in or a commit that took its uncommitted lines, before your
-turn ends; a break you made in what it runs, at once; a step of an agreed order done; the
-person's settled decision in its area. Check a claim about its lines or a commit against git
-first; one message per occasion, to the id its row gives while it reads running, saying what you
-wait for. Answer what asks for an answer or waits on your work or your decision; write no
-acknowledgement and nothing nobody waits on. Tell the person of a message only what it changes
-for them. What each message carries: the messages shelf,
-`.agents/skills/recall/MESSAGES.md`.
+**S10** Write to another session a question, or what it must act on or would go wrong without. At once:
+a question; a break you made in what it runs; your uncommitted work in a file it works in, or a
+commit that took its uncommitted lines, before your turn ends; what it would go wrong without
+now. The rest — a step of an agreed order done, the person's settled decision in its area, a
+change landed that it carries further — is held and goes as one message to that session, when
+you write to it anyway, when holding it longer would cost it, or before your session falls
+quiet. Check a claim about its lines or a commit against git first; write to the id its row
+gives while it reads running, saying what you wait for. Answer what asks for an answer or waits
+on your work or your decision; write no acknowledgement and nothing nobody waits on. Tell the
+person of a message only what it changes for them. What each message carries: the messages
+shelf, `.agents/skills/recall/MESSAGES.md`.
 </installed>
 
 <installed by="debugging">

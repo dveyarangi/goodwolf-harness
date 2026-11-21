@@ -123,18 +123,20 @@ your replies.
 ## S10 — what one session writes to another
 
 - **target** `AGENTS.md`
-- **authority** the user, 2026-11-16, after the messages between sessions were counted; tried on a fresh reader beside one without it and judged by another, five rewordings taken; a role's sleeping session, what is not written, the receiver's side and what the person is told, the user the same day, tried again and judged, three rewordings taken; compressed to what a session needs at the moment, its detail on a shelf it links, the user the day after, tried a third time on two readers free to open the shelf and judged
+- **authority** the user, 2026-11-16, after the messages between sessions were counted; tried on a fresh reader beside one without it and judged by another, five rewordings taken; a role's sleeping session, what is not written, the receiver's side and what the person is told, the user the same day, tried again and judged, three rewordings taken; compressed to what a session needs at the moment, its detail on a shelf it links, the user the day after, tried a third time on two readers free to open the shelf and judged; grouped, the urgent at once and the rest held for one message, the user, 2026-11-21, tried on a fresh reader
 
 <rule>
-Write to another session a question, or what it must act on or would go wrong without: your
-uncommitted work in a file it works in or a commit that took its uncommitted lines, before your
-turn ends; a break you made in what it runs, at once; a step of an agreed order done; the
-person's settled decision in its area. Check a claim about its lines or a commit against git
-first; one message per occasion, to the id its row gives while it reads running, saying what you
-wait for. Answer what asks for an answer or waits on your work or your decision; write no
-acknowledgement and nothing nobody waits on. Tell the person of a message only what it changes
-for them. What each message carries: the messages shelf,
-`.agents/skills/recall/MESSAGES.md`.
+Write to another session a question, or what it must act on or would go wrong without. At once:
+a question; a break you made in what it runs; your uncommitted work in a file it works in, or a
+commit that took its uncommitted lines, before your turn ends; what it would go wrong without
+now. The rest — a step of an agreed order done, the person's settled decision in its area, a
+change landed that it carries further — is held and goes as one message to that session, when
+you write to it anyway, when holding it longer would cost it, or before your session falls
+quiet. Check a claim about its lines or a commit against git first; write to the id its row
+gives while it reads running, saying what you wait for. Answer what asks for an answer or waits
+on your work or your decision; write no acknowledgement and nothing nobody waits on. Tell the
+person of a message only what it changes for them. What each message carries: the messages
+shelf, `.agents/skills/recall/MESSAGES.md`.
 </rule>
 </straw-dog>
 

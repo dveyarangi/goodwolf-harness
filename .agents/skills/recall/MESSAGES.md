@@ -27,8 +27,9 @@ not, is not written to: read what it left, then take the matter to the person.
 ## Before sending
 
 Check a claim about another's lines or a commit against git or the record; a guess of whose they
-are goes as a question. One message to a receiver per occasion; a correction replaces the one it
-corrects and says so. Say what you wait for: an answer, the result of work, or nothing.
+are goes as a question. What is urgent goes at once; the rest for one receiver goes together, in
+one message that lists each piece with its record. A correction replaces the one it corrects and
+says so. Say what you wait for: an answer, the result of work, or nothing.
 
 ## Receiving
 
