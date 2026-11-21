@@ -961,8 +961,14 @@ built.
 experiment or measurement the agent ran is a thing built; its results are read by a subagent
 given the data and the question it asks, never the runner's reading." The keeper's, put to the
 person: the same, bound to results a decision rests on — refused by the person, 2026-11-17:
-"слишком размашистое правило". A narrower one is put to them: only a finding that a thing cannot
-be done or read, before the person is told it.
+"слишком размашистое правило". A narrower one was put to them: only a finding that a thing cannot
+be done or read, before the person is told it — refused for now, 2026-11-21: "это явно настройка,
+которую я пока бы не включал - которая уменьшает агентность пользователя. либо исследовательский
+режим или механизм"; a check that stands between a finding and the person is a setting, off, with
+no mechanism yet to own it — the one that will own `/discover`
+([q-uj5v4t](questions/q-uj5v4t-what-does-discover-own.md)) is its likeliest home. The person's lighter
+one, the same day: "при нельзя предлагать /disсover" — the agent says what the finding rests on
+and offers the pass, and the person decides whether it runs. Its text is put to them.
 
 ## 73. Replies left the person's language mid-align, twice — 2026-10-25
 
