@@ -15,6 +15,23 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v140 — 2026-11-21
+
+**A finding that a thing cannot be done is told with its ground and an offer** — beside *The
+builder does not judge*, in its straw dog: a finding of the agent's own that a thing cannot be
+done or read is told with what it rests on and an offer of `/discover`, and the person decides
+whether it runs. From a recipient's case of 2026-11-17, the runner of an experiment telling the
+person a thing could not be read where a second derivation in the same data read it, the
+register's entry on the builder trying its own rule. Two heavier forms were refused by the person
+— every result of an experiment read by a subagent, as too sweeping; a subagent reading every
+such finding before the person hears it, as a setting that lessens the person's agency, off until
+a mechanism owns it — and a first text placed in `/discover` itself, since the occasion comes
+with no skill open *(the user, 2026-11-17 and 2026-11-21)*. Tried on a fresh reader given the
+entry file alone, three situations: two findings that a thing cannot be done, one resting on a
+single derivation and one on the tool's own stated limit, and one finding that a thing works. It
+gave the ground and the offer in both of the first, ran nothing, and made no offer in the third.
+The offer is the same whether the ground is weak or firm; what differs is the ground as told.
+
 ## v139 — 2026-11-21
 
 **Messages between sessions are grouped** — S10 no longer asks one message per occasion. A

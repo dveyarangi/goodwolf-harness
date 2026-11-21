@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v139, 2026-11-21.
+Entry contract: v140, 2026-11-21.
 
 ## General rules
 
@@ -26,6 +26,7 @@ nothing about being load-bearing â€” an implementation method is a shape too. â†
 
 <straw-dog question="q-7rmmpw">
 - **The builder does not judge.** Whoever built a thing does not judge it, nor stands as the case it is tried on. The judge is a subagent the builder starts, given what is to be judged and where its evidence stands, never the builder's conclusion; a rule's behaviour is tried on a fresh subagent that reads only what a session would. The builder closes on the verdict.
+- A finding of your own that a thing cannot be done or read is told with what it rests on and an offer of `/discover`; the person decides whether it runs.
 </straw-dog>
 
 <straw-dog question="q-p2tgdv">

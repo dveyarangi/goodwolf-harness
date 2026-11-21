@@ -1007,7 +1007,8 @@ and offers the pass, and the person decides whether it runs. Its first text, a m
 правило в описание скила, а там должны быть только моменты … может лучшим решением было бы
 вписать правило в мета-правила - правило же о том как проверять себя?" — the occasion comes with
 no skill open, so the rule stands where every session reads it. A sentence for the entry file's
-general rules is put to them.
+general rules was put to them and accepted, "по правилу ок"; landed 2026-11-21 at entry contract
+v140, tried first on a fresh reader.
 
 ## 73. Replies left the person's language mid-align, twice — 2026-10-25
 
