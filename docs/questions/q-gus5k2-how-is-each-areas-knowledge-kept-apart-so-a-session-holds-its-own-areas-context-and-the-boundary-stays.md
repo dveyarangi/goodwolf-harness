@@ -57,6 +57,14 @@ The user, 2026-11-15, asked which goes first — this question's align or the bu
 [01-0090 standing-sessions-each-answer-for-an-area](../tickets/01-0090-standing-sessions-each-answer-for-an-area.md):
 "Да, сначала разрез". The align runs here; the ticket's plan waits unaccepted until it lands.
 
+## Each role sees its own installed rules — the user, 2026-11-21
+
+Raised while `/pack`'s plan placed the entry file's installed blocks: "в идеале хотелось бы чтобы
+каждая сессия не видела инсталляцию скилов чужих ролей (но могла бы видеть общие и свои). но я не
+знаю как такое сделать, это значит что каждой роли нужен свой AGENTS.md". Not answered: today every
+session is handed the one entry file and every skill's description; a role-scoped entry file is
+one way, among others to be weighed here.
+
 ## Decisions
 
 1. **The architecture is cut where its load-bearing seams pass, and the roles follow the cut** —
