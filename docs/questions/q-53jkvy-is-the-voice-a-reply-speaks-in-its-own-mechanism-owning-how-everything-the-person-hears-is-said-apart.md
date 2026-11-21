@@ -227,3 +227,12 @@ of the voice, and no check reads whether a tree's local rules hold one. An updat
 So in a recipient the principle's second sentence points at a rule that is not there, silently.
 What would close it — an ask at install and at the first update that finds none, a default core
 ships, or a diagnostic alone — is not decided.
+
+The keeper put a clause to the person the same day — plain everyday words where the local rules
+give no voice — and the person asked what had broken for want of one: "а зачем это чинить?
+кто-то сломался из за нехватки голоса?" *(the user, 2026-11-21)*. Nothing had. game-delta's
+keeper found the gap by reading the principle; its register holds no entry on how a reply was
+said, and its local rules still give no voice. The clause would also say in core what *The shape
+agreed* above leaves unsaid: a tree that writes no such rule has none, and core says nothing in
+its place. The keeper withdrew the clause. The finding stands as a note, and is taken up when a
+tree shows a reply gone wrong for want of a voice.
