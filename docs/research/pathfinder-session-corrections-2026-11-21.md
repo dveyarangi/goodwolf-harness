@@ -1,6 +1,6 @@
 # Corrections of method — session 14869207 (pathfinder)
 
-Source: C:\Users\fimar\.claude\projects\D--Dev-AI-agents\14869207-0ee1-4aeb-be4b-18255bc719b7.jsonl
+Source: C:\Users\owner\.claude\projects\D--Dev-AI-agents\14869207-0ee1-4aeb-be4b-18255bc719b7.jsonl
 Timestamps are UTC as recorded in the transcript. Items marked (queued) were typed while the agent was mid-turn.
 
 1. **2026-10-19T22:19:23Z** — "that rule is harness-dev project specific, right? not deployed into the instances?"
