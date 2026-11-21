@@ -30,6 +30,11 @@ core from a repository of its own, as
    same-length placeholders in seven tracked files — four cases' transcripts and three files of the
    audit of 2026-09-05. The history is not rewritten.
 
+4. The commit-author address that 25 cases quote from `git log` stays *(the user, 2026-11-21:
+   «Да, оставить»)*: it stands in every commit's metadata, which any reader of the public
+   repository sees, so scrubbing the cases hides nothing. Hiding it is git's configuration, not a
+   scrub.
+
 ## Where it stands
 
 Still open: nothing keeps a new case from bringing the path, the address or the name back — a check that refuses them is the rule-failure

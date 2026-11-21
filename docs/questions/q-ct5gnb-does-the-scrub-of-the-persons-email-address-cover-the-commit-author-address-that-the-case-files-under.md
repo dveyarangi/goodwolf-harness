@@ -1,10 +1,10 @@
 # q-ct5gnb Does the scrub of the person's email address cover the commit-author address that the case files under docs/cases still quote?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-mhwbg3
-- **state** open
+- **state** closed:decided
+- **answer** [q-mhwbg3, decision 4](q-mhwbg3-what-of-the-trees-own-records-session-cases-transcripts-local-paths-may-stand-in-its-public-repository.md#decisions) — the address stays, public in every commit already; the user, 2026-11-21
 - **rung** development: a feature
-- **asks** the person, 2026-11-21
 - **opened** 2026-11-21T04:11:31Z
 - **struck** 0, last 2026-11-21T04:11Z
 
