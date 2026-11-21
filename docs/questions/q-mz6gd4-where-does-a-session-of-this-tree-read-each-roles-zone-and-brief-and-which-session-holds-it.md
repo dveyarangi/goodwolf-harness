@@ -24,6 +24,10 @@
    обслуживание»; to the keeper, 2026-11-21, of writing it into the list of roles now: "да")*. It
    is written in L13 of the local rules until the cut's own record holds it, and the cut of
    decision 1 is read with it: six roles on five sessions.
+5. **A session has one name and a list of the roles it holds** *(the user, 2026-11-21: "имя +
+   список ролей")* — of a session that holds several roles, asked as one name or a name to each
+   role. The keeper's reading: who holds which is written session by session, a name and its
+   roles; a row bears the session's name, never one of its roles' in its place.
 
 ## What the decisions change — 2026-11-20
 

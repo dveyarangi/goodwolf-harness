@@ -166,3 +166,11 @@ the nightly sweep, and a chat started for one task, which ends with it.
    has its whole accepted. The keeper had said why: its zone named three unrelated things, six
    threads ran through its chat in two days, and ten decisions stood waiting on the person. What
    the keeper keeps after the cut is put to the person.
+
+## Decided since, 2026-11-20 and 2026-11-21
+
+The first cut of this tree, a sixth role on a fifth session, and how a session that holds
+several roles is named — one name and a list of its roles — are decided by the person and stand
+on [q-mz6gd4](q-mz6gd4-where-does-a-session-of-this-tree-read-each-roles-zone-and-brief-and-which-session-holds-it.md#decisions),
+decisions 1, 4 and 5. What the keeper keeps once the rules leave it is decision 1's cut.
+
