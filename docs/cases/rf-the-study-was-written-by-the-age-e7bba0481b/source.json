@@ -425,7 +425,7 @@
               "type": "tool_result",
               "tool_use_id": "toolu_01E6RopBFSuybJCi2n6kZrbE",
               "is_error": false,
-              "content": "     24 Fima Rotter\n     64 Gregory Kotlarewski\n20128fbd Fima Rotter test(web): счётчик вызовов apiFetch не протекает из прошлого теста (#610)\nc60944f0 Fima Rotter fix(web): строгий разбор снимка напоминаний и пауза по Retry-After (#609)\n9fc0703d Fima Rotter feat: переход напоминаний на общий выбор занятий (#608)\ne604adab Fima Rotter feat: lesson reminders follow the reminder sync choices (#607)\ndda189de Fima Rotter feat(web): reminder settings screen saves through the sync route (#606)\n\n{ 'dveyarangi>dveyarangi': 24, 'gregoryKot>gregoryKot': 16 }"
+              "content": "     24 Anon Person\n     64 Gregory Kotlarewski\n20128fbd Anon Person test(web): счётчик вызовов apiFetch не протекает из прошлого теста (#610)\nc60944f0 Anon Person fix(web): строгий разбор снимка напоминаний и пауза по Retry-After (#609)\n9fc0703d Anon Person feat: переход напоминаний на общий выбор занятий (#608)\ne604adab Anon Person feat: lesson reminders follow the reminder sync choices (#607)\ndda189de Anon Person feat(web): reminder settings screen saves through the sync route (#606)\n\n{ 'dveyarangi>dveyarangi': 24, 'gregoryKot>gregoryKot': 16 }"
             }
           ]
         },

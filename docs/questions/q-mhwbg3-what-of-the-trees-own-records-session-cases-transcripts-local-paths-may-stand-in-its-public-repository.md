@@ -26,8 +26,11 @@ core from a repository of its own, as
    by a same-length placeholder in 64 tracked files, the API inputs and sources of `docs/cases`,
    where the host's context carried it. The history is not rewritten.
 
+3. The person's name is scrubbed too *(the user, 2026-11-21: «Да, убрать»)*: replaced by
+   same-length placeholders in seven tracked files — four cases' transcripts and three files of the
+   audit of 2026-09-05. The history is not rewritten.
+
 ## Where it stands
 
-Still open: the person's full name stands in four cases' transcripts; and nothing keeps a new case
-from bringing the path or the address back — a check that refuses them is the rule-failure
+Still open: nothing keeps a new case from bringing the path, the address or the name back — a check that refuses them is the rule-failure
 register's to build, put to its keeper on 2026-11-20.
