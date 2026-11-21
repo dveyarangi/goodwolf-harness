@@ -214,3 +214,16 @@ own, after the person had spoken of "наш voice.md" and the tree was found to 
 rules give; that sentence is wrapped as a straw dog bound to this question. The occasion: a
 text put to the person for acceptance was told in the records' voice, the register's entry on a
 long session's replies leaving the voice struck a second time.
+
+## A recipient's finding, 2026-11-21: a tree is not told it has no voice
+
+game-delta, updated to e603e2c1, reported through its keeper: *Two readers* sends what the
+person reads to "the project's voice, which its local rules give", and nothing tells a tree that
+its local rules give none; theirs had none. Checked in core the same day: the install asks the
+person each ladder's dial, their way of working with git and the refused links, and writes the
+project's facts and its verification set
+([the harness skill](../../.agents/skills/harness/SKILL.md), *What the person hears*); no ask is
+of the voice, and no check reads whether a tree's local rules hold one. An update asks nothing.
+So in a recipient the principle's second sentence points at a rule that is not there, silently.
+What would close it — an ask at install and at the first update that finds none, a default core
+ships, or a diagnostic alone — is not decided.
