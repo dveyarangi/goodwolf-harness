@@ -1,4 +1,4 @@
-# q-dddzn4 Do /conclude, /recall, /dream, /review-architecture and /setup-devops carry their adaptations?
+# q-dddzn4 Do /conclude, /recall, /dream, /review-architecture and /devops carry their adaptations?
 
 - **record of** what it intends to become
 - **part of** q-veooj7

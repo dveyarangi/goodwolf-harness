@@ -1,4 +1,4 @@
-# q-s7acna Does /setup-devops earn its place among the twenty?
+# q-s7acna Does /devops earn its place among the twenty?
 
 - **record of** what it intends to become
 - **part of** q-dddzn4
