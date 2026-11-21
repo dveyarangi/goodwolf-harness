@@ -48,10 +48,12 @@ area moves.
 
 **Proposed amendment**, a rewording, the practice's, put to the person before it lands: "A unit
 this session holds that the list of roles puts in another's zone is released and told to that
-session, without asking the person." Where it stands — L13, or beside the take in S9, which is
-the session mechanism's — is settled with the text.
+session, without asking the person." Put to the person with the keeper's recommendation against
+it: L13 already has a session hand on what falls in another's area, and the failure came of a
+misreading passed on, not of a gap in the rule.
 
-**Disposition:** open.
+**Disposition:** refused, 2026-11-21 — the person, of the sentence: "Не надо". No rule is
+amended; a repeat with no such prompting strikes this entry.
 
 ## Skills name other installed mechanisms' skills, and the shape check passes — 2026-11-18
 
