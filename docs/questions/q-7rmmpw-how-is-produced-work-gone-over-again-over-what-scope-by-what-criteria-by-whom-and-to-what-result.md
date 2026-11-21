@@ -35,3 +35,22 @@ The 2026-09-26 adoption panel was an earlier case of the same shape. The user as
 be saved for future use *(the user, 2026-10-08)*. Whether it becomes a skill of its own, or a
 pass of the shape [01-0030](../tickets/01-0030-a-second-look-is-a-pass.md) formalizes, is this
 question's to decide.
+
+## The person, 2026-11-21: a judging mechanism, with its kinds of judges
+
+Said to the keeper, of where a rule on a finding that a thing cannot be done belongs: "я теперь
+думаю, что это не исследовательский, а возможно вообще судейский механизм - с разными видами
+судей. тогда правило «кто сделал, тот не оценивает» становится его, а решение как его
+осуществлять (которого у нас то ли нет, толе захардкожено) - как и настройки "нельзя" - и
+возможно некоторые другие, надо б поискать - принадлежат этому механизму". A thought put for an
+opinion, not a decision.
+
+What it would give this question: one mechanism that owns the principle now standing as a straw
+dog at tier 1, how a judge is made to happen, the kinds of judge, and the settings — among them
+the check, off, that would stand between a finding that a thing cannot be done and the person
+([the register](../rule-failures.md), the entry of 2026-10-25 on the builder trying its own
+rule). Earlier the same day the person had thought of a research mechanism holding `/discover`
+and `/impact`
+([q-uj5v4t](q-uj5v4t-what-does-discover-own.md)); this replaces that thought as to where the
+principle goes. An inventory of every place the instructions have someone other than the
+producer read, try or judge a thing is being made by a subagent, to be recorded here.
