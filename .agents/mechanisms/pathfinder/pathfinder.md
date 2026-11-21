@@ -1,0 +1,88 @@
+# pathfinder — chooses what the project works on next by what it is for, and keeps the order the person gives
+
+- **instruction** `.agents/skills/pathfinder/SKILL.md` — the act: weighing the candidates, putting them to the person, keeping the roadmap
+- **state** installed
+- **record of** what must always hold
+- **owner** core
+
+## How it works
+
+What comes next is derived, never written as a list of work. The candidates are the question
+store's reading of the path; their order is the **roadmap**'s — the order the person gives the
+product document's answers, each row in their words and dated. A piece of work takes the place of
+the answer it serves. A proxy such as how much stays unfinished orders nothing *(the user,
+2026-11-21)*.
+
+The mechanism weighs questions, never the method's records: a unit of work is whatever the
+installed method materialises a question into, so it works in a tree with no method installed.
+
+The skill was written from the person's corrections over the session that built it — the first
+case of a session writing the method of its own work. A standing session holding the path's role
+keeps the roadmap where a tree has standing sessions; elsewhere whoever orders the work does.
+
+It is **installed**. It ships with core like every mechanism. The roadmap is written when the
+person first orders the work; a tree with none has no order yet.
+
+**Who decided each rule.**
+
+| rule | decided by |
+|---|---|
+| the path is ordered by the product roadmap, not by how much stays unfinished | the user, 2026-11-21 |
+| no written queue: what comes next is a reading | the user, 2026-11-21 |
+| the roadmap is a record of its own | the user, 2026-11-21 |
+| the method's records do not cross a mechanism that works without it | the user, 2026-11-21 |
+| the skill's rules, drawn from the person's corrections | the user, 2026-11-21 |
+| the mechanism declared | the user, 2026-11-21 |
+
+## Moments
+
+| moment | instructed by | kind, and why |
+|---|---|---|
+| recommending what comes next, and the person ordering the work | `.agents/skills/pathfinder/SKILL.md` | |
+| an idea arriving that would change what comes next | `.agents/skills/pathfinder/SKILL.md` | |
+| making or amending the roadmap | `.agents/skills/pathfinder/SKILL.md` | |
+| adding or removing a part that orders the work | `.agents/skills/pathfinder/SKILL.md` | |
+| showing the path at a wake | — | elsewhere — the wake is the session mechanism's, `.agents/skills/recall/SKILL.md` |
+| the path standing its candidates by the roadmap's order | — | <straw-dog question="q-huss2x">not yet</straw-dog> |
+| installing this mechanism into a tree, with the rest of core | `.agents/scripts/gw/harness.py` | |
+| removing this mechanism from a tree | — | <straw-dog question="q-qzeuf3">not yet</straw-dog> |
+
+## Install adds, uninstall removes
+
+| part | where |
+|---|---|
+| instruction file | `.agents/skills/pathfinder/SKILL.md` |
+| this doc | `.agents/mechanisms/pathfinder/pathfinder.md` |
+
+## Relies on, and does not own
+
+| part | where | owner |
+|---|---|---|
+| the path, the store's reading of the candidates | `.agents/scripts/gw/questions.py` | `questions` |
+| the product document's answers the roadmap orders | `.agents/skills/product/SKILL.md` | `product` |
+| the wake that shows the path | `.agents/skills/recall/SKILL.md` | `session` |
+| the installer, which writes the voice into its skill | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
+| the method's vocabulary | `.agents/glossary.md` | nobody removable |
+
+## What it produces, and who reads it
+
+- **The roadmap** — *what it intends to become* — read by whoever recommends what comes next,
+  and by the person ordering the work.
+
+Nothing else: no rules file, no index.
+
+## Not yet at the shape
+
+**Two `not yet` rows**: the path standing its candidates by the roadmap, bound to the path's
+question; removal, bound to the harness's removal question.
+
+## What retires this
+
+A project whose work needs no choosing: one thread, one person, nothing waiting.
+
+## What would show it working, graded by someone who did not build it
+
+Pre-registered 2026-11-21. **The person**, at the first wake after the roadmap holds rows, reads
+the recommended next work: does it follow the roadmap's order, with every candidate shown and
+what each would give them, and not the most unfinished or the last thing said? Each
+recommendation that does not is a miss, named in the evidence.

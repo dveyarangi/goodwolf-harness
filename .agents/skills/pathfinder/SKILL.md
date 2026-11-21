@@ -3,7 +3,7 @@ name: pathfinder
 description: Choose what the project works on next and keep the order it is chosen by. Use when a candidate is recommended or the person orders the work, when an idea arrives that would change what comes next, when the product roadmap is made or amended, or when a part that orders the work is to be added or removed.
 ---
 
-<straw-dog question="q-huss2x">Mechanism: not yet</straw-dog>
+Mechanism: pathfinder
 
 - What comes next is derived from what the project is for: the candidates are the question
   store's reading of the path, and their order is the product roadmap's. A written list of work,
@@ -23,6 +23,14 @@ description: Choose what the project works on next and keep the order it is chos
   by its output; show what the person will see before it is built. Before removing a part, say
   what reads it.
 - A detour from the session's thread is named as one, with the way back.
+
+## The roadmap
+
+`docs/roadmap.md`, one file, written when the person first orders the work. A row is one place in
+the order: `order`, an integer from 1 with no gaps; `what`, a product answer's bare reference,
+such as `A3` — a hole behind a front-page promise enters by the answer it rests on; the person's
+words; the date. Tier 2: read when a candidate is recommended or the work is ordered.
+<straw-dog question="q-ojs4jd">What removes a row: not yet.</straw-dog>
 
 ## What the person hears
 

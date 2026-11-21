@@ -95,6 +95,9 @@ PAINTED_DOORS = frozenset(
         "docs/dreams/",
         # TODO q-3cx2m3: /setup-devops's, which goes with its declaration.
         "docs/cicd.md",
+        # TODO q-la5n2i: the pathfinder's roadmap, declared in its skill's prose; this row goes
+        # when `record-bearing` parses.
+        "docs/roadmap.md",
         # TODO q-la5n2i: the edge mechanism's records, declared in its format shelf's prose;
         # this row goes when `record-bearing` parses.
         "docs/edge/",
