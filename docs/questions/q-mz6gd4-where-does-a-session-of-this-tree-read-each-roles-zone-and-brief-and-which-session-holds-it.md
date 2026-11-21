@@ -39,3 +39,17 @@ what that run is checked against. The plan's readings 1 to 7 — where a zone an
 written — stand as material for that declaration, no longer as the keeper's plan. `/pack` is a
 part of the session mechanism, written by the session that holds the store. The slices' new order
 is put to the person before any ticket is rewritten.
+
+## Decided in the store's session — 2026-11-21
+
+The person, working through `/pack`'s plan with the session that holds the store: a role is the
+mechanisms a session holds, so no mechanism is written for a role, and who holds which is one
+table in the local rules, a session by its name and what it holds; a skill every session uses
+has no role and is the harness's session's to edit; records of work are no one's. The words and
+their homes:
+[the plan of 01-0090.0020](../rfc/01-0090.0020-the-cut-is-read-against-the-work.md#decided-by-the-person).
+
+For this question: its ticket's premise — a mechanism for each role — no longer stands, and the
+slice shrinks to the table and what reads it. The ticket and its plan are rewritten once the
+table's form stands in that plan, as the store's session will say; until then nothing here is
+built.
