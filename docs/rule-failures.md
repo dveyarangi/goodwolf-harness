@@ -2096,10 +2096,12 @@ put alone, and the table a rule asks for reads to the person as five things aske
 
 - Claude desktop app · claude-fable-5-2 · 2026-11-20T18:08Z — chat `1981de0e-7693-4931-aeab-4881f9fa0065`, the keeper's; the model is the one the session reported itself running on, not an attested backend version.
 
-**Proposed amendment**, not yet drafted: a wording for what is put to the person to decide —
-only what is theirs, each told as what it changes for them, one at a time *(the user,
-2026-11-20: "поясняй решения по одному")*. It is drafted and shown once the decisions in hand are
-answered, never beside them: the failure is of too much put at once.
+**Proposed amendment**, a local rule put to the person on 2026-11-21: one decision at a time and
+only what is theirs, each told as what it changes for them, the table holding the one in hand
+and a count of those that wait *(the user, 2026-11-20: "поясняй решения по одному")*. Refused
+the same day: "правила не надо", no reason given. The session goes on putting decisions to them
+one at a time, on their word to it; the entry file's table of waiting decisions stands as
+written, a row each.
 
 ## 47. A decision not to act was landed as three rules — 2026-10-14
 
