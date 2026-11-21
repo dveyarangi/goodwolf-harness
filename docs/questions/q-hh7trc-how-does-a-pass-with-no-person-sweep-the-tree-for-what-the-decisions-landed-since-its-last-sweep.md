@@ -36,3 +36,32 @@ The pass of 2026-11-17 (`aabe5e92`) found twelve levels in agreement and read th
 nobody's work and told only a running session's, while L13 gives every mechanism here to a standing
 session's zone. The pass repaired nothing, told both, and left the sweep unmarked as a choice for
 the person. The zones repaired the same morning (`53a4e64b`, `5afabb53`).
+
+## The night run of 2026-11-21, judged
+
+The pass of 2026-11-21 (`5dae8287`, `a8d0d95e`) swept `361fb13b..c479401a` under the amended G2,
+and the next morning's wake was read with it by a judge who built neither — a subagent started by
+the session holding the maintenance, given the ticket, its RFC, `/maintain`, this question, L13,
+the run's transcript and the wake, and no conclusion. Verdict on the fourth criterion: **fail,
+narrow**. The pass started from the mark, swept the range, re-checked the six due levels, told
+each zone's findings to its session — all acted on within minutes — left one question asking the
+person, marked the sweep and pushed; the stall of 2026-11-17 did not recur. It failed on what it
+left:
+
+1. The question it put to the person, q-ct5gnb, counted one form of the address: 20 files where
+   25 hold it. Corrected in its body the same morning.
+2. Two findings of its subagents were neither repaired nor told — q-47f7je's lean trailing
+   q-mhwbg3's decision 2, and `docs/architecture.md:138-140` against q-k5r3qw, recorded with no
+   judgement — and the sweep was marked `amended` all the same; a finding untold is not swept.
+   Since judged: the architecture passage is not drift, q-k5r3qw's answer being that passage;
+   the lean told to Хранитель, whose question q-47f7je is.
+3. It read in the range that L13 gives the pass to Аудит и обслуживание while Практика held this
+   unit, and told no one.
+4. Its own row was left running, so the wake showed a finished pass as a running session.
+
+Lesser: a finding already held by the deferral q-q6xwpv told as new; ownership of a record of
+work read two ways in one pass; a rung written by hand, not by `questions.py`. And outside the
+run: the RFC's G2 text still says "another running session's work", trailing decision 1.
+
+Waits on: the pass amended so an untold finding keeps the sweep unmarked and a finished run ends
+its row — `/maintain`'s rules, put to the person — then the next night's run judged again.

@@ -25,10 +25,17 @@ lean, which still says the address is q-mhwbg3's to put to the person.
 
 Options:
 
-1. **The scrub covers it**: the commit-author address replaced the same way, same length, in the
-   20 files; the history not rewritten.
+1. **The scrub covers it**: the commit-author address replaced the same way, same length, in
+   every tracked file that holds it, in whatever form; the history not rewritten.
 2. **It does not**: the address stays, being public in every commit already; decision 2 gains a
    line saying so.
 
 Recommendation: 1 — the decision's words are *the person's email address*, and a case file
 is read by whoever reads the page, while a commit's metadata is read by those who go looking.
+
+2026-11-21, the judge of that night's run: the count is 25, not 20 — the pass counted one form,
+`Author: <name> <address>`; five more cases carry the address as `Автор коммита … <address>` or
+as `{ name = …, email = … }`: `historical-extraction`, `rf-an-install-met-three-frictions-a-cc2225fb09`,
+`rf-landed-changes-were-retold-in-pr-e3c7917198`, `rf-landed-instruction-framed-as-change-20261011-003803`,
+`rf-running-sessions-questions-were-f41b68a9b7`, each its `source.json`. Re-counted by the
+session holding the maintenance, by the configured address itself: 25, all under `docs/cases`.
