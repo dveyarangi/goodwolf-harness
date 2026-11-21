@@ -28,6 +28,11 @@
    список ролей")* — of a session that holds several roles, asked as one name or a name to each
    role. The keeper's reading: who holds which is written session by session, a name and its
    roles; a row bears the session's name, never one of its roles' in its place.
+6. **A seventh role, on a sixth session: Путь** — what the work does next and why: how the path
+   ahead is found and shown at a wake, and the product's roadmap; it reads the product document,
+   the tickets and the store and writes none of them *(the user, 2026-11-21, to that session; to
+   the keeper, of the line as shown: "Да, дописать")*. Written in L13 until the cut's own record
+   holds it; the cut is read with it: seven roles on six sessions.
 
 ## What the decisions change — 2026-11-20
 

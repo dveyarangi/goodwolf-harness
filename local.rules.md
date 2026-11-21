@@ -159,7 +159,8 @@ straw dog's binding or a `TODO q-N`; a ticket never.
   the store's role, named Хранилище, 2026-11-16; four standing sessions, Практика the fourth,
   2026-11-16; a mechanism's rules its own zone's, after one decision reached the person from two
   sessions, 2026-11-16; a fifth session, Аудит и обслуживание, the maintenance passing to it from
-  Практика, written here until the cut's own record holds it, 2026-11-20 and 2026-11-21
+  Практика, written here until the cut's own record holds it, 2026-11-20 and 2026-11-21; a
+  sixth session, Путь, written here the same way, 2026-11-21
 
 <rule>
 This tree keeps standing sessions, each titled `🐺 <role> — <its area>`. A session works its
@@ -173,6 +174,9 @@ person for its role.
 - **Практика**: the tickets, and the skills of the delivery ring from `/align` to `/verify`.
 - **Аудит и обслуживание**: the audits — an outside review kept as given, each finding given its
   home — and the maintenance: the records held in agreement and the pass with no person.
+- **Путь**: what the work does next and why — how the path ahead is found and shown at a wake,
+  and the product's roadmap. It reads the product document, the tickets and the store, and
+  writes none of them.
 - **Продукт**: the product mechanism and `docs/product.md`. Every session sends it what the
   person says of what the project is for, in the person's words, dated.
 - **Хранилище**: the shared state and its coordination — the question store and its push,

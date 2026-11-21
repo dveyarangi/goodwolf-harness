@@ -371,6 +371,9 @@ person for its role.
 - **Практика**: the tickets, and the skills of the delivery ring from `/align` to `/verify`.
 - **Аудит и обслуживание**: the audits — an outside review kept as given, each finding given its
   home — and the maintenance: the records held in agreement and the pass with no person.
+- **Путь**: what the work does next and why — how the path ahead is found and shown at a wake,
+  and the product's roadmap. It reads the product document, the tickets and the store, and
+  writes none of them.
 - **Продукт**: the product mechanism and `docs/product.md`. Every session sends it what the
   person says of what the project is for, in the person's words, dated.
 - **Хранилище**: the shared state and its coordination — the question store and its push,
