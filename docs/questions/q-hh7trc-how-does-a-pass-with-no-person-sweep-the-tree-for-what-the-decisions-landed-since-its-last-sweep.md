@@ -63,5 +63,6 @@ Lesser: a finding already held by the deferral q-q6xwpv told as new; ownership o
 work read two ways in one pass; a rung written by hand, not by `questions.py`. And outside the
 run: the RFC's G2 text still says "another running session's work", trailing decision 1.
 
-Waits on: the pass amended so an untold finding keeps the sweep unmarked and a finished run ends
-its row — `/maintain`'s rules, put to the person — then the next night's run judged again.
+G3 amended on the person's word, 2026-11-21 («да, записать G3»): a finding left neither repaired,
+told nor asked keeps the sweep unmarked, and the pass ends its own row last. Waits on the next
+night's run, judged again; then `/verify`, where the RFC's G2 and G3 texts are brought to the skill.

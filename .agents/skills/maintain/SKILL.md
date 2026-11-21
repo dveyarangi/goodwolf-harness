@@ -98,9 +98,10 @@ One pass over a declared scope. The scope decides which rules apply.
   and your recommendation; then `questions.py ask`.
 - **G3** Commit and push what you changed as the project's way of working with git says; then mark
   the sweep with `maintain.py --mark '*' decisions <outcome> <the commit --landed read through>`,
-  and commit and push the mark the same way. A pass that cannot finish its sweep, or whose commit
-  or push is refused, leaves the sweep unmarked; repairs a refused commit leaves undone are
-  discarded and asked of the person.
+  and commit and push the mark the same way. A pass that cannot finish its sweep — a finding left
+  neither repaired, told nor asked —, or whose commit or push is refused, leaves the sweep
+  unmarked; repairs a refused commit leaves undone are discarded and asked of the person. Last,
+  end your own row.
 - **G4** With no mark, start the record at the head and sweep nothing that night. A mark whose
   commit the history lacks is asked of the person, never written over by the pass.
 
