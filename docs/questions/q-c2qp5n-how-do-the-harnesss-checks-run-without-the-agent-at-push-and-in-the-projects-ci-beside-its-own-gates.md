@@ -46,8 +46,8 @@ of code untouched. The workflow file is a fourth ask — checked in CI as well, 
 checks, or only at push from this computer — the first proposed, the file written only on it.
 
 **Left to the build**, none of it a decision of this question: whether a recipient's verification
-set names the launcher in place of its own list of checks; the lowest Python core states, while
-`inject_rules.py` needs 3.13; and, in a tree with a method, the report made before anything is
+set names the launcher in place of its own list of checks; the lowest Python core states —
+since 35a9a16c no script calls `PurePosixPath.full_match`, and the checks pass on 3.12; and, in a tree with a method, the report made before anything is
 written listing the hook and the workflow file, the work of
 [q-d73veg](q-d73veg-how-does-the-install-read-a-tree-with-a-method-and-report-what-goodwolf-would-change-there-before.md).
 
@@ -246,8 +246,8 @@ hook.
 Must change: `harness.py`'s link step, which writes the hook beside the interpreter record, and
 its install, which asks and writes the workflow file; a new launcher and the workflow file as
 core's parts, declared in the harness mechanism's doc under *Install adds, uninstall removes*
-with its first-line claim, as the shape check holds; `inject_rules.py`, whose
-`PurePosixPath.full_match` holds the checks above 3.12, or a lowest Python core states; the
+with its first-line claim, as the shape check holds; a lowest Python core states —
+`inject_rules.py`'s `PurePosixPath.full_match`, which held the checks above 3.12, gone since 35a9a16c; the
 harness skill's install asks and *What the person hears*; this tree's own `.github/workflows/`.
 Must verify: `test_harness.py`'s link and install tests; that the host hooks' `hook.sh` and the
 interpreter record are untouched; that every check's report names the file of each diagnostic —
