@@ -1077,6 +1077,8 @@ every message names, in that line, the language of the person's latest message �
 last message that is not another session's or a subagent's — so every turn carries it, a turn
 another session started included. Shown to the person before it lands.
 
+**Disposition after the second strike:** the mechanical amendment refused by the person, 2026-11-21 ("не надо механизма пока"); open, struck twice.
+
 ## 72. The commits table and the counters line were put at the reply's end — 2026-10-25
 
 **Source cases, retrospective extraction:**
