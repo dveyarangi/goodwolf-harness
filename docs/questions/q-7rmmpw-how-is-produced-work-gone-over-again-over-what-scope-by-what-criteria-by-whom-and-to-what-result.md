@@ -52,5 +52,25 @@ the check, off, that would stand between a finding that a thing cannot be done a
 rule). Earlier the same day the person had thought of a research mechanism holding `/discover`
 and `/impact`
 ([q-uj5v4t](q-uj5v4t-what-does-discover-own.md)); this replaces that thought as to where the
-principle goes. An inventory of every place the instructions have someone other than the
-producer read, try or judge a thing is being made by a subagent, to be recorded here.
+principle goes.
+
+The inventory the person asked for, made the same day by a subagent, read-only:
+[judging-inventory-2026-11-21.md](../research/judging-inventory-2026-11-21.md) — thirty-nine
+places where the instructions have a thing read, tried or judged. What it shows:
+
+- Ten kinds of reader, in the tree's own words: a subagent the builder starts, which alone
+  returns a verdict; a fresh subagent an instruction is tried on, the case and not the judge; a
+  separate process with none of the context, which returns material; a subagent briefed with the
+  same bounds, which finds or repairs; a later session; the person; a script; a pass by the same
+  agent; another session; and a judge outside the generator, named and not built.
+- The principle names no moment: nothing says when a judge must happen. How a judge is made is
+  written into the principle's own sentence.
+- The step that closes work is the producer's own: `/verify` names no performer and the
+  implementer runs it; a plan validates itself, a skill's writer verifies it, a maintenance pass
+  decides itself.
+- One instruction stands in several homes in different words: the builder not judging in three,
+  a fresh reader given only one thing in four, the script's check in six.
+- [01-0030](../tickets/01-0030-a-second-look-is-a-pass.md) already frames it as a method, a
+  second pass on the same object, with its performer a parameter.
+
+Not decided: whether it becomes a mechanism, and when the align on it runs.
