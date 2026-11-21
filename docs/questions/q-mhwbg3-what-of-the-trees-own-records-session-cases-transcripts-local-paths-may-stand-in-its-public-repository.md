@@ -22,8 +22,12 @@ core from a repository of its own, as
    3982 places. The history still holds the earlier bytes; it is not rewritten. A run report's
    `case_sha256` names the case as it was run, before the scrub.
 
+2. The person's email address is scrubbed too *(the user, 2026-11-21: «Да, вычистить»)*: replaced
+   by a same-length placeholder in 64 tracked files, the API inputs and sources of `docs/cases`,
+   where the host's context carried it. The history is not rewritten.
+
 ## Where it stands
 
-Still open: the person's email address stands in 64 tracked files, most of them the API inputs of
-`docs/cases`, carried there from the host's context; and nothing keeps a new case from bringing
-the path back.
+Still open: the person's full name stands in four cases' transcripts; and nothing keeps a new case
+from bringing the path or the address back — a check that refuses them is the rule-failure
+register's to build, put to its keeper on 2026-11-20.
