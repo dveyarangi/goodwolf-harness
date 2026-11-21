@@ -1093,6 +1093,40 @@ class ANamedRow(Hooked):
 
         self.assertEqual((0, []), (status, json.loads(said)["diagnostics"]))
 
+    def test_a_name_of_several_words_is_written_and_read_back_whole(self) -> None:
+        """A row bears the name as the person gave it (S11)."""
+        status, said = self.said_to_sessions("--name", "Слияние и деплой", "--session", "s-alpha")
+
+        self.assertEqual((0, "s-alpha is Слияние и деплой\n"), (status, said))
+        self.assertEqual("s-alpha running 2026-09-29T12:00Z q-0004 q-0002,q-0001 as Слияние и деплой", self.line("s-alpha"))
+        self.assertEqual("Слияние и деплой", next(each.name for each in sessions.rows(self.root)[0] if each.tag == "s-alpha"))
+
+    def test_check_passes_a_row_named_in_several_words(self) -> None:
+        self.write(SESSIONS, "s-one running 2026-09-29T11:00Z q-0010 holds q-0010 as Слияние и деплой\n")
+
+        status, said = self.said_to_sessions("--check")
+
+        self.assertEqual((0, []), (status, json.loads(said)["diagnostics"]))
+
+    def test_a_name_of_several_words_off_a_silent_row_takes_its_position_and_hold(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004\ns-old running 2026-09-20T10:00Z q-0010 q-0003 holds q-0010 as Слияние и деплой\n")
+
+        status, said = self.said_to_sessions("--name", "Слияние и деплой", "--session", "s-alpha")
+
+        self.assertEqual((0, "s-alpha is Слияние и деплой, taken from s-old\n"), (status, said))
+        self.assertEqual("s-alpha running 2026-09-29T12:00Z q-0010 q-0003 holds q-0010 as Слияние и деплой", self.line("s-alpha"))
+        self.assertEqual("s-old ended 2026-09-29T12:00Z q-0010 q-0003", self.line("s-old"))
+
+    def test_a_name_spaced_out_of_the_rows_form_is_refused_and_writes_nothing(self) -> None:
+        self.write(SESSIONS, "s-alpha running 2026-09-29T11:30Z q-0004\n")
+
+        for name in (" Слияние и деплой", "Слияние и деплой ", "Слияние  и деплой"):
+            with self.subTest(name=name):
+                status, _ = self.said_to_sessions("--name", name, "--session", "s-alpha")
+
+                self.assertEqual(2, status)
+                self.assertEqual("s-alpha running 2026-09-29T11:30Z q-0004", self.line("s-alpha"))
+
 
 class TheInstallersLine(unittest.TestCase):
     """What the hooks' wrapper hands the store's hook at a session's start is printed last."""

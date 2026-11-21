@@ -64,8 +64,9 @@ GONE_AFTER = timedelta(days=7)
 # Where the fingerprint of each session's last window is kept, the session's sign of life; `None`
 # is the machine's temp folder.
 WINDOW_MEMORY: str | None = None
-# A session's name, as a row holds it: one word, the role's own language's letters included.
-_NAME = r"\w[\w-]*"
+# A session's name, as a row holds it and as the person gave it: words of letters, digits, hyphens
+# and underscores, the role's own language's letters included, one space between each two.
+_NAME = r"\w[\w-]*(?: \w[\w-]*)*"
 ROW_FORM = "`<tag> running|ended <YYYY-MM-DDTHH:MMZ> <q-id>|- [<q-id>,… up to four] [holds <q-id> | taken <q-id> by <tag>] [as <name>]`"
 _USAGE = (
     "usage: sessions.py --end --session <tag> | --hold <q-id> --session <tag> | --take <q-id> --session <tag>"
@@ -572,7 +573,7 @@ def take_name(root: Path, tag: str, name: str, now: datetime) -> tuple[Session, 
     writing nothing: a name out of the row's form, and a name on a running row seen within
     `SILENT_AFTER`, so two live chats never share one role (the user, 2026-11-16, q-q5i2um)."""
     if not re.fullmatch(_NAME, name):
-        _refuse(f"{name!r} is not a name a row can bear: one word of letters, digits, hyphens and underscores")
+        _refuse(f"{name!r} is not a name a row can bear: words of letters, digits, hyphens and underscores, one space between each two")
     held_row = held(root, tag)
     if held_row.name == name:
         return held_row, None, None, None
