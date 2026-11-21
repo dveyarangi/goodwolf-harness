@@ -145,5 +145,9 @@ says one message to each receiver, never one per piece of news, where S10 says o
 ([q-t5vmk3](q-t5vmk3-how-does-core-reach-a-recipient-tree-and-leave-it-working-at-a-first-install-and-at-each-update.md),
 *A case, 2026-11-21*).
 
-Not decided: whether what the receiver need not act on now is held and sent together, and until
-when; what still goes at once. The rule is the session mechanism's.
+**Decided** *(the user, 2026-11-21: "Да, группировать")*, of the keeper's proposal as put to
+them: what is urgent goes at once — a question, a break made in what the receiver runs, a
+collision on one file, what the receiver would go wrong without now; the rest is held and goes
+as one message to a receiver, when that receiver is written anyway or when silence would start
+to cost it. The rule's text is the session mechanism's, written and put to the person by the
+session that holds the store; until it lands S10 stands as written.
