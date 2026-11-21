@@ -127,3 +127,24 @@ migrated; the session that ran the migrations passed up what each met.
   character of the stamp, reads as an edit in core, and its update would be refused. The
   mechanism's doc says the announce line is set aside when a copy is compared; the comparison
   sets aside the repository line and relies on the stamps being equal. Not mended.
+
+## A case, 2026-11-21: an update lands a core rule beside the local rule it grew from
+
+The person, to the keeper: "S10 конфликтует с L10 в game-delta". Checked the same day in both
+trees. game-delta's L10, *What one session sends another*, is its own rule of 2026-11-11; core's
+S10 was written on 2026-11-16 from a count of messages taken partly in that tree, and reached it
+with its update to e603e2c1 on 2026-11-21. Since then its entry file holds both, and they
+disagree:
+
+| | game-delta's L10 | core's S10 |
+|---|---|---|
+| how many messages | one to each receiver, never one per piece of news | one per occasion |
+| a commit that took the other's lines | any of its lines, always, at once | its uncommitted lines, before the turn ends |
+| a step done | no "done" it did not ask for | a step of an agreed order done is written |
+
+L10 names no rule it overrides, so nothing says which side wins there. The update said nothing of
+it: an update compares files, never what a local rule and an arriving core rule each say, and the
+keeper's note of what an update brings named two other changes. What a tree is owed when a core
+rule arrives on ground its local rules already hold — told by the update, by core's keeper, or
+found by that tree's own sweep — is not decided. In game-delta the mend is that tree's keeper's
+and the person's.
