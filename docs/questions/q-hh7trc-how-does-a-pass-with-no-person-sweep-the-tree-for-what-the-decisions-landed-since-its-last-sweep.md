@@ -7,7 +7,7 @@
 - **rung** development: load-bearing, self-improvement: the method
 - **lean** 2026-11-17: the first night run stopped on G2 — another session's work told only when running; G2 amended on the user's word, a finding told to its session counts as swept; waits on the next night run read by a judge, then /verify and the close of 01-0011.0110.0100
 - **opened** 2026-10-25T20:00:44Z
-- **struck** 1, last 2026-11-17T07:25Z
+- **struck** 2, last 2026-11-21T04:19Z
 
 ## Where it stands
 
