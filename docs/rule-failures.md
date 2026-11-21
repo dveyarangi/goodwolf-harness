@@ -19,6 +19,40 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## A unit the list of roles had moved to another's zone was put to the person instead of handed over — 2026-11-21
+
+**Source, no case yet:**
+
+- Claude Code desktop · claude-opus-5-5 · 2026-11-21T04:18Z — the practice's session, as it reported the failure to the keeper; it gave the day alone, and the instant is that of the commit that released the unit, f875f5de, the nearest one recorded.
+- Claude desktop app · claude-fable-5-2 · 2026-11-21T03:10Z — the keeper's two messages that framed it, chat `1981de0e-7693-4931-aeab-4881f9fa0065`; the model is the one the session reported itself running on, not an attested backend version.
+
+**Goal missed:** work that falls in another session's zone reaches that session without costing
+the person a decision nobody's rule asks of them.
+
+**Rules in play, loaded:** L13, *"A session works its title's area and hands what falls in
+another's to that session"*; S9, on a unit *another* running session holds.
+
+**What happened.** L13 was amended on the person's word: the maintenance left the practice for a
+fifth session (89aaf70e). The practice's row still held the pass with no person. The keeper,
+telling both sessions of the change, wrote that the rule moves no unit and that "a held unit
+passes only on the person's word (S9)". The practice took that line as the rule and put the
+handover to the person as a decision. The person: "по какому правилу ты спросил передать ли
+работу, а не просто передал?" The unit was then released and told to the new session (f875f5de).
+
+**Why it did not fire.** Two readings, the sessions' own, no model-internal cause established.
+The keeper read S9 past its words: S9 holds a session from *taking* what another holds, and says
+nothing of a session letting go of its own; the keeper wrote the wider reading into a message as
+if it were the rule. The practice acted on a peer's framing without reading the rule it named.
+And L13 says what a session hands on by its area, with no word of a unit already held when the
+area moves.
+
+**Proposed amendment**, a rewording, the practice's, put to the person before it lands: "A unit
+this session holds that the list of roles puts in another's zone is released and told to that
+session, without asking the person." Where it stands — L13, or beside the take in S9, which is
+the session mechanism's — is settled with the text.
+
+**Disposition:** open.
+
 ## Skills name other installed mechanisms' skills, and the shape check passes — 2026-11-18
 
 **Source, no case yet:**
