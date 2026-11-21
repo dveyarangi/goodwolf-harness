@@ -73,4 +73,6 @@ places where the instructions have a thing read, tried or judged. What it shows:
 - [01-0030](../tickets/01-0030-a-second-look-is-a-pass.md) already frames it as a method, a
   second pass on the same object, with its performer a parameter.
 
-Not decided: whether it becomes a mechanism, and when the align on it runs.
+When the align on it runs: after `/pack` *(the user, 2026-11-21: "После /pack")* — the table of
+who holds which is changing, and whose this mechanism is settles there. Whether it becomes a
+mechanism is that align's.
