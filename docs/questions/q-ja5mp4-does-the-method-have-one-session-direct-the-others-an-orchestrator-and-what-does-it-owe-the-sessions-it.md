@@ -153,7 +153,13 @@ work is given to a session that holds another. A shift has two sizes: a role pas
 another session, no path moving; or paths pass from one role to another.
 
 **What carries a role.** Every role has a mechanism of its own; a role a project composes has
-the project's own. Its skill is the role's brief, which a successor reads without the chat that
+the project's own. *(Overturned 2026-11-21 as to "Every role has a mechanism of its own": a role
+is the mechanisms a session holds, so no mechanism is written for a role, and who holds which is
+one table in the local rules —
+[the plan](../rfc/01-0090.0020-the-cut-is-read-against-the-work.md#decided-by-the-person) of
+[01-0090.0020 the-cut-is-read-against-the-work](../tickets/01-0090.0020-the-cut-is-read-against-the-work.md),
+"Decided by the person".)*
+Its skill is the role's brief, which a successor reads without the chat that
 held the role before; its parts and what it produces are the role's zone; who reads what it
 produces are its seams with the other zones. A mechanism may be a skill and its doc and nothing
 more, and no skill is without one. Where what a role produces is itself a mechanism, as in this
@@ -235,6 +241,11 @@ store, the product, the practice; the landing on main is a role not opened while
 commits to main itself; the work on how rules are made is cut off the keeper into a session of
 its own once this whole is accepted
 ([q-dyc63i](q-dyc63i-which-standing-roles-does-this-tree-have-where-every-session-develops-the-harness-itself.md)).
+*(Overturned 2026-11-20 and 2026-11-21 as to "Four standing sessions": a fifth standing session
+holds a sixth role, Аудит и обслуживание — the audits and the maintenance, which leaves the
+practice —
+[q-mz6gd4](q-mz6gd4-where-does-a-session-of-this-tree-read-each-roles-zone-and-brief-and-which-session-holds-it.md#decisions),
+decision 4.)*
 
 **What is not its own.** A role's rights and skill set ([q-p4sdnv](q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md)); how sessions reach each
 other ([q-2gw24v](q-2gw24v-how-do-running-sessions-reach-each-other-beyond-one-working-directory.md)) and when one writes to another

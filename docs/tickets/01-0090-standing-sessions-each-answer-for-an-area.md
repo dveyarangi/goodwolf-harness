@@ -38,6 +38,13 @@ The order is the person's, 2026-11-20: a cut is derived by `/pack`'s own rules a
 by hand, so `/pack` stands before any cut is written
 ([q-mz6gd4](../questions/q-mz6gd4-where-does-a-session-of-this-tree-read-each-roles-zone-and-brief-and-which-session-holds-it.md#decisions)).
 
+*(Overturned 2026-11-21 as to "each in a mechanism of their own" in slice 2, and the same in the
+Outcome and the criterion on a shift: a role is the mechanisms a session holds, so no mechanism
+is written for a role, and who holds which is one table in the local rules —
+[the plan](../rfc/01-0090.0020-the-cut-is-read-against-the-work.md#decided-by-the-person) of
+[01-0090.0020](./01-0090.0020-the-cut-is-read-against-the-work.md), "Decided by the person". This
+ticket and its second slice are rewritten once the table's form stands in that plan.)*
+
 Kept here, and cut as a slice once its question is aligned: an install offers the default session
 — the one that holds the harness — and the offer is never a requirement. What a fresh tree is
 given at install is open

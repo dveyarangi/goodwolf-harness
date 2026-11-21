@@ -47,6 +47,12 @@ roles — each role has a mechanism of its own
 ([q-ja5mp4](q-ja5mp4-does-the-method-have-one-session-direct-the-others-an-orchestrator-and-what-does-it-owe-the-sessions-it.md),
 "What carries a role"), planned under
 [01-0090.0010 each-role-of-this-tree-stands-in-a-mechanism-of-its-own](../tickets/01-0090.0010-each-role-of-this-tree-stands-in-a-mechanism-of-its-own.md).)*
+*(Overturned 2026-11-21 as to "each role has a mechanism of its own": a role is the mechanisms a
+session holds, so no mechanism is written for a role, and who holds which is one table in the
+local rules —
+[the plan](../rfc/01-0090.0020-the-cut-is-read-against-the-work.md#decided-by-the-person) of
+[01-0090.0020 the-cut-is-read-against-the-work](../tickets/01-0090.0020-the-cut-is-read-against-the-work.md),
+"Decided by the person".)*
 Put to the person: a session of its own for the product, and the roles written meanwhile as a
 local rule wrapped as a straw dog.
 
@@ -173,4 +179,12 @@ The first cut of this tree, a sixth role on a fifth session, and how a session t
 several roles is named — one name and a list of its roles — are decided by the person and stand
 on [q-mz6gd4](q-mz6gd4-where-does-a-session-of-this-tree-read-each-roles-zone-and-brief-and-which-session-holds-it.md#decisions),
 decisions 1, 4 and 5. What the keeper keeps once the rules leave it is decision 1's cut.
+
+The person, 2026-11-21: a role is the mechanisms a session holds, so no mechanism is written for
+a role, and who holds which is one table in the local rules, a session by its name and the
+mechanisms it holds. It stands on
+[the plan](../rfc/01-0090.0020-the-cut-is-read-against-the-work.md#decided-by-the-person) of
+[01-0090.0020](../tickets/01-0090.0020-the-cut-is-read-against-the-work.md), "Decided by the
+person", and on
+[q-mz6gd4](q-mz6gd4-where-does-a-session-of-this-tree-read-each-roles-zone-and-brief-and-which-session-holds-it.md#decided-in-the-stores-session--2026-11-21).
 
