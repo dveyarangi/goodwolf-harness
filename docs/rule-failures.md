@@ -1664,6 +1664,29 @@ sessions run would hold it mechanically:
 **Disposition:** landed 2026-10-25 on the user's word, in the session mechanism's S5, whose work
 it governs, installed into `/commit`; the strike stays open on the hook.
 
+**Struck 2026-11-21 — a third time, S5 standing and not loaded.**
+
+**Source**
+
+- Claude Code · claude-opus-5-5 · 2026-11-21T14:33Z — chat `93035cf8-48af-476e-bdfd-ede52295255c`, no case yet; commit da60fe74.
+
+**Rule in play, not loaded:** S5, in `/commit`: *"Commit with the paths named, `git commit --
+<file>…` … never … a bare `git commit` — in a tree where other sessions run, the index is
+shared."*
+
+**What happened.** The store's session staged its two files by name with `git add` and ran a bare
+`git commit` from the shell, without `/commit`. Хранитель had `git mv` of `.agents/skills/setup-devops`
+staged in the shared index; the move went out under the store's subject and was pushed, an hour
+before Хранитель's own commit made the name inside follow. Хранитель told the store's session.
+
+**Why it did not fire.** S5 lives only in `/commit`, and a commit run straight from the shell
+never reads it: the rule sits where the act is not. The hook this entry left open would have
+refused the command whoever ran it.
+
+**Proposed amendment, mechanical**, the one the second strike left open: a host hook before a
+shell command refuses `git commit` that names no paths after `--`, and `git add` ahead of a commit
+is left to it. Shown to the person before it lands.
+
 ## 55. A decision abandoned twelve days earlier was carried as waiting in six replies running — 2026-10-20
 
 **Source cases, retrospective extraction:**
