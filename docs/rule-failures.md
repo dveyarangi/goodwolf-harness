@@ -1002,7 +1002,12 @@ be done or read, before the person is told it — refused for now, 2026-11-21: "
 no mechanism yet to own it — the one that will own `/discover`
 ([q-uj5v4t](questions/q-uj5v4t-what-does-discover-own.md)) is its likeliest home. The person's lighter
 one, the same day: "при нельзя предлагать /disсover" — the agent says what the finding rests on
-and offers the pass, and the person decides whether it runs. Its text is put to them.
+and offers the pass, and the person decides whether it runs. Its first text, a moment in
+`/discover`'s description and a sentence in its body, was refused the same day: "ты вписываешь
+правило в описание скила, а там должны быть только моменты … может лучшим решением было бы
+вписать правило в мета-правила - правило же о том как проверять себя?" — the occasion comes with
+no skill open, so the rule stands where every session reads it. A sentence for the entry file's
+general rules is put to them.
 
 ## 73. Replies left the person's language mid-align, twice — 2026-10-25
 
