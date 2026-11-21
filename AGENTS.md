@@ -365,8 +365,9 @@ person for its role.
   up, what core carries down — the entry file, the local rules, the rule-failure register and the
   journal of the way of working; and, until a session is cut off for them, the rules no zone's
   mechanism owns and how the person is spoken to.
-- **Практика**: the tickets, the maintenance, and the skills of the delivery ring from `/align`
-  to `/verify`.
+- **Практика**: the tickets, and the skills of the delivery ring from `/align` to `/verify`.
+- **Аудит и обслуживание**: the audits — an outside review kept as given, each finding given its
+  home — and the maintenance: the records held in agreement and the pass with no person.
 - **Продукт**: the product mechanism and `docs/product.md`. Every session sends it what the
   person says of what the project is for, in the person's words, dated.
 - **Хранилище**: the shared state and its coordination — the question store and its push,

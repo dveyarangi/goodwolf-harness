@@ -19,6 +19,11 @@
 3. **`/pack` answers for the cut's record**: it says where the cut is written, in what form, who
    reads it and at which moment *(the user, 2026-11-20: "pack ответственный и должен указывать
    куда это вообще записывается и как, и кто читатель, где момент чтения")*.
+4. **A sixth role, on a fifth session: Аудит и обслуживание** — the audits and the maintenance,
+   the maintenance passing to it from Практика *(the user, 2026-11-20, to that session: «аудит и
+   обслуживание»; to the keeper, 2026-11-21, of writing it into the list of roles now: "да")*. It
+   is written in L13 of the local rules until the cut's own record holds it, and the cut of
+   decision 1 is read with it: six roles on five sessions.
 
 ## What the decisions change — 2026-11-20
 
