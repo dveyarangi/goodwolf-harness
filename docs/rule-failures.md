@@ -1079,6 +1079,30 @@ another session started included. Shown to the person before it lands.
 
 **Disposition after the second strike:** the mechanical amendment refused by the person, 2026-11-21 ("не надо механизма пока"); open, struck twice.
 
+**Struck 2026-11-21 — a third time, under L9 as it stands.**
+
+**Source**
+
+- Claude Code · claude-opus-5-5 · 2026-11-21T05:30Z — chat `93035cf8-48af-476e-bdfd-ede52295255c`, no case yet.
+
+**Rule in play, loaded:** L9: *"Speak the way Lem wrote, in the language of the person's message."*
+
+**What happened.** The person asked, in Russian, for the earlier English findings to be told again
+in Russian: "просто обьясни по русски что ты до этого нарыл". The context was compacted; the
+session answered from the compaction's summary, written in English, and the answer came out in
+English. The person: "бро, что происходит".
+
+**Why it did not fire.** The same drift, with the person's message itself in front of the agent:
+the summary that replaced the conversation was the longest text in reach, and the reply took its
+language. A turn after compaction is a third place the pull comes from, beside another session's
+message and a subagent's report.
+
+**Proposed amendment:** the mechanical one of the second strike, which this strike would also have
+been caught by; refused by the person earlier the same day, so not put again unasked.
+
+**Disposition after the third strike:** registered on the person's word, 2026-11-21 ("срыв в
+реестр запиши"); open, struck three times.
+
 ## 72. The commits table and the counters line were put at the reply's end — 2026-10-25
 
 **Source cases, retrospective extraction:**
