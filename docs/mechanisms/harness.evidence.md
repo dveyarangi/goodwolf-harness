@@ -116,6 +116,16 @@ After the four: five seconds, 65 files, three gates.
   for a tree that has not named an owner yet. What changes for such a tree is its gate: the
   shape check says its own mechanism names no owner until one line is written.
 
+## Refused, 2026-11-21: the skill lists not every difference a check sets aside
+
+The install skill names what a check or an update sets aside rather than reading as an edit in
+core: the repository line, the local block, the block of a mechanism of the tree's own, a core
+mechanism's block that differs by the tree's settings alone. The installer sets aside one more,
+a `.py` line that differs by a `TODO`'s question id alone, and the skill does not name it. Adding
+it was put to the person as drift and refused — "Не надо" *(the user, 2026-11-21)*: the script
+does it, so a reader of the skill never meets such a line reported as an edit, and what a script
+already does for the reader stays out of the rule. The list is incomplete, not wrong, and stays.
+
 ## The prior corpus
 
 One copy of core existed outside this repository before the mechanism did: frost_map, installed
