@@ -15,6 +15,21 @@ short commit otherwise — so a recipient announces which core it holds and the 
 back. The hand-bumped version is the origin's, whose entry file cannot carry its own commit, and
 this record keeps recording what each bump changed.
 
+## v139 — 2026-11-21
+
+**Messages between sessions are grouped** — S10 no longer asks one message per occasion. A
+question, a break made in what the receiver runs, uncommitted work in a file it works in or a
+commit that took its uncommitted lines, and what it would go wrong without now go at once; the
+rest — a step of an agreed order done, the person's settled decision in its area, a change
+landed that it carries further — is held and goes as one message to that session, when it is
+written anyway, when holding it longer would cost it, or before the sender falls quiet. The
+person's decision *(the user, 2026-11-21)*, after the keeper's day was counted: seventeen
+messages, fourteen of them waiting for nothing, each starting a turn in its receiver, with never
+two to one receiver in a turn — the count of 2026-11-15 had already shown sessions asking for
+news in one batch. Written by the session that holds the store and tried by it on a fresh reader
+across eight events of a working day; the reader's one gap, the sender falling quiet, went into
+the text. Recorded on the question of when a session writes to another.
+
 ## v138 — 2026-11-17
 
 **The principle on the reader names both readers** — *A capable reader* becomes *Two readers*.

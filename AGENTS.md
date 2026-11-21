@@ -1,6 +1,6 @@
 # Entry contract
 
-Entry contract: v138, 2026-11-17.
+Entry contract: v139, 2026-11-21.
 
 ## General rules
 
