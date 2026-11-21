@@ -1055,6 +1055,26 @@ session's message or the agent's own last text is in."*
 
 **Disposition after the strike:** the amendment refused by the person, 2026-11-15 ("Не надо"), no reason given; open, struck once.
 
+**Struck 2026-11-21 — a second time, under L9 as it stands.**
+
+**Source**
+
+- Claude Code · claude-opus-5-5 · 2026-11-21T05:16Z — chat `93035cf8-48af-476e-bdfd-ede52295255c`, no case yet.
+
+**Rule in play, loaded:** L9: *"Speak the way Lem wrote, in the language of the person's message."*
+
+**What happened.** The person wrote in Russian throughout. The store's session, after a run of
+other sessions' messages and subagents' reports, all English, answered three of them in English;
+the person: "а че мы на английский перешли?".
+
+**Why it did not fire.** The same drift: a turn started by another session's message has no
+person's message in it, and the reply took the language of the text in front of it.
+
+**Proposed amendment, mechanical**, the second strike asking one: the hook that draws the window at
+every message names, in that line, the language of the person's latest message — read from the
+last message that is not another session's or a subagent's — so every turn carries it, a turn
+another session started included. Shown to the person before it lands.
+
 ## 72. The commits table and the counters line were put at the reply's end — 2026-10-25
 
 **Source cases, retrospective extraction:**
