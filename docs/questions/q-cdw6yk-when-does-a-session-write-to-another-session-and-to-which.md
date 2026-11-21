@@ -122,3 +122,28 @@ The user, the same day, of where the block's detail goes: "всю необход
 должна нести agents.md, но сжато и с ссылками". So the detail does not leave for a skill a
 session must remember to open: the entry file carries the whole instruction a session needs at
 the moment, compressed, and links what it compresses.
+
+## The person, 2026-11-21: should messages be grouped
+
+The user, to the keeper, after a day of that session's messages: "а вот мы посылаем сообщения
+каждый раз, действительно, а не стоит как-то группировать". Not a decision; a question on S10's
+"one message per occasion".
+
+What the keeper's own day shows, counted from its chat, 2026-11-20 to 2026-11-21: 17 messages
+sent — six to the store's session, five to game-delta's keeper, three to the audit's, two to the
+practice's, one to the product's. Fourteen of them waited for nothing: a change landed, a
+decision recorded, a finding given its home. Each started a turn in its receiver. Within one
+turn there was never more than one message to a receiver; the seventeen are seventeen occasions,
+as the rule asks.
+
+What the count of 2026-11-15 already said
+([inter-session-messages-2026-11-15.md](../research/inter-session-messages-2026-11-15.md)): the
+surveyed sessions' common complaint was rules and news arriving one by one, several a day; one
+batched message per session saying what changed for it was among the messages worth sending; the
+sessions asked for batching, and it was "the sessions' ask, not yet his". game-delta's own L10
+says one message to each receiver, never one per piece of news, where S10 says one per occasion
+([q-t5vmk3](q-t5vmk3-how-does-core-reach-a-recipient-tree-and-leave-it-working-at-a-first-install-and-at-each-update.md),
+*A case, 2026-11-21*).
+
+Not decided: whether what the receiver need not act on now is held and sent together, and until
+when; what still goes at once. The rule is the session mechanism's.
