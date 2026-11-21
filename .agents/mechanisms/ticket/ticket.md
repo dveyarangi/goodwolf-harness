@@ -44,7 +44,7 @@ carries it. A rule with a name and date is that person's to amend, through `/ali
 
 | rule | decided by |
 |---|---|
-| P1 — finished is every box checked, `/verify` included | the user, 2026-09-06 |
+| P1 — finished is every box checked, the verification box included | the user, 2026-09-06 |
 | P2, P3 — the pair closes in one invocation; the header is the maintainer's | the install RFC of 2026-09-06, which specified the mover |
 | P5 — the records are checked by `tickets.py` | the user, 2026-09-08, owed to `/maintain`'s M1 |
 | P6 — an RFC is named by its ticket | the user, 2026-09-08 |
