@@ -141,11 +141,12 @@ for them. What each message carries: the messages shelf,
 ## S11 — a session that holds a role names its row
 
 - **target** `.agents/skills/recall/SKILL.md`
-- **authority** the user, 2026-11-16: a row bears the name of the role its session holds, is not ended by silence and not removed; the step's text, the same day
+- **authority** the user, 2026-11-16: a row bears the name of the role its session holds, is not ended by silence and not removed; the step's text, the same day; the session's own name, never a role's, the user, 2026-11-21
 
 <rule>
-A session that holds a role writes the role's name on its row before anything else: `sessions.py
---name <name> --session <tag>`, the name as the person gave it. Taking a name from another row
-takes that row's position and hold with it. A refusal naming a running row means another live chat
-holds the name: stop, and tell the person.
+A session that holds a role writes its own name on its row before anything else:
+`sessions.py --name <name> --session <tag>`, the name the person gave the session, never one of
+its roles' in its place. A new chat taking over a role's session takes, with the name, the
+question its predecessor stood on and the work it held. Refused because the predecessor is
+still alive, two chats bear one name: stop, and tell the person.
 </rule>

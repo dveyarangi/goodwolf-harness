@@ -101,7 +101,7 @@ for this mechanism.
 | a session concludes: its record written, its leans, its row ended | `.agents/skills/conclude/SKILL.md` | |
 | a session that holds a role is not concluded; it drops its role on the person's word | `.agents/skills/conclude/SKILL.md` | |
 | a session wakes and reads where the work stands | `.agents/skills/recall/SKILL.md` | |
-| a session that holds a role writes the role's name on its row, at its wake | `.agents/skills/recall/SKILL.md` | |
+| a session that holds a role writes its own name on its row, at its wake | `.agents/skills/recall/SKILL.md` | |
 | a conversation starts with its recall, and one the host resumes under a new id is the same session | `AGENTS.md` | |
 | a row bearing no name, ended for seven days, is removed | `.agents/scripts/gw/sessions.py` | |
 | a session that holds a role names its row, and the name passes with the row | `.agents/scripts/gw/sessions.py` | |

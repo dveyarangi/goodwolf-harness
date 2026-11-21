@@ -36,10 +36,11 @@ it, and place it with `at`; then read the path as this skill says.
 session, and is for a host whose hook registered none. Take from it where the other sessions
 stand, and re-rank nothing another running session is on.
 
-**S11** A session that holds a role writes the role's name on its row before anything else: `sessions.py
---name <name> --session <tag>`, the name as the person gave it. Taking a name from another row
-takes that row's position and hold with it. A refusal naming a running row means another live chat
-holds the name: stop, and tell the person.
+**S11** A session that holds a role writes its own name on its row before anything else:
+`sessions.py --name <name> --session <tag>`, the name the person gave the session, never one of
+its roles' in its place. A new chat taking over a role's session takes, with the name, the
+question its predecessor stood on and the work it held. Refused because the predecessor is
+still alive, two chats bear one name: stop, and tell the person.
 </installed>
 
 <installed by="maintain">
