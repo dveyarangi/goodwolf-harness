@@ -4,7 +4,7 @@
 - **part of** q-m6unv4
 - **state** open
 - **rung** development: the whole product
-- **lean** The decision of 2026-10-25 remains: the roadmap is made in the pathfinder session, not handed to the product session; the product answers carry no order. This session decided no new roadmap ordering; its selected commit-hook task was rolled back and is not held.
+- **lean** the user, 2026-11-21: the roadmap is a record of its own, docs/roadmap.md, kept by the Путь session, ordering the product's answers and the holes behind the front page's promises in the person's words; the path stands its candidates by it; the order itself, open
 - **opened** 2026-10-25T19:34:35Z
 - **struck** 1, last 2026-10-26T09:05Z
 
@@ -69,3 +69,13 @@ no one: a session learning the entry file moved (01-0018.0010, Ready), the check
 maintenance named and scheduled (01-0010.0180), and the holes with no ticket — a change pushed to
 what stood on it, wrapping held by more than attention, the trigger for an outside opinion.
 
+## Decisions
+
+1. **The roadmap is a record of its own, kept by the session holding the Путь role** *(the user,
+   2026-11-21)*: the person's order of the product's answers and of the holes behind the front
+   page's promises, each line in their words and dated; the path stands its candidates by it, a
+   piece of work taking the place of what it serves. It orders product answers, not the method's
+   records, and names the product document's rows without restating them. Not: the written queue
+   again — an order of tickets; nor an order kept in the product document — the product session's
+   record, which carries no order; nor the order left unwritten, as it stood from 2026-10-25, each
+   session recommending from nothing → [the roadmap](../roadmap.md).

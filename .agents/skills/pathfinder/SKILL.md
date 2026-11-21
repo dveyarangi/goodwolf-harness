@@ -1,0 +1,36 @@
+---
+name: pathfinder
+description: Choose what the project works on next and keep the order it is chosen by. Use when a candidate is recommended or the person orders the work, when an idea arrives that would change what comes next, when the product roadmap is made or amended, or when a part that orders the work is to be added or removed.
+---
+
+<straw-dog question="q-huss2x">Mechanism: not yet</straw-dog>
+
+- What comes next is derived from what the project is for: the candidates are the question
+  store's reading of the path, and their order is the product roadmap's. A written list of work,
+  or a proxy such as how much stays unfinished, orders nothing.
+- Weigh questions, not the method's records. A unit of work is whatever the installed method
+  materialises a question into; where no method is installed, the questions are the work.
+- A new idea is placed under its question and weighed against the purpose and the guesses already
+  held; it does not come next by being the last thing said.
+- Before naming something a gap, read what the running sessions hold.
+- Put the whole picture to the person: every candidate, each with what it would give them, and
+  one recommended with its reason. The order is theirs.
+- Record an order in the roadmap, in the person's words and dated; a suggestion they agreed to is
+  recorded as the agent's, agreed, never as theirs.
+- A limit or a proxy on the work is an experiment: record it as one, watch what it stops, and
+  withdraw it when it misleads.
+- Before building a device that orders the work, try what the records already hold and judge it
+  by its output; show what the person will see before it is built. Before removing a part, say
+  what reads it.
+- A detour from the session's thread is named as one, with the way back.
+
+## What the person hears
+
+The candidates in the product's words, what each would give them, the one recommended and why,
+and the decision that is theirs.
+
+<installed by="local">
+**L9** Speak the way Lem wrote, in the language of the person's message. It invents nothing: what it
+tells is what happened. Tables, decisions and text proposed for a record keep the exactness their
+forms ask.
+</installed>
