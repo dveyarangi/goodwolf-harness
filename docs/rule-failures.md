@@ -79,8 +79,8 @@ beside a candidate.
 **Proposed amendment**, mechanical: the path's reading names, beside each candidate, the running
 session whose position or held unit lies over or under it.
 
-**Disposition:** landed 2026-11-22 by the store's session, a script below the dial, in the commit
-that closes this entry: under each candidate, a Ready ticket or a struck question, the path names
+**Disposition:** landed 2026-11-22 by the store's session, a script below the dial, in b92d87c3:
+under each candidate, a Ready ticket or a struck question, the path names
 every running session whose position or held unit is on it, under it or over it, by its name where
 it bears one, a position on a root left out. The roadmap's rows are not read by the path yet, so
 they carry no such line; closed.
