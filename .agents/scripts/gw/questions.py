@@ -1499,14 +1499,16 @@ def _or_none(lines) -> list[str]:
 
 @dataclass(frozen=True)
 class _Ahead:
-    """What the path reads: the live store, the live tickets, the product document's coverage and
-    the straw dogs' bindings — each mechanism's records through that mechanism's reader."""
+    """What the path reads: the live store, the live tickets, the product document's coverage, the
+    straw dogs' bindings and the running sessions — each mechanism's records through that
+    mechanism's reader."""
 
     live: dict[str, Entry]
     index: dict[str, Entry]
     tickets: list
     coverage: dict[str, str]
     bindings: list[str]
+    running: list[sessions.Session]
 
     @staticmethod
     def read(root: Path) -> "_Ahead":
@@ -1517,7 +1519,8 @@ class _Ahead:
         index = read_store(root).index
         live = {identity: read for identity, read in index.items() if not read.archived}
         bindings = [identity for _, _, identity in question_bindings(root)]
-        return _Ahead(live, index, tickets.check(root).records, product.coverage_words(root), bindings)
+        running = [held for held in sessions.rows(root)[0] if held.running]
+        return _Ahead(live, index, tickets.check(root).records, product.coverage_words(root), bindings, running)
 
     # --- the work in hand ---
 
@@ -1579,10 +1582,34 @@ class _Ahead:
     def ticket_lines(self, ticket) -> list[str]:
         question = _answers_of(ticket)
         waiting = [_title_of(other) for other in self.tickets if _stem(ticket) in (other.fields.get("Depends on") or "")]
-        return [self._ticket_line(ticket), self._reasons(question, waiting)]
+        return [self._ticket_line(ticket), self._reasons(question, waiting), *self._beside(question)]
 
     def question_lines(self, read: Entry) -> list[str]:
-        return [f"    {read.question} — {read.identity}", self._reasons(read.identity, [])]
+        return [f"    {read.question} — {read.identity}", self._reasons(read.identity, []), *self._beside(read.identity)]
+
+    def _beside(self, identity: str | None) -> list[str]:
+        """The running sessions already at a candidate, so it is never read as a gap with work
+        beside it: each whose position or held unit is the candidate, under it or over it, by its
+        name where it bears one. A position on a root is over everything and says nothing."""
+        found = []
+        for held in self.running:
+            where = [self._relation(at, identity) for at in (held.current, held.holds) if at]
+            where = [relation for relation in where if relation]
+            if where:
+                found.append(f"{held.name or held.tag} ({min(where, key=('on', 'under', 'over').index)})")
+        return [f"      beside {', '.join(found)}"] if found else []
+
+    def _relation(self, position: str, identity: str | None) -> str | None:
+        read = self.index.get(position)
+        if not identity or read is None or read.parent is None:
+            return None
+        if position == identity:
+            return "on"
+        if _within(self.index, position, identity, strictly=True):
+            return "under"
+        if _within(self.index, identity, position, strictly=True):
+            return "over"
+        return None
 
     def _reasons(self, identity: str | None, waiting: list[str]) -> str:
         """Why a candidate stands: the answer it serves and how much of it is built, how often it

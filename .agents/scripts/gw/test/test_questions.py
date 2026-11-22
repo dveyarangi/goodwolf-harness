@@ -653,6 +653,54 @@ class ThePathAhead(RepositoryCase):
         )
         self.assertIn("serves A2 Rules installed, unread, 1 open", " ".join(ready))
 
+    def test_a_candidate_names_the_running_session_standing_on_it_by_its_name(self) -> None:
+        self.a_tree()
+        self.write(SESSIONS, "s-practice running 2026-09-29T11:00Z q-0002.0002 as Практика\n")
+
+        ready = self.under(self.path()[1], "ready")
+
+        self.assertEqual(
+            [
+                "    A ticket closes — 01-0020 → q-0002.0002",
+                "      serves unread · struck 0 · 0 straw dogs · unlocks After close",
+                "      beside Практика (on)",
+                "    The cap is read — 01-0030 → q-0002.0005",
+                "      serves A1 The question store, in progress, 3 open · struck 0 · 2 straw dogs · unlocks —",
+            ],
+            ready[1:],
+        )
+
+    def test_a_candidate_names_a_session_over_it_or_under_it_and_never_one_on_a_root_or_ended(self) -> None:
+        self.a_tree()
+        self.question("q-0002.0002.0001", "Who closes a ticket?", parent="q-0002.0002", owner="01-0060-who-closes")
+        self.write("docs/tickets/01-0060-who-closes.md", path_ticket("Who closes", "Ready", "q-0002.0002.0001"))
+        self.write(
+            SESSIONS,
+            "s-under running 2026-09-29T11:00Z q-0003 holds q-0002.0002.0001\n"
+            "s-root running 2026-09-29T11:00Z q-0002\n"
+            "s-gone ended 2026-09-29T11:00Z q-0002.0002\n"
+            "s-mid running 2026-09-29T11:00Z q-0002.0002\n",
+        )
+
+        lines = self.path()[1]
+
+        ready = self.under(lines, "ready")
+        closes = ready.index("    A ticket closes — 01-0020 → q-0002.0002")
+        who = ready.index("    Who closes — 01-0060 → q-0002.0002.0001")
+        self.assertEqual("      beside s-mid (on), s-under (under)", ready[closes + 2])
+        self.assertEqual("      beside s-mid (over), s-under (on)", ready[who + 2])
+        self.assertNotIn("s-root", "\n".join(lines))
+        self.assertNotIn("s-gone", "\n".join(lines))
+
+    def test_a_struck_question_names_the_session_over_it(self) -> None:
+        self.a_tree()
+        self.question("q-0002.0004.0001", "Does the path read twice?", parent="q-0002.0004")
+        self.write(SESSIONS, "s-path running 2026-09-29T11:00Z q-0002.0004.0001\n")
+
+        struck = self.under(self.path()[1], "most struck, no ticket, past those touched lately:")
+
+        self.assertIn("      beside s-path (under)", struck)
+
     def test_the_most_struck_question_with_no_ticket_is_a_candidate_and_a_root_never_is(self) -> None:
         self.a_tree()
 
