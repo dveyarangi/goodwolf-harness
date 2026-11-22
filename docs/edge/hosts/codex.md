@@ -58,3 +58,5 @@
   `session_id` and `turn_id`, the session's id unchanged across it. The documentation is silent on
   all of it.
 - **Messaging** — unobserved: whether one session can message another in this host is not known.
+- **Entry notice** — unobserved; whether the host reads `AGENTS.md` again after a compaction is
+  not documented, and the line takes it so, as it does where that is documented.

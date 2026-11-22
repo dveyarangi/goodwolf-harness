@@ -2198,7 +2198,15 @@ HOOK_COMMAND = 'git -c "alias.gw-hook=!sh .agents/scripts/gw/hook.sh" gw-hook'
 # Stands in for the store's script: says what it was asked and what it was handed.
 ECHOING_QUESTIONS = "import sys\nprint('asked', ' '.join(sys.argv[1:]), 'handed', sys.stdin.read())\n"
 NOTICING_QUESTIONS = "import os, sys\nprint('noticed', repr(os.environ.get('GW_NOTICE', '')), 'handed', sys.stdin.read())\n"
-LINE_SAYING_INJECTOR = "import sys\nprint('out of step' if sys.argv[1:] == ['--check', '--line'] else 'asked ' + ' '.join(sys.argv[1:]))\n"
+# The same, in ASCII: what crosses the wrapper's environment is compared letter for letter.
+ASCII_NOTICING_QUESTIONS = "import os, sys\nprint('noticed', ascii(os.environ.get('GW_NOTICE', '')), 'handed', sys.stdin.read())\n"
+# Stands in for the harness mechanism's hook line: says, in letters outside ASCII, what it was
+# asked and what it was handed.
+SAYING_ENTRY_NOTICE = (
+    "import sys\nsys.stdout.reconfigure(encoding='utf-8', newline='\\n')\n"
+    "print('entry file changed — ✋ правило')\nprint('asked', ' '.join(sys.argv[1:]), 'of', sys.stdin.read())\n"
+)
+LINE_SAYING_INJECTOR ="import sys\nprint('out of step' if sys.argv[1:] == ['--check', '--line'] else 'asked ' + ' '.join(sys.argv[1:]))\n"
 LINKING_HARNESS = "import sys\nprint('linked ' + ' '.join(sys.argv[1:]))\n"
 
 
@@ -2307,6 +2315,56 @@ class TheWrapper(RepositoryCase):
 
         self.assertEqual(0, started.returncode, started.stderr)
         self.assertTrue(started.stdout.startswith("noticed ''"), started.stdout)
+
+    def test_the_harness_line_is_run_on_the_payload_and_what_it_prints_is_handed_to_the_stores_hook_whole(self) -> None:
+        self.record(sys.executable)
+        self.write(".agents/scripts/gw/questions.py", ASCII_NOTICING_QUESTIONS)
+        self.write(".agents/scripts/gw/entry_notice.py", SAYING_ENTRY_NOTICE)
+
+        messaged = self.run_hook("claude-code", '{"hook_event_name": "UserPromptSubmit"}')
+
+        self.assertEqual(0, messaged.returncode, messaged.stderr)
+        self.assertEqual(
+            "noticed "
+            + ascii('entry file changed — ✋ правило\nasked --hook claude-code of {"hook_event_name": "UserPromptSubmit"}')
+            + ' handed {"hook_event_name": "UserPromptSubmit"}',
+            messaged.stdout.strip(),
+        )
+
+    def test_at_a_start_the_harness_line_follows_the_installers(self) -> None:
+        self.record(sys.executable)
+        self.write(".agents/scripts/gw/questions.py", ASCII_NOTICING_QUESTIONS)
+        self.write(".agents/scripts/gw/inject_rules.py", LINE_SAYING_INJECTOR)
+        self.write(".agents/scripts/gw/entry_notice.py", SAYING_ENTRY_NOTICE)
+
+        started = self.run_hook("codex", '{"hook_event_name": "SessionStart"}')
+
+        self.assertEqual(0, started.returncode, started.stderr)
+        self.assertTrue(started.stdout.startswith("noticed 'out of step\\nentry file changed"), started.stdout)
+
+    def test_a_harness_line_that_fails_hands_nothing_and_fails_nothing(self) -> None:
+        self.record(sys.executable)
+        self.write(".agents/scripts/gw/questions.py", ASCII_NOTICING_QUESTIONS)
+        self.write(".agents/scripts/gw/entry_notice.py", "import sys\nsys.exit('the line broke')\n")
+
+        messaged = self.run_hook("claude-code", '{"hook_event_name": "UserPromptSubmit"}')
+
+        self.assertEqual(0, messaged.returncode, messaged.stderr)
+        self.assertEqual("noticed '' handed {\"hook_event_name\": \"UserPromptSubmit\"}", messaged.stdout.strip())
+        self.assertNotIn("the line broke", messaged.stderr)
+
+    def test_a_hosts_call_before_a_tool_runs_no_harness_line(self) -> None:
+        self.record(sys.executable)
+        self.write(".agents/scripts/gw/entry_notice.py", "from pathlib import Path\nPath('line-ran').write_text('')\n")
+
+        done = subprocess.run(
+            f"{HOOK_COMMAND} claude-code before-tool", shell=True, cwd=self.root / "sub",
+            input='{"hook_event_name": "PreToolUse", "tool_input": {"command": "git commit -m x"}}',
+            capture_output=True, encoding="utf-8",
+        )
+
+        self.assertEqual(0, done.returncode, done.stderr)
+        self.assertFalse((self.root / "line-ran").exists())
 
     def test_without_a_record_it_names_the_step_in_the_hosts_form_and_holds_nothing_back(self) -> None:
         for host, gone in (("claude-code", None), ("cursor", "C:/gone/python.exe")):

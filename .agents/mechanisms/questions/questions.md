@@ -144,7 +144,7 @@ roles, is an open question of the store.
 | test harness | `.agents/scripts/gw/test/repository.py` | `mechanism-shape` |
 | the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |
 | the installer | `.agents/scripts/gw/inject_rules.py` | `mechanism-shape` |
-| the hooks' wrapper — a host's hooks launched by a Git alias, Git's `pre-push` by the clone's hook file — which runs the store's hook and hands it the installer's line | `.agents/scripts/gw/hook.sh` | `mechanism-shape` |
+| the hooks' wrapper — a host's hooks launched by a Git alias, Git's `pre-push` by the clone's hook file — which runs the store's hook and hands it what the other mechanisms' hook lines print: the installer's, the harness mechanism's | `.agents/scripts/gw/hook.sh` | `mechanism-shape` |
 | the interpreter record the wrapper reads, made by the link step | `.agents/scripts/gw/harness.py` | `harness` |
 | the rows' script, for each session's position | `.agents/scripts/gw/sessions.py` | `session` |
 | the mover, which the migration moves the entries with | `.agents/scripts/gw/move_doc.py` | `ticket` |

@@ -10,7 +10,9 @@ A **host** runs an agent's session and reads the tree for it. The hosts met are 
 **Promised to whoever works in a host:** the same entry file, the same skills and the same rules
 in every host reached; the question store's wake at session start and its window before every
 message where the host carries them, with the entry file's rule as the floor where it does not;
-and a hook that never fails the host, so a problem becomes a line of context
+with a message, where the host carries it, the passages of the entry file that changed under the
+session since its context took the file in, once, or a request to read it again where they are
+too many; and a hook that never fails the host, so a problem becomes a line of context
 ([architecture](../architecture.md), *the store*).
 
 **Required of a host, to be reached in full:**
@@ -82,8 +84,18 @@ Each sidecar names its own parts.
 - A session is registered under the host's own session id — *validated by:* live —
   **Registration**
 - In a host whose start hook reaches the agent, the wake's read arrives before its first command,
-  with the installer's one line last when the tree's installed blocks are out of step with its
+  led by the installer's one line when the tree's installed blocks are out of step with its
   rules files and settings — *validated by:* live — **Wake**
+- A running session whose entry file changed is given, at its next message, the changed
+  passages, each as it was and as it is now — or, where they are too many, a request to read the
+  file again — and at the message after it nothing; a session whose context took the file in
+  anew — a start, a compaction — and one whose start no hook saw are given nothing —
+  *validated by:* `.agents/scripts/gw/test/test_entry_notice.py`
+- What another mechanism's hook line hands the store's hook leads the store's own text in a
+  message's answer, a failing hook's included — *validated by:*
+  `.agents/scripts/gw/test/test_sessions.py`
+- In a host whose message hook reaches the agent, the notice of a changed entry file is in the
+  agent's context with the message — *validated by:* live — **Entry notice**
 - In a host whose message hook reaches the agent, every message carries the window or the
   one-line notice that it is unchanged — *validated by:* live — **Window**
 - The host lists the harness's skills and runs one by name — *validated by:* live — **Skills**
@@ -121,6 +133,10 @@ Each sidecar names its own parts.
     compaction; and the compaction seen by a hook.
 15. **Messaging** — one session's message reaches another running session in the host, and the
     receiving session reads it; where it does not, nothing of the method waits on it.
+16. **Entry notice** — after the entry file changes under a running session, its next message
+    carries the changed passages as they were and as they are now, and the message after it
+    carries none; a fresh chat's first message carries none; a notice the host cut short is read
+    whole where the host saved it.
 
 ## Extensions
 
@@ -128,7 +144,7 @@ Each sidecar names its own parts.
 |---|---|---|
 | Claude Code | reached in full; compaction and helper ids not watched | [claude-code](hosts/claude-code.md) |
 | Codex | reached in full; start-hook attribution qualified; compaction and helper ids not watched | [codex](hosts/codex.md) |
-| Cursor | reached in part: no wake and no window reach the agent, the entry file's rule stands in; registration leaves a second line | [cursor](hosts/cursor.md) |
+| Cursor | reached in part: no wake, no window and no notice of a changed entry file reach the agent, the entry file's rule stands in; registration leaves a second line | [cursor](hosts/cursor.md) |
 
 ## Concerns
 

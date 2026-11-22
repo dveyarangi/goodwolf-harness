@@ -81,9 +81,9 @@ fi
 if python=$(interpreter); then
     # The payload is kept whole for the store's hook; it is read here only to tell a session's
     # start, where the installer's check runs and its one line — a tree whose installed blocks
-    # are out of step with its rules files and settings — is handed to the wake, which prints it
-    # last in the host's own form. Nothing here may fail the host: a check that cannot run says
-    # nothing.
+    # are out of step with its rules files and settings — is handed to the store's hook, which
+    # prints what it is handed first, in the host's own form. Nothing here may fail the host: a
+    # check that cannot run says nothing.
     payload=$(mktemp 2>/dev/null || echo "${TMPDIR:-/tmp}/gw-hook-$$")
     cat > "$payload"
     # At a start in a worktree that lacks its host's link to the skills — a new worktree has none,
@@ -106,6 +106,15 @@ if python=$(interpreter); then
                 notice="${notice:+$notice
 }$linked"
             fi
+        fi
+    fi
+    # The harness mechanism's line, at every event: what changed in the entry file under a running
+    # session, printed only at a message the agent reads. It decides by the payload it is handed.
+    if [ -f .agents/scripts/gw/entry_notice.py ]; then
+        moved=$("$python" .agents/scripts/gw/entry_notice.py --hook "$host" < "$payload" 2>/dev/null)
+        if [ -n "$moved" ]; then
+            notice="${notice:+$notice
+}$moved"
         fi
     fi
     GW_NOTICE="$notice" "$python" .agents/scripts/gw/questions.py --hook "$host" < "$payload"

@@ -10,7 +10,7 @@
 - The host's row `cursor` in `HOSTS`, `.agents/scripts/gw/questions.py`: `conversation_id`,
   `sessionStart`, `preCompact`, and `beforeSubmitPrompt` only as a sign of life; its answers in
   `_cursor_answer`, the session's tag handed on as `env` `QUESTIONS_SESSION`.
-- The hook's input is decoded by its byte-order mark in `_hook_input`: on Windows the host wrote
+- The hook's input is decoded by its byte-order mark in `hook_input`: on Windows the host wrote
   input the console's code page could not read.
 - Its hook cases in `.agents/scripts/gw/test/test_sessions.py`, its merge in
   `.agents/scripts/gw/test/test_harness.py`.
@@ -54,3 +54,6 @@
 - **Skill lifetime** — unobserved: what a later turn or a summarisation keeps of a skill is not
   documented; `preCompact` observes and cannot block, with `conversation_id`.
 - **Messaging** — unobserved: whether one session can message another in this host is not known.
+- **Entry notice** — absent: `beforeSubmitPrompt` can only allow or block, so what changed in the
+  entry file under a running session reaches no agent; the entry file's rule at session start
+  stands in, and a session reasons from the text it loaded until its next start.

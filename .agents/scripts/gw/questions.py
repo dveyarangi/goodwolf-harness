@@ -363,7 +363,7 @@ def main(
             sessions.seen(root, argv[2], now)
             return 0
         if len(argv) == 2 and argv[0] == "--hook":
-            print(hook(root, argv[1], _hook_input(), now))
+            print(hook(root, argv[1], hook_input(), now))
             return 0
         if argv == ["--wake"] or (len(argv) == 3 and argv[:2] == ["--wake", "--session"]):
             print(wake(root, now, argv[2] if len(argv) == 3 else None))
@@ -1763,7 +1763,7 @@ HOSTS = {
 }
 
 
-def _hook_input() -> str:
+def hook_input() -> str:
     """The host's payload as it wrote it. The pipe's bytes are decoded by their own mark, never in
     the console's code page: Cursor on Windows wrote input the code page could not read, and the
     hook registered nothing."""
@@ -1796,8 +1796,7 @@ def hook(root: Path, host_name: str, payload: str, now: datetime) -> str:
         event = sent.get("hook_event_name")
         if event == host.tool_uses:
             return _before_a_tool(host, event, sent)
-        named = os.environ.get(host.conversation_variable, "") if host.conversation_variable else ""
-        tag = sessions.tag_of(named or str(sent.get(host.session_field) or ""))
+        tag = _tag(host, sent)
         if event in host.compactions:
             sessions.forget_window(root, tag)
             return host.quiet
@@ -1809,10 +1808,10 @@ def hook(root: Path, host_name: str, payload: str, now: datetime) -> str:
         if event == host.messages:
             if not registered:
                 # The start was never seen — the hooks arrived mid-session — so this is the start.
-                return host.answer(event, _started(root, tag, None, now), tag)
+                return host.answer(event, _noticed(_started(root, tag, None, now)), tag)
             drawn = window(root, tag)
             sessions.seen(root, tag, now)
-            return host.answer(event, drawn, tag)
+            return host.answer(event, _noticed(drawn), tag)
         if event == host.signs_of_life:
             if not registered:
                 sessions.register(root, now, tag)
@@ -1824,8 +1823,27 @@ def hook(root: Path, host_name: str, payload: str, now: datetime) -> str:
         if host is not None and event == host.starts:
             return host.answer(event, _noticed(notice), "")
         if host is not None and event in (host.messages, host.signs_of_life):
-            return host.answer(event, notice, "")
+            return host.answer(event, _noticed(notice), "")
         return notice
+
+
+def session_of(host_name: str, payload: str) -> tuple[Host, str | None, str]:
+    """Which session a host's hook speaks for, for another mechanism's hook line: the host's row,
+    the event and the session's tag, read as `hook` reads them. Refused where `hook` would answer
+    with a notice — a host that is none of `HOSTS`, a payload that is not JSON, one naming no
+    session."""
+    host = HOSTS.get(host_name)
+    if host is None:
+        raise Refused(f"no host `{host_name}`; the hosts are {', '.join(HOSTS)}")
+    sent = _sent(payload)
+    return host, sent.get("hook_event_name"), _tag(host, sent)
+
+
+def _tag(host: Host, sent: dict) -> str:
+    """The session's tag: the host's conversation variable where it is set, its payload's field
+    otherwise."""
+    named = os.environ.get(host.conversation_variable, "") if host.conversation_variable else ""
+    return sessions.tag_of(named or str(sent.get(host.session_field) or ""))
 
 
 def _paths_limited() -> bool:
@@ -1870,11 +1888,14 @@ def _before_a_tool(host: Host, event: str, sent: dict) -> str:
 
 
 def _noticed(context: str) -> str:
-    """The wake's read with the line another mechanism handed the hook's wrapper — the installer's,
-    when the tree's installed blocks are out of step with its rules files and settings — last, so
-    the agent meets it before its first command. The wrapper hands it as `GW_NOTICE`."""
+    """The store's own text — a wake's read, a window — led by what other mechanisms' hook lines
+    handed the hooks' wrapper, as `GW_NOTICE`: the installer's, when the tree's installed blocks
+    are out of step with its rules files and settings, and the harness mechanism's, when the entry
+    file changed under the session. First, since a wake or a window drawn whole passes a host's
+    cap on a hook's output — Claude Code's 10,000 characters — and only its head stays in the
+    agent's context."""
     notice = os.environ.get("GW_NOTICE", "").strip()
-    return f"{context}\n\n{notice}" if notice else context
+    return f"{notice}\n\n{context}" if notice else context
 
 
 def _sent(payload: str) -> dict:

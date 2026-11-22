@@ -1128,14 +1128,77 @@ class ANamedRow(Hooked):
                 self.assertEqual("s-alpha running 2026-09-29T11:30Z q-0004", self.line("s-alpha"))
 
 
-class TheInstallersLine(unittest.TestCase):
-    """What the hooks' wrapper hands the store's hook at a session's start is printed last."""
+class TheHandedLine(unittest.TestCase):
+    """What the hooks' wrapper hands the store's hook leads the store's own text: a wake or a
+    window drawn whole passes a host's cap on a hook's output, and only its head stays in context."""
 
-    def test_a_notice_from_the_environment_closes_the_wake_and_an_empty_one_leaves_it(self) -> None:
+    def test_a_line_from_the_environment_leads_the_text_and_an_empty_one_leaves_it(self) -> None:
         with mock.patch.dict(os.environ, {"GW_NOTICE": " installed blocks: 1 thing out of step \n"}):
-            self.assertEqual("the wake\n\ninstalled blocks: 1 thing out of step", questions._noticed("the wake"))
+            self.assertEqual("installed blocks: 1 thing out of step\n\nthe wake", questions._noticed("the wake"))
         with mock.patch.dict(os.environ, {"GW_NOTICE": ""}):
             self.assertEqual("the wake", questions._noticed("the wake"))
+
+
+class TheHandedLineAtAMessage(Hooked):
+    def message(self, tag: str, handed: str | None) -> str:
+        with mock.patch.dict(os.environ, {} if handed is None else {"GW_NOTICE": handed}):
+            return self.context(self.hook("claude-code", {"session_id": tag, "hook_event_name": "UserPromptSubmit"})[1])
+
+    def test_a_handed_line_leads_the_window(self) -> None:
+        said = self.message("s-alpha", "entry file changed: 1 passage")
+
+        self.assertTrue(said.startswith("entry file changed: 1 passage\n\nsession: s-alpha\n"), said[:120])
+
+    def test_no_handed_line_leaves_the_answer_the_window_alone(self) -> None:
+        for handed in (None, "", " \n"):
+            with self.subTest(handed=handed):
+                sessions.forget_window(self.root, "s-alpha")
+
+                self.assertTrue(self.message("s-alpha", handed).startswith("session: s-alpha\n"))
+
+    def test_a_handed_line_leads_the_notice_of_a_hook_that_could_not_draw_its_window(self) -> None:
+        """The line's own script has already moved its memory: a problem of the store's must not
+        be the reason the session never reads what it was handed."""
+        with mock.patch.object(questions, "window", side_effect=questions.Refused("the store is unreadable")):
+            said = self.message("s-alpha", "entry file changed: 1 passage")
+
+        self.assertEqual("entry file changed: 1 passage\n\nquestions hook: the store is unreadable", said)
+
+    def test_a_handed_line_leads_the_wake_of_a_session_whose_start_was_never_seen(self) -> None:
+        said = self.message("s-unseen", "entry file changed: 1 passage")
+
+        self.assertTrue(said.startswith("entry file changed: 1 passage\n\nsession: s-unseen, registered now"), said[:120])
+
+
+class TheSessionOfAPayload(unittest.TestCase):
+    """The one reading of which session a host's hook speaks for, for any mechanism's hook line."""
+
+    def setUp(self) -> None:
+        self.enterContext(mock.patch.dict(os.environ))
+        os.environ.pop(DESKTOP_ID, None)
+
+    def test_gives_the_hosts_row_the_event_and_the_tag_from_the_hosts_field(self) -> None:
+        payload = json.dumps({"session_id": "abc 123", "hook_event_name": "UserPromptSubmit"})
+
+        self.assertEqual(
+            (questions.HOSTS["claude-code"], "UserPromptSubmit", "abc-123"), questions.session_of("claude-code", payload)
+        )
+
+    def test_the_conversation_variable_names_the_session_before_the_field_does(self) -> None:
+        os.environ[DESKTOP_ID] = "local_1"
+        payload = json.dumps({"session_id": "abc-123", "hook_event_name": "SessionStart"})
+
+        self.assertEqual("local_1", questions.session_of("claude-code", payload)[2])
+        self.assertEqual("abc-123", questions.session_of("codex", payload)[2])
+
+    def test_an_unknown_host_a_payload_that_is_not_json_and_one_naming_no_session_are_each_refused(self) -> None:
+        for host, payload, why in (
+            ("nohost", "{}", "no host `nohost`"),
+            ("claude-code", "not json", "not JSON"),
+            ("claude-code", '{"hook_event_name": "SessionStart"}', "names no session"),
+        ):
+            with self.subTest(host=host, payload=payload), self.assertRaisesRegex(questions.Refused, why):
+                questions.session_of(host, payload)
 
 
 class AHeldUnit(Rendered):

@@ -73,3 +73,12 @@
   filled from the most recent, so an older skill can be dropped; `PreCompact`, `PostCompact` and
   `SessionStart` with source `compact` carry `session_id`
   ([skills](https://code.claude.com/docs/en/skills), quotes checked, 2026-10-24).
+- **Entry notice** — unobserved. Documented, read 2026-11-22: `CLAUDE.md` is loaded at launch and
+  after a compaction *re-injected from disk*, which the line takes as the context holding the file
+  as it stands ([context window](https://code.claude.com/docs/en/context-window.md),
+  [memory](https://code.claude.com/docs/en/memory.md)); a hook's output past 10,000 characters is
+  saved to a file and its first 2,000 placed in context, which is why the notice leads the window
+  and asks for a read past 8,000 ([hooks](https://code.claude.com/docs/en/hooks)). Seen
+  2026-11-22, desktop app, of the window alone: a hook's output of 58 KB was saved as the
+  context's own text, line by line, under the session's folder, and its path and first 2 KB were
+  what stood in context.

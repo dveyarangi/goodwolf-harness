@@ -133,6 +133,20 @@ verification's *(the user, 2026-10-09)*; <straw-dog question="q-7caadu">no maint
 gate: one is offered to the person, with its reason, only once the comparison reads no network and
 takes no clone.</straw-dog>
 
+**A running session is shown what changed in the entry file.** A host loads the entry file at a
+session's start and after a compaction, and a session reasons from that text whatever the file
+has become. The mechanism's hook line, run by the hooks' wrapper before the store's hook,
+remembers per session the file's text as the session's context holds it, outside the tree beside
+the window's memory. In a host whose message hook reaches the agent, a message that finds the
+file other than the memory is shown, leading the store's own text, each passage that differs as
+it was and as it is now, and the memory moves — before the text is handed on, so a notice a host
+cut short is read on from the output the host saved, as its first lines say: one
+change is shown once, several between two messages as one notice, and never a request to read
+the file again while the passages fit — the old text stays in the context, and adding to its end
+keeps what a re-read would replace *(the user, 2026-11-22)*. Past its budget the notice asks for
+the read. A context that took the file in anew, and a session whose start no hook saw, are shown
+nothing. The line never fails the host and never speaks of its own trouble.
+
 It is **installed**; a tree without it holds no core at all. The repository's root `README.md`
 is not a part: it ships as the front page beside the harness skill, and a recipient's root has
 its own.
@@ -163,6 +177,7 @@ its own.
 | recording, per clone, the interpreter the hooks run under | `.agents/scripts/gw/harness.py` | |
 | writing the clone's `pre-push` inside the project, or giving the line beside another's hook | `.agents/scripts/gw/harness.py` | |
 | checking a push in a copy of what it sends, and refusing it on a finding | `.agents/scripts/gw/harness.py` | |
+| showing a running session, with its next message, what changed in the entry file since its context took it in | `.agents/scripts/gw/entry_notice.py` | |
 | removing one mechanism from a tree | — | <straw-dog question="q-qzeuf3">not yet</straw-dog> |
 | turning a clean clone of the origin, standing where the project was meant, into an install | `.agents/scripts/gw/harness.py` | |
 | sending a change back to the repository | — | <straw-dog question="q-hgzz3s">not yet</straw-dog> |
@@ -176,6 +191,8 @@ its own.
 | this doc | `.agents/mechanisms/harness/harness.md` |
 | the script | `.agents/scripts/gw/harness.py` |
 | its tests | `.agents/scripts/gw/test/test_harness.py` |
+| the hook line that shows a running session what changed in the entry file | `.agents/scripts/gw/entry_notice.py` |
+| that line's tests | `.agents/scripts/gw/test/test_entry_notice.py` |
 | the entry file | `AGENTS.md` |
 | the host stub | `CLAUDE.md` |
 
@@ -195,8 +212,9 @@ would otherwise fail the shape check for the same absence the report already nam
 | the product document's seed, its shelf and the reader of its form | `.agents/scripts/gw/product.py` | `product`, which owns the document and words it |
 | the hook wiring's directory, each file at its host file's path | `.agents/scripts/gw/questions.py` | `questions`, which words the hooks |
 | the shape check | `.agents/scripts/gw/mechanisms.py` | `mechanism-shape` |
-| the hooks' wrapper, which the written `pre-push` runs | `.agents/scripts/gw/hook.sh` | `mechanism-shape` |
-| a check the push runs | `.agents/scripts/gw/sessions.py` | `session` |
+| the hooks' wrapper, which the written `pre-push` runs, and which runs the hook line and hands on what it prints | `.agents/scripts/gw/hook.sh` | `mechanism-shape` |
+| the reading of which session a hook's payload speaks for, and the hook that prints the handed line in the host's form | `.agents/scripts/gw/questions.py` | `questions` |
+| a check the push runs, and where a session's memory is kept | `.agents/scripts/gw/sessions.py` | `session` |
 | a check the push runs | `.agents/scripts/gw/tickets.py` | `ticket` |
 | a check the push runs | `.agents/scripts/gw/edges.py` | `edge` |
 | a check the push runs | `.agents/scripts/gw/maintain.py` | `maintain` |
@@ -228,6 +246,10 @@ would otherwise fail the shape check for the same absence the report already nam
   `--links` is the one step a fresh clone runs, and a worktree of the clone runs none: its links
   are made, or their command given, at its session's start.
 - **The pending command** — *what exists* — read by a person, once, in an elevated prompt.
+- **The notice of a changed entry file** — *what happened* — read by a running session with its
+  next message, once.
+- **The entry file's text as each session's context holds it**, outside the tree — *what exists*
+  — read by the hook line alone, at each message.
 <straw-dog question="q-n3pc22">
 - **The report**, in a tree that has a method — *what happened*, what the harness would change
   there — a working document kept where the host keeps the session's files, never written into
