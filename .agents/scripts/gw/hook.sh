@@ -32,6 +32,17 @@ interpreter() {
     return 1
 }
 
+if [ "$2" = "before-tool" ]; then
+    # A host calls this before every shell command it runs, so only a command that names
+    # `commit` starts the interpreter, where the store's hook refuses a commit that names no
+    # paths (S5); any other passes at once. Nothing else here may refuse it.
+    payload=$(cat)
+    case "$payload" in *commit*) ;; *) exit 0 ;; esac
+    python=$(interpreter) || exit 0
+    printf '%s' "$payload" | "$python" .agents/scripts/gw/questions.py --hook "$host"
+    exit 0
+fi
+
 if [ "$host" = "pre-push" ]; then
     # Git hands one line per ref: <local ref> <local sha> <remote ref> <remote sha>. No lines is
     # nothing sent; a deletion sends nothing. A push whose paths fall under none of the method's

@@ -159,6 +159,10 @@ for this mechanism.
 - **The rules file** — *what must always hold* — read by the installer alone. Its blocks sit in
   `/recall` (S1, S11), `/conclude` (S2), `/maintain` (S3), the entry file's general rules (S4, S6, S9, S10),
   `/commit` (S5), and `/plan` and `/implement` (S7).
+- **The refusal of a bare commit** — *what must always hold* — read by the agent, from the host,
+  when a shell command runs `git commit` naming no paths: S5 held where the command passes the
+  host, which a rule in `/commit` alone did not hold (the register, entry 56); `bare_commit` in
+  the rows' script, answered through the store's hook, a host with a `tool_uses` event in its row.
 
 ## Not yet at the shape
 

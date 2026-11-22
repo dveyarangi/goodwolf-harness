@@ -21,6 +21,18 @@
           }
         ]
       }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "git -c \"alias.gw-hook=!sh .agents/scripts/gw/hook.sh\" gw-hook claude-code before-tool",
+            "timeout": 10
+          }
+        ]
+      }
     ]
   }
 }

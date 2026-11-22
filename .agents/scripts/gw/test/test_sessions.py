@@ -1494,3 +1494,64 @@ class TakingOver(Rendered):
 
         self.assertEqual(0, status, said)
         self.assertEqual("s-alpha ended 2026-09-29T11:30Z q-0004 taken q-0004 by s-beta", self.line("s-alpha"))
+
+
+class ACommitNamesItsPaths(unittest.TestCase):
+    """S5 held by the host: a commit with no paths takes whatever the shared index holds."""
+
+    def test_a_commit_with_no_paths_is_bare(self) -> None:
+        for command in (
+            "git commit -m 'x'",
+            "git add a.md && git commit -q -m x",
+            "git commit -a -m x",
+            "git commit --amend --no-edit",
+            "git commit -m 'a -- b'",
+            "cd /d/tree && git -c user.name=x -C . commit -m x",
+            "git commit -m x; if ($?) { git push }",
+        ):
+            with self.subTest(command=command):
+                self.assertTrue(sessions.bare_commit(command))
+
+    def test_a_commit_naming_its_paths_and_any_other_command_are_not(self) -> None:
+        for command in (
+            "git commit -q -m x -- a.md b.md",
+            "git -c core.x=y commit -m 'x' -- docs/a.md && git push -q",
+            'git commit -m "$(cat <<\'EOF\'\nsubject -- body\nEOF\n)" -- a.md',
+            "git log --oneline -1",
+            "echo git commit -m x",
+            "git status --short",
+        ):
+            with self.subTest(command=command):
+                self.assertFalse(sessions.bare_commit(command))
+
+
+class TheHookBeforeACommand(Hooked):
+    def before(self, command: str) -> tuple[int, str]:
+        return self.hook("claude-code", {
+            "session_id": "s-alpha", "hook_event_name": "PreToolUse",
+            "tool_name": "Bash", "tool_input": {"command": command},
+        })
+
+    def test_claude_code_is_refused_a_commit_with_no_paths_and_told_why(self) -> None:
+        status, said = self.before("git add a.md && git commit -m x")
+
+        self.assertEqual(0, status)
+        answer = json.loads(said)["hookSpecificOutput"]
+        self.assertEqual("PreToolUse", answer["hookEventName"])
+        self.assertEqual("deny", answer["permissionDecision"])
+        self.assertIn("git commit -- <file>", answer["permissionDecisionReason"])
+
+    def test_a_commit_naming_its_paths_passes_with_nothing_said_and_nothing_written(self) -> None:
+        before = session_lines(self.root)
+
+        status, said = self.before("git commit -m x -- a.md")
+
+        self.assertEqual((0, ""), (status, said.strip()))
+        self.assertEqual(before, session_lines(self.root))
+
+    def test_a_tool_with_no_command_passes(self) -> None:
+        status, said = self.hook("claude-code", {
+            "session_id": "s-alpha", "hook_event_name": "PreToolUse", "tool_name": "Read", "tool_input": {"file_path": "a.md"},
+        })
+
+        self.assertEqual((0, ""), (status, said.strip()))
