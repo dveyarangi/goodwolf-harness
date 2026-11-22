@@ -19,6 +19,33 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## A turn's answer was left unwritten, the host's closing box standing for it — 2026-11-22
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-22T00:05Z — the Путь session, asked to argue the roadmap's first row.
+- Claude desktop app · claude-opus-5-5 · 2026-11-22T00:45Z — the same session, asked how possible a silent update is and who holds the weighing.
+
+**Goal missed:** the person reads the answer to what they asked.
+
+**Rules in play, loaded:** the entry file's *"A reply speaks the method"*; the desktop host's
+closing call, whose box with a question ends the turn and admits no text after it, and admits text
+before it.
+
+**What happened.** Twice, the work of the turn was done — the figures counted, the records
+written, a rule drafted — and the turn closed on the box's recap and question, with no text before
+it. The person asked where the reasoning was, then whether what they wrote had been ignored.
+
+**Why it did not fire.** The host's instruction that the box ends the turn was read as the reply's
+end, and the recap as the reply; nothing in the tree says the answer is written before the box.
+
+**Proposed amendment**, a rewording, no check able to hold it: a local rule for hosts with a
+closing box — the reply's answer is written before the box is called; the box carries only the
+recap and the one decision.
+
+**Disposition:** open — the local rules are the keeper's, to which the proposal is handed,
+2026-11-22.
+
 ## A gap was named without reading what the running sessions hold — 2026-11-22
 
 **Source, no case yet:**
