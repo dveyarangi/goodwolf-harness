@@ -52,7 +52,8 @@ class Personal(RepositoryCase):
     def test_either_name_inside_a_longer_word_is_not_the_path(self) -> None:
         self.write(
             "docs/record.md",
-            "superusers/somebody, end_users/somebody, Users/somebodyelse, Users/somebody_2 and Users somebody.\n",
+            "superusers/somebody, end_users/somebody, 9users/somebody, Users/somebodyelse, Users/somebody2, "
+            "Users/somebody_2 and Users somebody.\n",
         )
         self.assertEqual(self.problems(), [])
         self.write("docs/record.md", "home-alone, /home/alice and the github-homepage\n")
@@ -87,6 +88,7 @@ class Personal(RepositoryCase):
         self.write("as-listed.md", "signed Жанна Иванова\n")
         self.write("lowered.md", "signed жанна иванова\n")
         self.write("raised.md", "signed ЖАННА ИВАНОВА\n")
+        self.write("its-letters-elsewhere.md", "Жанр, Иван, новая анна и Жанна с Ивановой\n")
         self.assertEqual(
             self.problems(listed=("Жанна Иванова",)),
             [(f"{name}:1", personal.LISTED) for name in ("as-listed.md", "lowered.md", "raised.md")],
@@ -98,6 +100,10 @@ class Personal(RepositoryCase):
             self.problems(listed=(ADDRESS,)),
             [("redirected.txt:2", personal.HOME_PATH), ("redirected.txt:2", personal.LISTED)],
         )
+
+    def test_a_file_of_utf_16_cut_mid_character_is_read_to_where_it_is_cut(self) -> None:
+        (self.root / "cut.txt").write_bytes("C:\\Users\\somebody\nand more".encode("utf-16") + b"\x00")
+        self.assertEqual(self.problems(), [("cut.txt:1", personal.HOME_PATH)])
 
     def test_a_file_holding_both_is_named_once_for_each(self) -> None:
         self.write("docs/record.md", "C:\\Users\\somebody\nJane Somebody\n")

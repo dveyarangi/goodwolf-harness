@@ -550,3 +550,24 @@ Refuted by the judge's reading, the same day, each mended: sorting a citation by
 alone left a local mechanism's own rule, installed into a core skill, a leak; a part of a local
 mechanism in another skill's folder shipped unseen; a bound claim with a reason passed at the
 origin and failed sheared; *a file that is not text carries none* was written and not built.
+
+## What is the person's own stands in no file — 2026-11-22
+
+`personal.py --check`, built on the person's word for this tree's verification set
+([q-47f7je](../questions/q-47f7je-what-keeps-a-tracked-file-from-bringing-the-persons-local-home-path-back.md)).
+It sits with this mechanism as the register's check does: the cases it guards most are the
+register's, and no other mechanism holds a file's content against what must not be published.
+
+Refuted by the judge's readings, each mended: the path sought with one backslash or two, where
+the cases write it with four and eight; the file lowered as bytes and the sought line as text, so
+a capital outside ASCII was never met; the list read with a byte-order mark as its first line, and
+one in an ANSI code page read as noise; raw bytes read, so an archive's members were not, and one
+tracked archive held the path the scrub had missed.
+
+Refuted by its cost: decoding every file and folding its case as text. Of four seconds over 113 MB,
+2.6 went to the folding and 0.45 to the decoding. The bytes are searched as they stand, the letters
+of ASCII lowered in place and a letter outside it sought in each of its cases: 1.7 seconds, 0.9 of
+them the reading. The judge ran both versions over this tree with the scrub's placeholder as the
+home's name and found the same 403 notes. What the bytes lose is a fold that is not a pair of
+cases — a long s for an s, `ß` against `SS` — and a listed line that opens on a Cyrillic letter
+whose two cases differ in their first byte costs about two seconds more.

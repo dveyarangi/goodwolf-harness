@@ -15,10 +15,10 @@ UTF-16 under its byte-order mark, fails the check rather than guard nothing unse
 The path is met as the folder's name under its parent's, whatever separates them: any run of
 backslashes or slashes — one, or as many as each layer of JSON doubles it to —, their URL-encoded
 forms, or the hyphen a host's own folder names put there. A name running on from, or into,
-letters, digits or an underscore is not the path, and the folder's name alone is not looked for,
-since a short one is an ordinary word: it goes on the list where it is wanted. Letters are
-matched whatever their case, in a file of UTF-8 and in one of UTF-16 that opens with its
-byte-order mark.
+letters of ASCII, digits or an underscore is not the path, and the folder's name alone is not
+looked for, since a short one is an ordinary word: it goes on the list where it is wanted. A
+letter is matched in either of its cases, in a file of UTF-8 and in one of UTF-16 that opens
+with its byte-order mark.
 
 Exit 0 when no file holds either, 1 when one does, 2 on usage.
 """
@@ -43,8 +43,9 @@ USAGE = "usage: personal.py --check"
 LIST = "gw-personal"
 HOME_PATH = "holds the home folder's path"
 LISTED = "holds a line of the person's list"
-_ENCODED = ("%5c", "%2f")
-_SEPARATOR = rf"(?:(?:[\\/]|{'|'.join(_ENCODED)})+|-)"
+_ENCODED = (b"%5c", b"%2f")
+_SEPARATOR = rb"(?:(?:[\\/]|" + b"|".join(_ENCODED) + rb")+|-)"
+_WORD = frozenset(bytes([byte]) for byte in b"0123456789abcdefghijklmnopqrstuvwxyz_")
 _UTF16 = (codecs.BOM_UTF16_LE, codecs.BOM_UTF16_BE)
 _ZIP = b"PK"
 UNREADABLE = f"the person's list, {LIST} in the Git directory, is not UTF-8 text: save it as UTF-8"
@@ -80,15 +81,15 @@ def check(root: Path, home: PurePath, listed: tuple[str, ...]) -> Checked:
     """Every file the repository speaks for: one note for a file holding the home path, one for a
     file holding a listed line, each at the first line that holds it, with the places counted."""
     path = _home_as_written(home)
-    lines = tuple(line.casefold() for line in listed)
+    lines = tuple(re.compile(_as_met(line)) for line in listed)
     checked = Checked(listed=len(listed))
     for name in corpus(root):
         checked.files += 1
         for where, data in _with_members(name, (root / name).read_bytes()):
-            held = _text(data).casefold()
+            held = _folded(data)
             for problem, places in ((HOME_PATH, _paths_in(held, path)), (LISTED, _lines_in(held, lines))):
                 if places:
-                    first = held.count("\n", 0, min(places)) + 1
+                    first = held.count(b"\n", 0, min(places)) + 1
                     checked.diagnostics.append(Note(f"{where}:{first}", problem, len(places)))
     return checked
 
@@ -125,17 +126,36 @@ def report(checked: Checked, out: Callable[[str], None] = print) -> int:
     return 1 if checked.diagnostics else 0
 
 
-def _home_as_written(home: PurePath) -> re.Pattern[str] | None:
+def _home_as_written(home: PurePath) -> re.Pattern[bytes] | None:
     """The home folder under its parent's name, by any separator a record writes a path with,
     neither name running on into a longer word; a home with no named folder above it gives none,
     its own name being a word like any other."""
     if not home.name or not home.parent.name:
         return None
-    above, name = (re.escape(part.casefold()) for part in (home.parent.name, home.name))
-    return re.compile(rf"{above}{_SEPARATOR}{name}(?!\w)")
+    return re.compile(_as_met(home.parent.name) + _SEPARATOR + _as_met(home.name) + rb"(?![0-9a-z_])")
 
 
-def _paths_in(held: str, path: re.Pattern[str] | None) -> list[int]:
+def _as_met(string: str) -> bytes:
+    """A pattern for `string` in bytes folded by `_folded`, whatever the case of its letters: a
+    letter of ASCII in lower case, any other in each case it has. The file's bytes are never
+    turned to text and lowered whole, which cost more than reading them."""
+    met = []
+    for character in string:
+        cases = sorted({form.encode("utf-8").lower() for form in (character, character.lower(), character.upper())})
+        written = b"|".join(re.escape(case) for case in cases)
+        met.append(written if len(cases) == 1 else b"(?:" + written + b")")
+    return b"".join(met)
+
+
+def _folded(data: bytes) -> bytes:
+    """A file's bytes with the letters of ASCII lowered, as UTF-8: UTF-16 under its byte-order
+    mark is written over to it, and bytes that are neither stay as they are."""
+    if data.startswith(_UTF16):
+        data = data.decode("utf-16", errors="replace").encode("utf-8")
+    return data.lower()
+
+
+def _paths_in(held: bytes, path: re.Pattern[bytes] | None) -> list[int]:
     """Where the home path stands. What precedes it is read here and not by the pattern, which
     then opens on plain letters and is sought at a file's speed."""
     if path is None:
@@ -143,30 +163,14 @@ def _paths_in(held: str, path: re.Pattern[str] | None) -> list[int]:
     return [met.start() for met in path.finditer(held) if not _runs_on_from_a_word(held, met.start())]
 
 
-def _runs_on_from_a_word(held: str, at: int) -> bool:
+def _runs_on_from_a_word(held: bytes, at: int) -> bool:
     """Whether the letters at `at` continue a word begun before them; a URL-encoded separator
     ends in a letter or a digit and begins none."""
-    if at == 0 or held[at - 3:at] in _ENCODED:
-        return False
-    return held[at - 1].isalnum() or held[at - 1] == "_"
+    return held[at - 3:at] not in _ENCODED and held[at - 1:at] in _WORD
 
 
-def _lines_in(held: str, lines: tuple[str, ...]) -> list[int]:
-    places: list[int] = []
-    for line in lines:
-        at = held.find(line)
-        while at != -1:
-            places.append(at)
-            at = held.find(line, at + len(line))
-    return places
-
-
-def _text(data: bytes) -> str:
-    """A file's bytes as text: UTF-16 where its byte-order mark says so, UTF-8 otherwise with its
-    mark dropped, and a byte that is neither kept as a stand-in rather than refused."""
-    if data.startswith(_UTF16):
-        return data.decode("utf-16", errors="replace")
-    return data.decode("utf-8-sig", errors="replace")
+def _lines_in(held: bytes, lines: tuple[re.Pattern[bytes], ...]) -> list[int]:
+    return [met.start() for line in lines for met in line.finditer(held)]
 
 
 def _git_directory(root: Path) -> Path | None:
