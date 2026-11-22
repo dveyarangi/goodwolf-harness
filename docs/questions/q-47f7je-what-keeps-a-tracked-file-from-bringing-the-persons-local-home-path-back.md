@@ -1,8 +1,9 @@
 # q-47f7je What keeps a tracked file from bringing the person's home path, address or name back?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-mhwbg3
-- **state** open
+- **state** closed:decided
+- **answer** [the mechanism shape](../../.agents/mechanisms/mechanism-shape/mechanism-shape.md) — the user, 2026-11-22: a check before a commit
 - **rung** development: a feature, self-improvement: a script
 - **lean** 2026-11-21: three things to keep out, each scrubbed on the person's word — the home path, the email address and the name (q-mhwbg3, decisions 1 to 3) — and perhaps the commit-author address (q-ct5gnb, open); cases are written under the rule-failure register's mechanism, the keeper's; a check that refuses a tracked file holding any of them, each read at run time from the environment and git's own configuration so the check names no one — in rule_failures.py --check or at pre-push, over the pushed files alone; found trailing by the judge of the night pass of 2026-11-21
 - **opened** 2026-11-20T18:39:55Z
@@ -33,7 +34,9 @@ files alone.
 
 1. The check is built and runs before a commit *(the user, 2026-11-22: "проверку строй перед
    коммитом")* — with the checks of this tree's verification set. The run at push the design
-   offered beside it was not asked for and is not built.
+   offered beside it was not asked for and is not built. Landed in the line on
+   `personal.py --check`'s report and in L3 of [the local rules](../../local.rules.md)
+   → [the mechanism shape](../../.agents/mechanisms/mechanism-shape/mechanism-shape.md)
 
 ## Built and judged, 2026-11-22
 
