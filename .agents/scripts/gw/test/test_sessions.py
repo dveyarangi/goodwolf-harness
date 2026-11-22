@@ -379,6 +379,19 @@ class TheHook(Hooked):
         self.assertIn("session: conv-9, registered now", self.context(said))
         self.assertIn("conv-9 running", session_lines(self.root))
 
+    def test_a_payload_naming_no_event_is_answered_with_nothing_and_writes_nothing(self) -> None:
+        before = session_lines(self.root)
+        for host, payload in (
+            ("cursor", {"conversation_id": "conv-9"}),
+            ("claude-code", {"session_id": "abc-123"}),
+            ("codex", {"session_id": "abc-123", "tool_input": {"command": "git commit -m x"}}),
+        ):
+            with self.subTest(host=host):
+                status, said = self.hook(host, payload)
+
+                self.assertEqual((0, ""), (status, said.strip()))
+        self.assertEqual(before, session_lines(self.root))
+
     def raw_hook(self, host: str, raw: bytes) -> str:
         """The hook fed bytes as a host's pipe carries them, decoded by nothing in between."""
         out = io.StringIO()

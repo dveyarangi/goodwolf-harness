@@ -1794,6 +1794,9 @@ def hook(root: Path, host_name: str, payload: str, now: datetime) -> str:
             raise Refused(f"no host `{host_name}`; the hosts are {', '.join(HOSTS)}")
         sent = _sent(payload)
         event = sent.get("hook_event_name")
+        if not event:
+            # A host row leaves an event it lacks as None, so a payload naming none would match it.
+            return ""
         if event == host.tool_uses:
             return _before_a_tool(host, event, sent)
         tag = _tag(host, sent)
