@@ -12,12 +12,14 @@
 
 ## Parent
 
-[pacer.md](../pacer.md). **2026-09-06, user:** not a child of
+The pacer's page, removed 2026-11-22, what it held carried in
+[q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md).
+**2026-09-06, user:** not a child of
 [01-0010](./01-0010-a-shared-harness-improves-without-losing-project-conventions.md). Pace is this ticket's contract;
 the shared-harness ticket is a different one. Minted 2026-09-06 as
 `01-0010.0040` to bind the `<temporary until="/pacer is installed">` block in
 `docs/process.md`; reparented the same day to `01-0020`. The idea and the rules
-resolved so far live in [pacer.md](../pacer.md) until this ticket carries them.
+resolved so far live in [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md) until this ticket carries them.
 
 ## What to build
 
@@ -36,8 +38,8 @@ resolved so far live in [pacer.md](../pacer.md) until this ticket carries them.
   It is hand-authored and wrapped as a straw dog bound to this ticket's question, q-p4mcme:
   inception owes it a rules file
   and an `<installed by>` block in `AGENTS.md`, which makes this ticket the third claimant on
-  `AGENTS.md` as an injection target after `.0110` and 01-0017.0010. The rest stay on
-  [pacer.md](../pacer.md).
+  `AGENTS.md` as an injection target after `.0110` and 01-0017.0010. The rest stay in
+  [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md).
 - The resume state a session writes at `/conclude` and reads at `/recall`, so
   the ring resumes where it stopped. Where it lives and what it holds are this
   ticket's decisions; the session record is not it.
@@ -72,7 +74,8 @@ resolved so far live in [pacer.md](../pacer.md) until this ticket carries them.
   is decided, the loop is suggested and enforced as a straw dog, and a tree with a process of its
   own meets it at `/align` step by step under
   [01-0010.0150](./01-0010.0150-harness-meets-a-tree-with-a-method.md)'s flow. Touches
-  [pacer.md](../pacer.md)'s open question on which artifact levels can be omitted, and
+  the pacer's open question on which artifact levels can be omitted, carried in
+  [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md), and
   [01-0010.0080](./01-0010.0080-impact-recommends-the-works-shape.md)'s routing answer.
 - Resume state: owner, shape, and what `/conclude` and `/recall` do with it.
 - When chaining steps inside one turn becomes allowed, and how that allowance

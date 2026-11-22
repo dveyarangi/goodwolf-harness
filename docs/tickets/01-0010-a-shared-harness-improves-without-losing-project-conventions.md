@@ -32,7 +32,7 @@ Consolidate the existing dev skill family into the requested canonical home, aft
 - **2026-09-05, user:** spec first; review the existing skills before proceeding. This reaffirms the earlier spec decision and makes spec development the next step, ahead of further queue design. Source review: Meteoscape and Forecast Collector `/to-spec` explicitly cover substantial inception before ticket decomposition and do not queue the spec itself; `/to-tickets` also accepts bounded discussed work without a spec; `/plan-impl` requires an owning ticket for an RFC. The current workspace's older `/to-tickets` assumes a spec, while its `/to-spec` has conflicting output paths. The existing research/alignment tickets remain valid; implementation decomposition follows the harness spec.
 - **2026-09-05, user:** accepted the first bootstrap slice as proposed and decided the root: the harness is the git repository `D:\Dev\AI\agents`, with the installed corpus under `.agents/skills`. `/align` and `/impact` are installed from Meteoscape with the accepted deltas; nothing else is installed or renamed yet.
 - **2026-09-06, user:** mint Install `/spec`. Spec-first and loop completion do not contradict: install `/spec`, use it to develop the spec for completing the delivery ring on this harness, then take the natural course. `/plan` is planned by reading `/plan`. A ticket whose criteria are met moves to `done/` as part of that close. Ring-skill tickets are not pre-minted.
-- **2026-09-06, user:** the pacer is not a child of this ticket. It is [01-0020](./01-0020-each-turn-knows-its-next-step.md), parented on [pacer.md](../pacer.md).
+- **2026-09-06, user:** the pacer is not a child of this ticket. It is [01-0020](./01-0020-each-turn-knows-its-next-step.md), parented on the pacer's page, removed 2026-11-22, what it held carried in [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md).
 - **2026-09-06, user:** do not close a ticket until `/verify` has been run on it; reviewing is an acceptance criterion. 0020, 0030 and 0035 were reopened; they stay `Partial` until that box is checked.
 - **2026-09-06, user:** 0050 installs the implementation mechanism — `/implement`, `/tdd` (with its files), `/improve-comments` — not the `/implement` skill alone. `/verify` and `/maintain` stay later ring mechanisms.
 - **2026-09-06, user:** `/verify` is the verification of landed work, not only documentation or shape review. `/implement`'s typecheck/suite line is generalized and links the [verification set](../process.md#verification); commands are not inlined in the skill.
@@ -896,7 +896,7 @@ The autonomy/repair policy, mechanism concept, current/history separation and me
 
 ## Idea — pacer
 
-→ [Pacer](../pacer.md). Moved to its own document at the user's request, 2026-09-05. The delivery ticket is [01-0020](./01-0020-each-turn-knows-its-next-step.md), not a child of this one.
+→ the pacer's page. Moved to its own document at the user's request, 2026-09-05; that page removed 2026-11-22, what it held carried in [q-p4mcme](../questions/q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md). The delivery ticket is [01-0020](./01-0020-each-turn-knows-its-next-step.md), not a child of this one.
 
 ## Derived work — Life basis and scope decision
 
