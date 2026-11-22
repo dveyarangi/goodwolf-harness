@@ -21,6 +21,10 @@ core from a repository of its own, as
    The local user name is replaced by `owner`, the same length, in every tracked file: 329 files,
    3982 places. The history still holds the earlier bytes; it is not rewritten. A run report's
    `case_sha256` names the case as it was run, before the scrub.
+   2026-11-22: the one tracked archive, `docs/case-runs/discover-material/2026-10-26-raw.zip`,
+   had escaped the scrub, its members compressed — 73 of 466 members, 521 places; found by the
+   judge of q-47f7je's check. Its members scrubbed the same way and the archive rewritten, its
+   record's digests brought to the new members.
 
 2. The person's email address is scrubbed too *(the user, 2026-11-21: «Да, вычистить»)*: replaced
    by a same-length placeholder in 64 tracked files, the API inputs and sources of `docs/cases`,
