@@ -43,8 +43,17 @@ end, and the recap as the reply; nothing in the tree says the answer is written 
 closing box — the reply's answer is written before the box is called; the box carries only the
 recap and the one decision.
 
-**Disposition:** open — the local rules are the keeper's, to which the proposal is handed,
-2026-11-22.
+**Checked by the keeper, 2026-11-22.** The host admits text after its closing call, and asks for
+it there: the call's own result reads "Your closing message is your answer to the user: write it
+now, in full, as the last thing you say this turn", and the host's instruction says never to
+write it before the call, "where it can reach the user cut to a short summary". The keeper's
+session has closed every turn so since 2026-11-20 and the person has read and answered each. So
+*Rules in play* above misreads the host, and the amendment as worded would move the answer to
+where the host may cut it. What failed is the reading — the box taken for the reply's end — and
+the host's own text already says the contrary at every call.
+
+**Disposition:** open — put to the person, 2026-11-22, with the keeper's recommendation against a
+local rule: it would restate one host's instruction, the other way round.
 
 ## A gap was named without reading what the running sessions hold — 2026-11-22
 
@@ -70,8 +79,11 @@ beside a candidate.
 **Proposed amendment**, mechanical: the path's reading names, beside each candidate, the running
 session whose position or held unit lies over or under it.
 
-**Disposition:** open — the path's reading is the store's session's, to which the proposal is
-handed, 2026-11-22.
+**Disposition:** landed 2026-11-22 by the store's session, a script below the dial, in the commit
+that closes this entry: under each candidate, a Ready ticket or a struck question, the path names
+every running session whose position or held unit is on it, under it or over it, by its name where
+it bears one, a position on a root left out. The roadmap's rows are not read by the path yet, so
+they carry no such line; closed.
 
 ## Questions asking the person stood in every wake and no session put them — 2026-11-21
 
