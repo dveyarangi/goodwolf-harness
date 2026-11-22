@@ -19,6 +19,38 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## A message nobody waited on was sent, and its receiver retold it to the person — 2026-11-22
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-22 — the keeper's message to the Путь session on the landing of its L13 line, and the Путь session's reply that followed.
+
+**Goal missed:** a session spends no turn, and the person no reading, on what changes nothing for
+them.
+
+**Rules in play, loaded:** S10 — *"Answer what asks for an answer or waits on your work or your
+decision; write no acknowledgement and nothing nobody waits on"* — and the messages shelf: what
+is not written is *"a status, or what the receiver reads from git or a record without you. News
+that changes nothing for it."*; for the receiver, *"Tell the person of a message only what it
+changes for them."*
+
+**What happened.** The receiver had said it waited for nothing. The keeper wrote anyway: the line
+had landed, which git shows, and a strike in its own chat, marked *nothing to do*. The receiver
+took nothing from it, and still answered the person with a retelling of both. The person asked
+whether the message was needed, and why it was sent when the rules say otherwise.
+
+**Why it did not fire.** Both rules rest on each side judging *who waits* at the moment of
+sending or answering. A sender closing on *I wait for nothing* had already judged that nobody
+waits on it, and sent anyway. A receiver whose host gives every message a turn has to answer
+something.
+
+**Proposed amendment**, mechanical: a guard on the send refuses a message that asks nothing,
+reports no break, and closes on waiting for nothing. Such a message is held for the next one the
+sender writes anyway.
+
+**Disposition:** open — the messages are the session mechanism's. The proposal goes to the
+store's session with this session's next message to it, not as a message of its own.
+
 ## A turn's answer was left unwritten, the host's closing box standing for it — 2026-11-22
 
 **Source, no case yet:**
