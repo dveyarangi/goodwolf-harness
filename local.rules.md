@@ -102,7 +102,8 @@ forms ask.
 - **target** `.agents/skills/implement/SKILL.md`
 - **target** `.agents/skills/maintain/SKILL.md`
 - **authority** the user, 2026-09-05; the tests by what changed, 2026-10-11; in every skill that
-  runs it, 2026-10-11; the product check once the document carried its ids, 2026-10-13
+  runs it, 2026-10-11; the product check once the document carried its ids, 2026-10-13; the
+  check that what is the person's own stands in no file, before a commit, 2026-11-22
 
 <rule>
 The verification set: the checks always; the tests too when the work changed a file that is not
@@ -117,6 +118,7 @@ uv run --offline --no-project python .agents/scripts/gw/maintain.py --check
 uv run --offline --no-project python .agents/scripts/gw/questions.py --check
 uv run --offline --no-project python .agents/scripts/gw/sessions.py --check
 uv run --offline --no-project python .agents/scripts/gw/product.py --check
+uv run --offline --no-project python .agents/scripts/gw/personal.py --check
 ```
 
 ```

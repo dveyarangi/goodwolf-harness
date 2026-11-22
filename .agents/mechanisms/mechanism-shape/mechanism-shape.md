@@ -107,6 +107,8 @@ absence is honestly classified, are judgements it records and never makes.
 | the experiment's tests | `.agents/scripts/gw/test/test_amendment.py` |
 | the rule-failure register's attribution check | `.agents/scripts/gw/rule_failures.py` |
 | the attribution check's tests | `.agents/scripts/gw/test/test_rule_failures.py` |
+| the check that what is the person's own stands in no file | `.agents/scripts/gw/personal.py` |
+| that check's tests | `.agents/scripts/gw/test/test_personal.py` |
 | citation reader | `.agents/scripts/gw/docs_corpus.py` |
 | test harness | `.agents/scripts/gw/test/repository.py` |
 
@@ -141,6 +143,12 @@ claimant is the always-on mechanism, so no uninstall can remove what another mec
   runs it, its exit status for a gate and its JSON for the person reading a failure.
   <straw-dog question="q-4xfqcb">Nothing runs it unasked yet: the register's attribution
   is committed, and the check has still to join the verification set.</straw-dog>
+- **`personal.py --check`'s report** — *what exists* — that no file the repository speaks for
+  holds the person's home folder written as a path, read from the machine at run time, or a line
+  of the list the person keeps in the clone's Git directory, `gw-personal`, where no commit can
+  hold it and which only the person fills; a
+  finding is a file, a line and a count, never what was met. Read by whoever runs it; a tree
+  whose repository others read names it in its verification set, and nothing else runs it.
 - **`--index`'s render** — *what exists* — read on request by someone asking what is declared. **Nothing runs it
   unasked**, and nothing consumes its output: it exists so the register never becomes a file, and
   a register nobody asks for is a register nobody needed.
