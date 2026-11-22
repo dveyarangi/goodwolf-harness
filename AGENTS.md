@@ -384,8 +384,13 @@ person for its role.
 - **Слияние**: the landing on main. Not opened while every session commits to main itself.
 
 A mechanism's rules, skills and scripts are written, and put to the person, by the session whose
-zone holds it; a session that needs a change in another's asks that session, never the person. A
-mechanism no role here names is written by whoever works in it.
+zone holds it; a session that needs a change in another's asks that session, never the person.
+What the person tells one session to change in another's zone goes to that session once, in the
+person's words. That session words the change itself and lands it on those words, puts it to the
+person no second time and sends no draft back; a choice the words do not make it puts to the
+person itself, and the first session puts none of it. It tells the first session what landed,
+and the first session tells the person. A mechanism no role here names is written by whoever
+works in it.
 </installed>
 
 ## Straw dogs

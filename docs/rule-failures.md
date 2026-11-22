@@ -283,7 +283,14 @@ still drafts, and the decision is put once, in the chat where the person raised 
 session asking and the zone's session asking nothing. The keeper recommends the first: it ends
 the hand-over and the double asking together.
 
-**Disposition:** open again — the amendment put to the person, 2026-11-22.
+**Disposition:** closed 2026-11-22 — the person took neither as put: "хозяин файла, но без пинг
+понга". Landed in the rule of roles in the same pass: what the person tells one session to
+change in another's zone goes to that session once, in the person's words; it words the change
+and lands it on those words, puts it to the person no second time and sends no draft back; a
+choice the words do not make it puts to the person itself; it tells the first session what
+landed, and the first session tells the person. Tried on a fresh reader before it landed: in
+three cases the person was asked nothing, nothing, and once from one chat; what the reader found
+open — who tells the person it landed, and whether the wording itself is put — was written in.
 
 ## A criterion the person had set aside kept a working ticket open, and a second ticket was made to wait on it — 2026-11-16
 

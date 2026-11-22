@@ -163,7 +163,8 @@ straw dog's binding or a `TODO q-N`; a ticket never.
   sessions, 2026-11-16; a fifth session, Аудит и обслуживание, the maintenance passing to it from
   Практика, written here until the cut's own record holds it, 2026-11-20 and 2026-11-21; a
   sixth session, Путь, written here the same way, 2026-11-21; Путь weighs and hands on, builds
-  nothing and starts no work, 2026-11-22
+  nothing and starts no work, 2026-11-22; what the person tells one session of another's zone
+  lands there on their words, with no draft sent back and no second asking, 2026-11-22
 
 <rule>
 This tree keeps standing sessions, each titled `🐺 <role> — <its area>`. A session works its
@@ -190,8 +191,13 @@ person for its role.
 - **Слияние**: the landing on main. Not opened while every session commits to main itself.
 
 A mechanism's rules, skills and scripts are written, and put to the person, by the session whose
-zone holds it; a session that needs a change in another's asks that session, never the person. A
-mechanism no role here names is written by whoever works in it.
+zone holds it; a session that needs a change in another's asks that session, never the person.
+What the person tells one session to change in another's zone goes to that session once, in the
+person's words. That session words the change itself and lands it on those words, puts it to the
+person no second time and sends no draft back; a choice the words do not make it puts to the
+person itself, and the first session puts none of it. It tells the first session what landed,
+and the first session tells the person. A mechanism no role here names is written by whoever
+works in it.
 </rule>
 </straw-dog>
 

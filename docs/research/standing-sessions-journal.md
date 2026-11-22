@@ -431,3 +431,20 @@ A fresh tree needs: the order — the deriving skill, its run, then the writing;
 between what the run derives and what the person agreed in talk goes to the person.
 </straw-dog>
 
+
+## 27. What the person tells one session of another's zone lands there in one pass — 2026-11-22
+
+The person told the path's session what its role's line lacked. The line is in the local rules,
+the keeper's file, so the words went to the keeper, a draft with them; the keeper put its
+version to the person and sent it to the path's session too, which showed it to the person
+where they were speaking. Five passes for three lines, and one question asked from two chats.
+The person: "так не должно происходить", "и вообще зачем этот пинг понг?", and of who writes:
+"хозяин файла, но без пинг понга". The rule of roles now has the file's holder land the change
+on the person's words, with no draft sent back and no second asking, and the first session tell
+the person it landed.
+
+<straw-dog question="q-wit7by">
+A fresh tree needs: a file has one holder, and what the person says to another session about it
+reaches the holder once, in the person's words; the holder lands it and the session the person
+spoke with tells them. A decision is asked from one chat.
+</straw-dog>
