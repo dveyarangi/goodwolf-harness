@@ -23,7 +23,7 @@ decision 1, the user, 2026-10-25. The move is
 
 **Source, no case yet:**
 
-- Claude desktop app · claude-opus-5-5 · 2026-11-22 — the keeper's message to the Путь session on the landing of its L13 line, and the Путь session's reply that followed.
+- Claude desktop app · claude-opus-5-5 · 2026-11-22T01:28Z — the keeper's message to the Путь session on the landing of its L13 line, and the Путь session's reply that followed.
 
 **Goal missed:** a session spends no turn, and the person no reading, on what changes nothing for
 them.
