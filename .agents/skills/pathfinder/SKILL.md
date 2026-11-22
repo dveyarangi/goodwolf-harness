@@ -8,6 +8,11 @@ Mechanism: pathfinder
 - What comes next is derived from what the project is for: the candidates are the question
   store's reading of the path, and their order is the product roadmap's. A written list of work,
   or a proxy such as how much stays unfinished, orders nothing.
+- Weigh a candidate by how it leads toward the product's answers, not by the answer it names
+  alone: it stands alone and closes part of an answer; it moves many at once; or it readies the
+  harness for its next stage. A stopgap where a fuller or more general answer is already under
+  way is taken only where the need justifies it, wrapped as a straw dog bound to the question of
+  that answer.
 - Weigh questions, not the method's records. A unit of work is whatever the installed method
   materialises a question into; where no method is installed, the questions are the work.
 - A new idea is placed under its question and weighed against the purpose and the guesses already

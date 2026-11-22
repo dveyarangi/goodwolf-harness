@@ -5,6 +5,6 @@
 - **state** open
 - **owner** [01-0018.0010](../tickets/01-0018.0010-a-session-learns-the-entry-file-moved.md)
 - **rung** development: a feature, self-improvement: a script
-- **lean** the user, 2026-11-22: ground to revisit the set-aside exists — sessions here keep receiving messages about the entry file's changes, cluttering their chats; ideally a session takes the update silently, without another round trip to the model; how possible and how urgent, to be thought. Since 2026-11-14 the transcripts hold 34 such messages, a median of 6.5 model calls and 1.7M cached tokens each, the turns' own work included
+- **lean** the user, 2026-11-22: "хорошо, делаем хук" — the notice built; agreed in the session: it arrives at the start of the session's next turn, never as a turn of its own, and carries the changed lines as was → now, not a re-read of the whole file, so the context's cached head stays; messages about the entry file's changes then go
 - **opened** 2026-10-13T14:38:25Z
-- **struck** 1, last 2026-10-12T14:38Z
+- **struck** 2, last 2026-11-22T00:38Z
