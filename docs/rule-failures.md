@@ -19,6 +19,33 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## A gap was named without reading what the running sessions hold — 2026-11-22
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-22T00:30Z — the Путь session, its reply arguing the roadmap's first row.
+
+**Goal missed:** a recommendation weighs what is already under way.
+
+**Rules in play, loaded:** `/pathfinder`, written by the same session the day before and in its
+context, not invoked at the reply: *"Before naming something a gap, read what the running sessions
+hold."*
+
+**What happened.** Asked to argue what goes first in the roadmap, the reply recommended counting
+the harness's cost as the one promise with nothing behind it. It had read the tickets' states and
+not the rows of the running sessions. The person answered that the practice's session already
+works on a question beside the ceremony's cost.
+
+**Why it did not fire.** The skill was not invoked at the recommendation; its rule reached the
+reply only through the session's memory of writing it, and the path's reading shows no session
+beside a candidate.
+
+**Proposed amendment**, mechanical: the path's reading names, beside each candidate, the running
+session whose position or held unit lies over or under it.
+
+**Disposition:** open — the path's reading is the store's session's, to which the proposal is
+handed, 2026-11-22.
+
 ## Questions asking the person stood in every wake and no session put them — 2026-11-21
 
 **Source, no case yet:**

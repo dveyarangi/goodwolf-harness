@@ -4,9 +4,9 @@
 - **part of** q-m6unv4
 - **state** open
 - **rung** development: the whole product
-- **lean** the user, 2026-11-21: the roadmap is a record of its own, docs/roadmap.md, kept by the Путь session, ordering the product's answers and the holes behind the front page's promises in the person's words; the path stands its candidates by it; the order itself, open
+- **lean** the user, 2026-11-22: the product is the bearing, but what leads to it counts too — a stopgap where the harness already moves toward a fuller or more general answer is taken only well justified, and wrapped as a straw dog; else the work is a bottleneck, moving many at once, or readies the harness for its next stage, or stands alone and closes something of the product; who makes and holds that analysis over questions and tickets, open
 - **opened** 2026-10-25T19:34:35Z
-- **struck** 1, last 2026-10-26T09:05Z
+- **struck** 2, last 2026-11-22T00:15Z
 
 ## The written queue, as it stood when withdrawn, 2026-10-25
 
