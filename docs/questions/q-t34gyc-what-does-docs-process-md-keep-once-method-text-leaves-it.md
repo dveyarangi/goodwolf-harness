@@ -1,10 +1,10 @@
 # q-t34gyc What does docs/process.md keep once method text leaves it?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-qmq6ty
-- **depends on** q-p4mcme
-- **state** open
+- **state** closed:decided
 - **owner** [01-0017.0020](../tickets/01-0017.0020-practice-swaps-in-one-edit.md)
+- **answer** [q-p4mcme decision 2](q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md#decisions) — the user, 2026-11-22
 - **rung** self-improvement: a rule
 - **lean** under the entry file at v31 its method text in instruction form is drift: a document informs and never instructs, so what stays is information, and each instruction moves to the skill that owns it or goes
 - **opened** 2026-10-03T11:36:22Z

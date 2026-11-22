@@ -22,6 +22,13 @@
    allowance the user named on 2026-09-06 is the dial, and no rule holds a turn to one step. Left
    to the ticket: `docs/process.md`, the glossary's *Unit of work*, and the record of where each
    part went. Not: a one-step rule standing apart from the dial.
+2. **`docs/process.md` is removed** — the user, 2026-11-22: "Yes, remove it". No rule lived there
+   alone: its straw dog waited on the pacer, dissolved; *Work and documents* retold the entry
+   file's helpers, the path's reading at `/recall` and Q6, and said wrongly that the skills link
+   the check set, which L3 installs inline; *Naming*, *Autonomy and repair* and *Verification*
+   pointed to the ticket format, the entry file's *Autonomy* and L3. What it kept of its own — the
+   user's request of 2026-09-05 and the bootstrap's renaming — is history, which git keeps. This
+   answers q-t34gyc. Not: a page kept to point at the homes.
 
 ## Evidence — a correction ended the next move, 2026-10-26
 
