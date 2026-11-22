@@ -23,3 +23,36 @@ of what it owns and its name, and has judges, discovery and audits be subagents.
 decision 2, "the judge is a role", and [A47](../product.md) describe a role by the permissions, the
 rights over the records and the skill set an agent starts with. Whether a standing role and the
 role an agent, a subagent included, starts with are one shape is this question's.
+
+## The person, 2026-11-22: the role lasts, the session does not
+
+Said in a chat with another assistant that the person shared with a session of this tree, and
+passed on by that session as what was said — a thought, not a decision:
+
+"right now the harness started to define persistent sessions/agents, but this approach is
+expensive - instead of that a more compact role definition and context that is aimed to run short
+and disappear, while next agent iteration will pick up knowing where the things stand for this
+role."
+
+The other assistant's reading, after it read the repository, which the person answered "yes, you
+are on point": a standing session ties three lifetimes together — the role's, which is the
+project's; the assignment's, which ends when the work does; and the model session's, which is
+costly to keep. The role is the durable thing and owns its mechanisms, permissions, questions,
+assignments and mailbox; a short run takes on one role or several, its context built from the
+shared invariants, its roles' policies and the state of the project that bears on them. What a
+run leaves for the next one is the checkpoint
+[q-p4mcme](q-p4mcme-how-does-each-turn-know-its-next-step-and-each-session-where-to-resume.md)
+asks for. Its first test: one role woken again and again in fresh runs, measured against a
+standing session on tokens, cost, how correctly it recovers, instructions missed and how often
+the person had to step in.
+
+What this tree already shows of it, the same day: the keeper's session, standing since
+2026-11-15 and compacted once, took a second session's uncommitted lines, promised a speed it
+missed by ten times and rebuilt one check twice; and the one piece of work the person had
+started as a session of its own, with one ticket and a brief written for it, is the run this
+thought describes.
+
+It bears on the whole accepted 2026-11-17 in
+[q-ja5mp4](q-ja5mp4-does-the-method-have-one-session-direct-the-others-an-orchestrator-and-what-does-it-owe-the-sessions-it.md),
+which has standing sessions each answer for an area: new evidence against its premise, to be put
+to the person there before more is built on it.

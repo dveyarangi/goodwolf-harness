@@ -507,3 +507,12 @@ cut; the row's name and its passing; L13's list until the table replaces it.
 
 **Re-ordered, 2026-11-20** — the user, of the order as recommended: "Да, перестраивай".
 
+
+## New evidence, 2026-11-22 — not a decision
+
+The person, in a chat shared with a session of this tree: standing sessions are expensive; a
+compact role and a context made to run short and disappear, the next run picking up where things
+stand for the role. Their words and the reading they agreed with:
+[q-p4sdnv](q-p4sdnv-what-is-an-agent-role-and-which-mechanism-keeps-roles.md#the-person-2026-11-22-the-role-lasts-the-session-does-not).
+It touches this whole's premise — that a role is held by a session that stands — and nothing
+here is changed by it until the person decides.
