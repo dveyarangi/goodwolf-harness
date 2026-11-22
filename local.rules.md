@@ -191,3 +191,14 @@ zone holds it; a session that needs a change in another's asks that session, nev
 mechanism no role here names is written by whoever works in it.
 </rule>
 </straw-dog>
+
+## L14 — the pass reads the whole tree for what is the person's own
+
+- **target** `.agents/skills/maintain/SKILL.md`
+- **authority** the user, 2026-11-22: «Гонять ли проверку по всему репозиторию раз в ночь - да»
+
+<rule>
+A pass with no person runs `uv run --offline --no-project python .agents/scripts/gw/personal.py
+--check --all`. A finding in nobody's work is scrubbed where it stands, by a same-length
+placeholder; in another session's work it is told to that session, and counts as swept.
+</rule>

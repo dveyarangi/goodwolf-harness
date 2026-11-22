@@ -191,6 +191,10 @@ uv run --offline --no-project python .agents/scripts/gw/personal.py --check
 ```
 uv run --offline --no-project python -m unittest discover -s .agents/scripts/gw/test -p "test_*.py"
 ```
+
+**L14** A pass with no person runs `uv run --offline --no-project python .agents/scripts/gw/personal.py
+--check --all`. A finding in nobody's work is scrubbed where it stands, by a same-length
+placeholder; in another session's work it is told to that session, and counts as swept.
 </installed>
 
 ## What the person hears
