@@ -1,16 +1,22 @@
 # Mechanism: mechanism-shape
-"""What is the person's own stays out of every file the repository speaks for: their home folder
+"""What is the person's own stays out of what the repository publishes: their home folder
 written as a path, and each line of a list they keep in the clone's Git directory.
 
-    python .agents/scripts/gw/personal.py --check
+    python .agents/scripts/gw/personal.py --check [--all]
 
 The home folder is read from the machine at run time and the list from `<git directory>/gw-personal`,
 a file no commit can hold, one string to a line, `#` opening a comment — so nothing here, and
-nothing the check reports, names anyone: a finding is a file, a line and a count. The files read
-are the tracked ones and those not yet added and not ignored, since a record written this session
-is the one to stop; a zip archive among them is read member by member, one inside another
-included, and a finding in one is named `<archive>!<member>`. A list that is not UTF-8 text, or
-UTF-16 under its byte-order mark, fails the check rather than guard nothing unseen.
+nothing the check reports, names anyone: a finding is a file, a line and a count.
+
+The files read are those the branch's upstream does not hold as they stand in the working tree:
+each that differs from the upstream, and each not yet added and not ignored. What the upstream
+holds is public, and reading it again before every commit guards nothing; what was pushed with
+no check run is read by `--all` alone, and what is staged is not read apart. `--all` reads
+every file the repository speaks for — for a list that has gained a line, or a tree checked for
+the first time — and so does a branch with no upstream to compare with. A zip archive among the
+files is read member by member, one inside another included, and a finding in one is named
+`<archive>!<member>`. A list that is not UTF-8 text, or UTF-16 under its byte-order mark, fails
+the check rather than guard nothing unseen.
 
 The path is met as the folder's name under its parent's, whatever separates them: any run of
 backslashes or slashes — one, or as many as each layer of JSON doubles it to —, their URL-encoded
@@ -29,6 +35,7 @@ import codecs
 import io
 import json
 import re
+import subprocess
 import sys
 import zipfile
 from collections.abc import Callable, Iterator
@@ -39,7 +46,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from docs_corpus import corpus  # noqa: E402  (path set just above)
 
-USAGE = "usage: personal.py --check"
+USAGE = "usage: personal.py --check [--all]"
 LIST = "gw-personal"
 HOME_PATH = "holds the home folder's path"
 LISTED = "holds a line of the person's list"
@@ -77,13 +84,14 @@ class Checked:
                 "diagnostics": [note.as_record() for note in self.diagnostics]}
 
 
-def check(root: Path, home: PurePath, listed: tuple[str, ...]) -> Checked:
-    """Every file the repository speaks for: one note for a file holding the home path, one for a
-    file holding a listed line, each at the first line that holds it, with the places counted."""
+def check(root: Path, home: PurePath, listed: tuple[str, ...], names: list[str] | None = None) -> Checked:
+    """The files named, or every file the repository speaks for: one note for a file holding the
+    home path, one for a file holding a listed line, each at the first line that holds it, with
+    the places counted."""
     path = _home_as_written(home)
     lines = tuple(re.compile(_as_met(line)) for line in listed)
     checked = Checked(listed=len(listed))
-    for name in corpus(root):
+    for name in corpus(root) if names is None else names:
         checked.files += 1
         for where, data in _with_members(name, (root / name).read_bytes()):
             held = _folded(data)
@@ -104,6 +112,24 @@ def _with_members(name: str, data: bytes) -> Iterator[tuple[str, bytes]]:
         for member in archive.infolist():
             if not member.is_dir():
                 yield from _with_members(f"{name}!{member.filename}", archive.read(member))
+
+
+def unpublished(root: Path) -> list[str] | None:
+    """The files a commit made now could publish that the branch's upstream does not hold: each
+    that differs from the upstream, committed or not, and each not yet added and not ignored.
+    None where the branch has no upstream, so nothing is known to be public."""
+    differing = _listed_by_git(root, "diff", "--name-only", "-z", "@{upstream}")
+    added = _listed_by_git(root, "ls-files", "-z", "--others", "--exclude-standard")
+    if differing is None or added is None:
+        return None
+    return [name for name in dict.fromkeys(differing + added) if (root / name).is_file()]
+
+
+def _listed_by_git(root: Path, *arguments: str) -> list[str] | None:
+    listing = subprocess.run(
+        ["git", "-c", "core.quotepath=off", *arguments], cwd=root, capture_output=True, encoding="utf-8"
+    )
+    return [name for name in listing.stdout.split("\0") if name] if listing.returncode == 0 else None
 
 
 def listed(root: Path) -> tuple[str, ...]:
@@ -190,7 +216,7 @@ def _git_directory(root: Path) -> Path | None:
 
 
 def main(argv: list[str], root: Path, home: PurePath, out: Callable[[str], None] = print) -> int:
-    if argv != ["--check"]:
+    if argv not in (["--check"], ["--check", "--all"]):
         out(USAGE)
         return 2
     try:
@@ -198,7 +224,7 @@ def main(argv: list[str], root: Path, home: PurePath, out: Callable[[str], None]
     except Unreadable:
         out(UNREADABLE)
         return 1
-    return report(check(root, home, kept), out)
+    return report(check(root, home, kept, None if "--all" in argv else unpublished(root)), out)
 
 
 if __name__ == "__main__":

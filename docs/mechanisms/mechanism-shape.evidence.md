@@ -571,3 +571,17 @@ them the reading. The judge ran both versions over this tree with the scrub's pl
 home's name and found the same 403 notes. What the bytes lose is a fold that is not a pair of
 cases — a long s for an s, `ß` against `SS` — and a listed line that opens on a Cyrillic letter
 whose two cases differ in their first byte costs about two seconds more.
+
+Refuted by the person's question, the same day — "а зачем проверке читать все?": reading every
+file before every commit. What the branch's upstream holds is public already, and a second
+reading of it guards nothing; only what differs from the upstream, or is not yet added, can be
+newly published. The check reads that — seven files and 0.6 seconds where the whole tree took
+1.7 — and the whole tree on `--all`, for a list that has gained a line. The whole had been chosen
+because a first measurement, by Git's own search, made it look free.
+
+What the narrowing costs, by the judge's reading of it: a commit pushed with no check run is no
+longer met by the next session's run, as the first case of 2026-11-21 would have been; `--all`
+meets it, and nothing runs `--all` unasked. Thirty-three ways of getting a file past the narrowed
+read were tried in scratch repositories; those that got through need a second remote, a branch
+tracking a local branch, a rewritten remote history or a skip-worktree mark, none of which this
+tree has.

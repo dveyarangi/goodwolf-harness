@@ -233,19 +233,70 @@ class TheList(RepositoryCase):
         self.assertEqual(personal.listed(self.root), (ADDRESS,))
 
 
+class WhatIsRead(RepositoryCase):
+    """Git says what the upstream holds, so each case here is a real repository."""
+
+    proves_a_process = True
+
+    def publish(self) -> None:
+        remote = self.another_repository() / "remote.git"
+        self.git("init", "--bare", str(remote))
+        self.git("remote", "add", "origin", str(remote))
+        self.git("push", "--set-upstream", "origin", "HEAD")
+
+    def run_check(self, *more: str) -> tuple[int, list[str]]:
+        said: list[str] = []
+        status = personal.main(["--check", *more], self.root, HOME, said.append)
+        return status, [note["where"] for note in json.loads("\n".join(said))["diagnostics"]]
+
+    def test_a_branch_with_no_upstream_is_read_whole(self) -> None:
+        self.write("committed.md", "C:\\Users\\somebody\n")
+        self.commit()
+        self.assertIsNone(personal.unpublished(self.root))
+        self.assertEqual(self.run_check(), (1, ["committed.md:1"]))
+
+    def test_what_the_upstream_holds_is_not_read_again_and_all_reads_it(self) -> None:
+        self.write("published.md", "C:\\Users\\somebody\n")
+        self.commit()
+        self.publish()
+        self.assertEqual(personal.unpublished(self.root), [])
+        self.assertEqual(self.run_check(), (0, []))
+        self.assertEqual(self.run_check("--all"), (1, ["published.md:1"]))
+
+    def test_what_a_commit_could_newly_publish_is_read(self) -> None:
+        self.write(".gitignore", "scratch/\n")
+        self.write("published.md", "C:\\Users\\somebody\n")
+        self.write("changed.md", "nothing of the person's\n")
+        self.write("removed.md", "nothing of the person's\n")
+        self.commit()
+        self.publish()
+        self.write("committed.md", "C:\\Users\\somebody\n")
+        self.commit("not pushed")
+        self.write("changed.md", "now under C:\\Users\\somebody\n")
+        self.write("written-this-session.md", "C:\\Users\\somebody\n")
+        self.write("scratch/notes.md", "C:\\Users\\somebody\n")
+        (self.root / "removed.md").unlink()
+        self.assertEqual(
+            sorted(personal.unpublished(self.root)), ["changed.md", "committed.md", "written-this-session.md"]
+        )
+        status, named = self.run_check()
+        self.assertEqual((status, sorted(named)), (1, ["changed.md:1", "committed.md:1", "written-this-session.md:1"]))
+
+
 class Usage(RepositoryCase):
-    def test_anything_but_the_check_alone_is_shown_the_usage(self) -> None:
-        for argv in ([], ["--other"], ["--check", "more"]):
+    def test_anything_but_the_check_is_shown_the_usage(self) -> None:
+        for argv in ([], ["--other"], ["--all"], ["--check", "more"], ["--check", "--all", "more"]):
             said: list[str] = []
             self.assertEqual(personal.main(argv, self.root, HOME, said.append), 2)
             self.assertEqual(said, [personal.USAGE])
 
+    @proves_a_process
     def test_the_check_reads_the_tree_with_the_home_it_is_given(self) -> None:
         self.write("docs/record.md", "under C:\\Users\\somebody\\work\n")
         self.assertEqual(personal.main(["--check"], self.root, HOME, lambda _: None), 1)
 
+    @proves_a_process
     def test_the_check_reads_the_tree_with_the_clones_list(self) -> None:
-        (self.root / ".git").mkdir()
         (self.root / ".git" / personal.LIST).write_text(f"{ADDRESS}\n", encoding="utf-8")
         self.write("docs/record.md", f"written to {ADDRESS}\n")
         said: list[str] = []
