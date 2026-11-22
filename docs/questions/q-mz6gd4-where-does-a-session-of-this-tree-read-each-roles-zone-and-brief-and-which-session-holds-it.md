@@ -58,3 +58,27 @@ For this question: its ticket's premise — a mechanism for each role — no lon
 slice shrinks to the table and what reads it. The ticket and its plan are rewritten once the
 table's form stands in that plan, as the store's session will say; until then nothing here is
 built.
+
+## The person, 2026-11-22: the roles are to be looked at again
+
+Asked whether the keeper takes on too much, and shown what it had done since 2026-11-20, the
+person: "может нам нужны еще роли? задача про хук это что - это того, кто управляет сессиям,
+верно? или это ты? у нас есть такой? надо пересмотреть роли". A word to revise, not a cut: the
+cut is derived by `/pack`'s rules (decisions 2 and 3), so it goes to the store's session as
+material for that reading.
+
+What the two days show, as the keeper saw it from inside:
+
+- **Work no role names lands on the keeper.** Its zone ends on "the rules no zone's mechanism
+  owns", and what arrived under it was not rules: a check built with its tests and five readings
+  by a judge, the installer mended for an older Python, a page removed with its links re-aimed in
+  another's tickets, and a hook taken an hour before the person asked. Writing the harness's own
+  scripts is named in no role.
+- **Every session sends the keeper what is not its own.** In two days the store's session, the
+  path's, the audit's and a recipient's keeper each did.
+- **What it cost.** A commit that took another session's uncommitted lines; a speed promised and
+  missed by ten times; a check built to read the whole tree and rebuilt twice on the person's
+  questions; three amendments put to the person and refused in a row.
+- **The hook that tells a running session the entry file moved** is about what a running session
+  is shown at its turn's start. The role that holds where each session stands is the store's
+  session's; the person leans the same way. Who takes it is the person's, not yet said.
