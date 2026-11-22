@@ -8,7 +8,20 @@
 - **rung** development: load-bearing, self-improvement: the method
 - **lean** session 49: a Claude Code session is keyed on the desktop app own id for the conversation, so a reopening under a new id resumes it; observed passing in the app and the terminal; the transcript match removed
 - **opened** 2026-10-03T11:36:26Z
-- **struck** 4, last 2026-10-26T11:10Z
+- **struck** 5, last 2026-11-22T00:26Z
+
+## Decisions
+
+1. **01-0020 is cut down to what no rule carries yet** — the user, 2026-11-22, of the align's
+   opening reading: "Yes, cut it down". Each part the ticket set out to build has a home: the
+   wake, S6; resuming after a break, the store's window — the question a session stands on and the
+   unit it holds — keyed on the host's id for the conversation; the stop for the person, the
+   autonomy dial; the weight of the ceremony, `/impact` and *Weight follows the work*; the queue's
+   order, `/pathfinder`; `/recall`, the session mechanism; that a reply says what is next, the
+   reply's form. A turn chains steps up to the first decision at or above its ladder's dial: the
+   allowance the user named on 2026-09-06 is the dial, and no rule holds a turn to one step. Left
+   to the ticket: `docs/process.md`, the glossary's *Unit of work*, and the record of where each
+   part went. Not: a one-step rule standing apart from the dial.
 
 ## Evidence — a correction ended the next move, 2026-10-26
 
