@@ -19,6 +19,38 @@ This register and its rules belong to the mechanism shape under
 decision 1, the user, 2026-10-25. The move is
 [01-0019 harness-amends-itself-by-explicit-meta-rules](tickets/01-0019-harness-amends-itself-by-explicit-meta-rules.md)'s.
 
+## Questions asking the person stood in every wake and no session put them — 2026-11-21
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-opus-5-5 · 2026-11-16T01:17Z — game-delta, a recipient at core e0fbf9ff: the wakes of its standing sessions from that instant to 2026-11-21, as its keeper reported them and its own register records them under "Questions asking the person went unput for days — 2026-11-21"; the model is the one that register names.
+
+**Goal missed:** a question that asks the person reaches the person.
+
+**Rules in play, loaded:** the questions mechanism's Q2, installed in `/recall`: *"put each question
+asking the person to them as a decision, with its options and your recommendation"*.
+
+**What happened.** In game-delta the wake of 2026-11-21 listed eight questions asking the person:
+five raised by the nightly sweep of 2026-11-16, two waiting since 2026-11-05. None had been put,
+and the person did not know of them; two had been settled by work built and played and stayed
+open sixteen days. Each standing session's wake carried the list, and each went on with the
+message in front of it. Read in that tree's register and its log, fff72ff. The same stands in
+this tree: its wake lists one question as asking the person since 2026-11-10, under six standing
+sessions, and nothing tells whether any of them put it.
+
+**Why it did not fire.** The recipient's reading, no model-internal cause established: Q2 asks it
+of every session, so no session owes it, and the store keeps no record that a question was put,
+so the list reads the same before and after. Kin to the entry of 2026-11-09 below, where a
+waiting decision was put without its options: there the step was cut short, here it was nobody's.
+
+**Proposed amendment**, mechanical, the recipient's: the store records when a question is put to
+the person, by a call of its own; the window gives each asking question to the one running
+session whose position lies over it, or to one named session where none does, and lists that
+session's unput questions first, with their age, until the call is made.
+
+**Disposition:** open — the questions mechanism is the store's session's, to which the proposal is
+handed, 2026-11-22; that session drafts the amendment and puts it to the person.
+
 ## A unit the list of roles had moved to another's zone was put to the person instead of handed over — 2026-11-21
 
 **Source, no case yet:**
