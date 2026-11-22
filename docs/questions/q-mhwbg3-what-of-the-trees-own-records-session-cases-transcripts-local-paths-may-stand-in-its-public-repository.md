@@ -1,8 +1,9 @@
 # q-mhwbg3 What of the tree's own records — session cases, transcripts, local paths — may stand in its public repository?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-fjlob4
-- **state** open
+- **state** closed:decided
+- **answer** [mechanism-shape, personal.py --check's report](../../.agents/mechanisms/mechanism-shape/mechanism-shape.md) — the path, the address and the name scrubbed from the tracked tree and kept out by the check, the commit-author address left; the user, 2026-11-20 to 2026-11-22
 - **opened** 2026-11-20T18:22:06Z
 - **struck** 0, last 2026-11-20T18:22Z
 
@@ -25,21 +26,30 @@ core from a repository of its own, as
    had escaped the scrub, its members compressed — 73 of 466 members, 521 places; found by the
    judge of q-47f7je's check. Its members scrubbed the same way and the archive rewritten, its
    record's digests brought to the new members.
+   → [mechanism-shape, `personal.py --check`'s report](../../.agents/mechanisms/mechanism-shape/mechanism-shape.md)
 
 2. The person's email address is scrubbed too *(the user, 2026-11-21: «Да, вычистить»)*: replaced
    by a same-length placeholder in 64 tracked files, the API inputs and sources of `docs/cases`,
    where the host's context carried it. The history is not rewritten.
+   → [mechanism-shape, `personal.py --check`'s report](../../.agents/mechanisms/mechanism-shape/mechanism-shape.md)
 
 3. The person's name is scrubbed too *(the user, 2026-11-21: «Да, убрать»)*: replaced by
    same-length placeholders in seven tracked files — four cases' transcripts and three files of the
    audit of 2026-09-05. The history is not rewritten.
+   → [mechanism-shape, `personal.py --check`'s report](../../.agents/mechanisms/mechanism-shape/mechanism-shape.md)
 
 4. The commit-author address that 25 cases quote from `git log` stays *(the user, 2026-11-21:
    «Да, оставить»)*: it stands in every commit's metadata, which any reader of the public
    repository sees, so scrubbing the cases hides nothing. Hiding it is git's configuration, not a
    scrub.
+   → [mechanism-shape, `personal.py --check`'s report](../../.agents/mechanisms/mechanism-shape/mechanism-shape.md)
 
 ## Where it stands
 
-Still open: nothing keeps a new case from bringing the path, the address or the name back — a check that refuses them is the rule-failure
-register's to build, put to its keeper on 2026-11-20.
+Decided whole. The tracked tree holds none of the path, the address or the name; the
+commit-author address stays by decision 4. What keeps them out from now:
+[q-47f7je](q-47f7je-what-keeps-a-tracked-file-from-bringing-the-persons-local-home-path-back.md),
+`personal.py --check` in the verification set since `bdfcac93`, refusing a file or an archive's
+member that holds the person's home path or a line of the list the person keeps in
+`.git/gw-personal`. The address and the name are held only once the person writes them into that
+list; the history already pushed, gzip and tar it does not read.
