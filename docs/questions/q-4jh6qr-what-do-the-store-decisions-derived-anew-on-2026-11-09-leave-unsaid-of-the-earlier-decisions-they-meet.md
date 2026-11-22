@@ -1,10 +1,10 @@
 # q-4jh6qr What do the store decisions derived anew on 2026-11-09 leave unsaid of the earlier decisions they meet without naming?
 
-- **record of** what it intends to become
+- **record of** what happened
 - **part of** q-7ebz2f
-- **state** open
+- **state** closed:deferred
+- **answer** until 01-0010.0250.0110's stage 0 lands the store's decisions in the architecture, then q-crvu5f closes superseded and item 2's sentence is rewritten, meanwhile the rest stands decided and mended by the person's word, 2026-11-22
 - **rung** development: load-bearing, self-improvement: the method
-- **asks** the person, 2026-11-10
 - **opened** 2026-11-10T04:23:41Z
 - **struck** 0, last 2026-11-10T04:23Z
 
@@ -128,3 +128,20 @@ renamed entries, `test_a_file_named_by_its_id_alone_checks_clean`, and `question
 docstring, which still tells the dotted model. The shipped text — the question format's "A reword
 changes the words and the file's name", the skill's "its file takes the words" — is stage 7, as
 above.
+
+## Decided by the person, 2026-11-22
+
+"по правкам согласен", every item as recommended, read against the tree that day:
+
+1. q-crvu5f's decisions 1 to 3 withdrawn, superseded by q-7ebz2f's 1, 10 and 17; the entry closes
+   superseded once those land in `docs/architecture.md`, which stage 0 of
+   [01-0010.0250.0110](../tickets/01-0010.0250.0110-the-questions-live-on-a-branch-of-their-own.md)
+   does — the store refuses a close while its decisions have no home.
+2. Left to .0110, whose plan rewrites the sentence as it lands.
+3. q-d4gf2u's lean rewritten to decision 2.
+4. q-f5ixy2 closed moot under decision 6.
+5. q-c2qp5n's decisions 1 and 8 and its lean narrowed by decision 19, holding until .0110 lands.
+7. Noted at decision 55 of 01-0011.0100 and at q-7ebz2f decision 6.
+
+The section *Left to 01-0010.0250.0100* above is history: that ticket is done and the entries are
+named `<id>-<slug>`.

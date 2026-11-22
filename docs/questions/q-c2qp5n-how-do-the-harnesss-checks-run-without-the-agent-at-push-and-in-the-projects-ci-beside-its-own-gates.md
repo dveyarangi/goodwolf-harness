@@ -5,7 +5,7 @@
 - **state** open
 - **owner** [01-0010.0240](../tickets/01-0010.0240-the-checks-run-without-the-agent.md)
 - **rung** development: load-bearing, self-improvement: the method
-- **lean** the user, 2026-10-29: Where it stands accepted 2026-10-26; the hook at pre-push (7), the push checked in a copy of what it sends, all eight on a push of the method's files (8), the hook written only inside the project (9); all nine in CI, a workflow file of core's own, the hook told and the file asked at install
+- **lean** the user, 2026-10-29, narrowed 2026-11-22 by q-7ebz2f decision 19, the person: Where it stands accepted 2026-10-26; the hook at pre-push (7), the push checked in a copy of what it sends until the store leaves the code's branches with 01-0010.0250.0110, then the code's push reading only its own references into the store (8), all eight on a push of the method's files (8), the hook written only inside the project (9); all nine in CI until then, a recipient's CI then reading the questions from the fetched store branch, a workflow file of core's own, the hook told and the file asked at install
 - **opened** 2026-10-25T21:00:48Z
 - **struck** 1, last 2026-10-29T23:50Z
 
@@ -135,7 +135,16 @@ through `mechanisms.py` and `inject_rules.py`.
    install's list today, the record checks alone with core's own two only in a tree that changes
    the harness — a recipient's edited core and its rules edited and not re-installed would then go
    unseen; nor every check at every commit — 2.6 s side by side, paid on each code-only commit for
-   records it did not touch.
+   records it did not touch. *2026-11-22, narrowed by
+   [q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md)
+   decision 19 (option (b) of
+   [q-4jh6qr](q-4jh6qr-what-do-the-store-decisions-derived-anew-on-2026-11-09-leave-unsaid-of-the-earlier-decisions-they-meet.md)
+   item 5), the person:* what stood here — all nine in CI on every run, the questions among them
+   read from the tree — holds until the store leaves the code's branches with 01-0010.0250.0110; from then on no code push carries the
+   store; a broken entry is refused before its commit, so the store's push needs no check; the
+   code's pre-push check reads only the code's own references into the store, against the committed
+   `gw/questions` branch. CI reading the questions from the fetched store branch (q-7ebz2f
+   decision 13) applies to recipients only.
 2. **At commit the checks read the working tree, and the commit fails only on a finding in a file
    it carries** *(the user, 2026-10-26)*: the files of the commit are read from the index the hook
    is handed, so a commit named by paths fails on its own files alone; a finding in any other file
@@ -217,7 +226,16 @@ through `mechanisms.py` and `inject_rules.py`.
    the copy made in about 2 s, the eight checks in 3.4 s, the copy removed in 1 s, a `git add`
    beside it going through. Not: the working tree with findings placed by file — another session's
    half-written record and a carried file mended on disk but not in the commit both judged
-   wrongly; nor a per-check map — the reads it would have to hold are open-ended.
+   wrongly; nor a per-check map — the reads it would have to hold are open-ended. *2026-11-22,
+   narrowed by
+   [q-7ebz2f](q-7ebz2f-how-do-sessions-on-separate-branches-share-one-question-store-and-one-registry-of-sessions.md)
+   decision 19 (option (b) of
+   [q-4jh6qr](q-4jh6qr-what-do-the-store-decisions-derived-anew-on-2026-11-09-leave-unsaid-of-the-earlier-decisions-they-meet.md)
+   item 5), the person:* what stood here — the push checked in a copy of what it sends, the
+   store's entries among it — holds until the store leaves the code's branches with 01-0010.0250.0110; from then on no code push
+   carries the store, and the store's own push needs no check, a broken entry being refused
+   before its commit; the code's pre-push check reads only the code's own references into the
+   store, against the committed `gw/questions` branch.
 9. **The hook is written only inside the project** *(the user, 2026-10-29)*: decision 4 writes it
    where Git names it, and a `core.hooksPath` may name a folder outside the project — a global one,
    set in a person's own Git config for every repository of the machine — where the hook would run

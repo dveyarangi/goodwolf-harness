@@ -173,8 +173,10 @@ history at a8923621.*
    the store is shown, drawn from the `part of` headers; no address is kept or derived, today's
    dotted ones included. No `done/` folder. Every link, binding, `Answers` and lean names the id.
    Today's ids are converted once, by a migration run in each of the person's trees — the harness
-   lives in no one else's yet — a frozen table reading history. Not: a short count from the
-   server, which asks who the counting server is at every turn.
+   lives in no one else's yet — a frozen table reading history. At this tree's conversion
+   (910eec4d, `migrate_ids.py --words`) each entry's title as it then was stood in for the
+   words it was opened with *(the person, 2026-11-22, option (a) of q-4jh6qr item 7)*. Not: a
+   short count from the server, which asks who the counting server is at every turn.
 7. **Where the server cannot be reached, a temporary server takes the writes** *(1.3)*: the same
    code, raised on that machine; it writes its own copy and commits to a branch of its own,
    `gw/questions-<machine hash>`, pushed when it can be. Its rows are its machine's and expire,

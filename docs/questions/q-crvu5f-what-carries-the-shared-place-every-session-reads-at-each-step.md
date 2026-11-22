@@ -4,7 +4,7 @@
 - **part of** q-2gw24v
 - **state** open
 - **rung** development: load-bearing, self-improvement: the method
-- **lean** the user, 2026-10-26: the coordinator server carries the place (decision 4), the git ref of decision 3 not needed there; 2026-10-30: one way for every session (q-7ebz2f decision 17, superseded by its decision 30), the rows in gw.sqlite (q-pl3fwk); the networked mode thought over later
+- **lean** the person, 2026-11-22, q-4jh6qr item 1: decisions 1 to 3 withdrawn, superseded by q-7ebz2f's 1, 10 and 17; closes superseded once those land in the architecture with 01-0010.0250.0110's stage 0
 - **opened** 2026-10-25T20:49:23Z
 - **struck** 0, last 2026-10-25T20:49Z
 
