@@ -372,8 +372,10 @@ person for its role.
 - **Аудит и обслуживание**: the audits — an outside review kept as given, each finding given its
   home — and the maintenance: the records held in agreement and the pass with no person.
 - **Путь**: what the work does next and why — how the path ahead is found and shown at a wake,
-  and the product's roadmap. It reads the product document, the tickets and the store, and
-  writes none of them.
+  and the product's roadmap. It weighs the work, keeps the roadmap, and corrects the questions
+  and tickets its weighing meets; the product document it reads and never writes. It builds
+  nothing and starts no work, its own mechanism's text aside: what it opens it hands to the
+  session whose zone holds it.
 - **Продукт**: the product mechanism and `docs/product.md`. Every session sends it what the
   person says of what the project is for, in the person's words, dated.
 - **Хранилище**: the shared state and its coordination — the question store and its push,

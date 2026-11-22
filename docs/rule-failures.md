@@ -218,6 +218,41 @@ whose zone holds it; the keeper holds the rules no zone's mechanism owns.
 **Disposition:** closed 2026-11-16 — the amendment landed in the local rule of roles in the same
 pass, on the person's word that it be settled by rules.
 
+**Struck 2026-11-22 — once, the amended rule in place.** The person, in the path's session, said
+what its role's line lacked. The path's session handed the words and a draft to the keeper, whose
+file the local rules are, and wrote that it would not touch them — as the rule of roles has it.
+The keeper put its version to the person in its own chat, and in the same turn sent the path's
+session that version, "as shown to the person", in answer to what that session waited for. The
+path's session showed the version to the person where they were speaking and took their
+"принимаю"; the keeper's question stood unanswered in the other chat. The person: "подожди, и ты
+и Путь меня спросили об одном и том эе. так не должно происходить", and then: "и вообще зачем
+этот пинг понг?"
+
+**Source, no case yet:**
+
+- Claude desktop app · claude-fable-5-2 · 2026-11-22T01:24Z — the keeper's chat `1981de0e-7693-4931-aeab-4881f9fa0065`, and the path's session, whose reply of that minute carried the same text; the instant is that session's last activity as the app listed it, and the model is the one the keeper's session reported itself running on.
+
+**Why it did not fire, this time.** Both sessions' readings, no model-internal cause established.
+The rule of roles says who puts a decision and nothing of where the person is: they had raised
+it in one chat and were to answer it in another. The session they were speaking with had the
+text in hand, from the keeper, and the person in front of it. The keeper sent the whole text
+where a line saying what it had changed would have answered.
+
+**What the hand-over cost.** Three lines of one role's text took five passes: the person to the
+path's session, that session to the keeper, the keeper to the person and back to that session,
+that session to the person, that session to the keeper. The person had said the words to the
+session they were about.
+
+**Proposed amendment**, a rewording of the rule of roles, no check being able to hold it, put to
+the person as two ways. The first: what the person tells a session to change, that session
+changes, wherever the text lives, and tells the session whose zone holds it what landed; only a
+change the person has not asked for goes to the zone's session. The second: the zone's session
+still drafts, and the decision is put once, in the chat where the person raised it, that chat's
+session asking and the zone's session asking nothing. The keeper recommends the first: it ends
+the hand-over and the double asking together.
+
+**Disposition:** open again — the amendment put to the person, 2026-11-22.
+
 ## A criterion the person had set aside kept a working ticket open, and a second ticket was made to wait on it — 2026-11-16
 
 **Source, no case yet:**
