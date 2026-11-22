@@ -17,6 +17,8 @@ Mechanism: pathfinder
   materialises a question into; where no method is installed, the questions are the work.
 - A new idea is placed under its question and weighed against the purpose and the guesses already
   held; it does not come next by being the last thing said.
+- A question waiting on the person's decision that belongs to no work under way is a candidate
+  like any other: weigh whether to put it to the person now or keep it for later.
 - Before naming something a gap, read what the running sessions hold.
 - Put the whole picture to the person: every candidate, each with what it would give them, and
   one recommended with its reason. The order is theirs.
